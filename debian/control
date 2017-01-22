@@ -1,0 +1,144 @@
+Source: mate-control-center
+Section: x11
+Priority: optional
+Maintainer: MATE Packaging Team <pkg-mate-team@lists.alioth.debian.org>
+Uploaders: Mike Gabriel <sunweaver@debian.org>,
+           John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+           Stefano Karapetsas <stefano@karapetsas.com>,
+           Vangelis Mouhtsis <vangelis@gnugr.org>,
+Build-Depends: autotools-dev,
+               debhelper (>= 9),
+               desktop-file-utils,
+               docbook-to-man,
+               dpkg-dev (>= 1.16.1.1),
+               intltool,
+               libcanberra-gtk3-dev,
+               libdbus-1-dev,
+               libdbus-glib-1-dev,
+               libdconf-dev,
+               libglib2.0-dev,
+               libgtk-3-dev,
+               libgtop2-dev,
+               libmarco-dev (>= 1.16),
+               libmate-desktop-dev (>= 1.16),
+               libmate-menu-dev (>= 1.16),
+               libmatekbd-dev (>= 1.16),
+               libpango1.0-dev,
+               librsvg2-dev,
+               libstartup-notification0-dev,
+               libunique-3.0-dev,
+               libx11-dev,
+               libxcursor-dev,
+               libxi-dev,
+               libxklavier-dev,
+               libxml2-dev,
+               libxrandr-dev,
+               libxrender-dev,
+               libxss-dev,
+               libxt-dev,
+               mate-common (>= 1.15),
+               mate-settings-daemon-dev (>= 1.16),
+               shared-mime-info,
+               xsltproc,
+               yelp-tools,
+Standards-Version: 3.9.8
+Homepage: http://www.mate-desktop.org/
+Vcs-Browser: https://anonscm.debian.org/git/pkg-mate/mate-control-center.git
+Vcs-Git: https://anonscm.debian.org/git/pkg-mate/mate-control-center.git
+
+Package: mate-control-center
+Architecture: any
+Depends: caja-common (>= 1.8.0),
+         desktop-file-utils,
+         gsettings-desktop-schemas,
+         libglib2.0-bin,
+         libmate-slab0 (= ${binary:Version}),
+         libmate-window-settings1 (= ${binary:Version}),
+         marco-common (>= 1.8.0),
+         mate-control-center-common (>= ${source:Version}),
+         mate-desktop (>= 1.11.0),
+         mate-icon-theme,
+         mate-menus,
+         mate-settings-daemon (>= 1.11.0),
+         ${misc:Depends},
+         ${shlibs:Depends},
+Suggests: gconf2,
+Breaks: ubuntu-mate-default-settings (<< 16.04),
+Description: utilities to configure the MATE desktop
+ The MATE control center contains configuration applets for the MATE desktop,
+ allowing to set accessibility configuration, desktop fonts, keyboard
+ and mouse properties, sound setup, desktop theme and background, user
+ interface properties, screen resolution, and other MATE parameters.
+ .
+ It also contains a front end to these applets, which can also be
+ accessed with the MATE panel or the Caja file manager.
+
+Package: mate-control-center-common
+Architecture: all
+Depends: ${misc:Depends},
+Breaks: mate-control-center (<< 1.11.0),
+Description: utilities to configure the MATE desktop (common files)
+ The MATE control center contains configuration applets for the MATE desktop,
+ allowing to set accessibility configuration, desktop fonts, keyboard
+ and mouse properties, sound setup, desktop theme and background, user
+ interface properties, screen resolution, and other MATE parameters.
+ .
+ This package contains the architecture independent files of MATE
+ control center.
+
+Package: libmate-window-settings1
+Section: libs
+Architecture: any
+Multi-Arch: same
+Depends: ${misc:Depends},
+         ${shlibs:Depends},
+Breaks: mate-control-center (<< 1.9.0),
+Description: utilities to configure the MATE desktop (window settings library)
+ The MATE control center contains configuration applets for the MATE desktop,
+ allowing to set accessibility configuration, desktop fonts, keyboard
+ and mouse properties, sound setup, desktop theme and background, user
+ interface properties, screen resolution, and other MATE parameters.
+ .
+ This package contains the MATE window settings library for MATE control
+ center.
+
+Package: libmate-window-settings-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: libmate-window-settings1 (= ${binary:Version}),
+         ${misc:Depends},
+Description: utilities to configure the MATE desktop (window settings headers)
+ The MATE control center contains configuration applets for the MATE desktop,
+ allowing to set accessibility configuration, desktop fonts, keyboard
+ and mouse properties, sound setup, desktop theme and background, user
+ interface properties, screen resolution, and other MATE parameters.
+ .
+ This package contains the development files for the MATE window settings
+ library.
+
+Package: libmate-slab0
+Section: libs
+Architecture: any
+Multi-Arch: same
+Depends: ${misc:Depends},
+         ${shlibs:Depends},
+Description: beautification app library
+ This library provides functionality to create applications like MATE
+ control center and the application-browser from gnome-main-menu.
+ .
+ This library has been forked from GNOMEv2 by the MATE project.
+
+Package: libmate-slab-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Provides: libmate-slab0-dev,
+Depends: libmate-slab0 (= ${binary:Version}),
+         ${misc:Depends},
+Description: beautification app library (development headers)
+ The libmate-slab library provides functionality to create applications
+ like MATE control center and the application-browser from gnome-main-menu.
+ .
+ This package contains the development files for libmate-slab.
+

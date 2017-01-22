@@ -1,0 +1,2938 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Siranush <ss.m.95@mail.ru>, 2015-2016
+msgid ""
+msgstr ""
+"Project-Id-Version: MATE Desktop Environment\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-27 23:13+0300\n"
+"PO-Revision-Date: 2016-03-27 20:16+0000\n"
+"Last-Translator: monsta <monsta@inbox.ru>\n"
+"Language-Team: Armenian (http://www.transifex.com/mate/MATE/language/hy/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hy\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../org.mate.control-center.gschema.xml.in.h:1
+msgid ""
+"[ 'Change Theme;mate-appearance-properties.desktop', 'Set Preferred "
+"Applications;mate-default-applications-properties.desktop' ]"
+msgstr "[ 'Change Theme;mate-appearance-properties.desktop', 'Set Preferred Applications;mate-default-applications-properties.desktop' ]"
+
+#: ../org.mate.control-center.gschema.xml.in.h:2
+msgid "Task names and associated .desktop files"
+msgstr "Առաջադրանքի անունները և ասոցացված .Desktop ֆայլերը"
+
+#: ../org.mate.control-center.gschema.xml.in.h:3
+msgid ""
+"The task name to be displayed in the control-center followed by a \";\" "
+"separator then the filename of an associated .desktop file to launch for "
+"that task."
+msgstr "Խնդիրների անունները ցուցադրված կլինեն control-center մեջ, որին հաջորդում է \";\" բաժանիչը , որի ֆայլի անունը ասոցածվում է .desktop ֆայլի հետ այդ խնդրի գործարկման համար։"
+
+#: ../org.mate.control-center.gschema.xml.in.h:4
+msgid "Close the control-center when a task is activated"
+msgstr "Փակեք վերահսկման կենտրոնը, երբ խնդիրը ակտիվացված է"
+
+#: ../org.mate.control-center.gschema.xml.in.h:5
+msgid ""
+"if true, the control-center will close when a \"Common Task\" is activated."
+msgstr "եթե ճիշտ է, ապա հսկիչ-կենտրոնը կփակվի այն ժամանակ, երբ «Common Task» ակտիվացված է:"
+
+#: ../org.mate.control-center.gschema.xml.in.h:6
+msgid "Exit shell on start action performed"
+msgstr "Դուրս գալ shell գործողության մեկնարկով"
+
+#: ../org.mate.control-center.gschema.xml.in.h:7
+msgid "Indicates whether to close the shell when a start action is performed."
+msgstr "Արդյոք ազդանշան տալ փակելու համար shell, երբ գործողության սկիզբը կատարված է։"
+
+#: ../org.mate.control-center.gschema.xml.in.h:8
+msgid "Exit shell on help action performed"
+msgstr "shell դուրս գալ օգնության գործողությունը կատարված է"
+
+#: ../org.mate.control-center.gschema.xml.in.h:9
+msgid "Indicates whether to close the shell when a help action is performed."
+msgstr "Արդյոք ազդանշան տալ փակելու համար shell, երբ օգնության գործողության կատարված է։"
+
+#: ../org.mate.control-center.gschema.xml.in.h:10
+msgid "Exit shell on add or remove action performed"
+msgstr "shell դուրս գալ կատարված գործողությունը ավելացնելու կամ ջնջելու համար"
+
+#: ../org.mate.control-center.gschema.xml.in.h:11
+msgid ""
+"Indicates whether to close the shell when an add or remove action is "
+"performed."
+msgstr "Արդյոք ազդանշան տալ փակելու համար shell, երբ գործողության ավելացումը կամ հեռացումը կատարված է։"
+
+#: ../org.mate.control-center.gschema.xml.in.h:12
+msgid "Exit shell on upgrade or uninstall action performed"
+msgstr "shell դուրս գալ, երբ գործողության նորացումը կամ տեղահանունը կատարված է"
+
+#: ../org.mate.control-center.gschema.xml.in.h:13
+msgid ""
+"Indicates whether to close the shell when an upgrade or uninstall action is "
+"performed."
+msgstr "Արդյոք ազդանշան տալ փակելու համար shell, երբ գործողության նորացումը կամ տեղահանումը կատարված է։"
+
+#: ../org.mate.control-center.gschema.xml.in.h:14
+msgid "More backgrounds URL"
+msgstr "Ավելի շատ ֆոնային URL"
+
+#: ../org.mate.control-center.gschema.xml.in.h:15
+msgid ""
+"URL for where to get more desktop backgrounds. If set to an empty string the"
+" link will not appear."
+msgstr "URL նրա համար, որտեղ ստանում է ավելի շատ աշխատանքային սեղանի ֆոներ։ Եթե սահմանված է դատարկ տող, ապա հղումը չի սահմանվում։"
+
+#: ../org.mate.control-center.gschema.xml.in.h:16
+msgid "More themes URL"
+msgstr "Ավելի շատ թեմաների URL"
+
+#: ../org.mate.control-center.gschema.xml.in.h:17
+msgid ""
+"URL for where to get more desktop themes. If set to an empty string the link"
+" will not appear."
+msgstr "URL նրա համար, որտեղ ստանում է ավելի շատ աշխատանքային սեղանի թեմաներ։ Եթե սահմանված է դատարկ տող, ապա հղումը չի սահմանվում։"
+
+#: ../org.mate.control-center.keybinding.gschema.xml.in.h:1
+msgid "Keybinding"
+msgstr "Առանցքային կապեր"
+
+#: ../org.mate.control-center.keybinding.gschema.xml.in.h:2
+msgid "Keybinding associated with a custom shortcut."
+msgstr "Առանցքային կապերը ասոցացվում են գործարկողի դյուրանցումների հետ։"
+
+#: ../org.mate.control-center.keybinding.gschema.xml.in.h:3
+msgid "Command"
+msgstr "Հրահանգ"
+
+#: ../org.mate.control-center.keybinding.gschema.xml.in.h:4
+msgid "Command associated with a custom keybinding."
+msgstr "Հրամանը կապված է գործարկողի դյուրանցման հետ։"
+
+#: ../org.mate.control-center.keybinding.gschema.xml.in.h:5
+msgid "Name"
+msgstr "Անուն"
+
+#: ../org.mate.control-center.keybinding.gschema.xml.in.h:6
+msgid "Description associated with a custom keybinding."
+msgstr "Նկարագրությունը կապված է գործարկողի առանցքային կապերի հետ։"
+
+#: ../capplets/about-me/eel-alert-dialog.c:110
+msgid "Image/label border"
+msgstr "Պատկերի/պիտակի սահմանը"
+
+#: ../capplets/about-me/eel-alert-dialog.c:111
+msgid "Width of border around the label and image in the alert dialog"
+msgstr "Պատկերի և պիտակի շուրջը սահմանի լայնությունը alert երկխոսության մեջ"
+
+#: ../capplets/about-me/eel-alert-dialog.c:120
+msgid "Alert Type"
+msgstr "Զգուշացման Տիպ"
+
+#: ../capplets/about-me/eel-alert-dialog.c:121
+msgid "The type of alert"
+msgstr "Զգուշացման տիպը"
+
+#: ../capplets/about-me/eel-alert-dialog.c:129
+msgid "Alert Buttons"
+msgstr "Զգուշացման Կոճակներ"
+
+#: ../capplets/about-me/eel-alert-dialog.c:130
+msgid "The buttons shown in the alert dialog"
+msgstr "Կոճակները ցուցադրվում են alert երկխոսության մեջ"
+
+#: ../capplets/about-me/eel-alert-dialog.c:219
+msgid "Show more _details"
+msgstr "Ցույց տալ ավելի շատ _մանրամասներ"
+
+#: ../capplets/about-me/mate-about-me.c:268
+msgid "Select Image"
+msgstr "Ընտրել Պատկերը"
+
+#: ../capplets/about-me/mate-about-me.c:270
+msgid "No Image"
+msgstr "Պատկեր Չկա"
+
+#: ../capplets/about-me/mate-about-me.c:298
+#: ../capplets/appearance/appearance-desktop.c:650
+msgid "Images"
+msgstr "Պատկերներ"
+
+#: ../capplets/about-me/mate-about-me.c:302
+#: ../capplets/appearance/theme-installer.c:783
+msgid "All Files"
+msgstr "Բոլոր Ֆայլերը"
+
+#: ../capplets/about-me/mate-about-me.c:454
+#, c-format
+msgid "About %s"
+msgstr "Մասին%s"
+
+#: ../capplets/about-me/mate-about-me-dialog.ui.h:1
+#: ../capplets/about-me/mate-about-me.desktop.in.in.h:1
+msgid "About Me"
+msgstr "Իմ մասին"
+
+#: ../capplets/about-me/mate-about-me-dialog.ui.h:2
+msgid "Select your photo"
+msgstr "Ընտրեք Ձեր լուսանկարը"
+
+#: ../capplets/about-me/mate-about-me-dialog.ui.h:3
+msgid "Full Name"
+msgstr "Լրիվ Անունը"
+
+#: ../capplets/about-me/mate-about-me-dialog.ui.h:4
+msgid "User name:"
+msgstr "Օգտագործողի անունը:"
+
+#: ../capplets/about-me/mate-about-me-dialog.ui.h:5
+msgid "Change Passwo_rd..."
+msgstr "Փոխել Գաղտնաբա_ռը ..."
+
+#: ../capplets/about-me/mate-about-me-dialog.ui.h:6
+msgid "Enable _Fingerprint Login..."
+msgstr "Ակտիվացնել _Մատնահետքի Մուտքը․․․"
+
+#: ../capplets/about-me/mate-about-me-dialog.ui.h:7
+msgid "Disable _Fingerprint Login..."
+msgstr "Ապակտիվացնել _Մատնահետքի Մուտքը․․․"
+
+#: ../capplets/about-me/mate-about-me.desktop.in.in.h:2
+msgid "Set your personal information"
+msgstr "Սահմանեք ձեր անձնական տեղեկությունները"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:100
+msgid ""
+"You are not allowed to access the device. Contact your system administrator."
+msgstr "Ձեզ չի թույլատրվում մուտք գործել սարք։ Կապվեք ձեր համակարգի ադմինիստրատորին:"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:102
+msgid "The device is already in use."
+msgstr "Սարքն արդեն օգտագործման մեջ է"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:104
+msgid "An internal error occurred"
+msgstr "Ներքին սխալ է տեղի ունեցել"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:221
+msgid "Delete registered fingerprints?"
+msgstr "Ջնջե՞լ գրանցված մատնահետքերը"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:224
+msgid "_Delete Fingerprints"
+msgstr "_Ջնջել մատնահետքերը"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:231
+msgid ""
+"Do you want to delete your registered fingerprints so fingerprint login is "
+"disabled?"
+msgstr "Ցանկանու՞մ եք ջնջել ձեր գրանցված մատնահետքերը այնպես որ մատնահետքի մուտք անջատված է."
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:359
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:15
+msgid "Done!"
+msgstr "Արված!"
+
+#. translators:
+#. * The variable is the name of the device, for example:
+#. * "Could you not access "Digital Persona U.are.U 4000/4000B" device
+#: ../capplets/about-me/mate-about-me-fingerprint.c:405
+#: ../capplets/about-me/mate-about-me-fingerprint.c:427
+#, c-format
+msgid "Could not access '%s' device"
+msgstr "Չհաջողվեց մուտք գործել '%s' սարք"
+
+#. translators:
+#. * The variable is the name of the device, for example:
+#. * "Could you not access "Digital Persona U.are.U 4000/4000B" device
+#: ../capplets/about-me/mate-about-me-fingerprint.c:476
+#, c-format
+msgid "Could not start finger capture on '%s' device"
+msgstr "Չհաջողվեց սկսել մատների հավաքագրումը '%s' սարքի վրա"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:523
+msgid "Could not access any fingerprint readers"
+msgstr "Չհաջողվեց մուտք գործել ցանկացած մատնահետքերով"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:524
+msgid "Please contact your system administrator for help."
+msgstr "Խնդրում ենք կապնվել ձեր համակարգի ադմինիստրատորին օգնության համար:"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:554
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:9
+msgid "Enable Fingerprint Login"
+msgstr "Միացնել Մատնահետքի Մուտքը"
+
+#. translators:
+#. * The variable is the name of the device, for example:
+#. * "To enable fingerprint login, you need to save one of your fingerprints,
+#. using the
+#. * 'Digital Persona U.are.U 4000/4000B' device."
+#: ../capplets/about-me/mate-about-me-fingerprint.c:584
+#, c-format
+msgid ""
+"To enable fingerprint login, you need to save one of your fingerprints, "
+"using the '%s' device."
+msgstr "Միացնել մատնահետքի մուտք գործելը, դուք պետք է պահպանեք մեկը ձեր մատնահետքերի, օգտագործելով '%s' սարքը:"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:593
+msgid "Swipe finger on reader"
+msgstr "Ընթերցողի վրա հարվածիր մատը"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:595
+msgid "Place finger on reader"
+msgstr "Տեղադրել մատը ընթերցողի վրա"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:1
+msgid "Left thumb"
+msgstr "Ձախ բութ"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:2
+msgid "Left middle finger"
+msgstr "Ձախ միջին մատ"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:3
+msgid "Left ring finger"
+msgstr "Ձախ մատանեմատ"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:4
+msgid "Left little finger"
+msgstr "Ձախ ճկույթ"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:5
+msgid "Right thumb"
+msgstr "Աջ բութ"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:6
+msgid "Right middle finger"
+msgstr "Աջ միջին մատ"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:7
+msgid "Right ring finger"
+msgstr "Աջ մատանեմատ"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:8
+msgid "Right little finger"
+msgstr "Աջ ճկույթ"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:10
+msgid "Right index finger"
+msgstr "Աջ ցուցամատ"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:11
+msgid "Left index finger"
+msgstr "Ձախ ցուցամատ"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:12
+msgid "Other finger: "
+msgstr "Այլ մատներ:"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:13
+msgid "Select finger"
+msgstr "Ընտրել մատներ"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:14
+msgid ""
+"Your fingerprint was successfully saved. You should now be able to log in "
+"using your fingerprint reader."
+msgstr "Ձեր մատնահետքը հաջողությամբ պահպանված է: Դուք պետք է կարողանաք մուտք գործել, օգտագործելով Ձեր մատնահետք ընթերցողին."
+
+#: ../capplets/about-me/mate-about-me-password.c:161
+msgid "Child exited unexpectedly"
+msgstr "Երեխան անսպասելիորեն դուրս եկավ"
+
+#: ../capplets/about-me/mate-about-me-password.c:297
+#, c-format
+msgid "Could not shutdown backend_stdin IO channel: %s"
+msgstr "Չի կարող անջատել backend_stdin IO ալիքը: %s"
+
+#: ../capplets/about-me/mate-about-me-password.c:310
+#, c-format
+msgid "Could not shutdown backend_stdout IO channel: %s"
+msgstr "Չի կարող անջատել backend_stdin IO ալիքը: %s"
+
+#: ../capplets/about-me/mate-about-me-password.c:409
+msgid "Authenticated!"
+msgstr "Վավերացված!"
+
+#. This is a re-auth, and it failed.
+#. * The password must have been changed in the meantime!
+#. * Ask the user to re-authenticate
+#. Update status message and auth state
+#. Authentication failure
+#: ../capplets/about-me/mate-about-me-password.c:472
+#: ../capplets/about-me/mate-about-me-password.c:557
+msgid ""
+"Your password has been changed since you initially authenticated! Please re-"
+"authenticate."
+msgstr "Ձեր գաղտնաբառը փոխված, քանի որ դուք ի սկզբանե վավերացված եք! Խնդրում ենք կրկին նույնականացնել:"
+
+#: ../capplets/about-me/mate-about-me-password.c:474
+msgid "That password was incorrect."
+msgstr "Գաղտնաբառը սխալ է."
+
+#: ../capplets/about-me/mate-about-me-password.c:525
+msgid "Your password has been changed."
+msgstr "Ձեր գաղտնաբառը փոխվել է․"
+
+#. What does this indicate?
+#. * "Authentication information cannot be recovered?" from libpam?
+#: ../capplets/about-me/mate-about-me-password.c:535
+#, c-format
+msgid "System error: %s."
+msgstr "Համակարգի սխալ։ %s."
+
+#: ../capplets/about-me/mate-about-me-password.c:538
+msgid "The password is too short."
+msgstr "Գաղտնաբառը չափազանց կարճ է:"
+
+#: ../capplets/about-me/mate-about-me-password.c:542
+msgid "The password is too simple."
+msgstr "Գաղտնաբառը չափազանց պարզ է."
+
+#: ../capplets/about-me/mate-about-me-password.c:547
+msgid "The old and new passwords are too similar."
+msgstr "Հին և նոր գաղտնաբառերը չափազանց նման են․"
+
+#: ../capplets/about-me/mate-about-me-password.c:549
+msgid "The new password must contain numeric or special character(s)."
+msgstr "Նոր գաղտնաբառը պիտի պարունակի թվային կամ հատուկ սիվոլ(ներ ):"
+
+#: ../capplets/about-me/mate-about-me-password.c:552
+msgid "The old and new passwords are the same."
+msgstr "Հին և նոր գաղտնաբառերը նույնն են."
+
+#: ../capplets/about-me/mate-about-me-password.c:554
+msgid "The new password has already been used recently."
+msgstr "Նոր գաղտնաբառը արդեն օգտագործվել է վերջերս."
+
+#. translators: Unable to launch <program>: <error message>
+#: ../capplets/about-me/mate-about-me-password.c:829
+#, c-format
+msgid "Unable to launch %s: %s"
+msgstr "Անհնար է գործարկել %s: %s"
+
+#: ../capplets/about-me/mate-about-me-password.c:833
+msgid "Unable to launch backend"
+msgstr "Անհնար է գործարկել վերադարձը "
+
+#: ../capplets/about-me/mate-about-me-password.c:834
+msgid "A system error has occurred"
+msgstr "Համակարգի սխալ է տեղի ունեցել"
+
+#. Update status message
+#: ../capplets/about-me/mate-about-me-password.c:854
+msgid "Checking password..."
+msgstr "Գաղտնաբառի ստուգում..."
+
+#: ../capplets/about-me/mate-about-me-password.c:938
+msgid "Click <b>Change password</b> to change your password."
+msgstr "Սեղմեք <b> Փոխել գաղտնաբառը </b> Ձեր գաղտնաբառը փոխելու համար."
+
+#: ../capplets/about-me/mate-about-me-password.c:941
+msgid "Please type your password in the <b>New password</b> field."
+msgstr "Խնդրում ենք մուտքագրել Ձեր գաղտնաբառը <b>Նոր գաղտնաբառ</b> դաշտում."
+
+#: ../capplets/about-me/mate-about-me-password.c:944
+#: ../capplets/about-me/mate-about-me-password.ui.h:9
+msgid ""
+"Please type your password again in the <b>Retype new password</b> field."
+msgstr "Խնդրում ենք  կրկին մուտքագրել Ձեր գաղտնաբառը <b>Հաստատել նոր գաղտնաբառը. </b> դաշտում."
+
+#: ../capplets/about-me/mate-about-me-password.c:947
+msgid "The two passwords are not equal."
+msgstr "Երկու գաղտնաբառերը հավասար չեն."
+
+#: ../capplets/about-me/mate-about-me-password.ui.h:1
+msgid "Change password"
+msgstr "Փոխել գաղտնաբառը"
+
+#: ../capplets/about-me/mate-about-me-password.ui.h:2
+msgid "Change your password"
+msgstr "Փոխել Ձեր գաղտնաբառը"
+
+#: ../capplets/about-me/mate-about-me-password.ui.h:3
+msgid ""
+"To change your password, enter your current password in the field below and click <b>Authenticate</b>.\n"
+"After you have authenticated, enter your new password, retype it for verification and click <b>Change password</b>."
+msgstr "Ձեր գաղտանբառը փոխելու համար մուտքագրեք ձեր ընթացիկք գաղտնաբառը գրանշանի դաշտում և սեղմեք <b>Authenticate</b>.\nԴրանից հետո դուք նույնականացված եք, մուտքագրեք ձեր նոր գաղտնաբառը, կրկնեք այն ստուգման համար և սեղմեք <b>Change password</b>."
+
+#: ../capplets/about-me/mate-about-me-password.ui.h:5
+msgid "Current _password:"
+msgstr "Ընթացիկ _գաղտնաբառը:"
+
+#: ../capplets/about-me/mate-about-me-password.ui.h:6
+msgid "_New password:"
+msgstr "_Նոր գաղտնաբառը:"
+
+#: ../capplets/about-me/mate-about-me-password.ui.h:7
+msgid "_Retype new password:"
+msgstr "_Հաստատեք նոր գաղտնաբառը."
+
+#: ../capplets/about-me/mate-about-me-password.ui.h:8
+msgid "_Authenticate"
+msgstr "_Իսկություն"
+
+#: ../capplets/about-me/mate-about-me-password.ui.h:10
+msgid "Change pa_ssword"
+msgstr "Փոխել գա_ղտնաբառը"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:1
+msgid "Assistive Technologies Preferences"
+msgstr "Օժանդակ Տեխնոլոգիաների Նախընտրանքներ"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:2
+#: ../capplets/accessibility/at-properties/mate-at-properties.desktop.in.in.h:1
+msgid "Assistive Technologies"
+msgstr "Օժանդակ Տեխնոլոգիաներ"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:3
+msgid "_Preferred Applications"
+msgstr "_Նախընտրած Դիմումները"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:4
+msgid "Jump to Preferred Applications dialog"
+msgstr "Անցնել Նախընտրված Դիմումների երկխոսությանը"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:5
+msgid "_Enable assistive technologies"
+msgstr "_Ակտիվացնել օժանդակ տեխնոլոգիաները"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:6
+msgid ""
+"Changes to enable assistive technologies will not take effect until your "
+"next log in."
+msgstr "Օժանդակ տեխնոլոգիաները ակտիվացման փոփոխությունները ուժի մեջ կմտնեն մինչև ձեր հաջորդ մուտքը։"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:7
+msgid "Preferences"
+msgstr "Հատկություններ"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:8
+msgid "_Keyboard Accessibility"
+msgstr "_Ստեղնաշարի Մատչելիություն"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:9
+msgid "Jump to the Keyboard Accessibility dialog"
+msgstr "Անցնել Ստեղնաշարի Մատչելիության Երկխոսությանը"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:10
+msgid "_Mouse Accessibility"
+msgstr "_Մկնիկի Մատչելիություն"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:11
+msgid "Jump to the Mouse Accessibility dialog"
+msgstr "Անցնել Մկնիկի Մատչելիության երկխոսությանը"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:12
+msgid "Accessible Lo_gin"
+msgstr "Հասանելի _Մուտք"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:13
+msgid "Jump to the Accessible Login dialog"
+msgstr "Անցնել դեպի Մատչելի Մուտք երկխոսության"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:14
+msgid "Close and _Log Out"
+msgstr "Փակել և _Դուրս Գալ"
+
+#: ../capplets/accessibility/at-properties/mate-at-properties.desktop.in.in.h:2
+msgid "Choose which accessibility features to enable when you log in"
+msgstr "Ընտրել այն հասանելիության հատկանիշները, որը թույլ է տալիս մուք գործել"
+
+#: ../capplets/appearance/appearance-desktop.c:619
+msgid "Add Wallpaper"
+msgstr "Ավելացնել Պաստառ"
+
+#: ../capplets/appearance/appearance-desktop.c:654
+msgid "All files"
+msgstr "Բոլոր ֆայլերը"
+
+#: ../capplets/appearance/appearance-main.c:61
+#, c-format
+msgid "Could not load user interface file: %s"
+msgstr "Չհաջողվեց բեռնել օգտագործողի ինտերֆեյսի ֆայլը: %s"
+
+#: ../capplets/appearance/appearance-main.c:161
+msgid "Specify the filename of a theme to install"
+msgstr "Որոշակիացրու թեմայի ֆայլի անունը տեղադրելու համար"
+
+#: ../capplets/appearance/appearance-main.c:162
+msgid "filename"
+msgstr "Ֆայլի անուն"
+
+#. TRANSLATORS: don't translate the terms in brackets
+#: ../capplets/appearance/appearance-main.c:169
+msgid ""
+"Specify the name of the page to show (theme|background|fonts|interface)"
+msgstr "Ընտրել էջի անունը ցույց տալու համար (theme|background|fonts|interface)"
+
+#: ../capplets/appearance/appearance-main.c:170
+#: ../capplets/default-applications/mate-da-capplet.c:693
+#: ../capplets/mouse/mate-mouse-properties.c:483
+msgid "page"
+msgstr "Էջ"
+
+#: ../capplets/appearance/appearance-main.c:177
+msgid "[WALLPAPER...]"
+msgstr "[ՊԱՍՏԱՌ...]"
+
+#: ../capplets/appearance/appearance-style.c:171
+#: ../capplets/common/mate-theme-info.c:497
+#: ../capplets/common/mate-theme-info.c:690
+msgid "Default Pointer"
+msgstr "Լռելյայն Ցուցիչ"
+
+#: ../capplets/appearance/appearance-style.c:233
+#: ../capplets/appearance/appearance-themes.c:661
+msgid "Install"
+msgstr "Տեղադրել"
+
+#: ../capplets/appearance/appearance-style.c:269
+#: ../capplets/common/mate-theme-info.c:1726
+#, c-format
+msgid ""
+"This theme will not look as intended because the required GTK+ theme engine "
+"'%s' is not installed."
+msgstr "Այս թեման չի նայվում, ինչպես նախատեսված է, քանի որ անհրաժեշտ GTK + թեման շարժիչը '%s' տեղադրված չէ:"
+
+#: ../capplets/appearance/appearance-themes.c:649
+msgid "Apply Background"
+msgstr "Կիրառել Ֆոն"
+
+#: ../capplets/appearance/appearance-themes.c:653
+msgid "Apply Font"
+msgstr "Կիրառել Տառատեսակը"
+
+#: ../capplets/appearance/appearance-themes.c:657
+msgid "Revert Font"
+msgstr "Վերականգնել տառատեսակը"
+
+#: ../capplets/appearance/appearance-themes.c:703
+msgid ""
+"The current theme suggests a background and a font. Also, the last applied "
+"font suggestion can be reverted."
+msgstr "Ներկայիս թեման առաջարկում է ֆոնը և տառատեսակը։ Բացի այդ, վերջին անգամ կիրառված տառատեսակի առաջարկը կարող է վերադարձվել։"
+
+#: ../capplets/appearance/appearance-themes.c:705
+msgid ""
+"The current theme suggests a background. Also, the last applied font "
+"suggestion can be reverted."
+msgstr "Ներկայիս թեման առաջարկում է ֆոնը։ Բացի այդ, վերջին անգամ կիրառված տառատեսակի առաջարկը կարող է վերադարձվել։"
+
+#: ../capplets/appearance/appearance-themes.c:707
+msgid "The current theme suggests a background and a font."
+msgstr "Ներկայիս թեման առաջարկում է ֆոնը և տառատեսակը։ "
+
+#: ../capplets/appearance/appearance-themes.c:709
+msgid ""
+"The current theme suggests a font. Also, the last applied font suggestion "
+"can be reverted."
+msgstr "Ներկայիս թեման առաջարկում է տառատեսակը։ Բացի այդ, վերջին անգամ կիրառված տառատեսակի առաջարկը կարող է վերադարձվել։"
+
+#: ../capplets/appearance/appearance-themes.c:711
+msgid "The current theme suggests a background."
+msgstr "Ներկայիս թեման առաջարկում է ֆոնը։"
+
+#: ../capplets/appearance/appearance-themes.c:713
+msgid "The last applied font suggestion can be reverted."
+msgstr "Վերջին անգամ կիրառված տառատեսակի առաջարկը կարող է վերադարձվել"
+
+#: ../capplets/appearance/appearance-themes.c:715
+msgid "The current theme suggests a font."
+msgstr "Ներկայիս թեման առաջարկում է տառատեսակը։"
+
+#: ../capplets/appearance/appearance-themes.c:1031
+msgid "Custom"
+msgstr "Սովորություն"
+
+#: ../capplets/appearance/data/appearance.ui.h:1
+msgid "Font Rendering Details"
+msgstr "Տառատեսակի Ցուցաբերման Մանրամասներ"
+
+#: ../capplets/appearance/data/appearance.ui.h:2
+msgid "R_esolution:"
+msgstr "Բ_անաձև։"
+
+#: ../capplets/appearance/data/appearance.ui.h:3
+msgid "dots per inch"
+msgstr "կետերը մեկ դյույմ"
+
+#: ../capplets/appearance/data/appearance.ui.h:4
+msgid "Smoothing"
+msgstr "Հարթեցում"
+
+#: ../capplets/appearance/data/appearance.ui.h:5
+msgid "_None"
+msgstr "_Ոչ մեկը"
+
+#: ../capplets/appearance/data/appearance.ui.h:6
+msgid "Gra_yscale"
+msgstr "Գորշի_սանդղակ"
+
+#: ../capplets/appearance/data/appearance.ui.h:7
+msgid "Sub_pixel (LCDs)"
+msgstr "Ենթակետի_պիքսելներ (LCDs)"
+
+#. font hinting
+#: ../capplets/appearance/data/appearance.ui.h:9
+msgid "Hinting"
+msgstr "Ակնարկելով"
+
+#: ../capplets/appearance/data/appearance.ui.h:10
+msgid "N_one"
+msgstr "Ոչ մի"
+
+#: ../capplets/appearance/data/appearance.ui.h:11
+msgid "_Slight"
+msgstr "_Չնչին"
+
+#: ../capplets/appearance/data/appearance.ui.h:12
+msgid "_Medium"
+msgstr "_Միջին"
+
+#: ../capplets/appearance/data/appearance.ui.h:13
+msgid "_Full"
+msgstr "_Լրիվ"
+
+#: ../capplets/appearance/data/appearance.ui.h:14
+msgid "Subpixel Order"
+msgstr "Ենթակետի պիքսելի Կարգ"
+
+#. pixel order red, green, blue
+#: ../capplets/appearance/data/appearance.ui.h:16
+msgid "_RGB"
+msgstr "_RGB"
+
+#. pixel order blue, green, red
+#: ../capplets/appearance/data/appearance.ui.h:18
+msgid "_BGR"
+msgstr "_BGR"
+
+#. vertical hinting, pixel order red, green, blue
+#: ../capplets/appearance/data/appearance.ui.h:20
+msgid "_VRGB"
+msgstr "_VRGB"
+
+#. vertical hinting, pixel order blue, green, red
+#: ../capplets/appearance/data/appearance.ui.h:22
+msgid "VB_GR"
+msgstr "VB_GR"
+
+#: ../capplets/appearance/data/appearance.ui.h:23
+msgid "Appearance Preferences"
+msgstr "Արտաքին Նախընտրանքներ"
+
+#: ../capplets/appearance/data/appearance.ui.h:24
+msgid "Save _As..."
+msgstr "Պահել _Որպես…"
+
+#: ../capplets/appearance/data/appearance.ui.h:25
+msgid "C_ustomize..."
+msgstr "Ա_նհատականացնել..."
+
+#: ../capplets/appearance/data/appearance.ui.h:26
+msgid "_Install..."
+msgstr "_Տեղադրել..."
+
+#: ../capplets/appearance/data/appearance.ui.h:27
+msgid "Get more themes online"
+msgstr "Ստանալ ավելի շատ թեմաներ առցանց"
+
+#: ../capplets/appearance/data/appearance.ui.h:28
+msgid "Theme"
+msgstr "Թեմա"
+
+#: ../capplets/appearance/data/appearance.ui.h:29
+msgid "_Style:"
+msgstr "_Ոճ:"
+
+#: ../capplets/appearance/data/appearance.ui.h:30
+msgid "C_olors:"
+msgstr "Գ_ույներ։"
+
+#: ../capplets/appearance/data/appearance.ui.h:31
+msgid "Open a dialog to specify the color"
+msgstr "Երկխոսությունը բացել գույնը մասնագրելու համար"
+
+#: ../capplets/appearance/data/appearance.ui.h:32
+msgid "Get more backgrounds online"
+msgstr "Ստանալ ավելի շատ ֆոներ առցանց"
+
+#: ../capplets/appearance/data/appearance.ui.h:33
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:17
+msgid "_Add..."
+msgstr "_Ավելացնել..."
+
+#: ../capplets/appearance/data/appearance.ui.h:34
+msgid "Background"
+msgstr "Ֆոն"
+
+#: ../capplets/appearance/data/appearance.ui.h:35
+msgid "_Document font:"
+msgstr "_Փաստաթղթի տառատեսակ:"
+
+#: ../capplets/appearance/data/appearance.ui.h:36
+msgid "Des_ktop font:"
+msgstr "Աշխատանքաին_սեղանի տառատեսակ։"
+
+#: ../capplets/appearance/data/appearance.ui.h:37
+msgid "_Window title font:"
+msgstr "_Պատուհանի վերնագիրի տառատեսակ:"
+
+#: ../capplets/appearance/data/appearance.ui.h:38
+msgid "_Fixed width font:"
+msgstr "Տառատեսակի _Ֆիքսված լայնություն։"
+
+#: ../capplets/appearance/data/appearance.ui.h:39
+msgid "_Application font:"
+msgstr "_Հայտի տառատեսակ:"
+
+#: ../capplets/appearance/data/appearance.ui.h:40
+msgid "Rendering"
+msgstr "Ներկայացում"
+
+#: ../capplets/appearance/data/appearance.ui.h:41
+msgid "Sub_pixel smoothing (LCDs)"
+msgstr "Ենտակետային_պիքսելի հարթեցում (LCDs)"
+
+#: ../capplets/appearance/data/appearance.ui.h:42
+msgid "Best co_ntrast"
+msgstr "Լավագույն հա_կադրություն"
+
+#: ../capplets/appearance/data/appearance.ui.h:43
+msgid "Best _shapes"
+msgstr "Լավագույն _ձևավորում"
+
+#: ../capplets/appearance/data/appearance.ui.h:44
+msgid "_Monochrome"
+msgstr "_Միագույն"
+
+#: ../capplets/appearance/data/appearance.ui.h:45
+msgid "D_etails..."
+msgstr "Մ_անրամասն..."
+
+#: ../capplets/appearance/data/appearance.ui.h:46
+msgid "Fonts"
+msgstr "Տառատեսակներ"
+
+#: ../capplets/appearance/data/appearance.ui.h:47
+msgid "Menus and Toolbars"
+msgstr "Ընտրացանկեր և Գործիքադարակներ"
+
+#: ../capplets/appearance/data/appearance.ui.h:48
+msgid "Show _icons in menus"
+msgstr "Ցույց տուր _պատկերանշաններ ընտրացանկերում"
+
+#: ../capplets/appearance/data/appearance.ui.h:49
+msgid "_Editable menu shortcut keys"
+msgstr "_Խմբագրելի ընտրացանկի դյուրանցման ստեղներ"
+
+#: ../capplets/appearance/data/appearance.ui.h:50
+msgid "Toolbar _button labels:"
+msgstr "Գործիքադարակի _կոճակի պիտակները:"
+
+#: ../capplets/appearance/data/appearance.ui.h:51
+msgid "Preview"
+msgstr "Նախադիտում"
+
+#: ../capplets/appearance/data/appearance.ui.h:52
+msgid "_File"
+msgstr "_Ֆայլ"
+
+#: ../capplets/appearance/data/appearance.ui.h:53
+msgid "Edit"
+msgstr "Խմբագրել"
+
+#: ../capplets/appearance/data/appearance.ui.h:54
+msgid "Interface"
+msgstr "Ինտերֆեյս"
+
+#: ../capplets/appearance/data/appearance.ui.h:55
+msgid "Tile"
+msgstr "Դասավորվող պատուհան"
+
+#: ../capplets/appearance/data/appearance.ui.h:56
+msgid "Zoom"
+msgstr "Պատկերման մասշտաբ"
+
+#: ../capplets/appearance/data/appearance.ui.h:57
+msgid "Center"
+msgstr "Կենտրոն"
+
+#: ../capplets/appearance/data/appearance.ui.h:58
+msgid "Scale"
+msgstr "Սանդղակ"
+
+#: ../capplets/appearance/data/appearance.ui.h:59
+msgid "Stretch"
+msgstr "Ձգվել"
+
+#: ../capplets/appearance/data/appearance.ui.h:60
+msgid "Span"
+msgstr "Աակնթարթ"
+
+#: ../capplets/appearance/data/appearance.ui.h:61
+msgid "Solid color"
+msgstr "Հոծ գույն"
+
+#: ../capplets/appearance/data/appearance.ui.h:62
+msgid "Horizontal gradient"
+msgstr "Հորիզոնական գրադիենտ"
+
+#: ../capplets/appearance/data/appearance.ui.h:63
+msgid "Vertical gradient"
+msgstr "ՈՒղղահայաց գրադիենտ"
+
+#: ../capplets/appearance/data/appearance.ui.h:64
+msgid "Text below items"
+msgstr "Տեքստի ներքևում տարրեր"
+
+#: ../capplets/appearance/data/appearance.ui.h:65
+msgid "Text beside items"
+msgstr "Տեքստի կողքին տարրեր"
+
+#: ../capplets/appearance/data/appearance.ui.h:66
+msgid "Icons only"
+msgstr "Միայն պատկերակներ"
+
+#: ../capplets/appearance/data/appearance.ui.h:67
+msgid "Text only"
+msgstr "Միայն տեքստ"
+
+#: ../capplets/appearance/data/appearance.ui.h:68
+msgid "Customize Theme"
+msgstr "Անհատականացնել թեմա"
+
+#: ../capplets/appearance/data/appearance.ui.h:69
+msgid "Controls"
+msgstr "Վերահսկում"
+
+#: ../capplets/appearance/data/appearance.ui.h:70
+msgid "The current controls theme does not support color schemes."
+msgstr "Ներկայիս վերահսկվող թեման չի աջակցում գունային գամման։"
+
+#: ../capplets/appearance/data/appearance.ui.h:71
+msgid "_Tooltips:"
+msgstr "_Հուշումները:"
+
+#: ../capplets/appearance/data/appearance.ui.h:72
+msgid "_Selected items:"
+msgstr "_Ընտրված տարրեր:"
+
+#: ../capplets/appearance/data/appearance.ui.h:73
+msgid "_Input boxes:"
+msgstr "_Մուտքագրել տուփերը:"
+
+#: ../capplets/appearance/data/appearance.ui.h:74
+msgid "_Windows:"
+msgstr "_Պատուհաններ։"
+
+#: ../capplets/appearance/data/appearance.ui.h:75
+msgid "Text"
+msgstr "Տեքստ "
+
+#: ../capplets/appearance/data/appearance.ui.h:76
+msgid "_Reset to Defaults"
+msgstr "_Վերականգնել Նախնականը"
+
+#: ../capplets/appearance/data/appearance.ui.h:77
+msgid "Colors"
+msgstr "Գույներ"
+
+#: ../capplets/appearance/data/appearance.ui.h:78
+msgid "Window Border"
+msgstr "Պատուհանի Սահման"
+
+#: ../capplets/appearance/data/appearance.ui.h:79
+msgid "Icons"
+msgstr "Պատկերակներ"
+
+#: ../capplets/appearance/data/appearance.ui.h:80
+msgid "Changing your cursor theme takes effect the next time you log in."
+msgstr "Ձեր կուրսորի թեմայի փոփոխությունը ուժի մեջ է մտնում, երբ հաջորդ անգամ դուք մուտք եք գործում դեպի համակարգ։"
+
+#: ../capplets/appearance/data/appearance.ui.h:81
+msgid "_Size:"
+msgstr "_Չափ։"
+
+#. small threshold
+#: ../capplets/appearance/data/appearance.ui.h:82
+#: ../capplets/mouse/mate-mouse-properties.ui.h:21
+msgid "Small"
+msgstr "Փոքր"
+
+#. large threshold
+#: ../capplets/appearance/data/appearance.ui.h:83
+#: ../capplets/mouse/mate-mouse-properties.ui.h:24
+msgid "Large"
+msgstr "Խոշոր"
+
+#: ../capplets/appearance/data/appearance.ui.h:84
+msgid "Pointer"
+msgstr "Ցուցիչ"
+
+#: ../capplets/appearance/data/appearance.ui.h:85
+msgid "Save Theme As..."
+msgstr "Պահպանել Թեման ինչպես..."
+
+#: ../capplets/appearance/data/appearance.ui.h:86
+#: ../capplets/keybindings/mate-keybinding-properties.ui.h:4
+msgid "_Name:"
+msgstr "_Անուն։"
+
+#: ../capplets/appearance/data/appearance.ui.h:87
+msgid "_Description:"
+msgstr "_Նկարագրություն։"
+
+#: ../capplets/appearance/data/appearance.ui.h:88
+msgid "Save _background image"
+msgstr "Պահպանել _ֆոնի պատկերը"
+
+#: ../capplets/appearance/data/appearance.ui.h:89
+msgid "Save _notification theme"
+msgstr "Պահպանել _ծանուցման թեման"
+
+#: ../capplets/appearance/data/mate-appearance-properties.desktop.in.in.h:1
+msgid "Appearance"
+msgstr "Արտաքին տեսք"
+
+#: ../capplets/appearance/data/mate-appearance-properties.desktop.in.in.h:2
+msgid "Customize the look of the desktop"
+msgstr "Անհատականացնել աշխատասեղանի տեսքը"
+
+#: ../capplets/appearance/data/mate-theme-installer.desktop.in.in.h:1
+msgid "Theme Installer"
+msgstr "Թեմայի տեղադրիչ"
+
+#: ../capplets/appearance/data/mate-theme-installer.desktop.in.in.h:2
+msgid "Installs themes packages for various parts of the desktop"
+msgstr "Տեղադրված թեմաների փաթեթները աշխատասեղանի տարբեր մասերի համար են։"
+
+#: ../capplets/appearance/data/mate-theme-package.xml.in.h:1
+msgid "Mate Theme Package"
+msgstr "Mate Թեմայի Փաթեթ"
+
+#: ../capplets/appearance/mate-wp-info.c:51
+msgid "No Desktop Background"
+msgstr "Ոչ մի Աշխատասեղանի Ֆոն"
+
+#: ../capplets/appearance/mate-wp-item.c:288
+msgid "unknown"
+msgstr "անհայտ"
+
+#: ../capplets/appearance/mate-wp-item.c:295
+msgid "Slide Show"
+msgstr "Սլայդի ցուցադրություն"
+
+#: ../capplets/appearance/mate-wp-item.c:297
+msgid "Image"
+msgstr "Պատկեր"
+
+#: ../capplets/appearance/mate-wp-item.c:303
+msgid "multiple sizes"
+msgstr "բազմակի չափեր"
+
+#. translators: x pixel(s) by y pixel(s)
+#: ../capplets/appearance/mate-wp-item.c:306
+#, c-format
+msgid "%d %s by %d %s"
+msgstr "%d %s կողմից %d %s"
+
+#: ../capplets/appearance/mate-wp-item.c:308
+#: ../capplets/appearance/mate-wp-item.c:310
+msgid "pixel"
+msgid_plural "pixels"
+msgstr[0] "պիքսել"
+msgstr[1] "պիքսելներ"
+
+#. translators: <b>wallpaper name</b>
+#. * mime type, size
+#. * Folder: /path/to/file
+#. * Artist: wallpaper author
+#: ../capplets/appearance/mate-wp-item.c:319
+#, c-format
+msgid ""
+"<b>%s</b>\n"
+"%s, %s\n"
+"Folder: %s\n"
+"Artist: %s"
+msgstr "<b>%s</b>\n%s, %s\nԹղթապանակ: %s\nԱրտիստ: %s"
+
+#. translators: <b>wallpaper name</b>
+#. * Image missing
+#. * Folder: /path/to/file
+#. * Artist: wallpaper author
+#: ../capplets/appearance/mate-wp-item.c:334
+#, c-format
+msgid ""
+"<b>%s</b>\n"
+"%s\n"
+"Folder: %s\n"
+"Artist: %s"
+msgstr "<b>%s</b>\n%s\nԹղթապանակ: %s\nԱրտիստ: %s"
+
+#: ../capplets/appearance/mate-wp-item.c:339
+msgid "Image missing"
+msgstr "Պատկերը բացակայում է"
+
+#: ../capplets/appearance/theme-installer.c:185
+#: ../capplets/appearance/theme-installer.c:241
+msgid "Cannot install theme"
+msgstr "Հնարավոր չէ տեղադրել թեման"
+
+#: ../capplets/appearance/theme-installer.c:187
+#, c-format
+msgid "The %s utility is not installed."
+msgstr "%s օգտակար տեղադրված չէ:"
+
+#: ../capplets/appearance/theme-installer.c:243
+msgid "There was a problem while extracting the theme."
+msgstr "Մինչ թեմայի հեռացնումը խնդիր կա։"
+
+#: ../capplets/appearance/theme-installer.c:271
+msgid "There was an error installing the selected file"
+msgstr "Մինչ ընդրված ֆայլի տեղադրումը սխալ կա։"
+
+#: ../capplets/appearance/theme-installer.c:272
+#, c-format
+msgid "\"%s\" does not appear to be a valid theme."
+msgstr "\"%s \" չի հայտնվում հիմնավոր թեմա լինելու համար:"
+
+#: ../capplets/appearance/theme-installer.c:273
+#, c-format
+msgid ""
+"\"%s\" does not appear to be a valid theme. It may be a theme engine which "
+"you need to compile."
+msgstr "\"%s \" չի հայտնվում հիմնավոր թեմա լինելու համար: Դա կարող է լինել շարժիչ թեմա, որը դուք պետք է կազմեք։"
+
+#: ../capplets/appearance/theme-installer.c:379
+#, c-format
+msgid "Installation for theme \"%s\" failed."
+msgstr "\"%s Թեմայի տեղադրումը ձախողվեց։"
+
+#: ../capplets/appearance/theme-installer.c:418
+#, c-format
+msgid "The theme \"%s\" has been installed."
+msgstr "Թեման \"%s\" արդեն տեղադրված է։"
+
+#: ../capplets/appearance/theme-installer.c:428
+msgid "Would you like to apply it now, or keep your current theme?"
+msgstr "Ցանկանու՞մ եք կիրառել այն հիմա, թե պահել ձեր ընթացիկ թեման։"
+
+#: ../capplets/appearance/theme-installer.c:431
+msgid "Keep Current Theme"
+msgstr "Պահպանել Ընթացիկ Թեման"
+
+#: ../capplets/appearance/theme-installer.c:434
+msgid "Apply New Theme"
+msgstr "Կիրառել Նոր Թեմա"
+
+#: ../capplets/appearance/theme-installer.c:486
+#, c-format
+msgid "MATE Theme %s correctly installed"
+msgstr "MATE Թեմա  %s ճիշտ տեղադրվել է"
+
+#: ../capplets/appearance/theme-installer.c:548
+msgid "Failed to create temporary directory"
+msgstr "Չհաջողվեց ստեղծել ժամանակավոր տեղեկատու"
+
+#: ../capplets/appearance/theme-installer.c:611
+msgid "New themes have been successfully installed."
+msgstr "Նոր թեմաները հաջողությամբ տեղադրվել են։"
+
+#: ../capplets/appearance/theme-installer.c:661
+msgid "No theme file location specified to install"
+msgstr "Չկա թեմայի ֆայլի դիրք նշված տեղադրելու համար"
+
+#: ../capplets/appearance/theme-installer.c:685
+#, c-format
+msgid ""
+"Insufficient permissions to install the theme in:\n"
+"%s"
+msgstr "Անբավարար թույլատվություններ թեմայի տեղադրելու համար․\n%s"
+
+#: ../capplets/appearance/theme-installer.c:765
+msgid "Select Theme"
+msgstr "Ընտրել Թեմա"
+
+#: ../capplets/appearance/theme-installer.c:776
+msgid "Theme Packages"
+msgstr "Թեմայի Փաթեթներ"
+
+#: ../capplets/appearance/theme-save.c:94
+#, c-format
+msgid "Theme name must be present"
+msgstr "Թեմայի անունը պետք է լինի ներկայիս անունը"
+
+#: ../capplets/appearance/theme-save.c:157
+msgid "The theme already exists. Would you like to replace it?"
+msgstr "Թեման արդեն գոյություն ունի։ Ցանկանու՞մ եք փոխարինել այն։"
+
+#: ../capplets/appearance/theme-save.c:158
+#: ../capplets/common/file-transfer-dialog.c:466
+msgid "_Overwrite"
+msgstr "_Կրկին գրել"
+
+#: ../capplets/appearance/theme-util.c:73
+msgid "Would you like to delete this theme?"
+msgstr "Ցանկանում եք ջնջե՞լ այս թեման"
+
+#: ../capplets/appearance/theme-util.c:123
+msgid "Theme cannot be deleted"
+msgstr "Թեման չի կարող ջնջվել"
+
+#: ../capplets/appearance/theme-util.c:249
+msgid "Could not install theme engine"
+msgstr "Չհաջողվեց տեղադրել թեմայի շարժիչը"
+
+#: ../capplets/common/activate-settings-daemon.c:16
+msgid ""
+"Unable to start the settings manager 'mate-settings-daemon'.\n"
+"Without the MATE settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-MATE (e.g. KDE) settings manager may already be active and conflicting with the MATE settings manager."
+msgstr "Անհնար է սկսել պարամետրերի կառավարիչը 'mate-settings-daemon'.\nԱռանց MATE պարամետրերի կառավարիչի մեկնարկի, որոշ նախաօատվություններ չի կարող ազդեցություն ունենալ։ Սա կարող էցույց տալ որ խնդիրը DBus հետ է կամ non-MATE (e.g. KDE) պարամետրերի կառավարիչը հնարավոր է արդեն ակտիվ է և հակասում է MATE պարամետրերի կառավարիչ հետ։"
+
+#: ../capplets/common/capplet-stock-icons.c:66
+#, c-format
+msgid "Unable to load stock icon '%s'\n"
+msgstr "Անհնար է բեռնել ֆոնդային պատկերակները '%s'\n"
+
+#: ../capplets/common/capplet-util.c:88
+#, c-format
+msgid "There was an error displaying help: %s"
+msgstr "Օգնության պատուհանը ցույց տալու սխալ կար այստեղ: %s"
+
+#: ../capplets/common/file-transfer-dialog.c:98
+#, c-format
+msgid "Copying file: %u of %u"
+msgstr "Ֆայլի պատճենում : %u  %u"
+
+#: ../capplets/common/file-transfer-dialog.c:145
+#, c-format
+msgid "Copying '%s'"
+msgstr "Պատճենում '%s'"
+
+#: ../capplets/common/file-transfer-dialog.c:185
+#: ../capplets/common/file-transfer-dialog.c:317
+msgid "Copying files"
+msgstr "Ֆայլերի պատճենում "
+
+#: ../capplets/common/file-transfer-dialog.c:224
+msgid "Parent Window"
+msgstr "Ծնող Պատուհան"
+
+#: ../capplets/common/file-transfer-dialog.c:225
+msgid "Parent window of the dialog"
+msgstr "Երկխոսության ծնող պատուհան"
+
+#: ../capplets/common/file-transfer-dialog.c:231
+msgid "From URI"
+msgstr "URI֊ից"
+
+#: ../capplets/common/file-transfer-dialog.c:232
+msgid "URI currently transferring from"
+msgstr "URI ներկայումս փոխանցելու է"
+
+#: ../capplets/common/file-transfer-dialog.c:239
+msgid "To URI"
+msgstr "Դեպի URI"
+
+#: ../capplets/common/file-transfer-dialog.c:240
+msgid "URI currently transferring to"
+msgstr "URI ներկայումս փոխանցելով"
+
+#: ../capplets/common/file-transfer-dialog.c:247
+msgid "Fraction completed"
+msgstr "Խմբակցություննը ավարտեց"
+
+#: ../capplets/common/file-transfer-dialog.c:248
+msgid "Fraction of transfer currently completed"
+msgstr "Փոխանցման խմբակցությունը ներկայումս ավարտեց"
+
+#: ../capplets/common/file-transfer-dialog.c:255
+msgid "Current URI index"
+msgstr "Ընթացիկ URI ինդեքս"
+
+#: ../capplets/common/file-transfer-dialog.c:256
+msgid "Current URI index - starts from 1"
+msgstr "Ընթացիկ URI ինդեքսը ֊ սկսել 1֊ից"
+
+#: ../capplets/common/file-transfer-dialog.c:263
+msgid "Total URIs"
+msgstr "Ընդհանուր URIs"
+
+#: ../capplets/common/file-transfer-dialog.c:264
+msgid "Total number of URIs"
+msgstr "URI֊ների ընդհանուր համար"
+
+#: ../capplets/common/file-transfer-dialog.c:460
+#, c-format
+msgid "File '%s' already exists. Do you want to overwrite it?"
+msgstr "'%s' ֆայլը արդեն գոյություն ունի։ Ցանկանու՞մ եք կրկին գրել այն։"
+
+#: ../capplets/common/file-transfer-dialog.c:463
+msgid "_Skip"
+msgstr "_Բաց թողնել"
+
+#: ../capplets/common/file-transfer-dialog.c:464
+msgid "Overwrite _All"
+msgstr "Վերագրանցել _Բոլորը"
+
+#: ../capplets/common/mate-theme-info.c:691
+msgid "Default Pointer - Current"
+msgstr "Հիմնական Ցուցիչ - Ընթացիկ"
+
+#: ../capplets/common/mate-theme-info.c:695
+msgid "White Pointer"
+msgstr "Սպիտակ ցուցիչ"
+
+#: ../capplets/common/mate-theme-info.c:696
+msgid "White Pointer - Current"
+msgstr "Սպիտակ Ցուցիչ - Ընթացիկ"
+
+#: ../capplets/common/mate-theme-info.c:700
+msgid "Large Pointer"
+msgstr "Խոշոր ցուցիչ"
+
+#: ../capplets/common/mate-theme-info.c:701
+msgid "Large Pointer - Current"
+msgstr "Խոշոր Ցուցիչ - Ընթացիկ"
+
+#: ../capplets/common/mate-theme-info.c:705
+msgid "Large White Pointer - Current"
+msgstr "Խոշոր Սպիտակ Ցուցիչ - Ընթացիկ"
+
+#: ../capplets/common/mate-theme-info.c:706
+msgid "Large White Pointer"
+msgstr "Խոշոր Սպիտակ Ցուցիչ"
+
+#: ../capplets/common/mate-theme-info.c:1696
+#, c-format
+msgid ""
+"This theme will not look as intended because the required GTK+ theme '%s' is"
+" not installed."
+msgstr "Այս թեման չի նայվում, ինչպես նախատեսված է, քանի որ անհրաժեշտ GTK + թեման '%s' տեղադրված չէ:"
+
+#: ../capplets/common/mate-theme-info.c:1706
+#, c-format
+msgid ""
+"This theme will not look as intended because the required window manager "
+"theme '%s' is not installed."
+msgstr "Այս թեման չի նայվում, ինչպես նախատեսված է, որովհետև պահանջվող պատուհանի մենեջերի թեման '%s' տեղադրված չէ:"
+
+#: ../capplets/common/mate-theme-info.c:1714
+#, c-format
+msgid ""
+"This theme will not look as intended because the required icon theme '%s' is"
+" not installed."
+msgstr "Այս թեման չի նայվում, ինչպես նախատեսված է, քանի որ անհրաժեշտ թեմայի պատկերանշանը '%s' տեղադրված չէ:"
+
+#: ../capplets/default-applications/mate-default-applications-properties.desktop.in.in.h:1
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:1
+msgid "Preferred Applications"
+msgstr "Նախընտրած Դիմումներ"
+
+#: ../capplets/default-applications/mate-default-applications-properties.desktop.in.in.h:2
+msgid "Select your default applications"
+msgstr "Ընտրեք Ձեր լռելյայն դիմումները"
+
+#: ../capplets/default-applications/mate-da-capplet.c:542
+msgid "Could not load the main interface"
+msgstr "Չհաջողվեց բեռնել հիմնական ինտերֆեյսը"
+
+#: ../capplets/default-applications/mate-da-capplet.c:543
+msgid "Please make sure that the applet is properly installed"
+msgstr "Խնդրում ենք համոզվեք, որ ենթածրագիրը պատշաճ տեղադրված"
+
+#. TRANSLATORS: don't translate the terms in brackets
+#: ../capplets/default-applications/mate-da-capplet.c:692
+msgid "Specify the name of the page to show (internet|multimedia|system|a11y)"
+msgstr "Նշել ցուցադրվող էջի անունը (ինտերնետ|տեսաձայնային|համակարգ|a11y):"
+
+#: ../capplets/default-applications/mate-da-capplet.c:698
+msgid "- MATE Default Applications"
+msgstr "- MATE Լռելայն Դիմումներ"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:2
+msgid "Web Browser"
+msgstr "Վեբ Զննարկիչ"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:3
+msgid "Mail Reader"
+msgstr "Փոստ ընթերցող սարք"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:4
+msgid "Instant Messenger"
+msgstr "Ակնթարթային հաղորդակցման Կառավարիչ"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:5
+msgid "Co_mmand:"
+msgstr "Հր_ահանգ։"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:7
+#, no-c-format
+msgid "All %s occurrences will be replaced with actual link"
+msgstr "Բոլոր %s պատահարները կփոխարինվեն փաստացի հղումը"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:8
+msgid "Run in t_erminal"
+msgstr "Գործարկել տ_երմինալի մեջ"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:9
+msgid "Internet"
+msgstr "Համացանց"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:10
+msgid "Image Viewer"
+msgstr "Փաստաթուղթ Դիտող"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:11
+msgid "Multimedia Player"
+msgstr "Մուլտիմեդիական Նվագարկիչ"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:12
+msgid "Video Player"
+msgstr "Վիդեո Նվագարկիչ"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:13
+msgid "Multimedia"
+msgstr "Մուլտիմեդիա"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:14
+msgid "Text Editor"
+msgstr "Տեքստային խմբագրիչ"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:15
+msgid "Terminal Emulator"
+msgstr "Տերմինալի էմուլյատոր"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:16
+msgid "File Manager"
+msgstr "Ֆայլի Կառավարիչ"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:17
+msgid "System"
+msgstr "Համակարգ"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:18
+msgid "Document Viewer"
+msgstr "Փաստաթուղթ Դիտող"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:19
+msgid "Word Processor"
+msgstr "Բառի Պրոցեսոր"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:20
+msgid "Spreadsheet Editor"
+msgstr "Աղյուսակի Խմբագրիչ"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:21
+msgid "Office"
+msgstr "Գրասենյակ"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:22
+msgid "Visual"
+msgstr "Տեսողական"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:23
+msgid "_Run at start"
+msgstr "_Գործարկել սկզբից"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:24
+msgid "Mobility"
+msgstr "Շարժունակություն"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:25
+msgid "Run at st_art"
+msgstr "Գործարկել սկզբից"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:26
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:45
+msgid "Accessibility"
+msgstr "Մատչելիություն"
+
+#: ../capplets/display/display-capplet.ui.h:1
+msgid "Monitor Preferences"
+msgstr "Մոնիտորի Նախընտրանքներ"
+
+#: ../capplets/display/display-capplet.ui.h:2
+msgid "Apply system-wide"
+msgstr "Դիմել համակարգի լայնությամբ"
+
+#: ../capplets/display/display-capplet.ui.h:3
+msgid ""
+"Applies the current configuration for other MATE users on the computer. Note"
+" that this doesn't affect login screens or other desktop environments."
+msgstr "Ներկայիս կոնֆիգուրացիան կիրառելի է այլ Mate օգտվողների համակարգչի համար։ Նշենք, որ սա չի ազդում մուտքի էկրանի կամ այլ աշխատանքային սեղանի միջավայրերի համար։"
+
+#: ../capplets/display/display-capplet.ui.h:4
+msgid "Sa_me image in all monitors"
+msgstr "Նու_յն պատկերը բոլոր մոնիտորների մեջ"
+
+#: ../capplets/display/display-capplet.ui.h:5
+msgid "_Detect monitors"
+msgstr "_Հայտնաբերել մոնիտորներ"
+
+#: ../capplets/display/display-capplet.ui.h:6
+msgid "Panel icon"
+msgstr "Պատկերակի վահանակ"
+
+#: ../capplets/display/display-capplet.ui.h:7
+msgid "_Show monitors in panel"
+msgstr "_Ցույց տալ դիտորդների վահանակում"
+
+#: ../capplets/display/display-capplet.ui.h:8
+msgid "_Resolution:"
+msgstr "_Որոշում։"
+
+#: ../capplets/display/display-capplet.ui.h:9
+msgid "Re_fresh rate:"
+msgstr "Թա_րմացնել գործակիցը:"
+
+#: ../capplets/display/display-capplet.ui.h:10
+msgid "On"
+msgstr "Միացնել"
+
+#: ../capplets/display/display-capplet.ui.h:11
+msgid "Off"
+msgstr "Անջատել"
+
+#: ../capplets/display/display-capplet.ui.h:12
+#: ../capplets/display/xrandr-capplet.c:508
+msgid "Monitor"
+msgstr "Մոնիտոր"
+
+#: ../capplets/display/display-capplet.ui.h:13
+msgid "R_otation:"
+msgstr "Ռ_ոտացիա:"
+
+#: ../capplets/display/display-capplet.ui.h:14
+msgid "Include _panel"
+msgstr "Ներառել _վահանակ"
+
+#: ../capplets/display/display-capplet.ui.h:15
+msgid "Set as primary"
+msgstr "Սահմանել որպես նախնական"
+
+#: ../capplets/display/display-capplet.ui.h:16
+msgid "Sets the selected monitor as primary."
+msgstr "Սահմանում է ընտրված մոնիտորը որպես նախնական."
+
+#: ../capplets/display/display-capplet.ui.h:17
+#: ../capplets/display/xrandr-capplet.c:311
+#: ../capplets/display/xrandr-capplet.c:350
+msgid "Normal"
+msgstr "Նորմալ"
+
+#: ../capplets/display/display-capplet.ui.h:18
+#: ../capplets/display/xrandr-capplet.c:312
+#: ../capplets/windows/mate-window-properties.c:574
+msgid "Left"
+msgstr "Ձախ"
+
+#: ../capplets/display/display-capplet.ui.h:19
+#: ../capplets/display/xrandr-capplet.c:313
+#: ../capplets/windows/mate-window-properties.c:573
+msgid "Right"
+msgstr "Աջ"
+
+#: ../capplets/display/display-capplet.ui.h:20
+msgid "Upside-down"
+msgstr "Գլխիվայր շուռ տված"
+
+#: ../capplets/display/mate-display-properties.desktop.in.in.h:1
+msgid "Displays"
+msgstr "Ցուցադրել"
+
+#: ../capplets/display/mate-display-properties.desktop.in.in.h:2
+msgid "Change resolution and position of monitors and projectors"
+msgstr "Փոխել պրոյեկտորների և մոնիտորների բանաձևը և դիրքը"
+
+#: ../capplets/display/mate-display-properties-install-systemwide.c:44
+#, c-format
+msgid ""
+"Usage: %s SOURCE_FILE DEST_NAME\n"
+"\n"
+"This program installs a RANDR profile for multi-monitor setups into\n"
+"a systemwide location.  The resulting profile will get used when\n"
+"the RANDR plug-in gets run in mate-settings-daemon.\n"
+"\n"
+"SOURCE_FILE - a full pathname, typically /home/username/.config/monitors.xml\n"
+"\n"
+"DEST_NAME - relative name for the installed file.  This will get put in\n"
+"            the systemwide directory for RANDR configurations,\n"
+"            so the result will typically be %s/DEST_NAME\n"
+msgstr "Օգտագործում: %s SOURCE_FILE DEST_NAME\n\nԱյս ծրագիրը տեղադրող RANDR պրոֆիլ multi-monitor համար կառուցվածքի մեջ\nհամակարգի գտնվվելու վայր։ Արդյունքում ստացված պրոֆիլը օգտագործվում է, երբ \nthe RANDR plug-in գործարկվում է mate-settings-daemon մեջ։\n\nSOURCE_FILE - լրիվ ուղղին է, որպես կանոն  /home/username/.config/monitors.xml\n\nDEST_NAME - տեղադրված ֆայլերի հարաբերակն անվանում է\nհամակարգի ֆայլապանակի մեջ RANDR կոնֆիգուրացիաների համար,\nուստի արդյունքը կլինի որպես կանոն %s/DEST_NAME\n"
+
+#. Translators: only able to install RANDR profiles as root
+#: ../capplets/display/mate-display-properties-install-systemwide.c:151
+msgid "This program can only be used by the root user"
+msgstr "Այս ծրագիրը կարող է օգտագործվել միայն օգտագործողի root֊ի կողմից"
+
+#: ../capplets/display/mate-display-properties-install-systemwide.c:168
+msgid "The source filename must be absolute"
+msgstr "Աղբյուր ֆայլի անունը պետք է լինի բացարձակ"
+
+#. Translators: first %s is a filename; second %s is an error message
+#: ../capplets/display/mate-display-properties-install-systemwide.c:179
+#, c-format
+msgid "Could not open %s: %s\n"
+msgstr "Չհաջողվեց բացել %s: %s\n"
+
+#. Translators: first %s is a filename; second %s is an error message
+#: ../capplets/display/mate-display-properties-install-systemwide.c:188
+#, c-format
+msgid "Could not get information for %s: %s\n"
+msgstr "Չհաջողվեց ստանալ տեղեկատվություն %s: %s\n"
+
+#: ../capplets/display/mate-display-properties-install-systemwide.c:195
+#, c-format
+msgid "%s must be a regular file\n"
+msgstr "%s պետք է լինի կանոնավոր ֆայլ\n"
+
+#: ../capplets/display/mate-display-properties-install-systemwide.c:204
+msgid "This program must only be run through pkexec(1)"
+msgstr "Այս ծրագիրը կարող է մեկնարկվել միայն pkexec(1)֊ի միջոցով"
+
+#: ../capplets/display/mate-display-properties-install-systemwide.c:209
+msgid "PKEXEC_UID must be set to an integer value"
+msgstr "PKEXEC_UID պետք է սահմանել որպես ամբողջաթիվ արժեք"
+
+#. Translators: we are complaining that a file must be really owned by the
+#. user who called this program
+#: ../capplets/display/mate-display-properties-install-systemwide.c:215
+#, c-format
+msgid "%s must be owned by you\n"
+msgstr "%s պետք է պատկանի ձեզ\n"
+
+#. Translators: here we are saying that a plain filename must look like
+#. "filename", not like "some_dir/filename"
+#: ../capplets/display/mate-display-properties-install-systemwide.c:223
+#, c-format
+msgid "%s must not have any directory components\n"
+msgstr "%s չպետք է ունենա որևէ թղթապանակի բաղադրիչներ\n"
+
+#: ../capplets/display/mate-display-properties-install-systemwide.c:231
+#, c-format
+msgid "%s must be a directory\n"
+msgstr "%s պետք է լինի տեղեկատու\n"
+
+#. Translators: the first %s/%s is a directory/filename; the last %s is an
+#. error message
+#: ../capplets/display/mate-display-properties-install-systemwide.c:242
+#, c-format
+msgid "Could not open %s/%s: %s\n"
+msgstr "Չի հաջողվել բացել %s/%s: %s\n"
+
+#: ../capplets/display/mate-display-properties-install-systemwide.c:262
+#, c-format
+msgid "Could not rename %s to %s: %s\n"
+msgstr "Չի կարող վերանվանել %s to %s: %s\n"
+
+#: ../capplets/display/org.mate.randr.policy.in.h:1
+msgid "Install multi-monitor settings for the whole system"
+msgstr "Տեղադրեք բազմամոնիտորի պարամետրերը ամբողջ համակարգի համար"
+
+#: ../capplets/display/org.mate.randr.policy.in.h:2
+msgid ""
+"Authentication is required to install multi-monitor settings for all users"
+msgstr "Նույնականացումը պահանջում է տեղադրել բազմամոնիտորի պարամետրերը բոլոր օգտագործողների համար"
+
+#: ../capplets/display/xrandr-capplet.c:314
+msgid "Upside Down"
+msgstr "Գլխիվայր շուռ տված"
+
+#: ../capplets/display/xrandr-capplet.c:356
+#, c-format
+msgid "%d Hz"
+msgstr "%d Հց"
+
+#. Translators:  this is the feature where what you see on your laptop's
+#. * screen is the same as your external monitor.  Here, "Mirror" is being
+#. * used as an adjective, not as a verb.  For example, the Spanish
+#. * translation could be "Pantallas en Espejo", *not* "Espejar Pantallas".
+#: ../capplets/display/xrandr-capplet.c:493
+#: ../capplets/display/xrandr-capplet.c:1669
+#, c-format
+msgid "Mirror Screens"
+msgstr "Հայելային էկրաններ"
+
+#: ../capplets/display/xrandr-capplet.c:495
+#, c-format
+msgid "Monitor: %s"
+msgstr "Մոնիտոր: %s"
+
+#: ../capplets/display/xrandr-capplet.c:591
+#, c-format
+msgid "%d x %d"
+msgstr "%d x %d"
+
+#: ../capplets/display/xrandr-capplet.c:1525
+msgid ""
+"Select a monitor to change its properties; drag it to rearrange its "
+"placement."
+msgstr "Ընտրել մոնիտորը իր հատկությունների փոփոխման համար; քաշել այն իր տեղակայումը վերադասավորելու համար։"
+
+#: ../capplets/display/xrandr-capplet.c:2147
+msgid "Could not save the monitor configuration"
+msgstr "Չհաջողվեց պահպանել մոնիտորի կոնֆիգուրացիան"
+
+#: ../capplets/display/xrandr-capplet.c:2169
+msgid "Could not get session bus while applying display configuration"
+msgstr "Չհաջողվեց ստանալ սեսիան, մինչ կոնֆիգուրացիայի ցուցադրման կիրառումը"
+
+#: ../capplets/display/xrandr-capplet.c:2188
+msgid "Could not detect displays"
+msgstr "Չհաջողվեց հայտնաբերել դրսեւորումները"
+
+#: ../capplets/display/xrandr-capplet.c:2400
+msgid "The monitor configuration has been saved"
+msgstr "Մոնիտորի կոնֆիգուրացիաները պահպանվել են"
+
+#: ../capplets/display/xrandr-capplet.c:2402
+msgid "This configuration will be used the next time someone logs in."
+msgstr "Այս կոնֆիգուրացիան կօգտագործվի հաջորդ անգամ, երբ ինչ որ մեկն մուտքագրվում է։"
+
+#: ../capplets/display/xrandr-capplet.c:2411
+msgid "Could not set the default configuration for monitors"
+msgstr "Չհաջոցվեց սահմանել մոնիտորի համար հաստատուն կոնֆիգուրացիան "
+
+#: ../capplets/display/xrandr-capplet.c:2495
+msgid "Could not get screen information"
+msgstr "Չհաջողվեց ստանալ էկրանի տեղեկությունները"
+
+#: ../capplets/keybindings/eggcellrendererkeys.c:21
+msgid "New shortcut..."
+msgstr "Նոր դյուրանցում..."
+
+#: ../capplets/keybindings/eggcellrendererkeys.c:157
+#: ../capplets/keybindings/eggcellrendererkeys.c:158
+msgid "Accelerator key"
+msgstr "Արագացուցչի բանալին"
+
+#: ../capplets/keybindings/eggcellrendererkeys.c:167
+#: ../capplets/keybindings/eggcellrendererkeys.c:168
+msgid "Accelerator modifiers"
+msgstr "Արագացուցչի բաղադրիչներ"
+
+#: ../capplets/keybindings/eggcellrendererkeys.c:176
+#: ../capplets/keybindings/eggcellrendererkeys.c:177
+msgid "Accelerator keycode"
+msgstr "Արագացուցչի բանալի կոդ"
+
+#: ../capplets/keybindings/eggcellrendererkeys.c:187
+msgid "Accel Mode"
+msgstr "Արագացված Ռեժիմ"
+
+#: ../capplets/keybindings/eggcellrendererkeys.c:188
+msgid "The type of accelerator."
+msgstr "Արագացուցչի տեսակը։"
+
+#: ../capplets/keybindings/eggcellrendererkeys.c:231
+#: ../capplets/keybindings/mate-keybinding-properties.c:134
+#: ../capplets/mouse/mate-mouse-properties.c:396
+#: ../typing-break/drwright.c:501
+msgid "Disabled"
+msgstr "Անջատված"
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:216
+msgid "<Unknown Action>"
+msgstr "<Unknown Action>"
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1020
+#: ../capplets/keybindings/mate-keybinding-properties.c:1610
+msgid "Custom Shortcuts"
+msgstr "Պատվերով Դյուրանցումներ"
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1190
+msgid "Error saving the new shortcut"
+msgstr "Նոր դյուրանցման պահպանման սխալ"
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1266
+#, c-format
+msgid ""
+"The shortcut \"%s\" cannot be used because it will become impossible to type using this key.\n"
+"Please try with a key such as Control, Alt or Shift at the same time."
+msgstr "Դյուրանցումը \"%s\" չի կարող օգտագործվել, քանի որ այն անհնար կդարձնի մուտքագրել օգտագործելով այս բանալին։\nԽնդրում ենք փորձել բանալի, ինչպիսիք են Control, Alt կամ Shift միաժամանակ։"
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1298
+#, c-format
+msgid ""
+"The shortcut \"%s\" is already used for\n"
+"\"%s\""
+msgstr "\"%s\" դյուրանցումը արդեն օգտագործվել է\n\"%s\""
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1305
+#, c-format
+msgid "If you reassign the shortcut to \"%s\", the \"%s\" shortcut will be disabled."
+msgstr "Եթե դուք հանձնարարել եք \"%s\" դյուրանցումը, \"%s\" դյուրանցումը կարող է անջատվել։"
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1310
+msgid "_Reassign"
+msgstr "_Վերանշանակել"
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1565
+msgid "Too many custom shortcuts"
+msgstr "Չափից շատ սովորական դյուրանցումներ"
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1853
+msgid "Action"
+msgstr "Գործողություն"
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1875
+msgid "Shortcut"
+msgstr "Դյուրանցում"
+
+#. * vim: sw=2 ts=8 cindent noai bs=2
+#: ../capplets/keybindings/mate-keybinding-properties.ui.h:1
+#: ../capplets/keybindings/mate-keybinding.desktop.in.in.h:1
+msgid "Keyboard Shortcuts"
+msgstr "Ստեղնային դյուրանցում"
+
+#: ../capplets/keybindings/mate-keybinding-properties.ui.h:2
+msgid ""
+"To edit a shortcut key, click on the corresponding row and type a new key "
+"combination, or press backspace to clear."
+msgstr "Խմբագրել կարճատ ստեղնաշարային հրամանի ստեղնը, սեղմեք համապատասխան տողի վրա և տպեք նոր համադրություն ստեղնը կամ սեղմեք backspace մաքրելու համար։"
+
+#: ../capplets/keybindings/mate-keybinding-properties.ui.h:3
+msgid "Custom Shortcut"
+msgstr "Պատվերով Դյուրանցում"
+
+#: ../capplets/keybindings/mate-keybinding-properties.ui.h:5
+msgid "C_ommand:"
+msgstr "Հ_րաման։"
+
+#: ../capplets/keybindings/mate-keybinding.desktop.in.in.h:2
+msgid "Assign shortcut keys to commands"
+msgstr "Վերագրել դյուրանցման բանալիները հրամաններին"
+
+#: ../capplets/keyboard/mate-keyboard-properties.c:213
+#: ../capplets/keyboard/mate-keyboard-properties.c:218
+msgid ""
+"Just apply settings and quit (compatibility only; now handled by daemon)"
+msgstr "Պարզապես կիրառել պարամետրեր և դուրս գալ (միայն համատեղելիությունը , այժմ օժանդակ ծրագրի մասնակցությամբ)"
+
+#: ../capplets/keyboard/mate-keyboard-properties.c:223
+msgid "Start the page with the typing break settings showing"
+msgstr "Սկսել էջը մուտքագրման ընդմիջման պարամետրերի ցուցադրումով"
+
+#: ../capplets/keyboard/mate-keyboard-properties.c:228
+msgid "Start the page with the accessibility settings showing"
+msgstr "Սկսել էջը հասանելիության կարգավորումների ցուցադրումով"
+
+#: ../capplets/keyboard/mate-keyboard-properties.c:234
+msgid "- MATE Keyboard Preferences"
+msgstr "- MATE Ստեղնաշարի Նախընտրանքներ"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:1
+msgid "Keyboard Accessibility Audio Feedback"
+msgstr "Ստեղնաշար Հասանելիություն Աուդիո Հետադարձ կապ"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:2
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:15
+#: ../capplets/mouse/mate-mouse-properties.ui.h:30
+#: ../capplets/windows/mate-window-properties.c:382
+msgid "General"
+msgstr "Ընդհանուր"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:3
+msgid "Beep when _accessibility features are turned on or off"
+msgstr "Ազդանշան, երբ _հասանելության հատկանիշները միացված կամ անջատված են"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:4
+msgid "Beep when a _toggle key is pressed"
+msgstr "Ազդանշան, երբ փոխանջատիչ ստեցնը սեղմված է"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:5
+msgid "Visual cues for sounds"
+msgstr "Տեսողական կանչի հրաման ձայների համար"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:6
+msgid "Show _visual feedback for the alert sound"
+msgstr "Ցույց տալ տեսողական հետադարձ կապ զգոն ձայնի համար"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:7
+msgid "Flash _window titlebar"
+msgstr "Առկայծել անվանում բար _պատուհանը"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:8
+msgid "Flash entire _screen"
+msgstr "Առկայծել ամբողջ էկրանով"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:9
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:39
+msgid "Slow Keys"
+msgstr "Դանդաղ Ստեղներ"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:10
+msgid "Beep when a key is pr_essed"
+msgstr "Ազդանշան երբ ստեղնը սեղմված է"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:11
+msgid "Beep when key is _accepted"
+msgstr "Ազդանշան երբ ստեղնը _ընդունված է"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:12
+msgid "Beep when key is _rejected"
+msgstr "Ազդանշան երբ ստեղնը _մերժված է"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:13
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:41
+msgid "Bounce Keys"
+msgstr "Վերադարձող Ստեղներ"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:14
+msgid "Beep when a key is reje_cted"
+msgstr "Ազդանշան երբ ստեղնը մերժված է"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:15
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:36
+msgid "Sticky Keys"
+msgstr "Կպչուն Ստեղներ"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:16
+msgid "Beep when a _modifier key is pressed"
+msgstr "Ազդանշան, երբ կերպափոխիչ ստեղնը սեղմված է"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:1
+msgid "Keyboard Preferences"
+msgstr "Ստեղնաշարի Նախընտրանքներ"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:2
+msgid "Repeat Keys"
+msgstr "Կրկնել բանալիները"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:3
+msgid "Key presses _repeat when key is held down"
+msgstr "Ստեղնի սեղմումը կրկնել, երբ ստեղնը իջնում է"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:4
+msgid "_Delay:"
+msgstr "_ՈՒշացումը:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:5
+msgid "_Speed:"
+msgstr "_Արագություն։"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:6
+#: ../capplets/mouse/mate-mouse-properties.ui.h:27
+msgid "Short"
+msgstr "Կարճ"
+
+#. slow acceleration
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:7
+#: ../capplets/mouse/mate-mouse-properties.ui.h:11
+msgid "Slow"
+msgstr "Դանդաղ"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:8
+msgid "Repeat keys speed"
+msgstr "Կրկնապատկել ստեղների արագությունը"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:9
+#: ../capplets/mouse/mate-mouse-properties.ui.h:28
+msgid "Long"
+msgstr "Երկար"
+
+#. fast acceleration
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:10
+#: ../capplets/mouse/mate-mouse-properties.ui.h:13
+msgid "Fast"
+msgstr "Արագ"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:11
+msgid "Cursor Blinking"
+msgstr "Կուրսորը Թարթում"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:12
+msgid "Cursor _blinks in text fields"
+msgstr "Կուրսորը _թարթում է տեքստի դաշտերը"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:13
+msgid "S_peed:"
+msgstr "Ա_րագություն։"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:14
+#: ../capplets/mouse/mate-mouse-properties.ui.h:22
+msgid "Cursor blinks speed"
+msgstr "Կուրսորի թարթման արագություն"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:16
+msgid "List of keyboard layouts selected for usage"
+msgstr "Ստեղնաշարի ընտրված դասավորության ցանկը օգտագործման համար"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:18
+msgid "Select a keyboard layout to be added to the list"
+msgstr "Ստեղնաշարի ընտրված դասավորությունը ավելացնել ցանկում"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:19
+msgid "Remove the selected keyboard layout from the list"
+msgstr "Ստեղնաշարի ընտրված դասավորությունը հեռացնել ցանկից"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:20
+msgid "Move _Up"
+msgstr "Տեղափոխել _Վերև"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:21
+msgid "Move the selected keyboard layout up in the list"
+msgstr "Ստեղնաշարի ընտրված դասավորությունը տեղափոխել ցանկում վերև"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:22
+msgid "Move _Down"
+msgstr "Տեղափոխել _Ներքև"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:23
+msgid "Move the selected keyboard layout down in the list"
+msgstr "Ստեղնաշարի ընտրված դասավորությունը տեղափոխել ցանկում ներքև"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:24
+msgid "_Show..."
+msgstr "_Ցույց տալ․․․"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:25
+msgid "Print a diagram of the selected keyboard layout"
+msgstr "Ընտրված ստեղնաշարի դասավորության դիագրամը տպել"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:26
+msgid "_Separate layout for each window"
+msgstr "_Առանձին դասավորություն յուրաքանչյուր պատուհանի համար"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:27
+msgid "New windows u_se active window's layout"
+msgstr "Նոր պատուհանները օգտագործել ակտիվ պատուհաններըի դասավորությունը"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:28
+msgid "Keyboard _model:"
+msgstr "Ստեղնաշար _մոդելը:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:29
+msgid "_Options..."
+msgstr "_Ընտրացանկ․․․"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:30
+msgid "View and edit keyboard layout options"
+msgstr "Դիտել և խմբագրել ստեղնաշարի դասավորության ընտրանքներ"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:31
+msgid "Reset to De_faults"
+msgstr "Վերականգնել Նա_խնականը"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:32
+msgid ""
+"Replace the current keyboard layout settings with the\n"
+"default settings"
+msgstr "Փոխարինել ընթացիկ ստեղնաշարի դասավորությունը կարգավորումները հետ\nհաստատուն պարամետրեր"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:34
+msgid "Layouts"
+msgstr "Նախագիծ"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:35
+msgid "_Accessibility features can be toggled with keyboard shortcuts"
+msgstr "_Հասանելիության հատկանիշները կարող են լինել փոխանջատված ստեղնաշարի դյուրանցումներով"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:37
+msgid "_Simulate simultaneous keypresses"
+msgstr "_Մոդելավորել միաժամանակյա հիմնական լրատվամիջոցները"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:38
+msgid "Disa_ble sticky keys if two keys are pressed together"
+msgstr "Անջա_տել կպչուն ստեղները եթե երկու ստեղները են սեղմված միասին"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:40
+msgid "_Only accept long keypresses"
+msgstr "Ընդունում է _միայն երկար հիմնական լրատվամիջոցները"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:42
+msgid "_Ignore fast duplicate keypresses"
+msgstr "_Անտեսել արագ կրկնօրինակ հիմնական լրատվամիջոցները"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:43
+msgid "D_elay:"
+msgstr "ՈՒ_շացումը:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:44
+msgid "Audio _Feedback..."
+msgstr "Աուդիո _Հետադարձ կապ․․․"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:46
+msgid "_Pointer can be controlled using the keypad"
+msgstr "_Ցուցիչ կարող է վերահսկել, օգտագործելով ստեղնախումբը"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:47
+#: ../capplets/mouse/mate-mouse-properties.ui.h:8
+msgid "_Acceleration:"
+msgstr "_Արագացում:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:48
+msgid "Mouse Keys"
+msgstr "Մկնիկի Ստեղներ"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:49
+msgid "_Lock screen to enforce typing break"
+msgstr "_Արգելափակել էկրանը կիրառելով մուտքագրման ընդմիջումը"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:50
+msgid ""
+"Lock screen after a certain duration to help prevent repetitive keyboard use"
+" injuries"
+msgstr "Արգելափակել էկրանը որոշակի տևողությունից հետո ստեղնաշարի կրկնվող օգնությունը կանխելու համար օգտագործելով \nվնասվածքները"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:51
+msgid "_Work interval lasts:"
+msgstr "_Աշխատանքային միջակայքը պահպանվում է:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:52
+msgid "_Break interval lasts:"
+msgstr "_Ընդմիջման միջակայքը պահպանվում է:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:53
+msgid "Duration of work before forcing a break"
+msgstr "Աշխատանքի տևողությումը մինչև ընդմիջման անցումը"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:54
+msgid "Duration of the break when typing is disallowed"
+msgstr "Ընդմիջման տևողությունը, երբ մուտքագրումը արգելված է"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:55
+msgid "minutes"
+msgstr "րոպեներ"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:56
+msgid "All_ow postponing of breaks"
+msgstr "Թույլ տալ հետաձգել ընդմիջումները"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:57
+msgid "Check if breaks are allowed to be postponed"
+msgstr "Ստուգեք եթե ընդմիջումները թույլատրվում է հետաձգվել"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:58
+msgid "Typing Break"
+msgstr "Ընդհատել Մուտքագրումը"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:59
+msgid "_Type to test settings:"
+msgstr "_Մուտքագրել թեստի պարամետրերը:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:1
+msgid "Choose a Layout"
+msgstr "Ընտրել Տեղակայությունը"
+
+#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:2
+msgid "_Variants:"
+msgstr "_Տարբերակներ:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:3
+msgid "_Country:"
+msgstr "_Երկիր:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:4
+msgid "By _country"
+msgstr "Ըստ _երկրի"
+
+#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:5
+msgid "_Language:"
+msgstr "_Լեզու։"
+
+#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:6
+msgid "By _language"
+msgstr "Ըստ _լեզվի"
+
+#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:7
+msgid "Preview:"
+msgstr "Նախադիտում։"
+
+#: ../capplets/keyboard/mate-keyboard-properties-model-chooser.ui.h:1
+msgid "Choose a Keyboard Model"
+msgstr "Ընտրեք Ստեղնաշարի մոդելի"
+
+#: ../capplets/keyboard/mate-keyboard-properties-model-chooser.ui.h:2
+msgid "_Vendors:"
+msgstr "_Վաճառող։"
+
+#: ../capplets/keyboard/mate-keyboard-properties-model-chooser.ui.h:3
+msgid "_Models:"
+msgstr "_Մոդելներ։"
+
+#: ../capplets/keyboard/mate-keyboard-properties-options-dialog.ui.h:1
+msgid "Keyboard Layout Options"
+msgstr "Ստեղնաշարի Դասավորության Ընտրանքներ"
+
+#: ../capplets/keyboard/mate-keyboard-properties-xkb.c:83
+msgid "Unknown"
+msgstr "Անհայտ"
+
+#: ../capplets/keyboard/mate-keyboard-properties-xkblt.c:240
+msgid "Layout"
+msgstr "Դասավորություն"
+
+#: ../capplets/keyboard/mate-keyboard-properties-xkbmc.c:170
+msgid "Vendors"
+msgstr "Վաճառող"
+
+#: ../capplets/keyboard/mate-keyboard-properties-xkbmc.c:236
+msgid "Models"
+msgstr "Մոդելներ"
+
+#: ../capplets/keyboard/mate-keyboard-properties-xkbot.c:237
+msgid "Default"
+msgstr "Հիմնական"
+
+#: ../capplets/keyboard/mate-keyboard.desktop.in.in.h:1
+msgid "Keyboard"
+msgstr "Ստեղնաշար"
+
+#: ../capplets/keyboard/mate-keyboard.desktop.in.in.h:2
+msgid "Set your keyboard preferences"
+msgstr "Սահմանել ձեր ստեղնաշարի նախապատվությունները"
+
+#: ../capplets/mouse/mate-mouse-properties.c:396
+msgid "Left button"
+msgstr "Ձախ կոճակ"
+
+#: ../capplets/mouse/mate-mouse-properties.c:396
+msgid "Middle button"
+msgstr "Միջին կոճակ"
+
+#: ../capplets/mouse/mate-mouse-properties.c:396
+msgid "Right button"
+msgstr "Աջ կոճակ"
+
+#. TRANSLATORS: don't translate the terms in brackets
+#: ../capplets/mouse/mate-mouse-properties.c:482
+msgid "Specify the name of the page to show (general)"
+msgstr "Նշել ցուցադրվող էջի անունը (ընդհանուր)"
+
+#: ../capplets/mouse/mate-mouse-properties.c:487
+msgid "- MATE Mouse Preferences"
+msgstr "- MATE Մկնիկի Նախապատվություններ"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:1
+msgid "Mouse Preferences"
+msgstr "Մկնիկի Նախընտրանքներ"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:2
+msgid "Mouse Orientation"
+msgstr "Մկնիկի Կողմնորոշում"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:3
+msgid "_Right-handed"
+msgstr "_Աջլիկ"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:4
+msgid "_Left-handed"
+msgstr "_Ձախլիկ"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:5
+msgid "Locate Pointer"
+msgstr "Տեղադրել ցուցիչը"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:6
+msgid "Sh_ow position of pointer when the Control key is pressed"
+msgstr "Ցույց տալ ցուցիչի դիրքը, երբ Control ստեղնը սեղմված է"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:7
+msgid "Pointer Speed"
+msgstr "Արագության Ցուցիչ"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:9
+msgid "_Sensitivity:"
+msgstr "_Զգայունությունը:"
+
+#. low sensitivity
+#: ../capplets/mouse/mate-mouse-properties.ui.h:15
+msgid "Low"
+msgstr "Ցածր"
+
+#. high sensitivity
+#: ../capplets/mouse/mate-mouse-properties.ui.h:17
+msgid "High"
+msgstr "Բարձր"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:18
+msgid "Drag and Drop"
+msgstr "Քաշել և Թողնել"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:19
+msgid "Thr_eshold:"
+msgstr "Շեմ_ային։"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:25
+msgid "Double-Click Timeout"
+msgstr " Կրկնակի Սեղմեք Սահմանված ժամանակի ավարտը"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:26
+msgid "_Timeout:"
+msgstr "_Ընդմիջում։"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:29
+msgid ""
+"To test your double-click settings, try to double-click on the light bulb."
+msgstr "Փորձարկելք ձեր կրկնակի կտտոց պարամետրերը , փորձել էլեկտրական լամպի վրա կրկնակի կտտացնել:"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:31
+msgid "Enable _touchpad"
+msgstr "Միացնել _զգայուն վահանակ"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:32
+msgid "Disable touchpad _while typing"
+msgstr "Անջատել զգայուն վահանակը _մինչ մուքագրումը"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:33
+msgid "Enable _mouse clicks with touchpad"
+msgstr "Միացնել _մկնիկի սեղմումը զգայուն վահանակի հետ միասին"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:34
+msgid "Two-finger click emulation:"
+msgstr "Երկմատ կտտոցի էմուլացում․"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:35
+msgid "Three-finger click emulation:"
+msgstr "Եռամատ կտտոցի էմուլացում․"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:36
+msgid "Scrolling"
+msgstr "Ոլորում"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:37
+msgid "_Vertical edge scrolling"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:38
+msgid "H_orizontal edge scrolling"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:39
+msgid "V_ertical two-finger scrolling"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:40
+msgid "Hor_izontal two-finger scrolling"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:41
+msgid "Enable n_atural scrolling"
+msgstr "Միացնել բնական ոլորումը"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:42
+msgid "Touchpad"
+msgstr "Զգայուն վահանակ"
+
+#: ../capplets/mouse/mate-settings-mouse.desktop.in.in.h:1
+msgid "Mouse"
+msgstr "Մկնիկ"
+
+#: ../capplets/mouse/mate-settings-mouse.desktop.in.in.h:2
+msgid "Set your mouse preferences"
+msgstr "Սահմանել ձեր մկնիկի նախապատվությունները"
+
+#: ../capplets/network/mate-network-properties.desktop.in.in.h:1
+msgid "Network Proxy"
+msgstr "Ցանցային Միջնորդ"
+
+#: ../capplets/network/mate-network-properties.desktop.in.in.h:2
+msgid "Set your network proxy preferences"
+msgstr "Սահմանեք ձեր ցանցային միջնորդ սերվերի նախապատվությունները"
+
+#: ../capplets/network/mate-network-properties.ui.h:1
+msgid "HTTP Proxy Details"
+msgstr "HTTP Միջնորդ սերվերի Մանրամասները"
+
+#: ../capplets/network/mate-network-properties.ui.h:2
+msgid "<b>_Use authentication</b>"
+msgstr "<b> _Օգտագործեք վավերացում </b>"
+
+#: ../capplets/network/mate-network-properties.ui.h:3
+msgid "U_sername:"
+msgstr "Մ_ուտքաբառ:"
+
+#: ../capplets/network/mate-network-properties.ui.h:4
+msgid "_Password:"
+msgstr "_Գաղտնաբառ"
+
+#: ../capplets/network/mate-network-properties.ui.h:5
+msgid "Network Proxy Preferences"
+msgstr "Ցանցային Միջնորդ Սերվերի նախապատվությունները"
+
+#: ../capplets/network/mate-network-properties.ui.h:6
+msgid "<b>Di_rect internet connection</b>"
+msgstr "<b>Ղեկավարել ինտերնետ կապը</b>"
+
+#: ../capplets/network/mate-network-properties.ui.h:7
+msgid "<b>_Manual proxy configuration</b>"
+msgstr "<b>_Պրոքսի սերվերի կոնֆիգուրացիոն ձեռնարկ</b>"
+
+#: ../capplets/network/mate-network-properties.ui.h:8
+msgid "H_TTP proxy:"
+msgstr "H_TTP միջնորդ սերվեր։"
+
+#: ../capplets/network/mate-network-properties.ui.h:9
+msgid "_Secure HTTP proxy:"
+msgstr "_Անվտանգ HTTP վստահված անձ:"
+
+#: ../capplets/network/mate-network-properties.ui.h:10
+msgid "_FTP proxy:"
+msgstr "_FTP միջնորդ սերվեր։"
+
+#: ../capplets/network/mate-network-properties.ui.h:11
+msgid "S_ocks host:"
+msgstr "S_ocks host:"
+
+#: ../capplets/network/mate-network-properties.ui.h:12
+msgid "Port:"
+msgstr "Պորտ։"
+
+#: ../capplets/network/mate-network-properties.ui.h:13
+msgid "_Details"
+msgstr "_Մանրամասներ"
+
+#: ../capplets/network/mate-network-properties.ui.h:14
+msgid "<b>_Automatic proxy configuration</b>"
+msgstr "<b>_Ավտոմատ proxy կոնֆիգուրացիա</b>"
+
+#: ../capplets/network/mate-network-properties.ui.h:15
+msgid "Autoconfiguration _URL:"
+msgstr "Ինքնակոնֆիգուրացվող _URL:"
+
+#: ../capplets/network/mate-network-properties.ui.h:16
+msgid "Proxy Configuration"
+msgstr "Proxy Կարգավորում"
+
+#: ../capplets/network/mate-network-properties.ui.h:17
+msgid "Ignore Host List"
+msgstr "Անտեսել Host Ցուցակը"
+
+#: ../capplets/network/mate-network-properties.ui.h:18
+msgid "Ignored Hosts"
+msgstr "Անտեսված Host֊եր"
+
+#: ../capplets/windows/mate-metacity-support.c:40
+msgid "Metacity Preferences"
+msgstr "Մետաքաղաքի Արտոնությունները"
+
+#. Compositing manager
+#: ../capplets/windows/mate-metacity-support.c:55
+#: ../capplets/windows/mate-window-properties.c:410
+msgid "Compositing Manager"
+msgstr "Կազմավորման Կառավարիչ"
+
+#: ../capplets/windows/mate-metacity-support.c:66
+#: ../capplets/windows/mate-window-properties.c:422
+msgid "Enable software _compositing window manager"
+msgstr "Միացնել պատուհանի կառավարիչի ծրագրային կազմավորումը"
+
+#: ../capplets/windows/mate-window-properties.c:264
+msgid "The current window manager is unsupported"
+msgstr "Ներկայիս պատուհանի կառավարիչը չաջակցվում"
+
+#. Window
+#: ../capplets/windows/mate-window-properties.c:358
+msgid "Window Preferences"
+msgstr "Պատուհանի նախապատվություններ"
+
+#: ../capplets/windows/mate-window-properties.c:391
+msgid "Behaviour"
+msgstr "Վարքագիծ"
+
+#: ../capplets/windows/mate-window-properties.c:400
+msgid "Placement"
+msgstr "Զետեղում"
+
+#: ../capplets/windows/mate-window-properties.c:423
+msgid "Disable _thumbnails in Alt-Tab"
+msgstr "Կասեցնել _մատնապատկերները Alt-Tab"
+
+#. Titlebar buttons
+#: ../capplets/windows/mate-window-properties.c:431
+msgid "Titlebar Buttons"
+msgstr "Տիտղոսային Բարի Կոճակներ"
+
+#: ../capplets/windows/mate-window-properties.c:439
+msgid "Position:"
+msgstr "Դիրք։"
+
+#. New Windows
+#: ../capplets/windows/mate-window-properties.c:446
+msgid "New Windows"
+msgstr "Նոր Պատուհաններ"
+
+#: ../capplets/windows/mate-window-properties.c:454
+msgid "Center _new windows"
+msgstr "_Նոր պատուհաններ կենտրոն"
+
+#. Window Snapping
+#: ../capplets/windows/mate-window-properties.c:459
+msgid "Window Snapping"
+msgstr "Պատուհանի Բեռնում"
+
+#: ../capplets/windows/mate-window-properties.c:467
+msgid "Enable side by side _tiling"
+msgstr "Միացնել կողք կողքի _կցաշարումը"
+
+#. Window Selection
+#: ../capplets/windows/mate-window-properties.c:472
+msgid "Window Selection"
+msgstr "Պատուհանի ընտրություն"
+
+#: ../capplets/windows/mate-window-properties.c:492
+msgid "_Select windows when the mouse moves over them"
+msgstr "_Ընտրել պատուհանները, երբ մկնիկը շարժվում է նրանց վրա"
+
+#: ../capplets/windows/mate-window-properties.c:495
+msgid "U_nselect windows when the mouse leaves them"
+msgstr "Չընտրել պատուհանները, երբ մկնիկը թողնում է նրանց"
+
+#: ../capplets/windows/mate-window-properties.c:499
+msgid "_Raise selected windows after an interval"
+msgstr "_Բարձրացնել ընտրված պատուհանները ընդմիջումից հետո"
+
+#: ../capplets/windows/mate-window-properties.c:510
+msgid "_Interval before raising:"
+msgstr "_Ինտերվալը բարձրացնելուց հետո։"
+
+#: ../capplets/windows/mate-window-properties.c:514
+msgid "seconds"
+msgstr "վայրկյաններ"
+
+#. Titlebar Action
+#: ../capplets/windows/mate-window-properties.c:525
+msgid "Titlebar Action"
+msgstr " Տիտղոսային բարի Գործողություն"
+
+#: ../capplets/windows/mate-window-properties.c:533
+msgid "_Double-click titlebar to perform this action:"
+msgstr "_Կրկինակի սեղմեք տիտղոսային բարը այս գործողության կատարման համար․"
+
+#. Movement Key
+#: ../capplets/windows/mate-window-properties.c:541
+msgid "Movement Key"
+msgstr "Շարժող ստեղն"
+
+#: ../capplets/windows/mate-window-properties.c:552
+msgid "To move a window, press-and-hold this key then grab the window:"
+msgstr "Տեղափոխել պատուհանը, սեզմել և պահել սայ ստեղնը, որ ըմբռնի պատուհանը․"
+
+#: ../capplets/windows/mate-window-properties.c:580
+#: ../libwindow-settings/marco-window-manager.c:394
+msgid "Roll up"
+msgstr "Պտտել"
+
+#: ../capplets/windows/mate-window-properties.c:581
+#: ../libwindow-settings/marco-window-manager.c:395
+msgid "Maximize"
+msgstr "Առավելագույնի հասցնել"
+
+#: ../capplets/windows/mate-window-properties.c:582
+#: ../libwindow-settings/marco-window-manager.c:396
+msgid "Maximize Horizontally"
+msgstr "Առավելագույնի հասցնել հորիզոնական ուղղությամբ"
+
+#: ../capplets/windows/mate-window-properties.c:583
+#: ../libwindow-settings/marco-window-manager.c:397
+msgid "Maximize Vertically"
+msgstr "Առավելագույնի հասցնել ուղղահայաց ուղղությամբ"
+
+#: ../capplets/windows/mate-window-properties.c:584
+#: ../libwindow-settings/marco-window-manager.c:398
+msgid "Minimize"
+msgstr "Նվազագույնի հասցնել"
+
+#: ../capplets/windows/mate-window-properties.c:585
+#: ../libwindow-settings/marco-window-manager.c:399
+msgid "None"
+msgstr "Ոչինչ"
+
+#: ../capplets/windows/mate-window-properties.c:786
+msgid "_Alt"
+msgstr "_Alt"
+
+#: ../capplets/windows/mate-window-properties.c:792
+msgid "H_yper"
+msgstr "H_yper"
+
+#: ../capplets/windows/mate-window-properties.c:799
+msgid "S_uper (or \"Windows logo\")"
+msgstr "Ս_ուպեր (կամ \"Windows լոգո\")"
+
+#: ../capplets/windows/mate-window-properties.c:806
+msgid "_Meta"
+msgstr "_Meta"
+
+#: ../capplets/windows/mate-window-properties.desktop.in.in.h:1
+msgid "Windows"
+msgstr "Windows "
+
+#: ../capplets/windows/mate-window-properties.desktop.in.in.h:2
+msgid "Set your window properties"
+msgstr "Սահմանել ձեր պատուհանի հատկությունները"
+
+#: ../libwindow-settings/mate-wm-manager.c:317
+#, c-format
+msgid "Window manager \"%s\" has not registered a configuration tool\n"
+msgstr "Պատուհանի կառավարիչը \"%s\" չի արձագանքում կոնֆիգուրացիոն գործիքին\n"
+
+#: ../shell/control-center.c:61
+#, c-format
+msgid "%s key is empty\n"
+msgstr "%s ստեղնը դատարկ է\n"
+
+#: ../shell/control-center.c:161
+msgid "Hide on start (useful to preload the shell)"
+msgstr "Թաքցնել սկիզբը (օգտագործելով նախնական shell )"
+
+#: ../shell/control-center.c:201
+msgid "Filter"
+msgstr "Ֆիլտր"
+
+#: ../shell/control-center.c:201
+msgid "Groups"
+msgstr "Խմբեր"
+
+#: ../shell/control-center.c:201
+msgid "Common Tasks"
+msgstr "Ընդհանուր Խնդիրներ"
+
+#: ../shell/control-center.c:203 ../shell/matecc.desktop.in.in.h:1
+#: ../shell/matecc.directory.in.h:1
+msgid "Control Center"
+msgstr "Վերահսկիչ Կենտրոն"
+
+#: ../shell/matecc.desktop.in.in.h:2
+msgid "The MATE configuration tool"
+msgstr "MATE կազմաձևման գործիք"
+
+#: ../typing-break/drw-break-window.c:203
+msgid "_Postpone Break"
+msgstr "_Հետաձգել Ընդհատումը"
+
+#: ../typing-break/drw-break-window.c:277
+msgid "Take a break!"
+msgstr "Վերցնել ընդմիջում!"
+
+#: ../typing-break/drwright.c:139
+msgid "_Take a Break"
+msgstr "_Վերցնել Ընդմիջում"
+
+#: ../typing-break/drwright.c:510
+#, c-format
+msgid "Take a break now (next in %dm)"
+msgstr "Հիմա վերցնել ընդմիջում  (հաջորդը %dմ)"
+
+#: ../typing-break/drwright.c:512
+#, c-format
+msgid "%d minute until the next break"
+msgid_plural "%d minutes until the next break"
+msgstr[0] "%d րոպե, մինչև հաջորդ ընդմիջումը"
+msgstr[1] "%d րոպեներ, մինչև հաջորդ ընդմիջումը"
+
+#: ../typing-break/drwright.c:518
+#, c-format
+msgid "Take a break now (next in less than one minute)"
+msgstr "Հիմա վերցրեք ընդմիջում (հաջորդը մեկ րեպեից պակաս)"
+
+#: ../typing-break/drwright.c:520
+#, c-format
+msgid "Less than one minute until the next break"
+msgstr "Մեկ րոպեից քիչ մինչև հաջորդ ընդմիջումը"
+
+#: ../typing-break/drwright.c:610
+#, c-format
+msgid ""
+"Unable to bring up the typing break properties dialog with the following "
+"error: %s"
+msgstr "Անհնար է բերել վեր մուտքագրման ընդմիջման հատկությունների երկխոսությունը հետևյալ սխալի հետ միասին․ %s"
+
+#: ../typing-break/drwright.c:627
+msgid "Written by Richard Hult <richard@imendio.com>"
+msgstr "Գրվել է Richard Hult֊ի կողմից <richard@imendio.com>"
+
+#: ../typing-break/drwright.c:628
+msgid "Eye candy added by Anders Carlsson"
+msgstr "Eye Candy֊ն ավելացրել է Anders Carlsson֊ի կողմից"
+
+#: ../typing-break/drwright.c:637
+msgid "A computer break reminder."
+msgstr "Համակարգչային ընդմիջման հիշեցում։"
+
+#: ../typing-break/drwright.c:639
+msgid "translator-credits"
+msgstr "թարգմանչի կրեդիտներ"
+
+#: ../typing-break/main.c:63
+msgid "Enable debugging code"
+msgstr "Ակտրվացնել ծածկագրի վրիպակազերծումը"
+
+#: ../typing-break/main.c:65
+msgid "Don't check whether the notification area exists"
+msgstr "Մի ստուգեք, թե արդյոք ծանուցման տարածքը գոյություն ունի"
+
+#: ../typing-break/main.c:89
+msgid "Typing Monitor"
+msgstr "Մոնիտորի Մուտքագրում"
+
+#: ../typing-break/main.c:106
+msgid ""
+"The typing monitor uses the notification area to display information. You "
+"don't seem to have a notification area on your panel. You can add it by "
+"right-clicking on your panel and choosing 'Add to panel', selecting "
+"'Notification area' and clicking 'Add'."
+msgstr "Մուտքագրման վերահսկումը օգտագործում է ծանուցման տարածքը ինֆորմացիան ցուցադրելու համար։ Դուք կարծես թե չունեք ծանուցման տարածք ձեր վահանակի վրա։ Դուք այն կարող եք ավելացնել ձեր վահանակի վրա ընտրելով  'Add to panel', նշելով 'Notification area' և սեղմել 'Add'։"
+
+#: ../font-viewer/font-view.c:360 ../font-viewer/font-view.c:362
+msgid "Name:"
+msgstr "Անուն։"
+
+#: ../font-viewer/font-view.c:367 ../font-viewer/font-view.c:369
+msgid "Style:"
+msgstr "Ոճ:"
+
+#: ../font-viewer/font-view.c:383 ../font-viewer/font-view.c:385
+msgid "Type:"
+msgstr "Տիպ։"
+
+#: ../font-viewer/font-view.c:391 ../font-viewer/font-view.c:393
+msgid "Size:"
+msgstr "Չափ։"
+
+#: ../font-viewer/font-view.c:440 ../font-viewer/font-view.c:442
+#: ../font-viewer/font-view.c:465 ../font-viewer/font-view.c:467
+msgid "Version:"
+msgstr "Տարբերակ։"
+
+#: ../font-viewer/font-view.c:448 ../font-viewer/font-view.c:450
+#: ../font-viewer/font-view.c:471 ../font-viewer/font-view.c:473
+msgid "Copyright:"
+msgstr "Հեղինակային իրավունքներ։"
+
+#: ../font-viewer/font-view.c:456 ../font-viewer/font-view.c:458
+msgid "Description:"
+msgstr "Նկարագրություն։"
+
+#: ../font-viewer/font-view.c:535
+msgid "Installed"
+msgstr "Տեղադրված է"
+
+#: ../font-viewer/font-view.c:537
+msgid "Install Failed"
+msgstr "Տեղադրելը Ձախոզվել է"
+
+#: ../font-viewer/font-view.c:613
+#, c-format
+msgid "Usage: %s fontfile\n"
+msgstr "Օգտագործում՝ %s տառատեսակի ֆայլ\n"
+
+#: ../font-viewer/font-view.c:713
+msgid "I_nstall Font"
+msgstr "Տեղադրել Տառատեսակ"
+
+#: ../font-viewer/mate-font-viewer.desktop.in.in.h:1
+msgid "Font Viewer"
+msgstr "Տառատեսակի Արտապատկերման միջոց"
+
+#: ../font-viewer/mate-font-viewer.desktop.in.in.h:2
+msgid "Preview fonts"
+msgstr "Տառատեսակների նախնական տեսք"
+
+#: ../font-viewer/font-thumbnailer.c:267
+msgid "Text to thumbnail (default: Aa)"
+msgstr "Տեքստի մանրապատկերը (նախնական՝ Aa)"
+
+#: ../font-viewer/font-thumbnailer.c:267
+msgid "TEXT"
+msgstr "ՏԵՔՍՏ"
+
+#: ../font-viewer/font-thumbnailer.c:269
+msgid "Font size (default: 64)"
+msgstr "Տառատեսակի չափ (default: 64)"
+
+#: ../font-viewer/font-thumbnailer.c:269
+msgid "SIZE"
+msgstr "ՉԱՓ"
+
+#: ../font-viewer/font-thumbnailer.c:271
+msgid "FONT-FILE OUTPUT-FILE"
+msgstr "ՖՈՆՏ―ՖԱՅԼ ԵԼՔԱՅԻՆ―ՖԱՅԼ"
+
+#: ../libslab/app-shell.c:791
+#, c-format
+msgid "Your filter \"%s\" does not match any items."
+msgstr "Ձեր ֆիլտրը \"%s\" չի համապատասխանում որևէ կետի։"
+
+#: ../libslab/app-shell.c:793
+msgid "No matches found."
+msgstr "Համապատասխանեցումներ չեն գտնվել։"
+
+#: ../libslab/app-shell.c:893
+msgid "New Applications"
+msgstr "Նոր Կիրառական ծրագիր"
+
+#: ../libslab/app-shell.c:948
+msgid "Other"
+msgstr "Այլ"
+
+#. make start action
+#: ../libslab/application-tile.c:339
+#, c-format
+msgid "Start %s"
+msgstr "Սկիզբ %s"
+
+#: ../libslab/application-tile.c:360
+msgid "Help"
+msgstr "Օգնություն"
+
+#: ../libslab/application-tile.c:636 ../libslab/document-tile.c:743
+msgid "Remove from Favorites"
+msgstr "Հեռացնել Ընտրըալների մեջից"
+
+#: ../libslab/application-tile.c:638 ../libslab/document-tile.c:745
+msgid "Add to Favorites"
+msgstr "Ավելացնել Ընտրյալների մեջ"
+
+#: ../libslab/application-tile.c:723
+msgid "Remove from Startup Programs"
+msgstr "Հեռացնել Գործարկվող Ծրագրերի մեջից"
+
+#: ../libslab/application-tile.c:725
+msgid "Add to Startup Programs"
+msgstr "Ավելացնել գԳրծարկվող Ծրագրերի մեջ"
+
+#: ../libslab/bookmark-agent.c:1087
+msgid "New Spreadsheet"
+msgstr "Նոր Աղյուսակ"
+
+#: ../libslab/bookmark-agent.c:1091
+msgid "New Document"
+msgstr "Նոր Փաստաթուղթ"
+
+#: ../libslab/bookmark-agent.c:1145
+msgctxt "Home folder"
+msgid "Home"
+msgstr "Տուն"
+
+#: ../libslab/bookmark-agent.c:1152
+msgid "Documents"
+msgstr "Փաստաթղթեր"
+
+#: ../libslab/bookmark-agent.c:1158
+msgid "Desktop"
+msgstr "Աշխատանքային սեղան"
+
+#: ../libslab/bookmark-agent.c:1163
+msgid "File System"
+msgstr "Ֆայլին Համակարգ"
+
+#: ../libslab/bookmark-agent.c:1166
+msgid "Network Servers"
+msgstr "Ցանցային Սերվերներ"
+
+#: ../libslab/bookmark-agent.c:1197
+msgid "Search"
+msgstr "Որոնել"
+
+#. make open with default action
+#: ../libslab/directory-tile.c:176
+#, c-format
+msgid "<b>Open</b>"
+msgstr "<b>Բացել</b>"
+
+#. make rename action
+#: ../libslab/directory-tile.c:195 ../libslab/document-tile.c:241
+msgid "Rename..."
+msgstr "Վերանվանում․․․"
+
+#: ../libslab/directory-tile.c:209 ../libslab/directory-tile.c:218
+#: ../libslab/document-tile.c:255 ../libslab/document-tile.c:264
+msgid "Send To..."
+msgstr "Ուղարկել Դեպի․․․"
+
+#. make move to trash action
+#: ../libslab/directory-tile.c:233 ../libslab/document-tile.c:290
+msgid "Move to Trash"
+msgstr "Տեղափոխել Թափոն զամբյուղի մեջ"
+
+#: ../libslab/directory-tile.c:243 ../libslab/directory-tile.c:461
+#: ../libslab/document-tile.c:300 ../libslab/document-tile.c:863
+msgid "Delete"
+msgstr "Ջնջել"
+
+#: ../libslab/directory-tile.c:538 ../libslab/document-tile.c:1026
+#, c-format
+msgid "Are you sure you want to permanently delete \"%s\"?"
+msgstr "Դուք համոզված եք, որ ցանկանում եք մշտապես ջնջել \"%s\"?"
+
+#: ../libslab/directory-tile.c:539 ../libslab/document-tile.c:1027
+msgid "If you delete an item, it is permanently lost."
+msgstr "Եթե ցանկանում եք ջնջել տարրը, ապա դա մշտապես կկորչի։"
+
+#: ../libslab/document-tile.c:200
+#, c-format
+msgid "Open with \"%s\""
+msgstr "Բացել միասին %s"
+
+#: ../libslab/document-tile.c:214
+msgid "Open with Default Application"
+msgstr "Բացել Հիմնական Դիմումով"
+
+#: ../libslab/document-tile.c:225
+msgid "Open in File Manager"
+msgstr "Բացել Ֆայլի Կառավարիչում"
+
+#. clean item from menu
+#: ../libslab/document-tile.c:309
+msgid "Remove from recent menu"
+msgstr "Հեռացնել  վերջին ընտրացանկից"
+
+#. clean all the items from menu
+#: ../libslab/document-tile.c:317
+msgid "Purge all the recent items"
+msgstr "Մաքրել բոլոր վերջին տարրերը"
+
+#: ../libslab/document-tile.c:631
+msgid "?"
+msgstr "?"
+
+#: ../libslab/document-tile.c:638
+msgid "%l:%M %p"
+msgstr "%l:%M %p"
+
+#: ../libslab/document-tile.c:646
+msgid "Today %l:%M %p"
+msgstr "Այսօր %l:%M %p"
+
+#: ../libslab/document-tile.c:656
+msgid "Yesterday %l:%M %p"
+msgstr "Երեկ %l:%M %p"
+
+#: ../libslab/document-tile.c:668
+msgid "%a %l:%M %p"
+msgstr "%a %l:%M %p"
+
+#: ../libslab/document-tile.c:676
+msgid "%b %d %l:%M %p"
+msgstr "%b %d %l:%M %p"
+
+#: ../libslab/document-tile.c:678
+msgid "%b %d %Y"
+msgstr "%b %d %Y"
+
+#: ../libslab/search-bar.c:260
+msgid "Find Now"
+msgstr "Գտնել Հիմա"
+
+#: ../libslab/system-tile.c:132
+#, c-format
+msgid "<b>Open %s</b>"
+msgstr "<b>Բացել %s</b>"
+
+#: ../libslab/system-tile.c:145
+#, c-format
+msgid "Remove from System Items"
+msgstr "Հեռացնել Համակարգի Տարրերի մեջից"

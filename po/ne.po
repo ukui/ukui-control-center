@@ -1,0 +1,2939 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Narayan Kumar Magar <narayan@mpp.org.np>, 2007
+# Pawan Chitrakar   <pawan@nplinux.org>, 2004
+msgid ""
+msgstr ""
+"Project-Id-Version: MATE Desktop Environment\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-27 23:13+0300\n"
+"PO-Revision-Date: 2016-03-27 20:16+0000\n"
+"Last-Translator: monsta <monsta@inbox.ru>\n"
+"Language-Team: Nepali (http://www.transifex.com/mate/MATE/language/ne/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ne\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../org.mate.control-center.gschema.xml.in.h:1
+msgid ""
+"[ 'Change Theme;mate-appearance-properties.desktop', 'Set Preferred "
+"Applications;mate-default-applications-properties.desktop' ]"
+msgstr ""
+
+#: ../org.mate.control-center.gschema.xml.in.h:2
+msgid "Task names and associated .desktop files"
+msgstr "कार्य नामहरू र सम्बन्धितहरू । डेस्कटप फाइलहरू"
+
+#: ../org.mate.control-center.gschema.xml.in.h:3
+msgid ""
+"The task name to be displayed in the control-center followed by a \";\" "
+"separator then the filename of an associated .desktop file to launch for "
+"that task."
+msgstr ""
+
+#: ../org.mate.control-center.gschema.xml.in.h:4
+msgid "Close the control-center when a task is activated"
+msgstr "कार्य सक्रिय गरिएको बेला नियन्त्रण-केन्द्र बन्द गर्नुहोस्"
+
+#: ../org.mate.control-center.gschema.xml.in.h:5
+msgid ""
+"if true, the control-center will close when a \"Common Task\" is activated."
+msgstr ""
+
+#: ../org.mate.control-center.gschema.xml.in.h:6
+msgid "Exit shell on start action performed"
+msgstr "'सुरुआत गर्नुहोस्' कार्य कार्यसम्पादन गर्दा शेल अन्त्य गर्नुहोस्"
+
+#: ../org.mate.control-center.gschema.xml.in.h:7
+msgid "Indicates whether to close the shell when a start action is performed."
+msgstr ""
+
+#: ../org.mate.control-center.gschema.xml.in.h:8
+msgid "Exit shell on help action performed"
+msgstr "'मद्दत' कार्य कार्यसम्पादन गर्दा शेल अन्त्य गर्नुहोस्"
+
+#: ../org.mate.control-center.gschema.xml.in.h:9
+msgid "Indicates whether to close the shell when a help action is performed."
+msgstr ""
+
+#: ../org.mate.control-center.gschema.xml.in.h:10
+msgid "Exit shell on add or remove action performed"
+msgstr "'थप्नुहोस्' वा 'हटाउनुहोस्‌' कार्य कार्यसम्पादन गर्दा शेल अन्त्य गर्नुहोस्"
+
+#: ../org.mate.control-center.gschema.xml.in.h:11
+msgid ""
+"Indicates whether to close the shell when an add or remove action is "
+"performed."
+msgstr ""
+
+#: ../org.mate.control-center.gschema.xml.in.h:12
+msgid "Exit shell on upgrade or uninstall action performed"
+msgstr "'स्तरवृधि गर्नुहोस्' वा 'स्थापना नगर्नुहोस्' कार्य कार्यसम्पादन गर्दा शेल अन्त्य गर्नुहोस्"
+
+#: ../org.mate.control-center.gschema.xml.in.h:13
+msgid ""
+"Indicates whether to close the shell when an upgrade or uninstall action is "
+"performed."
+msgstr ""
+
+#: ../org.mate.control-center.gschema.xml.in.h:14
+msgid "More backgrounds URL"
+msgstr ""
+
+#: ../org.mate.control-center.gschema.xml.in.h:15
+msgid ""
+"URL for where to get more desktop backgrounds. If set to an empty string the"
+" link will not appear."
+msgstr ""
+
+#: ../org.mate.control-center.gschema.xml.in.h:16
+msgid "More themes URL"
+msgstr ""
+
+#: ../org.mate.control-center.gschema.xml.in.h:17
+msgid ""
+"URL for where to get more desktop themes. If set to an empty string the link"
+" will not appear."
+msgstr ""
+
+#: ../org.mate.control-center.keybinding.gschema.xml.in.h:1
+msgid "Keybinding"
+msgstr ""
+
+#: ../org.mate.control-center.keybinding.gschema.xml.in.h:2
+msgid "Keybinding associated with a custom shortcut."
+msgstr ""
+
+#: ../org.mate.control-center.keybinding.gschema.xml.in.h:3
+msgid "Command"
+msgstr ""
+
+#: ../org.mate.control-center.keybinding.gschema.xml.in.h:4
+msgid "Command associated with a custom keybinding."
+msgstr ""
+
+#: ../org.mate.control-center.keybinding.gschema.xml.in.h:5
+msgid "Name"
+msgstr ""
+
+#: ../org.mate.control-center.keybinding.gschema.xml.in.h:6
+msgid "Description associated with a custom keybinding."
+msgstr ""
+
+#: ../capplets/about-me/eel-alert-dialog.c:110
+msgid "Image/label border"
+msgstr "छवि/लेबुल किनारा"
+
+#: ../capplets/about-me/eel-alert-dialog.c:111
+msgid "Width of border around the label and image in the alert dialog"
+msgstr "सावधान संवादमा लेबुल र छवि वरिपरि किनाराको चौडाइ"
+
+#: ../capplets/about-me/eel-alert-dialog.c:120
+msgid "Alert Type"
+msgstr "सावधान प्रकार"
+
+#: ../capplets/about-me/eel-alert-dialog.c:121
+msgid "The type of alert"
+msgstr "सावधानको प्रकार"
+
+#: ../capplets/about-me/eel-alert-dialog.c:129
+msgid "Alert Buttons"
+msgstr "सावधान बटनहरू"
+
+#: ../capplets/about-me/eel-alert-dialog.c:130
+msgid "The buttons shown in the alert dialog"
+msgstr "सावधानी संवादमा देखाइएको बटनहरू"
+
+#: ../capplets/about-me/eel-alert-dialog.c:219
+msgid "Show more _details"
+msgstr "अरू विस्तृत विवरणहरू देखाउनुहोस्"
+
+#: ../capplets/about-me/mate-about-me.c:268
+msgid "Select Image"
+msgstr "छवि चयन गर्नुहोस्"
+
+#: ../capplets/about-me/mate-about-me.c:270
+msgid "No Image"
+msgstr "छवि छैन"
+
+#: ../capplets/about-me/mate-about-me.c:298
+#: ../capplets/appearance/appearance-desktop.c:650
+msgid "Images"
+msgstr "छविहरू"
+
+#: ../capplets/about-me/mate-about-me.c:302
+#: ../capplets/appearance/theme-installer.c:783
+msgid "All Files"
+msgstr "सबै फाइलहरू"
+
+#: ../capplets/about-me/mate-about-me.c:454
+#, c-format
+msgid "About %s"
+msgstr "%s बारेमा"
+
+#: ../capplets/about-me/mate-about-me-dialog.ui.h:1
+#: ../capplets/about-me/mate-about-me.desktop.in.in.h:1
+msgid "About Me"
+msgstr "मेरो बारेमा"
+
+#: ../capplets/about-me/mate-about-me-dialog.ui.h:2
+msgid "Select your photo"
+msgstr "तपाईँको फोटो चयन गर्नुहोस्"
+
+#: ../capplets/about-me/mate-about-me-dialog.ui.h:3
+msgid "Full Name"
+msgstr "पूरा नाम"
+
+#: ../capplets/about-me/mate-about-me-dialog.ui.h:4
+msgid "User name:"
+msgstr "प्रयोगकर्ताको नाम:"
+
+#: ../capplets/about-me/mate-about-me-dialog.ui.h:5
+msgid "Change Passwo_rd..."
+msgstr "पासवर्ड परिवर्तन गर्नुहोस्..."
+
+#: ../capplets/about-me/mate-about-me-dialog.ui.h:6
+msgid "Enable _Fingerprint Login..."
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-dialog.ui.h:7
+msgid "Disable _Fingerprint Login..."
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me.desktop.in.in.h:2
+msgid "Set your personal information"
+msgstr "तपाईँको व्यक्तिगत जानकारी सेट गर्नुहोस्"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:100
+msgid ""
+"You are not allowed to access the device. Contact your system administrator."
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:102
+msgid "The device is already in use."
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:104
+msgid "An internal error occurred"
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:221
+msgid "Delete registered fingerprints?"
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:224
+msgid "_Delete Fingerprints"
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:231
+msgid ""
+"Do you want to delete your registered fingerprints so fingerprint login is "
+"disabled?"
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:359
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:15
+msgid "Done!"
+msgstr ""
+
+#. translators:
+#. * The variable is the name of the device, for example:
+#. * "Could you not access "Digital Persona U.are.U 4000/4000B" device
+#: ../capplets/about-me/mate-about-me-fingerprint.c:405
+#: ../capplets/about-me/mate-about-me-fingerprint.c:427
+#, c-format
+msgid "Could not access '%s' device"
+msgstr ""
+
+#. translators:
+#. * The variable is the name of the device, for example:
+#. * "Could you not access "Digital Persona U.are.U 4000/4000B" device
+#: ../capplets/about-me/mate-about-me-fingerprint.c:476
+#, c-format
+msgid "Could not start finger capture on '%s' device"
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:523
+msgid "Could not access any fingerprint readers"
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:524
+msgid "Please contact your system administrator for help."
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:554
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:9
+msgid "Enable Fingerprint Login"
+msgstr ""
+
+#. translators:
+#. * The variable is the name of the device, for example:
+#. * "To enable fingerprint login, you need to save one of your fingerprints,
+#. using the
+#. * 'Digital Persona U.are.U 4000/4000B' device."
+#: ../capplets/about-me/mate-about-me-fingerprint.c:584
+#, c-format
+msgid ""
+"To enable fingerprint login, you need to save one of your fingerprints, "
+"using the '%s' device."
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:593
+msgid "Swipe finger on reader"
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:595
+msgid "Place finger on reader"
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:1
+msgid "Left thumb"
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:2
+msgid "Left middle finger"
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:3
+msgid "Left ring finger"
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:4
+msgid "Left little finger"
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:5
+msgid "Right thumb"
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:6
+msgid "Right middle finger"
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:7
+msgid "Right ring finger"
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:8
+msgid "Right little finger"
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:10
+msgid "Right index finger"
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:11
+msgid "Left index finger"
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:12
+msgid "Other finger: "
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:13
+msgid "Select finger"
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:14
+msgid ""
+"Your fingerprint was successfully saved. You should now be able to log in "
+"using your fingerprint reader."
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-password.c:161
+msgid "Child exited unexpectedly"
+msgstr "शाखा अनपेक्षित रूपमा अन्त्य भयो"
+
+#: ../capplets/about-me/mate-about-me-password.c:297
+#, c-format
+msgid "Could not shutdown backend_stdin IO channel: %s"
+msgstr "backend_stdin IO च्यानल बन्द गर्न सकेन: %s"
+
+#: ../capplets/about-me/mate-about-me-password.c:310
+#, c-format
+msgid "Could not shutdown backend_stdout IO channel: %s"
+msgstr "backend_stdout IO च्यानल बन्द गर्न सकेन: %s"
+
+#: ../capplets/about-me/mate-about-me-password.c:409
+msgid "Authenticated!"
+msgstr "प्रमाणीकरण गरिएको!"
+
+#. This is a re-auth, and it failed.
+#. * The password must have been changed in the meantime!
+#. * Ask the user to re-authenticate
+#. Update status message and auth state
+#. Authentication failure
+#: ../capplets/about-me/mate-about-me-password.c:472
+#: ../capplets/about-me/mate-about-me-password.c:557
+msgid ""
+"Your password has been changed since you initially authenticated! Please re-"
+"authenticate."
+msgstr "तपाईँले सुरुमा प्रमाणीकरण गरे पछि तपाईँको पासवर्ड परिवर्तन गरिएको छ! कृपया पुन: प्रमाणीकरण गर्नुहोस् ।"
+
+#: ../capplets/about-me/mate-about-me-password.c:474
+msgid "That password was incorrect."
+msgstr "त्यो पासवर्ड गलत थियो ।"
+
+#: ../capplets/about-me/mate-about-me-password.c:525
+msgid "Your password has been changed."
+msgstr "तपाईँको पासवर्ड परिवर्तन गरिएको छ ।"
+
+#. What does this indicate?
+#. * "Authentication information cannot be recovered?" from libpam?
+#: ../capplets/about-me/mate-about-me-password.c:535
+#, c-format
+msgid "System error: %s."
+msgstr "प्रणाली त्रुटि: %s."
+
+#: ../capplets/about-me/mate-about-me-password.c:538
+msgid "The password is too short."
+msgstr "पासवर्ड धेरै छोटो छ ।"
+
+#: ../capplets/about-me/mate-about-me-password.c:542
+msgid "The password is too simple."
+msgstr "पासवर्ड धेरै सरल छ ।"
+
+#: ../capplets/about-me/mate-about-me-password.c:547
+msgid "The old and new passwords are too similar."
+msgstr "पुरानो र नयाँ पासवर्डहरू धेरै उस्तै छन् ।"
+
+#: ../capplets/about-me/mate-about-me-password.c:549
+msgid "The new password must contain numeric or special character(s)."
+msgstr "नयाँ पासवर्डले सङ्ख्यात्मक वा विशेष क्यारेक्टर(हरू) समाविष्ट गर्नुपर्दछ ।"
+
+#: ../capplets/about-me/mate-about-me-password.c:552
+msgid "The old and new passwords are the same."
+msgstr "पुरानो र नयाँ पासवर्डहरू एउटै छन् ।"
+
+#: ../capplets/about-me/mate-about-me-password.c:554
+msgid "The new password has already been used recently."
+msgstr ""
+
+#. translators: Unable to launch <program>: <error message>
+#: ../capplets/about-me/mate-about-me-password.c:829
+#, c-format
+msgid "Unable to launch %s: %s"
+msgstr "%s सुरुआत गर्न अक्षम: %s"
+
+#: ../capplets/about-me/mate-about-me-password.c:833
+msgid "Unable to launch backend"
+msgstr "ब्याकइन्ड सुरुआत गर्न अक्षम"
+
+#: ../capplets/about-me/mate-about-me-password.c:834
+msgid "A system error has occurred"
+msgstr "एउटा प्रणाली त्रुटि देखा पर्यो"
+
+#. Update status message
+#: ../capplets/about-me/mate-about-me-password.c:854
+msgid "Checking password..."
+msgstr "पासवर्ड जाँच गर्दैछ..."
+
+#: ../capplets/about-me/mate-about-me-password.c:938
+msgid "Click <b>Change password</b> to change your password."
+msgstr "तपाईँको पासवर्ड परिवर्तन गर्न <b>पासवर्ड परिवर्तन गर्नुहोस्</b> क्लिक गर्नुहोस् ।"
+
+#: ../capplets/about-me/mate-about-me-password.c:941
+msgid "Please type your password in the <b>New password</b> field."
+msgstr "कृपया तपाईँको पासवर्ड <b>नयाँ पासवर्ड</b> फाँटमा टाइप गर्नुहोस् ।"
+
+#: ../capplets/about-me/mate-about-me-password.c:944
+#: ../capplets/about-me/mate-about-me-password.ui.h:9
+msgid ""
+"Please type your password again in the <b>Retype new password</b> field."
+msgstr "कृपया <b>नयाँ पासवर्ड रिटाइप गर्नुहोस्</b> फाँटमा फेरि तपाईँको पासवर्ड टाइप गर्नुहोस् ।"
+
+#: ../capplets/about-me/mate-about-me-password.c:947
+msgid "The two passwords are not equal."
+msgstr "दुईवटा पासवर्डहरू बराबर छैनन् ।"
+
+#: ../capplets/about-me/mate-about-me-password.ui.h:1
+msgid "Change password"
+msgstr "पासवर्ड परिवर्तन गर्नुहोस्"
+
+#: ../capplets/about-me/mate-about-me-password.ui.h:2
+msgid "Change your password"
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-password.ui.h:3
+msgid ""
+"To change your password, enter your current password in the field below and click <b>Authenticate</b>.\n"
+"After you have authenticated, enter your new password, retype it for verification and click <b>Change password</b>."
+msgstr "तपाईँको पासवर्ड परिवर्तन गर्न, तलका फाँटमा हालको पसावर्ड प्रविष्टि गर्नुहोस् र <b>प्रमाणीकरण गर्नुहोस्</b> क्लिक गर्नुहोस् ।\nतपाईँले प्रमाणीकरण गरिसके पछि, तपाईँको नयाँ पासवर्ड प्रविष्टि गर्नुहोस्, प्रमाणीकरणका लागि यसलाई पुन: टाइप गर्नुहोस् र <b>पासवर्ड परिवर्तन गर्नुहोस्</b> क्लिक गर्नुहोस् ।"
+
+#: ../capplets/about-me/mate-about-me-password.ui.h:5
+msgid "Current _password:"
+msgstr "हालको पासवर्ड:"
+
+#: ../capplets/about-me/mate-about-me-password.ui.h:6
+msgid "_New password:"
+msgstr "नयाँ पासवर्ड:"
+
+#: ../capplets/about-me/mate-about-me-password.ui.h:7
+msgid "_Retype new password:"
+msgstr "नयाँ पासवर्ड पुन: टाइप गर्नुहोस्:"
+
+#: ../capplets/about-me/mate-about-me-password.ui.h:8
+msgid "_Authenticate"
+msgstr "प्रमाणीकरण गर्नुहोस्"
+
+#: ../capplets/about-me/mate-about-me-password.ui.h:10
+msgid "Change pa_ssword"
+msgstr "पासवर्ड परिवर्तन गर्नुहोस्"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:1
+msgid "Assistive Technologies Preferences"
+msgstr ""
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:2
+#: ../capplets/accessibility/at-properties/mate-at-properties.desktop.in.in.h:1
+msgid "Assistive Technologies"
+msgstr ""
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:3
+msgid "_Preferred Applications"
+msgstr "रूचाइएका अनुप्रयोगहरू"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:4
+msgid "Jump to Preferred Applications dialog"
+msgstr "रूचाइएको अनुप्रयोग संवादमा जानुहोस्"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:5
+msgid "_Enable assistive technologies"
+msgstr "प्रलम्बित प्रविधिहरू सक्षम पार्नुहोस्"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:6
+msgid ""
+"Changes to enable assistive technologies will not take effect until your "
+"next log in."
+msgstr "प्रलम्बित प्रविधिहरू सक्षम पार्न गरिएका परिवर्तनहरूले तपाईँको पछिल्लो लग इन नगरे सम्म प्रभाव लिने छैन ।"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:7
+msgid "Preferences"
+msgstr "प्राथमिकताहरू"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:8
+msgid "_Keyboard Accessibility"
+msgstr "कुञ्जीपाटी पहुँचता"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:9
+msgid "Jump to the Keyboard Accessibility dialog"
+msgstr "कुञ्जीपाटी पहुँचता संवादमा जानुहोस्"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:10
+msgid "_Mouse Accessibility"
+msgstr ""
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:11
+msgid "Jump to the Mouse Accessibility dialog"
+msgstr ""
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:12
+msgid "Accessible Lo_gin"
+msgstr "पहुँचयोग्य लग इन"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:13
+msgid "Jump to the Accessible Login dialog"
+msgstr "पहुँचयोग्य लग इन संवादमा जानुहोस्"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:14
+msgid "Close and _Log Out"
+msgstr "बन्द गर्नुहोस् र लग आउट गर्नुहोस्"
+
+#: ../capplets/accessibility/at-properties/mate-at-properties.desktop.in.in.h:2
+msgid "Choose which accessibility features to enable when you log in"
+msgstr ""
+
+#: ../capplets/appearance/appearance-desktop.c:619
+msgid "Add Wallpaper"
+msgstr "वालपेपर थप्नुहोस्"
+
+#: ../capplets/appearance/appearance-desktop.c:654
+msgid "All files"
+msgstr "सबै फाइलहरू"
+
+#: ../capplets/appearance/appearance-main.c:61
+#, c-format
+msgid "Could not load user interface file: %s"
+msgstr ""
+
+#: ../capplets/appearance/appearance-main.c:161
+msgid "Specify the filename of a theme to install"
+msgstr "स्थापना गर्नलाई विषयवस्तुको फाइलनाम निर्दिष्ट गर्नुहोस्"
+
+#: ../capplets/appearance/appearance-main.c:162
+msgid "filename"
+msgstr "फाइलनाम"
+
+#. TRANSLATORS: don't translate the terms in brackets
+#: ../capplets/appearance/appearance-main.c:169
+msgid ""
+"Specify the name of the page to show (theme|background|fonts|interface)"
+msgstr "theme|background|fonts|interface) देखाउन पृष्ठको नाम निर्दिष्ट गर्नुहोस्"
+
+#: ../capplets/appearance/appearance-main.c:170
+#: ../capplets/default-applications/mate-da-capplet.c:693
+#: ../capplets/mouse/mate-mouse-properties.c:483
+msgid "page"
+msgstr "पृष्ठ"
+
+#: ../capplets/appearance/appearance-main.c:177
+msgid "[WALLPAPER...]"
+msgstr "[WALLPAPER...]"
+
+#: ../capplets/appearance/appearance-style.c:171
+#: ../capplets/common/mate-theme-info.c:497
+#: ../capplets/common/mate-theme-info.c:690
+msgid "Default Pointer"
+msgstr "पूर्वनिर्धारित सङ्केतक"
+
+#: ../capplets/appearance/appearance-style.c:233
+#: ../capplets/appearance/appearance-themes.c:661
+msgid "Install"
+msgstr ""
+
+#: ../capplets/appearance/appearance-style.c:269
+#: ../capplets/common/mate-theme-info.c:1726
+#, c-format
+msgid ""
+"This theme will not look as intended because the required GTK+ theme engine "
+"'%s' is not installed."
+msgstr ""
+
+#: ../capplets/appearance/appearance-themes.c:649
+msgid "Apply Background"
+msgstr "पृष्ठभूमि लागू गर्नुहोस्"
+
+#: ../capplets/appearance/appearance-themes.c:653
+msgid "Apply Font"
+msgstr "फन्ट लागू गर्नुहोस्"
+
+#: ../capplets/appearance/appearance-themes.c:657
+msgid "Revert Font"
+msgstr ""
+
+#: ../capplets/appearance/appearance-themes.c:703
+msgid ""
+"The current theme suggests a background and a font. Also, the last applied "
+"font suggestion can be reverted."
+msgstr ""
+
+#: ../capplets/appearance/appearance-themes.c:705
+msgid ""
+"The current theme suggests a background. Also, the last applied font "
+"suggestion can be reverted."
+msgstr ""
+
+#: ../capplets/appearance/appearance-themes.c:707
+msgid "The current theme suggests a background and a font."
+msgstr "हालको विषयवस्तुले पृष्ठभूमि र फन्ट बारेमा सुझाब दिन्छ ।"
+
+#: ../capplets/appearance/appearance-themes.c:709
+msgid ""
+"The current theme suggests a font. Also, the last applied font suggestion "
+"can be reverted."
+msgstr ""
+
+#: ../capplets/appearance/appearance-themes.c:711
+msgid "The current theme suggests a background."
+msgstr "हालको विषयवस्तुले एउटा पृष्ठभूमिको सुझाव दिन्छ ।"
+
+#: ../capplets/appearance/appearance-themes.c:713
+msgid "The last applied font suggestion can be reverted."
+msgstr ""
+
+#: ../capplets/appearance/appearance-themes.c:715
+msgid "The current theme suggests a font."
+msgstr "हालको विषयवस्तुले एउटा फन्ट सुझाव दिन्छ ।"
+
+#: ../capplets/appearance/appearance-themes.c:1031
+msgid "Custom"
+msgstr "अनुकुलन"
+
+#: ../capplets/appearance/data/appearance.ui.h:1
+msgid "Font Rendering Details"
+msgstr "फन्ट रेन्डरिङ विवरणहरू"
+
+#: ../capplets/appearance/data/appearance.ui.h:2
+msgid "R_esolution:"
+msgstr "रेज्योलुसन:"
+
+#: ../capplets/appearance/data/appearance.ui.h:3
+msgid "dots per inch"
+msgstr "प्रति इन्च थोप्लाहरू"
+
+#: ../capplets/appearance/data/appearance.ui.h:4
+msgid "Smoothing"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:5
+msgid "_None"
+msgstr "कुनै पनि होइन"
+
+#: ../capplets/appearance/data/appearance.ui.h:6
+msgid "Gra_yscale"
+msgstr "ग्रेस्केल"
+
+#: ../capplets/appearance/data/appearance.ui.h:7
+msgid "Sub_pixel (LCDs)"
+msgstr "उप-पिक्सेल (LCDs)"
+
+#. font hinting
+#: ../capplets/appearance/data/appearance.ui.h:9
+msgid "Hinting"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:10
+msgid "N_one"
+msgstr "कुनै पनि होइन"
+
+#: ../capplets/appearance/data/appearance.ui.h:11
+msgid "_Slight"
+msgstr "अपर्याप्त"
+
+#: ../capplets/appearance/data/appearance.ui.h:12
+msgid "_Medium"
+msgstr "मध्यम"
+
+#: ../capplets/appearance/data/appearance.ui.h:13
+msgid "_Full"
+msgstr "पूरा"
+
+#: ../capplets/appearance/data/appearance.ui.h:14
+msgid "Subpixel Order"
+msgstr ""
+
+#. pixel order red, green, blue
+#: ../capplets/appearance/data/appearance.ui.h:16
+msgid "_RGB"
+msgstr "RGB"
+
+#. pixel order blue, green, red
+#: ../capplets/appearance/data/appearance.ui.h:18
+msgid "_BGR"
+msgstr "BGR"
+
+#. vertical hinting, pixel order red, green, blue
+#: ../capplets/appearance/data/appearance.ui.h:20
+msgid "_VRGB"
+msgstr "VRGB"
+
+#. vertical hinting, pixel order blue, green, red
+#: ../capplets/appearance/data/appearance.ui.h:22
+msgid "VB_GR"
+msgstr "VB_GR"
+
+#: ../capplets/appearance/data/appearance.ui.h:23
+msgid "Appearance Preferences"
+msgstr "देखावट प्राथमिकताहरू"
+
+#: ../capplets/appearance/data/appearance.ui.h:24
+msgid "Save _As..."
+msgstr "यस रूपमा बचत गर्नुहोस्..."
+
+#: ../capplets/appearance/data/appearance.ui.h:25
+msgid "C_ustomize..."
+msgstr "अनुकुलन गर्नुहोस्..."
+
+#: ../capplets/appearance/data/appearance.ui.h:26
+msgid "_Install..."
+msgstr "स्थापना गर्नुहोस्..."
+
+#: ../capplets/appearance/data/appearance.ui.h:27
+msgid "Get more themes online"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:28
+msgid "Theme"
+msgstr "विषयवस्तु"
+
+#: ../capplets/appearance/data/appearance.ui.h:29
+msgid "_Style:"
+msgstr "शैली:"
+
+#: ../capplets/appearance/data/appearance.ui.h:30
+msgid "C_olors:"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:31
+msgid "Open a dialog to specify the color"
+msgstr "रङ्ग निर्दिष्ट गर्न संवाद खोल्नुहोस्"
+
+#: ../capplets/appearance/data/appearance.ui.h:32
+msgid "Get more backgrounds online"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:33
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:17
+msgid "_Add..."
+msgstr "थप्नुहोस्..."
+
+#: ../capplets/appearance/data/appearance.ui.h:34
+msgid "Background"
+msgstr "पृष्ठभूमि"
+
+#: ../capplets/appearance/data/appearance.ui.h:35
+msgid "_Document font:"
+msgstr "कागजात फन्ट:"
+
+#: ../capplets/appearance/data/appearance.ui.h:36
+msgid "Des_ktop font:"
+msgstr "डेस्कटप फन्ट:"
+
+#: ../capplets/appearance/data/appearance.ui.h:37
+msgid "_Window title font:"
+msgstr "सञ्झ्याल शिर्षक फन्ट:"
+
+#: ../capplets/appearance/data/appearance.ui.h:38
+msgid "_Fixed width font:"
+msgstr "स्थिर चौडाइ फन्ट:"
+
+#: ../capplets/appearance/data/appearance.ui.h:39
+msgid "_Application font:"
+msgstr "अनुप्रयोग फन्ट:"
+
+#: ../capplets/appearance/data/appearance.ui.h:40
+msgid "Rendering"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:41
+msgid "Sub_pixel smoothing (LCDs)"
+msgstr "उप-पिक्सल महिन (LCDs)"
+
+#: ../capplets/appearance/data/appearance.ui.h:42
+msgid "Best co_ntrast"
+msgstr "सर्वित्तम व्यतिरेक"
+
+#: ../capplets/appearance/data/appearance.ui.h:43
+msgid "Best _shapes"
+msgstr "सर्वोत्तम आकारहरू"
+
+#: ../capplets/appearance/data/appearance.ui.h:44
+msgid "_Monochrome"
+msgstr "मोनोक्रोम"
+
+#: ../capplets/appearance/data/appearance.ui.h:45
+msgid "D_etails..."
+msgstr "विस्तृत विवरणहरू..."
+
+#: ../capplets/appearance/data/appearance.ui.h:46
+msgid "Fonts"
+msgstr "फन्टहरू"
+
+#: ../capplets/appearance/data/appearance.ui.h:47
+msgid "Menus and Toolbars"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:48
+msgid "Show _icons in menus"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:49
+msgid "_Editable menu shortcut keys"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:50
+msgid "Toolbar _button labels:"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:51
+msgid "Preview"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:52
+msgid "_File"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:53
+msgid "Edit"
+msgstr "सम्पादन"
+
+#: ../capplets/appearance/data/appearance.ui.h:54
+msgid "Interface"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:55
+msgid "Tile"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:56
+msgid "Zoom"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:57
+msgid "Center"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:58
+msgid "Scale"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:59
+msgid "Stretch"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:60
+msgid "Span"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:61
+msgid "Solid color"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:62
+msgid "Horizontal gradient"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:63
+msgid "Vertical gradient"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:64
+msgid "Text below items"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:65
+msgid "Text beside items"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:66
+msgid "Icons only"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:67
+msgid "Text only"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:68
+msgid "Customize Theme"
+msgstr "विषयवस्तु अनुकुलन गर्नुहोस्"
+
+#: ../capplets/appearance/data/appearance.ui.h:69
+msgid "Controls"
+msgstr "नियन्त्रण गर्दछ"
+
+#: ../capplets/appearance/data/appearance.ui.h:70
+msgid "The current controls theme does not support color schemes."
+msgstr "हालको नियन्त्रण विषयवस्तुले रङ्ग स्किमाहरूलाई समर्थन गर्दैन ।"
+
+#: ../capplets/appearance/data/appearance.ui.h:71
+msgid "_Tooltips:"
+msgstr "टूलटिप:"
+
+#: ../capplets/appearance/data/appearance.ui.h:72
+msgid "_Selected items:"
+msgstr "वस्तुहरू चयन गर्नुहोस्:"
+
+#: ../capplets/appearance/data/appearance.ui.h:73
+msgid "_Input boxes:"
+msgstr "आगत बाकसहरू:"
+
+#: ../capplets/appearance/data/appearance.ui.h:74
+msgid "_Windows:"
+msgstr "सञ्झ्यालहरू:"
+
+#: ../capplets/appearance/data/appearance.ui.h:75
+msgid "Text"
+msgstr "पाठ"
+
+#: ../capplets/appearance/data/appearance.ui.h:76
+msgid "_Reset to Defaults"
+msgstr "पूर्वनिर्धारितहरूमा पुन: सेट गर्नुहोस्"
+
+#: ../capplets/appearance/data/appearance.ui.h:77
+msgid "Colors"
+msgstr "रङ्गहरू"
+
+#: ../capplets/appearance/data/appearance.ui.h:78
+msgid "Window Border"
+msgstr "सञ्झ्याल किनारा"
+
+#: ../capplets/appearance/data/appearance.ui.h:79
+msgid "Icons"
+msgstr "प्रतिमाहरू"
+
+#: ../capplets/appearance/data/appearance.ui.h:80
+msgid "Changing your cursor theme takes effect the next time you log in."
+msgstr "तपाईँको कर्सर विषयवस्तु परिवर्तन गर्नाले तपाईँले पछि लग इन गर्दा प्रभाव गर्नेछ ।"
+
+#: ../capplets/appearance/data/appearance.ui.h:81
+msgid "_Size:"
+msgstr "साइज:"
+
+#. small threshold
+#: ../capplets/appearance/data/appearance.ui.h:82
+#: ../capplets/mouse/mate-mouse-properties.ui.h:21
+msgid "Small"
+msgstr "सानो"
+
+#. large threshold
+#: ../capplets/appearance/data/appearance.ui.h:83
+#: ../capplets/mouse/mate-mouse-properties.ui.h:24
+msgid "Large"
+msgstr "ठूलो"
+
+#: ../capplets/appearance/data/appearance.ui.h:84
+msgid "Pointer"
+msgstr "सङ्केतक"
+
+#: ../capplets/appearance/data/appearance.ui.h:85
+msgid "Save Theme As..."
+msgstr "यस रूपमा विषयवस्तु बचत गर्नुहोस्..."
+
+#: ../capplets/appearance/data/appearance.ui.h:86
+#: ../capplets/keybindings/mate-keybinding-properties.ui.h:4
+msgid "_Name:"
+msgstr "नाम:"
+
+#: ../capplets/appearance/data/appearance.ui.h:87
+msgid "_Description:"
+msgstr "वर्णन:"
+
+#: ../capplets/appearance/data/appearance.ui.h:88
+msgid "Save _background image"
+msgstr "पृष्ठभूमि छवि बचत गर्नुहोस्"
+
+#: ../capplets/appearance/data/appearance.ui.h:89
+msgid "Save _notification theme"
+msgstr ""
+
+#: ../capplets/appearance/data/mate-appearance-properties.desktop.in.in.h:1
+msgid "Appearance"
+msgstr "देखावट"
+
+#: ../capplets/appearance/data/mate-appearance-properties.desktop.in.in.h:2
+msgid "Customize the look of the desktop"
+msgstr "डेक्सटपको हेराइ अनुकुलन गर्नुहोस्"
+
+#: ../capplets/appearance/data/mate-theme-installer.desktop.in.in.h:1
+msgid "Theme Installer"
+msgstr "विषयवस्तु स्थापक"
+
+#: ../capplets/appearance/data/mate-theme-installer.desktop.in.in.h:2
+msgid "Installs themes packages for various parts of the desktop"
+msgstr "डेक्सटपको विभिन्न भागहरुका लागि विषयवस्तु प्याकेजहरू स्थापना गर्दछ"
+
+#: ../capplets/appearance/data/mate-theme-package.xml.in.h:1
+msgid "Mate Theme Package"
+msgstr "जीनोम विषयवस्तु प्याकेज"
+
+#: ../capplets/appearance/mate-wp-info.c:51
+msgid "No Desktop Background"
+msgstr ""
+
+#: ../capplets/appearance/mate-wp-item.c:288
+msgid "unknown"
+msgstr ""
+
+#: ../capplets/appearance/mate-wp-item.c:295
+msgid "Slide Show"
+msgstr ""
+
+#: ../capplets/appearance/mate-wp-item.c:297
+msgid "Image"
+msgstr ""
+
+#: ../capplets/appearance/mate-wp-item.c:303
+msgid "multiple sizes"
+msgstr ""
+
+#. translators: x pixel(s) by y pixel(s)
+#: ../capplets/appearance/mate-wp-item.c:306
+#, c-format
+msgid "%d %s by %d %s"
+msgstr ""
+
+#: ../capplets/appearance/mate-wp-item.c:308
+#: ../capplets/appearance/mate-wp-item.c:310
+msgid "pixel"
+msgid_plural "pixels"
+msgstr[0] "पिक्सेल"
+msgstr[1] "पिक्सेलस्"
+
+#. translators: <b>wallpaper name</b>
+#. * mime type, size
+#. * Folder: /path/to/file
+#. * Artist: wallpaper author
+#: ../capplets/appearance/mate-wp-item.c:319
+#, c-format
+msgid ""
+"<b>%s</b>\n"
+"%s, %s\n"
+"Folder: %s\n"
+"Artist: %s"
+msgstr ""
+
+#. translators: <b>wallpaper name</b>
+#. * Image missing
+#. * Folder: /path/to/file
+#. * Artist: wallpaper author
+#: ../capplets/appearance/mate-wp-item.c:334
+#, c-format
+msgid ""
+"<b>%s</b>\n"
+"%s\n"
+"Folder: %s\n"
+"Artist: %s"
+msgstr ""
+
+#: ../capplets/appearance/mate-wp-item.c:339
+msgid "Image missing"
+msgstr ""
+
+#: ../capplets/appearance/theme-installer.c:185
+#: ../capplets/appearance/theme-installer.c:241
+msgid "Cannot install theme"
+msgstr ""
+
+#: ../capplets/appearance/theme-installer.c:187
+#, c-format
+msgid "The %s utility is not installed."
+msgstr ""
+
+#: ../capplets/appearance/theme-installer.c:243
+msgid "There was a problem while extracting the theme."
+msgstr ""
+
+#: ../capplets/appearance/theme-installer.c:271
+msgid "There was an error installing the selected file"
+msgstr ""
+
+#: ../capplets/appearance/theme-installer.c:272
+#, c-format
+msgid "\"%s\" does not appear to be a valid theme."
+msgstr ""
+
+#: ../capplets/appearance/theme-installer.c:273
+#, c-format
+msgid ""
+"\"%s\" does not appear to be a valid theme. It may be a theme engine which "
+"you need to compile."
+msgstr ""
+
+#: ../capplets/appearance/theme-installer.c:379
+#, c-format
+msgid "Installation for theme \"%s\" failed."
+msgstr ""
+
+#: ../capplets/appearance/theme-installer.c:418
+#, c-format
+msgid "The theme \"%s\" has been installed."
+msgstr "\"%s\" विषयवस्तु स्थापना भएको छ ।"
+
+#: ../capplets/appearance/theme-installer.c:428
+msgid "Would you like to apply it now, or keep your current theme?"
+msgstr "तपाईँ यसलाई अहिले लागू गर्नुहुन्छ, वा हालको विषयवस्तु नै राख्नुहुन्छ?"
+
+#: ../capplets/appearance/theme-installer.c:431
+msgid "Keep Current Theme"
+msgstr "हालको विषयवस्तु राख्नुहोस्"
+
+#: ../capplets/appearance/theme-installer.c:434
+msgid "Apply New Theme"
+msgstr "नयाँ विषयवस्तु लागु गर्नुहोस्"
+
+#: ../capplets/appearance/theme-installer.c:486
+#, c-format
+msgid "MATE Theme %s correctly installed"
+msgstr "जीनोम विषयवस्तु %s सही रूपले स्थापना गरियो"
+
+#: ../capplets/appearance/theme-installer.c:548
+msgid "Failed to create temporary directory"
+msgstr "अस्थायी डाइरेक्टरी सिर्जना गर्न असफल भयो"
+
+#: ../capplets/appearance/theme-installer.c:611
+msgid "New themes have been successfully installed."
+msgstr ""
+
+#: ../capplets/appearance/theme-installer.c:661
+msgid "No theme file location specified to install"
+msgstr "स्थापना गर्न विषयवस्तु फाइल स्थान निर्दिष्ट गरिएको छैन"
+
+#: ../capplets/appearance/theme-installer.c:685
+#, c-format
+msgid ""
+"Insufficient permissions to install the theme in:\n"
+"%s"
+msgstr "यसमा विषयवस्तु स्थापना गर्न अपर्याप्त अनुमतिहरू:\n%s"
+
+#: ../capplets/appearance/theme-installer.c:765
+msgid "Select Theme"
+msgstr "विषयवस्तु चयन गर्नुहोस्"
+
+#: ../capplets/appearance/theme-installer.c:776
+msgid "Theme Packages"
+msgstr "विषयवस्तु प्याकेज"
+
+#: ../capplets/appearance/theme-save.c:94
+#, c-format
+msgid "Theme name must be present"
+msgstr "विषयवस्तु नाम उपस्थित हुनै पर्दछ"
+
+#: ../capplets/appearance/theme-save.c:157
+msgid "The theme already exists. Would you like to replace it?"
+msgstr "विषयवस्तु पहिल्यै अवस्थित छ । यसलाई प्रतिस्थापन गर्नुहुन्छ?"
+
+#: ../capplets/appearance/theme-save.c:158
+#: ../capplets/common/file-transfer-dialog.c:466
+msgid "_Overwrite"
+msgstr "अधिलेखन गर्नुहोस्"
+
+#: ../capplets/appearance/theme-util.c:73
+msgid "Would you like to delete this theme?"
+msgstr "तपाईँ यो नाम मेट्न चाहनुहुन्छ?"
+
+#: ../capplets/appearance/theme-util.c:123
+msgid "Theme cannot be deleted"
+msgstr "विषयवस्तु मेट्न सकिँदैन"
+
+#: ../capplets/appearance/theme-util.c:249
+msgid "Could not install theme engine"
+msgstr ""
+
+#: ../capplets/common/activate-settings-daemon.c:16
+msgid ""
+"Unable to start the settings manager 'mate-settings-daemon'.\n"
+"Without the MATE settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-MATE (e.g. KDE) settings manager may already be active and conflicting with the MATE settings manager."
+msgstr ""
+
+#: ../capplets/common/capplet-stock-icons.c:66
+#, c-format
+msgid "Unable to load stock icon '%s'\n"
+msgstr "'%s' भण्डार प्रतिमा लोड गर्न असफल भयो\n"
+
+#: ../capplets/common/capplet-util.c:88
+#, c-format
+msgid "There was an error displaying help: %s"
+msgstr "मद्दत प्रदर्शन गर्दा त्यहाँ एउटा त्रुटि थियो: %s"
+
+#: ../capplets/common/file-transfer-dialog.c:98
+#, c-format
+msgid "Copying file: %u of %u"
+msgstr "फाइल प्रतिलिपि गर्दै: %u को %u"
+
+#: ../capplets/common/file-transfer-dialog.c:145
+#, c-format
+msgid "Copying '%s'"
+msgstr "'%s' प्रतिलिपि गर्दै"
+
+#: ../capplets/common/file-transfer-dialog.c:185
+#: ../capplets/common/file-transfer-dialog.c:317
+msgid "Copying files"
+msgstr "फाइलहरू प्रतिलिपि गर्दै"
+
+#: ../capplets/common/file-transfer-dialog.c:224
+msgid "Parent Window"
+msgstr "प्रमूल सञ्झ्याल"
+
+#: ../capplets/common/file-transfer-dialog.c:225
+msgid "Parent window of the dialog"
+msgstr "संवादको प्रमूल सञ्झ्याल"
+
+#: ../capplets/common/file-transfer-dialog.c:231
+msgid "From URI"
+msgstr "URI बाट"
+
+#: ../capplets/common/file-transfer-dialog.c:232
+msgid "URI currently transferring from"
+msgstr "यसबा URI हालै स्तानान्तरण गर्दै"
+
+#: ../capplets/common/file-transfer-dialog.c:239
+msgid "To URI"
+msgstr "URI लाई"
+
+#: ../capplets/common/file-transfer-dialog.c:240
+msgid "URI currently transferring to"
+msgstr "यसमा URI हालै स्थानान्तरण गर्दै"
+
+#: ../capplets/common/file-transfer-dialog.c:247
+msgid "Fraction completed"
+msgstr "भिन्न पूरा भयो"
+
+#: ../capplets/common/file-transfer-dialog.c:248
+msgid "Fraction of transfer currently completed"
+msgstr "स्थानातरणको भिन्न हालै पूरा भयो"
+
+#: ../capplets/common/file-transfer-dialog.c:255
+msgid "Current URI index"
+msgstr "हालको URI अनुक्रमाणिका"
+
+#: ../capplets/common/file-transfer-dialog.c:256
+msgid "Current URI index - starts from 1"
+msgstr "हालको अनुक्रमाणिका सूची - १ बाट सुरु हुन्छ"
+
+#: ../capplets/common/file-transfer-dialog.c:263
+msgid "Total URIs"
+msgstr "जम्मा URIs"
+
+#: ../capplets/common/file-transfer-dialog.c:264
+msgid "Total number of URIs"
+msgstr "URIs को जम्मा सङ्ख्या"
+
+#: ../capplets/common/file-transfer-dialog.c:460
+#, c-format
+msgid "File '%s' already exists. Do you want to overwrite it?"
+msgstr ""
+
+#: ../capplets/common/file-transfer-dialog.c:463
+msgid "_Skip"
+msgstr ""
+
+#: ../capplets/common/file-transfer-dialog.c:464
+msgid "Overwrite _All"
+msgstr ""
+
+#: ../capplets/common/mate-theme-info.c:691
+msgid "Default Pointer - Current"
+msgstr "पूर्वनिर्धारित सङ्केतक - हाल"
+
+#: ../capplets/common/mate-theme-info.c:695
+msgid "White Pointer"
+msgstr "सेतो सङ्केतक"
+
+#: ../capplets/common/mate-theme-info.c:696
+msgid "White Pointer - Current"
+msgstr "सेतो सङ्केतक - हाल"
+
+#: ../capplets/common/mate-theme-info.c:700
+msgid "Large Pointer"
+msgstr "ठूलो सङ्केतक"
+
+#: ../capplets/common/mate-theme-info.c:701
+msgid "Large Pointer - Current"
+msgstr "ठूलो सङ्केतक - हाल"
+
+#: ../capplets/common/mate-theme-info.c:705
+msgid "Large White Pointer - Current"
+msgstr "ठूलो सेतो सङ्केतक - हाल"
+
+#: ../capplets/common/mate-theme-info.c:706
+msgid "Large White Pointer"
+msgstr "सेतो ठूलो सङ्केतक"
+
+#: ../capplets/common/mate-theme-info.c:1696
+#, c-format
+msgid ""
+"This theme will not look as intended because the required GTK+ theme '%s' is"
+" not installed."
+msgstr ""
+
+#: ../capplets/common/mate-theme-info.c:1706
+#, c-format
+msgid ""
+"This theme will not look as intended because the required window manager "
+"theme '%s' is not installed."
+msgstr ""
+
+#: ../capplets/common/mate-theme-info.c:1714
+#, c-format
+msgid ""
+"This theme will not look as intended because the required icon theme '%s' is"
+" not installed."
+msgstr ""
+
+#: ../capplets/default-applications/mate-default-applications-properties.desktop.in.in.h:1
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:1
+msgid "Preferred Applications"
+msgstr "रूचाइएका अनुप्रयोगहरू"
+
+#: ../capplets/default-applications/mate-default-applications-properties.desktop.in.in.h:2
+msgid "Select your default applications"
+msgstr "तपाईँको पूर्वनिर्धारित अनुप्रयोगहरू चयन गर्नुहोस्"
+
+#: ../capplets/default-applications/mate-da-capplet.c:542
+msgid "Could not load the main interface"
+msgstr "मुख्य इन्टरफेस लोड गर्न सकेन"
+
+#: ../capplets/default-applications/mate-da-capplet.c:543
+msgid "Please make sure that the applet is properly installed"
+msgstr "कृपया एप्लेट राम्रोसँग स्थापना गरिएको निश्चित गर्नुहोस्"
+
+#. TRANSLATORS: don't translate the terms in brackets
+#: ../capplets/default-applications/mate-da-capplet.c:692
+msgid "Specify the name of the page to show (internet|multimedia|system|a11y)"
+msgstr ""
+
+#: ../capplets/default-applications/mate-da-capplet.c:698
+msgid "- MATE Default Applications"
+msgstr ""
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:2
+msgid "Web Browser"
+msgstr ""
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:3
+msgid "Mail Reader"
+msgstr ""
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:4
+msgid "Instant Messenger"
+msgstr ""
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:5
+msgid "Co_mmand:"
+msgstr "आदेश:"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:7
+#, no-c-format
+msgid "All %s occurrences will be replaced with actual link"
+msgstr "सबै %s घटनाहरू वास्तविक लिङ्कले प्रतिस्थापित हुनेछन्"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:8
+msgid "Run in t_erminal"
+msgstr "टर्मिनलमा चलाउनुहोस्"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:9
+msgid "Internet"
+msgstr "इन्टरनेट"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:10
+msgid "Image Viewer"
+msgstr ""
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:11
+msgid "Multimedia Player"
+msgstr ""
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:12
+msgid "Video Player"
+msgstr ""
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:13
+msgid "Multimedia"
+msgstr "मल्टिमिडिया"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:14
+msgid "Text Editor"
+msgstr ""
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:15
+msgid "Terminal Emulator"
+msgstr ""
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:16
+msgid "File Manager"
+msgstr ""
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:17
+msgid "System"
+msgstr "प्रणाली"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:18
+msgid "Document Viewer"
+msgstr ""
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:19
+msgid "Word Processor"
+msgstr ""
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:20
+msgid "Spreadsheet Editor"
+msgstr ""
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:21
+msgid "Office"
+msgstr ""
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:22
+msgid "Visual"
+msgstr "दृष्टिगत"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:23
+msgid "_Run at start"
+msgstr ""
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:24
+msgid "Mobility"
+msgstr ""
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:25
+msgid "Run at st_art"
+msgstr "सुरुआतमा चलाउनुहोस्"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:26
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:45
+msgid "Accessibility"
+msgstr "पहुँचता"
+
+#: ../capplets/display/display-capplet.ui.h:1
+msgid "Monitor Preferences"
+msgstr ""
+
+#: ../capplets/display/display-capplet.ui.h:2
+msgid "Apply system-wide"
+msgstr ""
+
+#: ../capplets/display/display-capplet.ui.h:3
+msgid ""
+"Applies the current configuration for other MATE users on the computer. Note"
+" that this doesn't affect login screens or other desktop environments."
+msgstr ""
+
+#: ../capplets/display/display-capplet.ui.h:4
+msgid "Sa_me image in all monitors"
+msgstr ""
+
+#: ../capplets/display/display-capplet.ui.h:5
+msgid "_Detect monitors"
+msgstr ""
+
+#: ../capplets/display/display-capplet.ui.h:6
+msgid "Panel icon"
+msgstr ""
+
+#: ../capplets/display/display-capplet.ui.h:7
+msgid "_Show monitors in panel"
+msgstr ""
+
+#: ../capplets/display/display-capplet.ui.h:8
+msgid "_Resolution:"
+msgstr "रिज्योलुसन:"
+
+#: ../capplets/display/display-capplet.ui.h:9
+msgid "Re_fresh rate:"
+msgstr "ताजा पार्ने दर:"
+
+#: ../capplets/display/display-capplet.ui.h:10
+msgid "On"
+msgstr ""
+
+#: ../capplets/display/display-capplet.ui.h:11
+msgid "Off"
+msgstr ""
+
+#: ../capplets/display/display-capplet.ui.h:12
+#: ../capplets/display/xrandr-capplet.c:508
+msgid "Monitor"
+msgstr ""
+
+#: ../capplets/display/display-capplet.ui.h:13
+msgid "R_otation:"
+msgstr "परिक्रमण:"
+
+#: ../capplets/display/display-capplet.ui.h:14
+msgid "Include _panel"
+msgstr ""
+
+#: ../capplets/display/display-capplet.ui.h:15
+msgid "Set as primary"
+msgstr ""
+
+#: ../capplets/display/display-capplet.ui.h:16
+msgid "Sets the selected monitor as primary."
+msgstr ""
+
+#: ../capplets/display/display-capplet.ui.h:17
+#: ../capplets/display/xrandr-capplet.c:311
+#: ../capplets/display/xrandr-capplet.c:350
+msgid "Normal"
+msgstr "सामान्य"
+
+#: ../capplets/display/display-capplet.ui.h:18
+#: ../capplets/display/xrandr-capplet.c:312
+#: ../capplets/windows/mate-window-properties.c:574
+msgid "Left"
+msgstr "बायाँ"
+
+#: ../capplets/display/display-capplet.ui.h:19
+#: ../capplets/display/xrandr-capplet.c:313
+#: ../capplets/windows/mate-window-properties.c:573
+msgid "Right"
+msgstr "दायाँ"
+
+#: ../capplets/display/display-capplet.ui.h:20
+msgid "Upside-down"
+msgstr ""
+
+#: ../capplets/display/mate-display-properties.desktop.in.in.h:1
+msgid "Displays"
+msgstr ""
+
+#: ../capplets/display/mate-display-properties.desktop.in.in.h:2
+msgid "Change resolution and position of monitors and projectors"
+msgstr ""
+
+#: ../capplets/display/mate-display-properties-install-systemwide.c:44
+#, c-format
+msgid ""
+"Usage: %s SOURCE_FILE DEST_NAME\n"
+"\n"
+"This program installs a RANDR profile for multi-monitor setups into\n"
+"a systemwide location.  The resulting profile will get used when\n"
+"the RANDR plug-in gets run in mate-settings-daemon.\n"
+"\n"
+"SOURCE_FILE - a full pathname, typically /home/username/.config/monitors.xml\n"
+"\n"
+"DEST_NAME - relative name for the installed file.  This will get put in\n"
+"            the systemwide directory for RANDR configurations,\n"
+"            so the result will typically be %s/DEST_NAME\n"
+msgstr ""
+
+#. Translators: only able to install RANDR profiles as root
+#: ../capplets/display/mate-display-properties-install-systemwide.c:151
+msgid "This program can only be used by the root user"
+msgstr ""
+
+#: ../capplets/display/mate-display-properties-install-systemwide.c:168
+msgid "The source filename must be absolute"
+msgstr ""
+
+#. Translators: first %s is a filename; second %s is an error message
+#: ../capplets/display/mate-display-properties-install-systemwide.c:179
+#, c-format
+msgid "Could not open %s: %s\n"
+msgstr ""
+
+#. Translators: first %s is a filename; second %s is an error message
+#: ../capplets/display/mate-display-properties-install-systemwide.c:188
+#, c-format
+msgid "Could not get information for %s: %s\n"
+msgstr ""
+
+#: ../capplets/display/mate-display-properties-install-systemwide.c:195
+#, c-format
+msgid "%s must be a regular file\n"
+msgstr ""
+
+#: ../capplets/display/mate-display-properties-install-systemwide.c:204
+msgid "This program must only be run through pkexec(1)"
+msgstr ""
+
+#: ../capplets/display/mate-display-properties-install-systemwide.c:209
+msgid "PKEXEC_UID must be set to an integer value"
+msgstr ""
+
+#. Translators: we are complaining that a file must be really owned by the
+#. user who called this program
+#: ../capplets/display/mate-display-properties-install-systemwide.c:215
+#, c-format
+msgid "%s must be owned by you\n"
+msgstr ""
+
+#. Translators: here we are saying that a plain filename must look like
+#. "filename", not like "some_dir/filename"
+#: ../capplets/display/mate-display-properties-install-systemwide.c:223
+#, c-format
+msgid "%s must not have any directory components\n"
+msgstr ""
+
+#: ../capplets/display/mate-display-properties-install-systemwide.c:231
+#, c-format
+msgid "%s must be a directory\n"
+msgstr ""
+
+#. Translators: the first %s/%s is a directory/filename; the last %s is an
+#. error message
+#: ../capplets/display/mate-display-properties-install-systemwide.c:242
+#, c-format
+msgid "Could not open %s/%s: %s\n"
+msgstr ""
+
+#: ../capplets/display/mate-display-properties-install-systemwide.c:262
+#, c-format
+msgid "Could not rename %s to %s: %s\n"
+msgstr ""
+
+#: ../capplets/display/org.mate.randr.policy.in.h:1
+msgid "Install multi-monitor settings for the whole system"
+msgstr ""
+
+#: ../capplets/display/org.mate.randr.policy.in.h:2
+msgid ""
+"Authentication is required to install multi-monitor settings for all users"
+msgstr ""
+
+#: ../capplets/display/xrandr-capplet.c:314
+msgid "Upside Down"
+msgstr ""
+
+#: ../capplets/display/xrandr-capplet.c:356
+#, c-format
+msgid "%d Hz"
+msgstr "%d Hz"
+
+#. Translators:  this is the feature where what you see on your laptop's
+#. * screen is the same as your external monitor.  Here, "Mirror" is being
+#. * used as an adjective, not as a verb.  For example, the Spanish
+#. * translation could be "Pantallas en Espejo", *not* "Espejar Pantallas".
+#: ../capplets/display/xrandr-capplet.c:493
+#: ../capplets/display/xrandr-capplet.c:1669
+#, c-format
+msgid "Mirror Screens"
+msgstr ""
+
+#: ../capplets/display/xrandr-capplet.c:495
+#, c-format
+msgid "Monitor: %s"
+msgstr ""
+
+#: ../capplets/display/xrandr-capplet.c:591
+#, c-format
+msgid "%d x %d"
+msgstr ""
+
+#: ../capplets/display/xrandr-capplet.c:1525
+msgid ""
+"Select a monitor to change its properties; drag it to rearrange its "
+"placement."
+msgstr ""
+
+#: ../capplets/display/xrandr-capplet.c:2147
+msgid "Could not save the monitor configuration"
+msgstr ""
+
+#: ../capplets/display/xrandr-capplet.c:2169
+msgid "Could not get session bus while applying display configuration"
+msgstr ""
+
+#: ../capplets/display/xrandr-capplet.c:2188
+msgid "Could not detect displays"
+msgstr ""
+
+#: ../capplets/display/xrandr-capplet.c:2400
+msgid "The monitor configuration has been saved"
+msgstr ""
+
+#: ../capplets/display/xrandr-capplet.c:2402
+msgid "This configuration will be used the next time someone logs in."
+msgstr ""
+
+#: ../capplets/display/xrandr-capplet.c:2411
+msgid "Could not set the default configuration for monitors"
+msgstr ""
+
+#: ../capplets/display/xrandr-capplet.c:2495
+msgid "Could not get screen information"
+msgstr ""
+
+#: ../capplets/keybindings/eggcellrendererkeys.c:21
+msgid "New shortcut..."
+msgstr ""
+
+#: ../capplets/keybindings/eggcellrendererkeys.c:157
+#: ../capplets/keybindings/eggcellrendererkeys.c:158
+msgid "Accelerator key"
+msgstr "गतिवर्धक कुञ्जी"
+
+#: ../capplets/keybindings/eggcellrendererkeys.c:167
+#: ../capplets/keybindings/eggcellrendererkeys.c:168
+msgid "Accelerator modifiers"
+msgstr "गतिवर्धक परिमार्जकहरू"
+
+#: ../capplets/keybindings/eggcellrendererkeys.c:176
+#: ../capplets/keybindings/eggcellrendererkeys.c:177
+msgid "Accelerator keycode"
+msgstr "गतिवर्धक कुञ्जीसङ्केत"
+
+#: ../capplets/keybindings/eggcellrendererkeys.c:187
+msgid "Accel Mode"
+msgstr "एक्सेल मोड"
+
+#: ../capplets/keybindings/eggcellrendererkeys.c:188
+msgid "The type of accelerator."
+msgstr "गतिवर्धकका प्रकार ।"
+
+#: ../capplets/keybindings/eggcellrendererkeys.c:231
+#: ../capplets/keybindings/mate-keybinding-properties.c:134
+#: ../capplets/mouse/mate-mouse-properties.c:396
+#: ../typing-break/drwright.c:501
+msgid "Disabled"
+msgstr "असक्षम पारिएको छ"
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:216
+msgid "<Unknown Action>"
+msgstr "<Unknown Action>"
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1020
+#: ../capplets/keybindings/mate-keybinding-properties.c:1610
+msgid "Custom Shortcuts"
+msgstr ""
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1190
+msgid "Error saving the new shortcut"
+msgstr ""
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1266
+#, c-format
+msgid ""
+"The shortcut \"%s\" cannot be used because it will become impossible to type using this key.\n"
+"Please try with a key such as Control, Alt or Shift at the same time."
+msgstr ""
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1298
+#, c-format
+msgid ""
+"The shortcut \"%s\" is already used for\n"
+"\"%s\""
+msgstr ""
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1305
+#, c-format
+msgid "If you reassign the shortcut to \"%s\", the \"%s\" shortcut will be disabled."
+msgstr ""
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1310
+msgid "_Reassign"
+msgstr ""
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1565
+msgid "Too many custom shortcuts"
+msgstr ""
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1853
+msgid "Action"
+msgstr "कार्य"
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1875
+msgid "Shortcut"
+msgstr "सर्टकट"
+
+#. * vim: sw=2 ts=8 cindent noai bs=2
+#: ../capplets/keybindings/mate-keybinding-properties.ui.h:1
+#: ../capplets/keybindings/mate-keybinding.desktop.in.in.h:1
+msgid "Keyboard Shortcuts"
+msgstr "कुञ्जीपाटी सर्टकट"
+
+#: ../capplets/keybindings/mate-keybinding-properties.ui.h:2
+msgid ""
+"To edit a shortcut key, click on the corresponding row and type a new key "
+"combination, or press backspace to clear."
+msgstr ""
+
+#: ../capplets/keybindings/mate-keybinding-properties.ui.h:3
+msgid "Custom Shortcut"
+msgstr ""
+
+#: ../capplets/keybindings/mate-keybinding-properties.ui.h:5
+msgid "C_ommand:"
+msgstr ""
+
+#: ../capplets/keybindings/mate-keybinding.desktop.in.in.h:2
+msgid "Assign shortcut keys to commands"
+msgstr "आदेशहरूमा सर्टकट कुञ्जीहरू मानाङ्कन गर्नुहोस्"
+
+#: ../capplets/keyboard/mate-keyboard-properties.c:213
+#: ../capplets/keyboard/mate-keyboard-properties.c:218
+msgid ""
+"Just apply settings and quit (compatibility only; now handled by daemon)"
+msgstr "केवल सेटिङहरू लागू गर्नुहोस् र अन्त्य गर्नुहोस् (अमिल्दो मात्र; अहिले डेइमोनद्वारा ह्याण्डल गरिएको)"
+
+#: ../capplets/keyboard/mate-keyboard-properties.c:223
+msgid "Start the page with the typing break settings showing"
+msgstr "टाइप विच्छेद सेटिङ देखाएर पृष्ठ सुरुआत गर्नुहोस्"
+
+#: ../capplets/keyboard/mate-keyboard-properties.c:228
+msgid "Start the page with the accessibility settings showing"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties.c:234
+msgid "- MATE Keyboard Preferences"
+msgstr "जीनोम कुञ्जीपाटी प्राथमिकताहरू"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:1
+msgid "Keyboard Accessibility Audio Feedback"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:2
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:15
+#: ../capplets/mouse/mate-mouse-properties.ui.h:30
+#: ../capplets/windows/mate-window-properties.c:382
+msgid "General"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:3
+msgid "Beep when _accessibility features are turned on or off"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:4
+msgid "Beep when a _toggle key is pressed"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:5
+msgid "Visual cues for sounds"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:6
+msgid "Show _visual feedback for the alert sound"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:7
+msgid "Flash _window titlebar"
+msgstr "सञ्झ्याल शीर्षकपट्टी फ्ल्यास गर्नुहोस्"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:8
+msgid "Flash entire _screen"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:9
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:39
+msgid "Slow Keys"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:10
+msgid "Beep when a key is pr_essed"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:11
+msgid "Beep when key is _accepted"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:12
+msgid "Beep when key is _rejected"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:13
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:41
+msgid "Bounce Keys"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:14
+msgid "Beep when a key is reje_cted"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:15
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:36
+msgid "Sticky Keys"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:16
+msgid "Beep when a _modifier key is pressed"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:1
+msgid "Keyboard Preferences"
+msgstr "कुञ्जीपाटी प्राथमिकताहरू"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:2
+msgid "Repeat Keys"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:3
+msgid "Key presses _repeat when key is held down"
+msgstr "कुञ्जी तल झर्दा कुञ्जी थिचाइहरू दोहोरिन्छन्"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:4
+msgid "_Delay:"
+msgstr "विलम्ब गर्नुहोस्:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:5
+msgid "_Speed:"
+msgstr "गति:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:6
+#: ../capplets/mouse/mate-mouse-properties.ui.h:27
+msgid "Short"
+msgstr ""
+
+#. slow acceleration
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:7
+#: ../capplets/mouse/mate-mouse-properties.ui.h:11
+msgid "Slow"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:8
+msgid "Repeat keys speed"
+msgstr "कुञ्जी गति दोहोर्याउनुहोस्"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:9
+#: ../capplets/mouse/mate-mouse-properties.ui.h:28
+msgid "Long"
+msgstr ""
+
+#. fast acceleration
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:10
+#: ../capplets/mouse/mate-mouse-properties.ui.h:13
+msgid "Fast"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:11
+msgid "Cursor Blinking"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:12
+msgid "Cursor _blinks in text fields"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:13
+msgid "S_peed:"
+msgstr "गति:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:14
+#: ../capplets/mouse/mate-mouse-properties.ui.h:22
+msgid "Cursor blinks speed"
+msgstr "कर्सर झिम्काई गति"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:16
+msgid "List of keyboard layouts selected for usage"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:18
+msgid "Select a keyboard layout to be added to the list"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:19
+msgid "Remove the selected keyboard layout from the list"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:20
+msgid "Move _Up"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:21
+msgid "Move the selected keyboard layout up in the list"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:22
+msgid "Move _Down"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:23
+msgid "Move the selected keyboard layout down in the list"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:24
+msgid "_Show..."
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:25
+msgid "Print a diagram of the selected keyboard layout"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:26
+msgid "_Separate layout for each window"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:27
+msgid "New windows u_se active window's layout"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:28
+msgid "Keyboard _model:"
+msgstr "कुञ्जीपाटी नमूना:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:29
+msgid "_Options..."
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:30
+msgid "View and edit keyboard layout options"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:31
+msgid "Reset to De_faults"
+msgstr "पूर्वनिर्धारितहरू रिसेट गर्नुहोस्"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:32
+msgid ""
+"Replace the current keyboard layout settings with the\n"
+"default settings"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:34
+msgid "Layouts"
+msgstr "सजावटहरू"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:35
+msgid "_Accessibility features can be toggled with keyboard shortcuts"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:37
+msgid "_Simulate simultaneous keypresses"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:38
+msgid "Disa_ble sticky keys if two keys are pressed together"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:40
+msgid "_Only accept long keypresses"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:42
+msgid "_Ignore fast duplicate keypresses"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:43
+msgid "D_elay:"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:44
+msgid "Audio _Feedback..."
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:46
+msgid "_Pointer can be controlled using the keypad"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:47
+#: ../capplets/mouse/mate-mouse-properties.ui.h:8
+msgid "_Acceleration:"
+msgstr "गतिवर्धन:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:48
+msgid "Mouse Keys"
+msgstr "माउस कुञ्जीहरू"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:49
+msgid "_Lock screen to enforce typing break"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:50
+msgid ""
+"Lock screen after a certain duration to help prevent repetitive keyboard use"
+" injuries"
+msgstr "पुनरावृतिक कुञ्जीपाटी प्रयोग क्षतिलाई रोक्नलाई मद्दत गर्नका लागि निश्चित समयावधि पछि पर्दा ताल्चा लगाउनुहोस्"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:51
+msgid "_Work interval lasts:"
+msgstr "कामको अन्तराल अन्त्य हुन्छ:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:52
+msgid "_Break interval lasts:"
+msgstr "विच्छेदन अन्तराल अन्त्य हुन्छ:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:53
+msgid "Duration of work before forcing a break"
+msgstr "विच्छेदको लागि बल प्रयोग गर्नु अगाडी कामको अवधि"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:54
+msgid "Duration of the break when typing is disallowed"
+msgstr "टाइप गर्न अनुमति अस्वीकार गर्दा विश्रामको अवधि"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:55
+msgid "minutes"
+msgstr "मिनट"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:56
+msgid "All_ow postponing of breaks"
+msgstr "विच्छेदहरूको स्थगन गर्न अनुमति दिनुहोस्"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:57
+msgid "Check if breaks are allowed to be postponed"
+msgstr "यदि विच्छेदहरू स्थगन गर्न अनुमति दिइन्छ भने जाँच गर्नुहोस्"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:58
+msgid "Typing Break"
+msgstr "टाइप गर्दाको विच्छेद"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:59
+msgid "_Type to test settings:"
+msgstr "सेटिङहरू परिक्षण गर्न टाइप गर्नुहोस्:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:1
+msgid "Choose a Layout"
+msgstr "सजावट रोज्नुहोस्"
+
+#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:2
+msgid "_Variants:"
+msgstr "चलहरू:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:3
+msgid "_Country:"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:4
+msgid "By _country"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:5
+msgid "_Language:"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:6
+msgid "By _language"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:7
+msgid "Preview:"
+msgstr "पूर्वावोलकन:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-model-chooser.ui.h:1
+msgid "Choose a Keyboard Model"
+msgstr "एउटा कुञ्जीपाटी नमूना रोज्नुहोस्"
+
+#: ../capplets/keyboard/mate-keyboard-properties-model-chooser.ui.h:2
+msgid "_Vendors:"
+msgstr "विक्रेताहरू:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-model-chooser.ui.h:3
+msgid "_Models:"
+msgstr "नमूनाहरू:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-options-dialog.ui.h:1
+msgid "Keyboard Layout Options"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-xkb.c:83
+msgid "Unknown"
+msgstr "अज्ञात"
+
+#: ../capplets/keyboard/mate-keyboard-properties-xkblt.c:240
+msgid "Layout"
+msgstr "सजावट"
+
+#: ../capplets/keyboard/mate-keyboard-properties-xkbmc.c:170
+msgid "Vendors"
+msgstr "विक्रेताहरू"
+
+#: ../capplets/keyboard/mate-keyboard-properties-xkbmc.c:236
+msgid "Models"
+msgstr "नमूनाहरू"
+
+#: ../capplets/keyboard/mate-keyboard-properties-xkbot.c:237
+msgid "Default"
+msgstr "पूर्वनिर्धारित"
+
+#: ../capplets/keyboard/mate-keyboard.desktop.in.in.h:1
+msgid "Keyboard"
+msgstr "कुञ्जीपाटी"
+
+#: ../capplets/keyboard/mate-keyboard.desktop.in.in.h:2
+msgid "Set your keyboard preferences"
+msgstr "तपाईँको कुञ्जीपाटी प्राथमिक्ताहरू सेट गर्नुहोस्"
+
+#: ../capplets/mouse/mate-mouse-properties.c:396
+msgid "Left button"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.c:396
+msgid "Middle button"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.c:396
+msgid "Right button"
+msgstr ""
+
+#. TRANSLATORS: don't translate the terms in brackets
+#: ../capplets/mouse/mate-mouse-properties.c:482
+msgid "Specify the name of the page to show (general)"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.c:487
+msgid "- MATE Mouse Preferences"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:1
+msgid "Mouse Preferences"
+msgstr "माउस प्राथमिकताहरू"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:2
+msgid "Mouse Orientation"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:3
+msgid "_Right-handed"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:4
+msgid "_Left-handed"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:5
+msgid "Locate Pointer"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:6
+msgid "Sh_ow position of pointer when the Control key is pressed"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:7
+msgid "Pointer Speed"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:9
+msgid "_Sensitivity:"
+msgstr "शीघ्रचेतनता:"
+
+#. low sensitivity
+#: ../capplets/mouse/mate-mouse-properties.ui.h:15
+msgid "Low"
+msgstr ""
+
+#. high sensitivity
+#: ../capplets/mouse/mate-mouse-properties.ui.h:17
+msgid "High"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:18
+msgid "Drag and Drop"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:19
+msgid "Thr_eshold:"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:25
+msgid "Double-Click Timeout"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:26
+msgid "_Timeout:"
+msgstr "टायमआउट:"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:29
+msgid ""
+"To test your double-click settings, try to double-click on the light bulb."
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:31
+msgid "Enable _touchpad"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:32
+msgid "Disable touchpad _while typing"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:33
+msgid "Enable _mouse clicks with touchpad"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:34
+msgid "Two-finger click emulation:"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:35
+msgid "Three-finger click emulation:"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:36
+msgid "Scrolling"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:37
+msgid "_Vertical edge scrolling"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:38
+msgid "H_orizontal edge scrolling"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:39
+msgid "V_ertical two-finger scrolling"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:40
+msgid "Hor_izontal two-finger scrolling"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:41
+msgid "Enable n_atural scrolling"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:42
+msgid "Touchpad"
+msgstr ""
+
+#: ../capplets/mouse/mate-settings-mouse.desktop.in.in.h:1
+msgid "Mouse"
+msgstr "माउस"
+
+#: ../capplets/mouse/mate-settings-mouse.desktop.in.in.h:2
+msgid "Set your mouse preferences"
+msgstr "तपाईँको माउस प्राथमिक्ताहरू सेट गर्नुहोस्"
+
+#: ../capplets/network/mate-network-properties.desktop.in.in.h:1
+msgid "Network Proxy"
+msgstr "सञ्जाल प्रोक्सी"
+
+#: ../capplets/network/mate-network-properties.desktop.in.in.h:2
+msgid "Set your network proxy preferences"
+msgstr "तपाईँको सञ्जाल प्रोक्सी प्राथमिक्ताहरू सेट गर्नुहोस्"
+
+#: ../capplets/network/mate-network-properties.ui.h:1
+msgid "HTTP Proxy Details"
+msgstr "HTTP प्रोक्सी विवरणहरू"
+
+#: ../capplets/network/mate-network-properties.ui.h:2
+msgid "<b>_Use authentication</b>"
+msgstr "<b>प्रमाणीकरण प्रयोग गर्नुहोस्</b>"
+
+#: ../capplets/network/mate-network-properties.ui.h:3
+msgid "U_sername:"
+msgstr "प्रयोगकर्ताको नाम:"
+
+#: ../capplets/network/mate-network-properties.ui.h:4
+msgid "_Password:"
+msgstr "पासवर्ड:"
+
+#: ../capplets/network/mate-network-properties.ui.h:5
+msgid "Network Proxy Preferences"
+msgstr "सञ्जाल प्रोक्सी प्राथमिक्ताहरू"
+
+#: ../capplets/network/mate-network-properties.ui.h:6
+msgid "<b>Di_rect internet connection</b>"
+msgstr "<b>प्रत्यक्ष इन्टरनेट जडान</b>"
+
+#: ../capplets/network/mate-network-properties.ui.h:7
+msgid "<b>_Manual proxy configuration</b>"
+msgstr "<b>म्यानुअल प्रोक्सी कन्फिगरेसन</b>"
+
+#: ../capplets/network/mate-network-properties.ui.h:8
+msgid "H_TTP proxy:"
+msgstr "HTTP प्रोक्सी:"
+
+#: ../capplets/network/mate-network-properties.ui.h:9
+msgid "_Secure HTTP proxy:"
+msgstr " HTTP प्रोक्सीलाई सुरक्षित गर्नुहोस्:"
+
+#: ../capplets/network/mate-network-properties.ui.h:10
+msgid "_FTP proxy:"
+msgstr "FTP प्रोक्सी:"
+
+#: ../capplets/network/mate-network-properties.ui.h:11
+msgid "S_ocks host:"
+msgstr "सक्स होस्ट:"
+
+#: ../capplets/network/mate-network-properties.ui.h:12
+msgid "Port:"
+msgstr "पोर्ट:"
+
+#: ../capplets/network/mate-network-properties.ui.h:13
+msgid "_Details"
+msgstr "विस्तृत विवरणहरू"
+
+#: ../capplets/network/mate-network-properties.ui.h:14
+msgid "<b>_Automatic proxy configuration</b>"
+msgstr "<b>स्वाचालित प्रोक्सी कन्फिगरेसन</b>"
+
+#: ../capplets/network/mate-network-properties.ui.h:15
+msgid "Autoconfiguration _URL:"
+msgstr "स्वत: कन्फिगरेसन URL:"
+
+#: ../capplets/network/mate-network-properties.ui.h:16
+msgid "Proxy Configuration"
+msgstr "प्रोक्सी कन्फिगरेसन"
+
+#: ../capplets/network/mate-network-properties.ui.h:17
+msgid "Ignore Host List"
+msgstr ""
+
+#: ../capplets/network/mate-network-properties.ui.h:18
+msgid "Ignored Hosts"
+msgstr ""
+
+#: ../capplets/windows/mate-metacity-support.c:40
+msgid "Metacity Preferences"
+msgstr ""
+
+#. Compositing manager
+#: ../capplets/windows/mate-metacity-support.c:55
+#: ../capplets/windows/mate-window-properties.c:410
+msgid "Compositing Manager"
+msgstr ""
+
+#: ../capplets/windows/mate-metacity-support.c:66
+#: ../capplets/windows/mate-window-properties.c:422
+msgid "Enable software _compositing window manager"
+msgstr ""
+
+#: ../capplets/windows/mate-window-properties.c:264
+msgid "The current window manager is unsupported"
+msgstr ""
+
+#. Window
+#: ../capplets/windows/mate-window-properties.c:358
+msgid "Window Preferences"
+msgstr "सञ्झ्याल प्राथमिकताहरू"
+
+#: ../capplets/windows/mate-window-properties.c:391
+msgid "Behaviour"
+msgstr ""
+
+#: ../capplets/windows/mate-window-properties.c:400
+msgid "Placement"
+msgstr ""
+
+#: ../capplets/windows/mate-window-properties.c:423
+msgid "Disable _thumbnails in Alt-Tab"
+msgstr ""
+
+#. Titlebar buttons
+#: ../capplets/windows/mate-window-properties.c:431
+msgid "Titlebar Buttons"
+msgstr ""
+
+#: ../capplets/windows/mate-window-properties.c:439
+msgid "Position:"
+msgstr ""
+
+#. New Windows
+#: ../capplets/windows/mate-window-properties.c:446
+msgid "New Windows"
+msgstr ""
+
+#: ../capplets/windows/mate-window-properties.c:454
+msgid "Center _new windows"
+msgstr ""
+
+#. Window Snapping
+#: ../capplets/windows/mate-window-properties.c:459
+msgid "Window Snapping"
+msgstr ""
+
+#: ../capplets/windows/mate-window-properties.c:467
+msgid "Enable side by side _tiling"
+msgstr ""
+
+#. Window Selection
+#: ../capplets/windows/mate-window-properties.c:472
+msgid "Window Selection"
+msgstr ""
+
+#: ../capplets/windows/mate-window-properties.c:492
+msgid "_Select windows when the mouse moves over them"
+msgstr "माउस सञ्झ्यालहरू माथि हुँदा तिनीहरूलाई चयन गर्नुहोस्"
+
+#: ../capplets/windows/mate-window-properties.c:495
+msgid "U_nselect windows when the mouse leaves them"
+msgstr ""
+
+#: ../capplets/windows/mate-window-properties.c:499
+msgid "_Raise selected windows after an interval"
+msgstr "एउटा अन्तराल पछि चयन गरिएको सञ्झ्यालहरू बढाउनुहोस्"
+
+#: ../capplets/windows/mate-window-properties.c:510
+msgid "_Interval before raising:"
+msgstr "बढाउन अगाडिको अन्तराल:"
+
+#: ../capplets/windows/mate-window-properties.c:514
+msgid "seconds"
+msgstr "सेकेन्ड"
+
+#. Titlebar Action
+#: ../capplets/windows/mate-window-properties.c:525
+msgid "Titlebar Action"
+msgstr ""
+
+#: ../capplets/windows/mate-window-properties.c:533
+msgid "_Double-click titlebar to perform this action:"
+msgstr "यो कार्य कार्यसम्पादन गर्न शिर्षकपट्टी डबल-क्लिक गर्नुहोस्:"
+
+#. Movement Key
+#: ../capplets/windows/mate-window-properties.c:541
+msgid "Movement Key"
+msgstr ""
+
+#: ../capplets/windows/mate-window-properties.c:552
+msgid "To move a window, press-and-hold this key then grab the window:"
+msgstr "सञ्झ्याल सार्न, यो कुञ्जी थिच्नुहोस्-र-राख्नुहोस् त्यसपछि सञ्झ्याल लिनुहोस्:"
+
+#: ../capplets/windows/mate-window-properties.c:580
+#: ../libwindow-settings/marco-window-manager.c:394
+msgid "Roll up"
+msgstr "माथि जानुहोस्"
+
+#: ../capplets/windows/mate-window-properties.c:581
+#: ../libwindow-settings/marco-window-manager.c:395
+msgid "Maximize"
+msgstr "ठूलो पार्नुहोस्"
+
+#: ../capplets/windows/mate-window-properties.c:582
+#: ../libwindow-settings/marco-window-manager.c:396
+msgid "Maximize Horizontally"
+msgstr ""
+
+#: ../capplets/windows/mate-window-properties.c:583
+#: ../libwindow-settings/marco-window-manager.c:397
+msgid "Maximize Vertically"
+msgstr ""
+
+#: ../capplets/windows/mate-window-properties.c:584
+#: ../libwindow-settings/marco-window-manager.c:398
+msgid "Minimize"
+msgstr "सानो पार्नुहोस्"
+
+#: ../capplets/windows/mate-window-properties.c:585
+#: ../libwindow-settings/marco-window-manager.c:399
+msgid "None"
+msgstr "कुनै पनि होइन"
+
+#: ../capplets/windows/mate-window-properties.c:786
+msgid "_Alt"
+msgstr "Alt"
+
+#: ../capplets/windows/mate-window-properties.c:792
+msgid "H_yper"
+msgstr "अति"
+
+#: ../capplets/windows/mate-window-properties.c:799
+msgid "S_uper (or \"Windows logo\")"
+msgstr "सर्वोत्तम(वा\"सञ्झ्याल लोगो\")"
+
+#: ../capplets/windows/mate-window-properties.c:806
+msgid "_Meta"
+msgstr "मेटा"
+
+#: ../capplets/windows/mate-window-properties.desktop.in.in.h:1
+msgid "Windows"
+msgstr "सञ्झ्यालहरू"
+
+#: ../capplets/windows/mate-window-properties.desktop.in.in.h:2
+msgid "Set your window properties"
+msgstr "तपाईँको सञ्झ्यालको गुणहरू सेट गर्नुहोस्"
+
+#: ../libwindow-settings/mate-wm-manager.c:317
+#, c-format
+msgid "Window manager \"%s\" has not registered a configuration tool\n"
+msgstr "\"%s\" सञ्झ्याल प्रबन्धकले कन्फिगरेसन उपकरण दर्ता गरेको छैन\n"
+
+#: ../shell/control-center.c:61
+#, c-format
+msgid "%s key is empty\n"
+msgstr ""
+
+#: ../shell/control-center.c:161
+msgid "Hide on start (useful to preload the shell)"
+msgstr ""
+
+#: ../shell/control-center.c:201
+msgid "Filter"
+msgstr "फिल्टर"
+
+#: ../shell/control-center.c:201
+msgid "Groups"
+msgstr "समूहहरू"
+
+#: ../shell/control-center.c:201
+msgid "Common Tasks"
+msgstr "साझा कार्यहरू"
+
+#: ../shell/control-center.c:203 ../shell/matecc.desktop.in.in.h:1
+#: ../shell/matecc.directory.in.h:1
+msgid "Control Center"
+msgstr "नियन्त्रण केन्द्र"
+
+#: ../shell/matecc.desktop.in.in.h:2
+msgid "The MATE configuration tool"
+msgstr "जिनोम कन्फिगरेसन उपकरण"
+
+#: ../typing-break/drw-break-window.c:203
+msgid "_Postpone Break"
+msgstr "विच्छेदन स्थगन गर्नुहोस्"
+
+#: ../typing-break/drw-break-window.c:277
+msgid "Take a break!"
+msgstr "विश्राम लिनुहोस्!"
+
+#: ../typing-break/drwright.c:139
+msgid "_Take a Break"
+msgstr ""
+
+#: ../typing-break/drwright.c:510
+#, c-format
+msgid "Take a break now (next in %dm)"
+msgstr ""
+
+#: ../typing-break/drwright.c:512
+#, c-format
+msgid "%d minute until the next break"
+msgid_plural "%d minutes until the next break"
+msgstr[0] "पछिल्लो विश्राम नभएसम्म %d मिनेट"
+msgstr[1] "पछिल्लो विश्राम नभएसम्म %d मिनेट"
+
+#: ../typing-break/drwright.c:518
+#, c-format
+msgid "Take a break now (next in less than one minute)"
+msgstr ""
+
+#: ../typing-break/drwright.c:520
+#, c-format
+msgid "Less than one minute until the next break"
+msgstr "पछिल्लो विश्राम नभएसम्म एक मिनेटभन्दा कम"
+
+#: ../typing-break/drwright.c:610
+#, c-format
+msgid ""
+"Unable to bring up the typing break properties dialog with the following "
+"error: %s"
+msgstr "निम्न त्रुटिसँग टाइपिङ बिच्छेद गुण संवाद ल्याउन असक्षम: %s"
+
+#: ../typing-break/drwright.c:627
+msgid "Written by Richard Hult <richard@imendio.com>"
+msgstr "रिचार्ड हल्ट <richard@imendio.com> द्वारा लेखिएको"
+
+#: ../typing-break/drwright.c:628
+msgid "Eye candy added by Anders Carlsson"
+msgstr "एन्डर्स कार्ल्ससनद्वारा थपिएको आई क्यान्डि"
+
+#: ../typing-break/drwright.c:637
+msgid "A computer break reminder."
+msgstr "एउटा कमप्युटर विच्छेदन रिमाइन्डर ।"
+
+#: ../typing-break/drwright.c:639
+msgid "translator-credits"
+msgstr "Narayan Kumar Magar<narayan@mpp.org.np>"
+
+#: ../typing-break/main.c:63
+msgid "Enable debugging code"
+msgstr "त्रुटि सच्याउने सङ्केत सक्षम पार्नुहोस्"
+
+#: ../typing-break/main.c:65
+msgid "Don't check whether the notification area exists"
+msgstr "सूचना क्षेत्र अवस्थित छ या छैन जाँच नगर्नुहोस्"
+
+#: ../typing-break/main.c:89
+msgid "Typing Monitor"
+msgstr "टाइपिङ मनिटर"
+
+#: ../typing-break/main.c:106
+msgid ""
+"The typing monitor uses the notification area to display information. You "
+"don't seem to have a notification area on your panel. You can add it by "
+"right-clicking on your panel and choosing 'Add to panel', selecting "
+"'Notification area' and clicking 'Add'."
+msgstr "यो टाइपिङ मनिटरले सूचना प्रदर्शन गर्न सूचना क्षेत्र प्रयोग गर्दछ । तपाईँसँग प्यानलमा सूचना क्षेत्र भएको देखिँदैन । तपाईँले यसलाई 'सूचना क्षेत्र' चयन गरेर र 'थप्नुहोस्' क्लिक गरेर तपाईँको प्यानलमा दायाँ-क्लिक गरेर र 'प्यानलमा थप्नुहोस्' रोजेर तपाईँको प्यानलमा थप्न सक्नुहुन्छ ।"
+
+#: ../font-viewer/font-view.c:360 ../font-viewer/font-view.c:362
+msgid "Name:"
+msgstr "नाम:"
+
+#: ../font-viewer/font-view.c:367 ../font-viewer/font-view.c:369
+msgid "Style:"
+msgstr "शैली:"
+
+#: ../font-viewer/font-view.c:383 ../font-viewer/font-view.c:385
+msgid "Type:"
+msgstr "प्रकार:"
+
+#: ../font-viewer/font-view.c:391 ../font-viewer/font-view.c:393
+msgid "Size:"
+msgstr "साइज:"
+
+#: ../font-viewer/font-view.c:440 ../font-viewer/font-view.c:442
+#: ../font-viewer/font-view.c:465 ../font-viewer/font-view.c:467
+msgid "Version:"
+msgstr "संस्करण:"
+
+#: ../font-viewer/font-view.c:448 ../font-viewer/font-view.c:450
+#: ../font-viewer/font-view.c:471 ../font-viewer/font-view.c:473
+msgid "Copyright:"
+msgstr "प्रतिलिपि अधिकार:"
+
+#: ../font-viewer/font-view.c:456 ../font-viewer/font-view.c:458
+msgid "Description:"
+msgstr "वर्णन:"
+
+#: ../font-viewer/font-view.c:535
+msgid "Installed"
+msgstr ""
+
+#: ../font-viewer/font-view.c:537
+msgid "Install Failed"
+msgstr ""
+
+#: ../font-viewer/font-view.c:613
+#, c-format
+msgid "Usage: %s fontfile\n"
+msgstr ""
+
+#: ../font-viewer/font-view.c:713
+msgid "I_nstall Font"
+msgstr ""
+
+#: ../font-viewer/mate-font-viewer.desktop.in.in.h:1
+msgid "Font Viewer"
+msgstr ""
+
+#: ../font-viewer/mate-font-viewer.desktop.in.in.h:2
+msgid "Preview fonts"
+msgstr ""
+
+#: ../font-viewer/font-thumbnailer.c:267
+msgid "Text to thumbnail (default: Aa)"
+msgstr "थम्बनेलमा पाठ (पूर्वनिर्धारित: Aa)"
+
+#: ../font-viewer/font-thumbnailer.c:267
+msgid "TEXT"
+msgstr "पाठ"
+
+#: ../font-viewer/font-thumbnailer.c:269
+msgid "Font size (default: 64)"
+msgstr "फन्ट साइज (पूर्वनिर्धारित: ६४)"
+
+#: ../font-viewer/font-thumbnailer.c:269
+msgid "SIZE"
+msgstr "साइज"
+
+#: ../font-viewer/font-thumbnailer.c:271
+msgid "FONT-FILE OUTPUT-FILE"
+msgstr "FONT-FILE OUTPUT-FILE"
+
+#: ../libslab/app-shell.c:791
+#, c-format
+msgid "Your filter \"%s\" does not match any items."
+msgstr ""
+
+#: ../libslab/app-shell.c:793
+msgid "No matches found."
+msgstr ""
+
+#: ../libslab/app-shell.c:893
+msgid "New Applications"
+msgstr ""
+
+#: ../libslab/app-shell.c:948
+msgid "Other"
+msgstr "अन्य"
+
+#. make start action
+#: ../libslab/application-tile.c:339
+#, c-format
+msgid "Start %s"
+msgstr ""
+
+#: ../libslab/application-tile.c:360
+msgid "Help"
+msgstr "मद्दत"
+
+#: ../libslab/application-tile.c:636 ../libslab/document-tile.c:743
+msgid "Remove from Favorites"
+msgstr "मनपर्नेहरूबाट हटाउनुहोस्"
+
+#: ../libslab/application-tile.c:638 ../libslab/document-tile.c:745
+msgid "Add to Favorites"
+msgstr "मनपर्नेहरूमा थप्नुहोस्"
+
+#: ../libslab/application-tile.c:723
+msgid "Remove from Startup Programs"
+msgstr "सुरुआत कार्यक्रमहरूबाट हटाउनुहोस्"
+
+#: ../libslab/application-tile.c:725
+msgid "Add to Startup Programs"
+msgstr "सुरुआत कार्यक्रमहरूलाई थप्नुहोस्"
+
+#: ../libslab/bookmark-agent.c:1087
+msgid "New Spreadsheet"
+msgstr "नयाँ स्प्रिडशीट"
+
+#: ../libslab/bookmark-agent.c:1091
+msgid "New Document"
+msgstr "नयाँ कागजात"
+
+#: ../libslab/bookmark-agent.c:1145
+msgctxt "Home folder"
+msgid "Home"
+msgstr ""
+
+#: ../libslab/bookmark-agent.c:1152
+msgid "Documents"
+msgstr ""
+
+#: ../libslab/bookmark-agent.c:1158
+msgid "Desktop"
+msgstr "डेस्कटप"
+
+#: ../libslab/bookmark-agent.c:1163
+msgid "File System"
+msgstr "फाइल प्रणाली"
+
+#: ../libslab/bookmark-agent.c:1166
+msgid "Network Servers"
+msgstr "सञ्जाल सेवाहरू"
+
+#: ../libslab/bookmark-agent.c:1197
+msgid "Search"
+msgstr "खोजी गर्नुहोस्"
+
+#. make open with default action
+#: ../libslab/directory-tile.c:176
+#, c-format
+msgid "<b>Open</b>"
+msgstr ""
+
+#. make rename action
+#: ../libslab/directory-tile.c:195 ../libslab/document-tile.c:241
+msgid "Rename..."
+msgstr ""
+
+#: ../libslab/directory-tile.c:209 ../libslab/directory-tile.c:218
+#: ../libslab/document-tile.c:255 ../libslab/document-tile.c:264
+msgid "Send To..."
+msgstr ""
+
+#. make move to trash action
+#: ../libslab/directory-tile.c:233 ../libslab/document-tile.c:290
+msgid "Move to Trash"
+msgstr ""
+
+#: ../libslab/directory-tile.c:243 ../libslab/directory-tile.c:461
+#: ../libslab/document-tile.c:300 ../libslab/document-tile.c:863
+msgid "Delete"
+msgstr ""
+
+#: ../libslab/directory-tile.c:538 ../libslab/document-tile.c:1026
+#, c-format
+msgid "Are you sure you want to permanently delete \"%s\"?"
+msgstr ""
+
+#: ../libslab/directory-tile.c:539 ../libslab/document-tile.c:1027
+msgid "If you delete an item, it is permanently lost."
+msgstr ""
+
+#: ../libslab/document-tile.c:200
+#, c-format
+msgid "Open with \"%s\""
+msgstr ""
+
+#: ../libslab/document-tile.c:214
+msgid "Open with Default Application"
+msgstr ""
+
+#: ../libslab/document-tile.c:225
+msgid "Open in File Manager"
+msgstr ""
+
+#. clean item from menu
+#: ../libslab/document-tile.c:309
+msgid "Remove from recent menu"
+msgstr ""
+
+#. clean all the items from menu
+#: ../libslab/document-tile.c:317
+msgid "Purge all the recent items"
+msgstr ""
+
+#: ../libslab/document-tile.c:631
+msgid "?"
+msgstr "?"
+
+#: ../libslab/document-tile.c:638
+msgid "%l:%M %p"
+msgstr ""
+
+#: ../libslab/document-tile.c:646
+msgid "Today %l:%M %p"
+msgstr "आज %l:%M %p"
+
+#: ../libslab/document-tile.c:656
+msgid "Yesterday %l:%M %p"
+msgstr "हिजो %l:%M %p"
+
+#: ../libslab/document-tile.c:668
+msgid "%a %l:%M %p"
+msgstr "%a %l:%M %p"
+
+#: ../libslab/document-tile.c:676
+msgid "%b %d %l:%M %p"
+msgstr "%b %d %l:%M %p"
+
+#: ../libslab/document-tile.c:678
+msgid "%b %d %Y"
+msgstr "%b %d %Y"
+
+#: ../libslab/search-bar.c:260
+msgid "Find Now"
+msgstr "नयाँ फेला पार्नुहोस्"
+
+#: ../libslab/system-tile.c:132
+#, c-format
+msgid "<b>Open %s</b>"
+msgstr "<b>%s खोल्नुहोस्</b>"
+
+#: ../libslab/system-tile.c:145
+#, c-format
+msgid "Remove from System Items"
+msgstr "प्रणालीबाट वस्तुहरू हटाउनुहोस्"

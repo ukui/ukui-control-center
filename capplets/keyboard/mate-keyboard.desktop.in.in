@@ -1,0 +1,11 @@
+[Desktop Entry]
+_Name=Keyboard
+_Comment=Set your keyboard preferences
+Exec=mate-keyboard-properties
+Icon=preferences-desktop-keyboard
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GTK;Settings;HardwareSettings;
+Keywords=mate-control-center;MATE;keyboard;preferences;
+OnlyShowIn=MATE;

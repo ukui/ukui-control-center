@@ -1,0 +1,2940 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Áki G. Karlsson  <aki@akademia.is>, 2003
+# Sveinn í Felli <sv1@fellsnet.is>, 2012,2015
+# Sveinn í Felli <sv1@fellsnet.is>, 2012
+msgid ""
+msgstr ""
+"Project-Id-Version: MATE Desktop Environment\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-27 23:13+0300\n"
+"PO-Revision-Date: 2016-03-27 20:16+0000\n"
+"Last-Translator: monsta <monsta@inbox.ru>\n"
+"Language-Team: Icelandic (http://www.transifex.com/mate/MATE/language/is/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: is\n"
+"Plural-Forms: nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);\n"
+
+#: ../org.mate.control-center.gschema.xml.in.h:1
+msgid ""
+"[ 'Change Theme;mate-appearance-properties.desktop', 'Set Preferred "
+"Applications;mate-default-applications-properties.desktop' ]"
+msgstr ""
+
+#: ../org.mate.control-center.gschema.xml.in.h:2
+msgid "Task names and associated .desktop files"
+msgstr ""
+
+#: ../org.mate.control-center.gschema.xml.in.h:3
+msgid ""
+"The task name to be displayed in the control-center followed by a \";\" "
+"separator then the filename of an associated .desktop file to launch for "
+"that task."
+msgstr ""
+
+#: ../org.mate.control-center.gschema.xml.in.h:4
+msgid "Close the control-center when a task is activated"
+msgstr "Loka stjórnborðinu þegar búið er að opna forrit"
+
+#: ../org.mate.control-center.gschema.xml.in.h:5
+msgid ""
+"if true, the control-center will close when a \"Common Task\" is activated."
+msgstr ""
+
+#: ../org.mate.control-center.gschema.xml.in.h:6
+msgid "Exit shell on start action performed"
+msgstr ""
+
+#: ../org.mate.control-center.gschema.xml.in.h:7
+msgid "Indicates whether to close the shell when a start action is performed."
+msgstr ""
+
+#: ../org.mate.control-center.gschema.xml.in.h:8
+msgid "Exit shell on help action performed"
+msgstr ""
+
+#: ../org.mate.control-center.gschema.xml.in.h:9
+msgid "Indicates whether to close the shell when a help action is performed."
+msgstr ""
+
+#: ../org.mate.control-center.gschema.xml.in.h:10
+msgid "Exit shell on add or remove action performed"
+msgstr ""
+
+#: ../org.mate.control-center.gschema.xml.in.h:11
+msgid ""
+"Indicates whether to close the shell when an add or remove action is "
+"performed."
+msgstr ""
+
+#: ../org.mate.control-center.gschema.xml.in.h:12
+msgid "Exit shell on upgrade or uninstall action performed"
+msgstr ""
+
+#: ../org.mate.control-center.gschema.xml.in.h:13
+msgid ""
+"Indicates whether to close the shell when an upgrade or uninstall action is "
+"performed."
+msgstr ""
+
+#: ../org.mate.control-center.gschema.xml.in.h:14
+msgid "More backgrounds URL"
+msgstr "Fleiri bakgrunnsvefslóðir"
+
+#: ../org.mate.control-center.gschema.xml.in.h:15
+msgid ""
+"URL for where to get more desktop backgrounds. If set to an empty string the"
+" link will not appear."
+msgstr "Vefslóð til að sækja fleiri bakgrunni. Tengillinn birtist ekki ef þetta er tómur strengur."
+
+#: ../org.mate.control-center.gschema.xml.in.h:16
+msgid "More themes URL"
+msgstr "Fleiri þemavefslóðir"
+
+#: ../org.mate.control-center.gschema.xml.in.h:17
+msgid ""
+"URL for where to get more desktop themes. If set to an empty string the link"
+" will not appear."
+msgstr "Vefslóð til að sækja fleiri útlit. Tengillinn birtist ekki ef þetta er tómur strengur."
+
+#: ../org.mate.control-center.keybinding.gschema.xml.in.h:1
+msgid "Keybinding"
+msgstr "Lyklabinding"
+
+#: ../org.mate.control-center.keybinding.gschema.xml.in.h:2
+msgid "Keybinding associated with a custom shortcut."
+msgstr ""
+
+#: ../org.mate.control-center.keybinding.gschema.xml.in.h:3
+msgid "Command"
+msgstr "Skipun"
+
+#: ../org.mate.control-center.keybinding.gschema.xml.in.h:4
+msgid "Command associated with a custom keybinding."
+msgstr ""
+
+#: ../org.mate.control-center.keybinding.gschema.xml.in.h:5
+msgid "Name"
+msgstr "Heiti"
+
+#: ../org.mate.control-center.keybinding.gschema.xml.in.h:6
+msgid "Description associated with a custom keybinding."
+msgstr ""
+
+#: ../capplets/about-me/eel-alert-dialog.c:110
+msgid "Image/label border"
+msgstr "Rammi í kringum myndir eða texta"
+
+#: ../capplets/about-me/eel-alert-dialog.c:111
+msgid "Width of border around the label and image in the alert dialog"
+msgstr "Breidd rammans í kringum texta eða myndir í viðvörunarglugga"
+
+#: ../capplets/about-me/eel-alert-dialog.c:120
+msgid "Alert Type"
+msgstr "Tegund viðvörunar"
+
+#: ../capplets/about-me/eel-alert-dialog.c:121
+msgid "The type of alert"
+msgstr "Tegund viðvörunar"
+
+#: ../capplets/about-me/eel-alert-dialog.c:129
+msgid "Alert Buttons"
+msgstr "Viðvörunartakki"
+
+#: ../capplets/about-me/eel-alert-dialog.c:130
+msgid "The buttons shown in the alert dialog"
+msgstr "Takkinn sem er sýndur í viðvörunarglugga"
+
+#: ../capplets/about-me/eel-alert-dialog.c:219
+msgid "Show more _details"
+msgstr "Sýna frekari _upplýsingar"
+
+#: ../capplets/about-me/mate-about-me.c:268
+msgid "Select Image"
+msgstr "Velja mynd"
+
+#: ../capplets/about-me/mate-about-me.c:270
+msgid "No Image"
+msgstr "Engin mynd"
+
+#: ../capplets/about-me/mate-about-me.c:298
+#: ../capplets/appearance/appearance-desktop.c:650
+msgid "Images"
+msgstr "Myndir"
+
+#: ../capplets/about-me/mate-about-me.c:302
+#: ../capplets/appearance/theme-installer.c:783
+msgid "All Files"
+msgstr "Allar skrár"
+
+#: ../capplets/about-me/mate-about-me.c:454
+#, c-format
+msgid "About %s"
+msgstr "Um %s"
+
+#: ../capplets/about-me/mate-about-me-dialog.ui.h:1
+#: ../capplets/about-me/mate-about-me.desktop.in.in.h:1
+msgid "About Me"
+msgstr "Um mig"
+
+#: ../capplets/about-me/mate-about-me-dialog.ui.h:2
+msgid "Select your photo"
+msgstr "Veldu mynd"
+
+#: ../capplets/about-me/mate-about-me-dialog.ui.h:3
+msgid "Full Name"
+msgstr "Fullt nafn"
+
+#: ../capplets/about-me/mate-about-me-dialog.ui.h:4
+msgid "User name:"
+msgstr "Notandanafn:"
+
+#: ../capplets/about-me/mate-about-me-dialog.ui.h:5
+msgid "Change Passwo_rd..."
+msgstr "Breyta lykilo_rði..."
+
+#: ../capplets/about-me/mate-about-me-dialog.ui.h:6
+msgid "Enable _Fingerprint Login..."
+msgstr "Virkja innskráningu með _fingrafari..."
+
+#: ../capplets/about-me/mate-about-me-dialog.ui.h:7
+msgid "Disable _Fingerprint Login..."
+msgstr "Ekki leyfa að skrá sig inn með _fingrafari..."
+
+#: ../capplets/about-me/mate-about-me.desktop.in.in.h:2
+msgid "Set your personal information"
+msgstr "Breyta upplýsingum um einstaklinga"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:100
+msgid ""
+"You are not allowed to access the device. Contact your system administrator."
+msgstr "Þú hefur ekki aðgang að þessum búnaði. Vinsamlegast hafðu samband við kerfisstjóra."
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:102
+msgid "The device is already in use."
+msgstr "Þessi búnaður er núþegar í notkun."
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:104
+msgid "An internal error occurred"
+msgstr ""
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:221
+msgid "Delete registered fingerprints?"
+msgstr "Viltu eyða skráðum fingraförum?"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:224
+msgid "_Delete Fingerprints"
+msgstr "_Eyða fingraförum"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:231
+msgid ""
+"Do you want to delete your registered fingerprints so fingerprint login is "
+"disabled?"
+msgstr "Viltu eyða skráðum fingraförum, sem gerir innskráningu með fingraförum óvirka?"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:359
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:15
+msgid "Done!"
+msgstr "Tilbúið!"
+
+#. translators:
+#. * The variable is the name of the device, for example:
+#. * "Could you not access "Digital Persona U.are.U 4000/4000B" device
+#: ../capplets/about-me/mate-about-me-fingerprint.c:405
+#: ../capplets/about-me/mate-about-me-fingerprint.c:427
+#, c-format
+msgid "Could not access '%s' device"
+msgstr "Gat ekki tengst ‚%s‘"
+
+#. translators:
+#. * The variable is the name of the device, for example:
+#. * "Could you not access "Digital Persona U.are.U 4000/4000B" device
+#: ../capplets/about-me/mate-about-me-fingerprint.c:476
+#, c-format
+msgid "Could not start finger capture on '%s' device"
+msgstr "Gat ekki lesið fingrafar af tækinu ‚%s‘"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:523
+msgid "Could not access any fingerprint readers"
+msgstr "Gat ekki tengst fingrafaralesara"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:524
+msgid "Please contact your system administrator for help."
+msgstr "Vinsamlegast hafðu samband við kerfisstjóra til að fá frekari aðstoð."
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:554
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:9
+msgid "Enable Fingerprint Login"
+msgstr "Virkja innskráningu með fingrafari"
+
+#. translators:
+#. * The variable is the name of the device, for example:
+#. * "To enable fingerprint login, you need to save one of your fingerprints,
+#. using the
+#. * 'Digital Persona U.are.U 4000/4000B' device."
+#: ../capplets/about-me/mate-about-me-fingerprint.c:584
+#, c-format
+msgid ""
+"To enable fingerprint login, you need to save one of your fingerprints, "
+"using the '%s' device."
+msgstr "Þú verður að vista eitt fingrafar með ‚%s‘ ef þú vilt leyfa innskráningu með fingrageri."
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:593
+msgid "Swipe finger on reader"
+msgstr "Renndu fingrinum í gegnum fingrafaralesarann"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.c:595
+msgid "Place finger on reader"
+msgstr "Leggðu fingurinn á fingrafaralesarann"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:1
+msgid "Left thumb"
+msgstr "Vinstri þumall"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:2
+msgid "Left middle finger"
+msgstr "Vinstri langatöng"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:3
+msgid "Left ring finger"
+msgstr "Vinstri baugfingur"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:4
+msgid "Left little finger"
+msgstr "Vinstri litlifingur"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:5
+msgid "Right thumb"
+msgstr "Hægri þumall"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:6
+msgid "Right middle finger"
+msgstr "Hægri langatöng"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:7
+msgid "Right ring finger"
+msgstr "Hægri baugfingur"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:8
+msgid "Right little finger"
+msgstr "Hægri litlifingur"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:10
+msgid "Right index finger"
+msgstr "Hægri vísifingur"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:11
+msgid "Left index finger"
+msgstr "Vinstri vísifingur"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:12
+msgid "Other finger: "
+msgstr "Annar putti: "
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:13
+msgid "Select finger"
+msgstr "Velja fingur"
+
+#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:14
+msgid ""
+"Your fingerprint was successfully saved. You should now be able to log in "
+"using your fingerprint reader."
+msgstr "Fingrafarið þitt hefur verið vistað. Þú getur núna skráð þig inn með því að nota fingrafaralesarann."
+
+#: ../capplets/about-me/mate-about-me-password.c:161
+msgid "Child exited unexpectedly"
+msgstr "Dótturforrit endaði óvænt"
+
+#: ../capplets/about-me/mate-about-me-password.c:297
+#, c-format
+msgid "Could not shutdown backend_stdin IO channel: %s"
+msgstr "Ekki tókst að slökkva á backend_stdin rásinni: %s"
+
+#: ../capplets/about-me/mate-about-me-password.c:310
+#, c-format
+msgid "Could not shutdown backend_stdout IO channel: %s"
+msgstr "Ekki tókst að slökkva á backend_stdout rásinni: %s"
+
+#: ../capplets/about-me/mate-about-me-password.c:409
+msgid "Authenticated!"
+msgstr "Lykilorð staðfest!"
+
+#. This is a re-auth, and it failed.
+#. * The password must have been changed in the meantime!
+#. * Ask the user to re-authenticate
+#. Update status message and auth state
+#. Authentication failure
+#: ../capplets/about-me/mate-about-me-password.c:472
+#: ../capplets/about-me/mate-about-me-password.c:557
+msgid ""
+"Your password has been changed since you initially authenticated! Please re-"
+"authenticate."
+msgstr "Lykilorðinu hefur verið breytt síðan þú auðkenndir þig! Þú verður að auðkenna þig aftur."
+
+#: ../capplets/about-me/mate-about-me-password.c:474
+msgid "That password was incorrect."
+msgstr "Lykilorðið var rangt."
+
+#: ../capplets/about-me/mate-about-me-password.c:525
+msgid "Your password has been changed."
+msgstr "Lykilorði hefur verið breytt."
+
+#. What does this indicate?
+#. * "Authentication information cannot be recovered?" from libpam?
+#: ../capplets/about-me/mate-about-me-password.c:535
+#, c-format
+msgid "System error: %s."
+msgstr "Kerfisvilla: %s."
+
+#: ../capplets/about-me/mate-about-me-password.c:538
+msgid "The password is too short."
+msgstr "Lykilorðið er of stutt."
+
+#: ../capplets/about-me/mate-about-me-password.c:542
+msgid "The password is too simple."
+msgstr "Lykilorðið er of einfalt."
+
+#: ../capplets/about-me/mate-about-me-password.c:547
+msgid "The old and new passwords are too similar."
+msgstr "Gamla og nýja lykilorðið eru of lík."
+
+#: ../capplets/about-me/mate-about-me-password.c:549
+msgid "The new password must contain numeric or special character(s)."
+msgstr "Nýja lykilorðið verður að innihalda tölur eða sérstafi, t.d. tákn (<!=)."
+
+#: ../capplets/about-me/mate-about-me-password.c:552
+msgid "The old and new passwords are the same."
+msgstr "Það er enginn munur á gamla og nýja lykilorðinu."
+
+#: ../capplets/about-me/mate-about-me-password.c:554
+msgid "The new password has already been used recently."
+msgstr "Nýja lykilorðið hefur áður verið notað og það nýlega."
+
+#. translators: Unable to launch <program>: <error message>
+#: ../capplets/about-me/mate-about-me-password.c:829
+#, c-format
+msgid "Unable to launch %s: %s"
+msgstr "Gat ekki ræst %s: %s"
+
+#: ../capplets/about-me/mate-about-me-password.c:833
+msgid "Unable to launch backend"
+msgstr "Gat ekki keyrt bakhlutann"
+
+#: ../capplets/about-me/mate-about-me-password.c:834
+msgid "A system error has occurred"
+msgstr "Upp hefur komið kerfisvilla"
+
+#. Update status message
+#: ../capplets/about-me/mate-about-me-password.c:854
+msgid "Checking password..."
+msgstr "Athuga lykilorð..."
+
+#: ../capplets/about-me/mate-about-me-password.c:938
+msgid "Click <b>Change password</b> to change your password."
+msgstr "Ýttu á takkann <b>breyta lykilorði</b> til að velja nýtt lykilorð."
+
+#: ../capplets/about-me/mate-about-me-password.c:941
+msgid "Please type your password in the <b>New password</b> field."
+msgstr "Sláðu lykilorðið í dálkinn <b>nýtt lykilorð</b>."
+
+#: ../capplets/about-me/mate-about-me-password.c:944
+#: ../capplets/about-me/mate-about-me-password.ui.h:9
+msgid ""
+"Please type your password again in the <b>Retype new password</b> field."
+msgstr "Vinsamlegast sláðu inn lykilorðið þitt aftur í dálkinn <b>Staðfesta lykilorð</b>."
+
+#: ../capplets/about-me/mate-about-me-password.c:947
+msgid "The two passwords are not equal."
+msgstr "Lykilorðin voru ekki eins."
+
+#: ../capplets/about-me/mate-about-me-password.ui.h:1
+msgid "Change password"
+msgstr "Breyta lykilorðinu"
+
+#: ../capplets/about-me/mate-about-me-password.ui.h:2
+msgid "Change your password"
+msgstr "Breyta lykilorðinu"
+
+#: ../capplets/about-me/mate-about-me-password.ui.h:3
+msgid ""
+"To change your password, enter your current password in the field below and click <b>Authenticate</b>.\n"
+"After you have authenticated, enter your new password, retype it for verification and click <b>Change password</b>."
+msgstr "Sláðu inn núverandi lykilorð í reitinn hér að neðan til að breyta því og ýttu síðan á <b>Staðfesta</b>.\nSláðu inn nýja lykilorðið að því loknu- hafðu í huga að þú þarft að endurtaka það til öryggis. Svo ýtirðu á takkann sem á stendur <b>breyta lykilorði</b>."
+
+#: ../capplets/about-me/mate-about-me-password.ui.h:5
+msgid "Current _password:"
+msgstr "Núverandi _lykilorð:"
+
+#: ../capplets/about-me/mate-about-me-password.ui.h:6
+msgid "_New password:"
+msgstr "_Nýtt lykilorð:"
+
+#: ../capplets/about-me/mate-about-me-password.ui.h:7
+msgid "_Retype new password:"
+msgstr "_Skrifaðu nýja lykilorðið aftur:"
+
+#: ../capplets/about-me/mate-about-me-password.ui.h:8
+msgid "_Authenticate"
+msgstr "_Staðfesta"
+
+#: ../capplets/about-me/mate-about-me-password.ui.h:10
+msgid "Change pa_ssword"
+msgstr "Breyta lykilo_rði"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:1
+msgid "Assistive Technologies Preferences"
+msgstr "Stillingar á aðgengi"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:2
+#: ../capplets/accessibility/at-properties/mate-at-properties.desktop.in.in.h:1
+msgid "Assistive Technologies"
+msgstr "Aðgengi"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:3
+msgid "_Preferred Applications"
+msgstr "_Helstu forritin"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:4
+msgid "Jump to Preferred Applications dialog"
+msgstr "Skipta yfir í gluggann yfir helstu forritin"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:5
+msgid "_Enable assistive technologies"
+msgstr "_Virkja stoðtækni"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:6
+msgid ""
+"Changes to enable assistive technologies will not take effect until your "
+"next log in."
+msgstr ""
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:7
+msgid "Preferences"
+msgstr "Stillingar"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:8
+msgid "_Keyboard Accessibility"
+msgstr "Stillingar á _lyklaborðinu til að auka aðgengi"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:9
+msgid "Jump to the Keyboard Accessibility dialog"
+msgstr "Skipta yfir í gluggann þar sem hægt er að stilla aðgengi á lyklaborðinu"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:10
+msgid "_Mouse Accessibility"
+msgstr "Stillingar á _músinni til að auka aðgengi"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:11
+msgid "Jump to the Mouse Accessibility dialog"
+msgstr "Skipta yfir í gluggann þar sem hægt er að stilla aðgengi fyrir músina"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:12
+msgid "Accessible Lo_gin"
+msgstr "Stillingar á _innskráningu til að auka aðgengi"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:13
+msgid "Jump to the Accessible Login dialog"
+msgstr "Skipta yfir í gluggann þar sem hægt er að stilla aðgengi á innskráningu"
+
+#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:14
+msgid "Close and _Log Out"
+msgstr "_Loka og skrá út"
+
+#: ../capplets/accessibility/at-properties/mate-at-properties.desktop.in.in.h:2
+msgid "Choose which accessibility features to enable when you log in"
+msgstr "Velja hvaða stillingar þú vilt velja til að auka aðgengi þegar þú skráir þig inn"
+
+#: ../capplets/appearance/appearance-desktop.c:619
+msgid "Add Wallpaper"
+msgstr "Bæta við veggfóðri"
+
+#: ../capplets/appearance/appearance-desktop.c:654
+msgid "All files"
+msgstr "Allar skrár"
+
+#: ../capplets/appearance/appearance-main.c:61
+#, c-format
+msgid "Could not load user interface file: %s"
+msgstr "Gat ekki hlaðið notandaviðmótinu: %s"
+
+#: ../capplets/appearance/appearance-main.c:161
+msgid "Specify the filename of a theme to install"
+msgstr "Segðu hvað útlitið sem þú ætlar að setja upp heitir"
+
+#: ../capplets/appearance/appearance-main.c:162
+msgid "filename"
+msgstr "skráarheiti"
+
+#. TRANSLATORS: don't translate the terms in brackets
+#: ../capplets/appearance/appearance-main.c:169
+msgid ""
+"Specify the name of the page to show (theme|background|fonts|interface)"
+msgstr "Tilgreindu heiti síðunnar sem á að birta (þema|bakgrunnur|letur|viðmót)"
+
+#: ../capplets/appearance/appearance-main.c:170
+#: ../capplets/default-applications/mate-da-capplet.c:693
+#: ../capplets/mouse/mate-mouse-properties.c:483
+msgid "page"
+msgstr "síða"
+
+#: ../capplets/appearance/appearance-main.c:177
+msgid "[WALLPAPER...]"
+msgstr "[VEGGFÓÐUR...]"
+
+#: ../capplets/appearance/appearance-style.c:171
+#: ../capplets/common/mate-theme-info.c:497
+#: ../capplets/common/mate-theme-info.c:690
+msgid "Default Pointer"
+msgstr "Venjulegur bendill"
+
+#: ../capplets/appearance/appearance-style.c:233
+#: ../capplets/appearance/appearance-themes.c:661
+msgid "Install"
+msgstr "Setja upp"
+
+#: ../capplets/appearance/appearance-style.c:269
+#: ../capplets/common/mate-theme-info.c:1726
+#, c-format
+msgid ""
+"This theme will not look as intended because the required GTK+ theme engine "
+"'%s' is not installed."
+msgstr "Þetta útlit kemur ekki út eins og þú vilt vegna þess að það er ekki búið að setja GTK+ útlitsvélina ‚%s‘ upp."
+
+#: ../capplets/appearance/appearance-themes.c:649
+msgid "Apply Background"
+msgstr "Virkja bakgrunn"
+
+#: ../capplets/appearance/appearance-themes.c:653
+msgid "Apply Font"
+msgstr "Virkja leturgerð"
+
+#: ../capplets/appearance/appearance-themes.c:657
+msgid "Revert Font"
+msgstr "Nota aftur síðustu leturgerð"
+
+#: ../capplets/appearance/appearance-themes.c:703
+msgid ""
+"The current theme suggests a background and a font. Also, the last applied "
+"font suggestion can be reverted."
+msgstr "Núverandi útlit gefur til kynna bakgrunn og leturgerð. Einnig er hægt að taka aftur síðustu breytingu á leturgerð."
+
+#: ../capplets/appearance/appearance-themes.c:705
+msgid ""
+"The current theme suggests a background. Also, the last applied font "
+"suggestion can be reverted."
+msgstr "Núverandi útlit gefur til kynna bakgrunn. Einnig er hægt að taka aftur síðustu breytingu á leturgerð."
+
+#: ../capplets/appearance/appearance-themes.c:707
+msgid "The current theme suggests a background and a font."
+msgstr "Núverandi útlit gefur til kynna leturgerð og bakgrunn."
+
+#: ../capplets/appearance/appearance-themes.c:709
+msgid ""
+"The current theme suggests a font. Also, the last applied font suggestion "
+"can be reverted."
+msgstr "Núverandi útlit gefur til kynna leturgerð. Einnig er hægt að taka aftur síðustu breytingu á leturgerð."
+
+#: ../capplets/appearance/appearance-themes.c:711
+msgid "The current theme suggests a background."
+msgstr "Núverandi útlit gefur til kynna bakgrunn."
+
+#: ../capplets/appearance/appearance-themes.c:713
+msgid "The last applied font suggestion can be reverted."
+msgstr "Það er hægt að taka aftur síðustu leturgerðina sem þú valdir."
+
+#: ../capplets/appearance/appearance-themes.c:715
+msgid "The current theme suggests a font."
+msgstr "Núverandi útlit gefur til kynna leturgerð."
+
+#: ../capplets/appearance/appearance-themes.c:1031
+msgid "Custom"
+msgstr "Sérsniðið"
+
+#: ../capplets/appearance/data/appearance.ui.h:1
+msgid "Font Rendering Details"
+msgstr "Nánar um leturmálun"
+
+#: ../capplets/appearance/data/appearance.ui.h:2
+msgid "R_esolution:"
+msgstr "_Upplausn:"
+
+#: ../capplets/appearance/data/appearance.ui.h:3
+msgid "dots per inch"
+msgstr "punktar á tommu"
+
+#: ../capplets/appearance/data/appearance.ui.h:4
+msgid "Smoothing"
+msgstr "Mýking"
+
+#: ../capplets/appearance/data/appearance.ui.h:5
+msgid "_None"
+msgstr "E_kkert"
+
+#: ../capplets/appearance/data/appearance.ui.h:6
+msgid "Gra_yscale"
+msgstr "_Grátóna"
+
+#: ../capplets/appearance/data/appearance.ui.h:7
+msgid "Sub_pixel (LCDs)"
+msgstr "Undirpixla (kristalsskjáir)"
+
+#. font hinting
+#: ../capplets/appearance/data/appearance.ui.h:9
+msgid "Hinting"
+msgstr "Mýkja textann"
+
+#: ../capplets/appearance/data/appearance.ui.h:10
+msgid "N_one"
+msgstr "En_ginn"
+
+#: ../capplets/appearance/data/appearance.ui.h:11
+msgid "_Slight"
+msgstr "_Ögn"
+
+#: ../capplets/appearance/data/appearance.ui.h:12
+msgid "_Medium"
+msgstr "_Miðlungs"
+
+#: ../capplets/appearance/data/appearance.ui.h:13
+msgid "_Full"
+msgstr "_Full"
+
+#: ../capplets/appearance/data/appearance.ui.h:14
+msgid "Subpixel Order"
+msgstr "Subpixel röðun"
+
+#. pixel order red, green, blue
+#: ../capplets/appearance/data/appearance.ui.h:16
+msgid "_RGB"
+msgstr "_RGB"
+
+#. pixel order blue, green, red
+#: ../capplets/appearance/data/appearance.ui.h:18
+msgid "_BGR"
+msgstr "_BGR"
+
+#. vertical hinting, pixel order red, green, blue
+#: ../capplets/appearance/data/appearance.ui.h:20
+msgid "_VRGB"
+msgstr "_VRGB"
+
+#. vertical hinting, pixel order blue, green, red
+#: ../capplets/appearance/data/appearance.ui.h:22
+msgid "VB_GR"
+msgstr "VB_GR"
+
+#: ../capplets/appearance/data/appearance.ui.h:23
+msgid "Appearance Preferences"
+msgstr "Breyta útliti"
+
+#: ../capplets/appearance/data/appearance.ui.h:24
+msgid "Save _As..."
+msgstr "Vist_a sem..."
+
+#: ../capplets/appearance/data/appearance.ui.h:25
+msgid "C_ustomize..."
+msgstr "_Breyta..."
+
+#: ../capplets/appearance/data/appearance.ui.h:26
+msgid "_Install..."
+msgstr "_Setja upp..."
+
+#: ../capplets/appearance/data/appearance.ui.h:27
+msgid "Get more themes online"
+msgstr "Sækja fleiri útlit á netinu"
+
+#: ../capplets/appearance/data/appearance.ui.h:28
+msgid "Theme"
+msgstr "Þema"
+
+#: ../capplets/appearance/data/appearance.ui.h:29
+msgid "_Style:"
+msgstr "_Stíll:"
+
+#: ../capplets/appearance/data/appearance.ui.h:30
+msgid "C_olors:"
+msgstr "_Litir:"
+
+#: ../capplets/appearance/data/appearance.ui.h:31
+msgid "Open a dialog to specify the color"
+msgstr "Opna glugga til að tilgreina lit"
+
+#: ../capplets/appearance/data/appearance.ui.h:32
+msgid "Get more backgrounds online"
+msgstr "Sækja fleiri bakgrunni á netinu"
+
+#: ../capplets/appearance/data/appearance.ui.h:33
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:17
+msgid "_Add..."
+msgstr "_Bæta við..."
+
+#: ../capplets/appearance/data/appearance.ui.h:34
+msgid "Background"
+msgstr "Bakgrunnur"
+
+#: ../capplets/appearance/data/appearance.ui.h:35
+msgid "_Document font:"
+msgstr "Texti í _skjölum:"
+
+#: ../capplets/appearance/data/appearance.ui.h:36
+msgid "Des_ktop font:"
+msgstr "Texti á _skjáborðinu:"
+
+#: ../capplets/appearance/data/appearance.ui.h:37
+msgid "_Window title font:"
+msgstr "Letur _gluggatitils:"
+
+#: ../capplets/appearance/data/appearance.ui.h:38
+msgid "_Fixed width font:"
+msgstr "Texti sem _tekur ákveðið pláss:"
+
+#: ../capplets/appearance/data/appearance.ui.h:39
+msgid "_Application font:"
+msgstr "_Forritsletur:"
+
+#: ../capplets/appearance/data/appearance.ui.h:40
+msgid "Rendering"
+msgstr "Myndgerð"
+
+#: ../capplets/appearance/data/appearance.ui.h:41
+msgid "Sub_pixel smoothing (LCDs)"
+msgstr "Undirpixlasléttun (kristalsskjáir)"
+
+#: ../capplets/appearance/data/appearance.ui.h:42
+msgid "Best co_ntrast"
+msgstr "Bestu _birtuskil"
+
+#: ../capplets/appearance/data/appearance.ui.h:43
+msgid "Best _shapes"
+msgstr "Bestu _form"
+
+#: ../capplets/appearance/data/appearance.ui.h:44
+msgid "_Monochrome"
+msgstr "_Einlitt"
+
+#: ../capplets/appearance/data/appearance.ui.h:45
+msgid "D_etails..."
+msgstr "_Frekari stillingar..."
+
+#: ../capplets/appearance/data/appearance.ui.h:46
+msgid "Fonts"
+msgstr "Letur"
+
+#: ../capplets/appearance/data/appearance.ui.h:47
+msgid "Menus and Toolbars"
+msgstr "Valmyndir og verkfæraslár "
+
+#: ../capplets/appearance/data/appearance.ui.h:48
+msgid "Show _icons in menus"
+msgstr "Birta táknmyndir í valmyndum"
+
+#: ../capplets/appearance/data/appearance.ui.h:49
+msgid "_Editable menu shortcut keys"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:50
+msgid "Toolbar _button labels:"
+msgstr ""
+
+#: ../capplets/appearance/data/appearance.ui.h:51
+msgid "Preview"
+msgstr "Forsýn"
+
+#: ../capplets/appearance/data/appearance.ui.h:52
+msgid "_File"
+msgstr "_Skrá"
+
+#: ../capplets/appearance/data/appearance.ui.h:53
+msgid "Edit"
+msgstr "Breyta"
+
+#: ../capplets/appearance/data/appearance.ui.h:54
+msgid "Interface"
+msgstr "Viðmót"
+
+#: ../capplets/appearance/data/appearance.ui.h:55
+msgid "Tile"
+msgstr "Flísaleggja"
+
+#: ../capplets/appearance/data/appearance.ui.h:56
+msgid "Zoom"
+msgstr "Stækka"
+
+#: ../capplets/appearance/data/appearance.ui.h:57
+msgid "Center"
+msgstr "Miðjað"
+
+#: ../capplets/appearance/data/appearance.ui.h:58
+msgid "Scale"
+msgstr "Skala"
+
+#: ../capplets/appearance/data/appearance.ui.h:59
+msgid "Stretch"
+msgstr "Teygja"
+
+#: ../capplets/appearance/data/appearance.ui.h:60
+msgid "Span"
+msgstr "Spanna"
+
+#: ../capplets/appearance/data/appearance.ui.h:61
+msgid "Solid color"
+msgstr "Heill litur"
+
+#: ../capplets/appearance/data/appearance.ui.h:62
+msgid "Horizontal gradient"
+msgstr "Láréttur stigull"
+
+#: ../capplets/appearance/data/appearance.ui.h:63
+msgid "Vertical gradient"
+msgstr "Lóðréttur stigull"
+
+#: ../capplets/appearance/data/appearance.ui.h:64
+msgid "Text below items"
+msgstr "Texti fyrir neðan hluti"
+
+#: ../capplets/appearance/data/appearance.ui.h:65
+msgid "Text beside items"
+msgstr "Texti við hliðina á hlutum"
+
+#: ../capplets/appearance/data/appearance.ui.h:66
+msgid "Icons only"
+msgstr "Aðeins táknmyndir"
+
+#: ../capplets/appearance/data/appearance.ui.h:67
+msgid "Text only"
+msgstr "Bara texti"
+
+#: ../capplets/appearance/data/appearance.ui.h:68
+msgid "Customize Theme"
+msgstr "Breyta útliti"
+
+#: ../capplets/appearance/data/appearance.ui.h:69
+msgid "Controls"
+msgstr "Stjórntæki"
+
+#: ../capplets/appearance/data/appearance.ui.h:70
+msgid "The current controls theme does not support color schemes."
+msgstr "Núverandi uppsetning styður ekki litakerfi."
+
+#: ../capplets/appearance/data/appearance.ui.h:71
+msgid "_Tooltips:"
+msgstr "_Upplýsingar þegar mús fer yfir:"
+
+#: ../capplets/appearance/data/appearance.ui.h:72
+msgid "_Selected items:"
+msgstr "_Valdir hlutir:"
+
+#: ../capplets/appearance/data/appearance.ui.h:73
+msgid "_Input boxes:"
+msgstr "_Inntakskassar:"
+
+#: ../capplets/appearance/data/appearance.ui.h:74
+msgid "_Windows:"
+msgstr "_Gluggar:"
+
+#: ../capplets/appearance/data/appearance.ui.h:75
+msgid "Text"
+msgstr "Texti"
+
+#: ../capplets/appearance/data/appearance.ui.h:76
+msgid "_Reset to Defaults"
+msgstr "_Endurheimta upprunalegar stillingar"
+
+#: ../capplets/appearance/data/appearance.ui.h:77
+msgid "Colors"
+msgstr "Litir"
+
+#: ../capplets/appearance/data/appearance.ui.h:78
+msgid "Window Border"
+msgstr "Gluggakarmur"
+
+#: ../capplets/appearance/data/appearance.ui.h:79
+msgid "Icons"
+msgstr "Táknmyndir"
+
+#: ../capplets/appearance/data/appearance.ui.h:80
+msgid "Changing your cursor theme takes effect the next time you log in."
+msgstr "Breytingar á því hvernig músín lítur út taka gildi næst þegar þú skráir þig inn."
+
+#: ../capplets/appearance/data/appearance.ui.h:81
+msgid "_Size:"
+msgstr "_Stærð:"
+
+#. small threshold
+#: ../capplets/appearance/data/appearance.ui.h:82
+#: ../capplets/mouse/mate-mouse-properties.ui.h:21
+msgid "Small"
+msgstr "Lítil"
+
+#. large threshold
+#: ../capplets/appearance/data/appearance.ui.h:83
+#: ../capplets/mouse/mate-mouse-properties.ui.h:24
+msgid "Large"
+msgstr "Stór"
+
+#: ../capplets/appearance/data/appearance.ui.h:84
+msgid "Pointer"
+msgstr "Bendill"
+
+#: ../capplets/appearance/data/appearance.ui.h:85
+msgid "Save Theme As..."
+msgstr "Vista útliti sem..."
+
+#: ../capplets/appearance/data/appearance.ui.h:86
+#: ../capplets/keybindings/mate-keybinding-properties.ui.h:4
+msgid "_Name:"
+msgstr "_Nafn:"
+
+#: ../capplets/appearance/data/appearance.ui.h:87
+msgid "_Description:"
+msgstr "_Lýsing:"
+
+#: ../capplets/appearance/data/appearance.ui.h:88
+msgid "Save _background image"
+msgstr "Vista _bakgrunnsmynd"
+
+#: ../capplets/appearance/data/appearance.ui.h:89
+msgid "Save _notification theme"
+msgstr ""
+
+#: ../capplets/appearance/data/mate-appearance-properties.desktop.in.in.h:1
+msgid "Appearance"
+msgstr "Útlit"
+
+#: ../capplets/appearance/data/mate-appearance-properties.desktop.in.in.h:2
+msgid "Customize the look of the desktop"
+msgstr "Breyttu því hvernig tölvan lítur út"
+
+#: ../capplets/appearance/data/mate-theme-installer.desktop.in.in.h:1
+msgid "Theme Installer"
+msgstr "Setja upp útlit"
+
+#: ../capplets/appearance/data/mate-theme-installer.desktop.in.in.h:2
+msgid "Installs themes packages for various parts of the desktop"
+msgstr "Setja inn þema-pakka fyrir ýmsa hluta skjáborðsins"
+
+#: ../capplets/appearance/data/mate-theme-package.xml.in.h:1
+msgid "Mate Theme Package"
+msgstr "Mate þemapakki"
+
+#: ../capplets/appearance/mate-wp-info.c:51
+msgid "No Desktop Background"
+msgstr "Enginn bakgrunnur"
+
+#: ../capplets/appearance/mate-wp-item.c:288
+msgid "unknown"
+msgstr "óþekkt"
+
+#: ../capplets/appearance/mate-wp-item.c:295
+msgid "Slide Show"
+msgstr "Myndasyrpa"
+
+#: ../capplets/appearance/mate-wp-item.c:297
+msgid "Image"
+msgstr "Mynd"
+
+#: ../capplets/appearance/mate-wp-item.c:303
+msgid "multiple sizes"
+msgstr "margar stærðir"
+
+#. translators: x pixel(s) by y pixel(s)
+#: ../capplets/appearance/mate-wp-item.c:306
+#, c-format
+msgid "%d %s by %d %s"
+msgstr "%d %s sinnum %d %s"
+
+#: ../capplets/appearance/mate-wp-item.c:308
+#: ../capplets/appearance/mate-wp-item.c:310
+msgid "pixel"
+msgid_plural "pixels"
+msgstr[0] "mynddíll"
+msgstr[1] "mynddílar"
+
+#. translators: <b>wallpaper name</b>
+#. * mime type, size
+#. * Folder: /path/to/file
+#. * Artist: wallpaper author
+#: ../capplets/appearance/mate-wp-item.c:319
+#, c-format
+msgid ""
+"<b>%s</b>\n"
+"%s, %s\n"
+"Folder: %s\n"
+"Artist: %s"
+msgstr "<b>%s</b>\n%s, %s\nMappa: %s\nListamaður: %s"
+
+#. translators: <b>wallpaper name</b>
+#. * Image missing
+#. * Folder: /path/to/file
+#. * Artist: wallpaper author
+#: ../capplets/appearance/mate-wp-item.c:334
+#, c-format
+msgid ""
+"<b>%s</b>\n"
+"%s\n"
+"Folder: %s\n"
+"Artist: %s"
+msgstr "<b>%s</b>\n%s\nMappa: %s\nListamaður: %s"
+
+#: ../capplets/appearance/mate-wp-item.c:339
+msgid "Image missing"
+msgstr "Vantar mynd"
+
+#: ../capplets/appearance/theme-installer.c:185
+#: ../capplets/appearance/theme-installer.c:241
+msgid "Cannot install theme"
+msgstr "Get ekki sett upp útlitið"
+
+#: ../capplets/appearance/theme-installer.c:187
+#, c-format
+msgid "The %s utility is not installed."
+msgstr "Forritið %s fannst ekki á tölvunni."
+
+#: ../capplets/appearance/theme-installer.c:243
+msgid "There was a problem while extracting the theme."
+msgstr "Villa kom upp við að opna útlitið."
+
+#: ../capplets/appearance/theme-installer.c:271
+msgid "There was an error installing the selected file"
+msgstr "Villa kom upp við uppsetningu valdar skrár"
+
+#: ../capplets/appearance/theme-installer.c:272
+#, c-format
+msgid "\"%s\" does not appear to be a valid theme."
+msgstr "„%s“ virðist ekki vera gilt útlit."
+
+#: ../capplets/appearance/theme-installer.c:273
+#, c-format
+msgid ""
+"\"%s\" does not appear to be a valid theme. It may be a theme engine which "
+"you need to compile."
+msgstr "„%s“ virðist ekki vera gilt útlit. Þú gætir þurft að þýða útlitsvél."
+
+#: ../capplets/appearance/theme-installer.c:379
+#, c-format
+msgid "Installation for theme \"%s\" failed."
+msgstr "Það tókst ekki að setja upp útlitið „%s“."
+
+#: ../capplets/appearance/theme-installer.c:418
+#, c-format
+msgid "The theme \"%s\" has been installed."
+msgstr "Það tókst að setja upp útlitið „%s“."
+
+#: ../capplets/appearance/theme-installer.c:428
+msgid "Would you like to apply it now, or keep your current theme?"
+msgstr "Viltu nota það núna eða halda núverandi útliti?"
+
+#: ../capplets/appearance/theme-installer.c:431
+msgid "Keep Current Theme"
+msgstr "Halda núverandi útliti"
+
+#: ../capplets/appearance/theme-installer.c:434
+msgid "Apply New Theme"
+msgstr "Nota nýja útlitið"
+
+#: ../capplets/appearance/theme-installer.c:486
+#, c-format
+msgid "MATE Theme %s correctly installed"
+msgstr "Það tókst að setja inn MATE þemað %s"
+
+#: ../capplets/appearance/theme-installer.c:548
+msgid "Failed to create temporary directory"
+msgstr "Mistókst að búa til tímabundna möppu"
+
+#: ../capplets/appearance/theme-installer.c:611
+msgid "New themes have been successfully installed."
+msgstr "Það tókst að setja upp nýtt útlit."
+
+#: ../capplets/appearance/theme-installer.c:661
+msgid "No theme file location specified to install"
+msgstr "Engin staðsetning var gefin fyrir útlitið sem á að setja upp"
+
+#: ../capplets/appearance/theme-installer.c:685
+#, c-format
+msgid ""
+"Insufficient permissions to install the theme in:\n"
+"%s"
+msgstr "Þú hefur ekki næg réttindi til að setja upp útlit í:\n%s"
+
+#: ../capplets/appearance/theme-installer.c:765
+msgid "Select Theme"
+msgstr "Velja útlit"
+
+#: ../capplets/appearance/theme-installer.c:776
+msgid "Theme Packages"
+msgstr "Pakkar sem innihalda útlit"
+
+#: ../capplets/appearance/theme-save.c:94
+#, c-format
+msgid "Theme name must be present"
+msgstr "Þemanafn verður að vera til staðar."
+
+#: ../capplets/appearance/theme-save.c:157
+msgid "The theme already exists. Would you like to replace it?"
+msgstr "Þetta útlit er þegar til. Viltu skipta því út?"
+
+#: ../capplets/appearance/theme-save.c:158
+#: ../capplets/common/file-transfer-dialog.c:466
+msgid "_Overwrite"
+msgstr "_Skrifa yfir"
+
+#: ../capplets/appearance/theme-util.c:73
+msgid "Would you like to delete this theme?"
+msgstr "Viltu eyða þessu útliti?"
+
+#: ../capplets/appearance/theme-util.c:123
+msgid "Theme cannot be deleted"
+msgstr "Það er ekki hægt að eyða þessu útliti"
+
+#: ../capplets/appearance/theme-util.c:249
+msgid "Could not install theme engine"
+msgstr "Gat ekki sett upp útlitsvélina"
+
+#: ../capplets/common/activate-settings-daemon.c:16
+msgid ""
+"Unable to start the settings manager 'mate-settings-daemon'.\n"
+"Without the MATE settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-MATE (e.g. KDE) settings manager may already be active and conflicting with the MATE settings manager."
+msgstr ""
+
+#: ../capplets/common/capplet-stock-icons.c:66
+#, c-format
+msgid "Unable to load stock icon '%s'\n"
+msgstr "Gat ekki hlaðið staðlaða tákninu ‚%s‘\n"
+
+#: ../capplets/common/capplet-util.c:88
+#, c-format
+msgid "There was an error displaying help: %s"
+msgstr "Villa kom upp við sýningu hjálpar: %s"
+
+#: ../capplets/common/file-transfer-dialog.c:98
+#, c-format
+msgid "Copying file: %u of %u"
+msgstr "Afrita skrá: %u af %u"
+
+#: ../capplets/common/file-transfer-dialog.c:145
+#, c-format
+msgid "Copying '%s'"
+msgstr "Afrita ‚%s‘"
+
+#: ../capplets/common/file-transfer-dialog.c:185
+#: ../capplets/common/file-transfer-dialog.c:317
+msgid "Copying files"
+msgstr "Afrita skrár"
+
+#: ../capplets/common/file-transfer-dialog.c:224
+msgid "Parent Window"
+msgstr ""
+
+#: ../capplets/common/file-transfer-dialog.c:225
+msgid "Parent window of the dialog"
+msgstr ""
+
+#: ../capplets/common/file-transfer-dialog.c:231
+msgid "From URI"
+msgstr "Frá URI"
+
+#: ../capplets/common/file-transfer-dialog.c:232
+msgid "URI currently transferring from"
+msgstr "URI sem flutt er frá"
+
+#: ../capplets/common/file-transfer-dialog.c:239
+msgid "To URI"
+msgstr "Til URIs"
+
+#: ../capplets/common/file-transfer-dialog.c:240
+msgid "URI currently transferring to"
+msgstr "URI sem flutt er til"
+
+#: ../capplets/common/file-transfer-dialog.c:247
+msgid "Fraction completed"
+msgstr "Lokið við hluta"
+
+#: ../capplets/common/file-transfer-dialog.c:248
+msgid "Fraction of transfer currently completed"
+msgstr "Hluti flutnings sem lokið er"
+
+#: ../capplets/common/file-transfer-dialog.c:255
+msgid "Current URI index"
+msgstr "Núverandi URI listi"
+
+#: ../capplets/common/file-transfer-dialog.c:256
+msgid "Current URI index - starts from 1"
+msgstr "Núverandi URI-listi - byrjar á 1"
+
+#: ../capplets/common/file-transfer-dialog.c:263
+msgid "Total URIs"
+msgstr "Öll URI"
+
+#: ../capplets/common/file-transfer-dialog.c:264
+msgid "Total number of URIs"
+msgstr "Heildarfjöldi URIa"
+
+#: ../capplets/common/file-transfer-dialog.c:460
+#, c-format
+msgid "File '%s' already exists. Do you want to overwrite it?"
+msgstr "Skráin ‚%s‘ er þegar til. Viltu skrifa yfir hana?"
+
+#: ../capplets/common/file-transfer-dialog.c:463
+msgid "_Skip"
+msgstr "_Sleppa"
+
+#: ../capplets/common/file-transfer-dialog.c:464
+msgid "Overwrite _All"
+msgstr "Skrifa_yfir allt"
+
+#: ../capplets/common/mate-theme-info.c:691
+msgid "Default Pointer - Current"
+msgstr "Venjulegur bendill - núverandi"
+
+#: ../capplets/common/mate-theme-info.c:695
+msgid "White Pointer"
+msgstr "Hvítur bendill"
+
+#: ../capplets/common/mate-theme-info.c:696
+msgid "White Pointer - Current"
+msgstr "Hvítur bendill - núverandi"
+
+#: ../capplets/common/mate-theme-info.c:700
+msgid "Large Pointer"
+msgstr "Stór bendill"
+
+#: ../capplets/common/mate-theme-info.c:701
+msgid "Large Pointer - Current"
+msgstr "Stór bendill - núverandi"
+
+#: ../capplets/common/mate-theme-info.c:705
+msgid "Large White Pointer - Current"
+msgstr "Stór hvítur bendill - núverandi"
+
+#: ../capplets/common/mate-theme-info.c:706
+msgid "Large White Pointer"
+msgstr "Stór hvítur bendill"
+
+#: ../capplets/common/mate-theme-info.c:1696
+#, c-format
+msgid ""
+"This theme will not look as intended because the required GTK+ theme '%s' is"
+" not installed."
+msgstr "Þetta útlit kemur ekki út eins og þú vilt vegna þess að það er ekki búið að setja GTK+ útlitið ‚%s‘ upp."
+
+#: ../capplets/common/mate-theme-info.c:1706
+#, c-format
+msgid ""
+"This theme will not look as intended because the required window manager "
+"theme '%s' is not installed."
+msgstr "Þetta útlit kemur ekki út eins og þú vilt vegna þess að það er ekki búið að setja gluggastjórann ‚%s‘ upp."
+
+#: ../capplets/common/mate-theme-info.c:1714
+#, c-format
+msgid ""
+"This theme will not look as intended because the required icon theme '%s' is"
+" not installed."
+msgstr "Þetta útlit kemur ekki út eins og þú vilt vegna þess að það er ekki búið að setja táknin ‚%s‘ upp."
+
+#: ../capplets/default-applications/mate-default-applications-properties.desktop.in.in.h:1
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:1
+msgid "Preferred Applications"
+msgstr "Valin forrit"
+
+#: ../capplets/default-applications/mate-default-applications-properties.desktop.in.in.h:2
+msgid "Select your default applications"
+msgstr "Veldu sjálfgefin forrit"
+
+#: ../capplets/default-applications/mate-da-capplet.c:542
+msgid "Could not load the main interface"
+msgstr "Gat ekki hlaðið aðal gluggan"
+
+#: ../capplets/default-applications/mate-da-capplet.c:543
+msgid "Please make sure that the applet is properly installed"
+msgstr "Vinsamlegast gangið úr skugga um að forritið sé rétt upp sett"
+
+#. TRANSLATORS: don't translate the terms in brackets
+#: ../capplets/default-applications/mate-da-capplet.c:692
+msgid "Specify the name of the page to show (internet|multimedia|system|a11y)"
+msgstr ""
+
+#: ../capplets/default-applications/mate-da-capplet.c:698
+msgid "- MATE Default Applications"
+msgstr "- Sjálfgefin forrit MATE"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:2
+msgid "Web Browser"
+msgstr "Vafri"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:3
+msgid "Mail Reader"
+msgstr "Póstforrit"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:4
+msgid "Instant Messenger"
+msgstr "Snarskilaboð"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:5
+msgid "Co_mmand:"
+msgstr "Skipu_n:"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:7
+#, no-c-format
+msgid "All %s occurrences will be replaced with actual link"
+msgstr "Allir %s verða breytt yfir í raunverulega hlekk"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:8
+msgid "Run in t_erminal"
+msgstr "Keyra í ú_tstöð"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:9
+msgid "Internet"
+msgstr "Internetið"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:10
+msgid "Image Viewer"
+msgstr "Myndskoðari"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:11
+msgid "Multimedia Player"
+msgstr "Margmiðlunarspilari"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:12
+msgid "Video Player"
+msgstr "Kvikmyndaspilari"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:13
+msgid "Multimedia"
+msgstr "Margmiðlun"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:14
+msgid "Text Editor"
+msgstr "Textaritill"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:15
+msgid "Terminal Emulator"
+msgstr "Útstöðvarhermir"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:16
+msgid "File Manager"
+msgstr "Skráastjóri"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:17
+msgid "System"
+msgstr "Kerfið"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:18
+msgid "Document Viewer"
+msgstr "Skjalaskoðari"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:19
+msgid "Word Processor"
+msgstr "Ritvinnsluforrit"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:20
+msgid "Spreadsheet Editor"
+msgstr "Töflureiknir"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:21
+msgid "Office"
+msgstr "Skrifstofa"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:22
+msgid "Visual"
+msgstr "Myndrænt"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:23
+msgid "_Run at start"
+msgstr "_Keyra við ræsingu"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:24
+msgid "Mobility"
+msgstr ""
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:25
+msgid "Run at st_art"
+msgstr "Keyra við _ræsingu"
+
+#: ../capplets/default-applications/mate-default-applications-properties.ui.h:26
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:45
+msgid "Accessibility"
+msgstr "Aðgengi"
+
+#: ../capplets/display/display-capplet.ui.h:1
+msgid "Monitor Preferences"
+msgstr "Skjástillingar"
+
+#: ../capplets/display/display-capplet.ui.h:2
+msgid "Apply system-wide"
+msgstr "Láta gilda yfir allt kerfið"
+
+#: ../capplets/display/display-capplet.ui.h:3
+msgid ""
+"Applies the current configuration for other MATE users on the computer. Note"
+" that this doesn't affect login screens or other desktop environments."
+msgstr ""
+
+#: ../capplets/display/display-capplet.ui.h:4
+msgid "Sa_me image in all monitors"
+msgstr "_Sama mynd á öllum skjám"
+
+#: ../capplets/display/display-capplet.ui.h:5
+msgid "_Detect monitors"
+msgstr "_Finna skjái"
+
+#: ../capplets/display/display-capplet.ui.h:6
+msgid "Panel icon"
+msgstr "Tákn á stikunni"
+
+#: ../capplets/display/display-capplet.ui.h:7
+msgid "_Show monitors in panel"
+msgstr "_Birta skjái á stikunni"
+
+#: ../capplets/display/display-capplet.ui.h:8
+msgid "_Resolution:"
+msgstr "_Upplausn:"
+
+#: ../capplets/display/display-capplet.ui.h:9
+msgid "Re_fresh rate:"
+msgstr "Upp_færslutíðni:"
+
+#: ../capplets/display/display-capplet.ui.h:10
+msgid "On"
+msgstr "Nota"
+
+#: ../capplets/display/display-capplet.ui.h:11
+msgid "Off"
+msgstr "Nota ekki"
+
+#: ../capplets/display/display-capplet.ui.h:12
+#: ../capplets/display/xrandr-capplet.c:508
+msgid "Monitor"
+msgstr "Skjár"
+
+#: ../capplets/display/display-capplet.ui.h:13
+msgid "R_otation:"
+msgstr "_Snúningur:"
+
+#: ../capplets/display/display-capplet.ui.h:14
+msgid "Include _panel"
+msgstr ""
+
+#: ../capplets/display/display-capplet.ui.h:15
+msgid "Set as primary"
+msgstr "Setja sem aðalskjá"
+
+#: ../capplets/display/display-capplet.ui.h:16
+msgid "Sets the selected monitor as primary."
+msgstr "Setja valinn skjá sem aðalskjá."
+
+#: ../capplets/display/display-capplet.ui.h:17
+#: ../capplets/display/xrandr-capplet.c:311
+#: ../capplets/display/xrandr-capplet.c:350
+msgid "Normal"
+msgstr "Venjulegur"
+
+#: ../capplets/display/display-capplet.ui.h:18
+#: ../capplets/display/xrandr-capplet.c:312
+#: ../capplets/windows/mate-window-properties.c:574
+msgid "Left"
+msgstr "Til vinstri"
+
+#: ../capplets/display/display-capplet.ui.h:19
+#: ../capplets/display/xrandr-capplet.c:313
+#: ../capplets/windows/mate-window-properties.c:573
+msgid "Right"
+msgstr "Til hægri"
+
+#: ../capplets/display/display-capplet.ui.h:20
+msgid "Upside-down"
+msgstr "Á hvolfi"
+
+#: ../capplets/display/mate-display-properties.desktop.in.in.h:1
+msgid "Displays"
+msgstr "Skjáir"
+
+#: ../capplets/display/mate-display-properties.desktop.in.in.h:2
+msgid "Change resolution and position of monitors and projectors"
+msgstr "Breyttu upplausn og stöðu skjáa og myndvarpa"
+
+#: ../capplets/display/mate-display-properties-install-systemwide.c:44
+#, c-format
+msgid ""
+"Usage: %s SOURCE_FILE DEST_NAME\n"
+"\n"
+"This program installs a RANDR profile for multi-monitor setups into\n"
+"a systemwide location.  The resulting profile will get used when\n"
+"the RANDR plug-in gets run in mate-settings-daemon.\n"
+"\n"
+"SOURCE_FILE - a full pathname, typically /home/username/.config/monitors.xml\n"
+"\n"
+"DEST_NAME - relative name for the installed file.  This will get put in\n"
+"            the systemwide directory for RANDR configurations,\n"
+"            so the result will typically be %s/DEST_NAME\n"
+msgstr ""
+
+#. Translators: only able to install RANDR profiles as root
+#: ../capplets/display/mate-display-properties-install-systemwide.c:151
+msgid "This program can only be used by the root user"
+msgstr ""
+
+#: ../capplets/display/mate-display-properties-install-systemwide.c:168
+msgid "The source filename must be absolute"
+msgstr ""
+
+#. Translators: first %s is a filename; second %s is an error message
+#: ../capplets/display/mate-display-properties-install-systemwide.c:179
+#, c-format
+msgid "Could not open %s: %s\n"
+msgstr ""
+
+#. Translators: first %s is a filename; second %s is an error message
+#: ../capplets/display/mate-display-properties-install-systemwide.c:188
+#, c-format
+msgid "Could not get information for %s: %s\n"
+msgstr ""
+
+#: ../capplets/display/mate-display-properties-install-systemwide.c:195
+#, c-format
+msgid "%s must be a regular file\n"
+msgstr ""
+
+#: ../capplets/display/mate-display-properties-install-systemwide.c:204
+msgid "This program must only be run through pkexec(1)"
+msgstr ""
+
+#: ../capplets/display/mate-display-properties-install-systemwide.c:209
+msgid "PKEXEC_UID must be set to an integer value"
+msgstr ""
+
+#. Translators: we are complaining that a file must be really owned by the
+#. user who called this program
+#: ../capplets/display/mate-display-properties-install-systemwide.c:215
+#, c-format
+msgid "%s must be owned by you\n"
+msgstr ""
+
+#. Translators: here we are saying that a plain filename must look like
+#. "filename", not like "some_dir/filename"
+#: ../capplets/display/mate-display-properties-install-systemwide.c:223
+#, c-format
+msgid "%s must not have any directory components\n"
+msgstr ""
+
+#: ../capplets/display/mate-display-properties-install-systemwide.c:231
+#, c-format
+msgid "%s must be a directory\n"
+msgstr ""
+
+#. Translators: the first %s/%s is a directory/filename; the last %s is an
+#. error message
+#: ../capplets/display/mate-display-properties-install-systemwide.c:242
+#, c-format
+msgid "Could not open %s/%s: %s\n"
+msgstr ""
+
+#: ../capplets/display/mate-display-properties-install-systemwide.c:262
+#, c-format
+msgid "Could not rename %s to %s: %s\n"
+msgstr "Gat ekki breytt nafninu á %s í %s: %s\n"
+
+#: ../capplets/display/org.mate.randr.policy.in.h:1
+msgid "Install multi-monitor settings for the whole system"
+msgstr ""
+
+#: ../capplets/display/org.mate.randr.policy.in.h:2
+msgid ""
+"Authentication is required to install multi-monitor settings for all users"
+msgstr ""
+
+#: ../capplets/display/xrandr-capplet.c:314
+msgid "Upside Down"
+msgstr "Á hvolfi"
+
+#: ../capplets/display/xrandr-capplet.c:356
+#, c-format
+msgid "%d Hz"
+msgstr "%d Hz"
+
+#. Translators:  this is the feature where what you see on your laptop's
+#. * screen is the same as your external monitor.  Here, "Mirror" is being
+#. * used as an adjective, not as a verb.  For example, the Spanish
+#. * translation could be "Pantallas en Espejo", *not* "Espejar Pantallas".
+#: ../capplets/display/xrandr-capplet.c:493
+#: ../capplets/display/xrandr-capplet.c:1669
+#, c-format
+msgid "Mirror Screens"
+msgstr "Sýna það sama"
+
+#: ../capplets/display/xrandr-capplet.c:495
+#, c-format
+msgid "Monitor: %s"
+msgstr "Skjár: %s"
+
+#: ../capplets/display/xrandr-capplet.c:591
+#, c-format
+msgid "%d x %d"
+msgstr "%d x %d"
+
+#: ../capplets/display/xrandr-capplet.c:1525
+msgid ""
+"Select a monitor to change its properties; drag it to rearrange its "
+"placement."
+msgstr "Veldu skjá til að breyta eiginleikum hans; dragðu hann til að breyta staðsetningu hans."
+
+#: ../capplets/display/xrandr-capplet.c:2147
+msgid "Could not save the monitor configuration"
+msgstr "Gat ekki vistað stillingum á skjánum"
+
+#: ../capplets/display/xrandr-capplet.c:2169
+msgid "Could not get session bus while applying display configuration"
+msgstr ""
+
+#: ../capplets/display/xrandr-capplet.c:2188
+msgid "Could not detect displays"
+msgstr "Gat ekki birt skjáina"
+
+#: ../capplets/display/xrandr-capplet.c:2400
+msgid "The monitor configuration has been saved"
+msgstr ""
+
+#: ../capplets/display/xrandr-capplet.c:2402
+msgid "This configuration will be used the next time someone logs in."
+msgstr ""
+
+#: ../capplets/display/xrandr-capplet.c:2411
+msgid "Could not set the default configuration for monitors"
+msgstr ""
+
+#: ../capplets/display/xrandr-capplet.c:2495
+msgid "Could not get screen information"
+msgstr "Gat ekki fengið upplýsingar um skjái"
+
+#: ../capplets/keybindings/eggcellrendererkeys.c:21
+msgid "New shortcut..."
+msgstr "Ný flýtivísun..."
+
+#: ../capplets/keybindings/eggcellrendererkeys.c:157
+#: ../capplets/keybindings/eggcellrendererkeys.c:158
+msgid "Accelerator key"
+msgstr "Flýtilykill"
+
+#: ../capplets/keybindings/eggcellrendererkeys.c:167
+#: ../capplets/keybindings/eggcellrendererkeys.c:168
+msgid "Accelerator modifiers"
+msgstr "Breytulyklar flýtilykla"
+
+#: ../capplets/keybindings/eggcellrendererkeys.c:176
+#: ../capplets/keybindings/eggcellrendererkeys.c:177
+msgid "Accelerator keycode"
+msgstr "Flýtilykill"
+
+#: ../capplets/keybindings/eggcellrendererkeys.c:187
+msgid "Accel Mode"
+msgstr "Flýtihamur"
+
+#: ../capplets/keybindings/eggcellrendererkeys.c:188
+msgid "The type of accelerator."
+msgstr "Tegund flýtilykils."
+
+#: ../capplets/keybindings/eggcellrendererkeys.c:231
+#: ../capplets/keybindings/mate-keybinding-properties.c:134
+#: ../capplets/mouse/mate-mouse-properties.c:396
+#: ../typing-break/drwright.c:501
+msgid "Disabled"
+msgstr "Óvirkt"
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:216
+msgid "<Unknown Action>"
+msgstr "<Óþekkt aðgerð>"
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1020
+#: ../capplets/keybindings/mate-keybinding-properties.c:1610
+msgid "Custom Shortcuts"
+msgstr "Flýtivísun sem þú býrð til"
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1190
+msgid "Error saving the new shortcut"
+msgstr "Villa kom upp við að vista flýtivísunina"
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1266
+#, c-format
+msgid ""
+"The shortcut \"%s\" cannot be used because it will become impossible to type using this key.\n"
+"Please try with a key such as Control, Alt or Shift at the same time."
+msgstr "Ekki er hægt að nota flýtivísunina „%s“ vegna þess að þá yrði ekki mögulegt að skrifa með þessum takka.\nReyndu að ýta á takka eins og Control, Alt eða Shift á meðan."
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1298
+#, c-format
+msgid ""
+"The shortcut \"%s\" is already used for\n"
+"\"%s\""
+msgstr "Flýtivísunin „%s“ er þegar notuð fyrir\n„%s“"
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1305
+#, c-format
+msgid "If you reassign the shortcut to \"%s\", the \"%s\" shortcut will be disabled."
+msgstr "Ef þú úthlutar flýtivísuninni til „%s“ þá mun flýtivísunin „%s“ eyðast."
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1310
+msgid "_Reassign"
+msgstr "_Úthluta upp á nýtt"
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1565
+msgid "Too many custom shortcuts"
+msgstr "Of margar flýtivísarnir sem þú hefur gert"
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1853
+msgid "Action"
+msgstr "Aðgerð"
+
+#: ../capplets/keybindings/mate-keybinding-properties.c:1875
+msgid "Shortcut"
+msgstr "Flýtivísun"
+
+#. * vim: sw=2 ts=8 cindent noai bs=2
+#: ../capplets/keybindings/mate-keybinding-properties.ui.h:1
+#: ../capplets/keybindings/mate-keybinding.desktop.in.in.h:1
+msgid "Keyboard Shortcuts"
+msgstr "Flýtilyklar"
+
+#: ../capplets/keybindings/mate-keybinding-properties.ui.h:2
+msgid ""
+"To edit a shortcut key, click on the corresponding row and type a new key "
+"combination, or press backspace to clear."
+msgstr "Ef þú vilt breyta flýtivísun geturðu ýtt á þá röð sem hún er í og ýtt á þá takka sem þú vilt nota. Þú getur líka ýtt á backspace til að fjarlægja flýtivísun."
+
+#: ../capplets/keybindings/mate-keybinding-properties.ui.h:3
+msgid "Custom Shortcut"
+msgstr "Þínar flýtivísanir"
+
+#: ../capplets/keybindings/mate-keybinding-properties.ui.h:5
+msgid "C_ommand:"
+msgstr "_Skipun:"
+
+#: ../capplets/keybindings/mate-keybinding.desktop.in.in.h:2
+msgid "Assign shortcut keys to commands"
+msgstr "Tengja flýtilykla við skipanir"
+
+#: ../capplets/keyboard/mate-keyboard-properties.c:213
+#: ../capplets/keyboard/mate-keyboard-properties.c:218
+msgid ""
+"Just apply settings and quit (compatibility only; now handled by daemon)"
+msgstr "Nota stillingar og hætta (aðeins samhæfing; nú í umsjón púka)"
+
+#: ../capplets/keyboard/mate-keyboard-properties.c:223
+msgid "Start the page with the typing break settings showing"
+msgstr "Byrja blaðsíðuna með því að sýna innsláttarhlés stillingar"
+
+#: ../capplets/keyboard/mate-keyboard-properties.c:228
+msgid "Start the page with the accessibility settings showing"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties.c:234
+msgid "- MATE Keyboard Preferences"
+msgstr "- Lyklaborðsstillingar MATE"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:1
+msgid "Keyboard Accessibility Audio Feedback"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:2
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:15
+#: ../capplets/mouse/mate-mouse-properties.ui.h:30
+#: ../capplets/windows/mate-window-properties.c:382
+msgid "General"
+msgstr "Almennt"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:3
+msgid "Beep when _accessibility features are turned on or off"
+msgstr "Gefa frá sér hljóð þegar stillingu á _aðgengi er breytt"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:4
+msgid "Beep when a _toggle key is pressed"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:5
+msgid "Visual cues for sounds"
+msgstr "Sjónrænar ábendingar fyrir hljóð"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:6
+msgid "Show _visual feedback for the alert sound"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:7
+msgid "Flash _window titlebar"
+msgstr "Flassa gluggatitilstiku"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:8
+msgid "Flash entire _screen"
+msgstr "Blikka öllum _skjánum"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:9
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:39
+msgid "Slow Keys"
+msgstr "Hægir lyklar"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:10
+msgid "Beep when a key is pr_essed"
+msgstr "Gefa frá sér hljóð þegar ýtt er á _takka"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:11
+msgid "Beep when key is _accepted"
+msgstr "Píp_a þegar lykill er samþykktur"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:12
+msgid "Beep when key is _rejected"
+msgstr "Pípa þega_r lykli er hafnað"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:13
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:41
+msgid "Bounce Keys"
+msgstr "Skoppa lyklum"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:14
+msgid "Beep when a key is reje_cted"
+msgstr "_Pípa þegar lykli er hafnað"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:15
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:36
+msgid "Sticky Keys"
+msgstr "Klístraðir lyklar"
+
+#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:16
+msgid "Beep when a _modifier key is pressed"
+msgstr "Gefa frá sér hljóð þegar ýtt er á _breytitakka"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:1
+msgid "Keyboard Preferences"
+msgstr "Lyklaborðsstillingar"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:2
+msgid "Repeat Keys"
+msgstr "Endurtekning lykla"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:3
+msgid "Key presses _repeat when key is held down"
+msgstr "Innsláttur endurtekinn þegar lykli er haldið niðri"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:4
+msgid "_Delay:"
+msgstr "Tö_f:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:5
+msgid "_Speed:"
+msgstr "_Hraði:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:6
+#: ../capplets/mouse/mate-mouse-properties.ui.h:27
+msgid "Short"
+msgstr "Stutt"
+
+#. slow acceleration
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:7
+#: ../capplets/mouse/mate-mouse-properties.ui.h:11
+msgid "Slow"
+msgstr "Hægt"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:8
+msgid "Repeat keys speed"
+msgstr "Hraði á endurtekningu lykla"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:9
+#: ../capplets/mouse/mate-mouse-properties.ui.h:28
+msgid "Long"
+msgstr "Löng"
+
+#. fast acceleration
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:10
+#: ../capplets/mouse/mate-mouse-properties.ui.h:13
+msgid "Fast"
+msgstr "Hratt"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:11
+msgid "Cursor Blinking"
+msgstr "Bendill blikkar"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:12
+msgid "Cursor _blinks in text fields"
+msgstr "_Bendill blikkar í textareitum"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:13
+msgid "S_peed:"
+msgstr "H_raði:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:14
+#: ../capplets/mouse/mate-mouse-properties.ui.h:22
+msgid "Cursor blinks speed"
+msgstr "Blikk hraði bendils"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:16
+msgid "List of keyboard layouts selected for usage"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:18
+msgid "Select a keyboard layout to be added to the list"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:19
+msgid "Remove the selected keyboard layout from the list"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:20
+msgid "Move _Up"
+msgstr "Færa _upp"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:21
+msgid "Move the selected keyboard layout up in the list"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:22
+msgid "Move _Down"
+msgstr "Flytja _niður"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:23
+msgid "Move the selected keyboard layout down in the list"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:24
+msgid "_Show..."
+msgstr "_Birta..."
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:25
+msgid "Print a diagram of the selected keyboard layout"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:26
+msgid "_Separate layout for each window"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:27
+msgid "New windows u_se active window's layout"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:28
+msgid "Keyboard _model:"
+msgstr "Lyklaborðs _gerð:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:29
+msgid "_Options..."
+msgstr "_Valkostir..."
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:30
+msgid "View and edit keyboard layout options"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:31
+msgid "Reset to De_faults"
+msgstr "_Endurheimta fyrri gildi"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:32
+msgid ""
+"Replace the current keyboard layout settings with the\n"
+"default settings"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:34
+msgid "Layouts"
+msgstr "Skipulag"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:35
+msgid "_Accessibility features can be toggled with keyboard shortcuts"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:37
+msgid "_Simulate simultaneous keypresses"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:38
+msgid "Disa_ble sticky keys if two keys are pressed together"
+msgstr "Slökkva á _klístruðum lyklum þegar ýtt er samtímis á tvo lykla"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:40
+msgid "_Only accept long keypresses"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:42
+msgid "_Ignore fast duplicate keypresses"
+msgstr ""
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:43
+msgid "D_elay:"
+msgstr "_Bið:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:44
+msgid "Audio _Feedback..."
+msgstr "Fá _svarhljóð...."
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:46
+msgid "_Pointer can be controlled using the keypad"
+msgstr "Hægt er að stjórna músar_bendli með talnaborði"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:47
+#: ../capplets/mouse/mate-mouse-properties.ui.h:8
+msgid "_Acceleration:"
+msgstr "_Hröðun:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:48
+msgid "Mouse Keys"
+msgstr "Músarlyklar"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:49
+msgid "_Lock screen to enforce typing break"
+msgstr "_Læsa skjá til að skylda innsláttarhlé"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:50
+msgid ""
+"Lock screen after a certain duration to help prevent repetitive keyboard use"
+" injuries"
+msgstr "Læsa skjá eftir ákveðinn tíma til að hindra skemmdir vegna einhæfrar lyklaborðsnotkunar."
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:51
+msgid "_Work interval lasts:"
+msgstr "_Vinnutími varir:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:52
+msgid "_Break interval lasts:"
+msgstr "Tími hlés _varir:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:53
+msgid "Duration of work before forcing a break"
+msgstr "Vinnutími fyrir skylduhlé"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:54
+msgid "Duration of the break when typing is disallowed"
+msgstr "Lengd hlés þegar vélritun er ekki leyfð"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:55
+msgid "minutes"
+msgstr "mínútur"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:56
+msgid "All_ow postponing of breaks"
+msgstr "Leyf_a frestun hlés"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:57
+msgid "Check if breaks are allowed to be postponed"
+msgstr "Athuga hvort frestun hléa er leyfð"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:58
+msgid "Typing Break"
+msgstr "Innsláttarhlé"
+
+#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:59
+msgid "_Type to test settings:"
+msgstr "Vélrita til að _prófa stillingar:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:1
+msgid "Choose a Layout"
+msgstr "Veldu skipulag"
+
+#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:2
+msgid "_Variants:"
+msgstr "_Útgáfur:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:3
+msgid "_Country:"
+msgstr "_Land"
+
+#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:4
+msgid "By _country"
+msgstr "Eftir_landi"
+
+#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:5
+msgid "_Language:"
+msgstr "_Tungumál"
+
+#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:6
+msgid "By _language"
+msgstr "Eftir_tungumáli"
+
+#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:7
+msgid "Preview:"
+msgstr "Forsýning:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-model-chooser.ui.h:1
+msgid "Choose a Keyboard Model"
+msgstr "Veldu lyklaborðs gerð"
+
+#: ../capplets/keyboard/mate-keyboard-properties-model-chooser.ui.h:2
+msgid "_Vendors:"
+msgstr "_Seljendur:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-model-chooser.ui.h:3
+msgid "_Models:"
+msgstr "_Gerð:"
+
+#: ../capplets/keyboard/mate-keyboard-properties-options-dialog.ui.h:1
+msgid "Keyboard Layout Options"
+msgstr "Valkostir lyklaborðsuppsetningar"
+
+#: ../capplets/keyboard/mate-keyboard-properties-xkb.c:83
+msgid "Unknown"
+msgstr "Óþekktur"
+
+#: ../capplets/keyboard/mate-keyboard-properties-xkblt.c:240
+msgid "Layout"
+msgstr "Umbrot"
+
+#: ../capplets/keyboard/mate-keyboard-properties-xkbmc.c:170
+msgid "Vendors"
+msgstr "Seljendur"
+
+#: ../capplets/keyboard/mate-keyboard-properties-xkbmc.c:236
+msgid "Models"
+msgstr "Líkön"
+
+#: ../capplets/keyboard/mate-keyboard-properties-xkbot.c:237
+msgid "Default"
+msgstr "Sjálfgefið"
+
+#: ../capplets/keyboard/mate-keyboard.desktop.in.in.h:1
+msgid "Keyboard"
+msgstr "Lyklaborð"
+
+#: ../capplets/keyboard/mate-keyboard.desktop.in.in.h:2
+msgid "Set your keyboard preferences"
+msgstr "Stilltu lyklaborðið"
+
+#: ../capplets/mouse/mate-mouse-properties.c:396
+msgid "Left button"
+msgstr "Vinstri hnappur"
+
+#: ../capplets/mouse/mate-mouse-properties.c:396
+msgid "Middle button"
+msgstr "Miðjuhnappur"
+
+#: ../capplets/mouse/mate-mouse-properties.c:396
+msgid "Right button"
+msgstr "Hægri hnappur"
+
+#. TRANSLATORS: don't translate the terms in brackets
+#: ../capplets/mouse/mate-mouse-properties.c:482
+msgid "Specify the name of the page to show (general)"
+msgstr "Tilgreindu heiti síðunnar sem á að birta (almennt)"
+
+#: ../capplets/mouse/mate-mouse-properties.c:487
+msgid "- MATE Mouse Preferences"
+msgstr "- Músarstillingar MATE"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:1
+msgid "Mouse Preferences"
+msgstr "Músarstillingar"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:2
+msgid "Mouse Orientation"
+msgstr "Stefna mýsarbendils"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:3
+msgid "_Right-handed"
+msgstr "_Rétthent"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:4
+msgid "_Left-handed"
+msgstr "_Örvhent"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:5
+msgid "Locate Pointer"
+msgstr "Finna bendil"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:6
+msgid "Sh_ow position of pointer when the Control key is pressed"
+msgstr "Lýsa upp staðsetningu músarbendilsins þegar ýtt er á Ctrl-lykil"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:7
+msgid "Pointer Speed"
+msgstr "Hraði bendils"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:9
+msgid "_Sensitivity:"
+msgstr "_Næmi:"
+
+#. low sensitivity
+#: ../capplets/mouse/mate-mouse-properties.ui.h:15
+msgid "Low"
+msgstr "Lágt"
+
+#. high sensitivity
+#: ../capplets/mouse/mate-mouse-properties.ui.h:17
+msgid "High"
+msgstr "Hátt"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:18
+msgid "Drag and Drop"
+msgstr "Draga og sleppa"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:19
+msgid "Thr_eshold:"
+msgstr "Þrösk_uldur:"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:25
+msgid "Double-Click Timeout"
+msgstr "Tímamörk við tvísmell"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:26
+msgid "_Timeout:"
+msgstr "_Tímamörk:"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:29
+msgid ""
+"To test your double-click settings, try to double-click on the light bulb."
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:31
+msgid "Enable _touchpad"
+msgstr "_Virkja snertiplatta"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:32
+msgid "Disable touchpad _while typing"
+msgstr "Af_virkja snertiplatta á meðan skrifað er"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:33
+msgid "Enable _mouse clicks with touchpad"
+msgstr "Virkja _músarsmelli með snertiplatta"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:34
+msgid "Two-finger click emulation:"
+msgstr "Tveggja-fingra-smells herming:"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:35
+msgid "Three-finger click emulation:"
+msgstr "Þriggja-fingra-smells herming:"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:36
+msgid "Scrolling"
+msgstr "Skrun"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:37
+msgid "_Vertical edge scrolling"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:38
+msgid "H_orizontal edge scrolling"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:39
+msgid "V_ertical two-finger scrolling"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:40
+msgid "Hor_izontal two-finger scrolling"
+msgstr ""
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:41
+msgid "Enable n_atural scrolling"
+msgstr "Virkja _eðlilegt skrun"
+
+#: ../capplets/mouse/mate-mouse-properties.ui.h:42
+msgid "Touchpad"
+msgstr "Snertiplatti"
+
+#: ../capplets/mouse/mate-settings-mouse.desktop.in.in.h:1
+msgid "Mouse"
+msgstr "Mús"
+
+#: ../capplets/mouse/mate-settings-mouse.desktop.in.in.h:2
+msgid "Set your mouse preferences"
+msgstr "Stilltu músina þína"
+
+#: ../capplets/network/mate-network-properties.desktop.in.in.h:1
+msgid "Network Proxy"
+msgstr "Netmilliþjónar (vefsel)"
+
+#: ../capplets/network/mate-network-properties.desktop.in.in.h:2
+msgid "Set your network proxy preferences"
+msgstr "Stilla valkosti fyrir netmilliþjóna (vefsel)"
+
+#: ../capplets/network/mate-network-properties.ui.h:1
+msgid "HTTP Proxy Details"
+msgstr "Nánar um HTTP-milliþjón"
+
+#: ../capplets/network/mate-network-properties.ui.h:2
+msgid "<b>_Use authentication</b>"
+msgstr "<b>Nota a_uðkenningu</b>"
+
+#: ../capplets/network/mate-network-properties.ui.h:3
+msgid "U_sername:"
+msgstr "N_otandanafn:"
+
+#: ../capplets/network/mate-network-properties.ui.h:4
+msgid "_Password:"
+msgstr "_Lykilorð:"
+
+#: ../capplets/network/mate-network-properties.ui.h:5
+msgid "Network Proxy Preferences"
+msgstr "Valkostir netmilliþjóna"
+
+#: ../capplets/network/mate-network-properties.ui.h:6
+msgid "<b>Di_rect internet connection</b>"
+msgstr "<b>_Beintenging við netið</b>"
+
+#: ../capplets/network/mate-network-properties.ui.h:7
+msgid "<b>_Manual proxy configuration</b>"
+msgstr "<b>_Handvirkar stillingar milliþjóna</b>"
+
+#: ../capplets/network/mate-network-properties.ui.h:8
+msgid "H_TTP proxy:"
+msgstr "H_TTP-milliþjónn:"
+
+#: ../capplets/network/mate-network-properties.ui.h:9
+msgid "_Secure HTTP proxy:"
+msgstr "Ö_ruggur HTTP-milliþjónn:"
+
+#: ../capplets/network/mate-network-properties.ui.h:10
+msgid "_FTP proxy:"
+msgstr "_FTP milliþjónn:"
+
+#: ../capplets/network/mate-network-properties.ui.h:11
+msgid "S_ocks host:"
+msgstr "Sö_kkulsþjónn:"
+
+#: ../capplets/network/mate-network-properties.ui.h:12
+msgid "Port:"
+msgstr "Gátt:"
+
+#: ../capplets/network/mate-network-properties.ui.h:13
+msgid "_Details"
+msgstr "_Nánar"
+
+#: ../capplets/network/mate-network-properties.ui.h:14
+msgid "<b>_Automatic proxy configuration</b>"
+msgstr "<b>Sjálfvirk_ar stillingar milliþjóna</b>"
+
+#: ../capplets/network/mate-network-properties.ui.h:15
+msgid "Autoconfiguration _URL:"
+msgstr "Slóð sjálfvirkrar _uppsetningar:"
+
+#: ../capplets/network/mate-network-properties.ui.h:16
+msgid "Proxy Configuration"
+msgstr "Stillingar milliþjóna"
+
+#: ../capplets/network/mate-network-properties.ui.h:17
+msgid "Ignore Host List"
+msgstr "Listi yfir hunsaðar vélar"
+
+#: ../capplets/network/mate-network-properties.ui.h:18
+msgid "Ignored Hosts"
+msgstr "Hunsaðar vélar"
+
+#: ../capplets/windows/mate-metacity-support.c:40
+msgid "Metacity Preferences"
+msgstr "Kjörstillingar Metacity"
+
+#. Compositing manager
+#: ../capplets/windows/mate-metacity-support.c:55
+#: ../capplets/windows/mate-window-properties.c:410
+msgid "Compositing Manager"
+msgstr "Stjórnun skjásamsetningar"
+
+#: ../capplets/windows/mate-metacity-support.c:66
+#: ../capplets/windows/mate-window-properties.c:422
+msgid "Enable software _compositing window manager"
+msgstr ""
+
+#: ../capplets/windows/mate-window-properties.c:264
+msgid "The current window manager is unsupported"
+msgstr ""
+
+#. Window
+#: ../capplets/windows/mate-window-properties.c:358
+msgid "Window Preferences"
+msgstr "Gluggastillingar"
+
+#: ../capplets/windows/mate-window-properties.c:391
+msgid "Behaviour"
+msgstr "Hegðun"
+
+#: ../capplets/windows/mate-window-properties.c:400
+msgid "Placement"
+msgstr "Staða"
+
+#: ../capplets/windows/mate-window-properties.c:423
+msgid "Disable _thumbnails in Alt-Tab"
+msgstr ""
+
+#. Titlebar buttons
+#: ../capplets/windows/mate-window-properties.c:431
+msgid "Titlebar Buttons"
+msgstr ""
+
+#: ../capplets/windows/mate-window-properties.c:439
+msgid "Position:"
+msgstr "Staðsetning:"
+
+#. New Windows
+#: ../capplets/windows/mate-window-properties.c:446
+msgid "New Windows"
+msgstr ""
+
+#: ../capplets/windows/mate-window-properties.c:454
+msgid "Center _new windows"
+msgstr "Miðja _nýja glugga"
+
+#. Window Snapping
+#: ../capplets/windows/mate-window-properties.c:459
+msgid "Window Snapping"
+msgstr "Grip glugga"
+
+#: ../capplets/windows/mate-window-properties.c:467
+msgid "Enable side by side _tiling"
+msgstr ""
+
+#. Window Selection
+#: ../capplets/windows/mate-window-properties.c:472
+msgid "Window Selection"
+msgstr "Val glugga"
+
+#: ../capplets/windows/mate-window-properties.c:492
+msgid "_Select windows when the mouse moves over them"
+msgstr "_Velur glugga þegar músin fer yfir þá"
+
+#: ../capplets/windows/mate-window-properties.c:495
+msgid "U_nselect windows when the mouse leaves them"
+msgstr ""
+
+#: ../capplets/windows/mate-window-properties.c:499
+msgid "_Raise selected windows after an interval"
+msgstr "_Hækkar valda glugga eftir ákveðinn tíma"
+
+#: ../capplets/windows/mate-window-properties.c:510
+msgid "_Interval before raising:"
+msgstr "Tími _fyrir hækkun:"
+
+#: ../capplets/windows/mate-window-properties.c:514
+msgid "seconds"
+msgstr "sekúndur"
+
+#. Titlebar Action
+#: ../capplets/windows/mate-window-properties.c:525
+msgid "Titlebar Action"
+msgstr "Titilrandaraðgerð"
+
+#: ../capplets/windows/mate-window-properties.c:533
+msgid "_Double-click titlebar to perform this action:"
+msgstr "_Tvísmelltu á titilstiku til að framkvæma þessa aðgerð:"
+
+#. Movement Key
+#: ../capplets/windows/mate-window-properties.c:541
+msgid "Movement Key"
+msgstr ""
+
+#: ../capplets/windows/mate-window-properties.c:552
+msgid "To move a window, press-and-hold this key then grab the window:"
+msgstr "Ef þú vilt færa glugga þarftu bara að ýta og halda þessum takka niðri og grípa svo gluggann:"
+
+#: ../capplets/windows/mate-window-properties.c:580
+#: ../libwindow-settings/marco-window-manager.c:394
+msgid "Roll up"
+msgstr "Rúlla upp"
+
+#: ../capplets/windows/mate-window-properties.c:581
+#: ../libwindow-settings/marco-window-manager.c:395
+msgid "Maximize"
+msgstr "Hámarka"
+
+#: ../capplets/windows/mate-window-properties.c:582
+#: ../libwindow-settings/marco-window-manager.c:396
+msgid "Maximize Horizontally"
+msgstr "Hármarka lárétt"
+
+#: ../capplets/windows/mate-window-properties.c:583
+#: ../libwindow-settings/marco-window-manager.c:397
+msgid "Maximize Vertically"
+msgstr "Hármarka lóðrétt"
+
+#: ../capplets/windows/mate-window-properties.c:584
+#: ../libwindow-settings/marco-window-manager.c:398
+msgid "Minimize"
+msgstr "Lágmarka"
+
+#: ../capplets/windows/mate-window-properties.c:585
+#: ../libwindow-settings/marco-window-manager.c:399
+msgid "None"
+msgstr "Gera ekkert"
+
+#: ../capplets/windows/mate-window-properties.c:786
+msgid "_Alt"
+msgstr "_Alt takkinn"
+
+#: ../capplets/windows/mate-window-properties.c:792
+msgid "H_yper"
+msgstr "H_yper takki"
+
+#: ../capplets/windows/mate-window-properties.c:799
+msgid "S_uper (or \"Windows logo\")"
+msgstr "_Super takki (eða „Windows takki“)"
+
+#: ../capplets/windows/mate-window-properties.c:806
+msgid "_Meta"
+msgstr "_Meta takki"
+
+#: ../capplets/windows/mate-window-properties.desktop.in.in.h:1
+msgid "Windows"
+msgstr "Gluggar"
+
+#: ../capplets/windows/mate-window-properties.desktop.in.in.h:2
+msgid "Set your window properties"
+msgstr "Breyta því hvernig gluggarnir haga sér"
+
+#: ../libwindow-settings/mate-wm-manager.c:317
+#, c-format
+msgid "Window manager \"%s\" has not registered a configuration tool\n"
+msgstr "Gluggastjórinn \"%s\" hefur ekki skráð stillingartæki\n"
+
+#: ../shell/control-center.c:61
+#, c-format
+msgid "%s key is empty\n"
+msgstr ""
+
+#: ../shell/control-center.c:161
+msgid "Hide on start (useful to preload the shell)"
+msgstr ""
+
+#: ../shell/control-center.c:201
+msgid "Filter"
+msgstr "Sía"
+
+#: ../shell/control-center.c:201
+msgid "Groups"
+msgstr "Hópar"
+
+#: ../shell/control-center.c:201
+msgid "Common Tasks"
+msgstr "Algeng verkefni"
+
+#: ../shell/control-center.c:203 ../shell/matecc.desktop.in.in.h:1
+#: ../shell/matecc.directory.in.h:1
+msgid "Control Center"
+msgstr "Stjórnborð"
+
+#: ../shell/matecc.desktop.in.in.h:2
+msgid "The MATE configuration tool"
+msgstr "MATE stillingatækið"
+
+#: ../typing-break/drw-break-window.c:203
+msgid "_Postpone Break"
+msgstr "_Hætta við pásu"
+
+#: ../typing-break/drw-break-window.c:277
+msgid "Take a break!"
+msgstr "Gera hlé!"
+
+#: ../typing-break/drwright.c:139
+msgid "_Take a Break"
+msgstr "_Taka sér pásu!"
+
+#: ../typing-break/drwright.c:510
+#, c-format
+msgid "Take a break now (next in %dm)"
+msgstr ""
+
+#: ../typing-break/drwright.c:512
+#, c-format
+msgid "%d minute until the next break"
+msgid_plural "%d minutes until the next break"
+msgstr[0] "%d mínúnda í næsta hlé"
+msgstr[1] "%d mínúndur í næsta hlé"
+
+#: ../typing-break/drwright.c:518
+#, c-format
+msgid "Take a break now (next in less than one minute)"
+msgstr ""
+
+#: ../typing-break/drwright.c:520
+#, c-format
+msgid "Less than one minute until the next break"
+msgstr "Minna en ein mínúta í næsta hlé"
+
+#: ../typing-break/drwright.c:610
+#, c-format
+msgid ""
+"Unable to bring up the typing break properties dialog with the following "
+"error: %s"
+msgstr "Gat ekki birt innsláttarstillingar fyrirspurnarglugga útaf eftirfarandi villu: %s"
+
+#: ../typing-break/drwright.c:627
+msgid "Written by Richard Hult <richard@imendio.com>"
+msgstr "Búið til af Richard Hult <richard@imendio.com>"
+
+#: ../typing-break/drwright.c:628
+msgid "Eye candy added by Anders Carlsson"
+msgstr "Eye candy sett inn af Anders Carlsson"
+
+#: ../typing-break/drwright.c:637
+msgid "A computer break reminder."
+msgstr "Áminning um hlé við tölvu."
+
+#: ../typing-break/drwright.c:639
+msgid "translator-credits"
+msgstr "Launchpad Contributions:\n  Baldur https://launchpad.net/~baldurpet\n  Davíð Steinn Geirsson https://launchpad.net/~david-dsg\n  Freyr Gunnar Ólafsson https://launchpad.net/~gnarlin\n  Hans Rúnar Snorrason https://launchpad.net/~hansrunar\n  Hlini Melsteð https://launchpad.net/~hlini\n  Sveinn í Felli https://launchpad.net/~sveinki\n  Tumi Steingrímsson https://launchpad.net/~tumi.st"
+
+#: ../typing-break/main.c:63
+msgid "Enable debugging code"
+msgstr "Virkja aflúsunarham"
+
+#: ../typing-break/main.c:65
+msgid "Don't check whether the notification area exists"
+msgstr ""
+
+#: ../typing-break/main.c:89
+msgid "Typing Monitor"
+msgstr "Innsláttarskjár"
+
+#: ../typing-break/main.c:106
+msgid ""
+"The typing monitor uses the notification area to display information. You "
+"don't seem to have a notification area on your panel. You can add it by "
+"right-clicking on your panel and choosing 'Add to panel', selecting "
+"'Notification area' and clicking 'Add'."
+msgstr "Innsláttar vaktinn notar tilkynningarsvæðið til að sýna upplýsingar. Þú ert ekki með tilkynningarsvæði á stikunni þinni. Þú getur bætt henni við með því að hægri smella á stikuna og velja ‚Bæta við stikuna...‘, velja ‚Tilkynningar‘ og smella á ‚Bæta við‘."
+
+#: ../font-viewer/font-view.c:360 ../font-viewer/font-view.c:362
+msgid "Name:"
+msgstr "Nafn:"
+
+#: ../font-viewer/font-view.c:367 ../font-viewer/font-view.c:369
+msgid "Style:"
+msgstr "Stíll:"
+
+#: ../font-viewer/font-view.c:383 ../font-viewer/font-view.c:385
+msgid "Type:"
+msgstr "Tegund:"
+
+#: ../font-viewer/font-view.c:391 ../font-viewer/font-view.c:393
+msgid "Size:"
+msgstr "Stærð:"
+
+#: ../font-viewer/font-view.c:440 ../font-viewer/font-view.c:442
+#: ../font-viewer/font-view.c:465 ../font-viewer/font-view.c:467
+msgid "Version:"
+msgstr "Útgáfa:"
+
+#: ../font-viewer/font-view.c:448 ../font-viewer/font-view.c:450
+#: ../font-viewer/font-view.c:471 ../font-viewer/font-view.c:473
+msgid "Copyright:"
+msgstr "Höfundarréttur:"
+
+#: ../font-viewer/font-view.c:456 ../font-viewer/font-view.c:458
+msgid "Description:"
+msgstr "Lýsing:"
+
+#: ../font-viewer/font-view.c:535
+msgid "Installed"
+msgstr "Uppsett"
+
+#: ../font-viewer/font-view.c:537
+msgid "Install Failed"
+msgstr "Uppsetning mistókst"
+
+#: ../font-viewer/font-view.c:613
+#, c-format
+msgid "Usage: %s fontfile\n"
+msgstr "Notkun: %s leturskrá\n"
+
+#: ../font-viewer/font-view.c:713
+msgid "I_nstall Font"
+msgstr "Setja _inn letur"
+
+#: ../font-viewer/mate-font-viewer.desktop.in.in.h:1
+msgid "Font Viewer"
+msgstr "Leturbirtir"
+
+#: ../font-viewer/mate-font-viewer.desktop.in.in.h:2
+msgid "Preview fonts"
+msgstr "Forskoða letur"
+
+#: ../font-viewer/font-thumbnailer.c:267
+msgid "Text to thumbnail (default: Aa)"
+msgstr "Texti í smámynd (sjálfgefið: Aa)"
+
+#: ../font-viewer/font-thumbnailer.c:267
+msgid "TEXT"
+msgstr "TEXTI"
+
+#: ../font-viewer/font-thumbnailer.c:269
+msgid "Font size (default: 64)"
+msgstr "Leturstærð (venjuleg stærð: 64)"
+
+#: ../font-viewer/font-thumbnailer.c:269
+msgid "SIZE"
+msgstr "STÆRÐ"
+
+#: ../font-viewer/font-thumbnailer.c:271
+msgid "FONT-FILE OUTPUT-FILE"
+msgstr "LETURSKRÁ ÚTTAKSSKRÁ"
+
+#: ../libslab/app-shell.c:791
+#, c-format
+msgid "Your filter \"%s\" does not match any items."
+msgstr "Sían \"%s\" samsvarar engum hlutum."
+
+#: ../libslab/app-shell.c:793
+msgid "No matches found."
+msgstr "Engin samsvörun fannst."
+
+#: ../libslab/app-shell.c:893
+msgid "New Applications"
+msgstr "Ný forrit"
+
+#: ../libslab/app-shell.c:948
+msgid "Other"
+msgstr "Annað"
+
+#. make start action
+#: ../libslab/application-tile.c:339
+#, c-format
+msgid "Start %s"
+msgstr "Ræsa %s"
+
+#: ../libslab/application-tile.c:360
+msgid "Help"
+msgstr "Hjálp"
+
+#: ../libslab/application-tile.c:636 ../libslab/document-tile.c:743
+msgid "Remove from Favorites"
+msgstr "Fjarlægja sem bókamerki"
+
+#: ../libslab/application-tile.c:638 ../libslab/document-tile.c:745
+msgid "Add to Favorites"
+msgstr "Bæta við bókamerki"
+
+#: ../libslab/application-tile.c:723
+msgid "Remove from Startup Programs"
+msgstr "Hætta að nota sem ræsiforrit"
+
+#: ../libslab/application-tile.c:725
+msgid "Add to Startup Programs"
+msgstr "Bæta við sem ræsiforriti"
+
+#: ../libslab/bookmark-agent.c:1087
+msgid "New Spreadsheet"
+msgstr "Nýr tölvureiknir"
+
+#: ../libslab/bookmark-agent.c:1091
+msgid "New Document"
+msgstr "Nýtt skjal"
+
+#: ../libslab/bookmark-agent.c:1145
+msgctxt "Home folder"
+msgid "Home"
+msgstr "Heim"
+
+#: ../libslab/bookmark-agent.c:1152
+msgid "Documents"
+msgstr "Skjöl"
+
+#: ../libslab/bookmark-agent.c:1158
+msgid "Desktop"
+msgstr "Skjáborð"
+
+#: ../libslab/bookmark-agent.c:1163
+msgid "File System"
+msgstr "Skráarkerfi"
+
+#: ../libslab/bookmark-agent.c:1166
+msgid "Network Servers"
+msgstr "Netþjónar"
+
+#: ../libslab/bookmark-agent.c:1197
+msgid "Search"
+msgstr "Leita"
+
+#. make open with default action
+#: ../libslab/directory-tile.c:176
+#, c-format
+msgid "<b>Open</b>"
+msgstr "<b>Opna</b>"
+
+#. make rename action
+#: ../libslab/directory-tile.c:195 ../libslab/document-tile.c:241
+msgid "Rename..."
+msgstr "Endurnefna..."
+
+#: ../libslab/directory-tile.c:209 ../libslab/directory-tile.c:218
+#: ../libslab/document-tile.c:255 ../libslab/document-tile.c:264
+msgid "Send To..."
+msgstr "Senda til..."
+
+#. make move to trash action
+#: ../libslab/directory-tile.c:233 ../libslab/document-tile.c:290
+msgid "Move to Trash"
+msgstr "Henda í ruslið"
+
+#: ../libslab/directory-tile.c:243 ../libslab/directory-tile.c:461
+#: ../libslab/document-tile.c:300 ../libslab/document-tile.c:863
+msgid "Delete"
+msgstr "Eyða"
+
+#: ../libslab/directory-tile.c:538 ../libslab/document-tile.c:1026
+#, c-format
+msgid "Are you sure you want to permanently delete \"%s\"?"
+msgstr "Ertu viss um að þú viljir endanlega eyða „%s“?"
+
+#: ../libslab/directory-tile.c:539 ../libslab/document-tile.c:1027
+msgid "If you delete an item, it is permanently lost."
+msgstr "Ef þú eyðir hlut hverfur hann varanlega."
+
+#: ../libslab/document-tile.c:200
+#, c-format
+msgid "Open with \"%s\""
+msgstr "Opna með „%s“"
+
+#: ../libslab/document-tile.c:214
+msgid "Open with Default Application"
+msgstr "Opna með sam forriti og venjulega"
+
+#: ../libslab/document-tile.c:225
+msgid "Open in File Manager"
+msgstr "Opna í skráastjóra"
+
+#. clean item from menu
+#: ../libslab/document-tile.c:309
+msgid "Remove from recent menu"
+msgstr ""
+
+#. clean all the items from menu
+#: ../libslab/document-tile.c:317
+msgid "Purge all the recent items"
+msgstr ""
+
+#: ../libslab/document-tile.c:631
+msgid "?"
+msgstr "?"
+
+#: ../libslab/document-tile.c:638
+msgid "%l:%M %p"
+msgstr "%l:%M %p"
+
+#: ../libslab/document-tile.c:646
+msgid "Today %l:%M %p"
+msgstr "Í dag %l:%M %p"
+
+#: ../libslab/document-tile.c:656
+msgid "Yesterday %l:%M %p"
+msgstr "Í gær %l:%M %p"
+
+#: ../libslab/document-tile.c:668
+msgid "%a %l:%M %p"
+msgstr "%a %l:%M %p"
+
+#: ../libslab/document-tile.c:676
+msgid "%b %d %l:%M %p"
+msgstr "%b %d %l:%M %p"
+
+#: ../libslab/document-tile.c:678
+msgid "%b %d %Y"
+msgstr "%b %d %Y"
+
+#: ../libslab/search-bar.c:260
+msgid "Find Now"
+msgstr "Finna núna"
+
+#: ../libslab/system-tile.c:132
+#, c-format
+msgid "<b>Open %s</b>"
+msgstr "<b>Opna %s</b>"
+
+#: ../libslab/system-tile.c:145
+#, c-format
+msgid "Remove from System Items"
+msgstr "Fjarlægja úr kerfishlutum"

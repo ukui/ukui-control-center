@@ -1,0 +1,6 @@
+etc/
+usr/bin/
+usr/lib/*/pkgconfig/mate-default-applications.pc
+usr/lib/*/pkgconfig/mate-keybindings.pc
+usr/sbin/
+usr/share/applications/
