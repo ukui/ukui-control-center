@@ -12,121 +12,121 @@
 # Ma SivaKumar <tamil@leatherlink.net>, 2004
 msgid ""
 msgstr ""
-"Project-Id-Version: MATE Desktop Environment\n"
+"Project-Id-Version: UKUI Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-27 23:13+0300\n"
 "PO-Revision-Date: 2016-03-27 20:16+0000\n"
 "Last-Translator: monsta <monsta@inbox.ru>\n"
-"Language-Team: Tamil (http://www.transifex.com/mate/MATE/language/ta/)\n"
+"Language-Team: Tamil (http://wiki.ukui.org/trans)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ta\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../org.mate.control-center.gschema.xml.in.h:1
+#: ../org.ukui.control-center.gschema.xml.in.h:1
 msgid ""
-"[ 'Change Theme;mate-appearance-properties.desktop', 'Set Preferred "
-"Applications;mate-default-applications-properties.desktop' ]"
+"[ 'Change Theme;ukui-appearance-properties.desktop', 'Set Preferred "
+"Applications;ukui-default-applications-properties.desktop' ]"
 msgstr ""
 
-#: ../org.mate.control-center.gschema.xml.in.h:2
+#: ../org.ukui.control-center.gschema.xml.in.h:2
 msgid "Task names and associated .desktop files"
 msgstr "வேலைகளின் பெயர்கள் மற்றும் தொடர்புள்ள desktop கோப்புகள்"
 
-#: ../org.mate.control-center.gschema.xml.in.h:3
+#: ../org.ukui.control-center.gschema.xml.in.h:3
 msgid ""
 "The task name to be displayed in the control-center followed by a \";\" "
 "separator then the filename of an associated .desktop file to launch for "
 "that task."
 msgstr "பணி பெயர் கட்டுப்பாடு மையத்தில் காட்டப்படும். இதன் பின்னே \";\" ஆல் பிரிக்கப்பட்டு , அந்த செயலை செய்ய அதன் தொடர்பான .desktop கோப்பின் பெயர் காட்டப்படும் ."
 
-#: ../org.mate.control-center.gschema.xml.in.h:4
+#: ../org.ukui.control-center.gschema.xml.in.h:4
 msgid "Close the control-center when a task is activated"
 msgstr "ஒரு வேலை முடிந்ததும் கட்டுப்பாட்டு மையத்தை மூடு"
 
-#: ../org.mate.control-center.gschema.xml.in.h:5
+#: ../org.ukui.control-center.gschema.xml.in.h:5
 msgid ""
 "if true, the control-center will close when a \"Common Task\" is activated."
 msgstr "உண்மை எனில் கட்டுப்பாட்டு மையம்  \"Common Task\" செயலானதும் மூடப்படும்."
 
-#: ../org.mate.control-center.gschema.xml.in.h:6
+#: ../org.ukui.control-center.gschema.xml.in.h:6
 msgid "Exit shell on start action performed"
 msgstr "துவக்கு செயல் முடிந்தவுடன் ஷெல் இலிருந்து வெளியேறு"
 
-#: ../org.mate.control-center.gschema.xml.in.h:7
+#: ../org.ukui.control-center.gschema.xml.in.h:7
 msgid "Indicates whether to close the shell when a start action is performed."
 msgstr "துவக்க செயல் நடந்தால் ஷெல் ஐ மூடுவதா என காட்டுகிறது"
 
-#: ../org.mate.control-center.gschema.xml.in.h:8
+#: ../org.ukui.control-center.gschema.xml.in.h:8
 msgid "Exit shell on help action performed"
 msgstr "உதவி செயல் முடிந்தவுடன் ஷெல் இலிருந்து வெளியேறு"
 
-#: ../org.mate.control-center.gschema.xml.in.h:9
+#: ../org.ukui.control-center.gschema.xml.in.h:9
 msgid "Indicates whether to close the shell when a help action is performed."
 msgstr "உதவி செயல் முடிந்தால் ஷெல் ஐ மூடுவதா என காட்டுகிறது"
 
-#: ../org.mate.control-center.gschema.xml.in.h:10
+#: ../org.ukui.control-center.gschema.xml.in.h:10
 msgid "Exit shell on add or remove action performed"
 msgstr "சேர் நீக்கு செயல் முடிந்தவுடன் ஷெல் இலிருந்து வெளியேறு"
 
-#: ../org.mate.control-center.gschema.xml.in.h:11
+#: ../org.ukui.control-center.gschema.xml.in.h:11
 msgid ""
 "Indicates whether to close the shell when an add or remove action is "
 "performed."
 msgstr "சேர் அல்லது நீக்கு செயல் முடிந்தால் ஷெல் ஐ மூடுவதா என காட்டுகிறது."
 
-#: ../org.mate.control-center.gschema.xml.in.h:12
+#: ../org.ukui.control-center.gschema.xml.in.h:12
 msgid "Exit shell on upgrade or uninstall action performed"
 msgstr "மேம்படுத்து அல்லது நிறுவல் நீக்கு செயல் முடிந்தவுடன் ஷெல் இலிருந்து வெளியேறு"
 
-#: ../org.mate.control-center.gschema.xml.in.h:13
+#: ../org.ukui.control-center.gschema.xml.in.h:13
 msgid ""
 "Indicates whether to close the shell when an upgrade or uninstall action is "
 "performed."
 msgstr "மேம்பாடு அல்லது நிறுவல் நீக்கம் செயல் நடந்தால் ஷெல் ஐ மூடுவதா என காட்டுகிறது."
 
-#: ../org.mate.control-center.gschema.xml.in.h:14
+#: ../org.ukui.control-center.gschema.xml.in.h:14
 msgid "More backgrounds URL"
 msgstr "கூடுதல் பின்னணிகள் இணைய முகவரி"
 
-#: ../org.mate.control-center.gschema.xml.in.h:15
+#: ../org.ukui.control-center.gschema.xml.in.h:15
 msgid ""
 "URL for where to get more desktop backgrounds. If set to an empty string the"
 " link will not appear."
 msgstr "எங்கு பணிமேடை பின்னணிகளை பெறுவதற்கான URL. ஒரு வெற்று சரமாக அமைத்தால் இணைப்பு தோன்றாது."
 
-#: ../org.mate.control-center.gschema.xml.in.h:16
+#: ../org.ukui.control-center.gschema.xml.in.h:16
 msgid "More themes URL"
 msgstr "கூடுதல் தீம்கள் URL"
 
-#: ../org.mate.control-center.gschema.xml.in.h:17
+#: ../org.ukui.control-center.gschema.xml.in.h:17
 msgid ""
 "URL for where to get more desktop themes. If set to an empty string the link"
 " will not appear."
 msgstr "எங்கு பணிமேடை தீம்களை பெறுவதற்கான URL. ஒரு வெற்று சரமாக அமைத்தால் இணைப்பு தோன்றாது."
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:1
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:1
 msgid "Keybinding"
 msgstr ""
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:2
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:2
 msgid "Keybinding associated with a custom shortcut."
 msgstr ""
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:3
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:3
 msgid "Command"
 msgstr ""
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:4
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:4
 msgid "Command associated with a custom keybinding."
 msgstr ""
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:5
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:5
 msgid "Name"
 msgstr ""
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:6
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:6
 msgid "Description associated with a custom keybinding."
 msgstr ""
 
@@ -158,99 +158,99 @@ msgstr "எச்சரிக்கை உரையாடலில் காட�
 msgid "Show more _details"
 msgstr "கூடுதல் விவரங்களை காட்டவும் (_d)"
 
-#: ../capplets/about-me/mate-about-me.c:268
+#: ../capplets/about-me/ukui-about-me.c:268
 msgid "Select Image"
 msgstr "படத்தைத் தேர்ந்தெடு"
 
-#: ../capplets/about-me/mate-about-me.c:270
+#: ../capplets/about-me/ukui-about-me.c:270
 msgid "No Image"
 msgstr "படம் இல்லை"
 
-#: ../capplets/about-me/mate-about-me.c:298
+#: ../capplets/about-me/ukui-about-me.c:298
 #: ../capplets/appearance/appearance-desktop.c:650
 msgid "Images"
 msgstr "படங்கள்"
 
-#: ../capplets/about-me/mate-about-me.c:302
+#: ../capplets/about-me/ukui-about-me.c:302
 #: ../capplets/appearance/theme-installer.c:783
 msgid "All Files"
 msgstr "அனைத்து கோப்புகள்"
 
-#: ../capplets/about-me/mate-about-me.c:454
+#: ../capplets/about-me/ukui-about-me.c:454
 #, c-format
 msgid "About %s"
 msgstr "%s பற்றி"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:1
-#: ../capplets/about-me/mate-about-me.desktop.in.in.h:1
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:1
+#: ../capplets/about-me/ukui-about-me.desktop.in.in.h:1
 msgid "About Me"
 msgstr "என்னை பற்றி"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:2
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:2
 msgid "Select your photo"
 msgstr "உங்கள் படத்தை தேர்வுசெய்யவும்"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:3
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:3
 msgid "Full Name"
 msgstr "முழுப்பெயர்"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:4
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:4
 msgid "User name:"
 msgstr "பயனர் பெயர்:"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:5
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:5
 msgid "Change Passwo_rd..."
 msgstr "கடவுச்சொல்லை மாற்று... (_r)"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:6
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:6
 msgid "Enable _Fingerprint Login..."
 msgstr "கைரேகை புகுபதிவை செயல்படுத்து (_F)..."
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:7
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:7
 msgid "Disable _Fingerprint Login..."
 msgstr "கைரேகை புகுபதிவை செயல்நீக்கு (_F)..."
 
-#: ../capplets/about-me/mate-about-me.desktop.in.in.h:2
+#: ../capplets/about-me/ukui-about-me.desktop.in.in.h:2
 msgid "Set your personal information"
 msgstr "உங்கள் தனிப்பட்ட தகவலை அமைக்கவும்"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:100
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:100
 msgid ""
 "You are not allowed to access the device. Contact your system administrator."
 msgstr "நீங்கள் சாதனத்தை அணு அனுமதி இல்லை. கணினி நிர்வாகியை அணுகவும்."
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:102
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:102
 msgid "The device is already in use."
 msgstr "சாதனம் பயன்படுத்த தயாராக உள்ளது."
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:104
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:104
 msgid "An internal error occurred"
 msgstr ""
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:221
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:221
 msgid "Delete registered fingerprints?"
 msgstr "பதிவு செய்யப்பட்ட கைரேகைகளை அழிக்கவா?"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:224
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:224
 msgid "_Delete Fingerprints"
 msgstr "கைரேகைகளை அழி (_D)"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:231
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:231
 msgid ""
 "Do you want to delete your registered fingerprints so fingerprint login is "
 "disabled?"
 msgstr "நீங்கள் பதிவு செய்யப்பட்ட கைரேகைகளை அழிக்க வேண்டுமா எனவே கைரேகை புகுபதிவு செயல்நீக்கப்படும்?"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:359
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:15
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:359
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:15
 msgid "Done!"
 msgstr "முடிந்தது!"
 
 #. translators:
 #. * The variable is the name of the device, for example:
 #. * "Could you not access "Digital Persona U.are.U 4000/4000B" device
-#: ../capplets/about-me/mate-about-me-fingerprint.c:405
-#: ../capplets/about-me/mate-about-me-fingerprint.c:427
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:405
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:427
 #, c-format
 msgid "Could not access '%s' device"
 msgstr "'%s' சாதனத்தை அணுக முடியவில்லை"
@@ -258,21 +258,21 @@ msgstr "'%s' சாதனத்தை அணுக முடியவில்�
 #. translators:
 #. * The variable is the name of the device, for example:
 #. * "Could you not access "Digital Persona U.are.U 4000/4000B" device
-#: ../capplets/about-me/mate-about-me-fingerprint.c:476
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:476
 #, c-format
 msgid "Could not start finger capture on '%s' device"
 msgstr "'%s' சாதனத்தில் விரலை பிடிக்க துவக்க முடியவில்லை"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:523
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:523
 msgid "Could not access any fingerprint readers"
 msgstr "கைரேகை வாசிப்பி எதையும் அணுக முடியவில்லை"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:524
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:524
 msgid "Please contact your system administrator for help."
 msgstr "உதவிக்கு உங்கள் கணினி நிர்வாகியை அணுகவும்"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:554
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:9
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:554
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:9
 msgid "Enable Fingerprint Login"
 msgstr "கைரேகை புகுபதிவை செயல்படுத்து"
 
@@ -281,90 +281,90 @@ msgstr "கைரேகை புகுபதிவை செயல்படு�
 #. * "To enable fingerprint login, you need to save one of your fingerprints,
 #. using the
 #. * 'Digital Persona U.are.U 4000/4000B' device."
-#: ../capplets/about-me/mate-about-me-fingerprint.c:584
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:584
 #, c-format
 msgid ""
 "To enable fingerprint login, you need to save one of your fingerprints, "
 "using the '%s' device."
 msgstr "கைரேகை புகுபதிவை செயல்படுத்த உங்கள் கைரேகையை '%s' சாதனத்தை பயன்படுத்தி சேமிக்க வேண்டும்."
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:593
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:593
 msgid "Swipe finger on reader"
 msgstr "வாசிப்பியில் விரலை தேய்க்கவும்"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:595
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:595
 msgid "Place finger on reader"
 msgstr "வாசிப்பியில் விரலை வைக்கவும்"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:1
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:1
 msgid "Left thumb"
 msgstr "இடது கட்டைவிரல்"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:2
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:2
 msgid "Left middle finger"
 msgstr "இடது நடு விரல்"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:3
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:3
 msgid "Left ring finger"
 msgstr "இடது மோதிர விரல்"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:4
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:4
 msgid "Left little finger"
 msgstr "இடது சிறுவிரல்"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:5
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:5
 msgid "Right thumb"
 msgstr "வலது கட்டைவிரல்"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:6
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:6
 msgid "Right middle finger"
 msgstr "வலது நடு விரல்"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:7
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:7
 msgid "Right ring finger"
 msgstr "வலது மோதிர விரல்"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:8
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:8
 msgid "Right little finger"
 msgstr "வலது சிறு விரல்"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:10
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:10
 msgid "Right index finger"
 msgstr "வலது சுட்டு விரல்"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:11
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:11
 msgid "Left index finger"
 msgstr "இடது சுட்டுவிரல்"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:12
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:12
 msgid "Other finger: "
 msgstr "மற்ற விரல்:"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:13
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:13
 msgid "Select finger"
 msgstr "விரலை தேர்ந்தெடு"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:14
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:14
 msgid ""
 "Your fingerprint was successfully saved. You should now be able to log in "
 "using your fingerprint reader."
 msgstr "உங்கள் கைரேகை வெற்றிகரமாக சேமிக்கப்பட்டது. இப்போது நீங்கள் கைரேகை வாசிப்பி மூலம் புகுபதிவு செய்ய முடியும்."
 
-#: ../capplets/about-me/mate-about-me-password.c:161
+#: ../capplets/about-me/ukui-about-me-password.c:161
 msgid "Child exited unexpectedly"
 msgstr "எதிர்பாராத விதமாக சேய் வெளியேறியது"
 
-#: ../capplets/about-me/mate-about-me-password.c:297
+#: ../capplets/about-me/ukui-about-me-password.c:297
 #, c-format
 msgid "Could not shutdown backend_stdin IO channel: %s"
 msgstr "backend_stdin IO தடத்தை பணிநிறுத்தம் செய்ய முடியவில்லை: %s"
 
-#: ../capplets/about-me/mate-about-me-password.c:310
+#: ../capplets/about-me/ukui-about-me-password.c:310
 #, c-format
 msgid "Could not shutdown backend_stdout IO channel: %s"
 msgstr "backend_stdout IO தடத்தை பணிநிறுத்தம் செய்ய முடியவில்லை: %s"
 
-#: ../capplets/about-me/mate-about-me-password.c:409
+#: ../capplets/about-me/ukui-about-me-password.c:409
 msgid "Authenticated!"
 msgstr "அங்கீகரிப்பட்டது!"
 
@@ -373,120 +373,120 @@ msgstr "அங்கீகரிப்பட்டது!"
 #. * Ask the user to re-authenticate
 #. Update status message and auth state
 #. Authentication failure
-#: ../capplets/about-me/mate-about-me-password.c:472
-#: ../capplets/about-me/mate-about-me-password.c:557
+#: ../capplets/about-me/ukui-about-me-password.c:472
+#: ../capplets/about-me/ukui-about-me-password.c:557
 msgid ""
 "Your password has been changed since you initially authenticated! Please re-"
 "authenticate."
 msgstr "ஆரம்ப அங்கீகாரத்திலிருந்து உங்கள் கடவுச்சொல் மாற்றப்பட்டுள்ளது! மீண்டும் அங்கீகரிக்கவும்."
 
-#: ../capplets/about-me/mate-about-me-password.c:474
+#: ../capplets/about-me/ukui-about-me-password.c:474
 msgid "That password was incorrect."
 msgstr "அது தவறான கடவுச்சொல்"
 
-#: ../capplets/about-me/mate-about-me-password.c:525
+#: ../capplets/about-me/ukui-about-me-password.c:525
 msgid "Your password has been changed."
 msgstr "உங்கள் கடவுச்சொல் மாற்றப்பட்டது."
 
 #. What does this indicate?
 #. * "Authentication information cannot be recovered?" from libpam?
-#: ../capplets/about-me/mate-about-me-password.c:535
+#: ../capplets/about-me/ukui-about-me-password.c:535
 #, c-format
 msgid "System error: %s."
 msgstr "கணினி பிழை: %s."
 
-#: ../capplets/about-me/mate-about-me-password.c:538
+#: ../capplets/about-me/ukui-about-me-password.c:538
 msgid "The password is too short."
 msgstr "கடவுச்சொல் மிகவும் சிறயதாக உள்ளது."
 
-#: ../capplets/about-me/mate-about-me-password.c:542
+#: ../capplets/about-me/ukui-about-me-password.c:542
 msgid "The password is too simple."
 msgstr "கடவுச்சொல் மிக எளிமையாக உள்ளது."
 
-#: ../capplets/about-me/mate-about-me-password.c:547
+#: ../capplets/about-me/ukui-about-me-password.c:547
 msgid "The old and new passwords are too similar."
 msgstr "பழைய மற்றும் புதிய கடவுச்சொல் மிகவும் ஒற்றுமையாக உள்ளது."
 
-#: ../capplets/about-me/mate-about-me-password.c:549
+#: ../capplets/about-me/ukui-about-me-password.c:549
 msgid "The new password must contain numeric or special character(s)."
 msgstr "புதிய கடவுச்சொல் எண்கள் அல்லது சிறப்பெழுத்துக்களை கொண்டிருக்க வேண்டும்."
 
-#: ../capplets/about-me/mate-about-me-password.c:552
+#: ../capplets/about-me/ukui-about-me-password.c:552
 msgid "The old and new passwords are the same."
 msgstr "பழைய மற்றும் கடவுச்சொற்கள் ஒரே மாதிரியாக உள்ளது."
 
-#: ../capplets/about-me/mate-about-me-password.c:554
+#: ../capplets/about-me/ukui-about-me-password.c:554
 msgid "The new password has already been used recently."
 msgstr ""
 
 #. translators: Unable to launch <program>: <error message>
-#: ../capplets/about-me/mate-about-me-password.c:829
+#: ../capplets/about-me/ukui-about-me-password.c:829
 #, c-format
 msgid "Unable to launch %s: %s"
 msgstr "இதை துவக்க முடியவில்லை %s: %s"
 
-#: ../capplets/about-me/mate-about-me-password.c:833
+#: ../capplets/about-me/ukui-about-me-password.c:833
 msgid "Unable to launch backend"
 msgstr "பின்தளத்தை ஏற்ற முடியவில்லை"
 
-#: ../capplets/about-me/mate-about-me-password.c:834
+#: ../capplets/about-me/ukui-about-me-password.c:834
 msgid "A system error has occurred"
 msgstr "ஒரு கணினி பிழை ஏற்பட்டுள்ளது"
 
 #. Update status message
-#: ../capplets/about-me/mate-about-me-password.c:854
+#: ../capplets/about-me/ukui-about-me-password.c:854
 msgid "Checking password..."
 msgstr "கடவுச்சொல்லை சரிபார்க்கிறது..."
 
-#: ../capplets/about-me/mate-about-me-password.c:938
+#: ../capplets/about-me/ukui-about-me-password.c:938
 msgid "Click <b>Change password</b> to change your password."
 msgstr "<b>கடவுச்சொல்லை மாற்று</b> என்பதை சொடுக்கி உங்கள் கடவுச்சொல்லை மாற்றவும்."
 
-#: ../capplets/about-me/mate-about-me-password.c:941
+#: ../capplets/about-me/ukui-about-me-password.c:941
 msgid "Please type your password in the <b>New password</b> field."
 msgstr "உங்கள் கடவுச்சொல்லை <b>புதிய கடவுச்சொல்</b> புலத்தில் தட்டச்சு செய்யவும்."
 
-#: ../capplets/about-me/mate-about-me-password.c:944
-#: ../capplets/about-me/mate-about-me-password.ui.h:9
+#: ../capplets/about-me/ukui-about-me-password.c:944
+#: ../capplets/about-me/ukui-about-me-password.ui.h:9
 msgid ""
 "Please type your password again in the <b>Retype new password</b> field."
 msgstr "உங்கள் கடவுச்சொல்லை மீண்டும் <b>மீண்டும் புதிய கடவுச்சொல் தட்டச்சு செய்யவும்</b> புலத்தில் தட்டச்சு செய்யவும்."
 
-#: ../capplets/about-me/mate-about-me-password.c:947
+#: ../capplets/about-me/ukui-about-me-password.c:947
 msgid "The two passwords are not equal."
 msgstr "இரண்டு கடவுச்சொற்களும் ஒன்றாக இல்லை."
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:1
+#: ../capplets/about-me/ukui-about-me-password.ui.h:1
 msgid "Change password"
 msgstr "கடவுச்சொல்லை மாற்று"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:2
+#: ../capplets/about-me/ukui-about-me-password.ui.h:2
 msgid "Change your password"
 msgstr "உங்கள் கடவுச்சொல்லை மாற்றவும்"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:3
+#: ../capplets/about-me/ukui-about-me-password.ui.h:3
 msgid ""
 "To change your password, enter your current password in the field below and click <b>Authenticate</b>.\n"
 "After you have authenticated, enter your new password, retype it for verification and click <b>Change password</b>."
 msgstr "உங்கள் கடவுச்சொல்லை மாற்ற கீழுள்ள புலத்தில் உங்கள் தற்போதைய கடவுச்சொல்லை உள்ளிட்டு  <b>உறுதிப்படுத்து</b> ஐ சொடுக்கவும்.\nஉறுதிபடுத்தியதும் உங்கள் புதிய கடவுச்சொல்லை உள்ளிட்டு அதை சரி பார்க்க மீண்டும் உள்ளிடுக. பின் <b>கடவுச்சொல் மாற்று</b> ஐ சொடுக்கவும்."
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:5
+#: ../capplets/about-me/ukui-about-me-password.ui.h:5
 msgid "Current _password:"
 msgstr "நடப்பு கடவுச்சொல்: (_p)"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:6
+#: ../capplets/about-me/ukui-about-me-password.ui.h:6
 msgid "_New password:"
 msgstr "புதிய கடவுச் சொல்: (_N)"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:7
+#: ../capplets/about-me/ukui-about-me-password.ui.h:7
 msgid "_Retype new password:"
 msgstr "புதிய கடவுச்சொல்லை மீண்டும் தட்டச்சு செய்யவும்:"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:8
+#: ../capplets/about-me/ukui-about-me-password.ui.h:8
 msgid "_Authenticate"
 msgstr "அங்கீகரித்தல் (_A)"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:10
+#: ../capplets/about-me/ukui-about-me-password.ui.h:10
 msgid "Change pa_ssword"
 msgstr "கடவுச்சொல்லை மாற்று (_s)"
 
@@ -495,7 +495,7 @@ msgid "Assistive Technologies Preferences"
 msgstr "உதவி தொழில் நுட்ப விருப்பங்கள்"
 
 #: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:2
-#: ../capplets/accessibility/at-properties/mate-at-properties.desktop.in.in.h:1
+#: ../capplets/accessibility/at-properties/ukui-at-properties.desktop.in.in.h:1
 msgid "Assistive Technologies"
 msgstr "உதவி தொழில்நுட்பங்கள்"
 
@@ -549,7 +549,7 @@ msgstr "அணுகக்கூடிய உள்நுழைவு உரை�
 msgid "Close and _Log Out"
 msgstr "(_L) மூடி விட்டு வெளியேறவும்"
 
-#: ../capplets/accessibility/at-properties/mate-at-properties.desktop.in.in.h:2
+#: ../capplets/accessibility/at-properties/ukui-at-properties.desktop.in.in.h:2
 msgid "Choose which accessibility features to enable when you log in"
 msgstr "தேர்வு செய்க:  உள் நுழையும்போது எந்த அணுகல் சிறப்பியல்பை செயல் ஆக்க வேண்டும் "
 
@@ -581,8 +581,8 @@ msgid ""
 msgstr "காட்ட வேண்டிய பக்கத்தின் பெயரை குறிப்பிடுக(கருத்து|பின்னணி|எழுத்துரு|இடைமுகம்)"
 
 #: ../capplets/appearance/appearance-main.c:170
-#: ../capplets/default-applications/mate-da-capplet.c:693
-#: ../capplets/mouse/mate-mouse-properties.c:483
+#: ../capplets/default-applications/ukui-da-capplet.c:693
+#: ../capplets/mouse/ukui-mouse-properties.c:483
 msgid "page"
 msgstr "பக்கம்"
 
@@ -591,8 +591,8 @@ msgid "[WALLPAPER...]"
 msgstr "[WALLPAPER...]"
 
 #: ../capplets/appearance/appearance-style.c:171
-#: ../capplets/common/mate-theme-info.c:497
-#: ../capplets/common/mate-theme-info.c:690
+#: ../capplets/common/ukui-theme-info.c:497
+#: ../capplets/common/ukui-theme-info.c:690
 msgid "Default Pointer"
 msgstr "முன்னிருப்பு சொடுக்கி"
 
@@ -602,7 +602,7 @@ msgid "Install"
 msgstr "நிறுவு"
 
 #: ../capplets/appearance/appearance-style.c:269
-#: ../capplets/common/mate-theme-info.c:1726
+#: ../capplets/common/ukui-theme-info.c:1726
 #, c-format
 msgid ""
 "This theme will not look as intended because the required GTK+ theme engine "
@@ -773,7 +773,7 @@ msgid "Get more backgrounds online"
 msgstr "மேலும் ஆன்லைன் பின்னணிகளை பெறு"
 
 #: ../capplets/appearance/data/appearance.ui.h:33
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:17
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:17
 msgid "_Add..."
 msgstr "சேர்... (_A)"
 
@@ -971,13 +971,13 @@ msgstr "(_S) அளவு:"
 
 #. small threshold
 #: ../capplets/appearance/data/appearance.ui.h:82
-#: ../capplets/mouse/mate-mouse-properties.ui.h:21
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:21
 msgid "Small"
 msgstr "சிறிய"
 
 #. large threshold
 #: ../capplets/appearance/data/appearance.ui.h:83
-#: ../capplets/mouse/mate-mouse-properties.ui.h:24
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:24
 msgid "Large"
 msgstr "பெரிய"
 
@@ -990,7 +990,7 @@ msgid "Save Theme As..."
 msgstr "கருப்பொருளை இப்படி சேமி..."
 
 #: ../capplets/appearance/data/appearance.ui.h:86
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:4
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:4
 msgid "_Name:"
 msgstr "(_N) பெயர்:"
 
@@ -1006,54 +1006,54 @@ msgstr "பின்னணி படத்தை சேமி (_ b)"
 msgid "Save _notification theme"
 msgstr ""
 
-#: ../capplets/appearance/data/mate-appearance-properties.desktop.in.in.h:1
+#: ../capplets/appearance/data/ukui-appearance-properties.desktop.in.in.h:1
 msgid "Appearance"
 msgstr "தோற்றம்"
 
-#: ../capplets/appearance/data/mate-appearance-properties.desktop.in.in.h:2
+#: ../capplets/appearance/data/ukui-appearance-properties.desktop.in.in.h:2
 msgid "Customize the look of the desktop"
 msgstr "கணிமேசைக்கான காட்சியை தனிப்பயனாக்குக"
 
-#: ../capplets/appearance/data/mate-theme-installer.desktop.in.in.h:1
+#: ../capplets/appearance/data/ukui-theme-installer.desktop.in.in.h:1
 msgid "Theme Installer"
 msgstr "கருப்பொருள் நிறுவி"
 
-#: ../capplets/appearance/data/mate-theme-installer.desktop.in.in.h:2
+#: ../capplets/appearance/data/ukui-theme-installer.desktop.in.in.h:2
 msgid "Installs themes packages for various parts of the desktop"
 msgstr "கணினிமேசையின் பல பகுதிகளுக்கு கருப்பொருள்  பொதிகளை நிறுவுகிறது"
 
-#: ../capplets/appearance/data/mate-theme-package.xml.in.h:1
-msgid "Mate Theme Package"
+#: ../capplets/appearance/data/ukui-theme-package.xml.in.h:1
+msgid "Ukui Theme Package"
 msgstr "க்னோம் கருப்பொருள் பொதி"
 
-#: ../capplets/appearance/mate-wp-info.c:51
+#: ../capplets/appearance/ukui-wp-info.c:51
 msgid "No Desktop Background"
 msgstr "பணிமேடை பின்னணி எதுவுமில்லை"
 
-#: ../capplets/appearance/mate-wp-item.c:288
+#: ../capplets/appearance/ukui-wp-item.c:288
 msgid "unknown"
 msgstr ""
 
-#: ../capplets/appearance/mate-wp-item.c:295
+#: ../capplets/appearance/ukui-wp-item.c:295
 msgid "Slide Show"
 msgstr "ஸ்லைடு காட்சி "
 
-#: ../capplets/appearance/mate-wp-item.c:297
+#: ../capplets/appearance/ukui-wp-item.c:297
 msgid "Image"
 msgstr "படம்"
 
-#: ../capplets/appearance/mate-wp-item.c:303
+#: ../capplets/appearance/ukui-wp-item.c:303
 msgid "multiple sizes"
 msgstr "பல அளவுகள்"
 
 #. translators: x pixel(s) by y pixel(s)
-#: ../capplets/appearance/mate-wp-item.c:306
+#: ../capplets/appearance/ukui-wp-item.c:306
 #, c-format
 msgid "%d %s by %d %s"
 msgstr "%d %s கீழ் %d %s"
 
-#: ../capplets/appearance/mate-wp-item.c:308
-#: ../capplets/appearance/mate-wp-item.c:310
+#: ../capplets/appearance/ukui-wp-item.c:308
+#: ../capplets/appearance/ukui-wp-item.c:310
 msgid "pixel"
 msgid_plural "pixels"
 msgstr[0] "பிக்ஸல்"
@@ -1063,7 +1063,7 @@ msgstr[1] "பிக்ஸல்கள்"
 #. * mime type, size
 #. * Folder: /path/to/file
 #. * Artist: wallpaper author
-#: ../capplets/appearance/mate-wp-item.c:319
+#: ../capplets/appearance/ukui-wp-item.c:319
 #, c-format
 msgid ""
 "<b>%s</b>\n"
@@ -1076,7 +1076,7 @@ msgstr ""
 #. * Image missing
 #. * Folder: /path/to/file
 #. * Artist: wallpaper author
-#: ../capplets/appearance/mate-wp-item.c:334
+#: ../capplets/appearance/ukui-wp-item.c:334
 #, c-format
 msgid ""
 "<b>%s</b>\n"
@@ -1085,7 +1085,7 @@ msgid ""
 "Artist: %s"
 msgstr ""
 
-#: ../capplets/appearance/mate-wp-item.c:339
+#: ../capplets/appearance/ukui-wp-item.c:339
 msgid "Image missing"
 msgstr "பிம்பம் காணவில்லை"
 
@@ -1143,8 +1143,8 @@ msgstr "புதிய சூழலை செயல்படுத்து"
 
 #: ../capplets/appearance/theme-installer.c:486
 #, c-format
-msgid "MATE Theme %s correctly installed"
-msgstr "MATE சூழல் %s தற்போது நிறுவப்பட்டுள்ளது"
+msgid "UKUI Theme %s correctly installed"
+msgstr "UKUI சூழல் %s தற்போது நிறுவப்பட்டுள்ளது"
 
 #: ../capplets/appearance/theme-installer.c:548
 msgid "Failed to create temporary directory"
@@ -1201,9 +1201,9 @@ msgstr "கருப்பொருள்  இயந்திரத்தை ந
 
 #: ../capplets/common/activate-settings-daemon.c:16
 msgid ""
-"Unable to start the settings manager 'mate-settings-daemon'.\n"
-"Without the MATE settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-MATE (e.g. KDE) settings manager may already be active and conflicting with the MATE settings manager."
-msgstr "'mate-settings-daemon' அமைப்பு மேலாளரை துவங்க முடியவில்லை.\nக்னோம் அமைப்பு மேலாளர் இல்லாமல் சில விருப்பங்களை நிறைவு செய்ய முடியாது. இதனால் போனபோவில் பிழை நேரலாம் அல்லது க்னோம் அல்லாத பயன்பாடு (உதாரணம் கேடியி) அமைப்பு மேலாளர் ஏற்கெனவெ செயல்பாட்டில் இருக்கலாம் அல்லது க்னோமோடு சிக்கல் நிகழ்ந்திருக்கலாம்"
+"Unable to start the settings manager 'ukui-settings-daemon'.\n"
+"Without the UKUI settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-UKUI (e.g. KDE) settings manager may already be active and conflicting with the UKUI settings manager."
+msgstr "'ukui-settings-daemon' அமைப்பு மேலாளரை துவங்க முடியவில்லை.\nக்னோம் அமைப்பு மேலாளர் இல்லாமல் சில விருப்பங்களை நிறைவு செய்ய முடியாது. இதனால் போனபோவில் பிழை நேரலாம் அல்லது க்னோம் அல்லாத பயன்பாடு (உதாரணம் கேடியி) அமைப்பு மேலாளர் ஏற்கெனவெ செயல்பாட்டில் இருக்கலாம் அல்லது க்னோமோடு சிக்கல் நிகழ்ந்திருக்கலாம்"
 
 #: ../capplets/common/capplet-stock-icons.c:66
 #, c-format
@@ -1291,176 +1291,176 @@ msgstr "(_S) தவிர்"
 msgid "Overwrite _All"
 msgstr "(_A) அனைத்தும் மேலெழுது "
 
-#: ../capplets/common/mate-theme-info.c:691
+#: ../capplets/common/ukui-theme-info.c:691
 msgid "Default Pointer - Current"
 msgstr "முன்னிருப்பு சொடுக்கி - இப்போதைய"
 
-#: ../capplets/common/mate-theme-info.c:695
+#: ../capplets/common/ukui-theme-info.c:695
 msgid "White Pointer"
 msgstr "வெள்ளை சொடுக்கி"
 
-#: ../capplets/common/mate-theme-info.c:696
+#: ../capplets/common/ukui-theme-info.c:696
 msgid "White Pointer - Current"
 msgstr "வெள்ளை சொடுக்கி - இப்போதைய"
 
-#: ../capplets/common/mate-theme-info.c:700
+#: ../capplets/common/ukui-theme-info.c:700
 msgid "Large Pointer"
 msgstr "பெரிய சொடுக்கி"
 
-#: ../capplets/common/mate-theme-info.c:701
+#: ../capplets/common/ukui-theme-info.c:701
 msgid "Large Pointer - Current"
 msgstr "பெரிய சொடுக்கி - இப்போதைய"
 
-#: ../capplets/common/mate-theme-info.c:705
+#: ../capplets/common/ukui-theme-info.c:705
 msgid "Large White Pointer - Current"
 msgstr "பெரிய வெள்ளை சொடுக்கி - இப்போதைய"
 
-#: ../capplets/common/mate-theme-info.c:706
+#: ../capplets/common/ukui-theme-info.c:706
 msgid "Large White Pointer"
 msgstr "பெரிய வெள்ளை சொடுக்கி"
 
-#: ../capplets/common/mate-theme-info.c:1696
+#: ../capplets/common/ukui-theme-info.c:1696
 #, c-format
 msgid ""
 "This theme will not look as intended because the required GTK+ theme '%s' is"
 " not installed."
 msgstr "தேவையான ஜிடிகே கருப்பொருள் இயந்திரம் '%s' நிறுவாததால் இந்த கருப்பொருள் எதிர்பார்த்தாற்போல் அமையாது."
 
-#: ../capplets/common/mate-theme-info.c:1706
+#: ../capplets/common/ukui-theme-info.c:1706
 #, c-format
 msgid ""
 "This theme will not look as intended because the required window manager "
 "theme '%s' is not installed."
 msgstr "தேவையான சாளர மேலாண்மை கருப்பொருள்  '%s' நிறுவாததால் இந்த கருப்பொருள் எதிர்பார்த்தாற்போல் அமையாது."
 
-#: ../capplets/common/mate-theme-info.c:1714
+#: ../capplets/common/ukui-theme-info.c:1714
 #, c-format
 msgid ""
 "This theme will not look as intended because the required icon theme '%s' is"
 " not installed."
 msgstr "தேவையான சின்னம் கருப்பொருள்  '%s' நிறுவாததால் இந்த கருப்பொருள் எதிர்பார்த்தாற்போல் அமையாது.."
 
-#: ../capplets/default-applications/mate-default-applications-properties.desktop.in.in.h:1
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:1
+#: ../capplets/default-applications/ukui-default-applications-properties.desktop.in.in.h:1
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:1
 msgid "Preferred Applications"
 msgstr "விருப்பமான நிரல்கள்"
 
-#: ../capplets/default-applications/mate-default-applications-properties.desktop.in.in.h:2
+#: ../capplets/default-applications/ukui-default-applications-properties.desktop.in.in.h:2
 msgid "Select your default applications"
 msgstr "உங்களின் கொடாநிலை நிரலைத் தெரிவுசெய்யவும்"
 
-#: ../capplets/default-applications/mate-da-capplet.c:542
+#: ../capplets/default-applications/ukui-da-capplet.c:542
 msgid "Could not load the main interface"
 msgstr "முதன்மை இடைமுகத்தை ஏற்ற முடியவில்லை"
 
-#: ../capplets/default-applications/mate-da-capplet.c:543
+#: ../capplets/default-applications/ukui-da-capplet.c:543
 msgid "Please make sure that the applet is properly installed"
 msgstr "குறுநிரல் ஒழுங்காக நிறுவப்பட்டுள்ளதா என்பதை சரிபார்க்கவும்"
 
 #. TRANSLATORS: don't translate the terms in brackets
-#: ../capplets/default-applications/mate-da-capplet.c:692
+#: ../capplets/default-applications/ukui-da-capplet.c:692
 msgid "Specify the name of the page to show (internet|multimedia|system|a11y)"
 msgstr "காட்ட வேன்டிய  பக்கத்தின்  பெயரை குறிப்பிடு  (இணையம் | பல்லூடகம் | கணினி | நண்பன்)"
 
-#: ../capplets/default-applications/mate-da-capplet.c:698
-msgid "- MATE Default Applications"
-msgstr "- MATE முன்னிருப்பு பயன்பாடுகள்"
+#: ../capplets/default-applications/ukui-da-capplet.c:698
+msgid "- UKUI Default Applications"
+msgstr "- UKUI முன்னிருப்பு பயன்பாடுகள்"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:2
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:2
 msgid "Web Browser"
 msgstr "இணைய உலாவி"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:3
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:3
 msgid "Mail Reader"
 msgstr "அஞ்சல் படிப்பி"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:4
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:4
 msgid "Instant Messenger"
 msgstr "உடனடி செய்தியாளர்"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:5
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:5
 msgid "Co_mmand:"
 msgstr "(_m) கட்டளை:"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:7
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:7
 #, no-c-format
 msgid "All %s occurrences will be replaced with actual link"
 msgstr "அனைத்து %s நிகழ்வுகளும் உண்மையான இணைப்புகளால் மாற்றப்படும்"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:8
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:8
 msgid "Run in t_erminal"
 msgstr "முனையத்தில் இயக்கு (_e)"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:9
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:9
 msgid "Internet"
 msgstr "இணையம்"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:10
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:10
 msgid "Image Viewer"
 msgstr "படம் காட்டி"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:11
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:11
 msgid "Multimedia Player"
 msgstr "பல்லூடக இயக்கி"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:12
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:12
 msgid "Video Player"
 msgstr "வீடியோ இயக்கி"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:13
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:13
 msgid "Multimedia"
 msgstr "பல்ஊடகம்"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:14
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:14
 msgid "Text Editor"
 msgstr "உரை தொகுப்பி"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:15
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:15
 msgid "Terminal Emulator"
 msgstr "முனைய எமுலேட்டர்"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:16
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:16
 msgid "File Manager"
 msgstr ""
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:17
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:17
 msgid "System"
 msgstr "கணினி"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:18
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:18
 msgid "Document Viewer"
 msgstr ""
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:19
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:19
 msgid "Word Processor"
 msgstr ""
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:20
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:20
 msgid "Spreadsheet Editor"
 msgstr ""
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:21
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:21
 msgid "Office"
 msgstr ""
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:22
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:22
 msgid "Visual"
 msgstr "காட்சி"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:23
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:23
 msgid "_Run at start"
 msgstr "(_R) துவக்கத்தில்  இயக்கு "
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:24
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:24
 msgid "Mobility"
 msgstr "நகருதல்"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:25
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:25
 msgid "Run at st_art"
 msgstr "(_a) துவக்கத்தில் இயக்குக"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:26
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:45
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:26
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:45
 msgid "Accessibility"
 msgstr "அணுகல்"
 
@@ -1474,7 +1474,7 @@ msgstr ""
 
 #: ../capplets/display/display-capplet.ui.h:3
 msgid ""
-"Applies the current configuration for other MATE users on the computer. Note"
+"Applies the current configuration for other UKUI users on the computer. Note"
 " that this doesn't affect login screens or other desktop environments."
 msgstr ""
 
@@ -1539,13 +1539,13 @@ msgstr "இயல்பான"
 
 #: ../capplets/display/display-capplet.ui.h:18
 #: ../capplets/display/xrandr-capplet.c:312
-#: ../capplets/windows/mate-window-properties.c:574
+#: ../capplets/windows/ukui-window-properties.c:574
 msgid "Left"
 msgstr "இடது"
 
 #: ../capplets/display/display-capplet.ui.h:19
 #: ../capplets/display/xrandr-capplet.c:313
-#: ../capplets/windows/mate-window-properties.c:573
+#: ../capplets/windows/ukui-window-properties.c:573
 msgid "Right"
 msgstr "வலது"
 
@@ -1553,22 +1553,22 @@ msgstr "வலது"
 msgid "Upside-down"
 msgstr "தலை கீழ்"
 
-#: ../capplets/display/mate-display-properties.desktop.in.in.h:1
+#: ../capplets/display/ukui-display-properties.desktop.in.in.h:1
 msgid "Displays"
 msgstr ""
 
-#: ../capplets/display/mate-display-properties.desktop.in.in.h:2
+#: ../capplets/display/ukui-display-properties.desktop.in.in.h:2
 msgid "Change resolution and position of monitors and projectors"
 msgstr ""
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:44
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:44
 #, c-format
 msgid ""
 "Usage: %s SOURCE_FILE DEST_NAME\n"
 "\n"
 "This program installs a RANDR profile for multi-monitor setups into\n"
 "a systemwide location.  The resulting profile will get used when\n"
-"the RANDR plug-in gets run in mate-settings-daemon.\n"
+"the RANDR plug-in gets run in ukui-settings-daemon.\n"
 "\n"
 "SOURCE_FILE - a full pathname, typically /home/username/.config/monitors.xml\n"
 "\n"
@@ -1578,75 +1578,75 @@ msgid ""
 msgstr ""
 
 #. Translators: only able to install RANDR profiles as root
-#: ../capplets/display/mate-display-properties-install-systemwide.c:151
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:151
 msgid "This program can only be used by the root user"
 msgstr ""
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:168
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:168
 msgid "The source filename must be absolute"
 msgstr ""
 
 #. Translators: first %s is a filename; second %s is an error message
-#: ../capplets/display/mate-display-properties-install-systemwide.c:179
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:179
 #, c-format
 msgid "Could not open %s: %s\n"
 msgstr ""
 
 #. Translators: first %s is a filename; second %s is an error message
-#: ../capplets/display/mate-display-properties-install-systemwide.c:188
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:188
 #, c-format
 msgid "Could not get information for %s: %s\n"
 msgstr ""
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:195
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:195
 #, c-format
 msgid "%s must be a regular file\n"
 msgstr ""
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:204
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:204
 msgid "This program must only be run through pkexec(1)"
 msgstr ""
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:209
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:209
 msgid "PKEXEC_UID must be set to an integer value"
 msgstr ""
 
 #. Translators: we are complaining that a file must be really owned by the
 #. user who called this program
-#: ../capplets/display/mate-display-properties-install-systemwide.c:215
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:215
 #, c-format
 msgid "%s must be owned by you\n"
 msgstr ""
 
 #. Translators: here we are saying that a plain filename must look like
 #. "filename", not like "some_dir/filename"
-#: ../capplets/display/mate-display-properties-install-systemwide.c:223
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:223
 #, c-format
 msgid "%s must not have any directory components\n"
 msgstr ""
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:231
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:231
 #, c-format
 msgid "%s must be a directory\n"
 msgstr ""
 
 #. Translators: the first %s/%s is a directory/filename; the last %s is an
 #. error message
-#: ../capplets/display/mate-display-properties-install-systemwide.c:242
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:242
 #, c-format
 msgid "Could not open %s/%s: %s\n"
 msgstr ""
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:262
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:262
 #, c-format
 msgid "Could not rename %s to %s: %s\n"
 msgstr ""
 
-#: ../capplets/display/org.mate.randr.policy.in.h:1
+#: ../capplets/display/org.ukui.randr.policy.in.h:1
 msgid "Install multi-monitor settings for the whole system"
 msgstr ""
 
-#: ../capplets/display/org.mate.randr.policy.in.h:2
+#: ../capplets/display/org.ukui.randr.policy.in.h:2
 msgid ""
 "Authentication is required to install multi-monitor settings for all users"
 msgstr ""
@@ -1742,845 +1742,845 @@ msgid "The type of accelerator."
 msgstr "முடுக்கல் வகையினம்:"
 
 #: ../capplets/keybindings/eggcellrendererkeys.c:231
-#: ../capplets/keybindings/mate-keybinding-properties.c:134
-#: ../capplets/mouse/mate-mouse-properties.c:396
+#: ../capplets/keybindings/ukui-keybinding-properties.c:134
+#: ../capplets/mouse/ukui-mouse-properties.c:396
 #: ../typing-break/drwright.c:501
 msgid "Disabled"
 msgstr "முடக்கப்பட்டது"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:216
+#: ../capplets/keybindings/ukui-keybinding-properties.c:216
 msgid "<Unknown Action>"
 msgstr "<தெரியாத செயல்>"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1020
-#: ../capplets/keybindings/mate-keybinding-properties.c:1610
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1020
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1610
 msgid "Custom Shortcuts"
 msgstr "தனிப்பயன் குறுக்குவழிகள் "
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1190
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1190
 msgid "Error saving the new shortcut"
 msgstr "புதிய குறுக்குவழியை சேமிப்பதில் பிழை"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1266
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1266
 #, c-format
 msgid ""
 "The shortcut \"%s\" cannot be used because it will become impossible to type using this key.\n"
 "Please try with a key such as Control, Alt or Shift at the same time."
 msgstr "புதிய குறுக்குவழி \"%s\" யை பயன்படுத்த முடியாது. ஏனெனில் இந்த விசையை வைத்துக்கொண்டு தட்டச்ச முடியாது.\nஅதே நேரத்தில் கன்ட்ரோல், ஆல்ட் அல்லது ஷிப்ட் விசைகளை பயன்படுத்தி முயற்சிக்கவும்."
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1298
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1298
 #, c-format
 msgid ""
 "The shortcut \"%s\" is already used for\n"
 "\"%s\""
 msgstr "குறுவழி \"%s\"ஏற்கெனவே \"%s\"க்கு பயன்பட்டது "
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1305
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1305
 #, c-format
 msgid "If you reassign the shortcut to \"%s\", the \"%s\" shortcut will be disabled."
 msgstr " \"%s\" க்கு குறுவழியாக மாற்றி அமைத்தால்  \"%s\" குறுவழி  முடங்கிவிடும்."
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1310
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1310
 msgid "_Reassign"
 msgstr "(_R) மறுஇருத்து "
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1565
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1565
 msgid "Too many custom shortcuts"
 msgstr "அதிகமான தனிப்பயன் குறுக்குவழிகள் "
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1853
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1853
 msgid "Action"
 msgstr "செயல்"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1875
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1875
 msgid "Shortcut"
 msgstr "குறுக்கு வழி"
 
 #. * vim: sw=2 ts=8 cindent noai bs=2
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:1
-#: ../capplets/keybindings/mate-keybinding.desktop.in.in.h:1
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:1
+#: ../capplets/keybindings/ukui-keybinding.desktop.in.in.h:1
 msgid "Keyboard Shortcuts"
 msgstr "விசைப்பலகை குறுக்கு வழிகள்"
 
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:2
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:2
 msgid ""
 "To edit a shortcut key, click on the corresponding row and type a new key "
 "combination, or press backspace to clear."
 msgstr "குறுவழியை திருத்த பொருத்தமான வரியில் சொடுக்கு.  மற்றும் புதிய விசை தொகுதியை உள்ளிடு அல்லது  துப்புரவாக்க பின்னோக்கு  விசையை அழுத்துக ."
 
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:3
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:3
 msgid "Custom Shortcut"
 msgstr "தனிப்பயன் குறுக்குவழி"
 
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:5
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:5
 msgid "C_ommand:"
 msgstr "(_o) கட்டளை:"
 
-#: ../capplets/keybindings/mate-keybinding.desktop.in.in.h:2
+#: ../capplets/keybindings/ukui-keybinding.desktop.in.in.h:2
 msgid "Assign shortcut keys to commands"
 msgstr "கட்டளைகளுக்கான குறுக்கு வழி விசைகளை ஒப்படை"
 
-#: ../capplets/keyboard/mate-keyboard-properties.c:213
-#: ../capplets/keyboard/mate-keyboard-properties.c:218
+#: ../capplets/keyboard/ukui-keyboard-properties.c:213
+#: ../capplets/keyboard/ukui-keyboard-properties.c:218
 msgid ""
 "Just apply settings and quit (compatibility only; now handled by daemon)"
 msgstr "அமைவுகளை சேமித்து வெளிச்செல்லவும்"
 
-#: ../capplets/keyboard/mate-keyboard-properties.c:223
+#: ../capplets/keyboard/ukui-keyboard-properties.c:223
 msgid "Start the page with the typing break settings showing"
 msgstr "உள்ளிடல் முறிவு அமைப்புகளை காட்டி, பக்கத்தை திறக்கவும்"
 
-#: ../capplets/keyboard/mate-keyboard-properties.c:228
+#: ../capplets/keyboard/ukui-keyboard-properties.c:228
 msgid "Start the page with the accessibility settings showing"
 msgstr "அணுகல் அமைப்புகளை காட்டி, பக்கத்தை திறக்கவும்"
 
-#: ../capplets/keyboard/mate-keyboard-properties.c:234
-msgid "- MATE Keyboard Preferences"
+#: ../capplets/keyboard/ukui-keyboard-properties.c:234
+msgid "- UKUI Keyboard Preferences"
 msgstr "- க்னோம் விசைப்பலகை விருப்பங்கள்"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:1
 msgid "Keyboard Accessibility Audio Feedback"
 msgstr "விசைப்பலகை அணுகல்-  ஒலி மீட்பொலி "
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:2
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:15
-#: ../capplets/mouse/mate-mouse-properties.ui.h:30
-#: ../capplets/windows/mate-window-properties.c:382
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:2
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:15
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:30
+#: ../capplets/windows/ukui-window-properties.c:382
 msgid "General"
 msgstr "பொது"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:3
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:3
 msgid "Beep when _accessibility features are turned on or off"
 msgstr "அணுகல் சிறப்பு இயல்புகள் செயலாக்கம் அல்லது செயல்நீக்கம் போது பீப் ஒலி எழுப்புக"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:4
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:4
 msgid "Beep when a _toggle key is pressed"
 msgstr "(_t) முன் பின் மாற்று விசை  அழுத்தினால் பீப் ஒலி எழுப்புக"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:5
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:5
 msgid "Visual cues for sounds"
 msgstr "ஒலிகளுக்கான விஷுவல் cues"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:6
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:6
 msgid "Show _visual feedback for the alert sound"
 msgstr "எச்சரிக்கை ஒலியின் விஷுவல் பின்னூட்டத்தை காட்டு (_v)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:7
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:7
 msgid "Flash _window titlebar"
 msgstr "சாளரம் தலைப்புப்பட்டையை பளிச்சிடு (_w)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:8
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:8
 msgid "Flash entire _screen"
 msgstr "முழு திரையை பளிச்சிடு (_s)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:9
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:39
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:9
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:39
 msgid "Slow Keys"
 msgstr "மெது விசைகள்"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:10
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:10
 msgid "Beep when a key is pr_essed"
 msgstr "(_e) எந்த விசையும்  அழுத்தினால் பீப் ஒலி எழுப்புக"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:11
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:11
 msgid "Beep when key is _accepted"
 msgstr "(_a) விசை ஏற்கப்பட்டால் பீப் ஒலி எழுப்புக"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:12
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:12
 msgid "Beep when key is _rejected"
 msgstr "(_r) விசை ஏற்கப்படவில்லையானால் பீப் ஒலி எழுப்புக"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:13
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:41
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:13
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:41
 msgid "Bounce Keys"
 msgstr "எதிரொலிப்பு விசைகள்"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:14
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:14
 msgid "Beep when a key is reje_cted"
 msgstr "(_c) விசை ஏற்கப்படவில்லையானால் பீப் ஒலி எழுப்புக"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:15
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:36
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:15
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:36
 msgid "Sticky Keys"
 msgstr "ஒட்டு விசைகள்"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:16
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:16
 msgid "Beep when a _modifier key is pressed"
 msgstr "(_m) மாற்றி விசை  அழுத்தினால் பீப் ஒலி எழுப்புக"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:1
 msgid "Keyboard Preferences"
 msgstr "விசைப்பலகை விருப்பங்கள்"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:2
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:2
 msgid "Repeat Keys"
 msgstr "மறுசெயல் விசைகள்"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:3
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:3
 msgid "Key presses _repeat when key is held down"
 msgstr "அமுக்கப்படும்போது விசை மறுபடியும் அச்சிடப்படும்."
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:4
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:4
 msgid "_Delay:"
 msgstr "(_D) தாமதம்:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:5
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:5
 msgid "_Speed:"
 msgstr "(_S) வேகம்:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:6
-#: ../capplets/mouse/mate-mouse-properties.ui.h:27
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:6
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:27
 msgid "Short"
 msgstr "குறுகிய"
 
 #. slow acceleration
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:7
-#: ../capplets/mouse/mate-mouse-properties.ui.h:11
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:7
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:11
 msgid "Slow"
 msgstr "மெதுவாக"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:8
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:8
 msgid "Repeat keys speed"
 msgstr "தொடரும் விசைகளின் வேகம்"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:9
-#: ../capplets/mouse/mate-mouse-properties.ui.h:28
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:9
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:28
 msgid "Long"
 msgstr "நீண்டது"
 
 #. fast acceleration
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:10
-#: ../capplets/mouse/mate-mouse-properties.ui.h:13
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:10
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:13
 msgid "Fast"
 msgstr "விரைவு"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:11
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:11
 msgid "Cursor Blinking"
 msgstr "நிலைக்காட்டி சிமிட்டும்"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:12
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:12
 msgid "Cursor _blinks in text fields"
 msgstr "(_b) நிலைக்காட்டி உரை  உள்ளே சிமிட்டும்"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:13
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:13
 msgid "S_peed:"
 msgstr "(_p) வேகம்:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:14
-#: ../capplets/mouse/mate-mouse-properties.ui.h:22
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:14
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:22
 msgid "Cursor blinks speed"
 msgstr "நிலைகாட்டி சிமிட்டும் வேகம்"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:16
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:16
 msgid "List of keyboard layouts selected for usage"
 msgstr ""
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:18
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:18
 msgid "Select a keyboard layout to be added to the list"
 msgstr ""
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:19
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:19
 msgid "Remove the selected keyboard layout from the list"
 msgstr ""
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:20
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:20
 msgid "Move _Up"
 msgstr "மேலே நகர்த்து (_U)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:21
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:21
 msgid "Move the selected keyboard layout up in the list"
 msgstr ""
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:22
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:22
 msgid "Move _Down"
 msgstr "கீழே நகர்த்து (_D)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:23
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:23
 msgid "Move the selected keyboard layout down in the list"
 msgstr ""
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:24
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:24
 msgid "_Show..."
 msgstr ""
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:25
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:25
 msgid "Print a diagram of the selected keyboard layout"
 msgstr ""
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:26
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:26
 msgid "_Separate layout for each window"
 msgstr "(_S) ஒவ்வொரு சாளரத்திற்கும் தனி இட அமைவு"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:27
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:27
 msgid "New windows u_se active window's layout"
 msgstr "_ புதிய சாளரங்கள் நடப்பு சாளர இட அமைவை பயன்படுத்தும்"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:28
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:28
 msgid "Keyboard _model:"
 msgstr "(_m) விசைப்பலகை வகை"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:29
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:29
 msgid "_Options..."
 msgstr "(_O) தேர்வுகள்..."
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:30
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:30
 msgid "View and edit keyboard layout options"
 msgstr ""
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:31
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:31
 msgid "Reset to De_faults"
 msgstr "(_f) முன்னிருப்புக்கு மறுஅமை"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:32
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:32
 msgid ""
 "Replace the current keyboard layout settings with the\n"
 "default settings"
 msgstr ""
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:34
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:34
 msgid "Layouts"
 msgstr "இடஅமைவுகள்"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:35
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:35
 msgid "_Accessibility features can be toggled with keyboard shortcuts"
 msgstr "(_A) அணுகல் சிறப்பு இயல்புகள் விசைப்பலகை குறுக்குவழிகளுடன் முன் பின் மாற் ற முடியும்."
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:37
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:37
 msgid "_Simulate simultaneous keypresses"
 msgstr "(_S) ஒரே நேர விசை அழுத்தலை பாவிக்க"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:38
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:38
 msgid "Disa_ble sticky keys if two keys are pressed together"
 msgstr "(_b) இரண்டு விசைகளை ஒரே நேஎரத்தில் அழுத்தினால்  ஒட்டு விசையை செயல் நீக்கவும்."
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:40
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:40
 msgid "_Only accept long keypresses"
 msgstr "(_O) நீண்ட விசை அழுத்தத்தை மட்டும் ஏற்றுக்கொள்க"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:42
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:42
 msgid "_Ignore fast duplicate keypresses"
 msgstr "(_I) வேக இரட்டிப்பு விசை அழுத்தங்களை தவிர்"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:43
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:43
 msgid "D_elay:"
 msgstr "_e தாமதம்:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:44
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:44
 msgid "Audio _Feedback..."
 msgstr "(_F) ஒலி மீட்பொலி..."
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:46
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:46
 msgid "_Pointer can be controlled using the keypad"
 msgstr "(_P) சுட்டி விசைபலகத்தால் கட்டுப்படுத்த இயலும்."
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:47
-#: ../capplets/mouse/mate-mouse-properties.ui.h:8
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:47
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:8
 msgid "_Acceleration:"
 msgstr "(_A) ஆர்முடுகல்:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:48
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:48
 msgid "Mouse Keys"
 msgstr "சொடுக்கி விசைகள்"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:49
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:49
 msgid "_Lock screen to enforce typing break"
 msgstr "(_L) தட்டச்சு முறிவை கட்டாயப்படுத்த திரையை பூட்டு "
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:50
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:50
 msgid ""
 "Lock screen after a certain duration to help prevent repetitive keyboard use"
 " injuries"
 msgstr "வி விசைப்ப விபத்து ஏற்படாமல் தடுக்கலை  குறிப்பிட்ட கால இடைவெளிக்குப்பிறகு திரையைப்பூட்டவும்"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:51
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:51
 msgid "_Work interval lasts:"
 msgstr "(_W) வேலை இடைவெளி  நேரம்"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:52
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:52
 msgid "_Break interval lasts:"
 msgstr "(_B) இடைவெளி நீள நேரம்:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:53
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:53
 msgid "Duration of work before forcing a break"
 msgstr "இவ்வளவு வேலைக்குப் பிறகு இடைவேளையை கட்டாயமாக்கு"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:54
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:54
 msgid "Duration of the break when typing is disallowed"
 msgstr "உள்ளிடல் செயலிழக்கப்பட்டபோது இடைவேளையின்வின் காலஅளவு"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:55
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:55
 msgid "minutes"
 msgstr "நிமிடங்கள்"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:56
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:56
 msgid "All_ow postponing of breaks"
 msgstr "இடை முறிவுகளை தள்ளிப்போட அனுமதி (_o)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:57
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:57
 msgid "Check if breaks are allowed to be postponed"
 msgstr "முறிவுகள்  தள்ளிப்போட அனுமதி உள்ளதா என சோதிக்கவும்"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:58
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:58
 msgid "Typing Break"
 msgstr "உள்ளிடல் இடைவெளி"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:59
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:59
 msgid "_Type to test settings:"
 msgstr "(_T) அமைப்புகளை சோதிக்க உள்ளிடவும்:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:1
 msgid "Choose a Layout"
 msgstr "ஒரு அமைப்பினை தேர்வு செய்யவும்"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:2
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:2
 msgid "_Variants:"
 msgstr "(_V) மாறுபட்ட வடிவங்கள்:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:3
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:3
 msgid "_Country:"
 msgstr "நாடு: (_C)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:4
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:4
 msgid "By _country"
 msgstr "நாட்டால்: (_c)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:5
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:5
 msgid "_Language:"
 msgstr "(_L) மொழி:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:6
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:6
 msgid "By _language"
 msgstr "மொழியால் (_l)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:7
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:7
 msgid "Preview:"
 msgstr "முன்பார்வை:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-model-chooser.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-model-chooser.ui.h:1
 msgid "Choose a Keyboard Model"
 msgstr "ஒரு விசைப்பலகை மாதிரியை தேர்வு செய்யவும்"
 
-#: ../capplets/keyboard/mate-keyboard-properties-model-chooser.ui.h:2
+#: ../capplets/keyboard/ukui-keyboard-properties-model-chooser.ui.h:2
 msgid "_Vendors:"
 msgstr "(_V) விற்பனையாளர்கள்:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-model-chooser.ui.h:3
+#: ../capplets/keyboard/ukui-keyboard-properties-model-chooser.ui.h:3
 msgid "_Models:"
 msgstr "மாதிரிகள்: (_M)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-options-dialog.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-options-dialog.ui.h:1
 msgid "Keyboard Layout Options"
 msgstr "விசைப்பலகை இட அமைவு தேர்வுகள்"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkb.c:83
+#: ../capplets/keyboard/ukui-keyboard-properties-xkb.c:83
 msgid "Unknown"
 msgstr "தெரியாத"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkblt.c:240
+#: ../capplets/keyboard/ukui-keyboard-properties-xkblt.c:240
 msgid "Layout"
 msgstr "இட அமைவு"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkbmc.c:170
+#: ../capplets/keyboard/ukui-keyboard-properties-xkbmc.c:170
 msgid "Vendors"
 msgstr "விற்பனையாளர்கள்:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkbmc.c:236
+#: ../capplets/keyboard/ukui-keyboard-properties-xkbmc.c:236
 msgid "Models"
 msgstr "மாதிரி"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkbot.c:237
+#: ../capplets/keyboard/ukui-keyboard-properties-xkbot.c:237
 msgid "Default"
 msgstr "முன்னிருப்பு"
 
-#: ../capplets/keyboard/mate-keyboard.desktop.in.in.h:1
+#: ../capplets/keyboard/ukui-keyboard.desktop.in.in.h:1
 msgid "Keyboard"
 msgstr "விசைப்பலகை"
 
-#: ../capplets/keyboard/mate-keyboard.desktop.in.in.h:2
+#: ../capplets/keyboard/ukui-keyboard.desktop.in.in.h:2
 msgid "Set your keyboard preferences"
 msgstr "உங்கள் விசைப்பலகை விருப்பங்களை அமைக்கவும்"
 
-#: ../capplets/mouse/mate-mouse-properties.c:396
+#: ../capplets/mouse/ukui-mouse-properties.c:396
 msgid "Left button"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.c:396
+#: ../capplets/mouse/ukui-mouse-properties.c:396
 msgid "Middle button"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.c:396
+#: ../capplets/mouse/ukui-mouse-properties.c:396
 msgid "Right button"
 msgstr ""
 
 #. TRANSLATORS: don't translate the terms in brackets
-#: ../capplets/mouse/mate-mouse-properties.c:482
+#: ../capplets/mouse/ukui-mouse-properties.c:482
 msgid "Specify the name of the page to show (general)"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.c:487
-msgid "- MATE Mouse Preferences"
-msgstr "MATE சொடுக்கி விருப்பங்கள்"
+#: ../capplets/mouse/ukui-mouse-properties.c:487
+msgid "- UKUI Mouse Preferences"
+msgstr "UKUI சொடுக்கி விருப்பங்கள்"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:1
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:1
 msgid "Mouse Preferences"
 msgstr "சொடுக்கி பண்புகள்"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:2
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:2
 msgid "Mouse Orientation"
 msgstr "சுட்டி முறைமை"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:3
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:3
 msgid "_Right-handed"
 msgstr "(_R) வலதுகைவாகு"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:4
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:4
 msgid "_Left-handed"
 msgstr "(_L) இடதுகைவாகு"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:5
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:5
 msgid "Locate Pointer"
 msgstr "நிலைக்காட்டியை காட்டு"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:6
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:6
 msgid "Sh_ow position of pointer when the Control key is pressed"
 msgstr "(_o) கன்ட்ரோல் விசையை அழுத்தினால் சுட்டியின் இடத்தை காட்டு"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:7
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:7
 msgid "Pointer Speed"
 msgstr "இட சுட்டு வேகம்"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:9
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:9
 msgid "_Sensitivity:"
 msgstr "(_S) உணர்திறன்:"
 
 #. low sensitivity
-#: ../capplets/mouse/mate-mouse-properties.ui.h:15
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:15
 msgid "Low"
 msgstr "குறைவு"
 
 #. high sensitivity
-#: ../capplets/mouse/mate-mouse-properties.ui.h:17
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:17
 msgid "High"
 msgstr "அதிகம்"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:18
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:18
 msgid "Drag and Drop"
 msgstr "இழுத்துப் போடுதல்"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:19
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:19
 msgid "Thr_eshold:"
 msgstr "(_e) மாறு நிலை:"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:25
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:25
 msgid "Double-Click Timeout"
 msgstr "இரட்டை சொடுக்கு நேரம் முடிந்தது"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:26
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:26
 msgid "_Timeout:"
 msgstr "வெளியேற்ற நேரம்:"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:29
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:29
 msgid ""
 "To test your double-click settings, try to double-click on the light bulb."
 msgstr "உங்கள் இரட்டிப்பு சொடுக்கு அமைப்பை சோதிக்க  மின்விளக்கு மீது இரட்டிப்பு சொடுக்கு செய்க"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:31
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:31
 msgid "Enable _touchpad"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:32
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:32
 msgid "Disable touchpad _while typing"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:33
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:33
 msgid "Enable _mouse clicks with touchpad"
 msgstr "(_m) தொடுதிட்டால் சொடுக்கி சொடுக்கலை செயல்படுத்து"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:34
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:34
 msgid "Two-finger click emulation:"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:35
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:35
 msgid "Three-finger click emulation:"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:36
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:36
 msgid "Scrolling"
 msgstr "உருளல்"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:37
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:37
 msgid "_Vertical edge scrolling"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:38
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:38
 msgid "H_orizontal edge scrolling"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:39
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:39
 msgid "V_ertical two-finger scrolling"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:40
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:40
 msgid "Hor_izontal two-finger scrolling"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:41
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:41
 msgid "Enable n_atural scrolling"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:42
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:42
 msgid "Touchpad"
 msgstr "தொடுதிட்டு"
 
-#: ../capplets/mouse/mate-settings-mouse.desktop.in.in.h:1
+#: ../capplets/mouse/ukui-settings-mouse.desktop.in.in.h:1
 msgid "Mouse"
 msgstr "சொடுக்கி"
 
-#: ../capplets/mouse/mate-settings-mouse.desktop.in.in.h:2
+#: ../capplets/mouse/ukui-settings-mouse.desktop.in.in.h:2
 msgid "Set your mouse preferences"
 msgstr "உங்கள் சொடுக்கியின் பண்புகளை அமைக்கவும்"
 
-#: ../capplets/network/mate-network-properties.desktop.in.in.h:1
+#: ../capplets/network/ukui-network-properties.desktop.in.in.h:1
 msgid "Network Proxy"
 msgstr "வலையமைப்பு பிரதிநிதி."
 
-#: ../capplets/network/mate-network-properties.desktop.in.in.h:2
+#: ../capplets/network/ukui-network-properties.desktop.in.in.h:2
 msgid "Set your network proxy preferences"
 msgstr "உங்கள் பிணைய பதிலாள் முன்னுரிமைகளை அமை"
 
-#: ../capplets/network/mate-network-properties.ui.h:1
+#: ../capplets/network/ukui-network-properties.ui.h:1
 msgid "HTTP Proxy Details"
 msgstr "HTTP பதிவாணை விவரங்கள்"
 
-#: ../capplets/network/mate-network-properties.ui.h:2
+#: ../capplets/network/ukui-network-properties.ui.h:2
 msgid "<b>_Use authentication</b>"
 msgstr "<b>(_U) பயன்படுத்து உறுதிபடுத்துதலை</b>"
 
-#: ../capplets/network/mate-network-properties.ui.h:3
+#: ../capplets/network/ukui-network-properties.ui.h:3
 msgid "U_sername:"
 msgstr "(_s)பயனர் பெயர்."
 
-#: ../capplets/network/mate-network-properties.ui.h:4
+#: ../capplets/network/ukui-network-properties.ui.h:4
 msgid "_Password:"
 msgstr "(_P) கடவுச் சொல்:."
 
-#: ../capplets/network/mate-network-properties.ui.h:5
+#: ../capplets/network/ukui-network-properties.ui.h:5
 msgid "Network Proxy Preferences"
 msgstr "பிணைய பதிலாள் முன்னுரிமைகள்"
 
-#: ../capplets/network/mate-network-properties.ui.h:6
+#: ../capplets/network/ukui-network-properties.ui.h:6
 msgid "<b>Di_rect internet connection</b>"
 msgstr "<b>நேரான இணைய இணைப்பு</b> (_r)"
 
-#: ../capplets/network/mate-network-properties.ui.h:7
+#: ../capplets/network/ukui-network-properties.ui.h:7
 msgid "<b>_Manual proxy configuration</b>"
 msgstr "<b>(_M) கையேடு உள்ளமைக்கபட்ட கோலி</b>"
 
-#: ../capplets/network/mate-network-properties.ui.h:8
+#: ../capplets/network/ukui-network-properties.ui.h:8
 msgid "H_TTP proxy:"
 msgstr "(_T) HTTP பிரதிநிதி ."
 
-#: ../capplets/network/mate-network-properties.ui.h:9
+#: ../capplets/network/ukui-network-properties.ui.h:9
 msgid "_Secure HTTP proxy:"
 msgstr "(_S) HTTP பிரதிநிதி பழங்கவும்."
 
-#: ../capplets/network/mate-network-properties.ui.h:10
+#: ../capplets/network/ukui-network-properties.ui.h:10
 msgid "_FTP proxy:"
 msgstr "(_F) FTP பிரதிநிதி ."
 
-#: ../capplets/network/mate-network-properties.ui.h:11
+#: ../capplets/network/ukui-network-properties.ui.h:11
 msgid "S_ocks host:"
 msgstr "(_o) பள்ள புரவன்"
 
-#: ../capplets/network/mate-network-properties.ui.h:12
+#: ../capplets/network/ukui-network-properties.ui.h:12
 msgid "Port:"
 msgstr "துறை:."
 
-#: ../capplets/network/mate-network-properties.ui.h:13
+#: ../capplets/network/ukui-network-properties.ui.h:13
 msgid "_Details"
 msgstr "(_D) விவரங்கள்"
 
-#: ../capplets/network/mate-network-properties.ui.h:14
+#: ../capplets/network/ukui-network-properties.ui.h:14
 msgid "<b>_Automatic proxy configuration</b>"
 msgstr "<b>(_A) தானாகவே உள்ளமைக்கபடும் போலி </b>"
 
-#: ../capplets/network/mate-network-properties.ui.h:15
+#: ../capplets/network/ukui-network-properties.ui.h:15
 msgid "Autoconfiguration _URL:"
 msgstr "(_U) தானியங்கி அமைப்பு URL:"
 
-#: ../capplets/network/mate-network-properties.ui.h:16
+#: ../capplets/network/ukui-network-properties.ui.h:16
 msgid "Proxy Configuration"
 msgstr "பதிலாள் கட்டமைப்பு"
 
-#: ../capplets/network/mate-network-properties.ui.h:17
+#: ../capplets/network/ukui-network-properties.ui.h:17
 msgid "Ignore Host List"
 msgstr "புரவலன் பட்டியலை தவிர்"
 
-#: ../capplets/network/mate-network-properties.ui.h:18
+#: ../capplets/network/ukui-network-properties.ui.h:18
 msgid "Ignored Hosts"
 msgstr "புரவலன்களை உதாசீனம் செய்க"
 
-#: ../capplets/windows/mate-metacity-support.c:40
+#: ../capplets/windows/ukui-metacity-support.c:40
 msgid "Metacity Preferences"
 msgstr ""
 
 #. Compositing manager
-#: ../capplets/windows/mate-metacity-support.c:55
-#: ../capplets/windows/mate-window-properties.c:410
+#: ../capplets/windows/ukui-metacity-support.c:55
+#: ../capplets/windows/ukui-window-properties.c:410
 msgid "Compositing Manager"
 msgstr ""
 
-#: ../capplets/windows/mate-metacity-support.c:66
-#: ../capplets/windows/mate-window-properties.c:422
+#: ../capplets/windows/ukui-metacity-support.c:66
+#: ../capplets/windows/ukui-window-properties.c:422
 msgid "Enable software _compositing window manager"
 msgstr ""
 
-#: ../capplets/windows/mate-window-properties.c:264
+#: ../capplets/windows/ukui-window-properties.c:264
 msgid "The current window manager is unsupported"
 msgstr ""
 
 #. Window
-#: ../capplets/windows/mate-window-properties.c:358
+#: ../capplets/windows/ukui-window-properties.c:358
 msgid "Window Preferences"
 msgstr "சாளரம்த்தின் விருப்பங்கள்"
 
-#: ../capplets/windows/mate-window-properties.c:391
+#: ../capplets/windows/ukui-window-properties.c:391
 msgid "Behaviour"
 msgstr ""
 
-#: ../capplets/windows/mate-window-properties.c:400
+#: ../capplets/windows/ukui-window-properties.c:400
 msgid "Placement"
 msgstr ""
 
-#: ../capplets/windows/mate-window-properties.c:423
+#: ../capplets/windows/ukui-window-properties.c:423
 msgid "Disable _thumbnails in Alt-Tab"
 msgstr ""
 
 #. Titlebar buttons
-#: ../capplets/windows/mate-window-properties.c:431
+#: ../capplets/windows/ukui-window-properties.c:431
 msgid "Titlebar Buttons"
 msgstr ""
 
-#: ../capplets/windows/mate-window-properties.c:439
+#: ../capplets/windows/ukui-window-properties.c:439
 msgid "Position:"
 msgstr ""
 
 #. New Windows
-#: ../capplets/windows/mate-window-properties.c:446
+#: ../capplets/windows/ukui-window-properties.c:446
 msgid "New Windows"
 msgstr ""
 
-#: ../capplets/windows/mate-window-properties.c:454
+#: ../capplets/windows/ukui-window-properties.c:454
 msgid "Center _new windows"
 msgstr ""
 
 #. Window Snapping
-#: ../capplets/windows/mate-window-properties.c:459
+#: ../capplets/windows/ukui-window-properties.c:459
 msgid "Window Snapping"
 msgstr ""
 
-#: ../capplets/windows/mate-window-properties.c:467
+#: ../capplets/windows/ukui-window-properties.c:467
 msgid "Enable side by side _tiling"
 msgstr ""
 
 #. Window Selection
-#: ../capplets/windows/mate-window-properties.c:472
+#: ../capplets/windows/ukui-window-properties.c:472
 msgid "Window Selection"
 msgstr "சாளரத்தேர்வு"
 
-#: ../capplets/windows/mate-window-properties.c:492
+#: ../capplets/windows/ukui-window-properties.c:492
 msgid "_Select windows when the mouse moves over them"
 msgstr "(_S) சொடுக்கி சாளரங்கள்மேல் நகர்த்தும்போது அவைகளை தெரிவுசெய்க."
 
-#: ../capplets/windows/mate-window-properties.c:495
+#: ../capplets/windows/ukui-window-properties.c:495
 msgid "U_nselect windows when the mouse leaves them"
 msgstr ""
 
-#: ../capplets/windows/mate-window-properties.c:499
+#: ../capplets/windows/ukui-window-properties.c:499
 msgid "_Raise selected windows after an interval"
 msgstr "(_R) இடைவேளைக்கு பிறகு உயரும் தேர்வுசெய்யபட்ட சாளரம்"
 
-#: ../capplets/windows/mate-window-properties.c:510
+#: ../capplets/windows/ukui-window-properties.c:510
 msgid "_Interval before raising:"
 msgstr "(_I) எழுவதற்க்கு முன் இடைவேளை :"
 
-#: ../capplets/windows/mate-window-properties.c:514
+#: ../capplets/windows/ukui-window-properties.c:514
 msgid "seconds"
 msgstr "நொடிகள்"
 
 #. Titlebar Action
-#: ../capplets/windows/mate-window-properties.c:525
+#: ../capplets/windows/ukui-window-properties.c:525
 msgid "Titlebar Action"
 msgstr "தலைப்புப்பட்டி செயல்"
 
-#: ../capplets/windows/mate-window-properties.c:533
+#: ../capplets/windows/ukui-window-properties.c:533
 msgid "_Double-click titlebar to perform this action:"
 msgstr "(_D)இந்த செயலை செயல்படுத்த தலைப்புபட்டையில் இரட்டை சொடுக்கு செய்யவும்:"
 
 #. Movement Key
-#: ../capplets/windows/mate-window-properties.c:541
+#: ../capplets/windows/ukui-window-properties.c:541
 msgid "Movement Key"
 msgstr "நகரும் விசைகள்"
 
-#: ../capplets/windows/mate-window-properties.c:552
+#: ../capplets/windows/ukui-window-properties.c:552
 msgid "To move a window, press-and-hold this key then grab the window:"
 msgstr "சாளரத்தை நகர்த்த, இந்த விசையை அழுத்தி சாளரத்தை இழுக்கவும்:"
 
-#: ../capplets/windows/mate-window-properties.c:580
+#: ../capplets/windows/ukui-window-properties.c:580
 #: ../libwindow-settings/ukwm-window-manager.c:394
 msgid "Roll up"
 msgstr "மேல் தள்ளல்"
 
-#: ../capplets/windows/mate-window-properties.c:581
+#: ../capplets/windows/ukui-window-properties.c:581
 #: ../libwindow-settings/ukwm-window-manager.c:395
 msgid "Maximize"
 msgstr "அதிகபடுத்து"
 
-#: ../capplets/windows/mate-window-properties.c:582
+#: ../capplets/windows/ukui-window-properties.c:582
 #: ../libwindow-settings/ukwm-window-manager.c:396
 msgid "Maximize Horizontally"
 msgstr "கிடை மட்டத்தில்  பெரிதாக்கு"
 
-#: ../capplets/windows/mate-window-properties.c:583
+#: ../capplets/windows/ukui-window-properties.c:583
 #: ../libwindow-settings/ukwm-window-manager.c:397
 msgid "Maximize Vertically"
 msgstr "செங்குத்தாக பெரிதாக்கு"
 
-#: ../capplets/windows/mate-window-properties.c:584
+#: ../capplets/windows/ukui-window-properties.c:584
 #: ../libwindow-settings/ukwm-window-manager.c:398
 msgid "Minimize"
 msgstr "சிறிதாக்கு"
 
-#: ../capplets/windows/mate-window-properties.c:585
+#: ../capplets/windows/ukui-window-properties.c:585
 #: ../libwindow-settings/ukwm-window-manager.c:399
 msgid "None"
 msgstr "ஏதுமில்லை"
 
-#: ../capplets/windows/mate-window-properties.c:786
+#: ../capplets/windows/ukui-window-properties.c:786
 msgid "_Alt"
 msgstr "(_A) ஆல்ட்"
 
-#: ../capplets/windows/mate-window-properties.c:792
+#: ../capplets/windows/ukui-window-properties.c:792
 msgid "H_yper"
 msgstr "(_y) ஹைப்பர்"
 
-#: ../capplets/windows/mate-window-properties.c:799
+#: ../capplets/windows/ukui-window-properties.c:799
 msgid "S_uper (or \"Windows logo\")"
 msgstr "(_u) சூப்பர்  (அல்ல \"Windows logo\")"
 
-#: ../capplets/windows/mate-window-properties.c:806
+#: ../capplets/windows/ukui-window-properties.c:806
 msgid "_Meta"
 msgstr "_M மெடா"
 
-#: ../capplets/windows/mate-window-properties.desktop.in.in.h:1
+#: ../capplets/windows/ukui-window-properties.desktop.in.in.h:1
 msgid "Windows"
 msgstr "சாளரங்கள்"
 
-#: ../capplets/windows/mate-window-properties.desktop.in.in.h:2
+#: ../capplets/windows/ukui-window-properties.desktop.in.in.h:2
 msgid "Set your window properties"
 msgstr "உங்கள் சாளர பண்புகளை அமைக்கவும்"
 
-#: ../libwindow-settings/mate-wm-manager.c:317
+#: ../libwindow-settings/ukui-wm-manager.c:317
 #, c-format
 msgid "Window manager \"%s\" has not registered a configuration tool\n"
 msgstr "சாளர மேலாளர்\"%s\" உள்ளமைப்பு  கருவியை பதிவாக்கவில்லை\n"
@@ -2606,13 +2606,13 @@ msgstr "குழுக்கள்"
 msgid "Common Tasks"
 msgstr "பொது வேலைகள்"
 
-#: ../shell/control-center.c:203 ../shell/matecc.desktop.in.in.h:1
-#: ../shell/matecc.directory.in.h:1
+#: ../shell/control-center.c:203 ../shell/ukuicc.desktop.in.in.h:1
+#: ../shell/ukuicc.directory.in.h:1
 msgid "Control Center"
 msgstr "கட்டுப்பாட்டு மையம்"
 
-#: ../shell/matecc.desktop.in.in.h:2
-msgid "The MATE configuration tool"
+#: ../shell/ukuicc.desktop.in.in.h:2
+msgid "The UKUI configuration tool"
 msgstr "கனோம் அமைவடிவு கருவி"
 
 #: ../typing-break/drw-break-window.c:203
@@ -2739,11 +2739,11 @@ msgstr ""
 msgid "I_nstall Font"
 msgstr "_n எழுத்துருக்களை நிறுவு"
 
-#: ../font-viewer/mate-font-viewer.desktop.in.in.h:1
+#: ../font-viewer/ukui-font-viewer.desktop.in.in.h:1
 msgid "Font Viewer"
 msgstr "எழுத்துரு காட்டி"
 
-#: ../font-viewer/mate-font-viewer.desktop.in.in.h:2
+#: ../font-viewer/ukui-font-viewer.desktop.in.in.h:2
 msgid "Preview fonts"
 msgstr "எழுத்துருக்கள் முன்பார்வை:"
 

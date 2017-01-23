@@ -7,121 +7,121 @@
 # Prajasakti Localisation Team <localisation@prajasakti.com>, 2005
 msgid ""
 msgstr ""
-"Project-Id-Version: MATE Desktop Environment\n"
+"Project-Id-Version: UKUI Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-27 23:13+0300\n"
 "PO-Revision-Date: 2016-03-27 20:16+0000\n"
 "Last-Translator: monsta <monsta@inbox.ru>\n"
-"Language-Team: Telugu (http://www.transifex.com/mate/MATE/language/te/)\n"
+"Language-Team: Telugu (http://wiki.ukui.org/trans)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: te\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../org.mate.control-center.gschema.xml.in.h:1
+#: ../org.ukui.control-center.gschema.xml.in.h:1
 msgid ""
-"[ 'Change Theme;mate-appearance-properties.desktop', 'Set Preferred "
-"Applications;mate-default-applications-properties.desktop' ]"
+"[ 'Change Theme;ukui-appearance-properties.desktop', 'Set Preferred "
+"Applications;ukui-default-applications-properties.desktop' ]"
 msgstr ""
 
-#: ../org.mate.control-center.gschema.xml.in.h:2
+#: ../org.ukui.control-center.gschema.xml.in.h:2
 msgid "Task names and associated .desktop files"
 msgstr "కర్తవ్యం నామములు మరియు సంభందిత .desktop దస్త్రములు"
 
-#: ../org.mate.control-center.gschema.xml.in.h:3
+#: ../org.ukui.control-center.gschema.xml.in.h:3
 msgid ""
 "The task name to be displayed in the control-center followed by a \";\" "
 "separator then the filename of an associated .desktop file to launch for "
 "that task."
 msgstr "\";\" విభజని తో నియంత్రణ-కేద్రం లో కర్తవ్యం నామము ప్రదర్శించబడాలి అప్పుడు సంభందిత .desktop దస్త్రం ఆ కర్తవ్యంను దించుటకు ప్రదర్శించబడాలి."
 
-#: ../org.mate.control-center.gschema.xml.in.h:4
+#: ../org.ukui.control-center.gschema.xml.in.h:4
 msgid "Close the control-center when a task is activated"
 msgstr "కర్తవ్యం క్రీయాశీలం కాగానే నియంత్రణా-కేంద్రంను మూయుము"
 
-#: ../org.mate.control-center.gschema.xml.in.h:5
+#: ../org.ukui.control-center.gschema.xml.in.h:5
 msgid ""
 "if true, the control-center will close when a \"Common Task\" is activated."
 msgstr "నిజమైతే, \"ఉమ్మడి కర్తవ్యం\" క్రియాశీలం అవ్వగానే నియంత్రణ-కేంద్రం మూయబడుతుంది."
 
-#: ../org.mate.control-center.gschema.xml.in.h:6
+#: ../org.ukui.control-center.gschema.xml.in.h:6
 msgid "Exit shell on start action performed"
 msgstr "ప్రారంభం చర్య జరుపబడగానే షెల్ నుండి బయటకురమ్ము"
 
-#: ../org.mate.control-center.gschema.xml.in.h:7
+#: ../org.ukui.control-center.gschema.xml.in.h:7
 msgid "Indicates whether to close the shell when a start action is performed."
 msgstr "ప్రారంభం చర్య జరుగగానే షెల్ మూయాలేమో సూచించుము."
 
-#: ../org.mate.control-center.gschema.xml.in.h:8
+#: ../org.ukui.control-center.gschema.xml.in.h:8
 msgid "Exit shell on help action performed"
 msgstr "సహాయం చర్య జరుపబడగానే షెల్ నుండి బయటకురమ్ము"
 
-#: ../org.mate.control-center.gschema.xml.in.h:9
+#: ../org.ukui.control-center.gschema.xml.in.h:9
 msgid "Indicates whether to close the shell when a help action is performed."
 msgstr "సహాయం చర్య జరుగగానే షెల్ మూయాలేమో సూచించుము."
 
-#: ../org.mate.control-center.gschema.xml.in.h:10
+#: ../org.ukui.control-center.gschema.xml.in.h:10
 msgid "Exit shell on add or remove action performed"
 msgstr "జతచేయు లేదా తీసివేయు చర్య జరుపబడగానే షెల్ నుండి బయటకురమ్ము"
 
-#: ../org.mate.control-center.gschema.xml.in.h:11
+#: ../org.ukui.control-center.gschema.xml.in.h:11
 msgid ""
 "Indicates whether to close the shell when an add or remove action is "
 "performed."
 msgstr "జతచేయి లేదా తీసివేయి చర్య జరుగగానే షెల్ మూయాలేమో సూచించుము."
 
-#: ../org.mate.control-center.gschema.xml.in.h:12
+#: ../org.ukui.control-center.gschema.xml.in.h:12
 msgid "Exit shell on upgrade or uninstall action performed"
 msgstr "నవీకరణ లేదా నిర్మూలన చర్య జరుపబడగానే షెల్ నుండి బయటకురమ్ము"
 
-#: ../org.mate.control-center.gschema.xml.in.h:13
+#: ../org.ukui.control-center.gschema.xml.in.h:13
 msgid ""
 "Indicates whether to close the shell when an upgrade or uninstall action is "
 "performed."
 msgstr "నవీకరించు లేదా నిర్మూలించు చర్య జరుగగానే షెల్ మూయాలేమో సూచించుము."
 
-#: ../org.mate.control-center.gschema.xml.in.h:14
+#: ../org.ukui.control-center.gschema.xml.in.h:14
 msgid "More backgrounds URL"
 msgstr "మరిన్ని బ్యాక్‌గ్రౌండ్ల URL"
 
-#: ../org.mate.control-center.gschema.xml.in.h:15
+#: ../org.ukui.control-center.gschema.xml.in.h:15
 msgid ""
 "URL for where to get more desktop backgrounds. If set to an empty string the"
 " link will not appear."
 msgstr "ఎక్కడ మరిన్ని డెస్కుటాప్ బ్యాక్‌గ్రౌండులను పొందగలమో దాని URL. ఖాళీ స్ట్రింగునకు అమర్చితే లింకు కనిపించదు."
 
-#: ../org.mate.control-center.gschema.xml.in.h:16
+#: ../org.ukui.control-center.gschema.xml.in.h:16
 msgid "More themes URL"
 msgstr "మరిన్ని థీమ్ల URL"
 
-#: ../org.mate.control-center.gschema.xml.in.h:17
+#: ../org.ukui.control-center.gschema.xml.in.h:17
 msgid ""
 "URL for where to get more desktop themes. If set to an empty string the link"
 " will not appear."
 msgstr "ఎక్కడ మరిన్ని డెస్కుటాప్ థీమ్‌లను పొందగలమో దాని URL. ఖాళీ స్ట్రింగునకు అమర్చితే లింకు కనిపించదు."
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:1
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:1
 msgid "Keybinding"
 msgstr ""
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:2
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:2
 msgid "Keybinding associated with a custom shortcut."
 msgstr ""
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:3
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:3
 msgid "Command"
 msgstr ""
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:4
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:4
 msgid "Command associated with a custom keybinding."
 msgstr ""
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:5
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:5
 msgid "Name"
 msgstr ""
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:6
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:6
 msgid "Description associated with a custom keybinding."
 msgstr ""
 
@@ -153,99 +153,99 @@ msgstr "సంకేతం డైలాగ్ నందు చూపించబ
 msgid "Show more _details"
 msgstr "చాలా వివరింపులు చూపుము(_d)"
 
-#: ../capplets/about-me/mate-about-me.c:268
+#: ../capplets/about-me/ukui-about-me.c:268
 msgid "Select Image"
 msgstr "ప్రతిబింబమును యెంపికచేయుము"
 
-#: ../capplets/about-me/mate-about-me.c:270
+#: ../capplets/about-me/ukui-about-me.c:270
 msgid "No Image"
 msgstr "ప్రతిబింబము లేదు"
 
-#: ../capplets/about-me/mate-about-me.c:298
+#: ../capplets/about-me/ukui-about-me.c:298
 #: ../capplets/appearance/appearance-desktop.c:650
 msgid "Images"
 msgstr "ప్రతిబింబములు"
 
-#: ../capplets/about-me/mate-about-me.c:302
+#: ../capplets/about-me/ukui-about-me.c:302
 #: ../capplets/appearance/theme-installer.c:783
 msgid "All Files"
 msgstr "అన్ని దస్త్రములు"
 
-#: ../capplets/about-me/mate-about-me.c:454
+#: ../capplets/about-me/ukui-about-me.c:454
 #, c-format
 msgid "About %s"
 msgstr "%s గురించి"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:1
-#: ../capplets/about-me/mate-about-me.desktop.in.in.h:1
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:1
+#: ../capplets/about-me/ukui-about-me.desktop.in.in.h:1
 msgid "About Me"
 msgstr "నా గురించి"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:2
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:2
 msgid "Select your photo"
 msgstr "మీ ఛాయాచిత్రమును ఎంచుకొనుము"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:3
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:3
 msgid "Full Name"
 msgstr "పూర్తి నామము"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:4
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:4
 msgid "User name:"
 msgstr "వినియోగదారి నామము:"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:5
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:5
 msgid "Change Passwo_rd..."
 msgstr "సంకేతపదాన్ని మార్చుము(_r):"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:6
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:6
 msgid "Enable _Fingerprint Login..."
 msgstr "వేలిముద్ర లాగిన్ చేతనముచేయుము... (_F)"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:7
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:7
 msgid "Disable _Fingerprint Login..."
 msgstr "వేలిముద్ర లాగిన్ అచేతనముచేయుము... (_F)"
 
-#: ../capplets/about-me/mate-about-me.desktop.in.in.h:2
+#: ../capplets/about-me/ukui-about-me.desktop.in.in.h:2
 msgid "Set your personal information"
 msgstr "మీ వ్యక్తిగత సమాచారాన్ని అమర్చండి"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:100
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:100
 msgid ""
 "You are not allowed to access the device. Contact your system administrator."
 msgstr "పరికరమును యాక్సిస్ చేయుటకు మీరు అనుమతిలేదు. మీ సిస్టమ్ నిర్వహణాధికారిని సంప్రదించండి."
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:102
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:102
 msgid "The device is already in use."
 msgstr "పరికరము యిప్పటికే వినియోగంలో వుంది."
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:104
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:104
 msgid "An internal error occurred"
 msgstr ""
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:221
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:221
 msgid "Delete registered fingerprints?"
 msgstr "నమోదైన వేలిముద్రలను తొలగించాలా?"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:224
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:224
 msgid "_Delete Fingerprints"
 msgstr "వేలిముద్రలను తొలగించుము (_D)"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:231
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:231
 msgid ""
 "Do you want to delete your registered fingerprints so fingerprint login is "
 "disabled?"
 msgstr "వేలిముద్ర లాగిన్ అచేతనపరిచే నమోదైన వేలిముద్రల తొలగింపును మారు చేద్దామనుకొనుచున్నారా?"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:359
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:15
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:359
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:15
 msgid "Done!"
 msgstr "చేయి!"
 
 #. translators:
 #. * The variable is the name of the device, for example:
 #. * "Could you not access "Digital Persona U.are.U 4000/4000B" device
-#: ../capplets/about-me/mate-about-me-fingerprint.c:405
-#: ../capplets/about-me/mate-about-me-fingerprint.c:427
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:405
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:427
 #, c-format
 msgid "Could not access '%s' device"
 msgstr "'%s' పరికరాన్ని యాక్సిస్ చేయలేకపోయింది"
@@ -253,21 +253,21 @@ msgstr "'%s' పరికరాన్ని యాక్సిస్ చేయ�
 #. translators:
 #. * The variable is the name of the device, for example:
 #. * "Could you not access "Digital Persona U.are.U 4000/4000B" device
-#: ../capplets/about-me/mate-about-me-fingerprint.c:476
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:476
 #, c-format
 msgid "Could not start finger capture on '%s' device"
 msgstr "'%s' పరికరముపైన వేలి కాప్చరును ప్రారంభించలేక పోయింది"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:523
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:523
 msgid "Could not access any fingerprint readers"
 msgstr "ఎటువంటి వేలిముద్ర చదువరులను యాక్సిస్ చేయలేక పోయింది"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:524
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:524
 msgid "Please contact your system administrator for help."
 msgstr "సహాయము కొరకు దయచేసి మీ సిస్టమ్ నిర్వహణాధికారిని సంప్రదించండి."
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:554
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:9
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:554
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:9
 msgid "Enable Fingerprint Login"
 msgstr "వేలిముద్ర లాగిన్ చేతనముచేయి"
 
@@ -276,90 +276,90 @@ msgstr "వేలిముద్ర లాగిన్ చేతనముచే�
 #. * "To enable fingerprint login, you need to save one of your fingerprints,
 #. using the
 #. * 'Digital Persona U.are.U 4000/4000B' device."
-#: ../capplets/about-me/mate-about-me-fingerprint.c:584
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:584
 #, c-format
 msgid ""
 "To enable fingerprint login, you need to save one of your fingerprints, "
 "using the '%s' device."
 msgstr "వేలిముద్ర లాగిన్ చేతనపరచుటకు, మీరు మీ వేలిముద్రలలో వొకటి దాయవలసివుంటుంది, '%s' పరికరము వుపయోగించి"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:593
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:593
 msgid "Swipe finger on reader"
 msgstr "వేలును చదువరిపై లాగుము"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:595
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:595
 msgid "Place finger on reader"
 msgstr "వేలును చదువరిపై వుంచుము"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:1
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:1
 msgid "Left thumb"
 msgstr "ఎడమ బ్రొటన వ్రేలు"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:2
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:2
 msgid "Left middle finger"
 msgstr "ఎడమ మద్య వ్రేలు"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:3
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:3
 msgid "Left ring finger"
 msgstr "ఎడమ వుంగరపు వ్రేలు"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:4
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:4
 msgid "Left little finger"
 msgstr "ఎడమ చిటికెన వ్రేలు"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:5
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:5
 msgid "Right thumb"
 msgstr "కుడి బ్రొటన వ్రేలు"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:6
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:6
 msgid "Right middle finger"
 msgstr "కుడి మధ్య వ్రేలు"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:7
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:7
 msgid "Right ring finger"
 msgstr "కుడి వుంగరపు వ్రేలు"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:8
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:8
 msgid "Right little finger"
 msgstr "కుడి చిటికెన వ్రేలు"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:10
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:10
 msgid "Right index finger"
 msgstr "కుడి చూపుడువేలు"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:11
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:11
 msgid "Left index finger"
 msgstr "ఎడమ చూపుడు వేలు"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:12
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:12
 msgid "Other finger: "
 msgstr "ఇతర వేలు: "
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:13
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:13
 msgid "Select finger"
 msgstr "వేలును యెంపికచేయి"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:14
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:14
 msgid ""
 "Your fingerprint was successfully saved. You should now be able to log in "
 "using your fingerprint reader."
 msgstr "మీ వేలిముద్ర సమర్దవంతంగా దాయబడింది. మీరు యిప్పుడు మీ వేలిముద్ర చదువరి(రీడర్) వుపయోగించి లాగిన్ అవ్వగలుగుతారు."
 
-#: ../capplets/about-me/mate-about-me-password.c:161
+#: ../capplets/about-me/ukui-about-me-password.c:161
 msgid "Child exited unexpectedly"
 msgstr "అనుకోకుండా శిశువు ఉత్తేజితం అయింది"
 
-#: ../capplets/about-me/mate-about-me-password.c:297
+#: ../capplets/about-me/ukui-about-me-password.c:297
 #, c-format
 msgid "Could not shutdown backend_stdin IO channel: %s"
 msgstr "backend_stdin IO ప్రసారమార్గం ను మూయలేక పోయింది: %s"
 
-#: ../capplets/about-me/mate-about-me-password.c:310
+#: ../capplets/about-me/ukui-about-me-password.c:310
 #, c-format
 msgid "Could not shutdown backend_stdout IO channel: %s"
 msgstr "backend_stdout IO ప్రసారమార్గం ను మూయలేక పోయింది: %s"
 
-#: ../capplets/about-me/mate-about-me-password.c:409
+#: ../capplets/about-me/ukui-about-me-password.c:409
 msgid "Authenticated!"
 msgstr "దృవీకరించబడిన!"
 
@@ -368,120 +368,120 @@ msgstr "దృవీకరించబడిన!"
 #. * Ask the user to re-authenticate
 #. Update status message and auth state
 #. Authentication failure
-#: ../capplets/about-me/mate-about-me-password.c:472
-#: ../capplets/about-me/mate-about-me-password.c:557
+#: ../capplets/about-me/ukui-about-me-password.c:472
+#: ../capplets/about-me/ukui-about-me-password.c:557
 msgid ""
 "Your password has been changed since you initially authenticated! Please re-"
 "authenticate."
 msgstr "మీరు ప్రధమంలో దృవీకరించబడి నందువల్ల మీ సంకేతపదం మార్చబడింది! దయచేసి తిరిగి-దృవీకరించబడండి."
 
-#: ../capplets/about-me/mate-about-me-password.c:474
+#: ../capplets/about-me/ukui-about-me-password.c:474
 msgid "That password was incorrect."
 msgstr "ఆ సంకేతపదం సరైనదికాదు."
 
-#: ../capplets/about-me/mate-about-me-password.c:525
+#: ../capplets/about-me/ukui-about-me-password.c:525
 msgid "Your password has been changed."
 msgstr "మీ సంకేతపదం మార్చబడింది."
 
 #. What does this indicate?
 #. * "Authentication information cannot be recovered?" from libpam?
-#: ../capplets/about-me/mate-about-me-password.c:535
+#: ../capplets/about-me/ukui-about-me-password.c:535
 #, c-format
 msgid "System error: %s."
 msgstr "సిస్టమ్ దోషం: %s."
 
-#: ../capplets/about-me/mate-about-me-password.c:538
+#: ../capplets/about-me/ukui-about-me-password.c:538
 msgid "The password is too short."
 msgstr "ఆ సంకేతపదం మరీ పొట్టిగాఉంది."
 
-#: ../capplets/about-me/mate-about-me-password.c:542
+#: ../capplets/about-me/ukui-about-me-password.c:542
 msgid "The password is too simple."
 msgstr "ఆ సంకేతపదం మరీ సాదారణంగా ఉంది."
 
-#: ../capplets/about-me/mate-about-me-password.c:547
+#: ../capplets/about-me/ukui-about-me-password.c:547
 msgid "The old and new passwords are too similar."
 msgstr "పాత మరియు కొత్త సంకేతపదాలు మరీ పోలికగాఉన్నాయి."
 
-#: ../capplets/about-me/mate-about-me-password.c:549
+#: ../capplets/about-me/ukui-about-me-password.c:549
 msgid "The new password must contain numeric or special character(s)."
 msgstr "కొత్త సంకేతపదం అంకెలు లేదా ప్రత్యేక అక్షరము(ల)ను తప్పక కలిగిఉండవలెను."
 
-#: ../capplets/about-me/mate-about-me-password.c:552
+#: ../capplets/about-me/ukui-about-me-password.c:552
 msgid "The old and new passwords are the same."
 msgstr "కొత్త మరియు పాత సంకేతపదాలు ఒకేపోలికతో ఉన్నాయి."
 
-#: ../capplets/about-me/mate-about-me-password.c:554
+#: ../capplets/about-me/ukui-about-me-password.c:554
 msgid "The new password has already been used recently."
 msgstr ""
 
 #. translators: Unable to launch <program>: <error message>
-#: ../capplets/about-me/mate-about-me-password.c:829
+#: ../capplets/about-me/ukui-about-me-password.c:829
 #, c-format
 msgid "Unable to launch %s: %s"
 msgstr "దించ లేము %s: %s"
 
-#: ../capplets/about-me/mate-about-me-password.c:833
+#: ../capplets/about-me/ukui-about-me-password.c:833
 msgid "Unable to launch backend"
 msgstr "బ్యాక్ఎండ్ ను దించలేము"
 
-#: ../capplets/about-me/mate-about-me-password.c:834
+#: ../capplets/about-me/ukui-about-me-password.c:834
 msgid "A system error has occurred"
 msgstr "ఒక సిస్టమ్ దోషం ఎదురైంది"
 
 #. Update status message
-#: ../capplets/about-me/mate-about-me-password.c:854
+#: ../capplets/about-me/ukui-about-me-password.c:854
 msgid "Checking password..."
 msgstr "సంకేతపదాన్ని పరిశీలిస్తోంది..."
 
-#: ../capplets/about-me/mate-about-me-password.c:938
+#: ../capplets/about-me/ukui-about-me-password.c:938
 msgid "Click <b>Change password</b> to change your password."
 msgstr "మీ సంకేతపదాన్ని మార్చుటకు <b>సంకేతపదాన్ని మార్చు</b> నొక్కండి."
 
-#: ../capplets/about-me/mate-about-me-password.c:941
+#: ../capplets/about-me/ukui-about-me-password.c:941
 msgid "Please type your password in the <b>New password</b> field."
 msgstr "దయచేసి మీ సంకేతపదాన్ని <b>కొత్త సంకేతపదం</b> క్షేత్రమునందు టైపుచేయండి."
 
-#: ../capplets/about-me/mate-about-me-password.c:944
-#: ../capplets/about-me/mate-about-me-password.ui.h:9
+#: ../capplets/about-me/ukui-about-me-password.c:944
+#: ../capplets/about-me/ukui-about-me-password.ui.h:9
 msgid ""
 "Please type your password again in the <b>Retype new password</b> field."
 msgstr "దయచేసి మీ సంకేతపదాన్ని <b>కొత్త సంకేతపదాన్ని మరలాటైపుచేయి</b> క్షేత్రమునందు టైపుచేయండి."
 
-#: ../capplets/about-me/mate-about-me-password.c:947
+#: ../capplets/about-me/ukui-about-me-password.c:947
 msgid "The two passwords are not equal."
 msgstr "ఆ రెండు సంకేతపదాలు సమానంకావు."
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:1
+#: ../capplets/about-me/ukui-about-me-password.ui.h:1
 msgid "Change password"
 msgstr "సంకేతపదాన్ని మార్చుము"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:2
+#: ../capplets/about-me/ukui-about-me-password.ui.h:2
 msgid "Change your password"
 msgstr "మీ సంకేతపదాన్ని మార్చుము"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:3
+#: ../capplets/about-me/ukui-about-me-password.ui.h:3
 msgid ""
 "To change your password, enter your current password in the field below and click <b>Authenticate</b>.\n"
 "After you have authenticated, enter your new password, retype it for verification and click <b>Change password</b>."
 msgstr "మీ సంకేతపదాన్ని మార్చుటకు, మీ ప్రస్తుత సంకేతపదాన్ని ఈ క్రింది క్షేత్రమునందు ప్రవేశపెట్టి మరియు <b>దృవీకరించు</b> బటన్ నొక్కండి.\nమీరు దృవీకరించబడిన తర్వాత, మీ కొత్త సంకేతపదాన్ని ప్రవేశపెట్టండి, నిర్ధారణ కొరకు దాన్ని మరలాటైపుచేయండి మరియు <b>సంకేతపదాన్ని మార్చుము</b> నొక్కండి."
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:5
+#: ../capplets/about-me/ukui-about-me-password.ui.h:5
 msgid "Current _password:"
 msgstr "ప్రస్తుత సంకేతపదం (_p):"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:6
+#: ../capplets/about-me/ukui-about-me-password.ui.h:6
 msgid "_New password:"
 msgstr "కొత్త సంకేతపదం(_N):"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:7
+#: ../capplets/about-me/ukui-about-me-password.ui.h:7
 msgid "_Retype new password:"
 msgstr "కొత్త సంకేతపదాన్ని తిరిగిటైపుచేయండి(_R):"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:8
+#: ../capplets/about-me/ukui-about-me-password.ui.h:8
 msgid "_Authenticate"
 msgstr "దృవీకరించు(_A)"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:10
+#: ../capplets/about-me/ukui-about-me-password.ui.h:10
 msgid "Change pa_ssword"
 msgstr "సకేతపదాన్ని మార్చుము (_s)"
 
@@ -490,7 +490,7 @@ msgid "Assistive Technologies Preferences"
 msgstr "సహాయక సాంకేతికతల అభీష్టాలు"
 
 #: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:2
-#: ../capplets/accessibility/at-properties/mate-at-properties.desktop.in.in.h:1
+#: ../capplets/accessibility/at-properties/ukui-at-properties.desktop.in.in.h:1
 msgid "Assistive Technologies"
 msgstr "సహాయక సాంకేతికతలు"
 
@@ -544,7 +544,7 @@ msgstr "అందుబాటు లాగిన్ డైలాగ్‌కు 
 msgid "Close and _Log Out"
 msgstr "మూయి మరియు లాగ్అవుట్ అవ్వు(_L)"
 
-#: ../capplets/accessibility/at-properties/mate-at-properties.desktop.in.in.h:2
+#: ../capplets/accessibility/at-properties/ukui-at-properties.desktop.in.in.h:2
 msgid "Choose which accessibility features to enable when you log in"
 msgstr "మీరు లాగిన్ అయినప్పుడు యెటువంటి యాక్సిస్‌బిలిటి సౌలభ్యాలు చేతనపరచబడాలో యెంచుకొనుము"
 
@@ -576,8 +576,8 @@ msgid ""
 msgstr "చూపుటకు పేజియొక్క నామమును తెలుపుము (theme|background|fonts|interface)"
 
 #: ../capplets/appearance/appearance-main.c:170
-#: ../capplets/default-applications/mate-da-capplet.c:693
-#: ../capplets/mouse/mate-mouse-properties.c:483
+#: ../capplets/default-applications/ukui-da-capplet.c:693
+#: ../capplets/mouse/ukui-mouse-properties.c:483
 msgid "page"
 msgstr "పేజి"
 
@@ -586,8 +586,8 @@ msgid "[WALLPAPER...]"
 msgstr "[వాల్‌పేపర్...]"
 
 #: ../capplets/appearance/appearance-style.c:171
-#: ../capplets/common/mate-theme-info.c:497
-#: ../capplets/common/mate-theme-info.c:690
+#: ../capplets/common/ukui-theme-info.c:497
+#: ../capplets/common/ukui-theme-info.c:690
 msgid "Default Pointer"
 msgstr "అప్రమేయ సూచిక"
 
@@ -597,7 +597,7 @@ msgid "Install"
 msgstr "సంస్థాపించు"
 
 #: ../capplets/appearance/appearance-style.c:269
-#: ../capplets/common/mate-theme-info.c:1726
+#: ../capplets/common/ukui-theme-info.c:1726
 #, c-format
 msgid ""
 "This theme will not look as intended because the required GTK+ theme engine "
@@ -768,7 +768,7 @@ msgid "Get more backgrounds online"
 msgstr "మరిన్ని బ్యాక్‌గ్రౌండ్లను ఆన్‌లైన్‌నందు పొందుము"
 
 #: ../capplets/appearance/data/appearance.ui.h:33
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:17
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:17
 msgid "_Add..."
 msgstr "కలుపుము(_A)..."
 
@@ -966,13 +966,13 @@ msgstr "పరిమాణం (_S):"
 
 #. small threshold
 #: ../capplets/appearance/data/appearance.ui.h:82
-#: ../capplets/mouse/mate-mouse-properties.ui.h:21
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:21
 msgid "Small"
 msgstr "చిన్న"
 
 #. large threshold
 #: ../capplets/appearance/data/appearance.ui.h:83
-#: ../capplets/mouse/mate-mouse-properties.ui.h:24
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:24
 msgid "Large"
 msgstr "పెద్ద"
 
@@ -985,7 +985,7 @@ msgid "Save Theme As..."
 msgstr "థీమ్ ను ఇలాదాయి..."
 
 #: ../capplets/appearance/data/appearance.ui.h:86
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:4
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:4
 msgid "_Name:"
 msgstr "నామము(_N):"
 
@@ -1001,54 +1001,54 @@ msgstr "బ్యాక్‌గ్రౌండ్ చిత్రమును �
 msgid "Save _notification theme"
 msgstr ""
 
-#: ../capplets/appearance/data/mate-appearance-properties.desktop.in.in.h:1
+#: ../capplets/appearance/data/ukui-appearance-properties.desktop.in.in.h:1
 msgid "Appearance"
 msgstr "ఆకారం"
 
-#: ../capplets/appearance/data/mate-appearance-properties.desktop.in.in.h:2
+#: ../capplets/appearance/data/ukui-appearance-properties.desktop.in.in.h:2
 msgid "Customize the look of the desktop"
 msgstr "డెస్కుటాప్ యొక్క రూపాన్ని మలుచుము"
 
-#: ../capplets/appearance/data/mate-theme-installer.desktop.in.in.h:1
+#: ../capplets/appearance/data/ukui-theme-installer.desktop.in.in.h:1
 msgid "Theme Installer"
 msgstr "థీమ్ సంస్థాపకి"
 
-#: ../capplets/appearance/data/mate-theme-installer.desktop.in.in.h:2
+#: ../capplets/appearance/data/ukui-theme-installer.desktop.in.in.h:2
 msgid "Installs themes packages for various parts of the desktop"
 msgstr "డెస్కుటాప్ యొక్క వేర్వేరు భాగాలకు థీమ్స్ ప్యాకేజీలను సంస్థాపిస్తుంది"
 
-#: ../capplets/appearance/data/mate-theme-package.xml.in.h:1
-msgid "Mate Theme Package"
+#: ../capplets/appearance/data/ukui-theme-package.xml.in.h:1
+msgid "Ukui Theme Package"
 msgstr "గ్నోమ్ థీమ్ నిర్వాహకి"
 
-#: ../capplets/appearance/mate-wp-info.c:51
+#: ../capplets/appearance/ukui-wp-info.c:51
 msgid "No Desktop Background"
 msgstr "డెస్కుటాప్ బ్యాక్‌గ్రౌండ్‌ లేదు"
 
-#: ../capplets/appearance/mate-wp-item.c:288
+#: ../capplets/appearance/ukui-wp-item.c:288
 msgid "unknown"
 msgstr ""
 
-#: ../capplets/appearance/mate-wp-item.c:295
+#: ../capplets/appearance/ukui-wp-item.c:295
 msgid "Slide Show"
 msgstr "స్లైడ్ షో"
 
-#: ../capplets/appearance/mate-wp-item.c:297
+#: ../capplets/appearance/ukui-wp-item.c:297
 msgid "Image"
 msgstr "ప్రతిబింబము"
 
-#: ../capplets/appearance/mate-wp-item.c:303
+#: ../capplets/appearance/ukui-wp-item.c:303
 msgid "multiple sizes"
 msgstr "బహుళ పరిమాణములు"
 
 #. translators: x pixel(s) by y pixel(s)
-#: ../capplets/appearance/mate-wp-item.c:306
+#: ../capplets/appearance/ukui-wp-item.c:306
 #, c-format
 msgid "%d %s by %d %s"
 msgstr ""
 
-#: ../capplets/appearance/mate-wp-item.c:308
-#: ../capplets/appearance/mate-wp-item.c:310
+#: ../capplets/appearance/ukui-wp-item.c:308
+#: ../capplets/appearance/ukui-wp-item.c:310
 msgid "pixel"
 msgid_plural "pixels"
 msgstr[0] "పిగ్జెల్స్"
@@ -1058,7 +1058,7 @@ msgstr[1] "పిగ్జెల్స్"
 #. * mime type, size
 #. * Folder: /path/to/file
 #. * Artist: wallpaper author
-#: ../capplets/appearance/mate-wp-item.c:319
+#: ../capplets/appearance/ukui-wp-item.c:319
 #, c-format
 msgid ""
 "<b>%s</b>\n"
@@ -1071,7 +1071,7 @@ msgstr ""
 #. * Image missing
 #. * Folder: /path/to/file
 #. * Artist: wallpaper author
-#: ../capplets/appearance/mate-wp-item.c:334
+#: ../capplets/appearance/ukui-wp-item.c:334
 #, c-format
 msgid ""
 "<b>%s</b>\n"
@@ -1080,7 +1080,7 @@ msgid ""
 "Artist: %s"
 msgstr ""
 
-#: ../capplets/appearance/mate-wp-item.c:339
+#: ../capplets/appearance/ukui-wp-item.c:339
 msgid "Image missing"
 msgstr ""
 
@@ -1138,8 +1138,8 @@ msgstr "కొత్త థీమ్‌ను ఆపాదించుము"
 
 #: ../capplets/appearance/theme-installer.c:486
 #, c-format
-msgid "MATE Theme %s correctly installed"
-msgstr "MATE థీమ్ %s ప్రస్తుతం సంస్థాపించబడిఉంది"
+msgid "UKUI Theme %s correctly installed"
+msgstr "UKUI థీమ్ %s ప్రస్తుతం సంస్థాపించబడిఉంది"
 
 #: ../capplets/appearance/theme-installer.c:548
 msgid "Failed to create temporary directory"
@@ -1196,9 +1196,9 @@ msgstr "థీమ్‌ను సంస్థాపించలేము"
 
 #: ../capplets/common/activate-settings-daemon.c:16
 msgid ""
-"Unable to start the settings manager 'mate-settings-daemon'.\n"
-"Without the MATE settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-MATE (e.g. KDE) settings manager may already be active and conflicting with the MATE settings manager."
-msgstr "అమరికల అభికర్త 'mate-settings-daemon'ను ప్రారంభించలేకపోయింది.\nగ్నోమ్ అమరికల అభికర్త నడవకపోతే అభీష్టాల్లోని కొన్ని అంశాలు పనిచేయవు. ఇది DBusతో వొక సమస్యను సూచిస్తుంది, లేదా MATE-కాని (ఉ.దా. KDE) అమరికల నిర్వాహిక యిప్పటికే క్రియాశీలంగా వుండివుండవచ్చు మరియు MATE అమరికల నిర్వాహికతో విభేదించుచున్నది."
+"Unable to start the settings manager 'ukui-settings-daemon'.\n"
+"Without the UKUI settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-UKUI (e.g. KDE) settings manager may already be active and conflicting with the UKUI settings manager."
+msgstr "అమరికల అభికర్త 'ukui-settings-daemon'ను ప్రారంభించలేకపోయింది.\nగ్నోమ్ అమరికల అభికర్త నడవకపోతే అభీష్టాల్లోని కొన్ని అంశాలు పనిచేయవు. ఇది DBusతో వొక సమస్యను సూచిస్తుంది, లేదా UKUI-కాని (ఉ.దా. KDE) అమరికల నిర్వాహిక యిప్పటికే క్రియాశీలంగా వుండివుండవచ్చు మరియు UKUI అమరికల నిర్వాహికతో విభేదించుచున్నది."
 
 #: ../capplets/common/capplet-stock-icons.c:66
 #, c-format
@@ -1286,176 +1286,176 @@ msgstr "వదిలవేయుము (_S)"
 msgid "Overwrite _All"
 msgstr "అన్నిటిని తిరిగివ్రాయి (_A)"
 
-#: ../capplets/common/mate-theme-info.c:691
+#: ../capplets/common/ukui-theme-info.c:691
 msgid "Default Pointer - Current"
 msgstr "ప్రస్తుత - అప్రమేయ సూచిక"
 
-#: ../capplets/common/mate-theme-info.c:695
+#: ../capplets/common/ukui-theme-info.c:695
 msgid "White Pointer"
 msgstr "శ్వేత సూచిక"
 
-#: ../capplets/common/mate-theme-info.c:696
+#: ../capplets/common/ukui-theme-info.c:696
 msgid "White Pointer - Current"
 msgstr "ప్రస్తుత - శ్వేత సూచకి"
 
-#: ../capplets/common/mate-theme-info.c:700
+#: ../capplets/common/ukui-theme-info.c:700
 msgid "Large Pointer"
 msgstr "పెద్ద సూచిక"
 
-#: ../capplets/common/mate-theme-info.c:701
+#: ../capplets/common/ukui-theme-info.c:701
 msgid "Large Pointer - Current"
 msgstr "ప్రస్తుత - పెద్ద సూచిక"
 
-#: ../capplets/common/mate-theme-info.c:705
+#: ../capplets/common/ukui-theme-info.c:705
 msgid "Large White Pointer - Current"
 msgstr "భారీ శ్వేత సూచిక - ప్రస్తుత"
 
-#: ../capplets/common/mate-theme-info.c:706
+#: ../capplets/common/ukui-theme-info.c:706
 msgid "Large White Pointer"
 msgstr "భారి శ్వేత సూచిక"
 
-#: ../capplets/common/mate-theme-info.c:1696
+#: ../capplets/common/ukui-theme-info.c:1696
 #, c-format
 msgid ""
 "This theme will not look as intended because the required GTK+ theme '%s' is"
 " not installed."
 msgstr "ఈ థీమ్ అనుకొన్నట్లు కనిపించదు యెంచేతంటే అవసరమైన GTK+ థీమ్ '%s' సంస్థాపించి లేదు."
 
-#: ../capplets/common/mate-theme-info.c:1706
+#: ../capplets/common/ukui-theme-info.c:1706
 #, c-format
 msgid ""
 "This theme will not look as intended because the required window manager "
 "theme '%s' is not installed."
 msgstr "ఈ థీమ్ అనుకొన్నట్లు కలిపించదు యెంచేతంటే కావలిసిన విండో నిర్వాహిక థీమ్ '%s' సంస్థాపించిలేదు."
 
-#: ../capplets/common/mate-theme-info.c:1714
+#: ../capplets/common/ukui-theme-info.c:1714
 #, c-format
 msgid ""
 "This theme will not look as intended because the required icon theme '%s' is"
 " not installed."
 msgstr "ఈ థీమ్ అనుకొన్నట్లు కనిపించదు యెంచేతంటే కావలిసిన ప్రతిమ థీమ్ '%s' సంస్థాపించిలేదు."
 
-#: ../capplets/default-applications/mate-default-applications-properties.desktop.in.in.h:1
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:1
+#: ../capplets/default-applications/ukui-default-applications-properties.desktop.in.in.h:1
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:1
 msgid "Preferred Applications"
 msgstr "అభీష్ట అనువర్తనంలు"
 
-#: ../capplets/default-applications/mate-default-applications-properties.desktop.in.in.h:2
+#: ../capplets/default-applications/ukui-default-applications-properties.desktop.in.in.h:2
 msgid "Select your default applications"
 msgstr "మీ అప్రమేయ అనువర్తనంలను ఎంపికచేయుము"
 
-#: ../capplets/default-applications/mate-da-capplet.c:542
+#: ../capplets/default-applications/ukui-da-capplet.c:542
 msgid "Could not load the main interface"
 msgstr "ముఖ్య అంతర్ముఖిని నింపలేకపోతోంది"
 
-#: ../capplets/default-applications/mate-da-capplet.c:543
+#: ../capplets/default-applications/ukui-da-capplet.c:543
 msgid "Please make sure that the applet is properly installed"
 msgstr "ఆ ఆప్లెట్ సరిగా సంస్థాపించబడునట్లు దయచేసి చూసుకొనుము"
 
 #. TRANSLATORS: don't translate the terms in brackets
-#: ../capplets/default-applications/mate-da-capplet.c:692
+#: ../capplets/default-applications/ukui-da-capplet.c:692
 msgid "Specify the name of the page to show (internet|multimedia|system|a11y)"
 msgstr "చూపుటకు పేజియొక్క నామమును తెలుపుము (internet|multimedia|system|a11y)"
 
-#: ../capplets/default-applications/mate-da-capplet.c:698
-msgid "- MATE Default Applications"
-msgstr "- MATE అప్రమేయ అనువర్తనములు"
+#: ../capplets/default-applications/ukui-da-capplet.c:698
+msgid "- UKUI Default Applications"
+msgstr "- UKUI అప్రమేయ అనువర్తనములు"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:2
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:2
 msgid "Web Browser"
 msgstr "వెబ్ అన్వేషణి"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:3
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:3
 msgid "Mail Reader"
 msgstr "మెయిల్ చదువునది"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:4
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:4
 msgid "Instant Messenger"
 msgstr "సత్వర సందేశిని"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:5
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:5
 msgid "Co_mmand:"
 msgstr "ఆదేశం(_m):"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:7
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:7
 #, no-c-format
 msgid "All %s occurrences will be replaced with actual link"
 msgstr "అన్ని %s సంభవాలు వాస్తవ లింకుతో పునఃస్థాపితం అవుతాయి"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:8
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:8
 msgid "Run in t_erminal"
 msgstr "టర్మినల్లో నడుపు(_e)"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:9
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:9
 msgid "Internet"
 msgstr "ఇంటర్ నెట్"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:10
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:10
 msgid "Image Viewer"
 msgstr "చిత్ర దర్శకి"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:11
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:11
 msgid "Multimedia Player"
 msgstr "బహుళమాద్యమం ప్లేయర్"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:12
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:12
 msgid "Video Player"
 msgstr "వీడియో ప్లేయర్"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:13
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:13
 msgid "Multimedia"
 msgstr "బహుళమాద్యమం"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:14
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:14
 msgid "Text Editor"
 msgstr "పాఠ్యము సరికూర్పరి"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:15
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:15
 msgid "Terminal Emulator"
 msgstr "టెర్మినల్ ఎమ్యులేటర్"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:16
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:16
 msgid "File Manager"
 msgstr ""
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:17
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:17
 msgid "System"
 msgstr "సిస్టమ్"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:18
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:18
 msgid "Document Viewer"
 msgstr ""
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:19
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:19
 msgid "Word Processor"
 msgstr ""
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:20
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:20
 msgid "Spreadsheet Editor"
 msgstr ""
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:21
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:21
 msgid "Office"
 msgstr ""
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:22
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:22
 msgid "Visual"
 msgstr "దృశ్యసంభందిత"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:23
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:23
 msgid "_Run at start"
 msgstr "ప్రారంభం వద్ద నడుపుము(_R)"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:24
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:24
 msgid "Mobility"
 msgstr "స్థానభ్రంశతత్వం"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:25
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:25
 msgid "Run at st_art"
 msgstr "ప్రారంభంవద్ద నడుపుము(_a)"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:26
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:45
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:26
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:45
 msgid "Accessibility"
 msgstr "అందుబాటు"
 
@@ -1469,7 +1469,7 @@ msgstr ""
 
 #: ../capplets/display/display-capplet.ui.h:3
 msgid ""
-"Applies the current configuration for other MATE users on the computer. Note"
+"Applies the current configuration for other UKUI users on the computer. Note"
 " that this doesn't affect login screens or other desktop environments."
 msgstr ""
 
@@ -1534,13 +1534,13 @@ msgstr "సాదారణ"
 
 #: ../capplets/display/display-capplet.ui.h:18
 #: ../capplets/display/xrandr-capplet.c:312
-#: ../capplets/windows/mate-window-properties.c:574
+#: ../capplets/windows/ukui-window-properties.c:574
 msgid "Left"
 msgstr "ఎడమ"
 
 #: ../capplets/display/display-capplet.ui.h:19
 #: ../capplets/display/xrandr-capplet.c:313
-#: ../capplets/windows/mate-window-properties.c:573
+#: ../capplets/windows/ukui-window-properties.c:573
 msgid "Right"
 msgstr "కుడి"
 
@@ -1548,22 +1548,22 @@ msgstr "కుడి"
 msgid "Upside-down"
 msgstr "పైనప్రక్క క్రిందకు"
 
-#: ../capplets/display/mate-display-properties.desktop.in.in.h:1
+#: ../capplets/display/ukui-display-properties.desktop.in.in.h:1
 msgid "Displays"
 msgstr ""
 
-#: ../capplets/display/mate-display-properties.desktop.in.in.h:2
+#: ../capplets/display/ukui-display-properties.desktop.in.in.h:2
 msgid "Change resolution and position of monitors and projectors"
 msgstr ""
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:44
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:44
 #, c-format
 msgid ""
 "Usage: %s SOURCE_FILE DEST_NAME\n"
 "\n"
 "This program installs a RANDR profile for multi-monitor setups into\n"
 "a systemwide location.  The resulting profile will get used when\n"
-"the RANDR plug-in gets run in mate-settings-daemon.\n"
+"the RANDR plug-in gets run in ukui-settings-daemon.\n"
 "\n"
 "SOURCE_FILE - a full pathname, typically /home/username/.config/monitors.xml\n"
 "\n"
@@ -1573,75 +1573,75 @@ msgid ""
 msgstr ""
 
 #. Translators: only able to install RANDR profiles as root
-#: ../capplets/display/mate-display-properties-install-systemwide.c:151
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:151
 msgid "This program can only be used by the root user"
 msgstr ""
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:168
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:168
 msgid "The source filename must be absolute"
 msgstr ""
 
 #. Translators: first %s is a filename; second %s is an error message
-#: ../capplets/display/mate-display-properties-install-systemwide.c:179
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:179
 #, c-format
 msgid "Could not open %s: %s\n"
 msgstr ""
 
 #. Translators: first %s is a filename; second %s is an error message
-#: ../capplets/display/mate-display-properties-install-systemwide.c:188
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:188
 #, c-format
 msgid "Could not get information for %s: %s\n"
 msgstr ""
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:195
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:195
 #, c-format
 msgid "%s must be a regular file\n"
 msgstr ""
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:204
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:204
 msgid "This program must only be run through pkexec(1)"
 msgstr ""
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:209
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:209
 msgid "PKEXEC_UID must be set to an integer value"
 msgstr ""
 
 #. Translators: we are complaining that a file must be really owned by the
 #. user who called this program
-#: ../capplets/display/mate-display-properties-install-systemwide.c:215
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:215
 #, c-format
 msgid "%s must be owned by you\n"
 msgstr ""
 
 #. Translators: here we are saying that a plain filename must look like
 #. "filename", not like "some_dir/filename"
-#: ../capplets/display/mate-display-properties-install-systemwide.c:223
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:223
 #, c-format
 msgid "%s must not have any directory components\n"
 msgstr ""
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:231
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:231
 #, c-format
 msgid "%s must be a directory\n"
 msgstr ""
 
 #. Translators: the first %s/%s is a directory/filename; the last %s is an
 #. error message
-#: ../capplets/display/mate-display-properties-install-systemwide.c:242
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:242
 #, c-format
 msgid "Could not open %s/%s: %s\n"
 msgstr ""
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:262
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:262
 #, c-format
 msgid "Could not rename %s to %s: %s\n"
 msgstr ""
 
-#: ../capplets/display/org.mate.randr.policy.in.h:1
+#: ../capplets/display/org.ukui.randr.policy.in.h:1
 msgid "Install multi-monitor settings for the whole system"
 msgstr ""
 
-#: ../capplets/display/org.mate.randr.policy.in.h:2
+#: ../capplets/display/org.ukui.randr.policy.in.h:2
 msgid ""
 "Authentication is required to install multi-monitor settings for all users"
 msgstr ""
@@ -1737,845 +1737,845 @@ msgid "The type of accelerator."
 msgstr "ఏక్సలరేటర్ రకం."
 
 #: ../capplets/keybindings/eggcellrendererkeys.c:231
-#: ../capplets/keybindings/mate-keybinding-properties.c:134
-#: ../capplets/mouse/mate-mouse-properties.c:396
+#: ../capplets/keybindings/ukui-keybinding-properties.c:134
+#: ../capplets/mouse/ukui-mouse-properties.c:396
 #: ../typing-break/drwright.c:501
 msgid "Disabled"
 msgstr "అచేతనం"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:216
+#: ../capplets/keybindings/ukui-keybinding-properties.c:216
 msgid "<Unknown Action>"
 msgstr "<అపరిచిత క్రియ>"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1020
-#: ../capplets/keybindings/mate-keybinding-properties.c:1610
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1020
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1610
 msgid "Custom Shortcuts"
 msgstr "మలచుకొనిన లఘువులు"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1190
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1190
 msgid "Error saving the new shortcut"
 msgstr "కొత్త లఘువును దాయుటలో దోషము"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1266
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1266
 #, c-format
 msgid ""
 "The shortcut \"%s\" cannot be used because it will become impossible to type using this key.\n"
 "Please try with a key such as Control, Alt or Shift at the same time."
 msgstr "లఘవు \"%s\" ఉపయోగించబడదు ఎంచేతంటే ఈ కీ ఉపయోగించి దీనిని టైపుచేయుట అసాధ్యం అవుతుంది.\nControl,Alt లేదా అదే సమయంలో Shift వంటి కీలతో దయచేసి ప్రయత్నించండి."
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1298
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1298
 #, c-format
 msgid ""
 "The shortcut \"%s\" is already used for\n"
 "\"%s\""
 msgstr " \"%s\" అను అడ్డదారి ఇప్పటికే\n \"%s\"కొరకు వినియోగంలో వుంది"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1305
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1305
 #, c-format
 msgid "If you reassign the shortcut to \"%s\", the \"%s\" shortcut will be disabled."
 msgstr "మీరు లఘువును \"%s\"కు తిరిగిఅప్పగిస్తే, \"%s\" లఘవు అచేతనము చేయబడుతుంది."
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1310
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1310
 msgid "_Reassign"
 msgstr "తిరిగిఅప్పగించు (_R)"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1565
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1565
 msgid "Too many custom shortcuts"
 msgstr "మరీ యెక్కువ వినియోగదారి లఘువులు"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1853
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1853
 msgid "Action"
 msgstr "చర్య"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1875
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1875
 msgid "Shortcut"
 msgstr "లఘువు"
 
 #. * vim: sw=2 ts=8 cindent noai bs=2
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:1
-#: ../capplets/keybindings/mate-keybinding.desktop.in.in.h:1
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:1
+#: ../capplets/keybindings/ukui-keybinding.desktop.in.in.h:1
 msgid "Keyboard Shortcuts"
 msgstr "కీబోర్డు లఘువులు"
 
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:2
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:2
 msgid ""
 "To edit a shortcut key, click on the corresponding row and type a new key "
 "combination, or press backspace to clear."
 msgstr "లఘువును సరిచేయుటకు, సంభందిత అడ్డువరుసపై నొక్కి మరియు కొత్త ఎక్సలేటర్‌ను టైపుచేయండి, లేదా చెరుపివేయుటకు బ్యాక్‌స్పేస్‌ను వత్తుము."
 
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:3
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:3
 msgid "Custom Shortcut"
 msgstr "వినియోగదారి లఘువు"
 
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:5
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:5
 msgid "C_ommand:"
 msgstr "ఆదేశం(_o):"
 
-#: ../capplets/keybindings/mate-keybinding.desktop.in.in.h:2
+#: ../capplets/keybindings/ukui-keybinding.desktop.in.in.h:2
 msgid "Assign shortcut keys to commands"
 msgstr "ఆదేశాలకు లఘువులను జతచేయుము"
 
-#: ../capplets/keyboard/mate-keyboard-properties.c:213
-#: ../capplets/keyboard/mate-keyboard-properties.c:218
+#: ../capplets/keyboard/ukui-keyboard-properties.c:213
+#: ../capplets/keyboard/ukui-keyboard-properties.c:218
 msgid ""
 "Just apply settings and quit (compatibility only; now handled by daemon)"
 msgstr "కేవలం అమరికలను అమలు చేసి త్యజించు(అనుసంధానం మాత్రమే, ప్రస్తుతం సూత్రధారులతో మాత్రమే నడుపబడుతుంది)"
 
-#: ../capplets/keyboard/mate-keyboard-properties.c:223
+#: ../capplets/keyboard/ukui-keyboard-properties.c:223
 msgid "Start the page with the typing break settings showing"
 msgstr "టైపింగ్ విరామ అమరికలను చూపుతూ పుటను ప్రారంభించు"
 
-#: ../capplets/keyboard/mate-keyboard-properties.c:228
+#: ../capplets/keyboard/ukui-keyboard-properties.c:228
 msgid "Start the page with the accessibility settings showing"
 msgstr "ఆందుబాటు అమరికలను చూపుతూ పుటను ప్రారంభించుము"
 
-#: ../capplets/keyboard/mate-keyboard-properties.c:234
-msgid "- MATE Keyboard Preferences"
-msgstr "- MATE కీబోర్డు అభీష్టాలు"
+#: ../capplets/keyboard/ukui-keyboard-properties.c:234
+msgid "- UKUI Keyboard Preferences"
+msgstr "- UKUI కీబోర్డు అభీష్టాలు"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:1
 msgid "Keyboard Accessibility Audio Feedback"
 msgstr "కీబోర్డు అందుబాటు ఆ‍డియో ఫీడ్‌బ్యాక్"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:2
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:15
-#: ../capplets/mouse/mate-mouse-properties.ui.h:30
-#: ../capplets/windows/mate-window-properties.c:382
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:2
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:15
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:30
+#: ../capplets/windows/ukui-window-properties.c:382
 msgid "General"
 msgstr "సాధారణ"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:3
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:3
 msgid "Beep when _accessibility features are turned on or off"
 msgstr "అందుబాటు సౌలభ్యాలు ఆన్ లేదా ఆఫ్ అయినప్పుడు బీప్‌చేయుము(_a)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:4
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:4
 msgid "Beep when a _toggle key is pressed"
 msgstr "మార్పు కీ వత్తినప్పుడు బీప్‌చేయుము(_t)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:5
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:5
 msgid "Visual cues for sounds"
 msgstr "శబ్దములకు దృశ్య క్యూలు"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:6
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:6
 msgid "Show _visual feedback for the alert sound"
 msgstr "హెచ్చరిక శబ్ధమునకు దృశ్య ఫీడ్‌బ్యాక్‌ను చూపుము (_v)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:7
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:7
 msgid "Flash _window titlebar"
 msgstr "విండో శీర్షికపట్టీని ప్రకాశించుము(_w)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:8
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:8
 msgid "Flash entire _screen"
 msgstr "మొత్తం తెరను ప్రకాశించుము (_s)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:9
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:39
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:9
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:39
 msgid "Slow Keys"
 msgstr "స్లో కీలు"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:10
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:10
 msgid "Beep when a key is pr_essed"
 msgstr "కీ వత్తినప్పుడు బీప్‌చేయుము(_e)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:11
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:11
 msgid "Beep when key is _accepted"
 msgstr "కీ ఆమోదించినప్పుడు బీప్ చేయుము(_a)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:12
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:12
 msgid "Beep when key is _rejected"
 msgstr "కీ తిరస్కరించినప్పుడు బీప్ చేయుము(_r)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:13
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:41
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:13
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:41
 msgid "Bounce Keys"
 msgstr "బౌన్సు కీలు"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:14
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:14
 msgid "Beep when a key is reje_cted"
 msgstr "కీ తిరస్కరించబడినప్పుడు బీప్‌చేయుము(_c)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:15
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:36
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:15
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:36
 msgid "Sticky Keys"
 msgstr "చెందివుండు కీలు"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:16
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:16
 msgid "Beep when a _modifier key is pressed"
 msgstr "సవరణి కీ వత్తినప్పుడు బీప్ చేయుము(_m)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:1
 msgid "Keyboard Preferences"
 msgstr "కీబోర్డు అభీష్టాలు"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:2
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:2
 msgid "Repeat Keys"
 msgstr "మళ్ళీచేయు మీటలు"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:3
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:3
 msgid "Key presses _repeat when key is held down"
 msgstr "కీ నొక్కివుంచినప్పుడు కీ వత్తులు పునరావృతం కావాలి(_r)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:4
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:4
 msgid "_Delay:"
 msgstr "ఆలస్యం(_D):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:5
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:5
 msgid "_Speed:"
 msgstr "వేగం(_S):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:6
-#: ../capplets/mouse/mate-mouse-properties.ui.h:27
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:6
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:27
 msgid "Short"
 msgstr "లఘువు"
 
 #. slow acceleration
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:7
-#: ../capplets/mouse/mate-mouse-properties.ui.h:11
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:7
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:11
 msgid "Slow"
 msgstr "నెమ్మది"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:8
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:8
 msgid "Repeat keys speed"
 msgstr "పునరావృత కీల వేగం"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:9
-#: ../capplets/mouse/mate-mouse-properties.ui.h:28
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:9
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:28
 msgid "Long"
 msgstr "పోడవు"
 
 #. fast acceleration
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:10
-#: ../capplets/mouse/mate-mouse-properties.ui.h:13
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:10
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:13
 msgid "Fast"
 msgstr "వేగము"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:11
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:11
 msgid "Cursor Blinking"
 msgstr "కర్సర్ బ్లింకవుచున్నది"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:12
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:12
 msgid "Cursor _blinks in text fields"
 msgstr "పాఠ్యము క్షేత్రములందు కర్సర్ బ్లింక్‌అవుతోంది(_b)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:13
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:13
 msgid "S_peed:"
 msgstr "వేగం(_p):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:14
-#: ../capplets/mouse/mate-mouse-properties.ui.h:22
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:14
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:22
 msgid "Cursor blinks speed"
 msgstr "కర్సర్ బ్లింకు వేగం"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:16
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:16
 msgid "List of keyboard layouts selected for usage"
 msgstr ""
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:18
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:18
 msgid "Select a keyboard layout to be added to the list"
 msgstr ""
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:19
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:19
 msgid "Remove the selected keyboard layout from the list"
 msgstr ""
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:20
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:20
 msgid "Move _Up"
 msgstr ""
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:21
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:21
 msgid "Move the selected keyboard layout up in the list"
 msgstr ""
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:22
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:22
 msgid "Move _Down"
 msgstr ""
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:23
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:23
 msgid "Move the selected keyboard layout down in the list"
 msgstr ""
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:24
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:24
 msgid "_Show..."
 msgstr ""
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:25
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:25
 msgid "Print a diagram of the selected keyboard layout"
 msgstr ""
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:26
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:26
 msgid "_Separate layout for each window"
 msgstr ""
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:27
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:27
 msgid "New windows u_se active window's layout"
 msgstr ""
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:28
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:28
 msgid "Keyboard _model:"
 msgstr "కీబోర్డు రీతి(_m):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:29
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:29
 msgid "_Options..."
 msgstr ""
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:30
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:30
 msgid "View and edit keyboard layout options"
 msgstr ""
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:31
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:31
 msgid "Reset to De_faults"
 msgstr "అప్రమేయాలకు తిరగిఉంచుము(_f)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:32
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:32
 msgid ""
 "Replace the current keyboard layout settings with the\n"
 "default settings"
 msgstr ""
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:34
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:34
 msgid "Layouts"
 msgstr "వాస్తులు"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:35
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:35
 msgid "_Accessibility features can be toggled with keyboard shortcuts"
 msgstr "అందుబాటు సౌలభ్యాలు కీబోర్డు లఘవులతో మార్చబడ గలవు (_A)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:37
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:37
 msgid "_Simulate simultaneous keypresses"
 msgstr "సమకాలీన కీవత్తులను ఏకీకృతంచేయుము (_S)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:38
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:38
 msgid "Disa_ble sticky keys if two keys are pressed together"
 msgstr "ఒకేసారి రెండుకీలు కలిపి వత్తబడితే చెందివుండు కీలను అచేతనంచేయుము(_b)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:40
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:40
 msgid "_Only accept long keypresses"
 msgstr "ఎక్కువసేపు కీవత్తులను మాత్రమే ఆమోదించు(_O)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:42
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:42
 msgid "_Ignore fast duplicate keypresses"
 msgstr "వేగ నకిలీ కీవత్తులను వదిలివేయుము(_I)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:43
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:43
 msgid "D_elay:"
 msgstr "ఆలస్యం (_e):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:44
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:44
 msgid "Audio _Feedback..."
 msgstr "ఆడియో ఫీడ్‌బ్యాక్... (_F)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:46
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:46
 msgid "_Pointer can be controlled using the keypad"
 msgstr "కీబోర్డు ఉపయోగించి సూచికను నియంత్రించవచ్చు (_P)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:47
-#: ../capplets/mouse/mate-mouse-properties.ui.h:8
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:47
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:8
 msgid "_Acceleration:"
 msgstr "త్వరుణం(_A):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:48
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:48
 msgid "Mouse Keys"
 msgstr "మౌస్ కీలు"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:49
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:49
 msgid "_Lock screen to enforce typing break"
 msgstr "టైపింగ్ విరామంను బలవంతంచేయుటకు తెరను లాక్‌చేయము(_L)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:50
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:50
 msgid ""
 "Lock screen after a certain duration to help prevent repetitive keyboard use"
 " injuries"
 msgstr "పునరావృత కీబోర్డు ఉపయోగిత నష్టాల నిరోదనకు సహాయపడుటకు కొంత కాలపరిమాణం తరువాత తెరను లాక్‌చేయుము"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:51
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:51
 msgid "_Work interval lasts:"
 msgstr "పని విరామాల చివరలు(_W):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:52
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:52
 msgid "_Break interval lasts:"
 msgstr "విరామ చివరలను విడగొట్టుము(_B)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:53
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:53
 msgid "Duration of work before forcing a break"
 msgstr "విరామం కొరకు బలవంతపెట్టుటకు మునుపు పని యొక్క కాలపరిమాణం"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:54
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:54
 msgid "Duration of the break when typing is disallowed"
 msgstr "టైపింగు అనుతించబడనప్పుడు విరామం యొక్క కాలపరిమాణం"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:55
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:55
 msgid "minutes"
 msgstr "నిమిషాలు"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:56
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:56
 msgid "All_ow postponing of breaks"
 msgstr "విరామాల యొక్క వాయిదాలను అనుమతించుము(_o)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:57
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:57
 msgid "Check if breaks are allowed to be postponed"
 msgstr "వాయిదావేయబడునట్లు విరామాలు అనుమతించబడినవేమో పరిశీలించుము"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:58
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:58
 msgid "Typing Break"
 msgstr "టైపింగ్ విరామం"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:59
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:59
 msgid "_Type to test settings:"
 msgstr "అమరికలను పరీక్షించుటకు టైపుచేయుము(_T):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:1
 msgid "Choose a Layout"
 msgstr "నమూనాను ఎంపికచేయుము"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:2
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:2
 msgid "_Variants:"
 msgstr "తేడాలు(_V):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:3
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:3
 msgid "_Country:"
 msgstr "దేశం (_C):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:4
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:4
 msgid "By _country"
 msgstr "దేశం ద్వారా (_c):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:5
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:5
 msgid "_Language:"
 msgstr "భాష (_L):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:6
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:6
 msgid "By _language"
 msgstr "భాష ద్వారా (_l)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:7
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:7
 msgid "Preview:"
 msgstr "ఉపదర్శనం:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-model-chooser.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-model-chooser.ui.h:1
 msgid "Choose a Keyboard Model"
 msgstr "కీబోర్డు రీతిని ఎంపికచేయుము"
 
-#: ../capplets/keyboard/mate-keyboard-properties-model-chooser.ui.h:2
+#: ../capplets/keyboard/ukui-keyboard-properties-model-chooser.ui.h:2
 msgid "_Vendors:"
 msgstr "అమ్మకందారులు(_V):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-model-chooser.ui.h:3
+#: ../capplets/keyboard/ukui-keyboard-properties-model-chooser.ui.h:3
 msgid "_Models:"
 msgstr "రీతులు(_M):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-options-dialog.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-options-dialog.ui.h:1
 msgid "Keyboard Layout Options"
 msgstr "కీబోర్డు వాస్తు ఐచ్చికాలు"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkb.c:83
+#: ../capplets/keyboard/ukui-keyboard-properties-xkb.c:83
 msgid "Unknown"
 msgstr "తెలియని"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkblt.c:240
+#: ../capplets/keyboard/ukui-keyboard-properties-xkblt.c:240
 msgid "Layout"
 msgstr "నమూనా"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkbmc.c:170
+#: ../capplets/keyboard/ukui-keyboard-properties-xkbmc.c:170
 msgid "Vendors"
 msgstr "అమ్మకందార్లు"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkbmc.c:236
+#: ../capplets/keyboard/ukui-keyboard-properties-xkbmc.c:236
 msgid "Models"
 msgstr "నమూనాలు"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkbot.c:237
+#: ../capplets/keyboard/ukui-keyboard-properties-xkbot.c:237
 msgid "Default"
 msgstr "అప్రమేయం"
 
-#: ../capplets/keyboard/mate-keyboard.desktop.in.in.h:1
+#: ../capplets/keyboard/ukui-keyboard.desktop.in.in.h:1
 msgid "Keyboard"
 msgstr "కీబోర్డు"
 
-#: ../capplets/keyboard/mate-keyboard.desktop.in.in.h:2
+#: ../capplets/keyboard/ukui-keyboard.desktop.in.in.h:2
 msgid "Set your keyboard preferences"
 msgstr "మీ కీబోర్డు అభీష్టాలను అమర్చుము"
 
-#: ../capplets/mouse/mate-mouse-properties.c:396
+#: ../capplets/mouse/ukui-mouse-properties.c:396
 msgid "Left button"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.c:396
+#: ../capplets/mouse/ukui-mouse-properties.c:396
 msgid "Middle button"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.c:396
+#: ../capplets/mouse/ukui-mouse-properties.c:396
 msgid "Right button"
 msgstr ""
 
 #. TRANSLATORS: don't translate the terms in brackets
-#: ../capplets/mouse/mate-mouse-properties.c:482
+#: ../capplets/mouse/ukui-mouse-properties.c:482
 msgid "Specify the name of the page to show (general)"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.c:487
-msgid "- MATE Mouse Preferences"
-msgstr "- MATE మౌస్ అభీష్టాలు"
+#: ../capplets/mouse/ukui-mouse-properties.c:487
+msgid "- UKUI Mouse Preferences"
+msgstr "- UKUI మౌస్ అభీష్టాలు"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:1
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:1
 msgid "Mouse Preferences"
 msgstr "మౌస్ అభీష్టాలు"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:2
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:2
 msgid "Mouse Orientation"
 msgstr "మౌస్ సర్దుబాటు"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:3
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:3
 msgid "_Right-handed"
 msgstr "కుడి-చేతి(_R)"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:4
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:4
 msgid "_Left-handed"
 msgstr "ఎడమ-చేతి(_L)"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:5
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:5
 msgid "Locate Pointer"
 msgstr "సూచకని గుర్తించుము"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:6
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:6
 msgid "Sh_ow position of pointer when the Control key is pressed"
 msgstr "నియంత్రిక కీ వత్తినప్పుడు సూచిక చూపించబడు స్థానము(_o)"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:7
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:7
 msgid "Pointer Speed"
 msgstr "సూచిక వేగం"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:9
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:9
 msgid "_Sensitivity:"
 msgstr "సున్నితత్వం(_S):"
 
 #. low sensitivity
-#: ../capplets/mouse/mate-mouse-properties.ui.h:15
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:15
 msgid "Low"
 msgstr "తక్కువ"
 
 #. high sensitivity
-#: ../capplets/mouse/mate-mouse-properties.ui.h:17
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:17
 msgid "High"
 msgstr "అధిక"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:18
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:18
 msgid "Drag and Drop"
 msgstr "లాగుము మరియు వదులుము"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:19
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:19
 msgid "Thr_eshold:"
 msgstr "త్రెష్‌హోల్డు(_e):"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:25
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:25
 msgid "Double-Click Timeout"
 msgstr "రెండు-నొక్కలు కాలముమించినది"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:26
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:26
 msgid "_Timeout:"
 msgstr "సమయం మించినది(_T):"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:29
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:29
 msgid ""
 "To test your double-click settings, try to double-click on the light bulb."
 msgstr "మీ రెండు-నొక్కుల అమరికలను పరిశీలించుటకు, కాంతి బుడ్డి పై రెండు-నొక్కలు ప్రయత్నించుము."
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:31
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:31
 msgid "Enable _touchpad"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:32
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:32
 msgid "Disable touchpad _while typing"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:33
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:33
 msgid "Enable _mouse clicks with touchpad"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:34
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:34
 msgid "Two-finger click emulation:"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:35
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:35
 msgid "Three-finger click emulation:"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:36
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:36
 msgid "Scrolling"
 msgstr "స్క్రాలింగ్"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:37
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:37
 msgid "_Vertical edge scrolling"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:38
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:38
 msgid "H_orizontal edge scrolling"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:39
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:39
 msgid "V_ertical two-finger scrolling"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:40
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:40
 msgid "Hor_izontal two-finger scrolling"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:41
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:41
 msgid "Enable n_atural scrolling"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:42
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:42
 msgid "Touchpad"
 msgstr "టచ్‌పాడ్"
 
-#: ../capplets/mouse/mate-settings-mouse.desktop.in.in.h:1
+#: ../capplets/mouse/ukui-settings-mouse.desktop.in.in.h:1
 msgid "Mouse"
 msgstr "మౌస్"
 
-#: ../capplets/mouse/mate-settings-mouse.desktop.in.in.h:2
+#: ../capplets/mouse/ukui-settings-mouse.desktop.in.in.h:2
 msgid "Set your mouse preferences"
 msgstr "మీ మౌస్ అభీష్టాలను అమర్చుము"
 
-#: ../capplets/network/mate-network-properties.desktop.in.in.h:1
+#: ../capplets/network/ukui-network-properties.desktop.in.in.h:1
 msgid "Network Proxy"
 msgstr "నెట్వర్కు ప్రాక్సీ"
 
-#: ../capplets/network/mate-network-properties.desktop.in.in.h:2
+#: ../capplets/network/ukui-network-properties.desktop.in.in.h:2
 msgid "Set your network proxy preferences"
 msgstr "మీ నెట్వర్కు ప్రాక్సీ అభీష్టాలను అమర్చుము"
 
-#: ../capplets/network/mate-network-properties.ui.h:1
+#: ../capplets/network/ukui-network-properties.ui.h:1
 msgid "HTTP Proxy Details"
 msgstr "HTTP ప్రాక్సీ వివరములు"
 
-#: ../capplets/network/mate-network-properties.ui.h:2
+#: ../capplets/network/ukui-network-properties.ui.h:2
 msgid "<b>_Use authentication</b>"
 msgstr "<b>దృవీకరణను ఉపయోగించుము(_U)</b>"
 
-#: ../capplets/network/mate-network-properties.ui.h:3
+#: ../capplets/network/ukui-network-properties.ui.h:3
 msgid "U_sername:"
 msgstr "వినియోగదారునినామము(_s):"
 
-#: ../capplets/network/mate-network-properties.ui.h:4
+#: ../capplets/network/ukui-network-properties.ui.h:4
 msgid "_Password:"
 msgstr "సంకేతపదం(_P):"
 
-#: ../capplets/network/mate-network-properties.ui.h:5
+#: ../capplets/network/ukui-network-properties.ui.h:5
 msgid "Network Proxy Preferences"
 msgstr "నెట్వర్కు ప్రాక్సీ అభీష్టాలు"
 
-#: ../capplets/network/mate-network-properties.ui.h:6
+#: ../capplets/network/ukui-network-properties.ui.h:6
 msgid "<b>Di_rect internet connection</b>"
 msgstr "<b>సూటిగాఉన్న ఇంటర్‌నెట్ అనుసంధానం(_r)</b>"
 
-#: ../capplets/network/mate-network-properties.ui.h:7
+#: ../capplets/network/ukui-network-properties.ui.h:7
 msgid "<b>_Manual proxy configuration</b>"
 msgstr "<b>మానవీయ ప్రాక్సీ ఆకృతీకరణ(_M)</b>"
 
-#: ../capplets/network/mate-network-properties.ui.h:8
+#: ../capplets/network/ukui-network-properties.ui.h:8
 msgid "H_TTP proxy:"
 msgstr "H_TTP ప్రాక్సీ:"
 
-#: ../capplets/network/mate-network-properties.ui.h:9
+#: ../capplets/network/ukui-network-properties.ui.h:9
 msgid "_Secure HTTP proxy:"
 msgstr "రక్షిత HTTP ప్రాక్సీ(_S):"
 
-#: ../capplets/network/mate-network-properties.ui.h:10
+#: ../capplets/network/ukui-network-properties.ui.h:10
 msgid "_FTP proxy:"
 msgstr "_FTP ప్రాక్సీ:"
 
-#: ../capplets/network/mate-network-properties.ui.h:11
+#: ../capplets/network/ukui-network-properties.ui.h:11
 msgid "S_ocks host:"
 msgstr "సాక్స్ అతిధేయ(_o):"
 
-#: ../capplets/network/mate-network-properties.ui.h:12
+#: ../capplets/network/ukui-network-properties.ui.h:12
 msgid "Port:"
 msgstr "పోర్టు:"
 
-#: ../capplets/network/mate-network-properties.ui.h:13
+#: ../capplets/network/ukui-network-properties.ui.h:13
 msgid "_Details"
 msgstr "వివరములు(_D)"
 
-#: ../capplets/network/mate-network-properties.ui.h:14
+#: ../capplets/network/ukui-network-properties.ui.h:14
 msgid "<b>_Automatic proxy configuration</b>"
 msgstr "<b>స్వయంచాలక ప్రాక్సీ అకృతీకరణ(_A)</b>"
 
-#: ../capplets/network/mate-network-properties.ui.h:15
+#: ../capplets/network/ukui-network-properties.ui.h:15
 msgid "Autoconfiguration _URL:"
 msgstr "స్వయంచాలకఆకృతీకరణ _URL:"
 
-#: ../capplets/network/mate-network-properties.ui.h:16
+#: ../capplets/network/ukui-network-properties.ui.h:16
 msgid "Proxy Configuration"
 msgstr "ప్రాక్సీ ఆకృతీకరణ"
 
-#: ../capplets/network/mate-network-properties.ui.h:17
+#: ../capplets/network/ukui-network-properties.ui.h:17
 msgid "Ignore Host List"
 msgstr "హోస్టు జాబితాను వదిలివేయుము"
 
-#: ../capplets/network/mate-network-properties.ui.h:18
+#: ../capplets/network/ukui-network-properties.ui.h:18
 msgid "Ignored Hosts"
 msgstr "అతిధేయలను వదిలివేయుము"
 
-#: ../capplets/windows/mate-metacity-support.c:40
+#: ../capplets/windows/ukui-metacity-support.c:40
 msgid "Metacity Preferences"
 msgstr ""
 
 #. Compositing manager
-#: ../capplets/windows/mate-metacity-support.c:55
-#: ../capplets/windows/mate-window-properties.c:410
+#: ../capplets/windows/ukui-metacity-support.c:55
+#: ../capplets/windows/ukui-window-properties.c:410
 msgid "Compositing Manager"
 msgstr ""
 
-#: ../capplets/windows/mate-metacity-support.c:66
-#: ../capplets/windows/mate-window-properties.c:422
+#: ../capplets/windows/ukui-metacity-support.c:66
+#: ../capplets/windows/ukui-window-properties.c:422
 msgid "Enable software _compositing window manager"
 msgstr ""
 
-#: ../capplets/windows/mate-window-properties.c:264
+#: ../capplets/windows/ukui-window-properties.c:264
 msgid "The current window manager is unsupported"
 msgstr ""
 
 #. Window
-#: ../capplets/windows/mate-window-properties.c:358
+#: ../capplets/windows/ukui-window-properties.c:358
 msgid "Window Preferences"
 msgstr "విండో అభీష్టాలు"
 
-#: ../capplets/windows/mate-window-properties.c:391
+#: ../capplets/windows/ukui-window-properties.c:391
 msgid "Behaviour"
 msgstr ""
 
-#: ../capplets/windows/mate-window-properties.c:400
+#: ../capplets/windows/ukui-window-properties.c:400
 msgid "Placement"
 msgstr ""
 
-#: ../capplets/windows/mate-window-properties.c:423
+#: ../capplets/windows/ukui-window-properties.c:423
 msgid "Disable _thumbnails in Alt-Tab"
 msgstr ""
 
 #. Titlebar buttons
-#: ../capplets/windows/mate-window-properties.c:431
+#: ../capplets/windows/ukui-window-properties.c:431
 msgid "Titlebar Buttons"
 msgstr ""
 
-#: ../capplets/windows/mate-window-properties.c:439
+#: ../capplets/windows/ukui-window-properties.c:439
 msgid "Position:"
 msgstr ""
 
 #. New Windows
-#: ../capplets/windows/mate-window-properties.c:446
+#: ../capplets/windows/ukui-window-properties.c:446
 msgid "New Windows"
 msgstr ""
 
-#: ../capplets/windows/mate-window-properties.c:454
+#: ../capplets/windows/ukui-window-properties.c:454
 msgid "Center _new windows"
 msgstr ""
 
 #. Window Snapping
-#: ../capplets/windows/mate-window-properties.c:459
+#: ../capplets/windows/ukui-window-properties.c:459
 msgid "Window Snapping"
 msgstr ""
 
-#: ../capplets/windows/mate-window-properties.c:467
+#: ../capplets/windows/ukui-window-properties.c:467
 msgid "Enable side by side _tiling"
 msgstr ""
 
 #. Window Selection
-#: ../capplets/windows/mate-window-properties.c:472
+#: ../capplets/windows/ukui-window-properties.c:472
 msgid "Window Selection"
 msgstr "విండో ఎంపిక"
 
-#: ../capplets/windows/mate-window-properties.c:492
+#: ../capplets/windows/ukui-window-properties.c:492
 msgid "_Select windows when the mouse moves over them"
 msgstr "మౌస్ వాటిపైకి కదలగానే విండోను ఎంపికచేయుము(_S)"
 
-#: ../capplets/windows/mate-window-properties.c:495
+#: ../capplets/windows/ukui-window-properties.c:495
 msgid "U_nselect windows when the mouse leaves them"
 msgstr ""
 
-#: ../capplets/windows/mate-window-properties.c:499
+#: ../capplets/windows/ukui-window-properties.c:499
 msgid "_Raise selected windows after an interval"
 msgstr "విరామం తర్వాత ఎంపికచేసిన విండోలను లేవనెత్తుము(_R)"
 
-#: ../capplets/windows/mate-window-properties.c:510
+#: ../capplets/windows/ukui-window-properties.c:510
 msgid "_Interval before raising:"
 msgstr "ఉత్తేజితంకు ముందు విరామం(_I):"
 
-#: ../capplets/windows/mate-window-properties.c:514
+#: ../capplets/windows/ukui-window-properties.c:514
 msgid "seconds"
 msgstr "సెకనులు"
 
 #. Titlebar Action
-#: ../capplets/windows/mate-window-properties.c:525
+#: ../capplets/windows/ukui-window-properties.c:525
 msgid "Titlebar Action"
 msgstr "శీర్షికపట్టీ చర్య"
 
-#: ../capplets/windows/mate-window-properties.c:533
+#: ../capplets/windows/ukui-window-properties.c:533
 msgid "_Double-click titlebar to perform this action:"
 msgstr "ఈ చర్యను జరుపుటకు శీర్షికపట్టీని రెండు-నొక్కులు నొక్కుము(_D):"
 
 #. Movement Key
-#: ../capplets/windows/mate-window-properties.c:541
+#: ../capplets/windows/ukui-window-properties.c:541
 msgid "Movement Key"
 msgstr "కదలిక కీ"
 
-#: ../capplets/windows/mate-window-properties.c:552
+#: ../capplets/windows/ukui-window-properties.c:552
 msgid "To move a window, press-and-hold this key then grab the window:"
 msgstr "విండోకు కదులుటకు, ఈ కీను వత్తుము-మరియు-పట్టిఉంచుము అప్పుడు విండో పట్టుము:"
 
-#: ../capplets/windows/mate-window-properties.c:580
+#: ../capplets/windows/ukui-window-properties.c:580
 #: ../libwindow-settings/ukwm-window-manager.c:394
 msgid "Roll up"
 msgstr "ఎగువకు మడువు"
 
-#: ../capplets/windows/mate-window-properties.c:581
+#: ../capplets/windows/ukui-window-properties.c:581
 #: ../libwindow-settings/ukwm-window-manager.c:395
 msgid "Maximize"
 msgstr "పెద్దది చేయు"
 
-#: ../capplets/windows/mate-window-properties.c:582
+#: ../capplets/windows/ukui-window-properties.c:582
 #: ../libwindow-settings/ukwm-window-manager.c:396
 msgid "Maximize Horizontally"
 msgstr "హారిజాంటల్‌గా పెద్దదిచేయి"
 
-#: ../capplets/windows/mate-window-properties.c:583
+#: ../capplets/windows/ukui-window-properties.c:583
 #: ../libwindow-settings/ukwm-window-manager.c:397
 msgid "Maximize Vertically"
 msgstr "నిలువుగా పెద్దదిచేయి"
 
-#: ../capplets/windows/mate-window-properties.c:584
+#: ../capplets/windows/ukui-window-properties.c:584
 #: ../libwindow-settings/ukwm-window-manager.c:398
 msgid "Minimize"
 msgstr "క్రిందకుమూయి"
 
-#: ../capplets/windows/mate-window-properties.c:585
+#: ../capplets/windows/ukui-window-properties.c:585
 #: ../libwindow-settings/ukwm-window-manager.c:399
 msgid "None"
 msgstr "ఏదీకాదు"
 
-#: ../capplets/windows/mate-window-properties.c:786
+#: ../capplets/windows/ukui-window-properties.c:786
 msgid "_Alt"
 msgstr "_Alt"
 
-#: ../capplets/windows/mate-window-properties.c:792
+#: ../capplets/windows/ukui-window-properties.c:792
 msgid "H_yper"
 msgstr "H_yper"
 
-#: ../capplets/windows/mate-window-properties.c:799
+#: ../capplets/windows/ukui-window-properties.c:799
 msgid "S_uper (or \"Windows logo\")"
 msgstr "సూపర్ (లేదా \"విండోస్ లోగో\")(_u)"
 
-#: ../capplets/windows/mate-window-properties.c:806
+#: ../capplets/windows/ukui-window-properties.c:806
 msgid "_Meta"
 msgstr "మెటా(_M)"
 
-#: ../capplets/windows/mate-window-properties.desktop.in.in.h:1
+#: ../capplets/windows/ukui-window-properties.desktop.in.in.h:1
 msgid "Windows"
 msgstr "విండోలు"
 
-#: ../capplets/windows/mate-window-properties.desktop.in.in.h:2
+#: ../capplets/windows/ukui-window-properties.desktop.in.in.h:2
 msgid "Set your window properties"
 msgstr "మీ విండో లక్షణాలను అమర్చుము"
 
-#: ../libwindow-settings/mate-wm-manager.c:317
+#: ../libwindow-settings/ukui-wm-manager.c:317
 #, c-format
 msgid "Window manager \"%s\" has not registered a configuration tool\n"
 msgstr "Window manager \"%s\" గవాక్ష అభికర్త రూపకరణ పనిముట్టును నమోదు చేసుకోలేదు\n"
@@ -2601,14 +2601,14 @@ msgstr "సమూహాలు"
 msgid "Common Tasks"
 msgstr "ఉమ్మడి కర్తవ్యాలు"
 
-#: ../shell/control-center.c:203 ../shell/matecc.desktop.in.in.h:1
-#: ../shell/matecc.directory.in.h:1
+#: ../shell/control-center.c:203 ../shell/ukuicc.desktop.in.in.h:1
+#: ../shell/ukuicc.directory.in.h:1
 msgid "Control Center"
 msgstr "నియంత్రణా కేంద్రం"
 
-#: ../shell/matecc.desktop.in.in.h:2
-msgid "The MATE configuration tool"
-msgstr "MATE ఆకృతీకరణ సాధనం"
+#: ../shell/ukuicc.desktop.in.in.h:2
+msgid "The UKUI configuration tool"
+msgstr "UKUI ఆకృతీకరణ సాధనం"
 
 #: ../typing-break/drw-break-window.c:203
 msgid "_Postpone Break"
@@ -2734,11 +2734,11 @@ msgstr ""
 msgid "I_nstall Font"
 msgstr "ఫాంటు సంస్థాపించు (_n)"
 
-#: ../font-viewer/mate-font-viewer.desktop.in.in.h:1
+#: ../font-viewer/ukui-font-viewer.desktop.in.in.h:1
 msgid "Font Viewer"
 msgstr "ఫాంట్ వీక్షణి"
 
-#: ../font-viewer/mate-font-viewer.desktop.in.in.h:2
+#: ../font-viewer/ukui-font-viewer.desktop.in.in.h:2
 msgid "Preview fonts"
 msgstr "ఫాంట్లును ఉపదర్శనంచేయుము"
 

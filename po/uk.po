@@ -15,121 +15,121 @@
 # Шаповалов Анатолій Романович <elrond.716.smith@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: MATE Desktop Environment\n"
+"Project-Id-Version: UKUI Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-27 23:13+0300\n"
 "PO-Revision-Date: 2016-04-02 12:48+0000\n"
 "Last-Translator: Микола Ткач <Stuartlittle1970@gmail.com>\n"
-"Language-Team: Ukrainian (http://www.transifex.com/mate/MATE/language/uk/)\n"
+"Language-Team: Ukrainian (http://wiki.ukui.org/trans)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../org.mate.control-center.gschema.xml.in.h:1
+#: ../org.ukui.control-center.gschema.xml.in.h:1
 msgid ""
-"[ 'Change Theme;mate-appearance-properties.desktop', 'Set Preferred "
-"Applications;mate-default-applications-properties.desktop' ]"
-msgstr "[ 'Змінити тему;mate-appearance-properties.desktop', 'Виставити бажані додатки;mate-default-applications-properties.desktop']"
+"[ 'Change Theme;ukui-appearance-properties.desktop', 'Set Preferred "
+"Applications;ukui-default-applications-properties.desktop' ]"
+msgstr "[ 'Змінити тему;ukui-appearance-properties.desktop', 'Виставити бажані додатки;ukui-default-applications-properties.desktop']"
 
-#: ../org.mate.control-center.gschema.xml.in.h:2
+#: ../org.ukui.control-center.gschema.xml.in.h:2
 msgid "Task names and associated .desktop files"
 msgstr "Назви завдань та пов'язані з ними файли .desktop"
 
-#: ../org.mate.control-center.gschema.xml.in.h:3
+#: ../org.ukui.control-center.gschema.xml.in.h:3
 msgid ""
 "The task name to be displayed in the control-center followed by a \";\" "
 "separator then the filename of an associated .desktop file to launch for "
 "that task."
 msgstr "Назва завдання, що виводиться у центрі керування (повинна бути перекладена), потім, після розділювача \";\" - назва пов'язаного  файлу .desktop для запуску цього завдання."
 
-#: ../org.mate.control-center.gschema.xml.in.h:4
+#: ../org.ukui.control-center.gschema.xml.in.h:4
 msgid "Close the control-center when a task is activated"
 msgstr "Закривати центр керування, коли завдання активоване"
 
-#: ../org.mate.control-center.gschema.xml.in.h:5
+#: ../org.ukui.control-center.gschema.xml.in.h:5
 msgid ""
 "if true, the control-center will close when a \"Common Task\" is activated."
 msgstr "Якщо цей параметр встановлений, центр керування буде закритий при активації \"Спільного завдання\"."
 
-#: ../org.mate.control-center.gschema.xml.in.h:6
+#: ../org.ukui.control-center.gschema.xml.in.h:6
 msgid "Exit shell on start action performed"
 msgstr "Виходити з оболонки при виконанні дії запуску"
 
-#: ../org.mate.control-center.gschema.xml.in.h:7
+#: ../org.ukui.control-center.gschema.xml.in.h:7
 msgid "Indicates whether to close the shell when a start action is performed."
 msgstr "Вказує, чи закривати оболонку при виконанні дії запуску."
 
-#: ../org.mate.control-center.gschema.xml.in.h:8
+#: ../org.ukui.control-center.gschema.xml.in.h:8
 msgid "Exit shell on help action performed"
 msgstr "Виходити з оболонки при виконанні дії довідки"
 
-#: ../org.mate.control-center.gschema.xml.in.h:9
+#: ../org.ukui.control-center.gschema.xml.in.h:9
 msgid "Indicates whether to close the shell when a help action is performed."
 msgstr "Вказує, чи закривати оболонку при виконанні дії довідки."
 
-#: ../org.mate.control-center.gschema.xml.in.h:10
+#: ../org.ukui.control-center.gschema.xml.in.h:10
 msgid "Exit shell on add or remove action performed"
 msgstr "Виходити з оболонки при виконанні дії вилучення чи додавання"
 
-#: ../org.mate.control-center.gschema.xml.in.h:11
+#: ../org.ukui.control-center.gschema.xml.in.h:11
 msgid ""
 "Indicates whether to close the shell when an add or remove action is "
 "performed."
 msgstr "Вказує, чи закривати оболонку при виконанні дій додавання чи вилучення."
 
-#: ../org.mate.control-center.gschema.xml.in.h:12
+#: ../org.ukui.control-center.gschema.xml.in.h:12
 msgid "Exit shell on upgrade or uninstall action performed"
 msgstr "Виходити з оболонки при виконанні дії оновлення та вилучення"
 
-#: ../org.mate.control-center.gschema.xml.in.h:13
+#: ../org.ukui.control-center.gschema.xml.in.h:13
 msgid ""
 "Indicates whether to close the shell when an upgrade or uninstall action is "
 "performed."
 msgstr "Вказує, чи закривати оболонку при виконанні дій встановлення чи вилучення."
 
-#: ../org.mate.control-center.gschema.xml.in.h:14
+#: ../org.ukui.control-center.gschema.xml.in.h:14
 msgid "More backgrounds URL"
 msgstr "Додаткові URL для тла"
 
-#: ../org.mate.control-center.gschema.xml.in.h:15
+#: ../org.ukui.control-center.gschema.xml.in.h:15
 msgid ""
 "URL for where to get more desktop backgrounds. If set to an empty string the"
 " link will not appear."
 msgstr "URL за яким можна отримати додаткові зображення для тла стільниці. Якщо вказано порожній рядок, посилання не буде виводитися."
 
-#: ../org.mate.control-center.gschema.xml.in.h:16
+#: ../org.ukui.control-center.gschema.xml.in.h:16
 msgid "More themes URL"
 msgstr "Додаткові URL з темами"
 
-#: ../org.mate.control-center.gschema.xml.in.h:17
+#: ../org.ukui.control-center.gschema.xml.in.h:17
 msgid ""
 "URL for where to get more desktop themes. If set to an empty string the link"
 " will not appear."
 msgstr "URL за яким можна отримати додаткові теми. Якщо вказано порожній рядок, посилання не буде виводитися."
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:1
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:1
 msgid "Keybinding"
 msgstr "Сполучення клявіш"
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:2
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:2
 msgid "Keybinding associated with a custom shortcut."
 msgstr "Сполучення клявіш, що асоціюється з користувацьким посиланням"
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:3
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:3
 msgid "Command"
 msgstr "Команда"
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:4
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:4
 msgid "Command associated with a custom keybinding."
 msgstr "Команда, що асоціюється з користувацькими сполученнями клявіш."
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:5
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:5
 msgid "Name"
 msgstr "Назва"
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:6
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:6
 msgid "Description associated with a custom keybinding."
 msgstr "Опис, асоційований з користувацькими сполученнями клявіш"
 
@@ -161,99 +161,99 @@ msgstr "Кнопки, що показуються у вікні попередж
 msgid "Show more _details"
 msgstr "_Докладніше"
 
-#: ../capplets/about-me/mate-about-me.c:268
+#: ../capplets/about-me/ukui-about-me.c:268
 msgid "Select Image"
 msgstr "Вибрати зображення"
 
-#: ../capplets/about-me/mate-about-me.c:270
+#: ../capplets/about-me/ukui-about-me.c:270
 msgid "No Image"
 msgstr "Немає зображення"
 
-#: ../capplets/about-me/mate-about-me.c:298
+#: ../capplets/about-me/ukui-about-me.c:298
 #: ../capplets/appearance/appearance-desktop.c:650
 msgid "Images"
 msgstr "Зображення"
 
-#: ../capplets/about-me/mate-about-me.c:302
+#: ../capplets/about-me/ukui-about-me.c:302
 #: ../capplets/appearance/theme-installer.c:783
 msgid "All Files"
 msgstr "Усі файли"
 
-#: ../capplets/about-me/mate-about-me.c:454
+#: ../capplets/about-me/ukui-about-me.c:454
 #, c-format
 msgid "About %s"
 msgstr "Про проґраму %s"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:1
-#: ../capplets/about-me/mate-about-me.desktop.in.in.h:1
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:1
+#: ../capplets/about-me/ukui-about-me.desktop.in.in.h:1
 msgid "About Me"
 msgstr "Про мене"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:2
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:2
 msgid "Select your photo"
 msgstr "Виберіть світлину"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:3
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:3
 msgid "Full Name"
 msgstr "Повне ім'я"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:4
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:4
 msgid "User name:"
 msgstr "Користувач:"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:5
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:5
 msgid "Change Passwo_rd..."
 msgstr "Змінити парол_ь..."
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:6
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:6
 msgid "Enable _Fingerprint Login..."
 msgstr "Увімкнути _сканування відбитків..."
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:7
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:7
 msgid "Disable _Fingerprint Login..."
 msgstr "Вимкнути _сканування відбитків..."
 
-#: ../capplets/about-me/mate-about-me.desktop.in.in.h:2
+#: ../capplets/about-me/ukui-about-me.desktop.in.in.h:2
 msgid "Set your personal information"
 msgstr "Встановлення персональної інформації"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:100
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:100
 msgid ""
 "You are not allowed to access the device. Contact your system administrator."
 msgstr "Доступ до пристрою читання заборонено. Зконтактуйтеся з системним адміністратором."
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:102
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:102
 msgid "The device is already in use."
 msgstr "Пристрій вже використовується."
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:104
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:104
 msgid "An internal error occurred"
 msgstr "Сталася внутрішня помилка"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:221
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:221
 msgid "Delete registered fingerprints?"
 msgstr "Вилучити зареєстровані відбитки?"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:224
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:224
 msgid "_Delete Fingerprints"
 msgstr "В_илучити відбитки"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:231
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:231
 msgid ""
 "Do you want to delete your registered fingerprints so fingerprint login is "
 "disabled?"
 msgstr "Вилучити зареєстровані відбитки пальців та заблокувати доступ по відбитках?"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:359
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:15
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:359
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:15
 msgid "Done!"
 msgstr "Виконано"
 
 #. translators:
 #. * The variable is the name of the device, for example:
 #. * "Could you not access "Digital Persona U.are.U 4000/4000B" device
-#: ../capplets/about-me/mate-about-me-fingerprint.c:405
-#: ../capplets/about-me/mate-about-me-fingerprint.c:427
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:405
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:427
 #, c-format
 msgid "Could not access '%s' device"
 msgstr "Не вдається отримати доступ до пристрою «%s»"
@@ -261,21 +261,21 @@ msgstr "Не вдається отримати доступ до пристро�
 #. translators:
 #. * The variable is the name of the device, for example:
 #. * "Could you not access "Digital Persona U.are.U 4000/4000B" device
-#: ../capplets/about-me/mate-about-me-fingerprint.c:476
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:476
 #, c-format
 msgid "Could not start finger capture on '%s' device"
 msgstr "Не вдається почати сканування відбитків пальців на пристрої «%s»"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:523
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:523
 msgid "Could not access any fingerprint readers"
 msgstr "Не вдається знайти пристрої сканування відбитків"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:524
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:524
 msgid "Please contact your system administrator for help."
 msgstr "Зконтактуйтеся з системним адміністратором"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:554
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:9
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:554
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:9
 msgid "Enable Fingerprint Login"
 msgstr "Увімкнути вхід у систему за відбитком"
 
@@ -284,90 +284,90 @@ msgstr "Увімкнути вхід у систему за відбитком"
 #. * "To enable fingerprint login, you need to save one of your fingerprints,
 #. using the
 #. * 'Digital Persona U.are.U 4000/4000B' device."
-#: ../capplets/about-me/mate-about-me-fingerprint.c:584
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:584
 #, c-format
 msgid ""
 "To enable fingerprint login, you need to save one of your fingerprints, "
 "using the '%s' device."
 msgstr "Щоб увімкнути вхід за відбитком пальцю, треба зняти один або декілька зразків, використовуючи пристрій «%s»"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:593
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:593
 msgid "Swipe finger on reader"
 msgstr "Проведіть пальцем по пристрою"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:595
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:595
 msgid "Place finger on reader"
 msgstr "Розмістіть палець на пристрої"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:1
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:1
 msgid "Left thumb"
 msgstr "Великий палець лівої руки"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:2
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:2
 msgid "Left middle finger"
 msgstr "Середній палець лівої руки"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:3
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:3
 msgid "Left ring finger"
 msgstr "Безіменний палець лівої руки"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:4
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:4
 msgid "Left little finger"
 msgstr "Мізинець лівої руки"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:5
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:5
 msgid "Right thumb"
 msgstr "Великий палець правої руки"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:6
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:6
 msgid "Right middle finger"
 msgstr "Середній палець правої руки"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:7
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:7
 msgid "Right ring finger"
 msgstr "Безіменний палець правої руки"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:8
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:8
 msgid "Right little finger"
 msgstr "Мізинець правої руки"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:10
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:10
 msgid "Right index finger"
 msgstr "Вказівний палець правої руки"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:11
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:11
 msgid "Left index finger"
 msgstr "Вказівний палець лівої руки"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:12
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:12
 msgid "Other finger: "
 msgstr "Иньший палець:"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:13
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:13
 msgid "Select finger"
 msgstr "Виберіть палець"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:14
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:14
 msgid ""
 "Your fingerprint was successfully saved. You should now be able to log in "
 "using your fingerprint reader."
 msgstr "Відбиток було успішно збережено. Тепер можна увійти у систему з використанням пристрою сканування відбитків."
 
-#: ../capplets/about-me/mate-about-me-password.c:161
+#: ../capplets/about-me/ukui-about-me-password.c:161
 msgid "Child exited unexpectedly"
 msgstr "Дочірній процес несподівано завершився"
 
-#: ../capplets/about-me/mate-about-me-password.c:297
+#: ../capplets/about-me/ukui-about-me-password.c:297
 #, c-format
 msgid "Could not shutdown backend_stdin IO channel: %s"
 msgstr "Не вдається закрити канал вводу-виводу backend_stdin: %s"
 
-#: ../capplets/about-me/mate-about-me-password.c:310
+#: ../capplets/about-me/ukui-about-me-password.c:310
 #, c-format
 msgid "Could not shutdown backend_stdout IO channel: %s"
 msgstr "Не вдається закрити канал вводу-виводу backend_stdout: %s"
 
-#: ../capplets/about-me/mate-about-me-password.c:409
+#: ../capplets/about-me/ukui-about-me-password.c:409
 msgid "Authenticated!"
 msgstr "Розпізнання пройдено!"
 
@@ -376,120 +376,120 @@ msgstr "Розпізнання пройдено!"
 #. * Ask the user to re-authenticate
 #. Update status message and auth state
 #. Authentication failure
-#: ../capplets/about-me/mate-about-me-password.c:472
-#: ../capplets/about-me/mate-about-me-password.c:557
+#: ../capplets/about-me/ukui-about-me-password.c:472
+#: ../capplets/about-me/ukui-about-me-password.c:557
 msgid ""
 "Your password has been changed since you initially authenticated! Please re-"
 "authenticate."
 msgstr "Ваш пароль змінився з миті початкового розпізнання! Пройдіть розпізнання ще раз."
 
-#: ../capplets/about-me/mate-about-me-password.c:474
+#: ../capplets/about-me/ukui-about-me-password.c:474
 msgid "That password was incorrect."
 msgstr "Пароль некоректний."
 
-#: ../capplets/about-me/mate-about-me-password.c:525
+#: ../capplets/about-me/ukui-about-me-password.c:525
 msgid "Your password has been changed."
 msgstr "Ваш пароль було змінено."
 
 #. What does this indicate?
 #. * "Authentication information cannot be recovered?" from libpam?
-#: ../capplets/about-me/mate-about-me-password.c:535
+#: ../capplets/about-me/ukui-about-me-password.c:535
 #, c-format
 msgid "System error: %s."
 msgstr "Системна помилка: %s."
 
-#: ../capplets/about-me/mate-about-me-password.c:538
+#: ../capplets/about-me/ukui-about-me-password.c:538
 msgid "The password is too short."
 msgstr "Пароль надто короткий."
 
-#: ../capplets/about-me/mate-about-me-password.c:542
+#: ../capplets/about-me/ukui-about-me-password.c:542
 msgid "The password is too simple."
 msgstr "Пароль надто простий."
 
-#: ../capplets/about-me/mate-about-me-password.c:547
+#: ../capplets/about-me/ukui-about-me-password.c:547
 msgid "The old and new passwords are too similar."
 msgstr "Старий та новий паролі схожі між собою."
 
-#: ../capplets/about-me/mate-about-me-password.c:549
+#: ../capplets/about-me/ukui-about-me-password.c:549
 msgid "The new password must contain numeric or special character(s)."
 msgstr "Має містити цифрові або спеціяльні символ(и)."
 
-#: ../capplets/about-me/mate-about-me-password.c:552
+#: ../capplets/about-me/ukui-about-me-password.c:552
 msgid "The old and new passwords are the same."
 msgstr "Старий та новий паролі - однакові."
 
-#: ../capplets/about-me/mate-about-me-password.c:554
+#: ../capplets/about-me/ukui-about-me-password.c:554
 msgid "The new password has already been used recently."
 msgstr "Новий пароль вже використовувався раніше."
 
 #. translators: Unable to launch <program>: <error message>
-#: ../capplets/about-me/mate-about-me-password.c:829
+#: ../capplets/about-me/ukui-about-me-password.c:829
 #, c-format
 msgid "Unable to launch %s: %s"
 msgstr "Не вдається запустити %s: %s"
 
-#: ../capplets/about-me/mate-about-me-password.c:833
+#: ../capplets/about-me/ukui-about-me-password.c:833
 msgid "Unable to launch backend"
 msgstr "Не вдається запустити службову проґраму"
 
-#: ../capplets/about-me/mate-about-me-password.c:834
+#: ../capplets/about-me/ukui-about-me-password.c:834
 msgid "A system error has occurred"
 msgstr "Системна помилка"
 
 #. Update status message
-#: ../capplets/about-me/mate-about-me-password.c:854
+#: ../capplets/about-me/ukui-about-me-password.c:854
 msgid "Checking password..."
 msgstr "Перевірка паролю..."
 
-#: ../capplets/about-me/mate-about-me-password.c:938
+#: ../capplets/about-me/ukui-about-me-password.c:938
 msgid "Click <b>Change password</b> to change your password."
 msgstr "Щоб змінити пароль натисніть <b>Змінити пароль</b>."
 
-#: ../capplets/about-me/mate-about-me-password.c:941
+#: ../capplets/about-me/ukui-about-me-password.c:941
 msgid "Please type your password in the <b>New password</b> field."
 msgstr "Уведіть пароль у полі <b>Новий пароль</b>."
 
-#: ../capplets/about-me/mate-about-me-password.c:944
-#: ../capplets/about-me/mate-about-me-password.ui.h:9
+#: ../capplets/about-me/ukui-about-me-password.c:944
+#: ../capplets/about-me/ukui-about-me-password.ui.h:9
 msgid ""
 "Please type your password again in the <b>Retype new password</b> field."
 msgstr "Уведіть пароль знову, у полі <b>Схвалення паролю</b>."
 
-#: ../capplets/about-me/mate-about-me-password.c:947
+#: ../capplets/about-me/ukui-about-me-password.c:947
 msgid "The two passwords are not equal."
 msgstr "Паролі не збігаються."
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:1
+#: ../capplets/about-me/ukui-about-me-password.ui.h:1
 msgid "Change password"
 msgstr "Змінити пароль"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:2
+#: ../capplets/about-me/ukui-about-me-password.ui.h:2
 msgid "Change your password"
 msgstr "Змінити пароль"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:3
+#: ../capplets/about-me/ukui-about-me-password.ui.h:3
 msgid ""
 "To change your password, enter your current password in the field below and click <b>Authenticate</b>.\n"
 "After you have authenticated, enter your new password, retype it for verification and click <b>Change password</b>."
 msgstr "Щоб змінити Ваш пароль, уведіть поточний пароль у наведеному нижче полі та натисніть <b>Розпізнання</b>.\nПісля розпізнання, уведіть новий пароль, повторіть його для перевірки та натисніть <b>Змінити пароль</b>."
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:5
+#: ../capplets/about-me/ukui-about-me-password.ui.h:5
 msgid "Current _password:"
 msgstr "_Поточний пароль:"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:6
+#: ../capplets/about-me/ukui-about-me-password.ui.h:6
 msgid "_New password:"
 msgstr "_Новий пароль:"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:7
+#: ../capplets/about-me/ukui-about-me-password.ui.h:7
 msgid "_Retype new password:"
 msgstr "Схва_лення паролю: "
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:8
+#: ../capplets/about-me/ukui-about-me-password.ui.h:8
 msgid "_Authenticate"
 msgstr "_Розпізнання"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:10
+#: ../capplets/about-me/ukui-about-me-password.ui.h:10
 msgid "Change pa_ssword"
 msgstr "Змінити _пароль"
 
@@ -498,7 +498,7 @@ msgid "Assistive Technologies Preferences"
 msgstr "Параметри технологій доступности"
 
 #: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:2
-#: ../capplets/accessibility/at-properties/mate-at-properties.desktop.in.in.h:1
+#: ../capplets/accessibility/at-properties/ukui-at-properties.desktop.in.in.h:1
 msgid "Assistive Technologies"
 msgstr "Можливости доступности"
 
@@ -552,7 +552,7 @@ msgstr "Перейти до діялоґу Вхід з використання�
 msgid "Close and _Log Out"
 msgstr "Закрити та _вийти з системи"
 
-#: ../capplets/accessibility/at-properties/mate-at-properties.desktop.in.in.h:2
+#: ../capplets/accessibility/at-properties/ukui-at-properties.desktop.in.in.h:2
 msgid "Choose which accessibility features to enable when you log in"
 msgstr "Вибрати можливості доступності, що запускаються при вході до системи"
 
@@ -584,8 +584,8 @@ msgid ""
 msgstr "Вкажіть назву сторінки для показу (теми|тла|шрифтів|інтерфейсу)"
 
 #: ../capplets/appearance/appearance-main.c:170
-#: ../capplets/default-applications/mate-da-capplet.c:693
-#: ../capplets/mouse/mate-mouse-properties.c:483
+#: ../capplets/default-applications/ukui-da-capplet.c:693
+#: ../capplets/mouse/ukui-mouse-properties.c:483
 msgid "page"
 msgstr "сторінка"
 
@@ -594,8 +594,8 @@ msgid "[WALLPAPER...]"
 msgstr "[МАЛЮНОК ТЛА...]"
 
 #: ../capplets/appearance/appearance-style.c:171
-#: ../capplets/common/mate-theme-info.c:497
-#: ../capplets/common/mate-theme-info.c:690
+#: ../capplets/common/ukui-theme-info.c:497
+#: ../capplets/common/ukui-theme-info.c:690
 msgid "Default Pointer"
 msgstr "Типовий вказівник"
 
@@ -605,7 +605,7 @@ msgid "Install"
 msgstr "Встановити"
 
 #: ../capplets/appearance/appearance-style.c:269
-#: ../capplets/common/mate-theme-info.c:1726
+#: ../capplets/common/ukui-theme-info.c:1726
 #, c-format
 msgid ""
 "This theme will not look as intended because the required GTK+ theme engine "
@@ -776,7 +776,7 @@ msgid "Get more backgrounds online"
 msgstr "Отримати зображення для тла з мережі"
 
 #: ../capplets/appearance/data/appearance.ui.h:33
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:17
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:17
 msgid "_Add..."
 msgstr "_Додати..."
 
@@ -974,13 +974,13 @@ msgstr "_Розмір:"
 
 #. small threshold
 #: ../capplets/appearance/data/appearance.ui.h:82
-#: ../capplets/mouse/mate-mouse-properties.ui.h:21
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:21
 msgid "Small"
 msgstr "Малий"
 
 #. large threshold
 #: ../capplets/appearance/data/appearance.ui.h:83
-#: ../capplets/mouse/mate-mouse-properties.ui.h:24
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:24
 msgid "Large"
 msgstr "Великий"
 
@@ -993,7 +993,7 @@ msgid "Save Theme As..."
 msgstr "Зберегти тему як..."
 
 #: ../capplets/appearance/data/appearance.ui.h:86
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:4
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:4
 msgid "_Name:"
 msgstr "_Назва:"
 
@@ -1009,54 +1009,54 @@ msgstr "Зберегти _зображення тла"
 msgid "Save _notification theme"
 msgstr "Зберегти тему _сповіщення"
 
-#: ../capplets/appearance/data/mate-appearance-properties.desktop.in.in.h:1
+#: ../capplets/appearance/data/ukui-appearance-properties.desktop.in.in.h:1
 msgid "Appearance"
 msgstr "Зовнішній вигляд"
 
-#: ../capplets/appearance/data/mate-appearance-properties.desktop.in.in.h:2
+#: ../capplets/appearance/data/ukui-appearance-properties.desktop.in.in.h:2
 msgid "Customize the look of the desktop"
 msgstr "Налаштувати вигляд стільниці"
 
-#: ../capplets/appearance/data/mate-theme-installer.desktop.in.in.h:1
+#: ../capplets/appearance/data/ukui-theme-installer.desktop.in.in.h:1
 msgid "Theme Installer"
 msgstr "Встановлення теми"
 
-#: ../capplets/appearance/data/mate-theme-installer.desktop.in.in.h:2
+#: ../capplets/appearance/data/ukui-theme-installer.desktop.in.in.h:2
 msgid "Installs themes packages for various parts of the desktop"
 msgstr "Встановлює пакунки тем для різних елементів стільниці"
 
-#: ../capplets/appearance/data/mate-theme-package.xml.in.h:1
-msgid "Mate Theme Package"
-msgstr "Пакунок тем MATE"
+#: ../capplets/appearance/data/ukui-theme-package.xml.in.h:1
+msgid "Ukui Theme Package"
+msgstr "Пакунок тем UKUI"
 
-#: ../capplets/appearance/mate-wp-info.c:51
+#: ../capplets/appearance/ukui-wp-info.c:51
 msgid "No Desktop Background"
 msgstr "Без тла стільниці"
 
-#: ../capplets/appearance/mate-wp-item.c:288
+#: ../capplets/appearance/ukui-wp-item.c:288
 msgid "unknown"
 msgstr "невідомо"
 
-#: ../capplets/appearance/mate-wp-item.c:295
+#: ../capplets/appearance/ukui-wp-item.c:295
 msgid "Slide Show"
 msgstr "Показ слайдів"
 
-#: ../capplets/appearance/mate-wp-item.c:297
+#: ../capplets/appearance/ukui-wp-item.c:297
 msgid "Image"
 msgstr "Зображення"
 
-#: ../capplets/appearance/mate-wp-item.c:303
+#: ../capplets/appearance/ukui-wp-item.c:303
 msgid "multiple sizes"
 msgstr "декілька розмірів"
 
 #. translators: x pixel(s) by y pixel(s)
-#: ../capplets/appearance/mate-wp-item.c:306
+#: ../capplets/appearance/ukui-wp-item.c:306
 #, c-format
 msgid "%d %s by %d %s"
 msgstr "%d %s на %d %s"
 
-#: ../capplets/appearance/mate-wp-item.c:308
-#: ../capplets/appearance/mate-wp-item.c:310
+#: ../capplets/appearance/ukui-wp-item.c:308
+#: ../capplets/appearance/ukui-wp-item.c:310
 msgid "pixel"
 msgid_plural "pixels"
 msgstr[0] "піксель"
@@ -1067,7 +1067,7 @@ msgstr[2] "пікселів"
 #. * mime type, size
 #. * Folder: /path/to/file
 #. * Artist: wallpaper author
-#: ../capplets/appearance/mate-wp-item.c:319
+#: ../capplets/appearance/ukui-wp-item.c:319
 #, c-format
 msgid ""
 "<b>%s</b>\n"
@@ -1080,7 +1080,7 @@ msgstr "<b>%s</b>\n%s, %s\nТека: %s\nАртист: %s"
 #. * Image missing
 #. * Folder: /path/to/file
 #. * Artist: wallpaper author
-#: ../capplets/appearance/mate-wp-item.c:334
+#: ../capplets/appearance/ukui-wp-item.c:334
 #, c-format
 msgid ""
 "<b>%s</b>\n"
@@ -1089,7 +1089,7 @@ msgid ""
 "Artist: %s"
 msgstr "<b>%s</b>\n%s\nТека: %s\nАртист: %s"
 
-#: ../capplets/appearance/mate-wp-item.c:339
+#: ../capplets/appearance/ukui-wp-item.c:339
 msgid "Image missing"
 msgstr "Зображення відсутнє"
 
@@ -1147,8 +1147,8 @@ msgstr "Застосувати нову тему"
 
 #: ../capplets/appearance/theme-installer.c:486
 #, c-format
-msgid "MATE Theme %s correctly installed"
-msgstr "Тема MATE %s коректно встановлена"
+msgid "UKUI Theme %s correctly installed"
+msgstr "Тема UKUI %s коректно встановлена"
 
 #: ../capplets/appearance/theme-installer.c:548
 msgid "Failed to create temporary directory"
@@ -1205,9 +1205,9 @@ msgstr "Не вдається встановити модуль теми"
 
 #: ../capplets/common/activate-settings-daemon.c:16
 msgid ""
-"Unable to start the settings manager 'mate-settings-daemon'.\n"
-"Without the MATE settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-MATE (e.g. KDE) settings manager may already be active and conflicting with the MATE settings manager."
-msgstr "Не вдається запустити керування параметрами 'mate-settings-daemon'.\nЯкщо керівник параметрами MATE не запущений, деякі параметри не буде вжито. Це може означати проблему з DBus, або те, що вже активний иньший не-MATE (наприклад KDE) керівник параметрами."
+"Unable to start the settings manager 'ukui-settings-daemon'.\n"
+"Without the UKUI settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-UKUI (e.g. KDE) settings manager may already be active and conflicting with the UKUI settings manager."
+msgstr "Не вдається запустити керування параметрами 'ukui-settings-daemon'.\nЯкщо керівник параметрами UKUI не запущений, деякі параметри не буде вжито. Це може означати проблему з DBus, або те, що вже активний иньший не-UKUI (наприклад KDE) керівник параметрами."
 
 #: ../capplets/common/capplet-stock-icons.c:66
 #, c-format
@@ -1295,176 +1295,176 @@ msgstr "_Пропустити"
 msgid "Overwrite _All"
 msgstr "Переписати _усі"
 
-#: ../capplets/common/mate-theme-info.c:691
+#: ../capplets/common/ukui-theme-info.c:691
 msgid "Default Pointer - Current"
 msgstr "Типовий вказівник - Поточний"
 
-#: ../capplets/common/mate-theme-info.c:695
+#: ../capplets/common/ukui-theme-info.c:695
 msgid "White Pointer"
 msgstr "Білий вказівник"
 
-#: ../capplets/common/mate-theme-info.c:696
+#: ../capplets/common/ukui-theme-info.c:696
 msgid "White Pointer - Current"
 msgstr "Білий вказівник - Поточний"
 
-#: ../capplets/common/mate-theme-info.c:700
+#: ../capplets/common/ukui-theme-info.c:700
 msgid "Large Pointer"
 msgstr "Великий вказівник>"
 
-#: ../capplets/common/mate-theme-info.c:701
+#: ../capplets/common/ukui-theme-info.c:701
 msgid "Large Pointer - Current"
 msgstr "Великий вказівник - Поточний"
 
-#: ../capplets/common/mate-theme-info.c:705
+#: ../capplets/common/ukui-theme-info.c:705
 msgid "Large White Pointer - Current"
 msgstr "Збільшений білий вказівник - Типовий"
 
-#: ../capplets/common/mate-theme-info.c:706
+#: ../capplets/common/ukui-theme-info.c:706
 msgid "Large White Pointer"
 msgstr "Збільшений білий вказівник"
 
-#: ../capplets/common/mate-theme-info.c:1696
+#: ../capplets/common/ukui-theme-info.c:1696
 #, c-format
 msgid ""
 "This theme will not look as intended because the required GTK+ theme '%s' is"
 " not installed."
 msgstr "Ця тема не буде виглядати так, як задумано, бо потрібна тема GTK+ «%s» не встановлена."
 
-#: ../capplets/common/mate-theme-info.c:1706
+#: ../capplets/common/ukui-theme-info.c:1706
 #, c-format
 msgid ""
 "This theme will not look as intended because the required window manager "
 "theme '%s' is not installed."
 msgstr "Ця тема не буде виглядати так, як задумано, бо потрібна тема керівника вікнами «%s» не встановлена."
 
-#: ../capplets/common/mate-theme-info.c:1714
+#: ../capplets/common/ukui-theme-info.c:1714
 #, c-format
 msgid ""
 "This theme will not look as intended because the required icon theme '%s' is"
 " not installed."
 msgstr "Ця тема не буде виглядати так, як задумано, бо потрібна тема піктограм «%s» не встановлена."
 
-#: ../capplets/default-applications/mate-default-applications-properties.desktop.in.in.h:1
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:1
+#: ../capplets/default-applications/ukui-default-applications-properties.desktop.in.in.h:1
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:1
 msgid "Preferred Applications"
 msgstr "Стандартні проґрами"
 
-#: ../capplets/default-applications/mate-default-applications-properties.desktop.in.in.h:2
+#: ../capplets/default-applications/ukui-default-applications-properties.desktop.in.in.h:2
 msgid "Select your default applications"
 msgstr "Обрання типових проґрам"
 
-#: ../capplets/default-applications/mate-da-capplet.c:542
+#: ../capplets/default-applications/ukui-da-capplet.c:542
 msgid "Could not load the main interface"
 msgstr "Не вдається завантажити головний інтерфейс"
 
-#: ../capplets/default-applications/mate-da-capplet.c:543
+#: ../capplets/default-applications/ukui-da-capplet.c:543
 msgid "Please make sure that the applet is properly installed"
 msgstr "Переконайтеся, що аплет правильно встановлено."
 
 #. TRANSLATORS: don't translate the terms in brackets
-#: ../capplets/default-applications/mate-da-capplet.c:692
+#: ../capplets/default-applications/ukui-da-capplet.c:692
 msgid "Specify the name of the page to show (internet|multimedia|system|a11y)"
 msgstr "Вкажіть назву сторінки для показу (internet|multimedia|system|a11y)"
 
-#: ../capplets/default-applications/mate-da-capplet.c:698
-msgid "- MATE Default Applications"
+#: ../capplets/default-applications/ukui-da-capplet.c:698
+msgid "- UKUI Default Applications"
 msgstr "Відкрити у типовій проґрамі"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:2
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:2
 msgid "Web Browser"
 msgstr "Оглядач тенет"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:3
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:3
 msgid "Mail Reader"
 msgstr "Поштова проґрама"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:4
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:4
 msgid "Instant Messenger"
 msgstr "Миттєві повідомлення"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:5
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:5
 msgid "Co_mmand:"
 msgstr "_Команда:"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:7
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:7
 #, no-c-format
 msgid "All %s occurrences will be replaced with actual link"
 msgstr "Усі випадки %s будуть замінені реальним шляхом у файловій системі"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:8
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:8
 msgid "Run in t_erminal"
 msgstr "Запускати у т_ерміналі"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:9
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:9
 msgid "Internet"
 msgstr "Тенета"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:10
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:10
 msgid "Image Viewer"
 msgstr "Перегляд зображень"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:11
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:11
 msgid "Multimedia Player"
 msgstr "Програвач мультимедія"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:12
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:12
 msgid "Video Player"
 msgstr "Видивопрогравач"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:13
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:13
 msgid "Multimedia"
 msgstr "Мультимедія"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:14
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:14
 msgid "Text Editor"
 msgstr "Текстовий редактор"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:15
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:15
 msgid "Terminal Emulator"
 msgstr "Емулятор терміналу"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:16
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:16
 msgid "File Manager"
 msgstr "Керівник файлами"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:17
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:17
 msgid "System"
 msgstr "Система"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:18
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:18
 msgid "Document Viewer"
 msgstr "Переглядач документів"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:19
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:19
 msgid "Word Processor"
 msgstr "Текстовий процесор"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:20
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:20
 msgid "Spreadsheet Editor"
 msgstr "Редактор електронних таблиць"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:21
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:21
 msgid "Office"
 msgstr "Офіс"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:22
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:22
 msgid "Visual"
 msgstr "Наочний"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:23
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:23
 msgid "_Run at start"
 msgstr "Запускати на _старті"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:24
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:24
 msgid "Mobility"
 msgstr "Мобільність"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:25
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:25
 msgid "Run at st_art"
 msgstr "Запускати на _старті"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:26
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:45
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:26
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:45
 msgid "Accessibility"
 msgstr "Можливости доступности"
 
@@ -1478,9 +1478,9 @@ msgstr "Застосувати загальносистемно"
 
 #: ../capplets/display/display-capplet.ui.h:3
 msgid ""
-"Applies the current configuration for other MATE users on the computer. Note"
+"Applies the current configuration for other UKUI users on the computer. Note"
 " that this doesn't affect login screens or other desktop environments."
-msgstr "Застосовує поточну конфігурацію для иньших користувачів MATE на комп'ютері. Зверніть увагу, що це не впливає на екран входу чи иньші стільничні середовища."
+msgstr "Застосовує поточну конфігурацію для иньших користувачів UKUI на комп'ютері. Зверніть увагу, що це не впливає на екран входу чи иньші стільничні середовища."
 
 #: ../capplets/display/display-capplet.ui.h:4
 msgid "Sa_me image in all monitors"
@@ -1543,13 +1543,13 @@ msgstr "Звичайний"
 
 #: ../capplets/display/display-capplet.ui.h:18
 #: ../capplets/display/xrandr-capplet.c:312
-#: ../capplets/windows/mate-window-properties.c:574
+#: ../capplets/windows/ukui-window-properties.c:574
 msgid "Left"
 msgstr "Обернений наліво"
 
 #: ../capplets/display/display-capplet.ui.h:19
 #: ../capplets/display/xrandr-capplet.c:313
-#: ../capplets/windows/mate-window-properties.c:573
+#: ../capplets/windows/ukui-window-properties.c:573
 msgid "Right"
 msgstr "Обернений направо"
 
@@ -1557,100 +1557,100 @@ msgstr "Обернений направо"
 msgid "Upside-down"
 msgstr "Згори вниз"
 
-#: ../capplets/display/mate-display-properties.desktop.in.in.h:1
+#: ../capplets/display/ukui-display-properties.desktop.in.in.h:1
 msgid "Displays"
 msgstr "Дисплеї"
 
-#: ../capplets/display/mate-display-properties.desktop.in.in.h:2
+#: ../capplets/display/ukui-display-properties.desktop.in.in.h:2
 msgid "Change resolution and position of monitors and projectors"
 msgstr "Зміна роздільности та позиції моніторів і проєкторів"
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:44
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:44
 #, c-format
 msgid ""
 "Usage: %s SOURCE_FILE DEST_NAME\n"
 "\n"
 "This program installs a RANDR profile for multi-monitor setups into\n"
 "a systemwide location.  The resulting profile will get used when\n"
-"the RANDR plug-in gets run in mate-settings-daemon.\n"
+"the RANDR plug-in gets run in ukui-settings-daemon.\n"
 "\n"
 "SOURCE_FILE - a full pathname, typically /home/username/.config/monitors.xml\n"
 "\n"
 "DEST_NAME - relative name for the installed file.  This will get put in\n"
 "            the systemwide directory for RANDR configurations,\n"
 "            so the result will typically be %s/DEST_NAME\n"
-msgstr "Використання: %s ДЖЕРЕЛЬНИЙ_ФАЙЛ ІМ’Я_ПРИЗНАЧЕННЯ\n\nЦя проґрама встановлює профіль RANDR для багатомоніторних налаштувань у\nсистемний каталог. Профіль що отримано буде використано при запуску\nвтулок RANDR з mate-settings-daemon.\n\nДЖЕРЕЛЬНИЙ_ФАЙЛ — повний шлях до файлу, зазвичай /home/username/.config/monitors.xml\n\nІМ’Я_ПРИЗНАЧЕННЯ — відносне ім’я для файлу що встановлюється. Його буде поміщено\n            у системний каталог налаштувань RANDR, й у результаті повний шлях,\n            зазвичай, буде %s/ІМ’Я_ПРИЗНАЧЕННЯ\n"
+msgstr "Використання: %s ДЖЕРЕЛЬНИЙ_ФАЙЛ ІМ’Я_ПРИЗНАЧЕННЯ\n\nЦя проґрама встановлює профіль RANDR для багатомоніторних налаштувань у\nсистемний каталог. Профіль що отримано буде використано при запуску\nвтулок RANDR з ukui-settings-daemon.\n\nДЖЕРЕЛЬНИЙ_ФАЙЛ — повний шлях до файлу, зазвичай /home/username/.config/monitors.xml\n\nІМ’Я_ПРИЗНАЧЕННЯ — відносне ім’я для файлу що встановлюється. Його буде поміщено\n            у системний каталог налаштувань RANDR, й у результаті повний шлях,\n            зазвичай, буде %s/ІМ’Я_ПРИЗНАЧЕННЯ\n"
 
 #. Translators: only able to install RANDR profiles as root
-#: ../capplets/display/mate-display-properties-install-systemwide.c:151
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:151
 msgid "This program can only be used by the root user"
 msgstr "Ця проґрама може використовуватися лише користувачем root"
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:168
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:168
 msgid "The source filename must be absolute"
 msgstr "Ім’я початкового файлу має бути абсолютним"
 
 #. Translators: first %s is a filename; second %s is an error message
-#: ../capplets/display/mate-display-properties-install-systemwide.c:179
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:179
 #, c-format
 msgid "Could not open %s: %s\n"
 msgstr "Не вдалося відкрити %s: %s\n"
 
 #. Translators: first %s is a filename; second %s is an error message
-#: ../capplets/display/mate-display-properties-install-systemwide.c:188
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:188
 #, c-format
 msgid "Could not get information for %s: %s\n"
 msgstr "Не вдалося отримати інформацію для %s: %s\n"
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:195
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:195
 #, c-format
 msgid "%s must be a regular file\n"
 msgstr "%s має бути звичайним файлом\n"
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:204
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:204
 msgid "This program must only be run through pkexec(1)"
 msgstr "Ця проґрама має запускатися лише за допомогою pkexec(1)"
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:209
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:209
 msgid "PKEXEC_UID must be set to an integer value"
 msgstr "Значення PKEXEC_UID повинне виражатися цілим числом"
 
 #. Translators: we are complaining that a file must be really owned by the
 #. user who called this program
-#: ../capplets/display/mate-display-properties-install-systemwide.c:215
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:215
 #, c-format
 msgid "%s must be owned by you\n"
 msgstr "%s має належати Вам\n"
 
 #. Translators: here we are saying that a plain filename must look like
 #. "filename", not like "some_dir/filename"
-#: ../capplets/display/mate-display-properties-install-systemwide.c:223
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:223
 #, c-format
 msgid "%s must not have any directory components\n"
 msgstr "У %s не повинна міститися компонента каталогів\n"
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:231
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:231
 #, c-format
 msgid "%s must be a directory\n"
 msgstr "Значення %s має бути каталогом\n"
 
 #. Translators: the first %s/%s is a directory/filename; the last %s is an
 #. error message
-#: ../capplets/display/mate-display-properties-install-systemwide.c:242
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:242
 #, c-format
 msgid "Could not open %s/%s: %s\n"
 msgstr "Не вдалося відкрити %s/%s: %s\n"
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:262
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:262
 #, c-format
 msgid "Could not rename %s to %s: %s\n"
 msgstr "Не вдалося змінити назву %s на %s: %s\n"
 
-#: ../capplets/display/org.mate.randr.policy.in.h:1
+#: ../capplets/display/org.ukui.randr.policy.in.h:1
 msgid "Install multi-monitor settings for the whole system"
 msgstr "Встановлення багатомоніторних налаштувань у якости системних"
 
-#: ../capplets/display/org.mate.randr.policy.in.h:2
+#: ../capplets/display/org.ukui.randr.policy.in.h:2
 msgid ""
 "Authentication is required to install multi-monitor settings for all users"
 msgstr "Для встановлення багатомоніторних налаштувань для усіх користувачів потрібне розпізнання"
@@ -1746,845 +1746,845 @@ msgid "The type of accelerator."
 msgstr "Тип прискорювача."
 
 #: ../capplets/keybindings/eggcellrendererkeys.c:231
-#: ../capplets/keybindings/mate-keybinding-properties.c:134
-#: ../capplets/mouse/mate-mouse-properties.c:396
+#: ../capplets/keybindings/ukui-keybinding-properties.c:134
+#: ../capplets/mouse/ukui-mouse-properties.c:396
 #: ../typing-break/drwright.c:501
 msgid "Disabled"
 msgstr "Немає"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:216
+#: ../capplets/keybindings/ukui-keybinding-properties.c:216
 msgid "<Unknown Action>"
 msgstr "<Невідома дія>"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1020
-#: ../capplets/keybindings/mate-keybinding-properties.c:1610
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1020
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1610
 msgid "Custom Shortcuts"
 msgstr "Власне сполучення клявіш"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1190
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1190
 msgid "Error saving the new shortcut"
 msgstr "Помилка при збереженні нового сполучення клявіш"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1266
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1266
 #, c-format
 msgid ""
 "The shortcut \"%s\" cannot be used because it will become impossible to type using this key.\n"
 "Please try with a key such as Control, Alt or Shift at the same time."
 msgstr "Сполучення клявіш \"%s\" не можна використовувати, бо використання цієї клявіші для звичайного вводу стане неможливим.\nСпробуйте з такими клявішами, як Control, Alt чи Shift одночасно."
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1298
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1298
 #, c-format
 msgid ""
 "The shortcut \"%s\" is already used for\n"
 "\"%s\""
 msgstr "Сполучення клявіш \"%s\" вже використовується для\n \"%s\""
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1305
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1305
 #, c-format
 msgid "If you reassign the shortcut to \"%s\", the \"%s\" shortcut will be disabled."
 msgstr "Після перепризначення сполучення клявіш «%s» на «%s» вона буде вимкнена."
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1310
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1310
 msgid "_Reassign"
 msgstr "_Перепризначити"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1565
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1565
 msgid "Too many custom shortcuts"
 msgstr "Забагато сполучень клявіш"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1853
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1853
 msgid "Action"
 msgstr "Дія"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1875
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1875
 msgid "Shortcut"
 msgstr "Сполучення клявіш"
 
 #. * vim: sw=2 ts=8 cindent noai bs=2
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:1
-#: ../capplets/keybindings/mate-keybinding.desktop.in.in.h:1
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:1
+#: ../capplets/keybindings/ukui-keybinding.desktop.in.in.h:1
 msgid "Keyboard Shortcuts"
 msgstr "Сполучення клявіш"
 
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:2
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:2
 msgid ""
 "To edit a shortcut key, click on the corresponding row and type a new key "
 "combination, or press backspace to clear."
 msgstr "Щоб змінити сполучення клявіш, клацніть у відповідному рядку та уведіть новий прискорювач, або натисніть Backspace для очищення."
 
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:3
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:3
 msgid "Custom Shortcut"
 msgstr "Власне сполучення клявіш"
 
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:5
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:5
 msgid "C_ommand:"
 msgstr "К_оманда:"
 
-#: ../capplets/keybindings/mate-keybinding.desktop.in.in.h:2
+#: ../capplets/keybindings/ukui-keybinding.desktop.in.in.h:2
 msgid "Assign shortcut keys to commands"
 msgstr "Пов'язати сполучення клявіш з командами"
 
-#: ../capplets/keyboard/mate-keyboard-properties.c:213
-#: ../capplets/keyboard/mate-keyboard-properties.c:218
+#: ../capplets/keyboard/ukui-keyboard-properties.c:213
+#: ../capplets/keyboard/ukui-keyboard-properties.c:218
 msgid ""
 "Just apply settings and quit (compatibility only; now handled by daemon)"
 msgstr "Лише вжити параметри та вийти (лише для сумісности; тепер опрацьовується службою)"
 
-#: ../capplets/keyboard/mate-keyboard-properties.c:223
+#: ../capplets/keyboard/ukui-keyboard-properties.c:223
 msgid "Start the page with the typing break settings showing"
 msgstr "Починати сторінку з показу параметрів перерви у роботі"
 
-#: ../capplets/keyboard/mate-keyboard-properties.c:228
+#: ../capplets/keyboard/ukui-keyboard-properties.c:228
 msgid "Start the page with the accessibility settings showing"
 msgstr "Починати сторінку з показу параметрів допоміжних технологій"
 
-#: ../capplets/keyboard/mate-keyboard-properties.c:234
-msgid "- MATE Keyboard Preferences"
-msgstr "- Параметри набірниці MATE"
+#: ../capplets/keyboard/ukui-keyboard-properties.c:234
+msgid "- UKUI Keyboard Preferences"
+msgstr "- Параметри набірниці UKUI"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:1
 msgid "Keyboard Accessibility Audio Feedback"
 msgstr "Допоміжні звукові можливости _набірниці"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:2
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:15
-#: ../capplets/mouse/mate-mouse-properties.ui.h:30
-#: ../capplets/windows/mate-window-properties.c:382
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:2
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:15
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:30
+#: ../capplets/windows/ukui-window-properties.c:382
 msgid "General"
 msgstr "Загальне"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:3
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:3
 msgid "Beep when _accessibility features are turned on or off"
 msgstr "Подавати сигнал, при вмиканні чи вимиканні _функцій доступности"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:4
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:4
 msgid "Beep when a _toggle key is pressed"
 msgstr "Подавати сигнал, коли _перемикач натиснуто"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:5
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:5
 msgid "Visual cues for sounds"
 msgstr "Ефекти для звуків"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:6
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:6
 msgid "Show _visual feedback for the alert sound"
 msgstr "Показувати ефекти на _екрані для звуків сповіщень"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:7
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:7
 msgid "Flash _window titlebar"
 msgstr "Блимання _заголовку вікна"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:8
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:8
 msgid "Flash entire _screen"
 msgstr "Блимання _екрану"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:9
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:39
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:9
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:39
 msgid "Slow Keys"
 msgstr "\"Повільні\" клявіші"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:10
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:10
 msgid "Beep when a key is pr_essed"
 msgstr "Подавати сигнал, коли _клявішу натиснуто"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:11
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:11
 msgid "Beep when key is _accepted"
 msgstr "Подавати сигнал, коли клявішу при_йнято"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:12
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:12
 msgid "Beep when key is _rejected"
 msgstr "Подавати сигнал, коли клявішу відк_инуто"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:13
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:41
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:13
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:41
 msgid "Bounce Keys"
 msgstr "Пружні клявіші"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:14
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:14
 msgid "Beep when a key is reje_cted"
 msgstr "Подавати сигнал, коли клявішу від_кинуто"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:15
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:36
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:15
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:36
 msgid "Sticky Keys"
 msgstr "\"Липкі\" клявіші"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:16
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:16
 msgid "Beep when a _modifier key is pressed"
 msgstr "Подавати сигнал, коли _модифікатор натиснуто"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:1
 msgid "Keyboard Preferences"
 msgstr "Параметри набірниці"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:2
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:2
 msgid "Repeat Keys"
 msgstr "Автоповтор"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:3
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:3
 msgid "Key presses _repeat when key is held down"
 msgstr "_Повторення набірниці при утримуванні клявіші"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:4
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:4
 msgid "_Delay:"
 msgstr "_Затримка:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:5
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:5
 msgid "_Speed:"
 msgstr "Ш_видкість:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:6
-#: ../capplets/mouse/mate-mouse-properties.ui.h:27
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:6
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:27
 msgid "Short"
 msgstr "Менше"
 
 #. slow acceleration
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:7
-#: ../capplets/mouse/mate-mouse-properties.ui.h:11
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:7
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:11
 msgid "Slow"
 msgstr "Повільно"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:8
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:8
 msgid "Repeat keys speed"
 msgstr "Швидкість повтору клявіш"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:9
-#: ../capplets/mouse/mate-mouse-properties.ui.h:28
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:9
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:28
 msgid "Long"
 msgstr "Більше"
 
 #. fast acceleration
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:10
-#: ../capplets/mouse/mate-mouse-properties.ui.h:13
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:10
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:13
 msgid "Fast"
 msgstr "Швидко"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:11
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:11
 msgid "Cursor Blinking"
 msgstr "Блимання вказівника"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:12
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:12
 msgid "Cursor _blinks in text fields"
 msgstr "Вказівник _блимає у полях вводу тексту"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:13
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:13
 msgid "S_peed:"
 msgstr "_Швидкість:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:14
-#: ../capplets/mouse/mate-mouse-properties.ui.h:22
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:14
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:22
 msgid "Cursor blinks speed"
 msgstr "Швидкість блимання вказівника"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:16
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:16
 msgid "List of keyboard layouts selected for usage"
 msgstr "Перелік обраних для використання набірничних розкладок"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:18
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:18
 msgid "Select a keyboard layout to be added to the list"
 msgstr "Вибір набірничної розкладки для додавання у перелік"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:19
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:19
 msgid "Remove the selected keyboard layout from the list"
 msgstr "Вилучити обрану набірничну розкладку з переліку"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:20
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:20
 msgid "Move _Up"
 msgstr "Перемістити в_гору"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:21
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:21
 msgid "Move the selected keyboard layout up in the list"
 msgstr "Перемістити обрану набірничну розкладку вгору по переліку"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:22
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:22
 msgid "Move _Down"
 msgstr "Перемістити в_низ"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:23
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:23
 msgid "Move the selected keyboard layout down in the list"
 msgstr "Перемістити обрану набірничну розкладку вниз по переліку"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:24
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:24
 msgid "_Show..."
 msgstr "_Показати..."
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:25
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:25
 msgid "Print a diagram of the selected keyboard layout"
 msgstr "Показати графічну схему обраної набірничної розкладки"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:26
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:26
 msgid "_Separate layout for each window"
 msgstr "Окрема _розкладка для кожного вікна"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:27
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:27
 msgid "New windows u_se active window's layout"
 msgstr "Нові вікна _використовують активну розкладку"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:28
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:28
 msgid "Keyboard _model:"
 msgstr "_Модель набірниці:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:29
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:29
 msgid "_Options..."
 msgstr "_Параметри..."
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:30
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:30
 msgid "View and edit keyboard layout options"
 msgstr "Перегляд та зміна параметрів набірничної розкладки"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:31
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:31
 msgid "Reset to De_faults"
 msgstr "Скинути на _типові значення"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:32
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:32
 msgid ""
 "Replace the current keyboard layout settings with the\n"
 "default settings"
 msgstr "Замінити поточні налаштування набірничної розкладки\nтиповими налаштуваннями"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:34
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:34
 msgid "Layouts"
 msgstr "Розкладки"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:35
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:35
 msgid "_Accessibility features can be toggled with keyboard shortcuts"
 msgstr "_Дозволити вмикання та вимикання технології доступности з набірниці"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:37
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:37
 msgid "_Simulate simultaneous keypresses"
 msgstr "_Імітувати одночасні натискання"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:38
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:38
 msgid "Disa_ble sticky keys if two keys are pressed together"
 msgstr "В_имикати липкі клявіші, якщо дві клявіші натиснуто одночасно"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:40
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:40
 msgid "_Only accept long keypresses"
 msgstr "П_риймати натискання лише після тривалого натискання"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:42
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:42
 msgid "_Ignore fast duplicate keypresses"
 msgstr "_Нехтувати швидкі повторні натискання клявіш"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:43
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:43
 msgid "D_elay:"
 msgstr "За_тримка:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:44
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:44
 msgid "Audio _Feedback..."
 msgstr "Зворотній _звуковий зв'язок..."
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:46
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:46
 msgid "_Pointer can be controlled using the keypad"
 msgstr "_Дозволити керування вказівником миші з набірниці"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:47
-#: ../capplets/mouse/mate-mouse-properties.ui.h:8
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:47
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:8
 msgid "_Acceleration:"
 msgstr "П_рискорення:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:48
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:48
 msgid "Mouse Keys"
 msgstr "Кнопки миші"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:49
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:49
 msgid "_Lock screen to enforce typing break"
 msgstr "_Блокувати екран для примусової перерви у роботі"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:50
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:50
 msgid ""
 "Lock screen after a certain duration to help prevent repetitive keyboard use"
 " injuries"
 msgstr "Блокувати екран через визначений проміжок часу для запобігання хворобам, пов'язаним з тривалим користуванням набірницею"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:51
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:51
 msgid "_Work interval lasts:"
 msgstr "Тривалість _роботи:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:52
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:52
 msgid "_Break interval lasts:"
 msgstr "Тривалість _перерви:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:53
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:53
 msgid "Duration of work before forcing a break"
 msgstr "Тривалість роботи перед примусовою перервою"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:54
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:54
 msgid "Duration of the break when typing is disallowed"
 msgstr "Тривалість перерви, коли робота за набірницею заборонена"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:55
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:55
 msgid "minutes"
 msgstr "хвилин"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:56
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:56
 msgid "All_ow postponing of breaks"
 msgstr "Дозволити _відкладання перерв"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:57
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:57
 msgid "Check if breaks are allowed to be postponed"
 msgstr "Встановіть, якщо дозволено відкладати перерви"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:58
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:58
 msgid "Typing Break"
 msgstr "Перерва у роботі"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:59
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:59
 msgid "_Type to test settings:"
 msgstr "П_оле для перевірки параметрів:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:1
 msgid "Choose a Layout"
 msgstr "Оберіть розкладку"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:2
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:2
 msgid "_Variants:"
 msgstr "Вар_іянти:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:3
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:3
 msgid "_Country:"
 msgstr "К_раїна:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:4
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:4
 msgid "By _country"
 msgstr "За _країною"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:5
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:5
 msgid "_Language:"
 msgstr "_Мова:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:6
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:6
 msgid "By _language"
 msgstr "За _мовою"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:7
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:7
 msgid "Preview:"
 msgstr "Попередній перегляд"
 
-#: ../capplets/keyboard/mate-keyboard-properties-model-chooser.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-model-chooser.ui.h:1
 msgid "Choose a Keyboard Model"
 msgstr "Оберіть модель набірниці"
 
-#: ../capplets/keyboard/mate-keyboard-properties-model-chooser.ui.h:2
+#: ../capplets/keyboard/ukui-keyboard-properties-model-chooser.ui.h:2
 msgid "_Vendors:"
 msgstr "Виро_бники:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-model-chooser.ui.h:3
+#: ../capplets/keyboard/ukui-keyboard-properties-model-chooser.ui.h:3
 msgid "_Models:"
 msgstr "_Моделі:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-options-dialog.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-options-dialog.ui.h:1
 msgid "Keyboard Layout Options"
 msgstr "Параметри розкладки набірниці"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkb.c:83
+#: ../capplets/keyboard/ukui-keyboard-properties-xkb.c:83
 msgid "Unknown"
 msgstr "Невідома"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkblt.c:240
+#: ../capplets/keyboard/ukui-keyboard-properties-xkblt.c:240
 msgid "Layout"
 msgstr "Розташування"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkbmc.c:170
+#: ../capplets/keyboard/ukui-keyboard-properties-xkbmc.c:170
 msgid "Vendors"
 msgstr "Виробники"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkbmc.c:236
+#: ../capplets/keyboard/ukui-keyboard-properties-xkbmc.c:236
 msgid "Models"
 msgstr "Моделі"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkbot.c:237
+#: ../capplets/keyboard/ukui-keyboard-properties-xkbot.c:237
 msgid "Default"
 msgstr "Типовий"
 
-#: ../capplets/keyboard/mate-keyboard.desktop.in.in.h:1
+#: ../capplets/keyboard/ukui-keyboard.desktop.in.in.h:1
 msgid "Keyboard"
 msgstr "Набірниця"
 
-#: ../capplets/keyboard/mate-keyboard.desktop.in.in.h:2
+#: ../capplets/keyboard/ukui-keyboard.desktop.in.in.h:2
 msgid "Set your keyboard preferences"
 msgstr "Встановити параметри набірниці"
 
-#: ../capplets/mouse/mate-mouse-properties.c:396
+#: ../capplets/mouse/ukui-mouse-properties.c:396
 msgid "Left button"
 msgstr "Ліва кнопка"
 
-#: ../capplets/mouse/mate-mouse-properties.c:396
+#: ../capplets/mouse/ukui-mouse-properties.c:396
 msgid "Middle button"
 msgstr "Середня кнопка"
 
-#: ../capplets/mouse/mate-mouse-properties.c:396
+#: ../capplets/mouse/ukui-mouse-properties.c:396
 msgid "Right button"
 msgstr "Права кнопка"
 
 #. TRANSLATORS: don't translate the terms in brackets
-#: ../capplets/mouse/mate-mouse-properties.c:482
+#: ../capplets/mouse/ukui-mouse-properties.c:482
 msgid "Specify the name of the page to show (general)"
 msgstr "Вкажіть назву сторінки що показується (general)"
 
-#: ../capplets/mouse/mate-mouse-properties.c:487
-msgid "- MATE Mouse Preferences"
+#: ../capplets/mouse/ukui-mouse-properties.c:487
+msgid "- UKUI Mouse Preferences"
 msgstr "- параметри миші"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:1
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:1
 msgid "Mouse Preferences"
 msgstr "Параметри миші"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:2
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:2
 msgid "Mouse Orientation"
 msgstr "Орієнтація миші"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:3
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:3
 msgid "_Right-handed"
 msgstr "Під _праву руку"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:4
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:4
 msgid "_Left-handed"
 msgstr "Під _ліву руку"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:5
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:5
 msgid "Locate Pointer"
 msgstr "Пошук вказівника миші"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:6
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:6
 msgid "Sh_ow position of pointer when the Control key is pressed"
 msgstr "По_казувати позицію вказівника при натисканні клявіші Ctrl"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:7
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:7
 msgid "Pointer Speed"
 msgstr "Швидкість вказівника"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:9
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:9
 msgid "_Sensitivity:"
 msgstr "_Чутливість:"
 
 #. low sensitivity
-#: ../capplets/mouse/mate-mouse-properties.ui.h:15
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:15
 msgid "Low"
 msgstr "Низька"
 
 #. high sensitivity
-#: ../capplets/mouse/mate-mouse-properties.ui.h:17
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:17
 msgid "High"
 msgstr "Висока"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:18
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:18
 msgid "Drag and Drop"
 msgstr "Перетягування"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:19
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:19
 msgid "Thr_eshold:"
 msgstr "_Поріг:"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:25
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:25
 msgid "Double-Click Timeout"
 msgstr "Затримка подвійного клацання"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:26
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:26
 msgid "_Timeout:"
 msgstr "За_тримка"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:29
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:29
 msgid ""
 "To test your double-click settings, try to double-click on the light bulb."
 msgstr "Для перевірки подвійного клацання, спробуйте виконати подвійне клацання на лямпочці."
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:31
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:31
 msgid "Enable _touchpad"
 msgstr "Увімкнути _тачпад"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:32
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:32
 msgid "Disable touchpad _while typing"
 msgstr "Вимикати тачпад під час набору на набірниці"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:33
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:33
 msgid "Enable _mouse clicks with touchpad"
 msgstr "Увімкнути _клацання за допомогою точпаду"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:34
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:34
 msgid "Two-finger click emulation:"
 msgstr "Емуляція клацу натисканням двома пальцями:"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:35
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:35
 msgid "Three-finger click emulation:"
 msgstr "Емуляція клацу натисканням трьома пальцями:"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:36
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:36
 msgid "Scrolling"
 msgstr "Гортання"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:37
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:37
 msgid "_Vertical edge scrolling"
 msgstr "_Вертикальне крайове гортання"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:38
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:38
 msgid "H_orizontal edge scrolling"
 msgstr "_Горизонтальне крайове гортання"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:39
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:39
 msgid "V_ertical two-finger scrolling"
 msgstr "Верти_кальне двопальцеве гортання"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:40
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:40
 msgid "Hor_izontal two-finger scrolling"
 msgstr "Гориз_онтальне двопальцеве гортання"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:41
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:41
 msgid "Enable n_atural scrolling"
 msgstr "Увімкнути природнє гортання"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:42
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:42
 msgid "Touchpad"
 msgstr "Точпад"
 
-#: ../capplets/mouse/mate-settings-mouse.desktop.in.in.h:1
+#: ../capplets/mouse/ukui-settings-mouse.desktop.in.in.h:1
 msgid "Mouse"
 msgstr "Миша"
 
-#: ../capplets/mouse/mate-settings-mouse.desktop.in.in.h:2
+#: ../capplets/mouse/ukui-settings-mouse.desktop.in.in.h:2
 msgid "Set your mouse preferences"
 msgstr "Встановлення параметрів миші"
 
-#: ../capplets/network/mate-network-properties.desktop.in.in.h:1
+#: ../capplets/network/ukui-network-properties.desktop.in.in.h:1
 msgid "Network Proxy"
 msgstr "Служба проксі"
 
-#: ../capplets/network/mate-network-properties.desktop.in.in.h:2
+#: ../capplets/network/ukui-network-properties.desktop.in.in.h:2
 msgid "Set your network proxy preferences"
 msgstr "Діялоґ налаштовування проксі-сервера"
 
-#: ../capplets/network/mate-network-properties.ui.h:1
+#: ../capplets/network/ukui-network-properties.ui.h:1
 msgid "HTTP Proxy Details"
 msgstr "Порт HTTP проксі"
 
-#: ../capplets/network/mate-network-properties.ui.h:2
+#: ../capplets/network/ukui-network-properties.ui.h:2
 msgid "<b>_Use authentication</b>"
 msgstr "<b>_Використовувати розпізнання</b>"
 
-#: ../capplets/network/mate-network-properties.ui.h:3
+#: ../capplets/network/ukui-network-properties.ui.h:3
 msgid "U_sername:"
 msgstr "_Користувач:"
 
-#: ../capplets/network/mate-network-properties.ui.h:4
+#: ../capplets/network/ukui-network-properties.ui.h:4
 msgid "_Password:"
 msgstr "_Пароль:"
 
-#: ../capplets/network/mate-network-properties.ui.h:5
+#: ../capplets/network/ukui-network-properties.ui.h:5
 msgid "Network Proxy Preferences"
 msgstr "Параметри проксі-серверів"
 
-#: ../capplets/network/mate-network-properties.ui.h:6
+#: ../capplets/network/ukui-network-properties.ui.h:6
 msgid "<b>Di_rect internet connection</b>"
 msgstr "<b>Пр_яме з'єднання з Тенетами</b>"
 
-#: ../capplets/network/mate-network-properties.ui.h:7
+#: ../capplets/network/ukui-network-properties.ui.h:7
 msgid "<b>_Manual proxy configuration</b>"
 msgstr "<b>Р_учна конфігурація проксі</b>"
 
-#: ../capplets/network/mate-network-properties.ui.h:8
+#: ../capplets/network/ukui-network-properties.ui.h:8
 msgid "H_TTP proxy:"
 msgstr "Проксі _HTTP"
 
-#: ../capplets/network/mate-network-properties.ui.h:9
+#: ../capplets/network/ukui-network-properties.ui.h:9
 msgid "_Secure HTTP proxy:"
 msgstr "Б_езпечний проксі HTTP"
 
-#: ../capplets/network/mate-network-properties.ui.h:10
+#: ../capplets/network/ukui-network-properties.ui.h:10
 msgid "_FTP proxy:"
 msgstr "Проксі _FTP"
 
-#: ../capplets/network/mate-network-properties.ui.h:11
+#: ../capplets/network/ukui-network-properties.ui.h:11
 msgid "S_ocks host:"
 msgstr "Вузол _SOCKS:"
 
-#: ../capplets/network/mate-network-properties.ui.h:12
+#: ../capplets/network/ukui-network-properties.ui.h:12
 msgid "Port:"
 msgstr "Порт:"
 
-#: ../capplets/network/mate-network-properties.ui.h:13
+#: ../capplets/network/ukui-network-properties.ui.h:13
 msgid "_Details"
 msgstr "Под_робиці"
 
-#: ../capplets/network/mate-network-properties.ui.h:14
+#: ../capplets/network/ukui-network-properties.ui.h:14
 msgid "<b>_Automatic proxy configuration</b>"
 msgstr "<b>Ав_томатична конфігурація проксі</b>"
 
-#: ../capplets/network/mate-network-properties.ui.h:15
+#: ../capplets/network/ukui-network-properties.ui.h:15
 msgid "Autoconfiguration _URL:"
 msgstr "_URL автоконфігурації:"
 
-#: ../capplets/network/mate-network-properties.ui.h:16
+#: ../capplets/network/ukui-network-properties.ui.h:16
 msgid "Proxy Configuration"
 msgstr "Параметри проксі"
 
-#: ../capplets/network/mate-network-properties.ui.h:17
+#: ../capplets/network/ukui-network-properties.ui.h:17
 msgid "Ignore Host List"
 msgstr "Нехтувані вузли"
 
-#: ../capplets/network/mate-network-properties.ui.h:18
+#: ../capplets/network/ukui-network-properties.ui.h:18
 msgid "Ignored Hosts"
 msgstr "Нехтувані вузли"
 
-#: ../capplets/windows/mate-metacity-support.c:40
+#: ../capplets/windows/ukui-metacity-support.c:40
 msgid "Metacity Preferences"
 msgstr "Параметри Metacity"
 
 #. Compositing manager
-#: ../capplets/windows/mate-metacity-support.c:55
-#: ../capplets/windows/mate-window-properties.c:410
+#: ../capplets/windows/ukui-metacity-support.c:55
+#: ../capplets/windows/ukui-window-properties.c:410
 msgid "Compositing Manager"
 msgstr "Керівник композитингом"
 
-#: ../capplets/windows/mate-metacity-support.c:66
-#: ../capplets/windows/mate-window-properties.c:422
+#: ../capplets/windows/ukui-metacity-support.c:66
+#: ../capplets/windows/ukui-window-properties.c:422
 msgid "Enable software _compositing window manager"
 msgstr "Увімкнути проґрамний _композитний керівник вікнами"
 
-#: ../capplets/windows/mate-window-properties.c:264
+#: ../capplets/windows/ukui-window-properties.c:264
 msgid "The current window manager is unsupported"
 msgstr "Поточний керівник вікнами не підтримується"
 
 #. Window
-#: ../capplets/windows/mate-window-properties.c:358
+#: ../capplets/windows/ukui-window-properties.c:358
 msgid "Window Preferences"
 msgstr "Параметри вікон"
 
-#: ../capplets/windows/mate-window-properties.c:391
+#: ../capplets/windows/ukui-window-properties.c:391
 msgid "Behaviour"
 msgstr "Поведінка"
 
-#: ../capplets/windows/mate-window-properties.c:400
+#: ../capplets/windows/ukui-window-properties.c:400
 msgid "Placement"
 msgstr "Розміщення"
 
-#: ../capplets/windows/mate-window-properties.c:423
+#: ../capplets/windows/ukui-window-properties.c:423
 msgid "Disable _thumbnails in Alt-Tab"
 msgstr "Вимкнути _ескізи у Alt-Tab"
 
 #. Titlebar buttons
-#: ../capplets/windows/mate-window-properties.c:431
+#: ../capplets/windows/ukui-window-properties.c:431
 msgid "Titlebar Buttons"
 msgstr "Кнопки заголовку"
 
-#: ../capplets/windows/mate-window-properties.c:439
+#: ../capplets/windows/ukui-window-properties.c:439
 msgid "Position:"
 msgstr "Розташування:"
 
 #. New Windows
-#: ../capplets/windows/mate-window-properties.c:446
+#: ../capplets/windows/ukui-window-properties.c:446
 msgid "New Windows"
 msgstr "Нові вікна"
 
-#: ../capplets/windows/mate-window-properties.c:454
+#: ../capplets/windows/ukui-window-properties.c:454
 msgid "Center _new windows"
 msgstr "Центр_ нових вікон"
 
 #. Window Snapping
-#: ../capplets/windows/mate-window-properties.c:459
+#: ../capplets/windows/ukui-window-properties.c:459
 msgid "Window Snapping"
 msgstr "Прив’язка вікон"
 
-#: ../capplets/windows/mate-window-properties.c:467
+#: ../capplets/windows/ukui-window-properties.c:467
 msgid "Enable side by side _tiling"
 msgstr "Увімкнути тайлінговий режим"
 
 #. Window Selection
-#: ../capplets/windows/mate-window-properties.c:472
+#: ../capplets/windows/ukui-window-properties.c:472
 msgid "Window Selection"
 msgstr "Вибір вікон"
 
-#: ../capplets/windows/mate-window-properties.c:492
+#: ../capplets/windows/ukui-window-properties.c:492
 msgid "_Select windows when the mouse moves over them"
 msgstr "Пере_микатися на вікна, коли над ними проходить вказівник"
 
-#: ../capplets/windows/mate-window-properties.c:495
+#: ../capplets/windows/ukui-window-properties.c:495
 msgid "U_nselect windows when the mouse leaves them"
 msgstr "З_няти виділення вікон, коли миша покидає їх"
 
-#: ../capplets/windows/mate-window-properties.c:499
+#: ../capplets/windows/ukui-window-properties.c:499
 msgid "_Raise selected windows after an interval"
 msgstr "_Піднімати вибране вікно після певної затримки"
 
-#: ../capplets/windows/mate-window-properties.c:510
+#: ../capplets/windows/ukui-window-properties.c:510
 msgid "_Interval before raising:"
 msgstr "За_тримка перед підйомом:"
 
-#: ../capplets/windows/mate-window-properties.c:514
+#: ../capplets/windows/ukui-window-properties.c:514
 msgid "seconds"
 msgstr "секунд"
 
 #. Titlebar Action
-#: ../capplets/windows/mate-window-properties.c:525
+#: ../capplets/windows/ukui-window-properties.c:525
 msgid "Titlebar Action"
 msgstr "Клац по заголовку"
 
-#: ../capplets/windows/mate-window-properties.c:533
+#: ../capplets/windows/ukui-window-properties.c:533
 msgid "_Double-click titlebar to perform this action:"
 msgstr "Под_війне клацання на заголовку виконує таку дію:"
 
 #. Movement Key
-#: ../capplets/windows/mate-window-properties.c:541
+#: ../capplets/windows/ukui-window-properties.c:541
 msgid "Movement Key"
 msgstr "Клявіша переміщення"
 
-#: ../capplets/windows/mate-window-properties.c:552
+#: ../capplets/windows/ukui-window-properties.c:552
 msgid "To move a window, press-and-hold this key then grab the window:"
 msgstr "Для переміщення вікна, натиснути та тримати цю клявішу, а потім захопити вікно:"
 
-#: ../capplets/windows/mate-window-properties.c:580
+#: ../capplets/windows/ukui-window-properties.c:580
 #: ../libwindow-settings/ukwm-window-manager.c:394
 msgid "Roll up"
 msgstr "Згорнути"
 
-#: ../capplets/windows/mate-window-properties.c:581
+#: ../capplets/windows/ukui-window-properties.c:581
 #: ../libwindow-settings/ukwm-window-manager.c:395
 msgid "Maximize"
 msgstr "Максимізувати"
 
-#: ../capplets/windows/mate-window-properties.c:582
+#: ../capplets/windows/ukui-window-properties.c:582
 #: ../libwindow-settings/ukwm-window-manager.c:396
 msgid "Maximize Horizontally"
 msgstr "Розтягнути горизонтально"
 
-#: ../capplets/windows/mate-window-properties.c:583
+#: ../capplets/windows/ukui-window-properties.c:583
 #: ../libwindow-settings/ukwm-window-manager.c:397
 msgid "Maximize Vertically"
 msgstr "Розтягнути вертикально"
 
-#: ../capplets/windows/mate-window-properties.c:584
+#: ../capplets/windows/ukui-window-properties.c:584
 #: ../libwindow-settings/ukwm-window-manager.c:398
 msgid "Minimize"
 msgstr "Мінімізувати"
 
-#: ../capplets/windows/mate-window-properties.c:585
+#: ../capplets/windows/ukui-window-properties.c:585
 #: ../libwindow-settings/ukwm-window-manager.c:399
 msgid "None"
 msgstr "Немає"
 
-#: ../capplets/windows/mate-window-properties.c:786
+#: ../capplets/windows/ukui-window-properties.c:786
 msgid "_Alt"
 msgstr "_Alt"
 
-#: ../capplets/windows/mate-window-properties.c:792
+#: ../capplets/windows/ukui-window-properties.c:792
 msgid "H_yper"
 msgstr "H_yper"
 
-#: ../capplets/windows/mate-window-properties.c:799
+#: ../capplets/windows/ukui-window-properties.c:799
 msgid "S_uper (or \"Windows logo\")"
 msgstr "S_uper (чи \"Емблема Windows\")"
 
-#: ../capplets/windows/mate-window-properties.c:806
+#: ../capplets/windows/ukui-window-properties.c:806
 msgid "_Meta"
 msgstr "_Meta"
 
-#: ../capplets/windows/mate-window-properties.desktop.in.in.h:1
+#: ../capplets/windows/ukui-window-properties.desktop.in.in.h:1
 msgid "Windows"
 msgstr "Вікна"
 
-#: ../capplets/windows/mate-window-properties.desktop.in.in.h:2
+#: ../capplets/windows/ukui-window-properties.desktop.in.in.h:2
 msgid "Set your window properties"
 msgstr "Налаштовування параметрів вікон"
 
-#: ../libwindow-settings/mate-wm-manager.c:317
+#: ../libwindow-settings/ukui-wm-manager.c:317
 #, c-format
 msgid "Window manager \"%s\" has not registered a configuration tool\n"
 msgstr "Керівник вікнами \"%s\" не зареєстрував знаряддя налаштовування\n"
@@ -2610,14 +2610,14 @@ msgstr "Групи"
 msgid "Common Tasks"
 msgstr "Спільні завдання"
 
-#: ../shell/control-center.c:203 ../shell/matecc.desktop.in.in.h:1
-#: ../shell/matecc.directory.in.h:1
+#: ../shell/control-center.c:203 ../shell/ukuicc.desktop.in.in.h:1
+#: ../shell/ukuicc.directory.in.h:1
 msgid "Control Center"
 msgstr "Центр керування"
 
-#: ../shell/matecc.desktop.in.in.h:2
-msgid "The MATE configuration tool"
-msgstr "Засіб налаштовування MATE"
+#: ../shell/ukuicc.desktop.in.in.h:2
+msgid "The UKUI configuration tool"
+msgstr "Засіб налаштовування UKUI"
 
 #: ../typing-break/drw-break-window.c:203
 msgid "_Postpone Break"
@@ -2744,11 +2744,11 @@ msgstr "Використання: %s файл шрифту\n"
 msgid "I_nstall Font"
 msgstr "_Встановити шрифт"
 
-#: ../font-viewer/mate-font-viewer.desktop.in.in.h:1
+#: ../font-viewer/ukui-font-viewer.desktop.in.in.h:1
 msgid "Font Viewer"
 msgstr "Перегляд шрифтів"
 
-#: ../font-viewer/mate-font-viewer.desktop.in.in.h:2
+#: ../font-viewer/ukui-font-viewer.desktop.in.in.h:2
 msgid "Preview fonts"
 msgstr "Попередній перегляд шрифтів"
 

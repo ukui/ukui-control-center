@@ -2672,7 +2672,7 @@ msgstr "Напомняне за почивки."
 
 #: ../typing-break/drwright.c:639
 msgid "translator-credits"
-msgstr "Александър Шопов <ash@kambanaria.org>\nЯвор Доганов <yavor@gnu.org>\nВладимир Петков <vpetkov@i-space.org>\nРостислав Райков <zbrox@i-space.org>\nЯнко Канети <yaneti@declera.com>\nБорислав Александров <B.Aleksandrov@cnsys.bg>\nКрасимир „bfaf“ Чонов <mk2616@abv.bg>\n\nПроектът за превод на UKUI има нужда от подкрепа.\nНаучете повече за нас на http://mate.cult.bg\nДокладвайте за грешки на http://mate.cult.bg/bugs"
+msgstr "Александър Шопов <ash@kambanaria.org>\nЯвор Доганов <yavor@gnu.org>\nВладимир Петков <vpetkov@i-space.org>\nРостислав Райков <zbrox@i-space.org>\nЯнко Канети <yaneti@declera.com>\nБорислав Александров <B.Aleksandrov@cnsys.bg>\nКрасимир „bfaf“ Чонов <mk2616@abv.bg>\n\nПроектът за превод на UKUI има нужда от подкрепа.\nНаучете повече за нас на http://ukui.cult.bg\nДокладвайте за грешки на http://ukui.cult.bg/bugs"
 
 #: ../typing-break/main.c:63
 msgid "Enable debugging code"

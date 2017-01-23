@@ -2667,7 +2667,7 @@ msgstr "מזכיר הפסקות ממוחשב."
 
 #: ../typing-break/drwright.c:639
 msgid "translator-credits"
-msgstr "יאיר הרשקוביץ <yairhr@gmail.com>\n‏Yaron Shahrabani https://launchpad.net/~sh-yaron‏מארק קרפיבנר <mark125@gmail.com>\n‏Omri Strumza https://launchpad.net/~blueomega\n‏Yaniv Abir https://launchpad.net/~yanivabir\nירון שהרבני <sh.yaron@gmail.com>\n‏ליאל פרידמן <lielft@ubuntu.com>\n\nפרויקט תרגום UKUI לעברית:\n‏http://mate-il.berlios.de"
+msgstr "יאיר הרשקוביץ <yairhr@gmail.com>\n‏Yaron Shahrabani https://launchpad.net/~sh-yaron‏מארק קרפיבנר <mark125@gmail.com>\n‏Omri Strumza https://launchpad.net/~blueomega\n‏Yaniv Abir https://launchpad.net/~yanivabir\nירון שהרבני <sh.yaron@gmail.com>\n‏ליאל פרידמן <lielft@ubuntu.com>\n\nפרויקט תרגום UKUI לעברית:\n‏http://ukui-il.berlios.de"
 
 #: ../typing-break/main.c:63
 msgid "Enable debugging code"

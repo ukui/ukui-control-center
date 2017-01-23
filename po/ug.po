@@ -6,121 +6,121 @@
 # Sahran <sahran@live.com>, 2010
 msgid ""
 msgstr ""
-"Project-Id-Version: MATE Desktop Environment\n"
+"Project-Id-Version: UKUI Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-27 23:13+0300\n"
 "PO-Revision-Date: 2016-03-27 20:16+0000\n"
 "Last-Translator: monsta <monsta@inbox.ru>\n"
-"Language-Team: Uighur (http://www.transifex.com/mate/MATE/language/ug/)\n"
+"Language-Team: Uighur (http://wiki.ukui.org/trans)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ug\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../org.mate.control-center.gschema.xml.in.h:1
+#: ../org.ukui.control-center.gschema.xml.in.h:1
 msgid ""
-"[ 'Change Theme;mate-appearance-properties.desktop', 'Set Preferred "
-"Applications;mate-default-applications-properties.desktop' ]"
+"[ 'Change Theme;ukui-appearance-properties.desktop', 'Set Preferred "
+"Applications;ukui-default-applications-properties.desktop' ]"
 msgstr ""
 
-#: ../org.mate.control-center.gschema.xml.in.h:2
+#: ../org.ukui.control-center.gschema.xml.in.h:2
 msgid "Task names and associated .desktop files"
 msgstr "ۋەزىپە ئاتى ۋە باغلانغان .desktop ھۆججەت"
 
-#: ../org.mate.control-center.gschema.xml.in.h:3
+#: ../org.ukui.control-center.gschema.xml.in.h:3
 msgid ""
 "The task name to be displayed in the control-center followed by a \";\" "
 "separator then the filename of an associated .desktop file to launch for "
 "that task."
 msgstr "باشقۇرۇش مەركىزىدە كۆرسىتىدىغان ۋەزىپە ئاتىدا ئەگىشىپلا كېلىدىغىنى \";\" چېكىتلىك پەش، ئاندىن شۇ ۋەزىپە قوزغاتقان .desktop ھۆججەتنىڭ ھۆججەت ئاتى."
 
-#: ../org.mate.control-center.gschema.xml.in.h:4
+#: ../org.ukui.control-center.gschema.xml.in.h:4
 msgid "Close the control-center when a task is activated"
 msgstr "ۋەزىپە ئاكتىپلانغاندا باشقۇرۇش مەركىزىنى ياپ"
 
-#: ../org.mate.control-center.gschema.xml.in.h:5
+#: ../org.ukui.control-center.gschema.xml.in.h:5
 msgid ""
 "if true, the control-center will close when a \"Common Task\" is activated."
 msgstr "ئەگەر true بولسا «ئادەتتىكى ۋەزىپە» ئاكتىپلانسا باشقۇرۇش مەركىزى يېپىلىدۇ."
 
-#: ../org.mate.control-center.gschema.xml.in.h:6
+#: ../org.ukui.control-center.gschema.xml.in.h:6
 msgid "Exit shell on start action performed"
 msgstr "قوزغىتىش مەشغۇلاتى ئىجرا قىلغاندا قاپتىن چېكىن"
 
-#: ../org.mate.control-center.gschema.xml.in.h:7
+#: ../org.ukui.control-center.gschema.xml.in.h:7
 msgid "Indicates whether to close the shell when a start action is performed."
 msgstr "قوزغىتىش مەشغۇلاتى ئىجرا قىلىشقا كۆرسەتمە بېرىۋاتقاندا قاپتىن چېكىن"
 
-#: ../org.mate.control-center.gschema.xml.in.h:8
+#: ../org.ukui.control-center.gschema.xml.in.h:8
 msgid "Exit shell on help action performed"
 msgstr "ياردەم مەشغۇلاتى ئىجرا قىلغاندا قاپتىن چېكىن"
 
-#: ../org.mate.control-center.gschema.xml.in.h:9
+#: ../org.ukui.control-center.gschema.xml.in.h:9
 msgid "Indicates whether to close the shell when a help action is performed."
 msgstr "ياردەم مەشغۇلاتى ئىجرا قىلىشقا كۆرسەتمە بېرىۋاتقاندا قاپتىن چېكىن"
 
-#: ../org.mate.control-center.gschema.xml.in.h:10
+#: ../org.ukui.control-center.gschema.xml.in.h:10
 msgid "Exit shell on add or remove action performed"
 msgstr "قوش ياكى چىقىرىۋەت مەشغۇلاتى ئىجرا قىلغاندا قاپتىن چېكىن"
 
-#: ../org.mate.control-center.gschema.xml.in.h:11
+#: ../org.ukui.control-center.gschema.xml.in.h:11
 msgid ""
 "Indicates whether to close the shell when an add or remove action is "
 "performed."
 msgstr "قوش ياكى چىقىرىۋەت مەشغۇلاتى ئىجرا قىلىشقا كۆرسەتمە بېرىۋاتقاندا قاپتىن چېكىن"
 
-#: ../org.mate.control-center.gschema.xml.in.h:12
+#: ../org.ukui.control-center.gschema.xml.in.h:12
 msgid "Exit shell on upgrade or uninstall action performed"
 msgstr "دەرىجە ئۆرلەت ياكى يوقات مەشغۇلاتى ئىجرا قىلغاندا قاپتىن چېكىن"
 
-#: ../org.mate.control-center.gschema.xml.in.h:13
+#: ../org.ukui.control-center.gschema.xml.in.h:13
 msgid ""
 "Indicates whether to close the shell when an upgrade or uninstall action is "
 "performed."
 msgstr "دەرىجە ئۆرلەت ياكى يوقات مەشغۇلاتى ئىجرا قىلىشقا كۆرسەتمە بېرىۋاتقاندا قاپتىن چېكىن"
 
-#: ../org.mate.control-center.gschema.xml.in.h:14
+#: ../org.ukui.control-center.gschema.xml.in.h:14
 msgid "More backgrounds URL"
 msgstr "تېخىمۇ كۆپ تەگلىك URL"
 
-#: ../org.mate.control-center.gschema.xml.in.h:15
+#: ../org.ukui.control-center.gschema.xml.in.h:15
 msgid ""
 "URL for where to get more desktop backgrounds. If set to an empty string the"
 " link will not appear."
 msgstr "تېخىمۇ كۆپ ئۈستەل ئۈستى تەگلىككە ئېرىشىش URL. ئەگەر بوش ھەرپ تىزمىسى قىلىپ تەڭشەلسە ئۇنداقتا ئۇلانما كۆرۈنمەيدۇ."
 
-#: ../org.mate.control-center.gschema.xml.in.h:16
+#: ../org.ukui.control-center.gschema.xml.in.h:16
 msgid "More themes URL"
 msgstr "تېخىمۇ كۆپ باش تېما URL"
 
-#: ../org.mate.control-center.gschema.xml.in.h:17
+#: ../org.ukui.control-center.gschema.xml.in.h:17
 msgid ""
 "URL for where to get more desktop themes. If set to an empty string the link"
 " will not appear."
 msgstr "تېخىمۇ كۆپ ئۈستەل ئۈستى باش تېمىسىغا ئېرىشىش URL. ئەگەر بوش ھەرپ تىزمىسى قىلىپ تەڭشەلسە ئۇنداقتا ئۇلانما كۆرۈنمەيدۇ."
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:1
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:1
 msgid "Keybinding"
 msgstr ""
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:2
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:2
 msgid "Keybinding associated with a custom shortcut."
 msgstr ""
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:3
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:3
 msgid "Command"
 msgstr ""
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:4
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:4
 msgid "Command associated with a custom keybinding."
 msgstr ""
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:5
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:5
 msgid "Name"
 msgstr ""
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:6
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:6
 msgid "Description associated with a custom keybinding."
 msgstr ""
 
@@ -152,99 +152,99 @@ msgstr "ئاگاھلاندۇرۇش كۆزنىكىدە كۆرۈنىدىغان ت�
 msgid "Show more _details"
 msgstr "تەپسىلاتىنى كۆرسەت(_D)"
 
-#: ../capplets/about-me/mate-about-me.c:268
+#: ../capplets/about-me/ukui-about-me.c:268
 msgid "Select Image"
 msgstr "سۈرەت تاللاڭ"
 
-#: ../capplets/about-me/mate-about-me.c:270
+#: ../capplets/about-me/ukui-about-me.c:270
 msgid "No Image"
 msgstr "سۈرەت يوق"
 
-#: ../capplets/about-me/mate-about-me.c:298
+#: ../capplets/about-me/ukui-about-me.c:298
 #: ../capplets/appearance/appearance-desktop.c:650
 msgid "Images"
 msgstr "سۈرەتلەر"
 
-#: ../capplets/about-me/mate-about-me.c:302
+#: ../capplets/about-me/ukui-about-me.c:302
 #: ../capplets/appearance/theme-installer.c:783
 msgid "All Files"
 msgstr "ھەممە ھۆججەتلەر"
 
-#: ../capplets/about-me/mate-about-me.c:454
+#: ../capplets/about-me/ukui-about-me.c:454
 #, c-format
 msgid "About %s"
 msgstr "%s ھەققىدە"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:1
-#: ../capplets/about-me/mate-about-me.desktop.in.in.h:1
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:1
+#: ../capplets/about-me/ukui-about-me.desktop.in.in.h:1
 msgid "About Me"
 msgstr "بىز ھەققىدە"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:2
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:2
 msgid "Select your photo"
 msgstr "سۈرىتىڭىزنى تاللاڭ"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:3
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:3
 msgid "Full Name"
 msgstr "تولۇق ئاتى"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:4
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:4
 msgid "User name:"
 msgstr "ئىشلەتكۈچى ئاتى:"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:5
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:5
 msgid "Change Passwo_rd..."
 msgstr "ئىم ئۆزگەرت(_R)…"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:6
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:6
 msgid "Enable _Fingerprint Login..."
 msgstr "بارماق ئىزىدا تىزىمغا كىرىشنى قوزغات(_F)…"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:7
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:7
 msgid "Disable _Fingerprint Login..."
 msgstr "بارماق ئىزىدا تىزىمغا كىرىشنى چەكلە(_F)…"
 
-#: ../capplets/about-me/mate-about-me.desktop.in.in.h:2
+#: ../capplets/about-me/ukui-about-me.desktop.in.in.h:2
 msgid "Set your personal information"
 msgstr "خۇسۇسىي ئۇچۇرلارنى تەڭشەڭ"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:100
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:100
 msgid ""
 "You are not allowed to access the device. Contact your system administrator."
 msgstr "سىزنىڭ بۇ ئۈسكۈنىنى زىيارەت قىلىش ھوقۇقىڭىز يوقكەن. سىستېما باشقۇرغۇچىسى بىلەن ئالاقىلىشىڭ."
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:102
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:102
 msgid "The device is already in use."
 msgstr "ئۈسكۈنە ئىشلىتىلىۋاتىدۇ."
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:104
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:104
 msgid "An internal error occurred"
 msgstr ""
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:221
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:221
 msgid "Delete registered fingerprints?"
 msgstr "خەتلەنگەن بارماق ئىزلىرىنى ئۆچۈرۈۋېتەمسىز؟"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:224
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:224
 msgid "_Delete Fingerprints"
 msgstr "بارماق ئىزلىرىنى ئۆچۈر (_D)"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:231
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:231
 msgid ""
 "Do you want to delete your registered fingerprints so fingerprint login is "
 "disabled?"
 msgstr "خەتلەنگەن بارماق ئىزلىرىڭىزنى ئۆچۈرەمسىز؟ بارماق ئىزىدا تىزىمغا كىرىش چەكلىنىدۇ"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:359
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:15
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:359
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:15
 msgid "Done!"
 msgstr "تامام!"
 
 #. translators:
 #. * The variable is the name of the device, for example:
 #. * "Could you not access "Digital Persona U.are.U 4000/4000B" device
-#: ../capplets/about-me/mate-about-me-fingerprint.c:405
-#: ../capplets/about-me/mate-about-me-fingerprint.c:427
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:405
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:427
 #, c-format
 msgid "Could not access '%s' device"
 msgstr "'%s' ئۈسكۈنىنى زىيارەت قىلالمىدى."
@@ -252,21 +252,21 @@ msgstr "'%s' ئۈسكۈنىنى زىيارەت قىلالمىدى."
 #. translators:
 #. * The variable is the name of the device, for example:
 #. * "Could you not access "Digital Persona U.are.U 4000/4000B" device
-#: ../capplets/about-me/mate-about-me-fingerprint.c:476
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:476
 #, c-format
 msgid "Could not start finger capture on '%s' device"
 msgstr "'%s' ئۈسكۈنىسىدە بارماق ئىزىغا ئېرىشىشنى باشلىغىلى بولمىدى."
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:523
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:523
 msgid "Could not access any fingerprint readers"
 msgstr "ھېچقانداق بارماق ئىزى ئوقۇغۇچ ئۈسكۈنىسى بىلەن ئالاقە قىلغىلى بولمىدى."
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:524
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:524
 msgid "Please contact your system administrator for help."
 msgstr "ياردەمگە ئېرىشىش ئۈچۈن سىستېما باشقۇرغۇچىسى بىلەن ئالاقىلىشىڭ."
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:554
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:9
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:554
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:9
 msgid "Enable Fingerprint Login"
 msgstr "بارماق ئىزىدا تىزىمغا كىرىشنى قوزغات"
 
@@ -275,90 +275,90 @@ msgstr "بارماق ئىزىدا تىزىمغا كىرىشنى قوزغات"
 #. * "To enable fingerprint login, you need to save one of your fingerprints,
 #. using the
 #. * 'Digital Persona U.are.U 4000/4000B' device."
-#: ../capplets/about-me/mate-about-me-fingerprint.c:584
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:584
 #, c-format
 msgid ""
 "To enable fingerprint login, you need to save one of your fingerprints, "
 "using the '%s' device."
 msgstr "بارماق ئىزى ئارقىلىق تىزىمغا كىرىشنى قوزغىتىش ئۈچۈن، «%s» ئۈسكۈنىسى ئارقىلىق بىر بارمىقىڭىزنىڭ ئۇچۇرىنى ساقلىشىڭىز كېرەك."
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:593
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:593
 msgid "Swipe finger on reader"
 msgstr "بارمىقىڭىزنى ئوقۇغۇچ ئۈستىدە بىر سۈرۈڭ"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:595
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:595
 msgid "Place finger on reader"
 msgstr "بارمىقىڭىزنى ئوقۇغۇچ ئۈستىگە قويۇڭ."
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:1
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:1
 msgid "Left thumb"
 msgstr "سول قول باش بارماق"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:2
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:2
 msgid "Left middle finger"
 msgstr "سول قول ئوتتۇرا بارماق"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:3
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:3
 msgid "Left ring finger"
 msgstr "سول قول نامسىز بارماق"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:4
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:4
 msgid "Left little finger"
 msgstr "سول قول چىمچىلاق"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:5
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:5
 msgid "Right thumb"
 msgstr "ئوڭ قول باش بارماق"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:6
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:6
 msgid "Right middle finger"
 msgstr "ئوڭ قول ئوتتۇرا بارماق"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:7
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:7
 msgid "Right ring finger"
 msgstr "ئوڭ قول نامسىز بارماق"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:8
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:8
 msgid "Right little finger"
 msgstr "ئوڭ قول چىمچىلاق"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:10
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:10
 msgid "Right index finger"
 msgstr "ئوڭ قول كۆرسەتكۈچ بارماق"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:11
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:11
 msgid "Left index finger"
 msgstr "سول قول كۆرسەتكۈچ بارماق"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:12
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:12
 msgid "Other finger: "
 msgstr "باشقا بارماق: "
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:13
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:13
 msgid "Select finger"
 msgstr "بارماق تاللاڭ"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:14
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:14
 msgid ""
 "Your fingerprint was successfully saved. You should now be able to log in "
 "using your fingerprint reader."
 msgstr "بارماق ئىزىڭىز مۇۋەپپەقىيەتلىك ساقلاندى. ئەمدى بارماق ئىزى ئوقۇغۇچىڭىز ئارقىلىق تىزىمغا كىرەلەيسىز."
 
-#: ../capplets/about-me/mate-about-me-password.c:161
+#: ../capplets/about-me/ukui-about-me-password.c:161
 msgid "Child exited unexpectedly"
 msgstr "تارماق پروگرامما تاسادىپىي ھالدا چېكىندى."
 
-#: ../capplets/about-me/mate-about-me-password.c:297
+#: ../capplets/about-me/ukui-about-me-password.c:297
 #, c-format
 msgid "Could not shutdown backend_stdin IO channel: %s"
 msgstr "backend_stdin (ئارقا ئۆلچەملىك كىرگۈزۈش) قانىلىنى تاقىغىلى بولمىدى: %s"
 
-#: ../capplets/about-me/mate-about-me-password.c:310
+#: ../capplets/about-me/ukui-about-me-password.c:310
 #, c-format
 msgid "Could not shutdown backend_stdout IO channel: %s"
 msgstr "backend_stdin IO (ئارقا ئۆلچەملىك چىقىرىش) قانىلىنى تاقىغىلى بولمىدى: %s"
 
-#: ../capplets/about-me/mate-about-me-password.c:409
+#: ../capplets/about-me/ukui-about-me-password.c:409
 msgid "Authenticated!"
 msgstr "دەلىللەندى!"
 
@@ -367,120 +367,120 @@ msgstr "دەلىللەندى!"
 #. * Ask the user to re-authenticate
 #. Update status message and auth state
 #. Authentication failure
-#: ../capplets/about-me/mate-about-me-password.c:472
-#: ../capplets/about-me/mate-about-me-password.c:557
+#: ../capplets/about-me/ukui-about-me-password.c:472
+#: ../capplets/about-me/ukui-about-me-password.c:557
 msgid ""
 "Your password has been changed since you initially authenticated! Please re-"
 "authenticate."
 msgstr "تۇنجى قېتىم سالاھىيەت تەكشۈرتكىنىڭىزدىن بۇيان ئىم ئۆزگەرتىلدى! يەنە بىر قېتىم سالاھىيەت تەكشۈرتۈڭ."
 
-#: ../capplets/about-me/mate-about-me-password.c:474
+#: ../capplets/about-me/ukui-about-me-password.c:474
 msgid "That password was incorrect."
 msgstr "بۇ ئىم ناتوغرا."
 
-#: ../capplets/about-me/mate-about-me-password.c:525
+#: ../capplets/about-me/ukui-about-me-password.c:525
 msgid "Your password has been changed."
 msgstr "ئىم ئۆزگەرتىلدى."
 
 #. What does this indicate?
 #. * "Authentication information cannot be recovered?" from libpam?
-#: ../capplets/about-me/mate-about-me-password.c:535
+#: ../capplets/about-me/ukui-about-me-password.c:535
 #, c-format
 msgid "System error: %s."
 msgstr "سىستېما خاتالىقى: %s."
 
-#: ../capplets/about-me/mate-about-me-password.c:538
+#: ../capplets/about-me/ukui-about-me-password.c:538
 msgid "The password is too short."
 msgstr "بۇ ئىم بەك قىسقا."
 
-#: ../capplets/about-me/mate-about-me-password.c:542
+#: ../capplets/about-me/ukui-about-me-password.c:542
 msgid "The password is too simple."
 msgstr "ئىم بەك ئاددىي."
 
-#: ../capplets/about-me/mate-about-me-password.c:547
+#: ../capplets/about-me/ukui-about-me-password.c:547
 msgid "The old and new passwords are too similar."
 msgstr "كونا ۋە يېڭى ئىم بەك ئوخشىشىپ قالدى."
 
-#: ../capplets/about-me/mate-about-me-password.c:549
+#: ../capplets/about-me/ukui-about-me-password.c:549
 msgid "The new password must contain numeric or special character(s)."
 msgstr "يېڭى ئىم سان ياكى ئالاھىدە ھەرپلەرنى ئۆز ئىچىگە ئېلىشى كېرەك."
 
-#: ../capplets/about-me/mate-about-me-password.c:552
+#: ../capplets/about-me/ukui-about-me-password.c:552
 msgid "The old and new passwords are the same."
 msgstr "كونا ۋە يېڭى ئىم ئوخشاش."
 
-#: ../capplets/about-me/mate-about-me-password.c:554
+#: ../capplets/about-me/ukui-about-me-password.c:554
 msgid "The new password has already been used recently."
 msgstr "يېڭى ئىم تېخى يېقىندىلا ئىشلىتىلگەن."
 
 #. translators: Unable to launch <program>: <error message>
-#: ../capplets/about-me/mate-about-me-password.c:829
+#: ../capplets/about-me/ukui-about-me-password.c:829
 #, c-format
 msgid "Unable to launch %s: %s"
 msgstr "قوزغىتالمىدى %s：%s"
 
-#: ../capplets/about-me/mate-about-me-password.c:833
+#: ../capplets/about-me/ukui-about-me-password.c:833
 msgid "Unable to launch backend"
 msgstr "ئارقا ئۇچ پروگراممىسىنى قوزغاتقىلى بولمىدى."
 
-#: ../capplets/about-me/mate-about-me-password.c:834
+#: ../capplets/about-me/ukui-about-me-password.c:834
 msgid "A system error has occurred"
 msgstr "سىستېما خاتالىقى كۆرۈلدى"
 
 #. Update status message
-#: ../capplets/about-me/mate-about-me-password.c:854
+#: ../capplets/about-me/ukui-about-me-password.c:854
 msgid "Checking password..."
 msgstr "ئىم تەكشۈرۈۋاتىدۇ…"
 
-#: ../capplets/about-me/mate-about-me-password.c:938
+#: ../capplets/about-me/ukui-about-me-password.c:938
 msgid "Click <b>Change password</b> to change your password."
 msgstr "ئىم ئۆزگەرتىش ئۈچۈن <b>ئىم ئۆزگەرت</b>نى چېكىڭ."
 
-#: ../capplets/about-me/mate-about-me-password.c:941
+#: ../capplets/about-me/ukui-about-me-password.c:941
 msgid "Please type your password in the <b>New password</b> field."
 msgstr "ئىمنى <b>يېڭى ئىم</b> رامكىسىغا كىرگۈزۈڭ."
 
-#: ../capplets/about-me/mate-about-me-password.c:944
-#: ../capplets/about-me/mate-about-me-password.ui.h:9
+#: ../capplets/about-me/ukui-about-me-password.c:944
+#: ../capplets/about-me/ukui-about-me-password.ui.h:9
 msgid ""
 "Please type your password again in the <b>Retype new password</b> field."
 msgstr "ئىمنى <b>يېڭى ئىمنى قايتا كىرگۈزۈڭ</b> رامكىسىغا قايتا كىرگۈزۈڭ."
 
-#: ../capplets/about-me/mate-about-me-password.c:947
+#: ../capplets/about-me/ukui-about-me-password.c:947
 msgid "The two passwords are not equal."
 msgstr "ئىككى ئىم ئوخشىمىدى."
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:1
+#: ../capplets/about-me/ukui-about-me-password.ui.h:1
 msgid "Change password"
 msgstr "ئىم ئۆزگەرت"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:2
+#: ../capplets/about-me/ukui-about-me-password.ui.h:2
 msgid "Change your password"
 msgstr "ئىم ئۆزگەرتىڭ"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:3
+#: ../capplets/about-me/ukui-about-me-password.ui.h:3
 msgid ""
 "To change your password, enter your current password in the field below and click <b>Authenticate</b>.\n"
 "After you have authenticated, enter your new password, retype it for verification and click <b>Change password</b>."
 msgstr "ئىمنى ئۆزگەرتىش ئۈچۈن تۆۋەندىكى كاتەكچىگە نۆۋەتتىكى ئىمنى كىرگۈزۈڭ، <b>دەلىللە</b> نى چېكىڭ.\nسالاھىيەت تەكشۈرۈشتىن ئۆتكەندىن كېيىن يېڭى ئىمنى كىرگۈزۈڭ. ئاندىن جەزملەش ئۈچۈن يەنە بىر قېتىم كىرگۈزۈپ، <b>ئىم ئۆزگەرت</b> نى چېكىڭ."
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:5
+#: ../capplets/about-me/ukui-about-me-password.ui.h:5
 msgid "Current _password:"
 msgstr "نۆۋەتتىكى ئىم(_P):"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:6
+#: ../capplets/about-me/ukui-about-me-password.ui.h:6
 msgid "_New password:"
 msgstr "يېڭى ئىم(_N):"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:7
+#: ../capplets/about-me/ukui-about-me-password.ui.h:7
 msgid "_Retype new password:"
 msgstr "يېڭى ئىمنى قايتا كىرگۈزۈڭ:"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:8
+#: ../capplets/about-me/ukui-about-me-password.ui.h:8
 msgid "_Authenticate"
 msgstr "دەلىللە(_A)"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:10
+#: ../capplets/about-me/ukui-about-me-password.ui.h:10
 msgid "Change pa_ssword"
 msgstr "ئىم ئۆزگەرت(_S)"
 
@@ -489,7 +489,7 @@ msgid "Assistive Technologies Preferences"
 msgstr "ياردەمچى تېخنىكىلار مايىللىقى"
 
 #: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:2
-#: ../capplets/accessibility/at-properties/mate-at-properties.desktop.in.in.h:1
+#: ../capplets/accessibility/at-properties/ukui-at-properties.desktop.in.in.h:1
 msgid "Assistive Technologies"
 msgstr "ياردەمچى تېخنىكىلار"
 
@@ -543,7 +543,7 @@ msgstr "قوشۇمچە ئىقتىدارلىق تىزىمغا كىرىش سۆزل
 msgid "Close and _Log Out"
 msgstr "تاقاپ تىزىمدىن چىق(_L)"
 
-#: ../capplets/accessibility/at-properties/mate-at-properties.desktop.in.in.h:2
+#: ../capplets/accessibility/at-properties/ukui-at-properties.desktop.in.in.h:2
 msgid "Choose which accessibility features to enable when you log in"
 msgstr "سىستېمىغا كىرگەن ۋاقتىڭىزدا قايسى قوشۇمچە ئىقتىدارنى قوزغىتىدىغانلىقىڭىزنى تاللاڭ."
 
@@ -575,8 +575,8 @@ msgid ""
 msgstr "(theme|background|fonts|interface)نى كۆرسىتىدىغان بەت ئىسمىنى بەلگىلەڭ."
 
 #: ../capplets/appearance/appearance-main.c:170
-#: ../capplets/default-applications/mate-da-capplet.c:693
-#: ../capplets/mouse/mate-mouse-properties.c:483
+#: ../capplets/default-applications/ukui-da-capplet.c:693
+#: ../capplets/mouse/ukui-mouse-properties.c:483
 msgid "page"
 msgstr "بەت"
 
@@ -585,8 +585,8 @@ msgid "[WALLPAPER...]"
 msgstr "[تام قەغىزى…]"
 
 #: ../capplets/appearance/appearance-style.c:171
-#: ../capplets/common/mate-theme-info.c:497
-#: ../capplets/common/mate-theme-info.c:690
+#: ../capplets/common/ukui-theme-info.c:497
+#: ../capplets/common/ukui-theme-info.c:690
 msgid "Default Pointer"
 msgstr "كۆڭۈلدىكى ئىسترېلكا"
 
@@ -596,7 +596,7 @@ msgid "Install"
 msgstr "ئورنات"
 
 #: ../capplets/appearance/appearance-style.c:269
-#: ../capplets/common/mate-theme-info.c:1726
+#: ../capplets/common/ukui-theme-info.c:1726
 #, c-format
 msgid ""
 "This theme will not look as intended because the required GTK+ theme engine "
@@ -767,7 +767,7 @@ msgid "Get more backgrounds online"
 msgstr "توردىن تېخىمۇ كۆپ تەگلىككە ئېرىش"
 
 #: ../capplets/appearance/data/appearance.ui.h:33
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:17
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:17
 msgid "_Add..."
 msgstr "قوش(_A)…"
 
@@ -965,13 +965,13 @@ msgstr "چوڭلۇقى(_S):"
 
 #. small threshold
 #: ../capplets/appearance/data/appearance.ui.h:82
-#: ../capplets/mouse/mate-mouse-properties.ui.h:21
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:21
 msgid "Small"
 msgstr "كىچىك"
 
 #. large threshold
 #: ../capplets/appearance/data/appearance.ui.h:83
-#: ../capplets/mouse/mate-mouse-properties.ui.h:24
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:24
 msgid "Large"
 msgstr "چوڭ"
 
@@ -984,7 +984,7 @@ msgid "Save Theme As..."
 msgstr "باش تېمىنى باشقا ئاتتا ساقلا…"
 
 #: ../capplets/appearance/data/appearance.ui.h:86
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:4
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:4
 msgid "_Name:"
 msgstr "ئاتى(_N):"
 
@@ -1000,54 +1000,54 @@ msgstr "تەگلىك سۈرەتنى ساقلا(_b)"
 msgid "Save _notification theme"
 msgstr ""
 
-#: ../capplets/appearance/data/mate-appearance-properties.desktop.in.in.h:1
+#: ../capplets/appearance/data/ukui-appearance-properties.desktop.in.in.h:1
 msgid "Appearance"
 msgstr "كۆرۈنۈش"
 
-#: ../capplets/appearance/data/mate-appearance-properties.desktop.in.in.h:2
+#: ../capplets/appearance/data/ukui-appearance-properties.desktop.in.in.h:2
 msgid "Customize the look of the desktop"
 msgstr "ئىختىيارىچە ئۈستەل ئۈستى قىياپىتى"
 
-#: ../capplets/appearance/data/mate-theme-installer.desktop.in.in.h:1
+#: ../capplets/appearance/data/ukui-theme-installer.desktop.in.in.h:1
 msgid "Theme Installer"
 msgstr "باش تېما ئورناتقۇچ"
 
-#: ../capplets/appearance/data/mate-theme-installer.desktop.in.in.h:2
+#: ../capplets/appearance/data/ukui-theme-installer.desktop.in.in.h:2
 msgid "Installs themes packages for various parts of the desktop"
 msgstr "ئۈستەل ئۈستى بۆلەكلىرى ئۈچۈن باش تېما بوغچىسى ئورنىتىدۇ"
 
-#: ../capplets/appearance/data/mate-theme-package.xml.in.h:1
-msgid "Mate Theme Package"
-msgstr "Mate تېما بوغچىسى"
+#: ../capplets/appearance/data/ukui-theme-package.xml.in.h:1
+msgid "Ukui Theme Package"
+msgstr "Ukui تېما بوغچىسى"
 
-#: ../capplets/appearance/mate-wp-info.c:51
+#: ../capplets/appearance/ukui-wp-info.c:51
 msgid "No Desktop Background"
 msgstr "ئۈستەل ئۈستى تەگلىك يوق"
 
-#: ../capplets/appearance/mate-wp-item.c:288
+#: ../capplets/appearance/ukui-wp-item.c:288
 msgid "unknown"
 msgstr ""
 
-#: ../capplets/appearance/mate-wp-item.c:295
+#: ../capplets/appearance/ukui-wp-item.c:295
 msgid "Slide Show"
 msgstr "تام تەسۋىر كۆرسەت"
 
-#: ../capplets/appearance/mate-wp-item.c:297
+#: ../capplets/appearance/ukui-wp-item.c:297
 msgid "Image"
 msgstr "سۈرەت"
 
-#: ../capplets/appearance/mate-wp-item.c:303
+#: ../capplets/appearance/ukui-wp-item.c:303
 msgid "multiple sizes"
 msgstr "كۆپ خىل چوڭلۇق"
 
 #. translators: x pixel(s) by y pixel(s)
-#: ../capplets/appearance/mate-wp-item.c:306
+#: ../capplets/appearance/ukui-wp-item.c:306
 #, c-format
 msgid "%d %s by %d %s"
 msgstr "%d %s دىن %d %s"
 
-#: ../capplets/appearance/mate-wp-item.c:308
-#: ../capplets/appearance/mate-wp-item.c:310
+#: ../capplets/appearance/ukui-wp-item.c:308
+#: ../capplets/appearance/ukui-wp-item.c:310
 msgid "pixel"
 msgid_plural "pixels"
 msgstr[0] "چېكىت"
@@ -1056,7 +1056,7 @@ msgstr[0] "چېكىت"
 #. * mime type, size
 #. * Folder: /path/to/file
 #. * Artist: wallpaper author
-#: ../capplets/appearance/mate-wp-item.c:319
+#: ../capplets/appearance/ukui-wp-item.c:319
 #, c-format
 msgid ""
 "<b>%s</b>\n"
@@ -1069,7 +1069,7 @@ msgstr ""
 #. * Image missing
 #. * Folder: /path/to/file
 #. * Artist: wallpaper author
-#: ../capplets/appearance/mate-wp-item.c:334
+#: ../capplets/appearance/ukui-wp-item.c:334
 #, c-format
 msgid ""
 "<b>%s</b>\n"
@@ -1078,7 +1078,7 @@ msgid ""
 "Artist: %s"
 msgstr ""
 
-#: ../capplets/appearance/mate-wp-item.c:339
+#: ../capplets/appearance/ukui-wp-item.c:339
 msgid "Image missing"
 msgstr "سۈرەت يوقالغان"
 
@@ -1136,8 +1136,8 @@ msgstr "يېڭى تېمىنى قوللان"
 
 #: ../capplets/appearance/theme-installer.c:486
 #, c-format
-msgid "MATE Theme %s correctly installed"
-msgstr "MATE تېمىسى %s توغرا ئورنىتىلدى."
+msgid "UKUI Theme %s correctly installed"
+msgstr "UKUI تېمىسى %s توغرا ئورنىتىلدى."
 
 #: ../capplets/appearance/theme-installer.c:548
 msgid "Failed to create temporary directory"
@@ -1194,9 +1194,9 @@ msgstr "تېما ماتورىنى ئورناتقىلى بولمىدى."
 
 #: ../capplets/common/activate-settings-daemon.c:16
 msgid ""
-"Unable to start the settings manager 'mate-settings-daemon'.\n"
-"Without the MATE settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-MATE (e.g. KDE) settings manager may already be active and conflicting with the MATE settings manager."
-msgstr "تەڭشەك باشقۇرغۇچ 'mate-settings-daemon'نى قوزغىتالمىدى.\nئەگەر MATE تەڭشەك باشقۇرغۇچ ئىجرا قىلىنمىسا بەزى مايىللىق كۈچكە ئىگە بولمايدۇ. بۇ  DBus تا مەسىلە كۆرۈلگەنلىكىنى بىلدۈرىدۇ ياكى مەلۇم غەيرىي MATE (مەسىلەن KDE) تەڭشەك باشقۇرغۇچنىڭ ئاكتىپ ھالەتتە ئىكەنلىكىنى بىلدۈرىدۇ. ھەمدە MATE تەڭشەك باشقۇرغۇچ بىلەن توقۇنۇشىدۇ."
+"Unable to start the settings manager 'ukui-settings-daemon'.\n"
+"Without the UKUI settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-UKUI (e.g. KDE) settings manager may already be active and conflicting with the UKUI settings manager."
+msgstr "تەڭشەك باشقۇرغۇچ 'ukui-settings-daemon'نى قوزغىتالمىدى.\nئەگەر UKUI تەڭشەك باشقۇرغۇچ ئىجرا قىلىنمىسا بەزى مايىللىق كۈچكە ئىگە بولمايدۇ. بۇ  DBus تا مەسىلە كۆرۈلگەنلىكىنى بىلدۈرىدۇ ياكى مەلۇم غەيرىي UKUI (مەسىلەن KDE) تەڭشەك باشقۇرغۇچنىڭ ئاكتىپ ھالەتتە ئىكەنلىكىنى بىلدۈرىدۇ. ھەمدە UKUI تەڭشەك باشقۇرغۇچ بىلەن توقۇنۇشىدۇ."
 
 #: ../capplets/common/capplet-stock-icons.c:66
 #, c-format
@@ -1284,176 +1284,176 @@ msgstr "ئاتلا(_S)"
 msgid "Overwrite _All"
 msgstr "ھەممىنى قاپلا(_A)"
 
-#: ../capplets/common/mate-theme-info.c:691
+#: ../capplets/common/ukui-theme-info.c:691
 msgid "Default Pointer - Current"
 msgstr "كۆڭۈلدىكى ئىسترېلكا  - نۆۋەتتىكى"
 
-#: ../capplets/common/mate-theme-info.c:695
+#: ../capplets/common/ukui-theme-info.c:695
 msgid "White Pointer"
 msgstr "ئاق ئىسترېلكا"
 
-#: ../capplets/common/mate-theme-info.c:696
+#: ../capplets/common/ukui-theme-info.c:696
 msgid "White Pointer - Current"
 msgstr "ئاق ئىسترېلكا - نۆۋەتتىكى"
 
-#: ../capplets/common/mate-theme-info.c:700
+#: ../capplets/common/ukui-theme-info.c:700
 msgid "Large Pointer"
 msgstr "چوڭ ئىسترېلكا"
 
-#: ../capplets/common/mate-theme-info.c:701
+#: ../capplets/common/ukui-theme-info.c:701
 msgid "Large Pointer - Current"
 msgstr "چوڭ ئىسترېلكا - نۆۋەتتىكى"
 
-#: ../capplets/common/mate-theme-info.c:705
+#: ../capplets/common/ukui-theme-info.c:705
 msgid "Large White Pointer - Current"
 msgstr "چوڭ ئاق ئىسترېلكا - نۆۋەتتىكى"
 
-#: ../capplets/common/mate-theme-info.c:706
+#: ../capplets/common/ukui-theme-info.c:706
 msgid "Large White Pointer"
 msgstr "چوڭ ئاق ئىسترېلكا"
 
-#: ../capplets/common/mate-theme-info.c:1696
+#: ../capplets/common/ukui-theme-info.c:1696
 #, c-format
 msgid ""
 "This theme will not look as intended because the required GTK+ theme '%s' is"
 " not installed."
 msgstr "زۆرۈر GTK+ تېمىسى '%s' قاچىلانمىغاچقا، بۇ تېما كۈتكەندەك كۆرۈنمەيدۇ."
 
-#: ../capplets/common/mate-theme-info.c:1706
+#: ../capplets/common/ukui-theme-info.c:1706
 #, c-format
 msgid ""
 "This theme will not look as intended because the required window manager "
 "theme '%s' is not installed."
 msgstr "زۆرۈر كۆزنەك باشقۇرغۇچ تېمىسى '%s' قاچىلانمىغاچقا، بۇ تېما كۈتكەندە كۆرۈنمەيدۇ."
 
-#: ../capplets/common/mate-theme-info.c:1714
+#: ../capplets/common/ukui-theme-info.c:1714
 #, c-format
 msgid ""
 "This theme will not look as intended because the required icon theme '%s' is"
 " not installed."
 msgstr "زۆرۈر سىنبەلگە تېمىسى '%s' قاچىلانمىغاچقا، بۇ تېما كۈتكەندەك كۆرۈنمەيدۇ."
 
-#: ../capplets/default-applications/mate-default-applications-properties.desktop.in.in.h:1
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:1
+#: ../capplets/default-applications/ukui-default-applications-properties.desktop.in.in.h:1
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:1
 msgid "Preferred Applications"
 msgstr "ئامراق قوللىنىشچان پروگراممىلار"
 
-#: ../capplets/default-applications/mate-default-applications-properties.desktop.in.in.h:2
+#: ../capplets/default-applications/ukui-default-applications-properties.desktop.in.in.h:2
 msgid "Select your default applications"
 msgstr "كۆڭۈلدىكى قوللىنىشچان پروگراممىلىرىڭىزنى تاللاڭ"
 
-#: ../capplets/default-applications/mate-da-capplet.c:542
+#: ../capplets/default-applications/ukui-da-capplet.c:542
 msgid "Could not load the main interface"
 msgstr "ئاساسىي ئالاقە ئېغىزىنى يۈكلىيەلمىدى"
 
-#: ../capplets/default-applications/mate-da-capplet.c:543
+#: ../capplets/default-applications/ukui-da-capplet.c:543
 msgid "Please make sure that the applet is properly installed"
 msgstr "قوللانچاقنىڭ توغرا قاچىلانغانلىقىنى جەزملەشتۈرۈڭ."
 
 #. TRANSLATORS: don't translate the terms in brackets
-#: ../capplets/default-applications/mate-da-capplet.c:692
+#: ../capplets/default-applications/ukui-da-capplet.c:692
 msgid "Specify the name of the page to show (internet|multimedia|system|a11y)"
 msgstr "كۆرسىتىدىغان بەتنىڭ نامىنى ئېنىقلاڭ (internet|multimedia|system|a11y)"
 
-#: ../capplets/default-applications/mate-da-capplet.c:698
-msgid "- MATE Default Applications"
-msgstr "- MATE كۆڭۈلدىكى پروگراممىلار"
+#: ../capplets/default-applications/ukui-da-capplet.c:698
+msgid "- UKUI Default Applications"
+msgstr "- UKUI كۆڭۈلدىكى پروگراممىلار"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:2
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:2
 msgid "Web Browser"
 msgstr "توركۆرگۈ"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:3
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:3
 msgid "Mail Reader"
 msgstr "ئېلخەت ئوقۇغۇچ"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:4
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:4
 msgid "Instant Messenger"
 msgstr "مۇڭداشقۇ"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:5
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:5
 msgid "Co_mmand:"
 msgstr "بۇيرۇق(_M):"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:7
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:7
 #, no-c-format
 msgid "All %s occurrences will be replaced with actual link"
 msgstr "%s قېتىملىق كۆرۈنگەننىڭ ھەممىسى ئەمەلىي ئۇلىنىش بىلەن ئالماشتۇرۇلىدۇ"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:8
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:8
 msgid "Run in t_erminal"
 msgstr "تېرمىنالدا ئىجرا قىل(_E)"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:9
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:9
 msgid "Internet"
 msgstr "ئىنتېرنېت"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:10
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:10
 msgid "Image Viewer"
 msgstr "سۈرەت كۆرگۈچ"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:11
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:11
 msgid "Multimedia Player"
 msgstr "كۆپ ۋاسىتە قويغۇچ"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:12
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:12
 msgid "Video Player"
 msgstr "سىن قويغۇچ"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:13
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:13
 msgid "Multimedia"
 msgstr "كۆپ ۋاسىتە"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:14
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:14
 msgid "Text Editor"
 msgstr "تېكىست تەھرىرلىگۈچ"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:15
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:15
 msgid "Terminal Emulator"
 msgstr "تېرمىنال تەقلىدلەشتۈرگۈچ"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:16
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:16
 msgid "File Manager"
 msgstr ""
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:17
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:17
 msgid "System"
 msgstr "سىستېما"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:18
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:18
 msgid "Document Viewer"
 msgstr ""
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:19
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:19
 msgid "Word Processor"
 msgstr ""
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:20
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:20
 msgid "Spreadsheet Editor"
 msgstr ""
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:21
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:21
 msgid "Office"
 msgstr ""
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:22
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:22
 msgid "Visual"
 msgstr "كۆرۈنۈشچان"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:23
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:23
 msgid "_Run at start"
 msgstr "قوزغالغاندا ئىجرا قىل(_R)"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:24
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:24
 msgid "Mobility"
 msgstr "كۆچمە"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:25
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:25
 msgid "Run at st_art"
 msgstr "قوزغالغاندا ئىجرا قىل(_a)"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:26
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:45
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:26
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:45
 msgid "Accessibility"
 msgstr "قوشۇمچە ئىقتىدار"
 
@@ -1467,7 +1467,7 @@ msgstr ""
 
 #: ../capplets/display/display-capplet.ui.h:3
 msgid ""
-"Applies the current configuration for other MATE users on the computer. Note"
+"Applies the current configuration for other UKUI users on the computer. Note"
 " that this doesn't affect login screens or other desktop environments."
 msgstr ""
 
@@ -1532,13 +1532,13 @@ msgstr "نورمال"
 
 #: ../capplets/display/display-capplet.ui.h:18
 #: ../capplets/display/xrandr-capplet.c:312
-#: ../capplets/windows/mate-window-properties.c:574
+#: ../capplets/windows/ukui-window-properties.c:574
 msgid "Left"
 msgstr "سول"
 
 #: ../capplets/display/display-capplet.ui.h:19
 #: ../capplets/display/xrandr-capplet.c:313
-#: ../capplets/windows/mate-window-properties.c:573
+#: ../capplets/windows/ukui-window-properties.c:573
 msgid "Right"
 msgstr "ئوڭ"
 
@@ -1546,22 +1546,22 @@ msgstr "ئوڭ"
 msgid "Upside-down"
 msgstr "ئاستى ئۈستىنى ئالماشتۇر"
 
-#: ../capplets/display/mate-display-properties.desktop.in.in.h:1
+#: ../capplets/display/ukui-display-properties.desktop.in.in.h:1
 msgid "Displays"
 msgstr ""
 
-#: ../capplets/display/mate-display-properties.desktop.in.in.h:2
+#: ../capplets/display/ukui-display-properties.desktop.in.in.h:2
 msgid "Change resolution and position of monitors and projectors"
 msgstr ""
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:44
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:44
 #, c-format
 msgid ""
 "Usage: %s SOURCE_FILE DEST_NAME\n"
 "\n"
 "This program installs a RANDR profile for multi-monitor setups into\n"
 "a systemwide location.  The resulting profile will get used when\n"
-"the RANDR plug-in gets run in mate-settings-daemon.\n"
+"the RANDR plug-in gets run in ukui-settings-daemon.\n"
 "\n"
 "SOURCE_FILE - a full pathname, typically /home/username/.config/monitors.xml\n"
 "\n"
@@ -1571,75 +1571,75 @@ msgid ""
 msgstr ""
 
 #. Translators: only able to install RANDR profiles as root
-#: ../capplets/display/mate-display-properties-install-systemwide.c:151
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:151
 msgid "This program can only be used by the root user"
 msgstr "بۇ پروگراممىنى root لا ئىشلىتەلەيدۇ"
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:168
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:168
 msgid "The source filename must be absolute"
 msgstr "ئەسلى ھۆججەت ئاتى مۇتلەق بولسۇن"
 
 #. Translators: first %s is a filename; second %s is an error message
-#: ../capplets/display/mate-display-properties-install-systemwide.c:179
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:179
 #, c-format
 msgid "Could not open %s: %s\n"
 msgstr "%sنى ئاچقىلى بولمىدى: %s\n"
 
 #. Translators: first %s is a filename; second %s is an error message
-#: ../capplets/display/mate-display-properties-install-systemwide.c:188
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:188
 #, c-format
 msgid "Could not get information for %s: %s\n"
 msgstr " %s نىڭ ئۇچۇرىغا ئېرىشكىلى بولمىدى: %s\n"
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:195
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:195
 #, c-format
 msgid "%s must be a regular file\n"
 msgstr "%s چوقۇم مۇنتىزىم ھۆججەت بولۇشى كېرەك\n"
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:204
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:204
 msgid "This program must only be run through pkexec(1)"
 msgstr "بۇ پروگرامما چوقۇم  pkexec(1) ئارقىلىق ئىجرا قىلىنىشى كېرەك"
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:209
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:209
 msgid "PKEXEC_UID must be set to an integer value"
 msgstr "PKEXEC_UID چوقۇم پۈتۈن سان بولۇشى كېرەك"
 
 #. Translators: we are complaining that a file must be really owned by the
 #. user who called this program
-#: ../capplets/display/mate-display-properties-install-systemwide.c:215
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:215
 #, c-format
 msgid "%s must be owned by you\n"
 msgstr "%s نىڭ ئىگىسى چوقۇم سىز بولۇشىڭىز كېرەك\n"
 
 #. Translators: here we are saying that a plain filename must look like
 #. "filename", not like "some_dir/filename"
-#: ../capplets/display/mate-display-properties-install-systemwide.c:223
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:223
 #, c-format
 msgid "%s must not have any directory components\n"
 msgstr "%s چوقۇم ھەرقانداق مۇندەرىجە بىرىكمىسى بولماسلىقى كېرەك\n"
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:231
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:231
 #, c-format
 msgid "%s must be a directory\n"
 msgstr "%s چوقۇم مۇندەرىجە بولۇشى كېرەك\n"
 
 #. Translators: the first %s/%s is a directory/filename; the last %s is an
 #. error message
-#: ../capplets/display/mate-display-properties-install-systemwide.c:242
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:242
 #, c-format
 msgid "Could not open %s/%s: %s\n"
 msgstr "%s/%s نى ئاچقىلى بولمىدى: %s\n"
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:262
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:262
 #, c-format
 msgid "Could not rename %s to %s: %s\n"
 msgstr "%s نىڭ ئاتىنى %s غا ئۆزگەرتكىلى بولمىدى: %s\n"
 
-#: ../capplets/display/org.mate.randr.policy.in.h:1
+#: ../capplets/display/org.ukui.randr.policy.in.h:1
 msgid "Install multi-monitor settings for the whole system"
 msgstr "سىستېمىغا كوپ ئېكران تەڭشىكىنى ئورنىتىش"
 
-#: ../capplets/display/org.mate.randr.policy.in.h:2
+#: ../capplets/display/org.ukui.randr.policy.in.h:2
 msgid ""
 "Authentication is required to install multi-monitor settings for all users"
 msgstr "بارلىق ئىشلەتكۈچىلەرگە كوپ ئېكران تەڭشىكىنى ئورنىتىش ئۈچۈن دەلىللەش زۆرۈر"
@@ -1735,845 +1735,845 @@ msgid "The type of accelerator."
 msgstr "تېزلەتكۈچ تىپى."
 
 #: ../capplets/keybindings/eggcellrendererkeys.c:231
-#: ../capplets/keybindings/mate-keybinding-properties.c:134
-#: ../capplets/mouse/mate-mouse-properties.c:396
+#: ../capplets/keybindings/ukui-keybinding-properties.c:134
+#: ../capplets/mouse/ukui-mouse-properties.c:396
 #: ../typing-break/drwright.c:501
 msgid "Disabled"
 msgstr "چەكلەنگەن"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:216
+#: ../capplets/keybindings/ukui-keybinding-properties.c:216
 msgid "<Unknown Action>"
 msgstr "<نامەلۇم مەشغۇلات>"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1020
-#: ../capplets/keybindings/mate-keybinding-properties.c:1610
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1020
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1610
 msgid "Custom Shortcuts"
 msgstr "ئىختىيارى تېزلەتمىلەر"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1190
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1190
 msgid "Error saving the new shortcut"
 msgstr "يېڭى تېزلەتمە ساقلىغاندا خاتالىق كۆرۈلدى"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1266
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1266
 #, c-format
 msgid ""
 "The shortcut \"%s\" cannot be used because it will become impossible to type using this key.\n"
 "Please try with a key such as Control, Alt or Shift at the same time."
 msgstr "تېزلەتمە \"%s\" ئىشلەتكىلى بولمايدۇ، چۈنكى ئۇنى ئىشلەتكەندە كىرگۈزگىلى بولمايدۇ، بىرلا ۋاقىتتا Control ، Alt ياكى Shift نى ئىشلىتىشنى سىناڭ."
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1298
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1298
 #, c-format
 msgid ""
 "The shortcut \"%s\" is already used for\n"
 "\"%s\""
 msgstr "\"%s\" تېزلەتمە \"%s\" غا ئىشلىتىلگەن"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1305
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1305
 #, c-format
 msgid "If you reassign the shortcut to \"%s\", the \"%s\" shortcut will be disabled."
 msgstr "ئەگەر تېزلەتمىنى \"%s\"غا بەلگىلىسىڭىز،  \"%s\" نىڭ تېزلەتمىسى چەكلىنىدۇ."
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1310
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1310
 msgid "_Reassign"
 msgstr "قايتا تەيىنلە(_R)"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1565
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1565
 msgid "Too many custom shortcuts"
 msgstr "ئىختىيارى تېزلەتمە بەك كۆپ"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1853
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1853
 msgid "Action"
 msgstr "مەشغۇلات"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1875
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1875
 msgid "Shortcut"
 msgstr "تېزلەتمە"
 
 #. * vim: sw=2 ts=8 cindent noai bs=2
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:1
-#: ../capplets/keybindings/mate-keybinding.desktop.in.in.h:1
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:1
+#: ../capplets/keybindings/ukui-keybinding.desktop.in.in.h:1
 msgid "Keyboard Shortcuts"
 msgstr "ھەرپتاختا تېزلەتمىلىرى"
 
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:2
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:2
 msgid ""
 "To edit a shortcut key, click on the corresponding row and type a new key "
 "combination, or press backspace to clear."
 msgstr "تېزلەتمىنى تەھرىرلەشتە، مۇناسىپ قۇرنى تاق چېكىپ ئاندىن يېڭى تېزلەتمە كىرگۈزۈلىدۇ ياكى backspace ئۆچۈرۈش كۇنۇپكىسىدا تازىلىنىدۇ."
 
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:3
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:3
 msgid "Custom Shortcut"
 msgstr "ئىختىيارى تېزلەتمە"
 
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:5
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:5
 msgid "C_ommand:"
 msgstr "بۇيرۇق(_O):"
 
-#: ../capplets/keybindings/mate-keybinding.desktop.in.in.h:2
+#: ../capplets/keybindings/ukui-keybinding.desktop.in.in.h:2
 msgid "Assign shortcut keys to commands"
 msgstr "بۇيرۇققا تېزلەتمە بەلگىلىنىدۇ"
 
-#: ../capplets/keyboard/mate-keyboard-properties.c:213
-#: ../capplets/keyboard/mate-keyboard-properties.c:218
+#: ../capplets/keyboard/ukui-keyboard-properties.c:213
+#: ../capplets/keyboard/ukui-keyboard-properties.c:218
 msgid ""
 "Just apply settings and quit (compatibility only; now handled by daemon)"
 msgstr "تەڭشەكنى قوللىنىپ چېكىن (ماسلىشىشچانلىق ئۈچۈنلا؛ ھازىر قوغداش پروگراممىسى بىر تەرەپ قىلدى)"
 
-#: ../capplets/keyboard/mate-keyboard-properties.c:223
+#: ../capplets/keyboard/ukui-keyboard-properties.c:223
 msgid "Start the page with the typing break settings showing"
 msgstr "كۆرسەتكەن خەت بېسىش ئارىلىق تەڭشىكىنى قوزغىتىش بېتى"
 
-#: ../capplets/keyboard/mate-keyboard-properties.c:228
+#: ../capplets/keyboard/ukui-keyboard-properties.c:228
 msgid "Start the page with the accessibility settings showing"
 msgstr "كۆرسەتكەن قوشۇمچە ئىقتىدار تەڭشىكى قوزغىتىش بېتى"
 
-#: ../capplets/keyboard/mate-keyboard-properties.c:234
-msgid "- MATE Keyboard Preferences"
-msgstr "- MATE ھەرپ تاختا مايىللىقى"
+#: ../capplets/keyboard/ukui-keyboard-properties.c:234
+msgid "- UKUI Keyboard Preferences"
+msgstr "- UKUI ھەرپ تاختا مايىللىقى"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:1
 msgid "Keyboard Accessibility Audio Feedback"
 msgstr "ھەرپ تاختا قوشۇمچە ئىقتىدارى ئاۋاز قايتۇرما ئىنكاسى"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:2
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:15
-#: ../capplets/mouse/mate-mouse-properties.ui.h:30
-#: ../capplets/windows/mate-window-properties.c:382
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:2
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:15
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:30
+#: ../capplets/windows/ukui-window-properties.c:382
 msgid "General"
 msgstr "ئادەتتىكى"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:3
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:3
 msgid "Beep when _accessibility features are turned on or off"
 msgstr "قوشۇمچە ئىقتىدارنى ئېچىپ ياكى ياپقاندىكى دۇت-دۈت ئاۋازى(_A)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:4
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:4
 msgid "Beep when a _toggle key is pressed"
 msgstr "ئالماشتۇرۇش كۇنۇپكىسىنى باسقاندىكى دۈت-دۈت ئاۋازى"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:5
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:5
 msgid "Visual cues for sounds"
 msgstr "ئاۋازلىق كۆرۈنمە ئىنكاس"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:6
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:6
 msgid "Show _visual feedback for the alert sound"
 msgstr "ئاگاھلاندۇرۇش ئاۋازى ئۈچۈن كۆرۈنمە ئىنكاسنى كۆرسەت(_V)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:7
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:7
 msgid "Flash _window titlebar"
 msgstr "كۆزنەك ماۋزۇ بالداقنى چاقنات(_W)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:8
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:8
 msgid "Flash entire _screen"
 msgstr "پۈتۈن ئېكراننى چاقنات(_S)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:9
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:39
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:9
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:39
 msgid "Slow Keys"
 msgstr "ئاستا كۇنۇپكا"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:10
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:10
 msgid "Beep when a key is pr_essed"
 msgstr "كۇنۇپكا بېسىلغاندىكى دۈت-دۈت ئاۋازى"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:11
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:11
 msgid "Beep when key is _accepted"
 msgstr "قوبۇل قىلغان كۇنۇپكا دۈت-دۈت ئاۋازى"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:12
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:12
 msgid "Beep when key is _rejected"
 msgstr "رەت قىلغان كۇنۇپكا دۈت-دۈت ئاۋازى"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:13
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:41
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:13
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:41
 msgid "Bounce Keys"
 msgstr "قاڭقىش كۇنۇپكىسى"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:14
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:14
 msgid "Beep when a key is reje_cted"
 msgstr "رەت قىلغاندىكى دۈت-دۈت ئاۋازى"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:15
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:36
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:15
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:36
 msgid "Sticky Keys"
 msgstr "چاپلاش كۇنۇپكىسى"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:16
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:16
 msgid "Beep when a _modifier key is pressed"
 msgstr "ئۆزگەرتىش كۇنۇپكىسىنى باسقاندىكى دۈت-دۈت ئاۋازى(_M)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:1
 msgid "Keyboard Preferences"
 msgstr "ھەرپ تاختا مايىللىقى"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:2
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:2
 msgid "Repeat Keys"
 msgstr "تەكرار كۇنۇپكا"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:3
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:3
 msgid "Key presses _repeat when key is held down"
 msgstr "مەلۇم كۇنۇپكا بېسىپ تۇرۇلغاندا شۇ كۇنۇپكىنى تەكرارلا(_R)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:4
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:4
 msgid "_Delay:"
 msgstr "كېچىكتۈر(_D):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:5
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:5
 msgid "_Speed:"
 msgstr "سۈرئەت(_S):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:6
-#: ../capplets/mouse/mate-mouse-properties.ui.h:27
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:6
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:27
 msgid "Short"
 msgstr "قىسقا"
 
 #. slow acceleration
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:7
-#: ../capplets/mouse/mate-mouse-properties.ui.h:11
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:7
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:11
 msgid "Slow"
 msgstr "ئاستا"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:8
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:8
 msgid "Repeat keys speed"
 msgstr "تەكرار كۇنۇپكا سۈرئىتى"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:9
-#: ../capplets/mouse/mate-mouse-properties.ui.h:28
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:9
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:28
 msgid "Long"
 msgstr "ئۇزۇن"
 
 #. fast acceleration
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:10
-#: ../capplets/mouse/mate-mouse-properties.ui.h:13
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:10
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:13
 msgid "Fast"
 msgstr "تېز"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:11
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:11
 msgid "Cursor Blinking"
 msgstr "نۇر بەلگە چاقناش"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:12
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:12
 msgid "Cursor _blinks in text fields"
 msgstr "تېكىست رايونىدا نۇر بەلگە چاقنات(_B)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:13
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:13
 msgid "S_peed:"
 msgstr "سۈرئىتى:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:14
-#: ../capplets/mouse/mate-mouse-properties.ui.h:22
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:14
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:22
 msgid "Cursor blinks speed"
 msgstr "نۇر بەلگە چاقناش سۈرئىتى"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:16
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:16
 msgid "List of keyboard layouts selected for usage"
 msgstr "ئىشلىتىلىش ئۈچۈن تاللانغان ھەرپتاختا ئورۇنلاشتۇرۇلۇشىنى كۆرسەتمەك"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:18
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:18
 msgid "Select a keyboard layout to be added to the list"
 msgstr "تىزىملىككە قوشۇلىدىغان ھەرپتاختا ئورۇنلاشتۇرۇلۇشىنى تاللايدۇ"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:19
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:19
 msgid "Remove the selected keyboard layout from the list"
 msgstr "تاللانغان ھەرپتاختا ئورۇنلاشتۇرۇلۇشىنى تىزىملىكتىن ئۆچۈرۈۋېتىدۇ."
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:20
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:20
 msgid "Move _Up"
 msgstr "يۇقىرىغا(_U)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:21
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:21
 msgid "Move the selected keyboard layout up in the list"
 msgstr "تىزىملىكتىكى تاللانغان ھەرپتاختا ئورۇنلاشتۇرۇلۇشىنى ئۈستىگە يۆتكەيدۇ"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:22
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:22
 msgid "Move _Down"
 msgstr "تۆۋەنگە(_D)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:23
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:23
 msgid "Move the selected keyboard layout down in the list"
 msgstr "تىزىملىكتىكى تاللانغان ھەرپتاختا ئورۇنلاشتۇرۇلۇشىنى ئاستىغا يۆتكەيدۇ"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:24
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:24
 msgid "_Show..."
 msgstr "كۆرسەت(_S)..."
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:25
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:25
 msgid "Print a diagram of the selected keyboard layout"
 msgstr "تاللانغان ھەرپتاختا ئورۇنلاشتۇرۇلۇشىنىڭ رەسىمىنى چىقىرىدۇ"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:26
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:26
 msgid "_Separate layout for each window"
 msgstr "ھەر بىر كۆزنەكنى مۇستەقىل جايلاشتۇر(_S)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:27
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:27
 msgid "New windows u_se active window's layout"
 msgstr "يېڭى كۆزنەك ئاكتىپ كۆزنەك جايلاشتۇرۇشنى ئىشلىتىدۇ(_S)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:28
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:28
 msgid "Keyboard _model:"
 msgstr "ھەرپ تاختا تىپى(_M):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:29
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:29
 msgid "_Options..."
 msgstr "تاللانما(_O)…"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:30
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:30
 msgid "View and edit keyboard layout options"
 msgstr "ھەرپ تاختا جايلاشتۇرۇش تاللانمىسىنى كۆرۈش ۋە تەھرىرلەش"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:31
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:31
 msgid "Reset to De_faults"
 msgstr "كۆڭۈلدىكىگە قايتۇر(_F)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:32
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:32
 msgid ""
 "Replace the current keyboard layout settings with the\n"
 "default settings"
 msgstr "تاللانغان ھەرپتاختا ئورۇنلاشتۇرۇلۇشىنىڭ تەڭشىكىنى\nكۆڭۈلدىكى تەڭشەك بىلەن ئالماشتۇرىدۇ"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:34
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:34
 msgid "Layouts"
 msgstr "جايلاشتۇرۇش"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:35
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:35
 msgid "_Accessibility features can be toggled with keyboard shortcuts"
 msgstr "ھەرپتاختا تېزلەتمىسى قوشۇمچە ئىقتىدارنى ئېچىش ياكى يېپىشقا يول قوي(_A)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:37
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:37
 msgid "_Simulate simultaneous keypresses"
 msgstr "بىرلا ۋاقىتتا كۇنۇپكا بېسىشنى تەقلىدلەشتۈر(_S)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:38
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:38
 msgid "Disa_ble sticky keys if two keys are pressed together"
 msgstr "ئەگەر ئىككى كۇنۇپكا بىرلا ۋاقىتتا بېسىلسا چاپلاش كۇنۇپكىسىنى چەكلە(_B)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:40
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:40
 msgid "_Only accept long keypresses"
 msgstr "ئۇزاق كۇنۇپكا بېسىشقىلا قوشۇل(_O)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:42
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:42
 msgid "_Ignore fast duplicate keypresses"
 msgstr "تېز سۈرئەتتە تەكرار كۇنۇپكا بېسىشقا پەرۋا قىلما(_I)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:43
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:43
 msgid "D_elay:"
 msgstr "كېچىكتۈر(_E):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:44
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:44
 msgid "Audio _Feedback..."
 msgstr "ئاۋاز ئىنكاسى(_F)…"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:46
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:46
 msgid "_Pointer can be controlled using the keypad"
 msgstr "كۇنۇپكا تاختىدا ئىسترېلكا باشقۇرۇشقا يول قوي(_P)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:47
-#: ../capplets/mouse/mate-mouse-properties.ui.h:8
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:47
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:8
 msgid "_Acceleration:"
 msgstr "تېزلىتىش(_A):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:48
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:48
 msgid "Mouse Keys"
 msgstr "چاشقىنەك كۇنۇپكا"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:49
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:49
 msgid "_Lock screen to enforce typing break"
 msgstr "ئېكراننى قۇلۇپلاپ كىرگۈزۈشنى مەجبۇرىي ئۈز(_L)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:50
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:50
 msgid ""
 "Lock screen after a certain duration to help prevent repetitive keyboard use"
 " injuries"
 msgstr "مەلۇم ۋاقىت ئۆتكەندە ئېكراننى قۇلۇپلاپ تەكرار كۇنۇپكا خىزمىتىدە قول بېغىشىنىڭ تېلىپ كېتىشىنىڭ ئالدىنى ئېلىشقا ياردەم بېرىدۇ."
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:51
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:51
 msgid "_Work interval lasts:"
 msgstr "خىزمەت ئارىلىقى داۋاملىشىشى(_W):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:52
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:52
 msgid "_Break interval lasts:"
 msgstr "ئۈزۈش ئارىلىقى داۋاملىشىشى(_B):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:53
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:53
 msgid "Duration of work before forcing a break"
 msgstr "مەجبۇرىي ئۈزۈۋېتىشتىن ئىلگىرىكى خىزمەت داۋاملىشىش ۋاقتى"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:54
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:54
 msgid "Duration of the break when typing is disallowed"
 msgstr "ئارام ئېلىش ۋاقتىدا كىرگۈزۈشكە يول قويۇلمايدۇ"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:55
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:55
 msgid "minutes"
 msgstr "مىنۇت"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:56
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:56
 msgid "All_ow postponing of breaks"
 msgstr "ئۈزۈشنى كېچىكتۈرۈشكە يول قوي(_O)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:57
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:57
 msgid "Check if breaks are allowed to be postponed"
 msgstr "ئۈزۈشنى كېچىكتۈرۈشكە يول قويىدىغان قويمايدىغانلىقىنى تەكشۈر"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:58
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:58
 msgid "Typing Break"
 msgstr "كىرگۈزۈشنى ئۈزۈش"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:59
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:59
 msgid "_Type to test settings:"
 msgstr "ھەرپ كىرگۈزۈپ تەڭشەك سىناڭ(_T):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:1
 msgid "Choose a Layout"
 msgstr "جايلاشتۇرۇش تاللا"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:2
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:2
 msgid "_Variants:"
 msgstr "شالغۇتلار:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:3
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:3
 msgid "_Country:"
 msgstr "دۆلەت(_C):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:4
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:4
 msgid "By _country"
 msgstr "دۆلەت بويىچە(_C)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:5
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:5
 msgid "_Language:"
 msgstr "تىل(_L):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:6
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:6
 msgid "By _language"
 msgstr "تىل بويىچە(_L)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:7
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:7
 msgid "Preview:"
 msgstr "ئالدىن كۆزەت:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-model-chooser.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-model-chooser.ui.h:1
 msgid "Choose a Keyboard Model"
 msgstr "ھەرپ تاختا تىپىدىن بىرنى تاللاڭ"
 
-#: ../capplets/keyboard/mate-keyboard-properties-model-chooser.ui.h:2
+#: ../capplets/keyboard/ukui-keyboard-properties-model-chooser.ui.h:2
 msgid "_Vendors:"
 msgstr "ساتقۇچى(_V):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-model-chooser.ui.h:3
+#: ../capplets/keyboard/ukui-keyboard-properties-model-chooser.ui.h:3
 msgid "_Models:"
 msgstr "تىپى(_M):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-options-dialog.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-options-dialog.ui.h:1
 msgid "Keyboard Layout Options"
 msgstr "ھەرپ تاختا جايلاشتۇرۇش تاللانما"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkb.c:83
+#: ../capplets/keyboard/ukui-keyboard-properties-xkb.c:83
 msgid "Unknown"
 msgstr "نامەلۇم"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkblt.c:240
+#: ../capplets/keyboard/ukui-keyboard-properties-xkblt.c:240
 msgid "Layout"
 msgstr "ئۇسلۇب"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkbmc.c:170
+#: ../capplets/keyboard/ukui-keyboard-properties-xkbmc.c:170
 msgid "Vendors"
 msgstr "ساتقۇچى"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkbmc.c:236
+#: ../capplets/keyboard/ukui-keyboard-properties-xkbmc.c:236
 msgid "Models"
 msgstr "تىپى"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkbot.c:237
+#: ../capplets/keyboard/ukui-keyboard-properties-xkbot.c:237
 msgid "Default"
 msgstr "كۆڭۈلدىكى"
 
-#: ../capplets/keyboard/mate-keyboard.desktop.in.in.h:1
+#: ../capplets/keyboard/ukui-keyboard.desktop.in.in.h:1
 msgid "Keyboard"
 msgstr "ھەرپ تاختا"
 
-#: ../capplets/keyboard/mate-keyboard.desktop.in.in.h:2
+#: ../capplets/keyboard/ukui-keyboard.desktop.in.in.h:2
 msgid "Set your keyboard preferences"
 msgstr "ھەرپ تاختا مايىللىق تەڭشىكى"
 
-#: ../capplets/mouse/mate-mouse-properties.c:396
+#: ../capplets/mouse/ukui-mouse-properties.c:396
 msgid "Left button"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.c:396
+#: ../capplets/mouse/ukui-mouse-properties.c:396
 msgid "Middle button"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.c:396
+#: ../capplets/mouse/ukui-mouse-properties.c:396
 msgid "Right button"
 msgstr ""
 
 #. TRANSLATORS: don't translate the terms in brackets
-#: ../capplets/mouse/mate-mouse-properties.c:482
+#: ../capplets/mouse/ukui-mouse-properties.c:482
 msgid "Specify the name of the page to show (general)"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.c:487
-msgid "- MATE Mouse Preferences"
-msgstr "- MATE چاشقىنەك مايىللىقى"
+#: ../capplets/mouse/ukui-mouse-properties.c:487
+msgid "- UKUI Mouse Preferences"
+msgstr "- UKUI چاشقىنەك مايىللىقى"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:1
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:1
 msgid "Mouse Preferences"
 msgstr "چاشقىنەك مايىللىقى"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:2
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:2
 msgid "Mouse Orientation"
 msgstr "چاشقىنەك يۆنىلىشى"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:3
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:3
 msgid "_Right-handed"
 msgstr "ئوڭخاي(_R)"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:4
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:4
 msgid "_Left-handed"
 msgstr "سولخاي(_L)"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:5
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:5
 msgid "Locate Pointer"
 msgstr "ئىسترېلكا ئورنى"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:6
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:6
 msgid "Sh_ow position of pointer when the Control key is pressed"
 msgstr "Ctrl كۇنۇپكا بېسىلسا ئىسترېلكا ئورنى كۆرۈنىدۇ(_O)"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:7
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:7
 msgid "Pointer Speed"
 msgstr "ئىسترېلكا سۈرئىتى"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:9
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:9
 msgid "_Sensitivity:"
 msgstr "سەزگۈرلۈكى(_S):"
 
 #. low sensitivity
-#: ../capplets/mouse/mate-mouse-properties.ui.h:15
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:15
 msgid "Low"
 msgstr "تۆۋەن"
 
 #. high sensitivity
-#: ../capplets/mouse/mate-mouse-properties.ui.h:17
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:17
 msgid "High"
 msgstr "يۇقىرى"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:18
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:18
 msgid "Drag and Drop"
 msgstr "سۆرەپ تاشلا"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:19
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:19
 msgid "Thr_eshold:"
 msgstr "بوسۇغا قىممەت"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:25
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:25
 msgid "Double-Click Timeout"
 msgstr "قوش چېكىش ۋاقىت ھالقىشى"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:26
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:26
 msgid "_Timeout:"
 msgstr "ۋاقىت ھالقىش(_T):"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:29
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:29
 msgid ""
 "To test your double-click settings, try to double-click on the light bulb."
 msgstr "قوش چېكىش تەڭشىكىڭىزنى سىناشتا، ئوڭ تەرەپتىكى لامپىنى قوش چېكىڭ."
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:31
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:31
 msgid "Enable _touchpad"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:32
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:32
 msgid "Disable touchpad _while typing"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:33
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:33
 msgid "Enable _mouse clicks with touchpad"
 msgstr "سەزگۈر تاختىدا چاشقىنەك چېكىشنى قوزغات(_M)"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:34
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:34
 msgid "Two-finger click emulation:"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:35
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:35
 msgid "Three-finger click emulation:"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:36
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:36
 msgid "Scrolling"
 msgstr "دومىلات"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:37
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:37
 msgid "_Vertical edge scrolling"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:38
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:38
 msgid "H_orizontal edge scrolling"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:39
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:39
 msgid "V_ertical two-finger scrolling"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:40
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:40
 msgid "Hor_izontal two-finger scrolling"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:41
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:41
 msgid "Enable n_atural scrolling"
 msgstr ""
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:42
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:42
 msgid "Touchpad"
 msgstr "سەزگۈر تاختا"
 
-#: ../capplets/mouse/mate-settings-mouse.desktop.in.in.h:1
+#: ../capplets/mouse/ukui-settings-mouse.desktop.in.in.h:1
 msgid "Mouse"
 msgstr "چاشقىنەك"
 
-#: ../capplets/mouse/mate-settings-mouse.desktop.in.in.h:2
+#: ../capplets/mouse/ukui-settings-mouse.desktop.in.in.h:2
 msgid "Set your mouse preferences"
 msgstr "چاشقىنەك مايىللىق تەڭشىكى"
 
-#: ../capplets/network/mate-network-properties.desktop.in.in.h:1
+#: ../capplets/network/ukui-network-properties.desktop.in.in.h:1
 msgid "Network Proxy"
 msgstr "تور ۋاكالەتچىسى"
 
-#: ../capplets/network/mate-network-properties.desktop.in.in.h:2
+#: ../capplets/network/ukui-network-properties.desktop.in.in.h:2
 msgid "Set your network proxy preferences"
 msgstr "تور ۋاكالەتچى مايىللىقىڭىزنى تەڭشەڭ"
 
-#: ../capplets/network/mate-network-properties.ui.h:1
+#: ../capplets/network/ukui-network-properties.ui.h:1
 msgid "HTTP Proxy Details"
 msgstr "HTTP ۋاكالەتچى تەپسىلاتى"
 
-#: ../capplets/network/mate-network-properties.ui.h:2
+#: ../capplets/network/ukui-network-properties.ui.h:2
 msgid "<b>_Use authentication</b>"
 msgstr "<b>سالاھىيەت دەلىللەش ئىشلەت(_U)</b>"
 
-#: ../capplets/network/mate-network-properties.ui.h:3
+#: ../capplets/network/ukui-network-properties.ui.h:3
 msgid "U_sername:"
 msgstr "ئىشلەتكۈچى ئاتى(_S):"
 
-#: ../capplets/network/mate-network-properties.ui.h:4
+#: ../capplets/network/ukui-network-properties.ui.h:4
 msgid "_Password:"
 msgstr "ئىم(_P):"
 
-#: ../capplets/network/mate-network-properties.ui.h:5
+#: ../capplets/network/ukui-network-properties.ui.h:5
 msgid "Network Proxy Preferences"
 msgstr "تور ۋاكالەتچى مايىللىقى"
 
-#: ../capplets/network/mate-network-properties.ui.h:6
+#: ../capplets/network/ukui-network-properties.ui.h:6
 msgid "<b>Di_rect internet connection</b>"
 msgstr "<b>تۇتاش تورغا بىۋاسىتە ئۇلا(_R)</b>"
 
-#: ../capplets/network/mate-network-properties.ui.h:7
+#: ../capplets/network/ukui-network-properties.ui.h:7
 msgid "<b>_Manual proxy configuration</b>"
 msgstr "<b>قولدا ۋاكالەتچى سەپلىمىسى(_M)</b>"
 
-#: ../capplets/network/mate-network-properties.ui.h:8
+#: ../capplets/network/ukui-network-properties.ui.h:8
 msgid "H_TTP proxy:"
 msgstr "H_TTP ۋاكالەتچى:"
 
-#: ../capplets/network/mate-network-properties.ui.h:9
+#: ../capplets/network/ukui-network-properties.ui.h:9
 msgid "_Secure HTTP proxy:"
 msgstr "بىخەتەر HTTP ۋاكالەتچى(_S):"
 
-#: ../capplets/network/mate-network-properties.ui.h:10
+#: ../capplets/network/ukui-network-properties.ui.h:10
 msgid "_FTP proxy:"
 msgstr "_FTP ۋاكالەتچى:"
 
-#: ../capplets/network/mate-network-properties.ui.h:11
+#: ../capplets/network/ukui-network-properties.ui.h:11
 msgid "S_ocks host:"
 msgstr "S_ocks مۇلازىمېتىر:"
 
-#: ../capplets/network/mate-network-properties.ui.h:12
+#: ../capplets/network/ukui-network-properties.ui.h:12
 msgid "Port:"
 msgstr "ئېغىز:"
 
-#: ../capplets/network/mate-network-properties.ui.h:13
+#: ../capplets/network/ukui-network-properties.ui.h:13
 msgid "_Details"
 msgstr "تەپسىلاتلار(_D)"
 
-#: ../capplets/network/mate-network-properties.ui.h:14
+#: ../capplets/network/ukui-network-properties.ui.h:14
 msgid "<b>_Automatic proxy configuration</b>"
 msgstr "<b>ئاپتوماتىك ۋاكالەتچى سەپلىمىسى(_A)</b>"
 
-#: ../capplets/network/mate-network-properties.ui.h:15
+#: ../capplets/network/ukui-network-properties.ui.h:15
 msgid "Autoconfiguration _URL:"
 msgstr "_URL ئۆزلۈكىدىن سەپلە:"
 
-#: ../capplets/network/mate-network-properties.ui.h:16
+#: ../capplets/network/ukui-network-properties.ui.h:16
 msgid "Proxy Configuration"
 msgstr "ۋاكالەتچى سەپلىمە"
 
-#: ../capplets/network/mate-network-properties.ui.h:17
+#: ../capplets/network/ukui-network-properties.ui.h:17
 msgid "Ignore Host List"
 msgstr "كومپيۇتېر تىزىملىكىگە پەرۋا قىلما"
 
-#: ../capplets/network/mate-network-properties.ui.h:18
+#: ../capplets/network/ukui-network-properties.ui.h:18
 msgid "Ignored Hosts"
 msgstr "پەرۋا قىلىنمىغان كومپيۇتېر"
 
-#: ../capplets/windows/mate-metacity-support.c:40
+#: ../capplets/windows/ukui-metacity-support.c:40
 msgid "Metacity Preferences"
 msgstr ""
 
 #. Compositing manager
-#: ../capplets/windows/mate-metacity-support.c:55
-#: ../capplets/windows/mate-window-properties.c:410
+#: ../capplets/windows/ukui-metacity-support.c:55
+#: ../capplets/windows/ukui-window-properties.c:410
 msgid "Compositing Manager"
 msgstr ""
 
-#: ../capplets/windows/mate-metacity-support.c:66
-#: ../capplets/windows/mate-window-properties.c:422
+#: ../capplets/windows/ukui-metacity-support.c:66
+#: ../capplets/windows/ukui-window-properties.c:422
 msgid "Enable software _compositing window manager"
 msgstr ""
 
-#: ../capplets/windows/mate-window-properties.c:264
+#: ../capplets/windows/ukui-window-properties.c:264
 msgid "The current window manager is unsupported"
 msgstr ""
 
 #. Window
-#: ../capplets/windows/mate-window-properties.c:358
+#: ../capplets/windows/ukui-window-properties.c:358
 msgid "Window Preferences"
 msgstr "كۆزنەك مايىللىقى"
 
-#: ../capplets/windows/mate-window-properties.c:391
+#: ../capplets/windows/ukui-window-properties.c:391
 msgid "Behaviour"
 msgstr ""
 
-#: ../capplets/windows/mate-window-properties.c:400
+#: ../capplets/windows/ukui-window-properties.c:400
 msgid "Placement"
 msgstr ""
 
-#: ../capplets/windows/mate-window-properties.c:423
+#: ../capplets/windows/ukui-window-properties.c:423
 msgid "Disable _thumbnails in Alt-Tab"
 msgstr ""
 
 #. Titlebar buttons
-#: ../capplets/windows/mate-window-properties.c:431
+#: ../capplets/windows/ukui-window-properties.c:431
 msgid "Titlebar Buttons"
 msgstr ""
 
-#: ../capplets/windows/mate-window-properties.c:439
+#: ../capplets/windows/ukui-window-properties.c:439
 msgid "Position:"
 msgstr ""
 
 #. New Windows
-#: ../capplets/windows/mate-window-properties.c:446
+#: ../capplets/windows/ukui-window-properties.c:446
 msgid "New Windows"
 msgstr ""
 
-#: ../capplets/windows/mate-window-properties.c:454
+#: ../capplets/windows/ukui-window-properties.c:454
 msgid "Center _new windows"
 msgstr ""
 
 #. Window Snapping
-#: ../capplets/windows/mate-window-properties.c:459
+#: ../capplets/windows/ukui-window-properties.c:459
 msgid "Window Snapping"
 msgstr ""
 
-#: ../capplets/windows/mate-window-properties.c:467
+#: ../capplets/windows/ukui-window-properties.c:467
 msgid "Enable side by side _tiling"
 msgstr ""
 
 #. Window Selection
-#: ../capplets/windows/mate-window-properties.c:472
+#: ../capplets/windows/ukui-window-properties.c:472
 msgid "Window Selection"
 msgstr "كۆزنەك تاللاش"
 
-#: ../capplets/windows/mate-window-properties.c:492
+#: ../capplets/windows/ukui-window-properties.c:492
 msgid "_Select windows when the mouse moves over them"
 msgstr "چاشقىنەك كۆزنەك ئۈستىگە يۆتكەلگەندە كۆزنەكنى تاللا(_S)"
 
-#: ../capplets/windows/mate-window-properties.c:495
+#: ../capplets/windows/ukui-window-properties.c:495
 msgid "U_nselect windows when the mouse leaves them"
 msgstr ""
 
-#: ../capplets/windows/mate-window-properties.c:499
+#: ../capplets/windows/ukui-window-properties.c:499
 msgid "_Raise selected windows after an interval"
 msgstr "بىر ئازدىن كېيىن تاللانغان كۆزنەكنى ئۆرلەت(_R)"
 
-#: ../capplets/windows/mate-window-properties.c:510
+#: ../capplets/windows/ukui-window-properties.c:510
 msgid "_Interval before raising:"
 msgstr "ئۆرلەشتىن ئىلگىرىكى كېچىكتۈرۈش(_I):"
 
-#: ../capplets/windows/mate-window-properties.c:514
+#: ../capplets/windows/ukui-window-properties.c:514
 msgid "seconds"
 msgstr "سېكۇنت"
 
 #. Titlebar Action
-#: ../capplets/windows/mate-window-properties.c:525
+#: ../capplets/windows/ukui-window-properties.c:525
 msgid "Titlebar Action"
 msgstr "ماۋزۇ بالداق ھەرىكىتى"
 
-#: ../capplets/windows/mate-window-properties.c:533
+#: ../capplets/windows/ukui-window-properties.c:533
 msgid "_Double-click titlebar to perform this action:"
 msgstr "ماۋزۇ بالداق قوش چېكىلسە بۇ مەشغۇلات ئىجرا قىلىنىدۇ(_D):"
 
 #. Movement Key
-#: ../capplets/windows/mate-window-properties.c:541
+#: ../capplets/windows/ukui-window-properties.c:541
 msgid "Movement Key"
 msgstr "يۆتكىمە بوسۇغا قىممەت"
 
-#: ../capplets/windows/mate-window-properties.c:552
+#: ../capplets/windows/ukui-window-properties.c:552
 msgid "To move a window, press-and-hold this key then grab the window:"
 msgstr "كۆزنەك يۆتكەشتە بۇ كۇنۇپكىنى بېسىپ تۇرۇپ ئاندىن كۆزنەك سۆرىلىدۇ:"
 
-#: ../capplets/windows/mate-window-properties.c:580
+#: ../capplets/windows/ukui-window-properties.c:580
 #: ../libwindow-settings/ukwm-window-manager.c:394
 msgid "Roll up"
 msgstr "تۈر(_U)"
 
-#: ../capplets/windows/mate-window-properties.c:581
+#: ../capplets/windows/ukui-window-properties.c:581
 #: ../libwindow-settings/ukwm-window-manager.c:395
 msgid "Maximize"
 msgstr "چوڭايت"
 
-#: ../capplets/windows/mate-window-properties.c:582
+#: ../capplets/windows/ukui-window-properties.c:582
 #: ../libwindow-settings/ukwm-window-manager.c:396
 msgid "Maximize Horizontally"
 msgstr "توغرىسىغا چوڭايت"
 
-#: ../capplets/windows/mate-window-properties.c:583
+#: ../capplets/windows/ukui-window-properties.c:583
 #: ../libwindow-settings/ukwm-window-manager.c:397
 msgid "Maximize Vertically"
 msgstr "بويىغا چوڭايت"
 
-#: ../capplets/windows/mate-window-properties.c:584
+#: ../capplets/windows/ukui-window-properties.c:584
 #: ../libwindow-settings/ukwm-window-manager.c:398
 msgid "Minimize"
 msgstr "كىچىكلەت"
 
-#: ../capplets/windows/mate-window-properties.c:585
+#: ../capplets/windows/ukui-window-properties.c:585
 #: ../libwindow-settings/ukwm-window-manager.c:399
 msgid "None"
 msgstr "يوق"
 
-#: ../capplets/windows/mate-window-properties.c:786
+#: ../capplets/windows/ukui-window-properties.c:786
 msgid "_Alt"
 msgstr "_Alt"
 
-#: ../capplets/windows/mate-window-properties.c:792
+#: ../capplets/windows/ukui-window-properties.c:792
 msgid "H_yper"
 msgstr "H_yper"
 
-#: ../capplets/windows/mate-window-properties.c:799
+#: ../capplets/windows/ukui-window-properties.c:799
 msgid "S_uper (or \"Windows logo\")"
 msgstr "S_uper (ياكى \"Windows تۇغى\")"
 
-#: ../capplets/windows/mate-window-properties.c:806
+#: ../capplets/windows/ukui-window-properties.c:806
 msgid "_Meta"
 msgstr "_Meta"
 
-#: ../capplets/windows/mate-window-properties.desktop.in.in.h:1
+#: ../capplets/windows/ukui-window-properties.desktop.in.in.h:1
 msgid "Windows"
 msgstr "كۆزنەكلەر"
 
-#: ../capplets/windows/mate-window-properties.desktop.in.in.h:2
+#: ../capplets/windows/ukui-window-properties.desktop.in.in.h:2
 msgid "Set your window properties"
 msgstr "كۆزنەك خاسلىق تەڭشىكى"
 
-#: ../libwindow-settings/mate-wm-manager.c:317
+#: ../libwindow-settings/ukui-wm-manager.c:317
 #, c-format
 msgid "Window manager \"%s\" has not registered a configuration tool\n"
 msgstr "كۆزنەك باشقۇرغۇچ \"%s\" سەپلەش قورالىنى خەتلەتمىگەن\n"
@@ -2599,14 +2599,14 @@ msgstr "گۇرۇپپا"
 msgid "Common Tasks"
 msgstr "ئاممىۋى ۋەزىپە"
 
-#: ../shell/control-center.c:203 ../shell/matecc.desktop.in.in.h:1
-#: ../shell/matecc.directory.in.h:1
+#: ../shell/control-center.c:203 ../shell/ukuicc.desktop.in.in.h:1
+#: ../shell/ukuicc.directory.in.h:1
 msgid "Control Center"
 msgstr "باشقۇرۇش مەركىزى"
 
-#: ../shell/matecc.desktop.in.in.h:2
-msgid "The MATE configuration tool"
-msgstr "MATE سەپلىمە قورالى"
+#: ../shell/ukuicc.desktop.in.in.h:2
+msgid "The UKUI configuration tool"
+msgstr "UKUI سەپلىمە قورالى"
 
 #: ../typing-break/drw-break-window.c:203
 msgid "_Postpone Break"
@@ -2731,11 +2731,11 @@ msgstr ""
 msgid "I_nstall Font"
 msgstr "خەت نۇسخا ئورنات(_N)"
 
-#: ../font-viewer/mate-font-viewer.desktop.in.in.h:1
+#: ../font-viewer/ukui-font-viewer.desktop.in.in.h:1
 msgid "Font Viewer"
 msgstr "خەت نۇسخا كۆرگۈچ"
 
-#: ../font-viewer/mate-font-viewer.desktop.in.in.h:2
+#: ../font-viewer/ukui-font-viewer.desktop.in.in.h:2
 msgid "Preview fonts"
 msgstr "خەت نۇسخىنى ئالدىن كۆزەت"
 

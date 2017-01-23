@@ -3,20 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Andras Timar <timar at mate dot hu>, 2001-2003
+# Andras Timar <timar at ukui dot hu>, 2001-2003
 # Balázs Meskó <meskobalazs@gmail.com>, 2016
-# Emese Kovacs <emese at mate dot hu>, 2001
+# Emese Kovacs <emese at ukui dot hu>, 2001
 # Falu <info@falu.me>, 2015
-# Gabor Kelemen <kelemeng at mate dot hu>, 2004-2010
-# Gabor Sari <saga at mate dot hu>, 2003
+# Gabor Kelemen <kelemeng at ukui dot hu>, 2004-2010
+# Gabor Sari <saga at ukui dot hu>, 2003
 # István Szőllősi <szollosi.istv4n@gmail.com>, 2014
 # István Szőllősi <szollosi.istv4n@gmail.com>, 2014
 # kami911 <kami911@gmail.com>, 2014,2016
-# Laszlo Dvornik <dvornik at mate dot hu>, 2004
-# Mate ORY <orymate at gmail d0t com>, 2006
+# Laszlo Dvornik <dvornik at ukui dot hu>, 2004
+# Ukui ORY <oryukui at gmail d0t com>, 2006
 # Peter Doma <zelin at pointernet dot hu>, 2002
 # Rezső Páder <rezso@rezso.net>, 2013-2015
-# Szabolcs Ban <shooby at mate dot hu>, 1998-2000
+# Szabolcs Ban <shooby at ukui dot hu>, 1998-2000
 msgid ""
 msgstr ""
 "Project-Id-Version: UKUI Desktop Environment\n"

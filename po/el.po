@@ -2676,7 +2676,7 @@ msgstr "Μια υπενθύμιση για διάλειμμα από τον υπ
 
 #: ../typing-break/drwright.c:639
 msgid "translator-credits"
-msgstr "Ελληνική μεταφραστική ομάδα UKUI\n Spiros Papadimitriou <spapadim+@cs.cmu.edu>\n Simos Xenitellis <simos@hellug.gr>\n Nikos Charonitakis <nikosx@gmail.com>\n Τα πάντα ρει <ta_panta_rei@flashmail.com>\n Κώστας Παπαδήμας <pkst@gnome.org> \n Τζένη Πετούμενου <epetoumenou@gmail.com>\n\nΓια περισσότερες πληροφορίες, επισκεφθείτε την σελίδα http://www.mate.gr/"
+msgstr "Ελληνική μεταφραστική ομάδα UKUI\n Spiros Papadimitriou <spapadim+@cs.cmu.edu>\n Simos Xenitellis <simos@hellug.gr>\n Nikos Charonitakis <nikosx@gmail.com>\n Τα πάντα ρει <ta_panta_rei@flashmail.com>\n Κώστας Παπαδήμας <pkst@gnome.org> \n Τζένη Πετούμενου <epetoumenou@gmail.com>\n\nΓια περισσότερες πληροφορίες, επισκεφθείτε την σελίδα http://www.ukui.gr/"
 
 #: ../typing-break/main.c:63
 msgid "Enable debugging code"
