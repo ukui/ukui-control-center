@@ -1,4 +1,4 @@
-AC_INIT([ukui-control-center], [1.16.0], [htts://www.ukui.org/])
+AC_INIT([ukui-control-center], [0.9.0], [htts://www.ukui.org/])
 
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_SRCDIR([shell])
@@ -78,7 +78,6 @@ AC_MSG_RESULT([$with_gtk])
 case "$with_gtk" in
   2.0) GTK_API_VERSION=2.0
        GTK_REQUIRED=2.24.0
-       UKUI_DESKTOP_REQUIRED=1.15.1
        LIBCANBERRA_API_VERSION=
        LIBUNIQUE_API_VERSION=1.0
        ENGINES_FOLDER="engines"
@@ -86,7 +85,6 @@ case "$with_gtk" in
        ;;
   3.0) GTK_API_VERSION=3.0
        GTK_REQUIRED=3.0.0
-       UKUI_DESKTOP_REQUIRED=1.15.1
        LIBCANBERRA_API_VERSION=3
        LIBUNIQUE_API_VERSION=3.0
        ENGINES_FOLDER="theming-engines"
@@ -159,14 +157,14 @@ COMMON_MODULES="gtk+-$GTK_API_VERSION >= $GTK_REQUIRED dnl
  libxml-2.0 dnl
  ukui-desktop-2.0 >= $UKUI_DESKTOP_REQUIRED"
 PKG_CHECK_MODULES(CAPPLET, $COMMON_MODULES)
-PKG_CHECK_MODULES(UKUICC, $COMMON_MODULES libukui-menu >= 1.1.0)
+PKG_CHECK_MODULES(UKUICC, $COMMON_MODULES libukui-menu >= 0.9.0)
 PKG_CHECK_MODULES(UKUICC_SHELL, $COMMON_MODULES libukui-menu unique-$LIBUNIQUE_API_VERSION)
 PKG_CHECK_MODULES(DBUS, dbus-1 dbus-glib-1)
 PKG_CHECK_MODULES(UKUI_DESKTOP, ukui-desktop-2.0 >= UKUI_DESKTOP_REQUIRED)
 PKG_CHECK_MODULES(DEFAULT_APPLICATIONS_CAPPLET, libxml-2.0)
-PKG_CHECK_MODULES(UKWM, libukwm-private >= 1.13.1)
+PKG_CHECK_MODULES(UKWM, libukwm-private >= 0.9.0)
 PKG_CHECK_MODULES(TYPING, $GMODULE_ADD glib-2.0 > 2.36 gio-2.0 gtk+-$GTK_API_VERSION)
-PKG_CHECK_MODULES(GSD_DBUS, ukui-settings-daemon >= 1.13.1)
+PKG_CHECK_MODULES(GSD_DBUS, ukui-settings-daemon >= 0.9.0)
 PKG_CHECK_MODULES(GIO, gio-2.0)
 
 PKG_CHECK_MODULES([DCONF], [dconf >= 0.13.4])
@@ -252,11 +250,11 @@ CAPPLET_LIBS="$CAPPLET_LIBS $XINPUT_LIBS"
 dnl ==============
 dnl gswitchit
 dnl ==============
-PKG_CHECK_MODULES(LIBUKUIKBD, [libukuikbd >= 1.1.0 libxklavier >= 4.0])
+PKG_CHECK_MODULES(LIBUKUIKBD, [libukuikbd >= 0.9.0 libxklavier >= 4.0])
 AC_SUBST(LIBUKUIKBD_CFLAGS)
 AC_SUBST(LIBUKUIKBD_LIBS)
 
-PKG_CHECK_MODULES(LIBUKUIKBDUI, [libukuikbdui >= 1.1.0])
+PKG_CHECK_MODULES(LIBUKUIKBDUI, [libukuikbdui >= 0.9.0])
 AC_SUBST(LIBUKUIKBDUI_CFLAGS)
 AC_SUBST(LIBUKUIKBDUI_LIBS)
 

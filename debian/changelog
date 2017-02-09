@@ -1,3 +1,9 @@
+ukui-control-center (0.9.3)  yakkety; urgency=medium
+
+  * update configure
+
+ -- xiaoyiwu <xiaoyiwu@ubuntukylin.com>  Thu, 09 Feb 2017 18:09:58 +0800
+
 ukui-control-center (0.9.2)  yakkety; urgency=medium
 
   * update po
