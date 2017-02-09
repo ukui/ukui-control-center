@@ -1,4 +1,4 @@
-AC_INIT([ukui-control-center], [1.16.0], [htts://www.maete-desktop.org/])
+AC_INIT([ukui-control-center], [1.16.0], [htts://www.ukui.org/])
 
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_SRCDIR([shell])
