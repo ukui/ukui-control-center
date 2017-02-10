@@ -57,7 +57,6 @@ Depends: peony-common,
          ${misc:Depends},
          ${shlibs:Depends},
 Suggests: gconf2,
-Breaks: ubuntu-ukui-default-settings (<< 16.04),
 Description: utilities to configure the UKUI desktop
  The UKUI control center contains configuration applets for the UKUI desktop,
  allowing to set accessibility configuration, desktop fonts, keyboard
@@ -70,7 +69,6 @@ Description: utilities to configure the UKUI desktop
 Package: ukui-control-center-common
 Architecture: all
 Depends: ${misc:Depends},
-Breaks: ukui-control-center (<< 1.11.0),
 Description: utilities to configure the UKUI desktop (common files)
  The UKUI control center contains configuration applets for the UKUI desktop,
  allowing to set accessibility configuration, desktop fonts, keyboard
@@ -86,7 +84,6 @@ Architecture: any
 Multi-Arch: same
 Depends: ${misc:Depends},
          ${shlibs:Depends},
-Breaks: ukui-control-center,
 Description: utilities to configure the UKUI desktop (window settings library)
  The UKUI control center contains configuration applets for the UKUI desktop,
  allowing to set accessibility configuration, desktop fonts, keyboard
