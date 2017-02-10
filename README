@@ -1,9 +1,9 @@
-MATE Control Center
+UKUI Control Center
 ====================
 
 About -
 
-The control center is MATE's main interface for configuration of various
+The control center is UKUI's main interface for configuration of various
 aspects of your desktop.
 
 Installation -
@@ -12,8 +12,8 @@ See the file 'INSTALL'
 
 How to report bugs -
 
-Bugs should be reported to the MATE bug tracking system under github:
-	https://github.com/mate-desktop/mate-control-center/issues
+Bugs should be reported to the UKUI bug tracking system under github:
+	https://github.com/ukui/ukui-control-center/issues
 
 In the report please include the following information -
 
@@ -30,7 +30,7 @@ attach it to the bug report. The following steps are used to obtain a
 stack trace -
 
 	Run the program in gdb [the GNU debugger] or any other debugger
-		ie. gdb mate-keyboard-properties
+		ie. gdb ukui-keyboard-properties
 	Start the program
 		ie. (gdb) run
 	Reproduce the crash and the program will exit to the gdb prompt
@@ -44,6 +44,6 @@ Once you have the backtrace, copy and paste this either into the
 Patches -
 
 Patches should be submitted to github as pull requests:
-	https://github.com/mate-desktop/mate-control-center/pulls
+	https://github.com/ukui/ukui-control-center/pulls
 	https://help.github.com/articles/fork-a-repo
 	https://help.github.com/articles/using-pull-requests
