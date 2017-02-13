@@ -2,7 +2,7 @@
  * This file is part of libtile.
  *
  * Copyright (c) 2006 Novell, Inc.
- *
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * Libtile is free software; you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2 of the License, or (at your option)
@@ -23,7 +23,7 @@
 
 #include "nameplate-tile.h"
 
-#include <libmate-desktop/mate-desktop-item.h>
+#include <libukui-desktop/ukui-desktop-item.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -61,7 +61,7 @@ GtkWidget *application_tile_new (const gchar * desktop_item_id);
 GtkWidget *application_tile_new_full (const gchar * desktop_item_id,
 	GtkIconSize icon_size, gboolean show_generic_name);
 
-MateDesktopItem *application_tile_get_desktop_item (ApplicationTile * tile);
+UkuiDesktopItem *application_tile_get_desktop_item (ApplicationTile * tile);
 
 #ifdef __cplusplus
 }

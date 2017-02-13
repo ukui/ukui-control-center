@@ -4,7 +4,7 @@
 srcdir=`dirname $0`
 test -z "$srcdir" && srcdir=.
 
-PKG_NAME="mate-control-center"
+PKG_NAME="ukui-control-center"
 
 (test -f $srcdir/configure.ac) || {
     echo -n "**Error**: Directory "\`$srcdir\'" does not look like the"
@@ -12,8 +12,8 @@ PKG_NAME="mate-control-center"
     exit 1
 }
 
-which mate-autogen || {
-    echo "You need to install mate-common"
+which ukui-autogen || {
+    echo "You need to install ukui-common"
     exit 1
 }
 
@@ -22,8 +22,8 @@ which yelp-build || {
 }
 
 REQUIRED_AUTOMAKE_VERSION=1.9
-USE_MATE2_MACROS=1
+USE_UKUI2_MACROS=1
 USE_COMMON_DOC_BUILD=yes
 
-. mate-autogen
+. ukui-autogen
 

@@ -19,7 +19,7 @@ enum {
 #include "activate-settings-daemon.h"
 
 #define ACCESSIBILITY_KEY       "accessibility"
-#define ACCESSIBILITY_SCHEMA    "org.mate.interface"
+#define ACCESSIBILITY_SCHEMA    "org.ukui.interface"
 
 static gboolean initial_state;
 
@@ -66,19 +66,19 @@ create_builder (void)
 static void
 cb_at_preferences (GtkDialog *dialog, gint response_id)
 {
-	g_spawn_command_line_async ("mate-default-applications-properties --show-page=a11y", NULL);
+	g_spawn_command_line_async ("ukui-default-applications-properties --show-page=a11y", NULL);
 }
 
 static void
 cb_keyboard_preferences (GtkDialog *dialog, gint response_id)
 {
-	g_spawn_command_line_async ("mate-keyboard-properties --a11y", NULL);
+	g_spawn_command_line_async ("ukui-keyboard-properties --a11y", NULL);
 }
 
 static void
 cb_mouse_preferences (GtkDialog *dialog, gint response_id)
 {
-	g_spawn_command_line_async ("mate-mouse-properties --show-page=accessibility", NULL);
+	g_spawn_command_line_async ("ukui-mouse-properties --show-page=accessibility", NULL);
 }
 
 static void
@@ -88,7 +88,7 @@ cb_login_preferences (GtkDialog *dialog, gint response_id)
 }
 
 /* get_session_bus(), get_sm_proxy(), and do_logout() are all
- * based on code from mate-session-save.c from mate-session.
+ * based on code from ukui-session-save.c from ukui-session.
  */
 static DBusGConnection *
 get_session_bus (void)

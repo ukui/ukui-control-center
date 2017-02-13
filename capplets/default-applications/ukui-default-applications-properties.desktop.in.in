@@ -1,0 +1,11 @@
+[Desktop Entry]
+_Name=Preferred Applications
+_Comment=Select your default applications
+Exec=ukui-default-applications-properties
+Icon=preferences-desktop-default-applications
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GTK;Settings;X-UKUI-PersonalSettings;
+Keywords=ukui-control-center;UKUI;default;preferred;applications;
+OnlyShowIn=UKUI;

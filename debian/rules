@@ -29,9 +29,9 @@ override_dh_installchangelogs:
 	dh_installchangelogs NEWS
 
 override_dh_strip:
-	dh_strip -pmate-control-center --dbgsym-migration='mate-control-center-dbg (<< 1.14.0-2~)'
-	dh_strip -plibmate-window-settings1 --dbgsym-migration='libmate-window-settings1-dbg (<< 1.14.0-2~)'
-	dh_strip -plibmate-slab0 --dbgsym-migration='libmate-slab0-dbg (<< 1.14.0-2~)'
+	dh_strip -pukui-control-center --dbgsym-migration='ukui-control-center-dbg (<< 1.14.0-2~)'
+	dh_strip -plibukui-window-settings1 --dbgsym-migration='libukui-window-settings1-dbg (<< 1.14.0-2~)'
+	dh_strip -plibukui-slab0 --dbgsym-migration='libukui-slab0-dbg (<< 1.14.0-2~)'
 
 get-orig-source:
 	uscan --noconf --force-download --rename --download-current-version --destdir=..

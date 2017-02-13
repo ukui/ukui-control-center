@@ -1,6 +1,8 @@
 /*
  * Copyright (C) 2007 The GNOME Foundation
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * Written by Jens Granseuer <jensgr@gmx.net>
+ * Modified by zhangshuhao <zhangshuhao@kylinos.cn>
  * All Rights Reserved
  *
  * This program is free software; you can redistribute it and/or modify

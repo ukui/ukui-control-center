@@ -2,7 +2,7 @@
  * This file is part of the Control Center.
  *
  * Copyright (c) 2006 Novell, Inc.
- *
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * The Control Center is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free
  * Software Foundation; either version 2 of the License, or (at your option)
@@ -30,7 +30,7 @@
 void handle_static_action_clicked(Tile* tile, TileEvent* event, gpointer data);
 static GSList* get_actions_list();
 
-#define CONTROL_CENTER_SCHEMA "org.mate.control-center"
+#define CONTROL_CENTER_SCHEMA "org.ukui.control-center"
 #define CONTROL_CENTER_ACTIONS_LIST_KEY "cc-actions-list"
 #define CONTROL_CENTER_ACTIONS_SEPARATOR ";"
 #define EXIT_SHELL_ON_STATIC_ACTION "cc-exit-shell-on-static-action"
@@ -91,7 +91,7 @@ static GSList* get_actions_list(void)
 void handle_static_action_clicked(Tile* tile, TileEvent* event, gpointer data)
 {
 	AppShellData* app_data = (AppShellData*) data;
-	MateDesktopItem* item = (MateDesktopItem*) g_object_get_data(G_OBJECT(tile), APP_ACTION_KEY);
+	UkuiDesktopItem* item = (UkuiDesktopItem*) g_object_get_data(G_OBJECT(tile), APP_ACTION_KEY);
 	GSettings *settings;
 
 	if (event->type == TILE_EVENT_ACTIVATED_DOUBLE_CLICK)
@@ -162,7 +162,7 @@ int main(int argc, char* argv[])
 	};
 
 	#ifdef ENABLE_NLS
-		bindtextdomain(GETTEXT_PACKAGE, MATELOCALEDIR);
+		bindtextdomain(GETTEXT_PACKAGE, UKUILOCALEDIR);
 		bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
 		textdomain(GETTEXT_PACKAGE);
 	#endif
@@ -176,7 +176,7 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 
-	unique_app = unique_app_new("org.mate.mate-control-center.shell", NULL);
+	unique_app = unique_app_new("org.ukui.ukui-control-center.shell", NULL);
 
 	if (unique_app_is_running(unique_app))
 	{
@@ -193,13 +193,13 @@ int main(int argc, char* argv[])
 		return retval;
 	}
 
-	app_data = appshelldata_new("matecc.menu", GTK_ICON_SIZE_DND, FALSE, TRUE, 0);
+	app_data = appshelldata_new("ukuicc.menu", GTK_ICON_SIZE_DND, FALSE, TRUE, 0);
 	generate_categories(app_data);
 
 	actions = get_actions_list();
 	layout_shell(app_data, _("Filter"), _("Groups"), _("Common Tasks"), actions, handle_static_action_clicked);
 
-	create_main_window(app_data, "MyControlCenter", _("Control Center"), "preferences-desktop", 975, 600, hidden);
+	create_main_window(app_data, "MyControlCenter", _("Control Center"), "preferences-desktop", 1000, 540, hidden);
 
 	unique_app_watch_window(unique_app, GTK_WINDOW(app_data->main_app));
 	g_signal_connect(unique_app, "message-received", G_CALLBACK(message_received_cb), app_data);

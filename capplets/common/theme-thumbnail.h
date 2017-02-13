@@ -3,30 +3,30 @@
 
 
 #include <gtk/gtk.h>
-#include "mate-theme-info.h"
+#include "ukui-theme-info.h"
 
 typedef void (* ThemeThumbnailFunc)          (GdkPixbuf          *pixbuf,
                                               gchar              *theme_name,
                                               gpointer            data);
 
-GdkPixbuf *generate_meta_theme_thumbnail     (MateThemeMetaInfo *theme_info);
-GdkPixbuf *generate_gtk_theme_thumbnail      (MateThemeInfo     *theme_info);
-GdkPixbuf *generate_marco_theme_thumbnail (MateThemeInfo     *theme_info);
-GdkPixbuf *generate_icon_theme_thumbnail     (MateThemeIconInfo *theme_info);
+GdkPixbuf *generate_meta_theme_thumbnail     (UkuiThemeMetaInfo *theme_info);
+GdkPixbuf *generate_gtk_theme_thumbnail      (UkuiThemeInfo     *theme_info);
+GdkPixbuf *generate_ukwm_theme_thumbnail (UkuiThemeInfo     *theme_info);
+GdkPixbuf *generate_icon_theme_thumbnail     (UkuiThemeIconInfo *theme_info);
 
-void generate_meta_theme_thumbnail_async     (MateThemeMetaInfo *theme_info,
+void generate_meta_theme_thumbnail_async     (UkuiThemeMetaInfo *theme_info,
                                               ThemeThumbnailFunc  func,
                                               gpointer            data,
                                               GDestroyNotify      destroy);
-void generate_gtk_theme_thumbnail_async      (MateThemeInfo     *theme_info,
+void generate_gtk_theme_thumbnail_async      (UkuiThemeInfo     *theme_info,
                                               ThemeThumbnailFunc  func,
                                               gpointer            data,
                                               GDestroyNotify      destroy);
-void generate_marco_theme_thumbnail_async (MateThemeInfo     *theme_info,
+void generate_ukwm_theme_thumbnail_async (UkuiThemeInfo     *theme_info,
                                               ThemeThumbnailFunc  func,
                                               gpointer            data,
                                               GDestroyNotify      destroy);
-void generate_icon_theme_thumbnail_async     (MateThemeIconInfo *theme_info,
+void generate_icon_theme_thumbnail_async     (UkuiThemeIconInfo *theme_info,
                                               ThemeThumbnailFunc  func,
                                               gpointer            data,
                                               GDestroyNotify      destroy);

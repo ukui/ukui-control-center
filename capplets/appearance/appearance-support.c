@@ -1,6 +1,8 @@
 /*
  * Copyright (C) 2012 Stefano Karapetsas
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * Authors: Stefano Karapetsas <stefano@karapetsas.com>
+ * Modified by: zhangshuhao <zhangshuhao@kylinos.cn>
  * All Rights Reserved
  *
  * This program is free software; you can redistribute it and/or modify
@@ -94,13 +96,13 @@ metacity_theme_apply(const gchar *theme, const gchar *font)
 }
 
 static void
-marco_theme_changed(GSettings *settings, gchar *key, AppearanceData* data)
+ukwm_theme_changed(GSettings *settings, gchar *key, AppearanceData* data)
 {
     gchar *theme = NULL;
     gchar *font = NULL;
     if (metacity_is_running ())
     {
-        theme = g_settings_get_string (settings, MARCO_THEME_KEY);
+        theme = g_settings_get_string (settings, UKWM_THEME_KEY);
         font = g_settings_get_string (settings, WINDOW_TITLE_FONT_KEY);
         metacity_theme_apply (theme, font);
         g_free (theme);
@@ -114,13 +116,13 @@ support_init(AppearanceData* data)
     /* needed for wm_common_get_current_window_manager() */
     wm_common_update_window ();
     /* GSettings signals */
-    g_signal_connect (data->marco_settings, "changed::" MARCO_THEME_KEY,
-                      G_CALLBACK (marco_theme_changed), data);
-    g_signal_connect (data->marco_settings, "changed::" WINDOW_TITLE_FONT_KEY,
-                      G_CALLBACK (marco_theme_changed), data);
+    g_signal_connect (data->ukwm_settings, "changed::" UKWM_THEME_KEY,
+                      G_CALLBACK (ukwm_theme_changed), data);
+    g_signal_connect (data->ukwm_settings, "changed::" WINDOW_TITLE_FONT_KEY,
+                      G_CALLBACK (ukwm_theme_changed), data);
     /* apply theme at start */
     if (metacity_is_running ())
-        marco_theme_changed (data->marco_settings, NULL, data);
+        ukwm_theme_changed (data->ukwm_settings, NULL, data);
 }
 
 void

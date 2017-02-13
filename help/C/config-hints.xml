@@ -2,16 +2,16 @@
   <title>Startup Hints</title>
   <para>
     Startup hints have become a common occurance in a lot of
-    applications, and <application>Mate</application> is one of
+    applications, and <application>Ukui</application> is one of
     them.  Startup hints open when a program is started, it displays
     tips for the application to make the user's experience more
     fruitful.
   </para>
   <para>
-    In <application>Mate</application>, the startup hints can be
+    In <application>Ukui</application>, the startup hints can be
     configured.  This configuration takes place in the
     <application>Startup Hint</application> capplet of
-    <application>Mate Control Center</application>.
+    <application>Ukui Control Center</application>.
   </para>
   <sect2 id="config-hints-window">
     <title>Configuration</title>
@@ -33,7 +33,7 @@
 	  <listitem>
 	    <para>
 	      <application>fortunes</application> is a small program
-	      that displays random quotes.  The mate startup hints
+	      that displays random quotes.  The ukui startup hints
 	      application can display
 	      <application>fortunes</application> quotes instead of
 	      tips.
@@ -46,7 +46,7 @@
 	    <para>
 	      Often times administrators will create a "message of the
 	      day" ("MOTD") to notify users of important events.  The
-	      mate startup hints application can display these
+	      ukui startup hints application can display these
 	      instead of tips.
 	    </para>
 	    <para>

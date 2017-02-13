@@ -2524,32 +2524,32 @@ msgid "To move a window, press-and-hold this key then grab the window:"
 msgstr "กดปุ่มนี้ค้างไว้ แล้วใช้เมาส์ลากขยับหน้าต่างได้:"
 
 #: ../capplets/windows/mate-window-properties.c:580
-#: ../libwindow-settings/marco-window-manager.c:394
+#: ../libwindow-settings/ukwm-window-manager.c:394
 msgid "Roll up"
 msgstr "ม้วนขึ้น"
 
 #: ../capplets/windows/mate-window-properties.c:581
-#: ../libwindow-settings/marco-window-manager.c:395
+#: ../libwindow-settings/ukwm-window-manager.c:395
 msgid "Maximize"
 msgstr "ขยายเต็มจอ"
 
 #: ../capplets/windows/mate-window-properties.c:582
-#: ../libwindow-settings/marco-window-manager.c:396
+#: ../libwindow-settings/ukwm-window-manager.c:396
 msgid "Maximize Horizontally"
 msgstr "ขยายเต็มแนวนอน"
 
 #: ../capplets/windows/mate-window-properties.c:583
-#: ../libwindow-settings/marco-window-manager.c:397
+#: ../libwindow-settings/ukwm-window-manager.c:397
 msgid "Maximize Vertically"
 msgstr "ขยายเต็มแนวดิ่ง"
 
 #: ../capplets/windows/mate-window-properties.c:584
-#: ../libwindow-settings/marco-window-manager.c:398
+#: ../libwindow-settings/ukwm-window-manager.c:398
 msgid "Minimize"
 msgstr "ย่อเก็บ"
 
 #: ../capplets/windows/mate-window-properties.c:585
-#: ../libwindow-settings/marco-window-manager.c:399
+#: ../libwindow-settings/ukwm-window-manager.c:399
 msgid "None"
 msgstr "ไม่ทำอะไร"
 

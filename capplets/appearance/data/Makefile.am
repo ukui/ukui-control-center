@@ -17,7 +17,7 @@ dist_pixmap_DATA = \
         mouse-cursor-white.png \
         mouse-cursor-white-large.png
 
-cursorfontdir   = $(datadir)/mate/cursor-fonts
+cursorfontdir   = $(datadir)/ukui/cursor-fonts
 dist_cursorfont_DATA = \
 	cursor-large.pcf		\
 	cursor-white.pcf		\
@@ -27,8 +27,8 @@ dist_cursorfont_DATA = \
 
 desktopdir = $(datadir)/applications
 desktop_in_files = \
-	mate-appearance-properties.desktop.in \
-	mate-theme-installer.desktop.in
+	ukui-appearance-properties.desktop.in \
+	ukui-theme-installer.desktop.in
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 
 
@@ -37,7 +37,7 @@ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_XML_RULE@
 
 xml_in_files = \
-	mate-theme-package.xml.in
+	ukui-theme-package.xml.in
 
 mimedir = $(datadir)/mime/packages
 mime_DATA = $(xml_in_files:.xml.in=.xml)

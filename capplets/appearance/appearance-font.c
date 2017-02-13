@@ -1,7 +1,9 @@
 /*
  * Copyright (C) 2007 The GNOME Foundation
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * Written by Jonathan Blandford <jrb@gnome.org>
  *            Jens Granseuer <jensgr@gmx.net>
+ * Modified by zhangshuhao <zhangshuhao@kylinos.cn>
  * All Rights Reserved
  *
  * This program is free software; you can redistribute it and/or modify
@@ -37,8 +39,6 @@
  * DPI_HIGH_REASONABLE_VALUE], then we assume that it is lying and we use
  * DPI_FALLBACK instead.
  *
- * See get_dpi_from_mate_conf_or_server() below, and also
- * https://bugzilla.novell.com/show_bug.cgi?id=217790
  */
 #define DPI_FALLBACK 96
 #define DPI_LOW_REASONABLE_VALUE 50
@@ -285,19 +285,19 @@ setup_font_pair (GtkWidget    *radio,
 }
 
 static void
-marco_titlebar_load_sensitivity (AppearanceData *data)
+ukwm_titlebar_load_sensitivity (AppearanceData *data)
 {
   gtk_widget_set_sensitive (appearance_capplet_get_widget (data, "window_title_font"),
-			    !g_settings_get_boolean (data->marco_settings,
+			    !g_settings_get_boolean (data->ukwm_settings,
 						    WINDOW_TITLE_USES_SYSTEM_KEY));
 }
 
 static void
-marco_changed (GSettings *settings,
+ukwm_changed (GSettings *settings,
 	       gchar     *entry,
 	       gpointer   user_data)
 {
-  marco_titlebar_load_sensitivity (user_data);
+  ukwm_titlebar_load_sensitivity (user_data);
 }
 
 /*
@@ -576,13 +576,13 @@ cb_show_details (GtkWidget *button,
     data->font_groups = g_slist_prepend (data->font_groups, group);
 
     gtk_image_set_from_file (GTK_IMAGE (appearance_capplet_get_widget (data, "subpixel_rgb_image")),
-                             MATECC_PIXMAP_DIR "/subpixel-rgb.png");
+                             UKUICC_PIXMAP_DIR "/subpixel-rgb.png");
     gtk_image_set_from_file (GTK_IMAGE (appearance_capplet_get_widget (data, "subpixel_bgr_image")),
-                             MATECC_PIXMAP_DIR "/subpixel-bgr.png");
+                             UKUICC_PIXMAP_DIR "/subpixel-bgr.png");
     gtk_image_set_from_file (GTK_IMAGE (appearance_capplet_get_widget (data, "subpixel_vrgb_image")),
-                             MATECC_PIXMAP_DIR "/subpixel-vrgb.png");
+                             UKUICC_PIXMAP_DIR "/subpixel-vrgb.png");
     gtk_image_set_from_file (GTK_IMAGE (appearance_capplet_get_widget (data, "subpixel_vbgr_image")),
-                             MATECC_PIXMAP_DIR "/subpixel-vbgr.png");
+                             UKUICC_PIXMAP_DIR "/subpixel-vbgr.png");
 
     group = enum_group_create (data->font_settings, FONT_RGBA_ORDER_KEY,
                                appearance_capplet_get_widget (data, "subpixel_rgb_radio"),  RGBA_RGB,
@@ -626,8 +626,8 @@ void font_init(AppearanceData* data)
 
 	widget = appearance_capplet_get_widget (data, "desktop_font");
 
-	if (data->caja_settings)
-		g_settings_bind (data->caja_settings,
+	if (data->peony_settings)
+		g_settings_bind (data->peony_settings,
 				 DESKTOP_FONT_KEY,
 				 G_OBJECT (widget),
 				 "font-name",
@@ -636,7 +636,7 @@ void font_init(AppearanceData* data)
 		gtk_widget_set_sensitive (widget, FALSE);
 
 	widget = appearance_capplet_get_widget (data, "window_title_font");
-	g_settings_bind (data->marco_settings,
+	g_settings_bind (data->ukwm_settings,
 			 WINDOW_TITLE_FONT_KEY,
 			 G_OBJECT (widget),
 			 "font-name",
@@ -649,12 +649,12 @@ void font_init(AppearanceData* data)
 			 "font-name",
 			 G_SETTINGS_BIND_DEFAULT);
 
-	g_signal_connect (data->marco_settings,
+	g_signal_connect (data->ukwm_settings,
 			  "changed::" WINDOW_TITLE_USES_SYSTEM_KEY,
-			  G_CALLBACK (marco_changed),
+			  G_CALLBACK (ukwm_changed),
 			  data);
 
-	marco_titlebar_load_sensitivity(data);
+	ukwm_titlebar_load_sensitivity(data);
 
 	setup_font_pair(appearance_capplet_get_widget(data, "monochrome_radio"), appearance_capplet_get_widget (data, "monochrome_sample"), ANTIALIAS_NONE, HINT_FULL);
 	setup_font_pair(appearance_capplet_get_widget(data, "best_shapes_radio"), appearance_capplet_get_widget (data, "best_shapes_sample"), ANTIALIAS_GRAYSCALE, HINT_MEDIUM);

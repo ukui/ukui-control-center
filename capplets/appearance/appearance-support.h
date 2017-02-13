@@ -1,6 +1,8 @@
 /*
  * Copyright (C) 2012 Stefano Karapetsas
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * Authors: Stefano Karapetsas <stefano@karapetsas.com>
+ * Modified by: zhangshuhao <zhangshuhao@kylinos.cn>
  * All Rights Reserved
  *
  * This program is free software; you can redistribute it and/or modify

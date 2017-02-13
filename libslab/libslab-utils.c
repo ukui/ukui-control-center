@@ -87,10 +87,10 @@ libslab_gtk_image_set_by_id (GtkImage *image, const gchar *id)
 	return found;
 }
 
-MateDesktopItem *
-libslab_mate_desktop_item_new_from_unknown_id (const gchar *id)
+UkuiDesktopItem *
+libslab_ukui_desktop_item_new_from_unknown_id (const gchar *id)
 {
-	MateDesktopItem *item;
+	UkuiDesktopItem *item;
 	gchar            *basename;
 
 	GError *error = NULL;
@@ -99,7 +99,7 @@ libslab_mate_desktop_item_new_from_unknown_id (const gchar *id)
 	if (! id)
 		return NULL;
 
-	item = mate_desktop_item_new_from_uri (id, 0, & error);
+	item = ukui_desktop_item_new_from_uri (id, 0, & error);
 
 	if (! error)
 		return item;
@@ -108,7 +108,7 @@ libslab_mate_desktop_item_new_from_unknown_id (const gchar *id)
 		error = NULL;
 	}
 
-	item = mate_desktop_item_new_from_file (id, 0, & error);
+	item = ukui_desktop_item_new_from_file (id, 0, & error);
 
 	if (! error)
 		return item;
@@ -117,7 +117,7 @@ libslab_mate_desktop_item_new_from_unknown_id (const gchar *id)
 		error = NULL;
 	}
 
-	item = mate_desktop_item_new_from_basename (id, 0, & error);
+	item = ukui_desktop_item_new_from_basename (id, 0, & error);
 
 	if (! error)
 		return item;
@@ -131,7 +131,7 @@ libslab_mate_desktop_item_new_from_unknown_id (const gchar *id)
 	if (basename) {
 		basename++;
 
-		item = mate_desktop_item_new_from_basename (basename, 0, &error);
+		item = ukui_desktop_item_new_from_basename (basename, 0, &error);
 
 		if (! error)
 			return item;
@@ -145,18 +145,18 @@ libslab_mate_desktop_item_new_from_unknown_id (const gchar *id)
 }
 
 gboolean
-libslab_mate_desktop_item_launch_default (MateDesktopItem *item)
+libslab_ukui_desktop_item_launch_default (UkuiDesktopItem *item)
 {
 	GError *error = NULL;
 
 	if (! item)
 		return FALSE;
 
-	mate_desktop_item_launch (item, NULL, MATE_DESKTOP_ITEM_LAUNCH_ONLY_ONE, & error);
+	ukui_desktop_item_launch (item, NULL, UKUI_DESKTOP_ITEM_LAUNCH_ONLY_ONE, & error);
 
 	if (error) {
 		g_warning ("error launching %s [%s]\n",
-			mate_desktop_item_get_location (item), error->message);
+			ukui_desktop_item_get_location (item), error->message);
 
 		g_error_free (error);
 
@@ -167,14 +167,14 @@ libslab_mate_desktop_item_launch_default (MateDesktopItem *item)
 }
 
 gchar *
-libslab_mate_desktop_item_get_docpath (MateDesktopItem *item)
+libslab_ukui_desktop_item_get_docpath (UkuiDesktopItem *item)
 {
 	gchar *path;
 
-	path = g_strdup (mate_desktop_item_get_localestring (item, MATE_DESKTOP_ITEM_DOC_PATH));
+	path = g_strdup (ukui_desktop_item_get_localestring (item, UKUI_DESKTOP_ITEM_DOC_PATH));
 
 	if (! path)
-		path = g_strdup (mate_desktop_item_get_localestring (item, ALTERNATE_DOCPATH_KEY));
+		path = g_strdup (ukui_desktop_item_get_localestring (item, ALTERNATE_DOCPATH_KEY));
 
 	return path;
 }
@@ -203,7 +203,7 @@ libslab_get_current_screen (void)
 }
 
 gboolean
-libslab_mate_desktop_item_open_help (MateDesktopItem *item)
+libslab_ukui_desktop_item_open_help (UkuiDesktopItem *item)
 {
 	gchar *doc_path;
 	gchar *help_uri;
@@ -216,7 +216,7 @@ libslab_mate_desktop_item_open_help (MateDesktopItem *item)
 	if (! item)
 		return retval;
 
-	doc_path = libslab_mate_desktop_item_get_docpath (item);
+	doc_path = libslab_ukui_desktop_item_get_docpath (item);
 
 	if (doc_path) {
 		help_uri = g_strdup_printf ("help:%s", doc_path);
@@ -301,22 +301,22 @@ libslab_handle_g_error (GError **error, const gchar *msg_format, ...)
 gboolean
 libslab_desktop_item_is_a_terminal (const gchar *uri)
 {
-	MateDesktopItem *d_item;
+	UkuiDesktopItem *d_item;
 	const gchar      *categories;
 
 	gboolean is_terminal = FALSE;
 
 
-	d_item = libslab_mate_desktop_item_new_from_unknown_id (uri);
+	d_item = libslab_ukui_desktop_item_new_from_unknown_id (uri);
 
 	if (! d_item)
 		return FALSE;
 
-	categories = mate_desktop_item_get_string (d_item, MATE_DESKTOP_ITEM_CATEGORIES);
+	categories = ukui_desktop_item_get_string (d_item, UKUI_DESKTOP_ITEM_CATEGORIES);
 
 	is_terminal = (categories && strstr (categories, DESKTOP_ITEM_TERMINAL_EMULATOR_FLAG));
 
-	mate_desktop_item_unref (d_item);
+	ukui_desktop_item_unref (d_item);
 
 	return is_terminal;
 }
@@ -324,18 +324,18 @@ libslab_desktop_item_is_a_terminal (const gchar *uri)
 gboolean
 libslab_desktop_item_is_logout (const gchar *uri)
 {
-	MateDesktopItem *d_item;
+	UkuiDesktopItem *d_item;
 	gboolean is_logout = FALSE;
 
 
-	d_item = libslab_mate_desktop_item_new_from_unknown_id (uri);
+	d_item = libslab_ukui_desktop_item_new_from_unknown_id (uri);
 
 	if (! d_item)
 		return FALSE;
 
-	is_logout = strstr ("Logout", mate_desktop_item_get_string (d_item, MATE_DESKTOP_ITEM_NAME)) != NULL;
+	is_logout = strstr ("Logout", ukui_desktop_item_get_string (d_item, UKUI_DESKTOP_ITEM_NAME)) != NULL;
 
-	mate_desktop_item_unref (d_item);
+	ukui_desktop_item_unref (d_item);
 
 	return is_logout;
 }
@@ -343,18 +343,18 @@ libslab_desktop_item_is_logout (const gchar *uri)
 gboolean
 libslab_desktop_item_is_lockscreen (const gchar *uri)
 {
-	MateDesktopItem *d_item;
+	UkuiDesktopItem *d_item;
 	gboolean is_logout = FALSE;
 
 
-	d_item = libslab_mate_desktop_item_new_from_unknown_id (uri);
+	d_item = libslab_ukui_desktop_item_new_from_unknown_id (uri);
 
 	if (! d_item)
 		return FALSE;
 
-	is_logout = strstr ("Lock Screen", mate_desktop_item_get_string (d_item, MATE_DESKTOP_ITEM_NAME)) != NULL;
+	is_logout = strstr ("Lock Screen", ukui_desktop_item_get_string (d_item, UKUI_DESKTOP_ITEM_NAME)) != NULL;
 
-	mate_desktop_item_unref (d_item);
+	ukui_desktop_item_unref (d_item);
 
 	return is_logout;
 }
@@ -397,7 +397,7 @@ libslab_spawn_command (const gchar *cmd)
 }
 
 static guint thumbnail_factory_idle_id;
-static MateDesktopThumbnailFactory *thumbnail_factory;
+static UkuiDesktopThumbnailFactory *thumbnail_factory;
 
 static void
 create_thumbnail_factory (void)
@@ -410,7 +410,7 @@ create_thumbnail_factory (void)
 
 	libslab_checkpoint ("create_thumbnail_factory(): start");
 
-	thumbnail_factory = mate_desktop_thumbnail_factory_new (MATE_DESKTOP_THUMBNAIL_SIZE_NORMAL);
+	thumbnail_factory = ukui_desktop_thumbnail_factory_new (UKUI_DESKTOP_THUMBNAIL_SIZE_NORMAL);
 
 	libslab_checkpoint ("create_thumbnail_factory(): end");
 }
@@ -429,7 +429,7 @@ libslab_thumbnail_factory_preinit (void)
 	thumbnail_factory_idle_id = g_idle_add (init_thumbnail_factory_idle_cb, NULL);
 }
 
-MateDesktopThumbnailFactory *
+UkuiDesktopThumbnailFactory *
 libslab_thumbnail_factory_get (void)
 {
 	if (thumbnail_factory_idle_id != 0) {

@@ -2,7 +2,7 @@
  * This file is part of the Main Menu.
  *
  * Copyright (c) 2007 Novell, Inc.
- *
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * The Main Menu is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free
  * Software Foundation; either version 2 of the License, or (at your option)
@@ -23,7 +23,7 @@
 #ifdef HAVE_CONFIG_H
 #	include <config.h>
 #else
-#	define PACKAGE "mate-main-menu"
+#	define PACKAGE "ukui-main-menu"
 #endif
 
 #include <gtk/gtk.h>
@@ -1048,14 +1048,14 @@ create_app_item (BookmarkAgent *this, const gchar *uri)
 {
 	BookmarkAgentPrivate *priv = PRIVATE (this);
 
-	MateDesktopItem *ditem;
+	UkuiDesktopItem *ditem;
 	gchar *uri_new = NULL;
 
-	ditem = libslab_mate_desktop_item_new_from_unknown_id (uri);
+	ditem = libslab_ukui_desktop_item_new_from_unknown_id (uri);
 
 	if (ditem) {
-		uri_new = g_strdup (mate_desktop_item_get_location (ditem));
-		mate_desktop_item_unref (ditem);
+		uri_new = g_strdup (ukui_desktop_item_get_location (ditem));
+		ukui_desktop_item_unref (ditem);
 	}
 
 	if (! uri_new)
@@ -1164,10 +1164,10 @@ create_dir_item (BookmarkAgent *this, const gchar *uri)
 	} else if (strcmp (uri, "network:") == 0) {
 		icon = "network-workgroup";
 		name = _("Network Servers");
-	} else if (g_str_has_prefix (uri, "x-caja-search")) {
+	} else if (g_str_has_prefix (uri, "x-peony-search")) {
 		icon = "system-search";
 
-		path = g_build_filename (g_get_home_dir (), ".caja", "searches", & uri [21], NULL);
+		path = g_build_filename (g_get_home_dir (), ".peony", "searches", & uri [21], NULL);
 
 		if (g_file_test (path, G_FILE_TEST_EXISTS)) {
 			gchar *buf = NULL;

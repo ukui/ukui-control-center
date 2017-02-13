@@ -64,16 +64,16 @@ Here is the OS X Display menu:
 
 	- It needs to store information under a key computed
 	  from a monitor identifier. The complication here is that
-          it's not completely clear how to do this in MateConf.
+          it's not completely clear how to do this in UkuiConf.
 
-	- Would probably be worthwhile to drop libmate/libmateui from
+	- Would probably be worthwhile to drop libukui/libukuiui from
 	  the craplets.
 
-- Marco work:
-	- Marco is already Xinerama aware, but it needs to update itself
+- Ukwm work:
+	- Ukwm is already Xinerama aware, but it needs to update itself
 	  when monitors come and go.
 
-- MATE panel work:
+- UKUI panel work:
 	- Is already Xinerama aware, but needs to listen and update itself
 	  when monitors change.
 
@@ -92,7 +92,7 @@ Here is the OS X Display menu:
   is at best a nice-to-have, and low priority in my opinion.
 
 
-*******************  Marco
+*******************  Ukwm
 
 Havoc:
 
@@ -125,7 +125,7 @@ Havoc:
 > setting for this, it should be desktop-global and in this monitor
 > config dialog.
 
-> It should not be a marco or Compiz option, but in some way an X
+> It should not be a ukwm or Compiz option, but in some way an X
 > option in short. The implementation could be either an X server
 > feature or an EWMH hint or whatever, but it should be controlled by
 > the monitor config dialog and used by apps, GTK, etc. in addition to
@@ -223,7 +223,7 @@ Needed XRandr output properties:
   There is a question here: Where are machine specific preferences
   stored? Havoc mentions three possibilities here:
 
-     http://mail.gnome.org/archives/matecc-list/2001-October/msg00023.html
+     http://mail.gnome.org/archives/ukuicc-list/2001-October/msg00023.html
 
   I'm not sure if any of them are implementable at this point. Also
   (1) may mostly take care of the problem.
@@ -445,7 +445,7 @@ Structure of login time program:
 
 - If it isn't found, then nothing changes.
 
-     This could just be mate-screen-resolution-capplet --reset
+     This could just be ukui-screen-resolution-capplet --reset
 
 *******************  Things that need to be done to the xrandr.patch:
 
@@ -828,7 +828,7 @@ Add rotation
 
 Disable panel checkbox for now
 
-Patch into mate-desktop
+Patch into ukui-desktop
 
 Find out how to share code between gcc and gsd
 

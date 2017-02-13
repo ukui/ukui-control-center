@@ -1,11 +1,11 @@
 SUBDIRS = data
 
-# This is used in MATECC_CAPPLETS_CFLAGS
+# This is used in UKUICC_CAPPLETS_CFLAGS
 cappletname = appearance
 
-bin_PROGRAMS = mate-appearance-properties
+bin_PROGRAMS = ukui-appearance-properties
 
-mate_appearance_properties_SOURCES = \
+ukui_appearance_properties_SOURCES = \
 	appearance.h \
 	appearance-desktop.c \
 	appearance-desktop.h \
@@ -20,12 +20,12 @@ mate_appearance_properties_SOURCES = \
 	appearance-ui.h \
 	appearance-support.c \
 	appearance-support.h \
-	mate-wp-info.c \
-	mate-wp-info.h \
-	mate-wp-item.c \
-	mate-wp-item.h \
-	mate-wp-xml.c \
-	mate-wp-xml.h \
+	ukui-wp-info.c \
+	ukui-wp-info.h \
+	ukui-wp-item.c \
+	ukui-wp-item.h \
+	ukui-wp-xml.c \
+	ukui-wp-xml.h \
 	theme-installer.c \
 	theme-installer.h \
 	theme-save.c \
@@ -33,30 +33,30 @@ mate_appearance_properties_SOURCES = \
 	theme-util.c \
 	theme-util.h
 
-AM_CFLAGS = -DMATE_DESKTOP_USE_UNSTABLE_API
+AM_CFLAGS = -DUKUI_DESKTOP_USE_UNSTABLE_API
 
-mate_appearance_properties_LDADD = \
-	$(top_builddir)/libwindow-settings/libmate-window-settings.la \
+ukui_appearance_properties_LDADD = \
+	$(top_builddir)/libwindow-settings/libukui-window-settings.la \
 	$(top_builddir)/capplets/common/libcommon.la \
-	$(MATECC_CAPPLETS_LIBS) \
+	$(UKUICC_CAPPLETS_LIBS) \
 	$(FONT_CAPPLET_LIBS) \
-	$(MARCO_LIBS)
-mate_appearance_properties_LDFLAGS = -export-dynamic
+	$(UKWM_LIBS)
+ukui_appearance_properties_LDFLAGS = -export-dynamic
 
 gtkbuilderdir = $(pkgdatadir)/ui
 pixmapdir = $(pkgdatadir)/pixmaps
-wallpaperdir = $(datadir)/mate-background-properties
+wallpaperdir = $(datadir)/ukui-background-properties
 
 AM_CPPFLAGS = \
-	$(MARCO_CFLAGS) \
-	$(MATECC_CAPPLETS_CFLAGS) \
+	$(UKWM_CFLAGS) \
+	$(UKUICC_CAPPLETS_CFLAGS) \
 	$(FONT_CAPPLET_CFLAGS) \
-	-DMATELOCALEDIR="\"$(datadir)/locale\"" \
-	-DMATECC_DATA_DIR="\"$(pkgdatadir)\"" \
-	-DMATECC_GTKBUILDER_DIR="\"$(gtkbuilderdir)\"" \
-	-DMATECC_PIXMAP_DIR="\"$(pixmapdir)\"" \
+	-DUKUILOCALEDIR="\"$(datadir)/locale\"" \
+	-DUKUICC_DATA_DIR="\"$(pkgdatadir)\"" \
+	-DUKUICC_GTKBUILDER_DIR="\"$(gtkbuilderdir)\"" \
+	-DUKUICC_PIXMAP_DIR="\"$(pixmapdir)\"" \
 	-DWALLPAPER_DATADIR="\"$(wallpaperdir)\""
 
-CLEANFILES = $(MATECC_CAPPLETS_CLEANFILES)
+CLEANFILES = $(UKUICC_CAPPLETS_CLEANFILES)
 
 -include $(top_srcdir)/git.mk

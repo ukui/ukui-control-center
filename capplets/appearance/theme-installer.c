@@ -1,8 +1,10 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*-
  *
  * Copyright (C) 2007 The GNOME Foundation
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * Written by Thomas Wood <thos@gnome.org>
  *            Jens Granseuer <jensgr@gmx.net>
+ * Modified by zhangshuhao <zhangshuhao@kylinos.cn>
  * All Rights Reserved
  *
  * This program is free software; you can redistribute it and/or modify
@@ -37,10 +39,10 @@
 enum {
 	THEME_INVALID,
 	THEME_ICON,
-	THEME_MATE,
+	THEME_UKUI,
 	THEME_GTK,
 	THEME_ENGINE,
-	THEME_MARCO,
+	THEME_UKWM,
 	THEME_CURSOR,
 	THEME_ICON_CURSOR
 };
@@ -116,7 +118,7 @@ file_theme_type (const gchar *dir)
 		g_free (file_contents);
 
 		if (match)
-			return THEME_MATE;
+			return THEME_UKUI;
 	} else {
 		g_free (filename);
 	}
@@ -133,14 +135,14 @@ file_theme_type (const gchar *dir)
 	g_free (filename);
 
 	if (exists)
-		return THEME_MARCO;
+		return THEME_UKWM;
 
 	filename = g_build_filename (dir, "metacity-1", "metacity-theme-1.xml", NULL);
 	exists = g_file_test (filename, G_FILE_TEST_IS_REGULAR);
 	g_free (filename);
 
 	if (exists)
-		return THEME_MARCO;
+		return THEME_UKWM;
 
 	/* cursor themes don't necessarily have an index.theme */
 	filename = g_build_filename (dir, "cursors", NULL);
@@ -286,7 +288,7 @@ invalid_theme_dialog (GtkWindow *parent,
 }
 
 static gboolean
-mate_theme_install_real (GtkWindow *parent,
+ukui_theme_install_real (GtkWindow *parent,
 			  gint filetype,
 			  const gchar *tmp_dir,
 			  const gchar *theme_name,
@@ -309,12 +311,12 @@ mate_theme_install_real (GtkWindow *parent,
 					   g_get_home_dir (), ".icons",
 					   theme_name, NULL);
 		break;
-	case THEME_MATE:
+	case THEME_UKUI:
 		target_dir = g_build_path (G_DIR_SEPARATOR_S,
 					   g_get_home_dir (), ".themes",
 			 		   theme_name, NULL);
 		break;
-	case THEME_MARCO:
+	case THEME_UKWM:
 	case THEME_GTK:
 		target_dir = g_build_path (G_DIR_SEPARATOR_S,
 					   g_get_home_dir (), ".themes",
@@ -329,7 +331,7 @@ mate_theme_install_real (GtkWindow *parent,
 	}
 
 	/* see if there is an icon theme lurking in this package */
-	if (theme_type == THEME_MATE) {
+	if (theme_type == THEME_UKUI) {
 		gchar *path;
 
 		path = g_build_path (G_DIR_SEPARATOR_S,
@@ -408,11 +410,11 @@ mate_theme_install_real (GtkWindow *parent,
 		if (ask_user) {
 			/* Ask to apply theme (if we can) */
 			if (theme_type == THEME_GTK
-			    || theme_type == THEME_MARCO
+			    || theme_type == THEME_UKWM
 			    || theme_type == THEME_ICON
 			    || theme_type == THEME_CURSOR
 			    || theme_type == THEME_ICON_CURSOR) {
-				/* TODO: currently cannot apply "mate themes" */
+				/* TODO: currently cannot apply "ukui themes" */
 				gchar *str;
 
 				str = g_strdup_printf (_("The theme \"%s\" has been installed."), theme_name);
@@ -451,9 +453,9 @@ mate_theme_install_real (GtkWindow *parent,
 						g_settings_set_string (settings, GTK_THEME_KEY, theme_name);
 						g_object_unref (settings);
 						break;
-					case THEME_MARCO:
-						settings = g_settings_new (MARCO_SCHEMA);
-						g_settings_set_string (settings, MARCO_THEME_KEY, theme_name);
+					case THEME_UKWM:
+						settings = g_settings_new (UKWM_SCHEMA);
+						g_settings_set_string (settings, UKWM_THEME_KEY, theme_name);
 						g_object_unref (settings);
 						break;
 					case THEME_ICON:
@@ -483,7 +485,7 @@ mate_theme_install_real (GtkWindow *parent,
 								 GTK_DIALOG_MODAL,
 								 GTK_MESSAGE_INFO,
 								 GTK_BUTTONS_OK,
-								 _("MATE Theme %s correctly installed"),
+								 _("UKUI Theme %s correctly installed"),
 								 theme_name);
 				gtk_dialog_run (GTK_DIALOG (dialog));
 			}
@@ -521,7 +523,7 @@ process_local_theme (GtkWindow  *parent,
 
 	if (filetype == DIRECTORY) {
 		gchar *name = g_path_get_basename (path);
-		mate_theme_install_real (parent,
+		ukui_theme_install_real (parent,
 					  filetype,
 					  path,
 					  name,
@@ -593,7 +595,7 @@ process_local_theme (GtkWindow  *parent,
 			theme_dir = g_build_filename (tmp_dir, name, NULL);
 
 			if (g_file_test (theme_dir, G_FILE_TEST_IS_DIR))
-				ok = mate_theme_install_real (parent,
+				ok = ukui_theme_install_real (parent,
 							       filetype,
 							       theme_dir,
 							       name,
@@ -648,7 +650,7 @@ transfer_done_cb (GtkWidget *dialog,
 }
 
 void
-mate_theme_install (GFile *file,
+ukui_theme_install (GFile *file,
 		     GtkWindow *parent)
 {
 	GtkWidget *dialog;
@@ -700,9 +702,9 @@ mate_theme_install (GFile *file,
 	if (g_str_has_suffix (base, ".tar.gz")
 	    || g_str_has_suffix (base, ".tgz")
 	    || g_str_has_suffix (base, ".gtp"))
-		template = "mate-theme-%d.gtp";
+		template = "ukui-theme-%d.gtp";
 	else if (g_str_has_suffix (base, ".tar.bz2"))
-		template = "mate-theme-%d.tar.bz2";
+		template = "ukui-theme-%d.tar.bz2";
 	else {
 		invalid_theme_dialog (parent, base, FALSE);
 		g_free (base);
@@ -750,7 +752,7 @@ mate_theme_install (GFile *file,
 }
 
 void
-mate_theme_installer_run (GtkWindow *parent,
+ukui_theme_installer_run (GtkWindow *parent,
 			   const gchar *filename)
 {
 	static gboolean running_theme_install = FALSE;
@@ -780,7 +782,7 @@ mate_theme_installer_run (GtkWindow *parent,
 	gtk_file_filter_set_name (filter, _("Theme Packages"));
 	gtk_file_filter_add_mime_type (filter, "application/x-bzip-compressed-tar");
 	gtk_file_filter_add_mime_type (filter, "application/x-compressed-tar");
-	gtk_file_filter_add_mime_type (filter, "application/x-mate-theme-package");
+	gtk_file_filter_add_mime_type (filter, "application/x-ukui-theme-package");
 	gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (dialog), filter);
 
 	filter = gtk_file_filter_new ();
@@ -806,7 +808,7 @@ mate_theme_installer_run (GtkWindow *parent,
 			GFile *file = g_file_new_for_uri (uri_selected);
 			g_free (uri_selected);
 
-			mate_theme_install (file, parent);
+			ukui_theme_install (file, parent);
 			g_object_unref (file);
 		}
 	} else {
@@ -814,7 +816,7 @@ mate_theme_installer_run (GtkWindow *parent,
 	}
 
 	/*
-	 * we're relying on the mate theme info module to pick up changes
+	 * we're relying on the ukui theme info module to pick up changes
 	 * to the themes so we don't need to update the model here
 	 */
 

@@ -2,7 +2,7 @@
  * This file is part of libtile.
  *
  * Copyright (c) 2006, 2007 Novell, Inc.
- *
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * Libtile is free software; you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2 of the License, or (at your option)
@@ -25,16 +25,16 @@
 #include <string.h>
 #include <gio/gio.h>
 
-#include "slab-mate-util.h"
-#include "mate-utils.h"
+#include "slab-ukui-util.h"
+#include "ukui-utils.h"
 #include "libslab-utils.h"
 #include "bookmark-agent.h"
 
-#define GNOME_MAIN_MENU_SCHEMA         "org.mate.gnome-main-menu.file-area"
+#define GNOME_MAIN_MENU_SCHEMA         "org.ukui.gnome-main-menu.file-area"
 #define SETTINGS_FILE_MGR_OPEN_KEY     "file-mgr-open-cmd"
 #define SETTINGS_SEND_TO_CMD_KEY       "file-send-to-cmd"
 
-#define CAJA_SCHEMA                    "org.mate.caja.preferences"
+#define PEONY_SCHEMA                    "org.ukui.peony.preferences"
 #define SETTINGS_ENABLE_DELETE_KEY     "enable-delete"
 #define SETTINGS_CONFIRM_DELETE_KEY    "confirm-trash"
 
@@ -86,7 +86,7 @@ typedef struct
 
 	gboolean delete_enabled;
 
-	GSettings *caja_settings;
+	GSettings *peony_settings;
 	GSettings *gnome_main_menu_settings;
 
 	BookmarkAgent       *agent;
@@ -219,7 +219,7 @@ document_tile_new (BookmarkStoreType bookmark_store_type, const gchar *in_uri, c
 
 	gtk_container_add (menu_ctnr, menu_item);
 
-	/* make open in caja action */
+	/* make open in peony action */
 
 	action = tile_action_new (TILE (this), open_in_file_manager_trigger,
 		_("Open in File Manager"), TILE_ACTION_OPENS_NEW_WINDOW);
@@ -247,7 +247,7 @@ document_tile_new (BookmarkStoreType bookmark_store_type, const gchar *in_uri, c
 	/* make send to action */
 
 	/* Only allow Send To for local files, ideally this would use something
-	 * equivalent to mate_vfs_uri_is_local, but that method will stat the file and
+	 * equivalent to ukui_vfs_uri_is_local, but that method will stat the file and
 	 * that can hang in some conditions. */
 
 	if (!strncmp (TILE (this)->uri, "file://", 7))
@@ -356,11 +356,11 @@ document_tile_private_setup (DocumentTile *this)
 	g_object_unref (file);
 
 	priv->gnome_main_menu_settings = g_settings_new (GNOME_MAIN_MENU_SCHEMA);
-	priv->caja_settings = g_settings_new (CAJA_SCHEMA);
+	priv->peony_settings = g_settings_new (PEONY_SCHEMA);
 
-	priv->delete_enabled = g_settings_get_boolean (priv->caja_settings, SETTINGS_ENABLE_DELETE_KEY);
+	priv->delete_enabled = g_settings_get_boolean (priv->peony_settings, SETTINGS_ENABLE_DELETE_KEY);
 
-	g_signal_connect (priv->caja_settings, "changed::" SETTINGS_ENABLE_DELETE_KEY,
+	g_signal_connect (priv->peony_settings, "changed::" SETTINGS_ENABLE_DELETE_KEY,
 		G_CALLBACK (settings_enable_delete_cb), this);
 
 	priv->notify_signal_id = g_signal_connect (
@@ -385,7 +385,7 @@ document_tile_init (DocumentTile *tile)
 
 	priv->delete_enabled   = FALSE;
 
-	priv->caja_settings            = NULL;
+	priv->peony_settings            = NULL;
 	priv->gnome_main_menu_settings = NULL;
 
 	priv->agent            = NULL;
@@ -412,7 +412,7 @@ document_tile_finalize (GObject *g_object)
 	g_object_unref (G_OBJECT (priv->agent));
 
 	g_object_unref (priv->gnome_main_menu_settings);
-	g_object_unref (priv->caja_settings);
+	g_object_unref (priv->peony_settings);
 
 	G_OBJECT_CLASS (document_tile_parent_class)->finalize (g_object);
 }
@@ -430,7 +430,7 @@ load_image (DocumentTile *tile)
 
 	gchar *icon_id = NULL;
 	gboolean free_icon_id = TRUE;
-	MateDesktopThumbnailFactory *thumbnail_factory;
+	UkuiDesktopThumbnailFactory *thumbnail_factory;
 	GIcon *icon;
 
 	libslab_checkpoint ("document-tile.c: load_image(): start for %s", TILE (tile)->uri);
@@ -447,7 +447,7 @@ load_image (DocumentTile *tile)
 
 	thumbnail_factory = libslab_thumbnail_factory_get ();
 
-	icon_id = mate_desktop_thumbnail_factory_lookup (thumbnail_factory, TILE (tile)->uri, priv->modified);
+	icon_id = ukui_desktop_thumbnail_factory_lookup (thumbnail_factory, TILE (tile)->uri, priv->modified);
 
 	if (! icon_id) {
 		icon = g_content_type_get_icon (priv->mime_type);
@@ -1021,7 +1021,7 @@ delete_trigger (Tile *tile, TileEvent *event, TileAction *action)
 	GError *error = NULL;
 
 
-	if (g_settings_get_boolean (priv->caja_settings, SETTINGS_CONFIRM_DELETE_KEY)) {
+	if (g_settings_get_boolean (priv->peony_settings, SETTINGS_CONFIRM_DELETE_KEY)) {
 		confirm_dialog = GTK_DIALOG(gtk_message_dialog_new (NULL, 0, GTK_MESSAGE_WARNING, 
 				GTK_BUTTONS_NONE, _("Are you sure you want to permanently delete \"%s\"?"), priv->basename));
 		gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG(confirm_dialog), _("If you delete an item, it is permanently lost."));

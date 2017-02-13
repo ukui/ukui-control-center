@@ -1,5 +1,5 @@
 /* Copyright 2006, 2007, 2008, Soren Sandmann <sandmann@daimi.au.dk>
- *
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either

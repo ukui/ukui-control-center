@@ -1,0 +1,11 @@
+[Desktop Entry]
+_Name=About Me
+_Comment=Set your personal information
+Exec=ukui-about-me
+Icon=user-info
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GTK;Settings;X-UKUI-PersonalSettings;
+Keywords=ukui-control-center;UKUI;personal;information;
+OnlyShowIn=UKUI;

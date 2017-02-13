@@ -1,7 +1,7 @@
 /*
  * Helper functions to translate statuses and actions to strings
  * Copyright (C) 2008 Bastien Nocera <hadess@hadess.net>
- * 
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * Experimental code. This will be moved out of fprintd into it's own
  * package once the system has matured.
  *

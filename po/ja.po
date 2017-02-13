@@ -17,121 +17,121 @@
 # Yukihiro Nakai <Nakai@abricot.co.jp>, 1998
 msgid ""
 msgstr ""
-"Project-Id-Version: MATE Desktop Environment\n"
+"Project-Id-Version: UKUI Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-27 23:13+0300\n"
 "PO-Revision-Date: 2016-04-19 12:16+0000\n"
 "Last-Translator: semicolon <mail@semicln.com>\n"
-"Language-Team: Japanese (http://www.transifex.com/mate/MATE/language/ja/)\n"
+"Language-Team: Japanese (http://wiki.ukui.org/trans)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../org.mate.control-center.gschema.xml.in.h:1
+#: ../org.ukui.control-center.gschema.xml.in.h:1
 msgid ""
-"[ 'Change Theme;mate-appearance-properties.desktop', 'Set Preferred "
-"Applications;mate-default-applications-properties.desktop' ]"
-msgstr "[ '外観の設定;mate-appearance-properties.desktop', 'お気に入りのアプリ;mate-default-applications-properties.desktop' ]"
+"[ 'Change Theme;ukui-appearance-properties.desktop', 'Set Preferred "
+"Applications;ukui-default-applications-properties.desktop' ]"
+msgstr "[ '外観の設定;ukui-appearance-properties.desktop', 'お気に入りのアプリ;ukui-default-applications-properties.desktop' ]"
 
-#: ../org.mate.control-center.gschema.xml.in.h:2
+#: ../org.ukui.control-center.gschema.xml.in.h:2
 msgid "Task names and associated .desktop files"
 msgstr "タスクの名前とそれに対応する .desktop ファイル"
 
-#: ../org.mate.control-center.gschema.xml.in.h:3
+#: ../org.ukui.control-center.gschema.xml.in.h:3
 msgid ""
 "The task name to be displayed in the control-center followed by a \";\" "
 "separator then the filename of an associated .desktop file to launch for "
 "that task."
 msgstr "コントロールセンターの中に表示するタスクの名前です。その後ろに \";\" で区切ってタスクを起動する際に使用する .desktop ファイルを指定します。"
 
-#: ../org.mate.control-center.gschema.xml.in.h:4
+#: ../org.ukui.control-center.gschema.xml.in.h:4
 msgid "Close the control-center when a task is activated"
 msgstr "タスクを起動したらコントロールセンターを閉じる"
 
-#: ../org.mate.control-center.gschema.xml.in.h:5
+#: ../org.ukui.control-center.gschema.xml.in.h:5
 msgid ""
 "if true, the control-center will close when a \"Common Task\" is activated."
 msgstr "TRUE にすると、よく利用するタスク\" を起動した際にコントロールセンターを閉じます。"
 
-#: ../org.mate.control-center.gschema.xml.in.h:6
+#: ../org.ukui.control-center.gschema.xml.in.h:6
 msgid "Exit shell on start action performed"
 msgstr "タスクを起動したらシェルを終了する"
 
-#: ../org.mate.control-center.gschema.xml.in.h:7
+#: ../org.ukui.control-center.gschema.xml.in.h:7
 msgid "Indicates whether to close the shell when a start action is performed."
 msgstr "タスクを起動したらシェルを閉じるかどうかです。"
 
-#: ../org.mate.control-center.gschema.xml.in.h:8
+#: ../org.ukui.control-center.gschema.xml.in.h:8
 msgid "Exit shell on help action performed"
 msgstr "ヘルプを表示したらシェルを終了する"
 
-#: ../org.mate.control-center.gschema.xml.in.h:9
+#: ../org.ukui.control-center.gschema.xml.in.h:9
 msgid "Indicates whether to close the shell when a help action is performed."
 msgstr "ヘルプを表示したらシェルを閉じるかどうかです。"
 
-#: ../org.mate.control-center.gschema.xml.in.h:10
+#: ../org.ukui.control-center.gschema.xml.in.h:10
 msgid "Exit shell on add or remove action performed"
 msgstr "追加または削除を行ったらシェルを終了する"
 
-#: ../org.mate.control-center.gschema.xml.in.h:11
+#: ../org.ukui.control-center.gschema.xml.in.h:11
 msgid ""
 "Indicates whether to close the shell when an add or remove action is "
 "performed."
 msgstr "追加または削除を行ったらシェルを閉じるかどうかです。"
 
-#: ../org.mate.control-center.gschema.xml.in.h:12
+#: ../org.ukui.control-center.gschema.xml.in.h:12
 msgid "Exit shell on upgrade or uninstall action performed"
 msgstr "アップグレードまたはアンインストールを行ったらシェルを終了する"
 
-#: ../org.mate.control-center.gschema.xml.in.h:13
+#: ../org.ukui.control-center.gschema.xml.in.h:13
 msgid ""
 "Indicates whether to close the shell when an upgrade or uninstall action is "
 "performed."
 msgstr "アップグレードまたはアンインストールを行ったらシェルを閉じるかどうかです。"
 
-#: ../org.mate.control-center.gschema.xml.in.h:14
+#: ../org.ukui.control-center.gschema.xml.in.h:14
 msgid "More backgrounds URL"
 msgstr "背景を入手できるURL"
 
-#: ../org.mate.control-center.gschema.xml.in.h:15
+#: ../org.ukui.control-center.gschema.xml.in.h:15
 msgid ""
 "URL for where to get more desktop backgrounds. If set to an empty string the"
 " link will not appear."
 msgstr "デスクトップの背景を入手できる場所のURLです。空文字列ならば、リンクは表示されません。"
 
-#: ../org.mate.control-center.gschema.xml.in.h:16
+#: ../org.ukui.control-center.gschema.xml.in.h:16
 msgid "More themes URL"
 msgstr "テーマを入手できるURL"
 
-#: ../org.mate.control-center.gschema.xml.in.h:17
+#: ../org.ukui.control-center.gschema.xml.in.h:17
 msgid ""
 "URL for where to get more desktop themes. If set to an empty string the link"
 " will not appear."
 msgstr "デスクトップのテーマを入手できる場所のURLです。空文字列ならば、リンクは表示されません。"
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:1
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:1
 msgid "Keybinding"
 msgstr "キーバインド"
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:2
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:2
 msgid "Keybinding associated with a custom shortcut."
 msgstr "カスタムショートカットに関連付けられたキーバインド"
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:3
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:3
 msgid "Command"
 msgstr "コマンド"
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:4
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:4
 msgid "Command associated with a custom keybinding."
 msgstr "カスタムキーバインドに関連付けられたコマンド"
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:5
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:5
 msgid "Name"
 msgstr "名前"
 
-#: ../org.mate.control-center.keybinding.gschema.xml.in.h:6
+#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:6
 msgid "Description associated with a custom keybinding."
 msgstr "カスタムキーバインドに関連付けられた説明です。"
 
@@ -163,99 +163,99 @@ msgstr "警告ダイアログに表示するボタンです"
 msgid "Show more _details"
 msgstr "詳細表示(_D)"
 
-#: ../capplets/about-me/mate-about-me.c:268
+#: ../capplets/about-me/ukui-about-me.c:268
 msgid "Select Image"
 msgstr "画像の選択"
 
-#: ../capplets/about-me/mate-about-me.c:270
+#: ../capplets/about-me/ukui-about-me.c:270
 msgid "No Image"
 msgstr "画像なし"
 
-#: ../capplets/about-me/mate-about-me.c:298
+#: ../capplets/about-me/ukui-about-me.c:298
 #: ../capplets/appearance/appearance-desktop.c:650
 msgid "Images"
 msgstr "画像"
 
-#: ../capplets/about-me/mate-about-me.c:302
+#: ../capplets/about-me/ukui-about-me.c:302
 #: ../capplets/appearance/theme-installer.c:783
 msgid "All Files"
 msgstr "すべてのファイル"
 
-#: ../capplets/about-me/mate-about-me.c:454
+#: ../capplets/about-me/ukui-about-me.c:454
 #, c-format
 msgid "About %s"
 msgstr "\"%s\" さんの情報"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:1
-#: ../capplets/about-me/mate-about-me.desktop.in.in.h:1
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:1
+#: ../capplets/about-me/ukui-about-me.desktop.in.in.h:1
 msgid "About Me"
 msgstr "個人情報"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:2
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:2
 msgid "Select your photo"
 msgstr "写真を選択してください"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:3
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:3
 msgid "Full Name"
 msgstr "氏名"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:4
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:4
 msgid "User name:"
 msgstr "ユーザ名:"
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:5
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:5
 msgid "Change Passwo_rd..."
 msgstr "パスワードの変更(_R)..."
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:6
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:6
 msgid "Enable _Fingerprint Login..."
 msgstr "指紋認証を有効にする(_F)..."
 
-#: ../capplets/about-me/mate-about-me-dialog.ui.h:7
+#: ../capplets/about-me/ukui-about-me-dialog.ui.h:7
 msgid "Disable _Fingerprint Login..."
 msgstr "指紋認証を無効にする(_F)..."
 
-#: ../capplets/about-me/mate-about-me.desktop.in.in.h:2
+#: ../capplets/about-me/ukui-about-me.desktop.in.in.h:2
 msgid "Set your personal information"
 msgstr "自分の情報を管理します"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:100
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:100
 msgid ""
 "You are not allowed to access the device. Contact your system administrator."
 msgstr "デバイスにはアクセスできません (システム管理者に連絡してください)"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:102
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:102
 msgid "The device is already in use."
 msgstr "そのデバイスは使用中です"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:104
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:104
 msgid "An internal error occurred"
 msgstr "内部エラー"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:221
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:221
 msgid "Delete registered fingerprints?"
 msgstr "登録した指紋情報を削除しますか?"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:224
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:224
 msgid "_Delete Fingerprints"
 msgstr "削除する(_D)"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:231
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:231
 msgid ""
 "Do you want to delete your registered fingerprints so fingerprint login is "
 "disabled?"
 msgstr "登録済みの指紋情報を削除して指紋認証を無効にしますか?"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:359
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:15
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:359
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:15
 msgid "Done!"
 msgstr "完了です"
 
 #. translators:
 #. * The variable is the name of the device, for example:
 #. * "Could you not access "Digital Persona U.are.U 4000/4000B" device
-#: ../capplets/about-me/mate-about-me-fingerprint.c:405
-#: ../capplets/about-me/mate-about-me-fingerprint.c:427
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:405
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:427
 #, c-format
 msgid "Could not access '%s' device"
 msgstr "'%s' というデバイスにアクセスできません"
@@ -263,21 +263,21 @@ msgstr "'%s' というデバイスにアクセスできません"
 #. translators:
 #. * The variable is the name of the device, for example:
 #. * "Could you not access "Digital Persona U.are.U 4000/4000B" device
-#: ../capplets/about-me/mate-about-me-fingerprint.c:476
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:476
 #, c-format
 msgid "Could not start finger capture on '%s' device"
 msgstr "'%s' で指紋をキャプチャすることができませんでした"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:523
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:523
 msgid "Could not access any fingerprint readers"
 msgstr "すべての指紋リーダーにアクセスできませんでした"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:524
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:524
 msgid "Please contact your system administrator for help."
 msgstr "システム管理者に連絡してください。"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:554
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:9
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:554
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:9
 msgid "Enable Fingerprint Login"
 msgstr "指紋認証を有効にする"
 
@@ -286,90 +286,90 @@ msgstr "指紋認証を有効にする"
 #. * "To enable fingerprint login, you need to save one of your fingerprints,
 #. using the
 #. * 'Digital Persona U.are.U 4000/4000B' device."
-#: ../capplets/about-me/mate-about-me-fingerprint.c:584
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:584
 #, c-format
 msgid ""
 "To enable fingerprint login, you need to save one of your fingerprints, "
 "using the '%s' device."
 msgstr "指紋認証を有効にするには、'%s' のデバイスを使って、あなたの指紋を登録する必要があります。"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:593
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:593
 msgid "Swipe finger on reader"
 msgstr "リーダーに指を通してください"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.c:595
+#: ../capplets/about-me/ukui-about-me-fingerprint.c:595
 msgid "Place finger on reader"
 msgstr "リーダーに指を置いてください"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:1
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:1
 msgid "Left thumb"
 msgstr "左の親指"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:2
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:2
 msgid "Left middle finger"
 msgstr "左の中指"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:3
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:3
 msgid "Left ring finger"
 msgstr "左の薬指"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:4
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:4
 msgid "Left little finger"
 msgstr "左の小指"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:5
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:5
 msgid "Right thumb"
 msgstr "右の親指"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:6
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:6
 msgid "Right middle finger"
 msgstr "右の中指"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:7
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:7
 msgid "Right ring finger"
 msgstr "右の薬指"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:8
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:8
 msgid "Right little finger"
 msgstr "右の小指"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:10
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:10
 msgid "Right index finger"
 msgstr "右の人差し指"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:11
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:11
 msgid "Left index finger"
 msgstr "左の人差し指"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:12
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:12
 msgid "Other finger: "
 msgstr "別の指: "
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:13
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:13
 msgid "Select finger"
 msgstr "指の選択"
 
-#: ../capplets/about-me/mate-about-me-fingerprint.ui.h:14
+#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:14
 msgid ""
 "Your fingerprint was successfully saved. You should now be able to log in "
 "using your fingerprint reader."
 msgstr "あなたの指紋を登録しました。今から指紋を読み取るリーダーを使ってログインできるようになりました。"
 
-#: ../capplets/about-me/mate-about-me-password.c:161
+#: ../capplets/about-me/ukui-about-me-password.c:161
 msgid "Child exited unexpectedly"
 msgstr "子プロセスが強制終了しました"
 
-#: ../capplets/about-me/mate-about-me-password.c:297
+#: ../capplets/about-me/ukui-about-me-password.c:297
 #, c-format
 msgid "Could not shutdown backend_stdin IO channel: %s"
 msgstr "backend_stdin IO チャンネルを終了できませんでした: %s"
 
-#: ../capplets/about-me/mate-about-me-password.c:310
+#: ../capplets/about-me/ukui-about-me-password.c:310
 #, c-format
 msgid "Could not shutdown backend_stdout IO channel: %s"
 msgstr "backend_stdout IO チャンネルを終了できませんでした: %s"
 
-#: ../capplets/about-me/mate-about-me-password.c:409
+#: ../capplets/about-me/ukui-about-me-password.c:409
 msgid "Authenticated!"
 msgstr "認証が完了しました!"
 
@@ -378,120 +378,120 @@ msgstr "認証が完了しました!"
 #. * Ask the user to re-authenticate
 #. Update status message and auth state
 #. Authentication failure
-#: ../capplets/about-me/mate-about-me-password.c:472
-#: ../capplets/about-me/mate-about-me-password.c:557
+#: ../capplets/about-me/ukui-about-me-password.c:472
+#: ../capplets/about-me/ukui-about-me-password.c:557
 msgid ""
 "Your password has been changed since you initially authenticated! Please re-"
 "authenticate."
 msgstr "初めて認証を行ってから既にパスワードが変更されています。もう一度パスワードを入力して認証し直してください。"
 
-#: ../capplets/about-me/mate-about-me-password.c:474
+#: ../capplets/about-me/ukui-about-me-password.c:474
 msgid "That password was incorrect."
 msgstr "そのパスワードは間違っています。"
 
-#: ../capplets/about-me/mate-about-me-password.c:525
+#: ../capplets/about-me/ukui-about-me-password.c:525
 msgid "Your password has been changed."
 msgstr "パスワードが変更されています。"
 
 #. What does this indicate?
 #. * "Authentication information cannot be recovered?" from libpam?
-#: ../capplets/about-me/mate-about-me-password.c:535
+#: ../capplets/about-me/ukui-about-me-password.c:535
 #, c-format
 msgid "System error: %s."
 msgstr "システムエラー: %s"
 
-#: ../capplets/about-me/mate-about-me-password.c:538
+#: ../capplets/about-me/ukui-about-me-password.c:538
 msgid "The password is too short."
 msgstr "パスワードが短すぎます。"
 
-#: ../capplets/about-me/mate-about-me-password.c:542
+#: ../capplets/about-me/ukui-about-me-password.c:542
 msgid "The password is too simple."
 msgstr "パスワードが簡単すぎます。"
 
-#: ../capplets/about-me/mate-about-me-password.c:547
+#: ../capplets/about-me/ukui-about-me-password.c:547
 msgid "The old and new passwords are too similar."
 msgstr "両方のパスワードが類似しています。"
 
-#: ../capplets/about-me/mate-about-me-password.c:549
+#: ../capplets/about-me/ukui-about-me-password.c:549
 msgid "The new password must contain numeric or special character(s)."
 msgstr "新しいパスワードには数字または特殊文字を含めるようにしてください。"
 
-#: ../capplets/about-me/mate-about-me-password.c:552
+#: ../capplets/about-me/ukui-about-me-password.c:552
 msgid "The old and new passwords are the same."
 msgstr "両方のパスワードが同じです。"
 
-#: ../capplets/about-me/mate-about-me-password.c:554
+#: ../capplets/about-me/ukui-about-me-password.c:554
 msgid "The new password has already been used recently."
 msgstr "新しいパスワードは最近、既に使われています。"
 
 #. translators: Unable to launch <program>: <error message>
-#: ../capplets/about-me/mate-about-me-password.c:829
+#: ../capplets/about-me/ukui-about-me-password.c:829
 #, c-format
 msgid "Unable to launch %s: %s"
 msgstr "%s を起動できません: %s"
 
-#: ../capplets/about-me/mate-about-me-password.c:833
+#: ../capplets/about-me/ukui-about-me-password.c:833
 msgid "Unable to launch backend"
 msgstr "バックエンドのプログラムを起動できません"
 
-#: ../capplets/about-me/mate-about-me-password.c:834
+#: ../capplets/about-me/ukui-about-me-password.c:834
 msgid "A system error has occurred"
 msgstr "システムエラーが発生しました"
 
 #. Update status message
-#: ../capplets/about-me/mate-about-me-password.c:854
+#: ../capplets/about-me/ukui-about-me-password.c:854
 msgid "Checking password..."
 msgstr "パスワードの確認中..."
 
-#: ../capplets/about-me/mate-about-me-password.c:938
+#: ../capplets/about-me/ukui-about-me-password.c:938
 msgid "Click <b>Change password</b> to change your password."
 msgstr "パスワードを変更する場合は<b>パスワードの変更</b>をクリックしてください。"
 
-#: ../capplets/about-me/mate-about-me-password.c:941
+#: ../capplets/about-me/ukui-about-me-password.c:941
 msgid "Please type your password in the <b>New password</b> field."
 msgstr "パスワードを<b>新しいパスワード</b>のエントリに入力してください。"
 
-#: ../capplets/about-me/mate-about-me-password.c:944
-#: ../capplets/about-me/mate-about-me-password.ui.h:9
+#: ../capplets/about-me/ukui-about-me-password.c:944
+#: ../capplets/about-me/ukui-about-me-password.ui.h:9
 msgid ""
 "Please type your password again in the <b>Retype new password</b> field."
 msgstr "もう一度パスワードを<b>新しいパスワードの確認</b>エントリに入力してください。"
 
-#: ../capplets/about-me/mate-about-me-password.c:947
+#: ../capplets/about-me/ukui-about-me-password.c:947
 msgid "The two passwords are not equal."
 msgstr "パスワードが一致しませんでした。"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:1
+#: ../capplets/about-me/ukui-about-me-password.ui.h:1
 msgid "Change password"
 msgstr "パスワードの変更"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:2
+#: ../capplets/about-me/ukui-about-me-password.ui.h:2
 msgid "Change your password"
 msgstr "パスワードの変更"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:3
+#: ../capplets/about-me/ukui-about-me-password.ui.h:3
 msgid ""
 "To change your password, enter your current password in the field below and click <b>Authenticate</b>.\n"
 "After you have authenticated, enter your new password, retype it for verification and click <b>Change password</b>."
 msgstr "パスワードを変更する場合は、この下のエントリに現在のパスワードを入力して<b>認証</b>ボタンをクリックしてください。\n認証後に新しいパスワードを入力し、もう一度パスワードを入力して妥当性を検証してから<b>パスワードの変更</b>ボタンをクリックしてください。"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:5
+#: ../capplets/about-me/ukui-about-me-password.ui.h:5
 msgid "Current _password:"
 msgstr "現在のパスワード(_P):"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:6
+#: ../capplets/about-me/ukui-about-me-password.ui.h:6
 msgid "_New password:"
 msgstr "新しいパスワード(_N):"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:7
+#: ../capplets/about-me/ukui-about-me-password.ui.h:7
 msgid "_Retype new password:"
 msgstr "パスワードの確認(_R):"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:8
+#: ../capplets/about-me/ukui-about-me-password.ui.h:8
 msgid "_Authenticate"
 msgstr "認証(_A)"
 
-#: ../capplets/about-me/mate-about-me-password.ui.h:10
+#: ../capplets/about-me/ukui-about-me-password.ui.h:10
 msgid "Change pa_ssword"
 msgstr "パスワードの変更(_S)"
 
@@ -500,7 +500,7 @@ msgid "Assistive Technologies Preferences"
 msgstr "支援技術の設定"
 
 #: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:2
-#: ../capplets/accessibility/at-properties/mate-at-properties.desktop.in.in.h:1
+#: ../capplets/accessibility/at-properties/ukui-at-properties.desktop.in.in.h:1
 msgid "Assistive Technologies"
 msgstr "支援技術"
 
@@ -554,7 +554,7 @@ msgstr "アクセシビリティ対応のログインダイアログを開きま
 msgid "Close and _Log Out"
 msgstr "閉じてログアウトする(_L)"
 
-#: ../capplets/accessibility/at-properties/mate-at-properties.desktop.in.in.h:2
+#: ../capplets/accessibility/at-properties/ukui-at-properties.desktop.in.in.h:2
 msgid "Choose which accessibility features to enable when you log in"
 msgstr "ログインした時にアクセシビリティの機能を有効にするかどうかを選択します"
 
@@ -586,8 +586,8 @@ msgid ""
 msgstr "表示するページの名前を指定する (theme|background|fonts|interface)"
 
 #: ../capplets/appearance/appearance-main.c:170
-#: ../capplets/default-applications/mate-da-capplet.c:693
-#: ../capplets/mouse/mate-mouse-properties.c:483
+#: ../capplets/default-applications/ukui-da-capplet.c:693
+#: ../capplets/mouse/ukui-mouse-properties.c:483
 msgid "page"
 msgstr "PAGE"
 
@@ -596,8 +596,8 @@ msgid "[WALLPAPER...]"
 msgstr "[壁紙...]"
 
 #: ../capplets/appearance/appearance-style.c:171
-#: ../capplets/common/mate-theme-info.c:497
-#: ../capplets/common/mate-theme-info.c:690
+#: ../capplets/common/ukui-theme-info.c:497
+#: ../capplets/common/ukui-theme-info.c:690
 msgid "Default Pointer"
 msgstr "デフォルトのポインター"
 
@@ -607,7 +607,7 @@ msgid "Install"
 msgstr "インストール"
 
 #: ../capplets/appearance/appearance-style.c:269
-#: ../capplets/common/mate-theme-info.c:1726
+#: ../capplets/common/ukui-theme-info.c:1726
 #, c-format
 msgid ""
 "This theme will not look as intended because the required GTK+ theme engine "
@@ -778,7 +778,7 @@ msgid "Get more backgrounds online"
 msgstr "追加の背景をネットから入手する"
 
 #: ../capplets/appearance/data/appearance.ui.h:33
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:17
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:17
 msgid "_Add..."
 msgstr "追加(_A)..."
 
@@ -976,13 +976,13 @@ msgstr "サイズ(_S):"
 
 #. small threshold
 #: ../capplets/appearance/data/appearance.ui.h:82
-#: ../capplets/mouse/mate-mouse-properties.ui.h:21
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:21
 msgid "Small"
 msgstr "小さい"
 
 #. large threshold
 #: ../capplets/appearance/data/appearance.ui.h:83
-#: ../capplets/mouse/mate-mouse-properties.ui.h:24
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:24
 msgid "Large"
 msgstr "大きい"
 
@@ -995,7 +995,7 @@ msgid "Save Theme As..."
 msgstr "テーマを別名で保存..."
 
 #: ../capplets/appearance/data/appearance.ui.h:86
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:4
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:4
 msgid "_Name:"
 msgstr "名前(_N):"
 
@@ -1011,54 +1011,54 @@ msgstr "背景も一緒に保存する(_B)"
 msgid "Save _notification theme"
 msgstr "通知のテーマを保存"
 
-#: ../capplets/appearance/data/mate-appearance-properties.desktop.in.in.h:1
+#: ../capplets/appearance/data/ukui-appearance-properties.desktop.in.in.h:1
 msgid "Appearance"
 msgstr "外観の設定"
 
-#: ../capplets/appearance/data/mate-appearance-properties.desktop.in.in.h:2
+#: ../capplets/appearance/data/ukui-appearance-properties.desktop.in.in.h:2
 msgid "Customize the look of the desktop"
 msgstr "デスクトップの見映えを設定します"
 
-#: ../capplets/appearance/data/mate-theme-installer.desktop.in.in.h:1
+#: ../capplets/appearance/data/ukui-theme-installer.desktop.in.in.h:1
 msgid "Theme Installer"
 msgstr "テーマインストーラー"
 
-#: ../capplets/appearance/data/mate-theme-installer.desktop.in.in.h:2
+#: ../capplets/appearance/data/ukui-theme-installer.desktop.in.in.h:2
 msgid "Installs themes packages for various parts of the desktop"
 msgstr "デスクトップのさまざまな部分に適用するテーマパッケージをインストールします"
 
-#: ../capplets/appearance/data/mate-theme-package.xml.in.h:1
-msgid "Mate Theme Package"
-msgstr "MATE のテーマパッケージ"
+#: ../capplets/appearance/data/ukui-theme-package.xml.in.h:1
+msgid "Ukui Theme Package"
+msgstr "UKUI のテーマパッケージ"
 
-#: ../capplets/appearance/mate-wp-info.c:51
+#: ../capplets/appearance/ukui-wp-info.c:51
 msgid "No Desktop Background"
 msgstr "デスクトップの背景がありません"
 
-#: ../capplets/appearance/mate-wp-item.c:288
+#: ../capplets/appearance/ukui-wp-item.c:288
 msgid "unknown"
 msgstr "不明"
 
-#: ../capplets/appearance/mate-wp-item.c:295
+#: ../capplets/appearance/ukui-wp-item.c:295
 msgid "Slide Show"
 msgstr "スライドショー"
 
-#: ../capplets/appearance/mate-wp-item.c:297
+#: ../capplets/appearance/ukui-wp-item.c:297
 msgid "Image"
 msgstr "画像"
 
-#: ../capplets/appearance/mate-wp-item.c:303
+#: ../capplets/appearance/ukui-wp-item.c:303
 msgid "multiple sizes"
 msgstr "複数のサイズ"
 
 #. translators: x pixel(s) by y pixel(s)
-#: ../capplets/appearance/mate-wp-item.c:306
+#: ../capplets/appearance/ukui-wp-item.c:306
 #, c-format
 msgid "%d %s by %d %s"
 msgstr "%d %s x %d %s"
 
-#: ../capplets/appearance/mate-wp-item.c:308
-#: ../capplets/appearance/mate-wp-item.c:310
+#: ../capplets/appearance/ukui-wp-item.c:308
+#: ../capplets/appearance/ukui-wp-item.c:310
 msgid "pixel"
 msgid_plural "pixels"
 msgstr[0] "ピクセル"
@@ -1067,7 +1067,7 @@ msgstr[0] "ピクセル"
 #. * mime type, size
 #. * Folder: /path/to/file
 #. * Artist: wallpaper author
-#: ../capplets/appearance/mate-wp-item.c:319
+#: ../capplets/appearance/ukui-wp-item.c:319
 #, c-format
 msgid ""
 "<b>%s</b>\n"
@@ -1080,7 +1080,7 @@ msgstr "<b>%s</b>\n%s, %s\nフォルダ: %s\nアーティスト: %s"
 #. * Image missing
 #. * Folder: /path/to/file
 #. * Artist: wallpaper author
-#: ../capplets/appearance/mate-wp-item.c:334
+#: ../capplets/appearance/ukui-wp-item.c:334
 #, c-format
 msgid ""
 "<b>%s</b>\n"
@@ -1089,7 +1089,7 @@ msgid ""
 "Artist: %s"
 msgstr "<b>%s</b>\n%s\nフォルダ: %s\nアーティスト: %s"
 
-#: ../capplets/appearance/mate-wp-item.c:339
+#: ../capplets/appearance/ukui-wp-item.c:339
 msgid "Image missing"
 msgstr "画像がありません"
 
@@ -1147,8 +1147,8 @@ msgstr "新しいテーマの適用"
 
 #: ../capplets/appearance/theme-installer.c:486
 #, c-format
-msgid "MATE Theme %s correctly installed"
-msgstr "MATE のテーマ \"%s\" をインストールしました"
+msgid "UKUI Theme %s correctly installed"
+msgstr "UKUI のテーマ \"%s\" をインストールしました"
 
 #: ../capplets/appearance/theme-installer.c:548
 msgid "Failed to create temporary directory"
@@ -1205,9 +1205,9 @@ msgstr "テーマエンジンをインストールできません"
 
 #: ../capplets/common/activate-settings-daemon.c:16
 msgid ""
-"Unable to start the settings manager 'mate-settings-daemon'.\n"
-"Without the MATE settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-MATE (e.g. KDE) settings manager may already be active and conflicting with the MATE settings manager."
-msgstr "MATE 設定マネージャー ('mate-settings-daemon') を起動することができません。\n設定マネージャーが起動できない場合、いくつかの設定が反映されません。これは DBus の問題、あるいは MATE ではない (KDE などの) 別の設定マネージャが既に起動されていて MATE 設定マネージャと衝突していることが原因かもしれません。"
+"Unable to start the settings manager 'ukui-settings-daemon'.\n"
+"Without the UKUI settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-UKUI (e.g. KDE) settings manager may already be active and conflicting with the UKUI settings manager."
+msgstr "UKUI 設定マネージャー ('ukui-settings-daemon') を起動することができません。\n設定マネージャーが起動できない場合、いくつかの設定が反映されません。これは DBus の問題、あるいは UKUI ではない (KDE などの) 別の設定マネージャが既に起動されていて UKUI 設定マネージャと衝突していることが原因かもしれません。"
 
 #: ../capplets/common/capplet-stock-icons.c:66
 #, c-format
@@ -1295,176 +1295,176 @@ msgstr "スキップする(_S)"
 msgid "Overwrite _All"
 msgstr "すべて置き換える(_A)"
 
-#: ../capplets/common/mate-theme-info.c:691
+#: ../capplets/common/ukui-theme-info.c:691
 msgid "Default Pointer - Current"
 msgstr "デフォルトのポインター - 使用中"
 
-#: ../capplets/common/mate-theme-info.c:695
+#: ../capplets/common/ukui-theme-info.c:695
 msgid "White Pointer"
 msgstr "白いポインター"
 
-#: ../capplets/common/mate-theme-info.c:696
+#: ../capplets/common/ukui-theme-info.c:696
 msgid "White Pointer - Current"
 msgstr "白いポインター - 使用中"
 
-#: ../capplets/common/mate-theme-info.c:700
+#: ../capplets/common/ukui-theme-info.c:700
 msgid "Large Pointer"
 msgstr "大きなポインター"
 
-#: ../capplets/common/mate-theme-info.c:701
+#: ../capplets/common/ukui-theme-info.c:701
 msgid "Large Pointer - Current"
 msgstr "大きなポインター - 使用中"
 
-#: ../capplets/common/mate-theme-info.c:705
+#: ../capplets/common/ukui-theme-info.c:705
 msgid "Large White Pointer - Current"
 msgstr "大きな白いポインター - 使用中"
 
-#: ../capplets/common/mate-theme-info.c:706
+#: ../capplets/common/ukui-theme-info.c:706
 msgid "Large White Pointer"
 msgstr "大きな白いポインター"
 
-#: ../capplets/common/mate-theme-info.c:1696
+#: ../capplets/common/ukui-theme-info.c:1696
 #, c-format
 msgid ""
 "This theme will not look as intended because the required GTK+ theme '%s' is"
 " not installed."
 msgstr "GTK+ のテーマ '%s' がインストールされていないため、このテーマは意図通りに表示されません。"
 
-#: ../capplets/common/mate-theme-info.c:1706
+#: ../capplets/common/ukui-theme-info.c:1706
 #, c-format
 msgid ""
 "This theme will not look as intended because the required window manager "
 "theme '%s' is not installed."
 msgstr "ウィンドウマネージャーのテーマ '%s' がインストールされていないため、このテーマは意図通りに表示されません。"
 
-#: ../capplets/common/mate-theme-info.c:1714
+#: ../capplets/common/ukui-theme-info.c:1714
 #, c-format
 msgid ""
 "This theme will not look as intended because the required icon theme '%s' is"
 " not installed."
 msgstr "アイコンテーマ '%s' がインストールされていないため、このテーマは意図通りに表示されません。"
 
-#: ../capplets/default-applications/mate-default-applications-properties.desktop.in.in.h:1
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:1
+#: ../capplets/default-applications/ukui-default-applications-properties.desktop.in.in.h:1
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:1
 msgid "Preferred Applications"
 msgstr "お気に入りのアプリ"
 
-#: ../capplets/default-applications/mate-default-applications-properties.desktop.in.in.h:2
+#: ../capplets/default-applications/ukui-default-applications-properties.desktop.in.in.h:2
 msgid "Select your default applications"
 msgstr "デフォルトで使用するアプリケーションを設定します"
 
-#: ../capplets/default-applications/mate-da-capplet.c:542
+#: ../capplets/default-applications/ukui-da-capplet.c:542
 msgid "Could not load the main interface"
 msgstr "メインインターフェースを読み込めませんでした"
 
-#: ../capplets/default-applications/mate-da-capplet.c:543
+#: ../capplets/default-applications/ukui-da-capplet.c:543
 msgid "Please make sure that the applet is properly installed"
 msgstr "アプレットが正しくインストールされているか確認してください"
 
 #. TRANSLATORS: don't translate the terms in brackets
-#: ../capplets/default-applications/mate-da-capplet.c:692
+#: ../capplets/default-applications/ukui-da-capplet.c:692
 msgid "Specify the name of the page to show (internet|multimedia|system|a11y)"
 msgstr "表示するページの名前を指定する (internet|multimedia|system|a11y)"
 
-#: ../capplets/default-applications/mate-da-capplet.c:698
-msgid "- MATE Default Applications"
-msgstr "- MATE のデフォルトのアプリ"
+#: ../capplets/default-applications/ukui-da-capplet.c:698
+msgid "- UKUI Default Applications"
+msgstr "- UKUI のデフォルトのアプリ"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:2
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:2
 msgid "Web Browser"
 msgstr "Web ブラウザー"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:3
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:3
 msgid "Mail Reader"
 msgstr "メールリーダー"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:4
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:4
 msgid "Instant Messenger"
 msgstr "インスタントメッセンジャー"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:5
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:5
 msgid "Co_mmand:"
 msgstr "コマンド(_M):"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:7
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:7
 #, no-c-format
 msgid "All %s occurrences will be replaced with actual link"
 msgstr "%s という文字はすべて実際のリンクに置き換えられます"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:8
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:8
 msgid "Run in t_erminal"
 msgstr "端末から起動する(_E)"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:9
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:9
 msgid "Internet"
 msgstr "インターネット"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:10
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:10
 msgid "Image Viewer"
 msgstr "画像ビューアー"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:11
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:11
 msgid "Multimedia Player"
 msgstr "マルチメディアプレイヤー"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:12
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:12
 msgid "Video Player"
 msgstr "ビデオプレイヤー"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:13
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:13
 msgid "Multimedia"
 msgstr "マルチメディア"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:14
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:14
 msgid "Text Editor"
 msgstr "テキストエディター"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:15
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:15
 msgid "Terminal Emulator"
 msgstr "端末エミュレーター"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:16
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:16
 msgid "File Manager"
 msgstr "ファイルマネージャー"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:17
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:17
 msgid "System"
 msgstr "システム"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:18
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:18
 msgid "Document Viewer"
 msgstr "ドキュメントビューアー"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:19
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:19
 msgid "Word Processor"
 msgstr "ワードプロセッサー"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:20
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:20
 msgid "Spreadsheet Editor"
 msgstr "スプレッドシートエディター"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:21
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:21
 msgid "Office"
 msgstr "オフィス"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:22
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:22
 msgid "Visual"
 msgstr "視覚支援"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:23
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:23
 msgid "_Run at start"
 msgstr "ログイン時に起動する(_R)"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:24
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:24
 msgid "Mobility"
 msgstr "操作支援"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:25
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:25
 msgid "Run at st_art"
 msgstr "ログイン時に起動する(_A)"
 
-#: ../capplets/default-applications/mate-default-applications-properties.ui.h:26
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:45
+#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:26
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:45
 msgid "Accessibility"
 msgstr "アクセシビリティ"
 
@@ -1478,9 +1478,9 @@ msgstr "システム全体に適用"
 
 #: ../capplets/display/display-capplet.ui.h:3
 msgid ""
-"Applies the current configuration for other MATE users on the computer. Note"
+"Applies the current configuration for other UKUI users on the computer. Note"
 " that this doesn't affect login screens or other desktop environments."
-msgstr "このコンピューターを使用する全ての MATE ユーザーに対して現在の設定を適用します。ログイン画面や他のデスクトップ環境には影響しません。"
+msgstr "このコンピューターを使用する全ての UKUI ユーザーに対して現在の設定を適用します。ログイン画面や他のデスクトップ環境には影響しません。"
 
 #: ../capplets/display/display-capplet.ui.h:4
 msgid "Sa_me image in all monitors"
@@ -1543,13 +1543,13 @@ msgstr "標準"
 
 #: ../capplets/display/display-capplet.ui.h:18
 #: ../capplets/display/xrandr-capplet.c:312
-#: ../capplets/windows/mate-window-properties.c:574
+#: ../capplets/windows/ukui-window-properties.c:574
 msgid "Left"
 msgstr "左回り"
 
 #: ../capplets/display/display-capplet.ui.h:19
 #: ../capplets/display/xrandr-capplet.c:313
-#: ../capplets/windows/mate-window-properties.c:573
+#: ../capplets/windows/ukui-window-properties.c:573
 msgid "Right"
 msgstr "右回り"
 
@@ -1557,100 +1557,100 @@ msgstr "右回り"
 msgid "Upside-down"
 msgstr "逆さま"
 
-#: ../capplets/display/mate-display-properties.desktop.in.in.h:1
+#: ../capplets/display/ukui-display-properties.desktop.in.in.h:1
 msgid "Displays"
 msgstr "ディスプレイ"
 
-#: ../capplets/display/mate-display-properties.desktop.in.in.h:2
+#: ../capplets/display/ukui-display-properties.desktop.in.in.h:2
 msgid "Change resolution and position of monitors and projectors"
 msgstr "モニターとプロジェクターの解像度と位置を変更します。"
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:44
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:44
 #, c-format
 msgid ""
 "Usage: %s SOURCE_FILE DEST_NAME\n"
 "\n"
 "This program installs a RANDR profile for multi-monitor setups into\n"
 "a systemwide location.  The resulting profile will get used when\n"
-"the RANDR plug-in gets run in mate-settings-daemon.\n"
+"the RANDR plug-in gets run in ukui-settings-daemon.\n"
 "\n"
 "SOURCE_FILE - a full pathname, typically /home/username/.config/monitors.xml\n"
 "\n"
 "DEST_NAME - relative name for the installed file.  This will get put in\n"
 "            the systemwide directory for RANDR configurations,\n"
 "            so the result will typically be %s/DEST_NAME\n"
-msgstr "使用法: %s ソースファイル インストール名\n\nこのプログラムは RANDR プロファイルをマルチモニタ用の設定として\nシステム全体で利用する場所にインストールします。インストールしたものは\nRANDR プラグインが mate-settings-daemon で実行された時に使用されます。\n\nソースファイル - フルパス名。一般例: /home/username/.config/monitors.xml\n\nインストール名 - インストールされるファイルの相対パス名。\n               RANDR の設定用にシステム全体で使用されるディレクトリに置かれ、\n               普通は %s/インストール名 のようになります\n"
+msgstr "使用法: %s ソースファイル インストール名\n\nこのプログラムは RANDR プロファイルをマルチモニタ用の設定として\nシステム全体で利用する場所にインストールします。インストールしたものは\nRANDR プラグインが ukui-settings-daemon で実行された時に使用されます。\n\nソースファイル - フルパス名。一般例: /home/username/.config/monitors.xml\n\nインストール名 - インストールされるファイルの相対パス名。\n               RANDR の設定用にシステム全体で使用されるディレクトリに置かれ、\n               普通は %s/インストール名 のようになります\n"
 
 #. Translators: only able to install RANDR profiles as root
-#: ../capplets/display/mate-display-properties-install-systemwide.c:151
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:151
 msgid "This program can only be used by the root user"
 msgstr "このプログラムは root ユーザーのみが使用できます"
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:168
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:168
 msgid "The source filename must be absolute"
 msgstr "ソースのファイル名は絶対パスである必要があります"
 
 #. Translators: first %s is a filename; second %s is an error message
-#: ../capplets/display/mate-display-properties-install-systemwide.c:179
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:179
 #, c-format
 msgid "Could not open %s: %s\n"
 msgstr "'%s' を開けません: %s\n"
 
 #. Translators: first %s is a filename; second %s is an error message
-#: ../capplets/display/mate-display-properties-install-systemwide.c:188
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:188
 #, c-format
 msgid "Could not get information for %s: %s\n"
 msgstr "%s の情報を取得できません: %s\n"
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:195
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:195
 #, c-format
 msgid "%s must be a regular file\n"
 msgstr "%s は普通のファイルである必要があります\n"
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:204
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:204
 msgid "This program must only be run through pkexec(1)"
 msgstr "このプログラムは pkexec(1) 経由で実行する必要があります"
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:209
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:209
 msgid "PKEXEC_UID must be set to an integer value"
 msgstr "PKEXEC_UID は整数値でなければなりません"
 
 #. Translators: we are complaining that a file must be really owned by the
 #. user who called this program
-#: ../capplets/display/mate-display-properties-install-systemwide.c:215
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:215
 #, c-format
 msgid "%s must be owned by you\n"
 msgstr "%s はあなたによって所有されてなくてはなりません\n"
 
 #. Translators: here we are saying that a plain filename must look like
 #. "filename", not like "some_dir/filename"
-#: ../capplets/display/mate-display-properties-install-systemwide.c:223
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:223
 #, c-format
 msgid "%s must not have any directory components\n"
 msgstr "%s にはディレクトリー名が含まれていてはいけません\n"
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:231
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:231
 #, c-format
 msgid "%s must be a directory\n"
 msgstr "%s はディレクトリーでなくてはなりません\n"
 
 #. Translators: the first %s/%s is a directory/filename; the last %s is an
 #. error message
-#: ../capplets/display/mate-display-properties-install-systemwide.c:242
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:242
 #, c-format
 msgid "Could not open %s/%s: %s\n"
 msgstr "%s/%s を開けません: %s\n"
 
-#: ../capplets/display/mate-display-properties-install-systemwide.c:262
+#: ../capplets/display/ukui-display-properties-install-systemwide.c:262
 #, c-format
 msgid "Could not rename %s to %s: %s\n"
 msgstr "%s を %s に名前を変更することができません: %s\n"
 
-#: ../capplets/display/org.mate.randr.policy.in.h:1
+#: ../capplets/display/org.ukui.randr.policy.in.h:1
 msgid "Install multi-monitor settings for the whole system"
 msgstr "システム全体にマルチモニターの設定をインストールする"
 
-#: ../capplets/display/org.mate.randr.policy.in.h:2
+#: ../capplets/display/org.ukui.randr.policy.in.h:2
 msgid ""
 "Authentication is required to install multi-monitor settings for all users"
 msgstr "マルチモニターの設定をすべてのユーザーに対して行うには、認証が必要です"
@@ -1746,845 +1746,845 @@ msgid "The type of accelerator."
 msgstr "アクセラレーターの種類です"
 
 #: ../capplets/keybindings/eggcellrendererkeys.c:231
-#: ../capplets/keybindings/mate-keybinding-properties.c:134
-#: ../capplets/mouse/mate-mouse-properties.c:396
+#: ../capplets/keybindings/ukui-keybinding-properties.c:134
+#: ../capplets/mouse/ukui-mouse-properties.c:396
 #: ../typing-break/drwright.c:501
 msgid "Disabled"
 msgstr "無効"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:216
+#: ../capplets/keybindings/ukui-keybinding-properties.c:216
 msgid "<Unknown Action>"
 msgstr "<不明な操作>"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1020
-#: ../capplets/keybindings/mate-keybinding-properties.c:1610
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1020
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1610
 msgid "Custom Shortcuts"
 msgstr "独自のショートカット"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1190
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1190
 msgid "Error saving the new shortcut"
 msgstr "新しいショートカットを保存する際にエラーが発生しました"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1266
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1266
 #, c-format
 msgid ""
 "The shortcut \"%s\" cannot be used because it will become impossible to type using this key.\n"
 "Please try with a key such as Control, Alt or Shift at the same time."
 msgstr "このキーでは入力できないので \"%s\" というショートカットは利用できません。\nControl や Alt や Shift といった修飾キーを併用してください。"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1298
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1298
 #, c-format
 msgid ""
 "The shortcut \"%s\" is already used for\n"
 "\"%s\""
 msgstr "\"%s\" というショートカットは既に登録済です:\n\"%s\""
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1305
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1305
 #, c-format
 msgid "If you reassign the shortcut to \"%s\", the \"%s\" shortcut will be disabled."
 msgstr "ショートカットを \"%s\" に変更すると、\"%s\" というショートカットが無効になります。"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1310
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1310
 msgid "_Reassign"
 msgstr "割り当てる(_R)"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1565
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1565
 msgid "Too many custom shortcuts"
 msgstr "独自のショートカットが多すぎます"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1853
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1853
 msgid "Action"
 msgstr "操作"
 
-#: ../capplets/keybindings/mate-keybinding-properties.c:1875
+#: ../capplets/keybindings/ukui-keybinding-properties.c:1875
 msgid "Shortcut"
 msgstr "ショートカット"
 
 #. * vim: sw=2 ts=8 cindent noai bs=2
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:1
-#: ../capplets/keybindings/mate-keybinding.desktop.in.in.h:1
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:1
+#: ../capplets/keybindings/ukui-keybinding.desktop.in.in.h:1
 msgid "Keyboard Shortcuts"
 msgstr "キーボードショートカット"
 
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:2
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:2
 msgid ""
 "To edit a shortcut key, click on the corresponding row and type a new key "
 "combination, or press backspace to clear."
 msgstr "ショートカットを編集するには、操作をクリックしてからキーの組み合わせを入力してください。バックスペースキーで取り消します。"
 
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:3
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:3
 msgid "Custom Shortcut"
 msgstr "独自のショートカット"
 
-#: ../capplets/keybindings/mate-keybinding-properties.ui.h:5
+#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:5
 msgid "C_ommand:"
 msgstr "コマンド(_O):"
 
-#: ../capplets/keybindings/mate-keybinding.desktop.in.in.h:2
+#: ../capplets/keybindings/ukui-keybinding.desktop.in.in.h:2
 msgid "Assign shortcut keys to commands"
 msgstr "コマンドにショートカットキーを割り当てます"
 
-#: ../capplets/keyboard/mate-keyboard-properties.c:213
-#: ../capplets/keyboard/mate-keyboard-properties.c:218
+#: ../capplets/keyboard/ukui-keyboard-properties.c:213
+#: ../capplets/keyboard/ukui-keyboard-properties.c:218
 msgid ""
 "Just apply settings and quit (compatibility only; now handled by daemon)"
 msgstr "設定を適用して終了する (互換性のみ; 現在はデーモン管理下)"
 
-#: ../capplets/keyboard/mate-keyboard-properties.c:223
+#: ../capplets/keyboard/ukui-keyboard-properties.c:223
 msgid "Start the page with the typing break settings showing"
 msgstr "入力中断設定を表示させてページを開始します"
 
-#: ../capplets/keyboard/mate-keyboard-properties.c:228
+#: ../capplets/keyboard/ukui-keyboard-properties.c:228
 msgid "Start the page with the accessibility settings showing"
 msgstr "アクセシビリティの設定を表示させてページを開始します"
 
-#: ../capplets/keyboard/mate-keyboard-properties.c:234
-msgid "- MATE Keyboard Preferences"
+#: ../capplets/keyboard/ukui-keyboard-properties.c:234
+msgid "- UKUI Keyboard Preferences"
 msgstr "- キーボードの設定"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:1
 msgid "Keyboard Accessibility Audio Feedback"
 msgstr "キーボードアクセシビリティのサウンドフィードバック"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:2
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:15
-#: ../capplets/mouse/mate-mouse-properties.ui.h:30
-#: ../capplets/windows/mate-window-properties.c:382
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:2
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:15
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:30
+#: ../capplets/windows/ukui-window-properties.c:382
 msgid "General"
 msgstr "全般"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:3
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:3
 msgid "Beep when _accessibility features are turned on or off"
 msgstr "アクセシビリティ機能の ON/OFF を切り替えたらビープ音を鳴らす(_A)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:4
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:4
 msgid "Beep when a _toggle key is pressed"
 msgstr "トグルキーが押されたらビープ音を鳴らす(_T)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:5
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:5
 msgid "Visual cues for sounds"
 msgstr "視覚的な置き換え"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:6
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:6
 msgid "Show _visual feedback for the alert sound"
 msgstr "警告音を視覚的なフィードバックで表現する(_V)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:7
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:7
 msgid "Flash _window titlebar"
 msgstr "ウィンドウのタイトルバーを点滅させる(_W)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:8
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:8
 msgid "Flash entire _screen"
 msgstr "画面全体を点滅させる(_S)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:9
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:39
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:9
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:39
 msgid "Slow Keys"
 msgstr "スローキー"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:10
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:10
 msgid "Beep when a key is pr_essed"
 msgstr "キーが押されたらビープ音を鳴らす(_E)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:11
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:11
 msgid "Beep when key is _accepted"
 msgstr "キー入力が受け付けられたらビープ音を鳴らす(_A)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:12
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:12
 msgid "Beep when key is _rejected"
 msgstr "キー入力が拒否されたらビープ音を鳴らす(_R)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:13
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:41
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:13
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:41
 msgid "Bounce Keys"
 msgstr "バウンスキー"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:14
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:14
 msgid "Beep when a key is reje_cted"
 msgstr "キー入力が拒否されたらビープ音を鳴らす(_C)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:15
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:36
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:15
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:36
 msgid "Sticky Keys"
 msgstr "スティッキーキー"
 
-#: ../capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui.h:16
+#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:16
 msgid "Beep when a _modifier key is pressed"
 msgstr "修飾キーが押されたらビープ音を鳴らす(_M)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:1
 msgid "Keyboard Preferences"
 msgstr "キーボードの設定"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:2
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:2
 msgid "Repeat Keys"
 msgstr "リピートキー"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:3
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:3
 msgid "Key presses _repeat when key is held down"
 msgstr "キーが押されたままにされたらリピートされたものとする(_R)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:4
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:4
 msgid "_Delay:"
 msgstr "間隔(_D):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:5
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:5
 msgid "_Speed:"
 msgstr "速度(_S):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:6
-#: ../capplets/mouse/mate-mouse-properties.ui.h:27
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:6
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:27
 msgid "Short"
 msgstr "短い"
 
 #. slow acceleration
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:7
-#: ../capplets/mouse/mate-mouse-properties.ui.h:11
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:7
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:11
 msgid "Slow"
 msgstr "遅い"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:8
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:8
 msgid "Repeat keys speed"
 msgstr "押されたキーをリピートする速さ"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:9
-#: ../capplets/mouse/mate-mouse-properties.ui.h:28
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:9
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:28
 msgid "Long"
 msgstr "長い"
 
 #. fast acceleration
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:10
-#: ../capplets/mouse/mate-mouse-properties.ui.h:13
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:10
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:13
 msgid "Fast"
 msgstr "速い"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:11
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:11
 msgid "Cursor Blinking"
 msgstr "カーソルの点滅"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:12
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:12
 msgid "Cursor _blinks in text fields"
 msgstr "テキストフィールドでカーソルを点滅させる(_B)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:13
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:13
 msgid "S_peed:"
 msgstr "速度(_P):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:14
-#: ../capplets/mouse/mate-mouse-properties.ui.h:22
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:14
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:22
 msgid "Cursor blinks speed"
 msgstr "カーソルが点滅する速さ"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:16
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:16
 msgid "List of keyboard layouts selected for usage"
 msgstr "使用するキーボードのレイアウトの一覧"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:18
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:18
 msgid "Select a keyboard layout to be added to the list"
 msgstr "キーボードのレイアウトを一覧に追加する"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:19
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:19
 msgid "Remove the selected keyboard layout from the list"
 msgstr "選択したキーボードレイアウトを一覧から削除する"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:20
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:20
 msgid "Move _Up"
 msgstr "上に移動(_U)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:21
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:21
 msgid "Move the selected keyboard layout up in the list"
 msgstr "選択したキーボードレイアウトを一覧の上へ移動する"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:22
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:22
 msgid "Move _Down"
 msgstr "下に移動(_D)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:23
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:23
 msgid "Move the selected keyboard layout down in the list"
 msgstr "選択したキーボードレイアウトを一覧の下へ移動する"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:24
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:24
 msgid "_Show..."
 msgstr "表示(_S)..."
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:25
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:25
 msgid "Print a diagram of the selected keyboard layout"
 msgstr "選択したキーボードレイアウトの図を印刷"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:26
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:26
 msgid "_Separate layout for each window"
 msgstr "ウィンドウごとに別のレイアウトを選択する(_S)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:27
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:27
 msgid "New windows u_se active window's layout"
 msgstr "新しいウィンドウはアクティブなウィンドウのレイアウトを使う(_S)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:28
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:28
 msgid "Keyboard _model:"
 msgstr "キーボードの型式(_M):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:29
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:29
 msgid "_Options..."
 msgstr "オプション(_O)..."
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:30
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:30
 msgid "View and edit keyboard layout options"
 msgstr "キーボードレイアウトのオプションを表示・編集します"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:31
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:31
 msgid "Reset to De_faults"
 msgstr "デフォルトに戻す(_F)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:32
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:32
 msgid ""
 "Replace the current keyboard layout settings with the\n"
 "default settings"
 msgstr "現在のキーボードレイアウトをデフォルトの設定に置き換えます"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:34
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:34
 msgid "Layouts"
 msgstr "レイアウト"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:35
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:35
 msgid "_Accessibility features can be toggled with keyboard shortcuts"
 msgstr "キーボードからアクセシビリティの機能を切り替えられるようにする(_A)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:37
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:37
 msgid "_Simulate simultaneous keypresses"
 msgstr "同時にキーを押下した状態をシミュレーションする(_S)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:38
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:38
 msgid "Disa_ble sticky keys if two keys are pressed together"
 msgstr "二つのキーが同時に押されたらステッキーキーを無効にする(_B)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:40
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:40
 msgid "_Only accept long keypresses"
 msgstr "キーの長押しのみ受け付ける(_O)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:42
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:42
 msgid "_Ignore fast duplicate keypresses"
 msgstr "同じキーが素早く連打された場合は無視する(_I)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:43
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:43
 msgid "D_elay:"
 msgstr "遅延(_E):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:44
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:44
 msgid "Audio _Feedback..."
 msgstr "音声フィードバック(_F)..."
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:46
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:46
 msgid "_Pointer can be controlled using the keypad"
 msgstr "キーボードでポインターを制御する(_P)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:47
-#: ../capplets/mouse/mate-mouse-properties.ui.h:8
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:47
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:8
 msgid "_Acceleration:"
 msgstr "加速(_A):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:48
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:48
 msgid "Mouse Keys"
 msgstr "マウスキー"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:49
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:49
 msgid "_Lock screen to enforce typing break"
 msgstr "一休みに入ったら強制的に画面をロックする(_L)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:50
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:50
 msgid ""
 "Lock screen after a certain duration to help prevent repetitive keyboard use"
 " injuries"
 msgstr "キー入力のリピート防止のため一休み中は画面をロックします"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:51
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:51
 msgid "_Work interval lasts:"
 msgstr "一休みの警告を出すまでの時間(_W):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:52
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:52
 msgid "_Break interval lasts:"
 msgstr "一休みする時間(_B):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:53
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:53
 msgid "Duration of work before forcing a break"
 msgstr "強制的に一休みに入るまでの時間です"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:54
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:54
 msgid "Duration of the break when typing is disallowed"
 msgstr "入力を禁止して一休みする時間です"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:55
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:55
 msgid "minutes"
 msgstr "分"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:56
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:56
 msgid "All_ow postponing of breaks"
 msgstr "一休みの延長を許可する(_O)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:57
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:57
 msgid "Check if breaks are allowed to be postponed"
 msgstr "一休みの延長を可能にする場合は有効にしてください"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:58
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:58
 msgid "Typing Break"
 msgstr "一休み"
 
-#: ../capplets/keyboard/mate-keyboard-properties-dialog.ui.h:59
+#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:59
 msgid "_Type to test settings:"
 msgstr "設定の確認(_T):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:1
 msgid "Choose a Layout"
 msgstr "レイアウトの選択"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:2
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:2
 msgid "_Variants:"
 msgstr "系列(_V):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:3
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:3
 msgid "_Country:"
 msgstr "国(_C):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:4
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:4
 msgid "By _country"
 msgstr "国別(_C)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:5
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:5
 msgid "_Language:"
 msgstr "言語(_L):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:6
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:6
 msgid "By _language"
 msgstr "言語別(_L)"
 
-#: ../capplets/keyboard/mate-keyboard-properties-layout-chooser.ui.h:7
+#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:7
 msgid "Preview:"
 msgstr "プレビュー:"
 
-#: ../capplets/keyboard/mate-keyboard-properties-model-chooser.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-model-chooser.ui.h:1
 msgid "Choose a Keyboard Model"
 msgstr "キーボードの型式の選択"
 
-#: ../capplets/keyboard/mate-keyboard-properties-model-chooser.ui.h:2
+#: ../capplets/keyboard/ukui-keyboard-properties-model-chooser.ui.h:2
 msgid "_Vendors:"
 msgstr "ベンダー(_V):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-model-chooser.ui.h:3
+#: ../capplets/keyboard/ukui-keyboard-properties-model-chooser.ui.h:3
 msgid "_Models:"
 msgstr "型式(_M):"
 
-#: ../capplets/keyboard/mate-keyboard-properties-options-dialog.ui.h:1
+#: ../capplets/keyboard/ukui-keyboard-properties-options-dialog.ui.h:1
 msgid "Keyboard Layout Options"
 msgstr "キーボードレイアウトのオプション"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkb.c:83
+#: ../capplets/keyboard/ukui-keyboard-properties-xkb.c:83
 msgid "Unknown"
 msgstr "不明"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkblt.c:240
+#: ../capplets/keyboard/ukui-keyboard-properties-xkblt.c:240
 msgid "Layout"
 msgstr "レイアウト"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkbmc.c:170
+#: ../capplets/keyboard/ukui-keyboard-properties-xkbmc.c:170
 msgid "Vendors"
 msgstr "ベンダー"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkbmc.c:236
+#: ../capplets/keyboard/ukui-keyboard-properties-xkbmc.c:236
 msgid "Models"
 msgstr "型式"
 
-#: ../capplets/keyboard/mate-keyboard-properties-xkbot.c:237
+#: ../capplets/keyboard/ukui-keyboard-properties-xkbot.c:237
 msgid "Default"
 msgstr "デフォルト"
 
-#: ../capplets/keyboard/mate-keyboard.desktop.in.in.h:1
+#: ../capplets/keyboard/ukui-keyboard.desktop.in.in.h:1
 msgid "Keyboard"
 msgstr "キーボード"
 
-#: ../capplets/keyboard/mate-keyboard.desktop.in.in.h:2
+#: ../capplets/keyboard/ukui-keyboard.desktop.in.in.h:2
 msgid "Set your keyboard preferences"
 msgstr "お使いのキーボードを設定します"
 
-#: ../capplets/mouse/mate-mouse-properties.c:396
+#: ../capplets/mouse/ukui-mouse-properties.c:396
 msgid "Left button"
 msgstr "左ボタン"
 
-#: ../capplets/mouse/mate-mouse-properties.c:396
+#: ../capplets/mouse/ukui-mouse-properties.c:396
 msgid "Middle button"
 msgstr "中ボタン"
 
-#: ../capplets/mouse/mate-mouse-properties.c:396
+#: ../capplets/mouse/ukui-mouse-properties.c:396
 msgid "Right button"
 msgstr "右ボタン"
 
 #. TRANSLATORS: don't translate the terms in brackets
-#: ../capplets/mouse/mate-mouse-properties.c:482
+#: ../capplets/mouse/ukui-mouse-properties.c:482
 msgid "Specify the name of the page to show (general)"
 msgstr "表示するページの名前を指定する (general)"
 
-#: ../capplets/mouse/mate-mouse-properties.c:487
-msgid "- MATE Mouse Preferences"
+#: ../capplets/mouse/ukui-mouse-properties.c:487
+msgid "- UKUI Mouse Preferences"
 msgstr "- マウスの設定"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:1
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:1
 msgid "Mouse Preferences"
 msgstr "マウスの設定"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:2
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:2
 msgid "Mouse Orientation"
 msgstr "マウスの利き手"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:3
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:3
 msgid "_Right-handed"
 msgstr "右利き(_M)"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:4
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:4
 msgid "_Left-handed"
 msgstr "左利き(_L)"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:5
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:5
 msgid "Locate Pointer"
 msgstr "ポインターの位置"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:6
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:6
 msgid "Sh_ow position of pointer when the Control key is pressed"
 msgstr "コントロールキーを押した際にポインターの位置を通知する(_O)"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:7
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:7
 msgid "Pointer Speed"
 msgstr "ポインターの速度"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:9
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:9
 msgid "_Sensitivity:"
 msgstr "感度(_S):"
 
 #. low sensitivity
-#: ../capplets/mouse/mate-mouse-properties.ui.h:15
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:15
 msgid "Low"
 msgstr "低い"
 
 #. high sensitivity
-#: ../capplets/mouse/mate-mouse-properties.ui.h:17
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:17
 msgid "High"
 msgstr "高い"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:18
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:18
 msgid "Drag and Drop"
 msgstr "ドラッグアンドドロップ"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:19
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:19
 msgid "Thr_eshold:"
 msgstr "しきい値(_E):"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:25
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:25
 msgid "Double-Click Timeout"
 msgstr "ダブルクリックの間隔"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:26
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:26
 msgid "_Timeout:"
 msgstr "間隔(_T):"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:29
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:29
 msgid ""
 "To test your double-click settings, try to double-click on the light bulb."
 msgstr "ダブルクリックの設定を確認する場合は電球をダブルクリックしてみてください。"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:31
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:31
 msgid "Enable _touchpad"
 msgstr "タッチパッドを有効化(_T)"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:32
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:32
 msgid "Disable touchpad _while typing"
 msgstr "文字入力中はタッチパッドを無効化(_W)"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:33
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:33
 msgid "Enable _mouse clicks with touchpad"
 msgstr "タッチパッドでのマウスクリックを有効にする(_M)"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:34
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:34
 msgid "Two-finger click emulation:"
 msgstr "2 本指クリックエミュレーション:"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:35
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:35
 msgid "Three-finger click emulation:"
 msgstr "3 本指クリックエミュレーション:"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:36
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:36
 msgid "Scrolling"
 msgstr "スクロール"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:37
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:37
 msgid "_Vertical edge scrolling"
 msgstr "垂直エッジスクロール(_V)"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:38
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:38
 msgid "H_orizontal edge scrolling"
 msgstr "水平エッジスクロール(_O)"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:39
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:39
 msgid "V_ertical two-finger scrolling"
 msgstr "垂直二本指スクロール(_E)"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:40
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:40
 msgid "Hor_izontal two-finger scrolling"
 msgstr "水平二本指スクロール(_I)"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:41
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:41
 msgid "Enable n_atural scrolling"
 msgstr "ナチュラルスクロールを有効にする(_A)"
 
-#: ../capplets/mouse/mate-mouse-properties.ui.h:42
+#: ../capplets/mouse/ukui-mouse-properties.ui.h:42
 msgid "Touchpad"
 msgstr "タッチパッド"
 
-#: ../capplets/mouse/mate-settings-mouse.desktop.in.in.h:1
+#: ../capplets/mouse/ukui-settings-mouse.desktop.in.in.h:1
 msgid "Mouse"
 msgstr "マウス"
 
-#: ../capplets/mouse/mate-settings-mouse.desktop.in.in.h:2
+#: ../capplets/mouse/ukui-settings-mouse.desktop.in.in.h:2
 msgid "Set your mouse preferences"
 msgstr "お使いのマウスの動きを設定します"
 
-#: ../capplets/network/mate-network-properties.desktop.in.in.h:1
+#: ../capplets/network/ukui-network-properties.desktop.in.in.h:1
 msgid "Network Proxy"
 msgstr "ネットワークプロキシ"
 
-#: ../capplets/network/mate-network-properties.desktop.in.in.h:2
+#: ../capplets/network/ukui-network-properties.desktop.in.in.h:2
 msgid "Set your network proxy preferences"
 msgstr "お使いのネットワークプロキシを設定します"
 
-#: ../capplets/network/mate-network-properties.ui.h:1
+#: ../capplets/network/ukui-network-properties.ui.h:1
 msgid "HTTP Proxy Details"
 msgstr "HTTP プロキシの詳細"
 
-#: ../capplets/network/mate-network-properties.ui.h:2
+#: ../capplets/network/ukui-network-properties.ui.h:2
 msgid "<b>_Use authentication</b>"
 msgstr "<b>認証を行う(_U)</b>"
 
-#: ../capplets/network/mate-network-properties.ui.h:3
+#: ../capplets/network/ukui-network-properties.ui.h:3
 msgid "U_sername:"
 msgstr "ユーザー名(_S):"
 
-#: ../capplets/network/mate-network-properties.ui.h:4
+#: ../capplets/network/ukui-network-properties.ui.h:4
 msgid "_Password:"
 msgstr "パスワード(_P):"
 
-#: ../capplets/network/mate-network-properties.ui.h:5
+#: ../capplets/network/ukui-network-properties.ui.h:5
 msgid "Network Proxy Preferences"
 msgstr "ネットワークプロキシの設定"
 
-#: ../capplets/network/mate-network-properties.ui.h:6
+#: ../capplets/network/ukui-network-properties.ui.h:6
 msgid "<b>Di_rect internet connection</b>"
 msgstr "<b>インターネットに直接接続する(_R)</b>"
 
-#: ../capplets/network/mate-network-properties.ui.h:7
+#: ../capplets/network/ukui-network-properties.ui.h:7
 msgid "<b>_Manual proxy configuration</b>"
 msgstr "<b>手動でプロキシの設定を行う(_M)</b>"
 
-#: ../capplets/network/mate-network-properties.ui.h:8
+#: ../capplets/network/ukui-network-properties.ui.h:8
 msgid "H_TTP proxy:"
 msgstr "HTTP プロキシ(_T):"
 
-#: ../capplets/network/mate-network-properties.ui.h:9
+#: ../capplets/network/ukui-network-properties.ui.h:9
 msgid "_Secure HTTP proxy:"
 msgstr "SSL プロキシ(_S):"
 
-#: ../capplets/network/mate-network-properties.ui.h:10
+#: ../capplets/network/ukui-network-properties.ui.h:10
 msgid "_FTP proxy:"
 msgstr "FTP プロキシ(_F):"
 
-#: ../capplets/network/mate-network-properties.ui.h:11
+#: ../capplets/network/ukui-network-properties.ui.h:11
 msgid "S_ocks host:"
 msgstr "Socks ホスト(_O):"
 
-#: ../capplets/network/mate-network-properties.ui.h:12
+#: ../capplets/network/ukui-network-properties.ui.h:12
 msgid "Port:"
 msgstr "ポート:"
 
-#: ../capplets/network/mate-network-properties.ui.h:13
+#: ../capplets/network/ukui-network-properties.ui.h:13
 msgid "_Details"
 msgstr "詳細(_D)"
 
-#: ../capplets/network/mate-network-properties.ui.h:14
+#: ../capplets/network/ukui-network-properties.ui.h:14
 msgid "<b>_Automatic proxy configuration</b>"
 msgstr "<b>自動でプロキシの設定を行う(_A)</b>"
 
-#: ../capplets/network/mate-network-properties.ui.h:15
+#: ../capplets/network/ukui-network-properties.ui.h:15
 msgid "Autoconfiguration _URL:"
 msgstr "自動設定する URL(_U):"
 
-#: ../capplets/network/mate-network-properties.ui.h:16
+#: ../capplets/network/ukui-network-properties.ui.h:16
 msgid "Proxy Configuration"
 msgstr "プロキシの設定"
 
-#: ../capplets/network/mate-network-properties.ui.h:17
+#: ../capplets/network/ukui-network-properties.ui.h:17
 msgid "Ignore Host List"
 msgstr "無視するホストの一覧"
 
-#: ../capplets/network/mate-network-properties.ui.h:18
+#: ../capplets/network/ukui-network-properties.ui.h:18
 msgid "Ignored Hosts"
 msgstr "無視するホスト"
 
-#: ../capplets/windows/mate-metacity-support.c:40
+#: ../capplets/windows/ukui-metacity-support.c:40
 msgid "Metacity Preferences"
 msgstr "Metacityの設定"
 
 #. Compositing manager
-#: ../capplets/windows/mate-metacity-support.c:55
-#: ../capplets/windows/mate-window-properties.c:410
+#: ../capplets/windows/ukui-metacity-support.c:55
+#: ../capplets/windows/ukui-window-properties.c:410
 msgid "Compositing Manager"
 msgstr "コンポジットマネージャー"
 
-#: ../capplets/windows/mate-metacity-support.c:66
-#: ../capplets/windows/mate-window-properties.c:422
+#: ../capplets/windows/ukui-metacity-support.c:66
+#: ../capplets/windows/ukui-window-properties.c:422
 msgid "Enable software _compositing window manager"
 msgstr "ソフトウェアコンポジットウィンドウマネージャーを有効にする"
 
-#: ../capplets/windows/mate-window-properties.c:264
+#: ../capplets/windows/ukui-window-properties.c:264
 msgid "The current window manager is unsupported"
 msgstr "現在のウィンドウマネージャーはサポートしていません"
 
 #. Window
-#: ../capplets/windows/mate-window-properties.c:358
+#: ../capplets/windows/ukui-window-properties.c:358
 msgid "Window Preferences"
 msgstr "ウィンドウの設定"
 
-#: ../capplets/windows/mate-window-properties.c:391
+#: ../capplets/windows/ukui-window-properties.c:391
 msgid "Behaviour"
 msgstr "挙動"
 
-#: ../capplets/windows/mate-window-properties.c:400
+#: ../capplets/windows/ukui-window-properties.c:400
 msgid "Placement"
 msgstr "場所"
 
-#: ../capplets/windows/mate-window-properties.c:423
+#: ../capplets/windows/ukui-window-properties.c:423
 msgid "Disable _thumbnails in Alt-Tab"
 msgstr "Alt-Tabのサムネイルを無効にする(_T)"
 
 #. Titlebar buttons
-#: ../capplets/windows/mate-window-properties.c:431
+#: ../capplets/windows/ukui-window-properties.c:431
 msgid "Titlebar Buttons"
 msgstr "タイトルバーボタン"
 
-#: ../capplets/windows/mate-window-properties.c:439
+#: ../capplets/windows/ukui-window-properties.c:439
 msgid "Position:"
 msgstr "位置:"
 
 #. New Windows
-#: ../capplets/windows/mate-window-properties.c:446
+#: ../capplets/windows/ukui-window-properties.c:446
 msgid "New Windows"
 msgstr "新しいウィンドウ"
 
-#: ../capplets/windows/mate-window-properties.c:454
+#: ../capplets/windows/ukui-window-properties.c:454
 msgid "Center _new windows"
 msgstr "新しいウィンドウを中央に(_N)"
 
 #. Window Snapping
-#: ../capplets/windows/mate-window-properties.c:459
+#: ../capplets/windows/ukui-window-properties.c:459
 msgid "Window Snapping"
 msgstr "ウインドウのスナップ"
 
-#: ../capplets/windows/mate-window-properties.c:467
+#: ../capplets/windows/ukui-window-properties.c:467
 msgid "Enable side by side _tiling"
 msgstr "サイドバイサイドのタイリングを有効に(_T)"
 
 #. Window Selection
-#: ../capplets/windows/mate-window-properties.c:472
+#: ../capplets/windows/ukui-window-properties.c:472
 msgid "Window Selection"
 msgstr "ウィンドウの選択"
 
-#: ../capplets/windows/mate-window-properties.c:492
+#: ../capplets/windows/ukui-window-properties.c:492
 msgid "_Select windows when the mouse moves over them"
 msgstr "マウスが移動した先のウィンドウを選択する(_S)"
 
-#: ../capplets/windows/mate-window-properties.c:495
+#: ../capplets/windows/ukui-window-properties.c:495
 msgid "U_nselect windows when the mouse leaves them"
 msgstr "マウスが離れた際にウィンドウの選択を解除する(_N)"
 
-#: ../capplets/windows/mate-window-properties.c:499
+#: ../capplets/windows/ukui-window-properties.c:499
 msgid "_Raise selected windows after an interval"
 msgstr "マウスが移動した先のウィンドウを前面に出す(_R)"
 
-#: ../capplets/windows/mate-window-properties.c:510
+#: ../capplets/windows/ukui-window-properties.c:510
 msgid "_Interval before raising:"
 msgstr "前面に出すまでの時間(_I):"
 
-#: ../capplets/windows/mate-window-properties.c:514
+#: ../capplets/windows/ukui-window-properties.c:514
 msgid "seconds"
 msgstr "秒"
 
 #. Titlebar Action
-#: ../capplets/windows/mate-window-properties.c:525
+#: ../capplets/windows/ukui-window-properties.c:525
 msgid "Titlebar Action"
 msgstr "タイトルバーアクション"
 
-#: ../capplets/windows/mate-window-properties.c:533
+#: ../capplets/windows/ukui-window-properties.c:533
 msgid "_Double-click titlebar to perform this action:"
 msgstr "タイトルバーをダブルクリックした際の動作(_D):"
 
 #. Movement Key
-#: ../capplets/windows/mate-window-properties.c:541
+#: ../capplets/windows/ukui-window-properties.c:541
 msgid "Movement Key"
 msgstr "ウィンドウの移動"
 
-#: ../capplets/windows/mate-window-properties.c:552
+#: ../capplets/windows/ukui-window-properties.c:552
 msgid "To move a window, press-and-hold this key then grab the window:"
 msgstr "ウィンドウをつかんで移動する際に使用する修飾キー:"
 
-#: ../capplets/windows/mate-window-properties.c:580
-#: ../libwindow-settings/marco-window-manager.c:394
+#: ../capplets/windows/ukui-window-properties.c:580
+#: ../libwindow-settings/ukwm-window-manager.c:394
 msgid "Roll up"
 msgstr "巻き上げる"
 
-#: ../capplets/windows/mate-window-properties.c:581
-#: ../libwindow-settings/marco-window-manager.c:395
+#: ../capplets/windows/ukui-window-properties.c:581
+#: ../libwindow-settings/ukwm-window-manager.c:395
 msgid "Maximize"
 msgstr "最大化する"
 
-#: ../capplets/windows/mate-window-properties.c:582
-#: ../libwindow-settings/marco-window-manager.c:396
+#: ../capplets/windows/ukui-window-properties.c:582
+#: ../libwindow-settings/ukwm-window-manager.c:396
 msgid "Maximize Horizontally"
 msgstr "横方向に最大化する"
 
-#: ../capplets/windows/mate-window-properties.c:583
-#: ../libwindow-settings/marco-window-manager.c:397
+#: ../capplets/windows/ukui-window-properties.c:583
+#: ../libwindow-settings/ukwm-window-manager.c:397
 msgid "Maximize Vertically"
 msgstr "縦方向に最大化する"
 
-#: ../capplets/windows/mate-window-properties.c:584
-#: ../libwindow-settings/marco-window-manager.c:398
+#: ../capplets/windows/ukui-window-properties.c:584
+#: ../libwindow-settings/ukwm-window-manager.c:398
 msgid "Minimize"
 msgstr "最小化する"
 
-#: ../capplets/windows/mate-window-properties.c:585
-#: ../libwindow-settings/marco-window-manager.c:399
+#: ../capplets/windows/ukui-window-properties.c:585
+#: ../libwindow-settings/ukwm-window-manager.c:399
 msgid "None"
 msgstr "何もしない"
 
-#: ../capplets/windows/mate-window-properties.c:786
+#: ../capplets/windows/ukui-window-properties.c:786
 msgid "_Alt"
 msgstr "_Alt"
 
-#: ../capplets/windows/mate-window-properties.c:792
+#: ../capplets/windows/ukui-window-properties.c:792
 msgid "H_yper"
 msgstr "H_yper"
 
-#: ../capplets/windows/mate-window-properties.c:799
+#: ../capplets/windows/ukui-window-properties.c:799
 msgid "S_uper (or \"Windows logo\")"
 msgstr "S_uper (Windows キー)"
 
-#: ../capplets/windows/mate-window-properties.c:806
+#: ../capplets/windows/ukui-window-properties.c:806
 msgid "_Meta"
 msgstr "_Meta"
 
-#: ../capplets/windows/mate-window-properties.desktop.in.in.h:1
+#: ../capplets/windows/ukui-window-properties.desktop.in.in.h:1
 msgid "Windows"
 msgstr "ウィンドウ"
 
-#: ../capplets/windows/mate-window-properties.desktop.in.in.h:2
+#: ../capplets/windows/ukui-window-properties.desktop.in.in.h:2
 msgid "Set your window properties"
 msgstr "ウィンドウのプロパティを設定します"
 
-#: ../libwindow-settings/mate-wm-manager.c:317
+#: ../libwindow-settings/ukui-wm-manager.c:317
 #, c-format
 msgid "Window manager \"%s\" has not registered a configuration tool\n"
 msgstr "ウィンドウマネージャ \"%s\" には設定ツールが登録されていません。\n"
@@ -2610,14 +2610,14 @@ msgstr "グループ"
 msgid "Common Tasks"
 msgstr "よく利用するタスク"
 
-#: ../shell/control-center.c:203 ../shell/matecc.desktop.in.in.h:1
-#: ../shell/matecc.directory.in.h:1
+#: ../shell/control-center.c:203 ../shell/ukuicc.desktop.in.in.h:1
+#: ../shell/ukuicc.directory.in.h:1
 msgid "Control Center"
 msgstr "コントロールセンター"
 
-#: ../shell/matecc.desktop.in.in.h:2
-msgid "The MATE configuration tool"
-msgstr "MATE デスクトップの設定ツール"
+#: ../shell/ukuicc.desktop.in.in.h:2
+msgid "The UKUI configuration tool"
+msgstr "UKUI デスクトップの設定ツール"
 
 #: ../typing-break/drw-break-window.c:203
 msgid "_Postpone Break"
@@ -2693,7 +2693,7 @@ msgid ""
 "don't seem to have a notification area on your panel. You can add it by "
 "right-clicking on your panel and choosing 'Add to panel', selecting "
 "'Notification area' and clicking 'Add'."
-msgstr "MATE 一休み催促ツールは情報を表示するために通知スペースを利用しますが、お使いのパネルには通知スペースが無いようです。通知スペースはパネルの上で右クリックして \"パネルへ追加\" を選択して、ダイアログから [通知スペース] のエントリを選択して \"追加\" ボタンをクリックしてください。"
+msgstr "UKUI 一休み催促ツールは情報を表示するために通知スペースを利用しますが、お使いのパネルには通知スペースが無いようです。通知スペースはパネルの上で右クリックして \"パネルへ追加\" を選択して、ダイアログから [通知スペース] のエントリを選択して \"追加\" ボタンをクリックしてください。"
 
 #: ../font-viewer/font-view.c:360 ../font-viewer/font-view.c:362
 msgid "Name:"
@@ -2742,11 +2742,11 @@ msgstr "使い方: %s フォントファイル\n"
 msgid "I_nstall Font"
 msgstr "フォントのインストール(_N)"
 
-#: ../font-viewer/mate-font-viewer.desktop.in.in.h:1
+#: ../font-viewer/ukui-font-viewer.desktop.in.in.h:1
 msgid "Font Viewer"
 msgstr "フォントビューアー"
 
-#: ../font-viewer/mate-font-viewer.desktop.in.in.h:2
+#: ../font-viewer/ukui-font-viewer.desktop.in.in.h:2
 msgid "Preview fonts"
 msgstr "いろいろなフォントをプレビューします"
 

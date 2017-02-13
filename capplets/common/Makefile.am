@@ -1,18 +1,18 @@
 EXTRA_DIST =
 
 AM_CPPFLAGS = \
-	-DMATECC_DATA_DIR="\"$(pkgdatadir)\""				\
-	-DMATELOCALEDIR="\"$(datadir)/locale\""			\
+	-DUKUICC_DATA_DIR="\"$(pkgdatadir)\""				\
+	-DUKUILOCALEDIR="\"$(datadir)/locale\""			\
 	-DGTK_ENGINE_DIR="\"$(GTK_ENGINE_DIR)\"" 			\
 	-DG_LOG_DOMAIN=\"capplet-common\"				\
 	-DINSTALL_PREFIX=\"$(prefix)\"					\
 	-I$(top_srcdir)							\
 	-I$(top_srcdir)/libwindow-settings				\
-	-DPIXMAP_DIR=\""$(datadir)/mate-control-center/pixmaps"\"	\
+	-DPIXMAP_DIR=\""$(datadir)/ukui-control-center/pixmaps"\"	\
 	$(CAPPLET_CFLAGS)						\
 	$(DBUS_CFLAGS)							\
-	$(MATE_DESKTOP_CFLAGS)						\
-	$(MARCO_CFLAGS)						\
+	$(UKUI_DESKTOP_CFLAGS)						\
+	$(UKWM_CFLAGS)						\
 	$(GSD_DBUS_CFLAGS)						\
 	$(GIO_CFLAGS)						\
 	$(DCONF_CFLAGS)
@@ -31,10 +31,10 @@ libcommon_la_SOURCES = \
 	dconf-util.h				\
 	file-transfer-dialog.c		\
 	file-transfer-dialog.h		\
-	mate-theme-apply.c		\
-	mate-theme-apply.h 		\
-	mate-theme-info.c		\
-	mate-theme-info.h		\
+	ukui-theme-apply.c		\
+	ukui-theme-apply.h 		\
+	ukui-theme-info.c		\
+	ukui-theme-info.h		\
 	gtkrc-utils.c			\
 	gtkrc-utils.h			\
 	theme-thumbnail.c		\
@@ -43,22 +43,22 @@ libcommon_la_SOURCES = \
 	wm-common.h
 
 libcommon_la_LIBADD =							\
-	$(top_builddir)/libwindow-settings/libmate-window-settings.la  \
-	$(MARCO_LIBS)						\
+	$(top_builddir)/libwindow-settings/libukui-window-settings.la  \
+	$(UKWM_LIBS)						\
 	$(DBUS_LIBS)							\
-	$(MATE_DESKTOP_LIBS)						\
+	$(UKUI_DESKTOP_LIBS)						\
 	$(GIO_LIBS)									\
 	$(DCONF_LIBS)
 
-mate_theme_test_SOURCES = \
-	mate-theme-test.c
+ukui_theme_test_SOURCES = \
+	ukui-theme-test.c
 
-mate_theme_test_LDADD = 						\
+ukui_theme_test_LDADD = 						\
 	libcommon.la							\
-	$(MATECC_CAPPLETS_LIBS)						\
-	$(MATECC_LIBS)
+	$(UKUICC_CAPPLETS_LIBS)						\
+	$(UKUICC_LIBS)
 
 noinst_PROGRAMS = \
-	mate-theme-test
+	ukui-theme-test
 
 -include $(top_srcdir)/git.mk

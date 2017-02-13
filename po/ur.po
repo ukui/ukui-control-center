@@ -2520,32 +2520,32 @@ msgid "To move a window, press-and-hold this key then grab the window:"
 msgstr "دریچے کو حرکت دینے کے لیے، اس کلید کو دبائے رکھیں اور پھر دریچہ اُچکیں:"
 
 #: ../capplets/windows/mate-window-properties.c:580
-#: ../libwindow-settings/marco-window-manager.c:394
+#: ../libwindow-settings/ukwm-window-manager.c:394
 msgid "Roll up"
 msgstr "اوپر لپیٹیں"
 
 #: ../capplets/windows/mate-window-properties.c:581
-#: ../libwindow-settings/marco-window-manager.c:395
+#: ../libwindow-settings/ukwm-window-manager.c:395
 msgid "Maximize"
 msgstr "بڑا کریں"
 
 #: ../capplets/windows/mate-window-properties.c:582
-#: ../libwindow-settings/marco-window-manager.c:396
+#: ../libwindow-settings/ukwm-window-manager.c:396
 msgid "Maximize Horizontally"
 msgstr "اُفقی طور پر بڑا کریں"
 
 #: ../capplets/windows/mate-window-properties.c:583
-#: ../libwindow-settings/marco-window-manager.c:397
+#: ../libwindow-settings/ukwm-window-manager.c:397
 msgid "Maximize Vertically"
 msgstr "عموداً بڑا کریں"
 
 #: ../capplets/windows/mate-window-properties.c:584
-#: ../libwindow-settings/marco-window-manager.c:398
+#: ../libwindow-settings/ukwm-window-manager.c:398
 msgid "Minimize"
 msgstr "جھکائیں"
 
 #: ../capplets/windows/mate-window-properties.c:585
-#: ../libwindow-settings/marco-window-manager.c:399
+#: ../libwindow-settings/ukwm-window-manager.c:399
 msgid "None"
 msgstr "کچھ نہیں"
 

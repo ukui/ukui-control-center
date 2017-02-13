@@ -2,9 +2,9 @@
 
 /* capplet-util.h
  * Copyright (C) 2001 Ximian, Inc.
- *
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * Written by Bradford Hovinen <hovinen@ximian.com>
- *
+ * Modified by zhangshuhao <zhangshuhao@kylinos.cn>
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2, or (at your option)

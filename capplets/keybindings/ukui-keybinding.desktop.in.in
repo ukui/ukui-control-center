@@ -1,0 +1,11 @@
+[Desktop Entry]
+_Name=Keyboard Shortcuts
+_Comment=Assign shortcut keys to commands
+Exec=ukui-keybinding-properties
+Icon=preferences-desktop-keyboard-shortcuts
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GTK;Settings;HardwareSettings;
+Keywords=ukui-control-center;UKUI;assign;keyboard;shortcuts;keybindings;
+OnlyShowIn=UKUI;

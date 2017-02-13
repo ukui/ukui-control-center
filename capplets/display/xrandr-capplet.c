@@ -1,7 +1,7 @@
 /* Monitor Settings. A preference panel for configuring monitors
  *
  * Copyright (C) 2007, 2008  Red Hat, Inc.
- *
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -17,6 +17,7 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
  * Author: Soren Sandmann <sandmann@redhat.com>
+ * Modified by: zhangshuhao <zhangshuhao@kylinos.cn>
  */
 
 #include <config.h>
@@ -26,11 +27,11 @@
 
 #include <gtk/gtk.h>
 #include "scrollarea.h"
-#define MATE_DESKTOP_USE_UNSTABLE_API
-#include <libmate-desktop/mate-desktop-utils.h>
-#include <libmate-desktop/mate-rr.h>
-#include <libmate-desktop/mate-rr-config.h>
-#include <libmate-desktop/mate-rr-labeler.h>
+#define UKUI_DESKTOP_USE_UNSTABLE_API
+#include <libukui-desktop/ukui-desktop-utils.h>
+#include <libukui-desktop/ukui-rr.h>
+#include <libukui-desktop/ukui-rr-config.h>
+#include <libukui-desktop/ukui-rr-labeler.h>
 #include <gdk/gdkx.h>
 #include <X11/Xlib.h>
 #include <glib/gi18n.h>
@@ -47,10 +48,10 @@ typedef struct GrabInfo GrabInfo;
 
 struct App
 {
-    MateRRScreen       *screen;
-    MateRRConfig  *current_configuration;
-    MateRRLabeler *labeler;
-    MateRROutputInfo         *current_output;
+    UkuiRRScreen       *screen;
+    UkuiRRConfig  *current_configuration;
+    UkuiRRLabeler *labeler;
+    UkuiRROutputInfo         *current_output;
 
     GtkWidget	   *dialog;
     GtkWidget      *current_monitor_event_box;
@@ -93,13 +94,13 @@ enum {
 static void rebuild_gui (App *app);
 static void on_clone_changed (GtkWidget *box, gpointer data);
 static void on_rate_changed (GtkComboBox *box, gpointer data);
-static gboolean output_overlaps (MateRROutputInfo *output, MateRRConfig *config);
+static gboolean output_overlaps (UkuiRROutputInfo *output, UkuiRRConfig *config);
 static void select_current_output_from_dialog_position (App *app);
 static void monitor_on_off_toggled_cb (GtkToggleButton *toggle, gpointer data);
-static void get_geometry (MateRROutputInfo *output, int *w, int *h);
+static void get_geometry (UkuiRROutputInfo *output, int *w, int *h);
 static void apply_configuration_returned_cb (DBusGProxy *proxy, DBusGProxyCall *call_id, void *data);
-static gboolean get_clone_size (MateRRScreen *screen, int *width, int *height);
-static gboolean output_info_supports_mode (App *app, MateRROutputInfo *info, int width, int height);
+static gboolean get_clone_size (UkuiRRScreen *screen, int *width, int *height);
+static gboolean output_info_supports_mode (App *app, UkuiRROutputInfo *info, int width, int height);
 
 static void
 error_message (App *app, const char *primary_text, const char *secondary_text)
@@ -135,13 +136,13 @@ idle_free (gchar *s)
 }
 
 static void
-on_screen_changed (MateRRScreen *scr,
+on_screen_changed (UkuiRRScreen *scr,
 		   gpointer data)
 {
-    MateRRConfig *current;
+    UkuiRRConfig *current;
     App *app = data;
 
-    current = mate_rr_config_new_current (app->screen, NULL);
+    current = ukui_rr_config_new_current (app->screen, NULL);
 
     if (app->current_configuration)
 	g_object_unref (app->current_configuration);
@@ -150,11 +151,11 @@ on_screen_changed (MateRRScreen *scr,
     app->current_output = NULL;
 
     if (app->labeler) {
-	mate_rr_labeler_hide (app->labeler);
+	ukui_rr_labeler_hide (app->labeler);
 	g_object_unref (app->labeler);
     }
 
-    app->labeler = mate_rr_labeler_new (app->current_configuration);
+    app->labeler = ukui_rr_labeler_new (app->current_configuration);
 
     select_current_output_from_dialog_position (app);
 }
@@ -229,7 +230,7 @@ static void
 add_key (GtkWidget *widget,
 	 const char *text,
 	 int width, int height, int rate,
-	 MateRRRotation rotation)
+	 UkuiRRRotation rotation)
 {
     ForeachInfo info;
     GtkComboBox *box = GTK_COMBO_BOX (widget);
@@ -275,27 +276,27 @@ combo_select (GtkWidget *widget, const char *text)
     return TRUE;
 }
 
-static MateRRMode **
+static UkuiRRMode **
 get_current_modes (App *app)
 {
-    MateRROutput *output;
+    UkuiRROutput *output;
 
-    if (mate_rr_config_get_clone (app->current_configuration))
+    if (ukui_rr_config_get_clone (app->current_configuration))
     {
-	return mate_rr_screen_list_clone_modes (app->screen);
+	return ukui_rr_screen_list_clone_modes (app->screen);
     }
     else
     {
 	if (!app->current_output)
 	    return NULL;
 
-	output = mate_rr_screen_get_output_by_name (app->screen,
-	    mate_rr_output_info_get_name (app->current_output));
+	output = ukui_rr_screen_get_output_by_name (app->screen,
+	    ukui_rr_output_info_get_name (app->current_output));
 
 	if (!output)
 	    return NULL;
 
-	return mate_rr_output_list_modes (output);
+	return ukui_rr_output_list_modes (output);
     }
 }
 
@@ -304,38 +305,38 @@ rebuild_rotation_combo (App *app)
 {
     typedef struct
     {
-	MateRRRotation	rotation;
+	UkuiRRRotation	rotation;
 	const char *	name;
     } RotationInfo;
     static const RotationInfo rotations[] = {
-	{ MATE_RR_ROTATION_0, N_("Normal") },
-	{ MATE_RR_ROTATION_90, N_("Left") },
-	{ MATE_RR_ROTATION_270, N_("Right") },
-	{ MATE_RR_ROTATION_180, N_("Upside Down") },
+	{ UKUI_RR_ROTATION_0, N_("Normal") },
+	{ UKUI_RR_ROTATION_90, N_("Left") },
+	{ UKUI_RR_ROTATION_270, N_("Right") },
+	{ UKUI_RR_ROTATION_180, N_("Upside Down") },
     };
     const char *selection;
-    MateRRRotation current;
+    UkuiRRRotation current;
     int i;
 
     clear_combo (app->rotation_combo);
 
     gtk_widget_set_sensitive (app->rotation_combo,
-                              app->current_output && mate_rr_output_info_is_active (app->current_output));
+                              app->current_output && ukui_rr_output_info_is_active (app->current_output));
 
     if (!app->current_output)
 	return;
 
-    current = mate_rr_output_info_get_rotation (app->current_output);
+    current = ukui_rr_output_info_get_rotation (app->current_output);
 
     selection = NULL;
     for (i = 0; i < G_N_ELEMENTS (rotations); ++i)
     {
 	const RotationInfo *info = &(rotations[i]);
 
-	mate_rr_output_info_set_rotation (app->current_output, info->rotation);
+	ukui_rr_output_info_set_rotation (app->current_output, info->rotation);
 
 	/* NULL-GError --- FIXME: we should say why this rotation is not available! */
-	if (mate_rr_config_applicable (app->current_configuration, app->screen, NULL))
+	if (ukui_rr_config_applicable (app->current_configuration, app->screen, NULL))
 	{
  	    add_key (app->rotation_combo, _(info->name), 0, 0, 0, info->rotation);
 
@@ -344,7 +345,7 @@ rebuild_rotation_combo (App *app)
 	}
     }
 
-    mate_rr_output_info_set_rotation (app->current_output, current);
+    ukui_rr_output_info_set_rotation (app->current_output, current);
 
     if (!(selection && combo_select (app->rotation_combo, selection)))
 	combo_select (app->rotation_combo, _("Normal"));
@@ -359,14 +360,14 @@ make_rate_string (int hz)
 static void
 rebuild_rate_combo (App *app)
 {
-    MateRRMode **modes;
+    UkuiRRMode **modes;
     int best;
     int i;
 
     clear_combo (app->refresh_combo);
 
     gtk_widget_set_sensitive (
-	app->refresh_combo, app->current_output && mate_rr_output_info_is_active (app->current_output));
+	app->refresh_combo, app->current_output && ukui_rr_output_info_is_active (app->current_output));
 
     if (!app->current_output
         || !(modes = get_current_modes (app)))
@@ -375,15 +376,15 @@ rebuild_rate_combo (App *app)
     best = -1;
     for (i = 0; modes[i] != NULL; ++i)
     {
-	MateRRMode *mode = modes[i];
+	UkuiRRMode *mode = modes[i];
 	int width, height, rate;
 	int output_width, output_height;
 
-	mate_rr_output_info_get_geometry (app->current_output, NULL, NULL, &output_width, &output_height);
+	ukui_rr_output_info_get_geometry (app->current_output, NULL, NULL, &output_width, &output_height);
 
-	width = mate_rr_mode_get_width (mode);
-	height = mate_rr_mode_get_height (mode);
-	rate = mate_rr_mode_get_freq (mode);
+	width = ukui_rr_mode_get_width (mode);
+	height = ukui_rr_mode_get_height (mode);
+	rate = ukui_rr_mode_get_freq (mode);
 
 	if (width == output_width		&&
 	    height == output_height)
@@ -397,7 +398,7 @@ rebuild_rate_combo (App *app)
 	}
     }
 
-    if (!combo_select (app->refresh_combo, idle_free (make_rate_string (mate_rr_output_info_get_refresh_rate (app->current_output)))))
+    if (!combo_select (app->refresh_combo, idle_free (make_rate_string (ukui_rr_output_info_get_refresh_rate (app->current_output)))))
 	combo_select (app->refresh_combo, idle_free (make_rate_string (best)));
 }
 
@@ -405,11 +406,11 @@ static int
 count_active_outputs (App *app)
 {
     int i, count = 0;
-    MateRROutputInfo **outputs = mate_rr_config_get_outputs (app->current_configuration);
+    UkuiRROutputInfo **outputs = ukui_rr_config_get_outputs (app->current_configuration);
 
     for (i = 0; outputs[i] != NULL; ++i)
     {
-	if (mate_rr_output_info_is_active (outputs[i]))
+	if (ukui_rr_output_info_is_active (outputs[i]))
 	    count++;
     }
 
@@ -436,7 +437,7 @@ mirror_screens_is_supported (App *app)
     if (have_clone_size) {
 	int i;
 	int num_outputs_with_clone_size;
-	MateRROutputInfo **outputs = mate_rr_config_get_outputs (app->current_configuration);
+	UkuiRROutputInfo **outputs = ukui_rr_config_get_outputs (app->current_configuration);
 
 	num_outputs_with_clone_size = 0;
 
@@ -446,7 +447,7 @@ mirror_screens_is_supported (App *app)
 	     * doesn't matter if those outputs aren't actually On currently; we
 	     * will turn them on in on_clone_changed().
 	     */
-	    if (mate_rr_output_info_is_connected (outputs[i]) && output_info_supports_mode (app, outputs[i], clone_width, clone_height))
+	    if (ukui_rr_output_info_is_connected (outputs[i]) && output_info_supports_mode (app, outputs[i], clone_width, clone_height))
 		num_outputs_with_clone_size++;
 	}
 
@@ -465,7 +466,7 @@ rebuild_mirror_screens (App *app)
 
     g_signal_handlers_block_by_func (app->clone_checkbox, G_CALLBACK (on_clone_changed), app);
 
-    mirror_is_active = app->current_configuration && mate_rr_config_get_clone (app->current_configuration);
+    mirror_is_active = app->current_configuration && ukui_rr_config_get_clone (app->current_configuration);
 
     /* If mirror_is_active, then it *must* be possible to turn mirroring off */
     mirror_is_supported = mirror_is_active || mirror_screens_is_supported (app);
@@ -489,16 +490,16 @@ rebuild_current_monitor_label (App *app)
 
 	if (app->current_output)
 	{
-	    if (mate_rr_config_get_clone (app->current_configuration))
+	    if (ukui_rr_config_get_clone (app->current_configuration))
 		tmp = g_strdup (_("Mirror Screens"));
 	    else
-		tmp = g_strdup_printf (_("Monitor: %s"), mate_rr_output_info_get_display_name (app->current_output));
+		tmp = g_strdup_printf (_("Monitor: %s"), ukui_rr_output_info_get_display_name (app->current_output));
 
 	    str = g_strdup_printf ("<b>%s</b>", tmp);
 #if GTK_CHECK_VERSION (3, 0, 0)
-	    mate_rr_labeler_get_rgba_for_output (app->labeler, app->current_output, &color);
+	    ukui_rr_labeler_get_rgba_for_output (app->labeler, app->current_output, &color);
 #else
-	    mate_rr_labeler_get_color_for_output (app->labeler, app->current_output, &color);
+	    ukui_rr_labeler_get_color_for_output (app->labeler, app->current_output, &color);
 #endif
 	    use_color = TRUE;
 	    g_free (tmp);
@@ -564,14 +565,14 @@ rebuild_on_off_radios (App *app)
     on_active = FALSE;
     off_active = FALSE;
 
-    if (!mate_rr_config_get_clone (app->current_configuration) && app->current_output)
+    if (!ukui_rr_config_get_clone (app->current_configuration) && app->current_output)
     {
-	if (count_active_outputs (app) > 1 || !mate_rr_output_info_is_active (app->current_output))
+	if (count_active_outputs (app) > 1 || !ukui_rr_output_info_is_active (app->current_output))
 	    sensitive = TRUE;
 	else
 	    sensitive = FALSE;
 
-	on_active = mate_rr_output_info_is_active (app->current_output);
+	on_active = ukui_rr_output_info_is_active (app->current_output);
 	off_active = !on_active;
     }
 
@@ -592,7 +593,7 @@ make_resolution_string (int width, int height)
 }
 
 static void
-find_best_mode (MateRRMode **modes, int *out_width, int *out_height)
+find_best_mode (UkuiRRMode **modes, int *out_width, int *out_height)
 {
     int i;
 
@@ -603,8 +604,8 @@ find_best_mode (MateRRMode **modes, int *out_width, int *out_height)
     {
 	int w, h;
 
-	w = mate_rr_mode_get_width (modes[i]);
-	h = mate_rr_mode_get_height (modes[i]);
+	w = ukui_rr_mode_get_width (modes[i]);
+	h = ukui_rr_mode_get_height (modes[i]);
 
 	if (w * h > *out_width * *out_height)
 	{
@@ -618,7 +619,7 @@ static void
 rebuild_resolution_combo (App *app)
 {
     int i;
-    MateRRMode **modes;
+    UkuiRRMode **modes;
     const char *current;
     int output_width, output_height;
 
@@ -626,7 +627,7 @@ rebuild_resolution_combo (App *app)
 
     if (!(modes = get_current_modes (app))
 	|| !app->current_output
-	|| !mate_rr_output_info_is_active (app->current_output))
+	|| !ukui_rr_output_info_is_active (app->current_output))
     {
 	gtk_widget_set_sensitive (app->resolution_combo, FALSE);
 	return;
@@ -634,7 +635,7 @@ rebuild_resolution_combo (App *app)
 
     g_assert (app->current_output != NULL);
 
-    mate_rr_output_info_get_geometry (app->current_output, NULL, NULL, &output_width, &output_height);
+    ukui_rr_output_info_get_geometry (app->current_output, NULL, NULL, &output_width, &output_height);
     g_assert (output_width != 0 && output_height != 0);
 
     gtk_widget_set_sensitive (app->resolution_combo, TRUE);
@@ -643,8 +644,8 @@ rebuild_resolution_combo (App *app)
     {
 	int width, height;
 
-	width = mate_rr_mode_get_width (modes[i]);
-	height = mate_rr_mode_get_height (modes[i]);
+	width = ukui_rr_mode_get_width (modes[i]);
+	height = ukui_rr_mode_get_height (modes[i]);
 
 	add_key (app->resolution_combo,
 		 idle_free (make_resolution_string (width, height)),
@@ -677,7 +678,7 @@ rebuild_gui (App *app)
     sensitive = app->current_output ? TRUE : FALSE;
 
 #if 0
-    g_debug ("rebuild gui, is on: %d", mate_rr_output_info_is_active (app->current_output));
+    g_debug ("rebuild gui, is on: %d", ukui_rr_output_info_is_active (app->current_output));
 #endif
 
     rebuild_mirror_screens (app);
@@ -688,17 +689,17 @@ rebuild_gui (App *app)
     rebuild_rotation_combo (app);
 
 #if 0
-    g_debug ("sensitive: %d, on: %d", sensitive, mate_rr_output_info_is_active (app->current_output));
+    g_debug ("sensitive: %d, on: %d", sensitive, ukui_rr_output_info_is_active (app->current_output));
 #endif
     gtk_widget_set_sensitive (app->panel_checkbox, sensitive);
 
-    gtk_widget_set_sensitive (app->primary_button, app->current_output && !mate_rr_output_info_get_primary(app->current_output));
+    gtk_widget_set_sensitive (app->primary_button, app->current_output && !ukui_rr_output_info_get_primary(app->current_output));
 
     app->ignore_gui_changes = FALSE;
 }
 
 static gboolean
-get_mode (GtkWidget *widget, int *width, int *height, int *freq, MateRRRotation *rot)
+get_mode (GtkWidget *widget, int *width, int *height, int *freq, UkuiRRRotation *rot)
 {
     GtkTreeIter iter;
     GtkTreeModel *model;
@@ -718,7 +719,7 @@ get_mode (GtkWidget *widget, int *width, int *height, int *freq, MateRRRotation 
 	freq = &dummy;
 
     if (!rot)
-	rot = (MateRRRotation *)&dummy;
+	rot = (UkuiRRRotation *)&dummy;
 
     model = gtk_combo_box_get_model (box);
     gtk_tree_model_get (model, &iter,
@@ -736,13 +737,13 @@ static void
 on_rotation_changed (GtkComboBox *box, gpointer data)
 {
     App *app = data;
-    MateRRRotation rotation;
+    UkuiRRRotation rotation;
 
     if (!app->current_output)
 	return;
 
     if (get_mode (app->rotation_combo, NULL, NULL, NULL, &rotation))
-	mate_rr_output_info_set_rotation (app->current_output, rotation);
+	ukui_rr_output_info_set_rotation (app->current_output, rotation);
 
     foo_scroll_area_invalidate (FOO_SCROLL_AREA (app->area));
 }
@@ -757,7 +758,7 @@ on_rate_changed (GtkComboBox *box, gpointer data)
 	return;
 
     if (get_mode (app->refresh_combo, NULL, NULL, &rate, NULL))
-	mate_rr_output_info_set_refresh_rate (app->current_output, rate);
+	ukui_rr_output_info_set_refresh_rate (app->current_output, rate);
 
     foo_scroll_area_invalidate (FOO_SCROLL_AREA (app->area));
 }
@@ -765,17 +766,17 @@ on_rate_changed (GtkComboBox *box, gpointer data)
 static void
 select_resolution_for_current_output (App *app)
 {
-    MateRRMode **modes;
+    UkuiRRMode **modes;
     int width, height;
     int x, y;
-    mate_rr_output_info_get_geometry (app->current_output, &x, &y, NULL, NULL);
+    ukui_rr_output_info_get_geometry (app->current_output, &x, &y, NULL, NULL);
 
-    width = mate_rr_output_info_get_preferred_width (app->current_output);
-    height = mate_rr_output_info_get_preferred_height (app->current_output);
+    width = ukui_rr_output_info_get_preferred_width (app->current_output);
+    height = ukui_rr_output_info_get_preferred_height (app->current_output);
 
     if (width != 0 && height != 0)
     {
-	mate_rr_output_info_set_geometry (app->current_output, x, y, width, height);
+	ukui_rr_output_info_set_geometry (app->current_output, x, y, width, height);
 	return;
     }
 
@@ -785,7 +786,7 @@ select_resolution_for_current_output (App *app)
 
     find_best_mode (modes, &width, &height);
 
-    mate_rr_output_info_set_geometry (app->current_output, x, y, width, height);
+    ukui_rr_output_info_set_geometry (app->current_output, x, y, width, height);
 }
 
 static void
@@ -810,7 +811,7 @@ monitor_on_off_toggled_cb (GtkToggleButton *toggle, gpointer data)
 	return;
     }
 
-    mate_rr_output_info_set_active (app->current_output, is_on);
+    ukui_rr_output_info_set_active (app->current_output, is_on);
 
     if (is_on)
 	select_resolution_for_current_output (app); /* The refresh rate will be picked in rebuild_rate_combo() */
@@ -820,7 +821,7 @@ monitor_on_off_toggled_cb (GtkToggleButton *toggle, gpointer data)
 }
 
 static void
-realign_outputs_after_resolution_change (App *app, MateRROutputInfo *output_that_changed, int old_width, int old_height)
+realign_outputs_after_resolution_change (App *app, UkuiRROutputInfo *output_that_changed, int old_width, int old_height)
 {
     /* We find the outputs that were below or to the right of the output that
      * changed, and realign them; we also do that for outputs that shared the
@@ -832,11 +833,11 @@ realign_outputs_after_resolution_change (App *app, MateRROutputInfo *output_that
     int old_right_edge, old_bottom_edge;
     int dx, dy;
     int x, y, width, height;
-    MateRROutputInfo **outputs;
+    UkuiRROutputInfo **outputs;
 
     g_assert (app->current_configuration != NULL);
 
-    mate_rr_output_info_get_geometry (output_that_changed, &x, &y, &width, &height);
+    ukui_rr_output_info_get_geometry (output_that_changed, &x, &y, &width, &height);
     if (width == old_width && height == old_height)
 	return;
 
@@ -846,17 +847,17 @@ realign_outputs_after_resolution_change (App *app, MateRROutputInfo *output_that
     dx = width - old_width;
     dy = height - old_height;
 
-    outputs = mate_rr_config_get_outputs (app->current_configuration);
+    outputs = ukui_rr_config_get_outputs (app->current_configuration);
 
     for (i = 0; outputs[i] != NULL; i++)
       {
         int output_x, output_y;
 	int output_width, output_height;
 
-	if (outputs[i] == output_that_changed || mate_rr_output_info_is_connected (outputs[i]))
+	if (outputs[i] == output_that_changed || ukui_rr_output_info_is_connected (outputs[i]))
 	  continue;
 
-	mate_rr_output_info_get_geometry (outputs[i], &output_x, &output_y, &output_width, &output_height);
+	ukui_rr_output_info_get_geometry (outputs[i], &output_x, &output_y, &output_width, &output_height);
 
 	if (output_x >= old_right_edge)
 	  output_x += dx;
@@ -869,7 +870,7 @@ realign_outputs_after_resolution_change (App *app, MateRROutputInfo *output_that
 	else if (output_y + output_height == old_bottom_edge)
 	    output_y = y + height - output_height;
 
-	mate_rr_output_info_set_geometry (outputs[i], output_x, output_y, output_width, output_height);
+	ukui_rr_output_info_set_geometry (outputs[i], output_x, output_y, output_width, output_height);
     }
 }
 
@@ -885,16 +886,16 @@ on_resolution_changed (GtkComboBox *box, gpointer data)
     if (!app->current_output)
 	return;
 
-    mate_rr_output_info_get_geometry (app->current_output, &x, &y, &old_width, &old_height);
+    ukui_rr_output_info_get_geometry (app->current_output, &x, &y, &old_width, &old_height);
 
     if (get_mode (app->resolution_combo, &width, &height, NULL, NULL))
     {
-	mate_rr_output_info_set_geometry (app->current_output, x, y, width, height);
+	ukui_rr_output_info_set_geometry (app->current_output, x, y, width, height);
 
 	if (width == 0 || height == 0)
-	    mate_rr_output_info_set_active (app->current_output, FALSE);
+	    ukui_rr_output_info_set_active (app->current_output, FALSE);
 	else
-	    mate_rr_output_info_set_active (app->current_output, TRUE);
+	    ukui_rr_output_info_set_active (app->current_output, TRUE);
     }
 
     realign_outputs_after_resolution_change (app, app->current_output, old_width, old_height);
@@ -910,7 +911,7 @@ lay_out_outputs_horizontally (App *app)
 {
     int i;
     int x;
-    MateRROutputInfo **outputs;
+    UkuiRROutputInfo **outputs;
 
     /* Lay out all the monitors horizontally when "mirror screens" is turned
      * off, to avoid having all of them overlapped initially.  We put the
@@ -920,15 +921,15 @@ lay_out_outputs_horizontally (App *app)
     x = 0;
 
     /* First pass, all "on" outputs */
-    outputs = mate_rr_config_get_outputs (app->current_configuration);
+    outputs = ukui_rr_config_get_outputs (app->current_configuration);
 
     for (i = 0; outputs[i]; ++i)
     {
 	int width, height;
-	if (mate_rr_output_info_is_connected (outputs[i]) &&mate_rr_output_info_is_active (outputs[i]))
+	if (ukui_rr_output_info_is_connected (outputs[i]) &&ukui_rr_output_info_is_active (outputs[i]))
 	{
-	    mate_rr_output_info_get_geometry (outputs[i], NULL, NULL, &width, &height);
-	    mate_rr_output_info_set_geometry (outputs[i], x, 0, width, height);
+	    ukui_rr_output_info_get_geometry (outputs[i], NULL, NULL, &width, &height);
+	    ukui_rr_output_info_set_geometry (outputs[i], x, 0, width, height);
 	    x += width;
 	}
     }
@@ -938,23 +939,23 @@ lay_out_outputs_horizontally (App *app)
     for (i = 0; outputs[i]; ++i)
     {
 	int width, height;
-	if (!(mate_rr_output_info_is_connected (outputs[i]) && mate_rr_output_info_is_active (outputs[i])))
+	if (!(ukui_rr_output_info_is_connected (outputs[i]) && ukui_rr_output_info_is_active (outputs[i])))
 	  {
-	    mate_rr_output_info_get_geometry (outputs[i], NULL, NULL, &width, &height);
-	    mate_rr_output_info_set_geometry (outputs[i], x, 0, width, height);
+	    ukui_rr_output_info_get_geometry (outputs[i], NULL, NULL, &width, &height);
+	    ukui_rr_output_info_set_geometry (outputs[i], x, 0, width, height);
 	    x += width;
 	}
     }
 
 }
 
-/* FIXME: this function is copied from mate-settings-daemon/plugins/xrandr/gsd-xrandr-manager.c.
- * Do we need to put this function in mate-desktop for public use?
+/* FIXME: this function is copied from ukui-settings-daemon/plugins/xrandr/gsd-xrandr-manager.c.
+ * Do we need to put this function in ukui-desktop for public use?
  */
 static gboolean
-get_clone_size (MateRRScreen *screen, int *width, int *height)
+get_clone_size (UkuiRRScreen *screen, int *width, int *height)
 {
-        MateRRMode **modes = mate_rr_screen_list_clone_modes (screen);
+        UkuiRRMode **modes = ukui_rr_screen_list_clone_modes (screen);
         int best_w, best_h;
         int i;
 
@@ -962,11 +963,11 @@ get_clone_size (MateRRScreen *screen, int *width, int *height)
         best_h = 0;
 
         for (i = 0; modes[i] != NULL; ++i) {
-                MateRRMode *mode = modes[i];
+                UkuiRRMode *mode = modes[i];
                 int w, h;
 
-                w = mate_rr_mode_get_width (mode);
-                h = mate_rr_mode_get_height (mode);
+                w = ukui_rr_mode_get_width (mode);
+                h = ukui_rr_mode_get_height (mode);
 
                 if (w * h > best_w * best_h) {
                         best_w = w;
@@ -987,24 +988,24 @@ get_clone_size (MateRRScreen *screen, int *width, int *height)
 }
 
 static gboolean
-output_info_supports_mode (App *app, MateRROutputInfo *info, int width, int height)
+output_info_supports_mode (App *app, UkuiRROutputInfo *info, int width, int height)
 {
-    MateRROutput *output;
-    MateRRMode **modes;
+    UkuiRROutput *output;
+    UkuiRRMode **modes;
     int i;
 
-    if (!mate_rr_output_info_is_connected (info))
+    if (!ukui_rr_output_info_is_connected (info))
 	return FALSE;
 
-    output = mate_rr_screen_get_output_by_name (app->screen, mate_rr_output_info_get_name (info));
+    output = ukui_rr_screen_get_output_by_name (app->screen, ukui_rr_output_info_get_name (info));
     if (!output)
 	return FALSE;
 
-    modes = mate_rr_output_list_modes (output);
+    modes = ukui_rr_output_list_modes (output);
 
     for (i = 0; modes[i]; i++) {
-	if (mate_rr_mode_get_width (modes[i]) == width
-	    && mate_rr_mode_get_height (modes[i]) == height)
+	if (ukui_rr_mode_get_width (modes[i]) == width
+	    && ukui_rr_mode_get_height (modes[i]) == height)
 	    return TRUE;
     }
 
@@ -1016,17 +1017,17 @@ on_clone_changed (GtkWidget *box, gpointer data)
 {
     App *app = data;
 
-    mate_rr_config_set_clone (app->current_configuration, gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (app->clone_checkbox)));
+    ukui_rr_config_set_clone (app->current_configuration, gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (app->clone_checkbox)));
 
-    if (mate_rr_config_get_clone (app->current_configuration))
+    if (ukui_rr_config_get_clone (app->current_configuration))
     {
 	int i;
 	int width, height;
-	MateRROutputInfo **outputs = mate_rr_config_get_outputs (app->current_configuration);
+	UkuiRROutputInfo **outputs = ukui_rr_config_get_outputs (app->current_configuration);
 
 	for (i = 0; outputs[i]; ++i)
 	{
-	    if (mate_rr_output_info_is_connected(outputs[i]))
+	    if (ukui_rr_output_info_is_connected(outputs[i]))
 	    {
 		app->current_output = outputs[i];
 		break;
@@ -1043,9 +1044,9 @@ on_clone_changed (GtkWidget *box, gpointer data)
 	for (i = 0; outputs[i]; i++) {
 	    int x, y;
 	    if (output_info_supports_mode (app, outputs[i], width, height)) {
-		mate_rr_output_info_set_active (outputs[i], TRUE);
-		mate_rr_output_info_get_geometry (outputs[i], &x, &y, NULL, NULL);
-		mate_rr_output_info_set_geometry (outputs[i], x, y, width, height);
+		ukui_rr_output_info_set_active (outputs[i], TRUE);
+		ukui_rr_output_info_get_geometry (outputs[i], &x, &y, NULL, NULL);
+		ukui_rr_output_info_set_geometry (outputs[i], x, y, width, height);
 	    }
 	}
     }
@@ -1059,21 +1060,21 @@ on_clone_changed (GtkWidget *box, gpointer data)
 }
 
 static void
-get_geometry (MateRROutputInfo *output, int *w, int *h)
+get_geometry (UkuiRROutputInfo *output, int *w, int *h)
 {
-    MateRRRotation rotation;
+    UkuiRRRotation rotation;
 
-    if (mate_rr_output_info_is_active (output))
+    if (ukui_rr_output_info_is_active (output))
     {
-	mate_rr_output_info_get_geometry (output, NULL, NULL, w, h);
+	ukui_rr_output_info_get_geometry (output, NULL, NULL, w, h);
     }
     else
     {
-	*h = mate_rr_output_info_get_preferred_height (output);
-	*w = mate_rr_output_info_get_preferred_width (output);
+	*h = ukui_rr_output_info_get_preferred_height (output);
+	*w = ukui_rr_output_info_get_preferred_width (output);
     }
-   rotation = mate_rr_output_info_get_rotation (output);
-   if ((rotation & MATE_RR_ROTATION_90) || (rotation & MATE_RR_ROTATION_270))
+   rotation = ukui_rr_output_info_get_rotation (output);
+   if ((rotation & UKUI_RR_ROTATION_90) || (rotation & UKUI_RR_ROTATION_270))
    {
         int tmp;
         tmp = *h;
@@ -1090,7 +1091,7 @@ list_connected_outputs (App *app, int *total_w, int *total_h)
 {
     int i, dummy;
     GList *result = NULL;
-    MateRROutputInfo **outputs;
+    UkuiRROutputInfo **outputs;
 
     if (!total_w)
 	total_w = &dummy;
@@ -1100,10 +1101,10 @@ list_connected_outputs (App *app, int *total_w, int *total_h)
     *total_w = 0;
     *total_h = 0;
 
-    outputs = mate_rr_config_get_outputs(app->current_configuration);
+    outputs = ukui_rr_config_get_outputs(app->current_configuration);
     for (i = 0; outputs[i] != NULL; ++i)
     {
-	if (mate_rr_output_info_is_connected (outputs[i]))
+	if (ukui_rr_output_info_is_connected (outputs[i]))
 	{
 	    int w, h;
 
@@ -1155,7 +1156,7 @@ compute_scale (App *app)
 
 typedef struct Edge
 {
-    MateRROutputInfo *output;
+    UkuiRROutputInfo *output;
     int x1, y1;
     int x2, y2;
 } Edge;
@@ -1168,7 +1169,7 @@ typedef struct Snap
 } Snap;
 
 static void
-add_edge (MateRROutputInfo *output, int x1, int y1, int x2, int y2, GArray *edges)
+add_edge (UkuiRROutputInfo *output, int x1, int y1, int x2, int y2, GArray *edges)
 {
     Edge e;
 
@@ -1182,11 +1183,11 @@ add_edge (MateRROutputInfo *output, int x1, int y1, int x2, int y2, GArray *edge
 }
 
 static void
-list_edges_for_output (MateRROutputInfo *output, GArray *edges)
+list_edges_for_output (UkuiRROutputInfo *output, GArray *edges)
 {
     int x, y, w, h;
 
-    mate_rr_output_info_get_geometry (output, &x, &y, &w, &h);
+    ukui_rr_output_info_get_geometry (output, &x, &y, &w, &h);
 
     /* Top, Bottom, Left, Right */
     add_edge (output, x, y, x + w, y, edges);
@@ -1196,14 +1197,14 @@ list_edges_for_output (MateRROutputInfo *output, GArray *edges)
 }
 
 static void
-list_edges (MateRRConfig *config, GArray *edges)
+list_edges (UkuiRRConfig *config, GArray *edges)
 {
     int i;
-    MateRROutputInfo **outputs = mate_rr_config_get_outputs (config);
+    UkuiRROutputInfo **outputs = ukui_rr_config_get_outputs (config);
 
     for (i = 0; outputs[i]; ++i)
     {
-	if (mate_rr_output_info_is_connected (outputs[i]))
+	if (ukui_rr_output_info_is_connected (outputs[i]))
 	    list_edges_for_output (outputs[i], edges);
     }
 }
@@ -1289,7 +1290,7 @@ add_edge_snaps (Edge *snapper, Edge *snappee, GArray *snaps)
 }
 
 static void
-list_snaps (MateRROutputInfo *output, GArray *edges, GArray *snaps)
+list_snaps (UkuiRROutputInfo *output, GArray *edges, GArray *snaps)
 {
     int i;
 
@@ -1345,7 +1346,7 @@ edges_align (Edge *e1, Edge *e2)
 }
 
 static gboolean
-output_is_aligned (MateRROutputInfo *output, GArray *edges)
+output_is_aligned (UkuiRROutputInfo *output, GArray *edges)
 {
     gboolean result = FALSE;
     int i;
@@ -1382,24 +1383,24 @@ done:
 }
 
 static void
-get_output_rect (MateRROutputInfo *output, GdkRectangle *rect)
+get_output_rect (UkuiRROutputInfo *output, GdkRectangle *rect)
 {
-    mate_rr_output_info_get_geometry (output, &rect->x, &rect->y, &rect->width, &rect->height);
+    ukui_rr_output_info_get_geometry (output, &rect->x, &rect->y, &rect->width, &rect->height);
 }
 
 static gboolean
-output_overlaps (MateRROutputInfo *output, MateRRConfig *config)
+output_overlaps (UkuiRROutputInfo *output, UkuiRRConfig *config)
 {
     int i;
     GdkRectangle output_rect;
-    MateRROutputInfo **outputs;
+    UkuiRROutputInfo **outputs;
 
     get_output_rect (output, &output_rect);
 
-    outputs = mate_rr_config_get_outputs (config);
+    outputs = ukui_rr_config_get_outputs (config);
     for (i = 0; outputs[i]; ++i)
     {
-	if (outputs[i] != output && mate_rr_output_info_is_connected (outputs[i]))
+	if (outputs[i] != output && ukui_rr_output_info_is_connected (outputs[i]))
 	{
 	    GdkRectangle other_rect;
 
@@ -1413,16 +1414,16 @@ output_overlaps (MateRROutputInfo *output, MateRRConfig *config)
 }
 
 static gboolean
-mate_rr_config_is_aligned (MateRRConfig *config, GArray *edges)
+ukui_rr_config_is_aligned (UkuiRRConfig *config, GArray *edges)
 {
     int i;
     gboolean result = TRUE;
-    MateRROutputInfo **outputs;
+    UkuiRROutputInfo **outputs;
 
-    outputs = mate_rr_config_get_outputs(config);
+    outputs = ukui_rr_config_get_outputs(config);
     for (i = 0; outputs[i]; ++i)
     {
-	if (mate_rr_output_info_is_connected (outputs[i]))
+	if (ukui_rr_output_info_is_connected (outputs[i]))
 	{
 	    if (!output_is_aligned (outputs[i], edges))
 		return FALSE;
@@ -1532,14 +1533,14 @@ on_output_event (FooScrollArea *area,
 		 FooScrollAreaEvent *event,
 		 gpointer data)
 {
-    MateRROutputInfo *output = data;
+    UkuiRROutputInfo *output = data;
     App *app = g_object_get_data (G_OBJECT (area), "app");
 
     /* If the mouse is inside the outputs, set the cursor to "you can move me".  See
      * on_canvas_event() for where we reset the cursor to the default if it
      * exits the outputs' area.
      */
-    if (!mate_rr_config_get_clone (app->current_configuration) && get_n_connected (app) > 1)
+    if (!ukui_rr_config_get_clone (app->current_configuration) && get_n_connected (app) > 1)
 	set_cursor (GTK_WIDGET (area), GDK_FLEUR);
 
     if (event->type == FOO_BUTTON_PRESS)
@@ -1551,10 +1552,10 @@ on_output_event (FooScrollArea *area,
 	rebuild_gui (app);
 	set_monitors_tooltip (app, TRUE);
 
-	if (!mate_rr_config_get_clone (app->current_configuration) && get_n_connected (app) > 1)
+	if (!ukui_rr_config_get_clone (app->current_configuration) && get_n_connected (app) > 1)
 	{
 	    int output_x, output_y;
-	    mate_rr_output_info_get_geometry (output, &output_x, &output_y, NULL, NULL);
+	    ukui_rr_output_info_get_geometry (output, &output_x, &output_y, NULL, NULL);
 
 	    foo_scroll_area_begin_grab (area, on_output_event, data);
 
@@ -1581,11 +1582,11 @@ on_output_event (FooScrollArea *area,
 	    int i;
 	    GArray *edges, *snaps, *new_edges;
 
-	    mate_rr_output_info_get_geometry (output, &old_x, &old_y, &width, &height);
+	    ukui_rr_output_info_get_geometry (output, &old_x, &old_y, &width, &height);
 	    new_x = info->output_x + (event->x - info->grab_x) / scale;
 	    new_y = info->output_y + (event->y - info->grab_y) / scale;
 
-	    mate_rr_output_info_set_geometry (output, new_x, new_y, width, height);
+	    ukui_rr_output_info_set_geometry (output, new_x, new_y, width, height);
 
 	    edges = g_array_new (TRUE, TRUE, sizeof (Edge));
 	    snaps = g_array_new (TRUE, TRUE, sizeof (Snap));
@@ -1596,26 +1597,26 @@ on_output_event (FooScrollArea *area,
 
 	    g_array_sort (snaps, compare_snaps);
 
-	    mate_rr_output_info_set_geometry (output, new_x, new_y, width, height);
+	    ukui_rr_output_info_set_geometry (output, new_x, new_y, width, height);
 
 	    for (i = 0; i < snaps->len; ++i)
 	    {
 		Snap *snap = &(g_array_index (snaps, Snap, i));
 		GArray *new_edges = g_array_new (TRUE, TRUE, sizeof (Edge));
 
-		mate_rr_output_info_set_geometry (output, new_x + snap->dx, new_y + snap->dy, width, height);
+		ukui_rr_output_info_set_geometry (output, new_x + snap->dx, new_y + snap->dy, width, height);
 
 		g_array_set_size (new_edges, 0);
 		list_edges (app->current_configuration, new_edges);
 
-		if (mate_rr_config_is_aligned (app->current_configuration, new_edges))
+		if (ukui_rr_config_is_aligned (app->current_configuration, new_edges))
 		{
 		    g_array_free (new_edges, TRUE);
 		    break;
 		}
 		else
 		{
-		    mate_rr_output_info_set_geometry (output, info->output_x, info->output_y, width, height);
+		    ukui_rr_output_info_set_geometry (output, info->output_x, info->output_y, width, height);
 		}
 	    }
 
@@ -1655,12 +1656,12 @@ on_canvas_event (FooScrollArea *area,
 
 static PangoLayout *
 get_display_name (App *app,
-		  MateRROutputInfo *output)
+		  UkuiRROutputInfo *output)
 {
     char *text;
     PangoLayout * layout;
 
-    if (mate_rr_config_get_clone (app->current_configuration)) {
+    if (ukui_rr_config_get_clone (app->current_configuration)) {
     /* Translators:  this is the feature where what you see on your laptop's
      * screen is the same as your external monitor.  Here, "Mirror" is being
      * used as an adjective, not as a verb.  For example, the Spanish
@@ -1669,7 +1670,7 @@ get_display_name (App *app,
         text = g_strdup_printf (_("Mirror Screens"));
     } 
     else {
-        text = g_strdup_printf ("<b>%s</b>\n<small>%s</small>", mate_rr_output_info_get_display_name (output), mate_rr_output_info_get_name (output));
+        text = g_strdup_printf ("<b>%s</b>\n<small>%s</small>", ukui_rr_output_info_get_display_name (output), ukui_rr_output_info_get_name (output));
     }
     layout = gtk_widget_create_pango_layout (GTK_WIDGET (app->area), text);
     pango_layout_set_markup (layout, text, -1);
@@ -1730,7 +1731,7 @@ paint_background (FooScrollArea *area,
 #if GTK_CHECK_VERSION (3, 0, 0)
     gtk_style_context_save (widget_style);
     gtk_style_context_set_state (widget_style, GTK_STATE_FLAG_SELECTED);
-    mate_desktop_gtk_style_get_dark_color (widget_style,
+    ukui_desktop_gtk_style_get_dark_color (widget_style,
                                            gtk_style_context_get_state (widget_style),
                                            &dark_color);
     gtk_style_context_restore (widget_style);
@@ -1752,10 +1753,10 @@ paint_output (App *app, cairo_t *cr, int i)
     double scale = compute_scale (app);
     double x, y;
     int output_x, output_y;
-    MateRRRotation rotation;
+    UkuiRRRotation rotation;
     int total_w, total_h;
     GList *connected_outputs = list_connected_outputs (app, &total_w, &total_h);
-    MateRROutputInfo *output = g_list_nth_data (connected_outputs, i);
+    UkuiRROutputInfo *output = g_list_nth_data (connected_outputs, i);
     PangoLayout *layout = get_display_name (app, output);
     PangoRectangle ink_extent, log_extent;
     GdkRectangle viewport;
@@ -1782,7 +1783,7 @@ paint_output (App *app, cairo_t *cr, int i)
     viewport.height -= 2 * MARGIN;
     viewport.width -= 2 * MARGIN;
 
-    mate_rr_output_info_get_geometry (output, &output_x, &output_y, NULL, NULL);
+    ukui_rr_output_info_get_geometry (output, &output_x, &output_y, NULL, NULL);
     x = output_x * scale + MARGIN + (viewport.width - total_w * scale) / 2.0;
     y = output_y * scale + MARGIN + (viewport.height - total_h * scale) / 2.0;
 
@@ -1800,11 +1801,11 @@ paint_output (App *app, cairo_t *cr, int i)
 
     /* rotation is already applied in get_geometry */
 
-    rotation = mate_rr_output_info_get_rotation (output);
-    if (rotation & MATE_RR_REFLECT_X)
+    rotation = ukui_rr_output_info_get_rotation (output);
+    if (rotation & UKUI_RR_REFLECT_X)
 	cairo_scale (cr, -1, 1);
 
-    if (rotation & MATE_RR_REFLECT_Y)
+    if (rotation & UKUI_RR_REFLECT_Y)
 	cairo_scale (cr, 1, -1);
 
     cairo_translate (cr,
@@ -1816,18 +1817,18 @@ paint_output (App *app, cairo_t *cr, int i)
     cairo_clip_preserve (cr);
 
 #if GTK_CHECK_VERSION (3, 0, 0)
-    mate_rr_labeler_get_rgba_for_output (app->labeler, output, &output_color);
+    ukui_rr_labeler_get_rgba_for_output (app->labeler, output, &output_color);
     r = output_color.red;
     g = output_color.green;
     b = output_color.blue;
 #else
-    mate_rr_labeler_get_color_for_output (app->labeler, output, &output_color);
+    ukui_rr_labeler_get_color_for_output (app->labeler, output, &output_color);
     r = output_color.red / 65535.0;
     g = output_color.green / 65535.0;
     b = output_color.blue / 65535.0;
 #endif
 
-    if (!mate_rr_output_info_is_active (output))
+    if (!ukui_rr_output_info_is_active (output))
     {
 	/* If the output is turned off, just darken the selected color */
 	r *= 0.2;
@@ -1873,7 +1874,7 @@ paint_output (App *app, cairo_t *cr, int i)
 
     cairo_scale (cr, factor, factor);
 
-    if (mate_rr_output_info_is_active (output))
+    if (ukui_rr_output_info_is_active (output))
 	cairo_set_source_rgb (cr, 0.0, 0.0, 0.0);
     else
 	cairo_set_source_rgb (cr, 1.0, 1.0, 1.0);
@@ -1920,7 +1921,7 @@ on_area_paint (FooScrollArea *area,
     {
 	paint_output (app, cr, g_list_position (connected_outputs, list));
 
-	if (mate_rr_config_get_clone (app->current_configuration))
+	if (ukui_rr_config_get_clone (app->current_configuration))
 	    break;
     }
 }
@@ -1959,21 +1960,21 @@ make_text_combo (GtkWidget *widget, int sort_column)
 }
 
 static void
-compute_virtual_size_for_configuration (MateRRConfig *config, int *ret_width, int *ret_height)
+compute_virtual_size_for_configuration (UkuiRRConfig *config, int *ret_width, int *ret_height)
 {
     int i;
     int width, height;
     int output_x, output_y, output_width, output_height;
-    MateRROutputInfo **outputs;
+    UkuiRROutputInfo **outputs;
 
     width = height = 0;
 
-    outputs = mate_rr_config_get_outputs (config);
+    outputs = ukui_rr_config_get_outputs (config);
     for (i = 0; outputs[i] != NULL; i++)
     {
-	if (mate_rr_output_info_is_active (outputs[i]))
+	if (ukui_rr_output_info_is_active (outputs[i]))
 	{
-	    mate_rr_output_info_get_geometry (outputs[i], &output_x, &output_y, &output_width, &output_height);
+	    ukui_rr_output_info_get_geometry (outputs[i], &output_x, &output_y, &output_width, &output_height);
 	    width = MAX (width, output_x + output_width);
 	    height = MAX (height, output_y + output_height);
 	}
@@ -1992,7 +1993,7 @@ check_required_virtual_size (App *app)
 
     compute_virtual_size_for_configuration (app->current_configuration, &req_width, &req_height);
 
-    mate_rr_screen_get_ranges (app->screen, &min_width, &max_width, &min_height, &max_height);
+    ukui_rr_screen_get_ranges (app->screen, &min_width, &max_width, &min_height, &max_height);
 
 #if 0
     g_debug ("X Server supports:");
@@ -2020,9 +2021,9 @@ begin_version2_apply_configuration (App *app, GdkWindow *parent_window, guint32 
     parent_window_xid = GDK_WINDOW_XID (parent_window);
 
     app->proxy = dbus_g_proxy_new_for_name (app->connection,
-					    "org.mate.SettingsDaemon",
-					    "/org/mate/SettingsDaemon/XRANDR",
-					    "org.mate.SettingsDaemon.XRANDR_2");
+					    "org.ukui.SettingsDaemon",
+					    "/org/ukui/SettingsDaemon/XRANDR",
+					    "org.ukui.SettingsDaemon.XRANDR_2");
     g_assert (app->proxy != NULL); /* that call does not fail unless we pass bogus names */
 
     app->apply_configuration_state = APPLYING_VERSION_2;
@@ -2043,9 +2044,9 @@ static void
 begin_version1_apply_configuration (App *app)
 {
     app->proxy = dbus_g_proxy_new_for_name (app->connection,
-					    "org.mate.SettingsDaemon",
-					    "/org/mate/SettingsDaemon/XRANDR",
-					    "org.mate.SettingsDaemon.XRANDR");
+					    "org.ukui.SettingsDaemon",
+					    "/org/ukui/SettingsDaemon/XRANDR",
+					    "org.ukui.SettingsDaemon.XRANDR");
     g_assert (app->proxy != NULL); /* that call does not fail unless we pass bogus names */
 
     app->apply_configuration_state = APPLYING_VERSION_1;
@@ -2063,23 +2064,23 @@ begin_version1_apply_configuration (App *app)
 static void
 ensure_current_configuration_is_saved (void)
 {
-        MateRRScreen *rr_screen;
-        MateRRConfig *rr_config;
+        UkuiRRScreen *rr_screen;
+        UkuiRRConfig *rr_config;
 
-        /* Normally, mate_rr_config_save() creates a backup file based on the
+        /* Normally, ukui_rr_config_save() creates a backup file based on the
          * old monitors.xml.  However, if *that* file didn't exist, there is
          * nothing from which to create a backup.  So, here we'll save the
          * current/unchanged configuration and then let our caller call
-         * mate_rr_config_save() again with the new/changed configuration, so
+         * ukui_rr_config_save() again with the new/changed configuration, so
          * that there *will* be a backup file in the end.
          */
 
-        rr_screen = mate_rr_screen_new (gdk_screen_get_default (), NULL); /* NULL-GError */
+        rr_screen = ukui_rr_screen_new (gdk_screen_get_default (), NULL); /* NULL-GError */
         if (!rr_screen)
                 return;
 
-        rr_config = mate_rr_config_new_current (rr_screen, NULL);
-        mate_rr_config_save (rr_config, NULL); /* NULL-GError */
+        rr_config = ukui_rr_config_new_current (rr_screen, NULL);
+        ukui_rr_config_save (rr_config, NULL); /* NULL-GError */
 
         g_object_unref (rr_config);
         g_object_unref (rr_screen);
@@ -2111,7 +2112,7 @@ apply_configuration_returned_cb (DBusGProxy       *proxy,
 	    begin_version1_apply_configuration (app);
 	    return;
 	} else {
-	    /* We don't pop up an error message; mate-settings-daemon already does that
+	    /* We don't pop up an error message; ukui-settings-daemon already does that
 	     * in case the selected RANDR configuration could not be applied.
 	     */
 	    g_error_free (error);
@@ -2133,7 +2134,7 @@ sanitize_and_save_configuration (App *app)
 {
     GError *error;
 
-    mate_rr_config_sanitize (app->current_configuration);
+    ukui_rr_config_sanitize (app->current_configuration);
 
     check_required_virtual_size (app);
 
@@ -2142,7 +2143,7 @@ sanitize_and_save_configuration (App *app)
     ensure_current_configuration_is_saved ();
 
     error = NULL;
-    if (!mate_rr_config_save (app->current_configuration, &error))
+    if (!ukui_rr_config_save (app->current_configuration, &error))
     {
 	error_message (app, _("Could not save the monitor configuration"), error->message);
 	g_error_free (error);
@@ -2183,7 +2184,7 @@ on_detect_displays (GtkWidget *widget, gpointer data)
     GError *error;
 
     error = NULL;
-    if (!mate_rr_screen_refresh (app->screen, &error)) {
+    if (!ukui_rr_screen_refresh (app->screen, &error)) {
 	if (error) {
 	    error_message (app, _("Could not detect displays"), error->message);
 	    g_error_free (error);
@@ -2196,20 +2197,20 @@ set_primary (GtkWidget *widget, gpointer data)
 {
     App *app = data;
     int i;
-    MateRROutputInfo **outputs;
+    UkuiRROutputInfo **outputs;
 
     if (!app->current_output)
         return;
 
-    outputs = mate_rr_config_get_outputs (app->current_configuration);
+    outputs = ukui_rr_config_get_outputs (app->current_configuration);
     for (i=0; outputs[i]!=NULL; i++) {
-        mate_rr_output_info_set_primary (outputs[i], outputs[i] == app->current_output);
+        ukui_rr_output_info_set_primary (outputs[i], outputs[i] == app->current_output);
     }
 
-    gtk_widget_set_sensitive (app->primary_button, !mate_rr_output_info_get_primary(app->current_output));
+    gtk_widget_set_sensitive (app->primary_button, !ukui_rr_output_info_get_primary(app->current_output));
 }
 
-#define MSD_XRANDR_SCHEMA                 "org.mate.SettingsDaemon.plugins.xrandr"
+#define MSD_XRANDR_SCHEMA                 "org.ukui.SettingsDaemon.plugins.xrandr"
 #define SHOW_ICON_KEY                     "show-notification-icon"
 #define DEFAULT_CONFIGURATION_FILE_KEY    "default-configuration-file"
 
@@ -2223,27 +2224,27 @@ on_show_icon_toggled (GtkWidget *widget, gpointer data)
 			   gtk_toggle_button_get_active (tb));
 }
 
-static MateRROutputInfo *
-get_nearest_output (MateRRConfig *configuration, int x, int y)
+static UkuiRROutputInfo *
+get_nearest_output (UkuiRRConfig *configuration, int x, int y)
 {
     int i;
     int nearest_index;
     int nearest_dist;
-    MateRROutputInfo **outputs;
+    UkuiRROutputInfo **outputs;
 
     nearest_index = -1;
     nearest_dist = G_MAXINT;
 
-    outputs = mate_rr_config_get_outputs (configuration);
+    outputs = ukui_rr_config_get_outputs (configuration);
     for (i = 0; outputs[i] != NULL; i++)
     {
 	int dist_x, dist_y;
 	int output_x, output_y, output_width, output_height;
 
-	if (!(mate_rr_output_info_is_connected(outputs[i]) && mate_rr_output_info_is_active (outputs[i])))
+	if (!(ukui_rr_output_info_is_connected(outputs[i]) && ukui_rr_output_info_is_active (outputs[i])))
 	    continue;
 
-	mate_rr_output_info_get_geometry (outputs[i], &output_x, &output_y, &output_width, &output_height);
+	ukui_rr_output_info_get_geometry (outputs[i], &output_x, &output_y, &output_width, &output_height);
 	if (x < output_x)
 	    dist_x = output_x - x;
 	else if (x >= output_x + output_width)
@@ -2275,14 +2276,14 @@ get_nearest_output (MateRRConfig *configuration, int x, int y)
 /* Gets the output that contains the largest intersection with the window.
  * Logic stolen from gdk_screen_get_monitor_at_window().
  */
-static MateRROutputInfo *
-get_output_for_window (MateRRConfig *configuration, GdkWindow *window)
+static UkuiRROutputInfo *
+get_output_for_window (UkuiRRConfig *configuration, GdkWindow *window)
 {
     GdkRectangle win_rect;
     int i;
     int largest_area;
     int largest_index;
-    MateRROutputInfo **outputs;
+    UkuiRROutputInfo **outputs;
 
 #if GTK_CHECK_VERSION (3, 0, 0)
     gdk_window_get_geometry (window, &win_rect.x, &win_rect.y, &win_rect.width, &win_rect.height);
@@ -2294,14 +2295,14 @@ get_output_for_window (MateRRConfig *configuration, GdkWindow *window)
     largest_area = 0;
     largest_index = -1;
 
-    outputs = mate_rr_config_get_outputs (configuration);
+    outputs = ukui_rr_config_get_outputs (configuration);
     for (i = 0; outputs[i] != NULL; i++)
     {
 	GdkRectangle output_rect, intersection;
 
-	mate_rr_output_info_get_geometry (outputs[i], &output_rect.x, &output_rect.y, &output_rect.width, &output_rect.height);
+	ukui_rr_output_info_get_geometry (outputs[i], &output_rect.x, &output_rect.y, &output_rect.width, &output_rect.height);
 
-	if (mate_rr_output_info_is_connected (outputs[i]) && gdk_rectangle_intersect (&win_rect, &output_rect, &intersection))
+	if (ukui_rr_output_info_is_connected (outputs[i]) && gdk_rectangle_intersect (&win_rect, &output_rect, &intersection))
 	{
 	    int area;
 
@@ -2431,9 +2432,9 @@ make_default (App *app)
 
     dest_basename = g_path_get_basename (dest_filename);
 
-    source_filename = mate_rr_config_get_intended_filename ();
+    source_filename = ukui_rr_config_get_intended_filename ();
 
-    command_line = g_strdup_printf ("pkexec %s/mate-display-properties-install-systemwide %s %s",
+    command_line = g_strdup_printf ("pkexec %s/ukui-display-properties-install-systemwide %s %s",
 				    SBINDIR,
 				    source_filename,
 				    dest_basename);
@@ -2488,7 +2489,7 @@ run_application (App *app)
 	return;
     }
 
-    app->screen = mate_rr_screen_new (gdk_screen_get_default (), &error);
+    app->screen = ukui_rr_screen_new (gdk_screen_get_default (), &error);
     g_signal_connect (app->screen, "changed", G_CALLBACK (on_screen_changed), app);
     if (!app->screen)
     {
@@ -2504,9 +2505,9 @@ run_application (App *app)
     g_signal_connect_after (app->dialog, "map-event",
 			    G_CALLBACK (dialog_map_event_cb), app);
 
-    gtk_window_set_default_icon_name ("mate-preferences-desktop-display");
+    gtk_window_set_default_icon_name ("ukui-preferences-desktop-display");
     gtk_window_set_icon_name (GTK_WINDOW (app->dialog),
-			      "mate-preferences-desktop-display");
+			      "ukui-preferences-desktop-display");
 
     app->current_monitor_event_box = _gtk_builder_get_widget (builder,
     						   "current_monitor_event_box");
@@ -2632,7 +2633,7 @@ main (int argc, char **argv)
 {
     App *app;
 
-    bindtextdomain (GETTEXT_PACKAGE, MATELOCALEDIR);
+    bindtextdomain (GETTEXT_PACKAGE, UKUILOCALEDIR);
     bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
     textdomain (GETTEXT_PACKAGE);
 

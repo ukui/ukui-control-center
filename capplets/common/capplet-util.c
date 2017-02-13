@@ -2,9 +2,9 @@
 
 /* capplet-util.c
  * Copyright (C) 2001 Ximian, Inc.
- *
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * Written by Bradford Hovinen <hovinen@ximian.com>
- *
+ * Modified by zhangshuhao <zhangshuhao@kylinos.cn>
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2, or (at your option)
@@ -80,7 +80,7 @@ capplet_help (GtkWindow *parent, char const *section)
 	else
 		screen = gtk_widget_get_screen (GTK_WIDGET (parent));
 
-	uri = g_strdup_printf ("help:mate-user-guide/%s", section);
+	uri = g_strdup_printf ("help:ukui-user-guide/%s", section);
 
 	if (!gtk_show_uri (screen, uri, gtk_get_current_event_time (), &error)) {
 		capplet_error_dialog (
@@ -184,7 +184,7 @@ capplet_init (GOptionContext *context,
 	GError *err = NULL;
 
 #ifdef ENABLE_NLS
-	bindtextdomain (GETTEXT_PACKAGE, MATELOCALEDIR);
+	bindtextdomain (GETTEXT_PACKAGE, UKUILOCALEDIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain (GETTEXT_PACKAGE);
 #endif

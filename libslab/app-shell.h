@@ -2,7 +2,7 @@
  * This file is part of libslab.
  *
  * Copyright (c) 2006 Novell, Inc.
- *
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * Libslab is free software; you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2 of the License, or (at your option)
@@ -24,9 +24,9 @@
 #include <glib.h>
 #include <gtk/gtk.h>
 #include <gio/gio.h>
-#define MATEMENU_I_KNOW_THIS_IS_UNSTABLE
-#include <matemenu-tree.h>
-#include <libmate-desktop/mate-desktop-item.h>
+#define UKUIMENU_I_KNOW_THIS_IS_UNSTABLE
+#include <ukuimenu-tree.h>
+#include <libukui-desktop/ukui-desktop-item.h>
 
 #include "slab-section.h"
 #include "tile.h"
@@ -84,7 +84,7 @@ typedef struct _AppShellData
 	GtkIconSize icon_size;
 	const gchar *menu_name;
 	NewAppConfig *new_apps;
-	MateMenuTree *tree;
+	UkuiMenuTree *tree;
 	GHashTable *hash;
 
 	guint filter_changed_timeout;
@@ -113,13 +113,13 @@ typedef struct
 typedef struct
 {
 	const gchar *name;
-	MateDesktopItem *item;
+	UkuiDesktopItem *item;
 } AppAction;
 
 typedef struct
 {
 	long time;
-	MateDesktopItem *item;
+	UkuiDesktopItem *item;
 } NewAppData;
 
 void generate_categories (AppShellData * app_data);

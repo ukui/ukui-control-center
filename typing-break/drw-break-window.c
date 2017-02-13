@@ -2,7 +2,7 @@
 /*
  * Copyright (C) 2002      CodeFactory AB
  * Copyright (C) 2002-2003 Richard Hult <richard@imendio.com>
-
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as

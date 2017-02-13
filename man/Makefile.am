@@ -1,19 +1,19 @@
 man_MANS = \
-    mate-about-me.1 \
-    mate-appearance-properties.1 \
-    mate-at-properties.1 \
-    mate-control-center.1 \
-    mate-default-applications-properties.1 \
-    mate-display-properties.1 \
-    mate-display-properties-install-systemwide.1 \
-    mate-font-viewer.1 \
-    mate-keybinding-properties.1 \
-    mate-keyboard-properties.1 \
-    mate-mouse-properties.1 \
-    mate-network-properties.1 \
-    mate-thumbnail-font.1 \
-    mate-typing-monitor.1 \
-    mate-window-properties.1
+    ukui-about-me.1 \
+    ukui-appearance-properties.1 \
+    ukui-at-properties.1 \
+    ukui-control-center.1 \
+    ukui-default-applications-properties.1 \
+    ukui-display-properties.1 \
+    ukui-display-properties-install-systemwide.1 \
+    ukui-font-viewer.1 \
+    ukui-keybinding-properties.1 \
+    ukui-keyboard-properties.1 \
+    ukui-mouse-properties.1 \
+    ukui-network-properties.1 \
+    ukui-thumbnail-font.1 \
+    ukui-typing-monitor.1 \
+    ukui-window-properties.1
 
 EXTRA_DIST = $(man_MANS)
 

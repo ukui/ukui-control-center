@@ -1,6 +1,8 @@
 /*
  * Copyright (C) 2007 The GNOME Foundation
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * Written by Thomas Wood <thos@gnome.org>
+ * Modified by zhangshuhao <zhangshuhao@kylinos.cn>
  * All Rights Reserved
  *
  * This program is free software; you can redistribute it and/or modify
@@ -19,7 +21,7 @@
  */
 
 #include <glib/gi18n.h>
-#include <libmate-desktop/mate-gsettings.h>
+#include <libukui-desktop/ukui-gsettings.h>
 #include "appearance.h"
 #include "appearance-desktop.h"
 #include "appearance-font.h"
@@ -50,7 +52,7 @@ init_appearance_data (int *argc, char ***argv, GOptionContext *context)
   activate_settings_daemon ();
 
   /* set up the data */
-  uifile = g_build_filename (MATECC_GTKBUILDER_DIR, "appearance.ui",
+  uifile = g_build_filename (UKUICC_GTKBUILDER_DIR, "appearance.ui",
                              NULL);
   ui = gtk_builder_new ();
   gtk_builder_add_from_file (ui, uifile, &err);
@@ -68,17 +70,17 @@ init_appearance_data (int *argc, char ***argv, GOptionContext *context)
       data->settings = g_settings_new (APPEARANCE_SCHEMA);
       data->wp_settings = g_settings_new (WP_SCHEMA);
 
-      if (mate_gsettings_schema_exists (CAJA_SCHEMA))
-        data->caja_settings = g_settings_new (CAJA_SCHEMA);
+      if (ukui_gsettings_schema_exists (PEONY_SCHEMA))
+        data->peony_settings = g_settings_new (PEONY_SCHEMA);
       else
-        data->caja_settings = NULL;
+        data->peony_settings = NULL;
 
       data->interface_settings = g_settings_new (INTERFACE_SCHEMA);
-      data->marco_settings = g_settings_new (MARCO_SCHEMA);
+      data->ukwm_settings = g_settings_new (UKWM_SCHEMA);
       data->mouse_settings = g_settings_new (MOUSE_SCHEMA);
       data->font_settings = g_settings_new (FONT_RENDER_SCHEMA);
       data->ui = ui;
-      data->thumb_factory = mate_desktop_thumbnail_factory_new (MATE_DESKTOP_THUMBNAIL_SIZE_NORMAL);
+      data->thumb_factory = ukui_desktop_thumbnail_factory_new (UKUI_DESKTOP_THUMBNAIL_SIZE_NORMAL);
     }
 
   return data;
@@ -104,11 +106,11 @@ main_window_response (GtkWidget *widget,
     g_object_unref (data->settings);
     g_object_unref (data->wp_settings);
 
-    if (data->caja_settings)
-      g_object_unref (data->caja_settings);
+    if (data->peony_settings)
+      g_object_unref (data->peony_settings);
 
     g_object_unref (data->interface_settings);
-    g_object_unref (data->marco_settings);
+    g_object_unref (data->ukwm_settings);
     g_object_unref (data->mouse_settings);
     g_object_unref (data->font_settings);
     g_object_unref (data->ui);
@@ -238,7 +240,7 @@ main (int argc, char **argv)
   if (install_filename != NULL) {
     GFile *inst = g_file_new_for_commandline_arg (install_filename);
     g_free (install_filename);
-    mate_theme_install (inst, GTK_WINDOW (w));
+    ukui_theme_install (inst, GTK_WINDOW (w));
     g_object_unref (inst);
   }
 

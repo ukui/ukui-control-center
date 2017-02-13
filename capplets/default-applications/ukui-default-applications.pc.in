@@ -1,0 +1,10 @@
+prefix=@prefix@
+datarootdir=@datarootdir@
+datadir=@datadir@
+pkgdatadir=${datadir}/@PACKAGE@
+defappsdir=${pkgdatadir}/default-apps
+
+Name: ukui-default-applications
+Description: Default UKUI applications configuration
+Version: @VERSION@
+

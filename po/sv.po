@@ -2528,32 +2528,32 @@ msgid "To move a window, press-and-hold this key then grab the window:"
 msgstr "För att flytta ett fönster trycker du på och håller ned denna tangent och tar sedan tag i fönstret:"
 
 #: ../capplets/windows/mate-window-properties.c:580
-#: ../libwindow-settings/marco-window-manager.c:394
+#: ../libwindow-settings/ukwm-window-manager.c:394
 msgid "Roll up"
 msgstr "Rulla upp"
 
 #: ../capplets/windows/mate-window-properties.c:581
-#: ../libwindow-settings/marco-window-manager.c:395
+#: ../libwindow-settings/ukwm-window-manager.c:395
 msgid "Maximize"
 msgstr "Maximera"
 
 #: ../capplets/windows/mate-window-properties.c:582
-#: ../libwindow-settings/marco-window-manager.c:396
+#: ../libwindow-settings/ukwm-window-manager.c:396
 msgid "Maximize Horizontally"
 msgstr "Maximera horisontellt"
 
 #: ../capplets/windows/mate-window-properties.c:583
-#: ../libwindow-settings/marco-window-manager.c:397
+#: ../libwindow-settings/ukwm-window-manager.c:397
 msgid "Maximize Vertically"
 msgstr "Maximera vertikalt"
 
 #: ../capplets/windows/mate-window-properties.c:584
-#: ../libwindow-settings/marco-window-manager.c:398
+#: ../libwindow-settings/ukwm-window-manager.c:398
 msgid "Minimize"
 msgstr "Minimera"
 
 #: ../capplets/windows/mate-window-properties.c:585
-#: ../libwindow-settings/marco-window-manager.c:399
+#: ../libwindow-settings/ukwm-window-manager.c:399
 msgid "None"
 msgstr "Ingen"
 

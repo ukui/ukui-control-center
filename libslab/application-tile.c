@@ -2,7 +2,7 @@
  * This file is part of libtile.
  *
  * Copyright (c) 2006, 2007 Novell, Inc.
- *
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * Libtile is free software; you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2 of the License, or (at your option)
@@ -27,7 +27,7 @@
 #include <glib/gstdio.h>
 #include <unistd.h>
 
-#include "slab-mate-util.h"
+#include "slab-ukui-util.h"
 #include "libslab-utils.h"
 #include "bookmark-agent.h"
 #include "themed-icon.h"
@@ -64,11 +64,11 @@ static void remove_from_startup_list (ApplicationTile *);
 static void update_user_list_menu_item (ApplicationTile *);
 static void agent_notify_cb (GObject *, GParamSpec *, gpointer);
 
-static StartupStatus get_desktop_item_startup_status (MateDesktopItem *);
+static StartupStatus get_desktop_item_startup_status (UkuiDesktopItem *);
 static void          update_startup_menu_item (ApplicationTile *);
 
 typedef struct {
-	MateDesktopItem *desktop_item;
+	UkuiDesktopItem *desktop_item;
 
 	gchar       *image_id;
 	gboolean     image_is_broken;
@@ -132,20 +132,20 @@ application_tile_new_full (const gchar *desktop_item_id,
 
 	const gchar *uri = NULL;
 
-	MateDesktopItem *desktop_item;
+	UkuiDesktopItem *desktop_item;
 
 
 	desktop_item = load_desktop_item_from_unknown (desktop_item_id);
 
 	if (
 		desktop_item &&
-		mate_desktop_item_get_entry_type (desktop_item) == MATE_DESKTOP_ITEM_TYPE_APPLICATION
+		ukui_desktop_item_get_entry_type (desktop_item) == UKUI_DESKTOP_ITEM_TYPE_APPLICATION
 	)
-		uri = mate_desktop_item_get_location (desktop_item);
+		uri = ukui_desktop_item_get_location (desktop_item);
 
 	if (! uri) {
 		if (desktop_item)
-			mate_desktop_item_unref (desktop_item);
+			ukui_desktop_item_unref (desktop_item);
 
 		return NULL;
 	}
@@ -153,7 +153,7 @@ application_tile_new_full (const gchar *desktop_item_id,
 	this = g_object_new (APPLICATION_TILE_TYPE, "tile-uri", uri, NULL);
 	priv = APPLICATION_TILE_GET_PRIVATE (this);
 
-	priv->image_size   = image_size;
+    priv->image_size   = GTK_ICON_SIZE_DIALOG;
 	priv->desktop_item = desktop_item;
 	priv->show_generic_name = show_generic_name;
 
@@ -195,7 +195,7 @@ application_tile_finalize (GObject *g_object)
 	}
 
 	if (priv->desktop_item) {
-		mate_desktop_item_unref (priv->desktop_item);
+		ukui_desktop_item_unref (priv->desktop_item);
 		priv->desktop_item = NULL;
 	}
 	if (priv->image_id) {
@@ -284,12 +284,12 @@ application_tile_setup (ApplicationTile *this)
 			return;
 	}
 
-	priv->image_id = g_strdup (mate_desktop_item_get_localestring (priv->desktop_item, "Icon"));
+	priv->image_id = g_strdup (ukui_desktop_item_get_localestring (priv->desktop_item, "Icon"));
 	image = themed_icon_new (priv->image_id, priv->image_size);
 
-	name = mate_desktop_item_get_localestring (priv->desktop_item, "Name");
-	desc = mate_desktop_item_get_localestring (priv->desktop_item, "GenericName");
-	comment = mate_desktop_item_get_localestring (priv->desktop_item, "Comment");	
+	name = ukui_desktop_item_get_localestring (priv->desktop_item, "Name");
+	desc = ukui_desktop_item_get_localestring (priv->desktop_item, "GenericName");
+	comment = ukui_desktop_item_get_localestring (priv->desktop_item, "Comment");	
 
 	accessible = gtk_widget_get_accessible (GTK_WIDGET (this));
 	if (name)
@@ -355,7 +355,7 @@ application_tile_setup (ApplicationTile *this)
 
 /* make help action */
 
-	if (mate_desktop_item_get_string (priv->desktop_item, "DocPath")) {
+	if (ukui_desktop_item_get_string (priv->desktop_item, "DocPath")) {
 		action = tile_action_new (
 			TILE (this), help_trigger, _("Help"),
 			TILE_ACTION_OPENS_NEW_WINDOW | TILE_ACTION_OPENS_HELP);
@@ -529,7 +529,7 @@ add_to_startup_list (ApplicationTile *this)
 	gchar *dst_uri;
 
 	desktop_item_filename =
-		g_filename_from_uri (mate_desktop_item_get_location (priv->desktop_item), NULL,
+		g_filename_from_uri (ukui_desktop_item_get_location (priv->desktop_item), NULL,
 		NULL);
 
 	g_return_if_fail (desktop_item_filename != NULL);
@@ -543,7 +543,7 @@ add_to_startup_list (ApplicationTile *this)
 
 	dst_filename = g_build_filename (startup_dir, desktop_item_basename, NULL);
 
-	src_uri = mate_desktop_item_get_location (priv->desktop_item);
+	src_uri = ukui_desktop_item_get_location (priv->desktop_item);
 	dst_uri = g_filename_to_uri (dst_filename, NULL, NULL);
 
 	copy_file (src_uri, dst_uri);
@@ -566,7 +566,7 @@ remove_from_startup_list (ApplicationTile *this)
 	gchar *src_filename;
 
 	ditem_filename =
-		g_filename_from_uri (mate_desktop_item_get_location (priv->desktop_item), NULL,
+		g_filename_from_uri (ukui_desktop_item_get_location (priv->desktop_item), NULL,
 		NULL);
 
 	g_return_if_fail (ditem_filename != NULL);
@@ -588,7 +588,7 @@ remove_from_startup_list (ApplicationTile *this)
 	g_free (src_filename);
 }
 
-MateDesktopItem *
+UkuiDesktopItem *
 application_tile_get_desktop_item (ApplicationTile *tile)
 {
 	return APPLICATION_TILE_GET_PRIVATE (tile)->desktop_item;
@@ -648,7 +648,7 @@ update_user_list_menu_item (ApplicationTile *this)
 }
 
 static StartupStatus
-get_desktop_item_startup_status (MateDesktopItem *desktop_item)
+get_desktop_item_startup_status (UkuiDesktopItem *desktop_item)
 {
 	gchar *filename;
 	gchar *basename;
@@ -660,7 +660,7 @@ get_desktop_item_startup_status (MateDesktopItem *desktop_item)
 	StartupStatus retval;
 	gint x;
 	
-	filename = g_filename_from_uri (mate_desktop_item_get_location (desktop_item), NULL, NULL);
+	filename = g_filename_from_uri (ukui_desktop_item_get_location (desktop_item), NULL, NULL);
 	if (!filename)
 		return APP_NOT_ELIGIBLE;
 	basename = g_path_get_basename (filename);
@@ -679,13 +679,13 @@ get_desktop_item_startup_status (MateDesktopItem *desktop_item)
 		g_free (global_target);
 	}
 
-	/* mate-session currently checks these dirs also. see startup-programs.c */
+	/* ukui-session currently checks these dirs also. see startup-programs.c */
 	if (retval != APP_NOT_ELIGIBLE)
 	{
 		global_dirs = g_get_system_data_dirs();
 		for(x=0; global_dirs[x]; x++)
 		{
-			global_target = g_build_filename (global_dirs[x], "mate", "autostart", basename, NULL);
+			global_target = g_build_filename (global_dirs[x], "ukui", "autostart", basename, NULL);
 			if (g_file_test (global_target, G_FILE_TEST_EXISTS))
 			{
 				retval = APP_NOT_ELIGIBLE;

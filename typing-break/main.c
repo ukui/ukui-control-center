@@ -2,7 +2,7 @@
 /*
  * Copyright (C) 2002 CodeFactory AB
  * Copyright (C) 2002-2003 Richard Hult <richard@imendio.com>
- *
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
  * published by the Free Software Foundation; either version 2 of the
@@ -69,7 +69,7 @@ main (int argc, char *argv[])
         GError *error = NULL;
         gboolean retval;
 
-	bindtextdomain (GETTEXT_PACKAGE, MATELOCALEDIR);  
+	bindtextdomain (GETTEXT_PACKAGE, UKUILOCALEDIR);  
         bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain (GETTEXT_PACKAGE);
 
@@ -87,7 +87,7 @@ main (int argc, char *argv[])
         }
 
 	g_set_application_name (_("Typing Monitor"));
-	gtk_window_set_default_icon_name ("mate-typing-monitor");
+	gtk_window_set_default_icon_name ("ukui-typing-monitor");
 
 	selection = drw_selection_start ();
 	if (!drw_selection_is_master (selection)) {

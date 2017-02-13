@@ -1,11 +1,11 @@
-# This is used in MATECC_CAPPLETS_CFLAGS
+# This is used in UKUICC_CAPPLETS_CFLAGS
 cappletname = keybinding
 
-bin_PROGRAMS = mate-keybinding-properties
+bin_PROGRAMS = ukui-keybinding-properties
 
-mate_keybinding_properties_LDADD = $(MATECC_CAPPLETS_LIBS)
-mate_keybinding_properties_SOURCES = \
-	mate-keybinding-properties.c \
+ukui_keybinding_properties_LDADD = $(UKUICC_CAPPLETS_LIBS)
+ukui_keybinding_properties_SOURCES = \
+	ukui-keybinding-properties.c \
 	eggcellrendererkeys.c \
 	eggcellrendererkeys.h \
 	eggaccelerators.c \
@@ -14,10 +14,10 @@ mate_keybinding_properties_SOURCES = \
 @INTLTOOL_DESKTOP_RULE@
 
 uidir = $(pkgdatadir)/ui
-ui_DATA = mate-keybinding-properties.ui
+ui_DATA = ukui-keybinding-properties.ui
 
 desktopdir = $(datadir)/applications
-Desktop_in_files = mate-keybinding.desktop.in
+Desktop_in_files = ukui-keybinding.desktop.in
 desktop_DATA = $(Desktop_in_files:.desktop.in=.desktop)
 
 @INTLTOOL_XML_NOMERGE_RULE@
@@ -27,20 +27,20 @@ xml_in_files = 00-multimedia-key.xml.in 01-desktop-key.xml.in
 xml_DATA = $(xml_in_files:.xml.in=.xml)
 
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = mate-keybindings.pc
+pkgconfig_DATA = ukui-keybindings.pc
 
 AM_CPPFLAGS = \
-	$(MATECC_CAPPLETS_CFLAGS) \
-	-DMATELOCALEDIR="\"$(datadir)/locale\"" \
-	-DMATECC_DATA_DIR="\"$(pkgdatadir)\"" \
-	-DMATECC_UI_DIR="\"$(uidir)\"" \
-	-DMATECC_KEYBINDINGS_DIR="\"$(pkgdatadir)/keybindings\""
+	$(UKUICC_CAPPLETS_CFLAGS) \
+	-DUKUILOCALEDIR="\"$(datadir)/locale\"" \
+	-DUKUICC_DATA_DIR="\"$(pkgdatadir)\"" \
+	-DUKUICC_UI_DIR="\"$(uidir)\"" \
+	-DUKUICC_KEYBINDINGS_DIR="\"$(pkgdatadir)/keybindings\""
 CLEANFILES = \
-	$(MATECC_CAPPLETS_CLEANFILES) \
+	$(UKUICC_CAPPLETS_CLEANFILES) \
 	$(Desktop_in_files) \
 	$(desktop_DATA) \
 	$(xml_DATA)
-EXTRA_DIST = $(ui_DATA) $(xml_in_files) mate-keybindings.pc.in
+EXTRA_DIST = $(ui_DATA) $(xml_in_files) ukui-keybindings.pc.in
 
 
 -include $(top_srcdir)/git.mk

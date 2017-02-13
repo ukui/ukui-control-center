@@ -1,0 +1,11 @@
+[Desktop Entry]
+_Name=Control Center
+_GenericName=The UKUI configuration tool
+Icon=preferences-desktop
+Exec=ukui-control-center
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GTK;Settings;
+Keywords=UKUI;control;center;configuration;tool;destop;preferences;
+OnlyShowIn=UKUI;

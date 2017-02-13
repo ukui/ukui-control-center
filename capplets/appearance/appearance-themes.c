@@ -1,7 +1,9 @@
 /*
  * Copyright (C) 2007, 2010 The GNOME Foundation
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * Written by Thomas Wood <thos@gnome.org>
  *            Jens Granseuer <jensgr@gmx.net>
+ × Modified by zhangshuhao <zhangshuhao@kylinos.cn>
  * All Rights Reserved
  *
  * This program is free software; you can redistribute it and/or modify
@@ -21,17 +23,17 @@
 
 #include "appearance.h"
 #include "theme-thumbnail.h"
-#include "mate-theme-apply.h"
+#include "ukui-theme-apply.h"
 #include "theme-installer.h"
 #include "theme-save.h"
 #include "theme-util.h"
 #include "gtkrc-utils.h"
 
 #include <glib/gi18n.h>
-#include <libwindow-settings/mate-wm-manager.h>
+#include <libwindow-settings/ukui-wm-manager.h>
 #include <string.h>
-#include <libmate-desktop/mate-desktop-thumbnail.h>
-#include <libmate-desktop/mate-gsettings.h>
+#include <libukui-desktop/ukui-desktop-thumbnail.h>
+#include <libukui-desktop/ukui-gsettings.h>
 
 #define CUSTOM_THEME_NAME "__custom__"
 
@@ -57,10 +59,10 @@ static void theme_message_area_update(AppearanceData* data);
 
 static time_t theme_get_mtime(const char* name)
 {
-	MateThemeMetaInfo* theme;
+	UkuiThemeMetaInfo* theme;
 	time_t mtime = -1;
 
-	theme = mate_theme_meta_info_find(name);
+	theme = ukui_theme_meta_info_find(name);
 	if (theme != NULL)
 	{
 		GFile* file;
@@ -100,17 +102,17 @@ static void theme_thumbnail_update(GdkPixbuf* pixbuf, gchar* theme_name, Appeara
 		{
 			gchar* path;
 
-			/* try to share thumbs with caja, use themes:/// */
+			/* try to share thumbs with peony, use themes:/// */
 			path = g_strconcat("themes:///", theme_name, NULL);
 
-			mate_desktop_thumbnail_factory_save_thumbnail(data->thumb_factory, pixbuf, path, mtime);
+			ukui_desktop_thumbnail_factory_save_thumbnail(data->thumb_factory, pixbuf, path, mtime);
 
 			g_free(path);
 		}
 	}
 }
 
-static GdkPixbuf* theme_get_thumbnail_from_cache(MateThemeMetaInfo* info, AppearanceData* data)
+static GdkPixbuf* theme_get_thumbnail_from_cache(UkuiThemeMetaInfo* info, AppearanceData* data)
 {
 	GdkPixbuf* thumb = NULL;
 	gchar* path, *thumb_filename;
@@ -124,9 +126,9 @@ static GdkPixbuf* theme_get_thumbnail_from_cache(MateThemeMetaInfo* info, Appear
 	if (mtime == -1)
 		return NULL;
 
-	/* try to share thumbs with caja, use themes:/// */
+	/* try to share thumbs with peony, use themes:/// */
 	path = g_strconcat ("themes:///", info->name, NULL);
-	thumb_filename = mate_desktop_thumbnail_factory_lookup(data->thumb_factory, path, mtime);
+	thumb_filename = ukui_desktop_thumbnail_factory_lookup(data->thumb_factory, path, mtime);
 	g_free(path);
 
 	if (thumb_filename != NULL)
@@ -144,7 +146,7 @@ theme_thumbnail_done_cb (GdkPixbuf *pixbuf, gchar *theme_name, AppearanceData *d
   theme_thumbnail_update (pixbuf, theme_name, data, TRUE);
 }
 
-static void theme_thumbnail_generate(MateThemeMetaInfo* info, AppearanceData* data)
+static void theme_thumbnail_generate(UkuiThemeMetaInfo* info, AppearanceData* data)
 {
 	GdkPixbuf* thumb = theme_get_thumbnail_from_cache(info, data);
 
@@ -159,18 +161,18 @@ static void theme_thumbnail_generate(MateThemeMetaInfo* info, AppearanceData* da
 	}
 }
 
-static void theme_changed_on_disk_cb(MateThemeCommonInfo* theme, MateThemeChangeType change_type, MateThemeElement element_type, AppearanceData* data)
+static void theme_changed_on_disk_cb(UkuiThemeCommonInfo* theme, UkuiThemeChangeType change_type, UkuiThemeElement element_type, AppearanceData* data)
 {
-	if (theme->type == MATE_THEME_TYPE_METATHEME)
+	if (theme->type == UKUI_THEME_TYPE_METATHEME)
 	{
-		MateThemeMetaInfo* meta = (MateThemeMetaInfo*) theme;
+		UkuiThemeMetaInfo* meta = (UkuiThemeMetaInfo*) theme;
 
-		if (change_type == MATE_THEME_CHANGE_CREATED)
+		if (change_type == UKUI_THEME_CHANGE_CREATED)
 		{
 			gtk_list_store_insert_with_values (data->theme_store, NULL, 0, COL_LABEL, meta->readable_name, COL_NAME, meta->name, COL_THUMBNAIL, data->theme_icon, -1);
 			theme_thumbnail_generate(meta, data);
 		}
-		else if (change_type == MATE_THEME_CHANGE_DELETED)
+		else if (change_type == UKUI_THEME_CHANGE_DELETED)
 		{
 			GtkTreeIter iter;
 
@@ -179,7 +181,7 @@ static void theme_changed_on_disk_cb(MateThemeCommonInfo* theme, MateThemeChange
 				gtk_list_store_remove(data->theme_store, &iter);
 			}
 		}
-		else if (change_type == MATE_THEME_CHANGE_CHANGED)
+		else if (change_type == UKUI_THEME_CHANGE_CHANGED)
 		{
 			theme_thumbnail_generate(meta, data);
 		}
@@ -197,13 +199,13 @@ static gboolean is_locked_down()
   return is_locked;
 }
 
-static MateThemeMetaInfo *
+static UkuiThemeMetaInfo *
 theme_load_from_gsettings (AppearanceData *data)
 {
-  MateThemeMetaInfo *theme;
+  UkuiThemeMetaInfo *theme;
   gchar *scheme;
 
-  theme = mate_theme_meta_info_new ();
+  theme = ukui_theme_meta_info_new ();
 
   theme->gtk_theme_name = g_settings_get_string (data->interface_settings, GTK_THEME_KEY);
   if (theme->gtk_theme_name == NULL)
@@ -216,15 +218,15 @@ theme_load_from_gsettings (AppearanceData *data)
   }
   theme->gtk_color_scheme = scheme;
 
-  theme->marco_theme_name = g_settings_get_string (data->marco_settings, MARCO_THEME_KEY);
-  if (theme->marco_theme_name == NULL)
-    theme->marco_theme_name = g_strdup ("Menta");
+  theme->ukwm_theme_name = g_settings_get_string (data->ukwm_settings, UKWM_THEME_KEY);
+  if (theme->ukwm_theme_name == NULL)
+    theme->ukwm_theme_name = g_strdup ("Menta");
 
   theme->icon_theme_name = g_settings_get_string (data->interface_settings, ICON_THEME_KEY);
   if (theme->icon_theme_name == NULL)
     theme->icon_theme_name = g_strdup ("menta");
 
-  if (mate_gsettings_schema_exists (NOTIFICATION_SCHEMA)) {
+  if (ukui_gsettings_schema_exists (NOTIFICATION_SCHEMA)) {
     GSettings *notification_settings;
     notification_settings = g_settings_new (NOTIFICATION_SCHEMA);
     theme->notification_theme_name = g_settings_get_string (notification_settings, NOTIFICATION_THEME_KEY);
@@ -266,17 +268,17 @@ theme_get_selected_name (GtkIconView *icon_view, AppearanceData *data)
   return name;
 }
 
-static const MateThemeMetaInfo *
+static const UkuiThemeMetaInfo *
 theme_get_selected (GtkIconView *icon_view, AppearanceData *data)
 {
-  MateThemeMetaInfo *theme = NULL;
+  UkuiThemeMetaInfo *theme = NULL;
   gchar *name = theme_get_selected_name (icon_view, data);
 
   if (name != NULL) {
     if (!strcmp (name, data->theme_custom->name)) {
       theme = data->theme_custom;
     } else {
-      theme = mate_theme_meta_info_find (name);
+      theme = ukui_theme_meta_info_find (name);
     }
 
     g_free (name);
@@ -307,7 +309,7 @@ theme_select_name (GtkIconView *icon_view, const gchar *theme)
 }
 
 static gboolean
-theme_is_equal (const MateThemeMetaInfo *a, const MateThemeMetaInfo *b)
+theme_is_equal (const UkuiThemeMetaInfo *a, const UkuiThemeMetaInfo *b)
 {
   gboolean a_set, b_set;
 
@@ -319,8 +321,8 @@ theme_is_equal (const MateThemeMetaInfo *a, const MateThemeMetaInfo *b)
       strcmp (a->icon_theme_name, b->icon_theme_name))
     return FALSE;
 
-  if (!(a->marco_theme_name && b->marco_theme_name) ||
-      strcmp (a->marco_theme_name, b->marco_theme_name))
+  if (!(a->ukwm_theme_name && b->ukwm_theme_name) ||
+      strcmp (a->ukwm_theme_name, b->ukwm_theme_name))
     return FALSE;
 
   if (!(a->cursor_theme_name && b->cursor_theme_name) ||
@@ -333,16 +335,16 @@ theme_is_equal (const MateThemeMetaInfo *a, const MateThemeMetaInfo *b)
   a_set = a->gtk_color_scheme && strcmp (a->gtk_color_scheme, "");
   b_set = b->gtk_color_scheme && strcmp (b->gtk_color_scheme, "");
   if ((a_set != b_set) ||
-      (a_set && !mate_theme_color_scheme_equal (a->gtk_color_scheme, b->gtk_color_scheme)))
+      (a_set && !ukui_theme_color_scheme_equal (a->gtk_color_scheme, b->gtk_color_scheme)))
     return FALSE;
 
   return TRUE;
 }
 
 static void
-theme_set_custom_from_theme (const MateThemeMetaInfo *info, AppearanceData *data)
+theme_set_custom_from_theme (const UkuiThemeMetaInfo *info, AppearanceData *data)
 {
-  MateThemeMetaInfo *custom = data->theme_custom;
+  UkuiThemeMetaInfo *custom = data->theme_custom;
   GtkIconView *icon_view = GTK_ICON_VIEW (appearance_capplet_get_widget (data, "theme_list"));
   GtkTreeModel *model;
   GtkTreeIter iter;
@@ -355,7 +357,7 @@ theme_set_custom_from_theme (const MateThemeMetaInfo *info, AppearanceData *data
   if (info != NULL) {
     g_free (custom->gtk_theme_name);
     g_free (custom->icon_theme_name);
-    g_free (custom->marco_theme_name);
+    g_free (custom->ukwm_theme_name);
     g_free (custom->gtk_color_scheme);
     g_free (custom->cursor_theme_name);
     g_free (custom->application_font);
@@ -365,7 +367,7 @@ theme_set_custom_from_theme (const MateThemeMetaInfo *info, AppearanceData *data
     /* these settings are guaranteed to be non-NULL */
     custom->gtk_theme_name = g_strdup (info->gtk_theme_name);
     custom->icon_theme_name = g_strdup (info->icon_theme_name);
-    custom->marco_theme_name = g_strdup (info->marco_theme_name);
+    custom->ukwm_theme_name = g_strdup (info->ukwm_theme_name);
     custom->cursor_theme_name = g_strdup (info->cursor_theme_name);
     custom->cursor_size = info->cursor_size;
 
@@ -425,7 +427,7 @@ theme_message_area_response_cb (GtkWidget *w,
                                 gint response_id,
                                 AppearanceData *data)
 {
-  const MateThemeMetaInfo *theme;
+  const UkuiThemeMetaInfo *theme;
   gchar *tmpfont;
   gchar *engine_path;
 
@@ -452,14 +454,14 @@ theme_message_area_response_cb (GtkWidget *w,
         data->revert_documents_font = NULL;
       }
 
-      if (data->caja_settings && data->revert_desktop_font != NULL) {
-        g_settings_set_string (data->caja_settings, DESKTOP_FONT_KEY, data->revert_desktop_font);
+      if (data->peony_settings && data->revert_desktop_font != NULL) {
+        g_settings_set_string (data->peony_settings, DESKTOP_FONT_KEY, data->revert_desktop_font);
         g_free (data->revert_desktop_font);
         data->revert_desktop_font = NULL;
       }
 
       if (data->revert_windowtitle_font != NULL) {
-        g_settings_set_string (data->marco_settings, WINDOW_TITLE_FONT_KEY, data->revert_windowtitle_font);
+        g_settings_set_string (data->ukwm_settings, WINDOW_TITLE_FONT_KEY, data->revert_windowtitle_font);
         g_free (data->revert_windowtitle_font);
         data->revert_windowtitle_font = NULL;
       }
@@ -500,8 +502,8 @@ theme_message_area_response_cb (GtkWidget *w,
         g_settings_set_string (data->interface_settings, DOCUMENT_FONT_KEY, theme->documents_font);
       }
 
-      if (data->caja_settings && theme->desktop_font) {
-        tmpfont = g_settings_get_string (data->caja_settings, DESKTOP_FONT_KEY);
+      if (data->peony_settings && theme->desktop_font) {
+        tmpfont = g_settings_get_string (data->peony_settings, DESKTOP_FONT_KEY);
         if (tmpfont != NULL) {
           g_free (data->revert_desktop_font);
 
@@ -511,11 +513,11 @@ theme_message_area_response_cb (GtkWidget *w,
           } else
             data->revert_desktop_font = tmpfont;
         }
-        g_settings_set_string (data->caja_settings, DESKTOP_FONT_KEY, theme->desktop_font);
+        g_settings_set_string (data->peony_settings, DESKTOP_FONT_KEY, theme->desktop_font);
       }
 
       if (theme->windowtitle_font) {
-        tmpfont = g_settings_get_string (data->marco_settings, WINDOW_TITLE_FONT_KEY);
+        tmpfont = g_settings_get_string (data->ukwm_settings, WINDOW_TITLE_FONT_KEY);
         if (tmpfont != NULL) {
           g_free (data->revert_windowtitle_font);
 
@@ -525,7 +527,7 @@ theme_message_area_response_cb (GtkWidget *w,
           } else
             data->revert_windowtitle_font = tmpfont;
         }
-        g_settings_set_string (data->marco_settings, WINDOW_TITLE_FONT_KEY, theme->windowtitle_font);
+        g_settings_set_string (data->ukwm_settings, WINDOW_TITLE_FONT_KEY, theme->windowtitle_font);
       }
 
       if (theme->monospace_font) {
@@ -559,7 +561,7 @@ theme_message_area_response_cb (GtkWidget *w,
 static void
 theme_message_area_update (AppearanceData *data)
 {
-  const MateThemeMetaInfo *theme;
+  const UkuiThemeMetaInfo *theme;
   gboolean show_apply_background = FALSE;
   gboolean show_apply_font = FALSE;
   gboolean show_revert_font = FALSE;
@@ -576,7 +578,7 @@ theme_message_area_update (AppearanceData *data)
     return;
   }
 
-  show_error = !mate_theme_meta_info_validate (theme, &error);
+  show_error = !ukui_theme_meta_info_validate (theme, &error);
 
   if (!show_error) {
     if (theme->background_image != NULL) {
@@ -602,15 +604,15 @@ theme_message_area_update (AppearanceData *data)
       g_free (font);
     }
 
-    if (data->caja_settings && !show_apply_font && theme->desktop_font) {
-      font = g_settings_get_string (data->caja_settings, DESKTOP_FONT_KEY);
+    if (data->peony_settings && !show_apply_font && theme->desktop_font) {
+      font = g_settings_get_string (data->peony_settings, DESKTOP_FONT_KEY);
       show_apply_font =
           (!font || strcmp (theme->application_font, font) != 0);
       g_free (font);
     }
 
     if (!show_apply_font && theme->windowtitle_font) {
-      font = g_settings_get_string (data->marco_settings, WINDOW_TITLE_FONT_KEY);
+      font = g_settings_get_string (data->ukwm_settings, WINDOW_TITLE_FONT_KEY);
       show_apply_font =
           (!font || strcmp (theme->application_font, font) != 0);
       g_free (font);
@@ -730,7 +732,7 @@ theme_message_area_update (AppearanceData *data)
     gtk_widget_hide (data->revert_font_button);
 
   if (show_error
-      && g_error_matches (error, MATE_THEME_ERROR, MATE_THEME_ERROR_GTK_ENGINE_NOT_AVAILABLE)
+      && g_error_matches (error, UKUI_THEME_ERROR, UKUI_THEME_ERROR_GTK_ENGINE_NOT_AVAILABLE)
       && packagekit_available ())
     gtk_widget_show (data->install_button);
   else
@@ -759,7 +761,7 @@ static void
 theme_selection_changed_cb (GtkWidget *icon_view, AppearanceData *data)
 {
   GList *selection;
-  MateThemeMetaInfo *theme = NULL;
+  UkuiThemeMetaInfo *theme = NULL;
   gboolean is_custom = FALSE;
 
   selection = gtk_icon_view_get_selected_items (GTK_ICON_VIEW (icon_view));
@@ -778,10 +780,10 @@ theme_selection_changed_cb (GtkWidget *icon_view, AppearanceData *data)
     if (is_custom)
       theme = data->theme_custom;
     else
-      theme = mate_theme_meta_info_find (name);
+      theme = ukui_theme_meta_info_find (name);
 
     if (theme) {
-      mate_meta_theme_set (theme);
+      ukui_meta_theme_set (theme);
       theme_message_area_update (data);
     }
 
@@ -815,7 +817,7 @@ theme_save_cb (GtkWidget *button, AppearanceData *data)
 static void
 theme_install_cb (GtkWidget *button, AppearanceData *data)
 {
-  mate_theme_installer_run (
+  ukui_theme_installer_run (
       GTK_WINDOW (appearance_capplet_get_widget (data, "appearance_window")), NULL);
 }
 
@@ -859,8 +861,8 @@ theme_delete_cb (GtkWidget *button, AppearanceData *data)
 static void
 theme_details_changed_cb (AppearanceData *data)
 {
-  MateThemeMetaInfo *gsettings_theme;
-  const MateThemeMetaInfo *selected;
+  UkuiThemeMetaInfo *gsettings_theme;
+  const UkuiThemeMetaInfo *selected;
   GtkIconView *icon_view;
   gboolean done = FALSE;
 
@@ -875,10 +877,10 @@ theme_details_changed_cb (AppearanceData *data)
     /* look for a matching metatheme */
     GList *theme_list, *l;
 
-    theme_list = mate_theme_meta_info_find_all ();
+    theme_list = ukui_theme_meta_info_find_all ();
 
     for (l = theme_list; l; l = l->next) {
-      MateThemeMetaInfo *info = l->data;
+      UkuiThemeMetaInfo *info = l->data;
 
       if (theme_is_equal (gsettings_theme, info)) {
         theme_select_name (icon_view, info->name);
@@ -893,7 +895,7 @@ theme_details_changed_cb (AppearanceData *data)
     /* didn't find a match, set or update custom */
     theme_set_custom_from_theme (gsettings_theme, data);
 
-  mate_theme_meta_info_free (gsettings_theme);
+  ukui_theme_meta_info_free (gsettings_theme);
 }
 
 static void
@@ -913,8 +915,8 @@ theme_gsettings_changed (GSettings *settings,
 }
 
 static gint
-theme_list_sort_func (MateThemeMetaInfo *a,
-                      MateThemeMetaInfo *b)
+theme_list_sort_func (UkuiThemeMetaInfo *a,
+                      UkuiThemeMetaInfo *b)
 {
   return strcmp (a->readable_name, b->readable_name);
 }
@@ -977,7 +979,7 @@ theme_drag_data_received_cb (GtkWidget *widget,
   if (uris != NULL && uris[0] != NULL) {
     GFile *f = g_file_new_for_uri (uris[0]);
 
-    mate_theme_install (f,
+    ukui_theme_install (f,
         GTK_WINDOW (appearance_capplet_get_widget (data, "appearance_window")));
     g_object_unref (f);
   }
@@ -996,15 +998,15 @@ void themes_init(AppearanceData* data)
   GList *theme_list, *l;
   GtkListStore *theme_store;
   GtkTreeModel *sort_model;
-  MateThemeMetaInfo *meta_theme = NULL;
+  UkuiThemeMetaInfo *meta_theme = NULL;
   GtkIconView *icon_view;
   GtkCellRenderer *renderer;
   GtkSettings *settings;
   char *url;
 
   /* initialise some stuff */
-  mate_theme_init ();
-  mate_wm_manager_init ();
+  ukui_theme_init ();
+  ukui_wm_manager_init ();
 
   data->revert_application_font = NULL;
   data->revert_documents_font = NULL;
@@ -1015,21 +1017,21 @@ void themes_init(AppearanceData* data)
   data->theme_message_area = NULL;
   data->theme_info_icon = NULL;
   data->theme_error_icon = NULL;
-  data->theme_custom = mate_theme_meta_info_new ();
-  data->theme_icon = gdk_pixbuf_new_from_file (MATECC_PIXMAP_DIR "/theme-thumbnailing.png", NULL);
+  data->theme_custom = ukui_theme_meta_info_new ();
+  data->theme_icon = gdk_pixbuf_new_from_file (UKUICC_PIXMAP_DIR "/theme-thumbnailing.png", NULL);
   data->theme_store = theme_store =
       gtk_list_store_new (NUM_COLS, GDK_TYPE_PIXBUF, G_TYPE_STRING, G_TYPE_STRING);
 
   /* set up theme list */
-  theme_list = mate_theme_meta_info_find_all ();
-  mate_theme_info_register_theme_change ((ThemeChangedCallback) theme_changed_on_disk_cb, data);
+  theme_list = ukui_theme_meta_info_find_all ();
+  ukui_theme_info_register_theme_change ((ThemeChangedCallback) theme_changed_on_disk_cb, data);
 
   data->theme_custom = theme_load_from_gsettings (data);
   data->theme_custom->name = g_strdup (CUSTOM_THEME_NAME);
   data->theme_custom->readable_name = g_strdup_printf ("<i>%s</i>", _("Custom"));
 
   for (l = theme_list; l; l = l->next) {
-    MateThemeMetaInfo *info = l->data;
+    UkuiThemeMetaInfo *info = l->data;
 
     gtk_list_store_insert_with_values (theme_store, NULL, 0,
         COL_LABEL, info->readable_name,
@@ -1136,7 +1138,7 @@ void themes_init(AppearanceData* data)
   g_free (url);
 
   /* listen to gsettings changes, too */
-  g_signal_connect (data->marco_settings, "changed::" MARCO_THEME_KEY, G_CALLBACK (theme_gsettings_changed), data);
+  g_signal_connect (data->ukwm_settings, "changed::" UKWM_THEME_KEY, G_CALLBACK (theme_gsettings_changed), data);
   g_signal_connect (data->mouse_settings, "changed::" CURSOR_THEME_KEY, G_CALLBACK (theme_gsettings_changed), data);
 #ifdef HAVE_XCURSOR
   g_signal_connect (data->mouse_settings, "changed::" CURSOR_SIZE_KEY, G_CALLBACK (theme_gsettings_changed), data);
@@ -1145,10 +1147,10 @@ void themes_init(AppearanceData* data)
   g_signal_connect (data->interface_settings, "changed::" GTK_FONT_KEY, G_CALLBACK (background_or_font_changed), data);
   g_signal_connect (data->interface_settings, "changed::" DOCUMENT_FONT_KEY, G_CALLBACK (background_or_font_changed), data);
 
-  if (data->caja_settings)
-    g_signal_connect (data->caja_settings, "changed::" DESKTOP_FONT_KEY, G_CALLBACK (background_or_font_changed), data);
+  if (data->peony_settings)
+    g_signal_connect (data->peony_settings, "changed::" DESKTOP_FONT_KEY, G_CALLBACK (background_or_font_changed), data);
 
-  g_signal_connect (data->marco_settings, "changed::" WINDOW_TITLE_FONT_KEY, G_CALLBACK (background_or_font_changed), data);
+  g_signal_connect (data->ukwm_settings, "changed::" WINDOW_TITLE_FONT_KEY, G_CALLBACK (background_or_font_changed), data);
   g_signal_connect (data->interface_settings, "changed::" MONOSPACE_FONT_KEY, G_CALLBACK (background_or_font_changed), data);
 
   settings = gtk_settings_get_default ();
@@ -1173,7 +1175,7 @@ void themes_init(AppearanceData* data)
 void
 themes_shutdown (AppearanceData *data)
 {
-  mate_theme_meta_info_free (data->theme_custom);
+  ukui_theme_meta_info_free (data->theme_custom);
 
   if (data->theme_icon)
     g_object_unref (data->theme_icon);

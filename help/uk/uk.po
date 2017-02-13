@@ -1,4 +1,4 @@
-# Ukrainian translation of mate-control-center manual.
+# Ukrainian translation of ukui-control-center manual.
 # Copyright (C) 2005 Free Software Foundation, Inc.
 # Maxim Dziumanenko <dziumanenko@gmail.com>, 2005-2007.
 #
@@ -15,12 +15,12 @@ msgstr ""
 
 #: C/control-center.xml:11(para)
 msgid ""
-"The MATE Control Center provides a central place for the user to setup "
-"their MATE experience. It can let you configure anything from the behavior "
+"The UKUI Control Center provides a central place for the user to setup "
+"their UKUI experience. It can let you configure anything from the behavior "
 "of your window borders to the default font type."
 msgstr ""
-"Центр керування MATE дозволяє легко та швидко налаштувати робоче середовище "
-"MATE за власним смаком. Тут ви можете змінити усі потрібні параметри від "
+"Центр керування UKUI дозволяє легко та швидко налаштувати робоче середовище "
+"UKUI за власним смаком. Тут ви можете змінити усі потрібні параметри від "
 "поведінки рамок вікон до типового шрифту."
 
 #: C/control-center.xml:15(title)
@@ -44,8 +44,8 @@ msgid "Ximian, Inc."
 msgstr "Ximian, Inc."
 
 #: C/control-center.xml:27(publishername)
-msgid "MATE Documentation Project"
-msgstr "Проект документування MATE"
+msgid "UKUI Documentation Project"
+msgstr "Проект документування UKUI"
 
 #: C/control-center.xml:32(revnumber)
 msgid "2.14"
@@ -58,35 +58,35 @@ msgstr "2006-03"
 #: C/control-center.xml:38(para)
 msgid ""
 "Permission is granted to copy, distribute and/or modify this document under "
-"the terms of the <ulink type=\"help\" url=\"mate-help:fdl\"><citetitle> GNU "
+"the terms of the <ulink type=\"help\" url=\"ukui-help:fdl\"><citetitle> GNU "
 "Free Documentation License </citetitle></ulink>, Version 1.1 or any later "
 "version published by the Free Software Foundation with no Invariant "
 "Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the "
-"license can be found <ulink type=\"help\" url=\"mate-help:fdl\">here</"
+"license can be found <ulink type=\"help\" url=\"ukui-help:fdl\">here</"
 "ulink>."
 msgstr ""
 "Ліцензія надає право копіювати, поширювати та/або змінювати цей "
-"документ відповідно до <ulink type=\"help\" url=\"mate-"
+"документ відповідно до <ulink type=\"help\" url=\"ukui-"
 "help:fdl\"><citetitle> GNU Free Documentation License </citetitle></ulink>, "
 "версії 1.1 або старшій, що видана Free Software Foundation без інваріантних розділів, передумов та післямов. Копію "
-"ліцензії можна знайти на сторінці <ulink type=\"help\" url=\"mate-"
+"ліцензії можна знайти на сторінці <ulink type=\"help\" url=\"ukui-"
 "help:fdl\">здесь</ulink>."
 
 #: C/control-center.xml:50(para)
 msgid ""
 "Many of the names used by companies to distinguish their products and "
-"services are claimed as trademarks. Where those names appear in any MATE "
+"services are claimed as trademarks. Where those names appear in any UKUI "
 "documentation, and those trademarks are made aware to the members of the "
-"MATE Documentation Project, the names have been printed in caps or initial "
+"UKUI Documentation Project, the names have been printed in caps or initial "
 "caps."
 msgstr ""
 "Багато назв, що використовується компаніями, позначені торговими знаками з "
 "метою означити їх продукти та послуги. При появі торгових марок у "
-"документації MATE вони вказуються великими літерами або з великої літери."
+"документації UKUI вони вказуються великими літерами або з великої літери."
 
 #: C/control-center.xml:59(releaseinfo)
-msgid "This manual describes version 1.5.7 of the MATE Control Center."
-msgstr "У документації описано Центр керування MATE версії 1.5.7."
+msgid "This manual describes version 1.5.7 of the UKUI Control Center."
+msgstr "У документації описано Центр керування UKUI версії 1.5.7."
 
 #: C/control-center.xml:65(title)
 msgid "Introduction"
@@ -94,19 +94,19 @@ msgstr "Вступ"
 
 #: C/control-center.xml:66(para)
 msgid ""
-"The <application>MATE Control Center</application> provides a single window "
+"The <application>UKUI Control Center</application> provides a single window "
 "from which to launch all preference tools."
 msgstr ""
-"<application>Центр керування MATE</application> є єдиним вікном, з "
+"<application>Центр керування UKUI</application> є єдиним вікном, з "
 "якого можна запустити будь-які програми налаштовування."
 
 #: C/control-center.xml:69(para)
 msgid ""
-"To launch the <application>MATE Control Center</application>, type "
-"<command>mate-control-center</command> in a terminal window."
+"To launch the <application>UKUI Control Center</application>, type "
+"<command>ukui-control-center</command> in a terminal window."
 msgstr ""
-"Для запуску <application>Центру керування MATE</application> у командному рядку терміналу введіть "
-"<command>mate-control-center</command>."
+"Для запуску <application>Центру керування UKUI</application> у командному рядку терміналу введіть "
+"<command>ukui-control-center</command>."
 
 #: C/control-center.xml:73(para)
 msgid ""
@@ -122,11 +122,11 @@ msgstr "Використання"
 
 #: C/control-center.xml:78(para)
 msgid ""
-"The <application>MATE Control Center</application> shows icons for all "
+"The <application>UKUI Control Center</application> shows icons for all "
 "preference tools installed on your system in a window. Select a preference "
 "tool to see its description in the status bar."
 msgstr ""
-"<application>Центр керування MATE</application> показує значки усіх "
+"<application>Центр керування UKUI</application> показує значки усіх "
 "встановлених у вашій системі програм налаштовування. Виберіть програму налаштовування, "
 "щоб побачити її опис у рядку стану."
 

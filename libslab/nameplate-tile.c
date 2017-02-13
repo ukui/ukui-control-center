@@ -2,7 +2,7 @@
  * This file is part of libtile.
  *
  * Copyright (c) 2006 Novell, Inc.
- *
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * Libtile is free software; you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2 of the License, or (at your option)
@@ -214,9 +214,12 @@ nameplate_tile_setup (NameplateTile *this)
 	GtkWidget *alignment;
 	GtkWidget *vbox;
 
-	priv->image_ctnr = GTK_CONTAINER (gtk_alignment_new (0.5, 0.5, 1.0, 1.0));
-	priv->header_ctnr = GTK_CONTAINER (gtk_alignment_new (0.0, 0.5, 1.0, 1.0));
-	priv->subheader_ctnr = GTK_CONTAINER (gtk_alignment_new (0.0, 0.5, 1.0, 1.0));
+//	priv->image_ctnr = GTK_CONTAINER (gtk_alignment_new (0.5, 0.5, 1.0, 1.0));
+//	priv->header_ctnr = GTK_CONTAINER (gtk_alignment_new (0.0, 0.5, 1.0, 1.0));
+//	priv->subheader_ctnr = GTK_CONTAINER (gtk_alignment_new (0.0, 0.5, 1.0, 1.0));
+    priv->image_ctnr = GTK_CONTAINER (gtk_alignment_new (0.5, 0.5, 0.0, 0.0));
+    priv->header_ctnr = GTK_CONTAINER (gtk_alignment_new (0.5, 0.5, 0.0, 0.0));
+    priv->subheader_ctnr = GTK_CONTAINER (gtk_alignment_new (0.5, 0.5, 1.0, 1.0));
 
 #if GTK_CHECK_VERSION (3, 0, 0)
 	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
@@ -226,15 +229,15 @@ nameplate_tile_setup (NameplateTile *this)
 	vbox = gtk_vbox_new (FALSE, 0);
 #endif
 
-	alignment = gtk_alignment_new (0.0, 0.5, 1.0, 0.0);
+    alignment = gtk_alignment_new (1.0, 0.5, 1.0, 1.0);
 
-	gtk_container_add (GTK_CONTAINER (this), hbox);
-	gtk_box_pack_start (GTK_BOX (hbox), GTK_WIDGET (priv->image_ctnr), FALSE, FALSE, 0);
-	gtk_box_pack_start (GTK_BOX (hbox), alignment, TRUE, TRUE, 0);
+    gtk_container_add (GTK_CONTAINER (this), vbox);
+    gtk_box_pack_start (GTK_BOX (vbox), GTK_WIDGET (priv->image_ctnr), TRUE, TRUE, 10);
+    gtk_box_pack_start (GTK_BOX (vbox), alignment, FALSE, FALSE, 0);
 
 	gtk_container_add (GTK_CONTAINER (alignment), vbox);
 	gtk_box_pack_start (GTK_BOX (vbox), GTK_WIDGET (priv->header_ctnr), FALSE, FALSE, 0);
-	gtk_box_pack_start (GTK_BOX (vbox), GTK_WIDGET (priv->subheader_ctnr), FALSE, FALSE, 0);
+//	gtk_box_pack_start (GTK_BOX (vbox), GTK_WIDGET (priv->subheader_ctnr), FALSE, FALSE, 0);
 
 	if (GTK_IS_WIDGET (this->image))
 		gtk_container_add (priv->image_ctnr, this->image);
@@ -242,8 +245,8 @@ nameplate_tile_setup (NameplateTile *this)
 	if (GTK_IS_WIDGET (this->header))
 		gtk_container_add (priv->header_ctnr, this->header);
 
-	if (GTK_IS_WIDGET (this->subheader))
-		gtk_container_add (priv->subheader_ctnr, this->subheader);
+//	if (GTK_IS_WIDGET (this->subheader))
+//		gtk_container_add (priv->subheader_ctnr, this->subheader);
 
 	gtk_button_set_focus_on_click (GTK_BUTTON (this), FALSE);
 }

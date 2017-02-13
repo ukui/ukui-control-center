@@ -1,7 +1,7 @@
 #ifndef WM_COMMON_H
 #define WM_COMMON_H
 
-#define WM_COMMON_MARCO       "Metacity (Marco)"
+#define WM_COMMON_UKWM       "Metacity (Ukwm)"
 #define WM_COMMON_SAWFISH     "Sawfish"
 #define WM_COMMON_METACITY    "Metacity"
 #define WM_COMMON_COMPIZ      "Compiz"
@@ -10,7 +10,7 @@
 
 gchar *wm_common_get_current_window_manager (void);
 /* Returns a strv of keybinding names for the window manager;
- * using _MATE_WM_KEYBINDINGS if available, _NET_WM_NAME otherwise. */
+ * using _UKUI_WM_KEYBINDINGS if available, _NET_WM_NAME otherwise. */
 char **wm_common_get_current_keybindings (void);
 
 void   wm_common_register_window_manager_change (GFunc    func,

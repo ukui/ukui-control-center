@@ -1,7 +1,9 @@
 /*
  * Copyright (C) 2007 The GNOME Foundation
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * Written by Thomas Wood <thos@gnome.org>
  *            Jens Granseuer <jensgr@gmx.net>
+ * Modified by zhangshuhao <zhangshuhao@kylinos.cn>
  * All Rights Reserved
  *
  * This program is free software; you can redistribute it and/or modify
@@ -35,7 +37,7 @@ enum {
   INVALID_THEME_NAME
 };
 
-/* taken from mate-desktop-item.c */
+/* taken from ukui-desktop-item.c */
 static gchar *
 escape_string_and_dup (const gchar *s)
 {
@@ -168,7 +170,7 @@ setup_directory_structure (const gchar  *theme_name,
 }
 
 static gboolean
-write_theme_to_disk (MateThemeMetaInfo  *theme_info,
+write_theme_to_disk (UkuiThemeMetaInfo  *theme_info,
 		     const gchar         *theme_name,
 		     const gchar         *theme_description,
 		     gboolean		  save_background,
@@ -206,7 +208,7 @@ write_theme_to_disk (MateThemeMetaInfo  *theme_info,
   g_free (dir);
 
   /* start making the theme file */
-  str = g_strdup_printf(theme_header, theme_name, theme_description, theme_info->gtk_theme_name, theme_info->marco_theme_name, theme_info->icon_theme_name);
+  str = g_strdup_printf(theme_header, theme_name, theme_description, theme_info->gtk_theme_name, theme_info->ukwm_theme_name, theme_info->icon_theme_name);
 
   output = G_OUTPUT_STREAM (g_file_replace (tmp_file, NULL, FALSE, G_FILE_CREATE_NONE, NULL, NULL));
   g_output_stream_write (output, str, strlen (str), NULL, NULL);
@@ -269,7 +271,7 @@ write_theme_to_disk (MateThemeMetaInfo  *theme_info,
 }
 
 static gboolean
-save_theme_to_disk (MateThemeMetaInfo  *theme_info,
+save_theme_to_disk (UkuiThemeMetaInfo  *theme_info,
 		    const gchar         *theme_name,
 		    const gchar         *theme_description,
 		    gboolean		 save_background,
@@ -300,7 +302,7 @@ save_dialog_response (GtkWidget      *save_dialog,
     GtkTextIter start_iter;
     GtkTextIter end_iter;
     gchar *buffer_text;
-    MateThemeMetaInfo *theme_info;
+    UkuiThemeMetaInfo *theme_info;
     gchar *theme_description = NULL;
     gchar *theme_name = NULL;
     gboolean save_background;
@@ -317,7 +319,7 @@ save_dialog_response (GtkWidget      *save_dialog,
     buffer_text = gtk_text_buffer_get_text (buffer, &start_iter, &end_iter, FALSE);
     theme_description = escape_string_and_dup (buffer_text);
     g_free (buffer_text);
-    theme_info = (MateThemeMetaInfo *) g_object_get_data (G_OBJECT (save_dialog), "meta-theme-info");
+    theme_info = (UkuiThemeMetaInfo *) g_object_get_data (G_OBJECT (save_dialog), "meta-theme-info");
     save_background = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (
 		      appearance_capplet_get_widget (data, "save_background_checkbutton")));
     save_notification = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (
@@ -353,7 +355,7 @@ entry_text_changed (GtkEditable *editable,
 }
 
 void
-theme_save_dialog_run (MateThemeMetaInfo *theme_info,
+theme_save_dialog_run (UkuiThemeMetaInfo *theme_info,
 		       AppearanceData     *data)
 {
   GtkWidget *entry;
@@ -370,7 +372,7 @@ theme_save_dialog_run (MateThemeMetaInfo *theme_info,
     g_signal_connect (data->theme_save_dialog, "delete-event", (GCallback) gtk_true, NULL);
     g_signal_connect (entry, "changed", (GCallback) entry_text_changed, data);
 
-    error_quark = g_quark_from_string ("mate-theme-save");
+    error_quark = g_quark_from_string ("ukui-theme-save");
     gtk_widget_set_size_request (text_view, 300, 100);
   }
 

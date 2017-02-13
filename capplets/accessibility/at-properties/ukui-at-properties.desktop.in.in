@@ -1,0 +1,11 @@
+[Desktop Entry]
+_Name=Assistive Technologies
+_Comment=Choose which accessibility features to enable when you log in
+Exec=ukui-at-properties
+Icon=preferences-desktop-accessibility
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GTK;Settings;Accessibility;
+Keywords=ukui-control-center;UKUI;accessibility;features;
+OnlyShowIn=UKUI;

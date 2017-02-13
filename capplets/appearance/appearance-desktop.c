@@ -1,8 +1,10 @@
 /*
  * Copyright (C) 2007,2008 The GNOME Foundation
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * Written by Rodney Dawes <dobey@ximian.com>
  *            Denis Washington <denisw@svn.gnome.org>
  *            Thomas Wood <thos@gnome.org>
+ * Modified by: zhangshuhao <zhangshuhao@kylinos.cn>
  * All Rights Reserved
  *
  * This program is free software; you can redistribute it and/or modify
@@ -21,14 +23,14 @@
  */
 
 #include "appearance.h"
-#include "mate-wp-info.h"
-#include "mate-wp-item.h"
-#include "mate-wp-xml.h"
+#include "ukui-wp-info.h"
+#include "ukui-wp-item.h"
+#include "ukui-wp-xml.h"
 #include <glib/gi18n.h>
 #include <gio/gio.h>
 #include <string.h>
-#include <libmate-desktop/mate-desktop-thumbnail.h>
-#include <libmate-desktop/mate-bg.h>
+#include <libukui-desktop/ukui-desktop-thumbnail.h>
+#include <libukui-desktop/ukui-bg.h>
 
 enum {
 	TARGET_URI_LIST,
@@ -47,7 +49,7 @@ static const GtkTargetEntry drag_types[] = {
 
 static void wp_update_preview(GtkFileChooser* chooser, AppearanceData* data);
 
-static void select_item(AppearanceData* data, MateWPItem* item, gboolean scroll)
+static void select_item(AppearanceData* data, UkuiWPItem* item, gboolean scroll)
 {
 	GtkTreePath* path;
 
@@ -68,9 +70,9 @@ static void select_item(AppearanceData* data, MateWPItem* item, gboolean scroll)
 	gtk_tree_path_free(path);
 }
 
-static MateWPItem* get_selected_item(AppearanceData* data, GtkTreeIter* iter)
+static UkuiWPItem* get_selected_item(AppearanceData* data, GtkTreeIter* iter)
 {
-	MateWPItem* item = NULL;
+	UkuiWPItem* item = NULL;
 	GList* selected;
 
 	selected = gtk_icon_view_get_selected_items (data->wp_view);
@@ -95,17 +97,17 @@ static MateWPItem* get_selected_item(AppearanceData* data, GtkTreeIter* iter)
 
 static gboolean predicate (gpointer key, gpointer value, gpointer data)
 {
-  MateBG *bg = data;
-  MateWPItem *item = value;
+  UkuiBG *bg = data;
+  UkuiWPItem *item = value;
 
   return item->bg == bg;
 }
 
-static void on_item_changed (MateBG *bg, AppearanceData *data) {
+static void on_item_changed (UkuiBG *bg, AppearanceData *data) {
   GtkTreeModel *model;
   GtkTreeIter iter;
   GtkTreePath *path;
-  MateWPItem *item;
+  UkuiWPItem *item;
 
   item = g_hash_table_find (data->wp_hash, predicate, bg);
 
@@ -120,7 +122,7 @@ static void on_item_changed (MateBG *bg, AppearanceData *data) {
 
     g_signal_handlers_block_by_func (bg, G_CALLBACK (on_item_changed), data);
 
-    pixbuf = mate_wp_item_get_thumbnail (item,
+    pixbuf = ukui_wp_item_get_thumbnail (item,
                                           data->thumb_factory,
                                           data->thumb_width,
                                           data->thumb_height);
@@ -135,7 +137,7 @@ static void on_item_changed (MateBG *bg, AppearanceData *data) {
 
 static void
 wp_props_load_wallpaper (gchar *key,
-                         MateWPItem *item,
+                         UkuiWPItem *item,
                          AppearanceData *data)
 {
   GtkTreeIter iter;
@@ -147,10 +149,10 @@ wp_props_load_wallpaper (gchar *key,
 
   gtk_list_store_append (GTK_LIST_STORE (data->wp_model), &iter);
 
-  pixbuf = mate_wp_item_get_thumbnail (item, data->thumb_factory,
+  pixbuf = ukui_wp_item_get_thumbnail (item, data->thumb_factory,
                                         data->thumb_width,
                                         data->thumb_height);
-  mate_wp_item_update_description (item);
+  ukui_wp_item_update_description (item);
 
   gtk_list_store_set (GTK_LIST_STORE (data->wp_model), &iter,
                       0, pixbuf,
@@ -166,11 +168,11 @@ wp_props_load_wallpaper (gchar *key,
   gtk_tree_path_free (path);
 }
 
-static MateWPItem *
+static UkuiWPItem *
 wp_add_image (AppearanceData *data,
               const gchar *filename)
 {
-  MateWPItem *item;
+  UkuiWPItem *item;
 
   if (!filename)
     return NULL;
@@ -187,7 +189,7 @@ wp_add_image (AppearanceData *data,
   }
   else
   {
-    item = mate_wp_item_new (filename, data->wp_hash, data->thumb_factory);
+    item = ukui_wp_item_new (filename, data->wp_hash, data->thumb_factory);
 
     if (item != NULL)
     {
@@ -205,7 +207,7 @@ wp_add_images (AppearanceData *data,
   GdkWindow *window;
   GtkWidget *w;
   GdkCursor *cursor;
-  MateWPItem *item;
+  UkuiWPItem *item;
 
   w = appearance_capplet_get_widget (data, "appearance_window");
   window = gtk_widget_get_window (w);
@@ -247,7 +249,7 @@ wp_option_menu_set (AppearanceData *data,
     gtk_combo_box_set_active (GTK_COMBO_BOX (data->wp_color_menu),
                               value);
 
-    if (value == MATE_BG_COLOR_SOLID)
+    if (value == UKUI_BG_COLOR_SOLID)
       gtk_widget_hide (data->wp_scpicker);
     else
       gtk_widget_show (data->wp_scpicker);
@@ -262,7 +264,7 @@ wp_option_menu_set (AppearanceData *data,
 static void
 wp_set_sensitivities (AppearanceData *data)
 {
-  MateWPItem *item;
+  UkuiWPItem *item;
   gchar *filename = NULL;
 
   item = get_selected_item (data, NULL);
@@ -301,7 +303,7 @@ static void
 wp_scale_type_changed (GtkComboBox *combobox,
                        AppearanceData *data)
 {
-  MateWPItem *item;
+  UkuiWPItem *item;
   GtkTreeIter iter;
   GdkPixbuf *pixbuf;
 
@@ -312,7 +314,7 @@ wp_scale_type_changed (GtkComboBox *combobox,
 
   item->options = gtk_combo_box_get_active (GTK_COMBO_BOX (data->wp_style_menu));
 
-  pixbuf = mate_wp_item_get_thumbnail (item, data->thumb_factory,
+  pixbuf = ukui_wp_item_get_thumbnail (item, data->thumb_factory,
                                         data->thumb_width,
                                         data->thumb_height);
   gtk_list_store_set (GTK_LIST_STORE (data->wp_model), &iter, 0, pixbuf, -1);
@@ -331,7 +333,7 @@ static void
 wp_shade_type_changed (GtkWidget *combobox,
                        AppearanceData *data)
 {
-  MateWPItem *item;
+  UkuiWPItem *item;
   GtkTreeIter iter;
   GdkPixbuf *pixbuf;
 
@@ -342,7 +344,7 @@ wp_shade_type_changed (GtkWidget *combobox,
 
   item->shade_type = gtk_combo_box_get_active (GTK_COMBO_BOX (data->wp_color_menu));
 
-  pixbuf = mate_wp_item_get_thumbnail (item, data->thumb_factory,
+  pixbuf = ukui_wp_item_get_thumbnail (item, data->thumb_factory,
                                         data->thumb_width,
                                         data->thumb_height);
   gtk_list_store_set (GTK_LIST_STORE (data->wp_model), &iter, 0, pixbuf, -1);
@@ -361,7 +363,7 @@ static void
 wp_color_changed (AppearanceData *data,
                   gboolean update)
 {
-  MateWPItem *item;
+  UkuiWPItem *item;
 
   item = get_selected_item (data, NULL);
 
@@ -409,7 +411,7 @@ static void
 wp_remove_wallpaper (GtkWidget *widget,
                      AppearanceData *data)
 {
-  MateWPItem *item;
+  UkuiWPItem *item;
   GtkTreeIter iter;
   GtkTreePath *path;
 
@@ -434,7 +436,7 @@ static void
 wp_uri_changed (const gchar *uri,
                 AppearanceData *data)
 {
-  MateWPItem *item, *selected;
+  UkuiWPItem *item, *selected;
 
   item = g_hash_table_lookup (data->wp_hash, uri);
   selected = get_selected_item (data, NULL);
@@ -475,7 +477,7 @@ wp_options_changed (GSettings *settings,
                     gchar *key,
                     AppearanceData *data)
 {
-  MateWPItem *item;
+  UkuiWPItem *item;
 
   item = get_selected_item (data, NULL);
 
@@ -491,7 +493,7 @@ wp_shading_changed (GSettings *settings,
                     gchar *key,
                     AppearanceData *data)
 {
-  MateWPItem *item;
+  UkuiWPItem *item;
 
   wp_set_sensitivities (data);
 
@@ -565,7 +567,7 @@ wp_color2_changed (GSettings *settings,
 }
 
 static gboolean
-wp_props_wp_set (AppearanceData *data, MateWPItem *item)
+wp_props_wp_set (AppearanceData *data, UkuiWPItem *item)
 {
   gchar *pcolor, *scolor;
 
@@ -618,7 +620,7 @@ static void
 wp_props_wp_selected (GtkTreeSelection *selection,
                       AppearanceData *data)
 {
-  MateWPItem *item;
+  UkuiWPItem *item;
 
   item = get_selected_item (data, NULL);
 
@@ -786,7 +788,7 @@ wp_drag_get_data (GtkWidget *widget,
 		  AppearanceData *data)
 {
   if (type == TARGET_URI_LIST) {
-    MateWPItem *item = get_selected_item (data, NULL);
+    UkuiWPItem *item = get_selected_item (data, NULL);
 
     if (item != NULL) {
       char *uris[2];
@@ -810,7 +812,7 @@ wp_view_tooltip_cb (GtkWidget  *widget,
                     AppearanceData *data)
 {
   GtkTreeIter iter;
-  MateWPItem *item;
+  UkuiWPItem *item;
 
   if (gtk_icon_view_get_tooltip_context (data->wp_view,
                                          &x, &y,
@@ -833,7 +835,7 @@ wp_list_sort (GtkTreeModel *model,
               GtkTreeIter *a, GtkTreeIter *b,
               AppearanceData *data)
 {
-  MateWPItem *itema, *itemb;
+  UkuiWPItem *itema, *itemb;
   gint retval;
 
   gtk_tree_model_get (model, a, 1, &itema, -1);
@@ -885,7 +887,7 @@ wp_update_preview (GtkFileChooser *chooser,
 
     if (mime_type)
     {
-      pixbuf = mate_desktop_thumbnail_factory_generate_thumbnail (data->thumb_factory,
+      pixbuf = ukui_desktop_thumbnail_factory_generate_thumbnail (data->thumb_factory,
 								   uri,
 								   mime_type);
     }
@@ -912,12 +914,12 @@ reload_item (GtkTreeModel *model,
              GtkTreeIter *iter,
              AppearanceData *data)
 {
-  MateWPItem *item;
+  UkuiWPItem *item;
   GdkPixbuf *pixbuf;
 
   gtk_tree_model_get (model, iter, 1, &item, -1);
 
-  pixbuf = mate_wp_item_get_thumbnail (item,
+  pixbuf = ukui_wp_item_get_thumbnail (item,
                                         data->thumb_factory,
                                         data->thumb_width,
                                         data->thumb_height);
@@ -973,13 +975,13 @@ wp_load_stuffs (void *user_data)
 {
   AppearanceData *data;
   gchar *imagepath, *uri, *style;
-  MateWPItem *item;
+  UkuiWPItem *item;
 
   data = (AppearanceData *) user_data;
 
   compute_thumbnail_sizes (data);
 
-  mate_wp_xml_load_list (data);
+  ukui_wp_xml_load_list (data);
   g_hash_table_foreach (data->wp_hash, (GHFunc) wp_props_load_wallpaper,
                         data);
 
@@ -1012,7 +1014,7 @@ wp_load_stuffs (void *user_data)
   if (item != NULL)
   {
     /* update with the current gsettings */
-    mate_wp_item_update (item);
+    ukui_wp_item_update (item);
 
     if (strcmp (style, "none") != 0)
     {
@@ -1035,7 +1037,7 @@ wp_load_stuffs (void *user_data)
   item = g_hash_table_lookup (data->wp_hash, "(none)");
   if (item == NULL)
   {
-    item = mate_wp_item_new ("(none)", data->wp_hash, data->thumb_factory);
+    item = ukui_wp_item_new ("(none)", data->wp_hash, data->thumb_factory);
     if (item != NULL)
     {
       wp_props_load_wallpaper (item->filename, item, data);
@@ -1052,7 +1054,7 @@ wp_load_stuffs (void *user_data)
     if (!strcmp (style, "none"))
     {
       select_item (data, item, FALSE);
-      wp_option_menu_set (data, MATE_BG_PLACEMENT_SCALED, FALSE);
+      wp_option_menu_set (data, UKUI_BG_PLACEMENT_SCALED, FALSE);
     }
   }
   g_free (imagepath);
@@ -1070,7 +1072,7 @@ static void
 wp_select_after_realize (GtkWidget *widget,
                          AppearanceData *data)
 {
-  MateWPItem *item;
+  UkuiWPItem *item;
 
   g_idle_add (wp_load_stuffs, data);
 
@@ -1130,7 +1132,7 @@ next_frame (AppearanceData  *data,
             GtkCellRenderer *cr,
             gint             direction)
 {
-  MateWPItem *item;
+  UkuiWPItem *item;
   GtkTreeIter iter;
   GdkPixbuf *pixbuf, *pb;
   gint frame;
@@ -1141,7 +1143,7 @@ next_frame (AppearanceData  *data,
   item = get_selected_item (data, &iter);
 
   if (frame >= 0)
-    pixbuf = mate_wp_item_get_frame_thumbnail (item,
+    pixbuf = ukui_wp_item_get_frame_thumbnail (item,
                                                 data->thumb_factory,
                                                 data->thumb_width,
                                                 data->thumb_height,
@@ -1158,7 +1160,7 @@ next_frame (AppearanceData  *data,
       pb = buttons[0];
   }
   else {
-    pixbuf = mate_wp_item_get_frame_thumbnail (item,
+    pixbuf = ukui_wp_item_get_frame_thumbnail (item,
                                                 data->thumb_factory,
                                                 data->thumb_width,
                                                 data->thumb_height,
@@ -1229,14 +1231,14 @@ buttons_cell_data_func (GtkCellLayout   *layout,
 {
   AppearanceData *data = user_data;
   GtkTreePath *path;
-  MateWPItem *item;
+  UkuiWPItem *item;
   gboolean visible;
 
   path = gtk_tree_model_get_path (model, iter);
 
   if (gtk_icon_view_path_is_selected (GTK_ICON_VIEW (layout), path)) {
     item = get_selected_item (data, NULL);
-    visible = mate_bg_changes_with_time (item->bg);
+    visible = ukui_bg_changes_with_time (item->bg);
   }
   else
     visible = FALSE;
@@ -1412,7 +1414,7 @@ desktop_init (AppearanceData *data,
 void
 desktop_shutdown (AppearanceData *data)
 {
-  mate_wp_xml_save_list (data);
+  ukui_wp_xml_save_list (data);
 
   if (data->screen_monitors_handler > 0) {
     g_signal_handler_disconnect (gtk_widget_get_screen (GTK_WIDGET (data->wp_view)),

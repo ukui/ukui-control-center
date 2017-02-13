@@ -1,5 +1,5 @@
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = mate-slab.pc
+pkgconfig_DATA = ukui-slab.pc
 
 AM_CPPFLAGS =					\
 	-I$(top_srcdir)				\
@@ -15,22 +15,22 @@ HEADER_FILES=					\
 	directory-tile.h			\
 	document-tile.h				\
 	double-click-detector.h			\
-	mate-utils.h				\
+	ukui-utils.h				\
 	libslab-utils.h				\
 	nameplate-tile.h			\
 	search-bar.h				\
 	search-context-picker.h			\
 	search-entry.h				\
 	shell-window.h				\
-	slab-mate-util.h			\
+	slab-ukui-util.h			\
 	slab-section.h				\
 	slab.h					\
 	system-tile.h				\
 	tile.h
 
-lib_LTLIBRARIES = libmate-slab.la
+lib_LTLIBRARIES = libukui-slab.la
 
-libmate_slab_la_SOURCES =			\
+libukui_slab_la_SOURCES =			\
 	$(MARSHAL_GENERATED)			\
 	app-resizer.c				\
 	app-shell.c				\
@@ -39,7 +39,7 @@ libmate_slab_la_SOURCES =			\
 	directory-tile.c			\
 	document-tile.c				\
 	double-click-detector.c			\
-	mate-utils.c				\
+	ukui-utils.c				\
 	libslab-utils.c				\
 	nameplate-tile.c			\
 	search-bar.c				\
@@ -47,7 +47,7 @@ libmate_slab_la_SOURCES =			\
 	search-entry-watermark.h		\
 	search-entry.c				\
 	shell-window.c				\
-	slab-mate-util.c			\
+	slab-ukui-util.c			\
 	slab-section.c				\
 	system-tile.c				\
 	themed-icon.c				\
@@ -55,9 +55,9 @@ libmate_slab_la_SOURCES =			\
 	tile-action.c				\
 	tile.c
 
-libmate_slab_includedir = $(includedir)/libmate-slab
-libmate_slab_include_HEADERS = $(HEADER_FILES)
-libmate_slab_la_LIBADD = $(LIBSLAB_LIBS)
+libukui_slab_includedir = $(includedir)/libukui-slab
+libukui_slab_include_HEADERS = $(HEADER_FILES)
+libukui_slab_la_LIBADD = $(LIBSLAB_LIBS)
 
 search-entry-watermark.h: search-entry-watermark.svg
 	echo '#define SEARCH_ENTRY_WATERMARK_SVG "\' > $@; \

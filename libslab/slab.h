@@ -2,7 +2,7 @@
  * This file is part of libslab.
  *
  * Copyright (c) 2006 Novell, Inc.
- *
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * Libslab is free software; you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2 of the License, or (at your option)
@@ -29,14 +29,14 @@
 #include "directory-tile.h"
 #include "document-tile.h"
 #include "double-click-detector.h"
-#include "mate-utils.h"
+#include "ukui-utils.h"
 #include "libslab-utils.h"
 #include "nameplate-tile.h"
 #include "search-bar.h"
 #include "search-context-picker.h"
 #include "search-entry.h"
 #include "shell-window.h"
-#include "slab-mate-util.h"
+#include "slab-ukui-util.h"
 #include "slab-section.h"
 #include "system-tile.h"
 #include "tile.h"

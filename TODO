@@ -36,7 +36,7 @@ MOUSE PROPERTIES:
  * GSD: Add support for devices other than CoreInput.
 
 KEYBINDINGS:
- * Marco keyboard merging.  See what hp plans to do
+ * Ukwm keyboard merging.  See what hp plans to do
 
 PANEL:
  * UI love
@@ -71,14 +71,14 @@ Hardware Integration
  - peripherals (RH only?)
  - gphoto/sane/cd burning??  Userland hw.
 
-Caja:
- - Move caja settings
+Peony:
+ - Move peony settings
  - Desktop should be a separate dialog
 
 Background:
- - Merge caja pane and bg capplet;
- - possibly even popup a caja window of bg's for DnD
- - Integrate better w/ caja
+ - Merge peony pane and bg capplet;
+ - possibly even popup a peony window of bg's for DnD
+ - Integrate better w/ peony
  - per Workspace?
 
 Workspace/Tasks

@@ -1,4 +1,4 @@
-AC_INIT([mate-control-center], [1.16.0], [htts://www.mate-desktop.org/])
+AC_INIT([ukui-control-center], [1.16.0], [htts://www.maete-desktop.org/])
 
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_SRCDIR([shell])
@@ -29,16 +29,16 @@ changequote([,])dnl
 
 IT_PROG_INTLTOOL([0.50.1])
 
-GETTEXT_PACKAGE=mate-control-center
+GETTEXT_PACKAGE=ukui-control-center
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Gettext package])
 
 AM_GLIB_GNU_GETTEXT
 
-MATE_COMMON_INIT
-MATE_DEBUG_CHECK
-MATE_COMPILE_WARNINGS([maximum])
-MATE_MAINTAINER_MODE_DEFINES
+UKUI_COMMON_INIT
+UKUI_DEBUG_CHECK
+UKUI_COMPILE_WARNINGS([maximum])
+UKUI_MAINTAINER_MODE_DEFINES
 
 AC_PATH_XTRA
 x_libs="$X_PRE_LIBS $X_LIBS -lX11 $X_EXTRA_LIBS"
@@ -78,7 +78,7 @@ AC_MSG_RESULT([$with_gtk])
 case "$with_gtk" in
   2.0) GTK_API_VERSION=2.0
        GTK_REQUIRED=2.24.0
-       MATE_DESKTOP_REQUIRED=1.15.1
+       UKUI_DESKTOP_REQUIRED=1.15.1
        LIBCANBERRA_API_VERSION=
        LIBUNIQUE_API_VERSION=1.0
        ENGINES_FOLDER="engines"
@@ -86,7 +86,7 @@ case "$with_gtk" in
        ;;
   3.0) GTK_API_VERSION=3.0
        GTK_REQUIRED=3.0.0
-       MATE_DESKTOP_REQUIRED=1.15.1
+       UKUI_DESKTOP_REQUIRED=1.15.1
        LIBCANBERRA_API_VERSION=3
        LIBUNIQUE_API_VERSION=3.0
        ENGINES_FOLDER="theming-engines"
@@ -157,16 +157,16 @@ COMMON_MODULES="gtk+-$GTK_API_VERSION >= $GTK_REQUIRED dnl
  gio-2.0 dnl
  gio-unix-2.0 dnl
  libxml-2.0 dnl
- mate-desktop-2.0 >= $MATE_DESKTOP_REQUIRED"
+ ukui-desktop-2.0 >= $UKUI_DESKTOP_REQUIRED"
 PKG_CHECK_MODULES(CAPPLET, $COMMON_MODULES)
-PKG_CHECK_MODULES(MATECC, $COMMON_MODULES libmate-menu >= 1.1.0)
-PKG_CHECK_MODULES(MATECC_SHELL, $COMMON_MODULES libmate-menu unique-$LIBUNIQUE_API_VERSION)
+PKG_CHECK_MODULES(UKUICC, $COMMON_MODULES libukui-menu >= 1.1.0)
+PKG_CHECK_MODULES(UKUICC_SHELL, $COMMON_MODULES libukui-menu unique-$LIBUNIQUE_API_VERSION)
 PKG_CHECK_MODULES(DBUS, dbus-1 dbus-glib-1)
-PKG_CHECK_MODULES(MATE_DESKTOP, mate-desktop-2.0 >= MATE_DESKTOP_REQUIRED)
+PKG_CHECK_MODULES(UKUI_DESKTOP, ukui-desktop-2.0 >= UKUI_DESKTOP_REQUIRED)
 PKG_CHECK_MODULES(DEFAULT_APPLICATIONS_CAPPLET, libxml-2.0)
-PKG_CHECK_MODULES(MARCO, libmarco-private >= 1.13.1)
+PKG_CHECK_MODULES(UKWM, libukwm-private >= 1.13.1)
 PKG_CHECK_MODULES(TYPING, $GMODULE_ADD glib-2.0 > 2.36 gio-2.0 gtk+-$GTK_API_VERSION)
-PKG_CHECK_MODULES(GSD_DBUS, mate-settings-daemon >= 1.13.1)
+PKG_CHECK_MODULES(GSD_DBUS, ukui-settings-daemon >= 1.13.1)
 PKG_CHECK_MODULES(GIO, gio-2.0)
 
 PKG_CHECK_MODULES([DCONF], [dconf >= 0.13.4])
@@ -181,20 +181,20 @@ AC_SUBST(GTK_ENGINE_DIR)
 PKG_CHECK_MODULES(GLIB, glib-2.0 $GMODULE_ADD)
 
 dnl
-dnl Check dependencies of libmate-slab
+dnl Check dependencies of libukui-slab
 dnl
 PKG_CHECK_MODULES(LIBSLAB, [
-			   gio-2.0 mate-desktop-2.0 librsvg-2.0 libmate-menu pango
+			   gio-2.0 ukui-desktop-2.0 librsvg-2.0 libukui-menu pango
 			   ],
-			   have_libmateslab=yes,
-			   have_libmateslab=no)
+			   have_libukuislab=yes,
+			   have_libukuislab=no)
 WARN_CFLAGS="-Wall"
 
-AC_SUBST(LIBMATESLAB_CFLAGS)
-AC_SUBST(LIBMATESLAB_LIBS)
+AC_SUBST(LIBUKUISLAB_CFLAGS)
+AC_SUBST(LIBUKUISLAB_LIBS)
 AC_SUBST(WARN_CFLAGS)
 
-AM_CONDITIONAL(HAVE_LIBMATESLAB, [test $have_libmateslab = yes])
+AM_CONDITIONAL(HAVE_LIBUKUISLAB, [test $have_libukuislab = yes])
 
 PKG_CHECK_MODULES(FONT_CAPPLET, $COMMON_MODULES pango)
 PKG_CHECK_MODULES(FONT_VIEWER, $COMMON_MODULES freetype2)
@@ -205,7 +205,7 @@ PKG_CHECK_MODULES(DISPLAY_CAPPLET, $COMMON_MODULES)
 DISPLAY_CAPPLET_LIBS="$DISPLAY_CAPPLET_LIBS"
 
 CAPPLET_LIBS="$CAPPLET_LIBS $x_libs"
-MATECC_LIBS="$MATECC_LIBS $x_libs"
+UKUICC_LIBS="$UKUICC_LIBS $x_libs"
 
 dnl
 dnl Check for XCursor support.  If it exists, then we compile the
@@ -252,13 +252,13 @@ CAPPLET_LIBS="$CAPPLET_LIBS $XINPUT_LIBS"
 dnl ==============
 dnl gswitchit
 dnl ==============
-PKG_CHECK_MODULES(LIBMATEKBD, [libmatekbd >= 1.1.0 libxklavier >= 4.0])
-AC_SUBST(LIBMATEKBD_CFLAGS)
-AC_SUBST(LIBMATEKBD_LIBS)
+PKG_CHECK_MODULES(LIBUKUIKBD, [libukuikbd >= 1.1.0 libxklavier >= 4.0])
+AC_SUBST(LIBUKUIKBD_CFLAGS)
+AC_SUBST(LIBUKUIKBD_LIBS)
 
-PKG_CHECK_MODULES(LIBMATEKBDUI, [libmatekbdui >= 1.1.0])
-AC_SUBST(LIBMATEKBDUI_CFLAGS)
-AC_SUBST(LIBMATEKBDUI_LIBS)
+PKG_CHECK_MODULES(LIBUKUIKBDUI, [libukuikbdui >= 1.1.0])
+AC_SUBST(LIBUKUIKBDUI_CFLAGS)
+AC_SUBST(LIBUKUIKBDUI_LIBS)
 
 dnl ==============================================
 dnl End: Check that we meet the  dependencies
@@ -286,16 +286,16 @@ COMMON_LIBS="\$(top_builddir)/capplets/common/libcommon.la"
 
 EXTRA_CFLAGS="-I\$(top_srcdir)/ -DG_LOG_DOMAIN=\"\\\"\$(cappletname)-properties\\\"\""
 
-MATECC_CAPPLETS_CFLAGS="${COMMON_CFLAGS} ${CAPPLET_CFLAGS} ${EXTRA_CFLAGS} ${DBUS_CFLAGS}"
-MATECC_CAPPLETS_LIBS="${COMMON_LIBS} ${CAPPLET_LIBS} ${DBUS_LIBS}"
+UKUICC_CAPPLETS_CFLAGS="${COMMON_CFLAGS} ${CAPPLET_CFLAGS} ${EXTRA_CFLAGS} ${DBUS_CFLAGS}"
+UKUICC_CAPPLETS_LIBS="${COMMON_LIBS} ${CAPPLET_LIBS} ${DBUS_LIBS}"
 
-MATECC_CAPPLETS_CLEANFILES="\$(desktop) \$(desktop).in"
-MATECC_CAPPLETS_EXTRA_DIST="ChangeLog \$(desktop).in.in \$(cappletname)-capplet.png \$(pixmaps_DATA)"
+UKUICC_CAPPLETS_CLEANFILES="\$(desktop) \$(desktop).in"
+UKUICC_CAPPLETS_EXTRA_DIST="ChangeLog \$(desktop).in.in \$(cappletname)-capplet.png \$(pixmaps_DATA)"
 
-AC_SUBST(MATECC_CAPPLETS_EXTRA_DIST)
-AC_SUBST(MATECC_CAPPLETS_CLEANFILES)
-AC_SUBST(MATECC_CAPPLETS_CFLAGS)
-AC_SUBST(MATECC_CAPPLETS_LIBS)
+AC_SUBST(UKUICC_CAPPLETS_EXTRA_DIST)
+AC_SUBST(UKUICC_CAPPLETS_CLEANFILES)
+AC_SUBST(UKUICC_CAPPLETS_CFLAGS)
+AC_SUBST(UKUICC_CAPPLETS_LIBS)
 
 dnl =======================================
 dnl Update Mime Database
@@ -311,47 +311,47 @@ AM_CONDITIONAL(ENABLE_UPDATE_MIMEDB, test x$enable_update_mimedb = xyes)
 
 AC_CONFIG_FILES([
 Makefile
-org.mate.control-center.gschema.xml
-org.mate.control-center.keybinding.gschema.xml
+org.ukui.control-center.gschema.xml
+org.ukui.control-center.keybinding.gschema.xml
 capplets/Makefile
 capplets/about-me/Makefile
-capplets/about-me/mate-about-me.desktop.in
+capplets/about-me/ukui-about-me.desktop.in
 capplets/about-me/icons/Makefile
 capplets/accessibility/Makefile
-capplets/accessibility/at-properties/mate-at-properties.desktop.in
+capplets/accessibility/at-properties/ukui-at-properties.desktop.in
 capplets/accessibility/at-properties/Makefile
 capplets/appearance/Makefile
 capplets/appearance/data/Makefile
-capplets/appearance/data/mate-appearance-properties.desktop.in
-capplets/appearance/data/mate-theme-installer.desktop.in
+capplets/appearance/data/ukui-appearance-properties.desktop.in
+capplets/appearance/data/ukui-theme-installer.desktop.in
 capplets/common/Makefile
 capplets/default-applications/Makefile
-capplets/default-applications/mate-default-applications-properties.desktop.in
-capplets/default-applications/mate-default-applications.pc
+capplets/default-applications/ukui-default-applications-properties.desktop.in
+capplets/default-applications/ukui-default-applications.pc
 capplets/display/Makefile
-capplets/display/mate-display-properties.desktop.in
+capplets/display/ukui-display-properties.desktop.in
 capplets/keybindings/Makefile
-capplets/keybindings/mate-keybindings.pc
-capplets/keybindings/mate-keybinding.desktop.in
+capplets/keybindings/ukui-keybindings.pc
+capplets/keybindings/ukui-keybinding.desktop.in
 capplets/keyboard/Makefile
-capplets/keyboard/mate-keyboard.desktop.in
+capplets/keyboard/ukui-keyboard.desktop.in
 capplets/mouse/Makefile
-capplets/mouse/mate-settings-mouse.desktop.in
+capplets/mouse/ukui-settings-mouse.desktop.in
 capplets/network/Makefile
-capplets/network/mate-network-properties.desktop.in
+capplets/network/ukui-network-properties.desktop.in
 capplets/windows/Makefile
-capplets/windows/mate-window-properties.desktop.in
+capplets/windows/ukui-window-properties.desktop.in
 font-viewer/Makefile
-font-viewer/mate-font-viewer.desktop.in
+font-viewer/ukui-font-viewer.desktop.in
 help/Makefile
 libwindow-settings/Makefile
-libwindow-settings/mate-window-settings-2.0.pc
+libwindow-settings/ukui-window-settings-2.0.pc
 man/Makefile
 po/Makefile.in
-libslab/mate-slab.pc
+libslab/ukui-slab.pc
 libslab/Makefile
 shell/Makefile
-shell/matecc.desktop.in
+shell/ukuicc.desktop.in
 typing-break/Makefile
 ])
 
@@ -363,11 +363,11 @@ dnl - Show summary
 dnl ---------------------------------------------------------------------------
 
 echo "
-              mate-control-center
+              ukui-control-center
 
         GTK+ API version:      ${GTK_API_VERSION}
         Appindicator:          ${enable_appindicator}
-        Libmate-slab:          ${have_libmateslab}
+        Libukui-slab:         ${have_libukuislab}
         XCursor support:       ${have_xcursor}
         XInput support:        ${have_xinput}
 "

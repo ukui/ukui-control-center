@@ -2,7 +2,7 @@
  * This file is part of libslab.
  *
  * Copyright (c) 2006 Novell, Inc.
- *
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * Libslab is free software; you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2 of the License, or (at your option)
@@ -22,7 +22,7 @@
 #include <config.h>
 #endif
 
-#include <libmate-desktop/mate-desktop-item.h>
+#include <libukui-desktop/ukui-desktop-item.h>
 #include <gio/gio.h>
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
@@ -37,7 +37,7 @@
 #include "shell-window.h"
 #include "app-resizer.h"
 #include "slab-section.h"
-#include "slab-mate-util.h"
+#include "slab-ukui-util.h"
 #include "search-bar.h"
 
 #include "application-tile.h"
@@ -45,7 +45,7 @@
 
 #define TILE_EXEC_NAME "Tile_desktop_exec_name"
 #define SECONDS_IN_DAY 86400
-#define CC_SCHEMA "org.mate.control-center"
+#define CC_SCHEMA "org.ukui.control-center"
 #define EXIT_SHELL_ON_ACTION_START "cc-exit-shell-on-action-start"
 #define EXIT_SHELL_ON_ACTION_HELP "cc-exit-shell-on-action-help"
 #define EXIT_SHELL_ON_ACTION_ADD_REMOVE "cc-exit-shell-on-action-add-remove"
@@ -57,11 +57,11 @@ static GtkWidget *create_groups_section (AppShellData * app_data, const gchar * 
 static GtkWidget *create_actions_section (AppShellData * app_data, const gchar * title,
 	void (*actions_handler) (Tile *, TileEvent *, gpointer));
 
-static void generate_category (const char * category, MateMenuTreeDirectory * root_dir, AppShellData * app_data, gboolean recursive);
-static void generate_launchers (MateMenuTreeDirectory * root_dir, AppShellData * app_data,
+static void generate_category (const char * category, UkuiMenuTreeDirectory * root_dir, AppShellData * app_data, gboolean recursive);
+static void generate_launchers (UkuiMenuTreeDirectory * root_dir, AppShellData * app_data,
 	CategoryData * cat_data, gboolean recursive);
 static void generate_new_apps (AppShellData * app_data);
-static void insert_launcher_into_category (CategoryData * cat_data, MateDesktopItem * desktop_item,
+static void insert_launcher_into_category (CategoryData * cat_data, UkuiDesktopItem * desktop_item,
 	AppShellData * app_data);
 
 static gboolean main_keypress_callback (GtkWidget * widget, GdkEventKey * event,
@@ -89,7 +89,7 @@ static void handle_launcher_single_clicked (Tile * launcher, gpointer data);
 static void handle_menu_action_performed (Tile * launcher, TileEvent * event, TileAction * action,
 	gpointer data);
 static gint application_launcher_compare (gconstpointer a, gconstpointer b);
-static void matemenu_tree_changed_callback (MateMenuTree * tree, gpointer user_data);
+static void ukuimenu_tree_changed_callback (UkuiMenuTree * tree, gpointer user_data);
 gboolean regenerate_categories (AppShellData * app_data);
 
 void
@@ -128,9 +128,9 @@ create_main_window (AppShellData * app_data, const gchar * app_name, const gchar
 	app_data->main_app = main_app;
 	gtk_widget_set_name (main_app, app_name);
 	gtk_window_set_title (GTK_WINDOW (main_app), title);
-#if GTK_CHECK_VERSION (3, 0, 0)
-	gtk_window_set_default_size(GTK_WINDOW(main_app), width, height);
-#endif
+//#if GTK_CHECK_VERSION (3, 0, 0)
+	gtk_widget_set_size_request(main_app, width, height);
+//#endif
 	gtk_window_set_icon_name (GTK_WINDOW (main_app), window_icon);
 	gtk_container_add (GTK_CONTAINER (main_app), app_data->shell);
 
@@ -864,10 +864,10 @@ regenerate_categories (AppShellData * app_data)
 }
 
 static void
-matemenu_tree_changed_callback (MateMenuTree * old_tree, gpointer user_data)
+ukuimenu_tree_changed_callback (UkuiMenuTree * old_tree, gpointer user_data)
 {
 	/*
-	This method only gets called on the first change (matemenu appears to ignore subsequent) until
+	This method only gets called on the first change (ukuimenu appears to ignore subsequent) until
 	we reget the root dir which we can't do in this method because if we do for some reason this
 	method then gets called multiple times for one actual change. This actually is okay because
 	it's probably a good idea to wait a couple seconds to regenerate the categories in case there
@@ -898,18 +898,18 @@ appshelldata_new (const gchar * menu_name, GtkIconSize icon_size, gboolean show_
 void
 generate_categories (AppShellData * app_data)
 {
-	MateMenuTreeDirectory *root_dir;
+	UkuiMenuTreeDirectory *root_dir;
 	GSList *contents, *l;
 	gboolean need_misc = FALSE;
 
 	if (!app_data->tree)
 	{
-		app_data->tree = matemenu_tree_lookup (app_data->menu_name, MATEMENU_TREE_FLAGS_NONE);
-		matemenu_tree_add_monitor (app_data->tree, matemenu_tree_changed_callback, app_data);
+		app_data->tree = ukuimenu_tree_lookup (app_data->menu_name, UKUIMENU_TREE_FLAGS_NONE);
+		ukuimenu_tree_add_monitor (app_data->tree, ukuimenu_tree_changed_callback, app_data);
 	}
-	root_dir = matemenu_tree_get_root_directory (app_data->tree);
+	root_dir = ukuimenu_tree_get_root_directory (app_data->tree);
 	if (root_dir)
-		contents = matemenu_tree_directory_get_contents (root_dir);
+		contents = ukuimenu_tree_directory_get_contents (root_dir);
 	else
 		contents = NULL;
 	if (!root_dir || !contents)
@@ -919,28 +919,28 @@ generate_categories (AppShellData * app_data)
 			app_data->menu_name);
 		gtk_dialog_run (GTK_DIALOG (dialog));
 		gtk_widget_destroy (dialog);
-		exit (1);	/* Fixme - is there a MATE/GTK way to do this. */
+		exit (1);	/* Fixme - is there a UKUI/GTK way to do this. */
 	}
 
 	for (l = contents; l; l = l->next)
 	{
 		const char *category;
-		MateMenuTreeItem *item = l->data;
+		UkuiMenuTreeItem *item = l->data;
 
-		switch (matemenu_tree_item_get_type (item))
+		switch (ukuimenu_tree_item_get_type (item))
 		{
-		case MATEMENU_TREE_ITEM_DIRECTORY:
-			category = matemenu_tree_directory_get_name ((MateMenuTreeDirectory*)item);
-			generate_category(category, (MateMenuTreeDirectory*)item, app_data, TRUE);
+		case UKUIMENU_TREE_ITEM_DIRECTORY:
+			category = ukuimenu_tree_directory_get_name ((UkuiMenuTreeDirectory*)item);
+			generate_category(category, (UkuiMenuTreeDirectory*)item, app_data, TRUE);
 			break;
-		case MATEMENU_TREE_ITEM_ENTRY:
+		case UKUIMENU_TREE_ITEM_ENTRY:
 			need_misc = TRUE;
 			break;
 		default:
 			break;
 		}
 
-		matemenu_tree_item_unref (item);
+		ukuimenu_tree_item_unref (item);
 	}
 	g_slist_free (contents);
 
@@ -953,17 +953,17 @@ generate_categories (AppShellData * app_data)
 		app_data->hash = NULL;
 	}
 
-	matemenu_tree_item_unref (root_dir);
+	ukuimenu_tree_item_unref (root_dir);
 
 	if (app_data->new_apps && (app_data->new_apps->max_items > 0))
 		generate_new_apps (app_data);
 }
 
 static void
-generate_category (const char * category, MateMenuTreeDirectory * root_dir, AppShellData * app_data, gboolean recursive)
+generate_category (const char * category, UkuiMenuTreeDirectory * root_dir, AppShellData * app_data, gboolean recursive)
 {
 	CategoryData *data;
-	/* This is not needed. MateMenu already returns an ordered, non duplicate list
+	/* This is not needed. UkuiMenu already returns an ordered, non duplicate list
 	GList *list_entry;
 	list_entry =
 		g_list_find_custom (app_data->categories_list, category,
@@ -974,7 +974,7 @@ generate_category (const char * category, MateMenuTreeDirectory * root_dir, AppS
 		data = g_new0 (CategoryData, 1);
 		data->category = g_strdup (category);
 		app_data->categories_list =
-			/* use the matemenu order instead of alphabetical */
+			/* use the ukuimenu order instead of alphabetical */
 			g_list_append (app_data->categories_list, data);
 			/* g_list_insert_sorted (app_data->categories_list, data, category_data_compare); */
 	/*
@@ -992,9 +992,9 @@ generate_category (const char * category, MateMenuTreeDirectory * root_dir, AppS
 }
 
 static gboolean
-check_specific_apps_hack (MateDesktopItem * item)
+check_specific_apps_hack (UkuiDesktopItem * item)
 {
-	static const gchar *COMMAND_LINE_LOCKDOWN_SCHEMA = "org.mate.lockdown";
+	static const gchar *COMMAND_LINE_LOCKDOWN_SCHEMA = "org.ukui.lockdown";
 	static const gchar *COMMAND_LINE_LOCKDOWN_KEY = "disable-command-line";
 	static const gchar *COMMAND_LINE_LOCKDOWN_DESKTOP_CATEGORY = "TerminalEmulator";
 	static gboolean got_lockdown_value = FALSE;
@@ -1013,11 +1013,11 @@ check_specific_apps_hack (MateDesktopItem * item)
 	}
 
 	/* This seems like an ugly hack but it's the way it's currently done in the old control center */
-	exec = mate_desktop_item_get_string (item, MATE_DESKTOP_ITEM_EXEC);
+	exec = ukui_desktop_item_get_string (item, UKUI_DESKTOP_ITEM_EXEC);
 
-	/* discard xscreensaver if mate-screensaver is installed */
+	/* discard xscreensaver if ukui-screensaver is installed */
 	if ((exec && !strcmp (exec, "xscreensaver-demo"))
-		&& (path = g_find_program_in_path ("mate-screensaver-preferences")))
+		&& (path = g_find_program_in_path ("ukui-screensaver-preferences")))
 	{
 		g_free (path);
 		return TRUE;
@@ -1035,10 +1035,10 @@ check_specific_apps_hack (MateDesktopItem * item)
 	if (command_line_lockdown)
 	{
 		const gchar *categories =
-			mate_desktop_item_get_string (item, MATE_DESKTOP_ITEM_CATEGORIES);
+			ukui_desktop_item_get_string (item, UKUI_DESKTOP_ITEM_CATEGORIES);
 		if (g_strrstr (categories, COMMAND_LINE_LOCKDOWN_DESKTOP_CATEGORY))
 		{
-			/* printf ("eliminating %s\n", mate_desktop_item_get_location (item)); */
+			/* printf ("eliminating %s\n", ukui_desktop_item_get_location (item)); */
 			return TRUE;
 		}
 	}
@@ -1047,25 +1047,25 @@ check_specific_apps_hack (MateDesktopItem * item)
 }
 
 static void
-generate_launchers (MateMenuTreeDirectory * root_dir, AppShellData * app_data, CategoryData * cat_data, gboolean recursive)
+generate_launchers (UkuiMenuTreeDirectory * root_dir, AppShellData * app_data, CategoryData * cat_data, gboolean recursive)
 {
-	MateDesktopItem *desktop_item;
+	UkuiDesktopItem *desktop_item;
 	const gchar *desktop_file;
 	GSList *contents, *l;
 
-	contents = matemenu_tree_directory_get_contents (root_dir);
+	contents = ukuimenu_tree_directory_get_contents (root_dir);
 	for (l = contents; l; l = l->next)
 	{
-		switch (matemenu_tree_item_get_type (l->data))
+		switch (ukuimenu_tree_item_get_type (l->data))
 		{
-		case MATEMENU_TREE_ITEM_DIRECTORY:
-			/* g_message ("Found sub-category %s", matemenu_tree_directory_get_name (l->data)); */
+		case UKUIMENU_TREE_ITEM_DIRECTORY:
+			/* g_message ("Found sub-category %s", ukuimenu_tree_directory_get_name (l->data)); */
 			if (recursive)
 				generate_launchers (l->data, app_data, cat_data, TRUE);
 			break;
-		case MATEMENU_TREE_ITEM_ENTRY:
-			/* g_message ("Found item name is:%s", matemenu_tree_entry_get_name (l->data)); */
-			desktop_file = matemenu_tree_entry_get_desktop_file_path (l->data);
+		case UKUIMENU_TREE_ITEM_ENTRY:
+			/* g_message ("Found item name is:%s", ukuimenu_tree_entry_get_name (l->data)); */
+			desktop_file = ukuimenu_tree_entry_get_desktop_file_path (l->data);
 			if (desktop_file)
 			{
 				if (g_hash_table_lookup (app_data->hash, desktop_file))
@@ -1073,28 +1073,28 @@ generate_launchers (MateMenuTreeDirectory * root_dir, AppShellData * app_data, C
 					break;	/* duplicate */
 				}
 				/* Fixme - make sure it's safe to store this without duping it. As far as I can tell it is
-				   safe as long as I don't hang on to this anylonger than I hang on to the MateMenuTreeEntry*
+				   safe as long as I don't hang on to this anylonger than I hang on to the UkuiMenuTreeEntry*
 				   which brings up another point - am I supposed to free these or does freeing the top level recurse
 				*/
 				g_hash_table_insert (app_data->hash, (gpointer) desktop_file,
 					(gpointer) desktop_file);
 			}
-			desktop_item = mate_desktop_item_new_from_file (desktop_file, 0, NULL);
+			desktop_item = ukui_desktop_item_new_from_file (desktop_file, 0, NULL);
 			if (!desktop_item)
 			{
-				g_critical ("Failure - mate_desktop_item_new_from_file(%s)",
+				g_critical ("Failure - ukui_desktop_item_new_from_file(%s)",
 					    desktop_file);
 				break;
 			}
 			if (!check_specific_apps_hack (desktop_item))
 				insert_launcher_into_category (cat_data, desktop_item, app_data);
-			mate_desktop_item_unref (desktop_item);
+			ukui_desktop_item_unref (desktop_item);
 			break;
 		default:
 			break;
 		}
 
-		matemenu_tree_item_unref (l->data);
+		ukuimenu_tree_item_unref (l->data);
 	}
 	g_slist_free (contents);
 }
@@ -1115,7 +1115,7 @@ generate_new_apps (AppShellData * app_data)
 	GList *categories, *launchers;
 	GHashTable *new_apps_dups;
 
-	all_apps_file_name = g_build_filename (g_get_user_config_dir (), "mate", "ab-newapps.txt", NULL);
+	all_apps_file_name = g_build_filename (g_get_user_config_dir (), "ukui", "ab-newapps.txt", NULL);
 
 	if (!g_file_get_contents (all_apps_file_name, &all_apps, NULL, &error))
 	{
@@ -1136,9 +1136,9 @@ generate_new_apps (AppShellData * app_data)
 			for (launchers = data->launcher_list; launchers; launchers = launchers->next)
 			{
 				Tile *tile = TILE (launchers->data);
-				MateDesktopItem *item =
+				UkuiDesktopItem *item =
 					application_tile_get_desktop_item (APPLICATION_TILE (tile));
-				const gchar *uri = mate_desktop_item_get_location (item);
+				const gchar *uri = ukui_desktop_item_get_location (item);
 				g_string_append (gstr, uri);
 				g_string_append (gstr, separator);
 			}
@@ -1171,9 +1171,9 @@ generate_new_apps (AppShellData * app_data)
 		for (launchers = cat_data->launcher_list; launchers; launchers = launchers->next)
 		{
 			Tile *tile = TILE (launchers->data);
-			MateDesktopItem *item =
+			UkuiDesktopItem *item =
 				application_tile_get_desktop_item (APPLICATION_TILE (tile));
-			const gchar *uri = mate_desktop_item_get_location (item);
+			const gchar *uri = ukui_desktop_item_get_location (item);
 			if (!g_hash_table_lookup (all_apps_cache, uri))
 			{
 				GFile *file;
@@ -1272,7 +1272,7 @@ generate_new_apps (AppShellData * app_data)
 }
 
 static void
-insert_launcher_into_category (CategoryData * cat_data, MateDesktopItem * desktop_item,
+insert_launcher_into_category (CategoryData * cat_data, UkuiDesktopItem * desktop_item,
 	AppShellData * app_data)
 {
 	GtkWidget *launcher;
@@ -1286,12 +1286,12 @@ insert_launcher_into_category (CategoryData * cat_data, MateDesktopItem * deskto
 		icon_group = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
 
 	launcher =
-		application_tile_new_full (mate_desktop_item_get_location (desktop_item),
+		application_tile_new_full (ukui_desktop_item_get_location (desktop_item),
 		app_data->icon_size, app_data->show_tile_generic_name);
 	gtk_widget_set_size_request (launcher, SIZING_TILE_WIDTH, -1);
 
 	filepath =
-		g_strdup (mate_desktop_item_get_string (desktop_item, MATE_DESKTOP_ITEM_EXEC));
+		g_strdup (ukui_desktop_item_get_string (desktop_item, UKUI_DESKTOP_ITEM_EXEC));
 	g_strdelimit (filepath, " ", '\0');	/* just want the file name - no args or replacements */
 	filename = g_strrstr (filepath, "/");
 	if (filename)
@@ -1316,7 +1316,7 @@ insert_launcher_into_category (CategoryData * cat_data, MateDesktopItem * deskto
 	/* destroyed when they are removed */
 	g_object_ref (launcher);
 
-	/* use alphabetical order instead of the matemenu order. We group all sub items in each top level
+	/* use alphabetical order instead of the ukuimenu order. We group all sub items in each top level
 	category together, ignoring sub menus, so we also ignore sub menu layout hints */
 	cat_data->launcher_list =
 		/* g_list_insert (cat_data->launcher_list, launcher, -1); */

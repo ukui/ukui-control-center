@@ -1,55 +1,55 @@
 WM_MODULE_DIR=$(libdir)/window-manager-settings
 
 AM_CPPFLAGS = 								\
-	-DMATELOCALEDIR="\"$(datadir)/locale\""			\
-	-DMATE_ICONDIR=\""$(datadir)/pixmaps"\"			\
+	-DUKUILOCALEDIR="\"$(datadir)/locale\""			\
+	-DUKUI_ICONDIR=\""$(datadir)/pixmaps"\"			\
 	-DG_LOG_DOMAIN=\"capplet-common\"				\
-	-DMATE_WM_PROPERTY_PATH=\"$(datadir)/mate/wm-properties\"	\
-	-DMATE_WINDOW_MANAGER_MODULE_PATH=\""$(WM_MODULE_DIR)"\"	\
+	-DUKUI_WM_PROPERTY_PATH=\"$(datadir)/ukui/wm-properties\"	\
+	-DUKUI_WINDOW_MANAGER_MODULE_PATH=\""$(WM_MODULE_DIR)"\"	\
 	-I$(top_srcdir)/						\
 	@CAPPLET_CFLAGS@						\
-	-DMARCO_THEME_DIR=\""$(datadir)/themes"\"
+	-DUKWM_THEME_DIR=\""$(datadir)/themes"\"
 
-lib_LTLIBRARIES = libmate-window-settings.la
+lib_LTLIBRARIES = libukui-window-settings.la
 
-libmate_window_settings_la_LDFLAGS = 	\
+libukui_window_settings_la_LDFLAGS = 	\
 	-export_dynamic			\
 	-no-undefined			\
         -version-info 1:0:0
 
-libmate_window_settings_la_LIBADD = $(MATECC_LIBS)
+libukui_window_settings_la_LIBADD = $(UKUICC_LIBS)
 
-libmate_window_settings_la_SOURCES = \
-	mate-window-manager.c	\
-	mate-window-manager.h	\
-	mate-wm-manager.c	\
-	mate-wm-manager.h
+libukui_window_settings_la_SOURCES = \
+	ukui-window-manager.c	\
+	ukui-window-manager.h	\
+	ukui-wm-manager.c	\
+	ukui-wm-manager.h
 
-libmate_window_settingsincludedir = $(includedir)/mate-window-settings-2.0
+libukui_window_settingsincludedir = $(includedir)/ukui-window-settings-2.0
 
-libmate_window_settingsinclude_HEADERS =	\
-	mate-window-manager.h			\
-	mate-wm-manager.h
+libukui_window_settingsinclude_HEADERS =	\
+	ukui-window-manager.h			\
+	ukui-wm-manager.h
 
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = mate-window-settings-2.0.pc
+pkgconfig_DATA = ukui-window-settings-2.0.pc
 
 EXTRA_DIST = 					\
-	mate-window-settings-2.0.pc.in
+	ukui-window-settings-2.0.pc.in
 
-wms_flags = -export_dynamic -avoid-version -module
-wmsdir = $(WM_MODULE_DIR)
+wuks_flags = -export_dynamic -avoid-version -module
+wuksdir = $(WM_MODULE_DIR)
 
-wms_LTLIBRARIES =			\
-	libmarco.la
+wuks_LTLIBRARIES =			\
+	libukwm.la
 
-libmarco_la_SOURCES = 		\
-	marco-window-manager.c	\
-	marco-window-manager.h
+libukwm_la_SOURCES = 		\
+	ukwm-window-manager.c	\
+	ukwm-window-manager.h
 
-libmarco_la_LDFLAGS = $(wms_flags)
-libmarco_la_LIBADD = 		\
-	$(MATECC_LIBS)			\
-	libmate-window-settings.la
+libukwm_la_LDFLAGS = $(wms_flags)
+libukwm_la_LIBADD = 		\
+	$(UKUICC_LIBS)			\
+	libukui-window-settings.la
 
 -include $(top_srcdir)/git.mk

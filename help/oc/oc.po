@@ -1,5 +1,5 @@
 # Translation of oc.po to Occitan
-# Occitan translation of mate-control-center documentation.
+# Occitan translation of ukui-control-center documentation.
 # Copyright (C) 2005-2006, 2007 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gedit documentation package.
 #
@@ -21,8 +21,8 @@ msgstr ""
 
 #: C/control-center.xml:11(para)
 msgid ""
-"The MATE Control Center provides a central place for the user to setup "
-"their MATE experience. It can let you configure anything from the behavior "
+"The UKUI Control Center provides a central place for the user to setup "
+"their UKUI experience. It can let you configure anything from the behavior "
 "of your window borders to the default font type."
 msgstr ""
 
@@ -47,8 +47,8 @@ msgid "Ximian, Inc."
 msgstr "Ximian, Inc."
 
 #: C/control-center.xml:27(publishername)
-msgid "MATE Documentation Project"
-msgstr "Projècte de documentacion de MATE"
+msgid "UKUI Documentation Project"
+msgstr "Projècte de documentacion de UKUI"
 
 #: C/control-center.xml:32(revnumber)
 msgid "2.14"
@@ -61,25 +61,25 @@ msgstr "03/2006"
 #: C/control-center.xml:38(para)
 msgid ""
 "Permission is granted to copy, distribute and/or modify this document under "
-"the terms of the <ulink type=\"help\" url=\"mate-help:fdl\"><citetitle> GNU "
+"the terms of the <ulink type=\"help\" url=\"ukui-help:fdl\"><citetitle> GNU "
 "Free Documentation License </citetitle></ulink>, Version 1.1 or any later "
 "version published by the Free Software Foundation with no Invariant "
 "Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the "
-"license can be found <ulink type=\"help\" url=\"mate-help:fdl\">here</"
+"license can be found <ulink type=\"help\" url=\"ukui-help:fdl\">here</"
 "ulink>."
 msgstr ""
 
 #: C/control-center.xml:50(para)
 msgid ""
 "Many of the names used by companies to distinguish their products and "
-"services are claimed as trademarks. Where those names appear in any MATE "
+"services are claimed as trademarks. Where those names appear in any UKUI "
 "documentation, and those trademarks are made aware to the members of the "
-"MATE Documentation Project, the names have been printed in caps or initial "
+"UKUI Documentation Project, the names have been printed in caps or initial "
 "caps."
 msgstr ""
 
 #: C/control-center.xml:59(releaseinfo)
-msgid "This manual describes version 1.5.7 of the MATE Control Center."
+msgid "This manual describes version 1.5.7 of the UKUI Control Center."
 msgstr ""
 
 #: C/control-center.xml:65(title)
@@ -88,14 +88,14 @@ msgstr "Introduccion"
 
 #: C/control-center.xml:66(para)
 msgid ""
-"The <application>MATE Control Center</application> provides a single window "
+"The <application>UKUI Control Center</application> provides a single window "
 "from which to launch all preference tools."
 msgstr ""
 
 #: C/control-center.xml:69(para)
 msgid ""
-"To launch the <application>MATE Control Center</application>, type "
-"<command>mate-control-center</command> in a terminal window."
+"To launch the <application>UKUI Control Center</application>, type "
+"<command>ukui-control-center</command> in a terminal window."
 msgstr ""
 
 #: C/control-center.xml:73(para)
@@ -110,7 +110,7 @@ msgstr "Utilizacion"
 
 #: C/control-center.xml:78(para)
 msgid ""
-"The <application>MATE Control Center</application> shows icons for all "
+"The <application>UKUI Control Center</application> shows icons for all "
 "preference tools installed on your system in a window. Select a preference "
 "tool to see its description in the status bar."
 msgstr ""

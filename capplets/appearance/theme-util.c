@@ -1,7 +1,9 @@
 /*
  * Copyright (C) 2007 The GNOME Foundation
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * Written by Thomas Wood <thos@gnome.org>
  *            Jens Granseuer <jensgr@gmx.net>
+ * Modified by zhangshuhao <zhangshuhao@kylinos.cn>
  * All Rights Reserved
  *
  * This program is free software; you can redistribute it and/or modify
@@ -31,7 +33,7 @@
 
 gboolean theme_is_writable (const gpointer theme)
 {
-  MateThemeCommonInfo *info = theme;
+  UkuiThemeCommonInfo *info = theme;
   GFile *file;
   GFileInfo *file_info;
   gboolean writable;
@@ -62,7 +64,7 @@ gboolean theme_delete (const gchar *name, ThemeType type)
   GtkDialog *dialog;
   gchar *theme_dir;
   gint response;
-  MateThemeCommonInfo *theme;
+  UkuiThemeCommonInfo *theme;
   GFile *dir;
   gboolean del_empty_parent;
 
@@ -83,28 +85,28 @@ gboolean theme_delete (const gchar *name, ThemeType type)
 
   switch (type) {
     case THEME_TYPE_GTK:
-      theme = (MateThemeCommonInfo *) mate_theme_info_find (name);
+      theme = (UkuiThemeCommonInfo *) ukui_theme_info_find (name);
       theme_dir = g_build_filename (theme->path, "gtk-2.0", NULL);
       break;
 
     case THEME_TYPE_ICON:
-      theme = (MateThemeCommonInfo *) mate_theme_icon_info_find (name);
+      theme = (UkuiThemeCommonInfo *) ukui_theme_icon_info_find (name);
       theme_dir = g_path_get_dirname (theme->path);
       del_empty_parent = FALSE;
       break;
 
     case THEME_TYPE_WINDOW:
-      theme = (MateThemeCommonInfo *) mate_theme_info_find (name);
-      theme_dir = g_build_filename (theme->path, "marco-1", NULL);
+      theme = (UkuiThemeCommonInfo *) ukui_theme_info_find (name);
+      theme_dir = g_build_filename (theme->path, "ukwm-1", NULL);
       break;
 
     case THEME_TYPE_META:
-      theme = (MateThemeCommonInfo *) mate_theme_meta_info_find (name);
+      theme = (UkuiThemeCommonInfo *) ukui_theme_meta_info_find (name);
       theme_dir = g_strdup (theme->path);
       break;
 
     case THEME_TYPE_CURSOR:
-      theme = (MateThemeCommonInfo *) mate_theme_cursor_info_find (name);
+      theme = (UkuiThemeCommonInfo *) ukui_theme_cursor_info_find (name);
       theme_dir = g_build_filename (theme->path, "cursors", NULL);
       break;
 

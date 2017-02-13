@@ -1,6 +1,8 @@
 /*
  * Copyright (C) 2007, 2010 The GNOME Foundation
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * Written by Thomas Wood <thos@gnome.org>
+ * Modified by zhangshuhao <zhangshuhao@kylinos.cn>
  * All Rights Reserved
  *
  * This program is free software; you can redistribute it and/or modify
@@ -303,7 +305,7 @@ update_color_buttons_from_string (const gchar *color_scheme, AppearanceData *dat
   GtkWidget *widget;
   gint i;
 
-  if (!mate_theme_color_scheme_parse (color_scheme, colors))
+  if (!ukui_theme_color_scheme_parse (color_scheme, colors))
     return;
 
   /* now set all the buttons to the correct settings */
@@ -416,7 +418,7 @@ color_button_clicked_cb (GtkWidget *colorbutton, AppearanceData *data)
   /* verify that the scheme really has changed */
   g_object_get (gtk_settings_get_default (), "gtk-color-scheme", &old_scheme, NULL);
 
-  if (!mate_theme_color_scheme_equal (old_scheme, scheme->str)) {
+  if (!ukui_theme_color_scheme_equal (old_scheme, scheme->str)) {
     g_settings_set_string (data->interface_settings, COLOR_SCHEME_KEY, scheme->str);
 
     gtk_widget_set_sensitive (appearance_capplet_get_widget (data, "color_scheme_defaults_button"), TRUE);
@@ -445,7 +447,7 @@ style_response_cb (GtkDialog *dialog, gint response_id)
 static void
 gtk_theme_changed (GSettings *settings, gchar *key, AppearanceData *data)
 {
-  MateThemeInfo *theme = NULL;
+  UkuiThemeInfo *theme = NULL;
   gchar *name;
   GtkSettings *gtksettings = gtk_settings_get_default ();
 
@@ -453,7 +455,7 @@ gtk_theme_changed (GSettings *settings, gchar *key, AppearanceData *data)
   if (name) {
     gchar *current;
 
-    theme = mate_theme_info_find (name);
+    theme = ukui_theme_info_find (name);
 
     /* Manually update GtkSettings to new gtk+ theme.
      * This will eventually happen anyway, but we need the
@@ -479,13 +481,13 @@ gtk_theme_changed (GSettings *settings, gchar *key, AppearanceData *data)
 static void
 window_theme_changed (GSettings *settings, gchar *key, AppearanceData *data)
 {
-  MateThemeInfo *theme = NULL;
+  UkuiThemeInfo *theme = NULL;
   gchar *name;
 
   name = g_settings_get_string (settings, key);
   if (name)
   {
-    theme = mate_theme_info_find (name);
+    theme = ukui_theme_info_find (name);
     g_free (name);
   }
 
@@ -496,12 +498,12 @@ window_theme_changed (GSettings *settings, gchar *key, AppearanceData *data)
 static void
 icon_theme_changed (GSettings *settings, gchar *key, AppearanceData *data)
 {
-  MateThemeIconInfo *theme = NULL;
+  UkuiThemeIconInfo *theme = NULL;
   gchar *name;
 
   name = g_settings_get_string (settings, key);
   if (name) {
-    theme = mate_theme_icon_info_find (name);
+    theme = ukui_theme_icon_info_find (name);
     g_free (name);
 }
 
@@ -519,14 +521,14 @@ cursor_size_changed_cb (int size, AppearanceData *data)
 static void
 cursor_size_scale_value_changed_cb (GtkRange *range, AppearanceData *data)
 {
-  MateThemeCursorInfo *theme;
+  UkuiThemeCursorInfo *theme;
   gchar *name;
 
   name = g_settings_get_string (data->mouse_settings, CURSOR_THEME_KEY);
   if (name == NULL)
     return;
 
-  theme = mate_theme_cursor_info_find (name);
+  theme = ukui_theme_cursor_info_find (name);
   g_free (name);
 
   if (theme) {
@@ -539,7 +541,7 @@ cursor_size_scale_value_changed_cb (GtkRange *range, AppearanceData *data)
 #endif
 
 static void
-update_cursor_size_scale (MateThemeCursorInfo *theme,
+update_cursor_size_scale (UkuiThemeCursorInfo *theme,
                           AppearanceData *data)
 {
 #ifdef HAVE_XCURSOR
@@ -616,12 +618,12 @@ update_cursor_size_scale (MateThemeCursorInfo *theme,
 static void
 cursor_theme_changed (GSettings *settings, gchar *key, AppearanceData *data)
 {
-  MateThemeCursorInfo *theme = NULL;
+  UkuiThemeCursorInfo *theme = NULL;
   gchar *name;
 
   name = g_settings_get_string (settings, key);
   if (name) {
-    theme = mate_theme_cursor_info_find (name);
+    theme = ukui_theme_cursor_info_find (name);
     g_free (name);
   }
 
@@ -790,7 +792,7 @@ gtk_theme_thumbnail_cb (GdkPixbuf *pixbuf,
 }
 
 static void
-marco_theme_thumbnail_cb (GdkPixbuf *pixbuf,
+ukwm_theme_thumbnail_cb (GdkPixbuf *pixbuf,
                              gchar *theme_name,
                              AppearanceData *data)
 {
@@ -809,90 +811,90 @@ static void
 create_thumbnail (const gchar *name, GdkPixbuf *default_thumb, AppearanceData *data)
 {
   if (default_thumb == data->icon_theme_icon) {
-    MateThemeIconInfo *info;
-    info = mate_theme_icon_info_find (name);
+    UkuiThemeIconInfo *info;
+    info = ukui_theme_icon_info_find (name);
     if (info != NULL) {
       generate_icon_theme_thumbnail_async (info,
           (ThemeThumbnailFunc) icon_theme_thumbnail_cb, data, NULL);
     }
   } else if (default_thumb == data->gtk_theme_icon) {
-    MateThemeInfo *info;
-    info = mate_theme_info_find (name);
+    UkuiThemeInfo *info;
+    info = ukui_theme_info_find (name);
     if (info != NULL && info->has_gtk) {
       generate_gtk_theme_thumbnail_async (info,
           (ThemeThumbnailFunc) gtk_theme_thumbnail_cb, data, NULL);
     }
   } else if (default_thumb == data->window_theme_icon) {
-    MateThemeInfo *info;
-    info = mate_theme_info_find (name);
-    if (info != NULL && info->has_marco) {
-      generate_marco_theme_thumbnail_async (info,
-          (ThemeThumbnailFunc) marco_theme_thumbnail_cb, data, NULL);
+    UkuiThemeInfo *info;
+    info = ukui_theme_info_find (name);
+    if (info != NULL && info->has_ukwm) {
+      generate_ukwm_theme_thumbnail_async (info,
+          (ThemeThumbnailFunc) ukwm_theme_thumbnail_cb, data, NULL);
     }
   }
 }
 
 static void
-changed_on_disk_cb (MateThemeCommonInfo *theme,
-		    MateThemeChangeType  change_type,
-                    MateThemeElement     element_type,
+changed_on_disk_cb (UkuiThemeCommonInfo *theme,
+		    UkuiThemeChangeType  change_type,
+                    UkuiThemeElement     element_type,
 		    AppearanceData       *data)
 {
-  if (theme->type == MATE_THEME_TYPE_REGULAR) {
-    MateThemeInfo *info = (MateThemeInfo *) theme;
+  if (theme->type == UKUI_THEME_TYPE_REGULAR) {
+    UkuiThemeInfo *info = (UkuiThemeInfo *) theme;
 
-    if (change_type == MATE_THEME_CHANGE_DELETED) {
-      if (element_type & MATE_THEME_GTK_2)
+    if (change_type == UKUI_THEME_CHANGE_DELETED) {
+      if (element_type & UKUI_THEME_GTK_2)
         remove_from_treeview ("gtk_themes_list", info->name, data);
-      if (element_type & MATE_THEME_MARCO)
+      if (element_type & UKUI_THEME_UKWM)
         remove_from_treeview ("window_themes_list", info->name, data);
 
     } else {
-      if (element_type & MATE_THEME_GTK_2) {
-        if (change_type == MATE_THEME_CHANGE_CREATED)
+      if (element_type & UKUI_THEME_GTK_2) {
+        if (change_type == UKUI_THEME_CHANGE_CREATED)
           add_to_treeview ("gtk_themes_list", info->name, info->name, data->gtk_theme_icon, data);
-        else if (change_type == MATE_THEME_CHANGE_CHANGED)
+        else if (change_type == UKUI_THEME_CHANGE_CHANGED)
           update_in_treeview ("gtk_themes_list", info->name, info->name, data);
 
         generate_gtk_theme_thumbnail_async (info,
             (ThemeThumbnailFunc) gtk_theme_thumbnail_cb, data, NULL);
       }
 
-      if (element_type & MATE_THEME_MARCO) {
-        if (change_type == MATE_THEME_CHANGE_CREATED)
+      if (element_type & UKUI_THEME_UKWM) {
+        if (change_type == UKUI_THEME_CHANGE_CREATED)
           add_to_treeview ("window_themes_list", info->name, info->name, data->window_theme_icon, data);
-        else if (change_type == MATE_THEME_CHANGE_CHANGED)
+        else if (change_type == UKUI_THEME_CHANGE_CHANGED)
           update_in_treeview ("window_themes_list", info->name, info->name, data);
 
-        generate_marco_theme_thumbnail_async (info,
-            (ThemeThumbnailFunc) marco_theme_thumbnail_cb, data, NULL);
+        generate_ukwm_theme_thumbnail_async (info,
+            (ThemeThumbnailFunc) ukwm_theme_thumbnail_cb, data, NULL);
       }
     }
 
-  } else if (theme->type == MATE_THEME_TYPE_ICON) {
-    MateThemeIconInfo *info = (MateThemeIconInfo *) theme;
+  } else if (theme->type == UKUI_THEME_TYPE_ICON) {
+    UkuiThemeIconInfo *info = (UkuiThemeIconInfo *) theme;
 
-    if (change_type == MATE_THEME_CHANGE_DELETED) {
+    if (change_type == UKUI_THEME_CHANGE_DELETED) {
       remove_from_treeview ("icon_themes_list", info->name, data);
     } else {
-      if (change_type == MATE_THEME_CHANGE_CREATED)
+      if (change_type == UKUI_THEME_CHANGE_CREATED)
         add_to_treeview ("icon_themes_list", info->name, info->readable_name, data->icon_theme_icon, data);
-      else if (change_type == MATE_THEME_CHANGE_CHANGED)
+      else if (change_type == UKUI_THEME_CHANGE_CHANGED)
         update_in_treeview ("icon_themes_list", info->name, info->readable_name, data);
 
       generate_icon_theme_thumbnail_async (info,
           (ThemeThumbnailFunc) icon_theme_thumbnail_cb, data, NULL);
     }
 
-  } else if (theme->type == MATE_THEME_TYPE_CURSOR) {
-    MateThemeCursorInfo *info = (MateThemeCursorInfo *) theme;
+  } else if (theme->type == UKUI_THEME_TYPE_CURSOR) {
+    UkuiThemeCursorInfo *info = (UkuiThemeCursorInfo *) theme;
 
-    if (change_type == MATE_THEME_CHANGE_DELETED) {
+    if (change_type == UKUI_THEME_CHANGE_DELETED) {
       remove_from_treeview ("cursor_themes_list", info->name, data);
     } else {
-      if (change_type == MATE_THEME_CHANGE_CREATED)
+      if (change_type == UKUI_THEME_CHANGE_CREATED)
         add_to_treeview ("cursor_themes_list", info->name, info->readable_name, info->thumbnail, data);
-      else if (change_type == MATE_THEME_CHANGE_CHANGED)
+      else if (change_type == UKUI_THEME_CHANGE_CHANGED)
         update_in_treeview ("cursor_themes_list", info->name, info->readable_name, data);
     }
   }
@@ -916,7 +918,7 @@ prepare_list (AppearanceData *data, GtkWidget *list, ThemeType type, GCallback c
   switch (type)
   {
     case THEME_TYPE_GTK:
-      themes = mate_theme_info_find_by_type (MATE_THEME_GTK_2);
+      themes = ukui_theme_info_find_by_type (UKUI_THEME_GTK_2);
       thumbnail = data->gtk_theme_icon;
       settings = data->interface_settings;
       key = GTK_THEME_KEY;
@@ -925,16 +927,16 @@ prepare_list (AppearanceData *data, GtkWidget *list, ThemeType type, GCallback c
       break;
 
     case THEME_TYPE_WINDOW:
-      themes = mate_theme_info_find_by_type (MATE_THEME_MARCO);
+      themes = ukui_theme_info_find_by_type (UKUI_THEME_UKWM);
       thumbnail = data->window_theme_icon;
-      settings = data->marco_settings;
-      key = MARCO_THEME_KEY;
-      generator = (ThumbnailGenFunc) generate_marco_theme_thumbnail_async;
-      thumb_cb = (ThemeThumbnailFunc) marco_theme_thumbnail_cb;
+      settings = data->ukwm_settings;
+      key = UKWM_THEME_KEY;
+      generator = (ThumbnailGenFunc) generate_ukwm_theme_thumbnail_async;
+      thumb_cb = (ThemeThumbnailFunc) ukwm_theme_thumbnail_cb;
       break;
 
     case THEME_TYPE_ICON:
-      themes = mate_theme_icon_info_find_all ();
+      themes = ukui_theme_icon_info_find_all ();
       thumbnail = data->icon_theme_icon;
       settings = data->interface_settings;
       key = ICON_THEME_KEY;
@@ -943,7 +945,7 @@ prepare_list (AppearanceData *data, GtkWidget *list, ThemeType type, GCallback c
       break;
 
     case THEME_TYPE_CURSOR:
-      themes = mate_theme_cursor_info_find_all ();
+      themes = ukui_theme_cursor_info_find_all ();
       thumbnail = NULL;
       settings = data->mouse_settings;
       key = CURSOR_THEME_KEY;
@@ -960,11 +962,11 @@ prepare_list (AppearanceData *data, GtkWidget *list, ThemeType type, GCallback c
 
   for (l = themes; l; l = g_list_next (l))
   {
-    MateThemeCommonInfo *theme = (MateThemeCommonInfo *) l->data;
+    UkuiThemeCommonInfo *theme = (UkuiThemeCommonInfo *) l->data;
     GtkTreeIter i;
 
     if (type == THEME_TYPE_CURSOR) {
-      thumbnail = ((MateThemeCursorInfo *) theme)->thumbnail;
+      thumbnail = ((UkuiThemeCursorInfo *) theme)->thumbnail;
     } else {
       generator (theme, thumb_cb, data, NULL);
     }
@@ -1053,9 +1055,9 @@ style_init (AppearanceData *data)
   gchar *label;
   gint i;
 
-  data->gtk_theme_icon = gdk_pixbuf_new_from_file (MATECC_PIXMAP_DIR "/gtk-theme-thumbnailing.png", NULL);
-  data->window_theme_icon = gdk_pixbuf_new_from_file (MATECC_PIXMAP_DIR "/window-theme-thumbnailing.png", NULL);
-  data->icon_theme_icon = gdk_pixbuf_new_from_file (MATECC_PIXMAP_DIR "/icon-theme-thumbnailing.png", NULL);
+  data->gtk_theme_icon = gdk_pixbuf_new_from_file (UKUICC_PIXMAP_DIR "/gtk-theme-thumbnailing.png", NULL);
+  data->window_theme_icon = gdk_pixbuf_new_from_file (UKUICC_PIXMAP_DIR "/window-theme-thumbnailing.png", NULL);
+  data->icon_theme_icon = gdk_pixbuf_new_from_file (UKUICC_PIXMAP_DIR "/icon-theme-thumbnailing.png", NULL);
   data->style_message_area = NULL;
   data->style_message_label = NULL;
   data->style_install_button = NULL;
@@ -1069,7 +1071,7 @@ style_init (AppearanceData *data)
   prepare_list (data, appearance_capplet_get_widget (data, "icon_themes_list"), THEME_TYPE_ICON, (GCallback) icon_theme_changed);
   prepare_list (data, appearance_capplet_get_widget (data, "cursor_themes_list"), THEME_TYPE_CURSOR, (GCallback) cursor_theme_changed);
 
-  window_theme_changed (data->marco_settings, MARCO_THEME_KEY, data);
+  window_theme_changed (data->ukwm_settings, UKWM_THEME_KEY, data);
   gtk_theme_changed (data->interface_settings, GTK_THEME_KEY, data);
   icon_theme_changed (data->interface_settings, ICON_THEME_KEY, data);
   cursor_theme_changed (data->mouse_settings, CURSOR_THEME_KEY, data);
@@ -1125,7 +1127,7 @@ style_init (AppearanceData *data)
   g_signal_connect (appearance_capplet_get_widget (data, "cursor_themes_delete"), "clicked", (GCallback) cursor_theme_delete_cb, data);
 
   update_message_area (data);
-  mate_theme_info_register_theme_change ((ThemeChangedCallback) changed_on_disk_cb, data);
+  ukui_theme_info_register_theme_change ((ThemeChangedCallback) changed_on_disk_cb, data);
 }
 
 void

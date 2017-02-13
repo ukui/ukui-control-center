@@ -1,19 +1,19 @@
 # Add files with translateable strings here.
 # Please keep this file sorted alphabetically.
 [encoding: UTF-8]
-[type: gettext/gsettings]org.mate.control-center.gschema.xml.in
-[type: gettext/gsettings]org.mate.control-center.keybinding.gschema.xml.in
+[type: gettext/gsettings]org.ukui.control-center.gschema.xml.in
+[type: gettext/gsettings]org.ukui.control-center.keybinding.gschema.xml.in
 capplets/about-me/eel-alert-dialog.c
 capplets/about-me/e-image-chooser.c
-capplets/about-me/mate-about-me.c
-[type: gettext/glade]capplets/about-me/mate-about-me-dialog.ui
-capplets/about-me/mate-about-me.desktop.in.in
-capplets/about-me/mate-about-me-fingerprint.c
-[type: gettext/glade]capplets/about-me/mate-about-me-fingerprint.ui
-capplets/about-me/mate-about-me-password.c
-[type: gettext/glade]capplets/about-me/mate-about-me-password.ui
+capplets/about-me/ukui-about-me.c
+[type: gettext/glade]capplets/about-me/ukui-about-me-dialog.ui
+capplets/about-me/ukui-about-me.desktop.in.in
+capplets/about-me/ukui-about-me-fingerprint.c
+[type: gettext/glade]capplets/about-me/ukui-about-me-fingerprint.ui
+capplets/about-me/ukui-about-me-password.c
+[type: gettext/glade]capplets/about-me/ukui-about-me-password.ui
 [type: gettext/glade]capplets/accessibility/at-properties/at-enable-dialog.ui
-capplets/accessibility/at-properties/mate-at-properties.desktop.in.in
+capplets/accessibility/at-properties/ukui-at-properties.desktop.in.in
 capplets/accessibility/at-properties/main.c
 capplets/appearance/appearance-desktop.c
 capplets/appearance/appearance-font.c
@@ -21,11 +21,11 @@ capplets/appearance/appearance-main.c
 capplets/appearance/appearance-style.c
 capplets/appearance/appearance-themes.c
 [type: gettext/glade]capplets/appearance/data/appearance.ui
-capplets/appearance/data/mate-appearance-properties.desktop.in.in
-capplets/appearance/data/mate-theme-installer.desktop.in.in
-capplets/appearance/data/mate-theme-package.xml.in
-capplets/appearance/mate-wp-info.c
-capplets/appearance/mate-wp-item.c
+capplets/appearance/data/ukui-appearance-properties.desktop.in.in
+capplets/appearance/data/ukui-theme-installer.desktop.in.in
+capplets/appearance/data/ukui-theme-package.xml.in
+capplets/appearance/ukui-wp-info.c
+capplets/appearance/ukui-wp-item.c
 capplets/appearance/theme-installer.c
 capplets/appearance/theme-save.c
 capplets/appearance/theme-util.c
@@ -33,53 +33,53 @@ capplets/common/activate-settings-daemon.c
 capplets/common/capplet-stock-icons.c
 capplets/common/capplet-util.c
 capplets/common/file-transfer-dialog.c
-capplets/common/mate-theme-info.c
-capplets/default-applications/mate-default-applications-properties.desktop.in.in
-capplets/default-applications/mate-da-capplet.c
-[type: gettext/glade]capplets/default-applications/mate-default-applications-properties.ui
+capplets/common/ukui-theme-info.c
+capplets/default-applications/ukui-default-applications-properties.desktop.in.in
+capplets/default-applications/ukui-da-capplet.c
+[type: gettext/glade]capplets/default-applications/ukui-default-applications-properties.ui
 [type: gettext/glade]capplets/display/display-capplet.ui
-capplets/display/mate-display-properties.desktop.in.in
-capplets/display/mate-display-properties-install-systemwide.c
-capplets/display/org.mate.randr.policy.in
+capplets/display/ukui-display-properties.desktop.in.in
+capplets/display/ukui-display-properties-install-systemwide.c
+capplets/display/org.ukui.randr.policy.in
 capplets/display/xrandr-capplet.c
 capplets/keybindings/00-multimedia-key.xml.in
 capplets/keybindings/01-desktop-key.xml.in
 capplets/keybindings/eggcellrendererkeys.c
-capplets/keybindings/mate-keybinding-properties.c
-[type: gettext/glade]capplets/keybindings/mate-keybinding-properties.ui
-capplets/keybindings/mate-keybinding.desktop.in.in
-capplets/keyboard/mate-keyboard-properties.c
-[type: gettext/glade]capplets/keyboard/mate-keyboard-properties-a11y-notifications.ui
-[type: gettext/glade]capplets/keyboard/mate-keyboard-properties-dialog.ui
-[type: gettext/glade]capplets/keyboard/mate-keyboard-properties-layout-chooser.ui
-[type: gettext/glade]capplets/keyboard/mate-keyboard-properties-model-chooser.ui
-[type: gettext/glade]capplets/keyboard/mate-keyboard-properties-options-dialog.ui
-capplets/keyboard/mate-keyboard-properties-xkb.c
-capplets/keyboard/mate-keyboard-properties-xkbltadd.c
-capplets/keyboard/mate-keyboard-properties-xkblt.c
-capplets/keyboard/mate-keyboard-properties-xkbmc.c
-capplets/keyboard/mate-keyboard-properties-xkbot.c
-capplets/keyboard/mate-keyboard-properties-xkbpv.c
-capplets/keyboard/mate-keyboard.desktop.in.in
-capplets/mouse/mate-mouse-properties.c
-[type: gettext/glade]capplets/mouse/mate-mouse-properties.ui
-capplets/mouse/mate-settings-mouse.desktop.in.in
-capplets/network/mate-network-properties.c
-capplets/network/mate-network-properties.desktop.in.in
-[type: gettext/glade]capplets/network/mate-network-properties.ui
-capplets/windows/mate-metacity-support.c
-capplets/windows/mate-window-properties.c
-capplets/windows/mate-window-properties.desktop.in.in
-libwindow-settings/mate-wm-manager.c
-libwindow-settings/marco-window-manager.c
+capplets/keybindings/ukui-keybinding-properties.c
+[type: gettext/glade]capplets/keybindings/ukui-keybinding-properties.ui
+capplets/keybindings/ukui-keybinding.desktop.in.in
+capplets/keyboard/ukui-keyboard-properties.c
+[type: gettext/glade]capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui
+[type: gettext/glade]capplets/keyboard/ukui-keyboard-properties-dialog.ui
+[type: gettext/glade]capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui
+[type: gettext/glade]capplets/keyboard/ukui-keyboard-properties-model-chooser.ui
+[type: gettext/glade]capplets/keyboard/ukui-keyboard-properties-options-dialog.ui
+capplets/keyboard/ukui-keyboard-properties-xkb.c
+capplets/keyboard/ukui-keyboard-properties-xkbltadd.c
+capplets/keyboard/ukui-keyboard-properties-xkblt.c
+capplets/keyboard/ukui-keyboard-properties-xkbmc.c
+capplets/keyboard/ukui-keyboard-properties-xkbot.c
+capplets/keyboard/ukui-keyboard-properties-xkbpv.c
+capplets/keyboard/ukui-keyboard.desktop.in.in
+capplets/mouse/ukui-mouse-properties.c
+[type: gettext/glade]capplets/mouse/ukui-mouse-properties.ui
+capplets/mouse/ukui-settings-mouse.desktop.in.in
+capplets/network/ukui-network-properties.c
+capplets/network/ukui-network-properties.desktop.in.in
+[type: gettext/glade]capplets/network/ukui-network-properties.ui
+capplets/windows/ukui-metacity-support.c
+capplets/windows/ukui-window-properties.c
+capplets/windows/ukui-window-properties.desktop.in.in
+libwindow-settings/ukui-wm-manager.c
+libwindow-settings/ukwm-window-manager.c
 shell/control-center.c
-shell/matecc.desktop.in.in
-shell/matecc.directory.in
+shell/ukuicc.desktop.in.in
+shell/ukuicc.directory.in
 typing-break/drw-break-window.c
 typing-break/drwright.c
 typing-break/main.c
 font-viewer/font-view.c
-font-viewer/mate-font-viewer.desktop.in.in
+font-viewer/ukui-font-viewer.desktop.in.in
 font-viewer/font-thumbnailer.c
 libslab/app-shell.c
 libslab/application-tile.c

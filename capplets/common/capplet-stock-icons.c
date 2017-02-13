@@ -2,7 +2,7 @@
  * capplet-stock-icons.c
  *
  * Copyright (C) 2002 Sun Microsystems, Inc.
- *
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
  * License as published by the Free Software Foundation; either
@@ -21,6 +21,8 @@
  * Authors:
  *	Rajkumar Sivasamy <rajkumar.siva@wipro.com>
  *	Taken bits of code from panel-stock-icons.c, Thanks Mark <mark@skynet.ie>
+ * Modified by:
+ *	zhangshuhao <zhangshuhao@kylinos.cn>
  */
 
 #include <gtk/gtk.h>

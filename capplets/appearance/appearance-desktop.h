@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2007 The GNOME Foundation
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * Written by Denis Washington <denisw@svn.gnome.org>
  * All Rights Reserved
  *

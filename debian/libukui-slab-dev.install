@@ -1,0 +1,3 @@
+usr/include/libukui-slab/
+usr/lib/*/libukui-slab.so
+usr/lib/*/pkgconfig/ukui-slab.pc

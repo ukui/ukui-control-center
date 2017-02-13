@@ -1,11 +1,11 @@
 SUBDIRS = po libwindow-settings capplets font-viewer help man
 DIST_SUBDIRS = po libwindow-settings capplets font-viewer help libslab shell typing-break man
 
-if HAVE_LIBMATESLAB
+if HAVE_LIBUKUISLAB
 SUBDIRS += libslab
 endif
 
-if HAVE_LIBMATESLAB
+if HAVE_LIBUKUISLAB
 SUBDIRS += shell
 endif
 
@@ -15,8 +15,8 @@ endif
 
 @INTLTOOL_XML_NOMERGE_RULE@
 gsettingsschema_in_files = \
-	org.mate.control-center.gschema.xml.in \
-	org.mate.control-center.keybinding.gschema.xml.in
+	org.ukui.control-center.gschema.xml.in \
+	org.ukui.control-center.keybinding.gschema.xml.in
 
 gsettings_SCHEMAS = $(gsettingsschema_in_files:.xml.in=.xml)
 @GSETTINGS_RULES@

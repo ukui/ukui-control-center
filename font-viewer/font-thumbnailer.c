@@ -4,7 +4,7 @@
  * font-thumbnailer: a thumbnailer for font files, using FreeType
  *
  * Copyright (C) 2002-2003  James Henstridge <james@daa.com.au>
- *
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -272,7 +272,7 @@ main (int argc,
 	    { NULL }
     };
 
-    bindtextdomain (GETTEXT_PACKAGE, MATELOCALEDIR);
+    bindtextdomain (GETTEXT_PACKAGE, UKUILOCALEDIR);
     bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
     textdomain (GETTEXT_PACKAGE);
 

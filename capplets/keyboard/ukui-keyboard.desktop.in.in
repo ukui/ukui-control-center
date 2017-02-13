@@ -1,0 +1,11 @@
+[Desktop Entry]
+_Name=Keyboard
+_Comment=Set your keyboard preferences
+Exec=ukui-keyboard-properties
+Icon=preferences-desktop-keyboard
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GTK;Settings;HardwareSettings;
+Keywords=ukui-control-center;UKUI;keyboard;preferences;
+OnlyShowIn=UKUI;

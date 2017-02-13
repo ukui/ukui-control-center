@@ -3,7 +3,7 @@
  * Copyright (C) 2003-2005 Imendio HB
  * Copyright (C) 2002-2003 Richard Hult <richard@imendio.com>
  * Copyright (C) 2002 CodeFactory AB
- *
+ * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
  * published by the Free Software Foundation; either version 2 of the
@@ -33,8 +33,8 @@
 #include <libappindicator/app-indicator.h>
 #endif /* HAVE_APP_INDICATOR */
 
-#define MATE_DESKTOP_USE_UNSTABLE_API
-#include <libmate-desktop/mate-desktop-utils.h>
+#define UKUI_DESKTOP_USE_UNSTABLE_API
+#include <libukui-desktop/ukui-desktop-utils.h>
 
 #include "drwright.h"
 #include "drw-break-window.h"
@@ -601,7 +601,7 @@ popup_preferences_cb (GtkAction *action, DrWright *dr)
 	menu = gtk_ui_manager_get_widget (dr->ui_manager, "/Pop");
 	screen = gtk_widget_get_screen (menu);
 
-	if (!mate_gdk_spawn_command_line_on_screen (screen, "mate-keyboard-properties --typing-break", &error)) {
+	if (!ukui_gdk_spawn_command_line_on_screen (screen, "ukui-keyboard-properties --typing-break", &error)) {
 		GtkWidget *error_dialog;
 
 		error_dialog = gtk_message_dialog_new (NULL, 0,
@@ -635,7 +635,7 @@ popup_about_cb (GtkAction *action, DrWright *dr)
 	gtk_show_about_dialog (NULL,
 			       "authors", authors,
 			       "comments",  _("A computer break reminder."),
-			       "logo-icon-name", "mate-typing-monitor",
+			       "logo-icon-name", "ukui-typing-monitor",
 			       "translator-credits", _("translator-credits"),
 			       "version", VERSION,
 			       NULL);

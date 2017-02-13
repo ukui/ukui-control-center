@@ -29,7 +29,7 @@
       If you wish, you can have the editor open in a terminal window
       by selecting the <guibutton>Start in Terminal</guibutton>
       button.  Clicking <guibutton>Accepts Line Number</guibutton>
-      lets MATE pass a line number to the editor so that you can
+      lets UKUI pass a line number to the editor so that you can
       "warp" to a part of a file.
     </para>
   </sect2>
@@ -74,12 +74,12 @@
       <itemizedlist>
 	<listitem>
 	  <para>
-	    Mate Help Browser ("GHB")
+	    Ukui Help Browser ("GHB")
 	  </para>
 	</listitem>
 	<listitem>
 	  <para>
-	    Caja
+	    Peony
 	  </para>
 	</listitem>
       </itemizedlist>
@@ -104,7 +104,7 @@
       commands.  For example, if you select to have an application be
       brought up in the console, the terminal defaults will be
       called.  Numerous defaults for terminals exist; the default
-      being <application>Mate Terminal</application>.  Select a
+      being <application>Gnome Terminal</application>.  Select a
       terminal from the list and click <guibutton>OK</guibutton>.
     </para>
     <para>

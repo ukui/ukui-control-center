@@ -1,0 +1,11 @@
+[Desktop Entry]
+_Name=Network Proxy
+_Comment=Set your network proxy preferences
+Exec=ukui-network-properties
+Icon=ukui-network-properties
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GTK;Settings;X-UKUI-NetworkSettings;
+Keywords=ukui-control-center;UKUI;network;http;socks;proxy;
+OnlyShowIn=UKUI;

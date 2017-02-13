@@ -1,3 +1,15 @@
+ukui-control-center (1.16.5)  yakkety; urgency=medium
+
+  * update ukuicc.menu
+
+ -- xiaoyiwu <xiaoyiwu@ubuntukylin.com>  Mon, 16 Jan 2017 16:37:18 +0800
+
+ukui-control-center (1.16.0)  yakkety; urgency=medium
+
+  * Fork from mate-control-center，rename to ukui-control-center
+
+ -- zhangshuhao <zhangshuhao@kylinos.cn>  Sat, 01 Oct 2016 17:17:39 +0200
+
 mate-control-center (1.16.0-1) unstable; urgency=medium
 
   [ Martin Wimpress ]
@@ -42,7 +54,7 @@ mate-control-center (1.14.0-1) unstable; urgency=medium
   * debian/control:
     + B-D: libcanberra-gtk3-dev
     + B-D: libgtk-3-dev
-    + Versioned B-D: libmarco-dev (>= 1.14)
+    + Versioned B-D: libukwm-dev (>= 1.14)
     + Versioned B-D: libmate-desktop-dev (>= 1.14)
     + Versioned B-D: libmatekbd-dev (>= 1.14)
     + Versioned B-D: libmate-menu-dev (>= 1.14)
@@ -90,7 +102,7 @@ mate-control-center (1.12.1-1) unstable; urgency=medium
   * debian/control:
     + Add B (mate-control-center): ubuntu-mate-default-settings (<< 16.04).
     + Drop obsolete B-D: libxft-dev.
-    + Versioned B-D: mate-common (>= 1.12), libmarco-dev (>= 1.12),
+    + Versioned B-D: mate-common (>= 1.12), libukwm-dev (>= 1.12),
       libmate-desktop-dev (>= 1.12) and mate-settings-daemon-dev (>= 1.12).
   * debian/copyright:
     + Update copyright attributions.
@@ -154,7 +166,7 @@ mate-control-center (1.10.0+dfsg1-1~exp1) experimental; urgency=medium
   * debian/control:
     + Versioned B-D: mate-common (>= 1.10).
     + Versioned B-D: libmate-desktop-dev (>= 1.9.4).
-    + Versioned B-D: libmarco-dev (>= 1.9.1).
+    + Versioned B-D: libukwm-dev (>= 1.9.1).
   * debian/{control,copyright,*.install}:
     + Process with wrap-and-sort.
   * debian/{rules,mate-control-center-common.install}:
@@ -235,14 +247,14 @@ mate-control-center (1.8.2+dfsg1-1) unstable; urgency=medium
     + Drop 1004_add-main-category-to-categories-key-in-desktop-file.patch.
       Applied upstream.
   * debian/control:
-    + Add D (mate-control-center): caja-common. (Closes: #756146).
+    + Add D (mate-control-center): peony-common. (Closes: #756146).
 
  -- Mike Gabriel <sunweaver@debian.org>  Mon, 04 Aug 2014 17:25:24 +0200
 
 mate-control-center (1.8.1+dfsg1-4) unstable; urgency=medium
 
   * debian/control:
-    + Add D (mate-control-center): marco-common. (Closes: #751944).
+    + Add D (mate-control-center): ukwm-common. (Closes: #751944).
 
  -- Mike Gabriel <sunweaver@debian.org>  Tue, 01 Jul 2014 19:51:55 +0200
 

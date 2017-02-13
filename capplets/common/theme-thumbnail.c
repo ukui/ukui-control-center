@@ -1,15 +1,15 @@
 #include <config.h>
 #include <unistd.h>
 #include <string.h>
-#include <marco-private/util.h>
-#include <marco-private/theme.h>
-#include <marco-private/theme-parser.h>
-#include <marco-private/preview-widget.h>
+#include <ukwm-private/util.h>
+#include <ukwm-private/theme.h>
+#include <ukwm-private/theme-parser.h>
+#include <ukwm-private/preview-widget.h>
 #include <signal.h>
 #include <errno.h>
 #include <math.h>
 
-/* We have to #undef this as marco #defines these. */
+/* We have to #undef this as ukwm #defines these. */
 #undef _
 #undef N_
 
@@ -84,13 +84,13 @@ static int pipe_from_factory_fd[2];
 
 #define THUMBNAIL_TYPE_META     "meta"
 #define THUMBNAIL_TYPE_GTK      "gtk"
-#define THUMBNAIL_TYPE_MARCO    "marco"
+#define THUMBNAIL_TYPE_UKWM    "ukwm"
 #define THUMBNAIL_TYPE_ICON     "icon"
 
 #define META_THUMBNAIL_SIZE       128
 #define GTK_THUMBNAIL_SIZE         96
-#define MARCO_THUMBNAIL_WIDTH  120
-#define MARCO_THUMBNAIL_HEIGHT  60
+#define UKWM_THUMBNAIL_WIDTH  120
+#define UKWM_THUMBNAIL_HEIGHT  60
 
 /* This draw the thumbnail of gtk
  */
@@ -188,7 +188,7 @@ create_folder_icon (char *icon_theme_name)
   if (example_icon_name != NULL)
     icon_names[i++] = example_icon_name;
   icon_names[i++] = "x-directory-normal";
-  icon_names[i++] = "mate-fs-directory";
+  icon_names[i++] = "ukui-fs-directory";
   icon_names[i++] = "folder";
   icon_names[i++] = NULL;
 
@@ -454,7 +454,7 @@ create_gtk_theme_pixbuf (ThemeThumbnailData *theme_thumbnail_data)
 }
 
 static GdkPixbuf *
-create_marco_theme_pixbuf (ThemeThumbnailData *theme_thumbnail_data)
+create_ukwm_theme_pixbuf (ThemeThumbnailData *theme_thumbnail_data)
 {
   GtkWidget *window, *preview, *dummy;
   MetaFrameFlags flags;
@@ -486,7 +486,7 @@ create_marco_theme_pixbuf (ThemeThumbnailData *theme_thumbnail_data)
 #else
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 #endif
-  gtk_window_set_default_size (GTK_WINDOW (window), (int) MARCO_THUMBNAIL_WIDTH * 1.2, (int) MARCO_THUMBNAIL_HEIGHT * 1.2);
+  gtk_window_set_default_size (GTK_WINDOW (window), (int) UKWM_THUMBNAIL_WIDTH * 1.2, (int) UKWM_THUMBNAIL_HEIGHT * 1.2);
 
   preview = meta_preview_new ();
   meta_preview_set_frame_flags (META_PREVIEW (preview), flags);
@@ -510,8 +510,8 @@ create_marco_theme_pixbuf (ThemeThumbnailData *theme_thumbnail_data)
   gtk_widget_get_preferred_size (window, &requisition, NULL);
   allocation.x = 0;
   allocation.y = 0;
-  allocation.width = (int) MARCO_THUMBNAIL_WIDTH * 1.2;
-  allocation.height = (int) MARCO_THUMBNAIL_HEIGHT * 1.2;
+  allocation.width = (int) UKWM_THUMBNAIL_WIDTH * 1.2;
+  allocation.height = (int) UKWM_THUMBNAIL_HEIGHT * 1.2;
   gtk_widget_size_allocate (window, &allocation);
   gtk_widget_get_preferred_size (window, &requisition, NULL);
 
@@ -524,19 +524,19 @@ create_marco_theme_pixbuf (ThemeThumbnailData *theme_thumbnail_data)
 #else
   pixmap = draw_window_on_pixbuf (window);
 
-  pixbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB, TRUE, 8, (int) MARCO_THUMBNAIL_WIDTH * 1.2, (int) MARCO_THUMBNAIL_HEIGHT * 1.2);
-  gdk_pixbuf_get_from_drawable (pixbuf, pixmap, NULL, 0, 0, 0, 0, (int) MARCO_THUMBNAIL_WIDTH * 1.2, (int) MARCO_THUMBNAIL_HEIGHT * 1.2);
+  pixbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB, TRUE, 8, (int) UKWM_THUMBNAIL_WIDTH * 1.2, (int) UKWM_THUMBNAIL_HEIGHT * 1.2);
+  gdk_pixbuf_get_from_drawable (pixbuf, pixmap, NULL, 0, 0, 0, 0, (int) UKWM_THUMBNAIL_WIDTH * 1.2, (int) UKWM_THUMBNAIL_HEIGHT * 1.2);
 #endif
 
   region = meta_preview_get_clip_region (META_PREVIEW (preview),
-      MARCO_THUMBNAIL_WIDTH * 1.2, MARCO_THUMBNAIL_HEIGHT * 1.2);
+      UKWM_THUMBNAIL_WIDTH * 1.2, UKWM_THUMBNAIL_HEIGHT * 1.2);
   pixbuf_apply_mask_region (pixbuf, region);
   gdk_region_destroy (region);
 
 
   retval = gdk_pixbuf_scale_simple (pixbuf,
-                                    MARCO_THUMBNAIL_WIDTH,
-                                    MARCO_THUMBNAIL_HEIGHT,
+                                    UKWM_THUMBNAIL_WIDTH,
+                                    UKWM_THUMBNAIL_HEIGHT,
                                     GDK_INTERP_BILINEAR);
   g_object_unref (pixbuf);
 
@@ -709,8 +709,8 @@ message_from_capplet (GIOChannel   *source,
           pixbuf = create_meta_theme_pixbuf (theme_thumbnail_data);
         else if (!strcmp (type, THUMBNAIL_TYPE_GTK))
           pixbuf = create_gtk_theme_pixbuf (theme_thumbnail_data);
-        else if (!strcmp (type, THUMBNAIL_TYPE_MARCO))
-          pixbuf = create_marco_theme_pixbuf (theme_thumbnail_data);
+        else if (!strcmp (type, THUMBNAIL_TYPE_UKWM))
+          pixbuf = create_ukwm_theme_pixbuf (theme_thumbnail_data);
         else if (!strcmp (type, THUMBNAIL_TYPE_ICON))
           pixbuf = create_icon_theme_pixbuf (theme_thumbnail_data);
         else
@@ -773,22 +773,22 @@ generate_next_in_queue (void)
   theme_queue = g_list_delete_link (theme_queue, g_list_first (theme_queue));
 
   if (!strcmp (item->thumbnail_type, THUMBNAIL_TYPE_META))
-    generate_meta_theme_thumbnail_async ((MateThemeMetaInfo *) item->theme_info,
+    generate_meta_theme_thumbnail_async ((UkuiThemeMetaInfo *) item->theme_info,
                                          item->func,
                                          item->user_data,
                                          item->destroy);
   else if (!strcmp (item->thumbnail_type, THUMBNAIL_TYPE_GTK))
-    generate_gtk_theme_thumbnail_async ((MateThemeInfo *) item->theme_info,
+    generate_gtk_theme_thumbnail_async ((UkuiThemeInfo *) item->theme_info,
                                         item->func,
                                         item->user_data,
                                         item->destroy);
-  else if (!strcmp (item->thumbnail_type, THUMBNAIL_TYPE_MARCO))
-    generate_marco_theme_thumbnail_async ((MateThemeInfo *) item->theme_info,
+  else if (!strcmp (item->thumbnail_type, THUMBNAIL_TYPE_UKWM))
+    generate_ukwm_theme_thumbnail_async ((UkuiThemeInfo *) item->theme_info,
                                              item->func,
                                              item->user_data,
                                              item->destroy);
   else if (!strcmp (item->thumbnail_type, THUMBNAIL_TYPE_ICON))
-    generate_icon_theme_thumbnail_async ((MateThemeIconInfo *) item->theme_info,
+    generate_icon_theme_thumbnail_async ((UkuiThemeIconInfo *) item->theme_info,
                                          item->func,
                                          item->user_data,
                                          item->destroy);
@@ -891,7 +891,7 @@ static void
 send_thumbnail_request (gchar *thumbnail_type,
                         gchar *gtk_theme_name,
                         gchar *gtk_color_scheme,
-                        gchar *marco_theme_name,
+                        gchar *ukwm_theme_name,
                         gchar *icon_theme_name,
                         gchar *application_font)
 {
@@ -907,8 +907,8 @@ send_thumbnail_request (gchar *thumbnail_type,
   else
     write (pipe_to_factory_fd[1], "", 1);
 
-  if (marco_theme_name)
-    write (pipe_to_factory_fd[1], marco_theme_name, strlen (marco_theme_name) + 1);
+  if (ukwm_theme_name)
+    write (pipe_to_factory_fd[1], ukwm_theme_name, strlen (ukwm_theme_name) + 1);
   else
     write (pipe_to_factory_fd[1], "", 1);
 
@@ -983,7 +983,7 @@ static GdkPixbuf *
 generate_theme_thumbnail (gchar *thumbnail_type,
                           gchar *gtk_theme_name,
                           gchar *gtk_color_scheme,
-                          gchar *marco_theme_name,
+                          gchar *ukwm_theme_name,
                           gchar *icon_theme_name,
                           gchar *application_font)
 {
@@ -993,7 +993,7 @@ generate_theme_thumbnail (gchar *thumbnail_type,
   send_thumbnail_request (thumbnail_type,
                           gtk_theme_name,
                           gtk_color_scheme,
-                          marco_theme_name,
+                          ukwm_theme_name,
                           icon_theme_name,
                           application_font);
 
@@ -1001,18 +1001,18 @@ generate_theme_thumbnail (gchar *thumbnail_type,
 }
 
 GdkPixbuf *
-generate_meta_theme_thumbnail (MateThemeMetaInfo *theme_info)
+generate_meta_theme_thumbnail (UkuiThemeMetaInfo *theme_info)
 {
   return generate_theme_thumbnail (THUMBNAIL_TYPE_META,
                                    theme_info->gtk_theme_name,
                                    theme_info->gtk_color_scheme,
-                                   theme_info->marco_theme_name,
+                                   theme_info->ukwm_theme_name,
                                    theme_info->icon_theme_name,
                                    theme_info->application_font);
 }
 
 GdkPixbuf *
-generate_gtk_theme_thumbnail (MateThemeInfo *theme_info)
+generate_gtk_theme_thumbnail (UkuiThemeInfo *theme_info)
 {
   gchar *scheme;
 
@@ -1028,9 +1028,9 @@ generate_gtk_theme_thumbnail (MateThemeInfo *theme_info)
 }
 
 GdkPixbuf *
-generate_marco_theme_thumbnail (MateThemeInfo *theme_info)
+generate_ukwm_theme_thumbnail (UkuiThemeInfo *theme_info)
 {
-  return generate_theme_thumbnail (THUMBNAIL_TYPE_MARCO,
+  return generate_theme_thumbnail (THUMBNAIL_TYPE_UKWM,
                                    NULL,
                                    NULL,
                                    theme_info->name,
@@ -1039,7 +1039,7 @@ generate_marco_theme_thumbnail (MateThemeInfo *theme_info)
 }
 
 GdkPixbuf *
-generate_icon_theme_thumbnail (MateThemeIconInfo *theme_info)
+generate_icon_theme_thumbnail (UkuiThemeIconInfo *theme_info)
 {
   return generate_theme_thumbnail (THUMBNAIL_TYPE_ICON,
                                    NULL,
@@ -1049,7 +1049,7 @@ generate_icon_theme_thumbnail (MateThemeIconInfo *theme_info)
                                    NULL);
 }
 
-static void generate_theme_thumbnail_async(gpointer theme_info, gchar* theme_name, gchar* thumbnail_type, gchar* gtk_theme_name, gchar* gtk_color_scheme, gchar* marco_theme_name, gchar* icon_theme_name, gchar* application_font, ThemeThumbnailFunc func, gpointer user_data, GDestroyNotify destroy)
+static void generate_theme_thumbnail_async(gpointer theme_info, gchar* theme_name, gchar* thumbnail_type, gchar* gtk_theme_name, gchar* gtk_color_scheme, gchar* ukwm_theme_name, gchar* icon_theme_name, gchar* application_font, ThemeThumbnailFunc func, gpointer user_data, GDestroyNotify destroy)
 {
 	if (async_data.set)
 	{
@@ -1096,11 +1096,11 @@ static void generate_theme_thumbnail_async(gpointer theme_info, gchar* theme_nam
 	async_data.user_data = user_data;
 	async_data.destroy = destroy;
 
-	send_thumbnail_request(thumbnail_type, gtk_theme_name, gtk_color_scheme, marco_theme_name, icon_theme_name, application_font);
+	send_thumbnail_request(thumbnail_type, gtk_theme_name, gtk_color_scheme, ukwm_theme_name, icon_theme_name, application_font);
 }
 
 void
-generate_meta_theme_thumbnail_async (MateThemeMetaInfo *theme_info,
+generate_meta_theme_thumbnail_async (UkuiThemeMetaInfo *theme_info,
                                      ThemeThumbnailFunc  func,
                                      gpointer            user_data,
                                      GDestroyNotify      destroy)
@@ -1110,13 +1110,13 @@ generate_meta_theme_thumbnail_async (MateThemeMetaInfo *theme_info,
                                          THUMBNAIL_TYPE_META,
                                          theme_info->gtk_theme_name,
                                          theme_info->gtk_color_scheme,
-                                         theme_info->marco_theme_name,
+                                         theme_info->ukwm_theme_name,
                                          theme_info->icon_theme_name,
                                          theme_info->application_font,
                                          func, user_data, destroy);
 }
 
-void generate_gtk_theme_thumbnail_async (MateThemeInfo* theme_info, ThemeThumbnailFunc  func, gpointer user_data, GDestroyNotify destroy)
+void generate_gtk_theme_thumbnail_async (UkuiThemeInfo* theme_info, ThemeThumbnailFunc  func, gpointer user_data, GDestroyNotify destroy)
 {
 	gchar* scheme = gtkrc_get_color_scheme_for_theme(theme_info->name);
 
@@ -1126,14 +1126,14 @@ void generate_gtk_theme_thumbnail_async (MateThemeInfo* theme_info, ThemeThumbna
 }
 
 void
-generate_marco_theme_thumbnail_async (MateThemeInfo *theme_info,
+generate_ukwm_theme_thumbnail_async (UkuiThemeInfo *theme_info,
                                          ThemeThumbnailFunc  func,
                                          gpointer            user_data,
                                          GDestroyNotify      destroy)
 {
   generate_theme_thumbnail_async (theme_info,
                                          theme_info->name,
-                                         THUMBNAIL_TYPE_MARCO,
+                                         THUMBNAIL_TYPE_UKWM,
                                          NULL,
                                          NULL,
                                          theme_info->name,
@@ -1143,7 +1143,7 @@ generate_marco_theme_thumbnail_async (MateThemeInfo *theme_info,
 }
 
 void
-generate_icon_theme_thumbnail_async (MateThemeIconInfo *theme_info,
+generate_icon_theme_thumbnail_async (UkuiThemeIconInfo *theme_info,
                                      ThemeThumbnailFunc  func,
                                      gpointer            user_data,
                                      GDestroyNotify      destroy)

@@ -1,10 +1,10 @@
 <sect1 id="config-cd">
   <title>Audio CDs</title>
   <para>
-    Mate can play your CDs on your computer.  You can setup you
+    Ukui can play your CDs on your computer.  You can setup you
     CD preferences in the <guibutton>CD Properties</guibutton> capplet
     in the <guilabel>Advanced</guilabel> section of the
-    <application>Mate Control Center</application>.  
+    <application>Ukui Control Center</application>.  
   </para>
   <para>
     Once open, you'll see the window is broken into two sections: Data
@@ -40,10 +40,10 @@
     <para>
       The last option, <guibutton>Open file manager window for newly
       mounted CD</guibutton> tells the system to open your file
-      manager (<application>Caja</application> by default) when the
+      manager (<application>Peony</application> by default) when the
       CD is mounted.  This is useful if you have a CD of images from
       your family reunion you wish to browse.  It will open up in
-      <application>Caja</application> which will let you view the
+      <application>Peony</application> which will let you view the
       thumbnails.
     </para>
   </sect2>

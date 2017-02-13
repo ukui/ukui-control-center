@@ -1,7 +1,7 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: mate-control-center
+Upstream-Name: ukui-control-center
 Upstream-Contact: Stefano Karapetsas <stefano@karapetsas.com>
-Source: http://git.mate-desktop.org/mate-control-center/
+Source: http://git.ukui.org/ukui-control-center/
 
 Files: libslab/app-resizer.c
        libslab/app-resizer.h
@@ -15,7 +15,7 @@ Files: libslab/app-resizer.c
        libslab/document-tile.h
        libslab/double-click-detector.c
        libslab/double-click-detector.h
-       libslab/mate-utils.h
+       libslab/ukui-utils.h
        libslab/nameplate-tile.c
        libslab/nameplate-tile.h
        libslab/search-bar.c
@@ -26,8 +26,8 @@ Files: libslab/app-resizer.c
        libslab/search-entry.h
        libslab/shell-window.c
        libslab/shell-window.h
-       libslab/slab-mate-util.c
-       libslab/slab-mate-util.h
+       libslab/slab-ukui-util.c
+       libslab/slab-ukui-util.h
        libslab/slab-section.c
        libslab/slab-section.h
        libslab/slab.h
@@ -37,6 +37,7 @@ Files: libslab/app-resizer.c
        libslab/tile.c
        libslab/tile.h
 Copyright: 2006-2007, Novell, Inc.
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: LGPL-2+
 
 Files: capplets/appearance/appearance-desktop.c
@@ -55,60 +56,67 @@ Files: capplets/appearance/appearance-desktop.c
        capplets/appearance/theme-util.h
        capplets/common/gtkrc-utils.c
        capplets/common/gtkrc-utils.h
-       capplets/keyboard/mate-keyboard-properties-a11y.c
+       capplets/keyboard/ukui-keyboard-properties-a11y.c
 Copyright: 2007-2010, The GNOME Foundation
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
-Files: capplets/appearance/mate-wp-info.c
-       capplets/appearance/mate-wp-info.h
-       capplets/appearance/mate-wp-item.c
-       capplets/appearance/mate-wp-item.h
-       capplets/appearance/mate-wp-xml.c
-       capplets/appearance/mate-wp-xml.h
+Files: capplets/appearance/ukui-wp-info.c
+       capplets/appearance/ukui-wp-info.h
+       capplets/appearance/ukui-wp-item.c
+       capplets/appearance/ukui-wp-item.h
+       capplets/appearance/ukui-wp-xml.c
+       capplets/appearance/ukui-wp-xml.h
 Copyright: 2003-2006, Novell, Inc.
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2
 
-Files: capplets/display/mate-display-properties-install-systemwide.c
+Files: capplets/display/ukui-display-properties-install-systemwide.c
        libslab/bookmark-agent.c
        libslab/bookmark-agent.h
        libslab/system-tile.c
        libslab/system-tile.h
        shell/control-center.c
 Copyright: 2006-2010 Novell, Inc.
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
-Files: capplets/keyboard/mate-keyboard-properties-xkb.c
-       capplets/keyboard/mate-keyboard-properties-xkblt.c
-       capplets/keyboard/mate-keyboard-properties-xkbltadd.c
-       capplets/keyboard/mate-keyboard-properties-xkbmc.c
-       capplets/keyboard/mate-keyboard-properties-xkbot.c
-       capplets/keyboard/mate-keyboard-properties-xkbpv.c
+Files: capplets/keyboard/ukui-keyboard-properties-xkb.c
+       capplets/keyboard/ukui-keyboard-properties-xkblt.c
+       capplets/keyboard/ukui-keyboard-properties-xkbltadd.c
+       capplets/keyboard/ukui-keyboard-properties-xkbmc.c
+       capplets/keyboard/ukui-keyboard-properties-xkbot.c
+       capplets/keyboard/ukui-keyboard-properties-xkbpv.c
 Copyright: 2003-2007, Sergey V. Udaltsov
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: capplets/about-me/fingerprint-strings.h
-       capplets/about-me/mate-about-me-fingerprint.c
-       capplets/about-me/mate-about-me-fingerprint.h
+       capplets/about-me/ukui-about-me-fingerprint.c
+       capplets/about-me/ukui-about-me-fingerprint.h
        font-viewer/totem-resources.c
        font-viewer/totem-resources.h
 Copyright: 2007-2008, Bastien Nocera <hadess@hadess.net>
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
-Files: capplets/windows/mate-window-properties.c
-       libwindow-settings/marco-window-manager.c
-       libwindow-settings/mate-window-manager.c
-       libwindow-settings/mate-window-manager.h
-       libwindow-settings/mate-wm-manager.c
+Files: capplets/windows/ukui-window-properties.c
+       libwindow-settings/ukwm-window-manager.c
+       libwindow-settings/ukui-window-manager.c
+       libwindow-settings/ukui-window-manager.h
+       libwindow-settings/ukui-wm-manager.c
 Copyright: 1998-2002, Red Hat, Inc.
            2002, Seth Nickell
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: capplets/common/capplet-util.c
        capplets/common/capplet-util.h
        capplets/common/file-transfer-dialog.c
        capplets/common/file-transfer-dialog.h
-       capplets/keyboard/mate-keyboard-properties-a11y.h
+       capplets/keyboard/ukui-keyboard-properties-a11y.h
 Copyright: 2001-2002, Ximian, Inc.
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: typing-break/drw-break-window.c
@@ -117,6 +125,7 @@ Files: typing-break/drw-break-window.c
        typing-break/main.c
 Copyright: 2002, CodeFactory AB
            2002-2003, Richard Hult <richard@imendio.com>
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: capplets/appearance/appearance-support.c
@@ -124,6 +133,7 @@ Files: capplets/appearance/appearance-support.c
        capplets/common/dconf-util.c
        capplets/common/dconf-util.h
 Copyright: 2012, Stefano Karapetsas
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: capplets/appearance/appearance-font.c
@@ -131,6 +141,7 @@ Files: capplets/appearance/appearance-font.c
        capplets/appearance/appearance-style.c
        capplets/appearance/appearance.h
 Copyright: 2007-2010, The GNOME Foundation
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: font-viewer/font-thumbnailer.c
@@ -138,17 +149,20 @@ Files: font-viewer/font-thumbnailer.c
        font-viewer/ftstream-vfs.c
        font-viewer/ftstream-vfs.h
 Copyright: 2002-2003, James Henstridge <james@daa.com.au>
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: typing-break/drw-utils.c
        typing-break/drw-utils.h
        typing-break/drwright.h
 Copyright: 2002, 2003, Richard Hult <richard@imendio.com>
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: capplets/about-me/e-image-chooser.c
        capplets/about-me/e-image-chooser.h
 Copyright: 2004, Novell, Inc.
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2
 
 Files: typing-break/drw-timer.c
@@ -158,112 +172,133 @@ License: GPL-2+
 
 Files: capplets/about-me/eel-alert-dialog.c
        capplets/about-me/eel-alert-dialog.h
-Copyright: *No copyright*
+Copyright: 2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: LGPL-2+
 
-Files: capplets/common/mate-theme-apply.h
-       capplets/common/mate-theme-info.h
+Files: capplets/common/ukui-theme-apply.h
+       capplets/common/ukui-theme-info.h
 Copyright: 2002, Jonathan Blandford <jrb@gnome.org>
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: LGPL-2+
 
 Files: capplets/display/scrollarea.c
        capplets/display/scrollarea.h
 Copyright: 2006-2008, Soren Sandmann <sandmann@daimi.au.dk>
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: LGPL-2+
 
 Files: capplets/common/capplet-stock-icons.c
        capplets/common/capplet-stock-icons.h
 Copyright: 2002, Sun Microsystems, Inc.
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: LGPL-2+
 
 Files: typing-break/drw-selection.c
        typing-break/drw-selection.h
 Copyright: 2002, Red Hat, Inc.
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: MIT~OldStyle+LegalDisclaimer
 
-Files: capplets/default-applications/mate-da-capplet.h
+Files: capplets/default-applications/ukui-da-capplet.h
 Copyright: 2005-2006, Luca Cavalli
            2010, Perberos <perberos@gmail.com>
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2
 
-Files: capplets/default-applications/mate-da-capplet.c
+Files: capplets/default-applications/ukui-da-capplet.c
 Copyright: 2005-2006, Luca Cavalli
            2008, Thomas Wood <thos@gnome.org>
            2010, Perberos <perberos@gmail.com>
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2
 
 Files: typing-break/drwright.c
 Copyright: 2002, CodeFactory AB
            2002-2003, Richard Hult <richard@imendio.com>
            2003-2005, Imendio HB
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: typing-break/drw-monitor.h
 Copyright: 2002, CodeFactory AB
            2002, Richard Hult <richard@imendi.com>
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
-Files: capplets/about-me/mate-about-me.c
+Files: capplets/about-me/ukui-about-me.c
 Copyright: 2002, Diego Gonzalez
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
-Files: capplets/about-me/mate-about-me-password.c
+Files: capplets/about-me/ukui-about-me-password.c
 Copyright: 2002, Diego Gonzalez
            2006, Johannes H. Jensen
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
-Files: capplets/keyboard/mate-keyboard-properties.c
+Files: capplets/keyboard/ukui-keyboard-properties.c
 Copyright: 2000-2001, Ximian, Inc.
            2001, Jonathan Blandford
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: capplets/display/xrandr-capplet.c
 Copyright: 2007-2008, Red Hat, Inc.
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
-Files: capplets/mouse/mate-mouse-properties.c
+Files: capplets/mouse/ukui-mouse-properties.c
 Copyright: 2001, Red Hat, Inc.
            2001, Ximian, Inc.
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
-Files: capplets/keyboard/mate-keyboard-properties-xkb.h
+Files: capplets/keyboard/ukui-keyboard-properties-xkb.h
 Copyright: 2003-2007, Sergey V Udaltsov
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
-Files: capplets/network/mate-network-properties.c
+Files: capplets/network/ukui-network-properties.c
 Copyright: 2002, Sun Microsystems, Inc.
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
-Files: capplets/common/mate-theme-apply.c
+Files: capplets/common/ukui-theme-apply.c
 Copyright: 2002, Jonathan Blandford <aes@gnome.org>
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: LGPL-2.1+
 Comment:
  The license header of this file refers to a GPL-2.1+ license version which
  does not exist. The license header also refers to "This library ...", which
  alludes that this file should actually be dealt with as licensed under LGPL-2.1+.
  .
- See https://github.com/mate-desktop/mate-control-center/issues/95.
+ See https://github.com/ukui/ukui-control-center/issues/95.
 
 Files: capplets/about-me/eel-gtk-macros.h
 Copyright: 1999-2001, Eazel, Inc.
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: LGPL-2+
 
-Files: capplets/common/mate-theme-info.c
+Files: capplets/common/ukui-theme-info.c
 Copyright: 2002, Jonathan Blandford <jrb@gnome.org>
            2011, Perberos
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: LGPL-2+
 
 Files: capplets/keybindings/eggaccelerators.h
 Copyright: 2002, Red Hat, Inc.
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: LGPL-2+
 
 Files: capplets/keybindings/eggcellrendererkeys.h
 Copyright: 2000, Jonathan Blandford, Red Hat, Inc. <jrb@redhat.com>
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: LGPL-2+
 
 Files: capplets/keybindings/eggaccelerators.c
 Copyright: 2002, Red Hat, Inc.
            1998-2001 Tim Janik
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: LGPL-2+
 
 Files: man/*.1
@@ -271,6 +306,7 @@ Copyright: 2014-2015, Stefano Karapetsas <stefano@karapetsas.com>
            2014-2015, Vangelis Mouhtsis <vangelis@gnugr.org>
            2014-2015, Mike Gabriel <mike.gabriel@das-netzwerkteam.de>
            GNOME Developers
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 Comment:
  Assuming license as found in COPYING file.
@@ -295,13 +331,14 @@ Copyright: 2003-2006, Miloslav Trmac <mitr@volny.cz>.
            2009, The GNOME Foundation.
            Croatiann team
            2001, Roy-Magne Mo <rmo@sunnmore.net>
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 Comment:
  Assuming license as found in COPYING file.
 
-Files: capplets/network/icons/scalable/mate-network-properties.svg
-       capplets/display/icons/scalable/mate-preferences-desktop-display.svg
-Copyright: *No copyright*
+Files: capplets/network/icons/scalable/ukui-network-properties.svg
+       capplets/display/icons/scalable/ukui-preferences-desktop-display.svg
+Copyright: 2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2
 
 Files: help/*
@@ -327,11 +364,12 @@ Copyright: Alexey Dunaev <keir.ru@gmail.com>
            Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>
            Zhang Miao <mymzhang@gmail.com>
            Μάριος Ζηντίλης <m.zindilis@dmajor.org>
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GFDL-1.1+
 
 Files: capplets/about-me/icons/Makefile.am
        capplets/about-me/Makefile.am
-       capplets/about-me/mate-about-me-password.h
+       capplets/about-me/ukui-about-me-password.h
        capplets/about-me/*.list
        capplets/about-me/*.ui
        capplets/about-me/*.in
@@ -375,7 +413,7 @@ Files: capplets/about-me/icons/Makefile.am
        capplets/common/Makefile.am
        capplets/common/activate-settings-daemon.c
        capplets/common/activate-settings-daemon.h
-       capplets/common/mate-theme-test.c
+       capplets/common/ukui-theme-test.c
        capplets/common/theme-thumbnail.c
        capplets/common/theme-thumbnail.h
        capplets/common/wm-common.c
@@ -392,7 +430,7 @@ Files: capplets/about-me/icons/Makefile.am
        capplets/display/Makefile.am
        capplets/keybindings/Makefile.am
        capplets/keybindings/eggcellrendererkeys.c
-       capplets/keybindings/mate-keybinding-properties.c
+       capplets/keybindings/ukui-keybinding-properties.c
        capplets/keybindings/*.in
        capplets/keybindings/*.ui
        capplets/keyboard/Makefile.am
@@ -408,8 +446,8 @@ Files: capplets/about-me/icons/Makefile.am
        capplets/network/*.ui
        capplets/windows/Makefile.am
        capplets/windows/*.in
-       capplets/windows/mate-metacity-support.c
-       capplets/windows/mate-metacity-support.h
+       capplets/windows/ukui-metacity-support.c
+       capplets/windows/ukui-metacity-support.h
        capplets/Makefile.am
        font-viewer/Makefile.am
        font-viewer/*.in
@@ -417,13 +455,13 @@ Files: capplets/about-me/icons/Makefile.am
        libslab/Makefile.am
        libslab/libslab-utils.c
        libslab/libslab-utils.h
-       libslab/mate-utils.c
+       libslab/ukui-utils.c
        libslab/*.in
        libslab/*.list
        libslab/*.svg
        libwindow-settings/Makefile.am
-       libwindow-settings/marco-window-manager.h
-       libwindow-settings/mate-wm-manager.h
+       libwindow-settings/ukwm-window-manager.h
+       libwindow-settings/ukui-wm-manager.h
        libwindow-settings/*.in
        man/Makefile.am
        po/LINGUAS
@@ -445,8 +483,8 @@ Files: capplets/about-me/icons/Makefile.am
        TODO
        autogen.sh
        configure.ac
-       org.mate.*.xml.in
-Copyright: *No copyright*
+       org.ukui.*.xml.in
+Copyright: 2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 Comment:
  Using license from COPYING file.
@@ -454,6 +492,7 @@ Comment:
 Files: debian/*
 Copyright: 2011-2014, Stefano Karapetsas <stefano@karapetsas.com>
            2014, Mike Gabriel <sunweaver@debian.org>
+	   2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2 or GPL-2+ or LGPL-2+ or LGPL-2.1+ or MIT~OldStyle+LegalDisclaimer
 
 License: GPL-2
