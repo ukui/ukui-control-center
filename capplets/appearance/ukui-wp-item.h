@@ -22,8 +22,8 @@
 #include <gio/gio.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gtk/gtk.h>
-#include <libukui-desktop/ukui-desktop-thumbnail.h>
-#include <libukui-desktop/ukui-bg.h>
+#include <libmate-desktop/mate-desktop-thumbnail.h>
+#include <libmate-desktop/mate-bg.h>
 
 #include "ukui-wp-info.h"
 

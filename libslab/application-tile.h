@@ -23,7 +23,7 @@
 
 #include "nameplate-tile.h"
 
-#include <libukui-desktop/ukui-desktop-item.h>
+#include <libmate-desktop/mate-desktop-item.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -61,7 +61,7 @@ GtkWidget *application_tile_new (const gchar * desktop_item_id);
 GtkWidget *application_tile_new_full (const gchar * desktop_item_id,
 	GtkIconSize icon_size, gboolean show_generic_name);
 
-UkuiDesktopItem *application_tile_get_desktop_item (ApplicationTile * tile);
+MateDesktopItem *application_tile_get_desktop_item (ApplicationTile * tile);
 
 #ifdef __cplusplus
 }

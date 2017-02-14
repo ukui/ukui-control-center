@@ -32,8 +32,8 @@
 #include <glib/gi18n.h>
 #include <libwindow-settings/ukui-wm-manager.h>
 #include <string.h>
-#include <libukui-desktop/ukui-desktop-thumbnail.h>
-#include <libukui-desktop/ukui-gsettings.h>
+#include <libmate-desktop/mate-desktop-thumbnail.h>
+#include <libmate-desktop/mate-gsettings.h>
 
 #define CUSTOM_THEME_NAME "__custom__"
 

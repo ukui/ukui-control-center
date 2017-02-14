@@ -1,10 +1,10 @@
 #include <config.h>
 #include <unistd.h>
 #include <string.h>
-#include <ukwm-private/util.h>
-#include <ukwm-private/theme.h>
-#include <ukwm-private/theme-parser.h>
-#include <ukwm-private/preview-widget.h>
+#include <marco-private/util.h>
+#include <marco-private/theme.h>
+#include <marco-private/theme-parser.h>
+#include <marco-private/preview-widget.h>
 #include <signal.h>
 #include <errno.h>
 #include <math.h>

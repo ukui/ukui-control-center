@@ -64,11 +64,11 @@ static void remove_from_startup_list (ApplicationTile *);
 static void update_user_list_menu_item (ApplicationTile *);
 static void agent_notify_cb (GObject *, GParamSpec *, gpointer);
 
-static StartupStatus get_desktop_item_startup_status (UkuiDesktopItem *);
+static StartupStatus get_desktop_item_startup_status (MateDesktopItem *);
 static void          update_startup_menu_item (ApplicationTile *);
 
 typedef struct {
-	UkuiDesktopItem *desktop_item;
+	MateDesktopItem *desktop_item;
 
 	gchar       *image_id;
 	gboolean     image_is_broken;
@@ -132,14 +132,14 @@ application_tile_new_full (const gchar *desktop_item_id,
 
 	const gchar *uri = NULL;
 
-	UkuiDesktopItem *desktop_item;
+	MateDesktopItem *desktop_item;
 
 
 	desktop_item = load_desktop_item_from_unknown (desktop_item_id);
 
 	if (
 		desktop_item &&
-		ukui_desktop_item_get_entry_type (desktop_item) == UKUI_DESKTOP_ITEM_TYPE_APPLICATION
+		ukui_desktop_item_get_entry_type (desktop_item) == MATE_DESKTOP_ITEM_TYPE_APPLICATION
 	)
 		uri = ukui_desktop_item_get_location (desktop_item);
 
@@ -588,7 +588,7 @@ remove_from_startup_list (ApplicationTile *this)
 	g_free (src_filename);
 }
 
-UkuiDesktopItem *
+MateDesktopItem *
 application_tile_get_desktop_item (ApplicationTile *tile)
 {
 	return APPLICATION_TILE_GET_PRIVATE (tile)->desktop_item;
@@ -648,7 +648,7 @@ update_user_list_menu_item (ApplicationTile *this)
 }
 
 static StartupStatus
-get_desktop_item_startup_status (UkuiDesktopItem *desktop_item)
+get_desktop_item_startup_status (MateDesktopItem *desktop_item)
 {
 	gchar *filename;
 	gchar *basename;

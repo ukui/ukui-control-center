@@ -26,7 +26,7 @@
 #include <gio/gio.h>
 #define UKUIMENU_I_KNOW_THIS_IS_UNSTABLE
 #include <ukuimenu-tree.h>
-#include <libukui-desktop/ukui-desktop-item.h>
+#include <libmate-desktop/mate-desktop-item.h>
 
 #include "slab-section.h"
 #include "tile.h"
@@ -113,13 +113,13 @@ typedef struct
 typedef struct
 {
 	const gchar *name;
-	UkuiDesktopItem *item;
+    MateDesktopItem *item;
 } AppAction;
 
 typedef struct
 {
 	long time;
-	UkuiDesktopItem *item;
+    MateDesktopItem *item;
 } NewAppData;
 
 void generate_categories (AppShellData * app_data);

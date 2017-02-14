@@ -23,7 +23,7 @@
 
 #include <string.h>
 #include <gio/gio.h>
-#include <libukui-desktop/ukui-gsettings.h>
+#include <libmate-desktop/mate-gsettings.h>
 #include "ukui-theme-apply.h"
 #include "gtkrc-utils.h"
 

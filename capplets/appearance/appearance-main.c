@@ -21,7 +21,7 @@
  */
 
 #include <glib/gi18n.h>
-#include <libukui-desktop/ukui-gsettings.h>
+#include <libmate-desktop/mate-gsettings.h>
 #include "appearance.h"
 #include "appearance-desktop.h"
 #include "appearance-font.h"

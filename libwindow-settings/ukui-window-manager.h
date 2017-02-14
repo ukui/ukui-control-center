@@ -28,7 +28,7 @@
 
 #include <glib-object.h>
 
-#include <libukui-desktop/ukui-desktop-item.h>
+#include <libmate-desktop/mate-desktop-item.h>
 
 /* Increment if backward-incompatible changes are made, so we get a clean
  * error. In principle the libtool versioning handles this, but
@@ -140,10 +140,10 @@ struct _UkuiWindowManagerClass
         void         (* padding_func_10)        (UkuiWindowManager *wm);
 };
 
-GObject *         ukui_window_manager_new                     (UkuiDesktopItem   *item);
+GObject *         ukui_window_manager_new                     (MateDesktopItem   *item);
 GType             ukui_window_manager_get_type                (void);
 const char *      ukui_window_manager_get_name                (UkuiWindowManager *wm);
-UkuiDesktopItem *ukui_window_manager_get_ditem               (UkuiWindowManager *wm);
+MateDesktopItem *ukui_window_manager_get_ditem               (UkuiWindowManager *wm);
 
 /* GList of char *'s */
 GList *           ukui_window_manager_get_theme_list          (UkuiWindowManager *wm);

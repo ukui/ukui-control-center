@@ -87,10 +87,10 @@ libslab_gtk_image_set_by_id (GtkImage *image, const gchar *id)
 	return found;
 }
 
-UkuiDesktopItem *
+MateDesktopItem *
 libslab_ukui_desktop_item_new_from_unknown_id (const gchar *id)
 {
-	UkuiDesktopItem *item;
+	MateDesktopItem *item;
 	gchar            *basename;
 
 	GError *error = NULL;
@@ -145,7 +145,7 @@ libslab_ukui_desktop_item_new_from_unknown_id (const gchar *id)
 }
 
 gboolean
-libslab_ukui_desktop_item_launch_default (UkuiDesktopItem *item)
+libslab_ukui_desktop_item_launch_default (MateDesktopItem *item)
 {
 	GError *error = NULL;
 
@@ -167,7 +167,7 @@ libslab_ukui_desktop_item_launch_default (UkuiDesktopItem *item)
 }
 
 gchar *
-libslab_ukui_desktop_item_get_docpath (UkuiDesktopItem *item)
+libslab_ukui_desktop_item_get_docpath (MateDesktopItem *item)
 {
 	gchar *path;
 
@@ -203,7 +203,7 @@ libslab_get_current_screen (void)
 }
 
 gboolean
-libslab_ukui_desktop_item_open_help (UkuiDesktopItem *item)
+libslab_ukui_desktop_item_open_help (MateDesktopItem *item)
 {
 	gchar *doc_path;
 	gchar *help_uri;
@@ -301,7 +301,7 @@ libslab_handle_g_error (GError **error, const gchar *msg_format, ...)
 gboolean
 libslab_desktop_item_is_a_terminal (const gchar *uri)
 {
-	UkuiDesktopItem *d_item;
+	MateDesktopItem *d_item;
 	const gchar      *categories;
 
 	gboolean is_terminal = FALSE;
@@ -324,7 +324,7 @@ libslab_desktop_item_is_a_terminal (const gchar *uri)
 gboolean
 libslab_desktop_item_is_logout (const gchar *uri)
 {
-	UkuiDesktopItem *d_item;
+	MateDesktopItem *d_item;
 	gboolean is_logout = FALSE;
 
 
@@ -333,7 +333,7 @@ libslab_desktop_item_is_logout (const gchar *uri)
 	if (! d_item)
 		return FALSE;
 
-	is_logout = strstr ("Logout", ukui_desktop_item_get_string (d_item, UKUI_DESKTOP_ITEM_NAME)) != NULL;
+	is_logout = strstr ("Logout", ukui_desktop_item_get_string (d_item, MATE_DESKTOP_ITEM_NAME)) != NULL;
 
 	ukui_desktop_item_unref (d_item);
 
@@ -343,7 +343,7 @@ libslab_desktop_item_is_logout (const gchar *uri)
 gboolean
 libslab_desktop_item_is_lockscreen (const gchar *uri)
 {
-	UkuiDesktopItem *d_item;
+	MateDesktopItem *d_item;
 	gboolean is_logout = FALSE;
 
 
@@ -352,7 +352,7 @@ libslab_desktop_item_is_lockscreen (const gchar *uri)
 	if (! d_item)
 		return FALSE;
 
-	is_logout = strstr ("Lock Screen", ukui_desktop_item_get_string (d_item, UKUI_DESKTOP_ITEM_NAME)) != NULL;
+	is_logout = strstr ("Lock Screen", ukui_desktop_item_get_string (d_item, MATE_DESKTOP_ITEM_NAME)) != NULL;
 
 	ukui_desktop_item_unref (d_item);
 

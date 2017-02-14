@@ -36,7 +36,7 @@
 #include <gdk/gdkx.h>
 #include <gio/gio.h>
 #include <string.h>
-#include <libukui-desktop/ukui-desktop-item.h>
+#include <libmate-desktop/mate-desktop-item.h>
 #include "ukui-theme-info.h"
 #include "gtkrc-utils.h"
 
@@ -289,7 +289,7 @@ UkuiThemeMetaInfo* ukui_theme_read_meta_theme(GFile* meta_theme_uri)
 {
 	UkuiThemeMetaInfo* meta_theme_info;
 	GFile* common_theme_dir_uri;
-	UkuiDesktopItem* meta_theme_ditem;
+    MateDesktopItem* meta_theme_ditem;
 	gchar* meta_theme_file;
 	const gchar* str;
 	gchar* scheme;
@@ -311,7 +311,7 @@ UkuiThemeMetaInfo* ukui_theme_read_meta_theme(GFile* meta_theme_uri)
 
 	if (!str)
 	{
-		str = ukui_desktop_item_get_localestring(meta_theme_ditem, UKUI_DESKTOP_ITEM_NAME);
+        str = ukui_desktop_item_get_localestring(meta_theme_ditem, MATE_DESKTOP_ITEM_NAME);
 		if (!str)
 		{ /* shouldn't reach */
 			ukui_theme_meta_info_free(meta_theme_info);
@@ -324,12 +324,12 @@ UkuiThemeMetaInfo* ukui_theme_read_meta_theme(GFile* meta_theme_uri)
 	str = ukui_desktop_item_get_localestring(meta_theme_ditem, THEME_COMMENT);
 
 	if (str == NULL)
-		str = ukui_desktop_item_get_localestring(meta_theme_ditem, UKUI_DESKTOP_ITEM_COMMENT);
+		str = ukui_desktop_item_get_localestring(meta_theme_ditem, MATE_DESKTOP_ITEM_COMMENT);
 
 	if (str != NULL)
 		meta_theme_info->comment = g_strdup(str);
 
-	str = ukui_desktop_item_get_string(meta_theme_ditem, UKUI_DESKTOP_ITEM_ICON);
+	str = ukui_desktop_item_get_string(meta_theme_ditem, MATE_DESKTOP_ITEM_ICON);
 
 	if (str != NULL)
 		meta_theme_info->icon_file = g_strdup(str);
@@ -444,7 +444,7 @@ static UkuiThemeIconInfo *
 read_icon_theme (GFile *icon_theme_uri)
 {
   UkuiThemeIconInfo *icon_theme_info;
-  UkuiDesktopItem *icon_theme_ditem;
+  MateDesktopItem *icon_theme_ditem;
   gchar *icon_theme_file;
   gchar *dir_name;
   const gchar *name;
@@ -459,7 +459,7 @@ read_icon_theme (GFile *icon_theme_uri)
 
   name = ukui_desktop_item_get_localestring (icon_theme_ditem, "Icon Theme/Name");
   if (!name) {
-    name = ukui_desktop_item_get_localestring (icon_theme_ditem, UKUI_DESKTOP_ITEM_NAME);
+    name = ukui_desktop_item_get_localestring (icon_theme_ditem, MATE_DESKTOP_ITEM_NAME);
     if (!name) {
       ukui_desktop_item_unref (icon_theme_ditem);
       return NULL;
@@ -581,7 +581,7 @@ read_cursor_theme (GFile *cursor_theme_uri)
       g_array_free (sizes, TRUE);
       g_free (name);
     } else {
-      UkuiDesktopItem *cursor_theme_ditem;
+      MateDesktopItem *cursor_theme_ditem;
       gchar *cursor_theme_file;
 
       if (!thumbnail) {

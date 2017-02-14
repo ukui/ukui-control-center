@@ -31,11 +31,11 @@ static GObjectClass *parent_class;
 
 struct _UkuiWindowManagerPrivate {
         char *window_manager_name;
-        UkuiDesktopItem *ditem;
+        MateDesktopItem *ditem;
 };
 
 GObject *
-ukui_window_manager_new (UkuiDesktopItem *it)
+ukui_window_manager_new (MateDesktopItem *it)
 {
         const char *settings_lib;
         char *module_name;
@@ -72,7 +72,7 @@ ukui_window_manager_new (UkuiDesktopItem *it)
         if (wm == NULL)
                 return NULL;
         
-        (UKUI_WINDOW_MANAGER (wm))->p->window_manager_name = g_strdup (ukui_desktop_item_get_string (it, UKUI_DESKTOP_ITEM_NAME));
+        (UKUI_WINDOW_MANAGER (wm))->p->window_manager_name = g_strdup (ukui_desktop_item_get_string (it, MATE_DESKTOP_ITEM_NAME));
         (UKUI_WINDOW_MANAGER (wm))->p->ditem = ukui_desktop_item_ref (it);
   
         return wm;
@@ -84,7 +84,7 @@ ukui_window_manager_get_name (UkuiWindowManager *wm)
         return wm->p->window_manager_name;
 }
 
-UkuiDesktopItem *
+MateDesktopItem *
 ukui_window_manager_get_ditem (UkuiWindowManager *wm)
 {
         return ukui_desktop_item_ref (wm->p->ditem);

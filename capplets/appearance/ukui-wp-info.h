@@ -22,7 +22,7 @@
 #define _UKUI_WP_INFO_H_
 
 #include <glib.h>
-#include <libukui-desktop/ukui-desktop-thumbnail.h>
+#include <libmate-desktop/mate-desktop-thumbnail.h>
 
 typedef struct _UkuiWPInfo {
 	char* uri;

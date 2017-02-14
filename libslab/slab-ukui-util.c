@@ -32,10 +32,10 @@ free_list_of_strings (GList * string_list)
 	g_list_free (string_list);
 }
 
-UkuiDesktopItem *
+MateDesktopItem *
 load_desktop_item_from_unknown (const gchar *id)
 {
-	UkuiDesktopItem *item;
+	MateDesktopItem *item;
 	gchar            *basename;
 
 	GError *error = NULL;
@@ -87,7 +87,7 @@ load_desktop_item_from_unknown (const gchar *id)
 }
 
 gchar *
-get_package_name_from_desktop_item (UkuiDesktopItem * desktop_item)
+get_package_name_from_desktop_item (MateDesktopItem * desktop_item)
 {
 	gchar *argv[6];
 	gchar *package_name;
@@ -120,7 +120,7 @@ get_package_name_from_desktop_item (UkuiDesktopItem * desktop_item)
 }
 
 gboolean
-open_desktop_item_exec (UkuiDesktopItem * desktop_item)
+open_desktop_item_exec (MateDesktopItem * desktop_item)
 {
 	GError *error = NULL;
 
@@ -142,7 +142,7 @@ open_desktop_item_exec (UkuiDesktopItem * desktop_item)
 }
 
 gboolean
-open_desktop_item_help (UkuiDesktopItem * desktop_item)
+open_desktop_item_help (MateDesktopItem * desktop_item)
 {
 	const gchar *doc_path;
 	gchar *help_uri;

@@ -1048,7 +1048,7 @@ create_app_item (BookmarkAgent *this, const gchar *uri)
 {
 	BookmarkAgentPrivate *priv = PRIVATE (this);
 
-	UkuiDesktopItem *ditem;
+	MateDesktopItem *ditem;
 	gchar *uri_new = NULL;
 
 	ditem = libslab_ukui_desktop_item_new_from_unknown_id (uri);

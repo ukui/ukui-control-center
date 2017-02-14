@@ -38,7 +38,7 @@
 #include <string.h>
 
 typedef struct {
-        UkuiDesktopItem *ditem;
+        MateDesktopItem *ditem;
         char *name; /* human readable, localized */
         char *identify_name; /* name we expect to be set on the screen */
         char *exec;
@@ -107,8 +107,8 @@ wm_compare (gconstpointer a, gconstpointer b)
 
         /* mmm, sloooow */
 
-        return g_utf8_collate (ukui_desktop_item_get_string (wm_a->ditem, UKUI_DESKTOP_ITEM_NAME),
-                               ukui_desktop_item_get_string (wm_b->ditem, UKUI_DESKTOP_ITEM_NAME));
+        return g_utf8_collate (ukui_desktop_item_get_string (wm_a->ditem, MATE_DESKTOP_ITEM_NAME),
+                               ukui_desktop_item_get_string (wm_b->ditem, MATE_DESKTOP_ITEM_NAME));
 }
 
 static AvailableWindowManager*
@@ -127,13 +127,13 @@ wm_load (const char *desktop_file,
                 return NULL;
         }
 
-        ukui_desktop_item_set_entry_type (wm->ditem, UKUI_DESKTOP_ITEM_TYPE_APPLICATION);
+        ukui_desktop_item_set_entry_type (wm->ditem, MATE_DESKTOP_ITEM_TYPE_APPLICATION);
 
         wm->exec = g_strdup (ukui_desktop_item_get_string (wm->ditem,
-                                                            UKUI_DESKTOP_ITEM_EXEC));
+                                                            MATE_DESKTOP_ITEM_EXEC));
 
         wm->name = g_strdup (ukui_desktop_item_get_string (wm->ditem,
-                                                            UKUI_DESKTOP_ITEM_NAME));
+                                                            MATE_DESKTOP_ITEM_NAME));
 
         wm->config_exec = g_strdup (ukui_desktop_item_get_string (wm->ditem,
                                                                    "ConfigExec"));
@@ -150,10 +150,10 @@ wm_load (const char *desktop_file,
 
         wm->is_user = is_user;
 
-        if (ukui_desktop_item_get_string (wm->ditem, UKUI_DESKTOP_ITEM_EXEC)) {
+        if (ukui_desktop_item_get_string (wm->ditem, MATE_DESKTOP_ITEM_EXEC)) {
                 const char *tryexec;
 
-                tryexec = ukui_desktop_item_get_string (wm->ditem, UKUI_DESKTOP_ITEM_TRY_EXEC);
+                tryexec = ukui_desktop_item_get_string (wm->ditem, MATE_DESKTOP_ITEM_TRY_EXEC);
 
                 if (tryexec) {
                         path = g_find_program_in_path (tryexec);

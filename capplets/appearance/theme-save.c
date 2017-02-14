@@ -37,7 +37,7 @@ enum {
   INVALID_THEME_NAME
 };
 
-/* taken from ukui-desktop-item.c */
+/* taken from mate-desktop-item.c */
 static gchar *
 escape_string_and_dup (const gchar *s)
 {

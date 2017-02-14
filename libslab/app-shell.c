@@ -22,7 +22,7 @@
 #include <config.h>
 #endif
 
-#include <libukui-desktop/ukui-desktop-item.h>
+#include <libmate-desktop/mate-desktop-item.h>
 #include <gio/gio.h>
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
@@ -61,7 +61,7 @@ static void generate_category (const char * category, UkuiMenuTreeDirectory * ro
 static void generate_launchers (UkuiMenuTreeDirectory * root_dir, AppShellData * app_data,
 	CategoryData * cat_data, gboolean recursive);
 static void generate_new_apps (AppShellData * app_data);
-static void insert_launcher_into_category (CategoryData * cat_data, UkuiDesktopItem * desktop_item,
+static void insert_launcher_into_category (CategoryData * cat_data, MateDesktopItem * desktop_item,
 	AppShellData * app_data);
 
 static gboolean main_keypress_callback (GtkWidget * widget, GdkEventKey * event,
@@ -992,7 +992,7 @@ generate_category (const char * category, UkuiMenuTreeDirectory * root_dir, AppS
 }
 
 static gboolean
-check_specific_apps_hack (UkuiDesktopItem * item)
+check_specific_apps_hack (MateDesktopItem * item)
 {
 	static const gchar *COMMAND_LINE_LOCKDOWN_SCHEMA = "org.ukui.lockdown";
 	static const gchar *COMMAND_LINE_LOCKDOWN_KEY = "disable-command-line";
@@ -1013,7 +1013,7 @@ check_specific_apps_hack (UkuiDesktopItem * item)
 	}
 
 	/* This seems like an ugly hack but it's the way it's currently done in the old control center */
-	exec = ukui_desktop_item_get_string (item, UKUI_DESKTOP_ITEM_EXEC);
+	exec = ukui_desktop_item_get_string (item, MATE_DESKTOP_ITEM_EXEC);
 
 	/* discard xscreensaver if ukui-screensaver is installed */
 	if ((exec && !strcmp (exec, "xscreensaver-demo"))
@@ -1049,7 +1049,7 @@ check_specific_apps_hack (UkuiDesktopItem * item)
 static void
 generate_launchers (UkuiMenuTreeDirectory * root_dir, AppShellData * app_data, CategoryData * cat_data, gboolean recursive)
 {
-	UkuiDesktopItem *desktop_item;
+    MateDesktopItem *desktop_item;
 	const gchar *desktop_file;
 	GSList *contents, *l;
 
@@ -1136,7 +1136,7 @@ generate_new_apps (AppShellData * app_data)
 			for (launchers = data->launcher_list; launchers; launchers = launchers->next)
 			{
 				Tile *tile = TILE (launchers->data);
-				UkuiDesktopItem *item =
+                MateDesktopItem *item =
 					application_tile_get_desktop_item (APPLICATION_TILE (tile));
 				const gchar *uri = ukui_desktop_item_get_location (item);
 				g_string_append (gstr, uri);
@@ -1171,7 +1171,7 @@ generate_new_apps (AppShellData * app_data)
 		for (launchers = cat_data->launcher_list; launchers; launchers = launchers->next)
 		{
 			Tile *tile = TILE (launchers->data);
-			UkuiDesktopItem *item =
+            MateDesktopItem *item =
 				application_tile_get_desktop_item (APPLICATION_TILE (tile));
 			const gchar *uri = ukui_desktop_item_get_location (item);
 			if (!g_hash_table_lookup (all_apps_cache, uri))
@@ -1272,7 +1272,7 @@ generate_new_apps (AppShellData * app_data)
 }
 
 static void
-insert_launcher_into_category (CategoryData * cat_data, UkuiDesktopItem * desktop_item,
+insert_launcher_into_category (CategoryData * cat_data, MateDesktopItem * desktop_item,
 	AppShellData * app_data)
 {
 	GtkWidget *launcher;
@@ -1291,7 +1291,7 @@ insert_launcher_into_category (CategoryData * cat_data, UkuiDesktopItem * deskto
 	gtk_widget_set_size_request (launcher, SIZING_TILE_WIDTH, -1);
 
 	filepath =
-		g_strdup (ukui_desktop_item_get_string (desktop_item, UKUI_DESKTOP_ITEM_EXEC));
+		g_strdup (ukui_desktop_item_get_string (desktop_item, MATE_DESKTOP_ITEM_EXEC));
 	g_strdelimit (filepath, " ", '\0');	/* just want the file name - no args or replacements */
 	filename = g_strrstr (filepath, "/");
 	if (filename)

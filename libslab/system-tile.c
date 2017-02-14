@@ -43,7 +43,7 @@ static void update_user_list_menu_item (SystemTile *);
 static void agent_notify_cb (GObject *, GParamSpec *, gpointer);
 
 typedef struct {
-	UkuiDesktopItem *desktop_item;
+	MateDesktopItem *desktop_item;
 
 	BookmarkAgent       *agent;
 	BookmarkStoreStatus  agent_status;
@@ -71,7 +71,7 @@ system_tile_new (const gchar *desktop_item_id, const gchar *title)
 	GtkWidget    *menu_item;
 	GtkContainer *menu_ctnr;
 
-	UkuiDesktopItem *desktop_item = NULL;
+	MateDesktopItem *desktop_item = NULL;
 	gchar            *image_id     = NULL;
 	gchar            *header_txt   = NULL;
 

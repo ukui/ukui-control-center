@@ -11,8 +11,8 @@ AM_CPPFLAGS = \
 	-DPIXMAP_DIR=\""$(datadir)/ukui-control-center/pixmaps"\"	\
 	$(CAPPLET_CFLAGS)						\
 	$(DBUS_CFLAGS)							\
-	$(UKUI_DESKTOP_CFLAGS)						\
-	$(UKWM_CFLAGS)						\
+	$(MATE_DESKTOP_CFLAGS)						\
+	$(MARCO_CFLAGS)						\
 	$(GSD_DBUS_CFLAGS)						\
 	$(GIO_CFLAGS)						\
 	$(DCONF_CFLAGS)
@@ -44,9 +44,9 @@ libcommon_la_SOURCES = \
 
 libcommon_la_LIBADD =							\
 	$(top_builddir)/libwindow-settings/libukui-window-settings.la  \
-	$(UKWM_LIBS)						\
+	$(MARCO_LIBS)						\
 	$(DBUS_LIBS)							\
-	$(UKUI_DESKTOP_LIBS)						\
+	$(MATE_DESKTOP_LIBS)						\
 	$(GIO_LIBS)									\
 	$(DCONF_LIBS)
 

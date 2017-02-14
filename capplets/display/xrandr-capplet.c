@@ -27,11 +27,11 @@
 
 #include <gtk/gtk.h>
 #include "scrollarea.h"
-#define UKUI_DESKTOP_USE_UNSTABLE_API
-#include <libukui-desktop/ukui-desktop-utils.h>
-#include <libukui-desktop/ukui-rr.h>
-#include <libukui-desktop/ukui-rr-config.h>
-#include <libukui-desktop/ukui-rr-labeler.h>
+#define MATE_DESKTOP_USE_UNSTABLE_API
+#include <libmate-desktop/mate-desktop-utils.h>
+#include <libmate-desktop/mate-rr.h>
+#include <libmate-desktop/mate-rr-config.h>
+#include <libmate-desktop/mate-rr-labeler.h>
 #include <gdk/gdkx.h>
 #include <X11/Xlib.h>
 #include <glib/gi18n.h>

@@ -91,7 +91,7 @@ static GSList* get_actions_list(void)
 void handle_static_action_clicked(Tile* tile, TileEvent* event, gpointer data)
 {
 	AppShellData* app_data = (AppShellData*) data;
-	UkuiDesktopItem* item = (UkuiDesktopItem*) g_object_get_data(G_OBJECT(tile), APP_ACTION_KEY);
+	MateDesktopItem* item = (MateDesktopItem*) g_object_get_data(G_OBJECT(tile), APP_ACTION_KEY);
 	GSettings *settings;
 
 	if (event->type == TILE_EVENT_ACTIVATED_DOUBLE_CLICK)

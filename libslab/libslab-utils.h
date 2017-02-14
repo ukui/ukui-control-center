@@ -3,19 +3,19 @@
 
 #include <glib.h>
 #include <gtk/gtk.h>
-#include <libukui-desktop/ukui-desktop-item.h>
-#define UKUI_DESKTOP_USE_UNSTABLE_API
-#include <libukui-desktop/ukui-desktop-thumbnail.h>
+#include <libmate-desktop/mate-desktop-item.h>
+#define MATE_DESKTOP_USE_UNSTABLE_API
+#include <libmate-desktop/mate-desktop-thumbnail.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 gboolean          libslab_gtk_image_set_by_id (GtkImage *image, const gchar *id);
-UkuiDesktopItem *libslab_ukui_desktop_item_new_from_unknown_id (const gchar *id);
-gboolean          libslab_ukui_desktop_item_launch_default (UkuiDesktopItem *item);
-gchar            *libslab_ukui_desktop_item_get_docpath (UkuiDesktopItem *item);
-gboolean          libslab_ukui_desktop_item_open_help (UkuiDesktopItem *item);
+MateDesktopItem *libslab_ukui_desktop_item_new_from_unknown_id (const gchar *id);
+gboolean          libslab_ukui_desktop_item_launch_default (MateDesktopItem *item);
+gchar            *libslab_ukui_desktop_item_get_docpath (MateDesktopItem *item);
+gboolean          libslab_ukui_desktop_item_open_help (MateDesktopItem *item);
 guint32           libslab_get_current_time_millis (void);
 gint              libslab_strcmp (const gchar *a, const gchar *b);
 gint              libslab_strlen (const gchar *a);

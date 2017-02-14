@@ -23,7 +23,7 @@
 
 #include <glib.h>
 #include <gtk/gtk.h>
-#include <libukui-desktop/ukui-desktop-item.h>
+#include <libmate-desktop/mate-desktop-item.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -49,12 +49,12 @@ extern "C" {
 
 void free_list_of_strings (GList * list);
 
-UkuiDesktopItem *load_desktop_item_from_unknown (const gchar * id);
+MateDesktopItem *load_desktop_item_from_unknown (const gchar * id);
 
-gchar *get_package_name_from_desktop_item (UkuiDesktopItem * desktop_item);
+gchar *get_package_name_from_desktop_item (MateDesktopItem * desktop_item);
 
-gboolean open_desktop_item_exec (UkuiDesktopItem * desktop_item);
-gboolean open_desktop_item_help (UkuiDesktopItem * desktop_item);
+gboolean open_desktop_item_exec (MateDesktopItem * desktop_item);
+gboolean open_desktop_item_help (MateDesktopItem * desktop_item);
 
 gint desktop_item_location_compare (gconstpointer a, gconstpointer b);
 

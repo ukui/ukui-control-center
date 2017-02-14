@@ -35,10 +35,10 @@ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Gettext package])
 
 AM_GLIB_GNU_GETTEXT
 
-UKUI_COMMON_INIT
-UKUI_DEBUG_CHECK
-UKUI_COMPILE_WARNINGS([maximum])
-UKUI_MAINTAINER_MODE_DEFINES
+MATE_COMMON_INIT
+MATE_DEBUG_CHECK
+MATE_COMPILE_WARNINGS([maximum])
+MATE_MAINTAINER_MODE_DEFINES
 
 AC_PATH_XTRA
 x_libs="$X_PRE_LIBS $X_LIBS -lX11 $X_EXTRA_LIBS"
@@ -155,16 +155,16 @@ COMMON_MODULES="gtk+-$GTK_API_VERSION >= $GTK_REQUIRED dnl
  gio-2.0 dnl
  gio-unix-2.0 dnl
  libxml-2.0 dnl
- ukui-desktop-2.0 >= 0.9"
+ mate-desktop-2.0 >= 1.16.0"
 PKG_CHECK_MODULES(CAPPLET, $COMMON_MODULES)
-PKG_CHECK_MODULES(UKUICC, $COMMON_MODULES libukui-menu >= 0.9)
-PKG_CHECK_MODULES(UKUICC_SHELL, $COMMON_MODULES libukui-menu unique-$LIBUNIQUE_API_VERSION)
+PKG_CHECK_MODULES(UKUICC, $COMMON_MODULES libmate-menu >= 1.16.0)
+PKG_CHECK_MODULES(UKUICC_SHELL, $COMMON_MODULES libmate-menu unique-$LIBUNIQUE_API_VERSION)
 PKG_CHECK_MODULES(DBUS, dbus-1 dbus-glib-1)
-PKG_CHECK_MODULES(UKUI_DESKTOP, ukui-desktop-2.0 >= 0.9)
+PKG_CHECK_MODULES(MATE_DESKTOP, mate-desktop-2.0 >= 1.16.0)
 PKG_CHECK_MODULES(DEFAULT_APPLICATIONS_CAPPLET, libxml-2.0)
-PKG_CHECK_MODULES(UKWM, libukwm-private >= 0.9)
+PKG_CHECK_MODULES(MARCO, libmarco-private >= 1.16.0)
 PKG_CHECK_MODULES(TYPING, $GMODULE_ADD glib-2.0 > 2.36 gio-2.0 gtk+-$GTK_API_VERSION)
-PKG_CHECK_MODULES(GSD_DBUS, ukui-settings-daemon >= 0.9)
+PKG_CHECK_MODULES(GSD_DBUS, mate-settings-daemon >= 1.16.0)
 PKG_CHECK_MODULES(GIO, gio-2.0)
 
 PKG_CHECK_MODULES([DCONF], [dconf >= 0.13.4])
@@ -182,7 +182,7 @@ dnl
 dnl Check dependencies of libukui-slab
 dnl
 PKG_CHECK_MODULES(LIBSLAB, [
-			   gio-2.0 ukui-desktop-2.0 librsvg-2.0 libukui-menu pango
+			   gio-2.0 mate-desktop-2.0 librsvg-2.0 libmate-menu pango
 			   ],
 			   have_libukuislab=yes,
 			   have_libukuislab=no)
@@ -250,13 +250,13 @@ CAPPLET_LIBS="$CAPPLET_LIBS $XINPUT_LIBS"
 dnl ==============
 dnl gswitchit
 dnl ==============
-PKG_CHECK_MODULES(LIBUKUIKBD, [libukuikbd >= 0.9 libxklavier >= 4.0])
-AC_SUBST(LIBUKUIKBD_CFLAGS)
-AC_SUBST(LIBUKUIKBD_LIBS)
+PKG_CHECK_MODULES(LIBMATEKBD, [libmatekbd >= 1.9 libxklavier >= 4.0])
+AC_SUBST(LIBMATEKBD_CFLAGS)
+AC_SUBST(LIBMATEKBD_LIBS)
 
-PKG_CHECK_MODULES(LIBUKUIKBDUI, [libukuikbdui >= 0.9])
-AC_SUBST(LIBUKUIKBDUI_CFLAGS)
-AC_SUBST(LIBUKUIKBDUI_LIBS)
+PKG_CHECK_MODULES(LIBMATEKBDUI, [libmatekbdui >= 1.9])
+AC_SUBST(LIBMATEKBDUI_CFLAGS)
+AC_SUBST(LIBMATEKBDUI_LIBS)
 
 dnl ==============================================
 dnl End: Check that we meet the  dependencies

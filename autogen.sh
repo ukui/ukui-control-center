@@ -12,8 +12,8 @@ PKG_NAME="ukui-control-center"
     exit 1
 }
 
-which ukui-autogen || {
-    echo "You need to install ukui-common"
+which mate-autogen || {
+    echo "You need to install mate-common"
     exit 1
 }
 
@@ -22,8 +22,8 @@ which yelp-build || {
 }
 
 REQUIRED_AUTOMAKE_VERSION=1.9
-USE_UKUI2_MACROS=1
+USE_MATE2_MACROS=1
 USE_COMMON_DOC_BUILD=yes
 
-. ukui-autogen
+. mate-autogen
 

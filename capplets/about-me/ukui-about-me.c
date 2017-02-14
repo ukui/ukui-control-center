@@ -28,8 +28,8 @@
 #include <unistd.h>
 #include <dbus/dbus-glib-bindings.h>
 
-#define UKUI_DESKTOP_USE_UNSTABLE_API
-#include <libukui-desktop/ukui-desktop-thumbnail.h>
+#define MATE_DESKTOP_USE_UNSTABLE_API
+#include <libmate-desktop/mate-desktop-thumbnail.h>
 
 #include "e-image-chooser.h"
 #include "ukui-about-me-password.h"
