@@ -1208,9 +1208,9 @@ msgstr "A témamotor nem telepíthető"
 
 #: ../capplets/common/activate-settings-daemon.c:16
 msgid ""
-"Unable to start the settings manager 'ukui-settings-daemon'.\n"
+"Unable to start the settings manager 'mate-settings-daemon'.\n"
 "Without the UKUI settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-UKUI (e.g. KDE) settings manager may already be active and conflicting with the UKUI settings manager."
-msgstr "Nem sikerült elindítani a „ukui-settings-daemon” beállításkezelőt.\nA UKUI beállításkezelő futása nélkül néhány beállításnak nem lesz hatása. Ez a D-Busszal kapcsolatos problémát jelezhet, vagy egy nem UKUI (pl. KDE) beállításkezelő már fut, és ütközik a UKUI beállításkezelővel."
+msgstr "Nem sikerült elindítani a „mate-settings-daemon” beállításkezelőt.\nA UKUI beállításkezelő futása nélkül néhány beállításnak nem lesz hatása. Ez a D-Busszal kapcsolatos problémát jelezhet, vagy egy nem UKUI (pl. KDE) beállításkezelő már fut, és ütközik a UKUI beállításkezelővel."
 
 #: ../capplets/common/capplet-stock-icons.c:66
 #, c-format
@@ -1575,14 +1575,14 @@ msgid ""
 "\n"
 "This program installs a RANDR profile for multi-monitor setups into\n"
 "a systemwide location.  The resulting profile will get used when\n"
-"the RANDR plug-in gets run in ukui-settings-daemon.\n"
+"the RANDR plug-in gets run in mate-settings-daemon.\n"
 "\n"
 "SOURCE_FILE - a full pathname, typically /home/username/.config/monitors.xml\n"
 "\n"
 "DEST_NAME - relative name for the installed file.  This will get put in\n"
 "            the systemwide directory for RANDR configurations,\n"
 "            so the result will typically be %s/DEST_NAME\n"
-msgstr "Használat: %s FORRÁS_FÁJL CÉL_NÉV\n\nEz a program egy RANDR profilt telepít többmonitoros gépekhez egy\nrendszerszintű helyre. Az eredményül kapott profil akkor kerül felhasználásra\namikor a ukui-settings-daemon futtatja a RANDR bővítményt.\n\nFORRÁS_FÁJL – egy teljes útvonalnév, általában /home/felhasználó/.config/monitors.xml\n\nCÉL_NÉV – a telepített fájl relatív neve. Ez kerül a RANDR beállítások\n            rendszerszintű könyvtárába, így az eredmény általában\n            %s/CÉL_NÉV\n"
+msgstr "Használat: %s FORRÁS_FÁJL CÉL_NÉV\n\nEz a program egy RANDR profilt telepít többmonitoros gépekhez egy\nrendszerszintű helyre. Az eredményül kapott profil akkor kerül felhasználásra\namikor a mate-settings-daemon futtatja a RANDR bővítményt.\n\nFORRÁS_FÁJL – egy teljes útvonalnév, általában /home/felhasználó/.config/monitors.xml\n\nCÉL_NÉV – a telepített fájl relatív neve. Ez kerül a RANDR beállítások\n            rendszerszintű könyvtárába, így az eredmény általában\n            %s/CÉL_NÉV\n"
 
 #. Translators: only able to install RANDR profiles as root
 #: ../capplets/display/ukui-display-properties-install-systemwide.c:151

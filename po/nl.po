@@ -1207,9 +1207,9 @@ msgstr "Kan themamodule niet installeren"
 
 #: ../capplets/common/activate-settings-daemon.c:16
 msgid ""
-"Unable to start the settings manager 'ukui-settings-daemon'.\n"
+"Unable to start the settings manager 'mate-settings-daemon'.\n"
 "Without the UKUI settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-UKUI (e.g. KDE) settings manager may already be active and conflicting with the UKUI settings manager."
-msgstr "Kan de instellingenbeheerder 'ukui-settings-daemon' niet starten. Wanneer de UKUI-instellingenbeheerder niet draait zullen sommige voorkeuren niet worden doorgevoerd. Dit kan wijzen op een probleem met DBus, of een instellingenbeheerder die niet bij UKUI hoort (bijv. die van KDE) kan actief zijn en conflicteren met de instellingenbeheerder van UKUI."
+msgstr "Kan de instellingenbeheerder 'mate-settings-daemon' niet starten. Wanneer de UKUI-instellingenbeheerder niet draait zullen sommige voorkeuren niet worden doorgevoerd. Dit kan wijzen op een probleem met DBus, of een instellingenbeheerder die niet bij UKUI hoort (bijv. die van KDE) kan actief zijn en conflicteren met de instellingenbeheerder van UKUI."
 
 #: ../capplets/common/capplet-stock-icons.c:66
 #, c-format
@@ -1574,14 +1574,14 @@ msgid ""
 "\n"
 "This program installs a RANDR profile for multi-monitor setups into\n"
 "a systemwide location.  The resulting profile will get used when\n"
-"the RANDR plug-in gets run in ukui-settings-daemon.\n"
+"the RANDR plug-in gets run in mate-settings-daemon.\n"
 "\n"
 "SOURCE_FILE - a full pathname, typically /home/username/.config/monitors.xml\n"
 "\n"
 "DEST_NAME - relative name for the installed file.  This will get put in\n"
 "            the systemwide directory for RANDR configurations,\n"
 "            so the result will typically be %s/DEST_NAME\n"
-msgstr "Gebruik: %s BRONBESTAND DOELNAAM\n\nDit programma installeert een RANDR-profiel voor multi-monitor-setups op\neen systeembrede locatie.  Het resulterende profiel zal worden gebruikt wanneer\nde RANDR-plug-in wordt gedraaid in ukui-settings-daemon.\n\nBRONBESTAND - een volledige padnaam, normaal gesproken /home/gebruikersnaam/.config/monitors.xml\n\nDOELNAAM - relatieve naam voor het geinstalleerde bestand.  Dit zal worden geplaatst in\n            de systeembrede map voor RANDR-configuraties,\n            dus het resultaat zal normaal gesproken %s/DOELNAAM\n"
+msgstr "Gebruik: %s BRONBESTAND DOELNAAM\n\nDit programma installeert een RANDR-profiel voor multi-monitor-setups op\neen systeembrede locatie.  Het resulterende profiel zal worden gebruikt wanneer\nde RANDR-plug-in wordt gedraaid in mate-settings-daemon.\n\nBRONBESTAND - een volledige padnaam, normaal gesproken /home/gebruikersnaam/.config/monitors.xml\n\nDOELNAAM - relatieve naam voor het geinstalleerde bestand.  Dit zal worden geplaatst in\n            de systeembrede map voor RANDR-configuraties,\n            dus het resultaat zal normaal gesproken %s/DOELNAAM\n"
 
 #. Translators: only able to install RANDR profiles as root
 #: ../capplets/display/ukui-display-properties-install-systemwide.c:151

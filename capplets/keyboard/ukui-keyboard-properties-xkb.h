@@ -26,7 +26,7 @@
 
 #include <gio/gio.h>
 
-#include "libukuikbd/ukuikbd-keyboard-config.h"
+#include "libmatekbd/matekbd-keyboard-config.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -36,7 +36,7 @@ extern XklEngine *engine;
 extern XklConfigRegistry *config_registry;
 extern GSettings *xkb_kbd_settings;
 extern GSettings *xkb_general_settings;
-extern UkuikbdKeyboardConfig initial_config;
+extern MatekbdKeyboardConfig initial_config;
 
 extern void setup_xkb_tabs (GtkBuilder * dialog);
 

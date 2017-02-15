@@ -333,7 +333,7 @@ static void ukui_wp_xml_load_xml(AppearanceData* data, const char* filename)
 					wp->name = g_strdup (wp->fileinfo->name);
 				}
 
-				ukui_wp_item_ensure_ukui_bg (wp);
+				ukui_wp_item_ensure_mate_bg (wp);
 				ukui_wp_item_update_description (wp);
 				g_hash_table_insert (data->wp_hash, wp->filename, wp);
 			}

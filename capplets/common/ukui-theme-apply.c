@@ -27,21 +27,21 @@
 #include "ukui-theme-apply.h"
 #include "gtkrc-utils.h"
 
-#define INTERFACE_SCHEMA        "org.ukui.interface"
+#define INTERFACE_SCHEMA        "org.mate.interface"
 #define GTK_THEME_KEY           "gtk-theme"
 #define COLOR_SCHEME_KEY        "gtk-color-scheme"
 #define ICON_THEME_KEY          "icon-theme"
 #define FONT_KEY                "font-name"
 
-#define UKWM_SCHEMA            "org.ukui.Ukwm.general"
+#define UKWM_SCHEMA            "org.mate.Marco.general"
 #define UKWM_THEME_KEY         "theme"
 
-#define MOUSE_SCHEMA            "org.ukui.peripherals-mouse"
+#define MOUSE_SCHEMA            "org.mate.peripherals-mouse"
 #define CURSOR_FONT_KEY         "cursor-font"
 #define CURSOR_THEME_KEY        "cursor-theme"
 #define CURSOR_SIZE_KEY         "cursor-size"
 
-#define NOTIFICATION_SCHEMA     "org.ukui.NotificationDaemon"
+#define NOTIFICATION_SCHEMA     "org.mate.NotificationDaemon"
 #define NOTIFICATION_THEME_KEY  "theme"
 
 #define compare(x,y) (!x && y) || (x && !y) || (x && y && strcmp (x, y))
@@ -60,7 +60,7 @@ ukui_meta_theme_set (UkuiThemeMetaInfo *meta_theme_info)
   ukwm_settings = g_settings_new (UKWM_SCHEMA);
   mouse_settings = g_settings_new (MOUSE_SCHEMA);
   
-  if (ukui_gsettings_schema_exists (NOTIFICATION_SCHEMA))
+  if (mate_gsettings_schema_exists (NOTIFICATION_SCHEMA))
     {
       notification_settings = g_settings_new (NOTIFICATION_SCHEMA);
     }

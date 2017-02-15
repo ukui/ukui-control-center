@@ -1,7 +1,7 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: ukui-control-center
 Upstream-Contact: Stefano Karapetsas <stefano@karapetsas.com>
-Source: http://git.ukui.org/ukui-control-center/
+Source: http://git.ukui.org.ukui.control-center/
 
 Files: libslab/app-resizer.c
        libslab/app-resizer.h
@@ -483,7 +483,7 @@ Files: capplets/about-me/icons/Makefile.am
        TODO
        autogen.sh
        configure.ac
-       org.ukui.*.xml.in
+       org.mate.*.xml.in
 Copyright: 2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 Comment:

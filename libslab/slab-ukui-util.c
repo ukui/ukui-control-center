@@ -41,7 +41,7 @@ load_desktop_item_from_unknown (const gchar *id)
 	GError *error = NULL;
 
 
-	item = ukui_desktop_item_new_from_uri (id, 0, &error);
+	item = mate_desktop_item_new_from_uri (id, 0, &error);
 
 	if (! error)
 		return item;
@@ -50,7 +50,7 @@ load_desktop_item_from_unknown (const gchar *id)
 		error = NULL;
 	}
 
-	item = ukui_desktop_item_new_from_file (id, 0, &error);
+	item = mate_desktop_item_new_from_file (id, 0, &error);
 
 	if (! error)
 		return item;
@@ -59,7 +59,7 @@ load_desktop_item_from_unknown (const gchar *id)
 		error = NULL;
 	}
 
-	item = ukui_desktop_item_new_from_basename (id, 0, &error);
+	item = mate_desktop_item_new_from_basename (id, 0, &error);
 
 	if (! error)
 		return item;
@@ -73,7 +73,7 @@ load_desktop_item_from_unknown (const gchar *id)
 	if (basename) {
 		basename++;
 
-		item = ukui_desktop_item_new_from_basename (basename, 0, &error);
+		item = mate_desktop_item_new_from_basename (basename, 0, &error);
 
 		if (! error)
 			return item;
@@ -98,7 +98,7 @@ get_package_name_from_desktop_item (MateDesktopItem * desktop_item)
 	argv[1] = "-qf";
 	argv[2] = "--qf";
 	argv[3] = "%{NAME}";
-	argv[4] = g_filename_from_uri (ukui_desktop_item_get_location (desktop_item), NULL, NULL);
+	argv[4] = g_filename_from_uri (mate_desktop_item_get_location (desktop_item), NULL, NULL);
 	argv[5] = NULL;
 
 	error = NULL;
@@ -127,12 +127,12 @@ open_desktop_item_exec (MateDesktopItem * desktop_item)
 	if (!desktop_item)
 		return FALSE;
 
-	ukui_desktop_item_launch (desktop_item, NULL, UKUI_DESKTOP_ITEM_LAUNCH_ONLY_ONE | UKUI_DESKTOP_ITEM_LAUNCH_DO_NOT_REAP_CHILD, &error);
+	mate_desktop_item_launch (desktop_item, NULL, MATE_DESKTOP_ITEM_LAUNCH_ONLY_ONE | MATE_DESKTOP_ITEM_LAUNCH_DO_NOT_REAP_CHILD, &error);
 
 	if (error)
 	{
 		g_warning ("error launching %s [%s]\n",
-			ukui_desktop_item_get_location (desktop_item), error->message);
+			mate_desktop_item_get_location (desktop_item), error->message);
 
 		g_error_free (error);
 		return FALSE;
@@ -152,7 +152,7 @@ open_desktop_item_help (MateDesktopItem * desktop_item)
 	if (!desktop_item)
 		return FALSE;
 
-	doc_path = ukui_desktop_item_get_string (desktop_item, "DocPath");
+	doc_path = mate_desktop_item_get_string (desktop_item, "DocPath");
 
 	if (doc_path)
 	{

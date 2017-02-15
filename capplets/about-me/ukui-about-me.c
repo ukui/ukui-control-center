@@ -51,7 +51,7 @@ typedef struct {
 
 	GdkScreen    	*screen;
 	GtkIconTheme 	*theme;
-	UkuiDesktopThumbnailFactory *thumbs;
+	MateDesktopThumbnailFactory *thumbs;
 
 	gboolean      	 have_image;
 	gboolean      	 image_changed;
@@ -211,7 +211,7 @@ about_me_update_preview (GtkFileChooser *chooser,
 		GFileInfo *file_info;
 
 		if (!me->thumbs)
-			me->thumbs = ukui_desktop_thumbnail_factory_new (UKUI_DESKTOP_THUMBNAIL_SIZE_NORMAL);
+			me->thumbs = mate_desktop_thumbnail_factory_new (MATE_DESKTOP_THUMBNAIL_SIZE_NORMAL);
 
 		file = g_file_new_for_uri (uri);
 		file_info = g_file_query_info (file,
@@ -229,7 +229,7 @@ about_me_update_preview (GtkFileChooser *chooser,
 
 				mime_type = g_content_type_get_mime_type (content_type);
 
-				pixbuf = ukui_desktop_thumbnail_factory_generate_thumbnail (me->thumbs,
+				pixbuf = mate_desktop_thumbnail_factory_generate_thumbnail (me->thumbs,
 										     uri,
 										     mime_type);
 				g_free (mime_type);

@@ -70,7 +70,7 @@ init_appearance_data (int *argc, char ***argv, GOptionContext *context)
       data->settings = g_settings_new (APPEARANCE_SCHEMA);
       data->wp_settings = g_settings_new (WP_SCHEMA);
 
-      if (ukui_gsettings_schema_exists (PEONY_SCHEMA))
+      if (mate_gsettings_schema_exists (PEONY_SCHEMA))
         data->peony_settings = g_settings_new (PEONY_SCHEMA);
       else
         data->peony_settings = NULL;
@@ -80,7 +80,7 @@ init_appearance_data (int *argc, char ***argv, GOptionContext *context)
       data->mouse_settings = g_settings_new (MOUSE_SCHEMA);
       data->font_settings = g_settings_new (FONT_RENDER_SCHEMA);
       data->ui = ui;
-      data->thumb_factory = ukui_desktop_thumbnail_factory_new (UKUI_DESKTOP_THUMBNAIL_SIZE_NORMAL);
+      data->thumb_factory = mate_desktop_thumbnail_factory_new (MATE_DESKTOP_THUMBNAIL_SIZE_NORMAL);
     }
 
   return data;

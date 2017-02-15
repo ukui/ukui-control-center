@@ -32,8 +32,8 @@
 
 #define NWID(s) GTK_WIDGET (gtk_builder_get_object (notifications_dialog, s))
 
-#define A11Y_SCHEMA "org.ukui.accessibility-keyboard"
-#define UKWM_SCHEMA "org.ukui.Ukwm.general"
+#define A11Y_SCHEMA "org.mate.accessibility-keyboard"
+#define UKWM_SCHEMA "org.mate.Marco.general"
 
 static GtkBuilder *notifications_dialog = NULL;
 static GSettings *a11y_settings = NULL;

@@ -47,10 +47,10 @@ libukui-slab.so.0 libukui-slab0 #MINVER#
  libslab_get_current_time_millis@Base 1.8.1
  libslab_gtk_image_set_by_id@Base 1.8.1
  libslab_handle_g_error@Base 1.8.1
- libslab_ukui_desktop_item_get_docpath@Base 1.8.1
- libslab_ukui_desktop_item_launch_default@Base 1.8.1
- libslab_ukui_desktop_item_new_from_unknown_id@Base 1.8.1
- libslab_ukui_desktop_item_open_help@Base 1.8.1
+ libslab_mate_desktop_item_get_docpath@Base 1.8.1
+ libslab_mate_desktop_item_launch_default@Base 1.8.1
+ libslab_mate_desktop_item_new_from_unknown_id@Base 1.8.1
+ libslab_mate_desktop_item_open_help@Base 1.8.1
  libslab_spawn_command@Base 1.8.1
  libslab_strcmp@Base 1.8.1
  libslab_string_replace_once@Base 1.8.1

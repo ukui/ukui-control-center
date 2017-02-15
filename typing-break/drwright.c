@@ -601,7 +601,7 @@ popup_preferences_cb (GtkAction *action, DrWright *dr)
 	menu = gtk_ui_manager_get_widget (dr->ui_manager, "/Pop");
 	screen = gtk_widget_get_screen (menu);
 
-	if (!ukui_gdk_spawn_command_line_on_screen (screen, "ukui-keyboard-properties --typing-break", &error)) {
+	if (!mate_gdk_spawn_command_line_on_screen (screen, "ukui-keyboard-properties --typing-break", &error)) {
 		GtkWidget *error_dialog;
 
 		error_dialog = gtk_message_dialog_new (NULL, 0,

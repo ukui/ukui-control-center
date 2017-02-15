@@ -1205,9 +1205,9 @@ msgstr "Impossibile installare il motore di tema"
 
 #: ../capplets/common/activate-settings-daemon.c:16
 msgid ""
-"Unable to start the settings manager 'ukui-settings-daemon'.\n"
+"Unable to start the settings manager 'mate-settings-daemon'.\n"
 "Without the UKUI settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-UKUI (e.g. KDE) settings manager may already be active and conflicting with the UKUI settings manager."
-msgstr "Impossibile avviare il gestore delle impostazioni «ukui-settings-daemon».\nSenza il gestore delle impostazioni di UKUI in esecuzione alcune preferenze possono non avere effetto. Questa situazione indica un possibile problema con DBus, oppure che un gestore di impostazioni non di UKUI (p.e. quello di KDE) è già in esecuzione creando conflitto con il gestore di impostazioni di UKUI."
+msgstr "Impossibile avviare il gestore delle impostazioni «mate-settings-daemon».\nSenza il gestore delle impostazioni di UKUI in esecuzione alcune preferenze possono non avere effetto. Questa situazione indica un possibile problema con DBus, oppure che un gestore di impostazioni non di UKUI (p.e. quello di KDE) è già in esecuzione creando conflitto con il gestore di impostazioni di UKUI."
 
 #: ../capplets/common/capplet-stock-icons.c:66
 #, c-format
@@ -1572,14 +1572,14 @@ msgid ""
 "\n"
 "This program installs a RANDR profile for multi-monitor setups into\n"
 "a systemwide location.  The resulting profile will get used when\n"
-"the RANDR plug-in gets run in ukui-settings-daemon.\n"
+"the RANDR plug-in gets run in mate-settings-daemon.\n"
 "\n"
 "SOURCE_FILE - a full pathname, typically /home/username/.config/monitors.xml\n"
 "\n"
 "DEST_NAME - relative name for the installed file.  This will get put in\n"
 "            the systemwide directory for RANDR configurations,\n"
 "            so the result will typically be %s/DEST_NAME\n"
-msgstr "Uso: %s FILE_SORG NOME_DEST\n\nQuesto programma installa un profilo RANDR per installazioni multi-monitor\nin una posizione di sistema. Il profilo risultante verrà utilizzato quando\nil plugin RANDR verrà eseguito in ukui-settings-daemon.\n\nFILE_SORG -- un nome di percorso completo, di solito\n             /home/nomeutente/.config/monitors.xml\n\nNOME DEST -- nome relativo per il file installato; verrà collocato nella\n             directory di sistema per le configurazioni RANDR, perciò\n             il risultato è tipicamente %s/NOME_DEST\n"
+msgstr "Uso: %s FILE_SORG NOME_DEST\n\nQuesto programma installa un profilo RANDR per installazioni multi-monitor\nin una posizione di sistema. Il profilo risultante verrà utilizzato quando\nil plugin RANDR verrà eseguito in mate-settings-daemon.\n\nFILE_SORG -- un nome di percorso completo, di solito\n             /home/nomeutente/.config/monitors.xml\n\nNOME DEST -- nome relativo per il file installato; verrà collocato nella\n             directory di sistema per le configurazioni RANDR, perciò\n             il risultato è tipicamente %s/NOME_DEST\n"
 
 #. Translators: only able to install RANDR profiles as root
 #: ../capplets/display/ukui-display-properties-install-systemwide.c:151

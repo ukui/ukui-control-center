@@ -1198,9 +1198,9 @@ msgstr "થીમ એંજિન સ્થાપિત કરી શક્ય�
 
 #: ../capplets/common/activate-settings-daemon.c:16
 msgid ""
-"Unable to start the settings manager 'ukui-settings-daemon'.\n"
+"Unable to start the settings manager 'mate-settings-daemon'.\n"
 "Without the UKUI settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-UKUI (e.g. KDE) settings manager may already be active and conflicting with the UKUI settings manager."
-msgstr "સુયોજનો વ્યવસ્થાપક 'ukui-settings-daemon' શરુ કરવા અસમર્થ.\nUKUI સુયોજનો સંચાલક ચાલુ થયા વગર, અમુક પસંદગીઓ અસર કરશે નહિં. આ બતાવે છે કે DBus સાથે સમસ્યા હશે, અથવા UKUI વગરનું (દા.ત. KDE) સુયોજનો વ્યવસ્થાપક પહેલેથી જ કાર્યરત હશે અને UKUI સુયોજનો વ્યવસ્થાપક સાથે મતભેદ થાય."
+msgstr "સુયોજનો વ્યવસ્થાપક 'mate-settings-daemon' શરુ કરવા અસમર્થ.\nUKUI સુયોજનો સંચાલક ચાલુ થયા વગર, અમુક પસંદગીઓ અસર કરશે નહિં. આ બતાવે છે કે DBus સાથે સમસ્યા હશે, અથવા UKUI વગરનું (દા.ત. KDE) સુયોજનો વ્યવસ્થાપક પહેલેથી જ કાર્યરત હશે અને UKUI સુયોજનો વ્યવસ્થાપક સાથે મતભેદ થાય."
 
 #: ../capplets/common/capplet-stock-icons.c:66
 #, c-format
@@ -1565,7 +1565,7 @@ msgid ""
 "\n"
 "This program installs a RANDR profile for multi-monitor setups into\n"
 "a systemwide location.  The resulting profile will get used when\n"
-"the RANDR plug-in gets run in ukui-settings-daemon.\n"
+"the RANDR plug-in gets run in mate-settings-daemon.\n"
 "\n"
 "SOURCE_FILE - a full pathname, typically /home/username/.config/monitors.xml\n"
 "\n"

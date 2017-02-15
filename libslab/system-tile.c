@@ -80,24 +80,24 @@ system_tile_new (const gchar *desktop_item_id, const gchar *title)
 	AtkObject *accessible = NULL;
 
 
-	desktop_item = libslab_ukui_desktop_item_new_from_unknown_id (desktop_item_id);
+	desktop_item = libslab_mate_desktop_item_new_from_unknown_id (desktop_item_id);
 
 	if (desktop_item) {
-		image_id = g_strdup (ukui_desktop_item_get_localestring (desktop_item, "Icon"));
-		uri      = g_strdup (ukui_desktop_item_get_location (desktop_item));
+		image_id = g_strdup (mate_desktop_item_get_localestring (desktop_item, "Icon"));
+		uri      = g_strdup (mate_desktop_item_get_location (desktop_item));
 
 		if (title)
 			header_txt = g_strdup (title);
 		else
 			header_txt = g_strdup (
-				ukui_desktop_item_get_localestring (desktop_item, "Name"));
+				mate_desktop_item_get_localestring (desktop_item, "Name"));
 	}
 
 	if (!uri) {
 		g_free (header_txt);
 		g_free (image_id);
 		if (desktop_item) {
-			ukui_desktop_item_unref (desktop_item);
+			mate_desktop_item_unref (desktop_item);
 		}
 		return NULL;
 	}
@@ -208,7 +208,7 @@ system_tile_finalize (GObject *g_obj)
         SystemTilePrivate *priv = PRIVATE (g_obj);
 
 	g_free (priv->image_id);
-	ukui_desktop_item_unref (priv->desktop_item);
+	mate_desktop_item_unref (priv->desktop_item);
 
 	if (priv->notify_signal_id)
 		g_signal_handler_disconnect (priv->agent, priv->notify_signal_id);

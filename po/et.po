@@ -1199,9 +1199,9 @@ msgstr "Teemamootorit pole võimalik paigaldada"
 
 #: ../capplets/common/activate-settings-daemon.c:16
 msgid ""
-"Unable to start the settings manager 'ukui-settings-daemon'.\n"
+"Unable to start the settings manager 'mate-settings-daemon'.\n"
 "Without the UKUI settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-UKUI (e.g. KDE) settings manager may already be active and conflicting with the UKUI settings manager."
-msgstr "Sätete haldurit 'ukui-settings-daemon' pole võimalik käivitada.\nKui UKUI sätete haldur ei tööta, siis võivad mõned eelistused mitte jõustuda. See võib olla DBus-ist põhjustatud probleem või olukord, kus mõni mitte-UKUI (näiteks KDE oma) sätete haldur on juba aktiivne ning on vastuolus UKUI sätete halduriga."
+msgstr "Sätete haldurit 'mate-settings-daemon' pole võimalik käivitada.\nKui UKUI sätete haldur ei tööta, siis võivad mõned eelistused mitte jõustuda. See võib olla DBus-ist põhjustatud probleem või olukord, kus mõni mitte-UKUI (näiteks KDE oma) sätete haldur on juba aktiivne ning on vastuolus UKUI sätete halduriga."
 
 #: ../capplets/common/capplet-stock-icons.c:66
 #, c-format
@@ -1566,14 +1566,14 @@ msgid ""
 "\n"
 "This program installs a RANDR profile for multi-monitor setups into\n"
 "a systemwide location.  The resulting profile will get used when\n"
-"the RANDR plug-in gets run in ukui-settings-daemon.\n"
+"the RANDR plug-in gets run in mate-settings-daemon.\n"
 "\n"
 "SOURCE_FILE - a full pathname, typically /home/username/.config/monitors.xml\n"
 "\n"
 "DEST_NAME - relative name for the installed file.  This will get put in\n"
 "            the systemwide directory for RANDR configurations,\n"
 "            so the result will typically be %s/DEST_NAME\n"
-msgstr "Kasutamine: %s LÄHTEFAIL SIHTNIMI\n\nSee programm paigaldab mitme kuvari sätete jaoks vajaliku RANDR-profiili\nsüsteemsesse asukohta. Seda profiili kasutatakse olukorras, kus UKUI\nsätetedeemon (ukui-settings-daemon) käivitab RANDR-plugina.\n\nLÄHTEFAIL - täielik rada, harilikult /home/kasutajanimi/.config/monitors.xml\n\nSIHTNIMI - paigaldatud faili suhteline nimi. See fail pannakse\n           RANDR-sätete ülesüsteemilisse kataloogi, harilikult\n           on selleks %s/SIHTNIMI\n"
+msgstr "Kasutamine: %s LÄHTEFAIL SIHTNIMI\n\nSee programm paigaldab mitme kuvari sätete jaoks vajaliku RANDR-profiili\nsüsteemsesse asukohta. Seda profiili kasutatakse olukorras, kus UKUI\nsätetedeemon (mate-settings-daemon) käivitab RANDR-plugina.\n\nLÄHTEFAIL - täielik rada, harilikult /home/kasutajanimi/.config/monitors.xml\n\nSIHTNIMI - paigaldatud faili suhteline nimi. See fail pannakse\n           RANDR-sätete ülesüsteemilisse kataloogi, harilikult\n           on selleks %s/SIHTNIMI\n"
 
 #. Translators: only able to install RANDR profiles as root
 #: ../capplets/display/ukui-display-properties-install-systemwide.c:151

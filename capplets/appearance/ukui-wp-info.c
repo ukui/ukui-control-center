@@ -24,7 +24,7 @@
 #include <gio/gio.h>
 #include "ukui-wp-info.h"
 
-UkuiWPInfo* ukui_wp_info_new(const char* uri, UkuiDesktopThumbnailFactory* thumbs)
+UkuiWPInfo* ukui_wp_info_new(const char* uri, MateDesktopThumbnailFactory* thumbs)
 {
 	UkuiWPInfo* wp;
 
@@ -72,7 +72,7 @@ UkuiWPInfo* ukui_wp_info_new(const char* uri, UkuiDesktopThumbnailFactory* thumb
 		wp->size = g_file_info_get_size(info);
 		wp->mtime = g_file_info_get_attribute_uint64(info, G_FILE_ATTRIBUTE_TIME_MODIFIED);
 
-		wp->thumburi = ukui_desktop_thumbnail_factory_lookup(thumbs, uri, wp->mtime);
+		wp->thumburi = mate_desktop_thumbnail_factory_lookup(thumbs, uri, wp->mtime);
 	}
 
 	if (info != NULL)

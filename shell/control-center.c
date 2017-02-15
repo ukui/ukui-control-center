@@ -176,7 +176,7 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 
-	unique_app = unique_app_new("org.ukui.ukui-control-center.shell", NULL);
+	unique_app = unique_app_new("org.mate.ukui-control-center.shell", NULL);
 
 	if (unique_app_is_running(unique_app))
 	{

@@ -1201,9 +1201,9 @@ msgstr "Nie można zainstalować mechanizmu motywu"
 
 #: ../capplets/common/activate-settings-daemon.c:16
 msgid ""
-"Unable to start the settings manager 'ukui-settings-daemon'.\n"
+"Unable to start the settings manager 'mate-settings-daemon'.\n"
 "Without the UKUI settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-UKUI (e.g. KDE) settings manager may already be active and conflicting with the UKUI settings manager."
-msgstr "Nie można uruchomić menedżera ustawień - \"ukui-settings-daemon\".\nBez działającego menedżera ustawień UKUI pewne ustawienia mogą nie wejść w życie. Może to wskazywać na problem z D-Bus lub z działającym innym menedżerem ustawień (np. KDE), kolidującym z menedżerem UKUI."
+msgstr "Nie można uruchomić menedżera ustawień - \"mate-settings-daemon\".\nBez działającego menedżera ustawień UKUI pewne ustawienia mogą nie wejść w życie. Może to wskazywać na problem z D-Bus lub z działającym innym menedżerem ustawień (np. KDE), kolidującym z menedżerem UKUI."
 
 #: ../capplets/common/capplet-stock-icons.c:66
 #, c-format
@@ -1568,14 +1568,14 @@ msgid ""
 "\n"
 "This program installs a RANDR profile for multi-monitor setups into\n"
 "a systemwide location.  The resulting profile will get used when\n"
-"the RANDR plug-in gets run in ukui-settings-daemon.\n"
+"the RANDR plug-in gets run in mate-settings-daemon.\n"
 "\n"
 "SOURCE_FILE - a full pathname, typically /home/username/.config/monitors.xml\n"
 "\n"
 "DEST_NAME - relative name for the installed file.  This will get put in\n"
 "            the systemwide directory for RANDR configurations,\n"
 "            so the result will typically be %s/DEST_NAME\n"
-msgstr "Użycie: %s PLIK_ŹRÓDŁOWY NAZWA_DOCELOWA\n\nTen program instaluje profil RandR dla wielu monitorów do położenia\nsystemowego. Wynikowy profil zostanie użyty, kiedy wtyczka RandR dostanie\nsię do usługi ukui-settings-daemon.\n\nPLIK_ŹRÓDŁOWY - pełna ścieżka, zwykle /home/nazwa_użytkownika/.config/monitors.xml\n\nNAZWA_DOCELOWA - względna nazwa dla zainstalowanego pliku. Zostanie on\n                 umieszczony w systemowym katalogu dla konfiguracji\n                 RandR, więc wynikiem będzie zwykle %s/NAZWA_DOCELOWA\n"
+msgstr "Użycie: %s PLIK_ŹRÓDŁOWY NAZWA_DOCELOWA\n\nTen program instaluje profil RandR dla wielu monitorów do położenia\nsystemowego. Wynikowy profil zostanie użyty, kiedy wtyczka RandR dostanie\nsię do usługi mate-settings-daemon.\n\nPLIK_ŹRÓDŁOWY - pełna ścieżka, zwykle /home/nazwa_użytkownika/.config/monitors.xml\n\nNAZWA_DOCELOWA - względna nazwa dla zainstalowanego pliku. Zostanie on\n                 umieszczony w systemowym katalogu dla konfiguracji\n                 RandR, więc wynikiem będzie zwykle %s/NAZWA_DOCELOWA\n"
 
 #. Translators: only able to install RANDR profiles as root
 #: ../capplets/display/ukui-display-properties-install-systemwide.c:151

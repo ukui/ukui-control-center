@@ -1200,9 +1200,9 @@ msgstr "테마 엔진을 설치할 수 없습니다"
 
 #: ../capplets/common/activate-settings-daemon.c:16
 msgid ""
-"Unable to start the settings manager 'ukui-settings-daemon'.\n"
+"Unable to start the settings manager 'mate-settings-daemon'.\n"
 "Without the UKUI settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-UKUI (e.g. KDE) settings manager may already be active and conflicting with the UKUI settings manager."
-msgstr "설정 관리자 'ukui-settings-daemon'을 실행할 수 없습니다.\n마테 설정 관리자를 실행하지 않고는, 몇몇 기본 설정 사항이 적용되지 않습니다. 이는 DBus의 문제이거나, 마테 데스크톱용이 아닌(예를 들어, KDE) 설정 관리자가 이미 실행중이어서 마테 설정 관리자와 충돌하기 때문일지도 모릅니다."
+msgstr "설정 관리자 'mate-settings-daemon'을 실행할 수 없습니다.\n마테 설정 관리자를 실행하지 않고는, 몇몇 기본 설정 사항이 적용되지 않습니다. 이는 DBus의 문제이거나, 마테 데스크톱용이 아닌(예를 들어, KDE) 설정 관리자가 이미 실행중이어서 마테 설정 관리자와 충돌하기 때문일지도 모릅니다."
 
 #: ../capplets/common/capplet-stock-icons.c:66
 #, c-format
@@ -1567,14 +1567,14 @@ msgid ""
 "\n"
 "This program installs a RANDR profile for multi-monitor setups into\n"
 "a systemwide location.  The resulting profile will get used when\n"
-"the RANDR plug-in gets run in ukui-settings-daemon.\n"
+"the RANDR plug-in gets run in mate-settings-daemon.\n"
 "\n"
 "SOURCE_FILE - a full pathname, typically /home/username/.config/monitors.xml\n"
 "\n"
 "DEST_NAME - relative name for the installed file.  This will get put in\n"
 "            the systemwide directory for RANDR configurations,\n"
 "            so the result will typically be %s/DEST_NAME\n"
-msgstr "사용법: %s <원본파일> <대상파일>\n\n이 프로그램은 다중 모니터 설정이 들어 있는 RANDR 프로파일을 시스템에\n설치합니다. 설치한 프로파일은 ukui-settings-daemon에서 RANDR\n플러그인을 실행할 때 적용됩니다.\n\n<원본파일> - 전체 경로 이름, 보통 /home/사용자이름/.config/monitors.xml\n\n<대상 파일> - 설치할 파일의 상대 경로. 이 파일은 RANDR 설정 시스템\n            디렉터리에 들어갑니다. 즉 %s/<대상파일> 파일을\n            설치합니다.\n"
+msgstr "사용법: %s <원본파일> <대상파일>\n\n이 프로그램은 다중 모니터 설정이 들어 있는 RANDR 프로파일을 시스템에\n설치합니다. 설치한 프로파일은 mate-settings-daemon에서 RANDR\n플러그인을 실행할 때 적용됩니다.\n\n<원본파일> - 전체 경로 이름, 보통 /home/사용자이름/.config/monitors.xml\n\n<대상 파일> - 설치할 파일의 상대 경로. 이 파일은 RANDR 설정 시스템\n            디렉터리에 들어갑니다. 즉 %s/<대상파일> 파일을\n            설치합니다.\n"
 
 #. Translators: only able to install RANDR profiles as root
 #: ../capplets/display/ukui-display-properties-install-systemwide.c:151

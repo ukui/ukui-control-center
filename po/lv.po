@@ -1200,9 +1200,9 @@ msgstr "Neizdevās instalēt tēmu dzinēju"
 
 #: ../capplets/common/activate-settings-daemon.c:16
 msgid ""
-"Unable to start the settings manager 'ukui-settings-daemon'.\n"
+"Unable to start the settings manager 'mate-settings-daemon'.\n"
 "Without the UKUI settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-UKUI (e.g. KDE) settings manager may already be active and conflicting with the UKUI settings manager."
-msgstr "Neizdevās palaist iestatījumu pārvaldnieku 'ukui-settings-daemon'.\nBez strādājoša UKUI iestatījumu pārvaldnieka daži iestatījumi var nestāties spēkā. Tā varētu būt DBus problēma, vai arī konflikts ar jau strādājošu citu (piemēram, KDE) iestatījumu pārvaldnieku."
+msgstr "Neizdevās palaist iestatījumu pārvaldnieku 'mate-settings-daemon'.\nBez strādājoša UKUI iestatījumu pārvaldnieka daži iestatījumi var nestāties spēkā. Tā varētu būt DBus problēma, vai arī konflikts ar jau strādājošu citu (piemēram, KDE) iestatījumu pārvaldnieku."
 
 #: ../capplets/common/capplet-stock-icons.c:66
 #, c-format
@@ -1567,14 +1567,14 @@ msgid ""
 "\n"
 "This program installs a RANDR profile for multi-monitor setups into\n"
 "a systemwide location.  The resulting profile will get used when\n"
-"the RANDR plug-in gets run in ukui-settings-daemon.\n"
+"the RANDR plug-in gets run in mate-settings-daemon.\n"
 "\n"
 "SOURCE_FILE - a full pathname, typically /home/username/.config/monitors.xml\n"
 "\n"
 "DEST_NAME - relative name for the installed file.  This will get put in\n"
 "            the systemwide directory for RANDR configurations,\n"
 "            so the result will typically be %s/DEST_NAME\n"
-msgstr "Lietojums: %s SOURCE_FILE DEST_NAME\n\nŠī programma uzstāda RANDR profilu, priekš vairāku displeju atbalstam\niekš sistēmas nozīmes atrašānās vietā. Šo profilu izmantos RANDR spraudnis\nkad tiks laists iekš ukui-settings-daemon.\n\nSOURCE_FILE - pilns ceļš, parasti, /home/lietotaja_vards/.config/monitors.xml\n\nDEST_NAME - relatīvais nosaukums pret uzstādīto failu. Šis tiks ievietots sistēmas\n            nozīmes direktorijā, priekš RANDR konfigurācijas, rezultāts parasti būs\n            %s/DEST_NAME\n"
+msgstr "Lietojums: %s SOURCE_FILE DEST_NAME\n\nŠī programma uzstāda RANDR profilu, priekš vairāku displeju atbalstam\niekš sistēmas nozīmes atrašānās vietā. Šo profilu izmantos RANDR spraudnis\nkad tiks laists iekš mate-settings-daemon.\n\nSOURCE_FILE - pilns ceļš, parasti, /home/lietotaja_vards/.config/monitors.xml\n\nDEST_NAME - relatīvais nosaukums pret uzstādīto failu. Šis tiks ievietots sistēmas\n            nozīmes direktorijā, priekš RANDR konfigurācijas, rezultāts parasti būs\n            %s/DEST_NAME\n"
 
 #. Translators: only able to install RANDR profiles as root
 #: ../capplets/display/ukui-display-properties-install-systemwide.c:151

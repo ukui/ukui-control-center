@@ -32,7 +32,7 @@
 
 #include "ukwm-window-manager.h"
 
-#define UKWM_SCHEMA "org.ukui.Ukwm.general"
+#define UKWM_SCHEMA "org.mate.Marco.general"
 #define UKWM_THEME_KEY "theme"
 #define UKWM_FONT_KEY  "titlebar-font"
 #define UKWM_FOCUS_KEY "focus-mode"

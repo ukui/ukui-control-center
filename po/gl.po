@@ -1206,9 +1206,9 @@ msgstr "Non foi posíbel instalar o motor do tema"
 
 #: ../capplets/common/activate-settings-daemon.c:16
 msgid ""
-"Unable to start the settings manager 'ukui-settings-daemon'.\n"
+"Unable to start the settings manager 'mate-settings-daemon'.\n"
 "Without the UKUI settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-UKUI (e.g. KDE) settings manager may already be active and conflicting with the UKUI settings manager."
-msgstr "Non é posíbel iniciar o xestor de configuracións «ukui-settings-daemon».\nSen este xestor do UKUI executándose algunhas preferencias pode que non sexan efectivas. Isto pode indicar un problema con DBus, ou que un xestor de configuracións non UKUI (por ex. KDE) estea activo e entre en conflito co xestor de configuracións do UKUI."
+msgstr "Non é posíbel iniciar o xestor de configuracións «mate-settings-daemon».\nSen este xestor do UKUI executándose algunhas preferencias pode que non sexan efectivas. Isto pode indicar un problema con DBus, ou que un xestor de configuracións non UKUI (por ex. KDE) estea activo e entre en conflito co xestor de configuracións do UKUI."
 
 #: ../capplets/common/capplet-stock-icons.c:66
 #, c-format
@@ -1573,14 +1573,14 @@ msgid ""
 "\n"
 "This program installs a RANDR profile for multi-monitor setups into\n"
 "a systemwide location.  The resulting profile will get used when\n"
-"the RANDR plug-in gets run in ukui-settings-daemon.\n"
+"the RANDR plug-in gets run in mate-settings-daemon.\n"
 "\n"
 "SOURCE_FILE - a full pathname, typically /home/username/.config/monitors.xml\n"
 "\n"
 "DEST_NAME - relative name for the installed file.  This will get put in\n"
 "            the systemwide directory for RANDR configurations,\n"
 "            so the result will typically be %s/DEST_NAME\n"
-msgstr "Uso: %s FICHEIRO_ORIXE NOME_DESTINO\n\nEste programa instala un peril RANDR para as configuracións\nmultimonitor para todo o sistema. O perfil resultante usarase cando\nse execute no ukui-settings-daemon.\n\nFICHEIRO_ORIXE - é un nome de ruta completa, normalmente \n            /home/nomeusuario/.config/monitors.xml\n\nNOME_DESTINO - nome relativo para o ficheiro instalado.  Isto porase\n            nun directorio para todo o sistema para as configuracións de \n            RANDR polo que o resultado será normalmente %s/DEST_NAME\n"
+msgstr "Uso: %s FICHEIRO_ORIXE NOME_DESTINO\n\nEste programa instala un peril RANDR para as configuracións\nmultimonitor para todo o sistema. O perfil resultante usarase cando\nse execute no mate-settings-daemon.\n\nFICHEIRO_ORIXE - é un nome de ruta completa, normalmente \n            /home/nomeusuario/.config/monitors.xml\n\nNOME_DESTINO - nome relativo para o ficheiro instalado.  Isto porase\n            nun directorio para todo o sistema para as configuracións de \n            RANDR polo que o resultado será normalmente %s/DEST_NAME\n"
 
 #. Translators: only able to install RANDR profiles as root
 #: ../capplets/display/ukui-display-properties-install-systemwide.c:151

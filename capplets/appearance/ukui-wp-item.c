@@ -26,91 +26,91 @@
 #include "appearance.h"
 #include "ukui-wp-item.h"
 
-const gchar *wp_item_option_to_string (UkuiBGPlacement type)
+const gchar *wp_item_option_to_string (MateBGPlacement type)
 {
   switch (type)
   {
-    case UKUI_BG_PLACEMENT_CENTERED:
+    case MATE_BG_PLACEMENT_CENTERED:
       return "centered";
       break;
-    case UKUI_BG_PLACEMENT_FILL_SCREEN:
+    case MATE_BG_PLACEMENT_FILL_SCREEN:
       return "stretched";
       break;
-    case UKUI_BG_PLACEMENT_SCALED:
+    case MATE_BG_PLACEMENT_SCALED:
       return "scaled";
       break;
-    case UKUI_BG_PLACEMENT_ZOOMED:
+    case MATE_BG_PLACEMENT_ZOOMED:
       return "zoom";
       break;
-    case UKUI_BG_PLACEMENT_TILED:
+    case MATE_BG_PLACEMENT_TILED:
       return "wallpaper";
       break;
-    case UKUI_BG_PLACEMENT_SPANNED:
+    case MATE_BG_PLACEMENT_SPANNED:
       return "spanned";
       break;
   }
   return "";
 }
 
-const gchar *wp_item_shading_to_string (UkuiBGColorType type)
+const gchar *wp_item_shading_to_string (MateBGColorType type)
 {
   switch (type) {
-    case UKUI_BG_COLOR_SOLID:
+    case MATE_BG_COLOR_SOLID:
       return "solid";
       break;
-    case UKUI_BG_COLOR_H_GRADIENT:
+    case MATE_BG_COLOR_H_GRADIENT:
       return "horizontal-gradient";
       break;
-    case UKUI_BG_COLOR_V_GRADIENT:
+    case MATE_BG_COLOR_V_GRADIENT:
       return "vertical-gradient";
       break;
   }
   return "";
 }
 
-UkuiBGPlacement wp_item_string_to_option (const gchar *option)
+MateBGPlacement wp_item_string_to_option (const gchar *option)
 {
   if (!g_strcmp0(option, "centered"))
-    return UKUI_BG_PLACEMENT_CENTERED;
+    return MATE_BG_PLACEMENT_CENTERED;
   else if (!g_strcmp0(option, "stretched"))
-    return UKUI_BG_PLACEMENT_FILL_SCREEN;
+    return MATE_BG_PLACEMENT_FILL_SCREEN;
   else if (!g_strcmp0(option, "scaled"))
-    return UKUI_BG_PLACEMENT_SCALED;
+    return MATE_BG_PLACEMENT_SCALED;
   else if (!g_strcmp0(option, "zoom"))
-    return UKUI_BG_PLACEMENT_ZOOMED;
+    return MATE_BG_PLACEMENT_ZOOMED;
   else if (!g_strcmp0(option, "wallpaper"))
-    return UKUI_BG_PLACEMENT_TILED;
+    return MATE_BG_PLACEMENT_TILED;
   else if (!g_strcmp0(option, "spanned"))
-    return UKUI_BG_PLACEMENT_SPANNED;
+    return MATE_BG_PLACEMENT_SPANNED;
   else
-    return UKUI_BG_PLACEMENT_SCALED;
+    return MATE_BG_PLACEMENT_SCALED;
 }
 
-UkuiBGColorType wp_item_string_to_shading (const gchar *shade_type)
+MateBGColorType wp_item_string_to_shading (const gchar *shade_type)
 {
   if (!g_strcmp0(shade_type, "solid"))
-    return UKUI_BG_COLOR_SOLID;
+    return MATE_BG_COLOR_SOLID;
   else if (!g_strcmp0(shade_type, "horizontal-gradient"))
-    return UKUI_BG_COLOR_H_GRADIENT;
+    return MATE_BG_COLOR_H_GRADIENT;
   else if (!g_strcmp0(shade_type, "vertical-gradient"))
-    return UKUI_BG_COLOR_V_GRADIENT;
+    return MATE_BG_COLOR_V_GRADIENT;
   else
-    return UKUI_BG_COLOR_SOLID;
+    return MATE_BG_COLOR_SOLID;
 }
 
 static void set_bg_properties (UkuiWPItem *item)
 {
   if (item->filename)
-    ukui_bg_set_filename (item->bg, item->filename);
+    mate_bg_set_filename (item->bg, item->filename);
 
-  ukui_bg_set_color (item->bg, item->shade_type, item->pcolor, item->scolor);
-  ukui_bg_set_placement (item->bg, item->options);
+  mate_bg_set_color (item->bg, item->shade_type, item->pcolor, item->scolor);
+  mate_bg_set_placement (item->bg, item->options);
 }
 
-void ukui_wp_item_ensure_ukui_bg (UkuiWPItem *item)
+void ukui_wp_item_ensure_mate_bg (UkuiWPItem *item)
 {
   if (!item->bg) {
-    item->bg = ukui_bg_new ();
+    item->bg = mate_bg_new ();
 
     set_bg_properties (item);
   }
@@ -176,7 +176,7 @@ void ukui_wp_item_update (UkuiWPItem *item) {
 
 UkuiWPItem * ukui_wp_item_new (const gchar * filename,
 				 GHashTable * wallpapers,
-				 UkuiDesktopThumbnailFactory * thumbnails) {
+				 MateDesktopThumbnailFactory * thumbnails) {
   UkuiWPItem *item = g_new0 (UkuiWPItem, 1);
 
   item->filename = g_strdup (filename);
@@ -193,7 +193,7 @@ UkuiWPItem * ukui_wp_item_new (const gchar * filename,
 				       NULL, NULL);
 
     ukui_wp_item_update (item);
-    ukui_wp_item_ensure_ukui_bg (item);
+    ukui_wp_item_ensure_mate_bg (item);
     ukui_wp_item_update_description (item);
 
     g_hash_table_insert (wallpapers, item->filename, item);
@@ -265,7 +265,7 @@ add_slideshow_frame (GdkPixbuf *pixbuf)
 }
 
 GdkPixbuf * ukui_wp_item_get_frame_thumbnail (UkuiWPItem * item,
-					       UkuiDesktopThumbnailFactory * thumbs,
+					       MateDesktopThumbnailFactory * thumbs,
                                                int width,
                                                int height,
                                                gint frame) {
@@ -274,11 +274,11 @@ GdkPixbuf * ukui_wp_item_get_frame_thumbnail (UkuiWPItem * item,
   set_bg_properties (item);
 
   if (frame != -1)
-    pixbuf = ukui_bg_create_frame_thumbnail (item->bg, thumbs, gdk_screen_get_default (), width, height, frame);
+    pixbuf = mate_bg_create_frame_thumbnail (item->bg, thumbs, gdk_screen_get_default (), width, height, frame);
   else
-    pixbuf = ukui_bg_create_thumbnail (item->bg, thumbs, gdk_screen_get_default(), width, height);
+    pixbuf = mate_bg_create_thumbnail (item->bg, thumbs, gdk_screen_get_default(), width, height);
 
-  if (pixbuf && ukui_bg_changes_with_time (item->bg))
+  if (pixbuf && mate_bg_changes_with_time (item->bg))
     {
       GdkPixbuf *tmp;
 
@@ -287,14 +287,14 @@ GdkPixbuf * ukui_wp_item_get_frame_thumbnail (UkuiWPItem * item,
       pixbuf = tmp;
     }
 
-  ukui_bg_get_image_size (item->bg, thumbs, width, height, &item->width, &item->height);
+  mate_bg_get_image_size (item->bg, thumbs, width, height, &item->width, &item->height);
 
   return pixbuf;
 }
 
 
 GdkPixbuf * ukui_wp_item_get_thumbnail (UkuiWPItem * item,
-					 UkuiDesktopThumbnailFactory * thumbs,
+					 MateDesktopThumbnailFactory * thumbs,
                                          gint width,
                                          gint height) {
   return ukui_wp_item_get_frame_thumbnail (item, thumbs, width, height, -1);
@@ -321,7 +321,7 @@ void ukui_wp_item_update_description (UkuiWPItem * item) {
 
     if (strcmp (item->fileinfo->mime_type, "application/xml") == 0)
       {
-        if (ukui_bg_changes_with_time (item->bg))
+        if (mate_bg_changes_with_time (item->bg))
           description = _("Slide Show");
         else if (item->width > 0 && item->height > 0)
           description = _("Image");
@@ -329,7 +329,7 @@ void ukui_wp_item_update_description (UkuiWPItem * item) {
     else
       description = g_content_type_get_description (item->fileinfo->mime_type);
 
-    if (ukui_bg_has_multiple_sizes (item->bg))
+    if (mate_bg_has_multiple_sizes (item->bg))
       size = g_strdup (_("multiple sizes"));
     else if (item->width > 0 && item->height > 0) {
       /* translators: x pixel(s) by y pixel(s) */

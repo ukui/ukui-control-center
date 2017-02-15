@@ -24,8 +24,8 @@
 #include <glib.h>
 #include <gtk/gtk.h>
 #include <gio/gio.h>
-#define UKUIMENU_I_KNOW_THIS_IS_UNSTABLE
-#include <ukuimenu-tree.h>
+#define MATEMENU_I_KNOW_THIS_IS_UNSTABLE
+#include <matemenu-tree.h>
 #include <libmate-desktop/mate-desktop-item.h>
 
 #include "slab-section.h"
@@ -84,7 +84,7 @@ typedef struct _AppShellData
 	GtkIconSize icon_size;
 	const gchar *menu_name;
 	NewAppConfig *new_apps;
-	UkuiMenuTree *tree;
+	MateMenuTree *tree;
 	GHashTable *hash;
 
 	guint filter_changed_timeout;

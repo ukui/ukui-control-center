@@ -139,13 +139,13 @@ application_tile_new_full (const gchar *desktop_item_id,
 
 	if (
 		desktop_item &&
-		ukui_desktop_item_get_entry_type (desktop_item) == MATE_DESKTOP_ITEM_TYPE_APPLICATION
+		mate_desktop_item_get_entry_type (desktop_item) == MATE_DESKTOP_ITEM_TYPE_APPLICATION
 	)
-		uri = ukui_desktop_item_get_location (desktop_item);
+		uri = mate_desktop_item_get_location (desktop_item);
 
 	if (! uri) {
 		if (desktop_item)
-			ukui_desktop_item_unref (desktop_item);
+			mate_desktop_item_unref (desktop_item);
 
 		return NULL;
 	}
@@ -195,7 +195,7 @@ application_tile_finalize (GObject *g_object)
 	}
 
 	if (priv->desktop_item) {
-		ukui_desktop_item_unref (priv->desktop_item);
+		mate_desktop_item_unref (priv->desktop_item);
 		priv->desktop_item = NULL;
 	}
 	if (priv->image_id) {
@@ -284,12 +284,12 @@ application_tile_setup (ApplicationTile *this)
 			return;
 	}
 
-	priv->image_id = g_strdup (ukui_desktop_item_get_localestring (priv->desktop_item, "Icon"));
+	priv->image_id = g_strdup (mate_desktop_item_get_localestring (priv->desktop_item, "Icon"));
 	image = themed_icon_new (priv->image_id, priv->image_size);
 
-	name = ukui_desktop_item_get_localestring (priv->desktop_item, "Name");
-	desc = ukui_desktop_item_get_localestring (priv->desktop_item, "GenericName");
-	comment = ukui_desktop_item_get_localestring (priv->desktop_item, "Comment");	
+	name = mate_desktop_item_get_localestring (priv->desktop_item, "Name");
+	desc = mate_desktop_item_get_localestring (priv->desktop_item, "GenericName");
+	comment = mate_desktop_item_get_localestring (priv->desktop_item, "Comment");	
 
 	accessible = gtk_widget_get_accessible (GTK_WIDGET (this));
 	if (name)
@@ -355,7 +355,7 @@ application_tile_setup (ApplicationTile *this)
 
 /* make help action */
 
-	if (ukui_desktop_item_get_string (priv->desktop_item, "DocPath")) {
+	if (mate_desktop_item_get_string (priv->desktop_item, "DocPath")) {
 		action = tile_action_new (
 			TILE (this), help_trigger, _("Help"),
 			TILE_ACTION_OPENS_NEW_WINDOW | TILE_ACTION_OPENS_HELP);
@@ -529,7 +529,7 @@ add_to_startup_list (ApplicationTile *this)
 	gchar *dst_uri;
 
 	desktop_item_filename =
-		g_filename_from_uri (ukui_desktop_item_get_location (priv->desktop_item), NULL,
+		g_filename_from_uri (mate_desktop_item_get_location (priv->desktop_item), NULL,
 		NULL);
 
 	g_return_if_fail (desktop_item_filename != NULL);
@@ -543,7 +543,7 @@ add_to_startup_list (ApplicationTile *this)
 
 	dst_filename = g_build_filename (startup_dir, desktop_item_basename, NULL);
 
-	src_uri = ukui_desktop_item_get_location (priv->desktop_item);
+	src_uri = mate_desktop_item_get_location (priv->desktop_item);
 	dst_uri = g_filename_to_uri (dst_filename, NULL, NULL);
 
 	copy_file (src_uri, dst_uri);
@@ -566,7 +566,7 @@ remove_from_startup_list (ApplicationTile *this)
 	gchar *src_filename;
 
 	ditem_filename =
-		g_filename_from_uri (ukui_desktop_item_get_location (priv->desktop_item), NULL,
+		g_filename_from_uri (mate_desktop_item_get_location (priv->desktop_item), NULL,
 		NULL);
 
 	g_return_if_fail (ditem_filename != NULL);
@@ -660,7 +660,7 @@ get_desktop_item_startup_status (MateDesktopItem *desktop_item)
 	StartupStatus retval;
 	gint x;
 	
-	filename = g_filename_from_uri (ukui_desktop_item_get_location (desktop_item), NULL, NULL);
+	filename = g_filename_from_uri (mate_desktop_item_get_location (desktop_item), NULL, NULL);
 	if (!filename)
 		return APP_NOT_ELIGIBLE;
 	basename = g_path_get_basename (filename);

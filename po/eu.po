@@ -1198,9 +1198,9 @@ msgstr "Ezin izan da gaiaren motorra instalatu"
 
 #: ../capplets/common/activate-settings-daemon.c:16
 msgid ""
-"Unable to start the settings manager 'ukui-settings-daemon'.\n"
+"Unable to start the settings manager 'mate-settings-daemon'.\n"
 "Without the UKUI settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-UKUI (e.g. KDE) settings manager may already be active and conflicting with the UKUI settings manager."
-msgstr "Ezin izan da 'ukui-settings-daemon' ezarpen-kudeatzailea abiarazi.\nUKUIren ezarpen-kudeatzailea exekutatu gabe, baliteke hobespen batzuk eraginik ez izatea. Horrek DBus-ekin arazoa dagoela adieraz dezake, edo UKUIrena ez den ezarpen-kudeatzailea (adib. KDE) aktibatuta egon daiteke eta UKUI ezarpen-kudeatzailearekin gatazkan egon."
+msgstr "Ezin izan da 'mate-settings-daemon' ezarpen-kudeatzailea abiarazi.\nUKUIren ezarpen-kudeatzailea exekutatu gabe, baliteke hobespen batzuk eraginik ez izatea. Horrek DBus-ekin arazoa dagoela adieraz dezake, edo UKUIrena ez den ezarpen-kudeatzailea (adib. KDE) aktibatuta egon daiteke eta UKUI ezarpen-kudeatzailearekin gatazkan egon."
 
 #: ../capplets/common/capplet-stock-icons.c:66
 #, c-format
@@ -1565,14 +1565,14 @@ msgid ""
 "\n"
 "This program installs a RANDR profile for multi-monitor setups into\n"
 "a systemwide location.  The resulting profile will get used when\n"
-"the RANDR plug-in gets run in ukui-settings-daemon.\n"
+"the RANDR plug-in gets run in mate-settings-daemon.\n"
 "\n"
 "SOURCE_FILE - a full pathname, typically /home/username/.config/monitors.xml\n"
 "\n"
 "DEST_NAME - relative name for the installed file.  This will get put in\n"
 "            the systemwide directory for RANDR configurations,\n"
 "            so the result will typically be %s/DEST_NAME\n"
-msgstr "Erabilera: %s ITURBURUKO_FITXATEGIA HELBURUKO_IZENA\n\nPrograma honek RANDR profila bat instalatzen du pantaila anitzekoa konfiguratzeko sistema lokalean. Emaitzeko profila erabiliko da  RANDR plugina ukui-settings-daemon-ean exekutatzen denean.\n\nITURBURUKO_FITXATEGIA - bide-izen osoa, normalean /home/erabiltzaile-izena/.config/monitors.xml\n\nHELBURUKO_IZENA - instalatutako fitxategiaren izen erlatiboa.             sistemako direktorioan jarriko du RANDR konfigurazioentzako,             emaitza %s/HELBURUKO_IZENA izan ohi da\n"
+msgstr "Erabilera: %s ITURBURUKO_FITXATEGIA HELBURUKO_IZENA\n\nPrograma honek RANDR profila bat instalatzen du pantaila anitzekoa konfiguratzeko sistema lokalean. Emaitzeko profila erabiliko da  RANDR plugina mate-settings-daemon-ean exekutatzen denean.\n\nITURBURUKO_FITXATEGIA - bide-izen osoa, normalean /home/erabiltzaile-izena/.config/monitors.xml\n\nHELBURUKO_IZENA - instalatutako fitxategiaren izen erlatiboa.             sistemako direktorioan jarriko du RANDR konfigurazioentzako,             emaitza %s/HELBURUKO_IZENA izan ohi da\n"
 
 #. Translators: only able to install RANDR profiles as root
 #: ../capplets/display/ukui-display-properties-install-systemwide.c:151

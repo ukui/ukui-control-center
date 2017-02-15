@@ -30,11 +30,11 @@
 #include "libslab-utils.h"
 #include "bookmark-agent.h"
 
-#define GNOME_MAIN_MENU_SCHEMA         "org.ukui.gnome-main-menu.file-area"
+#define GNOME_MAIN_MENU_SCHEMA         "org.mate.gnome-main-menu.file-area"
 #define SETTINGS_FILE_MGR_OPEN_KEY     "file-mgr-open-cmd"
 #define SETTINGS_SEND_TO_CMD_KEY       "file-send-to-cmd"
 
-#define PEONY_SCHEMA                    "org.ukui.peony.preferences"
+#define PEONY_SCHEMA                    "org.mate.peony.preferences"
 #define SETTINGS_ENABLE_DELETE_KEY     "enable-delete"
 #define SETTINGS_CONFIRM_DELETE_KEY    "confirm-trash"
 
@@ -430,7 +430,7 @@ load_image (DocumentTile *tile)
 
 	gchar *icon_id = NULL;
 	gboolean free_icon_id = TRUE;
-	UkuiDesktopThumbnailFactory *thumbnail_factory;
+	MateDesktopThumbnailFactory *thumbnail_factory;
 	GIcon *icon;
 
 	libslab_checkpoint ("document-tile.c: load_image(): start for %s", TILE (tile)->uri);
@@ -447,7 +447,7 @@ load_image (DocumentTile *tile)
 
 	thumbnail_factory = libslab_thumbnail_factory_get ();
 
-	icon_id = ukui_desktop_thumbnail_factory_lookup (thumbnail_factory, TILE (tile)->uri, priv->modified);
+	icon_id = mate_desktop_thumbnail_factory_lookup (thumbnail_factory, TILE (tile)->uri, priv->modified);
 
 	if (! icon_id) {
 		icon = g_content_type_get_icon (priv->mime_type);

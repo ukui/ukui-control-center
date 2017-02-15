@@ -24,14 +24,14 @@
 
 #include <gtk/gtk.h>
 
-#define TERMINAL_SCHEMA       "org.ukui.applications-terminal"
+#define TERMINAL_SCHEMA       "org.mate.applications-terminal"
 #define TERMINAL_KEY          "exec"
 
-#define VISUAL_SCHEMA         "org.ukui.applications-at-visual"
+#define VISUAL_SCHEMA         "org.mate.applications-at-visual"
 #define VISUAL_KEY            "exec"
 #define VISUAL_STARTUP_KEY    "startup"
 
-#define MOBILITY_SCHEMA       "org.ukui.applications-at-mobility"
+#define MOBILITY_SCHEMA       "org.mate.applications-at-mobility"
 #define MOBILITY_KEY          "exec"
 #define MOBILITY_STARTUP_KEY  "startup"
 

@@ -19,7 +19,7 @@ enum {
 #include "activate-settings-daemon.h"
 
 #define ACCESSIBILITY_KEY       "accessibility"
-#define ACCESSIBILITY_SCHEMA    "org.ukui.interface"
+#define ACCESSIBILITY_SCHEMA    "org.mate.interface"
 
 static gboolean initial_state;
 

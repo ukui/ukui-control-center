@@ -25,7 +25,7 @@
 #  include <config.h>
 #endif
 
-#include <libukuikbd/ukuikbd-keyboard-drawing.h>
+#include <libmatekbd/matekbd-keyboard-drawing.h>
 
 #include "capplet-util.h"
 #include "ukui-keyboard-properties-xkb.h"
@@ -48,18 +48,18 @@ extern void xkl_xkb_config_native_cleanup (XklEngine * engine,
 /* */
 #endif
 
-static UkuikbdKeyboardDrawingGroupLevel groupsLevels[] =
+static MatekbdKeyboardDrawingGroupLevel groupsLevels[] =
     { {0, 1}, {0, 3}, {0, 0}, {0, 2} };
-static UkuikbdKeyboardDrawingGroupLevel *pGroupsLevels[] = {
+static MatekbdKeyboardDrawingGroupLevel *pGroupsLevels[] = {
 	groupsLevels, groupsLevels + 1, groupsLevels + 2, groupsLevels + 3
 };
 
 GtkWidget *
 xkb_layout_preview_create_widget (GtkBuilder * chooserDialog)
 {
-	GtkWidget *kbdraw = ukuikbd_keyboard_drawing_new ();
+	GtkWidget *kbdraw = matekbd_keyboard_drawing_new ();
 
-	ukuikbd_keyboard_drawing_set_groups_levels (UKUIKBD_KEYBOARD_DRAWING
+	matekbd_keyboard_drawing_set_groups_levels (MATEKBD_KEYBOARD_DRAWING
 						 (kbdraw), pGroupsLevels);
 	return kbdraw;
 }
@@ -98,7 +98,7 @@ xkb_layout_preview_set_drawing_layout (GtkWidget * kbdraw,
 
 				data->layouts = g_new0 (char *, 2);
 				data->variants = g_new0 (char *, 2);
-				if (ukuikbd_keyboard_config_split_items
+				if (matekbd_keyboard_config_split_items
 				    (id, &layout, &variant)
 				    && variant != NULL) {
 					data->layouts[0] =
@@ -118,8 +118,8 @@ xkb_layout_preview_set_drawing_layout (GtkWidget * kbdraw,
 
 				if (xkl_xkb_config_native_prepare
 				    (engine, data, &component_names)) {
-					ukuikbd_keyboard_drawing_set_keyboard
-					    (UKUIKBD_KEYBOARD_DRAWING
+					matekbd_keyboard_drawing_set_keyboard
+					    (MATEKBD_KEYBOARD_DRAWING
 					     (kbdraw), &component_names);
 
 					xkl_xkb_config_native_cleanup
@@ -128,8 +128,8 @@ xkb_layout_preview_set_drawing_layout (GtkWidget * kbdraw,
 			}
 			g_object_unref (G_OBJECT (data));
 		} else
-			ukuikbd_keyboard_drawing_set_keyboard
-			    (UKUIKBD_KEYBOARD_DRAWING (kbdraw), NULL);
+			matekbd_keyboard_drawing_set_keyboard
+			    (MATEKBD_KEYBOARD_DRAWING (kbdraw), NULL);
 
 	}
 #endif

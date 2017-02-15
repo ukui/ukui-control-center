@@ -35,7 +35,7 @@ typedef struct _UkuiWPInfo {
 	time_t mtime;
 } UkuiWPInfo;
 
-UkuiWPInfo* ukui_wp_info_new(const char* uri, UkuiDesktopThumbnailFactory* thumbs);
+UkuiWPInfo* ukui_wp_info_new(const char* uri, MateDesktopThumbnailFactory* thumbs);
 void ukui_wp_info_free(UkuiWPInfo* info);
 
 #endif

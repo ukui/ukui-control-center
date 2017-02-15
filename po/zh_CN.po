@@ -1214,9 +1214,9 @@ msgstr "无法安装主题引擎"
 
 #: ../capplets/common/activate-settings-daemon.c:16
 msgid ""
-"Unable to start the settings manager 'ukui-settings-daemon'.\n"
+"Unable to start the settings manager 'mate-settings-daemon'.\n"
 "Without the UKUI settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-UKUI (e.g. KDE) settings manager may already be active and conflicting with the UKUI settings manager."
-msgstr "无法启动设置管理器“ukui-settings-daemon”。\n如果不运行 UKUI 设置管理器，某些首选项不会生效。这可能表明 DBus 出现问题，或者某个非 UKUI (如 KDE) 设置管理器可能已经处于活动状态，并与 UKUI 设置管理器发生冲突。"
+msgstr "无法启动设置管理器“mate-settings-daemon”。\n如果不运行 UKUI 设置管理器，某些首选项不会生效。这可能表明 DBus 出现问题，或者某个非 UKUI (如 KDE) 设置管理器可能已经处于活动状态，并与 UKUI 设置管理器发生冲突。"
 
 #: ../capplets/common/capplet-stock-icons.c:66
 #, c-format
@@ -1581,14 +1581,14 @@ msgid ""
 "\n"
 "This program installs a RANDR profile for multi-monitor setups into\n"
 "a systemwide location.  The resulting profile will get used when\n"
-"the RANDR plug-in gets run in ukui-settings-daemon.\n"
+"the RANDR plug-in gets run in mate-settings-daemon.\n"
 "\n"
 "SOURCE_FILE - a full pathname, typically /home/username/.config/monitors.xml\n"
 "\n"
 "DEST_NAME - relative name for the installed file.  This will get put in\n"
 "            the systemwide directory for RANDR configurations,\n"
 "            so the result will typically be %s/DEST_NAME\n"
-msgstr "用法: %s SOURCE_FILE DEST_NAME\n\n此程序向整个系统安装多显示器设置的 RANDR 配置文件。\n生成的配置文件将在 RANDR 插件在 ukui-settings-daemon \n中运行时被使用。\n\nSOURCE_FILE - 完整路径名称，通常为 /home/username/.config/monitors.xml\n\nDEST_NAME - 安装后文件的相对名称。\n            将被置于用于 RANDR 配置的系统目录，\n            所以生成文件通常为 %s/DEST_NAME\n"
+msgstr "用法: %s SOURCE_FILE DEST_NAME\n\n此程序向整个系统安装多显示器设置的 RANDR 配置文件。\n生成的配置文件将在 RANDR 插件在 mate-settings-daemon \n中运行时被使用。\n\nSOURCE_FILE - 完整路径名称，通常为 /home/username/.config/monitors.xml\n\nDEST_NAME - 安装后文件的相对名称。\n            将被置于用于 RANDR 配置的系统目录，\n            所以生成文件通常为 %s/DEST_NAME\n"
 
 #. Translators: only able to install RANDR profiles as root
 #: ../capplets/display/ukui-display-properties-install-systemwide.c:151

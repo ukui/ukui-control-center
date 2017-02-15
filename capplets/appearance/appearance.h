@@ -32,14 +32,14 @@
 #define MORE_THEMES_URL_KEY          "more-themes-url"
 #define MORE_BACKGROUNDS_URL_KEY     "more-backgrounds-url"
 
-#define WP_SCHEMA                    "org.ukui.background"
+#define WP_SCHEMA                    "org.mate.background"
 #define WP_FILE_KEY                  "picture-filename"
 #define WP_OPTIONS_KEY               "picture-options"
 #define WP_SHADING_KEY               "color-shading-type"
 #define WP_PCOLOR_KEY                "primary-color"
 #define WP_SCOLOR_KEY                "secondary-color"
 
-#define INTERFACE_SCHEMA             "org.ukui.interface"
+#define INTERFACE_SCHEMA             "org.mate.interface"
 #define GTK_FONT_KEY                 "font-name"
 #define MONOSPACE_FONT_KEY           "monospace-font-name"
 #define DOCUMENT_FONT_KEY            "document-font-name"
@@ -52,25 +52,25 @@
 #define TOOLBAR_STYLE_KEY            "toolbar-style"
 #define GTK_FONT_DEFAULT_VALUE       "Sans 10"
 
-#define LOCKDOWN_SCHEMA              "org.ukui.lockdown"
+#define LOCKDOWN_SCHEMA              "org.mate.lockdown"
 #define DISABLE_THEMES_SETTINGS_KEY  "disable-theme-settings"
 
-#define PEONY_SCHEMA                  "org.ukui.peony.desktop"
+#define PEONY_SCHEMA                  "org.mate.peony.desktop"
 #define DESKTOP_FONT_KEY             "font"
 
-#define UKWM_SCHEMA                 "org.ukui.Ukwm.general"
+#define UKWM_SCHEMA                 "org.mate.Marco.general"
 #define UKWM_THEME_KEY              "theme"
 #define WINDOW_TITLE_FONT_KEY        "titlebar-font"
 #define WINDOW_TITLE_USES_SYSTEM_KEY "titlebar-uses-system-font"
 
-#define NOTIFICATION_SCHEMA          "org.ukui.NotificationDaemon"
+#define NOTIFICATION_SCHEMA          "org.mate.NotificationDaemon"
 #define NOTIFICATION_THEME_KEY       "theme"
 
-#define MOUSE_SCHEMA                 "org.ukui.peripherals-mouse"
+#define MOUSE_SCHEMA                 "org.mate.peripherals-mouse"
 #define CURSOR_THEME_KEY             "cursor-theme"
 #define CURSOR_SIZE_KEY              "cursor-size"
 
-#define FONT_RENDER_SCHEMA           "org.ukui.font-rendering"
+#define FONT_RENDER_SCHEMA           "org.mate.font-rendering"
 #define FONT_ANTIALIASING_KEY        "antialiasing"
 #define FONT_HINTING_KEY             "hinting"
 #define FONT_RGBA_ORDER_KEY          "rgba-order"
@@ -85,7 +85,7 @@ typedef struct {
 	GSettings* mouse_settings;
 	GSettings* font_settings;
 	GtkBuilder* ui;
-	UkuiDesktopThumbnailFactory* thumb_factory;
+	MateDesktopThumbnailFactory* thumb_factory;
 	gulong screen_size_handler;
 	gulong screen_monitors_handler;
 

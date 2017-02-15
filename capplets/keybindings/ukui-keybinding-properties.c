@@ -23,7 +23,7 @@
 #define gtk_widget_get_preferred_size(x,y,z) gtk_widget_size_request(x,y)
 #endif
 
-#define GSETTINGS_KEYBINDINGS_DIR "/org/ukui/desktop/keybindings/"
+#define GSETTINGS_KEYBINDINGS_DIR "/org.mate.desktop/keybindings/"
 #define CUSTOM_KEYBINDING_SCHEMA "org.ukui.control-center.keybinding"
 
 #define MAX_ELEMENTS_BEFORE_SCROLLING 10
@@ -1953,7 +1953,7 @@ main (int argc, char *argv[])
 
   wm_common_register_window_manager_change ((GFunc) on_window_manager_change, builder);
 
-  ukwm_settings = g_settings_new ("org.ukui.Ukwm.general");
+  ukwm_settings = g_settings_new ("org.mate.Marco.general");
 
   setup_dialog (builder, ukwm_settings);
 

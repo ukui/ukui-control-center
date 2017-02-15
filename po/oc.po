@@ -1196,9 +1196,9 @@ msgstr "Impossible d'installar lo motor de tèma"
 
 #: ../capplets/common/activate-settings-daemon.c:16
 msgid ""
-"Unable to start the settings manager 'ukui-settings-daemon'.\n"
+"Unable to start the settings manager 'mate-settings-daemon'.\n"
 "Without the UKUI settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-UKUI (e.g. KDE) settings manager may already be active and conflicting with the UKUI settings manager."
-msgstr "Impossible d'aviar lo gestionari de paramètres « ukui-settings-daemon ».\nSens lo gestionari de paramètres de UKUI activat, d'unas preferéncias pòdon prene pas efièch. Aquò pòt èsser degut a un problèma amb DBus, o qu'un gestionari de paramètres non-UKUI (per ex. KDE) es ja actiu e dintra en conflicte amb lo gestionari de paramètres UKUI."
+msgstr "Impossible d'aviar lo gestionari de paramètres « mate-settings-daemon ».\nSens lo gestionari de paramètres de UKUI activat, d'unas preferéncias pòdon prene pas efièch. Aquò pòt èsser degut a un problèma amb DBus, o qu'un gestionari de paramètres non-UKUI (per ex. KDE) es ja actiu e dintra en conflicte amb lo gestionari de paramètres UKUI."
 
 #: ../capplets/common/capplet-stock-icons.c:66
 #, c-format
@@ -1563,7 +1563,7 @@ msgid ""
 "\n"
 "This program installs a RANDR profile for multi-monitor setups into\n"
 "a systemwide location.  The resulting profile will get used when\n"
-"the RANDR plug-in gets run in ukui-settings-daemon.\n"
+"the RANDR plug-in gets run in mate-settings-daemon.\n"
 "\n"
 "SOURCE_FILE - a full pathname, typically /home/username/.config/monitors.xml\n"
 "\n"

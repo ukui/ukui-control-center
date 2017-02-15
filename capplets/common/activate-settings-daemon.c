@@ -13,7 +13,7 @@ static void popup_error_message (void)
   GtkWidget *dialog;
 
   dialog = gtk_message_dialog_new (NULL, GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_WARNING,
-				   GTK_BUTTONS_OK, _("Unable to start the settings manager 'ukui-settings-daemon'.\n"
+				   GTK_BUTTONS_OK, _("Unable to start the settings manager 'mate-settings-daemon'.\n"
 				   "Without the UKUI settings manager running, some preferences may not take effect. This could "
 				   "indicate a problem with DBus, or a non-UKUI (e.g. KDE) settings manager may already "
 				   "be active and conflicting with the UKUI settings manager."));
@@ -39,9 +39,9 @@ activate_settings_daemon (void)
     }
     
   proxy = dbus_g_proxy_new_for_name (connection,
-                                     "org.ukui.SettingsDaemon",
-                                     "/org/ukui/SettingsDaemon",
-                                     "org.ukui.SettingsDaemon");
+                                     "org.mate.SettingsDaemon",
+                                     "/org.mate.SettingsDaemon",
+                                     "org.mate.SettingsDaemon");
 
   if (proxy == NULL)
     {
@@ -49,7 +49,7 @@ activate_settings_daemon (void)
       return FALSE;
     }
 
-  if (!org_ukui_SettingsDaemon_awake(proxy, &error))
+  if (!org_mate_SettingsDaemon_awake(proxy, &error))
     {
       popup_error_message ();
       g_error_free (error);

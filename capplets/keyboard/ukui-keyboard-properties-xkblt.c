@@ -29,8 +29,8 @@
 #include <gio/gio.h>
 #include <glib/gi18n.h>
 
-#include <libukuikbd/ukuikbd-desktop-config.h>
-#include <libukuikbd/ukuikbd-keyboard-drawing.h>
+#include <libmatekbd/matekbd-desktop-config.h>
+#include <libmatekbd/matekbd-keyboard-drawing.h>
 
 #include "capplet-util.h"
 #include "ukui-keyboard-properties-xkb.h"
@@ -282,9 +282,9 @@ gchar *
 xkb_layout_description_utf8 (const gchar * visible)
 {
 	char *l, *sl, *v, *sv;
-	if (ukuikbd_keyboard_config_get_descriptions
+	if (matekbd_keyboard_config_get_descriptions
 	    (config_registry, visible, &sl, &l, &sv, &v))
-		visible = ukuikbd_keyboard_config_format_full_layout (l, v);
+		visible = matekbd_keyboard_config_format_full_layout (l, v);
 	return g_strstrip (g_strdup (visible));
 }
 
@@ -357,7 +357,7 @@ show_selected_layout (GtkWidget * button, GtkBuilder * dialog)
 		GSList *layouts_list = xkb_layouts_get_selected_list ();
 		const gchar *id = g_slist_nth_data (layouts_list, idx);
 		char *descr = xkb_layout_description_utf8 (id);
-		GtkWidget *popup = ukuikbd_keyboard_drawing_new_dialog (idx, descr);
+		GtkWidget *popup = matekbd_keyboard_drawing_new_dialog (idx, descr);
 		clear_xkb_elements_list (layouts_list);
 		g_free (descr);
 	}

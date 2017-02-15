@@ -219,7 +219,7 @@ xkb_options_add_option (XklConfigRegistry * config_registry,
 	gchar *utf_option_name = xci_desc_to_utf8 (config_item);
 	/* Copy this out because we'll load it into the widget with set_data */
 	gchar *full_option_name =
-	    g_strdup (ukuikbd_keyboard_config_merge_items
+	    g_strdup (matekbd_keyboard_config_merge_items
 		      (current1st_level_id, config_item->name));
 	gboolean initial_state;
 
@@ -470,7 +470,7 @@ xkb_options_update_option_counters (XklConfigRegistry * config_registry,
 				    XklConfigItem * config_item)
 {
 	gchar *full_option_name =
-	    g_strdup (ukuikbd_keyboard_config_merge_items
+	    g_strdup (matekbd_keyboard_config_merge_items
 		      (current1st_level_id, config_item->name));
 	gboolean current_state =
 	    xkb_options_is_selected (full_option_name);

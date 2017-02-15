@@ -105,7 +105,7 @@ static void theme_thumbnail_update(GdkPixbuf* pixbuf, gchar* theme_name, Appeara
 			/* try to share thumbs with peony, use themes:/// */
 			path = g_strconcat("themes:///", theme_name, NULL);
 
-			ukui_desktop_thumbnail_factory_save_thumbnail(data->thumb_factory, pixbuf, path, mtime);
+			mate_desktop_thumbnail_factory_save_thumbnail(data->thumb_factory, pixbuf, path, mtime);
 
 			g_free(path);
 		}
@@ -128,7 +128,7 @@ static GdkPixbuf* theme_get_thumbnail_from_cache(UkuiThemeMetaInfo* info, Appear
 
 	/* try to share thumbs with peony, use themes:/// */
 	path = g_strconcat ("themes:///", info->name, NULL);
-	thumb_filename = ukui_desktop_thumbnail_factory_lookup(data->thumb_factory, path, mtime);
+	thumb_filename = mate_desktop_thumbnail_factory_lookup(data->thumb_factory, path, mtime);
 	g_free(path);
 
 	if (thumb_filename != NULL)
@@ -226,7 +226,7 @@ theme_load_from_gsettings (AppearanceData *data)
   if (theme->icon_theme_name == NULL)
     theme->icon_theme_name = g_strdup ("menta");
 
-  if (ukui_gsettings_schema_exists (NOTIFICATION_SCHEMA)) {
+  if (mate_gsettings_schema_exists (NOTIFICATION_SCHEMA)) {
     GSettings *notification_settings;
     notification_settings = g_settings_new (NOTIFICATION_SCHEMA);
     theme->notification_theme_name = g_settings_get_string (notification_settings, NOTIFICATION_THEME_KEY);

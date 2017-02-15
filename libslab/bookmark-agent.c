@@ -1051,11 +1051,11 @@ create_app_item (BookmarkAgent *this, const gchar *uri)
 	MateDesktopItem *ditem;
 	gchar *uri_new = NULL;
 
-	ditem = libslab_ukui_desktop_item_new_from_unknown_id (uri);
+	ditem = libslab_mate_desktop_item_new_from_unknown_id (uri);
 
 	if (ditem) {
-		uri_new = g_strdup (ukui_desktop_item_get_location (ditem));
-		ukui_desktop_item_unref (ditem);
+		uri_new = g_strdup (mate_desktop_item_get_location (ditem));
+		mate_desktop_item_unref (ditem);
 	}
 
 	if (! uri_new)

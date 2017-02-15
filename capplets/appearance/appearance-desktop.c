@@ -97,13 +97,13 @@ static UkuiWPItem* get_selected_item(AppearanceData* data, GtkTreeIter* iter)
 
 static gboolean predicate (gpointer key, gpointer value, gpointer data)
 {
-  UkuiBG *bg = data;
+  MateBG *bg = data;
   UkuiWPItem *item = value;
 
   return item->bg == bg;
 }
 
-static void on_item_changed (UkuiBG *bg, AppearanceData *data) {
+static void on_item_changed (MateBG *bg, AppearanceData *data) {
   GtkTreeModel *model;
   GtkTreeIter iter;
   GtkTreePath *path;
@@ -249,7 +249,7 @@ wp_option_menu_set (AppearanceData *data,
     gtk_combo_box_set_active (GTK_COMBO_BOX (data->wp_color_menu),
                               value);
 
-    if (value == UKUI_BG_COLOR_SOLID)
+    if (value == MATE_BG_COLOR_SOLID)
       gtk_widget_hide (data->wp_scpicker);
     else
       gtk_widget_show (data->wp_scpicker);
@@ -887,7 +887,7 @@ wp_update_preview (GtkFileChooser *chooser,
 
     if (mime_type)
     {
-      pixbuf = ukui_desktop_thumbnail_factory_generate_thumbnail (data->thumb_factory,
+      pixbuf = mate_desktop_thumbnail_factory_generate_thumbnail (data->thumb_factory,
 								   uri,
 								   mime_type);
     }
@@ -1054,7 +1054,7 @@ wp_load_stuffs (void *user_data)
     if (!strcmp (style, "none"))
     {
       select_item (data, item, FALSE);
-      wp_option_menu_set (data, UKUI_BG_PLACEMENT_SCALED, FALSE);
+      wp_option_menu_set (data, MATE_BG_PLACEMENT_SCALED, FALSE);
     }
   }
   g_free (imagepath);
@@ -1238,7 +1238,7 @@ buttons_cell_data_func (GtkCellLayout   *layout,
 
   if (gtk_icon_view_path_is_selected (GTK_ICON_VIEW (layout), path)) {
     item = get_selected_item (data, NULL);
-    visible = ukui_bg_changes_with_time (item->bg);
+    visible = mate_bg_changes_with_time (item->bg);
   }
   else
     visible = FALSE;

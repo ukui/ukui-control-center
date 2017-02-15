@@ -38,9 +38,9 @@
 #include "ukui-keyboard-properties-a11y.h"
 #include "ukui-keyboard-properties-xkb.h"
 
-#define KEYBOARD_SCHEMA "org.ukui.peripherals-keyboard"
-#define INTERFACE_SCHEMA "org.ukui.interface"
-#define TYPING_BREAK_SCHEMA "org.ukui.typing-break"
+#define KEYBOARD_SCHEMA "org.mate.peripherals-keyboard"
+#define INTERFACE_SCHEMA "org.mate.interface"
+#define TYPING_BREAK_SCHEMA "org.mate.typing-break"
 
 enum {
 	RESPONSE_APPLY = 1,

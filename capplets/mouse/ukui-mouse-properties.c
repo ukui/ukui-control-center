@@ -54,10 +54,10 @@ enum
 	DOUBLE_CLICK_TEST_ON
 };
 
-#define MOUSE_SCHEMA "org.ukui.peripherals-mouse"
+#define MOUSE_SCHEMA "org.mate.peripherals-mouse"
 #define DOUBLE_CLICK_KEY "double-click"
 
-#define TOUCHPAD_SCHEMA "org.ukui.peripherals-touchpad"
+#define TOUCHPAD_SCHEMA "org.mate.peripherals-touchpad"
 
 /* State in testing the double-click speed. Global for a great deal of
  * convenience

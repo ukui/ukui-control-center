@@ -1197,9 +1197,9 @@ msgstr "प्रसंग इंजन संस्थापित नहीं
 
 #: ../capplets/common/activate-settings-daemon.c:16
 msgid ""
-"Unable to start the settings manager 'ukui-settings-daemon'.\n"
+"Unable to start the settings manager 'mate-settings-daemon'.\n"
 "Without the UKUI settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-UKUI (e.g. KDE) settings manager may already be active and conflicting with the UKUI settings manager."
-msgstr "सेटिंग प्रबंधक 'ukui-settings-daemon' प्रारंभ करने में अक्षम.\nगनोम सेटिंग प्रबंधक प्रारंभ न रहने पर कुछ वरीयताएँ परिणाम नहीं देंगी. यह DBus के साथ समस्या दे सकती है या गैर गनोम (जैसे केडीई) सेटिंग प्रबंधक पहले से ही प्रारंभ हो और गनोम सेटिंग प्रबंधक परस्पर विरोध कर रहा होगा."
+msgstr "सेटिंग प्रबंधक 'mate-settings-daemon' प्रारंभ करने में अक्षम.\nगनोम सेटिंग प्रबंधक प्रारंभ न रहने पर कुछ वरीयताएँ परिणाम नहीं देंगी. यह DBus के साथ समस्या दे सकती है या गैर गनोम (जैसे केडीई) सेटिंग प्रबंधक पहले से ही प्रारंभ हो और गनोम सेटिंग प्रबंधक परस्पर विरोध कर रहा होगा."
 
 #: ../capplets/common/capplet-stock-icons.c:66
 #, c-format
@@ -1564,7 +1564,7 @@ msgid ""
 "\n"
 "This program installs a RANDR profile for multi-monitor setups into\n"
 "a systemwide location.  The resulting profile will get used when\n"
-"the RANDR plug-in gets run in ukui-settings-daemon.\n"
+"the RANDR plug-in gets run in mate-settings-daemon.\n"
 "\n"
 "SOURCE_FILE - a full pathname, typically /home/username/.config/monitors.xml\n"
 "\n"

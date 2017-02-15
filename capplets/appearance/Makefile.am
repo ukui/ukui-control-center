@@ -33,7 +33,7 @@ ukui_appearance_properties_SOURCES = \
 	theme-util.c \
 	theme-util.h
 
-AM_CFLAGS = -DUKUI_DESKTOP_USE_UNSTABLE_API
+AM_CFLAGS = -DMATE_DESKTOP_USE_UNSTABLE_API
 
 ukui_appearance_properties_LDADD = \
 	$(top_builddir)/libwindow-settings/libukui-window-settings.la \

@@ -27,8 +27,8 @@
 
 #include <string.h>
 
-#include <libukuikbd/ukuikbd-keyboard-drawing.h>
-#include <libukuikbd/ukuikbd-util.h>
+#include <libmatekbd/matekbd-keyboard-drawing.h>
+#include <libmatekbd/matekbd-util.h>
 
 #include "capplet-util.h"
 #include "ukui-keyboard-properties-xkb.h"
@@ -98,14 +98,14 @@ static void
      XklConfigItem * parent_config_item, XklConfigItem * config_item,
      AddVariantData * data) {
 	gchar *utf_variant_name = config_item ?
-	    xkb_layout_description_utf8 (ukuikbd_keyboard_config_merge_items
+	    xkb_layout_description_utf8 (matekbd_keyboard_config_merge_items
 					 (parent_config_item->name,
 					  config_item->name)) :
 	    xci_desc_to_utf8 (parent_config_item);
 	GtkTreeIter iter;
 	const gchar *xkb_id =
 	    config_item ?
-	    ukuikbd_keyboard_config_merge_items (parent_config_item->name,
+	    matekbd_keyboard_config_merge_items (parent_config_item->name,
 					      config_item->name) :
 	    parent_config_item->name;
 
@@ -404,7 +404,7 @@ xkl_layout_chooser_add_default_switcher_if_necessary (GSList *
 	gchar **options_list_strv = xkb_layout_strv_from_gslist (options_list);
 
 	options_list_strv =
-	    ukuikbd_keyboard_config_add_default_switch_option_if_necessary
+	    matekbd_keyboard_config_add_default_switch_option_if_necessary
 		(layouts_list_strv, options_list_strv, &was_appended);
 	if (was_appended) {
 		xkb_options_set_selected_list (options_list);
@@ -422,7 +422,7 @@ xkb_layout_chooser_print (GtkBuilder * chooser_dialog)
 	const char *id =
 	    xkb_layout_chooser_get_selected_id (chooser_dialog);
 	char *descr = xkb_layout_description_utf8 (id);
-	ukuikbd_keyboard_drawing_print (UKUIKBD_KEYBOARD_DRAWING
+	matekbd_keyboard_drawing_print (MATEKBD_KEYBOARD_DRAWING
 				     (kbdraw),
 				     GTK_WINDOW (CWID
 						 ("xkb_layout_chooser")),
@@ -465,7 +465,7 @@ xkb_layout_chooser_response (GtkDialog * dialog,
 	gtk_window_get_position (GTK_WINDOW (dialog), &rect.x, &rect.y);
 	gtk_window_get_size (GTK_WINDOW (dialog), &rect.width,
 			     &rect.height);
-	ukuikbd_preview_save_position (&rect);
+	matekbd_preview_save_position (&rect);
 }
 
 void
@@ -556,7 +556,7 @@ xkb_layout_choose (GtkBuilder * dialog)
 
 	toplevel = gtk_widget_get_toplevel (chooser);
 	if (gtk_widget_is_toplevel (toplevel)) {
-		GdkRectangle *rect = ukuikbd_preview_load_position ();
+		GdkRectangle *rect = matekbd_preview_load_position ();
 		if (rect != NULL) {
 			gtk_window_move (GTK_WINDOW (toplevel),
 					 rect->x, rect->y);

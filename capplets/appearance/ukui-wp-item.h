@@ -33,13 +33,13 @@
 typedef struct _UkuiWPItem UkuiWPItem;
 
 struct _UkuiWPItem {
-  UkuiBG *bg;
+  MateBG *bg;
 
   gchar * name;
   gchar * filename;
   gchar * description;
-  UkuiBGPlacement options;
-  UkuiBGColorType shade_type;
+  MateBGPlacement options;
+  MateBGColorType shade_type;
 
   /* Where the Item is in the List */
   GtkTreeRowReference * rowref;
@@ -68,25 +68,25 @@ struct _UkuiWPItem {
 
 UkuiWPItem * ukui_wp_item_new (const gchar *filename,
 				 GHashTable *wallpapers,
-				 UkuiDesktopThumbnailFactory *thumbnails);
+				 MateDesktopThumbnailFactory *thumbnails);
 
 void ukui_wp_item_free (UkuiWPItem *item);
 GdkPixbuf * ukui_wp_item_get_thumbnail (UkuiWPItem *item,
-					 UkuiDesktopThumbnailFactory *thumbs,
+					 MateDesktopThumbnailFactory *thumbs,
                                          gint width,
                                          gint height);
 GdkPixbuf * ukui_wp_item_get_frame_thumbnail (UkuiWPItem *item,
-                                               UkuiDesktopThumbnailFactory *thumbs,
+                                               MateDesktopThumbnailFactory *thumbs,
                                                gint width,
                                                gint height,
                                                gint frame);
 void ukui_wp_item_update (UkuiWPItem *item);
 void ukui_wp_item_update_description (UkuiWPItem *item);
-void ukui_wp_item_ensure_ukui_bg (UkuiWPItem *item);
+void ukui_wp_item_ensure_mate_bg (UkuiWPItem *item);
 
-const gchar *wp_item_option_to_string (UkuiBGPlacement type);
-const gchar *wp_item_shading_to_string (UkuiBGColorType type);
-UkuiBGPlacement wp_item_string_to_option (const gchar *option);
-UkuiBGColorType wp_item_string_to_shading (const gchar *shade_type);
+const gchar *wp_item_option_to_string (MateBGPlacement type);
+const gchar *wp_item_shading_to_string (MateBGColorType type);
+MateBGPlacement wp_item_string_to_option (const gchar *option);
+MateBGColorType wp_item_string_to_shading (const gchar *shade_type);
 
 #endif

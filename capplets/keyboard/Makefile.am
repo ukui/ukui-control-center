@@ -15,7 +15,7 @@ ukui_keyboard_properties_SOURCES = \
 	ukui-keyboard-properties-xkbpv.c \
 	ukui-keyboard-properties-xkb.h
 
-ukui_keyboard_properties_LDADD = $(UKUICC_CAPPLETS_LIBS) $(LIBUKUIKBDUI_LIBS)
+ukui_keyboard_properties_LDADD = $(UKUICC_CAPPLETS_LIBS) $(LIBMATEKBDUI_LIBS)
 
 @INTLTOOL_DESKTOP_RULE@
 
