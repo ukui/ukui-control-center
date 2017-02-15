@@ -133,7 +133,7 @@ draw_window_on_pixbuf(GtkWidget* widget)
 }
 #endif
 
-static void pixbuf_apply_mask_region(GdkPixbuf* pixbuf, GdkRegion* region)
+static void pixbuf_apply_mask_region(GdkPixbuf* pixbuf, cairo_region_t* region)
 {
   gint nchannels, rowstride, w, h;
   guchar *pixels, *p;
@@ -238,7 +238,7 @@ create_meta_theme_pixbuf (ThemeThumbnailData *theme_thumbnail_data)
   MetaTheme *theme;
   GdkPixbuf *pixbuf, *icon;
   int icon_width, icon_height;
-  GdkRegion *region;
+  cairo_region_t *region;
 
   g_object_set (gtk_settings_get_default (),
     "gtk-theme-name", (char *) theme_thumbnail_data->control_theme_name->data,
@@ -346,7 +346,7 @@ create_meta_theme_pixbuf (ThemeThumbnailData *theme_thumbnail_data)
   region = meta_preview_get_clip_region (META_PREVIEW (preview),
       META_THUMBNAIL_SIZE, META_THUMBNAIL_SIZE);
   pixbuf_apply_mask_region (pixbuf, region);
-  gdk_region_destroy (region);
+  cairo_region_destroy (region);
 
   g_object_unref (icon);
   gtk_widget_destroy (window);
@@ -465,7 +465,7 @@ create_ukwm_theme_pixbuf (ThemeThumbnailData *theme_thumbnail_data)
   GdkPixmap *pixmap;
 #endif
   GdkPixbuf *pixbuf, *retval;
-  GdkRegion *region;
+  cairo_region_t *region;
 
   theme = meta_theme_load ((char *) theme_thumbnail_data->wm_theme_name->data, NULL);
   if (theme == NULL)
@@ -531,7 +531,7 @@ create_ukwm_theme_pixbuf (ThemeThumbnailData *theme_thumbnail_data)
   region = meta_preview_get_clip_region (META_PREVIEW (preview),
       UKWM_THUMBNAIL_WIDTH * 1.2, UKWM_THUMBNAIL_HEIGHT * 1.2);
   pixbuf_apply_mask_region (pixbuf, region);
-  gdk_region_destroy (region);
+  cairo_region_destroy (region);
 
 
   retval = gdk_pixbuf_scale_simple (pixbuf,
