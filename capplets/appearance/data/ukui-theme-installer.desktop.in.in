@@ -10,4 +10,4 @@ StartupNotify=true
 Categories=GTK;Settings;
 Keywords=ukui-control-center;UKUI;install;desktop;themes;
 NoDisplay=true
-OnlyShowIn=UKUI;
+NotShowIn=KDE;GNOME;MATE;

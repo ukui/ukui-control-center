@@ -31,9 +31,9 @@
       <Filename>ukui-keyboard.desktop</Filename>
       <Filename>ukui-settings-mouse.desktop</Filename>
       <Filename>ukui-network-properties.desktop</Filename>
-      <Filename>ukui-power-preferences.desktop</Filename>
+      <Filename>mate-power-preferences.desktop</Filename>
       <Filename>ukui-display-properties.desktop</Filename>
-      <Filename>ukui-volume-control.desktop</Filename>
+      <Filename>mate-volume-control.desktop</Filename>
       <Filename>system-config-printer.desktop</Filename>
       <Filename>ukui-screensaver-preferences.desktop</Filename>
     </Include>

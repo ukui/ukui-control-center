@@ -8,4 +8,4 @@ Type=Application
 StartupNotify=true
 Categories=GTK;Settings;Accessibility;
 Keywords=ukui-control-center;UKUI;accessibility;features;
-OnlyShowIn=UKUI;
+NotShowIn=KDE;GNOME;MATE;

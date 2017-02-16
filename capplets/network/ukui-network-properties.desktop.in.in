@@ -8,4 +8,4 @@ Type=Application
 StartupNotify=true
 Categories=GTK;Settings;X-UKUI-NetworkSettings;
 Keywords=ukui-control-center;UKUI;network;http;socks;proxy;
-OnlyShowIn=UKUI;
+NotShowIn=KDE;GNOME;MATE;

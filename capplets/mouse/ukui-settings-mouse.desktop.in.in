@@ -8,4 +8,4 @@ Type=Application
 StartupNotify=true
 Categories=GTK;Settings;HardwareSettings;
 Keywords=ukui-control-center;UKUI;mouse;preferences;
-OnlyShowIn=UKUI;
+NotShowIn=KDE;GNOME;MATE;
