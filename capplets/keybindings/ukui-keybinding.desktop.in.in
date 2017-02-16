@@ -8,4 +8,4 @@ Type=Application
 StartupNotify=true
 Categories=GTK;Settings;HardwareSettings;
 Keywords=ukui-control-center;UKUI;assign;keyboard;shortcuts;keybindings;
-NotShowIn=KDE;GNOME;MATE;
+

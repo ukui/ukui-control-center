@@ -8,4 +8,4 @@ Type=Application
 StartupNotify=true
 Categories=GTK;Settings;X-UKUI-PersonalSettings;
 Keywords=ukui-control-center;UKUI;personal;information;
-NotShowIn=KDE;GNOME;MATE;
+

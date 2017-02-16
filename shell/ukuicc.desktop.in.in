@@ -8,4 +8,4 @@ Type=Application
 StartupNotify=true
 Categories=GTK;Settings;
 Keywords=UKUI;control;center;configuration;tool;destop;preferences;
-NotShowIn=KDE;GNOME;MATE;
+

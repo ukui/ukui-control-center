@@ -8,4 +8,4 @@ Type=Application
 StartupNotify=true
 Categories=GTK;Settings;HardwareSettings;
 Keywords=ukui-control-center;UKUI;resolution;position;monitors;display;properties;
-NotShowIn=KDE;GNOME;MATE;
+

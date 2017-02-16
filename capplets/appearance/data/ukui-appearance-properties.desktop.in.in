@@ -8,4 +8,4 @@ Type=Application
 StartupNotify=true
 Categories=GTK;Settings;DesktopSettings;
 Keywords=ukui-control-center;UKUI;appearance;properties;desktop;customize;look;
-NotShowIn=KDE;GNOME;MATE;
+
