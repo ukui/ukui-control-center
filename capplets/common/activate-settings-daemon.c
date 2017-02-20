@@ -40,7 +40,7 @@ activate_settings_daemon (void)
     
   proxy = dbus_g_proxy_new_for_name (connection,
                                      "org.mate.SettingsDaemon",
-                                     "/org.mate.SettingsDaemon",
+                                     "/org/mate/SettingsDaemon",
                                      "org.mate.SettingsDaemon");
 
   if (proxy == NULL)
