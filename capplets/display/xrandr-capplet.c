@@ -2022,7 +2022,7 @@ begin_version2_apply_configuration (App *app, GdkWindow *parent_window, guint32 
 
     app->proxy = dbus_g_proxy_new_for_name (app->connection,
 					    "org.mate.SettingsDaemon",
-					    "/org.mate.SettingsDaemon/XRANDR",
+                        "/org/mate/SettingsDaemon/XRANDR",
 					    "org.mate.SettingsDaemon.XRANDR_2");
     g_assert (app->proxy != NULL); /* that call does not fail unless we pass bogus names */
 
@@ -2045,7 +2045,7 @@ begin_version1_apply_configuration (App *app)
 {
     app->proxy = dbus_g_proxy_new_for_name (app->connection,
 					    "org.mate.SettingsDaemon",
-					    "/org.mate.SettingsDaemon/XRANDR",
+                        "/org/mate/SettingsDaemon/XRANDR",
 					    "org.mate.SettingsDaemon.XRANDR");
     g_assert (app->proxy != NULL); /* that call does not fail unless we pass bogus names */
 
