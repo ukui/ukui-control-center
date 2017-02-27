@@ -4,25 +4,25 @@ ukui-control-center (1.0.0) zesty; urgency=medium
 
  -- handsome_feng <jianfengli@ubuntukylin.com>  Sun, 12 Feb 2017 15:05:59 +0800
 
-ukui-control-center (0.9.3)  yakkety; urgency=medium
+ukui-control-center (0.9.3) yakkety; urgency=medium
 
   * update configure
 
  -- xiaoyiwu <xiaoyiwu@ubuntukylin.com>  Thu, 09 Feb 2017 18:09:58 +0800
 
-ukui-control-center (0.9.2)  yakkety; urgency=medium
+ukui-control-center (0.9.2) yakkety; urgency=medium
 
   * update po
 
  -- xiaoyiwu <xiaoyiwu@ubuntukylin.com>  Mon, 23 Jan 2017 10:10:37 +0800
 
-ukui-control-center (0.9.1)  yakkety; urgency=medium
+ukui-control-center (0.9.1) yakkety; urgency=medium
 
   * update ukuicc.menu
 
  -- xiaoyiwu <xiaoyiwu@ubuntukylin.com>  Mon, 16 Jan 2017 16:37:18 +0800
 
-ukui-control-center (0.9)  yakkety; urgency=medium
+ukui-control-center (0.9) yakkety; urgency=medium
 
   * Fork from mate-control-center，rename to ukui-control-center
 
