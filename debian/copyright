@@ -22,15 +22,14 @@ Files: libslab/double-click-detector.c
 Copyright: 2006-2007, Novell, Inc.
 License: LGPL-2+
 
-Files: 
-       libslab/bookmark-agent.c
+Files: libslab/bookmark-agent.c
        libslab/bookmark-agent.h
        libslab/app-resizer.c
        libslab/app-resizer.h
        libslab/app-shell.c
        libslab/app-shell.h
        libslab/application-tile.c
-	   libslab/application-tile.h
+       libslab/application-tile.h
        libslab/directory-tile.c
        libslab/directory-tile.h
        libslab/document-tile.c
@@ -46,7 +45,7 @@ Files:
        libslab/themed-icon.h
 
 Copyright: 2006-2007, Novell, Inc.
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: LGPL-2+
 
 Files: capplets/appearance/appearance-desktop.c
@@ -65,7 +64,7 @@ Files: capplets/appearance/appearance-desktop.c
        capplets/common/gtkrc-utils.h
        capplets/keyboard/ukui-keyboard-properties-a11y.c
 Copyright: 2007-2010, The GNOME Foundation
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: capplets/appearance/appearance-ui.c
@@ -81,13 +80,13 @@ Files: capplets/appearance/ukui-wp-info.c
        capplets/appearance/ukui-wp-xml.c
        capplets/appearance/ukui-wp-xml.h
 Copyright: 2003-2006, Novell, Inc.
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2
 
 Files: capplets/display/ukui-display-properties-install-systemwide.c
 
 Copyright: 2006-2010 Novell, Inc.
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: capplets/keyboard/ukui-keyboard-properties-xkb.c
@@ -97,7 +96,7 @@ Files: capplets/keyboard/ukui-keyboard-properties-xkb.c
        capplets/keyboard/ukui-keyboard-properties-xkbot.c
        capplets/keyboard/ukui-keyboard-properties-xkbpv.c
 Copyright: 2003-2007, Sergey V. Udaltsov
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: capplets/about-me/fingerprint-strings.h
@@ -113,7 +112,7 @@ Files: capplets/windows/ukui-window-properties.c
        libwindow-settings/ukui-wm-manager.c
 Copyright: 1998-2002, Red Hat, Inc.
            2002, Seth Nickell
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: capplets/common/capplet-util.c
@@ -122,7 +121,7 @@ Files: capplets/common/capplet-util.c
        capplets/common/file-transfer-dialog.h
        capplets/keyboard/ukui-keyboard-properties-a11y.h
 Copyright: 2001-2002, Ximian, Inc.
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: capplets/common/file-transfer-dialog.c
@@ -139,13 +138,13 @@ License: GPL-2+
 
 Files: typing-break/main.c
 Copyright: 2002, CodeFactory AB
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: capplets/appearance/appearance-support.c
        capplets/appearance/appearance-support.h
 Copyright: 2012, Stefano Karapetsas
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: capplets/common/dconf-util.c
@@ -158,7 +157,7 @@ Files: capplets/appearance/appearance-font.c
        capplets/appearance/appearance-style.c
        capplets/appearance/appearance.h
 Copyright: 2007-2010, The GNOME Foundation
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: font-viewer/ftstream-vfs.c
@@ -169,7 +168,7 @@ License: GPL-2+
 Files: font-viewer/font-thumbnailer.c
        font-viewer/font-view.c
 Copyright: 2002-2003, James Henstridge <james@daa.com.au>
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: typing-break/drw-utils.c
@@ -179,7 +178,7 @@ License: GPL-2+
 
 Files: typing-break/drwright.h
 Copyright: 2002, 2003, Richard Hult <richard@imendio.com>
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: capplets/about-me/e-image-chooser.c
@@ -195,7 +194,7 @@ License: GPL-2+
 Files: capplets/common/ukui-theme-apply.h
        capplets/common/ukui-theme-info.h
 Copyright: 2002, Jonathan Blandford <jrb@gnome.org>
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: LGPL-2+
 
 Files: capplets/display/scrollarea.c
@@ -218,72 +217,72 @@ License: MIT~OldStyle+LegalDisclaimer
 Files: capplets/default-applications/ukui-da-capplet.h
 Copyright: 2005-2006, Luca Cavalli
            2010, Perberos <perberos@gmail.com>
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2
 
 Files: capplets/default-applications/ukui-da-capplet.c
 Copyright: 2005-2006, Luca Cavalli
            2008, Thomas Wood <thos@gnome.org>
            2010, Perberos <perberos@gmail.com>
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2
 
 Files: typing-break/drwright.c
 Copyright: 2002, CodeFactory AB
            2002-2003, Richard Hult <richard@imendio.com>
            2003-2005, Imendio HB
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: typing-break/drw-monitor.h
 Copyright: 2002, CodeFactory AB
            2002, Richard Hult <richard@imendi.com>
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: capplets/about-me/ukui-about-me.c
        capplets/about-me/ukui-about-me-fingerprint.c
        capplets/about-me/ukui-about-me-fingerprint.h
 Copyright: 2002, Diego Gonzalez
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: capplets/about-me/ukui-about-me-password.c
 Copyright: 2002, Diego Gonzalez
            2006, Johannes H. Jensen
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: capplets/keyboard/ukui-keyboard-properties.c
 Copyright: 2000-2001, Ximian, Inc.
            2001, Jonathan Blandford
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: capplets/display/xrandr-capplet.c
 Copyright: 2007-2008, Red Hat, Inc.
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: capplets/mouse/ukui-mouse-properties.c
 Copyright: 2001, Red Hat, Inc.
            2001, Ximian, Inc.
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: capplets/keyboard/ukui-keyboard-properties-xkb.h
 Copyright: 2003-2007, Sergey V Udaltsov
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: capplets/network/ukui-network-properties.c
 Copyright: 2002, Sun Microsystems, Inc.
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 
 Files: capplets/common/ukui-theme-apply.c
 Copyright: 2002, Jonathan Blandford <aes@gnome.org>
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: LGPL-2.1+
 Comment:
  The license header of this file refers to a GPL-2.1+ license version which
@@ -299,7 +298,7 @@ License: LGPL-2+
 Files: capplets/common/ukui-theme-info.c
 Copyright: 2002, Jonathan Blandford <jrb@gnome.org>
            2011, Perberos
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: LGPL-2+
 
 Files: capplets/keybindings/eggaccelerators.h
@@ -320,7 +319,7 @@ Copyright: 2014-2015, Stefano Karapetsas <stefano@karapetsas.com>
            2014-2015, Vangelis Mouhtsis <vangelis@gnugr.org>
            2014-2015, Mike Gabriel <mike.gabriel@das-netzwerkteam.de>
            GNOME Developers
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 Comment:
  Assuming license as found in COPYING file.
@@ -345,7 +344,7 @@ Copyright: 2003-2006, Miloslav Trmac <mitr@volny.cz>.
            2009, The GNOME Foundation.
            Croatiann team
            2001, Roy-Magne Mo <rmo@sunnmore.net>
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
 Comment:
  Assuming license as found in COPYING file.
@@ -378,13 +377,13 @@ Copyright: Alexey Dunaev <keir.ru@gmail.com>
            Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>
            Zhang Miao <mymzhang@gmail.com>
            Μάριος Ζηντίλης <m.zindilis@dmajor.org>
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GFDL-1.1+
 
 Files: debian/*
 Copyright: 2011-2014, Stefano Karapetsas <stefano@karapetsas.com>
            2014, Mike Gabriel <sunweaver@debian.org>
-	       2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2 or GPL-2+ or LGPL-2+ or LGPL-2.1+ or MIT~OldStyle+LegalDisclaimer
 
 License: GPL-2
