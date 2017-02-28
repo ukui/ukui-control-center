@@ -43,7 +43,7 @@ Files: libslab/bookmark-agent.c
        shell/control-center.c
        libslab/themed-icon.c
        libslab/themed-icon.h
-
+       libslab/ukui-utils.h
 Copyright: 2006-2007, Novell, Inc.
            2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: LGPL-2+
@@ -72,7 +72,6 @@ Files: capplets/appearance/appearance-ui.c
 Copyright: 2007-2010, The GNOME Foundation
 License: GPL-2+
 
-
 Files: capplets/appearance/ukui-wp-info.c
        capplets/appearance/ukui-wp-info.h
        capplets/appearance/ukui-wp-item.c
@@ -84,7 +83,6 @@ Copyright: 2003-2006, Novell, Inc.
 License: GPL-2
 
 Files: capplets/display/ukui-display-properties-install-systemwide.c
-
 Copyright: 2006-2010 Novell, Inc.
            2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-2+
@@ -131,6 +129,8 @@ Files: capplets/about-me/icons/Makefile.am
        capplets/about-me/*.ui
        capplets/about-me/*.in
        capplets/about-me/AUTHORS
+       capplets/about-me/eel-alert-dialog.c
+       capplets/about-me/eel-alert-dialog.h
        capplets/about-me/icons/left-index-finger.png
        capplets/about-me/icons/left-index-finger.svg
        capplets/about-me/icons/left-little-finger.png
