@@ -3,7 +3,6 @@
    eel-gtk-macros.h: Macros to reduce boilerplate when using GTK.
  
    Copyright (C) 1999, 2000, 2001 Eazel, Inc.
-   Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public License as

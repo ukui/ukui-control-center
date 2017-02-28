@@ -40,7 +40,6 @@ stack trace -
 Once you have the backtrace, copy and paste this either into the
 'Comments' field or attach a file with it included.
 
-
 Patches -
 
 Patches should be submitted to github as pull requests:

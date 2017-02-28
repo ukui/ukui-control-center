@@ -1,8 +1,6 @@
 /* eggaccelerators.c
  * Copyright (C) 2002  Red Hat, Inc.; Copyright 1998, 2001 Tim Janik
- * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * Developed by Havoc Pennington, Tim Janik
- * Modified by zhangshuhao <zhangshuhao@kylinos.cn>
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
  * License as published by the Free Software Foundation; either

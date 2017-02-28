@@ -1,9 +1,7 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*- */
 /* e-image-chooser.c
  * Copyright (C) 2004  Novell, Inc.
- * Copyright (C) 2016,Tianjin KYLIN Information Technology Co., Ltd.
  * Author: Chris Toshok <toshok@ximian.com>
- * Modified by: zhangshuhao <zhangshuhao@kylinos.cn>
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of version 2 of the GNU General Public
  * License as published by the Free Software Foundation.

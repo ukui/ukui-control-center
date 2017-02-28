@@ -34,7 +34,7 @@
 #define SETTINGS_FILE_MGR_OPEN_KEY     "file-mgr-open-cmd"
 #define SETTINGS_SEND_TO_CMD_KEY       "file-send-to-cmd"
 
-#define PEONY_SCHEMA                    "org.mate.peony.preferences"
+#define PEONY_SCHEMA                   "org.mate.peony.preferences"
 #define SETTINGS_ENABLE_DELETE_KEY     "enable-delete"
 #define SETTINGS_CONFIRM_DELETE_KEY    "confirm-trash"
 
