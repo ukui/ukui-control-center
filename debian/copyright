@@ -1,7 +1,7 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: ukui-control-center
-Upstream-Contact: Stefano Karapetsas <stefano@karapetsas.com>
-Source: http://git.ukui.org.ukui.control-center/
+Upstream-Contact: xiaoyiwu <xiaoyiwu@ubuntukylin.com>
+Source: https://github.com/ukui/ukui-control-center
 
 Files: libslab/double-click-detector.c
        libslab/double-click-detector.h
@@ -322,13 +322,13 @@ License: LGPL-2+
 Files: capplets/display/scrollarea.c
        capplets/display/scrollarea.h
 Copyright: 2006-2008, Soren Sandmann <sandmann@daimi.au.dk>
-	   2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: LGPL-2+
 
 Files: capplets/common/capplet-stock-icons.c
        capplets/common/capplet-stock-icons.h
 Copyright: 2002, Sun Microsystems, Inc.
-	   2016,Tianjin KYLIN Information Technology Co., Ltd.
+           2016,Tianjin KYLIN Information Technology Co., Ltd.
 License: LGPL-2+
 
 Files: typing-break/drw-selection.c
