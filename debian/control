@@ -57,7 +57,7 @@ Depends: ${shlibs:Depends},
          desktop-file-utils,
          gsettings-desktop-schemas,
          libglib2.0-bin,
-         mate-power-manager
+         mate-power-manager,
          mate-volume-control
 Suggests: gconf2
 Description: utilities to configure the UKUI desktop
