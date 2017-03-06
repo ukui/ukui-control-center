@@ -16,4 +16,4 @@ override_dh_auto_configure:
 		--with-gtk=3.0
 
 override_dh_strip:
-	dh_strip -pukui-control-center 
+	dh_strip -pukui-control-center

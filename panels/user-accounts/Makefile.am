@@ -35,7 +35,7 @@ ui_DATA = user-create.ui	\
 	  change-name.ui	\
 	  change-face.ui	\
 	  delete-user.ui	\
-	  change-type.ui	
+	  change-type.ui
 
 EXTRA_DIST =                                    \
         $(ui_DATA)

@@ -38,7 +38,7 @@ ukui_control_center_LDADD = 							\
 	$(top_builddir)/panels/volume-control/libvolume.la	\
 	-lm
 
-ukui_control_center_LDFLAGS = -export-dynamic @PACKAGE_LDFLAGS@ 
+ukui_control_center_LDFLAGS = -export-dynamic @PACKAGE_LDFLAGS@
 
 uidir = $(pkgdatadir)/ui
 ui_DATA = shell.ui \
@@ -48,7 +48,7 @@ desktopdir=$(datadir)/applications
 desktop_DATA=ukui-control-center.desktop
 
 EXTRA_DIST =                                    \
-        $(ui_DATA)                              
+        $(ui_DATA)
 
 clean-local :
 	rm -f *~ Makefile.in Makefile

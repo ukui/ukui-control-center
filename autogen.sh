@@ -24,11 +24,11 @@ DIE=0
 
 rm -f .using-gnome-libs-package
 
-if ! which mate-autogen.sh ; then
+if ! which mate-autogen ; then
   echo "You need to install the mate-common module and make"
-  echo "sure the gnome-autogen.sh script is in your \$PATH."
+  echo "sure the mate-autogen script is in your \$PATH."
   exit 1
 fi
 
-. mate-autogen.sh
+. mate-autogen
 

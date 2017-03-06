@@ -19,8 +19,8 @@
  */
 #include <crypt.h>
 #include <oobs/oobs.h>
-#include <sys/wait.h>  
-#include <sys/types.h>  
+#include <sys/wait.h>
+#include <sys/types.h>
 #include <glib/gi18n.h>
 #define MATE_DESKTOP_USE_UNSTABLE_API
 #include <libmate-desktop/mate-desktop-thumbnail.h>
