@@ -40,14 +40,14 @@ Build-Depends: debhelper (>= 9),
                liboobs-1-dev,
                libnotify-dev,
                libpulse-dev
-Standards-Version: 3.9.5
+Standards-Version: 3.9.8
 Homepage: http://www.ubuntuukui.com/
 
 Package: ukui-control-center
 Architecture: any
 Depends: ${shlibs:Depends},
          ${misc:Depends},
-         peony-common
+         peony-common,
          marco-common (>= 1.8.0),
          mate-settings-daemon,
          ukui-indicators,

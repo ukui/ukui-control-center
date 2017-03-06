@@ -64,7 +64,7 @@ Files:panels/display/foo-marshal.c
       AUTHORS
       COPYING
       ChangeLog
-      Makefile.am
+      *Makefile.am
       NEWS
       README
       autogen.sh
