@@ -41,7 +41,7 @@ Build-Depends: debhelper (>= 9),
                libnotify-dev,
                libpulse-dev
 Standards-Version: 3.9.8
-Homepage: http://www.ubuntuukui.com/
+Homepage: https://github.com/ukui/ukui-control-center
 
 Package: ukui-control-center
 Architecture: any
