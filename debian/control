@@ -12,8 +12,8 @@ Build-Depends: debhelper (>= 9),
                libxt-dev,
                libx11-dev,
                libxss-dev,
-               libcanberra-gtk-dev,
-               libgtk2.0-dev,
+               libcanberra-gtk3-dev,
+               libgtk-3-dev,
                libglib2.0-dev,
                libdbus-1-dev,
                libdbus-glib-1-dev,
@@ -47,15 +47,18 @@ Package: ukui-control-center
 Architecture: any
 Depends: ${shlibs:Depends},
          ${misc:Depends},
+         peony-common
          marco-common (>= 1.8.0),
          mate-settings-daemon,
          ukui-indicators,
+         ukui-screensaver,
          mate-menus,
          mate-desktop,
          desktop-file-utils,
          gsettings-desktop-schemas,
          libglib2.0-bin,
          mate-power-manager
+         mate-volume-control
 Suggests: gconf2
 Description: utilities to configure the UKUI desktop
  The UKUI control center contains configuration applets for the UKUI desktop,
