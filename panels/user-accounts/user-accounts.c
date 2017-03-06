@@ -96,11 +96,11 @@ void user_bt_clicked(GtkWidget *widget, gpointer userdata)
 	gtk_container_set_border_width(GTK_CONTAINER(userdata), 1);
 	gtk_notebook_set_current_page(GTK_NOTEBOOK(userdata), 0);
 	gtk_widget_grab_focus(widget);
-	
-	GdkColor color;
-	GtkStyle *style = gtk_rc_get_style(widget);
-	gtk_style_lookup_color (style, "selected_bg_color", &color);
-	gtk_widget_modify_bg(GTK_WIDGET(userdata), GTK_STATE_NORMAL, &color);
+
+//	GdkColor color;
+//	GtkStyle *style = gtk_rc_get_style(widget);
+    //gtk_style_lookup_color (style, "selected_bg_color", &color);
+    //gtk_widget_modify_bg(GTK_WIDGET(userdata), GTK_STATE_NORMAL, &color);
 }
 
 void modify_font_color(GtkWidget *button, char *textcolor)
@@ -1345,7 +1345,7 @@ void init_notebook(UserInfo *userinfo, gint page)
         	GtkWidget *image;
 		GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file(userinfo->iconfile, NULL);
 		if (!pixbuf)
-                        pixbuf = gdk_pixbuf_new_from_file("/usr/share/pixmaps/faces/stock_person.png", NULL);
+            pixbuf = gdk_pixbuf_new_from_file("/usr/share/pixmaps/faces/stock_person.png", NULL);
 		GdkPixbuf *face = gdk_pixbuf_scale_simple(pixbuf, FACEHEIGHT, FACEWIDTH, GDK_INTERP_BILINEAR);
         	image = gtk_image_new_from_pixbuf (face);
 		userinfo->image0 = image;

@@ -41,7 +41,8 @@ ukui_control_center_LDADD = 							\
 ukui_control_center_LDFLAGS = -export-dynamic @PACKAGE_LDFLAGS@ 
 
 uidir = $(pkgdatadir)/ui
-ui_DATA = shell.ui
+ui_DATA = shell.ui \
+        ukcc.css
 
 desktopdir=$(datadir)/applications
 desktop_DATA=ukui-control-center.desktop
