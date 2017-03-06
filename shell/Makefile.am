@@ -1,36 +1,53 @@
-REAL_LIBSLAB_CFLAGS = -I$(top_srcdir)/libslab
-REAL_LIBSLAB_LIBS = $(top_builddir)/libslab/libukui-slab.la
+AM_CPPFLAGS = 						\
+        -DUIDIR="\"$(uidir)\""				\
+	-I$(top_builddir)/panels/time-data		\
+	-I$(top_builddir)/panels/user-accounts		\
+	-I$(top_builddir)/panels/appearance		\
+	-I$(top_builddir)/panels/default-app		\
+	-I$(top_builddir)/panels/keyboard		\
+	-I$(top_builddir)/panels/mouse			\
+	-I$(top_builddir)/panels/network-proxy		\
+	-I$(top_builddir)/panels/session-properties	\
+	-I$(top_builddir)/panels/display		\
+	-I$(top_builddir)/panels/power			\
+	-I$(top_builddir)/panels/volume-control	\
+	$(UNIQUE_CFLAGS)	\
+	@PACKAGE_CFLAGS@
 
-AM_CPPFLAGS =					\
-	-I$(top_srcdir)				\
-	$(REAL_LIBSLAB_CFLAGS)		\
-	$(UKUICC_SHELL_CFLAGS)  	\
-	-DUKUILOCALEDIR="\"$(datadir)/locale\""
+bin_PROGRAMS = ukui-control-center
 
-bin_PROGRAMS = ukui-control-center 
+ukui_control_center_SOURCES = 		\
+	 ukui-control-center.c		\
+	 mainwindow.c			\
+	 mainwindow.h
 
-ukui_control_center_SOURCES =		\
-	control-center.c
 
-ukui_control_center_LDADD =						\
-	$(UKUICC_SHELL_LIBS)						\
-	$(REAL_LIBSLAB_LIBS)
+ukui_control_center_LDADD = 							\
+	@PACKAGE_LIBS@								\
+	$(UNIQUE_LIBS)	\
+	$(top_builddir)/panels/time-data/libtime.la				\
+	$(top_builddir)/panels/user-accounts/libuser-accounts.la 		\
+	$(top_builddir)/panels/appearance/libappearance.la 		\
+	$(top_builddir)/panels/default-app/libdefaultapp.la  			\
+	$(top_builddir)/panels/keyboard/libkeyboard.la  			\
+	$(top_builddir)/panels/mouse/libmouseapp.la  				\
+	$(top_builddir)/panels/network-proxy/libnetworkproxy.la  		\
+	$(top_builddir)/panels/session-properties/libsessionproperties.la	\
+	$(top_builddir)/panels/display/libdisplayapp.la  			\
+	$(top_builddir)/panels/power/libpower.la 				\
+	$(top_builddir)/panels/volume-control/libvolume.la	\
+	-lm
 
-sysdir = $(datadir)/applications
-sys_in_files = ukuicc.desktop.in
-sys_DATA = $(sys_in_files:.desktop.in=.desktop)
-@INTLTOOL_DESKTOP_RULE@
+ukui_control_center_LDFLAGS = -export-dynamic @PACKAGE_LDFLAGS@ 
 
-directorydir = $(datadir)/desktop-directories
-directory_in_files = ukuicc.directory.in
-directory_DATA = $(directory_in_files:.directory.in=.directory)
-@INTLTOOL_DIRECTORY_RULE@
+uidir = $(pkgdatadir)/ui
+ui_DATA = shell.ui
 
-menudir = $(sysconfdir)/xdg/menus
-menu_DATA = ukuicc.menu
+desktopdir=$(datadir)/applications
+desktop_DATA=ukui-control-center.desktop
 
-EXTRA_DIST = ukuicc.desktop.in.in ukuicc.directory.in ukuicc.menu
+EXTRA_DIST =                                    \
+        $(ui_DATA)                              
 
-DISTCLEANFILES = ukuicc.desktop ukuicc.desktop.in ukuicc.directory
-
--include $(top_srcdir)/git.mk
+clean-local :
+	rm -f *~ Makefile.in Makefile

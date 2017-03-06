@@ -1,36 +1,19 @@
 #!/usr/bin/make -f
-
-DHFLAGS=--parallel
-
-export DEB_BUILD_MAINT_OPTIONS = hardening=+all
-DPKG_EXPORT_BUILDFLAGS = 1
-include /usr/share/dpkg/buildflags.mk
+export NO_PKG_MANGLE=1
 
 %:
 	dh $@ $(DHFLAGS)
 
-override_dh_install:
-	rm -rfv debian/tmp/usr/share/applications/mimeinfo.cache
-	rm -rfv debian/tmp/usr/lib/*/*.la
-	rm -rfv debian/tmp/usr/lib/*/*/*.la
-	dh_install --fail-missing
-
 override_dh_auto_configure:
+	# upstream tarball is without configure. autogen.sh will create it
 	NOCONFIGURE=1 ./autogen.sh
 	dh_auto_configure $(DHFLAGS) -- \
 		--disable-silent-rules \
+		--disable-scrollkeeper \
 		--localstatedir=/var \
 		--disable-static \
 		--disable-update-mimedb \
 		--with-gtk=3.0
 
-override_dh_installchangelogs:
-	dh_installchangelogs NEWS
-
 override_dh_strip:
-	dh_strip -pukui-control-center --dbgsym-migration='ukui-control-center-dbg (<< 1.14.0-2~)'
-	dh_strip -plibukui-window-settings1 --dbgsym-migration='libukui-window-settings1-dbg (<< 1.14.0-2~)'
-	dh_strip -plibukui-slab0 --dbgsym-migration='libukui-slab0-dbg (<< 1.14.0-2~)'
-
-get-orig-source:
-	uscan --noconf --force-download --rename --download-current-version --destdir=..
+	dh_strip -pukui-control-center 

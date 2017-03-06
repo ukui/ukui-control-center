@@ -1,6 +1,0 @@
-etc/
-usr/bin/
-usr/lib/*/pkgconfig/ukui-default-applications.pc
-usr/lib/*/pkgconfig/ukui-keybindings.pc
-usr/sbin/
-usr/share/applications/

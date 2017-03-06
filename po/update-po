@@ -1,0 +1,60 @@
+#!/bin/sh
+set -e
+intltool-extract --type=gettext/glade ../shell/shell.ui
+intltool-extract --type=gettext/glade ../panels/appearance/font_render.ui
+intltool-extract --type=gettext/glade ../panels/keyboard/mate-keyboard-properties-layout-chooser.ui
+intltool-extract --type=gettext/glade ../panels/keyboard/shortcut_dialog.ui
+intltool-extract --type=gettext/glade ../panels/session-properties/main-table.ui
+intltool-extract --type=gettext/glade ../panels/session-properties/program_properties.ui
+intltool-extract --type=gettext/glade ../panels/ukui-system-info/export_diagnose_info.ui
+intltool-extract --type=gettext/glade ../panels/network-proxy/network.ui
+intltool-extract --type=gettext/glade ../panels/user-accounts/change-face.ui
+intltool-extract --type=gettext/glade ../panels/user-accounts/change-pwd.ui
+intltool-extract --type=gettext/glade ../panels/user-accounts/delete-user.ui
+intltool-extract --type=gettext/glade ../panels/user-accounts/change-name.ui
+intltool-extract --type=gettext/glade ../panels/user-accounts/change-type.ui
+intltool-extract --type=gettext/glade ../panels/user-accounts/user-create.ui
+cd $(dirname $0)
+PO_DIR=$PWD
+
+PROGNAME=$(basename $0)
+
+# Create a list of files to scan
+GETTEXT_FILES=$(mktemp --tmpdir uitk-unity.lst.XXXXX)
+trap 'rm -f "$GETTEXT_FILES"' EXIT
+cd ..
+find \( -name '*.h' -o -name '*.cpp' -o -name '*.c' -o -name '*.ui.h' \) \
+    -a ! \( -path './debian/*' -o -path './builddir/*' -o -path './build/*' -o -path './.bzr/*' \) | sort \
+> $GETTEXT_FILES
+
+# Generate pot from our list
+xgettext \
+    --output $PO_DIR/ukui-control-center.pot \
+    --files-from $GETTEXT_FILES \
+    --qt --c++ \
+    --language=C \
+    --keyword=_ \
+    --keyword=gettext \
+    --keyword=ngettext \
+    --keyword=N_ \
+    --from-code=utf-8 \
+    --add-comments=TRANSLATORS \
+    --package-name="ukui-control-center" \
+    --copyright-holder="Canonical Ltd."
+
+echo "$PROGNAME: $PO_DIR/auto-generated.pot updated"
+sleep 1
+rm shell/shell.ui.h
+rm panels/appearance/font_render.ui.h
+rm panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h
+rm panels/keyboard/shortcut_dialog.ui.h
+rm panels/session-properties/main-table.ui.h
+rm panels/session-properties/program_properties.ui.h
+rm panels/ukui-system-info/export_diagnose_info.ui.h
+rm panels/network-proxy/network.ui.h
+rm panels/user-accounts/change-face.ui.h
+rm panels/user-accounts/change-pwd.ui.h
+rm panels/user-accounts/delete-user.ui.h
+rm panels/user-accounts/change-name.ui.h
+rm panels/user-accounts/change-type.ui.h
+rm panels/user-accounts/user-create.ui.h

@@ -1,1580 +1,138 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Copyright (C) YEAR Canonical Ltd.
 # This file is distributed under the same license as the PACKAGE package.
-# 
-# Translators:
-# by Abel Cheung <maddog@linuxhall.org>, 2001
-# Christopher Meng <i@cicku.me>, 2012
-# Dean Lee <xslidian@lidian.info>, 2010
-# Deng Xiyue <manphiz@gmail.com>, 2009
-# Dianjin Wang <1132321739qq@gmail.com>, 2012
-# FujianWzh <fujianwzh@gmail.com>, 2009
-# nyanyh <rebuilty@gmail.com>, 2013
-# He Qiangqiang <carton@linux.net.cn>, 2002
-# liushuyu011 <liushuyu011@gmail.com>, 2016
-# Mingye Wang <arthur200126@gmail.com>, 2016
-# nyanyh <rebuilty@gmail.com>, 2013
-# Sun G11n <mate_int_l10n@ireland.sun.com>, 2002
-# Tao Wei <weitao1979@gmail.com>, 2009-2010
-# Wylmer Wang, 2014
-# xhacker <liu.dongyuan@gmail.com>, 2010
-# xhacker <liu.dongyuan@gmail.com>, 2010
-# 玉堂白鹤 <yjwork@qq.com>, 2015
-# 甘 露 <rhythm.gan@gmail.com>, 2009
-# 甘 露 <rhythm.gan@gmail.com>, 2009
-# Mingcong Bai <jeffbai@aosc.xyz>, 2016
-# Mingcong Bai <jeffbai@aosc.xyz>, 2015
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: UKUI Desktop Environment\n"
+"Project-Id-Version: ukui-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-27 23:13+0300\n"
-"PO-Revision-Date: 2016-03-28 04:20+0000\n"
-"Last-Translator: liushuyu011 <liushuyu011@gmail.com>\n"
-"Language-Team: Chinese (China) (http://wiki.ukui.org/trans)\n"
+"POT-Creation-Date: 2016-03-01 10:19+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_CN\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
-#: ../org.ukui.control-center.gschema.xml.in.h:1
-msgid ""
-"[ 'Change Theme;ukui-appearance-properties.desktop', 'Set Preferred "
-"Applications;ukui-default-applications-properties.desktop' ]"
-msgstr "[ '更改主题;ukui-appearance-properties.desktop', '设置首选应用程序;ukui-default-applications-properties.desktop' ]"
-
-#: ../org.ukui.control-center.gschema.xml.in.h:2
-msgid "Task names and associated .desktop files"
-msgstr "任务名及相关的 .desktop 文件"
-
-#: ../org.ukui.control-center.gschema.xml.in.h:3
-msgid ""
-"The task name to be displayed in the control-center followed by a \";\" "
-"separator then the filename of an associated .desktop file to launch for "
-"that task."
-msgstr "在控制中心中显示的任务名称，紧跟着是一个“;”分隔符，然后是该任务启动的相应的 .desktop 文件的文件名。"
-
-#: ../org.ukui.control-center.gschema.xml.in.h:4
-msgid "Close the control-center when a task is activated"
-msgstr "当任务激活时关闭控制中心"
-
-#: ../org.ukui.control-center.gschema.xml.in.h:5
-msgid ""
-"if true, the control-center will close when a \"Common Task\" is activated."
-msgstr "如果为 true，在一个“常见任务”激活时，控制中心将关闭。"
-
-#: ../org.ukui.control-center.gschema.xml.in.h:6
-msgid "Exit shell on start action performed"
-msgstr "执行启动操作时退出外壳"
-
-#: ../org.ukui.control-center.gschema.xml.in.h:7
-msgid "Indicates whether to close the shell when a start action is performed."
-msgstr "指示在执行启动操作时是否关闭外壳"
-
-#: ../org.ukui.control-center.gschema.xml.in.h:8
-msgid "Exit shell on help action performed"
-msgstr "执行帮助操作时退出外壳"
-
-#: ../org.ukui.control-center.gschema.xml.in.h:9
-msgid "Indicates whether to close the shell when a help action is performed."
-msgstr "指示在执行帮助操作时是否关闭外壳"
-
-#: ../org.ukui.control-center.gschema.xml.in.h:10
-msgid "Exit shell on add or remove action performed"
-msgstr "执行添加或移除操作时退出外壳"
-
-#: ../org.ukui.control-center.gschema.xml.in.h:11
-msgid ""
-"Indicates whether to close the shell when an add or remove action is "
-"performed."
-msgstr "指示在执行添加或移除操作时是否关闭外壳"
-
-#: ../org.ukui.control-center.gschema.xml.in.h:12
-msgid "Exit shell on upgrade or uninstall action performed"
-msgstr "执行升级或卸载操作时退出外壳"
-
-#: ../org.ukui.control-center.gschema.xml.in.h:13
-msgid ""
-"Indicates whether to close the shell when an upgrade or uninstall action is "
-"performed."
-msgstr "指示在执行升级或卸载操作时是否关闭外壳"
-
-#: ../org.ukui.control-center.gschema.xml.in.h:14
-msgid "More backgrounds URL"
-msgstr "更多的背景网址"
-
-#: ../org.ukui.control-center.gschema.xml.in.h:15
-msgid ""
-"URL for where to get more desktop backgrounds. If set to an empty string the"
-" link will not appear."
-msgstr "获得更多桌面背景的网址。如果设定为空字符串，那么链接将不会出现。"
-
-#: ../org.ukui.control-center.gschema.xml.in.h:16
-msgid "More themes URL"
-msgstr "更多的主题网址"
-
-#: ../org.ukui.control-center.gschema.xml.in.h:17
-msgid ""
-"URL for where to get more desktop themes. If set to an empty string the link"
-" will not appear."
-msgstr "获得更多桌面主题的网址。如果设定为空字符串，那么链接将不会出现。"
-
-#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:1
-msgid "Keybinding"
-msgstr "键绑定"
-
-#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:2
-msgid "Keybinding associated with a custom shortcut."
-msgstr "自定义快捷键的键绑定。"
-
-#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:3
-msgid "Command"
-msgstr "命令"
-
-#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:4
-msgid "Command associated with a custom keybinding."
-msgstr "自定义键绑定的命令。"
-
-#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:5
-msgid "Name"
-msgstr "名称"
-
-#: ../org.ukui.control-center.keybinding.gschema.xml.in.h:6
-msgid "Description associated with a custom keybinding."
-msgstr "关于自定义键绑定的描述。"
-
-#: ../capplets/about-me/eel-alert-dialog.c:110
-msgid "Image/label border"
-msgstr "图像/标签边框"
-
-#: ../capplets/about-me/eel-alert-dialog.c:111
-msgid "Width of border around the label and image in the alert dialog"
-msgstr "提醒对话框中的标签和图像周围的边框宽度"
-
-#: ../capplets/about-me/eel-alert-dialog.c:120
-msgid "Alert Type"
-msgstr "提醒类型"
-
-#: ../capplets/about-me/eel-alert-dialog.c:121
-msgid "The type of alert"
-msgstr "提醒类型"
-
-#: ../capplets/about-me/eel-alert-dialog.c:129
-msgid "Alert Buttons"
-msgstr "提醒按钮"
-
-#: ../capplets/about-me/eel-alert-dialog.c:130
-msgid "The buttons shown in the alert dialog"
-msgstr "提醒对话框中显示的按钮"
-
-#: ../capplets/about-me/eel-alert-dialog.c:219
-msgid "Show more _details"
-msgstr "显示更多细节(_D)"
-
-#: ../capplets/about-me/ukui-about-me.c:268
-msgid "Select Image"
-msgstr "选择图像"
-
-#: ../capplets/about-me/ukui-about-me.c:270
-msgid "No Image"
-msgstr "无图像"
-
-#: ../capplets/about-me/ukui-about-me.c:298
-#: ../capplets/appearance/appearance-desktop.c:650
-msgid "Images"
-msgstr "图像"
-
-#: ../capplets/about-me/ukui-about-me.c:302
-#: ../capplets/appearance/theme-installer.c:783
-msgid "All Files"
-msgstr "全部文件"
-
-#: ../capplets/about-me/ukui-about-me.c:454
-#, c-format
-msgid "About %s"
-msgstr "关于 %s"
-
-#: ../capplets/about-me/ukui-about-me-dialog.ui.h:1
-#: ../capplets/about-me/ukui-about-me.desktop.in.in.h:1
-msgid "About Me"
-msgstr "关于我"
-
-#: ../capplets/about-me/ukui-about-me-dialog.ui.h:2
-msgid "Select your photo"
-msgstr "选择您的照片"
-
-#: ../capplets/about-me/ukui-about-me-dialog.ui.h:3
-msgid "Full Name"
-msgstr "全名"
-
-#: ../capplets/about-me/ukui-about-me-dialog.ui.h:4
-msgid "User name:"
-msgstr "用户名："
-
-#: ../capplets/about-me/ukui-about-me-dialog.ui.h:5
-msgid "Change Passwo_rd..."
-msgstr "更改密码(_R)..."
-
-#: ../capplets/about-me/ukui-about-me-dialog.ui.h:6
-msgid "Enable _Fingerprint Login..."
-msgstr "启用指纹登录(_F)..."
-
-#: ../capplets/about-me/ukui-about-me-dialog.ui.h:7
-msgid "Disable _Fingerprint Login..."
-msgstr "禁用指纹登录(_F)..."
-
-#: ../capplets/about-me/ukui-about-me.desktop.in.in.h:2
-msgid "Set your personal information"
-msgstr "设置您的个人信息"
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.c:100
-msgid ""
-"You are not allowed to access the device. Contact your system administrator."
-msgstr "您未被允许访问该设备。请联系您的系统管理员。"
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.c:102
-msgid "The device is already in use."
-msgstr "设备使用中。"
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.c:104
-msgid "An internal error occurred"
-msgstr "发生了一个内部错误"
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.c:221
-msgid "Delete registered fingerprints?"
-msgstr "要删除已登记的指纹吗？"
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.c:224
-msgid "_Delete Fingerprints"
-msgstr "删除指纹(_D)"
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.c:231
-msgid ""
-"Do you want to delete your registered fingerprints so fingerprint login is "
-"disabled?"
-msgstr "你想删除已登记的指纹吗？这样做将禁用指纹登录。"
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.c:359
-#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:15
-msgid "Done!"
-msgstr "搞定！"
-
-#. translators:
-#. * The variable is the name of the device, for example:
-#. * "Could you not access "Digital Persona U.are.U 4000/4000B" device
-#: ../capplets/about-me/ukui-about-me-fingerprint.c:405
-#: ../capplets/about-me/ukui-about-me-fingerprint.c:427
-#, c-format
-msgid "Could not access '%s' device"
-msgstr "无法访问“%s”设备"
-
-#. translators:
-#. * The variable is the name of the device, for example:
-#. * "Could you not access "Digital Persona U.are.U 4000/4000B" device
-#: ../capplets/about-me/ukui-about-me-fingerprint.c:476
-#, c-format
-msgid "Could not start finger capture on '%s' device"
-msgstr "无法在“%s”设备上启动手指捕捉"
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.c:523
-msgid "Could not access any fingerprint readers"
-msgstr "无法访问指纹读取器"
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.c:524
-msgid "Please contact your system administrator for help."
-msgstr "请联系系统管理员以寻求帮助。"
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.c:554
-#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:9
-msgid "Enable Fingerprint Login"
-msgstr "启用指纹登录"
-
-#. translators:
-#. * The variable is the name of the device, for example:
-#. * "To enable fingerprint login, you need to save one of your fingerprints,
-#. using the
-#. * 'Digital Persona U.are.U 4000/4000B' device."
-#: ../capplets/about-me/ukui-about-me-fingerprint.c:584
-#, c-format
-msgid ""
-"To enable fingerprint login, you need to save one of your fingerprints, "
-"using the '%s' device."
-msgstr "要启用指纹登录，你需要使用“%s”设备来保存您的一个指纹。"
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.c:593
-msgid "Swipe finger on reader"
-msgstr "在读取器上刷一下手指"
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.c:595
-msgid "Place finger on reader"
-msgstr "将手指放在读取器上"
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:1
-msgid "Left thumb"
-msgstr "左手拇指"
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:2
-msgid "Left middle finger"
-msgstr "左手中指"
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:3
-msgid "Left ring finger"
-msgstr "左手无名指"
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:4
-msgid "Left little finger"
-msgstr "左手小指"
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:5
-msgid "Right thumb"
-msgstr "右手拇指"
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:6
-msgid "Right middle finger"
-msgstr "右手中指"
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:7
-msgid "Right ring finger"
-msgstr "右手无名指"
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:8
-msgid "Right little finger"
-msgstr "右手小指"
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:10
-msgid "Right index finger"
-msgstr "右手食指"
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:11
-msgid "Left index finger"
-msgstr "左手食指"
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:12
-msgid "Other finger: "
-msgstr "其他手指："
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:13
-msgid "Select finger"
-msgstr "选择手指"
-
-#: ../capplets/about-me/ukui-about-me-fingerprint.ui.h:14
-msgid ""
-"Your fingerprint was successfully saved. You should now be able to log in "
-"using your fingerprint reader."
-msgstr "您的指纹已成功保存。您现在应该可以使用指纹读取器登录了。"
-
-#: ../capplets/about-me/ukui-about-me-password.c:161
-msgid "Child exited unexpectedly"
-msgstr "子进程意外退出"
-
-#: ../capplets/about-me/ukui-about-me-password.c:297
-#, c-format
-msgid "Could not shutdown backend_stdin IO channel: %s"
-msgstr "无法关闭后端标准输入通道：%s"
-
-#: ../capplets/about-me/ukui-about-me-password.c:310
-#, c-format
-msgid "Could not shutdown backend_stdout IO channel: %s"
-msgstr "无法关闭后端标准输出通道：%s"
-
-#: ../capplets/about-me/ukui-about-me-password.c:409
-msgid "Authenticated!"
-msgstr "已通过身份验证！"
-
-#. This is a re-auth, and it failed.
-#. * The password must have been changed in the meantime!
-#. * Ask the user to re-authenticate
-#. Update status message and auth state
-#. Authentication failure
-#: ../capplets/about-me/ukui-about-me-password.c:472
-#: ../capplets/about-me/ukui-about-me-password.c:557
-msgid ""
-"Your password has been changed since you initially authenticated! Please re-"
-"authenticate."
-msgstr "您的密码在您首次登录后已经更改。请重新进行身份验证。"
-
-#: ../capplets/about-me/ukui-about-me-password.c:474
-msgid "That password was incorrect."
-msgstr "密码错误。"
-
-#: ../capplets/about-me/ukui-about-me-password.c:525
-msgid "Your password has been changed."
-msgstr "您的密码已更改。"
-
-#. What does this indicate?
-#. * "Authentication information cannot be recovered?" from libpam?
-#: ../capplets/about-me/ukui-about-me-password.c:535
-#, c-format
-msgid "System error: %s."
-msgstr "系统错误：%s。"
-
-#: ../capplets/about-me/ukui-about-me-password.c:538
-msgid "The password is too short."
-msgstr "密码太短。"
-
-#: ../capplets/about-me/ukui-about-me-password.c:542
-msgid "The password is too simple."
-msgstr "密码太简单。"
-
-#: ../capplets/about-me/ukui-about-me-password.c:547
-msgid "The old and new passwords are too similar."
-msgstr "旧密码和新密码太相似。"
-
-#: ../capplets/about-me/ukui-about-me-password.c:549
-msgid "The new password must contain numeric or special character(s)."
-msgstr "必须包含数字或特殊字符。"
-
-#: ../capplets/about-me/ukui-about-me-password.c:552
-msgid "The old and new passwords are the same."
-msgstr "旧密码和新密码相同。"
-
-#: ../capplets/about-me/ukui-about-me-password.c:554
-msgid "The new password has already been used recently."
-msgstr "新密码最近已被使用过。"
-
-#. translators: Unable to launch <program>: <error message>
-#: ../capplets/about-me/ukui-about-me-password.c:829
-#, c-format
-msgid "Unable to launch %s: %s"
-msgstr "无法启动 %s：%s"
-
-#: ../capplets/about-me/ukui-about-me-password.c:833
-msgid "Unable to launch backend"
-msgstr "无法调用后端"
-
-#: ../capplets/about-me/ukui-about-me-password.c:834
-msgid "A system error has occurred"
-msgstr "发生了系统错误"
-
-#. Update status message
-#: ../capplets/about-me/ukui-about-me-password.c:854
-msgid "Checking password..."
-msgstr "正在检查密码..."
-
-#: ../capplets/about-me/ukui-about-me-password.c:938
-msgid "Click <b>Change password</b> to change your password."
-msgstr "单击<b>更改密码</b>可更改密码。"
-
-#: ../capplets/about-me/ukui-about-me-password.c:941
-msgid "Please type your password in the <b>New password</b> field."
-msgstr "请在<b>新密码</b>框中输入您的新密码。"
-
-#: ../capplets/about-me/ukui-about-me-password.c:944
-#: ../capplets/about-me/ukui-about-me-password.ui.h:9
-msgid ""
-"Please type your password again in the <b>Retype new password</b> field."
-msgstr "请在<b>重新输入新密码</b>框中再输入一次密码。"
-
-#: ../capplets/about-me/ukui-about-me-password.c:947
-msgid "The two passwords are not equal."
-msgstr "输入的两个密码不同。"
-
-#: ../capplets/about-me/ukui-about-me-password.ui.h:1
-msgid "Change password"
-msgstr "更改密码"
-
-#: ../capplets/about-me/ukui-about-me-password.ui.h:2
-msgid "Change your password"
-msgstr "更改您的密码"
-
-#: ../capplets/about-me/ukui-about-me-password.ui.h:3
-msgid ""
-"To change your password, enter your current password in the field below and click <b>Authenticate</b>.\n"
-"After you have authenticated, enter your new password, retype it for verification and click <b>Change password</b>."
-msgstr "要更改您的密码，请在下面的框中输入您目前的密码，然后单击<b>身份验证</b>。\n在您通过身份验证之后，输入您的新密码，重新输入一次以便进行校验，然后单击<b>更改密码</b>。"
-
-#: ../capplets/about-me/ukui-about-me-password.ui.h:5
-msgid "Current _password:"
-msgstr "当前密码(_P)："
-
-#: ../capplets/about-me/ukui-about-me-password.ui.h:6
-msgid "_New password:"
-msgstr "新密码(_N)："
-
-#: ../capplets/about-me/ukui-about-me-password.ui.h:7
-msgid "_Retype new password:"
-msgstr "重新输入新密码(_R)："
-
-#: ../capplets/about-me/ukui-about-me-password.ui.h:8
-msgid "_Authenticate"
-msgstr "身份验证(_A)"
-
-#: ../capplets/about-me/ukui-about-me-password.ui.h:10
-msgid "Change pa_ssword"
-msgstr "更改密码(_S)"
-
-#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:1
-msgid "Assistive Technologies Preferences"
-msgstr "辅助技术首选项"
-
-#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:2
-#: ../capplets/accessibility/at-properties/ukui-at-properties.desktop.in.in.h:1
-msgid "Assistive Technologies"
-msgstr "辅助技术"
-
-#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:3
-msgid "_Preferred Applications"
-msgstr "首选应用程序(_P)"
-
-#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:4
-msgid "Jump to Preferred Applications dialog"
-msgstr "跳转到首选应用程序对话框"
-
-#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:5
-msgid "_Enable assistive technologies"
-msgstr "启用辅助技术(_E)"
-
-#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:6
-msgid ""
-"Changes to enable assistive technologies will not take effect until your "
-"next log in."
-msgstr "对启用辅助技术的更改直到下次登录后才会生效。"
-
-#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:7
-msgid "Preferences"
-msgstr "首选项"
-
-#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:8
-msgid "_Keyboard Accessibility"
-msgstr "键盘辅助功能(_K)"
-
-#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:9
-msgid "Jump to the Keyboard Accessibility dialog"
-msgstr "跳转到键盘辅助功能对话框"
-
-#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:10
-msgid "_Mouse Accessibility"
-msgstr "鼠标辅助功能(_M)"
-
-#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:11
-msgid "Jump to the Mouse Accessibility dialog"
-msgstr "跳转到鼠标辅助功能对话框"
-
-#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:12
-msgid "Accessible Lo_gin"
-msgstr "带辅助功能的登录(_G)"
-
-#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:13
-msgid "Jump to the Accessible Login dialog"
-msgstr "跳转到辅助登录对话框"
-
-#: ../capplets/accessibility/at-properties/at-enable-dialog.ui.h:14
-msgid "Close and _Log Out"
-msgstr "关闭并注销(_L)"
-
-#: ../capplets/accessibility/at-properties/ukui-at-properties.desktop.in.in.h:2
-msgid "Choose which accessibility features to enable when you log in"
-msgstr "选择您登录时想要启用的辅助特性"
-
-#: ../capplets/appearance/appearance-desktop.c:619
+#: panels/appearance/appearance-desktop.c:542
 msgid "Add Wallpaper"
 msgstr "添加壁纸"
 
-#: ../capplets/appearance/appearance-desktop.c:654
-msgid "All files"
-msgstr "全部文件"
-
-#: ../capplets/appearance/appearance-main.c:61
-#, c-format
-msgid "Could not load user interface file: %s"
-msgstr "无法加载用户界面文件：%s"
-
-#: ../capplets/appearance/appearance-main.c:161
-msgid "Specify the filename of a theme to install"
-msgstr "指定要安装的主题文件名"
-
-#: ../capplets/appearance/appearance-main.c:162
-msgid "filename"
-msgstr "文件名"
-
-#. TRANSLATORS: don't translate the terms in brackets
-#: ../capplets/appearance/appearance-main.c:169
-msgid ""
-"Specify the name of the page to show (theme|background|fonts|interface)"
-msgstr "指定要显示的页面名称 (theme|background|fonts|interface)"
-
-#: ../capplets/appearance/appearance-main.c:170
-#: ../capplets/default-applications/ukui-da-capplet.c:693
-#: ../capplets/mouse/ukui-mouse-properties.c:483
-msgid "page"
-msgstr "page"
-
-#: ../capplets/appearance/appearance-main.c:177
-msgid "[WALLPAPER...]"
-msgstr "[壁纸...]"
-
-#: ../capplets/appearance/appearance-style.c:171
-#: ../capplets/common/ukui-theme-info.c:497
-#: ../capplets/common/ukui-theme-info.c:690
-msgid "Default Pointer"
-msgstr "默认指针"
-
-#: ../capplets/appearance/appearance-style.c:233
-#: ../capplets/appearance/appearance-themes.c:661
-msgid "Install"
-msgstr "安装"
-
-#: ../capplets/appearance/appearance-style.c:269
-#: ../capplets/common/ukui-theme-info.c:1726
-#, c-format
-msgid ""
-"This theme will not look as intended because the required GTK+ theme engine "
-"'%s' is not installed."
-msgstr "此主题可能与设计时看起来不同，因为所需的 GTK+ 主题引擎“%s”未安装。"
-
-#: ../capplets/appearance/appearance-themes.c:649
-msgid "Apply Background"
-msgstr "应用背景"
-
-#: ../capplets/appearance/appearance-themes.c:653
-msgid "Apply Font"
-msgstr "应用字体"
-
-#: ../capplets/appearance/appearance-themes.c:657
-msgid "Revert Font"
-msgstr "恢复字体"
-
-#: ../capplets/appearance/appearance-themes.c:703
-msgid ""
-"The current theme suggests a background and a font. Also, the last applied "
-"font suggestion can be reverted."
-msgstr "当前主题推荐了一个背景和一种字体。同时，上次应用的推荐字体可被恢复。"
-
-#: ../capplets/appearance/appearance-themes.c:705
-msgid ""
-"The current theme suggests a background. Also, the last applied font "
-"suggestion can be reverted."
-msgstr "当前主题推荐了一个背景。同时，上次应用的推荐字体可被恢复。"
-
-#: ../capplets/appearance/appearance-themes.c:707
-msgid "The current theme suggests a background and a font."
-msgstr "当前主题推荐了一个背景和一种字体。"
-
-#: ../capplets/appearance/appearance-themes.c:709
-msgid ""
-"The current theme suggests a font. Also, the last applied font suggestion "
-"can be reverted."
-msgstr "当前主题推荐了一种字体。同时，上次应用的推荐字体可被恢复。"
-
-#: ../capplets/appearance/appearance-themes.c:711
-msgid "The current theme suggests a background."
-msgstr "当前主题推荐了一个背景。"
-
-#: ../capplets/appearance/appearance-themes.c:713
-msgid "The last applied font suggestion can be reverted."
-msgstr "上次应用的推荐字体可被恢复。"
-
-#: ../capplets/appearance/appearance-themes.c:715
-msgid "The current theme suggests a font."
-msgstr "当前主题推荐了一种字体。"
-
-#: ../capplets/appearance/appearance-themes.c:1031
-msgid "Custom"
-msgstr "自定义"
-
-#: ../capplets/appearance/data/appearance.ui.h:1
-msgid "Font Rendering Details"
-msgstr "字体渲染细节"
-
-#: ../capplets/appearance/data/appearance.ui.h:2
-msgid "R_esolution:"
-msgstr "分辨率(_E)："
-
-#: ../capplets/appearance/data/appearance.ui.h:3
-msgid "dots per inch"
-msgstr "每英寸点数"
-
-#: ../capplets/appearance/data/appearance.ui.h:4
-msgid "Smoothing"
-msgstr "平滑"
-
-#: ../capplets/appearance/data/appearance.ui.h:5
-msgid "_None"
-msgstr "无(_N)"
-
-#: ../capplets/appearance/data/appearance.ui.h:6
-msgid "Gra_yscale"
-msgstr "灰度(_Y)"
-
-#: ../capplets/appearance/data/appearance.ui.h:7
-msgid "Sub_pixel (LCDs)"
-msgstr "次像素(_P) (LCD)"
-
-#. font hinting
-#: ../capplets/appearance/data/appearance.ui.h:9
-msgid "Hinting"
-msgstr "微调"
-
-#: ../capplets/appearance/data/appearance.ui.h:10
-msgid "N_one"
-msgstr "无(_O)"
-
-#: ../capplets/appearance/data/appearance.ui.h:11
-msgid "_Slight"
-msgstr "轻微(_S)"
-
-#: ../capplets/appearance/data/appearance.ui.h:12
-msgid "_Medium"
-msgstr "中等(_M)"
-
-#: ../capplets/appearance/data/appearance.ui.h:13
-msgid "_Full"
-msgstr "完全(_F)"
-
-#: ../capplets/appearance/data/appearance.ui.h:14
-msgid "Subpixel Order"
-msgstr "次像素顺序"
-
-#. pixel order red, green, blue
-#: ../capplets/appearance/data/appearance.ui.h:16
-msgid "_RGB"
-msgstr "_RGB"
-
-#. pixel order blue, green, red
-#: ../capplets/appearance/data/appearance.ui.h:18
-msgid "_BGR"
-msgstr "_BGR"
-
-#. vertical hinting, pixel order red, green, blue
-#: ../capplets/appearance/data/appearance.ui.h:20
-msgid "_VRGB"
-msgstr "_VRGB"
-
-#. vertical hinting, pixel order blue, green, red
-#: ../capplets/appearance/data/appearance.ui.h:22
-msgid "VB_GR"
-msgstr "VB_GR"
-
-#: ../capplets/appearance/data/appearance.ui.h:23
-msgid "Appearance Preferences"
-msgstr "外观首选项"
-
-#: ../capplets/appearance/data/appearance.ui.h:24
-msgid "Save _As..."
-msgstr "另存为(_A)..."
-
-#: ../capplets/appearance/data/appearance.ui.h:25
-msgid "C_ustomize..."
-msgstr "自定义(_U)..."
-
-#: ../capplets/appearance/data/appearance.ui.h:26
-msgid "_Install..."
-msgstr "安装(_I)..."
-
-#: ../capplets/appearance/data/appearance.ui.h:27
-msgid "Get more themes online"
-msgstr "在线获取更多主题"
-
-#: ../capplets/appearance/data/appearance.ui.h:28
-msgid "Theme"
-msgstr "主题"
-
-#: ../capplets/appearance/data/appearance.ui.h:29
-msgid "_Style:"
-msgstr "样式(_S)："
-
-#: ../capplets/appearance/data/appearance.ui.h:30
-msgid "C_olors:"
-msgstr "颜色(_O)"
-
-#: ../capplets/appearance/data/appearance.ui.h:31
-msgid "Open a dialog to specify the color"
-msgstr "打开指定颜色的对话框"
-
-#: ../capplets/appearance/data/appearance.ui.h:32
-msgid "Get more backgrounds online"
-msgstr "在线获取更多背景"
-
-#: ../capplets/appearance/data/appearance.ui.h:33
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:17
-msgid "_Add..."
-msgstr "添加(_A)..."
-
-#: ../capplets/appearance/data/appearance.ui.h:34
-msgid "Background"
-msgstr "背景"
-
-#: ../capplets/appearance/data/appearance.ui.h:35
-msgid "_Document font:"
-msgstr "文档字体(_D)："
-
-#: ../capplets/appearance/data/appearance.ui.h:36
-msgid "Des_ktop font:"
-msgstr "桌面字体(_K)："
-
-#: ../capplets/appearance/data/appearance.ui.h:37
-msgid "_Window title font:"
-msgstr "窗口标题字体(_W)："
-
-#: ../capplets/appearance/data/appearance.ui.h:38
-msgid "_Fixed width font:"
-msgstr "等宽字体(_F)："
-
-#: ../capplets/appearance/data/appearance.ui.h:39
-msgid "_Application font:"
-msgstr "应用程序字体(_A)："
-
-#: ../capplets/appearance/data/appearance.ui.h:40
-msgid "Rendering"
-msgstr "渲染"
-
-#: ../capplets/appearance/data/appearance.ui.h:41
-msgid "Sub_pixel smoothing (LCDs)"
-msgstr "次像素平滑(_P) (LCD)"
-
-#: ../capplets/appearance/data/appearance.ui.h:42
-msgid "Best co_ntrast"
-msgstr "最佳对比(_N)"
-
-#: ../capplets/appearance/data/appearance.ui.h:43
-msgid "Best _shapes"
-msgstr "最佳形状(_S)"
-
-#: ../capplets/appearance/data/appearance.ui.h:44
-msgid "_Monochrome"
-msgstr "单色(_M)"
-
-#: ../capplets/appearance/data/appearance.ui.h:45
-msgid "D_etails..."
-msgstr "细节(_E)..."
-
-#: ../capplets/appearance/data/appearance.ui.h:46
-msgid "Fonts"
-msgstr "字体"
-
-#: ../capplets/appearance/data/appearance.ui.h:47
-msgid "Menus and Toolbars"
-msgstr "菜单和工具栏"
-
-#: ../capplets/appearance/data/appearance.ui.h:48
-msgid "Show _icons in menus"
-msgstr "在菜单中显示图标 (_I)"
-
-#: ../capplets/appearance/data/appearance.ui.h:49
-msgid "_Editable menu shortcut keys"
-msgstr "可编辑的菜单快捷键 (_E)"
-
-#: ../capplets/appearance/data/appearance.ui.h:50
-msgid "Toolbar _button labels:"
-msgstr "工具栏按钮文字 (_B)："
-
-#: ../capplets/appearance/data/appearance.ui.h:51
-msgid "Preview"
-msgstr "预览"
-
-#: ../capplets/appearance/data/appearance.ui.h:52
-msgid "_File"
-msgstr "文件 (_F)"
-
-#: ../capplets/appearance/data/appearance.ui.h:53
-msgid "Edit"
-msgstr "编辑"
-
-#: ../capplets/appearance/data/appearance.ui.h:54
-msgid "Interface"
-msgstr "界面"
-
-#: ../capplets/appearance/data/appearance.ui.h:55
-msgid "Tile"
-msgstr "平铺"
-
-#: ../capplets/appearance/data/appearance.ui.h:56
-msgid "Zoom"
-msgstr "缩放"
-
-#: ../capplets/appearance/data/appearance.ui.h:57
-msgid "Center"
-msgstr "居中"
-
-#: ../capplets/appearance/data/appearance.ui.h:58
-msgid "Scale"
-msgstr "比例放大"
-
-#: ../capplets/appearance/data/appearance.ui.h:59
-msgid "Stretch"
-msgstr "伸展"
-
-#: ../capplets/appearance/data/appearance.ui.h:60
-msgid "Span"
-msgstr "适合宽度"
-
-#: ../capplets/appearance/data/appearance.ui.h:61
-msgid "Solid color"
-msgstr "纯色"
-
-#: ../capplets/appearance/data/appearance.ui.h:62
-msgid "Horizontal gradient"
-msgstr "水平梯度"
-
-#: ../capplets/appearance/data/appearance.ui.h:63
-msgid "Vertical gradient"
-msgstr "垂直梯度"
-
-#: ../capplets/appearance/data/appearance.ui.h:64
-msgid "Text below items"
-msgstr "文本在下"
-
-#: ../capplets/appearance/data/appearance.ui.h:65
-msgid "Text beside items"
-msgstr "文本在旁"
-
-#: ../capplets/appearance/data/appearance.ui.h:66
-msgid "Icons only"
-msgstr "仅图标"
-
-#: ../capplets/appearance/data/appearance.ui.h:67
-msgid "Text only"
-msgstr "仅文本"
-
-#: ../capplets/appearance/data/appearance.ui.h:68
-msgid "Customize Theme"
-msgstr "自定义主题"
-
-#: ../capplets/appearance/data/appearance.ui.h:69
-msgid "Controls"
-msgstr "控件"
-
-#: ../capplets/appearance/data/appearance.ui.h:70
-msgid "The current controls theme does not support color schemes."
-msgstr "当前控件主题不支持配色方案。"
-
-#: ../capplets/appearance/data/appearance.ui.h:71
-msgid "_Tooltips:"
-msgstr "工具提示(_T)："
-
-#: ../capplets/appearance/data/appearance.ui.h:72
-msgid "_Selected items:"
-msgstr "选中项目(_S)："
-
-#: ../capplets/appearance/data/appearance.ui.h:73
-msgid "_Input boxes:"
-msgstr "输入框(_I)："
-
-#: ../capplets/appearance/data/appearance.ui.h:74
-msgid "_Windows:"
-msgstr "窗口(_W)："
-
-#: ../capplets/appearance/data/appearance.ui.h:75
-msgid "Text"
-msgstr "文本"
-
-#: ../capplets/appearance/data/appearance.ui.h:76
-msgid "_Reset to Defaults"
-msgstr "重置为默认值(_R)"
-
-#: ../capplets/appearance/data/appearance.ui.h:77
-msgid "Colors"
-msgstr "颜色"
-
-#: ../capplets/appearance/data/appearance.ui.h:78
-msgid "Window Border"
-msgstr "窗口边框"
-
-#: ../capplets/appearance/data/appearance.ui.h:79
-msgid "Icons"
-msgstr "图标"
-
-#: ../capplets/appearance/data/appearance.ui.h:80
-msgid "Changing your cursor theme takes effect the next time you log in."
-msgstr "更改您的指针主题将会在您下次登录时生效。"
-
-#: ../capplets/appearance/data/appearance.ui.h:81
-msgid "_Size:"
-msgstr "大小(_S)："
-
-#. small threshold
-#: ../capplets/appearance/data/appearance.ui.h:82
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:21
-msgid "Small"
-msgstr "小"
-
-#. large threshold
-#: ../capplets/appearance/data/appearance.ui.h:83
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:24
-msgid "Large"
-msgstr "大"
-
-#: ../capplets/appearance/data/appearance.ui.h:84
-msgid "Pointer"
-msgstr "指针"
-
-#: ../capplets/appearance/data/appearance.ui.h:85
-msgid "Save Theme As..."
-msgstr "主题另存为..."
-
-#: ../capplets/appearance/data/appearance.ui.h:86
-#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:4
-msgid "_Name:"
-msgstr "名称(_N)："
-
-#: ../capplets/appearance/data/appearance.ui.h:87
-msgid "_Description:"
-msgstr "描述(_D)："
-
-#: ../capplets/appearance/data/appearance.ui.h:88
-msgid "Save _background image"
-msgstr "保存背景图像(_B)"
-
-#: ../capplets/appearance/data/appearance.ui.h:89
-msgid "Save _notification theme"
-msgstr "保存通知主题 (_N)"
-
-#: ../capplets/appearance/data/ukui-appearance-properties.desktop.in.in.h:1
-msgid "Appearance"
-msgstr "外观"
-
-#: ../capplets/appearance/data/ukui-appearance-properties.desktop.in.in.h:2
-msgid "Customize the look of the desktop"
-msgstr "自定义桌面外观"
-
-#: ../capplets/appearance/data/ukui-theme-installer.desktop.in.in.h:1
-msgid "Theme Installer"
-msgstr "主题安装程序"
-
-#: ../capplets/appearance/data/ukui-theme-installer.desktop.in.in.h:2
-msgid "Installs themes packages for various parts of the desktop"
-msgstr "为桌面的各部分安装主题包"
-
-#: ../capplets/appearance/data/ukui-theme-package.xml.in.h:1
-msgid "Ukui Theme Package"
-msgstr "Ukui 主题包"
-
-#: ../capplets/appearance/ukui-wp-info.c:51
-msgid "No Desktop Background"
-msgstr "无桌面背景"
-
-#: ../capplets/appearance/ukui-wp-item.c:288
-msgid "unknown"
-msgstr "未知"
-
-#: ../capplets/appearance/ukui-wp-item.c:295
-msgid "Slide Show"
-msgstr "幻灯片演示"
-
-#: ../capplets/appearance/ukui-wp-item.c:297
+#: panels/appearance/appearance-desktop.c:575
 msgid "Image"
 msgstr "图像"
 
-#: ../capplets/appearance/ukui-wp-item.c:303
-msgid "multiple sizes"
-msgstr "多重尺寸"
+#: panels/appearance/appearance-desktop.c:579
+msgid "ALL File"
+msgstr "所有文件"
 
-#. translators: x pixel(s) by y pixel(s)
-#: ../capplets/appearance/ukui-wp-item.c:306
-#, c-format
-msgid "%d %s by %d %s"
-msgstr "%d %s * %d %s"
+#: panels/appearance/appearance-theme.c:43
+msgid "Please choose a color that you like as the theme colors."
+msgstr "选择一个您喜欢的颜色作为主题颜色"
 
-#: ../capplets/appearance/ukui-wp-item.c:308
-#: ../capplets/appearance/ukui-wp-item.c:310
+#: panels/appearance/appearance-theme.c:57
+msgid ""
+"Set up disable. Please wait at least 5 seconds that system subject will "
+"restart"
+msgstr "设置无效!请等待至少5秒，以便系统主题重新启动"
+
+#: panels/appearance/font_render.ui.h:1
+msgid "Font Rendering Details"
+msgstr "字体渲染详情"
+
+#: panels/appearance/font_render.ui.h:2
+msgid "R_esolution:"
+msgstr "分辨率(_E):"
+
+#: panels/appearance/font_render.ui.h:3
+msgid "dots per inch"
+msgstr "每英寸点数"
+
+#: panels/appearance/font_render.ui.h:4
+msgid "Smoothing"
+msgstr "平滑"
+
+#: panels/appearance/font_render.ui.h:5
+msgid "_None"
+msgstr "无(_N)"
+
+#: panels/appearance/font_render.ui.h:6
+msgid "Gra_yscale"
+msgstr "灰度(_Y)"
+
+#: panels/appearance/font_render.ui.h:7
+msgid "Sub_pixel (LCDs)"
+msgstr "次像素(_P) (LCDs)"
+
+#: panels/appearance/font_render.ui.h:9
+msgid "_Slight"
+msgstr "微调"
+
+#: panels/appearance/font_render.ui.h:10
+msgid "N_one"
+msgstr "无(_O)"
+
+#: panels/appearance/font_render.ui.h:11
+msgid "_Medium"
+msgstr "中等(_M)"
+
+#: panels/appearance/font_render.ui.h:12
+msgid "_Full"
+msgstr "完全(_F)"
+
+#: panels/appearance/font_render.ui.h:13
+msgid "Subpixel Order"
+msgstr "次像素顺序"
+
+#: panels/appearance/font_render.ui.h:15
+msgid "_RGB"
+msgstr ""
+
+#: panels/appearance/font_render.ui.h:17
+msgid "_BGR"
+msgstr ""
+
+#: panels/appearance/font_render.ui.h:19
+msgid "_VRGB"
+msgstr ""
+
+#: panels/appearance/font_render.ui.h:21
+msgid "VB_GR"
+msgstr ""
+
+#: panels/appearance/mate-wp-info.c:28
+msgid "No Desktop Background"
+msgstr "无桌面背景"
+
+#: panels/appearance/mate-wp-item.c:296 panels/appearance/mate-wp-item.c:298
 msgid "pixel"
 msgid_plural "pixels"
 msgstr[0] "像素"
+msgstr[1] "像素"
 
-#. translators: <b>wallpaper name</b>
-#. * mime type, size
-#. * Folder: /path/to/file
-#. * Artist: wallpaper author
-#: ../capplets/appearance/ukui-wp-item.c:319
+#: panels/appearance/mate-wp-item.c:308
 #, c-format
 msgid ""
 "<b>%s</b>\n"
 "%s, %s\n"
-"Folder: %s\n"
+"File Path: %s\n"
 "Artist: %s"
 msgstr "<b>%s</b>\n%s, %s\n文件夹：%s\n作者：%s"
 
-#. translators: <b>wallpaper name</b>
-#. * Image missing
-#. * Folder: /path/to/file
-#. * Artist: wallpaper author
-#: ../capplets/appearance/ukui-wp-item.c:334
+#: panels/appearance/mate-wp-item.c:325
 #, c-format
 msgid ""
 "<b>%s</b>\n"
 "%s\n"
-"Folder: %s\n"
+"File Path: %s\n"
 "Artist: %s"
 msgstr "<b>%s</b>\n%s\n文件夹：%s\n作者：%s"
 
-#: ../capplets/appearance/ukui-wp-item.c:339
-msgid "Image missing"
-msgstr "图像丢失"
-
-#: ../capplets/appearance/theme-installer.c:185
-#: ../capplets/appearance/theme-installer.c:241
-msgid "Cannot install theme"
-msgstr "无法安装主题"
-
-#: ../capplets/appearance/theme-installer.c:187
-#, c-format
-msgid "The %s utility is not installed."
-msgstr "%s 工具未安装。"
-
-#: ../capplets/appearance/theme-installer.c:243
-msgid "There was a problem while extracting the theme."
-msgstr "提取主题时发生了错误。"
-
-#: ../capplets/appearance/theme-installer.c:271
-msgid "There was an error installing the selected file"
-msgstr "安装选中文件时出错"
-
-#: ../capplets/appearance/theme-installer.c:272
-#, c-format
-msgid "\"%s\" does not appear to be a valid theme."
-msgstr "“%s”似乎不是有效的主题。"
-
-#: ../capplets/appearance/theme-installer.c:273
-#, c-format
-msgid ""
-"\"%s\" does not appear to be a valid theme. It may be a theme engine which "
-"you need to compile."
-msgstr "“%s”似乎不是有效的主题。它可能是需要编译才能使用的主题引擎。"
-
-#: ../capplets/appearance/theme-installer.c:379
-#, c-format
-msgid "Installation for theme \"%s\" failed."
-msgstr "主题“%s”安装失败。"
-
-#: ../capplets/appearance/theme-installer.c:418
-#, c-format
-msgid "The theme \"%s\" has been installed."
-msgstr "主题“%s”已安装。"
-
-#: ../capplets/appearance/theme-installer.c:428
-msgid "Would you like to apply it now, or keep your current theme?"
-msgstr "您是想要现在就应用，还是保持当前的主题？"
-
-#: ../capplets/appearance/theme-installer.c:431
-msgid "Keep Current Theme"
-msgstr "保持当前主题"
-
-#: ../capplets/appearance/theme-installer.c:434
-msgid "Apply New Theme"
-msgstr "应用新主题"
-
-#: ../capplets/appearance/theme-installer.c:486
-#, c-format
-msgid "UKUI Theme %s correctly installed"
-msgstr "UKUI 主题 %s 已正确安装"
-
-#: ../capplets/appearance/theme-installer.c:548
-msgid "Failed to create temporary directory"
-msgstr "创建临时目录失败"
-
-#: ../capplets/appearance/theme-installer.c:611
-msgid "New themes have been successfully installed."
-msgstr "新主题已成功安装。"
-
-#: ../capplets/appearance/theme-installer.c:661
-msgid "No theme file location specified to install"
-msgstr "未指定要安装得主题文件位置"
-
-#: ../capplets/appearance/theme-installer.c:685
-#, c-format
-msgid ""
-"Insufficient permissions to install the theme in:\n"
-"%s"
-msgstr "没有足够的权限将主题安装在：\n%s"
-
-#: ../capplets/appearance/theme-installer.c:765
-msgid "Select Theme"
-msgstr "选择主题"
-
-#: ../capplets/appearance/theme-installer.c:776
-msgid "Theme Packages"
-msgstr "主题包"
-
-#: ../capplets/appearance/theme-save.c:94
-#, c-format
-msgid "Theme name must be present"
-msgstr "主题必须有名称"
-
-#: ../capplets/appearance/theme-save.c:157
-msgid "The theme already exists. Would you like to replace it?"
-msgstr "主题已经存在。您是否想要替换？"
-
-#: ../capplets/appearance/theme-save.c:158
-#: ../capplets/common/file-transfer-dialog.c:466
-msgid "_Overwrite"
-msgstr "覆盖(_O)"
-
-#: ../capplets/appearance/theme-util.c:73
-msgid "Would you like to delete this theme?"
-msgstr "您是否想要删除此主题？"
-
-#: ../capplets/appearance/theme-util.c:123
-msgid "Theme cannot be deleted"
-msgstr "主题无法删除"
-
-#: ../capplets/appearance/theme-util.c:249
-msgid "Could not install theme engine"
-msgstr "无法安装主题引擎"
-
-#: ../capplets/common/activate-settings-daemon.c:16
-msgid ""
-"Unable to start the settings manager 'mate-settings-daemon'.\n"
-"Without the UKUI settings manager running, some preferences may not take effect. This could indicate a problem with DBus, or a non-UKUI (e.g. KDE) settings manager may already be active and conflicting with the UKUI settings manager."
-msgstr "无法启动设置管理器“mate-settings-daemon”。\n如果不运行 UKUI 设置管理器，某些首选项不会生效。这可能表明 DBus 出现问题，或者某个非 UKUI (如 KDE) 设置管理器可能已经处于活动状态，并与 UKUI 设置管理器发生冲突。"
-
-#: ../capplets/common/capplet-stock-icons.c:66
-#, c-format
-msgid "Unable to load stock icon '%s'\n"
-msgstr "无法装入图标“%s”\n"
-
-#: ../capplets/common/capplet-util.c:88
-#, c-format
-msgid "There was an error displaying help: %s"
-msgstr "显示帮助时出错：%s"
-
-#: ../capplets/common/file-transfer-dialog.c:98
-#, c-format
-msgid "Copying file: %u of %u"
-msgstr "正在复制文件：第%u个，共%u个"
-
-#: ../capplets/common/file-transfer-dialog.c:145
-#, c-format
-msgid "Copying '%s'"
-msgstr "正在复制“%s”"
-
-#: ../capplets/common/file-transfer-dialog.c:185
-#: ../capplets/common/file-transfer-dialog.c:317
-msgid "Copying files"
-msgstr "正在复制文件"
-
-#: ../capplets/common/file-transfer-dialog.c:224
-msgid "Parent Window"
-msgstr "父窗口"
-
-#: ../capplets/common/file-transfer-dialog.c:225
-msgid "Parent window of the dialog"
-msgstr "对话框的父窗口"
-
-#: ../capplets/common/file-transfer-dialog.c:231
-msgid "From URI"
-msgstr "从 URI"
-
-#: ../capplets/common/file-transfer-dialog.c:232
-msgid "URI currently transferring from"
-msgstr "当前传输的来源 URI"
-
-#: ../capplets/common/file-transfer-dialog.c:239
-msgid "To URI"
-msgstr "到 URI"
-
-#: ../capplets/common/file-transfer-dialog.c:240
-msgid "URI currently transferring to"
-msgstr "当前传输的目的 URI"
-
-#: ../capplets/common/file-transfer-dialog.c:247
-msgid "Fraction completed"
-msgstr "完成的比例"
-
-#: ../capplets/common/file-transfer-dialog.c:248
-msgid "Fraction of transfer currently completed"
-msgstr "目前完成的传输比例"
-
-#: ../capplets/common/file-transfer-dialog.c:255
-msgid "Current URI index"
-msgstr "当前 URI 序号"
-
-#: ../capplets/common/file-transfer-dialog.c:256
-msgid "Current URI index - starts from 1"
-msgstr "当前 URI 序号 - 从1开始"
-
-#: ../capplets/common/file-transfer-dialog.c:263
-msgid "Total URIs"
-msgstr "URI 总数"
-
-#: ../capplets/common/file-transfer-dialog.c:264
-msgid "Total number of URIs"
-msgstr "URI 的总数"
-
-#: ../capplets/common/file-transfer-dialog.c:460
-#, c-format
-msgid "File '%s' already exists. Do you want to overwrite it?"
-msgstr "文件“%s”已经存在。您是否想要覆盖？"
-
-#: ../capplets/common/file-transfer-dialog.c:463
-msgid "_Skip"
-msgstr "跳过(_S)"
-
-#: ../capplets/common/file-transfer-dialog.c:464
-msgid "Overwrite _All"
-msgstr "全部覆盖(_A)"
-
-#: ../capplets/common/ukui-theme-info.c:691
-msgid "Default Pointer - Current"
-msgstr "默认指针 - 当前"
-
-#: ../capplets/common/ukui-theme-info.c:695
-msgid "White Pointer"
-msgstr "白指针"
-
-#: ../capplets/common/ukui-theme-info.c:696
-msgid "White Pointer - Current"
-msgstr "白指针 - 当前"
-
-#: ../capplets/common/ukui-theme-info.c:700
-msgid "Large Pointer"
-msgstr "大指针"
-
-#: ../capplets/common/ukui-theme-info.c:701
-msgid "Large Pointer - Current"
-msgstr "大指针 - 当前"
-
-#: ../capplets/common/ukui-theme-info.c:705
-msgid "Large White Pointer - Current"
-msgstr "大号的白色指针 - 当前"
-
-#: ../capplets/common/ukui-theme-info.c:706
-msgid "Large White Pointer"
-msgstr "大号的白色指针"
-
-#: ../capplets/common/ukui-theme-info.c:1696
-#, c-format
-msgid ""
-"This theme will not look as intended because the required GTK+ theme '%s' is"
-" not installed."
-msgstr "此主题的外观将与设计时不同，因为所需的 GTK+ 主题“%s”未安装。"
-
-#: ../capplets/common/ukui-theme-info.c:1706
-#, c-format
-msgid ""
-"This theme will not look as intended because the required window manager "
-"theme '%s' is not installed."
-msgstr "此主题的外观将与设计时不同，因为所需的窗口管理器主题“%s”未安装。"
-
-#: ../capplets/common/ukui-theme-info.c:1714
-#, c-format
-msgid ""
-"This theme will not look as intended because the required icon theme '%s' is"
-" not installed."
-msgstr "此主题的外观将与设计时不同，因为所需的图标主题“%s”未安装。"
-
-#: ../capplets/default-applications/ukui-default-applications-properties.desktop.in.in.h:1
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:1
-msgid "Preferred Applications"
-msgstr "默认应用程序"
-
-#: ../capplets/default-applications/ukui-default-applications-properties.desktop.in.in.h:2
-msgid "Select your default applications"
-msgstr "选择默认的应用程序"
-
-#: ../capplets/default-applications/ukui-da-capplet.c:542
-msgid "Could not load the main interface"
-msgstr "无法装入主界面"
-
-#: ../capplets/default-applications/ukui-da-capplet.c:543
-msgid "Please make sure that the applet is properly installed"
-msgstr "请确定小程序已经正确安装。"
-
-#. TRANSLATORS: don't translate the terms in brackets
-#: ../capplets/default-applications/ukui-da-capplet.c:692
-msgid "Specify the name of the page to show (internet|multimedia|system|a11y)"
-msgstr "指定要显示的页面名称 (internet|multimedia|system|a11y)"
-
-#: ../capplets/default-applications/ukui-da-capplet.c:698
-msgid "- UKUI Default Applications"
-msgstr "- UKUI 默认应用程序"
-
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:2
-msgid "Web Browser"
-msgstr "网络浏览器"
-
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:3
-msgid "Mail Reader"
-msgstr "邮件阅读器"
-
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:4
-msgid "Instant Messenger"
-msgstr "即时通讯工具"
-
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:5
-msgid "Co_mmand:"
-msgstr "命令(_M)："
-
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:7
-#, no-c-format
-msgid "All %s occurrences will be replaced with actual link"
-msgstr "出现的全部 %s 都将被替换为实际链接"
-
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:8
-msgid "Run in t_erminal"
-msgstr "在终端中运行(_E)"
-
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:9
-msgid "Internet"
-msgstr "互联网"
-
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:10
-msgid "Image Viewer"
-msgstr "图像查看器"
-
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:11
-msgid "Multimedia Player"
-msgstr "多媒体播放器"
-
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:12
-msgid "Video Player"
-msgstr "视频播放器"
-
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:13
-msgid "Multimedia"
-msgstr "多媒体"
-
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:14
-msgid "Text Editor"
-msgstr "文本编辑器"
-
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:15
-msgid "Terminal Emulator"
-msgstr "终端模拟器"
-
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:16
-msgid "File Manager"
-msgstr "文件管理器"
-
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:17
-msgid "System"
-msgstr "系统"
-
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:18
-msgid "Document Viewer"
-msgstr "文档查看器"
-
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:19
-msgid "Word Processor"
-msgstr "文字处理器"
-
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:20
-msgid "Spreadsheet Editor"
-msgstr "电子表格编辑器"
-
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:21
-msgid "Office"
-msgstr "办公"
-
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:22
-msgid "Visual"
-msgstr "视觉效果"
-
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:23
-msgid "_Run at start"
-msgstr "启动时运行(_R)"
-
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:24
-msgid "Mobility"
-msgstr "移动性 "
-
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:25
-msgid "Run at st_art"
-msgstr "启动时运行(_A)"
-
-#: ../capplets/default-applications/ukui-default-applications-properties.ui.h:26
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:45
-msgid "Accessibility"
-msgstr "辅助功能"
-
-#: ../capplets/display/display-capplet.ui.h:1
-msgid "Monitor Preferences"
-msgstr "显示器首选项"
-
-#: ../capplets/display/display-capplet.ui.h:2
-msgid "Apply system-wide"
-msgstr "系统全局应用"
-
-#: ../capplets/display/display-capplet.ui.h:3
-msgid ""
-"Applies the current configuration for other UKUI users on the computer. Note"
-" that this doesn't affect login screens or other desktop environments."
-msgstr "将当前配置应用于该计算机上的其他 UKUI 用户。需注意该配置不影响登录界面或其他桌面环境。"
-
-#: ../capplets/display/display-capplet.ui.h:4
-msgid "Sa_me image in all monitors"
-msgstr "在所有显示器显示同样的图像"
-
-#: ../capplets/display/display-capplet.ui.h:5
-msgid "_Detect monitors"
-msgstr "探测显示器"
-
-#: ../capplets/display/display-capplet.ui.h:6
-msgid "Panel icon"
-msgstr "面板图标"
-
-#: ../capplets/display/display-capplet.ui.h:7
-msgid "_Show monitors in panel"
-msgstr "在面板上显示显示器(_S)"
-
-#: ../capplets/display/display-capplet.ui.h:8
-msgid "_Resolution:"
-msgstr "分辨率(_R)："
-
-#: ../capplets/display/display-capplet.ui.h:9
-msgid "Re_fresh rate:"
-msgstr "刷新率(_F)："
-
-#: ../capplets/display/display-capplet.ui.h:10
-msgid "On"
-msgstr "开"
-
-#: ../capplets/display/display-capplet.ui.h:11
-msgid "Off"
-msgstr "关闭"
-
-#: ../capplets/display/display-capplet.ui.h:12
-#: ../capplets/display/xrandr-capplet.c:508
-msgid "Monitor"
-msgstr "显示器"
-
-#: ../capplets/display/display-capplet.ui.h:13
-msgid "R_otation:"
-msgstr "旋转(_O)："
-
-#: ../capplets/display/display-capplet.ui.h:14
-msgid "Include _panel"
-msgstr "包含面板(_P)"
-
-#: ../capplets/display/display-capplet.ui.h:15
-msgid "Set as primary"
-msgstr "设为主要屏幕"
-
-#: ../capplets/display/display-capplet.ui.h:16
-msgid "Sets the selected monitor as primary."
-msgstr "将当前显示器设为主显示器。"
-
-#: ../capplets/display/display-capplet.ui.h:17
-#: ../capplets/display/xrandr-capplet.c:311
-#: ../capplets/display/xrandr-capplet.c:350
-msgid "Normal"
-msgstr "普通"
-
-#: ../capplets/display/display-capplet.ui.h:18
-#: ../capplets/display/xrandr-capplet.c:312
-#: ../capplets/windows/ukui-window-properties.c:574
-msgid "Left"
-msgstr "左"
-
-#: ../capplets/display/display-capplet.ui.h:19
-#: ../capplets/display/xrandr-capplet.c:313
-#: ../capplets/windows/ukui-window-properties.c:573
-msgid "Right"
-msgstr "右"
-
-#: ../capplets/display/display-capplet.ui.h:20
-msgid "Upside-down"
-msgstr "上下颠倒"
-
-#: ../capplets/display/ukui-display-properties.desktop.in.in.h:1
-msgid "Displays"
-msgstr "显示器"
-
-#: ../capplets/display/ukui-display-properties.desktop.in.in.h:2
-msgid "Change resolution and position of monitors and projectors"
-msgstr "更改显示器和投影仪的分辨率和位置"
-
-#: ../capplets/display/ukui-display-properties-install-systemwide.c:44
+#: panels/display/mate-display-properties-install-systemwide.c:43
 #, c-format
 msgid ""
 "Usage: %s SOURCE_FILE DEST_NAME\n"
@@ -1583,1374 +141,2316 @@ msgid ""
 "a systemwide location.  The resulting profile will get used when\n"
 "the RANDR plug-in gets run in mate-settings-daemon.\n"
 "\n"
-"SOURCE_FILE - a full pathname, typically /home/username/.config/monitors.xml\n"
+"SOURCE_FILE - a full pathname, typically /home/username/.config/monitors."
+"xml\n"
 "\n"
 "DEST_NAME - relative name for the installed file.  This will get put in\n"
 "            the systemwide directory for RANDR configurations,\n"
 "            so the result will typically be %s/DEST_NAME\n"
 msgstr "用法: %s SOURCE_FILE DEST_NAME\n\n此程序向整个系统安装多显示器设置的 RANDR 配置文件。\n生成的配置文件将在 RANDR 插件在 mate-settings-daemon \n中运行时被使用。\n\nSOURCE_FILE - 完整路径名称，通常为 /home/username/.config/monitors.xml\n\nDEST_NAME - 安装后文件的相对名称。\n            将被置于用于 RANDR 配置的系统目录，\n            所以生成文件通常为 %s/DEST_NAME\n"
 
-#. Translators: only able to install RANDR profiles as root
-#: ../capplets/display/ukui-display-properties-install-systemwide.c:151
+#: panels/display/mate-display-properties-install-systemwide.c:150
 msgid "This program can only be used by the root user"
 msgstr "此程序只能由 root 用户使用"
 
-#: ../capplets/display/ukui-display-properties-install-systemwide.c:168
+#: panels/display/mate-display-properties-install-systemwide.c:167
 msgid "The source filename must be absolute"
 msgstr "源文件名必须为绝对路径"
 
-#. Translators: first %s is a filename; second %s is an error message
-#: ../capplets/display/ukui-display-properties-install-systemwide.c:179
+#: panels/display/mate-display-properties-install-systemwide.c:178
 #, c-format
 msgid "Could not open %s: %s\n"
 msgstr "无法打开 %s: %s\n"
 
-#. Translators: first %s is a filename; second %s is an error message
-#: ../capplets/display/ukui-display-properties-install-systemwide.c:188
+#: panels/display/mate-display-properties-install-systemwide.c:187
 #, c-format
 msgid "Could not get information for %s: %s\n"
 msgstr "无法获取 %s 的信息: %s\n"
 
-#: ../capplets/display/ukui-display-properties-install-systemwide.c:195
+#: panels/display/mate-display-properties-install-systemwide.c:194
 #, c-format
 msgid "%s must be a regular file\n"
 msgstr "%s 必须为常规文件\n"
 
-#: ../capplets/display/ukui-display-properties-install-systemwide.c:204
+#: panels/display/mate-display-properties-install-systemwide.c:203
 msgid "This program must only be run through pkexec(1)"
 msgstr "此程序仅能通过 pkexec(1) 运行"
 
-#: ../capplets/display/ukui-display-properties-install-systemwide.c:209
+#: panels/display/mate-display-properties-install-systemwide.c:208
 msgid "PKEXEC_UID must be set to an integer value"
 msgstr "PKEXEC_UID 必须设为整数值"
 
-#. Translators: we are complaining that a file must be really owned by the
-#. user who called this program
-#: ../capplets/display/ukui-display-properties-install-systemwide.c:215
+#: panels/display/mate-display-properties-install-systemwide.c:214
 #, c-format
 msgid "%s must be owned by you\n"
 msgstr "%s 必须归您所有\n"
 
-#. Translators: here we are saying that a plain filename must look like
-#. "filename", not like "some_dir/filename"
-#: ../capplets/display/ukui-display-properties-install-systemwide.c:223
+#: panels/display/mate-display-properties-install-systemwide.c:222
 #, c-format
 msgid "%s must not have any directory components\n"
 msgstr "%s 不应有任何目录部分\n"
 
-#: ../capplets/display/ukui-display-properties-install-systemwide.c:231
+#: panels/display/mate-display-properties-install-systemwide.c:230
 #, c-format
 msgid "%s must be a directory\n"
 msgstr "%s 必须为目录\n"
 
-#. Translators: the first %s/%s is a directory/filename; the last %s is an
-#. error message
-#: ../capplets/display/ukui-display-properties-install-systemwide.c:242
+#: panels/display/mate-display-properties-install-systemwide.c:241
 #, c-format
 msgid "Could not open %s/%s: %s\n"
 msgstr "无法打开 %s/%s: %s\n"
 
-#: ../capplets/display/ukui-display-properties-install-systemwide.c:262
+#: panels/display/mate-display-properties-install-systemwide.c:261
 #, c-format
 msgid "Could not rename %s to %s: %s\n"
 msgstr "无法将 %s 重命名为 %s: %s\n"
 
-#: ../capplets/display/org.ukui.randr.policy.in.h:1
-msgid "Install multi-monitor settings for the whole system"
-msgstr "为整个系统安装多显示器设置"
+#: panels/display/xrandr-capplet.c:309 panels/display/xrandr-capplet.c:347
+#: shell/shell.ui.h:181
+msgid "Normal"
+msgstr "普通"
 
-#: ../capplets/display/org.ukui.randr.policy.in.h:2
-msgid ""
-"Authentication is required to install multi-monitor settings for all users"
-msgstr "为所有用户安装多显示器设置需要身份验证"
+#: panels/display/xrandr-capplet.c:310
+#: panels/volume-control/gvc-balance-bar.c:112
+msgid "Left"
+msgstr "左"
 
-#: ../capplets/display/xrandr-capplet.c:314
-msgid "Upside Down"
+#: panels/display/xrandr-capplet.c:311
+#: panels/volume-control/gvc-balance-bar.c:113
+msgid "Right"
+msgstr "右"
+
+#: panels/display/xrandr-capplet.c:312
+msgid "Upside-down"
 msgstr "上下颠倒"
 
-#: ../capplets/display/xrandr-capplet.c:356
+#: panels/display/xrandr-capplet.c:353
 #, c-format
 msgid "%d Hz"
-msgstr "%d Hz"
+msgstr ""
 
-#. Translators:  this is the feature where what you see on your laptop's
-#. * screen is the same as your external monitor.  Here, "Mirror" is being
-#. * used as an adjective, not as a verb.  For example, the Spanish
-#. * translation could be "Pantallas en Espejo", *not* "Espejar Pantallas".
-#: ../capplets/display/xrandr-capplet.c:493
-#: ../capplets/display/xrandr-capplet.c:1669
-#, c-format
-msgid "Mirror Screens"
-msgstr "镜像屏幕"
-
-#: ../capplets/display/xrandr-capplet.c:495
-#, c-format
-msgid "Monitor: %s"
-msgstr "显示器：%s"
-
-#: ../capplets/display/xrandr-capplet.c:591
+#: panels/display/xrandr-capplet.c:483
 #, c-format
 msgid "%d x %d"
-msgstr "%d x %d"
+msgstr ""
 
-#: ../capplets/display/xrandr-capplet.c:1525
+#: panels/display/xrandr-capplet.c:1459
 msgid ""
 "Select a monitor to change its properties; drag it to rearrange its "
 "placement."
-msgstr "选择一个显示器来更改它的属性；拖动它来排列位置。"
+msgstr "选择一个显示来更改它的属性；拖动它来排列位置。"
 
-#: ../capplets/display/xrandr-capplet.c:2147
+#: panels/display/xrandr-capplet.c:1603
+msgid "Mirror Screens"
+msgstr "　镜像屏幕"
+
+#: panels/display/xrandr-capplet.c:2030
 msgid "Could not save the monitor configuration"
 msgstr "无法保存显示器配置"
 
-#: ../capplets/display/xrandr-capplet.c:2169
+#: panels/display/xrandr-capplet.c:2052
 msgid "Could not get session bus while applying display configuration"
 msgstr "应用显示配置时无法获得会话总线"
 
-#: ../capplets/display/xrandr-capplet.c:2188
-msgid "Could not detect displays"
-msgstr "无法探测显示器"
-
-#: ../capplets/display/xrandr-capplet.c:2400
+#: panels/display/xrandr-capplet.c:2264
 msgid "The monitor configuration has been saved"
 msgstr "显示器配置已保存"
 
-#: ../capplets/display/xrandr-capplet.c:2402
+#: panels/display/xrandr-capplet.c:2266
 msgid "This configuration will be used the next time someone logs in."
-msgstr "这个设置将在下次登入时使用。"
+msgstr "这个设置将在下次登入时使用"
 
-#: ../capplets/display/xrandr-capplet.c:2411
+#: panels/display/xrandr-capplet.c:2276
 msgid "Could not set the default configuration for monitors"
 msgstr "无法为显示器设置默认配置"
 
-#: ../capplets/display/xrandr-capplet.c:2495
+#: panels/display/xrandr-capplet.c:2276
+msgid "You have cancelled the authentication operation!"
+msgstr "您已经取消了验证操作！"
+
+#: panels/display/xrandr-capplet.c:2367
 msgid "Could not get screen information"
-msgstr "无法获得屏幕信息"
+msgstr "不能获取屏幕信息"
 
-#: ../capplets/keybindings/eggcellrendererkeys.c:21
-msgid "New shortcut..."
-msgstr "新建快捷键..."
+#: panels/display/xrandr-capplet.c:2367
+msgid "Please ensure that the environment of display is normal"
+msgstr "请确保显示环境正常！"
 
-#: ../capplets/keybindings/eggcellrendererkeys.c:157
-#: ../capplets/keybindings/eggcellrendererkeys.c:158
-msgid "Accelerator key"
-msgstr "加速键"
-
-#: ../capplets/keybindings/eggcellrendererkeys.c:167
-#: ../capplets/keybindings/eggcellrendererkeys.c:168
-msgid "Accelerator modifiers"
-msgstr "加速键修饰键"
-
-#: ../capplets/keybindings/eggcellrendererkeys.c:176
-#: ../capplets/keybindings/eggcellrendererkeys.c:177
-msgid "Accelerator keycode"
-msgstr "加速键键码"
-
-#: ../capplets/keybindings/eggcellrendererkeys.c:187
-msgid "Accel Mode"
-msgstr "加速模式"
-
-#: ../capplets/keybindings/eggcellrendererkeys.c:188
-msgid "The type of accelerator."
-msgstr "加速键类型。"
-
-#: ../capplets/keybindings/eggcellrendererkeys.c:231
-#: ../capplets/keybindings/ukui-keybinding-properties.c:134
-#: ../capplets/mouse/ukui-mouse-properties.c:396
-#: ../typing-break/drwright.c:501
-msgid "Disabled"
-msgstr "禁用"
-
-#: ../capplets/keybindings/ukui-keybinding-properties.c:216
-msgid "<Unknown Action>"
-msgstr "<未知操作>"
-
-#: ../capplets/keybindings/ukui-keybinding-properties.c:1020
-#: ../capplets/keybindings/ukui-keybinding-properties.c:1610
+#: panels/keyboard/mate-keybinding-properties.c:1070
+#: panels/keyboard/mate-keybinding-properties.c:1693
 msgid "Custom Shortcuts"
 msgstr "自定义快捷键"
 
-#: ../capplets/keybindings/ukui-keybinding-properties.c:1190
-msgid "Error saving the new shortcut"
-msgstr "保存新快捷键出错"
-
-#: ../capplets/keybindings/ukui-keybinding-properties.c:1266
-#, c-format
-msgid ""
-"The shortcut \"%s\" cannot be used because it will become impossible to type using this key.\n"
-"Please try with a key such as Control, Alt or Shift at the same time."
-msgstr "无法使用快捷键“%s”，因为使用此键将无法输入。\n请同时使用 Ctrl、Alt 或 Shift 再试一次。"
-
-#: ../capplets/keybindings/ukui-keybinding-properties.c:1298
+#: panels/keyboard/mate-keybinding-properties.c:1379
 #, c-format
 msgid ""
 "The shortcut \"%s\" is already used for\n"
-"\"%s\""
-msgstr "快捷键“%s”已经用于\n“%s”"
+"\"%s\",please reset!!!"
+msgstr "快捷键“%s”已经用于\n“%s”，请重现设置"
 
-#: ../capplets/keybindings/ukui-keybinding-properties.c:1305
-#, c-format
-msgid "If you reassign the shortcut to \"%s\", the \"%s\" shortcut will be disabled."
-msgstr "如果您将快捷键重新指派给“%s”，“%s”的快捷键将被禁用。"
+#: panels/keyboard/mate-keybinding-properties.c:1523
+msgid "Add Shortcuts"
+msgstr "添加快捷方式"
 
-#: ../capplets/keybindings/ukui-keybinding-properties.c:1310
-msgid "_Reassign"
-msgstr "重新指派(_R)"
+#: panels/keyboard/mate-keybinding-properties.c:1915
+msgid "Selection Program"
+msgstr "选择快捷打开的程序"
 
-#: ../capplets/keybindings/ukui-keybinding-properties.c:1565
-msgid "Too many custom shortcuts"
-msgstr "太多的自定义快捷键"
+#: panels/keyboard/mate-keybinding-properties.c:1956
+msgid "Function description"
+msgstr "功能说明"
 
-#: ../capplets/keybindings/ukui-keybinding-properties.c:1853
-msgid "Action"
-msgstr "动作"
+#: panels/keyboard/mate-keybinding-properties.c:1974
+msgid "Hotkey"
+msgstr "热键"
 
-#: ../capplets/keybindings/ukui-keybinding-properties.c:1875
-msgid "Shortcut"
-msgstr "快捷键"
+#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:1
+msgid "Select the keyboard layout"
+msgstr "选择键盘布局"
 
-#. * vim: sw=2 ts=8 cindent noai bs=2
-#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:1
-#: ../capplets/keybindings/ukui-keybinding.desktop.in.in.h:1
-msgid "Keyboard Shortcuts"
-msgstr "键盘快捷键"
-
-#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:2
-msgid ""
-"To edit a shortcut key, click on the corresponding row and type a new key "
-"combination, or press backspace to clear."
-msgstr "要编辑快捷键，请单击相应的行，然后输入新按键组合，或按退格键清除。"
-
-#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:3
-msgid "Custom Shortcut"
-msgstr "自定义快捷键"
-
-#: ../capplets/keybindings/ukui-keybinding-properties.ui.h:5
-msgid "C_ommand:"
-msgstr "命令(_O)："
-
-#: ../capplets/keybindings/ukui-keybinding.desktop.in.in.h:2
-msgid "Assign shortcut keys to commands"
-msgstr "为命令指定快捷键"
-
-#: ../capplets/keyboard/ukui-keyboard-properties.c:213
-#: ../capplets/keyboard/ukui-keyboard-properties.c:218
-msgid ""
-"Just apply settings and quit (compatibility only; now handled by daemon)"
-msgstr "应用设置并退出 (仅为兼容，现在已由守护进程处理)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties.c:223
-msgid "Start the page with the typing break settings showing"
-msgstr "以显示的打字间隔设置启动页面"
-
-#: ../capplets/keyboard/ukui-keyboard-properties.c:228
-msgid "Start the page with the accessibility settings showing"
-msgstr "以显示的辅助功能设置启动页面"
-
-#: ../capplets/keyboard/ukui-keyboard-properties.c:234
-msgid "- UKUI Keyboard Preferences"
-msgstr "- UKUI 键盘首选项"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:1
-msgid "Keyboard Accessibility Audio Feedback"
-msgstr "键盘辅助功能音频反馈"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:2
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:15
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:30
-#: ../capplets/windows/ukui-window-properties.c:382
-msgid "General"
-msgstr "常规"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:3
-msgid "Beep when _accessibility features are turned on or off"
-msgstr "辅助功能打开或关闭时鸣笛(_A)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:4
-msgid "Beep when a _toggle key is pressed"
-msgstr "按下切换键时鸣笛(_T)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:5
-msgid "Visual cues for sounds"
-msgstr "声音反馈"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:6
-msgid "Show _visual feedback for the alert sound"
-msgstr "为警告声音显示视觉反馈(_V)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:7
-msgid "Flash _window titlebar"
-msgstr "闪烁窗口标题栏(_W)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:8
-msgid "Flash entire _screen"
-msgstr "闪烁整个屏幕(_S)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:9
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:39
-msgid "Slow Keys"
-msgstr "慢速键"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:10
-msgid "Beep when a key is pr_essed"
-msgstr "按下键时鸣笛(_E)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:11
-msgid "Beep when key is _accepted"
-msgstr "接受键鸣笛(_A)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:12
-msgid "Beep when key is _rejected"
-msgstr "拒绝键时鸣笛(_R)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:13
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:41
-msgid "Bounce Keys"
-msgstr "回弹键"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:14
-msgid "Beep when a key is reje_cted"
-msgstr "拒绝键时鸣笛(_C)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:15
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:36
-msgid "Sticky Keys"
-msgstr "粘滞键"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-a11y-notifications.ui.h:16
-msgid "Beep when a _modifier key is pressed"
-msgstr "按下修饰键时鸣笛(_M)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:1
-msgid "Keyboard Preferences"
-msgstr "键盘首选项"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:2
-msgid "Repeat Keys"
-msgstr "重复键"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:3
-msgid "Key presses _repeat when key is held down"
-msgstr "按住某一键时重复该键(_R)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:4
-msgid "_Delay:"
-msgstr "延时(_D)："
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:5
-msgid "_Speed:"
-msgstr "速度(_S)："
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:6
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:27
-msgid "Short"
-msgstr "短"
-
-#. slow acceleration
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:7
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:11
-msgid "Slow"
-msgstr "慢"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:8
-msgid "Repeat keys speed"
-msgstr "重复键速度"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:9
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:28
-msgid "Long"
-msgstr "长"
-
-#. fast acceleration
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:10
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:13
-msgid "Fast"
-msgstr "快"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:11
-msgid "Cursor Blinking"
-msgstr "光标闪烁"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:12
-msgid "Cursor _blinks in text fields"
-msgstr "文本域中的光标会闪烁(_B)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:13
-msgid "S_peed:"
-msgstr "速度(_P)："
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:14
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:22
-msgid "Cursor blinks speed"
-msgstr "光标闪烁速度"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:16
-msgid "List of keyboard layouts selected for usage"
-msgstr "选用的键盘布局列表"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:18
-msgid "Select a keyboard layout to be added to the list"
-msgstr "选择要加入列表的键盘布局"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:19
-msgid "Remove the selected keyboard layout from the list"
-msgstr "从列表中移除所选键盘布局"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:20
-msgid "Move _Up"
-msgstr "向上移动(_U)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:21
-msgid "Move the selected keyboard layout up in the list"
-msgstr "将列表中所选键盘布局上移"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:22
-msgid "Move _Down"
-msgstr "向下移动(_D)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:23
-msgid "Move the selected keyboard layout down in the list"
-msgstr "将列表中所选键盘布局下移"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:24
-msgid "_Show..."
-msgstr "显示(_S)..."
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:25
-msgid "Print a diagram of the selected keyboard layout"
-msgstr "显示所选键盘布局的简图"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:26
-msgid "_Separate layout for each window"
-msgstr "每个窗口独立布局(_S)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:27
-msgid "New windows u_se active window's layout"
-msgstr "新窗口使用活动窗口的布局(_S)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:28
-msgid "Keyboard _model:"
-msgstr "键盘型号(_M)："
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:29
-msgid "_Options..."
-msgstr "选项(_O)..."
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:30
-msgid "View and edit keyboard layout options"
-msgstr "查看并编辑键盘布局选项"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:31
-msgid "Reset to De_faults"
-msgstr "重置为默认值(_F)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:32
-msgid ""
-"Replace the current keyboard layout settings with the\n"
-"default settings"
-msgstr "使用默认设置替代当前的键盘布局设置"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:34
-msgid "Layouts"
-msgstr "布局"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:35
-msgid "_Accessibility features can be toggled with keyboard shortcuts"
-msgstr "允许通过快捷键打开或关闭辅助特性(_A)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:37
-msgid "_Simulate simultaneous keypresses"
-msgstr "模拟同时按键(_S)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:38
-msgid "Disa_ble sticky keys if two keys are pressed together"
-msgstr "若同时按两个键则禁用(_B)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:40
-msgid "_Only accept long keypresses"
-msgstr "仅接受长按键(_O)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:42
-msgid "_Ignore fast duplicate keypresses"
-msgstr "忽略快速重复按键(_I)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:43
-msgid "D_elay:"
-msgstr "延时(_E)："
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:44
-msgid "Audio _Feedback..."
-msgstr "听觉反馈(_F)..."
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:46
-msgid "_Pointer can be controlled using the keypad"
-msgstr "允许使用键盘控制指针(_P)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:47
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:8
-msgid "_Acceleration:"
-msgstr "加速(_A)："
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:48
-msgid "Mouse Keys"
-msgstr "鼠标键"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:49
-msgid "_Lock screen to enforce typing break"
-msgstr "锁定屏幕来强制打字间断(_L)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:50
-msgid ""
-"Lock screen after a certain duration to help prevent repetitive keyboard use"
-" injuries"
-msgstr "每隔一段时间锁定屏幕，以便重复性的键盘工作使手臂过度劳累"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:51
-msgid "_Work interval lasts:"
-msgstr "工作间隔持续(_W)："
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:52
-msgid "_Break interval lasts:"
-msgstr "间断间隔持续(_B)："
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:53
-msgid "Duration of work before forcing a break"
-msgstr "强制间断前的工作持续时间"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:54
-msgid "Duration of the break when typing is disallowed"
-msgstr "不允许打字时间断持续时间"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:55
-msgid "minutes"
-msgstr "分钟"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:56
-msgid "All_ow postponing of breaks"
-msgstr "允许推迟间断(_O)"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:57
-msgid "Check if breaks are allowed to be postponed"
-msgstr "检查是否允许推迟间断"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:58
-msgid "Typing Break"
-msgstr "打字间断"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-dialog.ui.h:59
-msgid "_Type to test settings:"
-msgstr "输入字符来测试设置(_T)："
-
-#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:1
-msgid "Choose a Layout"
-msgstr "选择布局"
-
-#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:2
+#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:2
 msgid "_Variants:"
-msgstr "变体(_V)："
+msgstr "变体(_V):"
 
-#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:3
+#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:3
 msgid "_Country:"
-msgstr "国家/地区(_C)："
+msgstr "国家/地区(_C):"
 
-#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:4
+#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:4
 msgid "By _country"
 msgstr "按国家/地区(_C)"
 
-#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:5
+#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:5
 msgid "_Language:"
-msgstr "语言(_L)："
+msgstr "语言(_L):"
 
-#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:6
+#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:6
 msgid "By _language"
-msgstr "按语言(_L)"
+msgstr "按语言(_L):"
 
-#: ../capplets/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:7
+#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:7
 msgid "Preview:"
-msgstr "预览："
+msgstr "预览"
 
-#: ../capplets/keyboard/ukui-keyboard-properties-model-chooser.ui.h:1
-msgid "Choose a Keyboard Model"
-msgstr "选择键盘型号"
+#: panels/keyboard/shortcut_dialog.ui.h:1
+msgid "Custom Shortcut"
+msgstr "自定义快捷键"
 
-#: ../capplets/keyboard/ukui-keyboard-properties-model-chooser.ui.h:2
-msgid "_Vendors:"
-msgstr "制造商(_V)："
+#: panels/keyboard/shortcut_dialog.ui.h:2
+#: panels/session-properties/main-table.ui.h:4
+msgid "Name:"
+msgstr "名称:"
 
-#: ../capplets/keyboard/ukui-keyboard-properties-model-chooser.ui.h:3
-msgid "_Models:"
-msgstr "型号(_M)："
+#: panels/keyboard/shortcut_dialog.ui.h:3
+msgid "Command"
+msgstr "执行命令:"
 
-#: ../capplets/keyboard/ukui-keyboard-properties-options-dialog.ui.h:1
-msgid "Keyboard Layout Options"
-msgstr "键盘布局选项"
+#: panels/keyboard/shortcut_dialog.ui.h:4
+msgid "Scan"
+msgstr "浏览"
 
-#: ../capplets/keyboard/ukui-keyboard-properties-xkb.c:83
-msgid "Unknown"
-msgstr "未知"
+#: panels/ukui-system-info/export_diagnose_dialog.c:52
+msgid "Did  not check any information"
+msgstr "没有勾选任何信息"
 
-#: ../capplets/keyboard/ukui-keyboard-properties-xkblt.c:240
-msgid "Layout"
-msgstr "布局"
+msgid "The system check is ok!"
+msgstr "系统校验通过"
 
-#: ../capplets/keyboard/ukui-keyboard-properties-xkbmc.c:170
-msgid "Vendors"
-msgstr "制造商"
+msgid "The following files have been changed:\n%s"
+msgstr "下列文件被改变：\n%s"
 
-#: ../capplets/keyboard/ukui-keyboard-properties-xkbmc.c:236
-msgid "Models"
-msgstr "型号"
+#: panels/ukui-system-info/export_diagnose_dialog.c:75
+#: panels/ukui-system-info/export_diagnose_dialog.c:104
+#: panels/ukui-system-info/export_diagnose_dialog.c:118
+#: panels/ukui-system-info/export_diagnose_dialog.c:122
+msgid "Export information failed"
+msgstr "导出信息出错"
 
-#: ../capplets/keyboard/ukui-keyboard-properties-xkbot.c:237
+#: panels/ukui-system-info/export_diagnose_dialog.c:113
+msgid "The sysinfo.tar.gz has been exported to the desktop."
+msgstr "信息sysinfo.tar.gz已导出到桌面"
+
+#: panels/ukui-system-info/export_diagnose_dialog.c:140
+msgid "Export diagnostic information"
+msgstr "导出诊断信息"
+
+#: panels/ukui-system-info/export_diagnose_dialog.c:225
+msgid "Please make a system diagnosis first and then export the information."
+msgstr "请先进行系统诊断，然后导出信息"
+
+#: panels/ukui-system-info/export_diagnose_info.ui.h:1
+msgid "Export Information"
+msgstr "kyinfo信息"
+
+#: panels/ukui-system-info/export_diagnose_info.ui.h:2
+msgid "kyinfo"
+msgstr ""
+
+#: panels/ukui-system-info/export_diagnose_info.ui.h:3
+msgid "boot log"
+msgstr "boot日志"
+
+#: panels/ukui-system-info/export_diagnose_info.ui.h:4
+msgid "dmesg log"
+msgstr "dmesg日志"
+
+#: panels/ukui-system-info/export_diagnose_info.ui.h:5
+msgid "kernel information"
+msgstr "内核信息"
+
+#: panels/ukui-system-info/export_diagnose_info.ui.h:6
+msgid "diagnosis information"
+msgstr "诊断信息"
+
+#: panels/ukui-system-info/export_diagnose_info.ui.h:7
+msgid "package list"
+msgstr "已安装包列表"
+
+#: panels/ukui-system-info/export_diagnose_info.ui.h:8
+msgid "message log"
+msgstr "message日志"
+
+#: panels/ukui-system-info/export_diagnose_info.ui.h:9
+msgid ""
+"Please click on the checkbox to export information\n"
+"(Gray said the current system has no corresponding information)"
+msgstr "请点击勾选要导出的信息\n(灰色表示当前系统没有对应信息)"
+
+#: panels/ukui-system-info/export_diagnose_info.ui.h:11
+#: panels/user-accounts/change-face.ui.h:4
+#: panels/user-accounts/change-name.ui.h:4
+#: panels/user-accounts/change-pwd.ui.h:4
+#: panels/user-accounts/change-type.ui.h:5
+#: panels/user-accounts/delete-user.ui.h:5 shell/shell.ui.h:183
+msgid "label"
+msgstr ""
+
+#: panels/ukui-system-info/export_diagnose_info.ui.h:12
+msgid "Confirm export"
+msgstr "确认导出"
+
+#: panels/ukui-system-info/ukui-system-info.c:58
+msgid ""
+"System diagnostics in progress, the whole process takes a few minutes, "
+"please be patient...... "
+msgstr "正在进行系统诊断，整个过程需要数分钟，请耐心等待...... "
+
+#: panels/ukui-system-info/ukui-system-info.c:61
+#: panels/ukui-system-info/ukui-system-info.c:89
+#: panels/ukui-system-info/ukui-system-info.c:305 shell/shell.ui.h:199
+msgid "Start Diagnose"
+msgstr "开始诊断"
+
+#: panels/ukui-system-info/ukui-system-info.c:64
+msgid ""
+"Failed to call the system diagnostics service, please check the related "
+"services of ukui-system-info are running"
+msgstr "调用系统诊断服务出错,请检查ukui-system-info相关服务是否正在运行"
+
+#: panels/ukui-system-info/ukui-system-info.c:69
+msgid "diagnosing"
+msgstr "正在诊断"
+
+#: panels/ukui-system-info/ukui-system-info.c:167
+#: panels/ukui-system-info/ukui-system-info.c:172
+msgid "Access to the kernel information failed"
+msgstr "获取内核信息失败"
+
+#: panels/ukui-system-info/ukui-system-info.c:185
+#: panels/ukui-system-info/ukui-system-info.c:192
+msgid "Access to the version information failed"
+msgstr "获取版本信息失败"
+
+#: panels/ukui-system-info/ukui-system-info.c:204
+#: panels/ukui-system-info/ukui-system-info.c:211
+msgid "Access to the boot information failed"
+msgstr "获取boot信息失败"
+
+#: panels/ukui-system-info/ukui-system-info.c:223
+#: panels/ukui-system-info/ukui-system-info.c:230
+msgid "Access to the dmesg log failed"
+msgstr "获取dmesg日志信息失败"
+
+#: panels/ukui-system-info/ukui-system-info.c:242
+#: panels/ukui-system-info/ukui-system-info.c:249
+msgid "Access to the message log failed"
+msgstr "获取message日志失败"
+
+#: panels/network-proxy/network.ui.h:1
+msgid "Network Proxy Details"
+msgstr "网络代理详情"
+
+#: panels/network-proxy/network.ui.h:2
+msgid "<b>User authentication</b>"
+msgstr "<b>用户认证</b>"
+
+#: panels/network-proxy/network.ui.h:3
+msgid "Username:"
+msgstr "用户名:"
+
+#: panels/network-proxy/network.ui.h:4
+msgid "Password:"
+msgstr "密     码:"
+
+#: panels/power/kpm-common.c:52
+msgid "Unknown time"
+msgstr "未知时间"
+
+#: panels/power/kpm-common.c:57 panels/power/kpm-common.c:58
+#, c-format
+msgid "%i minutes"
+msgstr "%i 分钟"
+
+#: panels/power/kpm-common.c:68 panels/power/kpm-common.c:69
+#, c-format
+msgid "%i hours"
+msgstr "%i 小时"
+
+#: panels/power/kpm-common.c:74
+#, c-format
+msgid "%i %s %i %s"
+msgstr ""
+
+#: panels/power/kpm-common.c:75 shell/shell.ui.h:51
+msgid "hour"
+msgstr "时"
+
+#: panels/power/kpm-common.c:75
+msgid "hours"
+msgstr "时"
+
+#: panels/power/kpm-common.c:76
+msgid "minute"
+msgstr "分"
+
+#: panels/power/kpm-common.c:76
+msgid "minutes"
+msgstr "分"
+
+#: panels/power/kpm-common.h:41
+msgid "Power Manager"
+msgstr "电源管理"
+
+#: panels/power/kpm-common.h:42
+msgid "Power Manager for the MATE desktop"
+msgstr "MATE桌面环境的电源管理"
+
+#: panels/power/kpm-prefs-core.c:168 panels/power/kpm-prefs-core.c:170
+#: panels/power/kpm-prefs-core.c:788
+msgid "Never"
+msgstr "从不"
+
+#: panels/power/kpm-prefs-core.c:250 panels/power/kpm-prefs-core.c:253
+msgid "Shutdown"
+msgstr "关机"
+
+#: panels/power/kpm-prefs-core.c:262 panels/power/kpm-prefs-core.c:265
+msgid "Hang"
+msgstr "挂起"
+
+#: panels/power/kpm-prefs-core.c:270 panels/power/kpm-prefs-core.c:273
+msgid "Sleep"
+msgstr "休眠"
+
+#: panels/power/kpm-prefs-core.c:278 panels/power/kpm-prefs-core.c:281
+msgid "Blank screen"
+msgstr "黑屏"
+
+#: panels/power/kpm-prefs-core.c:286 panels/power/kpm-prefs-core.c:289
+msgid "Ask"
+msgstr "询问"
+
+#: panels/power/kpm-prefs-core.c:294 panels/power/kpm-prefs-core.c:297
+msgid "Do not perform operations"
+msgstr "不执行操作"
+
+#: panels/power/kpm-prefs-core.c:730
+#, c-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d 小时"
+msgstr[1] "%d 小时"
+
+#: panels/power/kpm-prefs-core.c:733
+#, c-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d 分钟"
+msgstr[1] "%d 分钟"
+
+#: panels/power/kpm-prefs-core.c:736
+#, c-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d　秒"
+msgstr[1] "%d 秒"
+
+#: panels/power/kpm-prefs-core.c:744
+#, c-format
+msgid "%s %s %s"
+msgstr ""
+
+#: panels/power/kpm-prefs-core.c:749 panels/power/kpm-prefs-core.c:762
+#, c-format
+msgid "%s %s"
+msgstr ""
+
+#: panels/power/kpm-prefs-core.c:754 panels/power/kpm-prefs-core.c:767
+#: panels/power/kpm-prefs-core.c:773
+#, c-format
+msgid "%s"
+msgstr ""
+
+#. TRANSLATORS: a phone is charging
+#. TRANSLATORS: device is charging, but we only have a percentage
+#: panels/power/kpm-upower.c:259 panels/power/kpm-upower.c:333
+#, c-format
+msgid "%s charging (%.1f%%)"
+msgstr "%s 充电中 (%.1f%%)"
+
+#. TRANSLATORS: The laptop battery is fully charged, and we know a time
+#: panels/power/kpm-upower.c:275
+#, c-format
+msgid ""
+"Battery is fully charged.\n"
+"Provides %s laptop runtime"
+msgstr "电池已充满.\n可提供 %s 笔记本运行时间"
+
+#. TRANSLATORS: the device is fully charged
+#: panels/power/kpm-upower.c:282
+#, c-format
+msgid "%s is fully charged"
+msgstr "%s 已充满"
+
+#. TRANSLATORS: the device is discharging, and we have a time remaining
+#: panels/power/kpm-upower.c:292
+#, c-format
+msgid "%s %s remaining (%.1f%%)"
+msgstr "剩余%s %s (%.1f%%)"
+
+#. TRANSLATORS: the device is discharging, but we only have a percentage
+#: panels/power/kpm-upower.c:299
+#, c-format
+msgid "%s discharging (%.1f%%)"
+msgstr "%s 放电中 (%.1f%%)"
+
+#. TRANSLATORS: the device is charging, and we have a time to full and empty
+#: panels/power/kpm-upower.c:315
+#, c-format
+msgid ""
+"%s %s until charged (%.1f%%)\n"
+"Provides %s battery runtime"
+msgstr "还需%s %s才能充满 (%.1f%%)\n可提供 %s 电池运行时间"
+
+#. TRANSLATORS: device is charging, and we have a time to full and a percentage
+#: panels/power/kpm-upower.c:326
+#, c-format
+msgid "%s %s until charged (%.1f%%)"
+msgstr "离充满还有 %s %s (%.1f%%)"
+
+#. TRANSLATORS: this is only shown for laptops with multiple batteries
+#: panels/power/kpm-upower.c:341
+#, c-format
+msgid "%s waiting to discharge (%.1f%%)"
+msgstr "%s 正在等待充电(%.1f%%)"
+
+#. TRANSLATORS: this is only shown for laptops with multiple batteries
+#: panels/power/kpm-upower.c:349
+#, c-format
+msgid "%s waiting to charge (%.1f%%)"
+msgstr "%s 正在等待充电(%.1f%%)"
+
+#. TRANSLATORS: the type of data, e.g. Laptop battery
+#: panels/power/kpm-upower.c:410
+msgid "Product:"
+msgstr "产品："
+
+#. TRANSLATORS: device is missing
+#. TRANSLATORS: device is charged
+#. TRANSLATORS: device is charging
+#. TRANSLATORS: device is discharging
+#: panels/power/kpm-upower.c:415 panels/power/kpm-upower.c:420
+#: panels/power/kpm-upower.c:425 panels/power/kpm-upower.c:430
+msgid "Status:"
+msgstr "状态："
+
+#: panels/power/kpm-upower.c:415
+msgid "Missing"
+msgstr "缺少"
+
+#. TRANSLATORS: battery state
+#: panels/power/kpm-upower.c:420 panels/power/kpm-upower.c:730
+msgid "Charged"
+msgstr "已充满"
+
+#. TRANSLATORS: battery state
+#: panels/power/kpm-upower.c:425 panels/power/kpm-upower.c:718
+msgid "Charging"
+msgstr "正充电"
+
+#. TRANSLATORS: battery state
+#: panels/power/kpm-upower.c:430 panels/power/kpm-upower.c:722
+msgid "Discharging"
+msgstr "正放电"
+
+#. TRANSLATORS: percentage
+#: panels/power/kpm-upower.c:436
+msgid "Percentage charge:"
+msgstr "充电百分比："
+
+#. TRANSLATORS: manufacturer
+#: panels/power/kpm-upower.c:441
+msgid "Vendor:"
+msgstr "厂家："
+
+#. TRANSLATORS: how the battery is made, e.g. Lithium Ion
+#: panels/power/kpm-upower.c:447
+msgid "Technology:"
+msgstr "技术："
+
+#. TRANSLATORS: serial number of the battery
+#: panels/power/kpm-upower.c:452
+msgid "Serial number:"
+msgstr "序列号："
+
+#. TRANSLATORS: model number of the battery
+#: panels/power/kpm-upower.c:457
+msgid "Model:"
+msgstr "型号："
+
+#. TRANSLATORS: time to fully charged
+#: panels/power/kpm-upower.c:463
+msgid "Charge time:"
+msgstr "充电时间："
+
+#. TRANSLATORS: time to empty
+#: panels/power/kpm-upower.c:470
+msgid "Discharge time:"
+msgstr "放电时间："
+
+#. TRANSLATORS: Excellent, Good, Fair and Poor are all related to battery Capacity
+#: panels/power/kpm-upower.c:479
+msgid "Excellent"
+msgstr "非常好"
+
+#: panels/power/kpm-upower.c:483
+msgid "Good"
+msgstr "较好"
+
+#: panels/power/kpm-upower.c:487
+msgid "Fair"
+msgstr "尚可"
+
+#: panels/power/kpm-upower.c:491
+msgid "Poor"
+msgstr "不好"
+
+#: panels/power/kpm-upower.c:495
+msgid "Capacity:"
+msgstr "容量："
+
+#: panels/power/kpm-upower.c:503 panels/power/kpm-upower.c:533
+msgid "Current charge:"
+msgstr "当前充电："
+
+#: panels/power/kpm-upower.c:510
+msgid "Last full charge:"
+msgstr "上次充电："
+
+#: panels/power/kpm-upower.c:517 panels/power/kpm-upower.c:539
+msgid "Design charge:"
+msgstr "设计充电："
+
+#: panels/power/kpm-upower.c:523
+msgid "Charge rate:"
+msgstr "充电率："
+
+#. TRANSLATORS: system power cord
+#: panels/power/kpm-upower.c:561
+msgid "AC adapter"
+msgid_plural "AC adapters"
+msgstr[0] "交流电源适配器"
+
+#. TRANSLATORS: laptop primary battery
+#: panels/power/kpm-upower.c:565
+msgid "Laptop battery"
+msgid_plural "Laptop batteries"
+msgstr[0] "笔记本电池"
+
+#. TRANSLATORS: battery-backed AC power source
+#: panels/power/kpm-upower.c:569
+msgid "UPS"
+msgid_plural "UPSs"
+msgstr[0] "UPS"
+
+#. TRANSLATORS: a monitor is a device to measure voltage and current
+#: panels/power/kpm-upower.c:573 shell/mainwindow.c:445 shell/shell.ui.h:23
+msgid "Monitor"
+msgid_plural "Monitors"
+msgstr[0] "显示器"
+
+#. TRANSLATORS: wireless mice with internal batteries
+#: panels/power/kpm-upower.c:577 shell/mainwindow.c:386 shell/shell.ui.h:18
+msgid "Mouse"
+msgid_plural "Mice"
+msgstr[0] "鼠标"
+
+#. TRANSLATORS: wireless keyboard with internal battery
+#: panels/power/kpm-upower.c:581 shell/mainwindow.c:375 shell/shell.ui.h:17
+msgid "Keyboard"
+msgid_plural "Keyboards"
+msgstr[0] "键盘"
+
+#. TRANSLATORS: portable device
+#: panels/power/kpm-upower.c:585
+msgid "PDA"
+msgid_plural "PDAs"
+msgstr[0] ""
+msgstr[1] ""
+
+#. TRANSLATORS: cell phone (mobile...)
+#: panels/power/kpm-upower.c:589
+msgid "Cell phone"
+msgid_plural "Cell phones"
+msgstr[0] "手机"
+
+#. TRANSLATORS: media player, mp3 etc
+#: panels/power/kpm-upower.c:594
+msgid "Media player"
+msgid_plural "Media players"
+msgstr[0] "媒体播放器"
+
+#. TRANSLATORS: tablet device
+#: panels/power/kpm-upower.c:598
+msgid "Tablet"
+msgid_plural "Tablets"
+msgstr[0] "触摸板"
+
+#. TRANSLATORS: tablet device
+#: panels/power/kpm-upower.c:602
+msgid "Computer"
+msgid_plural "Computers"
+msgstr[0] "计算机"
+
+#. TRANSLATORS: battery technology
+#: panels/power/kpm-upower.c:673
+msgid "Lithium Ion"
+msgstr "锂离子"
+
+#. TRANSLATORS: battery technology
+#: panels/power/kpm-upower.c:677
+msgid "Lithium Polymer"
+msgstr "锂聚合物"
+
+#. TRANSLATORS: battery technology
+#: panels/power/kpm-upower.c:681
+msgid "Lithium Iron Phosphate"
+msgstr "磷酸铁锂"
+
+#. TRANSLATORS: battery technology
+#: panels/power/kpm-upower.c:685
+msgid "Lead acid"
+msgstr "铅酸"
+
+#. TRANSLATORS: battery technology
+#: panels/power/kpm-upower.c:689
+msgid "Nickel Cadmium"
+msgstr "镍氢"
+
+#. TRANSLATORS: battery technology
+#: panels/power/kpm-upower.c:693
+msgid "Nickel metal hydride"
+msgstr "镍氢"
+
+#. TRANSLATORS: battery technology
+#: panels/power/kpm-upower.c:697
+msgid "Unknown technology"
+msgstr "未知技术"
+
+#. TRANSLATORS: battery state
+#: panels/power/kpm-upower.c:726
+msgid "Empty"
+msgstr "空"
+
+#. TRANSLATORS: battery state
+#: panels/power/kpm-upower.c:734
+msgid "Waiting to charge"
+msgstr "待充电"
+
+#. TRANSLATORS: battery state
+#: panels/power/kpm-upower.c:738
+msgid "Waiting to discharge"
+msgstr "待放电"
+
+#: panels/session-properties/gsm-app-dialog.c:138
+msgid "Desktop file(*.desktop)"
+msgstr "桌面文件(*.desktop)"
+
+#: panels/session-properties/gsm-app-dialog.c:145
+msgid "Select command"
+msgstr "选择命令"
+
+#: panels/session-properties/gsm-app-dialog.c:250
+msgid "Add programs"
+msgstr "添加开机启动程序"
+
+#: panels/session-properties/gsm-app-dialog.c:254
+msgid "Boot program property details"
+msgstr "启动程序属性详情"
+
+msgid "property"
+msgstr "属性"
+
+#: panels/session-properties/gsm-app-dialog.c:526
+msgid "The startup command cannot be empty"
+msgstr "启动命令不能为空"
+
+#: panels/session-properties/gsm-app-dialog.c:532
+msgid "The startup command is not valid"
+msgstr "无效的启动命令"
+
+#: panels/session-properties/gsm-properties-dialog.c:414
+#, c-format
+msgid "%d/%d/%d/  %d:%d:%d"
+msgstr "%d年%d月%d日%d时%d分%d秒"
+
+#: panels/session-properties/gsm-properties-dialog.c:520
+#, c-format
+msgid "%dByte"
+msgstr "%d字节"
+
+#: panels/session-properties/main-table.ui.h:1
+msgid "scan…"
+msgstr "浏览…"
+
+#: panels/session-properties/main-table.ui.h:2
+msgid "Annotation:"
+msgstr "注释:"
+
+#: panels/session-properties/main-table.ui.h:3
+msgid "command:"
+msgstr "命令:"
+#: panels/session-properties/program_properties.ui.h:1
+msgid "program name"
+msgstr "名称"
+
+#: panels/session-properties/program_properties.ui.h:2
+msgid "File Type:"
+msgstr "类型："
+
+#: panels/session-properties/program_properties.ui.h:3
+msgid "File Description:"
+msgstr "描述："
+
+#: panels/session-properties/program_properties.ui.h:4
+msgid "Application"
+msgstr "应用程序"
+
+#: panels/session-properties/program_properties.ui.h:5
+msgid "Program Location:"
+msgstr "位置："
+
+#: panels/session-properties/program_properties.ui.h:6
+msgid "Program Size:"
+msgstr "大小："
+
+#: panels/session-properties/program_properties.ui.h:7
+msgid "Occuping Space"
+msgstr "占用空间："
+
+#: panels/session-properties/program_properties.ui.h:8
+msgid "Access Time:"
+msgstr "访问："
+
+#: panels/session-properties/program_properties.ui.h:9
+msgid "modification time:"
+msgstr "修改："
+
+#: panels/time-data/spy-time.c:536
+msgid "Year"
+msgstr "年"
+
+#: panels/user-accounts/change-face.ui.h:1
+msgid "Changge Face"
+msgstr "更改头像"
+
+#: panels/user-accounts/change-face.ui.h:2
+#: panels/user-accounts/change-name.ui.h:2
+#: panels/user-accounts/change-pwd.ui.h:2
+#: panels/user-accounts/change-type.ui.h:2
+#: panels/user-accounts/delete-user.ui.h:2
+#: panels/user-accounts/user-accounts.c:1802
+#: panels/user-accounts/user-create.ui.h:2
+msgid "Cancel"
+msgstr "取消"
+
+#: panels/user-accounts/change-face.ui.h:3
+#: panels/user-accounts/change-name.ui.h:3
+#: panels/user-accounts/change-pwd.ui.h:3
+#: panels/user-accounts/change-type.ui.h:3
+#: panels/user-accounts/user-accounts.c:1803
+msgid "Ok"
+msgstr "确定"
+
+#: panels/user-accounts/change-face.ui.h:5
+#: panels/user-accounts/user-accounts.c:1799
+msgid "Browse more pictures"
+msgstr "浏览更多图片"
+
+#: panels/user-accounts/change-name.ui.h:1
+msgid "Change Name"
+msgstr "更改用户名"
+
+#: panels/user-accounts/change-pwd.ui.h:1
+msgid "Change Password"
+msgstr "更改密码"
+
+#: panels/user-accounts/change-type.ui.h:1
+msgid "Change Usertype"
+msgstr "更改用户类型"
+
+#: panels/user-accounts/change-type.ui.h:4
+msgid "automatic logon"
+msgstr "自动登录"
+
+#: panels/user-accounts/change-type.ui.h:6
+msgid ""
+"Please make sure that the computer has at least one user is the administrator"
+msgstr "请确保该计算机上至少有一个用户为管理员用户"
+
+#: panels/user-accounts/change-type.ui.h:7
+#: panels/user-accounts/user-create.ui.h:5
+msgid "Standard User"
+msgstr "标准用户"
+
+#: panels/user-accounts/change-type.ui.h:8
+msgid ""
+"Standard users can use most software, but you can not install software and \n"
+"change settings that affect all users."
+msgstr "标准用户可以使用大多数软件，但不能安装软件和更改影响所有用户的设置。"
+
+#: panels/user-accounts/change-type.ui.h:10
+#: panels/user-accounts/user-accounts.c:610
+#: panels/user-accounts/user-accounts.c:851
+#: panels/user-accounts/user-accounts.c:991
+#: panels/user-accounts/user-accounts.c:1053
+#: panels/user-accounts/user-accounts.c:1054
+#: panels/user-accounts/user-accounts.c:1124
+#: panels/user-accounts/user-accounts.c:1336
+#: panels/user-accounts/user-accounts.c:1432
+#: panels/user-accounts/user-create.ui.h:8
+msgid "Administrators"
+msgstr "管理员"
+
+#: panels/user-accounts/user-accounts.c:1362
+msgid "Delete"
+msgstr "删除用户"
+
+#: panels/user-accounts/delete-user.ui.h:1
+msgid "Delete User"
+msgstr "删除用户"
+
+#: panels/user-accounts/delete-user.ui.h:3
+msgid "Keep File"
+msgstr "保留文件"
+
+#: panels/user-accounts/delete-user.ui.h:4
+msgid "Delete File"
+msgstr "删除文件"
+
+#: panels/user-accounts/run-passwd.c:198
+msgid "Authentication failure!"
+msgstr "认证失败!"
+
+#: panels/user-accounts/run-passwd.c:275
+msgid "New password length is too short!"
+msgstr "新密码长度太短!"
+
+#: panels/user-accounts/run-passwd.c:281
+msgid "The new password is too simple!"
+msgstr "新密码太简单!"
+
+#: panels/user-accounts/run-passwd.c:287
+msgid "The new password is too similar to the old one!"
+msgstr "新密码和旧密码太相似!"
+
+#: panels/user-accounts/run-passwd.c:290
+msgid "The new password must contain numbers or special characters!"
+msgstr "新密码必须包含数字或特殊字符!"
+
+#: panels/user-accounts/run-passwd.c:294
+msgid "The new password is the same as the old one!"
+msgstr "新密码和旧密码一样!"
+
+#: panels/user-accounts/run-passwd.c:297
+msgid "The new password has been used recently!"
+msgstr "新密码最近已被使用过!"
+
+#: panels/user-accounts/run-passwd.c:301
+msgid "Your password has been changed after you verify!"
+msgstr "在您验证过后您的密码已经被更改!"
+
+#: panels/user-accounts/user-accounts.c:147
+msgid "User name cannot be empty!"
+msgstr "用户名不能为空!"
+
+#: panels/user-accounts/user-accounts.c:162
+msgid "Password length needs to more than 5 digits!"
+msgstr "密码长度需要5位以上!"
+
+#: panels/user-accounts/user-accounts.c:181
+msgid "enter the password twice inconsistencies!"
+msgstr "2次输入密码不一致!"
+
+#: panels/user-accounts/user-accounts.c:199
+#: panels/user-accounts/user-accounts.c:692
+msgid "The first character cannot be underlined!"
+msgstr "首字符不能为下划线!"
+
+#: panels/user-accounts/user-accounts.c:205
+#: panels/user-accounts/user-accounts.c:698
+msgid "User name can not contain capital letters!"
+msgstr "用户名不能包含大写字母!"
+
+#: panels/user-accounts/user-accounts.c:213
+#: panels/user-accounts/user-accounts.c:706
+msgid "The user name can only be composed of letters, numbers and underline!"
+msgstr "用户名只能由字母、数字以及下划线组成!"
+
+#: panels/user-accounts/user-accounts.c:220
+msgid "The first character cannot be numeric!"
+msgstr "首字符不能为数字!"
+
+#: panels/user-accounts/user-accounts.c:234
+#: panels/user-accounts/user-accounts.c:288
+#: panels/user-accounts/user-accounts.c:2216
+msgid "Please enter the username"
+msgstr "请输入用户名"
+
+#: panels/user-accounts/user-accounts.c:234
+msgid "Please enter the password "
+msgstr "请输入密码"
+
+#: panels/user-accounts/user-accounts.c:251
+msgid ""
+"The user name corresponds to the group already exists,please use a different "
+"user name"
+msgstr "该用户名对应的组已存在,请换用其他用户名"
+
+#: panels/user-accounts/user-accounts.c:270
+msgid "The user name is already in use, please use a different one."
+msgstr "该用户名已被使用，请换用其他用户名!"
+
+#: panels/user-accounts/user-accounts.c:288
+#: panels/user-accounts/user-accounts.c:864
+msgid "Please enter the new username"
+msgstr "请输入新用户名"
+
+#: panels/user-accounts/user-accounts.c:290
+#: panels/user-accounts/user-accounts.c:2223
+msgid "Please enter the password"
+msgstr "请输入密码"
+
+#: panels/user-accounts/user-accounts.c:291
+#: panels/user-accounts/user-accounts.c:318
+#: panels/user-accounts/user-accounts.c:542
+#: panels/user-accounts/user-accounts.c:633
+#: panels/user-accounts/user-accounts.c:2228
+msgid "Please enter the current password"
+msgstr "请输入当前密码"
+
+#: panels/user-accounts/user-accounts.c:291
+#: panels/user-accounts/user-accounts.c:318
+#: panels/user-accounts/user-accounts.c:326
+msgid "Please enter the new password"
+msgstr "请输入新密码"
+
+#: panels/user-accounts/user-accounts.c:291
+#: panels/user-accounts/user-accounts.c:319
+#: panels/user-accounts/user-accounts.c:326
+#: panels/user-accounts/user-accounts.c:566
+#: panels/user-accounts/user-accounts.c:656
+msgid "Please confirm the new password"
+msgstr "请确认新密码"
+
+#: panels/user-accounts/user-accounts.c:368
+msgid "Please choose another password."
+msgstr "请选择其它的密码."
+
+#: panels/user-accounts/user-accounts.c:382
+msgid "Please reenter the current password."
+msgstr "请重新输入当前密码."
+
+#: panels/user-accounts/user-accounts.c:389
+msgid "Password can not be modified."
+msgstr "密码无法被修改."
+
+#: panels/user-accounts/user-accounts.c:430
+msgid "Password length is too short!"
+msgstr "密码长度太短!"
+
+#: panels/user-accounts/user-accounts.c:431
+msgid ""
+"Password length needs to more than 5 digits, and composed of letters, \n"
+" numbers or special characters."
+msgstr "密码必须长度必须大于5的字母、数字或特殊字符组成."
+
+#: panels/user-accounts/user-accounts.c:433
+msgid "Password error"
+msgstr "密码错误"
+
+#: panels/user-accounts/user-accounts.c:434
+msgid "Please make sure you enter the password two times."
+msgstr "请确认您两次输入的密码一致."
+
+#: panels/user-accounts/user-accounts.c:515
+msgid "Password input error, please re-enter!"
+msgstr "当前密码输入错误，请重新输入!"
+
+#: panels/user-accounts/user-accounts.c:556
+#: panels/user-accounts/user-accounts.c:647
+msgid "Please enter new password"
+msgstr "请输入新密码"
+
+#: panels/user-accounts/user-accounts.c:612
+#: panels/user-accounts/user-accounts.c:853
+#: panels/user-accounts/user-accounts.c:993
+#: panels/user-accounts/user-accounts.c:1058
+#: panels/user-accounts/user-accounts.c:1059
+#: panels/user-accounts/user-accounts.c:1129
+#: panels/user-accounts/user-accounts.c:1338
+#: panels/user-accounts/user-accounts.c:1434
+msgid "Standard user"
+msgstr "标准用户"
+
+#: panels/user-accounts/user-accounts.c:617
+#: panels/user-accounts/user-accounts.c:857
+#: panels/user-accounts/user-accounts.c:997
+#: panels/user-accounts/user-accounts.c:1134
+#: panels/user-accounts/user-accounts.c:1369
+#: panels/user-accounts/user-accounts.c:1439
+msgid "Logged(Current User)"
+msgstr "已登录(当前用户)"
+
+#: panels/user-accounts/user-accounts.c:622
+#: panels/user-accounts/user-accounts.c:859
+#: panels/user-accounts/user-accounts.c:999
+#: panels/user-accounts/user-accounts.c:1136
+#: panels/user-accounts/user-accounts.c:1373
+#: panels/user-accounts/user-accounts.c:1443
+msgid "Logged(Other Users)"
+msgstr "已登录(其他用户)"
+
+#: panels/user-accounts/user-accounts.c:626
+#: panels/user-accounts/user-accounts.c:861
+#: panels/user-accounts/user-accounts.c:1001
+#: panels/user-accounts/user-accounts.c:1138
+#: panels/user-accounts/user-accounts.c:1377
+#: panels/user-accounts/user-accounts.c:1447
+msgid "Un-login(Other Users)"
+msgstr "未登录(其他用户)"
+
+#: panels/user-accounts/user-accounts.c:713
+msgid "User name cannot start with number!"
+msgstr "用户名不能以数字开头!"
+
+#: panels/user-accounts/user-accounts.c:725
+msgid "The user name has been used, please replace with another one!"
+msgstr "该用户名已经被使用，请换一个！"
+
+#: panels/user-accounts/user-accounts.c:756
+#: panels/user-accounts/user-accounts.c:793
+msgid "Modify username failed!"
+msgstr "修改用户名失败!"
+
+#: panels/user-accounts/user-accounts.c:801
+msgid "the user has logged in, please log out and modify!"
+msgstr "该用户已登录，请注销该用户后再修改!"
+
+#: panels/user-accounts/user-accounts.c:1248
+msgid "The user can not be deleted!"
+msgstr "无法删除该用户!"
+
+#: panels/user-accounts/user-accounts.c:1255
+msgid ""
+"The user has logged in, please perform the delete operation after logging "
+"out!"
+msgstr "该用户已登录，请注销该用户后再执行删除操作!"
+
+#: panels/user-accounts/user-accounts.c:1279
+#, c-format
+msgid ""
+"<span weight='bold' font_desc='11'>do you confirm to delete all the files of "
+"%s?</span>"
+msgstr "<span weight='bold' font_desc='11'>确认删除用户 %s 的所有文件吗?</span>"
+
+#: panels/user-accounts/user-accounts.c:1283
+#, c-format
+msgid ""
+"if you want to delete the %s user, belonging to the user's desktop, "
+"documents, favorites, music, pictures and video folder will be deleted!"
+msgstr "如果要删除 %s 用户，那么属于该用户的桌面、文档、收藏\n夹、音乐、图片和视频文件夹的内容将全部被删除!"
+
+#: panels/user-accounts/user-accounts.c:1341
+msgid "Rename"
+msgstr "更改用户名"
+
+#: panels/user-accounts/user-accounts.c:1347
+msgid "Change PWD"
+msgstr "更改密码"
+
+#: panels/user-accounts/user-accounts.c:1352
+msgid "Change Face"
+msgstr "更改头像"
+
+#: panels/user-accounts/user-accounts.c:1357
+msgid "Change Type"
+msgstr "更改用户类型"
+
+#: panels/user-accounts/user-accounts.c:1467
+msgid "My Account"
+msgstr "我的账户"
+
+#: panels/user-accounts/user-accounts.c:1472
+#: panels/user-accounts/user-accounts.c:2115
+msgid "Other accounts"
+msgstr "其他账户"
+
+#: panels/user-accounts/user-accounts.c:1948
+msgid "Browse more pictures..."
+msgstr "浏览更多图片..."
+
+#: panels/user-accounts/user-create.ui.h:1
+msgid "Create Account"
+msgstr "创建账户"
+
+#: panels/user-accounts/user-create.ui.h:3
+msgid "Automatic Logon"
+msgstr "自动登录"
+
+#: panels/user-accounts/user-create.ui.h:4
+msgid "select picture"
+msgstr "选择图片"
+
+#: panels/user-accounts/user-create.ui.h:6
+msgid ""
+"Standard users can use most software, but you can not install software\n"
+"and change settings that affect all users."
+msgstr "标准用户可以使用大多数软件，但不能安装软件和更改影响所有用户的设置。"
+
+#: panels/user-accounts/change-type.ui.h:11
+#: panels/user-accounts/user-create.ui.h:9
+msgid ""
+"Administrator can make any changes needed on the system, including　\n"
+"installing and upgrading software."
+msgstr "管理员在系统上可以做任何需要的修改，包括安装和升级软件。　　　　　　"
+
+#: panels/volume-control/gvc-balance-bar.c:116
+msgid "Rear"
+msgstr "后置声道"
+
+#: panels/volume-control/gvc-balance-bar.c:117
+msgid "Front"
+msgstr "前置声道"
+
+#: panels/volume-control/gvc-balance-bar.c:120
+msgid "Minimum"
+msgstr "最小值"
+
+#: panels/volume-control/gvc-balance-bar.c:121
+msgid "Maximum"
+msgstr "最大值"
+
+#: panels/volume-control/gvc-balance-bar.c:299
+msgid "_Balance(_B):"
+msgstr "平衡(_B):"
+
+#: panels/volume-control/gvc-balance-bar.c:302
+msgid "_Fade(_F):"
+msgstr "淡出(_F):"
+
+#: panels/volume-control/gvc-balance-bar.c:305
+msgid "_Subwoofer(_S):"
+msgstr "低音炮(_S):"
+
+#: panels/volume-control/gvc-channel-bar.c:605
+#: panels/volume-control/gvc-channel-bar.c:609
+#: panels/volume-control/gvc-channel-bar.c:614
+msgid "volume"
+msgstr "声音"
+
+#: panels/volume-control/gvc-channel-bar.c:609
+msgid "Unamplified"
+msgstr "非放大"
+
+#: panels/volume-control/gvc-channel-bar.c:871
+msgid "Mute"
+msgstr "静音"
+
+#: panels/volume-control/gvc-combo-box.c:169
+msgid "_Profile(_P):"
+msgstr "配置文件(_P):"
+
+#: panels/volume-control/gvc-mixer-control.c:1004
+msgid "Disabled"
+msgstr "禁用"
+
+#: panels/volume-control/gvc-mixer-control.c:1011
+#, c-format
+msgid "%u Output"
+msgid_plural "%u Outputs"
+msgstr[0] "%u 输出"
+
+#: panels/volume-control/gvc-mixer-control.c:1021
+#, c-format
+msgid "%u Input"
+msgid_plural "%u Inputs"
+msgstr[0] "%u 输入"
+
+#: panels/volume-control/gvc-mixer-dialog.c:313
+msgid "Co_nnector"
+msgstr "连接器(_N)"
+
+#: panels/volume-control/gvc-mixer-dialog.c:521
+msgid "Peak detect"
+msgstr "峰值检测"
+
+#: panels/volume-control/gvc-mixer-dialog.c:608
+msgid "Co_nnector:"
+msgstr "连接器(_N):"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1476
+msgid "Device"
+msgstr "设备"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1524
+#, c-format
+msgid "Speaker Testing for %s"
+msgstr "%s测试"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1583
+msgid "_Profiles:"
+msgstr "配置(_P):"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1584
+msgid "Test Speakers"
+msgstr "测试听筒"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1671
+#: panels/volume-control/gvc-sound-theme-chooser.c:875
+msgid "Name"
+msgstr "名称"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1745
+msgid "Sound Output Volume"
+msgstr "输出音量(_O):"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1776
+msgid "Sound Effects"
+msgstr "声音效果"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1783
+msgid "_Alert volume: "
+msgstr "报警音量(_A): "
+
+#: panels/volume-control/gvc-mixer-dialog.c:1796
+msgid "Hardware"
+msgstr "硬件"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1801
+msgid "C_hoose a device to configure:"
+msgstr "选择要配置的设备(_H):"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1828
+#: panels/volume-control/gvc-mixer-dialog.c:1957
+msgid "Settings for the selected device:"
+msgstr "所选设备的设置:"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1839
+msgid "Input"
+msgstr "输入"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1846
+msgid "_Input volume: "
+msgstr "输入音量(_I): "
+
+#: panels/volume-control/gvc-mixer-dialog.c:1869
+msgid "Input level:"
+msgstr "输入等级:"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1895
+msgid "C_hoose a device for sound input:"
+msgstr "选择声音输入设备(_H):"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1925
+msgid "Output"
+msgstr "输出"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1930
+msgid "C_hoose a device for sound output:"
+msgstr "选择声音输出设备(_H):"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1975
+msgid "Applications"
+msgstr "应用程序"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1979
+msgid "No application is currently playing or recording audio."
+msgstr "目前没有应用程序在播放或录制音频"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2104
+#: panels/volume-control/gvc-sound-theme-chooser.c:740
+#: panels/volume-control/gvc-sound-theme-chooser.c:752
+#: panels/volume-control/gvc-sound-theme-chooser.c:764
+msgid "Sound Preferences"
+msgstr "声音首选项"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:323
+msgid "No sounds"
+msgstr "无声音"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:445
+msgid "Built-in"
+msgstr "内置"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:630
+#: panels/volume-control/sound-theme-file-utils.c:291
+msgid "Custom"
+msgstr "自定义"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:743
+#: panels/volume-control/gvc-sound-theme-chooser.c:754
+#: panels/volume-control/gvc-sound-theme-chooser.c:766
+msgid "Testing event sound"
+msgstr "测试事件声音"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:851
 msgid "Default"
 msgstr "默认"
 
-#: ../capplets/keyboard/ukui-keyboard.desktop.in.in.h:1
-msgid "Keyboard"
-msgstr "键盘"
+#: panels/volume-control/gvc-sound-theme-chooser.c:852
+msgid "From theme"
+msgstr "来自主题"
 
-#: ../capplets/keyboard/ukui-keyboard.desktop.in.in.h:2
-msgid "Set your keyboard preferences"
-msgstr "设置键盘首选项"
+#: panels/volume-control/gvc-sound-theme-chooser.c:882
+msgid "Type"
+msgstr "类型"
 
-#: ../capplets/mouse/ukui-mouse-properties.c:396
-msgid "Left button"
-msgstr "左键"
+#: panels/volume-control/gvc-sound-theme-chooser.c:1074
+msgid "Sound _theme:"
+msgstr "声音主题:"
 
-#: ../capplets/mouse/ukui-mouse-properties.c:396
-msgid "Middle button"
-msgstr "中键"
+#: panels/volume-control/gvc-sound-theme-chooser.c:1083
+msgid "C_hoose an alert sound:"
+msgstr "选择报警声音(_H):"
 
-#: ../capplets/mouse/ukui-mouse-properties.c:396
-msgid "Right button"
-msgstr "右键"
+#: panels/volume-control/gvc-sound-theme-chooser.c:1114
+msgid "Enable _window and button sounds"
+msgstr "启用窗体与按钮声音(_W)"
 
-#. TRANSLATORS: don't translate the terms in brackets
-#: ../capplets/mouse/ukui-mouse-properties.c:482
-msgid "Specify the name of the page to show (general)"
-msgstr "指定要显示的页面名称 (general)"
+#: panels/volume-control/gvc-speaker-test.c:219
+msgid "Stop"
+msgstr "停止"
 
-#: ../capplets/mouse/ukui-mouse-properties.c:487
-msgid "- UKUI Mouse Preferences"
-msgstr "- UKUI 鼠标首选项"
+#: panels/volume-control/gvc-speaker-test.c:219
+#: panels/volume-control/gvc-speaker-test.c:331
+msgid "Test"
+msgstr "测试"
 
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:1
-msgid "Mouse Preferences"
-msgstr "鼠标首选项"
+#: panels/volume-control/gvc-speaker-test.c:227
+msgid "Subwoofer"
+msgstr "低音炮"
 
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:2
-msgid "Mouse Orientation"
-msgstr "鼠标方向"
+#: shell/ukui-control-center.c:43
+msgid "window1"
+msgstr ""
 
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:3
+#: shell/ukui-control-center.c:44
+msgid "ukuicc"
+msgstr ""
+
+#: shell/mainwindow.c:57
+msgid "-Kylin Control Center"
+msgstr "-麒麟控制面板"
+
+#: shell/shell.ui.h:7
+#: shell/mainwindow.c:164
+msgid "Control Center"
+msgstr "控制面板"
+
+#: shell/mainwindow.c:317 shell/shell.ui.h:8
+msgid "Time Dates"
+msgstr "时间和日期"
+
+#: shell/mainwindow.c:320
+msgid " Change the time and date of this computer "
+msgstr " 更改此计算机的时间和日期 "
+
+#: shell/mainwindow.c:328 shell/shell.ui.h:9
+msgid "User Account"
+msgstr "用户账户"
+
+#: shell/mainwindow.c:331
+msgid ""
+" Change the computer user account \n"
+" settings and password"
+msgstr " 更改此计算机的用户账户\n设置和密码"
+
+#: shell/mainwindow.c:339 shell/shell.ui.h:10
+msgid "Personalization"
+msgstr "个性化"
+
+#: shell/mainwindow.c:342
+msgid ""
+" Change the computer desktop background \n"
+" and related theme"
+msgstr " 更改此计算机的桌面背景 \n和主题相关"
+
+#: shell/mainwindow.c:350
+msgid "Default Aplication"
+msgstr "默认应用程序"
+
+#: shell/mainwindow.c:353
+msgid " Change the default application on this computer "
+msgstr " 更改此计算机的默认应用程序 "
+
+#: shell/mainwindow.c:367
+msgid " Change the network  on this computer "
+msgstr " 更改此计算机的网络连接"
+
+#: shell/mainwindow.c:378
+msgid " Change the keyboard settings on this computer "
+msgstr " 更改此计算机的键盘设置 "
+
+#: shell/mainwindow.c:389
+msgid " Change the mouse settings on this computer  "
+msgstr " 更改此计算机的鼠标设置 "
+
+#: shell/mainwindow.c:403
+msgid " Configure the connection to the computer printer "
+msgstr " 配置连接到此计算机的打印机 "
+
+#: shell/mainwindow.c:411 shell/shell.ui.h:20
+msgid "Sound"
+msgstr "声音"
+
+#: shell/mainwindow.c:414
+msgid " Change the sound settings on this computer "
+msgstr " 更改此计算机的声音设置 "
+
+#: shell/mainwindow.c:423 shell/shell.ui.h:32
+msgid "Network Agent"
+msgstr "网络代理"
+
+#: shell/mainwindow.c:426
+msgid " Change the network agent on this computer "
+msgstr " 更改此计算机的网络代理 "
+
+#: shell/mainwindow.c:434 shell/shell.ui.h:13
+msgid "Autostart"
+msgstr "开机启动"
+
+#: shell/mainwindow.c:437
+msgid " Change the autostart program on this computer "
+msgstr " 更改此计算机的开机启动程序"
+
+#: shell/mainwindow.c:447
+msgid " Change the Monitor settings on this computer "
+msgstr " 更改此计算机的显示器配置"
+
+#: shell/mainwindow.c:458 shell/shell.ui.h:34
+msgid "Power Management"
+msgstr "电源管理"
+
+#: shell/mainwindow.c:461
+msgid " Change the power management settings on this computer "
+msgstr " 更改此计算机的电源管理选项 "
+
+#: shell/mainwindow.c:469 shell/shell.ui.h:35
+msgid "System Detection"
+msgstr "系统检测"
+
+#: shell/mainwindow.c:472
+msgid "check the system detection information on this computer "
+msgstr "查看此系统的检测信息"
+
+#: shell/shell.ui.h:1
+msgid "Tile"
+msgstr "平铺"
+
+#: shell/shell.ui.h:2
+msgid "Zoom"
+msgstr "缩放"
+
+#: shell/shell.ui.h:3
+msgid "Center"
+msgstr "居中"
+
+#: shell/shell.ui.h:4
+msgid "Scale"
+msgstr "比例放大"
+
+#: shell/shell.ui.h:5
+msgid "Stretch"
+msgstr "伸展"
+
+#: shell/shell.ui.h:6
+msgid "Span"
+msgstr "适合宽度"
+
+#: shell/shell.ui.h:11
+msgid ""
+"Default \n"
+"Aplication"
+msgstr "默认应用"
+
+#: shell/shell.ui.h:14
+msgid "System Configuration"
+msgstr "系统配置"
+
+#: shell/shell.ui.h:15
+msgid ""
+"Network \n"
+"Connections"
+msgstr "网络连接"
+
+#: shell/shell.ui.h:19
+msgid "Printer"
+msgstr "打印机"
+
+#: shell/shell.ui.h:21
+msgid ""
+"Network \n"
+"Agent"
+msgstr "网络代理"
+
+#: shell/shell.ui.h:24
+msgid ""
+"Power \n"
+"Management"
+msgstr "电源管理"
+
+#: shell/shell.ui.h:26
+msgid ""
+"System \n"
+"Detection"
+msgstr "系统检测"
+
+#: shell/shell.ui.h:28
+msgid "Hardware Configure"
+msgstr "硬件配置"
+
+#: shell/shell.ui.h:29
+msgid "Home"
+msgstr "控制面板主页"
+
+#: shell/shell.ui.h:30
+msgid "User Account　　"
+msgstr "用户账户"
+
+#: shell/shell.ui.h:31
+msgid "Default Application"
+msgstr "默认应用"
+
+#: shell/shell.ui.h:36
+msgid "Tzone:"
+msgstr "时区："
+
+#: shell/shell.ui.h:37
+msgid "date:"
+msgstr "日期："
+
+#: shell/shell.ui.h:38
+msgid "time:"
+msgstr "时间："
+
+#: shell/shell.ui.h:39
+msgid "    Jan"
+msgstr "    一月"
+
+#: shell/shell.ui.h:40
+msgid "   Feb"
+msgstr "    二月"
+
+#: shell/shell.ui.h:41
+msgid "    Mar"
+msgstr "    三月"
+
+#: shell/shell.ui.h:42
+msgid "    Apr"
+msgstr "    四月"
+
+#: shell/shell.ui.h:43
+msgid "    May"
+msgstr "    五月"
+
+#: shell/shell.ui.h:44
+msgid "    Jun"
+msgstr "    六月"
+
+#: shell/shell.ui.h:45
+msgid "    Jul"
+msgstr "    七月"
+
+#: shell/shell.ui.h:46
+msgid "    Aug"
+msgstr "    八月"
+
+#: shell/shell.ui.h:47
+msgid "    Sep"
+msgstr "    九月"
+
+#: shell/shell.ui.h:48
+msgid "    Oct"
+msgstr "    十月"
+
+#: shell/shell.ui.h:49
+msgid "    Nov"
+msgstr "    十一月"
+
+#: shell/shell.ui.h:50
+msgid "    Dec"
+msgstr "    十二月"
+
+#: shell/shell.ui.h:52
+msgid "min"
+msgstr "分"
+
+#: shell/shell.ui.h:53
+msgid "sec"
+msgstr "秒"
+
+#: shell/shell.ui.h:54
+msgid "With the network time synchronization"
+msgstr "与网络时间同步"
+
+#: shell/shell.ui.h:55
+msgid "format:"
+msgstr "格式："
+
+#: shell/shell.ui.h:56
+msgid "12-hours"
+msgstr "12小时制"
+
+#: shell/shell.ui.h:57
+msgid "24-hours"
+msgstr "24小时制"
+
+#: shell/shell.ui.h:58
+msgid "Create a new account"
+msgstr "创建一个新账户"
+
+#: shell/shell.ui.h:59
+msgid "Add"
+msgstr "添加壁纸"
+
+#: shell/shell.ui.h:60
+msgid "delete"
+msgstr "删除壁纸"
+
+#: shell/shell.ui.h:61
+msgid "Style:"
+msgstr "图片放置方式："
+
+#: shell/shell.ui.h:62
+msgid "wallpaper"
+msgstr "桌面背景"
+
+#: shell/shell.ui.h:63
+msgid "Select the one you love color as the theme color"
+msgstr "选择一个你喜欢的颜色作为主题颜色"
+
+#: shell/shell.ui.h:64
+msgid "Theme color"
+msgstr "主题颜色"
+
+#: shell/shell.ui.h:65
+msgid "Font choice:"
+msgstr "字体选择："
+
+#: shell/shell.ui.h:66
+msgid "Font size :"
+msgstr "字体大小："
+
+#: shell/shell.ui.h:68
+#, no-c-format
+msgid "small(S) --100%(default)"
+msgstr "较小(S) --100%(默认)"
+
+#: shell/shell.ui.h:70
+#, no-c-format
+msgid "medium(M)--125%"
+msgstr "中等(M)--125%"
+
+#: shell/shell.ui.h:72
+#, no-c-format
+msgid "large (L) --150%"
+msgstr "较大 (L) --150%"
+
+#: shell/shell.ui.h:73
+msgid "Please select the clearest sample text"
+msgstr "选择您看起来最清晰的文本示例"
+
+#: shell/shell.ui.h:74
+msgid "Restore Defaults"
+msgstr "恢复默认设置"
+
+#: shell/shell.ui.h:75
+msgid "Font"
+msgstr "字体"
+
+#: shell/shell.ui.h:76
+msgid "Internet"
+msgstr "互联网"
+
+#: shell/shell.ui.h:77
+msgid "        Web Browser:"
+msgstr "         网络浏览器："
+
+#: shell/shell.ui.h:78
+msgid "          Mail Reader:"
+msgstr "         邮件阅读器："
+
+#: shell/shell.ui.h:79
+msgid "Multimedia"
+msgstr "多媒体"
+
+#: shell/shell.ui.h:80
+msgid "       Image Viewer:"
+msgstr "         图像查看器："
+
+#: shell/shell.ui.h:81
+msgid "        Audio Player:"
+msgstr "         音频播放器："
+
+#: shell/shell.ui.h:82
+msgid "        Video Player:"
+msgstr "         视频播放器："
+
+#: shell/shell.ui.h:83
+msgid "System"
+msgstr "系统"
+
+#: shell/shell.ui.h:84
+msgid "           Text Editor:"
+msgstr "         文本编辑器："
+
+#: shell/shell.ui.h:85
+msgid "       File Manager:"
+msgstr "         文件管理器："
+
+#: shell/shell.ui.h:86
+msgid "Network Connections"
+msgstr "网络连接"
+
+#: shell/shell.ui.h:87
+msgid "Repeat Keys"
+msgstr "按键重复"
+
+#: shell/shell.ui.h:88
+msgid "Key presses _repeat when key is held down"
+msgstr "按住某一键时重复该键(R)"
+
+#: shell/shell.ui.h:89
+msgid "_Delay:"
+msgstr "延时(D)："
+
+#: shell/shell.ui.h:90
+msgid "_Speed:"
+msgstr "速度(S)："
+
+#: shell/shell.ui.h:91
+msgid "Short"
+msgstr "短"
+
+#: shell/shell.ui.h:92
+msgid "Slow"
+msgstr "慢"
+
+#: shell/shell.ui.h:93
+msgid "Repeat keys speed"
+msgstr "按键重复速度"
+
+#: shell/shell.ui.h:94
+msgid "Long"
+msgstr "长"
+
+#: shell/shell.ui.h:95
+msgid "Fast"
+msgstr "快"
+
+#: shell/shell.ui.h:96
+msgid "To test the repetition rate of the input character:"
+msgstr "输入字符来测试重复速度："
+
+#: shell/shell.ui.h:97
+msgid "Cursor Blinking"
+msgstr "光标闪烁"
+
+#: shell/shell.ui.h:98
+msgid "Cursor _blinks in text fields"
+msgstr "文本域中的光标会闪烁(B)"
+
+#: shell/shell.ui.h:99
+msgid "S_peed:"
+msgstr "速度(P)："
+
+#: shell/shell.ui.h:100
+msgid "Cursor blinks speed"
+msgstr "光标闪烁速度"
+
+#: shell/shell.ui.h:101
+msgid "General"
+msgstr "通用设置"
+
+#: shell/shell.ui.h:102
+msgid ""
+"Please add the language you will use to the list. And the first one in the "
+"list is the most\n"
+"commonly used language."
+msgstr "将要使用的语言添加到此列表中，位于列表第一位的语言为您最常用的语言。"
+
+#: shell/shell.ui.h:104
+msgid "_Show..."
+msgstr "显示"
+
+#: shell/shell.ui.h:105
+msgid "List of keyboard layouts selected for usage"
+msgstr "选用的键盘布局列表"
+
+#: shell/shell.ui.h:106
+msgid "_Separate layout for each window"
+msgstr "每个窗口独立布局(S)"
+
+#: shell/shell.ui.h:107
+msgid "New windows u_se active window's layout"
+msgstr "新窗口使用活动窗口的布局(S)"
+
+#: shell/shell.ui.h:108
+msgid "Reset to De_faults"
+msgstr "恢复默认配置(_F)"
+
+#: shell/shell.ui.h:109
+msgid "Layouts"
+msgstr "布局"
+
+#: shell/shell.ui.h:110
+msgid ""
+"\"To edit a shortcut key, click on the corresponding row and type a new key "
+"\"\n"
+"\"combination, or press backspace to clear.\""
+msgstr "要编辑快捷键，请单击相应的行，然后输入新按键组合，或按退格键清除。"
+
+#: shell/shell.ui.h:112
+msgid "Shortcut"
+msgstr "快捷键"
+
+#: shell/shell.ui.h:113
 msgid "_Right-handed"
-msgstr "惯用右手(_R)"
+msgstr "惯用右手"
 
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:4
+#: shell/shell.ui.h:114
 msgid "_Left-handed"
-msgstr "惯用左手(_L)"
+msgstr "惯用左手"
 
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:5
-msgid "Locate Pointer"
-msgstr "定位指针"
-
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:6
+#: shell/shell.ui.h:115
 msgid "Sh_ow position of pointer when the Control key is pressed"
-msgstr "按住 Ctrl 键时显示指针位置(_O)"
+msgstr "按住Ctrl键时显示指针位置"
 
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:7
-msgid "Pointer Speed"
-msgstr "指针速度"
-
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:9
+#: shell/shell.ui.h:116
 msgid "_Sensitivity:"
-msgstr "灵敏度(_S)："
+msgstr "灵敏度："
 
-#. low sensitivity
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:15
+#: shell/shell.ui.h:117
 msgid "Low"
 msgstr "低"
 
-#. high sensitivity
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:17
+#: shell/shell.ui.h:118
 msgid "High"
 msgstr "高"
 
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:18
-msgid "Drag and Drop"
-msgstr "拖放"
+#: shell/shell.ui.h:119
+msgid "Double-click the right bulb to test your settings"
+msgstr "双击右侧的灯泡以便测试您的设置"
 
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:19
-msgid "Thr_eshold:"
-msgstr "阈值(_E)："
+#: shell/shell.ui.h:120
+msgid "_Speed"
+msgstr "速度"
 
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:25
-msgid "Double-Click Timeout"
-msgstr "双击超时"
+#: shell/shell.ui.h:121
+msgid "Pointer moving speed"
+msgstr "指针移动速度"
 
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:26
-msgid "_Timeout:"
-msgstr "超时(_T)："
+#: shell/shell.ui.h:122
+msgid "Locate Pointer"
+msgstr "定位指针"
 
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:29
-msgid ""
-"To test your double-click settings, try to double-click on the light bulb."
-msgstr "要测试您的双击设置，请试着双击右侧的灯泡。"
+#: shell/shell.ui.h:123
+msgid "Mouse Keys"
+msgstr "鼠标键"
 
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:31
-msgid "Enable _touchpad"
-msgstr "启用触摸板(_T)"
+#: shell/shell.ui.h:124
+msgid "Double-Click Speed"
+msgstr "双击速度"
 
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:32
-msgid "Disable touchpad _while typing"
-msgstr "在输入时禁用触摸板(_W)"
+#: shell/shell.ui.h:125
+msgid "Disable _touchpad while typing"
+msgstr "打字时禁用触摸板(T)"
 
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:33
+#: shell/shell.ui.h:126
 msgid "Enable _mouse clicks with touchpad"
-msgstr "启用触摸板的鼠标点击(_M)"
+msgstr "启用触摸板的鼠标点击(M)"
 
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:34
-msgid "Two-finger click emulation:"
-msgstr "双指单击模拟："
-
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:35
-msgid "Three-finger click emulation:"
-msgstr "三指单击模拟："
-
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:36
+#: shell/shell.ui.h:127
 msgid "Scrolling"
 msgstr "滚动"
 
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:37
-msgid "_Vertical edge scrolling"
-msgstr "垂直边界滚动(_V)"
+#: shell/shell.ui.h:128
+msgid "_Disabled"
+msgstr "禁用(_D)"
 
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:38
-msgid "H_orizontal edge scrolling"
-msgstr "水平边界滚动(_O)"
+#: shell/shell.ui.h:129
+msgid "_Edge scrolling"
+msgstr "边界滚动(_E)"
 
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:39
-msgid "V_ertical two-finger scrolling"
-msgstr "垂直双指滚动(_E)"
+#: shell/shell.ui.h:130
+msgid "Two-_finger scrolling"
+msgstr "双指滚动(_F)"
 
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:40
-msgid "Hor_izontal two-finger scrolling"
-msgstr "水平双指滚动(_I)"
+#: shell/shell.ui.h:131
+msgid "Enable h_orizontal scrolling"
+msgstr "启用水平滚动(O)"
 
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:41
-msgid "Enable n_atural scrolling"
-msgstr "开启自然滚动 (_A)"
-
-#: ../capplets/mouse/ukui-mouse-properties.ui.h:42
+#: shell/shell.ui.h:132
 msgid "Touchpad"
 msgstr "触摸板"
 
-#: ../capplets/mouse/ukui-settings-mouse.desktop.in.in.h:1
-msgid "Mouse"
-msgstr "鼠标"
-
-#: ../capplets/mouse/ukui-settings-mouse.desktop.in.in.h:2
-msgid "Set your mouse preferences"
-msgstr "设置鼠标首选项"
-
-#: ../capplets/network/ukui-network-properties.desktop.in.in.h:1
-msgid "Network Proxy"
-msgstr "网络代理"
-
-#: ../capplets/network/ukui-network-properties.desktop.in.in.h:2
-msgid "Set your network proxy preferences"
-msgstr "设置您的网络代理首选项"
-
-#: ../capplets/network/ukui-network-properties.ui.h:1
-msgid "HTTP Proxy Details"
-msgstr "HTTP 代理细节"
-
-#: ../capplets/network/ukui-network-properties.ui.h:2
-msgid "<b>_Use authentication</b>"
-msgstr "<b>需要身份验证(_U)</b>"
-
-#: ../capplets/network/ukui-network-properties.ui.h:3
-msgid "U_sername:"
-msgstr "用户名(_S)："
-
-#: ../capplets/network/ukui-network-properties.ui.h:4
-msgid "_Password:"
-msgstr "密码(_P)："
-
-#: ../capplets/network/ukui-network-properties.ui.h:5
-msgid "Network Proxy Preferences"
-msgstr "网络代理首选项"
-
-#: ../capplets/network/ukui-network-properties.ui.h:6
+#: shell/shell.ui.h:133
 msgid "<b>Di_rect internet connection</b>"
 msgstr "<b>直接连接到互联网(_R)</b>"
 
-#: ../capplets/network/ukui-network-properties.ui.h:7
+#: shell/shell.ui.h:134
 msgid "<b>_Manual proxy configuration</b>"
 msgstr "<b>手动配置代理(_M)</b>"
 
-#: ../capplets/network/ukui-network-properties.ui.h:8
+#: shell/shell.ui.h:135
 msgid "H_TTP proxy:"
-msgstr "H_TTP 代理："
+msgstr "H_TTP 代理:"
 
-#: ../capplets/network/ukui-network-properties.ui.h:9
+#: shell/shell.ui.h:136
 msgid "_Secure HTTP proxy:"
-msgstr "安全 HTTP 代理(_S)："
+msgstr "安全 HTTP 代理(_S):"
 
-#: ../capplets/network/ukui-network-properties.ui.h:10
+#: shell/shell.ui.h:137
 msgid "_FTP proxy:"
-msgstr "_FTP 代理："
+msgstr "_FTP 代理:"
 
-#: ../capplets/network/ukui-network-properties.ui.h:11
+#: shell/shell.ui.h:138
 msgid "S_ocks host:"
-msgstr "S_OCKS 主机："
+msgstr "S_ocks 主机:"
 
-#: ../capplets/network/ukui-network-properties.ui.h:12
+#: shell/shell.ui.h:139
 msgid "Port:"
-msgstr "端口："
+msgstr "端口:"
 
-#: ../capplets/network/ukui-network-properties.ui.h:13
+#: shell/shell.ui.h:140
 msgid "_Details"
 msgstr "细节(_D)"
 
-#: ../capplets/network/ukui-network-properties.ui.h:14
+#: shell/shell.ui.h:141
 msgid "<b>_Automatic proxy configuration</b>"
 msgstr "<b>自动配置代理(_A)</b>"
 
-#: ../capplets/network/ukui-network-properties.ui.h:15
+#: shell/shell.ui.h:142
 msgid "Autoconfiguration _URL:"
-msgstr "自动配置 URL(_U)："
+msgstr "自动配置 _URL:"
 
-#: ../capplets/network/ukui-network-properties.ui.h:16
+#: shell/shell.ui.h:143
 msgid "Proxy Configuration"
 msgstr "代理服务器配置"
 
-#: ../capplets/network/ukui-network-properties.ui.h:17
+#: shell/shell.ui.h:144
 msgid "Ignore Host List"
 msgstr "忽略主机列表"
 
-#: ../capplets/network/ukui-network-properties.ui.h:18
+#: shell/shell.ui.h:145
 msgid "Ignored Hosts"
 msgstr "忽略的主机"
 
-#: ../capplets/windows/ukui-metacity-support.c:40
-msgid "Metacity Preferences"
-msgstr "Metacity 首选项"
+#: shell/shell.ui.h:146
+msgid "Additional startup _programs:"
+msgstr "额外的启动程序"
 
-#. Compositing manager
-#: ../capplets/windows/ukui-metacity-support.c:55
-#: ../capplets/windows/ukui-window-properties.c:410
-msgid "Compositing Manager"
-msgstr "混成管理器"
+#: shell/shell.ui.h:147
+msgid "Startup Programs"
+msgstr "启动程序"
 
-#: ../capplets/windows/ukui-metacity-support.c:66
-#: ../capplets/windows/ukui-window-properties.c:422
-msgid "Enable software _compositing window manager"
-msgstr "启用软件混成窗口管理器"
+#: shell/shell.ui.h:148
+msgid "Change display appearance"
+msgstr "更改显示器外观"
 
-#: ../capplets/windows/ukui-window-properties.c:264
-msgid "The current window manager is unsupported"
-msgstr "不支持当前的窗口管理器"
+#: shell/shell.ui.h:149
+msgid "Monitor:"
+msgstr "显示器:"
 
-#. Window
-#: ../capplets/windows/ukui-window-properties.c:358
-msgid "Window Preferences"
-msgstr "窗口首选项"
+#: shell/shell.ui.h:150
+msgid "Resolution:"
+msgstr "分辨率:"
 
-#: ../capplets/windows/ukui-window-properties.c:391
-msgid "Behaviour"
-msgstr "行为"
+#: shell/shell.ui.h:151
+msgid "Direction:"
+msgstr "方向:"
 
-#: ../capplets/windows/ukui-window-properties.c:400
-msgid "Placement"
-msgstr "位置"
+#: shell/shell.ui.h:
+msgid "Set as primary"
+msgstr "设为主屏"
 
-#: ../capplets/windows/ukui-window-properties.c:423
-msgid "Disable _thumbnails in Alt-Tab"
-msgstr "禁止按下Alt-Tab时显示缩略图"
+#: shell/shell.ui.h:152
+msgid "Save"
+msgstr "保存更改"
 
-#. Titlebar buttons
-#: ../capplets/windows/ukui-window-properties.c:431
-msgid "Titlebar Buttons"
-msgstr "标题栏按钮"
+#: shell/shell.ui.h:153
+msgid "Make Default"
+msgstr "设为默认"
 
-#: ../capplets/windows/ukui-window-properties.c:439
-msgid "Position:"
-msgstr "位置："
+#: shell/shell.ui.h:154
+msgid "Same image in all monitors"
+msgstr "所有显示器显示主屏幕图像"
 
-#. New Windows
-#: ../capplets/windows/ukui-window-properties.c:446
-msgid "New Windows"
-msgstr "新建窗口"
+#: shell/shell.ui.h:155
+msgid "Open Monitor"
+msgstr "打开显示器"
 
-#: ../capplets/windows/ukui-window-properties.c:454
-msgid "Center _new windows"
-msgstr "新建窗口居中:(_N)"
+#: shell/shell.ui.h:156
+msgid "Close Monitor"
+msgstr "关闭显示器"
 
-#. Window Snapping
-#: ../capplets/windows/ukui-window-properties.c:459
-msgid "Window Snapping"
-msgstr "窗口吸附"
+#: shell/shell.ui.h:157
+msgid "Actions"
+msgstr "操作"
 
-#: ../capplets/windows/ukui-window-properties.c:467
-msgid "Enable side by side _tiling"
-msgstr "启用并列平铺:(_T)"
+#: shell/shell.ui.h:157
+msgid "Display"
+msgstr "显示"
 
-#. Window Selection
-#: ../capplets/windows/ukui-window-properties.c:472
-msgid "Window Selection"
-msgstr "窗口选择"
+#: shell/shell.ui.h:158
+msgid "Put computer to _sleep when inactive:"
+msgstr "空闲此时间后将计算机转入睡眠(S)："
 
-#: ../capplets/windows/ukui-window-properties.c:492
-msgid "_Select windows when the mouse moves over them"
-msgstr "鼠标移动到窗口之上时选中该窗口(_S)"
+#: shell/shell.ui.h:159
+msgid "When laptop lid is cl_osed:"
+msgstr "关闭笔记本电脑上盖时(O)："
 
-#: ../capplets/windows/ukui-window-properties.c:495
-msgid "U_nselect windows when the mouse leaves them"
-msgstr "鼠标离开窗口时取消窗口选中(_N)"
+#: shell/shell.ui.h:160
+msgid "Sp_in down hard disks when possible"
+msgstr "如果可能，减速硬盘(I)"
 
-#: ../capplets/windows/ukui-window-properties.c:499
-msgid "_Raise selected windows after an interval"
-msgstr "一段间隔后提升选中窗口(_R)"
+#: shell/shell.ui.h:161
+msgid "Put _display to sleep when inactive:"
+msgstr "空闲此时间后将显示器转入睡眠(D)："
 
-#: ../capplets/windows/ukui-window-properties.c:510
-msgid "_Interval before raising:"
-msgstr "提升前延时(_I)："
+#: shell/shell.ui.h:162
+msgid "Set display _brightness to:"
+msgstr "设定显示器亮度为(B)："
 
-#: ../capplets/windows/ukui-window-properties.c:514
-msgid "seconds"
-msgstr "秒"
+#: shell/shell.ui.h:163
+msgid "Di_m display when idle"
+msgstr "空闲时变暗显示器(M)"
 
-#. Titlebar Action
-#: ../capplets/windows/ukui-window-properties.c:525
-msgid "Titlebar Action"
-msgstr "标题栏动作"
+#: shell/shell.ui.h:164
+msgid "On AC Power"
+msgstr "交流供电时"
 
-#: ../capplets/windows/ukui-window-properties.c:533
-msgid "_Double-click titlebar to perform this action:"
-msgstr "双击标题栏执行此操作(_D)："
+#: shell/shell.ui.h:165
+msgid "When battery po_wer is critically low:"
+msgstr "电池电量将用尽时(W)："
 
-#. Movement Key
-#: ../capplets/windows/ukui-window-properties.c:541
-msgid "Movement Key"
-msgstr "移动按键"
+#: shell/shell.ui.h:166
+msgid "_Reduce backlight brightness"
+msgstr "减小背光亮度(R)"
 
-#: ../capplets/windows/ukui-window-properties.c:552
-msgid "To move a window, press-and-hold this key then grab the window:"
-msgstr "要移动窗口，按住此键然后拖曳窗口："
+#: shell/shell.ui.h:167
+msgid "On Battery Power"
+msgstr "电池供电时"
 
-#: ../capplets/windows/ukui-window-properties.c:580
-#: ../libwindow-settings/ukwm-window-manager.c:394
-msgid "Roll up"
-msgstr "卷起"
+#: shell/shell.ui.h:168
+msgid "When the power _button is pressed:"
+msgstr "按下了电源按钮时(B)："
 
-#: ../capplets/windows/ukui-window-properties.c:581
-#: ../libwindow-settings/ukwm-window-manager.c:395
-msgid "Maximize"
-msgstr "最大化"
+#: shell/shell.ui.h:169
+msgid "When the _suspend button is pressed:"
+msgstr "按下了挂起按钮时时(S)："
 
-#: ../capplets/windows/ukui-window-properties.c:582
-#: ../libwindow-settings/ukwm-window-manager.c:396
-msgid "Maximize Horizontally"
-msgstr "水平最大化"
+#: shell/shell.ui.h:170
+msgid "Notification Area"
+msgstr "通知区域"
 
-#: ../capplets/windows/ukui-window-properties.c:583
-#: ../libwindow-settings/ukwm-window-manager.c:397
-msgid "Maximize Vertically"
-msgstr "垂直最大化"
+#: shell/shell.ui.h:171
+msgid "_Never display an icon"
+msgstr "从不显示图标(N)"
 
-#: ../capplets/windows/ukui-window-properties.c:584
-#: ../libwindow-settings/ukwm-window-manager.c:398
-msgid "Minimize"
-msgstr "最小化"
+#: shell/shell.ui.h:172
+msgid "_Only display an icon when battery power is low"
+msgstr "仅当电池电量即将用尽时显示图标(O)"
 
-#: ../capplets/windows/ukui-window-properties.c:585
-#: ../libwindow-settings/ukwm-window-manager.c:399
-msgid "None"
-msgstr "无"
+#: shell/shell.ui.h:173
+msgid "Only display an icon when charging or _discharging"
+msgstr "仅在充电或放电时显示图标(D)"
 
-#: ../capplets/windows/ukui-window-properties.c:786
-msgid "_Alt"
-msgstr "_Alt"
+#: shell/shell.ui.h:174
+msgid "Only display an icon when a battery is p_resent"
+msgstr "仅当使用电池时显示图标(R)"
 
-#: ../capplets/windows/ukui-window-properties.c:792
-msgid "H_yper"
-msgstr "H_yper"
+#: shell/shell.ui.h:175
+msgid "_Always display an icon"
+msgstr "总是显示图标(A)"
 
-#: ../capplets/windows/ukui-window-properties.c:799
-msgid "S_uper (or \"Windows logo\")"
-msgstr "S_uper (或“Windows 标志”)"
+#: shell/shell.ui.h:176
+msgid "Screensaver"
+msgstr "屏幕保护"
 
-#: ../capplets/windows/ukui-window-properties.c:806
-msgid "_Meta"
-msgstr "_Meta"
+#: shell/shell.ui.h:177
+msgid "Regard the computer as _idle after:"
+msgstr "于此时间后视计算机空闲"
 
-#: ../capplets/windows/ukui-window-properties.desktop.in.in.h:1
-msgid "Windows"
-msgstr "窗口"
+#: shell/shell.ui.h:178
+msgid "_Activate screensaver when computer is idle"
+msgstr "计算机空闲时激活屏幕保护程序（A）"
 
-#: ../capplets/windows/ukui-window-properties.desktop.in.in.h:2
-msgid "Set your window properties"
-msgstr "设定您的窗口属性"
+#: shell/shell.ui.h:179
+msgid "_Lock screen when screensaver is active"
+msgstr "屏幕保护程序激活时锁定屏幕（L）"
 
-#: ../libwindow-settings/ukui-wm-manager.c:317
-#, c-format
-msgid "Window manager \"%s\" has not registered a configuration tool\n"
-msgstr "窗口管理器“%s”没有注册配置工具\n"
+#: shell/shell.ui.h:180
+msgid "<b>Warning: the screen will not be locked for the root user.</b>"
+msgstr "<b>警告：屏幕锁定对root用户无效．</b>"
 
-#: ../shell/control-center.c:61
-#, c-format
-msgid "%s key is empty\n"
-msgstr "%s 键为空\n"
+#: shell/shell.ui.h:182
+msgid "CPU："
+msgstr ""
 
-#: ../shell/control-center.c:161
-msgid "Hide on start (useful to preload the shell)"
-msgstr "启动时隐藏 (对于预先启动 shell 非常有用)"
+#: shell/shell.ui.h:184
+msgid "Memory:"
+msgstr "内存："
 
-#: ../shell/control-center.c:201
-msgid "Filter"
-msgstr "过滤器"
+#: shell/shell.ui.h:185
+msgid "graphics card :"
+msgstr "显卡："
 
-#: ../shell/control-center.c:201
-msgid "Groups"
-msgstr "分组"
+#: shell/shell.ui.h:186
+msgid "mainboard:"
+msgstr "主板："
 
-#: ../shell/control-center.c:201
-msgid "Common Tasks"
-msgstr "公共任务"
+#: shell/shell.ui.h:187
+msgid "network card "
+msgstr "网卡："
 
-#: ../shell/control-center.c:203 ../shell/ukuicc.desktop.in.in.h:1
-#: ../shell/ukuicc.directory.in.h:1
-msgid "Control Center"
-msgstr "控制中心"
+#: shell/shell.ui.h:188
+msgid "sound card:"
+msgstr "声卡："
 
-#: ../shell/ukuicc.desktop.in.in.h:2
-msgid "The UKUI configuration tool"
-msgstr "UKUI 配置工具"
+#: shell/shell.ui.h:189
+msgid "Hardware Information"
+msgstr "硬件信息"
 
-#: ../typing-break/drw-break-window.c:203
-msgid "_Postpone Break"
-msgstr "推迟间隔(_P)"
+#: shell/shell.ui.h:190
+msgid "Kernel Information:"
+msgstr "内核信息："
 
-#: ../typing-break/drw-break-window.c:277
-msgid "Take a break!"
-msgstr "歇一会儿！"
+#: shell/shell.ui.h:191
+msgid "version information:"
+msgstr "版本信息："
 
-#: ../typing-break/drwright.c:139
-msgid "_Take a Break"
-msgstr "休息一下(_T)"
+#: shell/shell.ui.h:192
+msgid "System Information"
+msgstr "系统信息"
 
-#: ../typing-break/drwright.c:510
-#, c-format
-msgid "Take a break now (next in %dm)"
-msgstr "休息一下 (距下次 %dm)"
+#: shell/shell.ui.h:193
+msgid "Boot information"
+msgstr "boot信息"
 
-#: ../typing-break/drwright.c:512
-#, c-format
-msgid "%d minute until the next break"
-msgid_plural "%d minutes until the next break"
-msgstr[0] "距下次间隔还有 %d 分钟"
+#: shell/shell.ui.h:194
+msgid "Dmesg Log"
+msgstr "Dmesg日志"
 
-#: ../typing-break/drwright.c:518
-#, c-format
-msgid "Take a break now (next in less than one minute)"
-msgstr "休息一下 (下次在一分钟以内)"
+#: shell/shell.ui.h:195
+msgid "Message Log"
+msgstr "Message日志"
 
-#: ../typing-break/drwright.c:520
-#, c-format
-msgid "Less than one minute until the next break"
-msgstr "距下次间隔还有不到一分钟。"
+#: shell/shell.ui.h:196
+msgid "Important Log"
+msgstr "重要日志"
 
-#: ../typing-break/drwright.c:610
-#, c-format
+#: shell/shell.ui.h:197
 msgid ""
-"Unable to bring up the typing break properties dialog with the following "
-"error: %s"
-msgstr "无法启动打字间隔属性对话框，错误如下：%s"
+"explain:\n"
+"        System diagnostics is to know whether any important information is "
+"changed by collecting the current system file information and compare it "
+"with the standard.If you need, please click the following diagnosis button."
+msgstr "说明：\n     系统诊断通过收取当前系统文件信息去对比标准系统文件信息，从而了解系统\n重要文件是否被更改，如有需要，请点击下面的开始诊断按钮"
 
-#: ../typing-break/drwright.c:627
-msgid "Written by Richard Hult <richard@imendio.com>"
-msgstr "由 Richard Hult <richard@imendio.com> 编写"
+#: shell/shell.ui.h:200
+msgid "Export Info"
+msgstr "导出信息"
 
-#: ../typing-break/drwright.c:628
-msgid "Eye candy added by Anders Carlsson"
-msgstr "炫彩视觉效果由 Anders Carlsson 带来"
-
-#: ../typing-break/drwright.c:637
-msgid "A computer break reminder."
-msgstr "计算机间隔提醒程序。"
-
-#: ../typing-break/drwright.c:639
-msgid "translator-credits"
-msgstr "开源国际化之 UKUI 简体中文组\nYang Zhang <zyangmath@gmail.com> (2007)\n甘露(Gan Lu) <rhythm.gan@gmail.com> (2009)\nXhacler Liu <liu.dongyuan@gmail.com> (2010)"
-
-#: ../typing-break/main.c:63
-msgid "Enable debugging code"
-msgstr "启用调试代码"
-
-#: ../typing-break/main.c:65
-msgid "Don't check whether the notification area exists"
-msgstr "不检查通知区域是否存在"
-
-#: ../typing-break/main.c:89
-msgid "Typing Monitor"
-msgstr "打字显示器"
-
-#: ../typing-break/main.c:106
+#: shell/shell.ui.h:201
 msgid ""
-"The typing monitor uses the notification area to display information. You "
-"don't seem to have a notification area on your panel. You can add it by "
-"right-clicking on your panel and choosing 'Add to panel', selecting "
-"'Notification area' and clicking 'Add'."
-msgstr "打字显示器使用通知区域显示信息。似乎您并没有在面板上放置通知区域。要添加通知区域，只需用鼠标右键点击面板，然后选择“添加到面板 -> 通知区域”。"
+"Click this botton, the diagnosis and related log and information will "
+"exported and packaged to the desktop."
+msgstr "点击该按钮，将会把诊断结果和相关日志和信息导出并打包到桌面"
 
-#: ../font-viewer/font-view.c:360 ../font-viewer/font-view.c:362
-msgid "Name:"
-msgstr "名称："
+#: shell/shell.ui.h:202
+msgid "System Diagnoses"
+msgstr "系统诊断"
 
-#: ../font-viewer/font-view.c:367 ../font-viewer/font-view.c:369
-msgid "Style:"
-msgstr "样式："
+msgid "Timeout"
+msgstr "超时"
 
-#: ../font-viewer/font-view.c:383 ../font-viewer/font-view.c:385
-msgid "Type:"
-msgstr "类型："
+#: shell/shell.ui.h:203
+msgid "page 14"
+msgstr ""
 
-#: ../font-viewer/font-view.c:391 ../font-viewer/font-view.c:393
-msgid "Size:"
-msgstr "大小："
+msgid "Time and Dates"
+msgstr "时间和日期"
 
-#: ../font-viewer/font-view.c:440 ../font-viewer/font-view.c:442
-#: ../font-viewer/font-view.c:465 ../font-viewer/font-view.c:467
-msgid "Version:"
-msgstr "版本："
+msgid "Time Dates_"
+msgstr " 时间和日期"
 
-#: ../font-viewer/font-view.c:448 ../font-viewer/font-view.c:450
-#: ../font-viewer/font-view.c:471 ../font-viewer/font-view.c:473
-msgid "Copyright:"
-msgstr "版权："
+msgid "User Account_"
+msgstr " 用户账户     "
 
-#: ../font-viewer/font-view.c:456 ../font-viewer/font-view.c:458
-msgid "Description:"
-msgstr "描述："
+msgid "Personalization_"
+msgstr " 个性化         "
 
-#: ../font-viewer/font-view.c:535
-msgid "Installed"
-msgstr "已安装"
+msgid "Default APP"
+msgstr " 默认应用     "
 
-#: ../font-viewer/font-view.c:537
-msgid "Install Failed"
-msgstr "安装失败"
+msgid "Autostart_"
+msgstr " 开机启动     "
 
-#: ../font-viewer/font-view.c:613
-#, c-format
-msgid "Usage: %s fontfile\n"
-msgstr "用法：%s 字体文件\n"
+msgid "Keyboard_"
+msgstr " 键盘             "
 
-#: ../font-viewer/font-view.c:713
-msgid "I_nstall Font"
-msgstr "安装字体(_N)"
+msgid "Mouse_"
+msgstr " 鼠标             "
 
-#: ../font-viewer/ukui-font-viewer.desktop.in.in.h:1
-msgid "Font Viewer"
-msgstr "字体查看器"
+msgid "Sound_"
+msgstr " 声音             "
 
-#: ../font-viewer/ukui-font-viewer.desktop.in.in.h:2
-msgid "Preview fonts"
-msgstr "预览字体"
+msgid "Network Agent_"
+msgstr " 网络代理    "
 
-#: ../font-viewer/font-thumbnailer.c:267
-msgid "Text to thumbnail (default: Aa)"
-msgstr "缩略图使用文字 (默认：Aa)"
+msgid "Monitor_"
+msgstr " 显示器         "
 
-#: ../font-viewer/font-thumbnailer.c:267
-msgid "TEXT"
-msgstr "文字"
+msgid "Power Manage"
+msgstr " 电源管理     "
 
-#: ../font-viewer/font-thumbnailer.c:269
-msgid "Font size (default: 64)"
-msgstr "字体大小 (默认：64)"
+msgid "System Check_"
+msgstr " 系统检测     "
 
-#: ../font-viewer/font-thumbnailer.c:269
-msgid "SIZE"
-msgstr "大小"
+msgid "System Check"
+msgstr "系统检测"
 
-#: ../font-viewer/font-thumbnailer.c:271
-msgid "FONT-FILE OUTPUT-FILE"
-msgstr "字体-文件输出-文件"
-
-#: ../libslab/app-shell.c:791
-#, c-format
-msgid "Your filter \"%s\" does not match any items."
-msgstr "您的过滤器“%s”不符合任何项。"
-
-#: ../libslab/app-shell.c:793
-msgid "No matches found."
-msgstr "没有找到符合的。"
-
-#: ../libslab/app-shell.c:893
-msgid "New Applications"
-msgstr "新建应用程序"
-
-#: ../libslab/app-shell.c:948
-msgid "Other"
-msgstr "其他"
-
-#. make start action
-#: ../libslab/application-tile.c:339
-#, c-format
-msgid "Start %s"
-msgstr "启动 %s"
-
-#: ../libslab/application-tile.c:360
-msgid "Help"
-msgstr "帮助"
-
-#: ../libslab/application-tile.c:636 ../libslab/document-tile.c:743
-msgid "Remove from Favorites"
-msgstr "从收藏夹中移除"
-
-#: ../libslab/application-tile.c:638 ../libslab/document-tile.c:745
-msgid "Add to Favorites"
-msgstr "添加到收藏夹"
-
-#: ../libslab/application-tile.c:723
-msgid "Remove from Startup Programs"
-msgstr "从启动程序中删除"
-
-#: ../libslab/application-tile.c:725
-msgid "Add to Startup Programs"
-msgstr "添加到启动程序"
-
-#: ../libslab/bookmark-agent.c:1087
-msgid "New Spreadsheet"
-msgstr "新建电子表格"
-
-#: ../libslab/bookmark-agent.c:1091
-msgid "New Document"
-msgstr "新建文档"
-
-#: ../libslab/bookmark-agent.c:1145
-msgctxt "Home folder"
-msgid "Home"
-msgstr "主页"
-
-#: ../libslab/bookmark-agent.c:1152
-msgid "Documents"
-msgstr "文档"
-
-#: ../libslab/bookmark-agent.c:1158
-msgid "Desktop"
-msgstr "桌面"
-
-#: ../libslab/bookmark-agent.c:1163
-msgid "File System"
-msgstr "文件系统"
-
-#: ../libslab/bookmark-agent.c:1166
-msgid "Network Servers"
-msgstr "网络服务器"
-
-#: ../libslab/bookmark-agent.c:1197
-msgid "Search"
-msgstr "搜索"
-
-#. make open with default action
-#: ../libslab/directory-tile.c:176
-#, c-format
-msgid "<b>Open</b>"
-msgstr "<b>打开</b>"
-
-#. make rename action
-#: ../libslab/directory-tile.c:195 ../libslab/document-tile.c:241
-msgid "Rename..."
-msgstr "重命名..."
-
-#: ../libslab/directory-tile.c:209 ../libslab/directory-tile.c:218
-#: ../libslab/document-tile.c:255 ../libslab/document-tile.c:264
-msgid "Send To..."
-msgstr "发送到..."
-
-#. make move to trash action
-#: ../libslab/directory-tile.c:233 ../libslab/document-tile.c:290
-msgid "Move to Trash"
-msgstr "移至回收站"
-
-#: ../libslab/directory-tile.c:243 ../libslab/directory-tile.c:461
-#: ../libslab/document-tile.c:300 ../libslab/document-tile.c:863
-msgid "Delete"
-msgstr "删除"
-
-#: ../libslab/directory-tile.c:538 ../libslab/document-tile.c:1026
-#, c-format
-msgid "Are you sure you want to permanently delete \"%s\"?"
-msgstr "您确定要永久删除“%s”吗？"
-
-#: ../libslab/directory-tile.c:539 ../libslab/document-tile.c:1027
-msgid "If you delete an item, it is permanently lost."
-msgstr "如果您删除一项，它将永久丢失。"
-
-#: ../libslab/document-tile.c:200
-#, c-format
-msgid "Open with \"%s\""
-msgstr "用“%s”打开"
-
-#: ../libslab/document-tile.c:214
-msgid "Open with Default Application"
-msgstr "用默认应用程序打开"
-
-#: ../libslab/document-tile.c:225
-msgid "Open in File Manager"
-msgstr "在文件管理器中打开"
-
-#. clean item from menu
-#: ../libslab/document-tile.c:309
-msgid "Remove from recent menu"
-msgstr "从最近菜单中移除"
-
-#. clean all the items from menu
-#: ../libslab/document-tile.c:317
-msgid "Purge all the recent items"
-msgstr "清除所有最近项目"
-
-#: ../libslab/document-tile.c:631
-msgid "?"
-msgstr "？"
-
-#: ../libslab/document-tile.c:638
-msgid "%l:%M %p"
-msgstr "%p %l:%M"
-
-#: ../libslab/document-tile.c:646
-msgid "Today %l:%M %p"
-msgstr "今天%p %l:%M"
-
-#: ../libslab/document-tile.c:656
-msgid "Yesterday %l:%M %p"
-msgstr "昨天%p %l:%M"
-
-#: ../libslab/document-tile.c:668
-msgid "%a %l:%M %p"
-msgstr "%a%p %l:%M"
-
-#: ../libslab/document-tile.c:676
-msgid "%b %d %l:%M %p"
-msgstr "%b月%d日%p %l:%M"
-
-#: ../libslab/document-tile.c:678
-msgid "%b %d %Y"
-msgstr "%Y年%b月%d日"
-
-#: ../libslab/search-bar.c:260
-msgid "Find Now"
-msgstr "立即查找"
-
-#: ../libslab/system-tile.c:132
-#, c-format
-msgid "<b>Open %s</b>"
-msgstr "<b>打开 %s</b>"
-
-#: ../libslab/system-tile.c:145
-#, c-format
-msgid "Remove from System Items"
-msgstr "从系统项目中删除"
+msgid "username length should not long than 32!"
+msgstr "用户名长度不能超过32"

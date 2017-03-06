@@ -1,8 +1,13 @@
-ukui-control-center (1.0.0) zesty; urgency=medium
+ukui-control-center (1.1.1) yakkety; urgency=medium
+
+  * update display
+
+ -- xiaoyiwu <xiaoyiwu@ubuntukylin.com>  Mon, 06 Mar 2017 09:50:25 +0800
+
+ukui-control-center (1.1.0) zesty; urgency=medium
 
   * Adjust the format in copyright and changlog.
   * Update some dbus patch.
-  * Remove OnlyShowIn in desktop file.
 
  -- handsome_feng <jianfengli@ubuntukylin.com>  Sun, 12 Feb 2017 15:05:59 +0800
 
@@ -20,12 +25,12 @@ ukui-control-center (0.9.2) yakkety; urgency=medium
 
 ukui-control-center (0.9.1) yakkety; urgency=medium
 
-  * update ukuicc.menu
+  * update ukuicc
 
  -- xiaoyiwu <xiaoyiwu@ubuntukylin.com>  Mon, 16 Jan 2017 16:37:18 +0800
 
 ukui-control-center (0.9) yakkety; urgency=medium
 
-  * Fork from mate-control-center，rename to ukui-control-center
+  * init kylin-control-center kord13
 
- -- zhangshuhao <zhangshuhao@kylinos.cn>  Sat, 01 Oct 2016 17:17:39 +0200
+-- zhangshuhao <zhangshuhao@kylinos.cn> Sat, 01 Oct 2016 17:17:39 +0200
