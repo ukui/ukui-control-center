@@ -209,6 +209,7 @@ AC_OUTPUT([
 Makefile
 po/Makefile.in
 data/Makefile
+man/Makefile
 data/color/Makefile
 shell/Makefile
 panels/Makefile

@@ -5,6 +5,7 @@ Source: https://github.com/ukui/ukui-control-center
 
 Files:data/*
       */.ui
+      man/*.1
       panels/appearance/*
       panels/default-app/default-app.c
       panels/default-app/default-app.h

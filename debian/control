@@ -67,6 +67,14 @@ Description: utilities to configure the UKUI desktop
  and mouse properties, sound setup, desktop theme and background, user
  interface properties, screen resolution, and other MATE parameters.
  .
- It also contains a front end to these applets, which can also be
- accessed with the UKUI panel or the Caja file manager.
+ It also contains a front end to these applets, which can also be accessed with the UKUI panel or the Caja file manager.
 
+Package: libukui-control-center-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: ukui-control-center (= ${binary:Version}),
+         ${misc:Depends},
+Suggests: gconf2
+Description: ukui-control-center app library
+ 
