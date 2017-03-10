@@ -22,8 +22,6 @@ libpower_la_SOURCES =                           \
         egg-color.h                                     \
         egg-debug.h                                     \
         egg-debug.c                                     \
-        egg-unique.h                                    \
-        egg-unique.c                                    \
         egg-precision.h                                 \
         egg-precision.c                                 \
         egg-array-float.c                               \

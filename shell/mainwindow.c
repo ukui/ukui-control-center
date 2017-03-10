@@ -18,7 +18,6 @@
  *
  */
 #include "mainwindow.h"
-#include <unique/unique.h>
 #include "spy-time.h"
 //#include "../panels/users/users-account.h"
 #include "default-app.h"
@@ -32,20 +31,20 @@
 #include <X11/Xatom.h>
 #include <X11/Xlib.h>
 
-#define SIGNAL_TIME_PAGE 1
+#define SIGNAL_TIME_PAGE 3
 #define SIGNAL_SOUND_PAGE 2
-#define SIGNAL_APPEARANCE_PAGE 3
-#define SIGNAL_POWER_PAGE 4
-#define SIGNAL_USER_PAGE 5
+#define SIGNAL_APPEARANCE_PAGE 0
+#define SIGNAL_POWER_PAGE 1
+#define SIGNAL_USER_PAGE 4
 #define SIGNAL_NO_ARGUMENT 6
-#define SIGNAL_KEYBOARD_PAGE 7
+#define SIGNAL_KEYBOARD_PAGE 5
 gboolean switch_to_timeanddata_page=FALSE;
 gboolean switch_to_appearance_page=FALSE;
 gboolean switch_to_sound_page=FALSE;
 gboolean switch_to_power_page=FALSE;
 gboolean switch_to_user_page=FALSE;
 gboolean switch_to_keyboard_page=FALSE;
-UniqueApp * unique_app;
+GApplication * unique_app;
 
 void app_set_theme(const gchar *theme_path)
 {
@@ -286,9 +285,16 @@ static void set_button_image(GtkButton * button, gchar * icon_name)
 }
 
 // deal with UniqueCommand
-static UniqueResponse unique_signal_deal(UniqueApp * app, gint command, UniqueMessageData *message, guint time, gpointer user_data)
+static int unique_signal_deal(GApplication *application,GApplicationCommandLine *cmdline)
 {
-	UniqueResponse res;
+  gchar **argv;
+  gint argc;
+
+  argv = g_application_command_line_get_arguments (cmdline, &argc);
+
+  int command = atoi(argv[0]);
+
+  g_strfreev (argv);
     if(!gtk_window_is_active(window))
     {
         GdkWindow * gdkwindow = gtk_widget_get_window(GTK_WIDGET(window));
@@ -298,7 +304,7 @@ static UniqueResponse unique_signal_deal(UniqueApp * app, gint command, UniqueMe
     int main_window_x,main_window_y;
     gtk_window_get_position (GTK_WINDOW (window),&main_window_x, &main_window_y);
     gtk_window_move (GTK_WINDOW (window),-1000, -1000);
-    gtk_window_set_screen(GTK_WINDOW(window), unique_message_data_get_screen(message));
+  //gtk_window_set_screen(GTK_WINDOW(window), unique_message_data_get_screen(message));
     gtk_widget_show_all(GTK_WIDGET(window));
     gtk_window_move (GTK_WINDOW (window),main_window_x, main_window_y);
     gtk_widget_grab_focus(window);
@@ -313,7 +319,6 @@ static UniqueResponse unique_signal_deal(UniqueApp * app, gint command, UniqueMe
             gtk_widget_show(GTK_WIDGET(vp_theme));
 //			gtk_window_present_with_time(window,gdk_x11_get_server_time(gtk_widget_get_window(window)));
             gtk_window_set_title(window, data_theme.title);
-            res = UNIQUE_RESPONSE_OK;
             break;
         case SIGNAL_POWER_PAGE:
             gtk_notebook_set_current_page(notebook1,1);
@@ -322,7 +327,6 @@ static UniqueResponse unique_signal_deal(UniqueApp * app, gint command, UniqueMe
             gtk_widget_show(GTK_WIDGET(vp_power));
 //			gtk_window_present_with_time(window,gdk_x11_get_server_time(gtk_widget_get_window(window)));
             gtk_window_set_title(window, data_power.title);
-            res = UNIQUE_RESPONSE_OK;
             break;
         case SIGNAL_SOUND_PAGE:
             gtk_notebook_set_current_page(notebook1,1);
@@ -331,7 +335,6 @@ static UniqueResponse unique_signal_deal(UniqueApp * app, gint command, UniqueMe
             gtk_widget_show(GTK_WIDGET(vp_sound));
 //			gtk_window_present_with_time(window,gdk_x11_get_server_time(gtk_widget_get_window(window)));
             gtk_window_set_title(window, data_sound.title);
-            res = UNIQUE_RESPONSE_OK;
             break;
         case SIGNAL_TIME_PAGE:
             gtk_notebook_set_current_page(notebook1,1);
@@ -340,7 +343,6 @@ static UniqueResponse unique_signal_deal(UniqueApp * app, gint command, UniqueMe
             gtk_widget_show(GTK_WIDGET(vp_time));
 //			gtk_window_present_with_time(window,gdk_x11_get_server_time(gtk_widget_get_window(window)));
             gtk_window_set_title(window, data_time.title);
-            res = UNIQUE_RESPONSE_OK;
             break;
         case SIGNAL_USER_PAGE:
             gtk_notebook_set_current_page(notebook1,1);
@@ -349,7 +351,6 @@ static UniqueResponse unique_signal_deal(UniqueApp * app, gint command, UniqueMe
             gtk_widget_show(GTK_WIDGET(vp_count));
 //			gtk_window_present_with_time(window,gdk_x11_get_server_time(gtk_widget_get_window(window)));
             gtk_window_set_title(window, data_count.title);
-            res = UNIQUE_RESPONSE_OK;
             break;
         case SIGNAL_KEYBOARD_PAGE:
             gtk_notebook_set_current_page(notebook1,1);
@@ -358,16 +359,15 @@ static UniqueResponse unique_signal_deal(UniqueApp * app, gint command, UniqueMe
             gtk_widget_show(GTK_WIDGET(vp_key));
 //			gtk_window_present_with_time(window,gdk_x11_get_server_time(gtk_widget_get_window(window)));
             gtk_window_set_title(window, data_key.title);
-            res = UNIQUE_RESPONSE_OK;
             break;
         case SIGNAL_NO_ARGUMENT:
 //			gtk_window_present_with_time(window,gdk_x11_get_server_time(gtk_widget_get_window(window)));
             break;
         default:
-            res = UNIQUE_RESPONSE_PASSTHROUGH;
+
             break;
     }
-	return res;
+	return 0;
 }
 
 void init_signals()
@@ -546,59 +546,62 @@ void init_signals()
 	//unique app, we need to think about when someone call the other ukuicc
 	//first line: if someone call ukuicc first, we can show users the page which they want to see, this depends on the argument.
 	//second line: if someone call ukuicc second, we need to prevent the second exe's startup, and then show the exe, do as first line descriptions.
+        int status;
 
-	unique_app = unique_app_new("org.mate.ukuicc", NULL);
-	g_signal_connect(unique_app, "message-received",G_CALLBACK(unique_signal_deal), NULL);
-	unique_app_add_command(unique_app, "time_page", SIGNAL_TIME_PAGE);
-	unique_app_add_command(unique_app, "appearance_page", SIGNAL_APPEARANCE_PAGE);
-	unique_app_add_command(unique_app, "power_page", SIGNAL_POWER_PAGE);
-	unique_app_add_command(unique_app, "sound_page", SIGNAL_SOUND_PAGE);
-	unique_app_add_command(unique_app, "user_page", SIGNAL_USER_PAGE);
-	unique_app_add_command(unique_app, "keyboard_page",SIGNAL_KEYBOARD_PAGE);
-	unique_app_add_command(unique_app, "no_argument",SIGNAL_NO_ARGUMENT);
+        unique_app = g_application_new ("org.gtk.TestApplication",
+                           G_APPLICATION_HANDLES_COMMAND_LINE);
+        g_signal_connect (unique_app, "command-line", G_CALLBACK (unique_signal_deal), NULL);
 
-	if (unique_app_is_running(unique_app))
-	{
-		UniqueResponse unique_res;
+//	g_signal_connect(unique_app, "message-received",G_CALLBACK(unique_signal_deal), NULL);
+//	unique_app_add_command(unique_app, "time_page", SIGNAL_TIME_PAGE);
+//	unique_app_add_command(unique_app, "appearance_page", SIGNAL_APPEARANCE_PAGE);
+//	unique_app_add_command(unique_app, "power_page", SIGNAL_POWER_PAGE);
+//	unique_app_add_command(unique_app, "sound_page", SIGNAL_SOUND_PAGE);
+//	unique_app_add_command(unique_app, "user_page", SIGNAL_USER_PAGE);
+//	unique_app_add_command(unique_app, "keyboard_page",SIGNAL_KEYBOARD_PAGE);
+//	unique_app_add_command(unique_app, "no_argument",SIGNAL_NO_ARGUMENT);
+
+        if (g_application_get_is_remote(unique_app)) {
 		if (switch_to_appearance_page)
 		{
-			unique_res = unique_app_send_message(unique_app, SIGNAL_APPEARANCE_PAGE, NULL);
+                        char *my_argv[] = {"0"};
+                        status = g_application_run (unique_app, 1, my_argv);     
 			switch_to_appearance_page = FALSE;
 		}
 		else if (switch_to_power_page)
 		{
-			unique_res = unique_app_send_message(unique_app,SIGNAL_POWER_PAGE, NULL);
+                        char *my_argv[] = {"1"};
+                        status = g_application_run (unique_app, 1, my_argv);
 			switch_to_power_page = FALSE;
 		}	
 		else if (switch_to_sound_page)
 		{
-			unique_res = unique_app_send_message(unique_app,SIGNAL_SOUND_PAGE, NULL);
+                        char *my_argv[] = {"2"};
+                        status = g_application_run (unique_app, 1, my_argv);
 			switch_to_sound_page = FALSE;
 		}
 		else if (switch_to_timeanddata_page)
 		{
-			unique_res = unique_app_send_message(unique_app,SIGNAL_TIME_PAGE, NULL);
+                        char *my_argv[] = {"3"};
+                        status = g_application_run (unique_app, 1, my_argv);
 			switch_to_timeanddata_page = FALSE;
 		}
 		else if (switch_to_user_page)
 		{
-			unique_res = unique_app_send_message(unique_app,SIGNAL_USER_PAGE, NULL);
+                        char *my_argv[] = {"4"};
+                        status = g_application_run (unique_app, 1, my_argv);
 			switch_to_user_page = FALSE;
 		}
 		else if (switch_to_keyboard_page)
 		{
-			unique_res = unique_app_send_message(unique_app,SIGNAL_KEYBOARD_PAGE, NULL);
+                        char *my_argv[] = {"5"};
+                        status = g_application_run (unique_app, 1, my_argv);
 			switch_to_keyboard_page =FALSE;
 		}
-		else {
-			unique_res = unique_app_send_message(unique_app,SIGNAL_NO_ARGUMENT,NULL );
-		}
 		g_object_unref(unique_app);
-		if (unique_res == UNIQUE_RESPONSE_OK)
-			g_warning("have argument");
-		//need to exit
-        exit(0);
-	}
+                exit(0);
+        }
+
 	//Fixme: this part can write simple, but i don't know how can i do that
 	if (switch_to_appearance_page)
 	{

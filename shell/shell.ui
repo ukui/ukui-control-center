@@ -1800,30 +1800,6 @@ Management</property>
                                             <property name="top_attach">0</property>
                                           </packing>
                                         </child>
-                                        <child>
-                                          <placeholder/>
-                                        </child>
-                                        <child>
-                                          <placeholder/>
-                                        </child>
-                                        <child>
-                                          <placeholder/>
-                                        </child>
-                                        <child>
-                                          <placeholder/>
-                                        </child>
-                                        <child>
-                                          <placeholder/>
-                                        </child>
-                                        <child>
-                                          <placeholder/>
-                                        </child>
-                                        <child>
-                                          <placeholder/>
-                                        </child>
-                                        <child>
-                                          <placeholder/>
-                                        </child>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -2952,6 +2928,7 @@ Management</property>
                                                         <property name="visible">True</property>
                                                         <property name="can_focus">True</property>
                                                         <property name="adjustment">keyboard_delay_ad</property>
+                                                        <property name="restrict_to_fill_level">False</property>
                                                         <property name="fill_level">-1</property>
                                                         <property name="draw_value">False</property>
                                                       </object>
