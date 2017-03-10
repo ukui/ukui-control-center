@@ -150,13 +150,13 @@ void hide_viewport()
 	gtk_widget_hide(GTK_WIDGET(vp_theme));
 	gtk_widget_hide(GTK_WIDGET(vp_app));
 	//gtk_widget_hide(GTK_WIDGET(vp_network));
-	gtk_widget_hide(GTK_WIDGET(vp_key));       
+	gtk_widget_hide(GTK_WIDGET(vp_key));
 	gtk_widget_hide(GTK_WIDGET(vp_mouse));
 	//gtk_widget_hide(GTK_WIDGET(vp_printer));
 	gtk_widget_hide(GTK_WIDGET(vp_sound));
-	gtk_widget_hide(GTK_WIDGET(vp_net));       
-	gtk_widget_hide(GTK_WIDGET(vp_start));       
-	gtk_widget_hide(GTK_WIDGET(vp_display));       
+	gtk_widget_hide(GTK_WIDGET(vp_net));
+	gtk_widget_hide(GTK_WIDGET(vp_start));
+	gtk_widget_hide(GTK_WIDGET(vp_display));
 	gtk_widget_hide(GTK_WIDGET(vp_power));
 	gtk_widget_hide(GTK_WIDGET(vp_system));
 }
@@ -239,7 +239,7 @@ static void direct_call_program(GtkWidget * widget, gchar * program_name){
 	{
 		g_warning("Call program %s has occured error\n", program_name);
 	}
-	else 
+	else
 	{
 		g_warning("Successful\n");
 	}
@@ -266,7 +266,7 @@ static void direct_call_program(GtkWidget * widget, gchar * program_name){
 		perror("pclose command error\n");
 		return;
 	}
-	else 
+	else
 	{
 		g_warning("Command %s ,child progress status=%d, return value=%d",program_name, rc, WEXITSTATUS(rc));
 		return;
@@ -384,7 +384,7 @@ void init_signals()
     gtk_widget_set_tooltip_text(button1, _(" Change the time and date of this computer "));
     set_button_image(button1, "日期和时间");
 	g_signal_connect(G_OBJECT(button1), "clicked", G_CALLBACK(show_next_page), (gpointer)&data_time);
-       
+
 	vp_count = (GtkViewport *)GTK_WIDGET(gtk_builder_get_object(builder, "vp_count"));
 	bt_count = (GtkButton *)GTK_WIDGET(gtk_builder_get_object(builder, "bt_count"));
 	data_count.vp = vp_count;
@@ -395,7 +395,7 @@ void init_signals()
     gtk_widget_set_tooltip_text(button2, _(" Change the computer user account \n settings and password"));
     set_button_image(button2, "用户账号");
 	g_signal_connect(G_OBJECT(button2), "clicked", G_CALLBACK(show_next_page), (gpointer)&data_count);
-        
+
 	vp_theme = (GtkViewport *)GTK_WIDGET(gtk_builder_get_object(builder, "vp_theme"));
 	bt_theme = (GtkButton *)GTK_WIDGET(gtk_builder_get_object(builder, "bt_theme"));
 	data_theme.vp = vp_theme;
@@ -406,7 +406,7 @@ void init_signals()
     gtk_widget_set_tooltip_text(button3, _(" Change the computer desktop background \n and related theme"));
     set_button_image(button3, "个性化");
 	g_signal_connect(G_OBJECT(button3), "clicked", G_CALLBACK(show_next_page), (gpointer)&data_theme);
-        
+
 	vp_app = (GtkViewport *)GTK_WIDGET(gtk_builder_get_object(builder, "vp_app"));
 	bt_app = (GtkButton *)GTK_WIDGET(gtk_builder_get_object(builder, "bt_app"));
 	data_app.vp = vp_app;
@@ -417,7 +417,7 @@ void init_signals()
     gtk_widget_set_tooltip_text(button4, _(" Change the default application on this computer "));
     set_button_image(button4, "默认应用程序");
 	g_signal_connect(G_OBJECT(button4), "clicked", G_CALLBACK(show_next_page), (gpointer)&data_app);
-        
+
 	vp_network = (GtkViewport *)GTK_WIDGET(gtk_builder_get_object(builder, "vp_network"));
 	//bt_network = (GtkButton *)GTK_WIDGET(gtk_builder_get_object(builder, "bt_network"));
 	//gtk_widget_hide(GTK_WIDGET(vp_network));
