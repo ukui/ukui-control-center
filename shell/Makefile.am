@@ -11,7 +11,6 @@ AM_CPPFLAGS = 						\
 	-I$(top_builddir)/panels/display		\
 	-I$(top_builddir)/panels/power			\
 	-I$(top_builddir)/panels/volume-control	\
-	$(UNIQUE_CFLAGS)	\
 	@PACKAGE_CFLAGS@
 
 bin_PROGRAMS = ukui-control-center
@@ -24,7 +23,6 @@ ukui_control_center_SOURCES = 		\
 
 ukui_control_center_LDADD = 							\
 	@PACKAGE_LIBS@								\
-	$(UNIQUE_LIBS)	\
 	$(top_builddir)/panels/time-data/libtime.la				\
 	$(top_builddir)/panels/user-accounts/libuser-accounts.la 		\
 	$(top_builddir)/panels/appearance/libappearance.la 		\

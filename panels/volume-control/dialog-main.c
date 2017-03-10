@@ -25,7 +25,6 @@
 #include "dialog-main.h"
 #include <glib.h>
 #include <gtk/gtk.h>
-//#include <unique/uniqueapp.h>
 
 #include "gvc-mixer-dialog.h"
 #include "gvc-log.h"
@@ -40,18 +39,6 @@ static gchar* page = NULL;
 static guint popup_id = 0;
 static GtkWidget *dialog = NULL;
 static GtkWidget *warning_dialog = NULL;
-
-/*static UniqueResponse
-message_received_cb (UniqueApp         *app,
-                     int                command,
-                     UniqueMessageData *message_data,
-                     guint              time_,
-                     gpointer           user_data)
-{
-        gtk_window_present (GTK_WINDOW (user_data));
-
-        return UNIQUE_RESPONSE_OK;
-}*/
 
 static void
 on_control_ready (GvcMixerControl *control,
@@ -119,17 +106,11 @@ void add_volume_control_app (GtkBuilder * builder)
 		g_warning("volume-control");
         GError             *error;
         GvcMixerControl    *control;
-        //UniqueApp          *app;
         top_builder = builder;
         gvc_log_init ();
         error = NULL;
         gvc_log_set_debug (debug);
 
-        /*app = unique_app_new (GVCA_DBUS_NAME, NULL);
-        if (unique_app_is_running (app)) {
-                unique_app_send_message (app, UNIQUE_ACTIVATE, NULL);
-                exit (0);
-        }*/
         control = gvc_mixer_control_new ("MATE Volume Control Dialog");
         g_signal_connect (control,
                           "connecting",

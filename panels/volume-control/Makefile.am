@@ -54,7 +54,6 @@ AM_CPPFLAGS = \
 	-DSOUND_SET_DIR="\"/usr/share/mate-media/sounds\""	\
 	$(GTK_CFLAGS)	\
 	$(GLIB_CFLAGS)	\
-	$(UNIQUE_CFLAGS)	\
 	$(CANBERRA_CFLAGS)	\
 	$(PULSE_CFLAGS)	\
 	$(GDK_CFLAGS)	\
@@ -64,7 +63,6 @@ AM_CPPFLAGS = \
 libvolume_la_LIBADD =	\
 	$(GTK_LIBS)	\
 	$(GLIB_LIBS)	\
-	$(UNIQUE_LIBS)	\
 	$(CANBERRA_LIBS)	\
 	$(PULSE_LIBS)	\
 	$(GDK_LIBS)	\

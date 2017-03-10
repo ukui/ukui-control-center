@@ -5,7 +5,6 @@ AM_CPPFLAGS = 					\
         $(PANEL_CFLAGS)				\
 	${DBUS_CFLAGS}				\
 	$(UPOWER_CFLAGS)			\
-	$(UNIQUE_CFLAGS)			\
 	-DSBINDIR=\"$(sbindir)\"		\
 	-DMATELOCALEDIR=\""$(datadir)/locale"\"	\
 	-DEGG_LOG_FILE=\""/tmp/kpm.log"\"       \
@@ -53,7 +52,6 @@ libpower_la_SOURCES =                           \
 libpower_la_LIBADD = 				\
 			@PACKAGE_LIBS@		\
 			$(DBUS_LIBS)		\
-			$(UNIQUE_LIBS)		\
 			$(UPOWER_LIBS)
 
 libpower_la_LDFLAGS = -export-dynamic @PACKAGE_LDFLAGS@

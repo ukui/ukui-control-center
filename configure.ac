@@ -60,7 +60,6 @@ DBUS_REQUIRED=1.0
 DBUS_GLIB_REQUIRED=0.70
 LIBNOTIFY_REQUIRED=0.7.0
 CAIRO_REQUIRED=1.0.0
-UNIQUE_REQUIRED=0.9.4
 LIBPANEL_REQUIRED=1.5.0
 XRANDR_REQUIRED=1.2.0
 CANBERRA_REQUIRED=0.10
@@ -161,36 +160,6 @@ PKG_CHECK_EXISTS(
  [AC_DEFINE(HAVE_XRANDR_13, 1, [xrandr 1.3 available])])
 
 PKG_CHECK_MODULES(LIBNOTIFY, libnotify >= $LIBNOTIFY_REQUIRED)
-
-
-dnl ----------------------------------------------------------------------------
-dnl - Unique
-dnl ----------------------------------------------------------------------------
-#PKG_CHECK_MODULES(UNIQUE, unique-1.0 >= $UNIQUE_REQUIRED)
-case "$with_gtk" in
-        2.0) LIBUNIQUE_VERSION=1.0
-                ;;
-        3.0) LIBUNIQUE_VERSION=3.0
-                ;;
-esac
-
-PKG_CHECK_MODULES(UNIQUE, unique-$LIBUNIQUE_VERSION, enable_libunique=yes, enable_libunique=no)
-
-AC_SUBST([UNIQUE_CFLAGS])
-AC_SUBST([UNIQUE_LIBS])
-
-AC_ARG_ENABLE(unique, [  --enable-unique         enable the use of libunique instead of g_application or gtk_application], enable_libunique=yes,)
-
-if test "x$enable_libunique" = "xyes"; then
-        UNIQUE_CFLAGS="$UNIQUE_CFLAGS -DUSE_UNIQUE=1"
-        # fix for deprecated on 2.26
-        # unique en la version 1.0, contiene simbolos no definidos a partir de
-        # glib 2.26, pero puede ser obviado si se utiliza -DG_CONST_RETURN=const
-        if $PKG_CONFIG --atleast-version 2.26 glib-2.0; then
-                UNIQUE_CFLAGS="$UNIQUE_CFLAGS -DG_CONST_RETURN=const"
-        fi
-fi
-
 
 dnl =======================================
 dnl Panels
