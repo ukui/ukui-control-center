@@ -593,18 +593,19 @@ static void month_del_button_clicked(GtkButton * button, gpointer user_data){
         gtk_combo_box_set_active(GTK_COMBO_BOX(timedata.td_combo_month), current_active -1);
     }
 }
-static void change_to_hr24_format(GtkToggleButton * hr_radio, gpointer user_data){
-	
-	g_settings_set_boolean(time_format, USE_24_FORMAT,gtk_toggle_button_get_active(hr_radio));
-}
+//static void change_to_hr24_format(GtkToggleButton * hr_radio, gpointer user_data){
+//	
+//	g_settings_set_boolean(time_format, USE_24_FORMAT,gtk_toggle_button_get_active(hr_radio));
+//}
 
-static void change_hr_format(GtkWidget * hr_radio, GdkEvent * event, gpointer user_data){
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hr_radio), TRUE);
-}
+//static void change_hr_format(GtkWidget * hr_radio, GdkEvent * event, gpointer user_data){
+//	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hr_radio), TRUE); 
+//}
 
 void add_time_and_data_app(GtkBuilder * builder){
-	GtkWidget * hr12_radio;
-	GtkWidget * hr24_radio;
+//	GtkWidget * hr12_radio;
+//	GtkWidget * hr24_radio;
+//      GtkWidget * label_format;
 
     g_warning("time_and_data");
     //hide calendar head, and then add four components to deal month and year change.
@@ -619,19 +620,25 @@ void add_time_and_data_app(GtkBuilder * builder){
     g_signal_connect(timedata.td_month_del_button, "clicked", G_CALLBACK(month_del_button_clicked), NULL);
     add_year_and_month_data();
 
-	hr12_radio = GTK_WIDGET(gtk_builder_get_object(builder, "hr12_radio"));
-	hr24_radio = GTK_WIDGET(gtk_builder_get_object(builder, "hr24_radio"));
-	g_signal_connect(hr12_radio, "button_release_event", G_CALLBACK(change_hr_format), NULL);
-	g_signal_connect(hr24_radio, "button_release_event", G_CALLBACK(change_hr_format), NULL);
-	g_signal_connect(GTK_TOGGLE_BUTTON(hr24_radio), "toggled", G_CALLBACK(change_to_hr24_format), NULL);
+//	hr12_radio = GTK_WIDGET(gtk_builder_get_object(builder, "hr12_radio"));
+//	hr24_radio = GTK_WIDGET(gtk_builder_get_object(builder, "hr24_radio"));
+//      label_format = GTK_WIDGET(gtk_builder_get_object(builder, "label37"));
+//      gtk_widget_hide(GTK_RADIO_BUTTON(hr12_radio));
+//      gtk_widget_hide(GTK_WIDGET(hr24_radio));
+//      g_warning("ssssssssssss");
+//      gtk_widget_hide(label_format);
+        
+//	g_signal_connect(hr12_radio, "button_release_event", G_CALLBACK(change_hr_format), NULL);
+//	g_signal_connect(hr24_radio, "button_release_event", G_CALLBACK(change_hr_format), NULL);
+//	g_signal_connect(GTK_TOGGLE_BUTTON(hr24_radio), "toggled", G_CALLBACK(change_to_hr24_format), NULL);
 
-	time_format = g_settings_new("org.mate.panel.indicator.calendar");
-	g_signal_handlers_block_by_func(hr24_radio,change_to_hr24_format, NULL);
-	if(g_settings_get_boolean(time_format,USE_24_FORMAT))
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hr24_radio), TRUE);
-	else
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hr12_radio), TRUE);
-	g_signal_handlers_unblock_by_func(hr24_radio,change_to_hr24_format, NULL);
+//	time_format = g_settings_new("org.mate.panel.indicator.calendar");
+//	g_signal_handlers_block_by_func(hr24_radio,change_to_hr24_format, NULL);
+//	if(g_settings_get_boolean(time_format,USE_24_FORMAT))
+//		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hr24_radio), TRUE);
+//	else
+//		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hr12_radio), TRUE);
+//	g_signal_handlers_unblock_by_func(hr24_radio,change_to_hr24_format, NULL);
 
     timedata.tzcombo = GTK_WIDGET(gtk_builder_get_object(builder, "time_zone_combobox"));
     g_signal_connect(G_OBJECT(timedata.tzcombo),"changed",

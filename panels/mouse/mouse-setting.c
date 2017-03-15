@@ -102,7 +102,7 @@ scrollmethod_clicked_event (GtkWidget *widget,
 
     GSList *radio_group;
     int new_scroll_method;
-    int old_scroll_method = g_settings_get_int (touchpad_settings, "scroll-method");
+    int old_scroll_method = g_settings_get_int (touchpad_settings, "natural-scroll");
 
     if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON(widget)))
         return;
@@ -114,7 +114,7 @@ scrollmethod_clicked_event (GtkWidget *widget,
     g_slist_free (radio_group);
 
     if (new_scroll_method != old_scroll_method)
-        g_settings_set_int (touchpad_settings, "scroll-method", new_scroll_method);
+        g_settings_set_int (touchpad_settings, "natural-scroll", new_scroll_method);
 }
 
 static void
@@ -172,7 +172,7 @@ synaptics_check_capabilities ()
 static void
 scrollmethod_gsettings_changed_event (GSettings *setting,gchar * key)
 {
-    int scroll_method = g_settings_get_int (touchpad_settings, "scroll-method");
+    int scroll_method = g_settings_get_int (touchpad_settings, "natural-scroll");
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (mousedata.scroll_disabled_radio),
                 scroll_method == 0);
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (mousedata.scroll_edge_radio),
@@ -450,10 +450,10 @@ static void setup_dialog()
         g_settings_bind (touchpad_settings, "tap-to-click",
             mousedata.tap_to_click_toggle, "active",
             G_SETTINGS_BIND_DEFAULT);
-        g_settings_bind (touchpad_settings, "horiz-scroll-enabled",
+        g_settings_bind (touchpad_settings, "horizontal-edge-scrolling",
             mousedata.horiz_scroll_toggle, "active",
             G_SETTINGS_BIND_DEFAULT);
-        scrollmethod_gsettings_changed_event(touchpad_settings, "scroll-method");
+        scrollmethod_gsettings_changed_event(touchpad_settings, "natural-scroll");
 
         radio = GTK_RADIO_BUTTON (mousedata.scroll_disabled_radio);
         GSList *radio_group = gtk_radio_button_get_group (radio);

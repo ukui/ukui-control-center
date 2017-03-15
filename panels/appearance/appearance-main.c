@@ -41,10 +41,10 @@ void init_appearance_data(GtkBuilder * builder)
 	appearance_notebook = GTK_WIDGET(gtk_builder_get_object(builder, "appearance_notebook"));
 	//Fixme: I remove page2 and page3 to wait designer give me pointe,remove theme page
 
-    //gtk_notebook_remove_page(GTK_NOTEBOOK(appearance_notebook), 2);
+       // gtk_notebook_remove_page(GTK_NOTEBOOK(appearance_notebook), 2);
 
 	//notice that when you remove page1, page2 become page1,so remove screensaver page
-    //gtk_notebook_remove_page(GTK_NOTEBOOK(appearance_notebook), 1);
+        gtk_notebook_remove_page(GTK_NOTEBOOK(appearance_notebook), 1);
 	//remove page4
     //gtk_notebook_remove_page(GTK_NOTEBOOK(appearance_notebook), 1);
 	//设置gsetting，保证scolor和pcolor为黑色

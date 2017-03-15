@@ -1012,7 +1012,7 @@ Management</property>
                     <child>
                       <object class="GtkLayout" id="time_date_layout">
                         <property name="visible">True</property>
-                        <property name="can_focus">False</property>
+                        <property name="can_focus">True</property>
                         <child>
                           <object class="GtkViewport" id="viewport7">
                             <property name="width_request">590</property>
@@ -1092,7 +1092,7 @@ Management</property>
                                   </object>
                                   <packing>
                                     <property name="x">5</property>
-                                    <property name="y">140</property>
+                                    <property name="y">122</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1156,8 +1156,9 @@ Management</property>
                                                 <property name="height_request">34</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
+                                                <property name="halign">baseline</property>
                                                 <items>
-                                                  <item translatable="yes">    Jan</item>
+                                                  <item id="&lt;输入 ID&gt;" translatable="yes">    Jan</item>
                                                   <item translatable="yes">   Feb</item>
                                                   <item translatable="yes">    Mar</item>
                                                   <item translatable="yes">    Apr</item>
@@ -1238,7 +1239,6 @@ Management</property>
                                     <property name="height_request">28</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
-                                    <property name="editable">False</property>
                                     <property name="invisible_char">•</property>
                                     <property name="primary_icon_activatable">False</property>
                                     <property name="secondary_icon_activatable">False</property>
@@ -1248,7 +1248,7 @@ Management</property>
                                   </object>
                                   <packing>
                                     <property name="x">59</property>
-                                    <property name="y">140</property>
+                                    <property name="y">120</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1257,7 +1257,6 @@ Management</property>
                                     <property name="height_request">28</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
-                                    <property name="editable">False</property>
                                     <property name="invisible_char">•</property>
                                     <property name="primary_icon_activatable">False</property>
                                     <property name="secondary_icon_activatable">False</property>
@@ -1267,7 +1266,7 @@ Management</property>
                                   </object>
                                   <packing>
                                     <property name="x">200</property>
-                                    <property name="y">140</property>
+                                    <property name="y">120</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1276,8 +1275,8 @@ Management</property>
                                     <property name="height_request">28</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
-                                    <property name="editable">False</property>
                                     <property name="invisible_char">•</property>
+                                    <property name="max_width_chars">2</property>
                                     <property name="primary_icon_activatable">False</property>
                                     <property name="secondary_icon_activatable">False</property>
                                     <property name="adjustment">time_and_date_seconds</property>
@@ -1286,7 +1285,7 @@ Management</property>
                                   </object>
                                   <packing>
                                     <property name="x">340</property>
-                                    <property name="y">140</property>
+                                    <property name="y">120</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1299,7 +1298,7 @@ Management</property>
                                   </object>
                                   <packing>
                                     <property name="x">170</property>
-                                    <property name="y">142</property>
+                                    <property name="y">122</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1312,7 +1311,7 @@ Management</property>
                                   </object>
                                   <packing>
                                     <property name="x">305</property>
-                                    <property name="y">142</property>
+                                    <property name="y">122</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1325,7 +1324,7 @@ Management</property>
                                   </object>
                                   <packing>
                                     <property name="x">445</property>
-                                    <property name="y">142</property>
+                                    <property name="y">122</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1341,62 +1340,6 @@ Management</property>
                                   <packing>
                                     <property name="x">59</property>
                                     <property name="y">20</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkViewport" id="viewport11">
-                                    <property name="width_request">50</property>
-                                    <property name="height_request">28</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="shadow_type">none</property>
-                                    <child>
-                                      <object class="GtkLabel" id="label37">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">False</property>
-                                        <property name="label" translatable="yes">format:</property>
-                                        <attributes>
-                                          <attribute name="weight" value="bold"/>
-                                        </attributes>
-                                      </object>
-                                    </child>
-                                  </object>
-                                  <packing>
-                                    <property name="x">5</property>
-                                    <property name="y">100</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkRadioButton" id="hr12_radio">
-                                    <property name="label" translatable="yes">12-hours</property>
-                                    <property name="width_request">80</property>
-                                    <property name="height_request">28</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">False</property>
-                                    <property name="active">True</property>
-                                    <property name="draw_indicator">True</property>
-                                  </object>
-                                  <packing>
-                                    <property name="x">59</property>
-                                    <property name="y">100</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkRadioButton" id="hr24_radio">
-                                    <property name="label" translatable="yes">24-hours</property>
-                                    <property name="width_request">80</property>
-                                    <property name="height_request">28</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">False</property>
-                                    <property name="active">True</property>
-                                    <property name="draw_indicator">True</property>
-                                    <property name="group">hr12_radio</property>
-                                  </object>
-                                  <packing>
-                                    <property name="x">164</property>
-                                    <property name="y">100</property>
                                   </packing>
                                 </child>
                               </object>
@@ -2289,14 +2232,14 @@ Management</property>
                                                 </child>
                                                 <child>
                                                   <object class="GtkComboBox" id="web_browser_combobox">
-                                                    <property name="width_request">60</property>
+                                                    <property name="width_request">300</property>
                                                     <property name="height_request">38</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                   </object>
                                                   <packing>
-                                                    <property name="expand">True</property>
-                                                    <property name="fill">True</property>
+                                                    <property name="expand">False</property>
+                                                    <property name="fill">False</property>
                                                     <property name="position">1</property>
                                                   </packing>
                                                 </child>
@@ -2336,14 +2279,14 @@ Management</property>
                                                 </child>
                                                 <child>
                                                   <object class="GtkComboBox" id="mail_reader_combobox">
-                                                    <property name="width_request">60</property>
+                                                    <property name="width_request">300</property>
                                                     <property name="height_request">38</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                   </object>
                                                   <packing>
-                                                    <property name="expand">True</property>
-                                                    <property name="fill">True</property>
+                                                    <property name="expand">False</property>
+                                                    <property name="fill">False</property>
                                                     <property name="position">1</property>
                                                   </packing>
                                                 </child>
@@ -2421,14 +2364,14 @@ Management</property>
                                                 </child>
                                                 <child>
                                                   <object class="GtkComboBox" id="image_combobox">
-                                                    <property name="width_request">60</property>
+                                                    <property name="width_request">300</property>
                                                     <property name="height_request">38</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                   </object>
                                                   <packing>
-                                                    <property name="expand">True</property>
-                                                    <property name="fill">True</property>
+                                                    <property name="expand">False</property>
+                                                    <property name="fill">False</property>
                                                     <property name="position">1</property>
                                                   </packing>
                                                 </child>
@@ -2468,14 +2411,14 @@ Management</property>
                                                 </child>
                                                 <child>
                                                   <object class="GtkComboBox" id="media_player_combobox">
-                                                    <property name="width_request">60</property>
+                                                    <property name="width_request">300</property>
                                                     <property name="height_request">38</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                   </object>
                                                   <packing>
-                                                    <property name="expand">True</property>
-                                                    <property name="fill">True</property>
+                                                    <property name="expand">False</property>
+                                                    <property name="fill">False</property>
                                                     <property name="position">1</property>
                                                   </packing>
                                                 </child>
@@ -2515,14 +2458,14 @@ Management</property>
                                                 </child>
                                                 <child>
                                                   <object class="GtkComboBox" id="video_combobox">
-                                                    <property name="width_request">60</property>
+                                                    <property name="width_request">300</property>
                                                     <property name="height_request">38</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                   </object>
                                                   <packing>
-                                                    <property name="expand">True</property>
-                                                    <property name="fill">True</property>
+                                                    <property name="expand">False</property>
+                                                    <property name="fill">False</property>
                                                     <property name="position">1</property>
                                                   </packing>
                                                 </child>
@@ -2600,14 +2543,14 @@ Management</property>
                                                 </child>
                                                 <child>
                                                   <object class="GtkComboBox" id="text_combobox">
-                                                    <property name="width_request">60</property>
+                                                    <property name="width_request">300</property>
                                                     <property name="height_request">38</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                   </object>
                                                   <packing>
-                                                    <property name="expand">True</property>
-                                                    <property name="fill">True</property>
+                                                    <property name="expand">False</property>
+                                                    <property name="fill">False</property>
                                                     <property name="position">1</property>
                                                   </packing>
                                                 </child>
@@ -2647,14 +2590,14 @@ Management</property>
                                                 </child>
                                                 <child>
                                                   <object class="GtkComboBox" id="filemanager_combobox">
-                                                    <property name="width_request">60</property>
+                                                    <property name="width_request">300</property>
                                                     <property name="height_request">38</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                   </object>
                                                   <packing>
-                                                    <property name="expand">True</property>
-                                                    <property name="fill">True</property>
+                                                    <property name="expand">False</property>
+                                                    <property name="fill">False</property>
                                                     <property name="position">1</property>
                                                   </packing>
                                                 </child>
