@@ -1106,8 +1106,10 @@ Management</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="orientation">vertical</property>
+                                        <property name="spacing">2</property>
                                         <child>
                                           <object class="GtkLayout" id="layout8">
+                                            <property name="height_request">50</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                             <child>
@@ -1127,7 +1129,7 @@ Management</property>
                                               </object>
                                               <packing>
                                                 <property name="x">84</property>
-                                                <property name="y">13</property>
+                                                <property name="y">10</property>
                                               </packing>
                                             </child>
                                             <child>
@@ -1147,13 +1149,13 @@ Management</property>
                                               </object>
                                               <packing>
                                                 <property name="x">280</property>
-                                                <property name="y">13</property>
+                                                <property name="y">10</property>
                                               </packing>
                                             </child>
                                             <child>
                                               <object class="GtkComboBoxText" id="td_combo_month">
                                                 <property name="width_request">80</property>
-                                                <property name="height_request">34</property>
+                                                <property name="height_request">32</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                                 <property name="halign">baseline</property>
@@ -1174,7 +1176,7 @@ Management</property>
                                               </object>
                                               <packing>
                                                 <property name="x">199</property>
-                                                <property name="y">13</property>
+                                                <property name="y">10</property>
                                               </packing>
                                             </child>
                                             <child>
@@ -1186,13 +1188,13 @@ Management</property>
                                               </object>
                                               <packing>
                                                 <property name="x">115</property>
-                                                <property name="y">13</property>
+                                                <property name="y">10</property>
                                               </packing>
                                             </child>
                                           </object>
                                           <packing>
-                                            <property name="expand">True</property>
-                                            <property name="fill">True</property>
+                                            <property name="expand">False</property>
+                                            <property name="fill">False</property>
                                             <property name="position">0</property>
                                           </packing>
                                         </child>
@@ -3682,7 +3684,6 @@ commonly used language.</property>
                                         <property name="can_focus">False</property>
                                         <child>
                                           <object class="GtkLabel" id="movtion_label">
-                                            <property name="width_request">28</property>
                                             <property name="height_request">28</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
@@ -3697,7 +3698,6 @@ commonly used language.</property>
                                         </child>
                                         <child>
                                           <object class="GtkLabel" id="movtion_slow">
-                                            <property name="width_request">1</property>
                                             <property name="height_request">28</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
@@ -3760,7 +3760,6 @@ commonly used language.</property>
                                         <property name="can_focus">False</property>
                                         <child>
                                           <object class="GtkLabel" id="senstive_label">
-                                            <property name="width_request">1</property>
                                             <property name="height_request">28</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
@@ -3775,7 +3774,6 @@ commonly used language.</property>
                                         </child>
                                         <child>
                                           <object class="GtkLabel" id="senstive_low">
-                                            <property name="width_request">1</property>
                                             <property name="height_request">28</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
@@ -3851,7 +3849,6 @@ commonly used language.</property>
                                         <property name="can_focus">False</property>
                                         <child>
                                           <object class="GtkLabel" id="double_click_label">
-                                            <property name="width_request">1</property>
                                             <property name="height_request">28</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
@@ -3859,7 +3856,7 @@ commonly used language.</property>
                                             <property name="use_underline">True</property>
                                           </object>
                                           <packing>
-                                            <property name="expand">True</property>
+                                            <property name="expand">False</property>
                                             <property name="fill">True</property>
                                             <property name="position">0</property>
                                           </packing>
@@ -3947,7 +3944,6 @@ commonly used language.</property>
                                     <property name="can_focus">False</property>
                                     <child>
                                       <object class="GtkLabel" id="label86">
-                                        <property name="width_request">125</property>
                                         <property name="height_request">33</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
@@ -3987,7 +3983,6 @@ commonly used language.</property>
                                     <property name="can_focus">False</property>
                                     <child>
                                       <object class="GtkLabel" id="label85">
-                                        <property name="width_request">96</property>
                                         <property name="height_request">33</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
@@ -4027,7 +4022,6 @@ commonly used language.</property>
                                     <property name="can_focus">False</property>
                                     <child>
                                       <object class="GtkLabel" id="label84">
-                                        <property name="width_request">80</property>
                                         <property name="height_request">33</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
@@ -4067,7 +4061,6 @@ commonly used language.</property>
                                     <property name="can_focus">False</property>
                                     <child>
                                       <object class="GtkLabel" id="label93">
-                                        <property name="width_request">130</property>
                                         <property name="height_request">33</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
@@ -4117,7 +4110,6 @@ commonly used language.</property>
                                 <property name="can_focus">False</property>
                                 <child>
                                   <object class="GtkLabel" id="label98">
-                                    <property name="width_request">100</property>
                                     <property name="height_request">33</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
@@ -4165,7 +4157,6 @@ commonly used language.</property>
                                 </child>
                                 <child>
                                   <object class="GtkLabel" id="label99">
-                                    <property name="width_request">100</property>
                                     <property name="height_request">33</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
@@ -4821,6 +4812,12 @@ commonly used language.</property>
                                         <property name="position">1</property>
                                       </packing>
                                     </child>
+                                    <child>
+                                      <placeholder/>
+                                    </child>
+                                    <child>
+                                      <placeholder/>
+                                    </child>
                                   </object>
                                 </child>
                                 <child type="tab">
@@ -4837,13 +4834,14 @@ commonly used language.</property>
                                   <object class="GtkBox" id="vbox60">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="border_width">12</property>
+                                    <property name="border_width">8</property>
                                     <property name="orientation">vertical</property>
                                     <property name="spacing">6</property>
                                     <child>
                                       <object class="GtkLabel" id="label_ignore_host">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
+                                        <property name="margin_right">475</property>
                                         <property name="label" translatable="yes">Ignore Host List</property>
                                         <attributes>
                                           <attribute name="weight" value="bold"/>
@@ -4860,28 +4858,19 @@ commonly used language.</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <child>
-                                          <object class="GtkLabel" id="label51">
-                                            <property name="visible">True</property>
-                                            <property name="can_focus">False</property>
-                                            <property name="label">      </property>
-                                          </object>
-                                          <packing>
-                                            <property name="expand">False</property>
-                                            <property name="fill">False</property>
-                                            <property name="position">0</property>
-                                          </packing>
-                                        </child>
-                                        <child>
                                           <object class="GtkGrid" id="table3">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
-                                            <property name="row_spacing">6</property>
+                                            <property name="row_spacing">8</property>
                                             <property name="column_spacing">12</property>
                                             <child>
                                               <object class="GtkEntry" id="entry_url">
+                                                <property name="width_request">500</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
+                                                <property name="has_focus">True</property>
                                                 <property name="invisible_char">●</property>
+                                                <property name="progress_pulse_step">0</property>
                                                 <property name="primary_icon_activatable">False</property>
                                                 <property name="secondary_icon_activatable">False</property>
                                               </object>
@@ -4901,27 +4890,6 @@ commonly used language.</property>
                                               <packing>
                                                 <property name="left_attach">1</property>
                                                 <property name="top_attach">0</property>
-                                              </packing>
-                                            </child>
-                                            <child>
-                                              <object class="GtkScrolledWindow" id="scrolledwindow4">
-                                                <property name="visible">True</property>
-                                                <property name="can_focus">True</property>
-                                                <property name="shadow_type">in</property>
-                                                <child>
-                                                  <object class="GtkTreeView" id="treeview_ignore_host">
-                                                    <property name="visible">True</property>
-                                                    <property name="can_focus">True</property>
-                                                    <property name="headers_visible">False</property>
-                                                    <child internal-child="selection">
-                                                      <object class="GtkTreeSelection" id="treeview-selection3"/>
-                                                    </child>
-                                                  </object>
-                                                </child>
-                                              </object>
-                                              <packing>
-                                                <property name="left_attach">2</property>
-                                                <property name="top_attach">1</property>
                                               </packing>
                                             </child>
                                             <child>
@@ -4958,15 +4926,24 @@ commonly used language.</property>
                                               </packing>
                                             </child>
                                             <child>
-                                              <placeholder/>
-                                            </child>
-                                            <child>
-                                              <placeholder/>
+                                              <object class="GtkTreeView" id="treeview_ignore_host">
+                                                <property name="height_request">350</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="headers_visible">False</property>
+                                                <child internal-child="selection">
+                                                  <object class="GtkTreeSelection" id="treeview-selection3"/>
+                                                </child>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">0</property>
+                                                <property name="top_attach">1</property>
+                                              </packing>
                                             </child>
                                           </object>
                                           <packing>
-                                            <property name="expand">True</property>
-                                            <property name="fill">True</property>
+                                            <property name="expand">False</property>
+                                            <property name="fill">False</property>
                                             <property name="position">1</property>
                                           </packing>
                                         </child>
@@ -5448,7 +5425,6 @@ commonly used language.</property>
                                             <property name="can_focus">False</property>
                                             <child>
                                               <object class="GtkLabel" id="label115">
-                                                <property name="width_request">100</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
@@ -5483,7 +5459,6 @@ commonly used language.</property>
                                             <property name="can_focus">False</property>
                                             <child>
                                               <object class="GtkLabel" id="label116">
-                                                <property name="width_request">230</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
@@ -5496,14 +5471,13 @@ commonly used language.</property>
                                             </child>
                                             <child>
                                               <object class="GtkComboBoxText" id="combobox_ac_computer">
-                                                <property name="width_request">300</property>
+                                                <property name="width_request">250</property>
                                                 <property name="height_request">30</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                               </object>
                                               <packing>
-                                                <property name="x">260</property>
-                                                <property name="y">2</property>
+                                                <property name="x">290</property>
                                               </packing>
                                             </child>
                                           </object>
@@ -5528,7 +5502,6 @@ commonly used language.</property>
                                             <property name="can_focus">False</property>
                                             <child>
                                               <object class="GtkLabel" id="label117">
-                                                <property name="width_request">220</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
@@ -5541,14 +5514,13 @@ commonly used language.</property>
                                             </child>
                                             <child>
                                               <object class="GtkComboBoxText" id="combobox_ac_lid">
-                                                <property name="width_request">300</property>
+                                                <property name="width_request">250</property>
                                                 <property name="height_request">30</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                               </object>
                                               <packing>
-                                                <property name="x">260</property>
-                                                <property name="y">2</property>
+                                                <property name="x">290</property>
                                               </packing>
                                             </child>
                                           </object>
@@ -5572,7 +5544,6 @@ commonly used language.</property>
                                             <child>
                                               <object class="GtkCheckButton" id="checkbutton_ac_spindown">
                                                 <property name="label" translatable="yes">Sp_in down hard disks when possible</property>
-                                                <property name="width_request">519</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
@@ -5617,7 +5588,6 @@ commonly used language.</property>
                                             <property name="can_focus">False</property>
                                             <child>
                                               <object class="GtkLabel" id="label118">
-                                                <property name="width_request">100</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
@@ -5652,7 +5622,6 @@ commonly used language.</property>
                                             <property name="can_focus">False</property>
                                             <child>
                                               <object class="GtkLabel" id="label119">
-                                                <property name="width_request">230</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
@@ -5665,13 +5634,13 @@ commonly used language.</property>
                                             </child>
                                             <child>
                                               <object class="GtkComboBoxText" id="combobox_ac_display">
-                                                <property name="width_request">300</property>
+                                                <property name="width_request">250</property>
                                                 <property name="height_request">30</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                               </object>
                                               <packing>
-                                                <property name="x">260</property>
+                                                <property name="x">290</property>
                                                 <property name="y">2</property>
                                               </packing>
                                             </child>
@@ -5697,7 +5666,6 @@ commonly used language.</property>
                                             <property name="can_focus">False</property>
                                             <child>
                                               <object class="GtkLabel" id="label120">
-                                                <property name="width_request">220</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
@@ -5745,7 +5713,6 @@ commonly used language.</property>
                                             <child>
                                               <object class="GtkCheckButton" id="checkbutton_ac_display_dim">
                                                 <property name="label" translatable="yes">Di_m display when idle</property>
-                                                <property name="width_request">519</property>
                                                 <property name="height_request">28</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
@@ -5809,7 +5776,6 @@ commonly used language.</property>
                                             <property name="can_focus">False</property>
                                             <child>
                                               <object class="GtkLabel" id="label121">
-                                                <property name="width_request">100</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
@@ -5844,7 +5810,6 @@ commonly used language.</property>
                                             <property name="can_focus">False</property>
                                             <child>
                                               <object class="GtkLabel" id="label122">
-                                                <property name="width_request">230</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
@@ -5857,14 +5822,13 @@ commonly used language.</property>
                                             </child>
                                             <child>
                                               <object class="GtkComboBoxText" id="combobox_battery_computer">
-                                                <property name="width_request">300</property>
+                                                <property name="width_request">250</property>
                                                 <property name="height_request">30</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                               </object>
                                               <packing>
-                                                <property name="x">260</property>
-                                                <property name="y">2</property>
+                                                <property name="x">290</property>
                                               </packing>
                                             </child>
                                           </object>
@@ -5888,10 +5852,10 @@ commonly used language.</property>
                                             <property name="can_focus">False</property>
                                             <child>
                                               <object class="GtkLabel" id="label123">
-                                                <property name="width_request">220</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
+                                                <property name="halign">start</property>
                                                 <property name="label" translatable="yes">When laptop lid is cl_osed:</property>
                                                 <property name="use_underline">True</property>
                                               </object>
@@ -5901,14 +5865,13 @@ commonly used language.</property>
                                             </child>
                                             <child>
                                               <object class="GtkComboBoxText" id="combobox_battery_lid">
-                                                <property name="width_request">300</property>
+                                                <property name="width_request">250</property>
                                                 <property name="height_request">30</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                               </object>
                                               <packing>
-                                                <property name="x">260</property>
-                                                <property name="y">2</property>
+                                                <property name="x">290</property>
                                               </packing>
                                             </child>
                                           </object>
@@ -5932,10 +5895,10 @@ commonly used language.</property>
                                             <property name="can_focus">False</property>
                                             <child>
                                               <object class="GtkLabel" id="label126">
-                                                <property name="width_request">220</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
+                                                <property name="halign">start</property>
                                                 <property name="label" translatable="yes">When battery po_wer is critically low:</property>
                                                 <property name="use_underline">True</property>
                                               </object>
@@ -5945,14 +5908,13 @@ commonly used language.</property>
                                             </child>
                                             <child>
                                               <object class="GtkComboBoxText" id="combobox_battery_critical">
-                                                <property name="width_request">300</property>
+                                                <property name="width_request">250</property>
                                                 <property name="height_request">30</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                               </object>
                                               <packing>
-                                                <property name="x">260</property>
-                                                <property name="y">2</property>
+                                                <property name="x">290</property>
                                               </packing>
                                             </child>
                                           </object>
@@ -5976,7 +5938,7 @@ commonly used language.</property>
                                             <child>
                                               <object class="GtkCheckButton" id="checkbutton_battery_spindown">
                                                 <property name="label" translatable="yes">Sp_in down hard disks when possible</property>
-                                                <property name="width_request">519</property>
+                                                <property name="width_request">0</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
@@ -6021,7 +5983,6 @@ commonly used language.</property>
                                             <property name="can_focus">False</property>
                                             <child>
                                               <object class="GtkLabel" id="label124">
-                                                <property name="width_request">100</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
@@ -6056,7 +6017,6 @@ commonly used language.</property>
                                             <property name="can_focus">False</property>
                                             <child>
                                               <object class="GtkLabel" id="label125">
-                                                <property name="width_request">230</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
@@ -6069,14 +6029,13 @@ commonly used language.</property>
                                             </child>
                                             <child>
                                               <object class="GtkComboBoxText" id="combobox_battery_display">
-                                                <property name="width_request">300</property>
+                                                <property name="width_request">250</property>
                                                 <property name="height_request">30</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                               </object>
                                               <packing>
-                                                <property name="x">260</property>
-                                                <property name="y">2</property>
+                                                <property name="x">290</property>
                                               </packing>
                                             </child>
                                           </object>
@@ -6101,7 +6060,6 @@ commonly used language.</property>
                                             <child>
                                               <object class="GtkCheckButton" id="checkbutton_battery_display_reduce">
                                                 <property name="label" translatable="yes">_Reduce backlight brightness</property>
-                                                <property name="width_request">519</property>
                                                 <property name="height_request">28</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
@@ -6135,7 +6093,6 @@ commonly used language.</property>
                                             <child>
                                               <object class="GtkCheckButton" id="checkbutton_battery_display_dim">
                                                 <property name="label" translatable="yes">Di_m display when idle</property>
-                                                <property name="width_request">519</property>
                                                 <property name="height_request">28</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
@@ -6203,7 +6160,6 @@ commonly used language.</property>
                                             <property name="can_focus">False</property>
                                             <child>
                                               <object class="GtkLabel" id="label127">
-                                                <property name="width_request">100</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
@@ -6237,7 +6193,7 @@ commonly used language.</property>
                                             <property name="can_focus">False</property>
                                             <child>
                                               <object class="GtkLabel" id="label128">
-                                                <property name="width_request">220</property>
+                                                <property name="width_request">0</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
@@ -6250,13 +6206,13 @@ commonly used language.</property>
                                             </child>
                                             <child>
                                               <object class="GtkComboBoxText" id="combobox_general_power">
-                                                <property name="width_request">300</property>
+                                                <property name="width_request">250</property>
                                                 <property name="height_request">30</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                               </object>
                                               <packing>
-                                                <property name="x">260</property>
+                                                <property name="x">290</property>
                                                 <property name="y">2</property>
                                               </packing>
                                             </child>
@@ -6281,13 +6237,11 @@ commonly used language.</property>
                                             <property name="can_focus">False</property>
                                             <child>
                                               <object class="GtkLabel" id="label130">
-                                                <property name="width_request">230</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                                 <property name="label" translatable="yes">When the _suspend button is pressed:</property>
                                                 <property name="use_underline">True</property>
-                                                <property name="xalign">0</property>
                                               </object>
                                               <packing>
                                                 <property name="x">30</property>
@@ -6295,13 +6249,13 @@ commonly used language.</property>
                                             </child>
                                             <child>
                                               <object class="GtkComboBoxText" id="combobox_general_suspend">
-                                                <property name="width_request">300</property>
+                                                <property name="width_request">250</property>
                                                 <property name="height_request">30</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                               </object>
                                               <packing>
-                                                <property name="x">260</property>
+                                                <property name="x">290</property>
                                                 <property name="y">2</property>
                                               </packing>
                                             </child>
@@ -6338,12 +6292,10 @@ commonly used language.</property>
                                             <property name="can_focus">False</property>
                                             <child>
                                               <object class="GtkLabel" id="label137">
-                                                <property name="width_request">150</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                                 <property name="label" translatable="yes">Notification Area</property>
-                                                <property name="xalign">0</property>
                                                 <attributes>
                                                   <attribute name="weight" value="bold"/>
                                                 </attributes>
@@ -6374,13 +6326,11 @@ commonly used language.</property>
                                             <child>
                                               <object class="GtkRadioButton" id="radiobutton_notification_never">
                                                 <property name="label" translatable="yes">_Never display an icon</property>
-                                                <property name="width_request">519</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="receives_default">False</property>
                                                 <property name="use_underline">True</property>
-                                                <property name="xalign">0.5</property>
                                                 <property name="active">True</property>
                                                 <property name="draw_indicator">True</property>
                                               </object>
@@ -6410,13 +6360,11 @@ commonly used language.</property>
                                             <child>
                                               <object class="GtkRadioButton" id="radiobutton_notification_low">
                                                 <property name="label" translatable="yes">_Only display an icon when battery power is low</property>
-                                                <property name="width_request">519</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="receives_default">False</property>
                                                 <property name="use_underline">True</property>
-                                                <property name="xalign">0.5</property>
                                                 <property name="active">True</property>
                                                 <property name="draw_indicator">True</property>
                                                 <property name="group">radiobutton_notification_never</property>
@@ -6447,13 +6395,11 @@ commonly used language.</property>
                                             <child>
                                               <object class="GtkRadioButton" id="radiobutton_notification_charge">
                                                 <property name="label" translatable="yes">Only display an icon when charging or _discharging</property>
-                                                <property name="width_request">519</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="receives_default">False</property>
                                                 <property name="use_underline">True</property>
-                                                <property name="xalign">0.5</property>
                                                 <property name="active">True</property>
                                                 <property name="draw_indicator">True</property>
                                                 <property name="group">radiobutton_notification_never</property>
@@ -6484,13 +6430,11 @@ commonly used language.</property>
                                             <child>
                                               <object class="GtkRadioButton" id="radiobutton_notification_present">
                                                 <property name="label" translatable="yes">Only display an icon when a battery is p_resent</property>
-                                                <property name="width_request">519</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="receives_default">False</property>
                                                 <property name="use_underline">True</property>
-                                                <property name="xalign">0.5</property>
                                                 <property name="active">True</property>
                                                 <property name="draw_indicator">True</property>
                                                 <property name="group">radiobutton_notification_never</property>
@@ -6521,13 +6465,11 @@ commonly used language.</property>
                                             <child>
                                               <object class="GtkRadioButton" id="radiobutton_notification_always">
                                                 <property name="label" translatable="yes">_Always display an icon</property>
-                                                <property name="width_request">519</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="receives_default">False</property>
                                                 <property name="use_underline">True</property>
-                                                <property name="xalign">0.5</property>
                                                 <property name="active">True</property>
                                                 <property name="draw_indicator">True</property>
                                                 <property name="group">radiobutton_notification_never</property>
@@ -6569,12 +6511,10 @@ commonly used language.</property>
                                             <property name="can_focus">False</property>
                                             <child>
                                               <object class="GtkLabel" id="label63">
-                                                <property name="width_request">100</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                                 <property name="label" translatable="yes">Screensaver</property>
-                                                <property name="xalign">0</property>
                                                 <attributes>
                                                   <attribute name="weight" value="bold"/>
                                                 </attributes>
@@ -6604,13 +6544,11 @@ commonly used language.</property>
                                             <property name="can_focus">False</property>
                                             <child>
                                               <object class="GtkLabel" id="activate_delay_label">
-                                                <property name="width_request">212</property>
                                                 <property name="height_request">33</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                                 <property name="label" translatable="yes">Regard the computer as _idle after:</property>
                                                 <property name="use_underline">True</property>
-                                                <property name="xalign">0</property>
                                               </object>
                                               <packing>
                                                 <property name="x">30</property>
@@ -6619,7 +6557,7 @@ commonly used language.</property>
                                             </child>
                                             <child>
                                               <object class="GtkScale" id="activate_delay_hscale">
-                                                <property name="width_request">300</property>
+                                                <property name="width_request">280</property>
                                                 <property name="height_request">37</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
@@ -6627,9 +6565,11 @@ commonly used language.</property>
                                                 <property name="no_show_all">True</property>
                                                 <property name="adjustment">adjustment-screensaver</property>
                                                 <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
                                               </object>
                                               <packing>
                                                 <property name="x">260</property>
+                                                <property name="y">10</property>
                                               </packing>
                                             </child>
                                           </object>
