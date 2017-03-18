@@ -18,7 +18,7 @@
 
 #define GSETTINGS_KEYBINDINGS_DIR "/org/mate/desktop/keybindings/"
 #define GSETTINGS_KEYBINDINGS_SYSTEM "/org/mate/marco/global-keybindings/"
-#define CUSTOM_KEYBINDING_SCHEMA "org.ukui.control-center.keybinding"
+#define CUSTOM_KEYBINDING_SCHEMA "org.mate.control-center.keybinding"
 #define MARCO_KEY "org.mate.Marco.global-keybindings"
 
 #define MAX_ELEMENTS_BEFORE_SCROLLING 10

@@ -625,7 +625,6 @@ void add_time_and_data_app(GtkBuilder * builder){
 //      label_format = GTK_WIDGET(gtk_builder_get_object(builder, "label37"));
 //      gtk_widget_hide(GTK_RADIO_BUTTON(hr12_radio));
 //      gtk_widget_hide(GTK_WIDGET(hr24_radio));
-//      g_warning("ssssssssssss");
 //      gtk_widget_hide(label_format);
         
 //	g_signal_connect(hr12_radio, "button_release_event", G_CALLBACK(change_hr_format), NULL);

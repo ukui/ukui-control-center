@@ -257,10 +257,10 @@ update_output_settings (GvcMixerDialog *dialog)
                 return;
         }
 
-//        gvc_channel_bar_set_base_volume (GVC_CHANNEL_BAR (dialog->priv->output_bar),
-//                                         gvc_mixer_stream_get_base_volume (stream));
-//        gvc_channel_bar_set_is_amplified (GVC_CHANNEL_BAR (dialog->priv->output_bar),
-//                                          gvc_mixer_stream_get_can_decibel (stream));
+        gvc_channel_bar_set_base_volume (GVC_CHANNEL_BAR (dialog->priv->output_bar),
+                                         gvc_mixer_stream_get_base_volume (stream));
+        gvc_channel_bar_set_is_amplified (GVC_CHANNEL_BAR (dialog->priv->output_bar),
+                                          gvc_mixer_stream_get_can_decibel (stream));
 
         map = gvc_mixer_stream_get_channel_map (stream);
         if (map == NULL) {
@@ -382,7 +382,7 @@ on_mixer_control_default_sink_changed (GvcMixerControl *control,
         else
                 stream = gvc_mixer_control_lookup_stream_id (dialog->priv->mixer_control,
                                                              id);
-//        bar_set_stream (dialog, dialog->priv->output_bar, stream);
+        bar_set_stream (dialog, dialog->priv->output_bar, stream);
 
         update_output_settings (dialog);
 
@@ -1040,14 +1040,14 @@ add_stream (GvcMixerDialog *dialog,
         id = gvc_mixer_stream_get_application_id (stream);
 
         if (stream == gvc_mixer_control_get_default_sink (dialog->priv->mixer_control)) {
-//                bar = dialog->priv->output_bar;
-//                is_muted = gvc_mixer_stream_get_is_muted (stream);
-//                is_default = TRUE;
-//                gtk_widget_set_sensitive (dialog->priv->applications_box,
-//                                          !is_muted);
-//                adj = GTK_ADJUSTMENT (gvc_channel_bar_get_adjustment (GVC_CHANNEL_BAR (bar)));
-//                g_signal_handlers_disconnect_by_func(adj, on_adjustment_value_changed, dialog);
-//                update_output_settings (dialog);
+                bar = dialog->priv->output_bar;
+                is_muted = gvc_mixer_stream_get_is_muted (stream);
+                is_default = TRUE;
+                gtk_widget_set_sensitive (dialog->priv->applications_box,
+                                          !is_muted);
+                adj = GTK_ADJUSTMENT (gvc_channel_bar_get_adjustment (GVC_CHANNEL_BAR (bar)));
+                g_signal_handlers_disconnect_by_func(adj, on_adjustment_value_changed, dialog);
+                update_output_settings (dialog);
         } else if (stream == gvc_mixer_control_get_default_source (dialog->priv->mixer_control)) {
                 bar = dialog->priv->input_bar;
                 adj = GTK_ADJUSTMENT (gvc_channel_bar_get_adjustment (GVC_CHANNEL_BAR (bar)));
@@ -1191,10 +1191,11 @@ remove_stream (GvcMixerDialog  *dialog,
 
         /* remove bars for applications and reset fixed bars */
         bar = g_hash_table_lookup (dialog->priv->bars, GUINT_TO_POINTER (id));
-//        if (bar == dialog->priv->output_bar
-//            || bar == dialog->priv->input_bar
-        if (bar == dialog->priv->input_bar
-            || bar == dialog->priv->effects_bar) {
+        if (bar == dialog->priv->output_bar
+            || bar == dialog->priv->input_bar
+//        if (bar == dialog->priv->input_bar
+            || bar == dialog->priv->effects_bar) 
+        {
                 char *name;
                 g_object_get (bar, "name", &name, NULL);
                 g_debug ("Removing stream for bar '%s'", name);
@@ -1747,6 +1748,10 @@ gvc_mixer_dialog_constructor (GType                  type,
         GtkWidget        *label;
         GtkWidget        *alignment;
         GtkWidget        *box;
+
+        GtkWidget        *box1;
+        GtkWidget        *box2;
+
         GtkWidget        *sbox;
         GtkWidget        *ebox;
         GSList           *streams;
@@ -1769,7 +1774,8 @@ gvc_mixer_dialog_constructor (GType                  type,
 
         gtk_container_set_border_width (GTK_CONTAINER (self), 6);
 
-        self->priv->output_stream_box = gtk_hbox_new (FALSE, 12);
+        //self->priv->output_stream_box = gtk_hbox_new (FALSE, 12);
+        self->priv->output_stream_box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 12);
         alignment = gtk_alignment_new (0, 0, 1, 1);
         gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 12, 0, 0, 0);
         gtk_container_add (GTK_CONTAINER (alignment), self->priv->output_stream_box);
@@ -1779,7 +1785,7 @@ gvc_mixer_dialog_constructor (GType                  type,
         self->priv->output_bar = create_bar (self, self->priv->size_group, TRUE);
         gvc_channel_bar_set_name (GVC_CHANNEL_BAR (self->priv->output_bar),
                                   _("Sound Output Volume"));
-        gtk_widget_set_sensitive (self->priv->output_bar, FALSE);
+        gtk_widget_set_sensitive (self->priv->output_bar, TRUE);
 //        gtk_box_pack_start (GTK_BOX (self->priv->output_stream_box),
 //                            self->priv->output_bar, TRUE, TRUE, 12);
 
@@ -1827,7 +1833,7 @@ gvc_mixer_dialog_constructor (GType                  type,
                             TRUE, TRUE, 6);
 
         /* Hardware page */
-        self->priv->hw_box = gtk_vbox_new (FALSE, 12);
+        self->priv->hw_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
         gtk_container_set_border_width (GTK_CONTAINER (self->priv->hw_box), 12);
         label = gtk_label_new (_("Hardware"));
         gtk_notebook_append_page (GTK_NOTEBOOK (self->priv->notebook),
@@ -1870,7 +1876,7 @@ gvc_mixer_dialog_constructor (GType                  type,
         gtk_container_add (GTK_CONTAINER (box), self->priv->hw_settings_box);
 
         /* Input page */
-        self->priv->input_box = gtk_vbox_new (FALSE, 12);
+        self->priv->input_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
         gtk_container_set_border_width (GTK_CONTAINER (self->priv->input_box), 12);
         label = gtk_label_new (_("Input"));
         gtk_notebook_append_page (GTK_NOTEBOOK (self->priv->notebook),
@@ -1885,19 +1891,19 @@ gvc_mixer_dialog_constructor (GType                  type,
         gvc_channel_bar_set_high_icon_name (GVC_CHANNEL_BAR (self->priv->input_bar),
                                             "audio-input-microphone-high");
         gtk_widget_set_sensitive (self->priv->input_bar, FALSE);
-        alignment = gtk_alignment_new (0, 0, 1, 1);
-        gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 6, 0, 0, 0);
-        gtk_container_add (GTK_CONTAINER (alignment), self->priv->input_bar);
+        //alignment = gtk_alignment_new (0, 0, 1, 1);
+        //gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 6, 0, 0, 0);
+       // gtk_container_add (GTK_CONTAINER (alignment), self->priv->input_bar);
         gtk_box_pack_start (GTK_BOX (self->priv->input_box),
-                            alignment,
-                            FALSE, FALSE, 0);
+                            GTK_WIDGET(self->priv->input_bar),
+                            FALSE, FALSE, 10);
 
-        box = gtk_hbox_new (FALSE, 6);
+        box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
         gtk_box_pack_start (GTK_BOX (self->priv->input_box),
                             box,
                             FALSE, FALSE, 6);
 
-        sbox = gtk_hbox_new (FALSE, 6);
+        sbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
         gtk_box_pack_start (GTK_BOX (box),
                             sbox,
                             FALSE, FALSE, 0);
@@ -1917,27 +1923,27 @@ gvc_mixer_dialog_constructor (GType                  type,
                             self->priv->input_level_bar,
                             TRUE, TRUE, 6);
 
-        ebox = gtk_hbox_new (FALSE, 6);
+        ebox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
         gtk_box_pack_start (GTK_BOX (box),
                             ebox,
                             FALSE, FALSE, 0);
         gtk_size_group_add_widget (self->priv->size_group, ebox);
 
-        self->priv->input_settings_box = gtk_hbox_new (FALSE, 6);
+        self->priv->input_settings_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
         gtk_box_pack_start (GTK_BOX (self->priv->input_box),
                             self->priv->input_settings_box,
                             FALSE, FALSE, 0);
 
-        box = gtk_frame_new (_("C_hoose a device for sound input:"));
-        label = gtk_frame_get_label_widget (GTK_FRAME (box));
+        box2 = gtk_frame_new (_("C_hoose a device for sound input:"));
+        label = gtk_frame_get_label_widget (GTK_FRAME (box2));
         _gtk_label_make_bold (GTK_LABEL (label));
         gtk_label_set_use_underline (GTK_LABEL (label), TRUE);
-        gtk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
-        gtk_box_pack_start (GTK_BOX (self->priv->input_box), box, TRUE, TRUE, 0);
+        gtk_frame_set_shadow_type (GTK_FRAME (box2), GTK_SHADOW_NONE);
+        gtk_box_pack_start (GTK_BOX (self->priv->input_box), box2, TRUE, TRUE, 0);
 
-        alignment = gtk_alignment_new (0, 0, 1, 1);
-        gtk_container_add (GTK_CONTAINER (box), alignment);
-        gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 6, 0, 0, 0);
+        //alignment = gtk_alignment_new (0, 0, 1, 1);
+        //gtk_container_add (GTK_CONTAINER (box), alignment);
+        //gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 6, 0, 0, 0);
 
         self->priv->input_treeview = create_stream_treeview (self,
                                                              G_CALLBACK (on_input_radio_toggled));
@@ -1950,29 +1956,29 @@ gvc_mixer_dialog_constructor (GType                  type,
         gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (box),
                                              GTK_SHADOW_IN);
         gtk_container_add (GTK_CONTAINER (box), self->priv->input_treeview);
-        gtk_container_add (GTK_CONTAINER (alignment), box);
+        gtk_container_add (GTK_CONTAINER (box2), box);
 
         selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (self->priv->input_treeview));
         gtk_tree_selection_set_mode (selection, GTK_SELECTION_SINGLE);
 
         /* Output page */
-        self->priv->output_box = gtk_vbox_new (FALSE, 12);
+        self->priv->output_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
         gtk_container_set_border_width (GTK_CONTAINER (self->priv->output_box), 12);
         label = gtk_label_new (_("Output"));
         gtk_notebook_append_page (GTK_NOTEBOOK (self->priv->notebook),
                                   self->priv->output_box,
                                   label);
 
-        box = gtk_frame_new (_("C_hoose a device for sound output:"));
-        label = gtk_frame_get_label_widget (GTK_FRAME (box));
+        box1 = gtk_frame_new (_("C_hoose a device for sound output:"));
+        label = gtk_frame_get_label_widget (GTK_FRAME (box1));
         _gtk_label_make_bold (GTK_LABEL (label));
         gtk_label_set_use_underline (GTK_LABEL (label), TRUE);
-        gtk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
-        gtk_box_pack_start (GTK_BOX (self->priv->output_box), box, TRUE, TRUE, 0);
+        gtk_frame_set_shadow_type (GTK_FRAME (box1), GTK_SHADOW_NONE);
+        gtk_box_pack_start (GTK_BOX (self->priv->output_box), box1, TRUE, TRUE, 0);
 
-        alignment = gtk_alignment_new (0, 0, 1, 1);
-        gtk_container_add (GTK_CONTAINER (box), alignment);
-        gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 6, 0, 0, 0);
+        //alignment = gtk_alignment_new (0, 0, 1, 1);
+        //gtk_container_add (GTK_CONTAINER (box), alignment);
+        //gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 6, 0, 0, 0);
 
         self->priv->output_treeview = create_stream_treeview (self,
                                                               G_CALLBACK (on_output_radio_toggled));
@@ -1985,7 +1991,7 @@ gvc_mixer_dialog_constructor (GType                  type,
         gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (box),
                                              GTK_SHADOW_IN);
         gtk_container_add (GTK_CONTAINER (box), self->priv->output_treeview);
-        gtk_container_add (GTK_CONTAINER (alignment), box);
+        gtk_container_add (GTK_CONTAINER (box1), box);
 
         selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (self->priv->output_treeview));
         gtk_tree_selection_set_mode (selection, GTK_SELECTION_SINGLE);
@@ -1995,7 +2001,7 @@ gvc_mixer_dialog_constructor (GType                  type,
         _gtk_label_make_bold (GTK_LABEL (label));
         gtk_frame_set_shadow_type (GTK_FRAME (box), GTK_SHADOW_NONE);
         gtk_box_pack_start (GTK_BOX (self->priv->output_box), box, FALSE, FALSE, 12);
-        self->priv->output_settings_box = gtk_vbox_new (FALSE, 0);
+        self->priv->output_settings_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
         gtk_container_add (GTK_CONTAINER (box), self->priv->output_settings_box);
 
         /* Applications */
