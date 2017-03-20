@@ -1075,13 +1075,15 @@ gvc_sound_theme_chooser_init (GvcSoundThemeChooser *chooser)
         GtkWidget   *label;
         GtkWidget   *scrolled_window;
         GtkWidget   *alignment;
+        GtkWidget   *alignment2;
+        GtkWidget   *tmp_vbox;
         char        *str;
 
         chooser->priv = GVC_SOUND_THEME_CHOOSER_GET_PRIVATE (chooser);
 
-        chooser->priv->theme_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
-        gtk_box_pack_start (GTK_BOX (chooser),
-                            chooser->priv->theme_box, FALSE, FALSE, 0);
+        chooser->priv->theme_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+//       gtk_box_pack_start (GTK_BOX (chooser),
+//                            chooser->priv->theme_box, FALSE, FALSE, 0);
 
         label = gtk_label_new_with_mnemonic (_("Sound _theme:"));
         gtk_box_pack_start (GTK_BOX (chooser->priv->theme_box), label, FALSE, FALSE, 0);
@@ -1089,6 +1091,10 @@ gvc_sound_theme_chooser_init (GvcSoundThemeChooser *chooser)
         gtk_box_pack_start (GTK_BOX (chooser->priv->theme_box), chooser->priv->combo_box, FALSE, FALSE, 6);
         gtk_label_set_mnemonic_widget (GTK_LABEL (label), chooser->priv->combo_box);
 
+        tmp_vbox=gtk_box_new(GTK_ORIENTATION_VERTICAL,0);
+        gtk_box_pack_start (GTK_BOX (tmp_vbox),
+                            chooser->priv->theme_box, FALSE, FALSE, 0);
+                            
         chooser->priv->sound_settings = g_settings_new (KEY_SOUNDS_SCHEMA);
         chooser->priv->marco_settings = g_settings_new (KEY_MARCO_SCHEMA);
 
@@ -1103,11 +1109,11 @@ gvc_sound_theme_chooser_init (GvcSoundThemeChooser *chooser)
         alignment = gtk_alignment_new (0, 0, 1, 1);
         gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 6, 0, 0, 0);
         gtk_container_add (GTK_CONTAINER (alignment), box);
-        gtk_box_pack_start (GTK_BOX (chooser), alignment, TRUE, TRUE, 6);
+        //gtk_box_pack_start (GTK_BOX (chooser), alignment, TRUE, TRUE, 6);
 
-        alignment = gtk_alignment_new (0, 0, 1, 1);
-        gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 6, 0, 0, 0);
-        gtk_container_add (GTK_CONTAINER (box), alignment);
+        alignment2 = gtk_alignment_new (0, 0, 1, 1);
+        gtk_alignment_set_padding (GTK_ALIGNMENT (alignment2), 6, 0, 0, 0);
+        gtk_container_add (GTK_CONTAINER (box), alignment2);
 
         chooser->priv->treeview = create_alert_treeview (chooser);
         gtk_label_set_mnemonic_widget (GTK_LABEL (label), chooser->priv->treeview);
@@ -1121,16 +1127,19 @@ gvc_sound_theme_chooser_init (GvcSoundThemeChooser *chooser)
         gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolled_window),
                                              GTK_SHADOW_IN);
         gtk_container_add (GTK_CONTAINER (scrolled_window), chooser->priv->treeview);
-        gtk_container_add (GTK_CONTAINER (alignment), scrolled_window);
+        gtk_container_add (GTK_CONTAINER (alignment2), scrolled_window);
+
+        gtk_box_pack_start(GTK_BOX(tmp_vbox),alignment,TRUE,TRUE,6);
+        gtk_box_pack_start(GTK_BOX(chooser),tmp_vbox,TRUE,TRUE,0);
 
         chooser->priv->click_feedback_button = gtk_check_button_new_with_mnemonic (_("Enable _window and button sounds"));
         gtk_widget_set_no_show_all(GTK_WIDGET(chooser->priv->click_feedback_button),TRUE);
         gtk_widget_hide(GTK_WIDGET(chooser->priv->click_feedback_button));
         gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (chooser->priv->click_feedback_button),
                                       g_settings_get_boolean (chooser->priv->sound_settings, INPUT_SOUNDS_KEY));
-        gtk_box_pack_start (GTK_BOX (chooser),
-                            chooser->priv->click_feedback_button,
-                            FALSE, FALSE, 0);
+//        gtk_box_pack_start (GTK_BOX (chooser),
+//                            chooser->priv->click_feedback_button,
+//                            FALSE, FALSE, 0);
         g_signal_connect (chooser->priv->click_feedback_button,
                           "toggled",
                           G_CALLBACK (on_click_feedback_toggled),
