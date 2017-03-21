@@ -6,7 +6,7 @@ intltool-extract --type=gettext/glade ../panels/keyboard/mate-keyboard-propertie
 intltool-extract --type=gettext/glade ../panels/keyboard/shortcut_dialog.ui
 intltool-extract --type=gettext/glade ../panels/session-properties/main-table.ui
 intltool-extract --type=gettext/glade ../panels/session-properties/program_properties.ui
-intltool-extract --type=gettext/glade ../panels/ukui-system-info/export_diagnose_info.ui
+#intltool-extract --type=gettext/glade ../panels/ukui-system-info/export_diagnose_info.ui
 intltool-extract --type=gettext/glade ../panels/network-proxy/network.ui
 intltool-extract --type=gettext/glade ../panels/user-accounts/change-face.ui
 intltool-extract --type=gettext/glade ../panels/user-accounts/change-pwd.ui
@@ -50,7 +50,7 @@ rm panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h
 rm panels/keyboard/shortcut_dialog.ui.h
 rm panels/session-properties/main-table.ui.h
 rm panels/session-properties/program_properties.ui.h
-rm panels/ukui-system-info/export_diagnose_info.ui.h
+#rm panels/ukui-system-info/export_diagnose_info.ui.h
 rm panels/network-proxy/network.ui.h
 rm panels/user-accounts/change-face.ui.h
 rm panels/user-accounts/change-pwd.ui.h

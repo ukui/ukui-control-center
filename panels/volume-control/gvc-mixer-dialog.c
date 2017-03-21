@@ -1781,13 +1781,13 @@ gvc_mixer_dialog_constructor (GType                  type,
         gtk_container_add (GTK_CONTAINER (alignment), self->priv->output_stream_box);
         gtk_box_pack_start (GTK_BOX (main_vbox),
                             alignment,
-                            FALSE, FALSE, 0);
+                            FALSE, FALSE, 20);
         self->priv->output_bar = create_bar (self, self->priv->size_group, TRUE);
         gvc_channel_bar_set_name (GVC_CHANNEL_BAR (self->priv->output_bar),
                                   _("Sound Output Volume"));
         gtk_widget_set_sensitive (self->priv->output_bar, TRUE);
-//        gtk_box_pack_start (GTK_BOX (self->priv->output_stream_box),
-//                            self->priv->output_bar, TRUE, TRUE, 12);
+        gtk_box_pack_start (GTK_BOX (self->priv->output_stream_box),
+                            self->priv->output_bar, TRUE, TRUE, 12);
 
         self->priv->notebook = gtk_notebook_new ();
         gtk_box_pack_start (GTK_BOX (main_vbox),
