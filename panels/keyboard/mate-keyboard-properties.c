@@ -160,7 +160,12 @@ setup_dialog (GtkBuilder * builder)
 void add_keyboard_app(GtkBuilder *builder)
 {
     g_warning("add_keyboard_app");
-    activate_settings_daemon();
+
+	GtkWidget *keyboard_notebook;
+	keyboard_notebook = GTK_WIDGET(gtk_builder_get_object(builder, "keyboard_notebook"));
+	gtk_notebook_remove_page(GTK_NOTEBOOK(keyboard_notebook), 2);
+
+	activate_settings_daemon();
 
     keyboard_settings = g_settings_new (KEYBOARD_SCHEMA);
     interface_settings = g_settings_new (INTERFACE_SCHEMA);

@@ -111,14 +111,14 @@ _scale_box_new (GvcChannelBar *bar)
         GtkWidget            *ebox;
 
         if (priv->orientation == GTK_ORIENTATION_VERTICAL) {
-                bar->priv->scale_box = box = gtk_vbox_new (FALSE, 6);
+                bar->priv->scale_box = box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
 
-                priv->scale = gtk_vscale_new (priv->adjustment);
+                priv->scale = gtk_scale_new (GTK_ORIENTATION_VERTICAL, priv->adjustment);
 
                 gtk_widget_set_size_request (priv->scale, -1, SCALE_SIZE);
                 gtk_range_set_inverted (GTK_RANGE (priv->scale), TRUE);
 
-                bar->priv->start_box = sbox = gtk_vbox_new (FALSE, 6);
+                bar->priv->start_box = sbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
                 gtk_box_pack_start (GTK_BOX (box), sbox, FALSE, FALSE, 0);
 
                 gtk_box_pack_start (GTK_BOX (sbox), priv->image, FALSE, FALSE, 0);
@@ -128,7 +128,7 @@ _scale_box_new (GvcChannelBar *bar)
                 gtk_widget_hide (priv->high_image);
                 gtk_box_pack_start (GTK_BOX (box), priv->scale, TRUE, TRUE, 0);
 
-                bar->priv->end_box = ebox = gtk_vbox_new (FALSE, 6);
+                bar->priv->end_box = ebox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
                 gtk_box_pack_start (GTK_BOX (box), ebox, FALSE, FALSE, 0);
 
                 gtk_box_pack_start (GTK_BOX (ebox), priv->low_image, FALSE, FALSE, 0);
@@ -136,13 +136,13 @@ _scale_box_new (GvcChannelBar *bar)
 
                 gtk_box_pack_start (GTK_BOX (ebox), priv->mute_box, FALSE, FALSE, 0);
         } else {
-                bar->priv->scale_box = box = gtk_hbox_new (FALSE, 6);
+                bar->priv->scale_box = box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
 
-                priv->scale = gtk_hscale_new (priv->adjustment);
+                priv->scale = gtk_scale_new (GTK_ORIENTATION_HORIZONTAL, priv->adjustment);
 
                 gtk_widget_set_size_request (priv->scale, SCALE_SIZE, -1);
 
-                bar->priv->start_box = sbox = gtk_hbox_new (FALSE, 6);
+                bar->priv->start_box = sbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
                 gtk_box_pack_start (GTK_BOX (box), sbox, FALSE, FALSE, 0);
 
                 gtk_box_pack_end (GTK_BOX (sbox), priv->low_image, FALSE, FALSE, 0);
@@ -152,7 +152,7 @@ _scale_box_new (GvcChannelBar *bar)
                 gtk_box_pack_start (GTK_BOX (sbox), priv->label, FALSE, FALSE, 0);
                 gtk_box_pack_start (GTK_BOX (box), priv->scale, TRUE, TRUE, 0);
 
-                bar->priv->end_box = ebox = gtk_hbox_new (FALSE, 6);
+                bar->priv->end_box = ebox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
                 gtk_box_pack_start (GTK_BOX (box), ebox, FALSE, FALSE, 0);
 
                 gtk_box_pack_start (GTK_BOX (ebox), priv->high_image, FALSE, FALSE, 0);
@@ -391,8 +391,8 @@ on_scale_button_press_event (GtkWidget      *widget,
          * step increments, clicking with the middle button moves the slider to
          * the location of the click.
          */
-        if (event->button == 1)
-                event->button = 2;
+//        if (event->button == 1)
+//                event->button = 2;
 
         bar->priv->click_lock = TRUE;
 
@@ -407,8 +407,8 @@ on_scale_button_release_event (GtkWidget      *widget,
         GtkAdjustment *adj;
         gdouble value;
         /* HACK: see on_scale_button_press_event() */
-        if (event->button == 1)
-                event->button = 2;
+//        if (event->button == 1)
+//                event->button = 2;
 
         bar->priv->click_lock = FALSE;
 
@@ -602,18 +602,18 @@ gvc_channel_bar_set_is_amplified (GvcChannelBar *bar, gboolean amplified)
                 char *str;
 
                 if (bar->priv->base_volume == ADJUSTMENT_MAX_NORMAL) {
-                        str = g_strdup_printf ("<small>%s</small>", _("volume"), "100%");
-//                        gtk_scale_add_mark (GTK_SCALE (bar->priv->scale), ADJUSTMENT_MAX_NORMAL,
-//                                            GTK_POS_BOTTOM, str);
+                        str = g_strdup_printf ("<small>%s</small>", "100%");
+                        gtk_scale_add_mark (GTK_SCALE (bar->priv->scale), ADJUSTMENT_MAX_NORMAL,
+                                            GTK_POS_BOTTOM, str);
                 } else {
-                        str = g_strdup_printf ("<small>%s</small>", _("volume"), _("Unamplified"));
-//                        gtk_scale_add_mark (GTK_SCALE (bar->priv->scale), bar->priv->base_volume,
-//                                            GTK_POS_BOTTOM, str);
+                        str = g_strdup_printf ("<small>%s</small>", _("Unamplified"));
+                        gtk_scale_add_mark (GTK_SCALE (bar->priv->scale), bar->priv->base_volume,
+                                            GTK_POS_BOTTOM, str);
                         /* Only show 100% if it's higher than the base volume */
                         if (bar->priv->base_volume < ADJUSTMENT_MAX_NORMAL) {
-                                str = g_strdup_printf ("<small>%s</small>", _("volume"), "100%");
-//                                gtk_scale_add_mark (GTK_SCALE (bar->priv->scale), ADJUSTMENT_MAX_NORMAL,
-//                                                    GTK_POS_BOTTOM, str);
+                                str = g_strdup_printf ("<small>%s</small>", "100%");
+                                gtk_scale_add_mark (GTK_SCALE (bar->priv->scale), ADJUSTMENT_MAX_NORMAL,
+                                                    GTK_POS_BOTTOM, str);
                         }
                 }
 

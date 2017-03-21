@@ -1112,10 +1112,11 @@ Management</property>
                                             <property name="height_request">50</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
+                                            <property name="valign">start</property>
                                             <child>
                                               <object class="GtkButton" id="td_month_del_button">
                                                 <property name="width_request">30</property>
-                                                <property name="height_request">34</property>
+                                                <property name="height_request">35</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="receives_default">True</property>
@@ -1129,13 +1130,13 @@ Management</property>
                                               </object>
                                               <packing>
                                                 <property name="x">84</property>
-                                                <property name="y">10</property>
+                                                <property name="y">12</property>
                                               </packing>
                                             </child>
                                             <child>
                                               <object class="GtkButton" id="td_month_add_button">
                                                 <property name="width_request">30</property>
-                                                <property name="height_request">34</property>
+                                                <property name="height_request">35</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="receives_default">True</property>
@@ -1148,17 +1149,32 @@ Management</property>
                                                 </child>
                                               </object>
                                               <packing>
-                                                <property name="x">280</property>
+                                                <property name="x">285</property>
+                                                <property name="y">12</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkComboBoxText" id="td_combo_year">
+                                                <property name="width_request">80</property>
+                                                <property name="height_request">38</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                              </object>
+                                              <packing>
+                                                <property name="x">115</property>
                                                 <property name="y">10</property>
                                               </packing>
                                             </child>
                                             <child>
                                               <object class="GtkComboBoxText" id="td_combo_month">
                                                 <property name="width_request">80</property>
-                                                <property name="height_request">32</property>
+                                                <property name="height_request">38</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                                 <property name="halign">baseline</property>
+                                                <property name="valign">baseline</property>
+                                                <property name="resize_mode">immediate</property>
+                                                <property name="popup_fixed_width">False</property>
                                                 <items>
                                                   <item id="&lt;输入 ID&gt;" translatable="yes">    Jan</item>
                                                   <item translatable="yes">   Feb</item>
@@ -1179,22 +1195,10 @@ Management</property>
                                                 <property name="y">10</property>
                                               </packing>
                                             </child>
-                                            <child>
-                                              <object class="GtkComboBoxText" id="td_combo_year">
-                                                <property name="width_request">80</property>
-                                                <property name="height_request">34</property>
-                                                <property name="visible">True</property>
-                                                <property name="can_focus">False</property>
-                                              </object>
-                                              <packing>
-                                                <property name="x">115</property>
-                                                <property name="y">10</property>
-                                              </packing>
-                                            </child>
                                           </object>
                                           <packing>
                                             <property name="expand">False</property>
-                                            <property name="fill">False</property>
+                                            <property name="fill">True</property>
                                             <property name="position">0</property>
                                           </packing>
                                         </child>
@@ -1779,7 +1783,6 @@ Management</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="orientation">vertical</property>
-                                <property name="spacing">8</property>
                                 <child>
                                   <object class="GtkBox" id="vbox11">
                                     <property name="visible">True</property>
@@ -1840,6 +1843,7 @@ Management</property>
                                     </child>
                                     <child>
                                       <object class="GtkLayout" id="layout21">
+                                        <property name="height_request">30</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <child>
@@ -3232,7 +3236,6 @@ Management</property>
                                         <property name="can_focus">False</property>
                                         <property name="label" translatable="yes">Please add the language you will use to the list. And the first one in the list is the most
 commonly used language.</property>
-                                        <property name="xalign">0</property>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3354,7 +3357,6 @@ commonly used language.</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">False</property>
                                         <property name="use_underline">True</property>
-                                        <property name="xalign">0.5</property>
                                         <property name="draw_indicator">True</property>
                                       </object>
                                       <packing>
@@ -3370,7 +3372,6 @@ commonly used language.</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">False</property>
                                         <property name="use_underline">True</property>
-                                        <property name="xalign">0.5</property>
                                         <property name="draw_indicator">True</property>
                                       </object>
                                       <packing>

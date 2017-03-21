@@ -8,33 +8,33 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ukui-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-01 10:19+0800\n"
+"POT-Creation-Date: 2017-03-21 13:11+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
-#: panels/appearance/appearance-desktop.c:542
+#: panels/appearance/appearance-desktop.c:561
 msgid "Add Wallpaper"
 msgstr "添加壁纸"
 
-#: panels/appearance/appearance-desktop.c:575
+#: panels/appearance/appearance-desktop.c:594
 msgid "Image"
 msgstr "图像"
 
-#: panels/appearance/appearance-desktop.c:579
+#: panels/appearance/appearance-desktop.c:598
 msgid "ALL File"
 msgstr "所有文件"
 
-#: panels/appearance/appearance-theme.c:43
+#: panels/appearance/appearance-theme.c:46
 msgid "Please choose a color that you like as the theme colors."
 msgstr "选择一个您喜欢的颜色作为主题颜色"
 
-#: panels/appearance/appearance-theme.c:57
+#: panels/appearance/appearance-theme.c:62
 msgid ""
 "Set up disable. Please wait at least 5 seconds that system subject will "
 "restart"
@@ -104,35 +104,43 @@ msgstr ""
 msgid "VB_GR"
 msgstr ""
 
-#: panels/appearance/mate-wp-info.c:28
+#: panels/appearance/mate-wp-info.c:47
 msgid "No Desktop Background"
 msgstr "无桌面背景"
 
-#: panels/appearance/mate-wp-item.c:296 panels/appearance/mate-wp-item.c:298
+#: panels/appearance/mate-wp-item.c:315 panels/appearance/mate-wp-item.c:317
 msgid "pixel"
 msgid_plural "pixels"
 msgstr[0] "像素"
 msgstr[1] "像素"
 
-#: panels/appearance/mate-wp-item.c:308
+#: panels/appearance/mate-wp-item.c:327
 #, c-format
 msgid ""
 "<b>%s</b>\n"
 "%s, %s\n"
 "File Path: %s\n"
 "Artist: %s"
-msgstr "<b>%s</b>\n%s, %s\n文件夹：%s\n作者：%s"
+msgstr ""
+"<b>%s</b>\n"
+"%s, %s\n"
+"文件夹：%s\n"
+"作者：%s"
 
-#: panels/appearance/mate-wp-item.c:325
+#: panels/appearance/mate-wp-item.c:344
 #, c-format
 msgid ""
 "<b>%s</b>\n"
 "%s\n"
 "File Path: %s\n"
 "Artist: %s"
-msgstr "<b>%s</b>\n%s\n文件夹：%s\n作者：%s"
+msgstr ""
+"<b>%s</b>\n"
+"%s\n"
+"文件夹：%s\n"
+"作者：%s"
 
-#: panels/display/mate-display-properties-install-systemwide.c:43
+#: panels/display/mate-display-properties-install-systemwide.c:45
 #, c-format
 msgid ""
 "Usage: %s SOURCE_FILE DEST_NAME\n"
@@ -147,134 +155,153 @@ msgid ""
 "DEST_NAME - relative name for the installed file.  This will get put in\n"
 "            the systemwide directory for RANDR configurations,\n"
 "            so the result will typically be %s/DEST_NAME\n"
-msgstr "用法: %s SOURCE_FILE DEST_NAME\n\n此程序向整个系统安装多显示器设置的 RANDR 配置文件。\n生成的配置文件将在 RANDR 插件在 mate-settings-daemon \n中运行时被使用。\n\nSOURCE_FILE - 完整路径名称，通常为 /home/username/.config/monitors.xml\n\nDEST_NAME - 安装后文件的相对名称。\n            将被置于用于 RANDR 配置的系统目录，\n            所以生成文件通常为 %s/DEST_NAME\n"
+msgstr ""
+"用法: %s SOURCE_FILE DEST_NAME\n"
+"\n"
+"此程序向整个系统安装多显示器设置的 RANDR 配置文件。\n"
+"生成的配置文件将在 RANDR 插件在 mate-settings-daemon \n"
+"中运行时被使用。\n"
+"\n"
+"SOURCE_FILE - 完整路径名称，通常为 /home/username/.config/monitors.xml\n"
+"\n"
+"DEST_NAME - 安装后文件的相对名称。\n"
+"            将被置于用于 RANDR 配置的系统目录，\n"
+"            所以生成文件通常为 %s/DEST_NAME\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:150
+#: panels/display/mate-display-properties-install-systemwide.c:152
 msgid "This program can only be used by the root user"
 msgstr "此程序只能由 root 用户使用"
 
-#: panels/display/mate-display-properties-install-systemwide.c:167
+#: panels/display/mate-display-properties-install-systemwide.c:169
 msgid "The source filename must be absolute"
 msgstr "源文件名必须为绝对路径"
 
-#: panels/display/mate-display-properties-install-systemwide.c:178
+#: panels/display/mate-display-properties-install-systemwide.c:180
 #, c-format
 msgid "Could not open %s: %s\n"
 msgstr "无法打开 %s: %s\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:187
+#: panels/display/mate-display-properties-install-systemwide.c:189
 #, c-format
 msgid "Could not get information for %s: %s\n"
 msgstr "无法获取 %s 的信息: %s\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:194
+#: panels/display/mate-display-properties-install-systemwide.c:196
 #, c-format
 msgid "%s must be a regular file\n"
 msgstr "%s 必须为常规文件\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:203
+#: panels/display/mate-display-properties-install-systemwide.c:205
 msgid "This program must only be run through pkexec(1)"
 msgstr "此程序仅能通过 pkexec(1) 运行"
 
-#: panels/display/mate-display-properties-install-systemwide.c:208
+#: panels/display/mate-display-properties-install-systemwide.c:210
 msgid "PKEXEC_UID must be set to an integer value"
 msgstr "PKEXEC_UID 必须设为整数值"
 
-#: panels/display/mate-display-properties-install-systemwide.c:214
+#: panels/display/mate-display-properties-install-systemwide.c:216
 #, c-format
 msgid "%s must be owned by you\n"
 msgstr "%s 必须归您所有\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:222
+#: panels/display/mate-display-properties-install-systemwide.c:224
 #, c-format
 msgid "%s must not have any directory components\n"
 msgstr "%s 不应有任何目录部分\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:230
+#: panels/display/mate-display-properties-install-systemwide.c:232
 #, c-format
 msgid "%s must be a directory\n"
 msgstr "%s 必须为目录\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:241
+#: panels/display/mate-display-properties-install-systemwide.c:243
 #, c-format
 msgid "Could not open %s/%s: %s\n"
 msgstr "无法打开 %s/%s: %s\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:261
+#: panels/display/mate-display-properties-install-systemwide.c:263
 #, c-format
 msgid "Could not rename %s to %s: %s\n"
 msgstr "无法将 %s 重命名为 %s: %s\n"
 
-#: panels/display/xrandr-capplet.c:309 panels/display/xrandr-capplet.c:347
-#: shell/shell.ui.h:181
+#: panels/display/xrandr-capplet.c:315 panels/display/xrandr-capplet.c:354
+#: shell/shell.ui.h:1
 msgid "Normal"
 msgstr "普通"
 
-#: panels/display/xrandr-capplet.c:310
-#: panels/volume-control/gvc-balance-bar.c:112
+#: panels/display/xrandr-capplet.c:316
+#: panels/volume-control/gvc-balance-bar.c:112 shell/shell.ui.h:2
 msgid "Left"
 msgstr "左"
 
-#: panels/display/xrandr-capplet.c:311
-#: panels/volume-control/gvc-balance-bar.c:113
+#: panels/display/xrandr-capplet.c:317
+#: panels/volume-control/gvc-balance-bar.c:113 shell/shell.ui.h:3
 msgid "Right"
 msgstr "右"
 
-#: panels/display/xrandr-capplet.c:312
+#: panels/display/xrandr-capplet.c:318 shell/shell.ui.h:4
 msgid "Upside-down"
 msgstr "上下颠倒"
 
-#: panels/display/xrandr-capplet.c:353
+#: panels/display/xrandr-capplet.c:360
 #, c-format
 msgid "%d Hz"
 msgstr ""
 
-#: panels/display/xrandr-capplet.c:483
+#: panels/display/xrandr-capplet.c:497 panels/display/xrandr-capplet.c:1746
+msgid "Mirror Screens"
+msgstr "　镜像屏幕"
+
+#: panels/display/xrandr-capplet.c:499
+#, fuzzy, c-format
+msgid "Monitor: %s"
+msgstr "显示器:"
+
+#. TRANSLATORS: a monitor is a device to measure voltage and current
+#: panels/display/xrandr-capplet.c:515 panels/power/kpm-upower.c:573
+#: shell/mainwindow.c:509 shell/shell.ui.h:27
+msgid "Monitor"
+msgid_plural "Monitors"
+msgstr[0] "显示器"
+
+#: panels/display/xrandr-capplet.c:632
 #, c-format
 msgid "%d x %d"
 msgstr ""
 
-#: panels/display/xrandr-capplet.c:1459
+#: panels/display/xrandr-capplet.c:1602
 msgid ""
 "Select a monitor to change its properties; drag it to rearrange its "
 "placement."
 msgstr "选择一个显示来更改它的属性；拖动它来排列位置。"
 
-#: panels/display/xrandr-capplet.c:1603
-msgid "Mirror Screens"
-msgstr "　镜像屏幕"
-
-#: panels/display/xrandr-capplet.c:2030
+#: panels/display/xrandr-capplet.c:2206
 msgid "Could not save the monitor configuration"
 msgstr "无法保存显示器配置"
 
-#: panels/display/xrandr-capplet.c:2052
+#: panels/display/xrandr-capplet.c:2228
 msgid "Could not get session bus while applying display configuration"
 msgstr "应用显示配置时无法获得会话总线"
 
-#: panels/display/xrandr-capplet.c:2264
+#: panels/display/xrandr-capplet.c:2247
+msgid "Could not detect displays"
+msgstr ""
+
+#: panels/display/xrandr-capplet.c:2479
 msgid "The monitor configuration has been saved"
 msgstr "显示器配置已保存"
 
-#: panels/display/xrandr-capplet.c:2266
+#: panels/display/xrandr-capplet.c:2481
 msgid "This configuration will be used the next time someone logs in."
 msgstr "这个设置将在下次登入时使用"
 
-#: panels/display/xrandr-capplet.c:2276
+#: panels/display/xrandr-capplet.c:2490
 msgid "Could not set the default configuration for monitors"
 msgstr "无法为显示器设置默认配置"
 
-#: panels/display/xrandr-capplet.c:2276
-msgid "You have cancelled the authentication operation!"
-msgstr "您已经取消了验证操作！"
-
-#: panels/display/xrandr-capplet.c:2367
-msgid "Could not get screen information"
-msgstr "不能获取屏幕信息"
-
-#: panels/display/xrandr-capplet.c:2367
-msgid "Please ensure that the environment of display is normal"
-msgstr "请确保显示环境正常！"
+#: panels/display/xrandr-capplet.c:2559
+msgid "不能获取屏幕信息"
+msgstr ""
 
 #: panels/keyboard/mate-keybinding-properties.c:1070
 #: panels/keyboard/mate-keybinding-properties.c:1693
@@ -286,7 +313,9 @@ msgstr "自定义快捷键"
 msgid ""
 "The shortcut \"%s\" is already used for\n"
 "\"%s\",please reset!!!"
-msgstr "快捷键“%s”已经用于\n“%s”，请重现设置"
+msgstr ""
+"快捷键“%s”已经用于\n"
+"“%s”，请重现设置"
 
 #: panels/keyboard/mate-keybinding-properties.c:1523
 msgid "Add Shortcuts"
@@ -349,133 +378,6 @@ msgstr "执行命令:"
 msgid "Scan"
 msgstr "浏览"
 
-#: panels/ukui-system-info/export_diagnose_dialog.c:52
-msgid "Did  not check any information"
-msgstr "没有勾选任何信息"
-
-msgid "The system check is ok!"
-msgstr "系统校验通过"
-
-msgid "The following files have been changed:\n%s"
-msgstr "下列文件被改变：\n%s"
-
-#: panels/ukui-system-info/export_diagnose_dialog.c:75
-#: panels/ukui-system-info/export_diagnose_dialog.c:104
-#: panels/ukui-system-info/export_diagnose_dialog.c:118
-#: panels/ukui-system-info/export_diagnose_dialog.c:122
-msgid "Export information failed"
-msgstr "导出信息出错"
-
-#: panels/ukui-system-info/export_diagnose_dialog.c:113
-msgid "The sysinfo.tar.gz has been exported to the desktop."
-msgstr "信息sysinfo.tar.gz已导出到桌面"
-
-#: panels/ukui-system-info/export_diagnose_dialog.c:140
-msgid "Export diagnostic information"
-msgstr "导出诊断信息"
-
-#: panels/ukui-system-info/export_diagnose_dialog.c:225
-msgid "Please make a system diagnosis first and then export the information."
-msgstr "请先进行系统诊断，然后导出信息"
-
-#: panels/ukui-system-info/export_diagnose_info.ui.h:1
-msgid "Export Information"
-msgstr "kyinfo信息"
-
-#: panels/ukui-system-info/export_diagnose_info.ui.h:2
-msgid "kyinfo"
-msgstr ""
-
-#: panels/ukui-system-info/export_diagnose_info.ui.h:3
-msgid "boot log"
-msgstr "boot日志"
-
-#: panels/ukui-system-info/export_diagnose_info.ui.h:4
-msgid "dmesg log"
-msgstr "dmesg日志"
-
-#: panels/ukui-system-info/export_diagnose_info.ui.h:5
-msgid "kernel information"
-msgstr "内核信息"
-
-#: panels/ukui-system-info/export_diagnose_info.ui.h:6
-msgid "diagnosis information"
-msgstr "诊断信息"
-
-#: panels/ukui-system-info/export_diagnose_info.ui.h:7
-msgid "package list"
-msgstr "已安装包列表"
-
-#: panels/ukui-system-info/export_diagnose_info.ui.h:8
-msgid "message log"
-msgstr "message日志"
-
-#: panels/ukui-system-info/export_diagnose_info.ui.h:9
-msgid ""
-"Please click on the checkbox to export information\n"
-"(Gray said the current system has no corresponding information)"
-msgstr "请点击勾选要导出的信息\n(灰色表示当前系统没有对应信息)"
-
-#: panels/ukui-system-info/export_diagnose_info.ui.h:11
-#: panels/user-accounts/change-face.ui.h:4
-#: panels/user-accounts/change-name.ui.h:4
-#: panels/user-accounts/change-pwd.ui.h:4
-#: panels/user-accounts/change-type.ui.h:5
-#: panels/user-accounts/delete-user.ui.h:5 shell/shell.ui.h:183
-msgid "label"
-msgstr ""
-
-#: panels/ukui-system-info/export_diagnose_info.ui.h:12
-msgid "Confirm export"
-msgstr "确认导出"
-
-#: panels/ukui-system-info/ukui-system-info.c:58
-msgid ""
-"System diagnostics in progress, the whole process takes a few minutes, "
-"please be patient...... "
-msgstr "正在进行系统诊断，整个过程需要数分钟，请耐心等待...... "
-
-#: panels/ukui-system-info/ukui-system-info.c:61
-#: panels/ukui-system-info/ukui-system-info.c:89
-#: panels/ukui-system-info/ukui-system-info.c:305 shell/shell.ui.h:199
-msgid "Start Diagnose"
-msgstr "开始诊断"
-
-#: panels/ukui-system-info/ukui-system-info.c:64
-msgid ""
-"Failed to call the system diagnostics service, please check the related "
-"services of ukui-system-info are running"
-msgstr "调用系统诊断服务出错,请检查ukui-system-info相关服务是否正在运行"
-
-#: panels/ukui-system-info/ukui-system-info.c:69
-msgid "diagnosing"
-msgstr "正在诊断"
-
-#: panels/ukui-system-info/ukui-system-info.c:167
-#: panels/ukui-system-info/ukui-system-info.c:172
-msgid "Access to the kernel information failed"
-msgstr "获取内核信息失败"
-
-#: panels/ukui-system-info/ukui-system-info.c:185
-#: panels/ukui-system-info/ukui-system-info.c:192
-msgid "Access to the version information failed"
-msgstr "获取版本信息失败"
-
-#: panels/ukui-system-info/ukui-system-info.c:204
-#: panels/ukui-system-info/ukui-system-info.c:211
-msgid "Access to the boot information failed"
-msgstr "获取boot信息失败"
-
-#: panels/ukui-system-info/ukui-system-info.c:223
-#: panels/ukui-system-info/ukui-system-info.c:230
-msgid "Access to the dmesg log failed"
-msgstr "获取dmesg日志信息失败"
-
-#: panels/ukui-system-info/ukui-system-info.c:242
-#: panels/ukui-system-info/ukui-system-info.c:249
-msgid "Access to the message log failed"
-msgstr "获取message日志失败"
-
 #: panels/network-proxy/network.ui.h:1
 msgid "Network Proxy Details"
 msgstr "网络代理详情"
@@ -496,36 +398,34 @@ msgstr "密     码:"
 msgid "Unknown time"
 msgstr "未知时间"
 
-#: panels/power/kpm-common.c:57 panels/power/kpm-common.c:58
-#, c-format
+#: panels/power/kpm-common.c:57
+#, fuzzy, c-format
 msgid "%i minutes"
-msgstr "%i 分钟"
+msgid_plural "%i minutes"
+msgstr[0] "%i 分钟"
 
-#: panels/power/kpm-common.c:68 panels/power/kpm-common.c:69
-#, c-format
+#: panels/power/kpm-common.c:68
+#, fuzzy, c-format
 msgid "%i hours"
-msgstr "%i 小时"
+msgid_plural "%i hours"
+msgstr[0] "%i 小时"
 
 #: panels/power/kpm-common.c:74
 #, c-format
 msgid "%i %s %i %s"
 msgstr ""
 
-#: panels/power/kpm-common.c:75 shell/shell.ui.h:51
+#: panels/power/kpm-common.c:75 shell/shell.ui.h:58
+#, fuzzy
 msgid "hour"
-msgstr "时"
-
-#: panels/power/kpm-common.c:75
-msgid "hours"
-msgstr "时"
+msgid_plural "hours"
+msgstr[0] "时"
 
 #: panels/power/kpm-common.c:76
+#, fuzzy
 msgid "minute"
-msgstr "分"
-
-#: panels/power/kpm-common.c:76
-msgid "minutes"
-msgstr "分"
+msgid_plural "minutes"
+msgstr[0] "分"
 
 #: panels/power/kpm-common.h:41
 msgid "Power Manager"
@@ -535,68 +435,68 @@ msgstr "电源管理"
 msgid "Power Manager for the MATE desktop"
 msgstr "MATE桌面环境的电源管理"
 
-#: panels/power/kpm-prefs-core.c:168 panels/power/kpm-prefs-core.c:170
-#: panels/power/kpm-prefs-core.c:788
+#: panels/power/kpm-prefs-core.c:187 panels/power/kpm-prefs-core.c:189
+#: panels/power/kpm-prefs-core.c:805
 msgid "Never"
 msgstr "从不"
 
-#: panels/power/kpm-prefs-core.c:250 panels/power/kpm-prefs-core.c:253
+#: panels/power/kpm-prefs-core.c:269 panels/power/kpm-prefs-core.c:272
 msgid "Shutdown"
 msgstr "关机"
 
-#: panels/power/kpm-prefs-core.c:262 panels/power/kpm-prefs-core.c:265
+#: panels/power/kpm-prefs-core.c:281 panels/power/kpm-prefs-core.c:284
 msgid "Hang"
 msgstr "挂起"
 
-#: panels/power/kpm-prefs-core.c:270 panels/power/kpm-prefs-core.c:273
+#: panels/power/kpm-prefs-core.c:289 panels/power/kpm-prefs-core.c:292
 msgid "Sleep"
 msgstr "休眠"
 
-#: panels/power/kpm-prefs-core.c:278 panels/power/kpm-prefs-core.c:281
+#: panels/power/kpm-prefs-core.c:297 panels/power/kpm-prefs-core.c:300
 msgid "Blank screen"
 msgstr "黑屏"
 
-#: panels/power/kpm-prefs-core.c:286 panels/power/kpm-prefs-core.c:289
+#: panels/power/kpm-prefs-core.c:305 panels/power/kpm-prefs-core.c:308
 msgid "Ask"
 msgstr "询问"
 
-#: panels/power/kpm-prefs-core.c:294 panels/power/kpm-prefs-core.c:297
+#: panels/power/kpm-prefs-core.c:313 panels/power/kpm-prefs-core.c:316
 msgid "Do not perform operations"
 msgstr "不执行操作"
 
-#: panels/power/kpm-prefs-core.c:730
+#: panels/power/kpm-prefs-core.c:747
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] "%d 小时"
 msgstr[1] "%d 小时"
 
-#: panels/power/kpm-prefs-core.c:733
+#: panels/power/kpm-prefs-core.c:750
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d 分钟"
 msgstr[1] "%d 分钟"
 
-#: panels/power/kpm-prefs-core.c:736
+#: panels/power/kpm-prefs-core.c:753
 #, c-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d　秒"
 msgstr[1] "%d 秒"
 
-#: panels/power/kpm-prefs-core.c:744
+#: panels/power/kpm-prefs-core.c:761
 #, c-format
 msgid "%s %s %s"
 msgstr ""
 
-#: panels/power/kpm-prefs-core.c:749 panels/power/kpm-prefs-core.c:762
+#: panels/power/kpm-prefs-core.c:766 panels/power/kpm-prefs-core.c:779
 #, c-format
 msgid "%s %s"
 msgstr ""
 
-#: panels/power/kpm-prefs-core.c:754 panels/power/kpm-prefs-core.c:767
-#: panels/power/kpm-prefs-core.c:773
+#: panels/power/kpm-prefs-core.c:771 panels/power/kpm-prefs-core.c:784
+#: panels/power/kpm-prefs-core.c:790
 #, c-format
 msgid "%s"
 msgstr ""
@@ -614,7 +514,9 @@ msgstr "%s 充电中 (%.1f%%)"
 msgid ""
 "Battery is fully charged.\n"
 "Provides %s laptop runtime"
-msgstr "电池已充满.\n可提供 %s 笔记本运行时间"
+msgstr ""
+"电池已充满.\n"
+"可提供 %s 笔记本运行时间"
 
 #. TRANSLATORS: the device is fully charged
 #: panels/power/kpm-upower.c:282
@@ -640,7 +542,9 @@ msgstr "%s 放电中 (%.1f%%)"
 msgid ""
 "%s %s until charged (%.1f%%)\n"
 "Provides %s battery runtime"
-msgstr "还需%s %s才能充满 (%.1f%%)\n可提供 %s 电池运行时间"
+msgstr ""
+"还需%s %s才能充满 (%.1f%%)\n"
+"可提供 %s 电池运行时间"
 
 #. TRANSLATORS: device is charging, and we have a time to full and a percentage
 #: panels/power/kpm-upower.c:326
@@ -783,20 +687,14 @@ msgid "UPS"
 msgid_plural "UPSs"
 msgstr[0] "UPS"
 
-#. TRANSLATORS: a monitor is a device to measure voltage and current
-#: panels/power/kpm-upower.c:573 shell/mainwindow.c:445 shell/shell.ui.h:23
-msgid "Monitor"
-msgid_plural "Monitors"
-msgstr[0] "显示器"
-
 #. TRANSLATORS: wireless mice with internal batteries
-#: panels/power/kpm-upower.c:577 shell/mainwindow.c:386 shell/shell.ui.h:18
+#: panels/power/kpm-upower.c:577 shell/mainwindow.c:450 shell/shell.ui.h:22
 msgid "Mouse"
 msgid_plural "Mice"
 msgstr[0] "鼠标"
 
 #. TRANSLATORS: wireless keyboard with internal battery
-#: panels/power/kpm-upower.c:581 shell/mainwindow.c:375 shell/shell.ui.h:17
+#: panels/power/kpm-upower.c:581 shell/mainwindow.c:439 shell/shell.ui.h:21
 msgid "Keyboard"
 msgid_plural "Keyboards"
 msgstr[0] "键盘"
@@ -882,24 +780,21 @@ msgstr "待充电"
 msgid "Waiting to discharge"
 msgstr "待放电"
 
-#: panels/session-properties/gsm-app-dialog.c:138
+#: panels/session-properties/gsm-app-dialog.c:145
 msgid "Desktop file(*.desktop)"
 msgstr "桌面文件(*.desktop)"
 
-#: panels/session-properties/gsm-app-dialog.c:145
+#: panels/session-properties/gsm-app-dialog.c:152
 msgid "Select command"
 msgstr "选择命令"
 
-#: panels/session-properties/gsm-app-dialog.c:250
+#: panels/session-properties/gsm-app-dialog.c:257
 msgid "Add programs"
 msgstr "添加开机启动程序"
 
-#: panels/session-properties/gsm-app-dialog.c:254
+#: panels/session-properties/gsm-app-dialog.c:261
 msgid "Boot program property details"
 msgstr "启动程序属性详情"
-
-msgid "property"
-msgstr "属性"
 
 #: panels/session-properties/gsm-app-dialog.c:526
 msgid "The startup command cannot be empty"
@@ -909,12 +804,16 @@ msgstr "启动命令不能为空"
 msgid "The startup command is not valid"
 msgstr "无效的启动命令"
 
-#: panels/session-properties/gsm-properties-dialog.c:414
+#: panels/session-properties/gsm-properties-dialog.c:427
 #, c-format
 msgid "%d/%d/%d/  %d:%d:%d"
 msgstr "%d年%d月%d日%d时%d分%d秒"
 
-#: panels/session-properties/gsm-properties-dialog.c:520
+#: panels/session-properties/gsm-properties-dialog.c:508
+msgid "property"
+msgstr "属性"
+
+#: panels/session-properties/gsm-properties-dialog.c:535
 #, c-format
 msgid "%dByte"
 msgstr "%d字节"
@@ -930,6 +829,7 @@ msgstr "注释:"
 #: panels/session-properties/main-table.ui.h:3
 msgid "command:"
 msgstr "命令:"
+
 #: panels/session-properties/program_properties.ui.h:1
 msgid "program name"
 msgstr "名称"
@@ -955,20 +855,12 @@ msgid "Program Size:"
 msgstr "大小："
 
 #: panels/session-properties/program_properties.ui.h:7
-msgid "Occuping Space"
-msgstr "占用空间："
-
-#: panels/session-properties/program_properties.ui.h:8
 msgid "Access Time:"
 msgstr "访问："
 
-#: panels/session-properties/program_properties.ui.h:9
+#: panels/session-properties/program_properties.ui.h:8
 msgid "modification time:"
 msgstr "修改："
-
-#: panels/time-data/spy-time.c:536
-msgid "Year"
-msgstr "年"
 
 #: panels/user-accounts/change-face.ui.h:1
 msgid "Changge Face"
@@ -979,7 +871,7 @@ msgstr "更改头像"
 #: panels/user-accounts/change-pwd.ui.h:2
 #: panels/user-accounts/change-type.ui.h:2
 #: panels/user-accounts/delete-user.ui.h:2
-#: panels/user-accounts/user-accounts.c:1802
+#: panels/user-accounts/user-accounts.c:1835
 #: panels/user-accounts/user-create.ui.h:2
 msgid "Cancel"
 msgstr "取消"
@@ -988,12 +880,20 @@ msgstr "取消"
 #: panels/user-accounts/change-name.ui.h:3
 #: panels/user-accounts/change-pwd.ui.h:3
 #: panels/user-accounts/change-type.ui.h:3
-#: panels/user-accounts/user-accounts.c:1803
+#: panels/user-accounts/user-accounts.c:1836
 msgid "Ok"
 msgstr "确定"
 
+#: panels/user-accounts/change-face.ui.h:4
+#: panels/user-accounts/change-name.ui.h:4
+#: panels/user-accounts/change-pwd.ui.h:4
+#: panels/user-accounts/change-type.ui.h:5
+#: panels/user-accounts/delete-user.ui.h:5
+msgid "label"
+msgstr ""
+
 #: panels/user-accounts/change-face.ui.h:5
-#: panels/user-accounts/user-accounts.c:1799
+#: panels/user-accounts/user-accounts.c:1832
 msgid "Browse more pictures"
 msgstr "浏览更多图片"
 
@@ -1030,21 +930,24 @@ msgid ""
 msgstr "标准用户可以使用大多数软件，但不能安装软件和更改影响所有用户的设置。"
 
 #: panels/user-accounts/change-type.ui.h:10
-#: panels/user-accounts/user-accounts.c:610
-#: panels/user-accounts/user-accounts.c:851
-#: panels/user-accounts/user-accounts.c:991
-#: panels/user-accounts/user-accounts.c:1053
-#: panels/user-accounts/user-accounts.c:1054
-#: panels/user-accounts/user-accounts.c:1124
-#: panels/user-accounts/user-accounts.c:1336
-#: panels/user-accounts/user-accounts.c:1432
+#: panels/user-accounts/user-accounts.c:643
+#: panels/user-accounts/user-accounts.c:884
+#: panels/user-accounts/user-accounts.c:1024
+#: panels/user-accounts/user-accounts.c:1086
+#: panels/user-accounts/user-accounts.c:1087
+#: panels/user-accounts/user-accounts.c:1157
+#: panels/user-accounts/user-accounts.c:1369
+#: panels/user-accounts/user-accounts.c:1465
 #: panels/user-accounts/user-create.ui.h:8
 msgid "Administrators"
 msgstr "管理员"
 
-#: panels/user-accounts/user-accounts.c:1362
-msgid "Delete"
-msgstr "删除用户"
+#: panels/user-accounts/change-type.ui.h:11
+#: panels/user-accounts/user-create.ui.h:9
+msgid ""
+"Administrator can make any changes needed on the system, including　\n"
+"installing and upgrading software."
+msgstr "管理员在系统上可以做任何需要的修改，包括安装和升级软件。　　　　　　"
 
 #: panels/user-accounts/delete-user.ui.h:1
 msgid "Delete User"
@@ -1058,265 +961,277 @@ msgstr "保留文件"
 msgid "Delete File"
 msgstr "删除文件"
 
-#: panels/user-accounts/run-passwd.c:198
+#: panels/user-accounts/run-passwd.c:221
 msgid "Authentication failure!"
 msgstr "认证失败!"
 
-#: panels/user-accounts/run-passwd.c:275
+#: panels/user-accounts/run-passwd.c:298
 msgid "New password length is too short!"
 msgstr "新密码长度太短!"
 
-#: panels/user-accounts/run-passwd.c:281
+#: panels/user-accounts/run-passwd.c:304
 msgid "The new password is too simple!"
 msgstr "新密码太简单!"
 
-#: panels/user-accounts/run-passwd.c:287
+#: panels/user-accounts/run-passwd.c:310
 msgid "The new password is too similar to the old one!"
 msgstr "新密码和旧密码太相似!"
 
-#: panels/user-accounts/run-passwd.c:290
+#: panels/user-accounts/run-passwd.c:313
 msgid "The new password must contain numbers or special characters!"
 msgstr "新密码必须包含数字或特殊字符!"
 
-#: panels/user-accounts/run-passwd.c:294
+#: panels/user-accounts/run-passwd.c:317
 msgid "The new password is the same as the old one!"
 msgstr "新密码和旧密码一样!"
 
-#: panels/user-accounts/run-passwd.c:297
+#: panels/user-accounts/run-passwd.c:320
 msgid "The new password has been used recently!"
 msgstr "新密码最近已被使用过!"
 
-#: panels/user-accounts/run-passwd.c:301
+#: panels/user-accounts/run-passwd.c:324
 msgid "Your password has been changed after you verify!"
 msgstr "在您验证过后您的密码已经被更改!"
 
-#: panels/user-accounts/user-accounts.c:147
+#: panels/user-accounts/user-accounts.c:166
 msgid "User name cannot be empty!"
 msgstr "用户名不能为空!"
 
-#: panels/user-accounts/user-accounts.c:162
+#: panels/user-accounts/user-accounts.c:183
 msgid "Password length needs to more than 5 digits!"
 msgstr "密码长度需要5位以上!"
 
-#: panels/user-accounts/user-accounts.c:181
+#: panels/user-accounts/user-accounts.c:202
 msgid "enter the password twice inconsistencies!"
 msgstr "2次输入密码不一致!"
 
-#: panels/user-accounts/user-accounts.c:199
-#: panels/user-accounts/user-accounts.c:692
+#: panels/user-accounts/user-accounts.c:220
+#: panels/user-accounts/user-accounts.c:725
 msgid "The first character cannot be underlined!"
 msgstr "首字符不能为下划线!"
 
-#: panels/user-accounts/user-accounts.c:205
-#: panels/user-accounts/user-accounts.c:698
+#: panels/user-accounts/user-accounts.c:226
+#: panels/user-accounts/user-accounts.c:731
 msgid "User name can not contain capital letters!"
 msgstr "用户名不能包含大写字母!"
 
-#: panels/user-accounts/user-accounts.c:213
-#: panels/user-accounts/user-accounts.c:706
+#: panels/user-accounts/user-accounts.c:234
+#: panels/user-accounts/user-accounts.c:739
 msgid "The user name can only be composed of letters, numbers and underline!"
 msgstr "用户名只能由字母、数字以及下划线组成!"
 
-#: panels/user-accounts/user-accounts.c:220
+#: panels/user-accounts/user-accounts.c:241
 msgid "The first character cannot be numeric!"
 msgstr "首字符不能为数字!"
 
-#: panels/user-accounts/user-accounts.c:234
-#: panels/user-accounts/user-accounts.c:288
-#: panels/user-accounts/user-accounts.c:2216
+#: panels/user-accounts/user-accounts.c:255
+#: panels/user-accounts/user-accounts.c:321
+#: panels/user-accounts/user-accounts.c:2264
 msgid "Please enter the username"
 msgstr "请输入用户名"
 
-#: panels/user-accounts/user-accounts.c:234
+#: panels/user-accounts/user-accounts.c:256
 msgid "Please enter the password "
 msgstr "请输入密码"
 
-#: panels/user-accounts/user-accounts.c:251
+#: panels/user-accounts/user-accounts.c:267
+msgid "The user name is already in use, please use a different one."
+msgstr "该用户名已被使用，请换用其他用户名!"
+
+#: panels/user-accounts/user-accounts.c:290
 msgid ""
 "The user name corresponds to the group already exists,please use a different "
 "user name"
 msgstr "该用户名对应的组已存在,请换用其他用户名"
 
-#: panels/user-accounts/user-accounts.c:270
-msgid "The user name is already in use, please use a different one."
-msgstr "该用户名已被使用，请换用其他用户名!"
+#: panels/user-accounts/user-accounts.c:306
+msgid "username length should not long than 32!"
+msgstr "用户名长度不能超过32"
 
-#: panels/user-accounts/user-accounts.c:288
-#: panels/user-accounts/user-accounts.c:864
+#: panels/user-accounts/user-accounts.c:321
+#: panels/user-accounts/user-accounts.c:897
 msgid "Please enter the new username"
 msgstr "请输入新用户名"
 
-#: panels/user-accounts/user-accounts.c:290
-#: panels/user-accounts/user-accounts.c:2223
+#: panels/user-accounts/user-accounts.c:323
+#: panels/user-accounts/user-accounts.c:2271
 msgid "Please enter the password"
 msgstr "请输入密码"
 
-#: panels/user-accounts/user-accounts.c:291
-#: panels/user-accounts/user-accounts.c:318
-#: panels/user-accounts/user-accounts.c:542
-#: panels/user-accounts/user-accounts.c:633
-#: panels/user-accounts/user-accounts.c:2228
+#: panels/user-accounts/user-accounts.c:323
+#: panels/user-accounts/user-accounts.c:589
+#: panels/user-accounts/user-accounts.c:680
+msgid "Please enter new password"
+msgstr "请输入新密码"
+
+#: panels/user-accounts/user-accounts.c:324
+#: panels/user-accounts/user-accounts.c:351
+#: panels/user-accounts/user-accounts.c:575
+#: panels/user-accounts/user-accounts.c:666
 msgid "Please enter the current password"
 msgstr "请输入当前密码"
 
-#: panels/user-accounts/user-accounts.c:291
-#: panels/user-accounts/user-accounts.c:318
-#: panels/user-accounts/user-accounts.c:326
+#: panels/user-accounts/user-accounts.c:324
+#: panels/user-accounts/user-accounts.c:351
+#: panels/user-accounts/user-accounts.c:359
 msgid "Please enter the new password"
 msgstr "请输入新密码"
 
-#: panels/user-accounts/user-accounts.c:291
-#: panels/user-accounts/user-accounts.c:319
-#: panels/user-accounts/user-accounts.c:326
-#: panels/user-accounts/user-accounts.c:566
-#: panels/user-accounts/user-accounts.c:656
+#: panels/user-accounts/user-accounts.c:324
+#: panels/user-accounts/user-accounts.c:352
+#: panels/user-accounts/user-accounts.c:359
+#: panels/user-accounts/user-accounts.c:599
+#: panels/user-accounts/user-accounts.c:689
+#: panels/user-accounts/user-accounts.c:2276
 msgid "Please confirm the new password"
 msgstr "请确认新密码"
 
-#: panels/user-accounts/user-accounts.c:368
+#: panels/user-accounts/user-accounts.c:401
 msgid "Please choose another password."
 msgstr "请选择其它的密码."
 
-#: panels/user-accounts/user-accounts.c:382
+#: panels/user-accounts/user-accounts.c:415
 msgid "Please reenter the current password."
 msgstr "请重新输入当前密码."
 
-#: panels/user-accounts/user-accounts.c:389
+#: panels/user-accounts/user-accounts.c:422
 msgid "Password can not be modified."
 msgstr "密码无法被修改."
 
-#: panels/user-accounts/user-accounts.c:430
+#: panels/user-accounts/user-accounts.c:463
 msgid "Password length is too short!"
 msgstr "密码长度太短!"
 
-#: panels/user-accounts/user-accounts.c:431
+#: panels/user-accounts/user-accounts.c:464
 msgid ""
 "Password length needs to more than 5 digits, and composed of letters, \n"
 " numbers or special characters."
 msgstr "密码必须长度必须大于5的字母、数字或特殊字符组成."
 
-#: panels/user-accounts/user-accounts.c:433
+#: panels/user-accounts/user-accounts.c:466
 msgid "Password error"
 msgstr "密码错误"
 
-#: panels/user-accounts/user-accounts.c:434
+#: panels/user-accounts/user-accounts.c:467
 msgid "Please make sure you enter the password two times."
 msgstr "请确认您两次输入的密码一致."
 
-#: panels/user-accounts/user-accounts.c:515
+#: panels/user-accounts/user-accounts.c:548
 msgid "Password input error, please re-enter!"
 msgstr "当前密码输入错误，请重新输入!"
 
-#: panels/user-accounts/user-accounts.c:556
-#: panels/user-accounts/user-accounts.c:647
-msgid "Please enter new password"
-msgstr "请输入新密码"
-
-#: panels/user-accounts/user-accounts.c:612
-#: panels/user-accounts/user-accounts.c:853
-#: panels/user-accounts/user-accounts.c:993
-#: panels/user-accounts/user-accounts.c:1058
-#: panels/user-accounts/user-accounts.c:1059
-#: panels/user-accounts/user-accounts.c:1129
-#: panels/user-accounts/user-accounts.c:1338
-#: panels/user-accounts/user-accounts.c:1434
+#: panels/user-accounts/user-accounts.c:645
+#: panels/user-accounts/user-accounts.c:886
+#: panels/user-accounts/user-accounts.c:1026
+#: panels/user-accounts/user-accounts.c:1091
+#: panels/user-accounts/user-accounts.c:1092
+#: panels/user-accounts/user-accounts.c:1162
+#: panels/user-accounts/user-accounts.c:1371
+#: panels/user-accounts/user-accounts.c:1467
 msgid "Standard user"
 msgstr "标准用户"
 
-#: panels/user-accounts/user-accounts.c:617
-#: panels/user-accounts/user-accounts.c:857
-#: panels/user-accounts/user-accounts.c:997
-#: panels/user-accounts/user-accounts.c:1134
-#: panels/user-accounts/user-accounts.c:1369
-#: panels/user-accounts/user-accounts.c:1439
+#: panels/user-accounts/user-accounts.c:650
+#: panels/user-accounts/user-accounts.c:890
+#: panels/user-accounts/user-accounts.c:1030
+#: panels/user-accounts/user-accounts.c:1167
+#: panels/user-accounts/user-accounts.c:1402
+#: panels/user-accounts/user-accounts.c:1472
 msgid "Logged(Current User)"
 msgstr "已登录(当前用户)"
 
-#: panels/user-accounts/user-accounts.c:622
-#: panels/user-accounts/user-accounts.c:859
-#: panels/user-accounts/user-accounts.c:999
-#: panels/user-accounts/user-accounts.c:1136
-#: panels/user-accounts/user-accounts.c:1373
-#: panels/user-accounts/user-accounts.c:1443
+#: panels/user-accounts/user-accounts.c:655
+#: panels/user-accounts/user-accounts.c:892
+#: panels/user-accounts/user-accounts.c:1032
+#: panels/user-accounts/user-accounts.c:1169
+#: panels/user-accounts/user-accounts.c:1406
+#: panels/user-accounts/user-accounts.c:1476
 msgid "Logged(Other Users)"
 msgstr "已登录(其他用户)"
 
-#: panels/user-accounts/user-accounts.c:626
-#: panels/user-accounts/user-accounts.c:861
-#: panels/user-accounts/user-accounts.c:1001
-#: panels/user-accounts/user-accounts.c:1138
-#: panels/user-accounts/user-accounts.c:1377
-#: panels/user-accounts/user-accounts.c:1447
+#: panels/user-accounts/user-accounts.c:659
+#: panels/user-accounts/user-accounts.c:894
+#: panels/user-accounts/user-accounts.c:1034
+#: panels/user-accounts/user-accounts.c:1171
+#: panels/user-accounts/user-accounts.c:1410
+#: panels/user-accounts/user-accounts.c:1480
 msgid "Un-login(Other Users)"
 msgstr "未登录(其他用户)"
 
-#: panels/user-accounts/user-accounts.c:713
+#: panels/user-accounts/user-accounts.c:746
 msgid "User name cannot start with number!"
 msgstr "用户名不能以数字开头!"
 
-#: panels/user-accounts/user-accounts.c:725
+#: panels/user-accounts/user-accounts.c:758
 msgid "The user name has been used, please replace with another one!"
 msgstr "该用户名已经被使用，请换一个！"
 
-#: panels/user-accounts/user-accounts.c:756
-#: panels/user-accounts/user-accounts.c:793
+#: panels/user-accounts/user-accounts.c:789
+#: panels/user-accounts/user-accounts.c:826
 msgid "Modify username failed!"
 msgstr "修改用户名失败!"
 
-#: panels/user-accounts/user-accounts.c:801
+#: panels/user-accounts/user-accounts.c:834
 msgid "the user has logged in, please log out and modify!"
 msgstr "该用户已登录，请注销该用户后再修改!"
 
-#: panels/user-accounts/user-accounts.c:1248
+#: panels/user-accounts/user-accounts.c:1281
 msgid "The user can not be deleted!"
 msgstr "无法删除该用户!"
 
-#: panels/user-accounts/user-accounts.c:1255
+#: panels/user-accounts/user-accounts.c:1288
 msgid ""
 "The user has logged in, please perform the delete operation after logging "
 "out!"
 msgstr "该用户已登录，请注销该用户后再执行删除操作!"
 
-#: panels/user-accounts/user-accounts.c:1279
+#: panels/user-accounts/user-accounts.c:1312
 #, c-format
 msgid ""
 "<span weight='bold' font_desc='11'>do you confirm to delete all the files of "
 "%s?</span>"
-msgstr "<span weight='bold' font_desc='11'>确认删除用户 %s 的所有文件吗?</span>"
+msgstr ""
+"<span weight='bold' font_desc='11'>确认删除用户 %s 的所有文件吗?</span>"
 
-#: panels/user-accounts/user-accounts.c:1283
+#: panels/user-accounts/user-accounts.c:1316
 #, c-format
 msgid ""
 "if you want to delete the %s user, belonging to the user's desktop, "
 "documents, favorites, music, pictures and video folder will be deleted!"
-msgstr "如果要删除 %s 用户，那么属于该用户的桌面、文档、收藏\n夹、音乐、图片和视频文件夹的内容将全部被删除!"
+msgstr ""
+"如果要删除 %s 用户，那么属于该用户的桌面、文档、收藏\n"
+"夹、音乐、图片和视频文件夹的内容将全部被删除!"
 
-#: panels/user-accounts/user-accounts.c:1341
+#: panels/user-accounts/user-accounts.c:1374
 msgid "Rename"
 msgstr "更改用户名"
 
-#: panels/user-accounts/user-accounts.c:1347
+#: panels/user-accounts/user-accounts.c:1380
 msgid "Change PWD"
 msgstr "更改密码"
 
-#: panels/user-accounts/user-accounts.c:1352
+#: panels/user-accounts/user-accounts.c:1385
 msgid "Change Face"
 msgstr "更改头像"
 
-#: panels/user-accounts/user-accounts.c:1357
+#: panels/user-accounts/user-accounts.c:1390
 msgid "Change Type"
 msgstr "更改用户类型"
 
-#: panels/user-accounts/user-accounts.c:1467
+#: panels/user-accounts/user-accounts.c:1395
+msgid "Delete"
+msgstr "删除用户"
+
+#: panels/user-accounts/user-accounts.c:1500
 msgid "My Account"
 msgstr "我的账户"
 
-#: panels/user-accounts/user-accounts.c:1472
-#: panels/user-accounts/user-accounts.c:2115
+#: panels/user-accounts/user-accounts.c:1505
+#: panels/user-accounts/user-accounts.c:2148
 msgid "Other accounts"
 msgstr "其他账户"
 
-#: panels/user-accounts/user-accounts.c:1948
+#: panels/user-accounts/user-accounts.c:1981
 msgid "Browse more pictures..."
 msgstr "浏览更多图片..."
 
@@ -1337,13 +1252,6 @@ msgid ""
 "Standard users can use most software, but you can not install software\n"
 "and change settings that affect all users."
 msgstr "标准用户可以使用大多数软件，但不能安装软件和更改影响所有用户的设置。"
-
-#: panels/user-accounts/change-type.ui.h:11
-#: panels/user-accounts/user-create.ui.h:9
-msgid ""
-"Administrator can make any changes needed on the system, including　\n"
-"installing and upgrading software."
-msgstr "管理员在系统上可以做任何需要的修改，包括安装和升级软件。　　　　　　"
 
 #: panels/volume-control/gvc-balance-bar.c:116
 msgid "Rear"
@@ -1372,12 +1280,6 @@ msgstr "淡出(_F):"
 #: panels/volume-control/gvc-balance-bar.c:305
 msgid "_Subwoofer(_S):"
 msgstr "低音炮(_S):"
-
-#: panels/volume-control/gvc-channel-bar.c:605
-#: panels/volume-control/gvc-channel-bar.c:609
-#: panels/volume-control/gvc-channel-bar.c:614
-msgid "volume"
-msgstr "声音"
 
 #: panels/volume-control/gvc-channel-bar.c:609
 msgid "Unamplified"
@@ -1419,132 +1321,133 @@ msgstr "峰值检测"
 msgid "Co_nnector:"
 msgstr "连接器(_N):"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1476
+#: panels/volume-control/gvc-mixer-dialog.c:1501
 msgid "Device"
 msgstr "设备"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1524
+#: panels/volume-control/gvc-mixer-dialog.c:1549
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr "%s测试"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1583
+#: panels/volume-control/gvc-mixer-dialog.c:1608
 msgid "_Profiles:"
 msgstr "配置(_P):"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1584
+#: panels/volume-control/gvc-mixer-dialog.c:1609
 msgid "Test Speakers"
 msgstr "测试听筒"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1671
-#: panels/volume-control/gvc-sound-theme-chooser.c:875
+#: panels/volume-control/gvc-mixer-dialog.c:1708
+#: panels/volume-control/gvc-sound-theme-chooser.c:887
 msgid "Name"
 msgstr "名称"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1745
+#: panels/volume-control/gvc-mixer-dialog.c:1787
 msgid "Sound Output Volume"
 msgstr "输出音量(_O):"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1776
+#: panels/volume-control/gvc-mixer-dialog.c:1818
 msgid "Sound Effects"
 msgstr "声音效果"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1783
+#: panels/volume-control/gvc-mixer-dialog.c:1825
 msgid "_Alert volume: "
 msgstr "报警音量(_A): "
 
-#: panels/volume-control/gvc-mixer-dialog.c:1796
+#: panels/volume-control/gvc-mixer-dialog.c:1838
 msgid "Hardware"
 msgstr "硬件"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1801
+#: panels/volume-control/gvc-mixer-dialog.c:1843
 msgid "C_hoose a device to configure:"
 msgstr "选择要配置的设备(_H):"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1828
-#: panels/volume-control/gvc-mixer-dialog.c:1957
+#: panels/volume-control/gvc-mixer-dialog.c:1870
+#: panels/volume-control/gvc-mixer-dialog.c:1999
 msgid "Settings for the selected device:"
 msgstr "所选设备的设置:"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1839
+#: panels/volume-control/gvc-mixer-dialog.c:1881
 msgid "Input"
 msgstr "输入"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1846
+#: panels/volume-control/gvc-mixer-dialog.c:1888
 msgid "_Input volume: "
 msgstr "输入音量(_I): "
 
-#: panels/volume-control/gvc-mixer-dialog.c:1869
+#: panels/volume-control/gvc-mixer-dialog.c:1911
 msgid "Input level:"
 msgstr "输入等级:"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1895
+#: panels/volume-control/gvc-mixer-dialog.c:1937
 msgid "C_hoose a device for sound input:"
 msgstr "选择声音输入设备(_H):"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1925
+#: panels/volume-control/gvc-mixer-dialog.c:1967
 msgid "Output"
 msgstr "输出"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1930
+#: panels/volume-control/gvc-mixer-dialog.c:1972
 msgid "C_hoose a device for sound output:"
 msgstr "选择声音输出设备(_H):"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1975
+#: panels/volume-control/gvc-mixer-dialog.c:2017
 msgid "Applications"
 msgstr "应用程序"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1979
+#: panels/volume-control/gvc-mixer-dialog.c:2021
 msgid "No application is currently playing or recording audio."
 msgstr "目前没有应用程序在播放或录制音频"
 
-#: panels/volume-control/gvc-mixer-dialog.c:2104
-#: panels/volume-control/gvc-sound-theme-chooser.c:740
+#: panels/volume-control/gvc-mixer-dialog.c:2146
 #: panels/volume-control/gvc-sound-theme-chooser.c:752
 #: panels/volume-control/gvc-sound-theme-chooser.c:764
+#: panels/volume-control/gvc-sound-theme-chooser.c:776
 msgid "Sound Preferences"
 msgstr "声音首选项"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:323
+#: panels/volume-control/gvc-sound-theme-chooser.c:223
+#: panels/volume-control/gvc-sound-theme-chooser.c:863
+msgid "Default"
+msgstr "默认"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:335
 msgid "No sounds"
 msgstr "无声音"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:445
+#: panels/volume-control/gvc-sound-theme-chooser.c:457
 msgid "Built-in"
 msgstr "内置"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:630
+#: panels/volume-control/gvc-sound-theme-chooser.c:642
 #: panels/volume-control/sound-theme-file-utils.c:291
 msgid "Custom"
 msgstr "自定义"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:743
-#: panels/volume-control/gvc-sound-theme-chooser.c:754
+#: panels/volume-control/gvc-sound-theme-chooser.c:755
 #: panels/volume-control/gvc-sound-theme-chooser.c:766
+#: panels/volume-control/gvc-sound-theme-chooser.c:778
 msgid "Testing event sound"
 msgstr "测试事件声音"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:851
-msgid "Default"
-msgstr "默认"
-
-#: panels/volume-control/gvc-sound-theme-chooser.c:852
+#: panels/volume-control/gvc-sound-theme-chooser.c:864
 msgid "From theme"
 msgstr "来自主题"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:882
+#: panels/volume-control/gvc-sound-theme-chooser.c:894
 msgid "Type"
 msgstr "类型"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:1074
+#: panels/volume-control/gvc-sound-theme-chooser.c:1088
 msgid "Sound _theme:"
 msgstr "声音主题:"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:1083
+#: panels/volume-control/gvc-sound-theme-chooser.c:1101
 msgid "C_hoose an alert sound:"
 msgstr "选择报警声音(_H):"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:1114
+#: panels/volume-control/gvc-sound-theme-chooser.c:1135
 msgid "Enable _window and button sounds"
 msgstr "启用窗体与按钮声音(_W)"
 
@@ -1561,896 +1464,996 @@ msgstr "测试"
 msgid "Subwoofer"
 msgstr "低音炮"
 
-#: shell/ukui-control-center.c:43
-msgid "window1"
-msgstr ""
-
-#: shell/ukui-control-center.c:44
-msgid "ukuicc"
-msgstr ""
-
-#: shell/mainwindow.c:57
+#: shell/mainwindow.c:111
 msgid "-Kylin Control Center"
 msgstr "-麒麟控制面板"
 
-#: shell/shell.ui.h:7
-#: shell/mainwindow.c:164
+#: shell/mainwindow.c:218 shell/shell.ui.h:11
 msgid "Control Center"
 msgstr "控制面板"
 
-#: shell/mainwindow.c:317 shell/shell.ui.h:8
-msgid "Time Dates"
+#: shell/mainwindow.c:381
+msgid "Time and Dates"
 msgstr "时间和日期"
 
-#: shell/mainwindow.c:320
+#: shell/mainwindow.c:384
 msgid " Change the time and date of this computer "
 msgstr " 更改此计算机的时间和日期 "
 
-#: shell/mainwindow.c:328 shell/shell.ui.h:9
+#: shell/mainwindow.c:392 shell/shell.ui.h:13
 msgid "User Account"
 msgstr "用户账户"
 
-#: shell/mainwindow.c:331
+#: shell/mainwindow.c:395
 msgid ""
 " Change the computer user account \n"
 " settings and password"
-msgstr " 更改此计算机的用户账户\n设置和密码"
+msgstr ""
+" 更改此计算机的用户账户\n"
+"设置和密码"
 
-#: shell/mainwindow.c:339 shell/shell.ui.h:10
+#: shell/mainwindow.c:403 shell/shell.ui.h:14
 msgid "Personalization"
 msgstr "个性化"
 
-#: shell/mainwindow.c:342
+#: shell/mainwindow.c:406
 msgid ""
 " Change the computer desktop background \n"
 " and related theme"
-msgstr " 更改此计算机的桌面背景 \n和主题相关"
+msgstr ""
+" 更改此计算机的桌面背景 \n"
+"和主题相关"
 
-#: shell/mainwindow.c:350
+#: shell/mainwindow.c:414
 msgid "Default Aplication"
 msgstr "默认应用程序"
 
-#: shell/mainwindow.c:353
+#: shell/mainwindow.c:417
 msgid " Change the default application on this computer "
 msgstr " 更改此计算机的默认应用程序 "
 
-#: shell/mainwindow.c:367
+#: shell/mainwindow.c:431
 msgid " Change the network  on this computer "
 msgstr " 更改此计算机的网络连接"
 
-#: shell/mainwindow.c:378
+#: shell/mainwindow.c:442
 msgid " Change the keyboard settings on this computer "
 msgstr " 更改此计算机的键盘设置 "
 
-#: shell/mainwindow.c:389
+#: shell/mainwindow.c:453
 msgid " Change the mouse settings on this computer  "
 msgstr " 更改此计算机的鼠标设置 "
 
-#: shell/mainwindow.c:403
+#: shell/mainwindow.c:467
 msgid " Configure the connection to the computer printer "
 msgstr " 配置连接到此计算机的打印机 "
 
-#: shell/mainwindow.c:411 shell/shell.ui.h:20
+#: shell/mainwindow.c:475 shell/shell.ui.h:24
 msgid "Sound"
 msgstr "声音"
 
-#: shell/mainwindow.c:414
+#: shell/mainwindow.c:478
 msgid " Change the sound settings on this computer "
 msgstr " 更改此计算机的声音设置 "
 
-#: shell/mainwindow.c:423 shell/shell.ui.h:32
+#: shell/mainwindow.c:487
 msgid "Network Agent"
 msgstr "网络代理"
 
-#: shell/mainwindow.c:426
+#: shell/mainwindow.c:490
 msgid " Change the network agent on this computer "
 msgstr " 更改此计算机的网络代理 "
 
-#: shell/mainwindow.c:434 shell/shell.ui.h:13
+#: shell/mainwindow.c:498 shell/shell.ui.h:17
 msgid "Autostart"
 msgstr "开机启动"
 
-#: shell/mainwindow.c:437
+#: shell/mainwindow.c:501
 msgid " Change the autostart program on this computer "
 msgstr " 更改此计算机的开机启动程序"
 
-#: shell/mainwindow.c:447
+#: shell/mainwindow.c:511
 msgid " Change the Monitor settings on this computer "
 msgstr " 更改此计算机的显示器配置"
 
-#: shell/mainwindow.c:458 shell/shell.ui.h:34
+#: shell/mainwindow.c:522
 msgid "Power Management"
 msgstr "电源管理"
 
-#: shell/mainwindow.c:461
+#: shell/mainwindow.c:525
 msgid " Change the power management settings on this computer "
 msgstr " 更改此计算机的电源管理选项 "
 
-#: shell/mainwindow.c:469 shell/shell.ui.h:35
-msgid "System Detection"
+#: shell/mainwindow.c:533
+msgid "System Check"
 msgstr "系统检测"
 
-#: shell/mainwindow.c:472
+#: shell/mainwindow.c:536
 msgid "check the system detection information on this computer "
 msgstr "查看此系统的检测信息"
 
-#: shell/shell.ui.h:1
+#: shell/shell.ui.h:5
 msgid "Tile"
 msgstr "平铺"
 
-#: shell/shell.ui.h:2
+#: shell/shell.ui.h:6
 msgid "Zoom"
 msgstr "缩放"
 
-#: shell/shell.ui.h:3
+#: shell/shell.ui.h:7
 msgid "Center"
 msgstr "居中"
 
-#: shell/shell.ui.h:4
+#: shell/shell.ui.h:8
 msgid "Scale"
 msgstr "比例放大"
 
-#: shell/shell.ui.h:5
+#: shell/shell.ui.h:9
 msgid "Stretch"
 msgstr "伸展"
 
-#: shell/shell.ui.h:6
+#: shell/shell.ui.h:10
 msgid "Span"
 msgstr "适合宽度"
 
-#: shell/shell.ui.h:11
+#: shell/shell.ui.h:12
+msgid "Time Dates"
+msgstr "时间和日期"
+
+#: shell/shell.ui.h:15
 msgid ""
 "Default \n"
 "Aplication"
 msgstr "默认应用"
 
-#: shell/shell.ui.h:14
+#: shell/shell.ui.h:18
 msgid "System Configuration"
 msgstr "系统配置"
 
-#: shell/shell.ui.h:15
+#: shell/shell.ui.h:19
 msgid ""
 "Network \n"
 "Connections"
 msgstr "网络连接"
 
-#: shell/shell.ui.h:19
+#: shell/shell.ui.h:23
 msgid "Printer"
 msgstr "打印机"
 
-#: shell/shell.ui.h:21
+#: shell/shell.ui.h:25
 msgid ""
 "Network \n"
 "Agent"
 msgstr "网络代理"
 
-#: shell/shell.ui.h:24
+#: shell/shell.ui.h:28
 msgid ""
 "Power \n"
 "Management"
 msgstr "电源管理"
 
-#: shell/shell.ui.h:26
-msgid ""
-"System \n"
-"Detection"
-msgstr "系统检测"
-
-#: shell/shell.ui.h:28
+#: shell/shell.ui.h:30
 msgid "Hardware Configure"
 msgstr "硬件配置"
 
-#: shell/shell.ui.h:29
+#: shell/shell.ui.h:31
 msgid "Home"
 msgstr "控制面板主页"
 
-#: shell/shell.ui.h:30
-msgid "User Account　　"
-msgstr "用户账户"
+#: shell/shell.ui.h:32
+msgid "Time Dates_"
+msgstr " 时间和日期"
 
-#: shell/shell.ui.h:31
-msgid "Default Application"
-msgstr "默认应用"
+#: shell/shell.ui.h:33
+msgid "User Account_"
+msgstr " 用户账户     "
+
+#: shell/shell.ui.h:34
+msgid "Personalization_"
+msgstr " 个性化         "
+
+#: shell/shell.ui.h:35
+msgid "Default APP"
+msgstr " 默认应用     "
 
 #: shell/shell.ui.h:36
+msgid "Autostart_"
+msgstr " 开机启动     "
+
+#: shell/shell.ui.h:37
+msgid "Keyboard_"
+msgstr " 键盘             "
+
+#: shell/shell.ui.h:38
+msgid "Mouse_"
+msgstr " 鼠标             "
+
+#: shell/shell.ui.h:39
+msgid "Sound_"
+msgstr " 声音             "
+
+#: shell/shell.ui.h:40
+msgid "Network Agent_"
+msgstr " 网络代理    "
+
+#: shell/shell.ui.h:41
+msgid "Monitor_"
+msgstr " 显示器         "
+
+#: shell/shell.ui.h:42
+msgid "Power Manage"
+msgstr " 电源管理     "
+
+#: shell/shell.ui.h:43
 msgid "Tzone:"
 msgstr "时区："
 
-#: shell/shell.ui.h:37
+#: shell/shell.ui.h:44
 msgid "date:"
 msgstr "日期："
 
-#: shell/shell.ui.h:38
+#: shell/shell.ui.h:45
 msgid "time:"
 msgstr "时间："
 
-#: shell/shell.ui.h:39
+#: shell/shell.ui.h:46
 msgid "    Jan"
 msgstr "    一月"
 
-#: shell/shell.ui.h:40
+#: shell/shell.ui.h:47
 msgid "   Feb"
 msgstr "    二月"
 
-#: shell/shell.ui.h:41
+#: shell/shell.ui.h:48
 msgid "    Mar"
 msgstr "    三月"
 
-#: shell/shell.ui.h:42
+#: shell/shell.ui.h:49
 msgid "    Apr"
 msgstr "    四月"
 
-#: shell/shell.ui.h:43
+#: shell/shell.ui.h:50
 msgid "    May"
 msgstr "    五月"
 
-#: shell/shell.ui.h:44
+#: shell/shell.ui.h:51
 msgid "    Jun"
 msgstr "    六月"
 
-#: shell/shell.ui.h:45
+#: shell/shell.ui.h:52
 msgid "    Jul"
 msgstr "    七月"
 
-#: shell/shell.ui.h:46
+#: shell/shell.ui.h:53
 msgid "    Aug"
 msgstr "    八月"
 
-#: shell/shell.ui.h:47
+#: shell/shell.ui.h:54
 msgid "    Sep"
 msgstr "    九月"
 
-#: shell/shell.ui.h:48
+#: shell/shell.ui.h:55
 msgid "    Oct"
 msgstr "    十月"
 
-#: shell/shell.ui.h:49
+#: shell/shell.ui.h:56
 msgid "    Nov"
 msgstr "    十一月"
 
-#: shell/shell.ui.h:50
+#: shell/shell.ui.h:57
 msgid "    Dec"
 msgstr "    十二月"
 
-#: shell/shell.ui.h:52
+#: shell/shell.ui.h:59
 msgid "min"
 msgstr "分"
 
-#: shell/shell.ui.h:53
+#: shell/shell.ui.h:60
 msgid "sec"
 msgstr "秒"
 
-#: shell/shell.ui.h:54
+#: shell/shell.ui.h:61
 msgid "With the network time synchronization"
 msgstr "与网络时间同步"
 
-#: shell/shell.ui.h:55
-msgid "format:"
-msgstr "格式："
-
-#: shell/shell.ui.h:56
-msgid "12-hours"
-msgstr "12小时制"
-
-#: shell/shell.ui.h:57
-msgid "24-hours"
-msgstr "24小时制"
-
-#: shell/shell.ui.h:58
+#: shell/shell.ui.h:62
 msgid "Create a new account"
 msgstr "创建一个新账户"
 
-#: shell/shell.ui.h:59
+#: shell/shell.ui.h:63
 msgid "Add"
 msgstr "添加壁纸"
 
-#: shell/shell.ui.h:60
+#: shell/shell.ui.h:64
 msgid "delete"
 msgstr "删除壁纸"
 
-#: shell/shell.ui.h:61
+#: shell/shell.ui.h:65
 msgid "Style:"
 msgstr "图片放置方式："
 
-#: shell/shell.ui.h:62
+#: shell/shell.ui.h:66
 msgid "wallpaper"
 msgstr "桌面背景"
 
-#: shell/shell.ui.h:63
+#: shell/shell.ui.h:67
 msgid "Select the one you love color as the theme color"
 msgstr "选择一个你喜欢的颜色作为主题颜色"
 
-#: shell/shell.ui.h:64
+#: shell/shell.ui.h:68
 msgid "Theme color"
 msgstr "主题颜色"
 
-#: shell/shell.ui.h:65
+#: shell/shell.ui.h:69
 msgid "Font choice:"
 msgstr "字体选择："
 
-#: shell/shell.ui.h:66
+#: shell/shell.ui.h:70
 msgid "Font size :"
 msgstr "字体大小："
 
-#: shell/shell.ui.h:68
+#: shell/shell.ui.h:72
 #, no-c-format
 msgid "small(S) --100%(default)"
 msgstr "较小(S) --100%(默认)"
 
-#: shell/shell.ui.h:70
+#: shell/shell.ui.h:74
 #, no-c-format
 msgid "medium(M)--125%"
 msgstr "中等(M)--125%"
 
-#: shell/shell.ui.h:72
+#: shell/shell.ui.h:76
 #, no-c-format
 msgid "large (L) --150%"
 msgstr "较大 (L) --150%"
 
-#: shell/shell.ui.h:73
+#: shell/shell.ui.h:77
 msgid "Please select the clearest sample text"
 msgstr "选择您看起来最清晰的文本示例"
 
-#: shell/shell.ui.h:74
+#: shell/shell.ui.h:78
 msgid "Restore Defaults"
 msgstr "恢复默认设置"
 
-#: shell/shell.ui.h:75
+#: shell/shell.ui.h:79
 msgid "Font"
 msgstr "字体"
 
-#: shell/shell.ui.h:76
+#: shell/shell.ui.h:80
 msgid "Internet"
 msgstr "互联网"
 
-#: shell/shell.ui.h:77
+#: shell/shell.ui.h:81
 msgid "        Web Browser:"
 msgstr "         网络浏览器："
 
-#: shell/shell.ui.h:78
+#: shell/shell.ui.h:82
 msgid "          Mail Reader:"
 msgstr "         邮件阅读器："
 
-#: shell/shell.ui.h:79
+#: shell/shell.ui.h:83
 msgid "Multimedia"
 msgstr "多媒体"
 
-#: shell/shell.ui.h:80
+#: shell/shell.ui.h:84
 msgid "       Image Viewer:"
 msgstr "         图像查看器："
 
-#: shell/shell.ui.h:81
+#: shell/shell.ui.h:85
 msgid "        Audio Player:"
 msgstr "         音频播放器："
 
-#: shell/shell.ui.h:82
+#: shell/shell.ui.h:86
 msgid "        Video Player:"
 msgstr "         视频播放器："
 
-#: shell/shell.ui.h:83
+#: shell/shell.ui.h:87
 msgid "System"
 msgstr "系统"
 
-#: shell/shell.ui.h:84
+#: shell/shell.ui.h:88
 msgid "           Text Editor:"
 msgstr "         文本编辑器："
 
-#: shell/shell.ui.h:85
+#: shell/shell.ui.h:89
 msgid "       File Manager:"
 msgstr "         文件管理器："
 
-#: shell/shell.ui.h:86
+#: shell/shell.ui.h:90
 msgid "Network Connections"
 msgstr "网络连接"
 
-#: shell/shell.ui.h:87
+#: shell/shell.ui.h:91
 msgid "Repeat Keys"
 msgstr "按键重复"
 
-#: shell/shell.ui.h:88
+#: shell/shell.ui.h:92
 msgid "Key presses _repeat when key is held down"
 msgstr "按住某一键时重复该键(R)"
 
-#: shell/shell.ui.h:89
+#: shell/shell.ui.h:93
 msgid "_Delay:"
 msgstr "延时(D)："
 
-#: shell/shell.ui.h:90
+#: shell/shell.ui.h:94
 msgid "_Speed:"
 msgstr "速度(S)："
 
-#: shell/shell.ui.h:91
+#: shell/shell.ui.h:95
 msgid "Short"
 msgstr "短"
 
-#: shell/shell.ui.h:92
+#: shell/shell.ui.h:96
 msgid "Slow"
 msgstr "慢"
 
-#: shell/shell.ui.h:93
+#: shell/shell.ui.h:97
 msgid "Repeat keys speed"
 msgstr "按键重复速度"
 
-#: shell/shell.ui.h:94
+#: shell/shell.ui.h:98
 msgid "Long"
 msgstr "长"
 
-#: shell/shell.ui.h:95
+#: shell/shell.ui.h:99
 msgid "Fast"
 msgstr "快"
 
-#: shell/shell.ui.h:96
+#: shell/shell.ui.h:100
 msgid "To test the repetition rate of the input character:"
 msgstr "输入字符来测试重复速度："
 
-#: shell/shell.ui.h:97
+#: shell/shell.ui.h:101
 msgid "Cursor Blinking"
 msgstr "光标闪烁"
 
-#: shell/shell.ui.h:98
+#: shell/shell.ui.h:102
 msgid "Cursor _blinks in text fields"
 msgstr "文本域中的光标会闪烁(B)"
 
-#: shell/shell.ui.h:99
+#: shell/shell.ui.h:103
 msgid "S_peed:"
 msgstr "速度(P)："
 
-#: shell/shell.ui.h:100
+#: shell/shell.ui.h:104
 msgid "Cursor blinks speed"
 msgstr "光标闪烁速度"
 
-#: shell/shell.ui.h:101
+#: shell/shell.ui.h:105
 msgid "General"
 msgstr "通用设置"
 
-#: shell/shell.ui.h:102
+#: shell/shell.ui.h:106
 msgid ""
 "Please add the language you will use to the list. And the first one in the "
 "list is the most\n"
 "commonly used language."
 msgstr "将要使用的语言添加到此列表中，位于列表第一位的语言为您最常用的语言。"
 
-#: shell/shell.ui.h:104
+#: shell/shell.ui.h:108
 msgid "_Show..."
 msgstr "显示"
 
-#: shell/shell.ui.h:105
+#: shell/shell.ui.h:109
 msgid "List of keyboard layouts selected for usage"
 msgstr "选用的键盘布局列表"
 
-#: shell/shell.ui.h:106
+#: shell/shell.ui.h:110
 msgid "_Separate layout for each window"
 msgstr "每个窗口独立布局(S)"
 
-#: shell/shell.ui.h:107
+#: shell/shell.ui.h:111
 msgid "New windows u_se active window's layout"
 msgstr "新窗口使用活动窗口的布局(S)"
 
-#: shell/shell.ui.h:108
+#: shell/shell.ui.h:112
 msgid "Reset to De_faults"
 msgstr "恢复默认配置(_F)"
 
-#: shell/shell.ui.h:109
+#: shell/shell.ui.h:113
 msgid "Layouts"
 msgstr "布局"
 
-#: shell/shell.ui.h:110
+#: shell/shell.ui.h:114
 msgid ""
 "\"To edit a shortcut key, click on the corresponding row and type a new key "
 "\"\n"
 "\"combination, or press backspace to clear.\""
 msgstr "要编辑快捷键，请单击相应的行，然后输入新按键组合，或按退格键清除。"
 
-#: shell/shell.ui.h:112
+#: shell/shell.ui.h:116
 msgid "Shortcut"
 msgstr "快捷键"
 
-#: shell/shell.ui.h:113
+#: shell/shell.ui.h:117
 msgid "_Right-handed"
 msgstr "惯用右手"
 
-#: shell/shell.ui.h:114
+#: shell/shell.ui.h:118
 msgid "_Left-handed"
 msgstr "惯用左手"
 
-#: shell/shell.ui.h:115
+#: shell/shell.ui.h:119
 msgid "Sh_ow position of pointer when the Control key is pressed"
 msgstr "按住Ctrl键时显示指针位置"
 
-#: shell/shell.ui.h:116
+#: shell/shell.ui.h:120
 msgid "_Sensitivity:"
 msgstr "灵敏度："
 
-#: shell/shell.ui.h:117
+#: shell/shell.ui.h:121
 msgid "Low"
 msgstr "低"
 
-#: shell/shell.ui.h:118
+#: shell/shell.ui.h:122
 msgid "High"
 msgstr "高"
 
-#: shell/shell.ui.h:119
+#: shell/shell.ui.h:123
 msgid "Double-click the right bulb to test your settings"
 msgstr "双击右侧的灯泡以便测试您的设置"
 
-#: shell/shell.ui.h:120
-msgid "_Speed"
-msgstr "速度"
-
-#: shell/shell.ui.h:121
-msgid "Pointer moving speed"
-msgstr "指针移动速度"
-
-#: shell/shell.ui.h:122
-msgid "Locate Pointer"
-msgstr "定位指针"
-
-#: shell/shell.ui.h:123
-msgid "Mouse Keys"
-msgstr "鼠标键"
-
 #: shell/shell.ui.h:124
-msgid "Double-Click Speed"
-msgstr "双击速度"
-
-#: shell/shell.ui.h:125
-msgid "Disable _touchpad while typing"
-msgstr "打字时禁用触摸板(T)"
-
-#: shell/shell.ui.h:126
-msgid "Enable _mouse clicks with touchpad"
-msgstr "启用触摸板的鼠标点击(M)"
-
-#: shell/shell.ui.h:127
-msgid "Scrolling"
-msgstr "滚动"
-
-#: shell/shell.ui.h:128
-msgid "_Disabled"
-msgstr "禁用(_D)"
-
-#: shell/shell.ui.h:129
-msgid "_Edge scrolling"
-msgstr "边界滚动(_E)"
-
-#: shell/shell.ui.h:130
-msgid "Two-_finger scrolling"
-msgstr "双指滚动(_F)"
-
-#: shell/shell.ui.h:131
-msgid "Enable h_orizontal scrolling"
-msgstr "启用水平滚动(O)"
-
-#: shell/shell.ui.h:132
-msgid "Touchpad"
-msgstr "触摸板"
-
-#: shell/shell.ui.h:133
-msgid "<b>Di_rect internet connection</b>"
-msgstr "<b>直接连接到互联网(_R)</b>"
-
-#: shell/shell.ui.h:134
-msgid "<b>_Manual proxy configuration</b>"
-msgstr "<b>手动配置代理(_M)</b>"
-
-#: shell/shell.ui.h:135
-msgid "H_TTP proxy:"
-msgstr "H_TTP 代理:"
-
-#: shell/shell.ui.h:136
-msgid "_Secure HTTP proxy:"
-msgstr "安全 HTTP 代理(_S):"
-
-#: shell/shell.ui.h:137
-msgid "_FTP proxy:"
-msgstr "_FTP 代理:"
-
-#: shell/shell.ui.h:138
-msgid "S_ocks host:"
-msgstr "S_ocks 主机:"
-
-#: shell/shell.ui.h:139
-msgid "Port:"
-msgstr "端口:"
-
-#: shell/shell.ui.h:140
-msgid "_Details"
-msgstr "细节(_D)"
-
-#: shell/shell.ui.h:141
-msgid "<b>_Automatic proxy configuration</b>"
-msgstr "<b>自动配置代理(_A)</b>"
-
-#: shell/shell.ui.h:142
-msgid "Autoconfiguration _URL:"
-msgstr "自动配置 _URL:"
-
-#: shell/shell.ui.h:143
-msgid "Proxy Configuration"
-msgstr "代理服务器配置"
-
-#: shell/shell.ui.h:144
-msgid "Ignore Host List"
-msgstr "忽略主机列表"
-
-#: shell/shell.ui.h:145
-msgid "Ignored Hosts"
-msgstr "忽略的主机"
-
-#: shell/shell.ui.h:146
-msgid "Additional startup _programs:"
-msgstr "额外的启动程序"
-
-#: shell/shell.ui.h:147
-msgid "Startup Programs"
-msgstr "启动程序"
-
-#: shell/shell.ui.h:148
-msgid "Change display appearance"
-msgstr "更改显示器外观"
-
-#: shell/shell.ui.h:149
-msgid "Monitor:"
-msgstr "显示器:"
-
-#: shell/shell.ui.h:150
-msgid "Resolution:"
-msgstr "分辨率:"
-
-#: shell/shell.ui.h:151
-msgid "Direction:"
-msgstr "方向:"
-
-#: shell/shell.ui.h:
-msgid "Set as primary"
-msgstr "设为主屏"
-
-#: shell/shell.ui.h:152
-msgid "Save"
-msgstr "保存更改"
-
-#: shell/shell.ui.h:153
-msgid "Make Default"
-msgstr "设为默认"
-
-#: shell/shell.ui.h:154
-msgid "Same image in all monitors"
-msgstr "所有显示器显示主屏幕图像"
-
-#: shell/shell.ui.h:155
-msgid "Open Monitor"
-msgstr "打开显示器"
-
-#: shell/shell.ui.h:156
-msgid "Close Monitor"
-msgstr "关闭显示器"
-
-#: shell/shell.ui.h:157
-msgid "Actions"
-msgstr "操作"
-
-#: shell/shell.ui.h:157
-msgid "Display"
-msgstr "显示"
-
-#: shell/shell.ui.h:158
-msgid "Put computer to _sleep when inactive:"
-msgstr "空闲此时间后将计算机转入睡眠(S)："
-
-#: shell/shell.ui.h:159
-msgid "When laptop lid is cl_osed:"
-msgstr "关闭笔记本电脑上盖时(O)："
-
-#: shell/shell.ui.h:160
-msgid "Sp_in down hard disks when possible"
-msgstr "如果可能，减速硬盘(I)"
-
-#: shell/shell.ui.h:161
-msgid "Put _display to sleep when inactive:"
-msgstr "空闲此时间后将显示器转入睡眠(D)："
-
-#: shell/shell.ui.h:162
-msgid "Set display _brightness to:"
-msgstr "设定显示器亮度为(B)："
-
-#: shell/shell.ui.h:163
-msgid "Di_m display when idle"
-msgstr "空闲时变暗显示器(M)"
-
-#: shell/shell.ui.h:164
-msgid "On AC Power"
-msgstr "交流供电时"
-
-#: shell/shell.ui.h:165
-msgid "When battery po_wer is critically low:"
-msgstr "电池电量将用尽时(W)："
-
-#: shell/shell.ui.h:166
-msgid "_Reduce backlight brightness"
-msgstr "减小背光亮度(R)"
-
-#: shell/shell.ui.h:167
-msgid "On Battery Power"
-msgstr "电池供电时"
-
-#: shell/shell.ui.h:168
-msgid "When the power _button is pressed:"
-msgstr "按下了电源按钮时(B)："
-
-#: shell/shell.ui.h:169
-msgid "When the _suspend button is pressed:"
-msgstr "按下了挂起按钮时时(S)："
-
-#: shell/shell.ui.h:170
-msgid "Notification Area"
-msgstr "通知区域"
-
-#: shell/shell.ui.h:171
-msgid "_Never display an icon"
-msgstr "从不显示图标(N)"
-
-#: shell/shell.ui.h:172
-msgid "_Only display an icon when battery power is low"
-msgstr "仅当电池电量即将用尽时显示图标(O)"
-
-#: shell/shell.ui.h:173
-msgid "Only display an icon when charging or _discharging"
-msgstr "仅在充电或放电时显示图标(D)"
-
-#: shell/shell.ui.h:174
-msgid "Only display an icon when a battery is p_resent"
-msgstr "仅当使用电池时显示图标(R)"
-
-#: shell/shell.ui.h:175
-msgid "_Always display an icon"
-msgstr "总是显示图标(A)"
-
-#: shell/shell.ui.h:176
-msgid "Screensaver"
-msgstr "屏幕保护"
-
-#: shell/shell.ui.h:177
-msgid "Regard the computer as _idle after:"
-msgstr "于此时间后视计算机空闲"
-
-#: shell/shell.ui.h:178
-msgid "_Activate screensaver when computer is idle"
-msgstr "计算机空闲时激活屏幕保护程序（A）"
-
-#: shell/shell.ui.h:179
-msgid "_Lock screen when screensaver is active"
-msgstr "屏幕保护程序激活时锁定屏幕（L）"
-
-#: shell/shell.ui.h:180
-msgid "<b>Warning: the screen will not be locked for the root user.</b>"
-msgstr "<b>警告：屏幕锁定对root用户无效．</b>"
-
-#: shell/shell.ui.h:182
-msgid "CPU："
-msgstr ""
-
-#: shell/shell.ui.h:184
-msgid "Memory:"
-msgstr "内存："
-
-#: shell/shell.ui.h:185
-msgid "graphics card :"
-msgstr "显卡："
-
-#: shell/shell.ui.h:186
-msgid "mainboard:"
-msgstr "主板："
-
-#: shell/shell.ui.h:187
-msgid "network card "
-msgstr "网卡："
-
-#: shell/shell.ui.h:188
-msgid "sound card:"
-msgstr "声卡："
-
-#: shell/shell.ui.h:189
-msgid "Hardware Information"
-msgstr "硬件信息"
-
-#: shell/shell.ui.h:190
-msgid "Kernel Information:"
-msgstr "内核信息："
-
-#: shell/shell.ui.h:191
-msgid "version information:"
-msgstr "版本信息："
-
-#: shell/shell.ui.h:192
-msgid "System Information"
-msgstr "系统信息"
-
-#: shell/shell.ui.h:193
-msgid "Boot information"
-msgstr "boot信息"
-
-#: shell/shell.ui.h:194
-msgid "Dmesg Log"
-msgstr "Dmesg日志"
-
-#: shell/shell.ui.h:195
-msgid "Message Log"
-msgstr "Message日志"
-
-#: shell/shell.ui.h:196
-msgid "Important Log"
-msgstr "重要日志"
-
-#: shell/shell.ui.h:197
-msgid ""
-"explain:\n"
-"        System diagnostics is to know whether any important information is "
-"changed by collecting the current system file information and compare it "
-"with the standard.If you need, please click the following diagnosis button."
-msgstr "说明：\n     系统诊断通过收取当前系统文件信息去对比标准系统文件信息，从而了解系统\n重要文件是否被更改，如有需要，请点击下面的开始诊断按钮"
-
-#: shell/shell.ui.h:200
-msgid "Export Info"
-msgstr "导出信息"
-
-#: shell/shell.ui.h:201
-msgid ""
-"Click this botton, the diagnosis and related log and information will "
-"exported and packaged to the desktop."
-msgstr "点击该按钮，将会把诊断结果和相关日志和信息导出并打包到桌面"
-
-#: shell/shell.ui.h:202
-msgid "System Diagnoses"
-msgstr "系统诊断"
-
 msgid "Timeout"
 msgstr "超时"
 
-#: shell/shell.ui.h:203
-msgid "page 14"
+#: shell/shell.ui.h:125
+msgid "Pointer moving speed"
+msgstr "指针移动速度"
+
+#: shell/shell.ui.h:126
+msgid "Locate Pointer"
+msgstr "定位指针"
+
+#: shell/shell.ui.h:127
+msgid "Mouse Keys"
+msgstr "鼠标键"
+
+#: shell/shell.ui.h:128
+msgid "Double-Click Speed"
+msgstr "双击速度"
+
+#: shell/shell.ui.h:129
+msgid "Disable _touchpad while typing"
+msgstr "打字时禁用触摸板(T)"
+
+#: shell/shell.ui.h:130
+msgid "Enable _mouse clicks with touchpad"
+msgstr "启用触摸板的鼠标点击(M)"
+
+#: shell/shell.ui.h:131
+msgid "Scrolling"
+msgstr "滚动"
+
+#: shell/shell.ui.h:132
+msgid "_Disabled"
+msgstr "禁用(_D)"
+
+#: shell/shell.ui.h:133
+msgid "_Edge scrolling"
+msgstr "边界滚动(_E)"
+
+#: shell/shell.ui.h:134
+msgid "Two-_finger scrolling"
+msgstr "双指滚动(_F)"
+
+#: shell/shell.ui.h:135
+msgid "Enable h_orizontal scrolling"
+msgstr "启用水平滚动(O)"
+
+#: shell/shell.ui.h:136
+msgid "Touchpad"
+msgstr "触摸板"
+
+#: shell/shell.ui.h:137
+msgid "<b>Di_rect internet connection</b>"
+msgstr "<b>直接连接到互联网(_R)</b>"
+
+#: shell/shell.ui.h:138
+msgid "<b>_Manual proxy configuration</b>"
+msgstr "<b>手动配置代理(_M)</b>"
+
+#: shell/shell.ui.h:139
+msgid "H_TTP proxy:"
+msgstr "H_TTP 代理:"
+
+#: shell/shell.ui.h:140
+msgid "_Secure HTTP proxy:"
+msgstr "安全 HTTP 代理(_S):"
+
+#: shell/shell.ui.h:141
+msgid "_FTP proxy:"
+msgstr "_FTP 代理:"
+
+#: shell/shell.ui.h:142
+msgid "S_ocks host:"
+msgstr "S_ocks 主机:"
+
+#: shell/shell.ui.h:143
+msgid "Port:"
+msgstr "端口:"
+
+#: shell/shell.ui.h:144
+msgid "_Details"
+msgstr "细节(_D)"
+
+#: shell/shell.ui.h:145
+msgid "<b>_Automatic proxy configuration</b>"
+msgstr "<b>自动配置代理(_A)</b>"
+
+#: shell/shell.ui.h:146
+msgid "Autoconfiguration _URL:"
+msgstr "自动配置 _URL:"
+
+#: shell/shell.ui.h:147
+msgid "Proxy Configuration"
+msgstr "代理服务器配置"
+
+#: shell/shell.ui.h:148
+msgid "Ignore Host List"
+msgstr "忽略主机列表"
+
+#: shell/shell.ui.h:149
+msgid "Ignored Hosts"
+msgstr "忽略的主机"
+
+#: shell/shell.ui.h:150
+msgid "Additional startup _programs:"
+msgstr "额外的启动程序"
+
+#: shell/shell.ui.h:151
+msgid "Startup Programs"
+msgstr "启动程序"
+
+#: shell/shell.ui.h:152
+msgid "Change display appearance"
+msgstr "更改显示器外观"
+
+#: shell/shell.ui.h:153
+msgid "Monitor:"
+msgstr "显示器:"
+
+#: shell/shell.ui.h:154
+msgid "Resolution:"
+msgstr "分辨率:"
+
+#: shell/shell.ui.h:155
+msgid "Direction:"
+msgstr "方向:"
+
+#: shell/shell.ui.h:156
+msgid "Save"
+msgstr "保存更改"
+
+#: shell/shell.ui.h:157
+msgid "Make Default"
+msgstr "设为默认"
+
+#: shell/shell.ui.h:158
+msgid "Same image in all monitors"
+msgstr "所有显示器显示主屏幕图像"
+
+#: shell/shell.ui.h:159
+msgid "Set as primary"
+msgstr "设为主屏"
+
+#: shell/shell.ui.h:160
+msgid "Open Monitor"
+msgstr "打开显示器"
+
+#: shell/shell.ui.h:161
+msgid "Close Monitor"
+msgstr "关闭显示器"
+
+#: shell/shell.ui.h:162
+msgid "Actions"
+msgstr "操作"
+
+#: shell/shell.ui.h:163
+msgid "Put computer to _sleep when inactive:"
+msgstr "空闲此时间后将计算机转入睡眠(S)："
+
+#: shell/shell.ui.h:164
+msgid "When laptop lid is cl_osed:"
+msgstr "关闭笔记本电脑上盖时(O)："
+
+#: shell/shell.ui.h:165
+msgid "Sp_in down hard disks when possible"
+msgstr "如果可能，减速硬盘(I)"
+
+#: shell/shell.ui.h:166
+msgid "Display"
+msgstr "显示"
+
+#: shell/shell.ui.h:167
+msgid "Put _display to sleep when inactive:"
+msgstr "空闲此时间后将显示器转入睡眠(D)："
+
+#: shell/shell.ui.h:168
+msgid "Set display _brightness to:"
+msgstr "设定显示器亮度为(B)："
+
+#: shell/shell.ui.h:169
+msgid "Di_m display when idle"
+msgstr "空闲时变暗显示器(M)"
+
+#: shell/shell.ui.h:170
+msgid "On AC Power"
+msgstr "交流供电时"
+
+#: shell/shell.ui.h:171
+msgid "When battery po_wer is critically low:"
+msgstr "电池电量将用尽时(W)："
+
+#: shell/shell.ui.h:172
+msgid "_Reduce backlight brightness"
+msgstr "减小背光亮度(R)"
+
+#: shell/shell.ui.h:173
+msgid "On Battery Power"
+msgstr "电池供电时"
+
+#: shell/shell.ui.h:174
+msgid "When the power _button is pressed:"
+msgstr "按下了电源按钮时(B)："
+
+#: shell/shell.ui.h:175
+msgid "When the _suspend button is pressed:"
+msgstr "按下了挂起按钮时时(S)："
+
+#: shell/shell.ui.h:176
+msgid "Notification Area"
+msgstr "通知区域"
+
+#: shell/shell.ui.h:177
+msgid "_Never display an icon"
+msgstr "从不显示图标(N)"
+
+#: shell/shell.ui.h:178
+msgid "_Only display an icon when battery power is low"
+msgstr "仅当电池电量即将用尽时显示图标(O)"
+
+#: shell/shell.ui.h:179
+msgid "Only display an icon when charging or _discharging"
+msgstr "仅在充电或放电时显示图标(D)"
+
+#: shell/shell.ui.h:180
+msgid "Only display an icon when a battery is p_resent"
+msgstr "仅当使用电池时显示图标(R)"
+
+#: shell/shell.ui.h:181
+msgid "_Always display an icon"
+msgstr "总是显示图标(A)"
+
+#: shell/shell.ui.h:182
+msgid "Screensaver"
+msgstr "屏幕保护"
+
+#: shell/shell.ui.h:183
+msgid "Regard the computer as _idle after:"
+msgstr "于此时间后视计算机空闲"
+
+#: shell/shell.ui.h:184
+msgid "_Activate screensaver when computer is idle"
+msgstr "计算机空闲时激活屏幕保护程序（A）"
+
+#: shell/shell.ui.h:185
+msgid "_Lock screen when screensaver is active"
+msgstr "屏幕保护程序激活时锁定屏幕（L）"
+
+#: shell/ukui-control-center.c:59
+msgid "window1"
 msgstr ""
 
-msgid "Time and Dates"
-msgstr "时间和日期"
+#: shell/ukui-control-center.c:60
+msgid "ukuicc"
+msgstr ""
 
-msgid "Time Dates_"
-msgstr " 时间和日期"
+#~ msgid "100%"
+#~ msgstr "100%"
 
-msgid "User Account_"
-msgstr " 用户账户     "
+#~ msgid "You have cancelled the authentication operation!"
+#~ msgstr "您已经取消了验证操作！"
 
-msgid "Personalization_"
-msgstr " 个性化         "
+#~ msgid "Could not get screen information"
+#~ msgstr "不能获取屏幕信息"
 
-msgid "Default APP"
-msgstr " 默认应用     "
+#~ msgid "Please ensure that the environment of display is normal"
+#~ msgstr "请确保显示环境正常！"
 
-msgid "Autostart_"
-msgstr " 开机启动     "
+#~ msgid "Did  not check any information"
+#~ msgstr "没有勾选任何信息"
 
-msgid "Keyboard_"
-msgstr " 键盘             "
+#~ msgid "The system check is ok!"
+#~ msgstr "系统校验通过"
 
-msgid "Mouse_"
-msgstr " 鼠标             "
+#~ msgid ""
+#~ "The following files have been changed:\n"
+#~ "%s"
+#~ msgstr ""
+#~ "下列文件被改变：\n"
+#~ "%s"
 
-msgid "Sound_"
-msgstr " 声音             "
+#~ msgid "Export information failed"
+#~ msgstr "导出信息出错"
 
-msgid "Network Agent_"
-msgstr " 网络代理    "
+#~ msgid "The sysinfo.tar.gz has been exported to the desktop."
+#~ msgstr "信息sysinfo.tar.gz已导出到桌面"
 
-msgid "Monitor_"
-msgstr " 显示器         "
+#~ msgid "Export diagnostic information"
+#~ msgstr "导出诊断信息"
 
-msgid "Power Manage"
-msgstr " 电源管理     "
+#~ msgid ""
+#~ "Please make a system diagnosis first and then export the information."
+#~ msgstr "请先进行系统诊断，然后导出信息"
 
-msgid "System Check_"
-msgstr " 系统检测     "
+#~ msgid "Export Information"
+#~ msgstr "kyinfo信息"
 
-msgid "System Check"
-msgstr "系统检测"
+#~ msgid "boot log"
+#~ msgstr "boot日志"
 
-msgid "username length should not long than 32!"
-msgstr "用户名长度不能超过32"
+#~ msgid "dmesg log"
+#~ msgstr "dmesg日志"
+
+#~ msgid "kernel information"
+#~ msgstr "内核信息"
+
+#~ msgid "diagnosis information"
+#~ msgstr "诊断信息"
+
+#~ msgid "package list"
+#~ msgstr "已安装包列表"
+
+#~ msgid "message log"
+#~ msgstr "message日志"
+
+#~ msgid ""
+#~ "Please click on the checkbox to export information\n"
+#~ "(Gray said the current system has no corresponding information)"
+#~ msgstr ""
+#~ "请点击勾选要导出的信息\n"
+#~ "(灰色表示当前系统没有对应信息)"
+
+#~ msgid "Confirm export"
+#~ msgstr "确认导出"
+
+#~ msgid ""
+#~ "System diagnostics in progress, the whole process takes a few minutes, "
+#~ "please be patient...... "
+#~ msgstr "正在进行系统诊断，整个过程需要数分钟，请耐心等待...... "
+
+#~ msgid "Start Diagnose"
+#~ msgstr "开始诊断"
+
+#~ msgid ""
+#~ "Failed to call the system diagnostics service, please check the related "
+#~ "services of ukui-system-info are running"
+#~ msgstr "调用系统诊断服务出错,请检查ukui-system-info相关服务是否正在运行"
+
+#~ msgid "diagnosing"
+#~ msgstr "正在诊断"
+
+#~ msgid "Access to the kernel information failed"
+#~ msgstr "获取内核信息失败"
+
+#~ msgid "Access to the version information failed"
+#~ msgstr "获取版本信息失败"
+
+#~ msgid "Access to the boot information failed"
+#~ msgstr "获取boot信息失败"
+
+#~ msgid "Access to the dmesg log failed"
+#~ msgstr "获取dmesg日志信息失败"
+
+#~ msgid "Access to the message log failed"
+#~ msgstr "获取message日志失败"
+
+#~ msgid "hours"
+#~ msgstr "时"
+
+#~ msgid "minutes"
+#~ msgstr "分"
+
+#~ msgid "Occuping Space"
+#~ msgstr "占用空间："
+
+#~ msgid "Year"
+#~ msgstr "年"
+
+#~ msgid "volume"
+#~ msgstr "声音"
+
+#~ msgid "System Detection"
+#~ msgstr "系统检测"
+
+#~ msgid ""
+#~ "System \n"
+#~ "Detection"
+#~ msgstr "系统检测"
+
+#~ msgid "User Account　　"
+#~ msgstr "用户账户"
+
+#~ msgid "Default Application"
+#~ msgstr "默认应用"
+
+#~ msgid "format:"
+#~ msgstr "格式："
+
+#~ msgid "12-hours"
+#~ msgstr "12小时制"
+
+#~ msgid "24-hours"
+#~ msgstr "24小时制"
+
+#~ msgid "_Speed"
+#~ msgstr "速度"
+
+#~ msgid "<b>Warning: the screen will not be locked for the root user.</b>"
+#~ msgstr "<b>警告：屏幕锁定对root用户无效．</b>"
+
+#~ msgid "Memory:"
+#~ msgstr "内存："
+
+#~ msgid "graphics card :"
+#~ msgstr "显卡："
+
+#~ msgid "mainboard:"
+#~ msgstr "主板："
+
+#~ msgid "network card "
+#~ msgstr "网卡："
+
+#~ msgid "sound card:"
+#~ msgstr "声卡："
+
+#~ msgid "Hardware Information"
+#~ msgstr "硬件信息"
+
+#~ msgid "Kernel Information:"
+#~ msgstr "内核信息："
+
+#~ msgid "version information:"
+#~ msgstr "版本信息："
+
+#~ msgid "System Information"
+#~ msgstr "系统信息"
+
+#~ msgid "Boot information"
+#~ msgstr "boot信息"
+
+#~ msgid "Dmesg Log"
+#~ msgstr "Dmesg日志"
+
+#~ msgid "Message Log"
+#~ msgstr "Message日志"
+
+#~ msgid "Important Log"
+#~ msgstr "重要日志"
+
+#~ msgid ""
+#~ "explain:\n"
+#~ "        System diagnostics is to know whether any important information "
+#~ "is changed by collecting the current system file information and compare "
+#~ "it with the standard.If you need, please click the following diagnosis "
+#~ "button."
+#~ msgstr ""
+#~ "说明：\n"
+#~ "     系统诊断通过收取当前系统文件信息去对比标准系统文件信息，从而了解系"
+#~ "统\n"
+#~ "重要文件是否被更改，如有需要，请点击下面的开始诊断按钮"
+
+#~ msgid "Export Info"
+#~ msgstr "导出信息"
+
+#~ msgid ""
+#~ "Click this botton, the diagnosis and related log and information will "
+#~ "exported and packaged to the desktop."
+#~ msgstr "点击该按钮，将会把诊断结果和相关日志和信息导出并打包到桌面"
+
+#~ msgid "System Diagnoses"
+#~ msgstr "系统诊断"
+
+#~ msgid "System Check_"
+#~ msgstr " 系统检测     "
