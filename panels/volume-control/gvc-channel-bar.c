@@ -516,13 +516,12 @@ on_zero_adjustment_value_changed (GtkAdjustment *adjustment,
 static void
 update_mute_button (GvcChannelBar *bar)
 {
-        if (bar->priv->show_mute) {
+        if (!bar->priv->show_mute) {
                 gtk_widget_show (bar->priv->mute_button);
                 gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (bar->priv->mute_button),
                                               bar->priv->is_muted);
         } else {
-                gtk_widget_hide (bar->priv->mute_button);
-
+//                gtk_widget_hide (bar->priv->mute_button);
                 if (bar->priv->is_muted) {
                         /* If we aren't showing the mute button then
                          * move slider to the zero.  But we don't want to
