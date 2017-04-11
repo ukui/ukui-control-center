@@ -648,10 +648,13 @@ void add_time_and_data_app(GtkBuilder * builder){
     g_signal_connect(G_OBJECT(timedata.calendar), "day-selected",
                      G_CALLBACK(on_day_selected),NULL);
     timedata.hours = GTK_WIDGET(gtk_builder_get_object(builder, "hours"));
-    g_signal_connect(G_OBJECT(timedata.hours),"wrapped",
-                     G_CALLBACK(on_time_wrapped),NULL);
+    gtk_spin_button_set_range((GtkSpinButton *)timedata.hours,0.0,23.0);
+//    g_signal_connect(G_OBJECT(timedata.hours),"wrapped",
+//                    G_CALLBACK(on_time_wrapped),NULL);
     timedata.minutes = GTK_WIDGET(gtk_builder_get_object(builder, "minutes"));
+    gtk_spin_button_set_range((GtkSpinButton *)timedata.minutes,0.0,59.0);
     timedata.seconds = GTK_WIDGET(gtk_builder_get_object(builder, "seconds"));
+    gtk_spin_button_set_range((GtkSpinButton *)timedata.seconds,0.0,59.0);
     timedata.viewportlayout = GTK_WIDGET(gtk_builder_get_object(builder, "time_date_layout"));
     //g_signal_connect(G_OBJECT(timedata.viewportlayout), "map",
        //              G_CALLBACK(init_timedate_data),NULL);
