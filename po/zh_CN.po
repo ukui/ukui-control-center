@@ -416,7 +416,6 @@ msgid "%i %s %i %s"
 msgstr ""
 
 #: panels/power/kpm-common.c:75 shell/shell.ui.h:58
-#, fuzzy
 msgid "hour"
 msgid_plural "hours"
 msgstr[0] "时"
