@@ -1,4 +1,4 @@
-AC_INIT([ukui-control-center], [1.0], [penghuan@ukuios.cn])
+AC_INIT([ukui-control-center], [1.0.2], [penghuan@kylinos.cn])
 
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_SRCDIR([shell])
