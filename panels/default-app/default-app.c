@@ -418,7 +418,7 @@ fill_combo_box(GtkIconTheme* theme, GtkComboBox* combo_box, GList* app_list, gch
 	renderer = gtk_cell_renderer_pixbuf_new();
 
 	/* Not all cells have a pixbuf, this prevents the combo box to shrink */
-	gtk_cell_renderer_set_fixed_size(renderer, -1, 22);
+	gtk_cell_renderer_set_fixed_size(renderer, -1, -1);
 	gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(combo_box), renderer, FALSE);
 	gtk_cell_layout_set_attributes(GTK_CELL_LAYOUT(combo_box), renderer,
 				       "pixbuf", PIXBUF_COL,
