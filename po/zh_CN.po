@@ -253,7 +253,7 @@ msgid "Mirror Screens"
 msgstr "　镜像屏幕"
 
 #: panels/display/xrandr-capplet.c:499
-#, fuzzy, c-format
+#, c-format
 msgid "Monitor: %s"
 msgstr "显示器:"
 
@@ -399,13 +399,13 @@ msgid "Unknown time"
 msgstr "未知时间"
 
 #: panels/power/kpm-common.c:57
-#, fuzzy, c-format
+#, c-format
 msgid "%i minutes"
 msgid_plural "%i minutes"
 msgstr[0] "%i 分钟"
 
 #: panels/power/kpm-common.c:68
-#, fuzzy, c-format
+#, c-format
 msgid "%i hours"
 msgid_plural "%i hours"
 msgstr[0] "%i 小时"
@@ -421,7 +421,6 @@ msgid_plural "hours"
 msgstr[0] "时"
 
 #: panels/power/kpm-common.c:76
-#, fuzzy
 msgid "minute"
 msgid_plural "minutes"
 msgstr[0] "分"
