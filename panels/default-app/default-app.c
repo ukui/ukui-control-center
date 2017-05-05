@@ -437,13 +437,15 @@ fill_combo_box(GtkIconTheme* theme, GtkComboBox* combo_box, GList* app_list, gch
 		/* Icon */
 		GIcon* icon = g_app_info_get_icon(item);
 		gchar* icon_name = g_icon_to_string(icon);
+                if(strcmp(icon_name, "/usr/share/webbrowser-app/webbrowser-app.png") == 0)
+                        continue;
 		if (icon_name == NULL)
 		{
 			/* Default icon */
 			icon_name = g_strdup("binary");
 		}
 
-		pixbuf = gtk_icon_theme_load_icon(theme, icon_name, 25, GTK_ICON_LOOKUP_NO_SVG, NULL);
+		pixbuf = gtk_icon_theme_load_icon(theme, icon_name, 20, GTK_ICON_LOOKUP_NO_SVG, NULL);
 		gtk_list_store_append(GTK_LIST_STORE(model), &iter);
 		//Fixme: when pixbuf == NULL
 		if (pixbuf ==NULL)
