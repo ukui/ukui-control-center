@@ -13,17 +13,20 @@
 #Window {
 background-color: @kylinmenu_color;
 border-color: @kylinside_color;
-font: Ubuntu Regular 11;
+font-family: Ubuntu Reqular;
+font-size: 11px;
 }
 #EventBox {
 background-color: @kylin_bg_color;
-font: Ubuntu Regular 11;
+font-family: Ubuntu Reqular;
+font-size: 11px;
 }
 #ViewportNull {
 background-color: transparent;
 border-width: 1px;
 border-color: transparent;
-font: Ubuntu Regular 11;
+font-family: Ubuntu Reqular;
+font-size: 11px;
 }
 #ViewportButton {
 background-color: @kylin_vp_color;
@@ -34,7 +37,8 @@ border-left-color: @kylin_vp_border_color;
 border-right-color: @kylin_vp_color;
 border-top-color: @kylin_vp_border_color;
 border-bottom-color: @kylin_vp_border_color;
-font: Ubuntu Regular 11;
+font-family: Ubuntu Reqular;
+font-size: 11px;
 }
 #Viewport {
 padding: 0px 0px;
@@ -43,7 +47,8 @@ border-width: 1px;
 border-style: solid;
 border-radius: 0px;
 border-color: @kylin_vp_border_color;
-font: Ubuntu Regular 11;
+font-family: Ubuntu Reqular;
+font-size: 11px;
 }
 #ViewportEntry {
 padding: 0px 0px;
@@ -52,7 +57,8 @@ background-color: @kylin_vp_color;
 border-width: 1px;
 border-color: shade (@kylinmenu_color, 0.90);
 color: @kylin_fg_color;
-font: Ubuntu Regular 11;
+font-family: Ubuntu Reqular;
+font-size: 11px;
 }
 #ViewportPower {
 background-color: @kylin_vp_color;
@@ -60,7 +66,8 @@ border-width: 1px;
 border-style: solid;
 border-radius: 0px;
 border-color: shade (@kylinmenu_color, 0.90);
-font: Ubuntu Regular 11;
+font-family: Ubuntu Reqular;
+font-size: 11px;
 }
 #ViewportPowerEnter {
 background-color: shade (@kylinmenu_color, 0.90);
@@ -68,20 +75,23 @@ border-width: 1px;
 border-style: solid;
 border-radius: 0px;
 border-color: shade (@kylinmenu_color, 1.05);
-font: Ubuntu Regular 11;
+font-family: Ubuntu Reqular;
+font-size: 11px;
 }
 #Viewport1 {
 background-color: @kylin_vp_color;
 border-style: solid;
 border-radius: 0px;
 border-width: 0px;
-font: Ubuntu Regular 11;
+font-family: Ubuntu Reqular;
+font-size: 11px;
 }
 #Button {
 border: 1px solid transparent;
 border-radius: 0px;
 background-color: transparent;
-font: Ubuntu Regular 11;
+font-family: Ubuntu Reqular;
+font-size: 11px;
 }
 #Button:hover {
 border-radius: 0px;
@@ -101,7 +111,8 @@ padding: 0px 2px;
 background-color: transparent;
 border-width: 0px;
 border-color: transparent;
-font: Ubuntu Regular 11;
+font-family: Ubuntu Reqular;
+font-size: 11px;
 }
 #ButtonPower:hover {
 background-color: #daebfc;
@@ -118,7 +129,8 @@ padding: 2px 2px;
 border-radius: 0px;
 border-width: 1px;
 background-color: transparent;
-font: Ubuntu Regular 11;
+font-family: Ubuntu Reqular;
+font-size: 11px;
 }
 #ButtonApp:hover {
 border-radius: 0px;
@@ -161,7 +173,8 @@ padding: 0px 3px;
 background-color: @kylin_vp_color;
 border: 0px transparent;
 color: #999999; 
-font: Ubuntu Regular 11;
+font-family: Ubuntu Reqular;
+font-size: 11px;
 }
 #EntryActive {
 border-radius: 0px;
@@ -169,7 +182,8 @@ padding: 0px 3px;
 background-color: @kylin_vp_color;
 border: 0px transparent;
 color: @kylin_fg_color;
-font: Ubuntu Regular 11;
+font-family: Ubuntu Reqular;
+font-size: 11px;
 }
 tooltip,
 tooltip.background,
