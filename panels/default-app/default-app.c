@@ -251,7 +251,7 @@ refresh_combo_box_icons(GtkIconTheme* theme, GtkComboBox* combo_box, GList* app_
 
 	if (model == NULL)
 	{
-		//g_warning("refresh_combobox, but model=NULL");
+		g_warning("refresh_combobox, but model=NULL");
 		return;
 	}
 	valid = gtk_tree_model_get_iter_first(model, &iter);
@@ -450,7 +450,7 @@ fill_combo_box(GtkIconTheme* theme, GtkComboBox* combo_box, GList* app_list, gch
 		//Fixme: when pixbuf == NULL
 		if (pixbuf ==NULL)
 		{
-			//g_warning("pixbuf == NULL");
+			g_warning("pixbuf == NULL");
 			gtk_list_store_set(GTK_LIST_STORE(model), &iter,
 					   TEXT_COL, g_app_info_get_display_name(item),
 					   ID_COL, g_app_info_get_id(item),
@@ -469,7 +469,7 @@ fill_combo_box(GtkIconTheme* theme, GtkComboBox* combo_box, GList* app_list, gch
 		/* Set the index for the default app */
 		if (default_app != NULL && g_app_info_equal(item, default_app))
 		{
-			//g_warning("text_col=%s\tid_col=%s\ticon_name=%s\n",g_app_info_get_display_name(item), g_app_info_get_id(item),icon_name);
+			g_warning("text_col=%s\tid_col=%s\ticon_name=%s\n",g_app_info_get_display_name(item), g_app_info_get_id(item),icon_name);
 			gtk_combo_box_set_active(combo_box, index);
 		}
 		if (pixbuf)
@@ -558,7 +558,7 @@ void show_dialog(GtkBuilder * builder)
 
 void add_default_app(GtkBuilder * builder)
 {
-	g_warning("add_default_app");
+	g_debug("add_default_app");
 	capplet = g_new0(MateDACapplet, 1);
 	capplet->terminal_settings = g_settings_new (TERMINAL_SCHEMA);
 	capplet->mobility_settings = g_settings_new (MOBILITY_SCHEMA);

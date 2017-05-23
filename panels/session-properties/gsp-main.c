@@ -27,7 +27,7 @@
 
 void add_gsp_app(GtkBuilder * builder)
 {
-	g_warning("gsm properties dialog");
+	g_debug("gsm properties dialog");
     gsm_properties_dialog_new(builder);
 }
 

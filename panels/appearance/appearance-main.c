@@ -56,7 +56,7 @@ void init_appearance_data(GtkBuilder * builder)
 
 void add_appearance_app(GtkBuilder *builder)
 {
-	g_warning("appearance");
+	g_debug("appearance");
 	gchar ** wallpaper_files = NULL;
 	init_appearance_data(builder);
 	if (!data)

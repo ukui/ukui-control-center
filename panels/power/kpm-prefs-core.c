@@ -1253,7 +1253,6 @@ kpm_prefs_new (void)
 
 void init_power()
 {
-	g_warning("power");
+	g_debug("power");
 	kpm_prefs_new();
-	
 }

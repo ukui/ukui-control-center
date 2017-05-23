@@ -866,7 +866,6 @@ select_resolution_for_current_output (App *app)
 static void
 monitor_on_off_toggled_cb (GtkToggleButton *toggle, gpointer data)
 {
-        g_warning("wxy-2222222222222222222");
     App *app = data;
     gboolean is_on;
 
@@ -893,7 +892,6 @@ monitor_on_off_toggled_cb (GtkToggleButton *toggle, gpointer data)
 
     rebuild_gui (app);
     foo_scroll_area_invalidate (FOO_SCROLL_AREA (app->area));
-        g_warning("wxy-333333333333333333333333");
 }
 
 static void
@@ -2660,7 +2658,7 @@ run_application (App *app, GtkBuilder *builder)
 
 int add_display_app (GtkBuilder * builder)
 {
-    g_warning("display");
+    g_debug("display");
     App *app;
     app = g_new0 (App, 1);
     return run_application (app, builder);

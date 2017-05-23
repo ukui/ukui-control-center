@@ -159,7 +159,7 @@ setup_dialog (GtkBuilder * builder)
 
 void add_keyboard_app(GtkBuilder *builder)
 {
-    g_warning("add_keyboard_app");
+    g_debug("add_keyboard_app");
 
 	GtkWidget *keyboard_notebook;
 	keyboard_notebook = GTK_WIDGET(gtk_builder_get_object(builder, "keyboard_notebook"));

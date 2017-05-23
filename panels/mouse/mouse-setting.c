@@ -516,7 +516,7 @@ static void create_dialog(GtkBuilder * builder)
 
 void add_mouse_app(GtkBuilder * builder)
 {
-    g_warning("add_mouse_app");
+    g_debug("add_mouse_app");
     active_settings_daemon();
     mouse_settings = g_settings_new(MOUSE_SCHEMA);
     touchpad_settings = g_settings_new(TOUCHPAD_SCHEMA);

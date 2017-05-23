@@ -607,7 +607,7 @@ void add_time_and_data_app(GtkBuilder * builder){
 //	GtkWidget * hr24_radio;
 //      GtkWidget * label_format;
 
-    g_warning("time_and_data");
+    g_debug("time_and_data");
     //hide calendar head, and then add four components to deal month and year change.
     timedata.td_month_add_button = GTK_WIDGET(gtk_builder_get_object(builder, "td_month_add_button"));
     gtk_widget_set_name(timedata.td_month_add_button, "time-add-button");
@@ -626,7 +626,7 @@ void add_time_and_data_app(GtkBuilder * builder){
 //      gtk_widget_hide(GTK_RADIO_BUTTON(hr12_radio));
 //      gtk_widget_hide(GTK_WIDGET(hr24_radio));
 //      gtk_widget_hide(label_format);
-        
+
 //	g_signal_connect(hr12_radio, "button_release_event", G_CALLBACK(change_hr_format), NULL);
 //	g_signal_connect(hr24_radio, "button_release_event", G_CALLBACK(change_hr_format), NULL);
 //	g_signal_connect(GTK_TOGGLE_BUTTON(hr24_radio), "toggled", G_CALLBACK(change_to_hr24_format), NULL);

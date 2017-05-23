@@ -2303,7 +2303,7 @@ void show_create_user_dialog(GtkWidget *widget, gpointer data)
 
 void init_user_accounts()
 {
-	g_warning("user accounts");
+	g_debug("user accounts");
 	GtkWidget *widget;
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "vbox_users"));
 	g_signal_connect(G_OBJECT(widget), "realize", G_CALLBACK(update_user), NULL);

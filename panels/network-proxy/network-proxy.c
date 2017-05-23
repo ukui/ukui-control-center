@@ -417,7 +417,7 @@ setup_dialog (GtkBuilder *builder)
 
 void add_network_app(GtkBuilder * builder)
 {
-    g_warning("add_network_app");
+    g_debug("add_network_app");
     networkproxy.builder = builder;
     proxy_settings = g_settings_new(PROXY_SCHEMA);
     http_proxy_settings = g_settings_new(HTTP_PROXY_SCHEMA);
