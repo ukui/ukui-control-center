@@ -14,8 +14,8 @@
   <icon_name>mate-display-properties</icon_name>
 
   <action id="org.ukuicc.randr.install-system-wide">
-    <_description>为整个系统安装多显示器设置</_description>
-    <_message>为所有用户安装多显示器设置需要身份验证</_message>
+    <_description>Install multi-monitor settings for the whole system</_description>
+    <_message>Authentication is required to install multi-monitor settings for all users</_message>
     <icon_name>mate-display-properties</icon_name>
     <defaults>
       <allow_any>no</allow_any>

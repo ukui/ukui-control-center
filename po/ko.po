@@ -1,22 +1,21 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Canonical Ltd.
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Korean translations for ukui-control-center package.
+# Copyright (C) 2017 THE ukui-control-center'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the ukui-control-center package.
+# Ko Jae Min <kjm890215@hanmail.net>, 2017.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ukui-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-24 15:30+0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: zh_CN\n"
+"POT-Creation-Date: 2017-05-24 13:51+0800\n"
+"PO-Revision-Date: 2017-05-24 13:53+0800\n"
+"Last-Translator: Ko Jae Min <kjm890215@hanmail.net>\n"
+"Language-Team: Korean <LL@li.org>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../panels/display/mate-display-properties-install-systemwide.c:45
 #, c-format
@@ -34,79 +33,79 @@ msgid ""
 "            the systemwide directory for RANDR configurations,\n"
 "            so the result will typically be %s/DEST_NAME\n"
 msgstr ""
-"用法: %s SOURCE_FILE DEST_NAME\n"
+"사용: %s SOURCE_FILE DEST_NAME\n"
 "\n"
-"此程序向整个系统安装多显示器设置的 RANDR 配置文件。\n"
-"生成的配置文件将在 RANDR 插件在 mate-settings-daemon \n"
-"中运行时被使用。\n"
+"이 프로그램은 RANDR의 프로파일을 설치해서 시스템 전체의 \n"
+"멀티모니터를 설정합니다.RANDR 플러그인이 mate-settings-daemon에 돌아가면\n"
+"프로파일이 만들어집니다.\n"
 "\n"
-"SOURCE_FILE - 完整路径名称，通常为 /home/username/.config/monitors.xml\n"
+"SOURCE_FILE - 절대경로, 보통 /home/username/.config/monitors.xml\n"
 "\n"
-"DEST_NAME - 安装后文件的相对名称。\n"
-"            将被置于用于 RANDR 配置的系统目录，\n"
-"            所以生成文件通常为 %s/DEST_NAME\n"
+"DEST_NAME - 상대경로일때 이용합니다.\n"
+"            시스템 전체의 RANDR 설정 디렉토리에 만들어집니다.\n"
+"            이 경로에 만들어질 것입니다.%s/DEST_NAME\n"
 
 #. Translators: only able to install RANDR profiles as root
 #: ../panels/display/mate-display-properties-install-systemwide.c:152
 msgid "This program can only be used by the root user"
-msgstr "此程序只能由 root 用户使用"
+msgstr "이 프로그램은 root 관리자만이 사용할 수 있습니다"
 
 #: ../panels/display/mate-display-properties-install-systemwide.c:169
 msgid "The source filename must be absolute"
-msgstr "源文件名必须为绝对路径"
+msgstr "소스 파일명은 절대경로여야합니다"
 
 #. Translators: first %s is a filename; second %s is an error message
 #: ../panels/display/mate-display-properties-install-systemwide.c:180
 #, c-format
 msgid "Could not open %s: %s\n"
-msgstr "无法打开 %s: %s\n"
+msgstr "%s 파일을 열 수 없습니다: %s\n"
 
 #. Translators: first %s is a filename; second %s is an error message
 #: ../panels/display/mate-display-properties-install-systemwide.c:189
 #, c-format
 msgid "Could not get information for %s: %s\n"
-msgstr "无法获取 %s 的信息: %s\n"
+msgstr "%s의 정보를 알 수 없습니다: %s\n"
 
 #: ../panels/display/mate-display-properties-install-systemwide.c:196
 #, c-format
 msgid "%s must be a regular file\n"
-msgstr "%s 必须为常规文件\n"
+msgstr ""
 
 #: ../panels/display/mate-display-properties-install-systemwide.c:205
 msgid "This program must only be run through pkexec(1)"
-msgstr "此程序仅能通过 pkexec(1) 运行"
+msgstr "pkexec(1)을 통해사만 실행 가능합니다"
 
 #: ../panels/display/mate-display-properties-install-systemwide.c:210
 msgid "PKEXEC_UID must be set to an integer value"
-msgstr "PKEXEC_UID 必须设为整数值"
+msgstr "PKEXEC_UID 는 정수로 설정해주세요"
 
 #. Translators: we are complaining that a file must be really owned by the user who called this program
 #: ../panels/display/mate-display-properties-install-systemwide.c:216
 #, c-format
 msgid "%s must be owned by you\n"
-msgstr "%s 必须归您所有\n"
+msgstr "%s는 사용자의 소유여야 합니다\n"
 
 #. Translators: here we are saying that a plain filename must look like "filename", not like "some_dir/filename"
 #: ../panels/display/mate-display-properties-install-systemwide.c:224
 #, c-format
 msgid "%s must not have any directory components\n"
-msgstr "%s 不应有任何目录部分\n"
+msgstr "%s은 모든 디렉토리 구성을 가지고 있지 않습니다\n"
 
 #: ../panels/display/mate-display-properties-install-systemwide.c:232
 #, c-format
 msgid "%s must be a directory\n"
-msgstr "%s 必须为目录\n"
+msgstr "%s는 디렉토리여야 합니다\n"
 
 #. Translators: the first %s/%s is a directory/filename; the last %s is an error message
 #: ../panels/display/mate-display-properties-install-systemwide.c:243
 #, c-format
 msgid "Could not open %s/%s: %s\n"
-msgstr "无法打开 %s/%s: %s\n"
+msgstr "다음을 열 수 없습니다 %s/%s: %s\n"
 
 #: ../panels/display/mate-display-properties-install-systemwide.c:263
 #, c-format
 msgid "Could not rename %s to %s: %s\n"
-msgstr "无法将 %s 重命名为 %s: %s\n"
+msgstr "%s을 %s으로 이름을 바꿀 수 없습니다: %s\n"
 
 #: ../panels/display/org.ukuicc.randr.policy.in.h:1
 msgid "Install multi-monitor settings for the whole system"
@@ -120,21 +119,21 @@ msgstr ""
 #: ../panels/display/xrandr-capplet.c:315
 #: ../panels/display/xrandr-capplet.c:354
 msgid "Normal"
-msgstr "普通"
+msgstr "보통"
 
 #: ../panels/display/xrandr-capplet.c:316
 #: ../panels/volume-control/gvc-balance-bar.c:112
 msgid "Left"
-msgstr "左"
+msgstr "왼쪽"
 
 #: ../panels/display/xrandr-capplet.c:317
 #: ../panels/volume-control/gvc-balance-bar.c:113
 msgid "Right"
-msgstr "右"
+msgstr "오른쪽"
 
 #: ../panels/display/xrandr-capplet.c:318
 msgid "Upside-down"
-msgstr "上下颠倒"
+msgstr "위아래"
 
 #: ../panels/display/xrandr-capplet.c:360
 #, c-format
@@ -150,19 +149,19 @@ msgstr ""
 #: ../panels/display/xrandr-capplet.c:1744
 #, c-format
 msgid "Mirror Screens"
-msgstr "　镜像屏幕"
+msgstr "복제"
 
 #: ../panels/display/xrandr-capplet.c:499
 #, c-format
 msgid "Monitor: %s"
-msgstr "显示器:"
+msgstr ""
 
 #. TRANSLATORS: a monitor is a device to measure voltage and current
 #: ../panels/display/xrandr-capplet.c:515 ../panels/power/kpm-upower.c:573
 #: ../shell/mainwindow.c:509
 msgid "Monitor"
 msgid_plural "Monitors"
-msgstr[0] "显示器"
+msgstr[0] "모니터"
 
 #: ../panels/display/xrandr-capplet.c:632
 #, c-format
@@ -173,51 +172,51 @@ msgstr ""
 msgid ""
 "Select a monitor to change its properties; drag it to rearrange its "
 "placement."
-msgstr "选择一个显示来更改它的属性；拖动它来排列位置。"
+msgstr "모니터의 설정을 위해 선택하시고 잡아끌어서 위치를 잡아주세요"
 
 #: ../panels/display/xrandr-capplet.c:2204
 msgid "Could not save the monitor configuration"
-msgstr "无法保存显示器配置"
+msgstr "모니터의 설정을 저장할 수 없습니다"
 
 #: ../panels/display/xrandr-capplet.c:2226
 msgid "Could not get session bus while applying display configuration"
-msgstr "应用显示配置时无法获得会话总线"
+msgstr "화면 설정을 적용하는 동안에는 세션정보를 확인 할 수 없습니다"
 
 #: ../panels/display/xrandr-capplet.c:2245
 msgid "Could not detect displays"
-msgstr ""
+msgstr "디스플레이가 잡히지 않습니다"
 
 #: ../panels/display/xrandr-capplet.c:2477
 msgid "The monitor configuration has been saved"
-msgstr "显示器配置已保存"
+msgstr "모니터 설정이 저장되었습니다"
 
 #: ../panels/display/xrandr-capplet.c:2479
 msgid "This configuration will be used the next time someone logs in."
-msgstr "这个设置将在下次登入时使用"
+msgstr "이 설정은 다음에 로그인할 때 적용됩니다"
 
 #: ../panels/display/xrandr-capplet.c:2488
 msgid "Could not set the default configuration for monitors"
-msgstr "无法为显示器设置默认配置"
+msgstr "모니터의 기본 설정을 적용할 수 없습니다"
 
 #: ../panels/display/xrandr-capplet.c:2557
 msgid "Could not get screen information"
-msgstr "不能获取屏幕信息"
+msgstr ""
 
 #: ../panels/power/kpm-common.c:52
 msgid "Unknown time"
-msgstr "未知时间"
+msgstr ""
 
 #: ../panels/power/kpm-common.c:57
 #, c-format
 msgid "%i minutes"
 msgid_plural "%i minutes"
-msgstr[0] "%i 分钟"
+msgstr[0] "%i 분"
 
 #: ../panels/power/kpm-common.c:68
 #, c-format
 msgid "%i hours"
 msgid_plural "%i hours"
-msgstr[0] "%i 小时"
+msgstr[0] "%i 시"
 
 #. TRANSLATOR: "%i %s %i %s" are "%i hours %i minutes"
 #. * Swap order with "%2$s %2$i %1$s %1$i if needed
@@ -229,19 +228,19 @@ msgstr ""
 #: ../panels/power/kpm-common.c:75
 msgid "hour"
 msgid_plural "hours"
-msgstr[0] "时"
+msgstr[0] "시"
 
 #: ../panels/power/kpm-common.c:76
 msgid "minute"
 msgid_plural "minutes"
-msgstr[0] "分"
+msgstr[0] "분"
 
 #. TRANSLATORS: a phone is charging
 #. TRANSLATORS: device is charging, but we only have a percentage
 #: ../panels/power/kpm-upower.c:259 ../panels/power/kpm-upower.c:333
 #, c-format
 msgid "%s charging (%.1f%%)"
-msgstr "%s 充电中 (%.1f%%)"
+msgstr "%s 충전됨 (%.1f%%)"
 
 #. TRANSLATORS: The laptop battery is fully charged, and we know a time
 #: ../panels/power/kpm-upower.c:275
@@ -250,26 +249,26 @@ msgid ""
 "Battery is fully charged.\n"
 "Provides %s laptop runtime"
 msgstr ""
-"电池已充满.\n"
-"可提供 %s 笔记本运行时间"
+"배터리 충전 완료.\n"
+"%s 동안 구동될 수 있습니다"
 
 #. TRANSLATORS: the device is fully charged
 #: ../panels/power/kpm-upower.c:282
 #, c-format
 msgid "%s is fully charged"
-msgstr "%s 已充满"
+msgstr "%s 완전히 충전 됨"
 
 #. TRANSLATORS: the device is discharging, and we have a time remaining
 #: ../panels/power/kpm-upower.c:292
 #, c-format
 msgid "%s %s remaining (%.1f%%)"
-msgstr "剩余%s %s (%.1f%%)"
+msgstr "%s %s 남았음 (%.1f%%)"
 
 #. TRANSLATORS: the device is discharging, but we only have a percentage
 #: ../panels/power/kpm-upower.c:299
 #, c-format
 msgid "%s discharging (%.1f%%)"
-msgstr "%s 放电中 (%.1f%%)"
+msgstr "%s 방전중 (%.1f%%)"
 
 #. TRANSLATORS: the device is charging, and we have a time to full and empty
 #: ../panels/power/kpm-upower.c:315
@@ -278,31 +277,31 @@ msgid ""
 "%s %s until charged (%.1f%%)\n"
 "Provides %s battery runtime"
 msgstr ""
-"还需%s %s才能充满 (%.1f%%)\n"
-"可提供 %s 电池运行时间"
+"%s %s동안 충전 됨 (%.1f%%)\n"
+"%s 동안 배터리 구동됨"
 
 #. TRANSLATORS: device is charging, and we have a time to full and a percentage
 #: ../panels/power/kpm-upower.c:326
 #, c-format
 msgid "%s %s until charged (%.1f%%)"
-msgstr "离充满还有 %s %s (%.1f%%)"
+msgstr "%s %s 동안 충전 됨(%.1f%%)"
 
 #. TRANSLATORS: this is only shown for laptops with multiple batteries
 #: ../panels/power/kpm-upower.c:341
 #, c-format
 msgid "%s waiting to discharge (%.1f%%)"
-msgstr "%s 正在等待充电(%.1f%%)"
+msgstr "%s 방전을 기다리는 중(%.1f%%)"
 
 #. TRANSLATORS: this is only shown for laptops with multiple batteries
 #: ../panels/power/kpm-upower.c:349
 #, c-format
 msgid "%s waiting to charge (%.1f%%)"
-msgstr "%s 正在等待充电(%.1f%%)"
+msgstr "%s 충전을 기다리는 중(%.1f%%)"
 
 #. TRANSLATORS: the type of data, e.g. Laptop battery
 #: ../panels/power/kpm-upower.c:410
 msgid "Product:"
-msgstr "产品："
+msgstr "제품명："
 
 #. TRANSLATORS: device is missing
 #. TRANSLATORS: device is charged
@@ -311,260 +310,256 @@ msgstr "产品："
 #: ../panels/power/kpm-upower.c:415 ../panels/power/kpm-upower.c:420
 #: ../panels/power/kpm-upower.c:425 ../panels/power/kpm-upower.c:430
 msgid "Status:"
-msgstr "状态："
+msgstr "현재 상태："
 
 #: ../panels/power/kpm-upower.c:415
 msgid "Missing"
-msgstr "缺少"
+msgstr "못 찾음"
 
 #. TRANSLATORS: battery state
 #: ../panels/power/kpm-upower.c:420 ../panels/power/kpm-upower.c:730
 msgid "Charged"
-msgstr "已充满"
+msgstr "충전됨"
 
 #. TRANSLATORS: battery state
 #: ../panels/power/kpm-upower.c:425 ../panels/power/kpm-upower.c:718
 msgid "Charging"
-msgstr "正充电"
+msgstr "충전중"
 
 #. TRANSLATORS: battery state
 #: ../panels/power/kpm-upower.c:430 ../panels/power/kpm-upower.c:722
 msgid "Discharging"
-msgstr "正放电"
+msgstr "방전중"
 
 #. TRANSLATORS: percentage
 #: ../panels/power/kpm-upower.c:436
 msgid "Percentage charge:"
-msgstr "充电百分比："
+msgstr "충전 퍼센트："
 
 #. TRANSLATORS: manufacturer
 #: ../panels/power/kpm-upower.c:441
 msgid "Vendor:"
-msgstr "厂家："
+msgstr "제조사："
 
 #. TRANSLATORS: how the battery is made, e.g. Lithium Ion
 #: ../panels/power/kpm-upower.c:447
 msgid "Technology:"
-msgstr "技术："
+msgstr "배터리방식："
 
 #. TRANSLATORS: serial number of the battery
 #: ../panels/power/kpm-upower.c:452
 msgid "Serial number:"
-msgstr "序列号："
+msgstr "제품고유번호："
 
 #. TRANSLATORS: model number of the battery
 #: ../panels/power/kpm-upower.c:457
 msgid "Model:"
-msgstr "型号："
+msgstr "모델："
 
 #. TRANSLATORS: time to fully charged
 #: ../panels/power/kpm-upower.c:463
 msgid "Charge time:"
-msgstr "充电时间："
+msgstr "충전시간："
 
 #. TRANSLATORS: time to empty
 #: ../panels/power/kpm-upower.c:470
 msgid "Discharge time:"
-msgstr "放电时间："
+msgstr "방전시간："
 
 #. TRANSLATORS: Excellent, Good, Fair and Poor are all related to battery Capacity
 #: ../panels/power/kpm-upower.c:479
 msgid "Excellent"
-msgstr "非常好"
+msgstr "매우좋음"
 
 #: ../panels/power/kpm-upower.c:483
 msgid "Good"
-msgstr "较好"
+msgstr "좋음"
 
 #: ../panels/power/kpm-upower.c:487
 msgid "Fair"
-msgstr "尚可"
+msgstr "보통"
 
 #: ../panels/power/kpm-upower.c:491
 msgid "Poor"
-msgstr "不好"
+msgstr "불량"
 
 #: ../panels/power/kpm-upower.c:495
 msgid "Capacity:"
-msgstr "容量："
+msgstr "용량："
 
 #: ../panels/power/kpm-upower.c:503 ../panels/power/kpm-upower.c:533
 msgid "Current charge:"
-msgstr "当前充电："
+msgstr "현재 충전："
 
 #: ../panels/power/kpm-upower.c:510
 msgid "Last full charge:"
-msgstr "上次充电："
+msgstr "마지막 충전："
 
 #: ../panels/power/kpm-upower.c:517 ../panels/power/kpm-upower.c:539
 msgid "Design charge:"
-msgstr "设计充电："
+msgstr ""
 
 #: ../panels/power/kpm-upower.c:523
 msgid "Charge rate:"
-msgstr "充电率："
+msgstr "충전율："
 
 #. TRANSLATORS: system power cord
 #: ../panels/power/kpm-upower.c:561
 msgid "AC adapter"
 msgid_plural "AC adapters"
-msgstr[0] "交流电源适配器"
+msgstr[0] "교류 어댑터"
 
 #. TRANSLATORS: laptop primary battery
 #: ../panels/power/kpm-upower.c:565
 msgid "Laptop battery"
 msgid_plural "Laptop batteries"
-msgstr[0] "笔记本电池"
+msgstr[0] "랩탑 배터리"
 
 #. TRANSLATORS: battery-backed AC power source
 #: ../panels/power/kpm-upower.c:569
 msgid "UPS"
 msgid_plural "UPSs"
-msgstr[0] "UPS"
+msgstr[0] ""
 
 #. TRANSLATORS: wireless mice with internal batteries
 #: ../panels/power/kpm-upower.c:577 ../shell/mainwindow.c:450
 msgid "Mouse"
 msgid_plural "Mice"
-msgstr[0] "鼠标"
+msgstr[0] "마우스"
 
 #. TRANSLATORS: wireless keyboard with internal battery
 #: ../panels/power/kpm-upower.c:581 ../shell/mainwindow.c:439
 msgid "Keyboard"
 msgid_plural "Keyboards"
-msgstr[0] "键盘"
+msgstr[0] "키보드"
 
 #. TRANSLATORS: portable device
 #: ../panels/power/kpm-upower.c:585
 msgid "PDA"
 msgid_plural "PDAs"
 msgstr[0] ""
-msgstr[1] ""
 
 #. TRANSLATORS: cell phone (mobile...)
 #: ../panels/power/kpm-upower.c:589
 msgid "Cell phone"
 msgid_plural "Cell phones"
-msgstr[0] "手机"
+msgstr[0] "휴대전화"
 
 #. TRANSLATORS: media player, mp3 etc
 #: ../panels/power/kpm-upower.c:594
 msgid "Media player"
 msgid_plural "Media players"
-msgstr[0] "媒体播放器"
+msgstr[0] 미디어 재생기""
 
 #. TRANSLATORS: tablet device
 #: ../panels/power/kpm-upower.c:598
 msgid "Tablet"
 msgid_plural "Tablets"
-msgstr[0] "触摸板"
+msgstr[0] "태블릿"
 
 #. TRANSLATORS: tablet device
 #: ../panels/power/kpm-upower.c:602
 msgid "Computer"
 msgid_plural "Computers"
-msgstr[0] "计算机"
+msgstr[0] "컴퓨터"
 
 #. TRANSLATORS: battery technology
 #: ../panels/power/kpm-upower.c:673
 msgid "Lithium Ion"
-msgstr "锂离子"
+msgstr "리튬 이온"
 
 #. TRANSLATORS: battery technology
 #: ../panels/power/kpm-upower.c:677
 msgid "Lithium Polymer"
-msgstr "锂聚合物"
+msgstr "리튬 폴리머"
 
 #. TRANSLATORS: battery technology
 #: ../panels/power/kpm-upower.c:681
 msgid "Lithium Iron Phosphate"
-msgstr "磷酸铁锂"
+msgstr "인산 철 리튬"
 
 #. TRANSLATORS: battery technology
 #: ../panels/power/kpm-upower.c:685
 msgid "Lead acid"
-msgstr "铅酸"
+msgstr "납축"
 
 #. TRANSLATORS: battery technology
 #: ../panels/power/kpm-upower.c:689
 msgid "Nickel Cadmium"
-msgstr "镍氢"
+msgstr "니켈-카드뮴"
 
 #. TRANSLATORS: battery technology
 #: ../panels/power/kpm-upower.c:693
 msgid "Nickel metal hydride"
-msgstr "镍氢"
+msgstr "니켈 메탈 하이드라이드"
 
 #. TRANSLATORS: battery technology
 #: ../panels/power/kpm-upower.c:697
 msgid "Unknown technology"
-msgstr "未知技术"
+msgstr "알 수 없음"
 
 #. TRANSLATORS: battery state
 #: ../panels/power/kpm-upower.c:726
 msgid "Empty"
-msgstr "空"
+msgstr "비었음"
 
 #. TRANSLATORS: battery state
 #: ../panels/power/kpm-upower.c:734
 msgid "Waiting to charge"
-msgstr "待充电"
+msgstr "충전 기다리는 중"
 
 #. TRANSLATORS: battery state
 #: ../panels/power/kpm-upower.c:738
 msgid "Waiting to discharge"
-msgstr "待放电"
+msgstr "방전 기다리는 중"
 
 #: ../panels/power/kpm-prefs-core.c:187 ../panels/power/kpm-prefs-core.c:189
 #: ../panels/power/kpm-prefs-core.c:805
 #, c-format
 msgid "Never"
-msgstr "从不"
+msgstr "안 함"
 
 #: ../panels/power/kpm-prefs-core.c:269 ../panels/power/kpm-prefs-core.c:272
 msgid "Shutdown"
-msgstr "关机"
+msgstr "전원끄기"
 
 #: ../panels/power/kpm-prefs-core.c:281 ../panels/power/kpm-prefs-core.c:284
 msgid "Hang"
-msgstr "挂起"
+msgstr "절전"
 
 #: ../panels/power/kpm-prefs-core.c:289 ../panels/power/kpm-prefs-core.c:292
 msgid "Sleep"
-msgstr "休眠"
+msgstr "잠자기"
 
 #: ../panels/power/kpm-prefs-core.c:297 ../panels/power/kpm-prefs-core.c:300
 msgid "Blank screen"
-msgstr "黑屏"
+msgstr "빈 화면"
 
 #: ../panels/power/kpm-prefs-core.c:305 ../panels/power/kpm-prefs-core.c:308
 msgid "Ask"
-msgstr "询问"
+msgstr "묻기"
 
 #: ../panels/power/kpm-prefs-core.c:313 ../panels/power/kpm-prefs-core.c:316
 msgid "Do not perform operations"
-msgstr "不执行操作"
+msgstr ""
 
 #: ../panels/power/kpm-prefs-core.c:747
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] "%d 小时"
-msgstr[1] "%d 小时"
+msgstr[0] "%d 시간"
 
 #: ../panels/power/kpm-prefs-core.c:750
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "%d 分钟"
-msgstr[1] "%d 分钟"
+msgstr[0] "%d 분"
 
 #: ../panels/power/kpm-prefs-core.c:753
 #, c-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "%d　秒"
-msgstr[1] "%d 秒"
+msgstr[0] "%d　초"
 
 #. hour:minutes:seconds
 #: ../panels/power/kpm-prefs-core.c:761
@@ -591,7 +586,7 @@ msgstr ""
 #: ../panels/keyboard/mate-keybinding-properties.c:1070
 #: ../panels/keyboard/mate-keybinding-properties.c:1693
 msgid "Custom Shortcuts"
-msgstr "自定义快捷键"
+msgstr "개인 설정 단축키"
 
 #: ../panels/keyboard/mate-keybinding-properties.c:1379
 #, c-format
@@ -599,70 +594,70 @@ msgid ""
 "The shortcut \"%s\" is already used for\n"
 "\"%s\",please reset!!!"
 msgstr ""
-"快捷键“%s”已经用于\n"
-"“%s”，请重现设置"
+"단축키 “%s”은 이미 사용되고 있습니다.\n"
+"“%s”，다시 설정해주세요"
 
 #: ../panels/keyboard/mate-keybinding-properties.c:1523
 msgid "Add Shortcuts"
-msgstr "添加快捷方式"
+msgstr "단축키 추가"
 
 #: ../panels/keyboard/mate-keybinding-properties.c:1915
 msgid "Selection Program"
-msgstr "选择快捷打开的程序"
+msgstr "프로그램 선택"
 
 #: ../panels/keyboard/mate-keybinding-properties.c:1956
 msgid "Function description"
-msgstr "功能说明"
+msgstr "기능 설명"
 
 #: ../panels/keyboard/mate-keybinding-properties.c:1974
 msgid "Hotkey"
-msgstr "热键"
+msgstr "단축키"
 
 #: ../panels/volume-control/gvc-balance-bar.c:116
 msgid "Rear"
-msgstr "后置声道"
+msgstr "뒤"
 
 #: ../panels/volume-control/gvc-balance-bar.c:117
 msgid "Front"
-msgstr "前置声道"
+msgstr "앞"
 
 #: ../panels/volume-control/gvc-balance-bar.c:120
 msgid "Minimum"
-msgstr "最小值"
+msgstr "최소"
 
 #: ../panels/volume-control/gvc-balance-bar.c:121
 msgid "Maximum"
-msgstr "最大值"
+msgstr "최대"
 
 #: ../panels/volume-control/gvc-balance-bar.c:299
 msgid "_Balance(_B):"
-msgstr "平衡(_B):"
+msgstr "균형(_B)："
 
 #: ../panels/volume-control/gvc-balance-bar.c:302
 msgid "_Fade(_F):"
-msgstr "淡出(_F):"
+msgstr "서서히(_F)："
 
 #: ../panels/volume-control/gvc-balance-bar.c:305
 msgid "_Subwoofer(_S):"
-msgstr "低音炮(_S):"
+msgstr "서브우퍼(_S)："
 
 #: ../panels/volume-control/gvc-channel-bar.c:608
 msgid "Unamplified"
-msgstr "非放大"
+msgstr "증폭하지 않음"
 
 #: ../panels/volume-control/gvc-channel-bar.c:870
 msgid "Mute"
-msgstr "静音"
+msgstr "조용히"
 
 #: ../panels/volume-control/gvc-combo-box.c:169
 msgid "_Profile(_P):"
-msgstr "配置文件(_P):"
+msgstr "프로필(_P)："
 
 #. translators:
 #. * The device has been disabled
 #: ../panels/volume-control/gvc-mixer-control.c:1004
 msgid "Disabled"
-msgstr "禁用"
+msgstr "사용 안 함"
 
 #. translators:
 #. * The number of sound outputs on a particular device
@@ -670,7 +665,7 @@ msgstr "禁用"
 #, c-format
 msgid "%u Output"
 msgid_plural "%u Outputs"
-msgstr[0] "%u 输出"
+msgstr[0] "%u 출력"
 
 #. translators:
 #. * The number of sound inputs on a particular device
@@ -678,193 +673,192 @@ msgstr[0] "%u 输出"
 #, c-format
 msgid "%u Input"
 msgid_plural "%u Inputs"
-msgstr[0] "%u 输入"
+msgstr[0] "%u 입력"
 
 #: ../panels/volume-control/gvc-mixer-dialog.c:313
 msgid "Co_nnector"
-msgstr "连接器(_N)"
+msgstr "커넥터(_N)"
 
 #: ../panels/volume-control/gvc-mixer-dialog.c:521
 msgid "Peak detect"
-msgstr "峰值检测"
+msgstr "최대 확인"
 
 #: ../panels/volume-control/gvc-mixer-dialog.c:608
 msgid "Co_nnector:"
-msgstr "连接器(_N):"
+msgstr "커넥터(_N)："
 
 #: ../panels/volume-control/gvc-mixer-dialog.c:1501
 msgid "Device"
-msgstr "设备"
+msgstr "장치"
 
 #: ../panels/volume-control/gvc-mixer-dialog.c:1549
 #, c-format
 msgid "Speaker Testing for %s"
-msgstr "%s测试"
+msgstr "%s 스피커 시험"
 
 #: ../panels/volume-control/gvc-mixer-dialog.c:1608
 msgid "_Profiles:"
-msgstr "配置(_P):"
+msgstr "프로파일(_P)："
 
 #: ../panels/volume-control/gvc-mixer-dialog.c:1609
 msgid "Test Speakers"
-msgstr "测试听筒"
+msgstr "스피커 시험"
 
 #: ../panels/volume-control/gvc-mixer-dialog.c:1708
 #: ../panels/volume-control/gvc-sound-theme-chooser.c:887
 msgid "Name"
-msgstr "名称"
+msgstr "이름"
 
 #: ../panels/volume-control/gvc-mixer-dialog.c:1787
 msgid "Sound Output Volume"
-msgstr "输出音量(_O):"
+msgstr "출력 음량"
 
 #: ../panels/volume-control/gvc-mixer-dialog.c:1818
 msgid "Sound Effects"
-msgstr "声音效果"
+msgstr "효과음"
 
 #: ../panels/volume-control/gvc-mixer-dialog.c:1825
 msgid "_Alert volume: "
-msgstr "报警音量(_A): "
+msgstr "알림음 음량(_A)："
 
 #: ../panels/volume-control/gvc-mixer-dialog.c:1838
 msgid "Hardware"
-msgstr "硬件"
+msgstr "장치"
 
 #: ../panels/volume-control/gvc-mixer-dialog.c:1843
 msgid "C_hoose a device to configure:"
-msgstr "选择要配置的设备(_H):"
+msgstr "설정할 장치를 선택해주세요(_H)："
 
 #: ../panels/volume-control/gvc-mixer-dialog.c:1870
 #: ../panels/volume-control/gvc-mixer-dialog.c:1999
 msgid "Settings for the selected device:"
-msgstr "所选设备的设置:"
+msgstr "다음과 같은 장치 설정함："
 
 #: ../panels/volume-control/gvc-mixer-dialog.c:1881
 msgid "Input"
-msgstr "输入"
+msgstr "입력"
 
 #: ../panels/volume-control/gvc-mixer-dialog.c:1888
 msgid "_Input volume: "
-msgstr "输入音量(_I): "
+msgstr "녹음 음량(_I)："
 
 #: ../panels/volume-control/gvc-mixer-dialog.c:1911
 msgid "Input level:"
-msgstr "输入等级:"
+msgstr "입력 수준："
 
 #: ../panels/volume-control/gvc-mixer-dialog.c:1937
 msgid "C_hoose a device for sound input:"
-msgstr "选择声音输入设备(_H):"
+msgstr "녹음 장치를 선택해 주세요(_h)："
 
 #: ../panels/volume-control/gvc-mixer-dialog.c:1967
 msgid "Output"
-msgstr "输出"
+msgstr "출력"
 
 #: ../panels/volume-control/gvc-mixer-dialog.c:1972
 msgid "C_hoose a device for sound output:"
-msgstr "选择声音输出设备(_H):"
+msgstr "출력 장치를 선택해주세요(_h)："
 
 #: ../panels/volume-control/gvc-mixer-dialog.c:2017
 msgid "Applications"
-msgstr "应用程序"
+msgstr "프로그램"
 
 #: ../panels/volume-control/gvc-mixer-dialog.c:2021
 msgid "No application is currently playing or recording audio."
-msgstr "目前没有应用程序在播放或录制音频"
+msgstr "현재 소리를 재생하거나 녹음하는 프로그램이 없습니다．"
 
 #: ../panels/volume-control/gvc-mixer-dialog.c:2146
 #: ../panels/volume-control/gvc-sound-theme-chooser.c:752
 #: ../panels/volume-control/gvc-sound-theme-chooser.c:764
 #: ../panels/volume-control/gvc-sound-theme-chooser.c:776
 msgid "Sound Preferences"
-msgstr "声音首选项"
+msgstr "소리 설정"
 
 #: ../panels/volume-control/gvc-sound-theme-chooser.c:223
 #: ../panels/volume-control/gvc-sound-theme-chooser.c:863
 msgid "Default"
-msgstr "默认"
+msgstr "기본"
 
 #: ../panels/volume-control/gvc-sound-theme-chooser.c:335
 msgid "No sounds"
-msgstr "无声音"
+msgstr "소리 없음"
 
 #: ../panels/volume-control/gvc-sound-theme-chooser.c:457
 msgid "Built-in"
-msgstr "内置"
+msgstr "내장"
 
 #: ../panels/volume-control/gvc-sound-theme-chooser.c:642
 #: ../panels/volume-control/sound-theme-file-utils.c:291
 msgid "Custom"
-msgstr "自定义"
+msgstr "개인 설정"
 
 #: ../panels/volume-control/gvc-sound-theme-chooser.c:755
 #: ../panels/volume-control/gvc-sound-theme-chooser.c:766
 #: ../panels/volume-control/gvc-sound-theme-chooser.c:778
 msgid "Testing event sound"
-msgstr "测试事件声音"
+msgstr "소리 테스트"
 
 #: ../panels/volume-control/gvc-sound-theme-chooser.c:864
 msgid "From theme"
-msgstr "来自主题"
+msgstr "테마로 부터"
 
 #: ../panels/volume-control/gvc-sound-theme-chooser.c:894
 msgid "Type"
-msgstr "类型"
+msgstr "유형"
 
 #. gtk_box_pack_start (GTK_BOX (chooser),
 #. chooser->priv->theme_box, FALSE, FALSE, 0);
 #: ../panels/volume-control/gvc-sound-theme-chooser.c:1088
 msgid "Sound _theme:"
-msgstr "声音主题:"
+msgstr "소리 테마(_t)："
 
 #: ../panels/volume-control/gvc-sound-theme-chooser.c:1101
 msgid "C_hoose an alert sound:"
-msgstr "选择报警声音(_H):"
+msgstr "알림음을 선택해주세요(_h)："
 
 #: ../panels/volume-control/gvc-sound-theme-chooser.c:1135
 msgid "Enable _window and button sounds"
-msgstr "启用窗体与按钮声音(_W)"
+msgstr "창 활성화 및 버튼 소리(_w)"
 
 #: ../panels/volume-control/gvc-speaker-test.c:219
 msgid "Stop"
-msgstr "停止"
+msgstr "정지"
 
 #: ../panels/volume-control/gvc-speaker-test.c:219
 #: ../panels/volume-control/gvc-speaker-test.c:331
 msgid "Test"
-msgstr "测试"
+msgstr "시험"
 
 #: ../panels/volume-control/gvc-speaker-test.c:227
 msgid "Subwoofer"
-msgstr "低音炮"
+msgstr "서브우퍼"
 
 #: ../panels/appearance/appearance-desktop.c:561
 msgid "Add Wallpaper"
-msgstr "添加壁纸"
+msgstr "배경화면 추가"
 
 #: ../panels/appearance/appearance-desktop.c:594
 msgid "Image"
-msgstr "图像"
+msgstr "이미지"
 
 #: ../panels/appearance/appearance-desktop.c:598
 msgid "ALL File"
-msgstr "所有文件"
+msgstr "모든 파일"
 
 #: ../panels/appearance/appearance-theme.c:46
 msgid "Please choose a color that you like as the theme colors."
-msgstr "选择一个您喜欢的颜色作为主题颜色"
+msgstr "원하시는 색상을 선택해주세요"
 
 #: ../panels/appearance/appearance-theme.c:62
 msgid ""
 "Set up disable. Please wait at least 5 seconds that system subject will "
 "restart"
-msgstr "设置无效!请等待至少5秒，以便系统主题重新启动"
+msgstr "설정이 취소되었습니다. 5초뒤에 시스템을 재시작합니다"
 
 #: ../panels/appearance/mate-wp-item.c:315
 #: ../panels/appearance/mate-wp-item.c:317
 msgid "pixel"
 msgid_plural "pixels"
-msgstr[0] "像素"
-msgstr[1] "像素"
+msgstr[0] "픽셀"
 
 #. translators: <b>wallpaper name</b>
 #. * mime type, size
@@ -881,8 +875,8 @@ msgid ""
 msgstr ""
 "<b>%s</b>\n"
 "%s, %s\n"
-"文件夹：%s\n"
-"作者：%s"
+"파일경로：%s\n"
+"제작자：%s"
 
 #. translators: <b>wallpaper name</b>
 #. * Image missing
@@ -899,171 +893,171 @@ msgid ""
 msgstr ""
 "<b>%s</b>\n"
 "%s\n"
-"文件夹：%s\n"
-"作者：%s"
+"파일경로：%s\n"
+"제작자：%s"
 
 #: ../panels/session-properties/gsm-app-dialog.c:145
 msgid "Desktop file(*.desktop)"
-msgstr "桌面文件(*.desktop)"
+msgstr "아이콘 파일(*.desktop)"
 
 #: ../panels/session-properties/gsm-app-dialog.c:152
 msgid "Select command"
-msgstr "选择命令"
+msgstr "명령 선택"
 
 #: ../panels/session-properties/gsm-app-dialog.c:257
 msgid "Add programs"
-msgstr "添加开机启动程序"
+msgstr "프로그램 추가"
 
 #: ../panels/session-properties/gsm-app-dialog.c:261
 msgid "Boot program property details"
-msgstr "启动程序属性详情"
+msgstr "시작 프로그램 속성"
 
 #: ../panels/session-properties/gsm-app-dialog.c:526
 msgid "The startup command cannot be empty"
-msgstr "启动命令不能为空"
+msgstr "시작 명령은 빈 공간으로 둘 수 없습니다"
 
 #: ../panels/session-properties/gsm-app-dialog.c:532
 msgid "The startup command is not valid"
-msgstr "无效的启动命令"
+msgstr "올바른 시작 명령이 아닙니다"
 
 #: ../panels/session-properties/gsm-properties-dialog.c:427
 #, c-format
 msgid "%d/%d/%d/  %d:%d:%d"
-msgstr "%d年%d月%d日%d时%d分%d秒"
+msgstr ""
 
 #: ../panels/session-properties/gsm-properties-dialog.c:508
 msgid "property"
-msgstr "属性"
+msgstr "속성"
 
 #: ../panels/session-properties/gsm-properties-dialog.c:535
 #, c-format
 msgid "%dByte"
-msgstr "%d字节"
+msgstr "%d바이트"
 
 #: ../panels/user-accounts/run-passwd.c:221
 msgid "Authentication failure!"
-msgstr "认证失败!"
+msgstr "인증 실패!"
 
 #: ../panels/user-accounts/run-passwd.c:298
 #, c-format
 msgid "New password length is too short!"
-msgstr "新密码长度太短!"
+msgstr "새로운 암호가 너무 짧습니다!"
 
 #: ../panels/user-accounts/run-passwd.c:304
 #, c-format
 msgid "The new password is too simple!"
-msgstr "新密码太简单!"
+msgstr "새로운 암호가 너무 간단합니다!"
 
 #: ../panels/user-accounts/run-passwd.c:310
 #, c-format
 msgid "The new password is too similar to the old one!"
-msgstr "新密码和旧密码太相似!"
+msgstr "새로운 암호가 기존의 것과 너무 비슷합니다!"
 
 #: ../panels/user-accounts/run-passwd.c:313
 #, c-format
 msgid "The new password must contain numbers or special characters!"
-msgstr "新密码必须包含数字或特殊字符!"
+msgstr "암호는 숫자나 특수문자만 가능합니다!"
 
 #: ../panels/user-accounts/run-passwd.c:317
 #, c-format
 msgid "The new password is the same as the old one!"
-msgstr "新密码和旧密码一样!"
+msgstr "새로운 암호가 기존의 것과 똑같습니다!"
 
 #: ../panels/user-accounts/run-passwd.c:320
 #, c-format
 msgid "The new password has been used recently!"
-msgstr "新密码最近已被使用过!"
+msgstr "이미 쓰인적이 있는 암호입니다!"
 
 #: ../panels/user-accounts/run-passwd.c:324
 #, c-format
 msgid "Your password has been changed after you verify!"
-msgstr "在您验证过后您的密码已经被更改!"
+msgstr "암호가 바뀌었습니다!"
 
 #: ../panels/user-accounts/user-accounts.c:166
 msgid "User name cannot be empty!"
-msgstr "用户名不能为空!"
+msgstr "이름은 비울 수 없습니다!"
 
 #: ../panels/user-accounts/user-accounts.c:183
 msgid "Password length needs to more than 5 digits!"
-msgstr "密码长度需要5位以上!"
+msgstr "암호는 5글자 이상으로 해주세요!"
 
 #: ../panels/user-accounts/user-accounts.c:202
 msgid "enter the password twice inconsistencies!"
-msgstr "2次输入密码不一致!"
+msgstr ""
 
 #: ../panels/user-accounts/user-accounts.c:220
 #: ../panels/user-accounts/user-accounts.c:725
 msgid "The first character cannot be underlined!"
-msgstr "首字符不能为下划线!"
+msgstr "첫글자는 언더라인(_)이 될 수 없습니다!"
 
 #: ../panels/user-accounts/user-accounts.c:226
 #: ../panels/user-accounts/user-accounts.c:731
 msgid "User name can not contain capital letters!"
-msgstr "用户名不能包含大写字母!"
+msgstr "사용자 이름은 대문자를 쓸 수 없습니다!"
 
 #: ../panels/user-accounts/user-accounts.c:234
 #: ../panels/user-accounts/user-accounts.c:739
 msgid "The user name can only be composed of letters, numbers and underline!"
-msgstr "用户名只能由字母、数字以及下划线组成!"
+msgstr "사용자 이름에는 문자와 숫자 언더라인(_)만이 가능합니다!"
 
 #: ../panels/user-accounts/user-accounts.c:241
 msgid "The first character cannot be numeric!"
-msgstr "首字符不能为数字!"
+msgstr "첫번째 글자는 숫자가 될 수 없습니다!"
 
 #: ../panels/user-accounts/user-accounts.c:255
 #: ../panels/user-accounts/user-accounts.c:321
 #: ../panels/user-accounts/user-accounts.c:2264
 msgid "Please enter the username"
-msgstr "请输入用户名"
+msgstr "사용자 이름을 입력해주세요"
 
 #: ../panels/user-accounts/user-accounts.c:256
 msgid "Please enter the password "
-msgstr "请输入密码"
+msgstr "암호를 입력해주세요"
 
 #: ../panels/user-accounts/user-accounts.c:267
 msgid "The user name is already in use, please use a different one."
-msgstr "该用户名已被使用，请换用其他用户名!"
+msgstr "사용중인 이름입니다. 다른 이름을 입력해주세요!"
 
 #. gtk_widget_set_size_request(GTK_WIDGET(labelname), -1, 18);
 #: ../panels/user-accounts/user-accounts.c:290
 msgid ""
 "The user name corresponds to the group already exists,please use a different "
 "user name"
-msgstr "该用户名对应的组已存在,请换用其他用户名"
+msgstr "이름이 이미 그룹에서 쓰이고 있습니다. 다른 이름을 입력해주세요"
 
 #. gtk_widget_set_size_request(GTK_WIDGET(labelname), -1, 32);
 #: ../panels/user-accounts/user-accounts.c:306
 msgid "username length should not long than 32!"
-msgstr "用户名长度不能超过32"
+msgstr "사용자 이름은 32글자 이상이 될 수 없습니다!"
 
 #: ../panels/user-accounts/user-accounts.c:321
 #: ../panels/user-accounts/user-accounts.c:897
 msgid "Please enter the new username"
-msgstr "请输入新用户名"
+msgstr "새로운 이름을 입력해주세요"
 
 #: ../panels/user-accounts/user-accounts.c:323
 #: ../panels/user-accounts/user-accounts.c:2271
 msgid "Please enter the password"
-msgstr "请输入密码"
+msgstr "암호를 입력해주세요"
 
 #: ../panels/user-accounts/user-accounts.c:323
 #: ../panels/user-accounts/user-accounts.c:589
 #: ../panels/user-accounts/user-accounts.c:680
 msgid "Please enter new password"
-msgstr "请输入新密码"
+msgstr "암호를 입력해주세요"
 
 #: ../panels/user-accounts/user-accounts.c:324
 #: ../panels/user-accounts/user-accounts.c:351
 #: ../panels/user-accounts/user-accounts.c:575
 #: ../panels/user-accounts/user-accounts.c:666
 msgid "Please enter the current password"
-msgstr "请输入当前密码"
+msgstr "현재 암호를 입력해주세요"
 
 #: ../panels/user-accounts/user-accounts.c:324
 #: ../panels/user-accounts/user-accounts.c:351
 #: ../panels/user-accounts/user-accounts.c:359
 msgid "Please enter the new password"
-msgstr "请输入新密码"
+msgstr "새로운 암호를 입력해주세요"
 
 #: ../panels/user-accounts/user-accounts.c:324
 #: ../panels/user-accounts/user-accounts.c:352
@@ -1072,41 +1066,41 @@ msgstr "请输入新密码"
 #: ../panels/user-accounts/user-accounts.c:689
 #: ../panels/user-accounts/user-accounts.c:2276
 msgid "Please confirm the new password"
-msgstr "请确认新密码"
+msgstr "암호를 다시 입력해주세요"
 
 #: ../panels/user-accounts/user-accounts.c:401
 msgid "Please choose another password."
-msgstr "请选择其它的密码."
+msgstr "다른 암호를 사용해주세요."
 
 #: ../panels/user-accounts/user-accounts.c:415
 msgid "Please reenter the current password."
-msgstr "请重新输入当前密码."
+msgstr "현재 암호를 다시 입력해주세요"
 
 #: ../panels/user-accounts/user-accounts.c:422
 msgid "Password can not be modified."
-msgstr "密码无法被修改."
+msgstr "암호를 수정할 수 없었습니다"
 
 #: ../panels/user-accounts/user-accounts.c:463
 msgid "Password length is too short!"
-msgstr "密码长度太短!"
+msgstr "암호가 너무 짧습니다!"
 
 #: ../panels/user-accounts/user-accounts.c:464
 msgid ""
 "Password length needs to more than 5 digits, and composed of letters, \n"
 " numbers or special characters."
-msgstr "密码必须长度必须大于5的字母、数字或特殊字符组成."
+msgstr "암호는 5글자 이상의 알파벳 문자나 숫자, 특수문자로 이루어져야 합니다."
 
 #: ../panels/user-accounts/user-accounts.c:466
 msgid "Password error"
-msgstr "密码错误"
+msgstr "암호 오류"
 
 #: ../panels/user-accounts/user-accounts.c:467
 msgid "Please make sure you enter the password two times."
-msgstr "请确认您两次输入的密码一致."
+msgstr "암호를 두번 입력해 주세요"
 
 #: ../panels/user-accounts/user-accounts.c:548
 msgid "Password input error, please re-enter!"
-msgstr "当前密码输入错误，请重新输入!"
+msgstr "암호 입력 오류 다시 입력해주세요!"
 
 #: ../panels/user-accounts/user-accounts.c:643
 #: ../panels/user-accounts/user-accounts.c:884
@@ -1117,7 +1111,7 @@ msgstr "当前密码输入错误，请重新输入!"
 #: ../panels/user-accounts/user-accounts.c:1369
 #: ../panels/user-accounts/user-accounts.c:1465
 msgid "Administrators"
-msgstr "管理员"
+msgstr "관리자"
 
 #: ../panels/user-accounts/user-accounts.c:645
 #: ../panels/user-accounts/user-accounts.c:886
@@ -1128,7 +1122,7 @@ msgstr "管理员"
 #: ../panels/user-accounts/user-accounts.c:1371
 #: ../panels/user-accounts/user-accounts.c:1467
 msgid "Standard user"
-msgstr "标准用户"
+msgstr "보통 사용자"
 
 #: ../panels/user-accounts/user-accounts.c:650
 #: ../panels/user-accounts/user-accounts.c:890
@@ -1137,7 +1131,7 @@ msgstr "标准用户"
 #: ../panels/user-accounts/user-accounts.c:1402
 #: ../panels/user-accounts/user-accounts.c:1472
 msgid "Logged(Current User)"
-msgstr "已登录(当前用户)"
+msgstr "로그인 됨(현재 사용자)"
 
 #: ../panels/user-accounts/user-accounts.c:655
 #: ../panels/user-accounts/user-accounts.c:892
@@ -1146,7 +1140,7 @@ msgstr "已登录(当前用户)"
 #: ../panels/user-accounts/user-accounts.c:1406
 #: ../panels/user-accounts/user-accounts.c:1476
 msgid "Logged(Other Users)"
-msgstr "已登录(其他用户)"
+msgstr "로그인 됨(다른 사용자)"
 
 #: ../panels/user-accounts/user-accounts.c:659
 #: ../panels/user-accounts/user-accounts.c:894
@@ -1155,34 +1149,34 @@ msgstr "已登录(其他用户)"
 #: ../panels/user-accounts/user-accounts.c:1410
 #: ../panels/user-accounts/user-accounts.c:1480
 msgid "Un-login(Other Users)"
-msgstr "未登录(其他用户)"
+msgstr "로그인 안 함(다른 유저들)"
 
 #: ../panels/user-accounts/user-accounts.c:746
 msgid "User name cannot start with number!"
-msgstr "用户名不能以数字开头!"
+msgstr "이름은 숫자로 시작 될 수 없습니다!"
 
 #: ../panels/user-accounts/user-accounts.c:758
 msgid "The user name has been used, please replace with another one!"
-msgstr "该用户名已经被使用，请换一个！"
+msgstr "이미 쓰이고 있는 이름입니다. 다른 이름을 입력해주세요！"
 
 #: ../panels/user-accounts/user-accounts.c:789
 #: ../panels/user-accounts/user-accounts.c:826
 msgid "Modify username failed!"
-msgstr "修改用户名失败!"
+msgstr "이름 수정 실패!"
 
 #: ../panels/user-accounts/user-accounts.c:834
 msgid "the user has logged in, please log out and modify!"
-msgstr "该用户已登录，请注销该用户后再修改!"
+msgstr "로그인 중입니다. 로그아웃하신 뒤 수정해주세요!"
 
 #: ../panels/user-accounts/user-accounts.c:1281
 msgid "The user can not be deleted!"
-msgstr "无法删除该用户!"
+msgstr "사용자가 삭제되었습니다!"
 
 #: ../panels/user-accounts/user-accounts.c:1288
 msgid ""
 "The user has logged in, please perform the delete operation after logging "
 "out!"
-msgstr "该用户已登录，请注销该用户后再执行删除操作!"
+msgstr "로그인 중인 사용자입니다. 로그 아웃후에 삭제를 진행하세요!"
 
 #: ../panels/user-accounts/user-accounts.c:1312
 #, c-format
@@ -1190,7 +1184,7 @@ msgid ""
 "<span weight='bold' font_desc='11'>do you confirm to delete all the files of "
 "%s?</span>"
 msgstr ""
-"<span weight='bold' font_desc='11'>确认删除用户 %s 的所有文件吗?</span>"
+"<span weight='bold' font_desc='11'>%s의 파일을 모두 삭제하시겠습니까?</span>"
 
 #: ../panels/user-accounts/user-accounts.c:1316
 #, c-format
@@ -1198,49 +1192,49 @@ msgid ""
 "if you want to delete the %s user, belonging to the user's desktop, "
 "documents, favorites, music, pictures and video folder will be deleted!"
 msgstr ""
-"如果要删除 %s 用户，那么属于该用户的桌面、文档、收藏\n"
-"夹、音乐、图片和视频文件夹的内容将全部被删除!"
+"사용자 %s 삭제하시면 그 사용자의 바탕화면, 문서, 즐겨찾기, 사진, 동영상 폴더가\n"
+"모두 삭제됩니다!"
 
 #: ../panels/user-accounts/user-accounts.c:1374
 msgid "Rename"
-msgstr "更改用户名"
+msgstr "이름 바꾸기"
 
 #: ../panels/user-accounts/user-accounts.c:1380
 msgid "Change PWD"
-msgstr "更改密码"
+msgstr "암호 바꾸기"
 
 #: ../panels/user-accounts/user-accounts.c:1385
 msgid "Change Face"
-msgstr "更改头像"
+msgstr "사진 바꾸기"
 
 #: ../panels/user-accounts/user-accounts.c:1390
 msgid "Change Type"
-msgstr "更改用户类型"
+msgstr "유형 바꾸기"
 
 #: ../panels/user-accounts/user-accounts.c:1395
 msgid "Delete"
-msgstr "删除用户"
+msgstr "삭제"
 
 #: ../panels/user-accounts/user-accounts.c:1500
 msgid "My Account"
-msgstr "我的账户"
+msgstr "내 계정"
 
 #: ../panels/user-accounts/user-accounts.c:1505
 #: ../panels/user-accounts/user-accounts.c:2148
 msgid "Other accounts"
-msgstr "其他账户"
+msgstr "다른 계정"
 
 #: ../panels/user-accounts/user-accounts.c:1832
 msgid "Browse more pictures"
-msgstr "浏览更多图片"
+msgstr "더 많은 사진 찾기"
 
 #: ../panels/user-accounts/user-accounts.c:1835
 msgid "Cancel"
-msgstr "取消"
+msgstr "취소"
 
 #: ../panels/user-accounts/user-accounts.c:1836
 msgid "Ok"
-msgstr "确定"
+msgstr "확인"
 
 #. #ifdef HAVE_CHEESE
 #. um->take_photo_menuitem = gtk_menu_item_new_with_label (_("Take a photo…"));
@@ -1263,7 +1257,7 @@ msgstr "确定"
 #. HAVE_CHEESE
 #: ../panels/user-accounts/user-accounts.c:1981
 msgid "Browse more pictures..."
-msgstr "浏览更多图片..."
+msgstr "더 많은 사진 찾기"
 
 #: ../shell/ukui-control-center.c:59
 msgid "window1"
@@ -1275,109 +1269,109 @@ msgstr ""
 
 #: ../shell/mainwindow.c:111
 msgid "-Kylin Control Center"
-msgstr "-麒麟控制面板"
+msgstr ""
 
 #: ../shell/mainwindow.c:218
 msgid "Control Center"
-msgstr "控制面板"
+msgstr "제어 센터"
 
 #: ../shell/mainwindow.c:381
 msgid "Time and Dates"
-msgstr "时间和日期"
+msgstr "시간과 날짜"
 
 #: ../shell/mainwindow.c:384
 msgid " Change the time and date of this computer "
-msgstr " 更改此计算机的时间和日期 "
+msgstr " 컴퓨터의 날짜와 시간을 바꿉니다 "
 
 #: ../shell/mainwindow.c:392
 msgid "User Account"
-msgstr "用户账户"
+msgstr "사용자 계정"
 
 #: ../shell/mainwindow.c:395
 msgid ""
 " Change the computer user account \n"
 " settings and password"
 msgstr ""
-" 更改此计算机的用户账户\n"
-"设置和密码"
+" 컴퓨터의 사용자 계정과\n"
+"암호를 바꿉니다."
 
 #: ../shell/mainwindow.c:403
 msgid "Personalization"
-msgstr "个性化"
+msgstr "개인화"
 
 #: ../shell/mainwindow.c:406
 msgid ""
 " Change the computer desktop background \n"
 " and related theme"
 msgstr ""
-" 更改此计算机的桌面背景 \n"
-"和主题相关"
+" 바탕화면 배경을 바꾸고 \n"
+" 테마를 설정합니다"
 
 #: ../shell/mainwindow.c:414
 msgid "Default Aplication"
-msgstr "默认应用程序"
+msgstr "기본 프로그램"
 
 #: ../shell/mainwindow.c:417
 msgid " Change the default application on this computer "
-msgstr " 更改此计算机的默认应用程序 "
+msgstr " 컴퓨터의 기본 프로그램을 바꿉니다 "
 
 #. g_signal_connect(G_OBJECT(button5), "clicked", G_CALLBACK(show_next_page), (gpointer)&data_network);
 #: ../shell/mainwindow.c:431
 msgid " Change the network  on this computer "
-msgstr " 更改此计算机的网络连接"
+msgstr " 네트워크를 설정합니다 "
 
 #: ../shell/mainwindow.c:442
 msgid " Change the keyboard settings on this computer "
-msgstr " 更改此计算机的键盘设置 "
+msgstr " 키보드의 설정을 바꿉니다 "
 
 #: ../shell/mainwindow.c:453
 msgid " Change the mouse settings on this computer  "
-msgstr " 更改此计算机的鼠标设置 "
+msgstr " 마우스의 설정을 바꿉니다 "
 
 #: ../shell/mainwindow.c:467
 msgid " Configure the connection to the computer printer "
-msgstr " 配置连接到此计算机的打印机 "
+msgstr " 프린터를 설정하고 연결합니다 "
 
 #: ../shell/mainwindow.c:475
 msgid "Sound"
-msgstr "声音"
+msgstr "소리"
 
 #: ../shell/mainwindow.c:478
 msgid " Change the sound settings on this computer "
-msgstr " 更改此计算机的声音设置 "
+msgstr " 컴퓨터의 소리를 설정합니다 "
 
 #: ../shell/mainwindow.c:487
 msgid "Network Agent"
-msgstr "网络代理"
+msgstr ""
 
 #: ../shell/mainwindow.c:490
 msgid " Change the network agent on this computer "
-msgstr " 更改此计算机的网络代理 "
+msgstr ""
 
 #: ../shell/mainwindow.c:498
 msgid "Autostart"
-msgstr "开机启动"
+msgstr "시작프로그램"
 
 #: ../shell/mainwindow.c:501
 msgid " Change the autostart program on this computer "
-msgstr " 更改此计算机的开机启动程序"
+msgstr " 컴퓨터를 켤때 자동으로 시작되는 프로그램을 설정합니다 "
 
 #: ../shell/mainwindow.c:511
 msgid " Change the Monitor settings on this computer "
-msgstr " 更改此计算机的显示器配置"
+msgstr " 모니터와 디스플레이에 관하여 설정합니다 "
 
 #: ../shell/mainwindow.c:522
 msgid "Power Management"
-msgstr "电源管理"
+msgstr "전원 관리자"
 
 #: ../shell/mainwindow.c:525
 msgid " Change the power management settings on this computer "
-msgstr " 更改此计算机的电源管理选项 "
+msgstr " 컴퓨터의 전원과 관련된 설정을 합니다 "
 
 #: ../shell/mainwindow.c:533
 msgid "System Check"
-msgstr "系统检测"
+msgstr "시스템 체크"
 
 #: ../shell/mainwindow.c:536
 msgid "check the system detection information on this computer "
-msgstr "查看此系统的检测信息"
+msgstr "이 컴퓨터의 시스템 정보를 체크합니다"

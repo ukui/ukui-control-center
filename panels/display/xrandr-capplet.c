@@ -2554,7 +2554,7 @@ run_application (App *app, GtkBuilder *builder)
     g_signal_connect (app->screen, "changed", G_CALLBACK (on_screen_changed), app);
     if (!app->screen)
     {
-    error_message (NULL, _("不能获取屏幕信息"), "请确保显示环境正常！");
+    error_message (NULL, _("Could not get screen information"), error->message);
 	g_error_free (error);
     return 0;
     }
