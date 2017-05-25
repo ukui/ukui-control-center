@@ -251,7 +251,7 @@ refresh_combo_box_icons(GtkIconTheme* theme, GtkComboBox* combo_box, GList* app_
 
 	if (model == NULL)
 	{
-		g_warning("refresh_combobox, but model=NULL");
+		//g_warning("refresh_combobox, but model=NULL");
 		return;
 	}
 	valid = gtk_tree_model_get_iter_first(model, &iter);

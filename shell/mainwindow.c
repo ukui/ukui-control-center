@@ -143,24 +143,6 @@ gboolean on_all_quit(GtkWidget *widget, GdkEvent *event, gpointer user_data)
 	return TRUE;
 }
 
-void hide_viewport()
-{
-	gtk_widget_hide(GTK_WIDGET(vp_time));
-	gtk_widget_hide(GTK_WIDGET(vp_count));
-	gtk_widget_hide(GTK_WIDGET(vp_theme));
-	gtk_widget_hide(GTK_WIDGET(vp_app));
-	//gtk_widget_hide(GTK_WIDGET(vp_network));
-	gtk_widget_hide(GTK_WIDGET(vp_key));
-	gtk_widget_hide(GTK_WIDGET(vp_mouse));
-	//gtk_widget_hide(GTK_WIDGET(vp_printer));
-	gtk_widget_hide(GTK_WIDGET(vp_sound));
-	gtk_widget_hide(GTK_WIDGET(vp_net));
-	gtk_widget_hide(GTK_WIDGET(vp_start));
-	gtk_widget_hide(GTK_WIDGET(vp_display));
-	gtk_widget_hide(GTK_WIDGET(vp_power));
-	gtk_widget_hide(GTK_WIDGET(vp_system));
-}
-
 void modify_font_color(GtkButton *button, char *textcolor)
 {
 	GtkWidget *label;
@@ -190,13 +172,12 @@ void init_button_text_color(char *textcolor)
 	modify_font_color(bt_start, textcolor);
 	modify_font_color(bt_display, textcolor);
 	modify_font_color(bt_power, textcolor);
-	modify_font_color(bt_system, textcolor);
+	//modify_font_color(bt_system, textcolor);
 }
 
 void show_next_page(GtkWidget *widget, gpointer userdata)
 {
 	ButtonData *data = (ButtonData *)userdata;
-	gtk_widget_show(GTK_WIDGET(data->vp));
 	gtk_notebook_set_current_page(notebook1, (gint)1);
 	gtk_notebook_set_current_page(notebook2, data->page);
 	gtk_window_set_title(window, data->title);
@@ -204,18 +185,15 @@ void show_next_page(GtkWidget *widget, gpointer userdata)
 
 void switch_page(GtkWidget *widget, gpointer userdata)
 {
-	hide_viewport();
 	ButtonData *data = (ButtonData *)userdata;
-	gtk_widget_show(GTK_WIDGET(data->vp));
 	gtk_notebook_set_current_page(notebook2, data->page);
 	gtk_window_set_title(window, data->title);
 }
 
 void show_mainpage(GtkWidget *widget, gpointer userdata)
 {
-	gtk_notebook_set_current_page(notebook1, (gint)0);
-	hide_viewport();
-    gtk_window_set_title(window, _("Control Center"));
+        gtk_notebook_set_current_page(notebook1, (gint)0);
+        gtk_window_set_title(window, _("Control Center"));
 }
 
 static void direct_call_program(GtkWidget * widget, gchar * program_name){
@@ -281,7 +259,7 @@ static void set_button_image(GtkButton * button, gchar * icon_name)
 	g_sprintf(filename,"%s/%s.png","/usr/share/ukui-control-center/icons",icon_name);
 	//if (!g_file_test(filename, G_FILE_TEST_EXIST))
 	image = gtk_image_new_from_file(filename);
-	gtk_button_set_image(button, image);
+	gtk_button_set_image(GTK_BUTTON(button), image);
 }
 
 // deal with UniqueCommand
@@ -315,48 +293,36 @@ static int unique_signal_deal(GApplication *application,GApplicationCommandLine 
         case SIGNAL_APPEARANCE_PAGE:
             gtk_notebook_set_current_page(notebook1,1);
             gtk_notebook_set_current_page(notebook2,2);
-            hide_viewport();
-            gtk_widget_show(GTK_WIDGET(vp_theme));
 //			gtk_window_present_with_time(window,gdk_x11_get_server_time(gtk_widget_get_window(window)));
             gtk_window_set_title(window, data_theme.title);
             break;
         case SIGNAL_POWER_PAGE:
             gtk_notebook_set_current_page(notebook1,1);
             gtk_notebook_set_current_page(notebook2,12);
-            hide_viewport();
-            gtk_widget_show(GTK_WIDGET(vp_power));
 //			gtk_window_present_with_time(window,gdk_x11_get_server_time(gtk_widget_get_window(window)));
             gtk_window_set_title(window, data_power.title);
             break;
         case SIGNAL_SOUND_PAGE:
             gtk_notebook_set_current_page(notebook1,1);
             gtk_notebook_set_current_page(notebook2,8);
-            hide_viewport();
-            gtk_widget_show(GTK_WIDGET(vp_sound));
 //			gtk_window_present_with_time(window,gdk_x11_get_server_time(gtk_widget_get_window(window)));
             gtk_window_set_title(window, data_sound.title);
             break;
         case SIGNAL_TIME_PAGE:
             gtk_notebook_set_current_page(notebook1,1);
             gtk_notebook_set_current_page(notebook2,0);
-            hide_viewport();
-            gtk_widget_show(GTK_WIDGET(vp_time));
 //			gtk_window_present_with_time(window,gdk_x11_get_server_time(gtk_widget_get_window(window)));
             gtk_window_set_title(window, data_time.title);
             break;
         case SIGNAL_USER_PAGE:
             gtk_notebook_set_current_page(notebook1,1);
             gtk_notebook_set_current_page(notebook2,1);
-            hide_viewport();
-            gtk_widget_show(GTK_WIDGET(vp_count));
 //			gtk_window_present_with_time(window,gdk_x11_get_server_time(gtk_widget_get_window(window)));
             gtk_window_set_title(window, data_count.title);
             break;
         case SIGNAL_KEYBOARD_PAGE:
             gtk_notebook_set_current_page(notebook1,1);
             gtk_notebook_set_current_page(notebook2,5);
-            hide_viewport();
-            gtk_widget_show(GTK_WIDGET(vp_key));
 //			gtk_window_present_with_time(window,gdk_x11_get_server_time(gtk_widget_get_window(window)));
             gtk_window_set_title(window, data_key.title);
             break;
@@ -531,16 +497,15 @@ void init_signals()
 	data_system.vp = vp_system;
 	data_system.page = 13;
     data_system.title = _("System Check");
-	g_signal_connect(G_OBJECT(bt_system), "clicked", G_CALLBACK(switch_page), (gpointer)&data_system);
+//	g_signal_connect(G_OBJECT(bt_system), "clicked", G_CALLBACK(switch_page), (gpointer)&data_system);
 	button14 = (GtkButton *)GTK_WIDGET(gtk_builder_get_object(builder, "button14"));
-    gtk_widget_set_tooltip_text(button14, _("check the system detection information on this computer "));
-    set_button_image(button14, "系统检测");
-	g_signal_connect(G_OBJECT(button14), "clicked", G_CALLBACK(show_next_page), (gpointer)&data_system);
+//    gtk_widget_set_tooltip_text(button14, _("check the system detection information on this computer "));
+//    set_button_image(button14, "系统检测");
+//	g_signal_connect(G_OBJECT(button14), "clicked", G_CALLBACK(show_next_page), (gpointer)&data_system);
 
 	bt_startpage = (GtkButton *)GTK_WIDGET(gtk_builder_get_object(builder, "bt_startpage"));
     g_signal_connect(G_OBJECT(bt_startpage), "clicked", G_CALLBACK(show_mainpage), NULL);
 
-	hide_viewport();
 	init_button_text_color("blue");
 
 	//unique app, we need to think about when someone call the other ukuicc
@@ -561,7 +526,7 @@ void init_signals()
 //	unique_app_add_command(unique_app, "keyboard_page",SIGNAL_KEYBOARD_PAGE);
 //	unique_app_add_command(unique_app, "no_argument",SIGNAL_NO_ARGUMENT);
 
-        if (g_application_get_is_remote(unique_app)) {
+/*        if (g_application_get_is_remote(unique_app)) {
 		if (switch_to_appearance_page)
 		{
                         char *my_argv[] = {"0"};
@@ -601,16 +566,15 @@ void init_signals()
 		g_object_unref(unique_app);
                 exit(0);
         }
+*/
 
 	//Fixme: this part can write simple, but i don't know how can i do that
 	if (switch_to_appearance_page)
 	{
 		gtk_notebook_set_current_page(notebook1, 1);
 		gtk_notebook_set_current_page(notebook2, 2);
-		hide_viewport();
-		gtk_widget_show(GTK_WIDGET(vp_theme));
-        gtk_window_set_title(GTK_WINDOW(window), data_theme.title);
-        gtk_widget_grab_focus(GTK_WIDGET(window));
+                gtk_window_set_title(GTK_WINDOW(window), data_theme.title);
+                gtk_widget_grab_focus(GTK_WIDGET(window));
 		switch_to_appearance_page = FALSE;
 		return;
 	}
@@ -618,10 +582,8 @@ void init_signals()
 	{
 		gtk_notebook_set_current_page(notebook1, 1);
 		gtk_notebook_set_current_page(notebook2, 12);
-		hide_viewport();
-		gtk_widget_show(GTK_WIDGET(vp_power));
-        gtk_window_set_title(GTK_WINDOW(window), data_power.title);
-        gtk_widget_grab_focus(GTK_WIDGET(window));
+                gtk_window_set_title(GTK_WINDOW(window), data_power.title);
+                gtk_widget_grab_focus(GTK_WIDGET(window));
 		switch_to_power_page = FALSE;
 		return;
 	}
@@ -629,10 +591,8 @@ void init_signals()
 	{
 		gtk_notebook_set_current_page(notebook1, 1);
 		gtk_notebook_set_current_page(notebook2, 8);
-		hide_viewport();
-		gtk_widget_show(GTK_WIDGET(vp_sound));
-        gtk_window_set_title(GTK_WINDOW(window), data_sound.title);
-        gtk_widget_grab_focus(GTK_WIDGET(window));
+                gtk_window_set_title(GTK_WINDOW(window), data_sound.title);
+                gtk_widget_grab_focus(GTK_WIDGET(window));
 		switch_to_sound_page = FALSE;
 		return;
 	}
@@ -640,10 +600,8 @@ void init_signals()
 	{
 		gtk_notebook_set_current_page(notebook1, 1);
 		gtk_notebook_set_current_page(notebook2, 0);
-		hide_viewport();
-		gtk_widget_show(GTK_WIDGET(vp_time));
-        gtk_window_set_title(GTK_WINDOW(window), data_time.title);
-        gtk_widget_grab_focus(GTK_WIDGET(window));
+                gtk_window_set_title(GTK_WINDOW(window), data_time.title);
+                gtk_widget_grab_focus(GTK_WIDGET(window));
 		switch_to_timeanddata_page = FALSE;
 		return;
 	}
@@ -651,21 +609,17 @@ void init_signals()
 	{
 		gtk_notebook_set_current_page(notebook1, 1);
 		gtk_notebook_set_current_page(notebook2, 1);
-		hide_viewport();
-		gtk_widget_show(GTK_WIDGET(vp_count));
-        gtk_window_set_title(GTK_WINDOW(window), data_count.title);
-        gtk_widget_grab_focus(GTK_WIDGET(window));
+                gtk_window_set_title(GTK_WINDOW(window), data_count.title);
+                gtk_widget_grab_focus(GTK_WIDGET(window));
 		switch_to_user_page = FALSE;
 		return;
 	}
 	if (switch_to_keyboard_page)
 	{
-		gtk_notebook_set_current_page(notebook1, 1);
+                gtk_notebook_set_current_page(notebook1, 1);
 		gtk_notebook_set_current_page(notebook2, 5);
-		hide_viewport();
-		gtk_widget_show(GTK_WIDGET(vp_key));
-        gtk_window_set_title(GTK_WINDOW(window), data_key.title);
-        gtk_widget_grab_focus(GTK_WIDGET(window));
+                gtk_window_set_title(GTK_WINDOW(window), data_key.title);
+                gtk_widget_grab_focus(GTK_WIDGET(window));
 		switch_to_keyboard_page = FALSE;
 		return;
 	}

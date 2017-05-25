@@ -869,7 +869,7 @@ prefs_setup_screensaver(KpmPrefs *prefs)
     lockdown_settings = g_settings_new (LOCKDOWN_SETTINGS_SCHEMA);
 
     gtk_label_set_mnemonic_widget (GTK_LABEL (label), activate_delay_hscale);
-    gtk_widget_set_no_show_all (root_warning_label, TRUE);
+    //gtk_widget_set_no_show_all (GTK_WIDGET(root_warning_label), TRUE);
 
     activate_delay = config_get_activate_delay (&is_writable);
     ui_set_delay (activate_delay);
