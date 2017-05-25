@@ -74,8 +74,10 @@ struct _MouseData {
     GtkWidget * horiz_scroll_toggle;
 
     GtkWidget * scroll_disabled_radio;
-    GtkWidget * scroll_edge_radio;
-    GtkWidget * scroll_twofinger_radio;
+    GtkWidget * vertical_scroll_edge_radio;
+    GtkWidget * horiz_scroll_edge_radio;
+    GtkWidget * vertical_twofinger_scroll_radio;
+    GtkWidget * horiz_twofinger_scroll_radio;
 };
 MouseData mousedata;
 
@@ -89,33 +91,6 @@ static gint double_click_state = DOUBLE_CLICK_TEST_OFF;
 static GtkIconSize stock_icon_size =0;
 static GSettings * mouse_settings=NULL;
 static GSettings * touchpad_settings=NULL;
-
-
-static void
-scrollmethod_clicked_event (GtkWidget *widget,
-                	    gpointer user_data)
-{
-    GtkToggleButton *disabled = GTK_TOGGLE_BUTTON (mousedata.scroll_disabled_radio);
-
-    gtk_widget_set_sensitive (mousedata.horiz_scroll_toggle,
-                  !gtk_toggle_button_get_active (disabled));
-
-    GSList *radio_group;
-    int new_scroll_method;
-    int old_scroll_method = g_settings_get_int (touchpad_settings, "natural-scroll");
-
-    if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON(widget)))
-        return;
-
-    radio_group = g_slist_copy (gtk_radio_button_get_group
-        (GTK_RADIO_BUTTON (mousedata.scroll_disabled_radio)));
-    radio_group = g_slist_reverse (radio_group);
-    new_scroll_method = g_slist_index (radio_group, widget);
-    g_slist_free (radio_group);
-
-    if (new_scroll_method != old_scroll_method)
-        g_settings_set_int (touchpad_settings, "natural-scroll", new_scroll_method);
-}
 
 static void
 synaptics_check_capabilities ()
@@ -167,20 +142,6 @@ synaptics_check_capabilities ()
         XCloseDevice (GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), device);
     }
     XFreeDeviceList (devicelist);
-}
-
-static void
-scrollmethod_gsettings_changed_event (GSettings *setting,gchar * key)
-{
-    int scroll_method = g_settings_get_int (touchpad_settings, "natural-scroll");
-    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (mousedata.scroll_disabled_radio),
-                scroll_method == 0);
-    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (mousedata.scroll_edge_radio),
-                scroll_method == 1);
-    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (mousedata.scroll_twofinger_radio),
-                scroll_method == 2);
-    gtk_widget_set_sensitive (mousedata.horiz_scroll_toggle,
-                 scroll_method != 0);
 }
 
 static
@@ -450,26 +411,18 @@ static void setup_dialog()
         g_settings_bind (touchpad_settings, "tap-to-click",
             mousedata.tap_to_click_toggle, "active",
             G_SETTINGS_BIND_DEFAULT);
-        g_settings_bind (touchpad_settings, "horizontal-edge-scrolling",
-            mousedata.horiz_scroll_toggle, "active",
+        g_settings_bind (touchpad_settings, "vertical-edge-scrolling",
+            mousedata.vertical_scroll_edge_radio, "active",
             G_SETTINGS_BIND_DEFAULT);
-        scrollmethod_gsettings_changed_event(touchpad_settings, "natural-scroll");
-
-        radio = GTK_RADIO_BUTTON (mousedata.scroll_disabled_radio);
-        GSList *radio_group = gtk_radio_button_get_group (radio);
-        GSList *item = NULL;
-
-        synaptics_check_capabilities ();
-        for (item = radio_group; item != NULL; item = item->next) 
-	{
-            g_signal_connect (G_OBJECT (item->data), "clicked",
-                  G_CALLBACK(scrollmethod_clicked_event),
-                  NULL);
-        }
-        g_signal_connect (touchpad_settings,
-            "changed::scroll-method",
-            G_CALLBACK(scrollmethod_gsettings_changed_event),
-            NULL);
+        g_settings_bind (touchpad_settings, "horizontal-edge-scrolling",
+            mousedata.horiz_scroll_edge_radio, "active",
+            G_SETTINGS_BIND_DEFAULT);
+        g_settings_bind (touchpad_settings, "vertical-two-finger-scrolling",
+            mousedata.vertical_twofinger_scroll_radio, "active",
+            G_SETTINGS_BIND_DEFAULT);
+        g_settings_bind (touchpad_settings, "horizontal-two-finger-scrolling",
+            mousedata.horiz_twofinger_scroll_radio, "active",
+            G_SETTINGS_BIND_DEFAULT);
     }
 }
 
@@ -510,8 +463,10 @@ static void create_dialog(GtkBuilder * builder)
     mousedata.tap_to_click_toggle = WID("tap_to_click_toggle");
 
     mousedata.scroll_disabled_radio = WID("scroll_disabled_radio");
-    mousedata.scroll_edge_radio = WID("scroll_edge_radio");
-    mousedata.scroll_twofinger_radio = WID("scroll_twofinger_radio");
+    mousedata.vertical_scroll_edge_radio = WID("vertical_scroll_edge_radio");
+    mousedata.horiz_scroll_edge_radio = WID("horiz_scroll_edge_radio");
+    mousedata.vertical_twofinger_scroll_radio = WID("vertical_twofinger_scroll_radio");
+    mousedata.horiz_twofinger_scroll_radio = WID("horiz_twofinger_scroll_radio");
 }
 
 void add_mouse_app(GtkBuilder * builder)
