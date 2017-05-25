@@ -203,12 +203,12 @@ setup_dialog (GsmAppDialog *dialog)
                     g_warning("Can not load ui file in system");
                 }
         }
-		gtk_window_set_skip_taskbar_hint(GTK_WINDOW(dialog), TRUE);
+	gtk_window_set_skip_taskbar_hint(GTK_WINDOW(dialog), TRUE);
         content_area = gtk_dialog_get_content_area (GTK_DIALOG (dialog));
         widget = GTK_WIDGET (gtk_builder_get_object (xml, "main-table"));
         gtk_container_add (GTK_CONTAINER (content_area), widget);
 
-        gtk_container_set_border_width (GTK_CONTAINER (dialog), 6);
+        gtk_container_set_border_width (GTK_CONTAINER (dialog), 0);
         gtk_window_set_icon_name (GTK_WINDOW (dialog), "mate-session-properties");
 
         g_object_set (dialog,

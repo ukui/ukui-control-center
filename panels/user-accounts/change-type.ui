@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.20.0 -->
 <interface>
-  <requires lib="gtk+" version="2.24"/>
-  <!-- interface-naming-policy project-wide -->
+  <requires lib="gtk+" version="3.0"/>
   <object class="GtkDialog" id="changetype">
     <property name="width_request">490</property>
     <property name="can_focus">False</property>
@@ -12,12 +12,13 @@
     <property name="skip_taskbar_hint">True</property>
     <property name="skip_pager_hint">True</property>
     <child internal-child="vbox">
-      <object class="GtkVBox" id="dialog-vbox1">
+      <object class="GtkBox" id="dialog-vbox1">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
         <property name="spacing">25</property>
         <child internal-child="action_area">
-          <object class="GtkHButtonBox" id="dialog-action_area1">
+          <object class="GtkButtonBox" id="dialog-action_area1">
             <property name="height_request">60</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -56,10 +57,11 @@
           </packing>
         </child>
         <child>
-          <object class="GtkVBox" id="vbox1">
+          <object class="GtkBox" id="vbox1">
             <property name="height_request">267</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="orientation">vertical</property>
             <property name="spacing">10</property>
             <child>
               <object class="GtkLayout" id="layout1">
@@ -81,7 +83,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkHBox" id="hbox1">
+                  <object class="GtkBox" id="hbox1">
                     <property name="width_request">388</property>
                     <property name="height_request">80</property>
                     <property name="visible">True</property>
@@ -102,14 +104,15 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkVBox" id="vbox2">
+                      <object class="GtkBox" id="vbox2">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="orientation">vertical</property>
                         <child>
                           <object class="GtkLabel" id="labelname">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="xalign">0</property>
+                            <property name="halign">start</property>
                             <property name="label" translatable="yes">label</property>
                           </object>
                           <packing>
@@ -122,7 +125,7 @@
                           <object class="GtkLabel" id="labeltype">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="xalign">0</property>
+                            <property name="halign">start</property>
                             <property name="label" translatable="yes">label</property>
                           </object>
                           <packing>
@@ -135,7 +138,7 @@
                           <object class="GtkLabel" id="label3">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="xalign">0</property>
+                            <property name="halign">start</property>
                             <property name="label" translatable="yes">label</property>
                           </object>
                           <packing>
@@ -155,11 +158,10 @@
                 </child>
                 <child>
                   <object class="GtkLabel" id="label6">
-                    <property name="width_request">480</property>
                     <property name="height_request">28</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="xalign">0</property>
+                    <property name="halign">start</property>
                     <property name="label" translatable="yes">Please make sure that the computer has at least one user is the administrator</property>
                   </object>
                   <packing>
@@ -174,10 +176,11 @@
               </packing>
             </child>
             <child>
-              <object class="GtkVBox" id="vbox4">
+              <object class="GtkBox" id="vbox4">
                 <property name="height_request">56</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkRadioButton" id="radiobutton1">
                     <property name="label" translatable="yes">Standard User</property>
@@ -215,10 +218,11 @@ change settings that affect all users.</property>
               </packing>
             </child>
             <child>
-              <object class="GtkVBox" id="vbox6">
+              <object class="GtkBox" id="vbox6">
                 <property name="height_request">56</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkRadioButton" id="radiobutton2">
                     <property name="label" translatable="yes">Administrators</property>
