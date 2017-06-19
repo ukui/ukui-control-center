@@ -1392,7 +1392,7 @@ void init_notebook(UserInfo *userinfo, gint page)
 		gtk_button_set_relief(GTK_BUTTON(bt_ch_accounttype), GTK_RELIEF_NONE);
 		g_signal_connect (G_OBJECT (bt_ch_accounttype), "clicked", G_CALLBACK (show_change_accounttype_dialog), userinfo);
         	sep4 = gtk_vseparator_new();
-        bt_del_user = gtk_button_new_with_label(_("Delete"));
+        bt_del_user = gtk_button_new_with_label(_("Delete User"));
 		modify_font_color(bt_del_user, "blue");
 		gtk_button_set_relief(GTK_BUTTON(bt_del_user), GTK_RELIEF_NONE);
 		g_signal_connect (G_OBJECT (bt_del_user), "clicked", G_CALLBACK (delete_user), userinfo);

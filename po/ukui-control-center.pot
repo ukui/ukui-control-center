@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ukui-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-25 09:12+0800\n"
+"POT-Creation-Date: 2017-06-19 09:37+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -240,7 +240,7 @@ msgstr ""
 
 #. TRANSLATORS: a monitor is a device to measure voltage and current
 #: panels/display/xrandr-capplet.c:515 panels/power/kpm-upower.c:573
-#: shell/mainwindow.c:509 shell/shell.ui.h:28
+#: shell/mainwindow.c:475 shell/shell.ui.h:27
 msgid "Monitor"
 msgid_plural "Monitors"
 msgstr[0] ""
@@ -397,7 +397,7 @@ msgstr[1] ""
 msgid "%i %s %i %s"
 msgstr ""
 
-#: panels/power/kpm-common.c:75 shell/shell.ui.h:59
+#: panels/power/kpm-common.c:75 shell/shell.ui.h:58
 msgid "hour"
 msgid_plural "hours"
 msgstr[0] ""
@@ -669,14 +669,14 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. TRANSLATORS: wireless mice with internal batteries
-#: panels/power/kpm-upower.c:577 shell/mainwindow.c:450 shell/shell.ui.h:23
+#: panels/power/kpm-upower.c:577 shell/mainwindow.c:416 shell/shell.ui.h:22
 msgid "Mouse"
 msgid_plural "Mice"
 msgstr[0] ""
 msgstr[1] ""
 
 #. TRANSLATORS: wireless keyboard with internal battery
-#: panels/power/kpm-upower.c:581 shell/mainwindow.c:439 shell/shell.ui.h:22
+#: panels/power/kpm-upower.c:581 shell/mainwindow.c:405 shell/shell.ui.h:21
 msgid "Keyboard"
 msgid_plural "Keyboards"
 msgstr[0] ""
@@ -937,6 +937,7 @@ msgid ""
 msgstr ""
 
 #: panels/user-accounts/delete-user.ui.h:1
+#: panels/user-accounts/user-accounts.c:1395
 msgid "Delete User"
 msgstr ""
 
@@ -1202,10 +1203,6 @@ msgstr ""
 msgid "Change Type"
 msgstr ""
 
-#: panels/user-accounts/user-accounts.c:1395
-msgid "Delete"
-msgstr ""
-
 #: panels/user-accounts/user-accounts.c:1500
 msgid "My Account"
 msgstr ""
@@ -1454,780 +1451,772 @@ msgstr ""
 msgid "-Kylin Control Center"
 msgstr ""
 
-#: shell/mainwindow.c:218 shell/shell.ui.h:12
+#: shell/mainwindow.c:196 shell/shell.ui.h:11
 msgid "Control Center"
 msgstr ""
 
-#: shell/mainwindow.c:381
+#: shell/mainwindow.c:347
 msgid "Time and Dates"
 msgstr ""
 
-#: shell/mainwindow.c:384
+#: shell/mainwindow.c:350
 msgid " Change the time and date of this computer "
 msgstr ""
 
-#: shell/mainwindow.c:392 shell/shell.ui.h:14
+#: shell/mainwindow.c:358 shell/shell.ui.h:13
 msgid "User Account"
 msgstr ""
 
-#: shell/mainwindow.c:395
+#: shell/mainwindow.c:361
 msgid ""
 " Change the computer user account \n"
 " settings and password"
 msgstr ""
 
-#: shell/mainwindow.c:403 shell/shell.ui.h:15
+#: shell/mainwindow.c:369 shell/shell.ui.h:14
 msgid "Personalization"
 msgstr ""
 
-#: shell/mainwindow.c:406
+#: shell/mainwindow.c:372
 msgid ""
 " Change the computer desktop background \n"
 " and related theme"
 msgstr ""
 
-#: shell/mainwindow.c:414
+#: shell/mainwindow.c:380
 msgid "Default Aplication"
 msgstr ""
 
-#: shell/mainwindow.c:417
+#: shell/mainwindow.c:383
 msgid " Change the default application on this computer "
 msgstr ""
 
-#: shell/mainwindow.c:431
+#: shell/mainwindow.c:397
 msgid " Change the network  on this computer "
 msgstr ""
 
-#: shell/mainwindow.c:442
+#: shell/mainwindow.c:408
 msgid " Change the keyboard settings on this computer "
 msgstr ""
 
-#: shell/mainwindow.c:453
+#: shell/mainwindow.c:419
 msgid " Change the mouse settings on this computer  "
 msgstr ""
 
-#: shell/mainwindow.c:467
+#: shell/mainwindow.c:433
 msgid " Configure the connection to the computer printer "
 msgstr ""
 
-#: shell/mainwindow.c:475 shell/shell.ui.h:25
+#: shell/mainwindow.c:441 shell/shell.ui.h:24
 msgid "Sound"
 msgstr ""
 
-#: shell/mainwindow.c:478
+#: shell/mainwindow.c:444
 msgid " Change the sound settings on this computer "
 msgstr ""
 
-#: shell/mainwindow.c:487
+#: shell/mainwindow.c:453
 msgid "Network Agent"
 msgstr ""
 
-#: shell/mainwindow.c:490
+#: shell/mainwindow.c:456
 msgid " Change the network agent on this computer "
 msgstr ""
 
-#: shell/mainwindow.c:498 shell/shell.ui.h:18
+#: shell/mainwindow.c:464 shell/shell.ui.h:17
 msgid "Autostart"
 msgstr ""
 
-#: shell/mainwindow.c:501
+#: shell/mainwindow.c:467
 msgid " Change the autostart program on this computer "
 msgstr ""
 
-#: shell/mainwindow.c:511
+#: shell/mainwindow.c:477
 msgid " Change the Monitor settings on this computer "
 msgstr ""
 
-#: shell/mainwindow.c:522
+#: shell/mainwindow.c:488
 msgid "Power Management"
 msgstr ""
 
-#: shell/mainwindow.c:525
+#: shell/mainwindow.c:491
 msgid " Change the power management settings on this computer "
 msgstr ""
 
-#: shell/mainwindow.c:533
+#: shell/mainwindow.c:499
 msgid "System Check"
 msgstr ""
 
-#: shell/mainwindow.c:536
-msgid "check the system detection information on this computer "
-msgstr ""
-
 #: shell/shell.ui.h:5
-msgid "radiobutton"
-msgstr ""
-
-#: shell/shell.ui.h:6
 msgid "Tile"
 msgstr ""
 
-#: shell/shell.ui.h:7
+#: shell/shell.ui.h:6
 msgid "Zoom"
 msgstr ""
 
-#: shell/shell.ui.h:8
+#: shell/shell.ui.h:7
 msgid "Center"
 msgstr ""
 
-#: shell/shell.ui.h:9
+#: shell/shell.ui.h:8
 msgid "Scale"
 msgstr ""
 
-#: shell/shell.ui.h:10
+#: shell/shell.ui.h:9
 msgid "Stretch"
 msgstr ""
 
-#: shell/shell.ui.h:11
+#: shell/shell.ui.h:10
 msgid "Span"
 msgstr ""
 
-#: shell/shell.ui.h:13
+#: shell/shell.ui.h:12
 msgid "Time Dates"
 msgstr ""
 
-#: shell/shell.ui.h:16
+#: shell/shell.ui.h:15
 msgid ""
 "Default \n"
 "Aplication"
 msgstr ""
 
-#: shell/shell.ui.h:19
+#: shell/shell.ui.h:18
 msgid "System Configuration"
 msgstr ""
 
-#: shell/shell.ui.h:20
+#: shell/shell.ui.h:19
 msgid ""
 "Network \n"
 "Connections"
 msgstr ""
 
-#: shell/shell.ui.h:24
+#: shell/shell.ui.h:23
 msgid "Printer"
 msgstr ""
 
-#: shell/shell.ui.h:26
+#: shell/shell.ui.h:25
 msgid ""
 "Network \n"
 "Agent"
 msgstr ""
 
-#: shell/shell.ui.h:29
+#: shell/shell.ui.h:28
 msgid ""
 "Power \n"
 "Management"
 msgstr ""
 
-#: shell/shell.ui.h:31
+#: shell/shell.ui.h:30
 msgid "Hardware Configure"
 msgstr ""
 
-#: shell/shell.ui.h:32
+#: shell/shell.ui.h:31
 msgid "Home"
 msgstr ""
 
-#: shell/shell.ui.h:33
+#: shell/shell.ui.h:32
 msgid "Time Dates_"
 msgstr ""
 
-#: shell/shell.ui.h:34
+#: shell/shell.ui.h:33
 msgid "User Account_"
 msgstr ""
 
-#: shell/shell.ui.h:35
+#: shell/shell.ui.h:34
 msgid "Personalization_"
 msgstr ""
 
-#: shell/shell.ui.h:36
+#: shell/shell.ui.h:35
 msgid "Default APP"
 msgstr ""
 
-#: shell/shell.ui.h:37
+#: shell/shell.ui.h:36
 msgid "Autostart_"
 msgstr ""
 
-#: shell/shell.ui.h:38
+#: shell/shell.ui.h:37
 msgid "Keyboard_"
 msgstr ""
 
-#: shell/shell.ui.h:39
+#: shell/shell.ui.h:38
 msgid "Mouse_"
 msgstr ""
 
-#: shell/shell.ui.h:40
+#: shell/shell.ui.h:39
 msgid "Sound_"
 msgstr ""
 
-#: shell/shell.ui.h:41
+#: shell/shell.ui.h:40
 msgid "Network Agent_"
 msgstr ""
 
-#: shell/shell.ui.h:42
+#: shell/shell.ui.h:41
 msgid "Monitor_"
 msgstr ""
 
-#: shell/shell.ui.h:43
+#: shell/shell.ui.h:42
 msgid "Power Manage"
 msgstr ""
 
-#: shell/shell.ui.h:44
+#: shell/shell.ui.h:43
 msgid "Tzone:"
 msgstr ""
 
-#: shell/shell.ui.h:45
+#: shell/shell.ui.h:44
 msgid "date:"
 msgstr ""
 
-#: shell/shell.ui.h:46
+#: shell/shell.ui.h:45
 msgid "time:"
 msgstr ""
 
-#: shell/shell.ui.h:47
+#: shell/shell.ui.h:46
 msgid "    Jan"
 msgstr ""
 
-#: shell/shell.ui.h:48
+#: shell/shell.ui.h:47
 msgid "   Feb"
 msgstr ""
 
-#: shell/shell.ui.h:49
+#: shell/shell.ui.h:48
 msgid "    Mar"
 msgstr ""
 
-#: shell/shell.ui.h:50
+#: shell/shell.ui.h:49
 msgid "    Apr"
 msgstr ""
 
-#: shell/shell.ui.h:51
+#: shell/shell.ui.h:50
 msgid "    May"
 msgstr ""
 
-#: shell/shell.ui.h:52
+#: shell/shell.ui.h:51
 msgid "    Jun"
 msgstr ""
 
-#: shell/shell.ui.h:53
+#: shell/shell.ui.h:52
 msgid "    Jul"
 msgstr ""
 
-#: shell/shell.ui.h:54
+#: shell/shell.ui.h:53
 msgid "    Aug"
 msgstr ""
 
-#: shell/shell.ui.h:55
+#: shell/shell.ui.h:54
 msgid "    Sep"
 msgstr ""
 
-#: shell/shell.ui.h:56
+#: shell/shell.ui.h:55
 msgid "    Oct"
 msgstr ""
 
-#: shell/shell.ui.h:57
+#: shell/shell.ui.h:56
 msgid "    Nov"
 msgstr ""
 
-#: shell/shell.ui.h:58
+#: shell/shell.ui.h:57
 msgid "    Dec"
 msgstr ""
 
-#: shell/shell.ui.h:60
+#: shell/shell.ui.h:59
 msgid "min"
 msgstr ""
 
-#: shell/shell.ui.h:61
+#: shell/shell.ui.h:60
 msgid "sec"
 msgstr ""
 
-#: shell/shell.ui.h:62
+#: shell/shell.ui.h:61
 msgid "With the network time synchronization"
 msgstr ""
 
-#: shell/shell.ui.h:63
+#: shell/shell.ui.h:62
 msgid "Create a new account"
 msgstr ""
 
-#: shell/shell.ui.h:64
+#: shell/shell.ui.h:63
 msgid "Add"
 msgstr ""
 
-#: shell/shell.ui.h:65
+#: shell/shell.ui.h:64
 msgid "delete"
 msgstr ""
 
-#: shell/shell.ui.h:66
+#: shell/shell.ui.h:65
 msgid "Style:"
 msgstr ""
 
-#: shell/shell.ui.h:67
+#: shell/shell.ui.h:66
 msgid "wallpaper"
 msgstr ""
 
-#: shell/shell.ui.h:68
+#: shell/shell.ui.h:67
 msgid "Select the one you love color as the theme color"
 msgstr ""
 
-#: shell/shell.ui.h:69
+#: shell/shell.ui.h:68
 msgid "Theme color"
 msgstr ""
 
-#: shell/shell.ui.h:70
+#: shell/shell.ui.h:69
 msgid "Font choice:"
 msgstr ""
 
-#: shell/shell.ui.h:71
+#: shell/shell.ui.h:70
 msgid "Font size :"
 msgstr ""
 
-#: shell/shell.ui.h:73
+#: shell/shell.ui.h:72
 #, no-c-format
 msgid "small(S) --100%(default)"
 msgstr ""
 
-#: shell/shell.ui.h:75
+#: shell/shell.ui.h:74
 #, no-c-format
 msgid "medium(M)--125%"
 msgstr ""
 
-#: shell/shell.ui.h:77
+#: shell/shell.ui.h:76
 #, no-c-format
 msgid "large (L) --150%"
 msgstr ""
 
-#: shell/shell.ui.h:78
+#: shell/shell.ui.h:77
 msgid "Please select the clearest sample text"
 msgstr ""
 
-#: shell/shell.ui.h:79
+#: shell/shell.ui.h:78
 msgid "Restore Defaults"
 msgstr ""
 
-#: shell/shell.ui.h:80
+#: shell/shell.ui.h:79
 msgid "Font"
 msgstr ""
 
-#: shell/shell.ui.h:81
+#: shell/shell.ui.h:80
 msgid "Internet"
 msgstr ""
 
-#: shell/shell.ui.h:82
+#: shell/shell.ui.h:81
 msgid "        Web Browser:"
 msgstr ""
 
-#: shell/shell.ui.h:83
+#: shell/shell.ui.h:82
 msgid "          Mail Reader:"
 msgstr ""
 
-#: shell/shell.ui.h:84
+#: shell/shell.ui.h:83
 msgid "Multimedia"
 msgstr ""
 
-#: shell/shell.ui.h:85
+#: shell/shell.ui.h:84
 msgid "       Image Viewer:"
 msgstr ""
 
-#: shell/shell.ui.h:86
+#: shell/shell.ui.h:85
 msgid "        Audio Player:"
 msgstr ""
 
-#: shell/shell.ui.h:87
+#: shell/shell.ui.h:86
 msgid "        Video Player:"
 msgstr ""
 
-#: shell/shell.ui.h:88
+#: shell/shell.ui.h:87
 msgid "System"
 msgstr ""
 
-#: shell/shell.ui.h:89
+#: shell/shell.ui.h:88
 msgid "           Text Editor:"
 msgstr ""
 
-#: shell/shell.ui.h:90
+#: shell/shell.ui.h:89
 msgid "       File Manager:"
 msgstr ""
 
-#: shell/shell.ui.h:91
+#: shell/shell.ui.h:90
 msgid "Network Connections"
 msgstr ""
 
-#: shell/shell.ui.h:92
+#: shell/shell.ui.h:91
 msgid "Repeat Keys"
 msgstr ""
 
-#: shell/shell.ui.h:93
+#: shell/shell.ui.h:92
 msgid "Key presses _repeat when key is held down"
 msgstr ""
 
-#: shell/shell.ui.h:94
+#: shell/shell.ui.h:93
 msgid "_Delay:"
 msgstr ""
 
-#: shell/shell.ui.h:95
+#: shell/shell.ui.h:94
 msgid "_Speed:"
 msgstr ""
 
-#: shell/shell.ui.h:96
+#: shell/shell.ui.h:95
 msgid "Short"
 msgstr ""
 
-#: shell/shell.ui.h:97
+#: shell/shell.ui.h:96
 msgid "Slow"
 msgstr ""
 
-#: shell/shell.ui.h:98
+#: shell/shell.ui.h:97
 msgid "Repeat keys speed"
 msgstr ""
 
-#: shell/shell.ui.h:99
+#: shell/shell.ui.h:98
 msgid "Long"
 msgstr ""
 
-#: shell/shell.ui.h:100
+#: shell/shell.ui.h:99
 msgid "Fast"
 msgstr ""
 
-#: shell/shell.ui.h:101
+#: shell/shell.ui.h:100
 msgid "To test the repetition rate of the input character:"
 msgstr ""
 
-#: shell/shell.ui.h:102
+#: shell/shell.ui.h:101
 msgid "Cursor Blinking"
 msgstr ""
 
-#: shell/shell.ui.h:103
+#: shell/shell.ui.h:102
 msgid "Cursor _blinks in text fields"
 msgstr ""
 
-#: shell/shell.ui.h:104
+#: shell/shell.ui.h:103
 msgid "S_peed:"
 msgstr ""
 
-#: shell/shell.ui.h:105
+#: shell/shell.ui.h:104
 msgid "Cursor blinks speed"
 msgstr ""
 
-#: shell/shell.ui.h:106
+#: shell/shell.ui.h:105
 msgid "General"
 msgstr ""
 
-#: shell/shell.ui.h:107
+#: shell/shell.ui.h:106
 msgid ""
 "Please add the language you will use to the list. And the first one in the "
 "list is the most\n"
 "commonly used language."
 msgstr ""
 
-#: shell/shell.ui.h:109
+#: shell/shell.ui.h:108
 msgid "_Show..."
 msgstr ""
 
-#: shell/shell.ui.h:110
+#: shell/shell.ui.h:109
 msgid "List of keyboard layouts selected for usage"
 msgstr ""
 
-#: shell/shell.ui.h:111
+#: shell/shell.ui.h:110
 msgid "_Separate layout for each window"
 msgstr ""
 
-#: shell/shell.ui.h:112
+#: shell/shell.ui.h:111
 msgid "New windows u_se active window's layout"
 msgstr ""
 
-#: shell/shell.ui.h:113
+#: shell/shell.ui.h:112
 msgid "Reset to De_faults"
 msgstr ""
 
-#: shell/shell.ui.h:114
+#: shell/shell.ui.h:113
 msgid "Layouts"
 msgstr ""
 
-#: shell/shell.ui.h:115
+#: shell/shell.ui.h:114
 msgid ""
 "\"To edit a shortcut key, click on the corresponding row and type a new key "
 "\"\n"
 "\"combination, or press backspace to clear.\""
 msgstr ""
 
-#: shell/shell.ui.h:117
+#: shell/shell.ui.h:116
 msgid "Shortcut"
 msgstr ""
 
-#: shell/shell.ui.h:118
+#: shell/shell.ui.h:117
 msgid "_Right-handed"
 msgstr ""
 
-#: shell/shell.ui.h:119
+#: shell/shell.ui.h:118
 msgid "_Left-handed"
 msgstr ""
 
-#: shell/shell.ui.h:120
+#: shell/shell.ui.h:119
 msgid "Sh_ow position of pointer when the Control key is pressed"
 msgstr ""
 
-#: shell/shell.ui.h:121
+#: shell/shell.ui.h:120
 msgid "_Sensitivity:"
 msgstr ""
 
-#: shell/shell.ui.h:122
+#: shell/shell.ui.h:121
 msgid "Low"
 msgstr ""
 
-#: shell/shell.ui.h:123
+#: shell/shell.ui.h:122
 msgid "High"
 msgstr ""
 
-#: shell/shell.ui.h:124
+#: shell/shell.ui.h:123
 msgid "Double-click the right bulb to test your settings"
 msgstr ""
 
-#: shell/shell.ui.h:125
+#: shell/shell.ui.h:124
 msgid "Timeout"
 msgstr ""
 
-#: shell/shell.ui.h:126
+#: shell/shell.ui.h:125
 msgid "Pointer moving speed"
 msgstr ""
 
-#: shell/shell.ui.h:127
+#: shell/shell.ui.h:126
 msgid "Locate Pointer"
 msgstr ""
 
-#: shell/shell.ui.h:128
+#: shell/shell.ui.h:127
 msgid "Mouse Keys"
 msgstr ""
 
-#: shell/shell.ui.h:129
+#: shell/shell.ui.h:128
 msgid "Double-Click Speed"
 msgstr ""
 
-#: shell/shell.ui.h:130
+#: shell/shell.ui.h:129
 msgid "Disable _touchpad while typing"
 msgstr ""
 
-#: shell/shell.ui.h:131
+#: shell/shell.ui.h:130
 msgid "Enable _mouse clicks with touchpad"
 msgstr ""
 
-#: shell/shell.ui.h:132
+#: shell/shell.ui.h:131
 msgid "Scrolling"
 msgstr ""
 
-#: shell/shell.ui.h:133
+#: shell/shell.ui.h:132
 msgid "_Disabled"
 msgstr ""
 
-#: shell/shell.ui.h:134
+#: shell/shell.ui.h:133
 msgid "Vertical _edge scrolling"
 msgstr ""
 
-#: shell/shell.ui.h:135
+#: shell/shell.ui.h:134
 msgid "_Horizontal edge scrolling"
 msgstr ""
 
-#: shell/shell.ui.h:136
+#: shell/shell.ui.h:135
 msgid "_Vertical two-finger scrolling"
 msgstr ""
 
-#: shell/shell.ui.h:137
+#: shell/shell.ui.h:136
 msgid "Horizontal two-_finger scrolling"
 msgstr ""
 
-#: shell/shell.ui.h:138
+#: shell/shell.ui.h:137
 msgid "Touchpad"
 msgstr ""
 
-#: shell/shell.ui.h:139
+#: shell/shell.ui.h:138
 msgid "<b>Di_rect internet connection</b>"
 msgstr ""
 
-#: shell/shell.ui.h:140
+#: shell/shell.ui.h:139
 msgid "<b>_Manual proxy configuration</b>"
 msgstr ""
 
-#: shell/shell.ui.h:141
+#: shell/shell.ui.h:140
 msgid "H_TTP proxy:"
 msgstr ""
 
-#: shell/shell.ui.h:142
+#: shell/shell.ui.h:141
 msgid "_Secure HTTP proxy:"
 msgstr ""
 
-#: shell/shell.ui.h:143
+#: shell/shell.ui.h:142
 msgid "_FTP proxy:"
 msgstr ""
 
-#: shell/shell.ui.h:144
+#: shell/shell.ui.h:143
 msgid "S_ocks host:"
 msgstr ""
 
-#: shell/shell.ui.h:145
+#: shell/shell.ui.h:144
 msgid "Port:"
 msgstr ""
 
-#: shell/shell.ui.h:146
+#: shell/shell.ui.h:145
 msgid "_Details"
 msgstr ""
 
-#: shell/shell.ui.h:147
+#: shell/shell.ui.h:146
 msgid "<b>_Automatic proxy configuration</b>"
 msgstr ""
 
-#: shell/shell.ui.h:148
+#: shell/shell.ui.h:147
 msgid "Autoconfiguration _URL:"
 msgstr ""
 
-#: shell/shell.ui.h:149
+#: shell/shell.ui.h:148
 msgid "Proxy Configuration"
 msgstr ""
 
-#: shell/shell.ui.h:150
+#: shell/shell.ui.h:149
 msgid "Ignore Host List"
 msgstr ""
 
-#: shell/shell.ui.h:151
+#: shell/shell.ui.h:150
 msgid "Ignored Hosts"
 msgstr ""
 
-#: shell/shell.ui.h:152
+#: shell/shell.ui.h:151
 msgid "Additional startup _programs:"
 msgstr ""
 
-#: shell/shell.ui.h:153
+#: shell/shell.ui.h:152
 msgid "Startup Programs"
 msgstr ""
 
-#: shell/shell.ui.h:154
+#: shell/shell.ui.h:153
 msgid "Change display appearance"
 msgstr ""
 
-#: shell/shell.ui.h:155
+#: shell/shell.ui.h:154
 msgid "Monitor:"
 msgstr ""
 
-#: shell/shell.ui.h:156
+#: shell/shell.ui.h:155
 msgid "Resolution:"
 msgstr ""
 
-#: shell/shell.ui.h:157
+#: shell/shell.ui.h:156
 msgid "Direction:"
 msgstr ""
 
-#: shell/shell.ui.h:158
+#: shell/shell.ui.h:157
 msgid "Save"
 msgstr ""
 
-#: shell/shell.ui.h:159
+#: shell/shell.ui.h:158
 msgid "Make Default"
 msgstr ""
 
-#: shell/shell.ui.h:160
+#: shell/shell.ui.h:159
 msgid "Same image in all monitors"
 msgstr ""
 
-#: shell/shell.ui.h:161
+#: shell/shell.ui.h:160
 msgid "Set as primary"
 msgstr ""
 
-#: shell/shell.ui.h:162
+#: shell/shell.ui.h:161
 msgid "Open Monitor"
 msgstr ""
 
-#: shell/shell.ui.h:163
+#: shell/shell.ui.h:162
 msgid "Close Monitor"
 msgstr ""
 
-#: shell/shell.ui.h:164
+#: shell/shell.ui.h:163
 msgid "Actions"
 msgstr ""
 
-#: shell/shell.ui.h:165
+#: shell/shell.ui.h:164
 msgid "Put computer to _sleep when inactive:"
 msgstr ""
 
-#: shell/shell.ui.h:166
+#: shell/shell.ui.h:165
 msgid "When laptop lid is cl_osed:"
 msgstr ""
 
-#: shell/shell.ui.h:167
+#: shell/shell.ui.h:166
 msgid "Sp_in down hard disks when possible"
 msgstr ""
 
-#: shell/shell.ui.h:168
+#: shell/shell.ui.h:167
 msgid "Display"
 msgstr ""
 
-#: shell/shell.ui.h:169
+#: shell/shell.ui.h:168
 msgid "Put _display to sleep when inactive:"
 msgstr ""
 
-#: shell/shell.ui.h:170
+#: shell/shell.ui.h:169
 msgid "Set display _brightness to:"
 msgstr ""
 
-#: shell/shell.ui.h:171
+#: shell/shell.ui.h:170
 msgid "Di_m display when idle"
 msgstr ""
 
-#: shell/shell.ui.h:172
+#: shell/shell.ui.h:171
 msgid "On AC Power"
 msgstr ""
 
-#: shell/shell.ui.h:173
+#: shell/shell.ui.h:172
 msgid "When battery po_wer is critically low:"
 msgstr ""
 
-#: shell/shell.ui.h:174
+#: shell/shell.ui.h:173
 msgid "_Reduce backlight brightness"
 msgstr ""
 
-#: shell/shell.ui.h:175
+#: shell/shell.ui.h:174
 msgid "On Battery Power"
 msgstr ""
 
-#: shell/shell.ui.h:176
+#: shell/shell.ui.h:175
 msgid "When the power _button is pressed:"
 msgstr ""
 
-#: shell/shell.ui.h:177
+#: shell/shell.ui.h:176
 msgid "When the _suspend button is pressed:"
 msgstr ""
 
-#: shell/shell.ui.h:178
+#: shell/shell.ui.h:177
 msgid "Notification Area"
 msgstr ""
 
-#: shell/shell.ui.h:179
+#: shell/shell.ui.h:178
 msgid "_Never display an icon"
 msgstr ""
 
-#: shell/shell.ui.h:180
+#: shell/shell.ui.h:179
 msgid "_Only display an icon when battery power is low"
 msgstr ""
 
-#: shell/shell.ui.h:181
+#: shell/shell.ui.h:180
 msgid "Only display an icon when charging or _discharging"
 msgstr ""
 
-#: shell/shell.ui.h:182
+#: shell/shell.ui.h:181
 msgid "Only display an icon when a battery is p_resent"
 msgstr ""
 
-#: shell/shell.ui.h:183
+#: shell/shell.ui.h:182
 msgid "_Always display an icon"
 msgstr ""
 
-#: shell/shell.ui.h:184
+#: shell/shell.ui.h:183
 msgid "Screensaver"
 msgstr ""
 
-#: shell/shell.ui.h:185
+#: shell/shell.ui.h:184
 msgid "Regard the computer as _idle after:"
 msgstr ""
 
-#: shell/shell.ui.h:186
+#: shell/shell.ui.h:185
 msgid "_Activate screensaver when computer is idle"
 msgstr ""
 
-#: shell/shell.ui.h:187
+#: shell/shell.ui.h:186
 msgid "_Lock screen when screensaver is active"
 msgstr ""
 
