@@ -1313,7 +1313,7 @@ void delete_user(GtkWidget *widget, gpointer userdata)
 	gtk_label_set_markup(GTK_LABEL(label1), markup);
 
 	GtkWidget *label2 = GTK_WIDGET(gtk_builder_get_object (ui, "label2"));
-    char *message = g_strdup_printf(_("if you want to delete the %s user, belonging to the user's desktop, documents, favorites, music, pictures and video folder will be deleted!"), user->username);
+    char *message = g_strdup_printf(_("if you want to delete the %s user, belonging to the user's \ndesktop, documents, favorites, music, pictures and video \nfolder will be deleted!"), user->username);
 	gtk_label_set_text(GTK_LABEL(label2), message);
 
 	GtkWidget *dialog_action_area1 = GTK_WIDGET(gtk_builder_get_object (ui, "dialog-action_area1"));

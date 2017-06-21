@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ukui-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 09:37+0800\n"
+"POT-Creation-Date: 2017-06-21 14:15+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1183,8 +1183,9 @@ msgstr ""
 #: panels/user-accounts/user-accounts.c:1316
 #, c-format
 msgid ""
-"if you want to delete the %s user, belonging to the user's desktop, "
-"documents, favorites, music, pictures and video folder will be deleted!"
+"if you want to delete the %s user, belonging to the user's \n"
+"desktop, documents, favorites, music, pictures and video \n"
+"folder will be deleted!"
 msgstr ""
 
 #: panels/user-accounts/user-accounts.c:1374
