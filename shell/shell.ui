@@ -6579,7 +6579,7 @@ commonly used language.</property>
                                             </child>
                                             <child>
                                               <object class="GtkScale" id="activate_delay_hscale">
-                                                <property name="width_request">280</property>
+                                                <property name="width_request">250</property>
                                                 <property name="height_request">37</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
@@ -6587,11 +6587,24 @@ commonly used language.</property>
                                                 <property name="no_show_all">True</property>
                                                 <property name="adjustment">adjustment-screensaver</property>
                                                 <property name="digits">0</property>
+                                                <property name="draw_value">False</property>
                                                 <property name="value_pos">right</property>
                                               </object>
                                               <packing>
-                                                <property name="x">260</property>
-                                                <property name="y">10</property>
+                                                <property name="x">230</property>
+                                                <property name="y">8</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkLabel" id="scale_label">
+                                                <property name="width_request">100</property>
+                                                <property name="height_request">35</property>
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                              </object>
+                                              <packing>
+                                                <property name="x">475</property>
+                                                <property name="y">8</property>
                                               </packing>
                                             </child>
                                           </object>

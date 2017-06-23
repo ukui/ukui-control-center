@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ukui-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-21 14:15+0800\n"
+"POT-Creation-Date: 2017-06-23 10:34+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -418,7 +418,6 @@ msgid "Power Manager for the MATE desktop"
 msgstr ""
 
 #: panels/power/kpm-prefs-core.c:187 panels/power/kpm-prefs-core.c:189
-#: panels/power/kpm-prefs-core.c:805
 msgid "Never"
 msgstr ""
 
@@ -446,41 +445,14 @@ msgstr ""
 msgid "Do not perform operations"
 msgstr ""
 
-#: panels/power/kpm-prefs-core.c:747
+#: panels/power/kpm-prefs-core.c:750 panels/power/kpm-prefs-core.c:787
 #, c-format
-msgid "%d hour"
-msgid_plural "%d hours"
-msgstr[0] ""
-msgstr[1] ""
-
-#: panels/power/kpm-prefs-core.c:750
-#, c-format
-msgid "%d minute"
-msgid_plural "%d minutes"
-msgstr[0] ""
-msgstr[1] ""
-
-#: panels/power/kpm-prefs-core.c:753
-#, c-format
-msgid "%d second"
-msgid_plural "%d seconds"
-msgstr[0] ""
-msgstr[1] ""
-
-#: panels/power/kpm-prefs-core.c:761
-#, c-format
-msgid "%s %s %s"
+msgid "%d min"
 msgstr ""
 
-#: panels/power/kpm-prefs-core.c:766 panels/power/kpm-prefs-core.c:779
+#: panels/power/kpm-prefs-core.c:752 panels/power/kpm-prefs-core.c:789
 #, c-format
-msgid "%s %s"
-msgstr ""
-
-#: panels/power/kpm-prefs-core.c:771 panels/power/kpm-prefs-core.c:784
-#: panels/power/kpm-prefs-core.c:790
-#, c-format
-msgid "%s"
+msgid "%d hour %d min"
 msgstr ""
 
 #. TRANSLATORS: a phone is charging

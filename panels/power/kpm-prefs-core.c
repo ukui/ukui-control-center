@@ -731,82 +731,6 @@ enabled_checkbox_toggled (GtkToggleButton *button, gpointer user_data)
     config_set_enabled (gtk_toggle_button_get_active (button));
 }
 
-/* Adapted from totem_time_to_string_text */
-static char *
-time_to_string_text (long time)
-{
-    char *secs, *mins, *hours, *string;
-    int   sec, min, hour;
-
-    sec = time % 60;
-    time = time - sec;
-    min = (time % (60 * 60)) / 60;
-    time = time - (min * 60);
-    hour = time / (60 * 60);
-
-    hours = g_strdup_printf (ngettext ("%d hour",
-                                       "%d hours", hour), hour);
-
-    mins = g_strdup_printf (ngettext ("%d minute",
-                                      "%d minutes", min), min);
-
-    secs = g_strdup_printf (ngettext ("%d second",
-                                      "%d seconds", sec), sec);
-
-    if (hour > 0)
-    {
-        if (sec > 0)
-        {
-            /* hour:minutes:seconds */
-            string = g_strdup_printf (_("%s %s %s"), hours, mins, secs);
-        }
-        else if (min > 0)
-        {
-            /* hour:minutes */
-            string = g_strdup_printf (_("%s %s"), hours, mins);
-        }
-        else
-        {
-            /* hour */
-            string = g_strdup_printf (_("%s"), hours);
-        }
-    }
-    else if (min > 0)
-    {
-        if (sec > 0)
-        {
-            /* minutes:seconds */
-            string = g_strdup_printf (_("%s %s"), mins, secs);
-        }
-        else
-        {
-            /* minutes */
-            string = g_strdup_printf (_("%s"), mins);
-        }
-    }
-    else
-    {
-        /* seconds */
-        string = g_strdup_printf (_("%s"), secs);
-    }
-
-    g_free (hours);
-    g_free (mins);
-    g_free (secs);
-
-    return string;
-}
-
-static char *
-format_value_callback_time (GtkScale *scale,
-                            gdouble   value)
-{
-    if (value == 0)
-        return g_strdup_printf (_("Never"));
-
-    return time_to_string_text (value * 60.0);
-}
-
 static void
 config_set_activate_delay (gint32 timeout)
 {
@@ -817,10 +741,19 @@ static void
 activate_delay_value_changed_cb (GtkRange *range,
                                  gpointer  user_data)
 {
-    gdouble value;
-
-    value = gtk_range_get_value (range);
-    config_set_activate_delay ((gint32)value);
+        gchar *label_text;
+        int value = gtk_range_get_value (range);
+        int time = value * 60;
+        int min = (time % (60 * 60)) / 60;
+        int hour = time / (60 * 60);
+        if (!hour)
+                label_text = g_strdup_printf (_("%d min"), min);
+        else
+                label_text = g_strdup_printf (_("%d hour %d min"), hour,min);
+        GtkWidget *label = GTK_WIDGET (gtk_builder_get_object (builder, "scale_label"));
+        gtk_label_set_text(GTK_LABEL(label),"");
+        gtk_label_set_text(GTK_LABEL(label),label_text);
+        config_set_activate_delay ((gint32)value);
 }
 
 static gint32
@@ -844,6 +777,20 @@ config_get_activate_delay (gboolean *is_writable)
     return delay;
 }
 
+void init_scale(GtkWidget *scale_label,gdouble time)
+{
+        gchar *label_text;
+        int timeout = time;
+        int hour = timeout/60;
+        int min = timeout%60;
+        if (!hour)
+                label_text = g_strdup_printf (_("%d min"), min);
+        else
+                label_text = g_strdup_printf (_("%d hour %d min"), hour,min);
+        gtk_label_set_text(GTK_LABEL(scale_label),label_text);
+        
+}
+
 static void
 prefs_setup_screensaver(KpmPrefs *prefs)
 {
@@ -860,10 +807,10 @@ prefs_setup_screensaver(KpmPrefs *prefs)
     enabled_checkbox   = GTK_WIDGET (gtk_builder_get_object (builder, "screensaver_enable_checkbox"));
     lock_checkbox      = GTK_WIDGET (gtk_builder_get_object (builder, "screensaver_lock_checkbox"));
     activate_delay_hscale = GTK_WIDGET (gtk_builder_get_object (builder, "activate_delay_hscale"));
+    GtkWidget *scale_label = GTK_WIDGET (gtk_builder_get_object (builder, "scale_label"));
     activate_delay_viewport   = GTK_WIDGET (gtk_builder_get_object (builder, "activate_delay_viewport"));
     label              = GTK_WIDGET (gtk_builder_get_object (builder, "activate_delay_label"));
     root_warning_label = GTK_WIDGET (gtk_builder_get_object (builder, "root_warning_label"));
-
     screensaver_settings = g_settings_new (GSETTINGS_SCHEMA);
     session_settings = g_settings_new (SESSION_SETTINGS_SCHEMA);
     lockdown_settings = g_settings_new (LOCKDOWN_SETTINGS_SCHEMA);
@@ -872,14 +819,15 @@ prefs_setup_screensaver(KpmPrefs *prefs)
     //gtk_widget_set_no_show_all (GTK_WIDGET(root_warning_label), TRUE);
 
     activate_delay = config_get_activate_delay (&is_writable);
+    init_scale(scale_label, activate_delay);
     ui_set_delay (activate_delay);
 
     if (! is_writable)
     {
     //    gtk_widget_set_sensitive (activate_delay_viewport, FALSE);
     }
-    g_signal_connect (activate_delay_hscale, "format-value",
-                      G_CALLBACK (format_value_callback_time), NULL);
+    //g_signal_connect (activate_delay_hscale, "format-value",
+    //                  G_CALLBACK (format_value_callback_time), NULL);
 
     g_signal_connect (screensaver_settings,
                       "changed",
