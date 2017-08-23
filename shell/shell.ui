@@ -1105,8 +1105,8 @@ Management</property>
                         <property name="can_focus">True</property>
                         <child>
                           <object class="GtkViewport" id="viewport7">
-                            <property name="width_request">590</property>
-                            <property name="height_request">447</property>
+                            <property name="width_request">700</property>
+                            <property name="height_request">570</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <child>
@@ -1116,7 +1116,7 @@ Management</property>
                                 <child>
                                   <object class="GtkViewport" id="viewport1">
                                     <property name="width_request">50</property>
-                                    <property name="height_request">28</property>
+                                    <property name="height_request">30</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="shadow_type">none</property>
@@ -1133,13 +1133,13 @@ Management</property>
                                   </object>
                                   <packing>
                                     <property name="x">5</property>
-                                    <property name="y">60</property>
+                                    <property name="y">65</property>
                                   </packing>
                                 </child>
                                 <child>
                                   <object class="GtkViewport" id="viewport14">
                                     <property name="width_request">50</property>
-                                    <property name="height_request">28</property>
+                                    <property name="height_request">30</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="shadow_type">none</property>
@@ -1159,13 +1159,13 @@ Management</property>
                                   </object>
                                   <packing>
                                     <property name="x">5</property>
-                                    <property name="y">180</property>
+                                    <property name="y">195</property>
                                   </packing>
                                 </child>
                                 <child>
                                   <object class="GtkViewport" id="viewport15">
                                     <property name="width_request">50</property>
-                                    <property name="height_request">28</property>
+                                    <property name="height_request">30</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="shadow_type">none</property>
@@ -1182,21 +1182,22 @@ Management</property>
                                   </object>
                                   <packing>
                                     <property name="x">5</property>
-                                    <property name="y">122</property>
+                                    <property name="y">127</property>
                                   </packing>
                                 </child>
                                 <child>
                                   <object class="GtkViewport" id="viewport16">
-                                    <property name="width_request">380</property>
-                                    <property name="height_request">260</property>
+                                    <property name="width_request">430</property>
+                                    <property name="height_request">280</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
+                                    <property name="shadow_type">etched-in</property>
                                     <child>
                                       <object class="GtkBox" id="vbox6">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="orientation">vertical</property>
-                                        <property name="spacing">2</property>
+                                        <property name="spacing">5</property>
                                         <child>
                                           <object class="GtkLayout" id="layout8">
                                             <property name="height_request">50</property>
@@ -1206,7 +1207,7 @@ Management</property>
                                             <child>
                                               <object class="GtkButton" id="td_month_del_button">
                                                 <property name="width_request">30</property>
-                                                <property name="height_request">35</property>
+                                                <property name="height_request">37</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="receives_default">True</property>
@@ -1219,14 +1220,14 @@ Management</property>
                                                 </child>
                                               </object>
                                               <packing>
-                                                <property name="x">84</property>
-                                                <property name="y">12</property>
+                                                <property name="x">99</property>
+                                                <property name="y">10</property>
                                               </packing>
                                             </child>
                                             <child>
                                               <object class="GtkButton" id="td_month_add_button">
                                                 <property name="width_request">30</property>
-                                                <property name="height_request">35</property>
+                                                <property name="height_request">37</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="receives_default">True</property>
@@ -1239,26 +1240,26 @@ Management</property>
                                                 </child>
                                               </object>
                                               <packing>
-                                                <property name="x">285</property>
-                                                <property name="y">12</property>
+                                                <property name="x">298</property>
+                                                <property name="y">10</property>
                                               </packing>
                                             </child>
                                             <child>
                                               <object class="GtkComboBoxText" id="td_combo_year">
                                                 <property name="width_request">80</property>
-                                                <property name="height_request">38</property>
+                                                <property name="height_request">37</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                               </object>
                                               <packing>
-                                                <property name="x">115</property>
+                                                <property name="x">130</property>
                                                 <property name="y">10</property>
                                               </packing>
                                             </child>
                                             <child>
                                               <object class="GtkComboBoxText" id="td_combo_month">
-                                                <property name="width_request">75</property>
-                                                <property name="height_request">38</property>
+                                                <property name="width_request">80</property>
+                                                <property name="height_request">34</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                                 <property name="halign">baseline</property>
@@ -1281,7 +1282,7 @@ Management</property>
                                                 </items>
                                               </object>
                                               <packing>
-                                                <property name="x">199</property>
+                                                <property name="x">214</property>
                                                 <property name="y">10</property>
                                               </packing>
                                             </child>
@@ -1313,26 +1314,26 @@ Management</property>
                                     </child>
                                   </object>
                                   <packing>
-                                    <property name="x">59</property>
-                                    <property name="y">180</property>
+                                    <property name="x">80</property>
+                                    <property name="y">185</property>
                                   </packing>
                                 </child>
                                 <child>
                                   <object class="GtkComboBoxText" id="time_zone_combobox">
-                                    <property name="width_request">380</property>
-                                    <property name="height_request">28</property>
+                                    <property name="width_request">400</property>
+                                    <property name="height_request">30</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                   </object>
                                   <packing>
-                                    <property name="x">59</property>
-                                    <property name="y">60</property>
+                                    <property name="x">80</property>
+                                    <property name="y">65</property>
                                   </packing>
                                 </child>
                                 <child>
                                   <object class="GtkSpinButton" id="hours">
                                     <property name="width_request">40</property>
-                                    <property name="height_request">28</property>
+                                    <property name="height_request">30</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="invisible_char">•</property>
@@ -1343,14 +1344,14 @@ Management</property>
                                     <property name="wrap">True</property>
                                   </object>
                                   <packing>
-                                    <property name="x">59</property>
-                                    <property name="y">120</property>
+                                    <property name="x">80</property>
+                                    <property name="y">125</property>
                                   </packing>
                                 </child>
                                 <child>
                                   <object class="GtkSpinButton" id="minutes">
                                     <property name="width_request">40</property>
-                                    <property name="height_request">28</property>
+                                    <property name="height_request">30</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="invisible_char">•</property>
@@ -1361,14 +1362,14 @@ Management</property>
                                     <property name="wrap">True</property>
                                   </object>
                                   <packing>
-                                    <property name="x">200</property>
-                                    <property name="y">120</property>
+                                    <property name="x">220</property>
+                                    <property name="y">125</property>
                                   </packing>
                                 </child>
                                 <child>
                                   <object class="GtkSpinButton" id="seconds">
                                     <property name="width_request">40</property>
-                                    <property name="height_request">28</property>
+                                    <property name="height_request">30</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="invisible_char">•</property>
@@ -1380,61 +1381,74 @@ Management</property>
                                     <property name="wrap">True</property>
                                   </object>
                                   <packing>
-                                    <property name="x">340</property>
-                                    <property name="y">120</property>
+                                    <property name="x">360</property>
+                                    <property name="y">125</property>
                                   </packing>
                                 </child>
                                 <child>
                                   <object class="GtkLabel" id="label13">
                                     <property name="width_request">30</property>
-                                    <property name="height_request">28</property>
+                                    <property name="height_request">30</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="label" translatable="yes">hour</property>
                                   </object>
                                   <packing>
-                                    <property name="x">170</property>
-                                    <property name="y">122</property>
+                                    <property name="x">190</property>
+                                    <property name="y">125</property>
                                   </packing>
                                 </child>
                                 <child>
                                   <object class="GtkLabel" id="label34">
                                     <property name="width_request">30</property>
-                                    <property name="height_request">28</property>
+                                    <property name="height_request">30</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="label" translatable="yes">min</property>
                                   </object>
                                   <packing>
-                                    <property name="x">305</property>
-                                    <property name="y">122</property>
+                                    <property name="x">327</property>
+                                    <property name="y">125</property>
                                   </packing>
                                 </child>
                                 <child>
                                   <object class="GtkLabel" id="label57">
                                     <property name="width_request">30</property>
-                                    <property name="height_request">28</property>
+                                    <property name="height_request">30</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="label" translatable="yes">sec</property>
                                   </object>
                                   <packing>
-                                    <property name="x">445</property>
-                                    <property name="y">122</property>
+                                    <property name="x">465</property>
+                                    <property name="y">125</property>
                                   </packing>
                                 </child>
                                 <child>
                                   <object class="GtkCheckButton" id="get_from_network">
                                     <property name="label" translatable="yes">With the network time synchronization</property>
                                     <property name="width_request">280</property>
-                                    <property name="height_request">28</property>
+                                    <property name="height_request">30</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">False</property>
                                     <property name="draw_indicator">True</property>
                                   </object>
                                   <packing>
-                                    <property name="x">59</property>
+                                    <property name="x">80</property>
+                                    <property name="y">20</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel" id="ntp_label">
+                                    <property name="width_request">280</property>
+                                    <property name="height_request">30</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="label" translatable="yes">because the ntp is installed,please use ntpdate.</property>
+                                  </object>
+                                  <packing>
+                                    <property name="x">210</property>
                                     <property name="y">20</property>
                                   </packing>
                                 </child>

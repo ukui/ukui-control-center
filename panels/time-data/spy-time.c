@@ -26,13 +26,19 @@
 #include <time.h>
 #include <gio/gio.h>
 #include <glib/gi18n.h>
-#define TZ_DATA_FILE "/usr/share/zoneinfo/zone.tab"
+#define TZ_DATA_FILE "/usr/share/zoneinfo/zone_utc"
 #define _GMT 1970
 #define MAXYAERRANGE 100
 #define USE_24_FORMAT "use-24h-format"
 typedef struct _TzDB TzDB;
 typedef struct _TimeDate TimeDate;
 typedef struct _TzLocation TzLocation;
+typedef struct _TzUTC TzUTC;
+
+struct _TzUTC{
+	GPtrArray *tz_rtc;
+	gchar *tz_utc;
+};
 
 struct _TzDB {
     GPtrArray *locations;
@@ -50,6 +56,7 @@ struct _TimeDate {
     GtkWidget * td_combo_year;
     GtkWidget * td_combo_month;
     GtkWidget * td_month_del_button;
+	GtkWidget * ntp_label;
     //config
     GDBusProxy *proxy;
 
@@ -91,8 +98,6 @@ TzDB * init_timedb();
 gchar * tz_data_file_get();
 void sort_locations_by_country(GPtrArray *locations);
 int compare_country_names(const void *a, const void *b);
-gchar * time_location_get_zone(TzLocation *loc);
-void show_timezone_system_sets();
 void init_dbus_proxy();
 void set_time_value();
 void init_time_config();
@@ -131,7 +136,7 @@ enum{
 void time_data_destory(){
     g_clear_object(&timedata.proxy);
     g_strfreev(timedata.tmptime);
-	g_object_unref(time_format);
+	//g_object_unref(time_format);
 }
 
 void init_time_setting(){
@@ -152,6 +157,13 @@ void init_time_setting(){
         if (g_variant_is_of_type(value, G_VARIANT_TYPE_BOOLEAN)){
 			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(timedata.timesetting_checkbutton), g_variant_get_boolean(value));
         }
+		//因为ntpd和systemd的网络时间同步会有冲突，所以安装了ntp的话，禁止使用控制面板设置网络时间同步
+		if(!access("/usr/sbin/ntpd", F_OK)){
+			gtk_widget_set_sensitive(timedata.timesetting_checkbutton, FALSE);
+			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(timedata.timesetting_checkbutton), FALSE);
+			gtk_widget_show(timedata.ntp_label);
+		}
+		
         g_variant_unref(value);
         return;
     }
@@ -252,11 +264,26 @@ void on_timezone_changed(GtkWidget *widget, gpointer user_data){
     GtkTreeModel *model;
     GtkTreeIter iter;
     gchar * location;
+	gchar *rtc;
+	TzUTC *tmp;
+	GPtrArray *translate;
+	translate = timedata.tzdb->locations;
 
     if(gtk_combo_box_get_active_iter(GTK_COMBO_BOX(widget), &iter)) {
         model = gtk_combo_box_get_model(GTK_COMBO_BOX(widget));
         gtk_tree_model_get(model, &iter,0 ,&location, -1);
-        g_dbus_proxy_call(timedata.proxy, "SetTimezone", g_variant_new("(sb)", location, TRUE),
+		if(!strcmp(getenv("LANG"), "en_US.UTF-8"))
+			rtc = location;
+		else{
+			for(int i=0; i != timedata.tzdb->locations->len; ++i){
+				tmp = g_ptr_array_index(timedata.tzdb->locations, i);
+				if(strcmp(tmp->tz_utc, location) == 0){
+					rtc = g_ptr_array_index(tmp->tz_rtc,0);
+					break;
+				}
+			}
+		}
+        g_dbus_proxy_call(timedata.proxy, "SetTimezone", g_variant_new("(sb)", rtc, TRUE),
                             G_DBUS_CALL_FLAGS_NONE, -1,NULL, dbus_set_answered, "timezone");
     }
     g_free(location);
@@ -304,22 +331,41 @@ void set_time_value(){
         timedata.show_timeout_clock= g_timeout_add(1000,(GSourceFunc)update_show_time,NULL);
 }
 
-void show_timezone_system_sets( ){
+void show_timezone_system_sets(GPtrArray *loc){
     const gchar * timezone;
     GtkTreeModel * model;
     GtkTreeIter iter;
     gboolean valid;
     gchar * location;
     GVariant *str;
+	TzUTC *tmp;
+
+	int flag = 0;
     str = g_dbus_proxy_get_cached_property(timedata.proxy,"Timezone");
     timezone = g_variant_get_string(str, NULL);
 
     model = gtk_combo_box_get_model(GTK_COMBO_BOX(timedata.tzcombo));
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(model), &iter);
 
-    while (valid) {
+	//获取和当前系统rtc时区对应的时区文件中的utc时区
+	for(int i =0; i != loc->len; ++i){
+			tmp = g_ptr_array_index(loc,i);
+			for(int j =0; j != tmp->tz_rtc->len; ++j){
+				if(strcmp(timezone, g_ptr_array_index(tmp->tz_rtc, j)) == 0){
+					flag = 1;
+					break;
+				}
+			}
+			if(flag)
+				break;
+			//g_free(tmp);
+	} 
+
+	char *lang = strcmp(getenv("LANG"), "en_US.UTF-8") == 0 ? g_ptr_array_index(tmp->tz_rtc, 0): tmp->tz_utc;
+	while (valid) {
         gtk_tree_model_get(model, &iter, 0, &location, -1);
-        if (strcmp (location, timezone) == 0){
+		
+        if (strcmp (location, lang) == 0){
             gtk_combo_box_set_active_iter (GTK_COMBO_BOX(timedata.tzcombo), &iter);
             valid = FALSE;
         }
@@ -364,8 +410,7 @@ static void month_combo_changed(GtkComboBox *combobox, gpointer user_data){
     if (current_year == -1)
         return;
     current_year    = current_year + _GMT;
-    gtk_calendar_select_month(timedata.calendar, current_month, current_year);
-
+    gtk_calendar_select_month((GtkCalendar *)timedata.calendar, current_month, current_year);
     on_editable_changed();
 }
 
@@ -377,7 +422,7 @@ static void year_combo_changed(GtkComboBox * combobox, gpointer user_data){
     if (current_month == -1)
         return;
     current_year = gtk_combo_box_get_active(GTK_COMBO_BOX(timedata.td_combo_year)) +_GMT ;
-    gtk_calendar_select_month(timedata.calendar, current_month, current_year);
+    gtk_calendar_select_month((GtkCalendar *)timedata.calendar, current_month, current_year);
     on_editable_changed();
 }
 
@@ -446,8 +491,12 @@ void init_time_config() {
 
 }
 
-gchar * time_location_get_zone(TzLocation *loc){
-    return loc->zone;
+gchar *time_location_get_zone(TzUTC *loc){
+	char *lang = getenv("LANG");
+	if(!strcmp(lang, "en_US.UTF-8"))
+		return g_ptr_array_index(loc->tz_rtc,0);
+	else
+		return loc->tz_utc;
 }
 
 int compare_country_names(const void *a, const void *b){
@@ -467,14 +516,16 @@ gchar * tz_data_file_get(){
     return file;
 }
 
-TzDB * init_timedb() {
-    gchar *tz_data_file;
-    TzDB *tz_db;
-    FILE *tzfile;
-    char buf[4096];
 
-    tz_data_file = tz_data_file_get();
-    if (!tz_data_file){
+TzDB *init_timedb (){
+	gchar *tz_data_file;
+	TzDB *tz_db;
+	FILE *tzfile;
+
+	char buf[4096];
+
+	tz_data_file = tz_data_file_get ();
+	if (!tz_data_file){
         g_warning("Could not get timedb source\n");
         return NULL;
     }
@@ -487,35 +538,34 @@ TzDB * init_timedb() {
 
     tz_db = g_new0(TzDB, 1);
     tz_db->locations = g_ptr_array_new();
-
-    while(fgets(buf, sizeof(buf), tzfile)){
+	while(fgets(buf, sizeof(buf), tzfile)){
         gchar **tmpstrarr;
-        gchar *latstr, *lngstr, *p;
-        TzLocation *loc;
+		TzUTC *loc;
+		loc = g_new0(TzUTC, 1);
+		loc->tz_rtc = g_ptr_array_new();
+		
+		g_strchomp(buf);
+        tmpstrarr = g_strsplit(buf, "\t",2);
+		gchar ***tmp_rtc = g_strsplit(tmpstrarr[0], " ", 6);
+		
+		for(int i =0; i!=6; ++i){
+			if(tmp_rtc[i] != NULL){
+				g_ptr_array_add (loc->tz_rtc, (gpointer)g_strdup(tmp_rtc[i]));
+			}
+			else
+				break;
+		}
 
-        if (*buf == '#')continue;
+        loc->tz_utc = g_strdup(tmpstrarr[1]);
 
-        g_strchomp(buf);
-        tmpstrarr = g_strsplit(buf, "\t",6);
+        g_ptr_array_add (tz_db->locations, loc);
 
-        latstr = g_strdup(tmpstrarr[1]);
-        p = latstr +1;
-        while(*p != '-'&& *p != '+')p ++;
-        lngstr = g_strdup(p);
-        *p = '\0';
-
-        loc = g_new0(TzLocation, 1);
-        loc->country = g_strdup(tmpstrarr[0]);
-        loc->zone = g_strdup(tmpstrarr[2]);
-
-        g_ptr_array_add (tz_db->locations, (gpointer)loc);
-        g_free(latstr);
-        g_free(lngstr);
-        g_strfreev(tmpstrarr);
+		g_strfreev(tmp_rtc);
+		g_strfreev(tmpstrarr);
     }
     fclose(tzfile);
 
-    sort_locations_by_country(tz_db->locations);
+    //sort_locations_by_country(tz_db->locations);
     g_free(tz_data_file);
     return tz_db;
 }
@@ -523,6 +573,7 @@ TzDB * init_timedb() {
 static void init_timedate_data(GtkWidget * widget, gpointer user_data){
     guint i;
     GPtrArray *loc;
+	TzUTC *tmp;
     //初始化时区数据库
     timedata.tzdb= init_timedb();
     //init config
@@ -534,15 +585,18 @@ static void init_timedate_data(GtkWidget * widget, gpointer user_data){
     //init dbus, get proxy
     init_dbus_proxy();
     init_time_setting();
-    //初始化combobox
+    //初始化时区combobox
     loc = timedata.tzdb->locations;
     for (i=0; i< loc->len; i++){
-        gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(timedata.tzcombo),time_location_get_zone(g_ptr_array_index(loc,i)));
+		//拆开是因为编译时会有一个类型不匹配的错误
+		tmp = g_ptr_array_index(loc, i);
+		gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(timedata.tzcombo),time_location_get_zone(tmp));
+        //gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(timedata.tzcombo),time_location_get_zone(g_ptr_array_index(loc,i)));
     }
     // Show the timezone what the system sets
-    show_timezone_system_sets();
-    //g_signal_handlers_block_by_func(timedata.viewportlayout,
-       //                             init_timedate_data,NULL);
+    show_timezone_system_sets(loc);
+//    g_signal_handlers_block_by_func(timedata.viewportlayout,
+//                                    init_timedate_data,NULL);
 }
 
 static void add_year_and_month_data(){
@@ -593,20 +647,8 @@ static void month_del_button_clicked(GtkButton * button, gpointer user_data){
         gtk_combo_box_set_active(GTK_COMBO_BOX(timedata.td_combo_month), current_active -1);
     }
 }
-//static void change_to_hr24_format(GtkToggleButton * hr_radio, gpointer user_data){
-//	
-//	g_settings_set_boolean(time_format, USE_24_FORMAT,gtk_toggle_button_get_active(hr_radio));
-//}
-
-//static void change_hr_format(GtkWidget * hr_radio, GdkEvent * event, gpointer user_data){
-//	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hr_radio), TRUE); 
-//}
 
 void add_time_and_data_app(GtkBuilder * builder){
-//	GtkWidget * hr12_radio;
-//	GtkWidget * hr24_radio;
-//      GtkWidget * label_format;
-
     g_debug("time_and_data");
     //hide calendar head, and then add four components to deal month and year change.
     timedata.td_month_add_button = GTK_WIDGET(gtk_builder_get_object(builder, "td_month_add_button"));
@@ -619,25 +661,6 @@ void add_time_and_data_app(GtkBuilder * builder){
     timedata.td_month_del_button = GTK_WIDGET(gtk_builder_get_object(builder, "td_month_del_button"));
     g_signal_connect(timedata.td_month_del_button, "clicked", G_CALLBACK(month_del_button_clicked), NULL);
     add_year_and_month_data();
-
-//	hr12_radio = GTK_WIDGET(gtk_builder_get_object(builder, "hr12_radio"));
-//	hr24_radio = GTK_WIDGET(gtk_builder_get_object(builder, "hr24_radio"));
-//      label_format = GTK_WIDGET(gtk_builder_get_object(builder, "label37"));
-//      gtk_widget_hide(GTK_RADIO_BUTTON(hr12_radio));
-//      gtk_widget_hide(GTK_WIDGET(hr24_radio));
-//      gtk_widget_hide(label_format);
-
-//	g_signal_connect(hr12_radio, "button_release_event", G_CALLBACK(change_hr_format), NULL);
-//	g_signal_connect(hr24_radio, "button_release_event", G_CALLBACK(change_hr_format), NULL);
-//	g_signal_connect(GTK_TOGGLE_BUTTON(hr24_radio), "toggled", G_CALLBACK(change_to_hr24_format), NULL);
-
-//	time_format = g_settings_new("org.mate.panel.indicator.calendar");
-//	g_signal_handlers_block_by_func(hr24_radio,change_to_hr24_format, NULL);
-//	if(g_settings_get_boolean(time_format,USE_24_FORMAT))
-//		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hr24_radio), TRUE);
-//	else
-//		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hr12_radio), TRUE);
-//	g_signal_handlers_unblock_by_func(hr24_radio,change_to_hr24_format, NULL);
 
     timedata.tzcombo = GTK_WIDGET(gtk_builder_get_object(builder, "time_zone_combobox"));
     g_signal_connect(G_OBJECT(timedata.tzcombo),"changed",
@@ -662,5 +685,9 @@ void add_time_and_data_app(GtkBuilder * builder){
     g_signal_connect(G_OBJECT(timedata.hours),"changed",G_CALLBACK(on_editable_changed),NULL);
     g_signal_connect(G_OBJECT(timedata.minutes), "changed",G_CALLBACK(on_editable_changed),NULL);
     g_signal_connect(G_OBJECT(timedata.seconds), "changed",G_CALLBACK(on_editable_changed),NULL);
+    //ntp_label的相关设置，因为这个label出现的可能性比较小且翻译较长，所以英文版的界面会有一些字符覆盖的问题，暂不考虑。
+	timedata.ntp_label = GTK_WIDGET(gtk_builder_get_object(builder, "ntp_label"));
+	gtk_widget_set_no_show_all(timedata.ntp_label, TRUE);
+	gtk_widget_hide(timedata.ntp_label);
 
 }
