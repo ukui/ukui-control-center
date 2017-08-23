@@ -22,6 +22,7 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 #include <glib/gi18n.h>
+#include <unistd.h>
 #define MATE_DESKTOP_USE_UNSTABLE_API
 #include <libmate-desktop/mate-desktop-thumbnail.h>
 
@@ -90,11 +91,13 @@ void user_bt_clicked(GtkWidget *widget, gpointer userdata)
 		GtkNotebook *notebook = GTK_NOTEBOOK(user->notebook);
 		gtk_notebook_set_show_border(notebook, FALSE);
 		gtk_container_set_border_width(GTK_CONTAINER(notebook), 0);
+		gtk_notebook_set_show_tabs(GTK_NOTEBOOK(userdata), FALSE);
 		gtk_notebook_set_current_page(notebook, 1);
 	}
 	gtk_notebook_set_show_border(GTK_NOTEBOOK(userdata), TRUE);
 	gtk_container_set_border_width(GTK_CONTAINER(userdata), 1);
 	gtk_notebook_set_current_page(GTK_NOTEBOOK(userdata), 0);
+	gtk_notebook_set_show_tabs(GTK_NOTEBOOK(userdata), FALSE);
 	gtk_widget_grab_focus(widget);
 
 //	GdkColor color;
@@ -864,6 +867,7 @@ void show_change_name_dialog(GtkButton *button, gpointer user_data)
         }
 
         dialog = GTK_DIALOG(gtk_builder_get_object (ui, "changename"));
+	gtk_window_set_icon_from_file (GTK_WINDOW(dialog), "/usr/share/kylin-control-center/icons/用户账号.png", NULL);
         GtkWidget *image = GTK_WIDGET(gtk_builder_get_object (ui, "image1"));
         GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file(user->iconfile, NULL);
         if (!pixbuf)
@@ -939,7 +943,7 @@ void change_face_callback(GObject *object, GAsyncResult *res, gpointer user_data
 	
 	g_object_unref(buf);
 
-	system("gsettings set org.ubuntu-mate.matemenu.plugins.ukuimenu ifchange true");
+	system("gsettings set org.mate.ukui-menu.plugins.menu ifchange true");
 }
 
 void change_face(GtkWidget *widget, gpointer userdata)
@@ -1006,6 +1010,7 @@ void show_change_face_dialog(GtkButton *button, gpointer user_data)
         }
 
         dialog = GTK_DIALOG(gtk_builder_get_object (ui, "changeface"));
+		gtk_window_set_icon_from_file (GTK_WINDOW(dialog), "/usr/share/kylin-control-center/icons/用户账号.png", NULL);
         GtkWidget *image = GTK_WIDGET(gtk_builder_get_object (ui, "imageuser"));
         GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file(user->iconfile, NULL);
         if (!pixbuf)
@@ -1205,13 +1210,14 @@ deleteUserDone(GObject *object, GAsyncResult *res, gpointer user_data)
                 return;
         }
         UserInfo *user = (UserInfo *)user_data; 
-	GtkWidget *box = GTK_WIDGET (gtk_builder_get_object (builder, "vbox_users"));
+	GtkWidget *box = GTK_WIDGET (gtk_builder_get_object (builder, "other_users"));
 	GtkWidget *label = g_object_get_data (G_OBJECT (box), "label");
+	GtkWidget *other_hbox = GTK_WIDGET (gtk_builder_get_object (builder, "hbox6"));
 	gtk_container_remove(GTK_CONTAINER(box), GTK_WIDGET(user->notebook));
-        gtk_widget_show_all(box);
+    	gtk_widget_show_all(box);
 	userlist = g_list_remove(userlist, user);
 	if (g_list_length(userlist) == 1)
-		gtk_container_remove(GTK_CONTAINER(box), label);
+		gtk_widget_hide(other_hbox);
 	free(user);
 	
 	if (result)
@@ -1284,7 +1290,8 @@ void delete_user(GtkWidget *widget, gpointer userdata)
                                                        GTK_MESSAGE_ERROR,
                                                        GTK_BUTTONS_CLOSE,
                                                        "%s", primary_text);
-
+		
+				gtk_window_set_icon_from_file (GTK_WINDOW(d), "/usr/share/kylin-control-center/icons/用户账号.png", NULL);
                 char *secondary_text = _("The user has logged in, please perform the delete operation after logging out!");
                 gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (d),
                                                   "%s", secondary_text);
@@ -1307,7 +1314,7 @@ void delete_user(GtkWidget *widget, gpointer userdata)
         }
 
         dialog = GTK_DIALOG(gtk_builder_get_object (ui, "deleteuser"));
-
+	gtk_window_set_icon_from_file (GTK_WINDOW(dialog), "/usr/share/kylin-control-center/icons/用户账号.png", NULL);
 	GtkWidget *label1 = GTK_WIDGET(gtk_builder_get_object (ui, "label1"));
     char *markup = g_markup_printf_escaped (_("<span weight='bold' font_desc='11'>do you confirm to delete all the files of %s?</span>"), user->username);
 	gtk_label_set_markup(GTK_LABEL(label1), markup);
@@ -1318,8 +1325,8 @@ void delete_user(GtkWidget *widget, gpointer userdata)
 
 	GtkWidget *dialog_action_area1 = GTK_WIDGET(gtk_builder_get_object (ui, "dialog-action_area1"));
 	GdkColor color;
-        gdk_color_parse("red", &color);
-        gtk_widget_modify_fg(dialog_action_area1, GTK_STATE_NORMAL, &color);
+    gdk_color_parse("red", &color);
+    gtk_widget_modify_fg(dialog_action_area1, GTK_STATE_NORMAL, &color);
 
 	GtkWidget *buttonstore = GTK_WIDGET(gtk_builder_get_object (ui, "buttonstore"));
 	g_signal_connect(buttonstore, "clicked", G_CALLBACK(storeFiles), user);
@@ -1372,28 +1379,28 @@ void init_notebook(UserInfo *userinfo, gint page)
         gtk_widget_set_size_request(label2, 98, -1);
         	gtk_misc_set_alignment(GTK_MISC(label2), 0, 0.5);
             bt_ch_name = gtk_button_new_with_label(_("Rename"));
-		modify_font_color(bt_ch_name, "blue");
+		modify_font_color(bt_ch_name, "#074ca6");
 		gtk_button_set_relief(GTK_BUTTON(bt_ch_name), GTK_RELIEF_NONE);
 		userinfo->labelname0 = label1;
 		g_signal_connect (G_OBJECT (bt_ch_name), "clicked", G_CALLBACK (show_change_name_dialog), userinfo);
         	sep1 = gtk_vseparator_new();
             bt_ch_pwd = gtk_button_new_with_label(_("Change PWD"));
-		modify_font_color(bt_ch_pwd, "blue");
+		modify_font_color(bt_ch_pwd, "#074ca6");
 		gtk_button_set_relief(GTK_BUTTON(bt_ch_pwd), GTK_RELIEF_NONE);
 		g_signal_connect (G_OBJECT (bt_ch_pwd), "clicked", G_CALLBACK (show_change_pwd_dialog), userinfo);
         	sep2 = gtk_vseparator_new();
             bt_ch_face = gtk_button_new_with_label(_("Change Face"));
-		modify_font_color(bt_ch_face, "blue");
+		modify_font_color(bt_ch_face, "#074ca6");
 		gtk_button_set_relief(GTK_BUTTON(bt_ch_face), GTK_RELIEF_NONE);
 		g_signal_connect (G_OBJECT (bt_ch_face), "clicked", G_CALLBACK (show_change_face_dialog), userinfo);
         	sep3 = gtk_vseparator_new();
             bt_ch_accounttype = gtk_button_new_with_label(_("Change Type"));
-		modify_font_color(bt_ch_accounttype, "blue");
+		modify_font_color(bt_ch_accounttype, "#074ca6");
 		gtk_button_set_relief(GTK_BUTTON(bt_ch_accounttype), GTK_RELIEF_NONE);
 		g_signal_connect (G_OBJECT (bt_ch_accounttype), "clicked", G_CALLBACK (show_change_accounttype_dialog), userinfo);
         	sep4 = gtk_vseparator_new();
-        bt_del_user = gtk_button_new_with_label(_("Delete User"));
-		modify_font_color(bt_del_user, "blue");
+        bt_del_user = gtk_button_new_with_label(_("Delete"));
+		modify_font_color(bt_del_user, "#074ca6");
 		gtk_button_set_relief(GTK_BUTTON(bt_del_user), GTK_RELIEF_NONE);
 		g_signal_connect (G_OBJECT (bt_del_user), "clicked", G_CALLBACK (delete_user), userinfo);
 		label3 = gtk_label_new("");
@@ -1416,6 +1423,9 @@ void init_notebook(UserInfo *userinfo, gint page)
 		gtk_box_pack_start(GTK_BOX(vbox), label1, TRUE, TRUE, 0);
         	gtk_box_pack_start(GTK_BOX(vbox), hbox1, TRUE, TRUE, 0);
         	gtk_box_pack_start(GTK_BOX(hbox1), label2, TRUE, TRUE, 0);
+		//label_space1和label_space2只是为了调整按钮位置的空白label
+		GtkWidget *label_space1 = gtk_label_new("");
+		gtk_box_pack_start(GTK_BOX(hbox1), label_space1, TRUE, TRUE, 30);
       		gtk_box_pack_start(GTK_BOX(hbox1), bt_ch_name, TRUE, TRUE, 0);
         	gtk_box_pack_start(GTK_BOX(hbox1), sep1, TRUE, TRUE, 0);
         	gtk_box_pack_start(GTK_BOX(hbox1), bt_ch_pwd, TRUE, TRUE, 0);
@@ -1425,8 +1435,18 @@ void init_notebook(UserInfo *userinfo, gint page)
         	gtk_box_pack_start(GTK_BOX(hbox1), bt_ch_accounttype, TRUE, TRUE, 0);
         	gtk_box_pack_start(GTK_BOX(hbox1), sep4, TRUE, TRUE, 0);
         	gtk_box_pack_start(GTK_BOX(hbox1), bt_del_user, TRUE, TRUE, 0);
+		//------------------同上---------------------
+		GtkWidget *label_space2 = gtk_label_new("");
+		gtk_box_pack_start(GTK_BOX(hbox1), label_space2, TRUE, TRUE, 30);
         	gtk_box_pack_start(GTK_BOX(vbox), label3, TRUE, TRUE, 0);
         	gtk_container_add(GTK_CONTAINER(userinfo->notebook), hbox);
+		//屏蔽掉修改用户名按钮，因为修改了一个假的用户名
+		gtk_widget_set_no_show_all(bt_ch_name, TRUE);
+		gtk_widget_set_no_show_all(sep1, TRUE);
+		gtk_widget_hide(bt_ch_name);
+		gtk_widget_hide(sep1);	
+		//kycc -u时要显示当前用户的所有控件
+		gtk_widget_show_all(userinfo->notebook);
 	}
 	else if (page == 1)
 	{
@@ -1436,6 +1456,7 @@ void init_notebook(UserInfo *userinfo, gint page)
 		gtk_widget_set_size_request(button, -1, 90);
 		GtkWidget *hbox;
 		hbox = gtk_hbox_new(FALSE, 0);
+		gtk_box_set_spacing(GTK_BOX(hbox), 1);
 		gtk_widget_show(hbox);
 		gtk_container_add(GTK_CONTAINER(button), hbox);
 		GtkWidget *image;
@@ -1451,6 +1472,7 @@ void init_notebook(UserInfo *userinfo, gint page)
 		gtk_box_pack_start(GTK_BOX(hbox), image, TRUE, TRUE, 0);
 		GtkWidget *vbox;
 		vbox = gtk_vbox_new(TRUE, 0);
+		gtk_box_set_spacing(GTK_BOX(vbox), 4);
 		gtk_widget_set_size_request(vbox, 480, -1);
 		gtk_widget_show(vbox);
 		gtk_box_pack_start(GTK_BOX(hbox), vbox, TRUE, TRUE, 0);
@@ -1494,6 +1516,7 @@ void init_notebook(UserInfo *userinfo, gint page)
 	}
 }
 
+/*
 void init_label(GtkBox *box, gboolean current)
 {
 	GtkWidget *label1, *label2;
@@ -1519,20 +1542,21 @@ void init_label(GtkBox *box, gboolean current)
 	}
 		
 }
+*/
 
 
 void init_user_button(GtkBox *box, UserInfo *user)
 {
-        gtk_notebook_set_show_border(user->notebook, FALSE);
-        gtk_notebook_set_show_tabs (user->notebook, FALSE);
-        gtk_widget_set_size_request(GTK_WIDGET(user->notebook), -1, 90);
-        gtk_notebook_set_current_page(user->notebook, 0);
+    gtk_notebook_set_show_border(user->notebook, FALSE);
+    gtk_notebook_set_show_tabs (user->notebook, FALSE);
+    gtk_widget_set_size_request(GTK_WIDGET(user->notebook), -1, 90);
+    gtk_notebook_set_current_page(user->notebook, 0);
 
-        init_notebook(user, 0);
-        init_notebook(user, 1);
-        gtk_notebook_set_current_page(user->notebook, 1);
+    init_notebook(user, 0);
+    init_notebook(user, 1);
+    gtk_notebook_set_current_page(user->notebook, 1);
 
-        gtk_box_pack_start(box, GTK_WIDGET(user->notebook), FALSE, FALSE, 0);
+    gtk_box_pack_start(box, GTK_WIDGET(user->notebook), FALSE, FALSE, 0);
 }
 
 void init_user_info(const gchar *object_path)
@@ -1617,7 +1641,7 @@ void get_all_users_in_callback(GObject *object, GAsyncResult *res, gpointer user
 		init_user_info(users_name[i]);
 	}
 
-	GtkWidget *box = GTK_WIDGET (gtk_builder_get_object (builder, "vbox_users"));
+	GtkWidget *box = GTK_WIDGET (gtk_builder_get_object (builder, "other_users"));
 	update_user_box(GTK_BOX(box), NULL);
 }
 
@@ -1648,13 +1672,21 @@ void dbus_get_users_in_system()
 void update_user_box(GtkWidget *widget, gpointer data)
 {
 	GList *list;
-	init_label(GTK_BOX(widget), TRUE);
+	GtkWidget *other_hbox = GTK_WIDGET (gtk_builder_get_object (builder, "hbox6"));
+	//init_label(GTK_BOX(widget), TRUE);
+	if (g_list_length(userlist) == 1)
+		gtk_widget_hide(other_hbox);
+	else
+		gtk_widget_show(other_hbox);
+    GtkWidget *current_user_box = GTK_WIDGET (gtk_builder_get_object (builder, "current_user_box"));
+	gtk_widget_show_all(current_user_box);
 	for(list = userlist; list; list = list->next)
 	{
 		UserInfo *info = (UserInfo *)list->data;
-		init_user_button(GTK_BOX(widget), info);
-		if (info->currentuser)
-			init_label(GTK_BOX(widget), FALSE);
+		if (!info->currentuser)
+			init_user_button (GTK_BOX(widget), info);
+		else
+			init_user_button (GTK_BOX(current_user_box), info);
 	}
 	gtk_widget_show_all(widget);
 }
@@ -1662,10 +1694,10 @@ void update_user_box(GtkWidget *widget, gpointer data)
 void update_user(GtkWidget *widget, gpointer data)
 {
 	GtkWidget *label1;
-    label1 = gtk_label_new("");
-    gtk_widget_set_size_request(label1, -1, 1);
-    gtk_misc_set_alignment(GTK_MISC(label1), 0.01, 0.5);
-    gtk_box_pack_start(GTK_BOX(widget), GTK_WIDGET(label1), FALSE, FALSE, 0);
+        label1 = gtk_label_new("");
+        gtk_widget_set_size_request(label1, -1, 1);
+        gtk_misc_set_alignment(GTK_MISC(label1), 0.01, 0.5);
+        gtk_box_pack_start(GTK_BOX(widget), GTK_WIDGET(label1), FALSE, FALSE, 0);
 
 	gtk_widget_show_all(widget);
 }
@@ -1673,13 +1705,12 @@ void update_user(GtkWidget *widget, gpointer data)
 static void
 stock_icon_selected (GtkMenuItem   *menuitem, UserInfo *user)
 {
-        const char *filename;
-
-        filename = g_object_get_data (G_OBJECT (menuitem), "filename");
+    const char *filename;
+    filename = g_object_get_data (G_OBJECT (menuitem), "filename");
 	user->iconfile = (char *)filename;
 	GtkWidget *image = GTK_WIDGET(gtk_builder_get_object (ui, "imageuser"));
 	GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file(user->iconfile, NULL);
-        GdkPixbuf *face = gdk_pixbuf_scale_simple(pixbuf, 99, 99, GDK_INTERP_BILINEAR);
+    GdkPixbuf *face = gdk_pixbuf_scale_simple(pixbuf, 99, 99, GDK_INTERP_BILINEAR);
 	gtk_image_set_from_pixbuf(GTK_IMAGE(image), face);
 	GtkWidget *label = GTK_WIDGET(gtk_builder_get_object (ui, "labeluser"));
 	gtk_widget_hide(label);
@@ -1693,7 +1724,7 @@ stock_icon_selected (GtkMenuItem   *menuitem, UserInfo *user)
 static void
 none_icon_selected (GtkMenuItem   *menuitem, UserInfo *user)
 {
-        user->iconfile = "";
+    user->iconfile = "";
 }
 
 
@@ -1825,37 +1856,32 @@ update_preview (GtkFileChooser               *chooser,
 static void
 user_photo_dialog_select_file (UserInfo *user)
 {
-        GtkWidget *chooser;
-        const gchar *folder;
-        GtkWidget *preview;
-
-        chooser = gtk_file_chooser_dialog_new (_("Browse more pictures"),
+     GtkWidget *chooser;
+     const gchar *folder;
+     GtkWidget *preview;
+     chooser = gtk_file_chooser_dialog_new (_("Browse more pictures"),
                                                NULL,
                                                GTK_FILE_CHOOSER_ACTION_OPEN,
                                                _("Cancel"), GTK_RESPONSE_CANCEL,
                                                _("Ok"), GTK_RESPONSE_ACCEPT,
                                                NULL);
-
-        gtk_window_set_modal (GTK_WINDOW (chooser), TRUE);
+    gtk_window_set_modal (GTK_WINDOW (chooser), TRUE);
 
 	MateDesktopThumbnailFactory* thumb_factory = mate_desktop_thumbnail_factory_new (MATE_DESKTOP_THUMBNAIL_SIZE_NORMAL);
+    preview = gtk_image_new ();
+    gtk_widget_set_size_request (preview, 128, -1);
+    gtk_file_chooser_set_preview_widget (GTK_FILE_CHOOSER (chooser), preview);
+    gtk_file_chooser_set_use_preview_label (GTK_FILE_CHOOSER (chooser), FALSE);
+    gtk_widget_show (preview);
+    g_signal_connect (chooser, "update-preview",
+                      G_CALLBACK (update_preview), thumb_factory);
 
-        preview = gtk_image_new ();
-        gtk_widget_set_size_request (preview, 128, -1);
-        gtk_file_chooser_set_preview_widget (GTK_FILE_CHOOSER (chooser), preview);
-        gtk_file_chooser_set_use_preview_label (GTK_FILE_CHOOSER (chooser), FALSE);
-        gtk_widget_show (preview);
-        g_signal_connect (chooser, "update-preview",
-                          G_CALLBACK (update_preview), thumb_factory);
-
-        folder = g_get_user_special_dir (G_USER_DIRECTORY_PICTURES);
-        if (folder)
-                gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (chooser),
-                                                     folder);
-
-        g_signal_connect (chooser, "response",
-                          G_CALLBACK (file_chooser_response), user);
-	
+    folder = g_get_user_special_dir (G_USER_DIRECTORY_PICTURES);
+    if (folder)
+            gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (chooser),
+                                                 folder);
+    g_signal_connect (chooser, "response",
+                      G_CALLBACK (file_chooser_response), user);
 	gtk_widget_set_name(GTK_WIDGET(chooser), "ukuicc");
         gtk_window_present (GTK_WINDOW (chooser));
 }
@@ -2057,13 +2083,13 @@ popup_button_focus_changed (GObject       *button,
                             GParamSpec    *pspec,
                             UserInfo *user) 
 {
-        gtk_widget_queue_draw (gtk_bin_get_child (GTK_BIN (button)));
+    gtk_widget_queue_draw (gtk_bin_get_child (GTK_BIN (button)));
 }
 
 static void
 on_photo_popup_unmap (GtkWidget *popup_menu, GtkWidget *button)
 {
-        gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), FALSE);
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), FALSE);
 }
 
 
@@ -2089,24 +2115,34 @@ toggled(GtkWidget *widget, gpointer userdata)
 		userinfo->accounttype = ADMINISTRATOR;
 }
 
+gboolean update_user_autologin(gpointer user_date)
+{
+    UserInfo *user = (UserInfo *)user_date;
+    g_warning("--xiaoyi-----autologin = %d",user->autologin);
+    g_dbus_proxy_call(user->proxy, "SetAutomaticLogin",
+                          g_variant_new("(b)", user->autologin),
+                          G_DBUS_CALL_FLAGS_NONE, -1, NULL, NULL, NULL);
+    return FALSE;
+}
+
 static void
 createUserDone(GObject *object, GAsyncResult *res, gpointer user_data)
 {
 	GError * error = NULL;
-        GVariant *result, *value;
+    GVariant *result, *value;
 
 	result = g_dbus_proxy_call_finish(G_DBUS_PROXY(object), res, &error);
-        if (result == NULL)
-        {
-                g_warning("Callback Result is null");
-		return;
-        }
-        if (error != NULL)
-        {
-                g_warning("DBUS error:%s", error->message);
-                g_error_free(error);
-		return;
-        }
+    if (result == NULL)
+    {
+            g_warning("Callback Result is null");
+    return;
+    }
+    if (error != NULL)
+    {
+            g_warning("DBUS error:%s", error->message);
+            g_error_free(error);
+    return;
+    }
 	UserInfo *user = (UserInfo *)user_data;
 	char *path = (char *)g_variant_get_data(result);
 	user->proxy = g_dbus_proxy_new_for_bus_sync(G_BUS_TYPE_SYSTEM, G_DBUS_PROXY_FLAGS_NONE,
@@ -2125,32 +2161,43 @@ createUserDone(GObject *object, GAsyncResult *res, gpointer user_data)
                           g_variant_new("(ss)", crypted, ""),
                           G_DBUS_CALL_FLAGS_NONE, -1, NULL, NULL, NULL);
 
-	g_dbus_proxy_call(user->proxy, "SetAccountType",
+    g_dbus_proxy_call(user->proxy, "SetAccountType",
                           g_variant_new("(i)", user->accounttype),
                           G_DBUS_CALL_FLAGS_NONE, -1, NULL, NULL, NULL);
 
-	g_dbus_proxy_call(user->proxy, "SetAutomaticLogin",
-                          g_variant_new("(b)", user->autologin),
-                          G_DBUS_CALL_FLAGS_NONE, -1, NULL, NULL, NULL);
-
+    // g_warning("--xiaoyi-----autologin = %d",user->autologin);
+     if(user->autologin == TRUE)  //确保自动登录用户只有最新设置的生效
+     {
+         GList *it = NULL;
+         for (it = userlist; it; it = it->next)
+         {
+             UserInfo *system_user = (UserInfo *)it->data;
+             if(system_user->autologin == TRUE)
+             {
+                 if(0 == strcmp(user->username,system_user->username))
+                     continue;
+                 system_user->autologin = FALSE;
+                 g_dbus_proxy_call(user->proxy, "SetAutomaticLogin",
+                                       g_variant_new("(b)", system_user->autologin),
+                                       G_DBUS_CALL_FLAGS_NONE, -1, NULL, NULL, NULL);
+             }
+         }
+     }
+    g_timeout_add(1000,(GSourceFunc)update_user_autologin,user);
 	value = g_dbus_proxy_get_cached_property(user->proxy, "Uid");
-        user->uid = (gint)g_variant_get_uint64(value);
+    user->uid = (gint)g_variant_get_uint64(value);
         
 	user->notebook = GTK_NOTEBOOK(gtk_notebook_new());
-        if (user->currentuser)
-                userlist = g_list_insert(userlist, user, 0);
-        else
-                userlist = g_list_append(userlist, user);
+    if (user->currentuser)
+        userlist = g_list_insert(userlist, user, 0);
+    else
+        userlist = g_list_append(userlist, user);
 
-	GtkWidget *box = GTK_WIDGET (gtk_builder_get_object (builder, "vbox_users"));
+	GtkWidget *box = GTK_WIDGET (gtk_builder_get_object (builder, "other_users"));
 	if (g_list_length(userlist) == 2)
 	{
-        GtkWidget *label2 = gtk_label_new(_("Other accounts"));
-                gtk_widget_set_size_request(label2, -1, 28);
-                gtk_misc_set_alignment(GTK_MISC(label2), 0.01, 0.5);
-
-                gtk_box_pack_start(GTK_BOX(box), GTK_WIDGET(label2), FALSE, FALSE, 0);
-		g_object_set_data (G_OBJECT (box), "label", label2);
+		GtkWidget *other_hbox = GTK_WIDGET (gtk_builder_get_object (builder, "hbox6"));
+		gtk_widget_show(other_hbox);
 	}
 	init_user_button(GTK_BOX(box), user);
 	gtk_widget_show_all(box);
@@ -2163,41 +2210,40 @@ static void
 createuser(GtkWidget *widget, gpointer userdata)
 {
 	UserInfo *user = (UserInfo *)userdata;
-        user->username = NULL;
-        user->password = NULL;
+    user->username = NULL;
+    user->password = NULL;
 
 	GtkWidget *entryname = GTK_WIDGET(gtk_builder_get_object (ui, "entryname"));
 	GtkWidget *entrypwd = GTK_WIDGET(gtk_builder_get_object (ui, "entrypwd"));
 
 	char *username = (char *)gtk_entry_get_text(GTK_ENTRY(entryname));
 	user->username = (char *)malloc(strlen(username)*sizeof(char));
-        strcpy(user->username, username);
+    strcpy(user->username, username);
 
 	char *password = (char *)gtk_entry_get_text(GTK_ENTRY(entrypwd));
-        user->password = (char *)malloc(strlen(password)*sizeof(char));
-        strcpy(user->password, password);
-
+    user->password = (char *)malloc(strlen(password)*sizeof(char));
+    strcpy(user->password, password);
 
 	gtk_widget_hide(GTK_WIDGET(dialog));
 	
 	GError *error = NULL;
-        GDBusProxy *account_proxy;
+    GDBusProxy *account_proxy;
 
-        account_proxy = g_dbus_proxy_new_for_bus_sync(G_BUS_TYPE_SYSTEM,G_DBUS_PROXY_FLAGS_NONE,
+    account_proxy = g_dbus_proxy_new_for_bus_sync(G_BUS_TYPE_SYSTEM,G_DBUS_PROXY_FLAGS_NONE,
                                                       NULL, "org.freedesktop.Accounts",
                                                       "/org/freedesktop/Accounts",
                                                       "org.freedesktop.Accounts", NULL, &error);
-        if (error != NULL)
-        {
-                g_error("Could not connect to org.freedesktop.Accounts:%s\n",error->message);
-		if (account_proxy)
-			g_object_unref(account_proxy);
-		return;
-        }
+    if (error != NULL)
+    {
+            g_error("Could not connect to org.freedesktop.Accounts:%s\n",error->message);
+    if (account_proxy)
+        g_object_unref(account_proxy);
+    return;
+    }
 
-        g_dbus_proxy_call(account_proxy, "CreateUser",
-                          g_variant_new("(ssi)", user->username, "", user->accounttype), 
-			  G_DBUS_CALL_FLAGS_NONE, -1, NULL, createUserDone, user);
+    g_dbus_proxy_call(account_proxy, "CreateUser",
+                      g_variant_new("(ssi)", user->username, "", user->accounttype),
+          G_DBUS_CALL_FLAGS_NONE, -1, NULL, createUserDone, user);
 
 	if (account_proxy)
 		g_object_unref(account_proxy);
@@ -2238,12 +2284,13 @@ void show_create_user_dialog(GtkWidget *widget, gpointer data)
 	}
 
 	UserInfo *user = (UserInfo *)malloc(sizeof(UserInfo));	
-        user->currentuser = FALSE;
-        user->logined = FALSE;
+    user->currentuser = FALSE;
+    user->logined = FALSE;
 	user->autologin = FALSE;
 	user->iconfile = NULL;
 
 	dialog = GTK_DIALOG(gtk_builder_get_object (ui, "usercreate"));
+	gtk_window_set_icon_from_file (GTK_WINDOW(dialog), "/usr/share/kylin-control-center/icons/用户账号.png", NULL);
 	GtkWidget *imageuser = GTK_WIDGET(gtk_builder_get_object (ui, "imageuser"));
 	gtk_widget_hide(imageuser);
 
@@ -2252,18 +2299,18 @@ void show_create_user_dialog(GtkWidget *widget, gpointer data)
 	g_signal_connect (button, "toggled", G_CALLBACK (popup_icon_menu), menu);
 	g_signal_connect (button, "button-press-event",
                           G_CALLBACK (on_popup_button_button_pressed), menu);
-        g_signal_connect (button, "notify::is-focus",
-                          G_CALLBACK (popup_button_focus_changed), user);
+    g_signal_connect (button, "notify::is-focus",
+                      G_CALLBACK (popup_button_focus_changed), user);
 /*	g_signal_connect_after (button, "draw",
                                 G_CALLBACK (popup_button_draw), user);*/
 
-        g_signal_connect (menu, "unmap",
-                          G_CALLBACK (on_photo_popup_unmap), button);
+    g_signal_connect (menu, "unmap",
+                      G_CALLBACK (on_photo_popup_unmap), button);
 
 	GtkWidget *entryname = GTK_WIDGET(gtk_builder_get_object (ui, "entryname"));
 	gtk_entry_set_text(GTK_ENTRY(entryname), _("Please enter the username"));
 	GdkColor color;
-        gdk_color_parse("#999999", &color);
+    gdk_color_parse("#999999", &color);
 	gtk_widget_modify_text(entryname, GTK_STATE_NORMAL, &color);
 	g_signal_connect(entryname, "focus-in-event", G_CALLBACK(focusIn), NULL);
 	g_signal_connect(entryname, "changed", G_CALLBACK(textChanged), user);
@@ -2279,7 +2326,7 @@ void show_create_user_dialog(GtkWidget *widget, gpointer data)
 	g_signal_connect(entryensurepwd, "changed", G_CALLBACK(textChanged), user);
 
 	GtkWidget *btautologin = GTK_WIDGET(gtk_builder_get_object (ui, "btautologin"));
-	g_signal_connect(btautologin, "toggled", G_CALLBACK(autologin), user);
+	g_signal_connect(btautologin, "clicked", G_CALLBACK(autologin), user);
 
 	GtkWidget *bt_normal = GTK_WIDGET(gtk_builder_get_object (ui, "radiobutton1"));
 	gtk_toggle_button_set_active((GtkToggleButton *)bt_normal, TRUE);
@@ -2303,10 +2350,14 @@ void show_create_user_dialog(GtkWidget *widget, gpointer data)
 
 void init_user_accounts()
 {
-	g_debug("user accounts");
+	g_warning("user accounts");
 	GtkWidget *widget;
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "vbox_users"));
-	g_signal_connect(G_OBJECT(widget), "realize", G_CALLBACK(update_user), NULL);
+	GtkWidget *other_users;
+	GtkWidget *current_user;
+	other_users = GTK_WIDGET (gtk_builder_get_object (builder, "other_users"));
+	current_user = GTK_WIDGET (gtk_builder_get_object (builder, "current_user_box"));
+	g_signal_connect(G_OBJECT(other_users), "realize", G_CALLBACK(update_user), NULL);
+	g_signal_connect(G_OBJECT(current_user), "realize", G_CALLBACK(update_user), NULL);
 	dbus_get_users_in_system();
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "bt_new"));
