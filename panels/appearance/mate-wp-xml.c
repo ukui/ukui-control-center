@@ -385,9 +385,9 @@ void mate_wp_xml_load_list(AppearanceData* data)
     gint i;
 
     #if GLIB_CHECK_VERSION(2, 6, 0)
-        wpdbfile = g_build_filename(g_get_user_config_dir(), "ukui", "backgrounds.xml", NULL);
+        wpdbfile = g_build_filename(g_get_user_config_dir(), "mate", "backgrounds.xml", NULL);
     #else // glib version < 2.6.0
-        wpdbfile = g_build_filename(g_get_home_dir(), ".config", "ukui", "backgrounds.xml", NULL);
+        wpdbfile = g_build_filename(g_get_home_dir(), ".config", "mate", "backgrounds.xml", NULL);
     #endif
 
     if (g_file_test(wpdbfile, G_FILE_TEST_EXISTS))

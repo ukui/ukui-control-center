@@ -476,7 +476,7 @@ static void setup_font_sample(GtkWidget * darea, Antialiasing antialiasing, Hint
     const char * string1;
     char *lang = getenv("LANG");
     if (strncmp(lang, "zh_CN", 5) == 0)
-        string1 = "欢迎使用麒麟操作系统";
+        string1 = "欢迎使用UKUI桌面环境";
     else
         string1 = "Welcome to Linux";
 
@@ -590,6 +590,10 @@ void font_init(AppearanceData * data){
     fontsetting.g_marco = data->marco_settings;
     fontsetting.g_caja = data->caja_settings;
 
+    GtkWidget *label33 = GTK_WIDGET(gtk_builder_get_object(fontsetting.builder, "label33"));
+    GtkWidget *label31 = GTK_WIDGET(gtk_builder_get_object(fontsetting.builder, "label31"));
+    gtk_label_set_yalign(GTK_LABEL(label33), 0.0);
+    gtk_label_set_xalign(GTK_LABEL(label31), 0.02);
     default_button = GTK_WIDGET(gtk_builder_get_object(fontsetting.builder, "default_button"));
     g_signal_connect(default_button, "button-press-event",G_CALLBACK(reset_font_default),NULL);
 

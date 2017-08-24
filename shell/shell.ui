@@ -1694,8 +1694,8 @@ Management</property>
                         <property name="can_focus">False</property>
                         <child>
                           <object class="GtkNotebook" id="appearance_notebook">
-                            <property name="width_request">590</property>
-                            <property name="height_request">460</property>
+                            <property name="width_request">720</property>
+                            <property name="height_request">570</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <child>
@@ -1704,8 +1704,8 @@ Management</property>
                                 <property name="can_focus">False</property>
                                 <child>
                                   <object class="GtkViewport" id="viewport29">
-                                    <property name="width_request">190</property>
-                                    <property name="height_request">36</property>
+                                    <property name="width_request">200</property>
+                                    <property name="height_request">33</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="shadow_type">none</property>
@@ -1745,14 +1745,14 @@ Management</property>
                                     </child>
                                   </object>
                                   <packing>
-                                    <property name="x">9</property>
-                                    <property name="y">13</property>
+                                    <property name="x">490</property>
+                                    <property name="y">430</property>
                                   </packing>
                                 </child>
                                 <child>
                                   <object class="GtkViewport" id="viewport30">
-                                    <property name="width_request">564</property>
-                                    <property name="height_request">307</property>
+                                    <property name="width_request">680</property>
+                                    <property name="height_request">380</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <child>
@@ -1774,7 +1774,7 @@ Management</property>
                                   </object>
                                   <packing>
                                     <property name="x">10</property>
-                                    <property name="y">54</property>
+                                    <property name="y">20</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1824,13 +1824,15 @@ Management</property>
                                   </object>
                                   <packing>
                                     <property name="x">6</property>
-                                    <property name="y">371</property>
+                                    <property name="y">430</property>
                                   </packing>
                                 </child>
                               </object>
                             </child>
                             <child type="tab">
                               <object class="GtkLabel" id="label35">
+                                <property name="width_request">100</property>
+                                <property name="height_request">30</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="label" translatable="yes">wallpaper</property>
@@ -1976,6 +1978,8 @@ Management</property>
                             </child>
                             <child type="tab">
                               <object class="GtkLabel" id="label36">
+                                <property name="width_request">100</property>
+                                <property name="height_request">30</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="label" translatable="yes">Theme color</property>
@@ -1992,6 +1996,8 @@ Management</property>
                                 <property name="orientation">vertical</property>
                                 <child>
                                   <object class="GtkBox" id="vbox11">
+                                    <property name="width_request">16</property>
+                                    <property name="height_request">200</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="orientation">vertical</property>
@@ -2001,7 +2007,7 @@ Management</property>
                                         <property name="can_focus">False</property>
                                         <child>
                                           <object class="GtkViewport" id="viewport9">
-                                            <property name="width_request">350</property>
+                                            <property name="width_request">230</property>
                                             <property name="height_request">30</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
@@ -2152,8 +2158,8 @@ Management</property>
                                     </child>
                                   </object>
                                   <packing>
-                                    <property name="expand">True</property>
-                                    <property name="fill">True</property>
+                                    <property name="expand">False</property>
+                                    <property name="fill">False</property>
                                     <property name="position">0</property>
                                   </packing>
                                 </child>
@@ -2162,6 +2168,7 @@ Management</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="orientation">vertical</property>
+                                    <property name="spacing">10</property>
                                     <child>
                                       <object class="GtkLabel" id="label31">
                                         <property name="visible">True</property>
@@ -2180,26 +2187,34 @@ Management</property>
                                         <property name="can_focus">False</property>
                                         <child>
                                           <object class="GtkGrid" id="grid">
-                                            <property name="width_request">400</property>
-                                            <property name="height_request">150</property>
+                                            <property name="height_request">205</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
+                                            <property name="row_spacing">10</property>
+                                            <property name="column_spacing">10</property>
                                             <property name="row_homogeneous">True</property>
                                             <property name="column_homogeneous">True</property>
                                             <child>
-                                              <object class="GtkButton" id="monochrome_button">
+                                              <object class="GtkViewport" id="viewport_mono">
                                                 <property name="visible">True</property>
-                                                <property name="can_focus">True</property>
-                                                <property name="receives_default">True</property>
-                                                <property name="relief">none</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="shadow_type">none</property>
                                                 <child>
-                                                  <object class="GtkAlignment" id="alignment3">
+                                                  <object class="GtkButton" id="monochrome_button">
                                                     <property name="visible">True</property>
-                                                    <property name="can_focus">False</property>
+                                                    <property name="can_focus">True</property>
+                                                    <property name="receives_default">True</property>
+                                                    <property name="relief">none</property>
                                                     <child>
-                                                      <object class="GtkDrawingArea" id="monochrome_sample">
+                                                      <object class="GtkAlignment" id="alignment3">
                                                         <property name="visible">True</property>
                                                         <property name="can_focus">False</property>
+                                                        <child>
+                                                          <object class="GtkDrawingArea" id="monochrome_sample">
+                                                            <property name="visible">True</property>
+                                                            <property name="can_focus">False</property>
+                                                          </object>
+                                                        </child>
                                                       </object>
                                                     </child>
                                                   </object>
@@ -2211,19 +2226,88 @@ Management</property>
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkButton" id="best_shapes_button">
+                                              <object class="GtkViewport" id="viewport_sub">
                                                 <property name="visible">True</property>
-                                                <property name="can_focus">True</property>
-                                                <property name="receives_default">True</property>
-                                                <property name="relief">none</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="shadow_type">none</property>
                                                 <child>
-                                                  <object class="GtkAlignment" id="alignment4">
+                                                  <object class="GtkButton" id="subpixel_button">
                                                     <property name="visible">True</property>
-                                                    <property name="can_focus">False</property>
+                                                    <property name="can_focus">True</property>
+                                                    <property name="receives_default">True</property>
+                                                    <property name="relief">none</property>
                                                     <child>
-                                                      <object class="GtkDrawingArea" id="best_shapes_sample">
+                                                      <object class="GtkAlignment" id="alignment6">
                                                         <property name="visible">True</property>
                                                         <property name="can_focus">False</property>
+                                                        <child>
+                                                          <object class="GtkDrawingArea" id="subpixel_sample">
+                                                            <property name="visible">True</property>
+                                                            <property name="can_focus">False</property>
+                                                          </object>
+                                                        </child>
+                                                      </object>
+                                                    </child>
+                                                  </object>
+                                                </child>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">2</property>
+                                                <property name="top_attach">0</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkViewport" id="viewport_best_shape">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="shadow_type">none</property>
+                                                <child>
+                                                  <object class="GtkButton" id="best_shapes_button">
+                                                    <property name="visible">True</property>
+                                                    <property name="can_focus">True</property>
+                                                    <property name="receives_default">True</property>
+                                                    <property name="relief">none</property>
+                                                    <child>
+                                                      <object class="GtkAlignment" id="alignment4">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <child>
+                                                          <object class="GtkDrawingArea" id="best_shapes_sample">
+                                                            <property name="visible">True</property>
+                                                            <property name="can_focus">False</property>
+                                                          </object>
+                                                        </child>
+                                                      </object>
+                                                    </child>
+                                                  </object>
+                                                </child>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="top_attach">0</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkViewport" id="viewport_best_con">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="shadow_type">none</property>
+                                                <child>
+                                                  <object class="GtkButton" id="best_contrast_button">
+                                                    <property name="visible">True</property>
+                                                    <property name="can_focus">True</property>
+                                                    <property name="receives_default">True</property>
+                                                    <property name="relief">none</property>
+                                                    <child>
+                                                      <object class="GtkAlignment" id="alignment5">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <child>
+                                                          <object class="GtkDrawingArea" id="best_contrast_sample">
+                                                            <property name="visible">True</property>
+                                                            <property name="can_focus">False</property>
+                                                          </object>
+                                                        </child>
                                                       </object>
                                                     </child>
                                                   </object>
@@ -2235,52 +2319,10 @@ Management</property>
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkButton" id="best_contrast_button">
-                                                <property name="visible">True</property>
-                                                <property name="can_focus">True</property>
-                                                <property name="receives_default">True</property>
-                                                <property name="relief">none</property>
-                                                <child>
-                                                  <object class="GtkAlignment" id="alignment5">
-                                                    <property name="visible">True</property>
-                                                    <property name="can_focus">False</property>
-                                                    <child>
-                                                      <object class="GtkDrawingArea" id="best_contrast_sample">
-                                                        <property name="visible">True</property>
-                                                        <property name="can_focus">False</property>
-                                                      </object>
-                                                    </child>
-                                                  </object>
-                                                </child>
-                                              </object>
-                                              <packing>
-                                                <property name="left_attach">1</property>
-                                                <property name="top_attach">1</property>
-                                              </packing>
+                                              <placeholder/>
                                             </child>
                                             <child>
-                                              <object class="GtkButton" id="subpixel_button">
-                                                <property name="visible">True</property>
-                                                <property name="can_focus">True</property>
-                                                <property name="receives_default">True</property>
-                                                <property name="relief">none</property>
-                                                <child>
-                                                  <object class="GtkAlignment" id="alignment6">
-                                                    <property name="visible">True</property>
-                                                    <property name="can_focus">False</property>
-                                                    <child>
-                                                      <object class="GtkDrawingArea" id="subpixel_sample">
-                                                        <property name="visible">True</property>
-                                                        <property name="can_focus">False</property>
-                                                      </object>
-                                                    </child>
-                                                  </object>
-                                                </child>
-                                              </object>
-                                              <packing>
-                                                <property name="left_attach">1</property>
-                                                <property name="top_attach">0</property>
-                                              </packing>
+                                              <placeholder/>
                                             </child>
                                           </object>
                                         </child>
@@ -2331,6 +2373,8 @@ Management</property>
                             </child>
                             <child type="tab">
                               <object class="GtkLabel" id="label7">
+                                <property name="width_request">100</property>
+                                <property name="height_request">30</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="label" translatable="yes">Font</property>

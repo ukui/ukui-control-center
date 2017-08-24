@@ -831,7 +831,7 @@ static gdouble get_monitor_aspect_ratio_for_widget (GtkWidget *widget)
 	return aspect;
 }
 
-#define LIST_IMAGE_SIZE 104
+#define LIST_IMAGE_SIZE 140
 
 static void compute_thumbnail_sizes (AppearanceData *data)
 {
