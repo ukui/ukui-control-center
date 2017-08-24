@@ -3,7 +3,8 @@
 <interface>
   <requires lib="gtk+" version="3.0"/>
   <object class="GtkDialog" id="changename">
-    <property name="height_request">209</property>
+    <property name="width_request">465</property>
+    <property name="height_request">295</property>
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
     <property name="title" translatable="yes">Change Name</property>
@@ -52,6 +53,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">False</property>
+            <property name="padding">10</property>
             <property name="pack_type">end</property>
             <property name="position">0</property>
           </packing>
@@ -61,7 +63,7 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="orientation">vertical</property>
-            <property name="spacing">25</property>
+            <property name="spacing">15</property>
             <child>
               <object class="GtkBox" id="hbox1">
                 <property name="visible">True</property>
@@ -69,7 +71,7 @@
                 <property name="spacing">8</property>
                 <child>
                   <object class="GtkImage" id="image1">
-                    <property name="width_request">80</property>
+                    <property name="width_request">90</property>
                     <property name="height_request">80</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -78,6 +80,7 @@
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">False</property>
+                    <property name="padding">10</property>
                     <property name="position">0</property>
                   </packing>
                 </child>
@@ -87,15 +90,15 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="orientation">vertical</property>
+                    <property name="homogeneous">True</property>
                     <child>
                       <object class="GtkLabel" id="labelname">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="halign">start</property>
                         <property name="label" translatable="yes">label</property>
                       </object>
                       <packing>
-                        <property name="expand">True</property>
+                        <property name="expand">False</property>
                         <property name="fill">True</property>
                         <property name="position">0</property>
                       </packing>
@@ -104,11 +107,10 @@
                       <object class="GtkLabel" id="labeltype">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="halign">start</property>
                         <property name="label" translatable="yes">label</property>
                       </object>
                       <packing>
-                        <property name="expand">True</property>
+                        <property name="expand">False</property>
                         <property name="fill">True</property>
                         <property name="position">1</property>
                       </packing>
@@ -117,11 +119,10 @@
                       <object class="GtkLabel" id="label3">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="halign">start</property>
                         <property name="label" translatable="yes">label</property>
                       </object>
                       <packing>
-                        <property name="expand">True</property>
+                        <property name="expand">False</property>
                         <property name="fill">True</property>
                         <property name="position">2</property>
                       </packing>
@@ -135,8 +136,8 @@
                 </child>
               </object>
               <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
                 <property name="position">0</property>
               </packing>
             </child>
@@ -174,6 +175,9 @@
                           <object class="GtkLabel" id="label1">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
+                            <attributes>
+                              <attribute name="foreground" value="#efef29292929"/>
+                            </attributes>
                           </object>
                           <packing>
                             <property name="expand">True</property>
@@ -182,6 +186,9 @@
                           </packing>
                         </child>
                       </object>
+                      <packing>
+                        <property name="x">10</property>
+                      </packing>
                     </child>
                   </object>
                 </child>
@@ -194,8 +201,8 @@
             </child>
           </object>
           <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
             <property name="position">1</property>
           </packing>
         </child>

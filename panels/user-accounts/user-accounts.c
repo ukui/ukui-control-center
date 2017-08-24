@@ -18,6 +18,7 @@
  *
  */
 #include <crypt.h>
+#include <ctype.h>
 #include <oobs/oobs.h>
 #include <sys/wait.h>
 #include <sys/types.h>
@@ -102,8 +103,8 @@ void user_bt_clicked(GtkWidget *widget, gpointer userdata)
 
 //	GdkColor color;
 //	GtkStyle *style = gtk_rc_get_style(widget);
-    //gtk_style_lookup_color (style, "selected_bg_color", &color);
-    //gtk_widget_modify_bg(GTK_WIDGET(userdata), GTK_STATE_NORMAL, &color);
+//  gtk_style_lookup_color (style, "selected_bg_color", &color);
+//  gtk_widget_modify_bg(GTK_WIDGET(userdata), GTK_STATE_NORMAL, &color);
 }
 
 void modify_font_color(GtkWidget *button, char *textcolor)
@@ -153,45 +154,59 @@ make_crypted (const gchar *plain)
 
 static gboolean
 textChanged(GtkWidget *widget, gpointer userdata)
-{
-/*	UserInfo *user = (UserInfo *)userdata;
-	user->username = NULL;
-	user->password = NULL;*/
-	
+{	
 	GtkWidget *buttoncreate = GTK_WIDGET(gtk_builder_get_object (ui, "buttoncreate"));
 	GtkWidget *entryname = GTK_WIDGET(gtk_builder_get_object (ui, "entryname"));
 	GtkWidget *labelname = GTK_WIDGET(gtk_builder_get_object (ui, "labelname"));
+    GtkWidget *labelpwd = GTK_WIDGET(gtk_builder_get_object (ui, "labelpwd"));
+    GtkWidget *labelensurepwd = GTK_WIDGET(gtk_builder_get_object (ui, "labelensurepwd"));
+    gtk_label_set_xalign(GTK_LABEL(labelname), 0.0);
+    gtk_label_set_xalign(GTK_LABEL(labelpwd), 0.0);
+    gtk_label_set_xalign(GTK_LABEL(labelensurepwd), 0.0);
 	if (widget == entryname)
 	{
 		const char *name = gtk_entry_get_text(GTK_ENTRY(widget));
 		if (strlen(name) < 1)
 		{
 			gtk_label_set_text(GTK_LABEL(labelname), _("User name cannot be empty!"));
-			GdkColor color;
-        		gdk_color_parse("red", &color);
-        		gtk_widget_modify_fg(labelname, GTK_STATE_NORMAL, &color);
-	        	gtk_widget_set_sensitive(buttoncreate, FALSE);
+            gtk_widget_set_sensitive(buttoncreate, FALSE);
 			return FALSE;
 		}
 		else
 			gtk_label_set_text(GTK_LABEL(labelname), "");
 	}
 	GtkWidget *entrypwd = GTK_WIDGET(gtk_builder_get_object (ui, "entrypwd"));
+	
 	if (widget == entrypwd)
 	{
+		GtkWidget *entryensurepwd = GTK_WIDGET(gtk_builder_get_object (ui, "entryensurepwd"));
 		const char *pwd = gtk_entry_get_text(GTK_ENTRY(widget));
-		GtkWidget *labelpwd = GTK_WIDGET(gtk_builder_get_object (ui, "labelpwd"));
+		const char *ensurepwd = gtk_entry_get_text(GTK_ENTRY(entryensurepwd));
 		if (strlen(pwd) < 6)
 		{
 			gtk_label_set_text(GTK_LABEL(labelpwd), _("Password length needs to more than 5 digits!"));
-			GdkColor color;
-			gdk_color_parse("red", &color);
-			gtk_widget_modify_fg(labelpwd, GTK_STATE_NORMAL, &color);
+			gtk_label_set_text(GTK_LABEL(labelensurepwd), " ");
+			gtk_widget_set_sensitive(buttoncreate, FALSE);
+			return FALSE;
+		}
+		else if (strlen(pwd) > 63)
+		{
+			gtk_label_set_text(GTK_LABEL(labelpwd), _("Password length needs to less than 64 digits!"));
 			gtk_widget_set_sensitive(buttoncreate, FALSE);
 			return FALSE;
 		}
 		else
 			gtk_label_set_text(GTK_LABEL(labelpwd), " ");
+		if (strcmp(pwd, ensurepwd) != 0 && strcmp(ensurepwd, _("Please confirm the new password")) != 0)
+		{
+			gtk_label_set_text(GTK_LABEL(labelensurepwd), _("enter the password twice inconsistencies!"));
+			gtk_widget_set_sensitive(buttoncreate, FALSE);
+			return FALSE;
+		}
+		else
+		{
+			gtk_label_set_text(GTK_LABEL(labelensurepwd), "");
+		}
 
 	}
 	GtkWidget *entryensurepwd = GTK_WIDGET(gtk_builder_get_object (ui, "entryensurepwd"));
@@ -199,13 +214,9 @@ textChanged(GtkWidget *widget, gpointer userdata)
 	{
 		const char *pwd = gtk_entry_get_text(GTK_ENTRY(entrypwd));
 		const char *ensurepwd = gtk_entry_get_text(GTK_ENTRY(widget));
-		GtkWidget *labelensurepwd = GTK_WIDGET(gtk_builder_get_object (ui, "labelensurepwd"));
 		if (strcmp(pwd, ensurepwd) != 0)
 		{
 			gtk_label_set_text(GTK_LABEL(labelensurepwd), _("enter the password twice inconsistencies!"));
-			GdkColor color;
-			gdk_color_parse("red", &color);
-			gtk_widget_modify_fg(labelensurepwd, GTK_STATE_NORMAL, &color);
 			gtk_widget_set_sensitive(buttoncreate, FALSE);
 			return FALSE;
 		}
@@ -254,31 +265,30 @@ textChanged(GtkWidget *widget, gpointer userdata)
 	char *ensurepassword = (char *)gtk_entry_get_text(GTK_ENTRY(entryensurepwd));
 
 	if (password && username && (strcmp(password, ensurepassword) == 0) 
-	    && (strlen(password) > 5) && (strlen(username) >= 1 
+	    && (strlen(password) > 5) 
+	    && (strlen(password) < 64)
+	    && (strlen(username) >= 1 
 	    && (strcmp(username, _("Please enter the username")) != 0) 
 	    && strcmp(password, _("Please enter the password ")) != 0))
 	        gtk_widget_set_sensitive(buttoncreate, TRUE);
 	else
 		gtk_widget_set_sensitive(buttoncreate, FALSE);
 
-	GList *list;
+    GList *list;
         for(list = userlist; list; list = list->next)
         {
-               	UserInfo *info = (UserInfo *)list->data;
-               	if (strcmp(info->username, username) == 0)
-               	{
-                        gtk_label_set_text(GTK_LABEL(labelname), _("The user name is already in use, please use a different one."));
-                       	GdkColor color;
-                       	gdk_color_parse("red", &color);
-                       	gtk_widget_modify_fg(labelname, GTK_STATE_NORMAL, &color);
-			gtk_widget_set_sensitive(buttoncreate, FALSE);
-                       	return FALSE;
-               	}
-		else
-			gtk_label_set_text(GTK_LABEL(labelname), " ");
+                UserInfo *info = (UserInfo *)list->data;
+                if (strcmp(info->username, username) == 0)
+                {
+                    gtk_label_set_text(GTK_LABEL(labelname), _("The user name is already in use, please use a different one."));
+                    gtk_widget_set_sensitive(buttoncreate, FALSE);
+                    return FALSE;
+                }
+        else
+            gtk_label_set_text(GTK_LABEL(labelname), " ");
         }
 
-	if (strlen(username) > 0 && strlen(username) < 33)
+	if (strlen(username) > 0 && strlen(username) < 32)
        	{
 		char cmd[50];
 		sprintf(cmd, "getent group %s", username);
@@ -288,14 +298,11 @@ textChanged(GtkWidget *widget, gpointer userdata)
        		{  
        			if (0 == WEXITSTATUS(status))  
        			{  
-              			printf("run shell script successfully.\n"); 
+                    printf("run shell script successfully.\n");
 				//gtk_widget_set_size_request(GTK_WIDGET(labelname), -1, 18); 
-				gtk_label_set_text(GTK_LABEL(labelname),_("The user name corresponds to the group already exists,please use a different user name"));
-				GdkColor color;
-       				gdk_color_parse("red", &color);
-       				gtk_widget_modify_fg(labelname, GTK_STATE_NORMAL, &color);
+                    gtk_label_set_text(GTK_LABEL(labelname),_("The user name corresponds to the group already exists,please use a different user name"));
         			gtk_widget_set_sensitive(buttoncreate, FALSE);
-				return FALSE;
+                    return FALSE;
        			} 
 			else
 				gtk_widget_set_size_request(GTK_WIDGET(labelname), -1, 8); 
@@ -307,9 +314,6 @@ textChanged(GtkWidget *widget, gpointer userdata)
 	{
 		//gtk_widget_set_size_request(GTK_WIDGET(labelname), -1, 32); 
                 gtk_label_set_text(GTK_LABEL(labelname),_("username length should not long than 32!"));
-                GdkColor color;
-                gdk_color_parse("red", &color);
-                gtk_widget_modify_fg(labelname, GTK_STATE_NORMAL, &color);
                 gtk_widget_set_sensitive(buttoncreate, FALSE);
                 return FALSE;
 	}
@@ -329,9 +333,6 @@ focusIn(GtkWidget *widget, gpointer userdata)
 		gtk_entry_set_visibility(GTK_ENTRY(widget), FALSE);
 		gtk_entry_set_text(GTK_ENTRY(widget), "");
 	}
-	GdkColor color;
-        gdk_color_parse("#000000", &color);
-        gtk_widget_modify_text(widget, GTK_STATE_NORMAL, &color);
 	return FALSE;
 }
 
@@ -343,27 +344,55 @@ pwdTextChanged(GtkWidget *widget, gpointer userdata)
 	GtkWidget *entry1 = GTK_WIDGET(gtk_builder_get_object (ui, "entry1"));
 	GtkWidget *entry2 = GTK_WIDGET(gtk_builder_get_object (ui, "entry2"));
 	GtkWidget *entry3 = GTK_WIDGET(gtk_builder_get_object (ui, "entry3"));
+	GtkWidget *label2 = GTK_WIDGET(gtk_builder_get_object (ui, "label2"));
+	GtkWidget *label4 = GTK_WIDGET(gtk_builder_get_object (ui, "label4"));
+	guint16 length2 = gtk_entry_get_text_length(GTK_ENTRY(entry2));
+	guint16 length3 = gtk_entry_get_text_length(GTK_ENTRY(entry3));
 	pwd1 = gtk_entry_get_text (GTK_ENTRY(entry1));
 	pwd2 = gtk_entry_get_text (GTK_ENTRY(entry2));
 	pwd3 = gtk_entry_get_text (GTK_ENTRY(entry3));
 	GtkWidget *buttonok = GTK_WIDGET(gtk_builder_get_object (ui, "buttonok"));
 	gboolean visible = gtk_widget_get_visible(entry1);
+	gtk_label_set_text(GTK_LABEL(label2), "");
+	gtk_label_set_text(GTK_LABEL(label4), "");
+    gtk_label_set_xalign(GTK_LABEL(label2), 0.0);
+    gtk_label_set_xalign(GTK_LABEL(label4), 0.0);
 	if (visible)
 	{
 		if(strlen(pwd1) > 0 && strlen(pwd2) > 0 && strlen(pwd3) > 0 && 
-           	strcmp(pwd1, _("Please enter the current password")) != 0 && strcmp(pwd2, _("Please enter the new password")) != 0 &&
-           	strcmp(pwd3, _("Please confirm the new password")) != 0)
+           	strcmp(pwd1, _("Please enter the current password")) != 0 &&
+		    strcmp(pwd2, _("Please enter the new password")) != 0 &&
+           	strcmp(pwd3, _("Please confirm the new password")) != 0
+		   )
 			gtk_widget_set_sensitive(buttonok, TRUE);
 		else
 			gtk_widget_set_sensitive(buttonok, FALSE);
 	}
-	else
-	{
-        if(strlen(pwd2) > 0 && strlen(pwd3) > 0 && strcmp(pwd2, _("Please enter the new password")) != 0 && strcmp(pwd3, _("Please confirm the new password")) != 0)
-                        gtk_widget_set_sensitive(buttonok, TRUE);
-                else
-                        gtk_widget_set_sensitive(buttonok, FALSE);
-	}
+	//else
+	//{
+        if(strlen(pwd2) > 0 && strlen(pwd3) > 0 && 
+           strcmp(pwd2, _("Please enter the new password")) != 0 && 
+           strcmp(pwd3, _("Please confirm the new password")) != 0 &&
+           length2 <= 63 &&
+           length3 <= 63
+           )
+            gtk_widget_set_sensitive(buttonok, TRUE);
+        else if(length2 > 63 || length3 >63)
+		{
+			gtk_label_set_text(GTK_LABEL(label2), _("Password length needs to less than 64 digits!"));
+			gtk_widget_set_sensitive(buttonok, FALSE);
+		}
+		else
+            gtk_widget_set_sensitive(buttonok, FALSE);
+		if(strcmp(pwd2, pwd3) != 0 &&
+		        strcmp(pwd2, _("Please enter the new password")) != 0 &&
+		        strcmp(pwd3, _("Please confirm the new password")) != 0
+		        )
+		{
+			gtk_label_set_text(GTK_LABEL(label4), _("enter the password twice inconsistencies!"));
+			gtk_widget_set_sensitive(buttonok, FALSE);
+		}
+	//}
 	
 }
 
@@ -461,11 +490,13 @@ check_password ()
         /* empty password, accept but don't change it */
         if (len == 0) {
                 return password;
-        }
-        else if (len < 6) {
+        } else if (len < 6) {
                 primary_text = _("Password length is too short!");
                 secondary_text = _("Password length needs to more than 5 digits, and composed of letters, \n numbers or special characters.");
-        } else if (strcmp (password, confirmation) != 0) {
+        } else if (len > 63){
+				primary_text = _("Password length is too long!");
+                secondary_text = _("Password length needs to less than 64 digits, and composed of letters, \n numbers or special characters.");
+		} else if (strcmp (password, confirmation) != 0) {
                 primary_text = _("Password error");
                 secondary_text = _("Please make sure you enter the password two times.");
         }
@@ -492,43 +523,37 @@ check_password ()
 
 void change_pwd(GtkWidget *widget, gpointer userdata)
 {
-        GtkWidget *user_passwd_dialog;
+    GtkWidget *user_passwd_dialog;
 	PasswdHandler *passwd_handler = NULL;
 	const char *passwd;
-
 	UserInfo *user = (UserInfo *)userdata;
-
-        user_passwd_dialog = GTK_WIDGET(gtk_builder_get_object (ui, "changepwd"));
+    user_passwd_dialog = GTK_WIDGET(gtk_builder_get_object (ui, "changepwd"));
 	GtkWidget *user_passwd_current = GTK_WIDGET(gtk_builder_get_object (ui, "entry1"));
-	
 	passwd_handler = g_object_get_data (G_OBJECT (user_passwd_current), "passwd_handler");
-
 	passwd = check_password();
 	if(!passwd)
 		return;
 
 	if (user->currentuser) {
-                passwd_change_password (passwd_handler, passwd, chpasswd_cb, NULL);
-                /* chpasswd_cb() will run finish_passwd_change() when done */
+        passwd_change_password (passwd_handler, passwd, chpasswd_cb, NULL);
+        /* chpasswd_cb() will run finish_passwd_change() when done */
 
-                gtk_widget_set_sensitive (GTK_WIDGET (user_passwd_dialog), FALSE);
-                GdkDisplay *display = gtk_widget_get_display (GTK_WIDGET (user_passwd_current));
-                GdkCursor *cursor;
-                cursor = gdk_cursor_new_for_display (display, GDK_WATCH);
-
-                gdk_window_set_cursor (gtk_widget_get_window (GTK_WIDGET (user_passwd_current)),
-                                       cursor);
-                gdk_display_flush (display);
-
-                gdk_cursor_unref (cursor);
-        }
-        /* For other users, set password via the dbus */
-        else {
+        gtk_widget_set_sensitive (GTK_WIDGET (user_passwd_dialog), FALSE);
+        GdkDisplay *display = gtk_widget_get_display (GTK_WIDGET (user_passwd_current));
+        GdkCursor *cursor;
+        cursor = gdk_cursor_new_for_display (display, GDK_WATCH);
+        gdk_window_set_cursor (gtk_widget_get_window (GTK_WIDGET (user_passwd_current)),
+                                               cursor);
+        gdk_display_flush (display);
+        g_object_unref (cursor);
+    }
+    /* For other users, set password via the dbus */
+    else {
 		char *crypted = make_crypted(passwd);
-        	g_dbus_proxy_call(user->proxy, "SetPassword",
+        g_dbus_proxy_call(user->proxy, "SetPassword",
                 	          g_variant_new("(ss)", crypted, ""),
                         	  G_DBUS_CALL_FLAGS_NONE, -1, NULL, NULL, NULL);
-        	if (passwd_handler)
+        if (passwd_handler)
                         passwd_destroy (passwd_handler);
 		
 		gtk_widget_destroy(user_passwd_dialog);
@@ -541,15 +566,16 @@ auth_cb (PasswdHandler *passwd_handler,
          GError        *error,
          gpointer       user_data)
 {
-        GtkWidget *entry = GTK_WIDGET (user_data);
-        GdkColor color;
+//  GtkWidget *entry = GTK_WIDGET (user_data);
+//  GdkColor color;
 
-        gdk_color_parse ("red", &color);
-        gtk_widget_modify_base (entry, GTK_STATE_NORMAL, error ? &color : NULL);
+//  gdk_color_parse ("red", &color);
+//  gtk_widget_modify_base (entry, GTK_STATE_NORMAL, error ? &color : NULL);
 
 	GtkWidget *label1 = GTK_WIDGET(gtk_builder_get_object (ui, "label1"));
-        gtk_label_set_text(GTK_LABEL(label1), error ? _("Password input error, please re-enter!"): "");
-        gtk_widget_modify_fg(label1, GTK_STATE_NORMAL, error ? &color : NULL);	
+    gtk_label_set_xalign(GTK_LABEL(label1), 0.0);
+    gtk_label_set_text(GTK_LABEL(label1), error ? _("Password input error, please re-enter!"): "");
+//  gtk_widget_modify_fg(label1, GTK_STATE_NORMAL, error ? &color : NULL);
 }
 
 gboolean
@@ -557,54 +583,43 @@ on_user_passwd_focus_out (GtkWidget     *entry,
                                   GdkEventFocus *event,
                                   gpointer       user_data)
 {
-        PasswdHandler *passwd_handler;
-        const char *password;
-	GdkColor color;
-       	gdk_color_parse("#999999", &color);
-
+    PasswdHandler *passwd_handler;
+    const char *password;
 	GtkWidget *entry1 = GTK_WIDGET(gtk_builder_get_object (ui, "entry1"));
 	GtkWidget *entry2 = GTK_WIDGET(gtk_builder_get_object (ui, "entry2"));
 	GtkWidget *entry3 = GTK_WIDGET(gtk_builder_get_object (ui, "entry3"));
 	if(entry == entry1)
 	{
-        	password = gtk_entry_get_text (GTK_ENTRY (entry));
+        password = gtk_entry_get_text (GTK_ENTRY (entry));
 
-        	if (strlen (password) > 0) {
-                	passwd_handler = g_object_get_data (G_OBJECT (entry), "passwd_handler");
-                	passwd_authenticate (passwd_handler, password, auth_cb, entry);
-        	}
+        if (strlen (password) > 0) {
+            passwd_handler = g_object_get_data (G_OBJECT (entry), "passwd_handler");
+            passwd_authenticate (passwd_handler, password, auth_cb, entry);
+        }
 		else {
 			gtk_entry_set_visibility(GTK_ENTRY(entry), TRUE);
             gtk_entry_set_text(GTK_ENTRY(entry), _("Please enter the current password"));
-                	gtk_widget_modify_text(entry, GTK_STATE_NORMAL, &color);
 			GtkWidget *label1 = GTK_WIDGET(gtk_builder_get_object (ui, "label1"));
 			gtk_label_set_text(GTK_LABEL(label1), "");
-			gdk_color_parse("white", &color);
-			gtk_widget_modify_base (entry, GTK_STATE_NORMAL, &color);
 		}
 	}
 	if(entry == entry2)
 	{
 		password = gtk_entry_get_text (GTK_ENTRY (entry2));
-
-                if (strlen (password) < 1) {
-                        gtk_entry_set_visibility(GTK_ENTRY(entry2), TRUE);
-                        gtk_entry_set_text(GTK_ENTRY(entry2), _("Please enter new password"));
-                        gtk_widget_modify_text(entry2, GTK_STATE_NORMAL, &color);
-                }
+        if (strlen (password) < 1) {
+            gtk_entry_set_visibility(GTK_ENTRY(entry2), TRUE);
+            gtk_entry_set_text(GTK_ENTRY(entry2), _("Please enter new password"));
+        }
 	}
 	if(entry == entry3)
 	{
 		password = gtk_entry_get_text (GTK_ENTRY (entry3));
-
-                if (strlen (password) < 1) {
-                        gtk_entry_set_visibility(GTK_ENTRY(entry3), TRUE);
-                        gtk_entry_set_text(GTK_ENTRY(entry3), _("Please confirm the new password"));
-                        gtk_widget_modify_text(entry3, GTK_STATE_NORMAL, &color);
-                }
+        if (strlen (password) < 1) {
+            gtk_entry_set_visibility(GTK_ENTRY(entry3), TRUE);
+            gtk_entry_set_text(GTK_ENTRY(entry3), _("Please confirm the new password"));
+        }
 	}
-
-        return FALSE;
+    return FALSE;
 }
 
 void show_change_pwd_dialog(GtkButton *button, gpointer user_data)
@@ -613,41 +628,44 @@ void show_change_pwd_dialog(GtkButton *button, gpointer user_data)
 	PasswdHandler *passwd_handler = NULL;
 
 	UserInfo *user = (UserInfo *)user_data;
-        ui = gtk_builder_new();
-        gtk_builder_add_from_file(ui, UIDIR "/change-pwd.ui", &err);
-        //gtk_builder_add_from_file(ui, "../panels/user-accounts/change-pwd.ui", &err);
-        if (err)
-        {
-                g_warning("Could not load user interface file: %s", err->message);
-                g_error_free(err);
-                g_object_unref(ui);
-                return;
-        }
+    ui = gtk_builder_new();
+    gtk_builder_add_from_file(ui, UIDIR "/change-pwd.ui", &err);
+    if (err)
+    {
+            g_warning("Could not load user interface file: %s", err->message);
+            g_error_free(err);
+            g_object_unref(ui);
+            return;
+    }
 
 	dialog = GTK_DIALOG(gtk_builder_get_object (ui, "changepwd"));
+	gtk_window_set_icon_from_file (GTK_WINDOW(dialog), "/usr/share/ukui-control-center/icons/用户账号.png", NULL);
 	GtkWidget *image = GTK_WIDGET(gtk_builder_get_object (ui, "image1"));
-        GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file(user->iconfile, NULL);
-        if (!pixbuf)
-                pixbuf = gdk_pixbuf_new_from_file("/usr/share/pixmaps/faces/stock_person.png", NULL);
-		if (pixbuf){
-        	GdkPixbuf *face = gdk_pixbuf_scale_simple(pixbuf, 88, 88, GDK_INTERP_BILINEAR);
-        	gtk_image_set_from_pixbuf (GTK_IMAGE(image), face);
-			g_object_unref(face);
-		}
-		g_object_unref(pixbuf);
+    GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file(user->iconfile, NULL);
+    if (!pixbuf)
+        pixbuf = gdk_pixbuf_new_from_file("/usr/share/pixmaps/faces/stock_person.png", NULL);
+    if (pixbuf){
+        GdkPixbuf *face = gdk_pixbuf_scale_simple(pixbuf, 88, 88, GDK_INTERP_BILINEAR);
+        gtk_image_set_from_pixbuf (GTK_IMAGE(image), face);
+        g_object_unref(face);
+    }
+    g_object_unref(pixbuf);
 
 	GtkWidget *labelname = GTK_WIDGET(gtk_builder_get_object (ui, "labelname"));
+    gtk_label_set_xalign(GTK_LABEL(labelname), 0.0);
 	gtk_label_set_text(GTK_LABEL(labelname), user->username); 
 	char *markup = g_markup_printf_escaped ("<span weight='bold' font_desc='11'>%s</span>", user->username);
 	gtk_label_set_markup(GTK_LABEL(labelname), markup);
 
 	GtkWidget *labeltype = GTK_WIDGET(gtk_builder_get_object (ui, "labeltype"));
+    gtk_label_set_xalign(GTK_LABEL(labeltype), 0.0);
 	if (user->accounttype == ADMINISTRATOR)
         gtk_label_set_text(GTK_LABEL(labeltype), _("Administrators"));
 	else if (user->accounttype == STANDARDUSER)
         gtk_label_set_text(GTK_LABEL(labeltype), _("Standard user"));
  
 	GtkWidget *label3 = GTK_WIDGET(gtk_builder_get_object (ui, "label3"));
+    gtk_label_set_xalign(GTK_LABEL(label3), 0.0);
 	if (user->currentuser)
 	{
         gtk_label_set_text(GTK_LABEL(label3), _("Logged(Current User)"));
@@ -667,9 +685,6 @@ void show_change_pwd_dialog(GtkButton *button, gpointer user_data)
 	if (user->currentuser)
 	{
         gtk_entry_set_text(GTK_ENTRY(user_passwd_current), _("Please enter the current password"));
-		GdkColor color;
-        gdk_color_parse("#999999", &color);
-		gtk_widget_modify_text(user_passwd_current, GTK_STATE_NORMAL, &color);
 		g_signal_connect(user_passwd_current, "focus-in-event", G_CALLBACK(focusIn), NULL);
 		g_signal_connect(user_passwd_current, "focus-out-event", G_CALLBACK(on_user_passwd_focus_out), NULL);
 		g_signal_connect(user_passwd_current, "changed", G_CALLBACK(pwdTextChanged), user);
@@ -681,16 +696,12 @@ void show_change_pwd_dialog(GtkButton *button, gpointer user_data)
 	
 	GtkWidget *entry2 = GTK_WIDGET(gtk_builder_get_object (ui, "entry2"));
     gtk_entry_set_text(GTK_ENTRY(entry2), _("Please enter new password"));
-    GdkColor color;
-    gdk_color_parse("#999999", &color);
-    gtk_widget_modify_text(entry2, GTK_STATE_NORMAL, &color);
     g_signal_connect(entry2, "focus-in-event", G_CALLBACK(focusIn), NULL);
     g_signal_connect(entry2, "focus-out-event", G_CALLBACK(on_user_passwd_focus_out), NULL);
     g_signal_connect(entry2, "changed", G_CALLBACK(pwdTextChanged), user);
 	
 	GtkWidget *entry3 = GTK_WIDGET(gtk_builder_get_object (ui, "entry3"));
     gtk_entry_set_text(GTK_ENTRY(entry3), _("Please confirm the new password"));
-    gtk_widget_modify_text(entry3, GTK_STATE_NORMAL, &color);
     g_signal_connect(entry3, "focus-in-event", G_CALLBACK(focusIn), NULL);
     g_signal_connect(entry3, "focus-out-event", G_CALLBACK(on_user_passwd_focus_out), NULL);
     g_signal_connect(entry3, "changed", G_CALLBACK(pwdTextChanged), user);
@@ -713,13 +724,12 @@ void usernameChanged(GtkWidget *widget, gpointer userdata)
 
 	const char *username = gtk_entry_get_text(GTK_ENTRY(widget));
 	GtkWidget *label1 = GTK_WIDGET(gtk_builder_get_object (ui, "label1"));
+    gtk_label_set_xalign(GTK_LABEL(label1), 0.0);
 	GtkWidget *buttonok = GTK_WIDGET(gtk_builder_get_object (ui, "buttonok"));
+	guint16 length = gtk_entry_get_text_length(GTK_ENTRY(widget));
 
 	if (strlen(username) > 0)
 	{
-                GdkColor color;
-                gdk_color_parse("red", &color);
-                gtk_widget_modify_fg(label1, GTK_STATE_NORMAL, &color);
 		int i;
 	        for (i = 0; *(username + i) != 0; i++)
 		{
@@ -727,13 +737,13 @@ void usernameChanged(GtkWidget *widget, gpointer userdata)
 			{
                 gtk_label_set_text(GTK_LABEL(label1), _("The first character cannot be underlined!"));
 	        		gtk_widget_set_sensitive(buttonok, FALSE);
-				return FALSE;
+                return;
 			}
 			if (isupper(*(username + i)))
 			{
                 gtk_label_set_text(GTK_LABEL(label1), _("User name can not contain capital letters!"));
 	        		gtk_widget_set_sensitive(buttonok, FALSE);
-				return FALSE;
+                return;
 			}
 			if ((*(username + i) >=48 && *(username + i) <= 57 ) || (*(username + i) >= 97 && *(username + i) <= 122 ) || ( *(username + i) == 95))
 				continue;
@@ -741,7 +751,7 @@ void usernameChanged(GtkWidget *widget, gpointer userdata)
 			{
                 gtk_label_set_text(GTK_LABEL(label1), _("The user name can only be composed of letters, numbers and underline!"));
 	        		gtk_widget_set_sensitive(buttonok, FALSE);
-				return FALSE;
+                return;
 			}
 		}
         	if (isdigit(*username))
@@ -750,6 +760,12 @@ void usernameChanged(GtkWidget *widget, gpointer userdata)
                         gtk_widget_set_sensitive(buttonok, FALSE);
                 	return;
         	}
+			if (length > 31)
+			{
+				gtk_label_set_text(GTK_LABEL(label1), _("Username length need to less than 32!"));
+				gtk_widget_set_sensitive(buttonok, FALSE);
+                return;
+			}
 
 
 		GList *list;
@@ -768,30 +784,30 @@ void usernameChanged(GtkWidget *widget, gpointer userdata)
 		gtk_label_set_text(GTK_LABEL(label1), "");
 	}
 	else
-                gtk_widget_set_sensitive(buttonok, FALSE);
+        gtk_widget_set_sensitive(buttonok, FALSE);
 		
 }
 
 void set_username_callback(GObject *object, GAsyncResult *res, gpointer user_data)
 {
-        GError * error = NULL;
-        GVariant *result;
+    GError * error = NULL;
+    GVariant *result;
 
 	UserInfo *user = (UserInfo *)user_data;
 
-        result = g_dbus_proxy_call_finish(G_DBUS_PROXY(object), res, &error);
-        if (result == NULL)
-        {
-                g_warning("Callback Result is null");
-		return;
-        }
-        if (error != NULL)
-        {
-                g_warning("DBUS error:%s", error->message);
-                g_error_free(error);
+    result = g_dbus_proxy_call_finish(G_DBUS_PROXY(object), res, &error);
+    if (result == NULL)
+    {
+        g_warning("Callback Result is null");
+        return;
+    }
+    if (error != NULL)
+    {
+        g_warning("DBUS error:%s", error->message);
+        g_error_free(error);
         char *primary_text = _("Modify username failed!");
 		GtkWidget *w = GTK_WIDGET(gtk_builder_get_object(ui, "changename"));
-        	GtkWidget *d = gtk_message_dialog_new (GTK_WINDOW (w),
+        GtkWidget *d = gtk_message_dialog_new (GTK_WINDOW (w),
                 	   	                            GTK_DIALOG_MODAL,
                         	            	            GTK_MESSAGE_ERROR,
                                 	        	    GTK_BUTTONS_CLOSE,
@@ -800,14 +816,14 @@ void set_username_callback(GObject *object, GAsyncResult *res, gpointer user_dat
                                                   "%s", error->message);
 
 		gtk_widget_set_name(GTK_WIDGET(d), "ukuicc");
-        	gtk_dialog_run (GTK_DIALOG (d));
+        gtk_dialog_run (GTK_DIALOG (d));
 
-        	gtk_widget_destroy (d);
+        gtk_widget_destroy (d);
 		g_object_unref(ui);
 		return;
-        }
+    }
 	GtkWidget *entry1 = GTK_WIDGET(gtk_builder_get_object (ui, "entry1"));
-        const char *username = gtk_entry_get_text(GTK_ENTRY(entry1));
+    const char *username = gtk_entry_get_text(GTK_ENTRY(entry1));
 	strcpy(user->username, username);	
 
 	char *markup = g_markup_printf_escaped ("<span weight='bold' font_desc='11'>%s</span>", user->username);	
@@ -827,8 +843,8 @@ void change_username(GtkWidget *widget, gpointer userdata)
 	if(user->logined)
 	{
         char *primary_text = _("Modify username failed!");
-                GtkWidget *w = GTK_WIDGET(gtk_builder_get_object(ui, "changename"));
-                GtkWidget *d = gtk_message_dialog_new (GTK_WINDOW (w),
+        GtkWidget *w = GTK_WIDGET(gtk_builder_get_object(ui, "changename"));
+        GtkWidget *d = gtk_message_dialog_new (GTK_WINDOW (w),
                                                             GTK_DIALOG_MODAL,
                                                             GTK_MESSAGE_ERROR,
                                                             GTK_BUTTONS_CLOSE,
@@ -838,11 +854,11 @@ void change_username(GtkWidget *widget, gpointer userdata)
 		gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (d),
                                                   "%s", secondary_text);
 		gtk_widget_set_name(GTK_WIDGET(d), "ukuicc");
-                gtk_dialog_run (GTK_DIALOG (d));
+        gtk_dialog_run (GTK_DIALOG (d));
 
-                gtk_widget_destroy (d);
+        gtk_widget_destroy (d);
 		//g_object_unref(ui);
-                return;
+        return;
 	}
 	g_dbus_proxy_call(user->proxy, "SetUserName",
                           g_variant_new("(s)", username), G_DBUS_CALL_FLAGS_NONE, -1,
@@ -852,7 +868,7 @@ void change_username(GtkWidget *widget, gpointer userdata)
 
 void show_change_name_dialog(GtkButton *button, gpointer user_data)
 {
-	GError *err = NULL;
+        GError *err = NULL;
 
         UserInfo *user = (UserInfo *)user_data;
         ui = gtk_builder_new();
@@ -867,12 +883,14 @@ void show_change_name_dialog(GtkButton *button, gpointer user_data)
         }
 
         dialog = GTK_DIALOG(gtk_builder_get_object (ui, "changename"));
-	gtk_window_set_icon_from_file (GTK_WINDOW(dialog), "/usr/share/kylin-control-center/icons/用户账号.png", NULL);
+        gtk_window_set_icon_from_file (GTK_WINDOW(dialog), "/usr/share/ukui-control-center/icons/用户账号.png", NULL);
         GtkWidget *image = GTK_WIDGET(gtk_builder_get_object (ui, "image1"));
         GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file(user->iconfile, NULL);
-        if (!pixbuf)
-                pixbuf = gdk_pixbuf_new_from_file("/usr/share/pixmaps/faces/stock_person.png", NULL);
-		if (pixbuf){
+        if (!pixbuf){
+            pixbuf = gdk_pixbuf_new_from_file("/usr/share/pixmaps/faces/stock_person.png", NULL);
+            gtk_image_set_from_pixbuf (GTK_IMAGE(image), pixbuf);
+        }
+        else{
         	GdkPixbuf *face = gdk_pixbuf_scale_simple(pixbuf, 88, 88, GDK_INTERP_BILINEAR);
         	gtk_image_set_from_pixbuf (GTK_IMAGE(image), face);
 			g_object_unref(face);
@@ -880,16 +898,21 @@ void show_change_name_dialog(GtkButton *button, gpointer user_data)
         g_object_unref(pixbuf);
 
         GtkWidget *labelname = GTK_WIDGET(gtk_builder_get_object (ui, "labelname"));
+        gtk_label_set_xalign(GTK_LABEL(labelname), 0.03);
+        gtk_label_set_yalign(GTK_LABEL(labelname), 1.0);
         gtk_label_set_text(GTK_LABEL(labelname), user->username);
         char *markup = g_markup_printf_escaped ("<span weight='bold' font_desc='11'>%s</span>", user->username);
         gtk_label_set_markup(GTK_LABEL(labelname), markup);
-	GtkWidget *labeltype = GTK_WIDGET(gtk_builder_get_object (ui, "labeltype"));
+        GtkWidget *labeltype = GTK_WIDGET(gtk_builder_get_object (ui, "labeltype"));
+        gtk_label_set_xalign(GTK_LABEL(labeltype), 0.03);
         if (user->accounttype == ADMINISTRATOR)
                 gtk_label_set_text(GTK_LABEL(labeltype), _("Administrators"));
         else if (user->accounttype == STANDARDUSER)
                 gtk_label_set_text(GTK_LABEL(labeltype), _("Standard user"));
 
         GtkWidget *label3 = GTK_WIDGET(gtk_builder_get_object (ui, "label3"));
+        gtk_label_set_xalign(GTK_LABEL(label3), 0.03);
+        gtk_label_set_yalign(GTK_LABEL(label3), 0.0);
         if (user->currentuser)
                 gtk_label_set_text(GTK_LABEL(label3), _("Logged(Current User)"));
         else if (user->logined && !user->currentuser)
@@ -897,23 +920,20 @@ void show_change_name_dialog(GtkButton *button, gpointer user_data)
         else
                 gtk_label_set_text(GTK_LABEL(label3), _("Un-login(Other Users)"));
 
-	GtkWidget *entry1 = GTK_WIDGET(gtk_builder_get_object (ui, "entry1"));
+        GtkWidget *entry1 = GTK_WIDGET(gtk_builder_get_object (ui, "entry1"));
         gtk_entry_set_text(GTK_ENTRY(entry1), _("Please enter the new username"));
-        GdkColor color;
-        gdk_color_parse("#999999", &color);
-        gtk_widget_modify_text(entry1, GTK_STATE_NORMAL, &color);
         g_signal_connect(entry1, "focus-in-event", G_CALLBACK(focusIn), NULL);
         g_signal_connect(entry1, "changed", G_CALLBACK(usernameChanged), user);
 
 
-	GtkWidget *buttoncancel = GTK_WIDGET(gtk_builder_get_object (ui, "buttoncancel"));
+        GtkWidget *buttoncancel = GTK_WIDGET(gtk_builder_get_object (ui, "buttoncancel"));
         g_signal_connect(buttoncancel, "clicked", G_CALLBACK(dialog_quit), NULL);
         gtk_widget_grab_focus(buttoncancel);
 
         GtkWidget *buttonok = GTK_WIDGET(gtk_builder_get_object (ui, "buttonok"));
         g_signal_connect(buttonok, "clicked", G_CALLBACK(change_username), user);
         gtk_widget_set_sensitive(buttonok, FALSE);
-	gtk_widget_set_name(GTK_WIDGET(dialog), "ukuicc");
+        gtk_widget_set_name(GTK_WIDGET(dialog), "ukuicc");
         gtk_widget_show(GTK_WIDGET(dialog));
 }
 
@@ -943,7 +963,7 @@ void change_face_callback(GObject *object, GAsyncResult *res, gpointer user_data
 	
 	g_object_unref(buf);
 
-	system("gsettings set org.mate.ukui-menu.plugins.menu ifchange true");
+    int system_back = system("gsettings set org.mate.ukui-menu.plugins.menu ifchange true");
 }
 
 void change_face(GtkWidget *widget, gpointer userdata)
@@ -993,6 +1013,45 @@ void itemSelected(GtkWidget *widget, gpointer userdata)
 	}
 }
 
+//如果已经设置了自动登陆用户，提示用户是否覆盖原先的设置
+static
+void confirm_dialog(GtkWidget *widget, gpointer user_data)
+{
+	UserInfo *user = (UserInfo *)user_data;
+	if(!user->autologin){
+		GList *it = NULL;
+		for (it = userlist; it; it = it->next)
+		{
+			UserInfo *system_user = (UserInfo *)it->data;
+			if(system_user->autologin == TRUE)
+			{
+				if(0 == strcmp(user->username,system_user->username) || !gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget)))
+					continue;
+				GtkWidget *label;
+                //GtkWidget *hbox;
+				GtkWidget *dialog = gtk_dialog_new_with_buttons(
+				                                                _("auto login"),
+				                                                window,
+				                                                GTK_DIALOG_MODAL,
+				                                                _("_Cancel"),
+				                                                GTK_RESPONSE_REJECT,
+				                                                _("_OK"),
+				                                                GTK_RESPONSE_ACCEPT,
+				                                                NULL);
+				label = gtk_label_new(_("Already have other users set to automatically log in,\n click OK will overwrite the existing settings!"));
+                gtk_box_pack_start(GTK_BOX(gtk_dialog_get_content_area(GTK_DIALOG(dialog))), label, TRUE, TRUE, 30);
+				gtk_widget_show_all(dialog);
+				gint result = gtk_dialog_run(GTK_DIALOG(dialog));
+				if(result == GTK_RESPONSE_ACCEPT)
+					gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
+				else
+					gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), FALSE);
+				gtk_widget_destroy(dialog);
+			}
+		}
+	}//end-if
+}
+
 void show_change_face_dialog(GtkButton *button, gpointer user_data)
 {
 	GError *err = NULL;
@@ -1010,7 +1069,7 @@ void show_change_face_dialog(GtkButton *button, gpointer user_data)
         }
 
         dialog = GTK_DIALOG(gtk_builder_get_object (ui, "changeface"));
-		gtk_window_set_icon_from_file (GTK_WINDOW(dialog), "/usr/share/kylin-control-center/icons/用户账号.png", NULL);
+		gtk_window_set_icon_from_file (GTK_WINDOW(dialog), "/usr/share/ukui-control-center/icons/用户账号.png", NULL);
         GtkWidget *image = GTK_WIDGET(gtk_builder_get_object (ui, "imageuser"));
         GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file(user->iconfile, NULL);
         if (!pixbuf)
@@ -1021,16 +1080,19 @@ void show_change_face_dialog(GtkButton *button, gpointer user_data)
         g_object_unref(face);
 
         GtkWidget *labelname = GTK_WIDGET(gtk_builder_get_object (ui, "labelname"));
+        gtk_label_set_xalign(GTK_LABEL(labelname), 0.0);
         gtk_label_set_text(GTK_LABEL(labelname), user->username);
         char *markup = g_markup_printf_escaped ("<span weight='bold' font_desc='11'>%s</span>", user->username);
         gtk_label_set_markup(GTK_LABEL(labelname), markup);
-	GtkWidget *labeltype = GTK_WIDGET(gtk_builder_get_object (ui, "labeltype"));
+        GtkWidget *labeltype = GTK_WIDGET(gtk_builder_get_object (ui, "labeltype"));
+        gtk_label_set_xalign(GTK_LABEL(labeltype), 0.0);
         if (user->accounttype == ADMINISTRATOR)
                 gtk_label_set_text(GTK_LABEL(labeltype), _("Administrators"));
         else if (user->accounttype == STANDARDUSER)
                 gtk_label_set_text(GTK_LABEL(labeltype), _("Standard user"));
 
         GtkWidget *label3 = GTK_WIDGET(gtk_builder_get_object (ui, "label3"));
+        gtk_label_set_xalign(GTK_LABEL(label3), 0.0);
         if (user->currentuser)
                 gtk_label_set_text(GTK_LABEL(label3), _("Logged(Current User)"));
         else if (user->logined && !user->currentuser)
@@ -1064,38 +1126,84 @@ void show_change_face_dialog(GtkButton *button, gpointer user_data)
 
 void set_accounttype_callback(GObject *object, GAsyncResult *res, gpointer user_data)
 {
-        GError * error = NULL;
-        GVariant *result;
+    GError * error = NULL;
+    GError * err = NULL;
+    GVariant *result;
 
-	UserInfo *user = (UserInfo *)user_data;
+    UserInfo *user = (UserInfo *)user_data;
 
-        result = g_dbus_proxy_call_finish(G_DBUS_PROXY(object), res, &error);
-        if (result == NULL)
+    ui = gtk_builder_new();
+    gtk_builder_add_from_file(ui, UIDIR "/change-type.ui", &err);
+    if (err)
+    {
+            g_warning("Could not load user interface file: %s", err->message);
+            g_error_free(err);
+            g_object_unref(ui);
+            return;
+    }
+    GtkWidget *radio_admin = GTK_WIDGET (gtk_builder_get_object (ui, "radiobutton2"));
+    GtkWidget *radio_standard_user = GTK_WIDGET (gtk_builder_get_object (ui, "radiobutton1"));
+    GVariant *value = NULL;
+
+    result = g_dbus_proxy_call_finish(G_DBUS_PROXY(object), res, &error);
+    //调用未成功或取消了调用
+    if (result == NULL)
+    {
+        //若取消调用,radiobutton的状态应不改变，这时不能直接使用user->accounttype,应该获取dbus的accounttype属性的值
+        g_warning("Callback Result is null.\n");
+        value = g_dbus_proxy_get_cached_property(user->proxy, "AccountType");
+        user->accounttype = (gint)g_variant_get_int32(value);
+        if(user->accounttype == 1)
+            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(radio_admin), TRUE);
+        else
+            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(radio_standard_user), TRUE);
+        return;
+    }
+    if (error != NULL)
+    {
+        g_warning("DBUS error:%s", error->message);
+        g_error_free(error);
+        return;
+    }
+    g_warning("----------%s\n",user->username);
+    if(user->autologin == TRUE)  //确保自动登录用户只有最新设置的生效
+    {
+        g_warning("------1----%s\n",user->username);
+        GList *it = NULL;
+        for (it = userlist; it; it = it->next)
         {
-                g_warning("Callback Result is null");
-		return;
+            UserInfo *system_user = (UserInfo *)it->data;
+            if(system_user->autologin == TRUE)
+            {
+                if(0 == strcmp(user->username,system_user->username))
+					continue;
+                system_user->autologin = FALSE;
+                g_dbus_proxy_call(user->proxy, "SetAutomaticLogin",
+                                      g_variant_new("(b)", system_user->autologin),
+                                      G_DBUS_CALL_FLAGS_NONE, -1, NULL, NULL, NULL);
+            }
         }
+    }
         if (error != NULL)
         {
-                g_warning("DBUS error:%s", error->message);
-                g_error_free(error);
-		return;
-	}
+            g_warning("DBUS error:%s", error->message);
+            g_error_free(error);
+            return;
+        }
 
-	g_dbus_proxy_call(user->proxy, "SetAutomaticLogin",
+        g_dbus_proxy_call(user->proxy, "SetAutomaticLogin",
                           g_variant_new("(b)", user->autologin),
                           G_DBUS_CALL_FLAGS_NONE, -1, NULL, NULL, NULL);
-
-	if (user->accounttype)
-	{
-        gtk_label_set_text(GTK_LABEL(user->labeltype0), _("Administrators"));
+        if (user->accounttype)
+        {
+            gtk_label_set_text(GTK_LABEL(user->labeltype0), _("Administrators"));
             gtk_label_set_text(GTK_LABEL(user->labeltype1), _("Administrators"));
-	}
-	else
-	{
-        gtk_label_set_text(GTK_LABEL(user->labeltype0), _("Standard user"));
-                gtk_label_set_text(GTK_LABEL(user->labeltype1), _("Standard user"));
-	}
+        }
+        else
+        {
+            gtk_label_set_text(GTK_LABEL(user->labeltype0), _("Standard user"));
+            gtk_label_set_text(GTK_LABEL(user->labeltype1), _("Standard user"));
+        }
 }
 
 void change_accounttype(GtkWidget *widget, gpointer userdata)
@@ -1118,100 +1226,153 @@ void change_accounttype(GtkWidget *widget, gpointer userdata)
 		user->autologin = TRUE;
 	else
 		user->autologin = FALSE;
-        
 	gtk_widget_destroy(GTK_WIDGET(dialog));
-        g_object_unref(ui);
+    g_object_unref(ui);
+}
+
+//获取系统的管理员数量,判断sudo组有多少个成员,其实还须判断admin组
+int get_adm_count()
+{
+	int account_count = 0;
+	FILE *file;
+	char buffer[128];
+	file = fopen("/etc/group", "r");
+	if(!file)
+		g_warning("/etc/group not exist!");
+	while(fgets(buffer, 128, file)){
+		gchar **tmp = g_strsplit(buffer, ":", 4);
+		tmp[0] = g_strstrip(tmp[0]);
+		tmp[3] = g_strstrip(tmp[3]);
+		if(!strcmp(tmp[0], "sudo"))
+		{
+			if(!tmp[3]){
+				g_strfreev(tmp);
+				fclose(file);
+				return 0;
+			}
+			else{
+				int i = 0;
+				while(tmp[3][i] != '\0'){
+					if(tmp[3][i] == ',')
+						++account_count;
+					++i;
+				}
+				if(!account_count){
+					g_strfreev(tmp);
+					fclose(file);
+					return 1;
+				}
+			}
+			break;
+		}
+	}
+	fclose(file);
+	return account_count + 1;
 }
 
 void show_change_accounttype_dialog(GtkButton *button, gpointer user_data)
 {
 	GError *err = NULL;
 
-        UserInfo *user = (UserInfo *)user_data;
-        ui = gtk_builder_new();
-        gtk_builder_add_from_file(ui, UIDIR "/change-type.ui", &err);
-        //gtk_builder_add_from_file(ui, "../panels/user-accounts/change-type.ui", &err);
-        if (err)
-        {
-                g_warning("Could not load user interface file: %s", err->message);
-                g_error_free(err);
-                g_object_unref(ui);
-                return;
-        }
+    UserInfo *user = (UserInfo *)user_data;
+    ui = gtk_builder_new();
+    gtk_builder_add_from_file(ui, UIDIR "/change-type.ui", &err);
+    if (err)
+    {
+        g_warning("Could not load user interface file: %s", err->message);
+        g_error_free(err);
+        g_object_unref(ui);
+        return;
+    }
 
-        dialog = GTK_DIALOG(gtk_builder_get_object (ui, "changetype"));
-        GtkWidget *image = GTK_WIDGET(gtk_builder_get_object (ui, "image1"));
-        GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file(user->iconfile, NULL);
-        if (!pixbuf)
-                pixbuf = gdk_pixbuf_new_from_file("/usr/share/pixmaps/faces/stock_person.png", NULL);
-        GdkPixbuf *face = gdk_pixbuf_scale_simple(pixbuf, 88, 88, GDK_INTERP_BILINEAR);
-        gtk_image_set_from_pixbuf (GTK_IMAGE(image), face);
-        g_object_unref(pixbuf);
-        g_object_unref(face);
+    dialog = GTK_DIALOG(gtk_builder_get_object (ui, "changetype"));
+    gtk_window_set_icon_from_file (GTK_WINDOW(dialog), "/usr/share/ukui-control-center/icons/用户账号.png", NULL);
+    GtkWidget *image = GTK_WIDGET(gtk_builder_get_object (ui, "image1"));
+    GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file(user->iconfile, NULL);
+    if (!pixbuf)
+        pixbuf = gdk_pixbuf_new_from_file("/usr/share/pixmaps/faces/stock_person.png", NULL);
+    GdkPixbuf *face = gdk_pixbuf_scale_simple(pixbuf, 88, 88, GDK_INTERP_BILINEAR);
+    gtk_image_set_from_pixbuf (GTK_IMAGE(image), face);
+    g_object_unref(pixbuf);
+    g_object_unref(face);
 
-        GtkWidget *labelname = GTK_WIDGET(gtk_builder_get_object (ui, "labelname"));
-        gtk_label_set_text(GTK_LABEL(labelname), user->username);
-        char *markup = g_markup_printf_escaped ("<span weight='bold' font_desc='11'>%s</span>", user->username);
-        gtk_label_set_markup(GTK_LABEL(labelname), markup);
-        GtkWidget *stard = GTK_WIDGET (gtk_builder_get_object (ui, "radiobutton1"));
-        GtkWidget *admin = GTK_WIDGET (gtk_builder_get_object (ui, "radiobutton2"));
-	GtkWidget *labeltype = GTK_WIDGET(gtk_builder_get_object (ui, "labeltype"));
-        if (user->accounttype == ADMINISTRATOR)
+    GtkWidget *label6 = GTK_WIDGET(gtk_builder_get_object (ui, "label6"));
+    gtk_label_set_xalign(GTK_LABEL(label6), 0.0);
+    GtkWidget *labelname = GTK_WIDGET(gtk_builder_get_object (ui, "labelname"));
+    gtk_label_set_xalign(GTK_LABEL(labelname), 0.05);
+    gtk_label_set_text(GTK_LABEL(labelname), user->username);
+    char *markup = g_markup_printf_escaped ("<span weight='bold' font_desc='11'>%s</span>", user->username);
+    gtk_label_set_markup(GTK_LABEL(labelname), markup);
+    GtkWidget *stard = GTK_WIDGET (gtk_builder_get_object (ui, "radiobutton1"));
+    GtkWidget *stard_label = GTK_WIDGET (gtk_builder_get_object (ui, "label2"));
+    GtkWidget *admin = GTK_WIDGET (gtk_builder_get_object (ui, "radiobutton2"));
+    GtkWidget *labeltype = GTK_WIDGET(gtk_builder_get_object (ui, "labeltype"));
+    gtk_label_set_xalign(GTK_LABEL(labeltype), 0.05);
+    if (user->accounttype == ADMINISTRATOR)
+    {
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(admin), TRUE);
+        gtk_label_set_text(GTK_LABEL(labeltype), _("Administrators"));
+    }
+    else if (user->accounttype == STANDARDUSER)
+    {
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(stard), TRUE);
+        gtk_label_set_text(GTK_LABEL(labeltype), _("Standard user"));
+    }
+
+    int adm_count = get_adm_count();
+	//确保系统至少有一个管理员
+    if(adm_count == 1 && user->accounttype)
 	{
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(admin), TRUE);
-                gtk_label_set_text(GTK_LABEL(labeltype), _("Administrators"));
-	}
-        else if (user->accounttype == STANDARDUSER)
-	{
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(stard), TRUE);
-                gtk_label_set_text(GTK_LABEL(labeltype), _("Standard user"));
+		gtk_widget_set_sensitive(stard, FALSE);
+		gtk_widget_set_sensitive(stard_label, FALSE);
 	}
 
-        GtkWidget *label3 = GTK_WIDGET(gtk_builder_get_object (ui, "label3"));
-        if (user->currentuser)
-                gtk_label_set_text(GTK_LABEL(label3), _("Logged(Current User)"));
-        else if (user->logined && !user->currentuser)
-                gtk_label_set_text(GTK_LABEL(label3), _("Logged(Other Users)"));
-        else
-                gtk_label_set_text(GTK_LABEL(label3), _("Un-login(Other Users)"));
+    GtkWidget *label3 = GTK_WIDGET(gtk_builder_get_object (ui, "label3"));
+    gtk_label_set_xalign(GTK_LABEL(label3), 0.05);
+    if (user->currentuser)
+        gtk_label_set_text(GTK_LABEL(label3), _("Logged(Current User)"));
+    else if (user->logined && !user->currentuser)
+        gtk_label_set_text(GTK_LABEL(label3), _("Logged(Other Users)"));
+    else
+        gtk_label_set_text(GTK_LABEL(label3), _("Un-login(Other Users)"));
 
-	GtkWidget *btautologin = GTK_WIDGET(gtk_builder_get_object (ui, "btautologin"));
-	if (user->autologin)
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(btautologin), user->autologin);
+    GtkWidget *btautologin = GTK_WIDGET(gtk_builder_get_object (ui, "btautologin"));
+    if (user->autologin)
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(btautologin), user->autologin);
+    g_signal_connect(btautologin, "clicked", G_CALLBACK(confirm_dialog), user);
 
-	GtkWidget *buttoncancel = GTK_WIDGET(gtk_builder_get_object (ui, "buttoncancel"));
-        g_signal_connect(buttoncancel, "clicked", G_CALLBACK(dialog_quit), NULL);
-        gtk_widget_grab_focus(buttoncancel);
+    GtkWidget *buttoncancel = GTK_WIDGET(gtk_builder_get_object (ui, "buttoncancel"));
+    g_signal_connect(buttoncancel, "clicked", G_CALLBACK(dialog_quit), NULL);
+    gtk_widget_grab_focus(buttoncancel);
 
-        GtkWidget *buttonok = GTK_WIDGET(gtk_builder_get_object (ui, "buttonok"));
-        g_signal_connect(buttonok, "clicked", G_CALLBACK(change_accounttype), user);
-	gtk_widget_set_name(GTK_WIDGET(dialog), "ukuicc");
-        gtk_widget_show(GTK_WIDGET(dialog));
+    GtkWidget *buttonok = GTK_WIDGET(gtk_builder_get_object (ui, "buttonok"));
+    g_signal_connect(buttonok, "clicked", G_CALLBACK(change_accounttype), user);
+    gtk_widget_set_name(GTK_WIDGET(dialog), "ukuicc");
+    gtk_widget_show(GTK_WIDGET(dialog));
 }
 
 static void
 deleteUserDone(GObject *object, GAsyncResult *res, gpointer user_data)
 {
-        GError * error = NULL;
-        GVariant *result;
+    GError * error = NULL;
+    GVariant *result;
 
-        result = g_dbus_proxy_call_finish(G_DBUS_PROXY(object), res, &error);
-        if (result == NULL)
-        {
-                g_warning("Callback Result is null");
-		return;
-        }
-        if (error != NULL)
-        {
-                g_warning("DBUS error:%s", error->message);
-                g_error_free(error);
-		if (result)
-			g_variant_unref(result);
-                return;
-        }
-        UserInfo *user = (UserInfo *)user_data; 
+    result = g_dbus_proxy_call_finish(G_DBUS_PROXY(object), res, &error);
+    if (result == NULL)
+    {
+        g_warning("Callback Result is null");
+        return;
+    }
+    if (error != NULL)
+    {
+        g_warning("DBUS error:%s", error->message);
+        g_error_free(error);
+        if (result)
+            g_variant_unref(result);
+        return;
+    }
+    UserInfo *user = (UserInfo *)user_data;
 	GtkWidget *box = GTK_WIDGET (gtk_builder_get_object (builder, "other_users"));
-	GtkWidget *label = g_object_get_data (G_OBJECT (box), "label");
 	GtkWidget *other_hbox = GTK_WIDGET (gtk_builder_get_object (builder, "hbox6"));
 	gtk_container_remove(GTK_CONTAINER(box), GTK_WIDGET(user->notebook));
     	gtk_widget_show_all(box);
@@ -1291,7 +1452,7 @@ void delete_user(GtkWidget *widget, gpointer userdata)
                                                        GTK_BUTTONS_CLOSE,
                                                        "%s", primary_text);
 		
-				gtk_window_set_icon_from_file (GTK_WINDOW(d), "/usr/share/kylin-control-center/icons/用户账号.png", NULL);
+				gtk_window_set_icon_from_file (GTK_WINDOW(d), "/usr/share/ukui-control-center/icons/用户账号.png", NULL);
                 char *secondary_text = _("The user has logged in, please perform the delete operation after logging out!");
                 gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (d),
                                                   "%s", secondary_text);
@@ -1314,19 +1475,17 @@ void delete_user(GtkWidget *widget, gpointer userdata)
         }
 
         dialog = GTK_DIALOG(gtk_builder_get_object (ui, "deleteuser"));
-	gtk_window_set_icon_from_file (GTK_WINDOW(dialog), "/usr/share/kylin-control-center/icons/用户账号.png", NULL);
+	gtk_window_set_icon_from_file (GTK_WINDOW(dialog), "/usr/share/ukui-control-center/icons/用户账号.png", NULL);
 	GtkWidget *label1 = GTK_WIDGET(gtk_builder_get_object (ui, "label1"));
+    gtk_label_set_xalign(GTK_LABEL(label1), 0.0);
     char *markup = g_markup_printf_escaped (_("<span weight='bold' font_desc='11'>do you confirm to delete all the files of %s?</span>"), user->username);
 	gtk_label_set_markup(GTK_LABEL(label1), markup);
 
 	GtkWidget *label2 = GTK_WIDGET(gtk_builder_get_object (ui, "label2"));
+    gtk_label_set_xalign(GTK_LABEL(label2), 0.0);
+    gtk_label_set_yalign(GTK_LABEL(label2), 0.1);
     char *message = g_strdup_printf(_("if you want to delete the %s user, belonging to the user's \ndesktop, documents, favorites, music, pictures and video \nfolder will be deleted!"), user->username);
 	gtk_label_set_text(GTK_LABEL(label2), message);
-
-	GtkWidget *dialog_action_area1 = GTK_WIDGET(gtk_builder_get_object (ui, "dialog-action_area1"));
-	GdkColor color;
-    gdk_color_parse("red", &color);
-    gtk_widget_modify_fg(dialog_action_area1, GTK_STATE_NORMAL, &color);
 
 	GtkWidget *buttonstore = GTK_WIDGET(gtk_builder_get_object (ui, "buttonstore"));
 	g_signal_connect(buttonstore, "clicked", G_CALLBACK(storeFiles), user);
@@ -1348,8 +1507,8 @@ void init_notebook(UserInfo *userinfo, gint page)
 	if (page == 0)
 	{
 		GtkWidget *hbox;
-        	hbox = gtk_hbox_new(FALSE, 0);
-        	GtkWidget *image;
+        hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+        GtkWidget *image;
 		GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file(userinfo->iconfile, NULL);
 		if (!pixbuf)
             pixbuf = gdk_pixbuf_new_from_file("/usr/share/pixmaps/faces/stock_person.png", NULL);
@@ -1358,18 +1517,18 @@ void init_notebook(UserInfo *userinfo, gint page)
 		userinfo->image0 = image;
 		g_object_unref(pixbuf);
 		g_object_unref(face);
-        	gtk_widget_show(image);
-        	gtk_box_pack_start(GTK_BOX(hbox), image, TRUE, TRUE, 0);
-        	GtkWidget *vbox;
-        	vbox = gtk_vbox_new(TRUE, 0);
-        	gtk_widget_set_size_request(vbox, 480, -1);
-        	gtk_widget_show(vbox);
-        	gtk_box_pack_start(GTK_BOX(hbox), vbox, TRUE, TRUE, 0);
-        	label1 = gtk_label_new(userinfo->username);
+        gtk_widget_show(image);
+        gtk_box_pack_start(GTK_BOX(hbox), image, TRUE, TRUE, 0);
+        GtkWidget *vbox;
+        vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+        gtk_widget_set_size_request(vbox, 480, -1);
+        gtk_widget_show(vbox);
+        gtk_box_pack_start(GTK_BOX(hbox), vbox, TRUE, TRUE, 0);
+        label1 = gtk_label_new(userinfo->username);
   		markup = g_markup_printf_escaped ("<span weight='bold' font_desc='11'>%s</span>", userinfo->username);
 		gtk_label_set_markup(GTK_LABEL(label1), markup);
-        	gtk_misc_set_alignment(GTK_MISC(label1), 0, 0.5);
-        	hbox1 = gtk_hbox_new(FALSE, 0);
+        gtk_label_set_xalign(GTK_LABEL(label1), 0.0);
+        hbox1 = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
 		label2 = gtk_label_new("");
 		userinfo->labeltype0 = label2;
 		if (userinfo->accounttype == ADMINISTRATOR)
@@ -1377,28 +1536,28 @@ void init_notebook(UserInfo *userinfo, gint page)
 		else if (userinfo->accounttype == STANDARDUSER)
             gtk_label_set_text(GTK_LABEL(label2), _("Standard user"));
         gtk_widget_set_size_request(label2, 98, -1);
-        	gtk_misc_set_alignment(GTK_MISC(label2), 0, 0.5);
-            bt_ch_name = gtk_button_new_with_label(_("Rename"));
+        gtk_label_set_xalign(GTK_LABEL(label2), 0.0);
+        bt_ch_name = gtk_button_new_with_label(_("Rename"));
 		modify_font_color(bt_ch_name, "#074ca6");
 		gtk_button_set_relief(GTK_BUTTON(bt_ch_name), GTK_RELIEF_NONE);
 		userinfo->labelname0 = label1;
 		g_signal_connect (G_OBJECT (bt_ch_name), "clicked", G_CALLBACK (show_change_name_dialog), userinfo);
-        	sep1 = gtk_vseparator_new();
-            bt_ch_pwd = gtk_button_new_with_label(_("Change PWD"));
+        sep1 = gtk_separator_new(GTK_ORIENTATION_VERTICAL);
+        bt_ch_pwd = gtk_button_new_with_label(_("Change PWD"));
 		modify_font_color(bt_ch_pwd, "#074ca6");
 		gtk_button_set_relief(GTK_BUTTON(bt_ch_pwd), GTK_RELIEF_NONE);
 		g_signal_connect (G_OBJECT (bt_ch_pwd), "clicked", G_CALLBACK (show_change_pwd_dialog), userinfo);
-        	sep2 = gtk_vseparator_new();
-            bt_ch_face = gtk_button_new_with_label(_("Change Face"));
+        sep2 = gtk_separator_new(GTK_ORIENTATION_VERTICAL);
+        bt_ch_face = gtk_button_new_with_label(_("Change Face"));
 		modify_font_color(bt_ch_face, "#074ca6");
 		gtk_button_set_relief(GTK_BUTTON(bt_ch_face), GTK_RELIEF_NONE);
 		g_signal_connect (G_OBJECT (bt_ch_face), "clicked", G_CALLBACK (show_change_face_dialog), userinfo);
-        	sep3 = gtk_vseparator_new();
-            bt_ch_accounttype = gtk_button_new_with_label(_("Change Type"));
+        sep3 = gtk_separator_new(GTK_ORIENTATION_VERTICAL);
+        bt_ch_accounttype = gtk_button_new_with_label(_("Change Type"));
 		modify_font_color(bt_ch_accounttype, "#074ca6");
 		gtk_button_set_relief(GTK_BUTTON(bt_ch_accounttype), GTK_RELIEF_NONE);
 		g_signal_connect (G_OBJECT (bt_ch_accounttype), "clicked", G_CALLBACK (show_change_accounttype_dialog), userinfo);
-        	sep4 = gtk_vseparator_new();
+        sep4 = gtk_separator_new(GTK_ORIENTATION_VERTICAL);
         bt_del_user = gtk_button_new_with_label(_("Delete"));
 		modify_font_color(bt_del_user, "#074ca6");
 		gtk_button_set_relief(GTK_BUTTON(bt_del_user), GTK_RELIEF_NONE);
@@ -1416,7 +1575,7 @@ void init_notebook(UserInfo *userinfo, gint page)
 		{
             gtk_label_set_text(GTK_LABEL(label3), _("Un-login(Other Users)"));
 		}
-        	gtk_misc_set_alignment(GTK_MISC(label3), 0, 0.5);
+            gtk_label_set_xalign(GTK_LABEL(label3), 0.0);
         	gtk_widget_show(label1);
         	gtk_widget_show(label2);
         	gtk_widget_show(label3);
@@ -1446,7 +1605,7 @@ void init_notebook(UserInfo *userinfo, gint page)
 		gtk_widget_hide(bt_ch_name);
 		gtk_widget_hide(sep1);	
 		//kycc -u时要显示当前用户的所有控件
-		gtk_widget_show_all(userinfo->notebook);
+        gtk_widget_show_all(GTK_WIDGET(userinfo->notebook));
 	}
 	else if (page == 1)
 	{
@@ -1455,8 +1614,8 @@ void init_notebook(UserInfo *userinfo, gint page)
 		gtk_button_set_relief(GTK_BUTTON(button), GTK_RELIEF_NONE);
 		gtk_widget_set_size_request(button, -1, 90);
 		GtkWidget *hbox;
-		hbox = gtk_hbox_new(FALSE, 0);
-		gtk_box_set_spacing(GTK_BOX(hbox), 1);
+        hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+        gtk_box_set_spacing(GTK_BOX(hbox), 1);
 		gtk_widget_show(hbox);
 		gtk_container_add(GTK_CONTAINER(button), hbox);
 		GtkWidget *image;
@@ -1471,7 +1630,7 @@ void init_notebook(UserInfo *userinfo, gint page)
 		gtk_widget_show(image);
 		gtk_box_pack_start(GTK_BOX(hbox), image, TRUE, TRUE, 0);
 		GtkWidget *vbox;
-		vbox = gtk_vbox_new(TRUE, 0);
+        vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 		gtk_box_set_spacing(GTK_BOX(vbox), 4);
 		gtk_widget_set_size_request(vbox, 480, -1);
 		gtk_widget_show(vbox);
@@ -1479,7 +1638,7 @@ void init_notebook(UserInfo *userinfo, gint page)
 		label1 = gtk_label_new(userinfo->username);
   		markup = g_markup_printf_escaped ("<span weight='bold' font_desc='11'>%s</span>", userinfo->username);
 		gtk_label_set_markup(GTK_LABEL(label1), markup);
-		gtk_misc_set_alignment(GTK_MISC(label1), 0, 0.5);
+        gtk_label_set_xalign(GTK_LABEL(label1), 0.0);
 		userinfo->labelname1 = label1;
 		label2 = gtk_label_new("");
 		userinfo->labeltype1 = label2;
@@ -1487,7 +1646,7 @@ void init_notebook(UserInfo *userinfo, gint page)
             gtk_label_set_text(GTK_LABEL(label2), _("Administrators"));
 		else if (userinfo->accounttype == STANDARDUSER)
             gtk_label_set_text(GTK_LABEL(label2), _("Standard user"));
-		gtk_misc_set_alignment(GTK_MISC(label2), 0, 0.5);
+        gtk_label_set_xalign(GTK_LABEL(label2), 0.0);
 		label3 = gtk_label_new("");
 		if (userinfo->currentuser)
 		{
@@ -1501,7 +1660,7 @@ void init_notebook(UserInfo *userinfo, gint page)
 		{
             gtk_label_set_text(GTK_LABEL(label3), _("Un-login(Other Users)"));
 		}
-		gtk_misc_set_alignment(GTK_MISC(label3), 0, 0.5);
+        gtk_label_set_xalign(GTK_LABEL(label3), 0.0);
 		gtk_widget_show(label1);
 		gtk_widget_show(label2);
 		gtk_widget_show(label3);
@@ -1612,6 +1771,28 @@ void init_user_info(const gchar *object_path)
 	g_variant_unref(value);
 }
 
+void update_user_box(GtkWidget *widget, gpointer data)
+{
+    GList *list;
+    GtkWidget *other_hbox = GTK_WIDGET (gtk_builder_get_object (builder, "hbox6"));
+    //init_label(GTK_BOX(widget), TRUE);
+    if (g_list_length(userlist) == 1)
+        gtk_widget_hide(other_hbox);
+    else
+        gtk_widget_show(other_hbox);
+    GtkWidget *current_user_box = GTK_WIDGET (gtk_builder_get_object (builder, "current_user_box"));
+    gtk_widget_show_all(current_user_box);
+    for(list = userlist; list; list = list->next)
+    {
+        UserInfo *info = (UserInfo *)list->data;
+        if (!info->currentuser)
+            init_user_button (GTK_BOX(widget), info);
+        else
+            init_user_button (GTK_BOX(current_user_box), info);
+    }
+    gtk_widget_show_all(widget);
+}
+
 void get_all_users_in_callback(GObject *object, GAsyncResult *res, gpointer user_data)
 {
 	GError * error = NULL;
@@ -1642,7 +1823,7 @@ void get_all_users_in_callback(GObject *object, GAsyncResult *res, gpointer user
 	}
 
 	GtkWidget *box = GTK_WIDGET (gtk_builder_get_object (builder, "other_users"));
-	update_user_box(GTK_BOX(box), NULL);
+    update_user_box(box, NULL);
 }
 
 void dbus_get_users_in_system()
@@ -1669,34 +1850,12 @@ void dbus_get_users_in_system()
 		g_object_unref(account_proxy);
 }
 
-void update_user_box(GtkWidget *widget, gpointer data)
-{
-	GList *list;
-	GtkWidget *other_hbox = GTK_WIDGET (gtk_builder_get_object (builder, "hbox6"));
-	//init_label(GTK_BOX(widget), TRUE);
-	if (g_list_length(userlist) == 1)
-		gtk_widget_hide(other_hbox);
-	else
-		gtk_widget_show(other_hbox);
-    GtkWidget *current_user_box = GTK_WIDGET (gtk_builder_get_object (builder, "current_user_box"));
-	gtk_widget_show_all(current_user_box);
-	for(list = userlist; list; list = list->next)
-	{
-		UserInfo *info = (UserInfo *)list->data;
-		if (!info->currentuser)
-			init_user_button (GTK_BOX(widget), info);
-		else
-			init_user_button (GTK_BOX(current_user_box), info);
-	}
-	gtk_widget_show_all(widget);
-}
-
 void update_user(GtkWidget *widget, gpointer data)
 {
 	GtkWidget *label1;
         label1 = gtk_label_new("");
         gtk_widget_set_size_request(label1, -1, 1);
-        gtk_misc_set_alignment(GTK_MISC(label1), 0.01, 0.5);
+        gtk_label_set_xalign(GTK_LABEL(label1), 0.0);
         gtk_box_pack_start(GTK_BOX(widget), GTK_WIDGET(label1), FALSE, FALSE, 0);
 
 	gtk_widget_show_all(widget);
@@ -1729,8 +1888,7 @@ none_icon_selected (GtkMenuItem   *menuitem, UserInfo *user)
 
 
 static GtkWidget *
-menu_item_for_filename (UserInfo *user, const char *filename)
-{
+menu_item_for_filename (UserInfo *user, const char *filename){
         GtkWidget *image, *menuitem;
         GFile *file;
         GIcon *icon;
@@ -1896,7 +2054,7 @@ file_icon_selected (GtkMenuItem   *menuitem, UserInfo *user)
 GtkWidget *
 setup_photo_popup (UserInfo *user)
 {
-        GtkWidget *menu, *menuitem, *image;
+        GtkWidget *menu, *menuitem;
         guint x, y;
         const gchar * const * dirs;
         guint i;
@@ -2026,7 +2184,7 @@ popup_menu_below_button (GtkMenu   *menu,
         GtkTextDirection direction;
         GtkAllocation allocation;
 
-        gtk_widget_get_child_requisition (GTK_WIDGET (menu), &menu_req);
+        gtk_widget_get_preferred_size(GTK_WIDGET (menu), NULL, &menu_req);
 
         direction = gtk_widget_get_direction (button);
 
@@ -2274,7 +2432,6 @@ void show_create_user_dialog(GtkWidget *widget, gpointer data)
 	GError *err = NULL;
 	ui = gtk_builder_new();
 	gtk_builder_add_from_file(ui, UIDIR "/user-create.ui", &err);
-	//gtk_builder_add_from_file(ui, "../panels/user-accounts/user-create.ui", &err);
 	if (err)
 	{
 		g_warning("Could not load user interface file: %s", err->message);
@@ -2290,7 +2447,7 @@ void show_create_user_dialog(GtkWidget *widget, gpointer data)
 	user->iconfile = NULL;
 
 	dialog = GTK_DIALOG(gtk_builder_get_object (ui, "usercreate"));
-	gtk_window_set_icon_from_file (GTK_WINDOW(dialog), "/usr/share/kylin-control-center/icons/用户账号.png", NULL);
+	gtk_window_set_icon_from_file (GTK_WINDOW(dialog), "/usr/share/ukui-control-center/icons/用户账号.png", NULL);
 	GtkWidget *imageuser = GTK_WIDGET(gtk_builder_get_object (ui, "imageuser"));
 	gtk_widget_hide(imageuser);
 
@@ -2309,19 +2466,14 @@ void show_create_user_dialog(GtkWidget *widget, gpointer data)
 
 	GtkWidget *entryname = GTK_WIDGET(gtk_builder_get_object (ui, "entryname"));
 	gtk_entry_set_text(GTK_ENTRY(entryname), _("Please enter the username"));
-	GdkColor color;
-    gdk_color_parse("#999999", &color);
-	gtk_widget_modify_text(entryname, GTK_STATE_NORMAL, &color);
 	g_signal_connect(entryname, "focus-in-event", G_CALLBACK(focusIn), NULL);
 	g_signal_connect(entryname, "changed", G_CALLBACK(textChanged), user);
 	GtkWidget *entrypwd = GTK_WIDGET(gtk_builder_get_object (ui, "entrypwd"));
 	gtk_entry_set_text(GTK_ENTRY(entrypwd), _("Please enter the password"));
-	gtk_widget_modify_text(entrypwd, GTK_STATE_NORMAL, &color);
 	g_signal_connect(entrypwd, "focus-in-event", G_CALLBACK(focusIn), NULL);
 	g_signal_connect(entrypwd, "changed", G_CALLBACK(textChanged), user);
 	GtkWidget *entryensurepwd = GTK_WIDGET(gtk_builder_get_object (ui, "entryensurepwd"));
 	gtk_entry_set_text(GTK_ENTRY(entryensurepwd), _("Please confirm the new password"));
-	gtk_widget_modify_text(entryensurepwd, GTK_STATE_NORMAL, &color);
 	g_signal_connect(entryensurepwd, "focus-in-event", G_CALLBACK(focusIn), NULL);
 	g_signal_connect(entryensurepwd, "changed", G_CALLBACK(textChanged), user);
 
@@ -2345,7 +2497,7 @@ void show_create_user_dialog(GtkWidget *widget, gpointer data)
 	gtk_widget_set_sensitive(buttoncreate, FALSE);
 	gtk_widget_set_name(GTK_WIDGET(dialog), "ukuicc");
 //	gtk_dialog_run(dialog);
-	gtk_widget_show(dialog);
+    gtk_widget_show(GTK_WIDGET(dialog));
 }
 
 void init_user_accounts()
