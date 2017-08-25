@@ -69,6 +69,8 @@ enum {
         STORE_COL_DESCRIPTION,
         STORE_COL_APP,
         STORE_COL_SEARCH,
+        STORE_COL_LABEL,
+        STORE_COL_SPACE,
         NUMBER_OF_COLUMNS
 };
 
@@ -108,6 +110,17 @@ find_by_app (GtkTreeModel *model,
         return FALSE;
 }
 
+const char * kylin_set_the_label(GspApp *app){
+        const char *label;
+        gboolean enabled = gsp_app_get_enabled(app);
+        if(enabled)
+                label = _("enabled");
+        else
+                label = _("disabled");
+        return label;
+}
+
+
 static void
 _fill_iter_from_app (GtkListStore *list_store,
                      GtkTreeIter  *iter,
@@ -120,6 +133,8 @@ _fill_iter_from_app (GtkListStore *list_store,
         GIcon      *icon;
         const char *description;
         const char *app_name;
+        const char *label;
+        const char *space = "                                                             ";
 
         hidden      = gsp_app_get_hidden (app);
         display     = gsp_app_get_display (app);
@@ -128,6 +143,7 @@ _fill_iter_from_app (GtkListStore *list_store,
         icon        = gsp_app_get_icon (app);
         description = gsp_app_get_description (app);
         app_name    = gsp_app_get_name (app);
+        label       = kylin_set_the_label(app);
 
         if (G_IS_THEMED_ICON (icon)) {
                 GtkIconTheme       *theme;
@@ -160,6 +176,8 @@ _fill_iter_from_app (GtkListStore *list_store,
                             STORE_COL_DESCRIPTION, description,
                             STORE_COL_APP, app,
                             STORE_COL_SEARCH, app_name,
+                            STORE_COL_LABEL, label,
+                            STORE_COL_SPACE, space,
                             -1);
         g_object_unref (icon);
 }
@@ -586,6 +604,8 @@ setup_dialog (GsmPropertiesDialog *dialog)
                                                        G_TYPE_ICON,
                                                        G_TYPE_STRING,
                                                        G_TYPE_OBJECT,
+                                                       G_TYPE_STRING,
+                                                       G_TYPE_STRING,
                                                        G_TYPE_STRING);
         tree_filter = gtk_tree_model_filter_new (GTK_TREE_MODEL (dialog->priv->list_store),NULL);
         g_object_unref (dialog->priv->list_store);
@@ -612,20 +632,9 @@ setup_dialog (GsmPropertiesDialog *dialog)
                           G_CALLBACK (on_selection_changed),
                           dialog);
 
-        /* CHECKBOX COLUMN */
-        renderer = gtk_cell_renderer_toggle_new ();
-        column = gtk_tree_view_column_new_with_attributes ("Enabled",
-                                                           renderer,
-                                                           "active", STORE_COL_ENABLED,
-                                                           NULL);
-        gtk_tree_view_append_column (treeview, column);
-        g_signal_connect (renderer,
-                          "toggled",
-                          G_CALLBACK (on_startup_enabled_toggled),
-                          dialog);
-
         /* ICON COLUMN */
         renderer = gtk_cell_renderer_pixbuf_new ();
+        gtk_cell_renderer_set_padding(renderer, 0, 5);
         column = gtk_tree_view_column_new_with_attributes ("Icon",
                                                            renderer,
                                                            "gicon", STORE_COL_GICON,
@@ -643,9 +652,38 @@ setup_dialog (GsmPropertiesDialog *dialog)
                                                            "markup", STORE_COL_DESCRIPTION,
                                                            "sensitive", STORE_COL_ENABLED,
                                                            NULL);
-        g_object_set (renderer,
-                      "ellipsize", PANGO_ELLIPSIZE_END,
-                      NULL);
+//        g_object_set (renderer,
+//                      "ellipsize", PANGO_ELLIPSIZE_END,
+//                      NULL);
+        gtk_tree_view_append_column (treeview, column);
+
+        renderer = gtk_cell_renderer_text_new ();
+        column = gtk_tree_view_column_new_with_attributes ("Space",
+                                                           renderer,
+                                                           "markup", STORE_COL_SPACE,
+                                                           "sensitive", STORE_COL_ENABLED,
+                                                           NULL);
+        gtk_tree_view_append_column (treeview, column);
+
+         /* CHECKBOX COLUMN */
+        renderer = gtk_cell_renderer_toggle_new ();
+        column = gtk_tree_view_column_new_with_attributes ("Enabled",
+                                                           renderer,
+                                                           "active", STORE_COL_ENABLED,
+                                                           NULL);
+        gtk_tree_view_append_column (treeview, column);
+        g_signal_connect (renderer,
+                          "toggled",
+                          G_CALLBACK (on_startup_enabled_toggled),
+                          dialog);
+        /* LABEL COLUMN */
+        renderer = gtk_cell_renderer_text_new ();
+
+        column = gtk_tree_view_column_new_with_attributes("Lable",
+                                                          renderer,
+                                                          "markup",STORE_COL_LABEL,
+                                                          "sensitive", STORE_COL_ENABLED,
+                                                          NULL);
         gtk_tree_view_append_column (treeview, column);
 
 
@@ -697,6 +735,16 @@ setup_dialog (GsmPropertiesDialog *dialog)
                                               STORE_COL_DESCRIPTION,
                                               GTK_SORT_ASCENDING);
 
+        GtkWidget *title_vp = GTK_WIDGET(gtk_builder_get_object(dialog->priv->xml, "title_vp"));
+        GdkColor grey = {0,0xf0f0, 0xf0f0, 0xf0f0};
+        gtk_widget_modify_bg(title_vp, GTK_STATE_NORMAL, &grey);
+
+        GtkWidget *title_name = GTK_WIDGET(gtk_builder_get_object(dialog->priv->xml, "title_name"));
+        GtkWidget *title_status = GTK_WIDGET(gtk_builder_get_object(dialog->priv->xml, "title_status"));
+        GtkWidget *label54 = GTK_WIDGET(gtk_builder_get_object(dialog->priv->xml, "label54"));
+        gtk_label_set_xalign(label54, 0.0);
+        gtk_label_set_xalign(title_name, 0.05);
+        gtk_label_set_xalign(title_status, 0.1);
 
         button = GTK_WIDGET (gtk_builder_get_object (dialog->priv->xml,
                                                      CAPPLET_ADD_WIDGET_NAME));

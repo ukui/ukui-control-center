@@ -560,7 +560,7 @@ gsp_app_manager_find_local_app_with_name_exec (GspAppManager *manager,
 
         for (l = manager->priv->apps; l != NULL; l = l->next) {
                 app = GSP_APP (l->data);
-            if (!strcmp (name, gsp_app_get_name(app))&&!strcmp (exec, gsp_app_get_exec(app))&&!strcmp (icon, gsp_app_get_icon_char(app)))
+            if (!strcmp (name, gsp_app_get_name(app))&&!strcmp (exec, gsp_app_get_exec(app)))      //&&!strcmp (icon, gsp_app_get_icon_char(app)))
             {
                 if(strstr(gsp_app_get_path(app),"config/autostart/")&&gsp_app_get_hidden(app)&&!gsp_app_get_enabled(app))
                 {
