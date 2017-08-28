@@ -113,6 +113,8 @@ setup_dialog (GtkBuilder * builder)
 {
 	gchar *monitor;
 
+    GtkWidget *label_entry =  GTK_WIDGET(gtk_builder_get_object(builder, "label20"));
+    gtk_label_set_xalign(GTK_LABEL(label_entry), 0.0);
 	g_settings_bind (keyboard_settings,
 			 "repeat",
                      	 MWID ("repeat_toggle"),
