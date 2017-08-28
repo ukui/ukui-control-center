@@ -2960,7 +2960,7 @@ Management</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="orientation">vertical</property>
-                                    <property name="spacing">6</property>
+                                    <property name="spacing">10</property>
                                     <child>
                                       <object class="GtkBox" id="hbox24">
                                         <property name="visible">True</property>
@@ -3094,10 +3094,6 @@ Management</property>
                                                         <property name="visible">True</property>
                                                         <property name="can_focus">False</property>
                                                         <property name="label" translatable="yes">Short</property>
-                                                        <attributes>
-                                                          <attribute name="style" value="italic"/>
-                                                          <attribute name="scale" value="0.82999999999999996"/>
-                                                        </attributes>
                                                       </object>
                                                       <packing>
                                                         <property name="expand">True</property>
@@ -3110,10 +3106,6 @@ Management</property>
                                                         <property name="visible">True</property>
                                                         <property name="can_focus">False</property>
                                                         <property name="label" translatable="yes">Slow</property>
-                                                        <attributes>
-                                                          <attribute name="style" value="italic"/>
-                                                          <attribute name="scale" value="0.82999999999999996"/>
-                                                        </attributes>
                                                       </object>
                                                       <packing>
                                                         <property name="expand">True</property>
@@ -3189,10 +3181,6 @@ Management</property>
                                                         <property name="visible">True</property>
                                                         <property name="can_focus">False</property>
                                                         <property name="label" translatable="yes">Long</property>
-                                                        <attributes>
-                                                          <attribute name="style" value="italic"/>
-                                                          <attribute name="scale" value="0.82999999999999996"/>
-                                                        </attributes>
                                                       </object>
                                                       <packing>
                                                         <property name="expand">True</property>
@@ -3205,10 +3193,6 @@ Management</property>
                                                         <property name="visible">True</property>
                                                         <property name="can_focus">False</property>
                                                         <property name="label" translatable="yes">Fast</property>
-                                                        <attributes>
-                                                          <attribute name="style" value="italic"/>
-                                                          <attribute name="scale" value="0.82999999999999996"/>
-                                                        </attributes>
                                                       </object>
                                                       <packing>
                                                         <property name="expand">True</property>
@@ -3241,6 +3225,7 @@ Management</property>
                                       <packing>
                                         <property name="expand">True</property>
                                         <property name="fill">True</property>
+                                        <property name="padding">5</property>
                                         <property name="position">1</property>
                                       </packing>
                                     </child>
@@ -3255,7 +3240,7 @@ Management</property>
                                       <packing>
                                         <property name="expand">True</property>
                                         <property name="fill">True</property>
-                                        <property name="padding">7</property>
+                                        <property name="padding">10</property>
                                         <property name="position">2</property>
                                       </packing>
                                     </child>
@@ -3401,10 +3386,6 @@ Management</property>
                                                         <property name="visible">True</property>
                                                         <property name="can_focus">False</property>
                                                         <property name="label" translatable="yes">Fast</property>
-                                                        <attributes>
-                                                          <attribute name="style" value="italic"/>
-                                                          <attribute name="scale" value="0.82999999999999996"/>
-                                                        </attributes>
                                                       </object>
                                                       <packing>
                                                         <property name="expand">False</property>
@@ -3437,10 +3418,6 @@ Management</property>
                                                         <property name="visible">True</property>
                                                         <property name="can_focus">False</property>
                                                         <property name="label" translatable="yes">Slow</property>
-                                                        <attributes>
-                                                          <attribute name="style" value="italic"/>
-                                                          <attribute name="scale" value="0.82999999999999996"/>
-                                                        </attributes>
                                                       </object>
                                                       <packing>
                                                         <property name="expand">False</property>
@@ -3882,8 +3859,8 @@ commonly used language.</property>
                         <property name="can_focus">False</property>
                         <child>
                           <object class="GtkNotebook" id="prefs_widget">
-                            <property name="width_request">590</property>
-                            <property name="height_request">447</property>
+                            <property name="width_request">720</property>
+                            <property name="height_request">570</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <child>
@@ -3901,6 +3878,7 @@ commonly used language.</property>
                                       <object class="GtkBox" id="vbox4">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
+                                        <property name="orientation">vertical</property>
                                         <child>
                                           <object class="GtkRadioButton" id="right_hand">
                                             <property name="label" translatable="yes">_Right-handed</property>
@@ -3939,7 +3917,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">30</property>
-                                    <property name="y">36</property>
+                                    <property name="y">40</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -3955,7 +3933,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">30</property>
-                                    <property name="y">126</property>
+                                    <property name="y">160</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -3998,7 +3976,7 @@ commonly used language.</property>
                                         </child>
                                         <child>
                                           <object class="GtkScale" id="movtion_speed">
-                                            <property name="width_request">207</property>
+                                            <property name="width_request">240</property>
                                             <property name="height_request">28</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
@@ -4031,7 +4009,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">30</property>
-                                    <property name="y">197</property>
+                                    <property name="y">255</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -4074,7 +4052,7 @@ commonly used language.</property>
                                         </child>
                                         <child>
                                           <object class="GtkScale" id="senstive_speed">
-                                            <property name="width_request">207</property>
+                                            <property name="width_request">240</property>
                                             <property name="height_request">28</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
@@ -4107,7 +4085,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">30</property>
-                                    <property name="y">233</property>
+                                    <property name="y">295</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -4120,7 +4098,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">30</property>
-                                    <property name="y">304</property>
+                                    <property name="y">395</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -4164,7 +4142,7 @@ commonly used language.</property>
                                         </child>
                                         <child>
                                           <object class="GtkScale" id="double_click_speed">
-                                            <property name="width_request">207</property>
+                                            <property name="width_request">240</property>
                                             <property name="height_request">28</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
@@ -4197,7 +4175,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">30</property>
-                                    <property name="y">341</property>
+                                    <property name="y">434</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -4220,15 +4198,16 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">445</property>
-                                    <property name="y">300</property>
+                                    <property name="y">398</property>
                                   </packing>
                                 </child>
                                 <child>
                                   <object class="GtkBox" id="hbox41">
-                                    <property name="width_request">520</property>
+                                    <property name="width_request">650</property>
                                     <property name="height_request">33</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
+                                    <property name="spacing">10</property>
                                     <child>
                                       <object class="GtkLabel" id="label86">
                                         <property name="height_request">33</property>
@@ -4249,6 +4228,7 @@ commonly used language.</property>
                                       <object class="GtkSeparator" id="hseparator5">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
+                                        <property name="margin_top">17</property>
                                       </object>
                                       <packing>
                                         <property name="expand">True</property>
@@ -4259,15 +4239,16 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">17</property>
-                                    <property name="y">159</property>
+                                    <property name="y">220</property>
                                   </packing>
                                 </child>
                                 <child>
                                   <object class="GtkBox" id="hbox42">
-                                    <property name="width_request">520</property>
+                                    <property name="width_request">650</property>
                                     <property name="height_request">33</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
+                                    <property name="spacing">10</property>
                                     <child>
                                       <object class="GtkLabel" id="label85">
                                         <property name="height_request">33</property>
@@ -4288,6 +4269,7 @@ commonly used language.</property>
                                       <object class="GtkSeparator" id="hseparator8">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
+                                        <property name="margin_top">17</property>
                                       </object>
                                       <packing>
                                         <property name="expand">True</property>
@@ -4298,15 +4280,16 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">17</property>
-                                    <property name="y">96</property>
+                                    <property name="y">120</property>
                                   </packing>
                                 </child>
                                 <child>
                                   <object class="GtkBox" id="hbox43">
-                                    <property name="width_request">520</property>
+                                    <property name="width_request">650</property>
                                     <property name="height_request">33</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
+                                    <property name="spacing">10</property>
                                     <child>
                                       <object class="GtkLabel" id="label84">
                                         <property name="height_request">33</property>
@@ -4327,6 +4310,7 @@ commonly used language.</property>
                                       <object class="GtkSeparator" id="hseparator9">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
+                                        <property name="margin_top">17</property>
                                       </object>
                                       <packing>
                                         <property name="expand">True</property>
@@ -4342,10 +4326,11 @@ commonly used language.</property>
                                 </child>
                                 <child>
                                   <object class="GtkBox" id="hbox45">
-                                    <property name="width_request">520</property>
+                                    <property name="width_request">650</property>
                                     <property name="height_request">33</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
+                                    <property name="spacing">10</property>
                                     <child>
                                       <object class="GtkLabel" id="label93">
                                         <property name="height_request">33</property>
@@ -4366,6 +4351,7 @@ commonly used language.</property>
                                       <object class="GtkSeparator" id="hseparator10">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
+                                        <property name="margin_top">17</property>
                                       </object>
                                       <packing>
                                         <property name="expand">True</property>
@@ -4376,13 +4362,15 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">17</property>
-                                    <property name="y">274</property>
+                                    <property name="y">365</property>
                                   </packing>
                                 </child>
                               </object>
                             </child>
                             <child type="tab">
                               <object class="GtkLabel" id="label41">
+                                <property name="width_request">100</property>
+                                <property name="height_request">30</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="label" translatable="yes">General</property>
@@ -4407,7 +4395,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">17</property>
-                                    <property name="y">12</property>
+                                    <property name="y">42</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -4423,7 +4411,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">30</property>
-                                    <property name="y">50</property>
+                                    <property name="y">90</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -4439,7 +4427,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">30</property>
-                                    <property name="y">83</property>
+                                    <property name="y">123</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -4454,7 +4442,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">17</property>
-                                    <property name="y">116</property>
+                                    <property name="y">156</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -4558,7 +4546,22 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">30</property>
-                                    <property name="y">149</property>
+                                    <property name="y">199</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkCheckButton" id="touchpad_enabled">
+                                    <property name="label" translatable="yes">Enabled touchpad</property>
+                                    <property name="width_request">400</property>
+                                    <property name="height_request">30</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">False</property>
+                                    <property name="draw_indicator">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="x">30</property>
+                                    <property name="y">15</property>
                                   </packing>
                                 </child>
                               </object>
@@ -4568,6 +4571,8 @@ commonly used language.</property>
                             </child>
                             <child type="tab">
                               <object class="GtkLabel" id="label82">
+                                <property name="width_request">100</property>
+                                <property name="height_request">30</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="label" translatable="yes">Touchpad</property>
@@ -4579,7 +4584,7 @@ commonly used language.</property>
                             </child>
                           </object>
                           <packing>
-                            <property name="x">35</property>
+                            <property name="x">20</property>
                             <property name="y">25</property>
                           </packing>
                         </child>

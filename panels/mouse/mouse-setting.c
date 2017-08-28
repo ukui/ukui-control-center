@@ -72,6 +72,7 @@ struct _MouseData {
     GtkWidget * disable_typing_toggle;
     GtkWidget * tap_to_click_toggle;
     GtkWidget * horiz_scroll_toggle;
+	GtkWidget * touchpad_enabled;
 
     GtkWidget * scroll_disabled_radio;
     GtkWidget * vertical_scroll_edge_radio;
@@ -405,6 +406,9 @@ static void setup_dialog()
     }
     else 
     {
+		g_settings_bind (touchpad_settings, "touchpad-enabled",
+		    mousedata.touchpad_enabled, "active",
+		    G_SETTINGS_BIND_DEFAULT);
         g_settings_bind (touchpad_settings, "disable-while-typing",
             mousedata.disable_typing_toggle, "active",
             G_SETTINGS_BIND_DEFAULT);
@@ -444,6 +448,17 @@ static void init_setting()
     gtk_size_group_add_widget(size_group, WID("movtion_fast"));
     gtk_size_group_add_widget(size_group, WID("senstive_high"));
     gtk_size_group_add_widget(size_group, WID("double_click_fast"));
+
+	int accel_numerator, accel_denominator, threshold;	//目的是当底下两个值为-1时，从底层获取到默认的具体值
+	double mouse_acceleration;							//当前系统指针加速值，-1为系统默认
+	int mouse_threshold;								//当前系统指针灵敏度，-1为系统默认
+	XGetPointerControl(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), &accel_numerator, &accel_denominator, &threshold);
+	mouse_acceleration = g_settings_get_double(mouse_settings, "motion-acceleration");
+	mouse_threshold = g_settings_get_int(mouse_settings, "motion-threshold");
+	if(mouse_acceleration == -1.0)
+		g_settings_set_double(mouse_settings, "motion-acceleration", (double)(accel_numerator/accel_denominator));
+	if(mouse_threshold == -1)
+		g_settings_set_int(mouse_settings, "motion-threshold", threshold);
 }
 
 static void create_dialog(GtkBuilder * builder)
