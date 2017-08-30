@@ -5528,8 +5528,8 @@ commonly used language.</property>
                         <property name="can_focus">False</property>
                         <child>
                           <object class="GtkViewport" id="viewport18">
-                            <property name="width_request">590</property>
-                            <property name="height_request">480</property>
+                            <property name="width_request">720</property>
+                            <property name="height_request">570</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <child>
@@ -5548,7 +5548,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">15</property>
-                                    <property name="y">38</property>
+                                    <property name="y">45</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -5574,7 +5574,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">15</property>
-                                    <property name="y">285</property>
+                                    <property name="y">300</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -5587,7 +5587,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">15</property>
-                                    <property name="y">320</property>
+                                    <property name="y">340</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -5600,7 +5600,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">15</property>
-                                    <property name="y">358</property>
+                                    <property name="y">380</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -5612,7 +5612,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">105</property>
-                                    <property name="y">285</property>
+                                    <property name="y">300</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -5624,7 +5624,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">105</property>
-                                    <property name="y">320</property>
+                                    <property name="y">340</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -5636,7 +5636,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">105</property>
-                                    <property name="y">358</property>
+                                    <property name="y">380</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -5649,23 +5649,8 @@ commonly used language.</property>
                                     <property name="receives_default">True</property>
                                   </object>
                                   <packing>
-                                    <property name="x">476</property>
-                                    <property name="y">435</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkButton" id="button_dispaly_setting_default">
-                                    <property name="label" translatable="yes">Make Default</property>
-                                    <property name="width_request">100</property>
-                                    <property name="height_request">30</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">True</property>
-                                    <property name="no_show_all">True</property>
-                                  </object>
-                                  <packing>
-                                    <property name="x">32</property>
-                                    <property name="y">490</property>
+                                    <property name="x">15</property>
+                                    <property name="y">510</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -5680,7 +5665,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">15</property>
-                                    <property name="y">395</property>
+                                    <property name="y">420</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -5694,7 +5679,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">15</property>
-                                    <property name="y">435</property>
+                                    <property name="y">460</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -5749,14 +5734,14 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">15</property>
-                                    <property name="y">247</property>
+                                    <property name="y">260</property>
                                   </packing>
                                 </child>
                               </object>
                             </child>
                           </object>
                           <packing>
-                            <property name="x">35</property>
+                            <property name="x">20</property>
                             <property name="y">25</property>
                           </packing>
                         </child>

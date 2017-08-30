@@ -503,9 +503,9 @@ rebuild_current_monitor_label (App *app)
 	    mate_rr_labeler_get_rgba_for_output (app->labeler, app->current_output, &color);
 #else
 	   //mate_rr_labeler_get_color_for_output (app->labeler, app->current_output, &color);
-	    color.red = 65535;
-    	    color.green = 43690;
-    	    color.blue = 43690;
+	    color.red = 4420;
+    	    color.green = 39219;
+    	    color.blue = 56661;
 #endif
 	    use_color = TRUE;
 	    g_free (tmp);
@@ -1875,9 +1875,9 @@ paint_output (App *app, cairo_t *cr, int i)
     b = output_color.blue;
 #else
 //    mate_rr_labeler_get_color_for_output (app->labeler, output, &output_color);
-    output_color.red = 65535;
-    output_color.green = 43690;
-    output_color.blue = 43690;
+    output_color.red = 4420;
+    output_color.green = 39219;
+    output_color.blue = 56661;
     r = output_color.red / 65535.0;
     g = output_color.green / 65535.0;
     b = output_color.blue / 65535.0;
