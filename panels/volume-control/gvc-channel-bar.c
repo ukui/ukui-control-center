@@ -32,7 +32,7 @@
 #include <canberra-gtk.h>
 #include "gvc-channel-bar.h"
 
-#define SCALE_SIZE 128
+#define SCALE_SIZE 256
 #define ADJUSTMENT_MAX_NORMAL 65536.0 /* PA_VOLUME_NORM */
 #define ADJUSTMENT_MAX_AMPLIFIED 98304.0 /* 1.5 * ADJUSTMENT_MAX_NORMAL */
 #define ADJUSTMENT_MAX (bar->priv->is_amplified ? ADJUSTMENT_MAX_AMPLIFIED : ADJUSTMENT_MAX_NORMAL)
@@ -516,7 +516,7 @@ on_zero_adjustment_value_changed (GtkAdjustment *adjustment,
 static void
 update_mute_button (GvcChannelBar *bar)
 {
-        if (!bar->priv->show_mute) {
+        if (bar->priv->show_mute) {
                 gtk_widget_show (bar->priv->mute_button);
                 gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (bar->priv->mute_button),
                                               bar->priv->is_muted);

@@ -110,6 +110,9 @@ on_combobox_changed (GtkComboBox          *widget,
 
         g_assert (theme_name != NULL);
 
+        //更新theme_name必须要放在其他gsettings的设置之前，因为其他的设置更改会触发changed信号而重新加载combo_box的内容
+        g_settings_set_string (chooser->priv->sound_settings, SOUND_THEME_KEY, theme_name);
+
         /* special case for no sounds */
         if (strcmp (theme_name, NO_SOUNDS_THEME_NAME) == 0) {
                 g_settings_set_boolean (chooser->priv->sound_settings, EVENT_SOUNDS_KEY, FALSE);
@@ -118,7 +121,7 @@ on_combobox_changed (GtkComboBox          *widget,
                 g_settings_set_boolean (chooser->priv->sound_settings, EVENT_SOUNDS_KEY, TRUE);
         }
 
-        g_settings_set_string (chooser->priv->sound_settings, SOUND_THEME_KEY, theme_name);
+        //g_settings_set_string (chooser->priv->sound_settings, SOUND_THEME_KEY, theme_name);
 
         g_free (theme_name);
 
