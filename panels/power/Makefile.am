@@ -1,16 +1,23 @@
 cappletname = power
+saverdir = $(libexecdir)/ukui-screensaver
+#libexecdir = /usr/lib
 AM_CPPFLAGS = 					\
+	-DUIDIR=\""$(uidir)"\"			\
 	@PACKAGE_CFLAGS@			\
+	-DMATEMENU_I_KNOW_THIS_IS_UNSTABLE	\
 	-fPIC					\
         $(PANEL_CFLAGS)				\
 	${DBUS_CFLAGS}				\
 	$(UPOWER_CFLAGS)			\
+	$(UNIQUE_CFLAGS)			\
 	-DSBINDIR=\"$(sbindir)\"		\
-	-DMATELOCALEDIR=\""$(datadir)/locale"\"	\
+	-DUKUILOCALEDIR=\""$(datadir)/locale"\"	\
 	-DEGG_LOG_FILE=\""/tmp/kpm.log"\"       \
         -DEGG_VERBOSE="\"GPM_VERBOSE\""         \
         -DEGG_LOGGING="\"GPM_LOGGING\""         \
         -DEGG_CONSOLE="\"GPM_CONSOLE\""         \
+	-DSAVERDIR=\""$(saverdir)"\"		\
+	-DLIBEXECDIR=\""$(libexecdir)"\"	\
         $(NULL)
 
 ccpanelsdir = $(PANELS_DIR)
@@ -45,16 +52,33 @@ libpower_la_SOURCES =                           \
         kpm-marshal.c                                   \
         kpm-upower.c                                    \
         kpm-upower.h                                    \
-	kpm-prefs-core.c			\
-	kpm-prefs-core.h			\
+	kpm-prefs-core.c				\
+	kpm-prefs-core.h				\
+	ukui-screensaver-preferences.c			\
+	subprocs.c					\
+	subprocs.h					\
+	gs-job.c					\
+	gs-job.h					\
+	gs-theme-manager.c				\
+	gs-theme-manager.h				\
+	gs-prefs.c					\
+	gs-prefs.h					\
+	copy-theme-dialog.c				\
+	copy-theme-dialog.h				\
 	$(NULL)
 
 libpower_la_LIBADD = 				\
 			@PACKAGE_LIBS@		\
 			$(DBUS_LIBS)		\
-			$(UPOWER_LIBS)
+			$(UNIQUE_LIBS)		\
+			$(UPOWER_LIBS)		\
+			-lmate-menu		\
+			$(NULL)
 
 libpower_la_LDFLAGS = -export-dynamic @PACKAGE_LDFLAGS@
+
+uidir = $(pkgdatadir)/ui
+ui_DATA = ukui-fullscreen-preview.ui
 
 @INTLTOOL_XML_NOMERGE_RULE@
 #gsettings_schemas_in_files = org.ukui.power-manager.gschema.xml.in

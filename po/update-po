@@ -14,6 +14,7 @@ intltool-extract --type=gettext/glade ../panels/user-accounts/delete-user.ui
 intltool-extract --type=gettext/glade ../panels/user-accounts/change-name.ui
 intltool-extract --type=gettext/glade ../panels/user-accounts/change-type.ui
 intltool-extract --type=gettext/glade ../panels/user-accounts/user-create.ui
+intltool-extract --type=gettext/glade ../panels/power/mate-fullscreen-preview.ui
 cd $(dirname $0)
 PO_DIR=$PWD
 
@@ -58,3 +59,4 @@ rm panels/user-accounts/delete-user.ui.h
 rm panels/user-accounts/change-name.ui.h
 rm panels/user-accounts/change-type.ui.h
 rm panels/user-accounts/user-create.ui.h
+rm panels/power/mate-fullscreen-preview.ui.h

@@ -40,4 +40,6 @@ panels/user-accounts/user-create.ui
 shell/ukui-control-center.c
 shell/mainwindow.c
 shell/shell.ui
-
+panels/power/copy-theme-dialog.c
+panels/power/ukui-fullscreen-preview.ui
+panels/power/ukui-screensaver-preferences.c

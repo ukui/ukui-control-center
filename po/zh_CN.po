@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ukui-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-25 08:33+0800\n"
+"POT-Creation-Date: 2017-08-31 10:42+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -394,6 +394,36 @@ msgstr "用户名:"
 msgid "Password:"
 msgstr "密     码:"
 
+#: panels/power/copy-theme-dialog.c:215
+msgid "Copying files"
+msgstr ""
+
+#: panels/power/copy-theme-dialog.c:233
+msgid "From:"
+msgstr ""
+
+#: panels/power/copy-theme-dialog.c:237
+msgid "To:"
+msgstr ""
+
+#: panels/power/copy-theme-dialog.c:257
+msgid "Copying themes"
+msgstr ""
+
+#: panels/power/copy-theme-dialog.c:300
+msgid "Invalid screensaver theme"
+msgstr ""
+
+#: panels/power/copy-theme-dialog.c:303
+#, c-format
+msgid "%s does not appear to be a valid screensaver theme."
+msgstr ""
+
+#: panels/power/copy-theme-dialog.c:483
+#, c-format
+msgid "Copying file: %u of %u"
+msgstr ""
+
 #: panels/power/kpm-common.c:52
 msgid "Unknown time"
 msgstr "未知时间"
@@ -433,43 +463,39 @@ msgstr "电源管理"
 msgid "Power Manager for the MATE desktop"
 msgstr "MATE桌面环境的电源管理"
 
-#: panels/power/kpm-prefs-core.c:187 panels/power/kpm-prefs-core.c:189
+#: panels/power/kpm-prefs-core.c:168 panels/power/kpm-prefs-core.c:170
 msgid "Never"
 msgstr "从不"
 
-#: panels/power/kpm-prefs-core.c:269 panels/power/kpm-prefs-core.c:272
+#: panels/power/kpm-prefs-core.c:248 panels/power/kpm-prefs-core.c:253
+#: panels/power/kpm-prefs-core.c:256
 msgid "Shutdown"
 msgstr "关机"
 
-#: panels/power/kpm-prefs-core.c:281 panels/power/kpm-prefs-core.c:284
+#: panels/power/kpm-prefs-core.c:260 panels/power/kpm-prefs-core.c:269
+#: panels/power/kpm-prefs-core.c:272
 msgid "Hang"
 msgstr "挂起"
 
-#: panels/power/kpm-prefs-core.c:289 panels/power/kpm-prefs-core.c:292
+#: panels/power/kpm-prefs-core.c:264 panels/power/kpm-prefs-core.c:277
+#: panels/power/kpm-prefs-core.c:280
 msgid "Sleep"
 msgstr "休眠"
 
-#: panels/power/kpm-prefs-core.c:297 panels/power/kpm-prefs-core.c:300
+#: panels/power/kpm-prefs-core.c:285 panels/power/kpm-prefs-core.c:288
+#: panels/power/mate-screensaver-preferences.c:493
+#: panels/power/mate-screensaver-preferences.c:639
+#: panels/power/mate-screensaver-preferences.c:917
 msgid "Blank screen"
 msgstr "黑屏"
 
-#: panels/power/kpm-prefs-core.c:305 panels/power/kpm-prefs-core.c:308
+#: panels/power/kpm-prefs-core.c:293 panels/power/kpm-prefs-core.c:296
 msgid "Ask"
 msgstr "询问"
 
-#: panels/power/kpm-prefs-core.c:313 panels/power/kpm-prefs-core.c:316
+#: panels/power/kpm-prefs-core.c:301 panels/power/kpm-prefs-core.c:304
 msgid "Do not perform operations"
 msgstr "不执行操作"
-
-#: panels/power/kpm-prefs-core.c:750 panels/power/kpm-prefs-core.c:787
-#, c-format
-msgid "%d min"
-msgstr "%d 分"
-
-#: panels/power/kpm-prefs-core.c:752 panels/power/kpm-prefs-core.c:789
-#, c-format
-msgid "%d hour %d min"
-msgstr "%d 小时 %d 分"
 
 #. TRANSLATORS: a phone is charging
 #. TRANSLATORS: device is charging, but we only have a percentage
@@ -750,6 +776,42 @@ msgstr "待充电"
 msgid "Waiting to discharge"
 msgstr "待放电"
 
+#: panels/power/mate-fullscreen-preview.ui.h:1
+msgid "Screensaver Preview"
+msgstr "屏保预览"
+
+#: panels/power/mate-fullscreen-preview.ui.h:2
+msgid "Screensaver preview"
+msgstr "屏保预览"
+
+#: panels/power/mate-screensaver-preferences.c:494
+#: panels/power/mate-screensaver-preferences.c:634
+#: panels/power/mate-screensaver-preferences.c:915
+msgid "Random"
+msgstr ""
+
+#: panels/power/mate-screensaver-preferences.c:684
+#: panels/power/mate-screensaver-preferences.c:1694
+#, c-format
+msgid "%d min"
+msgstr "%d 分"
+
+#: panels/power/mate-screensaver-preferences.c:686
+#: panels/power/mate-screensaver-preferences.c:1696
+#, c-format
+msgid "%d hour %d min"
+msgstr "%d 小时 %d 分"
+
+#: panels/power/mate-screensaver-preferences.c:1752
+#, fuzzy
+msgid "Could not load the main interface"
+msgstr "无法保存显示器配置"
+
+#: panels/power/mate-screensaver-preferences.c:1754
+#, fuzzy
+msgid "Please make sure that the screensaver is properly installed"
+msgstr "请确保该计算机上至少有一个用户为管理员用户"
+
 #: panels/session-properties/gsm-app-dialog.c:145
 msgid "Desktop file(*.desktop)"
 msgstr "桌面文件(*.desktop)"
@@ -866,7 +928,7 @@ msgstr "确定"
 #: panels/user-accounts/change-name.ui.h:4
 #: panels/user-accounts/change-pwd.ui.h:4
 #: panels/user-accounts/change-type.ui.h:5
-#: panels/user-accounts/delete-user.ui.h:5
+#: panels/user-accounts/delete-user.ui.h:5 shell/shell.ui.h:190
 msgid "label"
 msgstr ""
 
@@ -1321,145 +1383,145 @@ msgid "%u Input"
 msgid_plural "%u Inputs"
 msgstr[0] "%u 输入"
 
-#: panels/volume-control/gvc-mixer-dialog.c:313
+#: panels/volume-control/gvc-mixer-dialog.c:314
 msgid "Co_nnector"
 msgstr "连接器(_N)"
 
-#: panels/volume-control/gvc-mixer-dialog.c:521
+#: panels/volume-control/gvc-mixer-dialog.c:522
 msgid "Peak detect"
 msgstr "峰值检测"
 
-#: panels/volume-control/gvc-mixer-dialog.c:608
+#: panels/volume-control/gvc-mixer-dialog.c:609
 msgid "Co_nnector:"
 msgstr "连接器(_N):"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1501
+#: panels/volume-control/gvc-mixer-dialog.c:1502
 msgid "Device"
 msgstr "设备"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1549
+#: panels/volume-control/gvc-mixer-dialog.c:1550
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr "%s测试"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1608
+#: panels/volume-control/gvc-mixer-dialog.c:1610
 msgid "_Profiles:"
 msgstr "配置(_P):"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1609
+#: panels/volume-control/gvc-mixer-dialog.c:1611
 msgid "Test Speakers"
 msgstr "测试听筒"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1708
-#: panels/volume-control/gvc-sound-theme-chooser.c:887
+#: panels/volume-control/gvc-mixer-dialog.c:1710
+#: panels/volume-control/gvc-sound-theme-chooser.c:890
 msgid "Name"
 msgstr "名称"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1787
+#: panels/volume-control/gvc-mixer-dialog.c:1837
 msgid "Sound Output Volume"
 msgstr "输出音量(_O):"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1818
-msgid "Sound Effects"
-msgstr "声音效果"
-
-#: panels/volume-control/gvc-mixer-dialog.c:1825
-msgid "_Alert volume: "
-msgstr "报警音量(_A): "
-
-#: panels/volume-control/gvc-mixer-dialog.c:1838
-msgid "Hardware"
-msgstr "硬件"
-
-#: panels/volume-control/gvc-mixer-dialog.c:1843
-msgid "C_hoose a device to configure:"
-msgstr "选择要配置的设备(_H):"
-
-#: panels/volume-control/gvc-mixer-dialog.c:1870
-#: panels/volume-control/gvc-mixer-dialog.c:1999
-msgid "Settings for the selected device:"
-msgstr "所选设备的设置:"
-
-#: panels/volume-control/gvc-mixer-dialog.c:1881
-msgid "Input"
-msgstr "输入"
-
-#: panels/volume-control/gvc-mixer-dialog.c:1888
-msgid "_Input volume: "
-msgstr "输入音量(_I): "
-
-#: panels/volume-control/gvc-mixer-dialog.c:1911
-msgid "Input level:"
-msgstr "输入等级:"
-
-#: panels/volume-control/gvc-mixer-dialog.c:1937
-msgid "C_hoose a device for sound input:"
-msgstr "选择声音输入设备(_H):"
-
-#: panels/volume-control/gvc-mixer-dialog.c:1967
-msgid "Output"
-msgstr "输出"
-
-#: panels/volume-control/gvc-mixer-dialog.c:1972
-msgid "C_hoose a device for sound output:"
-msgstr "选择声音输出设备(_H):"
-
-#: panels/volume-control/gvc-mixer-dialog.c:2017
+#: panels/volume-control/gvc-mixer-dialog.c:1868
 msgid "Applications"
 msgstr "应用程序"
 
-#: panels/volume-control/gvc-mixer-dialog.c:2021
+#: panels/volume-control/gvc-mixer-dialog.c:1874
 msgid "No application is currently playing or recording audio."
 msgstr "目前没有应用程序在播放或录制音频"
 
-#: panels/volume-control/gvc-mixer-dialog.c:2146
-#: panels/volume-control/gvc-sound-theme-chooser.c:752
-#: panels/volume-control/gvc-sound-theme-chooser.c:764
-#: panels/volume-control/gvc-sound-theme-chooser.c:776
+#: panels/volume-control/gvc-mixer-dialog.c:1882
+msgid "Sound Effects"
+msgstr "声音效果"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1890
+msgid "_Alert volume: "
+msgstr "报警音量(_A): "
+
+#: panels/volume-control/gvc-mixer-dialog.c:1911
+msgid "Input"
+msgstr "输入"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1919
+msgid "_Input volume: "
+msgstr "输入音量(_I): "
+
+#: panels/volume-control/gvc-mixer-dialog.c:1942
+msgid "Input level:"
+msgstr "输入等级:"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1971
+msgid "C_hoose a device for sound input:"
+msgstr "选择声音输入设备(_H):"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2001
+msgid "Output"
+msgstr "输出"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2007
+msgid "C_hoose a device for sound output:"
+msgstr "选择声音输出设备(_H):"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2034
+#: panels/volume-control/gvc-mixer-dialog.c:2078
+msgid "Settings for the selected device:"
+msgstr "所选设备的设置:"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2045
+msgid "Hardware"
+msgstr "硬件"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2051
+msgid "C_hoose a device to configure:"
+msgstr "选择要配置的设备(_H):"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2212
+#: panels/volume-control/gvc-sound-theme-chooser.c:755
+#: panels/volume-control/gvc-sound-theme-chooser.c:767
+#: panels/volume-control/gvc-sound-theme-chooser.c:779
 msgid "Sound Preferences"
 msgstr "声音首选项"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:223
-#: panels/volume-control/gvc-sound-theme-chooser.c:863
+#: panels/volume-control/gvc-sound-theme-chooser.c:226
+#: panels/volume-control/gvc-sound-theme-chooser.c:866
 msgid "Default"
 msgstr "默认"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:335
+#: panels/volume-control/gvc-sound-theme-chooser.c:338
 msgid "No sounds"
 msgstr "无声音"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:457
+#: panels/volume-control/gvc-sound-theme-chooser.c:460
 msgid "Built-in"
 msgstr "内置"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:642
+#: panels/volume-control/gvc-sound-theme-chooser.c:645
 #: panels/volume-control/sound-theme-file-utils.c:291
 msgid "Custom"
 msgstr "自定义"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:755
-#: panels/volume-control/gvc-sound-theme-chooser.c:766
-#: panels/volume-control/gvc-sound-theme-chooser.c:778
+#: panels/volume-control/gvc-sound-theme-chooser.c:758
+#: panels/volume-control/gvc-sound-theme-chooser.c:769
+#: panels/volume-control/gvc-sound-theme-chooser.c:781
 msgid "Testing event sound"
 msgstr "测试事件声音"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:864
+#: panels/volume-control/gvc-sound-theme-chooser.c:867
 msgid "From theme"
 msgstr "来自主题"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:894
+#: panels/volume-control/gvc-sound-theme-chooser.c:897
 msgid "Type"
 msgstr "类型"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:1088
+#: panels/volume-control/gvc-sound-theme-chooser.c:1091
 msgid "Sound _theme:"
 msgstr "声音主题:"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:1101
+#: panels/volume-control/gvc-sound-theme-chooser.c:1104
 msgid "C_hoose an alert sound:"
 msgstr "选择报警声音(_H):"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:1135
+#: panels/volume-control/gvc-sound-theme-chooser.c:1138
 msgid "Enable _window and button sounds"
 msgstr "启用窗体与按钮声音(_W)"
 
@@ -2078,100 +2140,100 @@ msgid "Horizontal two-_finger scrolling"
 msgstr "水平双指滚动(_F)"
 
 #: shell/shell.ui.h:144
+msgid "Enabled touchpad"
+msgstr "启用触摸板"
+
+#: shell/shell.ui.h:145
 msgid "Touchpad"
 msgstr "触摸板"
 
-#: shell/shell.ui.h:145
+#: shell/shell.ui.h:146
 msgid "<b>Di_rect internet connection</b>"
 msgstr "<b>直接连接到互联网(_R)</b>"
 
-#: shell/shell.ui.h:146
+#: shell/shell.ui.h:147
 msgid "<b>_Manual proxy configuration</b>"
 msgstr "<b>手动配置代理(_M)</b>"
 
-#: shell/shell.ui.h:147
+#: shell/shell.ui.h:148
 msgid "H_TTP proxy:"
 msgstr "H_TTP 代理:"
 
-#: shell/shell.ui.h:148
+#: shell/shell.ui.h:149
 msgid "_Secure HTTP proxy:"
 msgstr "安全 HTTP 代理(_S):"
 
-#: shell/shell.ui.h:149
+#: shell/shell.ui.h:150
 msgid "_FTP proxy:"
 msgstr "_FTP 代理:"
 
-#: shell/shell.ui.h:150
+#: shell/shell.ui.h:151
 msgid "S_ocks host:"
 msgstr "S_ocks 主机:"
 
-#: shell/shell.ui.h:151
+#: shell/shell.ui.h:152
 msgid "Port:"
 msgstr "端口:"
 
-#: shell/shell.ui.h:152
+#: shell/shell.ui.h:153
 msgid "_Details"
 msgstr "细节(_D)"
 
-#: shell/shell.ui.h:153
+#: shell/shell.ui.h:154
 msgid "<b>_Automatic proxy configuration</b>"
 msgstr "<b>自动配置代理(_A)</b>"
 
-#: shell/shell.ui.h:154
+#: shell/shell.ui.h:155
 msgid "Autoconfiguration _URL:"
 msgstr "自动配置 _URL:"
 
-#: shell/shell.ui.h:155
+#: shell/shell.ui.h:156
 msgid "Proxy Configuration"
 msgstr "代理服务器配置"
 
-#: shell/shell.ui.h:156
+#: shell/shell.ui.h:157
 msgid "Ignore Host List"
 msgstr "忽略主机列表"
 
-#: shell/shell.ui.h:157
+#: shell/shell.ui.h:158
 msgid "Ignored Hosts"
 msgstr "忽略的主机"
 
-#: shell/shell.ui.h:158
+#: shell/shell.ui.h:159
 msgid "Additional startup _programs:"
 msgstr "额外的启动程序"
 
-#: shell/shell.ui.h:159
+#: shell/shell.ui.h:160
 msgid "name"
 msgstr "名称"
 
-#: shell/shell.ui.h:160
+#: shell/shell.ui.h:161
 msgid "status"
 msgstr "状态："
 
-#: shell/shell.ui.h:161
+#: shell/shell.ui.h:162
 msgid "Startup Programs"
 msgstr "启动程序"
 
-#: shell/shell.ui.h:162
+#: shell/shell.ui.h:163
 msgid "Change display appearance"
 msgstr "更改显示器外观"
 
-#: shell/shell.ui.h:163
+#: shell/shell.ui.h:164
 msgid "Monitor:"
 msgstr "显示器:"
 
-#: shell/shell.ui.h:164
+#: shell/shell.ui.h:165
 msgid "Resolution:"
 msgstr "分辨率:"
 
-#: shell/shell.ui.h:165
+#: shell/shell.ui.h:166
 msgid "Direction:"
 msgstr "方向:"
 
-#: shell/shell.ui.h:166
+#: shell/shell.ui.h:167
 msgid "Save"
 msgstr "保存更改"
-
-#: shell/shell.ui.h:167
-msgid "Make Default"
-msgstr "设为默认"
 
 #: shell/shell.ui.h:168
 msgid "Same image in all monitors"
@@ -2190,100 +2252,80 @@ msgid "Close Monitor"
 msgstr "关闭显示器"
 
 #: shell/shell.ui.h:172
-msgid "Actions"
-msgstr "操作"
+msgid "Computer status"
+msgstr "更改计算机状态"
 
 #: shell/shell.ui.h:173
-msgid "Put computer to _sleep when inactive:"
-msgstr "空闲此时间后将计算机转入睡眠(S)："
+msgid "AC Power"
+msgstr "电源供电"
 
 #: shell/shell.ui.h:174
+msgid "Battery Power"
+msgstr "电池供电"
+
+#: shell/shell.ui.h:175
+msgid "Put _computer to sleep when inactive:"
+msgstr "空闲此时间后将计算机转入睡眠(C)："
+
+#: shell/shell.ui.h:176
+msgid "Put _monitor to sleep when inactive:"
+msgstr "空闲此时间后将显示器转入睡眠(M)："
+
+#: shell/shell.ui.h:177
 msgid "When laptop lid is cl_osed:"
 msgstr "关闭笔记本电脑上盖时(O)："
 
-#: shell/shell.ui.h:175
-msgid "Sp_in down hard disks when possible"
-msgstr "如果可能，减速硬盘(I)"
-
-#: shell/shell.ui.h:176
-msgid "Display"
-msgstr "显示"
-
-#: shell/shell.ui.h:177
-msgid "Put _display to sleep when inactive:"
-msgstr "空闲此时间后将显示器转入睡眠(D)："
-
 #: shell/shell.ui.h:178
-msgid "Set display _brightness to:"
-msgstr "设定显示器亮度为(B)："
+msgid "Actions"
+msgstr "操作"
 
 #: shell/shell.ui.h:179
-msgid "Di_m display when idle"
-msgstr "空闲时变暗显示器(M)"
-
-#: shell/shell.ui.h:180
-msgid "On AC Power"
-msgstr "交流供电时"
-
-#: shell/shell.ui.h:181
-msgid "When battery po_wer is critically low:"
-msgstr "电池电量将用尽时(W)："
-
-#: shell/shell.ui.h:182
-msgid "_Reduce backlight brightness"
-msgstr "减小背光亮度(R)"
-
-#: shell/shell.ui.h:183
-msgid "On Battery Power"
-msgstr "电池供电时"
-
-#: shell/shell.ui.h:184
 msgid "When the power _button is pressed:"
 msgstr "按下了电源按钮时(B)："
 
-#: shell/shell.ui.h:185
-msgid "When the _suspend button is pressed:"
-msgstr "按下了挂起按钮时时(S)："
+#: shell/shell.ui.h:180
+msgid "When the sus_pend button is pressed:"
+msgstr "按下了挂起按钮时(S)："
 
-#: shell/shell.ui.h:186
-msgid "Notification Area"
-msgstr "通知区域"
+#: shell/shell.ui.h:181
+msgid "Icon display"
+msgstr "图标显示设置"
 
-#: shell/shell.ui.h:187
-msgid "_Never display an icon"
-msgstr "从不显示图标(N)"
-
-#: shell/shell.ui.h:188
-msgid "_Only display an icon when battery power is low"
-msgstr "仅当电池电量即将用尽时显示图标(O)"
-
-#: shell/shell.ui.h:189
-msgid "Only display an icon when charging or _discharging"
-msgstr "仅在充电或放电时显示图标(D)"
-
-#: shell/shell.ui.h:190
+#: shell/shell.ui.h:182
 msgid "Only display an icon when a battery is p_resent"
 msgstr "仅当使用电池时显示图标(R)"
 
-#: shell/shell.ui.h:191
+#: shell/shell.ui.h:183
 msgid "_Always display an icon"
 msgstr "总是显示图标(A)"
 
-#: shell/shell.ui.h:192
-msgid "Screensaver"
-msgstr "屏幕保护"
+#: shell/shell.ui.h:184
+msgid "Power Configure"
+msgstr "电源设置"
 
-#: shell/shell.ui.h:193
+#: shell/shell.ui.h:185
 msgid "Regard the computer as _idle after:"
-msgstr "于此时间后视计算机空闲:"
+msgstr "于此时间后视计算机空闲(I)："
 
-#: shell/shell.ui.h:194
+#: shell/shell.ui.h:186
 msgid "_Activate screensaver when computer is idle"
 msgstr "计算机空闲时激活屏幕保护程序（A）"
 
-#: shell/shell.ui.h:195
+#: shell/shell.ui.h:187
 msgid "_Lock screen when screensaver is active"
 msgstr "屏幕保护程序激活时锁定屏幕（L）"
+
+#: shell/shell.ui.h:188
+msgid "preview"
+msgstr "预览"
+
+#: shell/shell.ui.h:189
+msgid "Screensavers:"
+msgstr "屏幕保护程序："
+
+#: shell/shell.ui.h:191
+msgid "Screensaver"
+msgstr "屏幕保护"
 
 #: shell/ukui-control-center.c:59
 msgid "window1"
@@ -2293,10 +2335,51 @@ msgstr ""
 msgid "ukuicc"
 msgstr ""
 
-#~ msgid "My Account"
-#~ msgstr "我的账户"
+#~ msgid "%d hour"
+#~ msgid_plural "%d hours"
+#~ msgstr[0] "%i 小时"
+
+#~ msgid "%d minute"
+#~ msgid_plural "%d minutes"
+#~ msgstr[0] "%i 分钟"
 
 #~ msgid "%d second"
 #~ msgid_plural "%d seconds"
 #~ msgstr[0] "%d　秒"
 #~ msgstr[1] "%d 秒"
+
+#~ msgid "Make Default"
+#~ msgstr "设为默认"
+
+#~ msgid "Sp_in down hard disks when possible"
+#~ msgstr "如果可能，减速硬盘(I)"
+
+#~ msgid "Put _display to sleep when inactive:"
+#~ msgstr "空闲此时间后将显示器转入睡眠(D)："
+
+#~ msgid "Set display _brightness to:"
+#~ msgstr "设定显示器亮度为(B)："
+
+#~ msgid "Di_m display when idle"
+#~ msgstr "空闲时变暗显示器(M)"
+
+#~ msgid "When battery po_wer is critically low:"
+#~ msgstr "电池电量将用尽时(W)："
+
+#~ msgid "_Reduce backlight brightness"
+#~ msgstr "减小背光亮度(R)"
+
+#~ msgid "Notification Area"
+#~ msgstr "通知区域"
+
+#~ msgid "_Never display an icon"
+#~ msgstr "从不显示图标(N)"
+
+#~ msgid "_Only display an icon when battery power is low"
+#~ msgstr "仅当电池电量即将用尽时显示图标(O)"
+
+#~ msgid "Only display an icon when charging or _discharging"
+#~ msgstr "仅在充电或放电时显示图标(D)"
+
+#~ msgid "My Account"
+#~ msgstr "我的账户"

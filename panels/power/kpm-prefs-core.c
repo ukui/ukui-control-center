@@ -1,22 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
- * Copyright (C) 2016 Tianjin KYLIN Information Technology Co., Ltd.
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
- *
- */
 #include <dbus/dbus-glib.h>
 #include <glib/gi18n.h>
 #define UPOWER_ENABLE_DEPRECATED
@@ -160,7 +141,7 @@ kpm_prefs_setup_time_combo (KpmPrefs *prefs, const gchar *widget_name,
         gboolean is_writable;
         GtkWidget *widget;
 
-        widget = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, widget_name));
+    	widget = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, widget_name));
         kpm_prefs_set_combo_simple_text (widget);
 
         value = g_settings_get_int (prefs->priv->settings, kpm_pref_key);
@@ -254,7 +235,7 @@ kpm_prefs_setup_action_combo (KpmPrefs *prefs, const gchar *widget_name,
         value = g_settings_get_enum (prefs->priv->settings, kpm_pref_key);
         is_writable = g_settings_is_writable (prefs->priv->settings, kpm_pref_key);
 
-        gtk_widget_set_sensitive (widget, is_writable);
+        //gtk_widget_set_sensitive (widget, is_writable);
 
         array = g_ptr_array_new ();
         g_object_set_data (G_OBJECT (widget), "settings_key", (gpointer) kpm_pref_key);
@@ -263,6 +244,9 @@ kpm_prefs_setup_action_combo (KpmPrefs *prefs, const gchar *widget_name,
         for (i=0; actions[i] != -1; i++) {
                 policy = actions[i];
                 if (policy == KPM_ACTION_POLICY_SHUTDOWN && !prefs->priv->can_shutdown) {
+					//只是为了在交流电情况下显示出来
+					gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT (widget), _("Shutdown"));
+                                g_ptr_array_add(array, GINT_TO_POINTER (policy));
                         egg_debug ("Cannot add option, as cannot shutdown.");
                 } else if (policy == KPM_ACTION_POLICY_SHUTDOWN && prefs->priv->can_shutdown) {
                         #if GTK_CHECK_VERSION (2, 24, 0)
@@ -273,8 +257,12 @@ kpm_prefs_setup_action_combo (KpmPrefs *prefs, const gchar *widget_name,
                                 g_ptr_array_add (array, GINT_TO_POINTER (policy));
                         #endif
                 } else if (policy == KPM_ACTION_POLICY_SUSPEND && !prefs->priv->can_suspend) {
+					gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT (widget), _("Hang"));
+                                g_ptr_array_add (array, GINT_TO_POINTER (policy));
                         egg_debug ("Cannot add option, as cannot suspend.");
                 } else if (policy == KPM_ACTION_POLICY_HIBERNATE && !prefs->priv->can_hibernate) {
+					gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT (widget), _("Sleep"));
+                                g_ptr_array_add(array, GINT_TO_POINTER (policy));
                         egg_debug ("Cannot add option, as cannot hibernate.");
                 } else if (policy == KPM_ACTION_POLICY_SUSPEND && prefs->priv->can_suspend) {
                         #if GTK_CHECK_VERSION (2, 24, 0)
@@ -339,10 +327,54 @@ kpm_prefs_setup_action_combo (KpmPrefs *prefs, const gchar *widget_name,
         g_ptr_array_unref (array);
 }
 
+static void init_picture(KpmPrefs *prefs)
+{
+    GtkImage *ac_image = GTK_IMAGE(gtk_builder_get_object (prefs->priv->builder, "image1_ac"));
+	gtk_image_set_from_file(ac_image, "/usr/share/ukui-control-center/icons/AC.png");
+    GtkImage *battery_image = GTK_IMAGE(gtk_builder_get_object (prefs->priv->builder, "image2_battery"));
+	gtk_image_set_from_file(battery_image, "/usr/share/ukui-control-center/icons/battery.png");
+}
+
+static void set_hide(KpmPrefs *prefs, gchar *widget_name){
+	GtkWidget *widget;
+	widget = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, widget_name));
+	gtk_widget_hide(widget);
+}
+
+//如果是arm架构，隐藏掉有问题的选项
+static void hide_arch(KpmPrefs *prefs)
+{
+	FILE *stream;
+	char buffer[20];
+	//arch命令获取体系架构
+	stream = popen("arch", "r");
+	if(!stream)
+		return;
+	fgets(buffer, sizeof(buffer), stream);
+	//获取到的buffer会多一个换行符
+	char *arch = strtok(buffer,"\n");
+	if(!strcmp(arch, "aarch64"))
+	{
+        set_hide (prefs, "layout7_action");
+        set_hide (prefs, "label27_sleep");
+        set_hide (prefs, "label65_laptop");
+		set_hide (prefs, "combobox_ac_computer");
+		set_hide (prefs, "combobox_ac_lid");
+		set_hide (prefs, "combobox_battery_computer");
+		set_hide (prefs, "combobox_battery_lid");
+        GtkWidget *layout_power = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "layout5_power"));
+        GtkWidget *layout_icon = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "layout9_icon"));
+		gtk_layout_move(GTK_LAYOUT(layout_power), layout_icon, 0, 150);
+	}
+	pclose(stream);
+}
 
 static void
 prefs_setup_ac (KpmPrefs *prefs)
 {
+
+		init_picture(prefs);
+		hide_arch(prefs);
         GtkWidget *widget;
         const KpmActionPolicy button_lid_actions[] =
                                 {KPM_ACTION_POLICY_NOTHING,
@@ -378,33 +410,49 @@ prefs_setup_ac (KpmPrefs *prefs)
                                           KPM_SETTINGS_BUTTON_LID_AC,
                                           button_lid_actions);
 
+        //对电源界面的标签进行处理
+        GtkWidget *label27 = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "label27_sleep"));
+        GtkWidget *label28 = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "label28_sleep"));
+        GtkWidget *label65 = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "label65_laptop"));
+        GtkWidget *label34 = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "label34_press"));
+        GtkWidget *label37 = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "label37_suspend"));
+        gtk_label_set_xalign(GTK_LABEL(label27), 0.0);
+        gtk_label_set_xalign(GTK_LABEL(label28), 0.0);
+        gtk_label_set_xalign(GTK_LABEL(label65), 0.0);
+        gtk_label_set_xalign(GTK_LABEL(label34), 0.0);
+        gtk_label_set_xalign(GTK_LABEL(label37), 0.0);
+
+
         /* setup brightness slider */
-        widget = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "hscale_ac_brightness"));
-        g_settings_bind (prefs->priv->settings, KPM_SETTINGS_BRIGHTNESS_AC,
-                         gtk_range_get_adjustment (GTK_RANGE (widget)), "value",
-                         G_SETTINGS_BIND_DEFAULT);
-        g_signal_connect (G_OBJECT (widget), "format-value",
-                          G_CALLBACK (kpm_prefs_format_percentage_cb), NULL);
+//        widget = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "hscale_ac_brightness"));
+//		g_settings_bind (prefs->priv->settings, KPM_SETTINGS_BRIGHTNESS_AC,
+//                         gtk_range_get_adjustment (GTK_RANGE (widget)), "value",
+//                         G_SETTINGS_BIND_DEFAULT);
+//        g_signal_connect (G_OBJECT (widget), "format-value",
+//                          G_CALLBACK (kpm_prefs_format_percentage_cb), NULL);
 
         /* set up the checkboxes */
-        widget = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "checkbutton_ac_display_dim"));
-        g_settings_bind (prefs->priv->settings, KPM_SETTINGS_IDLE_DIM_AC,
-                         widget, "active",
-                         G_SETTINGS_BIND_DEFAULT);
-        widget = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "checkbutton_ac_spindown"));
-        /*g_settings_bind (prefs->priv->settings, KPM_SETTINGS_SPINDOWN_ENABLE_AC,
-                         widget, "active",
-                         G_SETTINGS_BIND_DEFAULT);*/
+//        widget = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "checkbutton_ac_display_dim"));
+//        g_settings_bind (prefs->priv->settings, KPM_SETTINGS_IDLE_DIM_AC,
+//                         widget, "active",
+//                         G_SETTINGS_BIND_DEFAULT);
+//        widget = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "checkbutton_ac_spindown"));
+//        g_settings_bind (prefs->priv->settings, KPM_SETTINGS_SPINDOWN_ENABLE_AC,
+//                         widget, "active",
+//                         G_SETTINGS_BIND_DEFAULT);
 
+		/* 不是笔记本 */
         if (prefs->priv->has_button_lid == FALSE) {
-                widget = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "viewport_ac_lid"));
+                widget = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "combobox_ac_lid"));
                 #if GTK_CHECK_VERSION (2, 24, 0)
                         gtk_widget_hide(widget);
                 #else
                         gtk_widget_hide_all (widget);
                 #endif
         }
+		/* 关于显示器的设置选项暂时去掉 */
         if (prefs->priv->has_lcd == FALSE) {
+			/*
                 widget = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "viewport_ac_brightness"));
 
                 #if GTK_CHECK_VERSION (2, 24, 0)
@@ -420,7 +468,14 @@ prefs_setup_ac (KpmPrefs *prefs)
                 #else
                         gtk_widget_hide_all (widget);
                 #endif
+			*/
         }
+}
+
+static void set_insensitive(KpmPrefs *prefs, gchar *widget_name){
+	GtkWidget *widget;
+	widget = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, widget_name));
+	gtk_widget_set_sensitive(widget, FALSE);
 }
 
 static void
@@ -468,21 +523,31 @@ prefs_setup_battery (KpmPrefs *prefs)
                                         display_times);
 
         if (prefs->priv->has_batteries == FALSE) {
-                notebook = GTK_NOTEBOOK (gtk_builder_get_object (prefs->priv->builder, "notebook_power_manager"));
-                widget = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "vbox_battery"));
-                page = gtk_notebook_page_num (notebook, GTK_WIDGET (widget));
-                gtk_notebook_remove_page (notebook, page);
-                return;
+                //notebook = GTK_NOTEBOOK (gtk_builder_get_object (prefs->priv->builder, "notebook_power_manager"));
+                //widget = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "vbox_battery"));
+                //page = gtk_notebook_page_num (notebook, GTK_WIDGET (widget));
+                //gtk_notebook_remove_page (notebook, page);
+                //return;
+				set_insensitive(prefs, "combobox_battery_computer");
+				set_insensitive(prefs, "combobox_battery_display");
+				set_insensitive(prefs, "combobox_general_power");
+				set_insensitive(prefs, "combobox_general_suspend");
+				//set_insensitive(prefs, "combobox_ac_lid");
+				set_insensitive(prefs, "combobox_battery_lid");
         }
+
 
         kpm_prefs_setup_action_combo (prefs, "combobox_battery_lid",
                                           KPM_SETTINGS_BUTTON_LID_BATT,
                                           button_lid_actions);
-        kpm_prefs_setup_action_combo (prefs, "combobox_battery_critical",
+		/*
+		kpm_prefs_setup_action_combo (prefs, "combobox_battery_critical",
                                           KPM_SETTINGS_ACTION_CRITICAL_BATT,
                                           battery_critical_actions);
+		*/
 
         /* set up the checkboxes */
+		/*
         widget = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "checkbutton_battery_display_reduce"));
         g_settings_bind (prefs->priv->settings, KPM_SETTINGS_BACKLIGHT_BATTERY_REDUCE,
                          widget, "active",
@@ -492,387 +557,35 @@ prefs_setup_battery (KpmPrefs *prefs)
                          widget, "active",
                          G_SETTINGS_BIND_DEFAULT);
         widget = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "checkbutton_battery_spindown"));
-        /*g_settings_bind (prefs->priv->settings, KPM_SETTINGS_SPINDOWN_ENABLE_BATT,
+        g_settings_bind (prefs->priv->settings, KPM_SETTINGS_SPINDOWN_ENABLE_BATT,
                          widget, "active",
-                         G_SETTINGS_BIND_DEFAULT);*/
+                         G_SETTINGS_BIND_DEFAULT);
+		*/
 
+		//如果不是笔记本，隐藏有关笔记本盖子的相关选项，并调整布局
         if (prefs->priv->has_button_lid == FALSE) {
-                widget = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "viewport_battery_lid"));
-
+                widget = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "combobox_battery_lid"));
+                GtkWidget *label = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "label65_laptop"));
+                GtkWidget *layout_action = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "layout7_action"));
+                GtkWidget *layout_power = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "layout5_power"));
+				gtk_layout_move(GTK_LAYOUT(layout_power), layout_action, 0, 195);
                 #if GTK_CHECK_VERSION(2, 24, 0)
                         gtk_widget_hide(widget);
+						gtk_widget_hide(label);
                 #else
                         gtk_widget_hide_all (widget);
+                        gtk_widget_hide(label);
                 #endif
         }
         if (prefs->priv->has_lcd == FALSE) {
-                widget = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "viewport_battery_dim"));
+                //widget = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "viewport_battery_dim"));
                 #if GTK_CHECK_VERSION(2, 24, 0)
-                        gtk_widget_hide(widget);
+                //      gtk_widget_hide(widget);
                 #else
-                        gtk_widget_hide_all (widget);
+                //      gtk_widget_hide_all (widget);
                 #endif
         }
 }
-//-----------------------------------------------吴孝夷－2016/02/29 锁屏配置-------------------------------------------------------
-#define SESSION_SETTINGS_SCHEMA "org.ukui.session"
-#define KEY_IDLE_DELAY "idle-delay"
-#define GSETTINGS_SCHEMA "org.ukui.screensaver"
-#define KEY_LOCK "lock-enabled"
-#define KEY_IDLE_ACTIVATION_ENABLED "idle-activation-enabled"
-#define LOCKDOWN_SETTINGS_SCHEMA "org.mate.lockdown"
-#define KEY_LOCK_DISABLE "disable-lock-screen"
-static GSettings      *session_settings = NULL;
-static GSettings      *screensaver_settings = NULL;
-static GSettings      *lockdown_settings = NULL;
-
-static void
-ui_disable_lock (gboolean disable)
-{
-    GtkWidget *widget;
-
-    widget = GTK_WIDGET (gtk_builder_get_object (builder, "screensaver_lock_checkbox"));
-    gtk_widget_set_sensitive (widget, !disable);
-    if (disable)
-    {
-        gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), FALSE);
-    }
-}
-static gboolean
-config_get_lock_disabled ()
-{
-    return g_settings_get_boolean (lockdown_settings, KEY_LOCK_DISABLE);
-}
-static gboolean
-config_get_lock (gboolean *is_writable)
-{
-    gboolean lock;
-
-    if (is_writable)
-    {
-        *is_writable = g_settings_is_writable (screensaver_settings,
-                       KEY_LOCK);
-    }
-
-    lock = g_settings_get_boolean (screensaver_settings, KEY_LOCK);
-
-    return lock;
-}
-static void
-ui_set_lock (gboolean enabled)
-{
-    GtkWidget *widget;
-    gboolean   active;
-    gboolean   lock_disabled;
-
-    widget = GTK_WIDGET (gtk_builder_get_object (builder, "screensaver_lock_checkbox"));
-
-    active = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
-    if (active != enabled)
-    {
-        gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), enabled);
-    }
-    lock_disabled = config_get_lock_disabled ();
-    ui_disable_lock (lock_disabled);
-}
-
-static void
-ui_set_enabled (gboolean enabled)
-{
-    GtkWidget *widget;
-    gboolean   active;
-    gboolean   is_writable;
-    gboolean   lock_disabled;
-
-    widget = GTK_WIDGET (gtk_builder_get_object (builder, "screensaver_enable_checkbox"));
-    active = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
-    if (active != enabled)
-    {
-        gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), enabled);
-    }
-
-    widget = GTK_WIDGET (gtk_builder_get_object (builder, "screensaver_lock_checkbox"));
-    config_get_lock (&is_writable);
-    if (is_writable)
-    {
-        gtk_widget_set_sensitive (widget, enabled);
-    }
-    lock_disabled = config_get_lock_disabled ();
-    ui_disable_lock(lock_disabled);
-}
-
-static void
-ui_set_delay (int delay)
-{
-    GtkWidget *widget;
-    widget = GTK_WIDGET (gtk_builder_get_object (builder, "activate_delay_hscale"));
-    gtk_range_set_value (GTK_RANGE (widget), delay);
-}
-
-static void
-key_changed_cb (GSettings *settings, const gchar *key, gpointer data)
-{
-    if (strcmp (key, KEY_IDLE_ACTIVATION_ENABLED) == 0)
-    {
-            gboolean enabled;
-
-            enabled = g_settings_get_boolean (settings, key);
-
-            ui_set_enabled (enabled);
-    }
-    else if (strcmp (key, KEY_LOCK) == 0)
-    {
-                gboolean enabled;
-
-            enabled = g_settings_get_boolean (settings, key);
-
-            ui_set_lock (enabled);
-    }
-    else if (strcmp (key, KEY_LOCK_DISABLE) == 0)
-    {
-                gboolean disabled;
-
-            disabled = g_settings_get_boolean (settings, key);
-
-            ui_disable_lock (disabled);
-    }
-    else if (strcmp (key, KEY_IDLE_DELAY) == 0)
-    {
-            int delay;
-            delay = g_settings_get_int (settings, key);
-            ui_set_delay (delay);
-
-    }
-    else
-    {
-        g_warning ("Config key not handled: %s", key);
-    }
-}
-
-static gboolean
-check_is_root_user (void)
-{
-#ifndef G_OS_WIN32
-    uid_t ruid, euid, suid; /* Real, effective and saved user ID's */
-    gid_t rgid, egid, sgid; /* Real, effective and saved group ID's */
-
-#ifdef HAVE_GETRESUID
-    if (getresuid (&ruid, &euid, &suid) != 0 ||
-            getresgid (&rgid, &egid, &sgid) != 0)
-#endif /* HAVE_GETRESUID */
-    {
-        suid = ruid = getuid ();
-        sgid = rgid = getgid ();
-        euid = geteuid ();
-        egid = getegid ();
-    }
-
-    if (ruid == 0)
-    {
-        return TRUE;
-    }
-
-#endif
-    return FALSE;
-}
-/*
-static void
-setup_for_root_user (void)
-{
-    GtkWidget *lock_checkbox;
-    GtkWidget *label;
-
-    lock_checkbox = GTK_WIDGET (gtk_builder_get_object (builder, "screensaver_lock_checkbox"));
-    label = GTK_WIDGET (gtk_builder_get_object (builder, "root_warning_label"));
-
-    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (lock_checkbox), FALSE);
-    gtk_widget_set_sensitive (lock_checkbox, FALSE);
-
-    gtk_widget_show (label);
-
-}*/
-static void
-config_set_lock (gboolean lock)
-{
-    g_settings_set_boolean (screensaver_settings, KEY_LOCK, lock);
-}
-
-static void
-lock_checkbox_toggled (GtkToggleButton *button, gpointer user_data)
-{
-    config_set_lock (gtk_toggle_button_get_active (button));
-}
-
-static gboolean
-config_get_enabled (gboolean *is_writable)
-{
-    int enabled;
-
-    if (is_writable)
-    {
-        *is_writable = g_settings_is_writable (screensaver_settings,
-                       KEY_LOCK);
-    }
-
-    enabled = g_settings_get_boolean (screensaver_settings, KEY_IDLE_ACTIVATION_ENABLED);
-
-    return enabled;
-}
-
-static void
-config_set_enabled (gboolean enabled)
-{
-    g_settings_set_boolean (screensaver_settings, KEY_IDLE_ACTIVATION_ENABLED, enabled);
-}
-
-static void
-enabled_checkbox_toggled (GtkToggleButton *button, gpointer user_data)
-{
-    config_set_enabled (gtk_toggle_button_get_active (button));
-}
-
-static void
-config_set_activate_delay (gint32 timeout)
-{
-    g_settings_set_int (session_settings, KEY_IDLE_DELAY, timeout);
-}
-
-static void
-activate_delay_value_changed_cb (GtkRange *range,
-                                 gpointer  user_data)
-{
-        gchar *label_text;
-        int value = gtk_range_get_value (range);
-        int time = value * 60;
-        int min = (time % (60 * 60)) / 60;
-        int hour = time / (60 * 60);
-        if (!hour)
-                label_text = g_strdup_printf (_("%d min"), min);
-        else
-                label_text = g_strdup_printf (_("%d hour %d min"), hour,min);
-        GtkWidget *label = GTK_WIDGET (gtk_builder_get_object (builder, "scale_label"));
-        gtk_label_set_text(GTK_LABEL(label),"");
-        gtk_label_set_text(GTK_LABEL(label),label_text);
-        config_set_activate_delay ((gint32)value);
-}
-
-static gint32
-config_get_activate_delay (gboolean *is_writable)
-{
-    gint32 delay;
-
-    if (is_writable)
-    {
-        *is_writable = g_settings_is_writable (session_settings,
-                       KEY_IDLE_DELAY);
-    }
-
-    delay = g_settings_get_int (session_settings, KEY_IDLE_DELAY);
-
-    if (delay < 1)
-    {
-        delay = 1;
-    }
-
-    return delay;
-}
-
-void init_scale(GtkWidget *scale_label,gdouble time)
-{
-        gchar *label_text;
-        int timeout = time;
-        int hour = timeout/60;
-        int min = timeout%60;
-        if (!hour)
-                label_text = g_strdup_printf (_("%d min"), min);
-        else
-                label_text = g_strdup_printf (_("%d hour %d min"), hour,min);
-        gtk_label_set_text(GTK_LABEL(scale_label),label_text);
-        
-}
-
-static void
-prefs_setup_screensaver(KpmPrefs *prefs)
-{
-    GtkWidget *enabled_checkbox;
-    GtkWidget *lock_checkbox;
-    GtkWidget *activate_delay_hscale;
-    GtkWidget *activate_delay_viewport;
-    GtkWidget *label;
-    GtkWidget *root_warning_label;
-    gboolean   enabled;
-    gboolean   is_writable;
-    gdouble    activate_delay;
-
-    enabled_checkbox   = GTK_WIDGET (gtk_builder_get_object (builder, "screensaver_enable_checkbox"));
-    lock_checkbox      = GTK_WIDGET (gtk_builder_get_object (builder, "screensaver_lock_checkbox"));
-    activate_delay_hscale = GTK_WIDGET (gtk_builder_get_object (builder, "activate_delay_hscale"));
-    GtkWidget *scale_label = GTK_WIDGET (gtk_builder_get_object (builder, "scale_label"));
-    activate_delay_viewport   = GTK_WIDGET (gtk_builder_get_object (builder, "activate_delay_viewport"));
-    label              = GTK_WIDGET (gtk_builder_get_object (builder, "activate_delay_label"));
-    root_warning_label = GTK_WIDGET (gtk_builder_get_object (builder, "root_warning_label"));
-    screensaver_settings = g_settings_new (GSETTINGS_SCHEMA);
-    session_settings = g_settings_new (SESSION_SETTINGS_SCHEMA);
-    lockdown_settings = g_settings_new (LOCKDOWN_SETTINGS_SCHEMA);
-
-    gtk_label_set_mnemonic_widget (GTK_LABEL (label), activate_delay_hscale);
-    //gtk_widget_set_no_show_all (GTK_WIDGET(root_warning_label), TRUE);
-
-    activate_delay = config_get_activate_delay (&is_writable);
-    init_scale(scale_label, activate_delay);
-    ui_set_delay (activate_delay);
-
-    if (! is_writable)
-    {
-    //    gtk_widget_set_sensitive (activate_delay_viewport, FALSE);
-    }
-    //g_signal_connect (activate_delay_hscale, "format-value",
-    //                  G_CALLBACK (format_value_callback_time), NULL);
-
-    g_signal_connect (screensaver_settings,
-                      "changed",
-                      G_CALLBACK (key_changed_cb),
-                      NULL);
-
-
-    g_signal_connect (session_settings,
-                      "changed::" KEY_IDLE_DELAY,
-                      G_CALLBACK (key_changed_cb),
-                      NULL);
-
-    g_signal_connect (lockdown_settings,
-                      "changed::" KEY_LOCK_DISABLE,
-                      G_CALLBACK (key_changed_cb),
-                      NULL);
-
-    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (lock_checkbox), config_get_lock (&is_writable));
-    if (! is_writable)
-    {
-        gtk_widget_set_sensitive (lock_checkbox, FALSE);
-    }
-    g_signal_connect (lock_checkbox, "toggled",
-                      G_CALLBACK (lock_checkbox_toggled), NULL);
-
-    enabled = config_get_enabled (&is_writable);
-    ui_set_enabled (enabled);
-    if (! is_writable)
-    {
-        gtk_widget_set_sensitive (enabled_checkbox, FALSE);
-    }
-    g_signal_connect (enabled_checkbox, "toggled",
-                      G_CALLBACK (enabled_checkbox_toggled), NULL);
-
-    if (check_is_root_user ())
-    {
-        //setup_for_root_user ();
-    }
-
-    g_signal_connect (activate_delay_hscale, "value-changed",
-                      G_CALLBACK (activate_delay_value_changed_cb), NULL);
-}
-
-
-//-----------------------------------------------------------------------------------------------------------------------------------------------
 
 static void
 prefs_setup_general (KpmPrefs *prefs)
@@ -897,13 +610,17 @@ prefs_setup_general (KpmPrefs *prefs)
                                           KPM_SETTINGS_BUTTON_SUSPEND,
                                           suspend_button_actions);
 
+		/*如果没有挂起按钮则要隐藏挂起的选项*/
         if (prefs->priv->has_button_suspend == FALSE) {
-                widget = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "viewport_general_suspend"));
+                widget = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "combobox_general_suspend"));
+                GtkWidget *widget_label = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "label37_suspend"));
 
                 #if GTK_CHECK_VERSION (2, 24, 0)
-                        gtk_widget_hide(widget);
+                        gtk_widget_hide (widget);
+						gtk_widget_hide (widget_label);
                 #else
                         gtk_widget_hide_all (widget);
+						gtk_widget_hide_all (widget_label);
                 #endif
         }
 }
@@ -949,31 +666,35 @@ prefs_setup_notification (KpmPrefs *prefs)
         is_writable = g_settings_is_writable (prefs->priv->settings, KPM_SETTINGS_ICON_POLICY);
         gtk_widget_set_sensitive (radiobutton_icon_always, is_writable);
         gtk_widget_set_sensitive (radiobutton_icon_present, is_writable);
-        gtk_widget_set_sensitive (radiobutton_icon_charge, is_writable);
-        gtk_widget_set_sensitive (radiobutton_icon_low, is_writable);
-        gtk_widget_set_sensitive (radiobutton_icon_never, is_writable);
+        //gtk_widget_set_sensitive (radiobutton_icon_charge, is_writable);
+        //gtk_widget_set_sensitive (radiobutton_icon_low, is_writable);
+        //gtk_widget_set_sensitive (radiobutton_icon_never, is_writable);
 
         gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (radiobutton_icon_always),
                                           icon_policy == KPM_ICON_POLICY_ALWAYS);
         gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (radiobutton_icon_present),
                                           icon_policy == KPM_ICON_POLICY_PRESENT);
-        gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (radiobutton_icon_charge),
+		/*
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (radiobutton_icon_charge),
                                           icon_policy == KPM_ICON_POLICY_CHARGE);
         gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (radiobutton_icon_low),
                                           icon_policy == KPM_ICON_POLICY_LOW);
         gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (radiobutton_icon_never),
                                           icon_policy == KPM_ICON_POLICY_NEVER);
+		*/
 
         g_object_set_data (G_OBJECT (radiobutton_icon_always), "policy",
                            GINT_TO_POINTER (KPM_ICON_POLICY_ALWAYS));
         g_object_set_data (G_OBJECT (radiobutton_icon_present), "policy",
                            GINT_TO_POINTER (KPM_ICON_POLICY_PRESENT));
+		/*
         g_object_set_data (G_OBJECT (radiobutton_icon_charge), "policy",
                            GINT_TO_POINTER (KPM_ICON_POLICY_CHARGE));
         g_object_set_data (G_OBJECT (radiobutton_icon_low), "policy",
                            GINT_TO_POINTER (KPM_ICON_POLICY_LOW));
         g_object_set_data (G_OBJECT (radiobutton_icon_never), "policy",
                            GINT_TO_POINTER (KPM_ICON_POLICY_NEVER));
+		*/
 
         /* only connect the callbacks after we set the value, else the settings
          * keys gets written to (for a split second), and the icon flickers. */
@@ -981,12 +702,14 @@ prefs_setup_notification (KpmPrefs *prefs)
                           G_CALLBACK (kpm_prefs_icon_radio_cb), prefs);
         g_signal_connect (radiobutton_icon_present, "clicked",
                           G_CALLBACK (kpm_prefs_icon_radio_cb), prefs);
+		/*
         g_signal_connect (radiobutton_icon_charge, "clicked",
                           G_CALLBACK (kpm_prefs_icon_radio_cb), prefs);
         g_signal_connect (radiobutton_icon_low, "clicked",
                           G_CALLBACK (kpm_prefs_icon_radio_cb), prefs);
         g_signal_connect (radiobutton_icon_never, "clicked",
                           G_CALLBACK (kpm_prefs_icon_radio_cb), prefs);
+		*/
 }
 
 
@@ -1171,17 +894,21 @@ kpm_prefs_init (KpmPrefs *prefs)
 
 
 	prefs_setup_ac (prefs);
-    prefs_setup_screensaver(prefs);
+    //prefs_setup_screensaver(prefs);
+	prefs_setup_battery (prefs);
+	prefs_setup_general (prefs);
 #if     defined(__aarch64__)
+	/*
         GtkWidget *w =  GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "label_battery"));
         gtk_widget_hide(w);
         GtkWidget *w2 =  GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "vbox_battery"));
         gtk_widget_hide(w2);
-	GtkWidget *w1 =  GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "vbox25"));
-	gtk_widget_hide(w1); 
+		GtkWidget *w1 =  GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "vbox25"));
+		gtk_widget_hide(w1);
+	*/
 #else
-	prefs_setup_battery (prefs);
-	prefs_setup_general (prefs);
+    //prefs_setup_battery (prefs);
+    //prefs_setup_general (prefs);
 #endif
 	prefs_setup_notification (prefs);
 }
@@ -1201,6 +928,8 @@ kpm_prefs_new (void)
 
 void init_power()
 {
-	g_debug("power");
+	g_warning("power");
+	screensaver_init(builder);
 	kpm_prefs_new();
+	
 }
