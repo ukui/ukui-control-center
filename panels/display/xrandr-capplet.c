@@ -2589,6 +2589,8 @@ run_application (App *app, GtkBuilder *builder)
     						     "resolution_combo");
     g_signal_connect (app->resolution_combo, "changed",
 		      G_CALLBACK (on_resolution_changed), app);
+    GtkWidget *label_display = _gtk_builder_get_widget (builder, "label55");
+    gtk_label_set_xalign(GTK_LABEL(label_display), 0.0);
 
 //    app->refresh_combo = _gtk_builder_get_widget (builder, "refresh_combo");
 //    g_signal_connect (app->refresh_combo, "changed",

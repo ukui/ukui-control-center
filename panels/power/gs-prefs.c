@@ -533,7 +533,7 @@ key_changed_cb (GSettings *settings,
 	}
 	else
 	{
-		g_warning ("Config key not handled: %s", key);
+		//g_warning ("Config key not handled: %s", key);
 	}
 
 	g_signal_emit (prefs, signals [CHANGED], 0);

@@ -3,6 +3,8 @@
 <interface>
   <requires lib="gtk+" version="3.0"/>
   <object class="GtkDialog" id="network_proxy_details_dialog">
+    <property name="width_request">350</property>
+    <property name="height_request">200</property>
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
     <property name="title" translatable="yes">Network Proxy Details</property>
@@ -49,7 +51,7 @@
             <property name="can_focus">False</property>
             <property name="border_width">5</property>
             <property name="orientation">vertical</property>
-            <property name="spacing">6</property>
+            <property name="spacing">15</property>
             <child>
               <object class="GtkCheckButton" id="use_auth_checkbutton">
                 <property name="visible">True</property>
@@ -94,7 +96,7 @@
                     <property name="visible">True</property>
                     <property name="sensitive">False</property>
                     <property name="can_focus">False</property>
-                    <property name="row_spacing">6</property>
+                    <property name="row_spacing">12</property>
                     <property name="column_spacing">12</property>
                     <child>
                       <object class="GtkLabel" id="label135">
@@ -126,6 +128,7 @@
                     </child>
                     <child>
                       <object class="GtkEntry" id="password_entry">
+                        <property name="width_request">222</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="visibility">False</property>
@@ -140,6 +143,7 @@
                     </child>
                     <child>
                       <object class="GtkEntry" id="username_entry">
+                        <property name="width_request">222</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="invisible_char">●</property>

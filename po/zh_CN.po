@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ukui-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-31 10:42+0800\n"
+"POT-Creation-Date: 2017-09-04 11:42+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -366,9 +366,9 @@ msgid "Custom Shortcut"
 msgstr "自定义快捷键"
 
 #: panels/keyboard/shortcut_dialog.ui.h:2
-#: panels/session-properties/main-table.ui.h:4
+#: panels/session-properties/main-table.ui.h:1
 msgid "Name:"
-msgstr "名称:"
+msgstr "程序名称:"
 
 #: panels/keyboard/shortcut_dialog.ui.h:3
 msgid "Command"
@@ -398,28 +398,28 @@ msgstr "密     码:"
 msgid "Copying files"
 msgstr ""
 
-#: panels/power/copy-theme-dialog.c:233
+#: panels/power/copy-theme-dialog.c:234
 msgid "From:"
 msgstr ""
 
-#: panels/power/copy-theme-dialog.c:237
+#: panels/power/copy-theme-dialog.c:238
 msgid "To:"
 msgstr ""
 
-#: panels/power/copy-theme-dialog.c:257
+#: panels/power/copy-theme-dialog.c:259
 msgid "Copying themes"
 msgstr ""
 
-#: panels/power/copy-theme-dialog.c:300
+#: panels/power/copy-theme-dialog.c:302
 msgid "Invalid screensaver theme"
 msgstr ""
 
-#: panels/power/copy-theme-dialog.c:303
+#: panels/power/copy-theme-dialog.c:305
 #, c-format
 msgid "%s does not appear to be a valid screensaver theme."
 msgstr ""
 
-#: panels/power/copy-theme-dialog.c:483
+#: panels/power/copy-theme-dialog.c:485
 #, c-format
 msgid "Copying file: %u of %u"
 msgstr ""
@@ -483,9 +483,9 @@ msgid "Sleep"
 msgstr "休眠"
 
 #: panels/power/kpm-prefs-core.c:285 panels/power/kpm-prefs-core.c:288
-#: panels/power/mate-screensaver-preferences.c:493
-#: panels/power/mate-screensaver-preferences.c:639
-#: panels/power/mate-screensaver-preferences.c:917
+#: panels/power/ukui-screensaver-preferences.c:462
+#: panels/power/ukui-screensaver-preferences.c:614
+#: panels/power/ukui-screensaver-preferences.c:853
 msgid "Blank screen"
 msgstr "黑屏"
 
@@ -776,38 +776,38 @@ msgstr "待充电"
 msgid "Waiting to discharge"
 msgstr "待放电"
 
-#: panels/power/mate-fullscreen-preview.ui.h:1
+#: panels/power/ukui-fullscreen-preview.ui.h:1
 msgid "Screensaver Preview"
 msgstr "屏保预览"
 
-#: panels/power/mate-fullscreen-preview.ui.h:2
+#: panels/power/ukui-fullscreen-preview.ui.h:2
 msgid "Screensaver preview"
 msgstr "屏保预览"
 
-#: panels/power/mate-screensaver-preferences.c:494
-#: panels/power/mate-screensaver-preferences.c:634
-#: panels/power/mate-screensaver-preferences.c:915
+#: panels/power/ukui-screensaver-preferences.c:463
+#: panels/power/ukui-screensaver-preferences.c:609
+#: panels/power/ukui-screensaver-preferences.c:851
 msgid "Random"
 msgstr ""
 
-#: panels/power/mate-screensaver-preferences.c:684
-#: panels/power/mate-screensaver-preferences.c:1694
+#: panels/power/ukui-screensaver-preferences.c:659
+#: panels/power/ukui-screensaver-preferences.c:1618
 #, c-format
 msgid "%d min"
-msgstr "%d 分"
+msgstr "%d 分钟"
 
-#: panels/power/mate-screensaver-preferences.c:686
-#: panels/power/mate-screensaver-preferences.c:1696
+#: panels/power/ukui-screensaver-preferences.c:661
+#: panels/power/ukui-screensaver-preferences.c:1620
 #, c-format
 msgid "%d hour %d min"
 msgstr "%d 小时 %d 分"
 
-#: panels/power/mate-screensaver-preferences.c:1752
+#: panels/power/ukui-screensaver-preferences.c:1676
 #, fuzzy
 msgid "Could not load the main interface"
 msgstr "无法保存显示器配置"
 
-#: panels/power/mate-screensaver-preferences.c:1754
+#: panels/power/ukui-screensaver-preferences.c:1678
 #, fuzzy
 msgid "Please make sure that the screensaver is properly installed"
 msgstr "请确保该计算机上至少有一个用户为管理员用户"
@@ -858,17 +858,17 @@ msgstr "属性"
 msgid "%dByte"
 msgstr "%d字节"
 
-#: panels/session-properties/main-table.ui.h:1
-msgid "scan…"
-msgstr "浏览…"
-
 #: panels/session-properties/main-table.ui.h:2
-msgid "Annotation:"
-msgstr "注释:"
+msgid "Command:"
+msgstr "程序路径:"
 
 #: panels/session-properties/main-table.ui.h:3
-msgid "command:"
-msgstr "命令:"
+msgid "Annotation:"
+msgstr "程序注释:"
+
+#: panels/session-properties/main-table.ui.h:4
+msgid "scan…"
+msgstr "浏览…"
 
 #: panels/session-properties/program_properties.ui.h:1
 msgid "program name"
@@ -2334,6 +2334,9 @@ msgstr ""
 #: shell/ukui-control-center.c:60
 msgid "ukuicc"
 msgstr ""
+
+#~ msgid "command:"
+#~ msgstr "命令:"
 
 #~ msgid "%d hour"
 #~ msgid_plural "%d hours"

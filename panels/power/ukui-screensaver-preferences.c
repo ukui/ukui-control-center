@@ -1696,6 +1696,7 @@ init_capplet (void)
     preview_button     = GTK_WIDGET (gtk_builder_get_object (builder, "preview_button"));
     combo_box          = GTK_WIDGET (gtk_builder_get_object (builder, "savers_combox"));
     GtkWidget *scale_label = GTK_WIDGET (gtk_builder_get_object (builder, "scale_label"));
+    gtk_label_set_xalign(GTK_LABEL(scale_label), 0.0);
     //gpm_button         = GTK_WIDGET (gtk_builder_get_object (builder, "gpm_button"));
     fullscreen_preview_window = GTK_WIDGET (gtk_builder_get_object (builder_preview, "fullscreen_preview_window"));
     fullscreen_preview_area = GTK_WIDGET (gtk_builder_get_object (builder_preview, "fullscreen_preview_area"));
@@ -1829,8 +1830,8 @@ init_capplet (void)
 static void
 finalize_capplet (void)
 {
-        //正确的做法是在回调里直接new一个，修改完之后再减引用计数，但这里设置的是一个
-        //全局的gsettings所以不能这样。
+    //正确的做法是在回调里直接new一个，修改完之后再减引用计数，但这里设置的是一个
+    //全局的gsettings所以不能这样。
     //g_object_unref (screensaver_settings);
     //g_object_unref (session_settings);
     //g_object_unref (lockdown_settings);
