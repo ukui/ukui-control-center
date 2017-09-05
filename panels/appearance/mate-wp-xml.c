@@ -21,7 +21,7 @@
 #include "mate-wp-xml.h"
 #include <libxml/parser.h>
 #define WALLPAPER_DATADIR   "/usr/share/ukui-background-properties"
-#define UBUNTUUKUI_BACKGROUND "zesty-ubuntukylin-wallpapers.xml"
+#define UBUNTUUKUI_BACKGROUND "artful-ubuntukylin-wallpapers.xml"
 static gboolean mate_wp_xml_get_bool(const xmlNode* parent, const char* prop_name)
 {
     gboolean ret_val = FALSE;
