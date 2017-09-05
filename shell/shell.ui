@@ -208,13 +208,13 @@
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkExpander" id="expander1">
-                    <property name="height_request">180</property>
+                    <property name="height_request">200</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="expanded">True</property>
                     <child>
-                      <object class="GtkBox">
-                        <property name="height_request">180</property>
+                      <object class="GtkBox" id="hbox_sysconf">
+                        <property name="height_request">165</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="orientation">vertical</property>
@@ -228,11 +228,11 @@
                                 <property name="height_request">108</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="spacing">44</property>
+                                <property name="spacing">30</property>
                                 <property name="layout_style">start</property>
                                 <child>
-                                  <object class="GtkButton" id="button1">
-                                    <property name="label" translatable="yes">Time Dates</property>
+                                  <object class="GtkButton" id="button3">
+                                    <property name="label" translatable="yes">Personalization</property>
                                     <property name="width_request">100</property>
                                     <property name="height_request">108</property>
                                     <property name="visible">True</property>
@@ -248,8 +248,8 @@
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkButton" id="button2">
-                                    <property name="label" translatable="yes">User Account</property>
+                                  <object class="GtkButton" id="button11">
+                                    <property name="label" translatable="yes">Autostart</property>
                                     <property name="width_request">100</property>
                                     <property name="height_request">108</property>
                                     <property name="visible">True</property>
@@ -262,23 +262,6 @@
                                     <property name="expand">False</property>
                                     <property name="fill">False</property>
                                     <property name="position">1</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkButton" id="button3">
-                                    <property name="label" translatable="yes">Personalization</property>
-                                    <property name="width_request">100</property>
-                                    <property name="height_request">108</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">True</property>
-                                    <property name="relief">none</property>
-                                    <property name="image_position">top</property>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">False</property>
-                                    <property name="position">2</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -296,12 +279,29 @@ Aplication</property>
                                   <packing>
                                     <property name="expand">False</property>
                                     <property name="fill">False</property>
+                                    <property name="position">2</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="button1">
+                                    <property name="label" translatable="yes">Time Dates</property>
+                                    <property name="width_request">100</property>
+                                    <property name="height_request">108</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="relief">none</property>
+                                    <property name="image_position">top</property>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">True</property>
+                                    <property name="fill">True</property>
                                     <property name="position">3</property>
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkButton" id="button11">
-                                    <property name="label" translatable="yes">Autostart</property>
+                                  <object class="GtkButton" id="button2">
+                                    <property name="label" translatable="yes">User Account</property>
                                     <property name="width_request">100</property>
                                     <property name="height_request">108</property>
                                     <property name="visible">True</property>
@@ -318,7 +318,7 @@ Aplication</property>
                                 </child>
                               </object>
                               <packing>
-                                <property name="x">45</property>
+                                <property name="x">30</property>
                                 <property name="y">10</property>
                               </packing>
                             </child>
@@ -333,7 +333,7 @@ Aplication</property>
                     </child>
                     <child type="label">
                       <object class="GtkBox" id="hbox1">
-                        <property name="width_request">788</property>
+                        <property name="width_request">940</property>
                         <property name="height_request">35</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
@@ -386,7 +386,7 @@ Aplication</property>
                         <property name="orientation">vertical</property>
                         <child>
                           <object class="GtkLayout" id="layout2">
-                            <property name="height_request">180</property>
+                            <property name="height_request">150</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <child>
@@ -394,13 +394,12 @@ Aplication</property>
                                 <property name="height_request">108</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="spacing">44</property>
+                                <property name="spacing">30</property>
                                 <property name="homogeneous">True</property>
                                 <property name="layout_style">start</property>
                                 <child>
-                                  <object class="GtkButton" id="button5">
-                                    <property name="label" translatable="yes">Network 
-Connections</property>
+                                  <object class="GtkButton" id="button8">
+                                    <property name="label" translatable="yes">Printer</property>
                                     <property name="width_request">100</property>
                                     <property name="height_request">108</property>
                                     <property name="visible">True</property>
@@ -413,6 +412,24 @@ Connections</property>
                                     <property name="expand">False</property>
                                     <property name="fill">False</property>
                                     <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="button13">
+                                    <property name="label" translatable="yes">Power 
+Management</property>
+                                    <property name="width_request">100</property>
+                                    <property name="height_request">108</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="relief">none</property>
+                                    <property name="image_position">top</property>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">False</property>
+                                    <property name="position">1</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -429,41 +446,7 @@ Connections</property>
                                   <packing>
                                     <property name="expand">False</property>
                                     <property name="fill">False</property>
-                                    <property name="position">1</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkButton" id="button7">
-                                    <property name="label" translatable="yes">Mouse</property>
-                                    <property name="width_request">100</property>
-                                    <property name="height_request">108</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">True</property>
-                                    <property name="relief">none</property>
-                                    <property name="image_position">top</property>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">False</property>
                                     <property name="position">2</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkButton" id="button8">
-                                    <property name="label" translatable="yes">Printer</property>
-                                    <property name="width_request">100</property>
-                                    <property name="height_request">108</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">True</property>
-                                    <property name="relief">none</property>
-                                    <property name="image_position">top</property>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">False</property>
-                                    <property name="position">3</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -480,12 +463,46 @@ Connections</property>
                                   <packing>
                                     <property name="expand">False</property>
                                     <property name="fill">False</property>
+                                    <property name="position">3</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="button7">
+                                    <property name="label" translatable="yes">Mouse</property>
+                                    <property name="width_request">100</property>
+                                    <property name="height_request">108</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="relief">none</property>
+                                    <property name="image_position">top</property>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">False</property>
                                     <property name="position">4</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="button12">
+                                    <property name="label" translatable="yes">Monitor</property>
+                                    <property name="width_request">100</property>
+                                    <property name="height_request">108</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="relief">none</property>
+                                    <property name="image_position">top</property>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">False</property>
+                                    <property name="position">5</property>
                                   </packing>
                                 </child>
                               </object>
                               <packing>
-                                <property name="x">45</property>
+                                <property name="x">30</property>
                                 <property name="y">10</property>
                               </packing>
                             </child>
@@ -506,7 +523,7 @@ Connections</property>
                                 <property name="height_request">108</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="spacing">44</property>
+                                <property name="spacing">30</property>
                                 <property name="homogeneous">True</property>
                                 <property name="layout_style">start</property>
                                 <child>
@@ -528,8 +545,9 @@ Agent</property>
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkButton" id="button12">
-                                    <property name="label" translatable="yes">Monitor</property>
+                                  <object class="GtkButton" id="button5">
+                                    <property name="label" translatable="yes">Network 
+Connections</property>
                                     <property name="width_request">100</property>
                                     <property name="height_request">108</property>
                                     <property name="visible">True</property>
@@ -539,35 +557,20 @@ Agent</property>
                                     <property name="image_position">top</property>
                                   </object>
                                   <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">False</property>
+                                    <property name="expand">True</property>
+                                    <property name="fill">True</property>
                                     <property name="position">1</property>
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkButton" id="button13">
-                                    <property name="label" translatable="yes">Power 
-Management</property>
-                                    <property name="width_request">100</property>
-                                    <property name="height_request">108</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">True</property>
-                                    <property name="relief">none</property>
-                                    <property name="image_position">top</property>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">False</property>
-                                    <property name="position">2</property>
-                                  </packing>
+                                  <placeholder/>
                                 </child>
                                 <child>
                                   <placeholder/>
                                 </child>
                               </object>
                               <packing>
-                                <property name="x">45</property>
+                                <property name="x">30</property>
                                 <property name="y">10</property>
                               </packing>
                             </child>
@@ -582,7 +585,7 @@ Management</property>
                     </child>
                     <child type="label">
                       <object class="GtkBox" id="hbox2">
-                        <property name="width_request">788</property>
+                        <property name="width_request">940</property>
                         <property name="height_request">35</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
