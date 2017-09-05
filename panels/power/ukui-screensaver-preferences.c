@@ -320,8 +320,15 @@ static void
 preview_clear (GtkWidget *widget)
 {
     GdkRGBA black = { 0.0, 0.0, 0.0, 1.0 };
-
     gdk_window_set_background_rgba (gtk_widget_get_window (widget), &black);
+
+    if(gtk_widget_get_window(widget) == NULL)
+        return;
+    cairo_t *cr = gdk_cairo_create(gtk_widget_get_window(widget));
+    cairo_set_source_rgba (cr, 0.0, 0.0, 0.0, 1.0);
+    cairo_set_operator (cr, CAIRO_OPERATOR_SOURCE);
+    cairo_paint (cr);
+    cairo_destroy(cr);
     gtk_widget_queue_draw (widget);
 }
 
@@ -1703,11 +1710,12 @@ init_capplet (void)
     fullscreen_preview_close = GTK_WIDGET (gtk_builder_get_object (builder_preview, "fullscreen_preview_close"));
     fullscreen_preview_previous = GTK_WIDGET (gtk_builder_get_object (builder_preview, "fullscreen_preview_previous_button"));
     fullscreen_preview_next = GTK_WIDGET (gtk_builder_get_object (builder_preview, "fullscreen_preview_next_button"));
+
     //因为没有向前的api，所以暂时先屏蔽掉向前和向后预览
-//    gtk_widget_set_no_show_all (fullscreen_preview_previous, FALSE);
-//    gtk_widget_set_no_show_all (fullscreen_preview_next, FALSE);
-//    gtk_widget_hide(fullscreen_preview_previous);
-//    gtk_widget_hide(fullscreen_preview_next);
+    gtk_widget_set_no_show_all (fullscreen_preview_previous, FALSE);
+    gtk_widget_set_no_show_all (fullscreen_preview_next, FALSE);
+    gtk_widget_hide(fullscreen_preview_previous);
+    gtk_widget_hide(fullscreen_preview_next);
 
     vp_screen          = GTK_WIDGET (gtk_builder_get_object (builder, "viewport21"));
     g_signal_connect((vp_screen), "draw", G_CALLBACK(show_preview), NULL);
