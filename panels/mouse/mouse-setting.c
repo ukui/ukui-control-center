@@ -72,7 +72,7 @@ struct _MouseData {
     GtkWidget * disable_typing_toggle;
     GtkWidget * tap_to_click_toggle;
     GtkWidget * horiz_scroll_toggle;
-	GtkWidget * touchpad_enabled;
+    GtkWidget * touchpad_enabled;
 
     GtkWidget * scroll_disabled_radio;
     GtkWidget * vertical_scroll_edge_radio;
@@ -145,65 +145,97 @@ synaptics_check_capabilities ()
     XFreeDeviceList (devicelist);
 }
 
-static
-gboolean find_synaptics()
+gboolean
+supports_xinput_devices (void)
 {
-    gboolean ret = FALSE;
-    int numdevices, i;
-    //we need to install xinput
-    XDeviceInfo *devicelist;
+    gint op_code, event, error;
+
+    return XQueryExtension (GDK_DISPLAY_XDISPLAY (gdk_display_get_default ()),
+                            "XInputExtension",
+                            &op_code,
+                            &event,
+                            &error);
+}
+
+static gboolean
+device_has_property (XDevice    *device,
+                     const char *property_name)
+{
     Atom realtype, prop;
     int realformat;
     unsigned long nitems, bytes_after;
     unsigned char *data;
-    XExtensionVersion *version;
 
-    /* Input device properties require version 1.5 or higher */
-    version = XGetExtensionVersion (GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), "XInputExtension");
-    if (!version || (version == (XExtensionVersion*) NoSuchExtension))
-        return False;
-
-    if (!version->present || (version->major_version * 1000 + version->minor_version) < 1005) 
-    {
-        XFree (version);
-        return False;
-    }
-
-    prop = XInternAtom (GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), "Synaptics Off", True);
+    prop = XInternAtom (GDK_DISPLAY_XDISPLAY (gdk_display_get_default ()), property_name, True);
     if (!prop)
-        return False;
+        return FALSE;
 
-    devicelist = XListInputDevices (GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), &numdevices);
-    for (i = 0; i < numdevices; i++) 
-    {
-        if (devicelist[i].use != IsXExtensionPointer)
-            continue;
-
-        gdk_error_trap_push();
-        XDevice *device = XOpenDevice (GDK_DISPLAY_XDISPLAY(gdk_display_get_default()),
-                           devicelist[i].id);
-        if (gdk_error_trap_pop ())
-            continue;
-
-        gdk_error_trap_push ();
-        if ((XGetDeviceProperty (GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), device, prop, 0, 1, False,
-                     XA_INTEGER, &realtype, &realformat, &nitems,
-                     &bytes_after, &data) == Success) && (realtype != None)) 
-	{
-            XFree (data);
-            ret = TRUE;
-        }
-        gdk_error_trap_pop ();
-
-        XCloseDevice (GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), device);
-
-        if (ret)
-            break;
+    gdk_error_trap_push ();
+    if ((XGetDeviceProperty (GDK_DISPLAY_XDISPLAY (gdk_display_get_default ()), device, prop, 0, 1, False,
+                             XA_INTEGER, &realtype, &realformat, &nitems,
+                             &bytes_after, &data) == Success) && (realtype != None)) {
+        gdk_error_trap_pop_ignored ();
+        XFree (data);
+        return TRUE;
     }
 
-    XFree (version);
-    XFreeDeviceList (devicelist);
-    return ret;
+    gdk_error_trap_pop_ignored ();
+    return FALSE;
+}
+
+XDevice*
+device_is_touchpad (XDeviceInfo *deviceinfo)
+{
+    XDevice *device;
+
+    if (deviceinfo->type != XInternAtom (GDK_DISPLAY_XDISPLAY (gdk_display_get_default ()), XI_TOUCHPAD, True))
+        return NULL;
+
+    gdk_error_trap_push ();
+    device = XOpenDevice (GDK_DISPLAY_XDISPLAY (gdk_display_get_default ()), deviceinfo->id);
+    if (gdk_error_trap_pop () || (device == NULL))
+        return NULL;
+
+    if (device_has_property (device, "libinput Tapping Enabled") ||
+            device_has_property (device, "Synaptics Off")) {
+        return device;
+    }
+
+    XCloseDevice (GDK_DISPLAY_XDISPLAY (gdk_display_get_default ()), device);
+    return NULL;
+}
+
+
+static
+gboolean find_synaptics()
+{
+    XDeviceInfo *device_info;
+    gint n_devices;
+    guint i;
+    gboolean retval;
+
+    if (supports_xinput_devices () == FALSE)
+        return TRUE;
+
+    retval = FALSE;
+
+    device_info = XListInputDevices (GDK_DISPLAY_XDISPLAY (gdk_display_get_default ()), &n_devices);
+    if (device_info == NULL)
+        return FALSE;
+
+    for (i = 0; i < n_devices; i++) {
+        XDevice *device;
+
+        device = device_is_touchpad (&device_info[i]);
+        if (device != NULL) {
+            retval = TRUE;
+            break;
+        }
+    }
+    if (device_info != NULL)
+        XFreeDeviceList (device_info);
+
+    return retval;
 }
 
 GtkIconSize  mouse_capplet_dblclck_icon_get_size(void)
@@ -406,9 +438,9 @@ static void setup_dialog()
     }
     else 
     {
-		g_settings_bind (touchpad_settings, "touchpad-enabled",
-		    mousedata.touchpad_enabled, "active",
-		    G_SETTINGS_BIND_DEFAULT);
+        g_settings_bind (touchpad_settings, "touchpad-enabled",
+            mousedata.touchpad_enabled, "active",
+            G_SETTINGS_BIND_DEFAULT);
         g_settings_bind (touchpad_settings, "disable-while-typing",
             mousedata.disable_typing_toggle, "active",
             G_SETTINGS_BIND_DEFAULT);
@@ -477,6 +509,7 @@ static void create_dialog(GtkBuilder * builder)
     mousedata.horiz_scroll_toggle = WID("horiz_scroll_toggle");
     mousedata.tap_to_click_toggle = WID("tap_to_click_toggle");
 
+    mousedata.touchpad_enabled = WID("touchpad_enabled");
     mousedata.scroll_disabled_radio = WID("scroll_disabled_radio");
     mousedata.vertical_scroll_edge_radio = WID("vertical_scroll_edge_radio");
     mousedata.horiz_scroll_edge_radio = WID("horiz_scroll_edge_radio");
