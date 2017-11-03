@@ -1927,7 +1927,10 @@ static void filechoose_result(GtkButton * button, gpointer user_data)
 	    return;
 	appinfo = g_desktop_app_info_new_from_filename(desktop_id);
 	exec = g_desktop_app_info_get_string(appinfo, "Exec");
-	gtk_entry_set_text(GTK_ENTRY(custom_shortcut_command_entry), exec);
+	//去掉Exec命令中的参数，防止有些参数可能会影响快捷键的使用
+	gchar **tmp = g_strsplit(exec, " ", 5);
+	gchar *short_exec = g_strdup(tmp[0]);
+	gtk_entry_set_text(GTK_ENTRY(custom_shortcut_command_entry), short_exec);
     }
     gtk_widget_destroy(filechoose_dialog);
 }
@@ -1940,9 +1943,10 @@ setup_dialog (GtkBuilder *builder, GSettings *marco_settings)
     GtkWidget *widget;
     GtkTreeView *treeview;
     GtkTreeSelection *selection;
+	GdkColor grey = {0, 0xf0f0, 0xf0f0, 0xf0f0};
     treeview = GTK_TREE_VIEW (gtk_builder_get_object (builder,
                                                     "shortcut_treeview"));
-
+	gtk_tree_view_set_headers_clickable(treeview, FALSE);
     g_signal_connect (treeview, "button_press_event",
     		        G_CALLBACK (start_editing_cb), builder);
     g_signal_connect (treeview, "row-activated",
@@ -1957,13 +1961,28 @@ setup_dialog (GtkBuilder *builder, GSettings *marco_settings)
                              renderer,
                              "text", DESCRIPTION_COLUMN,
                              NULL);
+	//给treeview的第一列标题栏添加一个viewport,设置背景色。
+	GtkWidget *title1;
+	GtkWidget *viewport1;
+	viewport1 = gtk_viewport_new(NULL,NULL);
+	title1 = gtk_label_new(gtk_tree_view_column_get_title(column));
+	gtk_misc_set_alignment(GTK_MISC(title1), 0.08, 0.5);
+	gtk_widget_set_size_request(viewport1, 300, 30);
+	gtk_container_add(GTK_CONTAINER(viewport1), title1);
+	gtk_widget_show_all(viewport1);
+	gtk_tree_view_column_set_widget(column, viewport1);
+	gtk_widget_modify_bg(viewport1, GTK_STATE_NORMAL, &grey);
+	gtk_viewport_set_shadow_type(GTK_VIEWPORT(viewport1), GTK_SHADOW_NONE);
+	
+	gtk_tree_view_column_set_min_width(column, 300);
     gtk_tree_view_column_set_cell_data_func (column, renderer, description_set_func, NULL, NULL);
     gtk_tree_view_column_set_resizable (column, FALSE);
     gtk_tree_view_append_column (treeview, column);
-    gtk_tree_view_column_set_sort_column_id (column, DESCRIPTION_COLUMN);
+    //gtk_tree_view_column_set_sort_column_id (column, DESCRIPTION_COLUMN);
     renderer = (GtkCellRenderer *) g_object_new (EGG_TYPE_CELL_RENDERER_KEYS,
                            "accel_mode", EGG_CELL_RENDERER_KEYS_MODE_X,
                            NULL);
+	gtk_cell_renderer_set_padding(renderer, 0, 6);
 
     g_signal_connect (renderer, "accel_edited",
     	                G_CALLBACK (accel_edited_callback),
@@ -1972,10 +1991,24 @@ setup_dialog (GtkBuilder *builder, GSettings *marco_settings)
     	                G_CALLBACK (accel_cleared_callback),
                         treeview);
     column = gtk_tree_view_column_new_with_attributes (_("Hotkey"), renderer, NULL);
+
+	GtkWidget *title2;
+	GtkWidget *viewport2;
+	viewport2 = gtk_viewport_new(NULL,NULL);
+	title2 = gtk_label_new(gtk_tree_view_column_get_title(column));
+	gtk_misc_set_alignment(GTK_MISC(title2), 0.05, 0.5);
+    gtk_widget_set_size_request(viewport2, 400, 30);
+	gtk_container_add(GTK_CONTAINER(viewport2), title2);
+	gtk_widget_show_all(viewport2);
+	gtk_tree_view_column_set_widget(column, viewport2);
+	gtk_widget_modify_bg(viewport2, GTK_STATE_NORMAL, &grey);
+	gtk_viewport_set_shadow_type(GTK_VIEWPORT(viewport2), GTK_SHADOW_NONE);
+	
+	gtk_tree_view_column_set_min_width(column, 200);
     gtk_tree_view_column_set_cell_data_func (column, renderer, accel_set_func, NULL, NULL);
     gtk_tree_view_column_set_resizable (column, FALSE);
     gtk_tree_view_append_column (treeview, column);
-    gtk_tree_view_column_set_sort_column_id (column, KEYENTRY_COLUMN);
+    //gtk_tree_view_column_set_sort_column_id (column, KEYENTRY_COLUMN);
     g_signal_connect (marco_settings,
                       "changed::num-workspaces",
                       G_CALLBACK (key_entry_controlling_key_changed),

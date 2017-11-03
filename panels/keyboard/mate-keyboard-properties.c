@@ -165,7 +165,7 @@ void add_keyboard_app(GtkBuilder *builder)
 
 	GtkWidget *keyboard_notebook;
 	keyboard_notebook = GTK_WIDGET(gtk_builder_get_object(builder, "keyboard_notebook"));
-	gtk_notebook_remove_page(GTK_NOTEBOOK(keyboard_notebook), 2);
+    //gtk_notebook_remove_page(GTK_NOTEBOOK(keyboard_notebook), 2);
 
 	activate_settings_daemon();
 

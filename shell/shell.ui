@@ -3036,6 +3036,7 @@ Connections</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="receives_default">False</property>
+                                                <property name="halign">start</property>
                                                 <property name="use_underline">True</property>
                                                 <property name="draw_indicator">True</property>
                                               </object>
@@ -3243,6 +3244,7 @@ Connections</property>
                                         <property name="height_request">33</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
+                                        <property name="halign">start</property>
                                         <property name="label" translatable="yes">To test the repetition rate of the input character:</property>
                                       </object>
                                       <packing>
@@ -3356,6 +3358,7 @@ Connections</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="receives_default">False</property>
+                                                <property name="halign">start</property>
                                                 <property name="use_underline">True</property>
                                                 <property name="draw_indicator">True</property>
                                               </object>
@@ -3501,6 +3504,7 @@ Connections</property>
                                       <object class="GtkLabel" id="keyboard_layout_tips_label">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
+                                        <property name="halign">start</property>
                                         <property name="label" translatable="yes">Please add the language you will use to the list. And the first one in the list is the most
 commonly used language.</property>
                                       </object>
@@ -3623,6 +3627,7 @@ commonly used language.</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">False</property>
+                                        <property name="halign">start</property>
                                         <property name="use_underline">True</property>
                                         <property name="draw_indicator">True</property>
                                       </object>
@@ -3638,6 +3643,7 @@ commonly used language.</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">False</property>
+                                        <property name="halign">start</property>
                                         <property name="use_underline">True</property>
                                         <property name="draw_indicator">True</property>
                                       </object>
@@ -3761,6 +3767,7 @@ commonly used language.</property>
                                       <object class="GtkBox" id="shortcuts_vbox">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
+                                        <property name="border_width">5</property>
                                         <property name="orientation">vertical</property>
                                         <property name="spacing">6</property>
                                         <child>
@@ -3773,6 +3780,7 @@ commonly used language.</property>
                                               <object class="GtkLabel" id="label56">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
+                                                <property name="halign">start</property>
                                                 <property name="label" translatable="yes">"To edit a shortcut key, click on the corresponding row and type a new key "
 "combination, or press backspace to clear."</property>
                                                 <property name="justify">fill</property>
