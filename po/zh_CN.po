@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ukui-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-03 14:24+0800\n"
+"POT-Creation-Date: 2017-11-27 11:44+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -483,9 +483,9 @@ msgid "Sleep"
 msgstr "休眠"
 
 #: panels/power/kpm-prefs-core.c:285 panels/power/kpm-prefs-core.c:288
-#: panels/power/ukui-screensaver-preferences.c:469
-#: panels/power/ukui-screensaver-preferences.c:621
-#: panels/power/ukui-screensaver-preferences.c:860
+#: panels/power/ukui-screensaver-preferences.c:473
+#: panels/power/ukui-screensaver-preferences.c:625
+#: panels/power/ukui-screensaver-preferences.c:876
 msgid "Blank screen"
 msgstr "黑屏"
 
@@ -784,29 +784,29 @@ msgstr "屏保预览"
 msgid "Screensaver preview"
 msgstr "屏保预览"
 
-#: panels/power/ukui-screensaver-preferences.c:470
-#: panels/power/ukui-screensaver-preferences.c:616
-#: panels/power/ukui-screensaver-preferences.c:858
+#: panels/power/ukui-screensaver-preferences.c:474
+#: panels/power/ukui-screensaver-preferences.c:620
+#: panels/power/ukui-screensaver-preferences.c:874
 msgid "Random"
 msgstr "随机"
 
-#: panels/power/ukui-screensaver-preferences.c:666
-#: panels/power/ukui-screensaver-preferences.c:1625
+#: panels/power/ukui-screensaver-preferences.c:682
+#: panels/power/ukui-screensaver-preferences.c:1641
 #, c-format
 msgid "%d min"
 msgstr "%d 分钟"
 
-#: panels/power/ukui-screensaver-preferences.c:668
-#: panels/power/ukui-screensaver-preferences.c:1627
+#: panels/power/ukui-screensaver-preferences.c:684
+#: panels/power/ukui-screensaver-preferences.c:1643
 #, c-format
 msgid "%d hour %d min"
 msgstr "%d 小时 %d 分"
 
-#: panels/power/ukui-screensaver-preferences.c:1683
+#: panels/power/ukui-screensaver-preferences.c:1699
 msgid "Could not load the main interface"
 msgstr "无法加载主界面"
 
-#: panels/power/ukui-screensaver-preferences.c:1685
+#: panels/power/ukui-screensaver-preferences.c:1701
 msgid "Please make sure that the screensaver is properly installed"
 msgstr "请确保屏保被正确的安装"
 
@@ -2322,6 +2322,10 @@ msgid "Screensavers:"
 msgstr "屏幕保护程序："
 
 #: shell/shell.ui.h:191
+msgid "Set display brightness to:"
+msgstr "设定显示器亮度为(B)："
+
+#: shell/shell.ui.h:192
 msgid "Screensaver"
 msgstr "屏幕保护"
 
@@ -2357,9 +2361,6 @@ msgstr ""
 
 #~ msgid "Put _display to sleep when inactive:"
 #~ msgstr "空闲此时间后将显示器转入睡眠(D)："
-
-#~ msgid "Set display _brightness to:"
-#~ msgstr "设定显示器亮度为(B)："
 
 #~ msgid "Di_m display when idle"
 #~ msgstr "空闲时变暗显示器(M)"

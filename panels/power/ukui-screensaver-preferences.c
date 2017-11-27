@@ -47,6 +47,7 @@
 #include "gs-theme-manager.h"
 #include "gs-job.h"
 #include "gs-prefs.h" /* for GS_MODE enum */
+#include "kpm-brightness.h"
 
 #define GTK_BUILDER_FILE "ukui-fullscreen-preview.ui"
 
@@ -65,6 +66,9 @@
 #define KEY_THEMES "themes"
 
 #define GPM_COMMAND "mate-power-preferences"
+
+#define KPM_SETTINGS_BRIGHTNESS_AC			"brightness-ac"
+#define KPM_SETTINGS_SCHEMA				"org.mate.power-manager"
 
 enum
 {
@@ -93,6 +97,7 @@ static GSJob          *job = NULL;
 static GSettings      *screensaver_settings = NULL;
 static GSettings      *session_settings = NULL;
 static GSettings      *lockdown_settings = NULL;
+static GSettings      *brightness_settings = NULL;
 
 static gint32
 config_get_activate_delay (gboolean *is_writable)
@@ -102,7 +107,7 @@ config_get_activate_delay (gboolean *is_writable)
     if (is_writable)
     {
         *is_writable = g_settings_is_writable (session_settings,
-                       KEY_IDLE_DELAY);
+                                               KEY_IDLE_DELAY);
     }
 
     delay = g_settings_get_int (session_settings, KEY_IDLE_DELAY);
@@ -129,7 +134,7 @@ config_get_mode (gboolean *is_writable)
     if (is_writable)
     {
         *is_writable = g_settings_is_writable (screensaver_settings,
-                       KEY_MODE);
+                                               KEY_MODE);
     }
 
     mode = g_settings_get_enum (screensaver_settings, KEY_MODE);
@@ -148,7 +153,7 @@ config_get_theme (gboolean *is_writable)
 {
     char *name;
     int   mode;
-        screensaver_settings = g_settings_new (GSETTINGS_SCHEMA);
+    screensaver_settings = g_settings_new (GSETTINGS_SCHEMA);
 
     if (is_writable)
     {
@@ -200,28 +205,28 @@ get_all_theme_ids (GSThemeManager *theme_manager)
     gchar **ids = NULL;
     GSList *entries;
     GSList *l;
-        guint idx = 0;
-        char *info_id;
+    guint idx = 0;
+    char *info_id;
 
     entries = gs_theme_manager_get_info_list (theme_manager);
-        ids = g_new0 (gchar *, g_slist_length (entries) + 1);
+    ids = g_new0 (gchar *, g_slist_length (entries) + 1);
     for (l = entries; l; l = l->next)
     {
         GSThemeInfo *info = l->data;
 
-                info_id = gs_theme_info_get_id (info);
-                //屏蔽掉随机中mate-screensaver中的屏保
-                if(!strcmp(info_id, "screensavers-gnomelogo-floaters")
-                   || !strcmp(info_id, "screensavers-footlogo-floaters")
-                   || !strcmp(info_id, "screensavers-popsquares")
-                   || !strcmp(info_id, "screensavers-personal-slideshow")
-                   || !strcmp(info_id, "screensavers-cosmos-slideshow")
-                   || !strcmp(info_id, "screensavers-cosmos-slideshow-ukui")
-                   || !strcmp(info_id, "screensavers-footlogo-floaters-ukui")
-                   || !strcmp(info_id, "screensavers-popsquares-ukui")
-                   || !strcmp(info_id, "screensavers-personal-slideshow-ukui")
-                   || !strcmp(info_id, "screensavers-gnomelogo-floaters-ukui"))
-                        continue;
+        info_id = gs_theme_info_get_id (info);
+        //屏蔽掉随机中mate-screensaver中的屏保
+        if(!strcmp(info_id, "screensavers-gnomelogo-floaters")
+                || !strcmp(info_id, "screensavers-footlogo-floaters")
+                || !strcmp(info_id, "screensavers-popsquares")
+                || !strcmp(info_id, "screensavers-personal-slideshow")
+                || !strcmp(info_id, "screensavers-cosmos-slideshow")
+                || !strcmp(info_id, "screensavers-cosmos-slideshow-ukui")
+                || !strcmp(info_id, "screensavers-footlogo-floaters-ukui")
+                || !strcmp(info_id, "screensavers-popsquares-ukui")
+                || !strcmp(info_id, "screensavers-personal-slideshow-ukui")
+                || !strcmp(info_id, "screensavers-gnomelogo-floaters-ukui"))
+            continue;
         ids[idx++] = g_strdup (info_id);
         gs_theme_info_unref (info);
     }
@@ -235,7 +240,7 @@ config_set_theme (const char *theme_id)
 {
     gchar **strv = NULL;
     int     mode;
-        screensaver_settings = g_settings_new (GSETTINGS_SCHEMA);
+    screensaver_settings = g_settings_new (GSETTINGS_SCHEMA);
 
     if (theme_id && strcmp (theme_id, "__blank-only") == 0)
     {
@@ -272,7 +277,7 @@ config_get_enabled (gboolean *is_writable)
     if (is_writable)
     {
         *is_writable = g_settings_is_writable (screensaver_settings,
-                       KEY_LOCK);
+                                               KEY_LOCK);
     }
 
     enabled = g_settings_get_boolean (screensaver_settings, KEY_IDLE_ACTIVATION_ENABLED);
@@ -284,8 +289,8 @@ static void
 config_set_enabled (gboolean enabled)
 {
     g_settings_set_boolean (screensaver_settings, KEY_IDLE_ACTIVATION_ENABLED, enabled);
-        if(enabled)
-                system("mate-screensaver-command --exit; nohup mate-screensaver > /dev/null 2>&1 &");
+    if(enabled)
+        system("mate-screensaver-command --exit; nohup mate-screensaver > /dev/null 2>&1 &");
 }
 
 static gboolean
@@ -296,7 +301,7 @@ config_get_lock (gboolean *is_writable)
     if (is_writable)
     {
         *is_writable = g_settings_is_writable (screensaver_settings,
-                       KEY_LOCK);
+                                               KEY_LOCK);
     }
 
     lock = g_settings_get_boolean (screensaver_settings, KEY_LOCK);
@@ -391,8 +396,8 @@ preview_set_theme (GtkWidget  *widget,
             gint32  i;
 
             i = g_random_int_range (0, g_strv_length (themes));
-                        job_set_theme (job, themes[i]);
-                        g_strfreev (themes);
+            job_set_theme (job, themes[i]);
+            g_strfreev (themes);
 
             gs_job_start (job);
         }
@@ -444,7 +449,7 @@ populate_model (GtkTreeModel *model)
     GSList     *l;
     GtkWidget *theme_combo_box = GTK_WIDGET(gtk_builder_get_object(builder, "savers_combox"));
 
-        /*
+    /*
         //黑屏
     gtk_tree_store_append (store, &iter, NULL);
     gtk_tree_store_set (store, &iter,
@@ -465,32 +470,17 @@ populate_model (GtkTreeModel *model)
                         -1);
         */
 
-        //只是添加的name，并没有添加id
+    //只是添加的name，并没有添加id
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(theme_combo_box), _("Blank screen"));
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(theme_combo_box), _("Random"));
 
-        //其他主题屏保
+    //其他主题屏保
     themes = get_theme_info_list ();
 
     if (themes == NULL)
     {
         return;
     }
-
-        /*GSThemeInfo *info_blank = (GSThemeInfo *)malloc(sizeof(GSThemeInfo));
-        GSThemeInfo *info_random = (GSThemeInfo *)malloc(sizeof(GSThemeInfo));
-        info_blank->name = "Blank screen";
-        info_blank->file_id = "__blank-only";
-
-        info_random->name = "Random";
-        info_random->file_id = "__random";
-
-        themes = g_list_prepend(themes, info_random);
-        themes = g_list_prepend(themes, info_blank);
-
-        gs_theme_info_unref (info_random);
-        gs_theme_info_unref (info_blank);
-        */
 
     for (l = themes; l; l = l->next)
     {
@@ -507,16 +497,16 @@ populate_model (GtkTreeModel *model)
         id = gs_theme_info_get_id (info);
         //屏蔽掉下拉框中的mate-screensaver中的屏保
         if (!strcmp(id, "screensavers-popsquares")
-            || !strcmp(id, "screensavers-gnomelogo-floaters")
-            || !strcmp(id, "screensavers-footlogo-floaters")
-            || !strcmp(id, "screensavers-personal-slideshow")
-            || !strcmp(id, "screensavers-cosmos-slideshow")
-            || !strcmp(id, "screensavers-popsquares-ukui")
-            || !strcmp(id, "screensavers-gnomelogo-floaters-ukui")
-            || !strcmp(id, "screensavers-footlogo-floaters-ukui")
-            || !strcmp(id, "screensavers-personal-slideshow-ukui")
-            || !strcmp(id, "screensavers-cosmos-slideshow-ukui"))
-                continue;
+                || !strcmp(id, "screensavers-gnomelogo-floaters")
+                || !strcmp(id, "screensavers-footlogo-floaters")
+                || !strcmp(id, "screensavers-personal-slideshow")
+                || !strcmp(id, "screensavers-cosmos-slideshow")
+                || !strcmp(id, "screensavers-popsquares-ukui")
+                || !strcmp(id, "screensavers-gnomelogo-floaters-ukui")
+                || !strcmp(id, "screensavers-footlogo-floaters-ukui")
+                || !strcmp(id, "screensavers-personal-slideshow-ukui")
+                || !strcmp(id, "screensavers-cosmos-slideshow-ukui"))
+            continue;
 
         gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(theme_combo_box), name);
 
@@ -562,95 +552,76 @@ tree_selection_next (GtkTreeSelection *selection)
     gtk_tree_selection_select_path (selection, path);
 }
 
-/*
-static void
-tree_selection_changed_cb (GtkTreeSelection *selection,
-                           GtkWidget        *preview)
-{
-    GtkTreeIter   iter;
-    GtkTreeModel *model;
-    char         *theme;
-    char         *name;
-
-    if (! gtk_tree_selection_get_selected (selection, &model, &iter))
-    {
-        return;
-    }
-
-    gtk_tree_model_get (model, &iter, ID_COLUMN, &theme, NAME_COLUMN, &name, -1);
-
-    if (theme == NULL)
-    {
-        g_free (name);
-        return;
-    }
-
-    preview_set_theme (preview, theme, name);
-    config_set_theme (theme);
-
-    g_free (theme);
-    g_free (name);
-}
-*/
-
 static void
 combo_box_changed_cb (GtkWidget *theme_combo_box)
 {
-        GtkTreeModel *model;
-        GtkTreeIter iter;
-        char *theme;
-        GtkWidget *preview  = GTK_WIDGET (gtk_builder_get_object (builder, "preview_area"));
-        gtk_widget_show_all(preview);
-        if(gtk_combo_box_get_active_iter(GTK_COMBO_BOX(theme_combo_box), &iter))
+    GtkTreeModel *model;
+    GtkTreeIter iter;
+    char *theme;
+    GtkWidget *preview  = GTK_WIDGET (gtk_builder_get_object (builder, "preview_area"));
+    gtk_widget_show_all(preview);
+    if(gtk_combo_box_get_active_iter(GTK_COMBO_BOX(theme_combo_box), &iter))
+    {
+        model = gtk_combo_box_get_model(GTK_COMBO_BOX(theme_combo_box));
+        gtk_tree_model_get(model, &iter, 0, &theme, -1);
+        GList *themes = NULL;
+        GList *l;
+        themes = get_theme_info_list ();
+        if (themes == NULL)
         {
-                model = gtk_combo_box_get_model(GTK_COMBO_BOX(theme_combo_box));
-                gtk_tree_model_get(model, &iter, 0, &theme, -1);
-                GList *themes = NULL;
-                GList *l;
-                themes = get_theme_info_list ();
-                if (themes == NULL)
-                {
-                        return;
-                }
-                //处理黑屏和随机的情况，因为只有theme(对应name)
-                if(!strcmp(theme, _("Random"))){
-                        char *random_id = "__random";
-                        preview_set_theme (preview, random_id, theme);
-                        config_set_theme (random_id);
-                }
-                if(!strcmp(theme, _("Blank screen"))){
-                        char *blank_id = "__blank-only";
-                        preview_set_theme (preview, blank_id, theme);
-                        config_set_theme (blank_id);
-                }
-
-                //其他的屏保，通过theme(name)可以获得其id值
-                for (l = themes; l; l = l->next)
-                {
-                        char  *name;
-                        char  *id;
-                        GSThemeInfo *info = l->data;
-
-                        if (info == NULL)
-                        {
-                                continue;
-                        }
-
-                        name = gs_theme_info_get_name (info);
-                        id = gs_theme_info_get_id (info);
-
-                        if(!strcmp(theme, name))
-                        {
-                                //设置屏保
-                                preview_set_theme (preview, id, name);
-                                config_set_theme (id);
-                        }
-
-                        gs_theme_info_unref (info);
-                }
-                //g_free(theme);
-                g_slist_free (themes);
+            return;
         }
+        //处理黑屏和随机的情况，因为只有theme(对应name)
+        if(!strcmp(theme, _("Random"))){
+            char *random_id = "__random";
+            preview_set_theme (preview, random_id, theme);
+            config_set_theme (random_id);
+        }
+        if(!strcmp(theme, _("Blank screen"))){
+            char *blank_id = "__blank-only";
+            preview_set_theme (preview, blank_id, theme);
+            config_set_theme (blank_id);
+        }
+
+        //其他的屏保，通过theme(name)可以获得其id值
+        for (l = themes; l; l = l->next)
+        {
+            char  *name;
+            char  *id;
+            GSThemeInfo *info = l->data;
+
+            if (info == NULL)
+            {
+                continue;
+            }
+
+            name = gs_theme_info_get_name (info);
+            id = gs_theme_info_get_id (info);
+
+            if(!strcmp(theme, name))
+            {
+                //设置屏保
+                preview_set_theme (preview, id, name);
+                config_set_theme (id);
+            }
+
+            gs_theme_info_unref (info);
+        }
+        //g_free(theme);
+        g_slist_free (themes);
+    }
+}
+
+//为了保持和锁屏的时间布局一致，这里用label来显示值的变化
+static void
+brightness_value_changed(GtkRange *range,
+                         gpointer user_data)
+{
+    gchar label_text[10];
+    int value = gtk_range_get_value(range);
+    sprintf(label_text, "%d%%", value);
+    GtkWidget *label_value = GTK_WIDGET (gtk_builder_get_object (builder, "label_value"));
+    gtk_label_set_text(GTK_LABEL(label_value),label_text);
 }
 
 static void
@@ -752,88 +723,22 @@ compare_theme  (GtkTreeModel *model,
     return result;
 }
 
-/*
-static gboolean
-separator_func (GtkTreeModel *model,
-                GtkTreeIter  *iter,
-                gpointer      data)
-{
-    int   column = GPOINTER_TO_INT (data);
-    char *text;
-
-    gtk_tree_model_get (model, iter, column, &text, -1);
-
-    if (text != NULL && strcmp (text, "__separator") == 0)
-    {
-        return TRUE;
-    }
-
-    g_free (text);
-
-    return FALSE;
-}
-*/
-
 static void
 setup_combo_box (GtkWidget *theme_combo_box,
-                GtkWidget *preview)
-{       /*
-    GtkTreeStore      *store;
-    GtkTreeViewColumn *column;
-    GtkCellRenderer   *renderer;
-    GtkTreeSelection  *select;
-
-    store = gtk_tree_store_new (N_COLUMNS,
-                                G_TYPE_STRING,
-                                G_TYPE_STRING);
-    populate_model (store);
-
-    gtk_tree_view_set_model (GTK_TREE_VIEW (tree),
-                             GTK_TREE_MODEL (store));
-
-    g_object_unref (store);
-
-    g_object_set (tree, "show-expanders", FALSE, NULL);
-
-    renderer = gtk_cell_renderer_text_new ();
-    column = gtk_tree_view_column_new_with_attributes ("Name", renderer,
-             "text", NAME_COLUMN,
-             NULL);
-    gtk_tree_view_append_column (GTK_TREE_VIEW (tree), column);
-
-    gtk_tree_view_column_set_sort_column_id (column, NAME_COLUMN);
-    gtk_tree_sortable_set_sort_func (GTK_TREE_SORTABLE (store),
-                                     NAME_COLUMN,
-                                     compare_theme,
-                                     NULL, NULL);
-    gtk_tree_sortable_set_sort_column_id (GTK_TREE_SORTABLE (store),
-                                          NAME_COLUMN,
-                                          GTK_SORT_ASCENDING);
-
-    gtk_tree_view_set_row_separator_func (GTK_TREE_VIEW (tree),
-                                          separator_func,
-                                          GINT_TO_POINTER (ID_COLUMN),
-                                          NULL);
-
-    select = gtk_tree_view_get_selection (GTK_TREE_VIEW (tree));
-    gtk_tree_selection_set_mode (select, GTK_SELECTION_SINGLE);
-    g_signal_connect (G_OBJECT (select), "changed",
-                      G_CALLBACK (tree_selection_changed_cb),
-                      preview);
-        */
-        GtkTreeModel *model;
-        model = gtk_combo_box_get_model(GTK_COMBO_BOX(theme_combo_box));
-        populate_model (GTK_TREE_MODEL(model));
-        //GtkWidget *theme_combo_box = GTK_WIDGET(gtk_builder_get_object(builder, "comboboxtext1"));
-        g_signal_connect (G_OBJECT (theme_combo_box), "changed",
-                          G_CALLBACK (combo_box_changed_cb),
-                          NULL);
+                 GtkWidget *preview)
+{
+    GtkTreeModel *model;
+    model = gtk_combo_box_get_model(GTK_COMBO_BOX(theme_combo_box));
+    populate_model (GTK_TREE_MODEL(model));
+    //GtkWidget *theme_combo_box = GTK_WIDGET(gtk_builder_get_object(builder, "comboboxtext1"));
+    g_signal_connect (G_OBJECT (theme_combo_box), "changed",
+                      G_CALLBACK (combo_box_changed_cb),
+                      NULL);
 }
 
 
 //初始化combo_box的值
 static void
-//setup_treeview_selection (GtkWidget *tree)
 setup_combo_box_selection (GtkWidget *combo_box)
 {
     char            *theme;
@@ -841,10 +746,8 @@ setup_combo_box_selection (GtkWidget *combo_box)
     char            *combo_box_text;
     GtkTreeModel *model;
     GtkTreeIter   iter;
-    //GtkTreePath  *path = NULL;
     gboolean      is_writable;
     gboolean      valid;
-    //GtkWidget *preview  = GTK_WIDGET (gtk_builder_get_object (builder, "preview_area"));
 
     //获取到当前所设置的屏保的id
     theme = config_get_theme (&is_writable);
@@ -855,37 +758,37 @@ setup_combo_box_selection (GtkWidget *combo_box)
     }
     //先通过id获取到name
     if (!strcmp(theme, "__random"))
-            name = _("Random");
+        name = _("Random");
     if (!strcmp(theme, "__blank-only"))
-            name = _("Blank screen");
+        name = _("Blank screen");
 
     GList *themes = NULL;
     GList *l;
     themes = get_theme_info_list ();
     if (themes == NULL)
     {
-            return;
+        return;
     }
     for (l = themes; l; l = l->next)
     {
-            //const char  *name;
-            const char  *id;
-            GSThemeInfo *info = l->data;
+        //const char  *name;
+        const char  *id;
+        GSThemeInfo *info = l->data;
 
-            if (info == NULL)
-            {
-                    continue;
-            }
+        if (info == NULL)
+        {
+            continue;
+        }
 
-            //name = gs_theme_info_get_name (info);
-            id = gs_theme_info_get_id (info);
+        //name = gs_theme_info_get_name (info);
+        id = gs_theme_info_get_id (info);
 
-            if(!strcmp(theme, id))
-            {
-                    name = gs_theme_info_get_name (info);
-                    break;
-            }
-            gs_theme_info_unref (info);
+        if(!strcmp(theme, id))
+        {
+            name = gs_theme_info_get_name (info);
+            break;
+        }
+        gs_theme_info_unref (info);
     }
 
     //再通过当前name和从combo_box中获得到的name进行比较
@@ -894,14 +797,14 @@ setup_combo_box_selection (GtkWidget *combo_box)
 
     while (valid && name)
     {
-            gtk_tree_model_get(model, &iter, 0, &combo_box_text, -1);
-            if(!strcmp(name, combo_box_text)){
-                    gtk_combo_box_set_active_iter(GTK_COMBO_BOX(combo_box), &iter);
-                    //preview_set_theme (preview, theme, name);
-                    valid = FALSE;
-            }
-            else
-                    valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(model), &iter);
+        gtk_tree_model_get(model, &iter, 0, &combo_box_text, -1);
+        if(!strcmp(name, combo_box_text)){
+            gtk_combo_box_set_active_iter(GTK_COMBO_BOX(combo_box), &iter);
+            //preview_set_theme (preview, theme, name);
+            valid = FALSE;
+        }
+        else
+            valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(model), &iter);
     }
     g_free(theme);
     g_slist_free (themes);
@@ -912,25 +815,13 @@ setup_combo_box_selection (GtkWidget *combo_box)
 static void
 reload_themes (void)
 {
-        /*
-    GtkWidget    *treeview;
+    GtkWidget *theme_combo_box;
     GtkTreeModel *model;
-
-    treeview = GTK_WIDGET (gtk_builder_get_object (builder, "savers_treeview"));
-    model = gtk_tree_view_get_model (GTK_TREE_VIEW (treeview));
-    gtk_tree_store_clear (GTK_TREE_STORE (model));
-    populate_model (GTK_TREE_STORE (model));
-
-    gtk_tree_view_set_model (GTK_TREE_VIEW (treeview),
-                             GTK_TREE_MODEL (model));
-        */
-        GtkWidget *theme_combo_box;
-        GtkTreeModel *model;
-        theme_combo_box = GTK_WIDGET(gtk_builder_get_object(builder, "savers_combox"));
-        model = gtk_combo_box_get_model(GTK_COMBO_BOX(theme_combo_box));
-        populate_model (GTK_TREE_MODEL(model));
-        gtk_combo_box_set_model(GTK_COMBO_BOX (theme_combo_box),
-                                   GTK_TREE_MODEL (model));
+    theme_combo_box = GTK_WIDGET(gtk_builder_get_object(builder, "savers_combox"));
+    model = gtk_combo_box_get_model(GTK_COMBO_BOX(theme_combo_box));
+    populate_model (GTK_TREE_MODEL(model));
+    gtk_combo_box_set_model(GTK_COMBO_BOX (theme_combo_box),
+                            GTK_TREE_MODEL (model));
 }
 
 static void
@@ -1011,15 +902,15 @@ uri_list_parse (const gchar *uri_list)
 
             q = p;
             while ((*q != '\0')
-                    && (*q != '\n')
-                    && (*q != '\r'))
+                   && (*q != '\n')
+                   && (*q != '\r'))
                 q++;
 
             if (q > p)
             {
                 q--;
                 while (q > p
-                        && g_ascii_isspace (*q))
+                       && g_ascii_isspace (*q))
                     q--;
 
                 retval = g_malloc (q - p + 2);
@@ -1150,45 +1041,40 @@ key_changed_cb (GSettings *settings, const gchar *key, gpointer data)
 {
     if (strcmp (key, KEY_IDLE_ACTIVATION_ENABLED) == 0)
     {
-            gboolean enabled;
+        gboolean enabled;
 
-            enabled = g_settings_get_boolean (settings, key);
+        enabled = g_settings_get_boolean (settings, key);
 
-            ui_set_enabled (enabled);
+        ui_set_enabled (enabled);
     }
     else if (strcmp (key, KEY_LOCK) == 0)
     {
-                gboolean enabled;
+        gboolean enabled;
 
-            enabled = g_settings_get_boolean (settings, key);
+        enabled = g_settings_get_boolean (settings, key);
 
-            ui_set_lock (enabled);
+        ui_set_lock (enabled);
     }
     else if (strcmp (key, KEY_LOCK_DISABLE) == 0)
     {
-                gboolean disabled;
+        gboolean disabled;
 
-            disabled = g_settings_get_boolean (settings, key);
+        disabled = g_settings_get_boolean (settings, key);
 
-            ui_disable_lock (disabled);
+        ui_disable_lock (disabled);
     }
     else if (strcmp (key, KEY_THEMES) == 0)
     {
-                        /*
-                GtkWidget *treeview;
-            treeview = GTK_WIDGET (gtk_builder_get_object (builder, "savers_treeview"));
-            setup_treeview_selection (treeview);
-                        */
-                        GtkWidget *combo_box;
-                        combo_box = GTK_WIDGET (gtk_builder_get_object (builder, "savers_combox"));
-                        setup_combo_box_selection (combo_box);
+        GtkWidget *combo_box;
+        combo_box = GTK_WIDGET (gtk_builder_get_object (builder, "savers_combox"));
+        setup_combo_box_selection (combo_box);
     }
     else if (strcmp (key, KEY_IDLE_DELAY) == 0)
     {
-            int delay;
+        int delay;
 
-            delay = g_settings_get_int (settings, key);
-                        ui_set_delay (delay);
+        delay = g_settings_get_int (settings, key);
+        ui_set_delay (delay);
 
     }
     else
@@ -1203,21 +1089,18 @@ fullscreen_preview_previous_cb (GtkWidget *fullscreen_preview_window,
                                 gpointer   user_data)
 {
     GtkWidget        *combo_box;
-    //GtkTreeSelection *selection;
-        GtkTreeIter      iter;
-        GtkTreeModel     *model;
+    GtkTreeIter      iter;
+    GtkTreeModel     *model;
 
     combo_box = GTK_WIDGET (gtk_builder_get_object (builder, "savers_combox"));
-        gtk_combo_box_get_active_iter(GTK_COMBO_BOX(combo_box), &iter);
-        model = gtk_combo_box_get_model(GTK_COMBO_BOX(combo_box));
-        //这里因为gtk_tree_model_iter_previous这个api是3.0的，所以我也不知道怎么获取它的上一个迭代器。
+    gtk_combo_box_get_active_iter(GTK_COMBO_BOX(combo_box), &iter);
+    model = gtk_combo_box_get_model(GTK_COMBO_BOX(combo_box));
+    //这里因为gtk_tree_model_iter_previous这个api是3.0的，所以我也不知道怎么获取它的上一个迭代器。
 
-        if(gtk_tree_model_iter_previous(model, &iter))
-                gtk_combo_box_set_active_iter(GTK_COMBO_BOX(combo_box), &iter);
-        else
-                return;
-    //selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (combo_box));
-    //tree_selection_previous (selection);
+    if(gtk_tree_model_iter_previous(model, &iter))
+        gtk_combo_box_set_active_iter(GTK_COMBO_BOX(combo_box), &iter);
+    else
+        return;
 }
 
 //预览模式下向后操作的callback
@@ -1226,19 +1109,16 @@ fullscreen_preview_next_cb (GtkWidget *fullscreen_preview_window,
                             gpointer   user_data)
 {
     GtkWidget        *combo_box;
-    //GtkTreeSelection *selection;
-        GtkTreeIter      iter;
-        GtkTreeModel     *model;
+    GtkTreeIter      iter;
+    GtkTreeModel     *model;
 
     combo_box = GTK_WIDGET (gtk_builder_get_object (builder, "savers_combox"));
-    //selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (combo_box));
-        gtk_combo_box_get_active_iter(GTK_COMBO_BOX(combo_box), &iter);
-    //tree_selection_next (iter);
-        model = gtk_combo_box_get_model(GTK_COMBO_BOX(combo_box));
-        if(gtk_tree_model_iter_next(model, &iter))
-                gtk_combo_box_set_active_iter(GTK_COMBO_BOX(combo_box), &iter);
-        else
-                return;
+    gtk_combo_box_get_active_iter(GTK_COMBO_BOX(combo_box), &iter);
+    model = gtk_combo_box_get_model(GTK_COMBO_BOX(combo_box));
+    if(gtk_tree_model_iter_next(model, &iter))
+        gtk_combo_box_set_active_iter(GTK_COMBO_BOX(combo_box), &iter);
+    else
+        return;
 }
 
 //预览模式下取消的callback
@@ -1260,10 +1140,6 @@ fullscreen_preview_cancelled_cb (GtkWidget *button,
 
     fullscreen_preview_window = GTK_WIDGET (gtk_builder_get_object (builder_preview, "fullscreen_preview_window"));
     gtk_widget_hide (fullscreen_preview_window);
-
-    //dialog = GTK_WIDGET (gtk_builder_get_object (builder, "prefs_dialog"));
-    //gtk_widget_show (dialog);
-    //gtk_window_present (GTK_WINDOW (dialog));
 }
 
 //预览显示的回调
@@ -1273,10 +1149,6 @@ fullscreen_preview_start_cb (GtkWidget *widget,
 {
     GtkWidget *fullscreen_preview_area;
     GtkWidget *fullscreen_preview_window;
-    //GtkWidget *dialog;
-
-    //dialog = GTK_WIDGET (gtk_builder_get_object (builder, "prefs_dialog"));
-    //gtk_widget_hide (dialog);
 
     fullscreen_preview_window = GTK_WIDGET (gtk_builder_get_object (builder_preview, "fullscreen_preview_window"));
 
@@ -1498,11 +1370,11 @@ get_best_visual_for_screen (GdkScreen *screen)
     error = NULL;
     std_output = NULL;
     res = spawn_command_line_on_screen_sync (screen,
-            command,
-            &std_output,
-            NULL,
-            &exit_status,
-            &error);
+                                             command,
+                                             &std_output,
+                                             NULL,
+                                             &exit_status,
+                                             &error);
     if (! res)
     {
         g_debug ("Could not run command '%s': %s", command, error->message);
@@ -1520,8 +1392,8 @@ get_best_visual_for_screen (GdkScreen *screen)
             visual = gdk_x11_screen_lookup_visual (screen, visual_id);
 
             g_debug ("Found best GL visual for screen %d: 0x%x",
-                      gdk_screen_get_number (screen),
-                      (unsigned int) visual_id);
+                     gdk_screen_get_number (screen),
+                     (unsigned int) visual_id);
         }
     }
 out:
@@ -1546,55 +1418,19 @@ widget_set_best_visual (GtkWidget *widget)
         g_object_unref (visual);
     }
 }
-//#else
-//static GdkColormap *
-//get_best_colormap_for_screen (GdkScreen *screen)
-//{
-//	GdkColormap *colormap;
-//	GdkVisual   *visual;
-
-//	g_return_val_if_fail (screen != NULL, NULL);
-
-//	visual = get_best_visual ();
-
-//	colormap = NULL;
-//	if (visual != NULL)
-//	{
-//		colormap = gdk_colormap_new (visual, FALSE);
-//	}
-
-//	return colormap;
-//}
-
-//static void
-//widget_set_best_colormap (GtkWidget *widget)
-//{
-//	GdkColormap *colormap;
-
-//	g_return_if_fail (widget != NULL);
-
-//	colormap = get_best_colormap_for_screen (gtk_widget_get_screen (widget));
-//	if (colormap != NULL)
-//	{
-//		gtk_widget_set_colormap (widget, colormap);
-//		g_object_unref (colormap);
-//	}
-//}
-//#endif
 
 static gboolean
 setup_treeview_idle (gpointer data)
 {
     GtkWidget *preview;
-    //GtkWidget *treeview;
-        GtkWidget *theme_combo_box;
+    GtkWidget *theme_combo_box;
 
     preview  = GTK_WIDGET (gtk_builder_get_object (builder, "preview_area"));
     //treeview = GTK_WIDGET (gtk_builder_get_object (builder, "savers_treeview"));
-        theme_combo_box = GTK_WIDGET (gtk_builder_get_object (builder, "savers_combox"));
+    theme_combo_box = GTK_WIDGET (gtk_builder_get_object (builder, "savers_combox"));
 
     setup_combo_box (theme_combo_box, preview);
-        setup_combo_box_selection (theme_combo_box);
+    setup_combo_box_selection (theme_combo_box);
     //setup_treeview_selection (treeview);
 
     return FALSE;
@@ -1631,8 +1467,8 @@ void init_scale(GtkWidget *scale_label,gdouble time)
 //这个expose回调是为了解决打开控制面板时不会显示当前设置的屏保
 void show_preview(GtkWidget *widget, cairo_t *cr, gpointer data)
 {
-        GtkWidget *combo_box  = GTK_WIDGET (gtk_builder_get_object (builder, "savers_combox"));
-        combo_box_changed_cb (combo_box);
+    GtkWidget *combo_box  = GTK_WIDGET (gtk_builder_get_object (builder, "savers_combox"));
+    combo_box_changed_cb (combo_box);
 }
 
 static void
@@ -1682,7 +1518,7 @@ init_capplet (void)
                                          GTK_BUTTONS_OK,
                                          _("Could not load the main interface"));
         gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
-                _("Please make sure that the screensaver is properly installed"));
+                                                  _("Please make sure that the screensaver is properly installed"));
 
         gtk_dialog_set_default_response (GTK_DIALOG (dialog),
                                          GTK_RESPONSE_OK);
@@ -1692,19 +1528,40 @@ init_capplet (void)
     }
 
     preview            = GTK_WIDGET (gtk_builder_get_object (builder, "preview_area"));
-    //dialog             = GTK_WIDGET (gtk_builder_get_object (builder, "prefs_dialog"));
-    //treeview           = GTK_WIDGET (gtk_builder_get_object (builder, "savers_treeview"));
-    //list_scroller      = GTK_WIDGET (gtk_builder_get_object (builder, "themes_scrolled_window"));
     activate_delay_hscale = GTK_WIDGET (gtk_builder_get_object (builder, "activate_delay_hscale"));
-    //activate_delay_hbox   = GTK_WIDGET (gtk_builder_get_object (builder, "activate_delay_hbox"));
     enabled_checkbox   = GTK_WIDGET (gtk_builder_get_object (builder, "screensaver_enable_checkbox"));
     lock_checkbox      = GTK_WIDGET (gtk_builder_get_object (builder, "screensaver_lock_checkbox"));
-    //root_warning_label = GTK_WIDGET (gtk_builder_get_object (builder, "root_warning_label"));
     preview_button     = GTK_WIDGET (gtk_builder_get_object (builder, "preview_button"));
     combo_box          = GTK_WIDGET (gtk_builder_get_object (builder, "savers_combox"));
     GtkWidget *scale_label = GTK_WIDGET (gtk_builder_get_object (builder, "scale_label"));
     gtk_label_set_xalign(GTK_LABEL(scale_label), 0.0);
-    //gpm_button         = GTK_WIDGET (gtk_builder_get_object (builder, "gpm_button"));
+    //调节显示器亮度的相关设置
+    GtkWidget *label_ac_brightness = GTK_WIDGET (gtk_builder_get_object (builder, "label_ac_brightness"));
+    gtk_label_set_xalign(GTK_LABEL(label_ac_brightness), 0.0);
+    GtkWidget *label_value = GTK_WIDGET (gtk_builder_get_object (builder, "label_value"));
+    gtk_label_set_xalign(GTK_LABEL(label_value), 0.17);
+    GtkWidget *hscale_ac_brightness = GTK_WIDGET (gtk_builder_get_object (builder, "hscale_ac_brightness"));
+    brightness_settings = g_settings_new (KPM_SETTINGS_SCHEMA);
+    g_settings_bind (brightness_settings, KPM_SETTINGS_BRIGHTNESS_AC,
+                     gtk_range_get_adjustment (GTK_RANGE (hscale_ac_brightness)), "value",
+                     G_SETTINGS_BIND_DEFAULT);
+    //初始化显示器亮度的设置,直接调用回调
+    brightness_value_changed(hscale_ac_brightness, NULL);
+    g_signal_connect(hscale_ac_brightness, "value-changed",
+                     G_CALLBACK (brightness_value_changed), NULL);
+    //检查硬件是否支持亮度设置
+    KpmBrightness *brightness = kpm_brightness_new ();
+    gboolean has_lcd = kpm_brightness_has_hw (brightness);
+    g_object_unref (brightness);
+    //不支持时隐藏设置选项并调整布局
+    if(has_lcd == FALSE)
+    {
+        GtkWidget *widget = GTK_WIDGET (gtk_builder_get_object (builder, "brightness_hbox"));
+        gtk_widget_hide(widget);
+        widget = GTK_WIDGET (gtk_builder_get_object (builder, "layout10_screensaver"));
+        gtk_layout_move(GTK_LAYOUT(widget), enabled_checkbox, 25, 415);
+        gtk_layout_move(GTK_LAYOUT(widget), lock_checkbox, 25, 450);
+    }
     fullscreen_preview_window = GTK_WIDGET (gtk_builder_get_object (builder_preview, "fullscreen_preview_window"));
     fullscreen_preview_area = GTK_WIDGET (gtk_builder_get_object (builder_preview, "fullscreen_preview_area"));
     fullscreen_preview_close = GTK_WIDGET (gtk_builder_get_object (builder_preview, "fullscreen_preview_close"));
@@ -1726,10 +1583,7 @@ init_capplet (void)
 
     label              = GTK_WIDGET (gtk_builder_get_object (builder, "label63_screen"));
     gtk_label_set_xalign(GTK_LABEL(label), 0.0);
-    //label              = GTK_WIDGET (gtk_builder_get_object (builder, "savers_label"));
-    //gtk_label_set_mnemonic_widget (GTK_LABEL (label), treeview);
 
-    //gtk_widget_set_no_show_all (root_warning_label, TRUE);
     widget_set_best_visual (preview);
 
     if (! is_program_in_path (GPM_COMMAND))
@@ -1762,8 +1616,6 @@ init_capplet (void)
     {
         gtk_widget_set_sensitive (activate_delay_hbox, FALSE);
     }
-//	g_signal_connect (activate_delay_hscale, "format-value",
-//	                  G_CALLBACK (format_value_callback_time), NULL);
 
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (lock_checkbox), config_get_lock (&is_writable));
     if (! is_writable)
@@ -1782,24 +1634,6 @@ init_capplet (void)
     }
     g_signal_connect (enabled_checkbox, "toggled",
                       G_CALLBACK (enabled_checkbox_toggled), NULL);
-        /*
-    gtk_widget_set_size_request (preview, 480, 300);
-    gtk_window_set_icon_name (GTK_WINDOW (dialog), "preferences-desktop-screensaver");
-    gtk_window_set_icon_name (GTK_WINDOW (fullscreen_preview_window), "screensaver");
-
-    gtk_drag_dest_set (dialog, GTK_DEST_DEFAULT_ALL,
-                       drop_types, G_N_ELEMENTS (drop_types),
-                       GDK_ACTION_COPY | GDK_ACTION_LINK | GDK_ACTION_MOVE);
-
-    g_signal_connect (dialog, "drag-motion",
-                      G_CALLBACK (drag_motion_cb), NULL);
-    g_signal_connect (dialog, "drag-leave",
-                      G_CALLBACK (drag_leave_cb), NULL);
-    g_signal_connect (dialog, "drag-data-received",
-                      G_CALLBACK (drag_data_received_cb), NULL);
-
-    gtk_widget_show_all (dialog);
-        */
 
     /* Update list of themes if using random screensaver */
     mode = g_settings_get_enum (screensaver_settings, KEY_MODE);
@@ -1845,45 +1679,13 @@ finalize_capplet (void)
     //g_object_unref (lockdown_settings);
 }
 
-/*
-int
-main (int    argc,
-      char **argv)
-{
-
-#ifdef ENABLE_NLS
-    bindtextdomain (GETTEXT_PACKAGE, UKUILOCALEDIR);
-# ifdef HAVE_BIND_TEXTDOMAIN_CODESET
-    bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-# endif
-    textdomain (GETTEXT_PACKAGE);
-#endif
-
-    gtk_init (&argc, &argv);
-
-    job = gs_job_new ();
-    theme_manager = gs_theme_manager_new ();
-
-    init_capplet ();
-
-    gtk_main ();
-
-    finalize_capplet ();
-
-    g_object_unref (theme_manager);
-    g_object_unref (job);
-
-    return 0;
-}
-*/
-
 void screensaver_init(GtkBuilder *screensaver_builder)
 {
-        g_warning("add screensaver");
-        builder = screensaver_builder;
-        job = gs_job_new();
-        theme_manager = gs_theme_manager_new ();
-        init_capplet();
-        GSPrefs *prefs = gs_prefs_new ();
-       // finalize_capplet();
+    g_warning("add screensaver");
+    builder = screensaver_builder;
+    job = gs_job_new();
+    theme_manager = gs_theme_manager_new ();
+    init_capplet();
+    GSPrefs *prefs = gs_prefs_new ();
+    // finalize_capplet();
 }
