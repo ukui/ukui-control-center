@@ -1228,7 +1228,7 @@ Connections</property>
                                                 </child>
                                               </object>
                                               <packing>
-                                                <property name="x">99</property>
+                                                <property name="x">100</property>
                                                 <property name="y">10</property>
                                               </packing>
                                             </child>
@@ -1248,49 +1248,49 @@ Connections</property>
                                                 </child>
                                               </object>
                                               <packing>
-                                                <property name="x">298</property>
+                                                <property name="x">287</property>
                                                 <property name="y">10</property>
                                               </packing>
                                             </child>
                                             <child>
                                               <object class="GtkComboBoxText" id="td_combo_year">
-                                                <property name="width_request">80</property>
+                                                <property name="width_request">75</property>
                                                 <property name="height_request">37</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
+                                                <property name="halign">end</property>
                                               </object>
                                               <packing>
-                                                <property name="x">130</property>
+                                                <property name="x">132</property>
                                                 <property name="y">10</property>
                                               </packing>
                                             </child>
                                             <child>
                                               <object class="GtkComboBoxText" id="td_combo_month">
-                                                <property name="width_request">80</property>
-                                                <property name="height_request">34</property>
+                                                <property name="width_request">75</property>
+                                                <property name="height_request">35</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                                 <property name="halign">baseline</property>
                                                 <property name="valign">baseline</property>
                                                 <property name="resize_mode">immediate</property>
-                                                <property name="popup_fixed_width">False</property>
                                                 <items>
-                                                  <item id="&lt;输入 ID&gt;" translatable="yes">    Jan</item>
-                                                  <item translatable="yes">   Feb</item>
-                                                  <item translatable="yes">    Mar</item>
-                                                  <item translatable="yes">    Apr</item>
-                                                  <item translatable="yes">    May</item>
-                                                  <item translatable="yes">    Jun</item>
-                                                  <item translatable="yes">    Jul</item>
-                                                  <item translatable="yes">    Aug</item>
-                                                  <item translatable="yes">    Sep</item>
-                                                  <item translatable="yes">    Oct</item>
-                                                  <item translatable="yes">    Nov</item>
-                                                  <item translatable="yes">    Dec</item>
+                                                  <item id="&lt;输入 ID&gt;" translatable="yes">Jan</item>
+                                                  <item translatable="yes">Feb</item>
+                                                  <item id="&lt;输入 ID&gt;" translatable="yes">Mar</item>
+                                                  <item translatable="yes">Apr</item>
+                                                  <item translatable="yes">May</item>
+                                                  <item translatable="yes">Jun</item>
+                                                  <item translatable="yes">Jul</item>
+                                                  <item translatable="yes">Aug</item>
+                                                  <item translatable="yes">Sep</item>
+                                                  <item translatable="yes">Oct</item>
+                                                  <item translatable="yes">Nov</item>
+                                                  <item id="&lt;输入 ID&gt;" translatable="yes">Dec</item>
                                                 </items>
                                               </object>
                                               <packing>
-                                                <property name="x">214</property>
+                                                <property name="x">210</property>
                                                 <property name="y">10</property>
                                               </packing>
                                             </child>
@@ -2491,13 +2491,15 @@ Connections</property>
                                                 <property name="can_focus">False</property>
                                                 <child>
                                                   <object class="GtkLabel" id="label8">
+                                                    <property name="width_request">105</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label" translatable="yes">        Web Browser:</property>
+                                                    <property name="halign">end</property>
+                                                    <property name="label" translatable="yes">Web Browser:</property>
                                                   </object>
                                                   <packing>
                                                     <property name="expand">False</property>
-                                                    <property name="fill">True</property>
+                                                    <property name="fill">False</property>
                                                     <property name="position">0</property>
                                                   </packing>
                                                 </child>
@@ -2514,17 +2516,6 @@ Connections</property>
                                                     <property name="position">1</property>
                                                   </packing>
                                                 </child>
-                                                <child>
-                                                  <object class="GtkLabel" id="space_1">
-                                                    <property name="visible">True</property>
-                                                    <property name="can_focus">False</property>
-                                                  </object>
-                                                  <packing>
-                                                    <property name="expand">True</property>
-                                                    <property name="fill">True</property>
-                                                    <property name="position">2</property>
-                                                  </packing>
-                                                </child>
                                               </object>
                                               <packing>
                                                 <property name="expand">False</property>
@@ -2538,9 +2529,11 @@ Connections</property>
                                                 <property name="can_focus">False</property>
                                                 <child>
                                                   <object class="GtkLabel" id="label10">
+                                                    <property name="width_request">105</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label" translatable="yes">          Mail Reader:</property>
+                                                    <property name="halign">end</property>
+                                                    <property name="label" translatable="yes">Mail Reader:</property>
                                                   </object>
                                                   <packing>
                                                     <property name="expand">False</property>
@@ -2559,17 +2552,6 @@ Connections</property>
                                                     <property name="expand">False</property>
                                                     <property name="fill">True</property>
                                                     <property name="position">1</property>
-                                                  </packing>
-                                                </child>
-                                                <child>
-                                                  <object class="GtkLabel" id="space_2">
-                                                    <property name="visible">True</property>
-                                                    <property name="can_focus">False</property>
-                                                  </object>
-                                                  <packing>
-                                                    <property name="expand">True</property>
-                                                    <property name="fill">True</property>
-                                                    <property name="position">2</property>
                                                   </packing>
                                                 </child>
                                               </object>
@@ -2627,9 +2609,11 @@ Connections</property>
                                                 <property name="can_focus">False</property>
                                                 <child>
                                                   <object class="GtkLabel" id="label14">
+                                                    <property name="width_request">105</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label" translatable="yes">       Image Viewer:</property>
+                                                    <property name="halign">start</property>
+                                                    <property name="label" translatable="yes">Image Viewer:</property>
                                                   </object>
                                                   <packing>
                                                     <property name="expand">False</property>
@@ -2650,17 +2634,6 @@ Connections</property>
                                                     <property name="position">1</property>
                                                   </packing>
                                                 </child>
-                                                <child>
-                                                  <object class="GtkLabel" id="space_3">
-                                                    <property name="visible">True</property>
-                                                    <property name="can_focus">False</property>
-                                                  </object>
-                                                  <packing>
-                                                    <property name="expand">True</property>
-                                                    <property name="fill">True</property>
-                                                    <property name="position">2</property>
-                                                  </packing>
-                                                </child>
                                               </object>
                                               <packing>
                                                 <property name="expand">False</property>
@@ -2674,9 +2647,11 @@ Connections</property>
                                                 <property name="can_focus">False</property>
                                                 <child>
                                                   <object class="GtkLabel" id="label15">
+                                                    <property name="width_request">105</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label" translatable="yes">        Audio Player:</property>
+                                                    <property name="halign">end</property>
+                                                    <property name="label" translatable="yes">Audio Player:</property>
                                                   </object>
                                                   <packing>
                                                     <property name="expand">False</property>
@@ -2697,17 +2672,6 @@ Connections</property>
                                                     <property name="position">1</property>
                                                   </packing>
                                                 </child>
-                                                <child>
-                                                  <object class="GtkLabel" id="space_4">
-                                                    <property name="visible">True</property>
-                                                    <property name="can_focus">False</property>
-                                                  </object>
-                                                  <packing>
-                                                    <property name="expand">True</property>
-                                                    <property name="fill">True</property>
-                                                    <property name="position">2</property>
-                                                  </packing>
-                                                </child>
                                               </object>
                                               <packing>
                                                 <property name="expand">False</property>
@@ -2721,9 +2685,11 @@ Connections</property>
                                                 <property name="can_focus">False</property>
                                                 <child>
                                                   <object class="GtkLabel" id="label23">
+                                                    <property name="width_request">105</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label" translatable="yes">        Video Player:</property>
+                                                    <property name="halign">end</property>
+                                                    <property name="label" translatable="yes">Video Player:</property>
                                                   </object>
                                                   <packing>
                                                     <property name="expand">False</property>
@@ -2742,17 +2708,6 @@ Connections</property>
                                                     <property name="expand">False</property>
                                                     <property name="fill">True</property>
                                                     <property name="position">1</property>
-                                                  </packing>
-                                                </child>
-                                                <child>
-                                                  <object class="GtkLabel" id="space_5">
-                                                    <property name="visible">True</property>
-                                                    <property name="can_focus">False</property>
-                                                  </object>
-                                                  <packing>
-                                                    <property name="expand">True</property>
-                                                    <property name="fill">True</property>
-                                                    <property name="position">2</property>
                                                   </packing>
                                                 </child>
                                               </object>
@@ -2810,9 +2765,11 @@ Connections</property>
                                                 <property name="can_focus">False</property>
                                                 <child>
                                                   <object class="GtkLabel" id="label29">
+                                                    <property name="width_request">105</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label" translatable="yes">           Text Editor:</property>
+                                                    <property name="halign">end</property>
+                                                    <property name="label" translatable="yes">Text Editor:</property>
                                                   </object>
                                                   <packing>
                                                     <property name="expand">False</property>
@@ -2833,17 +2790,6 @@ Connections</property>
                                                     <property name="position">1</property>
                                                   </packing>
                                                 </child>
-                                                <child>
-                                                  <object class="GtkLabel" id="space_6">
-                                                    <property name="visible">True</property>
-                                                    <property name="can_focus">False</property>
-                                                  </object>
-                                                  <packing>
-                                                    <property name="expand">True</property>
-                                                    <property name="fill">True</property>
-                                                    <property name="position">2</property>
-                                                  </packing>
-                                                </child>
                                               </object>
                                               <packing>
                                                 <property name="expand">False</property>
@@ -2857,9 +2803,11 @@ Connections</property>
                                                 <property name="can_focus">False</property>
                                                 <child>
                                                   <object class="GtkLabel" id="label30">
+                                                    <property name="width_request">105</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label" translatable="yes">       File Manager:</property>
+                                                    <property name="halign">end</property>
+                                                    <property name="label" translatable="yes">File Manager:</property>
                                                   </object>
                                                   <packing>
                                                     <property name="expand">False</property>
@@ -2878,17 +2826,6 @@ Connections</property>
                                                     <property name="expand">False</property>
                                                     <property name="fill">True</property>
                                                     <property name="position">1</property>
-                                                  </packing>
-                                                </child>
-                                                <child>
-                                                  <object class="GtkLabel" id="space_7">
-                                                    <property name="visible">True</property>
-                                                    <property name="can_focus">False</property>
-                                                  </object>
-                                                  <packing>
-                                                    <property name="expand">True</property>
-                                                    <property name="fill">True</property>
-                                                    <property name="position">2</property>
                                                   </packing>
                                                 </child>
                                               </object>

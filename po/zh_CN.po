@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ukui-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-27 11:44+0800\n"
+"POT-Creation-Date: 2017-11-28 17:06+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -483,9 +483,9 @@ msgid "Sleep"
 msgstr "休眠"
 
 #: panels/power/kpm-prefs-core.c:285 panels/power/kpm-prefs-core.c:288
-#: panels/power/ukui-screensaver-preferences.c:473
-#: panels/power/ukui-screensaver-preferences.c:625
-#: panels/power/ukui-screensaver-preferences.c:876
+#: panels/power/ukui-screensaver-preferences.c:474
+#: panels/power/ukui-screensaver-preferences.c:580
+#: panels/power/ukui-screensaver-preferences.c:763
 msgid "Blank screen"
 msgstr "黑屏"
 
@@ -784,29 +784,29 @@ msgstr "屏保预览"
 msgid "Screensaver preview"
 msgstr "屏保预览"
 
-#: panels/power/ukui-screensaver-preferences.c:474
-#: panels/power/ukui-screensaver-preferences.c:620
-#: panels/power/ukui-screensaver-preferences.c:874
+#: panels/power/ukui-screensaver-preferences.c:475
+#: panels/power/ukui-screensaver-preferences.c:575
+#: panels/power/ukui-screensaver-preferences.c:761
 msgid "Random"
 msgstr "随机"
 
-#: panels/power/ukui-screensaver-preferences.c:682
-#: panels/power/ukui-screensaver-preferences.c:1641
+#: panels/power/ukui-screensaver-preferences.c:637
+#: panels/power/ukui-screensaver-preferences.c:1461
 #, c-format
 msgid "%d min"
 msgstr "%d 分钟"
 
-#: panels/power/ukui-screensaver-preferences.c:684
-#: panels/power/ukui-screensaver-preferences.c:1643
+#: panels/power/ukui-screensaver-preferences.c:639
+#: panels/power/ukui-screensaver-preferences.c:1463
 #, c-format
 msgid "%d hour %d min"
 msgstr "%d 小时 %d 分"
 
-#: panels/power/ukui-screensaver-preferences.c:1699
+#: panels/power/ukui-screensaver-preferences.c:1519
 msgid "Could not load the main interface"
 msgstr "无法加载主界面"
 
-#: panels/power/ukui-screensaver-preferences.c:1701
+#: panels/power/ukui-screensaver-preferences.c:1521
 msgid "Please make sure that the screensaver is properly installed"
 msgstr "请确保屏保被正确的安装"
 
@@ -1777,52 +1777,52 @@ msgid "time:"
 msgstr "时间："
 
 #: shell/shell.ui.h:50
-msgid "    Jan"
-msgstr "    一月"
+msgid "Jan"
+msgstr "一月"
 
 #: shell/shell.ui.h:51
-msgid "   Feb"
-msgstr "    二月"
+msgid "Feb"
+msgstr "二月"
 
 #: shell/shell.ui.h:52
-msgid "    Mar"
-msgstr "    三月"
+msgid "Mar"
+msgstr "三月"
 
 #: shell/shell.ui.h:53
-msgid "    Apr"
-msgstr "    四月"
+msgid "Apr"
+msgstr "四月"
 
 #: shell/shell.ui.h:54
-msgid "    May"
-msgstr "    五月"
+msgid "May"
+msgstr "五月"
 
 #: shell/shell.ui.h:55
-msgid "    Jun"
-msgstr "    六月"
+msgid "Jun"
+msgstr "六月"
 
 #: shell/shell.ui.h:56
-msgid "    Jul"
-msgstr "    七月"
+msgid "Jul"
+msgstr "七月"
 
 #: shell/shell.ui.h:57
-msgid "    Aug"
-msgstr "    八月"
+msgid "Aug"
+msgstr "八月"
 
 #: shell/shell.ui.h:58
-msgid "    Sep"
-msgstr "    九月"
+msgid "Sep"
+msgstr "九月"
 
 #: shell/shell.ui.h:59
-msgid "    Oct"
-msgstr "    十月"
+msgid "Oct"
+msgstr "十月"
 
 #: shell/shell.ui.h:60
-msgid "    Nov"
-msgstr "    十一月"
+msgid "Nov"
+msgstr "十一月"
 
 #: shell/shell.ui.h:61
-msgid "    Dec"
-msgstr "    十二月"
+msgid "Dec"
+msgstr "十二月"
 
 #: shell/shell.ui.h:63
 msgid "min"
@@ -1916,40 +1916,40 @@ msgid "Internet"
 msgstr "互联网"
 
 #: shell/shell.ui.h:88
-msgid "        Web Browser:"
-msgstr "         网络浏览器："
+msgid "Web Browser:"
+msgstr "网络浏览器："
 
 #: shell/shell.ui.h:89
-msgid "          Mail Reader:"
-msgstr "         邮件阅读器："
+msgid "Mail Reader:"
+msgstr "邮件阅读器："
 
 #: shell/shell.ui.h:90
 msgid "Multimedia"
 msgstr "多媒体"
 
 #: shell/shell.ui.h:91
-msgid "       Image Viewer:"
-msgstr "         图像查看器："
+msgid "Image Viewer:"
+msgstr "图像查看器："
 
 #: shell/shell.ui.h:92
-msgid "        Audio Player:"
-msgstr "         音频播放器："
+msgid "Audio Player:"
+msgstr "音频播放器："
 
 #: shell/shell.ui.h:93
-msgid "        Video Player:"
-msgstr "         视频播放器："
+msgid "Video Player:"
+msgstr "视频播放器："
 
 #: shell/shell.ui.h:94
 msgid "System"
 msgstr "系统"
 
 #: shell/shell.ui.h:95
-msgid "           Text Editor:"
-msgstr "         文本编辑器："
+msgid "Text Editor:"
+msgstr "文本编辑器："
 
 #: shell/shell.ui.h:96
-msgid "       File Manager:"
-msgstr "         文件管理器："
+msgid "File Manager:"
+msgstr "文件管理器："
 
 #: shell/shell.ui.h:97
 msgid "Network Connections"
@@ -2336,6 +2336,12 @@ msgstr ""
 #: shell/ukui-control-center.c:60
 msgid "ukuicc"
 msgstr ""
+
+#~ msgid "    Dec"
+#~ msgstr "    十二月"
+
+#~ msgid "    Sep"
+#~ msgstr "    九月"
 
 #~ msgid "command:"
 #~ msgstr "命令:"
