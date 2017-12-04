@@ -1167,7 +1167,7 @@ Connections</property>
                                   </object>
                                   <packing>
                                     <property name="x">5</property>
-                                    <property name="y">195</property>
+                                    <property name="y">205</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1190,7 +1190,7 @@ Connections</property>
                                   </object>
                                   <packing>
                                     <property name="x">5</property>
-                                    <property name="y">127</property>
+                                    <property name="y">160</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1323,7 +1323,7 @@ Connections</property>
                                   </object>
                                   <packing>
                                     <property name="x">80</property>
-                                    <property name="y">185</property>
+                                    <property name="y">220</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1353,7 +1353,7 @@ Connections</property>
                                   </object>
                                   <packing>
                                     <property name="x">80</property>
-                                    <property name="y">125</property>
+                                    <property name="y">160</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1371,7 +1371,7 @@ Connections</property>
                                   </object>
                                   <packing>
                                     <property name="x">220</property>
-                                    <property name="y">125</property>
+                                    <property name="y">160</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1390,7 +1390,7 @@ Connections</property>
                                   </object>
                                   <packing>
                                     <property name="x">360</property>
-                                    <property name="y">125</property>
+                                    <property name="y">160</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1403,7 +1403,7 @@ Connections</property>
                                   </object>
                                   <packing>
                                     <property name="x">190</property>
-                                    <property name="y">125</property>
+                                    <property name="y">160</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1416,7 +1416,7 @@ Connections</property>
                                   </object>
                                   <packing>
                                     <property name="x">327</property>
-                                    <property name="y">125</property>
+                                    <property name="y">160</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1429,7 +1429,7 @@ Connections</property>
                                   </object>
                                   <packing>
                                     <property name="x">465</property>
-                                    <property name="y">125</property>
+                                    <property name="y">160</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1444,7 +1444,7 @@ Connections</property>
                                   </object>
                                   <packing>
                                     <property name="x">80</property>
-                                    <property name="y">20</property>
+                                    <property name="y">22</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1456,8 +1456,62 @@ Connections</property>
                                     <property name="label" translatable="yes">because the ntp is installed,please use ntpdate.</property>
                                   </object>
                                   <packing>
-                                    <property name="x">210</property>
-                                    <property name="y">20</property>
+                                    <property name="x">80</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkViewport" id="viewport_format">
+                                    <property name="width_request">50</property>
+                                    <property name="height_request">30</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <child>
+                                      <object class="GtkLabel" id="format_label">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="label" translatable="yes">format:</property>
+                                        <attributes>
+                                          <attribute name="weight" value="bold"/>
+                                        </attributes>
+                                      </object>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="x">5</property>
+                                    <property name="y">115</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkRadioButton" id="radiobutton12">
+                                    <property name="label" translatable="yes">12-hours</property>
+                                    <property name="width_request">100</property>
+                                    <property name="height_request">30</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">False</property>
+                                    <property name="active">True</property>
+                                    <property name="draw_indicator">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="x">80</property>
+                                    <property name="y">115</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkRadioButton" id="radiobutton24">
+                                    <property name="label" translatable="yes">24-hours</property>
+                                    <property name="width_request">100</property>
+                                    <property name="height_request">30</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">False</property>
+                                    <property name="active">True</property>
+                                    <property name="draw_indicator">True</property>
+                                    <property name="group">radiobutton12</property>
+                                  </object>
+                                  <packing>
+                                    <property name="x">220</property>
+                                    <property name="y">115</property>
                                   </packing>
                                 </child>
                               </object>

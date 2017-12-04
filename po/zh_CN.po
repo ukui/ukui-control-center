@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ukui-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 17:06+0800\n"
+"POT-Creation-Date: 2017-12-04 11:13+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -926,7 +926,7 @@ msgstr "确定"
 #: panels/user-accounts/change-name.ui.h:4
 #: panels/user-accounts/change-pwd.ui.h:4
 #: panels/user-accounts/change-type.ui.h:5
-#: panels/user-accounts/delete-user.ui.h:5 shell/shell.ui.h:190
+#: panels/user-accounts/delete-user.ui.h:5 shell/shell.ui.h:193
 msgid "label"
 msgstr ""
 
@@ -1841,491 +1841,503 @@ msgid "because the ntp is installed,please use ntpdate."
 msgstr ""
 
 #: shell/shell.ui.h:67
+msgid "format:"
+msgstr "制式："
+
+#: shell/shell.ui.h:68
+msgid "12-hours"
+msgstr "12小时制"
+
+#: shell/shell.ui.h:69
+msgid "24-hours"
+msgstr "24小时制"
+
+#: shell/shell.ui.h:70
 msgid "Current Account"
 msgstr "当前账户"
 
-#: shell/shell.ui.h:68
+#: shell/shell.ui.h:71
 msgid "Other Accounts"
 msgstr "其他账户"
 
-#: shell/shell.ui.h:69
+#: shell/shell.ui.h:72
 msgid "Create a new account"
 msgstr "创建一个新账户"
 
-#: shell/shell.ui.h:70
+#: shell/shell.ui.h:73
 msgid "Add"
 msgstr "添加壁纸"
 
-#: shell/shell.ui.h:71
+#: shell/shell.ui.h:74
 msgid "delete"
 msgstr "删除壁纸"
 
-#: shell/shell.ui.h:72
+#: shell/shell.ui.h:75
 msgid "Style:"
 msgstr "图片放置方式："
 
-#: shell/shell.ui.h:73
+#: shell/shell.ui.h:76
 msgid "wallpaper"
 msgstr "桌面背景"
 
-#: shell/shell.ui.h:74
+#: shell/shell.ui.h:77
 msgid "Select the one you love color as the theme color"
 msgstr "选择一个你喜欢的颜色作为主题颜色"
 
-#: shell/shell.ui.h:75
+#: shell/shell.ui.h:78
 msgid "Theme color"
 msgstr "主题颜色"
 
-#: shell/shell.ui.h:76
+#: shell/shell.ui.h:79
 msgid "Font choice:"
 msgstr "字体选择："
 
-#: shell/shell.ui.h:77
+#: shell/shell.ui.h:80
 msgid "Font size :"
 msgstr "字体大小："
 
-#: shell/shell.ui.h:79
+#: shell/shell.ui.h:82
 #, no-c-format
 msgid "small(S) --100%(default)"
 msgstr "较小(S) --100%(默认)"
 
-#: shell/shell.ui.h:81
+#: shell/shell.ui.h:84
 #, no-c-format
 msgid "medium(M)--125%"
 msgstr "中等(M)--125%"
 
-#: shell/shell.ui.h:83
+#: shell/shell.ui.h:86
 #, no-c-format
 msgid "large (L) --150%"
 msgstr "较大 (L) --150%"
 
-#: shell/shell.ui.h:84
+#: shell/shell.ui.h:87
 msgid "Please select the clearest sample text"
 msgstr "选择您看起来最清晰的文本示例"
 
-#: shell/shell.ui.h:85
+#: shell/shell.ui.h:88
 msgid "Restore Defaults"
 msgstr "恢复默认设置"
 
-#: shell/shell.ui.h:86
+#: shell/shell.ui.h:89
 msgid "Font"
 msgstr "字体"
 
-#: shell/shell.ui.h:87
+#: shell/shell.ui.h:90
 msgid "Internet"
 msgstr "互联网"
 
-#: shell/shell.ui.h:88
+#: shell/shell.ui.h:91
 msgid "Web Browser:"
 msgstr "网络浏览器："
 
-#: shell/shell.ui.h:89
+#: shell/shell.ui.h:92
 msgid "Mail Reader:"
 msgstr "邮件阅读器："
 
-#: shell/shell.ui.h:90
+#: shell/shell.ui.h:93
 msgid "Multimedia"
 msgstr "多媒体"
 
-#: shell/shell.ui.h:91
+#: shell/shell.ui.h:94
 msgid "Image Viewer:"
 msgstr "图像查看器："
 
-#: shell/shell.ui.h:92
+#: shell/shell.ui.h:95
 msgid "Audio Player:"
 msgstr "音频播放器："
 
-#: shell/shell.ui.h:93
+#: shell/shell.ui.h:96
 msgid "Video Player:"
 msgstr "视频播放器："
 
-#: shell/shell.ui.h:94
+#: shell/shell.ui.h:97
 msgid "System"
 msgstr "系统"
 
-#: shell/shell.ui.h:95
+#: shell/shell.ui.h:98
 msgid "Text Editor:"
 msgstr "文本编辑器："
 
-#: shell/shell.ui.h:96
+#: shell/shell.ui.h:99
 msgid "File Manager:"
 msgstr "文件管理器："
 
-#: shell/shell.ui.h:97
+#: shell/shell.ui.h:100
 msgid "Network Connections"
 msgstr "网络连接"
 
-#: shell/shell.ui.h:98
+#: shell/shell.ui.h:101
 msgid "Repeat Keys"
 msgstr "按键重复"
 
-#: shell/shell.ui.h:99
+#: shell/shell.ui.h:102
 msgid "Key presses _repeat when key is held down"
 msgstr "按住某一键时重复该键(R)"
 
-#: shell/shell.ui.h:100
+#: shell/shell.ui.h:103
 msgid "_Delay:"
 msgstr "延时(D)："
 
-#: shell/shell.ui.h:101
+#: shell/shell.ui.h:104
 msgid "_Speed:"
 msgstr "速度(S)："
 
-#: shell/shell.ui.h:102
+#: shell/shell.ui.h:105
 msgid "Short"
 msgstr "短"
 
-#: shell/shell.ui.h:103
+#: shell/shell.ui.h:106
 msgid "Slow"
 msgstr "慢"
 
-#: shell/shell.ui.h:104
+#: shell/shell.ui.h:107
 msgid "Repeat keys speed"
 msgstr "按键重复速度"
 
-#: shell/shell.ui.h:105
+#: shell/shell.ui.h:108
 msgid "Long"
 msgstr "长"
 
-#: shell/shell.ui.h:106
+#: shell/shell.ui.h:109
 msgid "Fast"
 msgstr "快"
 
-#: shell/shell.ui.h:107
+#: shell/shell.ui.h:110
 msgid "To test the repetition rate of the input character:"
 msgstr "输入字符来测试重复速度："
 
-#: shell/shell.ui.h:108
+#: shell/shell.ui.h:111
 msgid "Cursor Blinking"
 msgstr "光标闪烁"
 
-#: shell/shell.ui.h:109
+#: shell/shell.ui.h:112
 msgid "Cursor _blinks in text fields"
 msgstr "文本域中的光标会闪烁(B)"
 
-#: shell/shell.ui.h:110
+#: shell/shell.ui.h:113
 msgid "S_peed:"
 msgstr "速度(P)："
 
-#: shell/shell.ui.h:111
+#: shell/shell.ui.h:114
 msgid "Cursor blinks speed"
 msgstr "光标闪烁速度"
 
-#: shell/shell.ui.h:112
+#: shell/shell.ui.h:115
 msgid "General"
 msgstr "通用设置"
 
-#: shell/shell.ui.h:113
+#: shell/shell.ui.h:116
 msgid ""
 "Please add the language you will use to the list. And the first one in the "
 "list is the most\n"
 "commonly used language."
 msgstr "将要使用的语言添加到此列表中，位于列表第一位的语言为您最常用的语言。"
 
-#: shell/shell.ui.h:115
+#: shell/shell.ui.h:118
 msgid "_Show..."
 msgstr "显示"
 
-#: shell/shell.ui.h:116
+#: shell/shell.ui.h:119
 msgid "List of keyboard layouts selected for usage"
 msgstr "选用的键盘布局列表"
 
-#: shell/shell.ui.h:117
+#: shell/shell.ui.h:120
 msgid "_Separate layout for each window"
 msgstr "每个窗口独立布局(S)"
 
-#: shell/shell.ui.h:118
+#: shell/shell.ui.h:121
 msgid "New windows u_se active window's layout"
 msgstr "新窗口使用活动窗口的布局(S)"
 
-#: shell/shell.ui.h:119
+#: shell/shell.ui.h:122
 msgid "Reset to De_faults"
 msgstr "恢复默认配置(_F)"
 
-#: shell/shell.ui.h:120
+#: shell/shell.ui.h:123
 msgid "Layouts"
 msgstr "布局"
 
-#: shell/shell.ui.h:121
+#: shell/shell.ui.h:124
 msgid ""
 "\"To edit a shortcut key, click on the corresponding row and type a new key "
 "\"\n"
 "\"combination, or press backspace to clear.\""
 msgstr "要编辑快捷键，请单击相应的行，然后输入新按键组合，或按退格键清除。"
 
-#: shell/shell.ui.h:123
+#: shell/shell.ui.h:126
 msgid "Shortcut"
 msgstr "快捷键"
 
-#: shell/shell.ui.h:124
+#: shell/shell.ui.h:127
 msgid "_Right-handed"
 msgstr "惯用右手"
 
-#: shell/shell.ui.h:125
+#: shell/shell.ui.h:128
 msgid "_Left-handed"
 msgstr "惯用左手"
 
-#: shell/shell.ui.h:126
+#: shell/shell.ui.h:129
 msgid "Sh_ow position of pointer when the Control key is pressed"
 msgstr "按住Ctrl键时显示指针位置"
 
-#: shell/shell.ui.h:127
+#: shell/shell.ui.h:130
 msgid "_Sensitivity:"
 msgstr "灵敏度："
 
-#: shell/shell.ui.h:128
+#: shell/shell.ui.h:131
 msgid "Low"
 msgstr "低"
 
-#: shell/shell.ui.h:129
+#: shell/shell.ui.h:132
 msgid "High"
 msgstr "高"
 
-#: shell/shell.ui.h:130
+#: shell/shell.ui.h:133
 msgid "Double-click the right bulb to test your settings"
 msgstr "双击右侧的灯泡以便测试您的设置"
 
-#: shell/shell.ui.h:131
+#: shell/shell.ui.h:134
 msgid "Timeout"
 msgstr "超时"
 
-#: shell/shell.ui.h:132
+#: shell/shell.ui.h:135
 msgid "Pointer moving speed"
 msgstr "指针移动速度"
 
-#: shell/shell.ui.h:133
+#: shell/shell.ui.h:136
 msgid "Locate Pointer"
 msgstr "定位指针"
 
-#: shell/shell.ui.h:134
+#: shell/shell.ui.h:137
 msgid "Mouse Keys"
 msgstr "鼠标键"
 
-#: shell/shell.ui.h:135
+#: shell/shell.ui.h:138
 msgid "Double-Click Speed"
 msgstr "双击速度"
 
-#: shell/shell.ui.h:136
+#: shell/shell.ui.h:139
 msgid "Disable _touchpad while typing"
 msgstr "打字时禁用触摸板(T)"
 
-#: shell/shell.ui.h:137
+#: shell/shell.ui.h:140
 msgid "Enable _mouse clicks with touchpad"
 msgstr "启用触摸板的鼠标点击(M)"
 
-#: shell/shell.ui.h:138
+#: shell/shell.ui.h:141
 msgid "Scrolling"
 msgstr "滚动"
 
-#: shell/shell.ui.h:139
+#: shell/shell.ui.h:142
 msgid "_Disabled"
 msgstr "禁用(_D)"
 
-#: shell/shell.ui.h:140
+#: shell/shell.ui.h:143
 msgid "Vertical _edge scrolling"
 msgstr "垂直边界滚动(_E)"
 
-#: shell/shell.ui.h:141
+#: shell/shell.ui.h:144
 msgid "_Horizontal edge scrolling"
 msgstr "水平边界滚动(H)"
 
-#: shell/shell.ui.h:142
+#: shell/shell.ui.h:145
 msgid "_Vertical two-finger scrolling"
 msgstr "垂直双指滚动(_V)"
 
-#: shell/shell.ui.h:143
+#: shell/shell.ui.h:146
 msgid "Horizontal two-_finger scrolling"
 msgstr "水平双指滚动(_F)"
 
-#: shell/shell.ui.h:144
+#: shell/shell.ui.h:147
 msgid "Enabled touchpad"
 msgstr "启用触摸板"
 
-#: shell/shell.ui.h:145
+#: shell/shell.ui.h:148
 msgid "Touchpad"
 msgstr "触摸板"
 
-#: shell/shell.ui.h:146
+#: shell/shell.ui.h:149
 msgid "<b>Di_rect internet connection</b>"
 msgstr "<b>直接连接到互联网(_R)</b>"
 
-#: shell/shell.ui.h:147
+#: shell/shell.ui.h:150
 msgid "<b>_Manual proxy configuration</b>"
 msgstr "<b>手动配置代理(_M)</b>"
 
-#: shell/shell.ui.h:148
+#: shell/shell.ui.h:151
 msgid "H_TTP proxy:"
 msgstr "H_TTP 代理:"
 
-#: shell/shell.ui.h:149
+#: shell/shell.ui.h:152
 msgid "_Secure HTTP proxy:"
 msgstr "安全 HTTP 代理(_S):"
 
-#: shell/shell.ui.h:150
+#: shell/shell.ui.h:153
 msgid "_FTP proxy:"
 msgstr "_FTP 代理:"
 
-#: shell/shell.ui.h:151
+#: shell/shell.ui.h:154
 msgid "S_ocks host:"
 msgstr "S_ocks 主机:"
 
-#: shell/shell.ui.h:152
+#: shell/shell.ui.h:155
 msgid "Port:"
 msgstr "端口:"
 
-#: shell/shell.ui.h:153
+#: shell/shell.ui.h:156
 msgid "_Details"
 msgstr "细节(_D)"
 
-#: shell/shell.ui.h:154
+#: shell/shell.ui.h:157
 msgid "<b>_Automatic proxy configuration</b>"
 msgstr "<b>自动配置代理(_A)</b>"
 
-#: shell/shell.ui.h:155
+#: shell/shell.ui.h:158
 msgid "Autoconfiguration _URL:"
 msgstr "自动配置 _URL:"
 
-#: shell/shell.ui.h:156
+#: shell/shell.ui.h:159
 msgid "Proxy Configuration"
 msgstr "代理服务器配置"
 
-#: shell/shell.ui.h:157
+#: shell/shell.ui.h:160
 msgid "Ignore Host List"
 msgstr "忽略主机列表"
 
-#: shell/shell.ui.h:158
+#: shell/shell.ui.h:161
 msgid "Ignored Hosts"
 msgstr "忽略的主机"
 
-#: shell/shell.ui.h:159
+#: shell/shell.ui.h:162
 msgid "Additional startup _programs:"
 msgstr "额外的启动程序"
 
-#: shell/shell.ui.h:160
+#: shell/shell.ui.h:163
 msgid "name"
 msgstr "名称"
 
-#: shell/shell.ui.h:161
+#: shell/shell.ui.h:164
 msgid "status"
 msgstr "状态"
 
-#: shell/shell.ui.h:162
+#: shell/shell.ui.h:165
 msgid "Startup Programs"
 msgstr "启动程序"
 
-#: shell/shell.ui.h:163
+#: shell/shell.ui.h:166
 msgid "Change display appearance"
 msgstr "更改显示器外观"
 
-#: shell/shell.ui.h:164
+#: shell/shell.ui.h:167
 msgid "Monitor:"
 msgstr "显示器:"
 
-#: shell/shell.ui.h:165
+#: shell/shell.ui.h:168
 msgid "Resolution:"
 msgstr "分辨率:"
 
-#: shell/shell.ui.h:166
+#: shell/shell.ui.h:169
 msgid "Direction:"
 msgstr "方向:"
 
-#: shell/shell.ui.h:167
+#: shell/shell.ui.h:170
 msgid "Save"
 msgstr "保存更改"
 
-#: shell/shell.ui.h:168
+#: shell/shell.ui.h:171
 msgid "Same image in all monitors"
 msgstr "所有显示器显示主屏幕图像"
 
-#: shell/shell.ui.h:169
+#: shell/shell.ui.h:172
 msgid "Set as primary"
 msgstr "设为主屏"
 
-#: shell/shell.ui.h:170
+#: shell/shell.ui.h:173
 msgid "Open Monitor"
 msgstr "打开显示器"
 
-#: shell/shell.ui.h:171
+#: shell/shell.ui.h:174
 msgid "Close Monitor"
 msgstr "关闭显示器"
 
-#: shell/shell.ui.h:172
+#: shell/shell.ui.h:175
 msgid "Computer status"
 msgstr "更改计算机状态"
 
-#: shell/shell.ui.h:173
+#: shell/shell.ui.h:176
 msgid "AC Power"
 msgstr "电源供电"
 
-#: shell/shell.ui.h:174
+#: shell/shell.ui.h:177
 msgid "Battery Power"
 msgstr "电池供电"
 
-#: shell/shell.ui.h:175
+#: shell/shell.ui.h:178
 msgid "Put _computer to sleep when inactive:"
 msgstr "空闲此时间后将计算机转入睡眠(C)："
 
-#: shell/shell.ui.h:176
+#: shell/shell.ui.h:179
 msgid "Put _monitor to sleep when inactive:"
 msgstr "空闲此时间后将显示器转入睡眠(M)："
 
-#: shell/shell.ui.h:177
+#: shell/shell.ui.h:180
 msgid "When laptop lid is cl_osed:"
 msgstr "关闭笔记本电脑上盖时(O)："
 
-#: shell/shell.ui.h:178
+#: shell/shell.ui.h:181
 msgid "Actions"
 msgstr "操作"
 
-#: shell/shell.ui.h:179
+#: shell/shell.ui.h:182
 msgid "When the power _button is pressed:"
 msgstr "按下了电源按钮时(B)："
 
-#: shell/shell.ui.h:180
+#: shell/shell.ui.h:183
 msgid "When the sus_pend button is pressed:"
 msgstr "按下了挂起按钮时(S)："
 
-#: shell/shell.ui.h:181
+#: shell/shell.ui.h:184
 msgid "Icon display"
 msgstr "图标显示设置"
 
-#: shell/shell.ui.h:182
+#: shell/shell.ui.h:185
 msgid "Only display an icon when a battery is p_resent"
 msgstr "仅当使用电池时显示图标(R)"
 
-#: shell/shell.ui.h:183
+#: shell/shell.ui.h:186
 msgid "_Always display an icon"
 msgstr "总是显示图标(A)"
 
-#: shell/shell.ui.h:184
+#: shell/shell.ui.h:187
 msgid "Power Configure"
 msgstr "电源设置"
 
-#: shell/shell.ui.h:185
+#: shell/shell.ui.h:188
 msgid "Regard the computer as _idle after:"
 msgstr "于此时间后视计算机空闲(I)："
 
-#: shell/shell.ui.h:186
+#: shell/shell.ui.h:189
 msgid "_Activate screensaver when computer is idle"
 msgstr "计算机空闲时激活屏幕保护程序（A）"
 
-#: shell/shell.ui.h:187
+#: shell/shell.ui.h:190
 msgid "_Lock screen when screensaver is active"
 msgstr "屏幕保护程序激活时锁定屏幕（L）"
 
-#: shell/shell.ui.h:188
+#: shell/shell.ui.h:191
 msgid "preview"
 msgstr "预览"
 
-#: shell/shell.ui.h:189
+#: shell/shell.ui.h:192
 msgid "Screensavers:"
 msgstr "屏幕保护程序："
 
-#: shell/shell.ui.h:191
+#: shell/shell.ui.h:194
 msgid "Set display brightness to:"
 msgstr "设定显示器亮度为(B)："
 
-#: shell/shell.ui.h:192
+#: shell/shell.ui.h:195
 msgid "Screensaver"
 msgstr "屏幕保护"
 

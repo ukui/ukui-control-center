@@ -57,6 +57,9 @@ struct _TimeDate {
     GtkWidget * td_combo_month;
     GtkWidget * td_month_del_button;
 	GtkWidget * ntp_label;
+
+    GtkWidget * hr12_radio;
+    GtkWidget * hr24_radio;
     //config
     GDBusProxy *proxy;
 
@@ -136,7 +139,7 @@ enum{
 void time_data_destory(){
     g_clear_object(&timedata.proxy);
     g_strfreev(timedata.tmptime);
-	//g_object_unref(time_format);
+    g_object_unref(time_format);
 }
 
 void init_time_setting(){
@@ -648,6 +651,14 @@ static void month_del_button_clicked(GtkButton * button, gpointer user_data){
     }
 }
 
+static void change_hour_format(GtkWidget *widget, GdkEvent *event, gpointer user_data)
+{
+    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(timedata.hr24_radio)))
+        g_settings_set_boolean(time_format, USE_24_FORMAT, TRUE);
+    else
+        g_settings_set_boolean(time_format, USE_24_FORMAT, FALSE);
+}
+
 void add_time_and_data_app(GtkBuilder * builder){
     g_debug("time_and_data");
     //hide calendar head, and then add four components to deal month and year change.
@@ -661,6 +672,19 @@ void add_time_and_data_app(GtkBuilder * builder){
     timedata.td_month_del_button = GTK_WIDGET(gtk_builder_get_object(builder, "td_month_del_button"));
     g_signal_connect(timedata.td_month_del_button, "clicked", G_CALLBACK(month_del_button_clicked), NULL);
     add_year_and_month_data();
+
+    //时间制式的相关设置
+    timedata.hr12_radio = GTK_WIDGET(gtk_builder_get_object(builder, "radiobutton12"));
+    timedata.hr24_radio = GTK_WIDGET(gtk_builder_get_object(builder, "radiobutton24"));
+    time_format = g_settings_new("org.mate.panel.indicator.calendar");
+    g_signal_handlers_block_by_func(timedata.hr24_radio,change_hour_format, NULL);
+    if(g_settings_get_boolean(time_format, USE_24_FORMAT))
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(timedata.hr24_radio),TRUE);
+    else
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(timedata.hr12_radio),TRUE);
+    g_signal_handlers_unblock_by_func(timedata.hr24_radio,change_hour_format, NULL);
+    g_signal_connect(G_OBJECT(timedata.hr12_radio),"clicked",G_CALLBACK(change_hour_format),NULL);
+    g_signal_connect(G_OBJECT(timedata.hr24_radio),"clicked",G_CALLBACK(change_hour_format),NULL);
 
     timedata.tzcombo = GTK_WIDGET(gtk_builder_get_object(builder, "time_zone_combobox"));
     g_signal_connect(G_OBJECT(timedata.tzcombo),"changed",
@@ -685,7 +709,7 @@ void add_time_and_data_app(GtkBuilder * builder){
     g_signal_connect(G_OBJECT(timedata.hours),"changed",G_CALLBACK(on_editable_changed),NULL);
     g_signal_connect(G_OBJECT(timedata.minutes), "changed",G_CALLBACK(on_editable_changed),NULL);
     g_signal_connect(G_OBJECT(timedata.seconds), "changed",G_CALLBACK(on_editable_changed),NULL);
-    //ntp_label的相关设置，因为这个label出现的可能性比较小且翻译较长，所以英文版的界面会有一些字符覆盖的问题，暂不考虑。
+    //ntp_label的相关设置
 	timedata.ntp_label = GTK_WIDGET(gtk_builder_get_object(builder, "ntp_label"));
 	gtk_widget_set_no_show_all(timedata.ntp_label, TRUE);
 	gtk_widget_hide(timedata.ntp_label);
