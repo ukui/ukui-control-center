@@ -29,6 +29,8 @@
 
 #include "run-passwd.h"
 #include "user-accounts.h"
+#include "check-passwd.h"
+
 GList *userlist = NULL;
 GtkDialog *dialog;
 GtkBuilder *ui = NULL;
@@ -101,10 +103,10 @@ void user_bt_clicked(GtkWidget *widget, gpointer userdata)
     gtk_notebook_set_show_tabs(GTK_NOTEBOOK(userdata), FALSE);
     gtk_widget_grab_focus(widget);
 
-    //	GdkColor color;
-    //	GtkStyle *style = gtk_rc_get_style(widget);
-    //  gtk_style_lookup_color (style, "selected_bg_color", &color);
-    //  gtk_widget_modify_bg(GTK_WIDGET(userdata), GTK_STATE_NORMAL, &color);
+//    GdkColor color;
+//    GtkStyle *style = gtk_rc_get_style(widget);
+//    gtk_style_lookup_color (style, "selected_bg_color", &color);
+//    gtk_widget_modify_bg(GTK_WIDGET(userdata), GTK_STATE_NORMAL, &color);
 }
 
 void modify_font_color(GtkWidget *button, char *textcolor)
@@ -176,16 +178,26 @@ textChanged(GtkWidget *widget, gpointer userdata)
             gtk_label_set_text(GTK_LABEL(labelname), "");
     }
     GtkWidget *entrypwd = GTK_WIDGET(gtk_builder_get_object (ui, "entrypwd"));
+    const char *pwd = gtk_entry_get_text(GTK_ENTRY(entrypwd));
+
+    char *msg = NULL;
+    //判断是否配置了密码复杂度模块，没有配置的话就不进行密码复杂度检验
+    GPtrArray *tmp_array = get_passwd_configuration();
+    if(tmp_array->len != 0)
+        //因为这只是创建用户时的密码复杂度检查，所以旧密码为空
+        msg = passwd_check("", pwd, g_get_user_name());
+    g_ptr_array_free(tmp_array, TRUE);
 
     if (widget == entrypwd)
     {
         GtkWidget *entryensurepwd = GTK_WIDGET(gtk_builder_get_object (ui, "entryensurepwd"));
-        const char *pwd = gtk_entry_get_text(GTK_ENTRY(widget));
         const char *ensurepwd = gtk_entry_get_text(GTK_ENTRY(entryensurepwd));
+        GtkWidget *labelpwd = GTK_WIDGET(gtk_builder_get_object (ui, "labelpwd"));
+        GtkWidget *labelensurepwd = GTK_WIDGET(gtk_builder_get_object (ui, "labelensurepwd"));
         if (strlen(pwd) < 6)
         {
             gtk_label_set_text(GTK_LABEL(labelpwd), _("Password length needs to more than 5 digits!"));
-            gtk_label_set_text(GTK_LABEL(labelensurepwd), " ");
+            gtk_label_set_text(GTK_LABEL(labelensurepwd), "");
             gtk_widget_set_sensitive(buttoncreate, FALSE);
             return FALSE;
         }
@@ -195,8 +207,14 @@ textChanged(GtkWidget *widget, gpointer userdata)
             gtk_widget_set_sensitive(buttoncreate, FALSE);
             return FALSE;
         }
+        else if(msg)
+        {
+            gtk_label_set_text(GTK_LABEL(labelpwd), msg);
+            gtk_widget_set_sensitive(buttoncreate, FALSE);
+            return FALSE;
+        }
         else
-            gtk_label_set_text(GTK_LABEL(labelpwd), " ");
+            gtk_label_set_text(GTK_LABEL(labelpwd), "");
         if (strcmp(pwd, ensurepwd) != 0 && strcmp(ensurepwd, _("Please confirm the new password")) != 0)
         {
             gtk_label_set_text(GTK_LABEL(labelensurepwd), _("enter the password twice inconsistencies!"));
@@ -214,6 +232,7 @@ textChanged(GtkWidget *widget, gpointer userdata)
     {
         const char *pwd = gtk_entry_get_text(GTK_ENTRY(entrypwd));
         const char *ensurepwd = gtk_entry_get_text(GTK_ENTRY(widget));
+        GtkWidget *labelensurepwd = GTK_WIDGET(gtk_builder_get_object (ui, "labelensurepwd"));
         if (strcmp(pwd, ensurepwd) != 0)
         {
             gtk_label_set_text(GTK_LABEL(labelensurepwd), _("enter the password twice inconsistencies!"));
@@ -221,7 +240,7 @@ textChanged(GtkWidget *widget, gpointer userdata)
             return FALSE;
         }
         else
-            gtk_label_set_text(GTK_LABEL(labelensurepwd), " ");
+            gtk_label_set_text(GTK_LABEL(labelensurepwd), "");
 
     }
 
@@ -256,20 +275,16 @@ textChanged(GtkWidget *widget, gpointer userdata)
         gtk_widget_set_sensitive(buttoncreate, FALSE);
         return FALSE;
     }
-    /*user->username = (char *)malloc(strlen(username)*sizeof(char));
-    strcpy(user->username, username);
-
-    user->password = (char *)malloc(strlen(password)*sizeof(char));
-    strcpy(user->password, password);*/
     char *password = (char *)gtk_entry_get_text(GTK_ENTRY(entrypwd));
     char *ensurepassword = (char *)gtk_entry_get_text(GTK_ENTRY(entryensurepwd));
 
     if (password && username && (strcmp(password, ensurepassword) == 0)
             && (strlen(password) > 5)
             && (strlen(password) < 64)
-            && (strlen(username) >= 1
-                && (strcmp(username, _("Please enter the username")) != 0)
-                && strcmp(password, _("Please enter the password ")) != 0))
+            && (strlen(username) >= 1)
+            && (strcmp(username, _("Please enter the username")) != 0)
+            && (strcmp(password, _("Please enter the password ")) != 0)
+            && !msg)
         gtk_widget_set_sensitive(buttoncreate, TRUE);
     else
         gtk_widget_set_sensitive(buttoncreate, FALSE);
@@ -306,14 +321,13 @@ textChanged(GtkWidget *widget, gpointer userdata)
             }
             else
                 gtk_widget_set_size_request(GTK_WIDGET(labelname), -1, 8);
-
         }
         gtk_label_set_text(GTK_LABEL(labelname), " ");
     }
     else
     {
         //gtk_widget_set_size_request(GTK_WIDGET(labelname), -1, 32);
-        gtk_label_set_text(GTK_LABEL(labelname),_("username length should not long than 32!"));
+        gtk_label_set_text(GTK_LABEL(labelname),_("username length need to less than 32!"));
         gtk_widget_set_sensitive(buttoncreate, FALSE);
         return FALSE;
     }
@@ -333,13 +347,16 @@ focusIn(GtkWidget *widget, gpointer userdata)
         gtk_entry_set_visibility(GTK_ENTRY(widget), FALSE);
         gtk_entry_set_text(GTK_ENTRY(widget), "");
     }
+    GdkColor color;
+    gdk_color_parse("#000000", &color);
+    gtk_widget_modify_text(widget, GTK_STATE_NORMAL, &color);
     return FALSE;
 }
 
 static void
 pwdTextChanged(GtkWidget *widget, gpointer userdata)
 {
-    const char *pwd1, *pwd2, *pwd3;
+    const char *pwd1, *pwd2, *pwd3, *msg;
 
     GtkWidget *entry1 = GTK_WIDGET(gtk_builder_get_object (ui, "entry1"));
     GtkWidget *entry2 = GTK_WIDGET(gtk_builder_get_object (ui, "entry2"));
@@ -351,9 +368,10 @@ pwdTextChanged(GtkWidget *widget, gpointer userdata)
     pwd1 = gtk_entry_get_text (GTK_ENTRY(entry1));
     pwd2 = gtk_entry_get_text (GTK_ENTRY(entry2));
     pwd3 = gtk_entry_get_text (GTK_ENTRY(entry3));
+    msg = passwd_check(pwd1, pwd2, g_get_user_name());
     GtkWidget *buttonok = GTK_WIDGET(gtk_builder_get_object (ui, "buttonok"));
     gboolean visible = gtk_widget_get_visible(entry1);
-    gtk_label_set_text(GTK_LABEL(label2), "");
+    //	gtk_label_set_text(GTK_LABEL(label2), "");
     gtk_label_set_text(GTK_LABEL(label4), "");
     gtk_label_set_xalign(GTK_LABEL(label2), 0.0);
     gtk_label_set_xalign(GTK_LABEL(label4), 0.0);
@@ -368,13 +386,12 @@ pwdTextChanged(GtkWidget *widget, gpointer userdata)
         else
             gtk_widget_set_sensitive(buttonok, FALSE);
     }
-    //else
-    //{
     if(strlen(pwd2) > 0 && strlen(pwd3) > 0 &&
             strcmp(pwd2, _("Please enter the new password")) != 0 &&
             strcmp(pwd3, _("Please confirm the new password")) != 0 &&
             length2 <= 63 &&
-            length3 <= 63
+            length3 <= 63 &&
+            !msg
             )
         gtk_widget_set_sensitive(buttonok, TRUE);
     else if(length2 > 63 || length3 >63)
@@ -392,8 +409,6 @@ pwdTextChanged(GtkWidget *widget, gpointer userdata)
         gtk_label_set_text(GTK_LABEL(label4), _("enter the password twice inconsistencies!"));
         gtk_widget_set_sensitive(buttonok, FALSE);
     }
-    //}
-
 }
 
 void dialog_quit(GtkWidget *widget, gpointer userdata)
@@ -470,56 +485,6 @@ chpasswd_cb (PasswdHandler *passwd_handler,
     gtk_widget_destroy (dialog);
 }
 
-static const char*
-check_password ()
-{
-    GtkWidget *dialog;
-    GtkWidget *widget;
-    const gchar *password, *confirmation;
-    char *primary_text = NULL;
-    char *secondary_text;
-    int len;
-
-    widget = GTK_WIDGET(gtk_builder_get_object (ui, "entry2"));
-    password = gtk_entry_get_text (GTK_ENTRY (widget));
-    widget = GTK_WIDGET(gtk_builder_get_object (ui, "entry3"));
-    confirmation = gtk_entry_get_text (GTK_ENTRY (widget));
-
-    len = strlen (password);
-
-    /* empty password, accept but don't change it */
-    if (len == 0) {
-        return password;
-    } else if (len < 6) {
-        primary_text = _("Password length is too short!");
-        secondary_text = _("Password length needs to more than 5 digits, and composed of letters, \n numbers or special characters.");
-    } else if (len > 63){
-        primary_text = _("Password length is too long!");
-        secondary_text = _("Password length needs to less than 64 digits, and composed of letters, \n numbers or special characters.");
-    } else if (strcmp (password, confirmation) != 0) {
-        primary_text = _("Password error");
-        secondary_text = _("Please make sure you enter the password two times.");
-    }
-
-    if (primary_text) {
-        GtkWidget *wid = GTK_WIDGET(gtk_builder_get_object(ui, "changepwd"));
-        dialog = gtk_message_dialog_new (GTK_WINDOW (wid),
-                                         GTK_DIALOG_MODAL,
-                                         GTK_MESSAGE_ERROR,
-                                         GTK_BUTTONS_CLOSE,
-                                         "%s", primary_text);
-
-        gtk_message_dialog_format_secondary_markup (GTK_MESSAGE_DIALOG (dialog),
-                                                    "%s", secondary_text);
-
-        gtk_widget_set_name(GTK_WIDGET(dialog), "ukuicc");
-        gtk_dialog_run (GTK_DIALOG (dialog));
-        gtk_widget_destroy (dialog);
-        return NULL;
-    }
-
-    return password;
-}
 
 void change_pwd(GtkWidget *widget, gpointer userdata)
 {
@@ -529,10 +494,30 @@ void change_pwd(GtkWidget *widget, gpointer userdata)
     UserInfo *user = (UserInfo *)userdata;
     user_passwd_dialog = GTK_WIDGET(gtk_builder_get_object (ui, "changepwd"));
     GtkWidget *user_passwd_current = GTK_WIDGET(gtk_builder_get_object (ui, "entry1"));
+    GtkWidget *new_passwd_entry = GTK_WIDGET(gtk_builder_get_object (ui, "entry2"));
+
     passwd_handler = g_object_get_data (G_OBJECT (user_passwd_current), "passwd_handler");
-    passwd = check_password();
+
+    //要修改的新密码
+    passwd = gtk_entry_get_text (GTK_ENTRY (new_passwd_entry));
+
     if(!passwd)
         return;
+
+    //如果是修改root的密码，通过chpasswd修改以避免交互
+    if(!getuid() && user->currentuser)
+    {
+        char buffer[256];
+        sprintf(buffer, "echo 'root:%s' | chpasswd", passwd);
+
+        int sysback = system(buffer);
+        if(sysback == -1)
+            g_warning("Change the root password failed!");
+
+        gtk_widget_destroy(user_passwd_dialog);
+        g_object_unref(ui);
+        return;
+    }
 
     if (user->currentuser) {
         passwd_change_password (passwd_handler, passwd, chpasswd_cb, NULL);
@@ -566,16 +551,16 @@ auth_cb (PasswdHandler *passwd_handler,
          GError        *error,
          gpointer       user_data)
 {
-    //  GtkWidget *entry = GTK_WIDGET (user_data);
-    //  GdkColor color;
+    GtkWidget *entry = GTK_WIDGET (user_data);
+    GdkColor color;
 
-    //  gdk_color_parse ("red", &color);
-    //  gtk_widget_modify_base (entry, GTK_STATE_NORMAL, error ? &color : NULL);
+    gdk_color_parse ("red", &color);
+    gtk_widget_modify_base (entry, GTK_STATE_NORMAL, error ? &color : NULL);
 
     GtkWidget *label1 = GTK_WIDGET(gtk_builder_get_object (ui, "label1"));
     gtk_label_set_xalign(GTK_LABEL(label1), 0.0);
     gtk_label_set_text(GTK_LABEL(label1), error ? _("Password input error, please re-enter!"): "");
-    //  gtk_widget_modify_fg(label1, GTK_STATE_NORMAL, error ? &color : NULL);
+    gtk_widget_modify_fg(label1, GTK_STATE_NORMAL, error ? &color : NULL);
 }
 
 gboolean
@@ -585,30 +570,54 @@ on_user_passwd_focus_out (GtkWidget     *entry,
 {
     PasswdHandler *passwd_handler;
     const char *password;
+    GdkColor color;
+    gdk_color_parse("#999999", &color);
+
     GtkWidget *entry1 = GTK_WIDGET(gtk_builder_get_object (ui, "entry1"));
     GtkWidget *entry2 = GTK_WIDGET(gtk_builder_get_object (ui, "entry2"));
     GtkWidget *entry3 = GTK_WIDGET(gtk_builder_get_object (ui, "entry3"));
+    GtkWidget *label2 = GTK_WIDGET(gtk_builder_get_object (ui, "label2"));
+    const char *current_passwd = gtk_entry_get_text (GTK_ENTRY (entry1));
+
     if(entry == entry1)
     {
         password = gtk_entry_get_text (GTK_ENTRY (entry));
 
         if (strlen (password) > 0) {
             passwd_handler = g_object_get_data (G_OBJECT (entry), "passwd_handler");
+            /*
+             * 通过spawn_backend()在后台启动passwd
+             * 验证当前输入的密码是否正确，
+             * 是将输入的当前密码先运行一次passwd，如果passwd通过，就说明输入的当前密码是正确的
+             */
             passwd_authenticate (passwd_handler, password, auth_cb, entry);
         }
         else {
             gtk_entry_set_visibility(GTK_ENTRY(entry), TRUE);
             gtk_entry_set_text(GTK_ENTRY(entry), _("Please enter the current password"));
+            gtk_widget_modify_text(entry, GTK_STATE_NORMAL, &color);
             GtkWidget *label1 = GTK_WIDGET(gtk_builder_get_object (ui, "label1"));
             gtk_label_set_text(GTK_LABEL(label1), "");
+            gdk_color_parse("white", &color);
+            gtk_widget_modify_base (entry, GTK_STATE_NORMAL, &color);
         }
     }
     if(entry == entry2)
     {
         password = gtk_entry_get_text (GTK_ENTRY (entry2));
+
+        const char *msg = NULL;
+        msg = passwd_check(current_passwd, password, g_get_user_name());
+        if(msg){
+            gtk_label_set_text(GTK_LABEL(label2), msg);
+        }
+        else
+            gtk_label_set_text(GTK_LABEL(label2), "");
+
         if (strlen (password) < 1) {
             gtk_entry_set_visibility(GTK_ENTRY(entry2), TRUE);
             gtk_entry_set_text(GTK_ENTRY(entry2), _("Please enter new password"));
+            gtk_widget_modify_text(entry2, GTK_STATE_NORMAL, &color);
         }
     }
     if(entry == entry3)
@@ -617,6 +626,7 @@ on_user_passwd_focus_out (GtkWidget     *entry,
         if (strlen (password) < 1) {
             gtk_entry_set_visibility(GTK_ENTRY(entry3), TRUE);
             gtk_entry_set_text(GTK_ENTRY(entry3), _("Please confirm the new password"));
+            gtk_widget_modify_text(entry3, GTK_STATE_NORMAL, &color);
         }
     }
     return FALSE;
@@ -681,10 +691,17 @@ void show_change_pwd_dialog(GtkButton *button, gpointer user_data)
     }
 
     GtkWidget *user_passwd_current = GTK_WIDGET(gtk_builder_get_object (ui, "entry1"));
+    //root用户修改密码时，不需要输入当前密码
+    if(!getuid() && user->currentuser)
+        gtk_widget_hide(user_passwd_current);
+    //只是将passwd_handler这个字符串key转换成一个PasswdHandler的类型
     g_object_set_data (G_OBJECT (user_passwd_current), "passwd_handler", passwd_handler);
     if (user->currentuser)
     {
         gtk_entry_set_text(GTK_ENTRY(user_passwd_current), _("Please enter the current password"));
+        GdkColor color;
+        gdk_color_parse("#999999", &color);
+        gtk_widget_modify_text(user_passwd_current, GTK_STATE_NORMAL, &color);
         g_signal_connect(user_passwd_current, "focus-in-event", G_CALLBACK(focusIn), NULL);
         g_signal_connect(user_passwd_current, "focus-out-event", G_CALLBACK(on_user_passwd_focus_out), NULL);
         g_signal_connect(user_passwd_current, "changed", G_CALLBACK(pwdTextChanged), user);
@@ -696,12 +713,16 @@ void show_change_pwd_dialog(GtkButton *button, gpointer user_data)
 
     GtkWidget *entry2 = GTK_WIDGET(gtk_builder_get_object (ui, "entry2"));
     gtk_entry_set_text(GTK_ENTRY(entry2), _("Please enter new password"));
+    GdkColor color;
+    gdk_color_parse("#999999", &color);
+    gtk_widget_modify_text(entry2, GTK_STATE_NORMAL, &color);
     g_signal_connect(entry2, "focus-in-event", G_CALLBACK(focusIn), NULL);
     g_signal_connect(entry2, "focus-out-event", G_CALLBACK(on_user_passwd_focus_out), NULL);
     g_signal_connect(entry2, "changed", G_CALLBACK(pwdTextChanged), user);
 
     GtkWidget *entry3 = GTK_WIDGET(gtk_builder_get_object (ui, "entry3"));
     gtk_entry_set_text(GTK_ENTRY(entry3), _("Please confirm the new password"));
+    gtk_widget_modify_text(entry3, GTK_STATE_NORMAL, &color);
     g_signal_connect(entry3, "focus-in-event", G_CALLBACK(focusIn), NULL);
     g_signal_connect(entry3, "focus-out-event", G_CALLBACK(on_user_passwd_focus_out), NULL);
     g_signal_connect(entry3, "changed", G_CALLBACK(pwdTextChanged), user);
@@ -922,6 +943,9 @@ void show_change_name_dialog(GtkButton *button, gpointer user_data)
 
     GtkWidget *entry1 = GTK_WIDGET(gtk_builder_get_object (ui, "entry1"));
     gtk_entry_set_text(GTK_ENTRY(entry1), _("Please enter the new username"));
+    GdkColor color;
+    gdk_color_parse("#999999", &color);
+    gtk_widget_modify_text(entry1, GTK_STATE_NORMAL, &color);
     g_signal_connect(entry1, "focus-in-event", G_CALLBACK(focusIn), NULL);
     g_signal_connect(entry1, "changed", G_CALLBACK(usernameChanged), user);
 
@@ -963,7 +987,7 @@ void change_face_callback(GObject *object, GAsyncResult *res, gpointer user_data
 
     g_object_unref(buf);
 
-    int system_back = system("gsettings set org.mate.ukui-menu.plugins.menu ifchange true");
+    system("gsettings set org.mate.ukui-menu.plugins.menu ifchange true");
 }
 
 void change_face(GtkWidget *widget, gpointer userdata)
@@ -1038,7 +1062,7 @@ void confirm_dialog(GtkWidget *widget, gpointer user_data)
                             _("_OK"),
                             GTK_RESPONSE_ACCEPT,
                             NULL);
-                label = gtk_label_new(_("Already have other users set to automatically log in,\n click OK will overwrite the existing settings!"));
+                label = gtk_label_new(_("\tAlready have other users set to automatically log in,\t\n \tclick OK will overwrite the existing settings!"));
                 gtk_box_pack_start(GTK_BOX(gtk_dialog_get_content_area(GTK_DIALOG(dialog))), label, TRUE, TRUE, 30);
                 gtk_widget_show_all(dialog);
                 gint result = gtk_dialog_run(GTK_DIALOG(dialog));
@@ -1487,6 +1511,11 @@ void delete_user(GtkWidget *widget, gpointer userdata)
     char *message = g_strdup_printf(_("if you want to delete the %s user, belonging to the user's \ndesktop, documents, favorites, music, pictures and video \nfolder will be deleted!"), user->username);
     gtk_label_set_text(GTK_LABEL(label2), message);
 
+    GtkWidget *dialog_action_area1 = GTK_WIDGET(gtk_builder_get_object (ui, "dialog-action_area1"));
+    GdkColor color;
+    gdk_color_parse("red", &color);
+    gtk_widget_modify_fg(dialog_action_area1, GTK_STATE_NORMAL, &color);
+
     GtkWidget *buttonstore = GTK_WIDGET(gtk_builder_get_object (ui, "buttonstore"));
     g_signal_connect(buttonstore, "clicked", G_CALLBACK(storeFiles), user);
     GtkWidget *buttondelete = GTK_WIDGET(gtk_builder_get_object (ui, "buttondelete"));
@@ -1535,6 +1564,8 @@ void init_notebook(UserInfo *userinfo, gint page)
             gtk_label_set_text(GTK_LABEL(label2), _("Administrators"));
         else if (userinfo->accounttype == STANDARDUSER)
             gtk_label_set_text(GTK_LABEL(label2), _("Standard user"));
+        else
+            gtk_label_set_text(GTK_LABEL(label2), _("Super user"));
         gtk_widget_set_size_request(label2, 98, -1);
         gtk_label_set_xalign(GTK_LABEL(label2), 0.0);
         bt_ch_name = gtk_button_new_with_label(_("Rename"));
@@ -1646,6 +1677,9 @@ void init_notebook(UserInfo *userinfo, gint page)
             gtk_label_set_text(GTK_LABEL(label2), _("Administrators"));
         else if (userinfo->accounttype == STANDARDUSER)
             gtk_label_set_text(GTK_LABEL(label2), _("Standard user"));
+        else
+            gtk_label_set_text(GTK_LABEL(label2), _("Super user"));
+//        gtk_misc_set_alignment(GTK_MISC(label2), 0, 0.5);
         gtk_label_set_xalign(GTK_LABEL(label2), 0.0);
         label3 = gtk_label_new("");
         if (userinfo->currentuser)
@@ -1771,6 +1805,22 @@ void init_user_info(const gchar *object_path)
     g_variant_unref(value);
 }
 
+//写死root用户的一些信息
+void init_root_info()
+{
+    UserInfo *user = (UserInfo *)malloc(sizeof(UserInfo));
+    user->accounttype = 2;       //代表超级用户
+    user->currentuser = TRUE;
+    user->autologin = FALSE;
+    user->username = g_get_user_name();
+    user->iconfile = "/usr/share/pixmaps/faces/stock_person.svg";
+    OobsUser *obsuser = oobs_user_new(user->username);
+    user->logined = oobs_user_get_active(obsuser);
+    user->uid = 0;
+    user->notebook = GTK_NOTEBOOK(gtk_notebook_new());
+    userlist = g_list_insert(userlist, user, 0);
+}
+
 void update_user_box(GtkWidget *widget, gpointer data)
 {
     GList *list;
@@ -1821,6 +1871,9 @@ void get_all_users_in_callback(GObject *object, GAsyncResult *res, gpointer user
     {
         init_user_info(users_name[i]);
     }
+    //root用户单独处理
+    if(!getuid())
+        init_root_info();
 
     GtkWidget *box = GTK_WIDGET (gtk_builder_get_object (builder, "other_users"));
     update_user_box(box, NULL);
@@ -2254,9 +2307,41 @@ on_photo_popup_unmap (GtkWidget *popup_menu, GtkWidget *button)
 static void
 autologin(GtkWidget *widget, gpointer userdata)
 {
-    UserInfo *userinfo = (UserInfo *)userdata;
+    UserInfo *user = (UserInfo *)userdata;
+    if(!user->autologin){
+        GList *it = NULL;
+        for (it = userlist; it; it = it->next)
+        {
+            UserInfo *system_user = (UserInfo *)it->data;
+            if(system_user->autologin == TRUE)
+            {
+                //为什么一个clicked信号，会触发两次这个回调？这里过滤掉了第二次的回调。
+                if(!gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget)))
+                    continue;
+                GtkWidget *label;
+                GtkWidget *dialog = gtk_dialog_new_with_buttons(
+                            _("auto login"),
+                            window,
+                            GTK_DIALOG_MODAL,
+                            _("_Cancel"),
+                            GTK_RESPONSE_REJECT,
+                            _("_OK"),
+                            GTK_RESPONSE_ACCEPT,
+                            NULL);
+                label = gtk_label_new(_("\tAlready have other users set to automatically log in,\t\n \tclick OK will overwrite the existing settings!"));
+                gtk_box_pack_start(GTK_BOX(gtk_dialog_get_content_area(GTK_DIALOG(dialog))), label, TRUE, TRUE, 30);
+                gtk_widget_show_all(dialog);
+                gint result = gtk_dialog_run(GTK_DIALOG(dialog));
+                if(result == GTK_RESPONSE_ACCEPT)
+                    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
+                else
+                    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), FALSE);
+                gtk_widget_destroy(dialog);
+            }
+        }
+    }//end-if
     gboolean toggled = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON(widget));
-    userinfo->autologin = toggled;
+    user->autologin = toggled;
 }
 
 static void
@@ -2427,6 +2512,22 @@ createCancel(GtkWidget *widget, gpointer userdata)
     g_object_unref(ui);
 }
 
+//用于修改密码的时候
+gboolean
+createuser_pwd_focus_out(GtkWidget *entry, GdkEventFocus *event, gpointer user_data)
+{
+    char *msg = NULL;
+    GtkWidget *entrypwd = GTK_WIDGET(gtk_builder_get_object (ui, "entrypwd"));
+    GtkWidget *labelpwd = GTK_WIDGET(gtk_builder_get_object (ui, "labelpwd"));
+
+    const char *user_passwd = gtk_entry_get_text (GTK_ENTRY (entrypwd));
+    msg = passwd_check("", user_passwd, g_get_user_name());
+    if(msg)
+        gtk_label_set_text(GTK_LABEL(labelpwd), msg);
+    else
+        gtk_label_set_text(GTK_LABEL(labelpwd), "");
+}
+
 void show_create_user_dialog(GtkWidget *widget, gpointer data)
 {
     GError *err = NULL;
@@ -2466,14 +2567,19 @@ void show_create_user_dialog(GtkWidget *widget, gpointer data)
 
     GtkWidget *entryname = GTK_WIDGET(gtk_builder_get_object (ui, "entryname"));
     gtk_entry_set_text(GTK_ENTRY(entryname), _("Please enter the username"));
+    GdkColor color;
+    gdk_color_parse("#999999", &color);
+    gtk_widget_modify_text(entryname, GTK_STATE_NORMAL, &color);
     g_signal_connect(entryname, "focus-in-event", G_CALLBACK(focusIn), NULL);
     g_signal_connect(entryname, "changed", G_CALLBACK(textChanged), user);
     GtkWidget *entrypwd = GTK_WIDGET(gtk_builder_get_object (ui, "entrypwd"));
     gtk_entry_set_text(GTK_ENTRY(entrypwd), _("Please enter the password"));
+    gtk_widget_modify_text(entrypwd, GTK_STATE_NORMAL, &color);
     g_signal_connect(entrypwd, "focus-in-event", G_CALLBACK(focusIn), NULL);
     g_signal_connect(entrypwd, "changed", G_CALLBACK(textChanged), user);
     GtkWidget *entryensurepwd = GTK_WIDGET(gtk_builder_get_object (ui, "entryensurepwd"));
     gtk_entry_set_text(GTK_ENTRY(entryensurepwd), _("Please confirm the new password"));
+    gtk_widget_modify_text(entryensurepwd, GTK_STATE_NORMAL, &color);
     g_signal_connect(entryensurepwd, "focus-in-event", G_CALLBACK(focusIn), NULL);
     g_signal_connect(entryensurepwd, "changed", G_CALLBACK(textChanged), user);
 
@@ -2514,4 +2620,11 @@ void init_user_accounts()
 
     widget = GTK_WIDGET (gtk_builder_get_object (builder, "bt_new"));
     g_signal_connect(G_OBJECT(widget), "clicked", G_CALLBACK(show_create_user_dialog), NULL);
+}
+
+void users_data_destory()
+{
+    GList *it = NULL;
+    for (it = userlist; it; it = it->next)
+        g_free(it->data);
 }

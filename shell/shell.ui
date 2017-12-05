@@ -4040,7 +4040,7 @@ commonly used language.</property>
                                             <property name="height_request">28</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
-                                            <property name="label" translatable="yes">_Sensitivity:</property>
+                                            <property name="label" translatable="yes">S_ensitivity:</property>
                                             <property name="use_underline">True</property>
                                           </object>
                                           <packing>
@@ -4129,7 +4129,7 @@ commonly used language.</property>
                                             <property name="height_request">28</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
-                                            <property name="label" translatable="yes">Timeout</property>
+                                            <property name="label" translatable="yes">_Timeout:</property>
                                             <property name="use_underline">True</property>
                                           </object>
                                           <packing>

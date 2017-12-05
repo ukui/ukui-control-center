@@ -37,6 +37,7 @@ panels/user-accounts/delete-user.ui
 panels/user-accounts/run-passwd.c
 panels/user-accounts/user-accounts.c
 panels/user-accounts/user-create.ui
+panels/user-accounts/check-passwd.c
 shell/ukui-control-center.c
 shell/mainwindow.c
 shell/shell.ui

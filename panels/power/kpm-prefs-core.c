@@ -897,19 +897,6 @@ kpm_prefs_init (KpmPrefs *prefs)
     //prefs_setup_screensaver(prefs);
 	prefs_setup_battery (prefs);
 	prefs_setup_general (prefs);
-#if     defined(__aarch64__)
-	/*
-        GtkWidget *w =  GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "label_battery"));
-        gtk_widget_hide(w);
-        GtkWidget *w2 =  GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "vbox_battery"));
-        gtk_widget_hide(w2);
-		GtkWidget *w1 =  GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder, "vbox25"));
-		gtk_widget_hide(w1);
-	*/
-#else
-    //prefs_setup_battery (prefs);
-    //prefs_setup_general (prefs);
-#endif
 	prefs_setup_notification (prefs);
 }
 

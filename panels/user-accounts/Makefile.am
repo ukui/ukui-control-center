@@ -7,7 +7,7 @@ AM_CPPFLAGS = 					\
 	-DCONF_DIR=\""$(confdir)"\" 		\
         $(PANEL_CFLAGS)				\
         $(OOBS_CFLAGS)                        	\
-        $(MATE_DESKTOP_CFLAGS)                  	\
+        $(MATE_DESKTOP_CFLAGS)                  \
         $(NULL)
 
 ccpanelsdir = $(PANELS_DIR)
@@ -18,12 +18,14 @@ libuser_accounts_la_SOURCES =                   \
 	user-accounts.h				\
 	run-passwd.c				\
 	run-passwd.h				\
+    	check-passwd.h              		\
+    	check-passwd.c              		\
 	$(NULL)
 
 libuser_accounts_la_LIBADD = 				\
 			@PACKAGE_LIBS@			\
                         $(OOBS_LIBS)            	\
-                        $(MATE_DESKTOP_LIBS)            	\
+                        $(MATE_DESKTOP_LIBS)            \
 			-lcrypt				\
 			$(NULL)
 

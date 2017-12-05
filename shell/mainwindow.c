@@ -243,35 +243,6 @@ static void direct_call_program(GtkWidget * widget, gchar * program_name){
 	{
 		g_warning("Successful\n");
 	}
-	/*char result_buf[1024];
-	int rc=0;
-	FILE *fp;
-	gchar * proname;
-	proname = g_strdup_printf("%s &", program_name);
-	fp = popen(proname, "r");
-	if (fp == NULL)
-	{
-		perror("popen occured error\n");
-		return;
-	}
-	while (fgets(result_buf, sizeof(result_buf), fp) !=NULL)
-	{
-		if (result_buf[strlen(result_buf) -1] == '\n')
-			result_buf[strlen(result_buf) -1] ='\0';
-		g_warning("Call program %s ,Result= %s\n", program_name, result_buf);
-	}
-	rc = pclose(fp);
-	if (rc == -1)
-	{
-		perror("pclose command error\n");
-		return;
-	}
-	else
-	{
-		g_warning("Command %s ,child progress status=%d, return value=%d",program_name, rc, WEXITSTATUS(rc));
-		return;
-	}
-	return;*/
 }
 
 static void set_button_image(GtkButton * button, gchar * icon_name)
