@@ -551,38 +551,42 @@ gsp_app_manager_add (GspAppManager *manager,
 
 GspApp *
 gsp_app_manager_find_local_app_with_name_exec (GspAppManager *manager,
-                                        const char *name ,const char  *exec,const char* icon)
+                                               const char *name ,const char  *exec,const char* icon)
 {
-        GSList *l;
-        GspApp *app;
-        g_return_val_if_fail (GSP_IS_APP_MANAGER (manager), NULL);
-        g_return_val_if_fail (exec != NULL, NULL);
+    GSList *l;
+    GspApp *app;
+    g_return_val_if_fail (GSP_IS_APP_MANAGER (manager), NULL);
+    g_return_val_if_fail (exec != NULL, NULL);
 
-        for (l = manager->priv->apps; l != NULL; l = l->next) {
-                app = GSP_APP (l->data);
-            if (!strcmp (name, gsp_app_get_name(app))&&!strcmp (exec, gsp_app_get_exec(app)))      //&&!strcmp (icon, gsp_app_get_icon_char(app)))
+    for (l = manager->priv->apps; l != NULL; l = l->next) {
+        app = GSP_APP (l->data);
+        //防止有些应用的desktop文件不包含这些项而导致为空
+        if(!gsp_app_get_name(app) || !gsp_app_get_exec(app) || !gsp_app_get_path(app))
+            return NULL;
+
+        if (!strcmp (name, gsp_app_get_name(app))&&!strcmp (exec, gsp_app_get_exec(app)))      //&&!strcmp (icon, gsp_app_get_icon_char(app)))
+        {
+            if(strstr(gsp_app_get_path(app),"config/autostart/") && gsp_app_get_hidden(app) && !gsp_app_get_enabled(app))
             {
-                if(strstr(gsp_app_get_path(app),"config/autostart/")&&gsp_app_get_hidden(app)&&!gsp_app_get_enabled(app))
-                {
-//                    g_warning("-----------表示是本地文件并且隐藏了--------------%s",gsp_app_get_path(app));
-                    return NULL;
-                }
-                if(strstr(gsp_app_get_path(app),"config/autostart/")&&!gsp_app_get_hidden(app))
-                {
-//                    g_warning("-----------表示是本地文件并且显示了--------------%s",gsp_app_get_path(app));
-                    return app;
-                }
-                else if(!gsp_app_get_hidden(app)&&gsp_app_get_display(app)&&gsp_app_get_shown(app)&&strstr(gsp_app_get_path(app),"/etc/xdg/autostart/"))
-                {
-//                    g_warning("----------表示是系统目录文件并且会显示在控制面板---------------%s",gsp_app_get_path(app));
-                    return app;
-                }
-                g_warning("------------3-------------%s",gsp_app_get_path(app));
+                //g_warning("-----------表示是本地文件并且隐藏了--------------%s",gsp_app_get_path(app));
+                return NULL;
             }
-
+            if(strstr(gsp_app_get_path(app),"config/autostart/") && !gsp_app_get_hidden(app))
+            {
+                //g_warning("-----------表示是本地文件并且显示了--------------%s",gsp_app_get_path(app));
+                return app;
+            }
+            else if(!gsp_app_get_hidden(app) && gsp_app_get_display(app) && gsp_app_get_shown(app) && strstr(gsp_app_get_path(app),"/etc/xdg/autostart/"))
+            {
+                //g_warning("----------表示是系统目录文件并且会显示在控制面板---------------%s",gsp_app_get_path(app));
+                return app;
+            }
+            g_warning("------------3-------------%s",gsp_app_get_path(app));
         }
-//        g_warning("--------------4-----------%s",gsp_app_get_path(app));
-        return NULL;
+
+    }
+    //g_warning("--------------4-----------%s",gsp_app_get_path(app));
+    return NULL;
 
 }
 

@@ -92,7 +92,7 @@ Asia/Krasnoyarsk	(UTC+07:00) 克拉斯诺亚尔斯克
 Asia/Bangkok Asia/Jakarta	(UTC+07:00) 曼谷，河内，雅加达
 Asia/Tomsk	(UTC+07:00) 托木斯克
 Asia/Jakarta Asia/Novosibirsk	(UTC+07:00) 新西伯利亚
-Asia/Shanghai Asia/Hong_Kong Asia/Urumqi	(UTC+08:00) 北京，重庆，香港特别行政区，乌鲁木齐
+Asia/Shanghai Asia/Hong_Kong Asia/Urumqi Asia/Chongqing	(UTC+08:00) 北京，重庆，香港特别行政区，乌鲁木齐
 Asia/Kuala_Lumpur Asia/Singapore	(UTC+08:00) 吉隆坡，新加坡
 Australia/Perth	(UTC+08:00) 珀斯
 Asia/Urumqi	(UTC+08:00) 台北
