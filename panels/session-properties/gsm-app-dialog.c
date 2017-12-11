@@ -209,7 +209,7 @@ setup_dialog (GsmAppDialog *dialog)
         gtk_container_add (GTK_CONTAINER (content_area), widget);
 
         gtk_container_set_border_width (GTK_CONTAINER (dialog), 0);
-        gtk_window_set_icon_name (GTK_WINDOW (dialog), "mate-session-properties");
+        gtk_window_set_icon_name (GTK_WINDOW (dialog), "ukui-session-properties");
 
         g_object_set (dialog,
                       "allow-shrink", FALSE,

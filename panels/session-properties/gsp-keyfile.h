@@ -31,7 +31,7 @@
 
 G_BEGIN_DECLS
 
-#define GSP_KEY_FILE_DESKTOP_KEY_AUTOSTART_ENABLED "X-MATE-Autostart-enabled"
+#define GSP_KEY_FILE_DESKTOP_KEY_AUTOSTART_ENABLED "X-UKUI-Autostart-enabled"
 
 void      gsp_key_file_populate        (GKeyFile *keyfile);
 

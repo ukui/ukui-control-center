@@ -447,7 +447,7 @@ static char * get_string_from_guint64(guint64 gu){
 }
 
 //example 1: Exec =/usr/bin/youker-assistant
-//example 2: Exec =mate-search-tool
+//example 2: Exec =ukui-search-tool
 //example 3: Exec =libreoffice --math
 //example 4: Exec =smplayer --add-to-playlist %U
 //and others example, like 1&3 1&4 ...

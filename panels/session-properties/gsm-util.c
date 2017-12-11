@@ -86,10 +86,10 @@ gsm_util_find_desktop_file_for_app_name (const char *name,
 
         }
 
-        /* look for mate vender prefix */
+        /* look for ukui vender prefix */
         if (app_path == NULL) {
                 g_free (desktop_file);
-                desktop_file = g_strdup_printf ("mate-%s.desktop", name);
+                desktop_file = g_strdup_printf ("ukui-%s.desktop", name);
 
                 g_key_file_load_from_dirs (key_file,
                                            desktop_file,
@@ -146,7 +146,7 @@ gsm_util_get_empty_tmp_session_dir (void)
         gboolean exists;
 
         tmp = g_build_filename (g_get_user_config_dir (),
-                                "mate-session",
+                                "ukui-session",
                                 "saved-session.new",
                                 NULL);
 
@@ -183,7 +183,7 @@ gsm_util_get_saved_session_dir (void)
 
                 _saved_session_dir =
                         g_build_filename (g_get_user_config_dir (),
-                                          "mate-session",
+                                          "ukui-session",
                                           "saved-session",
                                           NULL);
 
@@ -224,7 +224,7 @@ gsm_util_get_autostart_dirs ()
         for (i = 0; system_data_dirs[i]; i++) {
                 g_ptr_array_add (dirs,
                                  g_build_filename (system_data_dirs[i],
-                                                   "mate", "autostart", NULL));
+                                                   "ukui", "autostart", NULL));
         }*/
 
         system_config_dirs = g_get_system_config_dirs ();
@@ -429,7 +429,7 @@ gsm_util_generate_startup_id (void)
          * XSMP client IDs are supposed to be globally unique: if
          * SmsGenerateClientID() is unable to determine a network
          * address for the machine, it gives up and returns %NULL.
-         * MATE and KDE have traditionally used a fourth address
+         * UKUI and KDE have traditionally used a fourth address
          * format in this case:
          *   "0" + 16 random hex digits
          *

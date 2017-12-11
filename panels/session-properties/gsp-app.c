@@ -338,7 +338,7 @@ _gsp_app_user_equal_system (GspApp  *app,
                                       TRUE) != app->priv->enabled ||
             gsp_key_file_get_shown (keyfile,
                                     //gsm_util_get_current_desktop ()) != app->priv->shown) {
-                                    "MATE") != app->priv->shown) {
+                                    "UKUI") != app->priv->shown) {
                 g_free (path);
                 g_key_file_free (keyfile);
                 return FALSE;
@@ -852,14 +852,14 @@ gsp_app_new (const char   *path,
                                                        TRUE);
         app->priv->shown = gsp_key_file_get_shown (keyfile,
                                                    //gsm_util_get_current_desktop ());
-                                                   "MATE");
+                                                   "UKUI");
 
         app->priv->name = gsp_key_file_get_locale_string (keyfile,
                                                           G_KEY_FILE_DESKTOP_KEY_NAME);
         //app->priv->exec = gsp_key_file_get_string (keyfile,
         //                                           G_KEY_FILE_DESKTOP_KEY_EXEC);
 	app->priv->exec = g_key_file_get_string (keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_EXEC, NULL);
-	if (strcmp(app->priv->exec, "/usr/bin/mate-settings-daemon") == 0)
+	if (strcmp(app->priv->exec, "/usr/bin/ukui-settings-daemon") == 0)
 		return NULL;
         app->priv->comment = gsp_key_file_get_locale_string (keyfile,
                                                              G_KEY_FILE_DESKTOP_KEY_COMMENT);
