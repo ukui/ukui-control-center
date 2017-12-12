@@ -33,7 +33,7 @@
 #include "mate-keybinding-properties.h"
 #define KEYBOARD_SCHEMA "org.mate.peripherals-keyboard"
 #define INTERFACE_SCHEMA "org.mate.interface"
-#define TYPING_BREAK_SCHEMA "org.mate.typing-break"
+#define TYPING_BREAK_SCHEMA "org.ukui.typing-break"
 #define MWID(s) GTK_WIDGET(gtk_builder_get_object(builder, s))
 enum {
 	RESPONSE_APPLY = 1,
@@ -60,16 +60,16 @@ gboolean activate_settings_daemon()
         return FALSE;
     }
     proxy = dbus_g_proxy_new_for_name(connection,
-                                      "org.mate.SettingsDaemon",
-                                      "/org/mate/SettingsDaemon",
-                                      "org.mate.SettingsDaemon");
+                                      "org.ukui.SettingsDaemon",
+                                      "/org/ukui/SettingsDaemon",
+                                      "org.ukui.SettingsDaemon");
     dbus_g_connection_unref(connection);
     if (proxy ==NULL) 
     {
         g_warning("Keyboard's SettingsDaemon proxy get error");
         return FALSE;
     }
-    if (!org_mate_SettingsDaemon_awake(proxy, &error))
+    if (!org_ukui_SettingsDaemon_awake(proxy, &error))
     {
         g_warning("awake SettingsDaemon error%s\n",error->message);
         return FALSE;
