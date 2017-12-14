@@ -64,13 +64,13 @@ struct _FontSetting {
     //gsettings
     GSettings * g_interface;
     GSettings * g_marco;
-    GSettings * g_caja;
+    GSettings * g_peony;
 };
 FontSetting fontsetting;
 gint default_font;
 gint default_document_font;
 gint default_monospace_font;
-gint default_caja_font;
+gint default_peony_font;
 gint default_title_font;
 //for example, mate
 typedef struct _FontInfo FontInfo;
@@ -79,7 +79,7 @@ struct _FontInfo{
     char * font_name; // org.mate.interface font-name
     char * document_font_name; //org.mate.interface document-font-name
     char * monospace_font_name; //org.mate.interface monospace-font-name
-    char * font; //org.mate.caja.desktop font
+    char * font; //org.mate.peony.desktop font
     char * titlebar_font; //org.mate.Marco.general
 };
 //fill struct
@@ -169,8 +169,8 @@ static void set_gsetting(){
             g_sprintf(fontstring, "%s %d",fontinfo[i].monospace_font_name,(gint)(default_monospace_font * fontsetting.level));
             g_settings_set_string(fontsetting.g_interface,MONOSPACE_FONT_KEY,fontstring);
 
-            g_sprintf(fontstring, "%s %d",fontinfo[i].font,(gint)(default_caja_font * fontsetting.level));
-            g_settings_set_string(fontsetting.g_caja,DESKTOP_FONT_KEY,fontstring);
+            g_sprintf(fontstring, "%s %d",fontinfo[i].font,(gint)(default_peony_font * fontsetting.level));
+            g_settings_set_string(fontsetting.g_peony,DESKTOP_FONT_KEY,fontstring);
 
             g_sprintf(fontstring, "%s %d",fontinfo[i].titlebar_font, (gint)(default_title_font * fontsetting.level));
             g_settings_set_string(fontsetting.g_marco,WINDOW_TITLE_FONT_KEY,fontstring);
@@ -235,7 +235,7 @@ static void init_font_info(){
     current_info.font_name =get_string(g_settings_get_string(fontsetting.g_interface, GTK_FONT_KEY),0);
     current_info.document_font_name = get_string(g_settings_get_string(fontsetting.g_interface, DOCUMENT_FONT_KEY),1);
     current_info.monospace_font_name = get_string(g_settings_get_string(fontsetting.g_interface, MONOSPACE_FONT_KEY),0);
-    current_info.font = get_string(g_settings_get_string(fontsetting.g_caja, DESKTOP_FONT_KEY),0);
+    current_info.font = get_string(g_settings_get_string(fontsetting.g_peony, DESKTOP_FONT_KEY),0);
     current_info.titlebar_font =get_string(g_settings_get_string(fontsetting.g_marco, WINDOW_TITLE_FONT_KEY),0);
     for(i=0; i<N;i++){
         if(g_strcmp0(fontinfo[i].font_name, current_info.font_name) != 0)
@@ -327,14 +327,14 @@ static void get_default_setting(AppearanceData *data){
 		default_monospace_font = atoi(&font_value[length -2]);
 	g_variant_unref(value);
 	
-	value = g_settings_get_default_value(data->caja_settings, DESKTOP_FONT_KEY);
+	value = g_settings_get_default_value(data->peony_settings, DESKTOP_FONT_KEY);
 	size = g_variant_get_size(value);
 	font_value = g_variant_get_string(value, &size);
 	length = (gint)strlen(font_value);
 	if (font_value[length -2] == ' ')
-		default_caja_font = atoi(&font_value[length -1]);
+		default_peony_font = atoi(&font_value[length -1]);
 	else
-		default_caja_font = atoi(&font_value[length -2]);
+		default_peony_font = atoi(&font_value[length -2]);
 	g_variant_unref(value);
 	
 	value = g_settings_get_default_value(data->marco_settings, WINDOW_TITLE_FONT_KEY);
@@ -568,7 +568,7 @@ static gboolean reset_font_default(GtkWidget * widget, GdkEvent *event, gpointer
     g_settings_reset(fontsetting.g_interface, GTK_FONT_KEY);
     g_settings_reset(fontsetting.g_interface, MONOSPACE_FONT_KEY);
     g_settings_reset(fontsetting.g_marco,WINDOW_TITLE_FONT_KEY);
-    g_settings_reset(fontsetting.g_caja, DESKTOP_FONT_KEY);
+    g_settings_reset(fontsetting.g_peony, DESKTOP_FONT_KEY);
     init_font_info();
     init_font_data();
     //reset  font render
@@ -588,7 +588,7 @@ void font_init(AppearanceData * data){
 
     fontsetting.g_interface = data->interface_settings;
     fontsetting.g_marco = data->marco_settings;
-    fontsetting.g_caja = data->caja_settings;
+    fontsetting.g_peony = data->peony_settings;
 
     GtkWidget *label33 = GTK_WIDGET(gtk_builder_get_object(fontsetting.builder, "label33"));
     GtkWidget *label31 = GTK_WIDGET(gtk_builder_get_object(fontsetting.builder, "label31"));

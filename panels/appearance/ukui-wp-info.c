@@ -17,12 +17,12 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#include "mate-wp-info.h"
+#include "ukui-wp-info.h"
 #include <libintl.h>
 
-MateWPInfo* mate_wp_info_new(const char* uri, MateDesktopThumbnailFactory* thumbs)
+UkuiWPInfo* ukui_wp_info_new(const char* uri, MateDesktopThumbnailFactory* thumbs)
 {
-	MateWPInfo* wp;
+	UkuiWPInfo* wp;
 
 	GFile* file = g_file_new_for_commandline_arg(uri);
 
@@ -40,7 +40,7 @@ MateWPInfo* mate_wp_info_new(const char* uri, MateDesktopThumbnailFactory* thumb
 	{
 		if (!strcmp (uri, "(none)"))
 		{
-			wp = g_new0(MateWPInfo, 1);
+			wp = g_new0(UkuiWPInfo, 1);
 
 			wp->mime_type = g_strdup("image/x-no-data");
 			wp->uri = g_strdup(uri);
@@ -54,7 +54,7 @@ MateWPInfo* mate_wp_info_new(const char* uri, MateDesktopThumbnailFactory* thumb
 	}
 	else
 	{
-		wp = g_new0 (MateWPInfo, 1);
+		wp = g_new0 (UkuiWPInfo, 1);
 
 		wp->uri = g_strdup(uri);
 
@@ -79,7 +79,7 @@ MateWPInfo* mate_wp_info_new(const char* uri, MateDesktopThumbnailFactory* thumb
 	return wp;
 }
 
-void mate_wp_info_free(MateWPInfo* info)
+void ukui_wp_info_free(UkuiWPInfo* info)
 {
 	if (info == NULL)
 	{

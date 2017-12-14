@@ -22,12 +22,12 @@ libappearance_la_SOURCES= \
 	appearance-desktop.c	\
 	appearance-theme.c	\
 	appearance-theme.h	\
-	mate-wp-item.c	\
-	mate-wp-item.h	\
-	mate-wp-xml.c	\
-	mate-wp-xml.h	\
-	mate-wp-info.c  \
-	mate-wp-info.h  \
+	ukui-wp-item.c	\
+	ukui-wp-item.h	\
+	ukui-wp-xml.c	\
+	ukui-wp-xml.h	\
+	ukui-wp-info.c  \
+	ukui-wp-info.h  \
 	appearance.h    \
 	appearance-font.c \
 	appearance-font.h	\

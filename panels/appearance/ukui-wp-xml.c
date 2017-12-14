@@ -18,11 +18,11 @@
  *
  */
 #include <glib/gi18n.h>
-#include "mate-wp-xml.h"
+#include "ukui-wp-xml.h"
 #include <libxml/parser.h>
 #define WALLPAPER_DATADIR   "/usr/share/ukui-background-properties"
 #define UBUNTUUKUI_BACKGROUND "artful-ubuntukylin-wallpapers.xml"
-static gboolean mate_wp_xml_get_bool(const xmlNode* parent, const char* prop_name)
+static gboolean ukui_wp_xml_get_bool(const xmlNode* parent, const char* prop_name)
 {
     gboolean ret_val = FALSE;
 
@@ -48,7 +48,7 @@ static gboolean mate_wp_xml_get_bool(const xmlNode* parent, const char* prop_nam
     return ret_val;
 }
 
-static void mate_wp_xml_set_bool(const xmlNode* parent, const xmlChar* prop_name, gboolean value)
+static void ukui_wp_xml_set_bool(const xmlNode* parent, const xmlChar* prop_name, gboolean value)
 {
     if (parent != NULL && prop_name != NULL)
     {
@@ -63,7 +63,7 @@ static void mate_wp_xml_set_bool(const xmlNode* parent, const xmlChar* prop_name
     }
 }
 
-static void mate_wp_load_legacy(AppearanceData* data)
+static void ukui_wp_load_legacy(AppearanceData* data)
 {
     /* Legacy of GNOME2
      * ~/.gnome2/wallpapers.list */
@@ -79,7 +79,7 @@ static void mate_wp_load_legacy(AppearanceData* data)
 
             while (fgets(foo, 4096, fp))
             {
-                MateWPItem * item;
+                UkuiWPItem * item;
 
                 if (foo[strlen(foo) - 1] == '\n')
                 {
@@ -98,11 +98,11 @@ static void mate_wp_load_legacy(AppearanceData* data)
                     continue;
                 }
 
-                item = mate_wp_item_new(foo, data->wp_hash, data->thumb_factory);
+                item = ukui_wp_item_new(foo, data->wp_hash, data->thumb_factory);
 
                 if (item != NULL && item->fileinfo == NULL)
                 {
-                    mate_wp_item_free(item);
+                    ukui_wp_item_free(item);
                 }
             }
 
@@ -114,7 +114,7 @@ static void mate_wp_load_legacy(AppearanceData* data)
     g_free(filename);
 }
 
-static void mate_wp_xml_load_xml(AppearanceData* data, const char* filename)
+static void ukui_wp_xml_load_xml(AppearanceData* data, const char* filename)
 {
     xmlDoc* wplist;
     xmlNode* root;
@@ -141,13 +141,13 @@ static void mate_wp_xml_load_xml(AppearanceData* data, const char* filename)
     {
         if (!strcmp((char*) list->name, "wallpaper"))
         {
-            MateWPItem * wp;
+            UkuiWPItem * wp;
             char *pcolor = NULL, *scolor = NULL;
             gboolean have_scale = FALSE, have_shade = FALSE, have_artist = FALSE;
 
-            wp = g_new0(MateWPItem, 1);
+            wp = g_new0(UkuiWPItem, 1);
 
-            wp->deleted = mate_wp_xml_get_bool(list, "deleted");
+            wp->deleted = ukui_wp_xml_get_bool(list, "deleted");
 
             for (wpa = list->children; wpa != NULL; wpa = wpa->next)
             {
@@ -263,7 +263,7 @@ static void mate_wp_xml_load_xml(AppearanceData* data, const char* filename)
             if (wp->filename == NULL || g_hash_table_lookup (data->wp_hash, wp->filename) != NULL)
             {
 
-                mate_wp_item_free (wp);
+                ukui_wp_item_free (wp);
                 //g_free (pcolor);
                 //g_free (scolor);
                 continue;
@@ -307,7 +307,7 @@ static void mate_wp_xml_load_xml(AppearanceData* data, const char* filename)
 
             if ((wp->filename != NULL && g_file_test (wp->filename, G_FILE_TEST_EXISTS)) || !strcmp (wp->filename, "(none)"))
             {
-                wp->fileinfo = mate_wp_info_new(wp->filename, data->thumb_factory);
+                wp->fileinfo = ukui_wp_info_new(wp->filename, data->thumb_factory);
 
                 if (wp->name == NULL || !strcmp(wp->filename, "(none)"))
                 {
@@ -315,13 +315,13 @@ static void mate_wp_xml_load_xml(AppearanceData* data, const char* filename)
                     wp->name = g_strdup (wp->fileinfo->name);
                 }
 
-                mate_wp_item_ensure_mate_bg (wp);
-                mate_wp_item_update_description (wp);
+                ukui_wp_item_ensure_mate_bg (wp);
+                ukui_wp_item_update_description (wp);
                 g_hash_table_insert (data->wp_hash, wp->filename, wp);
             }
             else
             {
-                mate_wp_item_free(wp);
+                ukui_wp_item_free(wp);
                 wp = NULL;
             }
         }
@@ -330,7 +330,7 @@ static void mate_wp_xml_load_xml(AppearanceData* data, const char* filename)
     xmlFreeDoc(wplist);
 }
 
-static void mate_wp_file_changed(GFileMonitor* monitor, GFile* file, GFile* other_file, GFileMonitorEvent event_type, AppearanceData* data)
+static void ukui_wp_file_changed(GFileMonitor* monitor, GFile* file, GFile* other_file, GFileMonitorEvent event_type, AppearanceData* data)
 {
     char* filename;
 
@@ -339,7 +339,7 @@ static void mate_wp_file_changed(GFileMonitor* monitor, GFile* file, GFile* othe
         case G_FILE_MONITOR_EVENT_CHANGED:
         case G_FILE_MONITOR_EVENT_CREATED:
             filename = g_file_get_path(file);
-            mate_wp_xml_load_xml(data, filename);
+            ukui_wp_xml_load_xml(data, filename);
             g_free(filename);
             break;
         default:
@@ -347,7 +347,7 @@ static void mate_wp_file_changed(GFileMonitor* monitor, GFile* file, GFile* othe
     }
 }
 
-static void mate_wp_xml_add_monitor(GFile* directory, AppearanceData* data)
+static void ukui_wp_xml_add_monitor(GFile* directory, AppearanceData* data)
 {
     GError* error = NULL;
 
@@ -362,10 +362,10 @@ static void mate_wp_xml_add_monitor(GFile* directory, AppearanceData* data)
         return;
     }
 
-    g_signal_connect(monitor, "changed", G_CALLBACK(mate_wp_file_changed), data);
+    g_signal_connect(monitor, "changed", G_CALLBACK(ukui_wp_file_changed), data);
 }
 
-static void mate_wp_xml_load_from_dir(const char* path, AppearanceData* data)
+static void ukui_wp_xml_load_from_dir(const char* path, AppearanceData* data)
 {
     GFile * directory;
     if (!g_file_test(path, G_FILE_TEST_IS_DIR))
@@ -374,35 +374,35 @@ static void mate_wp_xml_load_from_dir(const char* path, AppearanceData* data)
     }
     directory = g_file_new_for_path(path);
     char* fullpath = g_build_filename(path, UBUNTUUKUI_BACKGROUND, NULL);
-    mate_wp_xml_load_xml(data, fullpath);
+    ukui_wp_xml_load_xml(data, fullpath);
     g_free(fullpath);
-    mate_wp_xml_add_monitor(directory, data);
+    ukui_wp_xml_add_monitor(directory, data);
 }
 
-void mate_wp_xml_load_list(AppearanceData* data)
+void ukui_wp_xml_load_list(AppearanceData* data)
 {
     char* wpdbfile;
     gint i;
 
     #if GLIB_CHECK_VERSION(2, 6, 0)
-        wpdbfile = g_build_filename(g_get_user_config_dir(), "mate", "backgrounds.xml", NULL);
+        wpdbfile = g_build_filename(g_get_user_config_dir(), "ukui", "backgrounds.xml", NULL);
     #else // glib version < 2.6.0
-        wpdbfile = g_build_filename(g_get_home_dir(), ".config", "mate", "backgrounds.xml", NULL);
+        wpdbfile = g_build_filename(g_get_home_dir(), ".config", "ukui", "backgrounds.xml", NULL);
     #endif
 
     if (g_file_test(wpdbfile, G_FILE_TEST_EXISTS))
     {
-        mate_wp_xml_load_xml(data, wpdbfile);
+        ukui_wp_xml_load_xml(data, wpdbfile);
         g_free (wpdbfile);
         return;
     }
     g_free (wpdbfile);
-    mate_wp_xml_load_from_dir(WALLPAPER_DATADIR, data);
+    ukui_wp_xml_load_from_dir(WALLPAPER_DATADIR, data);
 
-    mate_wp_load_legacy(data);
+    ukui_wp_load_legacy(data);
 }
 
-static void mate_wp_list_flatten(const char* key, MateWPItem* item, GSList** list)
+static void ukui_wp_list_flatten(const char* key, UkuiWPItem* item, GSList** list)
 {
     if (key != NULL && item != NULL)
     {
@@ -410,7 +410,7 @@ static void mate_wp_list_flatten(const char* key, MateWPItem* item, GSList** lis
     }
 }
 
-void mate_wp_xml_save_list(AppearanceData* data)
+void ukui_wp_xml_save_list(AppearanceData* data)
 {
     xmlDoc* wplist;
     xmlNode* root;
@@ -418,26 +418,26 @@ void mate_wp_xml_save_list(AppearanceData* data)
     //xmlNode* item;
     GSList* list = NULL;
     char* wpfile;
-    g_hash_table_foreach(data->wp_hash, (GHFunc) mate_wp_list_flatten, &list);
+    g_hash_table_foreach(data->wp_hash, (GHFunc) ukui_wp_list_flatten, &list);
     g_hash_table_destroy(data->wp_hash);
     list = g_slist_reverse(list);
 
     #if GLIB_CHECK_VERSION(2, 6, 0)
-        wpfile = g_build_filename(g_get_user_config_dir(), "mate", "backgrounds.xml", NULL);
+        wpfile = g_build_filename(g_get_user_config_dir(), "ukui", "backgrounds.xml", NULL);
     #else // glib version < 2.6.0
-        wpfile = g_build_filename(g_get_home_dir(), ".config", "mate", "backgrounds.xml", NULL);
+        wpfile = g_build_filename(g_get_home_dir(), ".config", "ukui", "backgrounds.xml", NULL);
     #endif
 
     xmlKeepBlanksDefault(0);
 
     wplist = xmlNewDoc((xmlChar*) "1.0");
-    xmlCreateIntSubset(wplist, (xmlChar*) "wallpapers", NULL, (xmlChar*) "mate-wp-list.dtd");
+    xmlCreateIntSubset(wplist, (xmlChar*) "wallpapers", NULL, (xmlChar*) "ukui-wp-list.dtd");
     root = xmlNewNode(NULL, (xmlChar*) "wallpapers");
     xmlDocSetRootElement(wplist, root);
 
     while (list != NULL)
     {
-        MateWPItem* wpitem = list->data;
+        UkuiWPItem* wpitem = list->data;
         const char* none = "(none)";
         char* filename;
         const char* scale;
@@ -460,7 +460,7 @@ void mate_wp_xml_save_list(AppearanceData* data)
         shade = wp_item_shading_to_string(wpitem->shade_type);
 
         wallpaper = xmlNewChild(root, NULL, (xmlChar*) "wallpaper", NULL);
-        mate_wp_xml_set_bool(wallpaper, (xmlChar*) "deleted", wpitem->deleted);
+        ukui_wp_xml_set_bool(wallpaper, (xmlChar*) "deleted", wpitem->deleted);
 
         xmlNewTextChild(wallpaper, NULL, (xmlChar*) "name", (xmlChar*) wpitem->name);
         xmlNewTextChild(wallpaper, NULL, (xmlChar*) "filename", (xmlChar*) filename);
@@ -475,7 +475,7 @@ void mate_wp_xml_save_list(AppearanceData* data)
         g_free(filename);
 
         list = g_slist_delete_link(list, list);
-        mate_wp_item_free(wpitem);
+        ukui_wp_item_free(wpitem);
     }
 
     /* Guardamos el archivo, solo si hay nodos en <wallpapers> */

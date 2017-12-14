@@ -22,14 +22,14 @@
 #define MATE_DESKTOP_USE_UNSTABLE_API
 #include <libmate-desktop/mate-bg.h>
 #include "appearance.h"
-#include "mate-wp-info.h"
+#include "ukui-wp-info.h"
 
-#ifndef _MATE_WP_ITEM_H_
-#define _MATE_WP_ITEM_H_
+#ifndef _UKUI_WP_ITEM_H_
+#define _UKUI_WP_ITEM_H_
 
-typedef struct _MateWPItem MateWPItem;
+typedef struct _UkuiWPItem UkuiWPItem;
 
-struct _MateWPItem {
+struct _UkuiWPItem {
   MateBG *bg;
 
   gchar * name;
@@ -45,7 +45,7 @@ struct _MateWPItem {
   GdkColor * pcolor;
   GdkColor * scolor;
 
-  MateWPInfo * fileinfo;
+  UkuiWPInfo * fileinfo;
 
   /* Did the user remove us? */
   gboolean deleted;
@@ -58,23 +58,23 @@ struct _MateWPItem {
   gint height;
 };
 
-MateWPItem * mate_wp_item_new (const gchar *filename,
+UkuiWPItem * ukui_wp_item_new (const gchar *filename,
                  GHashTable *wallpapers,
                  MateDesktopThumbnailFactory *thumbnails);
 
-void mate_wp_item_free (MateWPItem *item);
-GdkPixbuf * mate_wp_item_get_thumbnail (MateWPItem *item,
+void ukui_wp_item_free (UkuiWPItem *item);
+GdkPixbuf * ukui_wp_item_get_thumbnail (UkuiWPItem *item,
                      MateDesktopThumbnailFactory *thumbs,
                                          gint width,
                                          gint height);
-GdkPixbuf * mate_wp_item_get_frame_thumbnail (MateWPItem *item,
+GdkPixbuf * ukui_wp_item_get_frame_thumbnail (UkuiWPItem *item,
                                                MateDesktopThumbnailFactory *thumbs,
                                                gint width,
                                                gint height,
                                                gint frame);
-void mate_wp_item_update (MateWPItem *item);
-void mate_wp_item_update_description (MateWPItem *item);
-void mate_wp_item_ensure_mate_bg (MateWPItem *item);
+void ukui_wp_item_update (UkuiWPItem *item);
+void ukui_wp_item_update_description (UkuiWPItem *item);
+void ukui_wp_item_ensure_mate_bg (UkuiWPItem *item);
 
 const gchar *wp_item_option_to_string (MateBGPlacement type);
 const gchar *wp_item_shading_to_string (MateBGColorType type);

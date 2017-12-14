@@ -17,11 +17,11 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef _MATE_WP_XML_H_
-#define _MATE_WP_XML_H_
-#include "mate-wp-item.h"
-void mate_wp_xml_load_list(AppearanceData* data);
-void mate_wp_xml_save_list(AppearanceData* data);
+#ifndef _UKUI_WP_XML_H_
+#define _UKUI_WP_XML_H_
+#include "ukui-wp-item.h"
+void ukui_wp_xml_load_list(AppearanceData* data);
+void ukui_wp_xml_save_list(AppearanceData* data);
 
 #endif
 

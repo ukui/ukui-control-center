@@ -18,7 +18,7 @@
  *
  */
 #include <glib/gi18n.h>
-#include "mate-wp-item.h"
+#include "ukui-wp-item.h"
 const gchar *wp_item_option_to_string (MateBGPlacement type)
 {
 	switch (type)
@@ -92,7 +92,7 @@ MateBGColorType wp_item_string_to_shading (const gchar *shade_type)
 		return MATE_BG_COLOR_SOLID;
 }
 
-static void set_bg_properties (MateWPItem *item)
+static void set_bg_properties (UkuiWPItem *item)
 {
 	if (item->filename)
 		mate_bg_set_filename (item->bg, item->filename);
@@ -101,7 +101,7 @@ static void set_bg_properties (MateWPItem *item)
 	mate_bg_set_placement (item->bg, item->options);
 }
 
-void mate_wp_item_ensure_mate_bg (MateWPItem *item)
+void ukui_wp_item_ensure_mate_bg (UkuiWPItem *item)
 {
 	if (!item->bg) 
 	{
@@ -111,7 +111,7 @@ void mate_wp_item_ensure_mate_bg (MateWPItem *item)
 	}
 }
 
-void mate_wp_item_update (MateWPItem *item) 
+void ukui_wp_item_update (UkuiWPItem *item) 
 {
 	GSettings *settings;
 	GdkColor color1 = { 0, 0, 0, 0 }, color2 = { 0, 0, 0, 0 };
@@ -149,14 +149,14 @@ void mate_wp_item_update (MateWPItem *item)
 	item->scolor = gdk_color_copy (&color2);
 }
 
-MateWPItem *mate_wp_item_new (const gchar * filename,
+UkuiWPItem *ukui_wp_item_new (const gchar * filename,
 			      GHashTable * wallpapers,
 			      MateDesktopThumbnailFactory * thumbnails)
 {
-	MateWPItem *item = g_new0 (MateWPItem, 1);
+	UkuiWPItem *item = g_new0 (UkuiWPItem, 1);
 
 	item->filename = g_strdup (filename);
-	item->fileinfo = mate_wp_info_new (filename, thumbnails);
+	item->fileinfo = ukui_wp_info_new (filename, thumbnails);
 
 	if (item->fileinfo != NULL && item->fileinfo->mime_type != NULL &&
 	    (g_str_has_prefix (item->fileinfo->mime_type, "image/") ||
@@ -167,22 +167,22 @@ MateWPItem *mate_wp_item_new (const gchar * filename,
 		else
 			item->name = g_filename_to_utf8 (item->fileinfo->name, -1, NULL, NULL, NULL);
 		
-		mate_wp_item_update (item);
-		mate_wp_item_ensure_mate_bg (item);
-		mate_wp_item_update_description (item);
+		ukui_wp_item_update (item);
+		ukui_wp_item_ensure_mate_bg (item);
+		ukui_wp_item_update_description (item);
 
 		g_hash_table_insert (wallpapers, item->filename, item);
 	} 
 	else 
 	{
-		mate_wp_item_free (item);
+		ukui_wp_item_free (item);
 		item = NULL;
 	}
 
 	return item;
 }
 
-void mate_wp_item_free (MateWPItem * item) 
+void ukui_wp_item_free (UkuiWPItem * item) 
 {
 	if (item == NULL) 
 	{
@@ -199,7 +199,7 @@ void mate_wp_item_free (MateWPItem * item)
 	if (item->scolor != NULL)
 		gdk_color_free (item->scolor);
 	*/
-	mate_wp_info_free (item->fileinfo);
+	ukui_wp_info_free (item->fileinfo);
 	if (item->bg)
 		g_object_unref (item->bg);
 
@@ -235,7 +235,7 @@ static GdkPixbuf *add_slideshow_frame (GdkPixbuf *pixbuf)
 	return tmp;
 }
 
-GdkPixbuf * mate_wp_item_get_frame_thumbnail (MateWPItem * item,
+GdkPixbuf * ukui_wp_item_get_frame_thumbnail (UkuiWPItem * item,
 					      MateDesktopThumbnailFactory * thumbs,
 					      int width,
                                               int height,
@@ -264,15 +264,15 @@ GdkPixbuf * mate_wp_item_get_frame_thumbnail (MateWPItem * item,
 	return pixbuf;
 }
 
-GdkPixbuf * mate_wp_item_get_thumbnail (MateWPItem * item,
+GdkPixbuf * ukui_wp_item_get_thumbnail (UkuiWPItem * item,
 					MateDesktopThumbnailFactory * thumbs,
                                         gint width,
                                         gint height) 
 {
-	return mate_wp_item_get_frame_thumbnail (item, thumbs, width, height, -1);
+	return ukui_wp_item_get_frame_thumbnail (item, thumbs, width, height, -1);
 }
 
-void mate_wp_item_update_description (MateWPItem * item) 
+void ukui_wp_item_update_description (UkuiWPItem * item) 
 {
 	g_free (item->description);
 

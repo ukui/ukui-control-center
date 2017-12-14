@@ -46,7 +46,7 @@
 #define LOCKDOWN_SCHEMA              "org.mate.lockdown"
 #define DISABLE_THEMES_SETTINGS_KEY  "disable-theme-settings"
 
-#define CAJA_SCHEMA                  "org.ukui.peony.desktop"
+#define PEONY_SCHEMA                  "org.ukui.peony.desktop"
 #define DESKTOP_FONT_KEY             "font"
 
 #define MARCO_SCHEMA                 "org.mate.Marco.general"
@@ -61,7 +61,7 @@
 #define CURSOR_THEME_KEY             "cursor-theme"
 #define CURSOR_SIZE_KEY              "cursor-size"
 
-#define FONT_RENDER_SCHEMA           "org.mate.font-rendering"
+#define FONT_RENDER_SCHEMA           "org.ukui.font-rendering"
 #define FONT_ANTIALIASING_KEY        "antialiasing"
 #define FONT_HINTING_KEY             "hinting"
 #define FONT_RGBA_ORDER_KEY          "rgba-order"
@@ -70,7 +70,7 @@
 typedef struct {
     GSettings* settings;
     GSettings* wp_settings;
-    GSettings* caja_settings;
+    GSettings* peony_settings;
     GSettings* interface_settings;
     GSettings* marco_settings;
     GSettings* mouse_settings;
