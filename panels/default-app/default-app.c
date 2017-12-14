@@ -36,7 +36,7 @@
 #define MOBILITY_KEY          "exec"
 #define MOBILITY_STARTUP_KEY  "startup"
 
-typedef struct _MateDACapplet 
+typedef struct _UkuiDACapplet 
 {
 	//combo box
 	GtkWidget* web_combo_box;
@@ -68,9 +68,9 @@ typedef struct _MateDACapplet
 	GSettings * mobility_settings;
 
 	GtkIconTheme * icon_theme;
-}MateDACapplet;
+}UkuiDACapplet;
 
-MateDACapplet * capplet;
+UkuiDACapplet * capplet;
 
 enum {
 	DA_TYPE_WEB_BROWSER,
@@ -96,7 +96,7 @@ enum {
 };
 
 static void 
-set_changed(GtkComboBox* combo, MateDACapplet* capplet, GList* list, gint type)
+set_changed(GtkComboBox* combo, UkuiDACapplet* capplet, GList* list, gint type)
 {
 	guint index;
 	GAppInfo* item;
@@ -181,61 +181,61 @@ set_changed(GtkComboBox* combo, MateDACapplet* capplet, GList* list, gint type)
 
 /* Combo boxes callbacks */
 static void
-web_combo_changed_cb(GtkComboBox* combo, MateDACapplet* capplet)
+web_combo_changed_cb(GtkComboBox* combo, UkuiDACapplet* capplet)
 {
 	set_changed(combo, capplet, capplet->web_browsers, DA_TYPE_WEB_BROWSER);
 }
 
 static void
-mail_combo_changed_cb(GtkComboBox* combo, MateDACapplet* capplet)
+mail_combo_changed_cb(GtkComboBox* combo, UkuiDACapplet* capplet)
 {
 	set_changed(combo, capplet, capplet->mail_readers, DA_TYPE_EMAIL);
 }
 
 static void
-file_combo_changed_cb(GtkComboBox* combo, MateDACapplet* capplet)
+file_combo_changed_cb(GtkComboBox* combo, UkuiDACapplet* capplet)
 {
 	set_changed(combo, capplet, capplet->file_managers, DA_TYPE_FILE);
 }
 
 static void
-text_combo_changed_cb(GtkComboBox* combo, MateDACapplet* capplet)
+text_combo_changed_cb(GtkComboBox* combo, UkuiDACapplet* capplet)
 {
 	set_changed(combo, capplet, capplet->text_editors, DA_TYPE_TEXT);
 }
 
 static void
-media_combo_changed_cb(GtkComboBox* combo, MateDACapplet* capplet)
+media_combo_changed_cb(GtkComboBox* combo, UkuiDACapplet* capplet)
 {
 	set_changed(combo, capplet, capplet->media_players, DA_TYPE_MEDIA);
 }
 
 static void
-video_combo_changed_cb(GtkComboBox* combo, MateDACapplet* capplet)
+video_combo_changed_cb(GtkComboBox* combo, UkuiDACapplet* capplet)
 {
 	set_changed(combo, capplet, capplet->video_players, DA_TYPE_VIDEO);
 }
 
 /*static void
-terminal_combo_changed_cb(GtkComboBox* combo, MateDACapplet* capplet)
+terminal_combo_changed_cb(GtkComboBox* combo, UkuiDACapplet* capplet)
 {
 	set_changed(combo, capplet, capplet->terminals, DA_TYPE_TERMINAL);
 }*/
 
 static void
-visual_combo_changed_cb(GtkComboBox* combo, MateDACapplet* capplet)
+visual_combo_changed_cb(GtkComboBox* combo, UkuiDACapplet* capplet)
 {
 	set_changed(combo, capplet, capplet->visual_ats, DA_TYPE_VISUAL);
 }
 
 static void
-mobility_combo_changed_cb(GtkComboBox* combo, MateDACapplet* capplet)
+mobility_combo_changed_cb(GtkComboBox* combo, UkuiDACapplet* capplet)
 {
 	set_changed(combo, capplet, capplet->mobility_ats, DA_TYPE_MOBILITY);
 }
 
 static void
-image_combo_changed_cb(GtkComboBox* combo, MateDACapplet* capplet)
+image_combo_changed_cb(GtkComboBox* combo, UkuiDACapplet* capplet)
 {
 	set_changed(combo, capplet, capplet->image_viewers, DA_TYPE_IMAGE);
 }
@@ -564,7 +564,7 @@ void show_dialog(GtkBuilder * builder)
 void add_default_app(GtkBuilder * builder)
 {
 	g_debug("add_default_app");
-	capplet = g_new0(MateDACapplet, 1);
+	capplet = g_new0(UkuiDACapplet, 1);
 	capplet->terminal_settings = g_settings_new (TERMINAL_SCHEMA);
 	capplet->mobility_settings = g_settings_new (MOBILITY_SCHEMA);
 	capplet->visual_settings = g_settings_new (VISUAL_SCHEMA);
