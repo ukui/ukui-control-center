@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*-
  *
- * mate-display-properties-install-systemwide - Install a RANDR profile for the whole system
+ * ukui-display-properties-install-systemwide - Install a RANDR profile for the whole system
  *
  * Copyright (C) 2010 Novell, Inc.
  * Copyright (C) 2016 Tianjin KYLIN Information Technology Co., Ltd.

@@ -2510,7 +2510,7 @@ make_default (App *app)
 
     source_filename = mate_rr_config_get_intended_filename ();
 
-    command_line = g_strdup_printf ("pkexec %s/mate-display-properties-install-systemwide %s %s",
+    command_line = g_strdup_printf ("pkexec %s/ukui-display-properties-install-systemwide %s %s",
 				    SBINDIR,
 				    source_filename,
 				    dest_basename);
