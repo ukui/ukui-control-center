@@ -104,17 +104,17 @@ msgstr ""
 msgid "VB_GR"
 msgstr ""
 
-#: panels/appearance/mate-wp-info.c:47
+#: panels/appearance/ukui-wp-info.c:47
 msgid "No Desktop Background"
 msgstr "배경화면이 없습니다"
 
-#: panels/appearance/mate-wp-item.c:315 panels/appearance/mate-wp-item.c:317
+#: panels/appearance/ukui-wp-item.c:315 panels/appearance/ukui-wp-item.c:317
 msgid "pixel"
 msgid_plural "pixels"
 msgstr[0] "픽셀"
 msgstr[1] "픽셀"
 
-#: panels/appearance/mate-wp-item.c:327
+#: panels/appearance/ukui-wp-item.c:327
 #, c-format
 msgid ""
 "<b>%s</b>\n"
@@ -127,7 +127,7 @@ msgstr ""
 "파일경로：%s\n"
 "제작자：%s"
 
-#: panels/appearance/mate-wp-item.c:344
+#: panels/appearance/ukui-wp-item.c:344
 #, c-format
 msgid ""
 "<b>%s</b>\n"
@@ -140,14 +140,14 @@ msgstr ""
 "파일경로：%s\n"
 "제작자：%s"
 
-#: panels/display/mate-display-properties-install-systemwide.c:45
+#: panels/display/ukui-display-properties-install-systemwide.c:45
 #, c-format
 msgid ""
 "Usage: %s SOURCE_FILE DEST_NAME\n"
 "\n"
 "This program installs a RANDR profile for multi-monitor setups into\n"
 "a systemwide location.  The resulting profile will get used when\n"
-"the RANDR plug-in gets run in mate-settings-daemon.\n"
+"the RANDR plug-in gets run in ukui-settings-daemon.\n"
 "\n"
 "SOURCE_FILE - a full pathname, typically /home/username/.config/monitors."
 "xml\n"
@@ -159,7 +159,7 @@ msgstr ""
 "사용: %s SOURCE_FILE DEST_NAME\n"
 "\n"
 "이 프로그램은 RANDR의 프로파일을 설치해서 시스템 전체의 \n"
-"멀티모니터를 설정합니다.RANDR 플러그인이 mate-settings-daemon에 돌아가면\n"
+"멀티모니터를 설정합니다.RANDR 플러그인이 ukui-settings-daemon에 돌아가면\n"
 "프로파일이 만들어집니다.\n"
 "\n"
 "SOURCE_FILE - 절대경로, 보통 /home/username/.config/monitors.xml\n"
@@ -168,58 +168,58 @@ msgstr ""
 "            시스템 전체의 RANDR 설정 디렉토리에 만들어집니다.\n"
 "            이 경로에 만들어질 것입니다.%s/DEST_NAME\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:152
+#: panels/display/ukui-display-properties-install-systemwide.c:152
 msgid "This program can only be used by the root user"
 msgstr "이 프로그램은 root 관리자만이 사용할 수 있습니다"
 
-#: panels/display/mate-display-properties-install-systemwide.c:169
+#: panels/display/ukui-display-properties-install-systemwide.c:169
 msgid "The source filename must be absolute"
 msgstr "소스 파일명은 절대경로여야합니다"
 
-#: panels/display/mate-display-properties-install-systemwide.c:180
+#: panels/display/ukui-display-properties-install-systemwide.c:180
 #, c-format
 msgid "Could not open %s: %s\n"
 msgstr "%s 파일을 열 수 없습니다: %s\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:189
+#: panels/display/ukui-display-properties-install-systemwide.c:189
 #, c-format
 msgid "Could not get information for %s: %s\n"
 msgstr "%s의 정보를 알 수 없습니다: %s\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:196
+#: panels/display/ukui-display-properties-install-systemwide.c:196
 #, c-format
 msgid "%s must be a regular file\n"
 msgstr ""
 
-#: panels/display/mate-display-properties-install-systemwide.c:205
+#: panels/display/ukui-display-properties-install-systemwide.c:205
 msgid "This program must only be run through pkexec(1)"
 msgstr "pkexec(1)을 통해사만 실행 가능합니다"
 
-#: panels/display/mate-display-properties-install-systemwide.c:210
+#: panels/display/ukui-display-properties-install-systemwide.c:210
 msgid "PKEXEC_UID must be set to an integer value"
 msgstr "PKEXEC_UID 는 정수로 설정해주세요"
 
-#: panels/display/mate-display-properties-install-systemwide.c:216
+#: panels/display/ukui-display-properties-install-systemwide.c:216
 #, c-format
 msgid "%s must be owned by you\n"
 msgstr "%s는 사용자의 소유여야 합니다\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:224
+#: panels/display/ukui-display-properties-install-systemwide.c:224
 #, c-format
 msgid "%s must not have any directory components\n"
 msgstr "%s은 모든 디렉토리 구성을 가지고 있지 않습니다\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:232
+#: panels/display/ukui-display-properties-install-systemwide.c:232
 #, c-format
 msgid "%s must be a directory\n"
 msgstr "%s는 디렉토리여야 합니다\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:243
+#: panels/display/ukui-display-properties-install-systemwide.c:243
 #, c-format
 msgid "Could not open %s/%s: %s\n"
 msgstr "다음을 열 수 없습니다 %s/%s: %s\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:263
+#: panels/display/ukui-display-properties-install-systemwide.c:263
 #, c-format
 msgid "Could not rename %s to %s: %s\n"
 msgstr "%s을 %s으로 이름을 바꿀 수 없습니다: %s\n"
@@ -304,12 +304,12 @@ msgstr "모니터의 기본 설정을 적용할 수 없습니다"
 msgid "Could not get screen information"
 msgstr "%s의 정보를 알 수 없습니다: %s\n"
 
-#: panels/keyboard/mate-keybinding-properties.c:1070
-#: panels/keyboard/mate-keybinding-properties.c:1693
+#: panels/keyboard/ukui-keybinding-properties.c:1070
+#: panels/keyboard/ukui-keybinding-properties.c:1693
 msgid "Custom Shortcuts"
 msgstr "개인 설정 단축키"
 
-#: panels/keyboard/mate-keybinding-properties.c:1379
+#: panels/keyboard/ukui-keybinding-properties.c:1379
 #, c-format
 msgid ""
 "The shortcut \"%s\" is already used for\n"
@@ -318,47 +318,47 @@ msgstr ""
 "단축키 “%s”은 이미 사용되고 있습니다.\n"
 "“%s”，다시 설정해주세요"
 
-#: panels/keyboard/mate-keybinding-properties.c:1523
+#: panels/keyboard/ukui-keybinding-properties.c:1523
 msgid "Add Shortcuts"
 msgstr "단축키 추가"
 
-#: panels/keyboard/mate-keybinding-properties.c:1915
+#: panels/keyboard/ukui-keybinding-properties.c:1915
 msgid "Selection Program"
 msgstr "프로그램 선택"
 
-#: panels/keyboard/mate-keybinding-properties.c:1956
+#: panels/keyboard/ukui-keybinding-properties.c:1956
 msgid "Function description"
 msgstr "기능 설명"
 
-#: panels/keyboard/mate-keybinding-properties.c:1974
+#: panels/keyboard/ukui-keybinding-properties.c:1974
 msgid "Hotkey"
 msgstr "단축키"
 
-#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:1
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:1
 msgid "Select the keyboard layout"
 msgstr "키보드 레이아웃 선택"
 
-#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:2
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:2
 msgid "_Variants:"
 msgstr "종류(_V):"
 
-#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:3
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:3
 msgid "_Country:"
 msgstr "국가(_C):"
 
-#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:4
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:4
 msgid "By _country"
 msgstr "국가에 따라(_C)"
 
-#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:5
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:5
 msgid "_Language:"
 msgstr "언어(_L):"
 
-#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:6
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:6
 msgid "By _language"
 msgstr "언어에 따라(_L):"
 
-#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:7
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:7
 msgid "Preview:"
 msgstr "미리보기"
 
@@ -431,8 +431,8 @@ msgid "Power Manager"
 msgstr "전원 관리자"
 
 #: panels/power/kpm-common.h:42
-msgid "Power Manager for the MATE desktop"
-msgstr "MATE 데스크탑을 위한 전원관리자"
+msgid "Power Manager for the UKUI desktop"
+msgstr "UKUI 데스크탑을 위한 전원관리자"
 
 #: panels/power/kpm-prefs-core.c:187 panels/power/kpm-prefs-core.c:189
 #: panels/power/kpm-prefs-core.c:805

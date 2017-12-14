@@ -106,17 +106,17 @@ msgstr ""
 msgid "VB_GR"
 msgstr ""
 
-#: panels/appearance/mate-wp-info.c:47
+#: panels/appearance/ukui-wp-info.c:47
 msgid "No Desktop Background"
 msgstr "Arkaplan Resmi Yok"
 
-#: panels/appearance/mate-wp-item.c:315 panels/appearance/mate-wp-item.c:317
+#: panels/appearance/ukui-wp-item.c:315 panels/appearance/ukui-wp-item.c:317
 msgid "pixel"
 msgid_plural "pixels"
 msgstr[0] "piksel"
 msgstr[1] "piksel"
 
-#: panels/appearance/mate-wp-item.c:327
+#: panels/appearance/ukui-wp-item.c:327
 #, c-format
 msgid ""
 "<b>%s</b>\n"
@@ -129,7 +129,7 @@ msgstr ""
 "Dosya Yolu: %s\n"
 "Artist: %s"
 
-#: panels/appearance/mate-wp-item.c:344
+#: panels/appearance/ukui-wp-item.c:344
 #, c-format
 msgid ""
 "<b>%s</b>\n"
@@ -142,14 +142,14 @@ msgstr ""
 "Dosya Yolu: %s\n"
 "Artist: %s"
 
-#: panels/display/mate-display-properties-install-systemwide.c:45
+#: panels/display/ukui-display-properties-install-systemwide.c:45
 #, c-format
 msgid ""
 "Usage: %s SOURCE_FILE DEST_NAME\n"
 "\n"
 "This program installs a RANDR profile for multi-monitor setups into\n"
 "a systemwide location.  The resulting profile will get used when\n"
-"the RANDR plug-in gets run in mate-settings-daemon.\n"
+"the RANDR plug-in gets run in ukui-settings-daemon.\n"
 "\n"
 "SOURCE_FILE - a full pathname, typically /home/username/.config/monitors."
 "xml\n"
@@ -171,58 +171,58 @@ msgstr ""
 "            the systemwide directory for RANDR configurations,\n"
 "            so the result will typically be %s/DEST_NAME\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:152
+#: panels/display/ukui-display-properties-install-systemwide.c:152
 msgid "This program can only be used by the root user"
 msgstr "Program yalnızca root kullanıcısı tarafından kullanılabilir"
 
-#: panels/display/mate-display-properties-install-systemwide.c:169
+#: panels/display/ukui-display-properties-install-systemwide.c:169
 msgid "The source filename must be absolute"
 msgstr "Kaynak dosya adı mutlaka olmalıdır"
 
-#: panels/display/mate-display-properties-install-systemwide.c:180
+#: panels/display/ukui-display-properties-install-systemwide.c:180
 #, c-format
 msgid "Could not open %s: %s\n"
 msgstr "%s açılamadı: %s\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:189
+#: panels/display/ukui-display-properties-install-systemwide.c:189
 #, c-format
 msgid "Could not get information for %s: %s\n"
 msgstr "%s için bilgi alamadı: %s \n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:196
+#: panels/display/ukui-display-properties-install-systemwide.c:196
 #, c-format
 msgid "%s must be a regular file\n"
 msgstr "%s düzenli bir dosya olmalı\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:205
+#: panels/display/ukui-display-properties-install-systemwide.c:205
 msgid "This program must only be run through pkexec(1)"
 msgstr "Bu program yalnızca pkexec(1) üzerinden çalıştırılmalıdır."
 
-#: panels/display/mate-display-properties-install-systemwide.c:210
+#: panels/display/ukui-display-properties-install-systemwide.c:210
 msgid "PKEXEC_UID must be set to an integer value"
 msgstr "PKEXEC_UID bir tamsayı değerine ayarlanmalıdır"
 
-#: panels/display/mate-display-properties-install-systemwide.c:216
+#: panels/display/ukui-display-properties-install-systemwide.c:216
 #, c-format
 msgid "%s must be owned by you\n"
 msgstr "%s sana ait olmalı\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:224
+#: panels/display/ukui-display-properties-install-systemwide.c:224
 #, c-format
 msgid "%s must not have any directory components\n"
 msgstr ""
 
-#: panels/display/mate-display-properties-install-systemwide.c:232
+#: panels/display/ukui-display-properties-install-systemwide.c:232
 #, c-format
 msgid "%s must be a directory\n"
 msgstr "%s herhangi bir dizin bileşeni olmamalıdır\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:243
+#: panels/display/ukui-display-properties-install-systemwide.c:243
 #, c-format
 msgid "Could not open %s/%s: %s\n"
 msgstr "%s/%s açılamadı: %s\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:263
+#: panels/display/ukui-display-properties-install-systemwide.c:263
 #, c-format
 msgid "Could not rename %s to %s: %s\n"
 msgstr "%s dosyasını %s olarak yeniden adlandıramadı: %s\n"
@@ -308,12 +308,12 @@ msgstr "Monitörler için varsayılan yapılandırma ayarlanamadı."
 msgid "Could not get screen information"
 msgstr "Ekran bilgisi alınamadı"
 
-#: panels/keyboard/mate-keybinding-properties.c:1070
-#: panels/keyboard/mate-keybinding-properties.c:1693
+#: panels/keyboard/ukui-keybinding-properties.c:1070
+#: panels/keyboard/ukui-keybinding-properties.c:1693
 msgid "Custom Shortcuts"
 msgstr "Kısayolları Özelleştir"
 
-#: panels/keyboard/mate-keybinding-properties.c:1379
+#: panels/keyboard/ukui-keybinding-properties.c:1379
 #, c-format
 msgid ""
 "The shortcut \"%s\" is already used for\n"
@@ -322,47 +322,47 @@ msgstr ""
 "\"%s\" kısayolu zaten kullanılıyor\n"
 "\"%s\" lütfen sıfırlayın !!!"
 
-#: panels/keyboard/mate-keybinding-properties.c:1523
+#: panels/keyboard/ukui-keybinding-properties.c:1523
 msgid "Add Shortcuts"
 msgstr "Kısayol Ekle"
 
-#: panels/keyboard/mate-keybinding-properties.c:1915
+#: panels/keyboard/ukui-keybinding-properties.c:1915
 msgid "Selection Program"
 msgstr "Program Seçimi"
 
-#: panels/keyboard/mate-keybinding-properties.c:1956
+#: panels/keyboard/ukui-keybinding-properties.c:1956
 msgid "Function description"
 msgstr "Fonksiyon açıklaması"
 
-#: panels/keyboard/mate-keybinding-properties.c:1974
+#: panels/keyboard/ukui-keybinding-properties.c:1974
 msgid "Hotkey"
 msgstr "Kısayol"
 
-#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:1
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:1
 msgid "Select the keyboard layout"
 msgstr "Klavye düzenini seçin"
 
-#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:2
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:2
 msgid "_Variants:"
 msgstr "_Hafif:"
 
-#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:3
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:3
 msgid "_Country:"
 msgstr "Ülke:"
 
-#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:4
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:4
 msgid "By _country"
 msgstr "Ülkeye göre"
 
-#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:5
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:5
 msgid "_Language:"
 msgstr "Dil"
 
-#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:6
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:6
 msgid "By _language"
 msgstr "Dile göre"
 
-#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:7
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:7
 msgid "Preview:"
 msgstr "Önizleme"
 
@@ -469,7 +469,7 @@ msgid "Power Manager"
 msgstr "Güç Yönetimi"
 
 #: panels/power/kpm-common.h:42
-msgid "Power Manager for the MATE desktop"
+msgid "Power Manager for the UKUI desktop"
 msgstr "UKUI masaüstü için güç yönetimi"
 
 #: panels/power/kpm-prefs-core.c:168 panels/power/kpm-prefs-core.c:170

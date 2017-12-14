@@ -104,17 +104,17 @@ msgstr ""
 msgid "VB_GR"
 msgstr ""
 
-#: panels/appearance/mate-wp-info.c:47
+#: panels/appearance/ukui-wp-info.c:47
 msgid "No Desktop Background"
 msgstr "无桌面背景"
 
-#: panels/appearance/mate-wp-item.c:315 panels/appearance/mate-wp-item.c:317
+#: panels/appearance/ukui-wp-item.c:315 panels/appearance/ukui-wp-item.c:317
 msgid "pixel"
 msgid_plural "pixels"
 msgstr[0] "像素"
 msgstr[1] "像素"
 
-#: panels/appearance/mate-wp-item.c:327
+#: panels/appearance/ukui-wp-item.c:327
 #, c-format
 msgid ""
 "<b>%s</b>\n"
@@ -127,7 +127,7 @@ msgstr ""
 "文件夹：%s\n"
 "作者：%s"
 
-#: panels/appearance/mate-wp-item.c:344
+#: panels/appearance/ukui-wp-item.c:344
 #, c-format
 msgid ""
 "<b>%s</b>\n"
@@ -140,14 +140,14 @@ msgstr ""
 "文件夹：%s\n"
 "作者：%s"
 
-#: panels/display/mate-display-properties-install-systemwide.c:45
+#: panels/display/ukui-display-properties-install-systemwide.c:45
 #, c-format
 msgid ""
 "Usage: %s SOURCE_FILE DEST_NAME\n"
 "\n"
 "This program installs a RANDR profile for multi-monitor setups into\n"
 "a systemwide location.  The resulting profile will get used when\n"
-"the RANDR plug-in gets run in mate-settings-daemon.\n"
+"the RANDR plug-in gets run in ukui-settings-daemon.\n"
 "\n"
 "SOURCE_FILE - a full pathname, typically /home/username/.config/monitors."
 "xml\n"
@@ -159,7 +159,7 @@ msgstr ""
 "用法: %s SOURCE_FILE DEST_NAME\n"
 "\n"
 "此程序向整个系统安装多显示器设置的 RANDR 配置文件。\n"
-"生成的配置文件将在 RANDR 插件在 mate-settings-daemon \n"
+"生成的配置文件将在 RANDR 插件在 ukui-settings-daemon \n"
 "中运行时被使用。\n"
 "\n"
 "SOURCE_FILE - 完整路径名称，通常为 /home/username/.config/monitors.xml\n"
@@ -168,58 +168,58 @@ msgstr ""
 "            将被置于用于 RANDR 配置的系统目录，\n"
 "            所以生成文件通常为 %s/DEST_NAME\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:152
+#: panels/display/ukui-display-properties-install-systemwide.c:152
 msgid "This program can only be used by the root user"
 msgstr "此程序只能由 root 用户使用"
 
-#: panels/display/mate-display-properties-install-systemwide.c:169
+#: panels/display/ukui-display-properties-install-systemwide.c:169
 msgid "The source filename must be absolute"
 msgstr "源文件名必须为绝对路径"
 
-#: panels/display/mate-display-properties-install-systemwide.c:180
+#: panels/display/ukui-display-properties-install-systemwide.c:180
 #, c-format
 msgid "Could not open %s: %s\n"
 msgstr "无法打开 %s: %s\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:189
+#: panels/display/ukui-display-properties-install-systemwide.c:189
 #, c-format
 msgid "Could not get information for %s: %s\n"
 msgstr "无法获取 %s 的信息: %s\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:196
+#: panels/display/ukui-display-properties-install-systemwide.c:196
 #, c-format
 msgid "%s must be a regular file\n"
 msgstr "%s 必须为常规文件\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:205
+#: panels/display/ukui-display-properties-install-systemwide.c:205
 msgid "This program must only be run through pkexec(1)"
 msgstr "此程序仅能通过 pkexec(1) 运行"
 
-#: panels/display/mate-display-properties-install-systemwide.c:210
+#: panels/display/ukui-display-properties-install-systemwide.c:210
 msgid "PKEXEC_UID must be set to an integer value"
 msgstr "PKEXEC_UID 必须设为整数值"
 
-#: panels/display/mate-display-properties-install-systemwide.c:216
+#: panels/display/ukui-display-properties-install-systemwide.c:216
 #, c-format
 msgid "%s must be owned by you\n"
 msgstr "%s 必须归您所有\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:224
+#: panels/display/ukui-display-properties-install-systemwide.c:224
 #, c-format
 msgid "%s must not have any directory components\n"
 msgstr "%s 不应有任何目录部分\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:232
+#: panels/display/ukui-display-properties-install-systemwide.c:232
 #, c-format
 msgid "%s must be a directory\n"
 msgstr "%s 必须为目录\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:243
+#: panels/display/ukui-display-properties-install-systemwide.c:243
 #, c-format
 msgid "Could not open %s/%s: %s\n"
 msgstr "无法打开 %s/%s: %s\n"
 
-#: panels/display/mate-display-properties-install-systemwide.c:263
+#: panels/display/ukui-display-properties-install-systemwide.c:263
 #, c-format
 msgid "Could not rename %s to %s: %s\n"
 msgstr "无法将 %s 重命名为 %s: %s\n"
@@ -303,12 +303,12 @@ msgstr "无法为显示器设置默认配置"
 msgid "Could not get screen information"
 msgstr "不能获取屏幕信息"
 
-#: panels/keyboard/mate-keybinding-properties.c:1070
-#: panels/keyboard/mate-keybinding-properties.c:1693
+#: panels/keyboard/ukui-keybinding-properties.c:1070
+#: panels/keyboard/ukui-keybinding-properties.c:1693
 msgid "Custom Shortcuts"
 msgstr "自定义快捷键"
 
-#: panels/keyboard/mate-keybinding-properties.c:1379
+#: panels/keyboard/ukui-keybinding-properties.c:1379
 #, c-format
 msgid ""
 "The shortcut \"%s\" is already used for\n"
@@ -317,47 +317,47 @@ msgstr ""
 "快捷键“%s”已经用于\n"
 "“%s”，请重新设置"
 
-#: panels/keyboard/mate-keybinding-properties.c:1523
+#: panels/keyboard/ukui-keybinding-properties.c:1523
 msgid "Add Shortcuts"
 msgstr "添加快捷方式"
 
-#: panels/keyboard/mate-keybinding-properties.c:1915
+#: panels/keyboard/ukui-keybinding-properties.c:1915
 msgid "Selection Program"
 msgstr "选择快捷打开的程序"
 
-#: panels/keyboard/mate-keybinding-properties.c:1960
+#: panels/keyboard/ukui-keybinding-properties.c:1960
 msgid "Function description"
 msgstr "功能说明"
 
-#: panels/keyboard/mate-keybinding-properties.c:1993
+#: panels/keyboard/ukui-keybinding-properties.c:1993
 msgid "Hotkey"
 msgstr "热键"
 
-#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:1
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:1
 msgid "Select the keyboard layout"
 msgstr "选择键盘布局"
 
-#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:2
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:2
 msgid "_Variants:"
 msgstr "变体(_V):"
 
-#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:3
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:3
 msgid "_Country:"
 msgstr "国家/地区(_C):"
 
-#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:4
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:4
 msgid "By _country"
 msgstr "按国家/地区(_C)"
 
-#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:5
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:5
 msgid "_Language:"
 msgstr "语言(_L):"
 
-#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:6
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:6
 msgid "By _language"
 msgstr "按语言(_L):"
 
-#: panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h:7
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:7
 msgid "Preview:"
 msgstr "预览"
 
@@ -460,8 +460,8 @@ msgid "Power Manager"
 msgstr "电源管理"
 
 #: panels/power/kpm-common.h:42
-msgid "Power Manager for the MATE desktop"
-msgstr "MATE桌面环境的电源管理"
+msgid "Power Manager for the UKUI desktop"
+msgstr "UKUI桌面环境的电源管理"
 
 #: panels/power/kpm-prefs-core.c:168 panels/power/kpm-prefs-core.c:170
 msgid "Never"
