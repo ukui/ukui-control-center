@@ -63,7 +63,7 @@ G_DEFINE_TYPE (GvcSoundThemeChooser, gvc_sound_theme_chooser, GTK_TYPE_VBOX)
 #define EVENT_SOUNDS_KEY           "event-sounds"
 #define INPUT_SOUNDS_KEY           "input-feedback-sounds"
 #define SOUND_THEME_KEY            "theme-name"
-#define KEY_MARCO_SCHEMA           "org.mate.Marco.general"
+#define KEY_MARCO_SCHEMA           "org.gnome.desktop.wm.preferences"
 #define AUDIO_BELL_KEY             "audible-bell"
 
 #define DEFAULT_ALERT_ID        "__default"

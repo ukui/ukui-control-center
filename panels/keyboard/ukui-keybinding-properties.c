@@ -17,8 +17,9 @@
 #include "dconf-util.h"
 
 #define GSETTINGS_KEYBINDINGS_DIR "/org/mate/desktop/keybindings/"
-#define GSETTINGS_KEYBINDINGS_SYSTEM "/org/mate/marco/global-keybindings/"
-#define MARCO_KEY "org.mate.Marco.global-keybindings"
+#define GSETTINGS_KEYBINDINGS_SYSTEM "/org/gnome/desktop/wm/keybindings/"
+#define CUSTOM_KEYBINDING_SCHEMA "org.ukui.control-center.keybinding"
+#define MARCO_KEY "org.gnome.desktop.wm.keybindings"
 
 #define MAX_ELEMENTS_BEFORE_SCROLLING 10
 #define MAX_CUSTOM_SHORTCUTS 1000
@@ -1000,9 +1001,13 @@ append_keys_to_tree_from_system(GtkBuilder *builder, const gchar *gsettings_path
 	GSettings * gsetting = g_settings_new(MARCO_KEY);
 	char ** gs = g_settings_list_keys(gsetting);
 	for (i=0; gs[i]!= NULL; i++){
-		gchar * str = g_settings_get_string(gsetting, gs[i]);
-		if (g_strcmp0(str, "disabled") == 0)
-			continue;
+        //切换为mutter后，原先为string的变为字符串数组，这块只取了字符串数组的第一个元素
+        GVariant *variant = g_settings_get_value(gsetting, gs[i]);
+        gsize size = g_variant_get_size(variant);
+        gchar **tmp = g_variant_get_strv(variant, &size);
+        gchar *str = tmp[0];
+        if(!str)
+            continue;
 		key.imp_key = gs[i];
 		binding_from_string(str,&(key.keyval), &(key.keycode), &(key.mask));
 		g_array_append_val(system_entries, key);
@@ -2064,7 +2069,7 @@ on_window_manager_change (const char *wm_name, GtkBuilder *builder)
 void init_keybinding_tabs(GtkBuilder * builder)
 {
     wm_common_register_window_manager_change ((GFunc) on_window_manager_change, builder);
-    marco_settings = g_settings_new ("org.mate.Marco.general");
+    marco_settings = g_settings_new ("org.gnome.desktop.wm.preferences");
     setup_dialog (builder, marco_settings);
 }
 

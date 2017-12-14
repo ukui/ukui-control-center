@@ -49,7 +49,7 @@
 #define PEONY_SCHEMA                  "org.ukui.peony.desktop"
 #define DESKTOP_FONT_KEY             "font"
 
-#define MARCO_SCHEMA                 "org.mate.Marco.general"
+#define MARCO_SCHEMA                 "org.gnome.desktop.wm.preferences"
 #define MARCO_THEME_KEY              "theme"
 #define WINDOW_TITLE_FONT_KEY        "titlebar-font"
 #define WINDOW_TITLE_USES_SYSTEM_KEY "titlebar-uses-system-font"

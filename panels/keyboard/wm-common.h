@@ -2,6 +2,7 @@
 #define WM_COMMON_H
 
 #define WM_COMMON_MARCO       "Marco"
+#define WM_COMMON_UKWM        "Ukwm"
 #define WM_COMMON_SAWFISH     "Sawfish"
 #define WM_COMMON_METACITY    "Metacity"
 #define WM_COMMON_COMPIZ      "Compiz"

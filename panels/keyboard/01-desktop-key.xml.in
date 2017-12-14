@@ -5,5 +5,13 @@
 
 	<KeyListEntry name="screensaver" description="Lock screen" />
 
+	<KeyListEntry name="terminal" description="Terminal" />
+
+	<KeyListEntry name="screenshot" description="Take a screenshot"/>
+
+	<KeyListEntry name="window-screenshot" description="Take a screenshot of a window"/>
+
+	<KeyListEntry name="area-screenshot" description="Take a screenshot of an area"/>
+
 </KeyListEntries>
 
