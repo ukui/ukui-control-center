@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<KeyListEntries name="Desktop" schema="org.ukui.SettingsDaemon.plugins.media-keys" package="mate-settings-daemon">
+<KeyListEntries name="Desktop" schema="org.ukui.SettingsDaemon.plugins.media-keys" package="ukui-settings-daemon">
 
 	<KeyListEntry name="logout" description="Log out" />
 

@@ -23,7 +23,7 @@
 #include <gio/gio.h>
 #include "network-proxy.h"
 
-/* With GSettings migration, MATE is going to share proxy settings with
+/* With GSettings migration, UKUI is going to share proxy settings with
  * GNOME3 (in gsettings-desktop-schemas package).
  * GSettings schemas is http://git.gnome.org/browse/gsettings-desktop-schemas/tree/
  * schemas/org.gnome.system.proxy.gschema.xml.in.in
@@ -75,8 +75,6 @@ NetworkProxy networkproxy;
 #define SOCKS_PROXY_SCHEMA        "org.gnome.system.proxy.socks"
 #define SOCKS_PROXY_HOST_KEY      "host"
 #define SOCKS_PROXY_PORT_KEY      "port"
-
-#define MATECC_GNP_UI_FILE ( "../capplet/network/mate-network-properties.ui")
 
 static GtkWidget *details_dialog = NULL;
 static GSList *ignore_hosts = NULL;

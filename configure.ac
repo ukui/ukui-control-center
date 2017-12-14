@@ -32,7 +32,7 @@ AH_TEMPLATE([HAVE_GETTEXT])
 AH_TEMPLATE([HAVE_LC_MESSAGES])
 
 AM_GLIB_GNU_GETTEXT
-GLIB_DEFINE_LOCALEDIR(MATELOCALEDIR)
+GLIB_DEFINE_LOCALEDIR(UKUILOCALEDIR)
 
 dnl ---------------------------------------------------------------------------
 dnl - Make paths available for source files
@@ -106,8 +106,8 @@ AC_SUBST([PACKAGE_LDFLAGS])
 PKG_CHECK_MODULES(CANBERRA, libcanberra-gtk3)
 PKG_CHECK_MODULES(PULSE, libpulse libpulse-mainloop-glib)
 
-#mate-settings-daemon
-PKG_CHECK_MODULES(MATE_SD, [mate-settings-daemon])
+#ukui-settings-daemon
+PKG_CHECK_MODULES(UKUI_SD, [ukui-settings-daemon])
 
 #upower
 PKG_CHECK_MODULES(UPOWER, [upower-glib >= 0.9.1])
@@ -141,7 +141,7 @@ PKG_CHECK_MODULES(DBUS,[
 
 PKG_CHECK_MODULES(XI, xi)
 
-PKG_CHECK_MODULES(MATE, [
+PKG_CHECK_MODULES(UKUI, [
  gtk+-$GTK_API_VERSION >= $GTK_REQUIRED
  cairo >= $CAIRO_REQUIRED])
 

@@ -11,4 +11,4 @@ Type=Application
 StartupNotify=true
 NoDisplay=true
 Categories=GTK;Settings;
-Keywords=MATE;control;center;configuration;tool;destop;preferences;
+Keywords=UKUI;control;center;configuration;tool;destop;preferences;

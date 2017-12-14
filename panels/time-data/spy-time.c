@@ -676,7 +676,7 @@ void add_time_and_data_app(GtkBuilder * builder){
     //时间制式的相关设置
     timedata.hr12_radio = GTK_WIDGET(gtk_builder_get_object(builder, "radiobutton12"));
     timedata.hr24_radio = GTK_WIDGET(gtk_builder_get_object(builder, "radiobutton24"));
-    time_format = g_settings_new("org.mate.panel.indicator.calendar");
+    time_format = g_settings_new("org.ukui.panel.indicator.calendar");
     g_signal_handlers_block_by_func(timedata.hr24_radio,change_hour_format, NULL);
     if(g_settings_get_boolean(time_format, USE_24_FORMAT))
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(timedata.hr24_radio),TRUE);
