@@ -125,7 +125,7 @@ gpm_discrete_to_percent (guint discrete, guint levels)
 
 /**
  * gpm_help_display:
- * @link_id: Subsection of mate-power-manager help section
+ * @link_id: Subsection of ukui-power-manager help section
  **/
 void
 gpm_help_display (const gchar *link_id)
@@ -134,9 +134,9 @@ gpm_help_display (const gchar *link_id)
 	gchar *uri;
 
 	if (link_id != NULL)
-		uri = g_strconcat ("help:mate-power-manager?", link_id, NULL);
+		uri = g_strconcat ("help:ukui-power-manager?", link_id, NULL);
 	else
-		uri = g_strdup ("help:mate-power-manager");
+		uri = g_strdup ("help:ukui-power-manager");
 
 	gtk_show_uri (NULL, uri, GDK_CURRENT_TIME, &error);
 

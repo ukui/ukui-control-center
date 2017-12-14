@@ -65,10 +65,10 @@
 #define KEY_CYCLE_DELAY "cycle-delay"
 #define KEY_THEMES "themes"
 
-#define GPM_COMMAND "mate-power-preferences"
+#define GPM_COMMAND "ukui-power-preferences"
 
 #define KPM_SETTINGS_BRIGHTNESS_AC			"brightness-ac"
-#define KPM_SETTINGS_SCHEMA				"org.mate.power-manager"
+#define KPM_SETTINGS_SCHEMA				"org.ukui.power-manager"
 
 enum
 {
@@ -215,7 +215,7 @@ get_all_theme_ids (GSThemeManager *theme_manager)
         GSThemeInfo *info = l->data;
 
         info_id = gs_theme_info_get_id (info);
-        //屏蔽掉随机中mate-screensaver中的屏保
+        //屏蔽掉随机中ukui-screensaver中的屏保
         if(!strcmp(info_id, "screensavers-gnomelogo-floaters")
                 || !strcmp(info_id, "screensavers-footlogo-floaters")
                 || !strcmp(info_id, "screensavers-popsquares")
@@ -290,7 +290,7 @@ config_set_enabled (gboolean enabled)
 {
     g_settings_set_boolean (screensaver_settings, KEY_IDLE_ACTIVATION_ENABLED, enabled);
     if(enabled)
-        system("mate-screensaver-command --exit; nohup mate-screensaver > /dev/null 2>&1 &");
+        system("ukui-screensaver-command --exit; nohup ukui-screensaver > /dev/null 2>&1 &");
 }
 
 static gboolean
@@ -495,7 +495,7 @@ populate_model (GtkTreeModel *model)
 
         name = gs_theme_info_get_name (info);
         id = gs_theme_info_get_id (info);
-        //屏蔽掉下拉框中的mate-screensaver中的屏保
+        //屏蔽掉下拉框中的ukui-screensaver中的屏保
         if (!strcmp(id, "screensavers-popsquares")
                 || !strcmp(id, "screensavers-gnomelogo-floaters")
                 || !strcmp(id, "screensavers-footlogo-floaters")
@@ -1235,7 +1235,7 @@ get_best_visual (void)
 
     visual = NULL;
 
-    command = g_build_filename (LIBEXECDIR, "mate-screensaver-gl-helper", NULL);
+    command = g_build_filename (LIBEXECDIR, "ukui-screensaver-gl-helper", NULL);
 
     error = NULL;
     res = g_spawn_command_line_sync (command,
