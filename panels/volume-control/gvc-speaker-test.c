@@ -438,7 +438,7 @@ gvc_speaker_test_init (GvcSpeakerTest *speaker_test)
         ca_context_create (&speaker_test->priv->canberra);
         ca_context_set_driver (speaker_test->priv->canberra, "pulse");
         ca_context_change_props (speaker_test->priv->canberra,
-                                 CA_PROP_APPLICATION_ID, "org.mate.VolumeControl",
+                                 CA_PROP_APPLICATION_ID, "org.ukui.VolumeControl",
                                  NULL);
 
         gtk_table_resize (GTK_TABLE (speaker_test), 3, 5);

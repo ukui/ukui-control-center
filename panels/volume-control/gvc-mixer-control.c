@@ -1781,7 +1781,7 @@ gvc_mixer_new_pa_context (GvcMixerControl *self)
                           self->priv->name);
         pa_proplist_sets (proplist,
                           PA_PROP_APPLICATION_ID,
-                          "org.mate.VolumeControl");
+                          "org.ukui.VolumeControl");
         pa_proplist_sets (proplist,
                           PA_PROP_APPLICATION_ICON_NAME,
                           "multimedia-volume-control");

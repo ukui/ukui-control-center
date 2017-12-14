@@ -518,7 +518,7 @@ create_monitor_stream_for_source (GvcMixerDialog *dialog,
         snprintf (t, sizeof (t), "%u", gvc_mixer_stream_get_index (stream));
 
         proplist = pa_proplist_new ();
-        pa_proplist_sets (proplist, PA_PROP_APPLICATION_ID, "org.mate.VolumeControl");
+        pa_proplist_sets (proplist, PA_PROP_APPLICATION_ID, "org.ukui.VolumeControl");
         s = pa_stream_new_with_proplist (context, _("Peak detect"), &ss, NULL, proplist);
         pa_proplist_free (proplist);
         if (s == NULL) {
@@ -1061,7 +1061,7 @@ add_stream (GvcMixerDialog *dialog,
         } else if (! GVC_IS_MIXER_SOURCE (stream)
                    && !GVC_IS_MIXER_SINK (stream)
                    && !gvc_mixer_stream_is_virtual (stream)
-                   && g_strcmp0 (id, "org.mate.VolumeControl") != 0
+                   && g_strcmp0 (id, "org.ukui.VolumeControl") != 0
                    && g_strcmp0 (id, "org.PulseAudio.pavucontrol") != 0) {
                 const char *name;
 

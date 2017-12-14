@@ -759,7 +759,7 @@ play_preview_for_path (GvcSoundThemeChooser *chooser,
                                                 CA_PROP_CANBERRA_XDG_THEME_NAME, parent_theme,
                                                 CA_PROP_EVENT_DESCRIPTION, _("Testing event sound"),
                                                 CA_PROP_CANBERRA_CACHE_CONTROL, "never",
-                                                CA_PROP_APPLICATION_ID, "org.mate.VolumeControl",
+                                                CA_PROP_APPLICATION_ID, "org.ukui.VolumeControl",
 #ifdef CA_PROP_CANBERRA_ENABLE
                                                 CA_PROP_CANBERRA_ENABLE, "1",
 #endif
@@ -770,7 +770,7 @@ play_preview_for_path (GvcSoundThemeChooser *chooser,
                                                 CA_PROP_EVENT_ID, "bell-window-system",
                                                 CA_PROP_EVENT_DESCRIPTION, _("Testing event sound"),
                                                 CA_PROP_CANBERRA_CACHE_CONTROL, "never",
-                                                CA_PROP_APPLICATION_ID, "org.mate.VolumeControl",
+                                                CA_PROP_APPLICATION_ID, "org.ukui.VolumeControl",
 #ifdef CA_PROP_CANBERRA_ENABLE
                                                 CA_PROP_CANBERRA_ENABLE, "1",
 #endif
@@ -782,7 +782,7 @@ play_preview_for_path (GvcSoundThemeChooser *chooser,
                                         CA_PROP_MEDIA_FILENAME, id,
                                         CA_PROP_EVENT_DESCRIPTION, _("Testing event sound"),
                                         CA_PROP_CANBERRA_CACHE_CONTROL, "never",
-                                        CA_PROP_APPLICATION_ID, "org.mate.VolumeControl",
+                                        CA_PROP_APPLICATION_ID, "org.ukui.VolumeControl",
 #ifdef CA_PROP_CANBERRA_ENABLE
                                         CA_PROP_CANBERRA_ENABLE, "1",
 #endif

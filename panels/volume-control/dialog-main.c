@@ -29,7 +29,7 @@
 #include "gvc-mixer-dialog.h"
 #include "gvc-log.h"
 
-#define GVCA_DBUS_NAME "org.mate.VolumeControl"
+#define GVCA_DBUS_NAME "org.ukui.VolumeControl"
 #define DIALOG_POPUP_TIMEOUT 3
 GtkBuilder * top_builder;
 static gboolean show_version = FALSE;
@@ -111,7 +111,7 @@ void add_volume_control_app (GtkBuilder * builder)
         error = NULL;
         gvc_log_set_debug (debug);
 
-        control = gvc_mixer_control_new ("MATE Volume Control Dialog");
+        control = gvc_mixer_control_new ("UKUI Volume Control Dialog");
         g_signal_connect (control,
                           "connecting",
                           G_CALLBACK (on_control_connecting),

@@ -51,7 +51,7 @@ AUTOMAKE_OPTIONS = foreign
 #INCLUDES = `pkg-config --cflags gtk+-2.0 glib-2.0 unique-1.0 libcanberra-gtk libpulse gdk-2.0 gio-2.0 libxml-2.0 libpulse-mainloop-glib`
 #LIBS = `pkg-config --libs gtk+-2.0 glib-2.0 unique-1.0 libcanberra-gtk libpulse gdk-2.0 gio-2.0 libxml-2.0 libpulse-mainloop-glib`
 AM_CPPFLAGS = \
-	-DSOUND_SET_DIR="\"/usr/share/mate-media/sounds\""	\
+	-DSOUND_SET_DIR="\"/usr/share/ukui-media/sounds\""	\
 	$(GTK_CFLAGS)	\
 	$(GLIB_CFLAGS)	\
 	$(CANBERRA_CFLAGS)	\

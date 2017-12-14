@@ -424,7 +424,7 @@ on_scale_button_release_event (GtkWidget      *widget,
         ca_gtk_play_for_widget (GTK_WIDGET (bar), 0,
                                 CA_PROP_EVENT_ID, "audio-volume-change",
                                 CA_PROP_EVENT_DESCRIPTION, "foobar event happened",
-                                CA_PROP_APPLICATION_ID, "org.mate.VolumeControl",
+                                CA_PROP_APPLICATION_ID, "org.ukui.VolumeControl",
                                 NULL);
 
         return FALSE;
