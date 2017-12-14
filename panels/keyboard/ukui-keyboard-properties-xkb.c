@@ -1,5 +1,5 @@
 /* -*- mode: c; style: linux -*- */
-/* mate-keyboard-properties-xkb.c
+/* ukui-keyboard-properties-xkb.c
  * Copyright (C) 2003-2007 Sergey V. Udaltsov
  *
  * Written by: Sergey V. Udaltsov <svu@gnome.org>
@@ -23,7 +23,7 @@
 #include <gdk/gdkx.h>
 #include <gio/gio.h>
 
-#include "mate-keyboard-properties-xkb.h"
+#include "ukui-keyboard-properties-xkb.h"
 
 #include <libmatekbd/matekbd-desktop-config.h>
 

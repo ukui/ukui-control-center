@@ -1,5 +1,5 @@
 /* -*- mode: c; style: linux -*- */
-/* mate-keyboard-properties-xkblt.c
+/* ukui-keyboard-properties-xkblt.c
  * Copyright (C) 2003-2007 Sergey V. Udaltsov
  *
  * Written by: Sergey V. Udaltsov <svu@gnome.org>
@@ -25,7 +25,7 @@
 #include <libmatekbd/matekbd-desktop-config.h>
 #include <libmatekbd/matekbd-keyboard-drawing.h>
 
-#include "mate-keyboard-properties-xkb.h"
+#include "ukui-keyboard-properties-xkb.h"
 
 
 #define SEL_LAYOUT_TREE_COL_DESCRIPTION 0

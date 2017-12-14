@@ -1,6 +1,6 @@
 /* -*- mode: c; style: linux -*- */
 
-/* mate-keyboard-properties-xkbot.c
+/* ukui-keyboard-properties-xkbot.c
  * Copyright (C) 2003-2007 Sergey V. Udaltsov
  *
  * Written by: Sergey V. Udaltsov <svu@gnome.org>
@@ -24,7 +24,7 @@
 #include <string.h>
 #include <gio/gio.h>
 
-#include "mate-keyboard-properties-xkb.h"
+#include "ukui-keyboard-properties-xkb.h"
 
 static GtkBuilder *chooser_dialog = NULL;
 static const char *current1st_level_id = NULL;
@@ -449,11 +449,11 @@ xkb_options_popup_dialog (GtkBuilder * dialog)
 
 	chooser_dialog = gtk_builder_new ();
     	if (gtk_builder_add_from_file (chooser_dialog,
-                               UIDIR "/mate-keyboard-properties-options-dialog.ui",
+                               UIDIR "/ukui-keyboard-properties-options-dialog.ui",
                                NULL) ==0)
 	{
         	g_warning("error");
-        	if (gtk_builder_add_from_file(chooser_dialog, "../panels/keyboard/mate-keyboard-properties-options-dialog.ui",NULL) ==0)
+        	if (gtk_builder_add_from_file(chooser_dialog, "../panels/keyboard/ukui-keyboard-properties-options-dialog.ui",NULL) ==0)
 		{
             		g_warning("Can not find ui file");
             		return;

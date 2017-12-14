@@ -1,6 +1,6 @@
 /* -*- mode: c; style: linux -*- */
 
-/* mate-keyboard-properties-xkb.h
+/* ukui-keyboard-properties-xkb.h
  * Copyright (C) 2003-2007 Sergey V Udaltsov
  *
  * Written by Sergey V. Udaltsov <svu@gnome.org>
@@ -21,8 +21,8 @@
  * 02110-1301, USA.
  */
 
-#ifndef __MATE_KEYBOARD_PROPERTY_XKB_H
-#define __MATE_KEYBOARD_PROPERTY_XKB_H
+#ifndef __UKUI_KEYBOARD_PROPERTY_XKB_H
+#define __UKUI_KEYBOARD_PROPERTY_XKB_H
 
 #include <gio/gio.h>
 #include <gtk/gtk.h>
@@ -94,4 +94,4 @@ extern gint xkb_get_default_group (void);
 #ifdef __cplusplus
 }
 #endif
-#endif				/* __MATE_KEYBOARD_PROPERTY_XKB_H */
+#endif				/* __UKUI_KEYBOARD_PROPERTY_XKB_H */

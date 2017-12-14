@@ -1,5 +1,5 @@
 /* -*- mode: c; style: linux -*- */
-/* mate-keyboard-properties-xkbmc.c
+/* ukui-keyboard-properties-xkbmc.c
  * Copyright (C) 2003-2007 Sergey V. Udaltsov
  *
  * Written by: Sergey V. Udaltsov <svu@gnome.org>
@@ -27,7 +27,7 @@
 #define gtk_widget_hide_all gtk_widget_hide
 #endif
 
-#include "mate-keyboard-properties-xkb.h"
+#include "ukui-keyboard-properties-xkb.h"
 
 static gchar *current_model_name = NULL;
 static gchar *current_vendor_name = NULL;
@@ -324,11 +324,11 @@ choose_model (GtkBuilder * dialog)
    	GtkWidget *chooser;
 
     	chooser_dialog = gtk_builder_new ();
-    	if (gtk_builder_add_from_file(chooser_dialog, UIDIR"/mate-keyboard-properties-model-chooser.ui",NULL) == 0)
+    	if (gtk_builder_add_from_file(chooser_dialog, UIDIR"/ukui-keyboard-properties-model-chooser.ui",NULL) == 0)
     	{
         	g_warning("Can not find ui file in /usr/share/ukui-control-center/ui");
         	if (gtk_builder_add_from_file (chooser_dialog,
-     	        	                       "../panels/keyboard/mate-keyboard-properties-model-chooser.ui",
+     	        	                       "../panels/keyboard/ukui-keyboard-properties-model-chooser.ui",
              	        	               NULL) == 0)
 		{
             		g_warning("Can not find ui file");

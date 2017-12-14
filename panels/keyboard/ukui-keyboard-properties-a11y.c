@@ -18,7 +18,7 @@
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
-#include "mate-keyboard-properties-a11y.h"
+#include "ukui-keyboard-properties-a11y.h"
 #include <gio/gio.h>
 
 #define NWID(s) GTK_WIDGET (gtk_builder_get_object (notifications_dialog, s))
@@ -127,7 +127,7 @@ notifications_button_clicked_cb (GtkWidget *button, GtkBuilder *dialog)
 
     notifications_dialog = gtk_builder_new ();
     gtk_builder_add_from_file (notifications_dialog,
-                               "../panels/keyboard/mate-keyboard-properties-a11y-notifications.ui",
+                               "../panels/keyboard/ukui-keyboard-properties-a11y-notifications.ui",
                                NULL);
 
 	stickykeys_enable_toggled_cb (WID ("stickykeys_enable"), dialog);

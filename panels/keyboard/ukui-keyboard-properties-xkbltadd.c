@@ -1,5 +1,5 @@
 /* -*- mode: c; style: linux -*- */
-/* mate-keyboard-properties-xkbltadd.c
+/* ukui-keyboard-properties-xkbltadd.c
  * Copyright (C) 2003-2007 Sergey V. Udaltsov
  *
  * Written by: Sergey V. Udaltsov <svu@gnome.org>
@@ -24,7 +24,7 @@
 #include <libmatekbd/matekbd-keyboard-drawing.h>
 #include <libmatekbd/matekbd-util.h>
 
-#include "mate-keyboard-properties-xkb.h"
+#include "ukui-keyboard-properties-xkb.h"
 
 enum {
 	COMBO_BOX_MODEL_COL_SORT,
@@ -439,11 +439,11 @@ xkb_layout_choose (GtkBuilder * dialog)
 
 	chooser_dialog = gtk_builder_new ();
     	if (gtk_builder_add_from_file (chooser_dialog,
-                   UIDIR"/mate-keyboard-properties-layout-chooser.ui",
+                   UIDIR"/ukui-keyboard-properties-layout-chooser.ui",
                    NULL) == 0)
 	{
         	g_warning("Can not find ui file in /usr/share/ukui-control-center\n");
-        	if (gtk_builder_add_from_file(chooser_dialog, "../panels/keyboard/mate-keyboard-properties-layout-chooser.ui",NULL) == 0)
+        	if (gtk_builder_add_from_file(chooser_dialog, "../panels/keyboard/ukui-keyboard-properties-layout-chooser.ui",NULL) == 0)
 		{
             		g_warning("Can not find ui file in locale content");
         	}

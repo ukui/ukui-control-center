@@ -20,12 +20,12 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  */
-#ifndef __MATE_KEYBOARD_PROPERTY_A11Y_H
-#define __MATE_KEYBOARD_PROPERTY_A11Y_H
+#ifndef __UKUI_KEYBOARD_PROPERTY_A11Y_H
+#define __UKUI_KEYBOARD_PROPERTY_A11Y_H
 
 #include <gtk/gtk.h>
 
 extern void setup_a11y_tabs (GtkBuilder * dialog);
 extern void finalize_a11y_tabs (void);
 
-#endif /* __MATE_KEYBOARD_PROPERTY_A11Y_H */
+#endif /* __UKUI_KEYBOARD_PROPERTY_A11Y_H */
