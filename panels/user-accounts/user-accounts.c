@@ -987,7 +987,7 @@ void change_face_callback(GObject *object, GAsyncResult *res, gpointer user_data
 
     g_object_unref(buf);
 
-    system("gsettings set org.ukui.ukui-menu.plugins.menu ifchange true");
+    system("gsettings set org.ukui.ukui-menu user-icon-changed true");
 }
 
 void change_face(GtkWidget *widget, gpointer userdata)
