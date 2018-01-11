@@ -1,4 +1,4 @@
-#include "mate-keybinding-properties.h"
+#include "ukui-keybinding-properties.h"
 #include <stdlib.h>
 #include <string.h>
 #include <gtk/gtk.h>

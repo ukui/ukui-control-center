@@ -33,7 +33,7 @@
 #include "ukui-keybinding-properties.h"
 #define KEYBOARD_SCHEMA "org.mate.peripherals-keyboard"
 #define INTERFACE_SCHEMA "org.mate.interface"
-#define TYPING_BREAK_SCHEMA "org.ukui.typing-break"
+#define TYPING_BREAK_SCHEMA "org.mate.typing-break"
 #define MWID(s) GTK_WIDGET(gtk_builder_get_object(builder, s))
 enum {
 	RESPONSE_APPLY = 1,
