@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.20.0 -->
+<!-- Generated with glade 3.20.2 -->
 <interface>
   <requires lib="gtk+" version="3.18"/>
   <object class="GtkAdjustment" id="adjustment-power">
@@ -653,6 +653,7 @@ Connections</property>
                         <property name="orientation">vertical</property>
                         <child>
                           <object class="GtkButton" id="bt_startpage">
+                            <property name="height_request">35</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
@@ -680,14 +681,14 @@ Connections</property>
                                   <object class="GtkLabel" id="label6">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="margin_left">3</property>
+                                    <property name="halign">start</property>
+                                    <property name="margin_left">29</property>
                                     <property name="label" translatable="yes">Home</property>
                                     <property name="width_chars">11</property>
                                   </object>
                                   <packing>
-                                    <property name="expand">False</property>
+                                    <property name="expand">True</property>
                                     <property name="fill">True</property>
-                                    <property name="padding">35</property>
                                     <property name="position">1</property>
                                   </packing>
                                 </child>
@@ -712,7 +713,6 @@ Connections</property>
                                 <property name="can_focus">False</property>
                                 <property name="margin_top">6</property>
                                 <property name="orientation">vertical</property>
-                                <property name="spacing">5</property>
                                 <child>
                                   <object class="GtkViewport" id="vp_theme">
                                     <property name="visible">True</property>
@@ -720,15 +720,23 @@ Connections</property>
                                     <property name="shadow_type">none</property>
                                     <child>
                                       <object class="GtkButton" id="bt_theme">
-                                        <property name="label" translatable="yes">Personalization_</property>
-                                        <property name="height_request">35</property>
+                                        <property name="height_request">40</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
-                                        <property name="focus_on_click">False</property>
                                         <property name="receives_default">True</property>
-                                        <property name="margin_right">22</property>
+                                        <property name="halign">baseline</property>
                                         <property name="relief">none</property>
                                         <property name="use_underline">True</property>
+                                        <child>
+                                          <object class="GtkLabel" id="bt_theme_label">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="halign">start</property>
+                                            <property name="margin_left">50</property>
+                                            <property name="label" translatable="yes">_Personalization</property>
+                                            <property name="use_underline">True</property>
+                                          </object>
+                                        </child>
                                       </object>
                                     </child>
                                   </object>
@@ -745,15 +753,22 @@ Connections</property>
                                     <property name="shadow_type">none</property>
                                     <child>
                                       <object class="GtkButton" id="bt_start">
-                                        <property name="label" translatable="yes">Autostart_</property>
-                                        <property name="height_request">35</property>
+                                        <property name="height_request">40</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
-                                        <property name="focus_on_click">False</property>
                                         <property name="receives_default">True</property>
-                                        <property name="margin_right">22</property>
                                         <property name="relief">none</property>
                                         <property name="use_underline">True</property>
+                                        <child>
+                                          <object class="GtkLabel" id="bt_start_label">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="halign">start</property>
+                                            <property name="margin_left">50</property>
+                                            <property name="label" translatable="yes">_Autostart</property>
+                                            <property name="use_underline">True</property>
+                                          </object>
+                                        </child>
                                       </object>
                                     </child>
                                   </object>
@@ -770,15 +785,22 @@ Connections</property>
                                     <property name="shadow_type">none</property>
                                     <child>
                                       <object class="GtkButton" id="bt_app">
-                                        <property name="label" translatable="yes">Default APP</property>
-                                        <property name="height_request">35</property>
+                                        <property name="height_request">40</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
-                                        <property name="focus_on_click">False</property>
                                         <property name="receives_default">True</property>
-                                        <property name="margin_right">22</property>
                                         <property name="relief">none</property>
                                         <property name="use_underline">True</property>
+                                        <child>
+                                          <object class="GtkLabel" id="bt_app_label">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="halign">start</property>
+                                            <property name="margin_left">50</property>
+                                            <property name="label" translatable="yes">_Default APP</property>
+                                            <property name="use_underline">True</property>
+                                          </object>
+                                        </child>
                                       </object>
                                     </child>
                                   </object>
@@ -795,15 +817,22 @@ Connections</property>
                                     <property name="shadow_type">none</property>
                                     <child>
                                       <object class="GtkButton" id="bt_time">
-                                        <property name="label" translatable="yes">Time Dates_</property>
-                                        <property name="height_request">35</property>
+                                        <property name="height_request">40</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
-                                        <property name="focus_on_click">False</property>
                                         <property name="receives_default">True</property>
-                                        <property name="margin_right">22</property>
                                         <property name="relief">none</property>
                                         <property name="use_underline">True</property>
+                                        <child>
+                                          <object class="GtkLabel" id="bt_time_label">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="halign">start</property>
+                                            <property name="margin_left">50</property>
+                                            <property name="label" translatable="yes">_Time Dates</property>
+                                            <property name="use_underline">True</property>
+                                          </object>
+                                        </child>
                                       </object>
                                     </child>
                                   </object>
@@ -820,15 +849,23 @@ Connections</property>
                                     <property name="shadow_type">none</property>
                                     <child>
                                       <object class="GtkButton" id="bt_count">
-                                        <property name="label" translatable="yes">User Account_</property>
-                                        <property name="height_request">35</property>
+                                        <property name="height_request">40</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="focus_on_click">False</property>
                                         <property name="receives_default">True</property>
-                                        <property name="margin_right">22</property>
                                         <property name="relief">none</property>
                                         <property name="use_underline">True</property>
+                                        <child>
+                                          <object class="GtkLabel" id="bt_count_label">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="halign">start</property>
+                                            <property name="margin_left">50</property>
+                                            <property name="label" translatable="yes">_User Account</property>
+                                            <property name="use_underline">True</property>
+                                          </object>
+                                        </child>
                                       </object>
                                     </child>
                                   </object>
@@ -868,7 +905,6 @@ Connections</property>
                                 <property name="can_focus">False</property>
                                 <property name="margin_top">5</property>
                                 <property name="orientation">vertical</property>
-                                <property name="spacing">5</property>
                                 <child>
                                   <object class="GtkViewport" id="vp_connection">
                                     <property name="visible">True</property>
@@ -876,16 +912,24 @@ Connections</property>
                                     <property name="shadow_type">none</property>
                                     <child>
                                       <object class="GtkButton" id="bt_connection">
-                                        <property name="label" translatable="yes" comments="网络连接">Network Connection_</property>
-                                        <property name="height_request">35</property>
+                                        <property name="height_request">40</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="focus_on_click">False</property>
                                         <property name="receives_default">True</property>
                                         <property name="no_show_all">True</property>
-                                        <property name="margin_right">22</property>
                                         <property name="relief">none</property>
                                         <property name="use_underline">True</property>
+                                        <child>
+                                          <object class="GtkLabel" id="bt_connection_label">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="halign">start</property>
+                                            <property name="margin_left">50</property>
+                                            <property name="label" translatable="yes">Network _Connection</property>
+                                            <property name="use_underline">True</property>
+                                          </object>
+                                        </child>
                                       </object>
                                     </child>
                                   </object>
@@ -903,15 +947,23 @@ Connections</property>
                                     <property name="shadow_type">none</property>
                                     <child>
                                       <object class="GtkButton" id="bt_key">
-                                        <property name="label" translatable="yes">Keyboard_</property>
-                                        <property name="height_request">35</property>
+                                        <property name="height_request">40</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="focus_on_click">False</property>
                                         <property name="receives_default">True</property>
-                                        <property name="margin_right">22</property>
                                         <property name="relief">none</property>
                                         <property name="use_underline">True</property>
+                                        <child>
+                                          <object class="GtkLabel" id="bt_key_label">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="halign">start</property>
+                                            <property name="margin_left">50</property>
+                                            <property name="label" translatable="yes">_Keyboard</property>
+                                            <property name="use_underline">True</property>
+                                          </object>
+                                        </child>
                                       </object>
                                     </child>
                                   </object>
@@ -928,15 +980,23 @@ Connections</property>
                                     <property name="shadow_type">none</property>
                                     <child>
                                       <object class="GtkButton" id="bt_mouse">
-                                        <property name="label" translatable="yes">Mouse_</property>
-                                        <property name="height_request">35</property>
+                                        <property name="height_request">40</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="focus_on_click">False</property>
                                         <property name="receives_default">True</property>
-                                        <property name="margin_right">22</property>
                                         <property name="relief">none</property>
                                         <property name="use_underline">True</property>
+                                        <child>
+                                          <object class="GtkLabel" id="bt_mouse_label">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="halign">start</property>
+                                            <property name="margin_left">50</property>
+                                            <property name="label" translatable="yes">M_ouse</property>
+                                            <property name="use_underline">True</property>
+                                          </object>
+                                        </child>
                                       </object>
                                     </child>
                                   </object>
@@ -953,16 +1013,24 @@ Connections</property>
                                     <property name="shadow_type">none</property>
                                     <child>
                                       <object class="GtkButton" id="bt_printer">
-                                        <property name="label" translatable="yes" comments="打印机">Printer_</property>
-                                        <property name="height_request">35</property>
+                                        <property name="height_request">40</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="focus_on_click">False</property>
                                         <property name="receives_default">True</property>
                                         <property name="no_show_all">True</property>
-                                        <property name="margin_right">22</property>
                                         <property name="relief">none</property>
                                         <property name="use_underline">True</property>
+                                        <child>
+                                          <object class="GtkLabel" id="bt_printer_label">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="halign">start</property>
+                                            <property name="margin_left">50</property>
+                                            <property name="label" translatable="yes">P_rinter</property>
+                                            <property name="use_underline">True</property>
+                                          </object>
+                                        </child>
                                       </object>
                                     </child>
                                   </object>
@@ -979,15 +1047,23 @@ Connections</property>
                                     <property name="shadow_type">none</property>
                                     <child>
                                       <object class="GtkButton" id="bt_sound">
-                                        <property name="label" translatable="yes">Sound_</property>
-                                        <property name="height_request">35</property>
+                                        <property name="height_request">40</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="focus_on_click">False</property>
                                         <property name="receives_default">True</property>
-                                        <property name="margin_right">22</property>
                                         <property name="relief">none</property>
                                         <property name="use_underline">True</property>
+                                        <child>
+                                          <object class="GtkLabel" id="bt_sound_label">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="halign">start</property>
+                                            <property name="margin_left">50</property>
+                                            <property name="label" translatable="yes">_Sound</property>
+                                            <property name="use_underline">True</property>
+                                          </object>
+                                        </child>
                                       </object>
                                     </child>
                                   </object>
@@ -1004,15 +1080,23 @@ Connections</property>
                                     <property name="shadow_type">none</property>
                                     <child>
                                       <object class="GtkButton" id="bt_net">
-                                        <property name="label" translatable="yes">Network Agent_</property>
-                                        <property name="height_request">35</property>
+                                        <property name="height_request">40</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="focus_on_click">False</property>
                                         <property name="receives_default">True</property>
-                                        <property name="margin_right">22</property>
                                         <property name="relief">none</property>
                                         <property name="use_underline">True</property>
+                                        <child>
+                                          <object class="GtkLabel" id="bt_net_label">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="halign">start</property>
+                                            <property name="margin_left">50</property>
+                                            <property name="label" translatable="yes">_Network Agent</property>
+                                            <property name="use_underline">True</property>
+                                          </object>
+                                        </child>
                                       </object>
                                     </child>
                                   </object>
@@ -1029,15 +1113,23 @@ Connections</property>
                                     <property name="shadow_type">none</property>
                                     <child>
                                       <object class="GtkButton" id="bt_display">
-                                        <property name="label" translatable="yes">Monitor_</property>
-                                        <property name="height_request">35</property>
+                                        <property name="height_request">40</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="focus_on_click">False</property>
                                         <property name="receives_default">True</property>
-                                        <property name="margin_right">22</property>
                                         <property name="relief">none</property>
                                         <property name="use_underline">True</property>
+                                        <child>
+                                          <object class="GtkLabel" id="bt_display_label">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="halign">start</property>
+                                            <property name="margin_left">50</property>
+                                            <property name="label" translatable="yes">_Monitor</property>
+                                            <property name="use_underline">True</property>
+                                          </object>
+                                        </child>
                                       </object>
                                     </child>
                                   </object>
@@ -1054,15 +1146,23 @@ Connections</property>
                                     <property name="shadow_type">none</property>
                                     <child>
                                       <object class="GtkButton" id="bt_power">
-                                        <property name="label" translatable="yes">Power Manage</property>
-                                        <property name="height_request">35</property>
+                                        <property name="height_request">40</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="focus_on_click">False</property>
                                         <property name="receives_default">True</property>
-                                        <property name="margin_right">22</property>
                                         <property name="relief">none</property>
                                         <property name="use_underline">True</property>
+                                        <child>
+                                          <object class="GtkLabel" id="bt_power_label">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="halign">start</property>
+                                            <property name="margin_left">47</property>
+                                            <property name="label" translatable="yes">Po_wer Manage</property>
+                                            <property name="use_underline">True</property>
+                                          </object>
+                                        </child>
                                       </object>
                                     </child>
                                   </object>
@@ -6546,6 +6646,9 @@ commonly used language.</property>
           </object>
         </child>
       </object>
+    </child>
+    <child type="titlebar">
+      <placeholder/>
     </child>
   </object>
 </interface>
