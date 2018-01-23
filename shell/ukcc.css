@@ -1,205 +1,22 @@
-@define-color kylin_bg_color #f5f5f5;
-@define-color kylin_fg_color #000000;
-@define-color kylin_tooltip_bg_color #fafafa;
-@define-color kylin_tooltip_fg_color #000000;
-@define-color kylin_text_color #000000;
-@define-color kylin_vp_color #ffffff;
-@define-color kylin_vp_border_color #bbbbbb;
-
-@define-color kylinmenu_color #3b9dc5;
-@define-color kylinside_color #155670;
-
-
-#Window {
-background-color: @kylinmenu_color;
-border-color: @kylinside_color;
-font-family: Ubuntu Reqular;
-font-size: 11px;
-}
-#EventBox {
-background-color: @kylin_bg_color;
-font-family: Ubuntu Reqular;
-font-size: 11px;
-}
-#ViewportNull {
-background-color: transparent;
-border-width: 1px;
-border-color: transparent;
-font-family: Ubuntu Reqular;
-font-size: 11px;
-}
-#ViewportButton {
-background-color: @kylin_vp_color;
-border-width: 1px;
-border-style: solid;
-border-radius: 0px;
-border-left-color: @kylin_vp_border_color;
-border-right-color: @kylin_vp_color;
-border-top-color: @kylin_vp_border_color;
-border-bottom-color: @kylin_vp_border_color;
-font-family: Ubuntu Reqular;
-font-size: 11px;
-}
-#Viewport {
-padding: 0px 0px;
-background-color: @kylin_vp_color;
-border-width: 1px;
-border-style: solid;
-border-radius: 0px;
-border-color: @kylin_vp_border_color;
-font-family: Ubuntu Reqular;
-font-size: 11px;
-}
-#ViewportEntry {
-padding: 0px 0px;
-border-radius: 0px;
-background-color: @kylin_vp_color;
-border-width: 1px;
-border-color: shade (@kylinmenu_color, 0.90);
-color: @kylin_fg_color;
-font-family: Ubuntu Reqular;
-font-size: 11px;
-}
-#ViewportPower {
-background-color: @kylin_vp_color;
-border-width: 1px;
-border-style: solid;
-border-radius: 0px;
-border-color: shade (@kylinmenu_color, 0.90);
-font-family: Ubuntu Reqular;
-font-size: 11px;
-}
-#ViewportPowerEnter {
-background-color: shade (@kylinmenu_color, 0.90);
-border-width: 1px;
-border-style: solid;
-border-radius: 0px;
-border-color: shade (@kylinmenu_color, 1.05);
-font-family: Ubuntu Reqular;
-font-size: 11px;
-}
-#Viewport1 {
-background-color: @kylin_vp_color;
-border-style: solid;
-border-radius: 0px;
-border-width: 0px;
-font-family: Ubuntu Reqular;
-font-size: 11px;
-}
-#Button {
-border: 1px solid transparent;
-border-radius: 0px;
-background-color: transparent;
-font-family: Ubuntu Reqular;
-font-size: 11px;
-}
-#Button:hover {
-border-radius: 0px;
-border-width: 1px;
-background-image: none;
-background-color: #f8f8f9;
-border-color: #b3b3b3;
-}
-#Button:active {
-border-radius: 0px;
-border-width: 1px;
-border-image-source: none;
-border-color: @kylin_vp_border_color;
-}
-#ButtonPower {
-padding: 0px 2px;
-background-color: transparent;
-border-width: 0px;
-border-color: transparent;
-font-family: Ubuntu Reqular;
-font-size: 11px;
-}
-#ButtonPower:hover {
-background-color: #daebfc;
-background-image: none;
-border: 0px transparent;
-}
-#ButtonPower:active {
-background-color: #daebfc;
-background-image: none;
-border: 0px transparent;
-}
-#ButtonApp {
-padding: 2px 2px;
-border-radius: 0px;
-border-width: 1px;
-background-color: transparent;
-font-family: Ubuntu Reqular;
-font-size: 11px;
-}
-#ButtonApp:hover {
-border-radius: 0px;
-background-image: none;
-background-color: shade (@kylinmenu_color, 1.89);
-border-color: @kylin_vp_border_color;
-border-width: 1px;
-border-image-source: none;
-}
-#ButtonApp:hover:focus {
-border-radius: 0px;
-border-width: 1px;
-background-image: none;
-background-color: #daebfc;
-}
-#ButtonApp:active {
-border-radius: 0px;
-border-width: 1px;
-background-image: none;
-background-color: shade (@kylinmenu_color, 1.73);
-border-color: shade (@kylinmenu_color, 1.35);
-}
-#ButtonApp:disabled {
-color: @kylin_fg_color;
-text-shadow: none;
-border-width: 0px;
-background-color: shade (@kylinmenu_color, 1.73);
-border-color: shade (@kylinmenu_color, 1.35);
-}
-#ButtonApp:active:hover {
-border-radius: 0px;
-border-width: 1px;
-background-image: none;
-border-image-source: none;
-background-color: shade (@kylinmenu_color, 1.73);
-}
-#Entry {
-border-radius: 0px;
-padding: 0px 3px;
-background-color: @kylin_vp_color;
-border: 0px transparent;
-color: #999999; 
-font-family: Ubuntu Reqular;
-font-size: 11px;
-}
-#EntryActive {
-border-radius: 0px;
-padding: 0px 3px;
-background-color: @kylin_vp_color;
-border: 0px transparent;
-color: @kylin_fg_color;
-font-family: Ubuntu Reqular;
-font-size: 11px;
-}
-tooltip,
-tooltip.background,
-.tooltip,
-.tooltip.background {
-    padding: 4px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: @kylin_vp_border_color;
-    border-radius: 0px;
-    background-color: @kylin_tooltip_bg_color;
-    color: @kylin_tooltip_fg_color;
-    text-shadow: none;
+/*侧边栏背景色*/
+#viewport11 {
+  background-color: #f2f2f2;
 }
 
-*:disabled {
-    color: @kylin_fg_color;
-    text-shadow: none;
+/*侧边栏上按钮字体色*/
+#viewport11 button {
+  color: #074ca6;
+}
+
+#hbox_title label {
+  background-color: #f2f2f2;
+}
+
+#shortcut_treeview.view header button {
+  min-height: 35px;
+  background-color: #f2f2f2;
+}
+
+#default_app_scroll_window {
+  border-width: 0px;
 }
