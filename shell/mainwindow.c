@@ -360,26 +360,4 @@ void init_signals()
 
 //    设置按钮上字体的颜色
     init_button_text_color("#074ca6");
-//    设置背景色......
-//    GtkWidget *viewport = GTK_WIDGET(gtk_builder_get_object(builder, "viewport11"));
-//    GdkColor grey = {0,0xf2f2,0xf2f2,0xf2f2};
-//    gtk_widget_modify_bg(GTK_WIDGET(viewport), GTK_STATE_NORMAL, &grey);
-}
-
-void set_active_window(Window xid)
-{
-    Display *d = XOpenDisplay(NULL);
-    Window root = DefaultRootWindow(d);
-
-    Atom _NET_ACTIVE_WINDOW = XInternAtom(d, "_NET_ACTIVE_WINDOW", False);
-    XEvent xev;
-    xev.xclient.type = ClientMessage;
-    xev.xclient.send_event = True;
-    xev.xclient.window = xid;
-    xev.xclient.message_type = _NET_ACTIVE_WINDOW;
-    xev.xclient.format = 32;
-    xev.xclient.data.l[0] = 2;
-    XSendEvent(d, root, False, StructureNotifyMask | SubstructureNotifyMask, &xev);
-
-    XCloseDisplay(d);
 }

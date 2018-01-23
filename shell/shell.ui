@@ -641,6 +641,7 @@ Connections</property>
                 <property name="spacing">4</property>
                 <child>
                   <object class="GtkViewport" id="viewport11">
+                    <property name="name">viewport11</property>
                     <property name="width_request">200</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -656,6 +657,7 @@ Connections</property>
                             <property name="height_request">35</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
+                            <property name="focus_on_click">False</property>
                             <property name="receives_default">True</property>
                             <property name="no_show_all">True</property>
                             <property name="margin_top">5</property>
@@ -723,6 +725,7 @@ Connections</property>
                                         <property name="height_request">40</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
+                                        <property name="focus_on_click">False</property>
                                         <property name="receives_default">True</property>
                                         <property name="halign">baseline</property>
                                         <property name="relief">none</property>
@@ -756,6 +759,7 @@ Connections</property>
                                         <property name="height_request">40</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
+                                        <property name="focus_on_click">False</property>
                                         <property name="receives_default">True</property>
                                         <property name="relief">none</property>
                                         <property name="use_underline">True</property>
@@ -788,6 +792,7 @@ Connections</property>
                                         <property name="height_request">40</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
+                                        <property name="focus_on_click">False</property>
                                         <property name="receives_default">True</property>
                                         <property name="relief">none</property>
                                         <property name="use_underline">True</property>
@@ -796,7 +801,7 @@ Connections</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                             <property name="halign">start</property>
-                                            <property name="margin_left">50</property>
+                                            <property name="margin_left">47</property>
                                             <property name="label" translatable="yes">_Default APP</property>
                                             <property name="use_underline">True</property>
                                           </object>
@@ -820,6 +825,7 @@ Connections</property>
                                         <property name="height_request">40</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
+                                        <property name="focus_on_click">False</property>
                                         <property name="receives_default">True</property>
                                         <property name="relief">none</property>
                                         <property name="use_underline">True</property>
@@ -1217,6 +1223,7 @@ Connections</property>
                             <property name="height_request">570</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
+                            <property name="shadow_type">none</property>
                             <child>
                               <object class="GtkLayout" id="time_data_layout">
                                 <property name="visible">True</property>
@@ -1328,7 +1335,7 @@ Connections</property>
                                                 </child>
                                               </object>
                                               <packing>
-                                                <property name="x">100</property>
+                                                <property name="x">98</property>
                                                 <property name="y">10</property>
                                               </packing>
                                             </child>
@@ -1368,7 +1375,7 @@ Connections</property>
                                             <child>
                                               <object class="GtkComboBoxText" id="td_combo_month">
                                                 <property name="width_request">75</property>
-                                                <property name="height_request">35</property>
+                                                <property name="height_request">37</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                                 <property name="halign">baseline</property>
@@ -1470,7 +1477,7 @@ Connections</property>
                                     <property name="wrap">True</property>
                                   </object>
                                   <packing>
-                                    <property name="x">220</property>
+                                    <property name="x">223</property>
                                     <property name="y">160</property>
                                   </packing>
                                 </child>
@@ -1489,7 +1496,7 @@ Connections</property>
                                     <property name="wrap">True</property>
                                   </object>
                                   <packing>
-                                    <property name="x">360</property>
+                                    <property name="x">366</property>
                                     <property name="y">160</property>
                                   </packing>
                                 </child>
@@ -1502,8 +1509,8 @@ Connections</property>
                                     <property name="label" translatable="yes">hour</property>
                                   </object>
                                   <packing>
-                                    <property name="x">190</property>
-                                    <property name="y">160</property>
+                                    <property name="x">194</property>
+                                    <property name="y">162</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1515,8 +1522,8 @@ Connections</property>
                                     <property name="label" translatable="yes">min</property>
                                   </object>
                                   <packing>
-                                    <property name="x">327</property>
-                                    <property name="y">160</property>
+                                    <property name="x">336</property>
+                                    <property name="y">162</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1528,8 +1535,8 @@ Connections</property>
                                     <property name="label" translatable="yes">sec</property>
                                   </object>
                                   <packing>
-                                    <property name="x">465</property>
-                                    <property name="y">160</property>
+                                    <property name="x">478</property>
+                                    <property name="y">162</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -1565,6 +1572,7 @@ Connections</property>
                                     <property name="height_request">30</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
+                                    <property name="shadow_type">none</property>
                                     <child>
                                       <object class="GtkLabel" id="format_label">
                                         <property name="visible">True</property>
@@ -1753,10 +1761,12 @@ Connections</property>
                                     </child>
                                     <child>
                                       <object class="GtkBox" id="other_users">
+                                        <property name="name">other_users</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="orientation">vertical</property>
                                         <property name="spacing">5</property>
+                                        <property name="homogeneous">True</property>
                                         <child>
                                           <placeholder/>
                                         </child>
@@ -2579,6 +2589,7 @@ Connections</property>
                                 <property name="can_focus">False</property>
                                 <child>
                                   <object class="GtkScrolledWindow" id="default_app_scroll_window">
+                                    <property name="name">default_app_scroll_window</property>
                                     <property name="width_request">700</property>
                                     <property name="height_request">500</property>
                                     <property name="visible">True</property>
@@ -3903,8 +3914,10 @@ commonly used language.</property>
                                             <property name="shadow_type">in</property>
                                             <child>
                                               <object class="GtkTreeView" id="shortcut_treeview">
+                                                <property name="name">shortcut_treeview</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
+                                                <property name="headers_clickable">False</property>
                                                 <property name="rules_hint">True</property>
                                                 <child internal-child="selection">
                                                   <object class="GtkTreeSelection" id="treeview-selection2"/>
@@ -4746,6 +4759,7 @@ commonly used language.</property>
                             <property name="height_request">570</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
+                            <property name="shadow_type">none</property>
                             <child>
                               <placeholder/>
                             </child>
@@ -5429,6 +5443,7 @@ commonly used language.</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="show_tabs">False</property>
+                            <property name="show_border">False</property>
                             <child>
                               <object class="GtkBox" id="vbox62">
                                 <property name="visible">True</property>
@@ -5528,40 +5543,40 @@ commonly used language.</property>
                                             <property name="can_focus">False</property>
                                             <property name="orientation">vertical</property>
                                             <child>
-                                              <object class="GtkViewport" id="title_vp">
+                                              <object class="GtkBox" id="hbox_title">
+                                                <property name="name">hbox_title</property>
+                                                <property name="height_request">35</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
-                                                <property name="shadow_type">none</property>
                                                 <child>
-                                                  <object class="GtkBox" id="hbox_title">
-                                                    <property name="height_request">35</property>
+                                                  <object class="GtkLabel" id="title_name">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <child>
-                                                      <object class="GtkLabel" id="title_name">
-                                                        <property name="visible">True</property>
-                                                        <property name="can_focus">False</property>
-                                                        <property name="label" translatable="yes">name</property>
-                                                      </object>
-                                                      <packing>
-                                                        <property name="expand">True</property>
-                                                        <property name="fill">True</property>
-                                                        <property name="position">0</property>
-                                                      </packing>
-                                                    </child>
-                                                    <child>
-                                                      <object class="GtkLabel" id="title_status">
-                                                        <property name="visible">True</property>
-                                                        <property name="can_focus">False</property>
-                                                        <property name="label" translatable="yes">status</property>
-                                                      </object>
-                                                      <packing>
-                                                        <property name="expand">True</property>
-                                                        <property name="fill">True</property>
-                                                        <property name="position">1</property>
-                                                      </packing>
-                                                    </child>
+                                                    <property name="label" translatable="yes">name</property>
+                                                    <attributes>
+                                                      <attribute name="weight" value="bold"/>
+                                                    </attributes>
                                                   </object>
+                                                  <packing>
+                                                    <property name="expand">True</property>
+                                                    <property name="fill">True</property>
+                                                    <property name="position">0</property>
+                                                  </packing>
+                                                </child>
+                                                <child>
+                                                  <object class="GtkLabel" id="title_status">
+                                                    <property name="visible">True</property>
+                                                    <property name="can_focus">False</property>
+                                                    <property name="label" translatable="yes">status</property>
+                                                    <attributes>
+                                                      <attribute name="weight" value="bold"/>
+                                                    </attributes>
+                                                  </object>
+                                                  <packing>
+                                                    <property name="expand">True</property>
+                                                    <property name="fill">True</property>
+                                                    <property name="position">1</property>
+                                                  </packing>
                                                 </child>
                                               </object>
                                               <packing>
@@ -5644,12 +5659,14 @@ commonly used language.</property>
                             <property name="height_request">570</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
+                            <property name="shadow_type">none</property>
                             <child>
                               <object class="GtkLayout" id="layout30">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <child>
                                   <object class="GtkAlignment" id="alignment_display">
+                                    <property name="name">display_alignment</property>
                                     <property name="width_request">500</property>
                                     <property name="height_request">200</property>
                                     <property name="visible">True</property>
