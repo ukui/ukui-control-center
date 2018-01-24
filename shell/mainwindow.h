@@ -109,5 +109,4 @@ gboolean on_all_quit();
 void ukui_init(int *argc, char **argv[]);
 void hide_viewport();
 void init_signals();
-void app_set_theme(const gchar *theme_path);
 #endif  /* __MAINWINDOW_H */

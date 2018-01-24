@@ -164,7 +164,7 @@ void init_time_setting(){
 		if(!access("/usr/sbin/ntpd", F_OK)){
 			gtk_widget_set_sensitive(timedata.timesetting_checkbutton, FALSE);
 			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(timedata.timesetting_checkbutton), FALSE);
-			gtk_widget_show(timedata.ntp_label);
+            gtk_widget_show(GTK_WIDGET(timedata.ntp_label));
 		}
 		
         g_variant_unref(value);
@@ -696,16 +696,13 @@ void add_time_and_data_app(GtkBuilder * builder){
                      G_CALLBACK(on_day_selected),NULL);
     timedata.hours = GTK_WIDGET(gtk_builder_get_object(builder, "hours"));
     gtk_spin_button_set_range((GtkSpinButton *)timedata.hours,0.0,23.0);
-//    g_signal_connect(G_OBJECT(timedata.hours),"wrapped",
-//                    G_CALLBACK(on_time_wrapped),NULL);
+
     timedata.minutes = GTK_WIDGET(gtk_builder_get_object(builder, "minutes"));
     gtk_spin_button_set_range((GtkSpinButton *)timedata.minutes,0.0,59.0);
     timedata.seconds = GTK_WIDGET(gtk_builder_get_object(builder, "seconds"));
     gtk_spin_button_set_range((GtkSpinButton *)timedata.seconds,0.0,59.0);
     timedata.viewportlayout = GTK_WIDGET(gtk_builder_get_object(builder, "time_date_layout"));
-    //g_signal_connect(G_OBJECT(timedata.viewportlayout), "map",
-       //              G_CALLBACK(init_timedate_data),NULL);
-    init_timedate_data(timedata.viewportlayout, NULL);
+
     g_signal_connect(G_OBJECT(timedata.hours),"changed",G_CALLBACK(on_editable_changed),NULL);
     g_signal_connect(G_OBJECT(timedata.minutes), "changed",G_CALLBACK(on_editable_changed),NULL);
     g_signal_connect(G_OBJECT(timedata.seconds), "changed",G_CALLBACK(on_editable_changed),NULL);
@@ -713,5 +710,5 @@ void add_time_and_data_app(GtkBuilder * builder){
 	timedata.ntp_label = GTK_WIDGET(gtk_builder_get_object(builder, "ntp_label"));
 	gtk_widget_set_no_show_all(timedata.ntp_label, TRUE);
 	gtk_widget_hide(timedata.ntp_label);
-
+    init_timedate_data(timedata.viewportlayout, NULL);
 }

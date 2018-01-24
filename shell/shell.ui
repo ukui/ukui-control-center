@@ -242,6 +242,7 @@
                                     <property name="height_request">108</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
+                                    <property name="focus_on_click">False</property>
                                     <property name="receives_default">True</property>
                                     <property name="relief">none</property>
                                     <property name="image_position">top</property>
@@ -259,6 +260,7 @@
                                     <property name="height_request">108</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
+                                    <property name="focus_on_click">False</property>
                                     <property name="receives_default">True</property>
                                     <property name="relief">none</property>
                                     <property name="image_position">top</property>
@@ -277,6 +279,7 @@ Aplication</property>
                                     <property name="height_request">108</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
+                                    <property name="focus_on_click">False</property>
                                     <property name="receives_default">True</property>
                                     <property name="relief">none</property>
                                     <property name="image_position">top</property>
@@ -294,6 +297,7 @@ Aplication</property>
                                     <property name="height_request">108</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
+                                    <property name="focus_on_click">False</property>
                                     <property name="receives_default">True</property>
                                     <property name="relief">none</property>
                                     <property name="image_position">top</property>
@@ -311,6 +315,7 @@ Aplication</property>
                                     <property name="height_request">108</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
+                                    <property name="focus_on_click">False</property>
                                     <property name="receives_default">True</property>
                                     <property name="relief">none</property>
                                     <property name="image_position">top</property>
@@ -361,7 +366,8 @@ Aplication</property>
                           <object class="GtkSeparator" id="hseparator1">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="margin_top">18</property>
+                            <property name="margin_top">17</property>
+                            <property name="margin_bottom">17</property>
                           </object>
                           <packing>
                             <property name="expand">True</property>
@@ -409,6 +415,7 @@ Aplication</property>
                                     <property name="height_request">108</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
+                                    <property name="focus_on_click">False</property>
                                     <property name="receives_default">True</property>
                                     <property name="relief">none</property>
                                     <property name="image_position">top</property>
@@ -427,6 +434,7 @@ Management</property>
                                     <property name="height_request">108</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
+                                    <property name="focus_on_click">False</property>
                                     <property name="receives_default">True</property>
                                     <property name="relief">none</property>
                                     <property name="image_position">top</property>
@@ -444,6 +452,7 @@ Management</property>
                                     <property name="height_request">108</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
+                                    <property name="focus_on_click">False</property>
                                     <property name="receives_default">True</property>
                                     <property name="relief">none</property>
                                     <property name="image_position">top</property>
@@ -461,6 +470,7 @@ Management</property>
                                     <property name="height_request">108</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
+                                    <property name="focus_on_click">False</property>
                                     <property name="receives_default">True</property>
                                     <property name="relief">none</property>
                                     <property name="image_position">top</property>
@@ -478,6 +488,7 @@ Management</property>
                                     <property name="height_request">108</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
+                                    <property name="focus_on_click">False</property>
                                     <property name="receives_default">True</property>
                                     <property name="relief">none</property>
                                     <property name="image_position">top</property>
@@ -495,6 +506,7 @@ Management</property>
                                     <property name="height_request">108</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
+                                    <property name="focus_on_click">False</property>
                                     <property name="receives_default">True</property>
                                     <property name="relief">none</property>
                                     <property name="image_position">top</property>
@@ -539,6 +551,7 @@ Agent</property>
                                     <property name="height_request">108</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
+                                    <property name="focus_on_click">False</property>
                                     <property name="receives_default">True</property>
                                     <property name="relief">none</property>
                                     <property name="image_position">top</property>
@@ -557,6 +570,7 @@ Connections</property>
                                     <property name="height_request">108</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
+                                    <property name="focus_on_click">False</property>
                                     <property name="receives_default">True</property>
                                     <property name="relief">none</property>
                                     <property name="image_position">top</property>
@@ -612,7 +626,8 @@ Connections</property>
                           <object class="GtkSeparator" id="hseparator2">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="margin_top">18</property>
+                            <property name="margin_top">17</property>
+                            <property name="margin_bottom">17</property>
                           </object>
                           <packing>
                             <property name="expand">True</property>
@@ -1660,7 +1675,7 @@ Connections</property>
                                     <property name="spacing">5</property>
                                     <child>
                                       <object class="GtkBox" id="hbox5">
-                                        <property name="height_request">30</property>
+                                        <property name="height_request">31</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <child>
@@ -1681,11 +1696,12 @@ Connections</property>
                                         </child>
                                         <child>
                                           <object class="GtkSeparator" id="current_separator">
-                                            <property name="width_request">600</property>
+                                            <property name="width_request">580</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                             <property name="margin_left">5</property>
                                             <property name="margin_top">15</property>
+                                            <property name="margin_bottom">15</property>
                                           </object>
                                           <packing>
                                             <property name="expand">False</property>
@@ -1718,7 +1734,7 @@ Connections</property>
                                     </child>
                                     <child>
                                       <object class="GtkBox" id="hbox6">
-                                        <property name="height_request">30</property>
+                                        <property name="height_request">31</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="no_show_all">True</property>
@@ -1740,11 +1756,12 @@ Connections</property>
                                         </child>
                                         <child>
                                           <object class="GtkSeparator" id="other_separator">
-                                            <property name="width_request">600</property>
+                                            <property name="width_request">580</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                             <property name="margin_left">5</property>
                                             <property name="margin_top">15</property>
+                                            <property name="margin_bottom">15</property>
                                           </object>
                                           <packing>
                                             <property name="expand">False</property>
@@ -2635,7 +2652,8 @@ Connections</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="margin_left">10</property>
-                                                    <property name="margin_top">23</property>
+                                                    <property name="margin_top">20</property>
+                                                    <property name="margin_bottom">20</property>
                                                   </object>
                                                   <packing>
                                                     <property name="expand">True</property>
@@ -2646,7 +2664,7 @@ Connections</property>
                                               </object>
                                               <packing>
                                                 <property name="expand">True</property>
-                                                <property name="fill">True</property>
+                                                <property name="fill">False</property>
                                                 <property name="position">0</property>
                                               </packing>
                                             </child>
@@ -2753,7 +2771,8 @@ Connections</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="margin_left">10</property>
-                                                    <property name="margin_top">23</property>
+                                                    <property name="margin_top">20</property>
+                                                    <property name="margin_bottom">20</property>
                                                   </object>
                                                   <packing>
                                                     <property name="expand">True</property>
@@ -2764,7 +2783,7 @@ Connections</property>
                                               </object>
                                               <packing>
                                                 <property name="expand">True</property>
-                                                <property name="fill">True</property>
+                                                <property name="fill">False</property>
                                                 <property name="position">3</property>
                                               </packing>
                                             </child>
@@ -2909,7 +2928,8 @@ Connections</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="margin_left">10</property>
-                                                    <property name="margin_top">23</property>
+                                                    <property name="margin_top">20</property>
+                                                    <property name="margin_bottom">20</property>
                                                   </object>
                                                   <packing>
                                                     <property name="expand">True</property>
@@ -2920,7 +2940,7 @@ Connections</property>
                                               </object>
                                               <packing>
                                                 <property name="expand">True</property>
-                                                <property name="fill">True</property>
+                                                <property name="fill">False</property>
                                                 <property name="position">7</property>
                                               </packing>
                                             </child>
@@ -3078,6 +3098,7 @@ Connections</property>
                                     <property name="spacing">10</property>
                                     <child>
                                       <object class="GtkBox" id="hbox24">
+                                        <property name="height_request">21</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="spacing">10</property>
@@ -3100,7 +3121,8 @@ Connections</property>
                                           <object class="GtkSeparator" id="hseparator12">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
-                                            <property name="margin_top">12</property>
+                                            <property name="margin_top">10</property>
+                                            <property name="margin_bottom">10</property>
                                           </object>
                                           <packing>
                                             <property name="expand">True</property>
@@ -3362,7 +3384,7 @@ Connections</property>
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkAlignment">
+                                      <object class="GtkAlignment" id="entry_align">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="xalign">0</property>
@@ -3400,6 +3422,7 @@ Connections</property>
                                     <property name="spacing">20</property>
                                     <child>
                                       <object class="GtkBox" id="hbox8">
+                                        <property name="height_request">21</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="spacing">10</property>
@@ -3422,7 +3445,8 @@ Connections</property>
                                           <object class="GtkSeparator" id="hseparator11">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
-                                            <property name="margin_top">12</property>
+                                            <property name="margin_top">10</property>
+                                            <property name="margin_bottom">10</property>
                                           </object>
                                           <packing>
                                             <property name="expand">True</property>
@@ -4353,7 +4377,8 @@ commonly used language.</property>
                                       <object class="GtkSeparator" id="hseparator5">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
-                                        <property name="margin_top">17</property>
+                                        <property name="margin_top">16</property>
+                                        <property name="margin_bottom">16</property>
                                       </object>
                                       <packing>
                                         <property name="expand">True</property>
@@ -4394,7 +4419,8 @@ commonly used language.</property>
                                       <object class="GtkSeparator" id="hseparator8">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
-                                        <property name="margin_top">17</property>
+                                        <property name="margin_top">16</property>
+                                        <property name="margin_bottom">16</property>
                                       </object>
                                       <packing>
                                         <property name="expand">True</property>
@@ -4435,7 +4461,8 @@ commonly used language.</property>
                                       <object class="GtkSeparator" id="hseparator9">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
-                                        <property name="margin_top">17</property>
+                                        <property name="margin_top">16</property>
+                                        <property name="margin_bottom">16</property>
                                       </object>
                                       <packing>
                                         <property name="expand">True</property>
@@ -4476,7 +4503,8 @@ commonly used language.</property>
                                       <object class="GtkSeparator" id="hseparator10">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
-                                        <property name="margin_top">17</property>
+                                        <property name="margin_top">16</property>
+                                        <property name="margin_bottom">16</property>
                                       </object>
                                       <packing>
                                         <property name="expand">True</property>
@@ -5930,7 +5958,8 @@ commonly used language.</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="margin_left">10</property>
-                                        <property name="margin_top">15</property>
+                                        <property name="margin_top">16</property>
+                                        <property name="margin_bottom">16</property>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -6206,7 +6235,8 @@ commonly used language.</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                             <property name="margin_left">10</property>
-                                            <property name="margin_top">15</property>
+                                            <property name="margin_top">16</property>
+                                            <property name="margin_bottom">16</property>
                                           </object>
                                           <packing>
                                             <property name="expand">False</property>
@@ -6335,7 +6365,8 @@ commonly used language.</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                             <property name="margin_left">10</property>
-                                            <property name="margin_top">15</property>
+                                            <property name="margin_top">16</property>
+                                            <property name="margin_bottom">16</property>
                                           </object>
                                           <packing>
                                             <property name="expand">False</property>

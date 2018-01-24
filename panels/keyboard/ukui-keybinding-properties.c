@@ -1347,8 +1347,8 @@ static void accel_edited_callback(GtkCellRendererText* cell, const char* path_st
                 GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_MODAL,
                 GTK_MESSAGE_WARNING,
                 GTK_BUTTONS_CANCEL,
-                "The shortcut \"%s\" cannot be used because it will become impossible to type using this key.\n"
-                "Please try with a key such as Control, Alt or Shift at the same time.",
+                _("The shortcut \"%s\" cannot be used because it will become impossible to type using this key.\n"
+                "Please try with a key such as Control, Alt or Shift at the same time."),
                 name);
 
             g_free (name);

@@ -28,44 +28,6 @@
 #include "gsp-main.h"
 #include "xrandr-capplet.h"
 #include <glib/gi18n.h>
-#include <X11/Xatom.h>
-#include <X11/Xlib.h>
-
-GdkColor vp_blue = {0, 0xc0c0, 0xdddd, 0xf9f9};
-
-void app_set_theme(const gchar *theme_path)
-{
-    static GtkCssProvider *provider = NULL;
-    GFile *file;
-    GdkScreen *screen;
-    screen = gdk_screen_get_default();
-    if(theme_path!=NULL)
-    {
-        file = g_file_new_for_path(theme_path);
-        if(file!=NULL)
-        {
-            if(provider==NULL)
-                provider = gtk_css_provider_new();
-
-            gtk_css_provider_load_from_file(provider, file, NULL);
-            gtk_style_context_add_provider_for_screen(screen,
-                                                      GTK_STYLE_PROVIDER(provider),
-                                                      GTK_STYLE_PROVIDER_PRIORITY_USER);
-            gtk_style_context_reset_widgets(screen);
-        }
-    }
-    else
-    {
-        if(provider!=NULL)
-        {
-            gtk_style_context_remove_provider_for_screen(screen,
-                                                         GTK_STYLE_PROVIDER(provider));
-            g_object_unref(provider);
-            provider = NULL;
-        }
-        gtk_style_context_reset_widgets(screen);
-    }
-}
 
 gboolean on_all_quit(GtkWidget *widget, GdkEvent *event, gpointer user_data)
 {
@@ -88,69 +50,39 @@ gboolean on_all_quit(GtkWidget *widget, GdkEvent *event, gpointer user_data)
     return TRUE;
 }
 
-void modify_vp_color()
+//在页面跳转时，将侧边栏对应的viewport设置为insensitive，其余设置为sensitive
+void set_sidebar_sensitive()
 {
-    GdkColor white = {0 ,0xf2f2, 0xf2f2, 0xf2f2};
-    gtk_widget_modify_bg(GTK_WIDGET(data_theme.vp), GTK_STATE_NORMAL, &white);
-    gtk_widget_modify_bg(GTK_WIDGET(data_start.vp), GTK_STATE_NORMAL, &white);
-    gtk_widget_modify_bg(GTK_WIDGET(data_app.vp), GTK_STATE_NORMAL, &white);
-    gtk_widget_modify_bg(GTK_WIDGET(data_count.vp), GTK_STATE_NORMAL, &white);
-    gtk_widget_modify_bg(GTK_WIDGET(data_net.vp), GTK_STATE_NORMAL, &white);
-    gtk_widget_modify_bg(GTK_WIDGET(data_power.vp), GTK_STATE_NORMAL, &white);
-    gtk_widget_modify_bg(GTK_WIDGET(data_display.vp), GTK_STATE_NORMAL, &white);
-    gtk_widget_modify_bg(GTK_WIDGET(data_key.vp), GTK_STATE_NORMAL, &white);
-    gtk_widget_modify_bg(GTK_WIDGET(data_mouse.vp), GTK_STATE_NORMAL, &white);
-    gtk_widget_modify_bg(GTK_WIDGET(data_sound.vp), GTK_STATE_NORMAL, &white);
-    gtk_widget_modify_bg(GTK_WIDGET(data_time.vp), GTK_STATE_NORMAL, &white);
+    gtk_widget_set_sensitive(GTK_WIDGET(vp_theme), TRUE);
+    gtk_widget_set_sensitive(GTK_WIDGET(vp_start), TRUE);
+    gtk_widget_set_sensitive(GTK_WIDGET(vp_app), TRUE);
+    gtk_widget_set_sensitive(GTK_WIDGET(vp_count), TRUE);
+    gtk_widget_set_sensitive(GTK_WIDGET(vp_net), TRUE);
+    gtk_widget_set_sensitive(GTK_WIDGET(vp_power), TRUE);
+    gtk_widget_set_sensitive(GTK_WIDGET(vp_display), TRUE);
+    gtk_widget_set_sensitive(GTK_WIDGET(vp_key), TRUE);
+    gtk_widget_set_sensitive(GTK_WIDGET(vp_mouse), TRUE);
+    gtk_widget_set_sensitive(GTK_WIDGET(vp_sound), TRUE);
+    gtk_widget_set_sensitive(GTK_WIDGET(vp_time), TRUE);
 }
 
-void modify_font_color(GtkButton *button, char *textcolor)
-{
-    GtkWidget *label;
-    label = gtk_bin_get_child((GtkBin*)button);
-    GdkColor bt_color;
-    gdk_color_parse(textcolor, &bt_color);
-    gtk_widget_modify_fg(GTK_WIDGET(label), GTK_STATE_NORMAL, &bt_color);
-}
-
-void init_button_text_color(char *textcolor)
-{
-    GtkLabel *label6 = (GtkLabel *)GTK_WIDGET(gtk_builder_get_object(builder, "label6"));
-    GdkColor color;
-    gdk_color_parse(textcolor, &color);
-    gtk_widget_modify_fg(GTK_WIDGET(label6), GTK_STATE_NORMAL, &color);
-
-    modify_font_color(bt_time, textcolor);
-    modify_font_color(bt_count, textcolor);
-    modify_font_color(bt_theme, textcolor);
-    modify_font_color(bt_app, textcolor);
-    //modify_font_color(bt_network, textcolor);
-    modify_font_color(bt_key, textcolor);
-    modify_font_color(bt_mouse, textcolor);
-    modify_font_color(bt_printer, textcolor);
-    modify_font_color(bt_sound, textcolor);
-    modify_font_color(bt_net, textcolor);
-    modify_font_color(bt_start, textcolor);
-    modify_font_color(bt_display, textcolor);
-    modify_font_color(bt_power, textcolor);
-    modify_font_color(bt_system, textcolor);
-}
-
+//各个页面之间的切换
 void show_next_page(GtkWidget *widget, gpointer userdata)
 {
     ButtonData *data = (ButtonData *)userdata;
-    modify_vp_color ();
-    gtk_widget_modify_bg(GTK_WIDGET(data->vp), GTK_STATE_NORMAL, &vp_blue);
+    set_sidebar_sensitive ();
+    gtk_widget_set_sensitive(GTK_WIDGET(data->vp), FALSE);
     gtk_notebook_set_current_page(notebook1, (gint)1);
     gtk_notebook_set_current_page(notebook2, data->page);
     gtk_window_set_title(window, data->title);
 }
 
+//从主窗口跳转到对应页面
 void switch_page(GtkWidget *widget, gpointer userdata)
 {
     ButtonData *data = (ButtonData *)userdata;
-    modify_vp_color ();
-    gtk_widget_modify_bg(GTK_WIDGET(data->vp), GTK_STATE_NORMAL, &vp_blue);
+    set_sidebar_sensitive ();
+    gtk_widget_set_sensitive(GTK_WIDGET(data->vp), FALSE);
     gtk_widget_show(GTK_WIDGET(data->vp));
     gtk_notebook_set_current_page(notebook2, data->page);
     gtk_window_set_title(window, data->title);
@@ -357,7 +289,4 @@ void init_signals()
 
     bt_startpage = (GtkButton *)GTK_WIDGET(gtk_builder_get_object(builder, "bt_startpage"));
     g_signal_connect(G_OBJECT(bt_startpage), "clicked", G_CALLBACK(show_mainpage), NULL);
-
-//    设置按钮上字体的颜色
-    init_button_text_color("#074ca6");
 }
