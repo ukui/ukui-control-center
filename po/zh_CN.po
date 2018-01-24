@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ukui-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-23 15:43+0800\n"
+"POT-Creation-Date: 2018-01-24 16:43+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -259,7 +259,7 @@ msgstr "显示器:"
 
 #. TRANSLATORS: a monitor is a device to measure voltage and current
 #: panels/display/xrandr-capplet.c:515 panels/power/kpm-upower.c:573
-#: shell/mainwindow.c:338 shell/shell.ui.h:25
+#: shell/mainwindow.c:270 shell/shell.ui.h:25
 msgid "Monitor"
 msgid_plural "Monitors"
 msgstr[0] "显示器"
@@ -324,6 +324,16 @@ msgstr "浏览"
 #: panels/keyboard/ukui-keybinding-properties.c:1697
 msgid "Custom Shortcuts"
 msgstr "自定义快捷键"
+
+#: panels/keyboard/ukui-keybinding-properties.c:1350
+#, c-format
+msgid ""
+"The shortcut \"%s\" cannot be used because it will become impossible to type "
+"using this key.\n"
+"Please try with a key such as Control, Alt or Shift at the same time."
+msgstr ""
+"快捷键 \"%s\" 不能被使用，因为很有可能使用该键进行输入\n"
+"请同时使用Ctrl，Alt或者Shift等键。"
 
 #: panels/keyboard/ukui-keybinding-properties.c:1383
 #, c-format
@@ -684,13 +694,13 @@ msgid_plural "UPSs"
 msgstr[0] "UPS"
 
 #. TRANSLATORS: wireless mice with internal batteries
-#: panels/power/kpm-upower.c:577 shell/mainwindow.c:280 shell/shell.ui.h:24
+#: panels/power/kpm-upower.c:577 shell/mainwindow.c:212 shell/shell.ui.h:24
 msgid "Mouse"
 msgid_plural "Mice"
 msgstr[0] "鼠标"
 
 #. TRANSLATORS: wireless keyboard with internal battery
-#: panels/power/kpm-upower.c:581 shell/mainwindow.c:269 shell/shell.ui.h:22
+#: panels/power/kpm-upower.c:581 shell/mainwindow.c:201 shell/shell.ui.h:22
 msgid "Keyboard"
 msgid_plural "Keyboards"
 msgstr[0] "键盘"
@@ -1565,23 +1575,23 @@ msgstr "测试"
 msgid "Subwoofer"
 msgstr "低音炮"
 
-#: shell/mainwindow.c:162 shell/shell.ui.h:11
+#: shell/mainwindow.c:94 shell/shell.ui.h:11
 msgid "Control Center"
 msgstr "控制面板"
 
-#: shell/mainwindow.c:210
+#: shell/mainwindow.c:142
 msgid "Time and Dates"
 msgstr "时间和日期"
 
-#: shell/mainwindow.c:213
+#: shell/mainwindow.c:145
 msgid " Change the time and date of this computer "
 msgstr " 更改此计算机的时间和日期 "
 
-#: shell/mainwindow.c:221 shell/shell.ui.h:17
+#: shell/mainwindow.c:153 shell/shell.ui.h:17
 msgid "User Account"
 msgstr "用户账户"
 
-#: shell/mainwindow.c:224
+#: shell/mainwindow.c:156
 msgid ""
 " Change the computer user account \n"
 " settings and password"
@@ -1589,11 +1599,11 @@ msgstr ""
 " 更改此计算机的用户账户\n"
 "设置和密码"
 
-#: shell/mainwindow.c:232 shell/shell.ui.h:12
+#: shell/mainwindow.c:164 shell/shell.ui.h:12
 msgid "Personalization"
 msgstr "个性化"
 
-#: shell/mainwindow.c:235
+#: shell/mainwindow.c:167
 msgid ""
 " Change the computer desktop background \n"
 " and related theme"
@@ -1601,63 +1611,63 @@ msgstr ""
 " 更改此计算机的桌面背景 \n"
 "和主题相关"
 
-#: shell/mainwindow.c:243
+#: shell/mainwindow.c:175
 msgid "Default Aplication"
 msgstr "默认应用程序"
 
-#: shell/mainwindow.c:246
+#: shell/mainwindow.c:178
 msgid " Change the default application on this computer "
 msgstr " 更改此计算机的默认应用程序 "
 
-#: shell/mainwindow.c:261
+#: shell/mainwindow.c:193
 msgid " Change the network  on this computer "
 msgstr " 更改此计算机的网络连接"
 
-#: shell/mainwindow.c:272
+#: shell/mainwindow.c:204
 msgid " Change the keyboard settings on this computer "
 msgstr " 更改此计算机的键盘设置 "
 
-#: shell/mainwindow.c:283
+#: shell/mainwindow.c:215
 msgid " Change the mouse settings on this computer  "
 msgstr " 更改此计算机的鼠标设置 "
 
-#: shell/mainwindow.c:296
+#: shell/mainwindow.c:228
 msgid " Configure the connection to the computer printer "
 msgstr " 配置连接到此计算机的打印机 "
 
-#: shell/mainwindow.c:305 shell/shell.ui.h:23
+#: shell/mainwindow.c:237 shell/shell.ui.h:23
 msgid "Sound"
 msgstr "声音"
 
-#: shell/mainwindow.c:308
+#: shell/mainwindow.c:240
 msgid " Change the sound settings on this computer "
 msgstr " 更改此计算机的声音设置 "
 
-#: shell/mainwindow.c:316
+#: shell/mainwindow.c:248
 msgid "Network Agent"
 msgstr "网络代理"
 
-#: shell/mainwindow.c:319
+#: shell/mainwindow.c:251
 msgid " Change the network agent on this computer "
 msgstr " 更改此计算机的网络代理 "
 
-#: shell/mainwindow.c:327 shell/shell.ui.h:13
+#: shell/mainwindow.c:259 shell/shell.ui.h:13
 msgid "Autostart"
 msgstr "开机启动"
 
-#: shell/mainwindow.c:330
+#: shell/mainwindow.c:262
 msgid " Change the autostart program on this computer "
 msgstr " 更改此计算机的开机启动程序"
 
-#: shell/mainwindow.c:340
+#: shell/mainwindow.c:272
 msgid " Change the Monitor settings on this computer "
 msgstr " 更改此计算机的显示器配置"
 
-#: shell/mainwindow.c:351
+#: shell/mainwindow.c:283
 msgid "Power Management"
 msgstr "电源管理"
 
-#: shell/mainwindow.c:354
+#: shell/mainwindow.c:286
 msgid " Change the power management settings on this computer "
 msgstr " 更改此计算机的电源管理选项 "
 
@@ -1855,7 +1865,7 @@ msgstr "与网络时间同步"
 
 #: shell/shell.ui.h:64
 msgid "because the ntp is installed,please use ntpdate."
-msgstr ""
+msgstr "由于安装了ntp，请使用ntpdate进行网络时间同步"
 
 #: shell/shell.ui.h:65
 msgid "format:"
@@ -2401,12 +2411,8 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 
-#: shell/ukui-control-center.c:191
+#: shell/ukui-control-center.c:190
 msgid "window1"
-msgstr ""
-
-#: shell/ukui-control-center.c:192
-msgid "ukuicc"
 msgstr ""
 
 #~ msgid "-Kylin Control Center"
