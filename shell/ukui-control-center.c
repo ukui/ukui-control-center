@@ -58,33 +58,41 @@ void switch_options_page()
 {
     //每次重置为FALSE是为了防止打开第二个窗口时会出现多个TRUE
     gtk_notebook_set_current_page(notebook1, 1);
+    set_sidebar_sensitive();
     if(switch_to_appearance_page){
         gtk_notebook_set_current_page(notebook2, 2);
         gtk_window_set_title(GTK_WINDOW(window), data_theme.title);
+        gtk_widget_set_sensitive(GTK_WIDGET(vp_app), FALSE);
         switch_to_appearance_page = FALSE;
     }else if(switch_to_timeanddata_page){
         gtk_notebook_set_current_page(notebook2, 0);
         gtk_window_set_title(GTK_WINDOW(window), data_time.title);
+        gtk_widget_set_sensitive(GTK_WIDGET(vp_time), FALSE);
         switch_to_timeanddata_page = FALSE;
     }else if(switch_to_display_page){
         gtk_notebook_set_current_page(notebook2, 11);
         gtk_window_set_title(GTK_WINDOW(window), data_display.title);
+        gtk_widget_set_sensitive(GTK_WIDGET(vp_display), FALSE);
         switch_to_display_page = FALSE;
     }else if(switch_to_keyboard_page){
         gtk_notebook_set_current_page(notebook2, 5);
         gtk_window_set_title(GTK_WINDOW(window), data_key.title);
+        gtk_widget_set_sensitive(GTK_WIDGET(vp_key), FALSE);
         switch_to_keyboard_page = FALSE;
     }else if(switch_to_power_page){
         gtk_notebook_set_current_page(notebook2, 12);
         gtk_window_set_title(GTK_WINDOW(window), data_power.title);
+        gtk_widget_set_sensitive(GTK_WIDGET(vp_power), FALSE);
         switch_to_power_page = FALSE;
     }else if(switch_to_sound_page){
         gtk_notebook_set_current_page(notebook2, 8);
         gtk_window_set_title(GTK_WINDOW(window), data_sound.title);
+        gtk_widget_set_sensitive(GTK_WIDGET(vp_sound), FALSE);
         switch_to_sound_page = FALSE;
     }else if(switch_to_user_page){
         gtk_notebook_set_current_page(notebook2, 1);
         gtk_window_set_title(GTK_WINDOW(window), data_count.title);
+        gtk_widget_set_sensitive(GTK_WIDGET(vp_count), FALSE);
         switch_to_user_page = FALSE;
     }else{
         //无参数时回到主界面
