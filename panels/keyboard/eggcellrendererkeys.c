@@ -621,8 +621,8 @@ egg_cell_renderer_keys_start_editing (GtkCellRenderer      *cell,
   gtk_widget_modify_bg (eventbox, GTK_STATE_NORMAL,
                         &gtk_widget_get_style (widget)->bg[GTK_STATE_SELECTED]);
 
-  gtk_widget_modify_fg (label, GTK_STATE_NORMAL,
-                        &gtk_widget_get_style (widget)->fg[GTK_STATE_SELECTED]);
+  //gtk_widget_modify_fg (label, GTK_STATE_NORMAL,
+  //                      &gtk_widget_get_style (widget)->fg[GTK_STATE_SELECTED]);
 
   gtk_label_set_text (GTK_LABEL (label),
 		  TOOLTIP_TEXT);

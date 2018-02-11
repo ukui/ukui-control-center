@@ -1718,6 +1718,7 @@ Connections</property>
                                     </child>
                                     <child>
                                       <object class="GtkBox" id="current_user_box">
+                                        <property name="name">current_user_box</property>
                                         <property name="height_request">90</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
@@ -5485,6 +5486,7 @@ commonly used language.</property>
                                     <property name="can_focus">False</property>
                                     <property name="label" translatable="yes">Additional startup _programs:</property>
                                     <property name="use_underline">True</property>
+                                    <property name="xalign">0</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -5581,6 +5583,7 @@ commonly used language.</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="label" translatable="yes">name</property>
+                                                    <property name="xalign">0.059999998658895493</property>
                                                     <attributes>
                                                       <attribute name="weight" value="bold"/>
                                                     </attributes>
@@ -5596,6 +5599,7 @@ commonly used language.</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="label" translatable="yes">status</property>
+                                                    <property name="xalign">0.10000000149011612</property>
                                                     <attributes>
                                                       <attribute name="weight" value="bold"/>
                                                     </attributes>

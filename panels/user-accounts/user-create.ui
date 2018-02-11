@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.20.0 -->
+<!-- Generated with glade 3.20.2 -->
 <interface>
   <requires lib="gtk+" version="3.0"/>
   <object class="GtkDialog" id="usercreate">
     <property name="width_request">500</property>
+    <property name="height_request">440</property>
     <property name="can_focus">True</property>
     <property name="has_focus">True</property>
     <property name="is_focus">True</property>
@@ -69,7 +70,7 @@
             <property name="spacing">10</property>
             <child>
               <object class="GtkLayout" id="layout1">
-                <property name="height_request">180</property>
+                <property name="height_request">195</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <child>
@@ -84,24 +85,25 @@
                   </object>
                   <packing>
                     <property name="x">6</property>
-                    <property name="y">146</property>
+                    <property name="y">165</property>
                   </packing>
                 </child>
                 <child>
                   <object class="GtkBox" id="hbox1">
                     <property name="width_request">422</property>
-                    <property name="height_request">143</property>
+                    <property name="height_request">146</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="spacing">26</property>
                     <child>
                       <object class="GtkLayout" id="layout2">
+                        <property name="width_request">130</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <child>
                           <object class="GtkToggleButton" id="user-icon-button">
-                            <property name="width_request">109</property>
-                            <property name="height_request">109</property>
+                            <property name="width_request">115</property>
+                            <property name="height_request">120</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
@@ -151,11 +153,13 @@
                     <child>
                       <object class="GtkBox" id="vbox2">
                         <property name="width_request">280</property>
+                        <property name="height_request">175</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="orientation">vertical</property>
                         <child>
                           <object class="GtkEntry" id="entryname">
+                            <property name="height_request">30</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="invisible_char">●</property>
@@ -170,7 +174,7 @@
                         </child>
                         <child>
                           <object class="GtkLabel" id="labelname">
-                            <property name="height_request">10</property>
+                            <property name="height_request">25</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <attributes>
@@ -178,13 +182,14 @@
                             </attributes>
                           </object>
                           <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
                             <property name="position">1</property>
                           </packing>
                         </child>
                         <child>
                           <object class="GtkEntry" id="entrypwd">
+                            <property name="height_request">30</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="invisible_char">●</property>
@@ -199,7 +204,7 @@
                         </child>
                         <child>
                           <object class="GtkLabel" id="labelpwd">
-                            <property name="height_request">10</property>
+                            <property name="height_request">25</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <attributes>
@@ -207,13 +212,14 @@
                             </attributes>
                           </object>
                           <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
                             <property name="position">3</property>
                           </packing>
                         </child>
                         <child>
                           <object class="GtkEntry" id="entryensurepwd">
+                            <property name="height_request">30</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="invisible_char">●</property>
@@ -228,7 +234,7 @@
                         </child>
                         <child>
                           <object class="GtkLabel" id="labelensurepwd">
-                            <property name="height_request">10</property>
+                            <property name="height_request">25</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <attributes>
@@ -236,8 +242,8 @@
                             </attributes>
                           </object>
                           <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
                             <property name="position">5</property>
                           </packing>
                         </child>
@@ -354,5 +360,8 @@ installing and upgrading software.</property>
       <action-widget response="0">buttoncancel</action-widget>
       <action-widget response="0">buttoncreate</action-widget>
     </action-widgets>
+    <child>
+      <placeholder/>
+    </child>
   </object>
 </interface>

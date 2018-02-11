@@ -29,6 +29,40 @@
 #include "xrandr-capplet.h"
 #include <glib/gi18n.h>
 
+void app_set_theme(const gchar *theme_path)
+{
+    static GtkCssProvider *provider = NULL;
+    GFile *file;
+    GdkScreen *screen;
+    screen = gdk_screen_get_default();
+    if(theme_path!=NULL)
+    {
+        file = g_file_new_for_path(theme_path);
+        if(file!=NULL)
+        {
+            if(provider==NULL)
+                provider = gtk_css_provider_new();
+
+            gtk_css_provider_load_from_file(provider, file, NULL);
+            gtk_style_context_add_provider_for_screen(screen,
+                                                      GTK_STYLE_PROVIDER(provider),
+                                                      GTK_STYLE_PROVIDER_PRIORITY_USER);
+            gtk_style_context_reset_widgets(screen);
+        }
+    }
+    else
+    {
+        if(provider!=NULL)
+        {
+            gtk_style_context_remove_provider_for_screen(screen,
+                                                         GTK_STYLE_PROVIDER(provider));
+            g_object_unref(provider);
+            provider = NULL;
+        }
+        gtk_style_context_reset_widgets(screen);
+    }
+}
+
 gboolean on_all_quit(GtkWidget *widget, GdkEvent *event, gpointer user_data)
 {
     GtkBuilder * builder = user_data;

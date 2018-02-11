@@ -1,0 +1,24 @@
+#delete_user_action_area button {
+  color: red;
+  background-color: red;
+}
+
+#user_action_hbox button {
+  color: blue;
+}
+
+#hbox_title label {
+  background-color: #f0f0f0;
+}
+
+#shortcut_treeview header button {
+  background-color: #f0f0f0;
+}
+
+dialog entry {
+  color: #999999;
+}
+
+dialog entry:focus {
+  color: #000000;
+}

@@ -189,6 +189,9 @@ int main(int argc, char * argv[])
     GError *err = NULL;
 
     builder = gtk_builder_new();
+    //加载css
+    app_set_theme(UIDIR "/ukcc.css");
+
     gtk_builder_add_from_file(builder, UIDIR "/shell.ui", &err);
     if (err){
         g_warning ("Could not load user interface file: %s", err->message);
