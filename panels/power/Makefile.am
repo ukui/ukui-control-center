@@ -4,7 +4,7 @@ saverdir = $(libexecdir)/ukui-screensaver
 AM_CPPFLAGS = 					\
 	-DUIDIR=\""$(uidir)"\"			\
 	@PACKAGE_CFLAGS@			\
-	-DMATEMENU_I_KNOW_THIS_IS_UNSTABLE	\
+	-DUKUIMENU_I_KNOW_THIS_IS_UNSTABLE	\
 	-fPIC					\
         $(PANEL_CFLAGS)				\
 	${DBUS_CFLAGS}				\
@@ -72,7 +72,7 @@ libpower_la_LIBADD = 				\
 			$(DBUS_LIBS)		\
 			$(UNIQUE_LIBS)		\
 			$(UPOWER_LIBS)		\
-			-lmate-menu		\
+			-lukui-menu		\
 			$(NULL)
 
 libpower_la_LDFLAGS = -export-dynamic @PACKAGE_LDFLAGS@
