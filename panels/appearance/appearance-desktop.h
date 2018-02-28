@@ -17,7 +17,7 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#include "mate-wp-xml.h"
+#include "ukui-wp-xml.h"
 
 void desktop_init(AppearanceData * data, const gchar **wallpaper);
 void desktop_shutdown(AppearanceData * data);

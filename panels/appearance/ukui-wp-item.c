@@ -18,7 +18,7 @@
  *
  */
 #include <glib/gi18n.h>
-#include "mate-wp-item.h"
+#include "ukui-wp-item.h"
 const gchar *wp_item_option_to_string (MateBGPlacement type)
 {
 	switch (type)

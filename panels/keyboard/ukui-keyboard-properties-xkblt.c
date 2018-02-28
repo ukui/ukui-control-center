@@ -25,7 +25,7 @@
 #include <libmatekbd/matekbd-desktop-config.h>
 #include <libmatekbd/matekbd-keyboard-drawing.h>
 
-#include "mate-keyboard-properties-xkb.h"
+#include "ukui-keyboard-properties-xkb.h"
 
 
 #define SEL_LAYOUT_TREE_COL_DESCRIPTION 0

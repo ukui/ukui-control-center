@@ -24,7 +24,7 @@
 #include <string.h>
 #include <gio/gio.h>
 
-#include "mate-keyboard-properties-xkb.h"
+#include "ukui-keyboard-properties-xkb.h"
 
 static GtkBuilder *chooser_dialog = NULL;
 static const char *current1st_level_id = NULL;

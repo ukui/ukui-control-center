@@ -22,7 +22,7 @@
  */
 #include <libmatekbd/matekbd-keyboard-drawing.h>
 
-#include "mate-keyboard-properties-xkb.h"
+#include "ukui-keyboard-properties-xkb.h"
 
 #ifdef HAVE_X11_EXTENSIONS_XKB_H
 #include "X11/XKBlib.h"

@@ -18,7 +18,7 @@
  *
  */
 #include <glib/gi18n.h>
-#include "mate-wp-xml.h"
+#include "ukui-wp-xml.h"
 #include <libxml/parser.h>
 #define WALLPAPER_DATADIR   "/usr/share/ukui-background-properties"
 #define UBUNTUUKUI_BACKGROUND "artful-ubuntukylin-wallpapers.xml"

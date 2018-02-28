@@ -17,7 +17,7 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#include "mate-wp-info.h"
+#include "ukui-wp-info.h"
 #include <libintl.h>
 
 MateWPInfo* mate_wp_info_new(const char* uri, MateDesktopThumbnailFactory* thumbs)

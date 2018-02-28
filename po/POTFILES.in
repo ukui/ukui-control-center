@@ -1,14 +1,14 @@
 [encoding: UTF-8]
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
-panels/display/mate-display-properties-install-systemwide.c
+panels/display/ukui-display-properties-install-systemwide.c
 panels/display/org.ukuicc.randr.policy.in
 panels/display/xrandr-capplet.c
 panels/power/kpm-common.c
 panels/power/kpm-upower.c
 panels/power/kpm-prefs-core.c
 panels/keyboard/eggcellrendererkeys.c
-panels/keyboard/mate-keybinding-properties.c
+panels/keyboard/ukui-keybinding-properties.c
 panels/volume-control/gvc-balance-bar.c
 panels/volume-control/gvc-channel-bar.c
 panels/volume-control/gvc-combo-box.c
@@ -20,8 +20,8 @@ panels/volume-control/sound-theme-file-utils.c
 panels/appearance/appearance-desktop.c
 panels/appearance/appearance-theme.c
 panels/appearance/font_render.ui
-panels/appearance/mate-wp-item.c
-panels/keyboard/mate-keyboard-properties-layout-chooser.ui
+panels/appearance/ukui-wp-item.c
+panels/keyboard/ukui-keyboard-properties-layout-chooser.ui
 panels/keyboard/shortcut_dialog.ui
 panels/network-proxy/network.ui
 panels/session-properties/gsm-app-dialog.c

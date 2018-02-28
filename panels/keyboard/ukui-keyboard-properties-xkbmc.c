@@ -27,7 +27,7 @@
 #define gtk_widget_hide_all gtk_widget_hide
 #endif
 
-#include "mate-keyboard-properties-xkb.h"
+#include "ukui-keyboard-properties-xkb.h"
 
 static gchar *current_model_name = NULL;
 static gchar *current_vendor_name = NULL;

@@ -23,7 +23,7 @@
 #include <gdk/gdkx.h>
 #include <gio/gio.h>
 
-#include "mate-keyboard-properties-xkb.h"
+#include "ukui-keyboard-properties-xkb.h"
 
 #include <libmatekbd/matekbd-desktop-config.h>
 

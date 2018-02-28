@@ -23,14 +23,14 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  */
-#include "mate-keyboard-properties.h"
+#include "ukui-keyboard-properties.h"
 #include <gio/gio.h>
 #include <glib.h>
 #include <stdlib.h>
 #include <mate-settings-daemon/mate-settings-client.h>
-#include "mate-keyboard-properties-a11y.h"
-#include "mate-keyboard-properties-xkb.h"
-#include "mate-keybinding-properties.h"
+#include "ukui-keyboard-properties-a11y.h"
+#include "ukui-keyboard-properties-xkb.h"
+#include "ukui-keybinding-properties.h"
 #define KEYBOARD_SCHEMA "org.mate.peripherals-keyboard"
 #define INTERFACE_SCHEMA "org.mate.interface"
 #define TYPING_BREAK_SCHEMA "org.mate.typing-break"

@@ -29,30 +29,30 @@ libkeyboard_la_LIBADD =	\
 	$(NULL)
 
 libkeyboard_la_SOURCES= \
-	mate-keyboard-properties.c	\
-	mate-keyboard-properties.h	\
-	mate-keyboard-properties-a11y.c	\
-	mate-keyboard-properties-a11y.h	\
-	mate-keyboard-properties-xkb.c	\
-	mate-keyboard-properties-xkblt.c	\
-	mate-keyboard-properties-xkbltadd.c	\
-	mate-keyboard-properties-xkbmc.c	\
-	mate-keyboard-properties-xkbot.c	\
-	mate-keyboard-properties-xkbpv.c	\
-	mate-keyboard-properties-xkb.h	\
+	ukui-keyboard-properties.c	\
+	ukui-keyboard-properties.h	\
+	ukui-keyboard-properties-a11y.c	\
+	ukui-keyboard-properties-a11y.h	\
+	ukui-keyboard-properties-xkb.c	\
+	ukui-keyboard-properties-xkblt.c	\
+	ukui-keyboard-properties-xkbltadd.c	\
+	ukui-keyboard-properties-xkbmc.c	\
+	ukui-keyboard-properties-xkbot.c	\
+	ukui-keyboard-properties-xkbpv.c	\
+	ukui-keyboard-properties-xkb.h	\
 	eggaccelerators.c	\
 	eggaccelerators.h	\
 	eggcellrendererkeys.c	\
 	eggcellrendererkeys.h	\
-	mate-keybinding-properties.c	\
-	mate-keybinding-properties.h	\
+	ukui-keybinding-properties.c	\
+	ukui-keybinding-properties.h	\
 	wm-common.c	\
 	wm-common.h	\
 	dconf-util.c	\
 	dconf-util.h
 
 uidir = $(pkgdatadir)/ui
-ui_DATA = mate-keyboard-properties-layout-chooser.ui shortcut_dialog.ui
+ui_DATA = ukui-keyboard-properties-layout-chooser.ui shortcut_dialog.ui
 @INTLTOOL_XML_NOMERGE_RULE@
 xmldir = $(pkgdatadir)/keybindings
 xml_in_files = 01-desktop-key.xml.in

@@ -18,7 +18,7 @@
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
-#include "mate-keyboard-properties-a11y.h"
+#include "ukui-keyboard-properties-a11y.h"
 #include <gio/gio.h>
 
 #define NWID(s) GTK_WIDGET (gtk_builder_get_object (notifications_dialog, s))

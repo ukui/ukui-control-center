@@ -8,7 +8,7 @@ AUTOMAKE_OPTIONS=foreign
 sbin_PROGRAMS = ukui-display-properties-install-systemwide
 
 ukui_display_properties_install_systemwide_SOURCES =	\
-	mate-display-properties-install-systemwide.c
+	ukui-display-properties-install-systemwide.c
 
 ukui_display_properties_install_systemwide_LDADD =	\
 	$(GLIB_LIBS)

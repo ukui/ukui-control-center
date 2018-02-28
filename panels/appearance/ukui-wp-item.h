@@ -22,7 +22,7 @@
 #define MATE_DESKTOP_USE_UNSTABLE_API
 #include <libmate-desktop/mate-bg.h>
 #include "appearance.h"
-#include "mate-wp-info.h"
+#include "ukui-wp-info.h"
 
 #ifndef _MATE_WP_ITEM_H_
 #define _MATE_WP_ITEM_H_

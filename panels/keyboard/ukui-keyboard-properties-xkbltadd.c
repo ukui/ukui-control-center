@@ -24,7 +24,7 @@
 #include <libmatekbd/matekbd-keyboard-drawing.h>
 #include <libmatekbd/matekbd-util.h>
 
-#include "mate-keyboard-properties-xkb.h"
+#include "ukui-keyboard-properties-xkb.h"
 
 enum {
 	COMBO_BOX_MODEL_COL_SORT,

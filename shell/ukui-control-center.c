@@ -21,7 +21,7 @@
 #include "spy-time.h"
 #include "user-accounts.h"
 #include "default-app.h"
-#include "mate-keyboard-properties.h"
+#include "ukui-keyboard-properties.h"
 #include "appearance-main.h"
 #include "mouse-setting.h"
 #include "network-proxy.h"

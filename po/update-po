@@ -2,7 +2,7 @@
 set -e
 intltool-extract --type=gettext/glade ../shell/shell.ui
 intltool-extract --type=gettext/glade ../panels/appearance/font_render.ui
-intltool-extract --type=gettext/glade ../panels/keyboard/mate-keyboard-properties-layout-chooser.ui
+intltool-extract --type=gettext/glade ../panels/keyboard/ukui-keyboard-properties-layout-chooser.ui
 intltool-extract --type=gettext/glade ../panels/keyboard/shortcut_dialog.ui
 intltool-extract --type=gettext/glade ../panels/session-properties/main-table.ui
 intltool-extract --type=gettext/glade ../panels/session-properties/program_properties.ui
@@ -47,7 +47,7 @@ echo "$PROGNAME: $PO_DIR/auto-generated.pot updated"
 sleep 1
 rm shell/shell.ui.h
 rm panels/appearance/font_render.ui.h
-rm panels/keyboard/mate-keyboard-properties-layout-chooser.ui.h
+rm panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h
 rm panels/keyboard/shortcut_dialog.ui.h
 rm panels/session-properties/main-table.ui.h
 rm panels/session-properties/program_properties.ui.h
