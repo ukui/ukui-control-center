@@ -138,7 +138,7 @@ static void direct_call_program(GtkWidget * widget, gchar * program_name){
     systemback = system(proname);
     if (systemback <0)
     {
-        g_warning("Call program %s has occured error\n", program_name);
+        g_warning("Call program %s has occurred error\n", program_name);
         return;
     }
     else if (systemback ==0)
@@ -147,7 +147,7 @@ static void direct_call_program(GtkWidget * widget, gchar * program_name){
     }
     else if (systemback == 127)
     {
-        g_warning("Call program %s has occured error\n", program_name);
+        g_warning("Call program %s has occurred error\n", program_name);
     }
     else
     {
@@ -206,7 +206,7 @@ void init_signals()
     bt_app = (GtkButton *)GTK_WIDGET(gtk_builder_get_object(builder, "bt_app"));
     data_app.vp = vp_app;
     data_app.page = 3;
-    data_app.title = _("Default Aplication");
+    data_app.title = _("Default Application");
     g_signal_connect(G_OBJECT(bt_app), "clicked", G_CALLBACK(switch_page), (gpointer)&data_app);
     button4 = (GtkButton *)GTK_WIDGET(gtk_builder_get_object(builder, "button4"));
     gtk_widget_set_tooltip_text(GTK_WIDGET(button4), _(" Change the default application on this computer "));

@@ -515,7 +515,7 @@ spawn_passwd (PasswdHandler *passwd_handler, GError **error)
                                        &my_stderr,                      /* Stderr */
                                        error)) {                        /* GError */
 
-                /* An error occured */
+                /* An error occurred */
                 free_passwd_resources (passwd_handler);
 
                 return FALSE;
@@ -680,7 +680,7 @@ passwd_change_password (PasswdHandler *passwd_handler,
         passwd_handler->chpasswd_cb = cb;
         passwd_handler->chpasswd_cb_data = user_data;
 
-        /* Stop passwd if an error occured and it is still running */
+        /* Stop passwd if an error occurred and it is still running */
         if (passwd_handler->backend_state == PASSWD_STATE_ERR) {
 
                 /* Stop passwd, free resources */
@@ -688,7 +688,7 @@ passwd_change_password (PasswdHandler *passwd_handler,
         }
 
         /* Check that the backend is still running, or that an error
-         * has occured but it has not yet exited */
+         * has occurred but it has not yet exited */
         if (passwd_handler->backend_pid == -1) {
                 /* If it is not, re-run authentication */
 

@@ -344,7 +344,7 @@ static gboolean event_box_button_press(GtkWidget * widget, GdkEventButton *event
             double_click_state = DOUBLE_CLICK_TEST_OFF;
             break;
     	default:
-            g_warning("Error state occured\n");
+            g_warning("Error state occurred\n");
             break;
     }
     double_click_timestamp = event->time;
