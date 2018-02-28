@@ -30,6 +30,8 @@
 gboolean dispalyIsOk;
 GtkBuilder *builder;
 GtkWindow *window;
+GtkApplication * app;
+
 typedef struct _ButtonData ButtonData;
 
 struct _ButtonData
@@ -103,9 +105,10 @@ GtkButton *bt_power;
 GtkViewport *vp_system;
 GtkButton *bt_system;
 
-void init_mainwindow();
 gboolean on_all_quit();
 void ukui_init(int *argc, char **argv[]);
 void hide_viewport();
 void init_signals();
+void app_set_theme(const gchar *theme_path);
+void set_sidebar_sensitive();
 #endif  /* __MAINWINDOW_H */
