@@ -1943,7 +1943,6 @@ setup_dialog (GtkBuilder *builder, GSettings *marco_settings)
     GtkWidget *widget;
     GtkTreeView *treeview;
     GtkTreeSelection *selection;
-	GdkColor grey = {0, 0xf0f0, 0xf0f0, 0xf0f0};
     treeview = GTK_TREE_VIEW (gtk_builder_get_object (builder,
                                                     "shortcut_treeview"));
 	gtk_tree_view_set_headers_clickable(treeview, FALSE);
@@ -1961,18 +1960,6 @@ setup_dialog (GtkBuilder *builder, GSettings *marco_settings)
                              renderer,
                              "text", DESCRIPTION_COLUMN,
                              NULL);
-	//给treeview的第一列标题栏添加一个viewport,设置背景色。
-	GtkWidget *title1;
-	GtkWidget *viewport1;
-	viewport1 = gtk_viewport_new(NULL,NULL);
-	title1 = gtk_label_new(gtk_tree_view_column_get_title(column));
-	gtk_misc_set_alignment(GTK_MISC(title1), 0.08, 0.5);
-	gtk_widget_set_size_request(viewport1, 300, 30);
-	gtk_container_add(GTK_CONTAINER(viewport1), title1);
-	gtk_widget_show_all(viewport1);
-	gtk_tree_view_column_set_widget(column, viewport1);
-	gtk_widget_modify_bg(viewport1, GTK_STATE_NORMAL, &grey);
-	gtk_viewport_set_shadow_type(GTK_VIEWPORT(viewport1), GTK_SHADOW_NONE);
 	
 	gtk_tree_view_column_set_min_width(column, 300);
     gtk_tree_view_column_set_cell_data_func (column, renderer, description_set_func, NULL, NULL);
@@ -1991,18 +1978,6 @@ setup_dialog (GtkBuilder *builder, GSettings *marco_settings)
     	                G_CALLBACK (accel_cleared_callback),
                         treeview);
     column = gtk_tree_view_column_new_with_attributes (_("Hotkey"), renderer, NULL);
-
-	GtkWidget *title2;
-	GtkWidget *viewport2;
-	viewport2 = gtk_viewport_new(NULL,NULL);
-	title2 = gtk_label_new(gtk_tree_view_column_get_title(column));
-	gtk_misc_set_alignment(GTK_MISC(title2), 0.05, 0.5);
-    gtk_widget_set_size_request(viewport2, 400, 30);
-	gtk_container_add(GTK_CONTAINER(viewport2), title2);
-	gtk_widget_show_all(viewport2);
-	gtk_tree_view_column_set_widget(column, viewport2);
-	gtk_widget_modify_bg(viewport2, GTK_STATE_NORMAL, &grey);
-	gtk_viewport_set_shadow_type(GTK_VIEWPORT(viewport2), GTK_SHADOW_NONE);
 	
 	gtk_tree_view_column_set_min_width(column, 200);
     gtk_tree_view_column_set_cell_data_func (column, renderer, accel_set_func, NULL, NULL);
