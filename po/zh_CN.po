@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ukui-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-28 11:41+0800\n"
+"POT-Creation-Date: 2018-03-01 14:28+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1612,7 +1612,7 @@ msgstr ""
 "和主题相关"
 
 #: shell/mainwindow.c:209
-msgid "Default Aplication"
+msgid "Default Application"
 msgstr "默认应用程序"
 
 #: shell/mainwindow.c:212
@@ -1698,7 +1698,7 @@ msgstr "适合宽度"
 #: shell/shell.ui.h:14
 msgid ""
 "Default \n"
-"Aplication"
+"Application"
 msgstr "默认应用"
 
 #: shell/shell.ui.h:16
