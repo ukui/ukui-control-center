@@ -491,7 +491,7 @@ on_edit_app_clicked (GtkWidget           *widget,
         GtkDialog * pro_dialog;
         builder = gtk_builder_new();
         if (gtk_builder_add_from_file(builder, UIDIR"/program_properties.ui", &error ) == 0){
-            g_warning("Could not load ui file occured error:%s", error->message);
+            g_warning("Could not load ui file occurred error:%s", error->message);
             return;
         }
         edit_dialog = GTK_WIDGET(gtk_builder_get_object(builder, "dialog"));

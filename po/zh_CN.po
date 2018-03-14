@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ukui-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-24 16:43+0800\n"
+"POT-Creation-Date: 2018-03-08 15:55+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1612,7 +1612,7 @@ msgstr ""
 "和主题相关"
 
 #: shell/mainwindow.c:175
-msgid "Default Aplication"
+msgid "Default Application"
 msgstr "默认应用程序"
 
 #: shell/mainwindow.c:178
@@ -1698,7 +1698,7 @@ msgstr "适合宽度"
 #: shell/shell.ui.h:14
 msgid ""
 "Default \n"
-"Aplication"
+"Application"
 msgstr "默认应用"
 
 #: shell/shell.ui.h:16
@@ -2400,18 +2400,18 @@ msgstr "跳转到键盘设置界面"
 msgid "Go to Display settings page"
 msgstr "跳转到显示设置界面"
 
-#: shell/ukui-control-center.c:126
+#: shell/ukui-control-center.c:134
 msgid "- Page jump"
 msgstr "- 页面跳转"
 
-#: shell/ukui-control-center.c:135
+#: shell/ukui-control-center.c:143
 #, c-format
 msgid ""
 "%s\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 
-#: shell/ukui-control-center.c:190
+#: shell/ukui-control-center.c:198
 msgid "window1"
 msgstr ""
 

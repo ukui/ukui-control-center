@@ -1607,7 +1607,7 @@ msgstr ""
 "ve ilgili temayı değiştirin."
 
 #: shell/mainwindow.c:414
-msgid "Default Aplication"
+msgid "Default Application"
 msgstr "Geçerli Uygulamalar"
 
 #: shell/mainwindow.c:417
@@ -1705,7 +1705,7 @@ msgstr "Tarih ve Zaman"
 #: shell/shell.ui.h:15
 msgid ""
 "Default \n"
-"Aplication"
+"Application"
 msgstr ""
 "Varsayılan \n"
 "Uygulamalar"

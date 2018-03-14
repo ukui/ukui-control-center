@@ -1510,7 +1510,7 @@ msgstr ""
 "테마를 설정합니다."
 
 #: shell/mainwindow.c:414
-msgid "Default Aplication"
+msgid "Default Application"
 msgstr "기본 프로그램"
 
 #: shell/mainwindow.c:417
@@ -1608,7 +1608,7 @@ msgstr "날짜/시간"
 #: shell/shell.ui.h:15
 msgid ""
 "Default \n"
-"Aplication"
+"Application"
 msgstr "기본 프로그램"
 
 #: shell/shell.ui.h:18
