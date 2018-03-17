@@ -735,17 +735,6 @@ setup_dialog (GsmPropertiesDialog *dialog)
                                               STORE_COL_DESCRIPTION,
                                               GTK_SORT_ASCENDING);
 
-        GtkWidget *title_vp = GTK_WIDGET(gtk_builder_get_object(dialog->priv->xml, "title_vp"));
-        GdkColor grey = {0,0xf0f0, 0xf0f0, 0xf0f0};
-        gtk_widget_modify_bg(title_vp, GTK_STATE_NORMAL, &grey);
-
-        GtkWidget *title_name = GTK_WIDGET(gtk_builder_get_object(dialog->priv->xml, "title_name"));
-        GtkWidget *title_status = GTK_WIDGET(gtk_builder_get_object(dialog->priv->xml, "title_status"));
-        GtkWidget *label54 = GTK_WIDGET(gtk_builder_get_object(dialog->priv->xml, "label54"));
-        gtk_label_set_xalign(label54, 0.0);
-        gtk_label_set_xalign(title_name, 0.05);
-        gtk_label_set_xalign(title_status, 0.1);
-
         button = GTK_WIDGET (gtk_builder_get_object (dialog->priv->xml,
                                                      CAPPLET_ADD_WIDGET_NAME));
         dialog->priv->add_button = button;

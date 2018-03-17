@@ -98,11 +98,7 @@ static GSettings *time_format;
 
 TimeDate timedata;
 TzDB * init_timedb();
-gchar * tz_data_file_get();
-void sort_locations_by_country(GPtrArray *locations);
-int compare_country_names(const void *a, const void *b);
 void init_dbus_proxy();
-void set_time_value();
 void init_time_config();
 void freeze_clock();
 void thaw_clock();
@@ -120,6 +116,7 @@ void init_calendar();
 void dbus_set_answered(GObject *object, GAsyncResult *res, gpointer command);
 gchar * get_current_time();
 void init_time_setting();
+void network_sensitive();
 
 enum{
     Jan,
@@ -156,7 +153,7 @@ void init_time_setting(){
     g_variant_unref(value);
 
     value = g_dbus_proxy_get_cached_property(timedata.proxy, "NTP");
-    if (value !=NULL) {
+    if (value){
         if (g_variant_is_of_type(value, G_VARIANT_TYPE_BOOLEAN)){
 			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(timedata.timesetting_checkbutton), g_variant_get_boolean(value));
         }
@@ -166,11 +163,14 @@ void init_time_setting(){
 			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(timedata.timesetting_checkbutton), FALSE);
             gtk_widget_show(GTK_WIDGET(timedata.ntp_label));
 		}
-		
+
+        //将信号处理放在初始化完成之后,可以防止第一次启动控制面板时执行setntp
+        g_signal_connect(G_OBJECT(timedata.timesetting_checkbutton), "clicked", G_CALLBACK(on_timesetting_changed), NULL);
+        network_sensitive();
         g_variant_unref(value);
         return;
-    }
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(timedata.timesetting_checkbutton),TRUE);
+    }else
+        g_warning("Can't get the NTP value from the cache!");
 }
 
 void on_time_wrapped(){
@@ -214,6 +214,35 @@ void dbus_set_answered(GObject *object, GAsyncResult *res, gpointer command){
     g_variant_unref(answers);
 }
 
+//与网络时间同步的回调,由于里面包含了sleep,所以使用该回调单独处理
+void dbus_set_answered_network(GObject *object, GAsyncResult *res, gpointer command){
+    GError *error =NULL;
+    GVariant *answers;
+    answers = g_dbus_proxy_call_finish(G_DBUS_PROXY(object), res, &error);
+
+    if(error !=NULL){
+        if(!g_error_matches(error, G_IO_ERROR, G_IO_ERROR_CANCELLED)){
+            g_warning("Could not set '%s' using timedated:%s",(gchar *)command, error->message);
+        }
+        g_error_free(error);
+        return;
+    }
+    g_variant_unref(answers);
+
+    //等待与网络时间同步完成,只有恢复到当前时间,才能获取到当前年月份,最后再同步过来
+    sleep(1);
+
+    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(timedata.timesetting_checkbutton)))
+    {
+        //获取当前的时间
+        init_time_config();
+        //禁用on_day_selected这个回调,防止日期变化时会触发这个回调,会再去进行时间设置
+        g_signal_handlers_block_by_func(timedata.calendar, on_day_selected, NULL);
+        init_calendar();
+        g_signal_handlers_unblock_by_func(timedata.calendar, on_day_selected, NULL);
+    }
+}
+
 gboolean on_apply_timeout(GtkWidget * widget,gpointer user_data){
     GDateTime *now;
     gint64 newtime;
@@ -227,20 +256,18 @@ gboolean on_apply_timeout(GtkWidget * widget,gpointer user_data){
     g_dbus_proxy_call(timedata.proxy, "SetTime", g_variant_new("(xbb)", (newtime * G_TIME_SPAN_SECOND), FALSE,TRUE),
                       G_DBUS_CALL_FLAGS_NONE,-1,NULL,dbus_set_answered, "time");
     start_update_show_time_clock();
-    //return false to end g_timeout_add
+
+    //中断前,先清除apply_timeout_clock
+    timedata.apply_timeout_clock = 0;
+    //返回false会自动中断计时器,中断是因为为了防止在同步状态下设置时间
     return FALSE;
 }
 
-void on_timesetting_changed(GtkWidget *widget, gpointer user_data){
-	gint timesetting_check;
-	timesetting_check = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(timedata.timesetting_checkbutton));
-    if (timesetting_check == 0){
-        g_dbus_proxy_call(timedata.proxy, "SetNTP", g_variant_new("(bb)", FALSE, TRUE),
-                        G_DBUS_CALL_FLAGS_NONE, -1,NULL, dbus_set_answered, "NTP");
-    }else {
-        g_dbus_proxy_call(timedata.proxy, "SetNTP", g_variant_new("(bb)", TRUE, TRUE),
-                        G_DBUS_CALL_FLAGS_NONE, -1,NULL, dbus_set_answered, "NTP");
-    }
+//与网络时间同步时设置置灰某些部件
+void network_sensitive()
+{
+    gint timesetting_check;
+    timesetting_check = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(timedata.timesetting_checkbutton));
     if(!timesetting_check) {
         gtk_widget_set_sensitive(timedata.hours, TRUE);
         gtk_widget_set_sensitive(timedata.minutes, TRUE);
@@ -263,6 +290,14 @@ void on_timesetting_changed(GtkWidget *widget, gpointer user_data){
     }
 }
 
+void on_timesetting_changed(GtkWidget *widget, gpointer user_data){
+    gboolean timesetting_check;
+	timesetting_check = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(timedata.timesetting_checkbutton));
+    g_dbus_proxy_call(timedata.proxy, "SetNTP", g_variant_new("(bb)", timesetting_check, TRUE),
+                      G_DBUS_CALL_FLAGS_NONE, -1,NULL, dbus_set_answered_network, "NTP");
+    network_sensitive();
+}
+
 void on_timezone_changed(GtkWidget *widget, gpointer user_data){
     GtkTreeModel *model;
     GtkTreeIter iter;
@@ -275,12 +310,13 @@ void on_timezone_changed(GtkWidget *widget, gpointer user_data){
     if(gtk_combo_box_get_active_iter(GTK_COMBO_BOX(widget), &iter)) {
         model = gtk_combo_box_get_model(GTK_COMBO_BOX(widget));
         gtk_tree_model_get(model, &iter,0 ,&location, -1);
-		if(!strcmp(getenv("LANG"), "en_US.UTF-8"))
+        //环境变量LANG为空或者是非中文的话直接使用rtc时区
+        if(!getenv("LANG") || strcmp(getenv("LANG"), "zh_CN.UTF-8"))
 			rtc = location;
 		else{
 			for(int i=0; i != timedata.tzdb->locations->len; ++i){
 				tmp = g_ptr_array_index(timedata.tzdb->locations, i);
-				if(strcmp(tmp->tz_utc, location) == 0){
+				if(tmp->tz_utc && strcmp(tmp->tz_utc, location) == 0){
 					rtc = g_ptr_array_index(tmp->tz_rtc,0);
 					break;
 				}
@@ -298,15 +334,17 @@ void on_day_selected(GtkWidget *widget, gpointer user_data){
 }
 
 void on_editable_changed(){
-    gchar * time;
-    time = get_current_time();
-     if(timedata.apply_timeout_clock){
-         g_source_remove(timedata.apply_timeout_clock);
-         timedata.apply_timeout_clock = 0;
-     }
-     stop_update_show_time_clock();
-     timedata.apply_timeout_clock = g_timeout_add(1000,(GSourceFunc)on_apply_timeout,NULL);
- }
+//    gchar * time;
+//    time = get_current_time();
+    //先清除两个计时器,然后再添加一个新的计时器
+    if(timedata.apply_timeout_clock){
+        g_source_remove(timedata.apply_timeout_clock);
+        timedata.apply_timeout_clock = 0;
+    }
+    stop_update_show_time_clock();
+    //每隔一秒去设置当前的时间,当前的时间保存在timedate.tmptime[]数组中,由update_show_time实时更新
+    timedata.apply_timeout_clock = g_timeout_add(1000,(GSourceFunc)on_apply_timeout,NULL);
+}
 
  void stop_update_show_time_clock(){
     if(timedata.show_timeout_clock){
@@ -322,16 +360,11 @@ gboolean update_show_time(gpointer user_date){
 
 void start_update_show_time_clock(){
     if (!timedata.show_timeout_clock){
-        get_current_time();
         // we need to wait system to set time
         sleep(1);
-        set_time_value();
-    }
-}
-
-void set_time_value(){
-        init_time_config();
+        //每隔一秒不断的去更新当前的时间
         timedata.show_timeout_clock= g_timeout_add(1000,(GSourceFunc)update_show_time,NULL);
+    }
 }
 
 void show_timezone_system_sets(GPtrArray *loc){
@@ -354,7 +387,7 @@ void show_timezone_system_sets(GPtrArray *loc){
 	for(int i =0; i != loc->len; ++i){
 			tmp = g_ptr_array_index(loc,i);
 			for(int j =0; j != tmp->tz_rtc->len; ++j){
-				if(strcmp(timezone, g_ptr_array_index(tmp->tz_rtc, j)) == 0){
+				if(g_ptr_array_index(tmp->tz_rtc, j) && strcmp(timezone, g_ptr_array_index(tmp->tz_rtc, j)) == 0){
 					flag = 1;
 					break;
 				}
@@ -364,7 +397,7 @@ void show_timezone_system_sets(GPtrArray *loc){
 			//g_free(tmp);
 	} 
 
-	char *lang = strcmp(getenv("LANG"), "en_US.UTF-8") == 0 ? g_ptr_array_index(tmp->tz_rtc, 0): tmp->tz_utc;
+    char *lang = (!getenv("LANG") || strcmp(getenv("LANG"), "zh_CN.UTF-8")) ? g_ptr_array_index(tmp->tz_rtc, 0): tmp->tz_utc;
 	while (valid) {
         gtk_tree_model_get(model, &iter, 0, &location, -1);
 		
@@ -376,7 +409,6 @@ void show_timezone_system_sets(GPtrArray *loc){
             valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(model), &iter);
         }
     }
-//    g_free(location);
 }
 
 void init_dbus_proxy(){
@@ -462,7 +494,11 @@ void init_calendar_time(gchar *month, gchar *day, gchar *year){
     timedata.year = atoi(year);
     gtk_calendar_select_month((GtkCalendar *)timedata.calendar, timedata.month, timedata.year);
     gtk_calendar_select_day((GtkCalendar *)timedata.calendar, timedata.day);
+
+    g_signal_handlers_block_by_func(timedata.td_combo_year,year_combo_changed,NULL);
     gtk_combo_box_set_active(GTK_COMBO_BOX(timedata.td_combo_year),timedata.year - _GMT);
+    g_signal_handlers_unblock_by_func(timedata.td_combo_year,year_combo_changed,NULL);
+
     g_signal_handlers_block_by_func(timedata.td_combo_month,month_combo_changed,NULL);
     gtk_combo_box_set_active(GTK_COMBO_BOX(timedata.td_combo_month),timedata.month);
     g_signal_handlers_unblock_by_func(timedata.td_combo_month, month_combo_changed,NULL);
@@ -479,6 +515,7 @@ gchar * get_current_time(){
     return current_time_and_date;
 }
 
+//获取当前系统时间并保存到tmptime数组当中
 void init_time_config() {
     gchar * current_time_and_date;
     current_time_and_date = get_current_time();
@@ -491,34 +528,15 @@ void init_time_config() {
    else {
         string_to_int(timedata.tmptime[3]);
     }
-
 }
 
 gchar *time_location_get_zone(TzUTC *loc){
 	char *lang = getenv("LANG");
-	if(!strcmp(lang, "en_US.UTF-8"))
+    if(!lang || strcmp(lang, "zh_CN.UTF-8"))
 		return g_ptr_array_index(loc->tz_rtc,0);
 	else
 		return loc->tz_utc;
 }
-
-int compare_country_names(const void *a, const void *b){
-    const TzLocation *tza = * (TzLocation **) a;
-    const TzLocation *tzb = * (TzLocation **) b;
-
-    return strcmp(tza->zone, tzb->zone);
-}
-
-void sort_locations_by_country(GPtrArray *locations){
-    qsort(locations->pdata, locations->len, sizeof(gpointer), compare_country_names);
-}
-
-gchar * tz_data_file_get(){
-    gchar *file;
-    file = g_strdup(TZ_DATA_FILE);
-    return file;
-}
-
 
 TzDB *init_timedb (){
 	gchar *tz_data_file;
@@ -527,7 +545,7 @@ TzDB *init_timedb (){
 
 	char buf[4096];
 
-	tz_data_file = tz_data_file_get ();
+    tz_data_file = g_strdup(TZ_DATA_FILE);
 	if (!tz_data_file){
         g_warning("Could not get timedb source\n");
         return NULL;
@@ -568,7 +586,6 @@ TzDB *init_timedb (){
     }
     fclose(tzfile);
 
-    //sort_locations_by_country(tz_db->locations);
     g_free(tz_data_file);
     return tz_db;
 }
@@ -580,7 +597,8 @@ static void init_timedate_data(GtkWidget * widget, gpointer user_data){
     //初始化时区数据库
     timedata.tzdb= init_timedb();
     //init config
-    set_time_value();
+    init_time_config();
+    timedata.show_timeout_clock= g_timeout_add(1000,(GSourceFunc)update_show_time,NULL);
     //init calendar
     g_signal_handlers_block_by_func(timedata.calendar, on_day_selected, NULL);
     init_calendar();
@@ -598,8 +616,7 @@ static void init_timedate_data(GtkWidget * widget, gpointer user_data){
     }
     // Show the timezone what the system sets
     show_timezone_system_sets(loc);
-//    g_signal_handlers_block_by_func(timedata.viewportlayout,
-//                                    init_timedate_data,NULL);
+    //g_signal_handlers_block_by_func(timedata.viewportlayout, init_timedate_data,NULL);
 }
 
 static void add_year_and_month_data(){
@@ -660,7 +677,8 @@ static void change_hour_format(GtkWidget *widget, GdkEvent *event, gpointer user
 }
 
 void add_time_and_data_app(GtkBuilder * builder){
-    g_debug("time_and_data");
+
+    g_warning("time_and_data");
     //hide calendar head, and then add four components to deal month and year change.
     timedata.td_month_add_button = GTK_WIDGET(gtk_builder_get_object(builder, "td_month_add_button"));
     gtk_widget_set_name(timedata.td_month_add_button, "time-add-button");
@@ -689,23 +707,25 @@ void add_time_and_data_app(GtkBuilder * builder){
     timedata.tzcombo = GTK_WIDGET(gtk_builder_get_object(builder, "time_zone_combobox"));
     g_signal_connect(G_OBJECT(timedata.tzcombo),"changed",
                      G_CALLBACK(on_timezone_changed),NULL);
-	timedata.timesetting_checkbutton = gtk_builder_get_object(builder, "get_from_network");
-	g_signal_connect(G_OBJECT(timedata.timesetting_checkbutton), "clicked", G_CALLBACK(on_timesetting_changed), NULL);
+    timedata.timesetting_checkbutton = gtk_builder_get_object(builder, "get_from_network");
+//    g_signal_connect(G_OBJECT(timedata.timesetting_checkbutton), "clicked", G_CALLBACK(on_timesetting_changed), NULL);
     timedata.calendar = GTK_WIDGET(gtk_builder_get_object(builder,"calendar"));
     g_signal_connect(G_OBJECT(timedata.calendar), "day-selected",
                      G_CALLBACK(on_day_selected),NULL);
+
     timedata.hours = GTK_WIDGET(gtk_builder_get_object(builder, "hours"));
     gtk_spin_button_set_range((GtkSpinButton *)timedata.hours,0.0,23.0);
-
     timedata.minutes = GTK_WIDGET(gtk_builder_get_object(builder, "minutes"));
     gtk_spin_button_set_range((GtkSpinButton *)timedata.minutes,0.0,59.0);
     timedata.seconds = GTK_WIDGET(gtk_builder_get_object(builder, "seconds"));
     gtk_spin_button_set_range((GtkSpinButton *)timedata.seconds,0.0,59.0);
+
     timedata.viewportlayout = GTK_WIDGET(gtk_builder_get_object(builder, "time_date_layout"));
 
     g_signal_connect(G_OBJECT(timedata.hours),"changed",G_CALLBACK(on_editable_changed),NULL);
     g_signal_connect(G_OBJECT(timedata.minutes), "changed",G_CALLBACK(on_editable_changed),NULL);
     g_signal_connect(G_OBJECT(timedata.seconds), "changed",G_CALLBACK(on_editable_changed),NULL);
+
     //ntp_label的相关设置
 	timedata.ntp_label = GTK_WIDGET(gtk_builder_get_object(builder, "ntp_label"));
 	gtk_widget_set_no_show_all(timedata.ntp_label, TRUE);

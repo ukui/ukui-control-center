@@ -475,12 +475,10 @@ static void set_fontoptions(PangoContext *context, Antialiasing antialiasing, Hi
 static void setup_font_sample(GtkWidget * darea, Antialiasing antialiasing, Hinting hinting){
     const char * string1;
     char *lang = getenv("LANG");
-    if (strncmp(lang, "zh_CN", 5) == 0)
-        string1 = "欢迎使用UKUI桌面环境";
+    if (!lang || strncmp(lang, "zh_CN", 5))
+        string1 = "Welcome to UKUI";
     else
-        string1 = "Welcome to Linux";
-
-    const char * string2 = "Welcome to Kylin";
+        string1 = "欢迎使用UKUI桌面环境";
 
     PangoContext *context;
     PangoLayout *layout;

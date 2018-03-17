@@ -645,9 +645,9 @@ prefs_setup_notification (KpmPrefs *prefs)
         gint icon_policy;
         GtkWidget *radiobutton_icon_always;
         GtkWidget *radiobutton_icon_present;
-        GtkWidget *radiobutton_icon_charge;
-        GtkWidget *radiobutton_icon_low;
-        GtkWidget *radiobutton_icon_never;
+//        GtkWidget *radiobutton_icon_charge;
+//        GtkWidget *radiobutton_icon_low;
+//        GtkWidget *radiobutton_icon_never;
         gboolean is_writable;
 
         icon_policy = g_settings_get_enum (prefs->priv->settings, KPM_SETTINGS_ICON_POLICY);
@@ -656,12 +656,12 @@ prefs_setup_notification (KpmPrefs *prefs)
                                                   "radiobutton_notification_always"));
         radiobutton_icon_present = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder,
                                                    "radiobutton_notification_present"));
-        radiobutton_icon_charge = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder,
-                                                  "radiobutton_notification_charge"));
-        radiobutton_icon_low = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder,
-                                           "radiobutton_notification_low"));
-        radiobutton_icon_never = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder,
-                                                 "radiobutton_notification_never"));
+//        radiobutton_icon_charge = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder,
+//                                                  "radiobutton_notification_charge"));
+//        radiobutton_icon_low = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder,
+//                                           "radiobutton_notification_low"));
+//        radiobutton_icon_never = GTK_WIDGET (gtk_builder_get_object (prefs->priv->builder,
+//                                                 "radiobutton_notification_never"));
 
         is_writable = g_settings_is_writable (prefs->priv->settings, KPM_SETTINGS_ICON_POLICY);
         gtk_widget_set_sensitive (radiobutton_icon_always, is_writable);

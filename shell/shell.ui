@@ -1471,6 +1471,7 @@ Connections</property>
                                     <property name="secondary_icon_activatable">False</property>
                                     <property name="adjustment">time_and_date_hours</property>
                                     <property name="snap_to_ticks">True</property>
+                                    <property name="numeric">True</property>
                                     <property name="wrap">True</property>
                                   </object>
                                   <packing>
@@ -1489,6 +1490,7 @@ Connections</property>
                                     <property name="secondary_icon_activatable">False</property>
                                     <property name="adjustment">time_and_date_minutes</property>
                                     <property name="snap_to_ticks">True</property>
+                                    <property name="numeric">True</property>
                                     <property name="wrap">True</property>
                                   </object>
                                   <packing>
@@ -1508,6 +1510,7 @@ Connections</property>
                                     <property name="secondary_icon_activatable">False</property>
                                     <property name="adjustment">time_and_date_seconds</property>
                                     <property name="snap_to_ticks">True</property>
+                                    <property name="numeric">True</property>
                                     <property name="wrap">True</property>
                                   </object>
                                   <packing>
@@ -5580,6 +5583,7 @@ commonly used language.</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="label" translatable="yes">name</property>
+                                                    <property name="xalign">0.05000000074505806</property>
                                                     <attributes>
                                                       <attribute name="weight" value="bold"/>
                                                     </attributes>
@@ -5595,6 +5599,7 @@ commonly used language.</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="label" translatable="yes">status</property>
+                                                    <property name="xalign">0.10000000149011612</property>
                                                     <attributes>
                                                       <attribute name="weight" value="bold"/>
                                                     </attributes>
