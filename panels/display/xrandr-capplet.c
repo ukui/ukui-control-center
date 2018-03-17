@@ -685,7 +685,7 @@ rebuild_resolution_combo (App *app)
 	width = mate_rr_mode_get_width (modes[i]);
 	height = mate_rr_mode_get_height (modes[i]);
 
-	if(width < 800 || height < 600)
+    if(width <= 800 || height <= 600)
 		continue;
 
 	add_key (app->resolution_combo,
