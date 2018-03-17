@@ -31,7 +31,6 @@ void init_appearance_data(GtkBuilder * builder)
 	GtkWidget * appearance_notebook;
 	data=NULL;
 	data = g_new(AppearanceData, 1);
-//	data->settings = g_settings_new(APPEARANCE_SCHEMA);
 	data->wp_settings = g_settings_new(WP_SCHEMA);
 	data->peony_settings = g_settings_new(PEONY_SCHEMA);
 	data->interface_settings = g_settings_new (INTERFACE_SCHEMA);
@@ -72,7 +71,6 @@ void destory_appearance_app()
 	font_shutdown(data);
 	desktop_shutdown(data);
 	g_object_unref (data->thumb_factory);
-//	g_object_unref (data->settings);
 	g_object_unref (data->wp_settings);
 	g_object_unref (data->peony_settings);
 	g_object_unref (data->interface_settings);

@@ -25,8 +25,6 @@
 #define MATE_DESKTOP_USE_UNSTABLE_API
 #include <libmate-desktop/mate-desktop-thumbnail.h>
 
-#define APPEARANCE_SCHEMA            "org.ukui.control-center.appearance"
-
 #define WP_SCHEMA                    "org.mate.background"
 #define WP_FILE_KEY                  "picture-filename"
 #define WP_OPTIONS_KEY               "picture-options"
