@@ -401,7 +401,7 @@ fill_combo_box(GtkIconTheme* theme, GtkComboBox* combo_box, GList* app_list, gch
 		}
 		g_free (default_mobility);
 		g_object_unref (mobility_settings);
-	}
+    }
 	else
 	{
 		default_app = g_app_info_get_default_for_type (mime, FALSE);
@@ -418,7 +418,8 @@ fill_combo_box(GtkIconTheme* theme, GtkComboBox* combo_box, GList* app_list, gch
 	renderer = gtk_cell_renderer_pixbuf_new();
 
 	/* Not all cells have a pixbuf, this prevents the combo box to shrink */
-	gtk_cell_renderer_set_fixed_size(renderer, -1, -1);
+    //这里指定宽度，是为了防止读不到正确尺寸的图标时而导致下拉框变宽
+    gtk_cell_renderer_set_fixed_size(renderer, -1, 26);
 	gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(combo_box), renderer, FALSE);
 	gtk_cell_layout_set_attributes(GTK_CELL_LAYOUT(combo_box), renderer,
 				       "pixbuf", PIXBUF_COL,
@@ -437,12 +438,13 @@ fill_combo_box(GtkIconTheme* theme, GtkComboBox* combo_box, GList* app_list, gch
 		/* Icon */
 		GIcon* icon = g_app_info_get_icon(item);
 		gchar* icon_name = g_icon_to_string(icon);
-                if(strcmp(g_app_info_get_id(item), "org.gnome.Nautilus.desktop") == 0)
-                        continue;
-                //因为浏览器的desktop文件的图标路径不是相对路径，所以稍作转换。
-                if(g_strrstr(icon_name,"webbrowser")){
-                        icon_name = g_strdup("webbrowser-app");
-                }
+        if(g_strcmp0(g_app_info_get_id(item), "org.gnome.Nautilus.desktop") == 0
+                || g_strcmp0(g_app_info_get_id(item), "org.gnome.baobab.desktop") == 0)
+            continue;
+        //因为浏览器的desktop文件的图标路径不是相对路径，所以稍作转换。
+        if(g_strrstr(icon_name,"webbrowser")){
+            icon_name = g_strdup("webbrowser-app");
+        }
 		if (icon_name == NULL)
 		{
 			/* Default icon */
@@ -472,11 +474,11 @@ fill_combo_box(GtkIconTheme* theme, GtkComboBox* combo_box, GList* app_list, gch
 		}
 		/* Set the index for the default app */
 		//if (default_app != NULL && g_app_info_equal(item, default_app))
-                if (default_app != NULL && !strcmp(g_app_info_get_name(item), g_app_info_get_name(default_app)))
-		{
-			//g_warning("text_col=%s\tid_col=%s\ticon_name=%s\n",g_app_info_get_display_name(item), g_app_info_get_id(item),icon_name);
-			gtk_combo_box_set_active(combo_box, index);
-		}
+        if (default_app != NULL && !strcmp(g_app_info_get_name(item), g_app_info_get_name(default_app)))
+        {
+            //g_warning("text_col=%s\tid_col=%s\ticon_name=%s\n",g_app_info_get_display_name(item), g_app_info_get_id(item),icon_name);
+            gtk_combo_box_set_active(combo_box, index);
+        }
 		if (pixbuf)
 		{
 			g_object_unref(pixbuf);
