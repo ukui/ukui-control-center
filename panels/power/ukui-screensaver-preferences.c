@@ -221,11 +221,11 @@ get_all_theme_ids (GSThemeManager *theme_manager)
                 || !strcmp(info_id, "screensavers-popsquares")
                 || !strcmp(info_id, "screensavers-personal-slideshow")
                 || !strcmp(info_id, "screensavers-cosmos-slideshow")
-                || !strcmp(info_id, "screensavers-cosmos-slideshow-ukui")
-                || !strcmp(info_id, "screensavers-footlogo-floaters-ukui")
-                || !strcmp(info_id, "screensavers-popsquares-ukui")
-                || !strcmp(info_id, "screensavers-personal-slideshow-ukui")
-                || !strcmp(info_id, "screensavers-gnomelogo-floaters-ukui"))
+                || !strcmp(info_id, "ukui-screensavers-cosmos-slideshow")
+                || !strcmp(info_id, "ukui-screensavers-footlogo-floaters")
+                || !strcmp(info_id, "ukui-screensavers-popsquares")
+                || !strcmp(info_id, "ukui-screensavers-personal-slideshow")
+                || !strcmp(info_id, "ukui-screensavers-gnomelogo-floaters"))
             continue;
         ids[idx++] = g_strdup (info_id);
         gs_theme_info_unref (info);
@@ -501,11 +501,11 @@ populate_model (GtkTreeModel *model)
                 || !strcmp(id, "screensavers-footlogo-floaters")
                 || !strcmp(id, "screensavers-personal-slideshow")
                 || !strcmp(id, "screensavers-cosmos-slideshow")
-                || !strcmp(id, "screensavers-popsquares-ukui")
-                || !strcmp(id, "screensavers-gnomelogo-floaters-ukui")
-                || !strcmp(id, "screensavers-footlogo-floaters-ukui")
-                || !strcmp(id, "screensavers-personal-slideshow-ukui")
-                || !strcmp(id, "screensavers-cosmos-slideshow-ukui"))
+                || !strcmp(id, "ukui-screensavers-popsquares")
+                || !strcmp(id, "ukui-screensavers-gnomelogo-floaters")
+                || !strcmp(id, "ukui-screensavers-footlogo-floaters")
+                || !strcmp(id, "ukui-screensavers-personal-slideshow")
+                || !strcmp(id, "ukui-screensavers-cosmos-slideshow"))
             continue;
 
         gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(theme_combo_box), name);
@@ -1575,7 +1575,7 @@ init_capplet (void)
     gtk_widget_hide(fullscreen_preview_next);
 
     vp_screen          = GTK_WIDGET (gtk_builder_get_object (builder, "viewport21"));
-    g_signal_connect((vp_screen), "draw", G_CALLBACK(show_preview), NULL);
+//    g_signal_connect((vp_screen), "draw", G_CALLBACK(show_preview), NULL);
 
     label              = GTK_WIDGET (gtk_builder_get_object (builder, "activate_delay_label"));
     gtk_label_set_xalign(GTK_LABEL(label), 0.0);
