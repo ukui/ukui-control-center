@@ -530,8 +530,6 @@ prefs_setup_battery (KpmPrefs *prefs)
                 //return;
 				set_insensitive(prefs, "combobox_battery_computer");
 				set_insensitive(prefs, "combobox_battery_display");
-				set_insensitive(prefs, "combobox_general_power");
-				set_insensitive(prefs, "combobox_general_suspend");
 				//set_insensitive(prefs, "combobox_ac_lid");
 				set_insensitive(prefs, "combobox_battery_lid");
         }

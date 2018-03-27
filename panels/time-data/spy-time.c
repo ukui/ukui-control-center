@@ -108,7 +108,6 @@ void start_update_show_time_clock();
 gboolean on_apply_timeout(GtkWidget *widget,gpointer user_data);
 gboolean update_show_time(gpointer user_date);
 void init_calendar_time(gchar *month,gchar *day, gchar *year);
-void on_time_wrapped();
 void on_day_selected(GtkWidget *widget, gpointer user_data);
 void on_timezone_changed(GtkWidget *widget, gpointer user_data);
 void on_timesetting_changed(GtkWidget *widget, gpointer user_data);
@@ -171,11 +170,6 @@ void init_time_setting(){
         return;
     }else
         g_warning("Can't get the NTP value from the cache!");
-}
-
-void on_time_wrapped(){
-    init_time_config();
-    init_calendar();
 }
 
 void init_calendar(){
@@ -334,15 +328,15 @@ void on_day_selected(GtkWidget *widget, gpointer user_data){
 }
 
 void on_editable_changed(){
-//    gchar * time;
-//    time = get_current_time();
     //先清除两个计时器,然后再添加一个新的计时器
+    stop_update_show_time_clock();
+
     if(timedata.apply_timeout_clock){
         g_source_remove(timedata.apply_timeout_clock);
         timedata.apply_timeout_clock = 0;
     }
-    stop_update_show_time_clock();
-    //每隔一秒去设置当前的时间,当前的时间保存在timedate.tmptime[]数组中,由update_show_time实时更新
+
+    //设置当前的时间,当前的时间保存在timedate.tmptime[]数组中,由update_show_time实时更新
     timedata.apply_timeout_clock = g_timeout_add(1000,(GSourceFunc)on_apply_timeout,NULL);
 }
 
