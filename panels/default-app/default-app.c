@@ -402,6 +402,18 @@ fill_combo_box(GtkIconTheme* theme, GtkComboBox* combo_box, GList* app_list, gch
 		g_free (default_mobility);
 		g_object_unref (mobility_settings);
     }
+    //设置默认的文件管理器为peony,这样做是有问题的，每次打开控制面板都会将文件管理器设为peony
+    //但因为这里屏蔽掉了nautilus，只有一个文件管理器，先暂时这样
+    //正确的做法是修改系统配置来修改默认的应用
+    else if (g_strcmp0(mime, "inode/directory") == 0)
+    {
+        for (entry = app_list; entry != NULL; entry = g_list_next(entry))
+        {
+            GAppInfo* item = (GAppInfo*) entry->data;
+            if(g_strcmp0(g_app_info_get_id(item), "peony-folder-handler.desktop") == 0)
+                default_app = item;
+        }
+    }
 	else
 	{
 		default_app = g_app_info_get_default_for_type (mime, FALSE);
@@ -438,8 +450,11 @@ fill_combo_box(GtkIconTheme* theme, GtkComboBox* combo_box, GList* app_list, gch
 		/* Icon */
 		GIcon* icon = g_app_info_get_icon(item);
 		gchar* icon_name = g_icon_to_string(icon);
+        g_warning("--------%s-------", g_app_info_get_id(item));
         if(g_strcmp0(g_app_info_get_id(item), "org.gnome.Nautilus.desktop") == 0
-                || g_strcmp0(g_app_info_get_id(item), "org.gnome.baobab.desktop") == 0)
+                || g_strcmp0(g_app_info_get_id(item), "org.gnome.baobab.desktop") == 0
+                || g_strcmp0(g_app_info_get_id(item), "nautilus-folder-handler.desktop") == 0
+                || g_strcmp0(g_app_info_get_id(item), "vim.desktop") == 0)
             continue;
         //因为浏览器的desktop文件的图标路径不是相对路径，所以稍作转换。
         if(g_strrstr(icon_name,"webbrowser")){
