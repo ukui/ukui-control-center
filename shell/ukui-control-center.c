@@ -188,6 +188,9 @@ int main(int argc, char * argv[])
 
     GError *err = NULL;
 
+    //加载css
+    app_set_theme(UIDIR "/ukcc.css");
+
     builder = gtk_builder_new();
     gtk_builder_add_from_file(builder, UIDIR "/shell.ui", &err);
     if (err){

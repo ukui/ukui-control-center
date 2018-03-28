@@ -450,7 +450,6 @@ fill_combo_box(GtkIconTheme* theme, GtkComboBox* combo_box, GList* app_list, gch
 		/* Icon */
 		GIcon* icon = g_app_info_get_icon(item);
 		gchar* icon_name = g_icon_to_string(icon);
-        g_warning("--------%s-------", g_app_info_get_id(item));
         if(g_strcmp0(g_app_info_get_id(item), "org.gnome.Nautilus.desktop") == 0
                 || g_strcmp0(g_app_info_get_id(item), "org.gnome.baobab.desktop") == 0
                 || g_strcmp0(g_app_info_get_id(item), "nautilus-folder-handler.desktop") == 0

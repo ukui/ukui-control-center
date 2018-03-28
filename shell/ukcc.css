@@ -1,0 +1,47 @@
+#delete_user_action_area button {
+  color: red;
+  background-color: red;
+}
+
+#user_action_hbox button {
+  color: blue;
+}
+
+#hbox_title label {
+  background-color: #f0f0f0;
+}
+
+#shortcut_treeview header button {
+  background-color: #f0f0f0;
+}
+
+dialog entry {
+  color: #999999;
+}
+
+dialog entry:focus {
+  color: #000000;
+}
+
+#viewport11 {
+  background-color: #f0f0f0;
+  /* viewport>button that is selected will be disabled in UKCC */
+}
+#viewport11 button {
+  color: blue;
+}
+#viewport11 viewport:disabled button:disabled {
+  background-image: image(#c3dffe);
+}
+#viewport11 viewport:disabled button:disabled label:disabled {
+  color: black;
+  font-weight: bold;
+}
+
+#default_app_scroll_window {
+  border-width: 0px;
+}
+
+#shortcut_treeview.view header button, iconview#shortcut_treeview header button {
+  min-height: 35px;
+}
