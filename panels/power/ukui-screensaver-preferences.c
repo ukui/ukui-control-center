@@ -324,15 +324,17 @@ config_set_lock (gboolean lock)
 static void
 preview_clear (GtkWidget *widget)
 {
-    GdkRGBA black = { 0.0, 0.0, 0.0, 1.0 };
-    gdk_window_set_background_rgba (gtk_widget_get_window (widget), &black);
-
-    if(gtk_widget_get_window(widget) == NULL)
+    //realize用于实例化该widget
+    gtk_widget_realize(widget);
+    if(gtk_widget_get_window(widget) == NULL){
+        g_warning("----The GdkWindow is NULL.----");
         return;
+    }
     cairo_t *cr = gdk_cairo_create(gtk_widget_get_window(widget));
     cairo_set_source_rgba (cr, 0.0, 0.0, 0.0, 1.0);
     cairo_set_operator (cr, CAIRO_OPERATOR_SOURCE);
     cairo_paint (cr);
+    cairo_fill(cr);
     cairo_destroy(cr);
     gtk_widget_queue_draw (widget);
 }
@@ -1464,11 +1466,20 @@ void init_scale(GtkWidget *scale_label,gdouble time)
     gtk_label_set_text(GTK_LABEL(scale_label),label_text);
 }
 
-//这个expose回调是为了解决打开控制面板时不会显示当前设置的屏保
-void show_preview(GtkWidget *widget, cairo_t *cr, gpointer data)
+//void show_preview(GtkWidget *widget, gpointer user_data)
+//{
+//    g_warning("------------111111111-----------");
+//    GtkWidget *combo_box  = GTK_WIDGET (gtk_builder_get_object (builder, "savers_combox"));
+//    combo_box_changed_cb (combo_box);
+//}
+
+//magical function
+gboolean show_preview(GtkWidget *widget, cairo_t *cr, gpointer data)
 {
-    GtkWidget *combo_box  = GTK_WIDGET (gtk_builder_get_object (builder, "savers_combox"));
-    combo_box_changed_cb (combo_box);
+    GdkRGBA black = { 0.0, 0.0, 0.0, 1.0 };
+    gdk_cairo_set_source_rgba(cr, &black);
+    cairo_paint(cr);
+    return FALSE;
 }
 
 static void
@@ -1498,7 +1509,6 @@ init_capplet (void)
     GError    *error=NULL;
     gint       mode;
     GtkWidget *vp_screen;
-
 
     //gtk_builder_file = g_build_filename (GTKBUILDERDIR, GTK_BUILDER_FILE, NULL);
     builder_preview = gtk_builder_new();
@@ -1574,8 +1584,7 @@ init_capplet (void)
     gtk_widget_hide(fullscreen_preview_previous);
     gtk_widget_hide(fullscreen_preview_next);
 
-    vp_screen          = GTK_WIDGET (gtk_builder_get_object (builder, "viewport21"));
-//    g_signal_connect((vp_screen), "draw", G_CALLBACK(show_preview), NULL);
+    g_signal_connect(preview, "draw", G_CALLBACK(show_preview), NULL);
 
     label              = GTK_WIDGET (gtk_builder_get_object (builder, "activate_delay_label"));
     gtk_label_set_xalign(GTK_LABEL(label), 0.0);
