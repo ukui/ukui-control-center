@@ -96,7 +96,7 @@ FontInfo fontinfo[N] = {
     "Ubuntu Mono",
     "Sans",
     "Ubuntu Bold"},
-	{"Kylin",
+	{"Ukui",
 	"Ubuntu",
 	"Ubuntu",
 	"Ubuntu Mono",
@@ -278,9 +278,9 @@ static void init_font_data(){
     while (valid){
         gtk_tree_model_get(treemodel, &iter,0, &name, -1);
         if (g_strcmp0(name, fontsetting.font_name) == 0){
-			g_signal_handlers_block_by_func(fontsetting.font_select_combo, font_select_changed, NULL);
+	    g_signal_handlers_block_by_func(fontsetting.font_select_combo, font_select_changed, NULL);
             gtk_combo_box_set_active_iter(GTK_COMBO_BOX(fontsetting.font_select_combo), &iter);
-			g_signal_handlers_unblock_by_func(fontsetting.font_select_combo, font_select_changed, NULL);
+	    g_signal_handlers_unblock_by_func(fontsetting.font_select_combo, font_select_changed, NULL);
             valid = FALSE;
         }
         else {
@@ -516,7 +516,17 @@ static void setup_font_sample(GtkWidget * darea, Antialiasing antialiasing, Hint
     g_signal_connect(darea, "draw", G_CALLBACK(sample_draw), NULL);
 }
 
+//通过设置字体的的sensitive属性，结合css，实现给所选字体设置背景色
+static void init_font_sensitive(){
+    gtk_widget_set_sensitive(fontsetting.monochrome_button, TRUE);
+    gtk_widget_set_sensitive(fontsetting.best_contrast_button, TRUE);
+    gtk_widget_set_sensitive(fontsetting.best_shapes_button, TRUE);
+    gtk_widget_set_sensitive(fontsetting.subpixel_button, TRUE);
+}
+
 static void font_button_clicked(GtkButton *button, FontPair *pair){
+    init_font_sensitive();
+    gtk_widget_set_sensitive(GTK_WIDGET(button), FALSE);
     GSettings * settings = g_settings_new(FONT_RENDER_SCHEMA);
     g_settings_set_enum(settings, FONT_ANTIALIASING_KEY, pair->antialiasing);
     g_settings_set_enum(settings, FONT_HINTING_KEY, pair->hinting);
@@ -529,6 +539,13 @@ static void setup_font_pair(GtkWidget * button, GtkWidget * darea, Antialiasing 
     pair->antialiasing = antialiasing;
     pair->hinting = hinting;
     pair->button = button;
+
+    GSettings *settings = g_settings_new(FONT_RENDER_SCHEMA);
+    int current_antialiasing = g_settings_get_enum(settings, FONT_ANTIALIASING_KEY);
+    int current_hinting = g_settings_get_enum(settings, FONT_HINTING_KEY);
+    if (current_antialiasing == antialiasing && current_hinting == hinting)
+	    gtk_widget_set_sensitive(GTK_WIDGET(button), FALSE);
+    g_object_unref(settings);
 
     setup_font_sample(darea, antialiasing, hinting);
     font_pairs = g_slist_prepend(font_pairs, pair);
@@ -573,6 +590,7 @@ static gboolean reset_font_default(GtkWidget * widget, GdkEvent *event, gpointer
     GSettings * settings = g_settings_new(FONT_RENDER_SCHEMA);
     g_settings_reset(settings,FONT_ANTIALIASING_KEY);
     g_settings_reset(settings,FONT_HINTING_KEY);
+    init_font_sensitive();
     g_object_unref(settings);
 }
 

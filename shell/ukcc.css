@@ -45,3 +45,7 @@ dialog entry:focus {
 #shortcut_treeview.view header button, iconview#shortcut_treeview header button {
   min-height: 35px;
 }
+
+#font_grid button:disabled {
+  background-image: image(#c3dffe);
+}
