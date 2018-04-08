@@ -59,8 +59,15 @@ void find_all_face_file(GtkListStore *list_store, GtkTreeIter iter)
     GFileEnumerator *enumer;
     GFileInfo *info;
     GdkPixbuf *pixbuf;
+    GFileType type;
+    const gchar *target;
     directory = g_file_new_for_path(FACES_PATH);
-    enumer = g_file_enumerate_children(directory, G_FILE_ATTRIBUTE_STANDARD_NAME, G_FILE_QUERY_INFO_NONE, NULL, &error);
+    enumer = g_file_enumerate_children(directory, 
+		    G_FILE_ATTRIBUTE_STANDARD_NAME ","
+		    G_FILE_ATTRIBUTE_STANDARD_TYPE ","
+		    G_FILE_ATTRIBUTE_STANDARD_IS_SYMLINK ","
+		    G_FILE_ATTRIBUTE_STANDARD_SYMLINK_TARGET, 
+		    G_FILE_QUERY_INFO_NONE, NULL, &error);
     if (error != NULL)
     {
         g_warning("enumer is wrong");
@@ -69,8 +76,22 @@ void find_all_face_file(GtkListStore *list_store, GtkTreeIter iter)
     }
     while ((info = g_file_enumerator_next_file(enumer, NULL, NULL)))
     {
-        const char *filename = g_file_info_get_name (info);
-        char *fullpath = g_build_filename(FACES_PATH, filename, NULL, NULL);
+	char *fullpath;
+	type = g_file_info_get_file_type(info);
+	if(type != G_FILE_TYPE_REGULAR &&
+	   type != G_FILE_TYPE_SYMBOLIC_LINK){
+		g_object_unref(info);
+		continue;
+	}
+
+	target = g_file_info_get_symlink_target(info);
+	if(target != NULL && g_str_has_prefix(target, "legacy/")){
+		g_object_unref(info);
+		continue;
+	}
+
+	const char *filename = g_file_info_get_name (info);
+	fullpath = g_build_filename(FACES_PATH, filename, NULL, NULL);
         pixbuf = gdk_pixbuf_new_from_file(fullpath, &err);
         pixbuf = gdk_pixbuf_scale_simple(pixbuf, 64, 64, GDK_INTERP_BILINEAR);
         gtk_list_store_append(list_store, &iter);
