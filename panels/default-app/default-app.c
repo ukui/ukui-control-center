@@ -115,6 +115,7 @@ set_changed(GtkComboBox* combo, UkuiDACapplet* capplet, GList* list, gint type)
 				g_app_info_set_as_default_for_type(item, "x-scheme-handler/https", NULL);
 				/* about:config is used by firefox and others */
 				g_app_info_set_as_default_for_type(item, "x-scheme-handler/about", NULL);
+				g_app_info_set_as_default_for_type(item, "text/html", NULL);
 				break;
 
 			case DA_TYPE_EMAIL:
