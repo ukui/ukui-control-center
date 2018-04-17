@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.20.0 -->
+<!-- Generated with glade 3.22.0 -->
 <interface>
   <requires lib="gtk+" version="3.0"/>
   <object class="GtkDialog" id="usercreate">
@@ -137,9 +137,6 @@
                               </object>
                             </child>
                           </object>
-                          <packing>
-                            <property name="x">6</property>
-                          </packing>
                         </child>
                       </object>
                       <packing>
@@ -354,5 +351,8 @@ installing and upgrading software.</property>
       <action-widget response="0">buttoncancel</action-widget>
       <action-widget response="0">buttoncreate</action-widget>
     </action-widgets>
+    <child>
+      <placeholder/>
+    </child>
   </object>
 </interface>
