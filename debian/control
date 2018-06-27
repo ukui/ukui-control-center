@@ -3,7 +3,7 @@ Section: x11
 Priority: optional
 Maintainer: Kylin Team <pkg-kylin-devel@lists.alioth.debian.org>
 Uploaders: Aron Xu <aron@debian.org>,
-           handsome_feng <jianfengli@ubuntukyln.com>
+           handsome_feng <jianfengli@ubuntukylin.com>
 Build-Depends: debhelper (>= 11),
                mate-common,
                docbook-to-man,
@@ -43,6 +43,8 @@ Build-Depends: debhelper (>= 11),
                libukui-menu-dev
 Standards-Version: 4.1.4
 Homepage: https://github.com/ukui/ukui-control-center
+Vcs-Git: https://github.com/ukui/ukui-control-center.git
+Vcs-Browser: https://github.com/ukui/ukui-control-center
 
 Package: ukui-control-center
 Architecture: any
