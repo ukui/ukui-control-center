@@ -37,7 +37,6 @@ Build-Depends: debhelper (>= 11),
                libdconf-dev,
                ukui-settings-daemon-dev,
                libupower-glib-dev,
-               liboobs-1-dev,
                libnotify-dev,
                libpulse-dev,
                libukui-menu-dev

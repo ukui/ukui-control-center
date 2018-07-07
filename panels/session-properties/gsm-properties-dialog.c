@@ -679,7 +679,7 @@ setup_dialog (GsmPropertiesDialog *dialog)
         /* LABEL COLUMN */
         renderer = gtk_cell_renderer_text_new ();
 
-        column = gtk_tree_view_column_new_with_attributes("Lable",
+        column = gtk_tree_view_column_new_with_attributes("Label",
                                                           renderer,
                                                           "markup",STORE_COL_LABEL,
                                                           "sensitive", STORE_COL_ENABLED,

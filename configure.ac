@@ -112,9 +112,6 @@ PKG_CHECK_MODULES(UKUI_SD, [ukui-settings-daemon])
 #upower
 PKG_CHECK_MODULES(UPOWER, [upower-glib >= 0.9.1])
 
-#upower
-PKG_CHECK_MODULES(OOBS, [liboobs-1 >= 2.91.1])
-
 #mate-desktop
 PKG_CHECK_MODULES(MATE_DESKTOP, [mate-desktop-2.0])
 PKG_CHECK_MODULES(MATE_KBD, [libmatekbd])
