@@ -19,7 +19,6 @@
  */
 #include <crypt.h>
 #include <ctype.h>
-#include <oobs/oobs.h>
 #include <sys/wait.h>
 #include <sys/types.h>
 #include <glib/gi18n.h>
@@ -1759,10 +1758,13 @@ void init_user_info(const gchar *object_path)
     if (g_strcmp0((const char *)user->username, username) == 0)
     {
         user->currentuser = TRUE;
+        user->logined = TRUE;
     }
+    else
+        user->logined = FALSE;
 
-    OobsUser *obsuser = oobs_user_new(user->username);
-    user->logined = oobs_user_get_active(obsuser);
+    //OobsUser *obsuser = oobs_user_new(user->username);
+    //user->logined = oobs_user_get_active(obsuser);
 
     value = g_dbus_proxy_get_cached_property(user->proxy, "AccountType");
     user->accounttype = (gint)g_variant_get_int32(value);
@@ -1798,8 +1800,12 @@ void init_root_info()
     user->autologin = FALSE;
     user->username = g_get_user_name();
     user->iconfile = "/usr/share/pixmaps/faces/stock_person.svg";
-    OobsUser *obsuser = oobs_user_new(user->username);
-    user->logined = oobs_user_get_active(obsuser);
+    //OobsUser *obsuser = oobs_user_new(user->username);
+    //user->logined = oobs_user_get_active(obsuser);
+    if (g_strcmp0((const char *)user->username, "root") == 0)
+        user->logined = TRUE;
+    else
+        user->logined = FALSE;
     user->uid = 0;
     user->notebook = GTK_NOTEBOOK(gtk_notebook_new());
     userlist = g_list_insert(userlist, user, 0);

@@ -22,7 +22,6 @@
  * Authors: Milan Bouchet-Valat <nalimilan@club.fr>
  */
 #include <config.h>
-#include <oobs/oobs.h>
 #include <unistd.h>
 #include <string.h>
 #include <errno.h>
