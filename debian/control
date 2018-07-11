@@ -62,7 +62,6 @@ Depends: ${shlibs:Depends},
          ukui-media,
          xscreensaver-data,
          libcanberra-pulse,
-         gnome-control-center-faces
 Description: utilities to configure the UKUI desktop
  The UKUI control center contains configuration applets for the UKUI desktop,
  allowing to set accessibility configuration, desktop fonts, keyboard
