@@ -244,9 +244,9 @@ kpm_prefs_setup_action_combo (KpmPrefs *prefs, const gchar *widget_name,
         for (i=0; actions[i] != -1; i++) {
                 policy = actions[i];
                 if (policy == KPM_ACTION_POLICY_SHUTDOWN && !prefs->priv->can_shutdown) {
-					//只是为了在交流电情况下显示出来
-					gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT (widget), _("Shutdown"));
-                                g_ptr_array_add(array, GINT_TO_POINTER (policy));
+                        //只是为了在交流电情况下显示出来
+                        gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT (widget), _("Shutdown"));
+                        g_ptr_array_add(array, GINT_TO_POINTER (policy));
                         egg_debug ("Cannot add option, as cannot shutdown.");
                 } else if (policy == KPM_ACTION_POLICY_SHUTDOWN && prefs->priv->can_shutdown) {
                         #if GTK_CHECK_VERSION (2, 24, 0)
@@ -257,12 +257,8 @@ kpm_prefs_setup_action_combo (KpmPrefs *prefs, const gchar *widget_name,
                                 g_ptr_array_add (array, GINT_TO_POINTER (policy));
                         #endif
                 } else if (policy == KPM_ACTION_POLICY_SUSPEND && !prefs->priv->can_suspend) {
-					gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT (widget), _("Hang"));
-                                g_ptr_array_add (array, GINT_TO_POINTER (policy));
                         egg_debug ("Cannot add option, as cannot suspend.");
                 } else if (policy == KPM_ACTION_POLICY_HIBERNATE && !prefs->priv->can_hibernate) {
-					gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT (widget), _("Sleep"));
-                                g_ptr_array_add(array, GINT_TO_POINTER (policy));
                         egg_debug ("Cannot add option, as cannot hibernate.");
                 } else if (policy == KPM_ACTION_POLICY_SUSPEND && prefs->priv->can_suspend) {
                         #if GTK_CHECK_VERSION (2, 24, 0)
