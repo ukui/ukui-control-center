@@ -27,7 +27,7 @@
 #include <gio/gio.h>
 #include <glib.h>
 #include <stdlib.h>
-#include <ukui-settings-daemon/ukui-settings-client.h>
+#include <mate-settings-daemon/mate-settings-client.h>
 #include "ukui-keyboard-properties-a11y.h"
 #include "ukui-keyboard-properties-xkb.h"
 #include "ukui-keybinding-properties.h"
@@ -60,16 +60,16 @@ gboolean activate_settings_daemon()
         return FALSE;
     }
     proxy = dbus_g_proxy_new_for_name(connection,
-                                      "org.ukui.SettingsDaemon",
-                                      "/org/ukui/SettingsDaemon",
-                                      "org.ukui.SettingsDaemon");
+                                      "org.mate.SettingsDaemon",
+                                      "/org/mate/SettingsDaemon",
+                                      "org.mate.SettingsDaemon");
     dbus_g_connection_unref(connection);
     if (proxy ==NULL) 
     {
         g_warning("Keyboard's SettingsDaemon proxy get error");
         return FALSE;
     }
-    if (!org_ukui_SettingsDaemon_awake(proxy, &error))
+    if (!org_mate_SettingsDaemon_awake(proxy, &error))
     {
         g_warning("awake SettingsDaemon error%s\n",error->message);
         return FALSE;

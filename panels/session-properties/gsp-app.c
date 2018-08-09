@@ -859,7 +859,7 @@ gsp_app_new (const char   *path,
         //app->priv->exec = gsp_key_file_get_string (keyfile,
         //                                           G_KEY_FILE_DESKTOP_KEY_EXEC);
 	app->priv->exec = g_key_file_get_string (keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_EXEC, NULL);
-	if (strcmp(app->priv->exec, "/usr/bin/ukui-settings-daemon") == 0)
+	if (strcmp(app->priv->exec, "/usr/bin/mate-settings-daemon") == 0)
 		return NULL;
         app->priv->comment = gsp_key_file_get_locale_string (keyfile,
                                                              G_KEY_FILE_DESKTOP_KEY_COMMENT);

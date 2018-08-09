@@ -106,8 +106,8 @@ AC_SUBST([PACKAGE_LDFLAGS])
 PKG_CHECK_MODULES(CANBERRA, libcanberra-gtk3)
 PKG_CHECK_MODULES(PULSE, libpulse libpulse-mainloop-glib)
 
-#ukui-settings-daemon
-PKG_CHECK_MODULES(UKUI_SD, [ukui-settings-daemon])
+#mate-settings-daemon
+PKG_CHECK_MODULES(UKUI_SD, [mate-settings-daemon])
 
 #upower
 PKG_CHECK_MODULES(UPOWER, [upower-glib >= 0.9.1])

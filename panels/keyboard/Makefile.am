@@ -2,8 +2,8 @@ cappletname=keyboard
 noinst_LTLIBRARIES=libkeyboard.la
 
 AUTOMAKE_OPTIONS=foreign
-#INCLUDES= `pkg-config --cflags gtk+-2.0 gio-2.0 glib-2.0 ukui-settings-daemon libmatekbd gdk-2.0 libmatekbdui x11 dconf gobject-2.0`
-#LIBS= `pkg-config --libs gtk+-2.0 gio-2.0 glib-2.0 ukui-settings-daemon libmatekbd gdk-2.0 libmatekbdui x11 dconf gobject-2.0`
+#INCLUDES= `pkg-config --cflags gtk+-2.0 gio-2.0 glib-2.0 mate-settings-daemon libmatekbd gdk-2.0 libmatekbdui x11 dconf gobject-2.0`
+#LIBS= `pkg-config --libs gtk+-2.0 gio-2.0 glib-2.0 mate-settings-daemon libmatekbd gdk-2.0 libmatekbdui x11 dconf gobject-2.0`
 AM_CPPFLAGS = \
 	-DUIDIR="\"$(uidir)\""	\
 	-DUKUI_KEYBINDINGS_DIR="\"$(pkgdatadir)/keybindings\""	\

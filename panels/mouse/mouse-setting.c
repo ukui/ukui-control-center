@@ -26,12 +26,12 @@
 #include <X11/Xatom.h>
 #include <X11/extensions/XInput.h>
 #include <X11/Xcursor/Xcursor.h>
-#include <ukui-settings-daemon/ukui-settings-client.h>
+#include <mate-settings-daemon/mate-settings-client.h>
 #define WID(s) (GTK_WIDGET(gtk_builder_get_object(mousedata.builder, s)))
 
 #define MOUSE_SCHEMA "org.mate.peripherals-mouse"
 #define DOUBLE_CLICK_KEY "double-click"
-#define TOUCHPAD_SCHEMA "org.ukui.peripherals-touchpad"
+#define TOUCHPAD_SCHEMA "org.mate.peripherals-touchpad"
 
 #define MOUSE_DBLCLCK_OFF "mouse-dblclck-off"
 #define MOUSE_DBLCLCK_MAYBE "mouse-dblclck-maybe"
@@ -378,15 +378,15 @@ static gboolean active_settings_daemon()
         return FALSE;
     }
     proxy  = dbus_g_proxy_new_for_name(connection,
-                                       "org.ukui.SettingsDaemon",
-                                       "/org/ukui/SettingsDaemon",
-                                       "org.ukui.SettingsDaemon");
+                                       "org.mate.SettingsDaemon",
+                                       "/org/mate/SettingsDaemon",
+                                       "org.mate.SettingsDaemon");
     if (proxy ==NULL)
     {
         g_warning("get proxy error\n");
         return FALSE;
     }
-    if (!org_ukui_SettingsDaemon_awake(proxy, &error))
+    if (!org_mate_SettingsDaemon_awake(proxy, &error))
     {
         g_warning("SettingsDaemon awake error\n");
         g_error_free(error);

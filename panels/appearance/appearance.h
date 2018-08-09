@@ -59,7 +59,7 @@
 #define CURSOR_THEME_KEY             "cursor-theme"
 #define CURSOR_SIZE_KEY              "cursor-size"
 
-#define FONT_RENDER_SCHEMA           "org.ukui.font-rendering"
+#define FONT_RENDER_SCHEMA           "org.mate.font-rendering"
 #define FONT_ANTIALIASING_KEY        "antialiasing"
 #define FONT_HINTING_KEY             "hinting"
 #define FONT_RGBA_ORDER_KEY          "rgba-order"
