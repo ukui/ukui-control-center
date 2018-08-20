@@ -2077,9 +2077,9 @@ begin_version2_apply_configuration (App *app, GdkWindow *parent_window, guint32 
     parent_window_xid = GDK_WINDOW_XID (parent_window);
 
     app->proxy = dbus_g_proxy_new_for_name (app->connection,
-					    "org.mate.SettingsDaemon",
-					    "/org/mate/SettingsDaemon/XRANDR",
-					    "org.mate.SettingsDaemon.XRANDR_2");
+					    "org.ukui.SettingsDaemon",
+					    "/org/ukui/SettingsDaemon/XRANDR",
+					    "org.ukui.SettingsDaemon.XRANDR_2");
     g_assert (app->proxy != NULL); /* that call does not fail unless we pass bogus names */
 
     app->apply_configuration_state = APPLYING_VERSION_2;
@@ -2100,9 +2100,9 @@ static void
 begin_version1_apply_configuration (App *app)
 {
     app->proxy = dbus_g_proxy_new_for_name (app->connection,
-					    "org.mate.SettingsDaemon",
-					    "/org/mate/SettingsDaemon/XRANDR",
-					    "org.mate.SettingsDaemon.XRANDR");
+					    "org.ukui.SettingsDaemon",
+					    "/org/ukui/SettingsDaemon/XRANDR",
+					    "org.ukui.SettingsDaemon.XRANDR");
     g_assert (app->proxy != NULL); /* that call does not fail unless we pass bogus names */
 
     app->apply_configuration_state = APPLYING_VERSION_1;
@@ -2266,7 +2266,7 @@ set_primary (GtkWidget *widget, gpointer data)
     gtk_widget_set_sensitive (app->primary_button, !mate_rr_output_info_get_primary(app->current_output));
 }
 
-#define MSD_XRANDR_SCHEMA                 "org.mate.SettingsDaemon.plugins.xrandr"
+#define MSD_XRANDR_SCHEMA                 "org.ukui.SettingsDaemon.plugins.xrandr"
 #define SHOW_ICON_KEY                     "show-notification-icon"
 #define DEFAULT_CONFIGURATION_FILE_KEY    "default-configuration-file"
 

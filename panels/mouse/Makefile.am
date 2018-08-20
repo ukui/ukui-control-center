@@ -2,8 +2,8 @@ cappletname=mouse_app
 noinst_LTLIBRARIES=libmouseapp.la
 
 AUTOMAKE_OPTIONS=foreign
-#INCLUDES=`pkg-config --cflags gtk+-2.0 glib-2.0 dbus-glib-1 gio-2.0 mate-settings-daemon x11 xi`
-#LIBS=`pkg-config --libs gtk+-2.0 glib-2.0 dbus-glib-1 gio-2.0 mate-settings-daemon x11 xi`
+#INCLUDES=`pkg-config --cflags gtk+-2.0 glib-2.0 dbus-glib-1 gio-2.0 ukui-settings-daemon x11 xi`
+#LIBS=`pkg-config --libs gtk+-2.0 glib-2.0 dbus-glib-1 gio-2.0 ukui-settings-daemon x11 xi`
 
 AM_CPPFLAGS =	\
 	$(GTK_CFLAGS)	\

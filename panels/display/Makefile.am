@@ -2,8 +2,8 @@ cappletname=display_app
 noinst_LTLIBRARIES=libdisplayapp.la
 
 AUTOMAKE_OPTIONS=foreign
-#INCLUDES=`pkg-config --cflags gtk+-2.0 glib-2.0 dbus-glib-1 gio-2.0 mate-settings-daemon mate-desktop-2.0`
-#LIBS=`pkg-config --libs gtk+-2.0 glib-2.0 dbus-glib-1 gio-2.0 mate-settings-daemon mate-desktop-2.0`
+#INCLUDES=`pkg-config --cflags gtk+-2.0 glib-2.0 dbus-glib-1 gio-2.0 ukui-settings-daemon mate-desktop-2.0`
+#LIBS=`pkg-config --libs gtk+-2.0 glib-2.0 dbus-glib-1 gio-2.0 ukui-settings-daemon mate-desktop-2.0`
 
 sbin_PROGRAMS = ukui-display-properties-install-systemwide
 
