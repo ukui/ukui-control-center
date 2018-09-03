@@ -31,7 +31,7 @@ dialog entry:focus {
   color: blue;
 }
 #viewport11 viewport:disabled button:disabled {
-  background-image: image(#c3dffe);
+  background-image: image($base_active_bg_color);
 }
 #viewport11 viewport:disabled button:disabled label:disabled {
   color: black;
