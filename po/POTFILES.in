@@ -19,6 +19,7 @@ panels/volume-control/gvc-speaker-test.c
 panels/volume-control/sound-theme-file-utils.c
 panels/appearance/appearance-desktop.c
 panels/appearance/appearance-theme.c
+panels/appearance/appearance-windows.c
 panels/appearance/font_render.ui
 panels/appearance/ukui-wp-item.c
 panels/keyboard/ukui-keyboard-properties-layout-chooser.ui
