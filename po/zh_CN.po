@@ -1925,11 +1925,11 @@ msgstr "桌面背景"
 
 #: shell/shell.ui.h:75
 msgid "Select the one you love color as the theme color"
-msgstr "选择一个你喜欢的颜色作为主题颜色"
+msgstr "选择一个你喜欢的主题"
 
 #: shell/shell.ui.h:76
 msgid "Theme color"
-msgstr "主题颜色"
+msgstr "主题"
 
 #: shell/shell.ui.h:77
 msgid "Font choice:"
