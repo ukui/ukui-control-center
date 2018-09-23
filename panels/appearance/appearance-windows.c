@@ -48,8 +48,13 @@ static void on_combo_changed_cb(GtkComboBox * combobox, gpointer userdata){
 
     if(current == 0)
 	g_settings_set_string(settings, key, "none");
-    else if(current == 1)
-	g_settings_set_string(settings, key, "toggle_maximize");
+    else if(current == 1){
+	    gchar * filename = "/usr/share/glib-2.0/schemas/org.mate.marco.gschema.xml";
+	    if (g_file_test(filename, G_FILE_TEST_EXISTS))
+		    g_settings_set_string(settings, key, "toggle_maximize");
+	    else
+		    g_settings_set_string(settings, key, "toggle-maximize");
+    }
     else if(current == 2)
 	g_settings_set_string(settings, key, "lower");
 }
@@ -65,21 +70,21 @@ static void setup_combo(){
     //double combo box
     if(strcmp(doubleCur, "none") == 0)
 	doubleIndex = 0;
-    else if (strcmp(doubleCur, "toggle-maximize") == 0)
+    else if (strcmp(doubleCur, "toggle-maximize") == 0 || strcmp(doubleCur, "toggle_maximize") == 0)
 	doubleIndex = 1;
     else if (strcmp(doubleCur, "lower") == 0)
 	doubleIndex = 2;
     //middle combo box
     if(strcmp(middleCur, "none") == 0)
 	middleIndex = 0;
-    else if (strcmp(middleCur, "toggle-maximize") == 0)
+    else if (strcmp(middleCur, "toggle-maximize") == 0 || strcmp(middleCur, "toggle_maximize") == 0)
 	middleIndex = 1;
     else if (strcmp(middleCur, "lower") == 0)
 	middleIndex = 2;
     //right combo box
     if(strcmp(rightCur, "none") == 0)
 	rightIndex = 0;
-    else if (strcmp(rightCur, "toggle-maximize") == 0)
+    else if (strcmp(rightCur, "toggle-maximize") == 0 || strcmp(rightCur, "toggle_maximize") == 0)
 	rightIndex = 1;
     else if (strcmp(rightCur, "lower") == 0)
 	rightIndex = 2;
@@ -113,7 +118,11 @@ static void populate_combo_data(){
 void windows_init(AppearanceData * data){
     GtkWidget * default_button;
     builder = data->ui;
-    settings = g_settings_new("org.mate.Marco.general");
+    gchar * filename = "/usr/share/glib-2.0/schemas/org.mate.marco.gschema.xml";
+    if (g_file_test(filename, G_FILE_TEST_EXISTS))
+    	settings = g_settings_new("org.mate.Marco.general");
+    else
+	settings = g_settings_new("org.gnome.desktop.wm.preferences");
     
     doublecombo = GTK_WIDGET(gtk_builder_get_object(builder, "dCombox"));
     g_signal_connect(G_OBJECT(doublecombo), "changed", G_CALLBACK(on_combo_changed_cb), DOUBLE);
