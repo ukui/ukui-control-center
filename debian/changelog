@@ -2,7 +2,8 @@ ukui-control-center (1.1.4-1) unstable; urgency=medium
 
   * Adjust the width of the wallpaper layout.
   * Drop liboobs-1-dev. (Closes: #888672)
-  * change ukcc.css, background-image changed with system theme;
+  * change ukcc.css, background-image changed with system theme.
+  * Add theme settings page.
 
  -- handsome_feng <jianfengli@ubuntukylin.com>  Wed, 19 Sep 2018 13:56:50 +0800
 
