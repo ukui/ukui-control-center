@@ -34,12 +34,16 @@ struct _ThemeData {
     GtkWidget * color_button_purple;
     GtkWidget * color_button_lightblue;
     GtkWidget * color_button_orange;
+    GtkWidget * color_button_black;
     GSettings * theme_setting;
 	GSettings * theme_gtk_setting;
 	GtkWidget * appearance_show_label;
 };
 ThemeData themedata;
 static gboolean mute_lock;
+
+gchar * iconblack = "ukui-icon-theme"; 
+gchar * iconblue = "ukui-icon-theme-one";
 
 static gboolean reset_lock(gpointer user_data){
 	mute_lock = TRUE;
@@ -52,7 +56,12 @@ static void set_theme_color(GtkWidget * widget, GdkEvent *event, gpointer user_d
 	if(mute_lock){
 		mute_lock = FALSE;
     	g_settings_set_string(themedata.theme_setting,MARCO_THEME_KEY, user_data);
-		g_settings_set_string(themedata.theme_gtk_setting,GTK_THEME_KEY, user_data);
+	g_settings_set_string(themedata.theme_gtk_setting,GTK_THEME_KEY, user_data);
+	if (g_strrstr(user_data, "blue"))
+		g_settings_set_string(themedata.theme_gtk_setting, ICON_THEME_KEY, iconblue);
+	else
+		g_settings_set_string(themedata.theme_gtk_setting, ICON_THEME_KEY, iconblack);
+
     //	systemback = system("/usr/bin/killall mate-panel");
         systemback = system("/usr/bin/nohup /usr/bin/mate-panel --replace &");
 
@@ -65,13 +74,17 @@ static void set_theme_color(GtkWidget * widget, GdkEvent *event, gpointer user_d
 static void component_init(){
     themedata.color_button_blue = theme_gtk(themedata, "color_button_blue");
     gtk_button_set_image(themedata.color_button_blue, gtk_image_new_from_file(COLOR_DIR"/ukui-blue.png"));
-    g_signal_connect(themedata.color_button_blue, "button-release-event", G_CALLBACK(set_theme_color), "ukui-theme");
+    g_signal_connect(themedata.color_button_blue, "button-release-event", G_CALLBACK(set_theme_color), "ukui-blue");
 
-    themedata.color_button_gray = theme_gtk(themedata, "color_button_gray");
-    gtk_button_set_image(themedata.color_button_gray, gtk_image_new_from_file(COLOR_DIR"/ukui-gray.png"));
-    g_signal_connect(themedata.color_button_gray, "button-release-event", G_CALLBACK(set_theme_color), "ukui-theme-black");
+    themedata.color_button_black = theme_gtk(themedata, "color_button_black");
+    gtk_button_set_image(themedata.color_button_black, gtk_image_new_from_file(COLOR_DIR"/ukui-black.png"));
+    g_signal_connect(themedata.color_button_black, "button-release-event", G_CALLBACK(set_theme_color), "ukui-black");
 
-    themedata.color_button_yellow = theme_gtk(themedata, "color_button_yellow");
+    //themedata.color_button_gray = theme_gtk(themedata, "color_button_gray");
+    //gtk_button_set_image(themedata.color_button_gray, gtk_image_new_from_file(COLOR_DIR"/ukui-gray.png"));
+    //g_signal_connect(themedata.color_button_gray, "button-release-event", G_CALLBACK(set_theme_color), "ukui-theme-gray");
+
+    /*themedata.color_button_yellow = theme_gtk(themedata, "color_button_yellow");
     gtk_button_set_image(themedata.color_button_yellow, gtk_image_new_from_file(COLOR_DIR"/ukui-yellow.png"));
     g_signal_connect(themedata.color_button_yellow, "button-release-event", G_CALLBACK(set_theme_color), "ukui-theme-yellow");
 
@@ -90,15 +103,15 @@ static void component_init(){
 
     themedata.color_button_purple = theme_gtk(themedata, "color_button_purple");
     gtk_button_set_image(themedata.color_button_purple, gtk_image_new_from_file(COLOR_DIR"/ukui-purple.png"));
-    g_signal_connect(themedata.color_button_purple, "button-release-event", G_CALLBACK(set_theme_color), "ukui-theme-purple");
+    g_signal_connect(themedata.color_button_purple, "button-release-event", G_CALLBACK(set_theme_color), "ukui-theme-purple");*/
 
     /*themedata.color_button_lightblue = theme_gtk(themedata, "color_button_lightblue");
     gtk_button_set_image(themedata.color_button_lightblue, gtk_image_new_from_file(COLOR_DIR"/ukui-light-blue.png"));
     g_signal_connect(themedata.color_button_lightblue, "button-release-event", G_CALLBACK(set_theme_color), "ukui-light-blue");
 	*/
-    themedata.color_button_orange = theme_gtk(themedata, "color_button_orange");
+    /*themedata.color_button_orange = theme_gtk(themedata, "color_button_orange");
     gtk_button_set_image(themedata.color_button_orange, gtk_image_new_from_file(COLOR_DIR"/ukui-orange.png"));
-    g_signal_connect(themedata.color_button_orange, "button-release-event", G_CALLBACK(set_theme_color), "ukui-theme-orange");
+    g_signal_connect(themedata.color_button_orange, "button-release-event", G_CALLBACK(set_theme_color), "ukui-theme-orange");*/
 
 	themedata.appearance_show_label = theme_gtk(themedata, "appearance_show_label");
 }

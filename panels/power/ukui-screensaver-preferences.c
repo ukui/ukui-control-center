@@ -418,7 +418,8 @@ help_display (void)
     GError *error;
 
     error = NULL;
-    gtk_show_uri (NULL, "help:ukui-user-guide/prefs-screensaver", GDK_CURRENT_TIME, &error);
+    //gtk_show_uri (NULL, "help:ukui-user-guide/prefs-screensaver", GDK_CURRENT_TIME, &error);
+    gtk_show_uri (NULL, "help:ubuntu-kylin-help/index", GDK_CURRENT_TIME, &error);
 
     if (error != NULL)
     {

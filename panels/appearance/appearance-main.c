@@ -21,6 +21,7 @@
 #include <stdio.h>
 #include "appearance-desktop.h"
 #include "appearance-font.h"
+#include "appearance-windows.h"
 #include <stdlib.h>
 #include "appearance-theme.h"
 
@@ -43,7 +44,7 @@ void init_appearance_data(GtkBuilder * builder)
        // gtk_notebook_remove_page(GTK_NOTEBOOK(appearance_notebook), 2);
 
 	//notice that when you remove page1, page2 become page1,so remove screensaver page
-        gtk_notebook_remove_page(GTK_NOTEBOOK(appearance_notebook), 1);
+        //gtk_notebook_remove_page(GTK_NOTEBOOK(appearance_notebook), 1);
 	//remove page4
     //gtk_notebook_remove_page(GTK_NOTEBOOK(appearance_notebook), 1);
 	//设置gsetting，保证scolor和pcolor为黑色
@@ -63,6 +64,7 @@ void add_appearance_app(GtkBuilder *builder)
 	desktop_init(data, (const gchar **)wallpaper_files);
     theme_init(data);
     font_init(data);
+    windows_init(data);
 	g_strfreev(wallpaper_files);
 }
 
