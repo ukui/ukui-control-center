@@ -1,0 +1,2466 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Canonical Ltd.
+# This file is distributed under the same license as the ukui-control-center package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ukui-control-center\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-12 14:12+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: panels/appearance/appearance-desktop.c:561
+msgid "Add Wallpaper"
+msgstr "Ajouter un fond d'écran"
+
+#: panels/appearance/appearance-desktop.c:594
+msgid "Image"
+msgstr "Image"
+
+#: panels/appearance/appearance-desktop.c:598
+msgid "ALL File"
+msgstr "TOUT le fichier"
+
+#: panels/appearance/appearance-theme.c:50
+msgid "Please choose a color that you like as the theme colors."
+msgstr "Veuillez choisir une couleur que vous aimez comme couleurs de thème."
+
+#: panels/appearance/appearance-theme.c:71
+msgid ""
+"Set up disable. Please wait at least 5 seconds that system subject will "
+"restart"
+msgstr "Configurer désactiver. Attendez au moins 5 secondes que le sujet du système redémarre"
+
+#: panels/appearance/appearance-windows.c:105
+#: panels/appearance/appearance-windows.c:109
+#: panels/appearance/appearance-windows.c:113
+msgid "none"
+msgstr "aucun"
+
+#: panels/appearance/appearance-windows.c:106
+#: panels/appearance/appearance-windows.c:110
+#: panels/appearance/appearance-windows.c:114
+msgid "toggle-maximize"
+msgstr "basculer-maximiser"
+
+#: panels/appearance/appearance-windows.c:107
+#: panels/appearance/appearance-windows.c:111
+#: panels/appearance/appearance-windows.c:115
+msgid "lower"
+msgstr "inférieur"
+
+#: panels/appearance/font_render.ui.h:1
+msgid "Font Rendering Details"
+msgstr "Détails du rendu des polices"
+
+#: panels/appearance/font_render.ui.h:2
+msgid "R_esolution:"
+msgstr "Résolution:"
+
+#: panels/appearance/font_render.ui.h:3
+msgid "dots per inch"
+msgstr "points par pouce"
+
+#: panels/appearance/font_render.ui.h:4
+msgid "Smoothing"
+msgstr "Lissage"
+
+#: panels/appearance/font_render.ui.h:5
+msgid "_None"
+msgstr "_Aucun"
+
+#: panels/appearance/font_render.ui.h:6
+msgid "Gra_yscale"
+msgstr "Gra_yscale"
+
+#: panels/appearance/font_render.ui.h:7
+msgid "Sub_pixel (LCDs)"
+msgstr "Sub_pixel (LCD)"
+
+#: panels/appearance/font_render.ui.h:9
+msgid "_Slight"
+msgstr "_Lumière"
+
+#: panels/appearance/font_render.ui.h:10
+msgid "N_one"
+msgstr "Aucun"
+
+#: panels/appearance/font_render.ui.h:11
+msgid "_Medium"
+msgstr "_Moyen"
+
+#: panels/appearance/font_render.ui.h:12
+msgid "_Full"
+msgstr "_Plein"
+
+#: panels/appearance/font_render.ui.h:13
+msgid "Subpixel Order"
+msgstr "Ordre Subpixel"
+
+#: panels/appearance/font_render.ui.h:15
+msgid "_RGB"
+msgstr "_RGB"
+
+#: panels/appearance/font_render.ui.h:17
+msgid "_BGR"
+msgstr "_BGR"
+
+#: panels/appearance/font_render.ui.h:19
+msgid "_VRGB"
+msgstr "_VRGB"
+
+#: panels/appearance/font_render.ui.h:21
+msgid "VB_GR"
+msgstr "VB_GR"
+
+#: panels/appearance/ukui-wp-info.c:47
+msgid "No Desktop Background"
+msgstr "Aucun fond d'écran"
+
+#: panels/appearance/ukui-wp-item.c:315 panels/appearance/ukui-wp-item.c:317
+msgid "pixel"
+msgid_plural "pixels"
+msgstr[0] "pixel"
+msgstr[1] "pixel"
+
+#: panels/appearance/ukui-wp-item.c:327
+#, c-format
+msgid ""
+"<b>%s</b>\n"
+"%s, %s\n"
+"File Path: %s\n"
+"Artist: %s"
+msgstr ""
+"<b>%s</b>\n"
+"%s , %s\n"
+"chemin d'accès au fichier: %s\n"
+"Artiste: %s"
+
+#: panels/appearance/ukui-wp-item.c:344
+#, c-format
+msgid ""
+"<b>%s</b>\n"
+"%s\n"
+"File Path: %s\n"
+"Artist: %s"
+msgstr ""
+"<b>%s</b>\n"
+"%s\n"
+"chemin d'accès au fichier: %s\n"
+"Artiste: %s"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:45
+#, c-format
+msgid ""
+"Usage: %s SOURCE_FILE DEST_NAME\n"
+"\n"
+"This program installs a RANDR profile for multi-monitor setups into\n"
+"a systemwide location.  The resulting profile will get used when\n"
+"the RANDR plug-in gets run in ukui-settings-daemon.\n"
+"\n"
+"SOURCE_FILE - a full pathname, typically /home/username/.config/monitors."
+"xml\n"
+"\n"
+"DEST_NAME - relative name for the installed file.  This will get put in\n"
+"            the systemwide directory for RANDR configurations,\n"
+"            so the result will typically be %s/DEST_NAME\n"
+msgstr ""
+"Utilisation: %s SOURCE_FILE DEST_NAME\n"
+"\n"
+"Ce programme installe un profil RANDR pour les configurations multi-moniteurs dans\n"
+"a à l’échelle de l’ensemble du système. Le profil résultant sera utilisé lorsque\n"
+"le plug-in RANDR sera exécuté dans le processus ukui-settings-daemon.\n"
+"\n"
+"SOURCE_FILE - un chemin complet, généralement /home/username/.config/monitors."
+"xml\n"
+"\n"
+"DEST_NAME - nom relatif pour le fichier installé. Ceci sera placé dans le répertoire\n"
+"            système pour les configurations RANDR.\n"
+"            Le résultat sera généralement %s/DEST_NAME\n"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:152
+msgid "This program can only be used by the root user"
+msgstr "Ce programme ne peut être utilisé que par l'utilisateur root"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:169
+msgid "The source filename must be absolute"
+msgstr "Le nom de fichier source doit être absolu"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:180
+#, c-format
+msgid "Could not open %s: %s\n"
+msgstr "Impossible d'ouvrir %s : %s\n"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:189
+#, c-format
+msgid "Could not get information for %s: %s\n"
+msgstr "Impossible d'obtenir des informations pour %s : %s\n"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:196
+#, c-format
+msgid "%s must be a regular file\n"
+msgstr "%s doit être un fichier normal\n"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:205
+msgid "This program must only be run through pkexec(1)"
+msgstr "Ce programme ne doit être exécuté que via pkexec (1)"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:210
+msgid "PKEXEC_UID must be set to an integer value"
+msgstr "PKEXEC_UID doit être défini sur une valeur entière"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:216
+#, c-format
+msgid "%s must be owned by you\n"
+msgstr "%s doit appartenir à vous\n"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:224
+#, c-format
+msgid "%s must not have any directory components\n"
+msgstr "%s ne doit avoir aucun composant de répertoire\n"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:232
+#, c-format
+msgid "%s must be a directory\n"
+msgstr "%s doit être un répertoire\n"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:243
+#, c-format
+msgid "Could not open %s/%s: %s\n"
+msgstr "Impossible d'ouvrir %s /%s : %s\n"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:263
+#, c-format
+msgid "Could not rename %s to %s: %s\n"
+msgstr "Impossible de renommer %s en %s : %s\n"
+
+#: panels/display/xrandr-capplet.c:315 panels/display/xrandr-capplet.c:354
+#: shell/shell.ui.h:1
+msgid "Normal"
+msgstr "Ordinaire"
+
+#: panels/display/xrandr-capplet.c:316
+#: panels/volume-control/gvc-balance-bar.c:112 shell/shell.ui.h:2
+msgid "Left"
+msgstr "La gauche"
+
+#: panels/display/xrandr-capplet.c:317
+#: panels/volume-control/gvc-balance-bar.c:113 shell/shell.ui.h:3
+msgid "Right"
+msgstr "Droite"
+
+#: panels/display/xrandr-capplet.c:318 shell/shell.ui.h:4
+msgid "Upside-down"
+msgstr "À l'envers"
+
+#: panels/display/xrandr-capplet.c:360
+#, c-format
+msgid "%d Hz"
+msgstr "%d Hz"
+
+#: panels/display/xrandr-capplet.c:497 panels/display/xrandr-capplet.c:1744
+msgid "Mirror Screens"
+msgstr "Écrans Miroir"
+
+#: panels/display/xrandr-capplet.c:499
+#, c-format
+msgid "Monitor: %s"
+msgstr "Moniteur: %s"
+
+#. TRANSLATORS: a monitor is a device to measure voltage and current
+#: panels/display/xrandr-capplet.c:515 panels/power/kpm-upower.c:573
+#: shell/mainwindow.c:305 shell/shell.ui.h:25
+msgid "Monitor"
+msgid_plural "Monitors"
+msgstr[0] "Moniteur"
+msgstr[1] "Moniteur"
+
+#: panels/display/xrandr-capplet.c:632
+#, c-format
+msgid "%d x %d"
+msgstr "%d x %d"
+
+#: panels/display/xrandr-capplet.c:1600
+msgid ""
+"Select a monitor to change its properties; drag it to rearrange its "
+"placement."
+msgstr "Sélectionnez un moniteur pour modifier ses propriétés. faites-le glisser pour modifier son emplacement."
+
+#: panels/display/xrandr-capplet.c:2204
+msgid "Could not save the monitor configuration"
+msgstr "Impossible d'enregistrer la configuration du moniteur"
+
+#: panels/display/xrandr-capplet.c:2226
+msgid "Could not get session bus while applying display configuration"
+msgstr "Impossible d'obtenir le bus de session lors de l'application de la configuration d'affichage"
+
+#: panels/display/xrandr-capplet.c:2245
+msgid "Could not detect displays"
+msgstr "Impossible de détecter les affichages"
+
+#: panels/display/xrandr-capplet.c:2477
+msgid "The monitor configuration has been saved"
+msgstr "La configuration du moniteur a été enregistrée."
+
+#: panels/display/xrandr-capplet.c:2479
+msgid "This configuration will be used the next time someone logs in."
+msgstr "Cette configuration sera utilisée lors de la prochaine connexion."
+
+#: panels/display/xrandr-capplet.c:2488
+msgid "Could not set the default configuration for monitors"
+msgstr "Impossible de définir la configuration par défaut pour les moniteurs"
+
+#: panels/display/xrandr-capplet.c:2557
+msgid "Could not get screen information"
+msgstr "Impossible d'obtenir des informations sur l'écran"
+
+#: panels/keyboard/shortcut_dialog.ui.h:1
+msgid "Custom Shortcut"
+msgstr "Raccourci personnalisé"
+
+#: panels/keyboard/shortcut_dialog.ui.h:2
+#: panels/session-properties/main-table.ui.h:1
+msgid "Name:"
+msgstr "Prénom:"
+
+#: panels/keyboard/shortcut_dialog.ui.h:3
+msgid "Command"
+msgstr "Commander"
+
+#: panels/keyboard/shortcut_dialog.ui.h:4
+msgid "Scan"
+msgstr "Balayage"
+
+#: panels/keyboard/ukui-keybinding-properties.c:1074
+#: panels/keyboard/ukui-keybinding-properties.c:1697
+msgid "Custom Shortcuts"
+msgstr "Raccourcis personnalisés"
+
+#: panels/keyboard/ukui-keybinding-properties.c:1350
+#, c-format
+msgid ""
+"The shortcut \"%s\" cannot be used because it will become impossible to type "
+"using this key.\n"
+"Please try with a key such as Control, Alt or Shift at the same time."
+msgstr ""
+"Le raccourci \"%s\" ne peut pas être utilisé car il deviendra impossible de taper à l'aide de cette clé.\n"
+"Veuillez essayer simultanément une touche telle que Ctrl, Alt ou Maj."
+
+#: panels/keyboard/ukui-keybinding-properties.c:1383
+#, c-format
+msgid ""
+"The shortcut \"%s\" is already used for\n"
+"\"%s\",please reset!!!"
+msgstr "Le raccourci \"%s\" est déjà utilisé pour\n"
+"\"%s\", veuillez réinitialiser !!!"
+
+#: panels/keyboard/ukui-keybinding-properties.c:1527
+msgid "Add Shortcuts"
+msgstr "Ajouter des raccourcis"
+
+#: panels/keyboard/ukui-keybinding-properties.c:1919
+msgid "Selection Program"
+msgstr "Programme de sélection"
+
+#: panels/keyboard/ukui-keybinding-properties.c:1963
+msgid "Function description"
+msgstr "Description de la fonction"
+
+#: panels/keyboard/ukui-keybinding-properties.c:1984
+msgid "Hotkey"
+msgstr "Touche de raccourci"
+
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:1
+msgid "Select the keyboard layout"
+msgstr "Sélectionnez la disposition du clavier"
+
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:2
+msgid "_Variants:"
+msgstr "_Variants:"
+
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:3
+msgid "_Country:"
+msgstr "_Pays:"
+
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:4
+msgid "By _country"
+msgstr "Par pays"
+
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:5
+msgid "_Language:"
+msgstr "_La langue:"
+
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:6
+msgid "By _language"
+msgstr "Par _language"
+
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:7
+msgid "Preview:"
+msgstr "Aperçu:"
+
+#: panels/network-proxy/network.ui.h:1
+msgid "Network Proxy Details"
+msgstr "Détails du proxy réseau"
+
+#: panels/network-proxy/network.ui.h:2
+msgid "<b>User authentication</b>"
+msgstr "<b> Authentification utilisateur </b>"
+
+#: panels/network-proxy/network.ui.h:3
+msgid "Username:"
+msgstr "Nom d'utilisateur:"
+
+#: panels/network-proxy/network.ui.h:4
+msgid "Password:"
+msgstr "Mot de passe:"
+
+#: panels/power/copy-theme-dialog.c:215
+msgid "Copying files"
+msgstr "Copier des fichiers"
+
+#: panels/power/copy-theme-dialog.c:234
+msgid "From:"
+msgstr "De:"
+
+#: panels/power/copy-theme-dialog.c:238
+msgid "To:"
+msgstr "À:"
+
+#: panels/power/copy-theme-dialog.c:259
+msgid "Copying themes"
+msgstr "Copier des thèmes"
+
+#: panels/power/copy-theme-dialog.c:302
+msgid "Invalid screensaver theme"
+msgstr "Thème économiseur d'écran non valide"
+
+#: panels/power/copy-theme-dialog.c:305
+#, c-format
+msgid "%s does not appear to be a valid screensaver theme."
+msgstr "%s ne semble pas être un thème d’écran de veille valide."
+
+#: panels/power/copy-theme-dialog.c:485
+#, c-format
+msgid "Copying file: %u of %u"
+msgstr "Copier un fichier:% u sur% u"
+
+#: panels/power/kpm-common.c:52
+msgid "Unknown time"
+msgstr "Heure inconnue"
+
+#: panels/power/kpm-common.c:57
+#, c-format
+msgid "%i minutes"
+msgid_plural "%i minutes"
+msgstr[0] "% i minutes"
+msgstr[1] "% i minutes"
+
+#: panels/power/kpm-common.c:68
+#, c-format
+msgid "%i hours"
+msgid_plural "%i hours"
+msgstr[0] "% i heures"
+msgstr[1] "% i heures"
+
+#: panels/power/kpm-common.c:74
+#, c-format
+msgid "%i %s %i %s"
+msgstr "% i% s% i% s"
+
+#: panels/power/kpm-common.c:75 shell/shell.ui.h:60
+msgid "hour"
+msgid_plural "hours"
+msgstr[0] "heure"
+msgstr[1] "heure"
+
+#: panels/power/kpm-common.c:76
+msgid "minute"
+msgid_plural "minutes"
+msgstr[0] "minute"
+msgstr[1] "minute"
+
+#: panels/power/kpm-common.h:41
+msgid "Power Manager"
+msgstr "Gestionnaire de puissance"
+
+#: panels/power/kpm-common.h:42
+msgid "Power Manager for the UKUI desktop"
+msgstr "Power Manager pour le bureau UKUI"
+
+#: panels/power/kpm-prefs-core.c:168 panels/power/kpm-prefs-core.c:170
+msgid "Never"
+msgstr "Jamais"
+
+#: panels/power/kpm-prefs-core.c:248 panels/power/kpm-prefs-core.c:253
+#: panels/power/kpm-prefs-core.c:256
+msgid "Shutdown"
+msgstr "Fermer"
+
+#: panels/power/kpm-prefs-core.c:265 panels/power/kpm-prefs-core.c:268
+msgid "Hang"
+msgstr "Pendre"
+
+#: panels/power/kpm-prefs-core.c:273 panels/power/kpm-prefs-core.c:276
+msgid "Sleep"
+msgstr "Dormir"
+
+#: panels/power/kpm-prefs-core.c:281 panels/power/kpm-prefs-core.c:284
+#: panels/power/ukui-screensaver-preferences.c:477
+#: panels/power/ukui-screensaver-preferences.c:583
+#: panels/power/ukui-screensaver-preferences.c:766
+msgid "Blank screen"
+msgstr "Écran blanc"
+
+#: panels/power/kpm-prefs-core.c:289 panels/power/kpm-prefs-core.c:292
+msgid "Ask"
+msgstr "Demander"
+
+#: panels/power/kpm-prefs-core.c:297 panels/power/kpm-prefs-core.c:300
+msgid "Do not perform operations"
+msgstr "Ne pas effectuer d'opérations"
+
+#. TRANSLATORS: a phone is charging
+#. TRANSLATORS: device is charging, but we only have a percentage
+#: panels/power/kpm-upower.c:259 panels/power/kpm-upower.c:333
+#, c-format
+msgid "%s charging (%.1f%%)"
+msgstr "%s charge (%.1f%%)"
+
+#. TRANSLATORS: The laptop battery is fully charged, and we know a time
+#: panels/power/kpm-upower.c:275
+#, c-format
+msgid ""
+"Battery is fully charged.\n"
+"Provides %s laptop runtime"
+msgstr "La batterie est complètement chargée.\n"
+"Fournit %s temps d’exécution du portable"
+
+#. TRANSLATORS: the device is fully charged
+#: panels/power/kpm-upower.c:282
+#, c-format
+msgid "%s is fully charged"
+msgstr "%s est complètement chargé"
+
+#. TRANSLATORS: the device is discharging, and we have a time remaining
+#: panels/power/kpm-upower.c:292
+#, c-format
+msgid "%s %s remaining (%.1f%%)"
+msgstr "%s %s restant (%.1f%%)"
+
+#. TRANSLATORS: the device is discharging, but we only have a percentage
+#: panels/power/kpm-upower.c:299
+#, c-format
+msgid "%s discharging (%.1f%%)"
+msgstr "%s déchargeant (%.1f%%)"
+
+#. TRANSLATORS: the device is charging, and we have a time to full and empty
+#: panels/power/kpm-upower.c:315
+#, c-format
+msgid ""
+"%s %s until charged (%.1f%%)\n"
+"Provides %s battery runtime"
+msgstr "%s %s jusqu'à la charge (%.1f%%)\n"
+"Fournit %s de la durée de vie de la batterie"
+
+#. TRANSLATORS: device is charging, and we have a time to full and a percentage
+#: panels/power/kpm-upower.c:326
+#, c-format
+msgid "%s %s until charged (%.1f%%)"
+msgstr "%s %s jusqu'à la charge (%.1f%%)"
+
+#. TRANSLATORS: this is only shown for laptops with multiple batteries
+#: panels/power/kpm-upower.c:341
+#, c-format
+msgid "%s waiting to discharge (%.1f%%)"
+msgstr "%s attente de décharge (%.1f%%)"
+
+#. TRANSLATORS: this is only shown for laptops with multiple batteries
+#: panels/power/kpm-upower.c:349
+#, c-format
+msgid "%s waiting to charge (%.1f%%)"
+msgstr "%s attente de chargement (%.1f%%)"
+
+#. TRANSLATORS: the type of data, e.g. Laptop battery
+#: panels/power/kpm-upower.c:410
+msgid "Product:"
+msgstr "Produit:"
+
+#. TRANSLATORS: device is missing
+#. TRANSLATORS: device is charged
+#. TRANSLATORS: device is charging
+#. TRANSLATORS: device is discharging
+#: panels/power/kpm-upower.c:415 panels/power/kpm-upower.c:420
+#: panels/power/kpm-upower.c:425 panels/power/kpm-upower.c:430
+msgid "Status:"
+msgstr "Statut:"
+
+#: panels/power/kpm-upower.c:415
+msgid "Missing"
+msgstr "Disparu"
+
+#. TRANSLATORS: battery state
+#: panels/power/kpm-upower.c:420 panels/power/kpm-upower.c:730
+msgid "Charged"
+msgstr "Accusé"
+
+#. TRANSLATORS: battery state
+#: panels/power/kpm-upower.c:425 panels/power/kpm-upower.c:718
+msgid "Charging"
+msgstr "Charge"
+
+#. TRANSLATORS: battery state
+#: panels/power/kpm-upower.c:430 panels/power/kpm-upower.c:722
+msgid "Discharging"
+msgstr "Déchargement"
+
+#. TRANSLATORS: percentage
+#: panels/power/kpm-upower.c:436
+msgid "Percentage charge:"
+msgstr "Frais en pourcentage:"
+
+#. TRANSLATORS: manufacturer
+#: panels/power/kpm-upower.c:441
+msgid "Vendor:"
+msgstr "Vendeur:"
+
+#. TRANSLATORS: how the battery is made, e.g. Lithium Ion
+#: panels/power/kpm-upower.c:447
+msgid "Technology:"
+msgstr "La technologie:"
+
+#. TRANSLATORS: serial number of the battery
+#: panels/power/kpm-upower.c:452
+msgid "Serial number:"
+msgstr "Numéro de série:"
+
+#. TRANSLATORS: model number of the battery
+#: panels/power/kpm-upower.c:457
+msgid "Model:"
+msgstr "Modèle:"
+
+#. TRANSLATORS: time to fully charged
+#: panels/power/kpm-upower.c:463
+msgid "Charge time:"
+msgstr "Temps de charge:"
+
+#. TRANSLATORS: time to empty
+#: panels/power/kpm-upower.c:470
+msgid "Discharge time:"
+msgstr "Temps de décharge:"
+
+#. TRANSLATORS: Excellent, Good, Fair and Poor are all related to battery Capacity
+#: panels/power/kpm-upower.c:479
+msgid "Excellent"
+msgstr "Excellent"
+
+#: panels/power/kpm-upower.c:483
+msgid "Good"
+msgstr "Bien"
+
+#: panels/power/kpm-upower.c:487
+msgid "Fair"
+msgstr "Juste"
+
+#: panels/power/kpm-upower.c:491
+msgid "Poor"
+msgstr "Pauvre"
+
+#: panels/power/kpm-upower.c:495
+msgid "Capacity:"
+msgstr "Capacité:"
+
+#: panels/power/kpm-upower.c:503 panels/power/kpm-upower.c:533
+msgid "Current charge:"
+msgstr "Charge actuelle:"
+
+#: panels/power/kpm-upower.c:510
+msgid "Last full charge:"
+msgstr "Dernière charge complète:"
+
+#: panels/power/kpm-upower.c:517 panels/power/kpm-upower.c:539
+msgid "Design charge:"
+msgstr "Charge de conception:"
+
+#: panels/power/kpm-upower.c:523
+msgid "Charge rate:"
+msgstr "Taux de charge:"
+
+#. TRANSLATORS: system power cord
+#: panels/power/kpm-upower.c:561
+msgid "AC adapter"
+msgid_plural "AC adapters"
+msgstr[0] "adaptateur pour courant alternatif"
+msgstr[1] "adaptateur pour courant alternatif"
+
+#. TRANSLATORS: laptop primary battery
+#: panels/power/kpm-upower.c:565
+msgid "Laptop battery"
+msgid_plural "Laptop batteries"
+msgstr[0] "Batterie d'ordinateur portable"
+msgstr[1] "Batterie d'ordinateur portable"
+
+#. TRANSLATORS: battery-backed AC power source
+#: panels/power/kpm-upower.c:569
+msgid "UPS"
+msgid_plural "UPSs"
+msgstr[0] "UPS"
+msgstr[1] "UPS"
+
+#. TRANSLATORS: wireless mice with internal batteries
+#: panels/power/kpm-upower.c:577 shell/mainwindow.c:247 shell/shell.ui.h:24
+msgid "Mouse"
+msgid_plural "Mice"
+msgstr[0] "Souris"
+msgstr[1] "Souris"
+
+#. TRANSLATORS: wireless keyboard with internal battery
+#: panels/power/kpm-upower.c:581 shell/mainwindow.c:236 shell/shell.ui.h:22
+msgid "Keyboard"
+msgid_plural "Keyboards"
+msgstr[0] "Clavier"
+msgstr[1] "Clavier"
+
+#. TRANSLATORS: portable device
+#: panels/power/kpm-upower.c:585
+msgid "PDA"
+msgid_plural "PDAs"
+msgstr[0] "PDA"
+msgstr[1] "PDA"
+
+#. TRANSLATORS: cell phone (mobile...)
+#: panels/power/kpm-upower.c:589
+msgid "Cell phone"
+msgid_plural "Cell phones"
+msgstr[0] "Téléphone portable"
+msgstr[1] "Téléphone portable"
+
+#. TRANSLATORS: media player, mp3 etc
+#: panels/power/kpm-upower.c:594
+msgid "Media player"
+msgid_plural "Media players"
+msgstr[0] "Lecteur multimédia"
+msgstr[1] "Lecteur multimédia"
+
+#. TRANSLATORS: tablet device
+#: panels/power/kpm-upower.c:598
+msgid "Tablet"
+msgid_plural "Tablets"
+msgstr[0] "Tablette"
+msgstr[1] "Tablette"
+
+#. TRANSLATORS: tablet device
+#: panels/power/kpm-upower.c:602
+msgid "Computer"
+msgid_plural "Computers"
+msgstr[0] "Ordinateur"
+msgstr[1] "Ordinateur"
+
+#. TRANSLATORS: battery technology
+#: panels/power/kpm-upower.c:673
+msgid "Lithium Ion"
+msgstr "Lithium Ion"
+
+#. TRANSLATORS: battery technology
+#: panels/power/kpm-upower.c:677
+msgid "Lithium Polymer"
+msgstr "Lithium Polymer"
+
+#. TRANSLATORS: battery technology
+#: panels/power/kpm-upower.c:681
+msgid "Lithium Iron Phosphate"
+msgstr "Phosphate de fer de lithium"
+
+#. TRANSLATORS: battery technology
+#: panels/power/kpm-upower.c:685
+msgid "Lead acid"
+msgstr "Plomb-acide"
+
+#. TRANSLATORS: battery technology
+#: panels/power/kpm-upower.c:689
+msgid "Nickel Cadmium"
+msgstr "Nickel Cadmium"
+
+#. TRANSLATORS: battery technology
+#: panels/power/kpm-upower.c:693
+msgid "Nickel metal hydride"
+msgstr "Nickel-hydrure métallique"
+
+#. TRANSLATORS: battery technology
+#: panels/power/kpm-upower.c:697
+msgid "Unknown technology"
+msgstr "Technologie inconnue"
+
+#. TRANSLATORS: battery state
+#: panels/power/kpm-upower.c:726
+msgid "Empty"
+msgstr "Vide"
+
+#. TRANSLATORS: battery state
+#: panels/power/kpm-upower.c:734
+msgid "Waiting to charge"
+msgstr "En attente de charger"
+
+#. TRANSLATORS: battery state
+#: panels/power/kpm-upower.c:738
+msgid "Waiting to discharge"
+msgstr "En attente de décharge"
+
+#: panels/power/ukui-fullscreen-preview.ui.h:1
+msgid "Screensaver Preview"
+msgstr "Aperçu de l'économiseur d'écran"
+
+#: panels/power/ukui-fullscreen-preview.ui.h:2
+msgid "Screensaver preview"
+msgstr "Aperçu de l'économiseur d'écran"
+
+#: panels/power/ukui-screensaver-preferences.c:478
+#: panels/power/ukui-screensaver-preferences.c:578
+#: panels/power/ukui-screensaver-preferences.c:764
+msgid "Random"
+msgstr "au hasard"
+
+#: panels/power/ukui-screensaver-preferences.c:640
+#: panels/power/ukui-screensaver-preferences.c:1464
+#, c-format
+msgid "%d min"
+msgstr "%d min"
+
+#: panels/power/ukui-screensaver-preferences.c:642
+#: panels/power/ukui-screensaver-preferences.c:1466
+#, c-format
+msgid "%d hour %d min"
+msgstr "%d heure %d min"
+
+#: panels/power/ukui-screensaver-preferences.c:1530
+msgid "Could not load the main interface"
+msgstr "Impossible de charger l'interface principale"
+
+#: panels/power/ukui-screensaver-preferences.c:1532
+msgid "Please make sure that the screensaver is properly installed"
+msgstr "S'il vous plaît assurez-vous que l'économiseur d'écran est correctement installé"
+
+#: panels/session-properties/gsm-app-dialog.c:145
+msgid "Desktop file(*.desktop)"
+msgstr "Fichier de bureau (*. Desktop)"
+
+#: panels/session-properties/gsm-app-dialog.c:152
+msgid "Select command"
+msgstr "Sélectionnez la commande"
+
+#: panels/session-properties/gsm-app-dialog.c:257
+msgid "Add programs"
+msgstr "Ajouter des programmes"
+
+#: panels/session-properties/gsm-app-dialog.c:261
+msgid "Boot program property details"
+msgstr "Détails de la propriété du programme d'amorçage"
+
+#: panels/session-properties/gsm-app-dialog.c:526
+msgid "The startup command cannot be empty"
+msgstr "La commande de démarrage ne peut pas être vide"
+
+#: panels/session-properties/gsm-app-dialog.c:532
+msgid "The startup command is not valid"
+msgstr "La commande de démarrage n'est pas valide"
+
+#: panels/session-properties/gsm-properties-dialog.c:117
+msgid "enabled"
+msgstr "activée"
+
+#: panels/session-properties/gsm-properties-dialog.c:119
+msgid "disabled"
+msgstr "désactivée"
+
+#: panels/session-properties/gsm-properties-dialog.c:445
+#, c-format
+msgid "%d/%d/%d/  %d:%d:%d"
+msgstr "%d/%d/%d/ %d:%d:%d"
+
+#: panels/session-properties/gsm-properties-dialog.c:526
+msgid "property"
+msgstr "propriété"
+
+#: panels/session-properties/gsm-properties-dialog.c:553
+#, c-format
+msgid "%dByte"
+msgstr "%doctet"
+
+#: panels/session-properties/main-table.ui.h:2
+msgid "Command:"
+msgstr "Commander:"
+
+#: panels/session-properties/main-table.ui.h:3
+msgid "Annotation:"
+msgstr "Annotation:"
+
+#: panels/session-properties/main-table.ui.h:4
+msgid "scan…"
+msgstr "balayage…"
+
+#: panels/session-properties/program_properties.ui.h:1
+msgid "program name"
+msgstr "nom du programme"
+
+#: panels/session-properties/program_properties.ui.h:2
+msgid "File Type:"
+msgstr "Type de fichier:"
+
+#: panels/session-properties/program_properties.ui.h:3
+msgid "File Description:"
+msgstr "Description du fichier:"
+
+#: panels/session-properties/program_properties.ui.h:4
+msgid "Application"
+msgstr "Application"
+
+#: panels/session-properties/program_properties.ui.h:5
+msgid "Program Location:"
+msgstr "Lieu du programme:"
+
+#: panels/session-properties/program_properties.ui.h:6
+msgid "Program Size:"
+msgstr "Taille du programme:"
+
+#: panels/session-properties/program_properties.ui.h:7
+msgid "Access Time:"
+msgstr "Temps d'accès:"
+
+#: panels/session-properties/program_properties.ui.h:8
+msgid "modification time:"
+msgstr "heure de modification:"
+
+#: panels/user-accounts/change-face.ui.h:1
+msgid "Changge Face"
+msgstr "Changer de visage"
+
+#: panels/user-accounts/change-face.ui.h:2
+#: panels/user-accounts/change-name.ui.h:2
+#: panels/user-accounts/change-pwd.ui.h:2
+#: panels/user-accounts/change-type.ui.h:2
+#: panels/user-accounts/delete-user.ui.h:2
+#: panels/user-accounts/user-accounts.c:2066
+#: panels/user-accounts/user-create.ui.h:2
+msgid "Cancel"
+msgstr "Annuler"
+
+#: panels/user-accounts/change-face.ui.h:3
+#: panels/user-accounts/change-name.ui.h:3
+#: panels/user-accounts/change-pwd.ui.h:3
+#: panels/user-accounts/change-type.ui.h:3
+#: panels/user-accounts/user-accounts.c:2067
+msgid "Ok"
+msgstr "D'accord"
+
+#: panels/user-accounts/change-face.ui.h:4
+#: panels/user-accounts/change-name.ui.h:4
+#: panels/user-accounts/change-pwd.ui.h:4
+#: panels/user-accounts/change-type.ui.h:5
+#: panels/user-accounts/delete-user.ui.h:5 shell/shell.ui.h:195
+msgid "label"
+msgstr "étiquette"
+
+#: panels/user-accounts/change-face.ui.h:5
+#: panels/user-accounts/user-accounts.c:2063
+msgid "Browse more pictures"
+msgstr "Parcourir plus de photos"
+
+#: panels/user-accounts/change-name.ui.h:1
+msgid "Change Name"
+msgstr "Changer de nom"
+
+#: panels/user-accounts/change-pwd.ui.h:1
+msgid "Change Password"
+msgstr "Changer le mot de passe"
+
+#: panels/user-accounts/change-type.ui.h:1
+msgid "Change Usertype"
+msgstr "Changer le type d'utilisateur"
+
+#: panels/user-accounts/change-type.ui.h:4
+msgid "automatic login"
+msgstr "connexion automatique"
+
+#: panels/user-accounts/change-type.ui.h:6
+msgid ""
+"Please make sure that the computer has at least one user is the administrator"
+msgstr "S'il vous plaît assurez-vous que l'ordinateur a au moins un utilisateur est l'administrateur"
+
+#: panels/user-accounts/change-type.ui.h:7
+#: panels/user-accounts/user-create.ui.h:5
+msgid "Standard User"
+msgstr "Utilisateur standard"
+
+#: panels/user-accounts/change-type.ui.h:8
+msgid ""
+"Standard users can use most software, but you can not install software and \n"
+"change settings that affect all users."
+msgstr "Les utilisateurs standard peuvent utiliser la plupart des logiciels, mais vous ne pouvez pas installer de logiciels ni modifier les paramètres qui affectent tous les utilisateurs."
+
+#: panels/user-accounts/change-type.ui.h:10
+#: panels/user-accounts/user-accounts.c:688
+#: panels/user-accounts/user-accounts.c:945
+#: panels/user-accounts/user-accounts.c:1129
+#: panels/user-accounts/user-accounts.c:1238
+#: panels/user-accounts/user-accounts.c:1239
+#: panels/user-accounts/user-accounts.c:1353
+#: panels/user-accounts/user-accounts.c:1579
+#: panels/user-accounts/user-accounts.c:1689
+#: panels/user-accounts/user-create.ui.h:8
+msgid "Administrators"
+msgstr "Administrateurs"
+
+#: panels/user-accounts/change-type.ui.h:11
+#: panels/user-accounts/user-create.ui.h:9
+msgid ""
+"Administrator can make any changes needed on the system, including　\n"
+"installing and upgrading software."
+msgstr "L’administrateur peut effectuer les modifications nécessaires sur le système, y compris \n l’installation et la mise à niveau du logiciel."
+
+#: panels/user-accounts/check-passwd.c:583
+msgid "is the same as the old one"
+msgstr "est le même que l'ancien"
+
+#: panels/user-accounts/check-passwd.c:589
+#: panels/user-accounts/check-passwd.c:593
+#: panels/user-accounts/check-passwd.c:603
+msgid "memory allocation error"
+msgstr "erreur d'allocation de mémoire"
+
+#: panels/user-accounts/check-passwd.c:608
+msgid "is a palindrome"
+msgstr "est un palindrome"
+
+#: panels/user-accounts/check-passwd.c:611
+msgid "case changes only"
+msgstr "changements de cas seulement"
+
+#: panels/user-accounts/check-passwd.c:614
+msgid "is too similar to the old one"
+msgstr "est trop semblable à l'ancien"
+
+#: panels/user-accounts/check-passwd.c:617
+msgid "is too simple"
+msgstr "c'est trop simple"
+
+#: panels/user-accounts/check-passwd.c:620
+msgid "is rotated"
+msgstr "est tourné"
+
+#: panels/user-accounts/check-passwd.c:623
+msgid "not enough character classes"
+msgstr "pas assez de classes de caractères"
+
+#: panels/user-accounts/check-passwd.c:626
+msgid "contains too many same characters consecutively"
+msgstr "contient trop de caractères identiques l'un après l'autre"
+
+#: panels/user-accounts/check-passwd.c:629
+msgid "contains too long of a monotonic character sequence"
+msgstr "contient trop longtemps d'une séquence de caractères monotone"
+
+#: panels/user-accounts/check-passwd.c:632
+msgid "contains the user name in some form"
+msgstr "contient le nom d'utilisateur sous une forme"
+
+#: panels/user-accounts/delete-user.ui.h:1
+msgid "Delete User"
+msgstr "Supprimer l'utilisateur"
+
+#: panels/user-accounts/delete-user.ui.h:3
+msgid "Keep File"
+msgstr "Garder le fichier"
+
+#: panels/user-accounts/delete-user.ui.h:4
+msgid "Delete File"
+msgstr "Supprimer le fichier"
+
+#: panels/user-accounts/run-passwd.c:220
+msgid "Authentication failure!"
+msgstr "Échec de l'authentification!"
+
+#: panels/user-accounts/run-passwd.c:297
+msgid "New password length is too short!"
+msgstr "La longueur du nouveau mot de passe est trop courte!"
+
+#: panels/user-accounts/run-passwd.c:303
+msgid "The new password is too simple!"
+msgstr "Le nouveau mot de passe est trop simple!"
+
+#: panels/user-accounts/run-passwd.c:309
+msgid "The new password is too similar to the old one!"
+msgstr "Le nouveau mot de passe est trop similaire à l'ancien!"
+
+#: panels/user-accounts/run-passwd.c:312
+msgid "The new password must contain numbers or special characters!"
+msgstr "Le nouveau mot de passe doit contenir des chiffres ou des caractères spéciaux!"
+
+#: panels/user-accounts/run-passwd.c:316
+msgid "The new password is the same as the old one!"
+msgstr "Le nouveau mot de passe est le même que l'ancien!"
+
+#: panels/user-accounts/run-passwd.c:319
+msgid "The new password has been used recently!"
+msgstr "Le nouveau mot de passe a été utilisé récemment!"
+
+#: panels/user-accounts/run-passwd.c:323
+msgid "Your password has been changed after you verify!"
+msgstr "Votre mot de passe a été changé après votre vérification!"
+
+#: panels/user-accounts/user-accounts.c:188
+msgid "User name cannot be empty!"
+msgstr "Le nom d'utilisateur ne peut pas être vide!"
+
+#: panels/user-accounts/user-accounts.c:214
+msgid "Password length needs to more than 5 digits!"
+msgstr "La longueur du mot de passe doit comporter plus de 5 chiffres!"
+
+#: panels/user-accounts/user-accounts.c:221
+#: panels/user-accounts/user-accounts.c:414
+msgid "Password length needs to less than 64 digits!"
+msgstr "La longueur du mot de passe doit être inférieure à 64 chiffres!"
+
+#: panels/user-accounts/user-accounts.c:233
+#: panels/user-accounts/user-accounts.c:360
+#: panels/user-accounts/user-accounts.c:398
+#: panels/user-accounts/user-accounts.c:406
+#: panels/user-accounts/user-accounts.c:421
+#: panels/user-accounts/user-accounts.c:643
+#: panels/user-accounts/user-accounts.c:739
+#: panels/user-accounts/user-accounts.c:2571
+msgid "Please confirm the new password"
+msgstr "S'il vous plaît confirmer le nouveau mot de passe"
+
+#: panels/user-accounts/user-accounts.c:235
+#: panels/user-accounts/user-accounts.c:253
+#: panels/user-accounts/user-accounts.c:424
+msgid "enter the password twice inconsistencies!"
+msgstr "entrez le mot de passe deux fois incohérences!"
+
+#: panels/user-accounts/user-accounts.c:268
+#: panels/user-accounts/user-accounts.c:774
+msgid "The first character cannot be underlined!"
+msgstr "Le premier caractère ne peut pas être souligné!"
+
+#: panels/user-accounts/user-accounts.c:274
+#: panels/user-accounts/user-accounts.c:780
+msgid "User name can not contain capital letters!"
+msgstr "Le nom d'utilisateur ne peut pas contenir de lettres majuscules!"
+
+#: panels/user-accounts/user-accounts.c:282
+#: panels/user-accounts/user-accounts.c:788
+msgid "The user name can only be composed of letters, numbers and underline!"
+msgstr "Le nom d'utilisateur ne peut être composé que de lettres, de chiffres et de soulignés!"
+
+#: panels/user-accounts/user-accounts.c:289
+msgid "The first character cannot be numeric!"
+msgstr "Le premier caractère ne peut pas être numérique!"
+
+#: panels/user-accounts/user-accounts.c:300
+#: panels/user-accounts/user-accounts.c:357
+#: panels/user-accounts/user-accounts.c:2559
+msgid "Please enter the username"
+msgstr "S'il vous plaît entrer le nom d'utilisateur"
+
+#: panels/user-accounts/user-accounts.c:301
+msgid "Please enter the password "
+msgstr "S'il vous plaît entrer le mot de passe "
+
+#: panels/user-accounts/user-accounts.c:313
+msgid "The user name is already in use, please use a different one."
+msgstr "Le nom d'utilisateur est déjà utilisé, veuillez en utiliser un autre."
+
+#: panels/user-accounts/user-accounts.c:333
+msgid ""
+"The user name corresponds to the group already exists,please use a different "
+"user name"
+msgstr "Le nom d'utilisateur correspond au groupe déjà existant, veuillez utiliser un nom d'utilisateur différent"
+
+#: panels/user-accounts/user-accounts.c:345
+msgid "username length need to less than 32!"
+msgstr "la longueur du nom d'utilisateur doit être inférieure à 32!"
+
+#: panels/user-accounts/user-accounts.c:357
+#: panels/user-accounts/user-accounts.c:960
+msgid "Please enter the new username"
+msgstr "S'il vous plaît entrer le nouveau nom d'utilisateur"
+
+#: panels/user-accounts/user-accounts.c:359
+#: panels/user-accounts/user-accounts.c:2566
+msgid "Please enter the password"
+msgstr "S'il vous plaît entrer le mot de passe"
+
+#: panels/user-accounts/user-accounts.c:359
+#: panels/user-accounts/user-accounts.c:634
+#: panels/user-accounts/user-accounts.c:730
+msgid "Please enter new password"
+msgstr "Veuillez entrer un nouveau mot de passe"
+
+#: panels/user-accounts/user-accounts.c:360
+#: panels/user-accounts/user-accounts.c:396
+#: panels/user-accounts/user-accounts.c:612
+#: panels/user-accounts/user-accounts.c:716
+msgid "Please enter the current password"
+msgstr "S'il vous plaît entrer le mot de passe actuel"
+
+#: panels/user-accounts/user-accounts.c:360
+#: panels/user-accounts/user-accounts.c:397
+#: panels/user-accounts/user-accounts.c:405
+#: panels/user-accounts/user-accounts.c:420
+msgid "Please enter the new password"
+msgstr "S'il vous plaît entrer le nouveau mot de passe"
+
+#: panels/user-accounts/user-accounts.c:463
+msgid "Please choose another password."
+msgstr "Veuillez choisir un autre mot de passe."
+
+#: panels/user-accounts/user-accounts.c:477
+msgid "Please reenter the current password."
+msgstr "Veuillez ressaisir le mot de passe actuel."
+
+#: panels/user-accounts/user-accounts.c:484
+msgid "Password can not be modified."
+msgstr "Le mot de passe ne peut pas être modifié."
+
+#: panels/user-accounts/user-accounts.c:577
+msgid "Password input error, please re-enter!"
+msgstr "Erreur de saisie du mot de passe, veuillez ré-entrer!"
+
+#: panels/user-accounts/user-accounts.c:690
+#: panels/user-accounts/user-accounts.c:947
+#: panels/user-accounts/user-accounts.c:1131
+#: panels/user-accounts/user-accounts.c:1243
+#: panels/user-accounts/user-accounts.c:1244
+#: panels/user-accounts/user-accounts.c:1358
+#: panels/user-accounts/user-accounts.c:1581
+#: panels/user-accounts/user-accounts.c:1691
+msgid "Standard user"
+msgstr "Utilisateur standard"
+
+#: panels/user-accounts/user-accounts.c:696
+#: panels/user-accounts/user-accounts.c:953
+#: panels/user-accounts/user-accounts.c:1136
+#: panels/user-accounts/user-accounts.c:1372
+#: panels/user-accounts/user-accounts.c:1613
+#: panels/user-accounts/user-accounts.c:1699
+msgid "Logged(Current User)"
+msgstr "Connecté (utilisateur actuel)"
+
+#: panels/user-accounts/user-accounts.c:701
+#: panels/user-accounts/user-accounts.c:955
+#: panels/user-accounts/user-accounts.c:1138
+#: panels/user-accounts/user-accounts.c:1374
+#: panels/user-accounts/user-accounts.c:1617
+#: panels/user-accounts/user-accounts.c:1703
+msgid "Logged(Other Users)"
+msgstr "Connecté (autres utilisateurs)"
+
+#: panels/user-accounts/user-accounts.c:705
+#: panels/user-accounts/user-accounts.c:957
+#: panels/user-accounts/user-accounts.c:1140
+#: panels/user-accounts/user-accounts.c:1376
+#: panels/user-accounts/user-accounts.c:1621
+#: panels/user-accounts/user-accounts.c:1707
+msgid "Un-login(Other Users)"
+msgstr "Annuler la connexion (autres utilisateurs)"
+
+#: panels/user-accounts/user-accounts.c:795
+msgid "User name cannot start with number!"
+msgstr "Le nom d'utilisateur ne peut pas commencer par un numéro!"
+
+#: panels/user-accounts/user-accounts.c:801
+msgid "Username length need to less than 32!"
+msgstr "La longueur du nom d'utilisateur doit être inférieure à 32!"
+
+#: panels/user-accounts/user-accounts.c:813
+msgid "The user name has been used, please replace with another one!"
+msgstr "Le nom d'utilisateur a été utilisé, veuillez le remplacer par un autre!"
+
+#: panels/user-accounts/user-accounts.c:844
+#: panels/user-accounts/user-accounts.c:881
+msgid "Modify username failed!"
+msgstr "La modification du nom d'utilisateur a échoué!"
+
+#: panels/user-accounts/user-accounts.c:889
+msgid "the user has logged in, please log out and modify!"
+msgstr "l'utilisateur s'est connecté, veuillez vous déconnecter et modifier!"
+
+#: panels/user-accounts/user-accounts.c:1072
+#: panels/user-accounts/user-accounts.c:2313
+msgid "auto login"
+msgstr "connexion automatique"
+
+#: panels/user-accounts/user-accounts.c:1075
+#: panels/user-accounts/user-accounts.c:2316
+msgid "_Cancel"
+msgstr "_Annuler"
+
+#: panels/user-accounts/user-accounts.c:1077
+#: panels/user-accounts/user-accounts.c:2318
+msgid "_OK"
+msgstr "_D'ACCORD"
+
+#: panels/user-accounts/user-accounts.c:1080
+#: panels/user-accounts/user-accounts.c:2321
+msgid ""
+"\tAlready have other users set to automatically log in,\t\n"
+" \tclick OK will overwrite the existing settings!"
+msgstr ""
+"\tVous avez déjà configuré d'autres utilisateurs pour qu'ils se connectent automatiquement; \t\n"
+"\tclick OK écrasera les paramètres existants!"
+
+#: panels/user-accounts/user-accounts.c:1487
+msgid "The user can not be deleted!"
+msgstr "L'utilisateur ne peut pas être supprimé!"
+
+#: panels/user-accounts/user-accounts.c:1495
+msgid ""
+"The user has logged in, please perform the delete operation after logging "
+"out!"
+msgstr "L'utilisateur s'est connecté, veuillez effectuer l'opération de suppression après la déconnexion!"
+
+#: panels/user-accounts/user-accounts.c:1520
+#, c-format
+msgid ""
+"<span weight='bold' font_desc='11'>do you confirm to delete all the files of "
+"%s?</span>"
+msgstr ""
+"<span weight='bold' font_desc = '11'> confirmez-vous la suppression de tous les fichiers de"
+"%s?</span>"
+
+#: panels/user-accounts/user-accounts.c:1526
+#, c-format
+msgid ""
+"if you want to delete the %s user, belonging to the user's \n"
+"desktop, documents, favorites, music, pictures and video \n"
+"folder will be deleted!"
+msgstr "si vous voulez supprimer l’utilisateur %s , le dossier \n"
+"qu’il appartient à l'utilisateur, les documents, les favoris, la musique, les images et le dossier vidéo \n"
+"seront supprimés!"
+
+#: panels/user-accounts/user-accounts.c:1583
+#: panels/user-accounts/user-accounts.c:1693
+msgid "Super user"
+msgstr "Super utilisateur"
+
+#: panels/user-accounts/user-accounts.c:1585
+msgid "Rename"
+msgstr "Renommer"
+
+#: panels/user-accounts/user-accounts.c:1591
+msgid "Change PWD"
+msgstr "Changer les personnes handicapées"
+
+#: panels/user-accounts/user-accounts.c:1596
+msgid "Change Face"
+msgstr "Changer de visage"
+
+#: panels/user-accounts/user-accounts.c:1601
+msgid "Change Type"
+msgstr "Changer le type"
+
+#: panels/user-accounts/user-accounts.c:1606
+msgid "Delete"
+msgstr "Effacer"
+
+#: panels/user-accounts/user-accounts.c:2208
+msgid "Browse more pictures..."
+msgstr "Parcourir plus de photos ..."
+
+#: panels/user-accounts/user-create.ui.h:1
+msgid "Create Account"
+msgstr "Créer un compte"
+
+#: panels/user-accounts/user-create.ui.h:3
+msgid "Automatic Logon"
+msgstr "Connexion automatique"
+
+#: panels/user-accounts/user-create.ui.h:4
+msgid "select picture"
+msgstr "sélectionner une image"
+
+#: panels/user-accounts/user-create.ui.h:6
+msgid ""
+"Standard users can use most software, but you can not install software\n"
+"and change settings that affect all users."
+msgstr "Les utilisateurs standard peuvent utiliser la plupart des logiciels, mais vous ne pouvez pas installer de logiciels ni modifier les paramètres qui affectent tous les utilisateurs."
+
+#: panels/volume-control/gvc-balance-bar.c:116
+msgid "Rear"
+msgstr "Arrière"
+
+#: panels/volume-control/gvc-balance-bar.c:117
+msgid "Front"
+msgstr "De face"
+
+#: panels/volume-control/gvc-balance-bar.c:120
+msgid "Minimum"
+msgstr "Le minimum"
+
+#: panels/volume-control/gvc-balance-bar.c:121
+msgid "Maximum"
+msgstr "Maximum"
+
+#: panels/volume-control/gvc-balance-bar.c:299
+msgid "_Balance(_B):"
+msgstr "_Balance (_B):"
+
+#: panels/volume-control/gvc-balance-bar.c:302
+msgid "_Fade(_F):"
+msgstr "_Fade (_F):"
+
+#: panels/volume-control/gvc-balance-bar.c:305
+msgid "_Subwoofer(_S):"
+msgstr "_Subwoofer (_S):"
+
+#: panels/volume-control/gvc-channel-bar.c:608
+msgid "Unamplified"
+msgstr "Non amplifié"
+
+#: panels/volume-control/gvc-channel-bar.c:870
+msgid "Mute"
+msgstr "Muet"
+
+#: panels/volume-control/gvc-combo-box.c:169
+msgid "_Profile(_P):"
+msgstr "_Profile (_P):"
+
+#: panels/volume-control/gvc-mixer-control.c:1004
+msgid "Disabled"
+msgstr "désactivé"
+
+#: panels/volume-control/gvc-mixer-control.c:1011
+#, c-format
+msgid "%u Output"
+msgid_plural "%u Outputs"
+msgstr[0] "%u sortie"
+msgstr[1] "%u sortie"
+
+#: panels/volume-control/gvc-mixer-control.c:1021
+#, c-format
+msgid "%u Input"
+msgid_plural "%u Inputs"
+msgstr[0] "%u entrée"
+msgstr[1] "%u entrée"
+
+#: panels/volume-control/gvc-mixer-dialog.c:314
+msgid "Co_nnector"
+msgstr "Co_nnecteur"
+
+#: panels/volume-control/gvc-mixer-dialog.c:522
+msgid "Peak detect"
+msgstr "Détection de crête"
+
+#: panels/volume-control/gvc-mixer-dialog.c:609
+msgid "Co_nnector:"
+msgstr "Co_nnecteur:"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1502
+msgid "Device"
+msgstr "Dispositif"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1550
+#, c-format
+msgid "Speaker Testing for %s"
+msgstr "Test des haut-parleurs pour %s"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1610
+msgid "_Profiles:"
+msgstr "_Profils:"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1611
+msgid "Test Speakers"
+msgstr "Test Speakers"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1710
+#: panels/volume-control/gvc-sound-theme-chooser.c:892
+msgid "Name"
+msgstr "prénom"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1837
+msgid "Sound Output Volume"
+msgstr "Volume sonore"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1868
+msgid "Applications"
+msgstr "Applications"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1874
+msgid "No application is currently playing or recording audio."
+msgstr "Aucune application en cours de lecture ou d'enregistrement audio."
+
+#: panels/volume-control/gvc-mixer-dialog.c:1882
+msgid "Sound Effects"
+msgstr "Effets sonores"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1890
+msgid "_Alert volume: "
+msgstr "Volume d'alerte: "
+
+#: panels/volume-control/gvc-mixer-dialog.c:1911
+msgid "Input"
+msgstr "Contribution"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1919
+msgid "_Input volume: "
+msgstr "_ Volume d'entrée: "
+
+#: panels/volume-control/gvc-mixer-dialog.c:1942
+msgid "Input level:"
+msgstr "Niveau d'entrée:"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1971
+msgid "C_hoose a device for sound input:"
+msgstr "C_choisissez un appareil pour l’entrée audio:"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2001
+msgid "Output"
+msgstr "Sortie"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2007
+msgid "C_hoose a device for sound output:"
+msgstr "C_choisissez un périphérique pour la sortie audio:"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2034
+#: panels/volume-control/gvc-mixer-dialog.c:2078
+msgid "Settings for the selected device:"
+msgstr "Paramètres pour le périphérique sélectionné:"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2045
+msgid "Hardware"
+msgstr "Matériel"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2051
+msgid "C_hoose a device to configure:"
+msgstr "C_choisissez un appareil à configurer:"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2212
+#: panels/volume-control/gvc-sound-theme-chooser.c:757
+#: panels/volume-control/gvc-sound-theme-chooser.c:769
+#: panels/volume-control/gvc-sound-theme-chooser.c:781
+msgid "Sound Preferences"
+msgstr "Préférences sonores"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:226
+#: panels/volume-control/gvc-sound-theme-chooser.c:868
+msgid "Default"
+msgstr "Défaut"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:338
+msgid "No sounds"
+msgstr "Pas de sons"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:460
+msgid "Built-in"
+msgstr "Intégré"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:647
+#: panels/volume-control/sound-theme-file-utils.c:291
+msgid "Custom"
+msgstr "Douane"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:760
+#: panels/volume-control/gvc-sound-theme-chooser.c:771
+#: panels/volume-control/gvc-sound-theme-chooser.c:783
+msgid "Testing event sound"
+msgstr "Test du son de l'événement"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:869
+msgid "From theme"
+msgstr "Par thème"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:899
+msgid "Type"
+msgstr "Type"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:1093
+msgid "Sound _theme:"
+msgstr "Son _theme:"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:1106
+msgid "C_hoose an alert sound:"
+msgstr "C_choisissez une alerte sonore:"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:1140
+msgid "Enable _window and button sounds"
+msgstr "Activer les sons de la fenêtre et des boutons"
+
+#: panels/volume-control/gvc-speaker-test.c:219
+msgid "Stop"
+msgstr "Arrêtez"
+
+#: panels/volume-control/gvc-speaker-test.c:219
+#: panels/volume-control/gvc-speaker-test.c:331
+msgid "Test"
+msgstr "Tester"
+
+#: panels/volume-control/gvc-speaker-test.c:227
+msgid "Subwoofer"
+msgstr "Subwoofer"
+
+#: shell/mainwindow.c:129 shell/shell.ui.h:11
+msgid "Control Center"
+msgstr "Centre de contrôle"
+
+#: shell/mainwindow.c:177
+msgid "Time and Dates"
+msgstr "Heure et dates"
+
+#: shell/mainwindow.c:180
+msgid " Change the time and date of this computer "
+msgstr " Changer l'heure et la date de cet ordinateur "
+
+#: shell/mainwindow.c:188 shell/shell.ui.h:17
+msgid "User Account"
+msgstr "Compte d'utilisateur"
+
+#: shell/mainwindow.c:191
+msgid ""
+" Change the computer user account \n"
+" settings and password"
+msgstr " Modifier les paramètres et le mot de passe du compte d'utilisateur de l'ordinateur"
+
+#: shell/mainwindow.c:199 shell/shell.ui.h:12
+msgid "Personalization"
+msgstr "Personnalisation"
+
+#: shell/mainwindow.c:202
+msgid ""
+" Change the computer desktop background \n"
+" and related theme"
+msgstr " Changer le fond d'écran \n"
+"et le thème associé"
+
+#: shell/mainwindow.c:210
+msgid "Default Application"
+msgstr "Application par défaut"
+
+#: shell/mainwindow.c:213
+msgid " Change the default application on this computer "
+msgstr " Changer l'application par défaut sur cet ordinateur "
+
+#: shell/mainwindow.c:228
+msgid " Change the network  on this computer "
+msgstr " Changer le réseau sur cet ordinateur "
+
+#: shell/mainwindow.c:239
+msgid " Change the keyboard settings on this computer "
+msgstr " Modifier les paramètres du clavier sur cet ordinateur "
+
+#: shell/mainwindow.c:250
+msgid " Change the mouse settings on this computer  "
+msgstr " Modifier les paramètres de la souris sur cet ordinateur  "
+
+#: shell/mainwindow.c:263
+msgid " Configure the connection to the computer printer "
+msgstr " Configurez la connexion à l'imprimante de l'ordinateur "
+
+#: shell/mainwindow.c:272 shell/shell.ui.h:23
+msgid "Sound"
+msgstr "Du son"
+
+#: shell/mainwindow.c:275
+msgid " Change the sound settings on this computer "
+msgstr " Modifier les paramètres audio sur cet ordinateur "
+
+#: shell/mainwindow.c:283
+msgid "Network Agent"
+msgstr "Agent de réseau"
+
+#: shell/mainwindow.c:286
+msgid " Change the network agent on this computer "
+msgstr " Changer l'agent réseau sur cet ordinateur "
+
+#: shell/mainwindow.c:294 shell/shell.ui.h:13
+msgid "Autostart"
+msgstr "Autostart"
+
+#: shell/mainwindow.c:297
+msgid " Change the autostart program on this computer "
+msgstr " Changer le programme de démarrage automatique sur cet ordinateur "
+
+#: shell/mainwindow.c:307
+msgid " Change the Monitor settings on this computer "
+msgstr " Modifier les paramètres du moniteur sur cet ordinateur "
+
+#: shell/mainwindow.c:318
+msgid "Power Management"
+msgstr "Gestion de l'alimentation"
+
+#: shell/mainwindow.c:321
+msgid " Change the power management settings on this computer "
+msgstr " Modifier les paramètres de gestion de l'alimentation sur cet ordinateur "
+
+#: shell/shell.ui.h:5
+msgid "Tile"
+msgstr "Tuile"
+
+#: shell/shell.ui.h:6
+msgid "Zoom"
+msgstr "Zoom"
+
+#: shell/shell.ui.h:7
+msgid "Center"
+msgstr "Centre"
+
+#: shell/shell.ui.h:8
+msgid "Scale"
+msgstr "Échelle"
+
+#: shell/shell.ui.h:9
+msgid "Stretch"
+msgstr "Étendue"
+
+#: shell/shell.ui.h:10
+msgid "Span"
+msgstr "Envergure"
+
+#: shell/shell.ui.h:14
+msgid ""
+"Default \n"
+"Application"
+msgstr "Application par défaut"
+
+#: shell/shell.ui.h:16
+msgid "Time Dates"
+msgstr "Heure Dates"
+
+#: shell/shell.ui.h:18
+msgid "System Configuration"
+msgstr "Configuration du système"
+
+#: shell/shell.ui.h:19
+msgid "Printer"
+msgstr "Imprimante"
+
+#: shell/shell.ui.h:20
+msgid ""
+"Power \n"
+"Management"
+msgstr "Puissance \n"
+"Gestion"
+
+#: shell/shell.ui.h:26
+msgid ""
+"Network \n"
+"Agent"
+msgstr "Réseau \nAgent"
+
+#: shell/shell.ui.h:28
+msgid ""
+"Network \n"
+"Connections"
+msgstr "Connexions \n"
+"réseau"
+
+#: shell/shell.ui.h:30
+msgid "Hardware Configure"
+msgstr "Configuration matérielle"
+
+#: shell/shell.ui.h:31
+msgid "Home"
+msgstr "Accueil"
+
+#: shell/shell.ui.h:32
+msgid "_Personalization"
+msgstr "_Personnalisation"
+
+#: shell/shell.ui.h:33
+msgid "_Autostart"
+msgstr "_Autostart"
+
+#: shell/shell.ui.h:34
+msgid "_Default APP"
+msgstr "_Application par défaut"
+
+#: shell/shell.ui.h:35
+msgid "_Time Dates"
+msgstr "_Temps Dates"
+
+#: shell/shell.ui.h:36
+msgid "_User Account"
+msgstr "_Compte d'utilisateur"
+
+#: shell/shell.ui.h:37
+msgid "Network _Connection"
+msgstr "Connexion réseau"
+
+#: shell/shell.ui.h:38
+msgid "_Keyboard"
+msgstr "_Clavier"
+
+#: shell/shell.ui.h:39
+msgid "M_ouse"
+msgstr "Souris"
+
+#: shell/shell.ui.h:40
+msgid "P_rinter"
+msgstr "Imprimante"
+
+#: shell/shell.ui.h:41
+msgid "_Sound"
+msgstr "_Du son"
+
+#: shell/shell.ui.h:42
+msgid "_Network Agent"
+msgstr "_Agent de réseau"
+
+#: shell/shell.ui.h:43
+msgid "_Monitor"
+msgstr "_Moniteur"
+
+#: shell/shell.ui.h:44
+msgid "Po_wer Manage"
+msgstr "Po_wer Gérer"
+
+#: shell/shell.ui.h:45
+msgid "Tzone:"
+msgstr "Tzone:"
+
+#: shell/shell.ui.h:46
+msgid "date:"
+msgstr "rendez-vous amoureux:"
+
+#: shell/shell.ui.h:47
+msgid "time:"
+msgstr "temps:"
+
+#: shell/shell.ui.h:48
+msgid "Jan"
+msgstr "Jan"
+
+#: shell/shell.ui.h:49
+msgid "Feb"
+msgstr "Fév"
+
+#: shell/shell.ui.h:50
+msgid "Mar"
+msgstr "Mar"
+
+#: shell/shell.ui.h:51
+msgid "Apr"
+msgstr "Avr"
+
+#: shell/shell.ui.h:52
+msgid "May"
+msgstr "Mai"
+
+#: shell/shell.ui.h:53
+msgid "Jun"
+msgstr "Juin"
+
+#: shell/shell.ui.h:54
+msgid "Jul"
+msgstr "Juil"
+
+#: shell/shell.ui.h:55
+msgid "Aug"
+msgstr "Aug"
+
+#: shell/shell.ui.h:56
+msgid "Sep"
+msgstr "Sep"
+
+#: shell/shell.ui.h:57
+msgid "Oct"
+msgstr "Oct"
+
+#: shell/shell.ui.h:58
+msgid "Nov"
+msgstr "Nov"
+
+#: shell/shell.ui.h:59
+msgid "Dec"
+msgstr "Déc"
+
+#: shell/shell.ui.h:61
+msgid "min"
+msgstr "min"
+
+#: shell/shell.ui.h:62
+msgid "sec"
+msgstr "seconde"
+
+#: shell/shell.ui.h:63
+msgid "With the network time synchronization"
+msgstr "Avec la synchronisation de l'heure du réseau"
+
+#: shell/shell.ui.h:64
+msgid "because the ntp is installed,please use ntpdate."
+msgstr "car le ntp est installé, veuillez utiliser ntpdate."
+
+#: shell/shell.ui.h:65
+msgid "format:"
+msgstr "format:"
+
+#: shell/shell.ui.h:66
+msgid "12-hours"
+msgstr "12 heures"
+
+#: shell/shell.ui.h:67
+msgid "24-hours"
+msgstr "24 heures"
+
+#: shell/shell.ui.h:68
+msgid "Current Account"
+msgstr "Compte courant"
+
+#: shell/shell.ui.h:69
+msgid "Other Accounts"
+msgstr "Autres comptes"
+
+#: shell/shell.ui.h:70
+msgid "Create a new account"
+msgstr "Créer un nouveau compte"
+
+#: shell/shell.ui.h:71
+msgid "Add"
+msgstr "Ajouter"
+
+#: shell/shell.ui.h:72
+msgid "delete"
+msgstr "effacer"
+
+#: shell/shell.ui.h:73
+msgid "Style:"
+msgstr "Style:"
+
+#: shell/shell.ui.h:74
+msgid "wallpaper"
+msgstr "fond d'écran"
+
+#: shell/shell.ui.h:75
+msgid "Select the one you love color as the theme color"
+msgstr "Sélectionnez celui que vous aimez colorer comme couleur de thème"
+
+#: shell/shell.ui.h:76
+msgid "Theme color"
+msgstr "Couleur du thème"
+
+#: shell/shell.ui.h:77
+msgid "Font choice:"
+msgstr "Choix de la police:"
+
+#: shell/shell.ui.h:78
+msgid "Font size :"
+msgstr "Taille de police :"
+
+#: shell/shell.ui.h:80
+#, no-c-format
+msgid "small(S) --100%(default)"
+msgstr "petit (S) - 100% (par défaut)"
+
+#: shell/shell.ui.h:82
+#, no-c-format
+msgid "medium(M)--125%"
+msgstr "moyen (M) - 125%"
+
+#: shell/shell.ui.h:84
+#, no-c-format
+msgid "large (L) --150%"
+msgstr "grand (L) - 150%"
+
+#: shell/shell.ui.h:85
+msgid "Please select the clearest sample text"
+msgstr "Veuillez sélectionner le texte d'échantillon le plus clair"
+
+#: shell/shell.ui.h:86
+msgid "Restore Defaults"
+msgstr "Réinitialiser"
+
+#: shell/shell.ui.h:87
+msgid "Font"
+msgstr "Police de caractère"
+
+#: shell/shell.ui.h:88
+msgid "mouse double click action"
+msgstr "action de double clic de souris"
+
+#: shell/shell.ui.h:89
+msgid "mouse middle click action"
+msgstr "action du clic du milieu de la souris"
+
+#: shell/shell.ui.h:90
+msgid "mouse right click action"
+msgstr "action clic droit de la souris"
+
+#: shell/shell.ui.h:91
+msgid "windows"
+msgstr "les fenêtres"
+
+#: shell/shell.ui.h:92
+msgid "Internet"
+msgstr "l'Internet"
+
+#: shell/shell.ui.h:93
+msgid "Web Browser:"
+msgstr "Navigateur Web:"
+
+#: shell/shell.ui.h:94
+msgid "Mail Reader:"
+msgstr "Lecteur de courrier:"
+
+#: shell/shell.ui.h:95
+msgid "Multimedia"
+msgstr "Multimédia"
+
+#: shell/shell.ui.h:96
+msgid "Image Viewer:"
+msgstr "Visionneuse d'images:"
+
+#: shell/shell.ui.h:97
+msgid "Audio Player:"
+msgstr "Lecteur audio:"
+
+#: shell/shell.ui.h:98
+msgid "Video Player:"
+msgstr "Lecteur vidéo:"
+
+#: shell/shell.ui.h:99
+msgid "System"
+msgstr "Système"
+
+#: shell/shell.ui.h:100
+msgid "Text Editor:"
+msgstr "Éditeur de texte:"
+
+#: shell/shell.ui.h:101
+msgid "File Manager:"
+msgstr "Gestionnaire de fichiers:"
+
+#: shell/shell.ui.h:102
+msgid "Network Connections"
+msgstr "Les connexions de réseau"
+
+#: shell/shell.ui.h:103
+msgid "Repeat Keys"
+msgstr "Répéter les clés"
+
+#: shell/shell.ui.h:104
+msgid "Key presses _repeat when key is held down"
+msgstr "Touches appuyées _répéter lorsque la touche est maintenue enfoncée"
+
+#: shell/shell.ui.h:105
+msgid "_Delay:"
+msgstr "_Retard:"
+
+#: shell/shell.ui.h:106
+msgid "_Speed:"
+msgstr "_La vitesse:"
+
+#: shell/shell.ui.h:107
+msgid "Short"
+msgstr "Court"
+
+#: shell/shell.ui.h:108
+msgid "Slow"
+msgstr "Lent"
+
+#: shell/shell.ui.h:109
+msgid "Repeat keys speed"
+msgstr "Répéter la vitesse des clés"
+
+#: shell/shell.ui.h:110
+msgid "Long"
+msgstr "Longue"
+
+#: shell/shell.ui.h:111
+msgid "Fast"
+msgstr "Vite"
+
+#: shell/shell.ui.h:112
+msgid "To test the repetition rate of the input character:"
+msgstr "Pour tester le taux de répétition du caractère saisi:"
+
+#: shell/shell.ui.h:113
+msgid "Cursor Blinking"
+msgstr "Clignotement du curseur"
+
+#: shell/shell.ui.h:114
+msgid "Cursor _blinks in text fields"
+msgstr "Curseur _blinks dans les champs de texte"
+
+#: shell/shell.ui.h:115
+msgid "S_peed:"
+msgstr "La vitesse:"
+
+#: shell/shell.ui.h:116
+msgid "Cursor blinks speed"
+msgstr "Le curseur clignote"
+
+#: shell/shell.ui.h:117
+msgid "General"
+msgstr "Général"
+
+#: shell/shell.ui.h:118
+msgid ""
+"Please add the language you will use to the list. And the first one in the "
+"list is the most\n"
+"commonly used language."
+msgstr "Veuillez ajouter la langue que vous utiliserez à la liste. Et le premier de la liste est la langue la plus couramment utilisée."
+
+#: shell/shell.ui.h:120
+msgid "_Show..."
+msgstr "_Spectacle..."
+
+#: shell/shell.ui.h:121
+msgid "List of keyboard layouts selected for usage"
+msgstr "Liste des dispositions de clavier sélectionnées pour utilisation"
+
+#: shell/shell.ui.h:122
+msgid "_Separate layout for each window"
+msgstr "_Séparation séparée pour chaque fenêtre"
+
+#: shell/shell.ui.h:123
+msgid "New windows u_se active window's layout"
+msgstr "Nouvelle fenêtre u_se layout de la fenêtre active"
+
+#: shell/shell.ui.h:124
+msgid "Reset to De_faults"
+msgstr "Réinitialiser les paramètres par défaut"
+
+#: shell/shell.ui.h:125
+msgid "Layouts"
+msgstr "Layouts"
+
+#: shell/shell.ui.h:126
+msgid ""
+"\"To edit a shortcut key, click on the corresponding row and type a new key "
+"\"\n"
+"\"combination, or press backspace to clear.\""
+msgstr "\"Pour éditer une touche de raccourci, cliquez sur la ligne correspondante et tapez une nouvelle combinaison de touches "
+"\"\n"
+"\"ou appuyez sur la touche Retour pour effacer.\""
+
+#: shell/shell.ui.h:128
+msgid "Shortcut"
+msgstr "Raccourci"
+
+#: shell/shell.ui.h:129
+msgid "_Right-handed"
+msgstr "_Droitier"
+
+#: shell/shell.ui.h:130
+msgid "_Left-handed"
+msgstr "_Gaucher"
+
+#: shell/shell.ui.h:131
+msgid "Sh_ow position of pointer when the Control key is pressed"
+msgstr "Sh_ow position du pointeur lorsque la touche Ctrl est enfoncée"
+
+#: shell/shell.ui.h:132
+msgid "S_ensitivity:"
+msgstr "Sensibilité:"
+
+#: shell/shell.ui.h:133
+msgid "Low"
+msgstr "Faible"
+
+#: shell/shell.ui.h:134
+msgid "High"
+msgstr "Haute"
+
+#: shell/shell.ui.h:135
+msgid "Double-click the right bulb to test your settings"
+msgstr "Double-cliquez sur l'ampoule droite pour tester vos paramètres."
+
+#: shell/shell.ui.h:136
+msgid "_Timeout:"
+msgstr "_Temps libre:"
+
+#: shell/shell.ui.h:137
+msgid "Pointer moving speed"
+msgstr "Pointeur vitesse de déplacement"
+
+#: shell/shell.ui.h:138
+msgid "Locate Pointer"
+msgstr "Localiser le pointeur"
+
+#: shell/shell.ui.h:139
+msgid "Mouse Keys"
+msgstr "Touches de souris"
+
+#: shell/shell.ui.h:140
+msgid "Double-Click Speed"
+msgstr "Vitesse de double-clic"
+
+#: shell/shell.ui.h:141
+msgid "Disable _touchpad while typing"
+msgstr "Désactiver _touchpad lors de la frappe"
+
+#: shell/shell.ui.h:142
+msgid "Enable _mouse clicks with touchpad"
+msgstr "Activer les clics de souris avec le pavé tactile"
+
+#: shell/shell.ui.h:143
+msgid "Scrolling"
+msgstr "Défilement"
+
+#: shell/shell.ui.h:144
+msgid "_Disabled"
+msgstr "_Désactivé"
+
+#: shell/shell.ui.h:145
+msgid "Vertical _edge scrolling"
+msgstr "Défilement vertical _edge"
+
+#: shell/shell.ui.h:146
+msgid "_Horizontal edge scrolling"
+msgstr "Défilement horizontal des bords"
+
+#: shell/shell.ui.h:147
+msgid "_Vertical two-finger scrolling"
+msgstr "_Le défilement vertical à deux doigts"
+
+#: shell/shell.ui.h:148
+msgid "Horizontal two-_finger scrolling"
+msgstr "Défilement horizontal à deux doigts"
+
+#: shell/shell.ui.h:149
+msgid "Enabled touchpad"
+msgstr "Pavé tactile activé"
+
+#: shell/shell.ui.h:150
+msgid "Touchpad"
+msgstr "Pavé tactile"
+
+#: shell/shell.ui.h:151
+msgid "<b>Di_rect internet connection</b>"
+msgstr "<b>Connexion Internet Di_rect</b>"
+
+#: shell/shell.ui.h:152
+msgid "<b>_Manual proxy configuration</b>"
+msgstr "<b>_Processus de configuration manuelle du proxy</b>"
+
+#: shell/shell.ui.h:153
+msgid "H_TTP proxy:"
+msgstr "Http proxy:"
+
+#: shell/shell.ui.h:154
+msgid "_Secure HTTP proxy:"
+msgstr "_Proxy HTTP sécurisé:"
+
+#: shell/shell.ui.h:155
+msgid "_FTP proxy:"
+msgstr "Proxy _FTP:"
+
+#: shell/shell.ui.h:156
+msgid "S_ocks host:"
+msgstr "Hôte S_ocks:"
+
+#: shell/shell.ui.h:157
+msgid "Port:"
+msgstr "Port:"
+
+#: shell/shell.ui.h:158
+msgid "_Details"
+msgstr "_Détails"
+
+#: shell/shell.ui.h:159
+msgid "<b>_Automatic proxy configuration</b>"
+msgstr "<b>_Paramètres proxy automatiques</b>"
+
+#: shell/shell.ui.h:160
+msgid "Autoconfiguration _URL:"
+msgstr "Autoconfiguration _URL:"
+
+#: shell/shell.ui.h:161
+msgid "Proxy Configuration"
+msgstr "Configuration du proxy"
+
+#: shell/shell.ui.h:162
+msgid "Ignore Host List"
+msgstr "Ignorer la liste des hôtes"
+
+#: shell/shell.ui.h:163
+msgid "Ignored Hosts"
+msgstr "Hôtes ignorés"
+
+#: shell/shell.ui.h:164
+msgid "Additional startup _programs:"
+msgstr "_Programmes de démarrage supplémentaires:"
+
+#: shell/shell.ui.h:165
+msgid "name"
+msgstr "prénom"
+
+#: shell/shell.ui.h:166
+msgid "status"
+msgstr "statut"
+
+#: shell/shell.ui.h:167
+msgid "Startup Programs"
+msgstr "Programmes de démarrage"
+
+#: shell/shell.ui.h:168
+msgid "Change display appearance"
+msgstr "Changer l'apparence de l'affichage"
+
+#: shell/shell.ui.h:169
+msgid "Monitor:"
+msgstr "Moniteur:"
+
+#: shell/shell.ui.h:170
+msgid "Resolution:"
+msgstr "Résolution:"
+
+#: shell/shell.ui.h:171
+msgid "Direction:"
+msgstr "Direction:"
+
+#: shell/shell.ui.h:172
+msgid "Save"
+msgstr "sauvegarder"
+
+#: shell/shell.ui.h:173
+msgid "Same image in all monitors"
+msgstr "Même image sur tous les moniteurs"
+
+#: shell/shell.ui.h:174
+msgid "Set as primary"
+msgstr "Définir comme principale"
+
+#: shell/shell.ui.h:175
+msgid "Open Monitor"
+msgstr "Ouvrir le moniteur"
+
+#: shell/shell.ui.h:176
+msgid "Close Monitor"
+msgstr "Fermer le moniteur"
+
+#: shell/shell.ui.h:177
+msgid "Computer status"
+msgstr "État de l'ordinateur"
+
+#: shell/shell.ui.h:178
+msgid "AC Power"
+msgstr "Courant alternatif"
+
+#: shell/shell.ui.h:179
+msgid "Battery Power"
+msgstr "Puissance de la batterie"
+
+#: shell/shell.ui.h:180
+msgid "Put _computer to sleep when inactive:"
+msgstr "Mettez l'ordinateur en veille lorsqu'il est inactif:"
+
+#: shell/shell.ui.h:181
+msgid "Put _monitor to sleep when inactive:"
+msgstr "Mettez _monitor en veille lorsqu'il est inactif:"
+
+#: shell/shell.ui.h:182
+msgid "When laptop lid is cl_osed:"
+msgstr "Lorsque le couvercle de l'ordinateur portable est fermé:"
+
+#: shell/shell.ui.h:183
+msgid "Actions"
+msgstr "actes"
+
+#: shell/shell.ui.h:184
+msgid "When the power _button is pressed:"
+msgstr "Lorsque vous appuyez sur le bouton d'alimentation _:"
+
+#: shell/shell.ui.h:185
+msgid "When the sus_pend button is pressed:"
+msgstr "Lorsque le bouton sus_pend est enfoncé:"
+
+#: shell/shell.ui.h:186
+msgid "Icon display"
+msgstr "Affichage d'icônes"
+
+#: shell/shell.ui.h:187
+msgid "Only display an icon when a battery is p_resent"
+msgstr "Afficher une icône uniquement lorsqu'une batterie est présente"
+
+#: shell/shell.ui.h:188
+msgid "_Always display an icon"
+msgstr "_Toujours afficher une icône"
+
+#: shell/shell.ui.h:189
+msgid "Power Configure"
+msgstr "Puissance Configurer"
+
+#: shell/shell.ui.h:190
+msgid "Regard the computer as _idle after:"
+msgstr "Considérez l'ordinateur comme idem après:"
+
+#: shell/shell.ui.h:191
+msgid "_Activate screensaver when computer is idle"
+msgstr "_Activer l'économiseur d'écran lorsque l'ordinateur est inactif"
+
+#: shell/shell.ui.h:192
+msgid "_Lock screen when screensaver is active"
+msgstr "_Ecran de verrouillage lorsque l'écran de veille est activé"
+
+#: shell/shell.ui.h:193
+msgid "preview"
+msgstr "Aperçu"
+
+#: shell/shell.ui.h:194
+msgid "Screensavers:"
+msgstr "Écrans de veille:"
+
+#: shell/shell.ui.h:196
+msgid "Set display brightness to:"
+msgstr "Définissez la luminosité de l'écran sur:"
+
+#: shell/shell.ui.h:197
+msgid "Screensaver"
+msgstr "Économiseur d'écran"
+
+#: shell/ukui-control-center.c:45
+msgid "Show help options"
+msgstr "Afficher les options d'aide"
+
+#: shell/ukui-control-center.c:46
+msgid "Go to Time and Date settings page"
+msgstr "Aller à la page des paramètres de l'heure et de la date"
+
+#: shell/ukui-control-center.c:47
+msgid "Go to Personalization settings page "
+msgstr "Aller à la page des paramètres de personnalisation "
+
+#: shell/ukui-control-center.c:48
+msgid "Go to Power Management page"
+msgstr "Aller à la page de gestion de l'alimentation"
+
+#: shell/ukui-control-center.c:49
+msgid "Go to Sound settings page"
+msgstr "Aller à la page des paramètres sonores"
+
+#: shell/ukui-control-center.c:50
+msgid "Go to User Account page"
+msgstr "Aller à la page du compte d'utilisateur"
+
+#: shell/ukui-control-center.c:51
+msgid "Go to Keyboard settings page"
+msgstr "Aller à la page des paramètres du clavier"
+
+#: shell/ukui-control-center.c:52
+msgid "Go to Display settings page"
+msgstr "Aller à la page des paramètres d'affichage"
+
+#: shell/ukui-control-center.c:134
+msgid "- Page jump"
+msgstr "- saut de page"
+
+#: shell/ukui-control-center.c:143
+#, c-format
+msgid ""
+"%s\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr "%s\n"
+"Exécutez '%s --help' pour afficher la liste complète des options de ligne de commande disponibles. \n"
+
+#: shell/ukui-control-center.c:201
+msgid "window1"
+msgstr "fenêtre1"
+

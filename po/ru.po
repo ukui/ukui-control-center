@@ -1,0 +1,2463 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Canonical Ltd.
+# This file is distributed under the same license as the ukui-control-center package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ukui-control-center\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-12 14:12+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: panels/appearance/appearance-desktop.c:561
+msgid "Add Wallpaper"
+msgstr "Добавить обои"
+
+#: panels/appearance/appearance-desktop.c:594
+msgid "Image"
+msgstr "Образ"
+
+#: panels/appearance/appearance-desktop.c:598
+msgid "ALL File"
+msgstr "ВСЕ файл"
+
+#: panels/appearance/appearance-theme.c:50
+msgid "Please choose a color that you like as the theme colors."
+msgstr "Выберите цвет, который вам нравится, в качестве цвета темы."
+
+#: panels/appearance/appearance-theme.c:71
+msgid ""
+"Set up disable. Please wait at least 5 seconds that system subject will "
+"restart"
+msgstr "Настроить отключить. Подождите не менее 5 секунд, чтобы системный объект перезапустился"
+
+#: panels/appearance/appearance-windows.c:105
+#: panels/appearance/appearance-windows.c:109
+#: panels/appearance/appearance-windows.c:113
+msgid "none"
+msgstr "никто"
+
+#: panels/appearance/appearance-windows.c:106
+#: panels/appearance/appearance-windows.c:110
+#: panels/appearance/appearance-windows.c:114
+msgid "toggle-maximize"
+msgstr "тумблер увеличить"
+
+#: panels/appearance/appearance-windows.c:107
+#: panels/appearance/appearance-windows.c:111
+#: panels/appearance/appearance-windows.c:115
+msgid "lower"
+msgstr "ниже"
+
+#: panels/appearance/font_render.ui.h:1
+msgid "Font Rendering Details"
+msgstr "Детали рендеринга шрифтов"
+
+#: panels/appearance/font_render.ui.h:2
+msgid "R_esolution:"
+msgstr "Разрешение:"
+
+#: panels/appearance/font_render.ui.h:3
+msgid "dots per inch"
+msgstr "точек на дюйм"
+
+#: panels/appearance/font_render.ui.h:4
+msgid "Smoothing"
+msgstr "Сглаживание"
+
+#: panels/appearance/font_render.ui.h:5
+msgid "_None"
+msgstr "_Никто"
+
+#: panels/appearance/font_render.ui.h:6
+msgid "Gra_yscale"
+msgstr "Gra_yscale"
+
+#: panels/appearance/font_render.ui.h:7
+msgid "Sub_pixel (LCDs)"
+msgstr "Sub_pixel (LCD)"
+
+#: panels/appearance/font_render.ui.h:9
+msgid "_Slight"
+msgstr "_Slight"
+
+#: panels/appearance/font_render.ui.h:10
+msgid "N_one"
+msgstr "Никто"
+
+#: panels/appearance/font_render.ui.h:11
+msgid "_Medium"
+msgstr "_Средняя"
+
+#: panels/appearance/font_render.ui.h:12
+msgid "_Full"
+msgstr "_Полный"
+
+#: panels/appearance/font_render.ui.h:13
+msgid "Subpixel Order"
+msgstr "Подпиксельный заказ"
+
+#: panels/appearance/font_render.ui.h:15
+msgid "_RGB"
+msgstr "_RGB"
+
+#: panels/appearance/font_render.ui.h:17
+msgid "_BGR"
+msgstr "_BGR"
+
+#: panels/appearance/font_render.ui.h:19
+msgid "_VRGB"
+msgstr "_VRGB"
+
+#: panels/appearance/font_render.ui.h:21
+msgid "VB_GR"
+msgstr "VB_GR"
+
+#: panels/appearance/ukui-wp-info.c:47
+msgid "No Desktop Background"
+msgstr "Нет рабочего стола"
+
+#: panels/appearance/ukui-wp-item.c:315 panels/appearance/ukui-wp-item.c:317
+msgid "pixel"
+msgid_plural "pixels"
+msgstr[0] "пиксель"
+msgstr[1] "пиксель"
+
+#: panels/appearance/ukui-wp-item.c:327
+#, c-format
+msgid ""
+"<b>%s</b>\n"
+"%s, %s\n"
+"File Path: %s\n"
+"Artist: %s"
+msgstr "<b>%s</b>\n"
+"%s , %s\n"
+"Проход файла: %s\n"
+"Artist: %s"
+
+#: panels/appearance/ukui-wp-item.c:344
+#, c-format
+msgid ""
+"<b>%s</b>\n"
+"%s\n"
+"File Path: %s\n"
+"Artist: %s"
+msgstr "<b>%s</b>\n"
+"%s\n"
+"Проход файла: %s\n"
+"Artist: %s"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:45
+#, c-format
+msgid ""
+"Usage: %s SOURCE_FILE DEST_NAME\n"
+"\n"
+"This program installs a RANDR profile for multi-monitor setups into\n"
+"a systemwide location.  The resulting profile will get used when\n"
+"the RANDR plug-in gets run in ukui-settings-daemon.\n"
+"\n"
+"SOURCE_FILE - a full pathname, typically /home/username/.config/monitors."
+"xml\n"
+"\n"
+"DEST_NAME - relative name for the installed file.  This will get put in\n"
+"            the systemwide directory for RANDR configurations,\n"
+"            so the result will typically be %s/DEST_NAME\n"
+msgstr "Использование: %s SOURCE_FILE DEST_NAME \n"
+"\n"
+"Эта программа устанавливает профиль RANDR для настройки нескольких мониторов в системное местоположение. Полученный профиль будет использоваться, когда \n"
+"подключается плагин RANDR в ukui-settings-daemon.\n"
+"\n"
+"SOURCE_FILE - полное имя пути, обычно /home/username/.config/monitors."
+"xml\n"
+"\n"
+"DEST_NAME - относительное имя для установленного файла. Это будет помещено в \n"
+"             системный каталог для конфигураций RANDR, \n"
+"             , поэтому результат будет обычно %s/DEST_NAME\n"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:152
+msgid "This program can only be used by the root user"
+msgstr "Эта программа может использоваться только пользователем root"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:169
+msgid "The source filename must be absolute"
+msgstr "Исходное имя файла должно быть абсолютным"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:180
+#, c-format
+msgid "Could not open %s: %s\n"
+msgstr "Не удалось открыть %s : %s\n"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:189
+#, c-format
+msgid "Could not get information for %s: %s\n"
+msgstr "Не удалось получить информацию для %s : %s\n"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:196
+#, c-format
+msgid "%s must be a regular file\n"
+msgstr "%s должно быть обычным файлом\n"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:205
+msgid "This program must only be run through pkexec(1)"
+msgstr "Эта программа должна запускаться только через pkexec (1)"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:210
+msgid "PKEXEC_UID must be set to an integer value"
+msgstr "Значение PKEXEC_UID должно быть равно целочисленному значению"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:216
+#, c-format
+msgid "%s must be owned by you\n"
+msgstr "%s должно принадлежать вам \n"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:224
+#, c-format
+msgid "%s must not have any directory components\n"
+msgstr "%s не должно иметь никаких компонентов каталога \n"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:232
+#, c-format
+msgid "%s must be a directory\n"
+msgstr "%s должно быть каталогом \n"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:243
+#, c-format
+msgid "Could not open %s/%s: %s\n"
+msgstr "Не удалось открыть %s/%s: %s\n"
+
+#: panels/display/ukui-display-properties-install-systemwide.c:263
+#, c-format
+msgid "Could not rename %s to %s: %s\n"
+msgstr "Не удалось переименовать %s в %s : %s\n"
+
+#: panels/display/xrandr-capplet.c:315 panels/display/xrandr-capplet.c:354
+#: shell/shell.ui.h:1
+msgid "Normal"
+msgstr "Нормальный"
+
+#: panels/display/xrandr-capplet.c:316
+#: panels/volume-control/gvc-balance-bar.c:112 shell/shell.ui.h:2
+msgid "Left"
+msgstr "Оставил"
+
+#: panels/display/xrandr-capplet.c:317
+#: panels/volume-control/gvc-balance-bar.c:113 shell/shell.ui.h:3
+msgid "Right"
+msgstr "Правильно"
+
+#: panels/display/xrandr-capplet.c:318 shell/shell.ui.h:4
+msgid "Upside-down"
+msgstr "Сверху вниз"
+
+#: panels/display/xrandr-capplet.c:360
+#, c-format
+msgid "%d Hz"
+msgstr "%d Гц"
+
+#: panels/display/xrandr-capplet.c:497 panels/display/xrandr-capplet.c:1744
+msgid "Mirror Screens"
+msgstr "Зеркальные экраны"
+
+#: panels/display/xrandr-capplet.c:499
+#, c-format
+msgid "Monitor: %s"
+msgstr "Монитор: %s"
+
+#. TRANSLATORS: a monitor is a device to measure voltage and current
+#: panels/display/xrandr-capplet.c:515 panels/power/kpm-upower.c:573
+#: shell/mainwindow.c:305 shell/shell.ui.h:25
+msgid "Monitor"
+msgid_plural "Monitors"
+msgstr[0] "монитор"
+msgstr[1] "монитор"
+
+#: panels/display/xrandr-capplet.c:632
+#, c-format
+msgid "%d x %d"
+msgstr "%d x %d"
+
+#: panels/display/xrandr-capplet.c:1600
+msgid ""
+"Select a monitor to change its properties; drag it to rearrange its "
+"placement."
+msgstr "Выберите монитор, чтобы изменить его свойства; перетащите его, чтобы изменить его размещение."
+
+#: panels/display/xrandr-capplet.c:2204
+msgid "Could not save the monitor configuration"
+msgstr "Не удалось сохранить конфигурацию монитора"
+
+#: panels/display/xrandr-capplet.c:2226
+msgid "Could not get session bus while applying display configuration"
+msgstr "Не удалось получить сессионную шину при использовании конфигурации дисплея"
+
+#: panels/display/xrandr-capplet.c:2245
+msgid "Could not detect displays"
+msgstr "Не удалось обнаружить дисплеи"
+
+#: panels/display/xrandr-capplet.c:2477
+msgid "The monitor configuration has been saved"
+msgstr "Конфигурация монитора сохранена"
+
+#: panels/display/xrandr-capplet.c:2479
+msgid "This configuration will be used the next time someone logs in."
+msgstr "Эта конфигурация будет использоваться при следующем входе в систему."
+
+#: panels/display/xrandr-capplet.c:2488
+msgid "Could not set the default configuration for monitors"
+msgstr "Не удалось установить конфигурацию по умолчанию для мониторов"
+
+#: panels/display/xrandr-capplet.c:2557
+msgid "Could not get screen information"
+msgstr "Не удалось получить информацию о экране"
+
+#: panels/keyboard/shortcut_dialog.ui.h:1
+msgid "Custom Shortcut"
+msgstr "Пользовательский ярлык"
+
+#: panels/keyboard/shortcut_dialog.ui.h:2
+#: panels/session-properties/main-table.ui.h:1
+msgid "Name:"
+msgstr "Имя:"
+
+#: panels/keyboard/shortcut_dialog.ui.h:3
+msgid "Command"
+msgstr "команда"
+
+#: panels/keyboard/shortcut_dialog.ui.h:4
+msgid "Scan"
+msgstr "сканирование"
+
+#: panels/keyboard/ukui-keybinding-properties.c:1074
+#: panels/keyboard/ukui-keybinding-properties.c:1697
+msgid "Custom Shortcuts"
+msgstr "Пользовательские ярлыки"
+
+#: panels/keyboard/ukui-keybinding-properties.c:1350
+#, c-format
+msgid ""
+"The shortcut \"%s\" cannot be used because it will become impossible to type "
+"using this key.\n"
+"Please try with a key such as Control, Alt or Shift at the same time."
+msgstr "Ярлык \"%s\" не может использоваться, потому что с помощью этого ключа будет невозможно напечатать. \n"
+"Пожалуйста, попробуйте одновременно с клавишей Control, Alt или Shift."
+
+#: panels/keyboard/ukui-keybinding-properties.c:1383
+#, c-format
+msgid ""
+"The shortcut \"%s\" is already used for\n"
+"\"%s\",please reset!!!"
+msgstr "Ярлык \"%s\" уже используется для \n"
+"\"%s\", пожалуйста, сбросьте !!!"
+
+#: panels/keyboard/ukui-keybinding-properties.c:1527
+msgid "Add Shortcuts"
+msgstr "Добавить ярлыки"
+
+#: panels/keyboard/ukui-keybinding-properties.c:1919
+msgid "Selection Program"
+msgstr "Программа отбора"
+
+#: panels/keyboard/ukui-keybinding-properties.c:1963
+msgid "Function description"
+msgstr "Описание функции"
+
+#: panels/keyboard/ukui-keybinding-properties.c:1984
+msgid "Hotkey"
+msgstr "Горячая клавиша"
+
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:1
+msgid "Select the keyboard layout"
+msgstr "Выберите раскладку клавиатуры"
+
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:2
+msgid "_Variants:"
+msgstr "_Variants:"
+
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:3
+msgid "_Country:"
+msgstr "_Страна:"
+
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:4
+msgid "By _country"
+msgstr "По _country"
+
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:5
+msgid "_Language:"
+msgstr "_Language:"
+
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:6
+msgid "By _language"
+msgstr "Автор: llanguage"
+
+#: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:7
+msgid "Preview:"
+msgstr "Предварительный просмотр:"
+
+#: panels/network-proxy/network.ui.h:1
+msgid "Network Proxy Details"
+msgstr "Сведения о сетевом прокси"
+
+#: panels/network-proxy/network.ui.h:2
+msgid "<b>User authentication</b>"
+msgstr "<b> Аутентификация пользователя </b>"
+
+#: panels/network-proxy/network.ui.h:3
+msgid "Username:"
+msgstr "Имя пользователя:"
+
+#: panels/network-proxy/network.ui.h:4
+msgid "Password:"
+msgstr "Пароль:"
+
+#: panels/power/copy-theme-dialog.c:215
+msgid "Copying files"
+msgstr "Копирование файлов"
+
+#: panels/power/copy-theme-dialog.c:234
+msgid "From:"
+msgstr "Из:"
+
+#: panels/power/copy-theme-dialog.c:238
+msgid "To:"
+msgstr "Для того, чтобы:"
+
+#: panels/power/copy-theme-dialog.c:259
+msgid "Copying themes"
+msgstr "Копирование тем"
+
+#: panels/power/copy-theme-dialog.c:302
+msgid "Invalid screensaver theme"
+msgstr "Недопустимая тема заставки"
+
+#: panels/power/copy-theme-dialog.c:305
+#, c-format
+msgid "%s does not appear to be a valid screensaver theme."
+msgstr "%s не является действительной темой заставки."
+
+#: panels/power/copy-theme-dialog.c:485
+#, c-format
+msgid "Copying file: %u of %u"
+msgstr "Копирование файла:%u из %u"
+
+#: panels/power/kpm-common.c:52
+msgid "Unknown time"
+msgstr "Неизвестное время"
+
+#: panels/power/kpm-common.c:57
+#, c-format
+msgid "%i minutes"
+msgid_plural "%i minutes"
+msgstr[0] "%i минут"
+msgstr[1] "%i минут"
+
+#: panels/power/kpm-common.c:68
+#, c-format
+msgid "%i hours"
+msgid_plural "%i hours"
+msgstr[0] "%i часов"
+msgstr[1] "%i часов"
+
+#: panels/power/kpm-common.c:74
+#, c-format
+msgid "%i %s %i %s"
+msgstr "%i %s %i %s"
+
+#: panels/power/kpm-common.c:75 shell/shell.ui.h:60
+msgid "hour"
+msgid_plural "hours"
+msgstr[0] "час"
+msgstr[1] "час"
+
+#: panels/power/kpm-common.c:76
+msgid "minute"
+msgid_plural "minutes"
+msgstr[0] "минут"
+msgstr[1] "минут"
+
+#: panels/power/kpm-common.h:41
+msgid "Power Manager"
+msgstr "Power Manager"
+
+#: panels/power/kpm-common.h:42
+msgid "Power Manager for the UKUI desktop"
+msgstr "Power Manager для рабочего стола UKUI"
+
+#: panels/power/kpm-prefs-core.c:168 panels/power/kpm-prefs-core.c:170
+msgid "Never"
+msgstr "Никогда"
+
+#: panels/power/kpm-prefs-core.c:248 panels/power/kpm-prefs-core.c:253
+#: panels/power/kpm-prefs-core.c:256
+msgid "Shutdown"
+msgstr "Неисправность"
+
+#: panels/power/kpm-prefs-core.c:265 panels/power/kpm-prefs-core.c:268
+msgid "Hang"
+msgstr "вешать"
+
+#: panels/power/kpm-prefs-core.c:273 panels/power/kpm-prefs-core.c:276
+msgid "Sleep"
+msgstr "Спать"
+
+#: panels/power/kpm-prefs-core.c:281 panels/power/kpm-prefs-core.c:284
+#: panels/power/ukui-screensaver-preferences.c:477
+#: panels/power/ukui-screensaver-preferences.c:583
+#: panels/power/ukui-screensaver-preferences.c:766
+msgid "Blank screen"
+msgstr "Пустой экран"
+
+#: panels/power/kpm-prefs-core.c:289 panels/power/kpm-prefs-core.c:292
+msgid "Ask"
+msgstr "Просить"
+
+#: panels/power/kpm-prefs-core.c:297 panels/power/kpm-prefs-core.c:300
+msgid "Do not perform operations"
+msgstr "Не выполнять операции"
+
+#. TRANSLATORS: a phone is charging
+#. TRANSLATORS: device is charging, but we only have a percentage
+#: panels/power/kpm-upower.c:259 panels/power/kpm-upower.c:333
+#, c-format
+msgid "%s charging (%.1f%%)"
+msgstr "%s зарядка (%.1f%%)"
+
+#. TRANSLATORS: The laptop battery is fully charged, and we know a time
+#: panels/power/kpm-upower.c:275
+#, c-format
+msgid ""
+"Battery is fully charged.\n"
+"Provides %s laptop runtime"
+msgstr "Аккумулятор полностью заряжен. \n"
+"Проводит %s время работы ноутбука"
+
+#. TRANSLATORS: the device is fully charged
+#: panels/power/kpm-upower.c:282
+#, c-format
+msgid "%s is fully charged"
+msgstr "%s полностью заряжен"
+
+#. TRANSLATORS: the device is discharging, and we have a time remaining
+#: panels/power/kpm-upower.c:292
+#, c-format
+msgid "%s %s remaining (%.1f%%)"
+msgstr "%s %s осталось (%.1f%%)"
+
+#. TRANSLATORS: the device is discharging, but we only have a percentage
+#: panels/power/kpm-upower.c:299
+#, c-format
+msgid "%s discharging (%.1f%%)"
+msgstr "Выгрузка %s (%.1f%%)"
+
+#. TRANSLATORS: the device is charging, and we have a time to full and empty
+#: panels/power/kpm-upower.c:315
+#, c-format
+msgid ""
+"%s %s until charged (%.1f%%)\n"
+"Provides %s battery runtime"
+msgstr "%s %s до зарядки (%.1f%%)\n"
+"Проводит%s время работы батареи"
+
+#. TRANSLATORS: device is charging, and we have a time to full and a percentage
+#: panels/power/kpm-upower.c:326
+#, c-format
+msgid "%s %s until charged (%.1f%%)"
+msgstr "%s %s до загрузки (%.1f%%)"
+
+#. TRANSLATORS: this is only shown for laptops with multiple batteries
+#: panels/power/kpm-upower.c:341
+#, c-format
+msgid "%s waiting to discharge (%.1f%%)"
+msgstr "%s ожидания выхода (%.1f%%)"
+
+#. TRANSLATORS: this is only shown for laptops with multiple batteries
+#: panels/power/kpm-upower.c:349
+#, c-format
+msgid "%s waiting to charge (%.1f%%)"
+msgstr "%s ждет заряда (%.1f%%)"
+
+#. TRANSLATORS: the type of data, e.g. Laptop battery
+#: panels/power/kpm-upower.c:410
+msgid "Product:"
+msgstr "Продукт:"
+
+#. TRANSLATORS: device is missing
+#. TRANSLATORS: device is charged
+#. TRANSLATORS: device is charging
+#. TRANSLATORS: device is discharging
+#: panels/power/kpm-upower.c:415 panels/power/kpm-upower.c:420
+#: panels/power/kpm-upower.c:425 panels/power/kpm-upower.c:430
+msgid "Status:"
+msgstr "Положение дел:"
+
+#: panels/power/kpm-upower.c:415
+msgid "Missing"
+msgstr "Отсутствует"
+
+#. TRANSLATORS: battery state
+#: panels/power/kpm-upower.c:420 panels/power/kpm-upower.c:730
+msgid "Charged"
+msgstr "заряженный"
+
+#. TRANSLATORS: battery state
+#: panels/power/kpm-upower.c:425 panels/power/kpm-upower.c:718
+msgid "Charging"
+msgstr "Зарядка"
+
+#. TRANSLATORS: battery state
+#: panels/power/kpm-upower.c:430 panels/power/kpm-upower.c:722
+msgid "Discharging"
+msgstr "разрядка"
+
+#. TRANSLATORS: percentage
+#: panels/power/kpm-upower.c:436
+msgid "Percentage charge:"
+msgstr "Процентная плата:"
+
+#. TRANSLATORS: manufacturer
+#: panels/power/kpm-upower.c:441
+msgid "Vendor:"
+msgstr "Производитель:"
+
+#. TRANSLATORS: how the battery is made, e.g. Lithium Ion
+#: panels/power/kpm-upower.c:447
+msgid "Technology:"
+msgstr "Технология:"
+
+#. TRANSLATORS: serial number of the battery
+#: panels/power/kpm-upower.c:452
+msgid "Serial number:"
+msgstr "Серийный номер:"
+
+#. TRANSLATORS: model number of the battery
+#: panels/power/kpm-upower.c:457
+msgid "Model:"
+msgstr "Модель:"
+
+#. TRANSLATORS: time to fully charged
+#: panels/power/kpm-upower.c:463
+msgid "Charge time:"
+msgstr "Время заряда:"
+
+#. TRANSLATORS: time to empty
+#: panels/power/kpm-upower.c:470
+msgid "Discharge time:"
+msgstr "Время разряда:"
+
+#. TRANSLATORS: Excellent, Good, Fair and Poor are all related to battery Capacity
+#: panels/power/kpm-upower.c:479
+msgid "Excellent"
+msgstr "Отлично"
+
+#: panels/power/kpm-upower.c:483
+msgid "Good"
+msgstr "Хорошо"
+
+#: panels/power/kpm-upower.c:487
+msgid "Fair"
+msgstr "Справедливая"
+
+#: panels/power/kpm-upower.c:491
+msgid "Poor"
+msgstr "Бедные"
+
+#: panels/power/kpm-upower.c:495
+msgid "Capacity:"
+msgstr "Вместимость:"
+
+#: panels/power/kpm-upower.c:503 panels/power/kpm-upower.c:533
+msgid "Current charge:"
+msgstr "Текущий заряд:"
+
+#: panels/power/kpm-upower.c:510
+msgid "Last full charge:"
+msgstr "Последняя полная оплата:"
+
+#: panels/power/kpm-upower.c:517 panels/power/kpm-upower.c:539
+msgid "Design charge:"
+msgstr "Плата за проектирование:"
+
+#: panels/power/kpm-upower.c:523
+msgid "Charge rate:"
+msgstr "Скорость зарядки:"
+
+#. TRANSLATORS: system power cord
+#: panels/power/kpm-upower.c:561
+msgid "AC adapter"
+msgid_plural "AC adapters"
+msgstr[0] "адаптер переменного тока"
+msgstr[1] "адаптер переменного тока"
+
+#. TRANSLATORS: laptop primary battery
+#: panels/power/kpm-upower.c:565
+msgid "Laptop battery"
+msgid_plural "Laptop batteries"
+msgstr[0] "Аккумулятор ноутбука"
+msgstr[1] "Аккумулятор ноутбука"
+
+#. TRANSLATORS: battery-backed AC power source
+#: panels/power/kpm-upower.c:569
+msgid "UPS"
+msgid_plural "UPSs"
+msgstr[0] "UPS"
+msgstr[1] "UPS"
+
+#. TRANSLATORS: wireless mice with internal batteries
+#: panels/power/kpm-upower.c:577 shell/mainwindow.c:247 shell/shell.ui.h:24
+msgid "Mouse"
+msgid_plural "Mice"
+msgstr[0] "мышь"
+msgstr[1] "мышь"
+
+#. TRANSLATORS: wireless keyboard with internal battery
+#: panels/power/kpm-upower.c:581 shell/mainwindow.c:236 shell/shell.ui.h:22
+msgid "Keyboard"
+msgid_plural "Keyboards"
+msgstr[0] "клавиатура"
+msgstr[1] "клавиатура"
+
+#. TRANSLATORS: portable device
+#: panels/power/kpm-upower.c:585
+msgid "PDA"
+msgid_plural "PDAs"
+msgstr[0] "КПК"
+msgstr[1] "КПК"
+
+#. TRANSLATORS: cell phone (mobile...)
+#: panels/power/kpm-upower.c:589
+msgid "Cell phone"
+msgid_plural "Cell phones"
+msgstr[0] "Сотовый телефон"
+msgstr[1] "Сотовый телефон"
+
+#. TRANSLATORS: media player, mp3 etc
+#: panels/power/kpm-upower.c:594
+msgid "Media player"
+msgid_plural "Media players"
+msgstr[0] "Медиа-плейер"
+msgstr[1] "Медиа-плейер"
+
+#. TRANSLATORS: tablet device
+#: panels/power/kpm-upower.c:598
+msgid "Tablet"
+msgid_plural "Tablets"
+msgstr[0] "таблетка"
+msgstr[1] "таблетка"
+
+#. TRANSLATORS: tablet device
+#: panels/power/kpm-upower.c:602
+msgid "Computer"
+msgid_plural "Computers"
+msgstr[0] "компьютер"
+msgstr[1] "компьютер"
+
+#. TRANSLATORS: battery technology
+#: panels/power/kpm-upower.c:673
+msgid "Lithium Ion"
+msgstr "Литий-ионный"
+
+#. TRANSLATORS: battery technology
+#: panels/power/kpm-upower.c:677
+msgid "Lithium Polymer"
+msgstr "Литий-полимерный"
+
+#. TRANSLATORS: battery technology
+#: panels/power/kpm-upower.c:681
+msgid "Lithium Iron Phosphate"
+msgstr "Литий-фосфат железа"
+
+#. TRANSLATORS: battery technology
+#: panels/power/kpm-upower.c:685
+msgid "Lead acid"
+msgstr "Свинцово-кислотный"
+
+#. TRANSLATORS: battery technology
+#: panels/power/kpm-upower.c:689
+msgid "Nickel Cadmium"
+msgstr "Никель-кадмий"
+
+#. TRANSLATORS: battery technology
+#: panels/power/kpm-upower.c:693
+msgid "Nickel metal hydride"
+msgstr "Гидрид никеля"
+
+#. TRANSLATORS: battery technology
+#: panels/power/kpm-upower.c:697
+msgid "Unknown technology"
+msgstr "Неизвестная технология"
+
+#. TRANSLATORS: battery state
+#: panels/power/kpm-upower.c:726
+msgid "Empty"
+msgstr "пустой"
+
+#. TRANSLATORS: battery state
+#: panels/power/kpm-upower.c:734
+msgid "Waiting to charge"
+msgstr "Ожидание зарядки"
+
+#. TRANSLATORS: battery state
+#: panels/power/kpm-upower.c:738
+msgid "Waiting to discharge"
+msgstr "Ожидание разгрузки"
+
+#: panels/power/ukui-fullscreen-preview.ui.h:1
+msgid "Screensaver Preview"
+msgstr "Предварительный просмотр заставки"
+
+#: panels/power/ukui-fullscreen-preview.ui.h:2
+msgid "Screensaver preview"
+msgstr "Предварительный просмотр заставки"
+
+#: panels/power/ukui-screensaver-preferences.c:478
+#: panels/power/ukui-screensaver-preferences.c:578
+#: panels/power/ukui-screensaver-preferences.c:764
+msgid "Random"
+msgstr "случайный"
+
+#: panels/power/ukui-screensaver-preferences.c:640
+#: panels/power/ukui-screensaver-preferences.c:1464
+#, c-format
+msgid "%d min"
+msgstr "%d min"
+
+#: panels/power/ukui-screensaver-preferences.c:642
+#: panels/power/ukui-screensaver-preferences.c:1466
+#, c-format
+msgid "%d hour %d min"
+msgstr "%d час %d мин"
+
+#: panels/power/ukui-screensaver-preferences.c:1530
+msgid "Could not load the main interface"
+msgstr "Не удалось загрузить основной интерфейс"
+
+#: panels/power/ukui-screensaver-preferences.c:1532
+msgid "Please make sure that the screensaver is properly installed"
+msgstr "Убедитесь, что заставка установлена ​​правильно."
+
+#: panels/session-properties/gsm-app-dialog.c:145
+msgid "Desktop file(*.desktop)"
+msgstr "Рабочий стол (*. Desktop)"
+
+#: panels/session-properties/gsm-app-dialog.c:152
+msgid "Select command"
+msgstr "Выбрать команду"
+
+#: panels/session-properties/gsm-app-dialog.c:257
+msgid "Add programs"
+msgstr "Добавить программы"
+
+#: panels/session-properties/gsm-app-dialog.c:261
+msgid "Boot program property details"
+msgstr "Сведения о свойствах загрузочной программы"
+
+#: panels/session-properties/gsm-app-dialog.c:526
+msgid "The startup command cannot be empty"
+msgstr "Команда запуска не может быть пуста"
+
+#: panels/session-properties/gsm-app-dialog.c:532
+msgid "The startup command is not valid"
+msgstr "Команда запуска недействительна"
+
+#: panels/session-properties/gsm-properties-dialog.c:117
+msgid "enabled"
+msgstr "включен"
+
+#: panels/session-properties/gsm-properties-dialog.c:119
+msgid "disabled"
+msgstr "отключен"
+
+#: panels/session-properties/gsm-properties-dialog.c:445
+#, c-format
+msgid "%d/%d/%d/  %d:%d:%d"
+msgstr "%d/%d/%d/ %d:%d:%d"
+
+#: panels/session-properties/gsm-properties-dialog.c:526
+msgid "property"
+msgstr "имущество"
+
+#: panels/session-properties/gsm-properties-dialog.c:553
+#, c-format
+msgid "%dByte"
+msgstr "%dБайт"
+
+#: panels/session-properties/main-table.ui.h:2
+msgid "Command:"
+msgstr "Команда:"
+
+#: panels/session-properties/main-table.ui.h:3
+msgid "Annotation:"
+msgstr "Аннотация:"
+
+#: panels/session-properties/main-table.ui.h:4
+msgid "scan…"
+msgstr "сканирование ..."
+
+#: panels/session-properties/program_properties.ui.h:1
+msgid "program name"
+msgstr "название программы"
+
+#: panels/session-properties/program_properties.ui.h:2
+msgid "File Type:"
+msgstr "Тип файла:"
+
+#: panels/session-properties/program_properties.ui.h:3
+msgid "File Description:"
+msgstr "Описание файла:"
+
+#: panels/session-properties/program_properties.ui.h:4
+msgid "Application"
+msgstr "заявка"
+
+#: panels/session-properties/program_properties.ui.h:5
+msgid "Program Location:"
+msgstr "Место проведения программы:"
+
+#: panels/session-properties/program_properties.ui.h:6
+msgid "Program Size:"
+msgstr "Размер программы:"
+
+#: panels/session-properties/program_properties.ui.h:7
+msgid "Access Time:"
+msgstr "Время доступа:"
+
+#: panels/session-properties/program_properties.ui.h:8
+msgid "modification time:"
+msgstr "время модификации:"
+
+#: panels/user-accounts/change-face.ui.h:1
+msgid "Changge Face"
+msgstr "Чанг Ли"
+
+#: panels/user-accounts/change-face.ui.h:2
+#: panels/user-accounts/change-name.ui.h:2
+#: panels/user-accounts/change-pwd.ui.h:2
+#: panels/user-accounts/change-type.ui.h:2
+#: panels/user-accounts/delete-user.ui.h:2
+#: panels/user-accounts/user-accounts.c:2066
+#: panels/user-accounts/user-create.ui.h:2
+msgid "Cancel"
+msgstr "Отмена"
+
+#: panels/user-accounts/change-face.ui.h:3
+#: panels/user-accounts/change-name.ui.h:3
+#: panels/user-accounts/change-pwd.ui.h:3
+#: panels/user-accounts/change-type.ui.h:3
+#: panels/user-accounts/user-accounts.c:2067
+msgid "Ok"
+msgstr "ОК"
+
+#: panels/user-accounts/change-face.ui.h:4
+#: panels/user-accounts/change-name.ui.h:4
+#: panels/user-accounts/change-pwd.ui.h:4
+#: panels/user-accounts/change-type.ui.h:5
+#: panels/user-accounts/delete-user.ui.h:5 shell/shell.ui.h:195
+msgid "label"
+msgstr "метка"
+
+#: panels/user-accounts/change-face.ui.h:5
+#: panels/user-accounts/user-accounts.c:2063
+msgid "Browse more pictures"
+msgstr "Просмотр фотографий"
+
+#: panels/user-accounts/change-name.ui.h:1
+msgid "Change Name"
+msgstr "Сменить имя"
+
+#: panels/user-accounts/change-pwd.ui.h:1
+msgid "Change Password"
+msgstr "Изменить пароль"
+
+#: panels/user-accounts/change-type.ui.h:1
+msgid "Change Usertype"
+msgstr "Изменить тип пользователя"
+
+#: panels/user-accounts/change-type.ui.h:4
+msgid "automatic login"
+msgstr "автоматический вход в систему"
+
+#: panels/user-accounts/change-type.ui.h:6
+msgid ""
+"Please make sure that the computer has at least one user is the administrator"
+msgstr "Убедитесь, что на компьютере есть как минимум один пользователь - администратор"
+
+#: panels/user-accounts/change-type.ui.h:7
+#: panels/user-accounts/user-create.ui.h:5
+msgid "Standard User"
+msgstr "Стандартный пользователь"
+
+#: panels/user-accounts/change-type.ui.h:8
+msgid ""
+"Standard users can use most software, but you can not install software and \n"
+"change settings that affect all users."
+msgstr "Стандартные пользователи могут использовать большинство программ, но вы не можете установить программное обеспечение и \n"
+"менять настройки, которые влияют на всех пользователей."
+
+#: panels/user-accounts/change-type.ui.h:10
+#: panels/user-accounts/user-accounts.c:688
+#: panels/user-accounts/user-accounts.c:945
+#: panels/user-accounts/user-accounts.c:1129
+#: panels/user-accounts/user-accounts.c:1238
+#: panels/user-accounts/user-accounts.c:1239
+#: panels/user-accounts/user-accounts.c:1353
+#: panels/user-accounts/user-accounts.c:1579
+#: panels/user-accounts/user-accounts.c:1689
+#: panels/user-accounts/user-create.ui.h:8
+msgid "Administrators"
+msgstr "Администраторы"
+
+#: panels/user-accounts/change-type.ui.h:11
+#: panels/user-accounts/user-create.ui.h:9
+msgid ""
+"Administrator can make any changes needed on the system, including　\n"
+"installing and upgrading software."
+msgstr "Администратор может внести любые изменения в систему, в том числе \n"
+"устанавливать и обновлять программное обеспечение."
+
+#: panels/user-accounts/check-passwd.c:583
+msgid "is the same as the old one"
+msgstr "такая же, как и старая"
+
+#: panels/user-accounts/check-passwd.c:589
+#: panels/user-accounts/check-passwd.c:593
+#: panels/user-accounts/check-passwd.c:603
+msgid "memory allocation error"
+msgstr "ошибка выделения памяти"
+
+#: panels/user-accounts/check-passwd.c:608
+msgid "is a palindrome"
+msgstr "является палиндром"
+
+#: panels/user-accounts/check-passwd.c:611
+msgid "case changes only"
+msgstr "только изменения в случае"
+
+#: panels/user-accounts/check-passwd.c:614
+msgid "is too similar to the old one"
+msgstr "слишком похож на старый"
+
+#: panels/user-accounts/check-passwd.c:617
+msgid "is too simple"
+msgstr "слишком просто"
+
+#: panels/user-accounts/check-passwd.c:620
+msgid "is rotated"
+msgstr "поворачивается"
+
+#: panels/user-accounts/check-passwd.c:623
+msgid "not enough character classes"
+msgstr "недостаточно символов классов"
+
+#: panels/user-accounts/check-passwd.c:626
+msgid "contains too many same characters consecutively"
+msgstr "содержит слишком много одинаковых символов последовательно"
+
+#: panels/user-accounts/check-passwd.c:629
+msgid "contains too long of a monotonic character sequence"
+msgstr "содержит слишком длинную последовательность монотонных символов"
+
+#: panels/user-accounts/check-passwd.c:632
+msgid "contains the user name in some form"
+msgstr "содержит имя пользователя в той или иной форме"
+
+#: panels/user-accounts/delete-user.ui.h:1
+msgid "Delete User"
+msgstr "Удалить пользователя"
+
+#: panels/user-accounts/delete-user.ui.h:3
+msgid "Keep File"
+msgstr "Сохранить файл"
+
+#: panels/user-accounts/delete-user.ui.h:4
+msgid "Delete File"
+msgstr "Удалить файл"
+
+#: panels/user-accounts/run-passwd.c:220
+msgid "Authentication failure!"
+msgstr "Ошибка аутентификации!"
+
+#: panels/user-accounts/run-passwd.c:297
+msgid "New password length is too short!"
+msgstr "Новая длина пароля слишком короткая!"
+
+#: panels/user-accounts/run-passwd.c:303
+msgid "The new password is too simple!"
+msgstr "Новый пароль слишком прост!"
+
+#: panels/user-accounts/run-passwd.c:309
+msgid "The new password is too similar to the old one!"
+msgstr "Новый пароль слишком похож на старый!"
+
+#: panels/user-accounts/run-passwd.c:312
+msgid "The new password must contain numbers or special characters!"
+msgstr "Новый пароль должен содержать цифры или специальные символы!"
+
+#: panels/user-accounts/run-passwd.c:316
+msgid "The new password is the same as the old one!"
+msgstr "Новый пароль такой же, как и старый!"
+
+#: panels/user-accounts/run-passwd.c:319
+msgid "The new password has been used recently!"
+msgstr "Новый пароль был использован недавно!"
+
+#: panels/user-accounts/run-passwd.c:323
+msgid "Your password has been changed after you verify!"
+msgstr "Ваш пароль был изменен после проверки!"
+
+#: panels/user-accounts/user-accounts.c:188
+msgid "User name cannot be empty!"
+msgstr "Имя пользователя не может быть пустым!"
+
+#: panels/user-accounts/user-accounts.c:214
+msgid "Password length needs to more than 5 digits!"
+msgstr "Длина пароля должна превышать 5 цифр!"
+
+#: panels/user-accounts/user-accounts.c:221
+#: panels/user-accounts/user-accounts.c:414
+msgid "Password length needs to less than 64 digits!"
+msgstr "Длина пароля должна составлять менее 64 цифр!"
+
+#: panels/user-accounts/user-accounts.c:233
+#: panels/user-accounts/user-accounts.c:360
+#: panels/user-accounts/user-accounts.c:398
+#: panels/user-accounts/user-accounts.c:406
+#: panels/user-accounts/user-accounts.c:421
+#: panels/user-accounts/user-accounts.c:643
+#: panels/user-accounts/user-accounts.c:739
+#: panels/user-accounts/user-accounts.c:2571
+msgid "Please confirm the new password"
+msgstr "Подтвердите новый пароль"
+
+#: panels/user-accounts/user-accounts.c:235
+#: panels/user-accounts/user-accounts.c:253
+#: panels/user-accounts/user-accounts.c:424
+msgid "enter the password twice inconsistencies!"
+msgstr "введите пароль дважды несоответствия!"
+
+#: panels/user-accounts/user-accounts.c:268
+#: panels/user-accounts/user-accounts.c:774
+msgid "The first character cannot be underlined!"
+msgstr "Первый символ нельзя подчеркнуть!"
+
+#: panels/user-accounts/user-accounts.c:274
+#: panels/user-accounts/user-accounts.c:780
+msgid "User name can not contain capital letters!"
+msgstr "Имя пользователя не может содержать заглавных букв!"
+
+#: panels/user-accounts/user-accounts.c:282
+#: panels/user-accounts/user-accounts.c:788
+msgid "The user name can only be composed of letters, numbers and underline!"
+msgstr "Имя пользователя может состоять только из букв, цифр и подчеркивания!"
+
+#: panels/user-accounts/user-accounts.c:289
+msgid "The first character cannot be numeric!"
+msgstr "Первый символ не может быть числовым!"
+
+#: panels/user-accounts/user-accounts.c:300
+#: panels/user-accounts/user-accounts.c:357
+#: panels/user-accounts/user-accounts.c:2559
+msgid "Please enter the username"
+msgstr "Введите имя пользователя"
+
+#: panels/user-accounts/user-accounts.c:301
+msgid "Please enter the password "
+msgstr "Введите пароль "
+
+#: panels/user-accounts/user-accounts.c:313
+msgid "The user name is already in use, please use a different one."
+msgstr "Имя пользователя уже используется, используйте другой."
+
+#: panels/user-accounts/user-accounts.c:333
+msgid ""
+"The user name corresponds to the group already exists,please use a different "
+"user name"
+msgstr "Имя пользователя, соответствующее группе, уже существует, используйте другое имя пользователя"
+
+#: panels/user-accounts/user-accounts.c:345
+msgid "username length need to less than 32!"
+msgstr "длина имени пользователя меньше 32!"
+
+#: panels/user-accounts/user-accounts.c:357
+#: panels/user-accounts/user-accounts.c:960
+msgid "Please enter the new username"
+msgstr "Введите новое имя пользователя"
+
+#: panels/user-accounts/user-accounts.c:359
+#: panels/user-accounts/user-accounts.c:2566
+msgid "Please enter the password"
+msgstr "Введите пароль"
+
+#: panels/user-accounts/user-accounts.c:359
+#: panels/user-accounts/user-accounts.c:634
+#: panels/user-accounts/user-accounts.c:730
+msgid "Please enter new password"
+msgstr "Введите новый пароль"
+
+#: panels/user-accounts/user-accounts.c:360
+#: panels/user-accounts/user-accounts.c:396
+#: panels/user-accounts/user-accounts.c:612
+#: panels/user-accounts/user-accounts.c:716
+msgid "Please enter the current password"
+msgstr "Введите текущий пароль"
+
+#: panels/user-accounts/user-accounts.c:360
+#: panels/user-accounts/user-accounts.c:397
+#: panels/user-accounts/user-accounts.c:405
+#: panels/user-accounts/user-accounts.c:420
+msgid "Please enter the new password"
+msgstr "Введите новый пароль"
+
+#: panels/user-accounts/user-accounts.c:463
+msgid "Please choose another password."
+msgstr "Выберите другой пароль."
+
+#: panels/user-accounts/user-accounts.c:477
+msgid "Please reenter the current password."
+msgstr "Повторите ввод текущего пароля."
+
+#: panels/user-accounts/user-accounts.c:484
+msgid "Password can not be modified."
+msgstr "Пароль не может быть изменен."
+
+#: panels/user-accounts/user-accounts.c:577
+msgid "Password input error, please re-enter!"
+msgstr "Ошибка ввода пароля, пожалуйста, введите пароль!"
+
+#: panels/user-accounts/user-accounts.c:690
+#: panels/user-accounts/user-accounts.c:947
+#: panels/user-accounts/user-accounts.c:1131
+#: panels/user-accounts/user-accounts.c:1243
+#: panels/user-accounts/user-accounts.c:1244
+#: panels/user-accounts/user-accounts.c:1358
+#: panels/user-accounts/user-accounts.c:1581
+#: panels/user-accounts/user-accounts.c:1691
+msgid "Standard user"
+msgstr "Стандартный пользователь"
+
+#: panels/user-accounts/user-accounts.c:696
+#: panels/user-accounts/user-accounts.c:953
+#: panels/user-accounts/user-accounts.c:1136
+#: panels/user-accounts/user-accounts.c:1372
+#: panels/user-accounts/user-accounts.c:1613
+#: panels/user-accounts/user-accounts.c:1699
+msgid "Logged(Current User)"
+msgstr "Записан"
+
+#: panels/user-accounts/user-accounts.c:701
+#: panels/user-accounts/user-accounts.c:955
+#: panels/user-accounts/user-accounts.c:1138
+#: panels/user-accounts/user-accounts.c:1374
+#: panels/user-accounts/user-accounts.c:1617
+#: panels/user-accounts/user-accounts.c:1703
+msgid "Logged(Other Users)"
+msgstr "Записан"
+
+#: panels/user-accounts/user-accounts.c:705
+#: panels/user-accounts/user-accounts.c:957
+#: panels/user-accounts/user-accounts.c:1140
+#: panels/user-accounts/user-accounts.c:1376
+#: panels/user-accounts/user-accounts.c:1621
+#: panels/user-accounts/user-accounts.c:1707
+msgid "Un-login(Other Users)"
+msgstr "Un-login (Другие пользователи)"
+
+#: panels/user-accounts/user-accounts.c:795
+msgid "User name cannot start with number!"
+msgstr "Имя пользователя не может начинаться с номера!"
+
+#: panels/user-accounts/user-accounts.c:801
+msgid "Username length need to less than 32!"
+msgstr "Длина имени пользователя не должна превышать 32!"
+
+#: panels/user-accounts/user-accounts.c:813
+msgid "The user name has been used, please replace with another one!"
+msgstr "Имя пользователя было использовано, замените его другим!"
+
+#: panels/user-accounts/user-accounts.c:844
+#: panels/user-accounts/user-accounts.c:881
+msgid "Modify username failed!"
+msgstr "Не удалось изменить имя пользователя!"
+
+#: panels/user-accounts/user-accounts.c:889
+msgid "the user has logged in, please log out and modify!"
+msgstr "пользователь вошел в систему, пожалуйста, внесите изменения и измените!"
+
+#: panels/user-accounts/user-accounts.c:1072
+#: panels/user-accounts/user-accounts.c:2313
+msgid "auto login"
+msgstr "автоматическая авторизация"
+
+#: panels/user-accounts/user-accounts.c:1075
+#: panels/user-accounts/user-accounts.c:2316
+msgid "_Cancel"
+msgstr "_Отменить"
+
+#: panels/user-accounts/user-accounts.c:1077
+#: panels/user-accounts/user-accounts.c:2318
+msgid "_OK"
+msgstr "_ХОРОШО"
+
+#: panels/user-accounts/user-accounts.c:1080
+#: panels/user-accounts/user-accounts.c:2321
+msgid ""
+"\tAlready have other users set to automatically log in,\t\n"
+" \tclick OK will overwrite the existing settings!"
+msgstr "\tДля того, чтобы другие пользователи автоматически установили автоматический вход в систему, \t\n \tclick OK перезапишет существующие настройки!"
+
+#: panels/user-accounts/user-accounts.c:1487
+msgid "The user can not be deleted!"
+msgstr "Пользователь не может быть удален!"
+
+#: panels/user-accounts/user-accounts.c:1495
+msgid ""
+"The user has logged in, please perform the delete operation after logging "
+"out!"
+msgstr "Пользователь выполнил вход в систему, выполнив операцию удаления после выхода из системы!"
+
+#: panels/user-accounts/user-accounts.c:1520
+#, c-format
+msgid ""
+"<span weight='bold' font_desc='11'>do you confirm to delete all the files of "
+"%s?</span>"
+msgstr "<span weight = 'bold' font_desc = '11 '> Вы подтверждаете удаление всех файлов"
+"%s?</span>"
+
+#: panels/user-accounts/user-accounts.c:1526
+#, c-format
+msgid ""
+"if you want to delete the %s user, belonging to the user's \n"
+"desktop, documents, favorites, music, pictures and video \n"
+"folder will be deleted!"
+msgstr "если вы хотите удалить пользователя %s , принадлежащего пользовательскому \n"
+"desktop, документы, избранное, музыка, изображения и видео \n"
+"папка будет удалена!"
+
+#: panels/user-accounts/user-accounts.c:1583
+#: panels/user-accounts/user-accounts.c:1693
+msgid "Super user"
+msgstr "Суперпользователь"
+
+#: panels/user-accounts/user-accounts.c:1585
+msgid "Rename"
+msgstr "переименовывать"
+
+#: panels/user-accounts/user-accounts.c:1591
+msgid "Change PWD"
+msgstr "Изменить PWD"
+
+#: panels/user-accounts/user-accounts.c:1596
+msgid "Change Face"
+msgstr "Изменить лицо"
+
+#: panels/user-accounts/user-accounts.c:1601
+msgid "Change Type"
+msgstr "Изменить тип"
+
+#: panels/user-accounts/user-accounts.c:1606
+msgid "Delete"
+msgstr "удалять"
+
+#: panels/user-accounts/user-accounts.c:2208
+msgid "Browse more pictures..."
+msgstr "Просмотрите больше фотографий ..."
+
+#: panels/user-accounts/user-create.ui.h:1
+msgid "Create Account"
+msgstr "Регистрация"
+
+#: panels/user-accounts/user-create.ui.h:3
+msgid "Automatic Logon"
+msgstr "Автоматический вход в систему"
+
+#: panels/user-accounts/user-create.ui.h:4
+msgid "select picture"
+msgstr "выбрать картинку"
+
+#: panels/user-accounts/user-create.ui.h:6
+msgid ""
+"Standard users can use most software, but you can not install software\n"
+"and change settings that affect all users."
+msgstr "Стандартные пользователи могут использовать большинство программ, но вы не можете установить программное обеспечение \n"
+"и изменить настройки, которые влияют на всех пользователей."
+
+#: panels/volume-control/gvc-balance-bar.c:116
+msgid "Rear"
+msgstr "задний"
+
+#: panels/volume-control/gvc-balance-bar.c:117
+msgid "Front"
+msgstr "Фронт"
+
+#: panels/volume-control/gvc-balance-bar.c:120
+msgid "Minimum"
+msgstr "минимальный"
+
+#: panels/volume-control/gvc-balance-bar.c:121
+msgid "Maximum"
+msgstr "максимальная"
+
+#: panels/volume-control/gvc-balance-bar.c:299
+msgid "_Balance(_B):"
+msgstr "_Balance (_B):"
+
+#: panels/volume-control/gvc-balance-bar.c:302
+msgid "_Fade(_F):"
+msgstr "_Fade (_F):"
+
+#: panels/volume-control/gvc-balance-bar.c:305
+msgid "_Subwoofer(_S):"
+msgstr "_Subwoofer (_S):"
+
+#: panels/volume-control/gvc-channel-bar.c:608
+msgid "Unamplified"
+msgstr "неусиленных"
+
+#: panels/volume-control/gvc-channel-bar.c:870
+msgid "Mute"
+msgstr "безгласный"
+
+#: panels/volume-control/gvc-combo-box.c:169
+msgid "_Profile(_P):"
+msgstr "_Profile (_P):"
+
+#: panels/volume-control/gvc-mixer-control.c:1004
+msgid "Disabled"
+msgstr "инвалид"
+
+#: panels/volume-control/gvc-mixer-control.c:1011
+#, c-format
+msgid "%u Output"
+msgid_plural "%u Outputs"
+msgstr[0] "%u Выход"
+msgstr[1] "%u Выход"
+
+#: panels/volume-control/gvc-mixer-control.c:1021
+#, c-format
+msgid "%u Input"
+msgid_plural "%u Inputs"
+msgstr[0] "%u Вход"
+msgstr[1] "%u Вход"
+
+#: panels/volume-control/gvc-mixer-dialog.c:314
+msgid "Co_nnector"
+msgstr "Co_nnector"
+
+#: panels/volume-control/gvc-mixer-dialog.c:522
+msgid "Peak detect"
+msgstr "Пиковое обнаружение"
+
+#: panels/volume-control/gvc-mixer-dialog.c:609
+msgid "Co_nnector:"
+msgstr "Co_nnector:"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1502
+msgid "Device"
+msgstr "устройство"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1550
+#, c-format
+msgid "Speaker Testing for %s"
+msgstr "Тестирование динамиков для %s"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1610
+msgid "_Profiles:"
+msgstr "_Profiles:"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1611
+msgid "Test Speakers"
+msgstr "Тест-динамики"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1710
+#: panels/volume-control/gvc-sound-theme-chooser.c:892
+msgid "Name"
+msgstr "имя"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1837
+msgid "Sound Output Volume"
+msgstr "Объем звука"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1868
+msgid "Applications"
+msgstr "Приложения"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1874
+msgid "No application is currently playing or recording audio."
+msgstr "В настоящее время ни одно приложение не воспроизводит или не записывает аудио."
+
+#: panels/volume-control/gvc-mixer-dialog.c:1882
+msgid "Sound Effects"
+msgstr "Звуковые эффекты"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1890
+msgid "_Alert volume: "
+msgstr "_ Объем громкости: "
+
+#: panels/volume-control/gvc-mixer-dialog.c:1911
+msgid "Input"
+msgstr "вход"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1919
+msgid "_Input volume: "
+msgstr "Объем ввода: "
+
+#: panels/volume-control/gvc-mixer-dialog.c:1942
+msgid "Input level:"
+msgstr "Входной уровень:"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1971
+msgid "C_hoose a device for sound input:"
+msgstr "C_выберите устройство для ввода звука:"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2001
+msgid "Output"
+msgstr "Вывод"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2007
+msgid "C_hoose a device for sound output:"
+msgstr "C_выберите устройство для вывода звука:"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2034
+#: panels/volume-control/gvc-mixer-dialog.c:2078
+msgid "Settings for the selected device:"
+msgstr "Настройки для выбранного устройства:"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2045
+msgid "Hardware"
+msgstr "аппаратные средства"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2051
+msgid "C_hoose a device to configure:"
+msgstr "C_выберите устройство для настройки:"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2212
+#: panels/volume-control/gvc-sound-theme-chooser.c:757
+#: panels/volume-control/gvc-sound-theme-chooser.c:769
+#: panels/volume-control/gvc-sound-theme-chooser.c:781
+msgid "Sound Preferences"
+msgstr "Звуковые настройки"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:226
+#: panels/volume-control/gvc-sound-theme-chooser.c:868
+msgid "Default"
+msgstr "По умолчанию"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:338
+msgid "No sounds"
+msgstr "Нет звуков"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:460
+msgid "Built-in"
+msgstr "Встроенный"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:647
+#: panels/volume-control/sound-theme-file-utils.c:291
+msgid "Custom"
+msgstr "изготовленный на заказ"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:760
+#: panels/volume-control/gvc-sound-theme-chooser.c:771
+#: panels/volume-control/gvc-sound-theme-chooser.c:783
+msgid "Testing event sound"
+msgstr "Звук тестового события"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:869
+msgid "From theme"
+msgstr "Из темы"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:899
+msgid "Type"
+msgstr "Тип"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:1093
+msgid "Sound _theme:"
+msgstr "Звук _theme:"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:1106
+msgid "C_hoose an alert sound:"
+msgstr "C_выбрать сигнал предупреждения:"
+
+#: panels/volume-control/gvc-sound-theme-chooser.c:1140
+msgid "Enable _window and button sounds"
+msgstr "Включить кнопки _window и button"
+
+#: panels/volume-control/gvc-speaker-test.c:219
+msgid "Stop"
+msgstr "Стоп"
+
+#: panels/volume-control/gvc-speaker-test.c:219
+#: panels/volume-control/gvc-speaker-test.c:331
+msgid "Test"
+msgstr "Контрольная работа"
+
+#: panels/volume-control/gvc-speaker-test.c:227
+msgid "Subwoofer"
+msgstr "Сабвуфер"
+
+#: shell/mainwindow.c:129 shell/shell.ui.h:11
+msgid "Control Center"
+msgstr "Центр управления"
+
+#: shell/mainwindow.c:177
+msgid "Time and Dates"
+msgstr "Время и даты"
+
+#: shell/mainwindow.c:180
+msgid " Change the time and date of this computer "
+msgstr " Изменение времени и даты этого компьютера "
+
+#: shell/mainwindow.c:188 shell/shell.ui.h:17
+msgid "User Account"
+msgstr "Учетная запись пользователя"
+
+#: shell/mainwindow.c:191
+msgid ""
+" Change the computer user account \n"
+" settings and password"
+msgstr " Изменение учетной записи пользователя компьютера \n настроек и пароля"
+
+#: shell/mainwindow.c:199 shell/shell.ui.h:12
+msgid "Personalization"
+msgstr "воплощение"
+
+#: shell/mainwindow.c:202
+msgid ""
+" Change the computer desktop background \n"
+" and related theme"
+msgstr " Измените фоновый рисунок рабочего стола компьютера \n и соответствующую тему"
+
+#: shell/mainwindow.c:210
+msgid "Default Application"
+msgstr "Приложение по умолчанию"
+
+#: shell/mainwindow.c:213
+msgid " Change the default application on this computer "
+msgstr " Измените приложение по умолчанию на этом компьютере "
+
+#: shell/mainwindow.c:228
+msgid " Change the network  on this computer "
+msgstr " Измените сеть на этом компьютере "
+
+#: shell/mainwindow.c:239
+msgid " Change the keyboard settings on this computer "
+msgstr " Измените настройки клавиатуры на этом компьютере "
+
+#: shell/mainwindow.c:250
+msgid " Change the mouse settings on this computer  "
+msgstr " Измените настройки мыши на этом компьютере  "
+
+#: shell/mainwindow.c:263
+msgid " Configure the connection to the computer printer "
+msgstr " Настроить подключение к компьютерному принтеру "
+
+#: shell/mainwindow.c:272 shell/shell.ui.h:23
+msgid "Sound"
+msgstr "звук"
+
+#: shell/mainwindow.c:275
+msgid " Change the sound settings on this computer "
+msgstr " Измените настройки звука на этом компьютере "
+
+#: shell/mainwindow.c:283
+msgid "Network Agent"
+msgstr "Сетевой агент"
+
+#: shell/mainwindow.c:286
+msgid " Change the network agent on this computer "
+msgstr " Изменение сетевого агента на этом компьютере "
+
+#: shell/mainwindow.c:294 shell/shell.ui.h:13
+msgid "Autostart"
+msgstr "Автоматический старт"
+
+#: shell/mainwindow.c:297
+msgid " Change the autostart program on this computer "
+msgstr " Измените программу автозапуска на этом компьютере "
+
+#: shell/mainwindow.c:307
+msgid " Change the Monitor settings on this computer "
+msgstr " Измените настройки монитора на этом компьютере "
+
+#: shell/mainwindow.c:318
+msgid "Power Management"
+msgstr "Управление энергопотреблением"
+
+#: shell/mainwindow.c:321
+msgid " Change the power management settings on this computer "
+msgstr " Измените настройки управления питанием на этом компьютере "
+
+#: shell/shell.ui.h:5
+msgid "Tile"
+msgstr "Плитка"
+
+#: shell/shell.ui.h:6
+msgid "Zoom"
+msgstr "Увеличить"
+
+#: shell/shell.ui.h:7
+msgid "Center"
+msgstr "Центр"
+
+#: shell/shell.ui.h:8
+msgid "Scale"
+msgstr "Масштаб"
+
+#: shell/shell.ui.h:9
+msgid "Stretch"
+msgstr "Протяжение"
+
+#: shell/shell.ui.h:10
+msgid "Span"
+msgstr "пядь"
+
+#: shell/shell.ui.h:14
+msgid ""
+"Default \n"
+"Application"
+msgstr "По умолчанию \n"
+"Приложение"
+
+#: shell/shell.ui.h:16
+msgid "Time Dates"
+msgstr "Время"
+
+#: shell/shell.ui.h:18
+msgid "System Configuration"
+msgstr "Конфигурация системы"
+
+#: shell/shell.ui.h:19
+msgid "Printer"
+msgstr "принтер"
+
+#: shell/shell.ui.h:20
+msgid ""
+"Power \n"
+"Management"
+msgstr "Мощность \n"
+"Управление"
+
+#: shell/shell.ui.h:26
+msgid ""
+"Network \n"
+"Agent"
+msgstr "Сеть \n"
+"Агент"
+
+#: shell/shell.ui.h:28
+msgid ""
+"Network \n"
+"Connections"
+msgstr "Сеть \n"
+"Соединения"
+
+#: shell/shell.ui.h:30
+msgid "Hardware Configure"
+msgstr "Настройка оборудования"
+
+#: shell/shell.ui.h:31
+msgid "Home"
+msgstr "Главная"
+
+#: shell/shell.ui.h:32
+msgid "_Personalization"
+msgstr "_Personalization"
+
+#: shell/shell.ui.h:33
+msgid "_Autostart"
+msgstr "_Автоматический старт"
+
+#: shell/shell.ui.h:34
+msgid "_Default APP"
+msgstr "_Default APP"
+
+#: shell/shell.ui.h:35
+msgid "_Time Dates"
+msgstr "_Time Даты"
+
+#: shell/shell.ui.h:36
+msgid "_User Account"
+msgstr "_Учетная запись пользователя"
+
+#: shell/shell.ui.h:37
+msgid "Network _Connection"
+msgstr "Подключение к сети"
+
+#: shell/shell.ui.h:38
+msgid "_Keyboard"
+msgstr "_Keyboard"
+
+#: shell/shell.ui.h:39
+msgid "M_ouse"
+msgstr "M_ouse"
+
+#: shell/shell.ui.h:40
+msgid "P_rinter"
+msgstr "P_rinter"
+
+#: shell/shell.ui.h:41
+msgid "_Sound"
+msgstr "_Sound"
+
+#: shell/shell.ui.h:42
+msgid "_Network Agent"
+msgstr "_Сетевой агент"
+
+#: shell/shell.ui.h:43
+msgid "_Monitor"
+msgstr "_Monitor"
+
+#: shell/shell.ui.h:44
+msgid "Po_wer Manage"
+msgstr "Po_wer Управление"
+
+#: shell/shell.ui.h:45
+msgid "Tzone:"
+msgstr "Tzone:"
+
+#: shell/shell.ui.h:46
+msgid "date:"
+msgstr "Дата:"
+
+#: shell/shell.ui.h:47
+msgid "time:"
+msgstr "время:"
+
+#: shell/shell.ui.h:48
+msgid "Jan"
+msgstr "январь"
+
+#: shell/shell.ui.h:49
+msgid "Feb"
+msgstr "февраль"
+
+#: shell/shell.ui.h:50
+msgid "Mar"
+msgstr "март"
+
+#: shell/shell.ui.h:51
+msgid "Apr"
+msgstr "апрель"
+
+#: shell/shell.ui.h:52
+msgid "May"
+msgstr "май"
+
+#: shell/shell.ui.h:53
+msgid "Jun"
+msgstr "июнь"
+
+#: shell/shell.ui.h:54
+msgid "Jul"
+msgstr "июль"
+
+#: shell/shell.ui.h:55
+msgid "Aug"
+msgstr "август"
+
+#: shell/shell.ui.h:56
+msgid "Sep"
+msgstr "сентябрь"
+
+#: shell/shell.ui.h:57
+msgid "Oct"
+msgstr "октябрь"
+
+#: shell/shell.ui.h:58
+msgid "Nov"
+msgstr "ноябрь"
+
+#: shell/shell.ui.h:59
+msgid "Dec"
+msgstr "декабрь"
+
+#: shell/shell.ui.h:61
+msgid "min"
+msgstr "мин"
+
+#: shell/shell.ui.h:62
+msgid "sec"
+msgstr "сек"
+
+#: shell/shell.ui.h:63
+msgid "With the network time synchronization"
+msgstr "С сетевой синхронизацией времени"
+
+#: shell/shell.ui.h:64
+msgid "because the ntp is installed,please use ntpdate."
+msgstr "потому что ntp установлен, используйте ntpdate."
+
+#: shell/shell.ui.h:65
+msgid "format:"
+msgstr "формат:"
+
+#: shell/shell.ui.h:66
+msgid "12-hours"
+msgstr "12 часов"
+
+#: shell/shell.ui.h:67
+msgid "24-hours"
+msgstr "24 часа"
+
+#: shell/shell.ui.h:68
+msgid "Current Account"
+msgstr "Текущий аккаунт"
+
+#: shell/shell.ui.h:69
+msgid "Other Accounts"
+msgstr "Другие учетные записи"
+
+#: shell/shell.ui.h:70
+msgid "Create a new account"
+msgstr "Создать новый аккаунт"
+
+#: shell/shell.ui.h:71
+msgid "Add"
+msgstr "Добавить"
+
+#: shell/shell.ui.h:72
+msgid "delete"
+msgstr "Удалить"
+
+#: shell/shell.ui.h:73
+msgid "Style:"
+msgstr "Стиль:"
+
+#: shell/shell.ui.h:74
+msgid "wallpaper"
+msgstr "обои"
+
+#: shell/shell.ui.h:75
+msgid "Select the one you love color as the theme color"
+msgstr "Выберите цвет, который вы любите, в качестве цвета темы"
+
+#: shell/shell.ui.h:76
+msgid "Theme color"
+msgstr "Цвет темы"
+
+#: shell/shell.ui.h:77
+msgid "Font choice:"
+msgstr "Выбор шрифта:"
+
+#: shell/shell.ui.h:78
+msgid "Font size :"
+msgstr "Размер шрифта :"
+
+#: shell/shell.ui.h:80
+#, no-c-format
+msgid "small(S) --100%(default)"
+msgstr "маленький (S) - 100% (по умолчанию)"
+
+#: shell/shell.ui.h:82
+#, no-c-format
+msgid "medium(M)--125%"
+msgstr "средний (М) - 125%"
+
+#: shell/shell.ui.h:84
+#, no-c-format
+msgid "large (L) --150%"
+msgstr "большой (L) - 150%"
+
+#: shell/shell.ui.h:85
+msgid "Please select the clearest sample text"
+msgstr "Выберите наиболее четкий образец текста"
+
+#: shell/shell.ui.h:86
+msgid "Restore Defaults"
+msgstr "Восстановить значения по умолчанию"
+
+#: shell/shell.ui.h:87
+msgid "Font"
+msgstr "Шрифт"
+
+#: shell/shell.ui.h:88
+msgid "mouse double click action"
+msgstr "действие двойного щелчка мыши"
+
+#: shell/shell.ui.h:89
+msgid "mouse middle click action"
+msgstr "средний клик мыши"
+
+#: shell/shell.ui.h:90
+msgid "mouse right click action"
+msgstr "действие мыши правой кнопкой мыши"
+
+#: shell/shell.ui.h:91
+msgid "windows"
+msgstr "окна"
+
+#: shell/shell.ui.h:92
+msgid "Internet"
+msgstr "интернет"
+
+#: shell/shell.ui.h:93
+msgid "Web Browser:"
+msgstr "Веб-браузер:"
+
+#: shell/shell.ui.h:94
+msgid "Mail Reader:"
+msgstr "Mail Reader:"
+
+#: shell/shell.ui.h:95
+msgid "Multimedia"
+msgstr "мультимедиа"
+
+#: shell/shell.ui.h:96
+msgid "Image Viewer:"
+msgstr "Просмотр изображений:"
+
+#: shell/shell.ui.h:97
+msgid "Audio Player:"
+msgstr "Аудиоплеер:"
+
+#: shell/shell.ui.h:98
+msgid "Video Player:"
+msgstr "Видео-плеер:"
+
+#: shell/shell.ui.h:99
+msgid "System"
+msgstr "система"
+
+#: shell/shell.ui.h:100
+msgid "Text Editor:"
+msgstr "Текстовый редактор:"
+
+#: shell/shell.ui.h:101
+msgid "File Manager:"
+msgstr "Файловый менеджер:"
+
+#: shell/shell.ui.h:102
+msgid "Network Connections"
+msgstr "Сетевые соединения"
+
+#: shell/shell.ui.h:103
+msgid "Repeat Keys"
+msgstr "Повторить клавиши"
+
+#: shell/shell.ui.h:104
+msgid "Key presses _repeat when key is held down"
+msgstr "При нажатии клавиши нажатия клавиш _repeat"
+
+#: shell/shell.ui.h:105
+msgid "_Delay:"
+msgstr "_Delay:"
+
+#: shell/shell.ui.h:106
+msgid "_Speed:"
+msgstr "_Speed:"
+
+#: shell/shell.ui.h:107
+msgid "Short"
+msgstr "короткий"
+
+#: shell/shell.ui.h:108
+msgid "Slow"
+msgstr "Медленный"
+
+#: shell/shell.ui.h:109
+msgid "Repeat keys speed"
+msgstr "Повторить скорость клавиш"
+
+#: shell/shell.ui.h:110
+msgid "Long"
+msgstr "Длинный"
+
+#: shell/shell.ui.h:111
+msgid "Fast"
+msgstr "Быстро"
+
+#: shell/shell.ui.h:112
+msgid "To test the repetition rate of the input character:"
+msgstr "Чтобы проверить частоту повторения входного символа:"
+
+#: shell/shell.ui.h:113
+msgid "Cursor Blinking"
+msgstr "Курсор мигает"
+
+#: shell/shell.ui.h:114
+msgid "Cursor _blinks in text fields"
+msgstr "Курсор _blinks в текстовых полях"
+
+#: shell/shell.ui.h:115
+msgid "S_peed:"
+msgstr "S_peed:"
+
+#: shell/shell.ui.h:116
+msgid "Cursor blinks speed"
+msgstr "Скорость мигания курсора"
+
+#: shell/shell.ui.h:117
+msgid "General"
+msgstr "Генеральная"
+
+#: shell/shell.ui.h:118
+msgid ""
+"Please add the language you will use to the list. And the first one in the "
+"list is the most\n"
+"commonly used language."
+msgstr "Добавьте язык, который вы будете использовать в списке. И первый в списке - самый\n"
+"распространенный язык."
+
+#: shell/shell.ui.h:120
+msgid "_Show..."
+msgstr "_Шоу..."
+
+#: shell/shell.ui.h:121
+msgid "List of keyboard layouts selected for usage"
+msgstr "Список раскладок клавиатуры, выбранных для использования"
+
+#: shell/shell.ui.h:122
+msgid "_Separate layout for each window"
+msgstr "_Серементальная компоновка для каждого окна"
+
+#: shell/shell.ui.h:123
+msgid "New windows u_se active window's layout"
+msgstr "Новые окна активного окна u_se"
+
+#: shell/shell.ui.h:124
+msgid "Reset to De_faults"
+msgstr "Сброс к De_faults"
+
+#: shell/shell.ui.h:125
+msgid "Layouts"
+msgstr "Макеты"
+
+#: shell/shell.ui.h:126
+msgid ""
+"\"To edit a shortcut key, click on the corresponding row and type a new key "
+"\"\n"
+"\"combination, or press backspace to clear.\""
+msgstr "\"Чтобы отредактировать комбинацию клавиш, щелкните соответствующую строку и введите новую комбинацию клавиш"
+"\"\n"
+"\"или нажмите кнопку возврата для очистки. \""
+
+#: shell/shell.ui.h:128
+msgid "Shortcut"
+msgstr "кратчайший путь"
+
+#: shell/shell.ui.h:129
+msgid "_Right-handed"
+msgstr "_Right руками"
+
+#: shell/shell.ui.h:130
+msgid "_Left-handed"
+msgstr "_Левша"
+
+#: shell/shell.ui.h:131
+msgid "Sh_ow position of pointer when the Control key is pressed"
+msgstr "Sh_ow позиция указателя при нажатии клавиши управления"
+
+#: shell/shell.ui.h:132
+msgid "S_ensitivity:"
+msgstr "S_ensitivity:"
+
+#: shell/shell.ui.h:133
+msgid "Low"
+msgstr "Низкий"
+
+#: shell/shell.ui.h:134
+msgid "High"
+msgstr "Высокая"
+
+#: shell/shell.ui.h:135
+msgid "Double-click the right bulb to test your settings"
+msgstr "Дважды щелкните правую лампу, чтобы проверить свои настройки."
+
+#: shell/shell.ui.h:136
+msgid "_Timeout:"
+msgstr "_Timeout:"
+
+#: shell/shell.ui.h:137
+msgid "Pointer moving speed"
+msgstr "Скорость перемещения указателя"
+
+#: shell/shell.ui.h:138
+msgid "Locate Pointer"
+msgstr "Найти указатель"
+
+#: shell/shell.ui.h:139
+msgid "Mouse Keys"
+msgstr "Клавиши мыши"
+
+#: shell/shell.ui.h:140
+msgid "Double-Click Speed"
+msgstr "Скорость двойного клика"
+
+#: shell/shell.ui.h:141
+msgid "Disable _touchpad while typing"
+msgstr "Отключить _touchpad при наборе текста"
+
+#: shell/shell.ui.h:142
+msgid "Enable _mouse clicks with touchpad"
+msgstr "Включить клики мышью с сенсорной панелью"
+
+#: shell/shell.ui.h:143
+msgid "Scrolling"
+msgstr "Скроллинг"
+
+#: shell/shell.ui.h:144
+msgid "_Disabled"
+msgstr "_Инвалид"
+
+#: shell/shell.ui.h:145
+msgid "Vertical _edge scrolling"
+msgstr "Вертикальная прокрутка"
+
+#: shell/shell.ui.h:146
+msgid "_Horizontal edge scrolling"
+msgstr "Прокрутка горизонтальной кромки"
+
+#: shell/shell.ui.h:147
+msgid "_Vertical two-finger scrolling"
+msgstr "_Вертикальная прокрутка с двумя пальцами"
+
+#: shell/shell.ui.h:148
+msgid "Horizontal two-_finger scrolling"
+msgstr "Горизонтальная прокрутка с двумя символами"
+
+#: shell/shell.ui.h:149
+msgid "Enabled touchpad"
+msgstr "Включенная сенсорная панель"
+
+#: shell/shell.ui.h:150
+msgid "Touchpad"
+msgstr "Сенсорная панель"
+
+#: shell/shell.ui.h:151
+msgid "<b>Di_rect internet connection</b>"
+msgstr "<b> Подключение к Интернету Di_rect </b>"
+
+#: shell/shell.ui.h:152
+msgid "<b>_Manual proxy configuration</b>"
+msgstr "<b> Конфигурация пользовательского прокси-сервера </b>"
+
+#: shell/shell.ui.h:153
+msgid "H_TTP proxy:"
+msgstr "Прокси-сервер H_TTP:"
+
+#: shell/shell.ui.h:154
+msgid "_Secure HTTP proxy:"
+msgstr "_Secure HTTP-прокси:"
+
+#: shell/shell.ui.h:155
+msgid "_FTP proxy:"
+msgstr "_FTP-прокси:"
+
+#: shell/shell.ui.h:156
+msgid "S_ocks host:"
+msgstr "Хост S_ocks:"
+
+#: shell/shell.ui.h:157
+msgid "Port:"
+msgstr "Порт:"
+
+#: shell/shell.ui.h:158
+msgid "_Details"
+msgstr "_Подробности"
+
+#: shell/shell.ui.h:159
+msgid "<b>_Automatic proxy configuration</b>"
+msgstr "<b> _Автоматическая конфигурация прокси-сервера </b>"
+
+#: shell/shell.ui.h:160
+msgid "Autoconfiguration _URL:"
+msgstr "Автоконфигурация _URL:"
+
+#: shell/shell.ui.h:161
+msgid "Proxy Configuration"
+msgstr "Конфигурация прокси"
+
+#: shell/shell.ui.h:162
+msgid "Ignore Host List"
+msgstr "Игнорировать список хостов"
+
+#: shell/shell.ui.h:163
+msgid "Ignored Hosts"
+msgstr "Игнорируемые хосты"
+
+#: shell/shell.ui.h:164
+msgid "Additional startup _programs:"
+msgstr "Дополнительные стартовые _программы:"
+
+#: shell/shell.ui.h:165
+msgid "name"
+msgstr "имя"
+
+#: shell/shell.ui.h:166
+msgid "status"
+msgstr "статус"
+
+#: shell/shell.ui.h:167
+msgid "Startup Programs"
+msgstr "Запуск программ"
+
+#: shell/shell.ui.h:168
+msgid "Change display appearance"
+msgstr "Изменение внешнего вида дисплея"
+
+#: shell/shell.ui.h:169
+msgid "Monitor:"
+msgstr "Монитор:"
+
+#: shell/shell.ui.h:170
+msgid "Resolution:"
+msgstr "Разрешение:"
+
+#: shell/shell.ui.h:171
+msgid "Direction:"
+msgstr "Направление:"
+
+#: shell/shell.ui.h:172
+msgid "Save"
+msgstr "Сохранить"
+
+#: shell/shell.ui.h:173
+msgid "Same image in all monitors"
+msgstr "Такое же изображение во всех мониторах"
+
+#: shell/shell.ui.h:174
+msgid "Set as primary"
+msgstr "Установить как первичный"
+
+#: shell/shell.ui.h:175
+msgid "Open Monitor"
+msgstr "Открытый монитор"
+
+#: shell/shell.ui.h:176
+msgid "Close Monitor"
+msgstr "Закрыть монитор"
+
+#: shell/shell.ui.h:177
+msgid "Computer status"
+msgstr "Состояние компьютера"
+
+#: shell/shell.ui.h:178
+msgid "AC Power"
+msgstr "Мощность переменного тока"
+
+#: shell/shell.ui.h:179
+msgid "Battery Power"
+msgstr "Заряд батареи"
+
+#: shell/shell.ui.h:180
+msgid "Put _computer to sleep when inactive:"
+msgstr "Поставьте _компьютер в режим сна, когда он неактивен:"
+
+#: shell/shell.ui.h:181
+msgid "Put _monitor to sleep when inactive:"
+msgstr "Поместите _monitor в режим сна, когда он неактивен:"
+
+#: shell/shell.ui.h:182
+msgid "When laptop lid is cl_osed:"
+msgstr "Когда крышка ноутбука cl_osed:"
+
+#: shell/shell.ui.h:183
+msgid "Actions"
+msgstr "действия"
+
+#: shell/shell.ui.h:184
+msgid "When the power _button is pressed:"
+msgstr "При нажатии кнопки питания:"
+
+#: shell/shell.ui.h:185
+msgid "When the sus_pend button is pressed:"
+msgstr "Когда нажата кнопка Sus_pend:"
+
+#: shell/shell.ui.h:186
+msgid "Icon display"
+msgstr "Дисплей значков"
+
+#: shell/shell.ui.h:187
+msgid "Only display an icon when a battery is p_resent"
+msgstr "Отображать только значок, когда батарея p_resent"
+
+#: shell/shell.ui.h:188
+msgid "_Always display an icon"
+msgstr "_ Всегда показывает значок"
+
+#: shell/shell.ui.h:189
+msgid "Power Configure"
+msgstr "Настройка питания"
+
+#: shell/shell.ui.h:190
+msgid "Regard the computer as _idle after:"
+msgstr "Обратитесь к компьютеру как _idle после:"
+
+#: shell/shell.ui.h:191
+msgid "_Activate screensaver when computer is idle"
+msgstr "_Активировать заставку, когда компьютер простаивает"
+
+#: shell/shell.ui.h:192
+msgid "_Lock screen when screensaver is active"
+msgstr "_Личный экран, когда активна заставка"
+
+#: shell/shell.ui.h:193
+msgid "preview"
+msgstr "предварительный просмотр"
+
+#: shell/shell.ui.h:194
+msgid "Screensavers:"
+msgstr "Заставки:"
+
+#: shell/shell.ui.h:196
+msgid "Set display brightness to:"
+msgstr "Установите яркость дисплея:"
+
+#: shell/shell.ui.h:197
+msgid "Screensaver"
+msgstr "Хранитель экрана"
+
+#: shell/ukui-control-center.c:45
+msgid "Show help options"
+msgstr "Показать параметры справки"
+
+#: shell/ukui-control-center.c:46
+msgid "Go to Time and Date settings page"
+msgstr "Перейдите на страницу настроек времени и даты"
+
+#: shell/ukui-control-center.c:47
+msgid "Go to Personalization settings page "
+msgstr "Перейдите на страницу настроек персонализации "
+
+#: shell/ukui-control-center.c:48
+msgid "Go to Power Management page"
+msgstr "Перейдите на страницу управления питанием"
+
+#: shell/ukui-control-center.c:49
+msgid "Go to Sound settings page"
+msgstr "Перейдите на страницу настроек звука"
+
+#: shell/ukui-control-center.c:50
+msgid "Go to User Account page"
+msgstr "Перейти на страницу учетной записи пользователя"
+
+#: shell/ukui-control-center.c:51
+msgid "Go to Keyboard settings page"
+msgstr "Перейдите на страницу настроек клавиатуры"
+
+#: shell/ukui-control-center.c:52
+msgid "Go to Display settings page"
+msgstr "Перейдите на страницу настроек экрана"
+
+#: shell/ukui-control-center.c:134
+msgid "- Page jump"
+msgstr "- Прыжок страницы"
+
+#: shell/ukui-control-center.c:143
+#, c-format
+msgid ""
+"%s\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr "%s\n"
+"Run '%s --help', чтобы просмотреть полный список доступных параметров командной строки. \n"
+
+#: shell/ukui-control-center.c:201
+msgid "window1"
+msgstr "window1"
+
