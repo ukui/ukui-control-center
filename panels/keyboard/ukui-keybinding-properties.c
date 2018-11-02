@@ -16,7 +16,7 @@
 #include "eggcellrendererkeys.h"
 #include "dconf-util.h"
 
-#define GSETTINGS_KEYBINDINGS_DIR "/org/mate/desktop/keybindings/"
+#define GSETTINGS_KEYBINDINGS_DIR "/org/ukui/desktop/keybindings/"
 #define GSETTINGS_KEYBINDINGS_SYSTEM "/org/gnome/desktop/wm/keybindings/"
 #define CUSTOM_KEYBINDING_SCHEMA "org.ukui.control-center.keybinding"
 #define MARCO_KEY "org.gnome.desktop.wm.keybindings"
