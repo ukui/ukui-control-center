@@ -373,7 +373,22 @@ static void ukui_wp_xml_load_from_dir(const char* path, AppearanceData* data)
         return;
     }
     directory = g_file_new_for_path(path);
-    char* fullpath = g_build_filename(path, UBUNTUUKUI_BACKGROUND, NULL);
+
+    // get ubuntuukui_background path
+    FILE * fp = NULL;
+    char buffer[1024];
+    gchar ** tmp;
+    fp = popen(g_strdup_printf("lsb_release -a"), "r");
+    if (fp){
+        while (fgets(buffer, 1024, fp)) {
+            if (strstr(buffer, "Codename:")){
+                tmp = g_strsplit(buffer, "\t", -1);
+                break;
+            }
+        }
+    }
+    char * fullpath = g_build_filename(path, g_strdup_printf("%s-ubuntukylin-wallpapers.xml", g_strstrip(tmp[1])), NULL);
+    //char* fullpath = g_build_filename(path, UBUNTUUKUI_BACKGROUND, NULL);
     ukui_wp_xml_load_xml(data, fullpath);
     g_free(fullpath);
     ukui_wp_xml_add_monitor(directory, data);
