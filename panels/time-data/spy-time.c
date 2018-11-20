@@ -57,6 +57,7 @@ struct _TimeDate {
     GtkWidget * td_combo_month;
     GtkWidget * td_month_del_button;
 	GtkWidget * ntp_label;
+    GtkWidget * lang_bt;
 
     GtkWidget * hr12_radio;
     GtkWidget * hr24_radio;
@@ -455,6 +456,24 @@ static void year_combo_changed(GtkComboBox * combobox, gpointer user_data){
     on_editable_changed();
 }
 
+static void boot_extend_app(GtkButton * button, gpointer user_data){
+    int status;
+    gchar * appName = (gchar *) user_data;
+    gchar * path = g_strdup_printf("/usr/bin/%s", appName);
+    gchar * cmd = g_strdup_printf("%s &", appName);
+    if (g_file_test(path, G_FILE_TEST_EXISTS))
+        status = system(cmd);
+    else
+        g_warning("%s is not exists!", appName);
+
+    if (status < 0)
+        g_warning("boot %s has occured error\n", appName);
+    else if (status == 0)
+        g_warning("boot %s success, but no pid return", appName);
+    else if (status == 127)
+        g_warning("boot %s error, error code is 127", appName);
+}
+
 void init_calendar_time(gchar *month, gchar *day, gchar *year){
     //we need start month from 0 to 11
     if(strcmp(month,"Jan")==0){
@@ -684,6 +703,10 @@ void add_time_and_data_app(GtkBuilder * builder){
     timedata.td_month_del_button = GTK_WIDGET(gtk_builder_get_object(builder, "td_month_del_button"));
     g_signal_connect(timedata.td_month_del_button, "clicked", G_CALLBACK(month_del_button_clicked), NULL);
     add_year_and_month_data();
+
+    //语言设置
+    timedata.lang_bt = GTK_WIDGET(gtk_builder_get_object(builder, "lang_bt"));
+    g_signal_connect(G_OBJECT(timedata.lang_bt), "clicked", G_CALLBACK(boot_extend_app), "gnome-language-selector");
 
     //时间制式的相关设置
     timedata.hr12_radio = GTK_WIDGET(gtk_builder_get_object(builder, "radiobutton12"));

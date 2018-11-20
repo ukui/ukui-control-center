@@ -1643,6 +1643,20 @@ Connections</property>
                                     <property name="y">115</property>
                                   </packing>
                                 </child>
+                                <child>
+                                  <object class="GtkButton" id="lang_bt">
+                                    <property name="label" translatable="yes">lang settings</property>
+                                    <property name="width_request">70</property>
+                                    <property name="height_request">30</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="x">560</property>
+                                    <property name="y">65</property>
+                                  </packing>
+                                </child>
                               </object>
                             </child>
                           </object>
