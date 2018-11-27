@@ -27,16 +27,25 @@
 #include <X11/extensions/XInput.h>
 #include <X11/Xcursor/Xcursor.h>
 #include <ukui-settings-daemon/ukui-settings-client.h>
+
+#include <glib/gi18n.h>
+
 #define WID(s) (GTK_WIDGET(gtk_builder_get_object(mousedata.builder, s)))
 
 #define MOUSE_SCHEMA "org.mate.peripherals-mouse"
 #define DOUBLE_CLICK_KEY "double-click"
 #define TOUCHPAD_SCHEMA "org.ukui.peripherals-touchpad"
+#define CURSOR_SCHEMA "org.mate.peripherals-mouse"
 
 #define MOUSE_DBLCLCK_OFF "mouse-dblclck-off"
 #define MOUSE_DBLCLCK_MAYBE "mouse-dblclck-maybe"
 #define MOUSE_DBLCLCK_ON "mouse-dblclck-on"
 #define MOUSE_DBLCLCK_ICON_SIZE  67
+#define CURSOR_THEME "cursor-theme"
+#define CURSOR_SIZE "cursor-size"
+
+#define COMMON_SIZE 18
+#define MAXIMIZATION_SIZE 48
 
 #define STOCK_ICON_PATH "/usr/share/ukui-control-center/pixmaps/"
 typedef struct _MouseData MouseData;
@@ -79,6 +88,10 @@ struct _MouseData {
     GtkWidget * horiz_scroll_edge_radio;
     GtkWidget * vertical_twofinger_scroll_radio;
     GtkWidget * horiz_twofinger_scroll_radio;
+
+    GtkWidget * cursor_theme;
+    GtkWidget * common;
+    GtkWidget * maximization;
 };
 MouseData mousedata;
 
@@ -92,6 +105,7 @@ static gint double_click_state = DOUBLE_CLICK_TEST_OFF;
 static GtkIconSize stock_icon_size =0;
 static GSettings * mouse_settings=NULL;
 static GSettings * touchpad_settings=NULL;
+static GSettings * cursor_settings = NULL;
 
 static void
 synaptics_check_capabilities ()
@@ -289,6 +303,52 @@ static void init_stock_icon()
 
 }
 
+static void cursor_theme_changed_cb(GtkComboBox * combobox, gpointer userdata){
+    gchar * activeCursorTheme;
+    activeCursorTheme = gtk_combo_box_text_get_active_text(GTK_COMBO_BOX(mousedata.cursor_theme));
+
+    if (g_strcmp0(activeCursorTheme, _("default")) == 0)
+        g_settings_set_string(cursor_settings, CURSOR_THEME, "");
+    else
+        g_settings_set_string(cursor_settings, CURSOR_THEME, activeCursorTheme);
+}
+
+static void cursor_size_clicked_cb(GtkWidget * widget){
+    GSList * modeGroup;
+    gint index, old_size, set_size;
+
+    if (!gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget)))
+        return;
+    modeGroup = g_slist_copy(gtk_radio_button_get_group((GtkRadioButton *)GTK_WIDGET(mousedata.common)));
+    modeGroup = g_slist_reverse(modeGroup);
+    index = g_slist_index(modeGroup, widget);
+    g_slist_free(modeGroup);
+
+    old_size = g_settings_get_int(mouse_settings, CURSOR_SIZE);
+
+    if (index == 0 && old_size == COMMON_SIZE)
+        return;
+    else if (index == 1 && old_size == MAXIMIZATION_SIZE)
+        return;
+    g_warning("clicked.............%d", index);
+
+    if (index == 0)
+        g_settings_set_int(cursor_settings, CURSOR_SIZE, COMMON_SIZE);
+    else if (index == 1)
+        g_settings_set_int(cursor_settings, CURSOR_SIZE, MAXIMIZATION_SIZE);
+
+}
+
+static void cursor_size_gsettings_changed_cb(GSettings * gsetting, gchar * key){
+    gint size;
+    size = g_settings_get_int(gsetting, CURSOR_SIZE);
+    if (size == COMMON_SIZE)
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(mousedata.common), TRUE);
+    else if (size == MAXIMIZATION_SIZE)
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(mousedata.maximization), TRUE);
+}
+
+
 static gboolean reset_click_state_to_off(Time_out_data *data)
 {
     double_click_state = DOUBLE_CLICK_TEST_OFF;
@@ -407,6 +467,36 @@ static void radio_button_release(GtkWidget * widget, GdkEventButton * event, gpo
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
 }
 
+GSList * get_cursor_themes(){
+    gchar * dirName = "/usr/share/icons/";
+    gchar * subdirPath;
+    GError * error;
+    GDir * Dir = g_dir_open(dirName, 0, &error);
+    GDir * subdirDir;
+    GSList * themes = NULL;
+
+    if (Dir){
+        const gchar * subdir;
+        while(subdir = g_dir_read_name(Dir)){
+
+            subdirPath = g_strdup_printf("%s%s", dirName, subdir);
+            if (g_file_test(subdirPath, G_FILE_TEST_IS_DIR)){
+                subdirDir = g_dir_open(subdirPath, 0, &error);
+                const gchar * grandsondir;
+                while(grandsondir = g_dir_read_name(subdirDir)){
+                    if (g_file_test(g_strdup_printf("%s/%s", subdirPath, grandsondir), G_FILE_TEST_IS_DIR) && g_strcmp0(grandsondir, "cursors") == 0){
+                        themes = g_slist_append(themes, subdir);
+                        break;
+                    }
+                }
+                g_dir_close(subdirDir);
+            }
+        }
+    }
+    g_dir_close(Dir);
+    return themes;
+}
+
 static void setup_dialog()
 {
     GtkRadioButton *radio;
@@ -417,6 +507,14 @@ static void setup_dialog()
     g_signal_connect(mousedata.left_hand, "button_release_event", G_CALLBACK(radio_button_release), NULL);
     g_signal_connect(mousedata.right_hand, "button_release_event", G_CALLBACK(radio_button_release), NULL);
     g_signal_connect(mousedata.left_hand, "toggled", G_CALLBACK(radio_button_toggle),NULL);
+
+    g_signal_connect(mousedata.cursor_theme, "changed", G_CALLBACK(cursor_theme_changed_cb), NULL);
+
+    GSList * modeGroup;
+    modeGroup = gtk_radio_button_get_group(GTK_RADIO_BUTTON(mousedata.common));
+    for (; modeGroup != NULL; modeGroup = modeGroup->next)
+        g_signal_connect(G_OBJECT(modeGroup->data), "clicked", G_CALLBACK(cursor_size_clicked_cb), NULL);
+    g_signal_connect (cursor_settings, "changed::" CURSOR_SIZE, G_CALLBACK(cursor_size_gsettings_changed_cb), NULL);
 
     g_settings_bind(mouse_settings, "locate-pointer", mousedata.location_pointer_position,
                                                             "active", G_SETTINGS_BIND_DEFAULT);
@@ -491,6 +589,44 @@ static void init_setting()
 		g_settings_set_double(mouse_settings, "motion-acceleration", (double)(accel_numerator/accel_denominator));
 	if(mouse_threshold == -1)
 		g_settings_set_int(mouse_settings, "motion-threshold", threshold);
+
+    //get current cursor theme
+    gchar * current;
+    current = g_settings_get_string(cursor_settings, CURSOR_THEME);
+
+    //get cursor themes
+    GSList * cursorThemes, * tmpThemes;
+    cursorThemes = get_cursor_themes();
+
+    //init cursor theme combox
+    gint comboxID = -1, index = -1;
+
+    for(tmpThemes = cursorThemes; tmpThemes; tmpThemes = tmpThemes->next){
+        gchar * theme =  (gchar *)tmpThemes->data;
+        gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(mousedata.cursor_theme), theme);
+        comboxID ++;
+        if (g_strcmp0(current, theme) == 0)
+            index = comboxID;
+    }
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(mousedata.cursor_theme), _("default"));
+
+    //set cursor theme combo
+//    g_signal_handlers_block_by_func(mousedata.cursor_theme, cursor_theme_changed_cb, NULL);
+    if (index == -1)
+        gtk_combo_box_set_active(GTK_COMBO_BOX(mousedata.cursor_theme), comboxID + 1);
+    else
+        gtk_combo_box_set_active(GTK_COMBO_BOX(mousedata.cursor_theme), index);
+//    g_signal_handlers_unblock_by_func(mousedata.cursor_theme, cursor_theme_changed_cb, NULL);
+
+    //get current cursor size
+    gint currentsize;
+    currentsize = g_settings_get_int(cursor_settings, CURSOR_SIZE);
+
+    if (currentsize == COMMON_SIZE)
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(mousedata.common), TRUE);
+    else if (currentsize == MAXIMIZATION_SIZE)
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(mousedata.maximization), TRUE);
+
 }
 
 static void create_dialog(GtkBuilder * builder)
@@ -515,6 +651,10 @@ static void create_dialog(GtkBuilder * builder)
     mousedata.horiz_scroll_edge_radio = WID("horiz_scroll_edge_radio");
     mousedata.vertical_twofinger_scroll_radio = WID("vertical_twofinger_scroll_radio");
     mousedata.horiz_twofinger_scroll_radio = WID("horiz_twofinger_scroll_radio");
+
+    mousedata.cursor_theme = WID("cursor_theme");
+    mousedata.common = WID("common");
+    mousedata.maximization = WID("maximization");
 }
 
 void add_mouse_app(GtkBuilder * builder)
@@ -523,6 +663,7 @@ void add_mouse_app(GtkBuilder * builder)
     active_settings_daemon();
     mouse_settings = g_settings_new(MOUSE_SCHEMA);
     touchpad_settings = g_settings_new(TOUCHPAD_SCHEMA);
+    cursor_settings = g_settings_new(CURSOR_SCHEMA);
     create_dialog(builder);
     init_setting();
     init_stock_icon();

@@ -4069,7 +4069,7 @@ commonly used language.</property>
                                 <child>
                                   <object class="GtkViewport" id="viewport43">
                                     <property name="width_request">318</property>
-                                    <property name="height_request">60</property>
+                                    <property name="height_request">40</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="shadow_type">none</property>
@@ -4077,7 +4077,6 @@ commonly used language.</property>
                                       <object class="GtkBox" id="vbox4">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
-                                        <property name="orientation">vertical</property>
                                         <child>
                                           <object class="GtkRadioButton" id="right_hand">
                                             <property name="label" translatable="yes">_Right-handed</property>
@@ -4132,7 +4131,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">30</property>
-                                    <property name="y">160</property>
+                                    <property name="y">250</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -4208,7 +4207,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">30</property>
-                                    <property name="y">255</property>
+                                    <property name="y">325</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -4284,7 +4283,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">30</property>
-                                    <property name="y">295</property>
+                                    <property name="y">365</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -4297,7 +4296,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">30</property>
-                                    <property name="y">395</property>
+                                    <property name="y">445</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -4374,7 +4373,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">30</property>
-                                    <property name="y">434</property>
+                                    <property name="y">480</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -4397,7 +4396,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">445</property>
-                                    <property name="y">398</property>
+                                    <property name="y">428</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -4439,7 +4438,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">17</property>
-                                    <property name="y">220</property>
+                                    <property name="y">290</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -4481,7 +4480,7 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">17</property>
-                                    <property name="y">120</property>
+                                    <property name="y">210</property>
                                   </packing>
                                 </child>
                                 <child>
@@ -4565,7 +4564,134 @@ commonly used language.</property>
                                   </object>
                                   <packing>
                                     <property name="x">17</property>
-                                    <property name="y">365</property>
+                                    <property name="y">410</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkBox" id="hbox4">
+                                    <property name="width_request">650</property>
+                                    <property name="height_request">33</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="spacing">10</property>
+                                    <child>
+                                      <object class="GtkLabel" id="label17">
+                                        <property name="height_request">33</property>
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="label" translatable="yes">Cursor Settiings</property>
+                                        <attributes>
+                                          <attribute name="weight" value="bold"/>
+                                        </attributes>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">0</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkSeparator" id="hseparator3">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="margin_top">16</property>
+                                        <property name="margin_bottom">16</property>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">True</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">1</property>
+                                      </packing>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="x">17</property>
+                                    <property name="y">80</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkBox" id="hbox7">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="homogeneous">True</property>
+                                    <child>
+                                      <object class="GtkLabel" id="label22">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="label" translatable="yes">Cursor theme :</property>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">True</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">0</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkComboBoxText" id="cursor_theme">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">1</property>
+                                      </packing>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="x">30</property>
+                                    <property name="y">120</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkViewport" id="viewport12">
+                                    <property name="width_request">318</property>
+                                    <property name="height_request">40</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="shadow_type">none</property>
+                                    <child>
+                                      <object class="GtkBox" id="vbox10">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <child>
+                                          <object class="GtkRadioButton" id="common">
+                                            <property name="label" translatable="yes">Common</property>
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">True</property>
+                                            <property name="receives_default">False</property>
+                                            <property name="use_underline">True</property>
+                                            <property name="active">True</property>
+                                            <property name="draw_indicator">True</property>
+                                          </object>
+                                          <packing>
+                                            <property name="expand">True</property>
+                                            <property name="fill">True</property>
+                                            <property name="position">0</property>
+                                          </packing>
+                                        </child>
+                                        <child>
+                                          <object class="GtkRadioButton" id="maximization">
+                                            <property name="label" translatable="yes">Maximization</property>
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">True</property>
+                                            <property name="receives_default">False</property>
+                                            <property name="use_underline">True</property>
+                                            <property name="draw_indicator">True</property>
+                                            <property name="group">common</property>
+                                          </object>
+                                          <packing>
+                                            <property name="expand">True</property>
+                                            <property name="fill">True</property>
+                                            <property name="position">1</property>
+                                          </packing>
+                                        </child>
+                                      </object>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="x">30</property>
+                                    <property name="y">160</property>
                                   </packing>
                                 </child>
                               </object>
