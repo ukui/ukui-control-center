@@ -141,7 +141,7 @@ msgid ""
 "Artist: %s"
 msgstr ""
 "<b>%s</b>\n"
-"%s , %s\n"
+"%s, %s\n"
 "chemin d'accès au fichier: %s\n"
 "Artiste: %s"
 
@@ -198,12 +198,12 @@ msgstr "Le nom de fichier source doit être absolu"
 #: panels/display/ukui-display-properties-install-systemwide.c:180
 #, c-format
 msgid "Could not open %s: %s\n"
-msgstr "Impossible d'ouvrir %s : %s\n"
+msgstr "Impossible d'ouvrir %s: %s\n"
 
 #: panels/display/ukui-display-properties-install-systemwide.c:189
 #, c-format
 msgid "Could not get information for %s: %s\n"
-msgstr "Impossible d'obtenir des informations pour %s : %s\n"
+msgstr "Impossible d'obtenir des informations pour %s: %s\n"
 
 #: panels/display/ukui-display-properties-install-systemwide.c:196
 #, c-format
@@ -236,12 +236,12 @@ msgstr "%s doit être un répertoire\n"
 #: panels/display/ukui-display-properties-install-systemwide.c:243
 #, c-format
 msgid "Could not open %s/%s: %s\n"
-msgstr "Impossible d'ouvrir %s /%s : %s\n"
+msgstr "Impossible d'ouvrir %s/%s: %s\n"
 
 #: panels/display/ukui-display-properties-install-systemwide.c:263
 #, c-format
 msgid "Could not rename %s to %s: %s\n"
-msgstr "Impossible de renommer %s en %s : %s\n"
+msgstr "Impossible de renommer %s en %s: %s\n"
 
 #: panels/display/xrandr-capplet.c:315 panels/display/xrandr-capplet.c:354
 #: shell/shell.ui.h:1
@@ -451,7 +451,7 @@ msgstr "%s ne semble pas être un thème d’écran de veille valide."
 #: panels/power/copy-theme-dialog.c:485
 #, c-format
 msgid "Copying file: %u of %u"
-msgstr "Copier un fichier:% u sur% u"
+msgstr "Copier un fichier:%u sur%u"
 
 #: panels/power/kpm-common.c:52
 msgid "Unknown time"
@@ -461,20 +461,20 @@ msgstr "Heure inconnue"
 #, c-format
 msgid "%i minutes"
 msgid_plural "%i minutes"
-msgstr[0] "% i minutes"
-msgstr[1] "% i minutes"
+msgstr[0] "%i minutes"
+msgstr[1] "%i minutes"
 
 #: panels/power/kpm-common.c:68
 #, c-format
 msgid "%i hours"
 msgid_plural "%i hours"
-msgstr[0] "% i heures"
-msgstr[1] "% i heures"
+msgstr[0] "%i heures"
+msgstr[1] "%i heures"
 
 #: panels/power/kpm-common.c:74
 #, c-format
 msgid "%i %s %i %s"
-msgstr "% i% s% i% s"
+msgstr "%i %s %i %s"
 
 #: panels/power/kpm-common.c:75 shell/shell.ui.h:60
 msgid "hour"
@@ -1003,7 +1003,8 @@ msgstr "Utilisateur standard"
 msgid ""
 "Standard users can use most software, but you can not install software and \n"
 "change settings that affect all users."
-msgstr "Les utilisateurs standard peuvent utiliser la plupart des logiciels, mais vous ne pouvez pas installer de logiciels ni modifier les paramètres qui affectent tous les utilisateurs."
+msgstr "Les utilisateurs standard peuvent utiliser la plupart des logiciels, mais vous ne pouvez pas installer de logiciels \n"
+"ni modifier les paramètres qui affectent tous les utilisateurs."
 
 #: panels/user-accounts/change-type.ui.h:10
 #: panels/user-accounts/user-accounts.c:688
@@ -1314,7 +1315,7 @@ msgid ""
 "\tAlready have other users set to automatically log in,\t\n"
 " \tclick OK will overwrite the existing settings!"
 msgstr ""
-"\tVous avez déjà configuré d'autres utilisateurs pour qu'ils se connectent automatiquement; \t\n"
+"\tVous avez déjà configuré d'autres utilisateurs pour qu'ils se connectent automatiquement, \t\n"
 "\tclick OK écrasera les paramètres existants!"
 
 #: panels/user-accounts/user-accounts.c:1487
@@ -2105,7 +2106,9 @@ msgid ""
 "Please add the language you will use to the list. And the first one in the "
 "list is the most\n"
 "commonly used language."
-msgstr "Veuillez ajouter la langue que vous utiliserez à la liste. Et le premier de la liste est la langue la plus couramment utilisée."
+msgstr "Veuillez ajouter la langue que vous utiliserez à la liste. Et le premier de la liste est "
+"la langue la plus\n"
+"couramment utilisée."
 
 #: shell/shell.ui.h:120
 msgid "_Show..."
@@ -2462,5 +2465,4 @@ msgstr "%s\n"
 
 #: shell/ukui-control-center.c:201
 msgid "window1"
-msgstr "fenêtre1"
-
+msgstr ""

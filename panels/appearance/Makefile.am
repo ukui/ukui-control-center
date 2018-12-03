@@ -33,6 +33,8 @@ libappearance_la_SOURCES= \
 	appearance-font.h	\
 	appearance-windows.c \
 	appearance-windows.h	\
+	appearance-desktopsettings.c \
+	appearance-desktopsettings.h	\
 	$(NULL)
 
 libappearance_la_LIBADD =	\
