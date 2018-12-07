@@ -212,7 +212,8 @@ msgstr "Эта программа должна запускаться тольк
 
 #: panels/display/ukui-display-properties-install-systemwide.c:210
 msgid "PKEXEC_UID must be set to an integer value"
-msgstr "Значение PKEXEC_UID должно быть равно целочисленному значению"
+msgstr "Значение PKEXEC_UID должно быть равно \n"
+"целочисленному значению"
 
 #: panels/display/ukui-display-properties-install-systemwide.c:216
 #, c-format
@@ -400,7 +401,8 @@ msgstr "Автор: llanguage"
 
 #: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:7
 msgid "Preview:"
-msgstr "Предварительный просмотр:"
+msgstr "Предварительный \n"
+"просмотр:"
 
 #: panels/network-proxy/network.ui.h:1
 msgid "Network Proxy Details"
@@ -428,7 +430,7 @@ msgstr "Из:"
 
 #: panels/power/copy-theme-dialog.c:238
 msgid "To:"
-msgstr "Для того, чтобы:"
+msgstr "в:"
 
 #: panels/power/copy-theme-dialog.c:259
 msgid "Copying themes"
@@ -679,11 +681,13 @@ msgstr "Текущий заряд:"
 
 #: panels/power/kpm-upower.c:510
 msgid "Last full charge:"
-msgstr "Последняя полная оплата:"
+msgstr "Последняя полная\n"
+" оплата:"
 
 #: panels/power/kpm-upower.c:517 panels/power/kpm-upower.c:539
 msgid "Design charge:"
-msgstr "Плата за проектирование:"
+msgstr "Плата за \n"
+"проектирование:"
 
 #: panels/power/kpm-upower.c:523
 msgid "Charge rate:"
@@ -811,11 +815,13 @@ msgstr "Ожидание разгрузки"
 
 #: panels/power/ukui-fullscreen-preview.ui.h:1
 msgid "Screensaver Preview"
-msgstr "Предварительный просмотр заставки"
+msgstr "Предварительный \n"
+"просмотр заставки"
 
 #: panels/power/ukui-fullscreen-preview.ui.h:2
 msgid "Screensaver preview"
-msgstr "Предварительный просмотр заставки"
+msgstr "Предварительный \n"
+"просмотр заставки"
 
 #: panels/power/ukui-screensaver-preferences.c:478
 #: panels/power/ukui-screensaver-preferences.c:578
@@ -841,7 +847,7 @@ msgstr "Не удалось загрузить основной интерфей
 
 #: panels/power/ukui-screensaver-preferences.c:1532
 msgid "Please make sure that the screensaver is properly installed"
-msgstr "Убедитесь, что заставка установлена ​​правильно."
+msgstr "Убедитесь, что заставка установлена правильно."
 
 #: panels/session-properties/gsm-app-dialog.c:145
 msgid "Desktop file(*.desktop)"
@@ -919,7 +925,8 @@ msgstr "заявка"
 
 #: panels/session-properties/program_properties.ui.h:5
 msgid "Program Location:"
-msgstr "Место проведения программы:"
+msgstr "Место проведения \n"
+"программы:"
 
 #: panels/session-properties/program_properties.ui.h:6
 msgid "Program Size:"
@@ -978,11 +985,13 @@ msgstr "Изменить пароль"
 
 #: panels/user-accounts/change-type.ui.h:1
 msgid "Change Usertype"
-msgstr "Изменить тип пользователя"
+msgstr "Изменить тип \n"
+"пользователя"
 
 #: panels/user-accounts/change-type.ui.h:4
 msgid "automatic login"
-msgstr "автоматический вход в систему"
+msgstr "автоматический \n"
+"вход в систему"
 
 #: panels/user-accounts/change-type.ui.h:6
 msgid ""
@@ -992,7 +1001,8 @@ msgstr "Убедитесь, что на компьютере есть как м�
 #: panels/user-accounts/change-type.ui.h:7
 #: panels/user-accounts/user-create.ui.h:5
 msgid "Standard User"
-msgstr "Стандартный пользователь"
+msgstr "Стандартный \n"
+"пользователь"
 
 #: panels/user-accounts/change-type.ui.h:8
 msgid ""
@@ -1070,7 +1080,8 @@ msgstr "содержит имя пользователя в той или ино
 
 #: panels/user-accounts/delete-user.ui.h:1
 msgid "Delete User"
-msgstr "Удалить пользователя"
+msgstr "Удалить \n"
+"пользователя"
 
 #: panels/user-accounts/delete-user.ui.h:3
 msgid "Keep File"
@@ -1240,7 +1251,8 @@ msgstr "Ошибка ввода пароля, пожалуйста, введит
 #: panels/user-accounts/user-accounts.c:1581
 #: panels/user-accounts/user-accounts.c:1691
 msgid "Standard user"
-msgstr "Стандартный пользователь"
+msgstr "Стандартный \n"
+"пользователь"
 
 #: panels/user-accounts/user-accounts.c:696
 #: panels/user-accounts/user-accounts.c:953
@@ -1293,7 +1305,8 @@ msgstr "пользователь вошел в систему, пожалуйс�
 #: panels/user-accounts/user-accounts.c:1072
 #: panels/user-accounts/user-accounts.c:2313
 msgid "auto login"
-msgstr "автоматическая авторизация"
+msgstr "автоматическая \n"
+"авторизация"
 
 #: panels/user-accounts/user-accounts.c:1075
 #: panels/user-accounts/user-accounts.c:2316
@@ -1351,15 +1364,18 @@ msgstr "переименовывать"
 
 #: panels/user-accounts/user-accounts.c:1591
 msgid "Change PWD"
-msgstr "Изменить PWD"
+msgstr "Изменить\n"
+" PWD"
 
 #: panels/user-accounts/user-accounts.c:1596
 msgid "Change Face"
-msgstr "Изменить лицо"
+msgstr "Изменить\n"
+" лицо"
 
 #: panels/user-accounts/user-accounts.c:1601
 msgid "Change Type"
-msgstr "Изменить тип"
+msgstr "Изменить\n"
+" тип"
 
 #: panels/user-accounts/user-accounts.c:1606
 msgid "Delete"
@@ -1367,7 +1383,8 @@ msgstr "удалять"
 
 #: panels/user-accounts/user-accounts.c:2208
 msgid "Browse more pictures..."
-msgstr "Просмотрите больше фотографий ..."
+msgstr "Просмотрите больше \n"
+"фотографий ..."
 
 #: panels/user-accounts/user-create.ui.h:1
 msgid "Create Account"
@@ -1375,7 +1392,8 @@ msgstr "Регистрация"
 
 #: panels/user-accounts/user-create.ui.h:3
 msgid "Automatic Logon"
-msgstr "Автоматический вход в систему"
+msgstr "Автоматический \n"
+"вход в систему"
 
 #: panels/user-accounts/user-create.ui.h:4
 msgid "select picture"
@@ -1452,7 +1470,8 @@ msgstr "Co_nnector"
 
 #: panels/volume-control/gvc-mixer-dialog.c:522
 msgid "Peak detect"
-msgstr "Пиковое обнаружение"
+msgstr "Пиковое \n"
+"обнаружение"
 
 #: panels/volume-control/gvc-mixer-dialog.c:609
 msgid "Co_nnector:"
@@ -1531,7 +1550,8 @@ msgstr "Настройки для выбранного устройства:"
 
 #: panels/volume-control/gvc-mixer-dialog.c:2045
 msgid "Hardware"
-msgstr "аппаратные средства"
+msgstr "аппаратные \n"
+"средства"
 
 #: panels/volume-control/gvc-mixer-dialog.c:2051
 msgid "C_hoose a device to configure:"
@@ -1560,7 +1580,8 @@ msgstr "Встроенный"
 #: panels/volume-control/gvc-sound-theme-chooser.c:647
 #: panels/volume-control/sound-theme-file-utils.c:291
 msgid "Custom"
-msgstr "изготовленный на заказ"
+msgstr "изготовленный\n"
+" на заказ"
 
 #: panels/volume-control/gvc-sound-theme-chooser.c:760
 #: panels/volume-control/gvc-sound-theme-chooser.c:771
@@ -1595,7 +1616,8 @@ msgstr "Стоп"
 #: panels/volume-control/gvc-speaker-test.c:219
 #: panels/volume-control/gvc-speaker-test.c:331
 msgid "Test"
-msgstr "Контрольная работа"
+msgstr "Контрольная \n"
+"работа"
 
 #: panels/volume-control/gvc-speaker-test.c:227
 msgid "Subwoofer"
@@ -1615,7 +1637,8 @@ msgstr " Изменение времени и даты этого компьют
 
 #: shell/mainwindow.c:188 shell/shell.ui.h:17
 msgid "User Account"
-msgstr "Учетная запись пользователя"
+msgstr "Учетная запись \n"
+"пользователя"
 
 #: shell/mainwindow.c:191
 msgid ""
@@ -1635,7 +1658,8 @@ msgstr " Измените фоновый рисунок рабочего сто�
 
 #: shell/mainwindow.c:210
 msgid "Default Application"
-msgstr "Приложение по умолчанию"
+msgstr "Приложение \n"
+"по умолчанию"
 
 #: shell/mainwindow.c:213
 msgid " Change the default application on this computer "
@@ -1667,7 +1691,8 @@ msgstr " Измените настройки звука на этом компь
 
 #: shell/mainwindow.c:283
 msgid "Network Agent"
-msgstr "Сетевой агент"
+msgstr "Сетевой \n"
+"агент"
 
 #: shell/mainwindow.c:286
 msgid " Change the network agent on this computer "
@@ -1675,7 +1700,8 @@ msgstr " Изменение сетевого агента на этом комп
 
 #: shell/mainwindow.c:294 shell/shell.ui.h:13
 msgid "Autostart"
-msgstr "Автоматический старт"
+msgstr "Автоматический \n"
+"старт"
 
 #: shell/mainwindow.c:297
 msgid " Change the autostart program on this computer "
@@ -1687,7 +1713,8 @@ msgstr " Измените настройки монитора на этом ко
 
 #: shell/mainwindow.c:318
 msgid "Power Management"
-msgstr "Управление энергопотреблением"
+msgstr "Управление \n"
+"энергопотреблением"
 
 #: shell/mainwindow.c:321
 msgid " Change the power management settings on this computer "
@@ -1759,7 +1786,8 @@ msgstr "Сеть \n"
 
 #: shell/shell.ui.h:30
 msgid "Hardware Configure"
-msgstr "Настройка оборудования"
+msgstr "Настройка \n"
+"оборудования"
 
 #: shell/shell.ui.h:31
 msgid "Home"
@@ -1771,7 +1799,8 @@ msgstr "_Personalization"
 
 #: shell/shell.ui.h:33
 msgid "_Autostart"
-msgstr "_Автоматический старт"
+msgstr "_Автоматический \n"
+"старт"
 
 #: shell/shell.ui.h:34
 msgid "_Default APP"
@@ -1783,11 +1812,13 @@ msgstr "_Time Даты"
 
 #: shell/shell.ui.h:36
 msgid "_User Account"
-msgstr "_Учетная запись пользователя"
+msgstr "_Учетная запись \n"
+"пользователя"
 
 #: shell/shell.ui.h:37
 msgid "Network _Connection"
-msgstr "Подключение к сети"
+msgstr "Подключение \n"
+"к сети"
 
 #: shell/shell.ui.h:38
 msgid "_Keyboard"
@@ -1815,7 +1846,8 @@ msgstr "_Monitor"
 
 #: shell/shell.ui.h:44
 msgid "Po_wer Manage"
-msgstr "Po_wer Управление"
+msgstr "Po_wer \n"
+"Управление"
 
 #: shell/shell.ui.h:45
 msgid "Tzone:"
@@ -1911,7 +1943,8 @@ msgstr "Текущий аккаунт"
 
 #: shell/shell.ui.h:69
 msgid "Other Accounts"
-msgstr "Другие учетные записи"
+msgstr "Другие учетные\n"
+" записи"
 
 #: shell/shell.ui.h:70
 msgid "Create a new account"
@@ -1970,7 +2003,8 @@ msgstr "Выберите наиболее четкий образец текст
 
 #: shell/shell.ui.h:86
 msgid "Restore Defaults"
-msgstr "Восстановить значения по умолчанию"
+msgstr "Восстановить значения\n"
+" по умолчанию"
 
 #: shell/shell.ui.h:87
 msgid "Font"
@@ -2010,7 +2044,8 @@ msgstr "мультимедиа"
 
 #: shell/shell.ui.h:96
 msgid "Image Viewer:"
-msgstr "Просмотр изображений:"
+msgstr "Просмотр\n"
+" изображений:"
 
 #: shell/shell.ui.h:97
 msgid "Audio Player:"
@@ -2030,7 +2065,8 @@ msgstr "Текстовый редактор:"
 
 #: shell/shell.ui.h:101
 msgid "File Manager:"
-msgstr "Файловый менеджер:"
+msgstr "Файловый \n"
+"менеджер:"
 
 #: shell/shell.ui.h:102
 msgid "Network Connections"
@@ -2062,7 +2098,8 @@ msgstr "Медленный"
 
 #: shell/shell.ui.h:109
 msgid "Repeat keys speed"
-msgstr "Повторить скорость клавиш"
+msgstr "Повторить скорость\n"
+" клавиш"
 
 #: shell/shell.ui.h:110
 msgid "Long"
@@ -2090,7 +2127,8 @@ msgstr "S_peed:"
 
 #: shell/shell.ui.h:116
 msgid "Cursor blinks speed"
-msgstr "Скорость мигания курсора"
+msgstr "Скорость мигания\n"
+" курсора"
 
 #: shell/shell.ui.h:117
 msgid "General"
@@ -2139,7 +2177,8 @@ msgstr "\"Чтобы отредактировать комбинацию кла�
 
 #: shell/shell.ui.h:128
 msgid "Shortcut"
-msgstr "кратчайший путь"
+msgstr "кратчайший \n"
+"путь"
 
 #: shell/shell.ui.h:129
 msgid "_Right-handed"
@@ -2223,11 +2262,13 @@ msgstr "Горизонтальная прокрутка с двумя симво
 
 #: shell/shell.ui.h:149
 msgid "Enabled touchpad"
-msgstr "Включенная сенсорная панель"
+msgstr "Включенная \n"
+"сенсорная панель"
 
 #: shell/shell.ui.h:150
 msgid "Touchpad"
-msgstr "Сенсорная панель"
+msgstr "Сенсорная \n"
+"панель"
 
 #: shell/shell.ui.h:151
 msgid "<b>Di_rect internet connection</b>"
@@ -2275,11 +2316,13 @@ msgstr "Конфигурация прокси"
 
 #: shell/shell.ui.h:162
 msgid "Ignore Host List"
-msgstr "Игнорировать список хостов"
+msgstr "Игнорировать \n"
+"список хостов"
 
 #: shell/shell.ui.h:163
 msgid "Ignored Hosts"
-msgstr "Игнорируемые хосты"
+msgstr "Игнорируемые \n"
+"хосты"
 
 #: shell/shell.ui.h:164
 msgid "Additional startup _programs:"
@@ -2323,7 +2366,8 @@ msgstr "Такое же изображение во всех мониторах"
 
 #: shell/shell.ui.h:174
 msgid "Set as primary"
-msgstr "Установить как первичный"
+msgstr "Установить как \n"
+"первичный"
 
 #: shell/shell.ui.h:175
 msgid "Open Monitor"
@@ -2339,7 +2383,8 @@ msgstr "Состояние компьютера"
 
 #: shell/shell.ui.h:178
 msgid "AC Power"
-msgstr "Мощность переменного тока"
+msgstr "Мощность \n"
+"переменного тока"
 
 #: shell/shell.ui.h:179
 msgid "Battery Power"
@@ -2347,11 +2392,13 @@ msgstr "Заряд батареи"
 
 #: shell/shell.ui.h:180
 msgid "Put _computer to sleep when inactive:"
-msgstr "Поставьте _компьютер в режим сна, когда он неактивен:"
+msgstr "Поставьте _компьютер в режим сна,\n"
+" когда он неактивен:"
 
 #: shell/shell.ui.h:181
 msgid "Put _monitor to sleep when inactive:"
-msgstr "Поместите _monitor в режим сна, когда он неактивен:"
+msgstr "Поместите _monitor в режим сна, \n"
+"когда он неактивен:"
 
 #: shell/shell.ui.h:182
 msgid "When laptop lid is cl_osed:"

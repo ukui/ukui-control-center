@@ -20,7 +20,8 @@ msgstr ""
 
 #: panels/appearance/appearance-desktop.c:561
 msgid "Add Wallpaper"
-msgstr "Ajouter un fond d'écran"
+msgstr "Ajouter un \n"
+"fond d'écran"
 
 #: panels/appearance/appearance-desktop.c:594
 msgid "Image"
@@ -28,7 +29,8 @@ msgstr "Image"
 
 #: panels/appearance/appearance-desktop.c:598
 msgid "ALL File"
-msgstr "TOUT le fichier"
+msgstr "TOUT le \n"
+"fichier"
 
 #: panels/appearance/appearance-theme.c:50
 msgid "Please choose a color that you like as the theme colors."
@@ -301,7 +303,8 @@ msgstr "Impossible d'enregistrer la configuration du moniteur"
 
 #: panels/display/xrandr-capplet.c:2226
 msgid "Could not get session bus while applying display configuration"
-msgstr "Impossible d'obtenir le bus de session lors de l'application de la configuration d'affichage"
+msgstr "Impossible d'obtenir le bus de session lors de l'application\n"
+" de la configuration d'affichage"
 
 #: panels/display/xrandr-capplet.c:2245
 msgid "Could not detect displays"
@@ -684,7 +687,8 @@ msgstr "Charge actuelle:"
 
 #: panels/power/kpm-upower.c:510
 msgid "Last full charge:"
-msgstr "Dernière charge complète:"
+msgstr "Dernière charge \n"
+"complète:"
 
 #: panels/power/kpm-upower.c:517 panels/power/kpm-upower.c:539
 msgid "Design charge:"
@@ -816,11 +820,13 @@ msgstr "En attente de décharge"
 
 #: panels/power/ukui-fullscreen-preview.ui.h:1
 msgid "Screensaver Preview"
-msgstr "Aperçu de l'économiseur d'écran"
+msgstr "Aperçu de \n"
+"l'économiseur d'écran"
 
 #: panels/power/ukui-fullscreen-preview.ui.h:2
 msgid "Screensaver preview"
-msgstr "Aperçu de l'économiseur d'écran"
+msgstr "Aperçu de \n"
+"l'économiseur d'écran"
 
 #: panels/power/ukui-screensaver-preferences.c:478
 #: panels/power/ukui-screensaver-preferences.c:578
@@ -846,7 +852,8 @@ msgstr "Impossible de charger l'interface principale"
 
 #: panels/power/ukui-screensaver-preferences.c:1532
 msgid "Please make sure that the screensaver is properly installed"
-msgstr "S'il vous plaît assurez-vous que l'économiseur d'écran est correctement installé"
+msgstr "S'il vous plaît assurez-vous que l'économiseur d'écran est\n"
+" correctement installé"
 
 #: panels/session-properties/gsm-app-dialog.c:145
 msgid "Desktop file(*.desktop)"
@@ -862,7 +869,8 @@ msgstr "Ajouter des programmes"
 
 #: panels/session-properties/gsm-app-dialog.c:261
 msgid "Boot program property details"
-msgstr "Détails de la propriété du programme d'amorçage"
+msgstr "Détails de la propriété du \n"
+"programme d'amorçage"
 
 #: panels/session-properties/gsm-app-dialog.c:526
 msgid "The startup command cannot be empty"
@@ -975,29 +983,35 @@ msgstr "Parcourir plus de photos"
 
 #: panels/user-accounts/change-name.ui.h:1
 msgid "Change Name"
-msgstr "Changer de nom"
+msgstr "Changer \n"
+"de nom"
 
 #: panels/user-accounts/change-pwd.ui.h:1
 msgid "Change Password"
-msgstr "Changer le mot de passe"
+msgstr "Changer le \n"
+"mot de passe"
 
 #: panels/user-accounts/change-type.ui.h:1
 msgid "Change Usertype"
-msgstr "Changer le type d'utilisateur"
+msgstr "Changer le \n"
+"type d'utilisateur"
 
 #: panels/user-accounts/change-type.ui.h:4
 msgid "automatic login"
-msgstr "connexion automatique"
+msgstr "connexion \n"
+"automatique"
 
 #: panels/user-accounts/change-type.ui.h:6
 msgid ""
 "Please make sure that the computer has at least one user is the administrator"
-msgstr "S'il vous plaît assurez-vous que l'ordinateur a au moins un utilisateur est l'administrateur"
+msgstr "S'il vous plaît assurez-vous que l'ordinateur a au moins un \n"
+"utilisateur est l'administrateur"
 
 #: panels/user-accounts/change-type.ui.h:7
 #: panels/user-accounts/user-create.ui.h:5
 msgid "Standard User"
-msgstr "Utilisateur standard"
+msgstr "Utilisateur \n"
+"standard"
 
 #: panels/user-accounts/change-type.ui.h:8
 msgid ""
@@ -1074,7 +1088,8 @@ msgstr "contient le nom d'utilisateur sous une forme"
 
 #: panels/user-accounts/delete-user.ui.h:1
 msgid "Delete User"
-msgstr "Supprimer l'utilisateur"
+msgstr "Supprimer \n"
+"l'utilisateur"
 
 #: panels/user-accounts/delete-user.ui.h:3
 msgid "Keep File"
@@ -1082,11 +1097,13 @@ msgstr "Garder le fichier"
 
 #: panels/user-accounts/delete-user.ui.h:4
 msgid "Delete File"
-msgstr "Supprimer le fichier"
+msgstr "Supprimer \n"
+"le fichier"
 
 #: panels/user-accounts/run-passwd.c:220
 msgid "Authentication failure!"
-msgstr "Échec de l'authentification!"
+msgstr "Échec de \n"
+"l'authentification!"
 
 #: panels/user-accounts/run-passwd.c:297
 msgid "New password length is too short!"
@@ -1102,7 +1119,8 @@ msgstr "Le nouveau mot de passe est trop similaire à l'ancien!"
 
 #: panels/user-accounts/run-passwd.c:312
 msgid "The new password must contain numbers or special characters!"
-msgstr "Le nouveau mot de passe doit contenir des chiffres ou des caractères spéciaux!"
+msgstr "Le nouveau mot de passe doit contenir des chiffres\n"
+" ou des caractères spéciaux!"
 
 #: panels/user-accounts/run-passwd.c:316
 msgid "The new password is the same as the old one!"
@@ -1122,12 +1140,14 @@ msgstr "Le nom d'utilisateur ne peut pas être vide!"
 
 #: panels/user-accounts/user-accounts.c:214
 msgid "Password length needs to more than 5 digits!"
-msgstr "La longueur du mot de passe doit comporter plus de 5 chiffres!"
+msgstr "La longueur du mot de passe doit comporter\n"
+" plus de 5 chiffres!"
 
 #: panels/user-accounts/user-accounts.c:221
 #: panels/user-accounts/user-accounts.c:414
 msgid "Password length needs to less than 64 digits!"
-msgstr "La longueur du mot de passe doit être inférieure à 64 chiffres!"
+msgstr "La longueur du mot de passe doit être \n"
+"inférieure à 64 chiffres!"
 
 #: panels/user-accounts/user-accounts.c:233
 #: panels/user-accounts/user-accounts.c:360
@@ -1154,7 +1174,8 @@ msgstr "Le premier caractère ne peut pas être souligné!"
 #: panels/user-accounts/user-accounts.c:274
 #: panels/user-accounts/user-accounts.c:780
 msgid "User name can not contain capital letters!"
-msgstr "Le nom d'utilisateur ne peut pas contenir de lettres majuscules!"
+msgstr "Le nom d'utilisateur ne peut pas contenir\n"
+" de lettres majuscules!"
 
 #: panels/user-accounts/user-accounts.c:282
 #: panels/user-accounts/user-accounts.c:788
@@ -1187,7 +1208,8 @@ msgstr "Le nom d'utilisateur correspond au groupe déjà existant, veuillez util
 
 #: panels/user-accounts/user-accounts.c:345
 msgid "username length need to less than 32!"
-msgstr "la longueur du nom d'utilisateur doit être inférieure à 32!"
+msgstr "la longueur du nom d'utilisateur doit\n"
+" être inférieure à 32!"
 
 #: panels/user-accounts/user-accounts.c:357
 #: panels/user-accounts/user-accounts.c:960
@@ -1233,7 +1255,8 @@ msgstr "Le mot de passe ne peut pas être modifié."
 
 #: panels/user-accounts/user-accounts.c:577
 msgid "Password input error, please re-enter!"
-msgstr "Erreur de saisie du mot de passe, veuillez ré-entrer!"
+msgstr "Erreur de saisie du mot de passe,\n"
+" veuillez ré-entrer!"
 
 #: panels/user-accounts/user-accounts.c:690
 #: panels/user-accounts/user-accounts.c:947
@@ -1244,7 +1267,8 @@ msgstr "Erreur de saisie du mot de passe, veuillez ré-entrer!"
 #: panels/user-accounts/user-accounts.c:1581
 #: panels/user-accounts/user-accounts.c:1691
 msgid "Standard user"
-msgstr "Utilisateur standard"
+msgstr "Utilisateur\n"
+" standard"
 
 #: panels/user-accounts/user-accounts.c:696
 #: panels/user-accounts/user-accounts.c:953
@@ -1253,7 +1277,8 @@ msgstr "Utilisateur standard"
 #: panels/user-accounts/user-accounts.c:1613
 #: panels/user-accounts/user-accounts.c:1699
 msgid "Logged(Current User)"
-msgstr "Connecté (utilisateur actuel)"
+msgstr "Connecté \n"
+"(utilisateur actuel)"
 
 #: panels/user-accounts/user-accounts.c:701
 #: panels/user-accounts/user-accounts.c:955
@@ -1262,7 +1287,8 @@ msgstr "Connecté (utilisateur actuel)"
 #: panels/user-accounts/user-accounts.c:1617
 #: panels/user-accounts/user-accounts.c:1703
 msgid "Logged(Other Users)"
-msgstr "Connecté (autres utilisateurs)"
+msgstr "Connecté \n"
+"(autres utilisateurs)"
 
 #: panels/user-accounts/user-accounts.c:705
 #: panels/user-accounts/user-accounts.c:957
@@ -1271,11 +1297,13 @@ msgstr "Connecté (autres utilisateurs)"
 #: panels/user-accounts/user-accounts.c:1621
 #: panels/user-accounts/user-accounts.c:1707
 msgid "Un-login(Other Users)"
-msgstr "Annuler la connexion (autres utilisateurs)"
+msgstr "Annuler la connexion\n"
+" (autres utilisateurs)"
 
 #: panels/user-accounts/user-accounts.c:795
 msgid "User name cannot start with number!"
-msgstr "Le nom d'utilisateur ne peut pas commencer par un numéro!"
+msgstr "Le nom d'utilisateur ne peut pas\n"
+" commencer par un numéro!"
 
 #: panels/user-accounts/user-accounts.c:801
 msgid "Username length need to less than 32!"
@@ -1297,7 +1325,8 @@ msgstr "l'utilisateur s'est connecté, veuillez vous déconnecter et modifier!"
 #: panels/user-accounts/user-accounts.c:1072
 #: panels/user-accounts/user-accounts.c:2313
 msgid "auto login"
-msgstr "connexion automatique"
+msgstr "connexion \n"
+"automatique"
 
 #: panels/user-accounts/user-accounts.c:1075
 #: panels/user-accounts/user-accounts.c:2316
@@ -1350,7 +1379,8 @@ msgstr "si vous voulez supprimer l’utilisateur %s , le dossier \n"
 #: panels/user-accounts/user-accounts.c:1583
 #: panels/user-accounts/user-accounts.c:1693
 msgid "Super user"
-msgstr "Super utilisateur"
+msgstr "Super \n"
+"utilisateur"
 
 #: panels/user-accounts/user-accounts.c:1585
 msgid "Rename"
@@ -1358,15 +1388,18 @@ msgstr "Renommer"
 
 #: panels/user-accounts/user-accounts.c:1591
 msgid "Change PWD"
-msgstr "Changer les personnes handicapées"
+msgstr "Changer les\n"
+" personnes handicapées"
 
 #: panels/user-accounts/user-accounts.c:1596
 msgid "Change Face"
-msgstr "Changer de visage"
+msgstr "Changer \n"
+"de visage"
 
 #: panels/user-accounts/user-accounts.c:1601
 msgid "Change Type"
-msgstr "Changer le type"
+msgstr "Changer \n"
+"le type"
 
 #: panels/user-accounts/user-accounts.c:1606
 msgid "Delete"
@@ -1613,7 +1646,8 @@ msgstr "Centre de contrôle"
 
 #: shell/mainwindow.c:177
 msgid "Time and Dates"
-msgstr "Heure et dates"
+msgstr "Heure \n"
+"et dates"
 
 #: shell/mainwindow.c:180
 msgid " Change the time and date of this computer "
@@ -1621,13 +1655,15 @@ msgstr " Changer l'heure et la date de cet ordinateur "
 
 #: shell/mainwindow.c:188 shell/shell.ui.h:17
 msgid "User Account"
-msgstr "Compte d'utilisateur"
+msgstr "Compte\n"
+"d'utilisateur"
 
 #: shell/mainwindow.c:191
 msgid ""
 " Change the computer user account \n"
 " settings and password"
-msgstr " Modifier les paramètres et le mot de passe du compte d'utilisateur de l'ordinateur"
+msgstr " Modifier les paramètres et le mot \n"
+"de passe du compte d'utilisateur de l'ordinateur"
 
 #: shell/mainwindow.c:199 shell/shell.ui.h:12
 msgid "Personalization"
@@ -1642,7 +1678,8 @@ msgstr " Changer le fond d'écran \n"
 
 #: shell/mainwindow.c:210
 msgid "Default Application"
-msgstr "Application par défaut"
+msgstr "Application \n"
+"par défaut"
 
 #: shell/mainwindow.c:213
 msgid " Change the default application on this computer "
@@ -1694,7 +1731,8 @@ msgstr " Modifier les paramètres du moniteur sur cet ordinateur "
 
 #: shell/mainwindow.c:318
 msgid "Power Management"
-msgstr "Gestion de l'alimentation"
+msgstr "Gestion de \n"
+"l'alimentation"
 
 #: shell/mainwindow.c:321
 msgid " Change the power management settings on this computer "
@@ -1728,7 +1766,8 @@ msgstr "Envergure"
 msgid ""
 "Default \n"
 "Application"
-msgstr "Application par défaut"
+msgstr "Application \n"
+"par défaut"
 
 #: shell/shell.ui.h:16
 msgid "Time Dates"
@@ -1764,7 +1803,8 @@ msgstr "Connexions \n"
 
 #: shell/shell.ui.h:30
 msgid "Hardware Configure"
-msgstr "Configuration matérielle"
+msgstr "Configuration \n"
+"matérielle"
 
 #: shell/shell.ui.h:31
 msgid "Home"
@@ -1780,7 +1820,8 @@ msgstr "_Autostart"
 
 #: shell/shell.ui.h:34
 msgid "_Default APP"
-msgstr "_Application par défaut"
+msgstr "_Application \n"
+"par défaut"
 
 #: shell/shell.ui.h:35
 msgid "_Time Dates"
@@ -1788,11 +1829,13 @@ msgstr "_Temps Dates"
 
 #: shell/shell.ui.h:36
 msgid "_User Account"
-msgstr "_Compte d'utilisateur"
+msgstr "_Compte \n"
+"d'utilisateur"
 
 #: shell/shell.ui.h:37
 msgid "Network _Connection"
-msgstr "Connexion réseau"
+msgstr "Connexion \n"
+"réseau"
 
 #: shell/shell.ui.h:38
 msgid "_Keyboard"
@@ -1979,7 +2022,8 @@ msgstr "Réinitialiser"
 
 #: shell/shell.ui.h:87
 msgid "Font"
-msgstr "Police de caractère"
+msgstr "Police de\n"
+" caractère"
 
 #: shell/shell.ui.h:88
 msgid "mouse double click action"
@@ -2035,11 +2079,13 @@ msgstr "Éditeur de texte:"
 
 #: shell/shell.ui.h:101
 msgid "File Manager:"
-msgstr "Gestionnaire de fichiers:"
+msgstr "Gestionnaire \n"
+"de fichiers:"
 
 #: shell/shell.ui.h:102
 msgid "Network Connections"
-msgstr "Les connexions de réseau"
+msgstr "Les connexions\n"
+" de réseau"
 
 #: shell/shell.ui.h:103
 msgid "Repeat Keys"
@@ -2353,15 +2399,18 @@ msgstr "Puissance de la batterie"
 
 #: shell/shell.ui.h:180
 msgid "Put _computer to sleep when inactive:"
-msgstr "Mettez l'ordinateur en veille lorsqu'il est inactif:"
+msgstr "Mettez l'ordinateur en veille \n"
+"lorsqu'il est inactif:"
 
 #: shell/shell.ui.h:181
 msgid "Put _monitor to sleep when inactive:"
-msgstr "Mettez _monitor en veille lorsqu'il est inactif:"
+msgstr "Mettez _monitor en veille \n"
+"lorsqu'il est inactif:"
 
 #: shell/shell.ui.h:182
 msgid "When laptop lid is cl_osed:"
-msgstr "Lorsque le couvercle de l'ordinateur portable est fermé:"
+msgstr "Lorsque le couvercle de l'ordinateur\n"
+" portable est fermé:"
 
 #: shell/shell.ui.h:183
 msgid "Actions"
@@ -2369,11 +2418,13 @@ msgstr "actes"
 
 #: shell/shell.ui.h:184
 msgid "When the power _button is pressed:"
-msgstr "Lorsque vous appuyez sur le bouton d'alimentation _:"
+msgstr "Lorsque vous appuyez sur le bouton\n"
+" d'alimentation _:"
 
 #: shell/shell.ui.h:185
 msgid "When the sus_pend button is pressed:"
-msgstr "Lorsque le bouton sus_pend est enfoncé:"
+msgstr "Lorsque le bouton sus_pend est \n"
+"enfoncé:"
 
 #: shell/shell.ui.h:186
 msgid "Icon display"

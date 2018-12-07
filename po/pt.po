@@ -20,7 +20,8 @@ msgstr ""
 
 #: panels/appearance/appearance-desktop.c:561
 msgid "Add Wallpaper"
-msgstr "Adicionar papel de parede"
+msgstr "Adicionar papel\n"
+" de parede"
 
 #: panels/appearance/appearance-desktop.c:594
 msgid "Image"
@@ -485,11 +486,13 @@ msgstr[1] "minuto"
 
 #: panels/power/kpm-common.h:41
 msgid "Power Manager"
-msgstr "Gerenciador de energia"
+msgstr "Gerenciador\n"
+" de energia"
 
 #: panels/power/kpm-common.h:42
 msgid "Power Manager for the UKUI desktop"
-msgstr "Gerenciador de energia para a área de trabalho da UKUI"
+msgstr "Gerenciador de energia para a \n"
+"área de trabalho da UKUI"
 
 #: panels/power/kpm-prefs-core.c:168 panels/power/kpm-prefs-core.c:170
 msgid "Never"
@@ -811,11 +814,13 @@ msgstr "Esperando para descarregar"
 
 #: panels/power/ukui-fullscreen-preview.ui.h:1
 msgid "Screensaver Preview"
-msgstr "Pré-visualização do protetor de tela"
+msgstr "Pré-visualização \n"
+"do protetor de tela"
 
 #: panels/power/ukui-fullscreen-preview.ui.h:2
 msgid "Screensaver preview"
-msgstr "Pré-visualização do protetor de tela"
+msgstr "Pré-visualização \n"
+"do protetor de tela"
 
 #: panels/power/ukui-screensaver-preferences.c:478
 #: panels/power/ukui-screensaver-preferences.c:578
@@ -857,7 +862,8 @@ msgstr "Adicionar programas"
 
 #: panels/session-properties/gsm-app-dialog.c:261
 msgid "Boot program property details"
-msgstr "Detalhes da propriedade do programa de inicialização"
+msgstr "Detalhes da propriedade do \n"
+"programa de inicialização"
 
 #: panels/session-properties/gsm-app-dialog.c:526
 msgid "The startup command cannot be empty"
@@ -970,19 +976,23 @@ msgstr "Procure mais fotos"
 
 #: panels/user-accounts/change-name.ui.h:1
 msgid "Change Name"
-msgstr "Mude o nome"
+msgstr "Mude o\n"
+" nome"
 
 #: panels/user-accounts/change-pwd.ui.h:1
 msgid "Change Password"
-msgstr "Mudar senha"
+msgstr "Mudar\n"
+" senha"
 
 #: panels/user-accounts/change-type.ui.h:1
 msgid "Change Usertype"
-msgstr "Alterar tipo de usuário"
+msgstr "Alterar \n"
+"tipo de usuário"
 
 #: panels/user-accounts/change-type.ui.h:4
 msgid "automatic login"
-msgstr "login automático"
+msgstr "login \n"
+"automático"
 
 #: panels/user-accounts/change-type.ui.h:6
 msgid ""
@@ -992,7 +1002,8 @@ msgstr "Por favor, certifique-se que o computador tem pelo menos um usuário é 
 #: panels/user-accounts/change-type.ui.h:7
 #: panels/user-accounts/user-create.ui.h:5
 msgid "Standard User"
-msgstr "Usuário comum"
+msgstr "Usuário \n"
+"comum"
 
 #: panels/user-accounts/change-type.ui.h:8
 msgid ""
@@ -1349,15 +1360,18 @@ msgstr "Renomear"
 
 #: panels/user-accounts/user-accounts.c:1591
 msgid "Change PWD"
-msgstr "Alterar PWD"
+msgstr "Alterar\n"
+" PWD"
 
 #: panels/user-accounts/user-accounts.c:1596
 msgid "Change Face"
-msgstr "Mude a cara"
+msgstr "Mude \n"
+"a cara"
 
 #: panels/user-accounts/user-accounts.c:1601
 msgid "Change Type"
-msgstr "Alterar tipo"
+msgstr "Alterar\n"
+" tipo"
 
 #: panels/user-accounts/user-accounts.c:1606
 msgid "Delete"
@@ -1634,7 +1648,8 @@ msgstr " Alterar o plano de fundo da área de trabalho do computador \n"
 
 #: shell/mainwindow.c:210
 msgid "Default Application"
-msgstr "Aplicação Padrão"
+msgstr "Aplicação\n"
+" Padrão"
 
 #: shell/mainwindow.c:213
 msgid " Change the default application on this computer "
@@ -1666,7 +1681,8 @@ msgstr " Alterar as configurações de som neste computador "
 
 #: shell/mainwindow.c:283
 msgid "Network Agent"
-msgstr "Agente de Rede"
+msgstr "Agente \n"
+"de Rede"
 
 #: shell/mainwindow.c:286
 msgid " Change the network agent on this computer "
@@ -1686,7 +1702,8 @@ msgstr " Alterar as configurações do monitor neste computador "
 
 #: shell/mainwindow.c:318
 msgid "Power Management"
-msgstr "Gerenciamento de energia"
+msgstr "Gerenciamento\n"
+" de energia"
 
 #: shell/mainwindow.c:321
 msgid " Change the power management settings on this computer "
@@ -1720,15 +1737,18 @@ msgstr "Período"
 msgid ""
 "Default \n"
 "Application"
-msgstr "Padrão \nApplication"
+msgstr "Padrão \n"
+"Application"
 
 #: shell/shell.ui.h:16
 msgid "Time Dates"
-msgstr "Datas de horário"
+msgstr "Datas de\n"
+" horário"
 
 #: shell/shell.ui.h:18
 msgid "System Configuration"
-msgstr "Configuração do sistema"
+msgstr "Configuração\n"
+" do sistema"
 
 #: shell/shell.ui.h:19
 msgid "Printer"
@@ -1757,7 +1777,8 @@ msgstr "Rede \n"
 
 #: shell/shell.ui.h:30
 msgid "Hardware Configure"
-msgstr "Configuração de Hardware"
+msgstr "Configuração\n"
+" de Hardware"
 
 #: shell/shell.ui.h:31
 msgid "Home"
@@ -2345,15 +2366,18 @@ msgstr "Energia da bateria"
 
 #: shell/shell.ui.h:180
 msgid "Put _computer to sleep when inactive:"
-msgstr "Coloque _computer para dormir quando inativo:"
+msgstr "Coloque _computer para dormir\n"
+" quando inativo:"
 
 #: shell/shell.ui.h:181
 msgid "Put _monitor to sleep when inactive:"
-msgstr "Coloque o _monitor para dormir quando inativo:"
+msgstr "Coloque o _monitor para dormir\n"
+" quando inativo:"
 
 #: shell/shell.ui.h:182
 msgid "When laptop lid is cl_osed:"
-msgstr "Quando tampa do laptop é cl_osed:"
+msgstr "Quando tampa do laptop é \n"
+"cl_osed:"
 
 #: shell/shell.ui.h:183
 msgid "Actions"
@@ -2361,11 +2385,13 @@ msgstr "Ações"
 
 #: shell/shell.ui.h:184
 msgid "When the power _button is pressed:"
-msgstr "Quando o botão de energia é pressionado:"
+msgstr "Quando o botão de energia \n"
+"é pressionado:"
 
 #: shell/shell.ui.h:185
 msgid "When the sus_pend button is pressed:"
-msgstr "Quando o botão sus_pend é pressionado:"
+msgstr "Quando o botão sus_pend é \n"
+"pressionado:"
 
 #: shell/shell.ui.h:186
 msgid "Icon display"
