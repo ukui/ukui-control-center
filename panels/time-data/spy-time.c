@@ -26,7 +26,8 @@
 #include <time.h>
 #include <gio/gio.h>
 #include <glib/gi18n.h>
-#define TZ_DATA_FILE "/usr/share/zoneinfo/zone_utc"
+//#define TZ_DATA_FILE "/usr/share/zoneinfo/zone_utc"
+#define TZ_DATA_FILE "/usr/share/zoneinfo/zoneUtc"
 #define _GMT 1970
 #define MAXYAERRANGE 100
 #define USE_24_FORMAT "use-24h-format"

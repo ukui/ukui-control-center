@@ -2,7 +2,7 @@ rcdir   = $(datadir)/themes/ukui-theme/gtk-2.0/apps
 zonedir = $(datadir)/zoneinfo
 saversdir = $(datadir)/applications/screensavers
 rc_DATA = ukuicc.rc
-zone_DATA = zone_utc
+zone_DATA = zone_utc zoneUtc
 savers_DATA = savers-desktop/*
 
 icondir = $(pkgdatadir)/icons
