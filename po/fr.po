@@ -1010,8 +1010,7 @@ msgstr "S'il vous plaît assurez-vous que l'ordinateur a au moins un \n"
 #: panels/user-accounts/change-type.ui.h:7
 #: panels/user-accounts/user-create.ui.h:5
 msgid "Standard User"
-msgstr "Utilisateur \n"
-"standard"
+msgstr "Utilisateur standard"
 
 #: panels/user-accounts/change-type.ui.h:8
 msgid ""
@@ -1419,7 +1418,8 @@ msgstr "Connexion automatique"
 
 #: panels/user-accounts/user-create.ui.h:4
 msgid "select picture"
-msgstr "sélectionner une image"
+msgstr "sélectionner une\n"
+" image"
 
 #: panels/user-accounts/user-create.ui.h:6
 msgid ""
@@ -2051,7 +2051,8 @@ msgstr "Navigateur Web:"
 
 #: shell/shell.ui.h:94
 msgid "Mail Reader:"
-msgstr "Lecteur de courrier:"
+msgstr "Lecteur de \n"
+"courrier:"
 
 #: shell/shell.ui.h:95
 msgid "Multimedia"
@@ -2059,7 +2060,8 @@ msgstr "Multimédia"
 
 #: shell/shell.ui.h:96
 msgid "Image Viewer:"
-msgstr "Visionneuse d'images:"
+msgstr "Visionneuse\n"
+" d'images:"
 
 #: shell/shell.ui.h:97
 msgid "Audio Player:"
@@ -2444,7 +2446,8 @@ msgstr "Puissance Configurer"
 
 #: shell/shell.ui.h:190
 msgid "Regard the computer as _idle after:"
-msgstr "Considérez l'ordinateur comme idem après:"
+msgstr "Considérez l'ordinateur comme idem\n"
+" après:"
 
 #: shell/shell.ui.h:191
 msgid "_Activate screensaver when computer is idle"

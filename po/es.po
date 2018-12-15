@@ -1008,8 +1008,7 @@ msgstr "Asegúrese de que la computadora tenga al menos un usuario como administ
 #: panels/user-accounts/change-type.ui.h:7
 #: panels/user-accounts/user-create.ui.h:5
 msgid "Standard User"
-msgstr "Usuario \n"
-"estándar"
+msgstr "Usuario estándar"
 
 #: panels/user-accounts/change-type.ui.h:8
 msgid ""
@@ -2048,11 +2047,13 @@ msgstr "Visor de imágenes:"
 
 #: shell/shell.ui.h:97
 msgid "Audio Player:"
-msgstr "Reproductor de música:"
+msgstr "Reproductor \n"
+"de música:"
 
 #: shell/shell.ui.h:98
 msgid "Video Player:"
-msgstr "Reproductor de video:"
+msgstr "Reproductor \n"
+"de video:"
 
 #: shell/shell.ui.h:99
 msgid "System"
@@ -2064,7 +2065,8 @@ msgstr "Editor de texto:"
 
 #: shell/shell.ui.h:101
 msgid "File Manager:"
-msgstr "Administrador de archivos:"
+msgstr "Administrador\n"
+" de archivos:"
 
 #: shell/shell.ui.h:102
 msgid "Network Connections"
@@ -2426,7 +2428,8 @@ msgstr "Configuración \n"
 
 #: shell/shell.ui.h:190
 msgid "Regard the computer as _idle after:"
-msgstr "Considere la computadora como _idle después de:"
+msgstr "Considere la computadora como \n"
+"_idle después de:"
 
 #: shell/shell.ui.h:191
 msgid "_Activate screensaver when computer is idle"

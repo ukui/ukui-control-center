@@ -1002,8 +1002,7 @@ msgstr "Por favor, certifique-se que o computador tem pelo menos um usuário é 
 #: panels/user-accounts/change-type.ui.h:7
 #: panels/user-accounts/user-create.ui.h:5
 msgid "Standard User"
-msgstr "Usuário \n"
-"comum"
+msgstr "Usuário comum"
 
 #: panels/user-accounts/change-type.ui.h:8
 msgid ""
@@ -2017,7 +2016,8 @@ msgstr "Internet"
 
 #: shell/shell.ui.h:93
 msgid "Web Browser:"
-msgstr "Navegador da Web:"
+msgstr "Navegador \n"
+"da Web:"
 
 #: shell/shell.ui.h:94
 msgid "Mail Reader:"
@@ -2029,7 +2029,8 @@ msgstr "Multimídia"
 
 #: shell/shell.ui.h:96
 msgid "Image Viewer:"
-msgstr "Visualizador de imagens:"
+msgstr "Visualizador\n"
+" de imagens:"
 
 #: shell/shell.ui.h:97
 msgid "Audio Player:"
@@ -2049,7 +2050,8 @@ msgstr "Editor de texto:"
 
 #: shell/shell.ui.h:101
 msgid "File Manager:"
-msgstr "Gerenciador de arquivos:"
+msgstr "Gerenciador \n"
+"de arquivos:"
 
 #: shell/shell.ui.h:102
 msgid "Network Connections"
@@ -2427,7 +2429,8 @@ msgstr "preview"
 
 #: shell/shell.ui.h:194
 msgid "Screensavers:"
-msgstr "Protetores de tela:"
+msgstr "Protetores \n"
+"de tela:"
 
 #: shell/shell.ui.h:196
 msgid "Set display brightness to:"
