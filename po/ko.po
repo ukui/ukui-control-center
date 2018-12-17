@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ukui-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-24 16:35+0800\n"
+"POT-Creation-Date: 2018-12-17 11:50+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Ko Jae Min <kjm890215@hanmail.net>\n"
 "Language-Team: Korean <LL@li.org>\n"
@@ -30,15 +30,33 @@ msgstr "이미지"
 msgid "ALL File"
 msgstr "모든 파일"
 
-#: panels/appearance/appearance-theme.c:46
+#: panels/appearance/appearance-theme.c:50
 msgid "Please choose a color that you like as the theme colors."
 msgstr "원하시는 색상을 선택해주세요"
 
-#: panels/appearance/appearance-theme.c:62
+#: panels/appearance/appearance-theme.c:71
 msgid ""
 "Set up disable. Please wait at least 5 seconds that system subject will "
 "restart"
 msgstr "설정이 취소되었습니다. 5초뒤에 시스템을 재시작합니다"
+
+#: panels/appearance/appearance-windows.c:105
+#: panels/appearance/appearance-windows.c:109
+#: panels/appearance/appearance-windows.c:113
+msgid "none"
+msgstr ""
+
+#: panels/appearance/appearance-windows.c:106
+#: panels/appearance/appearance-windows.c:110
+#: panels/appearance/appearance-windows.c:114
+msgid "toggle-maximize"
+msgstr ""
+
+#: panels/appearance/appearance-windows.c:107
+#: panels/appearance/appearance-windows.c:111
+#: panels/appearance/appearance-windows.c:115
+msgid "lower"
+msgstr ""
 
 #: panels/appearance/font_render.ui.h:1
 msgid "Font Rendering Details"
@@ -259,7 +277,7 @@ msgstr "모니터: %s"
 
 #. TRANSLATORS: a monitor is a device to measure voltage and current
 #: panels/display/xrandr-capplet.c:515 panels/power/kpm-upower.c:573
-#: shell/mainwindow.c:509 shell/shell.ui.h:27
+#: shell/mainwindow.c:305 shell/shell.ui.h:25
 msgid "Monitor"
 msgid_plural "Monitors"
 msgstr[0] "모니터"
@@ -300,16 +318,40 @@ msgid "Could not set the default configuration for monitors"
 msgstr "모니터의 기본 설정을 적용할 수 없습니다"
 
 #: panels/display/xrandr-capplet.c:2557
-#, fuzzy
 msgid "Could not get screen information"
-msgstr "%s의 정보를 알 수 없습니다: %s\n"
+msgstr ""
 
-#: panels/keyboard/ukui-keybinding-properties.c:1070
-#: panels/keyboard/ukui-keybinding-properties.c:1693
+#: panels/keyboard/shortcut_dialog.ui.h:1
+msgid "Custom Shortcut"
+msgstr "개인설정 단축키"
+
+#: panels/keyboard/shortcut_dialog.ui.h:2
+#: panels/session-properties/main-table.ui.h:1
+msgid "Name:"
+msgstr "이름:"
+
+#: panels/keyboard/shortcut_dialog.ui.h:3
+msgid "Command"
+msgstr "명령:"
+
+#: panels/keyboard/shortcut_dialog.ui.h:4
+msgid "Scan"
+msgstr "스캔"
+
+#: panels/keyboard/ukui-keybinding-properties.c:1074
+#: panels/keyboard/ukui-keybinding-properties.c:1697
 msgid "Custom Shortcuts"
 msgstr "개인 설정 단축키"
 
-#: panels/keyboard/ukui-keybinding-properties.c:1379
+#: panels/keyboard/ukui-keybinding-properties.c:1350
+#, c-format
+msgid ""
+"The shortcut \"%s\" cannot be used because it will become impossible to type "
+"using this key.\n"
+"Please try with a key such as Control, Alt or Shift at the same time."
+msgstr ""
+
+#: panels/keyboard/ukui-keybinding-properties.c:1383
 #, c-format
 msgid ""
 "The shortcut \"%s\" is already used for\n"
@@ -318,19 +360,19 @@ msgstr ""
 "단축키 “%s”은 이미 사용되고 있습니다.\n"
 "“%s”，다시 설정해주세요"
 
-#: panels/keyboard/ukui-keybinding-properties.c:1523
+#: panels/keyboard/ukui-keybinding-properties.c:1527
 msgid "Add Shortcuts"
 msgstr "단축키 추가"
 
-#: panels/keyboard/ukui-keybinding-properties.c:1915
+#: panels/keyboard/ukui-keybinding-properties.c:1919
 msgid "Selection Program"
 msgstr "프로그램 선택"
 
-#: panels/keyboard/ukui-keybinding-properties.c:1956
+#: panels/keyboard/ukui-keybinding-properties.c:1963
 msgid "Function description"
 msgstr "기능 설명"
 
-#: panels/keyboard/ukui-keybinding-properties.c:1974
+#: panels/keyboard/ukui-keybinding-properties.c:1984
 msgid "Hotkey"
 msgstr "단축키"
 
@@ -362,22 +404,9 @@ msgstr "언어에 따라(_L):"
 msgid "Preview:"
 msgstr "미리보기"
 
-#: panels/keyboard/shortcut_dialog.ui.h:1
-msgid "Custom Shortcut"
-msgstr "개인설정 단축키"
-
-#: panels/keyboard/shortcut_dialog.ui.h:2
-#: panels/session-properties/main-table.ui.h:4
-msgid "Name:"
-msgstr "이름:"
-
-#: panels/keyboard/shortcut_dialog.ui.h:3
-msgid "Command"
-msgstr "명령:"
-
-#: panels/keyboard/shortcut_dialog.ui.h:4
-msgid "Scan"
-msgstr "스캔"
+#: panels/mouse/mouse-setting.c:310 panels/mouse/mouse-setting.c:611
+msgid "default"
+msgstr "기본"
 
 #: panels/network-proxy/network.ui.h:1
 msgid "Network Proxy Details"
@@ -394,6 +423,36 @@ msgstr "사용자 이름:"
 #: panels/network-proxy/network.ui.h:4
 msgid "Password:"
 msgstr "암호:"
+
+#: panels/power/copy-theme-dialog.c:215
+msgid "Copying files"
+msgstr ""
+
+#: panels/power/copy-theme-dialog.c:234
+msgid "From:"
+msgstr ""
+
+#: panels/power/copy-theme-dialog.c:238
+msgid "To:"
+msgstr "시간대："
+
+#: panels/power/copy-theme-dialog.c:259
+msgid "Copying themes"
+msgstr ""
+
+#: panels/power/copy-theme-dialog.c:302
+msgid "Invalid screensaver theme"
+msgstr ""
+
+#: panels/power/copy-theme-dialog.c:305
+#, c-format
+msgid "%s does not appear to be a valid screensaver theme."
+msgstr ""
+
+#: panels/power/copy-theme-dialog.c:485
+#, c-format
+msgid "Copying file: %u of %u"
+msgstr ""
 
 #: panels/power/kpm-common.c:52
 msgid "Unknown time"
@@ -416,7 +475,7 @@ msgstr[0] "%i 시"
 msgid "%i %s %i %s"
 msgstr ""
 
-#: panels/power/kpm-common.c:75 shell/shell.ui.h:58
+#: panels/power/kpm-common.c:75 shell/shell.ui.h:60
 msgid "hour"
 msgid_plural "hours"
 msgstr[0] "시"
@@ -434,70 +493,36 @@ msgstr "전원 관리자"
 msgid "Power Manager for the UKUI desktop"
 msgstr "UKUI 데스크탑을 위한 전원관리자"
 
-#: panels/power/kpm-prefs-core.c:187 panels/power/kpm-prefs-core.c:189
-#: panels/power/kpm-prefs-core.c:805
+#: panels/power/kpm-prefs-core.c:168 panels/power/kpm-prefs-core.c:170
 msgid "Never"
 msgstr "안 함"
 
-#: panels/power/kpm-prefs-core.c:269 panels/power/kpm-prefs-core.c:272
+#: panels/power/kpm-prefs-core.c:248 panels/power/kpm-prefs-core.c:253
+#: panels/power/kpm-prefs-core.c:256
 msgid "Shutdown"
 msgstr "전원끄기"
 
-#: panels/power/kpm-prefs-core.c:281 panels/power/kpm-prefs-core.c:284
+#: panels/power/kpm-prefs-core.c:265 panels/power/kpm-prefs-core.c:268
 msgid "Hang"
 msgstr "절전"
 
-#: panels/power/kpm-prefs-core.c:289 panels/power/kpm-prefs-core.c:292
+#: panels/power/kpm-prefs-core.c:273 panels/power/kpm-prefs-core.c:276
 msgid "Sleep"
 msgstr "잠자기"
 
-#: panels/power/kpm-prefs-core.c:297 panels/power/kpm-prefs-core.c:300
+#: panels/power/kpm-prefs-core.c:281 panels/power/kpm-prefs-core.c:284
+#: panels/power/ukui-screensaver-preferences.c:477
+#: panels/power/ukui-screensaver-preferences.c:583
+#: panels/power/ukui-screensaver-preferences.c:766
 msgid "Blank screen"
 msgstr "빈 화면"
 
-#: panels/power/kpm-prefs-core.c:305 panels/power/kpm-prefs-core.c:308
+#: panels/power/kpm-prefs-core.c:289 panels/power/kpm-prefs-core.c:292
 msgid "Ask"
 msgstr "묻기"
 
-#: panels/power/kpm-prefs-core.c:313 panels/power/kpm-prefs-core.c:316
+#: panels/power/kpm-prefs-core.c:297 panels/power/kpm-prefs-core.c:300
 msgid "Do not perform operations"
-msgstr ""
-
-#: panels/power/kpm-prefs-core.c:747
-#, fuzzy, c-format
-msgid "%d hour"
-msgid_plural "%d hours"
-msgstr[0] "%d 시간"
-msgstr[1] "%d 시간"
-
-#: panels/power/kpm-prefs-core.c:750
-#, c-format
-msgid "%d minute"
-msgid_plural "%d minutes"
-msgstr[0] "%d 분"
-msgstr[1] "%d 분"
-
-#: panels/power/kpm-prefs-core.c:753
-#, c-format
-msgid "%d second"
-msgid_plural "%d seconds"
-msgstr[0] "%d　초"
-msgstr[1] "%d 초"
-
-#: panels/power/kpm-prefs-core.c:761
-#, c-format
-msgid "%s %s %s"
-msgstr ""
-
-#: panels/power/kpm-prefs-core.c:766 panels/power/kpm-prefs-core.c:779
-#, c-format
-msgid "%s %s"
-msgstr ""
-
-#: panels/power/kpm-prefs-core.c:771 panels/power/kpm-prefs-core.c:784
-#: panels/power/kpm-prefs-core.c:790
-#, c-format
-msgid "%s"
 msgstr ""
 
 #. TRANSLATORS: a phone is charging
@@ -687,13 +712,13 @@ msgid_plural "UPSs"
 msgstr[0] "UPS"
 
 #. TRANSLATORS: wireless mice with internal batteries
-#: panels/power/kpm-upower.c:577 shell/mainwindow.c:450 shell/shell.ui.h:22
+#: panels/power/kpm-upower.c:577 shell/mainwindow.c:247 shell/shell.ui.h:24
 msgid "Mouse"
 msgid_plural "Mice"
 msgstr[0] "마우스"
 
 #. TRANSLATORS: wireless keyboard with internal battery
-#: panels/power/kpm-upower.c:581 shell/mainwindow.c:439 shell/shell.ui.h:21
+#: panels/power/kpm-upower.c:581 shell/mainwindow.c:236 shell/shell.ui.h:22
 msgid "Keyboard"
 msgid_plural "Keyboards"
 msgstr[0] "키보드"
@@ -779,6 +804,38 @@ msgstr "충전 기다리는 중"
 msgid "Waiting to discharge"
 msgstr "방전 기다리는 중"
 
+#: panels/power/ukui-fullscreen-preview.ui.h:1
+msgid "Screensaver Preview"
+msgstr "화면 보호기"
+
+#: panels/power/ukui-fullscreen-preview.ui.h:2
+msgid "Screensaver preview"
+msgstr "화면 보호기"
+
+#: panels/power/ukui-screensaver-preferences.c:478
+#: panels/power/ukui-screensaver-preferences.c:578
+#: panels/power/ukui-screensaver-preferences.c:764
+msgid "Random"
+msgstr ""
+
+#: panels/power/ukui-screensaver-preferences.c:640
+#: panels/power/ukui-screensaver-preferences.c:1464
+msgid "%d min"
+msgstr "%d 분"
+
+#: panels/power/ukui-screensaver-preferences.c:642
+#: panels/power/ukui-screensaver-preferences.c:1466
+msgid "%d hour %d min"
+msgstr "%d 시간"
+
+#: panels/power/ukui-screensaver-preferences.c:1530
+msgid "Could not load the main interface"
+msgstr "모니터의 설정을 저장할 수 없습니다"
+
+#: panels/power/ukui-screensaver-preferences.c:1532
+msgid "Please make sure that the screensaver is properly installed"
+msgstr "컴퓨터마다 최소한 한 명의 관리자가 필요합니다"
+
 #: panels/session-properties/gsm-app-dialog.c:145
 msgid "Desktop file(*.desktop)"
 msgstr "아이콘 파일(*.desktop)"
@@ -803,31 +860,39 @@ msgstr "시작 명령은 빈 공간으로 둘 수 없습니다"
 msgid "The startup command is not valid"
 msgstr "올바른 시작 명령이 아닙니다"
 
-#: panels/session-properties/gsm-properties-dialog.c:427
+#: panels/session-properties/gsm-properties-dialog.c:117
+msgid "enabled"
+msgstr "사용 안 함"
+
+#: panels/session-properties/gsm-properties-dialog.c:119
+msgid "disabled"
+msgstr "사용 안 함"
+
+#: panels/session-properties/gsm-properties-dialog.c:445
 #, c-format
 msgid "%d/%d/%d/  %d:%d:%d"
 msgstr "%d년%d월%d일 %d시%d분%d초"
 
-#: panels/session-properties/gsm-properties-dialog.c:508
+#: panels/session-properties/gsm-properties-dialog.c:526
 msgid "property"
 msgstr "속성"
 
-#: panels/session-properties/gsm-properties-dialog.c:535
+#: panels/session-properties/gsm-properties-dialog.c:553
 #, c-format
 msgid "%dByte"
 msgstr "%d바이트"
 
-#: panels/session-properties/main-table.ui.h:1
-msgid "scan…"
-msgstr "스캔…"
-
 #: panels/session-properties/main-table.ui.h:2
+msgid "Command:"
+msgstr "명령:"
+
+#: panels/session-properties/main-table.ui.h:3
 msgid "Annotation:"
 msgstr ""
 
-#: panels/session-properties/main-table.ui.h:3
-msgid "command:"
-msgstr "명령:"
+#: panels/session-properties/main-table.ui.h:4
+msgid "scan…"
+msgstr "스캔…"
 
 #: panels/session-properties/program_properties.ui.h:1
 msgid "program name"
@@ -870,7 +935,7 @@ msgstr "사진 바꾸기"
 #: panels/user-accounts/change-pwd.ui.h:2
 #: panels/user-accounts/change-type.ui.h:2
 #: panels/user-accounts/delete-user.ui.h:2
-#: panels/user-accounts/user-accounts.c:1835
+#: panels/user-accounts/user-accounts.c:2066
 #: panels/user-accounts/user-create.ui.h:2
 msgid "Cancel"
 msgstr "취소"
@@ -879,7 +944,7 @@ msgstr "취소"
 #: panels/user-accounts/change-name.ui.h:3
 #: panels/user-accounts/change-pwd.ui.h:3
 #: panels/user-accounts/change-type.ui.h:3
-#: panels/user-accounts/user-accounts.c:1836
+#: panels/user-accounts/user-accounts.c:2067
 msgid "Ok"
 msgstr "확인"
 
@@ -887,12 +952,12 @@ msgstr "확인"
 #: panels/user-accounts/change-name.ui.h:4
 #: panels/user-accounts/change-pwd.ui.h:4
 #: panels/user-accounts/change-type.ui.h:5
-#: panels/user-accounts/delete-user.ui.h:5
+#: panels/user-accounts/delete-user.ui.h:5 shell/shell.ui.h:206
 msgid "label"
 msgstr ""
 
 #: panels/user-accounts/change-face.ui.h:5
-#: panels/user-accounts/user-accounts.c:1832
+#: panels/user-accounts/user-accounts.c:2063
 msgid "Browse more pictures"
 msgstr "더 많은 사진 찾기"
 
@@ -909,7 +974,7 @@ msgid "Change Usertype"
 msgstr "사용자 유형 바꾸기"
 
 #: panels/user-accounts/change-type.ui.h:4
-msgid "automatic logon"
+msgid "automatic login"
 msgstr "자동 로그온"
 
 #: panels/user-accounts/change-type.ui.h:6
@@ -931,14 +996,14 @@ msgstr ""
 "하지만 프로그램을 설치하거나 시스템 전반적인 설정을 할 수 없습니다."
 
 #: panels/user-accounts/change-type.ui.h:10
-#: panels/user-accounts/user-accounts.c:643
-#: panels/user-accounts/user-accounts.c:884
-#: panels/user-accounts/user-accounts.c:1024
-#: panels/user-accounts/user-accounts.c:1086
-#: panels/user-accounts/user-accounts.c:1087
-#: panels/user-accounts/user-accounts.c:1157
-#: panels/user-accounts/user-accounts.c:1369
-#: panels/user-accounts/user-accounts.c:1465
+#: panels/user-accounts/user-accounts.c:688
+#: panels/user-accounts/user-accounts.c:945
+#: panels/user-accounts/user-accounts.c:1129
+#: panels/user-accounts/user-accounts.c:1238
+#: panels/user-accounts/user-accounts.c:1239
+#: panels/user-accounts/user-accounts.c:1353
+#: panels/user-accounts/user-accounts.c:1579
+#: panels/user-accounts/user-accounts.c:1689
 #: panels/user-accounts/user-create.ui.h:8
 msgid "Administrators"
 msgstr "관리자"
@@ -950,6 +1015,52 @@ msgid ""
 "installing and upgrading software."
 msgstr ""
 "관리자는 프로그램 설치를 포함한 시스템 전반적인 모든 것을 바꿀 수 있습니다."
+
+#: panels/user-accounts/check-passwd.c:583
+msgid "is the same as the old one"
+msgstr "새로운 암호가 기존의 것과 똑같습니다!"
+
+#: panels/user-accounts/check-passwd.c:589
+#: panels/user-accounts/check-passwd.c:593
+#: panels/user-accounts/check-passwd.c:603
+msgid "memory allocation error"
+msgstr ""
+
+#: panels/user-accounts/check-passwd.c:608
+msgid "is a palindrome"
+msgstr ""
+
+#: panels/user-accounts/check-passwd.c:611
+msgid "case changes only"
+msgstr ""
+
+#: panels/user-accounts/check-passwd.c:614
+msgid "is too similar to the old one"
+msgstr "새로운 암호가 기존의 것과 너무 비슷합니다!"
+
+#: panels/user-accounts/check-passwd.c:617
+msgid "is too simple"
+msgstr ""
+
+#: panels/user-accounts/check-passwd.c:620
+msgid "is rotated"
+msgstr ""
+
+#: panels/user-accounts/check-passwd.c:623
+msgid "not enough character classes"
+msgstr ""
+
+#: panels/user-accounts/check-passwd.c:626
+msgid "contains too many same characters consecutively"
+msgstr ""
+
+#: panels/user-accounts/check-passwd.c:629
+msgid "contains too long of a monotonic character sequence"
+msgstr ""
+
+#: panels/user-accounts/check-passwd.c:632
+msgid "contains the user name in some form"
+msgstr ""
 
 #: panels/user-accounts/delete-user.ui.h:1
 msgid "Delete User"
@@ -963,231 +1074,249 @@ msgstr "파일 그대로 두기"
 msgid "Delete File"
 msgstr "파일 삭제"
 
-#: panels/user-accounts/run-passwd.c:221
+#: panels/user-accounts/run-passwd.c:220
 msgid "Authentication failure!"
 msgstr "인증 실패!"
 
-#: panels/user-accounts/run-passwd.c:298
+#: panels/user-accounts/run-passwd.c:297
 msgid "New password length is too short!"
 msgstr "새로운 암호가 너무 짧습니다!"
 
-#: panels/user-accounts/run-passwd.c:304
+#: panels/user-accounts/run-passwd.c:303
 msgid "The new password is too simple!"
 msgstr "새로운 암호가 너무 간단합니다!"
 
-#: panels/user-accounts/run-passwd.c:310
+#: panels/user-accounts/run-passwd.c:309
 msgid "The new password is too similar to the old one!"
 msgstr "새로운 암호가 기존의 것과 너무 비슷합니다!"
 
-#: panels/user-accounts/run-passwd.c:313
+#: panels/user-accounts/run-passwd.c:312
 msgid "The new password must contain numbers or special characters!"
 msgstr "암호는 숫자나 특수문자만 가능합니다!"
 
-#: panels/user-accounts/run-passwd.c:317
+#: panels/user-accounts/run-passwd.c:316
 msgid "The new password is the same as the old one!"
 msgstr "새로운 암호가 기존의 것과 똑같습니다!"
 
-#: panels/user-accounts/run-passwd.c:320
+#: panels/user-accounts/run-passwd.c:319
 msgid "The new password has been used recently!"
 msgstr "이미 쓰인적이 있는 암호입니다!"
 
-#: panels/user-accounts/run-passwd.c:324
+#: panels/user-accounts/run-passwd.c:323
 msgid "Your password has been changed after you verify!"
 msgstr "암호가 바뀌었습니다!"
 
-#: panels/user-accounts/user-accounts.c:166
+#: panels/user-accounts/user-accounts.c:188
 msgid "User name cannot be empty!"
 msgstr "이름은 비울 수 없습니다!"
 
-#: panels/user-accounts/user-accounts.c:183
+#: panels/user-accounts/user-accounts.c:214
 msgid "Password length needs to more than 5 digits!"
 msgstr "암호는 5글자 이상으로 해주세요!"
 
-#: panels/user-accounts/user-accounts.c:202
+#: panels/user-accounts/user-accounts.c:221
+#: panels/user-accounts/user-accounts.c:414
+msgid "Password length needs to less than 64 digits!"
+msgstr "암호는 5글자 이상으로 해주세요!"
+
+#: panels/user-accounts/user-accounts.c:233
+#: panels/user-accounts/user-accounts.c:360
+#: panels/user-accounts/user-accounts.c:398
+#: panels/user-accounts/user-accounts.c:406
+#: panels/user-accounts/user-accounts.c:421
+#: panels/user-accounts/user-accounts.c:643
+#: panels/user-accounts/user-accounts.c:739
+#: panels/user-accounts/user-accounts.c:2571
+msgid "Please confirm the new password"
+msgstr "암호를 다시 입력해주세요"
+
+#: panels/user-accounts/user-accounts.c:235
+#: panels/user-accounts/user-accounts.c:253
+#: panels/user-accounts/user-accounts.c:424
 msgid "enter the password twice inconsistencies!"
 msgstr "2次输入密码不一致!"
 
-#: panels/user-accounts/user-accounts.c:220
-#: panels/user-accounts/user-accounts.c:725
+#: panels/user-accounts/user-accounts.c:268
+#: panels/user-accounts/user-accounts.c:774
 msgid "The first character cannot be underlined!"
 msgstr "첫글자는 언더라인(_)이 될 수 없습니다!"
 
-#: panels/user-accounts/user-accounts.c:226
-#: panels/user-accounts/user-accounts.c:731
+#: panels/user-accounts/user-accounts.c:274
+#: panels/user-accounts/user-accounts.c:780
 msgid "User name can not contain capital letters!"
 msgstr "사용자 이름은 대문자를 쓸 수 없습니다!"
 
-#: panels/user-accounts/user-accounts.c:234
-#: panels/user-accounts/user-accounts.c:739
+#: panels/user-accounts/user-accounts.c:282
+#: panels/user-accounts/user-accounts.c:788
 msgid "The user name can only be composed of letters, numbers and underline!"
 msgstr "사용자 이름에는 문자와 숫자 언더라인(_)만이 가능합니다!"
 
-#: panels/user-accounts/user-accounts.c:241
+#: panels/user-accounts/user-accounts.c:289
 msgid "The first character cannot be numeric!"
 msgstr "첫번째 글자는 숫자가 될 수 없습니다!"
 
-#: panels/user-accounts/user-accounts.c:255
-#: panels/user-accounts/user-accounts.c:321
-#: panels/user-accounts/user-accounts.c:2264
+#: panels/user-accounts/user-accounts.c:300
+#: panels/user-accounts/user-accounts.c:357
+#: panels/user-accounts/user-accounts.c:2559
 msgid "Please enter the username"
 msgstr "사용자 이름을 입력해주세요"
 
-#: panels/user-accounts/user-accounts.c:256
+#: panels/user-accounts/user-accounts.c:301
 msgid "Please enter the password "
 msgstr "암호를 입력해주세요"
 
-#: panels/user-accounts/user-accounts.c:267
+#: panels/user-accounts/user-accounts.c:313
 msgid "The user name is already in use, please use a different one."
 msgstr "사용중인 이름입니다. 다른 이름을 입력해주세요!"
 
-#: panels/user-accounts/user-accounts.c:290
+#: panels/user-accounts/user-accounts.c:333
 msgid ""
 "The user name corresponds to the group already exists,please use a different "
 "user name"
 msgstr "이름이 이미 그룹에서 쓰이고 있습니다. 다른 이름을 입력해주세요"
 
-#: panels/user-accounts/user-accounts.c:306
-msgid "username length should not long than 32!"
+#: panels/user-accounts/user-accounts.c:345
+msgid "username length need to less than 32!"
 msgstr "사용자 이름은 32글자 이상이 될 수 없습니다!"
 
-#: panels/user-accounts/user-accounts.c:321
-#: panels/user-accounts/user-accounts.c:897
+#: panels/user-accounts/user-accounts.c:357
+#: panels/user-accounts/user-accounts.c:960
 msgid "Please enter the new username"
 msgstr "새로운 이름을 입력해주세요"
 
-#: panels/user-accounts/user-accounts.c:323
-#: panels/user-accounts/user-accounts.c:2271
+#: panels/user-accounts/user-accounts.c:359
+#: panels/user-accounts/user-accounts.c:2566
 msgid "Please enter the password"
 msgstr "암호를 입력해주세요"
 
-#: panels/user-accounts/user-accounts.c:323
-#: panels/user-accounts/user-accounts.c:589
-#: panels/user-accounts/user-accounts.c:680
+#: panels/user-accounts/user-accounts.c:359
+#: panels/user-accounts/user-accounts.c:634
+#: panels/user-accounts/user-accounts.c:730
 msgid "Please enter new password"
 msgstr "암호를 입력해주세요"
 
-#: panels/user-accounts/user-accounts.c:324
-#: panels/user-accounts/user-accounts.c:351
-#: panels/user-accounts/user-accounts.c:575
-#: panels/user-accounts/user-accounts.c:666
+#: panels/user-accounts/user-accounts.c:360
+#: panels/user-accounts/user-accounts.c:396
+#: panels/user-accounts/user-accounts.c:612
+#: panels/user-accounts/user-accounts.c:716
 msgid "Please enter the current password"
 msgstr "현재 암호를 입력해주세요"
 
-#: panels/user-accounts/user-accounts.c:324
-#: panels/user-accounts/user-accounts.c:351
-#: panels/user-accounts/user-accounts.c:359
+#: panels/user-accounts/user-accounts.c:360
+#: panels/user-accounts/user-accounts.c:397
+#: panels/user-accounts/user-accounts.c:405
+#: panels/user-accounts/user-accounts.c:420
 msgid "Please enter the new password"
 msgstr "새로운 암호를 입력해주세요"
 
-#: panels/user-accounts/user-accounts.c:324
-#: panels/user-accounts/user-accounts.c:352
-#: panels/user-accounts/user-accounts.c:359
-#: panels/user-accounts/user-accounts.c:599
-#: panels/user-accounts/user-accounts.c:689
-#: panels/user-accounts/user-accounts.c:2276
-msgid "Please confirm the new password"
-msgstr "암호를 다시 입력해주세요"
-
-#: panels/user-accounts/user-accounts.c:401
+#: panels/user-accounts/user-accounts.c:463
 msgid "Please choose another password."
 msgstr "다른 암호를 사용해주세요."
 
-#: panels/user-accounts/user-accounts.c:415
+#: panels/user-accounts/user-accounts.c:477
 msgid "Please reenter the current password."
 msgstr "현재 암호를 다시 입력해주세요"
 
-#: panels/user-accounts/user-accounts.c:422
+#: panels/user-accounts/user-accounts.c:484
 msgid "Password can not be modified."
 msgstr "암호를 수정할 수 없었습니다"
 
-#: panels/user-accounts/user-accounts.c:463
-msgid "Password length is too short!"
-msgstr "암호가 너무 짧습니다!"
-
-#: panels/user-accounts/user-accounts.c:464
-msgid ""
-"Password length needs to more than 5 digits, and composed of letters, \n"
-" numbers or special characters."
-msgstr "암호는 5글자 이상의 알파벳 문자나 숫자, 특수문자로 이루어져야 합니다."
-
-#: panels/user-accounts/user-accounts.c:466
-msgid "Password error"
-msgstr "암호 오류"
-
-#: panels/user-accounts/user-accounts.c:467
-msgid "Please make sure you enter the password two times."
-msgstr "암호를 두번 입력해 주세요"
-
-#: panels/user-accounts/user-accounts.c:548
+#: panels/user-accounts/user-accounts.c:577
 msgid "Password input error, please re-enter!"
 msgstr "암호 입력 오류 다시 입력해주세요!"
 
-#: panels/user-accounts/user-accounts.c:645
-#: panels/user-accounts/user-accounts.c:886
-#: panels/user-accounts/user-accounts.c:1026
-#: panels/user-accounts/user-accounts.c:1091
-#: panels/user-accounts/user-accounts.c:1092
-#: panels/user-accounts/user-accounts.c:1162
-#: panels/user-accounts/user-accounts.c:1371
-#: panels/user-accounts/user-accounts.c:1467
+#: panels/user-accounts/user-accounts.c:690
+#: panels/user-accounts/user-accounts.c:947
+#: panels/user-accounts/user-accounts.c:1131
+#: panels/user-accounts/user-accounts.c:1243
+#: panels/user-accounts/user-accounts.c:1244
+#: panels/user-accounts/user-accounts.c:1358
+#: panels/user-accounts/user-accounts.c:1581
+#: panels/user-accounts/user-accounts.c:1691
 msgid "Standard user"
 msgstr "일반 사용자"
 
-#: panels/user-accounts/user-accounts.c:650
-#: panels/user-accounts/user-accounts.c:890
-#: panels/user-accounts/user-accounts.c:1030
-#: panels/user-accounts/user-accounts.c:1167
-#: panels/user-accounts/user-accounts.c:1402
-#: panels/user-accounts/user-accounts.c:1472
+#: panels/user-accounts/user-accounts.c:696
+#: panels/user-accounts/user-accounts.c:953
+#: panels/user-accounts/user-accounts.c:1136
+#: panels/user-accounts/user-accounts.c:1372
+#: panels/user-accounts/user-accounts.c:1613
+#: panels/user-accounts/user-accounts.c:1699
 msgid "Logged(Current User)"
 msgstr "로그인 됨(현재 사용자)"
 
-#: panels/user-accounts/user-accounts.c:655
-#: panels/user-accounts/user-accounts.c:892
-#: panels/user-accounts/user-accounts.c:1032
-#: panels/user-accounts/user-accounts.c:1169
-#: panels/user-accounts/user-accounts.c:1406
-#: panels/user-accounts/user-accounts.c:1476
+#: panels/user-accounts/user-accounts.c:701
+#: panels/user-accounts/user-accounts.c:955
+#: panels/user-accounts/user-accounts.c:1138
+#: panels/user-accounts/user-accounts.c:1374
+#: panels/user-accounts/user-accounts.c:1617
+#: panels/user-accounts/user-accounts.c:1703
 msgid "Logged(Other Users)"
 msgstr "로그인 됨(다른 사용자)"
 
-#: panels/user-accounts/user-accounts.c:659
-#: panels/user-accounts/user-accounts.c:894
-#: panels/user-accounts/user-accounts.c:1034
-#: panels/user-accounts/user-accounts.c:1171
-#: panels/user-accounts/user-accounts.c:1410
-#: panels/user-accounts/user-accounts.c:1480
+#: panels/user-accounts/user-accounts.c:705
+#: panels/user-accounts/user-accounts.c:957
+#: panels/user-accounts/user-accounts.c:1140
+#: panels/user-accounts/user-accounts.c:1376
+#: panels/user-accounts/user-accounts.c:1621
+#: panels/user-accounts/user-accounts.c:1707
 msgid "Un-login(Other Users)"
 msgstr "로그인 안 함(다른 유저들)"
 
-#: panels/user-accounts/user-accounts.c:746
+#: panels/user-accounts/user-accounts.c:795
 msgid "User name cannot start with number!"
 msgstr "이름은 숫자로 시작 될 수 없습니다!"
 
-#: panels/user-accounts/user-accounts.c:758
+#: panels/user-accounts/user-accounts.c:801
+msgid "Username length need to less than 32!"
+msgstr "사용자 이름은 32글자 이상이 될 수 없습니다!"
+
+#: panels/user-accounts/user-accounts.c:813
 msgid "The user name has been used, please replace with another one!"
 msgstr "이미 쓰이고 있는 이름입니다. 다른 이름을 입력해주세요！"
 
-#: panels/user-accounts/user-accounts.c:789
-#: panels/user-accounts/user-accounts.c:826
+#: panels/user-accounts/user-accounts.c:844
+#: panels/user-accounts/user-accounts.c:881
 msgid "Modify username failed!"
 msgstr "이름 수정 실패!"
 
-#: panels/user-accounts/user-accounts.c:834
+#: panels/user-accounts/user-accounts.c:889
 msgid "the user has logged in, please log out and modify!"
 msgstr "로그인 중입니다. 로그아웃하신 뒤 수정해주세요!"
 
-#: panels/user-accounts/user-accounts.c:1281
+#: panels/user-accounts/user-accounts.c:1072
+#: panels/user-accounts/user-accounts.c:2313
+msgid "auto login"
+msgstr "자동 로그온"
+
+#: panels/user-accounts/user-accounts.c:1075
+#: panels/user-accounts/user-accounts.c:2316
+msgid "_Cancel"
+msgstr "취소"
+
+#: panels/user-accounts/user-accounts.c:1077
+#: panels/user-accounts/user-accounts.c:2318
+msgid "_OK"
+msgstr ""
+
+#: panels/user-accounts/user-accounts.c:1080
+#: panels/user-accounts/user-accounts.c:2321
+msgid ""
+"\tAlready have other users set to automatically log in,\t\n"
+" \tclick OK will overwrite the existing settings!"
+msgstr ""
+
+#: panels/user-accounts/user-accounts.c:1487
 msgid "The user can not be deleted!"
 msgstr "사용자가 삭제되었습니다!"
 
-#: panels/user-accounts/user-accounts.c:1288
+#: panels/user-accounts/user-accounts.c:1495
 msgid ""
 "The user has logged in, please perform the delete operation after logging "
 "out!"
 msgstr "로그인 중인 사용자입니다. 로그 아웃후에 삭제를 진행하세요!"
 
-#: panels/user-accounts/user-accounts.c:1312
+#: panels/user-accounts/user-accounts.c:1520
 #, c-format
 msgid ""
 "<span weight='bold' font_desc='11'>do you confirm to delete all the files of "
@@ -1195,46 +1324,42 @@ msgid ""
 msgstr ""
 "<span weight='bold' font_desc='11'>%s의 파일을 모두 삭제하시겠습니까?</span>"
 
-#: panels/user-accounts/user-accounts.c:1316
-#, c-format
+#: panels/user-accounts/user-accounts.c:1526
 msgid ""
-"if you want to delete the %s user, belonging to the user's desktop, "
-"documents, favorites, music, pictures and video folder will be deleted!"
+"if you want to delete the %s user, belonging to the user's \n"
+"desktop, documents, favorites, music, pictures and video \n"
+"folder will be deleted!"
 msgstr ""
 "사용자 %s 삭제하시면 그 사용자의 바탕화면, 문서, 즐겨찾기, 사진, 동영상 폴더"
 "가\n"
 "모두 삭제됩니다!"
 
-#: panels/user-accounts/user-accounts.c:1374
+#: panels/user-accounts/user-accounts.c:1583
+#: panels/user-accounts/user-accounts.c:1693
+msgid "Super user"
+msgstr "일반 사용자"
+
+#: panels/user-accounts/user-accounts.c:1585
 msgid "Rename"
 msgstr "이름 바꾸기"
 
-#: panels/user-accounts/user-accounts.c:1380
+#: panels/user-accounts/user-accounts.c:1591
 msgid "Change PWD"
 msgstr "암호 바꾸기"
 
-#: panels/user-accounts/user-accounts.c:1385
+#: panels/user-accounts/user-accounts.c:1596
 msgid "Change Face"
 msgstr "사진 바꾸기"
 
-#: panels/user-accounts/user-accounts.c:1390
+#: panels/user-accounts/user-accounts.c:1601
 msgid "Change Type"
 msgstr "유형 바꾸기"
 
-#: panels/user-accounts/user-accounts.c:1395
+#: panels/user-accounts/user-accounts.c:1606
 msgid "Delete"
 msgstr "삭제"
 
-#: panels/user-accounts/user-accounts.c:1500
-msgid "My Account"
-msgstr "내 계정"
-
-#: panels/user-accounts/user-accounts.c:1505
-#: panels/user-accounts/user-accounts.c:2148
-msgid "Other accounts"
-msgstr "다른 계정"
-
-#: panels/user-accounts/user-accounts.c:1981
+#: panels/user-accounts/user-accounts.c:2208
 msgid "Browse more pictures..."
 msgstr "더 많은 사진 찾기..."
 
@@ -1314,145 +1439,145 @@ msgid "%u Input"
 msgid_plural "%u Inputs"
 msgstr[0] "%u 입력"
 
-#: panels/volume-control/gvc-mixer-dialog.c:313
+#: panels/volume-control/gvc-mixer-dialog.c:314
 msgid "Co_nnector"
 msgstr "커넥터(_N)"
 
-#: panels/volume-control/gvc-mixer-dialog.c:521
+#: panels/volume-control/gvc-mixer-dialog.c:522
 msgid "Peak detect"
 msgstr "최대 확인"
 
-#: panels/volume-control/gvc-mixer-dialog.c:608
+#: panels/volume-control/gvc-mixer-dialog.c:609
 msgid "Co_nnector:"
 msgstr "커넥터(_N):"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1501
+#: panels/volume-control/gvc-mixer-dialog.c:1502
 msgid "Device"
 msgstr "장치"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1549
+#: panels/volume-control/gvc-mixer-dialog.c:1550
 #, c-format
 msgid "Speaker Testing for %s"
 msgstr "%s 스피커 시험"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1608
+#: panels/volume-control/gvc-mixer-dialog.c:1610
 msgid "_Profiles:"
 msgstr "프로파일(_P):"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1609
+#: panels/volume-control/gvc-mixer-dialog.c:1611
 msgid "Test Speakers"
 msgstr "스피커 시험"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1708
-#: panels/volume-control/gvc-sound-theme-chooser.c:887
+#: panels/volume-control/gvc-mixer-dialog.c:1710
+#: panels/volume-control/gvc-sound-theme-chooser.c:892
 msgid "Name"
 msgstr "이름"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1787
+#: panels/volume-control/gvc-mixer-dialog.c:1837
 msgid "Sound Output Volume"
 msgstr "출력 음량(_O):"
 
-#: panels/volume-control/gvc-mixer-dialog.c:1818
-msgid "Sound Effects"
-msgstr "효과음"
-
-#: panels/volume-control/gvc-mixer-dialog.c:1825
-msgid "_Alert volume: "
-msgstr "알림음 음량(_A): "
-
-#: panels/volume-control/gvc-mixer-dialog.c:1838
-msgid "Hardware"
-msgstr "장치"
-
-#: panels/volume-control/gvc-mixer-dialog.c:1843
-msgid "C_hoose a device to configure:"
-msgstr "설정할 장치를 선택해주세요(_H):"
-
-#: panels/volume-control/gvc-mixer-dialog.c:1870
-#: panels/volume-control/gvc-mixer-dialog.c:1999
-msgid "Settings for the selected device:"
-msgstr "다음과 같은 장치 설정함:"
-
-#: panels/volume-control/gvc-mixer-dialog.c:1881
-msgid "Input"
-msgstr "입력"
-
-#: panels/volume-control/gvc-mixer-dialog.c:1888
-msgid "_Input volume: "
-msgstr "녹음 음량(_I): "
-
-#: panels/volume-control/gvc-mixer-dialog.c:1911
-msgid "Input level:"
-msgstr "입력 수준:"
-
-#: panels/volume-control/gvc-mixer-dialog.c:1937
-msgid "C_hoose a device for sound input:"
-msgstr "녹음 장치를 선택해 주세요(_H):"
-
-#: panels/volume-control/gvc-mixer-dialog.c:1967
-msgid "Output"
-msgstr "출력"
-
-#: panels/volume-control/gvc-mixer-dialog.c:1972
-msgid "C_hoose a device for sound output:"
-msgstr "출력 장치를 선택해주세요(_H):"
-
-#: panels/volume-control/gvc-mixer-dialog.c:2017
+#: panels/volume-control/gvc-mixer-dialog.c:1868
 msgid "Applications"
 msgstr "프로그램"
 
-#: panels/volume-control/gvc-mixer-dialog.c:2021
+#: panels/volume-control/gvc-mixer-dialog.c:1874
 msgid "No application is currently playing or recording audio."
 msgstr "현재 소리를 재생하거나 녹음하는 프로그램이 없습니다."
 
-#: panels/volume-control/gvc-mixer-dialog.c:2146
-#: panels/volume-control/gvc-sound-theme-chooser.c:752
-#: panels/volume-control/gvc-sound-theme-chooser.c:764
-#: panels/volume-control/gvc-sound-theme-chooser.c:776
+#: panels/volume-control/gvc-mixer-dialog.c:1882
+msgid "Sound Effects"
+msgstr "효과음"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1890
+msgid "_Alert volume: "
+msgstr "알림음 음량(_A): "
+
+#: panels/volume-control/gvc-mixer-dialog.c:1911
+msgid "Input"
+msgstr "입력"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1919
+msgid "_Input volume: "
+msgstr "녹음 음량(_I): "
+
+#: panels/volume-control/gvc-mixer-dialog.c:1942
+msgid "Input level:"
+msgstr "입력 수준:"
+
+#: panels/volume-control/gvc-mixer-dialog.c:1971
+msgid "C_hoose a device for sound input:"
+msgstr "녹음 장치를 선택해 주세요(_H):"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2001
+msgid "Output"
+msgstr "출력"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2007
+msgid "C_hoose a device for sound output:"
+msgstr "출력 장치를 선택해주세요(_H):"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2034
+#: panels/volume-control/gvc-mixer-dialog.c:2078
+msgid "Settings for the selected device:"
+msgstr "다음과 같은 장치 설정함:"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2045
+msgid "Hardware"
+msgstr "장치"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2051
+msgid "C_hoose a device to configure:"
+msgstr "설정할 장치를 선택해주세요(_H):"
+
+#: panels/volume-control/gvc-mixer-dialog.c:2212
+#: panels/volume-control/gvc-sound-theme-chooser.c:757
+#: panels/volume-control/gvc-sound-theme-chooser.c:769
+#: panels/volume-control/gvc-sound-theme-chooser.c:781
 msgid "Sound Preferences"
 msgstr "소리 설정"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:223
-#: panels/volume-control/gvc-sound-theme-chooser.c:863
+#: panels/volume-control/gvc-sound-theme-chooser.c:226
+#: panels/volume-control/gvc-sound-theme-chooser.c:868
 msgid "Default"
 msgstr "기본"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:335
+#: panels/volume-control/gvc-sound-theme-chooser.c:338
 msgid "No sounds"
 msgstr "소리 없음"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:457
+#: panels/volume-control/gvc-sound-theme-chooser.c:460
 msgid "Built-in"
 msgstr "내장"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:642
+#: panels/volume-control/gvc-sound-theme-chooser.c:647
 #: panels/volume-control/sound-theme-file-utils.c:291
 msgid "Custom"
 msgstr "개인 설정"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:755
-#: panels/volume-control/gvc-sound-theme-chooser.c:766
-#: panels/volume-control/gvc-sound-theme-chooser.c:778
+#: panels/volume-control/gvc-sound-theme-chooser.c:760
+#: panels/volume-control/gvc-sound-theme-chooser.c:771
+#: panels/volume-control/gvc-sound-theme-chooser.c:783
 msgid "Testing event sound"
 msgstr "소리 테스트"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:864
+#: panels/volume-control/gvc-sound-theme-chooser.c:869
 msgid "From theme"
 msgstr "테마로 부터"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:894
+#: panels/volume-control/gvc-sound-theme-chooser.c:899
 msgid "Type"
 msgstr "유형"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:1088
+#: panels/volume-control/gvc-sound-theme-chooser.c:1093
 msgid "Sound _theme:"
 msgstr "소리 테마:"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:1101
+#: panels/volume-control/gvc-sound-theme-chooser.c:1106
 msgid "C_hoose an alert sound:"
 msgstr "알림음을 선택해주세요(_H):"
 
-#: panels/volume-control/gvc-sound-theme-chooser.c:1135
+#: panels/volume-control/gvc-sound-theme-chooser.c:1140
 msgid "Enable _window and button sounds"
 msgstr "창 활성화 및 버튼 소리(_W)"
 
@@ -1469,27 +1594,23 @@ msgstr "시험"
 msgid "Subwoofer"
 msgstr "서브우퍼"
 
-#: shell/mainwindow.c:111
-msgid "-Kylin Control Center"
-msgstr ""
-
-#: shell/mainwindow.c:218 shell/shell.ui.h:11
+#: shell/mainwindow.c:129 shell/shell.ui.h:11
 msgid "Control Center"
 msgstr "제어 센터"
 
-#: shell/mainwindow.c:381
+#: shell/mainwindow.c:177
 msgid "Time and Dates"
 msgstr "시간과 날짜"
 
-#: shell/mainwindow.c:384
+#: shell/mainwindow.c:180
 msgid " Change the time and date of this computer "
 msgstr " 컴퓨터의 날짜와 시간을 바꿉니다. "
 
-#: shell/mainwindow.c:392 shell/shell.ui.h:13
+#: shell/mainwindow.c:188
 msgid "User Account"
 msgstr "사용자 계정"
 
-#: shell/mainwindow.c:395
+#: shell/mainwindow.c:191
 msgid ""
 " Change the computer user account \n"
 " settings and password"
@@ -1497,11 +1618,11 @@ msgstr ""
 " 컴퓨터의 사용자 계정과\n"
 "암호를 바꿉니다."
 
-#: shell/mainwindow.c:403 shell/shell.ui.h:14
+#: shell/mainwindow.c:199 shell/shell.ui.h:12
 msgid "Personalization"
 msgstr "개인화"
 
-#: shell/mainwindow.c:406
+#: shell/mainwindow.c:202
 msgid ""
 " Change the computer desktop background \n"
 " and related theme"
@@ -1509,73 +1630,65 @@ msgstr ""
 " 바탕화면 배경을 바꾸고 \n"
 "테마를 설정합니다."
 
-#: shell/mainwindow.c:414
+#: shell/mainwindow.c:210
 msgid "Default Application"
 msgstr "기본 프로그램"
 
-#: shell/mainwindow.c:417
+#: shell/mainwindow.c:213
 msgid " Change the default application on this computer "
 msgstr " 컴퓨터의 기본 프로그램을 바꿉니다 "
 
-#: shell/mainwindow.c:431
+#: shell/mainwindow.c:228
 msgid " Change the network  on this computer "
 msgstr " 네트워크를 설정합니다"
 
-#: shell/mainwindow.c:442
+#: shell/mainwindow.c:239
 msgid " Change the keyboard settings on this computer "
 msgstr " 키보드의 설정을 바꿉니다 "
 
-#: shell/mainwindow.c:453
+#: shell/mainwindow.c:250
 msgid " Change the mouse settings on this computer  "
 msgstr " 마우스의 설정을 바꿉니다 "
 
-#: shell/mainwindow.c:467
+#: shell/mainwindow.c:263
 msgid " Configure the connection to the computer printer "
 msgstr " 프린터를 설정하고 연결합니다 "
 
-#: shell/mainwindow.c:475 shell/shell.ui.h:24
+#: shell/mainwindow.c:272 shell/shell.ui.h:23
 msgid "Sound"
 msgstr "소리"
 
-#: shell/mainwindow.c:478
+#: shell/mainwindow.c:275
 msgid " Change the sound settings on this computer "
 msgstr " 컴퓨터의 소리를 설정합니다  "
 
-#: shell/mainwindow.c:487
+#: shell/mainwindow.c:283
 msgid "Network Agent"
 msgstr "네트워크 관리"
 
-#: shell/mainwindow.c:490
+#: shell/mainwindow.c:286
 msgid " Change the network agent on this computer "
 msgstr " 네트워크 관련된 설정을 합니다 "
 
-#: shell/mainwindow.c:498 shell/shell.ui.h:17
+#: shell/mainwindow.c:294 shell/shell.ui.h:13
 msgid "Autostart"
 msgstr "시작프로그램"
 
-#: shell/mainwindow.c:501
+#: shell/mainwindow.c:297
 msgid " Change the autostart program on this computer "
 msgstr " 컴퓨터를 켤때 자동으로 시작되는 프로그램을 설정합니다"
 
-#: shell/mainwindow.c:511
+#: shell/mainwindow.c:307
 msgid " Change the Monitor settings on this computer "
 msgstr " 모니터와 디스플레이에 관하여 설정합니다"
 
-#: shell/mainwindow.c:522
+#: shell/mainwindow.c:318
 msgid "Power Management"
 msgstr "전원 관리자"
 
-#: shell/mainwindow.c:525
+#: shell/mainwindow.c:321
 msgid " Change the power management settings on this computer "
 msgstr " 컴퓨터의 전원과 관련된 설정을 합니다 "
-
-#: shell/mainwindow.c:533
-msgid "System Check"
-msgstr "시스템 체크"
-
-#: shell/mainwindow.c:536
-msgid "check the system detection information on this computer "
-msgstr "이 컴퓨터의 시스템 정보를 체크합니다"
 
 #: shell/shell.ui.h:5
 msgid "Tile"
@@ -1601,31 +1714,35 @@ msgstr "꽉차게"
 msgid "Span"
 msgstr "걸쳐서(스팬)"
 
-#: shell/shell.ui.h:12
-msgid "Time Dates"
-msgstr "날짜/시간"
-
-#: shell/shell.ui.h:15
+#: shell/shell.ui.h:14
 msgid ""
 "Default \n"
 "Application"
 msgstr "기본 프로그램"
+
+#: shell/shell.ui.h:16
+msgid "Time Dates"
+msgstr "날짜/시간"
+
+#: shell/shell.ui.h:17
+msgid "User  Account"
+msgstr "사용자 계정"
 
 #: shell/shell.ui.h:18
 msgid "System Configuration"
 msgstr "시스템 설정"
 
 #: shell/shell.ui.h:19
-msgid ""
-"Network \n"
-"Connections"
-msgstr "네트워크 연결"
-
-#: shell/shell.ui.h:23
 msgid "Printer"
 msgstr "프린터"
 
-#: shell/shell.ui.h:25
+#: shell/shell.ui.h:20
+msgid ""
+"Power \n"
+"Management"
+msgstr "전원관리자"
+
+#: shell/shell.ui.h:26
 msgid ""
 "Network \n"
 "Agent"
@@ -1633,9 +1750,9 @@ msgstr "네트워크 관리"
 
 #: shell/shell.ui.h:28
 msgid ""
-"Power \n"
-"Management"
-msgstr "전원관리자"
+"Network \n"
+"Connections"
+msgstr "네트워크 연결"
 
 #: shell/shell.ui.h:30
 msgid "Hardware Configure"
@@ -1646,289 +1763,365 @@ msgid "Home"
 msgstr "홈"
 
 #: shell/shell.ui.h:32
-msgid "Time Dates_"
-msgstr "시간/날짜"
-
-#: shell/shell.ui.h:33
-msgid "User Account_"
-msgstr "사용자계정"
-
-#: shell/shell.ui.h:34
-msgid "Personalization_"
+msgid "_Personalization"
 msgstr "개인화"
 
-#: shell/shell.ui.h:35
-msgid "Default APP"
-msgstr "기본프로그램"
-
-#: shell/shell.ui.h:36
-msgid "Autostart_"
+#: shell/shell.ui.h:33
+msgid "_Autostart"
 msgstr "시작프로그램"
 
+#: shell/shell.ui.h:34
+msgid "_Default APP"
+msgstr "기본프로그램"
+
+#: shell/shell.ui.h:35
+msgid "_Time Dates"
+msgstr "날짜/시간"
+
+#: shell/shell.ui.h:36
+msgid "_User Account"
+msgstr "사용자 계정"
+
 #: shell/shell.ui.h:37
-msgid "Keyboard_"
-msgstr "키보드"
+msgid "Network _Connection"
+msgstr "네트워크 연결"
 
 #: shell/shell.ui.h:38
-msgid "Mouse_"
-msgstr "마우스"
+msgid "_Keyboard"
+msgstr "키보드"
 
 #: shell/shell.ui.h:39
-msgid "Sound_"
-msgstr "소리"
+msgid "M_ouse"
+msgstr "마우스"
 
 #: shell/shell.ui.h:40
-msgid "Network Agent_"
-msgstr "네트워크 관리"
+msgid "P_rinter"
+msgstr "프린터"
 
 #: shell/shell.ui.h:41
-msgid "Monitor_"
-msgstr "모니터"
+msgid "_Sound"
+msgstr "소리"
 
 #: shell/shell.ui.h:42
-msgid "Power Manage"
-msgstr "전원관리자"
+msgid "_Network Agent"
+msgstr "네트워크 관리"
 
 #: shell/shell.ui.h:43
+msgid "_Monitor"
+msgstr "모니터"
+
+#: shell/shell.ui.h:44
+msgid "Po_wer Manage"
+msgstr "전원관리자"
+
+#: shell/shell.ui.h:45
 msgid "Tzone:"
 msgstr "시간대："
 
-#: shell/shell.ui.h:44
+#: shell/shell.ui.h:46
 msgid "date:"
 msgstr "날짜："
 
-#: shell/shell.ui.h:45
+#: shell/shell.ui.h:47
 msgid "time:"
 msgstr "시간："
 
-#: shell/shell.ui.h:46
-msgid "    Jan"
+#: shell/shell.ui.h:48
+msgid "Jan"
 msgstr "    1월"
 
-#: shell/shell.ui.h:47
-msgid "   Feb"
+#: shell/shell.ui.h:49
+msgid "Feb"
 msgstr "    2월"
 
-#: shell/shell.ui.h:48
-msgid "    Mar"
+#: shell/shell.ui.h:50
+msgid "Mar"
 msgstr "    3월"
 
-#: shell/shell.ui.h:49
-msgid "    Apr"
+#: shell/shell.ui.h:51
+msgid "Apr"
 msgstr "    4월"
 
-#: shell/shell.ui.h:50
-msgid "    May"
+#: shell/shell.ui.h:52
+msgid "May"
 msgstr "    5월"
 
-#: shell/shell.ui.h:51
-msgid "    Jun"
+#: shell/shell.ui.h:53
+msgid "Jun"
 msgstr "    6월"
 
-#: shell/shell.ui.h:52
-msgid "    Jul"
+#: shell/shell.ui.h:54
+msgid "Jul"
 msgstr "    7월"
 
-#: shell/shell.ui.h:53
-msgid "    Aug"
+#: shell/shell.ui.h:55
+msgid "Aug"
 msgstr "    8월"
 
-#: shell/shell.ui.h:54
-msgid "    Sep"
-msgstr "    9월"
-
-#: shell/shell.ui.h:55
-msgid "    Oct"
-msgstr "    10월"
-
 #: shell/shell.ui.h:56
-msgid "    Nov"
-msgstr "    11월"
+msgid "Sep"
+msgstr "잠자기"
 
 #: shell/shell.ui.h:57
-msgid "    Dec"
-msgstr "    12월"
+msgid "Oct"
+msgstr "    10월"
+
+#: shell/shell.ui.h:58
+msgid "Nov"
+msgstr "    11월"
 
 #: shell/shell.ui.h:59
-msgid "min"
-msgstr "분"
-
-#: shell/shell.ui.h:60
-msgid "sec"
+msgid "Dec"
 msgstr "초"
 
 #: shell/shell.ui.h:61
+msgid "min"
+msgstr "분"
+
+#: shell/shell.ui.h:62
+msgid "sec"
+msgstr "초"
+
+#: shell/shell.ui.h:63
 msgid "With the network time synchronization"
 msgstr "네트워크 시간과 동기화"
 
-#: shell/shell.ui.h:62
+#: shell/shell.ui.h:64
+msgid "because the ntp is installed,please use ntpdate."
+msgstr ""
+
+#: shell/shell.ui.h:65
+msgid "format:"
+msgstr "보통"
+
+#: shell/shell.ui.h:66
+msgid "12-hours"
+msgstr "시"
+
+#: shell/shell.ui.h:67
+msgid "24-hours"
+msgstr "시"
+
+#: shell/shell.ui.h:68
+msgid "lang settings"
+msgstr ""
+
+#: shell/shell.ui.h:69
+msgid "Current Account"
+msgstr "계정 만들기"
+
+#: shell/shell.ui.h:70
+msgid "Other Accounts"
+msgstr "다른 계정"
+
+#: shell/shell.ui.h:71
 msgid "Create a new account"
 msgstr "새로운 계정 만들기"
 
-#: shell/shell.ui.h:63
+#: shell/shell.ui.h:72
 msgid "Add"
 msgstr "추가"
 
-#: shell/shell.ui.h:64
+#: shell/shell.ui.h:73
 msgid "delete"
 msgstr "삭제"
 
-#: shell/shell.ui.h:65
+#: shell/shell.ui.h:74
 msgid "Style:"
 msgstr "스타일："
 
-#: shell/shell.ui.h:66
+#: shell/shell.ui.h:75
 msgid "wallpaper"
 msgstr "배경화면"
 
-#: shell/shell.ui.h:67
+#: shell/shell.ui.h:76
 msgid "Select the one you love color as the theme color"
 msgstr "원하시는 색상을 고르세요"
 
-#: shell/shell.ui.h:68
+#: shell/shell.ui.h:77
 msgid "Theme color"
 msgstr "테마색상"
 
-#: shell/shell.ui.h:69
+#: shell/shell.ui.h:78
 msgid "Font choice:"
 msgstr "글꼴 선택："
 
-#: shell/shell.ui.h:70
+#: shell/shell.ui.h:79
 msgid "Font size :"
 msgstr "글꼴 크기："
 
-#: shell/shell.ui.h:72
+#: shell/shell.ui.h:81
 #, no-c-format
 msgid "small(S) --100%(default)"
 msgstr "작은글씨(S) --100%(기본)"
 
-#: shell/shell.ui.h:74
+#: shell/shell.ui.h:83
 #, no-c-format
 msgid "medium(M)--125%"
 msgstr "중간(M)--125%"
 
-#: shell/shell.ui.h:76
+#: shell/shell.ui.h:85
 #, no-c-format
 msgid "large (L) --150%"
 msgstr "큰 글씨 (L) --150%"
 
-#: shell/shell.ui.h:77
+#: shell/shell.ui.h:86
 msgid "Please select the clearest sample text"
 msgstr "가장 깔끔하게 보이는 글자를 선택하세요"
 
-#: shell/shell.ui.h:78
+#: shell/shell.ui.h:87
 msgid "Restore Defaults"
 msgstr "기본값"
 
-#: shell/shell.ui.h:79
+#: shell/shell.ui.h:88
 msgid "Font"
 msgstr "글꼴"
 
-#: shell/shell.ui.h:80
+#: shell/shell.ui.h:89
+msgid "mouse double click action"
+msgstr ""
+
+#: shell/shell.ui.h:90
+msgid "mouse middle click action"
+msgstr ""
+
+#: shell/shell.ui.h:91
+msgid "mouse right click action"
+msgstr ""
+
+#: shell/shell.ui.h:92
+msgid "windows"
+msgstr ""
+
+#: shell/shell.ui.h:93
+msgid "show computer icon on desktop"
+msgstr ""
+
+#: shell/shell.ui.h:94
+msgid "show home floder on desktop"
+msgstr ""
+
+#: shell/shell.ui.h:95
+msgid "show network icon on desktop"
+msgstr ""
+
+#: shell/shell.ui.h:96
+msgid "show trash on desktop"
+msgstr ""
+
+#: shell/shell.ui.h:97
+msgid "show volumes on desktop"
+msgstr ""
+
+#: shell/shell.ui.h:98
+msgid "Desktop"
+msgstr ""
+
+#: shell/shell.ui.h:99
 msgid "Internet"
 msgstr "인터넷"
 
-#: shell/shell.ui.h:81
-msgid "        Web Browser:"
+#: shell/shell.ui.h:100
+msgid "Web Browser:"
 msgstr "         웹브라우저："
 
-#: shell/shell.ui.h:82
-msgid "          Mail Reader:"
+#: shell/shell.ui.h:101
+msgid "Mail Reader:"
 msgstr "         메일 클라이언트："
 
-#: shell/shell.ui.h:83
+#: shell/shell.ui.h:102
 msgid "Multimedia"
 msgstr "멀티미디어"
 
-#: shell/shell.ui.h:84
-msgid "       Image Viewer:"
+#: shell/shell.ui.h:103
+msgid "Image Viewer:"
 msgstr "         그림보기："
 
-#: shell/shell.ui.h:85
-msgid "        Audio Player:"
+#: shell/shell.ui.h:104
+msgid "Audio Player:"
 msgstr "         음악 재생："
 
-#: shell/shell.ui.h:86
-msgid "        Video Player:"
+#: shell/shell.ui.h:105
+msgid "Video Player:"
 msgstr "         동영상 재생："
 
-#: shell/shell.ui.h:87
+#: shell/shell.ui.h:106
 msgid "System"
 msgstr "시스템"
 
-#: shell/shell.ui.h:88
-msgid "           Text Editor:"
+#: shell/shell.ui.h:107
+msgid "Text Editor:"
 msgstr "         텍스트 편집기："
 
-#: shell/shell.ui.h:89
-msgid "       File Manager:"
+#: shell/shell.ui.h:108
+msgid "File Manager:"
 msgstr "         파일 관리자："
 
-#: shell/shell.ui.h:90
+#: shell/shell.ui.h:109
 msgid "Network Connections"
 msgstr "네트워크 연결"
 
-#: shell/shell.ui.h:91
+#: shell/shell.ui.h:110
 msgid "Repeat Keys"
 msgstr "반복 키"
 
-#: shell/shell.ui.h:92
+#: shell/shell.ui.h:111
 msgid "Key presses _repeat when key is held down"
 msgstr "키를 누르고 있으면 키가 반복적으로 눌리게 하기(R)"
 
-#: shell/shell.ui.h:93
+#: shell/shell.ui.h:112
 msgid "_Delay:"
 msgstr "지연(D)："
 
-#: shell/shell.ui.h:94
+#: shell/shell.ui.h:113
 msgid "_Speed:"
 msgstr "속도(S)："
 
-#: shell/shell.ui.h:95
+#: shell/shell.ui.h:114
 msgid "Short"
 msgstr "짧게"
 
-#: shell/shell.ui.h:96
+#: shell/shell.ui.h:115
 msgid "Slow"
 msgstr "느리게"
 
-#: shell/shell.ui.h:97
+#: shell/shell.ui.h:116
 msgid "Repeat keys speed"
 msgstr "반복 키 속도"
 
-#: shell/shell.ui.h:98
+#: shell/shell.ui.h:117
 msgid "Long"
 msgstr "길게"
 
-#: shell/shell.ui.h:99
+#: shell/shell.ui.h:118
 msgid "Fast"
 msgstr "빠르게"
 
-#: shell/shell.ui.h:100
+#: shell/shell.ui.h:119
 msgid "To test the repetition rate of the input character:"
 msgstr "문자 입력 속도를 확인해보세요："
 
-#: shell/shell.ui.h:101
+#: shell/shell.ui.h:120
 msgid "Cursor Blinking"
 msgstr "커서 깜빡임"
 
-#: shell/shell.ui.h:102
+#: shell/shell.ui.h:121
 msgid "Cursor _blinks in text fields"
 msgstr "문자 입력 필드에서 커서 깜빡임(B)"
 
-#: shell/shell.ui.h:103
+#: shell/shell.ui.h:122
 msgid "S_peed:"
 msgstr "속도(P)："
 
-#: shell/shell.ui.h:104
+#: shell/shell.ui.h:123
 msgid "Cursor blinks speed"
 msgstr "깜빡임 속도"
 
-#: shell/shell.ui.h:105
+#: shell/shell.ui.h:124
 msgid "General"
 msgstr "보통"
 
-#: shell/shell.ui.h:106
+#: shell/shell.ui.h:125
 msgid ""
 "Please add the language you will use to the list. And the first one in the "
 "list is the most\n"
@@ -1938,31 +2131,31 @@ msgstr ""
 "가장 처음에 온 언어가 일반적으로 가장 많이 쓰이는 \n"
 "언어가 됩니다."
 
-#: shell/shell.ui.h:108
+#: shell/shell.ui.h:127
 msgid "_Show..."
 msgstr "보여주기"
 
-#: shell/shell.ui.h:109
+#: shell/shell.ui.h:128
 msgid "List of keyboard layouts selected for usage"
 msgstr "선택된 키보드 레이아웃 리스트"
 
-#: shell/shell.ui.h:110
+#: shell/shell.ui.h:129
 msgid "_Separate layout for each window"
 msgstr "각 창마다 다른 레이아웃 적용(S)"
 
-#: shell/shell.ui.h:111
+#: shell/shell.ui.h:130
 msgid "New windows u_se active window's layout"
 msgstr "새 창에도 활성화된 창의 레이아웃 적용(S)"
 
-#: shell/shell.ui.h:112
+#: shell/shell.ui.h:131
 msgid "Reset to De_faults"
 msgstr "기본값으로 되돌리기(_F)"
 
-#: shell/shell.ui.h:113
+#: shell/shell.ui.h:132
 msgid "Layouts"
 msgstr "레이아웃"
 
-#: shell/shell.ui.h:114
+#: shell/shell.ui.h:133
 msgid ""
 "\"To edit a shortcut key, click on the corresponding row and type a new key "
 "\"\n"
@@ -1971,290 +2164,436 @@ msgstr ""
 "\"단축키를 설정하려면 각 열을 클릭하신 뒤에 새로운 키조합을 눌러주세요.\"\n"
 "\".BackSpace를 누르시면 삭제됩니다.\""
 
-#: shell/shell.ui.h:116
+#: shell/shell.ui.h:135
 msgid "Shortcut"
 msgstr "단축키"
 
-#: shell/shell.ui.h:117
+#: shell/shell.ui.h:136
 msgid "_Right-handed"
 msgstr "오른손 잡이"
 
-#: shell/shell.ui.h:118
+#: shell/shell.ui.h:137
 msgid "_Left-handed"
 msgstr "왼손잡이"
 
-#: shell/shell.ui.h:119
+#: shell/shell.ui.h:138
 msgid "Sh_ow position of pointer when the Control key is pressed"
 msgstr "Control키가 눌렸을 때 포인터 보이기"
 
-#: shell/shell.ui.h:120
-msgid "_Sensitivity:"
+#: shell/shell.ui.h:139
+msgid "S_ensitivity:"
 msgstr "민감도："
 
-#: shell/shell.ui.h:121
+#: shell/shell.ui.h:140
 msgid "Low"
 msgstr "낮게"
 
-#: shell/shell.ui.h:122
+#: shell/shell.ui.h:141
 msgid "High"
 msgstr "높게"
 
-#: shell/shell.ui.h:123
+#: shell/shell.ui.h:142
 msgid "Double-click the right bulb to test your settings"
 msgstr "오른쪽에 있는 전구에 더블클릭을 시험보실 수 있습니다"
 
-#: shell/shell.ui.h:124
-msgid "Timeout"
+#: shell/shell.ui.h:143
+msgid "_Timeout:"
 msgstr "시간제한"
 
-#: shell/shell.ui.h:125
+#: shell/shell.ui.h:144
 msgid "Pointer moving speed"
 msgstr "포인터 속도"
 
-#: shell/shell.ui.h:126
+#: shell/shell.ui.h:145
 msgid "Locate Pointer"
 msgstr "포인터 위치"
 
-#: shell/shell.ui.h:127
+#: shell/shell.ui.h:146
 msgid "Mouse Keys"
 msgstr "마우스 버튼"
 
-#: shell/shell.ui.h:128
+#: shell/shell.ui.h:147
 msgid "Double-Click Speed"
 msgstr "더블클릭 속도"
 
-#: shell/shell.ui.h:129
+#: shell/shell.ui.h:148
+msgid "Cursor Settiings"
+msgstr "커서 깜빡임"
+
+#: shell/shell.ui.h:149
+msgid "Cursor theme :"
+msgstr "테마로 부터"
+
+#: shell/shell.ui.h:150
+msgid "Common"
+msgstr "명령:"
+
+#: shell/shell.ui.h:151
+msgid "Maximization"
+msgstr ""
+
+#: shell/shell.ui.h:152
 msgid "Disable _touchpad while typing"
 msgstr "키보드 키를 누를 때 터치패드 사용 안 함(T)"
 
-#: shell/shell.ui.h:130
+#: shell/shell.ui.h:153
 msgid "Enable _mouse clicks with touchpad"
 msgstr "터치패드와 함께 마우스 클릭 사용(M)"
 
-#: shell/shell.ui.h:131
+#: shell/shell.ui.h:154
 msgid "Scrolling"
 msgstr "스크롤"
 
-#: shell/shell.ui.h:132
+#: shell/shell.ui.h:155
 msgid "_Disabled"
 msgstr "사용 안 함(_D)"
 
-#: shell/shell.ui.h:133
-msgid "_Edge scrolling"
+#: shell/shell.ui.h:156
+msgid "Vertical _edge scrolling"
 msgstr "가장자리 스크롤(_E)"
 
-#: shell/shell.ui.h:134
-msgid "Two-_finger scrolling"
-msgstr "두 손가락 스크롤(_F)"
-
-#: shell/shell.ui.h:135
-msgid "Enable h_orizontal scrolling"
+#: shell/shell.ui.h:157
+msgid "_Horizontal edge scrolling"
 msgstr "가로 스크롤 허용(O)"
 
-#: shell/shell.ui.h:136
+#: shell/shell.ui.h:158
+msgid "_Vertical two-finger scrolling"
+msgstr "두 손가락 스크롤(_F)"
+
+#: shell/shell.ui.h:159
+msgid "Horizontal two-_finger scrolling"
+msgstr "두 손가락 스크롤(_F)"
+
+#: shell/shell.ui.h:160
+msgid "Enabled touchpad"
+msgstr "터치패드와 함께 마우스 클릭 사용(M)"
+
+#: shell/shell.ui.h:161
 msgid "Touchpad"
 msgstr "터치패드"
 
-#: shell/shell.ui.h:137
+#: shell/shell.ui.h:162
 msgid "<b>Di_rect internet connection</b>"
 msgstr "<b>직접 인터넷 연결(_R)</b>"
 
-#: shell/shell.ui.h:138
+#: shell/shell.ui.h:163
 msgid "<b>_Manual proxy configuration</b>"
 msgstr "<b>수동 프록시 설정(_M)</b>"
 
-#: shell/shell.ui.h:139
+#: shell/shell.ui.h:164
 msgid "H_TTP proxy:"
 msgstr "HTTP 프록시:(_T)"
 
-#: shell/shell.ui.h:140
+#: shell/shell.ui.h:165
 msgid "_Secure HTTP proxy:"
 msgstr "보안 HTTP 프록시(_S):"
 
-#: shell/shell.ui.h:141
+#: shell/shell.ui.h:166
 msgid "_FTP proxy:"
 msgstr "_FTP 프록시:"
 
-#: shell/shell.ui.h:142
+#: shell/shell.ui.h:167
 msgid "S_ocks host:"
 msgstr "S_ocks 호스트:"
 
-#: shell/shell.ui.h:143
+#: shell/shell.ui.h:168
 msgid "Port:"
 msgstr "포트:"
 
-#: shell/shell.ui.h:144
+#: shell/shell.ui.h:169
 msgid "_Details"
 msgstr "자세히(_D)"
 
-#: shell/shell.ui.h:145
+#: shell/shell.ui.h:170
 msgid "<b>_Automatic proxy configuration</b>"
 msgstr "<b>자동 프록시 설정(_A)</b>"
 
-#: shell/shell.ui.h:146
+#: shell/shell.ui.h:171
 msgid "Autoconfiguration _URL:"
 msgstr "자동설정 URL:(_U)"
 
-#: shell/shell.ui.h:147
+#: shell/shell.ui.h:172
 msgid "Proxy Configuration"
 msgstr "프록시 설정"
 
-#: shell/shell.ui.h:148
+#: shell/shell.ui.h:173
 msgid "Ignore Host List"
 msgstr "프록시 설정 무시 호스트"
 
-#: shell/shell.ui.h:149
+#: shell/shell.ui.h:174
 msgid "Ignored Hosts"
 msgstr "무시된 호스트"
 
-#: shell/shell.ui.h:150
+#: shell/shell.ui.h:175
 msgid "Additional startup _programs:"
 msgstr "시작 프로그램 추가(_P)"
 
-#: shell/shell.ui.h:151
+#: shell/shell.ui.h:176
+msgid "name"
+msgstr "이름 바꾸기"
+
+#: shell/shell.ui.h:177
+msgid "status"
+msgstr "현재 상태："
+
+#: shell/shell.ui.h:178
 msgid "Startup Programs"
 msgstr "시작 프로그램"
 
-#: shell/shell.ui.h:152
+#: shell/shell.ui.h:179
 msgid "Change display appearance"
 msgstr "겉 모습 바꾸기"
 
-#: shell/shell.ui.h:153
+#: shell/shell.ui.h:180
 msgid "Monitor:"
 msgstr "모니터:"
 
-#: shell/shell.ui.h:154
+#: shell/shell.ui.h:181
 msgid "Resolution:"
 msgstr "해상도:"
 
-#: shell/shell.ui.h:155
+#: shell/shell.ui.h:182
 msgid "Direction:"
 msgstr "연결:"
 
-#: shell/shell.ui.h:156
+#: shell/shell.ui.h:183
 msgid "Save"
 msgstr "저장"
 
-#: shell/shell.ui.h:157
-msgid "Make Default"
-msgstr "기본값으로"
-
-#: shell/shell.ui.h:158
+#: shell/shell.ui.h:184
 msgid "Same image in all monitors"
 msgstr "모든 모니터에 같은 이미지로"
 
-#: shell/shell.ui.h:159
+#: shell/shell.ui.h:185
 msgid "Set as primary"
 msgstr "제 1모니터로"
 
-#: shell/shell.ui.h:160
+#: shell/shell.ui.h:186
 msgid "Open Monitor"
 msgstr "모니터 열기"
 
-#: shell/shell.ui.h:161
+#: shell/shell.ui.h:187
 msgid "Close Monitor"
 msgstr "모니터 닫기"
 
-#: shell/shell.ui.h:162
-msgid "Actions"
-msgstr ""
+#: shell/shell.ui.h:188
+msgid "Computer status"
+msgstr "컴퓨터"
 
-#: shell/shell.ui.h:163
-msgid "Put computer to _sleep when inactive:"
+#: shell/shell.ui.h:189
+msgid "AC Power"
+msgstr "교류 어댑터"
+
+#: shell/shell.ui.h:190
+msgid "Battery Power"
+msgstr "배터리 전원일 때"
+
+#: shell/shell.ui.h:191
+msgid "Put _computer to sleep when inactive:"
 msgstr "비활성화 되면 컴퓨터 잠자기(S)："
 
-#: shell/shell.ui.h:164
+#: shell/shell.ui.h:192
+msgid "Put _monitor to sleep when inactive:"
+msgstr "비활성화 되면 컴퓨터 잠자기(S)："
+
+#: shell/shell.ui.h:193
 msgid "When laptop lid is cl_osed:"
 msgstr "랩톱의 뚜껑이 닫기면(O)："
 
-#: shell/shell.ui.h:165
-msgid "Sp_in down hard disks when possible"
-msgstr "가능하면 하드디스크 끄기(I)"
+#: shell/shell.ui.h:194
+msgid "Actions"
+msgstr ""
 
-#: shell/shell.ui.h:166
-msgid "Display"
-msgstr "화면"
-
-#: shell/shell.ui.h:167
-msgid "Put _display to sleep when inactive:"
-msgstr "비활성화시 화면 끄기(D)："
-
-#: shell/shell.ui.h:168
-msgid "Set display _brightness to:"
-msgstr "밝기 조정(B)："
-
-#: shell/shell.ui.h:169
-msgid "Di_m display when idle"
-msgstr "아무 작업 없을 때 화면(M)"
-
-#: shell/shell.ui.h:170
-msgid "On AC Power"
-msgstr "교류 어댑터"
-
-#: shell/shell.ui.h:171
-msgid "When battery po_wer is critically low:"
-msgstr "배터리가 얼마 안 남았을 때(W)："
-
-#: shell/shell.ui.h:172
-msgid "_Reduce backlight brightness"
-msgstr "밝기 줄이기(R)"
-
-#: shell/shell.ui.h:173
-msgid "On Battery Power"
-msgstr "배터리 전원일 때"
-
-#: shell/shell.ui.h:174
+#: shell/shell.ui.h:195
 msgid "When the power _button is pressed:"
 msgstr "전원 버튼이 눌렸을 때(B)："
 
-#: shell/shell.ui.h:175
-msgid "When the _suspend button is pressed:"
+#: shell/shell.ui.h:196
+msgid "When the sus_pend button is pressed:"
 msgstr "절전 버튼이 눌렸을 때(S)："
 
-#: shell/shell.ui.h:176
-msgid "Notification Area"
-msgstr "알림 영역"
+#: shell/shell.ui.h:197
+msgid "Icon display"
+msgstr "화면"
 
-#: shell/shell.ui.h:177
-msgid "_Never display an icon"
-msgstr "아이콘 보이지 않기(N)"
-
-#: shell/shell.ui.h:178
-msgid "_Only display an icon when battery power is low"
-msgstr "배터리 전원이 낮을 때만 아이콘 보이기(O)"
-
-#: shell/shell.ui.h:179
-msgid "Only display an icon when charging or _discharging"
-msgstr "충전, 방전일 때만 아이콘 보이기(D)"
-
-#: shell/shell.ui.h:180
+#: shell/shell.ui.h:198
 msgid "Only display an icon when a battery is p_resent"
 msgstr "배터리가 있을 때만 아이콘 보이기 (R)"
 
-#: shell/shell.ui.h:181
+#: shell/shell.ui.h:199
 msgid "_Always display an icon"
 msgstr "항상 아이콘 보이기(A)"
 
-#: shell/shell.ui.h:182
-msgid "Screensaver"
-msgstr "화면 보호기"
+#: shell/shell.ui.h:200
+msgid "Power Configure"
+msgstr "장치설정"
 
-#: shell/shell.ui.h:183
+#: shell/shell.ui.h:201
 msgid "Regard the computer as _idle after:"
 msgstr "다음 시간동안 아무 작업 없을 때"
 
-#: shell/shell.ui.h:184
+#: shell/shell.ui.h:202
 msgid "_Activate screensaver when computer is idle"
 msgstr "아무작업 없으면 화면보호기 띄우기（A）"
 
-#: shell/shell.ui.h:185
+#: shell/shell.ui.h:203
 msgid "_Lock screen when screensaver is active"
 msgstr "화면 보호기 있을 때 잠그기（L）"
 
-#: shell/ukui-control-center.c:59
+#: shell/shell.ui.h:204
+msgid "preview"
+msgstr "미리보기"
+
+#: shell/shell.ui.h:205
+msgid "Screensavers:"
+msgstr "화면 보호기"
+
+#: shell/shell.ui.h:207
+msgid "Set display brightness to:"
+msgstr "밝기 조정(B)："
+
+#: shell/shell.ui.h:208
+msgid "Screensaver"
+msgstr "화면 보호기"
+
+#: shell/ukui-control-center.c:45
+msgid "Show help options"
+msgstr ""
+
+#: shell/ukui-control-center.c:46
+msgid "Go to Time and Date settings page"
+msgstr ""
+
+#: shell/ukui-control-center.c:47
+msgid "Go to Personalization settings page "
+msgstr ""
+
+#: shell/ukui-control-center.c:48
+msgid "Go to Power Management page"
+msgstr "전원 관리자"
+
+#: shell/ukui-control-center.c:49
+msgid "Go to Sound settings page"
+msgstr ""
+
+#: shell/ukui-control-center.c:50
+msgid "Go to User Account page"
+msgstr "사용자 계정"
+
+#: shell/ukui-control-center.c:51
+msgid "Go to Keyboard settings page"
+msgstr ""
+
+#: shell/ukui-control-center.c:52
+msgid "Go to Display settings page"
+msgstr ""
+
+#: shell/ukui-control-center.c:134
+msgid "- Page jump"
+msgstr ""
+
+#: shell/ukui-control-center.c:143
+#, c-format
+msgid ""
+"%s\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+
+#: shell/ukui-control-center.c:201
 msgid "window1"
 msgstr ""
 
-#: shell/ukui-control-center.c:60
-msgid "ukuicc"
-msgstr ""
+#~ msgid "%d second"
+#~ msgid_plural "%d seconds"
+#~ msgstr[0] "%d　초"
+#~ msgstr[1] "%d 초"
+
+#~ msgid "command:"
+#~ msgstr "명령:"
+
+#~ msgid "Password length is too short!"
+#~ msgstr "암호가 너무 짧습니다!"
+
+#~ msgid ""
+#~ "Password length needs to more than 5 digits, and composed of letters, \n"
+#~ " numbers or special characters."
+#~ msgstr ""
+#~ "암호는 5글자 이상의 알파벳 문자나 숫자, 특수문자로 이루어져야 합니다."
+
+#~ msgid "Password error"
+#~ msgstr "암호 오류"
+
+#~ msgid "Please make sure you enter the password two times."
+#~ msgstr "암호를 두번 입력해 주세요"
+
+#~ msgid "My Account"
+#~ msgstr "내 계정"
+
+#~ msgid "System Check"
+#~ msgstr "시스템 체크"
+
+#~ msgid "check the system detection information on this computer "
+#~ msgstr "이 컴퓨터의 시스템 정보를 체크합니다"
+
+#~ msgid "Time Dates_"
+#~ msgstr "시간/날짜"
+
+#~ msgid "User Account_"
+#~ msgstr "사용자계정"
+
+#~ msgid "Personalization_"
+#~ msgstr "개인화"
+
+#~ msgid "Autostart_"
+#~ msgstr "시작프로그램"
+
+#~ msgid "Keyboard_"
+#~ msgstr "키보드"
+
+#~ msgid "Mouse_"
+#~ msgstr "마우스"
+
+#~ msgid "Sound_"
+#~ msgstr "소리"
+
+#~ msgid "Network Agent_"
+#~ msgstr "네트워크 관리"
+
+#~ msgid "Monitor_"
+#~ msgstr "모니터"
+
+#~ msgid "    Sep"
+#~ msgstr "    9월"
+
+#~ msgid "    Dec"
+#~ msgstr "    12월"
+
+#~ msgid "Make Default"
+#~ msgstr "기본값으로"
+
+#~ msgid "Sp_in down hard disks when possible"
+#~ msgstr "가능하면 하드디스크 끄기(I)"
+
+#~ msgid "Put _display to sleep when inactive:"
+#~ msgstr "비활성화시 화면 끄기(D)："
+
+#~ msgid "Di_m display when idle"
+#~ msgstr "아무 작업 없을 때 화면(M)"
+
+#~ msgid "When battery po_wer is critically low:"
+#~ msgstr "배터리가 얼마 안 남았을 때(W)："
+
+#~ msgid "_Reduce backlight brightness"
+#~ msgstr "밝기 줄이기(R)"
+
+#~ msgid "Notification Area"
+#~ msgstr "알림 영역"
+
+#~ msgid "_Never display an icon"
+#~ msgstr "아이콘 보이지 않기(N)"
+
+#~ msgid "_Only display an icon when battery power is low"
+#~ msgstr "배터리 전원이 낮을 때만 아이콘 보이기(O)"
+
+#~ msgid "Only display an icon when charging or _discharging"
+#~ msgstr "충전, 방전일 때만 아이콘 보이기(D)"

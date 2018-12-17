@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ukui-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-12 14:12+0800\n"
+"POT-Creation-Date: 2018-12-17 11:50+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,8 @@ msgstr ""
 
 #: panels/appearance/appearance-desktop.c:561
 msgid "Add Wallpaper"
-msgstr "Adicionar papel\n"
+msgstr ""
+"Adicionar papel\n"
 " de parede"
 
 #: panels/appearance/appearance-desktop.c:594
@@ -39,7 +40,9 @@ msgstr "Por favor, escolha uma cor que você gosta como as cores do tema."
 msgid ""
 "Set up disable. Please wait at least 5 seconds that system subject will "
 "restart"
-msgstr "Configure desativar. Por favor, aguarde pelo menos 5 segundos que o assunto do sistema irá reiniciar"
+msgstr ""
+"Configure desativar. Por favor, aguarde pelo menos 5 segundos que o assunto "
+"do sistema irá reiniciar"
 
 #: panels/appearance/appearance-windows.c:105
 #: panels/appearance/appearance-windows.c:109
@@ -140,7 +143,8 @@ msgid ""
 "%s, %s\n"
 "File Path: %s\n"
 "Artist: %s"
-msgstr "<b>%s</b>\n"
+msgstr ""
+"<b>%s</b>\n"
 "%s , %s\n"
 "Arquivar Caminho: %s\n"
 "Artist: %s"
@@ -152,7 +156,8 @@ msgid ""
 "%s\n"
 "File Path: %s\n"
 "Artist: %s"
-msgstr "<b>%s</b>\n"
+msgstr ""
+"<b>%s</b>\n"
 "%s\n"
 "Arquivar Caminho: %s\n"
 "Artist: %s"
@@ -172,13 +177,16 @@ msgid ""
 "DEST_NAME - relative name for the installed file.  This will get put in\n"
 "            the systemwide directory for RANDR configurations,\n"
 "            so the result will typically be %s/DEST_NAME\n"
-msgstr "Uso: %s SOURCE_FILE DEST_NAME\n"
+msgstr ""
+"Uso: %s SOURCE_FILE DEST_NAME\n"
 "\n"
-"Este programa instala um perfil RANDR para configurações de vários monitores em \n"
-"a localização do sistema. O perfil resultante será usado quando o plug-in RANDR for executado no daemon ukui-settings. \n"
+"Este programa instala um perfil RANDR para configurações de vários monitores "
+"em \n"
+"a localização do sistema. O perfil resultante será usado quando o plug-in "
+"RANDR for executado no daemon ukui-settings. \n"
 "\n"
-"SOURCE_FILE - um nome de caminho completo, geralmente /home/username/.config/monitors."
-"xml\n"
+"SOURCE_FILE - um nome de caminho completo, geralmente /home/username/.config/"
+"monitors.xml\n"
 "\n"
 "DEST_NAME - nome relativo para o arquivo instalado. Isso será colocado \n"
 "             no diretório do sistema para configurações RANDR, \n"
@@ -290,7 +298,9 @@ msgstr "%d x %d"
 msgid ""
 "Select a monitor to change its properties; drag it to rearrange its "
 "placement."
-msgstr "Selecione um monitor para alterar suas propriedades; arraste-o para reorganizar seu posicionamento."
+msgstr ""
+"Selecione um monitor para alterar suas propriedades; arraste-o para "
+"reorganizar seu posicionamento."
 
 #: panels/display/xrandr-capplet.c:2204
 msgid "Could not save the monitor configuration"
@@ -298,7 +308,9 @@ msgstr "Não foi possível salvar a configuração do monitor"
 
 #: panels/display/xrandr-capplet.c:2226
 msgid "Could not get session bus while applying display configuration"
-msgstr "Não foi possível obter o barramento de sessão durante a aplicação da configuração de exibição"
+msgstr ""
+"Não foi possível obter o barramento de sessão durante a aplicação da "
+"configuração de exibição"
 
 #: panels/display/xrandr-capplet.c:2245
 msgid "Could not detect displays"
@@ -348,7 +360,9 @@ msgid ""
 "The shortcut \"%s\" cannot be used because it will become impossible to type "
 "using this key.\n"
 "Please try with a key such as Control, Alt or Shift at the same time."
-msgstr "O atalho \"%s\" não pode ser usado porque se tornará impossível digitar usando essa chave. \n"
+msgstr ""
+"O atalho \"%s\" não pode ser usado porque se tornará impossível digitar "
+"usando essa chave. \n"
 "Tente com uma tecla como Control, Alt ou Shift ao mesmo tempo."
 
 #: panels/keyboard/ukui-keybinding-properties.c:1383
@@ -356,7 +370,8 @@ msgstr "O atalho \"%s\" não pode ser usado porque se tornará impossível digit
 msgid ""
 "The shortcut \"%s\" is already used for\n"
 "\"%s\",please reset!!!"
-msgstr "O atalho \"%s\" já é usado para \n"
+msgstr ""
+"O atalho \"%s\" já é usado para \n"
 "\"%s\", redefina-se !!!"
 
 #: panels/keyboard/ukui-keybinding-properties.c:1527
@@ -402,6 +417,10 @@ msgstr "Por _language"
 #: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:7
 msgid "Preview:"
 msgstr "Visualizar:"
+
+#: panels/mouse/mouse-setting.c:310 panels/mouse/mouse-setting.c:611
+msgid "default"
+msgstr "Padrão"
 
 #: panels/network-proxy/network.ui.h:1
 msgid "Network Proxy Details"
@@ -486,12 +505,14 @@ msgstr[1] "minuto"
 
 #: panels/power/kpm-common.h:41
 msgid "Power Manager"
-msgstr "Gerenciador\n"
+msgstr ""
+"Gerenciador\n"
 " de energia"
 
 #: panels/power/kpm-common.h:42
 msgid "Power Manager for the UKUI desktop"
-msgstr "Gerenciador de energia para a \n"
+msgstr ""
+"Gerenciador de energia para a \n"
 "área de trabalho da UKUI"
 
 #: panels/power/kpm-prefs-core.c:168 panels/power/kpm-prefs-core.c:170
@@ -539,7 +560,8 @@ msgstr "%s carregamento (%.1f%%)"
 msgid ""
 "Battery is fully charged.\n"
 "Provides %s laptop runtime"
-msgstr "A bateria está totalmente carregada. \n"
+msgstr ""
+"A bateria está totalmente carregada. \n"
 "Fornece %s tempo de execução do laptop do"
 
 #. TRANSLATORS: the device is fully charged
@@ -566,7 +588,8 @@ msgstr "%s descarga (%.1f%%)"
 msgid ""
 "%s %s until charged (%.1f%%)\n"
 "Provides %s battery runtime"
-msgstr "%s %s até cobrado (%.1f%%)\n"
+msgstr ""
+"%s %s até cobrado (%.1f%%)\n"
 "Fornece %s tempo de execução da bateria"
 
 #. TRANSLATORS: device is charging, and we have a time to full and a percentage
@@ -814,12 +837,14 @@ msgstr "Esperando para descarregar"
 
 #: panels/power/ukui-fullscreen-preview.ui.h:1
 msgid "Screensaver Preview"
-msgstr "Pré-visualização \n"
+msgstr ""
+"Pré-visualização \n"
 "do protetor de tela"
 
 #: panels/power/ukui-fullscreen-preview.ui.h:2
 msgid "Screensaver preview"
-msgstr "Pré-visualização \n"
+msgstr ""
+"Pré-visualização \n"
 "do protetor de tela"
 
 #: panels/power/ukui-screensaver-preferences.c:478
@@ -846,7 +871,8 @@ msgstr "Não foi possível carregar a interface principal"
 
 #: panels/power/ukui-screensaver-preferences.c:1532
 msgid "Please make sure that the screensaver is properly installed"
-msgstr "Por favor, certifique-se que o protetor de tela está instalado corretamente"
+msgstr ""
+"Por favor, certifique-se que o protetor de tela está instalado corretamente"
 
 #: panels/session-properties/gsm-app-dialog.c:145
 msgid "Desktop file(*.desktop)"
@@ -862,7 +888,8 @@ msgstr "Adicionar programas"
 
 #: panels/session-properties/gsm-app-dialog.c:261
 msgid "Boot program property details"
-msgstr "Detalhes da propriedade do \n"
+msgstr ""
+"Detalhes da propriedade do \n"
 "programa de inicialização"
 
 #: panels/session-properties/gsm-app-dialog.c:526
@@ -965,7 +992,7 @@ msgstr "Está bem"
 #: panels/user-accounts/change-name.ui.h:4
 #: panels/user-accounts/change-pwd.ui.h:4
 #: panels/user-accounts/change-type.ui.h:5
-#: panels/user-accounts/delete-user.ui.h:5 shell/shell.ui.h:195
+#: panels/user-accounts/delete-user.ui.h:5 shell/shell.ui.h:206
 msgid "label"
 msgstr "rótulo"
 
@@ -976,28 +1003,34 @@ msgstr "Procure mais fotos"
 
 #: panels/user-accounts/change-name.ui.h:1
 msgid "Change Name"
-msgstr "Mude o\n"
+msgstr ""
+"Mude o\n"
 " nome"
 
 #: panels/user-accounts/change-pwd.ui.h:1
 msgid "Change Password"
-msgstr "Mudar\n"
+msgstr ""
+"Mudar\n"
 " senha"
 
 #: panels/user-accounts/change-type.ui.h:1
 msgid "Change Usertype"
-msgstr "Alterar \n"
+msgstr ""
+"Alterar \n"
 "tipo de usuário"
 
 #: panels/user-accounts/change-type.ui.h:4
 msgid "automatic login"
-msgstr "login \n"
+msgstr ""
+"login \n"
 "automático"
 
 #: panels/user-accounts/change-type.ui.h:6
 msgid ""
 "Please make sure that the computer has at least one user is the administrator"
-msgstr "Por favor, certifique-se que o computador tem pelo menos um usuário é o administrador"
+msgstr ""
+"Por favor, certifique-se que o computador tem pelo menos um usuário é o "
+"administrador"
 
 #: panels/user-accounts/change-type.ui.h:7
 #: panels/user-accounts/user-create.ui.h:5
@@ -1008,7 +1041,10 @@ msgstr "Usuário comum"
 msgid ""
 "Standard users can use most software, but you can not install software and \n"
 "change settings that affect all users."
-msgstr "Os usuários padrão podem usar a maioria dos softwares, mas você não pode instalar o software e \nalterar as configurações que afetam todos os usuários."
+msgstr ""
+"Os usuários padrão podem usar a maioria dos softwares, mas você não pode "
+"instalar o software e \n"
+"alterar as configurações que afetam todos os usuários."
 
 #: panels/user-accounts/change-type.ui.h:10
 #: panels/user-accounts/user-accounts.c:688
@@ -1028,7 +1064,9 @@ msgstr "Administradores"
 msgid ""
 "Administrator can make any changes needed on the system, including　\n"
 "installing and upgrading software."
-msgstr "O administrador pode fazer as alterações necessárias no sistema, incluindo \ninstalar e atualizar o software."
+msgstr ""
+"O administrador pode fazer as alterações necessárias no sistema, incluindo \n"
+"instalar e atualizar o software."
 
 #: panels/user-accounts/check-passwd.c:583
 msgid "is the same as the old one"
@@ -1163,7 +1201,8 @@ msgstr "Nome de usuário não pode conter letras maiúsculas!"
 #: panels/user-accounts/user-accounts.c:282
 #: panels/user-accounts/user-accounts.c:788
 msgid "The user name can only be composed of letters, numbers and underline!"
-msgstr "O nome de usuário só pode ser composto de letras, números e sublinhado!"
+msgstr ""
+"O nome de usuário só pode ser composto de letras, números e sublinhado!"
 
 #: panels/user-accounts/user-accounts.c:289
 msgid "The first character cannot be numeric!"
@@ -1187,7 +1226,9 @@ msgstr "O nome de usuário já está em uso, por favor, use um nome diferente."
 msgid ""
 "The user name corresponds to the group already exists,please use a different "
 "user name"
-msgstr "O nome de usuário corresponde ao grupo já existe, por favor use um nome de usuário diferente"
+msgstr ""
+"O nome de usuário corresponde ao grupo já existe, por favor use um nome de "
+"usuário diferente"
 
 #: panels/user-accounts/user-accounts.c:345
 msgid "username length need to less than 32!"
@@ -1318,7 +1359,8 @@ msgstr "_ESTÁ BEM"
 msgid ""
 "\tAlready have other users set to automatically log in,\t\n"
 " \tclick OK will overwrite the existing settings!"
-msgstr "\tAlguns outros usuários configuram para efetuar login automaticamente, \t\n"
+msgstr ""
+"\tAlguns outros usuários configuram para efetuar login automaticamente, \t\n"
 " \tclique em OK sobrescreverá as configurações existentes!"
 
 #: panels/user-accounts/user-accounts.c:1487
@@ -1329,14 +1371,18 @@ msgstr "O usuário não pode ser excluído!"
 msgid ""
 "The user has logged in, please perform the delete operation after logging "
 "out!"
-msgstr "O usuário fez o login, por favor, execute a operação de exclusão depois de sair!"
+msgstr ""
+"O usuário fez o login, por favor, execute a operação de exclusão depois de "
+"sair!"
 
 #: panels/user-accounts/user-accounts.c:1520
 #, c-format
 msgid ""
 "<span weight='bold' font_desc='11'>do you confirm to delete all the files of "
 "%s?</span>"
-msgstr "<span weight='bold' font_desc='11'> você confirma a exclusão de todos os arquivos de %s ? </span>"
+msgstr ""
+"<span weight='bold' font_desc='11'> você confirma a exclusão de todos os "
+"arquivos de %s ? </span>"
 
 #: panels/user-accounts/user-accounts.c:1526
 #, c-format
@@ -1344,8 +1390,10 @@ msgid ""
 "if you want to delete the %s user, belonging to the user's \n"
 "desktop, documents, favorites, music, pictures and video \n"
 "folder will be deleted!"
-msgstr "se você quiser apagar o usuário %s , pertencer ao \n"
-"desktop do usuário, documentos, favoritos, músicas, fotos e pastas de vídeo \n"
+msgstr ""
+"se você quiser apagar o usuário %s , pertencer ao \n"
+"desktop do usuário, documentos, favoritos, músicas, fotos e pastas de "
+"vídeo \n"
 "serão apagadas!"
 
 #: panels/user-accounts/user-accounts.c:1583
@@ -1359,17 +1407,20 @@ msgstr "Renomear"
 
 #: panels/user-accounts/user-accounts.c:1591
 msgid "Change PWD"
-msgstr "Alterar\n"
+msgstr ""
+"Alterar\n"
 " PWD"
 
 #: panels/user-accounts/user-accounts.c:1596
 msgid "Change Face"
-msgstr "Mude \n"
+msgstr ""
+"Mude \n"
 "a cara"
 
 #: panels/user-accounts/user-accounts.c:1601
 msgid "Change Type"
-msgstr "Alterar\n"
+msgstr ""
+"Alterar\n"
 " tipo"
 
 #: panels/user-accounts/user-accounts.c:1606
@@ -1396,7 +1447,10 @@ msgstr "selecionar foto"
 msgid ""
 "Standard users can use most software, but you can not install software\n"
 "and change settings that affect all users."
-msgstr "Os usuários padrão podem usar a maioria dos softwares, mas você não pode instalar o software \ne alterar as configurações que afetam todos os usuários."
+msgstr ""
+"Os usuários padrão podem usar a maioria dos softwares, mas você não pode "
+"instalar o software \n"
+"e alterar as configurações que afetam todos os usuários."
 
 #: panels/volume-control/gvc-balance-bar.c:116
 msgid "Rear"
@@ -1623,7 +1677,7 @@ msgstr "Hora e datas"
 msgid " Change the time and date of this computer "
 msgstr " Alterar a hora e a data deste computador "
 
-#: shell/mainwindow.c:188 shell/shell.ui.h:17
+#: shell/mainwindow.c:188
 msgid "User Account"
 msgstr "Conta de usuário"
 
@@ -1631,7 +1685,8 @@ msgstr "Conta de usuário"
 msgid ""
 " Change the computer user account \n"
 " settings and password"
-msgstr " Altere a conta de usuário do computador \n"
+msgstr ""
+" Altere a conta de usuário do computador \n"
 "configurações e senha"
 
 #: shell/mainwindow.c:199 shell/shell.ui.h:12
@@ -1642,13 +1697,14 @@ msgstr "Personalização"
 msgid ""
 " Change the computer desktop background \n"
 " and related theme"
-msgstr " Alterar o plano de fundo da área de trabalho do computador \n"
+msgstr ""
+" Alterar o plano de fundo da área de trabalho do computador \n"
 "e o tema relacionado"
 
 #: shell/mainwindow.c:210
 msgid "Default Application"
-msgstr "Aplicação\n"
-" Padrão"
+msgstr ""
+"Aplicação Padrão"
 
 #: shell/mainwindow.c:213
 msgid " Change the default application on this computer "
@@ -1680,8 +1736,8 @@ msgstr " Alterar as configurações de som neste computador "
 
 #: shell/mainwindow.c:283
 msgid "Network Agent"
-msgstr "Agente \n"
-"de Rede"
+msgstr ""
+"Agente de Rede"
 
 #: shell/mainwindow.c:286
 msgid " Change the network agent on this computer "
@@ -1701,12 +1757,13 @@ msgstr " Alterar as configurações do monitor neste computador "
 
 #: shell/mainwindow.c:318
 msgid "Power Management"
-msgstr "Gerenciamento\n"
-" de energia"
+msgstr ""
+"Gerenciamento de energia"
 
 #: shell/mainwindow.c:321
 msgid " Change the power management settings on this computer "
-msgstr " Alterar as configurações de gerenciamento de energia neste computador "
+msgstr ""
+" Alterar as configurações de gerenciamento de energia neste computador "
 
 #: shell/shell.ui.h:5
 msgid "Tile"
@@ -1736,17 +1793,25 @@ msgstr "Período"
 msgid ""
 "Default \n"
 "Application"
-msgstr "Padrão \n"
+msgstr ""
+"Padrão \n"
 "Application"
 
 #: shell/shell.ui.h:16
 msgid "Time Dates"
-msgstr "Datas de\n"
+msgstr ""
+"Datas de\n"
 " horário"
+
+#: shell/shell.ui.h:17
+msgid "User  Account"
+msgstr "Conta de\n"
+" usuário"
 
 #: shell/shell.ui.h:18
 msgid "System Configuration"
-msgstr "Configuração\n"
+msgstr ""
+"Configuração\n"
 " do sistema"
 
 #: shell/shell.ui.h:19
@@ -1757,26 +1822,30 @@ msgstr "Impressora"
 msgid ""
 "Power \n"
 "Management"
-msgstr "Poder \n"
+msgstr ""
+"Poder \n"
 "Gerenciamento"
 
 #: shell/shell.ui.h:26
 msgid ""
 "Network \n"
 "Agent"
-msgstr "Rede \n"
+msgstr ""
+"Rede \n"
 "Agent"
 
 #: shell/shell.ui.h:28
 msgid ""
 "Network \n"
 "Connections"
-msgstr "Rede \n"
+msgstr ""
+"Rede \n"
 "Conexões"
 
 #: shell/shell.ui.h:30
 msgid "Hardware Configure"
-msgstr "Configuração\n"
+msgstr ""
+"Configuração\n"
 " de Hardware"
 
 #: shell/shell.ui.h:31
@@ -1924,519 +1993,575 @@ msgid "24-hours"
 msgstr "24 horas"
 
 #: shell/shell.ui.h:68
+msgid "lang settings"
+msgstr ""
+
+#: shell/shell.ui.h:69
 msgid "Current Account"
 msgstr "Conta corrente"
 
-#: shell/shell.ui.h:69
+#: shell/shell.ui.h:70
 msgid "Other Accounts"
 msgstr "Outras contas"
 
-#: shell/shell.ui.h:70
+#: shell/shell.ui.h:71
 msgid "Create a new account"
 msgstr "Criar uma nova conta"
 
-#: shell/shell.ui.h:71
+#: shell/shell.ui.h:72
 msgid "Add"
 msgstr "Adicionar"
 
-#: shell/shell.ui.h:72
+#: shell/shell.ui.h:73
 msgid "delete"
 msgstr "excluir"
 
-#: shell/shell.ui.h:73
+#: shell/shell.ui.h:74
 msgid "Style:"
 msgstr "Estilo:"
 
-#: shell/shell.ui.h:74
+#: shell/shell.ui.h:75
 msgid "wallpaper"
 msgstr "papel de parede"
 
-#: shell/shell.ui.h:75
+#: shell/shell.ui.h:76
 msgid "Select the one you love color as the theme color"
 msgstr "Selecione o que você ama cor como a cor do tema"
 
-#: shell/shell.ui.h:76
+#: shell/shell.ui.h:77
 msgid "Theme color"
 msgstr "Cor do tema"
 
-#: shell/shell.ui.h:77
+#: shell/shell.ui.h:78
 msgid "Font choice:"
 msgstr "Escolha da fonte:"
 
-#: shell/shell.ui.h:78
+#: shell/shell.ui.h:79
 msgid "Font size :"
 msgstr "Tamanho da fonte :"
 
-#: shell/shell.ui.h:80
+#: shell/shell.ui.h:81
 #, no-c-format
 msgid "small(S) --100%(default)"
 msgstr "pequeno (S) - 100% (padrão)"
 
-#: shell/shell.ui.h:82
+#: shell/shell.ui.h:83
 #, no-c-format
 msgid "medium(M)--125%"
 msgstr "médio (M) - 125%"
 
-#: shell/shell.ui.h:84
+#: shell/shell.ui.h:85
 #, no-c-format
 msgid "large (L) --150%"
 msgstr "grande (L) - 150%"
 
-#: shell/shell.ui.h:85
+#: shell/shell.ui.h:86
 msgid "Please select the clearest sample text"
 msgstr "Por favor, selecione o texto de exemplo mais claro"
 
-#: shell/shell.ui.h:86
+#: shell/shell.ui.h:87
 msgid "Restore Defaults"
 msgstr "Restaurar padrões"
 
-#: shell/shell.ui.h:87
+#: shell/shell.ui.h:88
 msgid "Font"
 msgstr "Fonte"
 
-#: shell/shell.ui.h:88
+#: shell/shell.ui.h:89
 msgid "mouse double click action"
 msgstr "ação de clique duplo do mouse"
 
-#: shell/shell.ui.h:89
+#: shell/shell.ui.h:90
 msgid "mouse middle click action"
 msgstr "ação do clique do meio do mouse"
 
-#: shell/shell.ui.h:90
+#: shell/shell.ui.h:91
 msgid "mouse right click action"
 msgstr "ação de clique direito do mouse"
 
-#: shell/shell.ui.h:91
+#: shell/shell.ui.h:92
 msgid "windows"
 msgstr "janelas"
 
-#: shell/shell.ui.h:92
+#: shell/shell.ui.h:93
+msgid "show computer icon on desktop"
+msgstr ""
+
+#: shell/shell.ui.h:94
+msgid "show home floder on desktop"
+msgstr ""
+
+#: shell/shell.ui.h:95
+msgid "show network icon on desktop"
+msgstr ""
+
+#: shell/shell.ui.h:96
+msgid "show trash on desktop"
+msgstr ""
+
+#: shell/shell.ui.h:97
+msgid "show volumes on desktop"
+msgstr ""
+
+#: shell/shell.ui.h:98
+msgid "Desktop"
+msgstr ""
+
+#: shell/shell.ui.h:99
 msgid "Internet"
 msgstr "Internet"
 
-#: shell/shell.ui.h:93
+#: shell/shell.ui.h:100
 msgid "Web Browser:"
-msgstr "Navegador \n"
+msgstr ""
+"Navegador \n"
 "da Web:"
 
-#: shell/shell.ui.h:94
+#: shell/shell.ui.h:101
 msgid "Mail Reader:"
 msgstr "Mail Reader:"
 
-#: shell/shell.ui.h:95
+#: shell/shell.ui.h:102
 msgid "Multimedia"
 msgstr "Multimídia"
 
-#: shell/shell.ui.h:96
+#: shell/shell.ui.h:103
 msgid "Image Viewer:"
-msgstr "Visualizador\n"
+msgstr ""
+"Visualizador\n"
 " de imagens:"
 
-#: shell/shell.ui.h:97
+#: shell/shell.ui.h:104
 msgid "Audio Player:"
 msgstr "Leitor de áudio:"
 
-#: shell/shell.ui.h:98
+#: shell/shell.ui.h:105
 msgid "Video Player:"
 msgstr "Player de vídeo:"
 
-#: shell/shell.ui.h:99
+#: shell/shell.ui.h:106
 msgid "System"
 msgstr "Sistema"
 
-#: shell/shell.ui.h:100
+#: shell/shell.ui.h:107
 msgid "Text Editor:"
 msgstr "Editor de texto:"
 
-#: shell/shell.ui.h:101
+#: shell/shell.ui.h:108
 msgid "File Manager:"
-msgstr "Gerenciador \n"
+msgstr ""
+"Gerenciador \n"
 "de arquivos:"
 
-#: shell/shell.ui.h:102
+#: shell/shell.ui.h:109
 msgid "Network Connections"
 msgstr "Conexões de rede"
 
-#: shell/shell.ui.h:103
+#: shell/shell.ui.h:110
 msgid "Repeat Keys"
 msgstr "Repetir Chaves"
 
-#: shell/shell.ui.h:104
+#: shell/shell.ui.h:111
 msgid "Key presses _repeat when key is held down"
 msgstr "Teclas pressionadas _repetir quando a tecla é pressionada"
 
-#: shell/shell.ui.h:105
+#: shell/shell.ui.h:112
 msgid "_Delay:"
 msgstr "_Demora:"
 
-#: shell/shell.ui.h:106
+#: shell/shell.ui.h:113
 msgid "_Speed:"
 msgstr "_Rapidez:"
 
-#: shell/shell.ui.h:107
+#: shell/shell.ui.h:114
 msgid "Short"
 msgstr "Curto"
 
-#: shell/shell.ui.h:108
+#: shell/shell.ui.h:115
 msgid "Slow"
 msgstr "Lento"
 
-#: shell/shell.ui.h:109
+#: shell/shell.ui.h:116
 msgid "Repeat keys speed"
 msgstr "Repita a velocidade das teclas"
 
-#: shell/shell.ui.h:110
+#: shell/shell.ui.h:117
 msgid "Long"
 msgstr "Longo"
 
-#: shell/shell.ui.h:111
+#: shell/shell.ui.h:118
 msgid "Fast"
 msgstr "Rápido"
 
-#: shell/shell.ui.h:112
+#: shell/shell.ui.h:119
 msgid "To test the repetition rate of the input character:"
 msgstr "Para testar a taxa de repetição do caractere de entrada:"
 
-#: shell/shell.ui.h:113
+#: shell/shell.ui.h:120
 msgid "Cursor Blinking"
 msgstr "Cursor piscando"
 
-#: shell/shell.ui.h:114
+#: shell/shell.ui.h:121
 msgid "Cursor _blinks in text fields"
 msgstr "Cursor _blinks em campos de texto"
 
-#: shell/shell.ui.h:115
+#: shell/shell.ui.h:122
 msgid "S_peed:"
 msgstr "Rapidez:"
 
-#: shell/shell.ui.h:116
+#: shell/shell.ui.h:123
 msgid "Cursor blinks speed"
 msgstr "Cursor pisca velocidade"
 
-#: shell/shell.ui.h:117
+#: shell/shell.ui.h:124
 msgid "General"
 msgstr "Geral"
 
-#: shell/shell.ui.h:118
+#: shell/shell.ui.h:125
 msgid ""
 "Please add the language you will use to the list. And the first one in the "
 "list is the most\n"
 "commonly used language."
-msgstr "Por favor, adicione o idioma que você usará na lista. E o primeiro da lista é a linguagem mais usada \n"
+msgstr ""
+"Por favor, adicione o idioma que você usará na lista. E o primeiro da lista "
+"é a linguagem mais usada \n"
 "comum."
 
-#: shell/shell.ui.h:120
+#: shell/shell.ui.h:127
 msgid "_Show..."
 msgstr "_Exposição..."
 
-#: shell/shell.ui.h:121
+#: shell/shell.ui.h:128
 msgid "List of keyboard layouts selected for usage"
 msgstr "Lista de layouts de teclado selecionados para uso"
 
-#: shell/shell.ui.h:122
+#: shell/shell.ui.h:129
 msgid "_Separate layout for each window"
 msgstr "_Esquema separado para cada janela"
 
-#: shell/shell.ui.h:123
+#: shell/shell.ui.h:130
 msgid "New windows u_se active window's layout"
 msgstr "Novas janelas do layout da janela ativa do u_se"
 
-#: shell/shell.ui.h:124
+#: shell/shell.ui.h:131
 msgid "Reset to De_faults"
 msgstr "Redefinir para De_faults"
 
-#: shell/shell.ui.h:125
+#: shell/shell.ui.h:132
 msgid "Layouts"
 msgstr "Layouts"
 
-#: shell/shell.ui.h:126
+#: shell/shell.ui.h:133
 msgid ""
 "\"To edit a shortcut key, click on the corresponding row and type a new key "
 "\"\n"
 "\"combination, or press backspace to clear.\""
-msgstr "\"Para editar uma tecla de atalho, clique na linha correspondente e digite uma nova combinação de chave"
-"\"\n"
+msgstr ""
+"\"Para editar uma tecla de atalho, clique na linha correspondente e digite "
+"uma nova combinação de chave\"\n"
 "\"ou pressione backspace para limpar. \""
 
-#: shell/shell.ui.h:128
+#: shell/shell.ui.h:135
 msgid "Shortcut"
 msgstr "Atalho"
 
-#: shell/shell.ui.h:129
+#: shell/shell.ui.h:136
 msgid "_Right-handed"
 msgstr "_Destro"
 
-#: shell/shell.ui.h:130
+#: shell/shell.ui.h:137
 msgid "_Left-handed"
 msgstr "_Canhoto"
 
-#: shell/shell.ui.h:131
+#: shell/shell.ui.h:138
 msgid "Sh_ow position of pointer when the Control key is pressed"
 msgstr "Sh_ow posição do ponteiro quando a tecla Control é pressionada"
 
-#: shell/shell.ui.h:132
+#: shell/shell.ui.h:139
 msgid "S_ensitivity:"
 msgstr "Sensibilidade:"
 
-#: shell/shell.ui.h:133
+#: shell/shell.ui.h:140
 msgid "Low"
 msgstr "Baixo"
 
-#: shell/shell.ui.h:134
+#: shell/shell.ui.h:141
 msgid "High"
 msgstr "Alto"
 
-#: shell/shell.ui.h:135
+#: shell/shell.ui.h:142
 msgid "Double-click the right bulb to test your settings"
 msgstr "Clique duas vezes na lâmpada direita para testar suas configurações"
 
-#: shell/shell.ui.h:136
+#: shell/shell.ui.h:143
 msgid "_Timeout:"
 msgstr "_Tempo esgotado:"
 
-#: shell/shell.ui.h:137
+#: shell/shell.ui.h:144
 msgid "Pointer moving speed"
 msgstr "Velocidade de movimento do ponteiro"
 
-#: shell/shell.ui.h:138
+#: shell/shell.ui.h:145
 msgid "Locate Pointer"
 msgstr "Localize o ponteiro"
 
-#: shell/shell.ui.h:139
+#: shell/shell.ui.h:146
 msgid "Mouse Keys"
 msgstr "Teclas do Mouse"
 
-#: shell/shell.ui.h:140
+#: shell/shell.ui.h:147
 msgid "Double-Click Speed"
 msgstr "Velocidade de duplo clique"
 
-#: shell/shell.ui.h:141
+#: shell/shell.ui.h:148
+msgid "Cursor Settiings"
+msgstr "Cursor piscando"
+
+#: shell/shell.ui.h:149
+msgid "Cursor theme :"
+msgstr "Do tema"
+
+#: shell/shell.ui.h:150
+msgid "Common"
+msgstr "Comando"
+
+#: shell/shell.ui.h:151
+msgid "Maximization"
+msgstr ""
+
+#: shell/shell.ui.h:152
 msgid "Disable _touchpad while typing"
 msgstr "Desativar o _touchpad ao digitar"
 
-#: shell/shell.ui.h:142
+#: shell/shell.ui.h:153
 msgid "Enable _mouse clicks with touchpad"
 msgstr "Ativar cliques do mouse com touchpad"
 
-#: shell/shell.ui.h:143
+#: shell/shell.ui.h:154
 msgid "Scrolling"
 msgstr "Rolagem"
 
-#: shell/shell.ui.h:144
+#: shell/shell.ui.h:155
 msgid "_Disabled"
 msgstr "_Desativado"
 
-#: shell/shell.ui.h:145
+#: shell/shell.ui.h:156
 msgid "Vertical _edge scrolling"
 msgstr "Rolagem Vertical _edge"
 
-#: shell/shell.ui.h:146
+#: shell/shell.ui.h:157
 msgid "_Horizontal edge scrolling"
 msgstr "Rolagem de borda horizontal"
 
-#: shell/shell.ui.h:147
+#: shell/shell.ui.h:158
 msgid "_Vertical two-finger scrolling"
 msgstr "Rolagem vertical de dois dedos"
 
-#: shell/shell.ui.h:148
+#: shell/shell.ui.h:159
 msgid "Horizontal two-_finger scrolling"
 msgstr "Deslocamento horizontal de dois dedos"
 
-#: shell/shell.ui.h:149
+#: shell/shell.ui.h:160
 msgid "Enabled touchpad"
 msgstr "Touchpad ativado"
 
-#: shell/shell.ui.h:150
+#: shell/shell.ui.h:161
 msgid "Touchpad"
 msgstr "Touchpad"
 
-#: shell/shell.ui.h:151
+#: shell/shell.ui.h:162
 msgid "<b>Di_rect internet connection</b>"
 msgstr "<b>Ligação à Internet do Di_rect </b>"
 
-#: shell/shell.ui.h:152
+#: shell/shell.ui.h:163
 msgid "<b>_Manual proxy configuration</b>"
 msgstr "<b> _Configuração de proxy manual </b>"
 
-#: shell/shell.ui.h:153
+#: shell/shell.ui.h:164
 msgid "H_TTP proxy:"
 msgstr "Proxy HTTP:"
 
-#: shell/shell.ui.h:154
+#: shell/shell.ui.h:165
 msgid "_Secure HTTP proxy:"
 msgstr "Proxy HTTP seguro:"
 
-#: shell/shell.ui.h:155
+#: shell/shell.ui.h:166
 msgid "_FTP proxy:"
 msgstr "_FTP proxy:"
 
-#: shell/shell.ui.h:156
+#: shell/shell.ui.h:167
 msgid "S_ocks host:"
 msgstr "S_ocks host:"
 
-#: shell/shell.ui.h:157
+#: shell/shell.ui.h:168
 msgid "Port:"
 msgstr "Porta:"
 
-#: shell/shell.ui.h:158
+#: shell/shell.ui.h:169
 msgid "_Details"
 msgstr "_Detalhes"
 
-#: shell/shell.ui.h:159
+#: shell/shell.ui.h:170
 msgid "<b>_Automatic proxy configuration</b>"
 msgstr "<b> _Configuração automática de proxy </b>"
 
-#: shell/shell.ui.h:160
+#: shell/shell.ui.h:171
 msgid "Autoconfiguration _URL:"
 msgstr "Autoconfiguração _URL:"
 
-#: shell/shell.ui.h:161
+#: shell/shell.ui.h:172
 msgid "Proxy Configuration"
 msgstr "Configuração de Proxy"
 
-#: shell/shell.ui.h:162
+#: shell/shell.ui.h:173
 msgid "Ignore Host List"
 msgstr "Ignorar lista de hosts"
 
-#: shell/shell.ui.h:163
+#: shell/shell.ui.h:174
 msgid "Ignored Hosts"
 msgstr "Hosts ignorados"
 
-#: shell/shell.ui.h:164
+#: shell/shell.ui.h:175
 msgid "Additional startup _programs:"
 msgstr "Programas adicionais de inicialização:"
 
-#: shell/shell.ui.h:165
+#: shell/shell.ui.h:176
 msgid "name"
 msgstr "nome"
 
-#: shell/shell.ui.h:166
+#: shell/shell.ui.h:177
 msgid "status"
 msgstr "status"
 
-#: shell/shell.ui.h:167
+#: shell/shell.ui.h:178
 msgid "Startup Programs"
 msgstr "Programas de inicialização"
 
-#: shell/shell.ui.h:168
+#: shell/shell.ui.h:179
 msgid "Change display appearance"
 msgstr "Alterar a aparência da exibição"
 
-#: shell/shell.ui.h:169
+#: shell/shell.ui.h:180
 msgid "Monitor:"
 msgstr "Monitor:"
 
-#: shell/shell.ui.h:170
+#: shell/shell.ui.h:181
 msgid "Resolution:"
 msgstr "Resolução:"
 
-#: shell/shell.ui.h:171
+#: shell/shell.ui.h:182
 msgid "Direction:"
 msgstr "Direção:"
 
-#: shell/shell.ui.h:172
+#: shell/shell.ui.h:183
 msgid "Save"
 msgstr "Salve "
 
-#: shell/shell.ui.h:173
+#: shell/shell.ui.h:184
 msgid "Same image in all monitors"
 msgstr "Mesma imagem em todos os monitores"
 
-#: shell/shell.ui.h:174
+#: shell/shell.ui.h:185
 msgid "Set as primary"
 msgstr "Definir como primário"
 
-#: shell/shell.ui.h:175
+#: shell/shell.ui.h:186
 msgid "Open Monitor"
 msgstr "Monitor aberto"
 
-#: shell/shell.ui.h:176
+#: shell/shell.ui.h:187
 msgid "Close Monitor"
 msgstr "Fechar monitor"
 
-#: shell/shell.ui.h:177
+#: shell/shell.ui.h:188
 msgid "Computer status"
 msgstr "Status do computador"
 
-#: shell/shell.ui.h:178
+#: shell/shell.ui.h:189
 msgid "AC Power"
 msgstr "Potência AC"
 
-#: shell/shell.ui.h:179
+#: shell/shell.ui.h:190
 msgid "Battery Power"
 msgstr "Energia da bateria"
 
-#: shell/shell.ui.h:180
+#: shell/shell.ui.h:191
 msgid "Put _computer to sleep when inactive:"
-msgstr "Coloque _computer para dormir\n"
+msgstr ""
+"Coloque _computer para dormir\n"
 " quando inativo:"
 
-#: shell/shell.ui.h:181
+#: shell/shell.ui.h:192
 msgid "Put _monitor to sleep when inactive:"
-msgstr "Coloque o _monitor para dormir\n"
+msgstr ""
+"Coloque o _monitor para dormir\n"
 " quando inativo:"
 
-#: shell/shell.ui.h:182
+#: shell/shell.ui.h:193
 msgid "When laptop lid is cl_osed:"
-msgstr "Quando tampa do laptop é \n"
+msgstr ""
+"Quando tampa do laptop é \n"
 "cl_osed:"
 
-#: shell/shell.ui.h:183
+#: shell/shell.ui.h:194
 msgid "Actions"
 msgstr "Ações"
 
-#: shell/shell.ui.h:184
+#: shell/shell.ui.h:195
 msgid "When the power _button is pressed:"
-msgstr "Quando o botão de energia \n"
+msgstr ""
+"Quando o botão de energia \n"
 "é pressionado:"
 
-#: shell/shell.ui.h:185
+#: shell/shell.ui.h:196
 msgid "When the sus_pend button is pressed:"
-msgstr "Quando o botão sus_pend é \n"
+msgstr ""
+"Quando o botão sus_pend é \n"
 "pressionado:"
 
-#: shell/shell.ui.h:186
+#: shell/shell.ui.h:197
 msgid "Icon display"
 msgstr "Exibição do ícone"
 
-#: shell/shell.ui.h:187
+#: shell/shell.ui.h:198
 msgid "Only display an icon when a battery is p_resent"
 msgstr "Exibe apenas um ícone quando a bateria é p_resent"
 
-#: shell/shell.ui.h:188
+#: shell/shell.ui.h:199
 msgid "_Always display an icon"
 msgstr "_ Sempre exibe um ícone"
 
-#: shell/shell.ui.h:189
+#: shell/shell.ui.h:200
 msgid "Power Configure"
 msgstr "Power Configure"
 
-#: shell/shell.ui.h:190
+#: shell/shell.ui.h:201
 msgid "Regard the computer as _idle after:"
 msgstr "Considere o computador como após:"
 
-#: shell/shell.ui.h:191
+#: shell/shell.ui.h:202
 msgid "_Activate screensaver when computer is idle"
 msgstr "_Ativar protetor de tela quando o computador estiver ocioso"
 
-#: shell/shell.ui.h:192
+#: shell/shell.ui.h:203
 msgid "_Lock screen when screensaver is active"
 msgstr "_ Bloqueie a tela quando a proteção de tela estiver ativa"
 
-#: shell/shell.ui.h:193
+#: shell/shell.ui.h:204
 msgid "preview"
 msgstr "preview"
 
-#: shell/shell.ui.h:194
+#: shell/shell.ui.h:205
 msgid "Screensavers:"
-msgstr "Protetores \n"
+msgstr ""
+"Protetores \n"
 "de tela:"
 
-#: shell/shell.ui.h:196
+#: shell/shell.ui.h:207
 msgid "Set display brightness to:"
 msgstr "Definir o brilho da tela para:"
 
-#: shell/shell.ui.h:197
+#: shell/shell.ui.h:208
 msgid "Screensaver"
 msgstr "Protetor de tela"
 
@@ -2481,10 +2606,11 @@ msgstr "- Page jump"
 msgid ""
 "%s\n"
 "Run '%s --help' to see a full list of available command line options.\n"
-msgstr "%s\n"
-"Run '%s --help' para ver uma lista completa das opções de linha de comando disponíveis. \n"
+msgstr ""
+"%s\n"
+"Run '%s --help' para ver uma lista completa das opções de linha de comando "
+"disponíveis. \n"
 
 #: shell/ukui-control-center.c:201
 msgid "window1"
 msgstr "window1"
-

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ukui-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-12 14:12+0800\n"
+"POT-Creation-Date: 2018-12-17 11:50+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,7 +38,9 @@ msgstr "Выберите цвет, который вам нравится, в к
 msgid ""
 "Set up disable. Please wait at least 5 seconds that system subject will "
 "restart"
-msgstr "Настроить отключить. Подождите не менее 5 секунд, чтобы системный объект перезапустился"
+msgstr ""
+"Настроить отключить. Подождите не менее 5 секунд, чтобы системный объект "
+"перезапустился"
 
 #: panels/appearance/appearance-windows.c:105
 #: panels/appearance/appearance-windows.c:109
@@ -139,7 +141,8 @@ msgid ""
 "%s, %s\n"
 "File Path: %s\n"
 "Artist: %s"
-msgstr "<b>%s</b>\n"
+msgstr ""
+"<b>%s</b>\n"
 "%s , %s\n"
 "Проход файла: %s\n"
 "Artist: %s"
@@ -151,7 +154,8 @@ msgid ""
 "%s\n"
 "File Path: %s\n"
 "Artist: %s"
-msgstr "<b>%s</b>\n"
+msgstr ""
+"<b>%s</b>\n"
 "%s\n"
 "Проход файла: %s\n"
 "Artist: %s"
@@ -171,15 +175,17 @@ msgid ""
 "DEST_NAME - relative name for the installed file.  This will get put in\n"
 "            the systemwide directory for RANDR configurations,\n"
 "            so the result will typically be %s/DEST_NAME\n"
-msgstr "Использование: %s SOURCE_FILE DEST_NAME \n"
+msgstr ""
+"Использование: %s SOURCE_FILE DEST_NAME \n"
 "\n"
-"Эта программа устанавливает профиль RANDR для настройки нескольких мониторов в системное местоположение. Полученный профиль будет использоваться, когда \n"
+"Эта программа устанавливает профиль RANDR для настройки нескольких мониторов "
+"в системное местоположение. Полученный профиль будет использоваться, когда \n"
 "подключается плагин RANDR в ukui-settings-daemon.\n"
 "\n"
-"SOURCE_FILE - полное имя пути, обычно /home/username/.config/monitors."
-"xml\n"
+"SOURCE_FILE - полное имя пути, обычно /home/username/.config/monitors.xml\n"
 "\n"
-"DEST_NAME - относительное имя для установленного файла. Это будет помещено в \n"
+"DEST_NAME - относительное имя для установленного файла. Это будет помещено "
+"в \n"
 "             системный каталог для конфигураций RANDR, \n"
 "             , поэтому результат будет обычно %s/DEST_NAME\n"
 
@@ -212,7 +218,8 @@ msgstr "Эта программа должна запускаться тольк
 
 #: panels/display/ukui-display-properties-install-systemwide.c:210
 msgid "PKEXEC_UID must be set to an integer value"
-msgstr "Значение PKEXEC_UID должно быть равно \n"
+msgstr ""
+"Значение PKEXEC_UID должно быть равно \n"
 "целочисленному значению"
 
 #: panels/display/ukui-display-properties-install-systemwide.c:216
@@ -290,7 +297,9 @@ msgstr "%d x %d"
 msgid ""
 "Select a monitor to change its properties; drag it to rearrange its "
 "placement."
-msgstr "Выберите монитор, чтобы изменить его свойства; перетащите его, чтобы изменить его размещение."
+msgstr ""
+"Выберите монитор, чтобы изменить его свойства; перетащите его, чтобы "
+"изменить его размещение."
 
 #: panels/display/xrandr-capplet.c:2204
 msgid "Could not save the monitor configuration"
@@ -298,7 +307,8 @@ msgstr "Не удалось сохранить конфигурацию мони
 
 #: panels/display/xrandr-capplet.c:2226
 msgid "Could not get session bus while applying display configuration"
-msgstr "Не удалось получить сессионную шину при использовании конфигурации дисплея"
+msgstr ""
+"Не удалось получить сессионную шину при использовании конфигурации дисплея"
 
 #: panels/display/xrandr-capplet.c:2245
 msgid "Could not detect displays"
@@ -348,7 +358,9 @@ msgid ""
 "The shortcut \"%s\" cannot be used because it will become impossible to type "
 "using this key.\n"
 "Please try with a key such as Control, Alt or Shift at the same time."
-msgstr "Ярлык \"%s\" не может использоваться, потому что с помощью этого ключа будет невозможно напечатать. \n"
+msgstr ""
+"Ярлык \"%s\" не может использоваться, потому что с помощью этого ключа будет "
+"невозможно напечатать. \n"
 "Пожалуйста, попробуйте одновременно с клавишей Control, Alt или Shift."
 
 #: panels/keyboard/ukui-keybinding-properties.c:1383
@@ -356,7 +368,8 @@ msgstr "Ярлык \"%s\" не может использоваться, пото
 msgid ""
 "The shortcut \"%s\" is already used for\n"
 "\"%s\",please reset!!!"
-msgstr "Ярлык \"%s\" уже используется для \n"
+msgstr ""
+"Ярлык \"%s\" уже используется для \n"
 "\"%s\", пожалуйста, сбросьте !!!"
 
 #: panels/keyboard/ukui-keybinding-properties.c:1527
@@ -401,8 +414,13 @@ msgstr "Автор: llanguage"
 
 #: panels/keyboard/ukui-keyboard-properties-layout-chooser.ui.h:7
 msgid "Preview:"
-msgstr "Предварительный \n"
+msgstr ""
+"Предварительный \n"
 "просмотр:"
+
+#: panels/mouse/mouse-setting.c:310 panels/mouse/mouse-setting.c:611
+msgid "default"
+msgstr "По умолчанию"
 
 #: panels/network-proxy/network.ui.h:1
 msgid "Network Proxy Details"
@@ -538,7 +556,8 @@ msgstr "%s зарядка (%.1f%%)"
 msgid ""
 "Battery is fully charged.\n"
 "Provides %s laptop runtime"
-msgstr "Аккумулятор полностью заряжен. \n"
+msgstr ""
+"Аккумулятор полностью заряжен. \n"
 "Проводит %s время работы ноутбука"
 
 #. TRANSLATORS: the device is fully charged
@@ -565,7 +584,8 @@ msgstr "Выгрузка %s (%.1f%%)"
 msgid ""
 "%s %s until charged (%.1f%%)\n"
 "Provides %s battery runtime"
-msgstr "%s %s до зарядки (%.1f%%)\n"
+msgstr ""
+"%s %s до зарядки (%.1f%%)\n"
 "Проводит%s время работы батареи"
 
 #. TRANSLATORS: device is charging, and we have a time to full and a percentage
@@ -681,12 +701,14 @@ msgstr "Текущий заряд:"
 
 #: panels/power/kpm-upower.c:510
 msgid "Last full charge:"
-msgstr "Последняя полная\n"
+msgstr ""
+"Последняя полная\n"
 " оплата:"
 
 #: panels/power/kpm-upower.c:517 panels/power/kpm-upower.c:539
 msgid "Design charge:"
-msgstr "Плата за \n"
+msgstr ""
+"Плата за \n"
 "проектирование:"
 
 #: panels/power/kpm-upower.c:523
@@ -815,12 +837,14 @@ msgstr "Ожидание разгрузки"
 
 #: panels/power/ukui-fullscreen-preview.ui.h:1
 msgid "Screensaver Preview"
-msgstr "Предварительный \n"
+msgstr ""
+"Предварительный \n"
 "просмотр заставки"
 
 #: panels/power/ukui-fullscreen-preview.ui.h:2
 msgid "Screensaver preview"
-msgstr "Предварительный \n"
+msgstr ""
+"Предварительный \n"
 "просмотр заставки"
 
 #: panels/power/ukui-screensaver-preferences.c:478
@@ -925,7 +949,8 @@ msgstr "заявка"
 
 #: panels/session-properties/program_properties.ui.h:5
 msgid "Program Location:"
-msgstr "Место проведения \n"
+msgstr ""
+"Место проведения \n"
 "программы:"
 
 #: panels/session-properties/program_properties.ui.h:6
@@ -966,7 +991,7 @@ msgstr "ОК"
 #: panels/user-accounts/change-name.ui.h:4
 #: panels/user-accounts/change-pwd.ui.h:4
 #: panels/user-accounts/change-type.ui.h:5
-#: panels/user-accounts/delete-user.ui.h:5 shell/shell.ui.h:195
+#: panels/user-accounts/delete-user.ui.h:5 shell/shell.ui.h:206
 msgid "label"
 msgstr "метка"
 
@@ -985,7 +1010,8 @@ msgstr "Изменить пароль"
 
 #: panels/user-accounts/change-type.ui.h:1
 msgid "Change Usertype"
-msgstr "Изменить тип \n"
+msgstr ""
+"Изменить тип \n"
 "пользователя"
 
 #: panels/user-accounts/change-type.ui.h:4
@@ -995,7 +1021,9 @@ msgstr "автоматический вход в систему"
 #: panels/user-accounts/change-type.ui.h:6
 msgid ""
 "Please make sure that the computer has at least one user is the administrator"
-msgstr "Убедитесь, что на компьютере есть как минимум один пользователь - администратор"
+msgstr ""
+"Убедитесь, что на компьютере есть как минимум один пользователь - "
+"администратор"
 
 #: panels/user-accounts/change-type.ui.h:7
 #: panels/user-accounts/user-create.ui.h:5
@@ -1006,7 +1034,8 @@ msgstr "Стандартный пользователь"
 msgid ""
 "Standard users can use most software, but you can not install software and \n"
 "change settings that affect all users."
-msgstr "Стандартные пользователи могут использовать большинство программ, \n"
+msgstr ""
+"Стандартные пользователи могут использовать большинство программ, \n"
 "но вы не можете установить программное обеспечение и \n"
 "менять настройки, которые влияют на всех пользователей."
 
@@ -1080,7 +1109,8 @@ msgstr "содержит имя пользователя в той или ино
 
 #: panels/user-accounts/delete-user.ui.h:1
 msgid "Delete User"
-msgstr "Удалить \n"
+msgstr ""
+"Удалить \n"
 "пользователя"
 
 #: panels/user-accounts/delete-user.ui.h:3
@@ -1190,7 +1220,9 @@ msgstr "Имя пользователя уже используется, исп�
 msgid ""
 "The user name corresponds to the group already exists,please use a different "
 "user name"
-msgstr "Имя пользователя, соответствующее группе, уже существует, используйте другое имя пользователя"
+msgstr ""
+"Имя пользователя, соответствующее группе, уже существует, используйте другое "
+"имя пользователя"
 
 #: panels/user-accounts/user-accounts.c:345
 msgid "username length need to less than 32!"
@@ -1251,7 +1283,8 @@ msgstr "Ошибка ввода пароля, пожалуйста, введит
 #: panels/user-accounts/user-accounts.c:1581
 #: panels/user-accounts/user-accounts.c:1691
 msgid "Standard user"
-msgstr "Стандартный \n"
+msgstr ""
+"Стандартный \n"
 "пользователь"
 
 #: panels/user-accounts/user-accounts.c:696
@@ -1300,12 +1333,14 @@ msgstr "Не удалось изменить имя пользователя!"
 
 #: panels/user-accounts/user-accounts.c:889
 msgid "the user has logged in, please log out and modify!"
-msgstr "пользователь вошел в систему, пожалуйста, внесите изменения и измените!"
+msgstr ""
+"пользователь вошел в систему, пожалуйста, внесите изменения и измените!"
 
 #: panels/user-accounts/user-accounts.c:1072
 #: panels/user-accounts/user-accounts.c:2313
 msgid "auto login"
-msgstr "автоматическая \n"
+msgstr ""
+"автоматическая \n"
 "авторизация"
 
 #: panels/user-accounts/user-accounts.c:1075
@@ -1323,7 +1358,10 @@ msgstr "_ХОРОШО"
 msgid ""
 "\tAlready have other users set to automatically log in,\t\n"
 " \tclick OK will overwrite the existing settings!"
-msgstr "\tДля того, чтобы другие пользователи автоматически установили автоматический вход в систему, \t\n \tclick OK перезапишет существующие настройки!"
+msgstr ""
+"\tДля того, чтобы другие пользователи автоматически установили "
+"автоматический вход в систему, \t\n"
+" \tclick OK перезапишет существующие настройки!"
 
 #: panels/user-accounts/user-accounts.c:1487
 msgid "The user can not be deleted!"
@@ -1333,15 +1371,18 @@ msgstr "Пользователь не может быть удален!"
 msgid ""
 "The user has logged in, please perform the delete operation after logging "
 "out!"
-msgstr "Пользователь выполнил вход в систему, выполнив операцию удаления после выхода из системы!"
+msgstr ""
+"Пользователь выполнил вход в систему, выполнив операцию удаления после "
+"выхода из системы!"
 
 #: panels/user-accounts/user-accounts.c:1520
 #, c-format
 msgid ""
 "<span weight='bold' font_desc='11'>do you confirm to delete all the files of "
 "%s?</span>"
-msgstr "<span weight = 'bold' font_desc = '11 '> Вы подтверждаете удаление всех файлов"
-"%s?</span>"
+msgstr ""
+"<span weight = 'bold' font_desc = '11 '> Вы подтверждаете удаление всех "
+"файлов%s?</span>"
 
 #: panels/user-accounts/user-accounts.c:1526
 #, c-format
@@ -1349,7 +1390,8 @@ msgid ""
 "if you want to delete the %s user, belonging to the user's \n"
 "desktop, documents, favorites, music, pictures and video \n"
 "folder will be deleted!"
-msgstr "если вы хотите удалить пользователя %s , принадлежащего пользовательскому \n"
+msgstr ""
+"если вы хотите удалить пользователя %s , принадлежащего пользовательскому \n"
 "desktop, документы, избранное, музыка, изображения и видео \n"
 "папка будет удалена!"
 
@@ -1364,17 +1406,20 @@ msgstr "переименовывать"
 
 #: panels/user-accounts/user-accounts.c:1591
 msgid "Change PWD"
-msgstr "Изменить\n"
+msgstr ""
+"Изменить\n"
 " PWD"
 
 #: panels/user-accounts/user-accounts.c:1596
 msgid "Change Face"
-msgstr "Изменить\n"
+msgstr ""
+"Изменить\n"
 " лицо"
 
 #: panels/user-accounts/user-accounts.c:1601
 msgid "Change Type"
-msgstr "Изменить\n"
+msgstr ""
+"Изменить\n"
 " тип"
 
 #: panels/user-accounts/user-accounts.c:1606
@@ -1383,7 +1428,8 @@ msgstr "удалять"
 
 #: panels/user-accounts/user-accounts.c:2208
 msgid "Browse more pictures..."
-msgstr "Просмотрите больше \n"
+msgstr ""
+"Просмотрите больше \n"
 "фотографий ..."
 
 #: panels/user-accounts/user-create.ui.h:1
@@ -1392,19 +1438,23 @@ msgstr "Регистрация"
 
 #: panels/user-accounts/user-create.ui.h:3
 msgid "Automatic Logon"
-msgstr "Автоматический \n"
+msgstr ""
+"Автоматический \n"
 "вход в систему"
 
 #: panels/user-accounts/user-create.ui.h:4
 msgid "select picture"
-msgstr "выбрать \n"
+msgstr ""
+"выбрать \n"
 "картинку"
 
 #: panels/user-accounts/user-create.ui.h:6
 msgid ""
 "Standard users can use most software, but you can not install software\n"
 "and change settings that affect all users."
-msgstr "Стандартные пользователи могут использовать большинство программ, но вы не можете установить программное обеспечение \n"
+msgstr ""
+"Стандартные пользователи могут использовать большинство программ, но вы не "
+"можете установить программное обеспечение \n"
 "и изменить настройки, которые влияют на всех пользователей."
 
 #: panels/volume-control/gvc-balance-bar.c:116
@@ -1471,7 +1521,8 @@ msgstr "Co_nnector"
 
 #: panels/volume-control/gvc-mixer-dialog.c:522
 msgid "Peak detect"
-msgstr "Пиковое \n"
+msgstr ""
+"Пиковое \n"
 "обнаружение"
 
 #: panels/volume-control/gvc-mixer-dialog.c:609
@@ -1510,7 +1561,9 @@ msgstr "Приложения"
 
 #: panels/volume-control/gvc-mixer-dialog.c:1874
 msgid "No application is currently playing or recording audio."
-msgstr "В настоящее время ни одно приложение не воспроизводит или не записывает аудио."
+msgstr ""
+"В настоящее время ни одно приложение не воспроизводит или не записывает "
+"аудио."
 
 #: panels/volume-control/gvc-mixer-dialog.c:1882
 msgid "Sound Effects"
@@ -1551,7 +1604,8 @@ msgstr "Настройки для выбранного устройства:"
 
 #: panels/volume-control/gvc-mixer-dialog.c:2045
 msgid "Hardware"
-msgstr "аппаратные \n"
+msgstr ""
+"аппаратные \n"
 "средства"
 
 #: panels/volume-control/gvc-mixer-dialog.c:2051
@@ -1581,7 +1635,8 @@ msgstr "Встроенный"
 #: panels/volume-control/gvc-sound-theme-chooser.c:647
 #: panels/volume-control/sound-theme-file-utils.c:291
 msgid "Custom"
-msgstr "изготовленный\n"
+msgstr ""
+"изготовленный\n"
 " на заказ"
 
 #: panels/volume-control/gvc-sound-theme-chooser.c:760
@@ -1617,7 +1672,8 @@ msgstr "Стоп"
 #: panels/volume-control/gvc-speaker-test.c:219
 #: panels/volume-control/gvc-speaker-test.c:331
 msgid "Test"
-msgstr "Контрольная \n"
+msgstr ""
+"Контрольная \n"
 "работа"
 
 #: panels/volume-control/gvc-speaker-test.c:227
@@ -1636,16 +1692,18 @@ msgstr "Время и даты"
 msgid " Change the time and date of this computer "
 msgstr " Изменение времени и даты этого компьютера "
 
-#: shell/mainwindow.c:188 shell/shell.ui.h:17
+#: shell/mainwindow.c:188
 msgid "User Account"
-msgstr "Учетная запись \n"
-"пользователя"
+msgstr ""
+"Учетная запись пользователя"
 
 #: shell/mainwindow.c:191
 msgid ""
 " Change the computer user account \n"
 " settings and password"
-msgstr " Изменение учетной записи пользователя компьютера \n настроек и пароля"
+msgstr ""
+" Изменение учетной записи пользователя компьютера \n"
+" настроек и пароля"
 
 #: shell/mainwindow.c:199 shell/shell.ui.h:12
 msgid "Personalization"
@@ -1655,12 +1713,14 @@ msgstr "воплощение"
 msgid ""
 " Change the computer desktop background \n"
 " and related theme"
-msgstr " Измените фоновый рисунок рабочего стола компьютера \n и соответствующую тему"
+msgstr ""
+" Измените фоновый рисунок рабочего стола компьютера \n"
+" и соответствующую тему"
 
 #: shell/mainwindow.c:210
 msgid "Default Application"
-msgstr "Приложение \n"
-"по умолчанию"
+msgstr ""
+"Приложение по умолчанию"
 
 #: shell/mainwindow.c:213
 msgid " Change the default application on this computer "
@@ -1692,8 +1752,8 @@ msgstr " Измените настройки звука на этом компь
 
 #: shell/mainwindow.c:283
 msgid "Network Agent"
-msgstr "Сетевой \n"
-"агент"
+msgstr ""
+"Сетевой агент"
 
 #: shell/mainwindow.c:286
 msgid " Change the network agent on this computer "
@@ -1701,8 +1761,8 @@ msgstr " Изменение сетевого агента на этом комп
 
 #: shell/mainwindow.c:294 shell/shell.ui.h:13
 msgid "Autostart"
-msgstr "Автоматический \n"
-"старт"
+msgstr ""
+"Автоматический старт"
 
 #: shell/mainwindow.c:297
 msgid " Change the autostart program on this computer "
@@ -1714,8 +1774,8 @@ msgstr " Измените настройки монитора на этом ко
 
 #: shell/mainwindow.c:318
 msgid "Power Management"
-msgstr "Управление \n"
-"энергопотреблением"
+msgstr ""
+"Управление энергопотреблением"
 
 #: shell/mainwindow.c:321
 msgid " Change the power management settings on this computer "
@@ -1749,12 +1809,19 @@ msgstr "пядь"
 msgid ""
 "Default \n"
 "Application"
-msgstr "По умолчанию \n"
+msgstr ""
+"По умолчанию \n"
 "Приложение"
 
 #: shell/shell.ui.h:16
 msgid "Time Dates"
 msgstr "Время"
+
+#: shell/shell.ui.h:17
+msgid "User  Account"
+msgstr ""
+"Учетная запись \n"
+"пользователя"
 
 #: shell/shell.ui.h:18
 msgid "System Configuration"
@@ -1768,26 +1835,30 @@ msgstr "принтер"
 msgid ""
 "Power \n"
 "Management"
-msgstr "Мощность \n"
+msgstr ""
+"Мощность \n"
 "Управление"
 
 #: shell/shell.ui.h:26
 msgid ""
 "Network \n"
 "Agent"
-msgstr "Сеть \n"
+msgstr ""
+"Сеть \n"
 "Агент"
 
 #: shell/shell.ui.h:28
 msgid ""
 "Network \n"
 "Connections"
-msgstr "Сеть \n"
+msgstr ""
+"Сеть \n"
 "Соединения"
 
 #: shell/shell.ui.h:30
 msgid "Hardware Configure"
-msgstr "Настройка \n"
+msgstr ""
+"Настройка \n"
 "оборудования"
 
 #: shell/shell.ui.h:31
@@ -1800,7 +1871,8 @@ msgstr "_Personalization"
 
 #: shell/shell.ui.h:33
 msgid "_Autostart"
-msgstr "_Автоматический \n"
+msgstr ""
+"_Автоматический \n"
 "старт"
 
 #: shell/shell.ui.h:34
@@ -1813,12 +1885,14 @@ msgstr "_Time Даты"
 
 #: shell/shell.ui.h:36
 msgid "_User Account"
-msgstr "_Учетная запись \n"
+msgstr ""
+"_Учетная запись \n"
 "пользователя"
 
 #: shell/shell.ui.h:37
 msgid "Network _Connection"
-msgstr "Подключение \n"
+msgstr ""
+"Подключение \n"
 "к сети"
 
 #: shell/shell.ui.h:38
@@ -1847,7 +1921,8 @@ msgstr "_Monitor"
 
 #: shell/shell.ui.h:44
 msgid "Po_wer Manage"
-msgstr "Po_wer \n"
+msgstr ""
+"Po_wer \n"
 "Управление"
 
 #: shell/shell.ui.h:45
@@ -1939,526 +2014,589 @@ msgid "24-hours"
 msgstr "24 часа"
 
 #: shell/shell.ui.h:68
+msgid "lang settings"
+msgstr ""
+
+#: shell/shell.ui.h:69
 msgid "Current Account"
 msgstr "Текущий аккаунт"
 
-#: shell/shell.ui.h:69
+#: shell/shell.ui.h:70
 msgid "Other Accounts"
-msgstr "Другие учетные\n"
+msgstr ""
+"Другие учетные\n"
 " записи"
 
-#: shell/shell.ui.h:70
+#: shell/shell.ui.h:71
 msgid "Create a new account"
 msgstr "Создать новый аккаунт"
 
-#: shell/shell.ui.h:71
+#: shell/shell.ui.h:72
 msgid "Add"
 msgstr "Добавить"
 
-#: shell/shell.ui.h:72
+#: shell/shell.ui.h:73
 msgid "delete"
 msgstr "Удалить"
 
-#: shell/shell.ui.h:73
+#: shell/shell.ui.h:74
 msgid "Style:"
 msgstr "Стиль:"
 
-#: shell/shell.ui.h:74
+#: shell/shell.ui.h:75
 msgid "wallpaper"
 msgstr "обои"
 
-#: shell/shell.ui.h:75
+#: shell/shell.ui.h:76
 msgid "Select the one you love color as the theme color"
 msgstr "Выберите цвет, который вы любите, в качестве цвета темы"
 
-#: shell/shell.ui.h:76
+#: shell/shell.ui.h:77
 msgid "Theme color"
 msgstr "Цвет темы"
 
-#: shell/shell.ui.h:77
+#: shell/shell.ui.h:78
 msgid "Font choice:"
 msgstr "Выбор шрифта:"
 
-#: shell/shell.ui.h:78
+#: shell/shell.ui.h:79
 msgid "Font size :"
 msgstr "Размер шрифта :"
 
-#: shell/shell.ui.h:80
+#: shell/shell.ui.h:81
 #, no-c-format
 msgid "small(S) --100%(default)"
 msgstr "маленький (S) - 100% (по умолчанию)"
 
-#: shell/shell.ui.h:82
+#: shell/shell.ui.h:83
 #, no-c-format
 msgid "medium(M)--125%"
 msgstr "средний (М) - 125%"
 
-#: shell/shell.ui.h:84
+#: shell/shell.ui.h:85
 #, no-c-format
 msgid "large (L) --150%"
 msgstr "большой (L) - 150%"
 
-#: shell/shell.ui.h:85
+#: shell/shell.ui.h:86
 msgid "Please select the clearest sample text"
 msgstr "Выберите наиболее четкий образец текста"
 
-#: shell/shell.ui.h:86
+#: shell/shell.ui.h:87
 msgid "Restore Defaults"
-msgstr "Восстановить значения\n"
+msgstr ""
+"Восстановить значения\n"
 " по умолчанию"
 
-#: shell/shell.ui.h:87
+#: shell/shell.ui.h:88
 msgid "Font"
 msgstr "Шрифт"
 
-#: shell/shell.ui.h:88
+#: shell/shell.ui.h:89
 msgid "mouse double click action"
 msgstr "действие двойного щелчка мыши"
 
-#: shell/shell.ui.h:89
+#: shell/shell.ui.h:90
 msgid "mouse middle click action"
 msgstr "средний клик мыши"
 
-#: shell/shell.ui.h:90
+#: shell/shell.ui.h:91
 msgid "mouse right click action"
 msgstr "действие мыши правой кнопкой мыши"
 
-#: shell/shell.ui.h:91
+#: shell/shell.ui.h:92
 msgid "windows"
 msgstr "окна"
 
-#: shell/shell.ui.h:92
+#: shell/shell.ui.h:93
+msgid "show computer icon on desktop"
+msgstr ""
+
+#: shell/shell.ui.h:94
+msgid "show home floder on desktop"
+msgstr ""
+
+#: shell/shell.ui.h:95
+msgid "show network icon on desktop"
+msgstr ""
+
+#: shell/shell.ui.h:96
+msgid "show trash on desktop"
+msgstr ""
+
+#: shell/shell.ui.h:97
+msgid "show volumes on desktop"
+msgstr ""
+
+#: shell/shell.ui.h:98
+msgid "Desktop"
+msgstr ""
+
+#: shell/shell.ui.h:99
 msgid "Internet"
 msgstr "интернет"
 
-#: shell/shell.ui.h:93
+#: shell/shell.ui.h:100
 msgid "Web Browser:"
 msgstr "Веб-браузер:"
 
-#: shell/shell.ui.h:94
+#: shell/shell.ui.h:101
 msgid "Mail Reader:"
 msgstr "Mail Reader:"
 
-#: shell/shell.ui.h:95
+#: shell/shell.ui.h:102
 msgid "Multimedia"
 msgstr "мультимедиа"
 
-#: shell/shell.ui.h:96
+#: shell/shell.ui.h:103
 msgid "Image Viewer:"
-msgstr "Просмотр\n"
+msgstr ""
+"Просмотр\n"
 " изображений:"
 
-#: shell/shell.ui.h:97
+#: shell/shell.ui.h:104
 msgid "Audio Player:"
 msgstr "Аудиоплеер:"
 
-#: shell/shell.ui.h:98
+#: shell/shell.ui.h:105
 msgid "Video Player:"
 msgstr "Видео-плеер:"
 
-#: shell/shell.ui.h:99
+#: shell/shell.ui.h:106
 msgid "System"
 msgstr "система"
 
-#: shell/shell.ui.h:100
+#: shell/shell.ui.h:107
 msgid "Text Editor:"
-msgstr "Текстовый\n"
+msgstr ""
+"Текстовый\n"
 " редактор:"
 
-#: shell/shell.ui.h:101
+#: shell/shell.ui.h:108
 msgid "File Manager:"
-msgstr "Файловый \n"
+msgstr ""
+"Файловый \n"
 "менеджер:"
 
-#: shell/shell.ui.h:102
+#: shell/shell.ui.h:109
 msgid "Network Connections"
 msgstr "Сетевые соединения"
 
-#: shell/shell.ui.h:103
+#: shell/shell.ui.h:110
 msgid "Repeat Keys"
 msgstr "Повторить клавиши"
 
-#: shell/shell.ui.h:104
+#: shell/shell.ui.h:111
 msgid "Key presses _repeat when key is held down"
 msgstr "При нажатии клавиши нажатия клавиш _repeat"
 
-#: shell/shell.ui.h:105
+#: shell/shell.ui.h:112
 msgid "_Delay:"
 msgstr "_Delay:"
 
-#: shell/shell.ui.h:106
+#: shell/shell.ui.h:113
 msgid "_Speed:"
 msgstr "_Speed:"
 
-#: shell/shell.ui.h:107
+#: shell/shell.ui.h:114
 msgid "Short"
 msgstr "короткий"
 
-#: shell/shell.ui.h:108
+#: shell/shell.ui.h:115
 msgid "Slow"
 msgstr "Медленный"
 
-#: shell/shell.ui.h:109
+#: shell/shell.ui.h:116
 msgid "Repeat keys speed"
-msgstr "Повторить скорость\n"
+msgstr ""
+"Повторить скорость\n"
 " клавиш"
 
-#: shell/shell.ui.h:110
+#: shell/shell.ui.h:117
 msgid "Long"
 msgstr "Длинный"
 
-#: shell/shell.ui.h:111
+#: shell/shell.ui.h:118
 msgid "Fast"
 msgstr "Быстро"
 
-#: shell/shell.ui.h:112
+#: shell/shell.ui.h:119
 msgid "To test the repetition rate of the input character:"
 msgstr "Чтобы проверить частоту повторения входного символа:"
 
-#: shell/shell.ui.h:113
+#: shell/shell.ui.h:120
 msgid "Cursor Blinking"
 msgstr "Курсор мигает"
 
-#: shell/shell.ui.h:114
+#: shell/shell.ui.h:121
 msgid "Cursor _blinks in text fields"
 msgstr "Курсор _blinks в текстовых полях"
 
-#: shell/shell.ui.h:115
+#: shell/shell.ui.h:122
 msgid "S_peed:"
 msgstr "S_peed:"
 
-#: shell/shell.ui.h:116
+#: shell/shell.ui.h:123
 msgid "Cursor blinks speed"
-msgstr "Скорость мигания\n"
+msgstr ""
+"Скорость мигания\n"
 " курсора"
 
-#: shell/shell.ui.h:117
+#: shell/shell.ui.h:124
 msgid "General"
 msgstr "Генеральная"
 
-#: shell/shell.ui.h:118
+#: shell/shell.ui.h:125
 msgid ""
 "Please add the language you will use to the list. And the first one in the "
 "list is the most\n"
 "commonly used language."
-msgstr "Добавьте язык, который вы будете использовать в списке. И первый в списке - самый\n"
+msgstr ""
+"Добавьте язык, который вы будете использовать в списке. И первый в списке - "
+"самый\n"
 "распространенный язык."
 
-#: shell/shell.ui.h:120
+#: shell/shell.ui.h:127
 msgid "_Show..."
 msgstr "_Шоу..."
 
-#: shell/shell.ui.h:121
+#: shell/shell.ui.h:128
 msgid "List of keyboard layouts selected for usage"
 msgstr "Список раскладок клавиатуры, выбранных для использования"
 
-#: shell/shell.ui.h:122
+#: shell/shell.ui.h:129
 msgid "_Separate layout for each window"
 msgstr "_Серементальная компоновка для каждого окна"
 
-#: shell/shell.ui.h:123
+#: shell/shell.ui.h:130
 msgid "New windows u_se active window's layout"
 msgstr "Новые окна активного окна u_se"
 
-#: shell/shell.ui.h:124
+#: shell/shell.ui.h:131
 msgid "Reset to De_faults"
 msgstr "Сброс к De_faults"
 
-#: shell/shell.ui.h:125
+#: shell/shell.ui.h:132
 msgid "Layouts"
 msgstr "Макеты"
 
-#: shell/shell.ui.h:126
+#: shell/shell.ui.h:133
 msgid ""
 "\"To edit a shortcut key, click on the corresponding row and type a new key "
 "\"\n"
 "\"combination, or press backspace to clear.\""
-msgstr "\"Чтобы отредактировать комбинацию клавиш, щелкните соответствующую строку и введите новую комбинацию клавиш"
-"\"\n"
+msgstr ""
+"\"Чтобы отредактировать комбинацию клавиш, щелкните соответствующую строку и "
+"введите новую комбинацию клавиш\"\n"
 "\"или нажмите кнопку возврата для очистки. \""
 
-#: shell/shell.ui.h:128
+#: shell/shell.ui.h:135
 msgid "Shortcut"
-msgstr "кратчайший \n"
+msgstr ""
+"кратчайший \n"
 "путь"
 
-#: shell/shell.ui.h:129
+#: shell/shell.ui.h:136
 msgid "_Right-handed"
 msgstr "_Right руками"
 
-#: shell/shell.ui.h:130
+#: shell/shell.ui.h:137
 msgid "_Left-handed"
 msgstr "_Левша"
 
-#: shell/shell.ui.h:131
+#: shell/shell.ui.h:138
 msgid "Sh_ow position of pointer when the Control key is pressed"
 msgstr "Sh_ow позиция указателя при нажатии клавиши управления"
 
-#: shell/shell.ui.h:132
+#: shell/shell.ui.h:139
 msgid "S_ensitivity:"
 msgstr "S_ensitivity:"
 
-#: shell/shell.ui.h:133
+#: shell/shell.ui.h:140
 msgid "Low"
 msgstr "Низкий"
 
-#: shell/shell.ui.h:134
+#: shell/shell.ui.h:141
 msgid "High"
 msgstr "Высокая"
 
-#: shell/shell.ui.h:135
+#: shell/shell.ui.h:142
 msgid "Double-click the right bulb to test your settings"
 msgstr "Дважды щелкните правую лампу, чтобы проверить свои настройки."
 
-#: shell/shell.ui.h:136
+#: shell/shell.ui.h:143
 msgid "_Timeout:"
 msgstr "_Timeout:"
 
-#: shell/shell.ui.h:137
+#: shell/shell.ui.h:144
 msgid "Pointer moving speed"
 msgstr "Скорость перемещения указателя"
 
-#: shell/shell.ui.h:138
+#: shell/shell.ui.h:145
 msgid "Locate Pointer"
 msgstr "Найти указатель"
 
-#: shell/shell.ui.h:139
+#: shell/shell.ui.h:146
 msgid "Mouse Keys"
 msgstr "Клавиши мыши"
 
-#: shell/shell.ui.h:140
+#: shell/shell.ui.h:147
 msgid "Double-Click Speed"
 msgstr "Скорость двойного клика"
 
-#: shell/shell.ui.h:141
+#: shell/shell.ui.h:148
+msgid "Cursor Settiings"
+msgstr "Курсор мигает"
+
+#: shell/shell.ui.h:149
+msgid "Cursor theme :"
+msgstr "Из темы"
+
+#: shell/shell.ui.h:150
+msgid "Common"
+msgstr "команда"
+
+#: shell/shell.ui.h:151
+msgid "Maximization"
+msgstr ""
+
+#: shell/shell.ui.h:152
 msgid "Disable _touchpad while typing"
 msgstr "Отключить _touchpad при наборе текста"
 
-#: shell/shell.ui.h:142
+#: shell/shell.ui.h:153
 msgid "Enable _mouse clicks with touchpad"
 msgstr "Включить клики мышью с сенсорной панелью"
 
-#: shell/shell.ui.h:143
+#: shell/shell.ui.h:154
 msgid "Scrolling"
 msgstr "Скроллинг"
 
-#: shell/shell.ui.h:144
+#: shell/shell.ui.h:155
 msgid "_Disabled"
 msgstr "_Инвалид"
 
-#: shell/shell.ui.h:145
+#: shell/shell.ui.h:156
 msgid "Vertical _edge scrolling"
 msgstr "Вертикальная прокрутка"
 
-#: shell/shell.ui.h:146
+#: shell/shell.ui.h:157
 msgid "_Horizontal edge scrolling"
 msgstr "Прокрутка горизонтальной кромки"
 
-#: shell/shell.ui.h:147
+#: shell/shell.ui.h:158
 msgid "_Vertical two-finger scrolling"
 msgstr "_Вертикальная прокрутка с двумя пальцами"
 
-#: shell/shell.ui.h:148
+#: shell/shell.ui.h:159
 msgid "Horizontal two-_finger scrolling"
 msgstr "Горизонтальная прокрутка с двумя символами"
 
-#: shell/shell.ui.h:149
+#: shell/shell.ui.h:160
 msgid "Enabled touchpad"
-msgstr "Включенная \n"
+msgstr ""
+"Включенная \n"
 "сенсорная панель"
 
-#: shell/shell.ui.h:150
+#: shell/shell.ui.h:161
 msgid "Touchpad"
-msgstr "Сенсорная \n"
+msgstr ""
+"Сенсорная \n"
 "панель"
 
-#: shell/shell.ui.h:151
+#: shell/shell.ui.h:162
 msgid "<b>Di_rect internet connection</b>"
 msgstr "<b> Подключение к Интернету Di_rect </b>"
 
-#: shell/shell.ui.h:152
+#: shell/shell.ui.h:163
 msgid "<b>_Manual proxy configuration</b>"
 msgstr "<b> Конфигурация пользовательского прокси-сервера </b>"
 
-#: shell/shell.ui.h:153
+#: shell/shell.ui.h:164
 msgid "H_TTP proxy:"
 msgstr "Прокси-сервер H_TTP:"
 
-#: shell/shell.ui.h:154
+#: shell/shell.ui.h:165
 msgid "_Secure HTTP proxy:"
 msgstr "_Secure HTTP-прокси:"
 
-#: shell/shell.ui.h:155
+#: shell/shell.ui.h:166
 msgid "_FTP proxy:"
 msgstr "_FTP-прокси:"
 
-#: shell/shell.ui.h:156
+#: shell/shell.ui.h:167
 msgid "S_ocks host:"
 msgstr "Хост S_ocks:"
 
-#: shell/shell.ui.h:157
+#: shell/shell.ui.h:168
 msgid "Port:"
 msgstr "Порт:"
 
-#: shell/shell.ui.h:158
+#: shell/shell.ui.h:169
 msgid "_Details"
 msgstr "_Подробности"
 
-#: shell/shell.ui.h:159
+#: shell/shell.ui.h:170
 msgid "<b>_Automatic proxy configuration</b>"
 msgstr "<b> _Автоматическая конфигурация прокси-сервера </b>"
 
-#: shell/shell.ui.h:160
+#: shell/shell.ui.h:171
 msgid "Autoconfiguration _URL:"
 msgstr "Автоконфигурация _URL:"
 
-#: shell/shell.ui.h:161
+#: shell/shell.ui.h:172
 msgid "Proxy Configuration"
 msgstr "Конфигурация прокси"
 
-#: shell/shell.ui.h:162
+#: shell/shell.ui.h:173
 msgid "Ignore Host List"
-msgstr "Игнорировать \n"
+msgstr ""
+"Игнорировать \n"
 "список хостов"
 
-#: shell/shell.ui.h:163
+#: shell/shell.ui.h:174
 msgid "Ignored Hosts"
-msgstr "Игнорируемые \n"
+msgstr ""
+"Игнорируемые \n"
 "хосты"
 
-#: shell/shell.ui.h:164
+#: shell/shell.ui.h:175
 msgid "Additional startup _programs:"
 msgstr "Дополнительные стартовые _программы:"
 
-#: shell/shell.ui.h:165
+#: shell/shell.ui.h:176
 msgid "name"
 msgstr "имя"
 
-#: shell/shell.ui.h:166
+#: shell/shell.ui.h:177
 msgid "status"
 msgstr "статус"
 
-#: shell/shell.ui.h:167
+#: shell/shell.ui.h:178
 msgid "Startup Programs"
 msgstr "Запуск программ"
 
-#: shell/shell.ui.h:168
+#: shell/shell.ui.h:179
 msgid "Change display appearance"
 msgstr "Изменение внешнего вида дисплея"
 
-#: shell/shell.ui.h:169
+#: shell/shell.ui.h:180
 msgid "Monitor:"
 msgstr "Монитор:"
 
-#: shell/shell.ui.h:170
+#: shell/shell.ui.h:181
 msgid "Resolution:"
 msgstr "Разрешение:"
 
-#: shell/shell.ui.h:171
+#: shell/shell.ui.h:182
 msgid "Direction:"
 msgstr "Направление:"
 
-#: shell/shell.ui.h:172
+#: shell/shell.ui.h:183
 msgid "Save"
 msgstr "Сохранить"
 
-#: shell/shell.ui.h:173
+#: shell/shell.ui.h:184
 msgid "Same image in all monitors"
 msgstr "Такое же изображение во всех мониторах"
 
-#: shell/shell.ui.h:174
+#: shell/shell.ui.h:185
 msgid "Set as primary"
-msgstr "Установить как \n"
+msgstr ""
+"Установить как \n"
 "первичный"
 
-#: shell/shell.ui.h:175
+#: shell/shell.ui.h:186
 msgid "Open Monitor"
 msgstr "Открытый монитор"
 
-#: shell/shell.ui.h:176
+#: shell/shell.ui.h:187
 msgid "Close Monitor"
 msgstr "Закрыть монитор"
 
-#: shell/shell.ui.h:177
+#: shell/shell.ui.h:188
 msgid "Computer status"
 msgstr "Состояние компьютера"
 
-#: shell/shell.ui.h:178
+#: shell/shell.ui.h:189
 msgid "AC Power"
-msgstr "Мощность \n"
+msgstr ""
+"Мощность \n"
 "переменного тока"
 
-#: shell/shell.ui.h:179
+#: shell/shell.ui.h:190
 msgid "Battery Power"
 msgstr "Заряд батареи"
 
-#: shell/shell.ui.h:180
+#: shell/shell.ui.h:191
 msgid "Put _computer to sleep when inactive:"
-msgstr "Поставьте _компьютер в режим сна,\n"
+msgstr ""
+"Поставьте _компьютер в режим сна,\n"
 " когда он неактивен:"
 
-#: shell/shell.ui.h:181
+#: shell/shell.ui.h:192
 msgid "Put _monitor to sleep when inactive:"
-msgstr "Поместите _monitor в режим сна, \n"
+msgstr ""
+"Поместите _monitor в режим сна, \n"
 "когда он неактивен:"
 
-#: shell/shell.ui.h:182
+#: shell/shell.ui.h:193
 msgid "When laptop lid is cl_osed:"
 msgstr "Когда крышка ноутбука cl_osed:"
 
-#: shell/shell.ui.h:183
+#: shell/shell.ui.h:194
 msgid "Actions"
 msgstr "действия"
 
-#: shell/shell.ui.h:184
+#: shell/shell.ui.h:195
 msgid "When the power _button is pressed:"
 msgstr "При нажатии кнопки питания:"
 
-#: shell/shell.ui.h:185
+#: shell/shell.ui.h:196
 msgid "When the sus_pend button is pressed:"
 msgstr "Когда нажата кнопка Sus_pend:"
 
-#: shell/shell.ui.h:186
+#: shell/shell.ui.h:197
 msgid "Icon display"
 msgstr "Дисплей значков"
 
-#: shell/shell.ui.h:187
+#: shell/shell.ui.h:198
 msgid "Only display an icon when a battery is p_resent"
 msgstr "Отображать только значок, когда батарея p_resent"
 
-#: shell/shell.ui.h:188
+#: shell/shell.ui.h:199
 msgid "_Always display an icon"
 msgstr "_ Всегда показывает значок"
 
-#: shell/shell.ui.h:189
+#: shell/shell.ui.h:200
 msgid "Power Configure"
 msgstr "Настройка питания"
 
-#: shell/shell.ui.h:190
+#: shell/shell.ui.h:201
 msgid "Regard the computer as _idle after:"
 msgstr "Обратитесь к компьютеру как _idle после:"
 
-#: shell/shell.ui.h:191
+#: shell/shell.ui.h:202
 msgid "_Activate screensaver when computer is idle"
 msgstr "_Активировать заставку, когда компьютер простаивает"
 
-#: shell/shell.ui.h:192
+#: shell/shell.ui.h:203
 msgid "_Lock screen when screensaver is active"
 msgstr "_Личный экран, когда активна заставка"
 
-#: shell/shell.ui.h:193
+#: shell/shell.ui.h:204
 msgid "preview"
 msgstr "предварительный просмотр"
 
-#: shell/shell.ui.h:194
+#: shell/shell.ui.h:205
 msgid "Screensavers:"
 msgstr "Заставки:"
 
-#: shell/shell.ui.h:196
+#: shell/shell.ui.h:207
 msgid "Set display brightness to:"
 msgstr "Установите яркость дисплея:"
 
-#: shell/shell.ui.h:197
+#: shell/shell.ui.h:208
 msgid "Screensaver"
 msgstr "Хранитель экрана"
 
@@ -2503,10 +2641,11 @@ msgstr "- Прыжок страницы"
 msgid ""
 "%s\n"
 "Run '%s --help' to see a full list of available command line options.\n"
-msgstr "%s\n"
-"Run '%s --help', чтобы просмотреть полный список доступных параметров командной строки. \n"
+msgstr ""
+"%s\n"
+"Run '%s --help', чтобы просмотреть полный список доступных параметров "
+"командной строки. \n"
 
 #: shell/ukui-control-center.c:201
 msgid "window1"
 msgstr "window1"
-

@@ -313,7 +313,7 @@ Application</property>
                                 </child>
                                 <child>
                                   <object class="GtkButton" id="button2">
-                                    <property name="label" translatable="yes">User Account</property>
+                                    <property name="label" translatable="yes">User  Account</property>
                                     <property name="width_request">100</property>
                                     <property name="height_request">108</property>
                                     <property name="visible">True</property>
