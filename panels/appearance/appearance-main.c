@@ -22,7 +22,8 @@
 #include "appearance-desktop.h"
 #include "appearance-font.h"
 #include "appearance-windows.h"
-#include "appearance-desktopsettings.h"
+#include "appearance-fm.h"
+#include "appearance-media.h"
 #include <stdlib.h>
 #include "appearance-theme.h"
 
@@ -66,7 +67,8 @@ void add_appearance_app(GtkBuilder *builder)
     theme_init(data);
     font_init(data);
     windows_init(data);
-    desktopsettings_init(data);
+    media_init(data);
+    filemanager_init(data);
 	g_strfreev(wallpaper_files);
 }
 

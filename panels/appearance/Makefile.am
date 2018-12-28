@@ -22,6 +22,8 @@ libappearance_la_SOURCES= \
 	appearance-desktop.c	\
 	appearance-theme.c	\
 	appearance-theme.h	\
+	appearance-media.c	\
+	appearance-media.c	\
 	ukui-wp-item.c	\
 	ukui-wp-item.h	\
 	ukui-wp-xml.c	\
@@ -33,8 +35,8 @@ libappearance_la_SOURCES= \
 	appearance-font.h	\
 	appearance-windows.c \
 	appearance-windows.h	\
-	appearance-desktopsettings.c \
-	appearance-desktopsettings.h	\
+	appearance-fm.c \
+	appearance-fm.h	\
 	$(NULL)
 
 libappearance_la_LIBADD =	\

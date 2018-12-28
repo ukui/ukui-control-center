@@ -18,5 +18,5 @@
  *
  */
 #include "appearance.h"
-void desktopsettings_init(AppearanceData* data);
-void desktopsettings_shutdown(AppearanceData* data);
+void media_init(AppearanceData* data);
+void media_shutdown(AppearanceData* data);
