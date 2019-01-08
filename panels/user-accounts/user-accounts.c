@@ -995,6 +995,9 @@ void change_face_callback(GObject *object, GAsyncResult *res, gpointer user_data
         g_error_free(error);
         return;
     }
+
+    if (g_strrstr(user->iconfile, "stock_person"))
+        user->iconfile = "/usr/share/pixmaps/faces/stock_person.png";
     GdkPixbuf *buf = gdk_pixbuf_new_from_file(user->iconfile, NULL);
     buf = gdk_pixbuf_scale_simple(buf, FACEHEIGHT, FACEWIDTH, GDK_INTERP_BILINEAR);
     gtk_image_set_from_pixbuf(GTK_IMAGE(user->image0), buf);
@@ -1013,8 +1016,11 @@ void change_face(GtkWidget *widget, gpointer userdata)
     GdkPixbuf *pixbuf = gtk_image_get_pixbuf(GTK_IMAGE(image));
     const char *filename = g_object_get_data (G_OBJECT (pixbuf), "filename");
 
-    if (filename)
+    if (filename){
         user->iconfile = (gchar *)filename;
+        if (g_strrstr(user->iconfile, "stock_person"))
+            user->iconfile = "/usr/share/pixmaps/faces/stock_person_nobg.png";
+    }
 
     g_dbus_proxy_call(user->proxy, "SetIconFile",
                       g_variant_new("(s)", user->iconfile),
@@ -1772,6 +1778,8 @@ void init_user_info(const gchar *object_path)
     value = g_dbus_proxy_get_cached_property(user->proxy, "IconFile");
     size = g_variant_get_size(value);
     user->iconfile = (char *)g_variant_get_string(value, &size);
+    if (g_strrstr(user->iconfile, "stock_person"))
+        user->iconfile = "/usr/share/pixmaps/faces/stock_person.png";
 
     value = g_dbus_proxy_get_cached_property(user->proxy, "PasswordMode");
     user->passwdtype = g_variant_get_int32(value);
@@ -1799,7 +1807,7 @@ void init_root_info()
     user->currentuser = TRUE;
     user->autologin = FALSE;
     user->username = g_get_user_name();
-    user->iconfile = "/usr/share/pixmaps/faces/stock_person.svg";
+    user->iconfile = "/usr/share/pixmaps/faces/stock_person.png";
     //OobsUser *obsuser = oobs_user_new(user->username);
     //user->logined = oobs_user_get_active(obsuser);
     if (g_strcmp0((const char *)user->username, "root") == 0)
@@ -2382,7 +2390,7 @@ createUserDone(GObject *object, GAsyncResult *res, gpointer user_data)
                                                 NULL, "org.freedesktop.Accounts", path,
                                                 "org.freedesktop.Accounts.User", NULL, &error);
     if (user->iconfile == NULL)
-        user->iconfile = "/usr/share/pixmaps/faces/stock_person.png";
+        user->iconfile = "/usr/share/pixmaps/faces/stock_person_nobg.png";
 
     g_dbus_proxy_call(user->proxy, "SetIconFile",
                       g_variant_new("(s)", user->iconfile),
