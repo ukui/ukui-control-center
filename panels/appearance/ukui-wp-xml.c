@@ -387,10 +387,37 @@ static void ukui_wp_xml_load_from_dir(const char* path, AppearanceData* data)
             }
         }
     }
-    char * fullpath = g_build_filename(path, g_strdup_printf("%s-ubuntukylin-wallpapers.xml", g_strstrip(tmp[1])), NULL);
+//    char * fullpath = g_build_filename(path, g_strdup_printf("%s-ubuntukylin-wallpapers.xml", g_strstrip(tmp[1])), NULL);
     //char* fullpath = g_build_filename(path, UBUNTUUKUI_BACKGROUND, NULL);
-    ukui_wp_xml_load_xml(data, fullpath);
-    g_free(fullpath);
+
+//    if (g_file_test(fullpath, G_FILE_TEST_EXISTS)){
+//        ukui_wp_xml_load_xml(data, fullpath);
+//        g_free(fullpath);
+//    }
+//    else{
+        if (!g_file_test(path, G_FILE_TEST_IS_DIR) || g_file_test(path, G_FILE_TEST_IS_SYMLINK)){
+            g_printf("path error!");
+        }
+        GDir * dir;
+        if (!(dir = g_dir_open(path, 0, NULL))){
+            g_printf("Directory Opened Error!\n");
+            return;
+        }
+        gchar * abspath = NULL;
+        const gchar * filename;
+        while(filename = g_dir_read_name(dir)){
+            abspath = g_strjoin("/", path, filename, NULL);
+            if (g_file_test(abspath, G_FILE_TEST_IS_DIR) || g_file_test(abspath, G_FILE_TEST_IS_SYMLINK)){
+                continue;
+            }
+            else if (g_str_has_suffix(abspath, "xml")){
+                ukui_wp_xml_load_xml(data, abspath);
+            }
+        }
+        g_dir_close(dir);
+        g_free(abspath);
+//    }
+
     ukui_wp_xml_add_monitor(directory, data);
 }
 
