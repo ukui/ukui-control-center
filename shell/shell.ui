@@ -2767,7 +2767,7 @@ Connections</property>
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkSwitch" id="homeSwitch">
+                                          <object class="GtkSwitch" id="computerSwitch">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                           </object>
@@ -2777,7 +2777,7 @@ Connections</property>
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkSwitch" id="computerSwitch">
+                                          <object class="GtkSwitch" id="homeSwitch">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                           </object>
