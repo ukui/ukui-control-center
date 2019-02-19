@@ -1,4 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
+﻿/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
  *
  * Copyright (C) 2016 Tianjin KYLIN Information Technology Co., Ltd.
  *
@@ -28,113 +28,55 @@
 
 static GtkBuilder * builder = NULL;
 
-GtkWidget * doublecombo;
-GtkWidget * middlecombo;
-GtkWidget * rightcombo;
-
 static GSettings * settings = NULL;
-#define DOUBLE "action-double-click-titlebar"
-#define MIDDLE "action-middle-click-titlebar"
-#define RIGHT "action-right-click-titlebar"
 
+GtkWidget * computerCheck;
+GtkWidget * homeCheck;
+GtkWidget * networkCheck;
+GtkWidget * trashCheck;
+GtkWidget * volumesCheck;
 
-static void on_combo_changed_cb(GtkComboBox * combobox, gpointer userdata){
-    gint current;
-    gchar * key = (gchar * )userdata;
+#define COMPUTER_ICON "computer-icon-visible"
+#define HOME_ICON "home-icon-visible"
+#define NETWORK_ICON "network-icon-visible"
+#define TRASH_ICON "trash-icon-visible"
+#define VOLUMES "volumes-visible"
 
-    current = gtk_combo_box_get_active(GTK_COMBO_BOX(combobox));
-    if(current == -1)
-	return;
+gboolean check_state_set_cb(GtkWidget * widget, gpointer userdata){
 
-    if(current == 0)
-	g_settings_set_string(settings, key, "none");
-    else if(current == 1){
-	    gchar * filename = "/usr/share/glib-2.0/schemas/org.mate.marco.gschema.xml";
-	    if (g_file_test(filename, G_FILE_TEST_EXISTS))
-		    g_settings_set_string(settings, key, "toggle_maximize");
-	    else
-		    g_settings_set_string(settings, key, "toggle-maximize");
-    }
-    else if(current == 2)
-	g_settings_set_string(settings, key, "lower");
+    const gchar * key = (const gchar *) userdata;
+    g_settings_set_boolean(settings, key, gtk_toggle_button_get_active(widget));
 }
 
-static void setup_combo(){
-    gchar *doubleCur, *middleCur, *rightCur ;
-    gint doubleIndex, middleIndex, rightIndex;
-
-    doubleCur = g_settings_get_string(settings, DOUBLE);
-    middleCur = g_settings_get_string(settings, MIDDLE);
-    rightCur = g_settings_get_string(settings, RIGHT);
-
-    //double combo box
-    if(strcmp(doubleCur, "none") == 0)
-	doubleIndex = 0;
-    else if (strcmp(doubleCur, "toggle-maximize") == 0 || strcmp(doubleCur, "toggle_maximize") == 0)
-	doubleIndex = 1;
-    else if (strcmp(doubleCur, "lower") == 0)
-	doubleIndex = 2;
-    //middle combo box
-    if(strcmp(middleCur, "none") == 0)
-	middleIndex = 0;
-    else if (strcmp(middleCur, "toggle-maximize") == 0 || strcmp(middleCur, "toggle_maximize") == 0)
-	middleIndex = 1;
-    else if (strcmp(middleCur, "lower") == 0)
-	middleIndex = 2;
-    //right combo box
-    if(strcmp(rightCur, "none") == 0)
-	rightIndex = 0;
-    else if (strcmp(rightCur, "toggle-maximize") == 0 || strcmp(rightCur, "toggle_maximize") == 0)
-	rightIndex = 1;
-    else if (strcmp(rightCur, "lower") == 0)
-	rightIndex = 2;
-
-    g_signal_handlers_block_by_func(doublecombo, on_combo_changed_cb, DOUBLE);
-    g_signal_handlers_block_by_func(middlecombo, on_combo_changed_cb, MIDDLE);
-    g_signal_handlers_block_by_func(rightcombo, on_combo_changed_cb, RIGHT);
-    gtk_combo_box_set_active(GTK_COMBO_BOX(doublecombo), doubleIndex);
-    gtk_combo_box_set_active(GTK_COMBO_BOX(middlecombo), middleIndex);
-    gtk_combo_box_set_active(GTK_COMBO_BOX(rightcombo), rightIndex);
-    g_signal_handlers_unblock_by_func(doublecombo, on_combo_changed_cb, DOUBLE);
-    g_signal_handlers_unblock_by_func(middlecombo, on_combo_changed_cb, MIDDLE);
-    g_signal_handlers_unblock_by_func(rightcombo, on_combo_changed_cb, RIGHT);
-}
-
-static void populate_combo_data(){
-
-    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(doublecombo), _("none"));
-    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(doublecombo), _("toggle-maximize"));
-    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(doublecombo), _("lower"));
-
-    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(middlecombo), _("none"));
-    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(middlecombo), _("toggle-maximize"));
-    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(middlecombo), _("lower"));
-
-    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(rightcombo), _("none"));
-    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(rightcombo), _("toggle-maximize"));
-    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(rightcombo), _("lower"));
+static void check_init(){
+    gtk_toggle_button_set_active(computerCheck, g_settings_get_boolean(settings, COMPUTER_ICON));
+    gtk_toggle_button_set_active(homeCheck, g_settings_get_boolean(settings, HOME_ICON));
+    gtk_toggle_button_set_active(networkCheck, g_settings_get_boolean(settings, NETWORK_ICON));
+    gtk_toggle_button_set_active(trashCheck, g_settings_get_boolean(settings, TRASH_ICON));
+    gtk_toggle_button_set_active(volumesCheck, g_settings_get_boolean(settings, VOLUMES));
 }
 
 void windows_init(AppearanceData * data){
-    GtkWidget * default_button;
     builder = data->ui;
-    gchar * filename = "/usr/share/glib-2.0/schemas/org.mate.marco.gschema.xml";
-    if (g_file_test(filename, G_FILE_TEST_EXISTS))
-    	settings = g_settings_new("org.mate.Marco.general");
-    else
-	settings = g_settings_new("org.gnome.desktop.wm.preferences");
-    
-    doublecombo = GTK_WIDGET(gtk_builder_get_object(builder, "dCombox"));
-    g_signal_connect(G_OBJECT(doublecombo), "changed", G_CALLBACK(on_combo_changed_cb), DOUBLE);
 
-    middlecombo = GTK_WIDGET(gtk_builder_get_object(builder, "mCombox"));
-    g_signal_connect(G_OBJECT(middlecombo), "changed", G_CALLBACK(on_combo_changed_cb), MIDDLE);
+    settings = g_settings_new("org.ukui.peony.desktop");
 
-    rightcombo = GTK_WIDGET(gtk_builder_get_object(builder, "rCombox"));
-    g_signal_connect(G_OBJECT(rightcombo), "changed", G_CALLBACK(on_combo_changed_cb), RIGHT);
+    computerCheck = GTK_WIDGET(gtk_builder_get_object(builder, "computerCheck"));
+    g_signal_connect(G_OBJECT(computerCheck), "toggled", G_CALLBACK(check_state_set_cb), COMPUTER_ICON);
 
-    populate_combo_data();
-    setup_combo();
+    homeCheck = GTK_WIDGET(gtk_builder_get_object(builder, "homeCheck"));
+    g_signal_connect(G_OBJECT(homeCheck), "toggled", G_CALLBACK(check_state_set_cb), HOME_ICON);
+
+    networkCheck = GTK_WIDGET(gtk_builder_get_object(builder, "networkCheck"));
+    g_signal_connect(G_OBJECT(networkCheck), "toggled", G_CALLBACK(check_state_set_cb), NETWORK_ICON);
+
+    trashCheck = GTK_WIDGET(gtk_builder_get_object(builder, "trashCheck"));
+    g_signal_connect(G_OBJECT(trashCheck), "toggled", G_CALLBACK(check_state_set_cb), TRASH_ICON);
+
+    volumesCheck = GTK_WIDGET(gtk_builder_get_object(builder, "volumesCheck"));
+    g_signal_connect(G_OBJECT(volumesCheck), "toggled", G_CALLBACK(check_state_set_cb), VOLUMES);
+
+    check_init();
 }
 
 void windows_shutdown(AppearanceData *data){

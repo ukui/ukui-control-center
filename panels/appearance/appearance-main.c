@@ -17,14 +17,14 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#include "appearance-main.h"
+#include <stdlib.h>
 #include <stdio.h>
+#include "appearance-main.h"
 #include "appearance-desktop.h"
 #include "appearance-font.h"
 #include "appearance-windows.h"
 #include "appearance-fm.h"
 #include "appearance-media.h"
-#include <stdlib.h>
 #include "appearance-theme.h"
 
 AppearanceData *data;

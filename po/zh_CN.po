@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ukui-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-27 16:47+0800\n"
+"POT-Creation-Date: 2019-02-19 14:05+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,21 +30,36 @@ msgstr "图像"
 msgid "ALL File"
 msgstr "所有文件"
 
-#: panels/appearance/appearance-fm.c:88
+#: panels/appearance/appearance-fm.c:95
 msgid "icon_view"
 msgstr "图表视图"
 
-#: panels/appearance/appearance-fm.c:89
+#: panels/appearance/appearance-fm.c:96
 msgid "compact_view"
 msgstr "简洁视图"
 
-#: panels/appearance/appearance-fm.c:90
+#: panels/appearance/appearance-fm.c:97
 msgid "list_view"
 msgstr "列表视图"
 
-#: panels/appearance/appearance-fm.c:91
+#: panels/appearance/appearance-fm.c:98
 msgid "computer_view"
 msgstr "我的电脑视图"
+
+#: panels/appearance/appearance-fm.c:170 panels/appearance/appearance-fm.c:174
+#: panels/appearance/appearance-fm.c:178
+msgid "none"
+msgstr "无"
+
+#: panels/appearance/appearance-fm.c:171 panels/appearance/appearance-fm.c:175
+#: panels/appearance/appearance-fm.c:179
+msgid "toggle-maximize"
+msgstr "最大化"
+
+#: panels/appearance/appearance-fm.c:172 panels/appearance/appearance-fm.c:176
+#: panels/appearance/appearance-fm.c:180
+msgid "lower"
+msgstr "最小化"
 
 #: panels/appearance/appearance-theme.c:50
 msgid "Please choose a color that you like as the theme colors."
@@ -55,24 +70,6 @@ msgid ""
 "Set up disable. Please wait at least 5 seconds that system subject will "
 "restart"
 msgstr "设置无效!请等待至少5秒，以便系统主题重新启动"
-
-#: panels/appearance/appearance-windows.c:105
-#: panels/appearance/appearance-windows.c:109
-#: panels/appearance/appearance-windows.c:113
-msgid "none"
-msgstr "无"
-
-#: panels/appearance/appearance-windows.c:106
-#: panels/appearance/appearance-windows.c:110
-#: panels/appearance/appearance-windows.c:114
-msgid "toggle-maximize"
-msgstr "最大化"
-
-#: panels/appearance/appearance-windows.c:107
-#: panels/appearance/appearance-windows.c:111
-#: panels/appearance/appearance-windows.c:115
-msgid "lower"
-msgstr "最小化"
 
 #: panels/appearance/font_render.ui.h:1
 msgid "Font Rendering Details"
@@ -955,7 +952,7 @@ msgstr "更改头像"
 #: panels/user-accounts/change-pwd.ui.h:2
 #: panels/user-accounts/change-type.ui.h:2
 #: panels/user-accounts/delete-user.ui.h:2
-#: panels/user-accounts/user-accounts.c:2066
+#: panels/user-accounts/user-accounts.c:2074
 #: panels/user-accounts/user-create.ui.h:2
 msgid "Cancel"
 msgstr "取消"
@@ -964,7 +961,7 @@ msgstr "取消"
 #: panels/user-accounts/change-name.ui.h:3
 #: panels/user-accounts/change-pwd.ui.h:3
 #: panels/user-accounts/change-type.ui.h:3
-#: panels/user-accounts/user-accounts.c:2067
+#: panels/user-accounts/user-accounts.c:2075
 msgid "Ok"
 msgstr "确定"
 
@@ -972,12 +969,12 @@ msgstr "确定"
 #: panels/user-accounts/change-name.ui.h:4
 #: panels/user-accounts/change-pwd.ui.h:4
 #: panels/user-accounts/change-type.ui.h:5
-#: panels/user-accounts/delete-user.ui.h:5 shell/shell.ui.h:217
+#: panels/user-accounts/delete-user.ui.h:5 shell/shell.ui.h:218
 msgid "label"
 msgstr ""
 
 #: panels/user-accounts/change-face.ui.h:5
-#: panels/user-accounts/user-accounts.c:2063
+#: panels/user-accounts/user-accounts.c:2071
 msgid "Browse more pictures"
 msgstr "浏览更多图片"
 
@@ -1016,12 +1013,12 @@ msgstr "标准用户可以使用大多数软件，但不能安装软件和更改
 #: panels/user-accounts/change-type.ui.h:10
 #: panels/user-accounts/user-accounts.c:688
 #: panels/user-accounts/user-accounts.c:945
-#: panels/user-accounts/user-accounts.c:1129
-#: panels/user-accounts/user-accounts.c:1238
-#: panels/user-accounts/user-accounts.c:1239
-#: panels/user-accounts/user-accounts.c:1353
-#: panels/user-accounts/user-accounts.c:1579
-#: panels/user-accounts/user-accounts.c:1689
+#: panels/user-accounts/user-accounts.c:1135
+#: panels/user-accounts/user-accounts.c:1244
+#: panels/user-accounts/user-accounts.c:1245
+#: panels/user-accounts/user-accounts.c:1359
+#: panels/user-accounts/user-accounts.c:1585
+#: panels/user-accounts/user-accounts.c:1695
 #: panels/user-accounts/user-create.ui.h:8
 msgid "Administrators"
 msgstr "管理员"
@@ -1143,7 +1140,7 @@ msgstr "密码长度需要小于64位！"
 #: panels/user-accounts/user-accounts.c:421
 #: panels/user-accounts/user-accounts.c:643
 #: panels/user-accounts/user-accounts.c:739
-#: panels/user-accounts/user-accounts.c:2571
+#: panels/user-accounts/user-accounts.c:2579
 msgid "Please confirm the new password"
 msgstr "请确认新密码"
 
@@ -1174,7 +1171,7 @@ msgstr "首字符不能为数字！"
 
 #: panels/user-accounts/user-accounts.c:300
 #: panels/user-accounts/user-accounts.c:357
-#: panels/user-accounts/user-accounts.c:2559
+#: panels/user-accounts/user-accounts.c:2567
 msgid "Please enter the username"
 msgstr "请输入用户名"
 
@@ -1202,7 +1199,7 @@ msgid "Please enter the new username"
 msgstr "请输入新用户名"
 
 #: panels/user-accounts/user-accounts.c:359
-#: panels/user-accounts/user-accounts.c:2566
+#: panels/user-accounts/user-accounts.c:2574
 msgid "Please enter the password"
 msgstr "请输入密码"
 
@@ -1244,39 +1241,39 @@ msgstr "当前密码输入错误，请重新输入!"
 
 #: panels/user-accounts/user-accounts.c:690
 #: panels/user-accounts/user-accounts.c:947
-#: panels/user-accounts/user-accounts.c:1131
-#: panels/user-accounts/user-accounts.c:1243
-#: panels/user-accounts/user-accounts.c:1244
-#: panels/user-accounts/user-accounts.c:1358
-#: panels/user-accounts/user-accounts.c:1581
-#: panels/user-accounts/user-accounts.c:1691
+#: panels/user-accounts/user-accounts.c:1137
+#: panels/user-accounts/user-accounts.c:1249
+#: panels/user-accounts/user-accounts.c:1250
+#: panels/user-accounts/user-accounts.c:1364
+#: panels/user-accounts/user-accounts.c:1587
+#: panels/user-accounts/user-accounts.c:1697
 msgid "Standard user"
 msgstr "标准用户"
 
 #: panels/user-accounts/user-accounts.c:696
 #: panels/user-accounts/user-accounts.c:953
-#: panels/user-accounts/user-accounts.c:1136
-#: panels/user-accounts/user-accounts.c:1372
-#: panels/user-accounts/user-accounts.c:1613
-#: panels/user-accounts/user-accounts.c:1699
+#: panels/user-accounts/user-accounts.c:1142
+#: panels/user-accounts/user-accounts.c:1378
+#: panels/user-accounts/user-accounts.c:1619
+#: panels/user-accounts/user-accounts.c:1705
 msgid "Logged(Current User)"
 msgstr "已登录(当前用户)"
 
 #: panels/user-accounts/user-accounts.c:701
 #: panels/user-accounts/user-accounts.c:955
-#: panels/user-accounts/user-accounts.c:1138
-#: panels/user-accounts/user-accounts.c:1374
-#: panels/user-accounts/user-accounts.c:1617
-#: panels/user-accounts/user-accounts.c:1703
+#: panels/user-accounts/user-accounts.c:1144
+#: panels/user-accounts/user-accounts.c:1380
+#: panels/user-accounts/user-accounts.c:1623
+#: panels/user-accounts/user-accounts.c:1709
 msgid "Logged(Other Users)"
 msgstr "已登录(其他用户)"
 
 #: panels/user-accounts/user-accounts.c:705
 #: panels/user-accounts/user-accounts.c:957
-#: panels/user-accounts/user-accounts.c:1140
-#: panels/user-accounts/user-accounts.c:1376
-#: panels/user-accounts/user-accounts.c:1621
-#: panels/user-accounts/user-accounts.c:1707
+#: panels/user-accounts/user-accounts.c:1146
+#: panels/user-accounts/user-accounts.c:1382
+#: panels/user-accounts/user-accounts.c:1627
+#: panels/user-accounts/user-accounts.c:1713
 msgid "Un-login(Other Users)"
 msgstr "未登录(其他用户)"
 
@@ -1301,23 +1298,23 @@ msgstr "修改用户名失败!"
 msgid "the user has logged in, please log out and modify!"
 msgstr "该用户已登录，请注销该用户后再修改!"
 
-#: panels/user-accounts/user-accounts.c:1072
-#: panels/user-accounts/user-accounts.c:2313
+#: panels/user-accounts/user-accounts.c:1078
+#: panels/user-accounts/user-accounts.c:2321
 msgid "auto login"
 msgstr "自动登录"
 
-#: panels/user-accounts/user-accounts.c:1075
-#: panels/user-accounts/user-accounts.c:2316
+#: panels/user-accounts/user-accounts.c:1081
+#: panels/user-accounts/user-accounts.c:2324
 msgid "_Cancel"
 msgstr "取消"
 
-#: panels/user-accounts/user-accounts.c:1077
-#: panels/user-accounts/user-accounts.c:2318
+#: panels/user-accounts/user-accounts.c:1083
+#: panels/user-accounts/user-accounts.c:2326
 msgid "_OK"
 msgstr "确认"
 
-#: panels/user-accounts/user-accounts.c:1080
-#: panels/user-accounts/user-accounts.c:2321
+#: panels/user-accounts/user-accounts.c:1086
+#: panels/user-accounts/user-accounts.c:2329
 msgid ""
 "\tAlready have other users set to automatically log in,\t\n"
 " \tclick OK will overwrite the existing settings!"
@@ -1325,17 +1322,17 @@ msgstr ""
 "\t已经有其他用户设置为自动登录了，\t\n"
 "\t点击确认将覆盖以前的设置！"
 
-#: panels/user-accounts/user-accounts.c:1487
+#: panels/user-accounts/user-accounts.c:1493
 msgid "The user can not be deleted!"
 msgstr "无法删除该用户!"
 
-#: panels/user-accounts/user-accounts.c:1495
+#: panels/user-accounts/user-accounts.c:1501
 msgid ""
 "The user has logged in, please perform the delete operation after logging "
 "out!"
 msgstr "该用户已登录，请注销该用户后再执行删除操作!"
 
-#: panels/user-accounts/user-accounts.c:1520
+#: panels/user-accounts/user-accounts.c:1526
 #, c-format
 msgid ""
 "<span weight='bold' font_desc='11'>do you confirm to delete all the files of "
@@ -1343,7 +1340,7 @@ msgid ""
 msgstr ""
 "<span weight='bold' font_desc='11'>确认删除用户 %s 的所有文件吗?</span>"
 
-#: panels/user-accounts/user-accounts.c:1526
+#: panels/user-accounts/user-accounts.c:1532
 #, c-format
 msgid ""
 "if you want to delete the %s user, belonging to the user's \n"
@@ -1353,32 +1350,32 @@ msgstr ""
 "如果要删除 %s 用户，那么属于该用户的桌面、文档、收藏\n"
 "夹、音乐、图片和视频文件夹的内容将全部被删除!"
 
-#: panels/user-accounts/user-accounts.c:1583
-#: panels/user-accounts/user-accounts.c:1693
+#: panels/user-accounts/user-accounts.c:1589
+#: panels/user-accounts/user-accounts.c:1699
 msgid "Super user"
 msgstr "超级用户"
 
-#: panels/user-accounts/user-accounts.c:1585
+#: panels/user-accounts/user-accounts.c:1591
 msgid "Rename"
 msgstr "更改用户名"
 
-#: panels/user-accounts/user-accounts.c:1591
+#: panels/user-accounts/user-accounts.c:1597
 msgid "Change PWD"
 msgstr "更改密码"
 
-#: panels/user-accounts/user-accounts.c:1596
+#: panels/user-accounts/user-accounts.c:1602
 msgid "Change Face"
 msgstr "更改头像"
 
-#: panels/user-accounts/user-accounts.c:1601
+#: panels/user-accounts/user-accounts.c:1607
 msgid "Change Type"
 msgstr "更改用户类型"
 
-#: panels/user-accounts/user-accounts.c:1606
+#: panels/user-accounts/user-accounts.c:1612
 msgid "Delete"
 msgstr "删除用户"
 
-#: panels/user-accounts/user-accounts.c:2208
+#: panels/user-accounts/user-accounts.c:2216
 msgid "Browse more pictures..."
 msgstr "浏览更多图片..."
 
@@ -1995,520 +1992,524 @@ msgid "Font"
 msgstr "字体"
 
 #: shell/shell.ui.h:89
-msgid "mouse double click action"
-msgstr "鼠标双击事件"
+msgid "Title event"
+msgstr "窗口事件"
 
 #: shell/shell.ui.h:90
-msgid "mouse middle click action"
-msgstr "鼠标中键事件"
+msgid "mouse double click, let windows"
+msgstr "通过双击鼠标左键，使窗口"
 
 #: shell/shell.ui.h:91
-msgid "mouse right click action"
-msgstr "鼠标右键事件"
+msgid "mouse middle click, let windows"
+msgstr "通过单击鼠标中键，使窗口"
 
 #: shell/shell.ui.h:92
-msgid "Select action for mouse click"
-msgstr "选择鼠标响应事件"
+msgid "mouse right click, let windows"
+msgstr "通过单击鼠标右键，使窗口"
 
 #: shell/shell.ui.h:93
-msgid "windows"
-msgstr "窗口"
+msgid "Whether to ask for confirmtion when deleting  files or emptying trash"
+msgstr "删除文件或清空回收站时，请求确认"
 
 #: shell/shell.ui.h:94
-msgid "Desktop"
-msgstr "桌面"
-
-#: shell/shell.ui.h:95
-msgid "show computer icon on desktop"
-msgstr "在桌面上显示计算机"
-
-#: shell/shell.ui.h:96
-msgid "show home floder on desktop"
-msgstr "在桌面上显示用户主文件夹"
-
-#: shell/shell.ui.h:97
-msgid "show network icon on desktop"
-msgstr "在桌面上显示网络"
-
-#: shell/shell.ui.h:98
-msgid "show trash on desktop"
-msgstr "在桌面上显示回收站"
-
-#: shell/shell.ui.h:99
-msgid "show volumes on desktop"
-msgstr "在桌面上显示挂载卷"
-
-#: shell/shell.ui.h:100
-msgid "Preferences"
-msgstr "偏好设置"
-
-#: shell/shell.ui.h:101
-msgid "Whether to ask for confirmtion when deleting  files or emptying trash"
-msgstr "删除文件或清空回收站时是否请求确认"
-
-#: shell/shell.ui.h:102
-msgid "Default folder viewer"
-msgstr "默认的目录视图"
-
-#: shell/shell.ui.h:103
 msgid "Peony uses the user's home folder as the desktop"
 msgstr "Peony使用用户主文件夹作为桌面"
 
-#: shell/shell.ui.h:104
+#: shell/shell.ui.h:95
 msgid "Whether to show desktop notifications"
-msgstr "是否显示桌面通知"
+msgstr "显示桌面通知"
 
-#: shell/shell.ui.h:105
+#: shell/shell.ui.h:96
+msgid "Preferences"
+msgstr "偏好设置"
+
+#: shell/shell.ui.h:97
+msgid "Default folder viewer"
+msgstr "默认视图方式"
+
+#: shell/shell.ui.h:98
 msgid "File Manager"
 msgstr "文件管理器"
 
+#: shell/shell.ui.h:99
+msgid "Desktop Icon"
+msgstr "桌面图标"
+
+#: shell/shell.ui.h:100
+msgid "show computer icon on desktop"
+msgstr "显示计算机"
+
+#: shell/shell.ui.h:101
+msgid "show home floder on desktop"
+msgstr "显示用户主文件夹"
+
+#: shell/shell.ui.h:102
+msgid "show network icon on desktop"
+msgstr "显示网络"
+
+#: shell/shell.ui.h:103
+msgid "show trash on desktop"
+msgstr "显示回收站"
+
+#: shell/shell.ui.h:104
+msgid "show volumes on desktop"
+msgstr "显示挂载卷"
+
+#: shell/shell.ui.h:105
+msgid "Windows"
+msgstr "桌面"
+
 #: shell/shell.ui.h:106
-msgid "whether to  automatically mount media"
-msgstr "是否自动挂载介质"
+msgid "settings options"
+msgstr "设置选项"
 
 #: shell/shell.ui.h:107
-msgid "whether to automatically open a folder for automounted media"
-msgstr "对自动挂载的介质是否自动打开文件夹"
+msgid "whether to  automatically mount media"
+msgstr "自动挂载介质"
 
 #: shell/shell.ui.h:108
-msgid "never prompt or autorun/autostart program when media are inserted"
-msgstr "插入介质时从不提示或自动运行/自动启动程序"
+msgid "whether to automatically open a folder for automounted media"
+msgstr "对自动挂载的介质自动打开文件夹"
 
 #: shell/shell.ui.h:109
+msgid "never prompt or autorun/autostart program when media are inserted"
+msgstr "插入介质时自动运行/自动启动程序"
+
+#: shell/shell.ui.h:110
 msgid "Media Handling"
 msgstr "介质设置"
 
-#: shell/shell.ui.h:110
+#: shell/shell.ui.h:111
 msgid "Internet"
 msgstr "互联网"
 
-#: shell/shell.ui.h:111
+#: shell/shell.ui.h:112
 msgid "Web Browser:"
 msgstr "网络浏览器："
 
-#: shell/shell.ui.h:112
+#: shell/shell.ui.h:113
 msgid "Mail Reader:"
 msgstr "邮件阅读器："
 
-#: shell/shell.ui.h:113
+#: shell/shell.ui.h:114
 msgid "Multimedia"
 msgstr "多媒体"
 
-#: shell/shell.ui.h:114
+#: shell/shell.ui.h:115
 msgid "Image Viewer:"
 msgstr "图像查看器："
 
-#: shell/shell.ui.h:115
+#: shell/shell.ui.h:116
 msgid "Audio Player:"
 msgstr "音频播放器："
 
-#: shell/shell.ui.h:116
+#: shell/shell.ui.h:117
 msgid "Video Player:"
 msgstr "视频播放器："
 
-#: shell/shell.ui.h:117
+#: shell/shell.ui.h:118
 msgid "System"
 msgstr "系统"
 
-#: shell/shell.ui.h:118
+#: shell/shell.ui.h:119
 msgid "Text Editor:"
 msgstr "文本编辑器："
 
-#: shell/shell.ui.h:119
+#: shell/shell.ui.h:120
 msgid "File Manager:"
 msgstr "文件管理器："
 
-#: shell/shell.ui.h:120
+#: shell/shell.ui.h:121
 msgid "Network Connections"
 msgstr "网络连接"
 
-#: shell/shell.ui.h:121
+#: shell/shell.ui.h:122
 msgid "Repeat Keys"
 msgstr "按键重复"
 
-#: shell/shell.ui.h:122
+#: shell/shell.ui.h:123
 msgid "Key presses _repeat when key is held down"
 msgstr "按住某一键时重复该键(R)"
 
-#: shell/shell.ui.h:123
+#: shell/shell.ui.h:124
 msgid "_Delay:"
 msgstr "延时(D)："
 
-#: shell/shell.ui.h:124
+#: shell/shell.ui.h:125
 msgid "_Speed:"
 msgstr "速度(S)："
 
-#: shell/shell.ui.h:125
+#: shell/shell.ui.h:126
 msgid "Short"
 msgstr "短"
 
-#: shell/shell.ui.h:126
+#: shell/shell.ui.h:127
 msgid "Slow"
 msgstr "慢"
 
-#: shell/shell.ui.h:127
+#: shell/shell.ui.h:128
 msgid "Repeat keys speed"
 msgstr "按键重复速度"
 
-#: shell/shell.ui.h:128
+#: shell/shell.ui.h:129
 msgid "Long"
 msgstr "长"
 
-#: shell/shell.ui.h:129
+#: shell/shell.ui.h:130
 msgid "Fast"
 msgstr "快"
 
-#: shell/shell.ui.h:130
+#: shell/shell.ui.h:131
 msgid "To test the repetition rate of the input character:"
 msgstr "输入字符来测试重复速度："
 
-#: shell/shell.ui.h:131
+#: shell/shell.ui.h:132
 msgid "Cursor Blinking"
 msgstr "光标闪烁"
 
-#: shell/shell.ui.h:132
+#: shell/shell.ui.h:133
 msgid "Cursor _blinks in text fields"
 msgstr "文本域中的光标会闪烁(B)"
 
-#: shell/shell.ui.h:133
+#: shell/shell.ui.h:134
 msgid "S_peed:"
 msgstr "速度(P)："
 
-#: shell/shell.ui.h:134
+#: shell/shell.ui.h:135
 msgid "Cursor blinks speed"
 msgstr "光标闪烁速度"
 
-#: shell/shell.ui.h:135
+#: shell/shell.ui.h:136
 msgid "General"
 msgstr "通用设置"
 
-#: shell/shell.ui.h:136
+#: shell/shell.ui.h:137
 msgid ""
 "Please add the language you will use to the list. And the first one in the "
 "list is the most\n"
 "commonly used language."
 msgstr "将要使用的语言添加到此列表中，位于列表第一位的语言为您最常用的语言。"
 
-#: shell/shell.ui.h:138
+#: shell/shell.ui.h:139
 msgid "_Show..."
 msgstr "显示"
 
-#: shell/shell.ui.h:139
+#: shell/shell.ui.h:140
 msgid "List of keyboard layouts selected for usage"
 msgstr "选用的键盘布局列表"
 
-#: shell/shell.ui.h:140
+#: shell/shell.ui.h:141
 msgid "_Separate layout for each window"
 msgstr "每个窗口独立布局(S)"
 
-#: shell/shell.ui.h:141
+#: shell/shell.ui.h:142
 msgid "New windows u_se active window's layout"
 msgstr "新窗口使用活动窗口的布局(S)"
 
-#: shell/shell.ui.h:142
+#: shell/shell.ui.h:143
 msgid "Reset to De_faults"
 msgstr "恢复默认配置(_F)"
 
-#: shell/shell.ui.h:143
+#: shell/shell.ui.h:144
 msgid "Layouts"
 msgstr "布局"
 
-#: shell/shell.ui.h:144
+#: shell/shell.ui.h:145
 msgid ""
 "\"To edit a shortcut key, click on the corresponding row and type a new key "
 "\"\n"
 "\"combination, or press backspace to clear.\""
 msgstr "要编辑快捷键，请单击相应的行，然后输入新按键组合，或按退格键清除。"
 
-#: shell/shell.ui.h:146
+#: shell/shell.ui.h:147
 msgid "Shortcut"
 msgstr "快捷键"
 
-#: shell/shell.ui.h:147
+#: shell/shell.ui.h:148
 msgid "_Right-handed"
 msgstr "惯用右手"
 
-#: shell/shell.ui.h:148
+#: shell/shell.ui.h:149
 msgid "_Left-handed"
 msgstr "惯用左手"
 
-#: shell/shell.ui.h:149
+#: shell/shell.ui.h:150
 msgid "Sh_ow position of pointer when the Control key is pressed"
 msgstr "按住Ctrl键时显示指针位置"
 
-#: shell/shell.ui.h:150
+#: shell/shell.ui.h:151
 msgid "S_ensitivity:"
 msgstr "灵敏度(E)："
 
-#: shell/shell.ui.h:151
+#: shell/shell.ui.h:152
 msgid "Low"
 msgstr "低"
 
-#: shell/shell.ui.h:152
+#: shell/shell.ui.h:153
 msgid "High"
 msgstr "高"
 
-#: shell/shell.ui.h:153
+#: shell/shell.ui.h:154
 msgid "Double-click the right bulb to test your settings"
 msgstr "双击右侧的灯泡以便测试您的设置"
 
-#: shell/shell.ui.h:154
+#: shell/shell.ui.h:155
 msgid "_Timeout:"
 msgstr "超时(T)："
 
-#: shell/shell.ui.h:155
+#: shell/shell.ui.h:156
 msgid "Pointer moving speed"
 msgstr "指针移动速度"
 
-#: shell/shell.ui.h:156
+#: shell/shell.ui.h:157
 msgid "Locate Pointer"
 msgstr "定位指针"
 
-#: shell/shell.ui.h:157
+#: shell/shell.ui.h:158
 msgid "Mouse Keys"
 msgstr "鼠标键"
 
-#: shell/shell.ui.h:158
+#: shell/shell.ui.h:159
 msgid "Double-Click Speed"
 msgstr "双击速度"
 
-#: shell/shell.ui.h:159
+#: shell/shell.ui.h:160
 msgid "Cursor Settiings"
 msgstr "光标设置"
 
-#: shell/shell.ui.h:160
+#: shell/shell.ui.h:161
 msgid "Cursor theme :"
 msgstr "光标主题"
 
-#: shell/shell.ui.h:161
+#: shell/shell.ui.h:162
 msgid "Common"
 msgstr "普通"
 
-#: shell/shell.ui.h:162
+#: shell/shell.ui.h:163
 msgid "Maximization"
 msgstr "最大化"
 
-#: shell/shell.ui.h:163
+#: shell/shell.ui.h:164
 msgid "Disable _touchpad while typing"
 msgstr "打字时禁用触摸板(T)"
 
-#: shell/shell.ui.h:164
+#: shell/shell.ui.h:165
 msgid "Enable _mouse clicks with touchpad"
 msgstr "启用触摸板的鼠标点击(M)"
 
-#: shell/shell.ui.h:165
+#: shell/shell.ui.h:166
 msgid "Scrolling"
 msgstr "滚动"
 
-#: shell/shell.ui.h:166
+#: shell/shell.ui.h:167
 msgid "_Disabled"
 msgstr "禁用(_D)"
 
-#: shell/shell.ui.h:167
+#: shell/shell.ui.h:168
 msgid "Vertical _edge scrolling"
 msgstr "垂直边界滚动(_E)"
 
-#: shell/shell.ui.h:168
+#: shell/shell.ui.h:169
 msgid "_Horizontal edge scrolling"
 msgstr "水平边界滚动(H)"
 
-#: shell/shell.ui.h:169
+#: shell/shell.ui.h:170
 msgid "_Vertical two-finger scrolling"
 msgstr "垂直双指滚动(_V)"
 
-#: shell/shell.ui.h:170
+#: shell/shell.ui.h:171
 msgid "Horizontal two-_finger scrolling"
 msgstr "水平双指滚动(_F)"
 
-#: shell/shell.ui.h:171
+#: shell/shell.ui.h:172
 msgid "Enabled touchpad"
 msgstr "启用触摸板"
 
-#: shell/shell.ui.h:172
+#: shell/shell.ui.h:173
 msgid "Touchpad"
 msgstr "触摸板"
 
-#: shell/shell.ui.h:173
+#: shell/shell.ui.h:174
 msgid "<b>Di_rect internet connection</b>"
 msgstr "<b>直接连接到互联网(_R)</b>"
 
-#: shell/shell.ui.h:174
+#: shell/shell.ui.h:175
 msgid "<b>_Manual proxy configuration</b>"
 msgstr "<b>手动配置代理(_M)</b>"
 
-#: shell/shell.ui.h:175
+#: shell/shell.ui.h:176
 msgid "H_TTP proxy:"
 msgstr "H_TTP 代理:"
 
-#: shell/shell.ui.h:176
+#: shell/shell.ui.h:177
 msgid "_Secure HTTP proxy:"
 msgstr "安全 HTTP 代理(_S):"
 
-#: shell/shell.ui.h:177
+#: shell/shell.ui.h:178
 msgid "_FTP proxy:"
 msgstr "_FTP 代理:"
 
-#: shell/shell.ui.h:178
+#: shell/shell.ui.h:179
 msgid "S_ocks host:"
 msgstr "S_ocks 主机:"
 
-#: shell/shell.ui.h:179
+#: shell/shell.ui.h:180
 msgid "Port:"
 msgstr "端口:"
 
-#: shell/shell.ui.h:180
+#: shell/shell.ui.h:181
 msgid "_Details"
 msgstr "细节(_D)"
 
-#: shell/shell.ui.h:181
+#: shell/shell.ui.h:182
 msgid "<b>_Automatic proxy configuration</b>"
 msgstr "<b>自动配置代理(_A)</b>"
 
-#: shell/shell.ui.h:182
+#: shell/shell.ui.h:183
 msgid "Autoconfiguration _URL:"
 msgstr "自动配置 _URL:"
 
-#: shell/shell.ui.h:183
+#: shell/shell.ui.h:184
 msgid "Proxy Configuration"
 msgstr "代理服务器配置"
 
-#: shell/shell.ui.h:184
+#: shell/shell.ui.h:185
 msgid "Ignore Host List"
 msgstr "忽略主机列表"
 
-#: shell/shell.ui.h:185
+#: shell/shell.ui.h:186
 msgid "Ignored Hosts"
 msgstr "忽略的主机"
 
-#: shell/shell.ui.h:186
+#: shell/shell.ui.h:187
 msgid "Additional startup _programs:"
 msgstr "额外的启动程序"
 
-#: shell/shell.ui.h:187
+#: shell/shell.ui.h:188
 msgid "name"
 msgstr "名称"
 
-#: shell/shell.ui.h:188
+#: shell/shell.ui.h:189
 msgid "status"
 msgstr "状态"
 
-#: shell/shell.ui.h:189
+#: shell/shell.ui.h:190
 msgid "Startup Programs"
 msgstr "启动程序"
 
-#: shell/shell.ui.h:190
+#: shell/shell.ui.h:191
 msgid "Change display appearance"
 msgstr "更改显示器外观"
 
-#: shell/shell.ui.h:191
+#: shell/shell.ui.h:192
 msgid "Monitor:"
 msgstr "显示器:"
 
-#: shell/shell.ui.h:192
+#: shell/shell.ui.h:193
 msgid "Resolution:"
 msgstr "分辨率:"
 
-#: shell/shell.ui.h:193
+#: shell/shell.ui.h:194
 msgid "Direction:"
 msgstr "方向:"
 
-#: shell/shell.ui.h:194
+#: shell/shell.ui.h:195
 msgid "Save"
 msgstr "保存更改"
 
-#: shell/shell.ui.h:195
+#: shell/shell.ui.h:196
 msgid "Same image in all monitors"
 msgstr "所有显示器显示主屏幕图像"
 
-#: shell/shell.ui.h:196
+#: shell/shell.ui.h:197
 msgid "Set as primary"
 msgstr "设为主屏"
 
-#: shell/shell.ui.h:197
+#: shell/shell.ui.h:198
 msgid "Open Monitor"
 msgstr "打开显示器"
 
-#: shell/shell.ui.h:198
+#: shell/shell.ui.h:199
 msgid "Close Monitor"
 msgstr "关闭显示器"
 
-#: shell/shell.ui.h:199
+#: shell/shell.ui.h:200
 msgid "Computer status"
 msgstr "更改计算机状态"
 
-#: shell/shell.ui.h:200
+#: shell/shell.ui.h:201
 msgid "AC Power"
 msgstr "电源供电"
 
-#: shell/shell.ui.h:201
+#: shell/shell.ui.h:202
 msgid "Battery Power"
 msgstr "电池供电"
 
-#: shell/shell.ui.h:202
+#: shell/shell.ui.h:203
 msgid "Put _computer to sleep when inactive:"
 msgstr "空闲此时间后将计算机转入睡眠(C)："
 
-#: shell/shell.ui.h:203
+#: shell/shell.ui.h:204
 msgid "Put _monitor to sleep when inactive:"
 msgstr "空闲此时间后将显示器转入睡眠(M)："
 
-#: shell/shell.ui.h:204
+#: shell/shell.ui.h:205
 msgid "When laptop lid is cl_osed:"
 msgstr "关闭笔记本电脑上盖时(O)："
 
-#: shell/shell.ui.h:205
+#: shell/shell.ui.h:206
 msgid "Actions"
 msgstr "操作"
 
-#: shell/shell.ui.h:206
+#: shell/shell.ui.h:207
 msgid "When the power _button is pressed:"
 msgstr "按下了电源按钮时(B)："
 
-#: shell/shell.ui.h:207
+#: shell/shell.ui.h:208
 msgid "When the sus_pend button is pressed:"
 msgstr "按下了挂起按钮时(S)："
 
-#: shell/shell.ui.h:208
+#: shell/shell.ui.h:209
 msgid "Icon display"
 msgstr "图标显示设置"
 
-#: shell/shell.ui.h:209
+#: shell/shell.ui.h:210
 msgid "Only display an icon when a battery is p_resent"
 msgstr "仅当使用电池时显示图标(R)"
 
-#: shell/shell.ui.h:210
+#: shell/shell.ui.h:211
 msgid "_Always display an icon"
 msgstr "总是显示图标(A)"
 
-#: shell/shell.ui.h:211
+#: shell/shell.ui.h:212
 msgid "Power Configure"
 msgstr "电源设置"
 
-#: shell/shell.ui.h:212
+#: shell/shell.ui.h:213
 msgid "Regard the computer as _idle after:"
 msgstr "于此时间后视计算机空闲(I)："
 
-#: shell/shell.ui.h:213
+#: shell/shell.ui.h:214
 msgid "_Activate screensaver when computer is idle"
 msgstr "计算机空闲时激活屏幕保护程序（A）"
 
-#: shell/shell.ui.h:214
+#: shell/shell.ui.h:215
 msgid "_Lock screen when screensaver is active"
 msgstr "屏幕保护程序激活时锁定屏幕（L）"
 
-#: shell/shell.ui.h:215
+#: shell/shell.ui.h:216
 msgid "preview"
 msgstr "预览"
 
-#: shell/shell.ui.h:216
+#: shell/shell.ui.h:217
 msgid "Screensavers:"
 msgstr "屏幕保护程序："
 
-#: shell/shell.ui.h:218
+#: shell/shell.ui.h:219
 msgid "Set display brightness to:"
 msgstr "设定显示器亮度为(B)："
 
-#: shell/shell.ui.h:219
+#: shell/shell.ui.h:220
 msgid "Screensaver"
 msgstr "屏幕保护"
 
@@ -2558,6 +2559,12 @@ msgstr ""
 #: shell/ukui-control-center.c:201
 msgid "window1"
 msgstr ""
+
+#~ msgid "Select action for mouse click"
+#~ msgstr "文件管理的窗口事件选项"
+
+#~ msgid "Select action for media settings"
+#~ msgstr "介质设置选项"
 
 #~ msgid "-Kylin Control Center"
 #~ msgstr "-麒麟控制面板"

@@ -30,27 +30,27 @@ static GtkBuilder * builder = NULL;
 
 static GSettings * settings = NULL;
 
-GtkWidget * automountSwitch;
-GtkWidget * autoopenSwitch;
-GtkWidget * runSwitch;
+GtkWidget * automountCheck;
+GtkWidget * autoopenCheck;
+GtkWidget * runCheck;
 
 #define AUTO_MOUNT "automount"
 #define AUTO_OPEN "automount-open"
 #define RUN "autorun-never"
 
 
-gboolean switch_set_cb(GtkSwitch * widget, gboolean state, gpointer userdata){
+gboolean check_set_cb(GtkWidget * widget, gpointer userdata){
 
     const gchar * key = (const gchar *) userdata;
 
-    g_settings_set_boolean(settings, userdata, state);
+    g_settings_set_boolean(settings, key, gtk_toggle_button_get_active(widget));
 
 }
 
-static void init_switch(){
-    gtk_switch_set_active(automountSwitch, g_settings_get_boolean(settings, AUTO_MOUNT));
-    gtk_switch_set_active(autoopenSwitch, g_settings_get_boolean(settings, AUTO_OPEN));
-    gtk_switch_set_active(runSwitch, g_settings_get_boolean(settings, RUN));
+static void check_init(){
+    gtk_toggle_button_set_active(automountCheck, g_settings_get_boolean(settings, AUTO_MOUNT));
+    gtk_toggle_button_set_active(autoopenCheck, g_settings_get_boolean(settings, AUTO_OPEN));
+    gtk_toggle_button_set_active(runCheck, g_settings_get_boolean(settings, RUN));
 }
 
 void media_init(AppearanceData * data){
@@ -58,16 +58,16 @@ void media_init(AppearanceData * data){
 
     settings = g_settings_new("org.ukui.media-handling");
 
-    automountSwitch = GTK_WIDGET(gtk_builder_get_object(builder, "automountSwitch"));
-    g_signal_connect(G_OBJECT(automountSwitch), "state-set", G_CALLBACK(switch_set_cb), AUTO_MOUNT);
+    automountCheck = GTK_WIDGET(gtk_builder_get_object(builder, "automountCheck"));
+    g_signal_connect(G_OBJECT(automountCheck), "toggled", G_CALLBACK(check_set_cb), AUTO_MOUNT);
 
-    autoopenSwitch = GTK_WIDGET(gtk_builder_get_object(builder, "autoopenSwitch"));
-    g_signal_connect(G_OBJECT(autoopenSwitch), "state-set", G_CALLBACK(switch_set_cb), AUTO_OPEN);
+    autoopenCheck = GTK_WIDGET(gtk_builder_get_object(builder, "autoopenCheck"));
+    g_signal_connect(G_OBJECT(autoopenCheck), "toggled", G_CALLBACK(check_set_cb), AUTO_OPEN);
 
-    runSwitch = GTK_WIDGET(gtk_builder_get_object(builder, "runSwitch"));
-    g_signal_connect(G_OBJECT(runSwitch), "state-set", G_CALLBACK(switch_set_cb), RUN);
+    runCheck = GTK_WIDGET(gtk_builder_get_object(builder, "runCheck"));
+    g_signal_connect(G_OBJECT(runCheck), "toggled", G_CALLBACK(check_set_cb), RUN);
 
-    init_switch();
+    check_init();
 }
 
 void media_shutdown(AppearanceData *data){
