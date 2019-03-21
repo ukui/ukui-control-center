@@ -207,8 +207,8 @@
     </data>
   </object>
   <object class="GtkWindow" id="window1">
-    <property name="width_request">990</property>
-    <property name="height_request">650</property>
+    <property name="width_request">1030</property>
+    <property name="height_request">697</property>
     <property name="can_focus">True</property>
     <property name="has_focus">True</property>
     <property name="is_focus">True</property>
@@ -234,20 +234,23 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="show_tabs">False</property>
+            <property name="show_border">False</property>
             <child>
               <object class="GtkBox" id="vbox1">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_left">20</property>
+                <property name="margin_top">20</property>
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkExpander" id="expander1">
-                    <property name="height_request">200</property>
+                    <property name="height_request">220</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="expanded">True</property>
                     <child>
                       <object class="GtkBox" id="hbox_sysconf">
-                        <property name="height_request">165</property>
+                        <property name="height_request">118</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="orientation">vertical</property>
@@ -258,16 +261,16 @@
                             <property name="can_focus">False</property>
                             <child>
                               <object class="GtkButtonBox" id="hbuttonbox1">
-                                <property name="height_request">108</property>
+                                <property name="height_request">118</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="spacing">30</property>
+                                <property name="spacing">20</property>
                                 <property name="layout_style">start</property>
                                 <child>
                                   <object class="GtkButton" id="button3">
                                     <property name="label" translatable="yes">Personalization</property>
-                                    <property name="width_request">100</property>
-                                    <property name="height_request">108</property>
+                                    <property name="width_request">118</property>
+                                    <property name="height_request">118</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="focus_on_click">False</property>
@@ -284,8 +287,8 @@
                                 <child>
                                   <object class="GtkButton" id="button11">
                                     <property name="label" translatable="yes">Autostart</property>
-                                    <property name="width_request">100</property>
-                                    <property name="height_request">108</property>
+                                    <property name="width_request">118</property>
+                                    <property name="height_request">118</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="focus_on_click">False</property>
@@ -303,8 +306,8 @@
                                   <object class="GtkButton" id="button4">
                                     <property name="label" translatable="yes">Default 
 Application</property>
-                                    <property name="width_request">100</property>
-                                    <property name="height_request">108</property>
+                                    <property name="width_request">118</property>
+                                    <property name="height_request">118</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="focus_on_click">False</property>
@@ -321,8 +324,8 @@ Application</property>
                                 <child>
                                   <object class="GtkButton" id="button1">
                                     <property name="label" translatable="yes">Time Dates</property>
-                                    <property name="width_request">100</property>
-                                    <property name="height_request">108</property>
+                                    <property name="width_request">118</property>
+                                    <property name="height_request">118</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="focus_on_click">False</property>
@@ -339,8 +342,8 @@ Application</property>
                                 <child>
                                   <object class="GtkButton" id="button2">
                                     <property name="label" translatable="yes">User  Account</property>
-                                    <property name="width_request">100</property>
-                                    <property name="height_request">108</property>
+                                    <property name="width_request">118</property>
+                                    <property name="height_request">118</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="focus_on_click">False</property>
@@ -356,8 +359,7 @@ Application</property>
                                 </child>
                               </object>
                               <packing>
-                                <property name="x">30</property>
-                                <property name="y">10</property>
+                                <property name="y">20</property>
                               </packing>
                             </child>
                           </object>
@@ -370,39 +372,15 @@ Application</property>
                       </object>
                     </child>
                     <child type="label">
-                      <object class="GtkBox" id="hbox1">
-                        <property name="width_request">940</property>
-                        <property name="height_request">35</property>
+                      <object class="GtkLabel" id="label1">
+                        <property name="width_request">130</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <child>
-                          <object class="GtkLabel" id="label1">
-                            <property name="width_request">130</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">System Configuration</property>
-                            <property name="width_chars">8</property>
-                            <property name="max_width_chars">8</property>
-                          </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkSeparator" id="hseparator1">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="margin_top">17</property>
-                            <property name="margin_bottom">17</property>
-                          </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">1</property>
-                          </packing>
-                        </child>
+                        <property name="margin_left">10</property>
+                        <property name="label" translatable="yes">System Configuration</property>
+                        <property name="width_chars">8</property>
+                        <property name="max_width_chars">8</property>
+                        <property name="xalign">0</property>
                       </object>
                     </child>
                   </object>
@@ -425,22 +403,22 @@ Application</property>
                         <property name="orientation">vertical</property>
                         <child>
                           <object class="GtkLayout" id="layout2">
-                            <property name="height_request">150</property>
+                            <property name="height_request">138</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <child>
                               <object class="GtkButtonBox" id="hbuttonbox2">
-                                <property name="height_request">108</property>
+                                <property name="height_request">118</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="spacing">30</property>
+                                <property name="spacing">20</property>
                                 <property name="homogeneous">True</property>
                                 <property name="layout_style">start</property>
                                 <child>
                                   <object class="GtkButton" id="button8">
                                     <property name="label" translatable="yes">Printer</property>
-                                    <property name="width_request">100</property>
-                                    <property name="height_request">108</property>
+                                    <property name="width_request">118</property>
+                                    <property name="height_request">118</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="focus_on_click">False</property>
@@ -458,8 +436,8 @@ Application</property>
                                   <object class="GtkButton" id="button13">
                                     <property name="label" translatable="yes">Power 
 Management</property>
-                                    <property name="width_request">100</property>
-                                    <property name="height_request">108</property>
+                                    <property name="width_request">118</property>
+                                    <property name="height_request">118</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="focus_on_click">False</property>
@@ -476,8 +454,8 @@ Management</property>
                                 <child>
                                   <object class="GtkButton" id="button6">
                                     <property name="label" translatable="yes">Keyboard</property>
-                                    <property name="width_request">100</property>
-                                    <property name="height_request">108</property>
+                                    <property name="width_request">118</property>
+                                    <property name="height_request">118</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="focus_on_click">False</property>
@@ -494,8 +472,8 @@ Management</property>
                                 <child>
                                   <object class="GtkButton" id="button9">
                                     <property name="label" translatable="yes">Sound</property>
-                                    <property name="width_request">100</property>
-                                    <property name="height_request">108</property>
+                                    <property name="width_request">118</property>
+                                    <property name="height_request">118</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="focus_on_click">False</property>
@@ -512,8 +490,8 @@ Management</property>
                                 <child>
                                   <object class="GtkButton" id="button7">
                                     <property name="label" translatable="yes">Mouse</property>
-                                    <property name="width_request">100</property>
-                                    <property name="height_request">108</property>
+                                    <property name="width_request">118</property>
+                                    <property name="height_request">118</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="focus_on_click">False</property>
@@ -530,8 +508,8 @@ Management</property>
                                 <child>
                                   <object class="GtkButton" id="button12">
                                     <property name="label" translatable="yes">Monitor</property>
-                                    <property name="width_request">100</property>
-                                    <property name="height_request">108</property>
+                                    <property name="width_request">118</property>
+                                    <property name="height_request">118</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="focus_on_click">False</property>
@@ -547,8 +525,7 @@ Management</property>
                                 </child>
                               </object>
                               <packing>
-                                <property name="x">30</property>
-                                <property name="y">10</property>
+                                <property name="y">20</property>
                               </packing>
                             </child>
                           </object>
@@ -560,23 +537,22 @@ Management</property>
                         </child>
                         <child>
                           <object class="GtkLayout" id="layout3">
-                            <property name="height_request">180</property>
+                            <property name="height_request">138</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <child>
                               <object class="GtkButtonBox" id="hbuttonbox3">
-                                <property name="height_request">108</property>
+                                <property name="height_request">118</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="spacing">30</property>
-                                <property name="homogeneous">True</property>
+                                <property name="spacing">20</property>
                                 <property name="layout_style">start</property>
                                 <child>
                                   <object class="GtkButton" id="button10">
                                     <property name="label" translatable="yes">Network 
 Agent</property>
-                                    <property name="width_request">100</property>
-                                    <property name="height_request">108</property>
+                                    <property name="width_request">118</property>
+                                    <property name="height_request">118</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="focus_on_click">False</property>
@@ -594,8 +570,8 @@ Agent</property>
                                   <object class="GtkButton" id="button5">
                                     <property name="label" translatable="yes">Network 
 Connections</property>
-                                    <property name="width_request">100</property>
-                                    <property name="height_request">108</property>
+                                    <property name="width_request">118</property>
+                                    <property name="height_request">118</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="focus_on_click">False</property>
@@ -617,8 +593,7 @@ Connections</property>
                                 </child>
                               </object>
                               <packing>
-                                <property name="x">30</property>
-                                <property name="y">10</property>
+                                <property name="y">20</property>
                               </packing>
                             </child>
                           </object>
@@ -631,38 +606,14 @@ Connections</property>
                       </object>
                     </child>
                     <child type="label">
-                      <object class="GtkBox" id="hbox2">
-                        <property name="width_request">940</property>
-                        <property name="height_request">35</property>
+                      <object class="GtkLabel" id="label2">
+                        <property name="width_request">130</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <child>
-                          <object class="GtkLabel" id="label2">
-                            <property name="width_request">130</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">Hardware Configure</property>
-                            <property name="width_chars">8</property>
-                          </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkSeparator" id="hseparator2">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="margin_top">17</property>
-                            <property name="margin_bottom">17</property>
-                          </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">1</property>
-                          </packing>
-                        </child>
+                        <property name="margin_left">10</property>
+                        <property name="label" translatable="yes">Hardware Configure</property>
+                        <property name="width_chars">8</property>
+                        <property name="xalign">0</property>
                       </object>
                     </child>
                   </object>
@@ -697,13 +648,11 @@ Connections</property>
                         <property name="orientation">vertical</property>
                         <child>
                           <object class="GtkButton" id="bt_startpage">
-                            <property name="height_request">35</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="focus_on_click">False</property>
                             <property name="receives_default">True</property>
                             <property name="no_show_all">True</property>
-                            <property name="margin_top">5</property>
                             <property name="relief">none</property>
                             <child>
                               <object class="GtkBox" id="hbox17">
