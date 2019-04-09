@@ -68,7 +68,7 @@ static void on_combo_changed_cb(GtkComboBox * combobox, gpointer userdata){
             g_settings_set_string(settings, key, "toggle-maximize");
     }
     else if(current == 2)
-    g_settings_set_string(settings, key, "lower");
+    g_settings_set_string(settings, key, "minimize");
 }
 
 gboolean preferences_switch_set_cb(GtkSwitch * widget, gboolean state, gpointer userdata){
@@ -106,21 +106,21 @@ static void setup_combo(){
     doubleIndex = 0;
     else if (strcmp(doubleCur, "toggle-maximize") == 0 || strcmp(doubleCur, "toggle_maximize") == 0)
     doubleIndex = 1;
-    else if (strcmp(doubleCur, "lower") == 0)
+    else if (strcmp(doubleCur, "minimize") == 0)
     doubleIndex = 2;
     //middle combo box
     if(strcmp(middleCur, "none") == 0)
     middleIndex = 0;
     else if (strcmp(middleCur, "toggle-maximize") == 0 || strcmp(middleCur, "toggle_maximize") == 0)
     middleIndex = 1;
-    else if (strcmp(middleCur, "lower") == 0)
+    else if (strcmp(middleCur, "minimize") == 0)
     middleIndex = 2;
     //right combo box
     if(strcmp(rightCur, "none") == 0)
     rightIndex = 0;
     else if (strcmp(rightCur, "toggle-maximize") == 0 || strcmp(rightCur, "toggle_maximize") == 0)
     rightIndex = 1;
-    else if (strcmp(rightCur, "lower") == 0)
+    else if (strcmp(rightCur, "minimize") == 0)
     rightIndex = 2;
 
     g_signal_handlers_block_by_func(doublecombo, on_combo_changed_cb, DOUBLE);
@@ -139,15 +139,15 @@ static void populate_combo_data(){
 
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(doublecombo), _("none"));
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(doublecombo), _("toggle-maximize"));
-    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(doublecombo), _("lower"));
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(doublecombo), _("minimize"));
 
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(middlecombo), _("none"));
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(middlecombo), _("toggle-maximize"));
-    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(middlecombo), _("lower"));
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(middlecombo), _("minimize"));
 
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(rightcombo), _("none"));
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(rightcombo), _("toggle-maximize"));
-    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(rightcombo), _("lower"));
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(rightcombo), _("minimize"));
 }
 
 static void init_combo(){

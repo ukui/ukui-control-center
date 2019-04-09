@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ukui-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-19 14:05+0800\n"
+"POT-Creation-Date: 2019-04-09 14:50+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,36 +30,36 @@ msgstr "图像"
 msgid "ALL File"
 msgstr "所有文件"
 
-#: panels/appearance/appearance-fm.c:95
-msgid "icon_view"
-msgstr "图表视图"
-
-#: panels/appearance/appearance-fm.c:96
-msgid "compact_view"
-msgstr "简洁视图"
-
-#: panels/appearance/appearance-fm.c:97
-msgid "list_view"
-msgstr "列表视图"
-
-#: panels/appearance/appearance-fm.c:98
-msgid "computer_view"
-msgstr "我的电脑视图"
-
-#: panels/appearance/appearance-fm.c:170 panels/appearance/appearance-fm.c:174
-#: panels/appearance/appearance-fm.c:178
+#: panels/appearance/appearance-fm.c:140 panels/appearance/appearance-fm.c:144
+#: panels/appearance/appearance-fm.c:148
 msgid "none"
 msgstr "无"
 
-#: panels/appearance/appearance-fm.c:171 panels/appearance/appearance-fm.c:175
-#: panels/appearance/appearance-fm.c:179
+#: panels/appearance/appearance-fm.c:141 panels/appearance/appearance-fm.c:145
+#: panels/appearance/appearance-fm.c:149
 msgid "toggle-maximize"
 msgstr "最大化"
 
-#: panels/appearance/appearance-fm.c:172 panels/appearance/appearance-fm.c:176
-#: panels/appearance/appearance-fm.c:180
-msgid "lower"
+#: panels/appearance/appearance-fm.c:142 panels/appearance/appearance-fm.c:146
+#: panels/appearance/appearance-fm.c:150
+msgid "minimize"
 msgstr "最小化"
+
+#: panels/appearance/appearance-fm.c:154
+msgid "icon_view"
+msgstr "图表视图"
+
+#: panels/appearance/appearance-fm.c:155
+msgid "compact_view"
+msgstr "简洁视图"
+
+#: panels/appearance/appearance-fm.c:156
+msgid "list_view"
+msgstr "列表视图"
+
+#: panels/appearance/appearance-fm.c:157
+msgid "computer_view"
+msgstr "我的电脑视图"
 
 #: panels/appearance/appearance-theme.c:50
 msgid "Please choose a color that you like as the theme colors."
@@ -2559,6 +2559,9 @@ msgstr ""
 #: shell/ukui-control-center.c:201
 msgid "window1"
 msgstr ""
+
+#~ msgid "lower"
+#~ msgstr "最小化"
 
 #~ msgid "Select action for mouse click"
 #~ msgstr "文件管理的窗口事件选项"

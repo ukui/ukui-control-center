@@ -451,6 +451,7 @@ fill_combo_box(GtkIconTheme* theme, GtkComboBox* combo_box, GList* app_list, gch
 		/* Icon */
 		GIcon* icon = g_app_info_get_icon(item);
 		gchar* icon_name = g_icon_to_string(icon);
+        g_warning("--------->%s", icon_name);
         if(g_strcmp0(g_app_info_get_id(item), "org.gnome.Nautilus.desktop") == 0
                 || g_strcmp0(g_app_info_get_id(item), "org.gnome.baobab.desktop") == 0
                 || g_strcmp0(g_app_info_get_id(item), "nautilus-folder-handler.desktop") == 0
@@ -460,7 +461,7 @@ fill_combo_box(GtkIconTheme* theme, GtkComboBox* combo_box, GList* app_list, gch
         if(g_strrstr(icon_name,"webbrowser")){
             icon_name = g_strdup("webbrowser-app");
         }
-		if (icon_name == NULL)
+        if (icon_name == NULL || g_strcmp0(icon_name, "display-im6.q16") == 0)
 		{
 			/* Default icon */
 			icon_name = g_strdup("binary");
