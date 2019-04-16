@@ -42,7 +42,7 @@ struct _ThemeData {
 ThemeData themedata;
 static gboolean mute_lock;
 
-gchar * iconblack = "ukui-icon-theme"; 
+gchar * iconblack = "ukui-icon-theme";
 gchar * iconblue = "ukui-icon-theme-one";
 
 static gboolean reset_lock(gpointer user_data){
@@ -52,19 +52,18 @@ static gboolean reset_lock(gpointer user_data){
 }
 
 static void set_theme_color(GtkWidget * widget, GdkEvent *event, gpointer user_data){
-	int systemback;
-	if(mute_lock){
-		mute_lock = FALSE;
-    	g_settings_set_string(themedata.theme_setting,MARCO_THEME_KEY, user_data);
-	g_settings_set_string(themedata.theme_gtk_setting,GTK_THEME_KEY, user_data);
-	if (g_strrstr(user_data, "blue"))
-		g_settings_set_string(themedata.theme_gtk_setting, ICON_THEME_KEY, iconblue);
-	else
-		g_settings_set_string(themedata.theme_gtk_setting, ICON_THEME_KEY, iconblack);
+    if (mute_lock) {
+        mute_lock = FALSE;
+        g_settings_set_string(themedata.theme_setting,MARCO_THEME_KEY, user_data);
+        g_settings_set_string(themedata.theme_gtk_setting,GTK_THEME_KEY, user_data);
+        if (g_strrstr(user_data, "blue"))
+            g_settings_set_string(themedata.theme_gtk_setting, ICON_THEME_KEY, iconblue);
+        else
+            g_settings_set_string(themedata.theme_gtk_setting, ICON_THEME_KEY, iconblack);
 
         g_timeout_add(100, (GSourceFunc)reset_lock, NULL);
-		return;
-	}
+        return;
+    }
 }
 
 static void component_init(){
