@@ -63,12 +63,12 @@ static void set_theme_color(GtkWidget * widget, GdkEvent *event, gpointer user_d
 		g_settings_set_string(themedata.theme_gtk_setting, ICON_THEME_KEY, iconblack);
 
     //	systemback = system("/usr/bin/killall mate-panel");
-        systemback = system("/usr/bin/nohup /usr/bin/mate-panel --replace &");
+//        systemback = system("/usr/bin/nohup /usr/bin/mate-panel --replace &");
 
-		g_timeout_add(5000, (GSourceFunc)reset_lock, NULL);
+        g_timeout_add(100, (GSourceFunc)reset_lock, NULL);
 		return;
 	}
-    gtk_label_set_text(GTK_LABEL(themedata.appearance_show_label), _("Set up disable. Please wait at least 5 seconds that system subject will restart"));
+//    gtk_label_set_text(GTK_LABEL(themedata.appearance_show_label), _("Set up disable. Please wait at least 5 seconds that system subject will restart"));
 }
 
 static void component_init(){

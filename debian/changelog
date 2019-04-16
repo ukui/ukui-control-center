@@ -5,6 +5,7 @@ ukui-control-center (1.1.6-1) unstable; urgency=medium
   * fix i18n for fr.po pt.po ru.po es.po by \n
   * change appearance->fm from "lower" to "minimize" (LP: #1821688)
   * rebuild shell.ui fix label not fully shown after fonts zooming in (LP: #1805103)
+  * change code of theme, just set gsettings do not restart panel; and change the 5s delay to 0.1s
 
  -- hebing <hebing@kylinos.cn>  Sat, 29 Dec 2018 16:12:21 +0800
 
