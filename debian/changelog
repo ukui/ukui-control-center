@@ -3,7 +3,7 @@ ukui-control-center (1.1.7.1-0ubuntu1) disco; urgency=medium
   * Bugfix-only:
     - Don't launch mate-panel when change theme.
 
- -- handsome_feng <jianfengli@ubuntukylin.com>  Tue, 16 Apr 2019 19:18:12 +0800
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Tue, 16 Apr 2019 20:16:46 +0800
 
 ukui-control-center (1.1.7-0ubuntu1) disco; urgency=medium
 
