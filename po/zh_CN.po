@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ukui-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-09 14:50+0800\n"
+"POT-Creation-Date: 2019-05-28 09:16+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,12 +64,6 @@ msgstr "我的电脑视图"
 #: panels/appearance/appearance-theme.c:50
 msgid "Please choose a color that you like as the theme colors."
 msgstr "选择一个您喜欢的颜色作为主题颜色"
-
-#: panels/appearance/appearance-theme.c:71
-msgid ""
-"Set up disable. Please wait at least 5 seconds that system subject will "
-"restart"
-msgstr "设置无效!请等待至少5秒，以便系统主题重新启动"
 
 #: panels/appearance/font_render.ui.h:1
 msgid "Font Rendering Details"
@@ -952,7 +946,7 @@ msgstr "更改头像"
 #: panels/user-accounts/change-pwd.ui.h:2
 #: panels/user-accounts/change-type.ui.h:2
 #: panels/user-accounts/delete-user.ui.h:2
-#: panels/user-accounts/user-accounts.c:2074
+#: panels/user-accounts/user-accounts.c:2076
 #: panels/user-accounts/user-create.ui.h:2
 msgid "Cancel"
 msgstr "取消"
@@ -961,7 +955,7 @@ msgstr "取消"
 #: panels/user-accounts/change-name.ui.h:3
 #: panels/user-accounts/change-pwd.ui.h:3
 #: panels/user-accounts/change-type.ui.h:3
-#: panels/user-accounts/user-accounts.c:2075
+#: panels/user-accounts/user-accounts.c:2077
 msgid "Ok"
 msgstr "确定"
 
@@ -969,12 +963,12 @@ msgstr "确定"
 #: panels/user-accounts/change-name.ui.h:4
 #: panels/user-accounts/change-pwd.ui.h:4
 #: panels/user-accounts/change-type.ui.h:5
-#: panels/user-accounts/delete-user.ui.h:5 shell/shell.ui.h:218
+#: panels/user-accounts/delete-user.ui.h:5 shell/shell.ui.h:216
 msgid "label"
 msgstr ""
 
 #: panels/user-accounts/change-face.ui.h:5
-#: panels/user-accounts/user-accounts.c:2071
+#: panels/user-accounts/user-accounts.c:2073
 msgid "Browse more pictures"
 msgstr "浏览更多图片"
 
@@ -1011,14 +1005,14 @@ msgid ""
 msgstr "标准用户可以使用大多数软件，但不能安装软件和更改影响所有用户的设置。"
 
 #: panels/user-accounts/change-type.ui.h:10
-#: panels/user-accounts/user-accounts.c:688
-#: panels/user-accounts/user-accounts.c:945
-#: panels/user-accounts/user-accounts.c:1135
-#: panels/user-accounts/user-accounts.c:1244
-#: panels/user-accounts/user-accounts.c:1245
-#: panels/user-accounts/user-accounts.c:1359
-#: panels/user-accounts/user-accounts.c:1585
-#: panels/user-accounts/user-accounts.c:1695
+#: panels/user-accounts/user-accounts.c:690
+#: panels/user-accounts/user-accounts.c:947
+#: panels/user-accounts/user-accounts.c:1137
+#: panels/user-accounts/user-accounts.c:1246
+#: panels/user-accounts/user-accounts.c:1247
+#: panels/user-accounts/user-accounts.c:1361
+#: panels/user-accounts/user-accounts.c:1587
+#: panels/user-accounts/user-accounts.c:1697
 #: panels/user-accounts/user-create.ui.h:8
 msgid "Administrators"
 msgstr "管理员"
@@ -1120,201 +1114,201 @@ msgstr "新密码最近已被使用过！"
 msgid "Your password has been changed after you verify!"
 msgstr "在您验证过后您的密码已经被更改！"
 
-#: panels/user-accounts/user-accounts.c:188
+#: panels/user-accounts/user-accounts.c:190
 msgid "User name cannot be empty!"
 msgstr "用户名不能为空！"
 
-#: panels/user-accounts/user-accounts.c:214
+#: panels/user-accounts/user-accounts.c:216
 msgid "Password length needs to more than 5 digits!"
 msgstr "密码长度需要5位以上！"
 
-#: panels/user-accounts/user-accounts.c:221
-#: panels/user-accounts/user-accounts.c:414
+#: panels/user-accounts/user-accounts.c:223
+#: panels/user-accounts/user-accounts.c:416
 msgid "Password length needs to less than 64 digits!"
 msgstr "密码长度需要小于64位！"
 
-#: panels/user-accounts/user-accounts.c:233
-#: panels/user-accounts/user-accounts.c:360
-#: panels/user-accounts/user-accounts.c:398
-#: panels/user-accounts/user-accounts.c:406
-#: panels/user-accounts/user-accounts.c:421
-#: panels/user-accounts/user-accounts.c:643
-#: panels/user-accounts/user-accounts.c:739
-#: panels/user-accounts/user-accounts.c:2579
+#: panels/user-accounts/user-accounts.c:235
+#: panels/user-accounts/user-accounts.c:362
+#: panels/user-accounts/user-accounts.c:400
+#: panels/user-accounts/user-accounts.c:408
+#: panels/user-accounts/user-accounts.c:423
+#: panels/user-accounts/user-accounts.c:645
+#: panels/user-accounts/user-accounts.c:741
+#: panels/user-accounts/user-accounts.c:2581
 msgid "Please confirm the new password"
 msgstr "请确认新密码"
 
-#: panels/user-accounts/user-accounts.c:235
-#: panels/user-accounts/user-accounts.c:253
-#: panels/user-accounts/user-accounts.c:424
+#: panels/user-accounts/user-accounts.c:237
+#: panels/user-accounts/user-accounts.c:255
+#: panels/user-accounts/user-accounts.c:426
 msgid "enter the password twice inconsistencies!"
 msgstr "两次输入密码不一致！"
 
-#: panels/user-accounts/user-accounts.c:268
-#: panels/user-accounts/user-accounts.c:774
+#: panels/user-accounts/user-accounts.c:270
+#: panels/user-accounts/user-accounts.c:776
 msgid "The first character cannot be underlined!"
 msgstr "首字符不能为下划线！"
 
-#: panels/user-accounts/user-accounts.c:274
-#: panels/user-accounts/user-accounts.c:780
+#: panels/user-accounts/user-accounts.c:276
+#: panels/user-accounts/user-accounts.c:782
 msgid "User name can not contain capital letters!"
 msgstr "用户名不能包含大写字母！"
 
-#: panels/user-accounts/user-accounts.c:282
-#: panels/user-accounts/user-accounts.c:788
+#: panels/user-accounts/user-accounts.c:284
+#: panels/user-accounts/user-accounts.c:790
 msgid "The user name can only be composed of letters, numbers and underline!"
 msgstr "用户名只能由字母、数字以及下划线组成！"
 
-#: panels/user-accounts/user-accounts.c:289
+#: panels/user-accounts/user-accounts.c:291
 msgid "The first character cannot be numeric!"
 msgstr "首字符不能为数字！"
 
-#: panels/user-accounts/user-accounts.c:300
-#: panels/user-accounts/user-accounts.c:357
-#: panels/user-accounts/user-accounts.c:2567
+#: panels/user-accounts/user-accounts.c:302
+#: panels/user-accounts/user-accounts.c:359
+#: panels/user-accounts/user-accounts.c:2569
 msgid "Please enter the username"
 msgstr "请输入用户名"
 
-#: panels/user-accounts/user-accounts.c:301
+#: panels/user-accounts/user-accounts.c:303
 msgid "Please enter the password "
 msgstr "请输入密码"
 
-#: panels/user-accounts/user-accounts.c:313
+#: panels/user-accounts/user-accounts.c:315
 msgid "The user name is already in use, please use a different one."
 msgstr "该用户名已被使用，请换用其他用户名!"
 
-#: panels/user-accounts/user-accounts.c:333
+#: panels/user-accounts/user-accounts.c:335
 msgid ""
 "The user name corresponds to the group already exists,please use a different "
 "user name"
 msgstr "该用户名对应的组已存在,请换用其他用户名"
 
-#: panels/user-accounts/user-accounts.c:345
+#: panels/user-accounts/user-accounts.c:347
 msgid "username length need to less than 32!"
 msgstr "用户名长度不能超过32位!"
 
-#: panels/user-accounts/user-accounts.c:357
-#: panels/user-accounts/user-accounts.c:960
+#: panels/user-accounts/user-accounts.c:359
+#: panels/user-accounts/user-accounts.c:962
 msgid "Please enter the new username"
 msgstr "请输入新用户名"
 
-#: panels/user-accounts/user-accounts.c:359
-#: panels/user-accounts/user-accounts.c:2574
+#: panels/user-accounts/user-accounts.c:361
+#: panels/user-accounts/user-accounts.c:2576
 msgid "Please enter the password"
 msgstr "请输入密码"
 
-#: panels/user-accounts/user-accounts.c:359
-#: panels/user-accounts/user-accounts.c:634
-#: panels/user-accounts/user-accounts.c:730
+#: panels/user-accounts/user-accounts.c:361
+#: panels/user-accounts/user-accounts.c:636
+#: panels/user-accounts/user-accounts.c:732
 msgid "Please enter new password"
 msgstr "请输入新密码"
 
-#: panels/user-accounts/user-accounts.c:360
-#: panels/user-accounts/user-accounts.c:396
-#: panels/user-accounts/user-accounts.c:612
-#: panels/user-accounts/user-accounts.c:716
+#: panels/user-accounts/user-accounts.c:362
+#: panels/user-accounts/user-accounts.c:398
+#: panels/user-accounts/user-accounts.c:614
+#: panels/user-accounts/user-accounts.c:718
 msgid "Please enter the current password"
 msgstr "请输入当前密码"
 
-#: panels/user-accounts/user-accounts.c:360
-#: panels/user-accounts/user-accounts.c:397
-#: panels/user-accounts/user-accounts.c:405
-#: panels/user-accounts/user-accounts.c:420
+#: panels/user-accounts/user-accounts.c:362
+#: panels/user-accounts/user-accounts.c:399
+#: panels/user-accounts/user-accounts.c:407
+#: panels/user-accounts/user-accounts.c:422
 msgid "Please enter the new password"
 msgstr "请输入新密码"
 
-#: panels/user-accounts/user-accounts.c:463
+#: panels/user-accounts/user-accounts.c:465
 msgid "Please choose another password."
 msgstr "请选择其它的密码."
 
-#: panels/user-accounts/user-accounts.c:477
+#: panels/user-accounts/user-accounts.c:479
 msgid "Please reenter the current password."
 msgstr "请重新输入当前密码."
 
-#: panels/user-accounts/user-accounts.c:484
+#: panels/user-accounts/user-accounts.c:486
 msgid "Password can not be modified."
 msgstr "密码无法被修改."
 
-#: panels/user-accounts/user-accounts.c:577
+#: panels/user-accounts/user-accounts.c:579
 msgid "Password input error, please re-enter!"
 msgstr "当前密码输入错误，请重新输入!"
 
-#: panels/user-accounts/user-accounts.c:690
-#: panels/user-accounts/user-accounts.c:947
-#: panels/user-accounts/user-accounts.c:1137
-#: panels/user-accounts/user-accounts.c:1249
-#: panels/user-accounts/user-accounts.c:1250
-#: panels/user-accounts/user-accounts.c:1364
-#: panels/user-accounts/user-accounts.c:1587
-#: panels/user-accounts/user-accounts.c:1697
+#: panels/user-accounts/user-accounts.c:692
+#: panels/user-accounts/user-accounts.c:949
+#: panels/user-accounts/user-accounts.c:1139
+#: panels/user-accounts/user-accounts.c:1251
+#: panels/user-accounts/user-accounts.c:1252
+#: panels/user-accounts/user-accounts.c:1366
+#: panels/user-accounts/user-accounts.c:1589
+#: panels/user-accounts/user-accounts.c:1699
 msgid "Standard user"
 msgstr "标准用户"
 
-#: panels/user-accounts/user-accounts.c:696
-#: panels/user-accounts/user-accounts.c:953
-#: panels/user-accounts/user-accounts.c:1142
-#: panels/user-accounts/user-accounts.c:1378
-#: panels/user-accounts/user-accounts.c:1619
-#: panels/user-accounts/user-accounts.c:1705
-msgid "Logged(Current User)"
-msgstr "已登录(当前用户)"
-
-#: panels/user-accounts/user-accounts.c:701
+#: panels/user-accounts/user-accounts.c:698
 #: panels/user-accounts/user-accounts.c:955
 #: panels/user-accounts/user-accounts.c:1144
 #: panels/user-accounts/user-accounts.c:1380
-#: panels/user-accounts/user-accounts.c:1623
-#: panels/user-accounts/user-accounts.c:1709
-msgid "Logged(Other Users)"
-msgstr "已登录(其他用户)"
+#: panels/user-accounts/user-accounts.c:1621
+#: panels/user-accounts/user-accounts.c:1707
+msgid "Logged(Current User)"
+msgstr "已登录(当前用户)"
 
-#: panels/user-accounts/user-accounts.c:705
+#: panels/user-accounts/user-accounts.c:703
 #: panels/user-accounts/user-accounts.c:957
 #: panels/user-accounts/user-accounts.c:1146
 #: panels/user-accounts/user-accounts.c:1382
-#: panels/user-accounts/user-accounts.c:1627
-#: panels/user-accounts/user-accounts.c:1713
+#: panels/user-accounts/user-accounts.c:1625
+#: panels/user-accounts/user-accounts.c:1711
+msgid "Logged(Other Users)"
+msgstr "已登录(其他用户)"
+
+#: panels/user-accounts/user-accounts.c:707
+#: panels/user-accounts/user-accounts.c:959
+#: panels/user-accounts/user-accounts.c:1148
+#: panels/user-accounts/user-accounts.c:1384
+#: panels/user-accounts/user-accounts.c:1629
+#: panels/user-accounts/user-accounts.c:1715
 msgid "Un-login(Other Users)"
 msgstr "未登录(其他用户)"
 
-#: panels/user-accounts/user-accounts.c:795
+#: panels/user-accounts/user-accounts.c:797
 msgid "User name cannot start with number!"
 msgstr "用户名不能以数字开头!"
 
-#: panels/user-accounts/user-accounts.c:801
+#: panels/user-accounts/user-accounts.c:803
 msgid "Username length need to less than 32!"
 msgstr "用户名长度不能超过32位!"
 
-#: panels/user-accounts/user-accounts.c:813
+#: panels/user-accounts/user-accounts.c:815
 msgid "The user name has been used, please replace with another one!"
 msgstr "该用户名已经被使用，请换一个!"
 
-#: panels/user-accounts/user-accounts.c:844
-#: panels/user-accounts/user-accounts.c:881
+#: panels/user-accounts/user-accounts.c:846
+#: panels/user-accounts/user-accounts.c:883
 msgid "Modify username failed!"
 msgstr "修改用户名失败!"
 
-#: panels/user-accounts/user-accounts.c:889
+#: panels/user-accounts/user-accounts.c:891
 msgid "the user has logged in, please log out and modify!"
 msgstr "该用户已登录，请注销该用户后再修改!"
 
-#: panels/user-accounts/user-accounts.c:1078
-#: panels/user-accounts/user-accounts.c:2321
+#: panels/user-accounts/user-accounts.c:1080
+#: panels/user-accounts/user-accounts.c:2323
 msgid "auto login"
 msgstr "自动登录"
 
-#: panels/user-accounts/user-accounts.c:1081
-#: panels/user-accounts/user-accounts.c:2324
+#: panels/user-accounts/user-accounts.c:1083
+#: panels/user-accounts/user-accounts.c:2326
 msgid "_Cancel"
 msgstr "取消"
 
-#: panels/user-accounts/user-accounts.c:1083
-#: panels/user-accounts/user-accounts.c:2326
+#: panels/user-accounts/user-accounts.c:1085
+#: panels/user-accounts/user-accounts.c:2328
 msgid "_OK"
 msgstr "确认"
 
-#: panels/user-accounts/user-accounts.c:1086
-#: panels/user-accounts/user-accounts.c:2329
+#: panels/user-accounts/user-accounts.c:1088
+#: panels/user-accounts/user-accounts.c:2331
 msgid ""
 "\tAlready have other users set to automatically log in,\t\n"
 " \tclick OK will overwrite the existing settings!"
@@ -1322,17 +1316,17 @@ msgstr ""
 "\t已经有其他用户设置为自动登录了，\t\n"
 "\t点击确认将覆盖以前的设置！"
 
-#: panels/user-accounts/user-accounts.c:1493
+#: panels/user-accounts/user-accounts.c:1495
 msgid "The user can not be deleted!"
 msgstr "无法删除该用户!"
 
-#: panels/user-accounts/user-accounts.c:1501
+#: panels/user-accounts/user-accounts.c:1503
 msgid ""
 "The user has logged in, please perform the delete operation after logging "
 "out!"
 msgstr "该用户已登录，请注销该用户后再执行删除操作!"
 
-#: panels/user-accounts/user-accounts.c:1526
+#: panels/user-accounts/user-accounts.c:1528
 #, c-format
 msgid ""
 "<span weight='bold' font_desc='11'>do you confirm to delete all the files of "
@@ -1340,7 +1334,7 @@ msgid ""
 msgstr ""
 "<span weight='bold' font_desc='11'>确认删除用户 %s 的所有文件吗?</span>"
 
-#: panels/user-accounts/user-accounts.c:1532
+#: panels/user-accounts/user-accounts.c:1534
 #, c-format
 msgid ""
 "if you want to delete the %s user, belonging to the user's \n"
@@ -1350,32 +1344,32 @@ msgstr ""
 "如果要删除 %s 用户，那么属于该用户的桌面、文档、收藏\n"
 "夹、音乐、图片和视频文件夹的内容将全部被删除!"
 
-#: panels/user-accounts/user-accounts.c:1589
-#: panels/user-accounts/user-accounts.c:1699
+#: panels/user-accounts/user-accounts.c:1591
+#: panels/user-accounts/user-accounts.c:1701
 msgid "Super user"
 msgstr "超级用户"
 
-#: panels/user-accounts/user-accounts.c:1591
+#: panels/user-accounts/user-accounts.c:1593
 msgid "Rename"
 msgstr "更改用户名"
 
-#: panels/user-accounts/user-accounts.c:1597
+#: panels/user-accounts/user-accounts.c:1599
 msgid "Change PWD"
 msgstr "更改密码"
 
-#: panels/user-accounts/user-accounts.c:1602
+#: panels/user-accounts/user-accounts.c:1604
 msgid "Change Face"
 msgstr "更改头像"
 
-#: panels/user-accounts/user-accounts.c:1607
+#: panels/user-accounts/user-accounts.c:1609
 msgid "Change Type"
 msgstr "更改用户类型"
 
-#: panels/user-accounts/user-accounts.c:1612
+#: panels/user-accounts/user-accounts.c:1614
 msgid "Delete"
 msgstr "删除用户"
 
-#: panels/user-accounts/user-accounts.c:2216
+#: panels/user-accounts/user-accounts.c:2218
 msgid "Browse more pictures..."
 msgstr "浏览更多图片..."
 
@@ -1731,15 +1725,15 @@ msgstr "适合宽度"
 #: shell/shell.ui.h:14
 msgid ""
 "Default \n"
-"Application"
+"Applications"
 msgstr "默认应用"
 
 #: shell/shell.ui.h:16
-msgid "Time Dates"
+msgid "Time Date"
 msgstr "时间和日期"
 
 #: shell/shell.ui.h:17
-msgid "User  Account"
+msgid "User  Accounts"
 msgstr "用户账户"
 
 #: shell/shell.ui.h:18
@@ -1785,15 +1779,15 @@ msgid "_Autostart"
 msgstr "开机启动"
 
 #: shell/shell.ui.h:34
-msgid "_Default APP"
+msgid "_Default Apps"
 msgstr " 默认应用     "
 
 #: shell/shell.ui.h:35
-msgid "_Time Dates"
+msgid "_Time Date"
 msgstr "时间和日期"
 
 #: shell/shell.ui.h:36
-msgid "_User Account"
+msgid "_User Accounts"
 msgstr "用户账户"
 
 #: shell/shell.ui.h:37
@@ -1825,8 +1819,8 @@ msgid "_Monitor"
 msgstr "显示器"
 
 #: shell/shell.ui.h:44
-msgid "Po_wer Manage"
-msgstr " 电源管理     "
+msgid "Po_wer Management"
+msgstr "电源管理"
 
 #: shell/shell.ui.h:45
 msgid "Tzone:"
@@ -1945,7 +1939,7 @@ msgid "Style:"
 msgstr "图片放置方式："
 
 #: shell/shell.ui.h:75
-msgid "wallpaper"
+msgid "Wallpaper"
 msgstr "桌面背景"
 
 #: shell/shell.ui.h:76
@@ -2438,76 +2432,76 @@ msgid "Computer status"
 msgstr "更改计算机状态"
 
 #: shell/shell.ui.h:201
-msgid "AC Power"
-msgstr "电源供电"
-
-#: shell/shell.ui.h:202
-msgid "Battery Power"
-msgstr "电池供电"
-
-#: shell/shell.ui.h:203
-msgid "Put _computer to sleep when inactive:"
-msgstr "空闲此时间后将计算机转入睡眠(C)："
-
-#: shell/shell.ui.h:204
-msgid "Put _monitor to sleep when inactive:"
-msgstr "空闲此时间后将显示器转入睡眠(M)："
-
-#: shell/shell.ui.h:205
-msgid "When laptop lid is cl_osed:"
-msgstr "关闭笔记本电脑上盖时(O)："
-
-#: shell/shell.ui.h:206
 msgid "Actions"
 msgstr "操作"
 
-#: shell/shell.ui.h:207
+#: shell/shell.ui.h:202
 msgid "When the power _button is pressed:"
 msgstr "按下了电源按钮时(B)："
 
-#: shell/shell.ui.h:208
+#: shell/shell.ui.h:203
 msgid "When the sus_pend button is pressed:"
 msgstr "按下了挂起按钮时(S)："
 
-#: shell/shell.ui.h:209
+#: shell/shell.ui.h:204
 msgid "Icon display"
 msgstr "图标显示设置"
 
-#: shell/shell.ui.h:210
+#: shell/shell.ui.h:205
 msgid "Only display an icon when a battery is p_resent"
 msgstr "仅当使用电池时显示图标(R)"
 
-#: shell/shell.ui.h:211
+#: shell/shell.ui.h:206
 msgid "_Always display an icon"
 msgstr "总是显示图标(A)"
 
+#: shell/shell.ui.h:207
+msgid "Put _computer to sleep when inactive:"
+msgstr "空闲此时间后将计算机转入睡眠(C)："
+
+#: shell/shell.ui.h:208
+msgid "Put _monitor to sleep when inactive:"
+msgstr "空闲此时间后将显示器转入睡眠(M)："
+
+#: shell/shell.ui.h:209
+msgid "When laptop lid is cl_osed:"
+msgstr "关闭笔记本电脑上盖时(O)："
+
+#: shell/shell.ui.h:210
+msgid "AC Power"
+msgstr "电源供电"
+
+#: shell/shell.ui.h:211
+msgid "Battery Power"
+msgstr "电池供电"
+
 #: shell/shell.ui.h:212
-msgid "Power Configure"
+msgid "Power Configuration"
 msgstr "电源设置"
 
 #: shell/shell.ui.h:213
-msgid "Regard the computer as _idle after:"
-msgstr "于此时间后视计算机空闲(I)："
-
-#: shell/shell.ui.h:214
 msgid "_Activate screensaver when computer is idle"
 msgstr "计算机空闲时激活屏幕保护程序（A）"
 
-#: shell/shell.ui.h:215
+#: shell/shell.ui.h:214
 msgid "_Lock screen when screensaver is active"
 msgstr "屏幕保护程序激活时锁定屏幕（L）"
 
-#: shell/shell.ui.h:216
-msgid "preview"
-msgstr "预览"
+#: shell/shell.ui.h:215
+msgid "Set display brightness to:"
+msgstr "设定显示器亮度为(B)："
 
 #: shell/shell.ui.h:217
 msgid "Screensavers:"
 msgstr "屏幕保护程序："
 
+#: shell/shell.ui.h:218
+msgid "preview"
+msgstr "预览"
+
 #: shell/shell.ui.h:219
-msgid "Set display brightness to:"
-msgstr "设定显示器亮度为(B)："
+msgid "Regard the computer as _idle after:"
+msgstr "于此时间后视计算机空闲(I)："
 
 #: shell/shell.ui.h:220
 msgid "Screensaver"
@@ -2559,6 +2553,17 @@ msgstr ""
 #: shell/ukui-control-center.c:201
 msgid "window1"
 msgstr ""
+
+#~ msgid "Po_wer Manage"
+#~ msgstr " 电源管理     "
+
+#~ msgid "Power Configure"
+#~ msgstr "电源设置"
+
+#~ msgid ""
+#~ "Set up disable. Please wait at least 5 seconds that system subject will "
+#~ "restart"
+#~ msgstr "设置无效!请等待至少5秒，以便系统主题重新启动"
 
 #~ msgid "lower"
 #~ msgstr "最小化"

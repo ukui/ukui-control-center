@@ -305,7 +305,7 @@
                                 <child>
                                   <object class="GtkButton" id="button4">
                                     <property name="label" translatable="yes">Default 
-Application</property>
+Applications</property>
                                     <property name="width_request">118</property>
                                     <property name="height_request">118</property>
                                     <property name="visible">True</property>
@@ -323,7 +323,7 @@ Application</property>
                                 </child>
                                 <child>
                                   <object class="GtkButton" id="button1">
-                                    <property name="label" translatable="yes">Time Dates</property>
+                                    <property name="label" translatable="yes">Time Date</property>
                                     <property name="width_request">118</property>
                                     <property name="height_request">118</property>
                                     <property name="visible">True</property>
@@ -341,7 +341,7 @@ Application</property>
                                 </child>
                                 <child>
                                   <object class="GtkButton" id="button2">
-                                    <property name="label" translatable="yes">User  Account</property>
+                                    <property name="label" translatable="yes">User  Accounts</property>
                                     <property name="width_request">118</property>
                                     <property name="height_request">118</property>
                                     <property name="visible">True</property>
@@ -794,7 +794,7 @@ Connections</property>
                                             <property name="can_focus">False</property>
                                             <property name="halign">start</property>
                                             <property name="margin_left">47</property>
-                                            <property name="label" translatable="yes">_Default APP</property>
+                                            <property name="label" translatable="yes">_Default Apps</property>
                                             <property name="use_underline">True</property>
                                           </object>
                                         </child>
@@ -827,7 +827,7 @@ Connections</property>
                                             <property name="can_focus">False</property>
                                             <property name="halign">start</property>
                                             <property name="margin_left">50</property>
-                                            <property name="label" translatable="yes">_Time Dates</property>
+                                            <property name="label" translatable="yes">_Time Date</property>
                                             <property name="use_underline">True</property>
                                           </object>
                                         </child>
@@ -860,7 +860,7 @@ Connections</property>
                                             <property name="can_focus">False</property>
                                             <property name="halign">start</property>
                                             <property name="margin_left">50</property>
-                                            <property name="label" translatable="yes">_User Account</property>
+                                            <property name="label" translatable="yes">_User Accounts</property>
                                             <property name="use_underline">True</property>
                                           </object>
                                         </child>
@@ -1157,7 +1157,7 @@ Connections</property>
                                             <property name="can_focus">False</property>
                                             <property name="halign">start</property>
                                             <property name="margin_left">47</property>
-                                            <property name="label" translatable="yes">Po_wer Manage</property>
+                                            <property name="label" translatable="yes">Po_wer Management</property>
                                             <property name="use_underline">True</property>
                                           </object>
                                         </child>
@@ -2016,7 +2016,7 @@ Connections</property>
                                 <property name="height_request">30</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label" translatable="yes">wallpaper</property>
+                                <property name="label" translatable="yes">Wallpaper</property>
                               </object>
                               <packing>
                                 <property name="tab_fill">False</property>
@@ -7139,7 +7139,7 @@ commonly used language.</property>
                                 <property name="height_request">30</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label" translatable="yes">Power Configure</property>
+                                <property name="label" translatable="yes">Power Configuration</property>
                               </object>
                               <packing>
                                 <property name="tab_fill">False</property>
