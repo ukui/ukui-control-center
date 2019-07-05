@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>ukui-blue.png</file>
+        <file>ukui-blue-select.png</file>
+        <file>ukui-black.png</file>
+        <file>ukui-black-select.png</file>
+    </qresource>
+</RCC>

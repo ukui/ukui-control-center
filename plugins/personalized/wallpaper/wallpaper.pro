@@ -1,0 +1,32 @@
+#-------------------------------------------------
+#
+# Project created by QtCreator 2019-06-17T11:16:02
+#
+#-------------------------------------------------
+
+QT       += widgets xml
+
+TEMPLATE = lib
+CONFIG += plugin
+INCLUDEPATH += ../../..
+
+TARGET = $$qtLibraryTarget(wallpaper)
+DESTDIR = ../..
+
+LIBS += -L/usr/lib/ -lgsettings-qt
+
+#DEFINES += QT_DEPRECATED_WARNINGS
+
+
+SOURCES += \
+        wallpaper.cpp \
+    xmlhandle.cpp \
+    component/custdomitemmodel.cpp
+
+HEADERS += \
+        wallpaper.h \
+    xmlhandle.h \
+    component/custdomitemmodel.h
+
+FORMS += \
+        wallpaper.ui
