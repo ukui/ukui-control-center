@@ -1,12 +1,15 @@
 #ifndef PRINTER_H
 #define PRINTER_H
 
-#include <QWidget>
+
 #include <QObject>
 #include <QtPlugin>
 #include "mainui/interface.h"
 
+#include <QWidget>
 #include <QLabel>
+#include <QtPrintSupport/QPrinterInfo>
+#include <QProcess>
 
 namespace Ui {
 class Printer;
@@ -33,6 +36,9 @@ private:
     QWidget * pluginWidget;
 
     QLabel * label;
+
+private slots:
+    void run_external_app_slot();
 };
 
 #endif // PRINTER_H

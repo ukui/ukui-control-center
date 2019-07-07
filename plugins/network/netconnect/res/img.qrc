@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>nonet.png</file>
+        <file>local.png</file>
+        <file>internet.png</file>
+        <file>disconnect.png</file>
+        <file>connect.png</file>
+        <file>eth.png</file>
+        <file>eth_disconnect.png</file>
+        <file>wifi.png</file>
+        <file>wifi_disconnect.png</file>
+    </qresource>
+</RCC>

@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += widgets
+QT       += widgets printsupport
 
 TEMPLATE = lib
 CONFIG += plugin

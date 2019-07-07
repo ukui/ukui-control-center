@@ -11,6 +11,15 @@ Printer::Printer(){
 
     pluginName = tr("printer");
     pluginType = DEVICES;
+
+    QStringList printer = QPrinterInfo::availablePrinterNames();
+
+    for (int num = 0; num < printer.count(); num++){
+        QListWidgetItem * item = new QListWidgetItem(printer.at(num), ui->listWidget);
+        ui->listWidget->addItem(item);
+    }
+
+    connect(ui->addPushBtn, SIGNAL(clicked()), this, SLOT(run_external_app_slot()));
 }
 
 Printer::~Printer()
@@ -29,4 +38,11 @@ int Printer::get_plugin_type(){
 
 QWidget * Printer::get_plugin_ui(){
     return pluginWidget;
+}
+
+void Printer::run_external_app_slot(){
+    QString cmd = "system-config-printer";
+
+    QProcess process(this);
+    process.startDetached(cmd);
 }

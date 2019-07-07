@@ -6,6 +6,8 @@
 #include <QtPlugin>
 #include "mainui/interface.h"
 
+#include <QProcess>
+
 namespace Ui {
 class Vpn;
 }
@@ -30,6 +32,9 @@ private:
     QString pluginName;
     int pluginType;
     QWidget * pluginWidget;
+
+private slots:
+    void run_external_app_slot();
 };
 
 #endif // VPN_H

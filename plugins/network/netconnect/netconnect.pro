@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += widgets
+QT       += widgets network
 
 TEMPLATE = lib
 CONFIG += plugin
@@ -24,3 +24,6 @@ HEADERS += \
 
 FORMS += \
         netconnect.ui
+
+RESOURCES += \
+    res/img.qrc
