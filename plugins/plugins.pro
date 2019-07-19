@@ -6,5 +6,4 @@ SUBDIRS = system \
         account \
         time_language \
         security_updates \
-        messages_task \
-        component
+        messages_task

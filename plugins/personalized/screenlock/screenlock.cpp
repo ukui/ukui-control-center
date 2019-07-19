@@ -50,9 +50,9 @@ void Screenlock::component_init(){
     ui->formComboBox->addItems(formList);
 
     //同步登录背景的控件SwitchButton
-//    setloginbgBtn = new SwitchButton();
-//    ui->setloginbgHLayout_4->addWidget(setloginbgBtn);
-//    ui->setloginbgHLayout_4->addStretch();
+    setloginbgBtn = new SwitchButton();
+    ui->setloginbgHLayout_4->addWidget(setloginbgBtn);
+    ui->setloginbgHLayout_4->addStretch();
 }
 
 void Screenlock::status_init(){
