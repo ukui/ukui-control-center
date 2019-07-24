@@ -31,6 +31,8 @@ private:
     QList<QLabel *> delLabelList;
     QList<QFrame *> delFrameList;
 
+    QSize logoSize;
+
 protected:
     bool eventFilter(QObject *watched, QEvent *event);
 

@@ -43,6 +43,8 @@ Power::Power()
     const QByteArray id(POWERMANAGER_SCHEMA);
     settings = new QGSettings(id);
 
+    pluginWidget->setStyleSheet("QWidget#widget{background-color: #ffffff; border: 1px solid #cccccc}");
+
     component_init();
     status_init();
 }
@@ -92,8 +94,8 @@ void Power::component_init(){
     ui->suspendComboBox->addItems(buttonStringList);
 
     //
-    ui->icondisplayBtnGroup->setId(ui->presentRadioBtn, PRESENT);
-    ui->icondisplayBtnGroup->setId(ui->alwaysRadioBtn, ALWAYS);
+//    ui->icondisplayBtnGroup->setId(ui->presentRadioBtn, PRESENT);
+//    ui->icondisplayBtnGroup->setId(ui->alwaysRadioBtn, ALWAYS);
 
     //平衡和节能模式暂未开放
     ui->custdomRadioBtn->setChecked(true);
@@ -151,14 +153,14 @@ void Power::status_init(){
     ui->suspendComboBox->setCurrentText(suspentbtn);
 
     //电池图标  枚举类型但是toint为零只能toString
-    QString ipvalue = settings->get(ICONPOLICY).toString();
-    if (ipvalue == PRESENT_VALUE)
-        ui->presentRadioBtn->setChecked(true);
-    else if (ipvalue == ALWAYS_VALUE)
-        ui->alwaysRadioBtn->setChecked(true);
+//    QString ipvalue = settings->get(ICONPOLICY).toString();
+//    if (ipvalue == PRESENT_VALUE)
+//        ui->presentRadioBtn->setChecked(true);
+//    else if (ipvalue == ALWAYS_VALUE)
+//        ui->alwaysRadioBtn->setChecked(true);
 
     connect(ui->powerBtnGroup, SIGNAL(buttonClicked(int)), this, SLOT(powerBtnGroup_changed_slot(int)));
-    connect(ui->icondisplayBtnGroup, SIGNAL(buttonClicked(int)), this, SLOT(icondisplayBtnGroup_changed_slot(int)));
+//    connect(ui->icondisplayBtnGroup, SIGNAL(buttonClicked(int)), this, SLOT(icondisplayBtnGroup_changed_slot(int)));
 
     connect(ui->acsleepComboBox, SIGNAL(currentIndexChanged(QString)), this, SLOT(ac_sleep_changed_slot(QString)));
     connect(ui->batsleepComboBox, SIGNAL(currentIndexChanged(QString)), this, SLOT(bat_sleep_changed_slot(QString)));
@@ -238,12 +240,12 @@ void Power::bat_close_changed_slot(QString value){
     settings->set(SLEEP_DISPLAY_BATT_KEY, QVariant(setvalue));
 }
 
-void Power::icondisplayBtnGroup_changed_slot(int index){
-    if (index == PRESENT)
-        settings->set(ICONPOLICY, QVariant(PRESENT_VALUE));
-    else if (index == ALWAYS)
-        settings->set(ICONPOLICY, QVariant(ALWAYS_VALUE));
-}
+//void Power::icondisplayBtnGroup_changed_slot(int index){
+//    if (index == PRESENT)
+//        settings->set(ICONPOLICY, QVariant(PRESENT_VALUE));
+//    else if (index == ALWAYS)
+//        settings->set(ICONPOLICY, QVariant(ALWAYS_VALUE));
+//}
 
 void Power::powerBtnGroup_changed_slot(int index){
     if (index == BALANCE){

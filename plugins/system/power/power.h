@@ -43,7 +43,7 @@ private:
     QStringList buttonStringList;
 
 public slots:
-    void icondisplayBtnGroup_changed_slot(int index);
+//    void icondisplayBtnGroup_changed_slot(int index);
     void powerBtnGroup_changed_slot(int index);
 
     void ac_sleep_changed_slot(QString value);

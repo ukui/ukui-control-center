@@ -10,6 +10,15 @@ AutoBoot::AutoBoot(){
     pluginName = tr("autoboot");
     pluginType = SYSTEM;
 
+
+    ui->tableWidget->setStyleSheet("background-color: #f5f6f7");
+    //列头高度
+    ui->tableWidget->horizontalHeader()->setMinimumHeight(38);
+
+    //列宽
+    ui->tableWidget->setColumnWidth(0, 440);
+    ui->tableWidget->setColumnWidth(1, 318);
+
     // 隐藏行头
     ui->tableWidget->verticalHeader()->hide();
 
@@ -17,7 +26,7 @@ AutoBoot::AutoBoot(){
     ui->tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
 
     // 行平均填充
-    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+//    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
     initUI();
 }
@@ -98,6 +107,9 @@ void AutoBoot::initUI(){
         checkboxSignalMapper->setMapping(checkBox, it.key());
         appgroupMultiMaps.insert(it.key(), checkBox);
         ui->tableWidget->setCellWidget(i, 1, checkBox);
+
+        //设置行高
+        ui->tableWidget->setRowHeight(i, 46);
     }
     connect(checkboxSignalMapper, SIGNAL(mapped(QString)), this, SLOT(checkbox_changed_cb(QString)));
 }

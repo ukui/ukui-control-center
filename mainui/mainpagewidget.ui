@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>900</width>
-    <height>576</height>
+    <width>1004</width>
+    <height>712</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>900</width>
-    <height>576</height>
+    <width>1004</width>
+    <height>712</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>900</width>
-    <height>576</height>
+    <width>1004</width>
+    <height>712</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -41,36 +41,23 @@
    <item>
     <layout class="QVBoxLayout" name="verticalLayout">
      <property name="spacing">
-      <number>0</number>
+      <number>40</number>
      </property>
-     <item>
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>60</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
+     <property name="topMargin">
+      <number>75</number>
+     </property>
      <item>
       <widget class="QWidget" name="widget" native="true">
        <property name="minimumSize">
         <size>
-         <width>900</width>
-         <height>100</height>
+         <width>1002</width>
+         <height>72</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>900</width>
-         <height>100</height>
+         <width>1002</width>
+         <height>72</height>
         </size>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -95,13 +82,13 @@
            <widget class="QWidget" name="widget_5" native="true">
             <property name="minimumSize">
              <size>
-              <width>450</width>
+              <width>502</width>
               <height>0</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>450</width>
+              <width>502</width>
               <height>16777215</height>
              </size>
             </property>
@@ -121,20 +108,23 @@
              <item>
               <layout class="QHBoxLayout" name="systemHLayout">
                <property name="spacing">
-                <number>0</number>
+                <number>30</number>
+               </property>
+               <property name="leftMargin">
+                <number>75</number>
                </property>
                <item>
                 <widget class="QLabel" name="systemLogo">
                  <property name="minimumSize">
                   <size>
-                   <width>65</width>
-                   <height>65</height>
+                   <width>62</width>
+                   <height>62</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>65</width>
-                   <height>65</height>
+                   <width>62</width>
+                   <height>62</height>
                   </size>
                  </property>
                  <property name="text">
@@ -145,7 +135,7 @@
                <item>
                 <layout class="QVBoxLayout" name="verticalLayout_3">
                  <property name="spacing">
-                  <number>0</number>
+                  <number>10</number>
                  </property>
                  <item>
                   <spacer name="verticalSpacer_3">
@@ -170,7 +160,7 @@
                  <item>
                   <layout class="QHBoxLayout" name="optionsSystemHLayout">
                    <property name="spacing">
-                    <number>3</number>
+                    <number>8</number>
                    </property>
                   </layout>
                  </item>
@@ -211,13 +201,13 @@
            <widget class="QWidget" name="widget_6" native="true">
             <property name="minimumSize">
              <size>
-              <width>450</width>
+              <width>502</width>
               <height>0</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>450</width>
+              <width>502</width>
               <height>16777215</height>
              </size>
             </property>
@@ -237,20 +227,23 @@
              <item>
               <layout class="QHBoxLayout" name="devicesHLayout">
                <property name="spacing">
-                <number>0</number>
+                <number>30</number>
+               </property>
+               <property name="leftMargin">
+                <number>39</number>
                </property>
                <item>
                 <widget class="QLabel" name="devicesLogo">
                  <property name="minimumSize">
                   <size>
-                   <width>65</width>
-                   <height>65</height>
+                   <width>62</width>
+                   <height>62</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>65</width>
-                   <height>65</height>
+                   <width>62</width>
+                   <height>62</height>
                   </size>
                  </property>
                  <property name="text">
@@ -261,7 +254,7 @@
                <item>
                 <layout class="QVBoxLayout" name="verticalLayout_4">
                  <property name="spacing">
-                  <number>0</number>
+                  <number>10</number>
                  </property>
                  <item>
                   <spacer name="verticalSpacer_5">
@@ -286,7 +279,7 @@
                  <item>
                   <layout class="QHBoxLayout" name="optionsDevicesHLayout">
                    <property name="spacing">
-                    <number>3</number>
+                    <number>8</number>
                    </property>
                   </layout>
                  </item>
@@ -332,14 +325,14 @@
       <widget class="QWidget" name="widget_2" native="true">
        <property name="minimumSize">
         <size>
-         <width>900</width>
-         <height>100</height>
+         <width>1002</width>
+         <height>72</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>900</width>
-         <height>100</height>
+         <width>1002</width>
+         <height>72</height>
         </size>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -364,13 +357,13 @@
            <widget class="QWidget" name="widget_7" native="true">
             <property name="minimumSize">
              <size>
-              <width>450</width>
+              <width>502</width>
               <height>0</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>450</width>
+              <width>502</width>
               <height>16777215</height>
              </size>
             </property>
@@ -390,20 +383,23 @@
              <item>
               <layout class="QHBoxLayout" name="personalizedHLayout">
                <property name="spacing">
-                <number>0</number>
+                <number>30</number>
+               </property>
+               <property name="leftMargin">
+                <number>75</number>
                </property>
                <item>
                 <widget class="QLabel" name="personalizedLogo">
                  <property name="minimumSize">
                   <size>
-                   <width>65</width>
-                   <height>65</height>
+                   <width>62</width>
+                   <height>62</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>65</width>
-                   <height>65</height>
+                   <width>62</width>
+                   <height>62</height>
                   </size>
                  </property>
                  <property name="text">
@@ -414,7 +410,7 @@
                <item>
                 <layout class="QVBoxLayout" name="verticalLayout_5">
                  <property name="spacing">
-                  <number>0</number>
+                  <number>10</number>
                  </property>
                  <property name="bottomMargin">
                   <number>0</number>
@@ -442,7 +438,7 @@
                  <item>
                   <layout class="QHBoxLayout" name="optionsPersonalizedHLayout">
                    <property name="spacing">
-                    <number>3</number>
+                    <number>8</number>
                    </property>
                   </layout>
                  </item>
@@ -483,13 +479,13 @@
            <widget class="QWidget" name="widget_8" native="true">
             <property name="minimumSize">
              <size>
-              <width>450</width>
+              <width>502</width>
               <height>0</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>450</width>
+              <width>502</width>
               <height>16777215</height>
              </size>
             </property>
@@ -509,20 +505,23 @@
              <item>
               <layout class="QHBoxLayout" name="networkHLayout">
                <property name="spacing">
-                <number>0</number>
+                <number>30</number>
+               </property>
+               <property name="leftMargin">
+                <number>39</number>
                </property>
                <item>
                 <widget class="QLabel" name="networkLogo">
                  <property name="minimumSize">
                   <size>
-                   <width>65</width>
-                   <height>65</height>
+                   <width>62</width>
+                   <height>62</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>65</width>
-                   <height>65</height>
+                   <width>62</width>
+                   <height>62</height>
                   </size>
                  </property>
                  <property name="text">
@@ -533,7 +532,7 @@
                <item>
                 <layout class="QVBoxLayout" name="verticalLayout_6">
                  <property name="spacing">
-                  <number>0</number>
+                  <number>10</number>
                  </property>
                  <property name="rightMargin">
                   <number>0</number>
@@ -564,7 +563,7 @@
                  <item>
                   <layout class="QHBoxLayout" name="optionsNetworkHLayout">
                    <property name="spacing">
-                    <number>3</number>
+                    <number>8</number>
                    </property>
                   </layout>
                  </item>
@@ -610,14 +609,14 @@
       <widget class="QWidget" name="widget_3" native="true">
        <property name="minimumSize">
         <size>
-         <width>900</width>
-         <height>100</height>
+         <width>1002</width>
+         <height>72</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>900</width>
-         <height>100</height>
+         <width>1002</width>
+         <height>72</height>
         </size>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_8">
@@ -642,13 +641,13 @@
            <widget class="QWidget" name="widget_9" native="true">
             <property name="minimumSize">
              <size>
-              <width>450</width>
+              <width>502</width>
               <height>0</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>450</width>
+              <width>502</width>
               <height>16777215</height>
              </size>
             </property>
@@ -668,20 +667,23 @@
              <item>
               <layout class="QHBoxLayout" name="accountHLayout">
                <property name="spacing">
-                <number>0</number>
+                <number>30</number>
+               </property>
+               <property name="leftMargin">
+                <number>75</number>
                </property>
                <item>
                 <widget class="QLabel" name="accountLogo">
                  <property name="minimumSize">
                   <size>
-                   <width>65</width>
-                   <height>65</height>
+                   <width>62</width>
+                   <height>62</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>65</width>
-                   <height>65</height>
+                   <width>62</width>
+                   <height>62</height>
                   </size>
                  </property>
                  <property name="text">
@@ -692,7 +694,7 @@
                <item>
                 <layout class="QVBoxLayout" name="verticalLayout_7">
                  <property name="spacing">
-                  <number>0</number>
+                  <number>10</number>
                  </property>
                  <item>
                   <spacer name="verticalSpacer_12">
@@ -715,7 +717,11 @@
                   </widget>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="optionsAccountHLayout"/>
+                  <layout class="QHBoxLayout" name="optionsAccountHLayout">
+                   <property name="spacing">
+                    <number>8</number>
+                   </property>
+                  </layout>
                  </item>
                  <item>
                   <spacer name="verticalSpacer_11">
@@ -754,13 +760,13 @@
            <widget class="QWidget" name="widget_10" native="true">
             <property name="minimumSize">
              <size>
-              <width>450</width>
+              <width>502</width>
               <height>0</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>450</width>
+              <width>502</width>
               <height>16777215</height>
              </size>
             </property>
@@ -780,20 +786,23 @@
              <item>
               <layout class="QHBoxLayout" name="time_lanHLayout">
                <property name="spacing">
-                <number>0</number>
+                <number>30</number>
+               </property>
+               <property name="leftMargin">
+                <number>39</number>
                </property>
                <item>
                 <widget class="QLabel" name="time_lanLogo">
                  <property name="minimumSize">
                   <size>
-                   <width>65</width>
-                   <height>65</height>
+                   <width>62</width>
+                   <height>62</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>65</width>
-                   <height>65</height>
+                   <width>62</width>
+                   <height>62</height>
                   </size>
                  </property>
                  <property name="text">
@@ -804,7 +813,7 @@
                <item>
                 <layout class="QVBoxLayout" name="verticalLayout_8">
                  <property name="spacing">
-                  <number>0</number>
+                  <number>10</number>
                  </property>
                  <item>
                   <spacer name="verticalSpacer_14">
@@ -822,12 +831,16 @@
                  <item>
                   <widget class="QLabel" name="time_lanTitle">
                    <property name="text">
-                    <string>Time_Language</string>
+                    <string>Time Language</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="optionsTLHLayout"/>
+                  <layout class="QHBoxLayout" name="optionsTLHLayout">
+                   <property name="spacing">
+                    <number>8</number>
+                   </property>
+                  </layout>
                  </item>
                  <item>
                   <spacer name="verticalSpacer_13">
@@ -871,14 +884,14 @@
       <widget class="QWidget" name="widget_4" native="true">
        <property name="minimumSize">
         <size>
-         <width>900</width>
-         <height>100</height>
+         <width>1002</width>
+         <height>72</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>900</width>
-         <height>100</height>
+         <width>1002</width>
+         <height>72</height>
         </size>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_15">
@@ -903,13 +916,13 @@
            <widget class="QWidget" name="widget_11" native="true">
             <property name="minimumSize">
              <size>
-              <width>450</width>
+              <width>502</width>
               <height>0</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>450</width>
+              <width>502</width>
               <height>16777215</height>
              </size>
             </property>
@@ -929,20 +942,23 @@
              <item>
               <layout class="QHBoxLayout" name="security_updatesHLayout">
                <property name="spacing">
-                <number>0</number>
+                <number>30</number>
+               </property>
+               <property name="leftMargin">
+                <number>75</number>
                </property>
                <item>
                 <widget class="QLabel" name="security_updatesLogo">
                  <property name="minimumSize">
                   <size>
-                   <width>65</width>
-                   <height>65</height>
+                   <width>62</width>
+                   <height>62</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>65</width>
-                   <height>65</height>
+                   <width>62</width>
+                   <height>62</height>
                   </size>
                  </property>
                  <property name="text">
@@ -953,7 +969,7 @@
                <item>
                 <layout class="QVBoxLayout" name="verticalLayout_9">
                  <property name="spacing">
-                  <number>0</number>
+                  <number>10</number>
                  </property>
                  <item>
                   <spacer name="verticalSpacer_16">
@@ -971,12 +987,16 @@
                  <item>
                   <widget class="QLabel" name="security_updatesTitle">
                    <property name="text">
-                    <string>Security_Updates</string>
+                    <string>Security Updates</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="optionsSUHLayout"/>
+                  <layout class="QHBoxLayout" name="optionsSUHLayout">
+                   <property name="spacing">
+                    <number>8</number>
+                   </property>
+                  </layout>
                  </item>
                  <item>
                   <spacer name="verticalSpacer_15">
@@ -1015,13 +1035,13 @@
            <widget class="QWidget" name="widget_12" native="true">
             <property name="minimumSize">
              <size>
-              <width>450</width>
+              <width>502</width>
               <height>0</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>450</width>
+              <width>502</width>
               <height>16777215</height>
              </size>
             </property>
@@ -1041,20 +1061,23 @@
              <item>
               <layout class="QHBoxLayout" name="messages_taskHLayout">
                <property name="spacing">
-                <number>0</number>
+                <number>30</number>
+               </property>
+               <property name="leftMargin">
+                <number>39</number>
                </property>
                <item>
                 <widget class="QLabel" name="messages_taskLogo">
                  <property name="minimumSize">
                   <size>
-                   <width>65</width>
-                   <height>65</height>
+                   <width>62</width>
+                   <height>62</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>65</width>
-                   <height>65</height>
+                   <width>62</width>
+                   <height>62</height>
                   </size>
                  </property>
                  <property name="text">
@@ -1065,7 +1088,7 @@
                <item>
                 <layout class="QVBoxLayout" name="verticalLayout_10">
                  <property name="spacing">
-                  <number>0</number>
+                  <number>10</number>
                  </property>
                  <item>
                   <spacer name="verticalSpacer_18">
@@ -1082,13 +1105,23 @@
                  </item>
                  <item>
                   <widget class="QLabel" name="messages_taskTitle">
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
                    <property name="text">
-                    <string>Messages_Task</string>
+                    <string>Messages Task</string>
+                   </property>
+                   <property name="textFormat">
+                    <enum>Qt::AutoText</enum>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="optionsMTHLayout"/>
+                  <layout class="QHBoxLayout" name="optionsMTHLayout">
+                   <property name="spacing">
+                    <number>8</number>
+                   </property>
+                  </layout>
                  </item>
                  <item>
                   <spacer name="verticalSpacer_17">

@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 
     //load qss file
     QString qss;
-    QFile QssFile("://kycc.qss");
+    QFile QssFile("://main.qss");
     QssFile.open(QFile::ReadOnly);
 
     if (QssFile.isOpen()){

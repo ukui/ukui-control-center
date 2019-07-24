@@ -1,7 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>homePage/system.png</file>
-        <file>kycc.qss</file>
+        <file>main.qss</file>
         <file>zh_CN.qm</file>
     </qresource>
 </RCC>

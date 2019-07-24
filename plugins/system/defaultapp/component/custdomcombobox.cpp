@@ -4,6 +4,9 @@
 CustdomComboBox::CustdomComboBox(QWidget *parent) :
     QComboBox(parent)
 {
+    QSize size(422, 62);
+    this->setMinimumSize(size);
+    this->setMaximumSize(size);
     connect(this, SIGNAL(currentIndexChanged(int)), this, SLOT(itemchangedSlot(int)));
 }
 

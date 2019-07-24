@@ -12,7 +12,16 @@ ModulePageWidget::ModulePageWidget(QWidget *parent) :
     this->setParent(parent);
     pmainWindow = (MainWindow *)parentWidget();
 
+//    QFont font;
+//    font.setPointSize(14);
+//    ui->modulesTitle->setFont(font);
+//    ui->modulesTitle->setStyleSheet("color: #999999");
+
 //    connect(ui->backtomainBtn, SIGNAL(clicked(bool)), pmainWindow, SLOT(backToMain()));
+
+    ui->widget->setStyleSheet("background-color: #ebeef0");
+    ui->leftStackedWidget->setStyleSheet("border-style: none");
+
     connect(ui->backtomainBtn, SIGNAL(clicked()), this, SLOT(backBtnClicked_cb()));
 
     initUI();
@@ -41,6 +50,10 @@ void ModulePageWidget::initUI(){
                 continue;
 
             QListWidgetItem * item = new QListWidgetItem(leftListWidget);
+            item->setSizeHint(QSize(198,50)); //widget width 200 -  border 2 = 198
+            QFont font;
+            font.setPixelSize(14);
+            item->setFont(font);
             item->setText(currentStringList.at(num));
             leftListWidget->addItem(item);
 

@@ -13,6 +13,8 @@ MainPageWidget::MainPageWidget(QWidget *parent) :
     this->setParent(parent);
     pmainWindow = (MainWindow *)parentWidget();
 
+    logoSize = QSize(62, 62);
+
     initUI();
 }
 
@@ -32,15 +34,20 @@ MainPageWidget::~MainPageWidget()
 }
 
 void MainPageWidget::initUI(){
+
     //-----------------start----------------
     QPalette labelPalette;
     labelPalette.setColor(QPalette::WindowText, Qt::blue);
+//    QFont font;
+//    font.setPointSize(18);
 
     //system
-    ui->systemLogo->setPixmap(QPixmap("://homePage/system.png"));
+    ui->systemLogo->setPixmap(QPixmap("://homePage/system.png").scaled(logoSize));
     ui->systemTitle->installEventFilter(this);
-    ui->systemHLayout->setSpacing(10);
-    ui->systemHLayout->setContentsMargins(110, 10, 0, 10);
+//    ui->systemTitle->setFont(font);
+//    ui->systemTitle->setStyleSheet("color:#000000");
+//    ui->systemHLayout->setSpacing(10);
+//    ui->systemHLayout->setContentsMargins(110, 10, 0, 10);
 
 //    pmainWindow->systemStringList << "display" << "defaultapp" << "power" << "autoboot";
     pmainWindow->subfuncList[SYSTEM] << "display" << "defaultapp" << "power" << "autoboot";
@@ -92,10 +99,12 @@ void MainPageWidget::initUI(){
 //    }
 
     //devices
-    ui->devicesLogo->setPixmap(QPixmap("://homePage/system.png"));
+    ui->devicesLogo->setPixmap(QPixmap("://homePage/system.png").scaled(logoSize));
     ui->devicesTitle->installEventFilter(this);
-    ui->devicesHLayout->setSpacing(10);
-    ui->devicesHLayout->setContentsMargins(40, 10, 0, 10);
+//    ui->devicesTitle->setFont(font);
+//    ui->devicesTitle->setStyleSheet("color: #000000");
+//    ui->devicesHLayout->setSpacing(10);
+//    ui->devicesHLayout->setContentsMargins(40, 10, 0, 10);
 
     pmainWindow->subfuncList[DEVICES] << "printer" << "mouse" << "keyboard" << "audio";
 
@@ -125,10 +134,12 @@ void MainPageWidget::initUI(){
     connect(devicesSignalMapper, SIGNAL(mapped(QObject*)), pmainWindow, SLOT(pluginClicked_cb(QObject*)));
 
     //personalized
-    ui->personalizedLogo->setPixmap(QPixmap("://homePage/system.png"));
+    ui->personalizedLogo->setPixmap(QPixmap("://homePage/system.png").scaled(logoSize));
     ui->personalizedTitle->installEventFilter(this);
-    ui->personalizedHLayout->setSpacing(10);
-    ui->personalizedHLayout->setContentsMargins(110, 10, 0, 10);
+//    ui->personalizedTitle->setFont(font);
+//    ui->personalizedTitle->setStyleSheet("color: #000000");
+//    ui->personalizedHLayout->setSpacing(10);
+//    ui->personalizedHLayout->setContentsMargins(110, 10, 0, 10);
 
     pmainWindow->subfuncList[PERSONALIZED] << "wallpaper" << "theme" << "screenlock" << "fonts" << "screensaver" << "start" << "panel";
 
@@ -158,10 +169,13 @@ void MainPageWidget::initUI(){
 
 
     //network
-    ui->networkLogo->setPixmap(QPixmap("://homePage/system.png"));
-    ui->networkHLayout->setSpacing(10);
-    ui->networkHLayout->setContentsMargins(40, 10, 0, 10);
+    ui->networkLogo->setPixmap(QPixmap("://homePage/system.png").scaled(logoSize));
     ui->networkTitle->installEventFilter(this);
+//    ui->networkTitle->setFont(font);
+//    ui->networkTitle->setStyleSheet("color: #000000");
+//    ui->networkHLayout->setSpacing(10);
+//    ui->networkHLayout->setContentsMargins(40, 10, 0, 10);
+
 
     pmainWindow->subfuncList[NETWORK] << "netconnect" << "vpn" << "proxy";
 
@@ -191,10 +205,12 @@ void MainPageWidget::initUI(){
     connect(networkSignalMapper, SIGNAL(mapped(QObject*)), pmainWindow, SLOT(pluginClicked_cb(QObject*)));
 
     //account
-    ui->accountLogo->setPixmap(QPixmap("://homePage/system.png"));
-    ui->accountHLayout->setSpacing(10);
-    ui->accountHLayout->setContentsMargins(110, 10, 0, 10);
+    ui->accountLogo->setPixmap(QPixmap("://homePage/system.png").scaled(logoSize));
     ui->accountTitle->installEventFilter(this);
+//    ui->accountTitle->setFont(font);
+//    ui->accountTitle->setStyleSheet("color: #000000");
+//    ui->accountHLayout->setSpacing(10);
+//    ui->accountHLayout->setContentsMargins(110, 10, 0, 10);
 
     pmainWindow->subfuncList[ACCOUNT] << "userinfo" << "loginoptions";
 
@@ -223,10 +239,12 @@ void MainPageWidget::initUI(){
     connect(accountSignalMapper, SIGNAL(mapped(QObject*)), pmainWindow, SLOT(pluginClicked_cb(QObject*)));
 
     //time and lanuage
-    ui->time_lanLogo->setPixmap(QPixmap("://homePage/system.png"));
-    ui->time_lanHLayout->setSpacing(10);
-    ui->time_lanHLayout->setContentsMargins(40, 10, 0, 10);
+    ui->time_lanLogo->setPixmap(QPixmap("://homePage/system.png").scaled(logoSize));
     ui->time_lanTitle->installEventFilter(this);
+//    ui->time_lanTitle->setFont(font);
+//    ui->time_lanTitle->setStyleSheet("color: #000000");
+//    ui->time_lanHLayout->setSpacing(10);
+//    ui->time_lanHLayout->setContentsMargins(40, 10, 0, 10);
 
     pmainWindow->subfuncList[TIME_LANGUAGE] << "language" << "area" << "datetime";
 
@@ -255,10 +273,12 @@ void MainPageWidget::initUI(){
     connect(tlSignalMapper, SIGNAL(mapped(QObject*)), pmainWindow, SLOT(pluginClicked_cb(QObject*)));
 
     //Security and updates
-    ui->security_updatesLogo->setPixmap(QPixmap("://homePage/system.png"));
+    ui->security_updatesLogo->setPixmap(QPixmap("://homePage/system.png").scaled(logoSize));
     ui->security_updatesTitle->installEventFilter(this);
-    ui->security_updatesHLayout->setSpacing(10);
-    ui->security_updatesHLayout->setContentsMargins(110, 10, 0, 10);
+//    ui->security_updatesTitle->setFont(font);
+//    ui->security_updatesTitle->setStyleSheet("color: #000000");
+//    ui->security_updatesHLayout->setSpacing(10);
+//    ui->security_updatesHLayout->setContentsMargins(110, 10, 0, 10);
 
     pmainWindow->subfuncList[SECURITY_UPDATES] << "update" << "recovery" << "backup";
 
@@ -287,10 +307,13 @@ void MainPageWidget::initUI(){
     connect(suSignalMapper, SIGNAL(mapped(QObject*)), pmainWindow, SLOT(pluginClicked_cb(QObject*)));
 
     //messages and task
-    ui->messages_taskLogo->setPixmap(QPixmap("://homePage/system.png"));
-    ui->messages_taskHLayout->setSpacing(10);
-    ui->messages_taskHLayout->setContentsMargins(40, 10, 0, 10);
+    ui->messages_taskLogo->setPixmap(QPixmap("://homePage/system.png").scaled(logoSize));
     ui->messages_taskTitle->installEventFilter(this);
+//    ui->messages_taskTitle->setFont(font);
+//    ui->messages_taskTitle->setStyleSheet("color: #000000");
+//    ui->messages_taskHLayout->setSpacing(10);
+//    ui->messages_taskHLayout->setContentsMargins(40, 10, 0, 10);
+
 
     pmainWindow->subfuncList[MESSAGES_TASK] << "notice_operation" << "multitask" << "about";
 

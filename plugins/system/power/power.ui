@@ -6,14 +6,29 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>756</width>
-    <height>574</height>
+    <width>800</width>
+    <height>710</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>710</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>710</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
+   <property name="spacing">
+    <number>0</number>
+   </property>
    <property name="leftMargin">
     <number>0</number>
    </property>
@@ -31,12 +46,36 @@
      <widget class="QWidget" name="Page1">
       <layout class="QVBoxLayout" name="verticalLayout">
        <property name="spacing">
+        <number>10</number>
+       </property>
+       <property name="leftMargin">
+        <number>20</number>
+       </property>
+       <property name="topMargin">
+        <number>25</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
         <number>0</number>
        </property>
        <item>
-        <widget class="QLabel" name="powerplanLabel">
+        <widget class="QLabel" name="titleLabel">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
          <property name="text">
           <string>select power plan</string>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -51,7 +90,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>20</height>
+           <height>5</height>
           </size>
          </property>
         </spacer>
@@ -88,7 +127,7 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
+             <width>20</width>
              <height>20</height>
             </size>
            </property>
@@ -96,8 +135,17 @@
          </item>
          <item>
           <widget class="QLabel" name="balancedetailLabel">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="text">
             <string>Automatically balance power consumption and performance with available hardware</string>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -127,7 +175,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>20</height>
+           <height>5</height>
           </size>
          </property>
         </spacer>
@@ -164,7 +212,7 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
+             <width>20</width>
              <height>20</height>
             </size>
            </property>
@@ -172,8 +220,17 @@
          </item>
          <item>
           <widget class="QLabel" name="label_5">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="text">
             <string>Minimize performance</string>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -203,7 +260,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>20</height>
+           <height>5</height>
           </size>
          </property>
         </spacer>
@@ -240,7 +297,7 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
+             <width>20</width>
              <height>20</height>
             </size>
            </property>
@@ -248,8 +305,17 @@
          </item>
          <item>
           <widget class="QLabel" name="label_7">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="text">
             <string>Users develop personalized power plans</string>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -283,7 +349,7 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
+             <width>20</width>
              <height>20</height>
             </size>
            </property>
@@ -293,11 +359,20 @@
           <widget class="QWidget" name="widget" native="true">
            <property name="minimumSize">
             <size>
-             <width>600</width>
-             <height>250</height>
+             <width>626</width>
+             <height>340</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>626</width>
+             <height>340</height>
             </size>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_4">
+            <property name="spacing">
+             <number>0</number>
+            </property>
             <property name="leftMargin">
              <number>0</number>
             </property>
@@ -312,151 +387,42 @@
             </property>
             <item>
              <layout class="QVBoxLayout" name="verticalLayout_3">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>30</number>
+              </property>
+              <property name="topMargin">
+               <number>25</number>
+              </property>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_9">
-                <property name="leftMargin">
-                 <number>10</number>
-                </property>
-                <property name="topMargin">
-                 <number>10</number>
-                </property>
-                <property name="rightMargin">
-                 <number>10</number>
-                </property>
-                <property name="bottomMargin">
-                 <number>10</number>
+               <layout class="QHBoxLayout" name="horizontalLayout_11">
+                <property name="spacing">
+                 <number>0</number>
                 </property>
                 <item>
-                 <layout class="QVBoxLayout" name="verticalLayout_5">
-                  <item>
-                   <spacer name="verticalSpacer_6">
-                    <property name="orientation">
-                     <enum>Qt::Vertical</enum>
-                    </property>
-                    <property name="sizeType">
-                     <enum>QSizePolicy::Fixed</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>20</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="label">
-                    <property name="text">
-                     <string>Change pc sleep time: </string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="label_2">
-                    <property name="text">
-                     <string>Change display close time:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="label_10">
-                    <property name="text">
-                     <string>Close lid of notebook</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
+                 <spacer name="horizontalSpacer_11">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Fixed</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>196</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
                 </item>
                 <item>
-                 <layout class="QVBoxLayout" name="verticalLayout_6">
-                  <item>
-                   <widget class="QLabel" name="label_3">
-                    <property name="text">
-                     <string>Power supply</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QComboBox" name="acsleepComboBox"/>
-                  </item>
-                  <item>
-                   <widget class="QComboBox" name="accloseComboBox"/>
-                  </item>
-                  <item>
-                   <widget class="QComboBox" name="aclidComboBox"/>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QVBoxLayout" name="verticalLayout_7">
-                  <item>
-                   <widget class="QLabel" name="label_4">
-                    <property name="text">
-                     <string>Battery powered</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QComboBox" name="batsleepComboBox"/>
-                  </item>
-                  <item>
-                   <widget class="QComboBox" name="batcloseComboBox"/>
-                  </item>
-                  <item>
-                   <widget class="QComboBox" name="batlidComboBox"/>
-                  </item>
-                 </layout>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <widget class="Line" name="line">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_10">
-                <property name="leftMargin">
-                 <number>10</number>
-                </property>
-                <property name="topMargin">
-                 <number>10</number>
-                </property>
-                <property name="rightMargin">
-                 <number>10</number>
-                </property>
-                <property name="bottomMargin">
-                 <number>10</number>
-                </property>
-                <item>
-                 <layout class="QVBoxLayout" name="verticalLayout_9">
-                  <item>
-                   <widget class="QLabel" name="label_6">
-                    <property name="text">
-                     <string>Press power button</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="label_8">
-                    <property name="text">
-                     <string>Press suspend button</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QVBoxLayout" name="verticalLayout_10">
-                  <item>
-                   <widget class="QComboBox" name="powerbtnComboBox"/>
-                  </item>
-                  <item>
-                   <widget class="QComboBox" name="suspendComboBox"/>
-                  </item>
-                 </layout>
+                 <widget class="QToolButton" name="toolButton">
+                  <property name="text">
+                   <string>Power supply</string>
+                  </property>
+                 </widget>
                 </item>
                 <item>
                  <spacer name="horizontalSpacer_9">
@@ -468,13 +434,520 @@
                   </property>
                   <property name="sizeHint" stdset="0">
                    <size>
-                    <width>190</width>
+                    <width>120</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QToolButton" name="toolButton_2">
+                  <property name="text">
+                   <string>Battery powered</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_12">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
                     <height>20</height>
                    </size>
                   </property>
                  </spacer>
                 </item>
                </layout>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_6">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_12">
+                <property name="spacing">
+                 <number>20</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="label_9">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>146</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>146</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Change pc sleep time: </string>
+                  </property>
+                  <property name="scaledContents">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="acsleepComboBox">
+                  <property name="minimumSize">
+                   <size>
+                    <width>180</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>180</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="batsleepComboBox">
+                  <property name="minimumSize">
+                   <size>
+                    <width>180</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>180</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_13">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_8">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>10</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_13">
+                <property name="spacing">
+                 <number>20</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="label_11">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>146</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>146</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Change dp close time:</string>
+                  </property>
+                  <property name="scaledContents">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="accloseComboBox">
+                  <property name="minimumSize">
+                   <size>
+                    <width>180</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>180</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="batcloseComboBox">
+                  <property name="minimumSize">
+                   <size>
+                    <width>180</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>180</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_14">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_9">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>10</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_14">
+                <property name="spacing">
+                 <number>20</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="label_12">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>146</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>146</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Close lid of notebook:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="aclidComboBox">
+                  <property name="minimumSize">
+                   <size>
+                    <width>180</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>180</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="batlidComboBox">
+                  <property name="minimumSize">
+                   <size>
+                    <width>180</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>180</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_15">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_11">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>25</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="Line" name="line">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>546</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_12">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>25</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_9">
+                <property name="spacing">
+                 <number>20</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="label">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>146</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>146</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Press power button:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="powerbtnComboBox">
+                  <property name="minimumSize">
+                   <size>
+                    <width>180</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>180</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_16">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_10">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>10</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_15">
+                <property name="spacing">
+                 <number>20</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="label_2">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>146</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>146</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Press suspend button:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="suspendComboBox">
+                  <property name="minimumSize">
+                   <size>
+                    <width>180</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>180</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_17">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_7">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
               </item>
              </layout>
             </item>
@@ -513,52 +986,32 @@
         </spacer>
        </item>
        <item>
-        <widget class="QLabel" name="icondisplayLabel">
-         <property name="text">
-          <string>set icon display</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer_10">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>10</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
         <layout class="QHBoxLayout" name="horizontalLayout_8">
          <property name="spacing">
           <number>0</number>
          </property>
          <item>
-          <widget class="QRadioButton" name="presentRadioBtn">
+          <widget class="QPushButton" name="resetPushBtn">
            <property name="text">
-            <string>Display icons only when the battery is discharged</string>
+            <string>Battery mode settings</string>
            </property>
-           <attribute name="buttonGroup">
-            <string notr="true">icondisplayBtnGroup</string>
-           </attribute>
+           <property name="flat">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item>
-          <widget class="QRadioButton" name="alwaysRadioBtn">
-           <property name="text">
-            <string>Always display</string>
+          <spacer name="horizontalSpacer_10">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
            </property>
-           <attribute name="buttonGroup">
-            <string notr="true">icondisplayBtnGroup</string>
-           </attribute>
-          </widget>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
          </item>
         </layout>
        </item>
@@ -585,6 +1038,5 @@
  <connections/>
  <buttongroups>
   <buttongroup name="powerBtnGroup"/>
-  <buttongroup name="icondisplayBtnGroup"/>
  </buttongroups>
 </ui>

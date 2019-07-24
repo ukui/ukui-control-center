@@ -12,6 +12,13 @@ MainWindow::MainWindow(QWidget *parent) :
 //    this->setPalette(bgPalette);
 
     this->setWindowFlags(Qt::FramelessWindowHint | Qt::Widget);
+    ui->widget->setStyleSheet("background-color: #ebeef0; border-top: 1px solid #2d7d9a; border-left: 1px solid #2d7d9a");
+//    this->setStyleSheet("QWidget#MainWindow{border: 1px solid #2d7d9a; border-radius: 5px;}");
+    this->setStyleSheet("QWidget#titleWidget{background-color: #f5f6f7;}");
+    this->setStyleSheet("QWidget#MainWindow{border: 1px solid #2d7d9a;}");
+
+
+    ui->lineEdit->setPlaceholderText(tr("Find Devices"));
 
     connect(ui->minBtn, SIGNAL(clicked()), this, SLOT(showMinimized()));
     connect(ui->closeBtn, SIGNAL(clicked(bool)), this, SLOT(close()));
