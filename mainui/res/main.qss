@@ -7,19 +7,48 @@ font-size:18px;
 QLabel#titleLabel {
 font-size:18px;
 }
+/*模块标题label*/
+QLabel[stylesize="title1#"]{
+font-size:18px;
+}
+
+QLabel[stylesize="special"]{
+font-size:24px;
+}
+
 /*首页点击label*/
 CustdomLabel{
 font-size:14px; color: #3f6cb9;
 }
+
+/*提示label*/
+QLabel[stylesize="tip"]{
+font-size:12px; color: red;
+}
+
 /*通用label*/
 QLabel{
 font-size:14px;
 }
 /*模块重置、跳转pushbutton*/
-QPushButton#resetPushBtn {
-font-size:14px; color: #3f6cb9;
+QPushButton[flat="true"] {
+font-size:14px; color: #0066bc;
 }
+/*
+QPushButton {
+height:24px;
+}
+*/
+
 /*通用radiobutton*/
 QRadioButton{
+font-size:14px; spacing:15px;
+}
+
+QToolButton{
 font-size:14px;
+}
+
+QMenu::item{
+/*font-size: 14px;*/
 }

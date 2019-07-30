@@ -68,15 +68,16 @@ void NetConnect::acquire_cardinfo(){
 }
 
 void NetConnect::component_init(){
+
+    QSize size(64, 64);
     //本地、因特网图标的设置
     QPixmap localpixmap("://local.png");
-    ui->localLabel->setPixmap(localpixmap);
+    ui->localLabel->setPixmap(localpixmap.scaled(size));
 
     QPixmap netpixmap("://internet.png");
-    ui->interLabel->setPixmap(netpixmap);
+    ui->interLabel->setPixmap(netpixmap.scaled(size));
 
     //网络设备
-    ui->listWidget->setViewMode(QListView::IconMode);
     acquire_cardinfo();
     for (int num = 0; num < cardinfoQList.count(); num++){
         CardInfo current = cardinfoQList.at(num);
@@ -91,9 +92,26 @@ void NetConnect::component_init(){
                 pic = "://wifi.png";
             else
                 pic = "://wifi_disconnect.png";
-        QPixmap cardpixmap(pic);
-        QListWidgetItem * item = new QListWidgetItem(cardpixmap, current.name, ui->listWidget);
+        QIcon cardicon(pic);
+
+        QWidget * netdeviceWidget = new QWidget();
+        netdeviceWidget->setAttribute(Qt::WA_DeleteOnClose);
+        QVBoxLayout * netdeviceVerLayout = new QVBoxLayout(netdeviceWidget);
+        QToolButton * netdeviceToolBtn = new QToolButton(netdeviceWidget);
+        netdeviceToolBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+        netdeviceToolBtn->setIcon(cardicon);
+        netdeviceToolBtn->setIconSize(QSize(42,42));
+        netdeviceToolBtn->setText(current.name);
+
+        netdeviceVerLayout->addWidget(netdeviceToolBtn);
+        netdeviceWidget->setLayout(netdeviceVerLayout);
+
+        QListWidgetItem * item = new QListWidgetItem(ui->listWidget);
+        item->setSizeHint(QSize(120, 64));
+        ui->listWidget->setSpacing(5);
         ui->listWidget->addItem(item);
+        ui->listWidget->setItemWidget(item, netdeviceWidget);
+        ui->listWidget->setViewMode(QListView::IconMode);
     }
 }
 

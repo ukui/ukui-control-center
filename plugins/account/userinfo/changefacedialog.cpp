@@ -47,7 +47,7 @@ void ChangeFaceDialog::show_faces(){
 }
 
 void ChangeFaceDialog::set_face_label(QString iconfile){
-    ui->faceLabel->setPixmap(QPixmap(iconfile).scaled(QSize(64, 64)));
+    ui->faceLabel->setPixmap(QPixmap(iconfile).scaled(QSize(80, 80)));
 }
 
 void ChangeFaceDialog::set_username_label(QString username){

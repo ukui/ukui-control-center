@@ -111,10 +111,12 @@ void Screensaver::status_init(){
     if (activation){
         lockable = g_settings_get_boolean(screensaver_settings, LOCK_KEY);
         ui->lockCheckBox->setChecked(lockable);
+        ui->widget->show();
     }
     else{
         ui->lockCheckBox->setChecked(false);
         ui->lockCheckBox->setEnabled(false);
+        ui->widget->hide();
     }
 
     g_object_unref(screensaver_settings);
@@ -169,10 +171,12 @@ void Screensaver::activebtn_changed_slot(int status){
 
     if (status){
         ui->lockCheckBox->setEnabled(true);
+        ui->widget->show();
     }
     else{
         ui->lockCheckBox->setChecked(false);
         ui->lockCheckBox->setEnabled(false);
+        ui->widget->hide();
     }
     g_object_unref(screensaver_settings);
 }

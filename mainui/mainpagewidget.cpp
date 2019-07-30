@@ -246,7 +246,7 @@ void MainPageWidget::initUI(){
 //    ui->time_lanHLayout->setSpacing(10);
 //    ui->time_lanHLayout->setContentsMargins(40, 10, 0, 10);
 
-    pmainWindow->subfuncList[TIME_LANGUAGE] << "language" << "area" << "datetime";
+    pmainWindow->subfuncList[TIME_LANGUAGE] /*<< "language"*/ << "datetime" << "area" ;
 
     QStringList tlStringList;
     tlStringList = pmainWindow->subfuncList[TIME_LANGUAGE];

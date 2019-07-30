@@ -48,6 +48,13 @@ CreateUserDialog::CreateUserDialog(QStringList userlist, QWidget *parent) :
     //默认标准用户
     ui->standardRadioBtn->setChecked(true);
 
+    //tiplabel hide
+    ui->usernametipLabel->hide();
+    ui->pwdtipLabel->hide();
+    ui->pwdsuretipLabel->hide();
+    ui->pintipLabel->hide();
+    ui->pinsuretipLabel->hide();
+
     confirm_btn_status_refresh();
 
     connect(ui->cancelPushBtn, SIGNAL(clicked(bool)), this, SLOT(reject()));
@@ -61,11 +68,38 @@ CreateUserDialog::CreateUserDialog(QStringList userlist, QWidget *parent) :
 CreateUserDialog::~CreateUserDialog()
 {
     delete ui;
-    delete process;
+//    delete process;
 }
 
 void CreateUserDialog::set_face_label(QString iconfile){
-    ui->faceLabel->setPixmap(QPixmap(iconfile).scaled(QSize(64, 64)));
+    ui->faceLabel->setPixmap(QPixmap(iconfile).scaled(QSize(80, 80)));
+}
+
+void CreateUserDialog::tiplabel_status_refresh(){
+    if (ui->usernametipLabel->text().isEmpty())
+        ui->usernametipLabel->hide();
+    else
+        ui->usernametipLabel->show();
+
+    if (ui->pwdtipLabel->text().isEmpty())
+        ui->pwdtipLabel->hide();
+    else
+        ui->pwdtipLabel->show();
+
+    if (ui->pwdsuretipLabel->text().isEmpty())
+        ui->pwdsuretipLabel->hide();
+    else
+        ui->pwdsuretipLabel->show();
+
+    if (ui->pintipLabel->text().isEmpty())
+        ui->pintipLabel->hide();
+    else
+        ui->pintipLabel->show();
+
+    if (ui->pinsuretipLabel->text().isEmpty())
+        ui->pinsuretipLabel->hide();
+    else
+        ui->pinsuretipLabel->show();
 }
 
 void CreateUserDialog::confirm_btn_status_refresh(){
@@ -87,6 +121,16 @@ void CreateUserDialog::confirm_btn_status_refresh(){
     }
 }
 
+void CreateUserDialog::pinsure_legality_check_slot(QString pinsure){
+    if (pinsure != ui->pinLineEdit->text())
+        ui->pinsuretipLabel->setText(tr("Inconsistency with pin code"));
+    else
+        ui->pinsuretipLabel->setText("");
+
+    tiplabel_status_refresh();
+    confirm_btn_status_refresh();
+}
+
 void CreateUserDialog::pin_legality_check_slot(QString pin){
     if (pin.length() != PIN_LENGTH)
         ui->pintipLabel->setText(tr("Pin code length needs to %1 character!").arg(PIN_LENGTH));
@@ -96,6 +140,8 @@ void CreateUserDialog::pin_legality_check_slot(QString pin){
     //防止先输入确认密码，再输入密码后pinsuretipLabel无法刷新
     if (ui->pinLineEdit->text() == ui->pinsureLineEdit->text())
         ui->pinsuretipLabel->setText("");
+
+    tiplabel_status_refresh();
     confirm_btn_status_refresh();
 }
 
@@ -104,6 +150,8 @@ void CreateUserDialog::pwdsure_legality_check_slot(QString pwdsure){
         ui->pwdsuretipLabel->setText(tr("Inconsistency with pin code"));
     else
         ui->pwdsuretipLabel->setText("");
+
+    tiplabel_status_refresh();
     confirm_btn_status_refresh();
 }
 
@@ -118,6 +166,8 @@ void CreateUserDialog::pwd_legality_check_slot(QString pwd){
     //防止先输入确认密码，再输入密码后pwdsuretipLabel无法刷新
     if (ui->pwdLineEdit->text() == ui->pwdsureLineEdit->text())
         ui->pwdsuretipLabel->setText("");
+
+    tiplabel_status_refresh();
     confirm_btn_status_refresh();
 }
 
@@ -148,6 +198,8 @@ void CreateUserDialog::name_legality_check_slot(QString username){
             ui->usernametipLabel->setText(tr("User name length need to less than %1 letters!").arg(USER_LENGTH));
     else
         ui->usernametipLabel->setText(tr("The user name can only be composed of letters, numbers and underline!"));
+
+    tiplabel_status_refresh();
     confirm_btn_status_refresh();
 }
 

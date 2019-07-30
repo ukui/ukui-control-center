@@ -11,6 +11,7 @@
 #include <QtNetwork/QNetworkConfigurationManager>
 #include <QtNetwork/QtNetwork>
 #include <QProcess>
+#include <QToolButton>
 
 enum {
     DISCONNECTED,

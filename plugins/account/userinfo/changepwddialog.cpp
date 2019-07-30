@@ -35,7 +35,7 @@ ChangePwdDialog::~ChangePwdDialog()
 }
 
 void ChangePwdDialog::set_faceLabel(QString iconfile){
-    ui->faceLabel->setPixmap(QPixmap(iconfile).scaled(QSize(64, 64)));
+    ui->faceLabel->setPixmap(QPixmap(iconfile).scaled(QSize(80, 80)));
 
 }
 

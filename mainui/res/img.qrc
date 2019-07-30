@@ -3,5 +3,7 @@
         <file>homePage/system.png</file>
         <file>main.qss</file>
         <file>zh_CN.qm</file>
+        <file>title/minbtn.png</file>
+        <file>title/closebtn.png</file>
     </qresource>
 </RCC>

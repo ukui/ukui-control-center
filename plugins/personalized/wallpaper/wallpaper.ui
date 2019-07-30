@@ -6,26 +6,29 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>756</width>
-    <height>574</height>
+    <width>800</width>
+    <height>710</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>756</width>
-    <height>574</height>
+    <width>800</width>
+    <height>710</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>756</width>
-    <height>574</height>
+    <width>800</width>
+    <height>710</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Wallpaper</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
+   <property name="spacing">
+    <number>0</number>
+   </property>
    <property name="leftMargin">
     <number>0</number>
    </property>
@@ -40,39 +43,60 @@
    </property>
    <item>
     <widget class="QStackedWidget" name="StackedWidget">
-     <widget class="QWidget" name="vStackedWidgetPage1">
+     <widget class="QWidget" name="Page1">
       <layout class="QVBoxLayout" name="verticalLayout">
        <property name="spacing">
-        <number>6</number>
+        <number>25</number>
        </property>
        <property name="leftMargin">
-        <number>0</number>
+        <number>20</number>
        </property>
        <property name="topMargin">
-        <number>0</number>
+        <number>25</number>
        </property>
        <property name="rightMargin">
-        <number>0</number>
+        <number>20</number>
        </property>
        <property name="bottomMargin">
         <number>0</number>
        </property>
        <item>
         <widget class="QLabel" name="label">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text">
           <string>Wallpaper</string>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="stylesize" stdset="0">
+          <string>title1#</string>
          </property>
         </widget>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <property name="spacing">
-          <number>10</number>
+          <number>20</number>
          </property>
          <item>
           <widget class="QLabel" name="label_2">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="text">
             <string>select form</string>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -106,22 +130,6 @@
            </property>
           </widget>
          </item>
-         <item>
-          <spacer name="horizontalSpacer_2">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeType">
-            <enum>QSizePolicy::Fixed</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>30</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
         </layout>
        </item>
        <item>
@@ -140,6 +148,9 @@
            <string>Picture</string>
           </attribute>
           <layout class="QVBoxLayout" name="verticalLayout_4">
+           <property name="spacing">
+            <number>0</number>
+           </property>
            <property name="leftMargin">
             <number>0</number>
            </property>
@@ -155,19 +166,19 @@
            <item>
             <layout class="QVBoxLayout" name="verticalLayout_3">
              <property name="spacing">
-              <number>20</number>
+              <number>25</number>
              </property>
              <item>
               <widget class="QListWidget" name="listWidget">
                <property name="minimumSize">
                 <size>
-                 <width>710</width>
+                 <width>0</width>
                  <height>300</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>710</width>
+                 <width>16777215</width>
                  <height>300</height>
                 </size>
                </property>
@@ -176,12 +187,21 @@
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_2">
                <property name="spacing">
-                <number>10</number>
+                <number>25</number>
                </property>
                <item>
                 <widget class="QLabel" name="label_3">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
                  <property name="text">
                   <string>Wallpaper Options</string>
+                 </property>
+                 <property name="scaledContents">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
@@ -205,13 +225,13 @@
                 <widget class="QPushButton" name="pushButton_3">
                  <property name="minimumSize">
                   <size>
-                   <width>120</width>
+                   <width>130</width>
                    <height>0</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>120</width>
+                   <width>130</width>
                    <height>16777215</height>
                   </size>
                  </property>
@@ -219,22 +239,6 @@
                   <string>Restore default WP</string>
                  </property>
                 </widget>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer_4">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeType">
-                  <enum>QSizePolicy::Fixed</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>30</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
                </item>
               </layout>
              </item>

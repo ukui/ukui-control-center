@@ -72,7 +72,7 @@ void About::initUI(){
     }
     logoLabel->setPixmap(logopixmap);
     logoLabel->setFixedSize(logopixmap.size());
-    logoLabel->setGeometry(QRect(700 - logoLabel->width(), 160, logoLabel->width(), logoLabel->height()));
+    logoLabel->setGeometry(QRect(pluginWidget->width() - 70 - logoLabel->width(), ui->infoLabel->geometry().bottom() + 25, logoLabel->width(), logoLabel->height()));
 //    logoLabel->setMask(logopixmap.mask());
 
 }

@@ -26,6 +26,8 @@ public:
     int get_plugin_type() Q_DECL_OVERRIDE;
     QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
 
+    void component_init();
+
 private:
     Ui::Vpn *ui;
 

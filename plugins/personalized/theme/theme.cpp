@@ -57,7 +57,23 @@ void Theme::component_init(){
     ui->themeHLayout->addStretch();
     connect(setSignalMapper, SIGNAL(mapped(QString)), this, SLOT(set_theme_slots(QString)));
 
+    //
+    QSize iconsize(48, 48);
+    ui->wallpaperBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    ui->wallpaperBtn->setIcon(QIcon(":/btn.svg"));
+    ui->wallpaperBtn->setIconSize(iconsize);
 
+    ui->audioToolBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    ui->audioToolBtn->setIcon(QIcon(":/btn.svg"));
+    ui->audioToolBtn->setIconSize(iconsize);
+
+    ui->mouseToolBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    ui->mouseToolBtn->setIcon(QIcon(":/btn.svg"));
+    ui->mouseToolBtn->setIconSize(iconsize);
+
+    ui->iconToolBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    ui->iconToolBtn->setIcon(QIcon(":/btn.svg"));
+    ui->iconToolBtn->setIconSize(iconsize);
 }
 
 void Theme::status_init(){
@@ -78,6 +94,10 @@ void Theme::status_init(){
             tmpBtn->setIconSize(QSize(52,52));
         }
     }
+
+    //设置当前主题预览图
+    QSize size(300, 170);
+    ui->previewLabel->setPixmap(QPixmap(":/preview.jpg").scaled(size));
 }
 
 void Theme::set_theme_slots(QString value){

@@ -149,7 +149,7 @@ void UserInfo::ui_status_init(){
         UserInfomation user = (UserInfomation) it.value();
 
         if (user.username == QString(g_get_user_name())){ //当前用户
-            ui->faceLabel->setPixmap(QPixmap(user.iconfile).scaled(QSize(64, 64)));
+            ui->faceLabel->setPixmap(QPixmap(user.iconfile).scaled(QSize(80, 80)));
             ui->usernameLabel->setText(user.username);
             ui->accounttypeLabel->setText(accounttype_enum_to_string(user.accounttype));
             ui->loginLabel->setText(login_status_bool_to_string(user.logined));

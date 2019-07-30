@@ -24,7 +24,7 @@ DelUserDialog::~DelUserDialog()
 }
 
 void DelUserDialog::set_face_label(QString iconfile){
-    ui->faceLabel->setPixmap(QPixmap(iconfile).scaled(QSize(64, 64)));
+    ui->faceLabel->setPixmap(QPixmap(iconfile).scaled(QSize(80, 80)));
 }
 
 void DelUserDialog::set_username_label(QString username){

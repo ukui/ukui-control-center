@@ -4,5 +4,7 @@
         <file>ukui-blue-select.png</file>
         <file>ukui-black.png</file>
         <file>ukui-black-select.png</file>
+        <file>preview.jpg</file>
+        <file>btn.svg</file>
     </qresource>
 </RCC>

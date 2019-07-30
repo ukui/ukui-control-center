@@ -19,6 +19,7 @@ public:
     void set_face_label(QString iconfile);
 
     void confirm_btn_status_refresh();
+    void tiplabel_status_refresh();
 
 private:
     Ui::CreateUserDialog *ui;

@@ -11,7 +11,9 @@ Vpn::Vpn()
     pluginName = tr("vpn");
     pluginType = NETWORK;
 
-    connect(ui->addPushBtn, SIGNAL(clicked()), this, SLOT(run_external_app_slot()));
+    component_init();
+
+    connect(ui->addBtn, SIGNAL(clicked()), this, SLOT(run_external_app_slot()));
 }
 
 Vpn::~Vpn()
@@ -29,6 +31,13 @@ int Vpn::get_plugin_type(){
 
 QWidget * Vpn::get_plugin_ui(){
     return pluginWidget;
+}
+
+void Vpn::component_init(){
+    ui->addBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    ui->addBtn->setIcon(QIcon("://more.png"));
+    ui->addBtn->setIconSize(QSize(48,48));
+    ui->addBtn->setText(tr("Add VPN Connect"));
 }
 
 void Vpn::run_external_app_slot(){
