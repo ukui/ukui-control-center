@@ -13,6 +13,8 @@ INCLUDEPATH += ../../..
 TARGET = $$qtLibraryTarget(datetime)
 DESTDIR = ../..
 
+include(../../component/component.pri)
+
 LIBS += -L/usr/lib/ -lgsettings-qt
 
 ##加载gio库和gio-unix库，用于处理时间

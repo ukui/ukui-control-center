@@ -227,7 +227,7 @@ void UserInfo::ui_component_init(){
     QVBoxLayout * newVLayout = new QVBoxLayout(newuserWidget);
     QToolButton * newToolBtn = new QToolButton(newuserWidget);
     newToolBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    newToolBtn->setIcon(QIcon(":/more.png"));
+    newToolBtn->setIcon(QIcon(":/general/more.png"));
     newToolBtn->setIconSize(faceSize);
     newToolBtn->setText(tr("add new user"));
     newVLayout->addWidget(newToolBtn);
@@ -279,11 +279,11 @@ void UserInfo::show_create_user_dialog_slot(){
     CreateUserDialog * dialog = new CreateUserDialog(usersStringList);
     dialog->set_face_label(DEFAULTFACE);
     dialog->setAttribute(Qt::WA_DeleteOnClose);
-    connect(dialog, SIGNAL(user_info_send(QString,QString,QString,int)), this, SLOT(create_user_slot(QString,QString,QString,int)));
+    connect(dialog, SIGNAL(user_info_send(QString,QString,QString,int, bool)), this, SLOT(create_user_slot(QString,QString,QString,int, bool)));
     dialog->exec();
 }
 
-void UserInfo::create_user_slot(QString username, QString pwd, QString pin, int atype){
+void UserInfo::create_user_slot(QString username, QString pwd, QString pin, int atype, bool autologin){
     sysdispatcher->create_user(username, "", atype);
 }
 
@@ -346,15 +346,22 @@ void UserInfo::show_change_accounttype_dialog_slot(QString username = g_get_user
     dialog->set_username_label(user.username);
     dialog->set_account_type_label(accounttype_enum_to_string(user.accounttype));
     dialog->set_current_account_type(user.accounttype);
-    connect(dialog, SIGNAL(type_send(int,QString)), this, SLOT(change_accounttype_slot(int,QString)));
+    dialog->set_autologin_status(user.autologin);
+    connect(dialog, SIGNAL(type_send(int,QString,bool)), this, SLOT(change_accounttype_slot(int,QString,bool)));
     dialog->exec();
 }
 
-void UserInfo::change_accounttype_slot(int atype, QString username){
+void UserInfo::change_accounttype_slot(int atype, QString username, bool status){
     UserInfomation user = (UserInfomation)(allUserInfoMap.find(username).value());
 
     UserDispatcher * userdispatcher  = new UserDispatcher(user.objpath);
-    userdispatcher->change_user_type(atype);
+
+    if (user.accounttype != atype){
+        userdispatcher->change_user_type(atype);
+    }
+
+    if (user.autologin != status)
+        userdispatcher->change_user_autologin(status);
 
     //刷新界面
     get_all_users();

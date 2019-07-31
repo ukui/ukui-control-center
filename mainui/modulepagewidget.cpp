@@ -102,17 +102,17 @@ void ModulePageWidget::setup_component(QObject * plugin){
     else if (type == DEVICES)
         ui->modulesTitle->setText(tr("Devices"));
     else if (type == PERSONALIZED)
-        ui->modulesTitle->setText(tr("personalized"));
+        ui->modulesTitle->setText(tr("Personalized"));
     else if (type == NETWORK)
-        ui->modulesTitle->setText(tr("network"));
+        ui->modulesTitle->setText(tr("Network"));
     else if (type == ACCOUNT)
-        ui->modulesTitle->setText(tr("account"));
+        ui->modulesTitle->setText(tr("Account"));
     else if (type == TIME_LANGUAGE)
-        ui->modulesTitle->setText(tr("time_language"));
+        ui->modulesTitle->setText(tr("Time Language"));
     else if (type == SECURITY_UPDATES)
-        ui->modulesTitle->setText(tr("security_updates"));
+        ui->modulesTitle->setText(tr("Security Updates"));
     else if (type == MESSAGES_TASK)
-        ui->modulesTitle->setText(tr("message_task"));
+        ui->modulesTitle->setText(tr("Message Task"));
 
     ui->leftStackedWidget->setCurrentIndex(type);
 

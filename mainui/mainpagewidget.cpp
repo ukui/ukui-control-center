@@ -315,7 +315,7 @@ void MainPageWidget::initUI(){
 //    ui->messages_taskHLayout->setContentsMargins(40, 10, 0, 10);
 
 
-    pmainWindow->subfuncList[MESSAGES_TASK] << "notice_operation" << "multitask" << "about";
+    pmainWindow->subfuncList[MESSAGES_TASK] << "notice-operation" << "multitask" << "about";
 
     QStringList messagesStringList;
     messagesStringList = pmainWindow->subfuncList[MESSAGES_TASK];

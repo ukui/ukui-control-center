@@ -18,6 +18,10 @@ CreateUserDialog::CreateUserDialog(QStringList userlist, QWidget *parent) :
 {
     ui->setupUi(this);
 
+    autologinSwitchBtn = new SwitchButton;
+    autologinSwitchBtn->setAttribute(Qt::WA_DeleteOnClose);
+    ui->autologinVLayout->addWidget(autologinSwitchBtn);
+
     //
     ui->pwdLineEdit->setEchoMode(QLineEdit::Password);
     ui->pwdsureLineEdit->setEchoMode(QLineEdit::Password);
@@ -210,5 +214,5 @@ void CreateUserDialog::name_conflict_group_slot(){
 
 void CreateUserDialog::confirm_btn_clicked_slot(){
     this->accept();
-    emit user_info_send(ui->usernameLineEdit->text(), ui->pwdLineEdit->text(), ui->pinLineEdit->text(), ui->buttonGroup->checkedId());
+    emit user_info_send(ui->usernameLineEdit->text(), ui->pwdLineEdit->text(), ui->pinLineEdit->text(), ui->buttonGroup->checkedId(), autologinSwitchBtn->isChecked());
 }

@@ -69,3 +69,7 @@ void UserDispatcher::change_user_type(int atype){
 void UserDispatcher::change_user_face(QString facefile){
     useriface->call("SetIconFile", QVariant(facefile));
 }
+
+void UserDispatcher::change_user_autologin(bool status){
+    useriface->call("SetAutomaticLogin", QVariant(status));
+}

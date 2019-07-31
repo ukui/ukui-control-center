@@ -51,8 +51,9 @@ void Screenlock::component_init(){
 
     //同步登录背景的控件SwitchButton
     setloginbgBtn = new SwitchButton();
-    ui->setloginbgHLayout_4->addWidget(setloginbgBtn);
-    ui->setloginbgHLayout_4->addStretch();
+    setloginbgBtn->setAttribute(Qt::WA_DeleteOnClose);
+    ui->setloginbgHLayout->addWidget(setloginbgBtn);
+    ui->setloginbgHLayout->addStretch();
 }
 
 void Screenlock::status_init(){

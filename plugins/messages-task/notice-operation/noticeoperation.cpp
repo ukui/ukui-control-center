@@ -8,8 +8,12 @@ NoticeOperation::NoticeOperation()
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("notice_operation");
+    pluginName = tr("notice-operation");
     pluginType = MESSAGES_TASK;
+
+    button = new SwitchButton(pluginWidget);
+    ui->horizontalLayout->addWidget(button, 10, Qt::AlignLeft);
+//    ui->horizontalLayout->addStretch();
 }
 
 NoticeOperation::~NoticeOperation()

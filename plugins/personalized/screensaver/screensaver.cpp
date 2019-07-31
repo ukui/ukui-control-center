@@ -56,6 +56,17 @@ QWidget * Screensaver::get_plugin_ui(){
 
 void Screensaver::component_init(){
 
+    //
+    activeswitchbtn = new SwitchButton();
+    activeswitchbtn->setAttribute(Qt::WA_DeleteOnClose);
+    ui->activeHLayout->addWidget(activeswitchbtn);
+    ui->activeHLayout->addStretch();
+
+    lockswitchbtn = new SwitchButton();
+    lockswitchbtn->setAttribute(Qt::WA_DeleteOnClose);
+    ui->lockHLayout->addWidget(lockswitchbtn);
+    ui->lockHLayout->addStretch();
+
     ui->comboBox->addItem(tr("Blank_Only"));
     ui->comboBox->addItem(tr("Random"));
 
@@ -107,15 +118,14 @@ void Screensaver::status_init(){
     //init
     bool activation; bool lockable;
     activation = g_settings_get_boolean(screensaver_settings, ACTIVE_KEY);
-    ui->activeCheckBox->setChecked(activation);
+    activeswitchbtn->setChecked(activation);
     if (activation){
         lockable = g_settings_get_boolean(screensaver_settings, LOCK_KEY);
-        ui->lockCheckBox->setChecked(lockable);
+        lockswitchbtn->setChecked(lockable);
         ui->widget->show();
     }
     else{
-        ui->lockCheckBox->setChecked(false);
-        ui->lockCheckBox->setEnabled(false);
+        lockswitchbtn->setChecked(false);
         ui->widget->hide();
     }
 
@@ -133,8 +143,8 @@ void Screensaver::status_init(){
     //connect
     connect(ui->idleSlider, SIGNAL(valueChanged(int)), this, SLOT(slider_changed_slot(int))); //改label
     connect(ui->idleSlider, SIGNAL(sliderReleased()), this, SLOT(slider_released_slot())); //改gsettings
-    connect(ui->activeCheckBox, SIGNAL(stateChanged(int)), this, SLOT(activebtn_changed_slot(int)));
-    connect(ui->lockCheckBox, SIGNAL(stateChanged(int)), this, SLOT(lockbtn_changed_slot(int)));
+    connect(activeswitchbtn, SIGNAL(checkedChanged(bool)), this, SLOT(activebtn_changed_slot(bool)));
+    connect(lockswitchbtn, SIGNAL(checkedChanged(bool)), this, SLOT(lockbtn_changed_slot(bool)));
     connect(ui->comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(combobox_changed_slot(int)));
 }
 
@@ -153,7 +163,7 @@ void Screensaver::slider_changed_slot(int value){
     ui->idleLabel->setText(QString("%1%2").arg(value).arg(tr("minutes")));
 }
 
-void Screensaver::lockbtn_changed_slot(int status){
+void Screensaver::lockbtn_changed_slot(bool status){
     //REVIEW***  setchecked(false) -> g_object_unref faild
 //    screensaver_settings = g_settings_new(SCREENSAVER_SCHEMA);
 //    g_settings_set_boolean(screensaver_settings, LOCK_KEY, status);
@@ -165,18 +175,17 @@ void Screensaver::lockbtn_changed_slot(int status){
     delete settings;
 }
 
-void Screensaver::activebtn_changed_slot(int status){
+void Screensaver::activebtn_changed_slot(bool status){
     screensaver_settings = g_settings_new(SCREENSAVER_SCHEMA);
     g_settings_set_boolean(screensaver_settings, ACTIVE_KEY, status);
 
     if (status){
-        ui->lockCheckBox->setEnabled(true);
         ui->widget->show();
     }
     else{
-        ui->lockCheckBox->setChecked(false);
-        ui->lockCheckBox->setEnabled(false);
+        lockswitchbtn->setChecked(false);
         ui->widget->hide();
+
     }
     g_object_unref(screensaver_settings);
 }

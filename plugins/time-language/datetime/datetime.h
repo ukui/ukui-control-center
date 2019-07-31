@@ -18,6 +18,8 @@
 #include <QDateTime>
 #include <QTimer>
 
+#include "../../component/switchbutton.h"
+
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
  **/
@@ -63,6 +65,9 @@ public:
 private:
     Ui::DateTime *ui;
 
+    SwitchButton * ntpSwitchBtn;
+    SwitchButton * longtimeSwitchBtn;
+
     QString pluginName;
     int pluginType;
     QWidget * pluginWidget;
@@ -80,9 +85,9 @@ private slots:
     void time_format_clicked_slot(int id);
     void datetime_update_slot();
     void sub_time_update_slot();
-    void rsync_with_network_slot(int status);
+    void rsync_with_network_slot(bool status);
     void tz_combobox_changed_slot(int index);
-    void longdt_changed_slot(int status);
+    void longdt_changed_slot(bool status);
     void apply_btn_clicked_slot();
 };
 

@@ -114,7 +114,7 @@ private slots:
     void change_face_done_slot();
 
     void show_change_accounttype_dialog_slot(QString username);
-    void change_accounttype_slot(int atype, QString username);
+    void change_accounttype_slot(int atype, QString username, bool status);
     void change_accounttype_done_slot();
 
     void show_del_user_dialog_slot(QString username);
@@ -122,7 +122,7 @@ private slots:
     void delete_user_done_slot(QString objpath);
 
     void show_create_user_dialog_slot();
-    void create_user_slot(QString username, QString pwd, QString pin, int atype);
+    void create_user_slot(QString username, QString pwd, QString pin, int atype, bool autologin);
     void create_user_done_slot(QString objpath);
 };
 

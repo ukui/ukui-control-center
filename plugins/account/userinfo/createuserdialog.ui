@@ -115,7 +115,11 @@
         </widget>
        </item>
        <item>
-        <layout class="QVBoxLayout" name="verticalLayout_3"/>
+        <layout class="QVBoxLayout" name="autologinVLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+        </layout>
        </item>
       </layout>
      </item>

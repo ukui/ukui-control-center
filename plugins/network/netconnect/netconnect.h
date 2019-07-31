@@ -12,6 +12,7 @@
 #include <QtNetwork/QtNetwork>
 #include <QProcess>
 #include <QToolButton>
+#include <QTimer>
 
 enum {
     DISCONNECTED,
@@ -49,14 +50,15 @@ public:
     int get_plugin_type() Q_DECL_OVERRIDE;
     QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
 
-    virtual void timerEvent(QTimerEvent * event);
-
     void refreshUI();
     void acquire_cardinfo();
     void component_init();
     void status_init();
     void begin_timer();
     void reset_lookuphostid();
+
+//protected:
+//    void timerEvent(QTimerEvent * event);
 
 private:
     Ui::NetConnect *ui;
@@ -66,6 +68,8 @@ private:
     QWidget * pluginWidget;
 
     QNetworkConfigurationManager * nmg;
+
+    QTimer * timer;
 
     int timerid; //计时器id
     int lookhostid; //hostlookup id
@@ -78,6 +82,8 @@ private slots:
     void internet_status_slot(QHostInfo host);
     void internet_status_changed_slot(bool status);
     void run_external_app_slot();
+
+    void updatevalue();
 };
 
 #endif // NETCONNECT_H

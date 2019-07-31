@@ -4,6 +4,8 @@
 #include <QDialog>
 #include <QProcess>
 
+#include "../../component/switchbutton.h"
+
 namespace Ui {
 class CreateUserDialog;
 }
@@ -24,6 +26,8 @@ public:
 private:
     Ui::CreateUserDialog *ui;
 
+    SwitchButton * autologinSwitchBtn;
+
     int ostype;
 
     QProcess * process;
@@ -41,7 +45,7 @@ private slots:
     void name_conflict_group_slot();
 
 Q_SIGNALS:
-    void user_info_send(QString username, QString pwd, QString pin, int atype);
+    void user_info_send(QString username, QString pwd, QString pin, int atype, bool autologin);
 };
 
 #endif // CREATEUSERDIALOG_H

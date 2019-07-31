@@ -13,6 +13,8 @@ INCLUDEPATH += ../../..
 TARGET = $$qtLibraryTarget(proxy)
 DESTDIR = ../..
 
+include(../../component/component.pri)
+
 LIBS += -L/usr/lib/ -lgsettings-qt
 
 ##加载gio库和gio-unix库，用于获取和设置enum类型的gsettings

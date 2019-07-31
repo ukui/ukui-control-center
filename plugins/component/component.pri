@@ -7,4 +7,4 @@ HEADERS += \
         $$PWD/switchbutton.h
 
 RESOURCES += \
-    $$PWD/res/img.qrc
+    $$PWD/res/subimg.qrc

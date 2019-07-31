@@ -35,7 +35,7 @@ QWidget * Vpn::get_plugin_ui(){
 
 void Vpn::component_init(){
     ui->addBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    ui->addBtn->setIcon(QIcon("://more.png"));
+    ui->addBtn->setIcon(QIcon(":/general/more.png"));
     ui->addBtn->setIconSize(QSize(48,48));
     ui->addBtn->setText(tr("Add VPN Connect"));
 }

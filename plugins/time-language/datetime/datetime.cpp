@@ -61,15 +61,25 @@ QWidget * DateTime::get_plugin_ui(){
 }
 
 void DateTime::component_init(){
+
+    ntpSwitchBtn = new SwitchButton;
+    ntpSwitchBtn->setAttribute(Qt::WA_DeleteOnClose);
+    ui->ntpHLayout->insertWidget(1, ntpSwitchBtn);
+
+    longtimeSwitchBtn = new SwitchButton;
+    longtimeSwitchBtn->setAttribute(Qt::WA_DeleteOnClose);
+    ui->longtimeHLayout->insertWidget(1, longtimeSwitchBtn);
+
     //网络时间同步
     QDBusReply<QVariant> canNTP = datetimeiproperties->call("Get", "org.freedesktop.timedate1", "CanNTP");
-    ui->rsyncCheckBox->setEnabled(canNTP.value().toBool());
+    ntpSwitchBtn->setEnabled(canNTP.value().toBool());
+
 
     //因为ntpd和systemd的网络时间同步会有冲突，所以安装了ntp的话，禁止使用控制面板设置网络时间同步
     QFileInfo fileinfo("/usr/sbin/ntpd");
     if (fileinfo.exists()){
-        ui->rsyncCheckBox->setEnabled(false);
-        ui->rsyncCheckBox->setChecked(false);
+        ntpSwitchBtn->setChecked(false);
+        ntpSwitchBtn->setEnabled(false);
     }
     else
         ui->ntptipLabel->hide();
@@ -113,7 +123,7 @@ void DateTime::component_init(){
 void DateTime::status_init(){
     //网络时间同步
     QDBusReply<QVariant> ntp = datetimeiproperties->call("Get", "org.freedesktop.timedate1", "NTP");
-    ui->rsyncCheckBox->setChecked(ntp.value().toBool());
+    ntpSwitchBtn->setChecked(ntp.value().toBool());
     ui->changePushButton->setEnabled(!ntp.value().toBool());
 
     //时区
@@ -137,9 +147,9 @@ void DateTime::status_init(){
     //长时间
     bool showsecond = formatsettings->get(SHOW_SECOND).toBool();
     if (showsecond)
-        ui->longCheckBox->setChecked(true);
+        longtimeSwitchBtn->setChecked(true);
     else
-        ui->longCheckBox->setChecked(false);
+        longtimeSwitchBtn->setChecked(false);
 
     //一周第一天
     bool sundayfirst = formatsettings->get(WEEK_FORMAT_KEY).toBool();
@@ -163,9 +173,9 @@ void DateTime::status_init(){
     connect(ui->changePushButton, &QPushButton::clicked, this, [=]{ui->StackedWidget->setCurrentIndex(1);});
 
     connect(ui->buttonGroup, SIGNAL(buttonClicked(int)), this, SLOT(time_format_clicked_slot(int)));
-    connect(ui->rsyncCheckBox, SIGNAL(stateChanged(int)), this, SLOT(rsync_with_network_slot(int)));
+    connect(ntpSwitchBtn, SIGNAL(checkedChanged(bool)), this, SLOT(rsync_with_network_slot(bool)));
     connect(ui->tzComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(tz_combobox_changed_slot(int)));
-    connect(ui->longCheckBox, SIGNAL(stateChanged(int)), this, SLOT(longdt_changed_slot(int)));
+    connect(longtimeSwitchBtn, SIGNAL(checkedChanged(bool)), this, SLOT(longdt_changed_slot(bool)));
 
     connect(ui->applyPushBtn, SIGNAL(clicked(bool)), this, SLOT(apply_btn_clicked_slot()));
 
@@ -223,7 +233,7 @@ void DateTime::sub_time_update_slot(){
         ui->hourComboBox->setCurrentIndex(currenthourStr.toInt());
 }
 
-void DateTime::rsync_with_network_slot(int status){
+void DateTime::rsync_with_network_slot(bool status){
     if (status){
         datetimeiface->call("SetNTP", true, true);
         ui->changePushButton->setEnabled(false);
@@ -239,7 +249,7 @@ void DateTime::tz_combobox_changed_slot(int index){
     datetimeiface->call("SetTimezone", tzString, true);
 }
 
-void DateTime::longdt_changed_slot(int status){
+void DateTime::longdt_changed_slot(bool status){
     if (status)
         formatsettings->set(SHOW_SECOND, true);
     else

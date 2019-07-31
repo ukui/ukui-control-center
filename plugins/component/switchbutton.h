@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QTimer>
 #include <QPainter>
-#include <QMouseEvent>
+#include <QEvent>
 
 class SwitchButton : public QWidget
 {
@@ -14,58 +14,44 @@ public:
     SwitchButton(QWidget *parent = 0);
     ~SwitchButton();
 
-    //返回开关状态-打开：true 关闭：false
-    bool isToggled() const;
+    void setChecked(bool checked);
 
-    // 设置开关状态
-    void setToggle(bool checked);
+    bool isChecked();
 
-    // 设置背景颜色
-    void setBackgroundColor(QColor color);
-
-    // 设置选中颜色
-    void setCheckedColor(QColor color);
-
-    // 设置不可用颜色
-    void setDisbaledColor(QColor color);
+protected:
+    void mousePressEvent(QMouseEvent *);
+    void resizeEvent(QResizeEvent *);
+    void paintEvent(QPaintEvent *);
+    void drawBg(QPainter * painter);
+    void drawSlider(QPainter * painter);
 
 private:
-    //绘制开关
-    void paintEvent(QPaintEvent * event) Q_DECL_OVERRIDE;
+    bool checked;
 
-    //鼠标按下事件
-    void mousePressEvent(QMouseEvent * event) Q_DECL_OVERRIDE;
+    QColor borderColorOff;
 
-    //鼠标释放事件-切换开关状态、发射toggled()信号
-    void mouseReleaseEvent(QMouseEvent * event) Q_DECL_OVERRIDE;
+    QColor bgColorOff;
+    QColor bgColorOn;
 
-    //大小改变事件
-    void resizeEvent(QResizeEvent * event) Q_DECL_OVERRIDE;
+    QColor sliderColorOff;
+    QColor sliderColorOn;
 
-    //缺省大小
-    QSize sizeHint() const Q_DECL_OVERRIDE;
-    QSize minimumSizeHint() const Q_DECL_OVERRIDE;
+    int space; //滑块离背景间隔
+    int rectRadius; //圆角角度
 
-private:
-    bool m_bChecked;  //是否选中
-    QColor m_background;  //背景颜色
-    QColor m_checkedColor; //选中颜色
-    QColor m_disabledColor; //不可用颜色
-    QColor m_thumbColor; // 拇指颜色
-    qreal m_radius; // 圆角
-    qreal m_nX;  //x点坐标
-    qreal m_nY;  //y点坐标
-    qint16 m_nHeight; //高度
-    qint16 m_nMargin; //外边距
-    QTimer m_timer; //定时器
+    int step; //移动步长
+    int startX;
+    int endX;
 
-signals:
-    //状态改变时，发射信号
-    void toggled(bool checked);
+    QTimer * timer;
+
 
 private slots:
-    //状态切换时，用于产生滑动效果
-    void onTimeout();
+    void updatevalue();
+
+
+Q_SIGNALS:
+    void checkedChanged(bool checked);
 
 };
 

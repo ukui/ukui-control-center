@@ -6,12 +6,14 @@
 
 QT       += widgets
 
-TARGET = $$qtLibraryTarget(notice_operation)
+TARGET = $$qtLibraryTarget(notice-operation)
 TEMPLATE = lib
 CONFIG += plugin
 INCLUDEPATH += ../../..
 
 DESTDIR = ../..
+
+include(../../component/component.pri)
 
 #DEFINES += QT_DEPRECATED_WARNINGS
 

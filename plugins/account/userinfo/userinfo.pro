@@ -13,6 +13,8 @@ INCLUDEPATH += ../../..
 TARGET = $$qtLibraryTarget(userinfo)
 DESTDIR = ../..
 
+include(../../component/component.pri)
+
 ##加载gio库和gio-unix库
 CONFIG        += link_pkgconfig \
                  C++11
@@ -51,5 +53,4 @@ FORMS += \
     deluserdialog.ui \
     createuserdialog.ui
 
-RESOURCES += \
-    res/img.qrc
+RESOURCES +=

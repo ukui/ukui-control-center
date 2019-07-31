@@ -6,6 +6,8 @@
 #include <QtPlugin>
 #include "mainui/interface.h"
 
+#include "../../component/switchbutton.h"
+
 namespace Ui {
 class NoticeOperation;
 }
@@ -30,6 +32,8 @@ private:
     QString pluginName;
     int pluginType;
     QWidget * pluginWidget;
+
+    SwitchButton * button;
 };
 
 #endif // NOTICEOPERATION_H

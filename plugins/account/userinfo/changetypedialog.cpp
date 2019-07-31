@@ -9,6 +9,11 @@ ChangeTypeDialog::ChangeTypeDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    autologinSwitchBtn = new SwitchButton;
+    autologinSwitchBtn->setAttribute(Qt::WA_DeleteOnClose);
+    ui->autologinVLayout->addWidget(autologinSwitchBtn);
+
+
     ui->buttonGroup->setId(ui->standardRadioButton, 0);
     ui->buttonGroup->setId(ui->adminRadioButton, 1);
 
@@ -46,7 +51,17 @@ void ChangeTypeDialog::set_current_account_type(int id){
 }
 
 void ChangeTypeDialog::set_autologin_status(bool status){
+    currentloginstatus = status;
+    autologinSwitchBtn->setChecked(status);
 
+    connect(autologinSwitchBtn, SIGNAL(checkedChanged(bool)), this, SLOT(autologin_status_changed_slot(bool)));
+}
+
+void ChangeTypeDialog::autologin_status_changed_slot(bool status){
+    if (status != currentloginstatus)
+        ui->confirmPushBtn->setEnabled(true);
+    else
+        ui->confirmPushBtn->setEnabled(false);
 }
 
 void ChangeTypeDialog::radioBtn_clicked_slot(int id){
@@ -58,5 +73,5 @@ void ChangeTypeDialog::radioBtn_clicked_slot(int id){
 
 void ChangeTypeDialog::confirm_slot(){
     this->accept();
-    emit type_send(ui->buttonGroup->checkedId(), ui->usernameLabel->text());
+    emit type_send(ui->buttonGroup->checkedId(), ui->usernameLabel->text(), autologinSwitchBtn->isChecked());
 }

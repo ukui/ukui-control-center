@@ -51,12 +51,11 @@ QWidget * AutoBoot::get_plugin_ui(){
 void AutoBoot::checkbox_changed_cb(QString bname){
     foreach (QString key, appgroupMultiMaps.keys()) {
         if (key == bname){
-            if (((QCheckBox *)appgroupMultiMaps.value(key))->isChecked()){
-                ((QCheckBox *)appgroupMultiMaps.value(key))->setText("already boot");
+            if (((SwitchButton *)appgroupMultiMaps.value(key))->isChecked()){
                 if (appMaps.contains(bname)){
                     QMap<QString, AutoApp>::iterator it = appMaps.find(bname);
                     if (it.value().enable && localappMaps.contains(bname)){
-                        QMap<QString, AutoApp>::iterator localit = localappMaps.find(bname);
+                        QMap<QString, AutoApp>::iterator localit =localappMaps.find(bname);
                         QByteArray tranpath = localit.value().path.toUtf8();
                         g_remove(tranpath.data());
                         localappMaps.remove(bname);
@@ -67,11 +66,9 @@ void AutoBoot::checkbox_changed_cb(QString bname){
                 }
             }
             else{
-                ((QCheckBox *)appgroupMultiMaps.value(key))->setText("already stop");
                 if (localappMaps.contains(bname)){
                     QMap<QString, AutoApp>::iterator localit = localappMaps.find(bname);
                     if (localit.value().enable){ //删除后重新创建
-                        qDebug() << "unlawful";
                         QByteArray tranpath = localit.value().path.toUtf8();
                         g_remove(tranpath.data());
                         localappMaps.remove(bname);
@@ -79,6 +76,35 @@ void AutoBoot::checkbox_changed_cb(QString bname){
                 }
                 _stop_autoapp(bname);
             }
+
+//            if (((QCheckBox *)appgroupMultiMaps.value(key))->isChecked()){
+//                ((QCheckBox *)appgroupMultiMaps.value(key))->setText("already boot");
+//                if (appMaps.contains(bname)){
+//                    QMap<QString, AutoApp>::iterator it = appMaps.find(bname);
+//                    if (it.value().enable && localappMaps.contains(bname)){
+//                        QMap<QString, AutoApp>::iterator localit = localappMaps.find(bname);
+//                        QByteArray tranpath = localit.value().path.toUtf8();
+//                        g_remove(tranpath.data());
+//                        localappMaps.remove(bname);
+
+//                        QMap<QString, AutoApp>::iterator updateit = statusMaps.find(bname);
+//                        updateit.value().enable = it.value().enable;
+//                    }
+//                }
+//            }
+//            else{
+//                ((QCheckBox *)appgroupMultiMaps.value(key))->setText("already stop");
+//                if (localappMaps.contains(bname)){
+//                    QMap<QString, AutoApp>::iterator localit = localappMaps.find(bname);
+//                    if (localit.value().enable){ //删除后重新创建
+//                        qDebug() << "unlawful";
+//                        QByteArray tranpath = localit.value().path.toUtf8();
+//                        g_remove(tranpath.data());
+//                        localappMaps.remove(bname);
+//                    }
+//                }
+//                _stop_autoapp(bname);
+//            }
         }
     }
 }
@@ -90,28 +116,35 @@ void AutoBoot::initUI(){
     appgroupMultiMaps.clear();
     ui->tableWidget->setRowCount(appMaps.count());
 
-    QSignalMapper * checkboxSignalMapper = new QSignalMapper(this);
+    QSignalMapper * checkSignalMapper = new QSignalMapper(this);
     QMap<QString, AutoApp>::iterator it = statusMaps.begin();
     for (int i = 0; it != statusMaps.end(); it++, i++){
         QTableWidgetItem * item = new QTableWidgetItem(it.value().qicon, it.value().name);
         ui->tableWidget->setItem(i, 0, item);
 
+        SwitchButton * button = new SwitchButton();
+        button->setAttribute(Qt::WA_DeleteOnClose);
+        button->setChecked(it.value().enable);
+        connect(button, SIGNAL(checkedChanged(bool)), checkSignalMapper, SLOT(map()));
+        checkSignalMapper->setMapping(button, it.key());
+        appgroupMultiMaps.insert(it.key(), button);
+        ui->tableWidget->setCellWidget(i, 1, button);
 
-        QCheckBox * checkBox = new QCheckBox();
-        checkBox->QAbstractButton::setChecked(it.value().enable);
-        if (checkBox->isChecked())
-            checkBox->setText(tr("already boot"));
-        else
-            checkBox->setText(tr("already stop"));
-        connect(checkBox, SIGNAL(clicked()), checkboxSignalMapper, SLOT(map()));
-        checkboxSignalMapper->setMapping(checkBox, it.key());
-        appgroupMultiMaps.insert(it.key(), checkBox);
-        ui->tableWidget->setCellWidget(i, 1, checkBox);
+//        QCheckBox * checkBox = new QCheckBox();
+//        checkBox->QAbstractButton::setChecked(it.value().enable);
+//        if (checkBox->isChecked())
+//            checkBox->setText(tr("already boot"));
+//        else
+//            checkBox->setText(tr("already stop"));
+//        connect(checkBox, SIGNAL(clicked()), checkSignalMapper, SLOT(map()));
+//        checkSignalMapper->setMapping(checkBox, it.key());
+//        appgroupMultiMaps.insert(it.key(), checkBox);
+//        ui->tableWidget->setCellWidget(i, 1, checkBox);
 
         //设置行高
         ui->tableWidget->setRowHeight(i, 46);
     }
-    connect(checkboxSignalMapper, SIGNAL(mapped(QString)), this, SLOT(checkbox_changed_cb(QString)));
+    connect(checkSignalMapper, SIGNAL(mapped(QString)), this, SLOT(checkbox_changed_cb(QString)));
 }
 
 gboolean AutoBoot::_stop_autoapp(QString bname){

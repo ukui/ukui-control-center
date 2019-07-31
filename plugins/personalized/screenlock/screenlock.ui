@@ -248,7 +248,7 @@
         </spacer>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="setloginbgHLayout_4">
+        <layout class="QHBoxLayout" name="setloginbgHLayout">
          <property name="spacing">
           <number>25</number>
          </property>
@@ -259,6 +259,18 @@
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>30</height>
+            </size>
            </property>
            <property name="text">
             <string>Show screensaver bg on loginpage</string>

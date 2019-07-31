@@ -11,6 +11,8 @@ TEMPLATE = lib
 CONFIG += plugin
 INCLUDEPATH += ../../..
 
+include(../../component/component.pri)
+
 ##加载gio库和gio-unix库，用于处理desktop文件
 CONFIG        += link_pkgconfig \
                  C++11

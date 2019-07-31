@@ -13,11 +13,9 @@ Start::Start()
     pluginName = tr("start");
     pluginType = PERSONALIZED;
 
-    SwitchButton * pSwitchBtn = new SwitchButton();
-    ui->horizontalLayout->addWidget(pSwitchBtn);
-    ui->horizontalLayout->addStretch();
-
-    connect(pSwitchBtn, SIGNAL(toggled(bool)), this, SLOT(onToggled(bool)));
+    //SwitchButton * pSwitchBtn = new SwitchButton(this);
+    //ui->horizontalLayout->addWidget(pSwitchBtn);
+    //ui->horizontalLayout->addStretch();
 }
 
 Start::~Start()

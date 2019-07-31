@@ -180,7 +180,11 @@
         </widget>
        </item>
        <item>
-        <layout class="QVBoxLayout" name="autologinVLayout"/>
+        <layout class="QVBoxLayout" name="autologinVLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+        </layout>
        </item>
       </layout>
      </item>

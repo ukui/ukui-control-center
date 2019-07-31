@@ -80,7 +80,7 @@
         </widget>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <layout class="QHBoxLayout" name="activeHLayout">
          <property name="spacing">
           <number>25</number>
          </property>
@@ -99,26 +99,6 @@
             <bool>true</bool>
            </property>
           </widget>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="activeCheckBox">
-           <property name="text">
-            <string>CheckBox</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_7">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
          </item>
         </layout>
        </item>
@@ -284,7 +264,7 @@
            </layout>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <layout class="QHBoxLayout" name="lockHLayout">
             <property name="spacing">
              <number>25</number>
             </property>
@@ -303,26 +283,6 @@
                <bool>true</bool>
               </property>
              </widget>
-            </item>
-            <item>
-             <widget class="QCheckBox" name="lockCheckBox">
-              <property name="text">
-               <string>CheckBox</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer name="horizontalSpacer_6">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
             </item>
            </layout>
           </item>

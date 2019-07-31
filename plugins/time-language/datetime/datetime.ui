@@ -77,7 +77,7 @@
         </widget>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout">
+        <layout class="QHBoxLayout" name="ntpHLayout">
          <property name="spacing">
           <number>25</number>
          </property>
@@ -91,13 +91,6 @@
            </property>
            <property name="text">
             <string>Synchronized with network</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="rsyncCheckBox">
-           <property name="text">
-            <string>CheckBox</string>
            </property>
           </widget>
          </item>
@@ -347,7 +340,7 @@
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <layout class="QHBoxLayout" name="longtimeHLayout">
          <property name="spacing">
           <number>0</number>
          </property>
@@ -373,13 +366,6 @@
            </property>
            <property name="text">
             <string>User long date format</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="longCheckBox">
-           <property name="text">
-            <string>CheckBox</string>
            </property>
           </widget>
          </item>

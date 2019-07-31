@@ -13,7 +13,7 @@
 
 #include <QGSettings/QGSettings>
 
-
+#include "../../component/switchbutton.h"
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -100,11 +100,14 @@ private:
     QGSettings * ftpsettings;
     QGSettings * sockssettings;
 
+    SwitchButton * autoSwitchBtn;
+    SwitchButton * manualSwitchBtn;
 
     int _get_current_proxy_mode();
     void  _refreshUI();
 
 private slots:
+    void mode_changed_slot(bool checked);
     void mode_changed_slot(int id);
     void url_edit_changed_slot(QString edit);
     void ignore_host_edit_changed_slot();

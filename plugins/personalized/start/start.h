@@ -6,8 +6,6 @@
 #include <QtPlugin>
 #include "mainui/interface.h"
 
-#include "component/switchbutton.h"
-
 namespace Ui {
 class Start;
 }

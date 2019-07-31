@@ -4,6 +4,6 @@ SUBDIRS = system \
         personalized \
         network \
         account \
-        time_language \
-        security_updates \
-        messages_task
+        time-language \
+        security-updates \
+        messages-task

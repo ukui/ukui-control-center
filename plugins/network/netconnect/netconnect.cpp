@@ -11,6 +11,10 @@ NetConnect::NetConnect()
     pluginName = tr("netconnect");
     pluginType = NETWORK;
 
+    timer = new QTimer();
+    timer->setInterval(3000);
+    connect(timer, SIGNAL(timeout()), this, SLOT(updatevalue()));
+
     begin_timer();
     component_init();
     status_init();
@@ -35,7 +39,8 @@ QWidget * NetConnect::get_plugin_ui(){
 }
 
 void NetConnect::begin_timer(){
-    timerid = startTimer(3000);
+//    timerid = startTimer(3000);
+    timer->start();
     lookhostid = QHostInfo::lookupHost("www.ubuntukylin.com", this, SLOT(internet_status_slot(QHostInfo)));
 }
 
@@ -176,16 +181,26 @@ void NetConnect::refreshUI(){
 
 }
 
-void NetConnect::timerEvent(QTimerEvent *event){
-    if (event->timerId() == timerid){
-        if (lookhostid != -1){
-            QHostInfo::abortHostLookup(lookhostid);
-            netstatus = NOINTERNET;
-            reset_lookuphostid();
-        }
-        refreshUI();
-        killTimer(timerid);
+//void NetConnect::timerEvent(QTimerEvent *event){
+//    if (event->timerId() == timerid){
+//        if (lookhostid != -1){
+//            QHostInfo::abortHostLookup(lookhostid);
+//            netstatus = NOINTERNET;
+//            reset_lookuphostid();
+//        }
+//        refreshUI();
+//        killTimer(timerid);
+//    }
+//}
+
+void NetConnect::updatevalue(){
+    if (lookhostid != -1){
+        QHostInfo::abortHostLookup(lookhostid);
+        netstatus = NOINTERNET;
+        reset_lookuphostid();
     }
+    refreshUI();
+    timer->stop();
 }
 
 void NetConnect::reset_lookuphostid(){

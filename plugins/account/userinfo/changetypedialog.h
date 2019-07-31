@@ -3,6 +3,8 @@
 
 #include <QDialog>
 
+#include "../../component/switchbutton.h"
+
 namespace Ui {
 class ChangeTypeDialog;
 }
@@ -24,14 +26,18 @@ public:
 private:
     Ui::ChangeTypeDialog *ui;
 
+    SwitchButton * autologinSwitchBtn;
+
     int currenttype;
+    bool currentloginstatus;
 
 private slots:
+    void autologin_status_changed_slot(bool status);
     void radioBtn_clicked_slot(int id);
     void confirm_slot();
 
 Q_SIGNALS:
-    void type_send(int type, QString username);
+    void type_send(int type, QString username, bool autologin);
 };
 
 #endif // CHANGETYPEDIALOG_H

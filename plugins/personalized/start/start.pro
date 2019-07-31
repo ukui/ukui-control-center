@@ -19,12 +19,10 @@ LIBS += -L/usr/lib/ -lgsettings-qt
 
 
 SOURCES += \
-        start.cpp\
-        component/switchbutton.cpp
+        start.cpp
 
 HEADERS += \
-        start.h \
-        component/switchbutton.h
+        start.h
 
 FORMS += \
         start.ui
