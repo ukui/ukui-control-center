@@ -12,10 +12,18 @@ MainWindow::MainWindow(QWidget *parent) :
 //    this->setPalette(bgPalette);
 
     this->setWindowFlags(Qt::FramelessWindowHint | Qt::Widget);
-    ui->widget->setStyleSheet("background-color: #ebeef0; border-top: 1px solid #2d7d9a; border-left: 1px solid #2d7d9a");
 //    this->setStyleSheet("QWidget#MainWindow{border: 1px solid #2d7d9a; border-radius: 5px;}");
-    this->setStyleSheet("QWidget#titleWidget{background-color: #f5f6f7;}");
+    this->setStyleSheet("QWidget#titleWidget{background-color: #f5f6f7; border-bottom: none}");
     this->setStyleSheet("QWidget#MainWindow{border: 1px solid #2d7d9a;}");
+//    this->setStyleSheet("QToolButton#backBtn#forwardBtn#minBtn#closeBtn{border: none}");
+    //设置左上角样式
+    ui->ltBtn->setStyleSheet("border:none; font-size: 14px; background-color: #2669b5; color: #ffffff");
+    //设置toolbutton样式
+    ui->backBtn->setStyleSheet("border: none");
+    ui->forwardBtn->setStyleSheet("border: none");
+    ui->minBtn->setStyleSheet("border: none");
+    ui->closeBtn->setStyleSheet("border: none");
+
 
 
     ui->lineEdit->setPlaceholderText(tr("Find Devices"));

@@ -34,6 +34,7 @@ font-size:14px;
 QPushButton[flat="true"] {
 font-size:14px; color: #0066bc;
 }
+
 /*
 QPushButton {
 height:24px;
@@ -49,6 +50,21 @@ QToolButton{
 font-size:14px;
 }
 
+QToolButton:hover:pressed#closeBtn{
+background-color: #ac4844;
+}
+QToolButton:hover:!pressed#closeBtn{
+background-color: #d42320;
+}
+
+QToolButton:hover:pressed#minBtn{
+background-color: rgba(0,0,0,20%);
+}
+QToolButton:hover:!pressed#minBtn{
+background-color: rgba(0,0,0,11%);
+}
+
+/*padding: top, right, bottom, left*/
 QMenu::item{
-/*font-size: 14px;*/
+/*padding: 10px 35px 10px 10px;*/
 }

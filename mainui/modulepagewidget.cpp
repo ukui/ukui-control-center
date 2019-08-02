@@ -17,12 +17,14 @@ ModulePageWidget::ModulePageWidget(QWidget *parent) :
 //    ui->modulesTitle->setFont(font);
 //    ui->modulesTitle->setStyleSheet("color: #999999");
 
-//    connect(ui->backtomainBtn, SIGNAL(clicked(bool)), pmainWindow, SLOT(backToMain()));
+//    connect(ui->backBtn, SIGNAL(clicked(bool)), pmainWindow, SLOT(backToMain()));
 
     ui->widget->setStyleSheet("background-color: #ebeef0");
     ui->leftStackedWidget->setStyleSheet("border-style: none");
+    ui->backBtn->setStyleSheet("border-style: none;");
+//    ui->scrollArea->setStyleSheet("border: 1px solid #f5f6f7");
 
-    connect(ui->backtomainBtn, SIGNAL(clicked()), this, SLOT(backBtnClicked_cb()));
+    connect(ui->backBtn, SIGNAL(clicked()), this, SLOT(backBtnClicked_cb()));
 
     initUI();
 }

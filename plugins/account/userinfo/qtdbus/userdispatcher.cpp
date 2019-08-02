@@ -40,19 +40,19 @@ QString UserDispatcher::make_crypted (const gchar *plain){
     }
     g_string_append_c (salt, '$');
 
-//    result = g_strdup ((const gchar *)crypt(plain, salt->str)); //运行后找不到crypt undefined symbol: crypt
+    result = g_strdup ((const gchar *)crypt(plain, salt->str)); //运行后找不到crypt undefined symbol: crypt
 
     g_string_free (salt, TRUE);
     g_rand_free (rand);
 
-//    return QString(result);
-    return "";
+    return QString(result);
+
 }
 
 QString UserDispatcher::change_user_pwd(QString pwd, QString hint){
-
-       qDebug() << "need make_crypt, so run nothing";
-       qDebug() << pwd << hint;
+       QByteArray ba = pwd.toLatin1();
+       QString pwdencryption = make_crypted(ba.data());
+       qDebug() << pwd << hint << pwdencryption;
 
 //    QDBusReply<QString> reply = useriface->call("SetPassword", pwd, hint);
 //    if (reply.isValid())

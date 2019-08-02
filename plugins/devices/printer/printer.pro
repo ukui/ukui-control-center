@@ -13,6 +13,8 @@ INCLUDEPATH += ../../..
 TARGET = $$qtLibraryTarget(printer)
 DESTDIR = ../..
 
+include(../../component/component.pri)
+
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \

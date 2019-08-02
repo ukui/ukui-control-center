@@ -12,6 +12,13 @@ Printer::Printer(){
     pluginName = tr("printer");
     pluginType = DEVICES;
 
+
+    ui->addBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    ui->addBtn->setIcon(QIcon(":/general/more.png"));
+    ui->addBtn->setIconSize(QSize(48,48));
+
+    ui->listWidget->setStyleSheet("border: none; background-color: #f5f6f7");
+
     QStringList printer = QPrinterInfo::availablePrinterNames();
 
     for (int num = 0; num < printer.count(); num++){
@@ -19,7 +26,7 @@ Printer::Printer(){
         ui->listWidget->addItem(item);
     }
 
-    connect(ui->addPushBtn, SIGNAL(clicked()), this, SLOT(run_external_app_slot()));
+    connect(ui->addBtn, SIGNAL(clicked()), this, SLOT(run_external_app_slot()));
 }
 
 Printer::~Printer()

@@ -15,6 +15,8 @@ DESTDIR = ../..
 
 include(../../component/component.pri)
 
+LIBS          += -L/usr/lib/ -lcrypt
+
 ##加载gio库和gio-unix库
 CONFIG        += link_pkgconfig \
                  C++11
