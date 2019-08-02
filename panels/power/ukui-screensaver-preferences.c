@@ -1162,6 +1162,8 @@ fullscreen_preview_start_cb (GtkWidget *widget,
     gtk_widget_grab_focus (fullscreen_preview_window);
 
     fullscreen_preview_area = GTK_WIDGET (gtk_builder_get_object (builder_preview, "fullscreen_preview_area"));
+
+
     preview_clear (fullscreen_preview_area);
     gs_job_set_widget (job, fullscreen_preview_area);
 }
@@ -1578,6 +1580,11 @@ init_capplet (void)
     fullscreen_preview_close = GTK_WIDGET (gtk_builder_get_object (builder_preview, "fullscreen_preview_close"));
     fullscreen_preview_previous = GTK_WIDGET (gtk_builder_get_object (builder_preview, "fullscreen_preview_previous_button"));
     fullscreen_preview_next = GTK_WIDGET (gtk_builder_get_object (builder_preview, "fullscreen_preview_next_button"));
+
+    preview_clear (fullscreen_preview_area);
+    GdkColor black;
+    gdk_color_parse("BLACK", &black);
+    gtk_widget_modify_bg(fullscreen_preview_area, GTK_STATE_NORMAL, &black);
 
     //因为没有向前的api，所以暂时先屏蔽掉向前和向后预览
     gtk_widget_set_no_show_all (fullscreen_preview_previous, FALSE);

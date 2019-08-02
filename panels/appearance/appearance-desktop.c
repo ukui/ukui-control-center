@@ -133,6 +133,9 @@ static void wp_props_load_wallpaper (gchar *key,
 	if (item->deleted == TRUE)
 		return;
 
+    if (!strcmp(item->filename, "(none)")) //屏蔽无壁纸选项
+        return;
+
 	gtk_list_store_append (GTK_LIST_STORE (data->wp_model), &iter);
 
 	pixbuf = ukui_wp_item_get_thumbnail (item, data->thumb_factory,

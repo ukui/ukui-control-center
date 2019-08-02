@@ -39,6 +39,7 @@ GtkWidget * delwarningSwitch;
 GtkWidget * homedesktopSwitch;
 GtkWidget * notificationSwitch;
 GtkWidget * viewerCombo;
+GtkWidget * defaultviewBox;
 
 #define DOUBLE "action-double-click-titlebar"
 #define MIDDLE "action-middle-click-titlebar"
@@ -49,6 +50,14 @@ GtkWidget * viewerCombo;
 #define NOTIFICATION "show-notifications"
 #define DEFAULT_VIEWER "default-folder-viewer"
 
+enum
+{
+    PEONY_DEFAULT_FOLDER_VIEWER_ICON_VIEW,
+    PEONY_DEFAULT_FOLDER_VIEWER_COMPACT_VIEW,
+    PEONY_DEFAULT_FOLDER_VIEWER_LIST_VIEW,
+    PEONY_DEFAULT_FOLDER_VIEWER_COMPUTER_VIEW,
+    PEONY_DEFAULT_FOLDER_VIEWER_OTHER
+};
 
 static void on_combo_changed_cb(GtkComboBox * combobox, gpointer userdata){
     gint current;
@@ -84,13 +93,13 @@ static void preferences_combo_changed_cb(GtkComboBox * combobox, gpointer userda
         return;
 
     if (current == 0)
-        g_settings_set_string(psettings, DEFAULT_VIEWER, "icon_view");
+        g_settings_set_enum(psettings, DEFAULT_VIEWER, PEONY_DEFAULT_FOLDER_VIEWER_ICON_VIEW);
     else if (current == 1)
-        g_settings_set_string(psettings, DEFAULT_VIEWER, "compact_view");
-    else if (current == 2)
-        g_settings_set_string(psettings, DEFAULT_VIEWER, "list_view");
-    else if (current == 3)
-        g_settings_set_string(psettings, DEFAULT_VIEWER, "computer_view");
+        g_settings_set_enum(psettings, DEFAULT_VIEWER, PEONY_DEFAULT_FOLDER_VIEWER_LIST_VIEW);
+    //else if (current == 2)
+    //    g_settings_set_string(psettings, DEFAULT_VIEWER, "list_view");
+    //else if (current == 3)
+    //    g_settings_set_string(psettings, DEFAULT_VIEWER, "computer_view");
 }
 
 static void setup_combo(){
@@ -152,9 +161,9 @@ static void populate_combo_data(){
 
 static void init_combo(){
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(viewerCombo), _("icon_view"));
-    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(viewerCombo), _("compact_view"));
+    //gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(viewerCombo), _("compact_view"));
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(viewerCombo), _("list_view"));
-    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(viewerCombo), _("computer_view"));
+    //gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(viewerCombo), _("computer_view"));
 
     gchar * current;
     gint index;
@@ -162,12 +171,12 @@ static void init_combo(){
 
     if (strcmp(current, "icon-view") == 0)
         index = 0;
-    else if (strcmp(current, "compact-view") == 0)
-        index = 1;
+    //else if (strcmp(current, "compact-view") == 0)
+    //    index = 1;
     else if (strcmp(current, "list-view") == 0)
-        index = 2;
-    else if (strcmp(current, "computer-view") == 0)
-        index = 3;
+        index = 1;
+    //else if (strcmp(current, "computer-view") == 0)
+    //    index = 3;
     else
         index = -1;
 
@@ -218,6 +227,11 @@ void filemanager_init(AppearanceData * data){
 
     viewerCombo = GTK_WIDGET(gtk_builder_get_object(builder, "viewerCombo"));
     g_signal_connect(viewerCombo, "changed", G_CALLBACK(preferences_combo_changed_cb), NULL);
+
+
+    defaultviewBox = GTK_WIDGET(gtk_builder_get_object(builder, "defaultviewBox"));
+    gtk_widget_set_no_show_all(defaultviewBox, TRUE);
+    gtk_widget_hide(defaultviewBox);
 
     init_switch();
     init_combo();
