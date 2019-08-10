@@ -7,10 +7,23 @@
 TEMPLATE = lib
 CONFIG        += plugin
 QT            += widgets
-INCLUDEPATH   += ../../..
+INCLUDEPATH   += ../../.. \
+                 /usr/include/mate-desktop-2.0/libmate-desktop
+
+#LIBS += -L/usr/lib/ -lmate-desktop-2
 
 TARGET = $$qtLibraryTarget(display)
 DESTDIR = ../..
+
+##加载gio库和gio-unix库
+CONFIG        += link_pkgconfig \
+                 C++11
+
+PKGCONFIG     += gio-2.0 \
+                 gio-unix-2.0 \
+                 mate-desktop-2.0 \
+                 dbus-glib-1
+
 
 SOURCES += \
         display.cpp

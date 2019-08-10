@@ -149,7 +149,7 @@
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_5">
            <property name="spacing">
-            <number>25</number>
+            <number>20</number>
            </property>
            <item>
             <widget class="QLabel" name="label_6">
@@ -168,7 +168,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QSlider" name="horizontalSlider">
+            <widget class="QSlider" name="brightnessHSlider">
              <property name="minimumSize">
               <size>
                <width>230</width>
@@ -181,8 +181,42 @@
                <height>16777215</height>
               </size>
              </property>
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <number>100</number>
+             </property>
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="brightnessLabel">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="scaledContents">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -196,8 +230,8 @@
              </property>
              <property name="sizeHint" stdset="0">
               <size>
-               <width>40</width>
-               <height>25</height>
+               <width>20</width>
+               <height>20</height>
               </size>
              </property>
             </spacer>
@@ -243,7 +277,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox">
+          <widget class="QComboBox" name="monitorComboBox">
            <property name="minimumSize">
             <size>
              <width>310</width>
@@ -297,7 +331,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox_2">
+          <widget class="QComboBox" name="resolutionComboBox">
            <property name="minimumSize">
             <size>
              <width>310</width>
@@ -343,7 +377,7 @@
             </size>
            </property>
            <property name="text">
-            <string>Change size of text, apps, other items (sug: 100%)</string>
+            <string>Refresh</string>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -351,7 +385,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox_3">
+          <widget class="QComboBox" name="refreshComboBox">
            <property name="minimumSize">
             <size>
              <width>310</width>
@@ -405,7 +439,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox_4">
+          <widget class="QComboBox" name="rotationComboBox">
            <property name="minimumSize">
             <size>
              <width>310</width>
@@ -442,16 +476,9 @@
             <number>20</number>
            </property>
            <item>
-            <widget class="QPushButton" name="pushButton_3">
+            <widget class="QPushButton" name="ApplyBtn">
              <property name="text">
               <string>Apply</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="pushButton_4">
-             <property name="text">
-              <string>Cancel</string>
              </property>
             </widget>
            </item>

@@ -5,6 +5,9 @@
 #include <QtPlugin>
 #include "mainui/interface.h"
 
+#include <QDBusConnection>
+#include "runroot.h"
+
 #include <QSysInfo>
 #include <QLabel>
 

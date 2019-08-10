@@ -27,6 +27,11 @@ About::About()
 //    qDebug() << QSysInfo::productVersion();
 //    qDebug() << "-------end---------->";
     initUI();
+
+    QDBusConnection sessionBus = QDBusConnection::sessionBus();
+    if (sessionBus.registerService("com.ukcc.service")){
+        sessionBus.registerObject("/", new RunRoot(), QDBusConnection::ExportAllContents);
+    }
 }
 
 About::~About()

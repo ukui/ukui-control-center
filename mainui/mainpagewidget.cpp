@@ -141,7 +141,7 @@ void MainPageWidget::initUI(){
 //    ui->personalizedHLayout->setSpacing(10);
 //    ui->personalizedHLayout->setContentsMargins(110, 10, 0, 10);
 
-    pmainWindow->subfuncList[PERSONALIZED] << "wallpaper" << "theme" << "screenlock" << "fonts" << "screensaver" << "start" << "panel";
+    pmainWindow->subfuncList[PERSONALIZED] << "wallpaper" << "theme" << "screenlock" << "fonts" << "screensaver" /*<< "start" << "panel"*/;
 
     QStringList personalizedStringList;
     personalizedStringList = pmainWindow->subfuncList[PERSONALIZED];

@@ -5,5 +5,5 @@ SUBDIRS = \
 
 
 TRANSLATIONS += \
-    i18n/zh_CN.ts
+    mainui/res/i18n/zh_CN.ts
 

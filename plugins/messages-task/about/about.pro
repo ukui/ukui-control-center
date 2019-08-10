@@ -1,4 +1,4 @@
-QT       += widgets
+QT       += widgets dbus
 
 TARGET = $$qtLibraryTarget(about)
 TEMPLATE = lib
@@ -14,10 +14,12 @@ FORMS += \
     about.ui
 
 HEADERS += \
-    about.h
+    about.h \
+    runroot.h
 
 SOURCES += \
-    about.cpp
+    about.cpp \
+    runroot.cpp
 
 RESOURCES += \
     res/img.qrc

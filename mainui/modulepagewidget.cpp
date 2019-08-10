@@ -22,7 +22,7 @@ ModulePageWidget::ModulePageWidget(QWidget *parent) :
     ui->widget->setStyleSheet("background-color: #ebeef0");
     ui->leftStackedWidget->setStyleSheet("border-style: none");
     ui->backBtn->setStyleSheet("border-style: none;");
-//    ui->scrollArea->setStyleSheet("border: 1px solid #f5f6f7");
+    ui->scrollArea->setStyleSheet("#scrollArea{border: 0px solid;}");
 
     connect(ui->backBtn, SIGNAL(clicked()), this, SLOT(backBtnClicked_cb()));
 
@@ -64,6 +64,7 @@ void ModulePageWidget::initUI(){
         }
         ui->leftStackedWidget->addWidget(leftListWidget);
     }
+    ui->backBtn->setText(tr("backtoMain"));
 
 //    for (int i = 0; i < 2; i++){
 //        QListWidget * leftListWidget = new QListWidget();

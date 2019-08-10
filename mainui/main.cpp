@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     QString locale = QLocale::system().name();
     QTranslator translator;
     if (locale == "zh_CN"){
-        if (translator.load("zh_CN.qm", "://"))
+        if (translator.load("zh_CN.qm", "://i18n/"))
             a.installTranslator(&translator);
         else
             qDebug() << "Load translations file" << locale << "failed!";

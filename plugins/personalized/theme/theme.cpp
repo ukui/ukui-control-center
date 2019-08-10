@@ -101,11 +101,10 @@ void Theme::status_init(){
 }
 
 void Theme::set_theme_slots(QString value){
-//    ifsettings->set(INTERFACE_SCHEMA, GTK_THEME_KEY, QVariant(value));
-//    marcosettings->set(MARCO_SCHEMA, MARCO_THEME_KEY, QVariant(value));
-//    if (value.contains("blue"))
-//        ifsettings->set(INTERFACE_SCHEMA, ICON_THEME_KEY, "ukui-icon-theme-one");
-//    else
-//        ifsettings->set(INTERFACE_SCHEMA, ICON_THEME_KEY, "ukui-icon-theme");
-    qDebug() << value;
+    ifsettings->set(GTK_THEME_KEY, QVariant(value));
+    marcosettings->set(MARCO_THEME_KEY, QVariant(value));
+    if (value.contains("blue"))
+        ifsettings->set(ICON_THEME_KEY, "ukui-icon-theme-one");
+    else
+        ifsettings->set(ICON_THEME_KEY, "ukui-icon-theme");
 }

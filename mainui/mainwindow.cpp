@@ -19,8 +19,6 @@ MainWindow::MainWindow(QWidget *parent) :
     //设置左上角样式
     ui->ltBtn->setStyleSheet("border:none; font-size: 14px; background-color: #2669b5; color: #ffffff");
     //设置toolbutton样式
-    ui->backBtn->setStyleSheet("border: none");
-    ui->forwardBtn->setStyleSheet("border: none");
     ui->minBtn->setStyleSheet("border: none");
     ui->closeBtn->setStyleSheet("border: none");
 

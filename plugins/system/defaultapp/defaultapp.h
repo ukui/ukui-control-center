@@ -53,11 +53,11 @@ private:
 
 public slots:
     void browserComBoBox_changed_cb(int index);
-    void mailComBoBox_changed_cb(QString appid);
-    void imageComBoBox_changed_cb(QString appid);
-    void audioComBoBox_changed_cb(QString appid);
-    void videoComBoBox_changed_cb(QString appid);
-    void textComBoBox_changed_cb(QString appid);
+    void mailComBoBox_changed_cb(int index);
+    void imageComBoBox_changed_cb(int index);
+    void audioComBoBox_changed_cb(int index);
+    void videoComBoBox_changed_cb(int index);
+    void textComBoBox_changed_cb(int index);
 };
 
 #endif // DEFAULTAPP_H
