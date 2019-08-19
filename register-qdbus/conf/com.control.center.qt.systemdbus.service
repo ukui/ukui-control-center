@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=com.control.center.qt.systemdbus
+Exec=/home/kylin/develop/ukui-control-center/ukui3.0/build-ukui-control-center-unknown-Debug/register-qdbus/cc-qsysdbus-boot
+User=root

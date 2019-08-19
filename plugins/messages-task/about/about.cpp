@@ -26,17 +26,16 @@ About::About()
 //    qDebug() << QSysInfo::productType();
 //    qDebug() << QSysInfo::productVersion();
 //    qDebug() << "-------end---------->";
-    initUI();
+    _call_dbus_get_computer_info();
+    _data_init();
 
-    QDBusConnection sessionBus = QDBusConnection::sessionBus();
-    if (sessionBus.registerService("com.ukcc.service")){
-        sessionBus.registerObject("/", new RunRoot(), QDBusConnection::ExportAllContents);
-    }
+    initUI();
 }
 
 About::~About()
 {
     delete ui;
+//    delete interface;
 }
 
 QString About::get_plugin_name(){
@@ -51,15 +50,47 @@ QWidget * About::get_plugin_ui(){
     return pluginWidget;
 }
 
+void About::_data_init(){
+    QStringList infoList = computerinfo.split("\n\n");
+    QString available;
+    if (infoList.length() > 1){
+        available = infoList.at(1);
+    }
+    else {
+        available = "";
+    }
+    if (available != ""){
+        for (QString line : available.split("\n")){
+            if (!line.contains(":"))
+                continue;
+            QStringList lineList = line.split(":");
+            infoMap.insert(lineList.at(0).simplified(), lineList.at(1).simplified());
+        }
+    }
+}
+
 void About::initUI(){
+    QLabel * manufacturers = new QLabel(tr("UNKNOW"));
+    if (infoMap.contains(MANUFACTURER))
+        manufacturers->setText(QString(infoMap.find(MANUFACTURER).value()));
 
-    QLabel * manufacturers = new QLabel("manufacturers");
-    QLabel * model = new QLabel("model");
+    QLabel * productname = new QLabel("UNKNOW");
+    if (infoMap.contains(PRODUCTNAME))
+        productname->setText(QString(infoMap.find(PRODUCTNAME).value()));
 
-    ui->sysinfoFormLayout->addRow(tr("manufacturers:"), manufacturers);
-    ui->sysinfoFormLayout->addRow(tr("model:"), model);
-//    ui->sysinfoFormLayout->addRow(tr("version:"), "version");
-//    ui->sysinfoFormLayout->addRow(tr("Serial number:"), "Serial number");
+    QLabel * version = new QLabel("UNKNOW");
+    if (infoMap.contains(VERSION))
+        version->setText(QString(infoMap.find(VERSION).value()));
+
+    QLabel * serialnumber = new QLabel("UNKNOW");
+    if (infoMap.contains(SERIALNUMBER))
+        serialnumber->setText(QString(infoMap.find(SERIALNUMBER).value()));
+
+    ui->sysinfoFormLayout->setHorizontalSpacing(70);
+    ui->sysinfoFormLayout->addRow(tr("Manufacturers:"), manufacturers);
+    ui->sysinfoFormLayout->addRow(tr("Product Name:"), productname);
+    ui->sysinfoFormLayout->addRow(tr("Version:"), version);
+    ui->sysinfoFormLayout->addRow(tr("Serial Number:"), serialnumber);
 //    ui->sysinfoFormLayout->addRow(tr("hostname:"), "hostname");
 //    ui->sysinfoFormLayout->addRow(tr("running time:"), "running time");
 //    ui->sysinfoFormLayout->addRow(tr("os type:"), "os type");
@@ -71,7 +102,7 @@ void About::initUI(){
     logoLabel = new QLabel(pluginWidget);
     logoLabel->setAutoFillBackground(true);
     logoLabel->setScaledContents(true); //自动缩放，显示图像大小自动调整为QLabel大小
-    QPixmap logopixmap("://manufacturers/NOKIA.jpg");
+    QPixmap logopixmap(QString("://manufacturers/%1.jpg").arg(QString(infoMap.find(MANUFACTURER).value())));
     if (logopixmap.isNull()){
         logopixmap = QPixmap("://manufacturers/UBUNTUKYLIN.jpg");
     }
@@ -79,5 +110,50 @@ void About::initUI(){
     logoLabel->setFixedSize(logopixmap.size());
     logoLabel->setGeometry(QRect(pluginWidget->width() - 70 - logoLabel->width(), ui->infoLabel->geometry().bottom() + 25, logoLabel->width(), logoLabel->height()));
 //    logoLabel->setMask(logopixmap.mask());
-
 }
+
+void About::_call_dbus_get_computer_info(){
+    interface = new QDBusInterface("com.control.center.qt.systemdbus",
+                                     "/",
+                                     "com.control.center.interface",
+                                     QDBusConnection::systemBus());
+
+    if (!interface->isValid()){
+        qCritical() << "Create Client Interface Failed: " << QDBusConnection::systemBus().lastError();
+        return;
+    }
+
+//    QDBusConnection::systemBus().connect("com.control.center.qt.systemdbus",
+//                                         "/",
+//                                         "com.control.center.interface",
+//                                         "computerinfo", this,
+//                                         SLOT(get(QString)));
+
+    QDBusReply<QString> reply =  interface->call("GetComputerInfo");
+    if (reply.isValid()){
+        computerinfo =  reply.value();
+    }
+    else {
+        qCritical() << "Call 'GetComputerInfo' Failed!" << reply.error().message();
+    }
+
+
+    //async
+//    QDBusPendingCall async = interface->asyncCall("GetComputerInfo");
+//    QDBusPendingCallWatcher * watcher = new QDBusPendingCallWatcher(async, this);
+
+//    connect(watcher, SIGNAL(finished(QDBusPendingCallWatcher*)), this, SLOT(call_finished_slot(QDBusPendingCallWatcher*)));
+}
+
+//void About::call_finished_slot(QDBusPendingCallWatcher * call){
+//    qDebug() << "----------------start------------>";
+//    QDBusPendingReply<QString> reply = *call;
+//    if (!reply.isError()){
+//        QString info = reply.argumentAt<0>();
+//        qDebug() << "-----------0--->" << "\n" << info;
+//    }
+//    else{
+//        qDebug() << reply.error().message();
+//    }
+//    call->deleteLater();
+//}

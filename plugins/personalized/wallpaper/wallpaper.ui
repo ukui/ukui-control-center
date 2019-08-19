@@ -69,13 +69,13 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>Wallpaper</string>
+          <string>Background</string>
          </property>
          <property name="scaledContents">
           <bool>true</bool>
          </property>
          <property name="stylesize" stdset="0">
-          <string>title1#</string>
+          <string notr="true">title1#</string>
          </property>
         </widget>
        </item>
@@ -198,7 +198,7 @@
                   </sizepolicy>
                  </property>
                  <property name="text">
-                  <string>Wallpaper Options</string>
+                  <string>Picture Options</string>
                  </property>
                  <property name="scaledContents">
                   <bool>true</bool>

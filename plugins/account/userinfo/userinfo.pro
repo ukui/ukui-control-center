@@ -55,4 +55,4 @@ FORMS += \
     deluserdialog.ui \
     createuserdialog.ui
 
-RESOURCES +=
+RESOURCES += \

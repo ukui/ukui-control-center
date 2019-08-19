@@ -1,3 +1,5 @@
 TEMPLATE = subdirs
 SUBDIRS = printer \
-    audio
+    audio \
+    keyboard \
+    mouse

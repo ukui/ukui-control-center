@@ -86,6 +86,9 @@
          <property name="scaledContents">
           <bool>true</bool>
          </property>
+         <property name="stylesize" stdset="0">
+          <string notr="true">title1#</string>
+         </property>
         </widget>
        </item>
        <item>
@@ -258,7 +261,26 @@
          <property name="scaledContents">
           <bool>true</bool>
          </property>
+         <property name="stylesize" stdset="0">
+          <string notr="true">title1#</string>
+         </property>
         </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>15</height>
+          </size>
+         </property>
+        </spacer>
        </item>
        <item>
         <layout class="QFormLayout" name="sysinfoFormLayout"/>

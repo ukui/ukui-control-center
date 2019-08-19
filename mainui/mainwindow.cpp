@@ -6,6 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
     //background color
     QPalette bgPalette;
     bgPalette.setBrush(QPalette::Window, QBrush(Qt::gray));
@@ -110,7 +111,6 @@ void MainWindow::loadPlugins(){
     pluginsDir.cd("plugins");
 
     foreach (QString fileName, pluginsDir.entryList(QDir::Files)){
-//        qDebug() << fileName;
         QPluginLoader loader(pluginsDir.absoluteFilePath(fileName));
         QObject * plugin = loader.instance();
         if (plugin){

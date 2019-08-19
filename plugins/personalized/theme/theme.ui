@@ -75,7 +75,7 @@
           <bool>true</bool>
          </property>
          <property name="stylesize" stdset="0">
-          <string>title1#</string>
+          <string notr="true">title1#</string>
          </property>
         </widget>
        </item>
@@ -312,7 +312,7 @@
           <bool>true</bool>
          </property>
          <property name="stylesize" stdset="0">
-          <string>title1#</string>
+          <string notr="true">title1#</string>
          </property>
         </widget>
        </item>
@@ -321,7 +321,7 @@
          <item>
           <widget class="QPushButton" name="pushButton">
            <property name="text">
-            <string>PushButton</string>
+            <string>Desktop icon settings</string>
            </property>
            <property name="flat">
             <bool>true</bool>

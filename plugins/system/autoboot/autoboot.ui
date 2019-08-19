@@ -66,13 +66,13 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>Autoboo settings</string>
+          <string>Autoboot settings</string>
          </property>
          <property name="scaledContents">
           <bool>true</bool>
          </property>
          <property name="stylesize" stdset="0">
-          <string>title1#</string>
+          <string notr="true">title1#</string>
          </property>
         </widget>
        </item>

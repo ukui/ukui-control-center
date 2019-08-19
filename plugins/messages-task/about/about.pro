@@ -14,12 +14,10 @@ FORMS += \
     about.ui
 
 HEADERS += \
-    about.h \
-    runroot.h
+    about.h
 
 SOURCES += \
-    about.cpp \
-    runroot.cpp
+    about.cpp
 
 RESOURCES += \
     res/img.qrc

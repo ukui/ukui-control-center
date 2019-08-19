@@ -59,8 +59,10 @@ void Screenlock::component_init(){
 void Screenlock::status_init(){
     //获取当前锁屏背景及登录背景，对比后确定按钮状态
     QString bgfilename = QString(g_settings_get_string(bggsettings, SCREENLOCK_BG_KEY));
-    QPixmap bg = QPixmap(bgfilename);
-    ui->bgLabel->setPixmap(bg.scaled(QSize(400, 240)));
+    if (bgfilename != ""){
+        QPixmap bg = QPixmap(bgfilename);
+        ui->bgLabel->setPixmap(bg.scaled(QSize(400, 240)));
+    }
 
     connect(ui->openPushBtn, SIGNAL(clicked()), this, SLOT(openpushbtn_clicked_slot()));
 }

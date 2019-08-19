@@ -10,7 +10,7 @@ Wallpaper::Wallpaper()
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("wallpaper");
+    pluginName = tr("background");
     pluginType = PERSONALIZED;
 
     //初始化gsettings
@@ -84,7 +84,7 @@ void Wallpaper::component_init(){
             QListWidgetItem * item = new QListWidgetItem(QIcon(pixmap.scaled(IMAGE_SIZE)), "");
             item->setSizeHint(ITEM_SIZE);
             item->setData(Qt::UserRole, filename);
-            item->setToolTip(QString("%1\nfolder: %2\n").arg(wpMap.find("name").value()).arg(filename));
+//            item->setToolTip(QString("%1\nfolder: %2\n").arg(wpMap.find("name").value()).arg(filename));
             delItemsMap.insert(filename, item);
             ui->listWidget->insertItem(row, item);
         }

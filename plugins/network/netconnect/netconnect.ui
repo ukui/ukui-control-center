@@ -69,13 +69,13 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>Netconnect</string>
+          <string>Netconnect Status</string>
          </property>
          <property name="scaledContents">
           <bool>true</bool>
          </property>
          <property name="stylesize" stdset="0">
-          <string>title1#</string>
+          <string notr="true">title1#</string>
          </property>
         </widget>
        </item>
@@ -87,7 +87,7 @@
          <item>
           <widget class="QLabel" name="localLabel">
            <property name="text">
-            <string>TextLabel</string>
+            <string/>
            </property>
           </widget>
          </item>
@@ -101,7 +101,7 @@
          <item>
           <widget class="QLabel" name="interLabel">
            <property name="text">
-            <string>TextLabel</string>
+            <string/>
            </property>
           </widget>
          </item>
@@ -151,7 +151,7 @@
           <bool>true</bool>
          </property>
          <property name="stylesize" stdset="0">
-          <string>title1#</string>
+          <string notr="true">title1#</string>
          </property>
         </widget>
        </item>
@@ -202,7 +202,7 @@
           <bool>true</bool>
          </property>
          <property name="stylesize" stdset="0">
-          <string>title1#</string>
+          <string notr="true">title1#</string>
          </property>
         </widget>
        </item>

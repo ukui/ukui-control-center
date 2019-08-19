@@ -74,6 +74,9 @@
          <property name="scaledContents">
           <bool>true</bool>
          </property>
+         <property name="stylesize" stdset="0">
+          <string notr="true">title1#</string>
+         </property>
         </widget>
        </item>
        <item>
@@ -190,7 +193,7 @@
          <item>
           <widget class="QRadioButton" name="smallRadioBtn">
            <property name="text">
-            <string>Smaller</string>
+            <string>Smaller - 100% (default)</string>
            </property>
            <attribute name="buttonGroup">
             <string notr="true">radioBtnbuttonGroup</string>
@@ -236,7 +239,7 @@
          <item>
           <widget class="QRadioButton" name="mediumRadioBtn">
            <property name="text">
-            <string>Medium</string>
+            <string>Medium - 125%</string>
            </property>
            <attribute name="buttonGroup">
             <string notr="true">radioBtnbuttonGroup</string>
@@ -282,7 +285,7 @@
          <item>
           <widget class="QRadioButton" name="largerRadioBtn">
            <property name="text">
-            <string>Larger</string>
+            <string>Larger - 150%</string>
            </property>
            <attribute name="buttonGroup">
             <string notr="true">radioBtnbuttonGroup</string>
@@ -353,7 +356,8 @@
             </size>
            </property>
            <property name="text">
-            <string/>
+            <string notr="true">欢迎使用麒麟操作系统
+Welcome Use KylinOS</string>
            </property>
            <attribute name="buttonGroup">
             <string notr="true">pushBtnbuttonGroup</string>
@@ -375,7 +379,8 @@
             </size>
            </property>
            <property name="text">
-            <string/>
+            <string notr="true">欢迎使用麒麟操作系统
+Welcome Use KylinOS</string>
            </property>
            <attribute name="buttonGroup">
             <string notr="true">pushBtnbuttonGroup</string>
@@ -397,7 +402,8 @@
             </size>
            </property>
            <property name="text">
-            <string/>
+            <string notr="true">欢迎使用麒麟操作系统
+Welcome Use KylinOS</string>
            </property>
            <attribute name="buttonGroup">
             <string notr="true">pushBtnbuttonGroup</string>
@@ -436,7 +442,8 @@
             </size>
            </property>
            <property name="text">
-            <string/>
+            <string notr="true">欢迎使用麒麟操作系统
+Welcome Use KylinOS</string>
            </property>
            <attribute name="buttonGroup">
             <string notr="true">pushBtnbuttonGroup</string>
@@ -491,7 +498,7 @@
             </size>
            </property>
            <property name="text">
-            <string>Reset</string>
+            <string>Reset to default</string>
            </property>
           </widget>
          </item>
@@ -533,7 +540,7 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="radioBtnbuttonGroup"/>
   <buttongroup name="pushBtnbuttonGroup"/>
+  <buttongroup name="radioBtnbuttonGroup"/>
  </buttongroups>
 </ui>

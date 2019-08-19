@@ -72,7 +72,7 @@
           <string>DateTime</string>
          </property>
          <property name="stylesize" stdset="0">
-          <string>title1#</string>
+          <string notr="true">title1#</string>
          </property>
         </widget>
        </item>
@@ -136,10 +136,10 @@
             </sizepolicy>
            </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string/>
            </property>
            <property name="stylesize" stdset="0">
-            <string>special</string>
+            <string notr="true">special</string>
            </property>
           </widget>
          </item>
@@ -254,7 +254,7 @@
           <string>Format</string>
          </property>
          <property name="stylesize" stdset="0">
-          <string>title1#</string>
+          <string notr="true">title1#</string>
          </property>
         </widget>
        </item>
@@ -495,7 +495,7 @@
           <bool>true</bool>
          </property>
          <property name="stylesize" stdset="0">
-          <string>title1#</string>
+          <string notr="true">title1#</string>
          </property>
         </widget>
        </item>
@@ -671,7 +671,7 @@
           <bool>true</bool>
          </property>
          <property name="stylesize" stdset="0">
-          <string>title1#</string>
+          <string notr="true">title1#</string>
          </property>
         </widget>
        </item>

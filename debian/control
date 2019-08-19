@@ -3,7 +3,14 @@ Section: misc
 Priority: optional
 Maintainer: ice <hebing hebing@kylinos.cn>
 Build-Depends: debhelper (>= 11),
-                libgsettings-qt-dev
+                libgsettings-qt-dev,
+                libqt5svg5-dev,
+                libglib2.0-dev,
+                libmate-desktop-dev,
+                libdbus-glib-1-dev,
+                kylin-system-api,
+                libqt5x11extras5-dev,
+                libxklavier-dev
 Standards-Version: 4.1.3
 Homepage: <insert the upstream URL, if relevant>
 #Vcs-Browser: https://salsa.debian.org/debian/ukui-control-center

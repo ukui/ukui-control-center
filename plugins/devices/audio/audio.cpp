@@ -1,6 +1,8 @@
 #include "audio.h"
 #include "ui_audio.h"
 
+#include <QDebug>
+
 Audio::Audio()
 {
     ui = new Ui::Audio;
@@ -11,8 +13,12 @@ Audio::Audio()
     pluginName = tr("audio");
     pluginType = DEVICES;
 
+    ui->StackedWidget->setCurrentIndex(3);
+
     connect(ui->soundthemeBtn, SIGNAL(clicked()), this, SLOT(change_soundtheme_page()));
     connect(ui->preferencesBtn, SIGNAL(clicked()), this, SLOT(change_preference_page()));
+
+    connect(ui->soundsettingsBtn, SIGNAL(clicked()), this, SLOT(sound_settings_btn_clicked_slot()));
 }
 
 Audio::~Audio()
@@ -38,4 +44,12 @@ void Audio::change_soundtheme_page(){
 
 void Audio::change_preference_page(){
     ui->StackedWidget->setCurrentIndex(2);
+}
+
+void Audio::sound_settings_btn_clicked_slot(){
+    qDebug() << "-------------->";
+    QString cmd = "ukui-volume-control";
+
+    QProcess process(this);
+    process.startDetached(cmd);
 }

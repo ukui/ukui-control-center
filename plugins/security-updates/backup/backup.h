@@ -6,6 +6,8 @@
 #include <QtPlugin>
 #include "mainui/interface.h"
 
+#include <QProcess>
+
 namespace Ui {
 class Backup;
 }
@@ -30,6 +32,9 @@ private:
     QString pluginName;
     int pluginType;
     QWidget * pluginWidget;
+
+private slots:
+    void backup_btn_clicked_slot();
 };
 
 #endif // BACKUP_H

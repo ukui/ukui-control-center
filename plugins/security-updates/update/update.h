@@ -6,6 +6,10 @@
 #include <QtPlugin>
 #include "mainui/interface.h"
 
+#include <QProcess>
+
+#include <QDateTime>
+
 namespace Ui {
 class Update;
 }
@@ -24,12 +28,18 @@ public:
     int get_plugin_type() Q_DECL_OVERRIDE;
     QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
 
+    void ui_init();
+
 private:
     Ui::Update *ui;
 
     QString pluginName;
     int pluginType;
     QWidget * pluginWidget;
+
+private slots:
+    void update_btn_clicked();
+    void update_settings_btn_clicked();
 };
 
 #endif // UPDATE_H

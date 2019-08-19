@@ -5,11 +5,21 @@
 #include <QtPlugin>
 #include "mainui/interface.h"
 
+#include <QDBusInterface>
 #include <QDBusConnection>
-#include "runroot.h"
+#include <QDBusError>
+#include <QDBusReply>
+//#include <QDBusPendingCall>
+//#include <QDBusPendingCallWatcher>
+//#include <QDBusPendingReply>
 
 #include <QSysInfo>
 #include <QLabel>
+
+#define MANUFACTURER "Manufacturer"
+#define VERSION "Version"
+#define PRODUCTNAME "Product Name"
+#define SERIALNUMBER "Serial Number"
 
 namespace Ui {
 class About;
@@ -31,6 +41,9 @@ public:
 
     void initUI();
 
+    void _call_dbus_get_computer_info();
+    void _data_init();
+
 private:
     Ui::About *ui;
     QString pluginName;
@@ -38,6 +51,14 @@ private:
     QWidget * pluginWidget;
 
     QLabel * logoLabel;
+
+    QDBusInterface * interface;
+
+    QString computerinfo;
+    QMap<QString, QString> infoMap;
+
+private slots:
+    void call_finished_slot(QDBusPendingCallWatcher * call);
 };
 
 #endif // ABOUT_H

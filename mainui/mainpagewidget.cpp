@@ -50,7 +50,7 @@ void MainPageWidget::initUI(){
 //    ui->systemHLayout->setContentsMargins(110, 10, 0, 10);
 
 //    pmainWindow->systemStringList << "display" << "defaultapp" << "power" << "autoboot";
-    pmainWindow->subfuncList[SYSTEM] << "display" << "defaultapp" << "power" << "autoboot";
+    pmainWindow->subfuncList[SYSTEM] << tr("display") << tr("defaultapp") << tr("power") << tr("autoboot");
 
     QStringList systemStringList;
     systemStringList = pmainWindow->subfuncList[SYSTEM];
@@ -106,7 +106,7 @@ void MainPageWidget::initUI(){
 //    ui->devicesHLayout->setSpacing(10);
 //    ui->devicesHLayout->setContentsMargins(40, 10, 0, 10);
 
-    pmainWindow->subfuncList[DEVICES] << "printer" << "mouse" << "keyboard" << "audio";
+    pmainWindow->subfuncList[DEVICES] << tr("printer") << tr("mouse") << tr("keyboard") << tr("audio");
 
     QStringList devicesStringList;
     devicesStringList = pmainWindow->subfuncList[DEVICES];
@@ -141,7 +141,7 @@ void MainPageWidget::initUI(){
 //    ui->personalizedHLayout->setSpacing(10);
 //    ui->personalizedHLayout->setContentsMargins(110, 10, 0, 10);
 
-    pmainWindow->subfuncList[PERSONALIZED] << "wallpaper" << "theme" << "screenlock" << "fonts" << "screensaver" /*<< "start" << "panel"*/;
+    pmainWindow->subfuncList[PERSONALIZED] << tr("background") << tr("theme") << tr("screenlock") << tr("fonts") << tr("screensaver") /*<< "start" << "panel"*/;
 
     QStringList personalizedStringList;
     personalizedStringList = pmainWindow->subfuncList[PERSONALIZED];
@@ -177,7 +177,7 @@ void MainPageWidget::initUI(){
 //    ui->networkHLayout->setContentsMargins(40, 10, 0, 10);
 
 
-    pmainWindow->subfuncList[NETWORK] << "netconnect" << "vpn" << "proxy";
+    pmainWindow->subfuncList[NETWORK] << tr("netconnect") << tr("vpn") << tr("proxy");
 
     QStringList networkStringList;
     networkStringList = pmainWindow->subfuncList[NETWORK];
@@ -212,7 +212,7 @@ void MainPageWidget::initUI(){
 //    ui->accountHLayout->setSpacing(10);
 //    ui->accountHLayout->setContentsMargins(110, 10, 0, 10);
 
-    pmainWindow->subfuncList[ACCOUNT] << "userinfo" << "loginoptions";
+    pmainWindow->subfuncList[ACCOUNT] << tr("userinfo") << tr("loginoptions");
 
     QStringList accountStringList;
     accountStringList = pmainWindow->subfuncList[ACCOUNT];
@@ -246,7 +246,7 @@ void MainPageWidget::initUI(){
 //    ui->time_lanHLayout->setSpacing(10);
 //    ui->time_lanHLayout->setContentsMargins(40, 10, 0, 10);
 
-    pmainWindow->subfuncList[TIME_LANGUAGE] /*<< "language"*/ << "datetime" << "area" ;
+    pmainWindow->subfuncList[TIME_LANGUAGE] /*<< "language"*/ << tr("datetime") << tr("area") ;
 
     QStringList tlStringList;
     tlStringList = pmainWindow->subfuncList[TIME_LANGUAGE];
@@ -280,7 +280,7 @@ void MainPageWidget::initUI(){
 //    ui->security_updatesHLayout->setSpacing(10);
 //    ui->security_updatesHLayout->setContentsMargins(110, 10, 0, 10);
 
-    pmainWindow->subfuncList[SECURITY_UPDATES] << "update" << "recovery" << "backup";
+    pmainWindow->subfuncList[SECURITY_UPDATES] << tr("update") << tr("recovery") << tr("backup");
 
     QStringList suStringList;
     suStringList = pmainWindow->subfuncList[SECURITY_UPDATES];
@@ -315,7 +315,7 @@ void MainPageWidget::initUI(){
 //    ui->messages_taskHLayout->setContentsMargins(40, 10, 0, 10);
 
 
-    pmainWindow->subfuncList[MESSAGES_TASK] << "notice-operation" << "multitask" << "about";
+    pmainWindow->subfuncList[MESSAGES_TASK] << tr("notice-operation") << tr("multitask") << tr("about");
 
     QStringList messagesStringList;
     messagesStringList = pmainWindow->subfuncList[MESSAGES_TASK];

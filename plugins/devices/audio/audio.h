@@ -6,6 +6,8 @@
 #include <QtPlugin>
 #include "mainui/interface.h"
 
+#include <QProcess>
+
 namespace Ui {
 class Audio;
 }
@@ -29,9 +31,12 @@ private:
     int pluginType;
     QWidget * pluginWidget;
 
-public slots:
+private slots:
     void change_soundtheme_page();
     void change_preference_page();
+
+    void sound_settings_btn_clicked_slot();
+
 };
 
 #endif // AUDIO_H

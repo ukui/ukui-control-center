@@ -78,7 +78,7 @@
           <bool>true</bool>
          </property>
          <property name="stylesize" stdset="0">
-          <string>title1#</string>
+          <string notr="true">title1#</string>
          </property>
         </widget>
        </item>
@@ -507,7 +507,7 @@
                    </size>
                   </property>
                   <property name="text">
-                   <string>Change pc sleep time: </string>
+                   <string>Change pc sleep time:</string>
                   </property>
                   <property name="scaledContents">
                    <bool>true</bool>

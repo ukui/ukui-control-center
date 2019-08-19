@@ -10,6 +10,9 @@ Backup::Backup()
 
     pluginName = tr("backup");
     pluginType = SECURITY_UPDATES;
+
+    connect(ui->backupBtn, SIGNAL(clicked()), this, SLOT(backup_btn_clicked_slot()));
+
 }
 
 Backup::~Backup()
@@ -27,4 +30,11 @@ int Backup::get_plugin_type(){
 
 QWidget * Backup::get_plugin_ui(){
     return pluginWidget;
+}
+
+void Backup::backup_btn_clicked_slot(){
+    QString cmd = "/usr/bin/deja-dup";
+
+    QProcess process(this);
+    process.startDetached(cmd);
 }

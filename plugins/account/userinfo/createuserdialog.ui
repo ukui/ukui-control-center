@@ -78,7 +78,7 @@
           </size>
          </property>
          <property name="text">
-          <string>TextLabel</string>
+          <string/>
          </property>
         </widget>
        </item>
@@ -310,7 +310,7 @@
           <bool>true</bool>
          </property>
          <property name="stylesize" stdset="0">
-          <string>tip</string>
+          <string notr="true">tip</string>
          </property>
         </widget>
        </item>
@@ -387,7 +387,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>TextLabel</string>
+          <string/>
          </property>
          <property name="scaledContents">
           <bool>true</bool>
@@ -445,7 +445,7 @@
           <bool>true</bool>
          </property>
          <property name="stylesize" stdset="0">
-          <string>tip</string>
+          <string notr="true">tip</string>
          </property>
         </widget>
        </item>
@@ -552,7 +552,7 @@
           <bool>true</bool>
          </property>
          <property name="stylesize" stdset="0">
-          <string>tip</string>
+          <string notr="true">tip</string>
          </property>
         </widget>
        </item>
@@ -629,7 +629,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>TextLabel</string>
+          <string/>
          </property>
          <property name="scaledContents">
           <bool>true</bool>
@@ -684,7 +684,7 @@
           <string/>
          </property>
          <property name="stylesize" stdset="0">
-          <string>tip</string>
+          <string notr="true">tip</string>
          </property>
         </widget>
        </item>
@@ -788,7 +788,7 @@
           <string/>
          </property>
          <property name="stylesize" stdset="0">
-          <string>tip</string>
+          <string notr="true">tip</string>
          </property>
         </widget>
        </item>

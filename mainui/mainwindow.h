@@ -6,6 +6,8 @@
 #include <QLabel>
 #include <QListWidgetItem>
 
+#include <QProcess>
+
 #include <QDir>
 #include <QPluginLoader>
 

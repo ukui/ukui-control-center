@@ -74,6 +74,9 @@
          <property name="scaledContents">
           <bool>true</bool>
          </property>
+         <property name="stylesize" stdset="0">
+          <string notr="true">title1#</string>
+         </property>
         </widget>
        </item>
        <item>
@@ -247,7 +250,7 @@
           <bool>true</bool>
          </property>
          <property name="stylesize" stdset="0">
-          <string>title1#</string>
+          <string notr="true">title1#</string>
          </property>
         </widget>
        </item>
@@ -256,7 +259,7 @@
          <item>
           <widget class="QPushButton" name="pushButton_2">
            <property name="text">
-            <string>PushButton</string>
+            <string>Keyboard settings</string>
            </property>
            <property name="flat">
             <bool>true</bool>
