@@ -50,6 +50,7 @@ private:
     int pluginType;
     QWidget * pluginWidget;
 
+    QLabel * envlogoLabel;
     QLabel * logoLabel;
 
     QDBusInterface * interface;

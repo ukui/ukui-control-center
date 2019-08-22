@@ -6,4 +6,5 @@ SUBDIRS = system \
         account \
         time-language \
         security-updates \
-        messages-task
+        messages-task \
+        templates

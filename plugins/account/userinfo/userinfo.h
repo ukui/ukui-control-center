@@ -101,6 +101,7 @@ private:
 
     QSize faceSize;
     QSize itemSize;
+    QSize btnSize;
 
     int adminnum;
 

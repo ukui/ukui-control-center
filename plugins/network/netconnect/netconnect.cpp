@@ -74,29 +74,43 @@ void NetConnect::acquire_cardinfo(){
 
 void NetConnect::component_init(){
 
-    QSize size(64, 64);
+//    QSize size(64, 64);
     //本地、因特网图标的设置
-    QPixmap localpixmap("://local.png");
-    ui->localLabel->setPixmap(localpixmap.scaled(size));
+    QPixmap localpixmap("://netconnect/local.svg");
+    ui->localLabel->setPixmap(localpixmap/*.scaled(size)*/);
 
-    QPixmap netpixmap("://internet.png");
-    ui->interLabel->setPixmap(netpixmap.scaled(size));
+    QPixmap netpixmap("://netconnect/Internet.svg");
+    ui->interLabel->setPixmap(netpixmap/*.scaled(size)*/);
+
+    ui->leftLabel->setPixmap(QPixmap("://netconnect/aided.png"));
+    ui->rightLabel->setPixmap(QPixmap("://netconnect/aided.png"));
 
     //网络设备
+    ui->listWidget->setStyleSheet("border: 0px slide");
+
     acquire_cardinfo();
     for (int num = 0; num < cardinfoQList.count(); num++){
         CardInfo current = cardinfoQList.at(num);
         QString pic;
+        QString statustip;
         if (current.type == ETHERNET)
-            if (current.status)
-                pic = "://eth.png";
-            else
-                pic = "://eth_disconnect.png";
+            if (current.status){
+                pic = "://netconnect/eth.png";
+                statustip = tr("Connect");
+            }
+            else{
+                pic = "://netconnect/eth_disconnect.png";
+                statustip = tr("Disconnect");
+            }
         else
-            if (current.status)
-                pic = "://wifi.png";
-            else
-                pic = "://wifi_disconnect.png";
+            if (current.status){
+                pic = "://netconnect/wifi.png";
+                statustip = tr("Connect");
+            }
+            else{
+                pic = "://netconnect/wifi_disconnect.png";
+                statustip = tr("Disconnect");
+            }
         QIcon cardicon(pic);
 
         QWidget * netdeviceWidget = new QWidget();
@@ -105,15 +119,15 @@ void NetConnect::component_init(){
         QToolButton * netdeviceToolBtn = new QToolButton(netdeviceWidget);
         netdeviceToolBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
         netdeviceToolBtn->setIcon(cardicon);
-        netdeviceToolBtn->setIconSize(QSize(42,42));
-        netdeviceToolBtn->setText(current.name);
+        netdeviceToolBtn->setIconSize(QSize(48,48));
+        netdeviceToolBtn->setText(current.name + "\n" + statustip);
 
         netdeviceVerLayout->addWidget(netdeviceToolBtn);
         netdeviceWidget->setLayout(netdeviceVerLayout);
 
         QListWidgetItem * item = new QListWidgetItem(ui->listWidget);
-        item->setSizeHint(QSize(120, 64));
-        ui->listWidget->setSpacing(5);
+        item->setSizeHint(QSize(160, 64));
+//        ui->listWidget->setSpacing(0);
         ui->listWidget->addItem(item);
         ui->listWidget->setItemWidget(item, netdeviceWidget);
         ui->listWidget->setViewMode(QListView::IconMode);
@@ -164,20 +178,25 @@ void NetConnect::internet_status_slot(QHostInfo host){
 void NetConnect::refreshUI(){
     //网络状态的设置
     QString statuspic;
+    QString statustip;
     switch (netstatus) {
     case DISCONNECTED:
-        statuspic = "://disconnect.png";
+        statuspic = "://netconnect/disconnect.png";
+        statustip = tr("Disconnect");
         break;
     case NOINTERNET:
-        statuspic = "://nonet.png";
+        statuspic = "://netconnect/nonet.png";
+        statustip = tr("Restricting access");
         break;
     case CONNECTED:
-        statuspic = "://connect.png";
+        statuspic = "://netconnect/connect.png";
+        statustip = tr("Connect");
     default:
         break;
     }
     QPixmap statuspixmap(statuspic);
     ui->statusLabel->setPixmap(statuspixmap);
+    ui->statustipLabel->setText(statustip);
 
 }
 

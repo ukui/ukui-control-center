@@ -35,7 +35,7 @@ QWidget * Update::get_plugin_ui(){
 }
 
 void Update::ui_init(){
-    QPixmap pixmap("://general/ubuntukylin.png");
+    QPixmap pixmap("://update/logo.svg");
     ui->logoLabel->setPixmap(pixmap.scaled(QSize(64,64)));
 
     QDateTime current =QDateTime::currentDateTime();

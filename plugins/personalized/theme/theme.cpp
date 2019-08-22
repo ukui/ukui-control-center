@@ -3,6 +3,14 @@
 
 #include <QDebug>
 
+#define DESKTOP_SCHEMA "org.ukui.peony.desktop"
+
+#define COMPUTER_ICON "computer-icon-visible"
+#define HOME_ICON "home-icon-visible"
+#define NETWORK_ICON "network-icon-visible"
+#define TRASH_ICON "trash-icon-visible"
+#define VOLUMES_ICON "volumes-visible"
+
 Theme::Theme()
 {
     ui = new Ui::Theme;
@@ -18,6 +26,8 @@ Theme::Theme()
     ifsettings = new QGSettings(id);
     const QByteArray idd(MARCO_SCHEMA);
     marcosettings = new QGSettings(idd);
+    const QByteArray iid(DESKTOP_SCHEMA);
+    desktopsettings = new QGSettings(iid);
 
     themeList << "ukui-black" << "ukui-blue";
 
@@ -30,6 +40,12 @@ Theme::~Theme()
     delete ui;
     delete ifsettings;
     delete marcosettings;
+    delete desktopsettings;
+
+//    QMap<QString, QToolButton *>::iterator it = delbtnMap.begin();
+//    for (; it != delbtnMap.end(); it++){
+//        delete it.value();
+//    }
 }
 
 QString Theme::get_plugin_name(){
@@ -45,10 +61,17 @@ QWidget * Theme::get_plugin_ui(){
 }
 
 void Theme::component_init(){
-    QSignalMapper * setSignalMapper = new QSignalMapper();
+    QSize themesize(52, 52);
+    QSignalMapper * setSignalMapper = new QSignalMapper(this);
     for (int num = 0; num < themeList.length(); num++){
         QToolButton * button = new QToolButton();
-        button->setText(themeList[num]);
+        button->setAttribute(Qt::WA_DeleteOnClose);
+        button->setFixedSize(themesize);
+//        button->setText(themeList[num]);
+        //获取背景色
+        QString bgcolor = themeList[num].split("-")[1].trimmed();
+
+        button->setStyleSheet(QString("background-color: %1").arg(bgcolor));
         connect(button, SIGNAL(released()), setSignalMapper, SLOT(map()));
         setSignalMapper->setMapping(button, themeList[num]);
         delbtnMap.insert(themeList[num], button);
@@ -60,23 +83,54 @@ void Theme::component_init(){
     //
     QSize iconsize(48, 48);
     ui->wallpaperBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    ui->wallpaperBtn->setIcon(QIcon(":/btn.svg"));
+    ui->wallpaperBtn->setIcon(QIcon(":/theme/background.png"));
     ui->wallpaperBtn->setIconSize(iconsize);
 
     ui->audioToolBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    ui->audioToolBtn->setIcon(QIcon(":/btn.svg"));
+    ui->audioToolBtn->setIcon(QIcon(":/theme/audio.png"));
     ui->audioToolBtn->setIconSize(iconsize);
 
     ui->mouseToolBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    ui->mouseToolBtn->setIcon(QIcon(":/btn.svg"));
+    ui->mouseToolBtn->setIcon(QIcon(":/theme/cursor.png"));
     ui->mouseToolBtn->setIconSize(iconsize);
 
     ui->iconToolBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    ui->iconToolBtn->setIcon(QIcon(":/btn.svg"));
+    ui->iconToolBtn->setIcon(QIcon(":/theme/icon.png"));
     ui->iconToolBtn->setIconSize(iconsize);
+
+
+    ui->computerIconLabel->setPixmap(QPixmap("://theme/computer.png"));
+    ui->homefolderIconLabel->setPixmap(QPixmap("://theme/homefolder.png"));
+    ui->trashIconLabel->setPixmap(QPixmap("://theme/trash.png"));
+    ui->networkIconLabel->setPixmap(QPixmap("://theme//default.png"));
+    ui->volumesIconLabel->setPixmap(QPixmap("://theme/default.png"));
+
+    QMap<QString, QString> desktopiconMap;
+    desktopiconMap.insert("computerHLayout", COMPUTER_ICON);
+    desktopiconMap.insert("homefolderHLayout", HOME_ICON);
+    desktopiconMap.insert("networkHLayout", NETWORK_ICON);
+    desktopiconMap.insert("trashHLayout", TRASH_ICON);
+    desktopiconMap.insert("volumesHLayout", VOLUMES_ICON);
+
+    QSignalMapper * desktopSignalMapper = new QSignalMapper(this);
+    QList<QHBoxLayout *>allHLayout = ui->page->findChildren<QHBoxLayout *>();
+    for (int i = 0; i < allHLayout.count(); i++){
+        QString key = desktopiconMap.find(allHLayout.at(i)->objectName()).value();
+
+        SwitchButton * button = new SwitchButton();
+        button->setAttribute(Qt::WA_DeleteOnClose);
+        button->setChecked(desktopsettings->get(key).toBool());
+        connect(button, SIGNAL(checkedChanged(bool)), desktopSignalMapper, SLOT(map()));
+        desktopSignalMapper->setMapping(button, key);
+        delsbMap.insert(key, button);
+        allHLayout.at(i)->addWidget(button);
+        allHLayout.at(i)->addStretch();
+//        qDebug() << allHLayout.at(i)->objectName();
+    }
+    connect(desktopSignalMapper, SIGNAL(mapped(QString)), this, SLOT(desktop_icon_settings_slots(QString)));
 }
 
-void Theme::status_init(){
+void Theme::refresh_btn_select_status(){
     //获取当前主题
     QString current_theme;
     current_theme = marcosettings->get(MARCO_THEME_KEY).toString();
@@ -85,19 +139,25 @@ void Theme::status_init(){
     for (; it != delbtnMap.end(); it++){
         QString key = QString(it.key());
         QToolButton * tmpBtn = (QToolButton *)it.value();
-        if (key == current_theme){
-            tmpBtn->setIcon(QIcon(QString("://%1-select.png").arg(key)));
-            tmpBtn->setIconSize(QSize(52,52));
-        }
-        else{
-            tmpBtn->setIcon(QIcon(QString("://%1.png").arg(key)));
-            tmpBtn->setIconSize(QSize(52,52));
-        }
+        if (key == current_theme)
+            tmpBtn->setIcon(QIcon("://theme/select.png"));
+        else
+            tmpBtn->setIcon(QIcon(""));
     }
+}
+
+void Theme::status_init(){
+    refresh_btn_select_status();
 
     //设置当前主题预览图
     QSize size(300, 170);
-    ui->previewLabel->setPixmap(QPixmap(":/preview.jpg").scaled(size));
+    ui->previewLabel->setPixmap(QPixmap("://theme/preview.png").scaled(size));
+
+
+
+    //获取桌面图标状态
+
+    connect(ui->desktopiconBtn, SIGNAL(clicked()), this, SLOT(desktop_icon_settings_btn_clicked_slots()));
 }
 
 void Theme::set_theme_slots(QString value){
@@ -107,4 +167,31 @@ void Theme::set_theme_slots(QString value){
         ifsettings->set(ICON_THEME_KEY, "ukui-icon-theme-one");
     else
         ifsettings->set(ICON_THEME_KEY, "ukui-icon-theme");
+
+    refresh_btn_select_status();
+}
+
+void Theme::desktop_icon_settings_btn_clicked_slots(){
+    ui->StackedWidget->setCurrentIndex(1);
+}
+
+void Theme::desktop_icon_settings_slots(QString key){
+    SwitchButton * button = reinterpret_cast<SwitchButton *>(delsbMap.find(key).value());
+//    QString key;
+//    if (flag == "computerHLayout"){
+//        key = COMPUTER_ICON;
+//    }
+//    else if (flag == "homefolderHLayout"){
+//        key = HOME_ICON;
+//    }
+//    else if (flag == "networkHLayout"){
+//        key = NETWORK_ICON;
+//    }
+//    else if (flag == "trashHLayout"){
+//        key = TRASH_ICON;
+//    }
+//    else if (flag == "volumesHLayout"){
+//        key = VOLUMES_ICON;
+//    }
+    desktopsettings->set(key, button->isChecked());
 }

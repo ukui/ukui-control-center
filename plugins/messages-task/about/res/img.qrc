@@ -174,5 +174,7 @@
         <file>manufacturers/YESTON.jpg</file>
         <file>manufacturers/ZOTAC.jpg</file>
         <file>manufacturers/ZTE.jpg</file>
+        <file>logo.svg</file>
+        <file>logo.png</file>
     </qresource>
 </RCC>

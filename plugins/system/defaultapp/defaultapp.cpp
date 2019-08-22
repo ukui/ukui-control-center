@@ -43,6 +43,8 @@ QWidget * DefaultApp::get_plugin_ui(){
 }
 
 void DefaultApp::initUI(){
+    ui->browserComBoBox->setView(new QListView());
+
     // BROWSER
     int browserindex = -1;
     QString currentbrowser(kylin_software_defaultprograms_getdefaultappid(BROWSERTYPE)); //获取当前

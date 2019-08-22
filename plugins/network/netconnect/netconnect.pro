@@ -24,6 +24,3 @@ HEADERS += \
 
 FORMS += \
         netconnect.ui
-
-RESOURCES += \
-    res/img.qrc

@@ -13,8 +13,6 @@ INCLUDEPATH += ../../..
 TARGET = $$qtLibraryTarget(vpn)
 DESTDIR = ../..
 
-include(../../component/component.pri)
-
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 

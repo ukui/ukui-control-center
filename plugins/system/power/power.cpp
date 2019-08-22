@@ -69,6 +69,10 @@ QWidget * Power::get_plugin_ui(){
 
 void Power::component_init(){
     //
+    ui->powerBtn->setIcon(QIcon("://power/power.png"));
+    ui->batteryBtn->setIcon(QIcon("://power/battery.png"));
+
+    //
     ui->powerBtnGroup->setId(ui->balanceRadioBtn, BALANCE);
     ui->powerBtnGroup->setId(ui->savingRadioBtn, SAVING);
     ui->powerBtnGroup->setId(ui->custdomRadioBtn, CUSTDOM);

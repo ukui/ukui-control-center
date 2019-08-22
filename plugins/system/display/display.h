@@ -79,6 +79,7 @@ public:
     gboolean _sanitize_save_configuration();
     void _ensure_current_configuration_is_saved();
     void _begin_version2_apply_configuration();
+    static void _apply_configuration_callback();
 
 private:
     Ui::DisplayWindow * ui;

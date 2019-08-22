@@ -46,7 +46,7 @@
      <widget class="QWidget" name="Page1">
       <layout class="QVBoxLayout" name="verticalLayout">
        <property name="spacing">
-        <number>25</number>
+        <number>15</number>
        </property>
        <property name="leftMargin">
         <number>20</number>
@@ -78,6 +78,22 @@
           <string notr="true">title1#</string>
          </property>
         </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout">
@@ -220,7 +236,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>35</height>
+           <height>45</height>
           </size>
          </property>
         </spacer>
@@ -243,6 +259,22 @@
           <string notr="true">title1#</string>
          </property>
         </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
        </item>
        <item>
         <widget class="QLabel" name="label_6">
@@ -298,7 +330,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>25</height>
+           <height>45</height>
           </size>
          </property>
         </spacer>
@@ -321,6 +353,22 @@
           <string notr="true">title1#</string>
          </property>
         </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_6">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_4">

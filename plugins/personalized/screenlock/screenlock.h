@@ -54,6 +54,8 @@ private:
 
     SwitchButton * setloginbgBtn;
 
+    QSize lockbgSize;
+
 private slots:
     void openpushbtn_clicked_slot();
 };

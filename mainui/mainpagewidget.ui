@@ -117,14 +117,14 @@
                 <widget class="QLabel" name="systemLogo">
                  <property name="minimumSize">
                   <size>
-                   <width>62</width>
-                   <height>62</height>
+                   <width>64</width>
+                   <height>64</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>62</width>
-                   <height>62</height>
+                   <width>64</width>
+                   <height>64</height>
                   </size>
                  </property>
                  <property name="text">
@@ -236,14 +236,14 @@
                 <widget class="QLabel" name="devicesLogo">
                  <property name="minimumSize">
                   <size>
-                   <width>62</width>
-                   <height>62</height>
+                   <width>64</width>
+                   <height>64</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>62</width>
-                   <height>62</height>
+                   <width>64</width>
+                   <height>64</height>
                   </size>
                  </property>
                  <property name="text">
@@ -392,14 +392,14 @@
                 <widget class="QLabel" name="personalizedLogo">
                  <property name="minimumSize">
                   <size>
-                   <width>62</width>
-                   <height>62</height>
+                   <width>64</width>
+                   <height>64</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>62</width>
-                   <height>62</height>
+                   <width>64</width>
+                   <height>64</height>
                   </size>
                  </property>
                  <property name="text">
@@ -514,14 +514,14 @@
                 <widget class="QLabel" name="networkLogo">
                  <property name="minimumSize">
                   <size>
-                   <width>62</width>
-                   <height>62</height>
+                   <width>64</width>
+                   <height>64</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>62</width>
-                   <height>62</height>
+                   <width>64</width>
+                   <height>64</height>
                   </size>
                  </property>
                  <property name="text">
@@ -676,14 +676,14 @@
                 <widget class="QLabel" name="accountLogo">
                  <property name="minimumSize">
                   <size>
-                   <width>62</width>
-                   <height>62</height>
+                   <width>64</width>
+                   <height>64</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>62</width>
-                   <height>62</height>
+                   <width>64</width>
+                   <height>64</height>
                   </size>
                  </property>
                  <property name="text">
@@ -795,14 +795,14 @@
                 <widget class="QLabel" name="time_lanLogo">
                  <property name="minimumSize">
                   <size>
-                   <width>62</width>
-                   <height>62</height>
+                   <width>64</width>
+                   <height>64</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>62</width>
-                   <height>62</height>
+                   <width>64</width>
+                   <height>64</height>
                   </size>
                  </property>
                  <property name="text">
@@ -951,14 +951,14 @@
                 <widget class="QLabel" name="security_updatesLogo">
                  <property name="minimumSize">
                   <size>
-                   <width>62</width>
-                   <height>62</height>
+                   <width>64</width>
+                   <height>64</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>62</width>
-                   <height>62</height>
+                   <width>64</width>
+                   <height>64</height>
                   </size>
                  </property>
                  <property name="text">
@@ -1070,14 +1070,14 @@
                 <widget class="QLabel" name="messages_taskLogo">
                  <property name="minimumSize">
                   <size>
-                   <width>62</width>
-                   <height>62</height>
+                   <width>64</width>
+                   <height>64</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>62</width>
-                   <height>62</height>
+                   <width>64</width>
+                   <height>64</height>
                   </size>
                  </property>
                  <property name="text">

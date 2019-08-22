@@ -19,6 +19,8 @@ Screenlock::Screenlock()
 
     bggsettings = g_settings_new(SCREENLOCK_BG_SCHEMA);
 
+    lockbgSize = QSize(400, 240);
+
     component_init();
     status_init();
 
@@ -61,7 +63,10 @@ void Screenlock::status_init(){
     QString bgfilename = QString(g_settings_get_string(bggsettings, SCREENLOCK_BG_KEY));
     if (bgfilename != ""){
         QPixmap bg = QPixmap(bgfilename);
-        ui->bgLabel->setPixmap(bg.scaled(QSize(400, 240)));
+        ui->bgLabel->setPixmap(bg.scaled(lockbgSize));
+    }
+    else {
+        ui->bgLabel->setPixmap(QPixmap("://screenlock/none.png").scaled(lockbgSize));
     }
 
     connect(ui->openPushBtn, SIGNAL(clicked()), this, SLOT(openpushbtn_clicked_slot()));
@@ -86,7 +91,7 @@ void Screenlock::openpushbtn_clicked_slot(){
     selectedfile = fd.selectedFiles().first();
 
     QPixmap bg = QPixmap(selectedfile);
-    ui->bgLabel->setPixmap(bg.scaled(QSize(400, 240)));
+    ui->bgLabel->setPixmap(bg.scaled(lockbgSize));
 
     //QString to char *
     QByteArray ba = selectedfile.toLatin1();

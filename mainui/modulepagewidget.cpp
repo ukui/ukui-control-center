@@ -51,20 +51,58 @@ void ModulePageWidget::initUI(){
             if (!funcMaps.contains(currentStringList.at(num)))
                 continue;
 
+            ListWidgetItem * widgetitem = new ListWidgetItem(this);
+            widgetitem->setLabelPixmap(QString("://dynamic/leftsidebar/%1.svg").arg(currentStringList.at(num)));
+            widgetitem->setLabelText(currentStringList.at(num));
             QListWidgetItem * item = new QListWidgetItem(leftListWidget);
-            item->setSizeHint(QSize(198,50)); //widget width 200 -  border 2 = 198
-            QFont font;
-            font.setPixelSize(14);
-            item->setFont(font);
-            item->setText(currentStringList.at(num));
-            leftListWidget->addItem(item);
+            item->setSizeHint(QSize(198,50));
+            leftListWidget->setItemWidget(item, widgetitem);
+//            QListWidgetItem * item = new QListWidgetItem(leftListWidget);
+//            item->setSizeHint(QSize(198,50)); //widget width 200 -  border 2 = 198
+//            item->setIcon(QIcon(QString("://dynamic/leftsidebar/%1.svg").arg(currentStringList.at(num))));
+//            QFont font;
+//            font.setPixelSize(14);
+//            item->setFont(font);
+//            item->setText(currentStringList.at(num));
+//            leftListWidget->addItem(item);
 
             CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(funcMaps[currentStringList.at(num)]);
-            widgetMaps.insert(currentStringList.at(num), pluginInstance->get_plugin_ui());
+            QWidget * widget = pluginInstance->get_plugin_ui();
+            QStackedWidget * stackwidget = widget->findChild<QStackedWidget *>("StackedWidget");
+            connect(stackwidget, SIGNAL(currentChanged(int)), this, SLOT(update_backbtn_text_slot(int)));
+            widgetMaps.insert(currentStringList.at(num), widget);
         }
         ui->leftStackedWidget->addWidget(leftListWidget);
     }
-    ui->backBtn->setText(tr("backtoMain"));
+
+    //pushbutton添加布局实现调整图标、文字距离调整
+    backiconLabel = new QLabel(ui->backBtn);
+//    backiconLabel->setFixedSize(QSize(16, 16));
+    QSizePolicy iconpolicy = backiconLabel->sizePolicy();
+    iconpolicy.setHorizontalPolicy(QSizePolicy::Fixed);
+    iconpolicy.setVerticalPolicy(QSizePolicy::Fixed);
+    backiconLabel->setSizePolicy(iconpolicy);
+    backiconLabel->setScaledContents(true);
+    backiconLabel->setPixmap(QPixmap(":/back.svg"));
+
+    backtextLabel = new QLabel(ui->backBtn);
+    QSizePolicy policy = backtextLabel->sizePolicy();
+    policy.setHorizontalPolicy(QSizePolicy::Fixed);
+    policy.setVerticalPolicy(QSizePolicy::Fixed);
+    backtextLabel->setSizePolicy(policy);
+    backtextLabel->setScaledContents(true);
+    backtextLabel->setText(tr("CCMainPage"));
+    QHBoxLayout * btnLayout = new QHBoxLayout();
+    btnLayout->addWidget(backiconLabel);
+    btnLayout->addWidget(backtextLabel);
+    btnLayout->addStretch();
+    btnLayout->setSpacing(10);
+    btnLayout->setContentsMargins(20,0,0,0);
+
+    ui->backBtn->setLayout(btnLayout);
+
+
+//    ui->backBtn->setText(tr("backtoMain"));
 
 //    for (int i = 0; i < 2; i++){
 //        QListWidget * leftListWidget = new QListWidget();
@@ -120,11 +158,12 @@ void ModulePageWidget::setup_component(QObject * plugin){
     ui->leftStackedWidget->setCurrentIndex(type);
 
     //高亮左侧边栏
-    QListWidget * tmpListWidget = new QListWidget();
-    tmpListWidget->setAttribute(Qt::WA_DeleteOnClose);
-    tmpListWidget = (QListWidget *)ui->leftStackedWidget->currentWidget();
+//    QListWidget * tmpListWidget = new QListWidget();
+//    tmpListWidget->setAttribute(Qt::WA_DeleteOnClose);
+    QListWidget * tmpListWidget = dynamic_cast<QListWidget *>(ui->leftStackedWidget->currentWidget());
     for (int i = 0; i < tmpListWidget->count(); i++){
-        if (name == (tmpListWidget->item(i)->text()))
+        ListWidgetItem * widgetitem = dynamic_cast<ListWidgetItem *>(tmpListWidget->itemWidget(tmpListWidget->item(i)));
+        if (name == (widgetitem->text()))
             tmpListWidget->setCurrentRow(i);
     }
 
@@ -138,11 +177,25 @@ void ModulePageWidget::setup_component(QObject * plugin){
     ui->scrollArea->setWidget(widgetMaps[name]);
 }
 
+void ModulePageWidget::update_backbtn_text(int index){
+    if (index != 0)
+        backtextLabel->setText(tr("UpperLevel"));
+    else
+        backtextLabel->setText(tr("CCMainPage"));
+}
+
 void ModulePageWidget::itemClicked_cb(QListWidgetItem * item){
-    if (widgetMaps.contains(item->text())){
+    QListWidget * tmpListWidget = dynamic_cast<QListWidget *>(ui->leftStackedWidget->currentWidget());
+    ListWidgetItem * widgetitem = dynamic_cast<ListWidgetItem *>(tmpListWidget->itemWidget(item));
+    if (widgetMaps.contains(widgetitem->text())){
+        QWidget * pluginWidget = widgetMaps[widgetitem->text()];
         ui->scrollArea->takeWidget();
         delete(ui->scrollArea->widget());
-        ui->scrollArea->setWidget(widgetMaps[item->text()]);
+        ui->scrollArea->setWidget(pluginWidget);
+
+        //更新返回按钮text
+        QStackedWidget * stackwidget = pluginWidget->findChild<QStackedWidget *>("StackedWidget");
+        update_backbtn_text(stackwidget->currentIndex());
     }
     else{
         qDebug() << "plugin widget not found" ;
@@ -155,4 +208,8 @@ void ModulePageWidget::backBtnClicked_cb(){
         tmpStackedWidget->setCurrentIndex(0);
     else
         pmainWindow->backToMain();
+}
+
+void ModulePageWidget::update_backbtn_text_slot(int index){
+    update_backbtn_text(index);
 }

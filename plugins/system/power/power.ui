@@ -421,9 +421,15 @@
                  </spacer>
                 </item>
                 <item>
-                 <widget class="QToolButton" name="toolButton">
+                 <widget class="QPushButton" name="powerBtn">
+                  <property name="mouseTracking">
+                   <bool>false</bool>
+                  </property>
                   <property name="text">
                    <string>Power supply</string>
+                  </property>
+                  <property name="flat">
+                   <bool>true</bool>
                   </property>
                  </widget>
                 </item>
@@ -444,9 +450,12 @@
                  </spacer>
                 </item>
                 <item>
-                 <widget class="QToolButton" name="toolButton_2">
+                 <widget class="QPushButton" name="batteryBtn">
                   <property name="text">
                    <string>Battery powered</string>
+                  </property>
+                  <property name="flat">
+                   <bool>true</bool>
                   </property>
                  </widget>
                 </item>

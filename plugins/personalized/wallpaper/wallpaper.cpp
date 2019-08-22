@@ -17,8 +17,6 @@ Wallpaper::Wallpaper()
     const QByteArray id(BACKGROUND);
     bgsettings = new QGSettings(id);
 
-    ui->tabWidget->tabBar()->hide();
-
     //构建xmlhandle对象，本地xml文件不存在则自动构建
     xmlhandleObj = new XmlHandle();
 
@@ -153,7 +151,7 @@ void Wallpaper::wallpaper_item_clicked(QListWidgetItem * item){
 }
 
 void Wallpaper::form_combobox_changed(int index){
-    ui->tabWidget->setCurrentIndex(index);
+    ui->stackedWidget->setCurrentIndex(index);
     init_current_status();
 }
 

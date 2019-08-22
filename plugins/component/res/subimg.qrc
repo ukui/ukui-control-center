@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/general">
-        <file>more.png</file>
-        <file>ubuntukylin.png</file>
-    </qresource>
-</RCC>

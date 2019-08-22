@@ -13,7 +13,7 @@ MainPageWidget::MainPageWidget(QWidget *parent) :
     this->setParent(parent);
     pmainWindow = (MainWindow *)parentWidget();
 
-    logoSize = QSize(62, 62);
+    logoSize = QSize(61, 61);  //label size (64,64), spacing 3
 
     initUI();
 }
@@ -42,7 +42,7 @@ void MainPageWidget::initUI(){
 //    font.setPointSize(18);
 
     //system
-    ui->systemLogo->setPixmap(QPixmap("://homePage/system.png").scaled(logoSize));
+    ui->systemLogo->setPixmap(QPixmap("://homepage/system.svg")/*.scaled(logoSize)*/);
     ui->systemTitle->installEventFilter(this);
 //    ui->systemTitle->setFont(font);
 //    ui->systemTitle->setStyleSheet("color:#000000");
@@ -99,7 +99,7 @@ void MainPageWidget::initUI(){
 //    }
 
     //devices
-    ui->devicesLogo->setPixmap(QPixmap("://homePage/system.png").scaled(logoSize));
+    ui->devicesLogo->setPixmap(QPixmap("://homepage/devices.svg")/*.scaled(logoSize)*/);
     ui->devicesTitle->installEventFilter(this);
 //    ui->devicesTitle->setFont(font);
 //    ui->devicesTitle->setStyleSheet("color: #000000");
@@ -134,7 +134,7 @@ void MainPageWidget::initUI(){
     connect(devicesSignalMapper, SIGNAL(mapped(QObject*)), pmainWindow, SLOT(pluginClicked_cb(QObject*)));
 
     //personalized
-    ui->personalizedLogo->setPixmap(QPixmap("://homePage/system.png").scaled(logoSize));
+    ui->personalizedLogo->setPixmap(QPixmap("://homepage/personalized.svg")/*.scaled(logoSize)*/);
     ui->personalizedTitle->installEventFilter(this);
 //    ui->personalizedTitle->setFont(font);
 //    ui->personalizedTitle->setStyleSheet("color: #000000");
@@ -169,7 +169,7 @@ void MainPageWidget::initUI(){
 
 
     //network
-    ui->networkLogo->setPixmap(QPixmap("://homePage/system.png").scaled(logoSize));
+    ui->networkLogo->setPixmap(QPixmap("://homepage/network.svg")/*.scaled(logoSize)*/);
     ui->networkTitle->installEventFilter(this);
 //    ui->networkTitle->setFont(font);
 //    ui->networkTitle->setStyleSheet("color: #000000");
@@ -205,14 +205,14 @@ void MainPageWidget::initUI(){
     connect(networkSignalMapper, SIGNAL(mapped(QObject*)), pmainWindow, SLOT(pluginClicked_cb(QObject*)));
 
     //account
-    ui->accountLogo->setPixmap(QPixmap("://homePage/system.png").scaled(logoSize));
+    ui->accountLogo->setPixmap(QPixmap("://homepage/account.svg")/*.scaled(logoSize)*/);
     ui->accountTitle->installEventFilter(this);
 //    ui->accountTitle->setFont(font);
 //    ui->accountTitle->setStyleSheet("color: #000000");
 //    ui->accountHLayout->setSpacing(10);
 //    ui->accountHLayout->setContentsMargins(110, 10, 0, 10);
 
-    pmainWindow->subfuncList[ACCOUNT] << tr("userinfo") << tr("loginoptions");
+    pmainWindow->subfuncList[ACCOUNT] << tr("userinfo") /*<< tr("loginoptions")*/;
 
     QStringList accountStringList;
     accountStringList = pmainWindow->subfuncList[ACCOUNT];
@@ -238,8 +238,8 @@ void MainPageWidget::initUI(){
     }
     connect(accountSignalMapper, SIGNAL(mapped(QObject*)), pmainWindow, SLOT(pluginClicked_cb(QObject*)));
 
-    //time and lanuage
-    ui->time_lanLogo->setPixmap(QPixmap("://homePage/system.png").scaled(logoSize));
+    //time and language
+    ui->time_lanLogo->setPixmap(QPixmap("://homepage/time-language.svg")/*.scaled(logoSize)*/);
     ui->time_lanTitle->installEventFilter(this);
 //    ui->time_lanTitle->setFont(font);
 //    ui->time_lanTitle->setStyleSheet("color: #000000");
@@ -273,14 +273,14 @@ void MainPageWidget::initUI(){
     connect(tlSignalMapper, SIGNAL(mapped(QObject*)), pmainWindow, SLOT(pluginClicked_cb(QObject*)));
 
     //Security and updates
-    ui->security_updatesLogo->setPixmap(QPixmap("://homePage/system.png").scaled(logoSize));
+    ui->security_updatesLogo->setPixmap(QPixmap("://homepage/security-updates.png")/*.scaled(logoSize)*/);
     ui->security_updatesTitle->installEventFilter(this);
 //    ui->security_updatesTitle->setFont(font);
 //    ui->security_updatesTitle->setStyleSheet("color: #000000");
 //    ui->security_updatesHLayout->setSpacing(10);
 //    ui->security_updatesHLayout->setContentsMargins(110, 10, 0, 10);
 
-    pmainWindow->subfuncList[SECURITY_UPDATES] << tr("update") << tr("recovery") << tr("backup");
+    pmainWindow->subfuncList[SECURITY_UPDATES] << tr("update") /*<< tr("recovery")*/ << tr("backup");
 
     QStringList suStringList;
     suStringList = pmainWindow->subfuncList[SECURITY_UPDATES];
@@ -307,7 +307,7 @@ void MainPageWidget::initUI(){
     connect(suSignalMapper, SIGNAL(mapped(QObject*)), pmainWindow, SLOT(pluginClicked_cb(QObject*)));
 
     //messages and task
-    ui->messages_taskLogo->setPixmap(QPixmap("://homePage/system.png").scaled(logoSize));
+    ui->messages_taskLogo->setPixmap(QPixmap("://homepage/messages-task.svg")/*.scaled(logoSize)*/);
     ui->messages_taskTitle->installEventFilter(this);
 //    ui->messages_taskTitle->setFont(font);
 //    ui->messages_taskTitle->setStyleSheet("color: #000000");
@@ -315,7 +315,7 @@ void MainPageWidget::initUI(){
 //    ui->messages_taskHLayout->setContentsMargins(40, 10, 0, 10);
 
 
-    pmainWindow->subfuncList[MESSAGES_TASK] << tr("notice-operation") << tr("multitask") << tr("about");
+    pmainWindow->subfuncList[MESSAGES_TASK] /*<< tr("notice-operation") << tr("multitask") */<< tr("about");
 
     QStringList messagesStringList;
     messagesStringList = pmainWindow->subfuncList[MESSAGES_TASK];

@@ -18,6 +18,8 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setStyleSheet("QWidget#MainWindow{border: 1px solid #2d7d9a;}");
 //    this->setStyleSheet("QToolButton#backBtn#forwardBtn#minBtn#closeBtn{border: none}");
     //设置左上角样式
+    ui->ltBtn->setIcon(QIcon(":/title/logo.svg"));
+    ui->ltBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     ui->ltBtn->setStyleSheet("border:none; font-size: 14px; background-color: #2669b5; color: #ffffff");
     //设置toolbutton样式
     ui->minBtn->setStyleSheet("border: none");

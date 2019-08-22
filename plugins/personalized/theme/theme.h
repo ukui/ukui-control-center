@@ -11,6 +11,8 @@
 
 #include <QGSettings/QGSettings>
 
+#include "../../component/switchbutton.h"
+
 #define INTERFACE_SCHEMA "org.mate.interface"
 #define MARCO_SCHEMA "org.gnome.desktop.wm.preferences"
 
@@ -38,6 +40,7 @@ public:
 
     void status_init();
     void component_init();
+    void refresh_btn_select_status();
 
 private:
     Ui::Theme *ui;
@@ -48,12 +51,16 @@ private:
 
     QGSettings * ifsettings;
     QGSettings * marcosettings;
+    QGSettings * desktopsettings;
 
     QStringList themeList;
     QMap<QString, QToolButton *> delbtnMap;
+    QMap<QString, SwitchButton *> delsbMap;
 
 public slots:
     void set_theme_slots(QString value);
+    void desktop_icon_settings_btn_clicked_slots();
+    void desktop_icon_settings_slots(QString key);
 };
 
 #endif // THEME_H

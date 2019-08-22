@@ -148,7 +148,7 @@ void AutoBoot::initUI(){
 }
 
 gboolean AutoBoot::_stop_autoapp(QString bname){
-    char * dstpath;
+    char * dstpath, * dstparentdir;
     GFile * srcfile;
     GFile * dstfile;
 
@@ -157,7 +157,13 @@ gboolean AutoBoot::_stop_autoapp(QString bname){
     srcfile = g_file_new_for_path(tranpath.data());
 
     QByteArray tranbname = it.value().bname.toUtf8();
-    dstpath = g_build_filename(g_get_user_config_dir(), "autostart", tranbname.data(), NULL);
+    dstparentdir = g_build_filename(g_get_user_config_dir(), "autostart", NULL);
+    dstpath = g_build_filename(dstparentdir, tranbname.data(), NULL);
+    if (!g_file_test(dstparentdir, G_FILE_TEST_EXISTS)){
+        GFile * dstdirfile;
+        dstdirfile = g_file_new_for_path(dstparentdir);
+        g_file_make_directory(dstdirfile, NULL, NULL);
+    }
     dstfile = g_file_new_for_path(dstpath);
 
     if (!g_file_copy(srcfile, dstfile, G_FILE_COPY_NONE, NULL, NULL, NULL, NULL)){

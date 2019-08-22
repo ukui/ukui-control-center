@@ -142,82 +142,82 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="54"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="163"/>
         <source>Output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="63"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="172"/>
         <source>Select output device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="90"/>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="216"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="199"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="325"/>
         <source>Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="97"/>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="223"/>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="581"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="206"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="332"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="690"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="111"/>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="237"/>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="595"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="220"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="346"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="704"/>
         <source>Mute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="135"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="244"/>
         <source>Soundtrack balance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="180"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="289"/>
         <source>Input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="189"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="298"/>
         <source>Select input device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="261"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="370"/>
         <source>Input level</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="306"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="415"/>
         <source>Other Sound Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="315"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="424"/>
         <source>soundtheme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="342"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="451"/>
         <source>app volume and device preferences </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="384"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="493"/>
         <source>Sound Themes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="393"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="502"/>
         <source>select theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="430"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="539"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -226,52 +226,52 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="457"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="566"/>
         <source>Program events</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="516"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="625"/>
         <source>select sound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="526"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="635"/>
         <source>Test</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="533"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="642"/>
         <source>Apply</source>
         <translation type="unfinished">应用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="572"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="681"/>
         <source>Main Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="649"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="758"/>
         <source>App Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="674"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="783"/>
         <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="751"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="92"/>
         <source>Sound Setings</source>
         <translation>声音设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="778"/>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="119"/>
         <source>Sound setings</source>
         <translation>声音设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.cpp" line="11"/>
+        <location filename="../../../plugins/devices/audio/audio.cpp" line="13"/>
         <source>audio</source>
         <translation>声音</translation>
     </message>
@@ -360,28 +360,29 @@ p, li { white-space: pre-wrap; }
     <name>CertificationDialog</name>
     <message>
         <location filename="../../../plugins/network/proxy/certificationdialog.ui" line="26"/>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../../plugins/network/proxy/certificationdialog.ui" line="88"/>
+        <source>UserCertification</source>
+        <translation>用户认证</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/certificationdialog.ui" line="142"/>
+        <location filename="../../../plugins/network/proxy/certificationdialog.ui" line="161"/>
         <source>User:</source>
-        <translation type="unfinished"></translation>
+        <translation>用户名：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/certificationdialog.ui" line="216"/>
+        <location filename="../../../plugins/network/proxy/certificationdialog.ui" line="238"/>
         <source>Passwd:</source>
-        <translation type="unfinished"></translation>
+        <translation>密码：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/certificationdialog.ui" line="276"/>
+        <location filename="../../../plugins/network/proxy/certificationdialog.ui" line="298"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭</translation>
     </message>
     <message>
         <location filename="../../../plugins/network/proxy/certificationdialog.cpp" line="11"/>
         <source>Certification</source>
-        <translation type="unfinished"></translation>
+        <translation>认证</translation>
     </message>
 </context>
 <context>
@@ -597,7 +598,6 @@ change system settings</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="130"/>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="154"/>
         <source>Inconsistency with pin code</source>
         <translation>与PIN码不一致</translation>
     </message>
@@ -605,6 +605,11 @@ change system settings</source>
         <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="140"/>
         <source>Pin code length needs to %1 character!</source>
         <translation>PIN码长度至少%1个字符！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="154"/>
+        <source>Inconsistency with pwd</source>
+        <translation>与新密码不一致</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="164"/>
@@ -1000,120 +1005,120 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="26"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="62"/>
         <source>Repeat Keys</source>
-        <translation type="unfinished"></translation>
+        <translation>按键重复</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="73"/>
         <source>Key presses repeat when key is held down</source>
-        <translation type="unfinished"></translation>
+        <translation>启用按键重复</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="84"/>
         <source>Delay:</source>
-        <translation type="unfinished"></translation>
+        <translation>重复延时：</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="91"/>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="223"/>
         <source>Speed:</source>
-        <translation type="unfinished"></translation>
+        <translation>重复速度：</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="102"/>
         <source>Short</source>
-        <translation type="unfinished"></translation>
+        <translation>短</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="109"/>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="252"/>
         <source>Slow</source>
-        <translation type="unfinished"></translation>
+        <translation>慢</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="150"/>
         <source>Long</source>
-        <translation type="unfinished"></translation>
+        <translation>长</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="157"/>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="232"/>
         <source>Fast</source>
-        <translation type="unfinished"></translation>
+        <translation>快</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="172"/>
         <source>To test the repetition rate of the input character:</source>
-        <translation type="unfinished"></translation>
+        <translation>输入字符测试重复速度：</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="201"/>
         <source>Cursor Blinking</source>
-        <translation type="unfinished"></translation>
+        <translation>光标闪烁</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="214"/>
         <source>Cursor blinks in text fields</source>
-        <translation type="unfinished"></translation>
+        <translation>启用文本区域的光标闪烁</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="278"/>
         <source>Keyboard Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>键盘布局</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="294"/>
         <source>Keyboard Language</source>
-        <translation type="unfinished"></translation>
+        <translation>键盘语言</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="304"/>
         <source>preview</source>
-        <translation type="unfinished"></translation>
+        <translation>预览</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="311"/>
         <source>install other languages</source>
-        <translation type="unfinished"></translation>
+        <translation>安装其他语言</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="327"/>
         <source>Shortcut key settings</source>
-        <translation type="unfinished"></translation>
+        <translation>快捷键设置</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="345"/>
         <source>Shortcuts settings</source>
-        <translation type="unfinished"></translation>
+        <translation>快捷键设置</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="358"/>
         <source>accept</source>
-        <translation type="unfinished"></translation>
+        <translation>接受</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="371"/>
         <source>recover</source>
-        <translation type="unfinished"></translation>
+        <translation>还原</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="384"/>
         <source>Use default value</source>
-        <translation type="unfinished"></translation>
+        <translation>使用默认值</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="397"/>
         <source>add</source>
-        <translation type="unfinished"></translation>
+        <translation>添加</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboard.ui" line="410"/>
         <source>delete</source>
-        <translation type="unfinished"></translation>
+        <translation>删除</translation>
     </message>
 </context>
 <context>
@@ -1317,9 +1322,8 @@ folder will be deleted!</source>
         <translation>账户信息</translation>
     </message>
     <message>
-        <location filename="../../mainpagewidget.cpp" line="215"/>
         <source>loginoptions</source>
-        <translation>登录选项</translation>
+        <translation type="vanished">登录选项</translation>
     </message>
     <message>
         <location filename="../../mainpagewidget.cpp" line="249"/>
@@ -1337,9 +1341,8 @@ folder will be deleted!</source>
         <translation>更新</translation>
     </message>
     <message>
-        <location filename="../../mainpagewidget.cpp" line="283"/>
         <source>recovery</source>
-        <translation>恢复</translation>
+        <translation type="vanished">恢复</translation>
     </message>
     <message>
         <location filename="../../mainpagewidget.cpp" line="283"/>
@@ -1347,14 +1350,12 @@ folder will be deleted!</source>
         <translation>备份</translation>
     </message>
     <message>
-        <location filename="../../mainpagewidget.cpp" line="318"/>
         <source>notice-operation</source>
-        <translation>通知和操作</translation>
+        <translation type="vanished">通知和操作</translation>
     </message>
     <message>
-        <location filename="../../mainpagewidget.cpp" line="318"/>
         <source>multitask</source>
-        <translation>多任务</translation>
+        <translation type="vanished">多任务</translation>
     </message>
     <message>
         <location filename="../../mainpagewidget.cpp" line="318"/>
@@ -1375,17 +1376,7 @@ folder will be deleted!</source>
         <translation>控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.ui" line="227"/>
-        <source>-</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.ui" line="246"/>
-        <source>X</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.cpp" line="28"/>
+        <location filename="../../mainwindow.cpp" line="30"/>
         <source>Find Devices</source>
         <translation>发现设备</translation>
     </message>
@@ -1398,54 +1389,64 @@ folder will be deleted!</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../modulepagewidget.ui" line="118"/>
+        <location filename="../../modulepagewidget.ui" line="124"/>
         <source>module</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../modulepagewidget.cpp" line="67"/>
         <source>backtoMain</source>
-        <translation>返回</translation>
+        <translation type="vanished">返回</translation>
     </message>
     <message>
-        <location filename="../../modulepagewidget.cpp" line="104"/>
+        <location filename="../../modulepagewidget.cpp" line="94"/>
+        <location filename="../../modulepagewidget.cpp" line="184"/>
+        <source>CCMainPage</source>
+        <translation>控制面板主页</translation>
+    </message>
+    <message>
+        <location filename="../../modulepagewidget.cpp" line="142"/>
         <source>System</source>
         <translation>系统</translation>
     </message>
     <message>
-        <location filename="../../modulepagewidget.cpp" line="106"/>
+        <location filename="../../modulepagewidget.cpp" line="144"/>
         <source>Devices</source>
         <translation>设备</translation>
     </message>
     <message>
-        <location filename="../../modulepagewidget.cpp" line="108"/>
+        <location filename="../../modulepagewidget.cpp" line="146"/>
         <source>Personalized</source>
         <translation>个性化</translation>
     </message>
     <message>
-        <location filename="../../modulepagewidget.cpp" line="110"/>
+        <location filename="../../modulepagewidget.cpp" line="148"/>
         <source>Network</source>
         <translation>网络</translation>
     </message>
     <message>
-        <location filename="../../modulepagewidget.cpp" line="112"/>
+        <location filename="../../modulepagewidget.cpp" line="150"/>
         <source>Account</source>
         <translation>账户</translation>
     </message>
     <message>
-        <location filename="../../modulepagewidget.cpp" line="114"/>
+        <location filename="../../modulepagewidget.cpp" line="152"/>
         <source>Time Language</source>
         <translation>时间和语言</translation>
     </message>
     <message>
-        <location filename="../../modulepagewidget.cpp" line="116"/>
+        <location filename="../../modulepagewidget.cpp" line="154"/>
         <source>Security Updates</source>
         <translation>更新和安全</translation>
     </message>
     <message>
-        <location filename="../../modulepagewidget.cpp" line="118"/>
+        <location filename="../../modulepagewidget.cpp" line="156"/>
         <source>Message Task</source>
         <translation>信息和任务</translation>
+    </message>
+    <message>
+        <location filename="../../modulepagewidget.cpp" line="182"/>
+        <source>UpperLevel</source>
+        <translation>上一级</translation>
     </message>
 </context>
 <context>
@@ -1459,193 +1460,204 @@ folder will be deleted!</source>
 <context>
     <name>MouseWidget</name>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="26"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="32"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="63"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="69"/>
         <source>Cursor Settiings</source>
-        <translation type="unfinished"></translation>
+        <translation>指针设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="79"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="85"/>
         <source>Cursor theme :</source>
-        <translation type="unfinished"></translation>
+        <translation>指针主题：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="104"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="110"/>
         <source>Speed:</source>
-        <translation type="unfinished"></translation>
+        <translation>移动速度：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="114"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="120"/>
         <source>Slow</source>
-        <translation type="unfinished"></translation>
+        <translation>慢</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="143"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="149"/>
         <source>Fast</source>
-        <translation type="unfinished"></translation>
+        <translation>快</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="168"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="174"/>
         <source>Sensitivity:</source>
-        <translation type="unfinished"></translation>
+        <translation>可见性：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="178"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="184"/>
         <source>Low</source>
-        <translation type="unfinished"></translation>
+        <translation>低</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="210"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="216"/>
         <source>High</source>
-        <translation type="unfinished"></translation>
+        <translation>高</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="232"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="238"/>
         <source>touchpad settings</source>
-        <translation type="unfinished"></translation>
+        <translation>触摸板设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="251"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="257"/>
         <source>Move the pointer as it hover over the inactive window</source>
-        <translation type="unfinished"></translation>
+        <translation>当指针悬停在非活动窗口上方时对其进行滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="258"/>
-        <source>CheckBox</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="277"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="283"/>
         <source>Mouse Wheel</source>
-        <translation type="unfinished"></translation>
+        <translation>鼠标滚轮</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="296"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="308"/>
         <source>Mouse keys settings</source>
-        <translation type="unfinished"></translation>
+        <translation>鼠标设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="312"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="327"/>
         <source>Main button</source>
-        <translation type="unfinished"></translation>
+        <translation>鼠标键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="319"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="334"/>
         <source>right_hand</source>
-        <translation type="unfinished"></translation>
+        <translation>惯用右手</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="326"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="341"/>
         <source>left_hand</source>
-        <translation type="unfinished"></translation>
+        <translation>惯用左手</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="345"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="360"/>
         <source>Visibility</source>
-        <translation type="unfinished"></translation>
+        <translation>可见性</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="352"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="367"/>
         <source>Hide pointers while typing</source>
-        <translation type="unfinished"></translation>
+        <translation>在打字时隐藏指针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="359"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="374"/>
         <source>Show position of pointer when the Control key is pressed</source>
-        <translation type="unfinished"></translation>
+        <translation>按Ctrl键时显示指针位置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="375"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="390"/>
         <source>cursor settings</source>
-        <translation type="unfinished"></translation>
+        <translation>光标设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="393"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="408"/>
         <source>Enabled touchpad</source>
-        <translation type="unfinished"></translation>
+        <translation>启用触摸板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="406"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="421"/>
         <source>General settings</source>
-        <translation type="unfinished"></translation>
+        <translation>通用设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="419"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="434"/>
         <source>Disable touchpad while typing</source>
-        <translation type="unfinished"></translation>
+        <translation>打字时禁用触摸板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="432"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="447"/>
         <source>Enable mouse clicks with touchpad</source>
-        <translation type="unfinished"></translation>
+        <translation>启用触摸板的点击功能</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="448"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="463"/>
+        <source>Vertical &amp;edge scrolling</source>
+        <translation>垂直边界滚动（&amp;E）</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="470"/>
+        <source>&amp;Horizontal edge scrolling</source>
+        <translation>水平边界滚动（&amp;H）</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="477"/>
+        <source>&amp;Vertical two-finger scrolling</source>
+        <translation>垂直双指滚动（&amp;V）</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="484"/>
+        <source>Horizontal two-&amp;finger scrolling</source>
+        <translation>水平双指滚动（&amp;F）</translation>
+    </message>
+    <message>
         <source>&amp;Vertical edge scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation type="vanished">垂直边界滚动（&amp;E）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="455"/>
         <source>Hori&amp;zontal edge scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation type="vanished">水平边界滚动（&amp;H）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="462"/>
         <source>Vertical two-finger scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation type="vanished">垂直双指滚动（&amp;V）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="469"/>
         <source>Horizo&amp;ntal two-finger scrolling</source>
-        <translation type="unfinished"></translation>
+        <translation type="vanished">垂直双指滚动（&amp;F）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="485"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="500"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="498"/>
-        <source>Touchpad settings</source>
-        <translation type="unfinished"></translation>
+        <translation>滚动</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="513"/>
-        <source>Cursor and pointer size</source>
-        <translation type="unfinished"></translation>
+        <source>Touchpad settings</source>
+        <translation>触摸板设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="526"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="528"/>
+        <source>Cursor and pointer size</source>
+        <translation>光标和指针大小</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="541"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Make the cursor pointer easier to see&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>使光标和指针更易于查看</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="543"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="558"/>
         <source>Change cursor and pointer size</source>
-        <translation type="unfinished"></translation>
+        <translation>更改光标大小</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="559"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="574"/>
         <source>Smaller - 100%(default)</source>
-        <translation type="unfinished"></translation>
+        <translation>较小 - 100%（默认）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="566"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="581"/>
         <source>medium - 125%</source>
-        <translation type="unfinished"></translation>
+        <translation>中等 - 125%</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="573"/>
+        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="588"/>
         <source>bigger - 150%</source>
-        <translation type="unfinished"></translation>
+        <translation>较大 - 150%</translation>
     </message>
 </context>
 <context>
@@ -1679,17 +1691,17 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">主题</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="148"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="210"/>
         <source>Network Connected</source>
-        <translation>已连接的网络</translation>
+        <translation>本机网络设备</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="199"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="261"/>
         <source>Related settings</source>
         <translation>相关设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="214"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="276"/>
         <source>Change net settings</source>
         <translation>更改网络设置</translation>
     </message>
@@ -1697,6 +1709,25 @@ p, li { white-space: pre-wrap; }
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="11"/>
         <source>netconnect</source>
         <translation>网络连接</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="103"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="112"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="185"/>
+        <source>Disconnect</source>
+        <translation>断开连接</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="189"/>
+        <source>Restricting access</source>
+        <translation>限制访问</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="99"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="108"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="193"/>
+        <source>Connect</source>
+        <translation>已连接</translation>
     </message>
 </context>
 <context>
@@ -1759,17 +1790,17 @@ p, li { white-space: pre-wrap; }
         <translation>用户制定个性化电源计划</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="426"/>
+        <location filename="../../../plugins/system/power/power.ui" line="429"/>
         <source>Power supply</source>
         <translation>电源供电</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="449"/>
+        <location filename="../../../plugins/system/power/power.ui" line="455"/>
         <source>Battery powered</source>
         <translation>电池供电</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="510"/>
+        <location filename="../../../plugins/system/power/power.ui" line="519"/>
         <source>Change pc sleep time:</source>
         <translation>更改计算机睡眠时间：</translation>
     </message>
@@ -1778,27 +1809,27 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">更改计算机睡眠时间：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="606"/>
+        <location filename="../../../plugins/system/power/power.ui" line="615"/>
         <source>Change dp close time:</source>
         <translation>更改显示器关闭时间：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="702"/>
+        <location filename="../../../plugins/system/power/power.ui" line="711"/>
         <source>Close lid of notebook:</source>
         <translation>关闭笔记本盖子时：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="830"/>
+        <location filename="../../../plugins/system/power/power.ui" line="839"/>
         <source>Press power button:</source>
         <translation>按下电源键时：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="907"/>
+        <location filename="../../../plugins/system/power/power.ui" line="916"/>
         <source>Press suspend button:</source>
         <translation>按下挂起键时：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="999"/>
+        <location filename="../../../plugins/system/power/power.ui" line="1008"/>
         <source>Battery mode settings</source>
         <translation>电池保养模式设置</translation>
     </message>
@@ -1808,72 +1839,72 @@ p, li { white-space: pre-wrap; }
         <translation>电源</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="77"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="82"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="115"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="123"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="132"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="140"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="81"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="86"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="119"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="127"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="136"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="144"/>
         <source>never</source>
         <translation>从不</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="77"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="82"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="81"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="86"/>
         <source>10 min</source>
         <translation>十分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="77"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="82"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="81"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="86"/>
         <source>30 min</source>
         <translation>半小时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="77"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="82"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="81"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="86"/>
         <source>60 min</source>
         <translation>一小时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="77"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="81"/>
         <source>120 min</source>
         <translation>两小时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="82"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="86"/>
         <source>1 min</source>
         <translation>一分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="82"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="86"/>
         <source>5 min</source>
         <translation>五分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="87"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="91"/>
         <source>nothing</source>
         <translation>不执行操作</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="87"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="91"/>
         <source>blank</source>
         <translation>黑屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="87"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="92"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="91"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="96"/>
         <source>suspend</source>
         <translation>挂起</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="87"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="92"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="91"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="96"/>
         <source>shutdown</source>
         <translation>关机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="92"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="96"/>
         <source>interactive</source>
         <translation>询问</translation>
     </message>
@@ -2050,12 +2081,12 @@ p, li { white-space: pre-wrap; }
         <translation>锁屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="49"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="51"/>
         <source>picture</source>
         <translation>图片</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="79"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="84"/>
         <source>selsect screenlock background</source>
         <translation>选择屏保背景</translation>
     </message>
@@ -2173,7 +2204,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../../../plugins/personalized/start/start.ui" line="233"/>
         <source>Computer</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">计算机</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/start/start.ui" line="288"/>
@@ -2213,7 +2244,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../../../plugins/personalized/start/start.ui" line="673"/>
         <source>Trash</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">回收站</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/start/start.cpp" line="13"/>
@@ -2275,7 +2306,37 @@ p, li { white-space: pre-wrap; }
         <translation>桌面图标设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="13"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="387"/>
+        <source>Which icons to show on your desktop</source>
+        <translation>哪些图标显示在桌面上</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="455"/>
+        <source>Computer</source>
+        <translation>计算机</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="519"/>
+        <source>Home Folder</source>
+        <translation>用户主文件夹</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="580"/>
+        <source>Network</source>
+        <translation>网络</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="641"/>
+        <source>Trash</source>
+        <translation>回收站</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="702"/>
+        <source>Volumes</source>
+        <translation>挂载卷</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="21"/>
         <source>theme</source>
         <translation>主题</translation>
     </message>
@@ -2289,42 +2350,42 @@ p, li { white-space: pre-wrap; }
         <translation>更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/update/update.ui" line="117"/>
+        <location filename="../../../plugins/security-updates/update/update.ui" line="133"/>
         <source>Latest version</source>
         <translation>您使用的已经是最新版本</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/update/update.ui" line="138"/>
+        <location filename="../../../plugins/security-updates/update/update.ui" line="154"/>
         <source>Last check time:</source>
         <translation>上次检测时间：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/update/update.ui" line="186"/>
+        <location filename="../../../plugins/security-updates/update/update.ui" line="202"/>
         <source>CheckUpdate</source>
         <translation>检查更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/update/update.ui" line="237"/>
+        <location filename="../../../plugins/security-updates/update/update.ui" line="253"/>
         <source>New Features</source>
         <translation>新特性</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/update/update.ui" line="256"/>
+        <location filename="../../../plugins/security-updates/update/update.ui" line="288"/>
         <source>New version adds a lot of new features and improvements, click to learn more</source>
         <translation>新版本增加了很多新特性和改进，点击了解详情</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/update/update.ui" line="268"/>
+        <location filename="../../../plugins/security-updates/update/update.ui" line="300"/>
         <source>Learn about the new features</source>
         <translation>了解新特性</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/update/update.ui" line="315"/>
+        <location filename="../../../plugins/security-updates/update/update.ui" line="347"/>
         <source>Related settings</source>
         <translation>相关设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/update/update.ui" line="330"/>
+        <location filename="../../../plugins/security-updates/update/update.ui" line="378"/>
         <source>Change update settings</source>
         <translation>更改更新设置</translation>
     </message>
@@ -2352,19 +2413,19 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="178"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="190"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="192"/>
         <source>change pwd</source>
         <translation>更改密码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="201"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="191"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="193"/>
         <source>change face</source>
         <translation>更改头像</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="224"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="192"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="194"/>
         <source>change accounttype</source>
         <translation>更改账户类型</translation>
     </message>
@@ -2389,37 +2450,37 @@ p, li { white-space: pre-wrap; }
         <translation>账户信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="56"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="57"/>
         <source>standard user</source>
         <translation>标准账户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="58"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="59"/>
         <source>administrator</source>
         <translation>管理员账户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="60"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="61"/>
         <source>root</source>
         <translation>root</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="67"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="68"/>
         <source>logined</source>
         <translation>已登录</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="69"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="70"/>
         <source>unlogined</source>
         <translation>未登录</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="193"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="195"/>
         <source>delete user</source>
         <translation>删除账户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="232"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="235"/>
         <source>add new user</source>
         <translation>添加新账户</translation>
     </message>
@@ -2497,12 +2558,7 @@ p, li { white-space: pre-wrap; }
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="148"/>
-        <source>Picture</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="201"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="189"/>
         <source>Picture Options</source>
         <translation>图片放置方式</translation>
     </message>
@@ -2511,27 +2567,17 @@ p, li { white-space: pre-wrap; }
         <translation type="vanished">图片放置方式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="239"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="227"/>
         <source>Restore default WP</source>
         <translation>恢复默认背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="264"/>
-        <source>Color</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="269"/>
-        <source>Slide</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="99"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="97"/>
         <source>wallpaper</source>
         <translation>平铺</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="94"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="92"/>
         <source>picture</source>
         <translation>图片</translation>
     </message>
@@ -2541,42 +2587,42 @@ p, li { white-space: pre-wrap; }
         <translation>桌面背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="94"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="92"/>
         <source>slideshow</source>
         <translation>幻灯片放映</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="94"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="92"/>
         <source>color</source>
         <translation>纯色</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="99"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="97"/>
         <source>centered</source>
         <translation>居中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="99"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="97"/>
         <source>scaled</source>
         <translation>比例放大</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="99"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="97"/>
         <source>stretched</source>
         <translation>伸展</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="99"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="97"/>
         <source>zoom</source>
         <translation>缩放</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="99"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="97"/>
         <source>spanned</source>
         <translation>适合宽度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="133"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="131"/>
         <source>%1</source>
         <translation></translation>
     </message>

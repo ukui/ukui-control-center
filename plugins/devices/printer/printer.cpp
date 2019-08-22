@@ -14,7 +14,7 @@ Printer::Printer(){
 
 
     ui->addBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    ui->addBtn->setIcon(QIcon(":/general/more.png"));
+    ui->addBtn->setIcon(QIcon(":/printer/add.png"));
     ui->addBtn->setIconSize(QSize(48,48));
 
     ui->listWidget->setStyleSheet("border: none; background-color: #f5f6f7");
@@ -22,8 +22,23 @@ Printer::Printer(){
     QStringList printer = QPrinterInfo::availablePrinterNames();
 
     for (int num = 0; num < printer.count(); num++){
-        QListWidgetItem * item = new QListWidgetItem(printer.at(num), ui->listWidget);
+
+        QWidget * printerdevWidget = new QWidget();
+        printerdevWidget->setAttribute(Qt::WA_DeleteOnClose);
+        QVBoxLayout * printerdevVerLayout = new QVBoxLayout(printerdevWidget);
+        QToolButton * printerdevToolBtn = new QToolButton(printerdevWidget);
+        printerdevToolBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+        printerdevToolBtn->setIcon(QIcon("://printer/printerdev.png"));
+        printerdevToolBtn->setIconSize(QSize(48,48));
+        printerdevToolBtn->setText(printer.at(num));
+
+        printerdevVerLayout->addWidget(printerdevToolBtn);
+        printerdevWidget->setLayout(printerdevVerLayout);
+
+        QListWidgetItem * item = new QListWidgetItem(ui->listWidget);
+        item->setSizeHint(QSize(180, 64));
         ui->listWidget->addItem(item);
+        ui->listWidget->setItemWidget(item, printerdevWidget);
     }
 
     connect(ui->addBtn, SIGNAL(clicked()), this, SLOT(run_external_app_slot()));

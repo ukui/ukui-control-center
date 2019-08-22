@@ -99,6 +99,16 @@ void About::initUI(){
 //    ui->sysinfoFormLayout->addRow(tr("kernel version"), "kernel version");
 //    ui->sysinfoFormLayout->addRow(tr("architecture"), "architecture");
 
+    //设置桌面环境logo
+    envlogoLabel = new QLabel(pluginWidget);
+    envlogoLabel->setAutoFillBackground(true);
+    envlogoLabel->setScaledContents(true);
+    QPixmap envlogoPixmap("://logo.svg");
+    envlogoLabel->setPixmap(envlogoPixmap);
+    envlogoLabel->setFixedSize(envlogoPixmap.size());
+    envlogoLabel->setGeometry(QRect(pluginWidget->width() - 70 - envlogoLabel->width(), ui->summaryLabel->geometry().bottom() + 25, envlogoLabel->width(), envlogoLabel->height()));
+
+    //
     logoLabel = new QLabel(pluginWidget);
     logoLabel->setAutoFillBackground(true);
     logoLabel->setScaledContents(true); //自动缩放，显示图像大小自动调整为QLabel大小

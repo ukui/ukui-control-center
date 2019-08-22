@@ -3,8 +3,12 @@
 
 #include <QWidget>
 #include <QListWidget>
+#include <QLabel>
+#include <QHBoxLayout>
 
 #include "interface.h"
+
+#include "component/listwidgetitem.h"
 
 class MainWindow;
 
@@ -22,6 +26,7 @@ public:
 
     void initUI();
     void setup_component(QObject * plugin);
+    void update_backbtn_text(int index);
 
 private:
     Ui::ModulePageWidget *ui;
@@ -30,10 +35,14 @@ private:
 
     QMap<QString, QWidget *> widgetMaps;
 
+    QLabel * backiconLabel;
+    QLabel * backtextLabel;
+
 public slots:
     void itemClicked_cb(QListWidgetItem * item);
 
     void backBtnClicked_cb();
+    void update_backbtn_text_slot(int index);
 
 };
 

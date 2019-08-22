@@ -151,7 +151,7 @@ void CreateUserDialog::pin_legality_check_slot(QString pin){
 
 void CreateUserDialog::pwdsure_legality_check_slot(QString pwdsure){
     if (pwdsure != ui->pwdLineEdit->text())
-        ui->pwdsuretipLabel->setText(tr("Inconsistency with pin code"));
+        ui->pwdsuretipLabel->setText(tr("Inconsistency with pwd"));
     else
         ui->pwdsuretipLabel->setText("");
 

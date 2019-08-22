@@ -425,7 +425,7 @@ void DisplaySet::apply_btn_clicked_slot(){
     rawtime = time(NULL);
     if (abs(bak_timestamp - rawtime) >= 7){ //7s内连击无效
         bak_timestamp = rawtime;
-        qDebug() << rawtime;
+//        qDebug() << rawtime;
         monitor.ApplyBtnClickTimeStamp = GDK_CURRENT_TIME;
     }
 
@@ -444,8 +444,10 @@ void DisplaySet::apply_btn_clicked_slot(){
 }
 
 void DisplaySet::_begin_version2_apply_configuration(){
-//    XID parent_window_xid;
+
+    XID window_xid;
 //    parent_window_xid = GDK_WINDOW_XID(gtk_widget_get_window(monitor.window));
+    window_xid = GDK_WINDOW_XID(gdk_screen_get_root_window (gdk_screen_get_default()));
 
     monitor.proxy = dbus_g_proxy_new_for_name(monitor.connection,
                                               "org.ukui.SettingsDaemon",
@@ -454,6 +456,12 @@ void DisplaySet::_begin_version2_apply_configuration(){
 
     if (monitor.proxy == NULL)
         return;
-    g_warning("aaaaaaaaaaaaaaa");
+
+    monitor.proxy_call = dbus_g_proxy_begin_call(monitor.proxy, "ApplyConfiguration",
+                                                 NULL, NULL, NULL,
+                                                 G_TYPE_INT64, (gint64) window_xid,
+                                                 G_TYPE_INT64, (gint64) monitor.ApplyBtnClickTimeStamp,
+                                                 G_TYPE_INVALID,
+                                                 G_TYPE_INVALID);
 
 }

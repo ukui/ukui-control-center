@@ -35,7 +35,8 @@ SOURCES += \
     modulepagewidget.cpp \
     mainpagewidget.cpp \
     component/custdomlabel.cpp \
-    component/custdomframe.cpp
+    component/custdomframe.cpp \
+    component/listwidgetitem.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -43,7 +44,8 @@ HEADERS += \
     modulepagewidget.h \
     mainpagewidget.h \
     component/custdomlabel.h \
-    component/custdomframe.h
+    component/custdomframe.h \
+    component/listwidgetitem.h
 
 FORMS += \
         mainwindow.ui \

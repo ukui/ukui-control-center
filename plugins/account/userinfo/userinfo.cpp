@@ -3,7 +3,7 @@
 
 #include <QDebug>
 
-#define DEFAULTFACE "/usr/share/pixmaps/faces/stock_person.png"
+#define DEFAULTFACE "://userinfo/default.png"
 
 UserInfo::UserInfo()
 {
@@ -23,7 +23,10 @@ UserInfo::UserInfo()
     delSignalMapper = new QSignalMapper(this);
 
     faceSize = QSize(64, 64);
-    itemSize = QSize(160, 80);
+    itemSize = QSize(230, 106); //?需要比btnsize大多少？否则显示不全
+    btnSize = QSize(222, 92);
+
+//    ui->listWidget->setStyleSheet("#listWidget{border: 0px solid;}");
 
     get_all_users();
     ui_component_init();
@@ -147,9 +150,11 @@ void UserInfo::ui_status_init(){
     QMap<QString, UserInfomation>::iterator it = allUserInfoMap.begin();
     for (; it != allUserInfoMap.end(); it++){
         UserInfomation user = (UserInfomation) it.value();
-
-        if (user.username == QString(g_get_user_name())){ //当前用户
-            ui->faceLabel->setPixmap(QPixmap(user.iconfile).scaled(QSize(80, 80)));
+        QString iconfile = DEFAULTFACE;
+        if (user.iconfile !="" && !user.iconfile.endsWith(".face")) //如果存在头像文件，覆盖默认值
+            iconfile = user.iconfile;
+        if (user.username == QString(g_get_user_name())){ //当前用户      
+            ui->faceLabel->setPixmap(QPixmap(iconfile).scaled(QSize(80, 80)));
             ui->usernameLabel->setText(user.username);
             ui->accounttypeLabel->setText(accounttype_enum_to_string(user.accounttype));
             ui->loginLabel->setText(login_status_bool_to_string(user.logined));
@@ -164,7 +169,7 @@ void UserInfo::ui_status_init(){
                 QString type = accounttype_enum_to_string(user.accounttype);
                 // 获取登录状态
                 QString logined = login_status_bool_to_string(user.logined);
-                button->setIcon(QIcon(user.iconfile));
+                button->setIcon(QIcon(iconfile));
                 button->setText(QString("%1\n%2\n%3").arg(user.username, type, logined));
             }
             else
@@ -179,6 +184,7 @@ void UserInfo::build_item_with_widget(UserInfomation user){
     otherWidget->setAttribute(Qt::WA_DeleteOnClose);
     QVBoxLayout * otherVerLayout = new QVBoxLayout(otherWidget);
     QToolButton * otherToolBtn = new QToolButton(otherWidget);
+    otherToolBtn->setFixedSize(btnSize);
     otherToolBtn->setObjectName(user.username);
     otherToolBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 //            otherToolBtn->setIcon(QIcon(user.iconfile));
@@ -219,7 +225,7 @@ void UserInfo::build_item_with_widget(UserInfomation user){
 void UserInfo::ui_component_init(){
 
     ui->listWidget->setViewMode(QListView::IconMode);
-    ui->listWidget->setSpacing(5);
+    ui->listWidget->setSpacing(0);
 
     //设置创建用户按钮
     QWidget * newuserWidget = new QWidget();
@@ -227,7 +233,8 @@ void UserInfo::ui_component_init(){
     QVBoxLayout * newVLayout = new QVBoxLayout(newuserWidget);
     QToolButton * newToolBtn = new QToolButton(newuserWidget);
     newToolBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    newToolBtn->setIcon(QIcon(":/general/more.png"));
+    newToolBtn->setFixedSize(btnSize);
+    newToolBtn->setIcon(QIcon(":/userinfo/add.png"));
     newToolBtn->setIconSize(faceSize);
     newToolBtn->setText(tr("add new user"));
     newVLayout->addWidget(newToolBtn);

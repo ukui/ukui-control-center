@@ -133,20 +133,8 @@
         </layout>
        </item>
        <item>
-        <widget class="QTabWidget" name="tabWidget">
-         <property name="currentIndex">
-          <number>0</number>
-         </property>
-         <property name="tabBarAutoHide">
-          <bool>false</bool>
-         </property>
-         <widget class="QWidget" name="picture">
-          <property name="contextMenuPolicy">
-           <enum>Qt::DefaultContextMenu</enum>
-          </property>
-          <attribute name="title">
-           <string>Picture</string>
-          </attribute>
+        <widget class="QStackedWidget" name="stackedWidget">
+         <widget class="QWidget" name="picture" native="true">
           <layout class="QVBoxLayout" name="verticalLayout_4">
            <property name="spacing">
             <number>0</number>
@@ -259,16 +247,8 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="color">
-          <attribute name="title">
-           <string>Color</string>
-          </attribute>
-         </widget>
-         <widget class="QWidget" name="slide">
-          <attribute name="title">
-           <string>Slide</string>
-          </attribute>
-         </widget>
+         <widget class="QWidget" name="color" native="true"/>
+         <widget class="QWidget" name="slideshow" native="true"/>
         </widget>
        </item>
       </layout>

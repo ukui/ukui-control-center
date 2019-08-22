@@ -12,6 +12,8 @@ INCLUDEPATH += ../../..
 TARGET = $$qtLibraryTarget(theme)
 DESTDIR = ../..
 
+include(../../component/component.pri)
+
 LIBS += -L/usr/lib/ -lgsettings-qt
 
 #DEFINES += QT_DEPRECATED_WARNINGS
@@ -25,5 +27,4 @@ HEADERS += \
 FORMS += \
         theme.ui
 
-RESOURCES += \
-    res/img.qrc
+RESOURCES +=

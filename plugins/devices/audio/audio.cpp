@@ -13,8 +13,6 @@ Audio::Audio()
     pluginName = tr("audio");
     pluginType = DEVICES;
 
-    ui->StackedWidget->setCurrentIndex(3);
-
     connect(ui->soundthemeBtn, SIGNAL(clicked()), this, SLOT(change_soundtheme_page()));
     connect(ui->preferencesBtn, SIGNAL(clicked()), this, SLOT(change_preference_page()));
 

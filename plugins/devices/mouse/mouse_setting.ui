@@ -261,7 +261,7 @@
       <item>
        <widget class="QCheckBox" name="checkBox_4">
         <property name="text">
-         <string>CheckBox</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -460,28 +460,28 @@
       <item>
        <widget class="QRadioButton" name="radioButton_2">
         <property name="text">
-         <string>&amp;Vertical edge scrolling</string>
+         <string>Vertical &amp;edge scrolling</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QRadioButton" name="radioButton_3">
         <property name="text">
-         <string>Hori&amp;zontal edge scrolling</string>
+         <string>&amp;Horizontal edge scrolling</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QRadioButton" name="radioButton_4">
         <property name="text">
-         <string>Vertical two-finger scrolling</string>
+         <string>&amp;Vertical two-finger scrolling</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QRadioButton" name="radioButton_5">
         <property name="text">
-         <string>Horizo&amp;ntal two-finger scrolling</string>
+         <string>Horizontal two-&amp;finger scrolling</string>
         </property>
        </widget>
       </item>

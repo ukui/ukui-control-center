@@ -1,4 +1,5 @@
 TEMPLATE = subdirs
-SUBDIRS =  about \
+SUBDIRS =  \
+    about \
     multitask \
     notice-operation
