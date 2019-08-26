@@ -22,6 +22,10 @@ LIBS          += -L/usr/lib/ -ldefaultprograms
 TARGET = $$qtLibraryTarget(defaultapp)
 DESTDIR = ../..
 
+
+target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
+INSTALLS += target
+
 SOURCES += \
         defaultapp.cpp \
     addappdialog.cpp \

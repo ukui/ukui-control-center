@@ -109,8 +109,16 @@ void MainWindow::loadPlugins(){
         subfuncList.append(pluginStringList);
     }
 
-    pluginsDir = QDir(qApp->applicationDirPath());
-    pluginsDir.cd("plugins");
+    static bool installed = (QCoreApplication::applicationDirPath() == QDir(("/usr/bin")).canonicalPath());
+
+    if (installed)
+        pluginsDir = QDir("/usr/lib/control-center/plugins/");
+    else {
+        pluginsDir = QDir(qApp->applicationDirPath() + "/plugins/");
+    }
+
+//    pluginsDir = QDir(qApp->applicationDirPath());
+//    pluginsDir.cd("plugins");
 
     foreach (QString fileName, pluginsDir.entryList(QDir::Files)){
         QPluginLoader loader(pluginsDir.absoluteFilePath(fileName));

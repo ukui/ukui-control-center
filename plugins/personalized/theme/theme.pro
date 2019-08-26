@@ -18,6 +18,9 @@ LIBS += -L/usr/lib/ -lgsettings-qt
 
 #DEFINES += QT_DEPRECATED_WARNINGS
 
+target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
+INSTALLS += target
+
 SOURCES += \
         theme.cpp
 

@@ -24,6 +24,8 @@ PKGCONFIG     += gio-2.0 \
                  mate-desktop-2.0 \
                  dbus-glib-1
 
+target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
+INSTALLS += target
 
 SOURCES += \
         display.cpp

@@ -9,7 +9,10 @@ LIBS          +=  -L/usr/lib/ -lkeyboardclient -linterfaceclient -lxklavier
 PKGCONFIG += gio-2.0
 
 CONFIG += no_keywords link_pkgconfig
-    
+
+target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
+INSTALLS += target
+
 HEADERS         += keyboard_settings.h \
                     treeitem.h \
                     treemodel.h \

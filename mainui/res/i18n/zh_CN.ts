@@ -1262,9 +1262,8 @@ folder will be deleted!</source>
         <translation>打印机</translation>
     </message>
     <message>
-        <location filename="../../mainpagewidget.cpp" line="109"/>
         <source>mouse</source>
-        <translation>鼠标</translation>
+        <translation type="vanished">鼠标</translation>
     </message>
     <message>
         <location filename="../../mainpagewidget.cpp" line="109"/>
@@ -1275,6 +1274,11 @@ folder will be deleted!</source>
         <location filename="../../mainpagewidget.cpp" line="109"/>
         <source>audio</source>
         <translation>声音</translation>
+    </message>
+    <message>
+        <location filename="../../mainpagewidget.cpp" line="109"/>
+        <source>mousecontrol</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../mainpagewidget.cpp" line="144"/>
@@ -1452,152 +1456,339 @@ folder will be deleted!</source>
 <context>
     <name>MouseControl</name>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.cpp" line="18"/>
         <source>mouse</source>
-        <translation>鼠标</translation>
+        <translation type="vanished">鼠标</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="26"/>
+        <source>Template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="72"/>
+        <source>Mouse Key Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="108"/>
+        <source>Main button</source>
+        <translation type="unfinished">鼠标键</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="118"/>
+        <source>right hand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="144"/>
+        <source>left hand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="192"/>
+        <source>Mouse wheel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="231"/>
+        <source>Move the pointer as it hover over the inactive window</source>
+        <translation type="unfinished">当指针悬停在非活动窗口上方时对其进行滚动</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="301"/>
+        <source>Cursor Settiings</source>
+        <translation type="unfinished">指针设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="337"/>
+        <source>Cursor theme </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="417"/>
+        <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="433"/>
+        <source>Slow</source>
+        <translation type="unfinished">慢</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="500"/>
+        <source>Fast</source>
+        <translation type="unfinished">快</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="545"/>
+        <source>Sensitivity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="561"/>
+        <source>Low</source>
+        <translation type="unfinished">低</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="628"/>
+        <source>High</source>
+        <translation type="unfinished">高</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="673"/>
+        <source>Visibility</source>
+        <translation type="unfinished">可见性</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="683"/>
+        <source>Hide pointers while typing</source>
+        <translation type="unfinished">在打字时隐藏指针</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="706"/>
+        <source>Show position of pointer when the Control key is pressed</source>
+        <translation type="unfinished">按Ctrl键时显示指针位置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="750"/>
+        <source>Related settings</source>
+        <translation type="unfinished">相关设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="765"/>
+        <source>touchpad settings</source>
+        <translation type="unfinished">触摸板设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="792"/>
+        <source>cursor settings</source>
+        <translation type="unfinished">光标设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="855"/>
+        <source>Touchpad Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="879"/>
+        <source>Enabled touchpad</source>
+        <translation type="unfinished">启用触摸板</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="931"/>
+        <source>General Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="949"/>
+        <source>Disable touchpad while typing</source>
+        <translation type="unfinished">打字时禁用触摸板</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="976"/>
+        <source>Enable mouse clicks with touchpad</source>
+        <translation type="unfinished">启用触摸板的点击功能</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1005"/>
+        <source>Disable rolling:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1048"/>
+        <source>Vertical &amp;edge scrolling</source>
+        <translation type="unfinished">垂直边界滚动（&amp;E）</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1058"/>
+        <source>&amp;Horizontal edge scrolling</source>
+        <translation type="unfinished">水平边界滚动（&amp;H）</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1068"/>
+        <source>&amp;Vertical two-finger scrolling</source>
+        <translation type="unfinished">垂直双指滚动（&amp;V）</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1078"/>
+        <source>Horizontal two-&amp;finger scrolling</source>
+        <translation type="unfinished">水平双指滚动（&amp;F）</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1091"/>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1160"/>
+        <source>Cursor And Pointersize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1185"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Make the cursor pointer easier to see&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished">使光标和指针更易于查看</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1236"/>
+        <source>Change Cursor Weight</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1260"/>
+        <source>thin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1283"/>
+        <source>coarse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1365"/>
+        <source>Change Pointersize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1383"/>
+        <source>smaller - 100%(default)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1393"/>
+        <source>medium - 125%</source>
+        <translation type="unfinished">中等 - 125%</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1403"/>
+        <source>larger - 150%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1446"/>
+        <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.cpp" line="55"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.cpp" line="211"/>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>MouseWidget</name>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="32"/>
-        <source>Form</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="69"/>
         <source>Cursor Settiings</source>
-        <translation>指针设置</translation>
+        <translation type="vanished">指针设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="85"/>
         <source>Cursor theme :</source>
-        <translation>指针主题：</translation>
+        <translation type="vanished">指针主题：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="110"/>
         <source>Speed:</source>
-        <translation>移动速度：</translation>
+        <translation type="vanished">移动速度：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="120"/>
         <source>Slow</source>
-        <translation>慢</translation>
+        <translation type="vanished">慢</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="149"/>
         <source>Fast</source>
-        <translation>快</translation>
+        <translation type="vanished">快</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="174"/>
         <source>Sensitivity:</source>
-        <translation>可见性：</translation>
+        <translation type="vanished">可见性：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="184"/>
         <source>Low</source>
-        <translation>低</translation>
+        <translation type="vanished">低</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="216"/>
         <source>High</source>
-        <translation>高</translation>
+        <translation type="vanished">高</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="238"/>
         <source>touchpad settings</source>
-        <translation>触摸板设置</translation>
+        <translation type="vanished">触摸板设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="257"/>
         <source>Move the pointer as it hover over the inactive window</source>
-        <translation>当指针悬停在非活动窗口上方时对其进行滚动</translation>
+        <translation type="vanished">当指针悬停在非活动窗口上方时对其进行滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="283"/>
         <source>Mouse Wheel</source>
-        <translation>鼠标滚轮</translation>
+        <translation type="vanished">鼠标滚轮</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="308"/>
         <source>Mouse keys settings</source>
-        <translation>鼠标设置</translation>
+        <translation type="vanished">鼠标设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="327"/>
         <source>Main button</source>
-        <translation>鼠标键</translation>
+        <translation type="vanished">鼠标键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="334"/>
         <source>right_hand</source>
-        <translation>惯用右手</translation>
+        <translation type="vanished">惯用右手</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="341"/>
         <source>left_hand</source>
-        <translation>惯用左手</translation>
+        <translation type="vanished">惯用左手</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="360"/>
         <source>Visibility</source>
-        <translation>可见性</translation>
+        <translation type="vanished">可见性</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="367"/>
         <source>Hide pointers while typing</source>
-        <translation>在打字时隐藏指针</translation>
+        <translation type="vanished">在打字时隐藏指针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="374"/>
         <source>Show position of pointer when the Control key is pressed</source>
-        <translation>按Ctrl键时显示指针位置</translation>
+        <translation type="vanished">按Ctrl键时显示指针位置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="390"/>
         <source>cursor settings</source>
-        <translation>光标设置</translation>
+        <translation type="vanished">光标设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="408"/>
         <source>Enabled touchpad</source>
-        <translation>启用触摸板</translation>
+        <translation type="vanished">启用触摸板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="421"/>
         <source>General settings</source>
-        <translation>通用设置</translation>
+        <translation type="vanished">通用设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="434"/>
         <source>Disable touchpad while typing</source>
-        <translation>打字时禁用触摸板</translation>
+        <translation type="vanished">打字时禁用触摸板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="447"/>
         <source>Enable mouse clicks with touchpad</source>
-        <translation>启用触摸板的点击功能</translation>
+        <translation type="vanished">启用触摸板的点击功能</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="463"/>
         <source>Vertical &amp;edge scrolling</source>
-        <translation>垂直边界滚动（&amp;E）</translation>
+        <translation type="vanished">垂直边界滚动（&amp;E）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="470"/>
         <source>&amp;Horizontal edge scrolling</source>
-        <translation>水平边界滚动（&amp;H）</translation>
+        <translation type="vanished">水平边界滚动（&amp;H）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="477"/>
         <source>&amp;Vertical two-finger scrolling</source>
-        <translation>垂直双指滚动（&amp;V）</translation>
+        <translation type="vanished">垂直双指滚动（&amp;V）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="484"/>
         <source>Horizontal two-&amp;finger scrolling</source>
-        <translation>水平双指滚动（&amp;F）</translation>
+        <translation type="vanished">水平双指滚动（&amp;F）</translation>
     </message>
     <message>
         <source>&amp;Vertical edge scrolling</source>
@@ -1616,48 +1807,40 @@ folder will be deleted!</source>
         <translation type="vanished">垂直双指滚动（&amp;F）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="500"/>
         <source>Disabled</source>
-        <translation>滚动</translation>
+        <translation type="vanished">滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="513"/>
         <source>Touchpad settings</source>
-        <translation>触摸板设置</translation>
+        <translation type="vanished">触摸板设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="528"/>
         <source>Cursor and pointer size</source>
-        <translation>光标和指针大小</translation>
+        <translation type="vanished">光标和指针大小</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="541"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Make the cursor pointer easier to see&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>使光标和指针更易于查看</translation>
+        <translation type="vanished">使光标和指针更易于查看</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="558"/>
         <source>Change cursor and pointer size</source>
-        <translation>更改光标大小</translation>
+        <translation type="vanished">更改光标大小</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="574"/>
         <source>Smaller - 100%(default)</source>
-        <translation>较小 - 100%（默认）</translation>
+        <translation type="vanished">较小 - 100%（默认）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="581"/>
         <source>medium - 125%</source>
-        <translation>中等 - 125%</translation>
+        <translation type="vanished">中等 - 125%</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouse_setting.ui" line="588"/>
         <source>bigger - 150%</source>
-        <translation>较大 - 150%</translation>
+        <translation type="vanished">较大 - 150%</translation>
     </message>
 </context>
 <context>
@@ -2253,6 +2436,14 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
+    <name>Template</name>
+    <message>
+        <location filename="../../../plugins/templates/template/template.ui" line="26"/>
+        <source>Template</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Theme</name>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.ui" line="26"/>
@@ -2413,19 +2604,19 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="178"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="192"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="196"/>
         <source>change pwd</source>
         <translation>更改密码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="201"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="193"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="197"/>
         <source>change face</source>
         <translation>更改头像</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="224"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="194"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="198"/>
         <source>change accounttype</source>
         <translation>更改账户类型</translation>
     </message>
@@ -2450,37 +2641,37 @@ p, li { white-space: pre-wrap; }
         <translation>账户信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="57"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="59"/>
         <source>standard user</source>
         <translation>标准账户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="59"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="61"/>
         <source>administrator</source>
         <translation>管理员账户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="61"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="63"/>
         <source>root</source>
         <translation>root</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="68"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="70"/>
         <source>logined</source>
         <translation>已登录</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="70"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="72"/>
         <source>unlogined</source>
         <translation>未登录</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="195"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="199"/>
         <source>delete user</source>
         <translation>删除账户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="235"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="239"/>
         <source>add new user</source>
         <translation>添加新账户</translation>
     </message>

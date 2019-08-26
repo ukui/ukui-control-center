@@ -4,16 +4,23 @@
 #
 #-------------------------------------------------
 
-QT       += widgets
+QT       += widgets x11extras
 
 #greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = $$qtLibraryTarget(template)
+TARGET = $$qtLibraryTarget(mousecontrol)
 TEMPLATE = lib
 CONFIG += plugin
-INCLUDEPATH += ../../..
+INCLUDEPATH += ../../.. \
+                /usr/include/kylinsdk \
+
+LIBS          +=  -L/usr/lib/ -lmouseclient  -ltouchpadclient -lXi -lgsettings-qt
 
 DESTDIR = ../..
+
+include(../../component/component.pri)
+
+#CONFIG += no_keywords link_pkgconfig
 
 target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
 INSTALLS += target
@@ -22,10 +29,10 @@ INSTALLS += target
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
-        template.cpp
+        mousecontrol.cpp
 
 HEADERS += \
-        template.h
+        mousecontrol.h
 
 FORMS += \
-        template.ui
+        mousecontrol.ui

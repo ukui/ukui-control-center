@@ -25,6 +25,9 @@ PKGCONFIG     += gio-2.0 \
 
 #DEFINES += QT_DEPRECATED_WARNINGS
 
+target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
+INSTALLS += target
+
 SOURCES += \
         datetime.cpp
 

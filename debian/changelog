@@ -1,5 +1,5 @@
-ukui-control-center (0.0.1-0ubuntu1-1) unstable; urgency=medium
+ukui-control-center (1.0.0-0) bionic; urgency=medium
 
-  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+  * Initial release
 
- -- <hebing hebing@kylinos.cn>  Tue, 16 Apr 2019 09:23:38 +0800
+ -- hebing <hebing@kylinos.cn>  Thu, 22 Aug 2019 16:35:47 +0800

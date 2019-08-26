@@ -106,7 +106,7 @@ void MainPageWidget::initUI(){
 //    ui->devicesHLayout->setSpacing(10);
 //    ui->devicesHLayout->setContentsMargins(40, 10, 0, 10);
 
-    pmainWindow->subfuncList[DEVICES] << tr("printer") << tr("mouse") << tr("keyboard") << tr("audio");
+    pmainWindow->subfuncList[DEVICES] << tr("printer") << tr("mousecontrol") << tr("keyboard") << tr("audio");
 
     QStringList devicesStringList;
     devicesStringList = pmainWindow->subfuncList[DEVICES];

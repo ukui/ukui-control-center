@@ -29,6 +29,15 @@ CONFIG += link_pkgconfig
 
 PKGCONFIG += gtk+-3.0
 
+
+
+inst1.files += control-center.desktop
+inst1.path = /usr/share/applications
+target.source += $$TARGET
+target.path = /usr/bin
+INSTALLS += inst1 \
+    target
+
 SOURCES += \
         main.cpp \
         mainwindow.cpp \

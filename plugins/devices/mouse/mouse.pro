@@ -9,7 +9,10 @@ INCLUDEPATH    += ../../..         \
 LIBS          +=  -L/usr/lib/ -lmouseclient  -ltouchpadclient -lXi 
 PKGCONFIG += gio-2.0 
 CONFIG += no_keywords link_pkgconfig
-    
+
+target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
+INSTALLS += target
+
 HEADERS         += \
     mouse_setting.h
 

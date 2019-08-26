@@ -199,7 +199,7 @@ void Screensaver::combobox_changed_slot(int index){
         g_settings_set_enum(screensaver_settings, MODE_KEY, MODE_BLANK_ONLY);
     }
     else if (index == 1){ //Random
-        int mode = MODE_RANDOM;
+//        int mode = MODE_RANDOM;
         g_settings_set_enum(screensaver_settings, MODE_KEY, MODE_RANDOM);
         //REVIEW*** 二维字符数组赋值字符串段错误？
 //        QMap<QString, SSThemeInfo>::iterator it = infoMap.begin();
