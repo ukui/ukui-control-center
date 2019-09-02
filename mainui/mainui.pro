@@ -31,7 +31,7 @@ PKGCONFIG += gtk+-3.0
 
 
 
-inst1.files += control-center.desktop
+inst1.files += ukui-control-center.desktop
 inst1.path = /usr/share/applications
 target.source += $$TARGET
 target.path = /usr/bin

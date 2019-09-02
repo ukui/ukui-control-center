@@ -3,13 +3,24 @@
 
 #include <QDebug>
 
+//放在.h中报错，放.cpp不报错
+extern "C" {
+#include <X11/extensions/XInput.h>
+#include <X11/Xatom.h>
+//#include <X11/Xcursor/Xcursor.h>
+}
+
+
 #define NONE_ID 0
 #define CURSORSIZE_SMALLER 18
 #define CURSORSIZE_MEDIUM 32
 #define CURSORSIZE_LARGER 48
 
-struct RollingType : QObjectUserData{
-    QString type;
+XDevice* _device_is_touchpad (XDeviceInfo * deviceinfo);
+bool _device_has_property (XDevice * device, const char * property_name);
+
+struct KindsRolling : QObjectUserData{
+    QString kind;
 };
 
 MouseControl::MouseControl()
@@ -19,7 +30,7 @@ MouseControl::MouseControl()
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
-    pluginName = "mousecontrol";
+    pluginName = tr("mousecontrol");
     pluginType = DEVICES;
 
     const QByteArray id(TOUCHPAD_SCHEMA);
@@ -34,6 +45,7 @@ MouseControl::MouseControl()
 MouseControl::~MouseControl()
 {
     delete ui;
+    DeInitDBusMouse();
 }
 
 QString MouseControl::get_plugin_name(){
@@ -60,19 +72,32 @@ void MouseControl::component_init(){
     ui->activeHLayout->addWidget(activeBtn);
     ui->activeHLayout->addStretch();
 
+    //无接口可用暂时屏蔽鼠标滚轮设置
+//    for (int i = 0; i < ui->horizontalLayout_2->count(); ++i) {
+//        QLayoutItem * it = ui->horizontalLayout_2->itemAt(i);
+////        it->widget()->hide(); //这种遍历无法得知类型，弹簧控件没有hide方法，导致段错误
+//    }
+    ui->label_3->hide(); ui->comboBox->hide();
+    ui->label_4->hide(); ui->checkBox->hide();
+
+
+    //不存在触摸板设备，则隐藏触摸板设置按钮
+    if (!find_synaptics())
+        ui->touchpadBtn->hide();
+
     // hide helper radiobutton
     ui->noneRadioButton->hide();
     // set buttongroup id
     ui->rollingbuttonGroup->setId(ui->noneRadioButton, NONE_ID);
 
     // set user data rolling radiobutton
-    RollingType * vedge = new RollingType(); vedge->type = V_EDGE_KEY;
+    KindsRolling * vedge = new KindsRolling(); vedge->kind = V_EDGE_KEY;
     ui->vedgeRadioBtn->setUserData(Qt::UserRole, vedge);
-    RollingType * hedge = new RollingType(); hedge->type = H_EDGE_KEY;
+    KindsRolling * hedge = new KindsRolling(); hedge->kind = H_EDGE_KEY;
     ui->hedgeRadioBtn->setUserData(Qt::UserRole, hedge);
-    RollingType * vfinger = new RollingType(); vfinger->type = V_FINGER_KEY;
+    KindsRolling * vfinger = new KindsRolling(); vfinger->kind = V_FINGER_KEY;
     ui->vfingerRadioBtn->setUserData(Qt::UserRole, vfinger);
-    RollingType * hfinger = new RollingType(); hfinger->type = H_FINGER_KEY;
+    KindsRolling * hfinger = new KindsRolling(); hfinger->kind = H_FINGER_KEY;
     ui->hfingerRadioBtn->setUserData(Qt::UserRole, hfinger);
 
 
@@ -96,18 +121,26 @@ void MouseControl::status_init(){
     else
         ui->CursorthemesComboBox->setCurrentText(curtheme);
 
-    // speed sensitivity
-    int accel_numerator, accel_denominator, threshold;  //当加速值和灵敏度为系统默认的-1时，从底层获取到默认的具体值
 
-//    XGetPointerControl(QX11Info::display(), &accel_numerator, &accel_denominator, &threshold);
-//    qDebug() << "--->" << accel_numerator << accel_denominator << threshold;
 
     double mouse_acceleration = kylin_hardware_mouse_get_motionacceleration();//当前系统指针加速值，-1为系统默认
     int mouse_threshold =  kylin_hardware_mouse_get_motionthreshold();//当前系统指针灵敏度，-1为系统默认
 
+    //当从接口获取的是-1,则代表系统默认值，真实值需要从底层获取
+    if (mouse_threshold == -1 || static_cast<int>(mouse_acceleration) == -1){
+        // speed sensitivity
+        int accel_numerator, accel_denominator, threshold;  //当加速值和灵敏度为系统默认的-1时，从底层获取到默认的具体值
+
+        XGetPointerControl(QX11Info::display(), &accel_numerator, &accel_denominator, &threshold);
+        qDebug() << "--->" << accel_numerator << accel_denominator << threshold;
+        kylin_hardware_mouse_set_motionacceleration(static_cast<double>(accel_numerator/accel_denominator));
+
+        kylin_hardware_mouse_set_motionthreshold(threshold);
+    }
+
     //set speed
-    qDebug() << kylin_hardware_mouse_get_motionacceleration() << kylin_hardware_mouse_get_motionthreshold() << "end";
-    ui->speedSlider->setValue(kylin_hardware_mouse_get_motionacceleration()*100);
+//    qDebug() << kylin_hardware_mouse_get_motionacceleration() << kylin_hardware_mouse_get_motionthreshold();
+    ui->speedSlider->setValue(static_cast<int>(kylin_hardware_mouse_get_motionacceleration())*100);
 
     //set sensitivity
     ui->sensitivitySlider->setValue(kylin_hardware_mouse_get_motionthreshold()*100);
@@ -120,8 +153,9 @@ void MouseControl::status_init(){
     connect(ui->speedSlider, SIGNAL(valueChanged(int)), this, SLOT(speed_value_changed_slot(int)));
     connect(ui->sensitivitySlider, SIGNAL(valueChanged(int)), this, SLOT(sensitivity_value_changed_slot(int)));
     connect(ui->posCheckBtn, SIGNAL(clicked(bool)), this, SLOT(show_pointer_position_slot(bool)));
-    connect(ui->touchpadBtn, SIGNAL(clicked(bool)), this, SLOT(touchpad_settings_btn_clicked_slot()));
-    connect(ui->cursorBtn, SIGNAL(clicked(bool)), this, SLOT(cursor_settings_btn_clicked_slot()));
+
+    connect(ui->touchpadBtn, &QPushButton::clicked, this, [=]{ui->StackedWidget->setCurrentIndex(1);});
+    connect(ui->cursorBtn, &QPushButton::clicked, this, [=]{ui->StackedWidget->setCurrentIndex(2);});
 
 
     //touchpad settings
@@ -141,7 +175,7 @@ void MouseControl::status_init(){
     ui->hfingerRadioBtn->setChecked(tpsettings->get(H_FINGER_KEY).toBool());
     ui->noneRadioButton->setChecked(false);
 
-    if (ui->rollingbuttonGroup->checkedButton() == 0)
+    if (ui->rollingbuttonGroup->checkedButton() == nullptr)
         ui->rollingCheckBtn->setChecked(true);
     else
         ui->rollingCheckBtn->setChecked(false);
@@ -152,7 +186,7 @@ void MouseControl::status_init(){
     connect(ui->disablecheckBox, SIGNAL(clicked(bool)), this, SLOT(disable_while_typing_clicked_slot(bool)));
     connect(ui->tpclickcheckBox, SIGNAL(clicked(bool)), this, SLOT(touchpad_click_clicked_slot(bool)));
     connect(ui->rollingCheckBtn, SIGNAL(clicked(bool)), this, SLOT(rolling_enable_clicked_slot(bool)));
-    connect(ui->rollingbuttonGroup, SIGNAL(buttonToggled(QAbstractButton*,bool)), this, SLOT(rolling_type_changed_slot(QAbstractButton*, bool)));
+    connect(ui->rollingbuttonGroup, SIGNAL(buttonToggled(QAbstractButton*,bool)), this, SLOT(rolling_kind_changed_slot(QAbstractButton*, bool)));
 
 
     //cursor settings
@@ -164,10 +198,87 @@ void MouseControl::status_init(){
         ui->mediumRadioBtn->setChecked(true);
     else
         ui->largerRadioBtn->setChecked(true);
-    connect(ui->cursorsizebuttonGroup, SIGNAL(buttonClicked(int)), this, SLOT(cursor_size_changed_slot()));
+    connect(ui->cursorsizebuttonGroup, SIGNAL(buttonToggled(int,bool)), this, SLOT(cursor_size_changed_slot()));
 
     //reset
-    connect(ui->resetBtn, SIGNAL(clicked(bool)), this, SLOT(reset_btn_clicked_slot()));
+    connect(ui->resetBtn, &QPushButton::clicked, this, [=]{ui->smallerRadioBtn->setChecked(true);});
+}
+
+bool MouseControl::find_synaptics(){
+    XDeviceInfo *device_info;
+    int n_devices;
+    bool retval;
+
+    if (_supports_xinput_devices() == false)
+        return true;
+
+    device_info = XListInputDevices (QX11Info::display(), &n_devices);
+    if (device_info == nullptr)
+        return false;
+
+    retval = false;
+    for (int i = 0; i < n_devices; i++) {
+        XDevice *device;
+
+        device = _device_is_touchpad (&device_info[i]);
+        if (device != nullptr) {
+            retval = true;
+            break;
+        }
+    }
+    if (device_info != nullptr)
+        XFreeDeviceList (device_info);
+
+    return retval;
+}
+
+XDevice* _device_is_touchpad (XDeviceInfo *deviceinfo)
+{
+    XDevice *device;
+    if (deviceinfo->type != XInternAtom (QX11Info::display(), XI_TOUCHPAD, true))
+        return nullptr;
+    device = XOpenDevice (QX11Info::display(), deviceinfo->id);
+    if(device == nullptr)
+    {
+        qDebug()<<"device== null";
+        return nullptr;
+    }
+
+    if (_device_has_property (device, "libinput Tapping Enabled") ||
+            _device_has_property (device, "Synaptics Off")) {
+        return device;
+    }
+    XCloseDevice (QX11Info::display(), device);
+    return nullptr;
+}
+
+bool _device_has_property (XDevice * device, const char * property_name){
+    Atom realtype, prop;
+    int realformat;
+    unsigned long nitems, bytes_after;
+    unsigned char *data;
+
+    prop = XInternAtom (QX11Info::display(), property_name, True);
+    if (!prop)
+        return false;
+    if ((XGetDeviceProperty (QX11Info::display(), device, prop, 0, 1, False,
+                             XA_INTEGER, &realtype, &realformat, &nitems,
+                             &bytes_after, &data) == Success) && (realtype != None))
+    {
+        XFree (data);
+        return true;
+    }
+    return false;
+}
+
+bool MouseControl::_supports_xinput_devices(){
+    int op_code, event, error;
+
+    return XQueryExtension (QX11Info::display(),
+                            "XInputExtension",
+                            &op_code,
+                            &event,
+                            &error);
 }
 
 QStringList MouseControl::_get_cursors_themes(){
@@ -217,7 +328,7 @@ void MouseControl::cursor_themes_changed_slot(QString text){
 }
 
 void MouseControl::speed_value_changed_slot(int value){
-    kylin_hardware_mouse_set_motionacceleration((double)value/ui->speedSlider->maximum()*10);
+    kylin_hardware_mouse_set_motionacceleration(static_cast<double>(value/ui->speedSlider->maximum()*10));
 }
 
 void MouseControl::sensitivity_value_changed_slot(int value){
@@ -226,14 +337,6 @@ void MouseControl::sensitivity_value_changed_slot(int value){
 
 void MouseControl::show_pointer_position_slot(bool status){
     kylin_hardware_mouse_set_locatepointer(status);
-}
-
-void MouseControl::touchpad_settings_btn_clicked_slot(){
-    ui->StackedWidget->setCurrentIndex(1);
-}
-
-void MouseControl::cursor_settings_btn_clicked_slot(){
-    ui->StackedWidget->setCurrentIndex(2);
 }
 
 void MouseControl::active_touchpad_changed_slot(bool status){
@@ -256,7 +359,7 @@ void MouseControl::rolling_enable_clicked_slot(bool status){
     _refresh_rolling_btn_status();
 }
 
-void MouseControl::rolling_type_changed_slot(QAbstractButton *basebtn, bool status){
+void MouseControl::rolling_kind_changed_slot(QAbstractButton *basebtn, bool status){
     if (ui->rollingbuttonGroup->checkedId() != NONE_ID)
         ui->rollingCheckBtn->setChecked(false);
 
@@ -264,14 +367,10 @@ void MouseControl::rolling_type_changed_slot(QAbstractButton *basebtn, bool stat
         return;
 
     QRadioButton * button = dynamic_cast<QRadioButton *>(basebtn);
-    QString type = static_cast<RollingType *>(button->userData(Qt::UserRole))->type;
-    tpsettings->set(type, status);
+    QString kind = static_cast<KindsRolling *>(button->userData(Qt::UserRole))->kind;
+    tpsettings->set(kind, status);
 }
 
 void MouseControl::cursor_size_changed_slot(){
     kylin_hardware_mouse_set_cursorsize(ui->cursorsizebuttonGroup->checkedId());
-}
-
-void MouseControl::reset_btn_clicked_slot(){
-    ui->smallerRadioBtn->setChecked(true);
 }

@@ -8,13 +8,19 @@ QT       += widgets x11extras
 
 #greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = $$qtLibraryTarget(mousecontrol)
+TARGET = $$qtLibraryTarget(keyboardcontrol)
 TEMPLATE = lib
 CONFIG += plugin
 INCLUDEPATH += ../../.. \
                 /usr/include/kylinsdk \
 
-LIBS          +=  -L/usr/lib/ -lmouseclient  -ltouchpadclient -lXi -lgsettings-qt
+LIBS          +=  -L/usr/lib/ -lkeyboardclient -linterfaceclient -lgsettings-qt
+
+CONFIG        += link_pkgconfig \
+                 C++11
+PKGCONFIG     += gio-2.0 \
+                 gio-unix-2.0 \
+                 libmatekbd
 
 DESTDIR = ../..
 
@@ -27,10 +33,15 @@ INSTALLS += target
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
-        mousecontrol.cpp
+        keyboardcontrol.cpp \
+#    keyboardlayout.cpp \
+    kbdlayoutmanager.cpp
 
 HEADERS += \
-        mousecontrol.h
+        keyboardcontrol.h \
+#    keyboardlayout.h \
+    kbdlayoutmanager.h
 
 FORMS += \
-        mousecontrol.ui
+        keyboardcontrol.ui \
+    kbdlayoutmanager.ui

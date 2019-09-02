@@ -61,8 +61,8 @@ void Keyboard::init_setting(){
     set_kb_cursorblink_visible();
     layout_settings = g_settings_new(XKB_KBD_SCHEMA);
     QTimer::singleShot(1000, this, SLOT(getCountries()) );
-
 }
+
 void Keyboard::setup_dialog(){
     connect(ui->checkBox,&QCheckBox::stateChanged,this,&Keyboard::on_checkBox_stateChanged);
     connect(ui->horizontalSlider,&QSlider::valueChanged,this,&Keyboard::on_horizontalSlider_valueChanged);

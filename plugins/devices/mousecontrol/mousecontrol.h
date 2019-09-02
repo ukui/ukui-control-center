@@ -34,13 +34,6 @@
 #undef signals
 #endif
 
-extern "C" {
-//#include <X11/extensions/XInput.h>
-//#include <X11/Xatom.h>
-//#include <X11/Xcursor/Xcursor.h>
-}
-
-
 namespace Ui {
 class MouseControl;
 }
@@ -61,6 +54,9 @@ public:
 
     void component_init();
     void status_init();
+
+    bool find_synaptics();
+    bool _supports_xinput_devices();
 
 private:
     Ui::MouseControl *ui;
@@ -84,18 +80,14 @@ private slots:
     void speed_value_changed_slot(int value);
     void sensitivity_value_changed_slot(int value);
     void show_pointer_position_slot(bool status);
-    void touchpad_settings_btn_clicked_slot();
-    void cursor_settings_btn_clicked_slot();
 
     void active_touchpad_changed_slot(bool status);
     void disable_while_typing_clicked_slot(bool status);
     void touchpad_click_clicked_slot(bool status);
     void rolling_enable_clicked_slot(bool status);
-    void rolling_type_changed_slot(QAbstractButton * basebtn, bool status);
+    void rolling_kind_changed_slot(QAbstractButton * basebtn, bool status);
 
     void cursor_size_changed_slot();
-
-    void reset_btn_clicked_slot();
 };
 
 #endif // MOUSECONTROL_H

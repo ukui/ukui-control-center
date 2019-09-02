@@ -334,7 +334,7 @@
             </size>
            </property>
            <property name="text">
-            <string>Cursor theme </string>
+            <string>Cursor themes</string>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -429,6 +429,18 @@
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
+           <property name="minimumSize">
+            <size>
+             <width>30</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>30</width>
+             <height>16777215</height>
+            </size>
+           </property>
            <property name="text">
             <string>Slow</string>
            </property>
@@ -436,22 +448,6 @@
             <bool>true</bool>
            </property>
           </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_13">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeType">
-            <enum>QSizePolicy::Fixed</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>15</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
          </item>
          <item>
           <widget class="QSlider" name="speedSlider">
@@ -557,6 +553,18 @@
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
+           <property name="minimumSize">
+            <size>
+             <width>30</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>30</width>
+             <height>16777215</height>
+            </size>
+           </property>
            <property name="text">
             <string>Low</string>
            </property>
@@ -564,22 +572,6 @@
             <bool>true</bool>
            </property>
           </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_15">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeType">
-            <enum>QSizePolicy::Fixed</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>15</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
          </item>
          <item>
           <widget class="QSlider" name="sensitivitySlider">
@@ -1088,7 +1080,7 @@
             <item>
              <widget class="QRadioButton" name="noneRadioButton">
               <property name="text">
-               <string>None</string>
+               <string notr="true">None</string>
               </property>
               <attribute name="buttonGroup">
                <string notr="true">rollingbuttonGroup</string>
