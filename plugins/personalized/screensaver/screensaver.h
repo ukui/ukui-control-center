@@ -6,6 +6,8 @@
 #include <QtPlugin>
 #include "mainui/interface.h"
 
+#include <QProcess>
+
 #include <QMap>
 #include <QGSettings/QGSettings>
 
@@ -55,6 +57,9 @@ public:
     void status_init();
 
     void set_idle_gsettings_value(int value);
+    void screensaver_switch();
+
+    void kill_and_start();
 
 private:
     Ui::Screensaver *ui;
@@ -74,6 +79,10 @@ private:
     SwitchButton * activeswitchbtn;
     SwitchButton * lockswitchbtn;
 
+    QProcess * process;
+    QStringList killList;
+    QStringList runList;
+
 private slots:
     void combobox_changed_slot(int index);
     void activebtn_changed_slot(bool status);
@@ -81,6 +90,10 @@ private slots:
     void slider_changed_slot(int value);
     void slider_released_slot();
 
+    void kill_screensaver_preview();
+
+Q_SIGNALS:
+    void kill_signals();
 };
 
 #endif // SCREENSAVER_H

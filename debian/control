@@ -11,7 +11,8 @@ Build-Depends: debhelper (>= 11),
                 libdbus-glib-1-dev,
                 kylin-system-api,
                 libqt5x11extras5-dev,
-                libxklavier-dev
+                libxklavier-dev,
+                libmatekbd-dev
 Standards-Version: 4.1.3
 Homepage: https://github.com/explorer-cs/ukui-control-center
 Vcs-Browser: https://github.com/explorer-cs/ukui-control-center.git

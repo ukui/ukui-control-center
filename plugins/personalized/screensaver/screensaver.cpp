@@ -35,11 +35,15 @@ Screensaver::Screensaver()
     init_theme_info_map();
     component_init();
     status_init();
+
+    process = new QProcess();
 }
 
 Screensaver::~Screensaver()
 {
     delete ui;
+    delete process;
+    process = nullptr;
 }
 
 QString Screensaver::get_plugin_name(){
@@ -55,6 +59,9 @@ QWidget * Screensaver::get_plugin_ui(){
 }
 
 void Screensaver::component_init(){
+
+    //设置屏保预览widget的背景为黑色
+    ui->previewWidget->setStyleSheet("#previewWidget{background: black}");
 
     //
     activeswitchbtn = new SwitchButton();
@@ -86,6 +93,8 @@ void Screensaver::component_init(){
     ui->idleSlider->setMaximum(max);
     ui->idleSlider->setSingleStep(singlestep);
     ui->idleSlider->installEventFilter(this);
+
+    connect(this, SIGNAL(kill_signals()), this, SLOT(kill_screensaver_preview()));
 }
 
 void Screensaver::status_init(){
@@ -114,6 +123,8 @@ void Screensaver::status_init(){
             ui->comboBox->setCurrentIndex(0); //no data, default Blank_Only
         g_strfreev(strv);
     }
+    //启动屏保
+    kill_and_start();
 
     //init
     bool activation; bool lockable;
@@ -146,7 +157,28 @@ void Screensaver::status_init(){
     connect(activeswitchbtn, SIGNAL(checkedChanged(bool)), this, SLOT(activebtn_changed_slot(bool)));
     connect(lockswitchbtn, SIGNAL(checkedChanged(bool)), this, SLOT(lockbtn_changed_slot(bool)));
     connect(ui->comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(combobox_changed_slot(int)));
+
+    connect(ui->previewWidget, SIGNAL(destroyed(QObject*)), this, SLOT(kill_screensaver_preview()));
 }
+
+void Screensaver::kill_and_start(){
+    emit kill_signals(); //如果有屏保先杀死
+    if (ui->comboBox->currentIndex() == 0){//黑屏
+        ui->previewWidget->update();
+    }
+    else if (ui->comboBox->currentIndex() == 1){//随机
+        ui->previewWidget->update();
+    }
+    else{//屏保
+        SSThemeInfo info = ui->comboBox->currentData().value<SSThemeInfo>();
+        QStringList args;
+        args << "-window-id" << QString::number(ui->previewWidget->winId());
+        //启动屏保
+        process->startDetached(info.exec, args);
+        killList.clear(); killList.append(info.exec);
+    }
+}
+
 
 void Screensaver::set_idle_gsettings_value(int value){
     session_settings = g_settings_new(SESSION_SCHEMA);
@@ -188,6 +220,7 @@ void Screensaver::activebtn_changed_slot(bool status){
 
     }
     g_object_unref(screensaver_settings);
+
 }
 
 void Screensaver::combobox_changed_slot(int index){
@@ -237,6 +270,20 @@ void Screensaver::combobox_changed_slot(int index){
 
     g_object_unref(screensaver_settings);
     g_strfreev(strv);
+
+    //启动屏保
+    kill_and_start();
+}
+
+void Screensaver::kill_screensaver_preview(){
+    //需要手动杀死分离启动的屏保预览程序
+    if (!killList.isEmpty()){
+        process->start(QString("killall"), killList);
+        process->waitForStarted();
+        process->waitForFinished(2000);
+
+        killList.clear();
+    }
 }
 
 SSThemeInfo Screensaver::_info_new(const char *path){
