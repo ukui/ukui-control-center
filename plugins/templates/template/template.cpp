@@ -4,7 +4,7 @@
 Template::Template()
 {
     ui = new Ui::Template;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -29,6 +29,10 @@ int Template::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * Template::get_plugin_ui(){
+CustomWidget *Template::get_plugin_ui(){
     return pluginWidget;
+}
+
+void Template::plugin_delay_control(){
+
 }

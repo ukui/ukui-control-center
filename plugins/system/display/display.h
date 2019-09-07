@@ -5,6 +5,8 @@
 #include <QtPlugin>
 #include "mainui/interface.h"
 
+#include "../../component/customwidget.h"
+
 #include <QGraphicsScene>
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
@@ -62,7 +64,8 @@ public:
 
     QString get_plugin_name() Q_DECL_OVERRIDE;
     int get_plugin_type() Q_DECL_OVERRIDE;
-    QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
+    CustomWidget * get_plugin_ui() Q_DECL_OVERRIDE;
+    void plugin_delay_control() Q_DECL_OVERRIDE;
 
     void monitor_init();
     void component_init();
@@ -85,7 +88,7 @@ private:
     Ui::DisplayWindow * ui;
     QString pluginName;
     int pluginType;
-    QWidget * pluginWidget;
+    CustomWidget * pluginWidget;
 
     GSettings  * brightnessgsettings;
 

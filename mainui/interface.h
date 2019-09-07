@@ -1,8 +1,9 @@
 #ifndef INTERFACE_H
 #define INTERFACE_H
 
-#include <QWidget>
-#include <QString>
+#include <QStringList>
+
+class CustomWidget;
 
 enum FunType{
     SYSTEM,
@@ -21,7 +22,8 @@ public:
     virtual ~CommonInterface(){}
     virtual QString get_plugin_name() = 0;
     virtual int get_plugin_type() = 0;
-    virtual QWidget * get_plugin_ui() = 0;
+    virtual CustomWidget * get_plugin_ui() = 0;
+    virtual void plugin_delay_control() = 0;
 };
 
 #define CommonInterface_iid "org.kycc.CommonInterface"

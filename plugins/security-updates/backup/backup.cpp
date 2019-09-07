@@ -4,12 +4,14 @@
 Backup::Backup()
 {
     ui = new Ui::Backup;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
     pluginName = tr("backup");
     pluginType = SECURITY_UPDATES;
+
+    ui->restoringBtn->setEnabled(false);
 
     connect(ui->backupBtn, SIGNAL(clicked()), this, SLOT(backup_btn_clicked_slot()));
 
@@ -28,8 +30,12 @@ int Backup::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * Backup::get_plugin_ui(){
+CustomWidget *Backup::get_plugin_ui(){
     return pluginWidget;
+}
+
+void Backup::plugin_delay_control(){
+
 }
 
 void Backup::backup_btn_clicked_slot(){

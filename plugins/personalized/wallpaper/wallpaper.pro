@@ -13,6 +13,8 @@ INCLUDEPATH += ../../..
 TARGET = $$qtLibraryTarget(wallpaper)
 DESTDIR = ../..
 
+include(../../component/component.pri)
+
 LIBS += -L/usr/lib/ -lgsettings-qt
 
 #DEFINES += QT_DEPRECATED_WARNINGS

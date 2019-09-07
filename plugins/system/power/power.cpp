@@ -33,7 +33,7 @@ typedef enum {
 Power::Power()
 {
     ui = new Ui::Power;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -47,6 +47,8 @@ Power::Power()
 
     component_init();
     status_init();
+
+    ui->resetPushBtn->hide();
 }
 
 Power::~Power()
@@ -63,8 +65,12 @@ int Power::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * Power::get_plugin_ui(){
+CustomWidget *Power::get_plugin_ui(){
     return pluginWidget;
+}
+
+void Power::plugin_delay_control(){
+
 }
 
 void Power::component_init(){

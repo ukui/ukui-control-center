@@ -4,7 +4,7 @@
 Vpn::Vpn()
 {
     ui = new Ui::Vpn;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -29,8 +29,12 @@ int Vpn::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * Vpn::get_plugin_ui(){
+CustomWidget *Vpn::get_plugin_ui(){
     return pluginWidget;
+}
+
+void Vpn::plugin_delay_control(){
+
 }
 
 void Vpn::component_init(){
@@ -38,6 +42,12 @@ void Vpn::component_init(){
     ui->addBtn->setIcon(QIcon(":/vpn/add.png"));
     ui->addBtn->setIconSize(QSize(48,48));
     ui->addBtn->setText(tr("Add VPN Connect"));
+
+    PublicData * publicdata = new PublicData();
+    QStringList tmpList = publicdata->subfuncList[NETWORK];
+    connect(ui->availablenetBtn, &QPushButton::clicked, this, [=]{pluginWidget->emitting_toggle_signal(tmpList.at(0), NETWORK, 0);});
+
+    delete publicdata;
 }
 
 void Vpn::run_external_app_slot(){

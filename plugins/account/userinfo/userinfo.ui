@@ -338,7 +338,7 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
-          <widget class="QPushButton" name="pushButton">
+          <widget class="QPushButton" name="pripasswdBtn">
            <property name="text">
             <string>Prioritize passwords</string>
            </property>

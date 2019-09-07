@@ -4,7 +4,7 @@
 NoticeOperation::NoticeOperation()
 {
     ui = new Ui::NoticeOperation;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -29,6 +29,10 @@ int NoticeOperation::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * NoticeOperation::get_plugin_ui(){
+CustomWidget *NoticeOperation::get_plugin_ui(){
     return pluginWidget;
+}
+
+void NoticeOperation::plugin_delay_control(){
+
 }

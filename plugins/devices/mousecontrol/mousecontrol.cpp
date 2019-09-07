@@ -26,7 +26,7 @@ struct KindsRolling : QObjectUserData{
 MouseControl::MouseControl()
 {
     ui = new Ui::MouseControl;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -56,8 +56,12 @@ int MouseControl::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * MouseControl::get_plugin_ui(){
+CustomWidget * MouseControl::get_plugin_ui(){
     return pluginWidget;
+}
+
+void MouseControl::plugin_delay_control(){
+
 }
 
 void MouseControl::component_init(){

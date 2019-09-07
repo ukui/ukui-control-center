@@ -29,7 +29,6 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    QList <QStringList> subfuncList;
     QStringList systemStringList;
 
     void initUI();
@@ -47,7 +46,6 @@ private:
     QDir moduleDir;
     QDir pluginDir;
     QDir pluginsDir;
-    QWidget * pluginWidget;
 
     ModulePageWidget * modulepageWidget;
     MainPageWidget * mainpageWidget;

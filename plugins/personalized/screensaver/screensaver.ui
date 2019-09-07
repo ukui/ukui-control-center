@@ -321,7 +321,7 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_5">
          <item>
-          <widget class="QPushButton" name="pushButton">
+          <widget class="QPushButton" name="powerBtn">
            <property name="text">
             <string>Power Set</string>
            </property>

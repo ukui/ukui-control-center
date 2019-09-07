@@ -4,7 +4,7 @@
 Language::Language()
 {
     ui = new Ui::Language;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -25,6 +25,10 @@ int Language::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * Language::get_plugin_ui(){
+CustomWidget *Language::get_plugin_ui(){
     return pluginWidget;
+}
+
+void Language::plugin_delay_control(){
+
 }

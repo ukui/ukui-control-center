@@ -4,7 +4,7 @@
 Multitask::Multitask()
 {
     ui = new Ui::Multitask;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -25,6 +25,10 @@ int Multitask::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * Multitask::get_plugin_ui(){
+CustomWidget * Multitask::get_plugin_ui(){
     return pluginWidget;
+}
+
+void Multitask::plugin_delay_control(){
+
 }

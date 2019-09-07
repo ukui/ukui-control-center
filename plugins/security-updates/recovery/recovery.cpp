@@ -4,7 +4,7 @@
 Recovery::Recovery()
 {
     ui = new Ui::Recovery;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -25,6 +25,10 @@ int Recovery::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * Recovery::get_plugin_ui(){
+CustomWidget *Recovery::get_plugin_ui(){
     return pluginWidget;
+}
+
+void Recovery::plugin_delay_control(){
+
 }

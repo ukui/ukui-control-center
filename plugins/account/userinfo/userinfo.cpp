@@ -8,7 +8,7 @@
 UserInfo::UserInfo()
 {
     ui = new Ui::UserInfo;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -49,8 +49,12 @@ int UserInfo::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * UserInfo::get_plugin_ui(){
+CustomWidget * UserInfo::get_plugin_ui(){
     return pluginWidget;
+}
+
+void UserInfo::plugin_delay_control(){
+
 }
 
 QString UserInfo::accounttype_enum_to_string(int id){
@@ -223,6 +227,9 @@ void UserInfo::build_item_with_widget(UserInfomation user){
 }
 
 void UserInfo::ui_component_init(){
+
+    //后续任务，暂时置灰
+    ui->pripasswdBtn->setEnabled(false);
 
     ui->listWidget->setViewMode(QListView::IconMode);
     ui->listWidget->setSpacing(0);

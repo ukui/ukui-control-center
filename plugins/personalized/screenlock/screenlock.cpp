@@ -10,7 +10,7 @@
 Screenlock::Screenlock()
 {
     ui = new Ui::Screenlock;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -41,8 +41,12 @@ int Screenlock::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * Screenlock::get_plugin_ui(){
+CustomWidget *Screenlock::get_plugin_ui(){
     return pluginWidget;
+}
+
+void Screenlock::plugin_delay_control(){
+
 }
 
 void Screenlock::component_init(){
@@ -69,7 +73,13 @@ void Screenlock::status_init(){
         ui->bgLabel->setPixmap(QPixmap("://screenlock/none.png").scaled(lockbgSize));
     }
 
+    PublicData * publicdata = new PublicData();
+    QStringList tmpList = publicdata->subfuncList[PERSONALIZED];
+    connect(ui->screensaverBtn, &QPushButton::clicked, this, [=]{pluginWidget->emitting_toggle_signal(tmpList.at(4), PERSONALIZED, 0);});
+
     connect(ui->openPushBtn, SIGNAL(clicked()), this, SLOT(openpushbtn_clicked_slot()));
+
+    delete publicdata;
 }
 
 void Screenlock::openpushbtn_clicked_slot(){

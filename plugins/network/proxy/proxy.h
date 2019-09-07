@@ -14,6 +14,7 @@
 #include <QGSettings/QGSettings>
 
 #include "../../component/switchbutton.h"
+#include "../../component/customwidget.h"
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -82,7 +83,8 @@ public:
 
     QString get_plugin_name() Q_DECL_OVERRIDE;
     int get_plugin_type() Q_DECL_OVERRIDE;
-    QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
+    CustomWidget * get_plugin_ui() Q_DECL_OVERRIDE;
+    void plugin_delay_control() Q_DECL_OVERRIDE;
 
     void component_init();
     void status_init();
@@ -92,7 +94,7 @@ private:
 
     QString pluginName;
     int pluginType;
-    QWidget * pluginWidget;
+    CustomWidget * pluginWidget;
 
     QGSettings * proxysettings;
     QGSettings * httpsettings;

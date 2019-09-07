@@ -5,7 +5,7 @@
 
 Printer::Printer(){
     ui = new Ui::Printer;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -58,8 +58,12 @@ int Printer::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * Printer::get_plugin_ui(){
+CustomWidget *Printer::get_plugin_ui(){
     return pluginWidget;
+}
+
+void Printer::plugin_delay_control(){
+
 }
 
 void Printer::run_external_app_slot(){

@@ -6,7 +6,7 @@
 Audio::Audio()
 {
     ui = new Ui::Audio;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -32,8 +32,12 @@ int Audio::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * Audio::get_plugin_ui(){
+CustomWidget *Audio::get_plugin_ui(){
     return pluginWidget;
+}
+
+void Audio::plugin_delay_control(){
+
 }
 
 void Audio::change_soundtheme_page(){

@@ -29,7 +29,7 @@ CONFIG += link_pkgconfig
 
 PKGCONFIG += gtk+-3.0
 
-
+include(../plugins/component/component.pri)
 
 inst1.files += ukui-control-center.desktop
 inst1.path = /usr/share/applications
@@ -43,18 +43,18 @@ SOURCES += \
         mainwindow.cpp \
     modulepagewidget.cpp \
     mainpagewidget.cpp \
-    component/custdomlabel.cpp \
-    component/custdomframe.cpp \
-    component/listwidgetitem.cpp
+    maincomponent/custdomlabel.cpp \
+    maincomponent/custdomframe.cpp \
+    maincomponent/listwidgetitem.cpp
 
 HEADERS += \
         mainwindow.h \
         interface.h \
     modulepagewidget.h \
     mainpagewidget.h \
-    component/custdomlabel.h \
-    component/custdomframe.h \
-    component/listwidgetitem.h
+    maincomponent/custdomlabel.h \
+    maincomponent/custdomframe.h \
+    maincomponent/listwidgetitem.h
 
 FORMS += \
         mainwindow.ui \

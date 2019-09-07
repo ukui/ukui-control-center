@@ -25,7 +25,7 @@ typedef enum
 Screensaver::Screensaver()
 {
     ui = new Ui::Screensaver;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -54,8 +54,13 @@ int Screensaver::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * Screensaver::get_plugin_ui(){
+CustomWidget *Screensaver::get_plugin_ui(){
     return pluginWidget;
+}
+
+void Screensaver::plugin_delay_control(){
+    // 启动屏保预览程序
+    kill_and_start();
 }
 
 void Screensaver::component_init(){
@@ -123,8 +128,6 @@ void Screensaver::status_init(){
             ui->comboBox->setCurrentIndex(0); //no data, default Blank_Only
         g_strfreev(strv);
     }
-    //启动屏保
-    kill_and_start();
 
     //init
     bool activation; bool lockable;
@@ -151,7 +154,13 @@ void Screensaver::status_init(){
 
     g_object_unref(session_settings);
 
+    //获取功能列表
+    PublicData * publicdata = new PublicData();
+    QStringList tmpList = publicdata->subfuncList[SYSTEM];
+
     //connect
+    connect(ui->powerBtn, &QPushButton::clicked, this, [=]{pluginWidget->emitting_toggle_signal(tmpList.at(2), SYSTEM, 0);});
+
     connect(ui->idleSlider, SIGNAL(valueChanged(int)), this, SLOT(slider_changed_slot(int))); //改label
     connect(ui->idleSlider, SIGNAL(sliderReleased()), this, SLOT(slider_released_slot())); //改gsettings
     connect(activeswitchbtn, SIGNAL(checkedChanged(bool)), this, SLOT(activebtn_changed_slot(bool)));
@@ -159,6 +168,8 @@ void Screensaver::status_init(){
     connect(ui->comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(combobox_changed_slot(int)));
 
     connect(ui->previewWidget, SIGNAL(destroyed(QObject*)), this, SLOT(kill_screensaver_preview()));
+
+    delete publicdata;
 }
 
 void Screensaver::kill_and_start(){

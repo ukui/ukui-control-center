@@ -3,6 +3,9 @@
 
 #include "mainwindow.h"
 
+#include "../plugins/component/customwidget.h"
+#include "../plugins/component/publicdata.h"
+
 ModulePageWidget::ModulePageWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ModulePageWidget)
@@ -39,13 +42,15 @@ ModulePageWidget::~ModulePageWidget()
 
 void ModulePageWidget::initUI(){
 
+    PublicData * publicdata = new PublicData();
+
     for (int i = 0; i < FUNCTOTALNUM; i++){
         QListWidget * leftListWidget = new QListWidget();
         connect(leftListWidget, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(itemClicked_cb(QListWidgetItem*)));
 
         QMap<QString, QObject *> funcMaps;
         funcMaps = pmainWindow->export_module(i);
-        QStringList currentStringList = pmainWindow->subfuncList[i];
+        QStringList currentStringList = publicdata->subfuncList[i];
 
         for (int num = 0; num < currentStringList.size(); num++){
             if (!funcMaps.contains(currentStringList.at(num)))
@@ -67,10 +72,13 @@ void ModulePageWidget::initUI(){
 //            leftListWidget->addItem(item);
 
             CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(funcMaps[currentStringList.at(num)]);
-            QWidget * widget = pluginInstance->get_plugin_ui();
+            CustomWidget * widget = pluginInstance->get_plugin_ui();
+            //绑定每个插件的currentChange信号，更新返回按钮的文字显示
             QStackedWidget * stackwidget = widget->findChild<QStackedWidget *>("StackedWidget");
             connect(stackwidget, SIGNAL(currentChanged(int)), this, SLOT(update_backbtn_text_slot(int)));
-            widgetMaps.insert(currentStringList.at(num), widget);
+            connect(widget, SIGNAL(transmit(QString,int,int)), this, SLOT(toggle_plugin_slot(QString,int,int)));
+
+            pluginInstanceMap.insert(currentStringList.at(num), pluginInstance);
         }
         ui->leftStackedWidget->addWidget(leftListWidget);
     }
@@ -101,37 +109,10 @@ void ModulePageWidget::initUI(){
 
     ui->backBtn->setLayout(btnLayout);
 
-
-//    ui->backBtn->setText(tr("backtoMain"));
-
-//    for (int i = 0; i < 2; i++){
-//        QListWidget * leftListWidget = new QListWidget();
-//        connect(leftListWidget, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(itemClicked_cb(QListWidgetItem*)));
-
-//        QMap<QString, QObject *> funcMaps;
-//        funcMaps = pmainWindow->export_module(i);
-//        if (funcMaps.isEmpty()){
-//            QListWidgetItem * item = new QListWidgetItem(leftListWidget);
-//            item->setText("unavailable");
-//            leftListWidget->addItem(item);
-//        }
-//        else{
-//            QMap<QString, QObject *>::iterator it;
-//            for (it = funcMaps.begin(); it != funcMaps.end(); ++it){
-//                QListWidgetItem * item = new QListWidgetItem(leftListWidget);
-//                item->setText(it.key());
-//                leftListWidget->addItem(item);
-
-
-//                CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(it.value());
-//                widgetMaps.insert(it.key(), pluginInstance->get_plugin_ui());
-//            }
-//        }
-//        ui->leftStackedWidget->addWidget(leftListWidget);
-//    }
+    delete publicdata;
 }
 
-void ModulePageWidget::setup_component(QObject * plugin){
+void ModulePageWidget::switch_modulepage(QObject * plugin, int page){ //page 默认为0
     CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(plugin);
     QString name; int type;
     name = pluginInstance->get_plugin_name();
@@ -167,14 +148,7 @@ void ModulePageWidget::setup_component(QObject * plugin){
             tmpListWidget->setCurrentRow(i);
     }
 
-    if (!widgetMaps.contains(name))
-        widgetMaps.insert(name, pluginInstance->get_plugin_ui()); //缓存
-
-    if (widgetMaps[name]){
-        ui->scrollArea->takeWidget();
-        delete(ui->scrollArea->widget());//释放上次显示的ui
-    }
-    ui->scrollArea->setWidget(widgetMaps[name]);
+    update_plugin_widget(pluginInstance, page);
 }
 
 void ModulePageWidget::update_backbtn_text(int index){
@@ -184,18 +158,27 @@ void ModulePageWidget::update_backbtn_text(int index){
         backtextLabel->setText(tr("CCMainPage"));
 }
 
+void ModulePageWidget::update_plugin_widget(CommonInterface *plu, int page){
+    ui->scrollArea->takeWidget();
+    delete(ui->scrollArea->widget()); //释放上次显示的ui
+
+    ui->scrollArea->setWidget(plu->get_plugin_ui());
+
+    //更新返回按钮text
+    QStackedWidget * stackwidget = plu->get_plugin_ui()->findChild<QStackedWidget *>("StackedWidget");
+    stackwidget->setCurrentIndex(page);
+
+    update_backbtn_text(page);
+
+    plu->plugin_delay_control(); //执行一些界面显示后的操作
+}
+
 void ModulePageWidget::itemClicked_cb(QListWidgetItem * item){
     QListWidget * tmpListWidget = dynamic_cast<QListWidget *>(ui->leftStackedWidget->currentWidget());
     ListWidgetItem * widgetitem = dynamic_cast<ListWidgetItem *>(tmpListWidget->itemWidget(item));
-    if (widgetMaps.contains(widgetitem->text())){
-        QWidget * pluginWidget = widgetMaps[widgetitem->text()];
-        ui->scrollArea->takeWidget();
-        delete(ui->scrollArea->widget());
-        ui->scrollArea->setWidget(pluginWidget);
-
-        //更新返回按钮text
-        QStackedWidget * stackwidget = pluginWidget->findChild<QStackedWidget *>("StackedWidget");
-        update_backbtn_text(stackwidget->currentIndex());
+    if (pluginInstanceMap.contains(widgetitem->text())){
+        CommonInterface * pluginInstance = pluginInstanceMap[widgetitem->text()];
+        update_plugin_widget(pluginInstance, 0); //切换左侧边栏，stackwidget的index一定为0
     }
     else{
         qDebug() << "plugin widget not found" ;
@@ -208,6 +191,18 @@ void ModulePageWidget::backBtnClicked_cb(){
         tmpStackedWidget->setCurrentIndex(0);
     else
         pmainWindow->backToMain();
+}
+
+void ModulePageWidget::toggle_plugin_slot(QString pluginname, int plugintype, int page){    //插件中按钮点击后的跳转槽函数
+    QMap<QString, QObject *> funcMaps;
+    funcMaps = pmainWindow->export_module(plugintype);
+
+    if (funcMaps.contains(pluginname)){
+        switch_modulepage(funcMaps[pluginname], page);
+    }
+    else{
+        qDebug() << "plugin instance" << pluginname <<"not found";
+    }
 }
 
 void ModulePageWidget::update_backbtn_text_slot(int index){

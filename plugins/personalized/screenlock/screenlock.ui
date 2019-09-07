@@ -329,7 +329,7 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_5">
          <item>
-          <widget class="QPushButton" name="pushButton_3">
+          <widget class="QPushButton" name="screensaverBtn">
            <property name="text">
             <string>Screensaver setting</string>
            </property>

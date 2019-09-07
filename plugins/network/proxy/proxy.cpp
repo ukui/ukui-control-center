@@ -6,7 +6,7 @@
 Proxy::Proxy()
 {
     ui = new Ui::Proxy;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -49,8 +49,12 @@ int Proxy::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * Proxy::get_plugin_ui(){
+CustomWidget *Proxy::get_plugin_ui(){
     return pluginWidget;
+}
+
+void Proxy::plugin_delay_control(){
+
 }
 
 void Proxy::component_init(){

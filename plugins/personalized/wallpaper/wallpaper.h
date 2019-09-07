@@ -12,6 +12,7 @@
 
 #include "xmlhandle.h"
 #include "component/custdomitemmodel.h"
+#include "../../component/customwidget.h"
 
 #define BACKGROUND "org.mate.background"
 
@@ -37,14 +38,15 @@ public:
 
     QString get_plugin_name() Q_DECL_OVERRIDE;
     int get_plugin_type() Q_DECL_OVERRIDE;
-    QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
+    CustomWidget * get_plugin_ui() Q_DECL_OVERRIDE;
+    void plugin_delay_control() Q_DECL_OVERRIDE;
 
 private:
     Ui::Wallpaper *ui;
 
     QString pluginName;
     int pluginType;
-    QWidget * pluginWidget;
+    CustomWidget * pluginWidget;
 
     QMap<QString, QString> headinfoMap;
     QMap<QString, QMap<QString, QString> > wallpaperinfosMap;

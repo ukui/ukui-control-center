@@ -6,7 +6,7 @@
 Wallpaper::Wallpaper()
 {
     ui = new Ui::Wallpaper;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -50,8 +50,12 @@ int Wallpaper::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * Wallpaper::get_plugin_ui(){
+CustomWidget *Wallpaper::get_plugin_ui(){
     return pluginWidget;
+}
+
+void Wallpaper::plugin_delay_control(){
+
 }
 
 void Wallpaper::initData(){

@@ -18,7 +18,7 @@ Q_DECLARE_METATYPE(ResolutionValue)
 
 DisplaySet::DisplaySet(){
     ui = new Ui::DisplayWindow();
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -42,7 +42,7 @@ DisplaySet::~DisplaySet(){
     gtk_widget_destroy(monitor.window);
 }
 
-QWidget * DisplaySet::get_plugin_ui(){
+CustomWidget *DisplaySet::get_plugin_ui(){
     return pluginWidget;
 }
 
@@ -52,6 +52,10 @@ QString DisplaySet::get_plugin_name(){
 
 int DisplaySet::get_plugin_type(){
     return pluginType;
+}
+
+void DisplaySet::plugin_delay_control(){
+
 }
 
 MateRROutputInfo * DisplaySet::_get_output_for_window(MateRRConfig *configuration, GdkWindow *window){

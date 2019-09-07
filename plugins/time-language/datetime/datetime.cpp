@@ -6,7 +6,7 @@
 DateTime::DateTime()
 {
     ui = new Ui::DateTime;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -56,8 +56,12 @@ int DateTime::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * DateTime::get_plugin_ui(){
+CustomWidget *DateTime::get_plugin_ui(){
     return pluginWidget;
+}
+
+void DateTime::plugin_delay_control(){
+
 }
 
 void DateTime::component_init(){

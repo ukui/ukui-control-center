@@ -3,6 +3,8 @@
 
 #include <QDebug>
 
+#include "../../component/publicdata.h"
+
 #define DESKTOP_SCHEMA "org.ukui.peony.desktop"
 
 #define COMPUTER_ICON "computer-icon-visible"
@@ -14,7 +16,7 @@
 Theme::Theme()
 {
     ui = new Ui::Theme;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -56,8 +58,12 @@ int Theme::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * Theme::get_plugin_ui(){
+CustomWidget *Theme::get_plugin_ui(){
     return pluginWidget;
+}
+
+void Theme::plugin_delay_control(){
+
 }
 
 void Theme::component_init(){
@@ -153,11 +159,18 @@ void Theme::status_init(){
     QSize size(300, 170);
     ui->previewLabel->setPixmap(QPixmap("://theme/preview.png").scaled(size));
 
+    PublicData * publicdata = new PublicData();
 
-
-    //获取桌面图标状态
+    //
+    QList<QStringList> tmpList = publicdata->subfuncList;
+    connect(ui->wallpaperBtn, &QToolButton::clicked, this, [=]{pluginWidget->emitting_toggle_signal(tmpList[PERSONALIZED].at(0), PERSONALIZED, 0);});
+    connect(ui->audioToolBtn, &QToolButton::clicked, this, [=]{pluginWidget->emitting_toggle_signal(tmpList[DEVICES].at(3), DEVICES, 0);});
+    connect(ui->mouseToolBtn, &QToolButton::clicked, this, [=]{pluginWidget->emitting_toggle_signal(tmpList[DEVICES].at(1), DEVICES, 2);});
+    connect(ui->iconToolBtn, &QToolButton::clicked, this, [=]{pluginWidget->emitting_toggle_signal(tmpList[PERSONALIZED].at(1), PERSONALIZED, 1);});
 
     connect(ui->desktopiconBtn, SIGNAL(clicked()), this, SLOT(desktop_icon_settings_btn_clicked_slots()));
+
+    delete publicdata;
 }
 
 void Theme::set_theme_slots(QString value){

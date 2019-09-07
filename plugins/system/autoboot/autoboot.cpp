@@ -3,7 +3,7 @@
 
 AutoBoot::AutoBoot(){
     ui = new Ui::AutoBoot;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -44,8 +44,12 @@ int AutoBoot::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * AutoBoot::get_plugin_ui(){
+CustomWidget *AutoBoot::get_plugin_ui(){
     return pluginWidget;
+}
+
+void AutoBoot::plugin_delay_control(){
+
 }
 
 void AutoBoot::checkbox_changed_cb(QString bname){

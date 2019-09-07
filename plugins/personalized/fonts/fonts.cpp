@@ -83,7 +83,7 @@ struct FontEffects : QObjectUserData {
 Fonts::Fonts()
 {
     ui = new Ui::Fonts;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -122,8 +122,12 @@ int Fonts::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * Fonts::get_plugin_ui(){
+CustomWidget *Fonts::get_plugin_ui(){
     return pluginWidget;
+}
+
+void Fonts::plugin_delay_control(){
+
 }
 
 void Fonts::get_default_fontinfo(){

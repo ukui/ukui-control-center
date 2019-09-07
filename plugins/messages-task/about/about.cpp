@@ -8,7 +8,7 @@
 About::About()
 {
     ui = new Ui::About;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -46,8 +46,12 @@ int About::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * About::get_plugin_ui(){
+CustomWidget *About::get_plugin_ui(){
     return pluginWidget;
+}
+
+void About::plugin_delay_control(){
+
 }
 
 void About::_data_init(){
@@ -112,8 +116,12 @@ void About::initUI(){
     logoLabel = new QLabel(pluginWidget);
     logoLabel->setAutoFillBackground(true);
     logoLabel->setScaledContents(true); //自动缩放，显示图像大小自动调整为QLabel大小
-    QPixmap logopixmap(QString("://manufacturers/%1.jpg").arg(QString(infoMap.find(MANUFACTURER).value())));
-    if (logopixmap.isNull()){
+
+    QPixmap logopixmap;
+    if (infoMap.contains(MANUFACTURER)){
+        logopixmap = QPixmap(QString("://manufacturers/%1.jpg").arg(QString(infoMap.find(MANUFACTURER).value())));
+    }
+    else{
         logopixmap = QPixmap("://manufacturers/UBUNTUKYLIN.jpg");
     }
     logoLabel->setPixmap(logopixmap);

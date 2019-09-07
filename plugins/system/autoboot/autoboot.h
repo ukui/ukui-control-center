@@ -13,6 +13,7 @@
 
 #include "mainui/interface.h"
 #include "../../component/switchbutton.h"
+#include "../../component/customwidget.h"
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -59,10 +60,12 @@ class AutoBoot : public QObject, CommonInterface
 
 public:
     AutoBoot();
+    ~AutoBoot();
+
     QString get_plugin_name() Q_DECL_OVERRIDE;
     int get_plugin_type() Q_DECL_OVERRIDE;
-    QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
-    ~AutoBoot();
+    CustomWidget * get_plugin_ui() Q_DECL_OVERRIDE;
+    void plugin_delay_control() Q_DECL_OVERRIDE;
 
     void initUI();
     void update_app_status();
@@ -73,7 +76,7 @@ private:
 
     QString pluginName;
     int pluginType;
-    QWidget * pluginWidget;
+    CustomWidget * pluginWidget;
 
     QMap<QString, AutoApp> appMaps;
     QMap<QString, AutoApp> localappMaps;

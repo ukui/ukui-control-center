@@ -4,7 +4,7 @@
 NetConnect::NetConnect()
 {
     ui = new Ui::NetConnect;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -34,8 +34,12 @@ int NetConnect::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * NetConnect::get_plugin_ui(){
+CustomWidget *NetConnect::get_plugin_ui(){
     return pluginWidget;
+}
+
+void NetConnect::plugin_delay_control(){
+
 }
 
 void NetConnect::begin_timer(){

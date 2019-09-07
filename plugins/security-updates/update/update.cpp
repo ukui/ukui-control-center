@@ -4,7 +4,7 @@
 Update::Update()
 {
     ui = new Ui::Update;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -30,11 +30,17 @@ int Update::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * Update::get_plugin_ui(){
+CustomWidget *Update::get_plugin_ui(){
     return pluginWidget;
 }
 
+void Update::plugin_delay_control(){
+
+}
+
 void Update::ui_init(){
+    ui->pushButton_2->setEnabled(false);
+
     QPixmap pixmap("://update/logo.svg");
     ui->logoLabel->setPixmap(pixmap.scaled(QSize(64,64)));
 

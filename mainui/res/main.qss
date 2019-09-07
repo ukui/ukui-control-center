@@ -32,15 +32,13 @@ QLabel{
     font-size:14px;
 }
 /*模块重置、跳转pushbutton*/
-QPushButton[flat="true"] {
+QPushButton[flat="true"][enabled="true"] {
     font-size:14px; color: #0066bc;
 }
 
-/*
 QPushButton {
-    height:24px;
+    /*height:24px;*/font-size:14px;
 }
-*/
 
 /*通用radiobutton*/
 QRadioButton{

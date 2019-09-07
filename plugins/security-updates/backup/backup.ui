@@ -193,7 +193,7 @@ p, li { white-space: pre-wrap; }
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
-          <widget class="QPushButton" name="pushButton_2">
+          <widget class="QPushButton" name="restoringBtn">
            <property name="text">
             <string>Restoring to backed-up system</string>
            </property>

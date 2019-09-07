@@ -28,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     ui->lineEdit->setPlaceholderText(tr("Find Devices"));
+    ui->lineEdit->hide();
 
     connect(ui->minBtn, SIGNAL(clicked()), this, SLOT(showMinimized()));
     connect(ui->closeBtn, SIGNAL(clicked(bool)), this, SLOT(close()));
@@ -76,7 +77,7 @@ void MainWindow::backToMain(){
 
 void MainWindow::pluginClicked_cb(QObject * plugin){
     ui->stackedWidget->setCurrentIndex(1);
-    modulepageWidget->setup_component(plugin);
+    modulepageWidget->switch_modulepage(plugin);
 }
 
 void MainWindow::loadPlugins(){
@@ -106,7 +107,6 @@ void MainWindow::loadPlugins(){
         QMap<QString, QObject *> pluginsMaps;
         QStringList pluginStringList;
         modulesList.append(pluginsMaps);
-        subfuncList.append(pluginStringList);
     }
 
     static bool installed = (QCoreApplication::applicationDirPath() == QDir(("/usr/bin")).canonicalPath());

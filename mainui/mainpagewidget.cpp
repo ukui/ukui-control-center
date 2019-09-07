@@ -2,8 +2,10 @@
 #include "ui_mainpagewidget.h"
 
 #include "mainwindow.h"
-#include "component/custdomlabel.h"
-#include "component/custdomframe.h"
+#include "maincomponent/custdomlabel.h"
+#include "maincomponent/custdomframe.h"
+
+#include "../plugins/component/publicdata.h"
 
 MainPageWidget::MainPageWidget(QWidget *parent) :
     QWidget(parent),
@@ -35,6 +37,8 @@ MainPageWidget::~MainPageWidget()
 
 void MainPageWidget::initUI(){
 
+    PublicData * publicdata = new PublicData();
+
     //-----------------start----------------
     QPalette labelPalette;
     labelPalette.setColor(QPalette::WindowText, Qt::blue);
@@ -49,11 +53,8 @@ void MainPageWidget::initUI(){
 //    ui->systemHLayout->setSpacing(10);
 //    ui->systemHLayout->setContentsMargins(110, 10, 0, 10);
 
-//    pmainWindow->systemStringList << "display" << "defaultapp" << "power" << "autoboot";
-    pmainWindow->subfuncList[SYSTEM] << tr("display") << tr("defaultapp") << tr("power") << tr("autoboot");
-
     QStringList systemStringList;
-    systemStringList = pmainWindow->subfuncList[SYSTEM];
+    systemStringList =  publicdata->subfuncList[SYSTEM];
 
     QSignalMapper * systemSignalMapper = new QSignalMapper(this);
     QMap<QString, QObject *> systemMaps;
@@ -106,10 +107,8 @@ void MainPageWidget::initUI(){
 //    ui->devicesHLayout->setSpacing(10);
 //    ui->devicesHLayout->setContentsMargins(40, 10, 0, 10);
 
-    pmainWindow->subfuncList[DEVICES] << tr("printer") << tr("mousecontrol") << tr("keyboardcontrol") << tr("audio");
-
     QStringList devicesStringList;
-    devicesStringList = pmainWindow->subfuncList[DEVICES];
+    devicesStringList = publicdata->subfuncList[DEVICES];
 
     QSignalMapper * devicesSignalMapper = new QSignalMapper(this);
     QMap<QString, QObject *> devicesMaps;
@@ -141,10 +140,9 @@ void MainPageWidget::initUI(){
 //    ui->personalizedHLayout->setSpacing(10);
 //    ui->personalizedHLayout->setContentsMargins(110, 10, 0, 10);
 
-    pmainWindow->subfuncList[PERSONALIZED] << tr("background") << tr("theme") << tr("screenlock") << tr("fonts") << tr("screensaver") /*<< "start" << "panel"*/;
 
     QStringList personalizedStringList;
-    personalizedStringList = pmainWindow->subfuncList[PERSONALIZED];
+    personalizedStringList = publicdata->subfuncList[PERSONALIZED];
 
     QSignalMapper * personalizedSignalMapper = new QSignalMapper(this);
     QMap<QString, QObject *> personalizedMaps;
@@ -176,11 +174,8 @@ void MainPageWidget::initUI(){
 //    ui->networkHLayout->setSpacing(10);
 //    ui->networkHLayout->setContentsMargins(40, 10, 0, 10);
 
-
-    pmainWindow->subfuncList[NETWORK] << tr("netconnect") << tr("vpn") << tr("proxy");
-
     QStringList networkStringList;
-    networkStringList = pmainWindow->subfuncList[NETWORK];
+    networkStringList = publicdata->subfuncList[NETWORK];
 
     QSignalMapper * networkSignalMapper = new QSignalMapper(this);
     QMap<QString, QObject * > networkMaps;
@@ -212,10 +207,8 @@ void MainPageWidget::initUI(){
 //    ui->accountHLayout->setSpacing(10);
 //    ui->accountHLayout->setContentsMargins(110, 10, 0, 10);
 
-    pmainWindow->subfuncList[ACCOUNT] << tr("userinfo") /*<< tr("loginoptions")*/;
-
     QStringList accountStringList;
-    accountStringList = pmainWindow->subfuncList[ACCOUNT];
+    accountStringList = publicdata->subfuncList[ACCOUNT];
 
     QSignalMapper * accountSignalMapper = new QSignalMapper(this);
     QMap<QString, QObject * > accountMaps;
@@ -246,10 +239,8 @@ void MainPageWidget::initUI(){
 //    ui->time_lanHLayout->setSpacing(10);
 //    ui->time_lanHLayout->setContentsMargins(40, 10, 0, 10);
 
-    pmainWindow->subfuncList[TIME_LANGUAGE] /*<< "language"*/ << tr("datetime") << tr("area") ;
-
     QStringList tlStringList;
-    tlStringList = pmainWindow->subfuncList[TIME_LANGUAGE];
+    tlStringList = publicdata->subfuncList[TIME_LANGUAGE];
 
     QSignalMapper * tlSignalMapper = new QSignalMapper(this);
     QMap<QString, QObject* > tlMaps;
@@ -280,10 +271,8 @@ void MainPageWidget::initUI(){
 //    ui->security_updatesHLayout->setSpacing(10);
 //    ui->security_updatesHLayout->setContentsMargins(110, 10, 0, 10);
 
-    pmainWindow->subfuncList[SECURITY_UPDATES] << tr("update") /*<< tr("recovery")*/ << tr("backup");
-
     QStringList suStringList;
-    suStringList = pmainWindow->subfuncList[SECURITY_UPDATES];
+    suStringList = publicdata->subfuncList[SECURITY_UPDATES];
 
     QSignalMapper * suSignalMapper = new QSignalMapper(this);
     QMap<QString, QObject * > suMaps;
@@ -314,11 +303,8 @@ void MainPageWidget::initUI(){
 //    ui->messages_taskHLayout->setSpacing(10);
 //    ui->messages_taskHLayout->setContentsMargins(40, 10, 0, 10);
 
-
-    pmainWindow->subfuncList[MESSAGES_TASK] /*<< tr("notice-operation") << tr("multitask") */<< tr("about");
-
     QStringList messagesStringList;
-    messagesStringList = pmainWindow->subfuncList[MESSAGES_TASK];
+    messagesStringList = publicdata->subfuncList[MESSAGES_TASK];
 
     QSignalMapper * messagesSignalMapper = new QSignalMapper(this);
     QMap<QString, QObject *> messagesMaps;
@@ -340,6 +326,8 @@ void MainPageWidget::initUI(){
         ui->optionsMTHLayout->addWidget(label);
     }
     connect(messagesSignalMapper, SIGNAL(mapped(QObject*)), pmainWindow, SLOT(pluginClicked_cb(QObject*)));
+
+    delete publicdata;
 }
 
 bool MainPageWidget::eventFilter(QObject *watched, QEvent *event){

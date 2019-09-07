@@ -35,12 +35,14 @@ INSTALLS += target
 SOURCES += \
         keyboardcontrol.cpp \
 #    keyboardlayout.cpp \
-    kbdlayoutmanager.cpp
+    kbdlayoutmanager.cpp \
+    customlineedit.cpp
 
 HEADERS += \
         keyboardcontrol.h \
 #    keyboardlayout.h \
-    kbdlayoutmanager.h
+    kbdlayoutmanager.h \
+    customlineedit.h
 
 FORMS += \
         keyboardcontrol.ui \

@@ -16,7 +16,7 @@
 
 DefaultApp::DefaultApp(){
     ui = new Ui::DefaultAppWindow;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -24,6 +24,8 @@ DefaultApp::DefaultApp(){
     pluginType = SYSTEM;
 
     initUI();
+
+    ui->resetPushBtn->hide();
 }
 
 DefaultApp::~DefaultApp(){
@@ -38,8 +40,12 @@ int DefaultApp::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * DefaultApp::get_plugin_ui(){
+CustomWidget *DefaultApp::get_plugin_ui(){
     return pluginWidget;
+}
+
+void DefaultApp::plugin_delay_control(){
+
 }
 
 void DefaultApp::initUI(){

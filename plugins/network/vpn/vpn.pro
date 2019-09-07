@@ -13,6 +13,8 @@ INCLUDEPATH += ../../..
 TARGET = $$qtLibraryTarget(vpn)
 DESTDIR = ../..
 
+include(../../component/component.pri)
+
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/

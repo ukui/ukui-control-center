@@ -6,7 +6,7 @@
 Start::Start()
 {
     ui = new Ui::Start;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -31,8 +31,12 @@ int Start::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * Start::get_plugin_ui(){
+CustomWidget *Start::get_plugin_ui(){
     return pluginWidget;
+}
+
+void Start::plugin_delay_control(){
+
 }
 
 void Start::onToggled(bool bChecked){

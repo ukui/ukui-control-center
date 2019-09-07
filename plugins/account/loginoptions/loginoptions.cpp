@@ -4,7 +4,7 @@
 LoginOptions::LoginOptions()
 {
     ui = new Ui::LoginOptions;
-    pluginWidget = new QWidget;
+    pluginWidget = new CustomWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
@@ -25,6 +25,10 @@ int LoginOptions::get_plugin_type(){
     return pluginType;
 }
 
-QWidget * LoginOptions::get_plugin_ui(){
+CustomWidget * LoginOptions::get_plugin_ui(){
     return pluginWidget;
+}
+
+void LoginOptions::plugin_delay_control(){
+
 }

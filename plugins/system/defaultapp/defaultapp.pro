@@ -22,6 +22,7 @@ LIBS          += -L/usr/lib/ -ldefaultprograms
 TARGET = $$qtLibraryTarget(defaultapp)
 DESTDIR = ../..
 
+include(../../component/component.pri)
 
 target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
 INSTALLS += target

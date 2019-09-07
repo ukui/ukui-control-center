@@ -13,6 +13,8 @@ INCLUDEPATH += ../../..
 TARGET = $$qtLibraryTarget(language)
 DESTDIR = ../..
 
+include(../../component/component.pri)
+
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 
