@@ -1,0 +1,25 @@
+Source: ukui-control-center
+Section: misc
+Priority: optional
+Maintainer: Ubuntu Kylin Team <ubuntukylin-members@list.launchpad.net>
+Uploaders: hebing <hebing@kylinos.cn>
+Build-Depends: debhelper (>= 11),
+                libgsettings-qt-dev,
+                libqt5svg5-dev,
+                libglib2.0-dev,
+                libmate-desktop-dev,
+                libdbus-glib-1-dev,
+                kylin-system-api,
+                libqt5x11extras5-dev,
+                libxklavier-dev,
+                libmatekbd-dev
+Standards-Version: 4.1.3
+Homepage: https://github.com/explorer-cs/ukui-control-center
+Vcs-Browser: https://github.com/explorer-cs/ukui-control-center.git
+Vcs-Git: https://github.com/explorer-cs/ukui-control-center
+
+Package: ukui-control-center
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: utilities to configure the UKUI desktop 
+ The UKUI control center contains configuration applets for the UKUI desktop,allowing to set accessibility configuration, desktop fonts, keyboard and mouse properties, sound setup, desktop theme and background, user interface properties, screen resolution, and other UKUI parameters.
