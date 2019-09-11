@@ -24,6 +24,9 @@ private:
     QString _wait;
     QString _setalready;
 
+Q_SIGNALS:
+    void shortcut_code_signals(QList<int>);
+
 };
 
 #endif // CUSTOMLINEEDIT_H

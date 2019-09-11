@@ -13,7 +13,7 @@ INCLUDEPATH += ../../..
 TARGET = $$qtLibraryTarget(screenlock)
 DESTDIR = ../..
 
-include(../../component/component.pri)
+include(../../pluginsComponent/pluginsComponent.pri)
 
 ##加载gio库和gio-unix库
 CONFIG        += link_pkgconfig \

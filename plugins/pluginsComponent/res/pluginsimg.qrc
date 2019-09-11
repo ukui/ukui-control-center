@@ -41,5 +41,8 @@
         <file>theme/default.png</file>
         <file>theme/homefolder.png</file>
         <file>theme/trash.png</file>
+        <file>keyboardcontrol/preview.png</file>
+        <file>keyboardcontrol/install.png</file>
+        <file>keyboardcontrol/delete.png</file>
     </qresource>
 </RCC>

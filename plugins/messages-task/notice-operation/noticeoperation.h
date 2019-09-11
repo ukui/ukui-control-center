@@ -6,8 +6,8 @@
 #include <QtPlugin>
 #include "mainui/interface.h"
 
-#include "../../component/switchbutton.h"
-#include "../../component/customwidget.h"
+#include "../../pluginsComponent/switchbutton.h"
+#include "../../pluginsComponent/customwidget.h"
 
 namespace Ui {
 class NoticeOperation;

@@ -24,7 +24,7 @@ PKGCONFIG     += gio-2.0 \
 
 DESTDIR = ../..
 
-include(../../component/component.pri)
+include(../../pluginsComponent/pluginsComponent.pri)
 
 target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
 INSTALLS += target
@@ -36,13 +36,15 @@ SOURCES += \
         keyboardcontrol.cpp \
 #    keyboardlayout.cpp \
     kbdlayoutmanager.cpp \
-    customlineedit.cpp
+    customlineedit.cpp \
+    keymap.cpp
 
 HEADERS += \
         keyboardcontrol.h \
 #    keyboardlayout.h \
     kbdlayoutmanager.h \
-    customlineedit.h
+    customlineedit.h \
+    keymap.h
 
 FORMS += \
         keyboardcontrol.ui \

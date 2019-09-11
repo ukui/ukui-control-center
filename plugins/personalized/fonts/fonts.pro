@@ -13,7 +13,7 @@ INCLUDEPATH += ../../..
 TARGET = $$qtLibraryTarget(fonts)
 DESTDIR = ../..
 
-include(../../component/component.pri)
+include(../../pluginsComponent/pluginsComponent.pri)
 
 ##加载gio库和gio-unix库，用于获取gsettings的默认值
 CONFIG        += link_pkgconfig \

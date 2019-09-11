@@ -2,10 +2,10 @@
 #include "ui_mainpagewidget.h"
 
 #include "mainwindow.h"
-#include "maincomponent/custdomlabel.h"
-#include "maincomponent/custdomframe.h"
+#include "mainComponent/custdomlabel.h"
+#include "mainComponent/custdomframe.h"
 
-#include "../plugins/component/publicdata.h"
+#include "../plugins/pluginsComponent/publicdata.h"
 
 MainPageWidget::MainPageWidget(QWidget *parent) :
     QWidget(parent),

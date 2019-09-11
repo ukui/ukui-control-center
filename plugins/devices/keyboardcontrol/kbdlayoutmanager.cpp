@@ -9,6 +9,8 @@ extern "C" {
 }
 
 #define MAXNUM 4
+#define KBD_LAYOUTS_SCHEMA "org.mate.peripherals-keyboard-xkb.kbd"
+#define KBD_LAYOUTS_KEY "layouts"
 
 XklEngine * engine;
 XklConfigRegistry * config_registry;
@@ -27,7 +29,7 @@ QStringList availablelayoutsList;
 
 
 KbdLayoutManager::KbdLayoutManager(QStringList ll, QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::KbdLayoutManager),
     layoutsList(ll)
 {
@@ -42,6 +44,8 @@ KbdLayoutManager::KbdLayoutManager(QStringList ll, QWidget *parent) :
 
     xkl_config_registry_foreach_language(config_registry,(ConfigItemProcessFunc)kbd_set_languages, NULL);
 
+    const QByteArray id(KBD_LAYOUTS_SCHEMA);
+    kbdsettings = new QGSettings(id);
 
     component_init();
     setup_component();
@@ -51,20 +55,25 @@ KbdLayoutManager::KbdLayoutManager(QStringList ll, QWidget *parent) :
 KbdLayoutManager::~KbdLayoutManager()
 {
     delete ui;
+    delete kbdsettings;
 }
 
 void KbdLayoutManager::component_init(){
     ui->countryRadioButton->setChecked(true);
 
     // init listwidget intalled
-    for (QString layout : layoutsList){
-        create_listwidgetitem(layout);
+    //设置listwidget无点击
+    ui->listWidget->setFocusPolicy(Qt::NoFocus);
+    ui->listWidget->setSelectionMode(QAbstractItemView::NoSelection);
+    rebuild_listwidget();
+//    for (QString layout : layoutsList){
+//        create_listwidgetitem(layout);
 //        QString desc = kbd_get_description_by_id(const_cast<const char *>(layout.toLatin1().data()));
 //        QListWidgetItem * item = new QListWidgetItem(ui->listWidget);
 //        item->setText(desc);
 //        item->setData(Qt::UserRole, layout);
 //        ui->listWidget->addItem(item);
-    }
+//    }
 
     // init country comboBox
     for (Layout keylayout : countries){
@@ -75,9 +84,6 @@ void KbdLayoutManager::component_init(){
     for (Layout keylayout : languages){
         ui->languageComboBox->addItem(keylayout.desc, keylayout.name);
     }
-
-    if (ui->listWidget->count() >= MAXNUM)
-        ui->addBtn->setEnabled(false);
 
     refresh_widget_status();
 }
@@ -91,24 +97,66 @@ void KbdLayoutManager::setup_component(){
 
     connect(ui->addBtn, &QPushButton::clicked, [=]{emit add_new_variant_signals(ui->variantComboBox->currentData(Qt::UserRole).toString());});
 
-    connect(this, &KbdLayoutManager::add_new_variant_signals, [=](QString id){create_listwidgetitem(id);});
+    connect(this, &KbdLayoutManager::add_new_variant_signals, [=](QString id){add_layout(id);});
+
+    connect(this, &KbdLayoutManager::del_variant_signals, [=](QString id){delete_layout(id);});
 
     refresh_variant_combobox();
 }
 
-void KbdLayoutManager::create_listwidgetitem(QString layout){
-    if (ui->listWidget->count() < MAXNUM){
-        QString desc = kbd_get_description_by_id(const_cast<const char *>(layout.toLatin1().data()));
-        QListWidgetItem * item = new QListWidgetItem(ui->listWidget);
-        item->setText(desc);
-        item->setData(Qt::UserRole, layout);
-        ui->listWidget->addItem(item);
-    }
-
-    if (ui->listWidget->count() >= MAXNUM)
+void KbdLayoutManager::rebuild_listwidget(){
+    //最多4个布局，来自GTK控制面板，原因未知
+    QStringList layouts = kbdsettings->get(KBD_LAYOUTS_KEY).toStringList();
+    if (layouts.length() >= MAXNUM)
         ui->addBtn->setEnabled(false);
     else
         ui->addBtn->setEnabled(true);
+
+    ui->listWidget->clear();
+
+    for (QString layout : layouts){
+        QString desc = kbd_get_description_by_id(const_cast<const char *>(layout.toLatin1().data()));
+
+        //自定义widget
+        QWidget * layoutWidget = new QWidget();
+        layoutWidget->setAttribute(Qt::WA_DeleteOnClose);
+        layoutWidget->setStyleSheet("QWidget{border-bottom: 1px solid #f5f6f7}");
+        QHBoxLayout * mainHLayout = new QHBoxLayout(layoutWidget);
+        QLabel * layoutLabel = new QLabel(layoutWidget);
+        QPushButton * layoutdelBtn = new QPushButton(layoutWidget);
+        layoutdelBtn->setIcon(QIcon("://keyboardcontrol/delete.png"));
+        layoutdelBtn->setStyleSheet("QPushButton{border: none}");
+
+        connect(layoutdelBtn, &QPushButton::clicked, this, [=]{emit del_variant_signals(layout);});
+
+        mainHLayout->addWidget(layoutLabel);
+        mainHLayout->addStretch();
+        mainHLayout->addWidget(layoutdelBtn);
+        layoutWidget->setLayout(mainHLayout);
+
+        QListWidgetItem * item = new QListWidgetItem(ui->listWidget);
+        item->setData(Qt::UserRole, layout);
+        item->setSizeHint(QSize(328, 36));  //330 - 2
+
+        layoutLabel->setText(desc);
+        ui->listWidget->addItem(item);
+        ui->listWidget->setItemWidget(item, layoutWidget);
+    }
+
+}
+
+void KbdLayoutManager::add_layout(QString layout){
+    QStringList layouts = kbdsettings->get(KBD_LAYOUTS_KEY).toStringList();
+    layouts.append(layout);
+    kbdsettings->set(KBD_LAYOUTS_KEY, layouts);
+    rebuild_listwidget();
+}
+
+void KbdLayoutManager::delete_layout(QString layout){
+    QStringList layouts = kbdsettings->get(KBD_LAYOUTS_KEY).toStringList();
+    layouts.removeOne(layout);
+    kbdsettings->set(KBD_LAYOUTS_KEY, layouts);
+    rebuild_listwidget();
 }
 
 void KbdLayoutManager::refresh_variant_combobox(){

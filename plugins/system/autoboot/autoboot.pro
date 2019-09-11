@@ -11,7 +11,7 @@ TEMPLATE = lib
 CONFIG += plugin
 INCLUDEPATH += ../../..
 
-include(../../component/component.pri)
+include(../../pluginsComponent/pluginsComponent.pri)
 
 ##加载gio库和gio-unix库，用于处理desktop文件
 CONFIG        += link_pkgconfig \

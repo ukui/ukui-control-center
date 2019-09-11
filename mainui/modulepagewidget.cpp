@@ -3,8 +3,8 @@
 
 #include "mainwindow.h"
 
-#include "../plugins/component/customwidget.h"
-#include "../plugins/component/publicdata.h"
+#include "../plugins/pluginsComponent/customwidget.h"
+#include "../plugins/pluginsComponent/publicdata.h"
 
 ModulePageWidget::ModulePageWidget(QWidget *parent) :
     QWidget(parent),

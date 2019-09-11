@@ -14,8 +14,8 @@
 
 #include "kylin-mouse-interface.h"
 
-#include "../../component/switchbutton.h"
-#include "../../component/customwidget.h"
+#include "../../pluginsComponent/switchbutton.h"
+#include "../../pluginsComponent/customwidget.h"
 
 #define CURSORS_THEMES_PATH "/usr/share/icons/"
 

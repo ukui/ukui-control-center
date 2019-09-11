@@ -8,7 +8,7 @@
 
 #include "interface.h"
 
-#include "maincomponent/listwidgetitem.h"
+#include "mainComponent/listwidgetitem.h"
 
 class MainWindow;
 

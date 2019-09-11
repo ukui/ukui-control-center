@@ -2,7 +2,9 @@
 #define KBDLAYOUTMANAGER_H
 
 #include <QWidget>
+#include <QDialog>
 #include <QX11Info>
+#include <QGSettings/QGSettings>
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -23,7 +25,7 @@ namespace Ui {
 class KbdLayoutManager;
 }
 
-class KbdLayoutManager : public QWidget
+class KbdLayoutManager : public QDialog
 {
     Q_OBJECT
 
@@ -38,7 +40,9 @@ public:
 
     void component_init();
     void setup_component();
-    void create_listwidgetitem(QString layout);
+    void rebuild_listwidget();
+    void add_layout(QString layout);
+    void delete_layout(QString layout);
     void refresh_variant_combobox();
     void refresh_widget_status();
     void rebuild_variant_combobox();
@@ -47,9 +51,12 @@ private:
     Ui::KbdLayoutManager *ui;
     QStringList layoutsList;
 
+    QGSettings * kbdsettings;
+
 Q_SIGNALS:
     void rebuild_variant_signals(bool type, QString id);
     void add_new_variant_signals(QString id);
+    void del_variant_signals(QString id);
 
 private slots:
     void countries_changed_slot(int index);
