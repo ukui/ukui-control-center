@@ -11,12 +11,13 @@
 #include "kylin-interface-interface.h"
 #include <QGSettings/QGSettings>
 
-#include "../../component/switchbutton.h"
-#include "../../component/customwidget.h"
+#include "../../pluginsComponent/switchbutton.h"
+#include "../../pluginsComponent/customwidget.h"
 
 //#include "keyboardlayout.h"
 #include "kbdlayoutmanager.h"
 #include "customlineedit.h"
+#include "keymap.h"
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -34,6 +35,10 @@ extern "C" {
 namespace Ui {
 class KeyboardControl;
 }
+
+enum KeyMapping{
+
+};
 
 class KeyboardControl : public QObject, CommonInterface
 {
@@ -53,13 +58,17 @@ public:
     void component_init();
     void status_init();
 
-    void rebuild_layouts_component(QString id);
+    void rebuild_layouts_component();
 
     void append_keys_from_desktop();
     void append_keys_from_system();
     void append_keys_from_custom();
+    bool key_is_forbidden(QString key);
 
-    QList<int> binding_from_string(QString keyString);
+    QString binding_from_string(QString keyString);
+    QString binding_name(QList<int> shortcutList);
+
+    QStringList forbidden_keys;
 
 private:
     Ui::KeyboardControl *ui;
@@ -69,7 +78,7 @@ private:
     CustomWidget * pluginWidget;
 
     QGSettings * kbdsettings;
-    QGSettings * keybindsettings;
+    QGSettings * desktopsettings;
     QGSettings * syskeysettings;
 
     SwitchButton * keySwitchBtn;
@@ -80,9 +89,12 @@ private:
 
     QStringList desktopshortcut;
 
+    KeyMap * keymapobj;
+
 private slots:
 //    void activate_key_repeat_changed_slot(bool status);
     void layout_combobox_changed_slot(int index);
+    void receive_shortcut_slot(QList<int> shortcutList);
 };
 
 #endif // KEYBOARDCONTROL_H

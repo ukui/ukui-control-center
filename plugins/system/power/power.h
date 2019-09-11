@@ -8,7 +8,7 @@
 #include <QWidget>
 #include <QGSettings/QGSettings>
 
-#include "../../component/customwidget.h"
+#include "../../pluginsComponent/customwidget.h"
 
 namespace Ui {
 class Power;

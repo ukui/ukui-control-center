@@ -5,8 +5,8 @@
 #include <QObject>
 #include <QtPlugin>
 #include "mainui/interface.h"
-#include "../../component/customwidget.h"
-#include "../../component/publicdata.h"
+#include "../../pluginsComponent/customwidget.h"
+#include "../../pluginsComponent/publicdata.h"
 
 #include <QProcess>
 

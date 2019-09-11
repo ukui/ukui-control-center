@@ -13,7 +13,7 @@ INCLUDEPATH += ../../..
 TARGET = $$qtLibraryTarget(datetime)
 DESTDIR = ../..
 
-include(../../component/component.pri)
+include(../../pluginsComponent/pluginsComponent.pri)
 
 LIBS += -L/usr/lib/ -lgsettings-qt
 

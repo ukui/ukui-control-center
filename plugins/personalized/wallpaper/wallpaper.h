@@ -12,7 +12,7 @@
 
 #include "xmlhandle.h"
 #include "component/custdomitemmodel.h"
-#include "../../component/customwidget.h"
+#include "../../pluginsComponent/customwidget.h"
 
 #define BACKGROUND "org.mate.background"
 

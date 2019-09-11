@@ -9,7 +9,7 @@ DESTDIR = ../..
 
 LIBS += -L/usr/lib/ -lgsettings-qt
 
-include(../../component/component.pri)
+include(../../pluginsComponent/pluginsComponent.pri)
 
 target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
 INSTALLS += target

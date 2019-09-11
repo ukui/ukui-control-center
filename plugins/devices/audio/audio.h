@@ -8,7 +8,7 @@
 
 #include <QProcess>
 
-#include "../../component/customwidget.h"
+#include "../../pluginsComponent/customwidget.h"
 
 namespace Ui {
 class Audio;

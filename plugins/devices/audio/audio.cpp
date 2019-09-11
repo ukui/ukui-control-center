@@ -49,7 +49,6 @@ void Audio::change_preference_page(){
 }
 
 void Audio::sound_settings_btn_clicked_slot(){
-    qDebug() << "-------------->";
     QString cmd = "ukui-volume-control";
 
     QProcess process(this);

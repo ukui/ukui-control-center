@@ -14,7 +14,7 @@
 #include <QToolButton>
 #include <QTimer>
 
-#include "../../component/customwidget.h"
+#include "../../pluginsComponent/customwidget.h"
 
 enum {
     DISCONNECTED,

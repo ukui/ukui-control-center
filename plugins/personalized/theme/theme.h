@@ -11,8 +11,8 @@
 
 #include <QGSettings/QGSettings>
 
-#include "../../component/switchbutton.h"
-#include "../../component/customwidget.h"
+#include "../../pluginsComponent/switchbutton.h"
+#include "../../pluginsComponent/customwidget.h"
 
 #define INTERFACE_SCHEMA "org.mate.interface"
 #define MARCO_SCHEMA "org.gnome.desktop.wm.preferences"

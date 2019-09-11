@@ -13,7 +13,7 @@ INCLUDEPATH += ../../..
 TARGET = $$qtLibraryTarget(userinfo)
 DESTDIR = ../..
 
-include(../../component/component.pri)
+include(../../pluginsComponent/pluginsComponent.pri)
 
 LIBS          += -L/usr/lib/ -lcrypt
 

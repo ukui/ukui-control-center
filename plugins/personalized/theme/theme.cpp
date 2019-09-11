@@ -3,7 +3,7 @@
 
 #include <QDebug>
 
-#include "../../component/publicdata.h"
+#include "../../pluginsComponent/publicdata.h"
 
 #define DESKTOP_SCHEMA "org.ukui.peony.desktop"
 

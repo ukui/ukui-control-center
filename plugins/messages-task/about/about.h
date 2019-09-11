@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QtPlugin>
 #include "mainui/interface.h"
-#include "../../component/customwidget.h"
+#include "../../pluginsComponent/customwidget.h"
 
 #include <QDBusInterface>
 #include <QDBusConnection>

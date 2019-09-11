@@ -7,7 +7,7 @@ INCLUDEPATH += ../../..
 
 DESTDIR = ../..
 
-include(../../component/component.pri)
+include(../../pluginsComponent/pluginsComponent.pri)
 
 #DEFINES += QT_DEPRECATED_WARNINGS
 

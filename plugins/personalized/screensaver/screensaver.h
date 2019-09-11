@@ -11,9 +11,9 @@
 #include <QMap>
 #include <QGSettings/QGSettings>
 
-#include "../../component/switchbutton.h"
-#include "../../component/customwidget.h"
-#include "../../component/publicdata.h"
+#include "../../pluginsComponent/switchbutton.h"
+#include "../../pluginsComponent/customwidget.h"
+#include "../../pluginsComponent/publicdata.h"
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可

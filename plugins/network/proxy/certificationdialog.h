@@ -3,7 +3,7 @@
 
 #include <QDialog>
 
-#include "../../component/switchbutton.h"
+#include "../../pluginsComponent/switchbutton.h"
 
 #include <QGSettings/QGSettings>
 

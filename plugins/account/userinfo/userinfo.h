@@ -12,7 +12,7 @@
 #include <QDBusInterface>
 #include <QSignalMapper>
 
-#include "../../component/customwidget.h"
+#include "../../pluginsComponent/customwidget.h"
 
 #include "qtdbus/systemdbusdispatcher.h"
 #include "qtdbus/userdispatcher.h"
