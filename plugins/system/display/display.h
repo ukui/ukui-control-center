@@ -8,6 +8,7 @@
 #include "../../pluginsComponent/customwidget.h"
 
 #include <QGraphicsScene>
+#include <QProcess>
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -26,6 +27,7 @@ extern "C" {
 #include <mate-rr-config.h>
 #include <mate-rr-labeler.h>
 #include <X11/Xlib.h>
+#include <X11/extensions/Xrandr.h>
 #include <dbus/dbus-glib.h>
 #include <dbus/dbus-glib-bindings.h>
 #include <time.h>
@@ -83,6 +85,10 @@ public:
     void _ensure_current_configuration_is_saved();
     void _begin_version2_apply_configuration();
     static void _apply_configuration_callback();
+
+    bool support_brightness();
+    bool brightness_setup_display();
+    bool isNumber(QString str);
 
 private:
     Ui::DisplayWindow * ui;

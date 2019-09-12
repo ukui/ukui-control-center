@@ -269,6 +269,8 @@ void DisplaySet::component_init(){
     rebuild_resolution_combo();
     rebuild_refresh_combo();
     rebuild_rotation_combo();
+
+    ui->brightnessWidget->setVisible(support_brightness());
 }
 
 void DisplaySet::status_init(){
@@ -285,6 +287,65 @@ void DisplaySet::status_init(){
     connect(ui->resolutionComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(resolution_changed_slot(int)));
     connect(ui->monitorComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(monitor_changed_slot(int)));
     connect(ui->ApplyBtn, SIGNAL(clicked(bool)), this, SLOT(apply_btn_clicked_slot()));
+}
+
+bool DisplaySet::brightness_setup_display(){
+    int major, minor;
+    Display * dpy = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
+    if (!dpy){
+        g_warning("Cannot Open Dispaly");
+        return false;
+    }
+    if(!XRRQueryExtension(dpy, &major, &minor)){
+        g_warning("RandR extension missing");
+        return false;
+    }
+    if (major < 1 || (major == 1 && minor < 2)){
+        g_warning("RandR version %d.%d  too old", major, minor);
+        return false;
+    }
+
+    Atom backlight = XInternAtom(dpy, "BACKLIGHT", True);
+    if (backlight == None){
+        g_warning("No outputs have backlight property");
+        return false;
+    }
+    return true;
+}
+
+bool DisplaySet::isNumber(QString str){
+    QByteArray ba = str.toLatin1();
+    const char *s = ba.data();
+    bool flag = true;
+    while(*s){
+        if (*s >= '0' && *s <= '9'){
+
+        }
+        else{
+            flag = false;
+        }
+        s++;
+    }
+    return flag;
+}
+
+bool DisplaySet::support_brightness(){
+    bool hasExtension;
+
+    hasExtension = brightness_setup_display();
+    if (hasExtension)
+        return true;
+
+    QString cmd = "/usr/sbin/ukui-power-backlight-helper";
+    QStringList args = {"--get-max-brightness"};
+    QProcess process;
+    process.start(cmd, args);
+    process.waitForFinished();
+
+    QString output = QString(process.readAllStandardOutput()).simplified();
+    if (isNumber(output) && output.toInt() > 0) //如果output不全是数字返回false则不会执行output.toInt()
+        return true;
+    return false;
 }
 
 void DisplaySet::brightness_value_changed_slot(int value){
