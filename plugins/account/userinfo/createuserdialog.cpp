@@ -32,11 +32,15 @@ CreateUserDialog::CreateUserDialog(QStringList userlist, QWidget *parent) :
     QString optional = tr("(Optional)");
     if (ostype == PC){
         ui->pwdLabel->setText(required);
+        ui->pwdsurelabel->setText(required);
         ui->pinLabel->setText(optional);
+        ui->pinsurelabel->setText(optional);
     }
     else{
         ui->pwdLabel->setText(optional);
+        ui->pwdsurelabel->setText(optional);
         ui->pinLabel->setText(required);
+        ui->pinsurelabel->setText(required);
     }
 
     ui->usernameLineEdit->setPlaceholderText(tr("UserName"));

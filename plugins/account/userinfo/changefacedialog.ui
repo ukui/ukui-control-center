@@ -153,7 +153,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QToolButton" name="addToolBtn">
+          <widget class="QToolButton" name="customfaceBtn">
            <property name="minimumSize">
             <size>
              <width>0</width>

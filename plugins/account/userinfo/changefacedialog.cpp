@@ -11,6 +11,7 @@ ChangeFaceDialog::ChangeFaceDialog(QWidget *parent) :
     this->setParent(parent);
     ui->setupUi(this);
     show_faces();
+    connect(ui->customfaceBtn, SIGNAL(clicked(bool)), this, SLOT(custom_face_choosed_slot()));
 }
 
 ChangeFaceDialog::~ChangeFaceDialog()
@@ -75,4 +76,26 @@ void ChangeFaceDialog::item_changed_slot(QListWidgetItem * current, QListWidgetI
     set_face_label(facefile);
 
     emit face_file_send(facefile, ui->usernameLabel->text());
+}
+
+void ChangeFaceDialog::custom_face_choosed_slot(){
+    QString filters = "Face files(*.png *.jpg *.svg)";
+    QFileDialog fd;
+    fd.setDirectory(QString(const_cast<char *>(g_get_user_special_dir(G_USER_DIRECTORY_PICTURES))));
+    fd.setAcceptMode(QFileDialog::AcceptOpen);
+    fd.setViewMode(QFileDialog::List);
+    fd.setNameFilter(filters);
+    fd.setFileMode(QFileDialog::ExistingFile);
+    fd.setWindowTitle(tr("selsect custom face file"));
+    fd.setLabelText(QFileDialog::Accept, "Select");
+
+    if (fd.exec() != QDialog::Accepted)
+        return;
+
+    QString selectedfile;
+    selectedfile = fd.selectedFiles().first();
+
+    set_face_label(selectedfile);
+    emit face_file_send(selectedfile, ui->usernameLabel->text());
+
 }

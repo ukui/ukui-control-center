@@ -73,9 +73,9 @@ KeyboardControl::~KeyboardControl()
         delete keyentry;
     }
 
-    for (KeyEntry * keyentry: systemEntries){
-        delete keyentry;
-    }
+//    for (KeyEntry * keyentry: systemEntries){
+//        delete keyentry;
+//    }
 }
 
 QString KeyboardControl::get_plugin_name(){

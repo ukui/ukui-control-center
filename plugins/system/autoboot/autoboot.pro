@@ -32,9 +32,12 @@ INSTALLS += target
 
 SOURCES += \
         autoboot.cpp \
+    addautoboot.cpp
 
 HEADERS += \
         autoboot.h \
+    addautoboot.h
 
 FORMS += \
-        autoboot.ui
+        autoboot.ui \
+    addautoboot.ui
