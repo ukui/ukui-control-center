@@ -44,8 +44,12 @@
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="77"/>
         <source>UNKNOW</source>
+        <translation type="vanished">未知</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="77"/>
+        <source>UNKNOWN</source>
         <translation>未知</translation>
     </message>
     <message>
@@ -85,6 +89,53 @@
         <location filename="../../../plugins/system/defaultapp/addappdialog.ui" line="81"/>
         <source>Cancel</source>
         <translation type="unfinished">取消</translation>
+    </message>
+</context>
+<context>
+    <name>AddAutoBoot</name>
+    <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="26"/>
+        <source>Add AutoBoot</source>
+        <translation>添加程序</translation>
+    </message>
+    <message>
+        <source>Program name </source>
+        <translation type="obsolete">程序名称</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="73"/>
+        <source>Program name</source>
+        <translation>程序名称</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="137"/>
+        <source>Program exec</source>
+        <translation>程序路径</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="175"/>
+        <source>Open</source>
+        <translation>打开</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="220"/>
+        <source>Program comment</source>
+        <translation>程序注释</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="307"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="329"/>
+        <source>Certain</source>
+        <translation>确定</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="32"/>
+        <source>selsect autoboot desktop</source>
+        <translation>选择程序的启动文件</translation>
     </message>
 </context>
 <context>
@@ -307,17 +358,17 @@ p, li { white-space: pre-wrap; }
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/autoboot.ui" line="167"/>
+        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="85"/>
         <source>Name</source>
         <translation>软件名称</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/autoboot.ui" line="172"/>
+        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="85"/>
         <source>Status</source>
         <translation>当前状态</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="10"/>
+        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="21"/>
         <source>autoboot</source>
         <translation>开机启动</translation>
     </message>
@@ -400,6 +451,11 @@ p, li { white-space: pre-wrap; }
         <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="170"/>
         <source>Custom Face</source>
         <translation>设置自定义头像</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="89"/>
+        <source>selsect custom face file</source>
+        <translation>选择自定义头像</translation>
     </message>
 </context>
 <context>
@@ -519,7 +575,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="223"/>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="42"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="46"/>
         <source>UserName</source>
         <translation>用户名</translation>
     </message>
@@ -531,48 +587,48 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="358"/>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="43"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="47"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="600"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="613"/>
         <source>Pin Code</source>
         <translation>PIN码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="835"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="864"/>
         <source>Account Type</source>
         <translation>账户类型</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="863"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="892"/>
         <source>standard user</source>
         <translation>标准用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="912"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="941"/>
         <source>Standard users can use most software, but cannot install the software and 
 change system settings</source>
         <translation>标准用户可以使用大多数软件，但是不能安装软件和更改系统配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="956"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="985"/>
         <source>administrator</source>
         <translation>管理员用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="1005"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="1034"/>
         <source>Administrators can make any changes they need</source>
         <translation>管理员用户可以更改任何系统配置，包括安装软件和升级软件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="1064"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="1093"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="1074"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="1103"/>
         <source>Confirm</source>
         <translation>确认</translation>
     </message>
@@ -582,77 +638,77 @@ change system settings</source>
         <translation>（选填）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="44"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="48"/>
         <source>Password Identify</source>
         <translation>确认密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="45"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="49"/>
         <source>PIN Code</source>
         <translation>PIN码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="46"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="50"/>
         <source>PIN Code Identify</source>
         <translation>确认PIN码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="130"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="134"/>
         <source>Inconsistency with pin code</source>
         <translation>与PIN码不一致</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="140"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="144"/>
         <source>Pin code length needs to %1 character!</source>
         <translation>PIN码长度至少%1个字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="154"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="158"/>
         <source>Inconsistency with pwd</source>
         <translation>与新密码不一致</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="164"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="168"/>
         <source>Password length needs to more than %1 character!</source>
         <translation>密码长度至少大于%1个字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="166"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="170"/>
         <source>Password length needs to less than %1 character!</source>
         <translation>密码长度需要小于%1个字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="180"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="184"/>
         <source>The user name cannot be empty</source>
         <translation>用户名不能为空</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="182"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="186"/>
         <source>The first character must be lowercase letters!</source>
         <translation>首字符必须为小写字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="185"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="189"/>
         <source>User name can not contain capital letters!</source>
         <translation>用户名不能包含大写字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="196"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="200"/>
         <source>The user name is already in use, please use a different one.</source>
         <translation>用户名已存在，请换用其他用户名。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="202"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="206"/>
         <source>User name length need to less than %1 letters!</source>
         <translation>用户名长度需要小于%1个字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="204"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="208"/>
         <source>The user name can only be composed of letters, numbers and underline!</source>
         <translation>用户名只能由字母、数字以及下划线组成！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="212"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="216"/>
         <source>The user name corresponds to the group already exists,please use a different user name!</source>
         <translation>该用户名对应的组已存在,请换用其他用户名!</translation>
     </message>
@@ -888,32 +944,32 @@ folder will be deleted!</source>
         <translation>更改显示器外观</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="163"/>
+        <location filename="../../../plugins/system/display/display.ui" line="193"/>
         <source>Screen brightness</source>
         <translation>屏幕亮度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="272"/>
+        <location filename="../../../plugins/system/display/display.ui" line="305"/>
         <source>Monitor</source>
         <translation>显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="326"/>
+        <location filename="../../../plugins/system/display/display.ui" line="359"/>
         <source>Resolution</source>
         <translation>分辨率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="380"/>
+        <location filename="../../../plugins/system/display/display.ui" line="413"/>
         <source>Refresh</source>
         <translation>刷新率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="434"/>
+        <location filename="../../../plugins/system/display/display.ui" line="467"/>
         <source>Direction</source>
         <translation>方向</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="481"/>
+        <location filename="../../../plugins/system/display/display.ui" line="514"/>
         <source>Apply</source>
         <translation>应用</translation>
     </message>
@@ -977,27 +1033,27 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/devices/keyboardcontrol/kbdlayoutmanager.ui" line="26"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboardcontrol/kbdlayoutmanager.ui" line="68"/>
         <source>By Country</source>
-        <translation type="unfinished"></translation>
+        <translation>按国家</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboardcontrol/kbdlayoutmanager.ui" line="144"/>
         <source>By Language</source>
-        <translation type="unfinished"></translation>
+        <translation>按语言</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboardcontrol/kbdlayoutmanager.ui" line="222"/>
         <source>Variant</source>
-        <translation type="unfinished"></translation>
+        <translation>可用键盘布局</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboardcontrol/kbdlayoutmanager.ui" line="270"/>
         <source>Add</source>
-        <translation type="unfinished">添加</translation>
+        <translation>添加</translation>
     </message>
 </context>
 <context>
@@ -1134,12 +1190,12 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="893"/>
         <source>Function Desc</source>
-        <translation type="unfinished"></translation>
+        <translation>功能说明</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="898"/>
         <source>Shortcut Keys</source>
-        <translation type="unfinished"></translation>
+        <translation>热键</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="924"/>
@@ -1151,7 +1207,7 @@ folder will be deleted!</source>
         <translation type="vanished">显示系统快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.cpp" line="31"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.cpp" line="35"/>
         <source>keyboardcontrol</source>
         <translation>键盘</translation>
     </message>
@@ -1245,20 +1301,6 @@ folder will be deleted!</source>
     <message>
         <source>delete</source>
         <translation type="vanished">删除</translation>
-    </message>
-</context>
-<context>
-    <name>Language</name>
-    <message>
-        <location filename="../../../plugins/time-language/language/language.ui" line="26"/>
-        <source>Language</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/time-language/language/language.ui" line="39"/>
-        <location filename="../../../plugins/time-language/language/language.cpp" line="11"/>
-        <source>language</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

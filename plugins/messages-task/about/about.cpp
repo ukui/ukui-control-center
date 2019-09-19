@@ -74,19 +74,19 @@ void About::_data_init(){
 }
 
 void About::initUI(){
-    QLabel * manufacturers = new QLabel(tr("UNKNOW"));
+    QLabel * manufacturers = new QLabel(tr("UNKNOWN"));
     if (infoMap.contains(MANUFACTURER))
         manufacturers->setText(QString(infoMap.find(MANUFACTURER).value()));
 
-    QLabel * productname = new QLabel("UNKNOW");
+    QLabel * productname = new QLabel("UNKNOWN");
     if (infoMap.contains(PRODUCTNAME))
         productname->setText(QString(infoMap.find(PRODUCTNAME).value()));
 
-    QLabel * version = new QLabel("UNKNOW");
+    QLabel * version = new QLabel("UNKNOWN");
     if (infoMap.contains(VERSION))
         version->setText(QString(infoMap.find(VERSION).value()));
 
-    QLabel * serialnumber = new QLabel("UNKNOW");
+    QLabel * serialnumber = new QLabel("UNKNOWN");
     if (infoMap.contains(SERIALNUMBER))
         serialnumber->setText(QString(infoMap.find(SERIALNUMBER).value()));
 

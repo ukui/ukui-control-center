@@ -229,7 +229,7 @@ bool AutoBoot::_enable_autoapp(QString bname, bool status){
 
     if (error){
         g_error_free(error);
-        qDebug() << "Start autoboot failed  beause keyfile load from file error";
+        qDebug() << "Start autoboot failed  because keyfile load from file error";
         g_free(dstpath);
         return false;
     }
@@ -237,7 +237,7 @@ bool AutoBoot::_enable_autoapp(QString bname, bool status){
     g_key_file_set_boolean(keyfile, G_KEY_FILE_DESKTOP_GROUP, APP_KEY_FILE_DESKTOP_KEY_AUTOSTART_ENABLE, status);
 
     if (!_key_file_to_file(keyfile, dstpath)){
-        qDebug() << "Start autoboot failed beause could not save desktop file";
+        qDebug() << "Start autoboot failed because could not save desktop file";
         g_free(dstpath);
         return false;
     }
@@ -247,7 +247,7 @@ bool AutoBoot::_enable_autoapp(QString bname, bool status){
     //更新数据
     QMap<QString, AutoApp>::iterator updateit = statusMaps.find(bname);
     if (updateit == statusMaps.end())
-        qDebug() << "Start autoboot failed beause autoBoot Data Error";
+        qDebug() << "Start autoboot failed because autoBoot Data Error";
     else{
         updateit.value().enable = status;
     }
@@ -272,7 +272,7 @@ bool AutoBoot::_delete_autoapp(QString bname){
 
     if (error){
         g_error_free(error);
-        qDebug() << "Delete autoboot failed beause keyfile load from file error";
+        qDebug() << "Delete autoboot failed because keyfile load from file error";
         g_free(dstpath);
         return false;
     }
@@ -280,7 +280,7 @@ bool AutoBoot::_delete_autoapp(QString bname){
     g_key_file_set_boolean(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_HIDDEN, true);
 
     if (!_key_file_to_file(keyfile, dstpath)){
-        qDebug() << "Delete autoboot failed beause could not save desktop file";
+        qDebug() << "Delete autoboot failed because could not save desktop file";
         g_free(dstpath);
         return false;
     }
@@ -310,7 +310,7 @@ bool AutoBoot::_stop_autoapp(QString bname){
 
     if (error){
         g_error_free(error);
-        qDebug() << "Stop autoboot failed beause keyfile load from file error";
+        qDebug() << "Stop autoboot failed because keyfile load from file error";
         g_free(dstpath);
         return false;
     }
@@ -318,7 +318,7 @@ bool AutoBoot::_stop_autoapp(QString bname){
     g_key_file_set_boolean(keyfile, G_KEY_FILE_DESKTOP_GROUP, APP_KEY_FILE_DESKTOP_KEY_AUTOSTART_ENABLE, false);
 
     if (!_key_file_to_file(keyfile, dstpath)){
-        qDebug() << "Stop autoboot failed beause could not save desktop file";
+        qDebug() << "Stop autoboot failed because could not save desktop file";
         g_free(dstpath);
         return false;
     }
@@ -328,7 +328,7 @@ bool AutoBoot::_stop_autoapp(QString bname){
     //更新数据
     QMap<QString, AutoApp>::iterator updateit = statusMaps.find(bname);
     if (updateit == statusMaps.end())
-        qDebug() << "Stop autoboot failed beause AutoBoot Data Error";
+        qDebug() << "Stop autoboot failed because AutoBoot Data Error";
     else{
         updateit.value().enable = false;
     }
