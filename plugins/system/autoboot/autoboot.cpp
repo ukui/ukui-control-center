@@ -7,6 +7,11 @@
 #define ALLPOS 1
 #define LOCALPOS 0
 
+
+struct SaveData : QObjectUserData {
+    QString bname;
+};
+
 AutoBoot::AutoBoot(){
     ui = new Ui::AutoBoot;
     pluginWidget = new CustomWidget;
@@ -16,13 +21,17 @@ AutoBoot::AutoBoot(){
     pluginName = tr("autoboot");
     pluginType = SYSTEM;
 
-    ui->tableWidget->setStyleSheet("background-color: #f5f6f7");
+    ui->tableWidget->setStyleSheet("QTableView{background: #f5f6f7}"
+                                   "QTableView::item:selected{background: #BDD7FD}"
+                                   );
 
     // 隐藏行头
     ui->tableWidget->verticalHeader()->hide();
 
     // 选择整行
     ui->tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
+
+
 
     // 行平均填充
 //    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
@@ -86,9 +95,27 @@ void AutoBoot::initUI(){
     QSignalMapper * checkSignalMapper = new QSignalMapper(this);
     QMap<QString, AutoApp>::iterator it = statusMaps.begin();
     for (int i = 0; it != statusMaps.end(); it++, i++){
-        QTableWidgetItem * item = new QTableWidgetItem(it.value().qicon, it.value().name);
-        ui->tableWidget->setItem(i, 0, item);
-        item->setData(Qt::UserRole, it.value().bname);
+        //合并单元格
+        ui->tableWidget->setSpan(i, 0, 1, 2);
+
+        //
+        SaveData * savedata = new SaveData();
+        savedata->bname = it.value().bname;
+
+        QWidget * widget = new QWidget();
+        widget->setAttribute(Qt::WA_DeleteOnClose);
+
+        widget->setUserData(Qt::UserRole, savedata);
+
+        QHBoxLayout * mainHLayout = new QHBoxLayout(widget);
+        mainHLayout->setContentsMargins(15, 0, 0, 0);
+        mainHLayout->setSpacing(10);
+        QLabel * iconLabel = new QLabel(widget);
+        iconLabel->setFixedSize(32, 32);
+        iconLabel->setPixmap(it.value().pixmap);
+        QLabel * textLabel = new QLabel(widget);
+        textLabel->setFixedWidth(200);
+        textLabel->setText(it.value().name);
 
         SwitchButton * button = new SwitchButton();
         button->setAttribute(Qt::WA_DeleteOnClose);
@@ -96,12 +123,18 @@ void AutoBoot::initUI(){
         connect(button, SIGNAL(checkedChanged(bool)), checkSignalMapper, SLOT(map()));
         checkSignalMapper->setMapping(button, it.key());
         appgroupMultiMaps.insert(it.key(), button);
-        ui->tableWidget->setCellWidget(i, 1, button);
+
+        mainHLayout->addWidget(iconLabel);
+        mainHLayout->addWidget(textLabel);
+        mainHLayout->addStretch();
+        mainHLayout->addWidget(button);
+        mainHLayout->addStretch();
+        widget->setLayout(mainHLayout);
+        ui->tableWidget->setCellWidget(i, 0, widget);
 
         //设置行高
         ui->tableWidget->setRowHeight(i, 46);
 
-        qDebug() << "----pos--->" << it.value().xdg_position << it.value().bname << it.value().path;
     }
     connect(checkSignalMapper, SIGNAL(mapped(QString)), this, SLOT(checkbox_changed_cb(QString)));
 }
@@ -415,17 +448,13 @@ AutoApp AutoBoot::_app_new(const char *path){
     app.name = QString::fromUtf8(name);
     app.comment = QString::fromUtf8(comment);
     app.exec = QString::fromUtf8(exec);
-    if (icon){
-        if (QIcon::hasThemeIcon(QString(icon))){
-            app.qicon = QIcon::fromTheme(QString(icon));
-        }
-        else{
-            QString absolutepath = "/usr/share/pixmaps/" + QString(icon);
-            app.qicon = QIcon(absolutepath);
-        }
+    if (!QString(icon).isEmpty() && QIcon::hasThemeIcon(QString(icon))){
+        QIcon currenticon = QIcon::fromTheme(QString(icon));
+        app.pixmap = currenticon.pixmap(QSize(32, 32));
     }
-    else
-        app.qicon = QIcon(QString(":/image/default.png"));
+    else{
+        app.pixmap = QPixmap(QString(":/autoboot/default.png"));
+    }
 
     g_free(bname);
     g_free(obpath);
@@ -521,7 +550,6 @@ void AutoBoot::update_app_status(){
 }
 
 void AutoBoot::add_autoboot_realize_slot(QString name, QString exec, QString comment){
-    qDebug() << name << exec << comment;
     char * filename, * filepath;
     if (exec.contains("/"))
         filename = QString("%1.desktop").arg(exec.section("/", -1, -1)).toUtf8().data();
@@ -566,8 +594,9 @@ void AutoBoot::add_autoboot_realize_slot(QString name, QString exec, QString com
 
 void AutoBoot::del_autoboot_realize_slot(){
     QModelIndex  index = ui->tableWidget->currentIndex();
-    QTableWidgetItem * item = ui->tableWidget->item(index.row(), index.column());
-    QString bname = item->data(Qt::UserRole).toString();
+    QWidget * current = ui->tableWidget->cellWidget(index.row(), index.column());
+    QString bname = static_cast<SaveData *>(current->userData(Qt::UserRole))->bname;
+
     QMap<QString, AutoApp>::iterator it = statusMaps.find(bname);
     if (it == statusMaps.end()){
         qDebug() << "AutoBoot Data Error";
@@ -604,7 +633,6 @@ void AutoBoot::checkbox_changed_cb(QString bname){
                 if (it.value().xdg_position == SYSTEMPOS) //
                     ;
                 else if (it.value().xdg_position == ALLPOS){ //删除
-                    qDebug() << "-0-->delete";
                     QMap<QString, AutoApp>::iterator appit = appMaps.find(bname);
                     if (appit.value().enable){ //直接删除
                         _delete_local_autoapp(bname);
@@ -618,10 +646,10 @@ void AutoBoot::checkbox_changed_cb(QString bname){
                         else
                             qDebug() << "Update status failed when start autoboot";
                     }
-                    QMap<QString, AutoApp>::iterator statusit = statusMaps.begin();
-                    for (; statusit != statusMaps.end(); statusit++){
-                        qDebug() << statusit.value().xdg_position << statusit.value().path;
-                    }
+//                    QMap<QString, AutoApp>::iterator statusit = statusMaps.begin();
+//                    for (; statusit != statusMaps.end(); statusit++){
+//                        qDebug() << statusit.value().xdg_position << statusit.value().path;
+//                    }
                 }
                 else if (it.value().xdg_position == LOCALPOS){//改值
                     _enable_autoapp(bname, true);

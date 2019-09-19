@@ -44,5 +44,6 @@
         <file>keyboardcontrol/preview.png</file>
         <file>keyboardcontrol/install.png</file>
         <file>keyboardcontrol/delete.png</file>
+        <file>autoboot/default.png</file>
     </qresource>
 </RCC>

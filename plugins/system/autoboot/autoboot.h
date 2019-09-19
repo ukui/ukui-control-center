@@ -48,7 +48,7 @@ typedef struct _AutoApp{
 
     QString name;
     QString comment;
-    QIcon qicon;
+    QPixmap pixmap;
     QString exec;
     QString description;
 
