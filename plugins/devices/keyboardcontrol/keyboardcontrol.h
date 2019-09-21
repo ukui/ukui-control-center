@@ -18,6 +18,7 @@
 #include "kbdlayoutmanager.h"
 #include "customlineedit.h"
 #include "keymap.h"
+#include "addshortcut.h"
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -29,7 +30,8 @@
 extern "C" {
 #include <glib.h>
 #include <gio/gio.h>
-#include <gio/gdesktopappinfo.h>
+//#include <gio/gdesktopappinfo.h>
+#include <dconf/dconf.h>
 }
 
 namespace Ui {
@@ -63,12 +65,22 @@ public:
     void append_keys_from_desktop();
     void append_keys_from_system();
     void append_keys_from_custom();
+
+    void rebuild_item();
+    void fill_item_from_desktop();
+    void fill_item_from_custom();
+
+    QList<char*> _list_exists_custom_gsettings_dir();
+    QString find_free_custom_gsettings_path();
+
     bool key_is_forbidden(QString key);
 
     QString binding_from_string(QString keyString);
     QString binding_name(QList<int> shortcutList);
 
-    QStringList forbidden_keys;
+    void remove_custom_shortcut();
+    void add_custom_shortcut(QString path, QString name, QString exec);
+    void update_custom_shortcut(int row, int column);
 
 private:
     Ui::KeyboardControl *ui;
@@ -88,6 +100,8 @@ private:
     KbdLayoutManager * layoutmanagerObj;
 
     QStringList desktopshortcut;
+
+    AddShortcut * adddialog;
 
     KeyMap * keymapobj;
 

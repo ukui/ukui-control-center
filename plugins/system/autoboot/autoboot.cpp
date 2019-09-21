@@ -595,7 +595,7 @@ void AutoBoot::add_autoboot_realize_slot(QString name, QString exec, QString com
 void AutoBoot::del_autoboot_realize_slot(){
     QModelIndex  index = ui->tableWidget->currentIndex();
     QWidget * current = ui->tableWidget->cellWidget(index.row(), index.column());
-    QString bname = static_cast<SaveData *>(current->userData(Qt::UserRole))->bname;
+    QString bname = dynamic_cast<SaveData *>(current->userData(Qt::UserRole))->bname;
 
     QMap<QString, AutoApp>::iterator it = statusMaps.find(bname);
     if (it == statusMaps.end()){

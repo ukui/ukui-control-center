@@ -39,7 +39,7 @@ void AddAutoBoot::open_desktop_dir_slots(){
     selectedfile = fd.selectedFiles().first();
 
     QByteArray ba;
-    ba = selectedfile.toLatin1();
+    ba = selectedfile.toUtf8();
 
     //解析desktop文件
     GKeyFile * keyfile;
@@ -61,4 +61,6 @@ void AddAutoBoot::open_desktop_dir_slots(){
         ui->execLineEdit->setText(QString(exec));
     if (ui->commentLineEdit->text().isEmpty())
         ui->commentLineEdit->setText(QString(comment));
+
+    g_key_file_free(keyfile);
 }

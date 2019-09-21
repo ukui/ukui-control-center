@@ -13,8 +13,9 @@ TEMPLATE = lib
 CONFIG += plugin
 INCLUDEPATH += ../../.. \
                 /usr/include/kylinsdk \
+                /usr/include/dconf \
 
-LIBS          +=  -L/usr/lib/ -lkeyboardclient -linterfaceclient -lgsettings-qt
+LIBS          +=  -L/usr/lib/ -lkeyboardclient -linterfaceclient -lgsettings-qt -ldconf
 
 CONFIG        += link_pkgconfig \
                  C++11
@@ -37,15 +38,18 @@ SOURCES += \
 #    keyboardlayout.cpp \
     kbdlayoutmanager.cpp \
     customlineedit.cpp \
-    keymap.cpp
+    keymap.cpp \
+    addshortcut.cpp
 
 HEADERS += \
         keyboardcontrol.h \
 #    keyboardlayout.h \
     kbdlayoutmanager.h \
     customlineedit.h \
-    keymap.h
+    keymap.h \
+    addshortcut.h
 
 FORMS += \
         keyboardcontrol.ui \
-    kbdlayoutmanager.ui
+    kbdlayoutmanager.ui \
+    addshortcut.ui
