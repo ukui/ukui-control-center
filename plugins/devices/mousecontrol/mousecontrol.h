@@ -12,7 +12,9 @@
 #include <QGSettings/QGSettings>
 #include <QX11Info>
 
-#include "kylin-mouse-interface.h"
+#include <QProcess>
+
+//#include "kylin-mouse-interface.h"
 
 #include "../../pluginsComponent/switchbutton.h"
 #include "../../pluginsComponent/customwidget.h"

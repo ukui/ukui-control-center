@@ -91,11 +91,13 @@ KeyboardControl::KeyboardControl()
     ui->pushButton_5->hide();
     ui->pushButton_8->hide();
 
+    connect(ui->pushButton_3, &QPushButton::clicked, this, [=]{QProcess process(this);process.startDetached("mate-keyboard-properties");});
+
     //设置按键
-    InitDBusKeyboard();
+//    InitDBusKeyboard();
 
     //设置光标闪烁
-    InitDBusInterface();
+//    InitDBusInterface();
 
     component_init();
     status_init();
@@ -179,28 +181,28 @@ void KeyboardControl::component_init(){
 
 void KeyboardControl::status_init(){
     //设置按键重复状态
-    keySwitchBtn->setChecked(kylin_hardware_keyboard_get_repeat());
+//    keySwitchBtn->setChecked(kylin_hardware_keyboard_get_repeat());
 
     //设置按键重复的延时
-    ui->delayHSlider->setValue(kylin_hardware_keyboard_get_delay());
+//    ui->delayHSlider->setValue(kylin_hardware_keyboard_get_delay());
 
     //设置按键重复的速度
-    ui->repeatspeedHSlider->setValue(kylin_hardware_keyboard_get_rate());
+//    ui->repeatspeedHSlider->setValue(kylin_hardware_keyboard_get_rate());
 
     //设置光标闪烁状态
-    cursorSwitchBtn->setChecked(kylin_hardware_keyboard_get_cursorblink());
+//    cursorSwitchBtn->setChecked(kylin_hardware_keyboard_get_cursorblink());
 
     //设置光标杉闪烁速度
-    ui->blinkspeedHSlider->setValue(kylin_hardware_keyboard_get_cursorblinktime());
+//    ui->blinkspeedHSlider->setValue(kylin_hardware_keyboard_get_cursorblinktime());
 
-    connect(keySwitchBtn, &SwitchButton::checkedChanged, this, [=](bool status){kylin_hardware_keyboard_set_repeat(status);});
+//    connect(keySwitchBtn, &SwitchButton::checkedChanged, this, [=](bool status){kylin_hardware_keyboard_set_repeat(status);});
 
-    connect(ui->delayHSlider, &QSlider::valueChanged, this, [=](int value){kylin_hardware_keyboard_set_delay(value);});
-    connect(ui->repeatspeedHSlider, &QSlider::valueChanged, this, [=](int value){kylin_hardware_keyboard_set_rate(value);});
+//    connect(ui->delayHSlider, &QSlider::valueChanged, this, [=](int value){kylin_hardware_keyboard_set_delay(value);});
+//    connect(ui->repeatspeedHSlider, &QSlider::valueChanged, this, [=](int value){kylin_hardware_keyboard_set_rate(value);});
 
-    connect(cursorSwitchBtn, &SwitchButton::checkedChanged, this, [=](bool status){kylin_hardware_keyboard_set_cursorblink(status);});
+//    connect(cursorSwitchBtn, &SwitchButton::checkedChanged, this, [=](bool status){kylin_hardware_keyboard_set_cursorblink(status);});
 
-    connect(ui->blinkspeedHSlider, &QSlider::valueChanged, this, [=](int value){kylin_hardware_keyboard_set_cursorblinktime(value);});
+//    connect(ui->blinkspeedHSlider, &QSlider::valueChanged, this, [=](int value){kylin_hardware_keyboard_set_cursorblinktime(value);});
 
     connect(ui->shortcutsBtn, &QPushButton::clicked,  this, [=]{ui->StackedWidget->setCurrentIndex(1);});
 

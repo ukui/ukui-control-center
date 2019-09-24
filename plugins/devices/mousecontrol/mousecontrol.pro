@@ -14,7 +14,8 @@ CONFIG += plugin
 INCLUDEPATH += ../../.. \
                 /usr/include/kylinsdk \
 
-LIBS          +=  -L/usr/lib/ -lmouseclient  -ltouchpadclient -lXi -lgsettings-qt
+#LIBS          +=  -L/usr/lib/ -lmouseclient  -ltouchpadclient -lXi -lgsettings-qt
+LIBS            += -L/usr/lib/ -lXi -lgsettings-qt
 
 DESTDIR = ../..
 

@@ -876,37 +876,47 @@ change system settings</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="66"/>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="72"/>
+        <source>Defaultapp Settings</source>
+        <translation>默认应用设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="96"/>
+        <source>Call Defaultapp Settings</source>
+        <translation>默认应用设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="150"/>
         <source>Browser</source>
         <translation>浏览器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="109"/>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="193"/>
         <source>Mail</source>
         <translation>电子邮件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="152"/>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="236"/>
         <source>Image Viewer</source>
         <translation>图像查看器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="195"/>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="279"/>
         <source>Audio Player</source>
         <translation>音乐播放器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="238"/>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="322"/>
         <source>Video Player</source>
         <translation>视频播放器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="281"/>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="365"/>
         <source>Text Editor</source>
         <translation>文档编辑器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="329"/>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="413"/>
         <source>Reset to default</source>
         <translation>重置默认</translation>
     </message>
@@ -949,22 +959,22 @@ folder will be deleted!</source>
         <translation>显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.cpp" line="433"/>
+        <location filename="../../../plugins/system/display/display.cpp" line="460"/>
         <source>Normal</source>
         <translation>正常</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.cpp" line="434"/>
+        <location filename="../../../plugins/system/display/display.cpp" line="461"/>
         <source>Left</source>
         <translation>左</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.cpp" line="435"/>
+        <location filename="../../../plugins/system/display/display.cpp" line="462"/>
         <source>Right</source>
         <translation>右</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.cpp" line="436"/>
+        <location filename="../../../plugins/system/display/display.cpp" line="463"/>
         <source>Upside-down</source>
         <translation>上下颠倒</translation>
     </message>
@@ -1124,144 +1134,154 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="72"/>
+        <source>Keyboard Settings</source>
+        <translation>键盘设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="96"/>
+        <source>Call Keyboard Settings</source>
+        <translation>键盘设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="156"/>
         <source>Keys Settings</source>
         <translation>按键设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="96"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="180"/>
         <source>Activate repeat keys</source>
         <translation>启用按键重复</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="131"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="215"/>
         <source>Delay</source>
         <translation>延时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="159"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="243"/>
         <source>Short</source>
         <translation>短</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="188"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="272"/>
         <source>Long</source>
         <translation>长</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="236"/>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="438"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="320"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="522"/>
         <source>Speed</source>
         <translation>移动速度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="264"/>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="466"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="348"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="550"/>
         <source>Slow</source>
         <translation>慢</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="293"/>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="495"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="377"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="579"/>
         <source>Fast</source>
         <translation>快</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="329"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="413"/>
         <source>To test the repetition rate of the input character:</source>
         <translation>输入字符测试重复速度：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="379"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="463"/>
         <source>Cursor Blinking</source>
         <translation>光标闪烁</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="403"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="487"/>
         <source>Activate cursor blinks in text fields</source>
         <translation>启用文本区域中的光标闪烁</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="542"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="626"/>
         <source>Keyboard Layout</source>
         <translation>键盘布局</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="566"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="650"/>
         <source>Keyboard layout</source>
         <translation>键盘布局</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="620"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="704"/>
         <source>preview</source>
         <translation>预览</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="639"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="723"/>
         <source>layout manager</source>
         <translation>布局管理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="683"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="767"/>
         <source>Related settings</source>
         <translation>相关设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="701"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="785"/>
         <source>shortcuts settings</source>
         <translation>快捷键设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="764"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="848"/>
         <source>Shortcuts Settings</source>
         <translation>快捷键设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="794"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="878"/>
         <source>Accept</source>
         <translation>接受</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="813"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="897"/>
         <source>Restores</source>
         <translation>还原</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="832"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="916"/>
         <source>Use Default</source>
         <translation>使用默认值</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="864"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="948"/>
         <source>Add</source>
         <translation>添加</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="883"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="967"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.cpp" line="252"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.cpp" line="259"/>
         <source>Function Desc</source>
         <translation>功能说明</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.cpp" line="252"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.cpp" line="259"/>
         <source>Shortcut Keys</source>
         <translation>热键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.cpp" line="293"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.cpp" line="300"/>
         <source>Desktop Shortcut</source>
         <translation>桌面快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.cpp" line="456"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.cpp" line="463"/>
         <source>Custom Shortcut</source>
         <translation>自定义快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="913"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="997"/>
         <source>show system shortcuts</source>
         <translation>显示系统快捷键</translation>
     </message>
@@ -1647,36 +1667,46 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="72"/>
+        <source>Mouse Settings</source>
+        <translation>鼠标设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="96"/>
+        <source>Call Mouse Settings</source>
+        <translation>鼠标设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="156"/>
         <source>Mouse Key Settings</source>
         <translation>鼠标键设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="108"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="192"/>
         <source>Main button</source>
         <translation>鼠标键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="118"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="202"/>
         <source>right hand</source>
         <translation>惯用右手</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="144"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="228"/>
         <source>left hand</source>
         <translation>惯用左手</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="192"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="276"/>
         <source>Mouse wheel</source>
         <translation>鼠标滚轮</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="231"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="315"/>
         <source>Move the pointer as it hover over the inactive window</source>
         <translation>当指针悬停在非活动窗口上方时对其进行滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="301"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="385"/>
         <source>Cursor Settiings</source>
         <translation>指针设置</translation>
     </message>
@@ -1685,127 +1715,127 @@ folder will be deleted!</source>
         <translation type="obsolete">指针主题</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="337"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="421"/>
         <source>Cursor themes</source>
         <translation>指针主题</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="417"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="501"/>
         <source>Speed</source>
         <translation>移动速度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="445"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="529"/>
         <source>Slow</source>
         <translation>慢</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="496"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="580"/>
         <source>Fast</source>
         <translation>快</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="541"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="625"/>
         <source>Sensitivity</source>
         <translation>敏感度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="569"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="653"/>
         <source>Low</source>
         <translation>低</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="620"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="704"/>
         <source>High</source>
         <translation>高</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="665"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="749"/>
         <source>Visibility</source>
         <translation>可见性</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="675"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="759"/>
         <source>Hide pointers while typing</source>
         <translation>在打字时隐藏指针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="698"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="782"/>
         <source>Show position of pointer when the Control key is pressed</source>
         <translation>按Ctrl键时显示指针位置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="742"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="826"/>
         <source>Related settings</source>
         <translation>相关设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="757"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="841"/>
         <source>touchpad settings</source>
         <translation>触摸板设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="784"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="868"/>
         <source>cursor settings</source>
         <translation>光标设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="847"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="931"/>
         <source>Touchpad Settings</source>
         <translation>触摸板设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="871"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="955"/>
         <source>Enabled touchpad</source>
         <translation>启用触摸板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="923"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1007"/>
         <source>General Settings</source>
         <translation>通用设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="941"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1025"/>
         <source>Disable touchpad while typing</source>
         <translation>打字时禁用触摸板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="968"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1052"/>
         <source>Enable mouse clicks with touchpad</source>
         <translation>启用触摸板的点击功能</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="997"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1081"/>
         <source>Disable rolling:</source>
         <translation>禁用滚动：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1040"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1124"/>
         <source>Vertical &amp;edge scrolling</source>
         <translation>垂直边界滚动（&amp;E）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1050"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1134"/>
         <source>&amp;Horizontal edge scrolling</source>
         <translation>水平边界滚动（&amp;H）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1060"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1144"/>
         <source>&amp;Vertical two-finger scrolling</source>
         <translation>垂直双指滚动（&amp;V）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1070"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1154"/>
         <source>Horizontal two-&amp;finger scrolling</source>
         <translation>水平双指滚动（&amp;F）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1152"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1236"/>
         <source>Cursor And Pointersize</source>
         <translation>光标和指针大小</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1177"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1261"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -1814,42 +1844,42 @@ p, li { white-space: pre-wrap; }
         <translation>使光标和指针更易于查看</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1228"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1312"/>
         <source>Change Cursor Weight</source>
         <translation>更改光标粗细</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1252"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1336"/>
         <source>thin</source>
         <translation>细</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1275"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1359"/>
         <source>coarse</source>
         <translation>粗</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1357"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1441"/>
         <source>Change Pointersize</source>
         <translation>更改指针大小</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1375"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1459"/>
         <source>smaller - 100%(default)</source>
         <translation>较小 - 100%（默认）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1385"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1469"/>
         <source>medium - 125%</source>
         <translation>中等 - 125%</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1395"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1479"/>
         <source>larger - 150%</source>
         <translation>较大 - 150%</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1438"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.ui" line="1522"/>
         <source>Reset</source>
         <translation>重置</translation>
     </message>
@@ -1859,8 +1889,8 @@ p, li { white-space: pre-wrap; }
         <translation>鼠标</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.cpp" line="71"/>
-        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.cpp" line="327"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.cpp" line="73"/>
+        <location filename="../../../plugins/devices/mousecontrol/mousecontrol.cpp" line="329"/>
         <source>Default</source>
         <translation>默认主题</translation>
     </message>
@@ -2111,12 +2141,12 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../../../plugins/devices/printer/printer.ui" line="72"/>
-        <location filename="../../../plugins/devices/printer/printer.ui" line="99"/>
+        <location filename="../../../plugins/devices/printer/printer.ui" line="102"/>
         <source>Add printers and scanners</source>
         <translation>添加打印机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/printer/printer.ui" line="143"/>
+        <location filename="../../../plugins/devices/printer/printer.ui" line="146"/>
         <source>List of existing printers</source>
         <translation>可用打印机列表</translation>
     </message>
@@ -2854,12 +2884,12 @@ p, li { white-space: pre-wrap; }
         <translation>恢复默认背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="101"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="104"/>
         <source>wallpaper</source>
         <translation>平铺</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="96"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="99"/>
         <source>picture</source>
         <translation>图片</translation>
     </message>
@@ -2869,42 +2899,40 @@ p, li { white-space: pre-wrap; }
         <translation>桌面背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="96"/>
         <source>slideshow</source>
-        <translation>幻灯片放映</translation>
+        <translation type="vanished">幻灯片放映</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="96"/>
         <source>color</source>
-        <translation>纯色</translation>
+        <translation type="vanished">纯色</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="101"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="104"/>
         <source>centered</source>
         <translation>居中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="101"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="104"/>
         <source>scaled</source>
         <translation>比例放大</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="101"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="104"/>
         <source>stretched</source>
         <translation>伸展</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="101"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="104"/>
         <source>zoom</source>
         <translation>缩放</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="101"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="104"/>
         <source>spanned</source>
         <translation>适合宽度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="135"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="138"/>
         <source>%1</source>
         <translation></translation>
     </message>

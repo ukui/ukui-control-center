@@ -7,8 +7,10 @@
 
 #include <QWidget>
 
-#include "kylin-keyboard-interface.h"
-#include "kylin-interface-interface.h"
+#include <QProcess>
+
+//#include "kylin-keyboard-interface.h"
+//#include "kylin-interface-interface.h"
 #include <QGSettings/QGSettings>
 
 #include "../../pluginsComponent/switchbutton.h"

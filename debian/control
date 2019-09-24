@@ -10,7 +10,6 @@ Build-Depends: debhelper (>= 11),
                 libglib2.0-dev,
                 libmate-desktop-dev,
                 libdbus-glib-1-dev,
-                kylin-system-api,
                 libqt5x11extras5-dev,
                 libxklavier-dev,
                 libmatekbd-dev
@@ -21,6 +20,7 @@ Vcs-Git: https://github.com/explorer-cs/ukui-control-center
 
 Package: ukui-control-center
 Architecture: any
+Suggests: kylin-system-api
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: utilities to configure the UKUI desktop
  The UKUI control center contains configuration applets for the UKUI desktop,

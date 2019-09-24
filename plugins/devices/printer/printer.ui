@@ -74,6 +74,9 @@
          <property name="scaledContents">
           <bool>true</bool>
          </property>
+         <property name="stylesize" stdset="0">
+          <string notr="true">title1#</string>
+         </property>
         </widget>
        </item>
        <item>
@@ -144,6 +147,9 @@
          </property>
          <property name="scaledContents">
           <bool>true</bool>
+         </property>
+         <property name="stylesize" stdset="0">
+          <string notr="true">title1#</string>
          </property>
         </widget>
        </item>
