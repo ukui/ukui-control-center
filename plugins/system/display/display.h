@@ -6,6 +6,7 @@
 #include "mainui/interface.h"
 
 #include "../../pluginsComponent/customwidget.h"
+#include "../../pluginsComponent/switchbutton.h"
 
 #include <QGraphicsScene>
 #include <QProcess>
@@ -73,11 +74,23 @@ public:
     void component_init();
     void status_init();
 
+    void rebuild_ui();
+    void rebuild_view();
+    void rebuild_mirror_monitor();
+    void rebuild_monitor_switchbtn();
+    void rebuild_image_switchbtn();
     void rebuild_monitor_combo();
     void rebuild_resolution_combo();
     void rebuild_rotation_combo();
     void rebuild_refresh_combo();
 
+    gboolean _output_overlaps();
+    void layout_outputs_horizontally();
+    gboolean _get_clone_size(int *width, int *height);
+    gboolean _output_info_supports_mode(MateRROutputInfo * info, int width, int height);
+    gboolean _mirror_screen_is_supported();
+    int _active_output_count();
+    void _select_resolution_for_current_output();
     MateRROutputInfo * _get_output_for_window (MateRRConfig *configuration, GdkWindow *window);
     MateRRMode ** _get_current_modes();
     void _realign_output_after_resolution_changed(MateRROutputInfo * output_changed, int oldwidth, int oldheight);
@@ -96,11 +109,20 @@ private:
     int pluginType;
     CustomWidget * pluginWidget;
 
+    QGraphicsScene * scene;
+
     GSettings  * brightnessgsettings;
 
     Monitor monitor;
 
+    SwitchButton * activemonitorBtn;
+    SwitchButton * mirrormonitorBtn;
+
 private slots:
+    void monitor_active_changed_slot();
+    void mirror_monitor_changed_slot();
+    void set_primary_clicked_slot();
+
     void brightness_value_changed_slot(int value);
     void refresh_changed_slot(int index);
     void rotation_changed_slot(int index);

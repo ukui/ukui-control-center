@@ -139,6 +139,44 @@
     </message>
 </context>
 <context>
+    <name>AddShortcut</name>
+    <message>
+        <location filename="../../../plugins/devices/keyboardcontrol/addshortcut.ui" line="26"/>
+        <source>Add Shortcut</source>
+        <translation>添加快捷键</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboardcontrol/addshortcut.ui" line="70"/>
+        <source>Program name</source>
+        <translation>程序名称</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboardcontrol/addshortcut.ui" line="131"/>
+        <source>Program exec</source>
+        <translation>程序路径</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboardcontrol/addshortcut.ui" line="166"/>
+        <source>Open</source>
+        <translation>打开</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboardcontrol/addshortcut.ui" line="234"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboardcontrol/addshortcut.ui" line="256"/>
+        <source>Certain</source>
+        <translation>确定</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboardcontrol/addshortcut.cpp" line="56"/>
+        <source>selsect desktop</source>
+        <translation>选择desktop</translation>
+    </message>
+</context>
+<context>
     <name>Area</name>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="26"/>
@@ -906,27 +944,27 @@ folder will be deleted!</source>
 <context>
     <name>DisplaySet</name>
     <message>
-        <location filename="../../../plugins/system/display/display.cpp" line="25"/>
+        <location filename="../../../plugins/system/display/display.cpp" line="27"/>
         <source>display</source>
         <translation>显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.cpp" line="236"/>
+        <location filename="../../../plugins/system/display/display.cpp" line="433"/>
         <source>Normal</source>
         <translation>正常</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.cpp" line="237"/>
+        <location filename="../../../plugins/system/display/display.cpp" line="434"/>
         <source>Left</source>
         <translation>左</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.cpp" line="238"/>
+        <location filename="../../../plugins/system/display/display.cpp" line="435"/>
         <source>Right</source>
         <translation>右</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.cpp" line="239"/>
+        <location filename="../../../plugins/system/display/display.cpp" line="436"/>
         <source>Upside-down</source>
         <translation>上下颠倒</translation>
     </message>
@@ -944,32 +982,47 @@ folder will be deleted!</source>
         <translation>更改显示器外观</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="193"/>
+        <location filename="../../../plugins/system/display/display.ui" line="162"/>
+        <source>Open monitor</source>
+        <translation>开启显示器</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/display.ui" line="182"/>
+        <source>Same image in all monitor</source>
+        <translation>所有显示器显示主屏幕图像</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/display.ui" line="266"/>
         <source>Screen brightness</source>
         <translation>屏幕亮度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="305"/>
+        <location filename="../../../plugins/system/display/display.ui" line="389"/>
         <source>Monitor</source>
         <translation>显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="359"/>
+        <location filename="../../../plugins/system/display/display.ui" line="427"/>
+        <source>Set as Primary</source>
+        <translation>设为主屏</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/display.ui" line="488"/>
         <source>Resolution</source>
         <translation>分辨率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="413"/>
+        <location filename="../../../plugins/system/display/display.ui" line="568"/>
         <source>Refresh</source>
         <translation>刷新率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="467"/>
+        <location filename="../../../plugins/system/display/display.ui" line="648"/>
         <source>Direction</source>
         <translation>方向</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="514"/>
+        <location filename="../../../plugins/system/display/display.ui" line="710"/>
         <source>Apply</source>
         <translation>应用</translation>
     </message>
@@ -1188,17 +1241,27 @@ folder will be deleted!</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="893"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.cpp" line="252"/>
         <source>Function Desc</source>
         <translation>功能说明</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="898"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.cpp" line="252"/>
         <source>Shortcut Keys</source>
         <translation>热键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="924"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.cpp" line="293"/>
+        <source>Desktop Shortcut</source>
+        <translation>桌面快捷键</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.cpp" line="456"/>
+        <source>Custom Shortcut</source>
+        <translation>自定义快捷键</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.ui" line="913"/>
         <source>show system shortcuts</source>
         <translation>显示系统快捷键</translation>
     </message>
@@ -1207,7 +1270,7 @@ folder will be deleted!</source>
         <translation type="vanished">显示系统快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.cpp" line="35"/>
+        <location filename="../../../plugins/devices/keyboardcontrol/keyboardcontrol.cpp" line="70"/>
         <source>keyboardcontrol</source>
         <translation>键盘</translation>
     </message>

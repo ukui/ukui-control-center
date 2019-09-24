@@ -5,6 +5,8 @@
 
 #include <QDebug>
 
+static void screen_changed();
+
 time_t bak_timestamp = 0;
 
 typedef struct _ResolutionValue{
@@ -123,14 +125,227 @@ void DisplaySet::monitor_init(){
 //    monitor.labeler = mate_rr_labeler_new(monitor.current_configuration);
 
     monitor.current_output = _get_output_for_window (monitor.current_configuration, gtk_widget_get_window(monitor.window));
+
+    g_signal_connect(monitor.screen, "changed", G_CALLBACK(screen_changed), NULL);
 }
 
+static void screen_changed(){
+    qDebug() << "----------666----->";
+}
+
+int DisplaySet::_active_output_count(){
+    int monitor_num = 0;
+    MateRROutputInfo **outputs;
+
+    outputs = mate_rr_config_get_outputs (monitor.current_configuration);
+    for (int i = 0; outputs[i] != NULL; ++i){
+        MateRROutputInfo *output = outputs[i];
+        if (mate_rr_output_info_is_active(output)){
+            monitor_num++; //获取当前活动的显示器个数
+        }
+    }
+    return monitor_num;
+}
+
+void DisplaySet::rebuild_ui(){
+    int monitor_num = 0;
+    MateRROutputInfo **outputs;
+
+    outputs = mate_rr_config_get_outputs (monitor.current_configuration);
+    for (int i = 0; outputs[i] != NULL; ++i){
+        MateRROutputInfo *output = outputs[i];
+        if (mate_rr_output_info_is_connected(output)){
+            monitor_num++; //获取当前连接的显示器个数
+        }
+    }
+
+    if (monitor_num > 1){
+        ui->multipleWidget->show();
+        ui->primaryBtn->show();
+
+        rebuild_monitor_switchbtn();
+        rebuild_mirror_monitor();
+
+        //设置主屏按钮敏感性
+        ui->primaryBtn->setEnabled(monitor.current_output && !mate_rr_output_info_get_primary(monitor.current_output));
+
+    }
+    else{
+        ui->multipleWidget->hide();
+        ui->primaryBtn->hide();
+    }
+
+    rebuild_monitor_combo();
+    rebuild_resolution_combo();
+    rebuild_refresh_combo();
+    rebuild_rotation_combo();
+
+    rebuild_view();
+}
+
+void DisplaySet::rebuild_view(){
+    scene->clear();
+
+    QGraphicsRectItem * item = new QGraphicsRectItem(QRectF(100, 30, 238, 110));
+    QPen pen;
+    pen.setWidth(3);
+    pen.setColor(QColor("#0078d7"));
+    item->setPen(pen);
+    item->setBrush(QColor("#1E90FF"));
+    item->setFlag(QGraphicsItem::ItemIsMovable);
+    scene->addItem(item);
+}
+
+void DisplaySet::rebuild_monitor_switchbtn(){
+    bool sensitive;
+    bool active;
+
+    activemonitorBtn->blockSignals(true);
+
+    sensitive = false;
+    active = false;
+
+    if (!mate_rr_config_get_clone (monitor.current_configuration) && monitor.current_output){
+//        if (_active_output_count() > 1 || !mate_rr_output_info_is_active (monitor.current_output))
+//            sensitive = true;
+//        else
+//            sensitive = false;
+
+        active = mate_rr_output_info_is_active (monitor.current_output);
+    }
+
+    activemonitorBtn->setChecked(active);
+
+//    activemonitorBtn->setEnabled(sensitive);
+
+    activemonitorBtn->blockSignals(false);
+}
+
+gboolean DisplaySet::_get_clone_size(int *width, int *height){
+
+    MateRRMode **modes = mate_rr_screen_list_clone_modes (monitor.screen);
+    int best_w, best_h;
+
+    best_w = 0;
+    best_h = 0;
+
+    for (int i = 0; modes[i] != NULL; ++i) {
+            MateRRMode *mode = modes[i];
+            int w, h;
+
+            w = mate_rr_mode_get_width (mode);
+            h = mate_rr_mode_get_height (mode);
+
+            if (w * h > best_w * best_h) {
+                    best_w = w;
+                    best_h = h;
+            }
+    }
+
+    if (best_w > 0 && best_h > 0) {
+            if (width)
+                    *width = best_w;
+            if (height)
+                    *height = best_h;
+
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+gboolean DisplaySet::_output_info_supports_mode(MateRROutputInfo *info, int width, int height){
+    MateRROutput *output;
+    MateRRMode **modes;
+
+    if (!mate_rr_output_info_is_connected (info))
+        return FALSE;
+
+    output = mate_rr_screen_get_output_by_name (monitor.screen, mate_rr_output_info_get_name (info));
+    if (!output)
+        return FALSE;
+
+    modes = mate_rr_output_list_modes (output);
+
+    for (int i = 0; modes[i]; i++) {
+        int tmp_width, tmp_height;
+        tmp_width = mate_rr_mode_get_width(modes[i]); tmp_height = mate_rr_mode_get_width(modes[i]);
+        if (tmp_width == width && tmp_height == height)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+/* Computes whether "Mirror Screens" (clone mode) is supported based on these criteria:
+ *
+ * 1. There is an available size for cloning.
+ *
+ * 2. There are 2 or more connected outputs that support that size.
+ */
+gboolean DisplaySet::_mirror_screen_is_supported(){
+    int clone_width, clone_height;
+    gboolean have_clone_size;
+    gboolean mirror_is_supported;
+
+    mirror_is_supported = FALSE;
+
+    have_clone_size = _get_clone_size(&clone_width, &clone_height);
+
+    if (have_clone_size) {
+        int num_outputs_with_clone_size;
+        MateRROutputInfo **outputs = mate_rr_config_get_outputs (monitor.current_configuration);
+
+        num_outputs_with_clone_size = 0;
+
+        for (int i = 0; outputs[i] != NULL; i++)
+        {
+            /* We count the connected outputs that support the clone size.  It
+         * doesn't matter if those outputs aren't actually On currently; we
+         * will turn them on in on_clone_changed().
+         */
+            if (mate_rr_output_info_is_connected (outputs[i]) && _output_info_supports_mode (outputs[i], clone_width, clone_height))
+                num_outputs_with_clone_size++;
+        }
+
+        if (num_outputs_with_clone_size >= 2)
+            mirror_is_supported = TRUE;
+    }
+
+    return mirror_is_supported;
+}
+
+void DisplaySet::rebuild_mirror_monitor(){
+    gboolean is_active;
+    gboolean is_supported;
+
+    mirrormonitorBtn->blockSignals(true);
+
+    is_active = monitor.current_configuration && mate_rr_config_get_clone(monitor.current_configuration);
+
+    if (is_active)
+        mirrormonitorBtn->setChecked(TRUE);
+    else
+        mirrormonitorBtn->setChecked(FALSE);
+
+    is_supported = is_active || _mirror_screen_is_supported();
+
+    if (is_supported)
+        mirrormonitorBtn->setEnabled(true);
+    else
+        mirrormonitorBtn->setEnabled(false);
+
+    mirrormonitorBtn->blockSignals(false);
+}
 
 void DisplaySet::rebuild_monitor_combo(){
-    ui->monitorComboBox->clear();
     //monitor init
     int monitor_num = 0;
     MateRROutputInfo **outputs;
+
+    ui->monitorComboBox->blockSignals(true); //阻塞
+
+    ui->monitorComboBox->clear();
 
     outputs = mate_rr_config_get_outputs (monitor.current_configuration);
     for (int i = 0; outputs[i] != NULL; ++i){
@@ -150,14 +365,19 @@ void DisplaySet::rebuild_monitor_combo(){
         QString monitorname = QString(mate_rr_output_info_get_display_name (monitor.current_output)) + QString(mate_rr_output_info_get_name (monitor.current_output));
         ui->monitorComboBox->setCurrentText(monitorname);
     }
+
+    ui->monitorComboBox->blockSignals(false);
 }
 
 void DisplaySet::rebuild_resolution_combo(){
-    ui->resolutionComboBox->clear();
     //resolution init
     QStringList resolutionStringList;
 
     MateRRMode ** modes;
+
+    ui->resolutionComboBox->blockSignals(true);
+
+    ui->resolutionComboBox->clear();
 
     if (!(modes = _get_current_modes ()) || !monitor.current_output || !mate_rr_output_info_is_active (monitor.current_output)){
         ui->resolutionComboBox->setEnabled(false);
@@ -189,13 +409,17 @@ void DisplaySet::rebuild_resolution_combo(){
     mate_rr_output_info_get_geometry (monitor.current_output, NULL, NULL, &output_width, &output_height);
     QString current = QString::number(output_width) + "*" + QString::number(output_height);
     ui->resolutionComboBox->setCurrentText(current);
+
+    ui->resolutionComboBox->blockSignals(false);
 }
 
 void DisplaySet::rebuild_refresh_combo(){
-    ui->refreshComboBox->clear();
-
     MateRRMode ** modes;
     QList<int> rateList;
+
+    ui->refreshComboBox->blockSignals(true);
+
+    ui->refreshComboBox->clear();
 
     if (!monitor.current_output || !(modes = _get_current_modes()) || !mate_rr_output_info_is_active(monitor.current_output)){
         ui->refreshComboBox->setEnabled(false);
@@ -221,11 +445,11 @@ void DisplaySet::rebuild_refresh_combo(){
         }
         ui->refreshComboBox->setCurrentText(QString("%1 Hz").arg(mate_rr_output_info_get_refresh_rate(monitor.current_output)));
     }
+
+    ui->refreshComboBox->blockSignals(false);
 }
 
 void DisplaySet::rebuild_rotation_combo(){
-    ui->rotationComboBox->clear();
-
     //rotation init
     QString selection = NULL;
     typedef struct{
@@ -239,6 +463,9 @@ void DisplaySet::rebuild_rotation_combo(){
     { MATE_RR_ROTATION_180, tr("Upside-down") },
     };
 
+    ui->rotationComboBox->clear();
+
+    ui->rotationComboBox->blockSignals(true);
 
     ui->rotationComboBox->setEnabled(monitor.current_output && mate_rr_output_info_is_active (monitor.current_output));
     if (monitor.current_output){
@@ -262,13 +489,25 @@ void DisplaySet::rebuild_rotation_combo(){
         ui->rotationComboBox->setCurrentText(selection);
     }
 
+    ui->rotationComboBox->blockSignals(false);
+
 }
 
 void DisplaySet::component_init(){
-    rebuild_monitor_combo();
-    rebuild_resolution_combo();
-    rebuild_refresh_combo();
-    rebuild_rotation_combo();
+    activemonitorBtn = new SwitchButton(pluginWidget);
+    ui->enableHLayout->addWidget(activemonitorBtn);
+    ui->enableHLayout->addStretch();
+
+    mirrormonitorBtn = new SwitchButton(pluginWidget);
+    ui->mirrorHLayout->addWidget(mirrormonitorBtn);
+    ui->mirrorHLayout->addStretch();
+
+    scene = new QGraphicsScene;
+    scene->setSceneRect(0, 0, ui->graphicsView->width()-2, ui->graphicsView->height()-2);
+
+    ui->graphicsView->setScene(scene);
+
+    rebuild_ui();
 
     ui->brightnessWidget->setVisible(support_brightness());
 }
@@ -280,6 +519,9 @@ void DisplaySet::status_init(){
     value = g_settings_get_double(brightnessgsettings, BRIGHTNESS_AC_KEY);
     ui->brightnessHSlider->setValue((int)value);
     ui->brightnessLabel->setText(QString("%1%").arg((int)value));
+
+    connect(activemonitorBtn, SIGNAL(checkedChanged(bool)), this, SLOT(monitor_active_changed_slot()));
+    connect(ui->primaryBtn, SIGNAL(clicked(bool)), this, SLOT(set_primary_clicked_slot()));
 
     connect(ui->brightnessHSlider, SIGNAL(valueChanged(int)), this, SLOT(brightness_value_changed_slot(int)));
     connect(ui->rotationComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(refresh_changed_slot(int)));
@@ -348,6 +590,121 @@ bool DisplaySet::support_brightness(){
     return false;
 }
 
+gboolean DisplaySet::_output_overlaps(){
+    GdkRectangle output_rect;
+    MateRROutputInfo **outputs;
+
+    mate_rr_output_info_get_geometry (monitor.current_output, &output_rect.x, &output_rect.y, &output_rect.width, &output_rect.height);
+
+    outputs = mate_rr_config_get_outputs (monitor.current_configuration);
+    for (int i = 0; outputs[i]; ++i){
+        if (outputs[i] != monitor.current_output && mate_rr_output_info_is_connected (outputs[i])){
+
+            GdkRectangle other_rect;
+
+            mate_rr_output_info_get_geometry(outputs[i], &other_rect.x, &other_rect.y, &other_rect.width, &other_rect.height);
+            if (gdk_rectangle_intersect (&output_rect, &other_rect, NULL))
+                return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+void DisplaySet::layout_outputs_horizontally(){
+    int x;
+    MateRROutputInfo **outputs;
+
+    /* Lay out all the monitors horizontally when "mirror screens" is turned
+     * off, to avoid having all of them overlapped initially.  We put the
+     * outputs turned off on the right-hand side.
+     */
+
+    x = 0;
+
+    /* First pass, all "on" outputs */
+    outputs = mate_rr_config_get_outputs (monitor.current_configuration);
+
+    for (int i = 0; outputs[i]; ++i){
+        int width, height;
+
+        if (mate_rr_output_info_is_connected (outputs[i]) &&mate_rr_output_info_is_active (outputs[i])){
+            mate_rr_output_info_get_geometry (outputs[i], NULL, NULL, &width, &height);
+            mate_rr_output_info_set_geometry (outputs[i], x, 0, width, height);
+            x += width;
+        }
+    }
+
+    /* Second pass, all the black screens */
+
+    for (int i = 0; outputs[i]; ++i){
+        int width, height;
+
+        if (!(mate_rr_output_info_is_connected (outputs[i]) && mate_rr_output_info_is_active (outputs[i]))){
+            mate_rr_output_info_get_geometry (outputs[i], NULL, NULL, &width, &height);
+            mate_rr_output_info_set_geometry (outputs[i], x, 0, width, height);
+            x += width;
+        }
+    }
+}
+
+void DisplaySet::mirror_monitor_changed_slot(){
+    mate_rr_config_set_clone (monitor.current_configuration, mirrormonitorBtn->isChecked());
+
+    if (mate_rr_config_get_clone (monitor.current_configuration)){
+        int width, height;
+        MateRROutputInfo **outputs = mate_rr_config_get_outputs (monitor.current_configuration);
+
+        for (int i = 0; outputs[i]; ++i){
+            if (mate_rr_output_info_is_connected(outputs[i]))
+            {
+                monitor.current_output = outputs[i];
+                break;
+            }
+        }
+
+        /* Turn on all the connected screens that support the best clone mode.
+         * The user may hit "Mirror Screens", but he shouldn't have to turn on
+         * all the required outputs as well.
+         */
+
+        _get_clone_size (&width, &height);
+
+        for (int i = 0; outputs[i]; i++) {
+            int x, y;
+            if (_output_info_supports_mode (outputs[i], width, height)) {
+                mate_rr_output_info_set_active (outputs[i], TRUE);
+                mate_rr_output_info_get_geometry (outputs[i], &x, &y, NULL, NULL);
+                mate_rr_output_info_set_geometry (outputs[i], x, y, width, height);
+            }
+        }
+
+    }
+    else{ //关闭镜像模式
+//        if (output_overlaps (app->current_output, app->current_configuration))
+//            lay_out_outputs_horizontally (app);
+        if (_output_overlaps())
+            layout_outputs_horizontally();
+    }
+
+    rebuild_ui ();
+}
+
+void DisplaySet::monitor_active_changed_slot(){
+    if (!monitor.current_output)
+        return;
+
+    if (activemonitorBtn->isChecked()){
+        mate_rr_output_info_set_active(monitor.current_output, TRUE);
+
+        _select_resolution_for_current_output(); //重新设置最佳分辨率
+
+    }
+    else
+        mate_rr_output_info_set_active(monitor.current_output, FALSE);
+
+    rebuild_ui();
+}
+
 void DisplaySet::brightness_value_changed_slot(int value){
     ui->brightnessLabel->setText(QString("%1%").arg(value));
     g_settings_set_double(brightnessgsettings, BRIGHTNESS_AC_KEY, (double)value);
@@ -366,6 +723,41 @@ void DisplaySet::rotation_changed_slot(int index){
         rotation = (ui->rotationComboBox->itemData(index)).value<MateRRRotation>();
         mate_rr_output_info_set_rotation(monitor.current_output, rotation);
     }
+}
+
+void DisplaySet::_select_resolution_for_current_output(){
+    MateRRMode **modes;
+    int width, height;
+    int x, y;
+
+    mate_rr_output_info_get_geometry (monitor.current_output, &x, &y, NULL, NULL);
+
+    width = mate_rr_output_info_get_preferred_width (monitor.current_output);
+    height = mate_rr_output_info_get_preferred_height (monitor.current_output);
+
+    if (width != 0 && height != 0){
+        mate_rr_output_info_set_geometry (monitor.current_output, x, y, width, height);
+        return;
+    }
+
+    modes = _get_current_modes ();
+    if (!modes)
+        return;
+
+    //find best
+    for (int i = 0; modes[i] != NULL; i++){
+        int w, h;
+
+        w = mate_rr_mode_get_width (modes[i]);
+        h = mate_rr_mode_get_height (modes[i]);
+
+        if (w * h > width * height){
+            width = w;
+            height = h;
+        }
+    }
+
+    mate_rr_output_info_set_geometry (monitor.current_output, x, y, width, height);
 }
 
 void DisplaySet::_realign_output_after_resolution_changed(MateRROutputInfo *output_changed, int oldwidth, int oldheight){
@@ -406,6 +798,20 @@ void DisplaySet::_realign_output_after_resolution_changed(MateRROutputInfo *outp
         }
 
     }
+}
+
+void DisplaySet::set_primary_clicked_slot(){
+    MateRROutputInfo **outputs;
+
+    if (!monitor.current_output)
+        return;
+
+    outputs = mate_rr_config_get_outputs (monitor.current_configuration);
+    for (int i=0; outputs[i]!=NULL; i++) {
+        mate_rr_output_info_set_primary (outputs[i], outputs[i] == monitor.current_output);
+    }
+
+    ui->primaryBtn->setEnabled(!mate_rr_output_info_get_primary(monitor.current_output));
 }
 
 void DisplaySet::resolution_changed_slot(int index){

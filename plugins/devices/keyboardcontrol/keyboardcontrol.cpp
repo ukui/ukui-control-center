@@ -85,6 +85,11 @@ KeyboardControl::KeyboardControl()
     adddialog = new AddShortcut();
     keymapobj = new KeyMap();
 
+    //隐藏
+    ui->pushButton->hide();
+    ui->pushButton_4->hide();
+    ui->pushButton_5->hide();
+    ui->pushButton_8->hide();
 
     //设置按键
     InitDBusKeyboard();
@@ -105,9 +110,9 @@ KeyboardControl::~KeyboardControl()
 
     delete keymapobj;
 
-    for (KeyEntry * keyentry: desktopEntries){
-        delete keyentry;
-    }
+//    for (KeyEntry * keyentry: desktopEntries){
+//        delete keyentry;
+//    }
 
 //    for (KeyEntry * keyentry: systemEntries){
 //        delete keyentry;

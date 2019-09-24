@@ -20,6 +20,9 @@ Wallpaper::Wallpaper()
     //构建xmlhandle对象，本地xml文件不存在则自动构建
     xmlhandleObj = new XmlHandle();
 
+    ui->addPushBtn->hide();
+    ui->delPushBtn->hide();
+
     initData();
     component_init();
 
@@ -93,7 +96,7 @@ void Wallpaper::component_init(){
 
         //背景形式
         QStringList formList;
-        formList << tr("picture") << tr("slideshow") << tr("color");
+        formList << tr("picture")/* << tr("slideshow") << tr("color")*/;
         ui->formComboBox->addItems(formList);
 
         //壁纸放置方式
