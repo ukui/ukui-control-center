@@ -1593,6 +1593,7 @@ init_capplet (void)
     gtk_widget_hide(fullscreen_preview_next);
 
     g_signal_connect(preview, "draw", G_CALLBACK(show_preview), NULL);
+    g_signal_connect(fullscreen_preview_area, "draw", G_CALLBACK(show_preview), NULL);
 
     label              = GTK_WIDGET (gtk_builder_get_object (builder, "activate_delay_label"));
     gtk_label_set_xalign(GTK_LABEL(label), 0.0);
