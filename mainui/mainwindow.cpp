@@ -7,6 +7,14 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //设置panel图标
+    QIcon panelicon;
+    if (QIcon::hasThemeIcon("applications-system"))
+        panelicon = QIcon::fromTheme("applications-system");
+    else
+        panelicon = QIcon("://applications-system.svg");
+    this->setWindowIcon(panelicon);
+
     //background color
     QPalette bgPalette;
     bgPalette.setBrush(QPalette::Window, QBrush(Qt::gray));
@@ -31,7 +39,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lineEdit->hide();
 
     connect(ui->minBtn, SIGNAL(clicked()), this, SLOT(showMinimized()));
-    connect(ui->closeBtn, SIGNAL(clicked(bool)), this, SLOT(close()));
+//    connect(ui->closeBtn, SIGNAL(clicked(bool)), this, SLOT(close()));
+    connect(ui->closeBtn, &QToolButton::clicked, this, [=]{qApp->exit();});
 
     loadPlugins();
 

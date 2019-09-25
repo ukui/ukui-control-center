@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -54,7 +54,8 @@ HEADERS += \
     mainpagewidget.h \
     mainComponent/custdomlabel.h \
     mainComponent/custdomframe.h \
-    mainComponent/listwidgetitem.h
+    mainComponent/listwidgetitem.h \
+    kpplication.h
 
 FORMS += \
         mainwindow.ui \
@@ -65,3 +66,9 @@ RESOURCES += \
     res/img.qrc
 
 DISTFILES +=
+
+INCLUDEPATH += qtsingleapplication
+DEPENDPATH += qtsingleapplication
+
+SOURCES += qtsingleapplication/qtsingleapplication.cpp qtsingleapplication/qtlocalpeer.cpp
+HEADERS += qtsingleapplication/qtsingleapplication.h qtsingleapplication/qtlocalpeer.h

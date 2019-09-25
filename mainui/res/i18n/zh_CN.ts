@@ -1581,7 +1581,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../mainwindow.ui" line="26"/>
         <source>MainWindow</source>
-        <translation></translation>
+        <translation>控制面板</translation>
     </message>
     <message>
         <location filename="../../mainwindow.ui" line="132"/>

@@ -31,6 +31,7 @@
         <file>title/minpress.png</file>
         <file>title/logo.png</file>
         <file>title/logo.svg</file>
+        <file>applications-system.svg</file>
     </qresource>
     <qresource prefix="/dynamic">
         <file>leftsidebar/display.png</file>

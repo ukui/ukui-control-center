@@ -3,16 +3,26 @@
 
 #include <QTranslator>
 
+#include "kpplication.h"
+
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+//    QApplication a(argc, argv);
+
+    Kpplication app("ukui-control-center", argc, argv);
+    app.setQuitOnLastWindowClosed(false);
+
+    app.setOrganizationName("KYLIN");
+    app.setApplicationName("ukui-control-center");
+    app.setApplicationVersion("2.0.0");
+
 
     //i18n
     QString locale = QLocale::system().name();
     QTranslator translator;
     if (locale == "zh_CN"){
         if (translator.load("zh_CN.qm", "://i18n/"))
-            a.installTranslator(&translator);
+            app.installTranslator(&translator);
         else
             qDebug() << "Load translations file" << locale << "failed!";
     }
@@ -28,8 +38,18 @@ int main(int argc, char *argv[])
         QssFile.close();
     }
 
+//    Kpplication * app_instance = Kpplication::instance();
+//    if (app_instance->isRunning()){
+//        app_instance->sendMessage("Already Running!");
+//        return 1;
+//    }
+    if (app.isRunning()){
+        return !app.sendMessage("Already Running!");
+    }
+
     MainWindow w;
+    app.setActivationWindow(&w);
     w.show();
 
-    return a.exec();
+    return app.exec();
 }
