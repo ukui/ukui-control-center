@@ -1,8 +1,11 @@
 ukui-control-center (2.0.0-1) unstable; urgency=medium
 
   * Migrate from gtk3.0 to Qt5.
+  * Debian:
+    - Bump standard version to 4.4.0.
+    - Bump compat level to 12.
 
- -- handsome_feng <jianfengli@ubuntukylin.com>  Mon, 16 Sep 2019 15:53:22 +0800
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Wed, 25 Sep 2019 14:50:26 +0800
 
 ukui-control-center (1.1.6-2) unstable; urgency=medium
 
