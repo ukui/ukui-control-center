@@ -1,0 +1,6 @@
+2.0.0
+  * migrate from gtk3 to qt5.
+1.1.0
+  * update gtk3 API
+0.0.1
+  * init.
