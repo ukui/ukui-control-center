@@ -66,12 +66,12 @@
         <file>leftsidebar/backup.svg</file>
         <file>leftsidebar/datetime.png</file>
         <file>leftsidebar/datetime.svg</file>
-        <file>leftsidebar/keyboard.png</file>
-        <file>leftsidebar/keyboard.svg</file>
+        <file>leftsidebar/keyboardcontrol.png</file>
+        <file>leftsidebar/keyboardcontrol.svg</file>
         <file>leftsidebar/loginoptions.png</file>
         <file>leftsidebar/loginoptions.svg</file>
-        <file>leftsidebar/mouse.png</file>
-        <file>leftsidebar/mouse.svg</file>
+        <file>leftsidebar/mousecontrol.png</file>
+        <file>leftsidebar/mousecontrol.svg</file>
         <file>leftsidebar/multitask.png</file>
         <file>leftsidebar/multitask.svg</file>
         <file>leftsidebar/netconnect.png</file>
@@ -90,63 +90,5 @@
         <file>leftsidebar/userinfo.svg</file>
         <file>leftsidebar/vpn.png</file>
         <file>leftsidebar/vpn.svg</file>
-    </qresource>
-    <qresource prefix="/dynamic" lang="zh_CN">
-        <file>leftsidebar/显示器.svg</file>
-        <file>leftsidebar/显示器.png</file>
-        <file>leftsidebar/电源.png</file>
-        <file>leftsidebar/电源.svg</file>
-        <file>leftsidebar/开机启动.png</file>
-        <file>leftsidebar/开机启动.svg</file>
-        <file>leftsidebar/默认应用程序.png</file>
-        <file>leftsidebar/默认应用程序.svg</file>
-        <file>leftsidebar/屏保.png</file>
-        <file>leftsidebar/屏保.svg</file>
-        <file>leftsidebar/任务栏.png</file>
-        <file>leftsidebar/任务栏.svg</file>
-        <file>leftsidebar/锁屏.png</file>
-        <file>leftsidebar/锁屏.svg</file>
-        <file>leftsidebar/主题.png</file>
-        <file>leftsidebar/主题.svg</file>
-        <file>leftsidebar/桌面背景.png</file>
-        <file>leftsidebar/桌面背景.svg</file>
-        <file>leftsidebar/字体.png</file>
-        <file>leftsidebar/字体.svg</file>
-        <file>leftsidebar/开始.svg</file>
-        <file>leftsidebar/开始.png</file>
-        <file>leftsidebar/备份.png</file>
-        <file>leftsidebar/备份.svg</file>
-        <file>leftsidebar/打印机.png</file>
-        <file>leftsidebar/打印机.svg</file>
-        <file>leftsidebar/代理.png</file>
-        <file>leftsidebar/代理.svg</file>
-        <file>leftsidebar/登录选项.png</file>
-        <file>leftsidebar/登录选项.svg</file>
-        <file>leftsidebar/更新.png</file>
-        <file>leftsidebar/更新.svg</file>
-        <file>leftsidebar/关于.png</file>
-        <file>leftsidebar/关于.svg</file>
-        <file>leftsidebar/恢复.png</file>
-        <file>leftsidebar/恢复.svg</file>
-        <file>leftsidebar/键盘.png</file>
-        <file>leftsidebar/键盘.svg</file>
-        <file>leftsidebar/区域和语言.png</file>
-        <file>leftsidebar/区域和语言.svg</file>
-        <file>leftsidebar/任务.png</file>
-        <file>leftsidebar/任务.svg</file>
-        <file>leftsidebar/声音.png</file>
-        <file>leftsidebar/声音.svg</file>
-        <file>leftsidebar/时间和日期.png</file>
-        <file>leftsidebar/时间和日期.svg</file>
-        <file>leftsidebar/鼠标.png</file>
-        <file>leftsidebar/鼠标.svg</file>
-        <file>leftsidebar/通知和操作.png</file>
-        <file>leftsidebar/通知和操作.svg</file>
-        <file>leftsidebar/网络连接.png</file>
-        <file>leftsidebar/网络连接.svg</file>
-        <file>leftsidebar/账户信息.png</file>
-        <file>leftsidebar/账户信息.svg</file>
-        <file>leftsidebar/VPN.svg</file>
-        <file>leftsidebar/VPN.png</file>
     </qresource>
 </RCC>

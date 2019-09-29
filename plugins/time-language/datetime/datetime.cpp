@@ -36,6 +36,10 @@ DateTime::DateTime()
     itimer->start(1000); //一秒
     connect(itimer, SIGNAL(timeout()), this, SLOT(datetime_update_slot()));
 
+    chtimer = new QTimer();
+    chtimer->setInterval(1000);
+    connect(chtimer, SIGNAL(timeout()), this, SLOT(sub_time_update_slot()));
+
     //初始化gsettings
     const QByteArray id(FORMAT_SCHEMA);
     formatsettings = new QGSettings(id);
@@ -189,9 +193,8 @@ void DateTime::status_init(){
 //    qDebug() << currenthourStr << currentminStr;
     ui->hourComboBox->setCurrentIndex(currenthourStr.toInt());
     ui->minComboBox->setCurrentIndex(currentminStr.toInt());
-    chtimer = new QTimer();
-    chtimer->start(1000);
-    connect(chtimer, SIGNAL(timeout()), this, SLOT(sub_time_update_slot()));
+
+    chtimer->start();
 
     connect(ui->changePushButton, &QPushButton::clicked, this, [=]{ui->StackedWidget->setCurrentIndex(1);});
 

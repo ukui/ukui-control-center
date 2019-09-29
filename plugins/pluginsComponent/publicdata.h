@@ -32,6 +32,9 @@ public:
     ~PublicData();
 
     QList<QStringList> subfuncList;
+    //列表中的字符经过国际化，但是qt资源文件使用中文文件名导致pbuilder编译报错，not found
+    //特别增加英文列表供左侧边栏的logo调用
+    QList<QStringList> en_subfuncList;
 
 };
 

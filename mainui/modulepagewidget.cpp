@@ -70,13 +70,14 @@ void ModulePageWidget::initUI(){
         QMap<QString, QObject *> funcMaps;
         funcMaps = pmainWindow->export_module(i);
         QStringList currentStringList = publicdata->subfuncList[i];
+        QStringList currentlogoStringList = publicdata->en_subfuncList[i];
 
         for (int num = 0; num < currentStringList.size(); num++){
             if (!funcMaps.contains(currentStringList.at(num)))
                 continue;
 
             ListWidgetItem * widgetitem = new ListWidgetItem(this);
-            widgetitem->setLabelPixmap(QString("://dynamic/leftsidebar/%1.svg").arg(currentStringList.at(num)));
+            widgetitem->setLabelPixmap(QString("://dynamic/leftsidebar/%1.svg").arg(currentlogoStringList.at(num)));
             widgetitem->setLabelText(currentStringList.at(num));
             QListWidgetItem * item = new QListWidgetItem(leftListWidget);
             item->setSizeHint(QSize(198,50));
