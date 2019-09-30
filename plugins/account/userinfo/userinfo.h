@@ -130,11 +130,11 @@ private:
 private slots:
     void show_change_pwd_dialog_slot(QString username);
     void change_pwd_slot(QString pwd, QString username);
-    void change_pwd_done_slot();
+//    void change_pwd_done_slot();
 
     void show_change_face_dialog_slot(QString username);
     void change_face_slot(QString facefile, QString username);
-    void change_face_done_slot();
+//    void change_face_done_slot();
 
     void show_change_accounttype_dialog_slot(QString username);
     void change_accounttype_slot(int atype, QString username, bool status);

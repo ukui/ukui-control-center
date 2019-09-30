@@ -79,8 +79,8 @@ private:
     QString computerinfo;
     QMap<QString, QString> infoMap;
 
-private slots:
-    void call_finished_slot(QDBusPendingCallWatcher * call);
+//private slots:
+//    void call_finished_slot(QDBusPendingCallWatcher * call);
 };
 
 #endif // ABOUT_H

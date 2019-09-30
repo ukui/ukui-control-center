@@ -129,7 +129,7 @@ private:
 
 private slots:
     void mode_changed_slot(bool checked);
-    void mode_changed_slot(int id);
+//    void mode_changed_slot(int id);
     void url_edit_changed_slot(QString edit);
     void ignore_host_edit_changed_slot();
     void manual_component_changed_slot(QString edit);

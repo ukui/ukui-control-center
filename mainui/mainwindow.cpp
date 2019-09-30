@@ -155,6 +155,10 @@ void MainWindow::loadPlugins(){
             CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(plugin);
             modulesList[pluginInstance->get_plugin_type()].insert(pluginInstance->get_plugin_name(), plugin);
         }
+        else {
+            if (fileName.endsWith(".so"))
+                qDebug() << fileName << "Load Faild: " << loader.errorString() << "\n";
+        }
     }
 
 //    QMap<QString, QObject *> tmpMaps;
