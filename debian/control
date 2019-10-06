@@ -15,9 +15,9 @@ Build-Depends: debhelper (>= 12),
                 libmatekbd-dev
 Standards-Version: 4.4.1
 Rules-Requires-Root: no
-Homepage: https://github.com/explorer-cs/ukui-control-center
-Vcs-Browser: https://github.com/explorer-cs/ukui-control-center.git
-Vcs-Git: https://github.com/explorer-cs/ukui-control-center
+Homepage: https://github.com/ukui/ukui-control-center
+Vcs-Browser: https://github.com/ukui/ukui-control-center
+Vcs-Git: https://github.com/ukui/ukui-control-center.git
 
 Package: ukui-control-center
 Architecture: any
