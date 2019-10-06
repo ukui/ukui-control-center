@@ -1,11 +1,16 @@
 ukui-control-center (2.0.0-1) unstable; urgency=medium
 
-  * Migrate from gtk3.0 to Qt5.
+  [ He Bing ]
+  * New upstream release.
+    - Migrate from gtk3.0 to Qt5.
+
+  [ handsome_feng ]
   * Debian:
     - Bump standard version to 4.4.0.
     - Bump compat level to 12.
+    - Fix some lintian warnings.
 
- -- handsome_feng <jianfengli@ubuntukylin.com>  Wed, 25 Sep 2019 14:50:26 +0800
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Sun, 06 Oct 2019 16:56:35 +0800
 
 ukui-control-center (1.1.6-2) unstable; urgency=medium
 

@@ -20,9 +20,9 @@ Vcs-Git: https://github.com/explorer-cs/ukui-control-center
 
 Package: ukui-control-center
 Architecture: any
-Suggests: kylin-system-api
+Suggests: ukui-interface
+Recommends: mate-control-center
 Depends: ${shlibs:Depends}, ${misc:Depends},
-         mate-control-center
 Description: utilities to configure the UKUI desktop
  The UKUI control center contains configuration applets for the UKUI desktop,
  allowing to set accessibility configuration, desktop fonts, keyboard
