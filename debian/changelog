@@ -6,7 +6,7 @@ ukui-control-center (2.0.0-1) unstable; urgency=medium
 
   [ handsome_feng ]
   * Debian:
-    - Bump standard version to 4.4.0.
+    - Bump standard version to 4.4.1.
     - Bump compat level to 12.
     - Fix some lintian warnings.
 
