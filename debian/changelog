@@ -11,7 +11,7 @@ ukui-control-center (2.0.0-1) unstable; urgency=medium
     - Fix some lintian warnings.
     - Add gsettings-desktop-schemas, mate-desktop-schemas,
       mate-desktop-common, ukui-session-manager, ukui-screensaver,
-      xcreensaver-data, ukui-power-manager, ukui-media, 
+      xcreensaver-data, ukui-power-manager, ukui-media,
       ukui-indicators to Depends.
 
  -- handsome_feng <jianfengli@ubuntukylin.com>  Sun, 06 Oct 2019 16:56:35 +0800
