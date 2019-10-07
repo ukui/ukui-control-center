@@ -23,7 +23,7 @@ Package: ukui-control-center
 Architecture: any
 Suggests: ukui-interface
 Recommends: mate-control-center
-Depends: ${shlibs:Depends}, 
+Depends: ${shlibs:Depends},
          ${misc:Depends},
          gsettings-desktop-schemas,
          mate-desktop-common,
