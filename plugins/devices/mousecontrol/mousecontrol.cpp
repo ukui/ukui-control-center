@@ -55,9 +55,7 @@ MouseControl::MouseControl()
     const QByteArray id(TOUCHPAD_SCHEMA);
     tpsettings = new QGSettings(id);
 
-//    InitDBusMouse();
-
-    connect(ui->pushButton, &QPushButton::clicked, this, [=]{QProcess process(this);process.startDetached("mate-mouse-properties");});
+    InitDBusMouse();
 
     component_init();
     status_init();
@@ -66,7 +64,7 @@ MouseControl::MouseControl()
 MouseControl::~MouseControl()
 {
     delete ui;
-//    DeInitDBusMouse();
+    DeInitDBusMouse();
 }
 
 QString MouseControl::get_plugin_name(){
@@ -86,6 +84,10 @@ void MouseControl::plugin_delay_control(){
 }
 
 void MouseControl::component_init(){
+
+    //
+    ui->lefthandbuttonGroup->setId(ui->rightRadioBtn, 0);
+    ui->lefthandbuttonGroup->setId(ui->leftRadioBtn, 1);
 
     // Cursors themes
     QStringList themes = _get_cursors_themes();
@@ -134,47 +136,47 @@ void MouseControl::component_init(){
 }
 
 void MouseControl::status_init(){
-//    if (kylin_hardware_mouse_get_lefthanded())
-//        ui->leftRadioBtn->setChecked(true);
-//    else
-//        ui->rightRadioBtn->setChecked(true);
+    if (kylin_hardware_mouse_get_lefthanded())
+        ui->leftRadioBtn->setChecked(true);
+    else
+        ui->rightRadioBtn->setChecked(true);
 
     //cursor theme
-//    QString curtheme  = kylin_hardware_mouse_get_cursortheme();
-//    if (curtheme == "")
-//        ui->CursorthemesComboBox->setCurrentIndex(0);
-//    else
-//        ui->CursorthemesComboBox->setCurrentText(curtheme);
+    QString curtheme  = kylin_hardware_mouse_get_cursortheme();
+    if (curtheme == "")
+        ui->CursorthemesComboBox->setCurrentIndex(0);
+    else
+        ui->CursorthemesComboBox->setCurrentText(curtheme);
 
 
 
-//    double mouse_acceleration = kylin_hardware_mouse_get_motionacceleration();//当前系统指针加速值，-1为系统默认
-//    int mouse_threshold =  kylin_hardware_mouse_get_motionthreshold();//当前系统指针灵敏度，-1为系统默认
+    double mouse_acceleration = kylin_hardware_mouse_get_motionacceleration();//当前系统指针加速值，-1为系统默认
+    int mouse_threshold =  kylin_hardware_mouse_get_motionthreshold();//当前系统指针灵敏度，-1为系统默认
 
-//    //当从接口获取的是-1,则代表系统默认值，真实值需要从底层获取
-//    if (mouse_threshold == -1 || static_cast<int>(mouse_acceleration) == -1){
-//        // speed sensitivity
-//        int accel_numerator, accel_denominator, threshold;  //当加速值和灵敏度为系统默认的-1时，从底层获取到默认的具体值
+    //当从接口获取的是-1,则代表系统默认值，真实值需要从底层获取
+    if (mouse_threshold == -1 || static_cast<int>(mouse_acceleration) == -1){
+        // speed sensitivity
+        int accel_numerator, accel_denominator, threshold;  //当加速值和灵敏度为系统默认的-1时，从底层获取到默认的具体值
 
-//        XGetPointerControl(QX11Info::display(), &accel_numerator, &accel_denominator, &threshold);
-//        qDebug() << "--->" << accel_numerator << accel_denominator << threshold;
-//        kylin_hardware_mouse_set_motionacceleration(static_cast<double>(accel_numerator/accel_denominator));
+        XGetPointerControl(QX11Info::display(), &accel_numerator, &accel_denominator, &threshold);
+        qDebug() << "--->" << accel_numerator << accel_denominator << threshold;
+        kylin_hardware_mouse_set_motionacceleration(static_cast<double>(accel_numerator/accel_denominator));
 
-//        kylin_hardware_mouse_set_motionthreshold(threshold);
-//    }
+        kylin_hardware_mouse_set_motionthreshold(threshold);
+    }
 
     //set speed
 //    qDebug() << kylin_hardware_mouse_get_motionacceleration() << kylin_hardware_mouse_get_motionthreshold();
-//    ui->speedSlider->setValue(static_cast<int>(kylin_hardware_mouse_get_motionacceleration())*100);
+    ui->speedSlider->setValue(static_cast<int>(kylin_hardware_mouse_get_motionacceleration())*100);
 
     //set sensitivity
-//    ui->sensitivitySlider->setValue(kylin_hardware_mouse_get_motionthreshold()*100);
+    ui->sensitivitySlider->setValue(kylin_hardware_mouse_get_motionthreshold()*100);
 
     //set visibility position
-//    ui->posCheckBtn->setChecked(kylin_hardware_mouse_get_locatepointer());
+    ui->posCheckBtn->setChecked(kylin_hardware_mouse_get_locatepointer());
 
     connect(ui->CursorthemesComboBox, SIGNAL(currentTextChanged(QString)), this, SLOT(cursor_themes_changed_slot(QString)));
-    connect(ui->lefthandbuttonGroup, SIGNAL(buttonToggled(QAbstractButton*,bool)), this, SLOT(mouseprimarykey_changed_slot(QAbstractButton*, bool)));
+    connect(ui->lefthandbuttonGroup, SIGNAL(buttonClicked(int)), this, SLOT(mouseprimarykey_changed_slot(int)));
     connect(ui->speedSlider, SIGNAL(valueChanged(int)), this, SLOT(speed_value_changed_slot(int)));
     connect(ui->sensitivitySlider, SIGNAL(valueChanged(int)), this, SLOT(sensitivity_value_changed_slot(int)));
     connect(ui->posCheckBtn, SIGNAL(clicked(bool)), this, SLOT(show_pointer_position_slot(bool)));
@@ -216,14 +218,14 @@ void MouseControl::status_init(){
 
     //cursor settings
 
-//    int cursorsize = kylin_hardware_mouse_get_cursorsize();
-//    if (cursorsize <= CURSORSIZE_SMALLER)
-//        ui->smallerRadioBtn->setChecked(true);
-//    else if (cursorsize <= CURSORSIZE_MEDIUM)
-//        ui->mediumRadioBtn->setChecked(true);
-//    else
-//        ui->largerRadioBtn->setChecked(true);
-//    connect(ui->cursorsizebuttonGroup, SIGNAL(buttonToggled(int,bool)), this, SLOT(cursor_size_changed_slot()));
+    int cursorsize = kylin_hardware_mouse_get_cursorsize();
+    if (cursorsize <= CURSORSIZE_SMALLER)
+        ui->smallerRadioBtn->setChecked(true);
+    else if (cursorsize <= CURSORSIZE_MEDIUM)
+        ui->mediumRadioBtn->setChecked(true);
+    else
+        ui->largerRadioBtn->setChecked(true);
+    connect(ui->cursorsizebuttonGroup, SIGNAL(buttonToggled(int,bool)), this, SLOT(cursor_size_changed_slot()));
 
     //reset
     connect(ui->resetBtn, &QPushButton::clicked, this, [=]{ui->smallerRadioBtn->setChecked(true);});
@@ -337,10 +339,8 @@ void MouseControl::_refresh_rolling_btn_status(){
         ui->rollingWidget->show();
 }
 
-void MouseControl::mouseprimarykey_changed_slot(QAbstractButton *button, bool status){
-    QRadioButton * btn = dynamic_cast<QRadioButton *>(button);
-//    if (btn->text() == "left hand")
-//        kylin_hardware_mouse_set_lefthanded(status);
+void MouseControl::mouseprimarykey_changed_slot(int id){
+    kylin_hardware_mouse_set_lefthanded(id);
 }
 
 void MouseControl::cursor_themes_changed_slot(QString text){
@@ -349,19 +349,19 @@ void MouseControl::cursor_themes_changed_slot(QString text){
         value = "";
 
     QByteArray ba = value.toLatin1();
-//    kylin_hardware_mouse_set_cursortheme(ba.data());
+    kylin_hardware_mouse_set_cursortheme(ba.data());
 }
 
 void MouseControl::speed_value_changed_slot(int value){
-//    kylin_hardware_mouse_set_motionacceleration(static_cast<double>(value/ui->speedSlider->maximum()*10));
+    kylin_hardware_mouse_set_motionacceleration(static_cast<double>(value/ui->speedSlider->maximum()*10));
 }
 
 void MouseControl::sensitivity_value_changed_slot(int value){
-//    kylin_hardware_mouse_set_motionthreshold(10*value/ui->sensitivitySlider->maximum());
+    kylin_hardware_mouse_set_motionthreshold(10*value/ui->sensitivitySlider->maximum());
 }
 
 void MouseControl::show_pointer_position_slot(bool status){
-//    kylin_hardware_mouse_set_locatepointer(status);
+    kylin_hardware_mouse_set_locatepointer(status);
 }
 
 void MouseControl::active_touchpad_changed_slot(bool status){
@@ -397,5 +397,5 @@ void MouseControl::rolling_kind_changed_slot(QAbstractButton *basebtn, bool stat
 }
 
 void MouseControl::cursor_size_changed_slot(){
-//    kylin_hardware_mouse_set_cursorsize(ui->cursorsizebuttonGroup->checkedId());
+    kylin_hardware_mouse_set_cursorsize(ui->cursorsizebuttonGroup->checkedId());
 }

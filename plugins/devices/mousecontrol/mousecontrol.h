@@ -31,9 +31,7 @@
 #include <QGSettings/QGSettings>
 #include <QX11Info>
 
-#include <QProcess>
-
-//#include "kylin-mouse-interface.h"
+#include "kylin-mouse-interface.h"
 
 #include "../../pluginsComponent/switchbutton.h"
 #include "../../pluginsComponent/customwidget.h"
@@ -98,7 +96,7 @@ private:
 
 
 private slots:
-    void mouseprimarykey_changed_slot(QAbstractButton * button,bool status);
+    void mouseprimarykey_changed_slot(int id);
     void cursor_themes_changed_slot(QString text);
     void speed_value_changed_slot(int value);
     void sensitivity_value_changed_slot(int value);

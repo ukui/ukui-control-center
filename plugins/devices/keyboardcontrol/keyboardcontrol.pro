@@ -15,8 +15,7 @@ INCLUDEPATH += ../../.. \
                 /usr/include/kylinsdk \
                 /usr/include/dconf \
 
-#LIBS          +=  -L/usr/lib/ -lkeyboardclient -linterfaceclient -lgsettings-qt -ldconf
-LIBS          +=  -L/usr/lib/ -lgsettings-qt -ldconf
+LIBS          +=  -L/usr/lib/ -lkeyboardclient -linterfaceclient -lgsettings-qt -ldconf
 
 CONFIG        += link_pkgconfig \
                  C++11

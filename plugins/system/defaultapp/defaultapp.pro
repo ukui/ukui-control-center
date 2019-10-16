@@ -17,7 +17,7 @@ PKGCONFIG     += gio-2.0 \
 INCLUDEPATH   += ../../.. \
                  /usr/include/kylinsdk
 
-#LIBS          += -L/usr/lib/ -ldefaultprograms
+LIBS          += -L/usr/lib/ -ldefaultprograms
 
 TARGET = $$qtLibraryTarget(defaultapp)
 DESTDIR = ../..

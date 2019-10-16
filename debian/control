@@ -10,6 +10,7 @@ Build-Depends: debhelper (>= 12),
                 libglib2.0-dev,
                 libmate-desktop-dev,
                 libdbus-glib-1-dev,
+                kylin-system-api,
                 libqt5x11extras5-dev,
                 libxklavier-dev,
                 libmatekbd-dev
@@ -22,9 +23,9 @@ Vcs-Git: https://github.com/ukui/ukui-control-center.git
 Package: ukui-control-center
 Architecture: any
 Suggests: ukui-interface
-Recommends: mate-control-center
 Depends: ${shlibs:Depends},
          ${misc:Depends},
+         kylin-system-api,
          gsettings-desktop-schemas,
          mate-desktop-common,
          ukui-session-manager,
