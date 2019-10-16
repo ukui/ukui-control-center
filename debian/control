@@ -10,7 +10,11 @@ Build-Depends: debhelper (>= 12),
                 libglib2.0-dev,
                 libmate-desktop-dev,
                 libdbus-glib-1-dev,
-                kylin-system-api,
+                libdefaultprograms-dev,
+                libkeyboardclient-dev,
+                libmouseclient-dev,
+                libinterfaceclient-dev,
+                libtouchpadclient-dev,
                 libqt5x11extras5-dev,
                 libxklavier-dev,
                 libmatekbd-dev
@@ -25,7 +29,6 @@ Architecture: any
 Suggests: ukui-interface
 Depends: ${shlibs:Depends},
          ${misc:Depends},
-         kylin-system-api,
          gsettings-desktop-schemas,
          mate-desktop-common,
          ukui-session-manager,
@@ -34,6 +37,11 @@ Depends: ${shlibs:Depends},
          ukui-power-manager,
          ukui-media,
          ukui-indicators,
+         libdefaultprograms0,
+         libkeyboardclient0,
+         libmouseclient0,
+         libinterfaceclient0,
+         libtouchpadclient0
 Description: utilities to configure the UKUI desktop
  The UKUI control center contains configuration applets for the UKUI desktop,
  allowing to set accessibility configuration, desktop fonts, keyboard
