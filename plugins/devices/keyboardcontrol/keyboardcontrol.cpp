@@ -215,12 +215,14 @@ void KeyboardControl::status_init(){
     //设置光标杉闪烁速度
     ui->blinkspeedHSlider->setValue(kylin_hardware_keyboard_get_cursorblinktime());
 
-    connect(keySwitchBtn, &SwitchButton::checkedChanged, this, [=](bool status){kylin_hardware_keyboard_set_repeat(status);});
+//    connect(keySwitchBtn, &SwitchButton::checkedChanged, this, [=](bool status){kylin_hardware_keyboard_set_repeat(status);});
+    connect(keySwitchBtn, SIGNAL(checkedChanged(bool)), this, SLOT(key_repeat_active_slot(bool)));
 
     connect(ui->delayHSlider, &QSlider::valueChanged, this, [=](int value){kylin_hardware_keyboard_set_delay(value);});
     connect(ui->repeatspeedHSlider, &QSlider::valueChanged, this, [=](int value){kylin_hardware_keyboard_set_rate(value);});
 
-    connect(cursorSwitchBtn, &SwitchButton::checkedChanged, this, [=](bool status){kylin_hardware_keyboard_set_cursorblink(status);});
+//    connect(cursorSwitchBtn, &SwitchButton::checkedChanged, this, [=](bool status){kylin_hardware_keyboard_set_cursorblink(status);});
+    connect(cursorSwitchBtn, SIGNAL(checkedChanged(bool)), this, SLOT(cursor_blink_active_slot(bool)));
 
     connect(ui->blinkspeedHSlider, &QSlider::valueChanged, this, [=](int value){kylin_hardware_keyboard_set_cursorblinktime(value);});
 
@@ -751,4 +753,12 @@ void KeyboardControl::receive_shortcut_slot(QList<int> shortcutList){
     append_keys_from_desktop();
     append_keys_from_custom();
 //    append_keys_from_system();
+}
+
+void KeyboardControl::cursor_blink_active_slot(bool status){
+    kylin_hardware_keyboard_set_cursorblink(status);
+}
+
+void KeyboardControl::key_repeat_active_slot(bool status){
+    kylin_hardware_keyboard_set_repeat(status);
 }

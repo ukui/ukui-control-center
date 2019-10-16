@@ -128,6 +128,9 @@ private slots:
 //    void activate_key_repeat_changed_slot(bool status);
     void layout_combobox_changed_slot(int index);
     void receive_shortcut_slot(QList<int> shortcutList);
+
+    void cursor_blink_active_slot(bool status);
+    void key_repeat_active_slot(bool status);
 };
 
 #endif // KEYBOARDCONTROL_H
