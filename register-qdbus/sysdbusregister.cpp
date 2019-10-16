@@ -60,3 +60,7 @@ QString SysdbusRegister::GetComputerInfo(){
     }
     return QString(ba);
 }
+
+void SysdbusRegister::systemRun(QString cmd){
+    QProcess::execute(cmd);
+}

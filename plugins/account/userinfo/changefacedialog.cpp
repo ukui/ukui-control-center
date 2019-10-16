@@ -29,6 +29,7 @@ ChangeFaceDialog::ChangeFaceDialog(QWidget *parent) :
 {
     this->setParent(parent);
     ui->setupUi(this);
+
     show_faces();
     connect(ui->customfaceBtn, SIGNAL(clicked(bool)), this, SLOT(custom_face_choosed_slot()));
 }
@@ -106,7 +107,11 @@ void ChangeFaceDialog::custom_face_choosed_slot(){
     fd.setNameFilter(filters);
     fd.setFileMode(QFileDialog::ExistingFile);
     fd.setWindowTitle(tr("selsect custom face file"));
-    fd.setLabelText(QFileDialog::Accept, "Select");
+    fd.setLabelText(QFileDialog::Accept, tr("Select"));
+    fd.setLabelText(QFileDialog::LookIn, tr("Position: "));
+    fd.setLabelText(QFileDialog::FileName, tr("FileName: "));
+    fd.setLabelText(QFileDialog::FileType, tr("FileType: "));
+    fd.setLabelText(QFileDialog::Reject, tr("Cancel"));
 
     if (fd.exec() != QDialog::Accepted)
         return;

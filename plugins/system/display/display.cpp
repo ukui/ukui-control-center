@@ -24,6 +24,9 @@
 
 #include <QDebug>
 
+#define MARGIN 15
+#define SPACE 15
+
 static void screen_changed();
 
 time_t bak_timestamp = 0;
@@ -152,6 +155,20 @@ static void screen_changed(){
     qDebug() << "----------666----->";
 }
 
+int DisplaySet::_connect_output_count(){
+    int monitor_num = 0;
+    MateRROutputInfo **outputs;
+
+    outputs = mate_rr_config_get_outputs (monitor.current_configuration);
+    for (int i = 0; outputs[i] != NULL; ++i){
+        MateRROutputInfo *output = outputs[i];
+        if (mate_rr_output_info_is_connected(output)){
+            monitor_num++; //获取当前活动的显示器个数
+        }
+    }
+    return monitor_num;
+}
+
 int DisplaySet::_active_output_count(){
     int monitor_num = 0;
     MateRROutputInfo **outputs;
@@ -167,16 +184,7 @@ int DisplaySet::_active_output_count(){
 }
 
 void DisplaySet::rebuild_ui(){
-    int monitor_num = 0;
-    MateRROutputInfo **outputs;
-
-    outputs = mate_rr_config_get_outputs (monitor.current_configuration);
-    for (int i = 0; outputs[i] != NULL; ++i){
-        MateRROutputInfo *output = outputs[i];
-        if (mate_rr_output_info_is_connected(output)){
-            monitor_num++; //获取当前连接的显示器个数
-        }
-    }
+    int monitor_num = _connect_output_count();
 
     if (monitor_num > 1){
         ui->multipleWidget->show();
@@ -205,14 +213,95 @@ void DisplaySet::rebuild_ui(){
 void DisplaySet::rebuild_view(){
     scene->clear();
 
-    QGraphicsRectItem * item = new QGraphicsRectItem(QRectF(100, 30, 238, 110));
-    QPen pen;
-    pen.setWidth(3);
-    pen.setColor(QColor("#0078d7"));
-    item->setPen(pen);
-    item->setBrush(QColor("#1E90FF"));
-    item->setFlag(QGraphicsItem::ItemIsMovable);
-    scene->addItem(item);
+    int total_w, total_h;
+    double scale = monitor_item_scale();
+    _connect_output_total_resolution(&total_w, &total_h);
+
+    MateRROutputInfo **outputs;
+    outputs = mate_rr_config_get_outputs (monitor.current_configuration);
+
+    for (int i = 0; outputs[i] != NULL; i++){
+
+        if (mate_rr_output_info_is_connected(outputs[i])){
+            int offset_x, offset_y, output_w, output_h;
+            double x, y;
+            QString monitorname, monitortype;
+            MateRROutputInfo * output = outputs[i];
+            mate_rr_output_info_get_geometry(output, &offset_x, &offset_y, &output_w, &output_h);
+            monitorname = QString(mate_rr_output_info_get_display_name(output));
+            monitortype = QString(mate_rr_output_info_get_name(output));
+
+            //计算坐标
+            x = offset_x * scale + (scene->width() - total_w * scale)/2.0;
+            y = offset_y * scale + (scene->height() - total_h * scale)/2.0;
+
+            qDebug() << monitorname << monitortype;
+            qDebug() << "----------->" << x << y;
+            qDebug() << "---->" << output_w * scale << output_h * scale;
+            GraphicsItem * item = new GraphicsItem();
+            item->setRectF(output_w * scale, output_h * scale);
+            item->setMonitorInfo(monitorname, monitortype);
+            item->setPos(x + (output_w * scale)/2, y + (output_h * scale)/2);
+
+            scene->addItem(item);
+
+            if (_connect_output_count() == 1) //单屏
+                item->setitemMoveFlags(false);
+            else
+                item->setitemMoveFlags(true);
+
+        }
+
+    }
+
+//    if (monitor_num == 1){
+//        for (int i = 0; i < monitor_num; i++){
+//            int w, h;
+//            QString monitorname, monitortype;
+//            MateRROutputInfo * output = outputs[i];
+//            _get_geometry(output, &w, &h);
+//            monitorname = QString(mate_rr_output_info_get_display_name(output));
+//            monitortype = QString(mate_rr_output_info_get_name(output));
+
+//            //添加屏幕图元
+//            GraphicsItem * item = new GraphicsItem();
+//            item->setRectF(w * scale, h * scale);
+//            item->setMonitorInfo(monitorname, monitortype);
+
+//            scene->addItem(item);
+//        }
+//    }
+//    else if (monitor_num == 2){
+//        for (int i = 0; i < monitor_num; i++){
+//            int w, h;
+//            QString monitorname, monitortype;
+//            MateRROutputInfo * output = outputs[i];
+//            if ( i == 0){//
+//                _get_geometry(output, &w, &h);
+//                monitorname = QString(mate_rr_output_info_get_display_name(output));
+//                monitortype = QString(mate_rr_output_info_get_name(output));
+
+//                GraphicsItem * item = new GraphicsItem();
+//                item->setRectF(w * scale, h * scale);
+//                item->setMonitorInfo(monitorname, monitortype);
+
+//                scene->addItem(item);
+//            }
+//            else if (i == 1){
+
+//            }
+
+//        }
+//    }
+
+//    QGraphicsRectItem * item = new QGraphicsRectItem(QRectF(100, 30, 238, 110));
+//    QPen pen;
+//    pen.setWidth(3);
+//    pen.setColor(QColor("#0078d7"));
+//    item->setPen(pen);
+//    item->setBrush(QColor("#1E90FF"));
+//    item->setFlag(QGraphicsItem::ItemIsMovable);
+//    scene->addItem(item);
 }
 
 void DisplaySet::rebuild_monitor_switchbtn(){
@@ -238,6 +327,58 @@ void DisplaySet::rebuild_monitor_switchbtn(){
 //    activemonitorBtn->setEnabled(sensitive);
 
     activemonitorBtn->blockSignals(false);
+}
+
+double DisplaySet::monitor_item_scale(){
+    int available_w, available_h;
+    int total_w, total_h;
+    int monitors;
+
+    //计算屏幕总大小
+    monitors = _connect_output_count();
+    _connect_output_total_resolution(&total_w, &total_h);
+
+    available_w = scene->width() - 2 * MARGIN - (monitors - 1) * SPACE;
+    available_h = scene->height() - 2 * MARGIN - (monitors - 1) * SPACE;
+
+    return qMin(static_cast<double>(available_w) / total_w, static_cast<double>(available_h) / total_h);
+}
+
+void DisplaySet::_connect_output_total_resolution(int *total_w, int *total_h){
+    MateRROutputInfo ** outputs;
+
+    *total_w = 0; *total_h = 0;
+
+    outputs = mate_rr_config_get_outputs(monitor.current_configuration);
+    for (int i = 0; outputs[i] != NULL; i++){
+        if (mate_rr_output_info_is_connected(outputs[i])){
+            int w, h;
+            _get_geometry(outputs[i], &w, &h);
+
+            *total_w += w;
+            *total_h += h;
+        }
+    }
+}
+
+void DisplaySet::_get_geometry(MateRROutputInfo *output, int *w, int *h){
+    MateRRRotation rotation;
+
+    if (mate_rr_output_info_is_active(output)){
+        mate_rr_output_info_get_geometry(output, NULL, NULL, w, h);
+    }
+    else{
+        *w = mate_rr_output_info_get_preferred_width(output);
+        *h = mate_rr_output_info_get_preferred_height(output);
+    }
+
+    rotation = mate_rr_output_info_get_rotation(output);
+    if ((rotation & MATE_RR_ROTATION_90) || (rotation & MATE_RR_ROTATION_270)){
+        int tmp;
+        tmp = *h;
+        *h = *w;
+        *w = tmp;
+    }
 }
 
 gboolean DisplaySet::_get_clone_size(int *width, int *height){
@@ -521,8 +662,10 @@ void DisplaySet::component_init(){
     ui->mirrorHLayout->addWidget(mirrormonitorBtn);
     ui->mirrorHLayout->addStretch();
 
+    //设置Scene
     scene = new QGraphicsScene;
-    scene->setSceneRect(0, 0, ui->graphicsView->width()-2, ui->graphicsView->height()-2);
+    //    scene->setSceneRect(-ui->graphicsView->width()/2, -ui->graphicsView->height()/2, ui->graphicsView->width() - 2, ui->graphicsView->height() - 2);
+    scene->setSceneRect(0, 0, ui->graphicsView->width() - 2, ui->graphicsView->height() - 2);
 
     ui->graphicsView->setScene(scene);
 
@@ -538,6 +681,8 @@ void DisplaySet::status_init(){
     value = g_settings_get_double(brightnessgsettings, BRIGHTNESS_AC_KEY);
     ui->brightnessHSlider->setValue((int)value);
     ui->brightnessLabel->setText(QString("%1%").arg((int)value));
+
+    connect(scene, SIGNAL(selectionChanged()), this, SLOT(selected_item_changed_slot()));
 
     connect(activemonitorBtn, SIGNAL(checkedChanged(bool)), this, SLOT(monitor_active_changed_slot()));
     connect(ui->primaryBtn, SIGNAL(clicked(bool)), this, SLOT(set_primary_clicked_slot()));
@@ -664,6 +809,10 @@ void DisplaySet::layout_outputs_horizontally(){
             x += width;
         }
     }
+}
+
+void DisplaySet::selected_item_changed_slot(){
+    qDebug() << "Selected" << scene->selectedItems().length();
 }
 
 void DisplaySet::mirror_monitor_changed_slot(){

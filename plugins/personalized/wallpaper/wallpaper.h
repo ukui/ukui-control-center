@@ -33,6 +33,18 @@
 #include "component/custdomitemmodel.h"
 #include "../../pluginsComponent/customwidget.h"
 
+/* qt会将glib里的signals成员识别为宏，所以取消该宏
+ * 后面如果用到signals时，使用Q_SIGNALS代替即可
+ **/
+#ifdef signals
+#undef signals
+#endif
+
+extern "C" {
+#include <glib.h>
+#include <gio/gio.h>
+}
+
 #define BACKGROUND "org.mate.background"
 
 #define FILENAME "picture-filename" //图片文件路径
@@ -89,6 +101,7 @@ public slots:
     void wallpaper_item_clicked(QListWidgetItem *item);
     void form_combobox_changed(int index);
     void options_combobox_changed(QString op);
+    void reset_default_wallpaper();
 };
 
 #endif // WALLPAPER_H

@@ -156,7 +156,7 @@ void About::_call_dbus_get_computer_info(){
                                      QDBusConnection::systemBus());
 
     if (!interface->isValid()){
-        qCritical() << "Create Client Interface Failed: " << QDBusConnection::systemBus().lastError();
+        qCritical() << "Create Client Interface Failed When Get Computer info: " << QDBusConnection::systemBus().lastError();
         return;
     }
 

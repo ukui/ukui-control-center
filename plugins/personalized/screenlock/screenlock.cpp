@@ -125,5 +125,6 @@ void Screenlock::openpushbtn_clicked_slot(){
     //QString to char *
     QByteArray ba = selectedfile.toLatin1();
 
+    qDebug() << "-----screenlock" << QString(ba.data());
     g_settings_set_string(bggsettings, SCREENLOCK_BG_KEY, ba.data());
 }

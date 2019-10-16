@@ -78,6 +78,10 @@ QToolButton:hover:!pressed#minBtn{
     padding-left: 20px;
 }*/
 
+/*QListWidget::Item:selected{
+    background: gray;
+}*/
+
 /*padding: top, right, bottom, left*/
 QMenu::item{
 /*padding: 10px 35px 10px 10px;*/

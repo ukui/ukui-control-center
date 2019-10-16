@@ -73,7 +73,7 @@ QString UserDispatcher::change_user_pwd(QString pwd, QString hint){
        QString pwdencryption = make_crypted(ba.data());
        qDebug() << pwd << hint << pwdencryption;
 
-//    QDBusReply<QString> reply = useriface->call("SetPassword", pwd, hint);
+    QDBusReply<QString> reply = useriface->call("SetPassword", pwdencryption, hint);
 //    if (reply.isValid())
 //        qDebug() << reply.value();
 //    else

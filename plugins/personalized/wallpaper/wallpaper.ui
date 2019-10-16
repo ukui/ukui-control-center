@@ -134,7 +134,7 @@
        </item>
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
-         <widget class="QWidget" name="picture" native="true">
+         <widget class="QWidget" name="picture">
           <layout class="QVBoxLayout" name="verticalLayout_4">
            <property name="spacing">
             <number>0</number>
@@ -210,7 +210,7 @@
                 </spacer>
                </item>
                <item>
-                <widget class="QPushButton" name="pushButton_3">
+                <widget class="QPushButton" name="resetBtn">
                  <property name="minimumSize">
                   <size>
                    <width>130</width>
@@ -247,8 +247,8 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="color" native="true"/>
-         <widget class="QWidget" name="slideshow" native="true"/>
+         <widget class="QWidget" name="color"/>
+         <widget class="QWidget" name="slideshow"/>
         </widget>
        </item>
       </layout>

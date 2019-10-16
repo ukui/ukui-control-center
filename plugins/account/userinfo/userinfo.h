@@ -28,8 +28,12 @@
 #include <QToolButton>
 #include <QMenu>
 #include <QAction>
-#include <QDBusInterface>
 #include <QSignalMapper>
+
+#include <QDBusInterface>
+#include <QDBusConnection>
+#include <QDBusError>
+#include <QDBusReply>
 
 #include "../../pluginsComponent/customwidget.h"
 
@@ -126,6 +130,9 @@ private:
     QSize btnSize;
 
     int adminnum;
+    QString pwdcreate;
+
+    QDBusInterface * sysinterface;
 
 private slots:
     void show_change_pwd_dialog_slot(QString username);

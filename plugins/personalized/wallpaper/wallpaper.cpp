@@ -128,6 +128,7 @@ void Wallpaper::component_init(){
         connect(ui->listWidget, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(wallpaper_item_clicked(QListWidgetItem*)));
         connect(ui->formComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(form_combobox_changed(int)));
         connect(ui->wpoptionsComboBox, SIGNAL(currentTextChanged(QString)), this, SLOT(options_combobox_changed(QString)));
+        connect(ui->resetBtn, SIGNAL(clicked(bool)), this, SLOT(reset_default_wallpaper()));
 
 }
 
@@ -225,4 +226,16 @@ void Wallpaper::setModeldata(){
         wpListModel.setData(wpindex, QIcon(pixmap.scaled(QSize(160,100))), Qt::DecorationRole);
         wpListModel.setData(wpindex, QString("%1\nfolder: %2\n").arg(wpMap.find("name").value()).arg(filename), Qt::ToolTipRole);
     }
+}
+
+void Wallpaper::reset_default_wallpaper(){
+    GSettings * wpgsettings;
+    wpgsettings = g_settings_new(BACKGROUND);
+    GVariant * variant = g_settings_get_default_value(wpgsettings, FILENAME);
+    gsize size = g_variant_get_size(variant);
+    const char * dwp = g_variant_get_string(variant, &size);
+    g_object_unref(wpgsettings);
+
+    bgsettings->set(FILENAME, QVariant(QString(dwp)));
+    init_current_status();
 }

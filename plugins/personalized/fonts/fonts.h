@@ -43,24 +43,6 @@ extern "C" {
 
 #include <QGSettings/QGSettings>
 
-#define INTERFACE_SCHEMA "org.mate.interface"
-#define DOC_FONT_KEY "document-font-name" //用于阅读文档的默认字体的名称
-#define GTK_FONT_KEY "font-name" //gkt+使用的默认字体
-#define MONOSPACE_FONT_KEY "monospace-font-name" //用于终端等处的等宽字体
-
-#define MARCO_SCHEMA "org.gnome.desktop.wm.preferences"
-#define TITLEBAR_FONT_KEY "titlebar-font" //描述窗口标题栏字体的字符串。只有在"titlebar-uses-system-font"为false时有效
-
-
-#define PEONY_SCHEMA "org.ukui.peony.desktop"
-#define PEONY_FONT_KEY "font"  //桌面上图标描述所用的字体
-
-#define FONT_RENDER_SCHEMA           "org.ukui.font-rendering"
-#define ANTIALIASING_KEY        "antialiasing" //绘制字形时使用反锯齿类型
-#define HINTING_KEY             "hinting" //绘制字形时使用微调的类型
-#define RGBA_ORDER_KEY          "rgba-order" //LCD屏幕上次像素的顺序；仅在反锯齿设为"rgba"时有用
-#define DPI_KEY                 "dpi" //将字体尺寸转换为像素值时所用的分辨率，以每英寸点数为单位
-
 namespace Ui {
 class Fonts;
 }
@@ -82,6 +64,7 @@ public:
 
     void component_init();
     void status_init();
+    void status_setup();
     void get_default_fontinfo();
     void get_current_fonts();
     QStringList split_fontname_size(QString value);

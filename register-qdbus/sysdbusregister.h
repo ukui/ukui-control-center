@@ -22,7 +22,7 @@
 
 #include <QObject>
 #include <QCoreApplication>
-//#include <QProcess>
+#include <QProcess>
 
 #include <QFile>
 
@@ -49,6 +49,7 @@ public slots:
 
     Q_SCRIPTABLE void exitService();
     Q_SCRIPTABLE QString GetComputerInfo();
+    Q_SCRIPTABLE void systemRun(QString cmd);
 };
 
 #endif // SYSDBUSREGISTER_H

@@ -164,8 +164,9 @@ void ModulePageWidget::switch_modulepage(QObject * plugin, int page){ //page 默
     QListWidget * tmpListWidget = dynamic_cast<QListWidget *>(ui->leftStackedWidget->currentWidget());
     for (int i = 0; i < tmpListWidget->count(); i++){
         ListWidgetItem * widgetitem = dynamic_cast<ListWidgetItem *>(tmpListWidget->itemWidget(tmpListWidget->item(i)));
-        if (name == (widgetitem->text()))
+        if (name == (widgetitem->text())){
             tmpListWidget->setCurrentRow(i);
+        }
     }
 
     update_plugin_widget(pluginInstance, page);

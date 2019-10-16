@@ -20,6 +20,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include "../plugins/pluginsComponent/publicdata.h"
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -52,8 +54,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->minBtn->setStyleSheet("border: none");
     ui->closeBtn->setStyleSheet("border: none");
 
-
-
     ui->lineEdit->setPlaceholderText(tr("Find Devices"));
     ui->lineEdit->hide();
 
@@ -68,6 +68,24 @@ MainWindow::MainWindow(QWidget *parent) :
 
     modulepageWidget = new ModulePageWidget(this);
     ui->stackedWidget->addWidget(modulepageWidget);
+
+    PublicData * publicdata = new PublicData();
+
+    if (QApplication::arguments().length() > 1 && QApplication::arguments().at(1) == "-a"){ //桌面背景
+        QStringList keyStringList = publicdata->subfuncList[PERSONALIZED];
+        ui->stackedWidget->setCurrentIndex(1);
+        //switch_modulepage(QObject * plugin, int page) arg1: plugin obj; arg2: plugin page;
+        modulepageWidget->switch_modulepage(modulesList.at(PERSONALIZED).value(keyStringList.at(0)),0);
+    }
+
+    if (QApplication::arguments().length() > 1 && QApplication::arguments().at(1) == "-d"){ //显示器
+        QStringList keyStringList = publicdata->subfuncList[SYSTEM];
+        ui->stackedWidget->setCurrentIndex(1);
+        modulepageWidget->switch_modulepage(modulesList.at(SYSTEM).value(keyStringList.at(0)),0);
+    }
+
+    delete publicdata;
+
 }
 
 MainWindow::~MainWindow()

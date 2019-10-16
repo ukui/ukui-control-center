@@ -30,6 +30,8 @@
 #include <QGraphicsScene>
 #include <QProcess>
 
+#include "graphicsitem.h"
+
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
  **/
@@ -103,12 +105,16 @@ public:
     void rebuild_rotation_combo();
     void rebuild_refresh_combo();
 
+    double monitor_item_scale();
+    void _get_geometry(MateRROutputInfo * output, int * w, int * h);
     gboolean _output_overlaps();
     void layout_outputs_horizontally();
     gboolean _get_clone_size(int *width, int *height);
     gboolean _output_info_supports_mode(MateRROutputInfo * info, int width, int height);
     gboolean _mirror_screen_is_supported();
     int _active_output_count();
+    int _connect_output_count();
+    void _connect_output_total_resolution(int * total_w, int * total_h);
     void _select_resolution_for_current_output();
     MateRROutputInfo * _get_output_for_window (MateRRConfig *configuration, GdkWindow *window);
     MateRRMode ** _get_current_modes();
@@ -138,6 +144,8 @@ private:
     SwitchButton * mirrormonitorBtn;
 
 private slots:
+    void selected_item_changed_slot();
+
     void monitor_active_changed_slot();
     void mirror_monitor_changed_slot();
     void set_primary_clicked_slot();

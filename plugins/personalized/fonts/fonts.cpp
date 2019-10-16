@@ -30,6 +30,24 @@
 #define MID 1
 #define LID 2
 
+#define INTERFACE_SCHEMA "org.mate.interface"
+#define DOC_FONT_KEY "document-font-name" //用于阅读文档的默认字体的名称
+#define GTK_FONT_KEY "font-name" //gkt+使用的默认字体
+#define MONOSPACE_FONT_KEY "monospace-font-name" //用于终端等处的等宽字体
+
+#define MARCO_SCHEMA "org.gnome.desktop.wm.preferences"
+#define TITLEBAR_FONT_KEY "titlebar-font" //描述窗口标题栏字体的字符串。只有在"titlebar-uses-system-font"为false时有效
+
+
+#define PEONY_SCHEMA "org.ukui.peony.desktop"
+#define PEONY_FONT_KEY "font"  //桌面上图标描述所用的字体
+
+#define FONT_RENDER_SCHEMA           "org.ukui.font-rendering"
+#define ANTIALIASING_KEY        "antialiasing" //绘制字形时使用反锯齿类型
+#define HINTING_KEY             "hinting" //绘制字形时使用微调的类型
+#define RGBA_ORDER_KEY          "rgba-order" //LCD屏幕上次像素的顺序；仅在反锯齿设为"rgba"时有用
+#define DPI_KEY                 "dpi" //将字体尺寸转换为像素值时所用的分辨率，以每英寸点数为单位
+
 /*
   设置字体，每套字体包括5个部件，应用程序字体、文档字体、等宽字体、桌面字体和窗口标题字体。
   字体设置为预设值，每套字体除大小不固定，其他字体类别固定。
@@ -270,7 +288,7 @@ QStringList Fonts::split_fontname_size(QString value){
     return valueStringList;
 }
 
-void Fonts::status_init(){
+void Fonts::status_setup(){
     //获取当前字体集合
     QString currentfonts;
     QStringList gtkfontStrList = split_fontname_size(ifsettings->get(GTK_FONT_KEY).toString());
@@ -315,7 +333,11 @@ void Fonts::status_init(){
         }
     }
     g_object_unref(settings);
+}
 
+void Fonts::status_init(){
+
+    status_setup();
 
     //设置状态后绑定slot
     connect(ui->fontsComboBox, SIGNAL(currentTextChanged(QString)), this, SLOT(combobox_changed_slot(QString)));
@@ -335,6 +357,8 @@ void Fonts::reset_default_slot(){
     //reset font render
     rendersettings->reset(ANTIALIASING_KEY);
     rendersettings->reset(HINTING_KEY);
+
+    status_setup();
 }
 
 void Fonts::pushbtn_clicked_slot(QAbstractButton *button){

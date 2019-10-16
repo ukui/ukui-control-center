@@ -96,6 +96,9 @@ void Theme::component_init(){
         //获取背景色
         QString bgcolor = themeList[num].split("-")[1].trimmed();
 
+        if (bgcolor == "blue")
+            bgcolor = QString("darkblue");
+
         button->setStyleSheet(QString("background-color: %1").arg(bgcolor));
         connect(button, SIGNAL(released()), setSignalMapper, SLOT(map()));
         setSignalMapper->setMapping(button, themeList[num]);
