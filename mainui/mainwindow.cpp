@@ -175,7 +175,7 @@ void MainWindow::loadPlugins(){
         }
         else {
             if (fileName.endsWith(".so"))
-                qDebug() << fileName << "Load Faild: " << loader.errorString() << "\n";
+                qDebug() << fileName << "Load Failed: " << loader.errorString() << "\n";
         }
     }
 
