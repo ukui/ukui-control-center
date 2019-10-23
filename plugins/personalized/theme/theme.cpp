@@ -32,6 +32,8 @@
 #define TRASH_ICON "trash-icon-visible"
 #define VOLUMES_ICON "volumes-visible"
 
+#define ICONTHEMEPATH "/usr/share/icons/"
+
 Theme::Theme()
 {
     ui = new Ui::Theme;
@@ -156,22 +158,9 @@ void Theme::component_init(){
 //        qDebug() << allHLayout.at(i)->objectName();
     }
     connect(desktopSignalMapper, SIGNAL(mapped(QString)), this, SLOT(desktop_icon_settings_slots(QString)));
-}
 
-void Theme::refresh_btn_select_status(){
-    //获取当前主题
-    QString current_theme;
-    current_theme = marcosettings->get(MARCO_THEME_KEY).toString();
+    refresh_icon_theme();
 
-    QMap<QString, QToolButton *>::iterator it = delbtnMap.begin();
-    for (; it != delbtnMap.end(); it++){
-        QString key = QString(it.key());
-        QToolButton * tmpBtn = (QToolButton *)it.value();
-        if (key == current_theme)
-            tmpBtn->setIcon(QIcon("://theme/select.png"));
-        else
-            tmpBtn->setIcon(QIcon(""));
-    }
 }
 
 void Theme::status_init(){
@@ -190,24 +179,87 @@ void Theme::status_init(){
     connect(ui->mouseToolBtn, &QToolButton::clicked, this, [=]{pluginWidget->emitting_toggle_signal(tmpList[DEVICES].at(1), DEVICES, 2);});
     connect(ui->iconToolBtn, &QToolButton::clicked, this, [=]{pluginWidget->emitting_toggle_signal(tmpList[PERSONALIZED].at(1), PERSONALIZED, 1);});
 
-    connect(ui->desktopiconBtn, SIGNAL(clicked()), this, SLOT(desktop_icon_settings_btn_clicked_slots()));
+    connect(ui->desktopiconBtn, &QPushButton::clicked, this, [=]{ui->StackedWidget->setCurrentIndex(2);});
 
     delete publicdata;
+}
+
+void Theme::refresh_btn_select_status(){
+    //获取当前主题
+    QString current_theme;
+    current_theme = marcosettings->get(MARCO_THEME_KEY).toString();
+
+    QMap<QString, QToolButton *>::iterator it = delbtnMap.begin();
+    for (; it != delbtnMap.end(); it++){
+        QString key = QString(it.key());
+        QToolButton * tmpBtn = (QToolButton *)it.value();
+        if (key == current_theme)
+            tmpBtn->setIcon(QIcon("://theme/select.png"));
+        else
+            tmpBtn->setIcon(QIcon(""));
+    }
+}
+
+void Theme::refresh_icon_theme(){
+    //清空layout
+    for ( int i = 0; i < ui->themesVBoxLayout->count(); i++){
+        QLayoutItem * item = ui->themesVBoxLayout->itemAt(i);
+        ui->themesVBoxLayout->removeItem(item);
+    }
+    //删除new obj
+    QMap<QString, IconThemeWidget *>::iterator it = delframeMap.begin();
+
+    for (; it != delframeMap.end(); it++){
+        delete it.value();
+    }
+
+    delframeMap.clear();
+
+    //图标主题
+    QDir themesDir = QDir(ICONTHEMEPATH);
+
+    foreach (QString themedir, themesDir.entryList(QDir::Dirs)) {
+        if (themedir.startsWith("ukui-icon")){
+            QDir appsDir = QDir(ICONTHEMEPATH + themedir + "/48x48/apps/");
+            appsDir.setFilter(QDir::Files | QDir::NoSymLinks);
+            //图标主题中apps图标
+            QStringList first, second;
+            QStringList appiconsList = appsDir.entryList();
+            for (int i = 0; i < appiconsList.size(); i++){
+                if (i%32 == 0 && i < 8 * 32)
+                    first.append(appsDir.path() + "/" + appiconsList.at(i));
+                if ((i+1)%61 == 0 && i <= 8 * 61)
+                    second.append(appsDir.path() + "/" + appiconsList.at(i));
+            }
+
+            IconThemeWidget * widget = new IconThemeWidget();
+            widget->set_icontheme_name(themedir.section("-", 2, -1));
+            widget->set_icontheme_fullname(themedir);
+            widget->set_icontheme_selected(false);
+            widget->set_icontheme_example(first, second);
+            connect(widget, SIGNAL(clicked(QString)), this, SLOT(icon_theme_changed_slot(QString)));
+            ui->themesVBoxLayout->addWidget(widget);
+
+            //append data
+            delframeMap.insert(themedir, widget);
+        }
+    }
+    ui->themesVBoxLayout->addStretch();
+
+    //设置当前图标主题
+    QString icontheme = ifsettings->get(ICON_THEME_KEY).toString();
+    delframeMap.value(icontheme)->set_icontheme_selected(true);
 }
 
 void Theme::set_theme_slots(QString value){
     ifsettings->set(GTK_THEME_KEY, QVariant(value));
     marcosettings->set(MARCO_THEME_KEY, QVariant(value));
-    if (value.contains("blue"))
-        ifsettings->set(ICON_THEME_KEY, "ukui-icon-theme-one");
-    else
-        ifsettings->set(ICON_THEME_KEY, "ukui-icon-theme");
+//    if (value.contains("blue"))
+//        ifsettings->set(ICON_THEME_KEY, "ukui-icon-theme-one");
+//    else
+//        ifsettings->set(ICON_THEME_KEY, "ukui-icon-theme");
 
     refresh_btn_select_status();
-}
-
-void Theme::desktop_icon_settings_btn_clicked_slots(){
-    ui->StackedWidget->setCurrentIndex(1);
 }
 
 void Theme::desktop_icon_settings_slots(QString key){
@@ -229,4 +281,16 @@ void Theme::desktop_icon_settings_slots(QString key){
 //        key = VOLUMES_ICON;
 //    }
     desktopsettings->set(key, button->isChecked());
+}
+
+void Theme::icon_theme_changed_slot(QString name){
+    ifsettings->set(ICON_THEME_KEY, name);
+    QMap<QString, IconThemeWidget *>::iterator it = delframeMap.begin();
+    for (; it != delframeMap.end(); it++){
+        if (it.key() == name)
+            it.value()->set_icontheme_selected(true);
+        else
+            it.value()->set_icontheme_selected(false);
+    }
+    refresh_icon_theme();
 }

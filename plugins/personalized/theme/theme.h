@@ -27,9 +27,11 @@
 #include <QToolButton>
 #include <QSignalMapper>
 #include <QMap>
+#include <QDir>
 
 #include <QGSettings/QGSettings>
 
+#include "iconthemewidget.h"
 #include "../../pluginsComponent/switchbutton.h"
 #include "../../pluginsComponent/customwidget.h"
 
@@ -62,6 +64,7 @@ public:
     void status_init();
     void component_init();
     void refresh_btn_select_status();
+    void refresh_icon_theme();
 
 private:
     Ui::Theme *ui;
@@ -78,10 +81,12 @@ private:
     QMap<QString, QToolButton *> delbtnMap;
     QMap<QString, SwitchButton *> delsbMap;
 
+    QMap<QString, IconThemeWidget *> delframeMap;
+
 public slots:
     void set_theme_slots(QString value);
-    void desktop_icon_settings_btn_clicked_slots();
     void desktop_icon_settings_slots(QString key);
+    void icon_theme_changed_slot(QString name);
 };
 
 #endif // THEME_H

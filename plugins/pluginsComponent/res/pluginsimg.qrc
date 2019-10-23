@@ -45,5 +45,6 @@
         <file>keyboardcontrol/install.png</file>
         <file>keyboardcontrol/delete.png</file>
         <file>autoboot/default.png</file>
+        <file>theme/itselected.png</file>
     </qresource>
 </RCC>

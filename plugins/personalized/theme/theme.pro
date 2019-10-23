@@ -22,10 +22,12 @@ target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
 INSTALLS += target
 
 SOURCES += \
-        theme.cpp
+        theme.cpp \
+    iconthemewidget.cpp
 
 HEADERS += \
-        theme.h
+        theme.h \
+    iconthemewidget.h
 
 FORMS += \
         theme.ui
