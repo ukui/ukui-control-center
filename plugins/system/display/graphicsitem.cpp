@@ -33,11 +33,11 @@ GraphicsItem::GraphicsItem()
     selectedFlag = false; //选中状态
     monitorName = "UNKNOWN";
     monitorType = "UNKNOWN";
+
 }
 
 GraphicsItem::~GraphicsItem()
 {
-
 }
 
 void GraphicsItem::setRectF(qreal width, qreal height){
@@ -93,13 +93,13 @@ QVariant GraphicsItem::itemChange(GraphicsItemChange change, const QVariant &val
 
     if (change == ItemPositionChange && scene() && scene()->selectedItems().length() > 0){ //通过选中的item来判断是否是用户在拖动
         QPointF newPos = value.toPointF();
-        qDebug() << "*******newPos: " << newPos;
+//        qDebug() << "*******newPos: " << newPos;
         QRectF rect(0, this->pos().y(), scene()->width(), 0);//水平
-        qDebug() << "******Pos: " << this->pos() << scene()->width();
-        qDebug() << "rect: " << rect.left() << rect.top() << rect.right() << rect.bottom();
-        qDebug() << rect.isEmpty();
-        qDebug() << "****length:" << scene()->selectedItems().length();
-        qDebug() << "****length2:" << scene()->items().length();
+//        qDebug() << "******Pos: " << this->pos() << scene()->width();
+//        qDebug() << "rect: " << rect.left() << rect.top() << rect.right() << rect.bottom();
+//        qDebug() << rect.isEmpty();
+//        qDebug() << "****length:" << scene()->selectedItems().length();
+//        qDebug() << "****length2:" << scene()->items().length();
 
 //        if (scene()->items().length() == 1){ //单屏禁止移动
 //            QPointF newPos = value.toPointF();
@@ -123,7 +123,7 @@ QVariant GraphicsItem::itemChange(GraphicsItemChange change, const QVariant &val
 
             QPointF fastenedPos = fastenedItem->pos();
             QRectF rect(fastenedPos.x() - fastenedItem->itemWidth()/2 - selectedItem->itemWidth()/2, fastenedPos.y() - fastenedItem->itemHeight()/2 - selectedItem->itemHeight()/2, fastenedItem->itemWidth() + selectedItem->itemWidth(), fastenedItem->itemHeight() + selectedItem->itemHeight());
-            qDebug() << rect.left() << rect.top() << rect.right() << rect.bottom();
+//            qDebug() << rect.left() << rect.top() << rect.right() << rect.bottom();
 
             if (!rect.contains(newPos)){ //设置限制移动的矩形
                 newPos.setX(qMin(rect.right(), qMax(newPos.x(), rect.left())));
@@ -170,9 +170,17 @@ QVariant GraphicsItem::itemChange(GraphicsItemChange change, const QVariant &val
 //}
 
 void GraphicsItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event){
-    qDebug() << "--------->" << pos().x() << pos().y();
+    qDebug() << "-------release-->" << pos();
+
+    emit dragOverSignal();
 
     QGraphicsItem::mouseReleaseEvent(event);
+}
+
+void GraphicsItem::mousePressEvent(QGraphicsSceneMouseEvent *event){
+    qDebug() << "---------press--->" << pos();
+    lastpos = pos();
+    QGraphicsItem::mousePressEvent(event);
 }
 
 void GraphicsItem::selected_changed(bool flag){
@@ -188,6 +196,10 @@ qreal GraphicsItem::itemWidth(){
 
 qreal GraphicsItem::itemHeight(){
     return m_height;
+}
+
+QPointF GraphicsItem::getLastPos(){
+    return lastpos;
 }
 
 void GraphicsItem::setMonitorInfo(QString name, QString type){

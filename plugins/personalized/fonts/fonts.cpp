@@ -249,6 +249,7 @@ void Fonts::get_current_fonts(){
 
 void Fonts::component_init(){
     //init fontsComboBox
+    ui->fontsComboBox->addItem(tr("Custom"));
     for (int i = 0; i < N; i++){
         ui->fontsComboBox->addItem(fontinfo[i].type);
     }
@@ -272,6 +273,9 @@ void Fonts::component_init(){
     ui->pushButton_2->setUserData(Qt::UserRole, example2);
     ui->pushButton_3->setUserData(Qt::UserRole, example3);
     ui->pushButton_4->setUserData(Qt::UserRole, example4);
+
+    //Advanced settings
+//    qDebug() << "font familes count" << fontdb.families().length();
 }
 
 QStringList Fonts::split_fontname_size(QString value){
@@ -290,7 +294,7 @@ QStringList Fonts::split_fontname_size(QString value){
 
 void Fonts::status_setup(){
     //获取当前字体集合
-    QString currentfonts;
+    QString currentfonts = "";
     QStringList gtkfontStrList = split_fontname_size(ifsettings->get(GTK_FONT_KEY).toString());
     QStringList docfontStrList = split_fontname_size(ifsettings->get(DOC_FONT_KEY).toString());
     QStringList monospacefontStrList = split_fontname_size(ifsettings->get(MONOSPACE_FONT_KEY).toString());
@@ -309,7 +313,11 @@ void Fonts::status_setup(){
             continue;
         currentfonts = fontinfo[i].type;
     }
-    ui->fontsComboBox->setCurrentText(currentfonts);
+
+    if (currentfonts == "") //未匹配上，自定义
+        ui->fontsComboBox->setCurrentIndex(0);
+    else
+        ui->fontsComboBox->setCurrentText(currentfonts);
 
     //设置字体大小,选择文档字体大小作为标准，来自gtk控制面板的逻辑
     float res = QString(docfontStrList[1]).toFloat() / (float)defaultfontinfo.docfontsize;
@@ -344,6 +352,7 @@ void Fonts::status_init(){
     connect(ui->radioBtnbuttonGroup, SIGNAL(buttonClicked(int)), this, SLOT(radiobtn_clicked_slot(int)));
     connect(ui->pushBtnbuttonGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(pushbtn_clicked_slot(QAbstractButton*)));
     connect(ui->resetBtn, SIGNAL(clicked()), this, SLOT(reset_default_slot()));
+    connect(ui->advancedBtn, &QPushButton::clicked, this, [=]{ui->StackedWidget->setCurrentIndex(1);});
 }
 
 void Fonts::reset_default_slot(){

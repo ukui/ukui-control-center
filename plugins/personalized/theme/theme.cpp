@@ -52,7 +52,7 @@ Theme::Theme()
     const QByteArray iid(DESKTOP_SCHEMA);
     desktopsettings = new QGSettings(iid);
 
-    themeList << "ukui-black" << "ukui-blue";
+    themeList << "ukui-white" << "ukui-black" ;
 
     component_init();
     status_init();

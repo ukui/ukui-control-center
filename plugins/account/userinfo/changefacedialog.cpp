@@ -90,6 +90,7 @@ void ChangeFaceDialog::set_face_list_status(QString facefile){
 }
 
 void ChangeFaceDialog::item_changed_slot(QListWidgetItem * current, QListWidgetItem *previous){
+    Q_UNUSED(previous);
     QString facefile = current->data(Qt::UserRole).toString();
 
     //show dialog更新头像

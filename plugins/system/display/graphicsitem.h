@@ -22,12 +22,16 @@
 
 #include <QGraphicsScene>
 #include <QGraphicsItem>
+#include <QGraphicsSceneMouseEvent>
 #include <QPainter>
 #include <QPolygonF>
 
+#include <QObject>
 
-class GraphicsItem : public QGraphicsItem
+class GraphicsItem : public QObject, public QGraphicsItem
 {
+    Q_OBJECT
+    Q_INTERFACES(QGraphicsItem)
 
 public:
     explicit GraphicsItem();
@@ -46,11 +50,14 @@ public:
     qreal itemWidth();
     qreal itemHeight();
 
+    QPointF getLastPos();
+
 protected:
 //    virtual void dragEnterEvent(QGraphicsSceneDragDropEvent *event) Q_DECL_OVERRIDE;
 //    virtual void dragLeaveEvent(QGraphicsSceneDragDropEvent *event) Q_DECL_OVERRIDE;
 //    virtual void dragMoveEvent(QGraphicsSceneDragDropEvent *event) Q_DECL_OVERRIDE;
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
+    void mousePressEvent(QGraphicsSceneMouseEvent * event);
     QVariant itemChange(GraphicsItemChange change, const QVariant &value);
 
 private:
@@ -61,6 +68,12 @@ private:
 
     QString monitorName;
     QString monitorType;
+
+    QPointF lastpos;
+
+Q_SIGNALS:
+    void dragOverSignal();
+
 };
 
 #endif // GRAPHICSITEM_H

@@ -31,6 +31,7 @@ CustdomItemModel::~CustdomItemModel()
 }
 
 QModelIndex CustdomItemModel::index(int row, int column, const QModelIndex &parent) const {
+    Q_UNUSED(parent);
     if (row >= 0 && row < rowCount() && column >= 0 && column < columnCount()){
         QStandardItem * item = itemList.at(row);
         return createIndex(row, column, (void *)(item));
@@ -39,10 +40,12 @@ QModelIndex CustdomItemModel::index(int row, int column, const QModelIndex &pare
 }
 
 int CustdomItemModel::columnCount(const QModelIndex &parent) const {
+    Q_UNUSED(parent);
     return 1;
 }
 
 int CustdomItemModel::rowCount(const QModelIndex &parent) const {
+    Q_UNUSED(parent);
     return itemList.count();
 }
 
@@ -88,6 +91,7 @@ bool CustdomItemModel::setData(const QModelIndex &index, const QVariant &value, 
 }
 
 bool CustdomItemModel::insertRows(int row, int count, const QModelIndex &parent){
+    Q_UNUSED(parent);
     beginInsertRows(QModelIndex(), row, row + count - 1);
     for (int i = 0; i < count; i++){
         QStandardItem * item = new QStandardItem();

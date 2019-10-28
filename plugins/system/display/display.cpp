@@ -40,6 +40,10 @@ Q_DECLARE_METATYPE(MateRROutputInfo *)
 Q_DECLARE_METATYPE(MateRRRotation)
 Q_DECLARE_METATYPE(ResolutionValue)
 
+QList<Edge> edges;
+QList<Snap> snaps;
+QList<Edge> new_edges;
+
 DisplaySet::DisplaySet(){
     ui = new Ui::DisplayWindow();
     pluginWidget = new CustomWidget;
@@ -231,18 +235,23 @@ void DisplaySet::rebuild_view(){
             monitorname = QString(mate_rr_output_info_get_display_name(output));
             monitortype = QString(mate_rr_output_info_get_name(output));
 
+            QPointF offset;
+            offset.setX(offset_x); offset.setY(offset_y);
+
             //计算坐标
             x = offset_x * scale + (scene->width() - total_w * scale)/2.0;
             y = offset_y * scale + (scene->height() - total_h * scale)/2.0;
 
-            qDebug() << monitorname << monitortype;
-            qDebug() << "----------->" << x << y;
-            qDebug() << "---->" << output_w * scale << output_h * scale;
+//            qDebug() << monitorname << monitortype;
+//            qDebug() << "----------->" << x << y;
+//            qDebug() << "---->" << output_w * scale << output_h * scale;
             GraphicsItem * item = new GraphicsItem();
             item->setRectF(output_w * scale, output_h * scale);
+            item->setData(Qt::UserRole, QVariant::fromValue(offset));
             item->setMonitorInfo(monitorname, monitortype);
             item->setPos(x + (output_w * scale)/2, y + (output_h * scale)/2);
-
+//            qDebug() << "first pos" <<  x + (output_w * scale)/2 << y + (output_h * scale)/2;
+            connect(item, SIGNAL(dragOverSignal()), this, SLOT(output_drabed_slot()));
             scene->addItem(item);
 
             if (_connect_output_count() == 1) //单屏
@@ -254,54 +263,6 @@ void DisplaySet::rebuild_view(){
 
     }
 
-//    if (monitor_num == 1){
-//        for (int i = 0; i < monitor_num; i++){
-//            int w, h;
-//            QString monitorname, monitortype;
-//            MateRROutputInfo * output = outputs[i];
-//            _get_geometry(output, &w, &h);
-//            monitorname = QString(mate_rr_output_info_get_display_name(output));
-//            monitortype = QString(mate_rr_output_info_get_name(output));
-
-//            //添加屏幕图元
-//            GraphicsItem * item = new GraphicsItem();
-//            item->setRectF(w * scale, h * scale);
-//            item->setMonitorInfo(monitorname, monitortype);
-
-//            scene->addItem(item);
-//        }
-//    }
-//    else if (monitor_num == 2){
-//        for (int i = 0; i < monitor_num; i++){
-//            int w, h;
-//            QString monitorname, monitortype;
-//            MateRROutputInfo * output = outputs[i];
-//            if ( i == 0){//
-//                _get_geometry(output, &w, &h);
-//                monitorname = QString(mate_rr_output_info_get_display_name(output));
-//                monitortype = QString(mate_rr_output_info_get_name(output));
-
-//                GraphicsItem * item = new GraphicsItem();
-//                item->setRectF(w * scale, h * scale);
-//                item->setMonitorInfo(monitorname, monitortype);
-
-//                scene->addItem(item);
-//            }
-//            else if (i == 1){
-
-//            }
-
-//        }
-//    }
-
-//    QGraphicsRectItem * item = new QGraphicsRectItem(QRectF(100, 30, 238, 110));
-//    QPen pen;
-//    pen.setWidth(3);
-//    pen.setColor(QColor("#0078d7"));
-//    item->setPen(pen);
-//    item->setBrush(QColor("#1E90FF"));
-//    item->setFlag(QGraphicsItem::ItemIsMovable);
-//    scene->addItem(item);
 }
 
 void DisplaySet::rebuild_monitor_switchbtn(){
@@ -754,15 +715,15 @@ bool DisplaySet::support_brightness(){
     return false;
 }
 
-gboolean DisplaySet::_output_overlaps(){
+gboolean DisplaySet::_output_overlaps(MateRROutputInfo *output){
     GdkRectangle output_rect;
     MateRROutputInfo **outputs;
 
-    mate_rr_output_info_get_geometry (monitor.current_output, &output_rect.x, &output_rect.y, &output_rect.width, &output_rect.height);
+    mate_rr_output_info_get_geometry (output, &output_rect.x, &output_rect.y, &output_rect.width, &output_rect.height);
 
     outputs = mate_rr_config_get_outputs (monitor.current_configuration);
     for (int i = 0; outputs[i]; ++i){
-        if (outputs[i] != monitor.current_output && mate_rr_output_info_is_connected (outputs[i])){
+        if (outputs[i] != output && mate_rr_output_info_is_connected (outputs[i])){
 
             GdkRectangle other_rect;
 
@@ -811,6 +772,209 @@ void DisplaySet::layout_outputs_horizontally(){
     }
 }
 
+void DisplaySet::_add_edge(MateRROutputInfo *output, int x1, int y1, int x2, int y2, bool diff_edges){
+    Edge e;
+    e.x1 = x1;
+    e.x2 = x2;
+    e.y1 = y1;
+    e.y2 = y2;
+    e.output = output;
+
+    if (!diff_edges)
+        edges.append(e);
+    else
+        new_edges.append(e);
+}
+
+void DisplaySet::_list_edges(bool diff_edges){
+    MateRROutputInfo ** outputs = mate_rr_config_get_outputs(monitor.current_configuration);
+
+    for (int i = 0; outputs[i]; i++){
+        if (mate_rr_output_info_is_connected(outputs[i])){
+            int x, y, w, h;
+            mate_rr_output_info_get_geometry(outputs[i], &x, &y, &w, &h);
+            _add_edge(outputs[i], x, y, x + w, y, diff_edges);
+            _add_edge(outputs[i], x, y + h, x + w, y + h, diff_edges);
+            _add_edge(outputs[i], x, y, x, y + h, diff_edges);
+            _add_edge(outputs[i], x + w, y, x + w, y + h, diff_edges);
+        }
+    }
+}
+
+bool DisplaySet::_overlap(int s1, int e1, int s2, int e2){
+    return (!(e1 < s2 || s1 >= e2));
+}
+
+bool DisplaySet::_horizontal_overlap(Edge *snapper, Edge *snappee){
+    if (snapper->y1 != snapper->y2 || snappee->y1 != snappee->y2)
+        return false;
+    return _overlap(snapper->x1, snapper->x2, snappee->x1, snappee->x2);
+}
+
+bool DisplaySet::_vertical_overlap(Edge *snapper, Edge *snappee){
+    if (snapper->x1 != snapper->x2 || snappee->x1 != snappee->x2)
+        return false;
+    return _overlap(snapper->y1, snapper->y2, snappee->y1, snappee->y2);
+}
+
+void DisplaySet::_add_snap(Snap snap){
+    if (ABS(snap.dx) <= 200 || ABS(snap.dy) <= 200)
+        snaps.append(snap);
+}
+
+void DisplaySet::_add_edge_snaps(Edge *snapper, Edge *snappee){
+    Snap snap;
+    snap.snapper = snapper;
+    snap.snappee = snappee;
+
+    if (_horizontal_overlap(snapper, snappee)){
+        snap.dx = 0;
+        snap.dy = snappee->y1 - snapper->y1;
+
+        _add_snap(snap);
+    }
+    else if (_vertical_overlap(snapper, snappee)){
+        snap.dy = 0;
+        snap.dx = snappee->x1 - snapper->x1;
+
+        _add_snap(snap);
+    }
+
+    /* 1->1? */
+    snap.dx = snappee->x1 - snapper->x1;
+    snap.dy = snappee->y1 - snapper->y1;
+    _add_snap(snap);
+
+    /* 1->2? */
+    snap.dx = snappee->x2 - snapper->x1;
+    snap.dy = snappee->y2 - snapper->y1;
+    _add_snap(snap);
+
+    /* 2->2? */
+    snap.dx = snappee->x2 - snapper->x2;
+    snap.dy = snappee->y2 - snapper->y2;
+    _add_snap(snap);
+
+    /* 2->1? */
+    snap.dx = snappee->x1 - snapper->x2;
+    snap.dy = snappee->y1 - snapper->y2;
+    _add_snap(snap);
+}
+
+void DisplaySet::_list_snaps(){
+    for (int i = 0; i < edges.length(); i++){
+        Edge * output_edge = const_cast<Edge *>(&(edges.at(i)));
+        if (edges.at(i).output == monitor.current_output){
+            for (int j = 0; j < edges.length(); j++){
+                Edge * edge = const_cast<Edge *>(&(edges.at(j)));
+                if (edges.at(j).output != monitor.current_output)
+
+                    _add_edge_snaps(output_edge, edge);
+            }
+        }
+    }
+}
+
+bool DisplaySet::_corner_on_edge(int x, int y, Edge *e){
+    if (x == e->x1 && x == e->x2 && y >= e->y1 && y <= e->y2)
+        return true;
+
+    if (y == e->y1 && y == e->y2 && x >= e->x1 && x <= e->x2)
+        return true;
+    return false;
+}
+
+bool DisplaySet::_edges_align(Edge *e1, Edge *e2){
+    if (_corner_on_edge(e1->x1, e1->y1, e2))
+        return true;
+
+    if (_corner_on_edge(e2->x1, e2->y1, e1))
+        return true;
+    return false;
+}
+
+bool DisplaySet::_output_is_aligned(MateRROutputInfo *output){
+
+    for (int i = 0; i < new_edges.length(); i++){
+        Edge * output_edge = const_cast<Edge *>(&(new_edges.at(i)));
+
+        if (output_edge->output == output){
+            for (int j = 0; j < new_edges.length(); j++){
+                Edge * edge = const_cast<Edge *>(&(new_edges.at(j)));
+
+                if (edge->output != output_edge->output){
+                    if (_edges_align(output_edge, edge))
+                        return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+bool DisplaySet::_config_is_aligned(){
+
+    MateRROutputInfo ** outputs = mate_rr_config_get_outputs(monitor.current_configuration);
+
+    for (int i = 0; outputs[i]; i++){
+        if (mate_rr_output_info_is_connected(outputs[i])){
+            if (!_output_is_aligned(outputs[i]))
+                return false;
+            if (_output_overlaps(outputs[i]))
+                return true;
+        }
+    }
+    return true;
+}
+
+void DisplaySet::output_drabed_slot(){
+
+    QObject * object = QObject::sender();
+    GraphicsItem * item = dynamic_cast<GraphicsItem *>(object);
+
+    int width, height;
+    int new_x, new_y;
+
+    double scale = monitor_item_scale();
+
+    mate_rr_output_info_get_geometry(monitor.current_output, NULL, NULL, &width, &height);
+
+    QPointF originoffset;
+    originoffset = item->data(Qt::UserRole).toPointF();
+
+
+    new_x = originoffset.x() + (item->pos().x() - item->getLastPos().x()) / scale;
+    new_y = originoffset.y() + (item->pos().y() - item->getLastPos().y()) / scale;
+
+    edges.clear(); snaps.clear();
+
+    _list_edges(false);
+    _list_snaps();
+
+    //g_array_sort();
+
+    mate_rr_output_info_set_geometry(monitor.current_output, new_x, new_y, width, height);
+
+    for (int i = 0; i < snaps.length(); i++){
+        Snap * snap = const_cast<Snap *>(&(snaps.at(i)));
+        mate_rr_output_info_set_geometry(monitor.current_output, new_x + snap->dx, new_y + snap->dy, width, height);
+
+        new_edges.clear();
+        _list_edges(true);
+
+        if (_config_is_aligned()){
+            QPointF offset;
+            offset.setX(new_x + snap->dx); offset.setY(new_y + snap->dy);
+            item->setData(Qt::UserRole, QVariant::fromValue(offset));
+            break;
+        }
+        else{
+            mate_rr_output_info_set_geometry(monitor.current_output, originoffset.x(), originoffset.y(), width, height);
+        }
+    }
+}
+
+
 void DisplaySet::selected_item_changed_slot(){
     qDebug() << "Selected" << scene->selectedItems().length();
 }
@@ -850,7 +1014,7 @@ void DisplaySet::mirror_monitor_changed_slot(){
     else{ //关闭镜像模式
 //        if (output_overlaps (app->current_output, app->current_configuration))
 //            lay_out_outputs_horizontally (app);
-        if (_output_overlaps())
+        if (_output_overlaps(monitor.current_output))
             layout_outputs_horizontally();
     }
 

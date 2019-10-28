@@ -26,6 +26,9 @@
 #include <QObject>
 #include <QtPlugin>
 #include "mainui/interface.h"
+
+#include <QFontDatabase>
+
 #include "../../pluginsComponent/customwidget.h"
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
@@ -86,6 +89,8 @@ private:
     QStringList monospacefontStrList;
     QStringList peonyfontStrList;
     QStringList titlebarfontStrList;
+
+    QFontDatabase fontdb;
 
 private slots:
     void reset_default_slot();

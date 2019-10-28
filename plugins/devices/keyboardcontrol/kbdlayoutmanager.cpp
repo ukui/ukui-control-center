@@ -219,11 +219,13 @@ QString KbdLayoutManager::kbd_get_description_by_id(const char *visible){
 }
 
 void KbdLayoutManager::countries_changed_slot(int index){
+    Q_UNUSED(index);
     QString id = ui->countryComboBox->currentData().toString();
     emit rebuild_variant_signals(true, id);
 }
 
 void KbdLayoutManager::languages_changed_slot(int index){
+    Q_UNUSED(index);
     QString id = ui->languageComboBox->currentData().toString();
     emit rebuild_variant_signals(false, id);
 }
@@ -239,6 +241,7 @@ void KbdLayoutManager::rebuild_variant_slots(bool type, QString id){
 }
 
 static void kbd_set_countries(XklConfigRegistry *config_registry, XklConfigItem *config_item, QList<Layout> *list){
+    Q_UNUSED(config_registry); Q_UNUSED(list);
     Layout item;
     item.desc = config_item->description;
     item.name = config_item->name;
@@ -250,6 +253,7 @@ static void kbd_set_countries(XklConfigRegistry *config_registry, XklConfigItem 
 }
 
 static void kbd_set_languages(XklConfigRegistry *config_registry, XklConfigItem *config_item, QList<Layout> *list){
+    Q_UNUSED(config_registry); Q_UNUSED(list);
     Layout item;
     item.desc = config_item->description;
     item.name = config_item->name;
@@ -259,10 +263,12 @@ static void kbd_set_languages(XklConfigRegistry *config_registry, XklConfigItem 
 }
 
 static void kbd_set_available_countries(XklConfigRegistry *config_registry, XklConfigItem * parent_config_item, XklConfigItem *config_item, QList<Layout>  *list){
+    Q_UNUSED(config_registry); Q_UNUSED(list);
     const gchar *xkb_id = config_item ? matekbd_keyboard_config_merge_items (parent_config_item->name, config_item->name) : parent_config_item->name;
     availablelayoutsList.append(QString(const_cast<char *>(xkb_id)));
 }
 
 static void kbd_set_available_languages(XklConfigRegistry *config_registry, XklConfigItem *parent_config_item, XklConfigItem *config_item, QList<Layout> *list){
+    Q_UNUSED(list);
     kbd_set_available_countries(config_registry, parent_config_item, config_item, NULL);
 }

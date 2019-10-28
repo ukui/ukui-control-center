@@ -77,6 +77,18 @@ typedef struct _Monitor{
     GtkWidget * window;
 }Monitor;
 
+typedef struct _Edge{
+    MateRROutputInfo * output;
+    int x1, x2;
+    int y1, y2;
+}Edge;
+
+typedef struct _Snap{
+    Edge * snapper;
+    Edge * snappee;
+    int dy, dx;
+}Snap;
+
 class DisplaySet : public QObject, CommonInterface{
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.kycc.CommonInterface")
@@ -107,7 +119,7 @@ public:
 
     double monitor_item_scale();
     void _get_geometry(MateRROutputInfo * output, int * w, int * h);
-    gboolean _output_overlaps();
+    gboolean _output_overlaps(MateRROutputInfo * output);
     void layout_outputs_horizontally();
     gboolean _get_clone_size(int *width, int *height);
     gboolean _output_info_supports_mode(MateRROutputInfo * info, int width, int height);
@@ -123,6 +135,20 @@ public:
     void _ensure_current_configuration_is_saved();
     void _begin_version2_apply_configuration();
     static void _apply_configuration_callback();
+
+    void _list_edges(bool diff_edges);
+    void _list_snaps();
+
+    void _add_edge(MateRROutputInfo * output, int x1, int y1, int x2, int y2, bool diff_edges);
+    void _add_edge_snaps(Edge * snapper, Edge * snappee);
+    void _add_snap(Snap snap);
+    bool _horizontal_overlap(Edge * snapper, Edge * snappee);
+    bool _vertical_overlap(Edge * snapper, Edge * snappee);
+    bool _overlap(int s1, int e1, int s2, int e2);
+    bool _config_is_aligned();
+    bool _output_is_aligned(MateRROutputInfo * output);
+    bool _edges_align(Edge * e1, Edge * e2);
+    bool _corner_on_edge(int x, int y, Edge * e);
 
     bool support_brightness();
     bool brightness_setup_display();
@@ -145,6 +171,7 @@ private:
 
 private slots:
     void selected_item_changed_slot();
+    void output_drabed_slot();
 
     void monitor_active_changed_slot();
     void mirror_monitor_changed_slot();

@@ -314,6 +314,7 @@ void UserInfo::show_create_user_dialog_slot(){
 }
 
 void UserInfo::create_user_slot(QString username, QString pwd, QString pin, int atype, bool autologin){
+    Q_UNUSED(pin); Q_UNUSED(autologin);
     sysdispatcher->create_user(username, "", atype);
 
     pwdcreate = ""; //重置
