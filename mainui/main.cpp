@@ -19,6 +19,7 @@
  */
 #include "mainwindow.h"
 #include <QApplication>
+#include <QtSingleApplication>
 
 #include <QTranslator>
 
@@ -28,12 +29,19 @@ int main(int argc, char *argv[])
 {
 //    QApplication a(argc, argv);
 
-    Kpplication app("ukui-control-center", argc, argv);
-    app.setQuitOnLastWindowClosed(false);
+    QtSingleApplication app(argc, argv);
+    if (app.isRunning()){
+        qDebug() << QObject::tr("ukui-control-center had already running!");
+        return 0;
+    }
 
-    app.setOrganizationName("KYLIN");
-    app.setApplicationName("ukui-control-center");
-    app.setApplicationVersion("2.0.0");
+    //来自网络的单例模式模块
+//    Kpplication kapp("ukui-control-center", argc, argv);
+//    kapp.setQuitOnLastWindowClosed(false);
+
+//    kapp.setOrganizationName("KYLIN");
+//    kapp.setApplicationName("ukui-control-center");
+//    kapp.setApplicationVersion("2.0.0");
 
 
     //i18n
@@ -57,17 +65,12 @@ int main(int argc, char *argv[])
         QssFile.close();
     }
 
-//    Kpplication * app_instance = Kpplication::instance();
-//    if (app_instance->isRunning()){
-//        app_instance->sendMessage("Already Running!");
-//        return 1;
+//    if (ap.isRunning()){
+//        return !kapp.sendMessage("Already Running!");
 //    }
-    if (app.isRunning()){
-        return !app.sendMessage("Already Running!");
-    }
 
     MainWindow w;
-    app.setActivationWindow(&w);
+//    kapp.setActivationWindow(&w);
     w.show();
 
     return app.exec();

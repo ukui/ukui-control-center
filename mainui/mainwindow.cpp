@@ -58,8 +58,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lineEdit->hide();
 
     connect(ui->minBtn, SIGNAL(clicked()), this, SLOT(showMinimized()));
-//    connect(ui->closeBtn, SIGNAL(clicked(bool)), this, SLOT(close()));
-    connect(ui->closeBtn, &QToolButton::clicked, this, [=]{qApp->exit();});
+    connect(ui->closeBtn, SIGNAL(clicked(bool)), this, SLOT(close()));
 
     loadPlugins();
 
@@ -91,6 +90,10 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::closeEvent(QCloseEvent *){
+    qApp->exit();
 }
 
 void MainWindow::mousePressEvent(QMouseEvent * event){
