@@ -538,10 +538,10 @@ Welcome Use KylinOS</string>
         <number>25</number>
        </property>
        <property name="leftMargin">
-        <number>0</number>
+        <number>20</number>
        </property>
        <property name="topMargin">
-        <number>0</number>
+        <number>25</number>
        </property>
        <property name="rightMargin">
         <number>0</number>
@@ -583,13 +583,13 @@ Welcome Use KylinOS</string>
            </property>
            <property name="minimumSize">
             <size>
-             <width>90</width>
+             <width>100</width>
              <height>0</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>90</width>
+             <width>100</width>
              <height>16777215</height>
             </size>
            </property>
@@ -599,23 +599,39 @@ Welcome Use KylinOS</string>
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox">
+          <widget class="CustomComboBox" name="defaultfontCbx">
            <property name="minimumSize">
             <size>
-             <width>150</width>
+             <width>240</width>
              <height>30</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>150</width>
+             <width>240</width>
              <height>30</height>
             </size>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox_2">
+          <widget class="QComboBox" name="defaultstyleCbx">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>30</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="CustomComboBox" name="defaultsizeCbx">
            <property name="minimumSize">
             <size>
              <width>80</width>
@@ -631,7 +647,7 @@ Welcome Use KylinOS</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_5">
+          <widget class="QPushButton" name="defaultBtn">
            <property name="minimumSize">
             <size>
              <width>128</width>
@@ -679,13 +695,13 @@ Welcome Use KylinOS</string>
            </property>
            <property name="minimumSize">
             <size>
-             <width>90</width>
+             <width>100</width>
              <height>0</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>90</width>
+             <width>100</width>
              <height>16777215</height>
             </size>
            </property>
@@ -695,23 +711,39 @@ Welcome Use KylinOS</string>
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox_3">
+          <widget class="CustomComboBox" name="docfontCbx">
            <property name="minimumSize">
             <size>
-             <width>150</width>
+             <width>240</width>
              <height>30</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>150</width>
+             <width>240</width>
              <height>30</height>
             </size>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox_4">
+          <widget class="QComboBox" name="docstyleCbx">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>30</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="CustomComboBox" name="docsizeCbx">
            <property name="minimumSize">
             <size>
              <width>80</width>
@@ -727,7 +759,7 @@ Welcome Use KylinOS</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_6">
+          <widget class="QPushButton" name="docBtn">
            <property name="minimumSize">
             <size>
              <width>128</width>
@@ -775,13 +807,13 @@ Welcome Use KylinOS</string>
            </property>
            <property name="minimumSize">
             <size>
-             <width>90</width>
+             <width>100</width>
              <height>0</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>90</width>
+             <width>100</width>
              <height>16777215</height>
             </size>
            </property>
@@ -791,23 +823,39 @@ Welcome Use KylinOS</string>
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox_5">
+          <widget class="CustomComboBox" name="monofontCbx">
            <property name="minimumSize">
             <size>
-             <width>150</width>
+             <width>240</width>
              <height>30</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>150</width>
+             <width>240</width>
              <height>30</height>
             </size>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox_6">
+          <widget class="QComboBox" name="monostyleCbx">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>30</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="CustomComboBox" name="monosizeCbx">
            <property name="minimumSize">
             <size>
              <width>80</width>
@@ -823,7 +871,7 @@ Welcome Use KylinOS</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_7">
+          <widget class="QPushButton" name="monoBtn">
            <property name="minimumSize">
             <size>
              <width>128</width>
@@ -871,13 +919,13 @@ Welcome Use KylinOS</string>
            </property>
            <property name="minimumSize">
             <size>
-             <width>90</width>
+             <width>100</width>
              <height>0</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>90</width>
+             <width>100</width>
              <height>16777215</height>
             </size>
            </property>
@@ -887,23 +935,39 @@ Welcome Use KylinOS</string>
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox_7">
+          <widget class="CustomComboBox" name="peonyfontCbx">
            <property name="minimumSize">
             <size>
-             <width>150</width>
+             <width>240</width>
              <height>30</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>150</width>
+             <width>240</width>
              <height>30</height>
             </size>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox_8">
+          <widget class="QComboBox" name="peonystyleCbx">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>30</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="CustomComboBox" name="peonysizeCbx">
            <property name="minimumSize">
             <size>
              <width>80</width>
@@ -919,7 +983,7 @@ Welcome Use KylinOS</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_8">
+          <widget class="QPushButton" name="peonyBtn">
            <property name="minimumSize">
             <size>
              <width>128</width>
@@ -967,13 +1031,13 @@ Welcome Use KylinOS</string>
            </property>
            <property name="minimumSize">
             <size>
-             <width>90</width>
+             <width>100</width>
              <height>0</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>90</width>
+             <width>100</width>
              <height>16777215</height>
             </size>
            </property>
@@ -983,23 +1047,39 @@ Welcome Use KylinOS</string>
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox_9">
+          <widget class="CustomComboBox" name="titlefontCbx">
            <property name="minimumSize">
             <size>
-             <width>150</width>
+             <width>240</width>
              <height>30</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>150</width>
+             <width>240</width>
              <height>30</height>
             </size>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox_10">
+          <widget class="QComboBox" name="titlestyleCbx">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>30</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="CustomComboBox" name="titlesizeCbx">
            <property name="minimumSize">
             <size>
              <width>80</width>
@@ -1015,7 +1095,7 @@ Welcome Use KylinOS</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_9">
+          <widget class="QPushButton" name="titleBtn">
            <property name="minimumSize">
             <size>
              <width>128</width>
@@ -1068,6 +1148,13 @@ Welcome Use KylinOS</string>
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>CustomComboBox</class>
+   <extends>QComboBox</extends>
+   <header>../../pluginsComponent/customcombobox.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
  <buttongroups>

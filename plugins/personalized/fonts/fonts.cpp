@@ -79,7 +79,7 @@ FontInfo fontinfo[N] = {
     "Ubuntu",
     "Sans",
     "Ubuntu Mono",
-    " ",
+    "Ubuntu",
     "Ubuntu Bold",
     0, 0, 0, 0, 0},
     {"Mate",
@@ -116,6 +116,8 @@ struct FontEffects : QObjectUserData {
     Antialiasing antial;
     Hinting hinting;
 };
+
+QList<int> defaultsizeList = {6, 7, 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72};
 
 Fonts::Fonts()
 {
@@ -275,7 +277,62 @@ void Fonts::component_init(){
     ui->pushButton_4->setUserData(Qt::UserRole, example4);
 
     //Advanced settings
-//    qDebug() << "font familes count" << fontdb.families().length();
+    // style diable
+    ui->defaultstyleCbx->hide();
+    ui->docstyleCbx->hide();
+    ui->monostyleCbx->hide();
+    ui->peonystyleCbx->hide();
+    ui->titlestyleCbx->hide();
+
+    // font append
+    QStringList fontfamiles = fontdb.families();
+    for (QString font : fontfamiles){
+        // gtk default
+        ui->defaultfontCbx->addwidgetItem(font);
+        //doc font
+        ui->docfontCbx->addwidgetItem(font);
+        // peony font
+        ui->peonyfontCbx->addwidgetItem(font);
+        //monospace font
+        ui->monofontCbx->addwidgetItem(font);
+        //title font
+        ui->titlefontCbx->addwidgetItem(font);
+    }
+
+    //font size append
+    //获取当前字体
+    QStringList gtkfontStrList = split_fontname_size(ifsettings->get(GTK_FONT_KEY).toString());
+    QStringList docfontStrList = split_fontname_size(ifsettings->get(DOC_FONT_KEY).toString());
+    QStringList monospacefontStrList = split_fontname_size(ifsettings->get(MONOSPACE_FONT_KEY).toString());
+    QStringList peonyfontStrList = split_fontname_size(peonysettings->get(PEONY_FONT_KEY).toString());
+    QStringList titlebarfontStrList = split_fontname_size(marcosettings->get(TITLEBAR_FONT_KEY).toString());
+
+    QList<int> gtksizeList = fontdb.pointSizes(gtkfontStrList.at(0));
+    QList<int> docsizeList = fontdb.pointSizes(docfontStrList.at(0));
+    QList<int> monosizeList = fontdb.pointSizes(monospacefontStrList.at(0));
+    QList<int> peonysizeList = fontdb.pointSizes(peonyfontStrList.at(0));
+    QList<int> titlesizeList = fontdb.pointSizes(titlebarfontStrList.at(0));
+
+    if (gtksizeList.length() == 0)
+        gtksizeList = defaultsizeList;
+    for (int size : gtksizeList)
+        ui->defaultsizeCbx->addwidgetItem(QString::number(size));
+    if (docsizeList.length() == 0)
+        docsizeList = defaultsizeList;
+    for (int size : docsizeList)
+        ui->docsizeCbx->addwidgetItem(QString::number(size));
+    if (monosizeList.length() == 0)
+        monosizeList = defaultsizeList;
+    for (int size : monosizeList)
+        ui->monosizeCbx->addwidgetItem(QString::number(size));
+    if (peonysizeList.length() == 0)
+        peonysizeList = defaultsizeList;
+    for (int size : peonysizeList)
+        ui->peonysizeCbx->addwidgetItem(QString::number(size));
+    if (titlesizeList.length() == 0)
+        titlesizeList = defaultsizeList;
+    for (int size : titlesizeList)
+        ui->titlesizeCbx->addwidgetItem(QString::number(size));
 }
 
 QStringList Fonts::split_fontname_size(QString value){
@@ -292,7 +349,7 @@ QStringList Fonts::split_fontname_size(QString value){
     return valueStringList;
 }
 
-void Fonts::status_setup(){
+void Fonts::refresh_mainpage_status(){
     //获取当前字体集合
     QString currentfonts = "";
     QStringList gtkfontStrList = split_fontname_size(ifsettings->get(GTK_FONT_KEY).toString());
@@ -300,6 +357,8 @@ void Fonts::status_setup(){
     QStringList monospacefontStrList = split_fontname_size(ifsettings->get(MONOSPACE_FONT_KEY).toString());
     QStringList peonyfontStrList = split_fontname_size(peonysettings->get(PEONY_FONT_KEY).toString());
     QStringList titlebarfontStrList = split_fontname_size(marcosettings->get(TITLEBAR_FONT_KEY).toString());
+
+    //设置当前字体集
     for (int i = 0; i < N; i++){
         if (fontinfo[i].docfont != docfontStrList[0])
             continue;
@@ -314,20 +373,31 @@ void Fonts::status_setup(){
         currentfonts = fontinfo[i].type;
     }
 
+    ui->fontsComboBox->blockSignals(true);
     if (currentfonts == "") //未匹配上，自定义
         ui->fontsComboBox->setCurrentIndex(0);
     else
         ui->fontsComboBox->setCurrentText(currentfonts);
+    ui->fontsComboBox->blockSignals(false);
 
     //设置字体大小,选择文档字体大小作为标准，来自gtk控制面板的逻辑
     float res = QString(docfontStrList[1]).toFloat() / (float)defaultfontinfo.docfontsize;
 
-    if (res == SMALL)
+    if (res == SMALL){
+        ui->smallRadioBtn->blockSignals(true);
         ui->smallRadioBtn->setChecked(true);
-    else if (res > SMALL && res <= MEDIUM)
+        ui->smallRadioBtn->blockSignals(false);
+    }
+    else if (res > SMALL && res <= MEDIUM){
+        ui->mediumRadioBtn->blockSignals(true);
         ui->mediumRadioBtn->setChecked(true);
-    else if (res > MEDIUM)
+        ui->mediumRadioBtn->blockSignals(false);
+    }
+    else if (res > MEDIUM){
+        ui->largerRadioBtn->blockSignals(true);
         ui->largerRadioBtn->setChecked(true);
+        ui->largerRadioBtn->blockSignals(false);
+    }
 
     //设置当前字体效果
     GSettings * settings = g_settings_new(FONT_RENDER_SCHEMA);
@@ -337,37 +407,169 @@ void Fonts::status_setup(){
     for (int num = 0; num < buttonsList.size(); num++){
         FontEffects * btnFontEffects = (FontEffects *)((QPushButton *)buttonsList[num])->userData(Qt::UserRole);
         if (currentantial == btnFontEffects->antial && currenthinting == btnFontEffects->hinting){
-            ((QPushButton *)buttonsList[num])->setChecked(true);
+            QPushButton * button = ((QPushButton *)buttonsList[num]);
+            button->blockSignals(true);
+            button->setChecked(true);
+            button->blockSignals(false);
         }
     }
     g_object_unref(settings);
 }
 
+void Fonts::refresh_subpage_status(){
+
+    //获取当前字体集合
+    QString currentfonts = "";
+    QStringList gtkfontStrList = split_fontname_size(ifsettings->get(GTK_FONT_KEY).toString());
+    QStringList docfontStrList = split_fontname_size(ifsettings->get(DOC_FONT_KEY).toString());
+    QStringList monospacefontStrList = split_fontname_size(ifsettings->get(MONOSPACE_FONT_KEY).toString());
+    QStringList peonyfontStrList = split_fontname_size(peonysettings->get(PEONY_FONT_KEY).toString());
+    QStringList titlebarfontStrList = split_fontname_size(marcosettings->get(TITLEBAR_FONT_KEY).toString());
+
+    //
+    ui->defaultfontCbx->blockSignals(true);
+    ui->docfontCbx->blockSignals(true);
+    ui->monofontCbx->blockSignals(true);
+    ui->peonyfontCbx->blockSignals(true);
+    ui->titlefontCbx->blockSignals(true);
+    ui->defaultfontCbx->setCurrentText(gtkfontStrList.at(0));
+    ui->docfontCbx->setCurrentText(docfontStrList.at(0));
+    ui->monofontCbx->setCurrentText(monospacefontStrList.at(0));
+    ui->peonyfontCbx->setCurrentText(peonyfontStrList.at(0));
+    ui->titlefontCbx->setCurrentText(titlebarfontStrList.at(0));
+    ui->defaultfontCbx->blockSignals(false);
+    ui->docfontCbx->blockSignals(false);
+    ui->monofontCbx->blockSignals(false);
+    ui->peonyfontCbx->blockSignals(false);
+    ui->titlefontCbx->blockSignals(false);
+
+    ui->defaultsizeCbx->blockSignals(true);
+    ui->docsizeCbx->blockSignals(true);
+    ui->monosizeCbx->blockSignals(true);
+    ui->peonysizeCbx->blockSignals(true);
+    ui->titlesizeCbx->blockSignals(true);
+    ui->defaultsizeCbx->setCurrentText(gtkfontStrList.at(1));
+    ui->docsizeCbx->setCurrentText(docfontStrList.at(1));
+    ui->monosizeCbx->setCurrentText(monospacefontStrList.at(1));
+    ui->peonysizeCbx->setCurrentText(peonyfontStrList.at(1));
+    ui->titlesizeCbx->setCurrentText(titlebarfontStrList.at(1));
+    ui->defaultsizeCbx->blockSignals(false);
+    ui->docsizeCbx->blockSignals(false);
+    ui->monosizeCbx->blockSignals(false);
+    ui->peonysizeCbx->blockSignals(false);
+    ui->titlesizeCbx->blockSignals(false);
+}
+
+void Fonts::refresh_status(){
+    refresh_mainpage_status();
+    refresh_subpage_status();
+}
+
 void Fonts::status_init(){
-
-    status_setup();
-
+    refresh_status();
     //设置状态后绑定slot
     connect(ui->fontsComboBox, SIGNAL(currentTextChanged(QString)), this, SLOT(combobox_changed_slot(QString)));
     connect(ui->radioBtnbuttonGroup, SIGNAL(buttonClicked(int)), this, SLOT(radiobtn_clicked_slot(int)));
     connect(ui->pushBtnbuttonGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(pushbtn_clicked_slot(QAbstractButton*)));
     connect(ui->resetBtn, SIGNAL(clicked()), this, SLOT(reset_default_slot()));
     connect(ui->advancedBtn, &QPushButton::clicked, this, [=]{ui->StackedWidget->setCurrentIndex(1);});
+
+    connect(ui->defaultfontCbx, &CustomComboBox::currentTextChanged, this, [=](QString text){
+        rebuild_size_combo(ui->defaultsizeCbx, text);
+        ifsettings->set(GTK_FONT_KEY, QVariant(QString("%1 %2").arg(text).arg(ui->defaultsizeCbx->currentText())));
+        refresh_mainpage_status();
+    });
+    connect(ui->docfontCbx, &CustomComboBox::currentTextChanged, this, [=](QString text){
+        rebuild_size_combo(ui->docsizeCbx, text);
+        ifsettings->set(DOC_FONT_KEY, QVariant(QString("%1 %2").arg(text).arg(ui->docsizeCbx->currentText())));
+        refresh_mainpage_status();
+    });
+    connect(ui->monofontCbx, &CustomComboBox::currentTextChanged, this, [=](QString text){
+        rebuild_size_combo(ui->monosizeCbx, text);
+        ifsettings->set(MONOSPACE_FONT_KEY, QVariant(QString("%1 %2").arg(text).arg(ui->monosizeCbx->currentText())));
+        refresh_mainpage_status();
+    });
+    connect(ui->peonyfontCbx, &CustomComboBox::currentTextChanged, this, [=](QString text){
+        rebuild_size_combo(ui->peonysizeCbx, text);
+        peonysettings->set(PEONY_FONT_KEY, QVariant(QString("%1 %2").arg(text).arg(ui->peonysizeCbx->currentText())));
+        refresh_mainpage_status();
+    });
+    connect(ui->titlefontCbx, &CustomComboBox::currentTextChanged, this, [=](QString text){
+        rebuild_size_combo(ui->titlesizeCbx, text);
+        marcosettings->set(TITLEBAR_FONT_KEY, QVariant(QString("%1 %2").arg(text).arg(ui->titlesizeCbx->currentText())));
+        refresh_mainpage_status();
+    });
+
+    connect(ui->defaultsizeCbx, &CustomComboBox::currentTextChanged, this, [=](QString text){
+        ifsettings->set(GTK_FONT_KEY, QVariant(QString("%1 %2").arg(ui->defaultfontCbx->currentText()).arg(text)));
+        refresh_mainpage_status();
+    });
+    connect(ui->docsizeCbx, &CustomComboBox::currentTextChanged, this, [=](QString text){
+        ifsettings->set(DOC_FONT_KEY, QVariant(QString("%1 %2").arg(ui->docfontCbx->currentText()).arg(text)));
+        refresh_mainpage_status();
+    });
+    connect(ui->monosizeCbx, &CustomComboBox::currentTextChanged, this, [=](QString text){
+        ifsettings->set(MONOSPACE_FONT_KEY, QVariant(QString("%1 %2").arg(ui->monofontCbx->currentText()).arg(text)));
+        refresh_mainpage_status();
+    });
+    connect(ui->peonysizeCbx, &CustomComboBox::currentTextChanged, this, [=](QString text){
+        peonysettings->set(PEONY_FONT_KEY, QVariant(QString("%1 %2").arg(ui->peonyfontCbx->currentText()).arg(text)));
+        refresh_mainpage_status();
+    });
+    connect(ui->titlesizeCbx, &CustomComboBox::currentTextChanged, this, [=](QString text){
+        marcosettings->set(TITLEBAR_FONT_KEY, QVariant(QString("%1 %2").arg(ui->titlefontCbx->currentText()).arg(text)));
+        refresh_mainpage_status();
+    });
+
+    connect(ui->defaultBtn, &QPushButton::clicked, [=]{
+        ifsettings->reset(GTK_FONT_KEY);
+        refresh_status();
+    });
+    connect(ui->docBtn, &QPushButton::clicked, [=]{
+        ifsettings->reset(DOC_FONT_KEY);
+        refresh_status();
+    });
+    connect(ui->monoBtn, &QPushButton::clicked, [=]{
+        ifsettings->reset(MONOSPACE_FONT_KEY);
+        refresh_status();
+    });
+    connect(ui->peonyBtn, &QPushButton::clicked, [=]{
+        peonysettings->reset(PEONY_FONT_KEY);
+        refresh_status();
+    });
+    connect(ui->titleBtn, &QPushButton::clicked, [=]{
+        marcosettings->reset(TITLEBAR_FONT_KEY);
+        refresh_status();
+    });
+}
+
+void Fonts::rebuild_size_combo(CustomComboBox *combo, QString text){
+    combo->blockSignals(true);
+    QString oldsize = combo->currentText();
+    combo->removewidgetItems();
+    QList<int> sizeList = fontdb.pointSizes(text);
+    if (sizeList.length() == 0)
+        sizeList = defaultsizeList;
+    for (int size : sizeList)
+        combo->addwidgetItem(QString::number(size));
+    combo->setCurrentText(oldsize);
+
+    combo->blockSignals(false);
 }
 
 void Fonts::reset_default_slot(){
     //reset font
-    ifsettings->reset(DOC_FONT_KEY);
     ifsettings->reset(GTK_FONT_KEY);
+    ifsettings->reset(DOC_FONT_KEY);
     ifsettings->reset(MONOSPACE_FONT_KEY);
-    marcosettings->reset(TITLEBAR_FONT_KEY);
     peonysettings->reset(PEONY_FONT_KEY);
+    marcosettings->reset(TITLEBAR_FONT_KEY);
 
     //reset font render
     rendersettings->reset(ANTIALIASING_KEY);
     rendersettings->reset(HINTING_KEY);
 
-    status_setup();
+    refresh_status();
 }
 
 void Fonts::pushbtn_clicked_slot(QAbstractButton *button){
@@ -401,6 +603,7 @@ void Fonts::radiobtn_clicked_slot(int indexnum){
     peonysettings->set(PEONY_FONT_KEY, QVariant(QString("%1 %2").arg(peonyfontStrList[0]).arg(defaultfontinfo.monospacefontsize * level)));
     marcosettings->set(TITLEBAR_FONT_KEY, QVariant(QString("%1 %2").arg(titlebarfontStrList[0]).arg(defaultfontinfo.titlebarfontsize * level)));
 
+    refresh_subpage_status();
 }
 
 void Fonts::combobox_changed_slot(QString text){
@@ -414,4 +617,5 @@ void Fonts::combobox_changed_slot(QString text){
             marcosettings->set(TITLEBAR_FONT_KEY, QVariant(QString("%1 %2").arg(fontinfo[i].titlebarfont).arg(titlebarfontStrList[1])));
         }
     }
+    refresh_subpage_status();
 }

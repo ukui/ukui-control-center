@@ -30,6 +30,7 @@
 #include <QFontDatabase>
 
 #include "../../pluginsComponent/customwidget.h"
+#include "../../pluginsComponent/customcombobox.h"
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -67,10 +68,14 @@ public:
 
     void component_init();
     void status_init();
-    void status_setup();
+    void refresh_status();
+    void refresh_mainpage_status();
+    void refresh_subpage_status();
     void get_default_fontinfo();
     void get_current_fonts();
     QStringList split_fontname_size(QString value);
+
+    void rebuild_size_combo(CustomComboBox * combo, QString text);
 
 private:
     Ui::Fonts *ui;

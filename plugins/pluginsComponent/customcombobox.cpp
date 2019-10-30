@@ -21,6 +21,7 @@
 
 #include <QListWidget>
 #include <QListWidgetItem>
+#include <QScrollBar>
 
 #include <QDebug>
 
@@ -36,6 +37,8 @@ CustomComboBox::CustomComboBox(QWidget *parent) :
     partListWidget = new QListWidget(this);
 
     partListWidget->setItemDelegate(new NoFocusFrameDelegate(this));
+    partListWidget->verticalScrollBar()->setStyleSheet("QScrollBar{width: 10px}");
+    partListWidget->setFixedHeight(15 * 30);
 
     this->setModel(partListWidget->model());
     this->setView(partListWidget);
@@ -63,5 +66,13 @@ void CustomComboBox::addwidgetItem(QString text){
 void CustomComboBox::setcurrentwidgetIndex(int index){
     QListWidgetItem * item = partListWidget->takeItem(index);
     this->setEditText(item->text());
+}
+
+void CustomComboBox::removewidgetItems(){
+    for (int i = partListWidget->count() - 1; i >= 0; i--){
+        QListWidgetItem * item = partListWidget->item(i);
+        partListWidget->removeItemWidget(item);
+        delete item;
+    }
 }
 

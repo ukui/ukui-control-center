@@ -39,6 +39,7 @@ public:
 
 //    void setCurrentItem(QString text);
     void addwidgetItem(QString text);
+    void removewidgetItems();
     void setcurrentwidgetIndex(int index);
 
 private:

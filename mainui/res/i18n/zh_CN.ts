@@ -491,32 +491,32 @@ p, li { white-space: pre-wrap; }
         <translation>设置自定义头像</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="109"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="110"/>
         <source>selsect custom face file</source>
         <translation>选择自定义头像</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="110"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="111"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="111"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="112"/>
         <source>Position: </source>
         <translation>位置： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="112"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="113"/>
         <source>FileName: </source>
         <translation>文件名： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="113"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="114"/>
         <source>FileType: </source>
         <translation>文件类型： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="114"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="115"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -977,27 +977,27 @@ folder will be deleted!</source>
 <context>
     <name>DisplaySet</name>
     <message>
-        <location filename="../../../plugins/system/display/display.cpp" line="49"/>
+        <location filename="../../../plugins/system/display/display.cpp" line="53"/>
         <source>display</source>
         <translation>显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.cpp" line="620"/>
+        <location filename="../../../plugins/system/display/display.cpp" line="581"/>
         <source>Normal</source>
         <translation>正常</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.cpp" line="621"/>
+        <location filename="../../../plugins/system/display/display.cpp" line="582"/>
         <source>Left</source>
         <translation>左</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.cpp" line="622"/>
+        <location filename="../../../plugins/system/display/display.cpp" line="583"/>
         <source>Right</source>
         <translation>右</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.cpp" line="623"/>
+        <location filename="../../../plugins/system/display/display.cpp" line="584"/>
         <source>Upside-down</source>
         <translation>上下颠倒</translation>
     </message>
@@ -1075,6 +1075,7 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/fonts/fonts.ui" line="122"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="561"/>
         <source>Advanced Settings</source>
         <translation>高级设置</translation>
     </message>
@@ -1109,20 +1110,59 @@ folder will be deleted!</source>
         <translation>重置默认</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="597"/>
+        <source>Gtk default font</source>
+        <translation>默认字体</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="664"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="776"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="888"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="1000"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="1112"/>
+        <source>Restore to default</source>
+        <translation>恢复默认字体</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="709"/>
+        <source>Document font</source>
+        <translation>文档字体</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="821"/>
+        <source>Monospace font</source>
+        <translation>等宽字体</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="933"/>
+        <source>Peony font</source>
+        <translation>桌面字体</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="1045"/>
+        <source>titlebar font</source>
+        <translation>标题字体</translation>
+    </message>
+    <message>
         <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="127"/>
         <source>fonts</source>
         <translation>字体</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="252"/>
+        <source>Custom</source>
+        <translation>自定义</translation>
     </message>
 </context>
 <context>
     <name>IconThemeWidget</name>
     <message>
-        <location filename="../../../plugins/personalized/theme/iconthemewidget.cpp" line="84"/>
+        <location filename="../../../plugins/personalized/theme/iconthemewidget.cpp" line="86"/>
         <source>selected</source>
         <translation>已选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/iconthemewidget.cpp" line="88"/>
+        <location filename="../../../plugins/personalized/theme/iconthemewidget.cpp" line="90"/>
         <source>not selected</source>
         <translation>未选择</translation>
     </message>
@@ -2366,6 +2406,11 @@ p, li { white-space: pre-wrap; }
         <location filename="../../../plugins/pluginsComponent/publicdata.cpp" line="82"/>
         <source>about</source>
         <translation>关于</translation>
+    </message>
+    <message>
+        <location filename="../../main.cpp" line="34"/>
+        <source>ukui-control-center had already running!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

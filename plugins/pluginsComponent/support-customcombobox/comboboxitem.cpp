@@ -28,9 +28,10 @@ ComboboxItem::ComboboxItem(QWidget *parent) :
     textLabel = new QLabel(this);
 
     mainlayout = new QHBoxLayout(this);
-    mainlayout->addWidget(imgLabel);
 //    mainlayout->addStretch();
     mainlayout->addWidget(textLabel);
+    mainlayout->addStretch();
+    mainlayout->addWidget(imgLabel);
     mainlayout->addStretch();
 
     mainlayout->setSpacing(5);

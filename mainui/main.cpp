@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
         QssFile.close();
     }
 
-//    if (ap.isRunning()){
+//    if (kapp.isRunning()){
 //        return !kapp.sendMessage("Already Running!");
 //    }
 
