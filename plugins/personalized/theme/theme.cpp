@@ -33,6 +33,7 @@
 #define VOLUMES_ICON "volumes-visible"
 
 #define ICONTHEMEPATH "/usr/share/icons/"
+#define SYSTHEMEPATH "/usr/share/themes/"
 
 Theme::Theme()
 {
@@ -51,8 +52,6 @@ Theme::Theme()
     marcosettings = new QGSettings(idd);
     const QByteArray iid(DESKTOP_SCHEMA);
     desktopsettings = new QGSettings(iid);
-
-    themeList << "ukui-white" << "ukui-black" ;
 
     component_init();
     status_init();
@@ -88,6 +87,15 @@ void Theme::plugin_delay_control(){
 }
 
 void Theme::component_init(){
+    QStringList themeList;
+
+    QDir themesDir = QDir(SYSTHEMEPATH);
+    foreach (QString themedir, themesDir.entryList(QDir::Dirs)) {
+        if (themedir.startsWith("ukui-") && (themedir != "ukui-theme")){
+            themeList.append(themedir);
+        }
+    }
+
     QSize themesize(52, 52);
     QSignalMapper * setSignalMapper = new QSignalMapper(this);
     for (int num = 0; num < themeList.length(); num++){

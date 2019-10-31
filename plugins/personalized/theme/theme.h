@@ -77,7 +77,6 @@ private:
     QGSettings * marcosettings;
     QGSettings * desktopsettings;
 
-    QStringList themeList;
     QMap<QString, QToolButton *> delbtnMap;
     QMap<QString, SwitchButton *> delsbMap;
 
