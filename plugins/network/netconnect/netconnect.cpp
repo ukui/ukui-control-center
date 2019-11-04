@@ -70,14 +70,16 @@ void NetConnect::begin_timer(){
 void NetConnect::acquire_cardinfo(){
     QList<QNetworkInterface> network = QNetworkInterface::allInterfaces();
     for (QList<QNetworkInterface>::const_iterator it = network.constBegin(); it != network.constEnd(); it++){
-        if ((*it).type() == QNetworkInterface::Loopback)
-            continue;
-
         CardInfo ci;
-        if ((*it).type() == QNetworkInterface::Ethernet)
-            ci.type = ETHERNET;
-        else if ((*it).type() == QNetworkInterface::Wifi)
-            ci.type = WIFI;
+        if (QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)){
+            if ((*it).type() == QNetworkInterface::Loopback)
+                continue;
+
+            if ((*it).type() == QNetworkInterface::Ethernet)
+                ci.type = ETHERNET;
+            else if ((*it).type() == QNetworkInterface::Wifi)
+                ci.type = WIFI;
+        }
         ci.name = (*it).humanReadableName();
 
         QList<QNetworkAddressEntry> addressList = (*it).addressEntries();
