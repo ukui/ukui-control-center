@@ -20,6 +20,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QProcess>
+
 #include "../plugins/pluginsComponent/publicdata.h"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -183,7 +185,15 @@ void MainWindow::loadPlugins(){
 //    pluginsDir = QDir(qApp->applicationDirPath());
 //    pluginsDir.cd("plugins");
 
+
+    QString version = pkgversion("ukui-screensaver");
+
     foreach (QString fileName, pluginsDir.entryList(QDir::Files)){
+        //低版本ukui-screensaver不存在锁屏背景的设置，跳过
+        if (version.startsWith("1") && fileName == "libscreenlock.so")
+            continue;
+
+
         QPluginLoader loader(pluginsDir.absoluteFilePath(fileName));
         QObject * plugin = loader.instance();
         if (plugin){
@@ -210,4 +220,22 @@ QMap<QString, QObject *> MainWindow::export_module(int type){
         return modulesList[type];
     else
         return emptyMaps;
+}
+
+QString MainWindow::pkgversion(QString pkgname){
+    QProcess process;
+    QString cmd = QString("dpkg -s %1").arg(pkgname);
+    process.start(cmd);
+    process.waitForFinished();
+    QString output = QString(process.readAllStandardOutput());
+    QStringList pkgstatus = output.split("\n");
+    QString version;
+    for (QString line : pkgstatus){
+        if (line.startsWith("Version"))
+            version = line.split(" ").at(1);
+        else
+            continue;
+    }
+    return version;
+
 }

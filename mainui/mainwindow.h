@@ -58,6 +58,9 @@ public:
 
     QMap<QString, QObject *> export_module(int);
 
+public:
+    QString pkgversion(QString pkgname);
+
 
 private:
     Ui::MainWindow *ui;
