@@ -12,14 +12,14 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>1004</width>
-    <height>712</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>1004</width>
-    <height>712</height>
+    <width>16777215</width>
+    <height>16777215</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -50,14 +50,14 @@
       <widget class="QWidget" name="widget" native="true">
        <property name="minimumSize">
         <size>
-         <width>1002</width>
-         <height>72</height>
+         <width>0</width>
+         <height>0</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>1002</width>
-         <height>72</height>
+         <width>16777215</width>
+         <height>16777215</height>
         </size>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -82,13 +82,13 @@
            <widget class="QWidget" name="widget_5" native="true">
             <property name="minimumSize">
              <size>
-              <width>502</width>
+              <width>0</width>
               <height>0</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>502</width>
+              <width>16777215</width>
               <height>16777215</height>
              </size>
             </property>
@@ -201,13 +201,13 @@
            <widget class="QWidget" name="widget_6" native="true">
             <property name="minimumSize">
              <size>
-              <width>502</width>
+              <width>0</width>
               <height>0</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>502</width>
+              <width>16777215</width>
               <height>16777215</height>
              </size>
             </property>
@@ -325,14 +325,14 @@
       <widget class="QWidget" name="widget_2" native="true">
        <property name="minimumSize">
         <size>
-         <width>1002</width>
-         <height>72</height>
+         <width>0</width>
+         <height>0</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>1002</width>
-         <height>72</height>
+         <width>16777215</width>
+         <height>16777215</height>
         </size>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -357,13 +357,13 @@
            <widget class="QWidget" name="widget_7" native="true">
             <property name="minimumSize">
              <size>
-              <width>502</width>
+              <width>0</width>
               <height>0</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>502</width>
+              <width>16777215</width>
               <height>16777215</height>
              </size>
             </property>
@@ -479,13 +479,13 @@
            <widget class="QWidget" name="widget_8" native="true">
             <property name="minimumSize">
              <size>
-              <width>502</width>
+              <width>0</width>
               <height>0</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>502</width>
+              <width>16777215</width>
               <height>16777215</height>
              </size>
             </property>
@@ -609,14 +609,14 @@
       <widget class="QWidget" name="widget_3" native="true">
        <property name="minimumSize">
         <size>
-         <width>1002</width>
-         <height>72</height>
+         <width>0</width>
+         <height>0</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>1002</width>
-         <height>72</height>
+         <width>16777215</width>
+         <height>16777215</height>
         </size>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_8">
@@ -641,13 +641,13 @@
            <widget class="QWidget" name="widget_9" native="true">
             <property name="minimumSize">
              <size>
-              <width>502</width>
+              <width>0</width>
               <height>0</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>502</width>
+              <width>16777215</width>
               <height>16777215</height>
              </size>
             </property>
@@ -760,13 +760,13 @@
            <widget class="QWidget" name="widget_10" native="true">
             <property name="minimumSize">
              <size>
-              <width>502</width>
+              <width>0</width>
               <height>0</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>502</width>
+              <width>16777215</width>
               <height>16777215</height>
              </size>
             </property>
@@ -884,14 +884,14 @@
       <widget class="QWidget" name="widget_4" native="true">
        <property name="minimumSize">
         <size>
-         <width>1002</width>
-         <height>72</height>
+         <width>0</width>
+         <height>0</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>1002</width>
-         <height>72</height>
+         <width>16777215</width>
+         <height>16777215</height>
         </size>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_15">
@@ -916,13 +916,13 @@
            <widget class="QWidget" name="widget_11" native="true">
             <property name="minimumSize">
              <size>
-              <width>502</width>
+              <width>0</width>
               <height>0</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>502</width>
+              <width>16777215</width>
               <height>16777215</height>
              </size>
             </property>
@@ -1035,13 +1035,13 @@
            <widget class="QWidget" name="widget_12" native="true">
             <property name="minimumSize">
              <size>
-              <width>502</width>
+              <width>0</width>
               <height>0</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>502</width>
+              <width>16777215</width>
               <height>16777215</height>
              </size>
             </property>

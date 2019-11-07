@@ -45,7 +45,10 @@ SOURCES += \
     mainpagewidget.cpp \
     mainComponent/custdomlabel.cpp \
     mainComponent/custdomframe.cpp \
-    mainComponent/listwidgetitem.cpp
+    mainComponent/listwidgetitem.cpp \
+    framelessExtended/framelesshandle.cpp \
+    framelessExtended/cursorposcalculator.cpp \
+    framelessExtended/widgethandlerealize.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -55,7 +58,11 @@ HEADERS += \
     mainComponent/custdomlabel.h \
     mainComponent/custdomframe.h \
     mainComponent/listwidgetitem.h \
-    kpplication.h
+    kpplication.h \
+    framelessExtended/framelesshandle.h \
+    framelessExtended/framelesshandleprivate.h \
+    framelessExtended/cursorposcalculator.h \
+    framelessExtended/widgethandlerealize.h
 
 FORMS += \
         mainwindow.ui \

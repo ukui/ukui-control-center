@@ -28,6 +28,18 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+//    double scaleWidth = 1004 / 1920; // 1920*1080 下 标准大小  1004 * 744
+//    double scaleHeight = 744 / 1080;
+
+//    resize(QGuiApplication::primaryScreen()->availableSize() * 4 / 5);
+    //主屏幕分辨率
+    QScreen * screen = QGuiApplication::primaryScreen();
+    QRect totalRect = screen->geometry();
+    int screenWidth = totalRect.width();
+    int screenHeight = totalRect.height();
+    qDebug() << screenHeight << screenWidth;
+    resize(screenWidth * 4 / 5, screenHeight * 9 / 10); //非标准
+
     //设置panel图标
     QIcon panelicon;
     if (QIcon::hasThemeIcon("applications-system"))
@@ -53,6 +65,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //设置toolbutton样式
     ui->minBtn->setStyleSheet("border: none");
     ui->closeBtn->setStyleSheet("border: none");
+
 
     ui->lineEdit->setPlaceholderText(tr("Find Devices"));
     ui->lineEdit->hide();
@@ -93,32 +106,33 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::closeEvent(QCloseEvent *){
+    qDebug() << "******close Event***";
     qApp->exit();
 }
 
-void MainWindow::mousePressEvent(QMouseEvent * event){
-    mousePress = false;
-    if (event->button() == Qt::LeftButton){
-        mousePress = true;
-        dragPos = event->globalPos() - pos();
-    }
-}
+//void MainWindow::mousePressEvent(QMouseEvent * event){
+//    mousePress = false;
+//    if (event->button() == Qt::LeftButton){
+//        mousePress = true;
+//        dragPos = event->globalPos() - pos();
+//    }
+//}
 
-void MainWindow::mouseReleaseEvent(QMouseEvent *event){
-    if (event->button() & Qt::LeftButton){
-        mousePress = false;
-//        setWindowOpacity(1); //设置透明度,1不透明
-    }
-}
+//void MainWindow::mouseReleaseEvent(QMouseEvent *event){
+//    if (event->button() & Qt::LeftButton){
+//        mousePress = false;
+////        setWindowOpacity(1); //设置透明度,1不透明
+//    }
+//}
 
-void MainWindow::mouseMoveEvent(QMouseEvent *event){
-    if (event->buttons() & Qt::LeftButton){
-        if (mousePress){
-            move(event->globalPos() - dragPos);
-//            setWindowOpacity(0.5);
-        }
-    }
-}
+//void MainWindow::mouseMoveEvent(QMouseEvent *event){
+//    if (event->buttons() & Qt::LeftButton){
+//        if (mousePress){
+//            move(event->globalPos() - dragPos);
+////            setWindowOpacity(0.5);
+//        }
+//    }
+//}
 
 void MainWindow::backToMain(){
     ui->stackedWidget->setCurrentIndex(0);

@@ -30,6 +30,9 @@
 #include <QDir>
 #include <QPluginLoader>
 
+#include <QScreen>
+#include <QRect>
+
 #include <QDebug>
 
 #include "interface.h"
@@ -74,9 +77,9 @@ private:
     void loadPlugins();
 
 protected:
-    void mousePressEvent(QMouseEvent * event);
-    void mouseReleaseEvent(QMouseEvent * event);
-    void mouseMoveEvent(QMouseEvent * event);
+//    void mousePressEvent(QMouseEvent * event);
+//    void mouseReleaseEvent(QMouseEvent * event);
+//    void mouseMoveEvent(QMouseEvent * event);
     void closeEvent(QCloseEvent *);
 
 public slots:

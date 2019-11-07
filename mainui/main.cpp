@@ -24,6 +24,7 @@
 #include <QTranslator>
 
 #include "kpplication.h"
+#include "framelessExtended/framelesshandle.h"
 
 int main(int argc, char *argv[])
 {
@@ -69,9 +70,12 @@ int main(int argc, char *argv[])
 //        return !kapp.sendMessage("Already Running!");
 //    }
 
-    MainWindow w;
+    MainWindow * w = new MainWindow;
 //    kapp.setActivationWindow(&w);
-    w.show();
+    w->show();
+
+    FramelessHandle * pHandle = new FramelessHandle(w);
+    pHandle->activateOn(w);
 
     return app.exec();
 }

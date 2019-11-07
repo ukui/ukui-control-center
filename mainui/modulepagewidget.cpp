@@ -46,6 +46,9 @@ ModulePageWidget::ModulePageWidget(QWidget *parent) :
     ui->backBtn->setStyleSheet("border-style: none;");
     ui->scrollArea->setStyleSheet("#scrollArea{border: 0px solid;}");
 
+    ui->scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
     connect(ui->backBtn, SIGNAL(clicked()), this, SLOT(backBtnClicked_cb()));
 
     initUI();
