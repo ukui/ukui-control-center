@@ -44,23 +44,14 @@ MainPageWidget::MainPageWidget(QWidget *parent) :
 //    ui->widget_3->resize(widgetWidth, widgetHeight);
 //    ui->widget_4->resize(widgetWidth, widgetHeight);
 
-    int subwidgetWidth = widgetWidth / 2;
+//    int subwidgetWidth = widgetWidth / 2;
     ui->widget_5->setMinimumWidth(480);
-    ui->widget_5->setMaximumWidth(subwidgetWidth);
+//    ui->widget_5->setMaximumWidth(subwidgetWidth);
     ui->widget_7->setMinimumWidth(480);
-    ui->widget_7->setMaximumWidth(subwidgetWidth);
+//    ui->widget_7->setMaximumWidth(subwidgetWidth);
     ui->widget_9->setMinimumWidth(480);
-    ui->widget_9->setMaximumWidth(subwidgetWidth);
+//    ui->widget_9->setMaximumWidth(subwidgetWidth);
     ui->widget_11->setMinimumWidth(480);
-    ui->widget_11->setMaximumWidth(subwidgetWidth);
-//    ui->widget_5->resize(subwidgetWidth, widgetHeight);
-//    ui->widget_6->resize(subwidgetWidth, widgetHeight);
-//    ui->widget_7->resize(subwidgetWidth, widgetHeight);
-//    ui->widget_8->resize(subwidgetWidth, widgetHeight);
-//    ui->widget_9->resize(subwidgetWidth, widgetHeight);
-//    ui->widget_10->resize(subwidgetWidth, widgetHeight);
-//    ui->widget_11->resize(subwidgetWidth, widgetHeight);
-//    ui->widget_12->resize(subwidgetWidth, widgetHeight);
 
 
     this->setParent(parent);

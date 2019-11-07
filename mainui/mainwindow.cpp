@@ -72,7 +72,17 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lineEdit->setPlaceholderText(tr("Find Devices"));
     ui->lineEdit->hide();
 
+    //设置最大化图标
+    refresh_maxBtn_borderimage();
+
     connect(ui->minBtn, SIGNAL(clicked()), this, SLOT(showMinimized()));
+    connect(ui->maxBtn, &QToolButton::clicked, this, [=]{
+        if (isMaximized())
+            showNormal();
+        else
+            showMaximized();
+        refresh_maxBtn_borderimage();
+    });
     connect(ui->closeBtn, SIGNAL(clicked(bool)), this, SLOT(close()));
 
     loadPlugins();
@@ -110,6 +120,19 @@ MainWindow::~MainWindow()
 void MainWindow::closeEvent(QCloseEvent *){
     qDebug() << "******close Event***";
     qApp->exit();
+}
+
+void MainWindow::refresh_maxBtn_borderimage(){
+    if (isMaximized()){
+        ui->maxBtn->setStyleSheet("QToolButton#maxBtn{border-image:url(':/title/revert.png')}"
+                                   "QToolButton:hover:pressed#maxBtn{border-image:url(':/title/revertpress.png')}"
+                                   "QToolButton:hover:!pressed#maxBtn{border-image:url(':/title/reverthover.png')}");
+    }
+    else{
+        ui->maxBtn->setStyleSheet("QToolButton#maxBtn{border-image:url(':/title/max.png')}"
+                                  "QToolButton:hover:pressed#maxBtn{border-image:url(':/title/maxpress.png')}"
+                                  "QToolButton:hover:!pressed#maxBtn{border-image:url(':/title/maxhover.png')}");
+    }
 }
 
 //void MainWindow::mousePressEvent(QMouseEvent * event){

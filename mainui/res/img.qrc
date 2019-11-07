@@ -32,6 +32,9 @@
         <file>title/logo.png</file>
         <file>title/logo.svg</file>
         <file>applications-system.svg</file>
+        <file>title/revertpress.png</file>
+        <file>title/reverthover.png</file>
+        <file>title/revert.png</file>
     </qresource>
     <qresource prefix="/dynamic">
         <file>leftsidebar/display.png</file>

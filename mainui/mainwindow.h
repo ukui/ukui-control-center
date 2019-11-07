@@ -60,6 +60,7 @@ public:
 
 public:
     QString pkgversion(QString pkgname);
+    void refresh_maxBtn_borderimage();
 
 
 private:
