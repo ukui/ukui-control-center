@@ -80,11 +80,11 @@ private:
 
     void loadPlugins();
 
-protected:
+//protected:
 //    void mousePressEvent(QMouseEvent * event);
 //    void mouseReleaseEvent(QMouseEvent * event);
 //    void mouseMoveEvent(QMouseEvent * event);
-    void closeEvent(QCloseEvent *);
+//    void closeEvent(QCloseEvent *);
 
 public slots:
     void pluginClicked_cb(QObject * plugin);

@@ -32,6 +32,7 @@
 #include "xmlhandle.h"
 #include "component/custdomitemmodel.h"
 #include "../../pluginsComponent/customwidget.h"
+#include "simplethread.h"
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -98,7 +99,7 @@ private:
     void setModeldata();
 
 public slots:
-    void wallpaper_item_clicked(QListWidgetItem *item);
+    void wallpaper_item_clicked(QListWidgetItem * current, QListWidgetItem * previous);
     void form_combobox_changed(int index);
     void options_combobox_changed(QString op);
     void reset_default_wallpaper();

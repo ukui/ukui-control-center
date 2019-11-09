@@ -83,7 +83,11 @@ MainWindow::MainWindow(QWidget *parent) :
             showMaximized();
         refresh_maxBtn_borderimage();
     });
-    connect(ui->closeBtn, SIGNAL(clicked(bool)), this, SLOT(close()));
+//    connect(ui->closeBtn, SIGNAL(clicked(bool)), this, SLOT(close()));
+    connect(ui->closeBtn, &QToolButton::clicked, this, [=]{
+        close();
+        qApp->quit();
+    });
 
     loadPlugins();
 
@@ -115,11 +119,6 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-void MainWindow::closeEvent(QCloseEvent *){
-    qDebug() << "******close Event***";
-    qApp->exit();
 }
 
 void MainWindow::refresh_maxBtn_borderimage(){

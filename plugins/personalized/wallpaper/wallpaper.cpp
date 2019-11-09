@@ -77,7 +77,6 @@ CustomWidget *Wallpaper::get_plugin_ui(){
 }
 
 void Wallpaper::plugin_delay_control(){
-
 }
 
 void Wallpaper::initData(){
@@ -87,31 +86,63 @@ void Wallpaper::initData(){
 }
 
 void Wallpaper::component_init(){
-        QSize IMAGE_SIZE(160, 100);
-        QSize ITEM_SIZE(160, 120);
-        ui->listWidget->setIconSize(IMAGE_SIZE);
+        QSize IMAGE_SIZE(160, 120);
+        QSize ITEM_SIZE(165, 125);
+//        ui->listWidget->setIconSize(IMAGE_SIZE);
         ui->listWidget->setResizeMode(QListView::Adjust);
         ui->listWidget->setViewMode(QListView::IconMode);
         ui->listWidget->setMovement(QListView::Static);
-        ui->listWidget->setSpacing(8);
+        ui->listWidget->setSpacing(10);
 
-        QMap<QString, QMap<QString, QString> >::iterator iters = wallpaperinfosMap.begin();
-        for (int row = 0; iters != wallpaperinfosMap.end(); iters++, row++){
-            if (QString(iters.key()) == "head") //跳过xml的头部信息
-                continue;
-            QMap<QString, QString> wpMap = (QMap<QString, QString>)iters.value();
-            QString delstatus = QString(wpMap.find("deleted").value());
-            if (delstatus == "true") //跳过被删除的壁纸
-                continue;
-            QString filename = QString(iters.key());
-            QPixmap pixmap(filename);
-            QListWidgetItem * item = new QListWidgetItem(QIcon(pixmap.scaled(IMAGE_SIZE)), "");
+        SimpleThread * thread = new SimpleThread(wallpaperinfosMap, NULL);
+        connect(thread, &SimpleThread::widgetItemCreate, this, [=](QPixmap pixmap, QString filename){
+            //自定义item
+            QWidget * widget = new QWidget();
+            widget->setAttribute(Qt::WA_DeleteOnClose);
+            QHBoxLayout * mainLayout = new QHBoxLayout(widget);
+            mainLayout->setSpacing(0);
+            mainLayout->setContentsMargins(0, 0, 0, 0);
+
+            QLabel * wpLable = new QLabel(widget);
+            wpLable->setPixmap(pixmap);
+
+            mainLayout->addWidget(wpLable);
+
+            widget->setLayout(mainLayout);
+
+            QListWidgetItem * item = new QListWidgetItem(ui->listWidget);
             item->setSizeHint(ITEM_SIZE);
             item->setData(Qt::UserRole, filename);
-//            item->setToolTip(QString("%1\nfolder: %2\n").arg(wpMap.find("name").value()).arg(filename));
+            ui->listWidget->setItemWidget(item, widget);
+
             delItemsMap.insert(filename, item);
-            ui->listWidget->insertItem(row, item);
-        }
+
+        }, Qt::QueuedConnection);
+        connect(thread, &SimpleThread::finished, this, [=]{
+            QString filename = bgsettings->get(FILENAME).toString();
+            //当前背景形式是壁纸
+            if (ui->formComboBox->currentIndex() == 0){
+                if (delItemsMap.contains(filename)){
+                    QListWidgetItem * currentItem = (QListWidgetItem *)delItemsMap.find(filename).value();
+                    QWidget * widget = ui->listWidget->itemWidget(currentItem);
+                    widget->setStyleSheet("QWidget{border: 5px solid #daebff}");
+        //            ui->listWidget->setItemSelected(currentItem, true); //???
+                    ui->listWidget->blockSignals(true);
+                    ui->listWidget->setCurrentItem(currentItem);
+                    ui->listWidget->blockSignals(false);
+                }
+                //设置当前壁纸放置方式
+                if (wallpaperinfosMap.contains(filename)){
+                    QMap<QString, QString> currentwpMap = (QMap<QString, QString>) wallpaperinfosMap.find(filename).value();
+                    if (currentwpMap.contains("options")){
+                        QString opStr = QString::fromLocal8Bit("%1").arg(currentwpMap.find("options").value());
+                        ui->wpoptionsComboBox->setCurrentText(tr("%1").arg(opStr));
+                    }
+                }
+            }
+        });
+        connect(thread, &SimpleThread::finished, thread, &SimpleThread::deleteLater);
+        thread->start();
 
         //背景形式
         QStringList formList;
@@ -125,7 +156,7 @@ void Wallpaper::component_init(){
 
         init_current_status();
 
-        connect(ui->listWidget, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(wallpaper_item_clicked(QListWidgetItem*)));
+        connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(wallpaper_item_clicked(QListWidgetItem*,QListWidgetItem*)));
         connect(ui->formComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(form_combobox_changed(int)));
         connect(ui->wpoptionsComboBox, SIGNAL(currentTextChanged(QString)), this, SLOT(options_combobox_changed(QString)));
         connect(ui->resetBtn, SIGNAL(clicked(bool)), this, SLOT(reset_default_wallpaper()));
@@ -143,22 +174,6 @@ void Wallpaper::init_current_status(){
     else
         ui->formComboBox->setCurrentIndex(0);
 
-    //当前背景形式是壁纸
-    if (ui->formComboBox->currentIndex() == 0){
-        if (delItemsMap.contains(filename)){
-            QListWidgetItem * currentItem = (QListWidgetItem *)delItemsMap.find(filename).value();
-//            ui->listWidget->setItemSelected(currentItem, true); //???
-            ui->listWidget->setCurrentItem(currentItem);
-        }
-        //设置当前壁纸放置方式
-        if (wallpaperinfosMap.contains(filename)){
-            QMap<QString, QString> currentwpMap = (QMap<QString, QString>) wallpaperinfosMap.find(filename).value();
-            if (currentwpMap.contains("options")){
-                QString opStr = QString::fromLocal8Bit("%1").arg(currentwpMap.find("options").value());
-                ui->wpoptionsComboBox->setCurrentText(tr("%1").arg(opStr));
-            }
-        }
-    }
 
 //    //当前背景形式是幻灯片
 //    if (ui->formComboBox->currentIndex() == 1){
@@ -171,8 +186,14 @@ void Wallpaper::init_current_status(){
 //    }
 }
 
-void Wallpaper::wallpaper_item_clicked(QListWidgetItem * item){
-    QString filename = item->data(Qt::UserRole).toString();
+void Wallpaper::wallpaper_item_clicked(QListWidgetItem * current, QListWidgetItem *previous){
+    QWidget * previousWidget = ui->listWidget->itemWidget(previous);
+    previousWidget->setStyleSheet("QWidget{border: none}");
+
+    QWidget * currentWidget = ui->listWidget->itemWidget(current);
+    currentWidget->setStyleSheet("QWidget{border: 5px solid #daebff}");
+
+    QString filename = current->data(Qt::UserRole).toString();
     bgsettings->set(FILENAME, QVariant(filename));
     init_current_status();
 }

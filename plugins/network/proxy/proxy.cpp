@@ -109,11 +109,11 @@ void Proxy::component_init(){
     }
     QStringList portStringList;
     portStringList << HTTP_PROXY_PORT_KEY << SECURE_PROXY_PORT_KEY << FTP_PROXY_PORT_KEY << SOCKS_PROXY_PORT_KEY;
-    for (int num = 0; num < portStringList.count() && num < ui->portVlLayout->count(); num++){
+    for (int num = 0; num < portStringList.count() && num < ui->portVLayout->count(); num++){
         KeyValue * value = new KeyValue();
         value->key = hostStringList.at(num);
         value->schema = schemaStringList.at(num);
-        QLayoutItem * it = ui->hostVLayout->itemAt(num);
+        QLayoutItem * it = ui->portVLayout->itemAt(num);
         QLineEdit * current = qobject_cast<QLineEdit *>(it->widget());
         current->setUserData(Qt::UserRole, value);
     }
@@ -232,9 +232,13 @@ void Proxy::certification_dialog_show_slot(){
 }
 
 void Proxy::manual_component_changed_slot(QString edit){
+    //获取被修改控件
     QObject * pobject = this->sender();
-    QLineEdit * who = qobject_cast<QLineEdit *>(pobject);
+    QLineEdit * who = dynamic_cast<QLineEdit *>(pobject);
+
+    //获取控件保存的用户数据
     KeyValue * current = (KeyValue *)(who->userData(Qt::UserRole));
+
     if (current->schema.endsWith("http"))
         httpsettings->set(current->key, QVariant(edit));
     else if (current->schema.endsWith("https"))

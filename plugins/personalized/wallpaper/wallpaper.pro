@@ -31,12 +31,14 @@ INSTALLS += target
 SOURCES += \
         wallpaper.cpp \
     xmlhandle.cpp \
-    component/custdomitemmodel.cpp
+    component/custdomitemmodel.cpp \
+    simplethread.cpp
 
 HEADERS += \
         wallpaper.h \
     xmlhandle.h \
-    component/custdomitemmodel.h
+    component/custdomitemmodel.h \
+    simplethread.h
 
 FORMS += \
         wallpaper.ui
