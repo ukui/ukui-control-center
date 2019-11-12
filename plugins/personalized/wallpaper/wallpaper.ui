@@ -101,7 +101,20 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="formComboBox"/>
+          <widget class="QComboBox" name="formComboBox">
+           <property name="minimumSize">
+            <size>
+             <width>160</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>160</width>
+             <height>30</height>
+            </size>
+           </property>
+          </widget>
          </item>
          <item>
           <spacer name="horizontalSpacer">
@@ -118,6 +131,12 @@
          </item>
          <item>
           <widget class="QPushButton" name="addPushBtn">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>30</height>
+            </size>
+           </property>
            <property name="text">
             <string>Add</string>
            </property>
@@ -125,6 +144,12 @@
          </item>
          <item>
           <widget class="QPushButton" name="delPushBtn">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>30</height>
+            </size>
+           </property>
            <property name="text">
             <string>Del</string>
            </property>
@@ -194,7 +219,20 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="wpoptionsComboBox"/>
+                <widget class="QComboBox" name="wpoptionsComboBox">
+                 <property name="minimumSize">
+                  <size>
+                   <width>160</width>
+                   <height>30</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>160</width>
+                   <height>30</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
                <item>
                 <spacer name="horizontalSpacer_3">
@@ -214,13 +252,13 @@
                  <property name="minimumSize">
                   <size>
                    <width>130</width>
-                   <height>0</height>
+                   <height>30</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
                    <width>130</width>
-                   <height>16777215</height>
+                   <height>30</height>
                   </size>
                  </property>
                  <property name="text">

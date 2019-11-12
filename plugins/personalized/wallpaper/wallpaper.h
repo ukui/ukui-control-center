@@ -26,6 +26,7 @@
 #include "mainui/interface.h"
 #include <QPixmap>
 #include <QListWidgetItem>
+#include <QFileDialog>
 
 #include <QGSettings/QGSettings>
 
@@ -73,6 +74,9 @@ public:
     CustomWidget * get_plugin_ui() Q_DECL_OVERRIDE;
     void plugin_delay_control() Q_DECL_OVERRIDE;
 
+public:
+    void append_item(QPixmap pixmap, QString filename);
+
 private:
     Ui::Wallpaper *ui;
 
@@ -103,6 +107,9 @@ public slots:
     void form_combobox_changed(int index);
     void options_combobox_changed(QString op);
     void reset_default_wallpaper();
+
+    void add_custom_wallpaper();
+    void del_wallpaper();
 };
 
 #endif // WALLPAPER_H

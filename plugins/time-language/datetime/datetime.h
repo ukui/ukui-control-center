@@ -101,6 +101,7 @@ private:
     QMap<QString, int> tzindexMap;
 
     QTimer * chtimer;
+    QTimer * itimer;
 
 private slots:
     void time_format_clicked_slot(int id);

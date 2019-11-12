@@ -32,7 +32,7 @@ DateTime::DateTime()
     pluginName = tr("datetime");
     pluginType = TIME_LANGUAGE;
 
-    QTimer * itimer = new QTimer();
+    itimer = new QTimer();
     itimer->start(1000); //一秒
     connect(itimer, SIGNAL(timeout()), this, SLOT(datetime_update_slot()));
 

@@ -39,9 +39,6 @@ Wallpaper::Wallpaper()
     //构建xmlhandle对象，本地xml文件不存在则自动构建
     xmlhandleObj = new XmlHandle();
 
-    ui->addPushBtn->hide();
-    ui->delPushBtn->hide();
-
     initData();
     component_init();
 
@@ -86,8 +83,7 @@ void Wallpaper::initData(){
 }
 
 void Wallpaper::component_init(){
-        QSize IMAGE_SIZE(160, 120);
-        QSize ITEM_SIZE(165, 125);
+//        QSize IMAGE_SIZE(160, 120);
 //        ui->listWidget->setIconSize(IMAGE_SIZE);
         ui->listWidget->setResizeMode(QListView::Adjust);
         ui->listWidget->setViewMode(QListView::IconMode);
@@ -96,27 +92,7 @@ void Wallpaper::component_init(){
 
         SimpleThread * thread = new SimpleThread(wallpaperinfosMap, NULL);
         connect(thread, &SimpleThread::widgetItemCreate, this, [=](QPixmap pixmap, QString filename){
-            //自定义item
-            QWidget * widget = new QWidget();
-            widget->setAttribute(Qt::WA_DeleteOnClose);
-            QHBoxLayout * mainLayout = new QHBoxLayout(widget);
-            mainLayout->setSpacing(0);
-            mainLayout->setContentsMargins(0, 0, 0, 0);
-
-            QLabel * wpLable = new QLabel(widget);
-            wpLable->setPixmap(pixmap);
-
-            mainLayout->addWidget(wpLable);
-
-            widget->setLayout(mainLayout);
-
-            QListWidgetItem * item = new QListWidgetItem(ui->listWidget);
-            item->setSizeHint(ITEM_SIZE);
-            item->setData(Qt::UserRole, filename);
-            ui->listWidget->setItemWidget(item, widget);
-
-            delItemsMap.insert(filename, item);
-
+            append_item(pixmap, filename);
         }, Qt::QueuedConnection);
         connect(thread, &SimpleThread::finished, this, [=]{
             QString filename = bgsettings->get(FILENAME).toString();
@@ -161,6 +137,33 @@ void Wallpaper::component_init(){
         connect(ui->wpoptionsComboBox, SIGNAL(currentTextChanged(QString)), this, SLOT(options_combobox_changed(QString)));
         connect(ui->resetBtn, SIGNAL(clicked(bool)), this, SLOT(reset_default_wallpaper()));
 
+        connect(ui->addPushBtn, SIGNAL(clicked(bool)), this, SLOT(add_custom_wallpaper()));
+        connect(ui->delPushBtn, SIGNAL(clicked(bool)), this, SLOT(del_wallpaper()));
+
+}
+
+void Wallpaper::append_item(QPixmap pixmap, QString filename){
+    QSize ITEM_SIZE(165, 125);
+    //自定义item
+    QWidget * widget = new QWidget();
+    widget->setAttribute(Qt::WA_DeleteOnClose);
+    QHBoxLayout * mainLayout = new QHBoxLayout(widget);
+    mainLayout->setSpacing(0);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    QLabel * wpLable = new QLabel(widget);
+    wpLable->setPixmap(pixmap);
+
+    mainLayout->addWidget(wpLable);
+
+    widget->setLayout(mainLayout);
+
+    QListWidgetItem * item = new QListWidgetItem(ui->listWidget);
+    item->setSizeHint(ITEM_SIZE);
+    item->setData(Qt::UserRole, filename);
+    ui->listWidget->setItemWidget(item, widget);
+
+    delItemsMap.insert(filename, item);
 }
 
 void Wallpaper::init_current_status(){
@@ -259,4 +262,76 @@ void Wallpaper::reset_default_wallpaper(){
 
     bgsettings->set(FILENAME, QVariant(QString(dwp)));
     init_current_status();
+}
+
+void Wallpaper::add_custom_wallpaper(){
+    QString filters = "Wallpaper files(*.png *.jpg)";
+    QFileDialog fd;
+    fd.setDirectory(QString(const_cast<char *>(g_get_user_special_dir(G_USER_DIRECTORY_PICTURES))));
+    fd.setAcceptMode(QFileDialog::AcceptOpen);
+    fd.setViewMode(QFileDialog::List);
+    fd.setNameFilter(filters);
+    fd.setFileMode(QFileDialog::ExistingFile);
+    fd.setWindowTitle(tr("selsect custom wallpaper file"));
+    fd.setLabelText(QFileDialog::Accept, tr("Select"));
+    fd.setLabelText(QFileDialog::LookIn, tr("Position: "));
+    fd.setLabelText(QFileDialog::FileName, tr("FileName: "));
+    fd.setLabelText(QFileDialog::FileType, tr("FileType: "));
+    fd.setLabelText(QFileDialog::Reject, tr("Cancel"));
+
+    if (fd.exec() != QDialog::Accepted)
+        return;
+
+    QString selectedfile;
+    selectedfile = fd.selectedFiles().first();
+
+    QSize IMAGE_SIZE(160, 120);
+    QPixmap pixmap = QPixmap(selectedfile).scaled(IMAGE_SIZE);
+    append_item(pixmap, selectedfile);
+
+    if (wallpaperinfosMap.contains(selectedfile)){
+        wallpaperinfosMap[selectedfile]["deleted"] = "false";
+    }
+    else{
+        QMap<QString, QString> tmpinfo;
+        tmpinfo.insert("artist", "(none)");
+        tmpinfo.insert("deleted", "false");
+        tmpinfo.insert("filename", selectedfile);
+        tmpinfo.insert("name", selectedfile.split("/").last());
+        tmpinfo.insert("options", "zoom");
+        tmpinfo.insert("pcolor", "#000000");
+        tmpinfo.insert("scolor", "#000000");
+        tmpinfo.insert("shade_type", "solid");
+        wallpaperinfosMap.insert(selectedfile, tmpinfo);
+
+    }
+    xmlhandleObj->xmlwriter(localwpconf, wallpaperinfosMap);
+
+    if (delItemsMap.contains(selectedfile)){
+        ui->listWidget->setCurrentItem(delItemsMap.find(selectedfile).value());
+    }
+
+}
+
+void Wallpaper::del_wallpaper(){
+    //获取当前选中的壁纸
+    QListWidgetItem * currentitem = ui->listWidget->currentItem();
+    QString filename = currentitem->data(Qt::UserRole).toString();
+
+    //更新xml数据
+    if (wallpaperinfosMap.contains(filename)){
+        wallpaperinfosMap[filename]["deleted"] = "true";
+
+        int row = ui->listWidget->row(currentitem);
+
+        int nextrow = ui->listWidget->count() - 1 - row ? row + 1 : row - 1;
+
+        ui->listWidget->setCurrentItem(ui->listWidget->item(nextrow));
+
+        ui->listWidget->takeItem(row);
+
+    }
+
+//    将改动保存至文件
+    xmlhandleObj->xmlwriter(localwpconf, wallpaperinfosMap);
 }
