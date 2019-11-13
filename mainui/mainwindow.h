@@ -62,6 +62,8 @@ public:
     QString pkgversion(QString pkgname);
     void refresh_maxBtn_borderimage();
 
+    bool functionFilter(QString funcName);
+
 
 private:
     Ui::MainWindow *ui;

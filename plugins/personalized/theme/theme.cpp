@@ -24,14 +24,6 @@
 
 #include "../../pluginsComponent/publicdata.h"
 
-#define DESKTOP_SCHEMA "org.ukui.peony.desktop"
-
-#define COMPUTER_ICON "computer-icon-visible"
-#define HOME_ICON "home-icon-visible"
-#define NETWORK_ICON "network-icon-visible"
-#define TRASH_ICON "trash-icon-visible"
-#define VOLUMES_ICON "volumes-visible"
-
 #define ICONTHEMEPATH "/usr/share/icons/"
 #define SYSTHEMEPATH "/usr/share/themes/"
 

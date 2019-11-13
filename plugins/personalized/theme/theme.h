@@ -35,6 +35,14 @@
 #include "../../pluginsComponent/switchbutton.h"
 #include "../../pluginsComponent/customwidget.h"
 
+#define DESKTOP_SCHEMA "org.ukui.peony.desktop"
+
+#define COMPUTER_ICON "computer-icon-visible"
+#define HOME_ICON "home-icon-visible"
+#define NETWORK_ICON "network-icon-visible"
+#define TRASH_ICON "trash-icon-visible"
+#define VOLUMES_ICON "volumes-visible"
+
 #define INTERFACE_SCHEMA "org.mate.interface"
 #define MARCO_SCHEMA "org.gnome.desktop.wm.preferences"
 

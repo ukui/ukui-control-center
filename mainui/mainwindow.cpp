@@ -21,6 +21,7 @@
 #include "ui_mainwindow.h"
 
 #include <QProcess>
+#include <QFileInfo>
 
 #include "../plugins/pluginsComponent/publicdata.h"
 
@@ -167,6 +168,92 @@ void MainWindow::pluginClicked_cb(QObject * plugin){
     modulepageWidget->switch_modulepage(plugin);
 }
 
+bool MainWindow::functionFilter(QString funcName){
+    QString screensaverVersion = pkgversion("ukui-screensaver");
+
+    QString audioVersion = pkgversion("ukui-media");
+
+    //ukui-indicators
+    QString indicatorsFile = "/usr/share/glib-2.0/schemas/org.ukui.panel.indicators.gschema.xml";
+
+    //ukui-settings-daemon-common
+    QString touchpadFile = "/usr/share/glib-2.0/schemas/org.ukui.peripherals-touchpad.gschema.xml";
+    QString mediakeyFile = "/usr/share/glib-2.0/schemas/org.ukui.SettingsDaemon.plugins.media-keys.gschema.xml";
+    QString fontrenderingFile = "/usr/share/glib-2.0/schemas/org.ukui.font-rendering.gschema.xml";
+
+    //gsettings-desktop-schemas
+    QString proxyFile = "/usr/share/glib-2.0/schemas/org.gnome.system.proxy.gschema.xml";
+    QString keybindingsFile = "/usr/share/glib-2.0/schemas/org.gnome.desktop.wm.keybindings.gschema.xml";
+    QString gnomedesktopFile = "/usr/share/glib-2.0/schemas/org.gnome.desktop.wm.preferences.gschema.xml";
+
+    //libmatekbd-common
+    QString kbdFile = "/usr/share/glib-2.0/schemas/org.mate.peripherals-keyboard-xkb.gschema.xml";
+
+    //mate-desktop-common
+    QString interfaceFile = "/usr/share/glib-2.0/schemas/org.mate.interface.gschema.xml";
+
+    //peony-common
+    QString peonyFile = "/usr/share/glib-2.0/schemas/org.ukui.peony.gschema.xml";
+
+    //ukui-screensaver
+    QString screensaverFile = "/usr/share/glib-2.0/schemas/org.ukui.screensaver.gschema.xml";
+
+    //ukui-session-manager
+    QString sessionFile = "/usr/share/glib-2.0/schemas/org.ukui.session.gschema.xml";
+
+    //ukui-power-manager-common
+    QString powerFile = "/usr/share/glib-2.0/schemas/org.ukui.power-manager.gschema.xml";
+
+
+    //低版本ukui-screensaver不存在锁屏背景的设置，跳过锁屏
+    if (funcName == "libscreenlock.so" && screensaverVersion.startsWith("1")){
+        qDebug() << "ukui-screensaver version too low, screenlock function disable";
+        return false;
+    }
+    else if (funcName == "libaudio.so" && audioVersion == ""){
+        qDebug() << "pkg ukui-media is not installed, audio function disable";
+        return false;
+    }
+    else if (funcName == "libdatetime.so" && QFileInfo(indicatorsFile).exists() == false){//跳过时间与日期功能
+        qDebug() << "org.ukui.panel.indicators.gschema.xml is not exists, datetime function disable";
+        return false;
+    }
+    else if (funcName == "libmousecontrol.so" && QFileInfo(touchpadFile).exists() == false){    //跳过鼠标
+        qDebug() << "org.ukui.peripherals-touchpad.gschema.xml is not exists, mouse function disable";
+        return false;
+    }
+    else if (funcName == "libproxy.so" && QFileInfo(proxyFile).exists() == false){
+        qDebug() << "/usr/share/glib-2.0/schemas/org.gnome.system.proxy.gschema.xml is not exists, proxy function disable";
+        return false;
+    }
+    else if (funcName == "libkeyboardcontrol.so" &&
+             (!QFileInfo(kbdFile).exists() || !QFileInfo(mediakeyFile).exists() || !QFileInfo(keybindingsFile).exists())){
+        qDebug() << "keyboard function disable";
+        return false;
+    }
+    else if (funcName == "libfonts.so" &&
+             (!QFileInfo(interfaceFile).exists() || !QFileInfo(peonyFile).exists() || !QFileInfo(gnomedesktopFile).exists() || !QFileInfo(fontrenderingFile).exists())){
+        qDebug() << "all xml not exists, font function disable";
+        return false;
+    }
+    else if (funcName == "libscreensaver.so" &&
+             (!QFileInfo(screensaverFile).exists() || !QFileInfo(sessionFile).exists())){
+        qDebug() << "all xml not exists, screensaver function disable";
+        return false;
+    }
+    else if (funcName == "libtheme.so" &&
+             (!QFileInfo(peonyFile).exists() || !QFileInfo(interfaceFile).exists() || !QFileInfo(gnomedesktopFile).exists())){
+        qDebug() << "all xml not exists, theme function disable";
+        return false;
+    }
+    else if (funcName == "libpower.so" && !QFileInfo(powerFile).exists()){
+        qDebug() << "/usr/share/glib-2.0/schemas/org.ukui.power-manager.gschema.xml file not exists, power function disable";
+        return false;
+    }
+    else
+        return true;
+}
+
 void MainWindow::loadPlugins(){
 //    moduleDir = QDir(qApp->applicationDirPath());
 //    moduleDir.cd("plugins");
@@ -208,13 +295,9 @@ void MainWindow::loadPlugins(){
 //    pluginsDir.cd("plugins");
 
 
-    QString version = pkgversion("ukui-screensaver");
-
     foreach (QString fileName, pluginsDir.entryList(QDir::Files)){
-        //低版本ukui-screensaver不存在锁屏背景的设置，跳过
-        if (version.startsWith("1") && fileName == "libscreenlock.so")
+        if (!functionFilter(fileName))
             continue;
-
 
         QPluginLoader loader(pluginsDir.absoluteFilePath(fileName));
         QObject * plugin = loader.instance();
@@ -251,7 +334,7 @@ QString MainWindow::pkgversion(QString pkgname){
     process.waitForFinished();
     QString output = QString(process.readAllStandardOutput());
     QStringList pkgstatus = output.split("\n");
-    QString version;
+    QString version = "";
     for (QString line : pkgstatus){
         if (line.startsWith("Version"))
             version = line.split(" ").at(1);
