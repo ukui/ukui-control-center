@@ -44,6 +44,7 @@ public:
     void setRectF(qreal width, qreal height);
     void setMonitorInfo(QString name, QString type);
     void setitemMoveFlags(bool status);
+    QString getMonitorInfo();
 
     void selected_changed(bool flag);
 

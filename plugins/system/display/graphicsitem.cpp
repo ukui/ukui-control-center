@@ -170,7 +170,7 @@ QVariant GraphicsItem::itemChange(GraphicsItemChange change, const QVariant &val
 //}
 
 void GraphicsItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event){
-    qDebug() << "-------release-->" << pos();
+//    qDebug() << "-------release-->" << pos();
 
     emit dragOverSignal();
 
@@ -178,7 +178,7 @@ void GraphicsItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event){
 }
 
 void GraphicsItem::mousePressEvent(QGraphicsSceneMouseEvent *event){
-    qDebug() << "---------press--->" << pos();
+//    qDebug() << "---------press--->" << pos();
     lastpos = pos();
     QGraphicsItem::mousePressEvent(event);
 }
@@ -206,6 +206,10 @@ void GraphicsItem::setMonitorInfo(QString name, QString type){
     monitorName = name;
     monitorType = type;
     update();
+}
+
+QString GraphicsItem::getMonitorInfo(){
+    return monitorName + monitorType;
 }
 
 void GraphicsItem::setitemMoveFlags(bool status){

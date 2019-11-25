@@ -196,9 +196,7 @@ void DisplaySet::rebuild_ui(){
 
         rebuild_monitor_switchbtn();
         rebuild_mirror_monitor();
-
-        //设置主屏按钮敏感性
-        ui->primaryBtn->setEnabled(monitor.current_output && !mate_rr_output_info_get_primary(monitor.current_output));
+        rebuild_primary_btn();
 
     }
     else{
@@ -256,13 +254,21 @@ void DisplaySet::rebuild_view(){
 
             if (_connect_output_count() == 1) //单屏
                 item->setitemMoveFlags(false);
-            else
+            else{
                 item->setitemMoveFlags(true);
+                if (output == monitor.current_output)
+                    item->setSelected(true);
+            }
 
         }
 
     }
 
+}
+
+void DisplaySet::rebuild_primary_btn(){
+    //设置主屏按钮敏感性
+    ui->primaryBtn->setEnabled(monitor.current_output && !mate_rr_output_info_get_primary(monitor.current_output));
 }
 
 void DisplaySet::rebuild_monitor_switchbtn(){
@@ -275,17 +281,21 @@ void DisplaySet::rebuild_monitor_switchbtn(){
     active = false;
 
     if (!mate_rr_config_get_clone (monitor.current_configuration) && monitor.current_output){
-//        if (_active_output_count() > 1 || !mate_rr_output_info_is_active (monitor.current_output))
-//            sensitive = true;
-//        else
-//            sensitive = false;
+        if (_active_output_count() > 1 || !mate_rr_output_info_is_active (monitor.current_output))
+            sensitive = true;
+        else
+            sensitive = false;
 
         active = mate_rr_output_info_is_active (monitor.current_output);
     }
+    else if (mate_rr_config_get_clone(monitor.current_configuration) && monitor.current_output){
+        active = mate_rr_output_info_is_active (monitor.current_output);
+    }
+
 
     activemonitorBtn->setChecked(active);
 
-//    activemonitorBtn->setEnabled(sensitive);
+    activemonitorBtn->setEnabled(sensitive);
 
     activemonitorBtn->blockSignals(false);
 }
@@ -390,7 +400,7 @@ gboolean DisplaySet::_output_info_supports_mode(MateRROutputInfo *info, int widt
 
     for (int i = 0; modes[i]; i++) {
         int tmp_width, tmp_height;
-        tmp_width = mate_rr_mode_get_width(modes[i]); tmp_height = mate_rr_mode_get_width(modes[i]);
+        tmp_width = mate_rr_mode_get_width(modes[i]); tmp_height = mate_rr_mode_get_height(modes[i]);
         if (tmp_width == width && tmp_height == height)
             return TRUE;
     }
@@ -584,34 +594,43 @@ void DisplaySet::rebuild_rotation_combo(){
     { MATE_RR_ROTATION_180, tr("Upside-down") },
     };
 
-    ui->rotationComboBox->clear();
-
     ui->rotationComboBox->blockSignals(true);
 
+    ui->rotationComboBox->clear();
+
     ui->rotationComboBox->setEnabled(monitor.current_output && mate_rr_output_info_is_active (monitor.current_output));
-    if (monitor.current_output){
-        MateRRRotation current;
-        current = mate_rr_output_info_get_rotation (monitor.current_output);
-        int index = 0;
-        for (unsigned long i = 0; i < G_N_ELEMENTS (rotations); ++i){
-            const RotationInfo *info = &(rotations[i]);
-            mate_rr_output_info_set_rotation (monitor.current_output, info->rotation);
 
-            if (mate_rr_config_applicable (monitor.current_configuration, monitor.screen, NULL)){
-                ui->rotationComboBox->insertItem(index, info->name, QVariant::fromValue(info->rotation));
-//                ui->rotationComboBox->addItem(info->name);
-                index++;
+    if (!monitor.current_output)
+        return;
 
-                if (info->rotation == current)
-                    selection = info->name;
-            }
+    MateRRRotation current;
+    current = mate_rr_output_info_get_rotation (monitor.current_output);
+
+    int index = 0;
+    for (unsigned long i = 0; i < G_N_ELEMENTS (rotations); ++i){
+        const RotationInfo *info = &(rotations[i]);
+        mate_rr_output_info_set_rotation (monitor.current_output, info->rotation);
+
+        if (mate_rr_config_applicable (monitor.current_configuration, monitor.screen, NULL)){
+            ui->rotationComboBox->insertItem(index, info->name, QVariant::fromValue(info->rotation));
+            //                ui->rotationComboBox->addItem(info->name);
+
+            if (info->rotation == current)
+                selection = info->name;
+
+            index++;
         }
-        mate_rr_output_info_set_rotation(monitor.current_output, current);
-        ui->rotationComboBox->setCurrentText(selection);
+
     }
+    mate_rr_output_info_set_rotation(monitor.current_output, current);
 
     ui->rotationComboBox->blockSignals(false);
 
+    if (!selection.isEmpty()){
+        ui->rotationComboBox->setCurrentText(selection);
+    }
+    else
+        ui->rotationComboBox->setCurrentIndex(0);
 }
 
 void DisplaySet::component_init(){
@@ -646,10 +665,11 @@ void DisplaySet::status_init(){
     connect(scene, SIGNAL(selectionChanged()), this, SLOT(selected_item_changed_slot()));
 
     connect(activemonitorBtn, SIGNAL(checkedChanged(bool)), this, SLOT(monitor_active_changed_slot()));
+    connect(mirrormonitorBtn, SIGNAL(checkedChanged(bool)), this, SLOT(mirror_monitor_changed_slot()));
     connect(ui->primaryBtn, SIGNAL(clicked(bool)), this, SLOT(set_primary_clicked_slot()));
 
     connect(ui->brightnessHSlider, SIGNAL(valueChanged(int)), this, SLOT(brightness_value_changed_slot(int)));
-    connect(ui->rotationComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(refresh_changed_slot(int)));
+    connect(ui->refreshComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(refresh_changed_slot(int)));
     connect(ui->rotationComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(rotation_changed_slot(int)));
     connect(ui->resolutionComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(resolution_changed_slot(int)));
     connect(ui->monitorComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(monitor_changed_slot(int)));
@@ -780,6 +800,8 @@ void DisplaySet::_add_edge(MateRROutputInfo *output, int x1, int y1, int x2, int
     e.y2 = y2;
     e.output = output;
 
+//    qDebug() << "add_edge" << "x1:" << x1 << "x2: " << x2 << "y1: " << y1 << "y2: " << y2;
+
     if (!diff_edges)
         edges.append(e);
     else
@@ -818,8 +840,10 @@ bool DisplaySet::_vertical_overlap(Edge *snapper, Edge *snappee){
 }
 
 void DisplaySet::_add_snap(Snap snap){
-    if (ABS(snap.dx) <= 200 || ABS(snap.dy) <= 200)
+    if (ABS(snap.dx) <= 200 || ABS(snap.dy) <= 200){
+//        qDebug() << "snap.dx: " << snap.dx << "snap.dy: " << snap.dy;
         snaps.append(snap);
+    }
 }
 
 void DisplaySet::_add_edge_snaps(Edge *snapper, Edge *snappee){
@@ -915,13 +939,22 @@ bool DisplaySet::_output_is_aligned(MateRROutputInfo *output){
 bool DisplaySet::_config_is_aligned(){
 
     MateRROutputInfo ** outputs = mate_rr_config_get_outputs(monitor.current_configuration);
-
     for (int i = 0; outputs[i]; i++){
+        qDebug() << "i: " << i << mate_rr_output_info_get_display_name(outputs[i]) << mate_rr_output_info_is_connected(outputs[i]);
         if (mate_rr_output_info_is_connected(outputs[i])){
-            if (!_output_is_aligned(outputs[i]))
+            int x, y, width, height;
+
+            mate_rr_output_info_get_geometry(outputs[i], &x, &y, &width, &height);
+            qDebug() << x << y << width << height;
+
+            if (!_output_is_aligned(outputs[i])){
+                qDebug() << "output_is_aligned false";
                 return false;
-            if (_output_overlaps(outputs[i]))
-                return true;
+            }
+            if (_output_overlaps(outputs[i])){
+                qDebug() << "output_is_overlaps true";
+                return false;
+            }
         }
     }
     return true;
@@ -946,6 +979,8 @@ void DisplaySet::output_drabed_slot(){
     new_x = originoffset.x() + (item->pos().x() - item->getLastPos().x()) / scale;
     new_y = originoffset.y() + (item->pos().y() - item->getLastPos().y()) / scale;
 
+    mate_rr_output_info_set_geometry(monitor.current_output, new_x, new_y, width, height);
+
     edges.clear(); snaps.clear();
 
     _list_edges(false);
@@ -955,20 +990,32 @@ void DisplaySet::output_drabed_slot(){
 
     mate_rr_output_info_set_geometry(monitor.current_output, new_x, new_y, width, height);
 
+    qDebug() << "snaps len: " << snaps.length();
+
+    for (int j = 0; j < snaps.length(); j++){
+        Snap * snap1 = const_cast<Snap *>(&(snaps.at(j)));
+        qDebug() << "snap1: " << snap1->dx << snap1->dy;
+    }
+
     for (int i = 0; i < snaps.length(); i++){
         Snap * snap = const_cast<Snap *>(&(snaps.at(i)));
         mate_rr_output_info_set_geometry(monitor.current_output, new_x + snap->dx, new_y + snap->dy, width, height);
+
+        qDebug() << "new_x: " << new_x << "new_y:" << new_y << "snap->dx: " << snap->dx << "snap->dy:" << snap->dy << width << height;
 
         new_edges.clear();
         _list_edges(true);
 
         if (_config_is_aligned()){
+            qDebug() << "_config_is_aligned-->" << "new_x: " << new_x << "new_y:" << new_y << "snap->dx: " << snap->dx << "snap->dy:" << snap->dy << width << height;
+
             QPointF offset;
             offset.setX(new_x + snap->dx); offset.setY(new_y + snap->dy);
             item->setData(Qt::UserRole, QVariant::fromValue(offset));
             break;
         }
         else{
+            qDebug() << "restore: " << originoffset.x() << originoffset.y() << width << height;
             mate_rr_output_info_set_geometry(monitor.current_output, originoffset.x(), originoffset.y(), width, height);
         }
     }
@@ -977,10 +1024,20 @@ void DisplaySet::output_drabed_slot(){
 
 void DisplaySet::selected_item_changed_slot(){
     qDebug() << "Selected" << scene->selectedItems().length();
+    if (scene->selectedItems().length() == 1){
+        GraphicsItem * item = dynamic_cast<GraphicsItem *>(scene->selectedItems().first());
+        QString monitorName = item->getMonitorInfo();
+        qDebug() << "selected monitor name: " << monitorName;
+
+        ui->monitorComboBox->setCurrentText(monitorName);
+    }
+
 }
 
 void DisplaySet::mirror_monitor_changed_slot(){
     mate_rr_config_set_clone (monitor.current_configuration, mirrormonitorBtn->isChecked());
+
+    qDebug() << "clone status: " << mate_rr_config_get_clone (monitor.current_configuration) << mirrormonitorBtn->isChecked();
 
     if (mate_rr_config_get_clone (monitor.current_configuration)){
         int width, height;
@@ -1000,6 +1057,7 @@ void DisplaySet::mirror_monitor_changed_slot(){
          */
 
         _get_clone_size (&width, &height);
+        qDebug() << "width: " << width << "height: " << height;
 
         for (int i = 0; outputs[i]; i++) {
             int x, y;
@@ -1171,14 +1229,16 @@ void DisplaySet::resolution_changed_slot(int index){
 }
 
 void DisplaySet::monitor_changed_slot(int index){
-    if (monitor.current_output){
-        MateRROutputInfo * output = ui->monitorComboBox->itemData(index).value<MateRROutputInfo *>();
-        if (output){
-            monitor.current_output = output;
-            rebuild_resolution_combo();
-            rebuild_refresh_combo();
-            rebuild_rotation_combo();
-        }
+    if (!monitor.current_output)
+        return;
+
+    MateRROutputInfo * output = ui->monitorComboBox->itemData(index).value<MateRROutputInfo *>();
+    if (output){
+        monitor.current_output = output;
+        rebuild_primary_btn();
+        rebuild_resolution_combo();
+        rebuild_refresh_combo();
+        rebuild_rotation_combo();
     }
 }
 

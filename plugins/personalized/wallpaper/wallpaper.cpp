@@ -83,63 +83,109 @@ void Wallpaper::initData(){
 }
 
 void Wallpaper::component_init(){
-//        QSize IMAGE_SIZE(160, 120);
-//        ui->listWidget->setIconSize(IMAGE_SIZE);
-        ui->listWidget->setResizeMode(QListView::Adjust);
-        ui->listWidget->setViewMode(QListView::IconMode);
-        ui->listWidget->setMovement(QListView::Static);
-        ui->listWidget->setSpacing(10);
+    //背景形式
+    QStringList formList;
+    formList << tr("picture") << tr("color")/* << tr("slideshow")*/ ;
+    ui->formComboBox->addItems(formList);
 
-        SimpleThread * thread = new SimpleThread(wallpaperinfosMap, NULL);
-        connect(thread, &SimpleThread::widgetItemCreate, this, [=](QPixmap pixmap, QString filename){
-            append_item(pixmap, filename);
-        }, Qt::QueuedConnection);
-        connect(thread, &SimpleThread::finished, this, [=]{
-            QString filename = bgsettings->get(FILENAME).toString();
-            //当前背景形式是壁纸
-            if (ui->formComboBox->currentIndex() == 0){
-                if (delItemsMap.contains(filename)){
-                    QListWidgetItem * currentItem = (QListWidgetItem *)delItemsMap.find(filename).value();
-                    QWidget * widget = ui->listWidget->itemWidget(currentItem);
-                    widget->setStyleSheet("QWidget{border: 5px solid #daebff}");
-        //            ui->listWidget->setItemSelected(currentItem, true); //???
-                    ui->listWidget->blockSignals(true);
-                    ui->listWidget->setCurrentItem(currentItem);
-                    ui->listWidget->blockSignals(false);
-                }
-                //设置当前壁纸放置方式
-                if (wallpaperinfosMap.contains(filename)){
-                    QMap<QString, QString> currentwpMap = (QMap<QString, QString>) wallpaperinfosMap.find(filename).value();
-                    if (currentwpMap.contains("options")){
-                        QString opStr = QString::fromLocal8Bit("%1").arg(currentwpMap.find("options").value());
-                        ui->wpoptionsComboBox->setCurrentText(tr("%1").arg(opStr));
-                    }
+    init_current_status();
+
+
+    //        QSize IMAGE_SIZE(160, 120);
+    //        ui->listWidget->setIconSize(IMAGE_SIZE);
+    ui->listWidget->setResizeMode(QListView::Adjust);
+    ui->listWidget->setViewMode(QListView::IconMode);
+    ui->listWidget->setMovement(QListView::Static);
+    ui->listWidget->setSpacing(10);
+
+    SimpleThread * thread = new SimpleThread(wallpaperinfosMap, nullptr);
+    connect(thread, &SimpleThread::widgetItemCreate, this, [=](QPixmap pixmap, QString filename){
+        append_item(pixmap, filename);
+    }, Qt::QueuedConnection);
+    connect(thread, &SimpleThread::finished, this, [=]{
+        QString filename = bgsettings->get(FILENAME).toString();
+        //当前背景形式是壁纸
+        if (ui->formComboBox->currentIndex() == 0){
+            if (delItemsMap.contains(filename)){
+                QListWidgetItem * currentItem = delItemsMap.find(filename).value();
+                QWidget * widget = ui->listWidget->itemWidget(currentItem);
+                widget->setStyleSheet("QWidget{border: 5px solid #daebff}");
+                //            ui->listWidget->setItemSelected(currentItem, true); //???
+                ui->listWidget->blockSignals(true);
+                ui->listWidget->setCurrentItem(currentItem);
+                ui->listWidget->blockSignals(false);
+            }
+            //设置当前壁纸放置方式
+            if (wallpaperinfosMap.contains(filename)){
+                QMap<QString, QString> currentwpMap = (QMap<QString, QString>) wallpaperinfosMap.find(filename).value();
+                if (currentwpMap.contains("options")){
+                    QString opStr = QString::fromLocal8Bit("%1").arg(currentwpMap.find("options").value());
+                    ui->wpoptionsComboBox->setCurrentText(tr("%1").arg(opStr));
                 }
             }
-        });
-        connect(thread, &SimpleThread::finished, thread, &SimpleThread::deleteLater);
-        thread->start();
+        }
+    });
+    connect(thread, &SimpleThread::finished, thread, &SimpleThread::deleteLater);
+    thread->start();
 
-        //背景形式
-        QStringList formList;
-        formList << tr("picture")/* << tr("slideshow") << tr("color")*/;
-        ui->formComboBox->addItems(formList);
+    //壁纸放置方式
+    QStringList layoutList;
+    layoutList << tr("wallpaper") << tr("centered") << tr("scaled") << tr("stretched") << tr("zoom") << tr("spanned");
+    ui->wpoptionsComboBox->addItems(layoutList);
 
-        //壁纸放置方式
-        QStringList layoutList;
-        layoutList << tr("wallpaper") << tr("centered") << tr("scaled") << tr("stretched") << tr("zoom") << tr("spanned");
-        ui->wpoptionsComboBox->addItems(layoutList);
 
-        init_current_status();
+    //纯色
+    ui->colorListWidget->setResizeMode(QListView::Adjust);
+    ui->colorListWidget->setViewMode(QListView::IconMode);
+    ui->colorListWidget->setMovement(QListView::Static);
+    ui->colorListWidget->setSpacing(10);
 
-        connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(wallpaper_item_clicked(QListWidgetItem*,QListWidgetItem*)));
-        connect(ui->formComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(form_combobox_changed(int)));
-        connect(ui->wpoptionsComboBox, SIGNAL(currentTextChanged(QString)), this, SLOT(options_combobox_changed(QString)));
-        connect(ui->resetBtn, SIGNAL(clicked(bool)), this, SLOT(reset_default_wallpaper()));
+    ui->listWidget->setStyleSheet("QListView::item:selected{border: 5px solid #ac4844}");
 
-        connect(ui->addPushBtn, SIGNAL(clicked(bool)), this, SLOT(add_custom_wallpaper()));
-        connect(ui->delPushBtn, SIGNAL(clicked(bool)), this, SLOT(del_wallpaper()));
+    QSize ITEM_SIZE(65, 65);
+    //自定义item
+    QString colorStr = "#99FF33";
+    QWidget * widget = new QWidget();
+    widget->setAttribute(Qt::WA_DeleteOnClose);
+    widget->setStyleSheet(QString("background-color: %1").arg(colorStr));
 
+    QListWidgetItem * item = new QListWidgetItem(ui->colorListWidget);
+    item->setSizeHint(ITEM_SIZE);
+    item->setData(Qt::UserRole, colorStr);
+    ui->colorListWidget->setItemWidget(item, widget);
+
+    QString colorStr2 = "#FFFF00";
+    QLabel * widget2 = new QLabel();
+    widget2->setAttribute(Qt::WA_DeleteOnClose);
+    widget2->setStyleSheet(QString("background-color: %1").arg(colorStr2));
+
+    QListWidgetItem * item2 = new QListWidgetItem(ui->colorListWidget);
+    item2->setData(Qt::UserRole, colorStr2);
+    item2->setSizeHint(ITEM_SIZE);
+    ui->colorListWidget->setItemWidget(item2, widget2);
+
+    ui->colorListWidget->setCurrentItem(item);
+    widget->setStyleSheet(QString("background-color: %1; border: 5px solid #ac4844").arg(item->data(Qt::UserRole).toString()));
+
+    connect(ui->colorListWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(colorwp_item_clicked(QListWidgetItem*,QListWidgetItem*)));
+
+
+    connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(wallpaper_item_clicked(QListWidgetItem*,QListWidgetItem*)));
+    connect(ui->formComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(form_combobox_changed(int)));
+    connect(ui->wpoptionsComboBox, SIGNAL(currentTextChanged(QString)), this, SLOT(options_combobox_changed(QString)));
+    connect(ui->resetBtn, SIGNAL(clicked(bool)), this, SLOT(reset_default_wallpaper()));
+
+    connect(ui->addPushBtn, SIGNAL(clicked(bool)), this, SLOT(add_custom_wallpaper()));
+    connect(ui->delPushBtn, SIGNAL(clicked(bool)), this, SLOT(del_wallpaper()));
+
+}
+
+void Wallpaper::colorwp_item_clicked(QListWidgetItem * current, QListWidgetItem * previous){
+    QWidget * preWidget = ui->colorListWidget->itemWidget(previous);
+    preWidget->setStyleSheet(QString("background-color: %1; border: none").arg(previous->data(Qt::UserRole).toString()));
+
+    QWidget * curWidget = ui->colorListWidget->itemWidget(current);
+    curWidget->setStyleSheet(QString("background-color: %1; border: 5px solid #ac4844").arg(current->data(Qt::UserRole).toString()));
 }
 
 void Wallpaper::append_item(QPixmap pixmap, QString filename){
@@ -170,28 +216,31 @@ void Wallpaper::init_current_status(){
     QString filename = bgsettings->get(FILENAME).toString();
 
     //设置当前背景形式
-    if (filename == "")
-        ui->formComboBox->setCurrentIndex(2);
-    else if (filename.endsWith("xml"))
+    if (filename == ""){
         ui->formComboBox->setCurrentIndex(1);
-    else
+        ui->substackedWidget->setCurrentIndex(1);
+        ui->addPushBtn->hide();
+        ui->delPushBtn->hide();
+    }
+    else if (filename.endsWith("xml")){
+        ui->formComboBox->setCurrentIndex(2);
+        ui->substackedWidget->setCurrentIndex(2);
+        ui->addPushBtn->hide();
+        ui->delPushBtn->hide();
+    }
+    else{
         ui->formComboBox->setCurrentIndex(0);
-
-
-//    //当前背景形式是幻灯片
-//    if (ui->formComboBox->currentIndex() == 1){
-//        ;
-//    }
-
-//    //当前背景形式是纯色
-//    if (ui->formComboBox->currentIndex() == 2){
-//        ;
-//    }
+        ui->substackedWidget->setCurrentIndex(0);
+        ui->addPushBtn->show();
+        ui->delPushBtn->show();
+    }
 }
 
 void Wallpaper::wallpaper_item_clicked(QListWidgetItem * current, QListWidgetItem *previous){
-    QWidget * previousWidget = ui->listWidget->itemWidget(previous);
-    previousWidget->setStyleSheet("QWidget{border: none}");
+    if (previous != nullptr){
+        QWidget * previousWidget = ui->listWidget->itemWidget(previous);
+        previousWidget->setStyleSheet("QWidget{border: none}");
+    }
 
     QWidget * currentWidget = ui->listWidget->itemWidget(current);
     currentWidget->setStyleSheet("QWidget{border: 5px solid #daebff}");
@@ -202,8 +251,7 @@ void Wallpaper::wallpaper_item_clicked(QListWidgetItem * current, QListWidgetIte
 }
 
 void Wallpaper::form_combobox_changed(int index){
-    ui->stackedWidget->setCurrentIndex(index);
-    init_current_status();
+    ui->substackedWidget->setCurrentIndex(index);
 }
 
 void Wallpaper::options_combobox_changed(QString op){

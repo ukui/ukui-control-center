@@ -104,6 +104,7 @@ private:
 
 public slots:
     void wallpaper_item_clicked(QListWidgetItem * current, QListWidgetItem * previous);
+    void colorwp_item_clicked(QListWidgetItem * current, QListWidgetItem * previous);
     void form_combobox_changed(int index);
     void options_combobox_changed(QString op);
     void reset_default_wallpaper();

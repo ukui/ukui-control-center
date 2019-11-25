@@ -111,6 +111,7 @@ public:
     void rebuild_view();
     void rebuild_mirror_monitor();
     void rebuild_monitor_switchbtn();
+    void rebuild_primary_btn();
     void rebuild_image_switchbtn();
     void rebuild_monitor_combo();
     void rebuild_resolution_combo();
