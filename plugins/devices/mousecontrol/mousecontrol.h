@@ -38,6 +38,14 @@
 
 #define CURSORS_THEMES_PATH "/usr/share/icons/"
 
+#define GNOME_TOUCHPAD_SCHEMA "org.gnome.desktop.peripherals.touchpad"
+#define GNOME_ACTIVE_TOUCHPAD_KEY "send-events"
+#define GNOME_TOUCHPAD_CLICK_KEY "tap-to-click"
+#define GNOME_DISABLE_WHILE_TYPEING_KEY "disable-while-typing"
+#define GNOME_DISABLE_SCROLLING_KEY "natural-scroll"
+#define GNOME_SCROLLING_EDGE_KEY "edge-scrolling-enabled"
+#define GNOME_SCROLLING_TWO_KEY "two-finger-scrolling-enabled"
+
 #define TOUCHPAD_SCHEMA "org.ukui.peripherals-touchpad"
 #define ACTIVE_TOUCHPAD_KEY "touchpad-enabled"
 #define DISABLE_WHILE_TYPING_KEY "disable-while-typing"
@@ -88,7 +96,8 @@ private:
 
     SwitchButton * activeBtn;
 
-    QGSettings * tpsettings;
+//    QGSettings * tpsettings;
+    QGSettings * gnomeSettings;
 
     QStringList _get_cursors_themes();
     void _refresh_touchpad_widget_status();
