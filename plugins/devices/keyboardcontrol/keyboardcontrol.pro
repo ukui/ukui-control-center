@@ -27,8 +27,11 @@ DESTDIR = ../..
 
 include(../../pluginsComponent/pluginsComponent.pri)
 
+inst1.files += org.ukui.control-center.keybinding.gschema.xml
+inst1.path = /usr/share/glib-2.0/schemas
 target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
-INSTALLS += target
+INSTALLS += target \
+            inst1
 
 
 #DEFINES += QT_DEPRECATED_WARNINGS

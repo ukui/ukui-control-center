@@ -36,6 +36,7 @@ void XmlHandle::init(){
     QFile file(localconf);
     if (!file.exists()){
         QStringList files = getxmlfiles(WALLPAPER);
+        wallpapersMap.clear();
         for (int num = 0; num < files.length(); num++){
             xmlreader(files[num]);
         }
@@ -65,7 +66,6 @@ QMap<QString, QMap<QString, QString> > XmlHandle::xmlreader(QString filename){
     //旧清理数据
 //    wpMap.clear();
 //    headMap.clear();
-    wallpapersMap.clear();
 
     QMap<QString, QString> headMap;
 
