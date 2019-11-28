@@ -44,6 +44,9 @@ QList<Edge> edges;
 QList<Snap> snaps;
 QList<Edge> new_edges;
 
+bool compare_snaps(const Snap &v1, const Snap &v2);
+bool is_corner_snap(const Snap *s);
+
 DisplaySet::DisplaySet(){
     ui = new Ui::DisplayWindow();
     pluginWidget = new CustomWidget;
@@ -940,24 +943,59 @@ bool DisplaySet::_config_is_aligned(){
 
     MateRROutputInfo ** outputs = mate_rr_config_get_outputs(monitor.current_configuration);
     for (int i = 0; outputs[i]; i++){
-        qDebug() << "i: " << i << mate_rr_output_info_get_display_name(outputs[i]) << mate_rr_output_info_is_connected(outputs[i]);
         if (mate_rr_output_info_is_connected(outputs[i])){
             int x, y, width, height;
 
             mate_rr_output_info_get_geometry(outputs[i], &x, &y, &width, &height);
-            qDebug() << x << y << width << height;
 
             if (!_output_is_aligned(outputs[i])){
-                qDebug() << "output_is_aligned false";
                 return false;
             }
             if (_output_overlaps(outputs[i])){
-                qDebug() << "output_is_overlaps true";
                 return false;
             }
         }
     }
     return true;
+}
+
+bool is_corner_snap(const Snap *s){
+    return s->dx != 0 && s->dy != 0;
+}
+
+bool compare_snaps(const Snap &v1, const Snap &v2){
+    const Snap *s1 = &v1;
+    const Snap *s2 = &v2;
+    int sv1 = qMax (qAbs (s1->dx), qAbs (s1->dy));
+    int sv2 = qMax (qAbs (s2->dx), qAbs (s2->dy));
+
+
+    /* This snapping algorithm is good enough for rock'n'roll, but
+     * this is probably a better:
+     *
+     *    First do a horizontal/vertical snap, then
+     *    with the new coordinates from that snap,
+     *    do a corner snap.
+     *
+     * Right now, it's confusing that corner snapping
+     * depends on the distance in an axis that you can't actually see.
+     *
+     */
+
+    if (sv1 > sv2)
+        return false;
+    else if (sv1 < sv2)
+        return true;
+    else{
+        if (is_corner_snap(s1) && !is_corner_snap(s2))
+            return false;
+        else if (!is_corner_snap(s1) && is_corner_snap(s2))
+            return true;
+        else
+            return true;
+    }
+
+
 }
 
 void DisplaySet::output_drabed_slot(){
@@ -987,27 +1025,18 @@ void DisplaySet::output_drabed_slot(){
     _list_snaps();
 
     //g_array_sort();
+    qSort(snaps.begin(), snaps.end(), compare_snaps);
 
     mate_rr_output_info_set_geometry(monitor.current_output, new_x, new_y, width, height);
-
-    qDebug() << "snaps len: " << snaps.length();
-
-    for (int j = 0; j < snaps.length(); j++){
-        Snap * snap1 = const_cast<Snap *>(&(snaps.at(j)));
-        qDebug() << "snap1: " << snap1->dx << snap1->dy;
-    }
 
     for (int i = 0; i < snaps.length(); i++){
         Snap * snap = const_cast<Snap *>(&(snaps.at(i)));
         mate_rr_output_info_set_geometry(monitor.current_output, new_x + snap->dx, new_y + snap->dy, width, height);
 
-        qDebug() << "new_x: " << new_x << "new_y:" << new_y << "snap->dx: " << snap->dx << "snap->dy:" << snap->dy << width << height;
-
         new_edges.clear();
         _list_edges(true);
 
         if (_config_is_aligned()){
-            qDebug() << "_config_is_aligned-->" << "new_x: " << new_x << "new_y:" << new_y << "snap->dx: " << snap->dx << "snap->dy:" << snap->dy << width << height;
 
             QPointF offset;
             offset.setX(new_x + snap->dx); offset.setY(new_y + snap->dy);
@@ -1015,7 +1044,6 @@ void DisplaySet::output_drabed_slot(){
             break;
         }
         else{
-            qDebug() << "restore: " << originoffset.x() << originoffset.y() << width << height;
             mate_rr_output_info_set_geometry(monitor.current_output, originoffset.x(), originoffset.y(), width, height);
         }
     }
@@ -1023,11 +1051,10 @@ void DisplaySet::output_drabed_slot(){
 
 
 void DisplaySet::selected_item_changed_slot(){
-    qDebug() << "Selected" << scene->selectedItems().length();
+//    qDebug() << "Selected" << scene->selectedItems().length();
     if (scene->selectedItems().length() == 1){
         GraphicsItem * item = dynamic_cast<GraphicsItem *>(scene->selectedItems().first());
         QString monitorName = item->getMonitorInfo();
-        qDebug() << "selected monitor name: " << monitorName;
 
         ui->monitorComboBox->setCurrentText(monitorName);
     }
@@ -1036,8 +1063,6 @@ void DisplaySet::selected_item_changed_slot(){
 
 void DisplaySet::mirror_monitor_changed_slot(){
     mate_rr_config_set_clone (monitor.current_configuration, mirrormonitorBtn->isChecked());
-
-    qDebug() << "clone status: " << mate_rr_config_get_clone (monitor.current_configuration) << mirrormonitorBtn->isChecked();
 
     if (mate_rr_config_get_clone (monitor.current_configuration)){
         int width, height;
@@ -1057,7 +1082,6 @@ void DisplaySet::mirror_monitor_changed_slot(){
          */
 
         _get_clone_size (&width, &height);
-        qDebug() << "width: " << width << "height: " << height;
 
         for (int i = 0; outputs[i]; i++) {
             int x, y;
