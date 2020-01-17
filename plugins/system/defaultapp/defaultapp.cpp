@@ -1,3 +1,22 @@
+/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
+ *
+ * Copyright (C) 2019 Tianjin KYLIN Information Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+ *
+ */
 #include <QWidget>
 #include <QDebug>
 
@@ -16,16 +35,37 @@
 
 DefaultApp::DefaultApp(){
     ui = new Ui::DefaultAppWindow;
-    pluginWidget = new CustomWidget;
+    pluginWidget = new QWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
     pluginName = tr("defaultapp");
     pluginType = SYSTEM;
 
+
+    pluginWidget->setStyleSheet("background: #ffffff;");
+
+    ui->browserWidget->setStyleSheet("QWidget#browserWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
+    ui->browserLabel->setStyleSheet("QLabel#browserLabel{background: #F4F4F4;}");
+
+    ui->mailWidget->setStyleSheet("QWidget#mailWidget{background: #F4F4F4;}");
+    ui->mailLabel->setStyleSheet("QLabel#mailLabel{background: #F4F4F4;}");
+
+    ui->imageWidget->setStyleSheet("QWidget#imageWidget{background: #F4F4F4;}");
+    ui->imageLabel->setStyleSheet("QLabel#imageLabel{background: #F4F4F4;}");
+
+    ui->audioWidget->setStyleSheet("QWidget#audioWidget{background: #F4F4F4;}");
+    ui->audioLabel->setStyleSheet("QLabel#audioLabel{background: #F4F4F4;}");
+
+    ui->videoWidget->setStyleSheet("QWidget#videoWidget{background: #F4F4F4;}");
+    ui->videoLabel->setStyleSheet("QLabel#videoLabel{background: #F4F4F4;}");
+
+    ui->textWidget->setStyleSheet("QWidget#textWidget{background: #F4F4F4; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
+    ui->textLabel->setStyleSheet("QLabel#textLabel{background: #F4F4F4;}");
+
     initUI();
 
-    ui->resetPushBtn->hide();
+//    ui->resetPushBtn->hide();
 }
 
 DefaultApp::~DefaultApp(){
@@ -40,7 +80,7 @@ int DefaultApp::get_plugin_type(){
     return pluginType;
 }
 
-CustomWidget *DefaultApp::get_plugin_ui(){
+QWidget *DefaultApp::get_plugin_ui(){
     return pluginWidget;
 }
 
@@ -74,7 +114,7 @@ void DefaultApp::initUI(){
     }
 //    ui->browserComBoBox->addItem("add", "add");
     ui->browserComBoBox->setCurrentIndex(browserindex);
-    connect(ui->browserComBoBox, SIGNAL(itemchangedSignal(int)), this, SLOT(browserComBoBox_changed_cb(int)));
+//    connect(ui->browserComBoBox, SIGNAL(itemchangedSignal(int)), this, SLOT(browserComBoBox_changed_cb(int)));
 
     // MAIL
     int mailindex = -1;
@@ -97,7 +137,7 @@ void DefaultApp::initUI(){
         free(maillist[i].appid);
     }
     ui->mailComBoBox->setCurrentIndex(mailindex);
-    connect(ui->mailComBoBox, SIGNAL(itemchangedSignal(int)), this, SLOT(mailComBoBox_changed_cb(int)));
+//    connect(ui->mailComBoBox, SIGNAL(itemchangedSignal(int)), this, SLOT(mailComBoBox_changed_cb(int)));
 
     // IMAGE
     int imageindex = -1;
@@ -120,7 +160,7 @@ void DefaultApp::initUI(){
         free(imagelist[i].appid);
     }
     ui->imageComBoBox->setCurrentIndex(imageindex);
-    connect(ui->imageComBoBox, SIGNAL(itemchangedSignal(int)), this, SLOT(imageComBoBox_changed_cb(int)));
+//    connect(ui->imageComBoBox, SIGNAL(itemchangedSignal(int)), this, SLOT(imageComBoBox_changed_cb(int)));
 
     // AUDIO
     int audioindex = -1;
@@ -143,7 +183,7 @@ void DefaultApp::initUI(){
         free(audiolist[i].appid);
     }
     ui->audioComBoBox->setCurrentIndex(audioindex);
-    connect(ui->audioComBoBox, SIGNAL(itemchangedSignal(int)), this, SLOT(audioComBoBox_changed_cb(int)));
+//    connect(ui->audioComBoBox, SIGNAL(itemchangedSignal(int)), this, SLOT(audioComBoBox_changed_cb(int)));
 
     // VIDEO
     int videoindex =-1;
@@ -166,7 +206,7 @@ void DefaultApp::initUI(){
         free(videolist[i].appid);
     }
     ui->videoComBoBox->setCurrentIndex(videoindex);
-    connect(ui->videoComBoBox, SIGNAL(itemchangedSignal(int)), this, SLOT(videoComBoBox_changed_cb(int)));
+//    connect(ui->videoComBoBox, SIGNAL(itemchangedSignal(int)), this, SLOT(videoComBoBox_changed_cb(int)));
 
     // TEXT
     int textindex = -1;
@@ -189,7 +229,7 @@ void DefaultApp::initUI(){
         free(textlist[i].appid);
     }
     ui->textComBoBox->setCurrentIndex(textindex);
-    connect(ui->textComBoBox, SIGNAL(itemchangedSignal(int)), this, SLOT(textComBoBox_changed_cb(int)));
+//    connect(ui->textComBoBox, SIGNAL(itemchangedSignal(int)), this, SLOT(textComBoBox_changed_cb(int)));
     free(list); free(imagelist); free(maillist); free(videolist); free(audiolist); free(textlist);
 }
 

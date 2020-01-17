@@ -7,14 +7,20 @@ QT       += widgets
 
 TEMPLATE = lib
 CONFIG += plugin
-INCLUDEPATH += ../../..
+
 
 TARGET = $$qtLibraryTarget(theme)
-DESTDIR = ../..
+DESTDIR = ../../../pluginlibs
 
-include(../../pluginsComponent/pluginsComponent.pri)
 
-LIBS += -L/usr/lib/ -lgsettings-qt
+include(../../../env.pri)
+
+INCLUDEPATH   +=  \
+                 $$PROJECT_COMPONENTSOURCE \
+                 $$PROJECT_ROOTDIR \
+
+LIBS          += -L$$PROJECT_COMPONENTLIBS -lcommoncomponent
+LIBS          += -L/usr/lib/ -lgsettings-qt
 
 #DEFINES += QT_DEPRECATED_WARNINGS
 
@@ -22,10 +28,12 @@ target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
 INSTALLS += target
 
 SOURCES += \
-        theme.cpp
+        theme.cpp \
+    themewidget.cpp
 
 HEADERS += \
-        theme.h
+        theme.h \
+    themewidget.h
 
 FORMS += \
         theme.ui

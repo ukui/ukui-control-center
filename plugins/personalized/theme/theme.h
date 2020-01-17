@@ -1,25 +1,37 @@
+/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
+ *
+ * Copyright (C) 2019 Tianjin KYLIN Information Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+ *
+ */
 #ifndef THEME_H
 #define THEME_H
 
-#include <QWidget>
 #include <QObject>
 #include <QtPlugin>
-#include "mainui/interface.h"
-#include <QToolButton>
-#include <QSignalMapper>
+
 #include <QMap>
+#include <QDir>
 
-#include <QGSettings/QGSettings>
+#include "shell/interface.h"
 
-#include "../../pluginsComponent/switchbutton.h"
-#include "../../pluginsComponent/customwidget.h"
 
-#define INTERFACE_SCHEMA "org.mate.interface"
-#define MARCO_SCHEMA "org.gnome.desktop.wm.preferences"
-
-#define GTK_THEME_KEY "gtk-theme"
-#define ICON_THEME_KEY "icon-theme"
-#define MARCO_THEME_KEY "theme"
+class QToolButton;
+class SwitchButton;
+class QGSettings;
 
 namespace Ui {
 class Theme;
@@ -37,8 +49,18 @@ public:
 
     QString get_plugin_name() Q_DECL_OVERRIDE;
     int get_plugin_type() Q_DECL_OVERRIDE;
-    CustomWidget * get_plugin_ui() Q_DECL_OVERRIDE;
+    QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
     void plugin_delay_control() Q_DECL_OVERRIDE;
+
+public:
+
+    void initComponent();
+    void initIconTheme();
+    void initControlTheme();
+    void initCursorTheme();
+    void initEffectSettings();
+
+    QStringList _getSystemCursorThemes();
 
     void status_init();
     void component_init();
@@ -49,20 +71,21 @@ private:
 
     QString pluginName;
     int pluginType;
-    CustomWidget * pluginWidget;
+    QWidget * pluginWidget;
 
     QGSettings * ifsettings;
     QGSettings * marcosettings;
     QGSettings * desktopsettings;
 
-    QStringList themeList;
     QMap<QString, QToolButton *> delbtnMap;
     QMap<QString, SwitchButton *> delsbMap;
 
+//    QMap<QString, IconThemeWidget *> delframeMap;
+
 public slots:
     void set_theme_slots(QString value);
-    void desktop_icon_settings_btn_clicked_slots();
     void desktop_icon_settings_slots(QString key);
+    void icon_theme_changed_slot(QString name);
 };
 
 #endif // THEME_H

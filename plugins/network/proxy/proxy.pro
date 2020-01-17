@@ -8,14 +8,19 @@ QT       += widgets
 
 TEMPLATE = lib
 CONFIG += plugin
-INCLUDEPATH += ../../..
 
 TARGET = $$qtLibraryTarget(proxy)
-DESTDIR = ../..
+DESTDIR = ../../../pluginlibs
 
-include(../../pluginsComponent/pluginsComponent.pri)
 
-LIBS += -L/usr/lib/ -lgsettings-qt
+include(../../../env.pri)
+
+INCLUDEPATH   +=  \
+                 $$PROJECT_COMPONENTSOURCE \
+                 $$PROJECT_ROOTDIR \
+
+LIBS          += -L/usr/lib/ -lgsettings-qt
+LIBS          += -L$$PROJECT_COMPONENTLIBS -lcommoncomponent
 
 ##加载gio库和gio-unix库，用于获取和设置enum类型的gsettings
 CONFIG        += link_pkgconfig \

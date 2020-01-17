@@ -5,15 +5,16 @@
 #-------------------------------------------------
 
 QT       += widgets network
-
 TEMPLATE = lib
 CONFIG += plugin
-INCLUDEPATH += ../../..
 
 TARGET = $$qtLibraryTarget(netconnect)
-DESTDIR = ../..
+DESTDIR = ../../../pluginlibs
 
-include(../../pluginsComponent/pluginsComponent.pri)
+include(../../../env.pri)
+
+INCLUDEPATH   +=  \
+                 $$PROJECT_ROOTDIR \
 
 #DEFINES += QT_DEPRECATED_WARNINGS
 

@@ -1,52 +1,52 @@
+/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
+ *
+ * Copyright (C) 2019 Tianjin KYLIN Information Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+ *
+ */
 #include "printer.h"
 #include "ui_printer.h"
 
+#include <QtPrintSupport/QPrinterInfo>
+#include <QProcess>
+
 #include <QDebug>
+
+#define ITEMFIXEDHEIGH 58
 
 Printer::Printer(){
     ui = new Ui::Printer;
-    pluginWidget = new CustomWidget;
+    pluginWidget = new QWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
     pluginName = tr("printer");
     pluginType = DEVICES;
 
+    pluginWidget->setStyleSheet("background: #ffffff;");
+    ui->addWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
 
-    ui->addBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    ui->addBtn->setIcon(QIcon(":/printer/add.png"));
-    ui->addBtn->setIconSize(QSize(48,48));
+    ui->listWidget->setSpacing(0);
+    ui->listWidget->setStyleSheet("QListWidget#listWidget{border: none;}");
 
-    ui->listWidget->setStyleSheet("border: none; background-color: #f5f6f7");
-
-    QStringList printer = QPrinterInfo::availablePrinterNames();
-
-    for (int num = 0; num < printer.count(); num++){
-
-        QWidget * printerdevWidget = new QWidget();
-        printerdevWidget->setAttribute(Qt::WA_DeleteOnClose);
-        QVBoxLayout * printerdevVerLayout = new QVBoxLayout(printerdevWidget);
-        QToolButton * printerdevToolBtn = new QToolButton(printerdevWidget);
-        printerdevToolBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-        printerdevToolBtn->setIcon(QIcon("://printer/printerdev.png"));
-        printerdevToolBtn->setIconSize(QSize(48,48));
-        printerdevToolBtn->setText(printer.at(num));
-
-        printerdevVerLayout->addWidget(printerdevToolBtn);
-        printerdevWidget->setLayout(printerdevVerLayout);
-
-        QListWidgetItem * item = new QListWidgetItem(ui->listWidget);
-        item->setSizeHint(QSize(180, 64));
-        ui->listWidget->addItem(item);
-        ui->listWidget->setItemWidget(item, printerdevWidget);
-    }
-
-    connect(ui->addBtn, SIGNAL(clicked()), this, SLOT(run_external_app_slot()));
+    initComponent();
 }
 
 Printer::~Printer()
 {
-//    delete pluginWidget;
     delete ui;
 }
 
@@ -58,7 +58,7 @@ int Printer::get_plugin_type(){
     return pluginType;
 }
 
-CustomWidget *Printer::get_plugin_ui(){
+QWidget *Printer::get_plugin_ui(){
     return pluginWidget;
 }
 
@@ -66,7 +66,69 @@ void Printer::plugin_delay_control(){
 
 }
 
-void Printer::run_external_app_slot(){
+void Printer::initComponent(){
+
+    ui->addBtn->setIcon(QIcon("://img/plugins/printer/add.png"));
+    ui->addBtn->setIconSize(QSize(48, 48));
+
+    QStringList printer = QPrinterInfo::availablePrinterNames();
+
+    for (int num = 0; num < printer.count(); num++){
+
+        QWidget * baseWidget = new QWidget;
+        baseWidget->setAttribute(Qt::WA_DeleteOnClose);
+
+        QVBoxLayout * baseVerLayout = new QVBoxLayout(baseWidget);
+        baseVerLayout->setSpacing(0);
+        baseVerLayout->setContentsMargins(0, 0, 0, 8);
+
+        QWidget * pdWidget = new QWidget(baseWidget);
+
+        QHBoxLayout * pdHorLayout = new QHBoxLayout(pdWidget);
+        pdHorLayout->setSpacing(8);
+        pdHorLayout->setContentsMargins(16, 0, 0, 0);
+
+        QPushButton * pdBtn = new QPushButton(pdWidget);
+        QLabel * pdIconLabel = new QLabel(pdWidget);
+        QSizePolicy iconSizePolicy = pdIconLabel->sizePolicy();
+        iconSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
+        iconSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
+        pdIconLabel->setSizePolicy(iconSizePolicy);
+        pdIconLabel->setScaledContents(true);
+        pdIconLabel->setPixmap(QPixmap("://img/plugins/printer/printer.png"));
+
+        QLabel * pdLabel = new QLabel(pdWidget);
+        QSizePolicy txtSizePolicy = pdLabel->sizePolicy();
+        txtSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
+        txtSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
+        pdLabel->setSizePolicy(txtSizePolicy);
+        pdLabel->setScaledContents(true);
+        pdLabel->setText(printer.at(num));
+
+        pdHorLayout->addWidget(pdBtn);
+        pdHorLayout->addWidget(pdLabel);
+        pdHorLayout->addStretch();
+
+        pdWidget->setLayout(pdHorLayout);
+
+        //
+        baseVerLayout->addWidget(pdWidget);
+        baseVerLayout->addStretch();
+
+        baseWidget->setLayout(baseVerLayout);
+
+
+        QListWidgetItem * item = new QListWidgetItem(ui->listWidget);
+        item->setSizeHint(QSize(502, ITEMFIXEDHEIGH));
+        ui->listWidget->setItemWidget(item, baseWidget);
+    }
+
+    connect(ui->addBtn, &QPushButton::clicked, this, [=]{
+        runExternalApp();
+    });
+}
+
+void Printer::runExternalApp(){
     QString cmd = "system-config-printer";
 
     QProcess process(this);

@@ -1,4 +1,0 @@
-[D-BUS Service]
-Name=com.control.center.qt.systemdbus
-Exec=/usr/bin/cc-qsysdbus-boot
-User=root

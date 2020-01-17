@@ -1,10 +1,16 @@
 TEMPLATE = subdirs
-SUBDIRS = system \
-        devices \
-        personalized \
-        network \
-        account \
-        time-language \
-        security-updates \
-        messages-task \
-        templates
+SUBDIRS = \
+          system/defaultapp \
+          system/power \
+          system/autoboot \
+          devices/printer \
+          devices/keyboardcontrol \
+          personalized/theme \
+          personalized/fonts \
+          personalized/screensaver \
+          personalized/desktop \
+          network/netconnect \
+          network/vpn \
+          network/proxy \
+          messages-task/about \
+

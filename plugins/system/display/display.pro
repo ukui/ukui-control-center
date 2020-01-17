@@ -30,10 +30,12 @@ target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
 INSTALLS += target
 
 SOURCES += \
-        display.cpp
+        display.cpp \
+    graphicsitem.cpp
 
 HEADERS += \
-        display.h
+        display.h \
+    graphicsitem.h
 
 FORMS += \
     display.ui

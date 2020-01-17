@@ -1,15 +1,17 @@
 QT       += widgets
+TEMPLATE = lib
+CONFIG   += plugin
 
 TARGET = $$qtLibraryTarget(power)
-TEMPLATE = lib
-CONFIG += plugin
-INCLUDEPATH += ../../..
+DESTDIR = ../../../pluginlibs
 
-DESTDIR = ../..
+include(../../../env.pri)
 
-LIBS += -L/usr/lib/ -lgsettings-qt
+INCLUDEPATH += \
+               $$PROJECT_ROOTDIR \
 
-include(../../pluginsComponent/pluginsComponent.pri)
+
+LIBS     += -L/usr/lib/ -lgsettings-qt
 
 target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
 INSTALLS += target
@@ -18,7 +20,8 @@ FORMS += \
     power.ui
 
 HEADERS += \
-    power.h
+    power.h \
+    powermacrodata.h
 
 SOURCES += \
     power.cpp

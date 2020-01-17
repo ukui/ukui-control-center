@@ -1,3 +1,22 @@
+/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
+ *
+ * Copyright (C) 2019 Tianjin KYLIN Information Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+ *
+ */
 #include "userinfo.h"
 #include "ui_userinfo.h"
 
@@ -254,32 +273,29 @@ void UserInfo::ui_component_init(){
     ui->listWidget->addItem(newitem);
     ui->listWidget->setItemWidget(newitem, newuserWidget);
 
-    //设置其他用户按钮
-    if (allUserInfoMap.count() > 1){
 
-        QMap<QString, UserInfomation>::iterator it = allUserInfoMap.begin();
-        for (; it != allUserInfoMap.end(); it++){
-            UserInfomation user = (UserInfomation)it.value();
+    QMap<QString, UserInfomation>::iterator it = allUserInfoMap.begin();
+    for (; it != allUserInfoMap.end(); it++){
+        UserInfomation user = (UserInfomation)it.value();
 
-            //当前用户
-            if (user.current){
-                connect(ui->chpwdPushBtn, SIGNAL(clicked(bool)), pwdSignalMapper, SLOT(map()));
-                connect(ui->chfacePushBtn, SIGNAL(clicked(bool)), faceSignalMapper, SLOT(map()));
-                connect(ui->chtypePushBtn, SIGNAL(clicked(bool)), typeSignalMapper, SLOT(map()));
+        //当前用户
+        if (user.current){
+            connect(ui->chpwdPushBtn, SIGNAL(clicked(bool)), pwdSignalMapper, SLOT(map()));
+            connect(ui->chfacePushBtn, SIGNAL(clicked(bool)), faceSignalMapper, SLOT(map()));
+            connect(ui->chtypePushBtn, SIGNAL(clicked(bool)), typeSignalMapper, SLOT(map()));
 
-                pwdSignalMapper->setMapping(ui->chpwdPushBtn, user.username);
-                faceSignalMapper->setMapping(ui->chfacePushBtn, user.username);
-                typeSignalMapper->setMapping(ui->chtypePushBtn, user.username);
-                continue;
-            }
-
-            build_item_with_widget(user);
+            pwdSignalMapper->setMapping(ui->chpwdPushBtn, user.username);
+            faceSignalMapper->setMapping(ui->chfacePushBtn, user.username);
+            typeSignalMapper->setMapping(ui->chtypePushBtn, user.username);
+            continue;
         }
-        connect(pwdSignalMapper, SIGNAL(mapped(QString)), this, SLOT(show_change_pwd_dialog_slot(QString)));
-        connect(faceSignalMapper, SIGNAL(mapped(QString)), this, SLOT(show_change_face_dialog_slot(QString)));
-        connect(typeSignalMapper, SIGNAL(mapped(QString)), this, SLOT(show_change_accounttype_dialog_slot(QString)));
-        connect(delSignalMapper, SIGNAL(mapped(QString)), this, SLOT(show_del_user_dialog_slot(QString)));
+        //设置其他用户
+        build_item_with_widget(user);
     }
+    connect(pwdSignalMapper, SIGNAL(mapped(QString)), this, SLOT(show_change_pwd_dialog_slot(QString)));
+    connect(faceSignalMapper, SIGNAL(mapped(QString)), this, SLOT(show_change_face_dialog_slot(QString)));
+    connect(typeSignalMapper, SIGNAL(mapped(QString)), this, SLOT(show_change_accounttype_dialog_slot(QString)));
+    connect(delSignalMapper, SIGNAL(mapped(QString)), this, SLOT(show_del_user_dialog_slot(QString)));
 }
 
 void UserInfo::show_create_user_dialog_slot(){
@@ -298,13 +314,18 @@ void UserInfo::show_create_user_dialog_slot(){
 }
 
 void UserInfo::create_user_slot(QString username, QString pwd, QString pin, int atype, bool autologin){
+    Q_UNUSED(pin); Q_UNUSED(autologin);
     sysdispatcher->create_user(username, "", atype);
+
+    pwdcreate = ""; //重置
+    pwdcreate = pwd;
 }
 
 void UserInfo::create_user_done_slot(QString objpath){
     //设置默认头像
     UserDispatcher * userdispatcher  = new UserDispatcher(objpath);
     userdispatcher->change_user_face(DEFAULTFACE);
+    userdispatcher->change_user_pwd(pwdcreate, "");
 
     UserInfomation user;
     user = init_user_info(objpath);
@@ -349,6 +370,9 @@ void UserInfo::delete_user_done_slot(QString objpath){
 
     if (otherItemMap.contains(del))
         otherItemMap.remove(del);
+
+    //
+    get_all_users();
 }
 
 void UserInfo::show_change_accounttype_dialog_slot(QString username = g_get_user_name()){
@@ -407,6 +431,21 @@ void UserInfo::change_face_slot(QString facefile, QString username){
 
     get_all_users();
     ui_status_init();
+
+    //拷贝设置的头像文件到~/.face
+    sysinterface = new QDBusInterface("com.control.center.qt.systemdbus",
+                                     "/",
+                                     "com.control.center.interface",
+                                     QDBusConnection::systemBus());
+
+    if (!sysinterface->isValid()){
+        qCritical() << "Create Client Interface Failed When Copy Face File: " << QDBusConnection::systemBus().lastError();
+        return;
+    }
+
+    QString cmd = QString("cp %1 /home/%2/.face").arg(facefile).arg(user.username);
+
+    QDBusReply<QString> reply =  sysinterface->call("systemRun", QVariant(cmd));
 }
 
 void UserInfo::show_change_pwd_dialog_slot(QString username){

@@ -4,25 +4,29 @@
 #
 #-------------------------------------------------
 
+QT            += widgets
 TEMPLATE = lib
 CONFIG        += plugin
-QT            += widgets
+
+TARGET = $$qtLibraryTarget(defaultapp)
+DESTDIR = ../../../pluginlibs
+
 ##加载gio库和gio-unix库，用于处理desktop文件
 CONFIG        += link_pkgconfig \
                  C++11
 PKGCONFIG     += gio-2.0 \
                  gio-unix-2.0
 
+include(../../../env.pri)
 
-INCLUDEPATH   += ../../.. \
+INCLUDEPATH   +=  \
+                 $$PROJECT_COMPONENTSOURCE \
+                 $$PROJECT_ROOTDIR \
                  /usr/include/kylinsdk
 
-LIBS          += -L/usr/lib/ -ldefaultprograms
+LIBS          += -L/usr/lib/ -ldefaultprograms \
+                 -L$$PROJECT_COMPONENTLIBS -lcommoncomponent
 
-TARGET = $$qtLibraryTarget(defaultapp)
-DESTDIR = ../..
-
-include(../../pluginsComponent/pluginsComponent.pri)
 
 target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
 INSTALLS += target
@@ -30,12 +34,12 @@ INSTALLS += target
 SOURCES += \
         defaultapp.cpp \
     addappdialog.cpp \
-    component/custdomcombobox.cpp
+#    component/custdomcombobox.cpp
 
 HEADERS += \
         defaultapp.h \
     addappdialog.h \
-    component/custdomcombobox.h
+#    component/custdomcombobox.h
 
 FORMS += \
     defaultapp.ui \

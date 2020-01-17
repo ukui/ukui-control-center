@@ -1,3 +1,22 @@
+/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
+ *
+ * Copyright (C) 2019 Tianjin KYLIN Information Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+ *
+ */
 #include "mousecontrol.h"
 #include "ui_mousecontrol.h"
 
@@ -33,8 +52,11 @@ MouseControl::MouseControl()
     pluginName = tr("mousecontrol");
     pluginType = DEVICES;
 
-    const QByteArray id(TOUCHPAD_SCHEMA);
-    tpsettings = new QGSettings(id);
+//    const QByteArray id(TOUCHPAD_SCHEMA);
+//    tpsettings = new QGSettings(id);
+
+    const QByteArray idd(GNOME_TOUCHPAD_SCHEMA);
+    gnomeSettings = new QGSettings(idd);
 
     InitDBusMouse();
 
@@ -65,6 +87,10 @@ void MouseControl::plugin_delay_control(){
 }
 
 void MouseControl::component_init(){
+
+    //
+    ui->lefthandbuttonGroup->setId(ui->rightRadioBtn, 0);
+    ui->lefthandbuttonGroup->setId(ui->leftRadioBtn, 1);
 
     // Cursors themes
     QStringList themes = _get_cursors_themes();
@@ -153,7 +179,7 @@ void MouseControl::status_init(){
     ui->posCheckBtn->setChecked(kylin_hardware_mouse_get_locatepointer());
 
     connect(ui->CursorthemesComboBox, SIGNAL(currentTextChanged(QString)), this, SLOT(cursor_themes_changed_slot(QString)));
-    connect(ui->lefthandbuttonGroup, SIGNAL(buttonToggled(QAbstractButton*,bool)), this, SLOT(mouseprimarykey_changed_slot(QAbstractButton*, bool)));
+    connect(ui->lefthandbuttonGroup, SIGNAL(buttonClicked(int)), this, SLOT(mouseprimarykey_changed_slot(int)));
     connect(ui->speedSlider, SIGNAL(valueChanged(int)), this, SLOT(speed_value_changed_slot(int)));
     connect(ui->sensitivitySlider, SIGNAL(valueChanged(int)), this, SLOT(sensitivity_value_changed_slot(int)));
     connect(ui->posCheckBtn, SIGNAL(clicked(bool)), this, SLOT(show_pointer_position_slot(bool)));
@@ -163,34 +189,42 @@ void MouseControl::status_init(){
 
 
     //touchpad settings
-    activeBtn->setChecked(tpsettings->get(ACTIVE_TOUCHPAD_KEY).toBool());
+//    activeBtn->setChecked(tpsettings->get(ACTIVE_TOUCHPAD_KEY).toBool());
+    if (gnomeSettings->get(GNOME_ACTIVE_TOUCHPAD_KEY).toString() == "enabled")
+        activeBtn->setChecked(true);
+    else
+        activeBtn->setChecked(false);
     _refresh_touchpad_widget_status();
 
     // disable touchpad when typing
-    ui->disablecheckBox->setChecked(tpsettings->get(DISABLE_WHILE_TYPING_KEY).toBool());
+//    ui->disablecheckBox->setChecked(tpsettings->get(DISABLE_WHILE_TYPING_KEY).toBool());
+    ui->disablecheckBox->setChecked(gnomeSettings->get(GNOME_DISABLE_WHILE_TYPEING_KEY).toBool());
 
     // enable touchpad click
-    ui->tpclickcheckBox->setChecked(tpsettings->get(TOUCHPAD_CLICK_KEY).toBool());
+//    ui->tpclickcheckBox->setChecked(tpsettings->get(TOUCHPAD_CLICK_KEY).toBool());
+    ui->tpclickcheckBox->setChecked(gnomeSettings->get(GNOME_TOUCHPAD_CLICK_KEY).toBool());
 
     // scrolling
-    ui->vedgeRadioBtn->setChecked(tpsettings->get(V_EDGE_KEY).toBool());
-    ui->hedgeRadioBtn->setChecked(tpsettings->get(H_EDGE_KEY).toBool());
-    ui->vfingerRadioBtn->setChecked(tpsettings->get(V_FINGER_KEY).toBool());
-    ui->hfingerRadioBtn->setChecked(tpsettings->get(H_FINGER_KEY).toBool());
-    ui->noneRadioButton->setChecked(false);
+//    ui->vedgeRadioBtn->setChecked(tpsettings->get(V_EDGE_KEY).toBool());
+//    ui->hedgeRadioBtn->setChecked(tpsettings->get(H_EDGE_KEY).toBool());
+//    ui->vfingerRadioBtn->setChecked(tpsettings->get(V_FINGER_KEY).toBool());
+//    ui->hfingerRadioBtn->setChecked(tpsettings->get(H_FINGER_KEY).toBool());
+//    ui->noneRadioButton->setChecked(false);
 
-    if (ui->rollingbuttonGroup->checkedButton() == nullptr)
-        ui->rollingCheckBtn->setChecked(true);
-    else
-        ui->rollingCheckBtn->setChecked(false);
-    _refresh_rolling_btn_status();
+//    if (ui->rollingbuttonGroup->checkedButton() == nullptr)
+//        ui->rollingCheckBtn->setChecked(true);
+//    else
+//        ui->rollingCheckBtn->setChecked(false);
+//    _refresh_rolling_btn_status();
+    ui->rollingCheckBtn->setChecked(!(gnomeSettings->get(GNOME_SCROLLING_EDGE_KEY).toBool() || gnomeSettings->get(GNOME_SCROLLING_TWO_KEY).toBool()));
+    ui->rollingWidget->hide();
 
 
     connect(activeBtn, SIGNAL(checkedChanged(bool)), this, SLOT(active_touchpad_changed_slot(bool)));
     connect(ui->disablecheckBox, SIGNAL(clicked(bool)), this, SLOT(disable_while_typing_clicked_slot(bool)));
     connect(ui->tpclickcheckBox, SIGNAL(clicked(bool)), this, SLOT(touchpad_click_clicked_slot(bool)));
     connect(ui->rollingCheckBtn, SIGNAL(clicked(bool)), this, SLOT(rolling_enable_clicked_slot(bool)));
-    connect(ui->rollingbuttonGroup, SIGNAL(buttonToggled(QAbstractButton*,bool)), this, SLOT(rolling_kind_changed_slot(QAbstractButton*, bool)));
+//    connect(ui->rollingbuttonGroup, SIGNAL(buttonToggled(QAbstractButton*,bool)), this, SLOT(rolling_kind_changed_slot(QAbstractButton*, bool)));
 
 
     //cursor settings
@@ -316,10 +350,8 @@ void MouseControl::_refresh_rolling_btn_status(){
         ui->rollingWidget->show();
 }
 
-void MouseControl::mouseprimarykey_changed_slot(QAbstractButton *button, bool status){
-    QRadioButton * btn = dynamic_cast<QRadioButton *>(button);
-    if (btn->text() == "left hand")
-        kylin_hardware_mouse_set_lefthanded(status);
+void MouseControl::mouseprimarykey_changed_slot(int id){
+    kylin_hardware_mouse_set_lefthanded(id);
 }
 
 void MouseControl::cursor_themes_changed_slot(QString text){
@@ -344,23 +376,37 @@ void MouseControl::show_pointer_position_slot(bool status){
 }
 
 void MouseControl::active_touchpad_changed_slot(bool status){
-    tpsettings->set(ACTIVE_TOUCHPAD_KEY, status);
+//    tpsettings->set(ACTIVE_TOUCHPAD_KEY, status);
+    if (status)
+        gnomeSettings->set(GNOME_ACTIVE_TOUCHPAD_KEY, "enabled");
+    else
+        gnomeSettings->set(GNOME_ACTIVE_TOUCHPAD_KEY, "disabled");
+
     _refresh_touchpad_widget_status();
 }
 
 void MouseControl::disable_while_typing_clicked_slot(bool status){
-    tpsettings->set(DISABLE_WHILE_TYPING_KEY, status);
+//    tpsettings->set(DISABLE_WHILE_TYPING_KEY, status);
+    gnomeSettings->set(GNOME_DISABLE_WHILE_TYPEING_KEY, status);
 }
 
 void MouseControl::touchpad_click_clicked_slot(bool status){
-    tpsettings->set(TOUCHPAD_CLICK_KEY, status);
+//    tpsettings->set(TOUCHPAD_CLICK_KEY, status);
+    gnomeSettings->set(GNOME_TOUCHPAD_CLICK_KEY, status);
 }
 
 void MouseControl::rolling_enable_clicked_slot(bool status){
 
-    if (status)
-        ui->noneRadioButton->setChecked(true);
-    _refresh_rolling_btn_status();
+//    if (status)
+//        ui->noneRadioButton->setChecked(true);
+//    _refresh_rolling_btn_status();
+    if (status){
+        gnomeSettings->set(GNOME_SCROLLING_EDGE_KEY, !status);
+        gnomeSettings->set(GNOME_SCROLLING_TWO_KEY, !status);
+    }
+    else{
+        gnomeSettings->set(GNOME_SCROLLING_EDGE_KEY, !status);
+    }
 }
 
 void MouseControl::rolling_kind_changed_slot(QAbstractButton *basebtn, bool status){
@@ -372,7 +418,7 @@ void MouseControl::rolling_kind_changed_slot(QAbstractButton *basebtn, bool stat
 
     QRadioButton * button = dynamic_cast<QRadioButton *>(basebtn);
     QString kind = static_cast<KindsRolling *>(button->userData(Qt::UserRole))->kind;
-    tpsettings->set(kind, status);
+//    tpsettings->set(kind, status);
 }
 
 void MouseControl::cursor_size_changed_slot(){

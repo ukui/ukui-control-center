@@ -1,23 +1,59 @@
+/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
+ *
+ * Copyright (C) 2019 Tianjin KYLIN Information Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+ *
+ */
 #include "netconnect.h"
 #include "ui_netconnect.h"
+
+#include <QProcess>
 
 NetConnect::NetConnect()
 {
     ui = new Ui::NetConnect;
-    pluginWidget = new CustomWidget;
+    pluginWidget = new QWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
     pluginName = tr("netconnect");
     pluginType = NETWORK;
 
-    timer = new QTimer();
-    timer->setInterval(3000);
-    connect(timer, SIGNAL(timeout()), this, SLOT(updatevalue()));
+    pluginWidget->setStyleSheet("background: #ffffff;");
 
-    begin_timer();
-    component_init();
-    status_init();
+
+    ui->statusListWidget->setStyleSheet("QListWidget#statusListWidget{border: none;}");
+    ui->availableListWidget->setStyleSheet("QListWidget#availableListWidget{border: none;}");
+
+    ui->statusListWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->statusListWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->availableListWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->availableListWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    ui->statusListWidget->setSpacing(0);
+    ui->availableListWidget->setSpacing(0);
+    ui->statusListWidget->setFocusPolicy(Qt::NoFocus);
+    ui->availableListWidget->setFocusPolicy(Qt::NoFocus);
+    ui->statusListWidget->setSelectionMode(QAbstractItemView::NoSelection);
+    ui->availableListWidget->setSelectionMode(QAbstractItemView::NoSelection);
+
+    //构建网络配置对象
+    nmg  = new QNetworkConfigurationManager();
+
+    initComponent();
 }
 
 NetConnect::~NetConnect()
@@ -34,7 +70,7 @@ int NetConnect::get_plugin_type(){
     return pluginType;
 }
 
-CustomWidget *NetConnect::get_plugin_ui(){
+QWidget *NetConnect::get_plugin_ui(){
     return pluginWidget;
 }
 
@@ -42,23 +78,136 @@ void NetConnect::plugin_delay_control(){
 
 }
 
-void NetConnect::begin_timer(){
-//    timerid = startTimer(3000);
-    timer->start();
-    lookhostid = QHostInfo::lookupHost("www.ubuntukylin.com", this, SLOT(internet_status_slot(QHostInfo)));
+void NetConnect::initComponent(){
+
+    //构建网络状态组件
+    rebuildNetStatusComponent();
+
+    //网络配置变化回调
+    connect(nmg, &QNetworkConfigurationManager::configurationChanged, this, [=](const QNetworkConfiguration &config){
+        Q_UNUSED(config)
+        rebuildNetStatusComponent();
+
+    });
+
+
+    //详细设置按钮connect
+    connect(ui->detailBtn, &QPushButton::clicked, this, [=](bool checked){
+        Q_UNUSED(checked)
+        runExternalApp();
+    });
 }
 
-void NetConnect::acquire_cardinfo(){
+void NetConnect::rebuildNetStatusComponent(){
+    //获取网卡信息
+    _acquireCardInfo();
+
+    ui->statusListWidget->blockSignals(true);
+    //清空Item
+    ui->statusListWidget->clear();
+
+    //初始化网络设备信息
+    for (int num = 0; num < cardinfoQList.count(); num++){
+        CardInfo current = cardinfoQList.at(num);
+        QString iconPath;
+        QString statusTip;
+        if (current.type == ETHERNET)
+            if (current.status){
+                iconPath = "://netconnect/eth.png";
+                statusTip = tr("Connect");
+            }
+            else{
+                iconPath = "://netconnect/eth_disconnect.png";
+                statusTip = tr("Disconnect");
+            }
+        else
+            if (current.status){
+                iconPath = "://netconnect/wifi.png";
+                statusTip = tr("Connect");
+            }
+            else{
+                iconPath = "://netconnect/wifi_disconnect.png";
+                statusTip = tr("Disconnect");
+            }
+
+        ////构建Widget
+        QWidget * baseWidget = new QWidget();
+        baseWidget->setAttribute(Qt::WA_DeleteOnClose);
+
+        QVBoxLayout * baseVerLayout = new QVBoxLayout(baseWidget);
+        baseVerLayout->setSpacing(0);
+        baseVerLayout->setContentsMargins(0, 0, 0, 2);
+
+        QWidget * devWidget = new QWidget(baseWidget);
+        devWidget->setFixedHeight(50);
+        devWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+        QHBoxLayout * devHorLayout = new QHBoxLayout(devWidget);
+        devHorLayout->setSpacing(8);
+        devHorLayout->setContentsMargins(16, 0, 0, 0);
+
+        QLabel * iconLabel = new QLabel(devWidget);
+        QSizePolicy iconSizePolicy = iconLabel->sizePolicy();
+        iconSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
+        iconSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
+        iconLabel->setSizePolicy(iconSizePolicy);
+        iconLabel->setScaledContents(true);
+        iconLabel->setPixmap(QPixmap(iconPath));
+
+        QLabel * nameLabel = new QLabel(devWidget);
+        QSizePolicy nameSizePolicy = nameLabel->sizePolicy();
+        nameSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
+        nameSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
+        nameLabel->setSizePolicy(nameSizePolicy);
+        nameLabel->setScaledContents(true);
+        nameLabel->setText(current.name);
+
+        QLabel * statusLabel = new QLabel(devWidget);
+        QSizePolicy statusSizePolicy = statusLabel->sizePolicy();
+        statusSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
+        statusSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
+        statusLabel->setSizePolicy(statusSizePolicy);
+        statusLabel->setScaledContents(true);
+        statusLabel->setText(statusTip);
+
+        devHorLayout->addWidget(iconLabel);
+        devHorLayout->addWidget(nameLabel);
+        devHorLayout->addWidget(statusLabel);
+        devHorLayout->addStretch();
+
+        devWidget->setLayout(devHorLayout);
+
+        baseVerLayout->addWidget(devWidget);
+        baseVerLayout->addStretch();
+
+        baseWidget->setLayout(baseVerLayout);
+
+        QListWidgetItem * item = new QListWidgetItem(ui->statusListWidget);
+        item->setSizeHint(QSize(502, 52));
+
+        ui->statusListWidget->setItemWidget(item, baseWidget);
+
+    }
+
+    ui->statusListWidget->blockSignals(false);
+}
+
+void NetConnect::_acquireCardInfo(){
     QList<QNetworkInterface> network = QNetworkInterface::allInterfaces();
     for (QList<QNetworkInterface>::const_iterator it = network.constBegin(); it != network.constEnd(); it++){
+        CardInfo ci;
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 11, 0))
         if ((*it).type() == QNetworkInterface::Loopback)
             continue;
 
-        CardInfo ci;
         if ((*it).type() == QNetworkInterface::Ethernet)
             ci.type = ETHERNET;
         else if ((*it).type() == QNetworkInterface::Wifi)
             ci.type = WIFI;
+#else
+        if ((*it).flags().testFlag(QNetworkInterface::IsLoopBack))
+            continue;
+       ci.type =ETHERNET;
+#endif
         ci.name = (*it).humanReadableName();
 
         QList<QNetworkAddressEntry> addressList = (*it).addressEntries();
@@ -68,164 +217,12 @@ void NetConnect::acquire_cardinfo(){
             ci.status = true;
 
         cardinfoQList.append(ci);
-//        for (QList<QNetworkAddressEntry>::const_iterator itj = addressList.constBegin(); itj != addressList.constEnd(); itj++){
-//            qDebug() << "***********";
-//            qDebug() << "IP:" << (*itj).ip().toString();
-//            qDebug() << "netmask : " << (*itj).netmask().toString();
-//        }
     }
 }
 
-void NetConnect::component_init(){
-
-//    QSize size(64, 64);
-    //本地、因特网图标的设置
-    QPixmap localpixmap("://netconnect/local.svg");
-    ui->localLabel->setPixmap(localpixmap/*.scaled(size)*/);
-
-    QPixmap netpixmap("://netconnect/Internet.svg");
-    ui->interLabel->setPixmap(netpixmap/*.scaled(size)*/);
-
-    ui->leftLabel->setPixmap(QPixmap("://netconnect/aided.png"));
-    ui->rightLabel->setPixmap(QPixmap("://netconnect/aided.png"));
-
-    //网络设备
-    ui->listWidget->setStyleSheet("border: 0px slide");
-
-    acquire_cardinfo();
-    for (int num = 0; num < cardinfoQList.count(); num++){
-        CardInfo current = cardinfoQList.at(num);
-        QString pic;
-        QString statustip;
-        if (current.type == ETHERNET)
-            if (current.status){
-                pic = "://netconnect/eth.png";
-                statustip = tr("Connect");
-            }
-            else{
-                pic = "://netconnect/eth_disconnect.png";
-                statustip = tr("Disconnect");
-            }
-        else
-            if (current.status){
-                pic = "://netconnect/wifi.png";
-                statustip = tr("Connect");
-            }
-            else{
-                pic = "://netconnect/wifi_disconnect.png";
-                statustip = tr("Disconnect");
-            }
-        QIcon cardicon(pic);
-
-        QWidget * netdeviceWidget = new QWidget();
-        netdeviceWidget->setAttribute(Qt::WA_DeleteOnClose);
-        QVBoxLayout * netdeviceVerLayout = new QVBoxLayout(netdeviceWidget);
-        QToolButton * netdeviceToolBtn = new QToolButton(netdeviceWidget);
-        netdeviceToolBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-        netdeviceToolBtn->setIcon(cardicon);
-        netdeviceToolBtn->setIconSize(QSize(48,48));
-        netdeviceToolBtn->setText(current.name + "\n" + statustip);
-
-        netdeviceVerLayout->addWidget(netdeviceToolBtn);
-        netdeviceWidget->setLayout(netdeviceVerLayout);
-
-        QListWidgetItem * item = new QListWidgetItem(ui->listWidget);
-        item->setSizeHint(QSize(160, 64));
-//        ui->listWidget->setSpacing(0);
-        ui->listWidget->addItem(item);
-        ui->listWidget->setItemWidget(item, netdeviceWidget);
-        ui->listWidget->setViewMode(QListView::IconMode);
-    }
-}
-
-
-void NetConnect::status_init(){
-    //获取当前状态
-    nmg  = new QNetworkConfigurationManager();
-    if (nmg->isOnline())
-        netstatus = CONNECTED;
-    else
-        netstatus = DISCONNECTED;
-
-    //
-    connect(nmg, SIGNAL(onlineStateChanged(bool)), this, SLOT(internet_status_changed_slot(bool)));
-    connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(run_external_app_slot()));
-}
-
-void NetConnect::run_external_app_slot(){
+void NetConnect::runExternalApp(){
     QString cmd = "nm-connection-editor";
     QProcess process(this);
     process.startDetached(cmd);
 }
 
-void NetConnect::internet_status_changed_slot(bool status){
-    if (status){
-        netstatus = CONNECTED;
-        begin_timer();
-    }
-    else{
-        netstatus = DISCONNECTED;
-        refreshUI();
-    }
-
-}
-
-void NetConnect::internet_status_slot(QHostInfo host){
-    if (host.error() != QHostInfo::NoError && netstatus == CONNECTED){
-//        qDebug() << "Internet status faild" << host.errorString();
-        netstatus = NOINTERNET;
-        return;
-    }
-    reset_lookuphostid();
-}
-
-void NetConnect::refreshUI(){
-    //网络状态的设置
-    QString statuspic;
-    QString statustip;
-    switch (netstatus) {
-    case DISCONNECTED:
-        statuspic = "://netconnect/disconnect.png";
-        statustip = tr("Disconnect");
-        break;
-    case NOINTERNET:
-        statuspic = "://netconnect/nonet.png";
-        statustip = tr("Restricting access");
-        break;
-    case CONNECTED:
-        statuspic = "://netconnect/connect.png";
-        statustip = tr("Connect");
-    default:
-        break;
-    }
-    QPixmap statuspixmap(statuspic);
-    ui->statusLabel->setPixmap(statuspixmap);
-    ui->statustipLabel->setText(statustip);
-
-}
-
-//void NetConnect::timerEvent(QTimerEvent *event){
-//    if (event->timerId() == timerid){
-//        if (lookhostid != -1){
-//            QHostInfo::abortHostLookup(lookhostid);
-//            netstatus = NOINTERNET;
-//            reset_lookuphostid();
-//        }
-//        refreshUI();
-//        killTimer(timerid);
-//    }
-//}
-
-void NetConnect::updatevalue(){
-    if (lookhostid != -1){
-        QHostInfo::abortHostLookup(lookhostid);
-        netstatus = NOINTERNET;
-        reset_lookuphostid();
-    }
-    refreshUI();
-    timer->stop();
-}
-
-void NetConnect::reset_lookuphostid(){
-    lookhostid = -1;
-}

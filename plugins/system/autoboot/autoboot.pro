@@ -5,13 +5,12 @@
 #-------------------------------------------------
 
 QT       += widgets svg
-
-TARGET = $$qtLibraryTarget(autoboot)
 TEMPLATE = lib
 CONFIG += plugin
-INCLUDEPATH += ../../..
 
-include(../../pluginsComponent/pluginsComponent.pri)
+TARGET = $$qtLibraryTarget(autoboot)
+
+DESTDIR = ../../../pluginlibs
 
 ##加载gio库和gio-unix库，用于处理desktop文件
 CONFIG        += link_pkgconfig \
@@ -19,7 +18,13 @@ CONFIG        += link_pkgconfig \
 PKGCONFIG     += gio-2.0 \
                  gio-unix-2.0
 
-DESTDIR = ../..
+include(../../../env.pri)
+
+INCLUDEPATH   +=  \
+                 $$PROJECT_COMPONENTSOURCE \
+                 $$PROJECT_ROOTDIR \
+
+LIBS          += -L$$PROJECT_COMPONENTLIBS -lcommoncomponent
 
 target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
 INSTALLS += target
@@ -32,9 +37,15 @@ INSTALLS += target
 
 SOURCES += \
         autoboot.cpp \
+    addautoboot.cpp \
+    autobootworker.cpp
 
 HEADERS += \
         autoboot.h \
+    addautoboot.h \
+    datadefined.h \
+    autobootworker.h
 
 FORMS += \
-        autoboot.ui
+        autoboot.ui \
+    addautoboot.ui

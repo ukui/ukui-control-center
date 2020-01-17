@@ -1,9 +1,12 @@
 TEMPLATE = subdirs
+
+CONFIG += ordered
+
 SUBDIRS = \
-    mainui \
-    plugins \
-    register-qdbus
+    commonComponent \
+    plugins\
+    shell \
+
 
 TRANSLATIONS += \
-    mainui/res/i18n/zh_CN.ts
-
+    shell/res/i18n/zh_CN.ts

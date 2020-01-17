@@ -1,2 +1,0 @@
-register-qdbus/conf/com.control.center.qt.systemdbus.service /usr/share/dbus-1/system-services/
-register-qdbus/conf/com.control.center.qt.systemdbus.conf /etc/dbus-1/system.d/

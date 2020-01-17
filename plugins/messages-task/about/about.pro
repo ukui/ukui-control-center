@@ -1,13 +1,20 @@
 QT       += widgets dbus
 
-TARGET = $$qtLibraryTarget(about)
 TEMPLATE = lib
 CONFIG += plugin
-INCLUDEPATH += ../../..
 
-DESTDIR = ../..
+TARGET = $$qtLibraryTarget(about)
+DESTDIR = ../../../pluginlibs
 
-include(../../pluginsComponent/pluginsComponent.pri)
+include(../../../env.pri)
+
+INCLUDEPATH   +=  \
+                 $$PROJECT_COMPONENTSOURCE \
+                 $$PROJECT_ROOTDIR \
+
+LIBS          += -L$$PROJECT_COMPONENTLIBS -lcommoncomponent
+
+
 
 #DEFINES += QT_DEPRECATED_WARNINGS
 

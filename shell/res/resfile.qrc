@@ -1,0 +1,51 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>homepage/updateHover.png</file>
+        <file>homepage/update.png</file>
+        <file>homepage/systemHover.png</file>
+        <file>homepage/system.png</file>
+        <file>homepage/personalizedHover.png</file>
+        <file>homepage/personalized.png</file>
+        <file>homepage/networkHover.png</file>
+        <file>homepage/network.png</file>
+        <file>homepage/messagesHover.png</file>
+        <file>homepage/messages.png</file>
+        <file>homepage/devicesHover.png</file>
+        <file>homepage/devices.png</file>
+        <file>homepage/datetimeHover.png</file>
+        <file>homepage/datetime.png</file>
+        <file>homepage/accountHover.png</file>
+        <file>homepage/account.png</file>
+        <file>titlebar/revert.png</file>
+        <file>titlebar/min.png</file>
+        <file>titlebar/max.png</file>
+        <file>titlebar/close.png</file>
+        <file>titlebar/back.png</file>
+        <file>secondaryleftmenu/theme.png</file>
+        <file>secondaryleftmenu/screensaver.png</file>
+        <file>secondaryleftmenu/screenlock.png</file>
+        <file>secondaryleftmenu/power.png</file>
+        <file>secondaryleftmenu/fonts.png</file>
+        <file>secondaryleftmenu/display.png</file>
+        <file>secondaryleftmenu/desktop.png</file>
+        <file>secondaryleftmenu/defaultapp.png</file>
+        <file>secondaryleftmenu/background.png</file>
+        <file>secondaryleftmenu/autoboot.png</file>
+        <file>plugins/theme/selected.png</file>
+        <file>plugins/theme/light.png</file>
+        <file>plugins/theme/default.png</file>
+        <file>plugins/theme/dark.png</file>
+        <file>plugins/desktop/trash.png</file>
+        <file>plugins/desktop/homefolder.png</file>
+        <file>plugins/desktop/default.png</file>
+        <file>plugins/desktop/computer.png</file>
+        <file>plugins/printer/add.png</file>
+        <file>plugins/printer/printer.png</file>
+        <file>plugins/keyboardcontrol/add.png</file>
+        <file>plugins/vpn/add.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>i18n/zh_CN.qm</file>
+        <file>global.qss</file>
+    </qresource>
+</RCC>

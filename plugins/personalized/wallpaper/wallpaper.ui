@@ -12,14 +12,14 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>800</width>
-    <height>710</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>800</width>
-    <height>710</height>
+    <width>16777215</width>
+    <height>16777215</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -101,7 +101,20 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="formComboBox"/>
+          <widget class="QComboBox" name="formComboBox">
+           <property name="minimumSize">
+            <size>
+             <width>160</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>160</width>
+             <height>30</height>
+            </size>
+           </property>
+          </widget>
          </item>
          <item>
           <spacer name="horizontalSpacer">
@@ -118,6 +131,12 @@
          </item>
          <item>
           <widget class="QPushButton" name="addPushBtn">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>30</height>
+            </size>
+           </property>
            <property name="text">
             <string>Add</string>
            </property>
@@ -125,6 +144,12 @@
          </item>
          <item>
           <widget class="QPushButton" name="delPushBtn">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>30</height>
+            </size>
+           </property>
            <property name="text">
             <string>Del</string>
            </property>
@@ -133,8 +158,8 @@
         </layout>
        </item>
        <item>
-        <widget class="QStackedWidget" name="stackedWidget">
-         <widget class="QWidget" name="picture" native="true">
+        <widget class="QStackedWidget" name="substackedWidget">
+         <widget class="QWidget" name="picture">
           <layout class="QVBoxLayout" name="verticalLayout_4">
            <property name="spacing">
             <number>0</number>
@@ -194,7 +219,20 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="wpoptionsComboBox"/>
+                <widget class="QComboBox" name="wpoptionsComboBox">
+                 <property name="minimumSize">
+                  <size>
+                   <width>160</width>
+                   <height>30</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>160</width>
+                   <height>30</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
                <item>
                 <spacer name="horizontalSpacer_3">
@@ -210,17 +248,17 @@
                 </spacer>
                </item>
                <item>
-                <widget class="QPushButton" name="pushButton_3">
+                <widget class="QPushButton" name="resetBtn">
                  <property name="minimumSize">
                   <size>
                    <width>130</width>
-                   <height>0</height>
+                   <height>30</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
                    <width>130</width>
-                   <height>16777215</height>
+                   <height>30</height>
                   </size>
                  </property>
                  <property name="text">
@@ -247,8 +285,55 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="color" native="true"/>
-         <widget class="QWidget" name="slideshow" native="true"/>
+         <widget class="QWidget" name="color">
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <property name="spacing">
+            <number>25</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QListWidget" name="colorListWidget">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>300</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>300</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="slideshow"/>
         </widget>
        </item>
       </layout>

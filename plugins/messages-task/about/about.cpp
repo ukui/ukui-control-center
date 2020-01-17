@@ -1,3 +1,22 @@
+/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
+ *
+ * Copyright (C) 2019 Tianjin KYLIN Information Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+ *
+ */
 #include <QWidget>
 
 #include "about.h"
@@ -8,12 +27,19 @@
 About::About()
 {
     ui = new Ui::About;
-    pluginWidget = new CustomWidget;
+    pluginWidget = new QWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
     pluginName = tr("about");
-    pluginType = MESSAGES_TASK;
+    pluginType = MESSAGES;
+
+    pluginWidget->setStyleSheet("background: #ffffff;");
+
+    ui->systemWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+    ui->deviceWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+
+
 
 //    qDebug() << "--------start------->";
 //    qDebug() << QSysInfo::kernelType();
@@ -46,7 +72,7 @@ int About::get_plugin_type(){
     return pluginType;
 }
 
-CustomWidget *About::get_plugin_ui(){
+QWidget *About::get_plugin_ui(){
     return pluginWidget;
 }
 
@@ -74,36 +100,36 @@ void About::_data_init(){
 }
 
 void About::initUI(){
-    QLabel * manufacturers = new QLabel(tr("UNKNOW"));
+    QLabel * manufacturers = new QLabel(tr("UNKNOWN"));
     if (infoMap.contains(MANUFACTURER))
         manufacturers->setText(QString(infoMap.find(MANUFACTURER).value()));
 
-    QLabel * productname = new QLabel("UNKNOW");
+    QLabel * productname = new QLabel("UNKNOWN");
     if (infoMap.contains(PRODUCTNAME))
         productname->setText(QString(infoMap.find(PRODUCTNAME).value()));
 
-    QLabel * version = new QLabel("UNKNOW");
+    QLabel * version = new QLabel("UNKNOWN");
     if (infoMap.contains(VERSION))
         version->setText(QString(infoMap.find(VERSION).value()));
 
-    QLabel * serialnumber = new QLabel("UNKNOW");
+    QLabel * serialnumber = new QLabel("UNKNOWN");
     if (infoMap.contains(SERIALNUMBER))
         serialnumber->setText(QString(infoMap.find(SERIALNUMBER).value()));
 
-    ui->sysinfoFormLayout->setHorizontalSpacing(70);
-    ui->sysinfoFormLayout->addRow(tr("Manufacturers:"), manufacturers);
-    ui->sysinfoFormLayout->addRow(tr("Product Name:"), productname);
-    ui->sysinfoFormLayout->addRow(tr("Version:"), version);
-    ui->sysinfoFormLayout->addRow(tr("Serial Number:"), serialnumber);
-//    ui->sysinfoFormLayout->addRow(tr("hostname:"), "hostname");
-//    ui->sysinfoFormLayout->addRow(tr("running time:"), "running time");
-//    ui->sysinfoFormLayout->addRow(tr("os type:"), "os type");
-//    ui->sysinfoFormLayout->addRow(tr("os version"), "os version");
-//    ui->sysinfoFormLayout->addRow(tr("system bit"), "system bit");
-//    ui->sysinfoFormLayout->addRow(tr("kernel version"), "kernel version");
-//    ui->sysinfoFormLayout->addRow(tr("architecture"), "architecture");
+    ui->devicesFormLayout->setHorizontalSpacing(70);
+    ui->devicesFormLayout->addRow(tr("Manufacturers:"), manufacturers);
+    ui->devicesFormLayout->addRow(tr("Product Name:"), productname);
+    ui->devicesFormLayout->addRow(tr("Version:"), version);
+    ui->devicesFormLayout->addRow(tr("Serial Number:"), serialnumber);
+//    ui->devicesFormLayout->addRow(tr("hostname:"), "hostname");
+//    ui->devicesFormLayout->addRow(tr("running time:"), "running time");
+//    ui->devicesFormLayout->addRow(tr("os type:"), "os type");
+//    ui->devicesFormLayout->addRow(tr("os version"), "os version");
+//    ui->devicesFormLayout->addRow(tr("system bit"), "system bit");
+//    ui->devicesFormLayout->addRow(tr("kernel version"), "kernel version");
+//    ui->devicesFormLayout->addRow(tr("architecture"), "architecture");
 
-    //设置桌面环境logo
+/*    //设置桌面环境logo
     envlogoLabel = new QLabel(pluginWidget);
     envlogoLabel->setAutoFillBackground(true);
     envlogoLabel->setScaledContents(true);
@@ -128,6 +154,7 @@ void About::initUI(){
     logoLabel->setFixedSize(logopixmap.size());
     logoLabel->setGeometry(QRect(pluginWidget->width() - 70 - logoLabel->width(), ui->infoLabel->geometry().bottom() + 25, logoLabel->width(), logoLabel->height()));
 //    logoLabel->setMask(logopixmap.mask());
+*/
 }
 
 void About::_call_dbus_get_computer_info(){
@@ -137,7 +164,7 @@ void About::_call_dbus_get_computer_info(){
                                      QDBusConnection::systemBus());
 
     if (!interface->isValid()){
-        qCritical() << "Create Client Interface Failed: " << QDBusConnection::systemBus().lastError();
+        qCritical() << "Create Client Interface Failed When Get Computer info: " << QDBusConnection::systemBus().lastError();
         return;
     }
 

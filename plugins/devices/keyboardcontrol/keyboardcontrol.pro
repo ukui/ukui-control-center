@@ -5,46 +5,42 @@
 #-------------------------------------------------
 
 QT       += widgets x11extras
-
 #greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
-TARGET = $$qtLibraryTarget(keyboardcontrol)
 TEMPLATE = lib
 CONFIG += plugin
-INCLUDEPATH += ../../.. \
-                /usr/include/kylinsdk \
+
+TARGET = $$qtLibraryTarget(keyboardcontrol)
+DESTDIR = ../../../pluginlibs
+
+include(../../../env.pri)
+
+INCLUDEPATH   +=  \
+                 $$PROJECT_COMPONENTSOURCE \
+                 $$PROJECT_ROOTDIR \
+                 /usr/include/kylinsdk \
 
 LIBS          +=  -L/usr/lib/ -lkeyboardclient -linterfaceclient -lgsettings-qt
 
 CONFIG        += link_pkgconfig \
                  C++11
-PKGCONFIG     += gio-2.0 \
-                 gio-unix-2.0 \
-                 libmatekbd
+PKGCONFIG     += libmatekbd \
 
-DESTDIR = ../..
-
-include(../../pluginsComponent/pluginsComponent.pri)
-
+inst1.files += org.ukui.control-center.keybinding.gschema.xml
+inst1.path = /usr/share/glib-2.0/schemas
 target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
-INSTALLS += target
+INSTALLS += target \
+            inst1
 
 
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         keyboardcontrol.cpp \
-#    keyboardlayout.cpp \
-    kbdlayoutmanager.cpp \
-    customlineedit.cpp \
-    keymap.cpp
+    kbdlayoutmanager.cpp
 
 HEADERS += \
         keyboardcontrol.h \
-#    keyboardlayout.h \
-    kbdlayoutmanager.h \
-    customlineedit.h \
-    keymap.h
+    kbdlayoutmanager.h
 
 FORMS += \
         keyboardcontrol.ui \

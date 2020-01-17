@@ -1,0 +1,14 @@
+/*通用label*/
+QLabel{
+    font-size:14px; color: #D9000000;
+}
+
+/*首页模块标题label*/
+QLabel#mptitleLabel{
+    font-size: 16px; color: #DE000000;
+}
+
+/*功能页标题label*/
+QLabel#titleLabel, #title2Label{
+    font-size: 18px; color: #BF000000;
+}

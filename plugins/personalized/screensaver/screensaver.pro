@@ -8,14 +8,18 @@ QT       += widgets
 
 TEMPLATE = lib
 CONFIG += plugin
-INCLUDEPATH += ../../..
 
 TARGET = $$qtLibraryTarget(screensaver)
-DESTDIR = ../..
+DESTDIR = ../../../pluginlibs
 
-include(../../pluginsComponent/pluginsComponent.pri)
+include(../../../env.pri)
 
-LIBS += -L/usr/lib/ -lgsettings-qt
+INCLUDEPATH   +=  \
+                 $$PROJECT_COMPONENTSOURCE \
+                 $$PROJECT_ROOTDIR \
+
+LIBS          += -L$$PROJECT_COMPONENTLIBS -lcommoncomponent
+LIBS          += -L/usr/lib/ -lgsettings-qt
 
 ##加载gio库和gio-unix库
 CONFIG        += link_pkgconfig \
