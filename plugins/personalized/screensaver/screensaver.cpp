@@ -353,7 +353,6 @@ void Screensaver::status_init(){
     //connect
 //    connect(ui->powerBtn, &QPushButton::clicked, this, [=]{pluginWidget->emitting_toggle_signal(tmpList.at(2), SYSTEM, 0);});
 
-//    connect(ui->idleSlider, SIGNAL(valueChanged(int)), this, SLOT(slider_changed_slot(int))); //改label
     connect(ui->idleSlider, SIGNAL(sliderReleased()), this, SLOT(slider_released_slot())); //改gsettings
 //    connect(activeswitchbtn, SIGNAL(checkedChanged(bool)), this, SLOT(activebtn_changed_slot(bool)));
 //    connect(lockswitchbtn, SIGNAL(checkedChanged(bool)), this, SLOT(lockbtn_changed_slot(bool)));

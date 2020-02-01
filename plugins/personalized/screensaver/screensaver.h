@@ -125,7 +125,6 @@ private slots:
     void combobox_changed_slot(int index);
     void activebtn_changed_slot(bool status);
     void lockbtn_changed_slot(bool status);
-    void slider_changed_slot(int value);
     void slider_released_slot();
 
     void kill_screensaver_preview();

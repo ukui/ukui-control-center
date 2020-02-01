@@ -39,18 +39,6 @@
 #include "deluserdialog.h"
 #include "createuserdialog.h"
 
-/* qt会将glib里的signals成员识别为宏，所以取消该宏
- * 后面如果用到signals时，使用Q_SIGNALS代替即可
- **/
-#ifdef signals
-#undef signals
-#endif
-
-extern "C" {
-#include <glib.h>
-#include <gio/gio.h>
-}
-
 enum {
     STANDARDUSER,
     ADMINISTRATOR,
@@ -120,7 +108,6 @@ public:
 
     void get_all_users();
     UserInfomation init_user_info(QString objpath);
-    void init_root_info();
     void setup_otherusers_ui();
     void build_item_with_widget(UserInfomation user);
     void ui_component_init();

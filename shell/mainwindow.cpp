@@ -156,7 +156,6 @@ void MainWindow::setBtnLayout(QPushButton * &pBtn){
 void MainWindow::loadPlugins(){
     for (int index = 0; index < FUNCTOTALNUM; index++){
         QMap<QString, QObject *> pluginsMaps;
-        QStringList pluginStringList;
         modulesList.append(pluginsMaps);
     }
 
@@ -179,7 +178,7 @@ void MainWindow::loadPlugins(){
             CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(plugin);
             modulesList[pluginInstance->get_plugin_type()].insert(pluginInstance->get_plugin_name(), plugin);
 
-            qDebug() << "load:" << pluginInstance->get_plugin_name();
+            qDebug() << "Load Plugin :" << kvConverter->keycodeTokeyi18nstring(pluginInstance->get_plugin_type()) << "->" << pluginInstance->get_plugin_name() ;
 
             int moduletypeInt = pluginInstance->get_plugin_type();
             if (!moduleIndexList.contains(moduletypeInt))

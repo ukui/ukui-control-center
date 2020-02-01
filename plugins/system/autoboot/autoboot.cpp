@@ -28,6 +28,20 @@
 
 #include <QDebug>
 
+/* qt会将glib里的signals成员识别为宏，所以取消该宏
+ * 后面如果用到signals时，使用Q_SIGNALS代替即可
+ **/
+#ifdef signals
+#undef signals
+#endif
+
+extern "C" {
+#include <glib.h>
+#include <glib/gstdio.h>
+#include <gio/gio.h>
+#include <gio/gdesktopappinfo.h>
+}
+
 #define ITEMWIDTH 522
 #define ITEMHEIGHT 62
 #define HEADHEIGHT 38
@@ -205,12 +219,14 @@ void AutoBoot::initUI(){
         mainHLayout->addWidget(pBtn);
         widget->setLayout(mainHLayout);
 
-        connect(widget, &HoverWidget::enterWidget, this, [=]{
+        connect(widget, &HoverWidget::enterWidget, this, [=](QString name){
+            Q_UNUSED(name)
             pBtn->setHidden(false);
             widget->setStyleSheet("background: #EEF2FD;");
 
         });
-        connect(widget, &HoverWidget::leaveWidget, this, [=]{
+        connect(widget, &HoverWidget::leaveWidget, this, [=](QString name){
+            Q_UNUSED(name)
             pBtn->setHidden(true);
             widget->setStyleSheet("background: #F4F4F4;");
         });

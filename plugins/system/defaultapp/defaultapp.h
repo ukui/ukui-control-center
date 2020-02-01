@@ -26,7 +26,6 @@
 #include <QIcon>
 
 #include "shell/interface.h"
-#include "SwitchButton/switchbutton.h"
 
 #include "kylin-defaultprograms-interface.h"
 
@@ -71,7 +70,6 @@ private:
 
 private:
     QWidget * pluginWidget;
-    SwitchButton * sBtn;
 
 private:
     QString pluginName;

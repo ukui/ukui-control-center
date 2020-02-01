@@ -13,6 +13,7 @@ TARGET = $$qtLibraryTarget(keyboard)
 DESTDIR = ../../../pluginlibs
 
 include(../../../env.pri)
+include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
 
 INCLUDEPATH   +=  \
                  $$PROJECT_COMPONENTSOURCE \
@@ -24,12 +25,6 @@ LIBS          +=  -L/usr/lib/ -lkeyboardclient -linterfaceclient -lgsettings-qt
 CONFIG        += link_pkgconfig \
                  C++11
 PKGCONFIG     += libmatekbd \
-
-#inst1.files += org.ukui.control-center.keybinding.gschema.xml
-#inst1.path = /usr/share/glib-2.0/schemas
-#target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
-#INSTALLS += target \
-#            inst1
 
 
 #DEFINES += QT_DEPRECATED_WARNINGS

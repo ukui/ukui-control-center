@@ -687,19 +687,19 @@ void Fonts::status_init(){
 //    });
 }
 
-void Fonts::rebuild_size_combo(ComboBox *combo, QString text){
-    combo->blockSignals(true);
-    QString oldsize = combo->currentText();
-    combo->removewidgetItems();
-    QList<int> sizeList = fontdb.pointSizes(text);
-    if (sizeList.length() == 0)
-        sizeList = defaultsizeList;
-    for (int size : sizeList)
-        combo->addwidgetItem(QString::number(size));
-    combo->setCurrentText(oldsize);
+//void Fonts::rebuild_size_combo(ComboBox *combo, QString text){
+//    combo->blockSignals(true);
+//    QString oldsize = combo->currentText();
+//    combo->removewidgetItems();
+//    QList<int> sizeList = fontdb.pointSizes(text);
+//    if (sizeList.length() == 0)
+//        sizeList = defaultsizeList;
+//    for (int size : sizeList)
+//        combo->addwidgetItem(QString::number(size));
+//    combo->setCurrentText(oldsize);
 
-    combo->blockSignals(false);
-}
+//    combo->blockSignals(false);
+//}
 
 void Fonts::setFontEffectSlot(QAbstractButton *button){
     QPushButton * btnclicked = (QPushButton *)button;

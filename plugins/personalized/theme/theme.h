@@ -85,7 +85,6 @@ private:
 public slots:
     void set_theme_slots(QString value);
     void desktop_icon_settings_slots(QString key);
-    void icon_theme_changed_slot(QString name);
 };
 
 #endif // THEME_H

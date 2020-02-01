@@ -13,8 +13,6 @@ INCLUDEPATH += \
 
 LIBS     += -L/usr/lib/ -lgsettings-qt
 
-#target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
-#INSTALLS += target
 
 FORMS += \
     power.ui

@@ -14,13 +14,14 @@ DESTDIR = ../../../pluginlibs
 
 
 include(../../../env.pri)
+include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
+include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
 
 INCLUDEPATH   +=  \
                  $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
 
 LIBS          += -L/usr/lib/ -lcrypt
-LIBS          += -L$$PROJECT_COMPONENTLIBS -lcommoncomponent
 
 ##加载gio库和gio-unix库
 CONFIG        += link_pkgconfig \
@@ -30,9 +31,6 @@ PKGCONFIG     += gio-2.0 \
 
 
 #DEFINES += QT_DEPRECATED_WARNINGS
-
-#target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
-#INSTALLS += target
 
 SOURCES += \
         userinfo.cpp \

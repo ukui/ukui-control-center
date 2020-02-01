@@ -20,16 +20,11 @@ PKGCONFIG     += gio-2.0 \
 include(../../../env.pri)
 
 INCLUDEPATH   +=  \
-                 $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
                  /usr/include/ukuisdk
 
 LIBS          += -L/usr/lib/ -ldefaultprograms \
-                 -L$$PROJECT_COMPONENTLIBS -lcommoncomponent
 
-
-#target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
-#INSTALLS += target
 
 SOURCES += \
         defaultapp.cpp \

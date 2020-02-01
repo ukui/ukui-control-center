@@ -30,6 +30,19 @@
 #include "SwitchButton/switchbutton.h"
 #include "HoverWidget/hoverwidget.h"
 
+/* qt会将glib里的signals成员识别为宏，所以取消该宏
+ * 后面如果用到signals时，使用Q_SIGNALS代替即可
+ **/
+#ifdef signals
+#undef signals
+#endif
+
+extern "C" {
+#include <glib.h>
+#include <gio/gio.h>
+}
+
+
 #define DEFAULTFACE "://img/plugins/userinfo/defaultface.png"
 #define ITEMHEIGH 58
 
@@ -158,8 +171,8 @@ void UserInfo::get_all_users(){
         user = init_user_info(objectpath);
         allUserInfoMap.insert(user.username, user);
     }
-    if (!getuid())
-        init_root_info();
+//    if (!getuid())
+//        init_root_info();
 }
 
 UserInfomation UserInfo::_acquireUserInfo(QString objpath){
