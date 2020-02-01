@@ -25,12 +25,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 include(../env.pri)
 
-LIBS += -L$$PROJECT_COMPONENTLIBS -lcommoncomponent
-
 inst1.files += ukui-control-center.desktop
 inst1.path = /usr/share/applications
 inst2.files += $$PROJECT_ROOTDIR/pluginlibs/
-inst2.path = /usr/lib/control-center/plugins/
+inst2.path = /usr/lib/control-center/
 
 target.source += $$TARGET
 target.path = /usr/bin
