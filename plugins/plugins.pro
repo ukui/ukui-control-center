@@ -4,7 +4,7 @@ SUBDIRS = \
           system/power \
           system/autoboot \
           devices/printer \
-          devices/keyboardcontrol \
+          devices/keyboard \
           personalized/theme \
           personalized/fonts \
           personalized/screensaver \
@@ -12,6 +12,7 @@ SUBDIRS = \
           network/netconnect \
           network/vpn \
           network/proxy \
+          account/userinfo \
           security-updates/backup \
           messages-task/about \
 

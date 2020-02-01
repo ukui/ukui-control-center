@@ -18,8 +18,8 @@ LIBS          += -L$$PROJECT_COMPONENTLIBS -lcommoncomponent
 
 #DEFINES += QT_DEPRECATED_WARNINGS
 
-target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
-INSTALLS += target
+#target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
+#INSTALLS += target
 
 HEADERS += \
     about.h

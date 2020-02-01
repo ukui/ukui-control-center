@@ -2,20 +2,495 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="zh_CN">
 <context>
-    <name>AddAppDialog</name>
+    <name>About</name>
     <message>
-        <location filename="../../../plugins/system/defaultapp/addappdialog.ui" line="14"/>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="53"/>
+        <source>System Summary</source>
+        <translation>系统概述</translation>
     </message>
+    <message>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="105"/>
+        <source>Devices Summary</source>
+        <translation>设备规格</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="34"/>
+        <source>about</source>
+        <translation>关于</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="103"/>
+        <source>UNKNOWN</source>
+        <translation>未知的</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="120"/>
+        <source>Manufacturers:</source>
+        <translation>制造商：</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="121"/>
+        <source>Product Name:</source>
+        <translation>产品名：</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="122"/>
+        <source>Version:</source>
+        <translation>版本：</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="123"/>
+        <source>Serial Number:</source>
+        <translation>序列号：</translation>
+    </message>
+</context>
+<context>
+    <name>AddAppDialog</name>
     <message>
         <location filename="../../../plugins/system/defaultapp/addappdialog.ui" line="74"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>确定</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/defaultapp/addappdialog.ui" line="81"/>
         <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+</context>
+<context>
+    <name>AddAutoBoot</name>
+    <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="26"/>
+        <source>Add AutoBoot</source>
+        <translation>添加自启动程序</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="73"/>
+        <source>Program name</source>
+        <translation>程序名</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="137"/>
+        <source>Program exec</source>
+        <translation>程序路径</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="175"/>
+        <source>Open</source>
+        <translation>浏览</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="220"/>
+        <source>Program comment</source>
+        <translation>程序描述</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="307"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="329"/>
+        <source>Certain</source>
+        <translation>确定</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="51"/>
+        <source>selsect autoboot desktop</source>
+        <translation>选择自启动程序</translation>
+    </message>
+</context>
+<context>
+    <name>AutoBoot</name>
+    <message>
+        <location filename="../../../plugins/system/autoboot/autoboot.ui" line="53"/>
+        <source>Autoboot Settings</source>
+        <translation>开机启动设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/autoboot/autoboot.ui" line="149"/>
+        <source>Add autoboot app </source>
+        <translation>添加自启动程序 </translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="46"/>
+        <source>autoboot</source>
+        <translation>开机启动</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="129"/>
+        <source>Name</source>
+        <translation>程序名称</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="136"/>
+        <source>Status</source>
+        <translation>当前状态</translation>
+    </message>
+</context>
+<context>
+    <name>Backup</name>
+    <message>
+        <location filename="../../../plugins/security-updates/backup/backup.ui" line="53"/>
+        <source>Backup</source>
+        <translation>备份</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/backup/backup.ui" line="69"/>
+        <source>Back up your files to other drives, and when the original files are lost, damaged, or deleted, you can restore them to ensure 
+the integrity of your system.</source>
+        <translation>将您的文件备份到其他驱动器，当源文件丢失、受损或被删除时可以还原它们，保证系统的完整性。</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/backup/backup.ui" line="110"/>
+        <source>Begin backup</source>
+        <translation>开始备份</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/backup/backup.ui" line="138"/>
+        <source>Restore</source>
+        <translation>还原</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/backup/backup.ui" line="154"/>
+        <source>View a list of backed-upfiles to restore backed up files to the system</source>
+        <translation>查看备份列表，将已备份文件还原至系统</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/backup/backup.ui" line="194"/>
+        <source>Begin restore</source>
+        <translation>开始还原</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="32"/>
+        <source>backup</source>
+        <translation>备份</translation>
+    </message>
+</context>
+<context>
+    <name>CertificationDialog</name>
+    <message>
+        <location filename="../../../plugins/network/proxy/certificationdialog.ui" line="26"/>
+        <location filename="../../../plugins/network/proxy/certificationdialog.ui" line="88"/>
+        <source>UserCertification</source>
+        <translation>用户认证</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/certificationdialog.ui" line="161"/>
+        <source>User:</source>
+        <translation>用户名：</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/certificationdialog.ui" line="238"/>
+        <source>Passwd:</source>
+        <translation>密码：</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/certificationdialog.ui" line="298"/>
+        <source>Close</source>
+        <translation>关闭</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/certificationdialog.cpp" line="33"/>
+        <source>Certification</source>
+        <translation>认证</translation>
+    </message>
+</context>
+<context>
+    <name>ChangeFaceDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="26"/>
+        <source>Change Face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="170"/>
+        <source>Custom Face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="110"/>
+        <source>selsect custom face file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="111"/>
+        <source>Select</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="112"/>
+        <source>Position: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="113"/>
+        <source>FileName: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="114"/>
+        <source>FileType: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="115"/>
+        <source>Cancel</source>
+        <translation type="unfinished">取消</translation>
+    </message>
+</context>
+<context>
+    <name>ChangePwdDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="26"/>
+        <source>Change Pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="294"/>
+        <source>Cancel</source>
+        <translation type="unfinished">取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="304"/>
+        <source>Confirm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="31"/>
+        <source>password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="32"/>
+        <source>pin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="39"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="71"/>
+        <source>New Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="40"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="72"/>
+        <source>New Password Identify</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="85"/>
+        <source>Password length needs to more than 5 character!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="98"/>
+        <source>Inconsistency with pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ChangeTypeDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="26"/>
+        <source>Change AccountType</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="172"/>
+        <source>Auto Login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="209"/>
+        <source>Make sure that there is at least one administrator on the computer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="259"/>
+        <source>standard user</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="308"/>
+        <source>Standard users can use most software, but cannot install software and change system settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="351"/>
+        <source>administrator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="403"/>
+        <source>Administrators can make any changes they need</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="451"/>
+        <source>Cancel</source>
+        <translation type="unfinished">取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="461"/>
+        <source>Confirm</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CreateUserDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="26"/>
+        <source>Create User</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="110"/>
+        <source>Auto Login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="174"/>
+        <source>Please select at least one password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="223"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="65"/>
+        <source>UserName</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="255"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="50"/>
+        <source>(Required)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="358"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="66"/>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="613"/>
+        <source>Pin Code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="864"/>
+        <source>Account Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="892"/>
+        <source>standard user</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="941"/>
+        <source>Standard users can use most software, but cannot install the software and 
+change system settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="985"/>
+        <source>administrator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="1034"/>
+        <source>Administrators can make any changes they need</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="1093"/>
+        <source>Cancel</source>
+        <translation type="unfinished">取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="1103"/>
+        <source>Confirm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="51"/>
+        <source>(Optional)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="67"/>
+        <source>Password Identify</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="68"/>
+        <source>PIN Code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="69"/>
+        <source>PIN Code Identify</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="153"/>
+        <source>Inconsistency with pin code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="163"/>
+        <source>Pin code length needs to %1 character!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="177"/>
+        <source>Inconsistency with pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="187"/>
+        <source>Password length needs to more than %1 character!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="189"/>
+        <source>Password length needs to less than %1 character!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="203"/>
+        <source>The user name cannot be empty</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="205"/>
+        <source>The first character must be lowercase letters!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="208"/>
+        <source>User name can not contain capital letters!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="219"/>
+        <source>The user name is already in use, please use a different one.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="225"/>
+        <source>User name length need to less than %1 letters!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="227"/>
+        <source>The user name can only be composed of letters, numbers and underline!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="235"/>
+        <source>The user name corresponds to the group already exists,please use a different user name!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -30,146 +505,224 @@
 <context>
     <name>DefaultAppWindow</name>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="26"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="53"/>
+        <source>Select Default Application</source>
+        <translation>选择默认的应用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="66"/>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="127"/>
         <source>Browser</source>
-        <translation type="unfinished"></translation>
+        <translation>浏览器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="109"/>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="217"/>
         <source>Mail</source>
-        <translation type="unfinished"></translation>
+        <translation>电子邮件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="152"/>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="307"/>
         <source>Image Viewer</source>
-        <translation type="unfinished"></translation>
+        <translation>图像查看器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="195"/>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="397"/>
         <source>Audio Player</source>
-        <translation type="unfinished"></translation>
+        <translation>音频播放器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="238"/>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="487"/>
         <source>Video Player</source>
-        <translation type="unfinished"></translation>
+        <translation>视频播放器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="281"/>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="577"/>
         <source>Text Editor</source>
+        <translation>文档编辑器</translation>
+    </message>
+</context>
+<context>
+    <name>DelUserDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo/deluserdialog.ui" line="26"/>
+        <source>Delete User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="329"/>
-        <source>Reset to default</source>
+        <location filename="../../../plugins/account/userinfo/deluserdialog.ui" line="106"/>
+        <source>Delete the user, belonging to the user&apos;s desktop,
+documents, favorites, music, pictures and video 
+folder will be deleted!</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/deluserdialog.ui" line="210"/>
+        <source>Cancel</source>
+        <translation type="unfinished">取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/deluserdialog.ui" line="220"/>
+        <source>KeepFile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/deluserdialog.ui" line="230"/>
+        <source>RemoveFile</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Desktop</name>
+    <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="53"/>
+        <source>Icon Show On Desktop</source>
+        <translation>显示在桌面的图标</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="139"/>
+        <source>Computerdesktop</source>
+        <translation>我的电脑</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="227"/>
+        <source>Trashdesktop</source>
+        <translation>垃圾箱</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="315"/>
+        <source>Homedesktop</source>
+        <translation>家目录</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="403"/>
+        <source>Volumedesktop</source>
+        <translation>挂载卷</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="491"/>
+        <source>Networkdesktop</source>
+        <translation>网络</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="538"/>
+        <source>Icon Lock on Menu</source>
+        <translation>锁定在开始菜单的图标</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="608"/>
+        <source>Computermenu</source>
+        <translation>我的电脑</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="696"/>
+        <source>Trashmenu</source>
+        <translation>垃圾箱</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="784"/>
+        <source>Homemenu</source>
+        <translation>家目录</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="872"/>
+        <source>Settingmenu</source>
+        <translation>设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="960"/>
+        <source>Networkmenu</source>
+        <translation>网络</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.cpp" line="44"/>
+        <source>desktop</source>
+        <translation>桌面</translation>
     </message>
 </context>
 <context>
     <name>Fonts</name>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="26"/>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="72"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="53"/>
         <source>Fonts</source>
-        <translation type="unfinished"></translation>
+        <translation>字体</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="96"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="265"/>
         <source>Fonts select</source>
-        <translation type="unfinished"></translation>
+        <translation>字体选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="122"/>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="561"/>
-        <source>Advanced Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="186"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="135"/>
         <source>Font size</source>
-        <translation type="unfinished"></translation>
+        <translation>字体大小</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="196"/>
-        <source>Smaller - &amp;100% (default)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="242"/>
-        <source>&amp;Medium - 125%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="288"/>
-        <source>&amp;Larger - 150%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="335"/>
-        <source>Select the text sample that looks clearest</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="501"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="1276"/>
         <source>Reset to default</source>
-        <translation type="unfinished"></translation>
+        <translation>恢复默认设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="597"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="516"/>
         <source>Gtk default font</source>
-        <translation type="unfinished"></translation>
+        <translation>通用字体</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="664"/>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="776"/>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="888"/>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="1000"/>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="1112"/>
-        <source>Restore to default</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="709"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="628"/>
         <source>Document font</source>
-        <translation type="unfinished"></translation>
+        <translation>文档字体</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="821"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="345"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="740"/>
         <source>Monospace font</source>
-        <translation type="unfinished"></translation>
+        <translation>等宽字体</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="933"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="421"/>
+        <source>Advanced settings</source>
+        <translation>高级设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="852"/>
         <source>Peony font</source>
-        <translation type="unfinished"></translation>
+        <translation>桌面字体</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="1045"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="964"/>
         <source>titlebar font</source>
-        <translation type="unfinished"></translation>
+        <translation>标题字体</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="129"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="1061"/>
+        <source>Select text sample that looks clearest</source>
+        <translation>选择看起来清晰的字体效果</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="127"/>
         <source>fonts</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="254"/>
-        <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>字体</translation>
     </message>
 </context>
 <context>
-    <name>HomePageWidget</name>
+    <name>KbdLayoutManager</name>
     <message>
-        <location filename="../../homepagewidget.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../../plugins/devices/keyboard/kbdlayoutmanager.ui" line="68"/>
+        <source>C</source>
+        <translation>按国家</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/kbdlayoutmanager.ui" line="144"/>
+        <source>L</source>
+        <translation>按语言</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/kbdlayoutmanager.ui" line="222"/>
+        <source>Variant</source>
+        <translation>变体</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/kbdlayoutmanager.ui" line="270"/>
+        <source>Add</source>
+        <translation>添加</translation>
     </message>
 </context>
 <context>
@@ -182,229 +735,717 @@
     <message>
         <location filename="../../utils/keyvalueconverter.cpp" line="30"/>
         <source>devices</source>
-        <translation type="unfinished"></translation>
+        <translation>设备</translation>
     </message>
     <message>
         <location filename="../../utils/keyvalueconverter.cpp" line="33"/>
         <source>personalized</source>
-        <translation type="unfinished"></translation>
+        <translation>个性化</translation>
     </message>
     <message>
         <location filename="../../utils/keyvalueconverter.cpp" line="36"/>
         <source>network</source>
-        <translation type="unfinished"></translation>
+        <translation>网络</translation>
     </message>
     <message>
         <location filename="../../utils/keyvalueconverter.cpp" line="39"/>
         <source>account</source>
-        <translation type="unfinished"></translation>
+        <translation>账户</translation>
     </message>
     <message>
         <location filename="../../utils/keyvalueconverter.cpp" line="42"/>
         <source>datetime</source>
-        <translation type="unfinished"></translation>
+        <translation>时间和日期</translation>
     </message>
     <message>
         <location filename="../../utils/keyvalueconverter.cpp" line="45"/>
         <source>update</source>
-        <translation type="unfinished"></translation>
+        <translation>更新和备份</translation>
     </message>
     <message>
         <location filename="../../utils/keyvalueconverter.cpp" line="48"/>
         <source>messages</source>
-        <translation type="unfinished"></translation>
+        <translation>通知和操作</translation>
+    </message>
+</context>
+<context>
+    <name>KeyboardControl</name>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="53"/>
+        <source>Keys Settings</source>
+        <translation>通用设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="126"/>
+        <source>Enable repeat key</source>
+        <translation>启用按键重复设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="213"/>
+        <source>Delay</source>
+        <translation>延迟</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="226"/>
+        <source>Short</source>
+        <translation>短</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="255"/>
+        <source>Long</source>
+        <translation>长</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="326"/>
+        <source>Speed</source>
+        <translation>速度</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="339"/>
+        <source>Slow</source>
+        <translation>慢</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="368"/>
+        <source>Fast</source>
+        <translation>快</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="427"/>
+        <source>Test repetition rate of the input character:</source>
+        <translation>输入字符测试重复效果：</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="518"/>
+        <source>Message of capslock</source>
+        <translation>大写锁定提示</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="593"/>
+        <source>Enable numlock</source>
+        <translation>小键盘开启提示</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="643"/>
+        <source>Keyboard Layout</source>
+        <translation>键盘布局</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="700"/>
+        <source>Keyboard layout</source>
+        <translation>键盘布局</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="826"/>
+        <source>Install layouts</source>
+        <translation>安装其他布局</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.cpp" line="39"/>
+        <source>keyboard</source>
+        <translation>键盘</translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.ui" line="14"/>
-        <source>MainWindow</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.ui" line="123"/>
-        <source>&lt;-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../mainwindow.ui" line="136"/>
+        <location filename="../../mainwindow.ui" line="142"/>
         <source>UKCC</source>
         <translation>设置</translation>
     </message>
 </context>
 <context>
-    <name>ModulePageWidget</name>
+    <name>NetConnect</name>
     <message>
-        <location filename="../../modulepagewidget.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="53"/>
+        <source>Netconnect Status</source>
+        <translation>网络状态</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="88"/>
+        <source>Available Network</source>
+        <translation>可用网络</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="131"/>
+        <source>Change net settings</source>
+        <translation>更改网络设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="32"/>
+        <source>netconnect</source>
+        <translation>网络连接</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="119"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="128"/>
+        <source>Connect</source>
+        <translation>已连接</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="123"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="132"/>
+        <source>Disconnect</source>
+        <translation>未连接</translation>
     </message>
 </context>
 <context>
     <name>Power</name>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="26"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.ui" line="75"/>
+        <location filename="../../../plugins/system/power/power.ui" line="53"/>
         <source>select power plan</source>
-        <translation type="unfinished"></translation>
+        <translation>选择电源计划</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="109"/>
+        <location filename="../../../plugins/system/power/power.ui" line="126"/>
         <source>Balance (suggest)</source>
-        <translation type="unfinished"></translation>
+        <translation>平衡（推荐）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="148"/>
-        <source>Automatically balance power consumption and performance with available hardware</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.ui" line="194"/>
+        <location filename="../../../plugins/system/power/power.ui" line="246"/>
         <source>Saving</source>
-        <translation type="unfinished"></translation>
+        <translation>节能</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="233"/>
+        <location filename="../../../plugins/system/power/power.ui" line="262"/>
         <source>Minimize performance</source>
-        <translation type="unfinished"></translation>
+        <translation>尽可能降低计算机性能</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="279"/>
-        <source>Custdom</source>
-        <translation type="unfinished"></translation>
+        <source>Bala&amp;nce (suggest)</source>
+        <translation type="obsolete">
+</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="318"/>
+        <location filename="../../../plugins/system/power/power.ui" line="142"/>
+        <source>Autobalance energy and performance with available hardware</source>
+        <translation>利用可用的硬件自动平衡消耗与性能</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/power/power.ui" line="369"/>
+        <source>Custom</source>
+        <translation>自定义</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/power/power.ui" line="385"/>
         <source>Users develop personalized power plans</source>
-        <translation type="unfinished"></translation>
+        <translation>用户制定个性化电源计划</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="429"/>
+        <location filename="../../../plugins/system/power/power.ui" line="488"/>
         <source>Power supply</source>
-        <translation type="unfinished"></translation>
+        <translation>电源供给</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="455"/>
+        <location filename="../../../plugins/system/power/power.ui" line="522"/>
         <source>Battery powered</source>
-        <translation type="unfinished"></translation>
+        <translation>电池供给</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="519"/>
+        <location filename="../../../plugins/system/power/power.ui" line="582"/>
         <source>Change pc sleep time:</source>
-        <translation type="unfinished"></translation>
+        <translation>在此之后电脑进入睡眠状态：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="615"/>
+        <location filename="../../../plugins/system/power/power.ui" line="691"/>
         <source>Change dp close time:</source>
-        <translation type="unfinished"></translation>
+        <translation>在此之后关闭显示器：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="711"/>
-        <source>Close lid of notebook:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.ui" line="839"/>
-        <source>Press power button:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.ui" line="916"/>
-        <source>Press suspend button:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.ui" line="1008"/>
-        <source>Battery mode settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="59"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="44"/>
         <source>power</source>
-        <translation type="unfinished"></translation>
+        <translation>电源</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="95"/>
         <location filename="../../../plugins/system/power/power.cpp" line="106"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="111"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="144"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="152"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="161"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="169"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="174"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="183"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="194"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="202"/>
         <source>never</source>
-        <translation type="unfinished"></translation>
+        <translation>从不</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="95"/>
         <location filename="../../../plugins/system/power/power.cpp" line="106"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="111"/>
         <source>10 min</source>
-        <translation type="unfinished"></translation>
+        <translation>10分钟</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="95"/>
         <location filename="../../../plugins/system/power/power.cpp" line="106"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="111"/>
         <source>30 min</source>
-        <translation type="unfinished"></translation>
+        <translation>30分钟</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="95"/>
         <location filename="../../../plugins/system/power/power.cpp" line="106"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="111"/>
         <source>60 min</source>
-        <translation type="unfinished"></translation>
+        <translation>60分钟</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="95"/>
+        <source>120 min</source>
+        <translation>120分钟</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="95"/>
+        <source>300 min</source>
+        <translation>300分钟</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="106"/>
-        <source>120 min</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="111"/>
         <source>1 min</source>
-        <translation type="unfinished"></translation>
+        <translation>1分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="111"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="106"/>
         <source>5 min</source>
-        <translation type="unfinished"></translation>
+        <translation>5分钟</translation>
+    </message>
+</context>
+<context>
+    <name>Printer</name>
+    <message>
+        <location filename="../../../plugins/devices/printer/printer.ui" line="53"/>
+        <source>Add Printers And Scanners</source>
+        <translation>添加打印机和扫描仪</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="116"/>
-        <source>nothing</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../../plugins/devices/printer/printer.ui" line="126"/>
+        <source>Add printers and scanners</source>
+        <translation>添加打印机和扫描仪</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="116"/>
-        <source>blank</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../../plugins/devices/printer/printer.ui" line="176"/>
+        <source>List Of Existing Printers</source>
+        <translation>可用打印机列表</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="116"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="121"/>
-        <source>suspend</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../../plugins/devices/printer/printer.cpp" line="36"/>
+        <source>printer</source>
+        <translation>打印机</translation>
+    </message>
+</context>
+<context>
+    <name>Proxy</name>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="53"/>
+        <source>Auto Proxy</source>
+        <translation>自动设置代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="116"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="121"/>
-        <source>shutdown</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="126"/>
+        <source>Auto proxy</source>
+        <translation>开启自动代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="121"/>
-        <source>interactive</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="198"/>
+        <source>Auto url</source>
+        <translation>自动配置URL</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="264"/>
+        <source>Manual Proxy</source>
+        <translation>手动设置代理</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="337"/>
+        <source>Manual proxy</source>
+        <translation>开启手动代理</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="424"/>
+        <source>Http Proxy</source>
+        <translation>HTTP代理</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="469"/>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="649"/>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="794"/>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="939"/>
+        <source>Port</source>
+        <translation>端口</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="520"/>
+        <source>Cetification</source>
+        <translation>认证</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="604"/>
+        <source>Https Proxy</source>
+        <translation>HTTPS代理</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="749"/>
+        <source>Ftp Proxy</source>
+        <translation>FTP代理</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="894"/>
+        <source>Socks Proxy</source>
+        <translation>SOCKS代理</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="1033"/>
+        <source>List of ignored hosts. more than one entry, please separate with english semicolon(;)</source>
+        <translation>忽略的主机列表，请使用英文分号（；）</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="51"/>
+        <source>proxy</source>
+        <translation>代理</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="25"/>
+        <location filename="../../utils/functionselect.cpp" line="30"/>
+        <source>display</source>
+        <translation>显示器</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="34"/>
         <source>defaultapp</source>
         <translation>默认应用</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="38"/>
+        <source>power</source>
+        <translation>电源</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="42"/>
+        <source>autoboot</source>
+        <translation>开机启动</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="50"/>
+        <source>printer</source>
+        <translation>打印机</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="57"/>
+        <source>mousecontrol</source>
+        <translation>鼠标</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="64"/>
+        <source>keyboard</source>
+        <translation>键盘</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="71"/>
+        <source>audio</source>
+        <translation>声音</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="79"/>
+        <source>background</source>
+        <translation>桌面背景</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="87"/>
+        <source>screenlock</source>
+        <translation>锁屏</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="91"/>
+        <source>fonts</source>
+        <translation>字体</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="95"/>
+        <source>screensaver</source>
+        <translation>屏保</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="99"/>
+        <source>desktop</source>
+        <translation>桌面</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="107"/>
+        <source>netconnect</source>
+        <translation>网络连接</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="111"/>
+        <source>vpn</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="115"/>
+        <source>proxy</source>
+        <translation>代理</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="123"/>
+        <source>userinfo</source>
+        <translation>账户信息</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="131"/>
+        <source>datetime</source>
+        <translation>时间和日期</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="135"/>
+        <source>area</source>
+        <translation>语言和地区</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="143"/>
+        <source>update</source>
+        <translation>更新和备份</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="147"/>
+        <source>backup</source>
+        <translation>备份</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="155"/>
+        <source>about</source>
+        <translation>关于</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="171"/>
+        <source>hicolor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="171"/>
+        <location filename="../../utils/functionselect.cpp" line="83"/>
+        <source>theme</source>
+        <translation type="unfinished">主题</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="171"/>
+        <source>theme-one</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Screensaver</name>
+    <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="53"/>
+        <source>Screensaver</source>
+        <translation>屏保背景</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="178"/>
+        <source>Enable screensaver</source>
+        <translation>开启屏保</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="249"/>
+        <source>Screensaver program</source>
+        <translation>屏幕保护程序</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="349"/>
+        <source>idle time</source>
+        <translation>等待时间</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="429"/>
+        <source>Min</source>
+        <translation>分钟</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="517"/>
+        <source>Lock screen when screensaver boot</source>
+        <translation>激活屏保时锁定屏幕</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="55"/>
+        <source>screensaver</source>
+        <translation>屏保</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="123"/>
+        <source>Blank_Only</source>
+        <translation>黑屏</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="124"/>
+        <source>Random</source>
+        <translation>随机</translation>
+    </message>
+</context>
+<context>
+    <name>Theme</name>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="53"/>
+        <source>Theme Mode</source>
+        <translation>主题模式</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="163"/>
+        <source>Default</source>
+        <translation>系统默认</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="276"/>
+        <source>Light</source>
+        <translation>浅色模式</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="389"/>
+        <source>Dark</source>
+        <translation>深色模式</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="437"/>
+        <source>Icon theme</source>
+        <translation>图标主题</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="472"/>
+        <source>Control theme</source>
+        <translation>控件主题</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="553"/>
+        <source>Cursor theme</source>
+        <translation>光标主题</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="588"/>
+        <source>Effect setting</source>
+        <translation>效果设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="662"/>
+        <source>Transparent</source>
+        <translation>透明特效</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="708"/>
+        <source>Low</source>
+        <translation>低</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="728"/>
+        <source>High</source>
+        <translation>高</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="772"/>
+        <source>Reset to default</source>
+        <translation>恢复默认设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="60"/>
+        <source>theme</source>
+        <translation>主题</translation>
+    </message>
+</context>
+<context>
+    <name>UserInfo</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="26"/>
+        <source>UserInfo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="72"/>
+        <source>Current accounts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="178"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="219"/>
+        <source>change pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="201"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="220"/>
+        <source>change face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="224"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="221"/>
+        <source>change accounttype</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="274"/>
+        <source>Other accounts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="328"/>
+        <source>Related settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="343"/>
+        <source>Prioritize passwords</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="34"/>
+        <source>userinfo</source>
+        <translation>账户信息</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="82"/>
+        <source>standard user</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="84"/>
+        <source>administrator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="86"/>
+        <source>root</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="93"/>
+        <source>logined</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="95"/>
+        <source>unlogined</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="222"/>
+        <source>delete user</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="265"/>
+        <source>add new user</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Vpn</name>
+    <message>
+        <location filename="../../../plugins/network/vpn/vpn.ui" line="53"/>
+        <source>Add Vpn Connect</source>
+        <translation>添加VPN连接</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/vpn/vpn.ui" line="123"/>
+        <source>Add vpn connect</source>
+        <translation>添加VPN连接</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/vpn/vpn.cpp" line="32"/>
+        <source>vpn</source>
+        <translation>VPN</translation>
     </message>
 </context>
 </TS>

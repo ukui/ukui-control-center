@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Fonts</string>
+   <string notr="true">Fonts</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <property name="spacing">
@@ -1101,7 +1101,7 @@
         </size>
        </property>
        <property name="text">
-        <string>PushButton</string>
+        <string/>
        </property>
        <property name="checkable">
         <bool>true</bool>
@@ -1126,7 +1126,7 @@
         </size>
        </property>
        <property name="text">
-        <string>PushButton</string>
+        <string/>
        </property>
        <property name="checkable">
         <bool>true</bool>
@@ -1187,7 +1187,7 @@
         </size>
        </property>
        <property name="text">
-        <string>PushButton</string>
+        <string/>
        </property>
        <property name="checkable">
         <bool>true</bool>
@@ -1212,7 +1212,7 @@
         </size>
        </property>
        <property name="text">
-        <string>PushButton</string>
+        <string/>
        </property>
        <property name="checkable">
         <bool>true</bool>

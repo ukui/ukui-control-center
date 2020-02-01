@@ -60,8 +60,8 @@ void FunctionSelect::initValue(){
     FuncInfo keyboardcontrolStruct;
     keyboardcontrolStruct.type = DEVICES;
     keyboardcontrolStruct.index = 2;
-    keyboardcontrolStruct.nameString = QString("keyboardcontrol");
-    keyboardcontrolStruct.namei18nString = QObject::tr("keyboardcontrol");
+    keyboardcontrolStruct.nameString = QString("keyboard");
+    keyboardcontrolStruct.namei18nString = QObject::tr("keyboard");
     devicesList.append(keyboardcontrolStruct);
 
     FuncInfo audioStruct;
@@ -166,7 +166,7 @@ void FunctionSelect::initValue(){
 
     //devices
     QStringList devicesPlugins;
-    devicesPlugins << QString("printer") << QString("mousecontrol") << QString("keyboardcontrol") << QString("audio");
+    devicesPlugins << QString("printer") << QString("mousecontrol") << QString("keyboard") << QString("audio");
 //    devicesPlugins << QObject::tr("printer") << QObject::tr("mousecontrol") << QObject::tr("keyboardcontrol") << QObject::tr("audio");
     funcsList[DEVICES] = devicesPlugins;
 

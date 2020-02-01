@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string notr="true">Form</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <property name="spacing">
@@ -123,7 +123,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>Bala&amp;nce (suggest)</string>
+           <string>Balance (suggest)</string>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -243,7 +243,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>Sa&amp;ving</string>
+           <string>Saving</string>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -366,7 +366,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>C&amp;ustom</string>
+           <string>Custom</string>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -566,11 +566,23 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="minimumSize">
+           <size>
+            <width>200</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>200</width>
+            <height>16777215</height>
+           </size>
+          </property>
           <property name="text">
            <string>Change pc sleep time:</string>
           </property>
           <property name="scaledContents">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
          </widget>
         </item>
@@ -663,11 +675,23 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="minimumSize">
+           <size>
+            <width>200</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>200</width>
+            <height>16777215</height>
+           </size>
+          </property>
           <property name="text">
            <string>Change dp close time:</string>
           </property>
           <property name="scaledContents">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
          </widget>
         </item>

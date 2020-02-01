@@ -50,6 +50,8 @@ NetConnect::NetConnect()
     ui->statusListWidget->setSelectionMode(QAbstractItemView::NoSelection);
     ui->availableListWidget->setSelectionMode(QAbstractItemView::NoSelection);
 
+    ui->detailBtn->setStyleSheet("QPushButton{border: none;}");
+
     //构建网络配置对象
     nmg  = new QNetworkConfigurationManager();
 

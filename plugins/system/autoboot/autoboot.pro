@@ -26,8 +26,8 @@ INCLUDEPATH   +=  \
 
 LIBS          += -L$$PROJECT_COMPONENTLIBS -lcommoncomponent
 
-target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
-INSTALLS += target
+#target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
+#INSTALLS += target
 
 # You can also make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.

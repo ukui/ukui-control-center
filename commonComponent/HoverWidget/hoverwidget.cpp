@@ -9,6 +9,7 @@ HoverWidget::HoverWidget(QString mname, QWidget *parent) :
     QWidget(parent),
     _name(mname)
 {
+    setAttribute(Qt::WA_DeleteOnClose);
 }
 
 HoverWidget::~HoverWidget()

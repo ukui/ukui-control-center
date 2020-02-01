@@ -36,7 +36,7 @@ KeyboardControl::KeyboardControl()
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("keyboardcontrol");
+    pluginName = tr("keyboard");
     pluginType = DEVICES;
 
     pluginWidget->setStyleSheet("background: #ffffff;");

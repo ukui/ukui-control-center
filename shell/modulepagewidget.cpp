@@ -73,7 +73,6 @@ void ModulePageWidget::initUI(){
         leftListWidget->setSelectionMode(QAbstractItemView::NoSelection);
         leftListWidget->setSpacing(0);
         connect(leftListWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(currentLeftitemChanged(QListWidgetItem*,QListWidgetItem*)));
-//        connect(leftListWidget, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(leftItemClicked(QListWidgetItem*)));
         QListWidget * topListWidget = new QListWidget;
         topListWidget->setAttribute(Qt::WA_DeleteOnClose);
         topListWidget->setResizeMode(QListView::Adjust);
@@ -232,16 +231,5 @@ void ModulePageWidget::currentLeftitemChanged(QListWidgetItem *cur, QListWidgetI
         curWidgetItem->setSelected(true);
     } else {
         qDebug() << "plugin widget not fount!";
-    }
-}
-
-void ModulePageWidget::leftItemClicked(QListWidgetItem *item){
-    QListWidget * lefttmpListWidget = dynamic_cast<QListWidget *>(ui->leftStackedWidget->currentWidget());
-    LeftWidgetItem * widgetItem = dynamic_cast<LeftWidgetItem *>(lefttmpListWidget->itemWidget(item));
-    if (pluginInstanceMap.contains(widgetItem->text())){
-        CommonInterface * pluginInstance = pluginInstanceMap[widgetItem->text()];
-        refreshPluginWidget(pluginInstance);
-    } else {
-        qDebug() << "plugin widget not found";
     }
 }

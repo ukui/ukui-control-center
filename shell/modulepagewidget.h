@@ -41,7 +41,6 @@ private:
     QMultiMap<QString, QListWidgetItem*> strItemsMap;//存储功能名与二级菜单item的Map,为了实现高亮
 
 public slots:
-    void leftItemClicked(QListWidgetItem * item);
     void currentLeftitemChanged(QListWidgetItem * cur, QListWidgetItem * pre);
 
 Q_SIGNALS:

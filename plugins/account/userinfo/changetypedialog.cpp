@@ -92,5 +92,5 @@ void ChangeTypeDialog::radioBtn_clicked_slot(int id){
 
 void ChangeTypeDialog::confirm_slot(){
     this->accept();
-    emit type_send(ui->buttonGroup->checkedId(), ui->usernameLabel->text(), autologinSwitchBtn->isChecked());
+    emit type_send(ui->buttonGroup->checkedId(), ui->usernameLabel->text());
 }

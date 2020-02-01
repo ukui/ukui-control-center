@@ -22,7 +22,7 @@
 
 #include <QDialog>
 
-#include "../../pluginsComponent/switchbutton.h"
+#include "SwitchButton/switchbutton.h"
 
 namespace Ui {
 class ChangeTypeDialog;
@@ -56,7 +56,7 @@ private slots:
     void confirm_slot();
 
 Q_SIGNALS:
-    void type_send(int type, QString username, bool autologin);
+    void type_send(int type, QString username);
 };
 
 #endif // CHANGETYPEDIALOG_H

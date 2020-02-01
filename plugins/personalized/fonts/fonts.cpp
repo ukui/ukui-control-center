@@ -136,6 +136,9 @@ Fonts::Fonts()
     ui->fontSelectLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
     ui->monoSelectLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
 
+
+    ui->advancedBtn->setStyleSheet("QPushButton#advancedBtn{background: #F4F4F4; border: none;}");
+
     ui->advancedWidget->setStyleSheet("QWidget#advancedWidget{background: #F4F4F4; border-radius: 4px;}");
     ui->defaultFontLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
     ui->monoFontLabel->setStyleSheet("QLabel{background: #F4F4F4;}");

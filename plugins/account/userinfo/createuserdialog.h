@@ -23,7 +23,7 @@
 #include <QDialog>
 #include <QProcess>
 
-#include "../../pluginsComponent/switchbutton.h"
+#include "SwitchButton/switchbutton.h"
 
 namespace Ui {
 class CreateUserDialog;

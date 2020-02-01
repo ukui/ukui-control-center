@@ -28,8 +28,8 @@ LIBS          += -L/usr/lib/ -ldefaultprograms \
                  -L$$PROJECT_COMPONENTLIBS -lcommoncomponent
 
 
-target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
-INSTALLS += target
+#target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
+#INSTALLS += target
 
 SOURCES += \
         defaultapp.cpp \

@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Create User</string>
+   <string notr="true">Create User</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <property name="spacing">
@@ -889,7 +889,7 @@
        <item>
         <widget class="QRadioButton" name="standardRadioBtn">
          <property name="text">
-          <string>standard user</string>
+          <string>standard &amp;user</string>
          </property>
          <attribute name="buttonGroup">
           <string notr="true">buttonGroup</string>
@@ -982,7 +982,7 @@ change system settings</string>
        <item>
         <widget class="QRadioButton" name="adminRadioBtn">
          <property name="text">
-          <string>administrator</string>
+          <string>ad&amp;ministrator</string>
          </property>
          <attribute name="buttonGroup">
           <string notr="true">buttonGroup</string>
