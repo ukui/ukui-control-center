@@ -9,10 +9,8 @@ DESTDIR = ../../../pluginlibs
 include(../../../env.pri)
 
 INCLUDEPATH   +=  \
-                 $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
 
-LIBS          += -L$$PROJECT_COMPONENTLIBS -lcommoncomponent
 
 
 

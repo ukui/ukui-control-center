@@ -31,8 +31,6 @@ inst1.files += ukui-control-center.desktop
 inst1.path = /usr/share/applications
 inst2.files += $$PROJECT_ROOTDIR/pluginlibs/
 inst2.path = /usr/lib/control-center/plugins/
-inst3.files += $$PROJECT_COMPONENTLIBS/
-inst3.path = /usr/lib/control-center/libs/
 
 target.source += $$TARGET
 target.path = /usr/bin
@@ -40,7 +38,6 @@ target.path = /usr/bin
 INSTALLS +=  \
             inst1 \
             inst2 \
-            inst3 \
             target \
 
 SOURCES += \

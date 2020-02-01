@@ -163,7 +163,7 @@ void MainWindow::loadPlugins(){
     static bool installed = (QCoreApplication::applicationDirPath() == QDir(("/usr/bin")).canonicalPath());
 
     if (installed)
-        pluginsDir = QDir("/usr/lib/control-center/plugins/");
+        pluginsDir = QDir("/usr/lib/control-center/plugins/pluginlibs/");
     else {
         pluginsDir = QDir(qApp->applicationDirPath() + "/pluginlibs/");
     }
