@@ -16,11 +16,16 @@ public:
 public:
     void setLabelPixmap(QString filename);
     void setLabelText(QString text);
+
+    void setSelected(bool selected);
+
     QString text();
 
 private:
     QLabel * iconLabel;
     QLabel * textLabel;
+
+    QWidget * widget;
 
 };
 

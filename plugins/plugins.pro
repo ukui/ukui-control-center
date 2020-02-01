@@ -12,5 +12,6 @@ SUBDIRS = \
           network/netconnect \
           network/vpn \
           network/proxy \
+          security-updates/backup \
           messages-task/about \
 

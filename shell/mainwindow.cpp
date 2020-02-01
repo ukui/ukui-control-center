@@ -196,12 +196,15 @@ void MainWindow::loadPlugins(){
 void MainWindow::initLeftsideBar(){
 
     leftBtnGroup = new QButtonGroup();
+    leftMicBtnGroup = new QButtonGroup();
 
     //构建左侧边栏返回首页按钮
     QPushButton * hBtn = buildLeftsideBtn("homepage");
+    hBtn->setObjectName("homepage");
     connect(hBtn, &QPushButton::clicked, this, [=]{
         ui->stackedWidget->setCurrentIndex(0);
     });
+    hBtn->setStyleSheet("QPushButton#homepage{background: #cccccc; border: none;}");
     ui->leftsidebarVerLayout->addWidget(hBtn);
 
     for(int type = 0; type < FUNCTOTALNUM; type++){
@@ -212,10 +215,9 @@ void MainWindow::initLeftsideBar(){
             QPushButton * button = buildLeftsideBtn(mnameString);
             button->setCheckable(true);
             leftBtnGroup->addButton(button, type);
-//            leftBtnGroup->setId(button, type);
             //设置样式
-            button->setStyleSheet("QPushButton::checked{background: #ffffff; border: none; border-top-left-radius: 6px; border-bottom-left-radius: 6px;}"
-                                  "QPushButton::!checked{background: #cccccc; border: 1px solid #000000; border-top-right-radius: 6px; border-bottom-right-radius: 6px;}");
+            button->setStyleSheet("QPushButton::checked{background: #cccccc; border: none; border-image: url('://img/primaryleftmenu/checked.png');}"
+                                  "QPushButton::!checked{background: #cccccc; border: none;}");
 
             connect(button, &QPushButton::clicked, this, [=]{
                 QPushButton * btn = dynamic_cast<QPushButton *>(QObject::sender());
@@ -232,16 +234,6 @@ void MainWindow::initLeftsideBar(){
                         break;
                     }
                 }
-
-
-//                QStringList functionStringList= FunctionSelect::funcsList[selectedInt];
-//                QMap<QString, QObject *> currentFuncMap = modulesList[selectedInt];
-//                for (QString str : functionStringList){
-//                    if (currentFuncMap.keys().contains(str)){
-//                        modulepageWidget->switchPage(currentFuncMap.value(str));
-//                        break;
-//                    }
-//                }
             });
 
             ui->leftsidebarVerLayout->addWidget(button);
@@ -252,17 +244,35 @@ void MainWindow::initLeftsideBar(){
 }
 
 QPushButton * MainWindow::buildLeftsideBtn(QString bname){
+    QString iname = bname.toLower();
+    int itype = kvConverter->keystringTokeycode(bname);
+
     QPushButton * leftsidebarBtn = new QPushButton();
     leftsidebarBtn->setAttribute(Qt::WA_DeleteOnClose);
-    leftsidebarBtn->setFixedSize(QSize(56, 56)); //Widget Width 60
-    leftsidebarBtn->setStyleSheet("QPushButton{background: #cccccc; border: none;}");
+    leftsidebarBtn->setCheckable(true);
+    leftsidebarBtn->setFixedSize(QSize(60, 56)); //Widget Width 60
 
-    QLabel * iconLabel = new QLabel(leftsidebarBtn);
-    QSizePolicy iconLabelPolicy = iconLabel->sizePolicy();
-    iconLabelPolicy.setHorizontalPolicy(QSizePolicy::Fixed);
-    iconLabelPolicy.setVerticalPolicy(QSizePolicy::Fixed);
-    iconLabel->setSizePolicy(iconLabelPolicy);
-    iconLabel->setScaledContents(true);
+    QPushButton * iconBtn = new QPushButton(leftsidebarBtn);
+    iconBtn->setCheckable(true);
+    iconBtn->setFixedSize(QSize(24, 24));
+
+
+    QString iconHomePageBtnQss = QString("QPushButton{background: #cccccc; border: none; border-image: url('://img/primaryleftmenu/%1.png');}").arg(iname);
+    QString iconBtnQss = QString("QPushButton:checked{background: #ffffff; border: none; border-image: url('://img/primaryleftmenu/%1Checked.png');}"
+                                 "QPushButton:!checked{background: #cccccc; border: none; border-image: url('://img/primaryleftmenu/%2.png');}").arg(iname).arg(iname);
+    //单独设置HomePage按钮样式
+    if (iname == "homepage")
+        iconBtn->setStyleSheet(iconHomePageBtnQss);
+    else
+        iconBtn->setStyleSheet(iconBtnQss);
+
+    leftMicBtnGroup->addButton(iconBtn, itype);
+
+    connect(iconBtn, &QPushButton::clicked, leftsidebarBtn, &QPushButton::click);
+
+    connect(leftsidebarBtn, &QPushButton::clicked, this, [=](bool checked){
+        iconBtn->setChecked(checked);
+    });
 
     QLabel * textLabel = new QLabel(leftsidebarBtn);
     QSizePolicy textLabelPolicy = textLabel->sizePolicy();
@@ -272,7 +282,7 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname){
     textLabel->setScaledContents(true);
 
     QHBoxLayout * btnHorLayout = new QHBoxLayout();
-    btnHorLayout->addWidget(iconLabel);
+    btnHorLayout->addWidget(iconBtn, Qt::AlignCenter);
     btnHorLayout->addWidget(textLabel);
     btnHorLayout->addStretch();
     btnHorLayout->setSpacing(10);
@@ -284,6 +294,7 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname){
 
 void MainWindow::setModuleBtnHightLight(int id){
     leftBtnGroup->button(id)->setChecked(true);
+    leftMicBtnGroup->button(id)->setChecked(true);
 }
 
 QMap<QString, QObject *> MainWindow::exportModule(int type){

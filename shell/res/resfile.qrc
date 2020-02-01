@@ -43,6 +43,31 @@
         <file>plugins/printer/printer.png</file>
         <file>plugins/keyboardcontrol/add.png</file>
         <file>plugins/vpn/add.png</file>
+        <file>secondaryleftmenu/update.png</file>
+        <file>secondaryleftmenu/backup.png</file>
+        <file>secondaryleftmenu/vpn.png</file>
+        <file>secondaryleftmenu/netconnect.png</file>
+        <file>secondaryleftmenu/proxy.png</file>
+        <file>primaryleftmenu/updateChecked.png</file>
+        <file>primaryleftmenu/update.png</file>
+        <file>primaryleftmenu/systemChecked.png</file>
+        <file>primaryleftmenu/system.png</file>
+        <file>primaryleftmenu/personalizedChecked.png</file>
+        <file>primaryleftmenu/personalized.png</file>
+        <file>primaryleftmenu/networkChecked.png</file>
+        <file>primaryleftmenu/network.png</file>
+        <file>primaryleftmenu/messages.png</file>
+        <file>primaryleftmenu/devicesChecked.png</file>
+        <file>primaryleftmenu/devices.png</file>
+        <file>primaryleftmenu/datetimeChecked.png</file>
+        <file>primaryleftmenu/datetime.png</file>
+        <file>primaryleftmenu/accountChecked.png</file>
+        <file>primaryleftmenu/account.png</file>
+        <file>primaryleftmenu/homepage.png</file>
+        <file>primaryleftmenu/homepageChecked.png</file>
+        <file>primaryleftmenu/checked-2.png</file>
+        <file>primaryleftmenu/checked.png</file>
+        <file>primaryleftmenu/messagesChecked.png</file>
     </qresource>
     <qresource prefix="/">
         <file>i18n/zh_CN.qm</file>

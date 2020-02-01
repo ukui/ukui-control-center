@@ -17,7 +17,7 @@ include(../../../env.pri)
 INCLUDEPATH   +=  \
                  $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
-                 /usr/include/kylinsdk \
+                 /usr/include/ukuisdk \
 
 LIBS          +=  -L/usr/lib/ -lkeyboardclient -linterfaceclient -lgsettings-qt
 

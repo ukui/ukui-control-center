@@ -91,20 +91,30 @@
            <number>0</number>
           </property>
           <item>
-           <widget class="QLabel" name="mtitleLabel">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <property name="spacing">
+             <number>0</number>
             </property>
-            <property name="text">
-             <string/>
+            <property name="leftMargin">
+             <number>8</number>
             </property>
-            <property name="scaledContents">
-             <bool>true</bool>
-            </property>
-           </widget>
+            <item>
+             <widget class="QLabel" name="mtitleLabel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item>
            <widget class="QStackedWidget" name="leftStackedWidget">

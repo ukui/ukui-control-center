@@ -36,6 +36,7 @@ private:
     ModulePageWidget * modulepageWidget;
 
     QButtonGroup * leftBtnGroup;
+    QButtonGroup * leftMicBtnGroup; //
 
     QDir pluginsDir;
 //    QStringList modulesStringList;
