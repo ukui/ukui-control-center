@@ -5,6 +5,7 @@ SUBDIRS = \
           system/autoboot \
           devices/printer \
           devices/keyboard \
+          personalized/wallpaper \
           personalized/theme \
           personalized/fonts \
           personalized/screensaver \

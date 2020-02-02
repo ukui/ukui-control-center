@@ -27,7 +27,7 @@
 #include <QString>
 #include <QMap>
 
-#define WALLPAPER "/usr/share/ukui-background-properties/"
+#define WALLPAPERDIR "/usr/share/ukui-background-properties/"
 
 class XmlHandle{
 
@@ -35,18 +35,22 @@ public:
     XmlHandle();
     ~XmlHandle();
 
+public:
     void init();
-    QStringList getxmlfiles(QString path);
-    QMap<QString, QMap<QString, QString> > xmlreader(QString filename);
-    void parsewallpaper(QXmlStreamReader &reader);
-    void xmlwriter(QString targetname, QMap<QString, QMap<QString, QString>> wallpaperinfosMap);
+    void xmlreader(QString filename);
+    void xmlUpdate(QMap<QString, QMap<QString, QString>> wallpaperinfosMap);
+    QMap<QString, QMap<QString, QString> > requireXmlData();
 
-//    QMap<QString, QString> wpMap;
-//    QMap<QString, QString> headMap;
+public:
+    QString localconf;
 
 private:
     QDir xmlDir;
-    void _xmlwriter(QString targetname);
+
+private:
+    QStringList _getXmlFiles(QString path);
+    void _parseWallpaper(QXmlStreamReader &reader);
+    void _xmlGenerate();
 
     QMap<QString, QMap<QString, QString>> wallpapersMap;
 

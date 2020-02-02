@@ -20,20 +20,22 @@
 #ifndef WALLPAPER_H
 #define WALLPAPER_H
 
-#include <QWidget>
 #include <QObject>
 #include <QtPlugin>
-#include "mainui/interface.h"
+
+#include <QThread>
 #include <QPixmap>
 #include <QListWidgetItem>
 #include <QFileDialog>
 
 #include <QGSettings/QGSettings>
 
+#include "shell/interface.h"
+
 #include "xmlhandle.h"
 #include "component/custdomitemmodel.h"
-#include "../../pluginsComponent/customwidget.h"
 #include "simplethread.h"
+#include "workerobject.h"
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -49,11 +51,16 @@ extern "C" {
 
 #define BACKGROUND "org.mate.background"
 
-#define FILENAME "picture-filename" //图片文件路径
-#define OPACITY "picture-opacity" //图片不透明度
-#define OPTIONS "picture-options" //图片放置方式
-#define PRIMARY "primary-color" //主色
-#define SECONDARY "secondary-color" //副色
+//图片文件路径
+#define FILENAME "picture-filename"
+//图片不透明度
+#define OPACITY "picture-opacity"
+//图片放置方式
+#define OPTIONS "picture-options"
+//主色
+#define PRIMARY "primary-color"
+//副色
+#define SECONDARY "secondary-color"
 
 namespace Ui {
 class Wallpaper;
@@ -71,8 +78,15 @@ public:
 
     QString get_plugin_name() Q_DECL_OVERRIDE;
     int get_plugin_type() Q_DECL_OVERRIDE;
-    CustomWidget * get_plugin_ui() Q_DECL_OVERRIDE;
+    QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
     void plugin_delay_control() Q_DECL_OVERRIDE;
+
+public:
+    void initComponent();
+    void initBgFormStatus();
+    void initPreviewStatus();
+
+    void appendPicWpItem(QPixmap pixmap, QString filename);
 
 public:
     void append_item(QPixmap pixmap, QString filename);
@@ -82,9 +96,8 @@ private:
 
     QString pluginName;
     int pluginType;
-    CustomWidget * pluginWidget;
+    QWidget * pluginWidget;
 
-    QMap<QString, QString> headinfoMap;
     QMap<QString, QMap<QString, QString> > wallpaperinfosMap;
 
     XmlHandle * xmlhandleObj;
@@ -94,20 +107,25 @@ private:
 
     CustdomItemModel wpListModel;
 
-    void initData();
     void component_init();
-    void init_current_status();
 
     //尝试mode view
     void setlistview();
     void setModeldata();
 
+private:
+    QThread * pThread;
+    WorkerObject * pObject;
+
+    QMap<QString, QListWidgetItem*> picWpItemMap;
+
 public slots:
-    void wallpaper_item_clicked(QListWidgetItem * current, QListWidgetItem * previous);
+    void picWallpaperChangedSlot(QListWidgetItem * current, QListWidgetItem * previous);
+    void resetDefaultWallpaperSlot();
+    void wpOptionsChangedSlot(QString op);
+
+public slots:
     void colorwp_item_clicked(QListWidgetItem * current, QListWidgetItem * previous);
-    void form_combobox_changed(int index);
-    void options_combobox_changed(QString op);
-    void reset_default_wallpaper();
 
     void add_custom_wallpaper();
     void del_wallpaper();

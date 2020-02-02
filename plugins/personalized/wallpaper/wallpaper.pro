@@ -8,12 +8,14 @@ QT       += widgets xml
 
 TEMPLATE = lib
 CONFIG += plugin
-INCLUDEPATH += ../../..
 
 TARGET = $$qtLibraryTarget(wallpaper)
-DESTDIR = ../..
+DESTDIR = ../../../pluginlibs
 
-include(../../pluginsComponent/pluginsComponent.pri)
+include(../../../env.pri)
+
+INCLUDEPATH   +=  \
+                 $$PROJECT_ROOTDIR \
 
 LIBS += -L/usr/lib/ -lgsettings-qt
 
@@ -25,20 +27,19 @@ PKGCONFIG     += gio-2.0 \
 
 #DEFINES += QT_DEPRECATED_WARNINGS
 
-target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
-INSTALLS += target
-
 SOURCES += \
         wallpaper.cpp \
     xmlhandle.cpp \
     component/custdomitemmodel.cpp \
-    simplethread.cpp
+    simplethread.cpp \
+    workerobject.cpp
 
 HEADERS += \
         wallpaper.h \
     xmlhandle.h \
     component/custdomitemmodel.h \
-    simplethread.h
+    simplethread.h \
+    workerobject.h
 
 FORMS += \
         wallpaper.ui

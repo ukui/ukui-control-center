@@ -113,17 +113,17 @@
         <translation>添加自启动程序 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="46"/>
+        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="60"/>
         <source>autoboot</source>
         <translation>开机启动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="129"/>
+        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="143"/>
         <source>Name</source>
         <translation>程序名称</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="136"/>
+        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="150"/>
         <source>Status</source>
         <translation>当前状态</translation>
     </message>
@@ -199,11 +199,6 @@ the integrity of your system.</source>
 <context>
     <name>ChangeFaceDialog</name>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="26"/>
-        <source>Change Face</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="170"/>
         <source>Custom Face</source>
         <translation type="unfinished"></translation>
@@ -241,11 +236,6 @@ the integrity of your system.</source>
 </context>
 <context>
     <name>ChangePwdDialog</name>
-    <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="26"/>
-        <source>Change Pwd</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="294"/>
         <source>Cancel</source>
@@ -292,11 +282,6 @@ the integrity of your system.</source>
 <context>
     <name>ChangeTypeDialog</name>
     <message>
-        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="26"/>
-        <source>Change AccountType</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="172"/>
         <source>Auto Login</source>
         <translation type="unfinished"></translation>
@@ -307,18 +292,18 @@ the integrity of your system.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="259"/>
-        <source>standard user</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="308"/>
         <source>Standard users can use most software, but cannot install software and change system settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="259"/>
+        <source>standard &amp;user</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="351"/>
-        <source>administrator</source>
+        <source>ad&amp;ministrator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -339,11 +324,6 @@ the integrity of your system.</source>
 </context>
 <context>
     <name>CreateUserDialog</name>
-    <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="26"/>
-        <source>Create User</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="110"/>
         <source>Auto Login</source>
@@ -384,18 +364,18 @@ the integrity of your system.</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="892"/>
-        <source>standard user</source>
+        <source>standard &amp;user</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="985"/>
+        <source>ad&amp;ministrator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="941"/>
         <source>Standard users can use most software, but cannot install the software and 
 change system settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="985"/>
-        <source>administrator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -542,11 +522,6 @@ change system settings</source>
 </context>
 <context>
     <name>DelUserDialog</name>
-    <message>
-        <location filename="../../../plugins/account/userinfo/deluserdialog.ui" line="26"/>
-        <source>Delete User</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../../../plugins/account/userinfo/deluserdialog.ui" line="106"/>
         <source>Delete the user, belonging to the user&apos;s desktop,
@@ -1144,7 +1119,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../utils/functionselect.cpp" line="79"/>
         <source>background</source>
-        <translation>桌面背景</translation>
+        <translation>背景</translation>
     </message>
     <message>
         <location filename="../../utils/functionselect.cpp" line="87"/>
@@ -1347,86 +1322,103 @@ folder will be deleted!</source>
 <context>
     <name>UserInfo</name>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="26"/>
-        <source>UserInfo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="72"/>
-        <source>Current accounts</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="178"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="219"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="526"/>
         <source>change pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="201"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="220"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="527"/>
         <source>change face</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="224"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="221"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="528"/>
         <source>change accounttype</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="274"/>
-        <source>Other accounts</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="328"/>
-        <source>Related settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="343"/>
-        <source>Prioritize passwords</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="34"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="56"/>
         <source>userinfo</source>
         <translation>账户信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="82"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="113"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="125"/>
         <source>standard user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="84"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="115"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="127"/>
         <source>administrator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="86"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="117"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="129"/>
         <source>root</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="93"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="136"/>
         <source>logined</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="95"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="138"/>
         <source>unlogined</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="222"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="474"/>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="529"/>
         <source>delete user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="265"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="569"/>
         <source>add new user</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="53"/>
+        <source>Current User</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="234"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="457"/>
+        <source>Change pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="270"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="451"/>
+        <source>Change type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="335"/>
+        <source>Login no passwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="415"/>
+        <source>enable autoLogin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="465"/>
+        <source>Other Users</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="573"/>
+        <source>Add new user</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1446,6 +1438,124 @@ folder will be deleted!</source>
         <location filename="../../../plugins/network/vpn/vpn.cpp" line="32"/>
         <source>vpn</source>
         <translation>VPN</translation>
+    </message>
+</context>
+<context>
+    <name>Wallpaper</name>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="26"/>
+        <source>Wallpaper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="72"/>
+        <source>Background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="96"/>
+        <source>select form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="141"/>
+        <source>Add</source>
+        <translation type="unfinished">添加</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="154"/>
+        <source>Del</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="214"/>
+        <source>Picture Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="265"/>
+        <source>Restore default WP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="32"/>
+        <source>background</source>
+        <translation>背景</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="88"/>
+        <source>picture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="88"/>
+        <source>color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="123"/>
+        <source>%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="133"/>
+        <source>wallpaper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="133"/>
+        <source>centered</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="133"/>
+        <source>scaled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="133"/>
+        <source>stretched</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="133"/>
+        <source>zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="133"/>
+        <source>spanned</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="323"/>
+        <source>selsect custom wallpaper file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="324"/>
+        <source>Select</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="325"/>
+        <source>Position: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="326"/>
+        <source>FileName: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="327"/>
+        <source>FileType: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="328"/>
+        <source>Cancel</source>
+        <translation type="unfinished">取消</translation>
     </message>
 </context>
 </TS>

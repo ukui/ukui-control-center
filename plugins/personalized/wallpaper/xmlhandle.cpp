@@ -23,7 +23,7 @@
 
 XmlHandle::XmlHandle()
 {
-    init();
+    localconf = QString("%1/%2/%3").arg(QDir::homePath()).arg(".config/ukui").arg("wallpaper.xml");
 }
 
 XmlHandle::~XmlHandle()
@@ -31,36 +31,46 @@ XmlHandle::~XmlHandle()
 }
 
 void XmlHandle::init(){
-    QString localconf;
-    localconf = QString("%1/%2/%3").arg(QDir::homePath()).arg(".config/ukui").arg("wallpaper.xml");
+
+    //
+    wallpapersMap.clear();
+
     QFile file(localconf);
+    //如果用户本地壁纸XML文件不存在，创建
     if (!file.exists()){
-        QStringList files = getxmlfiles(WALLPAPER);
-        wallpapersMap.clear();
+        QStringList files = _getXmlFiles(WALLPAPERDIR);
+
         for (int num = 0; num < files.length(); num++){
             xmlreader(files[num]);
         }
-        _xmlwriter(localconf);
+        _xmlGenerate();
+
+        //创建完成，清空QMap
+        wallpapersMap.clear();
     }
+    //重新解析本地壁纸信息，并填充QMap
+    xmlreader(localconf);
+
 }
 
-QStringList XmlHandle::getxmlfiles(QString path){
+QStringList XmlHandle::_getXmlFiles(QString path){
     xmlDir = QDir(path);
     QStringList xmlfilesStringList;
 
     foreach (QString filename, xmlDir.entryList(QDir::Files)) {
         if (filename.endsWith(".xml"))
-            xmlfilesStringList.append(QString("%1/%2").arg(WALLPAPER).arg(filename));
+            xmlfilesStringList.append(QString("%1/%2").arg(WALLPAPERDIR).arg(filename));
     }
     return xmlfilesStringList;
 }
 
-QMap<QString, QMap<QString, QString> > XmlHandle::xmlreader(QString filename){
+void XmlHandle::xmlreader(QString filename){
     QFile file(filename);
     if (!file.open(QFile::ReadOnly | QFile::Text)){
         QMap<QString, QMap<QString, QString> > tmpMap;
-        qDebug() << "Error Open XML file: " << file.errorString();
-        return tmpMap;
+        qDebug() << "Error Open XML File When Reader Xml: " << file.errorString();
+//        return tmpMap;
+        return;
     }
 
     //旧清理数据
@@ -100,7 +110,7 @@ QMap<QString, QMap<QString, QString> > XmlHandle::xmlreader(QString filename){
         case QXmlStreamReader::StartElement: {
             QString elementnameStr = reader.name().toString();
             if (elementnameStr == "wallpapers"){ //根元素
-                parsewallpaper(reader);
+                _parseWallpaper(reader);
             }
             break;
         }
@@ -118,10 +128,14 @@ QMap<QString, QMap<QString, QString> > XmlHandle::xmlreader(QString filename){
     }
     file.close();
 
+//    return wallpapersMap;
+}
+
+QMap<QString, QMap<QString, QString> > XmlHandle::requireXmlData(){
     return wallpapersMap;
 }
 
-void XmlHandle::parsewallpaper(QXmlStreamReader &reader){
+void XmlHandle::_parseWallpaper(QXmlStreamReader &reader){
     QMap<QString, QString> wpMap;
     while (!reader.atEnd()) {
         reader.readNext();
@@ -172,10 +186,10 @@ void XmlHandle::parsewallpaper(QXmlStreamReader &reader){
     }
 }
 
-void XmlHandle::_xmlwriter(QString targetname){
-    QFile file(targetname);
+void XmlHandle::_xmlGenerate(){
+    QFile file(localconf);
     if (!file.open(QFile::WriteOnly | QFile::Text)){
-        qDebug() << "Error Open XML file: " << file.errorString();
+        qDebug() << "Error Open XML file when generate local xml: " << file.errorString();
         return;
     }
 
@@ -230,10 +244,10 @@ void XmlHandle::_xmlwriter(QString targetname){
     file.close();
 }
 
-void XmlHandle::xmlwriter(QString targetname, QMap<QString, QMap<QString, QString> > wallpaperinfosMap){
-    QFile file(targetname);
+void XmlHandle::xmlUpdate(QMap<QString, QMap<QString, QString> > wallpaperinfosMap){
+    QFile file(localconf);
     if (!file.open(QFile::WriteOnly | QFile::Text)){
-        qDebug() << "Error Open XML file: " << file.errorString();
+        qDebug() << "Error Open XML File When Update Local Xml: " << file.errorString();
         return;
     }
 

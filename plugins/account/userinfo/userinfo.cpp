@@ -287,6 +287,7 @@ void UserInfo::initComponent(){
 
     //修改当前用户密码的回调
     connect(ui->changePwdBtn, &QPushButton::clicked, this, [=](bool checked){
+        Q_UNUSED(checked)
         UserInfomation user = allUserInfoMap.value(g_get_user_name());
 
         showChangePwdDialog(user.username);
@@ -294,7 +295,7 @@ void UserInfo::initComponent(){
 
     //修改当前用户类型的回调
     connect(ui->changeTypeBtn, &QPushButton::clicked, this, [=](bool checked){
-
+        Q_UNUSED(checked)
     });
 
     //成功删除用户的回调
@@ -457,6 +458,7 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     pwdBtn->setText(tr("Change pwd"));
     pwdBtn->setStyleSheet(btnQss);
     connect(pwdBtn, &QPushButton::clicked, this, [=](bool checked){
+        Q_UNUSED(checked)
         showChangePwdDialog(user.username);
     });
     pwdBtn->hide();
@@ -475,6 +477,7 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     delBtn->setStyleSheet("QPushButton{background: #FA6056; border-radius: 4px}");
     delBtn->hide();
     connect(delBtn, &QPushButton::clicked, this, [=](bool checked){
+        Q_UNUSED(checked)
         showDeleteUserDialog(user.username);
     });
 

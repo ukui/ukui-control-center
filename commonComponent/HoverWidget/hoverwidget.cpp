@@ -31,6 +31,7 @@ void HoverWidget::leaveEvent(QEvent *event){
 //子类化一个QWidget，为了能够使用样式表，则需要提供paintEvent事件。
 //这是因为QWidget的paintEvent()是空的，而样式表要通过paint被绘制到窗口中。
 void HoverWidget::paintEvent(QPaintEvent *event){
+    Q_UNUSED(event)
     QStyleOption opt;
     opt.init(this);
     QPainter p(this);
