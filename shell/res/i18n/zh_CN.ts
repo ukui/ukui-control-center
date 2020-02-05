@@ -703,42 +703,42 @@ folder will be deleted!</source>
 <context>
     <name>KeyValueConverter</name>
     <message>
-        <location filename="../../utils/keyvalueconverter.cpp" line="27"/>
+        <location filename="../../utils/keyvalueconverter.cpp" line="46"/>
         <source>system</source>
         <translation>系统</translation>
     </message>
     <message>
-        <location filename="../../utils/keyvalueconverter.cpp" line="30"/>
+        <location filename="../../utils/keyvalueconverter.cpp" line="49"/>
         <source>devices</source>
         <translation>设备</translation>
     </message>
     <message>
-        <location filename="../../utils/keyvalueconverter.cpp" line="33"/>
+        <location filename="../../utils/keyvalueconverter.cpp" line="52"/>
         <source>personalized</source>
         <translation>个性化</translation>
     </message>
     <message>
-        <location filename="../../utils/keyvalueconverter.cpp" line="36"/>
+        <location filename="../../utils/keyvalueconverter.cpp" line="55"/>
         <source>network</source>
         <translation>网络</translation>
     </message>
     <message>
-        <location filename="../../utils/keyvalueconverter.cpp" line="39"/>
+        <location filename="../../utils/keyvalueconverter.cpp" line="58"/>
         <source>account</source>
         <translation>账户</translation>
     </message>
     <message>
-        <location filename="../../utils/keyvalueconverter.cpp" line="42"/>
+        <location filename="../../utils/keyvalueconverter.cpp" line="61"/>
         <source>datetime</source>
         <translation>时间和日期</translation>
     </message>
     <message>
-        <location filename="../../utils/keyvalueconverter.cpp" line="45"/>
+        <location filename="../../utils/keyvalueconverter.cpp" line="64"/>
         <source>update</source>
         <translation>更新和备份</translation>
     </message>
     <message>
-        <location filename="../../utils/keyvalueconverter.cpp" line="48"/>
+        <location filename="../../utils/keyvalueconverter.cpp" line="67"/>
         <source>messages</source>
         <translation>通知和操作</translation>
     </message>
@@ -1077,112 +1077,112 @@ folder will be deleted!</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="30"/>
+        <location filename="../../utils/functionselect.cpp" line="49"/>
         <source>display</source>
         <translation>显示器</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="34"/>
+        <location filename="../../utils/functionselect.cpp" line="53"/>
         <source>defaultapp</source>
         <translation>默认应用</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="38"/>
+        <location filename="../../utils/functionselect.cpp" line="57"/>
         <source>power</source>
         <translation>电源</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="42"/>
+        <location filename="../../utils/functionselect.cpp" line="61"/>
         <source>autoboot</source>
         <translation>开机启动</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="50"/>
+        <location filename="../../utils/functionselect.cpp" line="69"/>
         <source>printer</source>
         <translation>打印机</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="57"/>
+        <location filename="../../utils/functionselect.cpp" line="76"/>
         <source>mousecontrol</source>
         <translation>鼠标</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="64"/>
+        <location filename="../../utils/functionselect.cpp" line="83"/>
         <source>keyboard</source>
         <translation>键盘</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="71"/>
+        <location filename="../../utils/functionselect.cpp" line="90"/>
         <source>audio</source>
         <translation>声音</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="79"/>
+        <location filename="../../utils/functionselect.cpp" line="98"/>
         <source>background</source>
         <translation>背景</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="87"/>
+        <location filename="../../utils/functionselect.cpp" line="106"/>
         <source>screenlock</source>
         <translation>锁屏</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="91"/>
+        <location filename="../../utils/functionselect.cpp" line="110"/>
         <source>fonts</source>
         <translation>字体</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="95"/>
+        <location filename="../../utils/functionselect.cpp" line="114"/>
         <source>screensaver</source>
         <translation>屏保</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="99"/>
+        <location filename="../../utils/functionselect.cpp" line="118"/>
         <source>desktop</source>
         <translation>桌面</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="107"/>
+        <location filename="../../utils/functionselect.cpp" line="126"/>
         <source>netconnect</source>
         <translation>网络连接</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="111"/>
+        <location filename="../../utils/functionselect.cpp" line="130"/>
         <source>vpn</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="115"/>
+        <location filename="../../utils/functionselect.cpp" line="134"/>
         <source>proxy</source>
         <translation>代理</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="123"/>
+        <location filename="../../utils/functionselect.cpp" line="142"/>
         <source>userinfo</source>
         <translation>账户信息</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="131"/>
+        <location filename="../../utils/functionselect.cpp" line="150"/>
         <source>datetime</source>
         <translation>时间和日期</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="135"/>
+        <location filename="../../utils/functionselect.cpp" line="154"/>
         <source>area</source>
         <translation>语言和地区</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="143"/>
+        <location filename="../../utils/functionselect.cpp" line="162"/>
         <source>update</source>
         <translation>更新和备份</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="147"/>
+        <location filename="../../utils/functionselect.cpp" line="166"/>
         <source>backup</source>
         <translation>备份</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="155"/>
+        <location filename="../../utils/functionselect.cpp" line="174"/>
         <source>about</source>
         <translation>关于</translation>
     </message>
@@ -1193,7 +1193,7 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="171"/>
-        <location filename="../../utils/functionselect.cpp" line="83"/>
+        <location filename="../../utils/functionselect.cpp" line="102"/>
         <source>theme</source>
         <translation type="unfinished">主题</translation>
     </message>
@@ -1322,17 +1322,17 @@ folder will be deleted!</source>
 <context>
     <name>UserInfo</name>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="526"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="529"/>
         <source>change pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="527"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="530"/>
         <source>change face</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="528"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="531"/>
         <source>change accounttype</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1370,17 +1370,17 @@ folder will be deleted!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="474"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="476"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="529"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="532"/>
         <source>delete user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="569"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="572"/>
         <source>add new user</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1391,13 +1391,13 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="234"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="457"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="458"/>
         <source>Change pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="270"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="451"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="452"/>
         <source>Change type</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1448,114 +1448,132 @@ folder will be deleted!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="72"/>
-        <source>Background</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="53"/>
+        <source>Desktop Background</source>
+        <translation>桌面背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="96"/>
-        <source>select form</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="197"/>
+        <source>Select form</source>
+        <translation>选择背景形式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="141"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="242"/>
+        <source>Picture options</source>
+        <translation>图片放置方式</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="320"/>
+        <source>Browser local wp</source>
+        <translation>浏览本地壁纸</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="339"/>
+        <source>Browser online wp</source>
+        <translation>浏览线上壁纸</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="371"/>
+        <source>Restore default wp</source>
+        <translation>恢复默认壁纸</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="528"/>
+        <source>Ok</source>
+        <translation>确定</translation>
+    </message>
+    <message>
         <source>Add</source>
-        <translation type="unfinished">添加</translation>
+        <translation type="obsolete">添加</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="154"/>
-        <source>Del</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="214"/>
-        <source>Picture Options</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="265"/>
-        <source>Restore default WP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="32"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="44"/>
         <source>background</source>
         <translation>背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="88"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="103"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="263"/>
         <source>picture</source>
-        <translation type="unfinished"></translation>
+        <translation>图片</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="88"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="103"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="263"/>
         <source>color</source>
-        <translation type="unfinished"></translation>
+        <translation>颜色</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="123"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="147"/>
         <source>%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="133"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="159"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="308"/>
         <source>wallpaper</source>
-        <translation type="unfinished"></translation>
+        <translation>平铺</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="133"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="159"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="308"/>
         <source>centered</source>
-        <translation type="unfinished"></translation>
+        <translation>居中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="133"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="159"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="308"/>
         <source>scaled</source>
-        <translation type="unfinished"></translation>
+        <translation>比例放大</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="133"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="159"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="308"/>
         <source>stretched</source>
-        <translation type="unfinished"></translation>
+        <translation>伸展</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="133"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="159"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="308"/>
         <source>zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>缩放</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="133"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="159"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="308"/>
         <source>spanned</source>
-        <translation type="unfinished"></translation>
+        <translation>适合宽度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="323"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="526"/>
         <source>selsect custom wallpaper file</source>
-        <translation type="unfinished"></translation>
+        <translation>选择自定义壁纸文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="324"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="527"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="325"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="528"/>
         <source>Position: </source>
-        <translation type="unfinished"></translation>
+        <translation>位置： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="326"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="529"/>
         <source>FileName: </source>
-        <translation type="unfinished"></translation>
+        <translation>文件名： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="327"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="530"/>
         <source>FileType: </source>
-        <translation type="unfinished"></translation>
+        <translation>文件类型： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="328"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="509"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="531"/>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
 </context>
 </TS>

@@ -22,8 +22,17 @@
 
 #include <QDebug>
 
+enum{
+    PICTURE, //图片背景
+    COLOR, //纯色背景
+    SLIDESHOW //幻灯片背景
+};
+
 #define ITEMWIDTH 182
 #define ITEMHEIGH 126
+
+#define COLORITEMWIDTH 56
+#define COLORITEMHEIGH 56
 
 Wallpaper::Wallpaper()
 {
@@ -41,8 +50,9 @@ Wallpaper::Wallpaper()
 
     ui->switchWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
 
-    ui->listWidget->setStyleSheet("QListWidget#listWidget{background: #ffffff; border: none;}"
-                                  "");
+    ui->listWidget->setStyleSheet("QListWidget#listWidget{background: #ffffff; border: none;}");
+    ui->colorListWidget->setStyleSheet("QListWidget#colorListWidget{background: #ffffff; border: none;}");
+
     QString btnQss = QString("QPushButton{background: #E9E9E9; border-radius: 4px;}"
                              "QPushButton:hover:!pressed{background: #3d6be5; border-radius: 4px;}"
                              "QPushButton:hover:pressed{background: #415FC4; border-radius: 4px;}");
@@ -59,7 +69,7 @@ Wallpaper::Wallpaper()
     xmlhandleObj = new XmlHandle();
 
     //初始化控件
-    initComponent();
+    setupComponent();
 
     initBgFormStatus();
 }
@@ -87,12 +97,13 @@ QWidget *Wallpaper::get_plugin_ui(){
 void Wallpaper::plugin_delay_control(){
 }
 
-void Wallpaper::initComponent(){
+void Wallpaper::setupComponent(){
     //背景形式
     QStringList formList;
     formList << tr("picture") << tr("color")/* << tr("slideshow")*/ ;
     ui->formComBox->addItems(formList);
 
+    ui->previewLabel->setScaledContents(true);
     initPreviewStatus();
 
     ///图片背景
@@ -118,7 +129,7 @@ void Wallpaper::initComponent(){
     pObject->moveToThread(pThread);
     connect(pThread, &QThread::started, pObject, &WorkerObject::run);
     connect(pThread, &QThread::finished, this, [=]{
-        if (ui->formComBox->currentIndex() == 0){
+        if (ui->formComBox->currentIndex() == PICTURE){
             //设置当前壁纸
             QString filename = bgsettings->get(FILENAME).toString();
             if (picWpItemMap.contains(filename)){
@@ -149,42 +160,101 @@ void Wallpaper::initComponent(){
     ui->picOptionsComBox->addItems(layoutList);
 
     connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(picWallpaperChangedSlot(QListWidgetItem*,QListWidgetItem*)));
-//    connect(ui->formComBox, &QComboBox::currentIndexChanged, this, [=](int index){
-//        ui->substackedWidget->setCurrentIndex(index);
-//    });
+    connect(ui->formComBox, QOverload<int>::of(&QComboBox::currentIndexChanged), [=](int index){
+        ui->substackedWidget->setCurrentIndex(index);
+        //显示/隐藏控件
+        showComponent(index);
+
+        //当前背景类型与当前背景页面不同
+        if (index != _getCurrentBgForm()){
+            if (PICTURE == index){
+                //设置图片背景
+                ui->listWidget->setCurrentItem(ui->listWidget->item(0));
+            } else if (COLOR == index){
+                //设置图片背景为空
+                bgsettings->set(FILENAME, "");
+                //设置纯色背景
+                ui->colorListWidget->setCurrentItem(ui->colorListWidget->item(0));
+            } else {
+
+            }
+        }
+    });
     connect(ui->picOptionsComBox, SIGNAL(currentTextChanged(QString)), this, SLOT(wpOptionsChangedSlot(QString)));
     connect(ui->resetBtn, SIGNAL(clicked(bool)), this, SLOT(resetDefaultWallpaperSlot()));
 
     ///纯色背景
+    QStringList colors;
+
+    colors << "#2d7d9a" << "#018574" << "#107c10" << "#10893e" << "#038387" << "#486860" << "#525e54" << "#7e735f" << "#4c4a48" << "#000000";
+    colors << "#ff8c00" << "#e81123" << "#d13438" << "#c30052" << "#bf0077" << "#9a0089" << "#881798" << "#744da9" << "#8764b8" << "#e9e9e9";
+
+    ui->colorListWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->colorListWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->colorListWidget->setResizeMode(QListView::Adjust);
+    ui->colorListWidget->setViewMode(QListView::IconMode);
+    ui->colorListWidget->setMovement(QListView::Static);
+    ui->colorListWidget->setSpacing(0);
+    ui->colorListWidget->setFixedHeight(COLORITEMHEIGH * 2);
+
+    for (QString color : colors){
+        appendColWpItem(color);
+    }
+    connect(ui->colorListWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(colWallpaperChangedSlot(QListWidgetItem*,QListWidgetItem*)));
 }
 
-void Wallpaper::initBgFormStatus(){
+int Wallpaper::_getCurrentBgForm(){
     QString filename = bgsettings->get(FILENAME).toString();
 
-    ui->formComBox->blockSignals(true);
+    int current = 0;
 
     //设置当前背景形式
     if (filename == ""){
-        ui->formComBox->setCurrentIndex(1);
-        ui->substackedWidget->setCurrentIndex(1);
-
-    }
-    else if (filename.endsWith("xml")){
-        ui->formComBox->setCurrentIndex(2);
-        ui->substackedWidget->setCurrentIndex(2);
-    }
-    else{
-        ui->formComBox->setCurrentIndex(0);
-        ui->substackedWidget->setCurrentIndex(0);
+        current = COLOR;
+    } else if (filename.endsWith("xml")){
+        current = SLIDESHOW;
+    } else {
+        current = PICTURE;
     }
 
-    ui->formComBox->blockSignals(false);
+    return current;
+}
+
+void Wallpaper::initBgFormStatus(){
+    //设置当前背景形式
+    ui->formComBox->setCurrentIndex(_getCurrentBgForm());
+
+}
+
+void Wallpaper::showComponent(int index){
+    if (0 == index){ //图片
+        ui->picOptionsComBox->show();
+        ui->picOptionsLabel->show();
+        ui->previewLabel->show();
+        ui->previewWidget->hide();
+    } else if (1 == index){ //纯色
+        ui->picOptionsComBox->hide();
+        ui->picOptionsLabel->hide();
+        ui->previewLabel->hide();
+        ui->previewWidget->show();
+    } else { //幻灯片
+
+    }
 }
 
 void Wallpaper::initPreviewStatus(){
     //设置图片背景的预览效果
     QString filename = bgsettings->get(FILENAME).toString();
-    ui->previewLabel->setPixmap(QPixmap(filename).scaled(QSize(300, 180)));
+    if (!filename.isEmpty()){
+        ui->previewLabel->setPixmap(QPixmap(filename).scaled(ui->previewLabel->size(), Qt::KeepAspectRatio));
+    }
+
+    //设置纯色背景的预览效果
+    QString color = bgsettings->get(PRIMARY).toString();
+    if (!color.isEmpty()){
+        QString widgetQss = QString("QWidget{background: %1; border-radius: 6px;}").arg(color);
+        ui->previewWidget->setStyleSheet(widgetQss);
+    }
 }
 
 void Wallpaper::component_init(){
@@ -289,7 +359,7 @@ void Wallpaper::component_init(){
 //}
 
 void Wallpaper::appendPicWpItem(QPixmap pixmap, QString filename){
-    QSize ITEM_SIZE(ITEMWIDTH, ITEMHEIGH);
+
     //
     QWidget * baseWidget = new QWidget;
     baseWidget->setAttribute(Qt::WA_DeleteOnClose);
@@ -320,11 +390,46 @@ void Wallpaper::appendPicWpItem(QPixmap pixmap, QString filename){
 
 
     QListWidgetItem * item = new QListWidgetItem(ui->listWidget);
-    item->setSizeHint(ITEM_SIZE);
+    item->setSizeHint(QSize(ITEMWIDTH, ITEMHEIGH));
     item->setData(Qt::UserRole, filename);
     ui->listWidget->setItemWidget(item, baseWidget);
 
     picWpItemMap.insert(filename, item);
+}
+
+void Wallpaper::appendColWpItem(QString color){
+    QWidget * baseWidget = new QWidget;
+    baseWidget->setAttribute(Qt::WA_DeleteOnClose);
+
+    QVBoxLayout * mainLayout = new QVBoxLayout(baseWidget);
+    mainLayout->setSpacing(0);
+    mainLayout->setMargin(0);
+
+    QHBoxLayout * baseLayout = new QHBoxLayout;
+    baseLayout->setSpacing(0);
+    baseLayout->setMargin(0);
+
+    QWidget * widget = new QWidget(baseWidget);
+    widget->setFixedSize(QSize(48, 48));
+    QString widgetQss = QString("QWidget{background: %1; border-radius: 4px;}").arg(color);
+    widget->setStyleSheet(widgetQss);
+
+    baseLayout->addWidget(widget);
+    baseLayout->addStretch();
+
+    mainLayout->addLayout(baseLayout);
+    mainLayout->addStretch();
+
+    baseWidget->setLayout(mainLayout);
+
+    QListWidgetItem * item = new QListWidgetItem(ui->colorListWidget);
+    item->setSizeHint(QSize(COLORITEMWIDTH, COLORITEMHEIGH));
+    item->setData(Qt::UserRole, color);
+    ui->colorListWidget->setItemWidget(item, baseWidget);
+
+    //设置当前ITEM
+
+
 }
 
 void Wallpaper::picWallpaperChangedSlot(QListWidgetItem * current, QListWidgetItem *previous){
@@ -340,6 +445,16 @@ void Wallpaper::picWallpaperChangedSlot(QListWidgetItem * current, QListWidgetIt
     bgsettings->set(FILENAME, QVariant(filename));
 
     initPreviewStatus();
+}
+
+void Wallpaper::colWallpaperChangedSlot(QListWidgetItem *current, QListWidgetItem *previous){
+
+    QString color = current->data(Qt::UserRole).toString();
+
+    bgsettings->set(PRIMARY, QVariant(color));
+
+    initPreviewStatus();
+
 }
 
 void Wallpaper::wpOptionsChangedSlot(QString op){

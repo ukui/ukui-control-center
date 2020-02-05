@@ -82,11 +82,15 @@ public:
     void plugin_delay_control() Q_DECL_OVERRIDE;
 
 public:
-    void initComponent();
+    void setupComponent();
     void initBgFormStatus();
+    int _getCurrentBgForm();
     void initPreviewStatus();
 
+    void showComponent(int index);
+
     void appendPicWpItem(QPixmap pixmap, QString filename);
+    void appendColWpItem(QString color);
 
 public:
     void append_item(QPixmap pixmap, QString filename);
@@ -121,6 +125,7 @@ private:
 
 public slots:
     void picWallpaperChangedSlot(QListWidgetItem * current, QListWidgetItem * previous);
+    void colWallpaperChangedSlot(QListWidgetItem * current, QListWidgetItem * previous);
     void resetDefaultWallpaperSlot();
     void wpOptionsChangedSlot(QString op);
 
