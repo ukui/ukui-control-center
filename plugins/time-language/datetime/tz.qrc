@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>zoneUtc</file>
-    </qresource>
-</RCC>
