@@ -13,4 +13,5 @@ SUBDIRS = \
           network/vpn \
           network/proxy \
           messages-task/about \
+          time-language/datetime \
 
