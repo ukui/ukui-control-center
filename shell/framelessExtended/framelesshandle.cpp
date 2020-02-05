@@ -1,0 +1,77 @@
+#include "framelesshandle.h"
+
+#include <QEvent>
+
+#include "framelesshandleprivate.h"
+#include "widgethandlerealize.h"
+
+FramelessHandle::FramelessHandle(QObject *parent) :
+    QObject(parent),
+    fpri(new FramelessHandlePrivate())
+{
+    fpri->widgetResizable = true;
+    fpri->widgetMovable = true;
+}
+
+FramelessHandle::~FramelessHandle()
+{
+    QList<QWidget *> widgets = fpri->widgethandleHash.keys();
+    for (int i = 0; i < widgets.size(); i++){
+        delete fpri->widgethandleHash.take(widgets[i]);
+    }
+    delete fpri;
+}
+
+bool FramelessHandle::eventFilter(QObject *watched, QEvent *event){
+    switch (event->type()){
+
+    case QEvent::MouseMove:
+    case QEvent::HoverMove:
+    case QEvent::MouseButtonPress:
+    case QEvent::MouseButtonRelease:
+    case QEvent::Leave:{
+        WidgetHandleRealize * widgethandleobj = fpri->widgethandleHash.value(static_cast<QWidget *>(watched));
+        if (widgethandleobj){
+            widgethandleobj->handleWidgetEvent(event);
+            return true;
+        }
+    }
+    default:
+        break;
+    }
+    return QObject::eventFilter(watched, event);
+}
+
+void FramelessHandle::activateOn(QWidget *topLevelWidget){
+    if (!fpri->widgethandleHash.contains(topLevelWidget)){
+        WidgetHandleRealize * widgethandleobj = new WidgetHandleRealize(fpri, topLevelWidget);
+        fpri->widgethandleHash.insert(topLevelWidget, widgethandleobj);
+
+        topLevelWidget->installEventFilter(this);
+    }
+}
+
+void FramelessHandle::setWidgetResizable(bool resizable){
+    fpri->widgetResizable = resizable;
+}
+
+void FramelessHandle::setWidgetMovable(bool movable){
+    fpri->widgetMovable = movable;
+}
+
+void FramelessHandle::setBorderWidget(uint width){
+    if (width > 0)
+        CursorPosCalculator::borderWidth = width;
+}
+
+bool FramelessHandle::currentWidgetResizable(){
+    return fpri->widgetResizable;
+}
+
+bool FramelessHandle::currentWidgetMovable(){
+    return fpri->widgetMovable;
+}
+
+uint FramelessHandle::currentBorderWidth(){
+    return CursorPosCalculator::borderWidth;
+}
