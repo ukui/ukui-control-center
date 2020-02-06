@@ -12,22 +12,19 @@ TARGET = $$qtLibraryTarget(autoboot)
 
 DESTDIR = ../../../pluginlibs
 
-##加载gio库和gio-unix库，用于处理desktop文件
-CONFIG        += link_pkgconfig \
-                 C++11
-PKGCONFIG     += gio-2.0 \
-                 gio-unix-2.0
-
 include(../../../env.pri)
+include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
+include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
 
 INCLUDEPATH   +=  \
                  $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
 
-LIBS          += -L$$PROJECT_COMPONENTLIBS -lcommoncomponent
-
-target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
-INSTALLS += target
+##加载gio库和gio-unix库，用于处理desktop文件
+CONFIG        += link_pkgconfig \
+                 C++11
+PKGCONFIG     += gio-2.0 \
+                 gio-unix-2.0
 
 # You can also make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.

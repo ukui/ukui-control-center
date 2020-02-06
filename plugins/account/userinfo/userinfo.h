@@ -22,20 +22,13 @@
 
 #include <QObject>
 #include <QtPlugin>
-#include "mainui/interface.h"
 
-#include <QWidget>
 #include <QToolButton>
 #include <QMenu>
 #include <QAction>
 #include <QSignalMapper>
 
-#include <QDBusInterface>
-#include <QDBusConnection>
-#include <QDBusError>
-#include <QDBusReply>
-
-#include "../../pluginsComponent/customwidget.h"
+#include "shell/interface.h"
 
 #include "qtdbus/systemdbusdispatcher.h"
 #include "qtdbus/userdispatcher.h"
@@ -45,18 +38,6 @@
 #include "changetypedialog.h"
 #include "deluserdialog.h"
 #include "createuserdialog.h"
-
-/* qt会将glib里的signals成员识别为宏，所以取消该宏
- * 后面如果用到signals时，使用Q_SIGNALS代替即可
- **/
-#ifdef signals
-#undef signals
-#endif
-
-extern "C" {
-#include <glib.h>
-#include <gio/gio.h>
-}
 
 enum {
     STANDARDUSER,
@@ -81,6 +62,9 @@ namespace Ui {
 class UserInfo;
 }
 
+class QDBusInterface;
+class SwitchButton;
+
 class UserInfo : public QObject, CommonInterface
 {
     Q_OBJECT
@@ -93,12 +77,37 @@ public:
 
     QString get_plugin_name() Q_DECL_OVERRIDE;
     int get_plugin_type() Q_DECL_OVERRIDE;
-    CustomWidget *get_plugin_ui() Q_DECL_OVERRIDE;
+    QWidget *get_plugin_ui() Q_DECL_OVERRIDE;
     void plugin_delay_control() Q_DECL_OVERRIDE;
+
+public:
+    void initComponent();
+    void initAllUserStatus();
+
+    void _acquireAllUsersInfo();
+    UserInfomation _acquireUserInfo(QString objpath);
+    QString _accountTypeIntToString(int type);
+    void _buildWidgetForItem(UserInfomation user);
+    void _resetListWidgetHeigh();
+
+    void _refreshUserInfoUI();
+
+    void showCreateUserDialog();
+    void createUser(QString username, QString pwd, QString pin, int atype, bool autologin);
+    void createUserDone(QString objpath);
+
+    void showDeleteUserDialog(QString username);
+    void deleteUser(bool removefile, QString username);
+    void deleteUserDone(QString objpath);
+
+    void showChangePwdDialog(QString username);
+    void changeUserPwd(QString pwd, QString username);
+
+    void showChangeTypeDialog(QString username);
+    void changeUserType(int atype, QString username);
 
     void get_all_users();
     UserInfomation init_user_info(QString objpath);
-    void init_root_info();
     void setup_otherusers_ui();
     void build_item_with_widget(UserInfomation user);
     void ui_component_init();
@@ -112,11 +121,22 @@ private:
 
     QString pluginName;
     int pluginType;
-    CustomWidget * pluginWidget;
+    QWidget * pluginWidget;
+
+private:
+    SwitchButton * nopwdSwitchBtn;
+    SwitchButton * autoLoginSwitchBtn;
 
     SystemDbusDispatcher * sysdispatcher;
 
+private:
     QMap<QString, UserInfomation> allUserInfoMap;
+    QMap<QString, QListWidgetItem *> otherUserItemMap;
+
+    int adminnum;
+
+    QString _newUserPwd;
+
     QMap<QString, QToolButton *> otherbtnMap;
     QMap<QString, QListWidgetItem *> otherItemMap;
 
@@ -129,7 +149,7 @@ private:
     QSize itemSize;
     QSize btnSize;
 
-    int adminnum;
+
     QString pwdcreate;
 
     QDBusInterface * sysinterface;

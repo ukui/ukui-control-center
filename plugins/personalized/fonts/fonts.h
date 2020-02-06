@@ -29,7 +29,6 @@
 #include <QGSettings/QGSettings>
 
 #include "shell/interface.h"
-#include "ComboBox/combobox.h"
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -83,7 +82,7 @@ public:
     void refresh_subpage_status();
     void get_current_fonts();
 
-    void rebuild_size_combo(ComboBox * combo, QString text);
+//    void rebuild_size_combo(ComboBox * combo, QString text);
 
 private:
     Ui::Fonts *ui;

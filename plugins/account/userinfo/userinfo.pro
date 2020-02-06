@@ -8,12 +8,18 @@ QT       += widgets dbus
 
 TEMPLATE = lib
 CONFIG += plugin
-INCLUDEPATH += ../../..
 
 TARGET = $$qtLibraryTarget(userinfo)
-DESTDIR = ../..
+DESTDIR = ../../../pluginlibs
 
-include(../../pluginsComponent/pluginsComponent.pri)
+
+include(../../../env.pri)
+include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
+include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
+
+INCLUDEPATH   +=  \
+                 $$PROJECT_COMPONENTSOURCE \
+                 $$PROJECT_ROOTDIR \
 
 LIBS          += -L/usr/lib/ -lcrypt
 
@@ -25,9 +31,6 @@ PKGCONFIG     += gio-2.0 \
 
 
 #DEFINES += QT_DEPRECATED_WARNINGS
-
-target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
-INSTALLS += target
 
 SOURCES += \
         userinfo.cpp \

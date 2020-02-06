@@ -3,7 +3,7 @@ TEMPLATE = subdirs
 CONFIG += ordered
 
 SUBDIRS = \
-    commonComponent \
+    registeredQDbus \
     plugins\
     shell \
 

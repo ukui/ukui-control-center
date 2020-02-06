@@ -22,29 +22,56 @@
 
 #include <QDebug>
 
+enum{
+    PICTURE, //图片背景
+    COLOR, //纯色背景
+    SLIDESHOW //幻灯片背景
+};
+
+#define ITEMWIDTH 182
+#define ITEMHEIGH 126
+
+#define COLORITEMWIDTH 56
+#define COLORITEMHEIGH 56
+
 Wallpaper::Wallpaper()
 {
     ui = new Ui::Wallpaper;
-    pluginWidget = new CustomWidget;
+    pluginWidget = new QWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
     pluginName = tr("background");
     pluginType = PERSONALIZED;
 
+    pluginWidget->setStyleSheet("background: #ffffff;");
+
+    ui->previewLabel->setStyleSheet("QLabel#previewLabel{border-radius: 6px;}");
+
+    ui->switchWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+
+    ui->listWidget->setStyleSheet("QListWidget#listWidget{background: #ffffff; border: none;}");
+    ui->colorListWidget->setStyleSheet("QListWidget#colorListWidget{background: #ffffff; border: none;}");
+
+    QString btnQss = QString("QPushButton{background: #E9E9E9; border-radius: 4px;}"
+                             "QPushButton:hover:!pressed{background: #3d6be5; border-radius: 4px;}"
+                             "QPushButton:hover:pressed{background: #415FC4; border-radius: 4px;}");
+    ui->browserLocalwpBtn->setStyleSheet(btnQss);
+    ui->browserOnlinewpBtn->setStyleSheet(btnQss);
+
+    ui->resetBtn->setStyleSheet("QPushButton{border: none;}");
+
     //初始化gsettings
     const QByteArray id(BACKGROUND);
     bgsettings = new QGSettings(id);
 
-    //构建xmlhandle对象，本地xml文件不存在则自动构建
+    //构建xmlhandle对象
     xmlhandleObj = new XmlHandle();
 
-    initData();
-    component_init();
+    //初始化控件
+    setupComponent();
 
-    //壁纸的控件listview
-//    setlistview();
-//    setModeldata();
+    initBgFormStatus();
 }
 
 Wallpaper::~Wallpaper()
@@ -52,13 +79,7 @@ Wallpaper::~Wallpaper()
     delete ui;
     delete bgsettings;
     delete xmlhandleObj;
-//    QMap<QString, QListWidgetItem *>::Iterator it = delItemsMap.begin();
-//    QListWidgetItem * delItem;
-//    for (; it != delItemsMap.end(); it++){
-//        delItem = (QListWidgetItem *)it.value();
-//        delete(delItem);
-//    }
-    delItemsMap.clear();
+
 }
 
 QString Wallpaper::get_plugin_name(){
@@ -69,26 +90,180 @@ int Wallpaper::get_plugin_type(){
     return pluginType;
 }
 
-CustomWidget *Wallpaper::get_plugin_ui(){
+QWidget *Wallpaper::get_plugin_ui(){
     return pluginWidget;
 }
 
 void Wallpaper::plugin_delay_control(){
 }
 
-void Wallpaper::initData(){
-    //解析本地xml填充数据
-    localwpconf = QString("%1/%2/%3").arg(QDir::homePath()).arg(".config/ukui").arg("wallpaper.xml");
-    wallpaperinfosMap = xmlhandleObj->xmlreader(localwpconf);
+void Wallpaper::setupComponent(){
+    //背景形式
+    QStringList formList;
+    formList << tr("picture") << tr("color")/* << tr("slideshow")*/ ;
+    ui->formComBox->addItems(formList);
+
+    ui->previewLabel->setScaledContents(true);
+    initPreviewStatus();
+
+    ///图片背景
+    ui->listWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->listWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->listWidget->setResizeMode(QListView::Adjust);
+    ui->listWidget->setViewMode(QListView::IconMode);
+    ui->listWidget->setMovement(QListView::Static);
+    ui->listWidget->setSpacing(0);
+    ui->listWidget->setFixedHeight(2 * ITEMHEIGH);
+
+    //使用线程构建本地壁纸文件；获取壁纸压缩QPixmap
+    pThread = new QThread;
+    pObject = new WorkerObject;
+    connect(pObject, &WorkerObject::pixmapGenerate, this, [=](QPixmap pixmap, QString filename){
+        appendPicWpItem(pixmap, filename);
+    });
+    connect(pObject, &WorkerObject::workComplete, this, [=]{
+        pThread->quit(); //退出事件循环
+        pThread->wait(); //释放资源
+    });
+
+    pObject->moveToThread(pThread);
+    connect(pThread, &QThread::started, pObject, &WorkerObject::run);
+    connect(pThread, &QThread::finished, this, [=]{
+        if (ui->formComBox->currentIndex() == PICTURE){
+            //设置当前壁纸
+            QString filename = bgsettings->get(FILENAME).toString();
+            if (picWpItemMap.contains(filename)){
+                QListWidgetItem * currentItem = picWpItemMap.value(filename);
+                ui->listWidget->blockSignals(true);
+                ui->listWidget->setCurrentItem(currentItem);
+                ui->listWidget->blockSignals(false);
+            }
+            //设置当前壁纸放置方式
+            if (wallpaperinfosMap.contains(filename)){
+                QMap<QString, QString> currentwpMap = wallpaperinfosMap.value(filename);
+                if (currentwpMap.contains("options")){
+                    QString opStr = QString::fromLocal8Bit("%1").arg(currentwpMap.value("options"));
+                    ui->picOptionsComBox->blockSignals(true);
+                    ui->picOptionsComBox->setCurrentText(tr("%1").arg(opStr));
+                    ui->picOptionsComBox->blockSignals(false);
+                }
+            }
+        }
+    });
+    connect(pThread, &QThread::finished, pObject, &WorkerObject::deleteLater);
+
+    pThread->start();
+
+    //壁纸放置方式
+    QStringList layoutList;
+    layoutList << tr("wallpaper") << tr("centered") << tr("scaled") << tr("stretched") << tr("zoom") << tr("spanned");
+    ui->picOptionsComBox->addItems(layoutList);
+
+    connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(picWallpaperChangedSlot(QListWidgetItem*,QListWidgetItem*)));
+    connect(ui->formComBox, QOverload<int>::of(&QComboBox::currentIndexChanged), [=](int index){
+        ui->substackedWidget->setCurrentIndex(index);
+        //显示/隐藏控件
+        showComponent(index);
+
+        //当前背景类型与当前背景页面不同
+        if (index != _getCurrentBgForm()){
+            if (PICTURE == index){
+                //设置图片背景
+                ui->listWidget->setCurrentItem(ui->listWidget->item(0));
+            } else if (COLOR == index){
+                //设置图片背景为空
+                bgsettings->set(FILENAME, "");
+                //设置纯色背景
+                ui->colorListWidget->setCurrentItem(ui->colorListWidget->item(0));
+            } else {
+
+            }
+        }
+    });
+    connect(ui->picOptionsComBox, SIGNAL(currentTextChanged(QString)), this, SLOT(wpOptionsChangedSlot(QString)));
+    connect(ui->resetBtn, SIGNAL(clicked(bool)), this, SLOT(resetDefaultWallpaperSlot()));
+
+    ///纯色背景
+    QStringList colors;
+
+    colors << "#2d7d9a" << "#018574" << "#107c10" << "#10893e" << "#038387" << "#486860" << "#525e54" << "#7e735f" << "#4c4a48" << "#000000";
+    colors << "#ff8c00" << "#e81123" << "#d13438" << "#c30052" << "#bf0077" << "#9a0089" << "#881798" << "#744da9" << "#8764b8" << "#e9e9e9";
+
+    ui->colorListWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->colorListWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->colorListWidget->setResizeMode(QListView::Adjust);
+    ui->colorListWidget->setViewMode(QListView::IconMode);
+    ui->colorListWidget->setMovement(QListView::Static);
+    ui->colorListWidget->setSpacing(0);
+    ui->colorListWidget->setFixedHeight(COLORITEMHEIGH * 2);
+
+    for (QString color : colors){
+        appendColWpItem(color);
+    }
+    connect(ui->colorListWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(colWallpaperChangedSlot(QListWidgetItem*,QListWidgetItem*)));
+}
+
+int Wallpaper::_getCurrentBgForm(){
+    QString filename = bgsettings->get(FILENAME).toString();
+
+    int current = 0;
+
+    //设置当前背景形式
+    if (filename == ""){
+        current = COLOR;
+    } else if (filename.endsWith("xml")){
+        current = SLIDESHOW;
+    } else {
+        current = PICTURE;
+    }
+
+    return current;
+}
+
+void Wallpaper::initBgFormStatus(){
+    //设置当前背景形式
+    ui->formComBox->setCurrentIndex(_getCurrentBgForm());
+
+}
+
+void Wallpaper::showComponent(int index){
+    if (0 == index){ //图片
+        ui->picOptionsComBox->show();
+        ui->picOptionsLabel->show();
+        ui->previewLabel->show();
+        ui->previewWidget->hide();
+    } else if (1 == index){ //纯色
+        ui->picOptionsComBox->hide();
+        ui->picOptionsLabel->hide();
+        ui->previewLabel->hide();
+        ui->previewWidget->show();
+    } else { //幻灯片
+
+    }
+}
+
+void Wallpaper::initPreviewStatus(){
+    //设置图片背景的预览效果
+    QString filename = bgsettings->get(FILENAME).toString();
+    if (!filename.isEmpty()){
+        ui->previewLabel->setPixmap(QPixmap(filename).scaled(ui->previewLabel->size(), Qt::KeepAspectRatio));
+    }
+
+    //设置纯色背景的预览效果
+    QString color = bgsettings->get(PRIMARY).toString();
+    if (!color.isEmpty()){
+        QString widgetQss = QString("QWidget{background: %1; border-radius: 6px;}").arg(color);
+        ui->previewWidget->setStyleSheet(widgetQss);
+    }
 }
 
 void Wallpaper::component_init(){
     //背景形式
     QStringList formList;
     formList << tr("picture") << tr("color")/* << tr("slideshow")*/ ;
-    ui->formComboBox->addItems(formList);
+    ui->formComBox->addItems(formList);
 
-    init_current_status();
+//    init_current_status();
 
 
     //        QSize IMAGE_SIZE(160, 120);
@@ -98,44 +273,44 @@ void Wallpaper::component_init(){
     ui->listWidget->setMovement(QListView::Static);
     ui->listWidget->setSpacing(10);
 
-    SimpleThread * thread = new SimpleThread(wallpaperinfosMap, nullptr);
-    connect(thread, &SimpleThread::widgetItemCreate, this, [=](QPixmap pixmap, QString filename){
-        append_item(pixmap, filename);
-    }, Qt::QueuedConnection);
-    connect(thread, &SimpleThread::finished, this, [=]{
-        QString filename = bgsettings->get(FILENAME).toString();
-        //当前背景形式是壁纸
-        if (ui->formComboBox->currentIndex() == 0){
-            if (delItemsMap.contains(filename)){
-                QListWidgetItem * currentItem = delItemsMap.find(filename).value();
-                QWidget * widget = ui->listWidget->itemWidget(currentItem);
-                widget->setStyleSheet("QWidget{border: 5px solid #daebff}");
-                //            ui->listWidget->setItemSelected(currentItem, true); //???
-                ui->listWidget->blockSignals(true);
-                ui->listWidget->setCurrentItem(currentItem);
-                ui->listWidget->blockSignals(false);
-            }
-            //设置当前壁纸放置方式
-            if (wallpaperinfosMap.contains(filename)){
-                QMap<QString, QString> currentwpMap = (QMap<QString, QString>) wallpaperinfosMap.find(filename).value();
-                if (currentwpMap.contains("options")){
-                    QString opStr = QString::fromLocal8Bit("%1").arg(currentwpMap.find("options").value());
-                    ui->wpoptionsComboBox->setCurrentText(tr("%1").arg(opStr));
-                }
-            }
-        }
-    });
-    connect(thread, &SimpleThread::finished, thread, &SimpleThread::deleteLater);
-    thread->start();
+//    SimpleThread * thread = new SimpleThread(wallpaperinfosMap, nullptr);
+//    connect(thread, &SimpleThread::widgetItemCreate, this, [=](QPixmap pixmap, QString filename){
+//        append_item(pixmap, filename);
+//    }, Qt::QueuedConnection);
+//    connect(thread, &SimpleThread::finished, this, [=]{
+//        QString filename = bgsettings->get(FILENAME).toString();
+//        //当前背景形式是壁纸
+//        if (ui->formComBox->currentIndex() == 0){
+//            if (delItemsMap.contains(filename)){
+//                QListWidgetItem * currentItem = delItemsMap.find(filename).value();
+//                QWidget * widget = ui->listWidget->itemWidget(currentItem);
+//                widget->setStyleSheet("QWidget{border: 5px solid #daebff}");
+//                //            ui->listWidget->setItemSelected(currentItem, true); //???
+//                ui->listWidget->blockSignals(true);
+//                ui->listWidget->setCurrentItem(currentItem);
+//                ui->listWidget->blockSignals(false);
+//            }
+//            //设置当前壁纸放置方式
+//            if (wallpaperinfosMap.contains(filename)){
+//                QMap<QString, QString> currentwpMap = (QMap<QString, QString>) wallpaperinfosMap.find(filename).value();
+//                if (currentwpMap.contains("options")){
+//                    QString opStr = QString::fromLocal8Bit("%1").arg(currentwpMap.find("options").value());
+//                    ui->picOptionsComBox->setCurrentText(tr("%1").arg(opStr));
+//                }
+//            }
+//        }
+//    });
+//    connect(thread, &SimpleThread::finished, thread, &SimpleThread::deleteLater);
+//    thread->start();
 
     //壁纸放置方式
     QStringList layoutList;
     layoutList << tr("wallpaper") << tr("centered") << tr("scaled") << tr("stretched") << tr("zoom") << tr("spanned");
-    ui->wpoptionsComboBox->addItems(layoutList);
+    ui->picOptionsComBox->addItems(layoutList);
 
 
     //纯色
-    ui->colorListWidget->setResizeMode(QListView::Adjust);
+    /*ui->colorListWidget->setResizeMode(QListView::Adjust);
     ui->colorListWidget->setViewMode(QListView::IconMode);
     ui->colorListWidget->setMovement(QListView::Static);
     ui->colorListWidget->setSpacing(10);
@@ -168,97 +343,124 @@ void Wallpaper::component_init(){
     widget->setStyleSheet(QString("background-color: %1; border: 5px solid #ac4844").arg(item->data(Qt::UserRole).toString()));
 
     connect(ui->colorListWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(colorwp_item_clicked(QListWidgetItem*,QListWidgetItem*)));
+    */
 
-
-    connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(wallpaper_item_clicked(QListWidgetItem*,QListWidgetItem*)));
-    connect(ui->formComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(form_combobox_changed(int)));
-    connect(ui->wpoptionsComboBox, SIGNAL(currentTextChanged(QString)), this, SLOT(options_combobox_changed(QString)));
-    connect(ui->resetBtn, SIGNAL(clicked(bool)), this, SLOT(reset_default_wallpaper()));
-
-    connect(ui->addPushBtn, SIGNAL(clicked(bool)), this, SLOT(add_custom_wallpaper()));
-    connect(ui->delPushBtn, SIGNAL(clicked(bool)), this, SLOT(del_wallpaper()));
+//    connect(ui->addPushBtn, SIGNAL(clicked(bool)), this, SLOT(add_custom_wallpaper()));
+//    connect(ui->delPushBtn, SIGNAL(clicked(bool)), this, SLOT(del_wallpaper()));
 
 }
 
-void Wallpaper::colorwp_item_clicked(QListWidgetItem * current, QListWidgetItem * previous){
-    QWidget * preWidget = ui->colorListWidget->itemWidget(previous);
-    preWidget->setStyleSheet(QString("background-color: %1; border: none").arg(previous->data(Qt::UserRole).toString()));
+//void Wallpaper::colorwp_item_clicked(QListWidgetItem * current, QListWidgetItem * previous){
+//    QWidget * preWidget = ui->colorListWidget->itemWidget(previous);
+//    preWidget->setStyleSheet(QString("background-color: %1; border: none").arg(previous->data(Qt::UserRole).toString()));
 
-    QWidget * curWidget = ui->colorListWidget->itemWidget(current);
-    curWidget->setStyleSheet(QString("background-color: %1; border: 5px solid #ac4844").arg(current->data(Qt::UserRole).toString()));
-}
+//    QWidget * curWidget = ui->colorListWidget->itemWidget(current);
+//    curWidget->setStyleSheet(QString("background-color: %1; border: 5px solid #ac4844").arg(current->data(Qt::UserRole).toString()));
+//}
 
-void Wallpaper::append_item(QPixmap pixmap, QString filename){
-    QSize ITEM_SIZE(165, 125);
-    //自定义item
-    QWidget * widget = new QWidget();
-    widget->setAttribute(Qt::WA_DeleteOnClose);
-    QHBoxLayout * mainLayout = new QHBoxLayout(widget);
-    mainLayout->setSpacing(0);
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+void Wallpaper::appendPicWpItem(QPixmap pixmap, QString filename){
 
-    QLabel * wpLable = new QLabel(widget);
+    //
+    QWidget * baseWidget = new QWidget;
+    baseWidget->setAttribute(Qt::WA_DeleteOnClose);
+
+    QVBoxLayout * mainVerLayout = new QVBoxLayout(baseWidget);
+    mainVerLayout->setSpacing(0);
+    mainVerLayout->setMargin(0);
+
+    QHBoxLayout * baseHorLayout = new QHBoxLayout;
+    baseHorLayout->setSpacing(0);
+    baseHorLayout->setMargin(0);
+
+    QLabel * wpLable = new QLabel(baseWidget);
+    QSizePolicy wpSizePolicy = wpLable->sizePolicy();
+    wpSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
+    wpSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
+    wpLable->setSizePolicy(wpSizePolicy);
+    wpLable->setFixedSize(pixmap.size());
     wpLable->setPixmap(pixmap);
 
-    mainLayout->addWidget(wpLable);
+    baseHorLayout->addWidget(wpLable);
+    baseHorLayout->addStretch();
 
-    widget->setLayout(mainLayout);
+    mainVerLayout->addLayout(baseHorLayout);
+    mainVerLayout->addStretch();
+
+    baseWidget->setLayout(mainVerLayout);
+
 
     QListWidgetItem * item = new QListWidgetItem(ui->listWidget);
-    item->setSizeHint(ITEM_SIZE);
+    item->setSizeHint(QSize(ITEMWIDTH, ITEMHEIGH));
     item->setData(Qt::UserRole, filename);
-    ui->listWidget->setItemWidget(item, widget);
+    ui->listWidget->setItemWidget(item, baseWidget);
 
-    delItemsMap.insert(filename, item);
+    picWpItemMap.insert(filename, item);
 }
 
-void Wallpaper::init_current_status(){
-    QString filename = bgsettings->get(FILENAME).toString();
+void Wallpaper::appendColWpItem(QString color){
+    QWidget * baseWidget = new QWidget;
+    baseWidget->setAttribute(Qt::WA_DeleteOnClose);
 
-    //设置当前背景形式
-    if (filename == ""){
-        ui->formComboBox->setCurrentIndex(1);
-        ui->substackedWidget->setCurrentIndex(1);
-        ui->addPushBtn->hide();
-        ui->delPushBtn->hide();
-    }
-    else if (filename.endsWith("xml")){
-        ui->formComboBox->setCurrentIndex(2);
-        ui->substackedWidget->setCurrentIndex(2);
-        ui->addPushBtn->hide();
-        ui->delPushBtn->hide();
-    }
-    else{
-        ui->formComboBox->setCurrentIndex(0);
-        ui->substackedWidget->setCurrentIndex(0);
-        ui->addPushBtn->show();
-        ui->delPushBtn->show();
-    }
+    QVBoxLayout * mainLayout = new QVBoxLayout(baseWidget);
+    mainLayout->setSpacing(0);
+    mainLayout->setMargin(0);
+
+    QHBoxLayout * baseLayout = new QHBoxLayout;
+    baseLayout->setSpacing(0);
+    baseLayout->setMargin(0);
+
+    QWidget * widget = new QWidget(baseWidget);
+    widget->setFixedSize(QSize(48, 48));
+    QString widgetQss = QString("QWidget{background: %1; border-radius: 4px;}").arg(color);
+    widget->setStyleSheet(widgetQss);
+
+    baseLayout->addWidget(widget);
+    baseLayout->addStretch();
+
+    mainLayout->addLayout(baseLayout);
+    mainLayout->addStretch();
+
+    baseWidget->setLayout(mainLayout);
+
+    QListWidgetItem * item = new QListWidgetItem(ui->colorListWidget);
+    item->setSizeHint(QSize(COLORITEMWIDTH, COLORITEMHEIGH));
+    item->setData(Qt::UserRole, color);
+    ui->colorListWidget->setItemWidget(item, baseWidget);
+
+    //设置当前ITEM
+
+
 }
 
-void Wallpaper::wallpaper_item_clicked(QListWidgetItem * current, QListWidgetItem *previous){
-    if (previous != nullptr){
-        QWidget * previousWidget = ui->listWidget->itemWidget(previous);
-        previousWidget->setStyleSheet("QWidget{border: none}");
-    }
+void Wallpaper::picWallpaperChangedSlot(QListWidgetItem * current, QListWidgetItem *previous){
+//    if (previous != nullptr){
+//        QWidget * previousWidget = ui->listWidget->itemWidget(previous);
+//        previousWidget->setStyleSheet("QWidget{border: none}");
+//    }
 
-    QWidget * currentWidget = ui->listWidget->itemWidget(current);
-    currentWidget->setStyleSheet("QWidget{border: 5px solid #daebff}");
+//    QWidget * currentWidget = ui->listWidget->itemWidget(current);
+//    currentWidget->setStyleSheet("QWidget{border: 5px solid #daebff}");
 
     QString filename = current->data(Qt::UserRole).toString();
     bgsettings->set(FILENAME, QVariant(filename));
-    init_current_status();
+
+    initPreviewStatus();
 }
 
-void Wallpaper::form_combobox_changed(int index){
-    ui->substackedWidget->setCurrentIndex(index);
+void Wallpaper::colWallpaperChangedSlot(QListWidgetItem *current, QListWidgetItem *previous){
+
+    QString color = current->data(Qt::UserRole).toString();
+
+    bgsettings->set(PRIMARY, QVariant(color));
+
+    initPreviewStatus();
+
 }
 
-void Wallpaper::options_combobox_changed(QString op){
+void Wallpaper::wpOptionsChangedSlot(QString op){
     //获取当前选中的壁纸
     QListWidgetItem * currentitem = ui->listWidget->currentItem();
     QString filename = currentitem->data(Qt::UserRole).toString();
-    qDebug() << filename << "----" << op;
 
     //更新xml数据
     if (wallpaperinfosMap.contains(filename)){
@@ -266,7 +468,7 @@ void Wallpaper::options_combobox_changed(QString op){
     }
 
     //将改动保存至文件
-    xmlhandleObj->xmlwriter(localwpconf, wallpaperinfosMap);
+    xmlhandleObj->xmlUpdate(wallpaperinfosMap);
 }
 
 void Wallpaper::setlistview(){
@@ -300,7 +502,7 @@ void Wallpaper::setModeldata(){
     }
 }
 
-void Wallpaper::reset_default_wallpaper(){
+void Wallpaper::resetDefaultWallpaperSlot(){
     GSettings * wpgsettings;
     wpgsettings = g_settings_new(BACKGROUND);
     GVariant * variant = g_settings_get_default_value(wpgsettings, FILENAME);
@@ -309,7 +511,8 @@ void Wallpaper::reset_default_wallpaper(){
     g_object_unref(wpgsettings);
 
     bgsettings->set(FILENAME, QVariant(QString(dwp)));
-    init_current_status();
+
+    initPreviewStatus();
 }
 
 void Wallpaper::add_custom_wallpaper(){
@@ -353,10 +556,10 @@ void Wallpaper::add_custom_wallpaper(){
         wallpaperinfosMap.insert(selectedfile, tmpinfo);
 
     }
-    xmlhandleObj->xmlwriter(localwpconf, wallpaperinfosMap);
+    xmlhandleObj->xmlUpdate(wallpaperinfosMap);
 
-    if (delItemsMap.contains(selectedfile)){
-        ui->listWidget->setCurrentItem(delItemsMap.find(selectedfile).value());
+    if (picWpItemMap.contains(selectedfile)){
+        ui->listWidget->setCurrentItem(picWpItemMap.find(selectedfile).value());
     }
 
 }
@@ -381,5 +584,5 @@ void Wallpaper::del_wallpaper(){
     }
 
 //    将改动保存至文件
-    xmlhandleObj->xmlwriter(localwpconf, wallpaperinfosMap);
+    xmlhandleObj->xmlUpdate(wallpaperinfosMap);
 }

@@ -71,7 +71,6 @@ QString UserDispatcher::make_crypted (const gchar *plain){
 QString UserDispatcher::change_user_pwd(QString pwd, QString hint){
        QByteArray ba = pwd.toLatin1();
        QString pwdencryption = make_crypted(ba.data());
-       qDebug() << pwd << hint << pwdencryption;
 
     QDBusReply<QString> reply = useriface->call("SetPassword", pwdencryption, hint);
 //    if (reply.isValid())

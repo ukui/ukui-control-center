@@ -1,3 +1,22 @@
+/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
+ *
+ * Copyright (C) 2019 Tianjin KYLIN Information Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+ *
+ */
 #include "modulepagewidget.h"
 #include "ui_modulepagewidget.h"
 
@@ -69,8 +88,10 @@ void ModulePageWidget::initUI(){
         QListWidget * leftListWidget = new QListWidget;
         leftListWidget->setAttribute(Qt::WA_DeleteOnClose);
         leftListWidget->setResizeMode(QListView::Adjust);
+        leftListWidget->setFocusPolicy(Qt::NoFocus);
+        leftListWidget->setSelectionMode(QAbstractItemView::NoSelection);
         leftListWidget->setSpacing(0);
-        connect(leftListWidget, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(leftItemClicked(QListWidgetItem*)));
+        connect(leftListWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(currentLeftitemChanged(QListWidgetItem*,QListWidgetItem*)));
         QListWidget * topListWidget = new QListWidget;
         topListWidget->setAttribute(Qt::WA_DeleteOnClose);
         topListWidget->setResizeMode(QListView::Adjust);
@@ -89,19 +110,24 @@ void ModulePageWidget::initUI(){
                 continue;
 
             //填充左侧二级菜单
-            LeftWidgetItem * leftWidgetItem = new LeftWidgetItem(this);
+            LeftWidgetItem * leftWidgetItem = new LeftWidgetItem();
+            leftWidgetItem->setAttribute(Qt::WA_DeleteOnClose);
             leftWidgetItem->setLabelText(single.namei18nString);
             leftWidgetItem->setLabelPixmap(QString("://img/secondaryleftmenu/%1.png").arg(single.nameString));
 
             QListWidgetItem * item = new QListWidgetItem(leftListWidget);
-            item->setSizeHint(QSize(120, 40)); //测试数据
+            item->setSizeHint(QSize(120, 52)); //QSize(120, 40) spacing: 12px;
             leftListWidget->setItemWidget(item, leftWidgetItem);
+
+            strItemsMap.insert(single.namei18nString, item);
 
             //填充上侧二级菜单
             QListWidgetItem * topitem = new QListWidgetItem(topListWidget);
             topitem->setSizeHint(QSize(60, 60));
             topitem->setText(single.namei18nString);
             topListWidget->addItem(topitem);
+
+            strItemsMap.insert(single.namei18nString, topitem);
 
             CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(moduleMap.value(single.namei18nString));
 
@@ -191,36 +217,38 @@ void ModulePageWidget::refreshPluginWidget(CommonInterface *plu){
 }
 
 void ModulePageWidget::highlightItem(QString text){
+    QList<QListWidgetItem *> currentItemList = strItemsMap.values(text);
+
+    if (2 > currentItemList.count())
+        return;
+
     //高亮左侧二级菜单
     QListWidget * lefttmpListWidget = dynamic_cast<QListWidget *>(ui->leftStackedWidget->currentWidget());
-    QListWidgetItem * leftItem = lefttmpListWidget->currentItem();
-    if (leftItem == nullptr ||  leftItem->text() != text ){
-        for (int i = 0; i < lefttmpListWidget->count(); i++){
-            LeftWidgetItem * widgetitem = dynamic_cast<LeftWidgetItem *>(lefttmpListWidget->itemWidget(lefttmpListWidget->item(i)));
-            if (text == (widgetitem->text())){
-                lefttmpListWidget->setCurrentRow(i);
-            }
-        }
-    }
+    lefttmpListWidget->setCurrentItem(currentItemList.at(1)); //QMultiMap 先添加的vlaue在后面
+
     //高亮上侧二级菜单
     QListWidget * toptmpListWidget = dynamic_cast<QListWidget *>(ui->topStackedWidget->currentWidget());
-    QListWidgetItem * topItem = toptmpListWidget->currentItem();
-    if (topItem == nullptr || topItem->text() != text){
-        for (int j = 0; j < toptmpListWidget->count(); j++){
-            QListWidgetItem * item = toptmpListWidget->item(j);
-            if (text == item->text())
-                toptmpListWidget->setCurrentRow(j);
-        }
-    }
+    toptmpListWidget->setCurrentItem(currentItemList.at(0)); //QMultiMap 后添加的value在前面
 }
 
-void ModulePageWidget::leftItemClicked(QListWidgetItem *item){
-    QListWidget * lefttmpListWidget = dynamic_cast<QListWidget *>(ui->leftStackedWidget->currentWidget());
-    LeftWidgetItem * widgetItem = dynamic_cast<LeftWidgetItem *>(lefttmpListWidget->itemWidget(item));
-    if (pluginInstanceMap.contains(widgetItem->text())){
-        CommonInterface * pluginInstance = pluginInstanceMap[widgetItem->text()];
+void ModulePageWidget::currentLeftitemChanged(QListWidgetItem *cur, QListWidgetItem *pre){
+    //获取当前QListWidget
+    QListWidget * currentLeftListWidget = dynamic_cast<QListWidget *>(ui->leftStackedWidget->currentWidget());
+
+
+    if (pre != nullptr){
+        LeftWidgetItem * preWidgetItem = dynamic_cast<LeftWidgetItem *>(currentLeftListWidget->itemWidget(pre));
+        //取消高亮
+        preWidgetItem->setSelected(false);
+    }
+
+    LeftWidgetItem * curWidgetItem = dynamic_cast<LeftWidgetItem *>(currentLeftListWidget->itemWidget(cur));
+    if (pluginInstanceMap.contains(curWidgetItem->text())){
+        CommonInterface * pluginInstance = pluginInstanceMap[curWidgetItem->text()];
         refreshPluginWidget(pluginInstance);
+        //高亮
+        curWidgetItem->setSelected(true);
     } else {
-        qDebug() << "plugin widget not found";
+        qDebug() << "plugin widget not fount!";
     }
 }

@@ -13,12 +13,12 @@ TARGET = $$qtLibraryTarget(screensaver)
 DESTDIR = ../../../pluginlibs
 
 include(../../../env.pri)
+include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
 
 INCLUDEPATH   +=  \
                  $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
 
-LIBS          += -L$$PROJECT_COMPONENTLIBS -lcommoncomponent
 LIBS          += -L/usr/lib/ -lgsettings-qt
 
 ##加载gio库和gio-unix库
@@ -28,9 +28,6 @@ PKGCONFIG     += gio-2.0 \
                  gio-unix-2.0
 
 #DEFINES += QT_DEPRECATED_WARNINGS
-
-target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
-INSTALLS += target
 
 SOURCES += \
         screensaver.cpp

@@ -136,6 +136,9 @@ Fonts::Fonts()
     ui->fontSelectLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
     ui->monoSelectLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
 
+
+    ui->advancedBtn->setStyleSheet("QPushButton#advancedBtn{background: #F4F4F4; border: none;}");
+
     ui->advancedWidget->setStyleSheet("QWidget#advancedWidget{background: #F4F4F4; border-radius: 4px;}");
     ui->defaultFontLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
     ui->monoFontLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
@@ -684,19 +687,19 @@ void Fonts::status_init(){
 //    });
 }
 
-void Fonts::rebuild_size_combo(ComboBox *combo, QString text){
-    combo->blockSignals(true);
-    QString oldsize = combo->currentText();
-    combo->removewidgetItems();
-    QList<int> sizeList = fontdb.pointSizes(text);
-    if (sizeList.length() == 0)
-        sizeList = defaultsizeList;
-    for (int size : sizeList)
-        combo->addwidgetItem(QString::number(size));
-    combo->setCurrentText(oldsize);
+//void Fonts::rebuild_size_combo(ComboBox *combo, QString text){
+//    combo->blockSignals(true);
+//    QString oldsize = combo->currentText();
+//    combo->removewidgetItems();
+//    QList<int> sizeList = fontdb.pointSizes(text);
+//    if (sizeList.length() == 0)
+//        sizeList = defaultsizeList;
+//    for (int size : sizeList)
+//        combo->addwidgetItem(QString::number(size));
+//    combo->setCurrentText(oldsize);
 
-    combo->blockSignals(false);
-}
+//    combo->blockSignals(false);
+//}
 
 void Fonts::setFontEffectSlot(QAbstractButton *button){
     QPushButton * btnclicked = (QPushButton *)button;
