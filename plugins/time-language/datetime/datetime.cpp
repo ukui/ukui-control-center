@@ -19,10 +19,11 @@
  */
 #include "datetime.h"
 #include "ui_datetime.h"
-#include "SwitchButton/switchbutton.h"
 #include <QHBoxLayout>
-
 #include <QDebug>
+#include <QMovie>
+#include <QGSettings/QGSettings>
+
 
 DateTime::DateTime()
 {
@@ -35,12 +36,21 @@ DateTime::DateTime()
     pluginName = tr("datetime");
     pluginType = DATETIME;
 
+    qDebug()<<"进入时间日期UI------------------》"<<endl;
+
+
     itimer = new QTimer();
     itimer->start(1000);
     connect(itimer,SIGNAL(timeout()), this, SLOT(datetime_update_slot()));
 
     formTimeBtn = new SwitchButton;
     formTimeLabel = new QLabel(tr("24-hour clock"));
+
+
+    //初始化gsettings
+    const QByteArray id(FORMAT_SCHEMA);
+
+    formatsettings = new QGSettings(id);
 
 
     //初始化dbus
@@ -58,12 +68,17 @@ DateTime::DateTime()
     status_init();
 
     connect(ui->chgtimebtn,SIGNAL(clicked()),this,SLOT(changetime_slot()));
+    connect(formTimeBtn, SIGNAL(checkedChanged(bool)),this,SLOT(time_format_clicked_slot(bool)));
+    connect(ui->synsystimeBtn,SIGNAL(clicked()),this,SLOT(rsync_with_network_slot()));
 
 }
 
 DateTime::~DateTime()
 {
     delete ui;
+    delete formatsettings;
+    delete datetimeiface;
+    delete datetimeiproperties;
 }
 
 QString DateTime::get_plugin_name(){
@@ -101,10 +116,15 @@ void DateTime::component_init(){
     ui->chgzonebtn->setText(tr("Change time zone"));
 
 
-
     ui->chgLayout->setSpacing(16);
 
     ui->hourWidget->setStyleSheet("background-color:#E5E7E9;border-radius:6px");
+
+    ui->syslabel->setStyleSheet("QLabel#syslabel{background: #3D6BE5;border-radius:4px;}");
+    ui->syslabel->setVisible(false);
+
+    ui->endlabel->setStyleSheet("QLabel#endlabel{background: #3D6BE5;border-radius:4px;}");
+    ui->endlabel->setVisible(false);
 
     QHBoxLayout *hourLayout = new QHBoxLayout(ui->hourWidget);
 
@@ -118,6 +138,13 @@ void DateTime::component_init(){
     QDateTime currentime = QDateTime::currentDateTime();
     QString timeAndWeek = currentime.toString("yyyy/MM/dd ddd");
     ui->dateLabel->setText(timeAndWeek);
+
+
+    //因为ntpd和systemd的网络时间同步会有冲突，所以安装了ntp的话，禁止使用控制面板设置网络时间同步
+    QFileInfo fileinfo("/usr/sbin/ntpd");
+    if (fileinfo.exists()){
+        ui->synsystimeBtn->setVisible(false);
+    }
 
     QFile tzfile("://zoneUtc");
     if(!tzfile.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -155,6 +182,9 @@ void DateTime::status_init(){
         QMap<QString, int>::iterator defaultit =  tzindexMapEn.find(DEFAULT_TZ);
         ui->timezoneLabel->setText(defaultit.key());
     }
+
+    bool use = formatsettings->get(TIME_FORMAT_KEY).toBool();
+    formTimeBtn->setChecked(use);
 }
 
 
@@ -180,8 +210,45 @@ void DateTime::changetime_slot(){
     dialog->setWindowTitle(tr("change time"));
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->exec();
+}
+
+void DateTime::time_format_clicked_slot(bool flag){
+    if (flag)
+        formatsettings->set(TIME_FORMAT_KEY, true);
+    else
+        formatsettings->set(TIME_FORMAT_KEY, false);
+
+    //重置时间格式
+    itimer->stop();
+    itimer->start(1000);
+}
+
+void DateTime::showendLabel(){
+    ui->syslabel->setVisible(false);
+    if(ui->syslabel->isVisible()){
+        ui->endlabel->setVisible(false);
+    }else {
+        ui->endlabel->setVisible(true);
+    }
+    QTimer::singleShot(2*1000,this,SLOT(hidendLabel()));
+}
+
+void DateTime::hidendLabel(){
+    ui->endlabel->setVisible(false);
+}
+
+void DateTime::rsync_with_network_slot(){
+    qDebug()<<"TODO------> sleep waies?"<<endl;
+    datetimeiface->call("SetNTP", true, true);
 
 
+    QMovie *loadgif = new QMovie(":/sys.gif");
+    loadgif->start();
+    ui->syslabel->setVisible(true);
+    ui->syslabel->setMovie(loadgif);
+    ui->syslabel->setScaledContents(true);
+    ui->syslabel->setStyleSheet("QLabel#syslabel{border-radius:4px;}");
 
+    QTimer::singleShot(2*1000,this,SLOT(showendLabel()));
 }
 

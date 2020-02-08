@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += widgets dbus
+QT       += widgets dbus x11extras
 
 TEMPLATE = lib
 CONFIG += plugin
@@ -14,13 +14,15 @@ DESTDIR = ../../../pluginlibs
 
 
 include(../../../env.pri)
+include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
 
 
 INCLUDEPATH   +=  \
                  $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
+                 /usr/include/ukuisdk \
 
-LIBS          += -L$$PROJECT_COMPONENTLIBS -lcommoncomponent
+
 LIBS += -L/usr/lib/ -lgsettings-qt
 
 ##加载gio库和gio-unix库，用于处理时间

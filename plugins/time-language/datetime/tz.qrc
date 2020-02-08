@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>zoneUtc</file>
+        <file>sys.gif</file>
     </qresource>
 </RCC>

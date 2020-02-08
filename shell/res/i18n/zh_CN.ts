@@ -101,6 +101,24 @@
     </message>
 </context>
 <context>
+    <name>Area</name>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.ui" line="26"/>
+        <source>Area</source>
+        <translation>语言和地区</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.ui" line="38"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="32"/>
+        <source>area</source>
+        <translation>语言和地区</translation>
+    </message>
+</context>
+<context>
     <name>AutoBoot</name>
     <message>
         <location filename="../../../plugins/system/autoboot/autoboot.ui" line="53"/>
@@ -211,22 +229,22 @@ the integrity of your system.</source>
     <message>
         <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="111"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">选择</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="112"/>
         <source>Position: </source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">位置： </translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="113"/>
         <source>FileName: </source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">文件名： </translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="114"/>
         <source>FileType: </source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">文件类型： </translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="115"/>
@@ -320,6 +338,35 @@ the integrity of your system.</source>
         <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="461"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ChangtimeDialog</name>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="100"/>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="108"/>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="114"/>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="117"/>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="152"/>
+        <source>day</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="143"/>
+        <source>time</source>
+        <translation type="unfinished">时间</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="146"/>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="177"/>
+        <source>year</source>
+        <translation type="unfinished">年份</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="149"/>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="180"/>
+        <source>month</source>
+        <translation type="unfinished">月份</translation>
     </message>
 </context>
 <context>
@@ -472,6 +519,69 @@ change system settings</source>
         <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="235"/>
         <source>The user name corresponds to the group already exists,please use a different user name!</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DateTime</name>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="26"/>
+        <source>DateTime</source>
+        <translation type="unfinished">时间和日期</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="52"/>
+        <source>current date</source>
+        <translation>时间和日期</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="82"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="107"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="268"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="137"/>
+        <source>ee</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="172"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="107"/>
+        <source>Sync system time</source>
+        <translation>同步系统时间</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="191"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="112"/>
+        <source>Change time</source>
+        <translation>手动更改时间</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="210"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="116"/>
+        <source>Change time zone</source>
+        <translation>更改时区</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="287"/>
+        <source>Sync complete</source>
+        <translation>同步完成</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="36"/>
+        <source>datetime</source>
+        <translation>时间和日期</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="47"/>
+        <source>24-hour clock</source>
+        <translation>24小时制</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="210"/>
+        <source>change time</source>
+        <translation>更改时间</translation>
     </message>
 </context>
 <context>
@@ -1574,6 +1684,49 @@ folder will be deleted!</source>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="531"/>
         <source>Cancel</source>
         <translation>取消</translation>
+    </message>
+</context>
+<context>
+    <name>changtimedialog</name>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.ui" line="32"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.ui" line="58"/>
+        <source>current date</source>
+        <translation>时间和日期</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.ui" line="118"/>
+        <source>time</source>
+        <translation>时间</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.ui" line="227"/>
+        <source>year</source>
+        <translation>年份</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.ui" line="298"/>
+        <source>month</source>
+        <translation>月份</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.ui" line="369"/>
+        <source>dat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.ui" line="468"/>
+        <source>cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.ui" line="487"/>
+        <source>confirm</source>
+        <translation>确认</translation>
     </message>
 </context>
 </TS>
