@@ -35,6 +35,7 @@
 
 #include <QDBusInterface>
 #include <QDBusConnection>
+#include <QDBusError>
 #include <QDBusReply>
 #include <QFileInfo>
 #include <QFile>
@@ -91,6 +92,9 @@ private:
     int pluginType;
     QWidget * pluginWidget;
 
+    QGSettings * formatsettings=nullptr;
+
+
     QDBusInterface *datetimeiface = nullptr;
     QDBusInterface *datetimeiproperties = nullptr;
 
@@ -102,11 +106,17 @@ private:
     QLabel *formTimeLabel = nullptr;
     QTimer * itimer = nullptr;
 
-
+Q_SIGNALS:
+    void changed();
 
 private slots:
     void datetime_update_slot();
     void changetime_slot();
+    void time_format_clicked_slot(bool);
+    void rsync_with_network_slot();
+    void showendLabel();
+    void hidendLabel();
+
 
 };
 
