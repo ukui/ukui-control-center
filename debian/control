@@ -10,6 +10,7 @@ Build-Depends: debhelper (>= 11),
                libdbus-glib-1-dev,
                libdefaultprograms-dev,
                libkeyboardclient-dev,
+               libinterfaceclient-dev,
                libqt5x11extras5-dev,
                libxklavier-dev
 Standards-Version: 4.4.1
