@@ -17,4 +17,5 @@ SUBDIRS = \
           security-updates/backup \
           messages-task/about \
           time-language/datetime \
+          time-language/area \
 

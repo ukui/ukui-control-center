@@ -24,6 +24,8 @@
 #include <QMovie>
 #include <QGSettings/QGSettings>
 
+//#include "timezone_dialog/timezone.h"
+
 
 DateTime::DateTime()
 {
@@ -39,27 +41,28 @@ DateTime::DateTime()
     qDebug()<<"进入时间日期UI------------------》"<<endl;
 
 
-    itimer = new QTimer();
-    itimer->start(1000);
-    connect(itimer,SIGNAL(timeout()), this, SLOT(datetime_update_slot()));
+//    m_timezone = new TimeZoneChooser;
+    m_itimer = new QTimer();
+    m_itimer->start(1000);
+    connect(m_itimer,SIGNAL(timeout()), this, SLOT(datetime_update_slot()));
 
-    formTimeBtn = new SwitchButton;
-    formTimeLabel = new QLabel(tr("24-hour clock"));
+    m_formTimeBtn = new SwitchButton;
+    m_formTimeLabel = new QLabel(tr("24-hour clock"));
 
 
     //初始化gsettings
     const QByteArray id(FORMAT_SCHEMA);
 
-    formatsettings = new QGSettings(id);
+    m_formatsettings = new QGSettings(id);
 
 
     //初始化dbus
-    datetimeiface = new QDBusInterface("org.freedesktop.timedate1",
+    m_datetimeiface = new QDBusInterface("org.freedesktop.timedate1",
                                        "/org/freedesktop/timedate1",
                                        "org.freedesktop.timedate1",
                                        QDBusConnection::systemBus());
 
-    datetimeiproperties = new QDBusInterface("org.freedesktop.timedate1",
+    m_datetimeiproperties = new QDBusInterface("org.freedesktop.timedate1",
                                              "/org/freedesktop/timedate1",
                                              "org.freedesktop.DBus.Properties",
                                              QDBusConnection::systemBus());
@@ -68,7 +71,12 @@ DateTime::DateTime()
     status_init();
 
     connect(ui->chgtimebtn,SIGNAL(clicked()),this,SLOT(changetime_slot()));
-    connect(formTimeBtn, SIGNAL(checkedChanged(bool)),this,SLOT(time_format_clicked_slot(bool)));
+    connect(ui->chgzonebtn,SIGNAL(clicked()),this,SLOT(changezone_slot()));
+    connect(m_formTimeBtn, SIGNAL(checkedChanged(bool)),this,SLOT(time_format_clicked_slot(bool)));
+//    connect(m_timezone, &TimeZoneChooser::confirmed, this, [this] (const QString &timezone) {
+//        changezone_slot(timezone);
+//        m_timezone->hide();
+//    });
     connect(ui->synsystimeBtn,SIGNAL(clicked()),this,SLOT(rsync_with_network_slot()));
 
 }
@@ -76,9 +84,9 @@ DateTime::DateTime()
 DateTime::~DateTime()
 {
     delete ui;
-    delete formatsettings;
-    delete datetimeiface;
-    delete datetimeiproperties;
+    delete m_formatsettings;
+    delete m_datetimeiface;
+    delete m_datetimeiproperties;
 }
 
 QString DateTime::get_plugin_name(){
@@ -128,8 +136,8 @@ void DateTime::component_init(){
 
     QHBoxLayout *hourLayout = new QHBoxLayout(ui->hourWidget);
 
-    hourLayout->addWidget(formTimeLabel);
-    hourLayout->addWidget(formTimeBtn);
+    hourLayout->addWidget(m_formTimeLabel);
+    hourLayout->addWidget(m_formTimeBtn);
 
 
     //ui->hourwidget->addWidget(formTimeLabel);
@@ -167,7 +175,7 @@ void DateTime::component_init(){
 void DateTime::status_init(){    
 
     //时区
-    QDBusReply<QVariant> tz = datetimeiface->call("Get", "org.freedesktop.timedate1", "Timezone");
+    QDBusReply<QVariant> tz = m_datetimeiface->call("Get", "org.freedesktop.timedate1", "Timezone");
     QMap<QString, int>::iterator it = tzindexMapEn.find(tz.value().toString());
     qDebug()<<"TODO-------》"<<tz.value().toString()<<endl;
     if(it != tzindexMapEn.end()){
@@ -183,10 +191,9 @@ void DateTime::status_init(){
         ui->timezoneLabel->setText(defaultit.key());
     }
 
-    bool use = formatsettings->get(TIME_FORMAT_KEY).toBool();
-    formTimeBtn->setChecked(use);
+    bool use = m_formatsettings->get(TIME_FORMAT_KEY).toBool();
+    m_formTimeBtn->setChecked(use);
 }
-
 
 
 void DateTime::datetime_update_slot(){
@@ -205,22 +212,31 @@ void DateTime::datetime_update_slot(){
 
 void DateTime::changetime_slot(){
     ChangtimeDialog *dialog = new ChangtimeDialog;
-
-
     dialog->setWindowTitle(tr("change time"));
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->exec();
 }
 
+
+//void DateTime::changezone_slot(){
+//    qDebug()<<"changezone_slot------->"<<endl;
+//    m_timezone->show();
+//    m_timezone->setMarkedTimeZone(installer::GetCurrentTimezone());
+//}
+
+//void DateTime::changezone_slot(QString zone){
+//    m_datetimeiface->call("SetTimezone", zone, true);
+//}
+
 void DateTime::time_format_clicked_slot(bool flag){
     if (flag)
-        formatsettings->set(TIME_FORMAT_KEY, true);
+        m_formatsettings->set(TIME_FORMAT_KEY, true);
     else
-        formatsettings->set(TIME_FORMAT_KEY, false);
+        m_formatsettings->set(TIME_FORMAT_KEY, false);
 
     //重置时间格式
-    itimer->stop();
-    itimer->start(1000);
+    m_itimer->stop();
+    m_itimer->start(1000);
 }
 
 void DateTime::showendLabel(){
@@ -239,7 +255,7 @@ void DateTime::hidendLabel(){
 
 void DateTime::rsync_with_network_slot(){
     qDebug()<<"TODO------> sleep waies?"<<endl;
-    datetimeiface->call("SetNTP", true, true);
+    m_datetimeiface->call("SetNTP", true, true);
 
 
     QMovie *loadgif = new QMovie(":/sys.gif");

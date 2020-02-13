@@ -17,16 +17,17 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef CHANGTIME_H
-#define CHANGTIME_H
+#ifndef AREA_H
+#define AREA_H
 
-#include <QDialog>
 #include <QWidget>
-#include <QTimer>
-#include <QDateTime>
-#include <QGSettings/QGSettings>
+#include <QObject>
+#include <QtPlugin>
+
+#include "shell/interface.h"
+
+#include <QProcess>
 #include <QDBusInterface>
-#include <QDBusConnection>
 #include <QDBusReply>
 
 
@@ -42,39 +43,45 @@ extern "C" {
 #include <gio/gio.h>
 }
 
-#define FORMAT_SCHEMA "org.ukui.panel.indicator.calendar"
-#define TIME_FORMAT_KEY "use-24h-format"
 
 namespace Ui {
-class changtimedialog;
+class Area;
 }
 
-class ChangtimeDialog : public QDialog
+class Area : public QObject, CommonInterface
 {
     Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.kycc.CommonInterface")
+    Q_INTERFACES(CommonInterface)
 
 public:
-    explicit ChangtimeDialog(QWidget *parent = nullptr);
-    ~ChangtimeDialog();
+    Area();
+    ~Area();
 
-    void initUi();
-    void initStatus();
-    void hourComboxSetup();
-    void ymdComboxSetup();
+    QString get_plugin_name() Q_DECL_OVERRIDE;
+    int get_plugin_type() Q_DECL_OVERRIDE;
+    QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
+    void plugin_delay_control() Q_DECL_OVERRIDE;
 
 private:
-    QTimer *m_chtimer = nullptr;
-    Ui::changtimedialog *ui;
+    Ui::Area *ui;
 
-    QGSettings * m_formatsettings = nullptr;
-    QDBusInterface *m_datetimeInterface = nullptr;
+    QString pluginName;
+    int pluginType;
+    QWidget * pluginWidget;
+
+    QString objpath;
+
+    QDBusInterface *m_areaInterface;
+
+
+private:
+    void initUI();
 
 private slots:
-    void datetimeUpdateSlot();
-    void dayUpdateSlot();
-    void changtimeApplySlot();
-
-
+    void run_external_app_slot();
+    void change_language_slot(int);
+    void change_area_slot(int);
 };
 
-#endif // CHANGTIME_H
+#endif // AREA_H
