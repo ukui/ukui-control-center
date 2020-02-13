@@ -31,6 +31,19 @@
 
 #include <QDebug>
 
+/* qt会将glib里的signals成员识别为宏，所以取消该宏
+ * 后面如果用到signals时，使用Q_SIGNALS代替即可
+ **/
+#ifdef signals
+#undef signals
+#endif
+
+extern "C" {
+#include <glib.h>
+#include <gio/gio.h>
+}
+
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -190,6 +203,10 @@ void MainWindow::loadPlugins(){
     foreach (QString fileName, pluginsDir.entryList(QDir::Files)){
 //        if (!functionFilter(fileName)) //插件过滤，未安装则跳过
 //            continue;
+        //org.ukui.panel.indicators.gschema.xml不存在跳过
+        char * cfile = "/usr/share/glib-2.0/schemas/org.ukui.panel.indicators.gschema.xml";
+        if (!g_file_test(cfile, G_FILE_TEST_EXISTS) && fileName == "libdatetime.so")
+            continue;
 
         QPluginLoader loader(pluginsDir.absoluteFilePath(fileName));
         QObject * plugin = loader.instance();
