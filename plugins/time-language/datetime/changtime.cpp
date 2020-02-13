@@ -34,9 +34,9 @@ ChangtimeDialog::ChangtimeDialog(QWidget *parent) :
     ui->setupUi(this);
 
     const QByteArray id(FORMAT_SCHEMA);
-    formatsettings = new QGSettings(id);
+    m_formatsettings = new QGSettings(id);
 
-    datetimeInterface = new QDBusInterface("org.freedesktop.timedate1",
+    m_datetimeInterface = new QDBusInterface("org.freedesktop.timedate1",
                                        "/org/freedesktop/timedate1",
                                        "org.freedesktop.timedate1",
                                        QDBusConnection::systemBus());
@@ -44,9 +44,9 @@ ChangtimeDialog::ChangtimeDialog(QWidget *parent) :
     initUi();
     initStatus();
 
-    chtimer = new QTimer();
-    chtimer->start(1000);
-    connect(chtimer, SIGNAL(timeout()), this, SLOT(datetimeUpdateSlot()));
+    m_chtimer = new QTimer();
+    m_chtimer->start(1000);
+    connect(m_chtimer, SIGNAL(timeout()), this, SLOT(datetimeUpdateSlot()));
 
 
     connect(ui->monthcomboBox,SIGNAL(currentIndexChanged(int)),this,SLOT(dayUpdateSlot()));
@@ -134,7 +134,7 @@ void ChangtimeDialog::changtimeApplySlot(){
     qDebug()<<"tmp time-->"<<setdt<<endl;
 
 
-    datetimeInterface->call("SetTime", QVariant::fromValue(setdt.toSecsSinceEpoch() * G_TIME_SPAN_SECOND), false, true);
+    m_datetimeInterface->call("SetTime", QVariant::fromValue(setdt.toSecsSinceEpoch() * G_TIME_SPAN_SECOND), false, true);
 }
 
 void ChangtimeDialog::initUi(){
@@ -186,7 +186,7 @@ void ChangtimeDialog::hourComboxSetup(){
     ui->hourcomboBox->clear();
 
     //获取时间制式，设置时间combobox
-    bool use = formatsettings->get(TIME_FORMAT_KEY).toBool();
+    bool use = m_formatsettings->get(TIME_FORMAT_KEY).toBool();
     if (use){
         for (int h = 0; h < 24; h++)
             ui->hourcomboBox->addItem(QString::number(h));
@@ -221,5 +221,7 @@ void ChangtimeDialog::initStatus(){
 
     ui->hourcomboBox->setCurrentIndex(currenthourStr.toInt());
     ui->mincomboBox->setCurrentIndex(currentminStr.toInt());
+
+
 
 }

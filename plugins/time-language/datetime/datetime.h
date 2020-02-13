@@ -43,6 +43,7 @@
 #include <QTimer>
 
 
+//#include "timezone_dialog/timezonechooser.h"
 #include "SwitchButton/switchbutton.h"
 
 
@@ -92,19 +93,21 @@ private:
     int pluginType;
     QWidget * pluginWidget;
 
-    QGSettings * formatsettings=nullptr;
+    QGSettings * m_formatsettings=nullptr;
 
 
-    QDBusInterface *datetimeiface = nullptr;
-    QDBusInterface *datetimeiproperties = nullptr;
+    QDBusInterface *m_datetimeiface = nullptr;
+    QDBusInterface *m_datetimeiproperties = nullptr;
 
     QMap<QString, int> tzindexMapEn;
     QMap<QString, int> tzindexMapCN;
 
 
-    SwitchButton *formTimeBtn = nullptr;
-    QLabel *formTimeLabel = nullptr;
-    QTimer * itimer = nullptr;
+    SwitchButton *m_formTimeBtn = nullptr;
+    QLabel *m_formTimeLabel = nullptr;
+    QTimer * m_itimer = nullptr;
+
+//    TimeZoneChooser *m_timezone;
 
 Q_SIGNALS:
     void changed();
@@ -112,6 +115,8 @@ Q_SIGNALS:
 private slots:
     void datetime_update_slot();
     void changetime_slot();
+//    void changezone_slot();
+//    void changezone_slot(QString );
     void time_format_clicked_slot(bool);
     void rsync_with_network_slot();
     void showendLabel();
