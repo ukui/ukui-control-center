@@ -108,14 +108,107 @@
         <translation>语言和地区</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.ui" line="38"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="49"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="106"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="170"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="224"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="231"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="254"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="261"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="284"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="291"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="314"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="321"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="392"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="461"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="570"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="32"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="350"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="34"/>
         <source>area</source>
         <translation>语言和地区</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="83"/>
+        <source>current area</source>
+        <translation>当前区域</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="85"/>
+        <source>display format area</source>
+        <translation>显示日期、时间、货币格式的区域</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="89"/>
+        <source>US</source>
+        <translation>美国</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="92"/>
+        <source>format of area</source>
+        <translation>区域格式数据</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="93"/>
+        <source>calendar</source>
+        <translation>日历</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="94"/>
+        <source>first day of week</source>
+        <translation>一周的第一天</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="95"/>
+        <source>date</source>
+        <translation>日期</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="96"/>
+        <source>time</source>
+        <translation>时间</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="101"/>
+        <source>change format of data</source>
+        <translation>更改数据格式</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="105"/>
+        <source>first language</source>
+        <translation>首选语言</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="107"/>
+        <source>system language</source>
+        <translation>系统，菜单的显示语言</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="90"/>
+        <source>CN</source>
+        <translation>中国</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="112"/>
+        <source>English</source>
+        <translation>英语</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="113"/>
+        <source>Chinese</source>
+        <translation>简体中文</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="116"/>
+        <source>add main language</source>
+        <translation>添加首语言</translation>
     </message>
 </context>
 <context>
@@ -1432,17 +1525,17 @@ folder will be deleted!</source>
 <context>
     <name>UserInfo</name>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="529"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="530"/>
         <source>change pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="530"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="531"/>
         <source>change face</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="531"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="532"/>
         <source>change accounttype</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1480,17 +1573,17 @@ folder will be deleted!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="476"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="477"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="532"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="533"/>
         <source>delete user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="572"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="573"/>
         <source>add new user</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1501,13 +1594,13 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="234"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="458"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="459"/>
         <source>Change pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="270"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="452"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="453"/>
         <source>Change type</source>
         <translation type="unfinished"></translation>
     </message>

@@ -1,27 +1,17 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2019-06-29T15:08:41
+# Project created by QtCreator 2019-06-29T15:14:42
 #
 #-------------------------------------------------
 
-QT       += widgets dbus x11extras
+QT       += widgets dbus
 
 TEMPLATE = lib
 CONFIG += plugin
+INCLUDEPATH += ../../..
 
-TARGET = $$qtLibraryTarget(datetime)
+TARGET = $$qtLibraryTarget(area)
 DESTDIR = ../../../pluginlibs
-
-
-include(../../../env.pri)
-include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
-
-
-INCLUDEPATH   +=  \
-                 $$PROJECT_COMPONENTSOURCE \
-                 $$PROJECT_ROOTDIR \
-                 /usr/include/ukuisdk \
-
 
 LIBS += -L/usr/lib/ -lgsettings-qt
 
@@ -31,24 +21,18 @@ CONFIG        += link_pkgconfig \
 PKGCONFIG     += gio-2.0 \
                  gio-unix-2.0
 
+
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
 INSTALLS += target
 
+
 SOURCES += \
-        datetime.cpp \
-    changtime.cpp \
+        area.cpp
 
 HEADERS += \
-        datetime.h \
-    changtime.h \
+        area.h
 
 FORMS += \
-        datetime.ui \
-    changtime.ui
-
-RESOURCES += \
-    tz.qrc
-
-DISTFILES +=
+        area.ui
