@@ -23,6 +23,13 @@ Vcs-Git: https://github.com/ukui/ukui-control-center.git
 
 Package: ukui-control-center
 Architecture: any
+Suggests: ukui-interface,
+          gsettings-desktop-schemas,
+          mate-desktop-common,
+          libmatekbd-common,
+          ukui-power-manager-common,
+          ukui-session-manager,
+          ukui-screensaver
 Depends: ${shlibs:Depends},
          ${misc:Depends}
 Description: utilities to configure the UKUI desktop

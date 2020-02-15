@@ -21,7 +21,7 @@ include(../../../env.pri)
 
 INCLUDEPATH   +=  \
                  $$PROJECT_ROOTDIR \
-                 /usr/include/ukuisdk
+                 /usr/include/kylinsdk
 
 LIBS          += -L/usr/lib/ -ldefaultprograms \
 
