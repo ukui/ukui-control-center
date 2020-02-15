@@ -201,11 +201,53 @@ void MainWindow::loadPlugins(){
 
 
     foreach (QString fileName, pluginsDir.entryList(QDir::Files)){
-//        if (!functionFilter(fileName)) //插件过滤，未安装则跳过
-//            continue;
-        //org.ukui.panel.indicators.gschema.xml不存在跳过
-        char * cfile = "/usr/share/glib-2.0/schemas/org.ukui.panel.indicators.gschema.xml";
-        if (!g_file_test(cfile, G_FILE_TEST_EXISTS) && fileName == "libdatetime.so")
+        qDebug() << "Scan Plugin: " << fileName;
+        //ukui-indicators(org.ukui.panel.indicators.gschema.xml)
+        char * indicatorFile = "/usr/share/glib-2.0/schemas/org.ukui.panel.indicators.gschema.xml";
+        //gsettings-desktop-schemas
+        char * proxyFile = "/usr/share/glib-2.0/schemas/org.gnome.system.proxy.gschema.xml";
+        char * gnomedesktopFile = "/usr/share/glib-2.0/schemas/org.gnome.desktop.wm.preferences.gschema.xml";
+        //mate-desktop-common
+        char * interfaceFile = "/usr/share/glib-2.0/schemas/org.mate.interface.gschema.xml";
+        //peony-common
+        char * peonyFile = "/usr/share/glib-2.0/schemas/org.ukui.peony.gschema.xml";
+        //libmatekbd-common
+        char * kbdFile = "/usr/share/glib-2.0/schemas/org.mate.peripherals-keyboard-xkb.gschema.xml";
+        //ukui-power-manager-common
+        char * powerFile = "/usr/share/glib-2.0/schemas/org.ukui.power-manager.gschema.xml";
+        //ukui-session-manager
+        char * sessionFile = "/usr/share/glib-2.0/schemas/org.ukui.session.gschema.xml";
+        //ukui-screensaver
+        char * screensaverFile = "/usr/share/glib-2.0/schemas/org.ukui.screensaver.gschema.xml";
+
+        //时间和日期功能依赖ukui-indicators
+        if (!g_file_test(indicatorFile, G_FILE_TEST_EXISTS) && fileName == "libdatetime.so")
+            continue;
+        //代理功能依赖gsettings-desktop-schemas
+        if (!g_file_test(proxyFile, G_FILE_TEST_EXISTS) && fileName == "libproxy.so")
+            continue;
+        //字体功能依赖gsettings-desktop-schemas,mate-desktop-common,peony-common
+        if ((!g_file_test(interfaceFile, G_FILE_TEST_EXISTS) ||
+                !g_file_test(gnomedesktopFile, G_FILE_TEST_EXISTS) ||
+                !g_file_test(peonyFile, G_FILE_TEST_EXISTS)) && fileName == "libfonts.so")
+            continue;
+        //键盘功能的键盘布局依赖libmatekbd-common
+        if (!g_file_test(kbdFile, G_FILE_TEST_EXISTS) && fileName == "libkeyboard.so")
+            continue;
+        //电源功能依赖ukui-power-manager-common
+        if (!g_file_test(powerFile, G_FILE_TEST_EXISTS) && fileName == "libpower.so")
+            continue;
+        //屏保功能依赖ukui-session-manager
+        if ((!g_file_test(screensaverFile, G_FILE_TEST_EXISTS) ||
+                !g_file_test(sessionFile, G_FILE_TEST_EXISTS)) &&
+                fileName == "libscreensaver.so")
+            continue;
+        //桌面功能依赖peony-common
+        if (!g_file_test(peonyFile, G_FILE_TEST_EXISTS) && fileName == "libdesktop.so")
+            continue;
+        //主题功能依赖gsettings-desktop-schemas,mate-desktop-common
+        if ((!g_file_test(interfaceFile, G_FILE_TEST_EXISTS) ||
+                !g_file_test(gnomedesktopFile, G_FILE_TEST_EXISTS)) && fileName == "libfonts.so")
             continue;
 
         QPluginLoader loader(pluginsDir.absoluteFilePath(fileName));

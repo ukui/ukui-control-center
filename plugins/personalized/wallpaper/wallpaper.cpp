@@ -221,9 +221,12 @@ int Wallpaper::_getCurrentBgForm(){
 }
 
 void Wallpaper::initBgFormStatus(){
+    int currentIndex = _getCurrentBgForm();
     //设置当前背景形式
-    ui->formComBox->setCurrentIndex(_getCurrentBgForm());
+    ui->formComBox->setCurrentIndex(currentIndex);
 
+    //根据背景形式选择显示组件
+    showComponent(currentIndex);
 }
 
 void Wallpaper::showComponent(int index){
@@ -349,14 +352,6 @@ void Wallpaper::component_init(){
 //    connect(ui->delPushBtn, SIGNAL(clicked(bool)), this, SLOT(del_wallpaper()));
 
 }
-
-//void Wallpaper::colorwp_item_clicked(QListWidgetItem * current, QListWidgetItem * previous){
-//    QWidget * preWidget = ui->colorListWidget->itemWidget(previous);
-//    preWidget->setStyleSheet(QString("background-color: %1; border: none").arg(previous->data(Qt::UserRole).toString()));
-
-//    QWidget * curWidget = ui->colorListWidget->itemWidget(current);
-//    curWidget->setStyleSheet(QString("background-color: %1; border: 5px solid #ac4844").arg(current->data(Qt::UserRole).toString()));
-//}
 
 void Wallpaper::appendPicWpItem(QPixmap pixmap, QString filename){
 
@@ -538,7 +533,7 @@ void Wallpaper::add_custom_wallpaper(){
 
     QSize IMAGE_SIZE(160, 120);
     QPixmap pixmap = QPixmap(selectedfile).scaled(IMAGE_SIZE);
-    append_item(pixmap, selectedfile);
+//    append_item(pixmap, selectedfile);
 
     if (wallpaperinfosMap.contains(selectedfile)){
         wallpaperinfosMap[selectedfile]["deleted"] = "false";
