@@ -23,20 +23,14 @@ Vcs-Git: https://github.com/ukui/ukui-control-center.git
 
 Package: ukui-control-center
 Architecture: any
-Suggests: ukui-interface,
-          gsettings-desktop-schemas,
-          mate-desktop-common,
-          libmatekbd-common,
-          ukui-power-manager-common,
-          ukui-session-manager,
-          ukui-screensaver
 Depends: ${shlibs:Depends},
          ${misc:Depends}
 Suggests: gsettings-desktop-schemas,
           mate-desktop-common,
           ukui-power-manager,
           ukui-session-manager,
-          ukui-screensaver
+          ukui-screensaver,
+          ukui-settings-daemon
 Description: utilities to configure the UKUI desktop
  The UKUI control center contains configuration applets for the UKUI desktop,
  allowing to set accessibility configuration, desktop fonts, keyboard

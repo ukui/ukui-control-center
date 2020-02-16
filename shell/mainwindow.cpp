@@ -209,6 +209,7 @@ void MainWindow::loadPlugins(){
         char * gnomedesktopFile = "/usr/share/glib-2.0/schemas/org.gnome.desktop.wm.preferences.gschema.xml";
         //mate-desktop-common
         char * interfaceFile = "/usr/share/glib-2.0/schemas/org.mate.interface.gschema.xml";
+        char * bgFile = "/usr/share/glib-2.0/schemas/org.mate.background.gschema.xml";
         //peony-common
         char * peonyFile = "/usr/share/glib-2.0/schemas/org.ukui.peony.gschema.xml";
         //libmatekbd-common
@@ -219,6 +220,8 @@ void MainWindow::loadPlugins(){
         char * sessionFile = "/usr/share/glib-2.0/schemas/org.ukui.session.gschema.xml";
         //ukui-screensaver
         char * screensaverFile = "/usr/share/glib-2.0/schemas/org.ukui.screensaver.gschema.xml";
+        //ukui-settings-daemon-common
+        char * usdFile = "/usr/share/glib-2.0/schemas/org.ukui.font-rendering.gschema.xml";
 
         //时间和日期功能依赖ukui-indicators
         if (!g_file_test(indicatorFile, G_FILE_TEST_EXISTS) && fileName == "libdatetime.so")
@@ -226,10 +229,11 @@ void MainWindow::loadPlugins(){
         //代理功能依赖gsettings-desktop-schemas
         if (!g_file_test(proxyFile, G_FILE_TEST_EXISTS) && fileName == "libproxy.so")
             continue;
-        //字体功能依赖gsettings-desktop-schemas,mate-desktop-common,peony-common
+        //字体功能依赖gsettings-desktop-schemas,mate-desktop-common,peony-common,ukui-settings-daemon-common
         if ((!g_file_test(interfaceFile, G_FILE_TEST_EXISTS) ||
                 !g_file_test(gnomedesktopFile, G_FILE_TEST_EXISTS) ||
-                !g_file_test(peonyFile, G_FILE_TEST_EXISTS)) && fileName == "libfonts.so")
+                !g_file_test(peonyFile, G_FILE_TEST_EXISTS) ||
+                !g_file_test(usdFile, G_FILE_TEST_EXISTS)) && fileName == "libfonts.so")
             continue;
         //键盘功能的键盘布局依赖libmatekbd-common
         if (!g_file_test(kbdFile, G_FILE_TEST_EXISTS) && fileName == "libkeyboard.so")
@@ -245,9 +249,12 @@ void MainWindow::loadPlugins(){
         //桌面功能依赖peony-common
         if (!g_file_test(peonyFile, G_FILE_TEST_EXISTS) && fileName == "libdesktop.so")
             continue;
+        //wallpaper mate-desktop-common
+        if (!g_file_test(bgFile, G_FILE_TEST_EXISTS) && fileName == "libwallpaper.so")
+            continue;
         //主题功能依赖gsettings-desktop-schemas,mate-desktop-common
         if ((!g_file_test(interfaceFile, G_FILE_TEST_EXISTS) ||
-                !g_file_test(gnomedesktopFile, G_FILE_TEST_EXISTS)) && fileName == "libfonts.so")
+                !g_file_test(gnomedesktopFile, G_FILE_TEST_EXISTS)) && fileName == "libtheme.so")
             continue;
 
         QPluginLoader loader(pluginsDir.absoluteFilePath(fileName));

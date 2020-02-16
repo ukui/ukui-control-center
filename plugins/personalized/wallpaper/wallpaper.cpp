@@ -248,7 +248,8 @@ void Wallpaper::showComponent(int index){
 void Wallpaper::initPreviewStatus(){
     //设置图片背景的预览效果
     QString filename = bgsettings->get(FILENAME).toString();
-    if (!filename.isEmpty()){
+    QByteArray ba = filename.toLatin1();
+    if (g_file_test(ba.data(), G_FILE_TEST_EXISTS)){
         ui->previewLabel->setPixmap(QPixmap(filename).scaled(ui->previewLabel->size(), Qt::KeepAspectRatio));
     }
 
