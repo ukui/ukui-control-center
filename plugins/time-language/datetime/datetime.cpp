@@ -24,7 +24,7 @@
 #include <QMovie>
 #include <QGSettings/QGSettings>
 
-//#include "timezone_dialog/timezone.h"
+
 
 
 DateTime::DateTime()
@@ -41,7 +41,8 @@ DateTime::DateTime()
     qDebug()<<"进入时间日期UI------------------》"<<endl;
 
 
-//    m_timezone = new TimeZoneChooser;
+    m_zoneinfo = new ZoneInfo;
+    m_timezone = new TimeZoneChooser;
     m_itimer = new QTimer();
     m_itimer->start(1000);
     connect(m_itimer,SIGNAL(timeout()), this, SLOT(datetime_update_slot()));
@@ -73,10 +74,12 @@ DateTime::DateTime()
     connect(ui->chgtimebtn,SIGNAL(clicked()),this,SLOT(changetime_slot()));
     connect(ui->chgzonebtn,SIGNAL(clicked()),this,SLOT(changezone_slot()));
     connect(m_formTimeBtn, SIGNAL(checkedChanged(bool)),this,SLOT(time_format_clicked_slot(bool)));
-//    connect(m_timezone, &TimeZoneChooser::confirmed, this, [this] (const QString &timezone) {
-//        changezone_slot(timezone);
-//        m_timezone->hide();
-//    });
+    connect(m_timezone, &TimeZoneChooser::confirmed, this, [this] (const QString &timezone) {
+        qDebug()<<"timezone is---------->"<<timezone<<endl;
+        changezone_slot(timezone);
+        m_timezone->hide();
+        ui->timezoneLabel->setText(timezone);
+    });
     connect(ui->synsystimeBtn,SIGNAL(clicked()),this,SLOT(rsync_with_network_slot()));
 
 }
@@ -172,7 +175,7 @@ void DateTime::component_init(){
 
 }
 
-void DateTime::status_init(){    
+void DateTime::status_init(){
 
     //时区
     QDBusReply<QVariant> tz = m_datetimeiface->call("Get", "org.freedesktop.timedate1", "Timezone");
@@ -200,10 +203,17 @@ void DateTime::datetime_update_slot(){
     QFont ft;
     ft.setPointSize(15);
     ft.setBold(true);
-    //当前时间    
+    //当前时间
 
-    QDateTime current = QDateTime::currentDateTime();    
-    QString currentsecStr = current.toString("hh : mm : ss");
+    QDateTime current = QDateTime::currentDateTime();
+
+
+    QString currentsecStr ;
+    if(m_formTimeBtn->isChecked()){
+        currentsecStr = current.toString("hh : mm : ss");
+    }else{
+        currentsecStr = current.toString("hh/A : mm : ss");
+    }
 
     ui->timeLable->setText(currentsecStr);
     ui->timeLable->setFont(ft);
@@ -211,22 +221,22 @@ void DateTime::datetime_update_slot(){
 }
 
 void DateTime::changetime_slot(){
-    ChangtimeDialog *dialog = new ChangtimeDialog;
+    ChangtimeDialog *dialog = new ChangtimeDialog();
     dialog->setWindowTitle(tr("change time"));
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->exec();
 }
 
 
-//void DateTime::changezone_slot(){
-//    qDebug()<<"changezone_slot------->"<<endl;
-//    m_timezone->show();
-//    m_timezone->setMarkedTimeZone(installer::GetCurrentTimezone());
-//}
+void DateTime::changezone_slot(){
+    qDebug()<<"changezone_slot------->"<<endl;
+    m_timezone->show();
+    m_timezone->setMarkedTimeZoneSlot(m_zoneinfo->getCurrentTimzone());
+}
 
-//void DateTime::changezone_slot(QString zone){
-//    m_datetimeiface->call("SetTimezone", zone, true);
-//}
+void DateTime::changezone_slot(QString zone){
+    m_datetimeiface->call("SetTimezone", zone, true);
+}
 
 void DateTime::time_format_clicked_slot(bool flag){
     if (flag)
@@ -267,4 +277,3 @@ void DateTime::rsync_with_network_slot(){
 
     QTimer::singleShot(2*1000,this,SLOT(showendLabel()));
 }
-
