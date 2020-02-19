@@ -25,6 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 include(../env.pri)
 
+##加载gio库和gio-unix库，用于处理desktop文件
+CONFIG        += link_pkgconfig \
+                 C++11
+PKGCONFIG     += gio-2.0 \
+                 gio-unix-2.0
+
 inst1.files += ukui-control-center.desktop
 inst1.path = /usr/share/applications
 inst2.files += $$PROJECT_ROOTDIR/pluginlibs/

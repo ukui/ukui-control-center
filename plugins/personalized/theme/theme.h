@@ -62,8 +62,6 @@ public:
 
     QStringList _getSystemCursorThemes();
 
-    void status_init();
-    void component_init();
     void refresh_btn_select_status();
 
 private:
@@ -84,7 +82,6 @@ private:
 
 public slots:
     void set_theme_slots(QString value);
-    void desktop_icon_settings_slots(QString key);
 };
 
 #endif // THEME_H

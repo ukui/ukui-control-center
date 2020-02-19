@@ -92,9 +92,6 @@ public:
     void appendPicWpItem(QPixmap pixmap, QString filename);
     void appendColWpItem(QString color);
 
-public:
-    void append_item(QPixmap pixmap, QString filename);
-
 private:
     Ui::Wallpaper *ui;
 
@@ -130,8 +127,6 @@ public slots:
     void wpOptionsChangedSlot(QString op);
 
 public slots:
-    void colorwp_item_clicked(QListWidgetItem * current, QListWidgetItem * previous);
-
     void add_custom_wallpaper();
     void del_wallpaper();
 };

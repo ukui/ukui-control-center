@@ -1,8 +1,10 @@
 Source: ukui-control-center
 Section: x11
 Priority: optional
-Maintainer: Kylin Team <hebing@kylinos.cn>
-Build-Depends: debhelper (>= 11),
+Maintainer: Kylin Team <team+kylin@tracker.debian.org>
+Uploaders: Aron Xu <aron@debian.org>,
+           handsome_feng <jianfengli@ubuntukylin.com>
+Build-Depends: debhelper-compat (= 12),
                libqt5svg5-dev,
                libgsettings-qt-dev,
                libglib2.0-dev,
@@ -13,15 +15,22 @@ Build-Depends: debhelper (>= 11),
                libinterfaceclient-dev,
                libqt5x11extras5-dev,
                libxklavier-dev
-Standards-Version: 4.4.1
+Standards-Version: 4.5.0
+Rules-Requires-Root: no
 Homepage: https://github.com/ukui/ukui-control-center
-#Vcs-Browser: https://salsa.debian.org/debian/ukui-control-center
-#Vcs-Git: https://salsa.debian.org/debian/ukui-control-center.git
+Vcs-Browser: https://github.com/ukui/ukui-control-center
+Vcs-Git: https://github.com/ukui/ukui-control-center.git
 
 Package: ukui-control-center
 Architecture: any
 Depends: ${shlibs:Depends},
          ${misc:Depends}
+Suggests: gsettings-desktop-schemas,
+          mate-desktop-common,
+          ukui-power-manager,
+          ukui-session-manager,
+          ukui-screensaver,
+          ukui-settings-daemon
 Description: utilities to configure the UKUI desktop
  The UKUI control center contains configuration applets for the UKUI desktop,
  allowing to set accessibility configuration, desktop fonts, keyboard
