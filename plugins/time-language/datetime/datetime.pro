@@ -39,10 +39,22 @@ INSTALLS += target
 SOURCES += \
         datetime.cpp \
     changtime.cpp \
+    worldMap/zoneinfo.cpp \
+    worldMap/toolpop.cpp \
+    worldMap/timezonemap.cpp \
+    worldMap/timezonechooser.cpp \
+    worldMap/poplistdelegate.cpp \
+    worldMap/poplist.cpp
 
 HEADERS += \
         datetime.h \
     changtime.h \
+    worldMap/zoneinfo.h \
+    worldMap/toolpop.h \
+    worldMap/timezonemap.h \
+    worldMap/timezonechooser.h \
+    worldMap/poplistdelegate.h \
+    worldMap/poplist.h
 
 FORMS += \
         datetime.ui \
