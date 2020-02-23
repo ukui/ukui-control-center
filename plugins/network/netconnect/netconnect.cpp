@@ -141,7 +141,12 @@ void NetConnect::rebuildNetStatusComponent(){
         baseVerLayout->setContentsMargins(0, 0, 0, 2);
 
         QWidget * devWidget = new QWidget(baseWidget);
-        devWidget->setFixedHeight(50);
+        devWidget->setMinimumWidth(550);
+        devWidget->setMaximumWidth(960);
+        devWidget->setMinimumHeight(50);
+        devWidget->setMaximumHeight(50);
+
+//        devWidget->setFixedHeight(50);
         devWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
         QHBoxLayout * devHorLayout = new QHBoxLayout(devWidget);
         devHorLayout->setSpacing(8);

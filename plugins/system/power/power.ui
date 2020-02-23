@@ -77,13 +77,13 @@
     <widget class="QWidget" name="balanceWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -197,13 +197,13 @@
     <widget class="QWidget" name="savingWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -320,13 +320,13 @@
     <widget class="QWidget" name="customWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -427,13 +427,13 @@
     <widget class="QWidget" name="custom1Widget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>118</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>118</height>
       </size>
      </property>
@@ -630,13 +630,13 @@
     <widget class="QWidget" name="custom2Widget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>

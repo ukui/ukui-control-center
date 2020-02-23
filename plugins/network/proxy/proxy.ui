@@ -77,13 +77,13 @@
     <widget class="QWidget" name="autoWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -152,13 +152,13 @@
     <widget class="QWidget" name="urlWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -288,13 +288,13 @@
     <widget class="QWidget" name="manualWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -363,13 +363,13 @@
     <widget class="QWidget" name="httpWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -543,13 +543,13 @@
     <widget class="QWidget" name="httpsWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -688,13 +688,13 @@
     <widget class="QWidget" name="ftpWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -833,13 +833,13 @@
     <widget class="QWidget" name="socksWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -978,13 +978,13 @@
     <widget class="QWidget" name="ignoreHostsWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>180</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>180</height>
       </size>
      </property>
