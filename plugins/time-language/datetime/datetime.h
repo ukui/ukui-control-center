@@ -43,7 +43,8 @@
 #include <QTimer>
 
 
-//#include "timezone_dialog/timezonechooser.h"
+#include "worldMap/timezonechooser.h"
+#include "worldMap/zoneinfo.h"
 #include "SwitchButton/switchbutton.h"
 
 
@@ -80,7 +81,7 @@ public:
     QString get_plugin_name() Q_DECL_OVERRIDE;
     int get_plugin_type() Q_DECL_OVERRIDE;
     QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
-    void plugin_delay_control() Q_DECL_OVERRIDE;   
+    void plugin_delay_control() Q_DECL_OVERRIDE;
 
     void component_init();
     void status_init();
@@ -107,7 +108,8 @@ private:
     QLabel *m_formTimeLabel = nullptr;
     QTimer * m_itimer = nullptr;
 
-//    TimeZoneChooser *m_timezone;
+    TimeZoneChooser *m_timezone;
+    ZoneInfo* m_zoneinfo;
 
 Q_SIGNALS:
     void changed();
@@ -115,8 +117,8 @@ Q_SIGNALS:
 private slots:
     void datetime_update_slot();
     void changetime_slot();
-//    void changezone_slot();
-//    void changezone_slot(QString );
+    void changezone_slot();
+    void changezone_slot(QString );
     void time_format_clicked_slot(bool);
     void rsync_with_network_slot();
     void showendLabel();

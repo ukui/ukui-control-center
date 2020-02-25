@@ -36,6 +36,7 @@ ChangtimeDialog::ChangtimeDialog(QWidget *parent) :
     const QByteArray id(FORMAT_SCHEMA);
     m_formatsettings = new QGSettings(id);
 
+
     m_datetimeInterface = new QDBusInterface("org.freedesktop.timedate1",
                                        "/org/freedesktop/timedate1",
                                        "org.freedesktop.timedate1",
@@ -59,6 +60,7 @@ ChangtimeDialog::ChangtimeDialog(QWidget *parent) :
 ChangtimeDialog::~ChangtimeDialog()
 {
     delete ui;
+    delete m_datetimeInterface;
 }
 
 
@@ -121,6 +123,7 @@ void ChangtimeDialog::dayUpdateSlot(){
 }
 
 void ChangtimeDialog::changtimeApplySlot(){
+    qDebug()<<"时间应用------------》"<<endl;
     int year = ui->yearcomboBox->currentIndex() + BEGINYEAR;
     int month = ui->monthcomboBox->currentIndex() + BEGINMD;
     int day = ui->daycomboBox->currentIndex() + BEGINMD;
@@ -133,6 +136,8 @@ void ChangtimeDialog::changtimeApplySlot(){
     QDateTime setdt(tmpdate,tmptime);
     qDebug()<<"tmp time-->"<<setdt<<endl;
 
+
+    m_datetimeInterface->call("SetNTP", false, true);//先关闭网络同步
 
     m_datetimeInterface->call("SetTime", QVariant::fromValue(setdt.toSecsSinceEpoch() * G_TIME_SPAN_SECOND), false, true);
 }
