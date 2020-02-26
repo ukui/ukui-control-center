@@ -72,20 +72,27 @@ void FunctionSelect::initValue(){
     FuncInfo mousecontrolStruct;
     mousecontrolStruct.type = DEVICES;
     mousecontrolStruct.index = 1;
-    mousecontrolStruct.nameString = QString("mousecontrol");
-    mousecontrolStruct.namei18nString = QObject::tr("mousecontrol");
+    mousecontrolStruct.nameString = QString("mouse");
+    mousecontrolStruct.namei18nString = QObject::tr("mouse");
     devicesList.append(mousecontrolStruct);
+
+    FuncInfo touchpadStruct;
+    touchpadStruct.type = DEVICES;
+    touchpadStruct.index = 2;
+    touchpadStruct.nameString = QString("touchpad");
+    touchpadStruct.namei18nString = QObject::tr("touchpad");
+    devicesList.append(touchpadStruct);
 
     FuncInfo keyboardcontrolStruct;
     keyboardcontrolStruct.type = DEVICES;
-    keyboardcontrolStruct.index = 2;
+    keyboardcontrolStruct.index = 3;
     keyboardcontrolStruct.nameString = QString("keyboard");
     keyboardcontrolStruct.namei18nString = QObject::tr("keyboard");
     devicesList.append(keyboardcontrolStruct);
 
     FuncInfo audioStruct;
     audioStruct.type = DEVICES;
-    audioStruct.index = 3;
+    audioStruct.index = 4;
     audioStruct.nameString = QString("audio");
     audioStruct.namei18nString = QObject::tr("audio");
     devicesList.append(audioStruct);

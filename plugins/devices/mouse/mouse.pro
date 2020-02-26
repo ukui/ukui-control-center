@@ -5,11 +5,12 @@
 #-------------------------------------------------
 
 QT       += widgets x11extras
+
 #greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TEMPLATE = lib
 CONFIG += plugin
 
-TARGET = $$qtLibraryTarget(keyboard)
+TARGET = $$qtLibraryTarget(mouse)
 DESTDIR = ../../../pluginlibs
 
 include(../../../env.pri)
@@ -18,25 +19,19 @@ include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
 INCLUDEPATH   +=  \
                  $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
-                 /usr/include/ukuisdk \
+                 /usr/include/kylinsdk \
 
-LIBS          +=  -L/usr/lib/ -lkeyboardclient -linterfaceclient -lgsettings-qt
+LIBS          +=  -L/usr/lib/ -lmouseclient  -lXi
 
-CONFIG        += link_pkgconfig \
-                 C++11
-PKGCONFIG     += libmatekbd \
 
 
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
-        keyboardcontrol.cpp \
-    kbdlayoutmanager.cpp
+        mousecontrol.cpp
 
 HEADERS += \
-        keyboardcontrol.h \
-    kbdlayoutmanager.h
+        mousecontrol.h
 
 FORMS += \
-        keyboardcontrol.ui \
-    kbdlayoutmanager.ui
+        mousecontrol.ui
