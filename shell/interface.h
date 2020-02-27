@@ -32,7 +32,63 @@ enum FunType{
     DATETIME,
     UPDATE,
     MESSAGES,
-    FUNCTOTALNUM,
+    TOTALMODULES,
+};
+
+enum SystemIndex{
+    DISPLAY,
+    DEFAULTAPP,
+    POWER,
+    AUTOBOOT,
+    TOTALSYSFUNC,
+};
+
+enum DevicesIndex{
+    PRINTER,
+    MOUSE,
+    TOUCHPAD,
+    KEYBOARD,
+    AUDIO,
+    TOTALDEVICESFUNC,
+};
+
+enum PersonalizedIndex{
+    BACKGROUND,
+    THEME,
+    SCREENLOCK,
+    FONTS,
+    SCREENSAVER,
+    DESKTOP,
+    TOTALPERSFUNC,
+};
+
+enum NetworkIndex{
+    NETCONNECT,
+    VPN,
+    PROXY,
+    TOTALNETFUNC,
+};
+
+enum AccountIndex{
+    USERINFO,
+    TOTALACCOUNTFUNC,
+};
+
+enum DatetimeIndex{
+    DAT,
+    AREA,
+    TOTALDTFUNC,
+};
+
+enum SeUpdatesIndex{
+    UPDATES,
+    BACKUP,
+    TOTALSUFUNC,
+};
+
+enum NoticeAndOperationIndex{
+    ABOUT,
+    TOTALNAOFUNC,
 };
 
 class CommonInterface{

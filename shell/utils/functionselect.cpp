@@ -22,8 +22,6 @@
 
 #include <QDebug>
 
-
-QList<QStringList> FunctionSelect::funcsList;
 QList<QList<FuncInfo>> FunctionSelect::funcinfoList;
 
 //FuncInfo FunctionSelect::displayStruct;
@@ -38,191 +36,153 @@ FunctionSelect::~FunctionSelect()
 }
 
 void FunctionSelect::initValue(){
-    //列表增加元素
-    for (int i = 0; i < FUNCTOTALNUM; i++){
-        funcsList.append(QStringList());
-    }
 
     //system
     QList<FuncInfo> systemList;
-    FuncInfo displayStruct;
-    displayStruct.type = SYSTEM; displayStruct.index = 0; displayStruct.nameString = QString("display"); displayStruct.namei18nString = QObject::tr("display");
-    systemList.append(displayStruct);
-
-    FuncInfo defaultappStruct;
-    defaultappStruct.type = SYSTEM; defaultappStruct.index = 1; defaultappStruct.nameString = QString("defaultapp"); defaultappStruct.namei18nString = QObject::tr("defaultapp");
-    systemList.append(defaultappStruct);
-
-    FuncInfo powerStruct;
-    powerStruct.type = SYSTEM; powerStruct.index = 2; powerStruct.nameString = QString("power"); powerStruct.namei18nString = QObject::tr("power");
-    systemList.append(powerStruct);
-
-    FuncInfo autobootStruct;
-    autobootStruct.type = SYSTEM; autobootStruct.index = 3; autobootStruct.nameString = QString("autoboot"); autobootStruct.namei18nString = QObject::tr("autoboot");
-    systemList.append(autobootStruct);
+    for (int i = 0; i < TOTALSYSFUNC; i++){
+        FuncInfo funcStruct;
+        funcStruct.type = SYSTEM;
+        funcStruct.index = i;
+        funcStruct.mainShow = true;
+        systemList.append(funcStruct);
+    }
+    systemList[DISPLAY].nameString = QString("display");
+    systemList[DISPLAY].namei18nString =  QObject::tr("display");
+    systemList[DEFAULTAPP].nameString = QString("defaultapp");
+    systemList[DEFAULTAPP].namei18nString =  QObject::tr("defaultapp");
+    systemList[POWER].nameString = QString("power");
+    systemList[POWER].namei18nString = QObject::tr("power");
+    systemList[AUTOBOOT].nameString = QString("autoboot");
+    systemList[AUTOBOOT].namei18nString = QObject::tr("autoboot");
 
     funcinfoList.append(systemList);
 
     //devices
     QList<FuncInfo> devicesList;
-    FuncInfo printerStruct;
-    printerStruct.type = DEVICES; printerStruct.index = 0; printerStruct.nameString = QString("printer"); printerStruct.namei18nString = QObject::tr("printer");
-    devicesList.append(printerStruct);
-
-    FuncInfo mousecontrolStruct;
-    mousecontrolStruct.type = DEVICES;
-    mousecontrolStruct.index = 1;
-    mousecontrolStruct.nameString = QString("mouse");
-    mousecontrolStruct.namei18nString = QObject::tr("mouse");
-    devicesList.append(mousecontrolStruct);
-
-    FuncInfo touchpadStruct;
-    touchpadStruct.type = DEVICES;
-    touchpadStruct.index = 2;
-    touchpadStruct.nameString = QString("touchpad");
-    touchpadStruct.namei18nString = QObject::tr("touchpad");
-    devicesList.append(touchpadStruct);
-
-    FuncInfo keyboardcontrolStruct;
-    keyboardcontrolStruct.type = DEVICES;
-    keyboardcontrolStruct.index = 3;
-    keyboardcontrolStruct.nameString = QString("keyboard");
-    keyboardcontrolStruct.namei18nString = QObject::tr("keyboard");
-    devicesList.append(keyboardcontrolStruct);
-
-    FuncInfo audioStruct;
-    audioStruct.type = DEVICES;
-    audioStruct.index = 4;
-    audioStruct.nameString = QString("audio");
-    audioStruct.namei18nString = QObject::tr("audio");
-    devicesList.append(audioStruct);
+    for (int i = 0; i < TOTALDEVICESFUNC; i++){
+        FuncInfo funcStruct;
+        funcStruct.type = DEVICES;
+        funcStruct.index = i;
+        funcStruct.mainShow = true;
+        devicesList.append(funcStruct);
+    }
+    devicesList[PRINTER].nameString = QString("printer");
+    devicesList[PRINTER].namei18nString = QObject::tr("printer");
+    devicesList[MOUSE].nameString = QString("mouse");
+    devicesList[MOUSE].namei18nString = QObject::tr("mouse");
+    devicesList[TOUCHPAD].nameString = QString("touchpad");
+    devicesList[TOUCHPAD].namei18nString = QObject::tr("touchpad");
+    devicesList[TOUCHPAD].mainShow = false;
+    devicesList[KEYBOARD].nameString = QString("keyboard");
+    devicesList[KEYBOARD].namei18nString = QObject::tr("keyboard");
+    devicesList[AUDIO].nameString = QString("audio");
+    devicesList[AUDIO].namei18nString = QObject::tr("audio");
 
     funcinfoList.append(devicesList);
 
     //personalized
     QList<FuncInfo> personalizedList;
-    FuncInfo backgroundStruct;
-    backgroundStruct.type = PERSONALIZED; backgroundStruct.index = 0; backgroundStruct.nameString = QString("background"); backgroundStruct.namei18nString = QObject::tr("background");
-    personalizedList.append(backgroundStruct);
-
-    FuncInfo themeStruct;
-    themeStruct.type = PERSONALIZED; themeStruct.index = 1; themeStruct.nameString = QString("theme"); themeStruct.namei18nString = QObject::tr("theme");
-    personalizedList.append(themeStruct);
-
-    FuncInfo screenlockStruct;
-    screenlockStruct.type = PERSONALIZED; screenlockStruct.index = 2; screenlockStruct.nameString = QString("screenlock"); screenlockStruct.namei18nString = QObject::tr("screenlock");
-    personalizedList.append(screenlockStruct);
-
-    FuncInfo fontsStruct;
-    fontsStruct.type = PERSONALIZED; fontsStruct.index = 3; fontsStruct.nameString = QString("fonts"); fontsStruct.namei18nString = QObject::tr("fonts");
-    personalizedList.append(fontsStruct);
-
-    FuncInfo screensaverStruct;
-    screensaverStruct.type = PERSONALIZED; screensaverStruct.index = 4; screensaverStruct.nameString = QString("screensaver"); screensaverStruct.namei18nString = QObject::tr("screensaver");
-    personalizedList.append(screensaverStruct);
-
-    FuncInfo desktopStruct;
-    desktopStruct.type = PERSONALIZED; desktopStruct.index = 4; desktopStruct.nameString = QString("desktop"); desktopStruct.namei18nString = QObject::tr("desktop");
-    personalizedList.append(desktopStruct);
-
+    for (int i = 0; i < TOTALPERSFUNC; i++){
+        FuncInfo funcStruct;
+        funcStruct.type = PERSONALIZED;
+        funcStruct.index = i;
+        funcStruct.mainShow = true;
+        personalizedList.append(funcStruct);
+    }
+    personalizedList[BACKGROUND].nameString = QString("background");
+    personalizedList[BACKGROUND].namei18nString = QObject::tr("background");
+    personalizedList[THEME].nameString = QString("theme");
+    personalizedList[THEME].namei18nString = QObject::tr("theme");
+    personalizedList[SCREENLOCK].nameString = QString("screenlock");
+    personalizedList[SCREENLOCK].namei18nString = QObject::tr("screenlock");
+    personalizedList[FONTS].nameString = QString("fonts");
+    personalizedList[FONTS].namei18nString = QObject::tr("fonts");
+    personalizedList[SCREENSAVER].nameString = QString("screensaver");
+    personalizedList[SCREENSAVER].namei18nString = QObject::tr("screensaver");
+    personalizedList[DESKTOP].nameString = QString("desktop");
+    personalizedList[DESKTOP].namei18nString = QObject::tr("desktop");
+    personalizedList[DESKTOP].mainShow = false;
     funcinfoList.append(personalizedList);
 
     //network
     QList<FuncInfo> networkList;
-    FuncInfo netconnectStruct;
-    netconnectStruct.type = NETWORK; netconnectStruct.index = 0; netconnectStruct.nameString = QString("netconnect"); netconnectStruct.namei18nString = QObject::tr("netconnect");
-    networkList.append(netconnectStruct);
-
-    FuncInfo vpnStruct;
-    vpnStruct.type = NETWORK; vpnStruct.index = 1; vpnStruct.nameString = QString("vpn"); vpnStruct.namei18nString = QObject::tr("vpn");
-    networkList.append(vpnStruct);
-
-    FuncInfo proxyStruct;
-    proxyStruct.type = NETWORK; proxyStruct.index = 2; proxyStruct.nameString = QString("proxy"); proxyStruct.namei18nString = QObject::tr("proxy");
-    networkList.append(proxyStruct);
+    for (int i = 0; i < TOTALNETFUNC; i++){
+        FuncInfo funcStruct;
+        funcStruct.type = NETWORK;
+        funcStruct.index = i;
+        funcStruct.mainShow = true;
+        networkList.append(funcStruct);
+    }
+    networkList[NETCONNECT].nameString = QString("netconnect");
+    networkList[NETCONNECT].namei18nString = QObject::tr("netconnect");
+    networkList[VPN].nameString = QString("vpn");
+    networkList[VPN].namei18nString = QObject::tr("vpn");
+    networkList[PROXY].nameString = QString("proxy");
+    networkList[PROXY].namei18nString = QObject::tr("proxy");
 
     funcinfoList.append(networkList);
 
     //account
     QList<FuncInfo> accountList;
-    FuncInfo userinfoStruct;
-    userinfoStruct.type = ACCOUNT; userinfoStruct.index = 0; userinfoStruct.nameString = QString("userinfo"); userinfoStruct.namei18nString = QObject::tr("userinfo");
-    accountList.append(userinfoStruct);
+    for (int i = 0; i < TOTALACCOUNTFUNC; i++){
+        FuncInfo funcStruct;
+        funcStruct.type = ACCOUNT;
+        funcStruct.index = i;
+        funcStruct.mainShow = true;
+        accountList.append(funcStruct);
+    }
+
+    accountList[USERINFO].nameString = QString("userinfo");
+    accountList[USERINFO].namei18nString = QObject::tr("userinfo");
 
     funcinfoList.append(accountList);
 
     //datetime
     QList<FuncInfo> datetimeList;
-    FuncInfo datetimeStruct;
-    datetimeStruct.type = DATETIME; datetimeStruct.index = 0; datetimeStruct.nameString = QString("datetime"); datetimeStruct.namei18nString = QObject::tr("datetime");
-    datetimeList.append(datetimeStruct);
+    for (int i = 0; i < TOTALDTFUNC; i++){
+        FuncInfo funcStruct;
+        funcStruct.type = DATETIME;
+        funcStruct.index = i;
+        funcStruct.mainShow = true;
+        datetimeList.append(funcStruct);
+    }
 
-    FuncInfo areaStruct;
-    areaStruct.type = DATETIME; areaStruct.index = 1; areaStruct.nameString = QString("area"); areaStruct.namei18nString = QObject::tr("area");
-    datetimeList.append(areaStruct);
+    datetimeList[DAT].nameString = QString("datetime");
+    datetimeList[DAT].namei18nString = QObject::tr("datetime");
+    datetimeList[AREA].nameString = QString("area");
+    datetimeList[AREA].namei18nString = QObject::tr("area");
 
     funcinfoList.append(datetimeList);
 
-    //update
-    QList<FuncInfo> updateList;
-    FuncInfo updateStruct;
-    updateStruct.type = UPDATE; updateStruct.index = 0; updateStruct.nameString = QString("update"); updateStruct.namei18nString = QObject::tr("update");
-    updateList.append(updateStruct);
+    //securityupdates
+    QList<FuncInfo> seupdatesList;
+    for (int i = 0; i < TOTALSUFUNC; i++){
+        FuncInfo funcStruct;
+        funcStruct.type = UPDATE;
+        funcStruct.index = i;
+        funcStruct.mainShow = true;
+        seupdatesList.append(funcStruct);
+    }
 
-    FuncInfo backupStruct;
-    backupStruct.type = UPDATE; backupStruct.index = 1; backupStruct.nameString = QString("backup"); backupStruct.namei18nString = QObject::tr("backup");
-    updateList.append(backupStruct);
+    seupdatesList[UPDATES].nameString = QString("update");
+    seupdatesList[UPDATES].namei18nString = QObject::tr("update");
+    seupdatesList[BACKUP].nameString = QString("backup");
+    seupdatesList[BACKUP].namei18nString = QObject::tr("backup");
 
-    funcinfoList.append(updateList);
+    funcinfoList.append(seupdatesList);
 
-    //messages
-    QList<FuncInfo> messagesList;
-    FuncInfo aboutStruct;
-    aboutStruct.type = MESSAGES; aboutStruct.index = 0; aboutStruct.nameString = QString("about"); aboutStruct.namei18nString = QObject::tr("about");
-    messagesList.append(aboutStruct);
+    //noticeandoperation
+    QList<FuncInfo> naoList;
+    for (int i = 0; i < TOTALSUFUNC; i++){
+        FuncInfo funcStruct;
+        funcStruct.type = UPDATE;
+        funcStruct.index = i;
+        funcStruct.mainShow = true;
+        naoList.append(funcStruct);
+    }
 
-    funcinfoList.append(messagesList);
+    naoList[ABOUT].nameString = QString("about");
+    naoList[ABOUT].namei18nString = QObject::tr("about");
 
-    //-------------------------------------------------------------//
-
-    //system
-    QStringList systemPlugins;
-    systemPlugins << QString("display") << QString("defaultapp") << QString("power") << QString("autoboot");
-    funcsList[SYSTEM] = systemPlugins;
-
-    //devices
-    QStringList devicesPlugins;
-    devicesPlugins << QString("printer") << QString("mousecontrol") << QString("keyboard") << QString("audio");
-//    devicesPlugins << QObject::tr("printer") << QObject::tr("mousecontrol") << QObject::tr("keyboardcontrol") << QObject::tr("audio");
-    funcsList[DEVICES] = devicesPlugins;
-
-    //personalized
-    QStringList personalizedPlugins;
-    personalizedPlugins << QString("background") << QString("theme") << QString("screenlock") << QString("fonts") << QString("screensaver");
-    funcsList[PERSONALIZED] = personalizedPlugins;
-
-    //network
-    QStringList networkPlugins;
-    networkPlugins << QString("netconnect") << QString("vpn") << QString("proxy");
-    funcsList[NETWORK] = networkPlugins;
-
-    //account
-    QStringList accountPlugins;
-    accountPlugins << QString("userinfo") /*<< QString("loginoptions")*/;
-    funcsList[ACCOUNT] = accountPlugins;
-
-    //datetime
-    QStringList datetimePlugings;
-    datetimePlugings << QString("datetime") << QString("area");
-    funcsList[DATETIME] = datetimePlugings;
-
-    //update
-    QStringList updatePlugins;
-    updatePlugins << QString("update") << QString("backup");
-    funcsList[UPDATE] = updatePlugins;
-
-    //messages
-    QStringList messagesPlugins;
-    messagesPlugins << QString("about");
-    funcsList[MESSAGES] = messagesPlugins;
+    funcinfoList.append(naoList);
 }

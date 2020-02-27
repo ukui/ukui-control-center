@@ -28,6 +28,7 @@ typedef struct _FuncInfo : QObjectUserData
 {
     int type;
     int index;
+    bool mainShow;
     QString nameString;
     QString namei18nString;
 }FuncInfo;
@@ -41,8 +42,6 @@ public:
     ~FunctionSelect();
 
 public:
-    static QList<QStringList> funcsList;
-
     static QList<QList<FuncInfo>> funcinfoList;
 
 //    static FuncInfo displayStruct;

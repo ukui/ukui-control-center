@@ -192,7 +192,7 @@ void MainWindow::setBtnLayout(QPushButton * &pBtn){
 }
 
 void MainWindow::loadPlugins(){
-    for (int index = 0; index < FUNCTOTALNUM; index++){
+    for (int index = 0; index < TOTALMODULES; index++){
         QMap<QString, QObject *> pluginsMaps;
         modulesList.append(pluginsMaps);
     }
@@ -297,7 +297,7 @@ void MainWindow::initLeftsideBar(){
     hBtn->setStyleSheet("QPushButton#homepage{background: #cccccc; border: none;}");
     ui->leftsidebarVerLayout->addWidget(hBtn);
 
-    for(int type = 0; type < FUNCTOTALNUM; type++){
+    for(int type = 0; type < TOTALMODULES; type++){
         //循环构建左侧边栏模块按钮
         if (moduleIndexList.contains(type)){
             QString mnameString = kvConverter->keycodeTokeystring(type);

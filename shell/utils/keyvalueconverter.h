@@ -49,7 +49,7 @@ public:
         DATETIME,
         UPDATE,
         MESSAGES,
-        FUNCTOTALNUM,
+        TOTALMODULES,
     };
     Q_ENUM(FunType)
 

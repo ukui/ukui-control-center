@@ -84,7 +84,7 @@ void ModulePageWidget::initUI(){
     //绑定高亮函数
     connect(this, &ModulePageWidget::widgetChanged, this, [=](QString text){highlightItem(text);});
 
-    for (int moduleIndex = 0; moduleIndex < FUNCTOTALNUM; moduleIndex++){
+    for (int moduleIndex = 0; moduleIndex < TOTALMODULES; moduleIndex++){
         QListWidget * leftListWidget = new QListWidget;
         leftListWidget->setAttribute(Qt::WA_DeleteOnClose);
         leftListWidget->setResizeMode(QListView::Adjust);
