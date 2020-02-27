@@ -27,6 +27,7 @@
 #include <QPixmap>
 #include <QListWidgetItem>
 #include <QFileDialog>
+#include <QStyledItemDelegate>
 
 #include <QGSettings/QGSettings>
 
@@ -119,6 +120,7 @@ private:
     WorkerObject * pObject;
 
     QMap<QString, QListWidgetItem*> picWpItemMap;
+    QStyledItemDelegate *itemDelege;
 
 public slots:
     void picWallpaperChangedSlot(QListWidgetItem * current, QListWidgetItem * previous);

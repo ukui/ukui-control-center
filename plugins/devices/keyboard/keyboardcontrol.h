@@ -22,6 +22,7 @@
 
 #include <QObject>
 #include <QtPlugin>
+#include <QStyledItemDelegate>
 
 #include "shell/interface.h"
 #include "SwitchButton/switchbutton.h"
@@ -75,6 +76,8 @@ private:
 
     QGSettings * desktopsettings;
     QGSettings * syskeysettings;
+
+    QStyledItemDelegate* itemDelege;
 };
 
 #endif // KEYBOARDCONTROL_H

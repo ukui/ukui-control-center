@@ -23,6 +23,7 @@
 #include <QWidget>
 #include <QObject>
 #include <QtPlugin>
+#include <QStyledItemDelegate>
 
 #include "shell/interface.h"
 
@@ -73,6 +74,7 @@ private:
     QString objpath;
 
     QDBusInterface *m_areaInterface;
+    QStyledItemDelegate *itemDelege;
 
 
 private:

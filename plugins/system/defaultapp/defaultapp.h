@@ -24,6 +24,7 @@
 #include <QtPlugin>
 #include <QComboBox>
 #include <QIcon>
+#include <QStyledItemDelegate>
 
 #include "shell/interface.h"
 
@@ -74,6 +75,7 @@ private:
 private:
     QString pluginName;
     int pluginType;
+    QStyledItemDelegate *itemDelege;
 
 
 public slots:

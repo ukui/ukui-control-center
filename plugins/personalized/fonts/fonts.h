@@ -27,6 +27,7 @@
 #include <QAbstractButton>
 #include <QFontDatabase>
 #include <QGSettings/QGSettings>
+#include <QStyledItemDelegate>
 
 #include "shell/interface.h"
 
@@ -102,6 +103,7 @@ private:
     QStringList monospacefontStrList;
     QStringList peonyfontStrList;
     QStringList titlebarfontStrList;
+    QStyledItemDelegate *itemDelege;
 
     QFontDatabase fontdb;
 

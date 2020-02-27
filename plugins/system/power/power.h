@@ -22,6 +22,7 @@
 
 #include <QObject>
 #include <QtPlugin>
+#include <QStyledItemDelegate>
 
 #include <QGSettings/QGSettings>
 
@@ -68,6 +69,8 @@ private:
     QStringList closeStringList;
     QStringList lidStringList;
     QStringList buttonStringList;
+
+    QStyledItemDelegate *itemDelege;
 
 public slots:
 //    void icondisplayBtnGroup_changed_slot(int index);
