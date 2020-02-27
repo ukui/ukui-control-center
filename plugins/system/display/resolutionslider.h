@@ -9,6 +9,7 @@
 class QSlider;
 class QLabel;
 class QComboBox;
+class QStyledItemDelegate;
 
 class ResolutionSlider : public QWidget
 {
@@ -39,6 +40,10 @@ class ResolutionSlider : public QWidget
     QLabel *mCurrentLabel = nullptr;
     QSlider *mSlider = nullptr;
     QComboBox *mComboBox = nullptr;
+
+    QString qss;
+
+    QStyledItemDelegate *itemDelege;
 };
 
 #endif // RESOLUTIONSLIDER_H

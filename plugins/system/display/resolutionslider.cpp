@@ -5,6 +5,8 @@
 #include <QLabel>
 #include <QSlider>
 #include <QComboBox>
+#include <QFile>
+#include <QStyledItemDelegate>
 
 //#include <KLocalizedString>
 
@@ -12,6 +14,7 @@
 
 static bool sizeLessThan(const QSize &sizeA, const QSize &sizeB)
 {
+
     return sizeA.width() * sizeA.height() < sizeB.width() * sizeB.height();
 }
 
@@ -19,6 +22,14 @@ ResolutionSlider::ResolutionSlider(const KScreen::OutputPtr &output, QWidget *pa
     : QWidget(parent)
     , mOutput(output)
 {
+    itemDelege = new QStyledItemDelegate();
+    QFile QssFile("://combox.qss");
+    QssFile.open(QFile::ReadOnly);
+
+    if (QssFile.isOpen()){
+        qss = QLatin1String(QssFile.readAll());
+        QssFile.close();
+    }
     connect(output.data(), &KScreen::Output::currentModeIdChanged,
             this, &ResolutionSlider::slotOutputModeChanged);
     connect(output.data(), &KScreen::Output::modesChanged,
@@ -33,6 +44,8 @@ ResolutionSlider::~ResolutionSlider()
 
 void ResolutionSlider::init()
 {
+    this->setMinimumSize(402,30);
+    this->setMaximumSize(1677215, 30);
     mModes.clear();
     Q_FOREACH (const KScreen::ModePtr &mode, mOutput->modes()) {
         if (mModes.contains(mode->size())) {
@@ -60,10 +73,14 @@ void ResolutionSlider::init()
     layout->setContentsMargins(0, 0, 0, 0);
     if (mModes.count() <= 60&&!mModes.empty()) {
         std::reverse(mModes.begin(), mModes.end());
-        mComboBox = new QComboBox(this);
+        mComboBox = new QComboBox(this);        
         mComboBox->setMinimumSize(402,30);
-        mComboBox->setSizeAdjustPolicy(QComboBox::AdjustToContents);
-        mComboBox->setEditable(false);
+        mComboBox->setMaximumSize(1677215, 30);
+//        mComboBox->setSizeAdjustPolicy(QComboBox::AdjustToContents);
+//        mComboBox->setEditable(false);
+        mComboBox->setStyleSheet(qss);
+        mComboBox->setItemDelegate(itemDelege);
+        mComboBox->setMaxVisibleItems(5);
 
         int currentModeIndex = -1;
         int preferredModeIndex = -1;
