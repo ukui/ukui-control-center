@@ -14,6 +14,8 @@
 #include <QGroupBox>
 #include <QVBoxLayout>
 #include <QFormLayout>
+#include <QStyledItemDelegate>
+#include <QFile>
 
 #include <KF5/KScreen/kscreen/output.h>
 #include <KF5/KScreen/kscreen/config.h>
@@ -34,7 +36,8 @@ bool qMapLessThanKey(const QSize &s1, const QSize &s2)
 UnifiedOutputConfig::UnifiedOutputConfig(const KScreen::ConfigPtr &config, QWidget *parent)
     : OutputConfig(parent)
     , mConfig(config)
-{
+{    
+
 }
 
 UnifiedOutputConfig::~UnifiedOutputConfig()
@@ -59,7 +62,7 @@ void UnifiedOutputConfig::initUi()
 {
 
     QFont ft;
-    ft.setPointSize(10);
+    ft.setPointSize(14);
 
     QVBoxLayout *vbox = new QVBoxLayout(this);
     vbox->setContentsMargins(0,0,0,0);
@@ -82,7 +85,7 @@ void UnifiedOutputConfig::initUi()
     mResolution->setFont(ft);
     mResolution->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     mResolution->setMinimumSize(402,30);
-    mResolution->setMaximumSize(402,30);
+//    mResolution->setMaximumSize(402,30);
 
     QLabel *resLabel = new QLabel(this);
     resLabel->setText(tr("resolution"));
@@ -94,6 +97,7 @@ void UnifiedOutputConfig::initUi()
     QHBoxLayout *resLayout = new QHBoxLayout();
     resLayout->addWidget(resLabel);
     resLayout->addWidget(mResolution);
+//    resLayout->addStretch();
 
     QWidget *resWidget = new QWidget(this);
     resWidget->setLayout(resLayout);
@@ -102,7 +106,7 @@ void UnifiedOutputConfig::initUi()
 
     resWidget->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     resWidget->setMinimumSize(552,50);
-    resWidget->setMaximumSize(552,50);
+    resWidget->setMaximumSize(960,50);
 
 
     vbox->addWidget(resWidget);
@@ -113,14 +117,18 @@ void UnifiedOutputConfig::initUi()
     slotResolutionChanged(mResolution->currentResolution());
 
     //方向下拉框
-    mRotation = new QComboBox(this);
-//    connect(mRotation, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-//            this, &UnifiedOutputConfig::slotRotationChanged);
+    mRotation = new QComboBox();
+    connect(mRotation, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this, &UnifiedOutputConfig::slotRotationChanged);
 
     mRotation->setFont(ft);
     mRotation->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     mRotation->setMinimumSize(402,30);
-    mRotation->setMaximumSize(402,30);
+    mRotation->setMaximumSize(16777215,30);
+    mRotation->setStyleSheet(qss);
+    mRotation->setItemDelegate(itemDelege);
+    mRotation->setMaxVisibleItems(5);
+
 
     QLabel *rotateLabel = new QLabel(this);
     rotateLabel->setText(tr("orientation"));
@@ -146,11 +154,11 @@ void UnifiedOutputConfig::initUi()
     QWidget *rotateWidget = new QWidget(this);
     rotateWidget->setLayout(roatateLayout);
     rotateWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
-    mRotation->setStyleSheet("background-color:#F8F9F9");
+//    mRotation->setStyleSheet("background-color:#F8F9F9");
 
     rotateWidget->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     rotateWidget->setMinimumSize(552,50);
-    rotateWidget->setMaximumSize(552,50);
+    rotateWidget->setMaximumSize(960,50);
 
 
     vbox->addWidget(rotateWidget);
@@ -161,7 +169,21 @@ void UnifiedOutputConfig::initUi()
     mRefreshRate->setFont(ft);
     mRefreshRate->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     mRefreshRate->setMinimumSize(402,30);
-    mRefreshRate->setMaximumSize(402,30);
+    mRefreshRate->setMaximumSize(16777215,30);
+    QString cqss = "QComboBox{"
+                  "background: rgba(244,244,244);"
+                  "border-radius:6px;"
+                  "font-size:12px;"
+                  "color: black;"
+                  "}"
+                  "QComboBox::down-arrow {"
+                  "image:url(:/images/downpx.png);"
+                  "}"
+                  "QComboBox::drop-down {"
+                  "width: 30px;"
+                  "border: none;"
+                  "}";
+    mRefreshRate->setStyleSheet(cqss);
 
     QLabel *freshLabel = new QLabel(this);
     freshLabel->setText(tr("refresh rate"));
@@ -171,6 +193,7 @@ void UnifiedOutputConfig::initUi()
     freshLabel->setMaximumSize(118,30);
 
     mRefreshRate->addItem(tr("auto"), -1);
+    mRefreshRate->addItem(tr("aa"), -1);
 
 
     QHBoxLayout *freshLayout = new QHBoxLayout();
@@ -180,13 +203,12 @@ void UnifiedOutputConfig::initUi()
     QWidget *freshWidget = new QWidget(this);
     freshWidget->setLayout(freshLayout);
     freshWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
-    mRotation->setStyleSheet("background-color:#F8F9F9");
 
     vbox->addWidget(freshWidget);
 
     freshWidget->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     freshWidget->setMinimumSize(552,50);
-    freshWidget->setMaximumSize(552,50);
+    freshWidget->setMaximumSize(960,50);
 
     mRefreshRate->setEnabled(false);
 }

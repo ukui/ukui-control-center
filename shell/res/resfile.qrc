@@ -75,9 +75,11 @@
         <file>secondaryleftmenu/keyboard.png</file>
         <file>secondaryleftmenu/mouse.png</file>
         <file>secondaryleftmenu/about.png</file>
+        <file>dropArrow/downpx.png</file>
     </qresource>
     <qresource prefix="/">
         <file>i18n/zh_CN.qm</file>
         <file>global.qss</file>
+        <file>combox.qss</file>
     </qresource>
 </RCC>

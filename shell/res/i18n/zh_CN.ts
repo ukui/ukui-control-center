@@ -853,7 +853,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/system/display/display.ui" line="172"/>
         <source>open monitor</source>
-        <translation type="unfinished"></translation>
+        <translation>打开显示器</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/display.ui" line="268"/>
@@ -871,7 +871,7 @@ folder will be deleted!</source>
         <translation>亮</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="379"/>
+        <location filename="../../../plugins/system/display/display.ui" line="366"/>
         <source>apply</source>
         <translation>应用</translation>
     </message>
@@ -1168,6 +1168,11 @@ folder will be deleted!</source>
         <location filename="../../../plugins/system/display/outputconfig.cpp" line="223"/>
         <source>auto</source>
         <translation>自动</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="273"/>
+        <source>%1 Hz</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1512,7 +1517,7 @@ folder will be deleted!</source>
 <context>
     <name>ResolutionSlider</name>
     <message>
-        <location filename="../../../plugins/system/display/resolutionslider.cpp" line="94"/>
+        <location filename="../../../plugins/system/display/resolutionslider.cpp" line="97"/>
         <source>No available resolutions</source>
         <translation>没有合适的分辨率</translation>
     </message>
@@ -1664,37 +1669,37 @@ folder will be deleted!</source>
         <translation>分辨率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="126"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="127"/>
         <source>orientation</source>
         <translation>方向</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="135"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="136"/>
         <source>arrow-up</source>
         <translation>不旋转</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="136"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="137"/>
         <source>90° arrow-right</source>
         <translation>90°顺时针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="137"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="138"/>
         <source>arrow-down</source>
         <translation>上下颠倒</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="138"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="139"/>
         <source>90° arrow-left</source>
         <translation>90°逆时针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="167"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="168"/>
         <source>refresh rate</source>
         <translation>刷新率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="173"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="174"/>
         <source>auto</source>
         <translation>自动</translation>
     </message>
@@ -1964,32 +1969,27 @@ folder will be deleted!</source>
         <translation>夜间模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="692"/>
-        <source>Are you sure you want to disable all outputs?</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../../plugins/system/display/widget.cpp" line="690"/>
+        <source>please insure at least one output!</source>
+        <translation>请确保至少开启一个屏幕</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="694"/>
-        <source>&amp;确定</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../../plugins/system/display/widget.cpp" line="691"/>
+        <source>Warning</source>
+        <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="695"/>
-        <source>&amp;取消</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="705"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="700"/>
         <source>Sorry, your configuration could not be applied.
 
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
-        <translation type="unfinished"></translation>
+        <translation>抱歉,配置不能应用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="707"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="702"/>
         <source>@title:window</source>
         <comment>Unsupported Configuration</comment>
-        <translation type="unfinished"></translation>
+        <translation>窗口</translation>
     </message>
 </context>
 <context>

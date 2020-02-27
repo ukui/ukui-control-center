@@ -18,11 +18,23 @@
 #include <KF5/KScreen/kscreen/output.h>
 #include <KF5/KScreen/kscreen/edid.h>
 
+#include "ComboBox/combobox.h"
+
 
 OutputConfig::OutputConfig(QWidget *parent)
     : QWidget(parent)
     , mOutput(nullptr)
 {
+    //加载qss样式文件
+
+    QFile QssFile("://combox.qss");
+    QssFile.open(QFile::ReadOnly);
+
+    if (QssFile.isOpen()){
+        qss = QLatin1String(QssFile.readAll());
+        QssFile.close();
+    }
+    itemDelege = new QStyledItemDelegate();
 
 }
 
@@ -51,10 +63,10 @@ void OutputConfig::initUi()
                 }
             });
 
-    connect(mOutput.data(), &KScreen::Output::isEnabledChanged,
-            this, [=]() {
-                mEnabled->setChecked(mOutput->isEnabled());
-            });
+//    connect(mOutput.data(), &KScreen::Output::isEnabledChanged,
+//            this, [=]() {
+//                mEnabled->setChecked(mOutput->isEnabled());
+//            });
 
     connect(mOutput.data(), &KScreen::Output::rotationChanged,
             this, [=]() {
@@ -101,7 +113,7 @@ void OutputConfig::initUi()
 //    mMonitor = new QComboBox(this);
 //    formLayout->addRow(i18n("主显示器"),mMonitor);
     QFont ft;
-    ft.setPointSize(10);
+    ft.setPointSize(14);
 
 
     //分辨率下拉框
@@ -109,7 +121,8 @@ void OutputConfig::initUi()
     mResolution->setFont(ft);
     mResolution->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     mResolution->setMinimumSize(402,30);
-    mResolution->setMaximumSize(402,30);
+    mResolution->setMaximumSize(16777215,30);
+
 
     QLabel *resLabel = new QLabel(this);
     resLabel->setText(tr("resolution"));
@@ -122,13 +135,13 @@ void OutputConfig::initUi()
     //resLayout->setContentsMargins(0,5,0,5);
     resLayout->addWidget(resLabel);
     resLayout->addWidget(mResolution);
-    resLayout->addStretch();
+//    resLayout->addStretch();
 
 
     QWidget *resWidget = new QWidget(this);    
     resWidget->setLayout(resLayout);
     resWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
-    mResolution->setStyleSheet("background-color:#F8F9F9");
+//    mResolution->setStyleSheet("background-color:#F8F9F9");
 
     resWidget->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     resWidget->setMinimumSize(552,50);
@@ -145,7 +158,10 @@ void OutputConfig::initUi()
     mRotation->setFont(ft);
     mRotation->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     mRotation->setMinimumSize(402,30);
-    mRotation->setMaximumSize(402,30);
+    mRotation->setMaximumSize(16777215,30);
+    mRotation->setStyleSheet(qss);
+    mRotation->setItemDelegate(itemDelege);
+
 
     QLabel *rotateLabel = new QLabel();
     rotateLabel->setText(tr("orientation"));
@@ -156,13 +172,15 @@ void OutputConfig::initUi()
 
     QHBoxLayout *rotateLayout = new QHBoxLayout();
     rotateLayout->addWidget(rotateLabel);
+
+
     rotateLayout->addWidget(mRotation);
-    rotateLayout->addStretch();
+//    rotateLayout->addStretch();
 
     QWidget *rotateWidget = new QWidget();
     rotateWidget->setLayout(rotateLayout);
     rotateWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
-    mRotation->setStyleSheet("background-color:#F8F9F9");
+//    mRotation->setStyleSheet("background-color:#F8F9F9");
 
     rotateWidget->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     rotateWidget->setMinimumSize(550,50);
@@ -193,11 +211,14 @@ void OutputConfig::initUi()
 
 
     //刷新率下拉框
-    mRefreshRate = new QComboBox();
+    mRefreshRate = new QComboBox();  
     mRefreshRate->setFont(ft);
-    mRefreshRate->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
+//    mRefreshRate->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     mRefreshRate->setMinimumSize(402,30);
-    mRefreshRate->setMaximumSize(402,30);
+    mRefreshRate->setMaximumSize(16777215,30);
+    mRefreshRate->setStyleSheet(qss);
+    mRefreshRate->setItemDelegate(itemDelege);
+    mRefreshRate->setMaxVisibleItems(5);
 
     QLabel *freshLabel = new QLabel();
     freshLabel->setText(tr("refresh rate"));
@@ -209,12 +230,11 @@ void OutputConfig::initUi()
     QHBoxLayout *freshLayout = new QHBoxLayout();
     freshLayout->addWidget(freshLabel);
     freshLayout->addWidget(mRefreshRate);
-    freshLayout->addStretch();
+//    freshLayout->addStretch();
 
     QWidget *freshWidget = new QWidget(this);
     freshWidget->setLayout(freshLayout);
     freshWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
-    mRefreshRate->setStyleSheet("background-color:#F8F9F9");
 
     freshWidget->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     freshWidget->setMinimumSize(550,50);

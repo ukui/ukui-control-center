@@ -10,6 +10,7 @@
 class QCheckBox;
 class ResolutionSlider;
 class QLabel;
+class QStyledItemDelegate;
 
 
 namespace Ui {
@@ -34,6 +35,9 @@ class OutputConfig : public QWidget
 
     //拿取配置
     void initConfig(const KScreen::ConfigPtr &config);
+
+public:
+    QStyledItemDelegate  *itemDelege;
 
 
 
@@ -62,8 +66,7 @@ class OutputConfig : public QWidget
     bool mShowScaleOption  = false;
 
     KScreen::ConfigPtr mConfig = nullptr;
-
-
+    QString qss;
 };
 
 #endif // OUTPUTCONFIG_H
