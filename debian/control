@@ -14,7 +14,12 @@ Build-Depends: debhelper-compat (= 12),
                libkeyboardclient-dev,
                libinterfaceclient-dev,
                libqt5x11extras5-dev,
-               libxklavier-dev
+               libxklavier-dev,
+               libkf5widgetsaddons-dev,
+               libkf5config-dev,
+               libkf5configwidgets-dev,
+               libkf5screen-dev,
+               libkf5screen-bin               
 Standards-Version: 4.5.0
 Rules-Requires-Root: no
 Homepage: https://github.com/ukui/ukui-control-center
@@ -30,7 +35,8 @@ Suggests: gsettings-desktop-schemas,
           ukui-power-manager,
           ukui-session-manager,
           ukui-screensaver,
-          ukui-settings-daemon
+          ukui-settings-daemon,
+          redshift
 Description: utilities to configure the UKUI desktop
  The UKUI control center contains configuration applets for the UKUI desktop,
  allowing to set accessibility configuration, desktop fonts, keyboard

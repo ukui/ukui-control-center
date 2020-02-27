@@ -27,7 +27,8 @@ LeftWidgetItem::LeftWidgetItem(QWidget *parent) :
 {
 //    this->setStyleSheet("background: none;");
     widget = new QWidget(this);
-    widget->setFixedSize(120, 40);
+//    widget->setFixedSize(120, 40);
+    widget->setFixedHeight(40);
 
     iconLabel = new QLabel(widget);
     QSizePolicy policy = iconLabel->sizePolicy();

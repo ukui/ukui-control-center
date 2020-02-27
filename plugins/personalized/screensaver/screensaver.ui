@@ -129,13 +129,13 @@
     <widget class="QWidget" name="enableWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -188,13 +188,13 @@
     <widget class="QWidget" name="programWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -288,13 +288,13 @@
     <widget class="QWidget" name="idleWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -468,13 +468,13 @@
     <widget class="QWidget" name="lockWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>

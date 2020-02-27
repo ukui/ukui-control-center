@@ -74,13 +74,13 @@
     <widget class="QWidget" name="deskComputerWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -162,13 +162,13 @@
     <widget class="QWidget" name="deskTrashWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -250,13 +250,13 @@
     <widget class="QWidget" name="deskHomeWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -338,13 +338,13 @@
     <widget class="QWidget" name="deskVolumeWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -426,13 +426,13 @@
     <widget class="QWidget" name="deskNetworkWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -543,13 +543,13 @@
     <widget class="QWidget" name="menuComputerWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -631,13 +631,13 @@
     <widget class="QWidget" name="menuTrashWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -719,13 +719,13 @@
     <widget class="QWidget" name="menuHomeWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -807,13 +807,13 @@
     <widget class="QWidget" name="menuSettingWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -895,13 +895,13 @@
     <widget class="QWidget" name="menuNetworkWidget" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>

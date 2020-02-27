@@ -77,13 +77,13 @@
     <widget class="QWidget" name="repeatWidget_0" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -152,13 +152,13 @@
     <widget class="QWidget" name="repeatWidget_1" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -265,13 +265,13 @@
     <widget class="QWidget" name="repeatWidget_2" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -378,13 +378,13 @@
     <widget class="QWidget" name="repeatWidget_3" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -469,13 +469,13 @@
     <widget class="QWidget" name="repeatWidget_4" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -544,13 +544,13 @@
     <widget class="QWidget" name="repeatWidget_5" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -651,13 +651,13 @@
     <widget class="QWidget" name="layoutWidget_0" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>50</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>50</height>
       </size>
      </property>
@@ -758,13 +758,13 @@
     <widget class="QWidget" name="layoutWidget_1" native="true">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>60</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>60</height>
       </size>
      </property>

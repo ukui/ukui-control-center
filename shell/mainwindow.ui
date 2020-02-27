@@ -169,7 +169,7 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>354</width>
+             <width>560</width>
              <height>32</height>
             </size>
            </property>
@@ -249,7 +249,14 @@
        </widget>
       </item>
       <item>
-       <widget class="QStackedWidget" name="stackedWidget"/>
+       <widget class="QStackedWidget" name="stackedWidget">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>16777215</height>
+         </size>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
