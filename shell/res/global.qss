@@ -12,3 +12,7 @@ QLabel#mptitleLabel{
 QLabel#titleLabel, #title2Label{
     font-size: 18px; color: #BF000000;
 }
+
+QPushButton{
+    font-size:14px;
+}

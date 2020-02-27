@@ -26,6 +26,7 @@
 Area::Area()
 {
     ui = new Ui::Area;
+    itemDelege = new QStyledItemDelegate();
     pluginWidget = new QWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     pluginWidget->setStyleSheet("background: #ffffff;");
@@ -83,6 +84,10 @@ void Area::initUI(){
     ui->showformwidget->setStyleSheet("QWidget#showformwidget{background-color:#E5E7E9;border-radius:6px}");
     ui->countrylabel->setStyleSheet("QLabel#countrylabel{background: #E5E7E9;}");
 
+
+    ui->countrycomboBox->setItemDelegate(itemDelege);
+    ui->countrycomboBox->setMaxVisibleItems(5);
+
     ui->countrycomboBox->addItem(tr("US"));
     ui->countrycomboBox->addItem(tr("CN"));
 
@@ -106,6 +111,8 @@ void Area::initUI(){
 
     ui->addlanwidget->setStyleSheet("QWidget#addlanwidget{background-color:#E5E7E9;border-radius:6px}");
 
+    ui->langcomboBox->setItemDelegate(itemDelege);
+    ui->langcomboBox->setMaxVisibleItems(5);
     ui->langcomboBox->addItem(tr("English"));
     ui->langcomboBox->addItem(tr("Chinese"));
 

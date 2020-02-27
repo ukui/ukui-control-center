@@ -26,6 +26,7 @@
 #include <QMap>
 #include <QProcess>
 #include <QGSettings/QGSettings>
+#include <QStyledItemDelegate>
 
 #include "shell/interface.h"
 #include "SwitchButton/switchbutton.h"
@@ -119,6 +120,7 @@ private:
 
     QProcess * process;
     QStringList killList;
+    QStyledItemDelegate *itemDelege;
 
 
 private slots:
