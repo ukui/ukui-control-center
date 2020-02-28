@@ -162,6 +162,63 @@ MainWindow::MainWindow(QWidget *parent) :
         if(ui->stackedWidget != nullptr)
             ui->stackedWidget->setCurrentIndex(0);
     });
+
+
+    //快捷参数
+    if (QApplication::arguments().length() > 1){
+
+        if (QApplication::arguments().at(1) == "-m"){
+            //显示器
+            QList<FuncInfo> pFuncStructList = FunctionSelect::funcinfoList[SYSTEM];
+            QString funcStr = pFuncStructList.at(DISPLAY).namei18nString;
+
+            QMap<QString, QObject *> pluginsObjMap = modulesList.at(SYSTEM);
+
+            if (pluginsObjMap.keys().contains(funcStr)){
+                //开始跳转
+                ui->stackedWidget->setCurrentIndex(1);
+                modulepageWidget->switchPage(pluginsObjMap.value(funcStr));
+            }
+        } else if (QApplication::arguments().at(1) == "-a"){
+            //背景
+            QList<FuncInfo> pFuncStructList = FunctionSelect::funcinfoList[PERSONALIZED];
+            QString funcStr = pFuncStructList.at(BACKGROUND).namei18nString;
+
+            QMap<QString, QObject *> pluginsObjMap = modulesList.at(PERSONALIZED);
+
+            if (pluginsObjMap.keys().contains(funcStr)){
+                //开始跳转
+                ui->stackedWidget->setCurrentIndex(1);
+                modulepageWidget->switchPage(pluginsObjMap.value(funcStr));
+            }
+        } else if (QApplication::arguments().at(1) == "-d"){
+            //桌面
+            QList<FuncInfo> pFuncStructList = FunctionSelect::funcinfoList[PERSONALIZED];
+            QString funcStr = pFuncStructList.at(DESKTOP).namei18nString;
+
+            QMap<QString, QObject *> pluginsObjMap = modulesList.at(PERSONALIZED);
+
+            if (pluginsObjMap.keys().contains(funcStr)){
+                //开始跳转
+                ui->stackedWidget->setCurrentIndex(1);
+                modulepageWidget->switchPage(pluginsObjMap.value(funcStr));
+            }
+        } else if (QApplication::arguments().at(1) == "-u"){
+            //账户
+            QList<FuncInfo> pFuncStructList = FunctionSelect::funcinfoList[ACCOUNT];
+            QString funcStr = pFuncStructList.at(USERINFO).namei18nString;
+
+            QMap<QString, QObject *> pluginsObjMap = modulesList.at(ACCOUNT);
+
+            if (pluginsObjMap.keys().contains(funcStr)){
+                //开始跳转
+                ui->stackedWidget->setCurrentIndex(1);
+                modulepageWidget->switchPage(pluginsObjMap.value(funcStr));
+            }
+
+        }
+
+    }
 }
 
 MainWindow::~MainWindow()

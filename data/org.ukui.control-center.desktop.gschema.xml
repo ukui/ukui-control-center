@@ -1,0 +1,29 @@
+<schemalist gettext-domain="ukui-control-center">
+  <schema id="org.ukui.control-center.desktop">
+    <key name="computer" type="b">
+      <default>true</default>
+      <summary>Activation of this plugin</summary>
+      <description>Whether this plugin would be activated by ukui-settings-daemon or not</description>
+    </key>
+    <key name="trash" type="b">
+      <default>true</default>
+      <summary>Show OSD notification</summary>
+      <description>Whether an OSD notification is shown to notify about changes</description>
+    </key>
+    <key name="settings" type="b">
+      <default>true</default>
+      <summary>Eject</summary>
+      <description>Binding to eject an optical disc.</description>
+    </key>
+    <key name="homefolder" type="b">
+      <default>true</default>
+      <summary>Home folder</summary>
+      <description>Binding to open the Home folder.</description>
+    </key>
+    <key name="network" type="b">
+      <default>true</default>
+      <summary>Search</summary>
+      <description>Binding to launch the search tool.</description>
+    </key>
+  </schema>
+</schemalist>
