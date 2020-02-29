@@ -43,7 +43,7 @@ public:
 
 public:
     void initUI();
-    void switchPage(QObject * plugin);
+    void switchPage(QObject * plugin, bool recorded = true);
     void refreshPluginWidget(CommonInterface * plu);
     void highlightItem(QString text);
 
@@ -59,11 +59,11 @@ private:
     QMap<QString, CommonInterface*> pluginInstanceMap;
     QMultiMap<QString, QListWidgetItem*> strItemsMap;//存储功能名与二级菜单item的Map,为了实现高亮
 
+    bool flagBit;
+
 public slots:
     void currentLeftitemChanged(QListWidgetItem * cur, QListWidgetItem * pre);
 
-Q_SIGNALS:
-    void widgetChanged(QString text);
 };
 
 #endif // MODULEPAGEWIDGET_H

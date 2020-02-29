@@ -23,6 +23,7 @@
 #include <QDebug>
 
 QList<QList<FuncInfo>> FunctionSelect::funcinfoList;
+QStack<RecordFunc> FunctionSelect::recordFuncStack;
 
 //FuncInfo FunctionSelect::displayStruct;
 
@@ -185,4 +186,20 @@ void FunctionSelect::initValue(){
     naoList[ABOUT].namei18nString = QObject::tr("about");
 
     funcinfoList.append(naoList);
+}
+
+void FunctionSelect::pushRecordValue(int type, QString name){
+    RecordFunc reFuncStruct;
+    reFuncStruct.type = type;
+    reFuncStruct.namei18nString = name;
+    if (recordFuncStack.length() < 1)
+        recordFuncStack.push(reFuncStruct);
+    else if (QString::compare(recordFuncStack.last().namei18nString, name) != 0){
+//        qDebug() << recordFuncStack.last().namei18nString << name;
+        recordFuncStack.push(reFuncStruct);
+    }
+}
+
+void FunctionSelect::popRecordValue(){
+    recordFuncStack.pop();
 }

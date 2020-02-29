@@ -157,12 +157,19 @@ MainWindow::MainWindow(QWidget *parent) :
     modulepageWidget = new ModulePageWidget(this);
     ui->stackedWidget->addWidget(modulepageWidget);
 
+    //刷新后退按钮状态
+    refreshBackBtnStatus();
+
     //top left return button
     connect(ui->backBtn, &QPushButton::clicked, this, [=]{
-        if(ui->stackedWidget != nullptr)
-            ui->stackedWidget->setCurrentIndex(0);
-    });
+        FunctionSelect::popRecordValue();
 
+        refreshBackBtnStatus();
+
+        QMap<QString, QObject *> pluginsObjMap = modulesList.at(FunctionSelect::recordFuncStack.last().type);
+        modulepageWidget->switchPage(pluginsObjMap.value(FunctionSelect::recordFuncStack.last().namei18nString), false);
+
+    });
 
     //快捷参数
     if (QApplication::arguments().length() > 1){
@@ -266,25 +273,26 @@ void MainWindow::loadPlugins(){
     foreach (QString fileName, pluginsDir.entryList(QDir::Files)){
         qDebug() << "Scan Plugin: " << fileName;
         //ukui-indicators(org.ukui.panel.indicators.gschema.xml)
-        char * indicatorFile = "/usr/share/glib-2.0/schemas/org.ukui.panel.indicators.gschema.xml";
+        QString indicatorFileStr = "/usr/share/glib-2.0/schemas/org.ukui.panel.indicators.gschema.xml";
+        const char * indicatorFile = indicatorFileStr.toStdString().c_str();
         //gsettings-desktop-schemas
-        char * proxyFile = "/usr/share/glib-2.0/schemas/org.gnome.system.proxy.gschema.xml";
-        char * gnomedesktopFile = "/usr/share/glib-2.0/schemas/org.gnome.desktop.wm.preferences.gschema.xml";
+        const char * proxyFile = "/usr/share/glib-2.0/schemas/org.gnome.system.proxy.gschema.xml";
+        const char * gnomedesktopFile = "/usr/share/glib-2.0/schemas/org.gnome.desktop.wm.preferences.gschema.xml";
         //mate-desktop-common
-        char * interfaceFile = "/usr/share/glib-2.0/schemas/org.mate.interface.gschema.xml";
-        char * bgFile = "/usr/share/glib-2.0/schemas/org.mate.background.gschema.xml";
+        const char * interfaceFile = "/usr/share/glib-2.0/schemas/org.mate.interface.gschema.xml";
+        const char * bgFile = "/usr/share/glib-2.0/schemas/org.mate.background.gschema.xml";
         //peony-common
-        char * peonyFile = "/usr/share/glib-2.0/schemas/org.ukui.peony.gschema.xml";
+        const char * peonyFile = "/usr/share/glib-2.0/schemas/org.ukui.peony.gschema.xml";
         //libmatekbd-common
-        char * kbdFile = "/usr/share/glib-2.0/schemas/org.mate.peripherals-keyboard-xkb.gschema.xml";
+        const char * kbdFile = "/usr/share/glib-2.0/schemas/org.mate.peripherals-keyboard-xkb.gschema.xml";
         //ukui-power-manager-common
-        char * powerFile = "/usr/share/glib-2.0/schemas/org.ukui.power-manager.gschema.xml";
+        const char * powerFile = "/usr/share/glib-2.0/schemas/org.ukui.power-manager.gschema.xml";
         //ukui-session-manager
-        char * sessionFile = "/usr/share/glib-2.0/schemas/org.ukui.session.gschema.xml";
+        const char * sessionFile = "/usr/share/glib-2.0/schemas/org.ukui.session.gschema.xml";
         //ukui-screensaver
-        char * screensaverFile = "/usr/share/glib-2.0/schemas/org.ukui.screensaver.gschema.xml";
+        const char * screensaverFile = "/usr/share/glib-2.0/schemas/org.ukui.screensaver.gschema.xml";
         //ukui-settings-daemon-common
-        char * usdFile = "/usr/share/glib-2.0/schemas/org.ukui.font-rendering.gschema.xml";
+        const char * usdFile = "/usr/share/glib-2.0/schemas/org.ukui.font-rendering.gschema.xml";
 
         //时间和日期功能依赖ukui-indicators
         if (!g_file_test(indicatorFile, G_FILE_TEST_EXISTS) && fileName == "libdatetime.so")
@@ -355,7 +363,7 @@ void MainWindow::initLeftsideBar(){
     ui->leftsidebarVerLayout->addWidget(hBtn);
 
     for(int type = 0; type < TOTALMODULES; type++){
-        //循环构建左侧边栏模块按钮
+        //循环构建左侧边栏一级菜单按钮
         if (moduleIndexList.contains(type)){
             QString mnameString = kvConverter->keycodeTokeystring(type);
             QString mnamei18nString  = kvConverter->keycodeTokeyi18nstring(type); //设置TEXT
@@ -371,7 +379,7 @@ void MainWindow::initLeftsideBar(){
 
                 int selectedInt = leftBtnGroup->id(btn);
 
-                //获取模块功能列表的第一项
+                //获取一级菜单列表的第一项
                 QList<FuncInfo> tmpList = FunctionSelect::funcinfoList[selectedInt];
                 QMap<QString, QObject *> currentFuncMap = modulesList[selectedInt];
 
@@ -455,5 +463,13 @@ QMap<QString, QObject *> MainWindow::exportModule(int type){
 void MainWindow::functionBtnClicked(QObject *plugin){
     ui->stackedWidget->setCurrentIndex(1);
     modulepageWidget->switchPage(plugin);
+}
+
+void MainWindow::refreshBackBtnStatus(){
+    if (FunctionSelect::recordFuncStack.length() <= 1)
+        ui->backBtn->setEnabled(false);
+    else
+        ui->backBtn->setEnabled(true);
+
 }
 

@@ -55,6 +55,9 @@ ModulePageWidget::ModulePageWidget(QWidget *parent) :
     ui->scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
+    //初始化记录标志位
+    flagBit = true;
+
 
     //构建枚举键值转换对象
     mkvConverter = new KeyValueConverter(); //继承QObject，No Delete
@@ -80,9 +83,6 @@ void ModulePageWidget::initUI(){
 
     ui->leftbarWidget->setSizePolicy(leftSizePolicy);
     ui->widget->setSizePolicy(rightSizePolicy);
-
-    //绑定高亮函数
-    connect(this, &ModulePageWidget::widgetChanged, this, [=](QString text){highlightItem(text);});
 
     for (int moduleIndex = 0; moduleIndex < TOTALMODULES; moduleIndex++){
         QListWidget * leftListWidget = new QListWidget;
@@ -167,7 +167,7 @@ void ModulePageWidget::initUI(){
         ui->topStackedWidget->addWidget(topListWidget);
     }
 
-    //左侧模块标题及上侧模块标题随左侧二级菜单联动
+    //左侧二级菜单标题及上侧二级菜单标题随功能页变化联动
     connect(ui->leftStackedWidget, &QStackedWidget::currentChanged, this, [=](int index){
         QString titleString = mkvConverter->keycodeTokeyi18nstring(index);
 
@@ -177,7 +177,8 @@ void ModulePageWidget::initUI(){
     });
 }
 
-void ModulePageWidget::switchPage(QObject *plugin){
+void ModulePageWidget::switchPage(QObject *plugin, bool recorded){
+
     CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(plugin);
     QString name; int type;
     name = pluginInstance->get_plugin_name();
@@ -191,16 +192,36 @@ void ModulePageWidget::switchPage(QObject *plugin){
         ui->mmtitleLabel->setText(titleString);
     }
 
+    //通过设置标志位确定是否记录打开历史
+    flagBit = recorded;
+
     //设置左侧一级菜单
     pmainWindow->setModuleBtnHightLight(type);
 
     //设置左侧二级菜单
     ui->leftStackedWidget->setCurrentIndex(type);
 
+    //待返回页与QListWidget的CurrentItem相同
+    QListWidget * lefttmpListWidget = dynamic_cast<QListWidget *>(ui->leftStackedWidget->currentWidget());
+    if (lefttmpListWidget->currentItem() != nullptr){
+        LeftWidgetItem * widget = dynamic_cast<LeftWidgetItem *>(lefttmpListWidget->itemWidget(lefttmpListWidget->currentItem()));
+        if (QString::compare(widget->text(), name) == 0){
+            if (!recorded) //解决点击返回按钮refreshPluginWidget未触发问题
+                refreshPluginWidget(pluginInstance);
+            else{ //解决点击左侧一级菜单未记录问题
+                FunctionSelect::pushRecordValue(type, name);
+                //刷新返回按钮
+                pmainWindow->refreshBackBtnStatus();
+            }
+        }
+    }
+
     //设置上侧二级菜单
     ui->topStackedWidget->setCurrentIndex(type);
 
-    refreshPluginWidget(pluginInstance);
+    //设置左侧及上侧的当前Item及功能Widget
+    highlightItem(name);
+
 }
 
 void ModulePageWidget::refreshPluginWidget(CommonInterface *plu){
@@ -212,8 +233,15 @@ void ModulePageWidget::refreshPluginWidget(CommonInterface *plu){
     //延迟操作
     plu->plugin_delay_control();
 
-    //发出信号更新左侧及上侧的高亮item
-    emit widgetChanged(plu->get_plugin_name());
+    //记录打开历史
+    if (flagBit){
+        FunctionSelect::pushRecordValue(plu->get_plugin_type(), plu->get_plugin_name());
+        //刷新返回按钮
+        pmainWindow->refreshBackBtnStatus();
+    }
+
+    //恢复标志位
+    flagBit = true;
 }
 
 void ModulePageWidget::highlightItem(QString text){
