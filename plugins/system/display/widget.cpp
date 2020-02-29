@@ -172,7 +172,7 @@ Widget::Widget(QWidget *parent)
     loadQml();
     setBrigthnessFile();
     //亮度调节UI
-    initBrightnessUI();
+//    initBrightnessUI();
 
 }
 
@@ -831,7 +831,7 @@ QStringList Widget::getscreenBrightnesName(){
     }
     QString str =  QString(ba);
 //    qDebug()<<"strlist------>"<<str<<endl;
-    QStringList strlist = str.split(" \n");
+    QStringList strlist = str.split("\n");
 
 
     return strlist;
@@ -916,7 +916,7 @@ void Widget::saveBrigthnessConfig(){
     QStringList nameList = getscreenBrightnesName();
     QStringList valueList = getscreenBrightnesValue();
     QString sliderValue = QString::number(ui->brightnessSlider->value()/100.0);
-    int len = valueList.length();
+    int len = std::min(nameList.length(),valueList.length());
 
 //    qDebug()<<"QStringList------------------>"<<nameList<<" "<<valueList<<endl;
     for(int i = 0;i < len;i++){
@@ -957,7 +957,7 @@ void Widget::setBrightnesSldierValue(QString name){
     QMap<QString,float> brightnessMap;
 
     for(int i = 0;i < len;i++){
-        brightnessMap.insert(nameList.at(i),valueList.at(i).toFloat());
+        brightnessMap.insert(nameList.at(i).trimmed(),valueList.at(i).toFloat());
     }
 
     ui->brightnessSlider->setValue(brightnessMap[screename]*100);

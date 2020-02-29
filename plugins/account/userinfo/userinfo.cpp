@@ -417,9 +417,11 @@ void UserInfo::ui_status_init(){
 
 void UserInfo::_buildWidgetForItem(UserInfomation user){
     HoverWidget * baseWidget = new HoverWidget(user.username);
+    baseWidget->setMinimumSize(550,50);
+    baseWidget->setMaximumSize(960,50);
     baseWidget->setAttribute(Qt::WA_DeleteOnClose);
 
-    QVBoxLayout * baseVerLayout = new QVBoxLayout(baseWidget);
+    QHBoxLayout * baseVerLayout = new QHBoxLayout(baseWidget);
     baseVerLayout->setSpacing(0);
     baseVerLayout->setMargin(0);
 
@@ -428,7 +430,9 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     baseHorLayout->setMargin(0);
 
     QWidget * widget = new QWidget(baseWidget);
-    widget->setFixedHeight(50);
+//    widget->setFixedHeight(50);
+    widget->setMinimumSize(550,50);
+    widget->setMaximumSize(960,50);
     widget->setStyleSheet("background: #F4F4F4; border-radius: 4px;");
 
     QHBoxLayout * mainHorLayout = new QHBoxLayout(widget);
@@ -505,7 +509,7 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     baseHorLayout->addWidget(delBtn, Qt::AlignVCenter);
 
     baseVerLayout->addLayout(baseHorLayout);
-    baseVerLayout->addStretch();
+//    baseVerLayout->addStretch();
 
     baseWidget->setLayout(baseVerLayout);
 
