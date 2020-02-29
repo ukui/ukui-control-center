@@ -4,7 +4,7 @@
 #include "timezonemap.h"
 
 #include <QFrame>
-#include <QMap>;
+#include <QMap>
 #include <QLabel>
 #include <QPushButton>
 #include <QAbstractItemView>

@@ -589,7 +589,7 @@
         <item>
          <widget class="QComboBox" name="sleepComboBox">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
@@ -597,29 +597,50 @@
           <property name="minimumSize">
            <size>
             <width>302</width>
-            <height>32</height>
+            <height>30</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>302</width>
+            <width>16777215</width>
             <height>32</height>
            </size>
           </property>
+          <property name="styleSheet">
+           <string notr="true">QComboBox{
+    background: rgba(255, 255, 255);
+    border-radius: 6px;
+    font-size:14px;
+    color: black;
+    min-height: 30px;
+    combobox-popup: 0;  /* 配合setMaxVisibleItems设置下拉框显示的条数，超过的滚动显示 */
+}
+
+QComboBox QAbstractItemView::item {
+    min-height: 30px;
+    border-radius: 2px ;
+    color:black;
+    background-color: rgba(255, 255, 255);
+}
+
+QComboBox::down-arrow{
+    image:url(://img/dropArrow/downpx.png);
+}
+
+QComboBox::drop-down{
+    width: 30px;
+    border: none;
+}
+
+QComboBox QListView::item:selected{
+    background: #3D6BE5;
+}
+
+
+
+</string>
+          </property>
          </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
         </item>
        </layout>
       </item>
@@ -698,7 +719,7 @@
         <item>
          <widget class="QComboBox" name="closeComboBox">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
@@ -706,29 +727,50 @@
           <property name="minimumSize">
            <size>
             <width>302</width>
-            <height>32</height>
+            <height>30</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>302</width>
+            <width>16777215</width>
             <height>32</height>
            </size>
           </property>
+          <property name="styleSheet">
+           <string notr="true">QComboBox{
+    background: rgba(255, 255, 255);
+    border-radius: 6px;
+    font-size:14px;
+    color: black;
+    min-height: 30px;
+    combobox-popup: 0;  /* 配合setMaxVisibleItems设置下拉框显示的条数，超过的滚动显示 */
+}
+
+QComboBox QAbstractItemView::item {
+    min-height: 30px;
+    border-radius: 2px ;
+    color:black;
+    background-color: rgba(255, 255, 255);
+}
+
+QComboBox::down-arrow{
+    image:url(://img/dropArrow/downpx.png);
+}
+
+QComboBox::drop-down{
+    width: 30px;
+    border: none;
+}
+
+QComboBox QListView::item:selected{
+    background: #3D6BE5;
+}
+
+
+
+</string>
+          </property>
          </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_3">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
         </item>
        </layout>
       </item>
@@ -753,7 +795,7 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="powerModeBtnGroup"/>
   <buttongroup name="powerTypeBtnGroup"/>
+  <buttongroup name="powerModeBtnGroup"/>
  </buttongroups>
 </ui>

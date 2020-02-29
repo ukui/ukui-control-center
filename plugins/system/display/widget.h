@@ -20,6 +20,7 @@ class QComboBox;
 
 class QQuickView;
 class QQuickWidget;
+class QStyledItemDelegate;
 
 typedef struct xml{
     QString isClone;
@@ -164,6 +165,8 @@ class Widget : public QWidget
 
     bool m_isNightMode = false;//是否为夜间模式
     bool m_redshiftIsValid = false;
+
+    QStyledItemDelegate *itemDelege;
 };
 
 #endif // WIDGET_H

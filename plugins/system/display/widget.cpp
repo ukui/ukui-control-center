@@ -23,6 +23,7 @@
 #include <QStandardPaths>
 #include <QComboBox>
 #include <QQuickWidget>
+#include <QStyledItemDelegate>
 
 #include <KPluginFactory>
 #include <KAboutData>
@@ -47,6 +48,7 @@ Widget::Widget(QWidget *parent)
     , ui(new Ui::DisplayWindow())
 {
     qRegisterMetaType<QQuickView*>();
+    itemDelege= new QStyledItemDelegate(this);
 
     ui->setupUi(this);
     ui->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
@@ -59,11 +61,13 @@ Widget::Widget(QWidget *parent)
     ui->unionwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
 
 
-    ui->mainScreenButton->setStyleSheet("QPushButton{background-color:#F8F9F9;border-radius:6px}"
+    ui->mainScreenButton->setStyleSheet("QPushButton{background-color:#F8F9F9;border-radius:6px;font-size:14px;}"
                                    "QPushButton:hover{background-color: #3D6BE5;};border-radius:6px");
 
+    ui->primaryCombo->setItemDelegate(itemDelege);
 
-    ui->primaryCombo->setStyleSheet("background-color:#F8F9F9");
+//    ui->primaryCombo->setStyleSheet("background-color:#F8F9F9");
+//    ui->primaryCombo->setMaxVisibleItems(1);
 
     ui->showMonitorwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
 
@@ -75,7 +79,7 @@ Widget::Widget(QWidget *parent)
     ui->showScreenLayout->addWidget(closeScreenButton);
 
     m_unifybutton = new SwitchButton;
-    m_unifybutton->setEnabled(false);
+//    m_unifybutton->setEnabled(false);
     ui->unionLayout->addWidget(m_unifybutton);
 
 
@@ -135,8 +139,8 @@ Widget::Widget(QWidget *parent)
 //                slotUnifyOutputs();
 //            });
     connect(m_unifybutton,&SwitchButton::checkedChanged,
-            this,[=](bool checked){
-                  if(checked)
+            [this]{
+//                  if(checked)
                     slotUnifyOutputs();
             });
 
@@ -147,7 +151,7 @@ Widget::Widget(QWidget *parent)
 //            });
 
     //TODO----->bug
-    ui->showMonitorwidget->setVisible(false);
+//    ui->showMonitorwidget->setVisible(false);
     connect(closeScreenButton,&SwitchButton::checkedChanged,
             this,[=](bool checked){
                 checkOutputScreen(checked);
@@ -167,6 +171,8 @@ Widget::Widget(QWidget *parent)
 
     loadQml();
     setBrigthnessFile();
+    //亮度调节UI
+    initBrightnessUI();
 
 }
 
@@ -238,9 +244,6 @@ void Widget::setConfig(const KScreen::ConfigPtr &config)
     }
 
     slotOutputEnabledChanged();
-
-    //亮度调节UI
-    initBrightnessUI();
 }
 
 KScreen::ConfigPtr Widget::currentConfig() const
@@ -387,12 +390,13 @@ void Widget::slotUnifyOutputs()
     }
 
     if (base->isCloneMode()) {
+        qDebug()<<"取消clone------------>"<<endl;
         setConfig(mPrevConfig);
         mPrevConfig.clear();
 
         ui->primaryCombo->setEnabled(true);
         //开启开关
-        //ui->checkBox->setEnabled(true);
+//        ui->checkBox->setEnabled(true);
         closeScreenButton->setEnabled(true);
         ui->primaryCombo->setEnabled(true);
 //        ui->unifyButton->setText(tr("统一输出"));
@@ -436,9 +440,9 @@ void Widget::slotUnifyOutputs()
 
         mScreen->updateOutputsPlacement();
 
-        ui->primaryCombo->setEnabled(false);
+
         //关闭开关
-        //ui->checkBox->setEnabled(false);
+//        ui->checkBox->setEnabled(false);
         closeScreenButton->setEnabled(false);
         ui->primaryCombo->setEnabled(false);
         ui->mainScreenButton->setEnabled(false);
@@ -684,21 +688,16 @@ void Widget::save()
         i++;
     }
 
-    initScreenXml(countOutput);
-    writeScreenXml(countOutput);
-
     if (!atLeastOneEnabledOutput) {
         qDebug()<<"atLeastOneEnabledOutput------>"<<endl;
-        if (KMessageBox::warningYesNo(this, tr("Are you sure you want to disable all outputs?"),
-            tr("@title:window", "Disable All Outputs"),
-            KGuiItem(tr("&确定"), QIcon::fromTheme(QStringLiteral("dialog-ok-apply"))),
-            KGuiItem(tr("&取消"), QIcon::fromTheme(QStringLiteral("dialog-cancel"))),
-            QString(), KMessageBox::Dangerous) == KMessageBox::No)
-        {
-            return;
-        }
+
+        KMessageBox::error(this,tr("please insure at least one output!"),
+                           tr("Warning"),KMessageBox::Notify);
         return ;
     }
+
+    initScreenXml(countOutput);
+    writeScreenXml(countOutput);
 
     if (!KScreen::Config::canBeApplied(config)) {
         KMessageBox::information(this,
@@ -746,10 +745,10 @@ void Widget::mainScreenButtonSelect(int index){
 //        return ;
 //    }
     //设置是否勾选
-   //ui->checkBox->setEnabled(true);    
+//   ui->checkBox->setEnabled(true);
     closeScreenButton->setEnabled(true);
-   //ui->checkBox->setChecked(newPrimary->isEnabled());  
-    closeScreenButton->setEnabled(newPrimary->isEnabled());
+//   ui->checkBox->setChecked(newPrimary->isEnabled());
+    closeScreenButton->setChecked(newPrimary->isEnabled());
    mControlPanel->activateOutput(newPrimary);
 }
 
@@ -775,6 +774,7 @@ void Widget::checkOutputScreen(bool judge){
    const KScreen::OutputPtr newPrimary = mConfig->output(ui->primaryCombo->itemData(index).toInt());
    if(ui->primaryCombo->count()<=1&&judge ==false)
        return ;
+//   qDebug()<<"newPrimary---------->"<<newPrimary<<endl;
 
    newPrimary->setEnabled(judge);
    ui->primaryCombo->setCurrentIndex(index);
@@ -812,11 +812,11 @@ QString Widget::getScreenName(QString screenname){
 QStringList Widget::getscreenBrightnesName(){
     QByteArray ba;
     FILE * fp = NULL;
-    char cmd[128];
+    char cmd[1024];
     char buf[1024];
-    const char * cmdstr = "xrandr --verbose | grep connected |cut -f1 -d c";
+//    const char * cmdstr = "xrandr --verbose | grep connected |cut -f1 -d c";
 
-    sprintf(cmd, cmdstr);
+    sprintf(cmd, "xrandr --verbose | grep connected |cut -f1 -d c");
     if ((fp = popen(cmd, "r")) != NULL){
         rewind(fp);
         while(!feof(fp)){
@@ -830,8 +830,9 @@ QStringList Widget::getscreenBrightnesName(){
         qDebug()<<"popen文件打开失败"<<endl;
     }
     QString str =  QString(ba);
+//    qDebug()<<"strlist------>"<<str<<endl;
     QStringList strlist = str.split(" \n");
-    //qDebug()<<"strlist------>"<<strlist<<endl;
+
 
     return strlist;
 }
@@ -840,26 +841,28 @@ QStringList Widget::getscreenBrightnesName(){
 QStringList Widget::getscreenBrightnesValue(){
     QByteArray ba;
     FILE * fp = NULL;
-    char cmd[128];
+    char cmd[1024];
     char buf[1024];
-    const char * cmdstr = "xrandr --verbose | grep Brightness |cut -f2 -d :";
+//    const char * cmdstr = ;
 
 
-    sprintf(cmd, cmdstr);
+    sprintf(cmd, "xrandr --verbose | grep Brightness |cut -f2 -d :");
     if ((fp = popen(cmd, "r")) != NULL){
-        //rewind(fp);
-        fgets(buf, sizeof (buf), fp);
-        ba.append(buf);
+        rewind(fp);
+        while(!feof(fp)){
+            fgets(buf, sizeof (buf), fp);
+            ba.append(buf);
+        }
         pclose(fp);
         fp = NULL;
-
     }else{
         qDebug()<<"popen文件打开失败"<<endl;
     }
     QString str =  QString(ba);
+//    qDebug()<<"strlist  value------>"<<str<<endl;
     str = str.mid(1,str.length())+" ";
     QStringList strlist = str.split("\n ");
-    //qDebug()<<"strlist  value------>"<<str<<endl;
+
 
     return strlist;
 }
@@ -875,8 +878,23 @@ void Widget::setBrightnessScreen(float index){
     QString brightnessValue = QString::number(value);
 
     QProcess *process = new QProcess;
+    QMLOutput *base = mScreen->primaryOutput();
+    //qDebug()<<"primaryOutput---->"<<base<<endl;
+    if (!base) {
 
-    if(mScreen->primaryOutput()->isCloneMode() == false) {
+        for (QMLOutput *output: mScreen->outputs()) {
+            if (output->output()->isConnected() && output->output()->isEnabled()) {
+                base = output;
+                break;
+            }
+        }
+
+        if (!base) {
+            // WTF?
+            return;
+        }
+    }
+    if(base->isCloneMode() == false) {
         process->start("xrandr",QStringList()<<"--output"<<screenName<<"--brightness"<< brightnessValue);
         process->waitForFinished();
         const QString &cmd = "xrandr --output "+ screenName+" --brightness "+ brightnessValue;
@@ -900,7 +918,7 @@ void Widget::saveBrigthnessConfig(){
     QString sliderValue = QString::number(ui->brightnessSlider->value()/100.0);
     int len = valueList.length();
 
-
+//    qDebug()<<"QStringList------------------>"<<nameList<<" "<<valueList<<endl;
     for(int i = 0;i < len;i++){
         //qDebug()<<"亮度值---》"<<valueList.at(i)<<endl;
         if("" == nameList.at(i) || "" == valueList.at(i)){
@@ -913,6 +931,7 @@ void Widget::saveBrigthnessConfig(){
         } else {
             tmpcmd = "xrandr --output "+ nameList.at(i)+" --brightness "+ sliderValue;
         }
+
         cmdList.append(tmpcmd);
     }
 
@@ -1187,16 +1206,15 @@ void Widget::getEdidInfo(QString monitorName,xmlFile *xml){
     int index = monitorName.indexOf('-');
     monitorName = monitorName.mid(0,index);\
 
-    QString cmdGrep  = "ls /sys/class/drm/ | grep " +monitorName;
-    QByteArray tmpBa = cmdGrep.toLatin1();
-    const char *cmdfile = tmpBa.data();
+    QString cmdGrep  = "ls /sys/class/drm/ | grep " +monitorName;    
+    const char *cmdfile =cmdGrep.toStdString().c_str();
 
     QByteArray ba;
     FILE * fp = NULL;
-    char cmd[128];
+    char cmd[1024];
     char buf[1024];
 
-    sprintf(cmd, cmdfile);
+    sprintf(cmd, "%s", cmdfile);
     if ((fp = popen(cmd, "r")) != NULL){
         fgets(buf, sizeof (buf), fp);
         ba.append(buf);
@@ -1209,14 +1227,14 @@ void Widget::getEdidInfo(QString monitorName,xmlFile *xml){
     fileName = fileName.mid(0,fileName.length()-1);
 
     QString edidPath = "cat /sys/class/drm/"+fileName+"/edid | edid-decode | grep Manufacturer";
-    QByteArray tmpEdit = edidPath.toLatin1();
-    const char *runCmd = tmpEdit.data();
+//    QByteArray tmpEdit = edidPath.toLatin1();
+    const char *runCmd = edidPath.toStdString().c_str();
 
     QByteArray edidBa;
     FILE * fpEdid = NULL;
-    char cmdEdid[128];
+    char cmdEdid[1024];
     char bufEdid[1024];
-    sprintf(cmdEdid, runCmd);
+    sprintf(cmdEdid, "%s", runCmd);
     if ((fpEdid = popen(cmdEdid, "r")) != NULL){
         fgets(bufEdid, sizeof (bufEdid), fpEdid);
         edidBa.append(bufEdid);

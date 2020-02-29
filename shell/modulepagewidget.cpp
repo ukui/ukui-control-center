@@ -118,7 +118,7 @@ void ModulePageWidget::initUI(){
             LeftWidgetItem * leftWidgetItem = new LeftWidgetItem();
             leftWidgetItem->setAttribute(Qt::WA_DeleteOnClose);
             leftWidgetItem->setLabelText(single.namei18nString);
-            leftWidgetItem->setLabelPixmap(QString("://img/secondaryleftmenu/%1.png").arg(single.nameString));
+            leftWidgetItem->setLabelPixmap(QString("://img/secondaryleftmenu/%1.png").arg(single.nameString), single.nameString);
 
             QListWidgetItem * item = new QListWidgetItem(leftListWidget);
             item->setSizeHint(QSize(ui->leftStackedWidget->width(), 40)); //QSize(120, 40) spacing: 12px;
@@ -245,6 +245,8 @@ void ModulePageWidget::currentLeftitemChanged(QListWidgetItem *cur, QListWidgetI
         LeftWidgetItem * preWidgetItem = dynamic_cast<LeftWidgetItem *>(currentLeftListWidget->itemWidget(pre));
         //取消高亮
         preWidgetItem->setSelected(false);
+        preWidgetItem->setLabelTextIsWhite(false);
+        preWidgetItem->isSetLabelPixmapWhite(false);
     }
 
     LeftWidgetItem * curWidgetItem = dynamic_cast<LeftWidgetItem *>(currentLeftListWidget->itemWidget(cur));
@@ -253,6 +255,8 @@ void ModulePageWidget::currentLeftitemChanged(QListWidgetItem *cur, QListWidgetI
         refreshPluginWidget(pluginInstance);
         //高亮
         curWidgetItem->setSelected(true);
+        curWidgetItem->setLabelTextIsWhite(true);
+        curWidgetItem->isSetLabelPixmapWhite(true);
     } else {
         qDebug() << "plugin widget not fount!";
     }

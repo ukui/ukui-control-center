@@ -120,6 +120,7 @@ QList<int> defaultsizeList = {6, 7, 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26
 Fonts::Fonts()
 {
     ui = new Ui::Fonts;
+    itemDelege = new QStyledItemDelegate();
     pluginWidget = new QWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
@@ -302,6 +303,41 @@ void Fonts::get_current_fonts(){
 }
 
 void Fonts::initComponent(){
+    ui->fontSelectComBox->setItemDelegate(itemDelege);
+    ui->fontSelectComBox->setMaxVisibleItems(5);
+
+    ui->monoSelectComBox->setItemDelegate(itemDelege);
+    ui->monoSelectComBox->setMaxVisibleItems(5);
+
+    ui->defaultFontComBox->setItemDelegate(itemDelege);
+    ui->defaultFontComBox->setMaxVisibleItems(5);
+
+    ui->docFontComBox->setItemDelegate(itemDelege);
+    ui->docFontComBox->setMaxVisibleItems(5);
+
+    ui->peonyFontComBox->setItemDelegate(itemDelege);
+    ui->peonyFontComBox->setMaxVisibleItems(5);
+
+    ui->monoFontComBox->setItemDelegate(itemDelege);
+    ui->monoFontComBox->setMaxVisibleItems(5);
+
+    ui->titleFontComBox->setItemDelegate(itemDelege);
+    ui->titleFontComBox->setMaxVisibleItems(5);
+
+    ui->defaultSizeComBox->setItemDelegate(itemDelege);
+    ui->defaultSizeComBox->setMaxVisibleItems(5);
+
+    ui->docSizeComBox->setItemDelegate(itemDelege);
+    ui->docSizeComBox->setMaxVisibleItems(5);
+
+    ui->MonoSizeComBox->setItemDelegate(itemDelege);
+    ui->MonoSizeComBox->setMaxVisibleItems(5);
+
+    ui->peonySizeComBox->setItemDelegate(itemDelege);
+    ui->peonySizeComBox->setMaxVisibleItems(5);
+
+    ui->titleSizeComBox->setItemDelegate(itemDelege);
+    ui->titleSizeComBox->setMaxVisibleItems(5);
 
     //导入系统字体列表
     QStringList fontfamiles = fontdb.families();
@@ -311,7 +347,6 @@ void Fonts::initComponent(){
         ui->fontSelectComBox->addItem(font);
         //等宽字体
         ui->monoSelectComBox->addItem(font);
-
         ////高级设置
         // gtk default
         ui->defaultFontComBox->addItem(font);

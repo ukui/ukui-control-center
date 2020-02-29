@@ -33,8 +33,10 @@ public:
     ~LeftWidgetItem();
 
 public:
-    void setLabelPixmap(QString filename);
+    void setLabelPixmap(QString filename, QString icoName);
+    void isSetLabelPixmapWhite(bool selected);
     void setLabelText(QString text);
+    void setLabelTextIsWhite(bool selected);
 
     void setSelected(bool selected);
 
@@ -45,6 +47,7 @@ private:
     QLabel * textLabel;
 
     QWidget * widget;
+    QString icoName;
 
 };
 

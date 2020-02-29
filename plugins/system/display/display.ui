@@ -62,6 +62,11 @@
           <height>30</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>monitor</string>
         </property>
@@ -71,8 +76,8 @@
        <widget class="QComboBox" name="primaryCombo">
         <property name="minimumSize">
          <size>
-          <width>266</width>
-          <height>30</height>
+          <width>200</width>
+          <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
@@ -80,6 +85,43 @@
           <width>16777215</width>
           <height>30</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QComboBox{
+    background: rgba(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
+    font-size:14px;
+    color: black;
+    combobox-popup: 0;  /* 配合setMaxVisibleItems设置下拉框显示的条数，超过的滚动显示 */
+}
+
+QComboBox::down-arrow{
+    image:url(:/images/downpx.png);
+}
+
+QComboBox QAbstractItemView::item {
+    min-height: 30px;
+    border-radius: 2px ;
+    color:black;
+    background-color: rgba(255, 255, 255);
+}
+
+QComboBox QAbstractItemView::item:hover {
+    background:  #EEF2FD;
+}
+
+QComboBox QAbstractItemView::item:selected{
+    background: #3D6BE5;
+}
+
+QComboBox::drop-down{
+    width: 30px;
+    border: none;
+}
+
+
+
+</string>
         </property>
        </widget>
       </item>
@@ -109,6 +151,11 @@
           <width>16777215</width>
           <height>30</height>
          </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
         </property>
         <property name="text">
          <string>set as home screen</string>
@@ -210,6 +257,11 @@
        <layout class="QHBoxLayout" name="unionLayout">
         <item>
          <widget class="QLabel" name="label_2">
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string>unify output</string>
           </property>
@@ -324,19 +376,6 @@ QSlider::handle:horizontal {
            <string>bright</string>
           </property>
          </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_8">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>37</width>
-            <height>17</height>
-           </size>
-          </property>
-         </spacer>
         </item>
        </layout>
       </item>
