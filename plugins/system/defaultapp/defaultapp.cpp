@@ -33,11 +33,13 @@
 
 #define DESKTOPPATH "/usr/share/applications/"
 
-DefaultApp::DefaultApp(){
+DefaultApp::DefaultApp(){  
     ui = new Ui::DefaultAppWindow;
     pluginWidget = new QWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
+
+    itemDelege = new QStyledItemDelegate();
 
     pluginName = tr("defaultapp");
     pluginType = SYSTEM;
@@ -89,7 +91,9 @@ void DefaultApp::plugin_delay_control(){
 }
 
 void DefaultApp::initUI(){
-    ui->browserComBoBox->setView(new QListView());
+//    ui->browserComBoBox->setView(new QListView());
+    ui->browserComBoBox->setItemDelegate(itemDelege);
+    ui->browserComBoBox->setMaxVisibleItems(5);
 
     // BROWSER
     int browserindex = -1;
@@ -114,6 +118,7 @@ void DefaultApp::initUI(){
     }
 //    ui->browserComBoBox->addItem("add", "add");
     ui->browserComBoBox->setCurrentIndex(browserindex);
+
 //    connect(ui->browserComBoBox, SIGNAL(itemchangedSignal(int)), this, SLOT(browserComBoBox_changed_cb(int)));
 
     // MAIL
@@ -137,6 +142,8 @@ void DefaultApp::initUI(){
         free(maillist[i].appid);
     }
     ui->mailComBoBox->setCurrentIndex(mailindex);
+    ui->mailComBoBox->setItemDelegate(itemDelege);
+    ui->mailComBoBox->setMaxVisibleItems(5);
 //    connect(ui->mailComBoBox, SIGNAL(itemchangedSignal(int)), this, SLOT(mailComBoBox_changed_cb(int)));
 
     // IMAGE
@@ -160,6 +167,8 @@ void DefaultApp::initUI(){
         free(imagelist[i].appid);
     }
     ui->imageComBoBox->setCurrentIndex(imageindex);
+    ui->imageComBoBox->setItemDelegate(itemDelege);
+    ui->imageComBoBox->setMaxVisibleItems(5);
 //    connect(ui->imageComBoBox, SIGNAL(itemchangedSignal(int)), this, SLOT(imageComBoBox_changed_cb(int)));
 
     // AUDIO
@@ -183,6 +192,8 @@ void DefaultApp::initUI(){
         free(audiolist[i].appid);
     }
     ui->audioComBoBox->setCurrentIndex(audioindex);
+    ui->audioComBoBox->setItemDelegate(itemDelege);
+    ui->audioComBoBox->setMaxVisibleItems(5);
 //    connect(ui->audioComBoBox, SIGNAL(itemchangedSignal(int)), this, SLOT(audioComBoBox_changed_cb(int)));
 
     // VIDEO
@@ -206,6 +217,8 @@ void DefaultApp::initUI(){
         free(videolist[i].appid);
     }
     ui->videoComBoBox->setCurrentIndex(videoindex);
+    ui->videoComBoBox->setItemDelegate(itemDelege);
+    ui->videoComBoBox->setMaxVisibleItems(5);
 //    connect(ui->videoComBoBox, SIGNAL(itemchangedSignal(int)), this, SLOT(videoComBoBox_changed_cb(int)));
 
     // TEXT
@@ -229,6 +242,8 @@ void DefaultApp::initUI(){
         free(textlist[i].appid);
     }
     ui->textComBoBox->setCurrentIndex(textindex);
+    ui->textComBoBox->setItemDelegate(itemDelege);
+    ui->textComBoBox->setMaxVisibleItems(5);
 //    connect(ui->textComBoBox, SIGNAL(itemchangedSignal(int)), this, SLOT(textComBoBox_changed_cb(int)));
     free(list); free(imagelist); free(maillist); free(videolist); free(audiolist); free(textlist);
 }

@@ -37,6 +37,7 @@ enum{
 Wallpaper::Wallpaper()
 {
     ui = new Ui::Wallpaper;
+    itemDelege = new QStyledItemDelegate();
     pluginWidget = new QWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
@@ -101,7 +102,12 @@ void Wallpaper::setupComponent(){
     //背景形式
     QStringList formList;
     formList << tr("picture") << tr("color")/* << tr("slideshow")*/ ;
+    ui->formComBox->setItemDelegate(itemDelege);
+    ui->formComBox->setMaxVisibleItems(5);
     ui->formComBox->addItems(formList);
+
+    ui->picOptionsComBox->setItemDelegate(itemDelege);
+    ui->picOptionsComBox->setMaxVisibleItems(5);
 
     ui->previewLabel->setScaledContents(true);
     initPreviewStatus();

@@ -21,13 +21,15 @@
 
 #include <QPainter>
 #include <QStyleOption>
+#include <QDebug>
 
 LeftWidgetItem::LeftWidgetItem(QWidget *parent) :
     QWidget(parent)
 {
 //    this->setStyleSheet("background: none;");
     widget = new QWidget(this);
-    widget->setFixedSize(120, 40);
+//    widget->setFixedSize(120, 40);
+    widget->setFixedHeight(40);
 
     iconLabel = new QLabel(widget);
     QSizePolicy policy = iconLabel->sizePolicy();
@@ -68,12 +70,33 @@ LeftWidgetItem::~LeftWidgetItem()
 {
 }
 
-void LeftWidgetItem::setLabelPixmap(QString filename){
+void LeftWidgetItem::setLabelPixmap(QString filename, QString icoName){
+    this->icoName = icoName;
     iconLabel->setPixmap(QPixmap(filename));
 }
 
+void LeftWidgetItem::isSetLabelPixmapWhite(bool selected) {
+    QString fileName;
+    if(selected) {
+        fileName = "://img/secondaryleftmenu/"+this->icoName+"White.png";
+    } else {
+        fileName = "://img/secondaryleftmenu/"+this->icoName+".png";
+    }
+//    qDebug()<<"file name is-------->"<<fileName<<endl;
+    iconLabel->setPixmap(QPixmap(fileName));
+}
+
 void LeftWidgetItem::setLabelText(QString text){
+
     textLabel->setText(text);
+}
+
+void LeftWidgetItem::setLabelTextIsWhite(bool selected) {
+    if(selected) {
+        textLabel->setStyleSheet("color: #F7FFFFFF;");
+    } else {
+        textLabel->setStyleSheet("color: #000000;");
+    }
 }
 
 void LeftWidgetItem::setSelected(bool selected){

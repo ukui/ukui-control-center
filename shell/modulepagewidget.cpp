@@ -42,7 +42,12 @@ ModulePageWidget::ModulePageWidget(QWidget *parent) :
 
     //左侧Widget大小限定
     ui->leftbarWidget->setMinimumWidth(120);
-    ui->leftbarWidget->setMaximumWidth(224);
+    ui->leftbarWidget->setMaximumWidth(216);
+
+    //右侧Widget大小限定(限制了最小宽度)
+    ui->widget->setMinimumWidth(650);
+    ui->widget->setMaximumWidth(1200);
+
 
     //
     ui->mtitleLabel->setStyleSheet("QLabel#mtitleLabel{font-size: 18px; color: #91000000;}");
@@ -113,10 +118,10 @@ void ModulePageWidget::initUI(){
             LeftWidgetItem * leftWidgetItem = new LeftWidgetItem();
             leftWidgetItem->setAttribute(Qt::WA_DeleteOnClose);
             leftWidgetItem->setLabelText(single.namei18nString);
-            leftWidgetItem->setLabelPixmap(QString("://img/secondaryleftmenu/%1.png").arg(single.nameString));
+            leftWidgetItem->setLabelPixmap(QString("://img/secondaryleftmenu/%1.png").arg(single.nameString), single.nameString);
 
             QListWidgetItem * item = new QListWidgetItem(leftListWidget);
-            item->setSizeHint(QSize(120, 52)); //QSize(120, 40) spacing: 12px;
+            item->setSizeHint(QSize(ui->leftStackedWidget->width(), 40)); //QSize(120, 40) spacing: 12px;
             leftListWidget->setItemWidget(item, leftWidgetItem);
 
             strItemsMap.insert(single.namei18nString, item);
@@ -268,6 +273,8 @@ void ModulePageWidget::currentLeftitemChanged(QListWidgetItem *cur, QListWidgetI
         LeftWidgetItem * preWidgetItem = dynamic_cast<LeftWidgetItem *>(currentLeftListWidget->itemWidget(pre));
         //取消高亮
         preWidgetItem->setSelected(false);
+        preWidgetItem->setLabelTextIsWhite(false);
+        preWidgetItem->isSetLabelPixmapWhite(false);
     }
 
     LeftWidgetItem * curWidgetItem = dynamic_cast<LeftWidgetItem *>(currentLeftListWidget->itemWidget(cur));
@@ -276,6 +283,8 @@ void ModulePageWidget::currentLeftitemChanged(QListWidgetItem *cur, QListWidgetI
         refreshPluginWidget(pluginInstance);
         //高亮
         curWidgetItem->setSelected(true);
+        curWidgetItem->setLabelTextIsWhite(true);
+        curWidgetItem->isSetLabelPixmapWhite(true);
     } else {
         qDebug() << "plugin widget not fount!";
     }

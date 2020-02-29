@@ -3,39 +3,56 @@
 # Project created by QtCreator 2019-02-20T15:36:43
 #
 #-------------------------------------------------
-
+QT            += widgets core gui quickwidgets quick xml KScreen KI18n KConfigCore KConfigWidgets KWidgetsAddons
 TEMPLATE = lib
 CONFIG        += plugin
-QT            += widgets
-INCLUDEPATH   += ../../.. \
-                 /usr/include/mate-desktop-2.0/libmate-desktop
-
-#LIBS += -L/usr/lib/ -lmate-desktop-2
 
 TARGET = $$qtLibraryTarget(display)
-DESTDIR = ../..
+DESTDIR = ../../../pluginlibs
 
-include(../../pluginsComponent/pluginsComponent.pri)
 
-##加载gio库和gio-unix库
-CONFIG        += link_pkgconfig \
-                 C++11
+include(../../../env.pri)
+include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
 
-PKGCONFIG     += gio-2.0 \
-                 gio-unix-2.0 \
-                 mate-desktop-2.0 \
-                 dbus-glib-1
+INCLUDEPATH   +=  \
+                 $$PROJECT_COMPONENTSOURCE \
+                 $$PROJECT_ROOTDIR \
 
-target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
-INSTALLS += target
+LIBS          += -L/usr/lib/ -lgsettings-qt
+
 
 SOURCES += \
         display.cpp \
-    graphicsitem.cpp
+    declarative/qmloutput.cpp \
+    declarative/qmloutputcomponent.cpp \
+    declarative/qmlscreen.cpp \
+    controlpanel.cpp \
+    outputconfig.cpp \
+    resolutionslider.cpp \
+    unifiedoutputconfig.cpp \
+    utils.cpp \
+    widget.cpp
 
 HEADERS += \
         display.h \
-    graphicsitem.h
+    declarative/qmloutput.h \
+    declarative/qmloutputcomponent.h \
+    declarative/qmlscreen.h \
+    controlpanel.h \
+    outputconfig.h \
+    resolutionslider.h \
+    unifiedoutputconfig.h \
+    utils.h \
+    widget.h
 
 FORMS += \
     display.ui
+
+#DISTFILES += \
+#    qml/main.qml \
+#    qml/Output.qml
+
+RESOURCES += \
+    qml.qrc
+
+DISTFILES +=

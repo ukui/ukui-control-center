@@ -76,9 +76,38 @@
         <file>secondaryleftmenu/mouse.png</file>
         <file>secondaryleftmenu/about.png</file>
         <file>secondaryleftmenu/touchpad.png</file>
+        <file>dropArrow/downpx.png</file>
+        <file>secondaryleftmenu/autobootWhite.png</file>
+        <file>secondaryleftmenu/defaultappWhite.png</file>
+        <file>secondaryleftmenu/powerWhite.png</file>
+        <file>secondaryleftmenu/displayWhite.png</file>
+        <file>secondaryleftmenu/backgroundWhite.png</file>
+        <file>secondaryleftmenu/screenlockWhite.png</file>
+        <file>secondaryleftmenu/themeWhite.png</file>
+        <file>secondaryleftmenu/screensaverWhite.png</file>
+        <file>secondaryleftmenu/desktopWhite.png</file>
+        <file>secondaryleftmenu/proxyWhite.png</file>
+        <file>secondaryleftmenu/vpnWhite.png</file>
+        <file>secondaryleftmenu/netconnectWhite.png</file>
+        <file>secondaryleftmenu/fontsWhite.png</file>
+        <file>secondaryleftmenu/userinfoWhite.png</file>
+        <file>secondaryleftmenu/datetime.png</file>
+        <file>secondaryleftmenu/datetimeWhite.png</file>
+        <file>secondaryleftmenu/area.png</file>
+        <file>secondaryleftmenu/areaWhite.png</file>
+        <file>secondaryleftmenu/backupWhite.png</file>
+        <file>secondaryleftmenu/aboutWhite.png</file>
+        <file>secondaryleftmenu/printerWhite.png</file>
+        <file>secondaryleftmenu/keyboardWhite.png</file>
+        <file>secondaryleftmenu/audioWhite.png</file>
+        <file>secondaryleftmenu/audio.png</file>
+        <file>secondaryleftmenu/mousecontrol.png</file>
+        <file>secondaryleftmenu/mousecontrolWhite.png</file>
+        <file>secondaryleftmenu/updateWhite.png</file>
     </qresource>
     <qresource prefix="/">
         <file>i18n/zh_CN.qm</file>
         <file>global.qss</file>
+        <file>combox.qss</file>
     </qresource>
 </RCC>

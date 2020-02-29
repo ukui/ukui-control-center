@@ -127,31 +127,38 @@ void AutoBoot::initUI(){
 
     //构建行头
     QWidget * headWidget = new QWidget;
+    headWidget->setMinimumWidth(550);
+    headWidget->setMaximumWidth(960);
+
+    headWidget->setMinimumHeight(36);
+    headWidget->setMaximumHeight(36);
     headWidget->setAttribute(Qt::WA_DeleteOnClose);
     headWidget->setObjectName("headWidget");
-    headWidget->setFixedHeight(36);
-    headbaseWidget->setStyleSheet("QWidget#headWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
+//    headWidget->setFixedHeight(36);
+    headWidget->setStyleSheet("QWidget#headWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
 
     QHBoxLayout * headHorLayout = new QHBoxLayout(headWidget);
-    headHorLayout->setSpacing(0);
-    headHorLayout->setContentsMargins(64, 0, 16, 0);
+    headHorLayout->setSpacing(16);
+    headHorLayout->setContentsMargins(64, 0, 32, 0);
 
     QLabel * nameLabel = new QLabel(headWidget);
-    QSizePolicy nameSizePolicy = nameLabel->sizePolicy();
-    nameSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
-    nameLabel->setSizePolicy(nameSizePolicy);
+//    QSizePolicy nameSizePolicy = nameLabel->sizePolicy();
+//    nameSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
+//    nameLabel->setSizePolicy(nameSizePolicy);
+    nameLabel->setFixedWidth(250);
     nameLabel->setText(tr("Name"));
     nameLabel->setStyleSheet("background: #F4F4F4;");
 
     QLabel * statusLabel = new QLabel(headWidget);
-    QSizePolicy statusSizePolicy = statusLabel->sizePolicy();
-    statusSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
-    statusLabel->setSizePolicy(statusSizePolicy);
+//    QSizePolicy statusSizePolicy = statusLabel->sizePolicy();
+//    statusSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
+//    statusLabel->setSizePolicy(statusSizePolicy);
+    statusLabel->setFixedWidth(68);
     statusLabel->setText(tr("Status"));
     statusLabel->setStyleSheet("background: #F4F4F4;");
 
     headHorLayout->addWidget(nameLabel);
-    headHorLayout->addStretch(3);
+    headHorLayout->addStretch(1);
     headHorLayout->addWidget(statusLabel);
     headHorLayout->addStretch(1);
 
@@ -180,19 +187,27 @@ void AutoBoot::initUI(){
         baseVerLayout->setContentsMargins(0, 0, 0, 2);
 
         HoverWidget * widget = new HoverWidget(bname);
-        widget->setFixedHeight(60); //
+//        widget->setFixedHeight(60); //
+        widget->setMinimumWidth(550);
+        widget->setMaximumWidth(960);
+
+        widget->setMinimumHeight(60);
+        widget->setMaximumHeight(60);
+
         widget->setAttribute(Qt::WA_DeleteOnClose);
         widget->setStyleSheet("background: #F4F4F4;");
 
         QHBoxLayout * mainHLayout = new QHBoxLayout(widget);
-        mainHLayout->setContentsMargins(16, 0, 16, 0);
+        mainHLayout->setContentsMargins(16, 0, 32, 0);
         mainHLayout->setSpacing(16);
 
         QLabel * iconLabel = new QLabel(widget);
         iconLabel->setFixedSize(32, 32);
         iconLabel->setPixmap(it.value().pixmap);
+        iconLabel->setStyleSheet("background: #F4F4F4");
 
         QLabel * textLabel = new QLabel(widget);
+        textLabel->setStyleSheet("background: #F4F4F4");
         textLabel->setFixedWidth(250);
         textLabel->setText(bname);
 
@@ -216,20 +231,20 @@ void AutoBoot::initUI(){
         mainHLayout->addStretch(1);
         mainHLayout->addWidget(button);
         mainHLayout->addStretch(1);
-        mainHLayout->addWidget(pBtn);
+//        mainHLayout->addWidget(pBtn);
         widget->setLayout(mainHLayout);
 
-        connect(widget, &HoverWidget::enterWidget, this, [=](QString name){
-            Q_UNUSED(name)
-            pBtn->setHidden(false);
-            widget->setStyleSheet("background: #EEF2FD;");
+//        connect(widget, &HoverWidget::enterWidget, this, [=](QString name){
+//            Q_UNUSED(name)
+//            pBtn->setHidden(false);
+//            widget->setStyleSheet("background: #EEF2FD;");
 
-        });
-        connect(widget, &HoverWidget::leaveWidget, this, [=](QString name){
-            Q_UNUSED(name)
-            pBtn->setHidden(true);
-            widget->setStyleSheet("background: #F4F4F4;");
-        });
+//        });
+//        connect(widget, &HoverWidget::leaveWidget, this, [=](QString name){
+//            Q_UNUSED(name)
+//            pBtn->setHidden(true);
+//            widget->setStyleSheet("background: #F4F4F4;");
+//        });
 
         baseVerLayout->addWidget(widget);
         baseVerLayout->addStretch();

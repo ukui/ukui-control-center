@@ -32,6 +32,7 @@
 KeyboardControl::KeyboardControl()
 {
     ui = new Ui::KeyboardControl;
+    itemDelege = new QStyledItemDelegate();
     pluginWidget = new QWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
@@ -150,7 +151,9 @@ void KeyboardControl::initGeneralStatus(){
 }
 
 void KeyboardControl::rebuildLayoutsComBox(){
-    QStringList layouts = kbdsettings->get(KBD_LAYOUTS_KEY).toStringList();
+    QStringList layouts = kbdsettings->get(KBD_LAYOUTS_KEY).toStringList();    
+    ui->layoutsComBox->setItemDelegate(itemDelege);
+    ui->layoutsComBox->setMaxVisibleItems(5);
     ui->layoutsComBox->blockSignals(true);
     //清空键盘布局下拉列表
     ui->layoutsComBox->clear();
