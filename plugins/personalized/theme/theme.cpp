@@ -199,6 +199,8 @@ void Theme::initIconTheme(){
         ThemeWidget * currentWidget = dynamic_cast<ThemeWidget *>(ui->iconListWidget->itemWidget(current));
         currentWidget->setSelectedStatus(true);
         ThemeWidget * previousWidget = dynamic_cast<ThemeWidget *>(ui->iconListWidget->itemWidget(previous));
+        if(previousWidget == nullptr)
+            return;
         previousWidget->setSelectedStatus(false);
     });
 }
@@ -288,6 +290,8 @@ void Theme::initCursorTheme(){
         ThemeWidget * currentWidget = dynamic_cast<ThemeWidget *>(ui->cursorListWidget->itemWidget(current));
         currentWidget->setSelectedStatus(true);
         ThemeWidget * previousWidget = dynamic_cast<ThemeWidget *>(ui->cursorListWidget->itemWidget(previous));
+        if(previousWidget == nullptr)
+            return;
         previousWidget->setSelectedStatus(false);
     });
 
