@@ -33,6 +33,14 @@ extern "C" {
 #include <X11/Xlib.h>
 }
 
+#define MOUSE_SCHEMA "org.mate.peripherals-mouse"
+#define HAND_KEY "left-handed"
+#define LOCATE_KEY "locate-pointer"
+#define CURSOR_SIZE_KEY "cursor-size"
+#define ACCELERATION_KEY "motion-acceleration"
+#define THRESHOLD_KEY "motion-threshold"
+
+
 MouseControl::MouseControl()
 {
     ui = new Ui::MouseControl;
@@ -55,7 +63,9 @@ MouseControl::MouseControl()
     ui->cursorSpeedWidget->setStyleSheet("QWidget{background: #F4F4F4;}");
     ui->flashingWidget->setStyleSheet("QWidget{background: #F4F4F4;  border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
 
-    InitDBusMouse();
+    //初始化鼠标设置GSettings
+    const QByteArray id(MOUSE_SCHEMA);
+    settings = new QGSettings(id);
 
     setupComponent();
 
@@ -66,7 +76,7 @@ MouseControl::MouseControl()
 MouseControl::~MouseControl()
 {
     delete ui;
-    DeInitDBusMouse();
+    delete settings;
 }
 
 QString MouseControl::get_plugin_name(){
@@ -106,31 +116,31 @@ void MouseControl::setupComponent(){
 
     connect(ui->handHabitComBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index){
         Q_UNUSED(index)
-        kylin_hardware_mouse_set_lefthanded(ui->handHabitComBox->currentData().toBool());
+        settings->set(HAND_KEY, ui->handHabitComBox->currentData().toBool());
     });
 
     connect(ui->pointerSpeedSlider, &QSlider::valueChanged, [=](int value){
-        kylin_hardware_mouse_set_motionacceleration(static_cast<double>(value)/ui->pointerSpeedSlider->maximum()*10);
+        settings->set(ACCELERATION_KEY, static_cast<double>(value)/ui->pointerSpeedSlider->maximum()*10);
     });
 
     connect(ui->pointerSensitivitySlider, &QSlider::valueChanged, [=](int value){
-        kylin_hardware_mouse_set_motionthreshold(10*value/ui->pointerSensitivitySlider->maximum());
+        settings->set(THRESHOLD_KEY, 10*value/ui->pointerSensitivitySlider->maximum());
     });
 
     connect(visiblityBtn, &SwitchButton::checkedChanged, [=](bool checked){
-        kylin_hardware_mouse_set_locatepointer(checked);
+        settings->set(LOCATE_KEY, checked);
     });
 
     connect(ui->pointerSizeComBox, QOverload<int>::of(&QComboBox::currentIndexChanged), [=](int index){
         Q_UNUSED(index)
-        kylin_hardware_mouse_set_cursorsize(ui->pointerSizeComBox->currentData().toInt());
+        settings->set(CURSOR_SIZE_KEY, ui->pointerSizeComBox->currentData().toInt());
     });
 
 }
 
 void MouseControl::initHandHabitStatus(){
 
-    int handHabitIndex = ui->handHabitComBox->findData(kylin_hardware_mouse_get_lefthanded());
+    int handHabitIndex = ui->handHabitComBox->findData(settings->get(HAND_KEY).toBool());
     ui->handHabitComBox->blockSignals(true);
     ui->handHabitComBox->setCurrentIndex(handHabitIndex);
     ui->handHabitComBox->blockSignals(false);
@@ -139,10 +149,10 @@ void MouseControl::initHandHabitStatus(){
 void MouseControl::initPointerStatus(){
 
     //当前系统指针加速值，-1为系统默认
-    double mouse_acceleration = kylin_hardware_mouse_get_motionacceleration();
+    double mouse_acceleration = settings->get(ACCELERATION_KEY).toDouble();
 
     //当前系统指针灵敏度，-1为系统默认
-    int mouse_threshold =  kylin_hardware_mouse_get_motionthreshold();
+    int mouse_threshold =  settings->get(THRESHOLD_KEY).toInt();
 
     //当从接口获取的是-1,则代表系统默认值，真实值需要从底层获取
     if (mouse_threshold == -1 || static_cast<int>(mouse_acceleration) == -1){
@@ -151,28 +161,28 @@ void MouseControl::initPointerStatus(){
 
         XGetPointerControl(QX11Info::display(), &accel_numerator, &accel_denominator, &threshold);
 
-        kylin_hardware_mouse_set_motionacceleration(static_cast<double>(accel_numerator/accel_denominator));
+        settings->set(ACCELERATION_KEY, static_cast<double>(accel_numerator/accel_denominator));
 
-        kylin_hardware_mouse_set_motionthreshold(threshold);
+        settings->set(THRESHOLD_KEY, threshold);
     }
 
     //初始化指针速度控件
     ui->pointerSpeedSlider->blockSignals(true);
-    ui->pointerSpeedSlider->setValue(static_cast<int>(kylin_hardware_mouse_get_motionacceleration()*100));
+    ui->pointerSpeedSlider->setValue(static_cast<int>(settings->get(ACCELERATION_KEY).toDouble()*100));
     ui->pointerSpeedSlider->blockSignals(false);
 
     //初始化指针敏感度控件
     ui->pointerSensitivitySlider->blockSignals(true);
-    ui->pointerSensitivitySlider->setValue(kylin_hardware_mouse_get_motionthreshold()*100);
+    ui->pointerSensitivitySlider->setValue(settings->get(THRESHOLD_KEY).toInt()*100);
     ui->pointerSensitivitySlider->blockSignals(false);
 
     //初始化可见性控件
     visiblityBtn->blockSignals(true);
-    visiblityBtn->setChecked(kylin_hardware_mouse_get_locatepointer());
+    visiblityBtn->setChecked(settings->get(LOCATE_KEY).toBool());
     visiblityBtn->blockSignals(false);
 
     //初始化指针大小
-    int sizeIndex = ui->pointerSizeComBox->findData(kylin_hardware_mouse_get_cursorsize());
+    int sizeIndex = ui->pointerSizeComBox->findData(settings->get(CURSOR_SIZE_KEY).toInt());
     ui->pointerSizeComBox->blockSignals(true);
     ui->pointerSizeComBox->setCurrentIndex(sizeIndex);
     ui->pointerSizeComBox->blockSignals(false);

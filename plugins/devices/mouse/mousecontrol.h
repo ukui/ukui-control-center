@@ -24,8 +24,7 @@
 #include <QtPlugin>
 
 #include <QX11Info>
-
-#include "kylin-mouse-interface.h"
+#include <QGSettings/QGSettings>
 
 #include "shell/interface.h"
 #include "SwitchButton/switchbutton.h"
@@ -65,6 +64,8 @@ private:
 private:
     SwitchButton * visiblityBtn;
     SwitchButton * flashingBtn;
+
+    QGSettings * settings;
 
     QString leftStr;
     QString rightStr;
