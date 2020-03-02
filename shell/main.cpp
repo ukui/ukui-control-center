@@ -19,8 +19,13 @@
  */
 #include "mainwindow.h"
 #include <QApplication>
+#include <QtSingleApplication>
 
 #include <QTranslator>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <syslog.h>
 
 #include "framelessExtended/framelesshandle.h"
 
@@ -28,7 +33,14 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+//    QApplication a(argc, argv);
+
+    QtSingleApplication a(argc, argv);
+    if (a.isRunning()){
+        qDebug() << QObject::tr("ukui-control-center had already running!");
+        return 0;
+    }
+
 
     //加载国际化文件
     QString locale = QLocale::system().name();

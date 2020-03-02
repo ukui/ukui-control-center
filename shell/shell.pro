@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -44,6 +44,9 @@ INSTALLS +=  \
             inst2 \
             target \
 
+INCLUDEPATH += qtsingleapplication
+DEPENDPATH += qtsingleapplication
+
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
@@ -56,7 +59,9 @@ SOURCES += \
     component/leftwidgetitem.cpp \
     component/clicklabel.cpp \
     utils/functionselect.cpp \
-    component/hoverwidget.cpp
+    component/hoverwidget.cpp \
+    qtsingleapplication/qtsingleapplication.cpp \
+    qtsingleapplication/qtlocalpeer.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -71,7 +76,10 @@ HEADERS += \
     component/leftwidgetitem.h \
     component/clicklabel.h \
     utils/functionselect.h \
-    component/hoverwidget.h
+    component/hoverwidget.h \
+    qtsingleapplication/qtsingleapplication_copy.h \
+    qtsingleapplication/qtsingleapplication.h \
+    qtsingleapplication/qtlocalpeer.h
 
 FORMS += \
         mainwindow.ui \
