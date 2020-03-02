@@ -137,6 +137,13 @@ Fonts::Fonts()
     ui->fontSelectLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
     ui->monoSelectLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
 
+    ui->fontSizeSlider->setStyleSheet("QSlider{height: 20px;}"
+                                      "QSlider::groove:horizontal{border: none;}"
+                                      "QSlider::add-page:horizontal{background: #808080; border-radius: 2px; margin-top: 8px; margin-bottom: 9px;}"
+                                      "QSlider::sub-page:horizontal{background: #3D6BE5; border-radius: 2px; margin-top: 8px; margin-bottom: 9px;}"
+                                      "QSlider::handle:horizontal{width: 20px; height: 20px; border-image: url(:/img/plugins/fonts/bigRoller.png);}"
+                                      "");
+
 
     ui->advancedBtn->setStyleSheet("QPushButton#advancedBtn{background: #F4F4F4; border: none;}");
 
@@ -759,30 +766,6 @@ void Fonts::resetDefaultSlot(){
     rendersettings->reset(HINTING_KEY);
 
 //    refresh_status();
-}
-
-void Fonts::radiobtn_clicked_slot(int indexnum){
-//    float level = 1;
-//    if (indexnum == SID){
-//        level = SMALL;
-//    }
-//    else if (indexnum == MID){
-//        level = MEDIUM;
-//    }
-//    else if (indexnum == LID){
-//        level = LARGE;
-//    }
-
-//    //获取当前字体
-//    get_current_fonts();
-//    //设置字体大小
-//    ifsettings->set(GTK_FONT_KEY, QVariant(QString("%1 %2").arg(gtkfontStrList[0]).arg(defaultfontinfo.gtkfontsize * level)));
-//    ifsettings->set(DOC_FONT_KEY, QVariant(QString("%1 %2").arg(docfontStrList[0]).arg(defaultfontinfo.docfontsize * level)));
-//    ifsettings->set(MONOSPACE_FONT_KEY, QVariant(QString("%1 %2").arg(monospacefontStrList[0]).arg(defaultfontinfo.monospacefontsize * level)));
-//    peonysettings->set(PEONY_FONT_KEY, QVariant(QString("%1 %2").arg(peonyfontStrList[0]).arg(defaultfontinfo.monospacefontsize * level)));
-//    marcosettings->set(TITLEBAR_FONT_KEY, QVariant(QString("%1 %2").arg(titlebarfontStrList[0]).arg(defaultfontinfo.titlebarfontsize * level)));
-
-//    refresh_subpage_status();
 }
 
 void Fonts::combobox_changed_slot(QString text){
