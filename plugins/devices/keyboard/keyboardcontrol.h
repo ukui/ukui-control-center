@@ -64,6 +64,7 @@ private:
     QWidget * pluginWidget;
 
 private:
+    QGSettings * settings;
     QGSettings * kbdsettings;
 
     SwitchButton * keySwitchBtn;
@@ -72,10 +73,6 @@ private:
 
     KbdLayoutManager * layoutmanagerObj;
 
-
-
-    QGSettings * desktopsettings;
-    QGSettings * syskeysettings;
 
     QStyledItemDelegate* itemDelege;
 };
