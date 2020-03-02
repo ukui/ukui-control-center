@@ -5,7 +5,9 @@ SUBDIRS = \
           system/autoboot \
           system/display \
           devices/printer \
+          devices/mouse \
           devices/keyboard \
+          devices/touchpad \
           personalized/wallpaper \
           personalized/theme \
           personalized/fonts \

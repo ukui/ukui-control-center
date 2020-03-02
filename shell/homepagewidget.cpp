@@ -75,7 +75,7 @@ void HomePageWidget::initUI(){
 
     QSignalMapper * moduleSignalMapper = new QSignalMapper(this);
 
-    for (int moduleIndex = 0; moduleIndex < FUNCTOTALNUM; moduleIndex++){
+    for (int moduleIndex = 0; moduleIndex < TOTALMODULES; moduleIndex++){
         //获取插件QMap
         QMap<QString, QObject *> moduleMap;
         moduleMap = pmainWindow->exportModule(moduleIndex);
@@ -136,6 +136,10 @@ void HomePageWidget::initUI(){
 //                qDebug() << single.namei18nString << "plugin object not found";
                 continue;
             }
+            //跳过不在首页显示的功能
+            if (!single.mainShow)
+                continue;
+
             ClickLabel * label = new ClickLabel(single.namei18nString, widget);
             label->setStyleSheet("font-size: 14px; color: #91434345;");
 

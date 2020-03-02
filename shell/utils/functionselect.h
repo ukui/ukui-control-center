@@ -21,17 +21,27 @@
 #define FUNCTIONSELECT_H
 
 #include <QList>
-#include <QStringList>
+#include <QStack>
+//#include <QStringList>
 
 
 typedef struct _FuncInfo : QObjectUserData
 {
     int type;
     int index;
+    bool mainShow;
     QString nameString;
     QString namei18nString;
 }FuncInfo;
 
+typedef struct _RecordFunc : QObjectUserData
+{
+    int type;
+    QString namei18nString;
+
+}RecordFunc;
+
+Q_DECLARE_METATYPE(_RecordFunc)
 Q_DECLARE_METATYPE(_FuncInfo)
 
 class FunctionSelect
@@ -41,13 +51,14 @@ public:
     ~FunctionSelect();
 
 public:
-    static QList<QStringList> funcsList;
-
     static QList<QList<FuncInfo>> funcinfoList;
+    static QStack<RecordFunc> recordFuncStack;
 
 //    static FuncInfo displayStruct;
 
     static void initValue();
+    static void pushRecordValue(int type, QString name);
+    static void popRecordValue();
 };
 
 #endif // FUNCTIONSELECT_H

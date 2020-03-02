@@ -9,7 +9,7 @@ QLabel#mptitleLabel{
 }
 
 /*功能页标题label*/
-QLabel#titleLabel, #title2Label{
+QLabel#titleLabel, #title2Label, #title3Label{
     font-size: 18px; color: #BF000000;
 }
 

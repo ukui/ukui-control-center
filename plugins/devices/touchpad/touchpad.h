@@ -17,53 +17,56 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef MODULEPAGEWIDGET_H
-#define MODULEPAGEWIDGET_H
+#ifndef TOUCHPAD_H
+#define TOUCHPAD_H
 
-#include <QWidget>
-#include <QMap>
+#include <QObject>
+#include <QtPlugin>
 
-class MainWindow;
-class CommonInterface;
-class KeyValueConverter;
+#include <QGSettings/QGSettings>
+#include <QX11Info>
 
-class QListWidgetItem;
+#include "shell/interface.h"
+#include "SwitchButton/switchbutton.h"
 
 namespace Ui {
-class ModulePageWidget;
+class Touchpad;
 }
 
-class ModulePageWidget : public QWidget
+class Touchpad : public QObject, CommonInterface
 {
     Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.kycc.CommonInterface")
+    Q_INTERFACES(CommonInterface)
 
 public:
-    explicit ModulePageWidget(QWidget *parent = 0);
-    ~ModulePageWidget();
+    explicit Touchpad();
+    ~Touchpad();
+
+    QString get_plugin_name() Q_DECL_OVERRIDE;
+    int get_plugin_type() Q_DECL_OVERRIDE;
+    QWidget *get_plugin_ui() Q_DECL_OVERRIDE;
+    void plugin_delay_control() Q_DECL_OVERRIDE;
 
 public:
-    void initUI();
-    void switchPage(QObject * plugin, bool recorded = true);
-    void refreshPluginWidget(CommonInterface * plu);
-    void highlightItem(QString text);
+    void setupComponent();
+    void initTouchpadStatus();
+
+    QString _findKeyScrollingType();
 
 private:
-    Ui::ModulePageWidget *ui;
+    Ui::Touchpad *ui;
+
+    QString pluginName;
+    int pluginType;
+    QWidget * pluginWidget;
 
 private:
-    MainWindow * pmainWindow;
+    SwitchButton * enableBtn;
+    SwitchButton * typingBtn;
+    SwitchButton * clickBtn;
 
-    KeyValueConverter * mkvConverter;
-
-private:
-    QMap<QString, CommonInterface*> pluginInstanceMap;
-    QMultiMap<QString, QListWidgetItem*> strItemsMap;//存储功能名与二级菜单item的Map,为了实现高亮
-
-    bool flagBit;
-
-public slots:
-    void currentLeftitemChanged(QListWidgetItem * cur, QListWidgetItem * pre);
-
+    QGSettings * tpsettings;
 };
 
-#endif // MODULEPAGEWIDGET_H
+#endif // TOUCHPAD_H
