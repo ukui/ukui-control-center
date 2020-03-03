@@ -20,7 +20,6 @@ include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
 INCLUDEPATH   +=  \
                  $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
-                 /usr/include/ukuisdk \
 
 
 LIBS += -L/usr/lib/ -lgsettings-qt

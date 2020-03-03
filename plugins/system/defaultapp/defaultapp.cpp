@@ -97,9 +97,9 @@ void DefaultApp::initUI(){
 
     // BROWSER
     int browserindex = -1;
-    QString currentbrowser(kylin_software_defaultprograms_getdefaultappid(BROWSERTYPE)); //获取当前
+    QString currentbrowser(getDefaultAppId(BROWSERTYPE)); //获取当前
 
-    AppList * list = kylin_software_defaultprograms_getappidlist(BROWSERTYPE); //获取可选列表
+    AppList * list = getAppIdList(BROWSERTYPE); //获取可选列表
     for (int i = 0; list[i].appid != NULL; i++){
         QString single(list[i].appid);
         QByteArray ba = QString(DESKTOPPATH + single).toUtf8();
@@ -119,13 +119,13 @@ void DefaultApp::initUI(){
 //    ui->browserComBoBox->addItem("add", "add");
     ui->browserComBoBox->setCurrentIndex(browserindex);
 
-//    connect(ui->browserComBoBox, SIGNAL(itemchangedSignal(int)), this, SLOT(browserComBoBox_changed_cb(int)));
+    connect(ui->browserComBoBox, SIGNAL(currentIndexChanged(int)), this, SLOT(browserComBoBox_changed_cb(int)));
 
     // MAIL
     int mailindex = -1;
-    QString currentmail(kylin_software_defaultprograms_getdefaultappid(MAILTYPE));
+    QString currentmail(getDefaultAppId(MAILTYPE));
 
-    AppList * maillist = kylin_software_defaultprograms_getappidlist(MAILTYPE);
+    AppList * maillist = getAppIdList(MAILTYPE);
     for (int i = 0; maillist[i].appid != NULL; i++){
         QString single(maillist[i].appid);
         QByteArray ba = QString(DESKTOPPATH + single).toUtf8();
@@ -142,15 +142,14 @@ void DefaultApp::initUI(){
         free(maillist[i].appid);
     }
     ui->mailComBoBox->setCurrentIndex(mailindex);
-    ui->mailComBoBox->setItemDelegate(itemDelege);
-    ui->mailComBoBox->setMaxVisibleItems(5);
-//    connect(ui->mailComBoBox, SIGNAL(itemchangedSignal(int)), this, SLOT(mailComBoBox_changed_cb(int)));
+
+    connect(ui->mailComBoBox, SIGNAL(currentIndexChanged(int)), this, SLOT(mailComBoBox_changed_cb(int)));
 
     // IMAGE
     int imageindex = -1;
-    QString currentimage(kylin_software_defaultprograms_getdefaultappid(IMAGETYPE));
+    QString currentimage(getDefaultAppId(IMAGETYPE));
 
-    AppList * imagelist = kylin_software_defaultprograms_getappidlist(IMAGETYPE);
+    AppList * imagelist = getAppIdList(IMAGETYPE);
     for (int i = 0; imagelist[i].appid != NULL; i++){
         QString single(imagelist[i].appid);
         QByteArray ba = QString(DESKTOPPATH + single).toUtf8();
@@ -167,15 +166,14 @@ void DefaultApp::initUI(){
         free(imagelist[i].appid);
     }
     ui->imageComBoBox->setCurrentIndex(imageindex);
-    ui->imageComBoBox->setItemDelegate(itemDelege);
-    ui->imageComBoBox->setMaxVisibleItems(5);
-//    connect(ui->imageComBoBox, SIGNAL(itemchangedSignal(int)), this, SLOT(imageComBoBox_changed_cb(int)));
+
+    connect(ui->imageComBoBox, SIGNAL(currentIndexChanged(int)), this, SLOT(imageComBoBox_changed_cb(int)));
 
     // AUDIO
     int audioindex = -1;
-    QString currentaudio(kylin_software_defaultprograms_getdefaultappid(AUDIOTYPE));
+    QString currentaudio(getDefaultAppId(AUDIOTYPE));
 
-    AppList * audiolist = kylin_software_defaultprograms_getappidlist(AUDIOTYPE);
+    AppList * audiolist = getAppIdList(AUDIOTYPE);
     for (int i = 0; audiolist[i].appid != NULL; i++){
         QString single(audiolist[i].appid);
         QByteArray ba = QString(DESKTOPPATH + single).toUtf8();
@@ -192,15 +190,14 @@ void DefaultApp::initUI(){
         free(audiolist[i].appid);
     }
     ui->audioComBoBox->setCurrentIndex(audioindex);
-    ui->audioComBoBox->setItemDelegate(itemDelege);
-    ui->audioComBoBox->setMaxVisibleItems(5);
-//    connect(ui->audioComBoBox, SIGNAL(itemchangedSignal(int)), this, SLOT(audioComBoBox_changed_cb(int)));
+
+    connect(ui->audioComBoBox, SIGNAL(currentIndexChanged(int)), this, SLOT(audioComBoBox_changed_cb(int)));
 
     // VIDEO
     int videoindex =-1;
-    QString currentvideo(kylin_software_defaultprograms_getdefaultappid(VIDEOTYPE));
+    QString currentvideo(getDefaultAppId(VIDEOTYPE));
 
-    AppList * videolist = kylin_software_defaultprograms_getappidlist(VIDEOTYPE);
+    AppList * videolist = getAppIdList(VIDEOTYPE);
     for (int i = 0; videolist[i].appid != NULL; i++){
         QString single(videolist[i].appid);
         QByteArray ba = QString(DESKTOPPATH + single).toUtf8();
@@ -217,15 +214,14 @@ void DefaultApp::initUI(){
         free(videolist[i].appid);
     }
     ui->videoComBoBox->setCurrentIndex(videoindex);
-    ui->videoComBoBox->setItemDelegate(itemDelege);
-    ui->videoComBoBox->setMaxVisibleItems(5);
-//    connect(ui->videoComBoBox, SIGNAL(itemchangedSignal(int)), this, SLOT(videoComBoBox_changed_cb(int)));
+
+    connect(ui->videoComBoBox, SIGNAL(currentIndexChanged(int)), this, SLOT(videoComBoBox_changed_cb(int)));
 
     // TEXT
     int textindex = -1;
-    QString currenttext(kylin_software_defaultprograms_getdefaultappid(TEXTTYPE));
+    QString currenttext(getDefaultAppId(TEXTTYPE));
 
-    AppList * textlist = kylin_software_defaultprograms_getappidlist(TEXTTYPE);
+    AppList * textlist = getAppIdList(TEXTTYPE);
     for (int i = 0; textlist[i].appid != NULL; i++){
         QString single(textlist[i].appid);
         QByteArray ba = QString(DESKTOPPATH + single).toUtf8();
@@ -242,9 +238,9 @@ void DefaultApp::initUI(){
         free(textlist[i].appid);
     }
     ui->textComBoBox->setCurrentIndex(textindex);
-    ui->textComBoBox->setItemDelegate(itemDelege);
-    ui->textComBoBox->setMaxVisibleItems(5);
-//    connect(ui->textComBoBox, SIGNAL(itemchangedSignal(int)), this, SLOT(textComBoBox_changed_cb(int)));
+
+    connect(ui->textComBoBox, SIGNAL(currentIndexChanged(int)), this, SLOT(textComBoBox_changed_cb(int)));
+
     free(list); free(imagelist); free(maillist); free(videolist); free(audiolist); free(textlist);
 }
 
@@ -258,7 +254,7 @@ void DefaultApp::browserComBoBox_changed_cb(int index){
     }
     else{
         QByteArray ba = appid.toUtf8(); // QString to char *
-        kylin_software_defaultprograms_setwebbrowsers(ba.data());
+        setWebBrowsersDefaultProgram(ba.data());
     }
 }
 
@@ -269,7 +265,7 @@ void DefaultApp::mailComBoBox_changed_cb(int index){
     }
     else{
         QByteArray ba = appid.toUtf8(); // QString to char *
-        kylin_software_defaultprograms_setmailreaders(ba.data());
+        setMailReadersDefaultProgram(ba.data());
     }
 }
 
@@ -280,7 +276,7 @@ void DefaultApp::imageComBoBox_changed_cb(int index){
     }
     else{
         QByteArray ba = appid.toUtf8(); // QString to char *
-        kylin_software_defaultprograms_setimageviewers(ba.data());
+        setImageViewersDefaultProgram(ba.data());
     }
 }
 
@@ -291,7 +287,7 @@ void DefaultApp::audioComBoBox_changed_cb(int  index){
     }
     else{
         QByteArray ba = appid.toUtf8(); // QString to char *
-        kylin_software_defaultprograms_setaudioplayers(ba.data());
+        setAudioPlayersDefaultProgram(ba.data());
     }
 }
 
@@ -302,7 +298,7 @@ void DefaultApp::videoComBoBox_changed_cb(int index){
     }
     else{
         QByteArray ba = appid.toUtf8(); // QString to char *
-        kylin_software_defaultprograms_setvideoplayers(ba.data());
+        setVideoPlayersDefaultProgram(ba.data());
     }
 }
 
@@ -313,6 +309,230 @@ void DefaultApp::textComBoBox_changed_cb(int index){
     }
     else{
         QByteArray ba = appid.toUtf8(); // QString to char *
-        kylin_software_defaultprograms_settexteditors(ba.data());
+        setTextEditorsDefautlProgram(ba.data());
     }
+}
+
+char * DefaultApp::getDefaultAppId(const char * contentType){
+    GAppInfo * app = g_app_info_get_default_for_type(contentType, false);
+    if(app != NULL){
+        const char * id = g_app_info_get_id(app);
+        if(id != NULL){
+            gint len = strlen(id);
+            char * appid = (char *)malloc(sizeof(char)*(len+1));
+            strcpy(appid,id);
+            return appid;
+        } else {
+            return NULL;
+        }
+    } else {
+        return NULL;
+    }
+}
+
+AppList * DefaultApp::getAppIdList(const char *contentType){
+    Appinfo *appinfo = _getAppList(contentType);
+    if(appinfo != NULL){
+        int i = 0;
+        while(appinfo[i].item != NULL)
+            i++;
+        AppList *list = (AppList *)malloc(sizeof(AppList)*(i+1));
+        int count = i;
+        int index = 0;
+        for(gint j = 0;appinfo[j].item != NULL;j++){
+            const char *id = g_app_info_get_id(appinfo[j].item);
+            if(id != NULL){
+                int len = strlen(id);
+                list[index].appid = (char *)malloc(sizeof(char)*(len+1));
+                strcpy(list[index].appid,id);
+                index++;
+            } else {
+                free(list+count);
+                count--;
+            }
+        }
+        list[count].appid=NULL;
+        free(appinfo);
+        return list;
+    } else {
+        return NULL;
+    }
+}
+
+Appinfo * DefaultApp::_getAppList(const char *contentType){
+    GList *applist;
+    applist = g_app_info_get_all_for_type(contentType);
+    GAppInfo * item;
+
+    if(applist != NULL){
+        int len = g_list_length(applist);
+        Appinfo * appinfo=(Appinfo *)malloc(sizeof(Appinfo)*(len+1));
+
+        //获取应用列表
+        for (int index=0; index < len; index++){
+            item = (GAppInfo*) g_list_nth_data(applist, index);
+            appinfo[index].item=item;
+        }
+        appinfo[len].item=NULL;
+        return appinfo;
+
+    } else {
+        return NULL;
+    }
+}
+
+bool DefaultApp::setWebBrowsersDefaultProgram(char * appid){
+    const char * content_type = "x-scheme-handler/http";
+    Appinfo * appinfo = _getAppList(content_type);
+    bool judge = false;
+    if(appinfo != NULL){
+        for(int i = 0; appinfo[i].item != NULL; i++){
+            const char *id = g_app_info_get_id(appinfo[i].item);
+            int result = strcmp(id,appid);
+            if(0 == result){
+                GAppInfo *appitem=appinfo[i].item;
+                gboolean ret1=g_app_info_set_as_default_for_type(appitem, "x-scheme-handler/http", NULL);
+                gboolean ret2=g_app_info_set_as_default_for_type(appitem, "x-scheme-handler/https", NULL);
+                gboolean ret3=g_app_info_set_as_default_for_type(appitem, "x-scheme-handler/about", NULL);
+                if(ret1 && ret2 && ret3)
+                    judge=true;
+                break;
+            }
+        }
+        free(appinfo);
+    }
+    return judge;
+}
+
+bool DefaultApp::setMailReadersDefaultProgram(char *appid){
+    const char *content_type="x-scheme-handler/mailto";
+    Appinfo *appinfo=_getAppList(content_type);
+
+    bool judge = false;
+    if(appinfo != NULL){
+        for(int i = 0; appinfo[i].item != NULL; i++){
+            const char * id = g_app_info_get_id(appinfo[i].item);
+            int result=strcmp(id,appid);
+            if(0 == result){
+                GAppInfo *appitem=appinfo[i].item;
+                gboolean ret1=g_app_info_set_as_default_for_type(appitem, "x-scheme-handler/mailto", NULL);
+                gboolean ret2=g_app_info_set_as_default_for_type(appitem, "application/x-extension-eml", NULL);
+                gboolean ret3=g_app_info_set_as_default_for_type(appitem, "message/rfc822", NULL);
+                if(ret1 && ret2 && ret3)
+                    judge=true;
+                break;
+            }
+        }
+        free(appinfo);
+    }
+    return judge;
+}
+
+bool DefaultApp::setImageViewersDefaultProgram(char *appid){
+    const char *content_type="image/png";
+    Appinfo *appinfo = _getAppList(content_type);
+
+    bool judge = false;
+    if(appinfo != NULL){
+        for(int i=0;appinfo[i].item!=NULL;i++){
+            const char *id = g_app_info_get_id(appinfo[i].item);
+            int result = strcmp(id, appid);
+            if(0 == result){
+                GAppInfo *appitem=appinfo[i].item;
+                gboolean ret1 = g_app_info_set_as_default_for_type(appitem, "image/bmp", NULL);
+                gboolean ret2 = g_app_info_set_as_default_for_type(appitem, "image/gif", NULL);
+                gboolean ret3 = g_app_info_set_as_default_for_type(appitem, "image/jpeg", NULL);
+                gboolean ret4 = g_app_info_set_as_default_for_type(appitem, "image/png", NULL);
+                gboolean ret5 = g_app_info_set_as_default_for_type(appitem, "image/tiff", NULL);
+                if(ret1 && ret2 && ret3 && ret4 && ret5)
+                    judge=true;
+                break;
+            }
+        }
+        free(appinfo);
+    }
+
+    return judge;
+}
+
+bool DefaultApp::setVideoPlayersDefaultProgram(char *appid){
+    const char *content_type = "video/x-ogm+ogg";
+    Appinfo * appinfo = _getAppList(content_type);
+
+    bool judge = false;
+    if(appinfo != NULL){
+        for(int i = 0; appinfo[i].item != NULL; i++){
+            const char *id = g_app_info_get_id(appinfo[i].item);
+            int result = strcmp(id,appid);
+            if(0 == result){
+                GAppInfo *appitem = appinfo[i].item;
+                gboolean ret1 = g_app_info_set_as_default_for_type(appitem, "video/mp4", NULL);
+                gboolean ret2 = g_app_info_set_as_default_for_type(appitem, "video/mpeg", NULL);
+                gboolean ret3 = g_app_info_set_as_default_for_type(appitem, "video/mp2t", NULL);
+                gboolean ret4 = g_app_info_set_as_default_for_type(appitem, "video/msvideo", NULL);
+                gboolean ret5 = g_app_info_set_as_default_for_type(appitem, "video/quicktime", NULL);
+                gboolean ret6 = g_app_info_set_as_default_for_type(appitem, "video/webm", NULL);
+                gboolean ret7 = g_app_info_set_as_default_for_type(appitem, "video/x-avi", NULL);
+                gboolean ret8 = g_app_info_set_as_default_for_type(appitem, "video/x-flv", NULL);
+                gboolean ret9 = g_app_info_set_as_default_for_type(appitem, "video/x-matroska", NULL);
+                gboolean ret10 = g_app_info_set_as_default_for_type(appitem, "video/x-mpeg", NULL);
+                gboolean ret11 = g_app_info_set_as_default_for_type(appitem, "video/x-ogm+ogg", NULL);
+                if(ret1 && ret2 && ret3 && ret4 && ret5 && ret6 && ret7 && ret8 && ret9 && ret10 && ret11)
+                    judge=true;
+                break;
+            }
+        }
+        free(appinfo);
+    }
+    return judge;
+}
+
+bool DefaultApp::setAudioPlayersDefaultProgram(char *appid){
+    const char *content_type = "audio/x-vorbis+ogg";
+    Appinfo * appinfo = _getAppList(content_type);
+
+    bool judge = false;
+    if(appinfo != NULL){
+        for(int i = 0; appinfo[i].item != NULL ;i++){
+            const char *id = g_app_info_get_id(appinfo[i].item);
+            int result = strcmp(id,appid);
+            if(0 == result)
+            {
+                GAppInfo *appitem=appinfo[i].item;
+                gboolean ret1 = g_app_info_set_as_default_for_type(appitem, "audio/mpeg", NULL);
+                gboolean ret2 = g_app_info_set_as_default_for_type(appitem, "audio/x-mpegurl", NULL);
+                gboolean ret3 = g_app_info_set_as_default_for_type(appitem, "audio/x-scpls", NULL);
+                gboolean ret4 = g_app_info_set_as_default_for_type(appitem, "audio/x-vorbis+ogg", NULL);
+                gboolean ret5 = g_app_info_set_as_default_for_type(appitem, "audio/x-wav", NULL);
+                if(ret1 && ret2 && ret3 && ret4 && ret5)
+                    judge=true;
+                break;
+            }
+        }
+        free(appinfo);
+    }
+    return judge;
+}
+
+bool DefaultApp::setTextEditorsDefautlProgram(char *appid){
+    const char * content_type = "text/plain";
+    Appinfo * appinfo = _getAppList(content_type);
+
+    bool judge = false;
+    if(appinfo != NULL){
+        for(int i = 0; appinfo[i].item != NULL; i++){
+            const char * id = g_app_info_get_id(appinfo[i].item);
+            int result = strcmp(id,appid);
+            if(0 == result){
+                GAppInfo *appitem = appinfo[i].item;
+                gboolean ret1 = g_app_info_set_as_default_for_type(appitem, "text/plain", NULL);
+                if(ret1)
+                    judge=true;
+                break;
+            }
+        }
+        free(appinfo);
+    }
+
+    return judge;
 }

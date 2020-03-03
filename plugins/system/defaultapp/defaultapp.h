@@ -28,8 +28,6 @@
 
 #include "shell/interface.h"
 
-#include "kylin-defaultprograms-interface.h"
-
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
  **/
@@ -42,6 +40,16 @@ extern "C" {
 #include <gio/gio.h>
 #include <gio/gdesktopappinfo.h>
 }
+
+typedef struct _Applist
+{
+    char *appid;
+}AppList;//用于存放应用列表
+
+typedef struct _AppInfo
+{
+    GAppInfo *item;
+}Appinfo;//用于存放应用列表信息
 
 namespace Ui {
 class DefaultAppWindow;
@@ -66,6 +74,13 @@ public:
 public:
     void initUI();
 
+    bool setWebBrowsersDefaultProgram(char * appid);
+    bool setMailReadersDefaultProgram(char * appid);
+    bool setImageViewersDefaultProgram(char * appid);
+    bool setAudioPlayersDefaultProgram(char * appid);
+    bool setVideoPlayersDefaultProgram(char * appid);
+    bool setTextEditorsDefautlProgram(char * appid);
+
 private:
     Ui::DefaultAppWindow * ui;
 
@@ -76,6 +91,11 @@ private:
     QString pluginName;
     int pluginType;
     QStyledItemDelegate *itemDelege;
+
+private:
+    char * getDefaultAppId(const char * contentType);
+    AppList * getAppIdList(const char * contentType);
+    static Appinfo * _getAppList(const char *contentType);
 
 
 public slots:
