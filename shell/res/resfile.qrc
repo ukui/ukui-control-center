@@ -104,6 +104,8 @@
         <file>secondaryleftmenu/mousecontrol.png</file>
         <file>secondaryleftmenu/mousecontrolWhite.png</file>
         <file>secondaryleftmenu/updateWhite.png</file>
+        <file>plugins/fonts/bigRoller.png</file>
+        <file>plugins/fonts/smallRoller.png</file>
     </qresource>
     <qresource prefix="/">
         <file>i18n/zh_CN.qm</file>

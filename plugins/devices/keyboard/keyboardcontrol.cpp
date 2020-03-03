@@ -20,11 +20,14 @@
 #include "keyboardcontrol.h"
 #include "ui_keyboardcontrol.h"
 
-#include "kylin-keyboard-interface.h"
-#include "kylin-interface-interface.h"
 #include <QGSettings/QGSettings>
 
 #include <QDebug>
+
+#define KEYBOARD_SCHEMA "org.mate.peripherals-keyboard"
+#define REPEAT_KEY "repeat"
+#define DELAY_KEY "delay"
+#define RATE_KEY "rate"
 
 #define KBD_LAYOUTS_SCHEMA "org.mate.peripherals-keyboard-xkb.kbd"
 #define KBD_LAYOUTS_KEY "layouts"
@@ -62,15 +65,16 @@ KeyboardControl::KeyboardControl()
 
     ui->layoutWidget_1->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
 
+    //初始化键盘通用设置GSettings
+    const QByteArray id(KEYBOARD_SCHEMA);
+    settings = new QGSettings(id);
+
     //初始化键盘布局GSettings
-    const QByteArray id(KBD_LAYOUTS_SCHEMA);
-    kbdsettings = new QGSettings(id);
+    const QByteArray idd(KBD_LAYOUTS_SCHEMA);
+    kbdsettings = new QGSettings(idd);
 
     //构建布局管理器对象
     layoutmanagerObj = new KbdLayoutManager(kbdsettings->get(KBD_LAYOUTS_KEY).toStringList());
-
-    //设置按键
-    InitDBusKeyboard();
 
     initComponent();
     initGeneralStatus();
@@ -83,8 +87,7 @@ KeyboardControl::~KeyboardControl()
 {
     delete ui;
     delete kbdsettings;
-
-    DeInitDBusKeyboard();
+    delete settings;
 }
 
 QString KeyboardControl::get_plugin_name(){
@@ -120,15 +123,15 @@ void KeyboardControl::initComponent(){
     ui->addBtn->setIconSize(QSize(48, 48));
 
     connect(keySwitchBtn, &SwitchButton::checkedChanged, this, [=](bool checked){
-        kylin_hardware_keyboard_set_repeat(checked);
+        settings->set(REPEAT_KEY, checked);
     });
 
     connect(ui->delayHorSlider, &QSlider::valueChanged, this, [=](int value){
-        kylin_hardware_keyboard_set_delay(value);
+        settings->set(DELAY_KEY, value);
     });
 
     connect(ui->speedHorSlider, &QSlider::valueChanged, this, [=](int value){
-        kylin_hardware_keyboard_set_rate(value);
+        settings->set(RATE_KEY, value);
     });
 
 
@@ -140,13 +143,13 @@ void KeyboardControl::initComponent(){
 
 void KeyboardControl::initGeneralStatus(){
     //设置按键重复状态
-    keySwitchBtn->setChecked(kylin_hardware_keyboard_get_repeat());
+    keySwitchBtn->setChecked(settings->get(REPEAT_KEY).toBool());
 
     //设置按键重复的延时
-    ui->delayHorSlider->setValue(kylin_hardware_keyboard_get_delay());
+    ui->delayHorSlider->setValue(settings->get(DELAY_KEY).toInt());
 
     //设置按键重复的速度
-    ui->speedHorSlider->setValue(kylin_hardware_keyboard_get_rate());
+    ui->speedHorSlider->setValue(settings->get(RATE_KEY).toInt());
 
 }
 

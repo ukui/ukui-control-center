@@ -111,7 +111,6 @@ private slots:
     void setFontEffectSlot(QAbstractButton * button);
     void resetDefaultSlot();
     void combobox_changed_slot(QString text);
-    void radiobtn_clicked_slot(int indexnum);
 
 };
 
