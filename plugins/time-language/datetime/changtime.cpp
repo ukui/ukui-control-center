@@ -33,8 +33,8 @@ ChangtimeDialog::ChangtimeDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    const QByteArray id(FORMAT_SCHEMA);
-    m_formatsettings = new QGSettings(id);
+//    const QByteArray id(FORMAT_SCHEMA);
+//    m_formatsettings = new QGSettings(id);
 
 
     m_datetimeInterface = new QDBusInterface("org.freedesktop.timedate1",
@@ -191,15 +191,15 @@ void ChangtimeDialog::hourComboxSetup(){
     ui->hourcomboBox->clear();
 
     //获取时间制式，设置时间combobox
-    bool use = m_formatsettings->get(TIME_FORMAT_KEY).toBool();
-    if (use){
-        for (int h = 0; h < 24; h++)
-            ui->hourcomboBox->addItem(QString::number(h));
-    }
-    else{
-        for (int h = 0; h < 12; h++)
-            ui->hourcomboBox->addItem(QString::number(h));
-    }
+//    bool use = m_formatsettings->get(TIME_FORMAT_KEY).toBool();
+//    if (use){
+//        for (int h = 0; h < 24; h++)
+//            ui->hourcomboBox->addItem(QString::number(h));
+//    }
+//    else{
+//        for (int h = 0; h < 12; h++)
+//            ui->hourcomboBox->addItem(QString::number(h));
+//    }
 }
 
 

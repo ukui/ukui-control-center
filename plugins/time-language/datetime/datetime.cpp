@@ -52,9 +52,9 @@ DateTime::DateTime()
 
 
     //初始化gsettings
-    const QByteArray id(FORMAT_SCHEMA);
+//    const QByteArray id(FORMAT_SCHEMA);
 
-    m_formatsettings = new QGSettings(id);
+//    m_formatsettings = new QGSettings(id);
 
 
     //初始化dbus
@@ -194,8 +194,8 @@ void DateTime::status_init(){
         ui->timezoneLabel->setText(defaultit.key());
     }
 
-    bool use = m_formatsettings->get(TIME_FORMAT_KEY).toBool();
-    m_formTimeBtn->setChecked(use);
+//    bool use = m_formatsettings->get(TIME_FORMAT_KEY).toBool();
+//    m_formTimeBtn->setChecked(use);
 }
 
 
@@ -239,14 +239,14 @@ void DateTime::changezone_slot(QString zone){
 }
 
 void DateTime::time_format_clicked_slot(bool flag){
-    if (flag)
-        m_formatsettings->set(TIME_FORMAT_KEY, true);
-    else
-        m_formatsettings->set(TIME_FORMAT_KEY, false);
+//    if (flag)
+//        m_formatsettings->set(TIME_FORMAT_KEY, true);
+//    else
+//        m_formatsettings->set(TIME_FORMAT_KEY, false);
 
-    //重置时间格式
-    m_itimer->stop();
-    m_itimer->start(1000);
+//    //重置时间格式
+//    m_itimer->stop();
+//    m_itimer->start(1000);
 }
 
 void DateTime::showendLabel(){

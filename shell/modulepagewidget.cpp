@@ -91,11 +91,13 @@ void ModulePageWidget::initUI(){
 
     for (int moduleIndex = 0; moduleIndex < TOTALMODULES; moduleIndex++){
         QListWidget * leftListWidget = new QListWidget;
+        leftListWidget->setObjectName("leftWidget");
+        leftListWidget->setStyleSheet("QListWidget#leftWidget{background-color: #FFFFFF}");
         leftListWidget->setAttribute(Qt::WA_DeleteOnClose);
         leftListWidget->setResizeMode(QListView::Adjust);
         leftListWidget->setFocusPolicy(Qt::NoFocus);
         leftListWidget->setSelectionMode(QAbstractItemView::NoSelection);
-        leftListWidget->setSpacing(0);
+        leftListWidget->setSpacing(12);
         connect(leftListWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(currentLeftitemChanged(QListWidgetItem*,QListWidgetItem*)));
         QListWidget * topListWidget = new QListWidget;
         topListWidget->setAttribute(Qt::WA_DeleteOnClose);
