@@ -24,6 +24,7 @@
 #include <QSignalMapper>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QListWidget>
 
 #include <QDebug>
 
@@ -200,5 +201,45 @@ void HomePageWidget::initUI(){
         ui->listWidget->setItemWidget(item, baseWidget);
     }
     connect(moduleSignalMapper, SIGNAL(mapped(QObject*)), pmainWindow, SLOT(functionBtnClicked(QObject*)));
+    connect(ui->listWidget, SIGNAL(itemPressed(QListWidgetItem *)), this, SLOT(slotItemPressed(QListWidgetItem *)));
+}
 
+void HomePageWidget::slotItemPressed(QListWidgetItem *item)
+{
+    if(item == nullptr)
+        return;
+
+    int moduleIndex = ui->listWidget->currentRow();
+    QMap<QString, QObject *> moduleMap;
+    moduleMap = pmainWindow->exportModule(moduleIndex);
+
+    QWidget *currentWidget = QApplication::widgetAt(QCursor::pos());
+    QLabel *label = dynamic_cast<QLabel*>(currentWidget);
+
+    HoverWidget* hoverWidget = dynamic_cast<HoverWidget*>(currentWidget);
+    if(label != nullptr && hoverWidget != nullptr)
+        return;
+
+    if(label != nullptr || hoverWidget != nullptr)
+    {
+        QString targetString = "";
+        QList<FuncInfo> tmpList = FunctionSelect::funcinfoList[moduleIndex];
+        for (int funcIndex = 0; funcIndex < tmpList.size(); funcIndex++) {
+            FuncInfo single = tmpList.at(funcIndex);
+            //跳过插件不存在的功能项
+            if (!moduleMap.contains(single.namei18nString)) {
+                continue;
+            }
+            // if targetString is already been found, there is no need to continue this cycle
+            if(!targetString.isEmpty())
+                break;
+
+            targetString = single.namei18nString;
+        }
+        if(targetString .isEmpty()) {
+            pmainWindow->functionBtnClicked(moduleMap.first());
+        } else {
+            pmainWindow->functionBtnClicked(moduleMap[targetString]);
+        }
+    }
 }

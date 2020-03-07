@@ -23,6 +23,7 @@
 #include <QWidget>
 
 class MainWindow;
+class QListWidgetItem;
 
 namespace Ui {
 class HomePageWidget;
@@ -39,6 +40,8 @@ public:
 public:
     void initUI();
 
+private slots:
+    void slotItemPressed(QListWidgetItem *item);
 private:
     Ui::HomePageWidget *ui;
 
