@@ -216,7 +216,7 @@ void ModulePageWidget::switchPage(QObject *plugin, bool recorded){
             else{ //解决点击左侧一级菜单未记录问题
                 FunctionSelect::pushRecordValue(type, name);
                 //刷新返回按钮
-                pmainWindow->refreshBackBtnStatus();
+                //pmainWindow->refreshBackBtnStatus();
             }
         }
     }
@@ -242,7 +242,7 @@ void ModulePageWidget::refreshPluginWidget(CommonInterface *plu){
     if (flagBit){
         FunctionSelect::pushRecordValue(plu->get_plugin_type(), plu->get_plugin_name());
         //刷新返回按钮
-        pmainWindow->refreshBackBtnStatus();
+        //pmainWindow->refreshBackBtnStatus();
     }
 
     //恢复标志位
