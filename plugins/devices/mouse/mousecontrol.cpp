@@ -33,7 +33,7 @@ extern "C" {
 #include <X11/Xlib.h>
 }
 
-#define MOUSE_SCHEMA "org.mate.peripherals-mouse"
+#define MOUSE_SCHEMA "org.ukui.peripherals-mouse"
 #define HAND_KEY "left-handed"
 #define LOCATE_KEY "locate-pointer"
 #define CURSOR_SIZE_KEY "cursor-size"

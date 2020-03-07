@@ -216,7 +216,7 @@ void ModulePageWidget::switchPage(QObject *plugin, bool recorded){
             else{ //解决点击左侧一级菜单未记录问题
                 FunctionSelect::pushRecordValue(type, name);
                 //刷新返回按钮
-                pmainWindow->refreshBackBtnStatus();
+                //pmainWindow->refreshBackBtnStatus();
             }
         }
     }
@@ -242,7 +242,7 @@ void ModulePageWidget::refreshPluginWidget(CommonInterface *plu){
     if (flagBit){
         FunctionSelect::pushRecordValue(plu->get_plugin_type(), plu->get_plugin_name());
         //刷新返回按钮
-        pmainWindow->refreshBackBtnStatus();
+        //pmainWindow->refreshBackBtnStatus();
     }
 
     //恢复标志位
@@ -257,7 +257,11 @@ void ModulePageWidget::highlightItem(QString text){
 
     //高亮左侧二级菜单
     QListWidget * lefttmpListWidget = dynamic_cast<QListWidget *>(ui->leftStackedWidget->currentWidget());
+    QListWidgetItem* pre = lefttmpListWidget->currentItem();
     lefttmpListWidget->setCurrentItem(currentItemList.at(1)); //QMultiMap 先添加的vlaue在后面
+    QListWidgetItem* cur = lefttmpListWidget->currentItem();
+    //to make sure whether current item is changed, lefttmpListWidget always emit singal currentItemChanged
+    emit lefttmpListWidget->currentItemChanged(cur,pre);
 
     //高亮上侧二级菜单
     QListWidget * toptmpListWidget = dynamic_cast<QListWidget *>(ui->topStackedWidget->currentWidget());
