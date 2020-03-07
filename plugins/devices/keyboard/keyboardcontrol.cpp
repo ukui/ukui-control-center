@@ -24,7 +24,7 @@
 
 #include <QDebug>
 
-#define KEYBOARD_SCHEMA "org.mate.peripherals-keyboard"
+#define KEYBOARD_SCHEMA "org.ukui.peripherals-keyboard"
 #define REPEAT_KEY "repeat"
 #define DELAY_KEY "delay"
 #define RATE_KEY "rate"

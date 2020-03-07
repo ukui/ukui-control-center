@@ -159,16 +159,20 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->stackedWidget->addWidget(modulepageWidget);
 
     //刷新后退按钮状态
-    refreshBackBtnStatus();
+    //refreshBackBtnStatus();
 
     //top left return button
     connect(ui->backBtn, &QPushButton::clicked, this, [=]{
         FunctionSelect::popRecordValue();
 
-        refreshBackBtnStatus();
-
-        QMap<QString, QObject *> pluginsObjMap = modulesList.at(FunctionSelect::recordFuncStack.last().type);
-        modulepageWidget->switchPage(pluginsObjMap.value(FunctionSelect::recordFuncStack.last().namei18nString), false);
+        //refreshBackBtnStatus();
+        //if recordFuncStack is empty, it means there is no history record. So return to homepage
+        if (FunctionSelect::recordFuncStack.length() <= 1) {
+            ui->stackedWidget->setCurrentIndex(0);
+        } else {
+            QMap<QString, QObject *> pluginsObjMap = modulesList.at(FunctionSelect::recordFuncStack.last().type);
+            modulepageWidget->switchPage(pluginsObjMap.value(FunctionSelect::recordFuncStack.last().namei18nString), false);
+        }
 
     });
 
@@ -466,13 +470,14 @@ void MainWindow::functionBtnClicked(QObject *plugin){
     modulepageWidget->switchPage(plugin);
 }
 
-void MainWindow::refreshBackBtnStatus(){
-    if (FunctionSelect::recordFuncStack.length() <= 1)
-        ui->backBtn->setEnabled(false);
-    else
-        ui->backBtn->setEnabled(true);
-
-}
+//void MainWindow::refreshBackBtnStatus(){
+//    if (FunctionSelect::recordFuncStack.length() <= 1) {
+//        ui->backBtn->setEnabled(false);
+//    }
+//    else {
+//        ui->backBtn->setEnabled(true);
+//    }
+//}
 
 void MainWindow::sltMessageReceived(const QString &msg) {
     Qt::WindowFlags flags = windowFlags();
