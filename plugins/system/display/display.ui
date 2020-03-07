@@ -91,6 +91,7 @@
     background: rgba(255, 255, 255);
     border: 1px solid rgb(255, 255, 255);
     font-size:14px;
+	padding-left: 8px;
     color: black;
     combobox-popup: 0;  /* 配合setMaxVisibleItems设置下拉框显示的条数，超过的滚动显示 */
 }
@@ -103,6 +104,7 @@ QComboBox QAbstractItemView::item {
     min-height: 30px;
     border-radius: 2px ;
     color:black;
+	padding-left: 5px;
     background-color: rgba(255, 255, 255);
 }
 
@@ -346,7 +348,7 @@ QSlider::groove:horizontal {
 
 }
 QSlider::sub-page:horizontal {
-    background: #2e8ad2;
+    background: #3D6BE5;
     border-radius: 2px;
     margin-top:8px;
     margin-bottom:9px;
@@ -361,7 +363,7 @@ QSlider::add-page:horizontal {
 QSlider::handle:horizontal {
     width: 20px;
     height: 20px;
-    background: rgb(0, 160, 230);
+    background: #3D6BE5;
     border-radius:10px;
 }</string>
           </property>

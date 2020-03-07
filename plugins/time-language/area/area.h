@@ -64,6 +64,8 @@ public:
     QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
     void plugin_delay_control() Q_DECL_OVERRIDE;
 
+    QStringList readFile(const QString& filePath);
+
 private:
     Ui::Area *ui;
 
@@ -79,6 +81,8 @@ private:
 
 private:
     void initUI();
+    void initComponent();
+    QStringList getUserDefaultLanguage();
 
 private slots:
     void run_external_app_slot();
