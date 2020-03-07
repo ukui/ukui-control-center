@@ -257,7 +257,11 @@ void ModulePageWidget::highlightItem(QString text){
 
     //高亮左侧二级菜单
     QListWidget * lefttmpListWidget = dynamic_cast<QListWidget *>(ui->leftStackedWidget->currentWidget());
+    QListWidgetItem* pre = lefttmpListWidget->currentItem();
     lefttmpListWidget->setCurrentItem(currentItemList.at(1)); //QMultiMap 先添加的vlaue在后面
+    QListWidgetItem* cur = lefttmpListWidget->currentItem();
+    //to make sure whether current item is changed, lefttmpListWidget always emit singal currentItemChanged
+    emit lefttmpListWidget->currentItemChanged(cur,pre);
 
     //高亮上侧二级菜单
     QListWidget * toptmpListWidget = dynamic_cast<QListWidget *>(ui->topStackedWidget->currentWidget());
