@@ -95,6 +95,22 @@ void DefaultApp::initUI(){
     ui->browserComBoBox->setItemDelegate(itemDelege);
     ui->browserComBoBox->setMaxVisibleItems(5);
 
+    ui->mailComBoBox->setItemDelegate(itemDelege);
+    ui->mailComBoBox->setMaxVisibleItems(5);
+
+    ui->imageComBoBox->setItemDelegate(itemDelege);
+    ui->imageComBoBox->setMaxVisibleItems(5);
+
+    ui->audioComBoBox->setItemDelegate(itemDelege);
+    ui->audioComBoBox->setMaxVisibleItems(5);
+
+    ui->videoComBoBox->setItemDelegate(itemDelege);
+    ui->videoComBoBox->setMaxVisibleItems(5);
+
+    ui->textComBoBox->setItemDelegate(itemDelege);
+    ui->textComBoBox->setMaxVisibleItems(5);
+
+
     // BROWSER
     int browserindex = -1;
     QString currentbrowser(getDefaultAppId(BROWSERTYPE)); //获取当前

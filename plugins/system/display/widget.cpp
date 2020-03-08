@@ -74,6 +74,7 @@ Widget::Widget(QWidget *parent)
 
     ui->applyButton->setStyleSheet("QPushButton{background-color:#F4F4F4;border-radius:6px}"
                                    "QPushButton:hover{background-color: #3D6BE5;};border-radius:6px");
+    ui->primaryCombo->setContentsMargins(8,0,0,0);
 
     closeScreenButton = new SwitchButton;
     ui->showScreenLayout->addWidget(closeScreenButton);
@@ -240,6 +241,8 @@ void Widget::setConfig(const KScreen::ConfigPtr &config)
     } else {
         if (!mScreen->outputs().isEmpty()) {
             mScreen->setActiveOutput(mScreen->outputs().at(0));
+            //选择一个主屏幕，避免闪退现象
+            primaryButtonEnable();
         }
     }
 
@@ -652,14 +655,31 @@ void Widget::save()
     int i = 0;
     Q_FOREACH(const KScreen::OutputPtr &output, config->outputs()) {
         KScreen::ModePtr mode = output->currentMode();
-        if (output->isEnabled()) {            
+        if (output->isEnabled()) {
             atLeastOneEnabledOutput = true;
         }
         if (!output->isConnected())
             continue;
 
+        QMLOutput *base = mScreen->primaryOutput();
+//        qDebug()<<"primaryOutput---->"<<base<<endl;
 
-        inputXml[i].isClone = mScreen->primaryOutput()->isCloneMode() == true?"true":"false";
+        if (!base) {
+
+            for (QMLOutput *output: mScreen->outputs()) {
+                if (output->output()->isConnected() && output->output()->isEnabled()) {
+                    base = output;
+                    break;
+                }
+            }
+
+            if (!base) {
+                // WTF?
+                return;
+            }
+        }
+        qDebug()<<" clone mode--------->"<<endl;
+        inputXml[i].isClone = base->isCloneMode() == true?"true":"false";
         inputXml[i].outputName = output->name();
 
         inputXml[i].widthValue = QString::number(mode->size().width());
@@ -814,9 +834,8 @@ QStringList Widget::getscreenBrightnesName(){
     FILE * fp = NULL;
     char cmd[1024];
     char buf[1024];
-//    const char * cmdstr = "xrandr --verbose | grep connected |cut -f1 -d c";
 
-    sprintf(cmd, "xrandr --verbose | grep connected |cut -f1 -d c");
+    sprintf(cmd, "xrandr | grep \" connected\"  | awk '{ print$1 }'");
     if ((fp = popen(cmd, "r")) != NULL){
         rewind(fp);
         while(!feof(fp)){
@@ -832,7 +851,6 @@ QStringList Widget::getscreenBrightnesName(){
     QString str =  QString(ba);
 //    qDebug()<<"strlist------>"<<str<<endl;
     QStringList strlist = str.split("\n");
-
 
     return strlist;
 }
@@ -953,7 +971,8 @@ void Widget::setBrightnesSldierValue(QString name){
     QString screename = getScreenName(name);
     QStringList nameList = getscreenBrightnesName();
     QStringList valueList = getscreenBrightnesValue();
-    int len = std::min(nameList.length(),valueList.length());
+//    qDebug()<<"nameList and valueList is--------->"<<nameList<<" \n"<<valueList<<endl;
+    int len = std::min(nameList.length(),valueList.length()) -1;
     QMap<QString,float> brightnessMap;
 
     for(int i = 0;i < len;i++){
@@ -1206,7 +1225,7 @@ void Widget::getEdidInfo(QString monitorName,xmlFile *xml){
     int index = monitorName.indexOf('-');
     monitorName = monitorName.mid(0,index);\
 
-    QString cmdGrep  = "ls /sys/class/drm/ | grep " +monitorName;    
+    QString cmdGrep  = "ls /sys/class/drm/ | grep " +monitorName;
     const char *cmdfile =cmdGrep.toStdString().c_str();
 
     QByteArray ba;

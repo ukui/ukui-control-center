@@ -91,6 +91,8 @@ void HomePageWidget::initUI(){
         baseWidget->setAttribute(Qt::WA_DeleteOnClose);
         baseWidget->setObjectName("itemBaseWidget");
 //        baseWidget->setStyleSheet("QWidget#itemBaseWidget{border: 1px solid #3D68E5;}");
+        //解决在20.04悬浮颜色问题
+        baseWidget->setStyleSheet("QWidget#itemBaseWidget{background: #FFFFFF;}");
         //baseWidget 的顶级布局
         QVBoxLayout * baseVerLayout = new QVBoxLayout(baseWidget);
         baseVerLayout->setMargin(0);

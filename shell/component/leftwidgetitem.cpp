@@ -29,7 +29,9 @@ LeftWidgetItem::LeftWidgetItem(QWidget *parent) :
 //    this->setStyleSheet("background: none;");
     widget = new QWidget(this);
 //    widget->setFixedSize(120, 40);
+    widget->setStyleSheet("QWidget{background: #FFFFFF;}");
     widget->setFixedHeight(40);
+
 
     iconLabel = new QLabel(widget);
     QSizePolicy policy = iconLabel->sizePolicy();
@@ -103,7 +105,7 @@ void LeftWidgetItem::setSelected(bool selected){
     if (selected)
         widget->setStyleSheet("QWidget{background: #3D6BE5; border-radius: 4px;}");
     else
-        widget->setStyleSheet("QWidget{background: none;}");
+        widget->setStyleSheet("QWidget{background: #FFFFFF;}");
 }
 
 QString LeftWidgetItem::text(){

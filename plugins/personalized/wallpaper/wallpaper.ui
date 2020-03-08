@@ -208,7 +208,7 @@
           </property>
           <property name="maximumSize">
            <size>
-            <width>144</width>
+            <width>16777215</width>
             <height>30</height>
            </size>
           </property>
@@ -249,22 +249,6 @@ QComboBox QListView::item:selected{
          </widget>
         </item>
         <item>
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Expanding</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
          <widget class="QLabel" name="picOptionsLabel">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -287,7 +271,7 @@ QComboBox QListView::item:selected{
           </property>
           <property name="maximumSize">
            <size>
-            <width>144</width>
+            <width>16777215</width>
             <height>30</height>
            </size>
           </property>
@@ -341,7 +325,7 @@ QComboBox QListView::item:selected{
       </size>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="picturePage">
       <layout class="QVBoxLayout" name="verticalLayout">

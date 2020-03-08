@@ -32,9 +32,6 @@
         <file>secondaryleftmenu/background.png</file>
         <file>secondaryleftmenu/autoboot.png</file>
         <file>plugins/theme/selected.png</file>
-        <file>plugins/theme/light.png</file>
-        <file>plugins/theme/default.png</file>
-        <file>plugins/theme/dark.png</file>
         <file>plugins/desktop/trash.png</file>
         <file>plugins/desktop/homefolder.png</file>
         <file>plugins/desktop/default.png</file>
@@ -55,7 +52,6 @@
         <file>primaryleftmenu/personalizedChecked.png</file>
         <file>primaryleftmenu/personalized.png</file>
         <file>primaryleftmenu/networkChecked.png</file>
-        <file>primaryleftmenu/network.png</file>
         <file>primaryleftmenu/messages.png</file>
         <file>primaryleftmenu/devicesChecked.png</file>
         <file>primaryleftmenu/devices.png</file>
@@ -69,7 +65,6 @@
         <file>primaryleftmenu/checked.png</file>
         <file>primaryleftmenu/messagesChecked.png</file>
         <file>plugins/userinfo/add.png</file>
-        <file>plugins/userinfo/defaultface.png</file>
         <file>secondaryleftmenu/userinfo.png</file>
         <file>secondaryleftmenu/printer.png</file>
         <file>secondaryleftmenu/keyboard.png</file>
@@ -106,6 +101,13 @@
         <file>secondaryleftmenu/updateWhite.png</file>
         <file>plugins/fonts/bigRoller.png</file>
         <file>plugins/fonts/smallRoller.png</file>
+        <file>secondaryleftmenu/mouseWhite.png</file>
+        <file>secondaryleftmenu/touchpadWhite.png</file>
+        <file>plugins/theme/dark.png</file>
+        <file>plugins/theme/default.png</file>
+        <file>plugins/theme/light.png</file>
+        <file>plugins/userinfo/defaultface.png</file>
+        <file>primaryleftmenu/network.png</file>
     </qresource>
     <qresource prefix="/">
         <file>i18n/zh_CN.qm</file>

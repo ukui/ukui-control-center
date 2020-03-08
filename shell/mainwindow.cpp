@@ -30,6 +30,7 @@
 #include "utils/functionselect.h"
 
 #include <QDebug>
+#include <QMessageBox>
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -299,8 +300,8 @@ void MainWindow::loadPlugins(){
         const char * usdFile = "/usr/share/glib-2.0/schemas/org.ukui.font-rendering.gschema.xml";
 
         //时间和日期功能依赖ukui-indicators
-        if (!g_file_test(indicatorFile, G_FILE_TEST_EXISTS) && fileName == "libdatetime.so")
-            continue;
+//        if (!g_file_test(indicatorFile, G_FILE_TEST_EXISTS) && fileName == "libdatetime.so")
+//            continue;
         //代理功能依赖gsettings-desktop-schemas
         if (!g_file_test(proxyFile, G_FILE_TEST_EXISTS) && fileName == "libproxy.so")
             continue;
@@ -477,4 +478,14 @@ void MainWindow::functionBtnClicked(QObject *plugin){
 //        ui->backBtn->setEnabled(true);
 //    }
 //}
+
+void MainWindow::sltMessageReceived(const QString &msg) {
+    Qt::WindowFlags flags = windowFlags();
+    flags |= Qt::WindowStaysOnTopHint;
+    setWindowFlags(flags);
+    show();
+    flags &= ~Qt::WindowStaysOnTopHint;
+    setWindowFlags(flags);
+    showNormal();
+}
 

@@ -26,6 +26,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <syslog.h>
+#include <QObject>
 
 #include "framelessExtended/framelesshandle.h"
 
@@ -33,44 +34,43 @@
 
 int main(int argc, char *argv[])
 {
-//    QApplication a(argc, argv);
-
     QtSingleApplication a(argc, argv);
     if (a.isRunning()){
+        a.sendMessage(a.applicationFilePath());
         qDebug() << QObject::tr("ukui-control-center had already running!");
-        return 0;
+        return EXIT_SUCCESS;
+    } else {
+        //加载国际化文件
+        QString locale = QLocale::system().name();
+        QTranslator translator;
+        if (locale == "zh_CN"){
+            if (translator.load("zh_CN.qm", "://i18n/"))
+                a.installTranslator(&translator);
+            else
+                qDebug() << "Load translations file" << locale << "failed!";
+        }
+
+        //加载qss样式文件
+        QString qss;
+        QFile QssFile("://global.qss");
+        QssFile.open(QFile::ReadOnly);
+
+        if (QssFile.isOpen()){
+            qss = QLatin1String(QssFile.readAll());
+            qApp->setStyleSheet(qss);
+            QssFile.close();
+        }
+
+
+        MainWindow * w = new MainWindow;
+        w->setAttribute(Qt::WA_DeleteOnClose);
+
+        a.setActivationWindow(w);
+        QObject::connect(&a, SIGNAL(messageReceived(const QString&)),w, SLOT(sltMessageReceived(const QString&)));
+        w->show();
+
+        FramelessHandle * pHandle = new FramelessHandle(w);
+        pHandle->activateOn(w);
+        return a.exec();
     }
-
-
-    //加载国际化文件
-    QString locale = QLocale::system().name();
-    QTranslator translator;
-    if (locale == "zh_CN"){
-        if (translator.load("zh_CN.qm", "://i18n/"))
-            a.installTranslator(&translator);
-        else
-            qDebug() << "Load translations file" << locale << "failed!";
-    }
-
-
-    //加载qss样式文件
-    QString qss;
-    QFile QssFile("://global.qss");
-    QssFile.open(QFile::ReadOnly);
-
-    if (QssFile.isOpen()){
-        qss = QLatin1String(QssFile.readAll());
-        qApp->setStyleSheet(qss);
-        QssFile.close();
-    }
-
-
-    MainWindow * w = new MainWindow;
-    w->setAttribute(Qt::WA_DeleteOnClose);
-    w->show();
-
-    FramelessHandle * pHandle = new FramelessHandle(w);
-    pHandle->activateOn(w);
-
-    return a.exec();
 }

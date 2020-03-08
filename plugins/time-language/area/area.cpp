@@ -21,7 +21,13 @@
 #include "ui_area.h"
 
 #include <QDebug>
+#include <QFile>
 
+const QVector<QString> CFormats{"zh_SG.UTF-8", "zh_CN.UTF-8", "lt_LT.UTF-8", "en_ZW.UTF-8", "en_ZM.UTF-8",
+                               "en_ZA.UTF-8", "en_US.UTF-8", "en_SG.UTF-8", "en_PH.UTF-8", "en_NZ.UTF-8",
+                               "en_NG.UTF-8", "en_IN.UTF-8", "en_IL.UTF-8", "en_IE.UTF-8", "en_HK.UTF-8",
+                               "en_GB.UTF-8", "en_DK.UTF-8", "en_CA.UTF-8", "en_BW.UTF-8", "en_AU.UTF-8",
+                               "en_AG.UTF-8", "af_ZA.UTF-8"};
 
 Area::Area()
 {
@@ -123,6 +129,10 @@ void Area::initUI(){
     ui->addlanBtn->setIconSize(QSize(48, 48));
 }
 
+void Area::initComponent() {
+
+}
+
 void Area::change_language_slot(int index){
     QDBusReply<bool> res;
     switch (index) {
@@ -147,6 +157,68 @@ void Area::change_area_slot(int index){
         break;
     }
 }
+
+QStringList Area::readFile(const QString& filepath) {
+    QStringList res;
+    QFile file(filepath);
+    if(file.exists()) {
+        if(!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            qWarning() << "ReadFile() failed to open" << filepath;
+            return QStringList();
+        }
+        QTextStream textStream(&file);
+        while(!textStream.atEnd()) {
+            QString line= textStream.readLine();
+            line.remove('\n');
+            res<<line;
+        }
+        file.close();
+        return res;
+    } else {
+        qWarning() << filepath << " not found"<<endl;
+        return QStringList();
+    }
+}
+
+QStringList Area::getUserDefaultLanguage() {
+    int pos = 0;
+    QString formats;
+    QString language;
+    QStringList filestr;
+    QStringList result;
+    QString fname = getenv("HOME");
+    fname += "/.pam_environment";
+
+    filestr = this->readFile(fname);
+    qDebug()<<"result is------>"<<filestr<<endl;
+    QRegExp re("LANGUAGE(\t+DEFAULT)?=(.*)$");
+    for(int i = 0; i < filestr.length(); i++) {
+        while((pos = re.indexIn(filestr.at(i), pos)) != -1) {
+            language = re.cap(2);
+            pos += re.matchedLength();
+        }
+    }
+
+    QDBusInterface * iproperty = new QDBusInterface("org.freedesktop.Accounts",
+                                            objpath,
+                                            "org.freedesktop.DBus.Properties",
+                                            QDBusConnection::systemBus());
+    QDBusReply<QMap<QString, QVariant> > reply = iproperty->call("GetAll", "org.freedesktop.Accounts.User");
+    if (reply.isValid()){
+        QMap<QString, QVariant> propertyMap;
+        propertyMap = reply.value();
+        formats = propertyMap.find("FormatsLocale").value().toString();
+//        qDebug()<<"formats is----------->"<<formats<<endl;
+    }
+    else {
+        qDebug() << "reply failed";
+    }
+    result.append(formats);
+    result.append(language);
+    qDebug()<<"result is---------->"<<result<<endl;
+    return result;
+}
+
 
 
 
