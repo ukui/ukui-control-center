@@ -158,16 +158,12 @@ MainWindow::MainWindow(QWidget *parent) :
     modulepageWidget = new ModulePageWidget(this);
     ui->stackedWidget->addWidget(modulepageWidget);
 
-    //刷新后退按钮状态
-    //refreshBackBtnStatus();
-
     //top left return button
     connect(ui->backBtn, &QPushButton::clicked, this, [=]{
         FunctionSelect::popRecordValue();
 
-        //refreshBackBtnStatus();
         //if recordFuncStack is empty, it means there is no history record. So return to homepage
-        if (FunctionSelect::recordFuncStack.length() <= 1) {
+        if (FunctionSelect::recordFuncStack.length() < 1) {
             ui->stackedWidget->setCurrentIndex(0);
         } else {
             QMap<QString, QObject *> pluginsObjMap = modulesList.at(FunctionSelect::recordFuncStack.last().type);
@@ -469,15 +465,6 @@ void MainWindow::functionBtnClicked(QObject *plugin){
     ui->stackedWidget->setCurrentIndex(1);
     modulepageWidget->switchPage(plugin);
 }
-
-//void MainWindow::refreshBackBtnStatus(){
-//    if (FunctionSelect::recordFuncStack.length() <= 1) {
-//        ui->backBtn->setEnabled(false);
-//    }
-//    else {
-//        ui->backBtn->setEnabled(true);
-//    }
-//}
 
 void MainWindow::sltMessageReceived(const QString &msg) {
     Qt::WindowFlags flags = windowFlags();
