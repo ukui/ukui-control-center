@@ -46,7 +46,6 @@ public:
 public:
     QMap<QString, QObject *> exportModule(int);
     void setModuleBtnHightLight(int id);
-    //void refreshBackBtnStatus();
 
 private:
     Ui::MainWindow *ui;
