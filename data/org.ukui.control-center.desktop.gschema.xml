@@ -1,5 +1,5 @@
 <schemalist gettext-domain="ukui-control-center">
-  <schema id="org.ukui.control-center.desktop">
+  <schema id="org.ukui.control-center.desktop" path="/org/ukui/control-center/desktop/">
     <key name="computer" type="b">
       <default>true</default>
       <summary>Activation of this plugin</summary>
