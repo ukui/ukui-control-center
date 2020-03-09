@@ -50,6 +50,7 @@ Area::Area()
                                          "org.freedesktop.Accounts.User",
                                          QDBusConnection::systemBus());
     initUI();
+    initComponent();
     connect(ui->langcomboBox,SIGNAL(currentIndexChanged(int)),this,SLOT(change_language_slot(int)));
     connect(ui->countrycomboBox,SIGNAL(currentIndexChanged(int)),this,SLOT(change_area_slot(int)));
 }
@@ -130,7 +131,12 @@ void Area::initUI(){
 }
 
 void Area::initComponent() {
-
+    QStringList res = getUserDefaultLanguage();
+    QString lang = res.at(1);
+    int langIndex = lang.split(':').at(0) == "en_US" ? 0 : 1;;
+    int formatIndex = res.at(0) == "en_US.UTF-8" ? 0 : 1;
+    ui->langcomboBox->setCurrentIndex(langIndex);
+    ui->countrycomboBox->setCurrentIndex(formatIndex);
 }
 
 void Area::change_language_slot(int index){
@@ -150,12 +156,12 @@ void Area::change_area_slot(int index){
     QDBusReply<bool> res;
     switch (index) {
     case 0:
-        res = m_areaInterface->call("SetFormatsLocale","en_US");
+        res = m_areaInterface->call("SetFormatsLocale","en_US.UTF-8");
         break;
     case 1:
-        res = m_areaInterface->call("SetFormatsLocale","zh_CN");
+        res = m_areaInterface->call("SetFormatsLocale","zh_CN.UTF-8");
         break;
-    }
+    }    
 }
 
 QStringList Area::readFile(const QString& filepath) {
@@ -190,7 +196,7 @@ QStringList Area::getUserDefaultLanguage() {
     fname += "/.pam_environment";
 
     filestr = this->readFile(fname);
-    qDebug()<<"result is------>"<<filestr<<endl;
+//    qDebug()<<"result is------>"<<filestr<<endl;
     QRegExp re("LANGUAGE(\t+DEFAULT)?=(.*)$");
     for(int i = 0; i < filestr.length(); i++) {
         while((pos = re.indexIn(filestr.at(i), pos)) != -1) {
@@ -207,15 +213,16 @@ QStringList Area::getUserDefaultLanguage() {
     if (reply.isValid()){
         QMap<QString, QVariant> propertyMap;
         propertyMap = reply.value();
-        formats = propertyMap.find("FormatsLocale").value().toString();
-//        qDebug()<<"formats is----------->"<<formats<<endl;
-    }
-    else {
+        formats = propertyMap.find("FormatsLocale").value().toString();        
+        if(language.isEmpty()) {
+            language = propertyMap.find("Language").value().toString();
+        }
+    } else {
         qDebug() << "reply failed";
     }
     result.append(formats);
     result.append(language);
-    qDebug()<<"result is---------->"<<result<<endl;
+//    qDebug()<<"result is---------->"<<result<<endl;
     return result;
 }
 

@@ -22,7 +22,7 @@
 #include <QHBoxLayout>
 #include <QDebug>
 #include <QMovie>
-#include <QGSettings/QGSettings>
+#include <QDir>
 
 
 
@@ -38,7 +38,7 @@ DateTime::DateTime()
     pluginName = tr("datetime");
     pluginType = DATETIME;
 
-    qDebug()<<"进入时间日期UI------------------》"<<endl;
+//    qDebug()<<"进入时间日期UI------------------》"<<endl;
 
 
     m_zoneinfo = new ZoneInfo;
@@ -67,6 +67,11 @@ DateTime::DateTime()
                                              "/org/freedesktop/timedate1",
                                              "org.freedesktop.DBus.Properties",
                                              QDBusConnection::systemBus());
+
+    QString filename = QDir::homePath() + "/.config/hour.ini";
+
+    m_formatsettings = new QSettings(filename, QSettings::IniFormat);
+    m_formatsettings->setIniCodec("UTF-8");
 
     component_init();
     status_init();
@@ -194,10 +199,18 @@ void DateTime::status_init(){
         ui->timezoneLabel->setText(defaultit.key());
     }
 
-//    bool use = m_formatsettings->get(TIME_FORMAT_KEY).toBool();
-//    m_formTimeBtn->setChecked(use);
+
+    loadHour();
 }
 
+bool DateTime::fileIsExits(const QString &filepath) {
+    QFile file(filepath);
+    if(file.exists()) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 void DateTime::datetime_update_slot(){
     QFont ft;
@@ -221,7 +234,7 @@ void DateTime::datetime_update_slot(){
 }
 
 void DateTime::changetime_slot(){
-    ChangtimeDialog *dialog = new ChangtimeDialog();
+    ChangtimeDialog *dialog = new ChangtimeDialog(this->m_EFHour);
     dialog->setWindowTitle(tr("change time"));
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->exec();
@@ -239,14 +252,15 @@ void DateTime::changezone_slot(QString zone){
 }
 
 void DateTime::time_format_clicked_slot(bool flag){
-//    if (flag)
-//        m_formatsettings->set(TIME_FORMAT_KEY, true);
-//    else
-//        m_formatsettings->set(TIME_FORMAT_KEY, false);
+    m_EFHour = flag;
+    m_formatsettings->beginGroup("General");
+    m_formatsettings->setValue("EFhour",flag);
+    m_formatsettings->endGroup();
+    m_formatsettings->sync();
 
-//    //重置时间格式
-//    m_itimer->stop();
-//    m_itimer->start(1000);
+    //重置时间格式
+    m_itimer->stop();
+    m_itimer->start(1000);
 }
 
 void DateTime::showendLabel(){
@@ -268,12 +282,19 @@ void DateTime::rsync_with_network_slot(){
     m_datetimeiface->call("SetNTP", true, true);
 
 
-    QMovie *loadgif = new QMovie(":/sys.gif");
-    loadgif->start();
-    ui->syslabel->setVisible(true);
-    ui->syslabel->setMovie(loadgif);
-    ui->syslabel->setScaledContents(true);
-    ui->syslabel->setStyleSheet("QLabel#syslabel{border-radius:4px;}");
+//    QMovie *loadgif = new QMovie(":/sys.gif");
+//    loadgif->start();
+//    ui->syslabel->setVisible(true);
+//    ui->syslabel->setMovie(loadgif);
+//    ui->syslabel->setScaledContents(true);
+//    ui->syslabel->setStyleSheet("QLabel#syslabel{border-radius:4px;}");
 
-    QTimer::singleShot(2*1000,this,SLOT(showendLabel()));
+//    QTimer::singleShot(2*1000,this,SLOT(showendLabel()));
+}
+
+void DateTime::loadHour() {
+    m_formatsettings->beginGroup("General");
+    m_EFHour = m_formatsettings->value("EFhour",m_EFHour).toBool();
+    m_formatsettings->endGroup();
+    m_formTimeBtn->setChecked(m_EFHour);
 }

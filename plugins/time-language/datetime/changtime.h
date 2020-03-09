@@ -54,7 +54,7 @@ class ChangtimeDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit ChangtimeDialog(QWidget *parent = nullptr);
+    explicit ChangtimeDialog(bool hour, QWidget *parent = nullptr);
     ~ChangtimeDialog();
 
     void initUi();
@@ -68,6 +68,7 @@ private:
 
     QGSettings * m_formatsettings = nullptr;
     QDBusInterface *m_datetimeInterface = nullptr;
+    bool m_isEFHour; //24小时制
 
 private slots:
     void datetimeUpdateSlot();
