@@ -27,7 +27,7 @@ const int BEGINYEAR = 1900;
 const int BEGINMD = 1;
 
 
-ChangtimeDialog::ChangtimeDialog(QWidget *parent) :
+ChangtimeDialog::ChangtimeDialog(bool hour,QWidget *parent) :m_isEFHour(hour),
     QDialog(parent),
     ui(new Ui::changtimedialog)
 {
@@ -177,7 +177,6 @@ void ChangtimeDialog::initUi(){
         ui->seccomboBox->addItem(QString::number(s));
     }
 
-
     for(int year = 1900; year <= 2100; year++){
         ui->yearcomboBox->addItem(QString::number(year)+tr("year"));
     }
@@ -191,15 +190,13 @@ void ChangtimeDialog::hourComboxSetup(){
     ui->hourcomboBox->clear();
 
     //获取时间制式，设置时间combobox
-//    bool use = m_formatsettings->get(TIME_FORMAT_KEY).toBool();
-//    if (use){
-//        for (int h = 0; h < 24; h++)
-//            ui->hourcomboBox->addItem(QString::number(h));
-//    }
-//    else{
-//        for (int h = 0; h < 12; h++)
-//            ui->hourcomboBox->addItem(QString::number(h));
-//    }
+    if (this->m_isEFHour){
+        for (int h = 0; h < 24; h++)
+            ui->hourcomboBox->addItem(QString::number(h));
+    } else {
+        for (int h = 0; h < 12; h++)
+            ui->hourcomboBox->addItem(QString::number(h));
+    }
 }
 
 
@@ -223,8 +220,11 @@ void ChangtimeDialog::initStatus(){
     QDateTime current = QDateTime::currentDateTime();
     QString currenthourStr = current.toString("hh");
     QString currentminStr = current.toString("mm");
-
-    ui->hourcomboBox->setCurrentIndex(currenthourStr.toInt());
+    if(this->m_isEFHour) {
+        ui->hourcomboBox->setCurrentIndex(currenthourStr.toInt());
+    } else {
+        ui->hourcomboBox->setCurrentIndex(currenthourStr.toInt() - 12);
+    }
     ui->mincomboBox->setCurrentIndex(currentminStr.toInt());
 
 

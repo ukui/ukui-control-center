@@ -41,7 +41,7 @@ ModulePageWidget::ModulePageWidget(QWidget *parent) :
     pmainWindow = (MainWindow *)parentWidget();
 
     //左侧Widget大小限定
-    ui->leftbarWidget->setMinimumWidth(120);
+    ui->leftbarWidget->setMinimumWidth(160);
     ui->leftbarWidget->setMaximumWidth(216);
 
     //右侧Widget大小限定(限制了最小宽度)
