@@ -35,6 +35,9 @@ inst1.files += ukui-control-center.desktop
 inst1.path = /usr/share/applications
 inst2.files += $$PROJECT_ROOTDIR/pluginlibs/
 inst2.path = /usr/lib/control-center/
+inst3.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.keybinding.gschema.xml
+inst3.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.desktop.gschema.xml
+inst3.path = /usr/share/glib-2.0/schemas/
 
 target.source += $$TARGET
 target.path = /usr/bin
@@ -42,6 +45,7 @@ target.path = /usr/bin
 INSTALLS +=  \
             inst1 \
             inst2 \
+	    inst3 \
             target \
 
 INCLUDEPATH += qtsingleapplication
