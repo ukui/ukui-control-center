@@ -45,7 +45,7 @@ Q_DECLARE_METATYPE(KScreen::OutputPtr)
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
-    , ui(new Ui::DisplayWindow())
+    , ui(new Ui::DisplayWindow()), slider(new Slider())
 {
     qRegisterMetaType<QQuickView*>();
     itemDelege= new QStyledItemDelegate(this);
@@ -55,7 +55,7 @@ Widget::Widget(QWidget *parent)
     ui->quickWidget->setContentsMargins(0,0,0,9);
 
 
-    ui->quickWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+    ui->mainwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
     ui->screenwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
     ui->nightwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
     ui->unionwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
@@ -63,6 +63,16 @@ Widget::Widget(QWidget *parent)
 
     ui->mainScreenButton->setStyleSheet("QPushButton{background-color:#F8F9F9;border-radius:6px;font-size:14px;}"
                                    "QPushButton:hover{background-color: #3D6BE5;};border-radius:6px");
+
+    ui->scaleWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+    slider->setRange(1,5);
+    slider->setTickInterval(1);
+    slider->setPageStep(1);
+
+    QLabel* scaleLabel = new QLabel(tr("screen zoom "));
+    scaleLabel->setMinimumWidth(125);
+    ui->scaleLayout->addWidget(scaleLabel);
+    ui->scaleLayout->addWidget(slider);
 
     ui->primaryCombo->setItemDelegate(itemDelege);
 
@@ -173,7 +183,7 @@ Widget::Widget(QWidget *parent)
     loadQml();
     setBrigthnessFile();
     //亮度调节UI
-//    initBrightnessUI();
+//    initBrightnessUI();    
 
 }
 
@@ -256,6 +266,7 @@ KScreen::ConfigPtr Widget::currentConfig() const
 
 void Widget::loadQml()
 {
+
 
     qmlRegisterType<QMLOutput>("org.kde.kscreen", 1, 0, "QMLOutput");
     qmlRegisterType<QMLScreen>("org.kde.kscreen", 1, 0, "QMLScreen");
@@ -502,6 +513,47 @@ KScreen::OutputPtr Widget::findOutput(const KScreen::ConfigPtr &config, const QV
     return KScreen::OutputPtr();
 }
 
+float Widget::scaleRet() {
+    QString filepath = getenv("HOME");
+    QString scale;
+    filepath += "/.profile";
+    QStringList res = this->readFile(filepath);
+    QRegExp re("export( GDK_DPI_SCALE)?=(.*)$");
+    for(int i = 0; i < res.length(); i++) {
+        int pos = 0;
+        qDebug()<<res.at(i)<<endl;
+        QString str = res.at(i);
+        while ((pos = re.indexIn(str, pos)) != -1) {
+            scale = re.cap(2);
+            pos += re.matchedLength();
+        }
+    }
+    return scale.toFloat();
+}
+
+void Widget::writeScale(float scale) {
+    QString strGDK = "export GDK_DPI_SCALE=";
+    QString strQT  = "export QT_SCALE_FACTOR=";
+    bool judge = false;
+    QString filepath = getenv("HOME");
+    filepath += "/.profile";
+    for(int i = 0; i < proRes.length(); i++) {
+        QString tmpstr =  proRes.at(i);
+        if(tmpstr.contains(strGDK)) {
+            proRes[i] = strGDK + QString::number(scale);
+            judge = true;
+        }
+        if(tmpstr.contains(strQT)) {
+            proRes[i] = strQT + QString::number(scale);
+        }
+    }
+    if(!judge) {
+        this->proRes.append(strGDK + QString::number(scale));
+        this->proRes.append(strQT + QString::number(scale));
+    }
+    writeFile(filepath, this->proRes);
+}
+
 void Widget::clearOutputIdentifiers()
 {
     mOutputTimer->stop();
@@ -718,6 +770,9 @@ void Widget::save()
 
     initScreenXml(countOutput);
     writeScreenXml(countOutput);
+    float scale = converToScale(slider->value());
+    writeScale(scale);
+
 
     if (!KScreen::Config::canBeApplied(config)) {
         KMessageBox::information(this,
@@ -1319,6 +1374,66 @@ void Widget::setIsNightMode(bool isNightMode) {
     qDebug()<<"isNightMode----->"<<isNightMode<<endl;
     m_isNightMode = isNightMode;
    // emit nightModeChanged(isNightMode);
+}
+
+QStringList Widget::readFile(const QString& filepath) {
+    QFile file(filepath);
+    if(file.exists()) {
+        if(!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            qWarning() << "ReadFile() failed to open" << filepath;
+            return QStringList();
+        }
+        QTextStream textStream(&file);
+        while(!textStream.atEnd()) {
+            QString line= textStream.readLine();
+            line.remove('\n');
+            this->proRes<<line;
+        }
+        file.close();
+        return this->proRes;
+    } else {
+        qWarning() << filepath << " not found"<<endl;
+        return QStringList();
+    }
+}
+
+void Widget::writeFile(const QString &filepath, const QStringList &content) {
+    qDebug()<<"witeFile--------->"<<endl;
+    QFile file(filepath);
+
+    if(!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+            qWarning() << "writeFile() failed to open" << filepath;
+    }
+    QTextStream textStream(&file);
+    for(int i = 0; i < content.length(); i++) {
+
+        textStream<<content.at(i);
+        textStream<<"\n";
+    }
+    file.close();
+}
+
+float Widget::converToScale(const int value) {
+    switch (value) {
+    case 1:
+        return 1.0;
+        break;
+    case 2:
+        return 1.25;
+        break;
+    case 3:
+        return 1.5;
+        break;
+    case 4:
+        return 1.75;
+        break;
+    case 5:
+        return 2.0;
+        break;
+    default:
+        return 1.0;
+        break;
+    }
 }
 
 
