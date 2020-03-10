@@ -17,34 +17,27 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef WORKEROBJECT_H
-#define WORKEROBJECT_H
+#ifndef GETSHORTCUTWORKER_H
+#define GETSHORTCUTWORKER_H
 
 #include <QObject>
-#include <QPixmap>
+#include <QList>
 
-#include "xmlhandle.h"
-
-class WorkerObject : public QObject
+class GetShortcutWorker : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit WorkerObject();
-    ~WorkerObject();
+    explicit GetShortcutWorker();
+    ~GetShortcutWorker();
 
 public:
     void run();
 
-private:
-    XmlHandle * xmlHandleObj;
-
-    QMap<QString, QMap<QString, QString> > wallpaperinfosMap;
-
 Q_SIGNALS:
-    void pixmapGenerate(QPixmap pixmap, QString filename);
-    void workComplete();
-
+    void generalShortcutGenerate(QString schema, QString key, QString value);
+    void customShortcutGenerate(QString path, QString name, QString bindingkey, QString action);
+    void workerComplete();
 };
 
-#endif // WORKEROBJECT_H
+#endif // GETSHORTCUTWORKER_H

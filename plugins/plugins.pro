@@ -1,5 +1,6 @@
 TEMPLATE = subdirs
 SUBDIRS = \
+    devices/shortcut \
           system/defaultapp \
           system/power \
           system/autoboot \
@@ -7,7 +8,7 @@ SUBDIRS = \
           devices/printer \
           devices/mouse \
           devices/keyboard \
-#          devices/touchpad \
+          devices/touchpad \
           personalized/wallpaper \
           personalized/theme \
           personalized/fonts \

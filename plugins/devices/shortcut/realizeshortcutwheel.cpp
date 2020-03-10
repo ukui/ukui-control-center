@@ -17,34 +17,26 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef WORKEROBJECT_H
-#define WORKEROBJECT_H
 
-#include <QObject>
-#include <QPixmap>
+#include "realizeshortcutwheel.h"
 
-#include "xmlhandle.h"
+QList<char *> listExistsCustomShortcutPath(){
+    char ** childs;
+    int len;
 
-class WorkerObject : public QObject
-{
-    Q_OBJECT
+    DConfClient * client = dconf_client_new();
+    childs = dconf_client_list (client, KEYBINDINGS_CUSTOM_DIR, &len);
+    g_object_unref (client);
 
-public:
-    explicit WorkerObject();
-    ~WorkerObject();
+    QList<char *> vals;
 
-public:
-    void run();
+    for (int i = 0; childs[i] != NULL; i++){
+        if (dconf_is_rel_dir (childs[i], NULL)){
+            char * val = g_strdup (childs[i]);
 
-private:
-    XmlHandle * xmlHandleObj;
-
-    QMap<QString, QMap<QString, QString> > wallpaperinfosMap;
-
-Q_SIGNALS:
-    void pixmapGenerate(QPixmap pixmap, QString filename);
-    void workComplete();
-
-};
-
-#endif // WORKEROBJECT_H
+            vals.append(val);
+        }
+    }
+    g_strfreev (childs);
+    return vals;
+}

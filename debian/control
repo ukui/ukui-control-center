@@ -17,7 +17,8 @@ Build-Depends: debhelper-compat (= 12),
                libkf5configwidgets-dev,
                libkf5screen-dev,
                libkf5screen-bin,
-			   qtdeclarative5-dev
+               qtdeclarative5-dev,
+               libdconf-dev,
 Standards-Version: 4.5.0
 Rules-Requires-Root: no
 Homepage: https://github.com/ukui/ukui-control-center

@@ -108,6 +108,9 @@
         <file>plugins/userinfo/defaultface.png</file>
         <file>primaryleftmenu/network.png</file>
         <file>plugins/theme/light.png</file>
+        <file>plugins/shortcut/add.png</file>
+        <file>secondaryleftmenu/shortcutWhite.png</file>
+        <file>secondaryleftmenu/shortcut.png</file>
     </qresource>
     <qresource prefix="/">
         <file>i18n/zh_CN.qm</file>

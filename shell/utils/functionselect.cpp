@@ -76,6 +76,9 @@ void FunctionSelect::initValue(){
     devicesList[TOUCHPAD].mainShow = false;
     devicesList[KEYBOARD].nameString = QString("keyboard");
     devicesList[KEYBOARD].namei18nString = QObject::tr("keyboard");
+    devicesList[SHORTCUT].nameString = QString("shortcut");
+    devicesList[SHORTCUT].namei18nString = QObject::tr("shortcut");
+    devicesList[SHORTCUT].mainShow = false;
     devicesList[AUDIO].nameString = QString("audio");
     devicesList[AUDIO].namei18nString = QObject::tr("audio");
 

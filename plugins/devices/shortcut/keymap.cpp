@@ -17,34 +17,17 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef WORKEROBJECT_H
-#define WORKEROBJECT_H
+#include "keymap.h"
 
-#include <QObject>
-#include <QPixmap>
-
-#include "xmlhandle.h"
-
-class WorkerObject : public QObject
+KeyMap::KeyMap()
 {
-    Q_OBJECT
+    metaColor = QMetaEnum::fromType<KeyMap::CCKey>();
+}
 
-public:
-    explicit WorkerObject();
-    ~WorkerObject();
+KeyMap::~KeyMap()
+{
+}
 
-public:
-    void run();
-
-private:
-    XmlHandle * xmlHandleObj;
-
-    QMap<QString, QMap<QString, QString> > wallpaperinfosMap;
-
-Q_SIGNALS:
-    void pixmapGenerate(QPixmap pixmap, QString filename);
-    void workComplete();
-
-};
-
-#endif // WORKEROBJECT_H
+QString KeyMap::keycodeTokeystring(int code){
+    return metaColor.valueToKey(code);    //未匹配到则返回空
+}

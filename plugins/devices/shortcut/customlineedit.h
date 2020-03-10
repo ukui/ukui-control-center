@@ -17,34 +17,35 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef WORKEROBJECT_H
-#define WORKEROBJECT_H
+#ifndef CUSTOMLINEEDIT_H
+#define CUSTOMLINEEDIT_H
 
-#include <QObject>
-#include <QPixmap>
+#include <QLineEdit>
+#include <QKeyEvent>
+//#include <QMouseEvent>
+#include <QFocusEvent>
 
-#include "xmlhandle.h"
-
-class WorkerObject : public QObject
+class CustomLineEdit : public QLineEdit
 {
     Q_OBJECT
 
 public:
-    explicit WorkerObject();
-    ~WorkerObject();
+    explicit CustomLineEdit(QString shortcut, QWidget *parent = 0);
+    ~CustomLineEdit();
 
-public:
-    void run();
+//    virtual void mousePressEvent(QMouseEvent * e);
+    virtual void focusOutEvent(QFocusEvent * evt);
+    virtual void focusInEvent(QFocusEvent * evt);
+    virtual void keyReleaseEvent(QKeyEvent * evt);
 
 private:
-    XmlHandle * xmlHandleObj;
-
-    QMap<QString, QMap<QString, QString> > wallpaperinfosMap;
+    QString _oldshortcut;
+    QString _wait;
+    QString _setalready;
 
 Q_SIGNALS:
-    void pixmapGenerate(QPixmap pixmap, QString filename);
-    void workComplete();
+    void shortcutCodeSignals(QList<int>);
 
 };
 
-#endif // WORKEROBJECT_H
+#endif // CUSTOMLINEEDIT_H

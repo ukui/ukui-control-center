@@ -48,6 +48,7 @@ enum DevicesIndex{
     MOUSE,
     TOUCHPAD,
     KEYBOARD,
+    SHORTCUT,
     AUDIO,
     TOTALDEVICESFUNC,
 };

@@ -17,34 +17,37 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef WORKEROBJECT_H
-#define WORKEROBJECT_H
+#ifndef REALIZESHORTCUTWHEEL_H
+#define REALIZESHORTCUTWHEEL_H
 
-#include <QObject>
-#include <QPixmap>
+#include <QGSettings/QGSettings>
+#include <QList>
 
-#include "xmlhandle.h"
+/* qt会将glib里的signals成员识别为宏，所以取消该宏
+ * 后面如果用到signals时，使用Q_SIGNALS代替即可
+ **/
+#ifdef signals
+#undef signals
+#endif
 
-class WorkerObject : public QObject
-{
-    Q_OBJECT
+extern "C" {
+#include <glib.h>
+#include <gio/gio.h>
+#include <dconf/dconf.h>
+}
 
-public:
-    explicit WorkerObject();
-    ~WorkerObject();
+#define KEYBINDINGS_DESKTOP_SCHEMA "org.ukui.SettingsDaemon.plugins.media-keys"
+#define KEYBINDINGS_SYSTEM_SCHEMA "org.gnome.desktop.wm.keybindings"
 
-public:
-    void run();
+#define KEYBINDINGS_CUSTOM_SCHEMA "org.ukui.control-center.keybinding"
+#define KEYBINDINGS_CUSTOM_DIR "/org/ukui/desktop/keybindings/"
 
-private:
-    XmlHandle * xmlHandleObj;
+#define MAX_SHORTCUTS 1000
 
-    QMap<QString, QMap<QString, QString> > wallpaperinfosMap;
+#define ACTION_KEY "action"
+#define BINDING_KEY "binding"
+#define NAME_KEY "name"
 
-Q_SIGNALS:
-    void pixmapGenerate(QPixmap pixmap, QString filename);
-    void workComplete();
+QList<char *> listExistsCustomShortcutPath();
 
-};
-
-#endif // WORKEROBJECT_H
+#endif // REALIZESHORTCUTWHEEL_H
