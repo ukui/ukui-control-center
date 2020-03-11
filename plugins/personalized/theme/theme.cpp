@@ -62,7 +62,7 @@ Theme::Theme()
     ui->lightSelectedLabel->setPixmap(QPixmap("://img/plugins/theme/selected.png"));
     ui->darkSelectedLabel->setPixmap(QPixmap("://img/plugins/theme/selected.png"));
 
-    ui->iconListWidget->setStyleSheet("QListWidget#iconListWidget{border: none;}");
+    ui->iconListWidget->setStyleSheet("QListWidget#iconListWidget{border: 1px solid #000000;}");
     ui->cursorListWidget->setStyleSheet("QListWidget#cursorListWidget{border: none;}");
 
     ui->iconListWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -153,37 +153,38 @@ void Theme::initComponent(){
 void Theme::initIconTheme(){
 
     QStringList themeNameStringList;
-    themeNameStringList << QString("hicolor") << QString("ukui-icon-theme") << QString("ukui-icon-theme-one");
+    themeNameStringList << QString("ukui-icon-theme-basic") << QString("ukui-icon-theme-classical") << QString("ukui-icon-theme-default");
     QStringList i18nthemeNameStringList;
-    i18nthemeNameStringList << QObject::tr("hicolor") << QObject::tr("theme") << QObject::tr("theme-one");
+    i18nthemeNameStringList << QObject::tr("basicIcon") << QObject::tr("classicalIcon") << QObject::tr("defaultIcon");
 
     ui->iconListWidget->setFixedHeight(themeNameStringList.count() * ICONWIDGETHEIGH);
 
     //获取当前图标主题
-    QString currentIconTheme = "ukui-icon-theme";
+    QString currentIconTheme = "ukui-icon-theme-basic";
 
     QDir themesDir = QDir(ICONTHEMEPATH);
 
+    int iconThemeNum = 0;
     foreach (QString themedir, themesDir.entryList(QDir::Dirs)) {
-        if (themeNameStringList.contains(themedir)){
-            int index = themeNameStringList.indexOf(themedir);
+        if (themedir.startsWith("ukui-icon-theme-")){
+            iconThemeNum++;
             QDir appsDir = QDir(ICONTHEMEPATH + themedir + "/48x48/apps/");
             appsDir.setFilter(QDir::Files | QDir::NoSymLinks);
             QStringList appIconsList = appsDir.entryList();
 
             QStringList showIconsList;
             for (int i = 0; i < appIconsList.size(); i++){
-                if (i%64 == 0 && i < 5 * 64){
+                if (i%64 == 0 && i < 6 * 64){
                     showIconsList.append(appsDir.path() + "/" + appIconsList.at(i));
                 }
             }
 
-            ThemeWidget * widget = new ThemeWidget(QSize(48, 48), i18nthemeNameStringList.at(index), showIconsList);
+            ThemeWidget * widget = new ThemeWidget(QSize(48, 48), dullTranslation(themedir.section("-", -1, -1, QString::SectionSkipEmpty)), showIconsList);
             widget->setAttribute(Qt::WA_DeleteOnClose);
 
             QListWidgetItem * item = new QListWidgetItem(ui->iconListWidget);
             item->setData(Qt::UserRole, QVariant(themedir));
-            item->setSizeHint(QSize(554, ICONWIDGETHEIGH));
+            item->setSizeHint(QSize(ui->iconListWidget->width(), ICONWIDGETHEIGH));
 
             if (themedir == currentIconTheme){
                 ui->iconListWidget->setCurrentItem(item);
@@ -195,6 +196,8 @@ void Theme::initIconTheme(){
             ui->iconListWidget->setItemWidget(item, widget);
         }
     }
+    qDebug() << "iconThemeNum" << iconThemeNum;
+    ui->iconListWidget->setFixedHeight(iconThemeNum * ICONWIDGETHEIGH);
     connect(ui->iconListWidget, &QListWidget::currentItemChanged, this, [=](QListWidgetItem * current, QListWidgetItem * previous){
         ThemeWidget * currentWidget = dynamic_cast<ThemeWidget *>(ui->iconListWidget->itemWidget(current));
         currentWidget->setSelectedStatus(true);
@@ -344,4 +347,15 @@ void Theme::set_theme_slots(QString value){
 //        ifsettings->set(ICON_THEME_KEY, "ukui-icon-theme");
 
     refresh_btn_select_status();
+}
+
+QString Theme::dullTranslation(QString str){
+    if (!QString::compare(str, "basic")){
+        return QObject::tr("basic");
+    } else if (!QString::compare(str, "classical")){
+        return QObject::tr("classical");
+    } else if (!QString::compare(str, "default")){
+        return QObject::tr("default");
+    } else
+        return QObject::tr("Unknown");
 }

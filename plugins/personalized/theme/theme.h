@@ -60,6 +60,8 @@ public:
     void initCursorTheme();
     void initEffectSettings();
 
+    QString dullTranslation(QString str);
+
     QStringList _getSystemCursorThemes();
 
     void refresh_btn_select_status();

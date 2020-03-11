@@ -87,9 +87,10 @@ enum SeUpdatesIndex{
     TOTALSUFUNC,
 };
 
-enum NoticeAndOperationIndex{
+enum NoticeAndTasksIndex{
+    NOTICE,
     ABOUT,
-    TOTALNAOFUNC,
+    TOTALNATFUNC,
 };
 
 class CommonInterface{

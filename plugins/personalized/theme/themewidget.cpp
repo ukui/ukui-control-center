@@ -33,7 +33,7 @@ ThemeWidget::ThemeWidget(QSize iSize, QString name, QStringList iStringList, QWi
 
     QVBoxLayout * baseVerLayout = new QVBoxLayout(baseWidget);
     baseVerLayout->setSpacing(0);
-    baseVerLayout->setContentsMargins(0, 0, 0, 8);
+    baseVerLayout->setContentsMargins(0, 0, 0, 0);
 
     //构建图标主题Widget
     QWidget * widget = new QWidget;
@@ -43,7 +43,7 @@ ThemeWidget::ThemeWidget(QSize iSize, QString name, QStringList iStringList, QWi
 
     QHBoxLayout * mainHorLayout = new QHBoxLayout(widget);
     mainHorLayout->setSpacing(16);
-    mainHorLayout->setContentsMargins(16, 9, 16, 9);
+    mainHorLayout->setContentsMargins(16, 0, 16, 0);
 
     //占位Label，解决隐藏选中图标后文字Label位置的变化
     placeHolderLabel = new QLabel(widget);

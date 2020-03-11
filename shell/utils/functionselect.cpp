@@ -175,20 +175,22 @@ void FunctionSelect::initValue(){
 
     funcinfoList.append(seupdatesList);
 
-    //noticeandoperation
-    QList<FuncInfo> naoList;
-    for (int i = 0; i < TOTALSUFUNC; i++){
+    //noticeandtasks
+    QList<FuncInfo> natList;
+    for (int i = 0; i < TOTALNATFUNC; i++){
         FuncInfo funcStruct;
-        funcStruct.type = UPDATE;
+        funcStruct.type = MESSAGES;
         funcStruct.index = i;
         funcStruct.mainShow = true;
-        naoList.append(funcStruct);
+        natList.append(funcStruct);
     }
 
-    naoList[ABOUT].nameString = QString("about");
-    naoList[ABOUT].namei18nString = QObject::tr("about");
+    natList[ABOUT].nameString = QString("about");
+    natList[ABOUT].namei18nString = QObject::tr("about");
+    natList[NOTICE].nameString = QString("notice");
+    natList[NOTICE].namei18nString = QObject::tr("notice");
 
-    funcinfoList.append(naoList);
+    funcinfoList.append(natList);
 }
 
 void FunctionSelect::pushRecordValue(int type, QString name){
