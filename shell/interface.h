@@ -90,6 +90,7 @@ enum SeUpdatesIndex{
 enum NoticeAndTasksIndex{
     NOTICE,
     ABOUT,
+    EXPERIENCEPLAN,
     TOTALNATFUNC,
 };
 

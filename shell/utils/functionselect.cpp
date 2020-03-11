@@ -185,10 +185,12 @@ void FunctionSelect::initValue(){
         natList.append(funcStruct);
     }
 
-    natList[ABOUT].nameString = QString("about");
-    natList[ABOUT].namei18nString = QObject::tr("about");
     natList[NOTICE].nameString = QString("notice");
     natList[NOTICE].namei18nString = QObject::tr("notice");
+    natList[ABOUT].nameString = QString("about");
+    natList[ABOUT].namei18nString = QObject::tr("about");
+    natList[EXPERIENCEPLAN].nameString = QString("experienceplan");
+    natList[EXPERIENCEPLAN].namei18nString = QObject::tr("experienceplan");
 
     funcinfoList.append(natList);
 }
