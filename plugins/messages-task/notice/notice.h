@@ -17,44 +17,56 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef NOTICEOPERATION_H
-#define NOTICEOPERATION_H
+#ifndef NOTICE_H
+#define NOTICE_H
 
-#include <QWidget>
 #include <QObject>
 #include <QtPlugin>
-#include "mainui/interface.h"
 
-#include "../../pluginsComponent/switchbutton.h"
-#include "../../pluginsComponent/customwidget.h"
+#include <QGSettings/QGSettings>
 
-namespace Ui {
-class NoticeOperation;
-}
+#include <shell/interface.h>
+#include "SwitchButton/switchbutton.h"
 
-class NoticeOperation : public QObject, CommonInterface
+QT_BEGIN_NAMESPACE
+namespace Ui { class Notice; }
+QT_END_NAMESPACE
+
+class Notice : public QObject, CommonInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.kycc.CommonInterface")
     Q_INTERFACES(CommonInterface)
 
 public:
-    NoticeOperation();
-    ~NoticeOperation();
+    Notice();
+    ~Notice();
 
+public:
     QString get_plugin_name() Q_DECL_OVERRIDE;
     int get_plugin_type() Q_DECL_OVERRIDE;
-    CustomWidget * get_plugin_ui() Q_DECL_OVERRIDE;
+    QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
     void plugin_delay_control() Q_DECL_OVERRIDE;
 
-private:
-    Ui::NoticeOperation *ui;
+public:
+    void setupComponent();
+    void initNoticeStatus();
 
+private:
+    Ui::Notice *ui;
+
+private:
     QString pluginName;
     int pluginType;
-    CustomWidget * pluginWidget;
+    QWidget * pluginWidget;
 
-    SwitchButton * button;
+private:
+    SwitchButton * newfeatureSwitchBtn;
+    SwitchButton * enableSwitchBtn;
+    SwitchButton * lockscreenSwitchBtn;
+
+    QGSettings * nSetting;
+
+
 };
-
-#endif // NOTICEOPERATION_H
+#endif // NOTICE_H

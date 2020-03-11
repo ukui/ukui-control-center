@@ -1,6 +1,7 @@
 TEMPLATE = subdirs
 SUBDIRS = \
     devices/shortcut \
+    messages-task/notice \
           system/defaultapp \
           system/power \
           system/autoboot \

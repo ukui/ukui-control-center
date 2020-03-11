@@ -1,0 +1,19 @@
+<schemalist gettext-domain="ukui-control-center">
+  <schema id="org.ukui.control-center.notice" path="/org/ukui/control-center/notice/">
+    <key name="show-new-feature" type="b">
+      <default>true</default>
+      <summary>Activation of this plugin</summary>
+      <description>Whether this plugin would be activated by ukui-settings-daemon or not</description>
+    </key>
+    <key name="enable-notice" type="b">
+      <default>true</default>
+      <summary>Show OSD notification</summary>
+      <description>Whether an OSD notification is shown to notify about changes</description>
+    </key>
+    <key name="show-on-lockscreen" type="b">
+      <default>true</default>
+      <summary>Eject</summary>
+      <description>Binding to eject an optical disc.</description>
+    </key>
+  </schema>
+</schemalist>
