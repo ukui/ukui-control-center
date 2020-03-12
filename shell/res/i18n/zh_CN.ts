@@ -859,22 +859,22 @@ folder will be deleted!</source>
         <translation>打开显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="355"/>
+        <location filename="../../../plugins/system/display/display.ui" line="359"/>
         <source>screen brightness adjustment</source>
         <translation>调整屏幕亮度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="362"/>
+        <location filename="../../../plugins/system/display/display.ui" line="366"/>
         <source>dark</source>
         <translation>暗</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="411"/>
+        <location filename="../../../plugins/system/display/display.ui" line="415"/>
         <source>bright</source>
         <translation>亮</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="453"/>
+        <location filename="../../../plugins/system/display/display.ui" line="457"/>
         <source>apply</source>
         <translation>应用</translation>
     </message>
@@ -1943,48 +1943,59 @@ folder will be deleted!</source>
 <context>
     <name>Touchpad</name>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="41"/>
         <source>Touchpad Settings</source>
-        <translation type="vanished">触摸板设置</translation>
+        <translation>触摸板设置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="105"/>
         <source>Enabled touchpad</source>
-        <translation type="vanished">启用触摸板</translation>
+        <translation>启用触摸板</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="171"/>
         <source>Disable touchpad while typing</source>
-        <translation type="vanished">打字时禁用触摸板</translation>
+        <translation>打字时禁用触摸板</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="237"/>
         <source>Enable mouse clicks with touchpad</source>
-        <translation type="vanished">启用触摸板的鼠标点击</translation>
+        <translation>启用触摸板的鼠标点击</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="312"/>
         <source>Scrolling</source>
-        <translation type="vanished">滚动</translation>
+        <translation>滚动</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="59"/>
         <source>touchpad</source>
-        <translation type="vanished">触摸板</translation>
+        <translation>触摸板</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="116"/>
         <source>Disable rolling</source>
-        <translation type="vanished">禁用滚动</translation>
+        <translation>禁用滚动</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="117"/>
         <source>Vertical edge scrolling</source>
-        <translation type="vanished">垂直边界滚动</translation>
+        <translation>垂直边界滚动</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="118"/>
         <source>Horizontal edge scrolling</source>
-        <translation type="vanished">水平边界滚动</translation>
+        <translation>水平边界滚动</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="119"/>
         <source>Vertical two-finger scrolling</source>
-        <translation type="vanished">垂直双指滚动</translation>
+        <translation>垂直双指滚动</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="120"/>
         <source>Horizontal two-finger scrolling</source>
-        <translation type="vanished">水平双指滚动</translation>
+        <translation>水平双指滚动</translation>
     </message>
 </context>
 <context>
@@ -2300,24 +2311,24 @@ folder will be deleted!</source>
         <translation>夜间模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="767"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="766"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="768"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="767"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="780"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="779"/>
         <source>Sorry, your configuration could not be applied.
 
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉,配置不能应用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="782"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="781"/>
         <source>@title:window</source>
         <comment>Unsupported Configuration</comment>
         <translation>窗口</translation>
