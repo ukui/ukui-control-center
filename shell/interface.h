@@ -31,7 +31,7 @@ enum FunType{
     ACCOUNT,
     DATETIME,
     UPDATE,
-    MESSAGES,
+    NOTICEANDTASKS,
     TOTALMODULES,
 };
 

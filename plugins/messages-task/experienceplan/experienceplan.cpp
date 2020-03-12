@@ -31,7 +31,7 @@ ExperiencePlan::ExperiencePlan()
     ui->setupUi(pluginWidget);
 
     pluginName = tr("experienceplan");
-    pluginType = MESSAGES;
+    pluginType = NOTICEANDTASKS;
 
     pluginWidget->setStyleSheet("background: #ffffff;");
 

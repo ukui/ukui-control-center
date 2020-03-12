@@ -63,7 +63,7 @@ QString KeyValueConverter::keycodeTokeyi18nstring(int code){
     case UPDATE:
         nameString = tr("update");
         break;
-    case MESSAGES:
+    case NOTICEANDTASKS:
         nameString = tr("messages");
         break;
     default:

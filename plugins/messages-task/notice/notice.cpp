@@ -36,7 +36,7 @@ Notice::Notice()
     ui->setupUi(pluginWidget);
 
     pluginName = tr("notice");
-    pluginType = MESSAGES;
+    pluginType = NOTICEANDTASKS;
 
     pluginWidget->setStyleSheet("background: #ffffff;");
 

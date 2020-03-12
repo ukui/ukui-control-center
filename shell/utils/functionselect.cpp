@@ -179,7 +179,7 @@ void FunctionSelect::initValue(){
     QList<FuncInfo> natList;
     for (int i = 0; i < TOTALNATFUNC; i++){
         FuncInfo funcStruct;
-        funcStruct.type = MESSAGES;
+        funcStruct.type = NOTICEANDTASKS;
         funcStruct.index = i;
         funcStruct.mainShow = true;
         natList.append(funcStruct);
