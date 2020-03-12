@@ -41,8 +41,7 @@ DisplaySet::DisplaySet(){
 }
 
 DisplaySet::~DisplaySet(){
-//    delete pluginWidget;
-    delete ui;
+    delete pluginWidget;
 }
 
 QWidget *DisplaySet::get_plugin_ui(){

@@ -7,6 +7,7 @@
 #include <KF5/KScreen/kscreen/config.h>
 
 #include "outputconfig.h"
+#include "slider.h"
 #include "SwitchButton/switchbutton.h"
 
 class QLabel;
@@ -78,6 +79,12 @@ class Widget : public QWidget
 
     void setIsNightMode(bool isNightMode);
 
+    QStringList readFile(const QString& filepath);
+    void writeFile(const QString& filepath, const QStringList& content);
+
+    float converToScale(const int value);
+
+
 
   protected:
     bool eventFilter(QObject *object, QEvent *event) override;
@@ -136,6 +143,9 @@ class Widget : public QWidget
     void addOutputToPrimaryCombo(const KScreen::OutputPtr &output);
     KScreen::OutputPtr findOutput(const KScreen::ConfigPtr &config, const QVariantMap &info);
 
+    float scaleRet();
+    void writeScale(float scale);
+
   private:
     Ui::DisplayWindow *ui;
     QMLScreen *mScreen = nullptr;
@@ -167,6 +177,9 @@ class Widget : public QWidget
     bool m_redshiftIsValid = false;
 
     QStyledItemDelegate *itemDelege;
+    QStringList proRes;        //profile文件内容
+
+    Slider *slider;
 };
 
 #endif // WIDGET_H

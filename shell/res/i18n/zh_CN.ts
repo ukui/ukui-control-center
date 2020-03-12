@@ -136,77 +136,77 @@
         <translation>语言和地区</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="87"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="88"/>
         <source>current area</source>
         <translation>当前区域</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="89"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="90"/>
         <source>display format area</source>
         <translation>显示日期、时间、货币格式的区域</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="97"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="98"/>
         <source>US</source>
         <translation>美国</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="100"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="101"/>
         <source>format of area</source>
         <translation>区域格式数据</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="101"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="102"/>
         <source>calendar</source>
         <translation>日历</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="102"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="103"/>
         <source>first day of week</source>
         <translation>一周的第一天</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="103"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="104"/>
         <source>date</source>
         <translation>日期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="104"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="105"/>
         <source>time</source>
         <translation>时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="109"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="110"/>
         <source>change format of data</source>
         <translation>更改数据格式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="113"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="114"/>
         <source>first language</source>
         <translation>首选语言</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="115"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="116"/>
         <source>system language</source>
         <translation>系统，菜单的显示语言</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="98"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="99"/>
         <source>CN</source>
         <translation>中国</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="122"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="123"/>
         <source>English</source>
         <translation>英语</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="123"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="124"/>
         <source>Chinese</source>
         <translation>简体中文</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="126"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="127"/>
         <source>add main language</source>
         <translation>添加首语言</translation>
     </message>
@@ -451,13 +451,13 @@ the integrity of your system.</source>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="151"/>
-        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="182"/>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="181"/>
         <source>year</source>
         <translation type="unfinished">年份</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="154"/>
-        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="185"/>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="184"/>
         <source>month</source>
         <translation type="unfinished">月份</translation>
     </message>
@@ -640,19 +640,19 @@ change system settings</source>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/datetime.ui" line="172"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="118"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="123"/>
         <source>Sync system time</source>
         <translation>同步系统时间</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/datetime.ui" line="191"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="123"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="128"/>
         <source>Change time</source>
         <translation>手动更改时间</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/datetime.ui" line="210"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="127"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="132"/>
         <source>Change time zone</source>
         <translation>更改时区</translation>
     </message>
@@ -667,11 +667,12 @@ change system settings</source>
         <translation>时间和日期</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="51"/>
         <source>24-hour clock</source>
-        <translation type="vanished">24小时制</translation>
+        <translation>24小时制</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="225"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="238"/>
         <source>change time</source>
         <translation>更改时间</translation>
     </message>
@@ -831,12 +832,12 @@ folder will be deleted!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="71"/>
+        <location filename="../../../plugins/system/display/display.ui" line="83"/>
         <source>monitor</source>
         <translation>显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="163"/>
+        <location filename="../../../plugins/system/display/display.ui" line="175"/>
         <source>set as home screen</source>
         <translation>设为主屏</translation>
     </message>
@@ -845,32 +846,32 @@ folder will be deleted!</source>
         <translation type="vanished">关闭显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="268"/>
+        <location filename="../../../plugins/system/display/display.ui" line="280"/>
         <source>unify output</source>
         <translation>统一输出</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="221"/>
+        <location filename="../../../plugins/system/display/display.ui" line="233"/>
         <source>open monitor</source>
         <translation>打开显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="322"/>
+        <location filename="../../../plugins/system/display/display.ui" line="355"/>
         <source>screen brightness adjustment</source>
         <translation>调整屏幕亮度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="329"/>
+        <location filename="../../../plugins/system/display/display.ui" line="362"/>
         <source>dark</source>
         <translation>暗</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="378"/>
+        <location filename="../../../plugins/system/display/display.ui" line="411"/>
         <source>bright</source>
         <translation>亮</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="420"/>
+        <location filename="../../../plugins/system/display/display.ui" line="453"/>
         <source>apply</source>
         <translation>应用</translation>
     </message>
@@ -1801,59 +1802,48 @@ folder will be deleted!</source>
 <context>
     <name>Touchpad</name>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="41"/>
         <source>Touchpad Settings</source>
-        <translation>触摸板设置</translation>
+        <translation type="vanished">触摸板设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="105"/>
         <source>Enabled touchpad</source>
-        <translation>启用触摸板</translation>
+        <translation type="vanished">启用触摸板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="171"/>
         <source>Disable touchpad while typing</source>
-        <translation>打字时禁用触摸板</translation>
+        <translation type="vanished">打字时禁用触摸板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="237"/>
         <source>Enable mouse clicks with touchpad</source>
-        <translation>启用触摸板的鼠标点击</translation>
+        <translation type="vanished">启用触摸板的鼠标点击</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="312"/>
         <source>Scrolling</source>
-        <translation>滚动</translation>
+        <translation type="vanished">滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="59"/>
         <source>touchpad</source>
-        <translation>触摸板</translation>
+        <translation type="vanished">触摸板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="116"/>
         <source>Disable rolling</source>
-        <translation>禁用滚动</translation>
+        <translation type="vanished">禁用滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="117"/>
         <source>Vertical edge scrolling</source>
-        <translation>垂直边界滚动</translation>
+        <translation type="vanished">垂直边界滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="118"/>
         <source>Horizontal edge scrolling</source>
-        <translation>水平边界滚动</translation>
+        <translation type="vanished">水平边界滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="119"/>
         <source>Vertical two-finger scrolling</source>
-        <translation>垂直双指滚动</translation>
+        <translation type="vanished">垂直双指滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="120"/>
         <source>Horizontal two-finger scrolling</source>
-        <translation>水平双指滚动</translation>
+        <translation type="vanished">水平双指滚动</translation>
     </message>
 </context>
 <context>
@@ -2164,29 +2154,34 @@ folder will be deleted!</source>
 <context>
     <name>Widget</name>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="88"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="72"/>
+        <source>screen zoom </source>
+        <translation>屏幕缩放 </translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="98"/>
         <source>night mode</source>
         <translation>夜间模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="714"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="767"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="715"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="768"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="724"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="780"/>
         <source>Sorry, your configuration could not be applied.
 
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉,配置不能应用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="726"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="782"/>
         <source>@title:window</source>
         <comment>Unsupported Configuration</comment>
         <translation>窗口</translation>
@@ -2221,7 +2216,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/changtime.ui" line="369"/>
-        <source>dat</source>
+        <source>day</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

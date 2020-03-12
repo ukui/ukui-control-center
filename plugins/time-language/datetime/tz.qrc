@@ -2,8 +2,8 @@
     <qresource prefix="/">
         <file>zoneUtc</file>
         <file>sys.gif</file>
-        <file>images/map.png</file>
         <file>images/indicator.png</file>
         <file>list.css</file>
+        <file>images/map.png</file>
     </qresource>
 </RCC>

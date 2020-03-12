@@ -29,6 +29,7 @@ SOURCES += \
     controlpanel.cpp \
     outputconfig.cpp \
     resolutionslider.cpp \
+    slider.cpp \
     unifiedoutputconfig.cpp \
     utils.cpp \
     widget.cpp
@@ -41,6 +42,7 @@ HEADERS += \
     controlpanel.h \
     outputconfig.h \
     resolutionslider.h \
+    slider.h \
     unifiedoutputconfig.h \
     utils.h \
     widget.h
