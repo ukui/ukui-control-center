@@ -22,6 +22,7 @@
 
 #include <QWidget>
 #include <QEvent>
+#include <QMouseEvent>
 
 class HoverWidget : public QWidget
 {
@@ -39,9 +40,13 @@ protected:
     virtual void leaveEvent(QEvent * event);
     virtual void paintEvent(QPaintEvent * event);
 
+    virtual void mousePressEvent(QMouseEvent * event);
+
 Q_SIGNALS:
     void enterWidget(QString name);
     void leaveWidget(QString name);
+
+    void widgetClicked(QString name);
 };
 
 #endif // HOVERWIDGET_H

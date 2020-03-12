@@ -318,9 +318,9 @@ void MainWindow::loadPlugins(){
                 !g_file_test(sessionFile, G_FILE_TEST_EXISTS)) &&
                 fileName == "libscreensaver.so")
             continue;
-        //桌面功能依赖peony-common
-        if (!g_file_test(peonyFile, G_FILE_TEST_EXISTS) && fileName == "libdesktop.so")
-            continue;
+//        //桌面功能依赖peony-common
+//        if (!g_file_test(peonyFile, G_FILE_TEST_EXISTS) && fileName == "libdesktop.so")
+//            continue;
         //wallpaper mate-desktop-common
         if (!g_file_test(bgFile, G_FILE_TEST_EXISTS) && fileName == "libwallpaper.so")
             continue;

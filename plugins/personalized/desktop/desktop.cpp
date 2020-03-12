@@ -26,13 +26,19 @@
 
 #include <QDebug>
 
-#define DESKTOP_SCHEMA "org.ukui.peony.desktop"
+//#define DESKTOP_SCHEMA "org.ukui.peony.desktop"
+#define DESKTOP_SCHEMA "org.ukui.control-center.desktop"
 
-#define COMPUTER_ICON "computer-icon-visible"
-#define HOME_ICON "home-icon-visible"
-#define NETWORK_ICON "network-icon-visible"
-#define TRASH_ICON "trash-icon-visible"
-#define VOLUMES_ICON "volumes-visible"
+#define COMPUTER_VISIBLE_KEY "computer-icon-visible"
+#define HOME_VISIBLE_KEY "home-icon-visible"
+#define NETWORK_VISIBLE_KEY "network-icon-visible"
+#define TRASH_VISIBLE_KEY "trash-icon-visible"
+#define VOLUMES_VISIBLE_KEY "volumes-visible"
+
+#define COMPUTER_LOCK_KEY "computer-icon-locking"
+#define FILESYSTEM_LOCK_KEY "filesystem-icon-locking"
+#define SETTINGS_LOCK_KEY "settings-icon-locking"
+#define TRASH_LOCK_KEY "trash-icon-locking"
 
 Desktop::Desktop()
 {
@@ -54,23 +60,24 @@ Desktop::Desktop()
 
     ui->menuComputerWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
     ui->menuTrashWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
-    ui->menuHomeWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+    ui->menuFilesystemWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
     ui->menuSettingWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
-    ui->menuNetworkWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
 
 
     const QByteArray id(DESKTOP_SCHEMA);
-    deskGSettings = new QGSettings(id);
+    dSettings = new QGSettings(id);
 
-    initComponent();
-    initDesktopStatus();
+    setupComponent();
+    setupConnect();
+    initVisibleStatus();
+    initLockingStatus();
 }
 
 Desktop::~Desktop()
 {
     delete ui;
 
-    delete deskGSettings;
+    delete dSettings;
 }
 
 QString Desktop::get_plugin_name(){
@@ -89,7 +96,7 @@ void Desktop::plugin_delay_control(){
 
 }
 
-void Desktop::initComponent(){
+void Desktop::setupComponent(){
 
     ui->deskComputerLabel->setPixmap(QPixmap("://img/plugins/desktop/computer.png"));
     ui->deskHomeLabel->setPixmap(QPixmap("://img/plugins/desktop/homefolder.png"));
@@ -100,26 +107,24 @@ void Desktop::initComponent(){
 
     deskComputerSwitchBtn = new SwitchButton(pluginWidget);
     ui->deskComputerHorLayout->addWidget(deskComputerSwitchBtn);
-    connect(deskComputerSwitchBtn, &SwitchButton::checkedChanged, this, [=](bool checked){deskGSettings->set(COMPUTER_ICON, checked);});
 
     deskTrashSwitchBtn = new SwitchButton(pluginWidget);
     ui->deskTrashHorLayout->addWidget(deskTrashSwitchBtn);
-    connect(deskTrashSwitchBtn, &SwitchButton::checkedChanged, this, [=](bool checked){deskGSettings->set(TRASH_ICON, checked);});
 
 
     deskHomeSwitchBtn = new SwitchButton(pluginWidget);
     ui->deskHomeHorLayout->addWidget(deskHomeSwitchBtn);
-    connect(deskHomeSwitchBtn, &SwitchButton::checkedChanged, this, [=](bool checked){deskGSettings->set(HOME_ICON, checked);});
 
     deskVolumeSwitchBtn = new SwitchButton(pluginWidget);
     ui->deskVolumeHorLayout->addWidget(deskVolumeSwitchBtn);
-    connect(deskVolumeSwitchBtn, &SwitchButton::checkedChanged, this, [=](bool checked){deskGSettings->set(VOLUMES_ICON, checked);});
 
     deskNetworkSwitchBtn = new SwitchButton(pluginWidget);
     ui->deskNetworkHorLayout->addWidget(deskNetworkSwitchBtn);
-    connect(deskNetworkSwitchBtn, &SwitchButton::checkedChanged, this, [=](bool checked){deskGSettings->set(NETWORK_ICON, checked);});
 
-
+    ui->menuComputerLabel->setPixmap(QPixmap("://img/plugins/desktop/computer.png"));
+    ui->menuFilesystemLabel->setPixmap(QPixmap("://img/plugins/desktop/default.png"));
+    ui->menuSettingsLabel->setPixmap(QPixmap("://img/plugins/desktop/default.png"));
+    ui->menuTrashLabel->setPixmap(QPixmap("://img/plugins/desktop/trash.png"));
 
     menuComputerSwitchBtn = new SwitchButton(pluginWidget);
     ui->menuComputerHorLayout->addWidget(menuComputerSwitchBtn);
@@ -127,33 +132,68 @@ void Desktop::initComponent(){
     menuTrashSwitchBtn = new SwitchButton(pluginWidget);
     ui->menuTrashHorLayout->addWidget(menuTrashSwitchBtn);
 
-    menuHomeSwitchBtn = new SwitchButton(pluginWidget);
-    ui->menuHomeHorLayout->addWidget(menuHomeSwitchBtn);
+    menuFilesystemSwitchBtn = new SwitchButton(pluginWidget);
+    ui->menuFilesystemHorLayout->addWidget(menuFilesystemSwitchBtn);
 
     menuSettingSwitchBtn = new SwitchButton(pluginWidget);
     ui->menuSettingHorLayout->addWidget(menuSettingSwitchBtn);
 
-    menuNetworkSwitchBtn = new SwitchButton(pluginWidget);
-    ui->menuNetworkHorLayout->addWidget(menuNetworkSwitchBtn);
-
 }
 
-void Desktop::initDesktopStatus(){
+void Desktop::setupConnect(){
+    connect(deskComputerSwitchBtn, &SwitchButton::checkedChanged, this, [=](bool checked){dSettings->set(COMPUTER_VISIBLE_KEY, checked);});
+    connect(deskTrashSwitchBtn, &SwitchButton::checkedChanged, this, [=](bool checked){dSettings->set(TRASH_VISIBLE_KEY, checked);});
+    connect(deskHomeSwitchBtn, &SwitchButton::checkedChanged, this, [=](bool checked){dSettings->set(HOME_VISIBLE_KEY, checked);});
+    connect(deskVolumeSwitchBtn, &SwitchButton::checkedChanged, this, [=](bool checked){dSettings->set(VOLUMES_VISIBLE_KEY, checked);});
+    connect(deskNetworkSwitchBtn, &SwitchButton::checkedChanged, this, [=](bool checked){dSettings->set(NETWORK_VISIBLE_KEY, checked);});
+
+    connect(menuComputerSwitchBtn, &SwitchButton::checkedChanged, [=](bool checked){
+        dSettings->set(COMPUTER_LOCK_KEY, checked);
+    });
+    connect(menuFilesystemSwitchBtn, &SwitchButton::checkedChanged, [=](bool checked){
+        dSettings->set(FILESYSTEM_LOCK_KEY, checked);
+    });
+    connect(menuSettingSwitchBtn, &SwitchButton::checkedChanged, [=](bool checked){
+        dSettings->set(SETTINGS_LOCK_KEY, checked);
+    });
+    connect(menuTrashSwitchBtn, &SwitchButton::checkedChanged, [=](bool checked){
+        dSettings->set(TRASH_LOCK_KEY, checked);
+    });
+}
+
+void Desktop::initVisibleStatus(){
     deskComputerSwitchBtn->blockSignals(true);
     deskHomeSwitchBtn->blockSignals(true);
     deskTrashSwitchBtn->blockSignals(true);
     deskVolumeSwitchBtn->blockSignals(true);
     deskNetworkSwitchBtn->blockSignals(true);
 
-    deskComputerSwitchBtn->setChecked(deskGSettings->get(COMPUTER_ICON).toBool());
-    deskHomeSwitchBtn->setChecked(deskGSettings->get(HOME_ICON).toBool());
-    deskTrashSwitchBtn->setChecked(deskGSettings->get(TRASH_ICON).toBool());
-    deskVolumeSwitchBtn->setChecked(deskGSettings->get(VOLUMES_ICON).toBool());
-    deskNetworkSwitchBtn->setChecked(deskGSettings->get(NETWORK_ICON).toBool());
+    deskComputerSwitchBtn->setChecked(dSettings->get(COMPUTER_VISIBLE_KEY).toBool());
+    deskHomeSwitchBtn->setChecked(dSettings->get(HOME_VISIBLE_KEY).toBool());
+    deskTrashSwitchBtn->setChecked(dSettings->get(TRASH_VISIBLE_KEY).toBool());
+    deskVolumeSwitchBtn->setChecked(dSettings->get(VOLUMES_VISIBLE_KEY).toBool());
+    deskNetworkSwitchBtn->setChecked(dSettings->get(NETWORK_VISIBLE_KEY).toBool());
 
     deskComputerSwitchBtn->blockSignals(false);
     deskHomeSwitchBtn->blockSignals(false);
     deskTrashSwitchBtn->blockSignals(false);
     deskVolumeSwitchBtn->blockSignals(false);
     deskNetworkSwitchBtn->blockSignals(false);
+}
+
+void Desktop::initLockingStatus(){
+    menuComputerSwitchBtn->blockSignals(true);
+    menuFilesystemSwitchBtn->blockSignals(true);
+    menuSettingSwitchBtn->blockSignals(true);
+    menuTrashSwitchBtn->blockSignals(true);
+
+    menuComputerSwitchBtn->setChecked(dSettings->get(COMPUTER_LOCK_KEY).toBool());
+    menuFilesystemSwitchBtn->setChecked(dSettings->get(FILESYSTEM_LOCK_KEY).toBool());
+    menuSettingSwitchBtn->setChecked(dSettings->get(SETTINGS_LOCK_KEY).toBool());
+    menuTrashSwitchBtn->setChecked(dSettings->get(TRASH_LOCK_KEY).toBool());
+
+    menuComputerSwitchBtn->blockSignals(false);
+    menuFilesystemSwitchBtn->blockSignals(false);
+    menuSettingSwitchBtn->blockSignals(false);
+    menuTrashSwitchBtn->blockSignals(false);
 }
