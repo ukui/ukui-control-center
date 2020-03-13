@@ -61,6 +61,14 @@ MainWindow::MainWindow(QWidget *parent) :
     //将最外层窗体设置为透明
     setStyleSheet("QMainWindow#MainWindow{background-color: transparent;}");
 
+    //设置panel图标
+    QIcon panelicon;
+    if (QIcon::hasThemeIcon("ukui-control-center"))
+        panelicon = QIcon::fromTheme("ukui-control-center");
+//    else
+//        panelicon = QIcon("://applications-system.svg");
+    this->setWindowIcon(panelicon);
+
     //中部内容区域
     ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background: #ffffff; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
     //标题栏widget
@@ -411,6 +419,7 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname){
     QPushButton * iconBtn = new QPushButton(leftsidebarBtn);
     iconBtn->setCheckable(true);
     iconBtn->setFixedSize(QSize(24, 24));
+    iconBtn->setFocusPolicy(Qt::NoFocus);
 
 
     QString iconHomePageBtnQss = QString("QPushButton{background: #cccccc; border: none; border-image: url('://img/primaryleftmenu/%1.png');}").arg(iname);

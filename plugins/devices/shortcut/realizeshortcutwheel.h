@@ -47,7 +47,12 @@ extern "C" {
 #define ACTION_KEY "action"
 #define BINDING_KEY "binding"
 #define NAME_KEY "name"
+#define DEFAULT_BINDING "disable"
+
+#define MAX_CUSTOM_SHORTCUTS 1000
 
 QList<char *> listExistsCustomShortcutPath();
+
+QString findFreePath();
 
 #endif // REALIZESHORTCUTWHEEL_H

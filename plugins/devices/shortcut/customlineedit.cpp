@@ -27,6 +27,7 @@ CustomLineEdit::CustomLineEdit(QString shortcut, QWidget *parent) :
 {
     _wait = "New Shortcut...";
     _setalready = "New Shortcut... ";
+    setFocusPolicy(Qt::ClickFocus);
 }
 
 CustomLineEdit::~CustomLineEdit()

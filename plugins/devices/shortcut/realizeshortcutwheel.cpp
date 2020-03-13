@@ -40,3 +40,31 @@ QList<char *> listExistsCustomShortcutPath(){
     g_strfreev (childs);
     return vals;
 }
+
+QString findFreePath(){
+    int i = 0;
+    char * dir;
+    bool found;
+    QList<char *> existsdirs;
+
+    existsdirs = listExistsCustomShortcutPath();
+
+    for (; i < MAX_CUSTOM_SHORTCUTS; i++){
+        found = true;
+        dir = QString("custom%1/").arg(i).toLatin1().data();
+        for (int j = 0; j < existsdirs.count(); j++)
+            if (!g_strcmp0(dir, existsdirs.at(j))){
+                found = false;
+                break;
+            }
+        if (found)
+            break;
+    }
+
+    if (i == MAX_CUSTOM_SHORTCUTS){
+//        qDebug() << "Keyboard Shortcuts" << "Too many custom shortcuts";
+        return "";
+    }
+
+    return QString("%1%2").arg(KEYBINDINGS_CUSTOM_DIR).arg(QString(dir));
+}

@@ -28,12 +28,30 @@
 
 #include "shell/interface.h"
 
-#include "getshortcutworker.h"
 #include "keymap.h"
+#include "addshortcutdialog.h"
+#include "getshortcutworker.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Shortcut; }
 QT_END_NAMESPACE
+
+typedef struct _KeyEntry KeyEntry;
+
+struct _KeyEntry : QObjectUserData{
+//    int keyval;
+    QString gsSchema;
+    QString keyStr;
+    QString valueStr;
+    QString descStr;
+
+    QString gsPath;
+    QString nameStr;
+    QString bindingStr;
+    QString actionStr;
+};
+
+Q_DECLARE_METATYPE(KeyEntry)
 
 class Shortcut : public QObject, CommonInterface
 {
@@ -53,16 +71,19 @@ public:
 
 public:
     void setupComponent();
+    void setupConnect();
     void initFunctionStatus();
-
-    QWidget * buildItemWidget(QString name, QString binding);
 
     void appendGeneralItems();
     void appendCustomItems();
+    void buildCustomItem(KeyEntry * nkeyEntry);
 
     void initItemsStyle(QListWidget * listWidget);
     void initGeneralItemsStyle();
     void initCustomItemsStyle();
+
+    void createNewShortcut(QString path, QString name, QString exec);
+    void deleteCustomShortcut(QString path);
 
     void newBindingRequest(QList<int> keyCode);
 
@@ -71,6 +92,10 @@ public:
 
 public:
     QStringList showList;
+
+protected:
+//    bool event(QEvent *event);
+    bool eventFilter(QObject *watched, QEvent *event);
 
 private:
     Ui::Shortcut *ui;
@@ -84,6 +109,11 @@ private:
     GetShortcutWorker * pWorker;
 
     KeyMap * pKeyMap;
+
+    addShortcutDialog * addDialog;
+
+Q_SIGNALS:
+    void hideDelBtn();
 
 
 };

@@ -26,25 +26,9 @@
 #include "customlineedit.h"
 
 #include "realizeshortcutwheel.h"
+#include "defineshortcutitem.h"
 
 #define ITEMHEIGH 36
-
-typedef struct _KeyEntry KeyEntry;
-
-struct _KeyEntry : QObjectUserData{
-//    int keyval;
-    QString gsSchema;
-    QString keyStr;
-    QString valueStr;
-    QString descStr;
-
-    QString gsPath;
-    QString nameStr;
-    QString bindingStr;
-    QString actionStr;
-};
-
-Q_DECLARE_METATYPE(KeyEntry)
 
 //快捷键屏蔽键
 QStringList forbiddenKeys = {
@@ -92,10 +76,12 @@ Shortcut::Shortcut()
     ui->addWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
 
     pKeyMap = new KeyMap;
+    addDialog = new addShortcutDialog();
 
     showList << "terminal" << "screenshot" << "area-screenshot" << "peony-qt" << "logout" << "screensaver";
 
     setupComponent();
+    setupConnect();
     initFunctionStatus();
 }
 
@@ -103,6 +89,7 @@ Shortcut::~Shortcut()
 {
     delete ui;
     delete pKeyMap;
+    delete addDialog;
 }
 
 QString Shortcut::get_plugin_name(){
@@ -122,9 +109,7 @@ void Shortcut::plugin_delay_control(){
 }
 
 void Shortcut::setupComponent(){
-    ui->addBtn->setIcon(QIcon("://img/plugins/printer/add.png"));
-    ui->addBtn->setIconSize(QSize(48, 48));
-
+    ui->addLabel->setPixmap(QPixmap("://img/plugins/printer/add.png"));
 
     ui->generalListWidget->setFocusPolicy(Qt::NoFocus);
     ui->generalListWidget->setSelectionMode(QAbstractItemView::NoSelection);
@@ -139,6 +124,14 @@ void Shortcut::setupComponent(){
     ui->customListWidget->setSpacing(0);
 //    ui->customListWidget->setFixedHeight((showList.length() * ITEMHEIGH));
 
+    ui->addWidget->installEventFilter(this);
+
+}
+
+void Shortcut::setupConnect(){
+    connect(addDialog, &addShortcutDialog::shortcutInfoSignal, [=](QString path, QString name, QString exec){
+        createNewShortcut(path, name, exec);
+    });
 }
 
 void Shortcut::initFunctionStatus(){
@@ -176,61 +169,36 @@ void Shortcut::initFunctionStatus(){
     pWorker->moveToThread(pThread);
     connect(pThread, &QThread::started, pWorker, &GetShortcutWorker::run);
     connect(pThread, &QThread::finished, this, [=]{
+        //系统快捷键
         appendGeneralItems();
-        appendCustomItems();
-
         ui->generalListWidget->setFixedHeight(ui->generalListWidget->count() * ITEMHEIGH);
-        ui->customListWidget->setFixedHeight(ui->customListWidget->count() * ITEMHEIGH);
-
         initGeneralItemsStyle();
+
+        //自定义快捷键
+        appendCustomItems();
+        ui->customListWidget->setFixedHeight(ui->customListWidget->count() * ITEMHEIGH);
         initCustomItemsStyle();
     });
     connect(pThread, &QThread::finished, pWorker, &GetShortcutWorker::deleteLater);
 
     pThread->start();
-}
-
-QWidget * Shortcut::buildItemWidget(QString name, QString binding){
-    QWidget * baseWidget = new QWidget;
-    baseWidget->setAttribute(Qt::WA_DeleteOnClose);
-
-    QHBoxLayout * mainHorLayout = new QHBoxLayout(baseWidget);
-    mainHorLayout->setSpacing(0);
-    mainHorLayout->setContentsMargins(16, 0, 24, 0);
-
-    baseWidget->setLayout(mainHorLayout);
-
-    QLabel * nameLabel = new QLabel(baseWidget);
-    nameLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
-    nameLabel->setText(name);
-
-    CustomLineEdit * line = new CustomLineEdit(binding, baseWidget);
-    line->setStyleSheet("QLineEdit{border: none;}");
-    line->setAlignment(Qt::AlignRight);
-    line->setText(binding);
-    line->setReadOnly(true);
-    line->setFixedWidth(300);
-    connect(line, &CustomLineEdit::shortcutCodeSignals, this, [=](QList<int> keyCode){
-        qDebug() << keyCode << getBindingName(keyCode);
-        newBindingRequest(keyCode);
-    });
-
-
-    mainHorLayout->addWidget(nameLabel);
-    mainHorLayout->addStretch();
-    mainHorLayout->addWidget(line);
-
-    return baseWidget;
 
 }
 
 void Shortcut::appendGeneralItems(){
     for (KeyEntry * gkeyEntry: generalEntries){
         if (showList.contains(gkeyEntry->keyStr)){
-            QWidget * singleWidget = buildItemWidget(gkeyEntry->keyStr, gkeyEntry->valueStr);
+            DefineShortcutItem * singleWidget = new DefineShortcutItem(gkeyEntry->keyStr, gkeyEntry->valueStr);
             singleWidget->setUserData(Qt::UserRole, gkeyEntry);
+
+            CustomLineEdit * line = singleWidget->lineeditComponent();
+            connect(line, &CustomLineEdit::shortcutCodeSignals, this, [=](QList<int> keyCode){
+                newBindingRequest(keyCode);
+            });
+
             QListWidgetItem * item = new QListWidgetItem(ui->generalListWidget);
             item->setSizeHint(QSize(ui->generalListWidget->width(), ITEMHEIGH));
+            item->setData(Qt::UserRole, "");
             ui->generalListWidget->setItemWidget(item, singleWidget);
         }
     }
@@ -238,35 +206,81 @@ void Shortcut::appendGeneralItems(){
 
 void Shortcut::appendCustomItems(){
     for (KeyEntry * ckeyEntry : customEntries){
-        QWidget * singleWidget = buildItemWidget(ckeyEntry->nameStr, ckeyEntry->bindingStr);
-        singleWidget->setUserData(Qt::UserRole, ckeyEntry);
-        QListWidgetItem * item = new QListWidgetItem(ui->customListWidget);
-        item->setSizeHint(QSize(ui->customListWidget->width(), ITEMHEIGH));
-        ui->customListWidget->setItemWidget(item, singleWidget);
+        buildCustomItem(ckeyEntry);
     }
+}
+
+void Shortcut::buildCustomItem(KeyEntry * nkeyEntry){
+    DefineShortcutItem * singleWidget = new DefineShortcutItem(nkeyEntry->nameStr, nkeyEntry->bindingStr);
+    singleWidget->setDeleteable(true);
+    singleWidget->setUpdateable(true);
+    singleWidget->setUserData(Qt::UserRole, nkeyEntry);
+    connect(singleWidget, &DefineShortcutItem::updateShortcutSignal, [=]{
+        addDialog->setTitleText(QObject::tr("Update Shortcut"));
+        addDialog->setUpdateEnv(nkeyEntry->gsPath, nkeyEntry->nameStr, nkeyEntry->actionStr);
+        addDialog->exec();
+
+    });
+
+    CustomLineEdit * line = singleWidget->lineeditComponent();
+    connect(line, &CustomLineEdit::shortcutCodeSignals, this, [=](QList<int> keyCode){
+        newBindingRequest(keyCode);
+    });
+
+    QPushButton * button = singleWidget->btnComponent();
+
+
+    QListWidgetItem * item = new QListWidgetItem(ui->customListWidget);
+    item->setSizeHint(QSize(ui->customListWidget->width(), ITEMHEIGH));
+    item->setData(Qt::UserRole, nkeyEntry->gsPath);
+    ui->customListWidget->setItemWidget(item, singleWidget);
+
+
+    connect(button, &QPushButton::clicked, [=]{
+        int row = ui->customListWidget->row(item);
+        QListWidgetItem * obItem =  ui->customListWidget->takeItem(row);
+
+        delete obItem;
+
+        ui->customListWidget->setFixedHeight(ui->customListWidget->count() * ITEMHEIGH);
+
+        initCustomItemsStyle();
+
+        deleteCustomShortcut(nkeyEntry->gsPath);
+    });
 }
 
 void Shortcut::initItemsStyle(QListWidget *listWidget){
     int total = listWidget->count();
     for (int row = 0; row < total; row++){
         QString style;
+        QString subStyle;
         if (1 == total){ //总数为1
             style = "QWidget{background: #F4F4F4; border: none; border-radius: 6px;}";
+            subStyle = "background: #F4F4F4; border: none; border-radius: 4px;";
         } else if (0 == row && (row % 2 == 0)){ //首位
             style = "QWidget{background: #F4F4F4; border: none; border-top-left-radius: 6px; border-top-right-radius: 6px;}";
+            subStyle = "background: #F4F4F4; border: none; border-radius: 4px;";
         } else if (total - 1 == row){ //末位
-            if (0 == row % 2)
+            if (0 == row % 2){
                 style = "QWidget{background: #F4F4F4; border: none; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}";
-            else
+                subStyle = "background: #F4F4F4; border: none; border-radius: 4px;";
+            } else {
                 style = "QWidget{background: #EEEEEE; border: none; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}";
+                subStyle = "background: #EEEEEE; border: none; border-radius: 4px;";
+            }
         } else if (row % 2 == 0){
             style = "QWidget{background: #F4F4F4; border: none;}";
+            subStyle = "background: #F4F4F4; border: none; border-radius: 4px;";
         } else if (row % 2 != 0){
             style = "QWidget{background: #EEEEEE; border: none;}";
+            subStyle = "background: #EEEEEE; border: none; border-radius: 4px;";
         }
 
         QWidget * widget = listWidget->itemWidget(listWidget->item(row));
-        widget->setStyleSheet(style);
+        DefineShortcutItem * pShortcutItem = dynamic_cast<DefineShortcutItem *>(widget);
+        pShortcutItem->widgetComponent()->setStyleSheet(style);
+        pShortcutItem->btnComponent()->setStyleSheet(subStyle);
     }
 }
 
@@ -278,12 +292,97 @@ void Shortcut::initCustomItemsStyle(){
     initItemsStyle(ui->customListWidget);
 }
 
+void Shortcut::createNewShortcut(QString path, QString name, QString exec){
+    QString availablepath;
+    if (path.isEmpty()){
+        availablepath = findFreePath(); //创建快捷键
+
+        //更新数据
+        KeyEntry * nKeyentry = new KeyEntry;
+        nKeyentry->gsPath = availablepath;
+        nKeyentry->nameStr = name;
+        nKeyentry->bindingStr = DEFAULT_BINDING;
+        nKeyentry->actionStr = exec;
+
+        customEntries.append(nKeyentry);
+
+        /*********刷新界面(添加)******/
+        buildCustomItem(nKeyentry);
+
+        ui->customListWidget->setFixedHeight(ui->customListWidget->count() * ITEMHEIGH);
+
+        initCustomItemsStyle();
+        /******************/
+
+
+    } else {
+        availablepath = path; //更新快捷键
+
+        //更新数据
+        int i = 0;
+        for (; i < customEntries.count(); i++){
+            if (customEntries[i]->gsPath == availablepath){
+                customEntries[i]->nameStr = name;
+                customEntries[i]->actionStr = exec;
+                break;
+            }
+        }
+
+        //刷新界面(更新)
+        for (int row = 0; row < ui->customListWidget->count(); row++){
+            qDebug() << "--------->" << row;
+            QListWidgetItem * item = ui->customListWidget->item(row);
+            if (!QString::compare(item->data(Qt::UserRole).toString(), availablepath)){
+                DefineShortcutItem * widgetItem = dynamic_cast<DefineShortcutItem *>(ui->customListWidget->itemWidget(item));
+                widgetItem->setShortcutName(name);
+                KeyEntry * uKeyentry = customEntries.at(i);
+                widgetItem->setUserData(Qt::UserRole, uKeyentry);
+            }
+        }
+    }
+
+//    if (availablepath.isEmpty()){
+//        qDebug() << "add custom shortcut failed";
+//        return;
+//    }
+
+    const QByteArray id(KEYBINDINGS_CUSTOM_SCHEMA);
+    const QByteArray idd(availablepath.toLatin1().data());
+    QGSettings * settings = new QGSettings(id, idd);
+
+    settings->set(BINDING_KEY, DEFAULT_BINDING);
+    settings->set(NAME_KEY, name);
+    settings->set(ACTION_KEY, exec);
+
+    delete settings;
+}
+
+void Shortcut::deleteCustomShortcut(QString path){
+    if (path.isEmpty())
+        return;
+
+    gboolean ret;
+    GError ** error = NULL;
+
+    char * fullpath = path.toLatin1().data();
+
+    DConfClient * client = dconf_client_new ();
+
+    ret = dconf_client_write_sync (client, fullpath, NULL, NULL, NULL, error);
+
+    if (!ret)
+        qDebug() << "Delete Custom ShortCut Failed!";
+
+    g_object_unref (client);
+}
+
 void Shortcut::newBindingRequest(QList<int> keyCode){
     QObject * object = QObject::sender();
 
-    CustomLineEdit * current = qobject_cast<CustomLineEdit *>(object);
+    CustomLineEdit * current = qobject_cast<CustomLineEdit *>(object); //孙子
     QWidget * widget = current->parentWidget();
-    KeyEntry * nkeyEntry = dynamic_cast<KeyEntry *>(widget->userData(Qt::UserRole));
+    DefineShortcutItem * widgetItem = dynamic_cast<DefineShortcutItem *>(widget->parentWidget());
+    KeyEntry * nkeyEntry = dynamic_cast<KeyEntry *>(widgetItem->userData(Qt::UserRole));
 
     QString shortcutString = getBindingName(keyCode);
 
@@ -311,7 +410,7 @@ void Shortcut::newBindingRequest(QList<int> keyCode){
         const QByteArray iid(nkeyEntry->gsSchema.toLatin1().data());
         QGSettings * settings = new QGSettings(iid);
 
-//        settings->set(nkeyEntry->keyStr, shortcutString);
+        settings->set(nkeyEntry->keyStr, shortcutString);
 
         delete settings;
 
@@ -327,7 +426,7 @@ void Shortcut::newBindingRequest(QList<int> keyCode){
         const QByteArray idd(nkeyEntry->gsPath.toLatin1().data());
         QGSettings * settings = new QGSettings(id, idd);
 
-//        settings->set(BINDING_KEY, shortcutString);
+        settings->set(BINDING_KEY, shortcutString);
 
         delete settings;
 
@@ -367,4 +466,32 @@ bool Shortcut::keyIsForbidden(QString key){
     }
     return false;
 }
+
+bool Shortcut::eventFilter(QObject *watched, QEvent *event){
+    if (watched == ui->addWidget){
+        if (event->type() == QEvent::MouseButtonPress){
+            QMouseEvent * mouseEvent = static_cast<QMouseEvent *>(event);
+            if (mouseEvent->button() == Qt::LeftButton){
+                addDialog->setTitleText(QObject::tr("Add Shortcut"));
+                addDialog->exec();
+                return true;
+            } else
+                return false;
+        }
+    }
+    return QObject::eventFilter(watched, event);
+}
+
+//bool Shortcut::event(QEvent *event){
+//    qDebug() << "---111--->";
+//    if (event->type() == QEvent::MouseButtonPress){
+//        qDebug() << "-------------->";
+//        QMouseEvent * mouseEvent = dynamic_cast<QMouseEvent *>(event);
+//        if (!ui->customListWidget->geometry().contains(mouseEvent->globalX(), mouseEvent->globalY())){
+//            qDebug() << "=============>";
+//            emit hideDelBtn();
+//        }
+//    }
+//    return QObject::event(event);
+//}
 

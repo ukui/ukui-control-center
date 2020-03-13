@@ -115,6 +115,7 @@
         <file>secondaryleftmenu/noticeWhite.png</file>
         <file>secondaryleftmenu/experienceplan.png</file>
         <file>secondaryleftmenu/experienceplanWhite.png</file>
+        <file>plugins/shortcut/note.png</file>
     </qresource>
     <qresource prefix="/">
         <file>i18n/zh_CN.qm</file>

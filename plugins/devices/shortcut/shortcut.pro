@@ -34,18 +34,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    addshortcutdialog.cpp \
     customlineedit.cpp \
+    defineshortcutitem.cpp \
     getshortcutworker.cpp \
     keymap.cpp \
     realizeshortcutwheel.cpp \
     shortcut.cpp
 
 HEADERS += \
+    addshortcutdialog.h \
     customlineedit.h \
+    defineshortcutitem.h \
     getshortcutworker.h \
     keymap.h \
     realizeshortcutwheel.h \
     shortcut.h
 
 FORMS += \
+    addshortcutdialog.ui \
     shortcut.ui
