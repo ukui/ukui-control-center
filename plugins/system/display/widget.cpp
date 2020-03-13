@@ -1284,11 +1284,12 @@ void Widget::getEdidInfo(QString monitorName,xmlFile *xml){
     monitorName = monitorName.mid(0,index);\
 
     QString cmdGrep  = "ls /sys/class/drm/ | grep " +monitorName;
-    const char *cmdfile =cmdGrep.toStdString().c_str();
+    QByteArray tmpBa = cmdGrep.toLatin1();
+    const char *cmdfile =tmpBa.data();
 
     QByteArray ba;
     FILE * fp = NULL;
-    char cmd[1024];
+    char cmd[128];
     char buf[1024];
 
     sprintf(cmd, "%s", cmdfile);
@@ -1303,13 +1304,15 @@ void Widget::getEdidInfo(QString monitorName,xmlFile *xml){
     QString fileName = QString(ba);
     fileName = fileName.mid(0,fileName.length()-1);
 
+//    qDebug()<<"file name is----------------------->"<<fileName<<endl;
+
     QString edidPath = "cat /sys/class/drm/"+fileName+"/edid | edid-decode | grep Manufacturer";
-//    QByteArray tmpEdit = edidPath.toLatin1();
-    const char *runCmd = edidPath.toStdString().c_str();
+    QByteArray tmpEdit = edidPath.toLatin1();
+    const char *runCmd = tmpEdit.data();
 
     QByteArray edidBa;
     FILE * fpEdid = NULL;
-    char cmdEdid[1024];
+    char cmdEdid[128];
     char bufEdid[1024];
     sprintf(cmdEdid, "%s", runCmd);
     if ((fpEdid = popen(cmdEdid, "r")) != NULL){
@@ -1324,10 +1327,11 @@ void Widget::getEdidInfo(QString monitorName,xmlFile *xml){
     QString res = QString(edidBa);
     res = res.mid(0,res.length()-1);
 
-
     int modelIndex = res.indexOf("Model");
     int serialIndex =  res.indexOf("Serial Number");
-    xml->productName = "0x"+res.mid(modelIndex+6,serialIndex-modelIndex-7);
+    QString modelStr= res.mid(modelIndex+6,serialIndex-modelIndex-7);
+    int modelDec = modelStr.toInt();
+    xml->productName = "0x"+QString("%1").arg(modelDec,4,16,QLatin1Char('0'));
 
 
     QString serialStr = res.mid(serialIndex+14,res.length()-serialIndex-14);
