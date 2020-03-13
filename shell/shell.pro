@@ -38,6 +38,9 @@ inst2.path = /usr/lib/control-center/
 inst3.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.keybinding.gschema.xml
 inst3.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.desktop.gschema.xml
 inst3.path = /usr/share/glib-2.0/schemas/
+inst4.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.wifi.switch.gschema.xml
+inst4.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.wifi.switch.gschema.xml
+inst4.path = /usr/share/glib-2.0/schemas/
 
 target.source += $$TARGET
 target.path = /usr/bin
@@ -92,3 +95,6 @@ FORMS += \
 
 RESOURCES += \
     res/resfile.qrc
+
+DISTFILES += \
+    ../data/org.ukui.control-center.wifi.switch.gschema.xml

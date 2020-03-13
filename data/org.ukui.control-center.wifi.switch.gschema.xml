@@ -1,0 +1,9 @@
+<schemalist>
+  <schema id="org.ukui.control-center.wifi.switch" path="/org/ukui/control-center/wifi/switch/">
+    <key type="b" name="switch">
+      <default>true</default>
+      <summary>wifi switch</summary>
+      <description>wifi switch</description>
+    </key>
+  </schema>
+</schemalist>

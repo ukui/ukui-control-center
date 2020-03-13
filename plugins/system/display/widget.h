@@ -83,6 +83,7 @@ class Widget : public QWidget
     void writeFile(const QString& filepath, const QStringList& content);
 
     float converToScale(const int value);
+    int scaleToSlider(const float value);
 
 
 

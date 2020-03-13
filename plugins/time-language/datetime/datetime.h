@@ -42,7 +42,7 @@
 #include <QDateTime>
 #include <QTimer>
 #include <QSettings>
-
+#include <QGSettings/QGSettings>
 
 #include "worldMap/timezonechooser.h"
 #include "worldMap/zoneinfo.h"
@@ -97,7 +97,7 @@ private:
     int pluginType;
     QWidget * pluginWidget;
 
-    QSettings * m_formatsettings  = nullptr;
+    QGSettings * m_formatsettings  = nullptr;
 
 
     QDBusInterface *m_datetimeiface = nullptr;
@@ -114,7 +114,7 @@ private:
     TimeZoneChooser *m_timezone;
     ZoneInfo* m_zoneinfo;
 
-    bool m_EFHour = true;//默认为24小时制
+//    bool m_EFHour = true;//默认为24小时制
 
 Q_SIGNALS:
     void changed();
