@@ -26,10 +26,12 @@
 #include <QStyledItemDelegate>
 
 #include "shell/interface.h"
+#include "dataformat.h"
 
 #include <QProcess>
 #include <QDBusInterface>
 #include <QDBusReply>
+#include <QGSettings/QGSettings>
 
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
@@ -78,16 +80,24 @@ private:
     QDBusInterface *m_areaInterface;
     QStyledItemDelegate *itemDelege;
 
+    QGSettings *m_gsettings = nullptr;
+    QTimer *m_itimer = nullptr;
+    QString hourformat;
+
 
 private:
     void initUI();
     void initComponent();
+    void initFormatData();
     QStringList getUserDefaultLanguage();
 
 private slots:
     void run_external_app_slot();
     void change_language_slot(int);
     void change_area_slot(int);
+    void datetime_update_slot();
+    void add_lan_btn_slot();
+    void changeform_slot();
 };
 
 #endif // AREA_H

@@ -102,6 +102,7 @@ void NetConnect::initComponent(){
 
 //        监听key的value是否发生了变化
         connect(m_gsettings, &QGSettings::changed, this, [=] (const QString &key) {
+            qDebug()<<"status changed ------------>"<<endl;
             if (key == "switch") {
                 bool judge = getSwitchStatus(key);
                 wifiBtn->setChecked(judge);
@@ -125,6 +126,8 @@ void NetConnect::initComponent(){
         runExternalApp();
     });
 
+
+    wifiBtn->setChecked(getSwitchStatus("switch"));
     connect(wifiBtn,SIGNAL(checkedChanged(bool)), this, SLOT(wifiSwitchSlot(bool)));
 }
 
@@ -468,6 +471,7 @@ void NetConnect::getWifiListDone(QStringList getwifislist, QStringList getlanLis
 }
 
 bool NetConnect::getSwitchStatus(QString key){
+    qDebug()<<"key is------------->"<<key<<endl;
     if (!m_gsettings) {
         return true;
     }
@@ -475,7 +479,7 @@ bool NetConnect::getSwitchStatus(QString key){
     if (!list.contains(key)) {
         return true;
     }
-    bool res = m_gsettings->get(key).toBool();
+    bool res = m_gsettings->get(key).toBool();    
     return res;
 }
 

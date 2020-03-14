@@ -41,6 +41,9 @@ inst3.path = /usr/share/glib-2.0/schemas/
 inst4.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.wifi.switch.gschema.xml
 inst4.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.wifi.switch.gschema.xml
 inst4.path = /usr/share/glib-2.0/schemas/
+inst5.files += $$PROJECT_ROOTDIR/data/org.ukui.panel.plugins.gschema.xml
+inst5.files += $$PROJECT_ROOTDIR/data/org.ukui.panel.plugins.gschema.xml
+inst5.path = /usr/share/glib-2.0/schemas/
 
 target.source += $$TARGET
 target.path = /usr/bin
@@ -50,6 +53,7 @@ INSTALLS +=  \
             inst2 \
 	    inst3 \
             inst4 \
+            inst5 \
             target \
 
 INCLUDEPATH += qtsingleapplication
@@ -98,4 +102,5 @@ RESOURCES += \
     res/resfile.qrc
 
 DISTFILES += \
-    ../data/org.ukui.control-center.wifi.switch.gschema.xml
+    ../data/org.ukui.control-center.wifi.switch.gschema.xml \
+    ../data/org.ukui.panel.plugin.gschema.xml

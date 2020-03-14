@@ -29,10 +29,13 @@ INSTALLS += target
 
 
 SOURCES += \
-        area.cpp
+        area.cpp \
+        dataformat.cpp
 
 HEADERS += \
-        area.h
+        area.h \
+        dataformat.h
 
 FORMS += \
-        area.ui
+        area.ui \
+        dataformat.ui
