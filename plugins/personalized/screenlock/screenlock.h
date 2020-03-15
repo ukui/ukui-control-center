@@ -20,29 +20,18 @@
 #ifndef SCREENLOCK_H
 #define SCREENLOCK_H
 
-#include <QWidget>
-#include <QFileDialog>
 #include <QObject>
 #include <QtPlugin>
-#include "mainui/interface.h"
 
-#include "../../pluginsComponent/switchbutton.h"
-#include "../../pluginsComponent/customwidget.h"
+#include <QLabel>
+#include <QThread>
+#include <QGSettings/QGSettings>
 
-#include "../../pluginsComponent/publicdata.h"
+#include "shell/interface.h"
+#include "SwitchButton/switchbutton.h"
+#include "FlowLayout/flowlayout.h"
 
-/* qt会将glib里的signals成员识别为宏，所以取消该宏
- * 后面如果用到signals时，使用Q_SIGNALS代替即可
- **/
-#ifdef signals
-#undef signals
-#endif
-
-extern "C" {
-#include <glib.h>
-#include <gio/gio.h>
-}
-
+#include "buildpicunitsworker.h"
 
 namespace Ui {
 class Screenlock;
@@ -58,29 +47,36 @@ public:
     Screenlock();
     ~Screenlock();
 
+public:
     QString get_plugin_name() Q_DECL_OVERRIDE;
     int get_plugin_type() Q_DECL_OVERRIDE;
-    CustomWidget * get_plugin_ui() Q_DECL_OVERRIDE;
+    QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
     void plugin_delay_control() Q_DECL_OVERRIDE;
 
-    void component_init();
-    void status_init();
+public:
+    void setupComponent();
+    void setupConnect();
+    void initScreenlockStatus();
 
 private:
     Ui::Screenlock *ui;
 
+private:
     QString pluginName;
     int pluginType;
-    CustomWidget * pluginWidget;
+    QWidget * pluginWidget;
 
-    GSettings * bggsettings;
+private:
+    QGSettings * lSetting;
 
-    SwitchButton * setloginbgBtn;
+    SwitchButton * loginbgSwitchBtn;
+    FlowLayout * flowLayout;
 
     QSize lockbgSize;
 
-private slots:
-    void openpushbtn_clicked_slot();
+private:
+    QThread * pThread;
+    BuildPicUnitsWorker * pWorker;
 };
 
 #endif // SCREENLOCK_H

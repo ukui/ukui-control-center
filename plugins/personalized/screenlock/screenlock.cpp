@@ -25,31 +25,47 @@
 #define BGPATH "/usr/share/backgrounds/"
 #define SCREENLOCK_BG_SCHEMA "org.ukui.screensaver"
 #define SCREENLOCK_BG_KEY "background"
+#define SCREENLOCK_DELAY_KEY "lock-delay"
+
+#include "bgfileparse.h"
+#include "pictureunit.h"
+#include "MaskWidget/maskwidget.h"
 
 Screenlock::Screenlock()
 {
     ui = new Ui::Screenlock;
-    pluginWidget = new CustomWidget;
+    pluginWidget = new QWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
     pluginName = tr("screenlock");
     pluginType = PERSONALIZED;
 
-    bggsettings = g_settings_new(SCREENLOCK_BG_SCHEMA);
+    pluginWidget->setStyleSheet("background: #ffffff;");
+
+    ui->loginWidget->setStyleSheet("QWidget{background: #F4F4F4; border: none; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
+    ui->enableWidget->setStyleSheet("QWidget{background: #F4F4F4; border: none; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
+
+    QString btnQss = QString("background: #E9E9E9; border: none; border-radius: 4px;");
+    ui->browserLocalwpBtn->setStyleSheet(btnQss);
+    ui->browserOnlinewpBtn->setStyleSheet(btnQss);
+
+    const QByteArray id(SCREENLOCK_BG_SCHEMA);
+    lSetting = new QGSettings(id);
+
+
+    setupComponent();
+    initScreenlockStatus();
 
     lockbgSize = QSize(400, 240);
-
-    component_init();
-    status_init();
-
 
 }
 
 Screenlock::~Screenlock()
 {
     delete ui;
-    g_object_unref(bggsettings);
+
+    delete lSetting;
 }
 
 QString Screenlock::get_plugin_name(){
@@ -60,7 +76,7 @@ int Screenlock::get_plugin_type(){
     return pluginType;
 }
 
-CustomWidget *Screenlock::get_plugin_ui(){
+QWidget *Screenlock::get_plugin_ui(){
     return pluginWidget;
 }
 
@@ -68,63 +84,69 @@ void Screenlock::plugin_delay_control(){
 
 }
 
-void Screenlock::component_init(){
-    //背景形式
-    QStringList formList;
-    formList << tr("picture");
-    ui->formComboBox->addItems(formList);
+void Screenlock::setupComponent(){
+    loginbgSwitchBtn = new SwitchButton(pluginWidget);
+    ui->loginbgHorLayout->addWidget(loginbgSwitchBtn);
 
-    //同步登录背景的控件SwitchButton
-    setloginbgBtn = new SwitchButton();
-    setloginbgBtn->setAttribute(Qt::WA_DeleteOnClose);
-    ui->setloginbgHLayout->addWidget(setloginbgBtn);
-    ui->setloginbgHLayout->addStretch();
+    //设置布局
+    flowLayout = new FlowLayout;
+    flowLayout->setContentsMargins(0, 0, 0, 0);
+    ui->backgroundsWidget->setLayout(flowLayout);
 }
 
-void Screenlock::status_init(){
-    //获取当前锁屏背景及登录背景，对比后确定按钮状态
-    QString bgfilename = QString(g_settings_get_string(bggsettings, SCREENLOCK_BG_KEY));
-    if (bgfilename != ""){
-        QPixmap bg = QPixmap(bgfilename);
-        ui->bgLabel->setPixmap(bg.scaled(lockbgSize));
-    }
-    else {
-        ui->bgLabel->setPixmap(QPixmap("://screenlock/none.png").scaled(lockbgSize));
-    }
-
-    PublicData * publicdata = new PublicData();
-    QStringList tmpList = publicdata->subfuncList[PERSONALIZED];
-    connect(ui->screensaverBtn, &QPushButton::clicked, this, [=]{pluginWidget->emitting_toggle_signal(tmpList.at(4), PERSONALIZED, 0);});
-
-    connect(ui->openPushBtn, SIGNAL(clicked()), this, SLOT(openpushbtn_clicked_slot()));
-
-    delete publicdata;
+void Screenlock::setupConnect(){
+    connect(ui->delaySlider, &QSlider::valueChanged, [=](int value){
+        lSetting->set(SCREENLOCK_DELAY_KEY, value);
+    });
 }
 
-void Screenlock::openpushbtn_clicked_slot(){
+void Screenlock::initScreenlockStatus(){
+    ///设置预览背景
+    QString bgStr = lSetting->get(SCREENLOCK_BG_KEY).toString();
+    if (bgStr.isEmpty())
+        ui->previewLabel->setPixmap(QPixmap("://img/plugins/screenlock/none.png"));
+    else
+        ui->previewLabel->setPixmap(QPixmap(bgStr));
+    //遮罩
+    MaskWidget * maskWidget = new MaskWidget(ui->previewLabel);
+    maskWidget->setGeometry(0, 0, ui->previewLabel->width(), ui->previewLabel->height());
 
-    QString filters = "Image files(*.png *.jpg)";
-    QFileDialog fd;
-    fd.setDirectory(BGPATH);
-    fd.setAcceptMode(QFileDialog::AcceptOpen);
-    fd.setViewMode(QFileDialog::List);
-    fd.setNameFilter(filters);
-    fd.setFileMode(QFileDialog::ExistingFile);
-    fd.setWindowTitle(tr("selsect screenlock background"));
-    fd.setLabelText(QFileDialog::Accept, "Select");
+    //使用线程解析本地壁纸文件；获取壁纸单元
+    pThread = new QThread;
+    pWorker = new BuildPicUnitsWorker;
+    connect(pWorker, &BuildPicUnitsWorker::pixmapGeneral, this, [=](QPixmap pixmap, BgInfo bgInfo){
+        //线程中构建控件传递会报告event无法install 的警告
+        PictureUnit * picUnit = new PictureUnit;
+        picUnit->setPixmap(pixmap);
+        picUnit->setFilenameText(bgInfo.filename);
+        connect(picUnit, &PictureUnit::clicked, [=](QString filename){
+            ui->previewLabel->setPixmap(pixmap);
+            lSetting->set(SCREENLOCK_BG_KEY, filename);
+        });
 
-    if (fd.exec() != QDialog::Accepted)
-        return;
+        flowLayout->addWidget(picUnit);
+    });
+    connect(pWorker, &BuildPicUnitsWorker::workerComplete, [=]{
+        pThread->quit(); //退出事件循环
+        pThread->wait(); //释放资源
+    });
 
-    QString selectedfile;
-    selectedfile = fd.selectedFiles().first();
+    pWorker->moveToThread(pThread);
+    connect(pThread, &QThread::started, pWorker, &BuildPicUnitsWorker::run);
+    connect(pThread, &QThread::finished, this, [=]{
 
-    QPixmap bg = QPixmap(selectedfile);
-    ui->bgLabel->setPixmap(bg.scaled(lockbgSize));
+    });
+    connect(pThread, &QThread::finished, pWorker, &BuildPicUnitsWorker::deleteLater);
 
-    //QString to char *
-    QByteArray ba = selectedfile.toLatin1();
+    pThread->start();
 
-    qDebug() << "-----screenlock" << QString(ba.data());
-    g_settings_set_string(bggsettings, SCREENLOCK_BG_KEY, ba.data());
+    //设置登录界面背景开关
+
+
+    //设置锁屏时间，屏保激活后多久锁定屏幕
+    int lDelay = lSetting->get(SCREENLOCK_DELAY_KEY).toInt();
+    ui->delaySlider->blockSignals(true);
+    ui->delaySlider->setValue(lDelay);
+    ui->delaySlider->blockSignals(false);
+
 }

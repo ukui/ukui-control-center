@@ -4,33 +4,44 @@
 #
 #-------------------------------------------------
 
-QT       += widgets
+QT       += widgets xml
 
 TEMPLATE = lib
 CONFIG += plugin
-INCLUDEPATH += ../../..
 
 TARGET = $$qtLibraryTarget(screenlock)
-DESTDIR = ../..
+DESTDIR = ../../../pluginlibs
 
-include(../../pluginsComponent/pluginsComponent.pri)
+include(../../../env.pri)
+include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
+include($$PROJECT_COMPONENTSOURCE/flowlayout.pri)
+include($$PROJECT_COMPONENTSOURCE/maskwidget.pri)
+
+INCLUDEPATH   +=  \
+                 $$PROJECT_ROOTDIR \
+                 $$PROJECT_COMPONENTSOURCE \
+
+LIBS += -L/usr/lib/ -lgsettings-qt
+
 
 ##加载gio库和gio-unix库
-CONFIG        += link_pkgconfig \
-                 C++11
-PKGCONFIG     += gio-2.0 \
-                 gio-unix-2.0
+#CONFIG        += link_pkgconfig \
+#                 C++11
+#PKGCONFIG     += gio-2.0 \
+#                 gio-unix-2.0
 
 #DEFINES += QT_DEPRECATED_WARNINGS
 
-target.path = $$[QT_INSTALL_PREFIX]/lib/control-center/plugins/
-INSTALLS += target
-
-
 SOURCES += \
+        bgfileparse.cpp \
+        buildpicunitsworker.cpp \
+        pictureunit.cpp \
         screenlock.cpp
 
 HEADERS += \
+        bgfileparse.h \
+        buildpicunitsworker.h \
+        pictureunit.h \
         screenlock.h
 
 FORMS += \

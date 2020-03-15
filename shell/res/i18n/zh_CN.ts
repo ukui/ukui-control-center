@@ -1759,6 +1759,16 @@ folder will be deleted!</source>
         <source>Unknown</source>
         <translation>未知</translation>
     </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="219"/>
+        <source>Update Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="475"/>
+        <source>Add Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ResolutionSlider</name>
@@ -1766,6 +1776,60 @@ folder will be deleted!</source>
         <location filename="../../../plugins/system/display/resolutionslider.cpp" line="111"/>
         <source>No available resolutions</source>
         <translation>没有合适的分辨率</translation>
+    </message>
+</context>
+<context>
+    <name>Screenlock</name>
+    <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="26"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="72"/>
+        <source>Screenlock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="107"/>
+        <source>Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="186"/>
+        <source>Select bg type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="224"/>
+        <source>Open</source>
+        <translation type="unfinished">浏览</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="285"/>
+        <source>Show screensaver bg on loginpage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="319"/>
+        <source>Related settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="334"/>
+        <source>Screensaver setting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="36"/>
+        <source>screenlock</source>
+        <translation>锁屏</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="74"/>
+        <source>picture</source>
+        <translation type="unfinished">图片</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="113"/>
+        <source>selsect screenlock background</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1819,32 +1883,32 @@ folder will be deleted!</source>
 <context>
     <name>Shortcut</name>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.ui" line="46"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.ui" line="79"/>
         <source>System Shortcut</source>
         <translation>系统快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.ui" line="104"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.ui" line="122"/>
         <source>Show all shortcut</source>
         <translation>显示全不快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.ui" line="148"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.ui" line="166"/>
         <source>Custom Shortcut</source>
         <translation>自定义快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.ui" line="234"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.ui" line="256"/>
         <source>Add custom shortcut</source>
         <translation>添加自定义快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.ui" line="289"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.ui" line="313"/>
         <source>Reset default</source>
         <translation>恢复默认快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="79"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="63"/>
         <source>shortcut</source>
         <translation>快捷键</translation>
     </message>
@@ -2332,6 +2396,49 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <source>@title:window</source>
         <comment>Unsupported Configuration</comment>
         <translation>窗口</translation>
+    </message>
+</context>
+<context>
+    <name>addShortcutDialog</name>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="26"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="175"/>
+        <source>Shortcut name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="240"/>
+        <source>Shortcut exec</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="288"/>
+        <source>Open</source>
+        <translation type="unfinished">浏览</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="363"/>
+        <source>Invalid executable, please re-enter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="450"/>
+        <source>Cancel</source>
+        <translation type="unfinished">取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="469"/>
+        <source>Certain</source>
+        <translation type="unfinished">确定</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="123"/>
+        <source>selsect desktop</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
