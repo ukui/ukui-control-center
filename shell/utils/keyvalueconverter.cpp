@@ -35,7 +35,7 @@ QString KeyValueConverter::keycodeTokeystring(int code){
 
 int KeyValueConverter::keystringTokeycode(QString string){
     //QString to const char *
-    QByteArray ba = string.toLocal8Bit(); const char * str = ba.data();
+    QByteArray ba = string.toUpper().toLocal8Bit(); const char * str = ba.data();
     return metaModule.keyToValue(str);
 }
 
@@ -63,7 +63,7 @@ QString KeyValueConverter::keycodeTokeyi18nstring(int code){
     case UPDATE:
         nameString = tr("update");
         break;
-    case MESSAGES:
+    case NOTICEANDTASKS:
         nameString = tr("messages");
         break;
     default:

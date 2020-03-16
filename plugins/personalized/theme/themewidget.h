@@ -21,6 +21,7 @@
 #define THEMEWIDGET_H
 
 #include <QWidget>
+#include <QMouseEvent>
 
 class QLabel;
 
@@ -34,11 +35,22 @@ public:
 
 public:
     void setSelectedStatus(bool status);
+    void setValue(QString value);
+    QString getValue();
 
 public:
     QLabel * selectedLabel;
     QLabel * placeHolderLabel;
 
+protected:
+    virtual void paintEvent(QPaintEvent * event);
+    virtual void mousePressEvent(QMouseEvent * event);
+
+private:
+    QString pValue;
+
+Q_SIGNALS:
+    void clicked();
 
 };
 

@@ -1,5 +1,8 @@
 TEMPLATE = subdirs
 SUBDIRS = \
+          devices/shortcut \
+          messages-task/experienceplan \
+          messages-task/notice \
           system/defaultapp \
           system/power \
           system/autoboot \
@@ -7,9 +10,10 @@ SUBDIRS = \
           devices/printer \
           devices/mouse \
           devices/keyboard \
-#          devices/touchpad \
+          devices/touchpad \
           personalized/wallpaper \
           personalized/theme \
+          personalized/screenlock \
           personalized/fonts \
           personalized/screensaver \
           personalized/desktop \

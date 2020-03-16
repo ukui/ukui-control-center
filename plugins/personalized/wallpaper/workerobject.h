@@ -25,8 +25,6 @@
 
 #include "xmlhandle.h"
 
-class QPixmap;
-
 class WorkerObject : public QObject
 {
     Q_OBJECT

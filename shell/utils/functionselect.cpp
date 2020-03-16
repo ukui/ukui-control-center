@@ -76,6 +76,9 @@ void FunctionSelect::initValue(){
     devicesList[TOUCHPAD].mainShow = false;
     devicesList[KEYBOARD].nameString = QString("keyboard");
     devicesList[KEYBOARD].namei18nString = QObject::tr("keyboard");
+    devicesList[SHORTCUT].nameString = QString("shortcut");
+    devicesList[SHORTCUT].namei18nString = QObject::tr("shortcut");
+    devicesList[SHORTCUT].mainShow = false;
     devicesList[AUDIO].nameString = QString("audio");
     devicesList[AUDIO].namei18nString = QObject::tr("audio");
 
@@ -172,20 +175,24 @@ void FunctionSelect::initValue(){
 
     funcinfoList.append(seupdatesList);
 
-    //noticeandoperation
-    QList<FuncInfo> naoList;
-    for (int i = 0; i < TOTALSUFUNC; i++){
+    //noticeandtasks
+    QList<FuncInfo> natList;
+    for (int i = 0; i < TOTALNATFUNC; i++){
         FuncInfo funcStruct;
-        funcStruct.type = UPDATE;
+        funcStruct.type = NOTICEANDTASKS;
         funcStruct.index = i;
         funcStruct.mainShow = true;
-        naoList.append(funcStruct);
+        natList.append(funcStruct);
     }
 
-    naoList[ABOUT].nameString = QString("about");
-    naoList[ABOUT].namei18nString = QObject::tr("about");
+    natList[NOTICE].nameString = QString("notice");
+    natList[NOTICE].namei18nString = QObject::tr("notice");
+    natList[ABOUT].nameString = QString("about");
+    natList[ABOUT].namei18nString = QObject::tr("about");
+    natList[EXPERIENCEPLAN].nameString = QString("experienceplan");
+    natList[EXPERIENCEPLAN].namei18nString = QObject::tr("experienceplan");
 
-    funcinfoList.append(naoList);
+    funcinfoList.append(natList);
 }
 
 void FunctionSelect::pushRecordValue(int type, QString name){

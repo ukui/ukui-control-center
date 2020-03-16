@@ -8,8 +8,6 @@
         <file>homepage/personalized.png</file>
         <file>homepage/networkHover.png</file>
         <file>homepage/network.png</file>
-        <file>homepage/messagesHover.png</file>
-        <file>homepage/messages.png</file>
         <file>homepage/devicesHover.png</file>
         <file>homepage/devices.png</file>
         <file>homepage/datetimeHover.png</file>
@@ -52,7 +50,6 @@
         <file>primaryleftmenu/personalizedChecked.png</file>
         <file>primaryleftmenu/personalized.png</file>
         <file>primaryleftmenu/networkChecked.png</file>
-        <file>primaryleftmenu/messages.png</file>
         <file>primaryleftmenu/devicesChecked.png</file>
         <file>primaryleftmenu/devices.png</file>
         <file>primaryleftmenu/datetimeChecked.png</file>
@@ -63,7 +60,6 @@
         <file>primaryleftmenu/homepageChecked.png</file>
         <file>primaryleftmenu/checked-2.png</file>
         <file>primaryleftmenu/checked.png</file>
-        <file>primaryleftmenu/messagesChecked.png</file>
         <file>plugins/userinfo/add.png</file>
         <file>secondaryleftmenu/userinfo.png</file>
         <file>secondaryleftmenu/printer.png</file>
@@ -108,6 +104,19 @@
         <file>plugins/userinfo/defaultface.png</file>
         <file>primaryleftmenu/network.png</file>
         <file>plugins/theme/light.png</file>
+        <file>plugins/shortcut/add.png</file>
+        <file>secondaryleftmenu/shortcutWhite.png</file>
+        <file>secondaryleftmenu/shortcut.png</file>
+        <file>homepage/noticeandtasks.png</file>
+        <file>homepage/noticeandtasksHover.png</file>
+        <file>primaryleftmenu/noticeandtasks.png</file>
+        <file>primaryleftmenu/noticeandtasksChecked.png</file>
+        <file>secondaryleftmenu/notice.png</file>
+        <file>secondaryleftmenu/noticeWhite.png</file>
+        <file>secondaryleftmenu/experienceplan.png</file>
+        <file>secondaryleftmenu/experienceplanWhite.png</file>
+        <file>plugins/shortcut/note.png</file>
+        <file>plugins/screenlock/none.png</file>
     </qresource>
     <qresource prefix="/">
         <file>i18n/zh_CN.qm</file>

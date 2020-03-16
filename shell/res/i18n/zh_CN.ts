@@ -797,8 +797,12 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/desktop/desktop.ui" line="784"/>
+        <source>Filesystemmenu</source>
+        <translation>文件系统</translation>
+    </message>
+    <message>
         <source>Homemenu</source>
-        <translation>家目录</translation>
+        <translation type="vanished">家目录</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/desktop/desktop.ui" line="872"/>
@@ -806,12 +810,11 @@ folder will be deleted!</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="960"/>
         <source>Networkmenu</source>
-        <translation>网络</translation>
+        <translation type="vanished">网络</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.cpp" line="44"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.cpp" line="50"/>
         <source>desktop</source>
         <translation>桌面</translation>
     </message>
@@ -856,24 +859,52 @@ folder will be deleted!</source>
         <translation>打开显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="355"/>
+        <location filename="../../../plugins/system/display/display.ui" line="359"/>
         <source>screen brightness adjustment</source>
         <translation>调整屏幕亮度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="362"/>
+        <location filename="../../../plugins/system/display/display.ui" line="366"/>
         <source>dark</source>
         <translation>暗</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="411"/>
+        <location filename="../../../plugins/system/display/display.ui" line="415"/>
         <source>bright</source>
         <translation>亮</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="453"/>
+        <location filename="../../../plugins/system/display/display.ui" line="457"/>
         <source>apply</source>
         <translation>应用</translation>
+    </message>
+</context>
+<context>
+    <name>ExperiencePlan</name>
+    <message>
+        <location filename="../../../plugins/messages-task/experienceplan/experienceplan.ui" line="79"/>
+        <source>User Experience</source>
+        <translation>用户体验</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/experienceplan/experienceplan.ui" line="130"/>
+        <source>Join in user Experience plan</source>
+        <translation>加入用户体验计划</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/experienceplan/experienceplan.ui" line="172"/>
+        <source>User experience plan terms, see</source>
+        <translation>用户体验计划条款，参见</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/experienceplan/experienceplan.ui" line="179"/>
+        <source>《User Experience plan》</source>
+        <translation>《用户体验计划》</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/experienceplan/experienceplan.cpp" line="33"/>
+        <source>experienceplan</source>
+        <translation>体验计划</translation>
     </message>
 </context>
 <context>
@@ -1252,6 +1283,44 @@ folder will be deleted!</source>
     </message>
 </context>
 <context>
+    <name>Notice</name>
+    <message>
+        <location filename="../../../plugins/messages-task/notice/notice.ui" line="79"/>
+        <source>Notice Settings</source>
+        <translation>通知</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/notice/notice.ui" line="92"/>
+        <source>Set the type of notice in the operation center</source>
+        <translation>设置在通知中心显示的通知信息</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/notice/notice.ui" line="154"/>
+        <source>Show new feature ater system upgrade</source>
+        <translation>系统版本更新后显示新增内容</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/notice/notice.ui" line="226"/>
+        <source>Get notifications from the app</source>
+        <translation>获取来自应用和其他发送者的通知</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/notice/notice.ui" line="298"/>
+        <source>Show notifications on the lock screen</source>
+        <translation>在锁屏界面上显示通知</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/notice/notice.ui" line="347"/>
+        <source>Notice Origin</source>
+        <translation>设置通知来源</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/notice/notice.cpp" line="38"/>
+        <source>notice</source>
+        <translation>通知</translation>
+    </message>
+</context>
+<context>
     <name>OutputConfig</name>
     <message>
         <location filename="../../../plugins/system/display/outputconfig.cpp" line="128"/>
@@ -1557,98 +1626,147 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../utils/functionselect.cpp" line="80"/>
+        <source>shortcut</source>
+        <translation>快捷键</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="83"/>
         <source>audio</source>
         <translation>声音</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="94"/>
+        <location filename="../../utils/functionselect.cpp" line="97"/>
         <source>background</source>
         <translation>背景</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="98"/>
+        <location filename="../../utils/functionselect.cpp" line="101"/>
         <source>screenlock</source>
         <translation>锁屏</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="100"/>
+        <location filename="../../utils/functionselect.cpp" line="103"/>
         <source>fonts</source>
         <translation>字体</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="102"/>
+        <location filename="../../utils/functionselect.cpp" line="105"/>
         <source>screensaver</source>
         <translation>屏保</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="104"/>
+        <location filename="../../utils/functionselect.cpp" line="107"/>
         <source>desktop</source>
         <translation>桌面</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="118"/>
+        <location filename="../../utils/functionselect.cpp" line="121"/>
         <source>netconnect</source>
         <translation>网络连接</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="120"/>
+        <location filename="../../utils/functionselect.cpp" line="123"/>
         <source>vpn</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="122"/>
+        <location filename="../../utils/functionselect.cpp" line="125"/>
         <source>proxy</source>
         <translation>代理</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="137"/>
+        <location filename="../../utils/functionselect.cpp" line="140"/>
         <source>userinfo</source>
         <translation>账户信息</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="152"/>
+        <location filename="../../utils/functionselect.cpp" line="155"/>
         <source>datetime</source>
         <translation>时间和日期</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="154"/>
+        <location filename="../../utils/functionselect.cpp" line="157"/>
         <source>area</source>
         <translation>语言和地区</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="169"/>
+        <location filename="../../utils/functionselect.cpp" line="172"/>
         <source>update</source>
         <translation>更新和备份</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="171"/>
+        <location filename="../../utils/functionselect.cpp" line="174"/>
         <source>backup</source>
         <translation>备份</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="186"/>
+        <location filename="../../utils/functionselect.cpp" line="189"/>
+        <source>notice</source>
+        <translation>通知</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="191"/>
         <source>about</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="158"/>
-        <source>hicolor</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../utils/functionselect.cpp" line="193"/>
+        <source>experienceplan</source>
+        <translation>体验计划</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="158"/>
-        <location filename="../../utils/functionselect.cpp" line="96"/>
+        <location filename="../../utils/functionselect.cpp" line="99"/>
         <source>theme</source>
-        <translation type="unfinished">主题</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="158"/>
-        <source>theme-one</source>
-        <translation type="unfinished"></translation>
+        <translation>主题</translation>
     </message>
     <message>
         <location filename="../../main.cpp" line="40"/>
         <source>ukui-control-center had already running!</source>
+        <translation>控制面板已经在运行！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="158"/>
+        <source>basicIcon</source>
+        <translation>基础</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="158"/>
+        <source>classicalIcon</source>
+        <translation>经典</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="158"/>
+        <source>defaultIcon</source>
+        <translation>默认</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="354"/>
+        <source>basic</source>
+        <translation>基础</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="356"/>
+        <source>classical</source>
+        <translation>经典</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="358"/>
+        <source>default</source>
+        <translation>默认</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="360"/>
+        <source>Unknown</source>
+        <translation>未知</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="219"/>
+        <source>Update Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="475"/>
+        <source>Add Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1658,6 +1776,60 @@ folder will be deleted!</source>
         <location filename="../../../plugins/system/display/resolutionslider.cpp" line="111"/>
         <source>No available resolutions</source>
         <translation>没有合适的分辨率</translation>
+    </message>
+</context>
+<context>
+    <name>Screenlock</name>
+    <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="26"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="72"/>
+        <source>Screenlock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="107"/>
+        <source>Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="186"/>
+        <source>Select bg type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="224"/>
+        <source>Open</source>
+        <translation type="unfinished">浏览</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="285"/>
+        <source>Show screensaver bg on loginpage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="319"/>
+        <source>Related settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="334"/>
+        <source>Screensaver setting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="36"/>
+        <source>screenlock</source>
+        <translation>锁屏</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="74"/>
+        <source>picture</source>
+        <translation type="unfinished">图片</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="113"/>
+        <source>selsect screenlock background</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1706,6 +1878,39 @@ folder will be deleted!</source>
         <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="127"/>
         <source>Random</source>
         <translation>随机</translation>
+    </message>
+</context>
+<context>
+    <name>Shortcut</name>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/shortcut.ui" line="79"/>
+        <source>System Shortcut</source>
+        <translation>系统快捷键</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/shortcut.ui" line="122"/>
+        <source>Show all shortcut</source>
+        <translation>显示全不快捷键</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/shortcut.ui" line="166"/>
+        <source>Custom Shortcut</source>
+        <translation>自定义快捷键</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/shortcut.ui" line="256"/>
+        <source>Add custom shortcut</source>
+        <translation>添加自定义快捷键</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/shortcut.ui" line="313"/>
+        <source>Reset default</source>
+        <translation>恢复默认快捷键</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="63"/>
+        <source>shortcut</source>
+        <translation>快捷键</translation>
     </message>
 </context>
 <context>
@@ -1802,48 +2007,59 @@ folder will be deleted!</source>
 <context>
     <name>Touchpad</name>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="41"/>
         <source>Touchpad Settings</source>
-        <translation type="vanished">触摸板设置</translation>
+        <translation>触摸板设置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="105"/>
         <source>Enabled touchpad</source>
-        <translation type="vanished">启用触摸板</translation>
+        <translation>启用触摸板</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="171"/>
         <source>Disable touchpad while typing</source>
-        <translation type="vanished">打字时禁用触摸板</translation>
+        <translation>打字时禁用触摸板</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="237"/>
         <source>Enable mouse clicks with touchpad</source>
-        <translation type="vanished">启用触摸板的鼠标点击</translation>
+        <translation>启用触摸板的鼠标点击</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="312"/>
         <source>Scrolling</source>
-        <translation type="vanished">滚动</translation>
+        <translation>滚动</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="59"/>
         <source>touchpad</source>
-        <translation type="vanished">触摸板</translation>
+        <translation>触摸板</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="116"/>
         <source>Disable rolling</source>
-        <translation type="vanished">禁用滚动</translation>
+        <translation>禁用滚动</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="117"/>
         <source>Vertical edge scrolling</source>
-        <translation type="vanished">垂直边界滚动</translation>
+        <translation>垂直边界滚动</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="118"/>
         <source>Horizontal edge scrolling</source>
-        <translation type="vanished">水平边界滚动</translation>
+        <translation>水平边界滚动</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="119"/>
         <source>Vertical two-finger scrolling</source>
-        <translation type="vanished">垂直双指滚动</translation>
+        <translation>垂直双指滚动</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="120"/>
         <source>Horizontal two-finger scrolling</source>
-        <translation type="vanished">水平双指滚动</translation>
+        <translation>水平双指滚动</translation>
     </message>
 </context>
 <context>
@@ -2018,11 +2234,6 @@ folder will be deleted!</source>
 <context>
     <name>Wallpaper</name>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="26"/>
-        <source>Wallpaper</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="53"/>
         <source>Desktop Background</source>
         <translation>桌面背景</translation>
@@ -2164,27 +2375,70 @@ folder will be deleted!</source>
         <translation>夜间模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="767"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="766"/>
         <source>please insure at least one output!</source>
-        <translation>请确保至少开启一个屏幕</translation>
+        <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="768"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="767"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="780"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="779"/>
         <source>Sorry, your configuration could not be applied.
 
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉,配置不能应用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="782"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="781"/>
         <source>@title:window</source>
         <comment>Unsupported Configuration</comment>
         <translation>窗口</translation>
+    </message>
+</context>
+<context>
+    <name>addShortcutDialog</name>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="26"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="175"/>
+        <source>Shortcut name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="240"/>
+        <source>Shortcut exec</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="288"/>
+        <source>Open</source>
+        <translation type="unfinished">浏览</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="363"/>
+        <source>Invalid executable, please re-enter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="450"/>
+        <source>Cancel</source>
+        <translation type="unfinished">取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="469"/>
+        <source>Certain</source>
+        <translation type="unfinished">确定</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="123"/>
+        <source>selsect desktop</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

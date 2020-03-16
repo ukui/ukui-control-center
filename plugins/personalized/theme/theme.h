@@ -29,7 +29,6 @@
 #include "shell/interface.h"
 
 
-class QToolButton;
 class SwitchButton;
 class QGSettings;
 
@@ -54,15 +53,16 @@ public:
 
 public:
 
-    void initComponent();
+    void setupComponent();
+    void initThemeMode();
     void initIconTheme();
     void initControlTheme();
     void initCursorTheme();
     void initEffectSettings();
 
-    QStringList _getSystemCursorThemes();
+    QString dullTranslation(QString str);
 
-    void refresh_btn_select_status();
+    QStringList _getSystemCursorThemes();
 
 private:
     Ui::Theme *ui;
@@ -71,17 +71,12 @@ private:
     int pluginType;
     QWidget * pluginWidget;
 
-    QGSettings * ifsettings;
-    QGSettings * marcosettings;
-    QGSettings * desktopsettings;
+private:
+    QGSettings * gtkSettings;
+    QGSettings * qtSettings;
 
-    QMap<QString, QToolButton *> delbtnMap;
-    QMap<QString, SwitchButton *> delsbMap;
+    SwitchButton * effectSwitchBtn;
 
-//    QMap<QString, IconThemeWidget *> delframeMap;
-
-public slots:
-    void set_theme_slots(QString value);
 };
 
 #endif // THEME_H

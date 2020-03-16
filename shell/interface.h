@@ -31,7 +31,7 @@ enum FunType{
     ACCOUNT,
     DATETIME,
     UPDATE,
-    MESSAGES,
+    NOTICEANDTASKS,
     TOTALMODULES,
 };
 
@@ -48,6 +48,7 @@ enum DevicesIndex{
     MOUSE,
     TOUCHPAD,
     KEYBOARD,
+    SHORTCUT,
     AUDIO,
     TOTALDEVICESFUNC,
 };
@@ -86,9 +87,11 @@ enum SeUpdatesIndex{
     TOTALSUFUNC,
 };
 
-enum NoticeAndOperationIndex{
+enum NoticeAndTasksIndex{
+    NOTICE,
     ABOUT,
-    TOTALNAOFUNC,
+    EXPERIENCEPLAN,
+    TOTALNATFUNC,
 };
 
 class CommonInterface{

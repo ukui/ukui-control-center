@@ -17,41 +17,38 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#include "noticeoperation.h"
-#include "ui_noticeoperation.h"
+#include "widgetgroup.h"
 
-NoticeOperation::NoticeOperation()
+#include "themewidget.h"
+
+#include <QDebug>
+
+WidgetGroup::WidgetGroup(QObject *parent) :
+    QObject(parent)
 {
-    ui = new Ui::NoticeOperation;
-    pluginWidget = new CustomWidget;
-    pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-    ui->setupUi(pluginWidget);
-
-    pluginName = tr("notice-operation");
-    pluginType = MESSAGES_TASK;
-
-    button = new SwitchButton(pluginWidget);
-    ui->horizontalLayout->addWidget(button, 10, Qt::AlignLeft);
-//    ui->horizontalLayout->addStretch();
+    _preWidget = nullptr;
+    _curWidget = nullptr;
 }
 
-NoticeOperation::~NoticeOperation()
+WidgetGroup::~WidgetGroup()
 {
-    delete ui;
 }
 
-QString NoticeOperation::get_plugin_name(){
-    return pluginName;
+void WidgetGroup::addWidget(ThemeWidget *widget, int id){
+    Q_UNUSED(id)
+    connect(widget, &ThemeWidget::clicked, [=]{
+        _preWidget = _curWidget;
+        _curWidget = widget;
+
+        emit widgetChanged(_preWidget, _curWidget);
+    });
+
 }
 
-int NoticeOperation::get_plugin_type(){
-    return pluginType;
+void WidgetGroup::removeWidget(ThemeWidget *widget){
+    disconnect(widget, 0, 0, 0);
 }
 
-CustomWidget *NoticeOperation::get_plugin_ui(){
-    return pluginWidget;
-}
-
-void NoticeOperation::plugin_delay_control(){
-
+void WidgetGroup::setCurrentWidget(ThemeWidget *widget){
+    _curWidget = widget;
 }

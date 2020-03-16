@@ -51,6 +51,8 @@ private:
     void handleLeaveEvent(QEvent * event);
     void handleHoverMoveEvent(QHoverEvent * event);
 
+    void moveMainWindow(void);
+
 private:
     FramelessHandlePrivate * fpri;
     QWidget * widgetInAction;

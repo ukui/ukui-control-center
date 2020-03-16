@@ -49,8 +49,10 @@ public:
     void plugin_delay_control() Q_DECL_OVERRIDE;
 
 public:
-    void initComponent();
-    void initDesktopStatus();
+    void setupComponent();
+    void setupConnect();
+    void initVisibleStatus();
+    void initLockingStatus();
 
 private:
     SwitchButton * deskComputerSwitchBtn;
@@ -61,11 +63,10 @@ private:
 
     SwitchButton * menuComputerSwitchBtn;
     SwitchButton * menuTrashSwitchBtn;
-    SwitchButton * menuHomeSwitchBtn;
+    SwitchButton * menuFilesystemSwitchBtn;
     SwitchButton * menuSettingSwitchBtn;
-    SwitchButton * menuNetworkSwitchBtn;
 
-    QGSettings * deskGSettings;
+    QGSettings * dSettings;
 
 private:
     Ui::Desktop *ui;

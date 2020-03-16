@@ -23,37 +23,35 @@
 #include <QVBoxLayout>
 #include <QLabel>
 
+#include <QPainter>
+#include <QStyleOption>
+
+#include <QDebug>
+
 ThemeWidget::ThemeWidget(QSize iSize, QString name, QStringList iStringList, QWidget *parent) :
     QWidget(parent)
 {
-    ////创建图标主题
-    //构建基础Widget为了达到中间8px的空白效果
-    QWidget * baseWidget = new QWidget(this);
-//    baseWidget->setAttribute(Qt::WA_DeleteOnClose);
+    setFixedHeight(66);
+    setAttribute(Qt::WA_DeleteOnClose);
 
-    QVBoxLayout * baseVerLayout = new QVBoxLayout(baseWidget);
-    baseVerLayout->setSpacing(0);
-    baseVerLayout->setContentsMargins(0, 0, 0, 8);
+    setStyleSheet("background: #F4F4F4; border-radius: 6px;");
 
-    //构建图标主题Widget
-    QWidget * widget = new QWidget;
-    widget->setAttribute(Qt::WA_DeleteOnClose);
-    widget->setFixedHeight(66);
-    widget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+    pValue = "";
 
-    QHBoxLayout * mainHorLayout = new QHBoxLayout(widget);
+
+    QHBoxLayout * mainHorLayout = new QHBoxLayout(this);
     mainHorLayout->setSpacing(16);
-    mainHorLayout->setContentsMargins(16, 9, 16, 9);
+    mainHorLayout->setContentsMargins(16, 0, 16, 0);
 
     //占位Label，解决隐藏选中图标后文字Label位置的变化
-    placeHolderLabel = new QLabel(widget);
+    placeHolderLabel = new QLabel(this);
     QSizePolicy phSizePolicy = placeHolderLabel->sizePolicy();
     phSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
     phSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
     placeHolderLabel->setSizePolicy(phSizePolicy);
     placeHolderLabel->setFixedSize(QSize(16, 16)); //选中图标的大小为16*16
 
-    selectedLabel = new QLabel(widget);
+    selectedLabel = new QLabel(this);
     QSizePolicy sSizePolicy = selectedLabel->sizePolicy();
     sSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
     sSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
@@ -61,7 +59,7 @@ ThemeWidget::ThemeWidget(QSize iSize, QString name, QStringList iStringList, QWi
     selectedLabel->setScaledContents(true);
     selectedLabel->setPixmap(QPixmap("://img/plugins/theme/selected.png"));
 
-    QLabel * nameLabel = new QLabel(widget);
+    QLabel * nameLabel = new QLabel(this);
     QSizePolicy nameSizePolicy = nameLabel->sizePolicy();
     nameSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
     nameSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
@@ -73,7 +71,7 @@ ThemeWidget::ThemeWidget(QSize iSize, QString name, QStringList iStringList, QWi
     iconHorLayout->setSpacing(16);
     iconHorLayout->setMargin(0);
     for (QString icon : iStringList){
-        QLabel * label = new QLabel(widget);
+        QLabel * label = new QLabel(this);
         label->setFixedSize(iSize);
         label->setPixmap(QPixmap(icon));
         iconHorLayout->addWidget(label);
@@ -82,15 +80,10 @@ ThemeWidget::ThemeWidget(QSize iSize, QString name, QStringList iStringList, QWi
     mainHorLayout->addWidget(placeHolderLabel);
     mainHorLayout->addWidget(selectedLabel);
     mainHorLayout->addWidget(nameLabel);
-    mainHorLayout->addLayout(iconHorLayout);
     mainHorLayout->addStretch();
+    mainHorLayout->addLayout(iconHorLayout);
 
-    widget->setLayout(mainHorLayout);
-
-    baseVerLayout->addWidget(widget);
-    baseVerLayout->addStretch();
-
-    baseWidget->setLayout(baseVerLayout);
+    setLayout(mainHorLayout);
 
 }
 
@@ -102,3 +95,30 @@ void ThemeWidget::setSelectedStatus(bool status){
     placeHolderLabel->setHidden(status);
     selectedLabel->setVisible(status);
 }
+
+void ThemeWidget::setValue(QString value){
+    pValue = value;
+}
+
+QString ThemeWidget::getValue(){
+    return pValue;
+}
+
+void ThemeWidget::mousePressEvent(QMouseEvent *event){
+    if (event->button() == Qt::LeftButton){
+        emit clicked();
+    }
+
+    QWidget::mousePressEvent(event);
+}
+
+//子类化一个QWidget，为了能够使用样式表，则需要提供paintEvent事件。
+//这是因为QWidget的paintEvent()是空的，而样式表要通过paint被绘制到窗口中。
+void ThemeWidget::paintEvent(QPaintEvent *event){
+    Q_UNUSED(event)
+    QStyleOption opt;
+    opt.init(this);
+    QPainter p(this);
+    style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
+}
+
