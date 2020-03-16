@@ -88,10 +88,10 @@ private:
 private:
     void initUI();
     void initComponent();
-    void initFormatData();
     QStringList getUserDefaultLanguage();
 
 private slots:
+    void initFormatData();
     void run_external_app_slot();
     void change_language_slot(int);
     void change_area_slot(int);

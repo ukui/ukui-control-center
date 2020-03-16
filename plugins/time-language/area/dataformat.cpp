@@ -66,6 +66,8 @@ void DataFormat::initConnect() {
     connect(ui->dayBox, SIGNAL(currentIndexChanged(int)), SLOT(day_change_slot(int)));
     connect(ui->dateBox, SIGNAL(currentIndexChanged(int)), SLOT(date_change_slot(int)));
     connect(ui->timeBox, SIGNAL(currentIndexChanged(int)), SLOT(time_change_slot(int)));
+    connect(ui->confirmButton, SIGNAL(clicked(bool)), SLOT(confirm_btn_slot()));
+    connect(ui->cancelButton, SIGNAL(clicked()), SLOT(close()));
 }
 
 void DataFormat::initComponent() {
@@ -100,6 +102,18 @@ void DataFormat::initComponent() {
     }
 }
 
+void DataFormat::writeGsettings(const QString &key, const QString &value) {
+    if(!m_gsettings) {
+        return ;
+    }
+
+    const QStringList list = m_gsettings->keys();
+    if (!list.contains(key)) {
+        return ;
+    }
+    m_gsettings->set(key,value);
+}
+
 void DataFormat::datetime_update_slot() {
     QString timeStr;
     QDateTime current = QDateTime::currentDateTime();
@@ -125,4 +139,42 @@ void DataFormat::date_change_slot(int index) {
 
 void DataFormat::time_change_slot(int index) {
 
+}
+
+void DataFormat::confirm_btn_slot() {
+    QString calendarValue;
+    QString dayValue;
+    QString dateValue;
+    QString timeValue;
+
+    if ( 0 == ui->calendarBox->currentIndex()) {
+        calendarValue = "lunar";
+    } else {
+        calendarValue = "solarLunar";
+    }
+
+    if ( 0 == ui->dayBox->currentIndex()) {
+        dayValue = "monday";
+    } else {
+        dayValue = "sunday";
+    }
+
+    if ( 0 == ui->dateBox->currentIndex()) {
+        dateValue = "cn";
+    } else {
+        dateValue = "en";
+    }
+
+    if ( 0 == ui->timeBox->currentIndex()) {
+        timeValue = "24";
+    } else {
+        timeValue = "12";
+    }
+
+    writeGsettings("calendar", calendarValue);
+    writeGsettings("firstday", dayValue);
+    writeGsettings("date", dateValue);
+    writeGsettings("time", timeValue);
+
+    emit this->dataChangedSignal();
 }

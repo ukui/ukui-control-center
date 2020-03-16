@@ -198,7 +198,7 @@ void Area::initFormatData() {
     if ("monday" == day) {
         ui->firstDayLabel->setText(tr("monday"));
     } else {
-        ui->firstDayLabel->setText(tr("solar calendar"));
+        ui->firstDayLabel->setText(tr("sunday"));
     }
 
     QDateTime current = QDateTime::currentDateTime();
@@ -264,9 +264,11 @@ void Area::changeform_slot() {
 //    dialog->setAttribute(Qt::WA_DeleteOnClose);
 //    dialog->exec();
     DataFormat *dialog = new DataFormat();
+    connect(dialog, SIGNAL(dataChangedSignal()),this,SLOT(initFormatData()));
     dialog->setWindowTitle(tr("change data format"));
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->exec();
+
 
 }
 

@@ -27,6 +27,10 @@ private:
     void initUi();
     void initConnect();
     void initComponent();
+    void writeGsettings(const QString &key, const QString &value);
+
+Q_SIGNALS:
+    void dataChangedSignal();
 
 private slots:
     void datetime_update_slot();
@@ -34,6 +38,7 @@ private slots:
     void day_change_slot(int);
     void date_change_slot(int);
     void time_change_slot(int);
+    void confirm_btn_slot();
 
 };
 

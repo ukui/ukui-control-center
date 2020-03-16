@@ -140,6 +140,7 @@ void ChangtimeDialog::changtimeApplySlot(){
     m_datetimeInterface->call("SetNTP", false, true);//先关闭网络同步
 
     m_datetimeInterface->call("SetTime", QVariant::fromValue(setdt.toSecsSinceEpoch() * G_TIME_SPAN_SECOND), false, true);
+    this->close();
 }
 
 void ChangtimeDialog::initUi(){
