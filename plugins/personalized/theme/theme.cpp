@@ -20,20 +20,36 @@
 #include "theme.h"
 #include "ui_theme.h"
 
-#include <QToolButton>
-#include <QSignalMapper>
 #include <QGSettings/QGSettings>
 
 #include "SwitchButton/switchbutton.h"
+
 #include "themewidget.h"
+#include "widgetgroup.h"
 
 #include <QDebug>
 
-#define INTERFACE_SCHEMA "org.mate.interface"
-#define MARCO_SCHEMA "org.gnome.desktop.wm.preferences"
+/**
+ * GTK主题
+ */
+#define THEME_GTK_SCHEMA "org.mate.interface"
+#define MODE_GTK_KEY "gtk-theme"
+/* GTK图标主题 */
+#define ICON_GTK_KEY "icon-theme"
 
-#define GTK_THEME_KEY "gtk-theme"
-#define ICON_THEME_KEY "icon-theme"
+/**
+ * QT主题
+ */
+#define THEME_QT_SCHEMA "org.ukui.style"
+#define MODE_QT_KEY "style-name"
+/* QT图标主题 */
+#define ICON_QT_KEY "icon-theme-name"
+
+
+/**
+ * 窗口管理器Marco主题
+ */
+#define MARCO_SCHEMA "org.gnome.desktop.wm.preferences"
 #define MARCO_THEME_KEY "theme"
 
 #define ICONTHEMEPATH "/usr/share/icons/"
@@ -62,37 +78,23 @@ Theme::Theme()
     ui->lightSelectedLabel->setPixmap(QPixmap("://img/plugins/theme/selected.png"));
     ui->darkSelectedLabel->setPixmap(QPixmap("://img/plugins/theme/selected.png"));
 
-    ui->iconListWidget->setStyleSheet("QListWidget#iconListWidget{border: 1px solid #000000;}");
-    ui->cursorListWidget->setStyleSheet("QListWidget#cursorListWidget{border: none;}");
-
-    ui->iconListWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    ui->iconListWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    ui->cursorListWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    ui->cursorListWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-
-    ui->iconListWidget->setSpacing(0);
-    ui->cursorListWidget->setSpacing(0);
-    ui->iconListWidget->setFocusPolicy(Qt::NoFocus);
-    ui->cursorListWidget->setFocusPolicy(Qt::NoFocus);
-    ui->iconListWidget->setSelectionMode(QAbstractItemView::NoSelection);
-    ui->cursorListWidget->setSelectionMode(QAbstractItemView::NoSelection);
-
     ui->controlWidget->setStyleSheet("QWidget#controlWidget{background: #F4F4F4; border-radius: 6px;}");
 
     ui->effectWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
-    ui->line->setStyleSheet("QFrame{border-top: 1px solid gray; border-left: none; border-right: none; border-bottom: none;}");
+    ui->line->setStyleSheet("QFrame{border-top: 1px solid #CCCCCC; border-left: none; border-right: none; border-bottom: none;}");
 
     ui->resetBtn->setStyleSheet("QPushButton#resetBtn{border: none;}"
                                 "QPushButton:hover:!pressed#resetBtn{border: none; background: #3D6BE5; border-radius: 2px;}"
                                 "QPushButton:hover:pressed#resetBtn{border: none; background: #2C5AD6; border-radius: 2px;}");
 
     //初始化gsettings
-    const QByteArray id(INTERFACE_SCHEMA);
-    ifsettings = new QGSettings(id);
-    const QByteArray idd(MARCO_SCHEMA);
-    marcosettings = new QGSettings(idd);
+    const QByteArray id(THEME_GTK_SCHEMA);
+    gtkSettings = new QGSettings(id);
+    const QByteArray idd(THEME_QT_SCHEMA);
+    qtSettings = new QGSettings(idd);
 
-    initComponent();
+    setupComponent();
+    initThemeMode();
     initIconTheme();
     initControlTheme();
     initCursorTheme();
@@ -102,14 +104,9 @@ Theme::Theme()
 Theme::~Theme()
 {
     delete ui;
-    delete ifsettings;
-    delete marcosettings;
-//    delete desktopsettings;
+    delete gtkSettings;
+    delete qtSettings;
 
-//    QMap<QString, QToolButton *>::iterator it = delbtnMap.begin();
-//    for (; it != delbtnMap.end(); it++){
-//        delete it.value();
-//    }
 }
 
 QString Theme::get_plugin_name(){
@@ -128,7 +125,26 @@ void Theme::plugin_delay_control(){
 
 }
 
-void Theme::initComponent(){
+void Theme::setupComponent(){
+    ui->defaultBtn->setProperty("value", "ukui-default");
+    ui->lightBtn->setProperty("value", "ukui-white");
+    ui->darkBtn->setProperty("value", "ukui-black");
+
+    //构建并填充特效开关按钮
+    effectSwitchBtn = new SwitchButton(pluginWidget);
+    ui->effectHorLayout->addWidget(effectSwitchBtn);
+
+}
+
+void Theme::initThemeMode(){
+    //获取当前主题
+    QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
+    //设置界面
+    for (QAbstractButton * button : ui->themeModeBtnGroup->buttons()){
+        QVariant valueVariant = button->property("value");
+        if (valueVariant.isValid() && valueVariant.toString() == currentThemeMode)
+            button->setChecked(true);
+    }
 
     //设置选中图标的显示状态
     ui->defaultSelectedLabel->setVisible(ui->defaultBtn->isChecked());
@@ -139,35 +155,43 @@ void Theme::initComponent(){
     ui->lightPlaceHolderLabel->setHidden(ui->lightBtn->isChecked());
     ui->darkPlaceHolderLabel->setHidden(ui->darkBtn->isChecked());
 
-    connect(ui->themeModeBtnGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), this, [=]{
+    connect(ui->themeModeBtnGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), this, [=](QAbstractButton * button){
         ui->defaultSelectedLabel->setVisible(ui->defaultBtn->isChecked());
         ui->lightSelectedLabel->setVisible(ui->lightBtn->isChecked());
         ui->darkSelectedLabel->setVisible(ui->darkBtn->isChecked());
         ui->defaultPlaceHolderLabel->setHidden(ui->defaultBtn->isChecked());
         ui->lightPlaceHolderLabel->setHidden(ui->lightBtn->isChecked());
         ui->darkPlaceHolderLabel->setHidden(ui->darkBtn->isChecked());
-    });
 
+        //设置主题
+        QString themeMode = button->property("value").toString();
+        qtSettings->set(MODE_QT_KEY, themeMode);
+        gtkSettings->set(MODE_GTK_KEY, themeMode);
+    });
 }
 
 void Theme::initIconTheme(){
+    //获取当前图标主题(以QT为准，后续可以对比GTK两个值)
+    QString currentIconTheme = qtSettings->get(ICON_QT_KEY).toString();
 
-    QStringList themeNameStringList;
-    themeNameStringList << QString("ukui-icon-theme-basic") << QString("ukui-icon-theme-classical") << QString("ukui-icon-theme-default");
-    QStringList i18nthemeNameStringList;
-    i18nthemeNameStringList << QObject::tr("basicIcon") << QObject::tr("classicalIcon") << QObject::tr("defaultIcon");
+    //构建图标主题Widget Group，方便更新选中/非选中状态
+    WidgetGroup * iconThemeWidgetGroup = new WidgetGroup;
+    connect(iconThemeWidgetGroup, &WidgetGroup::widgetChanged, [=](ThemeWidget * preWidget, ThemeWidget * curWidget){
+        if (preWidget)
+            preWidget->setSelectedStatus(false);
+        curWidget->setSelectedStatus(true);
 
-    ui->iconListWidget->setFixedHeight(themeNameStringList.count() * ICONWIDGETHEIGH);
+        QString value = curWidget->getValue();
+        //设置图标主题
+        qtSettings->set(ICON_QT_KEY, value);
+        gtkSettings->set(ICON_GTK_KEY, value);
+    });
 
-    //获取当前图标主题
-    QString currentIconTheme = "ukui-icon-theme-basic";
-
+    //构建图标主题QDir
     QDir themesDir = QDir(ICONTHEMEPATH);
 
-    int iconThemeNum = 0;
     foreach (QString themedir, themesDir.entryList(QDir::Dirs)) {
         if (themedir.startsWith("ukui-icon-theme-")){
-            iconThemeNum++;
             QDir appsDir = QDir(ICONTHEMEPATH + themedir + "/48x48/apps/");
             appsDir.setFilter(QDir::Files | QDir::NoSymLinks);
             QStringList appIconsList = appsDir.entryList();
@@ -180,32 +204,21 @@ void Theme::initIconTheme(){
             }
 
             ThemeWidget * widget = new ThemeWidget(QSize(48, 48), dullTranslation(themedir.section("-", -1, -1, QString::SectionSkipEmpty)), showIconsList);
-            widget->setAttribute(Qt::WA_DeleteOnClose);
+            widget->setValue(themedir);
+            //加入Layout
+            ui->iconThemeVerLayout->addWidget(widget);
 
-            QListWidgetItem * item = new QListWidgetItem(ui->iconListWidget);
-            item->setData(Qt::UserRole, QVariant(themedir));
-            item->setSizeHint(QSize(ui->iconListWidget->width(), ICONWIDGETHEIGH));
+            //加入WidgetGround实现获取点击前Widget
+            iconThemeWidgetGroup->addWidget(widget);
 
             if (themedir == currentIconTheme){
-                ui->iconListWidget->setCurrentItem(item);
+                iconThemeWidgetGroup->setCurrentWidget(widget);
                 widget->setSelectedStatus(true);
             } else {
                 widget->setSelectedStatus(false);
             }
-
-            ui->iconListWidget->setItemWidget(item, widget);
         }
     }
-    qDebug() << "iconThemeNum" << iconThemeNum;
-    ui->iconListWidget->setFixedHeight(iconThemeNum * ICONWIDGETHEIGH);
-    connect(ui->iconListWidget, &QListWidget::currentItemChanged, this, [=](QListWidgetItem * current, QListWidgetItem * previous){
-        ThemeWidget * currentWidget = dynamic_cast<ThemeWidget *>(ui->iconListWidget->itemWidget(current));
-        currentWidget->setSelectedStatus(true);
-        ThemeWidget * previousWidget = dynamic_cast<ThemeWidget *>(ui->iconListWidget->itemWidget(previous));
-        if(previousWidget == nullptr)
-            return;
-        previousWidget->setSelectedStatus(false);
-    });
 }
 
 void Theme::initControlTheme(){
@@ -222,18 +235,25 @@ void Theme::initControlTheme(){
     QButtonGroup * colorBtnGroup = new QButtonGroup();
 
     for (QString color : colorStringList){
-        QVBoxLayout * colorVerLayout = new QVBoxLayout();
-        colorVerLayout->setSpacing(8);
-        colorVerLayout->setMargin(0);
 
         QPushButton * button = new QPushButton(ui->controlWidget);
-        button->setFixedSize(QSize(24, 24));
+        button->setFixedSize(QSize(48, 48));
         button->setCheckable(true);
         QString btnStyle = QString("QPushButton{background: %1; border-radius: 4px;}").arg(color);
         button->setStyleSheet(btnStyle);
         colorBtnGroup->addButton(button, colorStringList.indexOf(color));
 
-        QLabel * selectedColorLabel = new QLabel(ui->controlWidget);
+
+
+        QVBoxLayout * colorVerLayout = new QVBoxLayout();
+        colorVerLayout->setSpacing(0);
+        colorVerLayout->setMargin(0);
+
+        QHBoxLayout * colorHorLayout = new QHBoxLayout();
+        colorHorLayout->setSpacing(0);
+        colorHorLayout->setMargin(0);
+
+        QLabel * selectedColorLabel = new QLabel(button);
         QSizePolicy scSizePolicy = selectedColorLabel->sizePolicy();
         scSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
         scSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
@@ -244,15 +264,17 @@ void Theme::initControlTheme(){
         selectedColorLabel->setVisible(button->isChecked());
         connect(colorBtnGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), this,[=]{
             selectedColorLabel->setVisible(button->isChecked());
+            //设置控件主题
         });
 
-
-
-        colorVerLayout->addWidget(button, 0, Qt::AlignHCenter);
-        colorVerLayout->addWidget(selectedColorLabel, 0, Qt::AlignHCenter);
+        colorHorLayout->addStretch();
+        colorHorLayout->addWidget(selectedColorLabel);
+        colorVerLayout->addLayout(colorHorLayout);
         colorVerLayout->addStretch();
 
-        ui->controlHorLayout->addLayout(colorVerLayout);
+        button->setLayout(colorVerLayout);
+
+        ui->controlHorLayout->addWidget(button);
     }
 }
 
@@ -264,61 +286,40 @@ void Theme::initCursorTheme(){
     //获取当前指针主题
     QString currentCursorTheme = QString("Breeze_Snow");
 
-    ui->cursorListWidget->setFixedHeight(cursorThemes.count() * ICONWIDGETHEIGH);
+    WidgetGroup * cursorThemeWidgetGroup = new WidgetGroup;
+    connect(cursorThemeWidgetGroup, &WidgetGroup::widgetChanged, [=](ThemeWidget * preWidget, ThemeWidget * curWidget){
+        if (preWidget)
+            preWidget->setSelectedStatus(false);
+        curWidget->setSelectedStatus(true);
+
+        QString value = curWidget->getValue();
+        //设置光标主题
+    });
 
     for (QString cursor : cursorThemes){
         ThemeWidget * widget  = new ThemeWidget(QSize(24, 24), cursor, QStringList(""));
-        widget->setAttribute(Qt::WA_DeleteOnClose);
 
-        QListWidgetItem * item = new QListWidgetItem(ui->cursorListWidget);
-        item->setData(Qt::UserRole, QVariant(cursor));
-        item->setSizeHint(QSize(554, ICONWIDGETHEIGH));
+        widget->setValue(cursor);
+        //加入Layout
+        ui->cursorVerLayout->addWidget(widget);
 
-        //初始化指针主题界面
+        //加入WidgetGround实现获取点击前Widget
+        cursorThemeWidgetGroup->addWidget(widget);
+
+        //初始化指针主题选中界面
         if (currentCursorTheme == cursor){
-            ui->cursorListWidget->setCurrentItem(item);
+            cursorThemeWidgetGroup->setCurrentWidget(widget);
             widget->setSelectedStatus(true);
         } else {
             widget->setSelectedStatus(false);
         }
 
-        ui->cursorListWidget->setItemWidget(item, widget);
-
     }
-
-    connect(ui->cursorListWidget, &QListWidget::currentItemChanged, this, [=](QListWidgetItem * current, QListWidgetItem * previous){
-        //更新当前指针主题
-
-        //刷新界面
-        ThemeWidget * currentWidget = dynamic_cast<ThemeWidget *>(ui->cursorListWidget->itemWidget(current));
-        currentWidget->setSelectedStatus(true);
-        ThemeWidget * previousWidget = dynamic_cast<ThemeWidget *>(ui->cursorListWidget->itemWidget(previous));
-        if(previousWidget == nullptr)
-            return;
-        previousWidget->setSelectedStatus(false);
-    });
-
 }
 
 void Theme::initEffectSettings(){
-    ui->effectLabel->hide();
-    ui->effectWidget->hide();
-}
-
-void Theme::refresh_btn_select_status(){
-    //获取当前主题
-    QString current_theme;
-    current_theme = marcosettings->get(MARCO_THEME_KEY).toString();
-
-    QMap<QString, QToolButton *>::iterator it = delbtnMap.begin();
-    for (; it != delbtnMap.end(); it++){
-        QString key = QString(it.key());
-        QToolButton * tmpBtn = (QToolButton *)it.value();
-        if (key == current_theme)
-            tmpBtn->setIcon(QIcon("://theme/select.png"));
-        else
-            tmpBtn->setIcon(QIcon(""));
-    }
+//    ui->effectLabel->hide();
+//    ui->effectWidget->hide();
 }
 
 QStringList Theme::_getSystemCursorThemes(){
@@ -336,17 +337,6 @@ QStringList Theme::_getSystemCursorThemes(){
         }
     }
     return themes;
-}
-
-void Theme::set_theme_slots(QString value){
-    ifsettings->set(GTK_THEME_KEY, QVariant(value));
-    marcosettings->set(MARCO_THEME_KEY, QVariant(value));
-//    if (value.contains("blue"))
-//        ifsettings->set(ICON_THEME_KEY, "ukui-icon-theme-one");
-//    else
-//        ifsettings->set(ICON_THEME_KEY, "ukui-icon-theme");
-
-    refresh_btn_select_status();
 }
 
 QString Theme::dullTranslation(QString str){

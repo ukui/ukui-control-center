@@ -17,41 +17,38 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef THEMEWIDGET_H
-#define THEMEWIDGET_H
+#ifndef WIDGETGROUP_H
+#define WIDGETGROUP_H
 
-#include <QWidget>
-#include <QMouseEvent>
+#include <QObject>
 
-class QLabel;
+class ThemeWidget;
 
-class ThemeWidget : public QWidget
+class WidgetGroup : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit ThemeWidget(QSize iSize, QString name, QStringList iStringList, QWidget *parent = 0);
-    ~ThemeWidget();
+    explicit WidgetGroup(QObject *parent = nullptr);
+    ~WidgetGroup();
 
 public:
-    void setSelectedStatus(bool status);
-    void setValue(QString value);
-    QString getValue();
+    void addWidget(ThemeWidget * widget, int id = -1);
+    void removeWidget(ThemeWidget * widget);
 
-public:
-    QLabel * selectedLabel;
-    QLabel * placeHolderLabel;
+    void setCurrentWidget(ThemeWidget * widget);
 
-protected:
-    virtual void paintEvent(QPaintEvent * event);
-    virtual void mousePressEvent(QMouseEvent * event);
 
 private:
-    QString pValue;
+    ThemeWidget * _preWidget;
+    ThemeWidget * _curWidget;
+
+    QList<ThemeWidget *> widgets;
+
 
 Q_SIGNALS:
-    void clicked();
+    void widgetChanged(ThemeWidget * preWidget, ThemeWidget * curWidget);
 
 };
 
-#endif // THEMEWIDGET_H
+#endif // WIDGETGROUP_H

@@ -280,9 +280,6 @@ void MainWindow::loadPlugins(){
 
 
     foreach (QString fileName, pluginsDir.entryList(QDir::Files)){
-        if (fileName == "libdisplay.so")
-            continue;
-
         qDebug() << "Scan Plugin: " << fileName;
         //ukui-indicators(org.ukui.panel.indicators.gschema.xml)
         QString indicatorFileStr = "/usr/share/glib-2.0/schemas/org.ukui.panel.indicators.gschema.xml";
