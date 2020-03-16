@@ -87,6 +87,13 @@ Theme::Theme()
                                 "QPushButton:hover:!pressed#resetBtn{border: none; background: #3D6BE5; border-radius: 2px;}"
                                 "QPushButton:hover:pressed#resetBtn{border: none; background: #2C5AD6; border-radius: 2px;}");
 
+    ui->transparencySlider->setStyleSheet("QSlider{height: 20px;}"
+                                          "QSlider::groove:horizontal{border: none;}"
+                                          "QSlider::add-page:horizontal{background: #808080; border-radius: 2px; margin-top: 8px; margin-bottom: 9px;}"
+                                          "QSlider::sub-page:horizontal{background: #3D6BE5; border-radius: 2px; margin-top: 8px; margin-bottom: 9px;}"
+                                          "QSlider::handle:horizontal{width: 20px; height: 20px; border-image: url(:/img/plugins/fonts/bigRoller.png);}"
+                                          "");
+
     //初始化gsettings
     const QByteArray id(THEME_GTK_SCHEMA);
     gtkSettings = new QGSettings(id);

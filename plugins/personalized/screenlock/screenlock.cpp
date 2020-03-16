@@ -50,6 +50,13 @@ Screenlock::Screenlock()
     ui->browserLocalwpBtn->setStyleSheet(btnQss);
     ui->browserOnlinewpBtn->setStyleSheet(btnQss);
 
+    ui->delaySlider->setStyleSheet("QSlider{height: 20px;}"
+                                   "QSlider::groove:horizontal{border: none;}"
+                                   "QSlider::add-page:horizontal{background: #808080; border-radius: 2px; margin-top: 8px; margin-bottom: 9px;}"
+                                   "QSlider::sub-page:horizontal{background: #3D6BE5; border-radius: 2px; margin-top: 8px; margin-bottom: 9px;}"
+                                   "QSlider::handle:horizontal{width: 20px; height: 20px; border-image: url(:/img/plugins/fonts/bigRoller.png);}"
+                                   "");
+
     const QByteArray id(SCREENLOCK_BG_SCHEMA);
     lSetting = new QGSettings(id);
 

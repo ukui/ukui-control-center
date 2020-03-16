@@ -15,10 +15,15 @@
             <summary>voice notice</summary>
             <description>.</description>
         </key>
-        <key name="maximize" enum="org.ukui.control-center.noticeorigin.Type">
-            <default>corner</default>
+        <key name="maximize" type='i'>
+            <default>3</default>
             <summary>maximize num of messages</summary>
             <description>The maximize num of messages on notice window.</description>
+        </key>
+        <key name="maximize" enum="org.ukui.control-center.noticeorigin.Type">
+            <default>corner</default>
+            <summary>type of notice message</summary>
+            <description>the type of notice in system.</description>
         </key>
     </schema>
 </schemalist>

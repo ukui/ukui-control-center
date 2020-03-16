@@ -20,6 +20,7 @@
 #include "touchpad.h"
 #include "ui_touchpad.h"
 
+#include <QFile>
 #include <QDebug>
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
@@ -59,7 +60,18 @@ Touchpad::Touchpad()
     pluginName = tr("touchpad");
     pluginType = DEVICES;
 
+    QString qss;
+    QFile QssFile("://combox.qss");
+    QssFile.open(QFile::ReadOnly);
+
+    if (QssFile.isOpen()){
+        qss = QLatin1String(QssFile.readAll());
+        QssFile.close();
+    }
+
     pluginWidget->setStyleSheet("background: #ffffff;");
+
+    ui->scrollingTypeComBox->setStyleSheet(qss);
 
     ui->enableWidget->setStyleSheet("QWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
     ui->typingWidget->setStyleSheet("QWidget{background: #F4F4F4;}");

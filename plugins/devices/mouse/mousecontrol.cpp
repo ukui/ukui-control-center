@@ -20,6 +20,7 @@
 #include "mousecontrol.h"
 #include "ui_mousecontrol.h"
 
+#include <QFile>
 #include <QDebug>
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
@@ -51,13 +52,27 @@ MouseControl::MouseControl()
     pluginName = tr("mouse");
     pluginType = DEVICES;
 
+    QString qss;
+    QFile QssFile("://combox.qss");
+    QssFile.open(QFile::ReadOnly);
+
+    if (QssFile.isOpen()){
+        qss = QLatin1String(QssFile.readAll());
+        QssFile.close();
+    }
+
     pluginWidget->setStyleSheet("background: #ffffff;");
 
     ui->handWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
     ui->pointerSpeedWidget->setStyleSheet("QWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
     ui->sensitivityWidget->setStyleSheet("QWidget{background: #F4F4F4;}");
     ui->visibilityWidget->setStyleSheet("QWidget{background: #F4F4F4;}");
-    ui->pointerSizeWidget->setStyleSheet("QWidget{background: #F4F4F4;  border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
+    ui->pointerSizeWidget->setStyleSheet("QWidget{background: #F4F4F4; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
+
+    //全局未生效，再次设置
+    ui->pointerSizeComBox->setStyleSheet(qss);
+    ui->handHabitComBox->setStyleSheet(qss);
+
 
     ui->cursorWeightWidget->setStyleSheet("QWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
     ui->cursorSpeedWidget->setStyleSheet("QWidget{background: #F4F4F4;}");
@@ -106,6 +121,7 @@ void MouseControl::setupComponent(){
     ui->visibilityHorLayout->addWidget(visiblityBtn);
 
     //设置指针大小
+    ui->pointerSizeComBox->setMaxVisibleItems(5);
     ui->pointerSizeComBox->addItem(tr("Default(Recommended)"), 24); //100%
     ui->pointerSizeComBox->addItem(tr("Medium"), 32); //125%
     ui->pointerSizeComBox->addItem(tr("Large"), 48); //150%

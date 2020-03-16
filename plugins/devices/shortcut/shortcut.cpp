@@ -330,7 +330,6 @@ void Shortcut::createNewShortcut(QString path, QString name, QString exec){
 
         //刷新界面(更新)
         for (int row = 0; row < ui->customListWidget->count(); row++){
-            qDebug() << "--------->" << row;
             QListWidgetItem * item = ui->customListWidget->item(row);
             if (!QString::compare(item->data(Qt::UserRole).toString(), availablepath)){
                 DefineShortcutItem * widgetItem = dynamic_cast<DefineShortcutItem *>(ui->customListWidget->itemWidget(item));
