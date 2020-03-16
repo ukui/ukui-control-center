@@ -1,7 +1,7 @@
-<schemalist gettext-domain="ukui.panel.plugins">
-	<schema id="org.ukui.panel.plugins" path="/ukui/panel/conter-centor/">
-        <key name="nightmode" type="s">
-            <default>'light'</default>
+<schemalist gettext-domain="ukui-control-center">
+        <schema id="org.ukui.control-center.panel.plugins" path="/org/ukui/control-center/panel/plugins/">
+        <key name="nightmode" type="b">
+            <default>false</default>
             <summary>nightmode status</summary>
             <description>nightmode used in UKUI Desktop Environment ,control by ukui-panel and ukui-control-center</description>
         </key>

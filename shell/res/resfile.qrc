@@ -113,6 +113,7 @@
         <file>plugins/netconnect/wifi3.png</file>
         <file>plugins/netconnect/wifi4.png</file>
         <file>plugins/netconnect/eth.png</file>
+        <file>titlebar/closeWhite.png</file>
     </qresource>
     <qresource prefix="/">
         <file>i18n/zh_CN.qm</file>

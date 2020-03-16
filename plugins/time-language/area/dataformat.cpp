@@ -15,6 +15,9 @@ DataFormat::DataFormat(QWidget *parent) :
     ui(new Ui::DataFormat)
 {
     ui->setupUi(this);
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
+    setAttribute(Qt::WA_TranslucentBackground);
+
     QByteArray id(PANEL_GSCHEMAL);
     if(QGSettings::isSchemaInstalled(id)) {
         m_gsettings = new QGSettings(id)        ;
@@ -33,12 +36,47 @@ DataFormat::~DataFormat()
 }
 
 
-void DataFormat::initUi() {
+void DataFormat::initUi() {    
+    this->setStyleSheet("background: #ffffff;");
+
+    ui->frame->setStyleSheet("QFrame{background: #ffffff; border: none; border-radius: 6px;}");
+    //关闭按钮在右上角，窗体radius 6px，所以按钮只得6px
+    ui->closeBtn->setIcon(QIcon("://img/titlebar/close.png"));
+    ui->closeBtn->setStyleSheet("QPushButton#closeBtn{background: #ffffff; border: none; border-radius: 6px;}"
+                                "QPushButton:hover:!pressed#closeBtn{background: #FA6056; border: none; border-top-left-radius: 2px; border-top-right-radius: 6px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;}"
+                                "QPushButton:hover:pressed#closeBtn{background: #E54A50; border: none; border-top-left-radius: 2px; border-top-right-radius: 6px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;}");
+
+    ui->closeBtn->setIcon(QIcon("://img/titlebar/close.png"));
+    ui->closeBtn->setStyleSheet("QPushButton#closeBtn{background: #ffffff; border: none; border-radius: 6px;}"
+                                "QPushButton:hover:!pressed#closeBtn{background: #FA6056; border: none; border-top-left-radius: 2px; border-top-right-radius: 6px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;}"
+                                "QPushButton:hover:pressed#closeBtn{background: #E54A50; border: none; border-top-left-radius: 2px; border-top-right-radius: 6px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;}");
+
+    ui->calendarLabel->setStyleSheet("QLabel#calendarLabel{background: #F4F4F4;}");
+    ui->dayLabel->setStyleSheet("QLabel#dayLabel{background: #F4F4F4;}");
+    ui->dateLabel->setStyleSheet("QLabel#dateLabel{background: #F4F4F4;}");
+    ui->timeLabel->setStyleSheet("QLabel#timeLabel{background: #F4F4F4;}");
+
+    ui->calendarwidget->setStyleSheet("QWidget#calendarwidget{background: #F4F4F4; border-radius: 6px;}");
+    ui->daywidget->setStyleSheet("QWidget#daywidget{background: #F4F4F4; border-radius: 6px;}");
+    ui->datewidget->setStyleSheet("QWidget#datewidget{background: #F4F4F4; border-radius: 6px;}");
+    ui->timewidget->setStyleSheet("QWidget#timewidget{background: #F4F4F4; border-radius: 6px;}");
+
+
+    ui->cancelButton->setStyleSheet("QPushButton{background-color:#E5E7E9;border-radius:4px}"
+                                   "QPushButton:hover{background-color: #3D6BE5;};border-radius:4px");
+    ui->confirmButton->setStyleSheet("QPushButton{background-color:#E5E7E9;border-radius:4px}"
+                                   "QPushButton:hover{background-color: #3D6BE5;};border-radius:4px");
+
+    ui->calendarLabel->setText(tr("calendar"));
+    ui->dayLabel->setText(tr("first day of week"));
+    ui->dateLabel->setText(tr("date"));
+    ui->timeLabel->setText(tr("time"));
+
     ui->calendarBox->addItem(tr("lunar"));
     ui->calendarBox->addItem(tr("solar calendar"));
 
     ui->dayBox->addItem(tr("monday"));
-    ui->dayBox->addItem(tr("sunday"));
+    ui->dayBox->addItem(tr("sunday"));        
 
     QString currentsecStr;
     QDateTime current = QDateTime::currentDateTime();
@@ -68,6 +106,11 @@ void DataFormat::initConnect() {
     connect(ui->timeBox, SIGNAL(currentIndexChanged(int)), SLOT(time_change_slot(int)));
     connect(ui->confirmButton, SIGNAL(clicked(bool)), SLOT(confirm_btn_slot()));
     connect(ui->cancelButton, SIGNAL(clicked()), SLOT(close()));
+    connect(ui->closeBtn, &QPushButton::clicked, [=](bool checked){
+        Q_UNUSED(checked)
+        close();
+    });
+
 }
 
 void DataFormat::initComponent() {

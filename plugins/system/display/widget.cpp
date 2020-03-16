@@ -40,6 +40,10 @@
 
 
 #define QML_PATH "kcm_kscreen/qml/"
+#define UKUI_CONTORLCENTER_PANEL_SCHEMAS "org.ukui.control-center.panel.plugins"
+
+#define NIGHT_MODE_KEY "nightmode"
+
 Q_DECLARE_METATYPE(KScreen::OutputPtr)
 
 
@@ -183,6 +187,7 @@ Widget::Widget(QWidget *parent)
     connect(mOutputTimer, &QTimer::timeout,
             this, &Widget::clearOutputIdentifiers);
 
+    initGSettings();
     loadQml();
     setBrigthnessFile();
     //亮度调节UI
@@ -555,6 +560,46 @@ void Widget::writeScale(float scale) {
         this->proRes.append(strQT + QString::number(scale));
     }
     writeFile(filepath, this->proRes);
+}
+
+
+void Widget::initGSettings() {   
+    QByteArray id(UKUI_CONTORLCENTER_PANEL_SCHEMAS);
+    if(QGSettings::isSchemaInstalled(id)) {
+//        qDebug()<<"initGSettings-------------------->"<<endl;
+        m_gsettings = new QGSettings(id)        ;
+    } else {
+        return ;
+    }
+
+    connect(m_gsettings, &QGSettings::changed, this, [=] (const QString &key) {
+        if (NIGHT_MODE_KEY == key) {
+//            qDebug()<<"key is changed----------------->"<<key<<endl;
+            bool value = this->getNightModeGSetting(key);
+            setNightModebyPanel(value);
+        }
+    });
+}
+
+bool Widget::getNightModeGSetting(const QString &key) {
+    if (!m_gsettings) {
+        return "";
+    }
+    const QStringList list = m_gsettings->keys();
+    if (!list.contains(key)) {
+        return "";
+    }
+    bool res = m_gsettings->get(key).toBool();
+    return res;
+}
+
+void Widget::setNightModebyPanel(bool judge) {
+    QProcess *process = new QProcess;
+    if(judge == true) {        
+        process->startDetached("redshift -t 5700:3600 -g 0.8 -m randr -v");
+    }  else {        
+        QProcess::execute("killall redshift");
+    }
 }
 
 void Widget::clearOutputIdentifiers()
