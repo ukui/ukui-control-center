@@ -52,8 +52,6 @@ MouseControl::MouseControl()
     pluginName = tr("mouse");
     pluginType = DEVICES;
 
-    itemDelege = new QStyledItemDelegate();
-
     QString qss;
     QFile QssFile("://combox.qss");
     QssFile.open(QFile::ReadOnly);
@@ -74,9 +72,6 @@ MouseControl::MouseControl()
     //全局未生效，再次设置
     ui->pointerSizeComBox->setStyleSheet(qss);
     ui->handHabitComBox->setStyleSheet(qss);
-
-    ui->pointerSizeComBox->setItemDelegate(itemDelege);
-    ui->handHabitComBox->setItemDelegate(itemDelege);
 
 
     ui->cursorWeightWidget->setStyleSheet("QWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
