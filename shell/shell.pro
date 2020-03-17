@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network
+QT       += core gui network x11extras
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,6 +25,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 include(../env.pri)
 
+LIBS += -L/usr/lib/ -lX11
+
 ##加载gio库和gio-unix库，用于处理desktop文件
 CONFIG        += link_pkgconfig \
                  C++11
@@ -37,6 +39,9 @@ inst2.files += $$PROJECT_ROOTDIR/pluginlibs/
 inst2.path = /usr/lib/control-center/
 inst3.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.keybinding.gschema.xml
 inst3.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.desktop.gschema.xml
+inst3.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.notice.gschema.xml
+inst3.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.noticeorigin.gschema.xml
+inst3.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.experienceplan.gschema.xml
 inst3.path = /usr/share/glib-2.0/schemas/
 inst4.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.wifi.switch.gschema.xml
 inst4.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.wifi.switch.gschema.xml

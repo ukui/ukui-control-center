@@ -17,44 +17,17 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef NOTICEOPERATION_H
-#define NOTICEOPERATION_H
+#include "keymap.h"
 
-#include <QWidget>
-#include <QObject>
-#include <QtPlugin>
-#include "mainui/interface.h"
-
-#include "../../pluginsComponent/switchbutton.h"
-#include "../../pluginsComponent/customwidget.h"
-
-namespace Ui {
-class NoticeOperation;
+KeyMap::KeyMap()
+{
+    metaColor = QMetaEnum::fromType<KeyMap::CCKey>();
 }
 
-class NoticeOperation : public QObject, CommonInterface
+KeyMap::~KeyMap()
 {
-    Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kycc.CommonInterface")
-    Q_INTERFACES(CommonInterface)
+}
 
-public:
-    NoticeOperation();
-    ~NoticeOperation();
-
-    QString get_plugin_name() Q_DECL_OVERRIDE;
-    int get_plugin_type() Q_DECL_OVERRIDE;
-    CustomWidget * get_plugin_ui() Q_DECL_OVERRIDE;
-    void plugin_delay_control() Q_DECL_OVERRIDE;
-
-private:
-    Ui::NoticeOperation *ui;
-
-    QString pluginName;
-    int pluginType;
-    CustomWidget * pluginWidget;
-
-    SwitchButton * button;
-};
-
-#endif // NOTICEOPERATION_H
+QString KeyMap::keycodeTokeystring(int code){
+    return metaColor.valueToKey(code);    //未匹配到则返回空
+}

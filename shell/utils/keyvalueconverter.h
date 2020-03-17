@@ -48,7 +48,7 @@ public:
         ACCOUNT,
         DATETIME,
         UPDATE,
-        MESSAGES,
+        NOTICEANDTASKS,
         TOTALMODULES,
     };
     Q_ENUM(FunType)

@@ -581,7 +581,7 @@
          <number>16</number>
         </property>
         <item>
-         <widget class="QLabel" name="label_6">
+         <widget class="QLabel" name="menuComputerLabel">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -669,7 +669,7 @@
          <number>16</number>
         </property>
         <item>
-         <widget class="QLabel" name="label_7">
+         <widget class="QLabel" name="menuTrashLabel">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -716,7 +716,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QWidget" name="menuHomeWidget" native="true">
+    <widget class="QWidget" name="menuFilesystemWidget" native="true">
      <property name="minimumSize">
       <size>
        <width>550</width>
@@ -746,7 +746,7 @@
        <number>0</number>
       </property>
       <item>
-       <layout class="QHBoxLayout" name="menuHomeHorLayout">
+       <layout class="QHBoxLayout" name="menuFilesystemHorLayout">
         <property name="spacing">
          <number>8</number>
         </property>
@@ -757,7 +757,7 @@
          <number>16</number>
         </property>
         <item>
-         <widget class="QLabel" name="label_8">
+         <widget class="QLabel" name="menuFilesystemLabel">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -781,7 +781,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>Homemenu</string>
+           <string>Filesystemmenu</string>
           </property>
          </widget>
         </item>
@@ -845,7 +845,7 @@
          <number>16</number>
         </property>
         <item>
-         <widget class="QLabel" name="label_9">
+         <widget class="QLabel" name="menuSettingsLabel">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -875,94 +875,6 @@
         </item>
         <item>
          <spacer name="horizontalSpacer_9">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QWidget" name="menuNetworkWidget" native="true">
-     <property name="minimumSize">
-      <size>
-       <width>550</width>
-       <height>50</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>960</width>
-       <height>50</height>
-      </size>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_20">
-      <property name="spacing">
-       <number>0</number>
-      </property>
-      <property name="leftMargin">
-       <number>0</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="rightMargin">
-       <number>0</number>
-      </property>
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
-      <item>
-       <layout class="QHBoxLayout" name="menuNetworkHorLayout">
-        <property name="spacing">
-         <number>8</number>
-        </property>
-        <property name="leftMargin">
-         <number>16</number>
-        </property>
-        <property name="rightMargin">
-         <number>16</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="label_10">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="scaledContents">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_20">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="text">
-           <string>Networkmenu</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_10">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>

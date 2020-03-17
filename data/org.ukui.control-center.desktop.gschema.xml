@@ -1,29 +1,49 @@
 <schemalist gettext-domain="ukui-control-center">
   <schema id="org.ukui.control-center.desktop" path="/org/ukui/control-center/desktop/">
-    <key name="computer" type="b">
+    <key name="computer-icon-visible" type="b">
       <default>true</default>
-      <summary>Activation of this plugin</summary>
-      <description>Whether this plugin would be activated by ukui-settings-daemon or not</description>
+      <summary>Show computer icon on desktop</summary>
+      <description>Whether show computer icon on desktop or not.</description>
     </key>
-    <key name="trash" type="b">
+    <key name="home-icon-visible" type="b">
       <default>true</default>
-      <summary>Show OSD notification</summary>
-      <description>Whether an OSD notification is shown to notify about changes</description>
+      <summary>Show home icon on desktop</summary>
+      <description>Whether show home icon on desktop or not.</description>
     </key>
-    <key name="settings" type="b">
+    <key name="network-icon-visible" type="b">
       <default>true</default>
-      <summary>Eject</summary>
-      <description>Binding to eject an optical disc.</description>
+      <summary>Show network icon on desktop</summary>
+      <description>Whether show network icon on desktop or not.</description>
     </key>
-    <key name="homefolder" type="b">
+    <key name="trash-icon-visible" type="b">
       <default>true</default>
-      <summary>Home folder</summary>
-      <description>Binding to open the Home folder.</description>
+      <summary>Show trash icon on desktop</summary>
+      <description>Whether show trash icon on desktop or not.</description>
     </key>
-    <key name="network" type="b">
+    <key name="volumes-visible" type="b">
       <default>true</default>
-      <summary>Search</summary>
-      <description>Binding to launch the search tool.</description>
+      <summary>Show volumes icon on desktop</summary>
+      <description>Whether show volumes icon on desktop or not.</description>
+    </key>
+    <key name="computer-icon-locking" type="b">
+      <default>true</default>
+      <summary>Lock computer icon on start menu</summary>
+      <description>Whether lock computer icon on start menu or not.</description>
+    </key>
+    <key name="filesystem-icon-locking" type="b">
+      <default>true</default>
+      <summary>Lock filesystem icon on start menu</summary>
+      <description>Whether lock system icon on start menu or not.</description>
+    </key>
+    <key name="settings-icon-locking" type="b">
+      <default>true</default>
+      <summary>Lock settings icon on start menu</summary>
+      <description>Whether lock settings icon on start menu or not.</description>
+    </key>
+    <key name="trash-icon-locking" type="b">
+      <default>true</default>
+      <summary>Lock trash icon on start menu</summary>
+      <description>Whether lock trash icon on start menu or not.</description>
     </key>
   </schema>
 </schemalist>

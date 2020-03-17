@@ -27,11 +27,13 @@ LIBS          += -L/usr/lib/ -lgsettings-qt
 
 SOURCES += \
         theme.cpp \
-    themewidget.cpp
+    themewidget.cpp \
+    widgetgroup.cpp
 
 HEADERS += \
         theme.h \
-    themewidget.h
+    themewidget.h \
+    widgetgroup.h
 
 FORMS += \
         theme.ui

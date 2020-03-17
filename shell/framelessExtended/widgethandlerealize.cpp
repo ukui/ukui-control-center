@@ -19,6 +19,13 @@
  */
 #include "widgethandlerealize.h"
 
+#include <QDebug>
+
+#include <X11/Xlib.h>
+#include <QtX11Extras/QX11Info>
+
+
+
 WidgetHandleRealize::WidgetHandleRealize(FramelessHandlePrivate *_fpri, QWidget * pTopLevelWidget )
 {
     fpri = _fpri;
@@ -193,12 +200,38 @@ void WidgetHandleRealize::handleMouseMoveEvent(QMouseEvent *event){
             resizeWidget(event->globalPos());
         }
         else if (fpri->widgetMovable && leftBtnPressed){
-            moveWidget(event->globalPos());
+//            moveWidget(event->globalPos());
+            moveMainWindow();
         }
     }
     else if (fpri->widgetResizable){
         updateCursorShape(event->globalPos());
     }
+}
+
+void WidgetHandleRealize::moveMainWindow(){
+    Display *display = QX11Info::display();
+    Atom netMoveResize = XInternAtom(display, "_NET_WM_MOVERESIZE", False);
+    XEvent xEvent;
+    const auto pos = QCursor::pos();
+
+    memset(&xEvent, 0, sizeof(XEvent));
+    xEvent.xclient.type = ClientMessage;
+    xEvent.xclient.message_type = netMoveResize;
+    xEvent.xclient.display = display;
+    xEvent.xclient.window = widgetInAction->winId();
+    xEvent.xclient.format = 32;
+    xEvent.xclient.data.l[0] = pos.x();
+    xEvent.xclient.data.l[1] = pos.y();
+    xEvent.xclient.data.l[2] = 8;
+    xEvent.xclient.data.l[3] = Button1;
+    xEvent.xclient.data.l[4] = 0;
+
+    XUngrabPointer(display, CurrentTime);
+    XSendEvent(display, QX11Info::appRootWindow(QX11Info::appScreen()),
+               False, SubstructureNotifyMask | SubstructureRedirectMask,
+               &xEvent);
+    XFlush(display);
 }
 
 void WidgetHandleRealize::handleLeaveEvent(QEvent *event){

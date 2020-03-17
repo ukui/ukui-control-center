@@ -110,6 +110,22 @@ void HomePageWidget::initUI(){
 
         widget->setObjectName("itemWidget");
         widget->setStyleSheet("HoverWidget:hover:!pressed#itemWidget{background: #3D6BE5; border-radius: 4px;}");
+        connect(widget, &HoverWidget::widgetClicked, [=](QString moduleName){
+            int moduleIndex = kvConverter->keystringTokeycode(moduleName);
+
+            //获取模块的第一项跳转
+            QString firstFunc;
+            QList<FuncInfo> tmpList = FunctionSelect::funcinfoList[moduleIndex];
+            for (FuncInfo tmpStruct : tmpList){
+                if (moduleMap.keys().contains(tmpStruct.namei18nString)){
+                    firstFunc = tmpStruct.namei18nString;
+                    break;
+                }
+            }
+            //跳转
+            pmainWindow->functionBtnClicked(moduleMap.value(firstFunc));
+
+        });
 
         QHBoxLayout * mainHorLayout = new QHBoxLayout(widget);
         mainHorLayout->setMargin(16);
@@ -203,9 +219,14 @@ void HomePageWidget::initUI(){
         ui->listWidget->setItemWidget(item, baseWidget);
     }
     connect(moduleSignalMapper, SIGNAL(mapped(QObject*)), pmainWindow, SLOT(functionBtnClicked(QObject*)));
-    connect(ui->listWidget, SIGNAL(itemPressed(QListWidgetItem *)), this, SLOT(slotItemPressed(QListWidgetItem *)));
+//    connect(ui->listWidget, SIGNAL(itemPressed(QListWidgetItem *)), this, SLOT(slotItemPressed(QListWidgetItem *)));
 }
 
+/*
+ * 问题：点击“语言和地区”最终跳转至“时间和日期”页面；点击“默认应用”最总跳转至“显示器”页面
+ * 解决：屏蔽ClickLabel的点击传递
+ * 备注：首页需要实现伸缩模块居中效果，改为使用留布局来实现，所以如下方法将来无法使用
+ */
 void HomePageWidget::slotItemPressed(QListWidgetItem *item)
 {
     if(item == nullptr)
@@ -239,7 +260,7 @@ void HomePageWidget::slotItemPressed(QListWidgetItem *item)
             targetString = single.namei18nString;
         }
         if(targetString .isEmpty()) {
-            pmainWindow->functionBtnClicked(moduleMap.first());
+            pmainWindow->functionBtnClicked(moduleMap.first()); //QMap是无序的，不能保证跳转到第一项
         } else {
             pmainWindow->functionBtnClicked(moduleMap[targetString]);
         }

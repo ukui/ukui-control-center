@@ -47,7 +47,6 @@ QString SysdbusRegister::GetComputerInfo(){
     char cmd[128];
     char buf[1024];
     sprintf(cmd, "dmidecode -t system");
-    fp = popen(cmd, "r");
 
     if ((fp = popen(cmd, "r")) != NULL){
         rewind(fp);

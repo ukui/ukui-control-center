@@ -55,8 +55,8 @@ Wallpaper::Wallpaper()
     ui->colorListWidget->setStyleSheet("QListWidget#colorListWidget{background: #ffffff; border: none;}");
 
     QString btnQss = QString("QPushButton{background: #E9E9E9; border-radius: 4px;}"
-                             "QPushButton:hover:!pressed{background: #3d6be5; border-radius: 4px;}"
-                             "QPushButton:hover:pressed{background: #415FC4; border-radius: 4px;}");
+                             "QPushButton:hover:!pressed{background: #3d6be5; border: none; border-radius: 4px;}"
+                             "QPushButton:hover:pressed{background: #415FC4; border: none; border-radius: 4px;}");
     ui->browserLocalwpBtn->setStyleSheet(btnQss);
     ui->browserOnlinewpBtn->setStyleSheet(btnQss);
 
