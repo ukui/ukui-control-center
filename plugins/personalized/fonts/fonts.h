@@ -65,25 +65,19 @@ public:
     void plugin_delay_control() Q_DECL_OVERRIDE;
 
 public:
-    void initComponent();
+    void setupComponent();
+    void setupConnect();
     void initFontStatus();
     void initGeneralFontStatus();
     void initAdvancedFontStatus();
     void initSampleFontStatus();
 
+    void setFontEffect(QAbstractButton * button);
+    void resetDefault();
+
     void _getDefaultFontinfo();
     void _getCurrentFontInfo();
     QStringList _splitFontNameSize(QString value);
-
-
-
-    void status_init();
-    void refresh_status();
-    void refresh_mainpage_status();
-    void refresh_subpage_status();
-    void get_current_fonts();
-
-//    void rebuild_size_combo(ComboBox * combo, QString text);
 
 private:
     Ui::Fonts *ui;
@@ -106,11 +100,6 @@ private:
     QStyledItemDelegate *itemDelege;
 
     QFontDatabase fontdb;
-
-private slots:
-    void setFontEffectSlot(QAbstractButton * button);
-    void resetDefaultSlot();
-    void combobox_changed_slot(QString text);
 
 };
 

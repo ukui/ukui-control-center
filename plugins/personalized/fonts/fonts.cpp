@@ -37,8 +37,8 @@
 #define TITLEBAR_FONT_KEY "titlebar-font" //描述窗口标题栏字体的字符串。只有在"titlebar-uses-system-font"为false时有效
 
 
-#define PEONY_SCHEMA "org.ukui.peony.desktop"
-#define PEONY_FONT_KEY "font"  //桌面上图标描述所用的字体
+//#define PEONY_SCHEMA "org.ukui.peony.desktop"
+//#define PEONY_FONT_KEY "font"  //桌面上图标描述所用的字体
 
 #define FONT_RENDER_SCHEMA           "org.ukui.font-rendering"
 #define ANTIALIASING_KEY        "antialiasing" //绘制字形时使用反锯齿类型
@@ -49,10 +49,6 @@
 /*
   设置字体，每套字体包括5个部件，应用程序字体、文档字体、等宽字体、桌面字体和窗口标题字体。
   字体设置为预设值，每套字体除大小不固定，其他字体类别固定。
-  目前有
-  ubuntu字体，分别为"ubuntu" "sans" "ubuntu mono" "' '" "ubuntu Bold"
-  mate字体，分别为"ubuntu" "ubuntu" "ubuntu mono" "sans" "ubuntu Bold"
-  ukui字体，分别为"ubuntu","ubuntu","ubuntu mono","ubuntu","ubuntu medium"
 */
 
 typedef struct _FontInfo FontInfo;
@@ -61,40 +57,16 @@ struct _FontInfo{
     QString gtkfont;
     QString docfont;
     QString monospacefont;
-    QString peonyfont;
+//    QString peonyfont;
     QString titlebarfont;
     int gtkfontsize;
     int docfontsize;
     int monospacefontsize;
-    int peonyfontsize;
+//    int peonyfontsize;
     int titlebarfontsize;
 };
 
 FontInfo defaultfontinfo;
-
-FontInfo fontinfo[N] = {
-    {"Ubuntu",
-    "Ubuntu",
-    "Sans",
-    "Ubuntu Mono",
-    "Ubuntu",
-    "Ubuntu Bold",
-    0, 0, 0, 0, 0},
-    {"Mate",
-    "Ubuntu",
-    "Ubuntu",
-    "Ubuntu Mono",
-    "Sans",
-    "Ubuntu Bold",
-    0, 0, 0, 0, 0},
-    {"Ukui",
-    "Ubuntu",
-    "Ubuntu",
-    "Ubuntu Mono",
-    "Ubuntu",
-    "Ubuntu Medium",
-    0, 0, 0, 0, 0}
-};
 
 //字体效果
 typedef enum{
@@ -174,14 +146,15 @@ Fonts::Fonts()
     ifsettings = new QGSettings(id);
     const QByteArray idd(MARCO_SCHEMA);
     marcosettings = new QGSettings(idd);
-    const QByteArray iddd(PEONY_SCHEMA);
-    peonysettings = new QGSettings(iddd);
+//    const QByteArray iddd(PEONY_SCHEMA);
+//    peonysettings = new QGSettings(iddd);
     const QByteArray iid(FONT_RENDER_SCHEMA);
     rendersettings = new QGSettings(iid);
 
     _getDefaultFontinfo();
 
-    initComponent();
+    setupComponent();
+    setupConnect();
     initFontStatus();
 
 }
@@ -191,7 +164,7 @@ Fonts::~Fonts()
     delete ui;
     delete ifsettings;
     delete marcosettings;
-    delete peonysettings;
+//    delete peonysettings;
     delete rendersettings;
 }
 
@@ -211,105 +184,7 @@ void Fonts::plugin_delay_control(){
 
 }
 
-void Fonts::_getDefaultFontinfo(){
-    GVariant * value;
-    const char * font_value;
-    gsize size; gint length;
-
-    //GTK FONT
-    GSettings * ifgsettings;
-    ifgsettings = g_settings_new(INTERFACE_SCHEMA);
-    value = g_settings_get_default_value(ifgsettings, GTK_FONT_KEY);
-    size = g_variant_get_size(value);
-    font_value = g_variant_get_string(value, &size);
-    length = (gint)strlen(font_value);
-    if (font_value[length-2] == ' '){
-        defaultfontinfo.gtkfontsize = atoi(&font_value[length - 1]);
-    }
-    else
-        defaultfontinfo.gtkfontsize = atoi(&font_value[length - 2]);
-    g_variant_unref(value);
-
-    //DOC FONT
-    value = g_settings_get_default_value(ifgsettings, DOC_FONT_KEY);
-    size = g_variant_get_size(value);
-    font_value = g_variant_get_string(value, &size);
-    length = (gint)strlen(font_value);
-    if (font_value[length -2] == ' ')
-        defaultfontinfo.docfontsize = atoi(&font_value[length -1]);
-    else
-        defaultfontinfo.docfontsize = atoi(&font_value[length -2]);
-    g_variant_unref(value);
-
-    //MON
-    value = g_settings_get_default_value(ifgsettings, MONOSPACE_FONT_KEY);
-    size = g_variant_get_size(value);
-    font_value = g_variant_get_string(value, &size);
-    length = (gint)strlen(font_value);
-    if (font_value[length -2] == ' ')
-        defaultfontinfo.monospacefontsize = atoi(&font_value[length -1]);
-    else
-        defaultfontinfo.monospacefontsize = atoi(&font_value[length -2]);
-    g_variant_unref(value);
-
-    //PEONY
-    GSettings * peonygsettings;
-    peonygsettings = g_settings_new(PEONY_SCHEMA);
-    value = g_settings_get_default_value(peonygsettings, PEONY_FONT_KEY);
-    size = g_variant_get_size(value);
-    font_value = g_variant_get_string(value, &size);
-    length = (gint)strlen(font_value);
-    if (font_value[length -2] == ' ')
-        defaultfontinfo.peonyfontsize = atoi(&font_value[length -1]);
-    else
-        defaultfontinfo.peonyfontsize = atoi(&font_value[length -2]);
-    g_variant_unref(value);
-
-    //TITLE
-    GSettings * marcogsettings;
-    marcogsettings = g_settings_new(MARCO_SCHEMA);
-    value = g_settings_get_default_value(marcogsettings, TITLEBAR_FONT_KEY);
-    size = g_variant_get_size(value);
-    font_value = g_variant_get_string(value, &size);
-    length = (gint)strlen(font_value);
-    if (font_value[length -2] == ' ')
-        defaultfontinfo.titlebarfontsize = atoi(&font_value[length -1]);
-    else
-        defaultfontinfo.titlebarfontsize = atoi(&font_value[length -2]);
-    g_variant_unref(value);
-
-    g_object_unref(ifgsettings);
-    g_object_unref(peonygsettings);
-    g_object_unref(marcogsettings);
-}
-
-void Fonts::_getCurrentFontInfo(){
-    gtkfontStrList = _splitFontNameSize(ifsettings->get(GTK_FONT_KEY).toString());
-    docfontStrList = _splitFontNameSize(ifsettings->get(DOC_FONT_KEY).toString());
-    monospacefontStrList = _splitFontNameSize(ifsettings->get(MONOSPACE_FONT_KEY).toString());
-    peonyfontStrList = _splitFontNameSize(peonysettings->get(PEONY_FONT_KEY).toString());
-    titlebarfontStrList = _splitFontNameSize(marcosettings->get(TITLEBAR_FONT_KEY).toString());
-}
-
-QStringList Fonts::_splitFontNameSize(QString value){
-    QStringList valueStringList;
-    if (value.right(1) >= '0' && value.right(1) <= '9'){
-        QStringList tmpStringList = value.split(' ');
-        QString::SectionFlag flag = QString::SectionSkipEmpty;
-        valueStringList << value.section(' ', 0, tmpStringList.length() - 2, flag);
-        valueStringList << value.section(' ', tmpStringList.length() - 1, tmpStringList.length() - 1, flag);
-    }
-    else{
-        valueStringList << value << "10";
-    }
-    return valueStringList;
-}
-
-void Fonts::get_current_fonts(){
-
-}
-
-void Fonts::initComponent(){
+void Fonts::setupComponent(){
     ui->fontSelectComBox->setItemDelegate(itemDelege);
     ui->fontSelectComBox->setMaxVisibleItems(5);
 
@@ -367,24 +242,18 @@ void Fonts::initComponent(){
         ui->titleFontComBox->addItem(font);
     }
 
-    //高级字体按钮状态
-    ui->advancedWidget->setVisible(ui->advancedBtn->isChecked());
-    connect(ui->advancedBtn, &QPushButton::clicked, this, [=]{
-        ui->advancedWidget->setVisible(ui->advancedBtn->isChecked());
-    });
-
     ////导入字体大小列表
     //获取当前字体
     QStringList gtkfontStrList = _splitFontNameSize(ifsettings->get(GTK_FONT_KEY).toString());
     QStringList docfontStrList = _splitFontNameSize(ifsettings->get(DOC_FONT_KEY).toString());
     QStringList monospacefontStrList = _splitFontNameSize(ifsettings->get(MONOSPACE_FONT_KEY).toString());
-    QStringList peonyfontStrList = _splitFontNameSize(peonysettings->get(PEONY_FONT_KEY).toString());
+//    QStringList peonyfontStrList = _splitFontNameSize(peonysettings->get(PEONY_FONT_KEY).toString());
     QStringList titlebarfontStrList = _splitFontNameSize(marcosettings->get(TITLEBAR_FONT_KEY).toString());
 
     QList<int> gtksizeList = fontdb.pointSizes(gtkfontStrList.at(0));
     QList<int> docsizeList = fontdb.pointSizes(docfontStrList.at(0));
     QList<int> monosizeList = fontdb.pointSizes(monospacefontStrList.at(0));
-    QList<int> peonysizeList = fontdb.pointSizes(peonyfontStrList.at(0));
+//    QList<int> peonysizeList = fontdb.pointSizes(peonyfontStrList.at(0));
     QList<int> titlesizeList = fontdb.pointSizes(titlebarfontStrList.at(0));
 
     if (gtksizeList.length() == 0)
@@ -399,14 +268,17 @@ void Fonts::initComponent(){
         monosizeList = defaultsizeList;
     for (int size : monosizeList)
         ui->MonoSizeComBox->addItem(QString::number(size));
-    if (peonysizeList.length() == 0)
-        peonysizeList = defaultsizeList;
-    for (int size : peonysizeList)
-        ui->peonySizeComBox->addItem(QString::number(size));
+//    if (peonysizeList.length() == 0)
+//        peonysizeList = defaultsizeList;
+//    for (int size : peonysizeList)
+//        ui->peonySizeComBox->addItem(QString::number(size));
     if (titlesizeList.length() == 0)
         titlesizeList = defaultsizeList;
     for (int size : titlesizeList)
         ui->titleSizeComBox->addItem(QString::number(size));
+
+    //设置高级配置是否显示
+    ui->advancedWidget->setVisible(ui->advancedBtn->isChecked());
 
     //init sample button
     FontEffects * example1 = new FontEffects();
@@ -426,9 +298,93 @@ void Fonts::initComponent(){
 
     ////绑定信号
     //字体效果按钮
-    connect(ui->sampleBtnGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(setFontEffectSlot(QAbstractButton*)));
+    connect(ui->sampleBtnGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), [=](QAbstractButton * button){
+        setFontEffect(button);
+    });
+
+}
+
+void Fonts::setupConnect(){
+    connect(ui->fontSizeSlider, &QSlider::sliderReleased, [=]{
+        int value = ui->fontSizeSlider->value();
+
+        int setup = value / 25; int overage = value % 25;
+
+        if (overage > 12)
+            ui->fontSizeSlider->setSliderPosition(ui->fontSizeSlider->singleStep() * (setup + 1));
+        else
+            ui->fontSizeSlider->setSliderPosition(ui->fontSizeSlider->singleStep() * setup);
+    });
+    connect(ui->fontSizeSlider, &QSlider::valueChanged, [=](int value){
+        if (!(value % 25)){
+            float level = (float)value / 100;
+            qDebug() << "" << level;
+            //获取当前字体信息
+            _getCurrentFontInfo();
+            //设置字体大小
+            ifsettings->set(GTK_FONT_KEY, QVariant(QString("%1 %2").arg(gtkfontStrList.at(0)).arg(defaultfontinfo.gtkfontsize * level)));
+            ifsettings->set(DOC_FONT_KEY, QVariant(QString("%1 %2").arg(docfontStrList.at(0)).arg(defaultfontinfo.docfontsize * level)));
+            ifsettings->set(MONOSPACE_FONT_KEY, QVariant(QString("%1 %2").arg(monospacefontStrList.at(0)).arg(defaultfontinfo.monospacefontsize * level)));
+//            peonysettings->set(PEONY_FONT_KEY, QVariant(QString("%1 %2").arg(peonyfontStrList[0]).arg(defaultfontinfo.monospacefontsize * level)));
+            marcosettings->set(TITLEBAR_FONT_KEY, QVariant(QString("%1 %2").arg(titlebarfontStrList.at(0)).arg(defaultfontinfo.titlebarfontsize * level)));
+
+        }
+
+    });
+
+    connect(ui->fontSelectComBox, &QComboBox::currentTextChanged, [=](QString text){
+        //获取当前字体信息
+        _getCurrentFontInfo();
+        ifsettings->set(GTK_FONT_KEY, QVariant(QString("%1 %2").arg(text).arg(gtkfontStrList.at(1))));
+        ifsettings->set(DOC_FONT_KEY, QVariant(QString("%1 %2").arg(text).arg(docfontStrList.at(1))));
+//        peonysettings->set(PEONY_FONT_KEY, QVariant(QString("%1 %2").arg(text).arg(peonyfontStrList.at(1))));
+        marcosettings->set(TITLEBAR_FONT_KEY, QVariant(QString("%1 %2").arg(text).arg(titlebarfontStrList.at(1))));
+
+        //给更新高级字体配置
+        initAdvancedFontStatus();
+
+    });
+    connect(ui->monoSelectComBox, &QComboBox::currentTextChanged, [=](QString text){
+        //获取当前字体信息
+        _getCurrentFontInfo();
+        ifsettings->set(MONOSPACE_FONT_KEY, QVariant(QString("%1 %2").arg(text).arg(monospacefontStrList.at(1))));
+        //更新高级字体配置
+        initAdvancedFontStatus();
+
+    });
+
+    //高级字体按钮状态
+    connect(ui->advancedBtn, &QPushButton::clicked, this, [=]{
+        ui->advancedWidget->setVisible(ui->advancedBtn->isChecked());
+    });
+
+    connect(ui->defaultFontComBox, &QComboBox::currentTextChanged, [=](QString text){
+        _getCurrentFontInfo();
+        ifsettings->set(GTK_FONT_KEY, QVariant(QString("%1 %2").arg(text).arg(gtkfontStrList.at(1))));
+    });
+    connect(ui->docFontComBox, &QComboBox::currentTextChanged, [=](QString text){
+        _getCurrentFontInfo();
+        ifsettings->set(DOC_FONT_KEY, QVariant(QString("%1 %2").arg(text).arg(docfontStrList.at(1))));
+    });
+    connect(ui->monoFontComBox, &QComboBox::currentTextChanged, [=](QString text){
+        _getCurrentFontInfo();
+        ifsettings->set(MONOSPACE_FONT_KEY, QVariant(QString("%1 %2").arg(text).arg(monospacefontStrList.at(1))));
+    });
+
+    connect(ui->titleFontComBox, &QComboBox::currentTextChanged, [=](QString text){
+        _getCurrentFontInfo();
+        marcosettings->set(TITLEBAR_FONT_KEY, QVariant(QString("%1 %2").arg(text).arg(titlebarfontStrList.at(1))));
+    });
 
 
+    connect(ui->sampleBtnGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), [=](QAbstractButton * button){
+        setFontEffect(button);
+    });
+
+    //重置按钮
+    connect(ui->resetBtn, &QPushButton::clicked, [=](bool checked){
+        resetDefault();
+    });
 }
 
 void Fonts::initFontStatus(){
@@ -450,7 +406,7 @@ void Fonts::initGeneralFontStatus(){
     QString currentfonts = gtkfontStrList[0];
     ui->fontSelectComBox->blockSignals(true);
     ui->fontSelectComBox->setCurrentText(currentfonts);
-    ui->fontSelectComBox->blockSignals(true);
+    ui->fontSelectComBox->blockSignals(false);
 
     //初始化等宽字体ComBox
     QString currentmonofont = monospacefontStrList[0];
@@ -478,41 +434,41 @@ void Fonts::initAdvancedFontStatus(){
     ui->defaultFontComBox->blockSignals(true);
     ui->docFontComBox->blockSignals(true);
     ui->monoFontComBox->blockSignals(true);
-    ui->peonyFontComBox->blockSignals(true);
+//    ui->peonyFontComBox->blockSignals(true);
     ui->titleFontComBox->blockSignals(true);
 
     //初始化高级字体ComBox
     ui->defaultFontComBox->setCurrentText(gtkfontStrList.at(0));
     ui->docFontComBox->setCurrentText(docfontStrList.at(0));
     ui->monoFontComBox->setCurrentText(monospacefontStrList.at(0));
-    ui->peonyFontComBox->setCurrentText(peonyfontStrList.at(0));
+//    ui->peonyFontComBox->setCurrentText(peonyfontStrList.at(0));
     ui->titleFontComBox->setCurrentText(titlebarfontStrList.at(0));
 
     //释放信号
     ui->defaultFontComBox->blockSignals(false);
     ui->docFontComBox->blockSignals(false);
     ui->monoFontComBox->blockSignals(false);
-    ui->peonyFontComBox->blockSignals(false);
+//    ui->peonyFontComBox->blockSignals(false);
     ui->titleFontComBox->blockSignals(false);
 
     //阻塞字体大小ComBox信号
     ui->defaultSizeComBox->blockSignals(true);
     ui->docSizeComBox->blockSignals(true);
     ui->MonoSizeComBox->blockSignals(true);
-    ui->peonySizeComBox->blockSignals(true);
+//    ui->peonySizeComBox->blockSignals(true);
     ui->titleSizeComBox->blockSignals(true);
 
     ui->defaultSizeComBox->setCurrentText(gtkfontStrList.at(1));
     ui->docSizeComBox->setCurrentText(docfontStrList.at(1));
     ui->MonoSizeComBox->setCurrentText(monospacefontStrList.at(1));
-    ui->peonySizeComBox->setCurrentText(peonyfontStrList.at(1));
+//    ui->peonySizeComBox->setCurrentText(peonyfontStrList.at(1));
     ui->titleSizeComBox->setCurrentText(titlebarfontStrList.at(1));
 
     //阻塞字体大小ComBox信号
     ui->defaultSizeComBox->blockSignals(false);
     ui->docSizeComBox->blockSignals(false);
     ui->MonoSizeComBox->blockSignals(false);
-    ui->peonySizeComBox->blockSignals(false);
+//    ui->peonySizeComBox->blockSignals(false);
     ui->titleSizeComBox->blockSignals(false);
 
 }
@@ -535,215 +491,101 @@ void Fonts::initSampleFontStatus(){
     g_object_unref(settings);
 }
 
-void Fonts::refresh_mainpage_status(){
-    //获取当前字体集合
-    QString currentfonts = "";
-    QStringList gtkfontStrList = _splitFontNameSize(ifsettings->get(GTK_FONT_KEY).toString());
-    QStringList docfontStrList = _splitFontNameSize(ifsettings->get(DOC_FONT_KEY).toString());
-    QStringList monospacefontStrList = _splitFontNameSize(ifsettings->get(MONOSPACE_FONT_KEY).toString());
-    QStringList peonyfontStrList = _splitFontNameSize(peonysettings->get(PEONY_FONT_KEY).toString());
-    QStringList titlebarfontStrList = _splitFontNameSize(marcosettings->get(TITLEBAR_FONT_KEY).toString());
+void Fonts::_getDefaultFontinfo(){
+    GVariant * value;
+    const char * font_value;
+    gsize size; gint length;
 
-    //设置当前字体集
-    for (int i = 0; i < N; i++){
-        if (fontinfo[i].docfont != docfontStrList[0])
-            continue;
-        if (fontinfo[i].gtkfont != gtkfontStrList[0])
-            continue;
-        if (fontinfo[i].monospacefont != monospacefontStrList[0])
-            continue;
-        if (fontinfo[i].titlebarfont != titlebarfontStrList[0])
-            continue;
-        if (fontinfo[i].peonyfont != peonyfontStrList[0])
-            continue;
-        currentfonts = fontinfo[i].type;
+    //GTK FONT
+    GSettings * ifgsettings;
+    ifgsettings = g_settings_new(INTERFACE_SCHEMA);
+    value = g_settings_get_default_value(ifgsettings, GTK_FONT_KEY);
+    size = g_variant_get_size(value);
+    font_value = g_variant_get_string(value, &size);
+    length = (gint)strlen(font_value);
+    if (font_value[length-2] == ' '){
+        defaultfontinfo.gtkfontsize = atoi(&font_value[length - 1]);
     }
+    else
+        defaultfontinfo.gtkfontsize = atoi(&font_value[length - 2]);
+    g_variant_unref(value);
 
-//    ui->fontsComboBox->blockSignals(true);
-//    if (currentfonts == "") //未匹配上，自定义
-//        ui->fontsComboBox->setCurrentIndex(0);
+    //DOC FONT
+    value = g_settings_get_default_value(ifgsettings, DOC_FONT_KEY);
+    size = g_variant_get_size(value);
+    font_value = g_variant_get_string(value, &size);
+    length = (gint)strlen(font_value);
+    if (font_value[length -2] == ' ')
+        defaultfontinfo.docfontsize = atoi(&font_value[length -1]);
+    else
+        defaultfontinfo.docfontsize = atoi(&font_value[length -2]);
+    g_variant_unref(value);
+
+    //MON
+    value = g_settings_get_default_value(ifgsettings, MONOSPACE_FONT_KEY);
+    size = g_variant_get_size(value);
+    font_value = g_variant_get_string(value, &size);
+    length = (gint)strlen(font_value);
+    if (font_value[length -2] == ' ')
+        defaultfontinfo.monospacefontsize = atoi(&font_value[length -1]);
+    else
+        defaultfontinfo.monospacefontsize = atoi(&font_value[length -2]);
+    g_variant_unref(value);
+
+    //PEONY
+//    GSettings * peonygsettings;
+//    peonygsettings = g_settings_new(PEONY_SCHEMA);
+//    value = g_settings_get_default_value(peonygsettings, PEONY_FONT_KEY);
+//    size = g_variant_get_size(value);
+//    font_value = g_variant_get_string(value, &size);
+//    length = (gint)strlen(font_value);
+//    if (font_value[length -2] == ' ')
+//        defaultfontinfo.peonyfontsize = atoi(&font_value[length -1]);
 //    else
-//        ui->fontsComboBox->setCurrentText(currentfonts);
-//    ui->fontsComboBox->blockSignals(false);
+//        defaultfontinfo.peonyfontsize = atoi(&font_value[length -2]);
+//    g_variant_unref(value);
 
-//    //设置字体大小,选择文档字体大小作为标准，来自gtk控制面板的逻辑
-//    float res = QString(docfontStrList[1]).toFloat() / (float)defaultfontinfo.docfontsize;
+    //TITLE
+    GSettings * marcogsettings;
+    marcogsettings = g_settings_new(MARCO_SCHEMA);
+    value = g_settings_get_default_value(marcogsettings, TITLEBAR_FONT_KEY);
+    size = g_variant_get_size(value);
+    font_value = g_variant_get_string(value, &size);
+    length = (gint)strlen(font_value);
+    if (font_value[length -2] == ' ')
+        defaultfontinfo.titlebarfontsize = atoi(&font_value[length -1]);
+    else
+        defaultfontinfo.titlebarfontsize = atoi(&font_value[length -2]);
+    g_variant_unref(value);
 
-//    if (res == SMALL){
-//        ui->smallRadioBtn->blockSignals(true);
-//        ui->smallRadioBtn->setChecked(true);
-//        ui->smallRadioBtn->blockSignals(false);
-//    }
-//    else if (res > SMALL && res <= MEDIUM){
-//        ui->mediumRadioBtn->blockSignals(true);
-//        ui->mediumRadioBtn->setChecked(true);
-//        ui->mediumRadioBtn->blockSignals(false);
-//    }
-//    else if (res > MEDIUM){
-//        ui->largerRadioBtn->blockSignals(true);
-//        ui->largerRadioBtn->setChecked(true);
-//        ui->largerRadioBtn->blockSignals(false);
-//    }
-
-    //设置当前字体效果
-    GSettings * settings = g_settings_new(FONT_RENDER_SCHEMA);
-//    int currentantial = g_settings_get_enum(settings, ANTIALIASING_KEY);
-//    int currenthinting = g_settings_get_enum(settings, HINTING_KEY);
-//    QList<QAbstractButton *> buttonsList = ui->pushBtnbuttonGroup->buttons();
-//    for (int num = 0; num < buttonsList.size(); num++){
-//        FontEffects * btnFontEffects = (FontEffects *)((QPushButton *)buttonsList[num])->userData(Qt::UserRole);
-//        if (currentantial == btnFontEffects->antial && currenthinting == btnFontEffects->hinting){
-//            QPushButton * button = ((QPushButton *)buttonsList[num]);
-//            button->blockSignals(true);
-//            button->setChecked(true);
-//            button->blockSignals(false);
-//        }
-//    }
-    g_object_unref(settings);
+    g_object_unref(ifgsettings);
+//    g_object_unref(peonygsettings);
+    g_object_unref(marcogsettings);
 }
 
-void Fonts::refresh_subpage_status(){
-
-    //获取当前字体集合
-    QString currentfonts = "";
-    QStringList gtkfontStrList = _splitFontNameSize(ifsettings->get(GTK_FONT_KEY).toString());
-    QStringList docfontStrList = _splitFontNameSize(ifsettings->get(DOC_FONT_KEY).toString());
-    QStringList monospacefontStrList = _splitFontNameSize(ifsettings->get(MONOSPACE_FONT_KEY).toString());
-    QStringList peonyfontStrList = _splitFontNameSize(peonysettings->get(PEONY_FONT_KEY).toString());
-    QStringList titlebarfontStrList = _splitFontNameSize(marcosettings->get(TITLEBAR_FONT_KEY).toString());
-
-    //
-//    ui->defaultfontCbx->blockSignals(true);
-//    ui->docfontCbx->blockSignals(true);
-//    ui->monofontCbx->blockSignals(true);
-//    ui->peonyfontCbx->blockSignals(true);
-//    ui->titlefontCbx->blockSignals(true);
-//    ui->defaultfontCbx->setCurrentText(gtkfontStrList.at(0));
-//    ui->docfontCbx->setCurrentText(docfontStrList.at(0));
-//    ui->monofontCbx->setCurrentText(monospacefontStrList.at(0));
-//    ui->peonyfontCbx->setCurrentText(peonyfontStrList.at(0));
-//    ui->titlefontCbx->setCurrentText(titlebarfontStrList.at(0));
-//    ui->defaultfontCbx->blockSignals(false);
-//    ui->docfontCbx->blockSignals(false);
-//    ui->monofontCbx->blockSignals(false);
-//    ui->peonyfontCbx->blockSignals(false);
-//    ui->titlefontCbx->blockSignals(false);
-
-//    ui->defaultsizeCbx->blockSignals(true);
-//    ui->docsizeCbx->blockSignals(true);
-//    ui->monosizeCbx->blockSignals(true);
-//    ui->peonysizeCbx->blockSignals(true);
-//    ui->titlesizeCbx->blockSignals(true);
-//    ui->defaultsizeCbx->setCurrentText(gtkfontStrList.at(1));
-//    ui->docsizeCbx->setCurrentText(docfontStrList.at(1));
-//    ui->monosizeCbx->setCurrentText(monospacefontStrList.at(1));
-//    ui->peonysizeCbx->setCurrentText(peonyfontStrList.at(1));
-//    ui->titlesizeCbx->setCurrentText(titlebarfontStrList.at(1));
-//    ui->defaultsizeCbx->blockSignals(false);
-//    ui->docsizeCbx->blockSignals(false);
-//    ui->monosizeCbx->blockSignals(false);
-//    ui->peonysizeCbx->blockSignals(false);
-//    ui->titlesizeCbx->blockSignals(false);
+void Fonts::_getCurrentFontInfo(){
+    gtkfontStrList = _splitFontNameSize(ifsettings->get(GTK_FONT_KEY).toString());
+    docfontStrList = _splitFontNameSize(ifsettings->get(DOC_FONT_KEY).toString());
+    monospacefontStrList = _splitFontNameSize(ifsettings->get(MONOSPACE_FONT_KEY).toString());
+//    peonyfontStrList = _splitFontNameSize(peonysettings->get(PEONY_FONT_KEY).toString());
+    titlebarfontStrList = _splitFontNameSize(marcosettings->get(TITLEBAR_FONT_KEY).toString());
 }
 
-void Fonts::refresh_status(){
-//    refresh_mainpage_status();
-//    refresh_subpage_status();
+QStringList Fonts::_splitFontNameSize(QString value){
+    QStringList valueStringList;
+    if (value.right(1) >= '0' && value.right(1) <= '9'){
+        QStringList tmpStringList = value.split(' ');
+        QString::SectionFlag flag = QString::SectionSkipEmpty;
+        valueStringList << value.section(' ', 0, tmpStringList.length() - 2, flag);
+        valueStringList << value.section(' ', tmpStringList.length() - 1, tmpStringList.length() - 1, flag);
+    }
+    else{
+        valueStringList << value << "10";
+    }
+    return valueStringList;
 }
 
-void Fonts::status_init(){
-//    refresh_status();
-    //设置状态后绑定slot
-//    connect(ui->fontsComboBox, SIGNAL(currentTextChanged(QString)), this, SLOT(combobox_changed_slot(QString)));
-//    connect(ui->radioBtnbuttonGroup, SIGNAL(buttonClicked(int)), this, SLOT(radiobtn_clicked_slot(int)));
-//    connect(ui->pushBtnbuttonGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(pushbtn_clicked_slot(QAbstractButton*)));
-//    connect(ui->resetBtn, SIGNAL(clicked()), this, SLOT(reset_default_slot()));
-//    connect(ui->advancedBtn, &QPushButton::clicked, this, [=]{ui->StackedWidget->setCurrentIndex(1);});
-
-//    connect(ui->defaultfontCbx, &ComboBox::currentTextChanged, this, [=](QString text){
-//        rebuild_size_combo(ui->defaultsizeCbx, text);
-//        ifsettings->set(GTK_FONT_KEY, QVariant(QString("%1 %2").arg(text).arg(ui->defaultsizeCbx->currentText())));
-//        refresh_mainpage_status();
-//    });
-//    connect(ui->docfontCbx, &ComboBox::currentTextChanged, this, [=](QString text){
-//        rebuild_size_combo(ui->docsizeCbx, text);
-//        ifsettings->set(DOC_FONT_KEY, QVariant(QString("%1 %2").arg(text).arg(ui->docsizeCbx->currentText())));
-//        refresh_mainpage_status();
-//    });
-//    connect(ui->monofontCbx, &ComboBox::currentTextChanged, this, [=](QString text){
-//        rebuild_size_combo(ui->monosizeCbx, text);
-//        ifsettings->set(MONOSPACE_FONT_KEY, QVariant(QString("%1 %2").arg(text).arg(ui->monosizeCbx->currentText())));
-//        refresh_mainpage_status();
-//    });
-//    connect(ui->peonyfontCbx, &ComboBox::currentTextChanged, this, [=](QString text){
-//        rebuild_size_combo(ui->peonysizeCbx, text);
-//        peonysettings->set(PEONY_FONT_KEY, QVariant(QString("%1 %2").arg(text).arg(ui->peonysizeCbx->currentText())));
-//        refresh_mainpage_status();
-//    });
-//    connect(ui->titlefontCbx, &ComboBox::currentTextChanged, this, [=](QString text){
-//        rebuild_size_combo(ui->titlesizeCbx, text);
-//        marcosettings->set(TITLEBAR_FONT_KEY, QVariant(QString("%1 %2").arg(text).arg(ui->titlesizeCbx->currentText())));
-//        refresh_mainpage_status();
-//    });
-
-//    connect(ui->defaultsizeCbx, &ComboBox::currentTextChanged, this, [=](QString text){
-//        ifsettings->set(GTK_FONT_KEY, QVariant(QString("%1 %2").arg(ui->defaultfontCbx->currentText()).arg(text)));
-//        refresh_mainpage_status();
-//    });
-//    connect(ui->docsizeCbx, &ComboBox::currentTextChanged, this, [=](QString text){
-//        ifsettings->set(DOC_FONT_KEY, QVariant(QString("%1 %2").arg(ui->docfontCbx->currentText()).arg(text)));
-//        refresh_mainpage_status();
-//    });
-//    connect(ui->monosizeCbx, &ComboBox::currentTextChanged, this, [=](QString text){
-//        ifsettings->set(MONOSPACE_FONT_KEY, QVariant(QString("%1 %2").arg(ui->monofontCbx->currentText()).arg(text)));
-//        refresh_mainpage_status();
-//    });
-//    connect(ui->peonysizeCbx, &ComboBox::currentTextChanged, this, [=](QString text){
-//        peonysettings->set(PEONY_FONT_KEY, QVariant(QString("%1 %2").arg(ui->peonyfontCbx->currentText()).arg(text)));
-//        refresh_mainpage_status();
-//    });
-//    connect(ui->titlesizeCbx, &ComboBox::currentTextChanged, this, [=](QString text){
-//        marcosettings->set(TITLEBAR_FONT_KEY, QVariant(QString("%1 %2").arg(ui->titlefontCbx->currentText()).arg(text)));
-//        refresh_mainpage_status();
-//    });
-
-//    connect(ui->defaultBtn, &QPushButton::clicked, [=]{
-//        ifsettings->reset(GTK_FONT_KEY);
-//        refresh_status();
-//    });
-//    connect(ui->docBtn, &QPushButton::clicked, [=]{
-//        ifsettings->reset(DOC_FONT_KEY);
-//        refresh_status();
-//    });
-//    connect(ui->monoBtn, &QPushButton::clicked, [=]{
-//        ifsettings->reset(MONOSPACE_FONT_KEY);
-//        refresh_status();
-//    });
-//    connect(ui->peonyBtn, &QPushButton::clicked, [=]{
-//        peonysettings->reset(PEONY_FONT_KEY);
-//        refresh_status();
-//    });
-//    connect(ui->titleBtn, &QPushButton::clicked, [=]{
-//        marcosettings->reset(TITLEBAR_FONT_KEY);
-//        refresh_status();
-//    });
-}
-
-//void Fonts::rebuild_size_combo(ComboBox *combo, QString text){
-//    combo->blockSignals(true);
-//    QString oldsize = combo->currentText();
-//    combo->removewidgetItems();
-//    QList<int> sizeList = fontdb.pointSizes(text);
-//    if (sizeList.length() == 0)
-//        sizeList = defaultsizeList;
-//    for (int size : sizeList)
-//        combo->addwidgetItem(QString::number(size));
-//    combo->setCurrentText(oldsize);
-
-//    combo->blockSignals(false);
-//}
-
-void Fonts::setFontEffectSlot(QAbstractButton *button){
+void Fonts::setFontEffect(QAbstractButton *button){
     QPushButton * btnclicked = (QPushButton *)button;
     FontEffects * setFontEffects = (FontEffects *)(btnclicked->userData(Qt::UserRole));
 
@@ -753,31 +595,18 @@ void Fonts::setFontEffectSlot(QAbstractButton *button){
     g_object_unref(settings);
 }
 
-void Fonts::resetDefaultSlot(){
+void Fonts::resetDefault(){
     //reset font
     ifsettings->reset(GTK_FONT_KEY);
     ifsettings->reset(DOC_FONT_KEY);
     ifsettings->reset(MONOSPACE_FONT_KEY);
-    peonysettings->reset(PEONY_FONT_KEY);
+//    peonysettings->reset(PEONY_FONT_KEY);
     marcosettings->reset(TITLEBAR_FONT_KEY);
 
     //reset font render
     rendersettings->reset(ANTIALIASING_KEY);
     rendersettings->reset(HINTING_KEY);
 
-//    refresh_status();
-}
-
-void Fonts::combobox_changed_slot(QString text){
-    get_current_fonts();
-    for (int i = 0; i < N; i++){
-        if (fontinfo[i].type == text){
-            ifsettings->set(GTK_FONT_KEY, QVariant(QString("%1 %2").arg(fontinfo[i].gtkfont).arg(gtkfontStrList[1])));
-            ifsettings->set(DOC_FONT_KEY, QVariant(QString("%1 %2").arg(fontinfo[i].docfont).arg(docfontStrList[1])));
-            ifsettings->set(MONOSPACE_FONT_KEY, QVariant(QString("%1 %2").arg(fontinfo[i].monospacefont).arg(monospacefontStrList[1])));
-            peonysettings->set(PEONY_FONT_KEY, QVariant(QString("%1 %2").arg(fontinfo[i].peonyfont).arg(peonyfontStrList[1])));
-            marcosettings->set(TITLEBAR_FONT_KEY, QVariant(QString("%1 %2").arg(fontinfo[i].titlebarfont).arg(titlebarfontStrList[1])));
-        }
-    }
-    refresh_subpage_status();
+    //更新全部状态
+    initFontStatus();
 }

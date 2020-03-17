@@ -130,7 +130,7 @@ void About::setupComponent(){
     cpuArch->setText(QSysInfo::currentCpuArchitecture());
     ui->systemFormLayout->addRow(tr("CPU Arch:"), cpuArch);
     //设置内核版本号
-    qDebug() << QSysInfo::kernelType() << QSysInfo::kernelVersion();
+//    qDebug() << QSysInfo::kernelType() << QSysInfo::kernelVersion();
     QLabel * kernelLabel = new QLabel(tr("UNKNOWN"));
     kernelLabel->setText(QSysInfo::kernelType() + " " + QSysInfo::kernelVersion());
     ui->systemFormLayout->addRow(tr("Kernel Version"), kernelLabel);

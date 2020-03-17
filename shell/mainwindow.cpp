@@ -280,10 +280,10 @@ void MainWindow::loadPlugins(){
 
 
     foreach (QString fileName, pluginsDir.entryList(QDir::Files)){
+//        if (fileName == "libdisplay.so")
+//            continue;
+
         qDebug() << "Scan Plugin: " << fileName;
-        //ukui-indicators(org.ukui.panel.indicators.gschema.xml)
-        QString indicatorFileStr = "/usr/share/glib-2.0/schemas/org.ukui.panel.indicators.gschema.xml";
-        const char * indicatorFile = indicatorFileStr.toStdString().c_str();
         //gsettings-desktop-schemas
         const char * proxyFile = "/usr/share/glib-2.0/schemas/org.gnome.system.proxy.gschema.xml";
         const char * gnomedesktopFile = "/usr/share/glib-2.0/schemas/org.gnome.desktop.wm.preferences.gschema.xml";
@@ -291,7 +291,7 @@ void MainWindow::loadPlugins(){
         const char * interfaceFile = "/usr/share/glib-2.0/schemas/org.mate.interface.gschema.xml";
         const char * bgFile = "/usr/share/glib-2.0/schemas/org.mate.background.gschema.xml";
         //peony-common
-        const char * peonyFile = "/usr/share/glib-2.0/schemas/org.ukui.peony.gschema.xml";
+//        const char * peonyFile = "/usr/share/glib-2.0/schemas/org.ukui.peony.gschema.xml";
         //libmatekbd-common
         const char * kbdFile = "/usr/share/glib-2.0/schemas/org.mate.peripherals-keyboard-xkb.gschema.xml";
         //ukui-power-manager-common
@@ -303,16 +303,13 @@ void MainWindow::loadPlugins(){
         //ukui-settings-daemon-common
         const char * usdFile = "/usr/share/glib-2.0/schemas/org.ukui.font-rendering.gschema.xml";
 
-        //时间和日期功能依赖ukui-indicators
-//        if (!g_file_test(indicatorFile, G_FILE_TEST_EXISTS) && fileName == "libdatetime.so")
-//            continue;
         //代理功能依赖gsettings-desktop-schemas
         if (!g_file_test(proxyFile, G_FILE_TEST_EXISTS) && fileName == "libproxy.so")
             continue;
         //字体功能依赖gsettings-desktop-schemas,mate-desktop-common,peony-common,ukui-settings-daemon-common
         if ((!g_file_test(interfaceFile, G_FILE_TEST_EXISTS) ||
                 !g_file_test(gnomedesktopFile, G_FILE_TEST_EXISTS) ||
-                !g_file_test(peonyFile, G_FILE_TEST_EXISTS) ||
+//                !g_file_test(peonyFile, G_FILE_TEST_EXISTS) ||
                 !g_file_test(usdFile, G_FILE_TEST_EXISTS)) && fileName == "libfonts.so")
             continue;
         //键盘功能的键盘布局依赖libmatekbd-common
@@ -476,6 +473,7 @@ void MainWindow::functionBtnClicked(QObject *plugin){
 }
 
 void MainWindow::sltMessageReceived(const QString &msg) {
+    Q_UNUSED(msg)
     Qt::WindowFlags flags = windowFlags();
     flags |= Qt::WindowStaysOnTopHint;
     setWindowFlags(flags);
