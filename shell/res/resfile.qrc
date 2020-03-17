@@ -117,6 +117,7 @@
         <file>secondaryleftmenu/experienceplanWhite.png</file>
         <file>plugins/shortcut/note.png</file>
         <file>plugins/screenlock/none.png</file>
+        <file>plugins/about/logo.png</file>
     </qresource>
     <qresource prefix="/">
         <file>i18n/zh_CN.qm</file>
