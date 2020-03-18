@@ -104,6 +104,12 @@
         <file>plugins/userinfo/defaultface.png</file>
         <file>primaryleftmenu/network.png</file>
         <file>plugins/theme/light.png</file>
+        <file>plugins/netconnect/wifi1.png</file>
+        <file>plugins/netconnect/wifi2.png</file>
+        <file>plugins/netconnect/wifi3.png</file>
+        <file>plugins/netconnect/wifi4.png</file>
+        <file>plugins/netconnect/eth.png</file>
+        <file>titlebar/closeWhite.png</file>
         <file>plugins/shortcut/add.png</file>
         <file>secondaryleftmenu/shortcutWhite.png</file>
         <file>secondaryleftmenu/shortcut.png</file>

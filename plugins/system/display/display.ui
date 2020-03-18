@@ -74,6 +74,12 @@
           <height>30</height>
          </size>
         </property>
+        <property name="maximumSize">
+         <size>
+          <width>118</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <pointsize>9</pointsize>
@@ -140,19 +146,6 @@ QComboBox::drop-down{
        </widget>
       </item>
       <item>
-       <spacer name="horizontalSpacer_5">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
        <widget class="QPushButton" name="mainScreenButton">
         <property name="minimumSize">
          <size>
@@ -162,7 +155,7 @@ QComboBox::drop-down{
         </property>
         <property name="maximumSize">
          <size>
-          <width>16777215</width>
+          <width>120</width>
           <height>30</height>
          </size>
         </property>

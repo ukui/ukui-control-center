@@ -29,8 +29,13 @@
 #include <QtNetwork/QtNetwork>
 
 #include <QTimer>
+#include <QStringList>
+#include <QGSettings/qgsettings.h>
 
 #include "shell/interface.h"
+
+
+#include "SwitchButton/switchbutton.h"
 
 
 enum {
@@ -73,7 +78,9 @@ public:
 
 public:
     void initComponent();
+    void getNetList();
     void rebuildNetStatusComponent();
+    void rebuildAvailComponent(QString iconpath, QString netName);
 
     void _acquireCardInfo();
     void runExternalApp();
@@ -85,9 +92,30 @@ private:
     int pluginType;
     QWidget * pluginWidget;
 
+    SwitchButton *wifiBtn;
+
     QNetworkConfigurationManager * nmg;
 
     QList<CardInfo> cardinfoQList;
+
+    QMap<QString, int> connectedWifi;
+    QMap<QString,int> wifiList;     //wifi list<name,Signal strength>
+    QStringList lanList;            // list of wired network
+    QString connectedLan;
+    QGSettings *m_gsettings = nullptr;
+
+
+private:
+    int setSignal(QString lv); //get wifi's strength
+    QStringList execGetLanList();
+    QStringList execGetWifiList();
+    void getWifiListDone(QStringList wifislist, QStringList lanList);
+    bool getSwitchStatus(QString key);
+
+private slots:
+    void wifiSwitchSlot(bool signal);
+
+
 
 };
 

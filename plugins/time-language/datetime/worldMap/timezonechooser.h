@@ -43,6 +43,7 @@ private:
     QLabel      *m_title;
     QPushButton *m_cancelBtn;
     QPushButton *m_confirmBtn;
+    QPushButton *closeBtn;
 
 };
 

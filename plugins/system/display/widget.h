@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QVariantMap>
+#include <QGSettings/QGSettings>
 
 #include <KF5/KScreen/kscreen/config.h>
 
@@ -83,6 +84,7 @@ class Widget : public QWidget
     void writeFile(const QString& filepath, const QStringList& content);
 
     float converToScale(const int value);
+    int scaleToSlider(const float value);
 
 
 
@@ -145,6 +147,10 @@ class Widget : public QWidget
 
     float scaleRet();
     void writeScale(float scale);
+    void initGSettings();
+    bool getNightModeGSetting(const QString &key);
+    void setNightModebyPanel(bool judge);
+
 
   private:
     Ui::DisplayWindow *ui;
@@ -180,6 +186,8 @@ class Widget : public QWidget
     QStringList proRes;        //profile文件内容
 
     Slider *slider;
+    QGSettings *m_gsettings = nullptr;
+
 };
 
 #endif // WIDGET_H

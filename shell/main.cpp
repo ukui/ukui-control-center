@@ -34,6 +34,7 @@
 
 int main(int argc, char *argv[])
 {
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QtSingleApplication a(argc, argv);
     if (a.isRunning()){
         a.sendMessage(a.applicationFilePath());

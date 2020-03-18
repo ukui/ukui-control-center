@@ -25,7 +25,8 @@
 #include <QDir>
 
 
-
+#define FORMAT_SCHEMA "org.ukui.panel.plugins"
+#define TIME_FORMAT_KEY "hour-system"
 
 DateTime::DateTime()
 {
@@ -52,10 +53,11 @@ DateTime::DateTime()
 
 
     //初始化gsettings
-//    const QByteArray id(FORMAT_SCHEMA);
-
-//    m_formatsettings = new QGSettings(id);
-
+    const QByteArray id(FORMAT_SCHEMA);
+    if(QGSettings::isSchemaInstalled(id)) {
+        const QByteArray id(FORMAT_SCHEMA);
+        m_formatsettings = new QGSettings(id);
+    }
 
     //初始化dbus
     m_datetimeiface = new QDBusInterface("org.freedesktop.timedate1",
@@ -66,12 +68,8 @@ DateTime::DateTime()
     m_datetimeiproperties = new QDBusInterface("org.freedesktop.timedate1",
                                              "/org/freedesktop/timedate1",
                                              "org.freedesktop.DBus.Properties",
-                                             QDBusConnection::systemBus());
+                                             QDBusConnection::systemBus());    
 
-    QString filename = QDir::homePath() + "/.config/hour.ini";
-
-    m_formatsettings = new QSettings(filename, QSettings::IniFormat);
-    m_formatsettings->setIniCodec("UTF-8");
 
     component_init();
     status_init();
@@ -142,13 +140,15 @@ void DateTime::component_init(){
     ui->endlabel->setStyleSheet("QLabel#endlabel{background: #3D6BE5;border-radius:4px;}");
     ui->endlabel->setVisible(false);
 
+//    m_formTimeBtn->setChecked(false);
+
     QHBoxLayout *hourLayout = new QHBoxLayout(ui->hourWidget);
 
     hourLayout->addWidget(m_formTimeLabel);
     hourLayout->addWidget(m_formTimeBtn);
 
 
-    //ui->hourwidget->addWidget(formTimeLabel);
+//    ui->hourwidget->addWidget(formTimeLabel);
 
 
     QDateTime currentime = QDateTime::currentDateTime();
@@ -220,12 +220,11 @@ void DateTime::datetime_update_slot(){
 
     QDateTime current = QDateTime::currentDateTime();
 
-
     QString currentsecStr ;
     if(m_formTimeBtn->isChecked()){
         currentsecStr = current.toString("hh : mm : ss");
     }else{
-        currentsecStr = current.toString("hh/A : mm : ss");
+        currentsecStr = current.toString("AP hh: mm : ss");
     }
 
     ui->timeLable->setText(currentsecStr);
@@ -234,7 +233,7 @@ void DateTime::datetime_update_slot(){
 }
 
 void DateTime::changetime_slot(){
-    ChangtimeDialog *dialog = new ChangtimeDialog(this->m_EFHour);
+    ChangtimeDialog *dialog = new ChangtimeDialog(m_formTimeBtn->isChecked());
     dialog->setWindowTitle(tr("change time"));
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->exec();
@@ -242,7 +241,7 @@ void DateTime::changetime_slot(){
 
 
 void DateTime::changezone_slot(){
-    qDebug()<<"changezone_slot------->"<<endl;
+//    qDebug()<<"changezone_slot------->"<<endl;
     m_timezone->show();
     m_timezone->setMarkedTimeZoneSlot(m_zoneinfo->getCurrentTimzone());
 }
@@ -251,13 +250,13 @@ void DateTime::changezone_slot(QString zone){
     m_datetimeiface->call("SetTimezone", zone, true);
 }
 
-void DateTime::time_format_clicked_slot(bool flag){
-    m_EFHour = flag;
-    m_formatsettings->beginGroup("General");
-    m_formatsettings->setValue("EFhour",flag);
-    m_formatsettings->endGroup();
-    m_formatsettings->sync();
+void DateTime::time_format_clicked_slot(bool flag){    
 
+    if(flag == true) {
+        m_formatsettings->set(TIME_FORMAT_KEY, "24");
+    } else {
+        m_formatsettings->set(TIME_FORMAT_KEY, "12");
+    }
     //重置时间格式
     m_itimer->stop();
     m_itimer->start(1000);
@@ -293,8 +292,10 @@ void DateTime::rsync_with_network_slot(){
 }
 
 void DateTime::loadHour() {
-    m_formatsettings->beginGroup("General");
-    m_EFHour = m_formatsettings->value("EFhour",m_EFHour).toBool();
-    m_formatsettings->endGroup();
-    m_formTimeBtn->setChecked(m_EFHour);
+    QString format =m_formatsettings->get(TIME_FORMAT_KEY).toString();
+    if (format == "24") {
+        m_formTimeBtn->setChecked(true);
+    } else {
+        m_formTimeBtn->setChecked(false);
+    }
 }

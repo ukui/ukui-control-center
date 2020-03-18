@@ -1,0 +1,34 @@
+<schemalist gettext-domain="ukui-control-center">
+        <schema id="org.ukui.control-center.panel.plugins" path="/org/ukui/control-center/panel/plugins/">
+        <key name="nightmode" type="b">
+            <default>false</default>
+            <summary>nightmode status</summary>
+            <description>nightmode used in UKUI Desktop Environment ,control by ukui-panel and ukui-control-center</description>
+        </key>
+        <key name="hour-system" type="s">
+            <default>'24'</default>
+            <summary>HourSystem status</summary>
+            <description>hoursystem used in UKUI Desktop Environment ,ontrol by ukui-panel and ukui-control-center</description>
+        </key>
+        <key name="calendar" type="s">
+            <default>'lunar'</default>
+            <summary>Lunar calendar</summary>
+            <description>calendar system used in UKUI Desktop Environment ,ontrol by ukui-panel and ukui-control-center</description>
+        </key>
+        <key name="firstday" type="s">
+            <default>'monday'</default>
+            <summary>first of week</summary>
+            <description>Select the first day of the week</description>
+        </key>
+        <key name="date" type="s">
+            <default>'cn'</default>
+            <summary>first of week</summary>
+            <description>Select the first day of the week</description>
+        </key>
+        <key name="time" type="s">
+            <default>'24'</default>
+            <summary>first of week</summary>
+            <description>Select the first day of the week</description>
+        </key>
+    </schema>
+</schemalist>

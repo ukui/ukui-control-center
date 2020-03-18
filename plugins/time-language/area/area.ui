@@ -46,7 +46,7 @@
         </size>
        </property>
        <property name="text">
-        <string>TextLabel</string>
+        <string>current area</string>
        </property>
       </widget>
      </item>
@@ -124,7 +124,7 @@
            </size>
           </property>
           <property name="text">
-           <string>TextLabel</string>
+           <string>Area showing time currency format</string>
           </property>
          </widget>
         </item>
@@ -215,7 +215,7 @@ QComboBox QListView::item:selected{
         </size>
        </property>
        <property name="text">
-        <string>TextLabel</string>
+        <string>Regional format data</string>
        </property>
       </widget>
      </item>
@@ -269,14 +269,14 @@ QComboBox QListView::item:selected{
            </size>
           </property>
           <property name="text">
-           <string>TextLabel</string>
+           <string>calendar</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="calendarlabel_2">
+         <widget class="QLabel" name="Lunarcalendar">
           <property name="text">
-           <string>TextLabel</string>
+           <string>lunar</string>
           </property>
          </widget>
         </item>
@@ -299,14 +299,14 @@ QComboBox QListView::item:selected{
            </size>
           </property>
           <property name="text">
-           <string>TextLabel</string>
+           <string>First day of the week</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="weeklabel_2">
+         <widget class="QLabel" name="firstDayLabel">
           <property name="text">
-           <string>TextLabel</string>
+           <string>day</string>
           </property>
          </widget>
         </item>
@@ -329,14 +329,14 @@ QComboBox QListView::item:selected{
            </size>
           </property>
           <property name="text">
-           <string>TextLabel</string>
+           <string>date</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="datelabel_2">
+         <widget class="QLabel" name="datelabelshow">
           <property name="text">
-           <string>TextLabel</string>
+           <string>2019/12/17</string>
           </property>
          </widget>
         </item>
@@ -359,14 +359,14 @@ QComboBox QListView::item:selected{
            </size>
           </property>
           <property name="text">
-           <string>TextLabel</string>
+           <string>time</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="timelabel_2">
+         <widget class="QLabel" name="timelabelshow">
           <property name="text">
-           <string>TextLabel</string>
+           <string>9:52</string>
           </property>
          </widget>
         </item>
@@ -395,7 +395,7 @@ QComboBox QListView::item:selected{
         </size>
        </property>
        <property name="text">
-        <string>PushButton</string>
+        <string>change format of data</string>
        </property>
       </widget>
      </item>

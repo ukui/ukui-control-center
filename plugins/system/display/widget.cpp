@@ -40,6 +40,10 @@
 
 
 #define QML_PATH "kcm_kscreen/qml/"
+#define UKUI_CONTORLCENTER_PANEL_SCHEMAS "org.ukui.control-center.panel.plugins"
+
+#define NIGHT_MODE_KEY "nightmode"
+
 Q_DECLARE_METATYPE(KScreen::OutputPtr)
 
 
@@ -64,7 +68,10 @@ Widget::Widget(QWidget *parent)
     ui->mainScreenButton->setStyleSheet("QPushButton{background-color:#F8F9F9;border-radius:6px;font-size:14px;}"
                                    "QPushButton:hover{background-color: #3D6BE5;};border-radius:6px");
 
+    int value;
+    value = scaleToSlider(scaleRet());
     ui->scaleWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+    slider->setValue(value);
     slider->setRange(1,5);
     slider->setTickInterval(1);
     slider->setPageStep(1);
@@ -105,7 +112,7 @@ Widget::Widget(QWidget *parent)
     initNightStatus();
 
     nightButton->setVisible(this->m_redshiftIsValid);
-    qDebug()<<"set night mode here ---->"<<this->m_isNightMode<<endl;
+//    qDebug()<<"set night mode here ---->"<<this->m_isNightMode<<endl;
     nightButton->setChecked(this->m_isNightMode);
 
 
@@ -180,6 +187,7 @@ Widget::Widget(QWidget *parent)
     connect(mOutputTimer, &QTimer::timeout,
             this, &Widget::clearOutputIdentifiers);
 
+    initGSettings();
     loadQml();
     setBrigthnessFile();
     //亮度调节UI
@@ -280,7 +288,7 @@ void Widget::loadQml()
 
 //    QString tmpfile = QCoreApplication::applicationDirPath();
 
-    qDebug()<<"路径----------------->";
+//    qDebug()<<"路径----------------->";
     const QString file = QStringLiteral(":/qml/main.qml");
 
     ui->quickWidget->setSource(QUrl::fromLocalFile(file));
@@ -521,7 +529,7 @@ float Widget::scaleRet() {
     QRegExp re("export( GDK_DPI_SCALE)?=(.*)$");
     for(int i = 0; i < res.length(); i++) {
         int pos = 0;
-        qDebug()<<res.at(i)<<endl;
+//        qDebug()<<res.at(i)<<endl;
         QString str = res.at(i);
         while ((pos = re.indexIn(str, pos)) != -1) {
             scale = re.cap(2);
@@ -552,6 +560,46 @@ void Widget::writeScale(float scale) {
         this->proRes.append(strQT + QString::number(scale));
     }
     writeFile(filepath, this->proRes);
+}
+
+
+void Widget::initGSettings() {   
+    QByteArray id(UKUI_CONTORLCENTER_PANEL_SCHEMAS);
+    if(QGSettings::isSchemaInstalled(id)) {
+//        qDebug()<<"initGSettings-------------------->"<<endl;
+        m_gsettings = new QGSettings(id)        ;
+    } else {
+        return ;
+    }
+
+    connect(m_gsettings, &QGSettings::changed, this, [=] (const QString &key) {
+        if (NIGHT_MODE_KEY == key) {
+//            qDebug()<<"key is changed----------------->"<<key<<endl;
+            bool value = this->getNightModeGSetting(key);
+            setNightModebyPanel(value);
+        }
+    });
+}
+
+bool Widget::getNightModeGSetting(const QString &key) {
+    if (!m_gsettings) {
+        return "";
+    }
+    const QStringList list = m_gsettings->keys();
+    if (!list.contains(key)) {
+        return "";
+    }
+    bool res = m_gsettings->get(key).toBool();
+    return res;
+}
+
+void Widget::setNightModebyPanel(bool judge) {
+    QProcess *process = new QProcess;
+    if(judge == true) {        
+        process->startDetached("redshift -t 5700:3600 -g 0.8 -m randr -v");
+    }  else {        
+        QProcess::execute("killall redshift");
+    }
 }
 
 void Widget::clearOutputIdentifiers()
@@ -844,7 +892,7 @@ void Widget::primaryButtonEnable(){
 }
 
 void Widget::checkOutputScreen(bool judge){
-   qDebug()<<"is enable screen---->"<<judge<<endl;
+//   qDebug()<<"is enable screen---->"<<judge<<endl;
    int index  = ui->primaryCombo->currentIndex();
    const KScreen::OutputPtr newPrimary = mConfig->output(ui->primaryCombo->itemData(index).toInt());
    if(ui->primaryCombo->count()<=1&&judge ==false)
@@ -1281,11 +1329,12 @@ void Widget::getEdidInfo(QString monitorName,xmlFile *xml){
     monitorName = monitorName.mid(0,index);\
 
     QString cmdGrep  = "ls /sys/class/drm/ | grep " +monitorName;
-    const char *cmdfile =cmdGrep.toStdString().c_str();
+    QByteArray tmpBa = cmdGrep.toLatin1();
+    const char *cmdfile =tmpBa.data();
 
     QByteArray ba;
     FILE * fp = NULL;
-    char cmd[1024];
+    char cmd[128];
     char buf[1024];
 
     sprintf(cmd, "%s", cmdfile);
@@ -1300,13 +1349,15 @@ void Widget::getEdidInfo(QString monitorName,xmlFile *xml){
     QString fileName = QString(ba);
     fileName = fileName.mid(0,fileName.length()-1);
 
+//    qDebug()<<"file name is----------------------->"<<fileName<<endl;
+
     QString edidPath = "cat /sys/class/drm/"+fileName+"/edid | edid-decode | grep Manufacturer";
-//    QByteArray tmpEdit = edidPath.toLatin1();
-    const char *runCmd = edidPath.toStdString().c_str();
+    QByteArray tmpEdit = edidPath.toLatin1();
+    const char *runCmd = tmpEdit.data();
 
     QByteArray edidBa;
     FILE * fpEdid = NULL;
-    char cmdEdid[1024];
+    char cmdEdid[128];
     char bufEdid[1024];
     sprintf(cmdEdid, "%s", runCmd);
     if ((fpEdid = popen(cmdEdid, "r")) != NULL){
@@ -1321,10 +1372,11 @@ void Widget::getEdidInfo(QString monitorName,xmlFile *xml){
     QString res = QString(edidBa);
     res = res.mid(0,res.length()-1);
 
-
     int modelIndex = res.indexOf("Model");
     int serialIndex =  res.indexOf("Serial Number");
-    xml->productName = "0x"+res.mid(modelIndex+6,serialIndex-modelIndex-7);
+    QString modelStr= res.mid(modelIndex+6,serialIndex-modelIndex-7);
+    int modelDec = modelStr.toInt();
+    xml->productName = "0x"+QString("%1").arg(modelDec,4,16,QLatin1Char('0'));
 
 
     QString serialStr = res.mid(serialIndex+14,res.length()-serialIndex-14);
@@ -1398,7 +1450,7 @@ QStringList Widget::readFile(const QString& filepath) {
 }
 
 void Widget::writeFile(const QString &filepath, const QStringList &content) {
-    qDebug()<<"witeFile--------->"<<endl;
+//    qDebug()<<"witeFile--------->"<<endl;
     QFile file(filepath);
 
     if(!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
@@ -1435,6 +1487,23 @@ float Widget::converToScale(const int value) {
         break;
     }
 }
+
+int Widget::scaleToSlider(const float value) {
+    if(1.0 == value) {
+        return 1;
+    } else if(1.25 == value) {
+        return 2;
+    } else if(1.5 == value) {
+        return 3;
+    } else if(1.75 == value) {
+        return 4;
+    } else if(2.0 == value) {
+        return 5;
+    } else {
+        return 1;
+    }
+}
+
 
 
 void Widget::setRedShiftIsValid(bool redshiftIsValid){

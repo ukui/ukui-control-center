@@ -32,6 +32,15 @@ ChangtimeDialog::ChangtimeDialog(bool hour,QWidget *parent) :m_isEFHour(hour),
     ui(new Ui::changtimedialog)
 {
     ui->setupUi(this);
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
+    setAttribute(Qt::WA_TranslucentBackground);
+
+    ui->frame->setStyleSheet("QFrame{background: #ffffff; border: none; border-radius: 6px;}");
+    //关闭按钮在右上角，窗体radius 6px，所以按钮只得6px
+    ui->closeBtn->setIcon(QIcon("://img/titlebar/close.png"));
+    ui->closeBtn->setStyleSheet("QPushButton#closeBtn{background: #ffffff; border: none; border-radius: 6px;}"
+                                "QPushButton:hover:!pressed#closeBtn{background: #FA6056; border: none; border-top-left-radius: 2px; border-top-right-radius: 6px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;}"
+                                "QPushButton:hover:pressed#closeBtn{background: #E54A50; border: none; border-top-left-radius: 2px; border-top-right-radius: 6px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;}");
 
 //    const QByteArray id(FORMAT_SCHEMA);
 //    m_formatsettings = new QGSettings(id);
@@ -54,6 +63,10 @@ ChangtimeDialog::ChangtimeDialog(bool hour,QWidget *parent) :m_isEFHour(hour),
     connect(ui->yearcomboBox,SIGNAL(currentIndexChanged(int)),this,SLOT(dayUpdateSlot()));
     connect(ui->cancelButton,SIGNAL(clicked()),this,SLOT(close()));
     connect(ui->confirmButton,SIGNAL(clicked()),this,SLOT(changtimeApplySlot()));
+    connect(ui->closeBtn, &QPushButton::clicked, [=](bool checked){
+        Q_UNUSED(checked)
+        close();
+    });
 
 }
 
@@ -140,6 +153,7 @@ void ChangtimeDialog::changtimeApplySlot(){
     m_datetimeInterface->call("SetNTP", false, true);//先关闭网络同步
 
     m_datetimeInterface->call("SetTime", QVariant::fromValue(setdt.toSecsSinceEpoch() * G_TIME_SPAN_SECOND), false, true);
+    this->close();
 }
 
 void ChangtimeDialog::initUi(){
