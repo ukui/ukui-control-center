@@ -73,7 +73,7 @@ void ResolutionSlider::init()
     layout->setContentsMargins(0, 0, 0, 0);
     if (mModes.count() <= 60&&!mModes.empty()) {
         std::reverse(mModes.begin(), mModes.end());
-        mComboBox = new QComboBox(this);        
+        mComboBox = new QComboBox();
         mComboBox->setMinimumSize(402,30);
         mComboBox->setMaximumSize(1677215, 30);
 //        mComboBox->setSizeAdjustPolicy(QComboBox::AdjustToContents);

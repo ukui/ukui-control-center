@@ -58,7 +58,7 @@ NetConnect::NetConnect()
     ui->statusListWidget->setSelectionMode(QAbstractItemView::NoSelection);
     ui->availableListWidget->setSelectionMode(QAbstractItemView::NoSelection);
 
-    ui->detailBtn->setStyleSheet("QPushButton{border: none;}");
+//    ui->detailBtn->setStyleSheet("QPushButton{border: none;}");
 
     ui->openWifiWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
     ui->openWIifLayout->addWidget(wifiBtn);
