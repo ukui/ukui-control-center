@@ -17,6 +17,7 @@ TimeZoneChooser::TimeZoneChooser():QFrame ()
     m_zoneinfo = new ZoneInfo;
     m_searchInput = new QLineEdit;
     m_title = new QLabel;
+    closeBtn = new QPushButton;
     m_cancelBtn = new QPushButton(tr("Cancel"));
     m_confirmBtn = new QPushButton(tr("Confirm"));
 
@@ -24,14 +25,29 @@ TimeZoneChooser::TimeZoneChooser():QFrame ()
     setAttribute(Qt::WA_StyledBackground,true);
 
     this->setStyleSheet("background-color: rgb(22, 24, 26)");
+
+
+    closeBtn->setIcon(QIcon("://img/titlebar/closeWhite.png"));
+
+//    m_searchInput->setMinimumWidth(560);
+//    m_searchInput->setMinimumHeight(40);
     m_searchInput->setStyleSheet("background-color: rgb(229, 240, 250 )");
     m_cancelBtn->setStyleSheet("background-color: rgb(229, 240, 250 )");
     m_confirmBtn->setStyleSheet("background-color: rgb(229, 240, 250 )");
 
-    m_title->setStyleSheet("background-color: rgb(229, 240, 250 )");
-    m_title->setText(tr("change zonne"));
+/*    m_title->setMinimumWidth(179);
+    m_title->setMinimumHeight(29);*/;
+    m_title->setStyleSheet("color: rgb(229, 240, 250 )");
+    m_title->setText(tr("change timezone"));
+
 
     initSize();   
+
+    QHBoxLayout *wbLayout = new QHBoxLayout;
+    wbLayout->setMargin(6);
+    wbLayout->setSpacing(0);
+    wbLayout->addStretch();
+    wbLayout->addWidget(closeBtn);
 
     QHBoxLayout *btnlayout = new QHBoxLayout;
     btnlayout->addStretch();
@@ -45,6 +61,7 @@ TimeZoneChooser::TimeZoneChooser():QFrame ()
     layout->setMargin(0);
     layout->setSpacing(0);
 
+    layout->addLayout(wbLayout);
     layout->addStretch();
     layout->addWidget(m_title, 0, Qt::AlignHCenter);
     layout->addSpacing(40);
@@ -67,6 +84,12 @@ TimeZoneChooser::TimeZoneChooser():QFrame ()
         hide();
         emit this->cancelled();
     });
+
+    connect(closeBtn, &QPushButton::clicked, this, [this] {
+        hide();
+        emit cancelled();
+    });
+
 
     connect(m_map, &TimezoneMap::timezoneSelected, this, [this]{
         m_searchInput->setText("") ;
@@ -112,7 +135,7 @@ TimeZoneChooser::TimeZoneChooser():QFrame ()
 }
 
 void TimeZoneChooser::setTitle() {
-    m_title->setText(tr("Change Timezone"));
+    m_title->setText(tr("change timezone"));;
 }
 
 void TimeZoneChooser::setMarkedTimeZoneSlot(QString timezone) {

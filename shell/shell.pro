@@ -43,8 +43,14 @@ inst3.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.notice.gschema.xml
 inst3.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.noticeorigin.gschema.xml
 inst3.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.experienceplan.gschema.xml
 inst3.path = /usr/share/glib-2.0/schemas/
-inst4.files += $$PROJECT_ROOTDIR/data/faces/
-inst4.path = /usr/share/ukui/
+inst4.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.wifi.switch.gschema.xml
+inst4.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.wifi.switch.gschema.xml
+inst4.path = /usr/share/glib-2.0/schemas/
+inst5.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.panel.plugins.gschema.xml
+inst5.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.panel.plugins.gschema.xml
+inst5.path = /usr/share/glib-2.0/schemas/
+inst6.files += $$PROJECT_ROOTDIR/data/faces/
+inst6.path = /usr/share/ukui/
 
 target.source += $$TARGET
 target.path = /usr/bin
@@ -53,7 +59,9 @@ INSTALLS +=  \
             inst1 \
             inst2 \
 	    inst3 \
-	    inst4 \
+            inst4 \
+            inst5 \
+	    inst6 \
             target \
 
 INCLUDEPATH += qtsingleapplication
@@ -100,3 +108,7 @@ FORMS += \
 
 RESOURCES += \
     res/resfile.qrc
+
+DISTFILES += \
+    ../data/org.ukui.control-center.panel.plugins.gschema.xml \
+    ../data/org.ukui.control-center.wifi.switch.gschema.xml

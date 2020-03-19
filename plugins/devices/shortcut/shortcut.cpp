@@ -211,8 +211,6 @@ void Shortcut::appendCustomItems(){
 }
 
 void Shortcut::buildCustomItem(KeyEntry * nkeyEntry){
-//    qDebug() << nkeyEntry->gsPath << nkeyEntry->keyStr << nkeyEntry->valueStr;
-
     DefineShortcutItem * singleWidget = new DefineShortcutItem(nkeyEntry->nameStr, nkeyEntry->bindingStr);
     singleWidget->setDeleteable(true);
     singleWidget->setUpdateable(true);
