@@ -188,6 +188,7 @@ class Widget : public QWidget
 
     Slider *slider;
     QGSettings *m_gsettings = nullptr;
+
     int screenScale = 1;
 
 };

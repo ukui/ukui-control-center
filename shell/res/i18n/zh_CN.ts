@@ -1879,22 +1879,22 @@ folder will be deleted!</source>
         <translation type="vanished">默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="389"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="351"/>
         <source>basic</source>
         <translation>基础</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="391"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="353"/>
         <source>classical</source>
         <translation>经典</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="393"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="355"/>
         <source>default</source>
         <translation>默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="395"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="357"/>
         <source>Unknown</source>
         <translation>未知</translation>
     </message>
@@ -2112,7 +2112,7 @@ folder will be deleted!</source>
         <translation>恢复默认设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="94"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="68"/>
         <source>theme</source>
         <translation>主题</translation>
     </message>
@@ -2523,7 +2523,6 @@ folder will be deleted!</source>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
-    <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="817"/>
         <source>Sorry, your configuration could not be applied.
 
