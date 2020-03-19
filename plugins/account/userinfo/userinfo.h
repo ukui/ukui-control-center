@@ -23,10 +23,11 @@
 #include <QObject>
 #include <QtPlugin>
 
-#include <QToolButton>
-#include <QMenu>
-#include <QAction>
+//#include <QToolButton>
+//#include <QMenu>
+//#include <QAction>
 #include <QSignalMapper>
+#include <QMouseEvent>
 
 #include "shell/interface.h"
 
@@ -93,7 +94,7 @@ public:
     void _refreshUserInfoUI();
 
     void showCreateUserDialog();
-    void createUser(QString username, QString pwd, QString pin, int atype, bool autologin);
+    void createUser(QString username, QString pwd, QString pin, int atype);
     void createUserDone(QString objpath);
 
     void showDeleteUserDialog(QString username);
@@ -106,15 +107,20 @@ public:
     void showChangeTypeDialog(QString username);
     void changeUserType(int atype, QString username);
 
+    void showChangeFaceDialog(QString username);
+    void changeUserFace(QString facefile, QString username);
+
     void get_all_users();
     UserInfomation init_user_info(QString objpath);
     void setup_otherusers_ui();
     void build_item_with_widget(UserInfomation user);
     void ui_component_init();
-    void ui_status_init();
 
     QString accounttype_enum_to_string(int id);
     QString login_status_bool_to_string(bool status);
+
+protected:
+    bool eventFilter(QObject *watched, QEvent *event);
 
 private:
     Ui::UserInfo *ui;
@@ -137,7 +143,7 @@ private:
 
     QString _newUserPwd;
 
-    QMap<QString, QToolButton *> otherbtnMap;
+//    QMap<QString, QToolButton *> otherbtnMap;
     QMap<QString, QListWidgetItem *> otherItemMap;
 
     QSignalMapper * pwdSignalMapper;

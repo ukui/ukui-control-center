@@ -43,6 +43,8 @@ inst3.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.notice.gschema.xml
 inst3.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.noticeorigin.gschema.xml
 inst3.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.experienceplan.gschema.xml
 inst3.path = /usr/share/glib-2.0/schemas/
+inst4.files += $$PROJECT_ROOTDIR/data/faces/
+inst4.path = /usr/share/ukui/
 
 target.source += $$TARGET
 target.path = /usr/bin
@@ -51,6 +53,7 @@ INSTALLS +=  \
             inst1 \
             inst2 \
 	    inst3 \
+	    inst4 \
             target \
 
 INCLUDEPATH += qtsingleapplication

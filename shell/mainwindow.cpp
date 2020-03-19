@@ -195,7 +195,7 @@ MainWindow::MainWindow(QWidget *parent) :
                 ui->stackedWidget->setCurrentIndex(1);
                 modulepageWidget->switchPage(pluginsObjMap.value(funcStr));
             }
-        } else if (QApplication::arguments().at(1) == "-a"){
+        } else if (QApplication::arguments().at(1) == "-b"){
             //背景
             QList<FuncInfo> pFuncStructList = FunctionSelect::funcinfoList[PERSONALIZED];
             QString funcStr = pFuncStructList.at(BACKGROUND).namei18nString;
@@ -232,6 +232,18 @@ MainWindow::MainWindow(QWidget *parent) :
                 modulepageWidget->switchPage(pluginsObjMap.value(funcStr));
             }
 
+        } else if (QApplication::arguments().at(1) == "-a"){
+            //关于
+            QList<FuncInfo> pFuncStructList = FunctionSelect::funcinfoList[NOTICEANDTASKS];
+            QString funcStr = pFuncStructList.at(ABOUT).namei18nString;
+
+            QMap<QString, QObject *> pluginsObjMap = modulesList.at(NOTICEANDTASKS);
+
+            if (pluginsObjMap.keys().contains(funcStr)){
+                //开始跳转
+                ui->stackedWidget->setCurrentIndex(1);
+                modulepageWidget->switchPage(pluginsObjMap.value(funcStr));
+            }
         }
 
     }
@@ -280,9 +292,6 @@ void MainWindow::loadPlugins(){
 
 
     foreach (QString fileName, pluginsDir.entryList(QDir::Files)){
-//        if (fileName == "libdisplay.so")
-//            continue;
-
         qDebug() << "Scan Plugin: " << fileName;
         //gsettings-desktop-schemas
         const char * proxyFile = "/usr/share/glib-2.0/schemas/org.gnome.system.proxy.gschema.xml";

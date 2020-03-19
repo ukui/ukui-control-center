@@ -35,7 +35,6 @@
 KeyboardControl::KeyboardControl()
 {
     ui = new Ui::KeyboardControl;
-    itemDelege = new QStyledItemDelegate();
     pluginWidget = new QWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
@@ -76,6 +75,9 @@ KeyboardControl::KeyboardControl()
     //构建布局管理器对象
     layoutmanagerObj = new KbdLayoutManager(kbdsettings->get(KBD_LAYOUTS_KEY).toStringList());
 
+    //构建Combox代理，否则样式不全部生效
+    itemDelege = new QStyledItemDelegate();
+
     initComponent();
     initGeneralStatus();
 
@@ -107,6 +109,7 @@ void KeyboardControl::plugin_delay_control(){
 }
 
 void KeyboardControl::initComponent(){
+
     //重复输入开关按钮
     keySwitchBtn = new SwitchButton(pluginWidget);
     ui->enableHorLayout->addWidget(keySwitchBtn);

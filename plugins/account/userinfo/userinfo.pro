@@ -16,6 +16,7 @@ DESTDIR = ../../../pluginlibs
 include(../../../env.pri)
 include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
 include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
+include($$PROJECT_COMPONENTSOURCE/flowlayout.pri)
 
 INCLUDEPATH   +=  \
                  $$PROJECT_COMPONENTSOURCE \

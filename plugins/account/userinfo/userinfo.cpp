@@ -43,7 +43,7 @@ extern "C" {
 }
 
 
-#define DEFAULTFACE "://img/plugins/userinfo/defaultface.png"
+#define DEFAULTFACE "/usr/share/ukui/faces/default.png"
 #define ITEMHEIGH 58
 
 UserInfo::UserInfo()
@@ -119,26 +119,6 @@ QString UserInfo::_accountTypeIntToString(int type){
     return atype;
 }
 
-QString UserInfo::accounttype_enum_to_string(int id){
-    QString type;
-    if (id == STANDARDUSER)
-        type = tr("standard user");
-    else if (id == ADMINISTRATOR)
-        type = tr("administrator");
-    else if (id == ROOT)
-        type = tr("root");
-    return type;
-}
-
-QString UserInfo::login_status_bool_to_string(bool status){
-    QString logined;
-    if (status)
-        logined = tr("logined");
-    else
-        logined = tr("unlogined");
-    return logined;
-}
-
 void UserInfo::_acquireAllUsersInfo(){
     QStringList objectpaths = sysdispatcher->list_cached_users();
 
@@ -154,25 +134,7 @@ void UserInfo::_acquireAllUsersInfo(){
     }
 
     //处理root登录
-    if (!getuid())
-        ;
 
-}
-
-void UserInfo::get_all_users(){
-    QStringList objectpaths = sysdispatcher->list_cached_users();
-
-    //清空allUserInfoMap
-    allUserInfoMap.clear();
-    adminnum = 0; //reset
-
-    for (QString objectpath : objectpaths){
-        UserInfomation user;
-        user = init_user_info(objectpath);
-        allUserInfoMap.insert(user.username, user);
-    }
-//    if (!getuid())
-//        init_root_info();
 }
 
 UserInfomation UserInfo::_acquireUserInfo(QString objpath){
@@ -213,49 +175,6 @@ UserInfomation UserInfo::_acquireUserInfo(QString objpath){
     return user;
 }
 
-UserInfomation UserInfo::init_user_info(QString objpath){
-    UserInfomation user;
-
-    //default set
-    user.current = false;
-    user.logined = false;
-    user.autologin = false;
-
-//    QDBusInterface * iface = new QDBusInterface("org.freedesktop.Accounts",
-//                                         objpath,
-//                                         "org.freedesktop.Accounts.User",
-//                                         QDBusConnection::systemBus());
-    QDBusInterface * iproperty = new QDBusInterface("org.freedesktop.Accounts",
-                                            objpath,
-                                            "org.freedesktop.DBus.Properties",
-                                            QDBusConnection::systemBus());
-    QDBusReply<QMap<QString, QVariant> > reply = iproperty->call("GetAll", "org.freedesktop.Accounts.User");
-    if (reply.isValid()){
-        QMap<QString, QVariant> propertyMap;
-        propertyMap = reply.value();
-        user.username = propertyMap.find("UserName").value().toString();
-        if (user.username == QString(g_get_user_name())){
-            user.current = true;
-            user.logined = true;
-        }
-        user.accounttype = propertyMap.find("AccountType").value().toInt();
-        if (user.accounttype == ADMINISTRATOR)
-            adminnum++;
-        user.iconfile = propertyMap.find("IconFile").value().toString();
-        user.passwdtype = propertyMap.find("PasswordMode").value().toInt();
-        user.uid = propertyMap.find("Uid").value().toInt();
-        user.autologin = propertyMap.find("AutomaticLogin").value().toBool();
-        user.objpath = objpath;
-    }
-    else
-        qDebug() << "reply failed";
-
-    delete iproperty;
-
-    return user;
-
-}
-
 void UserInfo::initComponent(){
     //样式表
     pluginWidget->setStyleSheet("background: #ffffff;");
@@ -285,6 +204,8 @@ void UserInfo::initComponent(){
     ui->addBtn->setIcon(QIcon("://img/plugins/userinfo/add.png"));
     ui->addBtn->setIconSize(ui->addBtn->size());
 
+    ui->currentUserFaceLabel->installEventFilter(this);
+
     //修改当前用户密码的回调
     connect(ui->changePwdBtn, &QPushButton::clicked, this, [=](bool checked){
         Q_UNUSED(checked)
@@ -299,6 +220,23 @@ void UserInfo::initComponent(){
         UserInfomation user = allUserInfoMap.value(g_get_user_name());
 
         showChangeTypeDialog(user.username);
+    });
+
+    //修改当前用户免密登录
+    connect(nopwdSwitchBtn, &SwitchButton::checkedChanged, [=](bool checked){
+
+    });
+
+    //修改当前用户自动登录
+    connect(autoLoginSwitchBtn, &SwitchButton::checkedChanged, [=](bool checked){
+        QString userName = ui->userNameLabel->text();
+
+        UserInfomation user = (UserInfomation)(allUserInfoMap.find(userName).value());
+
+        UserDispatcher * userdispatcher  = new UserDispatcher(user.objpath);
+
+        userdispatcher->change_user_autologin(checked);
+
     });
 
     //成功删除用户的回调
@@ -349,11 +287,7 @@ void UserInfo::_refreshUserInfoUI(){
         UserInfomation user = it.value();
 
         //用户头像筛选
-        QString iconfile;
-        if (user.iconfile.isEmpty() || user.iconfile.endsWith(".face"))
-            iconfile = DEFAULTFACE;
-        else
-            iconfile = user.iconfile;
+        QString iconfile = user.iconfile;
 
         //当前用户
         if (user.username == QString(g_get_user_name())){
@@ -368,6 +302,7 @@ void UserInfo::_refreshUserInfoUI(){
             //设置用户类型
             ui->userTypeLabel->setText(_accountTypeIntToString(user.accounttype));
             //设置登录状态
+            autoLoginSwitchBtn->setChecked(user.autologin);
 
         } else { //其他用户
             QListWidgetItem * item = otherUserItemMap.value(user.objpath); //是否需要判断？？
@@ -381,42 +316,9 @@ void UserInfo::_refreshUserInfoUI(){
     }
 }
 
-void UserInfo::ui_status_init(){
-    /*
-    QMap<QString, UserInfomation>::iterator it = allUserInfoMap.begin();
-    for (; it != allUserInfoMap.end(); it++){
-        UserInfomation user = (UserInfomation) it.value();
-        QString iconfile = DEFAULTFACE;
-        if (user.iconfile !="" && !user.iconfile.endsWith(".face")) //如果存在头像文件，覆盖默认值
-            iconfile = user.iconfile;
-        if (user.username == QString(g_get_user_name())){ //当前用户      
-            ui->faceLabel->setPixmap(QPixmap(iconfile).scaled(QSize(80, 80)));
-            ui->usernameLabel->setText(user.username);
-            ui->accounttypeLabel->setText(accounttype_enum_to_string(user.accounttype));
-            ui->loginLabel->setText(login_status_bool_to_string(user.logined));
-        }
-        else{ //其他用户
-            QMap<QString, QListWidgetItem *>::iterator itemit = otherItemMap.find(user.username);
-
-            if (itemit != otherItemMap.end()){
-                QWidget * widget = ui->listWidget->itemWidget((QListWidgetItem *) itemit.value());
-                QToolButton * button = widget->findChild<QToolButton *>(user.username);
-                // 获取账户类型
-                QString type = accounttype_enum_to_string(user.accounttype);
-                // 获取登录状态
-                QString logined = login_status_bool_to_string(user.logined);
-                button->setIcon(QIcon(iconfile));
-                button->setText(QString("%1\n%2\n%3").arg(user.username, type, logined));
-            }
-            else
-                qDebug() << QString(it.key()) << "QToolBtn init failed!";
-        }
-    }
-    */
-}
-
 void UserInfo::_buildWidgetForItem(UserInfomation user){
     HoverWidget * baseWidget = new HoverWidget(user.username);
+    baseWidget->setStyleSheet("background: #ffffff;");
     baseWidget->setMinimumSize(550,50);
     baseWidget->setMaximumSize(960,50);
     baseWidget->setAttribute(Qt::WA_DeleteOnClose);
@@ -430,9 +332,7 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     baseHorLayout->setMargin(0);
 
     QWidget * widget = new QWidget(baseWidget);
-//    widget->setFixedHeight(50);
-    widget->setMinimumSize(550,50);
-    widget->setMaximumSize(960,50);
+    widget->setFixedHeight(50);
     widget->setStyleSheet("background: #F4F4F4; border-radius: 4px;");
 
     QHBoxLayout * mainHorLayout = new QHBoxLayout(widget);
@@ -444,6 +344,10 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     faceBtn->setFixedSize(32, 32);
 //    faceBtn->setIcon(QIcon(user.iconfile));
     faceBtn->setIconSize(faceBtn->size());
+    connect(faceBtn, &QPushButton::clicked, [=](bool checked){
+        Q_UNUSED(checked)
+        showChangeFaceDialog(user.username);
+    });
 
     QLabel * nameLabel = new QLabel(widget);
     QSizePolicy nameSizePolicy = nameLabel->sizePolicy();
@@ -522,100 +426,6 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
 
 }
 
-void UserInfo::build_item_with_widget(UserInfomation user){
-
-    QWidget * otherWidget = new QWidget();
-    otherWidget->setAttribute(Qt::WA_DeleteOnClose);
-    QVBoxLayout * otherVerLayout = new QVBoxLayout(otherWidget);
-    QToolButton * otherToolBtn = new QToolButton(otherWidget);
-    otherToolBtn->setFixedSize(btnSize);
-    otherToolBtn->setObjectName(user.username);
-    otherToolBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-//            otherToolBtn->setIcon(QIcon(user.iconfile));
-    otherToolBtn->setIconSize(faceSize);
-//            otherToolBtn->setText(QString("%1\n%2\n%3").arg(user.username, type, logined));
-    otherbtnMap.insert(user.username, otherToolBtn);
-
-    QMenu * menu = new QMenu(otherToolBtn);
-    QAction * chpwd = menu->addAction(tr("change pwd"));
-    QAction * chface = menu->addAction(tr("change face"));
-    QAction * chtype = menu->addAction(tr("change accounttype"));
-    QAction * deluer = menu->addAction(tr("delete user"));
-    connect(chpwd, SIGNAL(triggered()), pwdSignalMapper, SLOT(map()));
-    connect(chface, SIGNAL(triggered()), faceSignalMapper, SLOT(map()));
-    connect(chtype, SIGNAL(triggered()), typeSignalMapper, SLOT(map()));
-    connect(deluer, SIGNAL(triggered()), delSignalMapper, SLOT(map()));
-
-    pwdSignalMapper->setMapping(chpwd, user.username);
-    faceSignalMapper->setMapping(chface, user.username);
-    typeSignalMapper->setMapping(chtype, user.username);
-    delSignalMapper->setMapping(deluer, user.username);
-
-    otherToolBtn->setMenu(menu);
-    otherToolBtn->setPopupMode(QToolButton::InstantPopup);
-//            otherToolBtn->setStyleSheet("QToolButton::menu-indicator{image:none;}");
-    otherVerLayout->addWidget(otherToolBtn);
-    otherWidget->setLayout(otherVerLayout);
-
-    QListWidgetItem * item = new QListWidgetItem(ui->listWidget);
-    item->setSizeHint(itemSize);
-    item->setData(Qt::UserRole, QVariant(user.objpath));
-    ui->listWidget->addItem(item);
-    ui->listWidget->setItemWidget(item, otherWidget);
-
-    otherItemMap.insert(user.username, item);
-}
-
-void UserInfo::ui_component_init(){
-
-    ui->listWidget->setViewMode(QListView::IconMode);
-    ui->listWidget->setSpacing(0);
-
-    //设置创建用户按钮
-    QWidget * newuserWidget = new QWidget();
-    newuserWidget->setAttribute(Qt::WA_DeleteOnClose);
-    QVBoxLayout * newVLayout = new QVBoxLayout(newuserWidget);
-    QToolButton * newToolBtn = new QToolButton(newuserWidget);
-    newToolBtn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    newToolBtn->setFixedSize(btnSize);
-    newToolBtn->setIcon(QIcon(":/userinfo/add.png"));
-    newToolBtn->setIconSize(faceSize);
-    newToolBtn->setText(tr("add new user"));
-    newVLayout->addWidget(newToolBtn);
-    newuserWidget->setLayout(newVLayout);
-    connect(newToolBtn, SIGNAL(clicked()), this, SLOT(show_create_user_dialog_slot()));
-
-    QListWidgetItem * newitem = new QListWidgetItem(ui->listWidget);
-    newitem->setSizeHint(itemSize);
-    newitem->setData(Qt::UserRole, QVariant(""));
-    ui->listWidget->addItem(newitem);
-    ui->listWidget->setItemWidget(newitem, newuserWidget);
-
-
-    QMap<QString, UserInfomation>::iterator it = allUserInfoMap.begin();
-    for (; it != allUserInfoMap.end(); it++){
-        UserInfomation user = (UserInfomation)it.value();
-
-        //当前用户
-        if (user.current){
-//            connect(ui->chpwdPushBtn, SIGNAL(clicked(bool)), pwdSignalMapper, SLOT(map()));
-//            connect(ui->chfacePushBtn, SIGNAL(clicked(bool)), faceSignalMapper, SLOT(map()));
-//            connect(ui->chtypePushBtn, SIGNAL(clicked(bool)), typeSignalMapper, SLOT(map()));
-
-//            pwdSignalMapper->setMapping(ui->chpwdPushBtn, user.username);
-//            faceSignalMapper->setMapping(ui->chfacePushBtn, user.username);
-//            typeSignalMapper->setMapping(ui->chtypePushBtn, user.username);
-//            continue;
-        }
-        //设置其他用户
-//        build_item_with_widget(user);
-    }
-    connect(pwdSignalMapper, SIGNAL(mapped(QString)), this, SLOT(show_change_pwd_dialog_slot(QString)));
-    connect(faceSignalMapper, SIGNAL(mapped(QString)), this, SLOT(show_change_face_dialog_slot(QString)));
-    connect(typeSignalMapper, SIGNAL(mapped(QString)), this, SLOT(show_change_accounttype_dialog_slot(QString)));
-    connect(delSignalMapper, SIGNAL(mapped(QString)), this, SLOT(show_del_user_dialog_slot(QString)));
-}
-
 void UserInfo::showCreateUserDialog(){
     //获取系统所有用户名列表，创建时判断重名
     QStringList usersStringList;
@@ -624,43 +434,18 @@ void UserInfo::showCreateUserDialog(){
     }
 
     CreateUserDialog * dialog = new CreateUserDialog(usersStringList);
-    dialog->set_face_label(DEFAULTFACE);
-    dialog->setAttribute(Qt::WA_DeleteOnClose);
-    connect(dialog, &CreateUserDialog::user_info_send, this, [=](QString username, QString pwd, QString pin, int atype, bool autologin){
-        createUser(username, pwd, pin, atype, autologin);
+    connect(dialog, &CreateUserDialog::newUserWillCreate, this, [=](QString uName, QString pwd, QString pin, int aType){
+        createUser(uName, pwd, pin, aType);
     });
     dialog->exec();
 }
 
-void UserInfo::show_create_user_dialog_slot(){
-    allUserInfoMap.keys();
-    QStringList usersStringList;
-
-    for (QVariant tmp : allUserInfoMap.keys()){
-        usersStringList << tmp.toString();
-    }
-
-    CreateUserDialog * dialog = new CreateUserDialog(usersStringList);
-    dialog->set_face_label(DEFAULTFACE);
-    dialog->setAttribute(Qt::WA_DeleteOnClose);
-    connect(dialog, SIGNAL(user_info_send(QString,QString,QString,int, bool)), this, SLOT(create_user_slot(QString,QString,QString,int, bool)));
-    dialog->exec();
-}
-
-void UserInfo::createUser(QString username, QString pwd, QString pin, int atype, bool autologin){
-    Q_UNUSED(pin); Q_UNUSED(autologin);
+void UserInfo::createUser(QString username, QString pwd, QString pin, int atype){
+    Q_UNUSED(pin);
     sysdispatcher->create_user(username, "", atype);
 
     //使用全局变量传递新建用户密码
     _newUserPwd = pwd;
-}
-
-void UserInfo::create_user_slot(QString username, QString pwd, QString pin, int atype, bool autologin){
-    Q_UNUSED(pin); Q_UNUSED(autologin);
-    sysdispatcher->create_user(username, "", atype);
-
-    pwdcreate = ""; //重置
-    pwdcreate = pwd;
 }
 
 void UserInfo::createUserDone(QString objpath){
@@ -683,48 +468,22 @@ void UserInfo::createUserDone(QString objpath){
     _buildWidgetForItem(user);
 }
 
-void UserInfo::create_user_done_slot(QString objpath){
-    //设置默认头像
-    UserDispatcher * userdispatcher  = new UserDispatcher(objpath);
-    userdispatcher->change_user_face(DEFAULTFACE);
-    userdispatcher->change_user_pwd(pwdcreate, "");
-
-    UserInfomation user;
-    user = init_user_info(objpath);
-
-    build_item_with_widget(user);
-
-    //刷新界面
-    get_all_users();
-    ui_status_init();
-
-}
-
 void UserInfo::showDeleteUserDialog(QString username){
     UserInfomation user = (UserInfomation)(allUserInfoMap.find(username).value());
 
     DelUserDialog * dialog = new DelUserDialog;
     dialog->setAttribute(Qt::WA_DeleteOnClose);
-    dialog->set_face_label(user.iconfile);
-    dialog->set_username_label(user.username);
+    dialog->setFace(user.iconfile);
+    dialog->setUsername(user.username);
     connect(dialog, &DelUserDialog::removefile_send, this, [=](bool removeFile, QString userName){
         deleteUser(removeFile, userName);
     });
     dialog->exec();
 }
 
-void UserInfo::show_del_user_dialog_slot(QString username){
-    UserInfomation user = (UserInfomation)(allUserInfoMap.find(username).value());
-
-    DelUserDialog * dialog = new DelUserDialog;
-    dialog->setAttribute(Qt::WA_DeleteOnClose);
-    dialog->set_face_label(user.iconfile);
-    dialog->set_username_label(user.username);
-    connect(dialog, SIGNAL(removefile_send(bool, QString)), this, SLOT(delete_user_slot(bool, QString)));
-    dialog->exec();
-}
-
 void UserInfo::deleteUser(bool removefile, QString username){
+    qDebug() << allUserInfoMap.keys() << username;
+
     UserInfomation user = (UserInfomation)(allUserInfoMap.find(username).value());
 
     sysdispatcher->delete_user(user.uid, removefile);
@@ -752,37 +511,16 @@ void UserInfo::deleteUserDone(QString objpath){
     _resetListWidgetHeigh();
 }
 
-void UserInfo::delete_user_done_slot(QString objpath){
-    QMap<QString, QListWidgetItem *>::iterator it = otherItemMap.begin();
-    QString del;
-
-    for (; it != otherItemMap.end(); it++){
-        QListWidgetItem * item = (QListWidgetItem *) it.value();
-        if (item->data(Qt::UserRole).toString() == objpath){
-            del = QString(it.key());
-            ui->listWidget->takeItem(ui->listWidget->row(item));
-            break;
-        }
-    }
-
-    if (otherItemMap.contains(del))
-        otherItemMap.remove(del);
-
-    //
-    get_all_users();
-}
 
 void UserInfo::showChangeTypeDialog(QString username){
     if (allUserInfoMap.keys().contains(username)){
         UserInfomation user = allUserInfoMap.value(username);
 
         ChangeTypeDialog * dialog = new ChangeTypeDialog;
-        dialog->setAttribute(Qt::WA_DeleteOnClose);
-        dialog->set_face_label(user.iconfile);
-        dialog->set_username_label(user.username);
-        dialog->set_account_type_label(accounttype_enum_to_string(user.accounttype));
-        dialog->set_current_account_type(user.accounttype);
-        dialog->set_autologin_status(user.autologin);
+        dialog->setFace(user.iconfile);
+        dialog->setUsername(user.username);
+        dialog->setCurrentAccountTypeLabel(_accountTypeIntToString(user.accounttype));
+        dialog->setCurrentAccountTypeBtn(user.accounttype);
 //        connect(dialog, SIGNAL(type_send(int,QString,bool)), this, SLOT(change_accounttype_slot(int,QString,bool)));
         connect(dialog, &ChangeTypeDialog::type_send, this, [=](int atype, QString userName){
             changeUserType(atype, userName);
@@ -792,20 +530,6 @@ void UserInfo::showChangeTypeDialog(QString username){
     } else {
         qDebug() << "User Data Error When Change User type";
     }
-}
-
-void UserInfo::show_change_accounttype_dialog_slot(QString username = g_get_user_name()){
-    UserInfomation user = (UserInfomation)(allUserInfoMap.find(username).value());
-
-    ChangeTypeDialog * dialog = new ChangeTypeDialog;
-    dialog->setAttribute(Qt::WA_DeleteOnClose);
-    dialog->set_face_label(user.iconfile);
-    dialog->set_username_label(user.username);
-    dialog->set_account_type_label(accounttype_enum_to_string(user.accounttype));
-    dialog->set_current_account_type(user.accounttype);
-    dialog->set_autologin_status(user.autologin);
-    connect(dialog, SIGNAL(type_send(int,QString,bool)), this, SLOT(change_accounttype_slot(int,QString)));
-    dialog->exec();
 }
 
 void UserInfo::changeUserType(int atype, QString username){
@@ -824,48 +548,32 @@ void UserInfo::changeUserType(int atype, QString username){
     _refreshUserInfoUI();
 }
 
-void UserInfo::change_accounttype_slot(int atype, QString username, bool status){
-    UserInfomation user = (UserInfomation)(allUserInfoMap.find(username).value());
 
-    UserDispatcher * userdispatcher  = new UserDispatcher(user.objpath);
-
-    if (user.accounttype != atype){
-        userdispatcher->change_user_type(atype);
-    }
-
-    if (user.autologin != status)
-        userdispatcher->change_user_autologin(status);
-
-    //刷新界面
-    get_all_users();
-    ui_status_init();
-}
-
-void UserInfo::change_accounttype_done_slot(){
-    qDebug() << "**********";
-}
-
-void UserInfo::show_change_face_dialog_slot(QString username){
+void UserInfo::showChangeFaceDialog(QString username){
     UserInfomation user = (UserInfomation)(allUserInfoMap.find(username).value());
 
     ChangeFaceDialog * dialog = new ChangeFaceDialog;
-    dialog->setAttribute(Qt::WA_DeleteOnClose);
-    dialog->set_face_label(user.iconfile);
-    dialog->set_username_label(user.username);
-    dialog->set_account_type_label(accounttype_enum_to_string(user.accounttype));
-    dialog->set_face_list_status(user.iconfile);
-    connect(dialog, SIGNAL(face_file_send(QString,QString)), this, SLOT(change_face_slot(QString,QString)));
+    dialog->setFace(user.iconfile);
+    dialog->setUsername(user.username);
+    dialog->setAccountType(_accountTypeIntToString(user.accounttype));
+//    dialog->set_face_list_status(user.iconfile);
+    connect(dialog, &ChangeFaceDialog::face_file_send, [=](QString faceFile, QString userName){
+        changeUserFace(faceFile, userName);
+    });
     dialog->exec();
 }
 
-void UserInfo::change_face_slot(QString facefile, QString username){
+void UserInfo::changeUserFace(QString facefile, QString username){
     UserInfomation user = (UserInfomation)(allUserInfoMap.find(username).value());
 
     UserDispatcher * userdispatcher  = new UserDispatcher(user.objpath);
     userdispatcher->change_user_face(facefile);
 
-    get_all_users();
-    ui_status_init();
+    //重新获取全部用户QMap
+    _acquireAllUsersInfo();
+
+    //更新界面显示
+    _refreshUserInfoUI();
 
     //拷贝设置的头像文件到~/.face
     sysinterface = new QDBusInterface("com.control.center.qt.systemdbus",
@@ -881,6 +589,8 @@ void UserInfo::change_face_slot(QString facefile, QString username){
     QString cmd = QString("cp %1 /home/%2/.face").arg(facefile).arg(user.username);
 
     QDBusReply<QString> reply =  sysinterface->call("systemRun", QVariant(cmd));
+
+    Q_UNUSED(reply)
 }
 
 void UserInfo::showChangePwdDialog(QString username){
@@ -888,9 +598,9 @@ void UserInfo::showChangePwdDialog(QString username){
         UserInfomation user = allUserInfoMap.value(username);
 
         ChangePwdDialog * dialog = new ChangePwdDialog;
-        dialog->setAttribute(Qt::WA_DeleteOnClose);
-        dialog->set_faceLabel(user.iconfile);
-        dialog->set_usernameLabel(user.username);
+        dialog->setFace(user.iconfile);
+        dialog->setUsername(user.username);
+        dialog->setAccountType(_accountTypeIntToString(user.accounttype));
         connect(dialog, &ChangePwdDialog::passwd_send, this, [=](QString pwd, QString userName){
             changeUserPwd(pwd, userName);
         });
@@ -902,16 +612,6 @@ void UserInfo::showChangePwdDialog(QString username){
 
 }
 
-void UserInfo::show_change_pwd_dialog_slot(QString username){
-    UserInfomation user = (UserInfomation)(allUserInfoMap.find(username).value());
-
-    ChangePwdDialog * dialog = new ChangePwdDialog;
-    dialog->setAttribute(Qt::WA_DeleteOnClose);
-    dialog->set_faceLabel(user.iconfile);
-    dialog->set_usernameLabel(user.username);
-    connect(dialog, SIGNAL(passwd_send(QString, QString)), this, SLOT(change_pwd_slot(QString, QString)));
-    dialog->exec();
-}
 
 void UserInfo::changeUserPwd(QString pwd, QString username){
     //上层已做判断，这里不去判断而直接获取
@@ -923,9 +623,17 @@ void UserInfo::changeUserPwd(QString pwd, QString username){
     Q_UNUSED(result)
 }
 
-void UserInfo::change_pwd_slot(QString pwd, QString username){
-    UserInfomation user = (UserInfomation)(allUserInfoMap.find(username).value());
 
-    UserDispatcher * userdispatcher  = new UserDispatcher(user.objpath);
-    QString result = userdispatcher->change_user_pwd(pwd, "");
+bool UserInfo::eventFilter(QObject *watched, QEvent *event){
+    if (watched == ui->currentUserFaceLabel){
+        if (event->type() == QEvent::MouseButtonPress){
+            QMouseEvent * mouseEvent = static_cast<QMouseEvent *>(event);
+            if (mouseEvent->button() == Qt::LeftButton){
+                showChangeFaceDialog(ui->userNameLabel->text());
+                return true;
+            } else
+                return false;
+        }
+    }
+    return QObject::eventFilter(watched, event);
 }
