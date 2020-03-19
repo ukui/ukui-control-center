@@ -165,6 +165,13 @@ QSize ResolutionSlider::currentResolution() const
     }
 }
 
+QSize ResolutionSlider::getMaxResolution() const {
+    if (mModes.isEmpty()) {
+        return QSize();
+    }
+    return mModes.first();
+}
+
 void ResolutionSlider::slotOutputModeChanged()
 {
     if (!mOutput->currentMode()) {

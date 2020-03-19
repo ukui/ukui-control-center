@@ -68,21 +68,6 @@ Widget::Widget(QWidget *parent)
     ui->mainScreenButton->setStyleSheet("QPushButton{background-color:#F8F9F9;border-radius:6px;font-size:14px;}"
                                    "QPushButton:hover{background-color: #3D6BE5;};border-radius:6px");
 
-    int value;
-    value = scaleToSlider(scaleRet());
-    ui->scaleWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
-    slider->setValue(value);
-    slider->setRange(1,5);
-    slider->setTickInterval(1);
-    slider->setPageStep(1);
-
-    QLabel* scaleLabel = new QLabel(tr("screen zoom "));
-    scaleLabel->setMinimumWidth(125);
-    ui->scaleLayout->addWidget(scaleLabel);
-    ui->scaleLayout->addWidget(slider);
-
-    ui->primaryCombo->setItemDelegate(itemDelege);
-
 //    ui->primaryCombo->setStyleSheet("background-color:#F8F9F9");
 //    ui->primaryCombo->setMaxVisibleItems(1);
 
@@ -139,6 +124,10 @@ Widget::Widget(QWidget *parent)
     mControlPanel = new ControlPanel(this);
     connect(mControlPanel, &ControlPanel::changed,
             this, &Widget::changed);
+
+    connect(mControlPanel, &ControlPanel::scaleChanged,
+            this, &Widget::scaleChangedSlot);
+
     //ui->formLayout_2->addWidget(mControlPanel);
     ui->controlPanelLayout->addWidget(mControlPanel);
 
@@ -540,8 +529,9 @@ float Widget::scaleRet() {
 }
 
 void Widget::writeScale(float scale) {
-    QString strGDK = "export GDK_DPI_SCALE=";
+    QString strGDK = "export GDK_SCALE=";
     QString strQT  = "export QT_SCALE_FACTOR=";
+    QString strAutoQT  = "export QT_AUTO_SCREEN_SET_FACTOR=0";
     bool judge = false;
     QString filepath = getenv("HOME");
     filepath += "/.profile";
@@ -558,6 +548,7 @@ void Widget::writeScale(float scale) {
     if(!judge) {
         this->proRes.append(strGDK + QString::number(scale));
         this->proRes.append(strQT + QString::number(scale));
+        this->proRes.append(strAutoQT);
     }
     writeFile(filepath, this->proRes);
 }
@@ -818,8 +809,7 @@ void Widget::save()
 
     initScreenXml(countOutput);
     writeScreenXml(countOutput);
-    float scale = converToScale(slider->value());
-    writeScale(scale);
+    writeScale(static_cast<float>(this->screenScale));
 
 
     if (!KScreen::Config::canBeApplied(config)) {
@@ -845,6 +835,24 @@ void Widget::save()
             m_blockChanges = false;
         }
     );
+}
+
+void Widget::scaleChangedSlot(int index) {
+    qDebug()<<"scale changed----------->"<<index<<endl;
+    switch (index) {
+    case 0:
+        this->screenScale = 1;
+        break;
+    case 1:
+        this->screenScale = 2;
+        break;
+    case 2:
+        this->screenScale = 3;
+        break;
+    default:
+        this->screenScale = 1;
+        break;
+    }
 }
 
 
@@ -1464,47 +1472,6 @@ void Widget::writeFile(const QString &filepath, const QStringList &content) {
     }
     file.close();
 }
-
-float Widget::converToScale(const int value) {
-    switch (value) {
-    case 1:
-        return 1.0;
-        break;
-    case 2:
-        return 1.25;
-        break;
-    case 3:
-        return 1.5;
-        break;
-    case 4:
-        return 1.75;
-        break;
-    case 5:
-        return 2.0;
-        break;
-    default:
-        return 1.0;
-        break;
-    }
-}
-
-int Widget::scaleToSlider(const float value) {
-    if(1.0 == value) {
-        return 1;
-    } else if(1.25 == value) {
-        return 2;
-    } else if(1.5 == value) {
-        return 3;
-    } else if(1.75 == value) {
-        return 4;
-    } else if(2.0 == value) {
-        return 5;
-    } else {
-        return 1;
-    }
-}
-
-
 
 void Widget::setRedShiftIsValid(bool redshiftIsValid){
     if(m_redshiftIsValid == redshiftIsValid) {

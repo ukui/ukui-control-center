@@ -975,22 +975,22 @@ folder will be deleted!</source>
         <translation>打开显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="352"/>
+        <location filename="../../../plugins/system/display/display.ui" line="327"/>
         <source>screen brightness adjustment</source>
         <translation>调整屏幕亮度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="359"/>
+        <location filename="../../../plugins/system/display/display.ui" line="334"/>
         <source>dark</source>
         <translation>暗</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="408"/>
+        <location filename="../../../plugins/system/display/display.ui" line="383"/>
         <source>bright</source>
         <translation>亮</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="450"/>
+        <location filename="../../../plugins/system/display/display.ui" line="425"/>
         <source>apply</source>
         <translation>应用</translation>
     </message>
@@ -1484,9 +1484,30 @@ folder will be deleted!</source>
         <translation>自动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="293"/>
-        <source>%1 Hz</source>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="259"/>
+        <source>100%</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="262"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="264"/>
+        <source>200%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="265"/>
+        <source>300%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="269"/>
+        <source>screen zoom</source>
+        <translation>缩放屏幕</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="344"/>
+        <source>%1 Hz</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -1858,22 +1879,22 @@ folder will be deleted!</source>
         <translation type="vanished">默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="351"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="389"/>
         <source>basic</source>
         <translation>基础</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="353"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="391"/>
         <source>classical</source>
         <translation>经典</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="355"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="393"/>
         <source>default</source>
         <translation>默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="357"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="395"/>
         <source>Unknown</source>
         <translation>未知</translation>
     </message>
@@ -2091,7 +2112,7 @@ folder will be deleted!</source>
         <translation>恢复默认设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="68"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="94"/>
         <source>theme</source>
         <translation>主题</translation>
     </message>
@@ -2484,34 +2505,33 @@ folder will be deleted!</source>
 <context>
     <name>Widget</name>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="79"/>
         <source>screen zoom </source>
-        <translation>屏幕缩放 </translation>
+        <translation type="vanished">屏幕缩放 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="105"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="90"/>
         <source>night mode</source>
         <translation>夜间模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="814"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="805"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="815"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="806"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="827"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="817"/>
         <source>Sorry, your configuration could not be applied.
 
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉,配置不能应用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="829"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="819"/>
         <source>@title:window</source>
         <comment>Unsupported Configuration</comment>
         <translation>窗口</translation>

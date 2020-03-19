@@ -35,6 +35,9 @@ class OutputConfig : public QWidget
 
     //拿取配置
     void initConfig(const KScreen::ConfigPtr &config);
+    QStringList readFile(const QString& filepath);
+    int scaleRet();
+
 
 public:
     QStyledItemDelegate  *itemDelege;
@@ -49,9 +52,11 @@ public:
 
   Q_SIGNALS:
     void changed();
+    void scaleChanged(int index);
 
   protected:
     virtual void initUi();
+    int getMaxReslotion();
 
   protected:
     QLabel *mTitle = nullptr;
@@ -63,10 +68,13 @@ public:
     QComboBox *mRefreshRate = nullptr;
     QComboBox *mMonitor = nullptr;
     QComboBox *tmpResolution = nullptr;
+    QComboBox *scaleCombox = nullptr;
     bool mShowScaleOption  = false;
 
     KScreen::ConfigPtr mConfig = nullptr;
     QString qss;
+    QStringList proRes;        //profile文件内容
+
 };
 
 #endif // OUTPUTCONFIG_H

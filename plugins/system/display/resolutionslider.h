@@ -20,6 +20,8 @@ class ResolutionSlider : public QWidget
     ~ResolutionSlider() override;
 
     QSize currentResolution() const;
+    QSize getMaxResolution() const;
+
 
   Q_SIGNALS:
     void resolutionChanged(const QSize &size);
