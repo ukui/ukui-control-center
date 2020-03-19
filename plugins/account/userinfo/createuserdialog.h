@@ -57,16 +57,6 @@ private:
 private:
     QStyledItemDelegate* itemDelege;
 
-//private slots:
-//    void confirm_btn_clicked_slot();
-//    void name_legality_check_slot(QString username);
-//    void pwd_legality_check_slot(QString pwd);
-//    void pwdsure_legality_check_slot(QString pwdsure);
-//    void pin_legality_check_slot(QString pin);
-//    void pinsure_legality_check_slot(QString pinsure);
-
-//    void name_conflict_group_slot();
-
 Q_SIGNALS:
     void newUserWillCreate(QString username, QString pwd, QString pin, int atype);
 

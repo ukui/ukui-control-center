@@ -53,7 +53,7 @@ void ChangeTypeDialog::setupComonpent(){
 
     ui->confirmPushBtn->setEnabled(false);
 
-    connect(ui->closeBtn, &QPushButton::clicked, [=](bool checked){
+    connect(ui->closeBtn, &QPushButton::clicked, [=]{
         close();
     });
     connect(ui->cancelPushBtn, &QPushButton::clicked, [=](bool checked){

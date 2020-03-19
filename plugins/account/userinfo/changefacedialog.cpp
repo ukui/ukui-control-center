@@ -92,29 +92,6 @@ void ChangeFaceDialog::loadSystemFaces(){
 
         facesFlowLayout->addWidget(button);
     }
-
-
-
-
-
-
-    //设置listwidget
-//    QSize IMAGE_SIZE(64, 64);
-//    QSize ITEM_SIZE(70, 70);
-//    ui->listWidget->setIconSize(IMAGE_SIZE);
-//    ui->listWidget->setResizeMode(QListView::Adjust);
-//    ui->listWidget->setViewMode(QListView::IconMode);
-//    ui->listWidget->setMovement(QListView::Static);
-//    ui->listWidget->setSpacing(5);
-
-//    for (int row = 0; row < facesList.count(); row++){
-//        QPixmap pixmap(facesList[row]);
-//        QListWidgetItem * item = new QListWidgetItem(QIcon(pixmap.scaled(IMAGE_SIZE)), "");
-//        item->setSizeHint(ITEM_SIZE);
-//        item->setData(Qt::UserRole, facesList[row]);
-//        delitemMap.insert(facesList[row], item);
-//        ui->listWidget->insertItem(row, item);
-//    }
 }
 
 void ChangeFaceDialog::setFace(QString iconfile){
@@ -128,27 +105,6 @@ void ChangeFaceDialog::setUsername(QString username){
 void ChangeFaceDialog::setAccountType(QString atype){
     ui->typeLabel->setText(atype);
 }
-
-void ChangeFaceDialog::set_face_list_status(QString facefile){
-//    QMap<QString, QListWidgetItem *>::iterator it = delitemMap.find(facefile);
-
-//    if (it != delitemMap.end()){
-//        QListWidgetItem * item = (QListWidgetItem *) it.value();
-//        ui->listWidget->setCurrentItem(item);
-//    }
-//    connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(item_changed_slot(QListWidgetItem *, QListWidgetItem * )));
-
-}
-
-//void ChangeFaceDialog::item_changed_slot(QListWidgetItem * current, QListWidgetItem *previous){
-//    Q_UNUSED(previous);
-//    QString facefile = current->data(Qt::UserRole).toString();
-
-//    //show dialog更新头像
-//    setFace(facefile);
-
-//    emit face_file_send(facefile, ui->usernameLabel->text());
-//}
 
 void ChangeFaceDialog::showLocalFaceDialog(){
     QString filters = "Face files(*.png *.jpg *.svg)";

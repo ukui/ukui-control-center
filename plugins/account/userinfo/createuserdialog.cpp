@@ -204,58 +204,6 @@ void CreateUserDialog::refreshConfirmBtnStatus(){
         ui->confirmBtn->setEnabled(true);
 }
 
-//void CreateUserDialog::confirm_btn_status_refresh(){
-//    if (ostype == PC){
-//        if (ui->usernameLineEdit->text().isEmpty() || !ui->usernametipLabel->text().isEmpty() || \
-//                ui->pwdLineEdit->text().isEmpty() || !ui->pwdtipLabel->text().isEmpty() || \
-//                ui->pwdsureLineEdit->text().isEmpty() || !ui->pwdsuretipLabel->text().isEmpty())
-//            ui->confirmPushBtn->setEnabled(false);
-//        else
-//            ui->confirmPushBtn->setEnabled(true);
-//    }
-//    else{
-//        if (ui->usernameLineEdit->text().isEmpty() || !ui->usernametipLabel->text().isEmpty() || \
-//                ui->pinLineEdit->text().isEmpty() || !ui->pintipLabel->text().isEmpty() || \
-//                ui->pinsureLineEdit->text().isEmpty() || !ui->pinsuretipLabel->text().isEmpty())
-//            ui->confirmPushBtn->setEnabled(false);
-//        else
-//            ui->confirmPushBtn->setEnabled(true);
-//    }
-//}
-
-//void CreateUserDialog::pinsure_legality_check_slot(QString pinsure){
-//    if (pinsure != ui->pinLineEdit->text())
-//        ui->pinsuretipLabel->setText(tr("Inconsistency with pin code"));
-//    else
-//        ui->pinsuretipLabel->setText("");
-
-//    tiplabel_status_refresh();
-//    confirm_btn_status_refresh();
-//}
-
-//void CreateUserDialog::pin_legality_check_slot(QString pin){
-//    if (pin.length() != PIN_LENGTH)
-//        ui->pintipLabel->setText(tr("Pin code length needs to %1 character!").arg(PIN_LENGTH));
-//    else
-//        ui->pintipLabel->setText("");
-
-//    //防止先输入确认密码，再输入密码后pinsuretipLabel无法刷新
-//    if (ui->pinLineEdit->text() == ui->pinsureLineEdit->text())
-//        ui->pinsuretipLabel->setText("");
-
-//    tiplabel_status_refresh();
-//    confirm_btn_status_refresh();
-//}
-
-//void CreateUserDialog::pwdsure_legality_check_slot(QString pwdsure){
-//    if (pwdsure != ui->pwdLineEdit->text())
-//        ui->pwdsuretipLabel->setText(tr("Inconsistency with pwd"));
-//    else
-//        ui->pwdsuretipLabel->setText("");
-
-//    tiplabel_status_refresh();
-//    confirm_btn_status_refresh();
-//}
 
 void CreateUserDialog::pwdLegalityCheck(QString pwd){
     if (pwd.length() < PWD_LOW_LENGTH)
@@ -271,22 +219,6 @@ void CreateUserDialog::pwdLegalityCheck(QString pwd){
 
     refreshConfirmBtnStatus();
 }
-
-//void CreateUserDialog::pwd_legality_check_slot(QString pwd){
-//    if (pwd.length() < PWD_LOW_LENGTH)
-//        ui->pwdtipLabel->setText(tr("Password length needs to more than %1 character!").arg(PWD_LOW_LENGTH - 1));
-//    else if (pwd.length() > PWD_HIGH_LENGTH)
-//        ui->pwdtipLabel->setText(tr("Password length needs to less than %1 character!").arg(PWD_HIGH_LENGTH + 1));
-//    else
-//        ui->pwdtipLabel->setText("");
-
-//    //防止先输入确认密码，再输入密码后pwdsuretipLabel无法刷新
-//    if (ui->pwdLineEdit->text() == ui->pwdsureLineEdit->text())
-//        ui->pwdsuretipLabel->setText("");
-
-//    tiplabel_status_refresh();
-//    confirm_btn_status_refresh();
-//}
 
 void CreateUserDialog::nameLegalityCheck(QString username){
     if (username.isEmpty())
@@ -321,45 +253,3 @@ void CreateUserDialog::nameLegalityCheck(QString username){
 
     refreshConfirmBtnStatus();
 }
-
-//void CreateUserDialog::name_legality_check_slot(QString username){
-//    if (username.isEmpty())
-//        ui->usernametipLabel->setText(tr("The user name cannot be empty"));
-//    else if (username.startsWith("_") || username.left(1).contains((QRegExp("[0-9]")))){
-//        ui->usernametipLabel->setText(tr("The first character must be lowercase letters!"));
-//    }
-//    else if (username.contains(QRegExp("[A-Z]"))){
-//        ui->usernametipLabel->setText(tr("User name can not contain capital letters!"));
-//    }
-//    else if (username.contains(QRegExp("[a-z]")) || username.contains(QRegExp("[0-9]")) || username.contains("_"))
-//        if (username.length() > 0 && username.length() < USER_LENGTH){
-//            back = false;
-//            QString cmd = QString("getent group %1").arg(username);
-//            process = new QProcess(this);
-//            connect(process, SIGNAL(readyReadStandardOutput()), this, SLOT(name_conflict_group_slot()));
-//            process->start(cmd);
-
-//            if (usersStringList.contains(username)){
-//                ui->usernametipLabel->setText(tr("The user name is already in use, please use a different one."));
-//            }
-//            else
-//                ui->usernametipLabel->setText("");
-//        }
-//        else
-//            ui->usernametipLabel->setText(tr("User name length need to less than %1 letters!").arg(USER_LENGTH));
-//    else
-//        ui->usernametipLabel->setText(tr("The user name can only be composed of letters, numbers and underline!"));
-
-//    tiplabel_status_refresh();
-//    confirm_btn_status_refresh();
-//}
-
-//void CreateUserDialog::name_conflict_group_slot(){
-//    QString output = QString(process->readAllStandardOutput().data());
-//    ui->usernametipLabel->setText(tr("The user name corresponds to the group already exists,please use a different user name!"));
-//}
-
-//void CreateUserDialog::confirm_btn_clicked_slot(){
-//    this->accept();
-//    emit user_info_send(ui->usernameLineEdit->text(), ui->pwdLineEdit->text(), ui->pinLineEdit->text(), ui->buttonGroup->checkedId(), autologinSwitchBtn->isChecked());
-//}

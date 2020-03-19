@@ -435,6 +435,7 @@ void Wallpaper::appendColWpItem(QString color){
 }
 
 void Wallpaper::picWallpaperChangedSlot(QListWidgetItem * current, QListWidgetItem *previous){
+    Q_UNUSED(previous)
 //    if (previous != nullptr){
 //        QWidget * previousWidget = ui->listWidget->itemWidget(previous);
 //        previousWidget->setStyleSheet("QWidget{border: none}");
@@ -450,6 +451,7 @@ void Wallpaper::picWallpaperChangedSlot(QListWidgetItem * current, QListWidgetIt
 }
 
 void Wallpaper::colWallpaperChangedSlot(QListWidgetItem *current, QListWidgetItem *previous){
+    Q_UNUSED(previous)
 
     QString color = current->data(Qt::UserRole).toString();
 

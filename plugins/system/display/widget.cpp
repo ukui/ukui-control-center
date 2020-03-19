@@ -798,7 +798,7 @@ void Widget::save()
                     return "upside_down";
                 else if(8 == output->rotation())
                     return "right";
-        } ;
+        };
         inputXml[i].rotationValue = rotation();
         inputXml[i].isPrimary = (output->isPrimary() == true?"yes":"no");
         inputXml[i].isEnable = output->isEnabled();
@@ -1092,6 +1092,7 @@ void Widget::setBrigthnessFile(){
 }
 
 void Widget::writeScreenXml(int count){
+    Q_UNUSED(count)
 
     QString homePath = getenv("HOME");
     QString monitorFile = homePath+"/.config/monitors.xml";

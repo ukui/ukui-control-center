@@ -383,6 +383,7 @@ void Fonts::setupConnect(){
 
     //重置按钮
     connect(ui->resetBtn, &QPushButton::clicked, [=](bool checked){
+        Q_UNUSED(checked)
         resetDefault();
     });
 }

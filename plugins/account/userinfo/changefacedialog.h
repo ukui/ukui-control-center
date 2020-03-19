@@ -58,10 +58,6 @@ public:
 
     void showLocalFaceDialog();
 
-    void set_face_list_status(QString facefile);
-
-    void show_faces();
-
     QMap<QString, QListWidgetItem *> delitemMap;
 
 private:

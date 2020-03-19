@@ -125,6 +125,7 @@ void Power::component_init(){
     });
 
     connect(ui->sleepComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index){
+        Q_UNUSED(index)
         int value = ui->sleepComboBox->currentData(Qt::UserRole).toInt() * 60;
         if (ui->acBtn->isChecked()){
             settings->set(SLEEP_COMPUTER_AC_KEY, QVariant(value));
@@ -134,6 +135,7 @@ void Power::component_init(){
         }
     });
     connect(ui->closeComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index){
+        Q_UNUSED(index)
         int value = ui->closeComboBox->currentData(Qt::UserRole).toInt() * 60;
         if (ui->acBtn->isChecked()){
             settings->set(SLEEP_DISPLAY_AC_KEY, QVariant(value));
