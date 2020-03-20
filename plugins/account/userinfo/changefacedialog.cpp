@@ -20,18 +20,35 @@
 #include "changefacedialog.h"
 #include "ui_changefacedialog.h"
 
+#include "FlowLayout/flowlayout.h"
+
 #include <QDebug>
 
-#define FACEPATH "/usr/share/pixmaps/faces/"
+#define FACEPATH "/usr/share/ukui/faces/"
 
 ChangeFaceDialog::ChangeFaceDialog(QWidget *parent) :
+    QDialog(parent),
     ui(new Ui::ChangeFaceDialog)
 {
-    this->setParent(parent);
     ui->setupUi(this);
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
+    setAttribute(Qt::WA_TranslucentBackground);
+    setAttribute(Qt::WA_DeleteOnClose);
 
-    show_faces();
-    connect(ui->customfaceBtn, SIGNAL(clicked(bool)), this, SLOT(custom_face_choosed_slot()));
+    ui->frame->setStyleSheet("QFrame{background: #ffffff; border: none; border-radius: 6px;}");
+    ui->closeBtn->setStyleSheet("QPushButton{background: #ffffff; border: none;}");
+
+    ui->closeBtn->setIcon(QIcon("://img/titlebar/close.png"));
+
+    loadSystemFaces();
+
+
+    connect(ui->closeBtn, &QPushButton::clicked, [=]{
+        close();
+    });
+    connect(ui->customfaceBtn, &QPushButton::clicked, [=]{
+        showLocalFaceDialog();
+    });
 }
 
 ChangeFaceDialog::~ChangeFaceDialog()
@@ -39,67 +56,57 @@ ChangeFaceDialog::~ChangeFaceDialog()
     delete ui;
 }
 
-void ChangeFaceDialog::show_faces(){
+void ChangeFaceDialog::loadSystemFaces(){
+
+    FlowLayout * facesFlowLayout = new FlowLayout(ui->facesWidget);
+    ui->facesWidget->setLayout(facesFlowLayout);
 
     //遍历头像目录
     QStringList facesList;
     QDir facesDir = QDir(FACEPATH);
     foreach (QString filename, facesDir.entryList(QDir::Files)){
-        facesList.append(FACEPATH + filename);
-    }
+//        facesList.append(FACEPATH + filename);
+        QString fullface = QString("%1%2").arg(FACEPATH).arg(filename);
 
-    //设置listwidget
-    QSize IMAGE_SIZE(64, 64);
-    QSize ITEM_SIZE(70, 70);
-    ui->listWidget->setIconSize(IMAGE_SIZE);
-    ui->listWidget->setResizeMode(QListView::Adjust);
-    ui->listWidget->setViewMode(QListView::IconMode);
-    ui->listWidget->setMovement(QListView::Static);
-    ui->listWidget->setSpacing(5);
+        QPushButton * button = new QPushButton;
+        button->setAttribute(Qt::WA_DeleteOnClose);
+        button->setFixedSize(QSize(48, 48));
 
-    for (int row = 0; row < facesList.count(); row++){
-        QPixmap pixmap(facesList[row]);
-        QListWidgetItem * item = new QListWidgetItem(QIcon(pixmap.scaled(IMAGE_SIZE)), "");
-        item->setSizeHint(ITEM_SIZE);
-        item->setData(Qt::UserRole, facesList[row]);
-        delitemMap.insert(facesList[row], item);
-        ui->listWidget->insertItem(row, item);
+        QHBoxLayout * mainHorLayout = new QHBoxLayout(button);
+        mainHorLayout->setSpacing(0);
+        mainHorLayout->setMargin(0);
+        QLabel * iconLabel = new QLabel(button);
+        iconLabel->setScaledContents(true);
+        iconLabel->setPixmap(QPixmap(fullface));
+
+        mainHorLayout->addWidget(iconLabel);
+
+        button->setLayout(mainHorLayout);
+
+        connect(button, &QPushButton::clicked, [=]{
+            //show dialog更新头像
+            setFace(fullface);
+
+            emit face_file_send(fullface, ui->usernameLabel->text());
+        });
+
+        facesFlowLayout->addWidget(button);
     }
 }
 
-void ChangeFaceDialog::set_face_label(QString iconfile){
-    ui->faceLabel->setPixmap(QPixmap(iconfile).scaled(QSize(80, 80)));
+void ChangeFaceDialog::setFace(QString iconfile){
+    ui->faceLabel->setPixmap(QPixmap(iconfile));
 }
 
-void ChangeFaceDialog::set_username_label(QString username){
+void ChangeFaceDialog::setUsername(QString username){
     ui->usernameLabel->setText(username);
 }
 
-void ChangeFaceDialog::set_account_type_label(QString atype){
+void ChangeFaceDialog::setAccountType(QString atype){
     ui->typeLabel->setText(atype);
 }
 
-void ChangeFaceDialog::set_face_list_status(QString facefile){
-    QMap<QString, QListWidgetItem *>::iterator it = delitemMap.find(facefile);
-
-    if (it != delitemMap.end()){
-        QListWidgetItem * item = (QListWidgetItem *) it.value();
-        ui->listWidget->setCurrentItem(item);
-    }
-    connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(item_changed_slot(QListWidgetItem *, QListWidgetItem * )));
-}
-
-void ChangeFaceDialog::item_changed_slot(QListWidgetItem * current, QListWidgetItem *previous){
-    Q_UNUSED(previous);
-    QString facefile = current->data(Qt::UserRole).toString();
-
-    //show dialog更新头像
-    set_face_label(facefile);
-
-    emit face_file_send(facefile, ui->usernameLabel->text());
-}
-
-void ChangeFaceDialog::custom_face_choosed_slot(){
+void ChangeFaceDialog::showLocalFaceDialog(){
     QString filters = "Face files(*.png *.jpg *.svg)";
     QFileDialog fd;
     fd.setDirectory(QString(const_cast<char *>(g_get_user_special_dir(G_USER_DIRECTORY_PICTURES))));
@@ -120,7 +127,7 @@ void ChangeFaceDialog::custom_face_choosed_slot(){
     QString selectedfile;
     selectedfile = fd.selectedFiles().first();
 
-    set_face_label(selectedfile);
+    setFace(selectedfile);
     emit face_file_send(selectedfile, ui->usernameLabel->text());
 
 }

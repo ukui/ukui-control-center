@@ -49,8 +49,13 @@ public:
     void plugin_delay_control() Q_DECL_OVERRIDE;
 
 public:
-    void component_init();
-    void status_init();
+    void setupComponent();
+    void setupConnect();
+    void initModeStatus();
+    void initCustomPlanStatus();
+    void resetCustomPlanUI();
+
+
     void refreshUI();
 
 private:
@@ -72,18 +77,6 @@ private:
 
     QStyledItemDelegate *itemDelege;
 
-public slots:
-//    void icondisplayBtnGroup_changed_slot(int index);
-    void powerBtnGroup_changed_slot(int index);
-
-    void ac_sleep_changed_slot(QString value);
-    void bat_sleep_changed_slot(QString value);
-    void ac_close_changed_slot(QString value);
-    void bat_close_changed_slot(QString value);
-    void ac_lid_changed_slot(QString value);
-    void bat_lid_changed_slot(QString value);
-    void power_btn_changed_slot(QString value);
-    void suspend_btn_changed_slot(QString value);
 };
 
 #endif // POWER_H

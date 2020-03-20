@@ -27,19 +27,19 @@ ChangeTypeDialog::ChangeTypeDialog(QWidget *parent) :
     ui(new Ui::ChangeTypeDialog)
 {
     ui->setupUi(this);
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
+    setAttribute(Qt::WA_TranslucentBackground);
+    setAttribute(Qt::WA_DeleteOnClose);
 
-    autologinSwitchBtn = new SwitchButton;
-    autologinSwitchBtn->setAttribute(Qt::WA_DeleteOnClose);
-    ui->autologinVLayout->addWidget(autologinSwitchBtn);
+    ui->frame->setStyleSheet("QFrame{background: #ffffff; border: none; border-radius: 6px;}");
+    ui->closeBtn->setStyleSheet("QPushButton{background: #ffffff; border: none;}");
 
 
-    ui->buttonGroup->setId(ui->standardRadioButton, 0);
-    ui->buttonGroup->setId(ui->adminRadioButton, 1);
+    ui->closeBtn->setIcon(QIcon("://img/titlebar/close.png"));
 
-    ui->confirmPushBtn->setEnabled(false);
 
-    connect(ui->cancelPushBtn, SIGNAL(clicked()), this, SLOT(reject()));
-    connect(ui->confirmPushBtn, SIGNAL(clicked()), this, SLOT(confirm_slot()));
+    setupComonpent();
+
 }
 
 ChangeTypeDialog::~ChangeTypeDialog()
@@ -47,50 +47,49 @@ ChangeTypeDialog::~ChangeTypeDialog()
     delete ui;
 }
 
-void ChangeTypeDialog::set_face_label(QString iconfile){
-    ui->faceLabel->setPixmap(QPixmap(iconfile).scaled(QSize(80, 80)));
+void ChangeTypeDialog::setupComonpent(){
+    ui->buttonGroup->setId(ui->standardRadioButton, 0);
+    ui->buttonGroup->setId(ui->adminRadioButton, 1);
+
+    ui->confirmPushBtn->setEnabled(false);
+
+    connect(ui->closeBtn, &QPushButton::clicked, [=]{
+        close();
+    });
+    connect(ui->cancelPushBtn, &QPushButton::clicked, [=](bool checked){
+        Q_UNUSED(checked)
+        reject();
+    });
+    connect(ui->confirmPushBtn, &QPushButton::clicked, [=](bool checked){
+        Q_UNUSED(checked)
+        this->accept();
+        emit type_send(ui->buttonGroup->checkedId(), ui->usernameLabel->text());
+    });
 }
 
-void ChangeTypeDialog::set_username_label(QString username){
+void ChangeTypeDialog::setFace(QString faceFile){
+    ui->faceLabel->setPixmap(QPixmap(faceFile));
+}
+
+void ChangeTypeDialog::setUsername(QString username){
     ui->usernameLabel->setText(username);
 }
 
-void ChangeTypeDialog::set_account_type_label(QString atype){
+void ChangeTypeDialog::setCurrentAccountTypeLabel(QString atype){
     ui->typeLabel->setText(atype);
 }
 
-void ChangeTypeDialog::set_current_account_type(int id){
+void ChangeTypeDialog::setCurrentAccountTypeBtn(int id){
     currenttype = id;
     if (id == 0)
         ui->standardRadioButton->setChecked(true);
     else
         ui->adminRadioButton->setChecked(true);
 
-    connect(ui->buttonGroup, SIGNAL(buttonClicked(int)), this, SLOT(radioBtn_clicked_slot(int)));
-}
-
-void ChangeTypeDialog::set_autologin_status(bool status){
-    currentloginstatus = status;
-    autologinSwitchBtn->setChecked(status);
-
-    connect(autologinSwitchBtn, SIGNAL(checkedChanged(bool)), this, SLOT(autologin_status_changed_slot(bool)));
-}
-
-void ChangeTypeDialog::autologin_status_changed_slot(bool status){
-    if (status != currentloginstatus)
-        ui->confirmPushBtn->setEnabled(true);
-    else
-        ui->confirmPushBtn->setEnabled(false);
-}
-
-void ChangeTypeDialog::radioBtn_clicked_slot(int id){
-    if (id != currenttype)
-        ui->confirmPushBtn->setEnabled(true);
-    else
-        ui->confirmPushBtn->setEnabled(false);
-}
-
-void ChangeTypeDialog::confirm_slot(){
-    this->accept();
-    emit type_send(ui->buttonGroup->checkedId(), ui->usernameLabel->text());
+    connect(ui->buttonGroup, QOverload<int>::of(&QButtonGroup::buttonClicked), [=](int id){
+        if (id != currenttype)
+            ui->confirmPushBtn->setEnabled(true);
+        else
+            ui->confirmPushBtn->setEnabled(false);
+    });
 }

@@ -151,7 +151,6 @@ void MouseControl::setupComponent(){
         Q_UNUSED(index)
         settings->set(CURSOR_SIZE_KEY, ui->pointerSizeComBox->currentData().toInt());
     });
-
 }
 
 void MouseControl::initHandHabitStatus(){

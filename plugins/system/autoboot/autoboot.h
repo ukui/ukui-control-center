@@ -99,7 +99,7 @@ private:
 
 public slots:
     void checkbox_changed_cb(QString bname);
-    void add_autoboot_realize_slot(QString name, QString exec, QString comment);
+    void add_autoboot_realize_slot(QString path, QString name, QString exec, QString comment);
 };
 
 #endif // AUTOBOOT_H

@@ -144,7 +144,10 @@ void KbdLayoutManager::rebuild_listwidget(){
         QLabel * layoutLabel = new QLabel(layoutWidget);
         QPushButton * layoutdelBtn = new QPushButton(layoutWidget);
         layoutdelBtn->setIcon(QIcon("://keyboardcontrol/delete.png"));
-        layoutdelBtn->setStyleSheet("QPushButton{border: none}");
+        layoutdelBtn->setText(tr("Del"));
+        layoutdelBtn->setStyleSheet(""
+                            "QPushButton{background: #FA6056; border-radius: 2px;}"
+                            "QPushButton:hover:pressed{background: #E54A50; border-radius: 2px;}");
 
         connect(layoutdelBtn, &QPushButton::clicked, this, [=]{emit del_variant_signals(layout);});
 

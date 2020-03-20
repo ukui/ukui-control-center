@@ -27,14 +27,16 @@ DelUserDialog::DelUserDialog(QWidget *parent) :
     ui(new Ui::DelUserDialog)
 {
     ui->setupUi(this);
-    connect(ui->cancelPushBtn, SIGNAL(clicked()), this, SLOT(reject()));
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
+    setAttribute(Qt::WA_TranslucentBackground);
 
-    QSignalMapper * differSignalMapper = new QSignalMapper();
-    for (QAbstractButton * button : ui->buttonGroup->buttons()){
-        connect(button, SIGNAL(clicked()), differSignalMapper, SLOT(map()));
-        differSignalMapper->setMapping(button, button->text());
-    }
-    connect(differSignalMapper, SIGNAL(mapped(QString)), this, SLOT(btn_clicked_slot(QString)));
+    ui->frame->setStyleSheet("QFrame{background: #ffffff; border: none; border-radius: 6px;}");
+    ui->closeBtn->setStyleSheet("QPushButton{background: #ffffff;}");
+
+    ui->closeBtn->setIcon(QIcon("://img/titlebar/close.png"));
+
+    setupComonpent();
+    setupConnect();
 }
 
 DelUserDialog::~DelUserDialog()
@@ -42,20 +44,38 @@ DelUserDialog::~DelUserDialog()
     delete ui;
 }
 
-void DelUserDialog::set_face_label(QString iconfile){
-    ui->faceLabel->setPixmap(QPixmap(iconfile).scaled(QSize(80, 80)));
+void DelUserDialog::setupComonpent(){
+
 }
 
-void DelUserDialog::set_username_label(QString username){
+void DelUserDialog::setupConnect(){
+
+    connect(ui->closeBtn, &QPushButton::clicked, [=](){
+        close();
+    });
+    connect(ui->cancelPushBtn, SIGNAL(clicked()), this, SLOT(reject()));
+
+    QSignalMapper * differSignalMapper = new QSignalMapper();
+    for (QAbstractButton * button : ui->buttonGroup->buttons()){
+        connect(button, SIGNAL(clicked()), differSignalMapper, SLOT(map()));
+        differSignalMapper->setMapping(button, button->text());
+    }
+
+    connect(differSignalMapper, QOverload<const QString &>::of(&QSignalMapper::mapped), [=](const QString key){
+        this->accept();
+        bool removefile;
+        if (ui->removePushBtn->text() == key)
+            removefile = true;
+        else
+            removefile = false;
+        emit removefile_send(removefile, ui->usernameLabel->text());
+    });
+}
+
+void DelUserDialog::setFace(QString iconfile){
+    ui->faceLabel->setPixmap(QPixmap(iconfile));
+}
+
+void DelUserDialog::setUsername(QString username){
     ui->usernameLabel->setText(username);
-}
-
-void DelUserDialog::btn_clicked_slot(QString key){
-    this->accept();
-    bool removefile;
-    if (ui->removePushBtn->text() == key)
-        removefile = true;
-    else
-        removefile = false;
-    emit removefile_send(removefile, ui->usernameLabel->text());
 }

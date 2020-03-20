@@ -50,6 +50,12 @@ public slots:
     Q_SCRIPTABLE void exitService();
     Q_SCRIPTABLE QString GetComputerInfo();
     Q_SCRIPTABLE void systemRun(QString cmd);
+
+    //设置免密登录状态
+    Q_SCRIPTABLE void setNoPwdLoginStatus(bool status,QString username);
+
+    //获取免密登录状态
+    Q_SCRIPTABLE QString getNoPwdLoginStatus();
 };
 
 #endif // SYSDBUSREGISTER_H

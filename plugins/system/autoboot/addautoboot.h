@@ -52,11 +52,14 @@ public:
 private:
     Ui::AddAutoBoot *ui;
 
+private:
+    QString selectFile;
+
 private slots:
     void open_desktop_dir_slots();
 
 Q_SIGNALS:
-    void autoboot_adding_signals(QString name, QString exec, QString comment);
+    void autoboot_adding_signals(QString path, QString name, QString exec, QString comment);
 };
 
 #endif // ADDAUTOBOOT_H

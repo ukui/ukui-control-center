@@ -41,6 +41,7 @@ DisplaySet::DisplaySet(){
 }
 
 DisplaySet::~DisplaySet(){
+
 }
 
 QWidget *DisplaySet::get_plugin_ui(){

@@ -22,8 +22,6 @@
 
 #include <QDialog>
 
-#include "SwitchButton/switchbutton.h"
-
 namespace Ui {
 class ChangeTypeDialog;
 }
@@ -36,24 +34,19 @@ public:
     explicit ChangeTypeDialog(QWidget *parent = 0);
     ~ChangeTypeDialog();
 
-    void set_face_label(QString iconfile);
-    void set_username_label(QString username);
-    void set_account_type_label(QString atype);
-    void set_current_account_type(int id);
-    void set_autologin_status(bool status);
+public:
+    void setupComonpent();
+
+    void setFace(QString faceFile);
+    void setUsername(QString name);
+    void setCurrentAccountTypeLabel(QString aType);
+    void setCurrentAccountTypeBtn(int id);
 
 private:
     Ui::ChangeTypeDialog *ui;
 
-    SwitchButton * autologinSwitchBtn;
-
     int currenttype;
     bool currentloginstatus;
-
-private slots:
-    void autologin_status_changed_slot(bool status);
-    void radioBtn_clicked_slot(int id);
-    void confirm_slot();
 
 Q_SIGNALS:
     void type_send(int type, QString username);

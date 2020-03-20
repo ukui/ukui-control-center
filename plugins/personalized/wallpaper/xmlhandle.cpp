@@ -251,8 +251,13 @@ void XmlHandle::xmlUpdate(QMap<QString, QMap<QString, QString> > wallpaperinfosM
         return;
     }
 
+    if (0 == wallpaperinfosMap.count()){
+        qDebug() << "Error QMap Empty";
+        return;
+    }
+
     QMap<QString, QString> currentheadMap;
-    currentheadMap = (QMap<QString, QString>)wallpaperinfosMap.find("head").value();
+    currentheadMap =  wallpaperinfosMap.find("head").value();
 
     QXmlStreamWriter writer;
     writer.setDevice(&file);

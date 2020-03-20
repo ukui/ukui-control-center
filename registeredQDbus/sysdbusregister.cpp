@@ -63,3 +63,35 @@ QString SysdbusRegister::GetComputerInfo(){
 void SysdbusRegister::systemRun(QString cmd){
     QProcess::execute(cmd);
 }
+
+//获取免密登录状态
+QString SysdbusRegister::getNoPwdLoginStatus(){
+    QByteArray ba;
+    FILE * fp = NULL;
+    char cmd[128];
+    char buf[1024];
+    sprintf(cmd, "cat /etc/group |grep nopasswdlogin");
+    if ((fp = popen(cmd, "r")) != NULL){
+        rewind(fp);
+        fgets(buf, sizeof (buf), fp);
+        ba.append(buf);
+        pclose(fp);
+        fp = NULL;
+    }else{
+        qDebug()<<"popen文件打开失败"<<endl;
+    }
+    return QString(ba);
+}
+
+//设置免密登录状态
+void SysdbusRegister::setNoPwdLoginStatus(bool status,QString username){
+
+    QString cmd;
+    if(true == status){
+         cmd = QString("gpasswd  -a %1 nopasswdlogin").arg(username);
+    }else{
+        cmd = QString("gpasswd  -d %1 nopasswdlogin").arg(username);
+    }
+    systemRun(cmd);
+}
+
