@@ -563,13 +563,13 @@ void Widget::initGSettings() {
         return ;
     }
 
-    connect(m_gsettings, &QGSettings::changed, this, [=] (const QString &key) {
-        if (NIGHT_MODE_KEY == key) {
-//            qDebug()<<"key is changed----------------->"<<key<<endl;
-            bool value = this->getNightModeGSetting(key);
-            setNightModebyPanel(value);
-        }
-    });
+//    connect(m_gsettings, &QGSettings::changed, this, [=] (const QString &key) {
+//        if (NIGHT_MODE_KEY == key) {
+////            qDebug()<<"key is changed----------------->"<<key<<endl;
+//            bool value = this->getNightModeGSetting(key);
+//            setNightModebyPanel(value);
+//        }
+//    });
 }
 
 bool Widget::getNightModeGSetting(const QString &key) {
@@ -585,12 +585,12 @@ bool Widget::getNightModeGSetting(const QString &key) {
 }
 
 void Widget::setNightModebyPanel(bool judge) {
-    QProcess *process = new QProcess;
-    if(judge == true) {        
-        process->startDetached("redshift -t 5700:3600 -g 0.8 -m randr -v");
-    }  else {        
-        QProcess::execute("killall redshift");
-    }
+//    QProcess *process = new QProcess;
+//    if(judge == true) {
+//        process->startDetached("redshift -t 5700:3600 -g 0.8 -m randr -v");
+//    }  else {
+//        QProcess::execute("killall redshift");
+//    }
 }
 
 void Widget::clearOutputIdentifiers()
