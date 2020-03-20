@@ -111,6 +111,8 @@ void Shortcut::plugin_delay_control(){
 void Shortcut::setupComponent(){
     ui->addLabel->setPixmap(QPixmap("://img/plugins/printer/add.png"));
 
+    ui->showBtn->hide();
+
     ui->generalListWidget->setFocusPolicy(Qt::NoFocus);
     ui->generalListWidget->setSelectionMode(QAbstractItemView::NoSelection);
     ui->generalListWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);

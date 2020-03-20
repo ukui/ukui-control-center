@@ -471,7 +471,7 @@ void NetConnect::getWifiListDone(QStringList getwifislist, QStringList getlanLis
 }
 
 bool NetConnect::getSwitchStatus(QString key){
-    qDebug()<<"key is------------->"<<key<<endl;
+//    qDebug()<<"key is------------->"<<key<<endl;
     if (!m_gsettings) {
         return true;
     }

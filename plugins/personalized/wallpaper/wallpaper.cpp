@@ -99,6 +99,9 @@ void Wallpaper::plugin_delay_control(){
 }
 
 void Wallpaper::setupComponent(){
+
+    ui->browserLocalwpBtn->hide();
+    ui->browserOnlinewpBtn->hide();
     //背景形式
     QStringList formList;
     formList << tr("picture") << tr("color")/* << tr("slideshow")*/ ;
@@ -224,8 +227,6 @@ void Wallpaper::setupComponent(){
 
 int Wallpaper::_getCurrentBgForm(){
     QString filename = bgsettings->get(FILENAME).toString();
-
-    qDebug() << "----------" << filename;
 
     int current = 0;
 

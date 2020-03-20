@@ -137,6 +137,9 @@ void Theme::setupComponent(){
     ui->lightBtn->setProperty("value", "ukui-white");
     ui->darkBtn->setProperty("value", "ukui-black");
 
+    ui->effectLabel->hide();
+    ui->effectWidget->hide();
+
     //构建并填充特效开关按钮
     effectSwitchBtn = new SwitchButton(pluginWidget);
     ui->effectHorLayout->addWidget(effectSwitchBtn);
