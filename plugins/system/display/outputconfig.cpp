@@ -247,6 +247,57 @@ void OutputConfig::initUi()
     connect(mRefreshRate, static_cast<void(QComboBox::*)(int)>(&QComboBox::activated),
             this, &OutputConfig::slotRefreshRateChanged);
 
+
+
+    scaleCombox = new QComboBox();
+//    mRefreshRate->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
+    scaleCombox->setMinimumSize(402,30);
+    scaleCombox->setMaximumSize(16777215,30);
+    scaleCombox->setStyleSheet(qss);
+    scaleCombox->setItemDelegate(itemDelege);
+    scaleCombox->setMaxVisibleItems(5);
+    scaleCombox->addItem(tr("100%"));
+    int maxReslu = mResolution->getMaxResolution().width();
+    if (maxReslu >= 2000 && maxReslu <= 3800) {
+        scaleCombox->addItem(tr("200%"));
+    } else if (maxReslu >= 3800 || maxReslu >= 4000) {
+        scaleCombox->addItem(tr("200%"));
+        scaleCombox->addItem(tr("300%"));
+    }
+
+    QLabel *scaleLabel = new QLabel();
+    scaleLabel->setText(tr("screen zoom"));
+    scaleLabel->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
+    scaleLabel->setMinimumSize(118,30);
+    scaleLabel->setMaximumSize(118,30);
+
+    QHBoxLayout *scaleLayout = new QHBoxLayout();
+    scaleLayout->addWidget(scaleLabel);
+    scaleLayout->addWidget(scaleCombox);
+//    freshLayout->addStretch();
+
+    QWidget *scaleWidget = new QWidget(this);
+    scaleWidget->setLayout(scaleLayout);
+    scaleWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+
+    scaleWidget->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
+    scaleWidget->setMinimumSize(550,50);
+    scaleWidget->setMaximumSize(960,50);
+    vbox->addWidget(scaleWidget);
+
+    connect(scaleCombox, static_cast<void(QComboBox::*)(int)>(&QComboBox::activated),
+            this, &OutputConfig::slotScaleChanged);
+
+    int scale = this->scaleRet();
+    scaleCombox->setCurrentIndex(0);
+    if (scale <= scaleCombox->count() && scale > 0) {
+        scaleCombox->setCurrentIndex(scale - 1);
+    }
+    slotScaleChanged(scale - 1);
+}
+
+int OutputConfig::getMaxReslotion() {
+
 }
 
 void OutputConfig::setOutput(const KScreen::OutputPtr &output)
@@ -330,9 +381,9 @@ void OutputConfig::slotRefreshRateChanged(int index)
 
 void OutputConfig::slotScaleChanged(int index)
 {
-    auto scale = mScale->itemData(index).toInt();
-    mOutput->setScale(scale);
-    Q_EMIT changed();
+//    auto scale = mScale->itemData(index).toInt();
+//    mOutput->setScale(scale);
+    Q_EMIT scaleChanged(index);
 }
 
 void OutputConfig::setShowScaleOption(bool showScaleOption)
@@ -352,5 +403,45 @@ bool OutputConfig::showScaleOption() const
 void OutputConfig::initConfig(const KScreen::ConfigPtr &config){
     qDebug()<<"initCofnig--->"<<endl;
     mConfig = config;
+}
+
+QStringList OutputConfig::readFile(const QString& filepath) {
+    QFile file(filepath);
+    if(file.exists()) {
+        if(!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            qWarning() << "ReadFile() failed to open" << filepath;
+            return QStringList();
+        }
+        QTextStream textStream(&file);
+        while(!textStream.atEnd()) {
+            QString line= textStream.readLine();
+            line.remove('\n');
+            this->proRes<<line;
+        }
+        file.close();
+        return this->proRes;
+    } else {
+        qWarning() << filepath << " not found"<<endl;
+        return QStringList();
+    }
+}
+
+int OutputConfig::scaleRet() {
+    QString filepath = getenv("HOME");
+    QString scale;
+    filepath += "/.profile";
+    QStringList res = this->readFile(filepath);
+    QRegExp re("export( GDK_SCALE)?=(.*)$");
+    for(int i = 0; i < res.length(); i++) {
+        int pos = 0;
+//        qDebug()<<res.at(i)<<endl;
+        QString str = res.at(i);
+        while ((pos = re.indexIn(str, pos)) != -1) {
+            scale = re.cap(2);
+            pos += re.matchedLength();
+        }
+    }
+//    qDebug()<<"scale---------------->"<<scale.toInt();
+    return scale.toInt();
 }
 

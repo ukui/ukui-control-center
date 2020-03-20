@@ -73,7 +73,7 @@ void ResolutionSlider::init()
     layout->setContentsMargins(0, 0, 0, 0);
     if (mModes.count() <= 60&&!mModes.empty()) {
         std::reverse(mModes.begin(), mModes.end());
-        mComboBox = new QComboBox(this);        
+        mComboBox = new QComboBox();
         mComboBox->setMinimumSize(402,30);
         mComboBox->setMaximumSize(1677215, 30);
 //        mComboBox->setSizeAdjustPolicy(QComboBox::AdjustToContents);
@@ -163,6 +163,13 @@ QSize ResolutionSlider::currentResolution() const
         const int i = mComboBox->currentIndex();
         return i > -1 ? mModes.at(i) : QSize();
     }
+}
+
+QSize ResolutionSlider::getMaxResolution() const {
+    if (mModes.isEmpty()) {
+        return QSize();
+    }
+    return mModes.first();
 }
 
 void ResolutionSlider::slotOutputModeChanged()

@@ -10,5 +10,10 @@
       <summary>Wireless network card</summary>
       <description>Determine if the wireless network card is inserted</description>
     </key>
+    <key type="b" name="switchor">
+      <default>true</default>
+      <summary>wifi switchor</summary>
+      <description>wifi switch of kylin network manager</description>
+    </key>
   </schema>
 </schemalist>

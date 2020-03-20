@@ -975,22 +975,22 @@ folder will be deleted!</source>
         <translation>打开显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="352"/>
+        <location filename="../../../plugins/system/display/display.ui" line="327"/>
         <source>screen brightness adjustment</source>
         <translation>调整屏幕亮度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="359"/>
+        <location filename="../../../plugins/system/display/display.ui" line="334"/>
         <source>dark</source>
         <translation>暗</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="408"/>
+        <location filename="../../../plugins/system/display/display.ui" line="383"/>
         <source>bright</source>
         <translation>亮</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="450"/>
+        <location filename="../../../plugins/system/display/display.ui" line="425"/>
         <source>apply</source>
         <translation>应用</translation>
     </message>
@@ -1371,17 +1371,17 @@ folder will be deleted!</source>
         <translation>网络状态</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="73"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="86"/>
         <source>Available Network</source>
         <translation>可用网络</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="112"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="125"/>
         <source>open wifi</source>
         <translation>打开wifi</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="170"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="183"/>
         <source>Change net settings</source>
         <translation>更改网络设置</translation>
     </message>
@@ -1391,16 +1391,17 @@ folder will be deleted!</source>
         <translation>网络连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="150"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="159"/>
-        <source>Connect</source>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="178"/>
+        <source>connected</source>
         <translation>已连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="154"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="163"/>
+        <source>Connect</source>
+        <translation type="vanished">已连接</translation>
+    </message>
+    <message>
         <source>Disconnect</source>
-        <translation>未连接</translation>
+        <translation type="vanished">未连接</translation>
     </message>
 </context>
 <context>
@@ -1484,9 +1485,30 @@ folder will be deleted!</source>
         <translation>自动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="293"/>
-        <source>%1 Hz</source>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="259"/>
+        <source>100%</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="262"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="264"/>
+        <source>200%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="265"/>
+        <source>300%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="269"/>
+        <source>screen zoom</source>
+        <translation>缩放屏幕</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="344"/>
+        <source>%1 Hz</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -2484,34 +2506,32 @@ folder will be deleted!</source>
 <context>
     <name>Widget</name>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="79"/>
         <source>screen zoom </source>
-        <translation>屏幕缩放 </translation>
+        <translation type="vanished">屏幕缩放 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="105"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="90"/>
         <source>night mode</source>
         <translation>夜间模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="814"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="805"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="815"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="806"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
-    <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="827"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="817"/>
         <source>Sorry, your configuration could not be applied.
 
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉,配置不能应用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="829"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="819"/>
         <source>@title:window</source>
         <comment>Unsupported Configuration</comment>
         <translation>窗口</translation>

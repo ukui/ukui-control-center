@@ -293,31 +293,6 @@ QComboBox::drop-down{
     </widget>
    </item>
    <item>
-    <widget class="QWidget" name="scaleWidget" native="true">
-     <property name="minimumSize">
-      <size>
-       <width>550</width>
-       <height>80</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>960</width>
-       <height>80</height>
-      </size>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_8">
-      <item>
-       <layout class="QHBoxLayout" name="scaleLayout">
-        <property name="rightMargin">
-         <number>9</number>
-        </property>
-       </layout>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
     <widget class="QWidget" name="brightnesswidget" native="true">
      <property name="minimumSize">
       <size>

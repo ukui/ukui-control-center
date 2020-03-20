@@ -22,6 +22,8 @@
 
 #include <QWidget>
 #include <QMouseEvent>
+#include <QList>
+#include <QPixmap>
 
 class QLabel;
 
@@ -30,7 +32,8 @@ class ThemeWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit ThemeWidget(QSize iSize, QString name, QStringList iStringList, QWidget *parent = 0);
+    explicit ThemeWidget(QSize iSize, QString name, QStringList iStringList , QWidget *parent = 0);
+    explicit ThemeWidget(QSize iSize, QString name, const QList<QPixmap> &listMap , QWidget *parent = 0);
     ~ThemeWidget();
 
 public:
@@ -48,6 +51,8 @@ protected:
 
 private:
     QString pValue;
+    QList<QPixmap> listMap;
+    bool isCursor;
 
 Q_SIGNALS:
     void clicked();
