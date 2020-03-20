@@ -67,6 +67,9 @@ AutoBoot::AutoBoot(){
     ui->listWidget->setStyleSheet("QListWidget#listWidget{background: #ffffff; border: none;}"
                                   "");
 
+    ui->addBtn->setIcon(QIcon("://img/plugins/autoboot/add.png"));
+    ui->addBtn->setIconSize(QSize(48, 48));
+
     ui->listWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->listWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
@@ -80,7 +83,7 @@ AutoBoot::AutoBoot(){
     initUI();
 
     connect(ui->addBtn, &QPushButton::clicked, this, [=]{dialog->exec();});
-    connect(dialog, SIGNAL(autoboot_adding_signals(QString,QString,QString)), this, SLOT(add_autoboot_realize_slot(QString,QString,QString)));
+    connect(dialog, SIGNAL(autoboot_adding_signals(QString, QString,QString,QString)), this, SLOT(add_autoboot_realize_slot(QString ,QString,QString,QString)));
 }
 
 AutoBoot::~AutoBoot()
@@ -145,7 +148,7 @@ void AutoBoot::initUI(){
 //    QSizePolicy nameSizePolicy = nameLabel->sizePolicy();
 //    nameSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
 //    nameLabel->setSizePolicy(nameSizePolicy);
-    nameLabel->setFixedWidth(250);
+    nameLabel->setFixedWidth(220);
     nameLabel->setText(tr("Name"));
     nameLabel->setStyleSheet("background: #F4F4F4;");
 
@@ -158,9 +161,9 @@ void AutoBoot::initUI(){
     statusLabel->setStyleSheet("background: #F4F4F4;");
 
     headHorLayout->addWidget(nameLabel);
-    headHorLayout->addStretch(1);
+    headHorLayout->addStretch();
     headHorLayout->addWidget(statusLabel);
-    headHorLayout->addStretch(1);
+    headHorLayout->addStretch();
 
     headWidget->setLayout(headHorLayout);
 
@@ -213,38 +216,51 @@ void AutoBoot::initUI(){
 
         SwitchButton * button = new SwitchButton();
         button->setAttribute(Qt::WA_DeleteOnClose);
-        button->setChecked(it.value().enable);
+//        button->setChecked(it.value().enable);
+        button->setChecked(!it.value().hidden);
         connect(button, SIGNAL(checkedChanged(bool)), checkSignalMapper, SLOT(map()));
         checkSignalMapper->setMapping(button, it.key());
         appgroupMultiMaps.insert(it.key(), button);
 
-        QPushButton * pBtn = new QPushButton(widget);
-        pBtn->setFixedSize(QSize(32, 32));
-        pBtn->setText("Del");
-        pBtn->setHidden(true);
-        connect(pBtn, &QPushButton::clicked, this, [=]{
+        QPushButton * dBtn = new QPushButton(widget);
+        dBtn->setFixedSize(QSize(32, 32));
+        dBtn->setText("Del");
+        dBtn->setHidden(true);
+        connect(dBtn, &QPushButton::clicked, this, [=]{
             del_autoboot_realize(bname);
         });
+        dBtn->setStyleSheet(""
+                            "QPushButton{background: #FA6056; border-radius: 2px;}"
+                            "QPushButton:hover:pressed{background: #E54A50; border-radius: 2px;}");
+
+        QLabel * pLabel = new QLabel(widget);
+        pLabel->setFixedSize(QSize(32, 32));
+        pLabel->setHidden(false);
 
         mainHLayout->addWidget(iconLabel);
         mainHLayout->addWidget(textLabel);
         mainHLayout->addStretch(1);
         mainHLayout->addWidget(button);
         mainHLayout->addStretch(1);
-//        mainHLayout->addWidget(pBtn);
+        mainHLayout->addWidget(pLabel);
+        mainHLayout->addWidget(dBtn);
         widget->setLayout(mainHLayout);
 
-//        connect(widget, &HoverWidget::enterWidget, this, [=](QString name){
-//            Q_UNUSED(name)
-//            pBtn->setHidden(false);
-//            widget->setStyleSheet("background: #EEF2FD;");
+        if (it.value().xdg_position == LOCALPOS){
+            connect(widget, &HoverWidget::enterWidget, this, [=](QString name){
+                Q_UNUSED(name)
+                dBtn->setHidden(false);
+                pLabel->setHidden(true);
+                //            widget->setStyleSheet("background: #EEF2FD;");
 
-//        });
-//        connect(widget, &HoverWidget::leaveWidget, this, [=](QString name){
-//            Q_UNUSED(name)
-//            pBtn->setHidden(true);
-//            widget->setStyleSheet("background: #F4F4F4;");
-//        });
+            });
+            connect(widget, &HoverWidget::leaveWidget, this, [=](QString name){
+                Q_UNUSED(name)
+                dBtn->setHidden(true);
+                pLabel->setHidden(false);
+                //            widget->setStyleSheet("background: #F4F4F4;");
+            });
+        }
 
         baseVerLayout->addWidget(widget);
         baseVerLayout->addStretch();
@@ -257,6 +273,7 @@ void AutoBoot::initUI(){
     }
     connect(checkSignalMapper, SIGNAL(mapped(QString)), this, SLOT(checkbox_changed_cb(QString)));
 }
+
 
 bool AutoBoot::_copy_desktop_file_to_local(QString bname){
     GFile * srcfile;
@@ -319,14 +336,19 @@ bool AutoBoot::_delete_local_autoapp(QString bname){
     if (updateit == statusMaps.end())
         qDebug() << "statusMaps Data Error when delete local file";
     else{
-        QMap<QString, AutoApp>::iterator appit = appMaps.find(bname);
-        if (appit == appMaps.end())
-            qDebug() << "appMaps Data Error when delete local file";
-        else{
-            updateit.value().enable = appit.value().enable;
-            updateit.value().path = appit.value().path;
+
+        if (updateit.value().xdg_position == LOCALPOS){
+            statusMaps.remove(bname);
+        } else if (updateit.value().xdg_position == ALLPOS){
+            QMap<QString, AutoApp>::iterator appit = appMaps.find(bname);
+            if (appit == appMaps.end())
+                qDebug() << "appMaps Data Error when delete local file";
+            else{
+                updateit.value().hidden = appit.value().hidden;
+                updateit.value().path = appit.value().path;
+            }
+            updateit.value().xdg_position = SYSTEMPOS;
         }
-        updateit.value().xdg_position = SYSTEMPOS;
     }
 
     g_free(dstpath);
@@ -353,7 +375,7 @@ bool AutoBoot::_enable_autoapp(QString bname, bool status){
         return false;
     }
 
-    g_key_file_set_boolean(keyfile, G_KEY_FILE_DESKTOP_GROUP, APP_KEY_FILE_DESKTOP_KEY_AUTOSTART_ENABLE, status);
+    g_key_file_set_boolean(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_HIDDEN, !status);
 
     if (!_key_file_to_file(keyfile, dstpath)){
         qDebug() << "Start autoboot failed because could not save desktop file";
@@ -368,7 +390,7 @@ bool AutoBoot::_enable_autoapp(QString bname, bool status){
     if (updateit == statusMaps.end())
         qDebug() << "Start autoboot failed because autoBoot Data Error";
     else{
-        updateit.value().enable = status;
+        updateit.value().hidden = !status;
     }
 
     g_free(dstpath);
@@ -412,7 +434,6 @@ bool AutoBoot::_delete_autoapp(QString bname){
     return true;
 }
 
-
 bool AutoBoot::_stop_autoapp(QString bname){
 
     char * dstpath;
@@ -434,7 +455,7 @@ bool AutoBoot::_stop_autoapp(QString bname){
         return false;
     }
 
-    g_key_file_set_boolean(keyfile, G_KEY_FILE_DESKTOP_GROUP, APP_KEY_FILE_DESKTOP_KEY_AUTOSTART_ENABLE, false);
+    g_key_file_set_boolean(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_HIDDEN, true);
 
     if (!_key_file_to_file(keyfile, dstpath)){
         qDebug() << "Stop autoboot failed because could not save desktop file";
@@ -449,7 +470,7 @@ bool AutoBoot::_stop_autoapp(QString bname){
     if (updateit == statusMaps.end())
         qDebug() << "Stop autoboot failed because AutoBoot Data Error";
     else{
-        updateit.value().enable = false;
+        updateit.value().hidden = true;
     }
 
     g_free(dstpath);
@@ -549,7 +570,7 @@ AutoApp AutoBoot::_app_new(const char *path){
     obpath = g_strdup(path);
     hidden = _key_file_get_boolean(keyfile, G_KEY_FILE_DESKTOP_KEY_HIDDEN, FALSE);
     no_display = _key_file_get_boolean(keyfile, G_KEY_FILE_DESKTOP_KEY_NO_DISPLAY, FALSE);
-    enable = _key_file_get_boolean(keyfile, APP_KEY_FILE_DESKTOP_KEY_AUTOSTART_ENABLE, TRUE);
+//    enable = _key_file_get_boolean(keyfile, APP_KEY_FILE_DESKTOP_KEY_AUTOSTART_ENABLE, TRUE);
     shown = _key_file_get_shown(keyfile, g_getenv("XDG_CURRENT_DESKTOP"));
     name = g_key_file_get_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_NAME, NULL, NULL);
     comment = g_key_file_get_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_COMMENT, NULL, NULL);
@@ -562,7 +583,7 @@ AutoApp AutoBoot::_app_new(const char *path){
     app.hidden = hidden;
     app.no_display = no_display;
     app.shown = shown;
-    app.enable = enable;
+//    app.enable = enable;
 
     app.name = QString::fromUtf8(name);
     app.comment = QString::fromUtf8(comment);
@@ -637,7 +658,7 @@ void AutoBoot::update_app_status(){
 
     QMap<QString, AutoApp>::iterator it = appMaps.begin();
     for (; it != appMaps.end(); it++){
-        if (it.value().hidden || it.value().no_display || !it.value().shown ||
+        if (/*it.value().hidden || */it.value().no_display || !it.value().shown ||
                 it.value().exec == "/usr/bin/ukui-settings-daemon") //gtk控制面板屏蔽ukui-settings-daemon,猜测禁止用户关闭
             continue;
         statusMaps.insert(it.key(), it.value());
@@ -645,7 +666,7 @@ void AutoBoot::update_app_status(){
 
     QMap<QString, AutoApp>::iterator localit = localappMaps.begin();
     for (; localit != localappMaps.end(); localit++){
-        if (localit.value().hidden || localit.value().no_display || !localit.value().shown){
+        if (/*localit.value().hidden || */localit.value().no_display || !localit.value().shown){
             statusMaps.remove(localit.key());
             continue;
         }
@@ -654,11 +675,18 @@ void AutoBoot::update_app_status(){
             //整合状态
             QMap<QString, AutoApp>::iterator updateit = statusMaps.find(localit.key());
 
-            if (localit.value().enable != updateit.value().enable){
-                updateit.value().enable = localit.value().enable;
+//            if (localit.value().enable != updateit.value().enable){
+//                updateit.value().enable = localit.value().enable;
+//                updateit.value().path = localit.value().path;
+//                if (appMaps.contains(localit.key()))
+//                    updateit.value().xdg_position = ALLPOS;
+//            }
+            if (localit.value().hidden != updateit.value().hidden){
+                updateit.value().hidden = localit.value().hidden;
                 updateit.value().path = localit.value().path;
-                if (appMaps.contains(localit.key()))
+                if (appMaps.contains(localit.key())){
                     updateit.value().xdg_position = ALLPOS;
+                }
             }
         }
         else{
@@ -668,12 +696,15 @@ void AutoBoot::update_app_status(){
     }
 }
 
-void AutoBoot::add_autoboot_realize_slot(QString name, QString exec, QString comment){
+
+void AutoBoot::add_autoboot_realize_slot(QString path, QString name, QString exec, QString comment){
+    if (path.isEmpty())
+        return;
+
     char * filename, * filepath;
-    if (exec.contains("/"))
-        filename = QString("%1.desktop").arg(exec.section("/", -1, -1)).toUtf8().data();
-    else
-        filename = QString("%1.desktop").arg(exec).toUtf8().data();
+
+    filename = path.section("/", -1, -1).toUtf8().data();
+
 
     if (!g_file_test(localconfigdir, G_FILE_TEST_EXISTS)){
         GFile * dstdirfile;
@@ -690,14 +721,14 @@ void AutoBoot::add_autoboot_realize_slot(QString name, QString exec, QString com
     char * type = QString("Application").toUtf8().data();
 
     g_key_file_set_string(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_TYPE, type);
-    g_key_file_set_boolean(keyfile, G_KEY_FILE_DESKTOP_GROUP, APP_KEY_FILE_DESKTOP_KEY_AUTOSTART_ENABLE, true);
+//    g_key_file_set_boolean(keyfile, G_KEY_FILE_DESKTOP_GROUP, APP_KEY_FILE_DESKTOP_KEY_AUTOSTART_ENABLE, true);
     g_key_file_set_string(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_EXEC, exec.toUtf8().data());
     g_key_file_set_boolean(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_HIDDEN, false);
     g_key_file_set_boolean(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_NO_DISPLAY, false);
     g_key_file_set_string(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_NAME, name.toUtf8().data());
     g_key_file_set_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_NAME, locale, name.toUtf8().data());
     g_key_file_set_string(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_COMMENT, comment.toUtf8().data());
-    g_key_file_set_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_COMMENT, locale, comment.toUtf8().data());
+//    g_key_file_set_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_COMMENT, locale, comment.toUtf8().data());
 
     if (!_key_file_to_file(keyfile, filepath))
         qDebug() << "Could not save desktop file";
@@ -719,20 +750,20 @@ void AutoBoot::del_autoboot_realize(QString bname){
         return;
     }
 
-    if (it.value().xdg_position == SYSTEMPOS){ //复制改值
-        if (_copy_desktop_file_to_local(bname)){
-            _delete_autoapp(bname);
-        }
-    }
-    else if (it.value().xdg_position == ALLPOS){ //改值
-        _delete_autoapp(bname);
+//    if (it.value().xdg_position == SYSTEMPOS){ //复制改值
+//        if (_copy_desktop_file_to_local(bname)){
+//            _delete_autoapp(bname);
+//        }
+//    }
+//    else if (it.value().xdg_position == ALLPOS){ //改值
+//        _delete_autoapp(bname);
 
-    }
-    else if (it.value().xdg_position == LOCALPOS){ //删除
+//    }
+//    else if (it.value().xdg_position == LOCALPOS){ //删除
         _delete_local_autoapp(bname);
         ui->listWidget->clear();
         initUI();
-    }
+//    }
 }
 
 void AutoBoot::checkbox_changed_cb(QString bname){
@@ -746,16 +777,16 @@ void AutoBoot::checkbox_changed_cb(QString bname){
             }
 
             if (((SwitchButton *)appgroupMultiMaps.value(key))->isChecked()){ //开启开机启动
-                if (it.value().xdg_position == SYSTEMPOS) //
-                    ;
-                else if (it.value().xdg_position == ALLPOS){ //删除
+                if (it.value().xdg_position == SYSTEMPOS){ //
+
+                } else if (it.value().xdg_position == ALLPOS){ //删除
                     QMap<QString, AutoApp>::iterator appit = appMaps.find(bname);
-                    if (appit.value().enable){ //直接删除
+                    if (!appit.value().hidden){ //直接删除
                         _delete_local_autoapp(bname);
                         //更新状态
                         QMap<QString, AutoApp>::iterator updateit = statusMaps.find(bname);
                         if (updateit != statusMaps.end()){
-                            updateit.value().enable = true;
+                            updateit.value().hidden = false;
                             updateit.value().xdg_position = SYSTEMPOS;
                             updateit.value().path = appit.value().path;
                         }
@@ -780,14 +811,16 @@ void AutoBoot::checkbox_changed_cb(QString bname){
                 }
                 else if (it.value().xdg_position == ALLPOS){//正常逻辑不应存在该情况,预防处理
                     QMap<QString, AutoApp>::iterator appit = appMaps.find(bname);
-                    if (!appit.value().enable)
+                    if (appit.value().hidden)
                         _delete_local_autoapp(bname);
                 }
                 else if (it.value().xdg_position == LOCALPOS){//改值
-                    _enable_autoapp(bname, false);
+//                    _enable_autoapp(bname, false);
+                    _stop_autoapp(bname);
                 }
 
             }
         }
     }
 }
+

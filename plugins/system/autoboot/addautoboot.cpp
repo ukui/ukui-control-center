@@ -22,17 +22,19 @@
 
 #include <QDebug>
 
-#define DESKTOPPATH "/etc/xdg/autostart/"
+//#define DESKTOPPATH "/etc/xdg/autostart/"
+#define DESKTOPPATH "/usr/share/applications/"
 
 AddAutoBoot::AddAutoBoot(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddAutoBoot)
 {
     ui->setupUi(this);
+    selectFile = "";
 
     connect(ui->openBtn, SIGNAL(clicked(bool)), this, SLOT(open_desktop_dir_slots()));
     connect(ui->cancelBtn, SIGNAL(clicked(bool)), this, SLOT(close()));
-    connect(ui->certainBtn, &QPushButton::clicked, this, [=]{emit autoboot_adding_signals(ui->nameLineEdit->text(), ui->execLineEdit->text(), ui->commentLineEdit->text());close();});
+    connect(ui->certainBtn, &QPushButton::clicked, this, [=]{emit autoboot_adding_signals(selectFile, ui->nameLineEdit->text(), ui->execLineEdit->text(), ui->commentLineEdit->text());close();});
 }
 
 AddAutoBoot::~AddAutoBoot()
@@ -56,6 +58,7 @@ void AddAutoBoot::open_desktop_dir_slots(){
 
     QString selectedfile;
     selectedfile = fd.selectedFiles().first();
+    selectFile = selectedfile;
 
     QByteArray ba;
     ba = selectedfile.toUtf8();
@@ -74,11 +77,11 @@ void AddAutoBoot::open_desktop_dir_slots(){
     comment = g_key_file_get_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_COMMENT, NULL, NULL);
     exec = g_key_file_get_string(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_EXEC, NULL);
 
-    if (ui->nameLineEdit->text().isEmpty())
+//    if (ui->nameLineEdit->text().isEmpty())
         ui->nameLineEdit->setText(QString(name));
-    if (ui->execLineEdit->text().isEmpty())
+//    if (ui->execLineEdit->text().isEmpty())
         ui->execLineEdit->setText(QString(exec));
-    if (ui->commentLineEdit->text().isEmpty())
+//    if (ui->commentLineEdit->text().isEmpty())
         ui->commentLineEdit->setText(QString(comment));
 
     g_key_file_free(keyfile);
