@@ -22,6 +22,10 @@
 
 #include <QDir>
 #include <QMainWindow>
+#include <QPaintEvent>
+#include <QShowEvent>
+#include <QMoveEvent>
+#include <QHideEvent>
 
 #include "interface.h"
 #include "homepagewidget.h"

@@ -21,6 +21,7 @@
 #include "ui_screensaver.h"
 
 #include <QDebug>
+#include <QBoxLayout>
 
 #define SSTHEMEPATH "/usr/share/applications/screensavers/"
 #define ID_PREFIX "screensavers-ukui-"
@@ -42,8 +43,18 @@ typedef enum
 {
     MODE_BLANK_ONLY,
     MODE_RANDOM,
-    MODE_SINGLE
+    MODE_SINGLE,
+    MODE_IMAGE,
+    MODE_DEFAULT_UKUI,
 }SaverMode;
+
+void PreviewWidget::paintEvent(QPaintEvent *e){
+//    QPainter painter(this);
+//    painter.setCompositionMode(QPainter::CompositionMode_DestinationOver);
+//    qDebug() << Q_FUNC_INFO << this->rect();
+//    painter.fillRect(this->rect(), Qt::red);
+}
+
 
 Screensaver::Screensaver()
 {
@@ -59,7 +70,13 @@ Screensaver::Screensaver()
     pluginWidget->setStyleSheet("background: #ffffff;");
 
     ui->previewWidget->setStyleSheet("#previewWidget{background: black; border-radius: 6px;}");
-    pluginWidget->setAttribute(Qt::WA_TranslucentBackground, false);
+    ui->previewWidget->setAutoFillBackground(true);
+
+    mPreviewWidget = new PreviewWidget;
+    mPreviewWidget->resize(400,222);
+    QBoxLayout *mPreviewLayout = new QBoxLayout(QBoxLayout::TopToBottom);
+    mPreviewLayout->addWidget(mPreviewWidget);
+    ui->previewWidget->setLayout(mPreviewLayout);
 
     ui->enableWidget->setStyleSheet("QWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
 
@@ -79,9 +96,9 @@ Screensaver::Screensaver()
     initThemeStatus();
     initIdleSliderStatus();
 
-//    init_theme_info_map();
-//    component_init();
-//    status_init();
+    init_theme_info_map();
+    component_init();
+    status_init();
 }
 
 Screensaver::~Screensaver()
@@ -105,7 +122,7 @@ QWidget *Screensaver::get_plugin_ui(){
 
 void Screensaver::plugin_delay_control(){
     // 初始化屏保预览Widget
-//    initPreviewWidget();
+    initPreviewWidget();
 }
 
 void Screensaver::initComponent(){
@@ -123,10 +140,11 @@ void Screensaver::initComponent(){
     //初始化屏保程序下拉列表
     ui->comboBox->setItemDelegate(itemDelege);
     ui->comboBox->setMaxVisibleItems(5);
+    ui->comboBox->addItem(tr("Default_ukui"));
     ui->comboBox->addItem(tr("Blank_Only"));
     ui->comboBox->addItem(tr("Random"));
     QMap<QString, SSThemeInfo>::iterator it = infoMap.begin();
-    for (int index = 2; it != infoMap.end(); it++, index++){
+    for (int index = 3; it != infoMap.end(); it++, index++){
         SSThemeInfo info = (SSThemeInfo)it.value();
         ui->comboBox->addItem(info.name);
         ui->comboBox->setItemData(index, QVariant::fromValue(info));
@@ -217,11 +235,15 @@ void Screensaver::initThemeStatus(){
 
     screensaver_settings = g_settings_new(SCREENSAVER_SCHEMA);
     mode = g_settings_get_enum(screensaver_settings, MODE_KEY);
-    if (mode == MODE_BLANK_ONLY){
-        ui->comboBox->setCurrentIndex(0); //Black_Only
+
+    if (mode == MODE_DEFAULT_UKUI){
+        ui->comboBox->setCurrentIndex(0); //UKUI
+    }
+    else if (mode == MODE_BLANK_ONLY){
+        ui->comboBox->setCurrentIndex(1); //Black_Only
     }
     else if (mode == MODE_RANDOM){
-        ui->comboBox->setCurrentIndex(1); //Random
+        ui->comboBox->setCurrentIndex(2); //Random
     }
     else{
         gchar ** strv;
@@ -261,7 +283,7 @@ void Screensaver::initIdleSliderStatus(){
 void Screensaver::component_init(){
 
     //设置屏保预览widget的背景为黑色
-//    ui->previewWidget->setStyleSheet("#previewWidget{background: black}");
+//    mPreviewWidget->setStyleSheet("#previewWidget{background: black}");
 
     //
 //    activeswitchbtn = new SwitchButton();
@@ -303,11 +325,14 @@ void Screensaver::status_init(){
 
     screensaver_settings = g_settings_new(SCREENSAVER_SCHEMA);
     mode = g_settings_get_enum(screensaver_settings, MODE_KEY);
-    if (mode == MODE_BLANK_ONLY){
-        ui->comboBox->setCurrentIndex(0); //Black_Only
+    if (mode == MODE_DEFAULT_UKUI){
+        ui->comboBox->setCurrentIndex(0); //UKUI
+    }
+    else if(mode == MODE_BLANK_ONLY){
+        ui->comboBox->setCurrentIndex(1); //Black_Only
     }
     else if (mode == MODE_RANDOM){
-        ui->comboBox->setCurrentIndex(1); //Random
+        ui->comboBox->setCurrentIndex(2); //Random
     }
     else{
         gchar ** strv;
@@ -361,26 +386,34 @@ void Screensaver::status_init(){
 //    connect(lockswitchbtn, SIGNAL(checkedChanged(bool)), this, SLOT(lockbtn_changed_slot(bool)));
     connect(ui->comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(combobox_changed_slot(int)));
 
-    connect(ui->previewWidget, SIGNAL(destroyed(QObject*)), this, SLOT(kill_screensaver_preview()));
+    connect(mPreviewWidget, SIGNAL(destroyed(QObject*)), this, SLOT(kill_screensaver_preview()));
 
 //    delete publicdata;
 }
 
+#define UKUI_SCREENSAVER_BIN "/usr/lib/ukui-screensaver/ukui-screensaver-default"
 void Screensaver::startupScreensaver(){
     //关闭屏保
     closeScreensaver();
-
-    if (ui->comboBox->currentIndex() == 0){//黑屏
-        ui->previewWidget->update();
+    qDebug() << Q_FUNC_INFO << mPreviewWidget->winId();
+    if (ui->comboBox->currentIndex() == 0){//UKUI
+        QStringList args;
+        args << "-window-id" << QString::number(mPreviewWidget->winId());
+        //启动屏保
+        process->startDetached(UKUI_SCREENSAVER_BIN, args);
+        runStringList.append(UKUI_SCREENSAVER_BIN);
     }
-    else if (ui->comboBox->currentIndex() == 1){//随机
-        ui->previewWidget->update();
+    else if (ui->comboBox->currentIndex() == 1){//黑屏
+        mPreviewWidget->update();
+    }
+    else if (ui->comboBox->currentIndex() == 2){//随机
+        mPreviewWidget->update();
     }
     else{//屏保
 
         SSThemeInfo info = ui->comboBox->currentData().value<SSThemeInfo>();
         QStringList args;
-        args << "-window-id" << QString::number(ui->previewWidget->winId());
+        args << "-window-id" << QString::number(mPreviewWidget->winId());
         //启动屏保
         process->startDetached(info.exec, args);
         runStringList.append(info.exec);
@@ -400,21 +433,28 @@ void Screensaver::closeScreensaver(){
 }
 
 void Screensaver::kill_and_start(){
-//    emit kill_signals(); //如果有屏保先杀死
-//    if (ui->comboBox->currentIndex() == 0){//黑屏
-//        ui->previewWidget->update();
-//    }
-//    else if (ui->comboBox->currentIndex() == 1){//随机
-//        ui->previewWidget->update();
-//    }
-//    else{//屏保
-//        SSThemeInfo info = ui->comboBox->currentData().value<SSThemeInfo>();
-//        QStringList args;
-//        args << "-window-id" << QString::number(ui->previewWidget->winId());
-//        //启动屏保
-//        process->startDetached(info.exec, args);
-//        killList.clear(); killList.append(info.exec);
-//    }
+    emit kill_signals(); //如果有屏保先杀死
+    if (ui->comboBox->currentIndex() == 0){//UKUI
+        QStringList args;
+        args << "-window-id" << QString::number(mPreviewWidget->winId());
+        //启动屏保
+        process->startDetached(UKUI_SCREENSAVER_BIN, args);
+        runStringList.append(UKUI_SCREENSAVER_BIN);
+    }
+    else if (ui->comboBox->currentIndex() == 1){//黑屏
+        mPreviewWidget->update();
+    }
+    else if (ui->comboBox->currentIndex() == 2){//随机
+        mPreviewWidget->update();
+    }
+    else{//屏保
+        SSThemeInfo info = ui->comboBox->currentData().value<SSThemeInfo>();
+        QStringList args;
+        args << "-window-id" << QString::number(mPreviewWidget->winId());
+        //启动屏保
+        process->startDetached(info.exec, args);
+        killList.clear(); killList.append(info.exec);
+    }
 }
 
 
@@ -462,10 +502,13 @@ void Screensaver::combobox_changed_slot(int index){
 
 
     screensaver_settings = g_settings_new(SCREENSAVER_SCHEMA);
-    if (index == 0){ //Blank_Only
+    if (index == 0){ //ukui
+        g_settings_set_enum(screensaver_settings, MODE_KEY, MODE_DEFAULT_UKUI);
+    }
+    else if (index == 1){ //Blank_Only
         g_settings_set_enum(screensaver_settings, MODE_KEY, MODE_BLANK_ONLY);
     }
-    else if (index == 1){ //Random
+    else if (index == 2){ //Random
 //        int mode = MODE_RANDOM;
         g_settings_set_enum(screensaver_settings, MODE_KEY, MODE_RANDOM);
         //REVIEW*** 二维字符数组赋值字符串段错误？
@@ -495,6 +538,7 @@ void Screensaver::combobox_changed_slot(int index){
         SSThemeInfo info = variant.value<SSThemeInfo>();
         QByteArray ba = info.id.toLatin1();
         strv = g_strsplit(ba.data(), "%%%", 1);
+        qDebug() << Q_FUNC_INFO << "wxy-----------" <<strv;
         g_settings_set_strv(screensaver_settings, THEMES_KEY, (const gchar * const*)strv);
     }
     //set mode
@@ -506,7 +550,7 @@ void Screensaver::combobox_changed_slot(int index){
     g_strfreev(strv);
 
     //启动屏保
-//    kill_and_start();
+    kill_and_start();
 }
 
 void Screensaver::kill_screensaver_preview(){
