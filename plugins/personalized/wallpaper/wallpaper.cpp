@@ -228,6 +228,8 @@ void Wallpaper::setupComponent(){
 int Wallpaper::_getCurrentBgForm(){
     QString filename = bgsettings->get(FILENAME).toString();
 
+    qDebug() << "----------" << filename;
+
     int current = 0;
 
     //设置当前背景形式
