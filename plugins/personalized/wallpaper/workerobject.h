@@ -43,7 +43,7 @@ private:
 
 Q_SIGNALS:
     void pixmapGenerate(QPixmap pixmap, QString filename);
-    void workComplete();
+    void workComplete(QMap<QString, QMap<QString, QString>> wpInfoMaps);
 
 };
 

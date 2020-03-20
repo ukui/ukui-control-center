@@ -127,7 +127,8 @@ void Wallpaper::setupComponent(){
     connect(pObject, &WorkerObject::pixmapGenerate, this, [=](QPixmap pixmap, QString filename){
         appendPicWpItem(pixmap, filename);
     });
-    connect(pObject, &WorkerObject::workComplete, this, [=]{
+    connect(pObject, &WorkerObject::workComplete, this, [=](QMap<QString, QMap<QString, QString>> wpInfoMaps){
+        wallpaperinfosMap = wpInfoMaps;
         pThread->quit(); //退出事件循环
         pThread->wait(); //释放资源
     });
@@ -161,9 +162,15 @@ void Wallpaper::setupComponent(){
     pThread->start();
 
     //壁纸放置方式
-    QStringList layoutList;
-    layoutList << tr("wallpaper") << tr("centered") << tr("scaled") << tr("stretched") << tr("zoom") << tr("spanned");
-    ui->picOptionsComBox->addItems(layoutList);
+//    QStringList layoutList;
+//    layoutList << tr("wallpaper") << tr("centered") << tr("scaled") << tr("stretched") << tr("zoom") << tr("spanned");
+//    ui->picOptionsComBox->addItems(layoutList);
+    ui->picOptionsComBox->addItem(tr("wallpaper"), "wallpaper");
+    ui->picOptionsComBox->addItem(tr("centered"), "centered");
+    ui->picOptionsComBox->addItem(tr("scaled"), "scaled");
+    ui->picOptionsComBox->addItem(tr("stretched"), "stretched");
+    ui->picOptionsComBox->addItem(tr("zoom"), "zoom");
+    ui->picOptionsComBox->addItem(tr("spanned"), "spanned");
 
     connect(ui->listWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(picWallpaperChangedSlot(QListWidgetItem*,QListWidgetItem*)));
     connect(ui->formComBox, QOverload<int>::of(&QComboBox::currentIndexChanged), [=](int index){
@@ -175,7 +182,13 @@ void Wallpaper::setupComponent(){
         if (index != _getCurrentBgForm()){
             if (PICTURE == index){
                 //设置图片背景
+
+                QString fileName = ui->listWidget->currentItem()->data(Qt::UserRole).toString();
+
+                bgsettings->set(FILENAME, fileName);
                 ui->listWidget->setCurrentItem(ui->listWidget->item(0));
+
+
             } else if (COLOR == index){
                 //设置图片背景为空
                 bgsettings->set(FILENAME, "");
@@ -212,10 +225,12 @@ void Wallpaper::setupComponent(){
 int Wallpaper::_getCurrentBgForm(){
     QString filename = bgsettings->get(FILENAME).toString();
 
+    qDebug() << "----------" << filename;
+
     int current = 0;
 
     //设置当前背景形式
-    if (filename == ""){
+    if (filename.isEmpty()){
         current = COLOR;
     } else if (filename.endsWith("xml")){
         current = SLIDESHOW;
@@ -230,6 +245,15 @@ void Wallpaper::initBgFormStatus(){
     int currentIndex = _getCurrentBgForm();
     //设置当前背景形式
     ui->formComBox->setCurrentIndex(currentIndex);
+    ui->substackedWidget->setCurrentIndex(currentIndex);
+
+    //屏蔽背景放置方式无效
+    ui->picOptionsComBox->hide();
+    ui->picOptionsLabel->hide();
+
+    //屏蔽纯色背景的确定按钮
+    ui->cancelBtn->hide();
+    ui->certainBtn->hide();
 
     //根据背景形式选择显示组件
     showComponent(currentIndex);
@@ -237,13 +261,13 @@ void Wallpaper::initBgFormStatus(){
 
 void Wallpaper::showComponent(int index){
     if (0 == index){ //图片
-        ui->picOptionsComBox->show();
-        ui->picOptionsLabel->show();
+//        ui->picOptionsComBox->show();
+//        ui->picOptionsLabel->show();
         ui->previewLabel->show();
         ui->previewWidget->hide();
     } else if (1 == index){ //纯色
-        ui->picOptionsComBox->hide();
-        ui->picOptionsLabel->hide();
+//        ui->picOptionsComBox->hide();
+//        ui->picOptionsLabel->hide();
         ui->previewLabel->hide();
         ui->previewWidget->show();
     } else { //幻灯片
@@ -314,9 +338,14 @@ void Wallpaper::component_init(){
 //    thread->start();
 
     //壁纸放置方式
-    QStringList layoutList;
-    layoutList << tr("wallpaper") << tr("centered") << tr("scaled") << tr("stretched") << tr("zoom") << tr("spanned");
-    ui->picOptionsComBox->addItems(layoutList);
+//    QStringList layoutList;
+//    layoutList << tr("wallpaper") << tr("centered") << tr("scaled") << tr("stretched") << tr("zoom") << tr("spanned");
+    ui->picOptionsComBox->addItem(tr("wallpaper"), "wallpaper");
+    ui->picOptionsComBox->addItem(tr("centered"), "centered");
+    ui->picOptionsComBox->addItem(tr("scaled"), "scaled");
+    ui->picOptionsComBox->addItem(tr("stretched"), "stretched");
+    ui->picOptionsComBox->addItem(tr("zoom"), "zoom");
+    ui->picOptionsComBox->addItem(tr("spanned"), "spanned");
 
 
     //纯色
@@ -444,9 +473,11 @@ void Wallpaper::picWallpaperChangedSlot(QListWidgetItem * current, QListWidgetIt
 //    QWidget * currentWidget = ui->listWidget->itemWidget(current);
 //    currentWidget->setStyleSheet("QWidget{border: 5px solid #daebff}");
 
+
+
     QString filename = current->data(Qt::UserRole).toString();
     bgsettings->set(FILENAME, QVariant(filename));
-
+    qDebug() << "" << filename;
     initPreviewStatus();
 }
 
@@ -465,6 +496,8 @@ void Wallpaper::wpOptionsChangedSlot(QString op){
     //获取当前选中的壁纸
     QListWidgetItem * currentitem = ui->listWidget->currentItem();
     QString filename = currentitem->data(Qt::UserRole).toString();
+
+    bgsettings->set(OPTIONS, ui->picOptionsComBox->currentData().toString());
 
     //更新xml数据
     if (wallpaperinfosMap.contains(filename)){
