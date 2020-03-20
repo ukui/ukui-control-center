@@ -122,6 +122,10 @@ void KeyboardControl::initComponent(){
     numLockSwitchBtn = new SwitchButton(pluginWidget);
     ui->numLockHorLayout->addWidget(numLockSwitchBtn);
 
+    //布局代理
+    ui->layoutsComBox->setItemDelegate(itemDelege);
+    ui->layoutsComBox->setMaxVisibleItems(5);
+
     ui->addBtn->setIcon(QIcon("://img/plugins/keyboardcontrol/add.png"));
     ui->addBtn->setIconSize(QSize(48, 48));
 
@@ -142,6 +146,16 @@ void KeyboardControl::initComponent(){
         layoutmanagerObj->exec();
     });
 
+    connect(layoutmanagerObj, &KbdLayoutManager::del_variant_signals, [=](QString layout){
+        rebuildLayoutsComBox();
+        qDebug() << layout;
+    });
+    connect(layoutmanagerObj, &KbdLayoutManager::add_new_variant_signals, [=](QString layout){
+        rebuildLayoutsComBox();
+
+        qDebug() << layout;
+    });
+
 }
 
 void KeyboardControl::initGeneralStatus(){
@@ -157,9 +171,7 @@ void KeyboardControl::initGeneralStatus(){
 }
 
 void KeyboardControl::rebuildLayoutsComBox(){
-    QStringList layouts = kbdsettings->get(KBD_LAYOUTS_KEY).toStringList();    
-    ui->layoutsComBox->setItemDelegate(itemDelege);
-    ui->layoutsComBox->setMaxVisibleItems(5);
+    QStringList layouts = kbdsettings->get(KBD_LAYOUTS_KEY).toStringList();
     ui->layoutsComBox->blockSignals(true);
     //清空键盘布局下拉列表
     ui->layoutsComBox->clear();
@@ -168,6 +180,5 @@ void KeyboardControl::rebuildLayoutsComBox(){
     for (QString layout : layouts){
         ui->layoutsComBox->addItem(layoutmanagerObj->kbd_get_description_by_id(const_cast<const char *>(layout.toLatin1().data())), layout);
     }
-
     ui->layoutsComBox->blockSignals(false);
 }
