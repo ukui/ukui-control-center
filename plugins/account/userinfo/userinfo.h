@@ -162,25 +162,25 @@ private:
     QDBusInterface * sysinterface;
 
 private slots:
-    void show_change_pwd_dialog_slot(QString username);
-    void change_pwd_slot(QString pwd, QString username);
+//    void show_change_pwd_dialog_slot(QString username);
+//    void change_pwd_slot(QString pwd, QString username);
 //    void change_pwd_done_slot();
 
-    void show_change_face_dialog_slot(QString username);
-    void change_face_slot(QString facefile, QString username);
+//    void show_change_face_dialog_slot(QString username);
+//    void change_face_slot(QString facefile, QString username);
 //    void change_face_done_slot();
 
-    void show_change_accounttype_dialog_slot(QString username);
-    void change_accounttype_slot(int atype, QString username, bool status);
-    void change_accounttype_done_slot();
+//    void show_change_accounttype_dialog_slot(QString username);
+//    void change_accounttype_slot(int atype, QString username, bool status);
+//    void change_accounttype_done_slot();
 
-    void show_del_user_dialog_slot(QString username);
+//    void show_del_user_dialog_slot(QString username);
     void delete_user_slot(bool removefile, QString username);
-    void delete_user_done_slot(QString objpath);
+//    void delete_user_done_slot(QString objpath);
 
-    void show_create_user_dialog_slot();
-    void create_user_slot(QString username, QString pwd, QString pin, int atype, bool autologin);
-    void create_user_done_slot(QString objpath);
+//    void show_create_user_dialog_slot();
+//    void create_user_slot(QString username, QString pwd, QString pin, int atype, bool autologin);
+//    void create_user_done_slot(QString objpath);
 };
 
 #endif // USERINFO_H

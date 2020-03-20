@@ -112,6 +112,10 @@ void MouseControl::plugin_delay_control(){
 
 void MouseControl::setupComponent(){
 
+    ui->title3Label->hide();
+    ui->cursorSpeedWidget->hide();
+    ui->cursorWeightWidget->hide();
+
     //设置左手右手鼠标控件
     ui->handHabitComBox->addItem(tr("Lefthand"), true);
     ui->handHabitComBox->addItem(tr("Righthand"), false);

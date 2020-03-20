@@ -99,6 +99,9 @@ void Wallpaper::plugin_delay_control(){
 }
 
 void Wallpaper::setupComponent(){
+
+    ui->browserLocalwpBtn->hide();
+    ui->browserOnlinewpBtn->hide();
     //背景形式
     QStringList formList;
     formList << tr("picture") << tr("color")/* << tr("slideshow")*/ ;

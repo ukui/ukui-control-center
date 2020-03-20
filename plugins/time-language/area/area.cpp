@@ -55,7 +55,7 @@ Area::Area()
     const QByteArray id(PANEL_GSCHEMAL);
 //    // if gsetting is exits
     if(QGSettings::isSchemaInstalled(id)) {
-        qDebug()<<"gsettings is ------->"<<endl;
+//        qDebug()<<"gsettings is ------->"<<endl;
         m_gsettings = new QGSettings(id);
 
 ////        监听key的value是否发生了变化

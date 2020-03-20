@@ -1489,7 +1489,7 @@ void Widget::initNightStatus(){
 
     QProcess *process = new QProcess;
     const bool isRedShiftValid  = (0 == process->execute("which",QStringList() << "redshift"));
-    qDebug()<<"isRedshitValid-------------->"<<isRedShiftValid<<endl;
+//    qDebug()<<"isRedshitValid-------------->"<<isRedShiftValid<<endl;
 
 
     QProcess *process_2 = new QProcess;

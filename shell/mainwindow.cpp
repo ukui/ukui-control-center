@@ -292,6 +292,13 @@ void MainWindow::loadPlugins(){
 
 
     foreach (QString fileName, pluginsDir.entryList(QDir::Files)){
+        if (fileName == "libdesktop.so")
+            continue;
+        if (fileName == "libnotice.so")
+            continue;
+        if (fileName == "libexperienceplan.so")
+            continue;
+
         qDebug() << "Scan Plugin: " << fileName;
         //gsettings-desktop-schemas
         const char * proxyFile = "/usr/share/glib-2.0/schemas/org.gnome.system.proxy.gschema.xml";

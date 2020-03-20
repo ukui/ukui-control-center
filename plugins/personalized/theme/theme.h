@@ -74,6 +74,7 @@ private:
 private:
     QGSettings * gtkSettings;
     QGSettings * qtSettings;
+    QGSettings * curSettings;
 
     SwitchButton * effectSwitchBtn;
 

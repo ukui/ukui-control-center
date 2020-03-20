@@ -92,6 +92,9 @@ void Screenlock::plugin_delay_control(){
 }
 
 void Screenlock::setupComponent(){
+    ui->browserLocalwpBtn->hide();
+    ui->browserOnlinewpBtn->hide();
+
     loginbgSwitchBtn = new SwitchButton(pluginWidget);
     ui->loginbgHorLayout->addWidget(loginbgSwitchBtn);
 
