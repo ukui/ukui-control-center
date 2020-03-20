@@ -171,7 +171,7 @@ private slots:
 //    void change_face_done_slot();
 
 //    void show_change_accounttype_dialog_slot(QString username);
-    void change_accounttype_slot(int atype, QString username, bool status);
+//    void change_accounttype_slot(int atype, QString username, bool status);
 //    void change_accounttype_done_slot();
 
 //    void show_del_user_dialog_slot(QString username);
