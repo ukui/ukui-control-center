@@ -25,6 +25,7 @@
 #include <QButtonGroup>
 #include <QHBoxLayout>
 #include <QPluginLoader>
+#include <QPainter>
 
 #include "utils/keyvalueconverter.h"
 #include "utils/functionselect.h"
@@ -53,7 +54,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //设置初始大小
     resize(QSize(820, 600));
-
     //设置窗体无边框
     setWindowFlags(Qt::FramelessWindowHint | Qt::Widget);
     //该设置去掉了窗体透明后的黑色背景

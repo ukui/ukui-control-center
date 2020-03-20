@@ -22,12 +22,15 @@
 
 #include <QObject>
 #include <QtPlugin>
-
+#include <QPushButton>
 #include <QMap>
 #include <QProcess>
 #include <QGSettings/QGSettings>
 #include <QStyledItemDelegate>
-
+#include <QPaintEvent>
+#include <QShowEvent>
+#include <QMoveEvent>
+#include <QHideEvent>
 #include "shell/interface.h"
 #include "SwitchButton/switchbutton.h"
 
@@ -56,6 +59,25 @@ Q_DECLARE_METATYPE(SSThemeInfo)
 namespace Ui {
 class Screensaver;
 }
+
+class PreviewWidget : public QWidget
+{
+    Q_OBJECT
+public:
+    PreviewWidget()
+    {
+
+    }
+    ~PreviewWidget(){
+
+    }
+protected:
+    void paintEvent(QPaintEvent *e);
+//    void showEvent(QShowEvent *e);
+//    void moveEvent(QMoveEvent *e);
+//    void hideEvent(QHideEvent *e);
+
+};
 
 class Screensaver : public QObject, CommonInterface
 {
@@ -100,6 +122,7 @@ private:
     QString pluginName;
     int pluginType;
     QWidget * pluginWidget;
+    PreviewWidget * mPreviewWidget;
 
 private:
     SwitchButton * enableSwitchBtn;
