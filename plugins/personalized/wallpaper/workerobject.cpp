@@ -20,11 +20,13 @@
 #include "workerobject.h"
 
 #include "xmlhandle.h"
-
+#include <QMetaType>
 #include <QDebug>
 
 WorkerObject::WorkerObject()
 {
+    //自定义结构提，线程传递时无法放入列表，注册解决
+    qRegisterMetaType<QMap<QString, QMap<QString, QString>>>("QMap<QString, QMap<QString, QString>>");
 }
 
 WorkerObject::~WorkerObject()
@@ -62,6 +64,6 @@ void WorkerObject::run(){
         emit pixmapGenerate(pixmap, filename);
     }
 
-    emit workComplete();
+    emit workComplete(wallpaperinfosMap);
 
 }

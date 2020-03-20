@@ -36,14 +36,16 @@ public:
     explicit DelUserDialog(QWidget *parent = 0);
     ~DelUserDialog();
 
-    void set_face_label(QString iconfile);
-    void set_username_label(QString username);
+public:
+    void setupComonpent();
+    void setupConnect();
+
+    void setFace(QString file);
+    void setUsername(QString name);
 
 private:
     Ui::DelUserDialog *ui;
 
-private slots:
-    void btn_clicked_slot(QString key);
 
 Q_SIGNALS:
     void removefile_send(bool removefile, QString username);

@@ -325,7 +325,7 @@ QComboBox QListView::item:selected{
       </size>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="picturePage">
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -546,7 +546,7 @@ QComboBox QListView::item:selected{
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_5">
            <item>
-            <widget class="QPushButton" name="pushButton">
+            <widget class="QPushButton" name="cancelBtn">
              <property name="minimumSize">
               <size>
                <width>100</width>
@@ -565,7 +565,7 @@ QComboBox QListView::item:selected{
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_2">
+            <widget class="QPushButton" name="certainBtn">
              <property name="minimumSize">
               <size>
                <width>100</width>

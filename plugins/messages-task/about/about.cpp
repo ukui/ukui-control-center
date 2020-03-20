@@ -22,6 +22,8 @@
 #include "about.h"
 #include "ui_about.h"
 
+#include <QProcess>
+
 #include <QDebug>
 
 About::About()
@@ -55,7 +57,7 @@ About::About()
     _call_dbus_get_computer_info();
     _data_init();
 
-    initUI();
+    setupComponent();
 }
 
 About::~About()
@@ -99,7 +101,44 @@ void About::_data_init(){
     }
 }
 
-void About::initUI(){
+void About::setupComponent(){
+    //设置桌面环境LOGO
+    ui->logoLabel->setPixmap(QPixmap("://img/plugins/about/logo.png"));
+
+    //获取当前桌面环境
+    QString dEnv;
+    foreach (dEnv, QProcess::systemEnvironment()){
+        if (dEnv.startsWith("XDG_CURRENT_DESKTOP"))
+            break;
+    }
+    //设置当前桌面环境信息
+    QLabel * dEnvLabel = new QLabel(tr("UNKNOWN"));
+    if (!dEnv.isEmpty())
+        dEnvLabel->setText(dEnv.section("=", -1, -1));
+    ui->systemFormLayout->addRow(tr("Current desktop env:"), dEnvLabel);
+
+    /**
+     * 设置当前操作系统信息
+     */
+    //设置操作系统版本
+//    qDebug() << QSysInfo::prettyProductName() << QSysInfo::productType() << QSysInfo::productVersion();
+    QLabel * osVersionLabel = new QLabel(tr("UNKNOWN"));
+    osVersionLabel->setText(QSysInfo::productVersion());
+    ui->systemFormLayout->addRow(tr("OS Version:"), osVersionLabel);
+    //设置CPU平台
+    QLabel * cpuArch = new QLabel(tr("UNKNOWN"));
+    cpuArch->setText(QSysInfo::currentCpuArchitecture());
+    ui->systemFormLayout->addRow(tr("CPU Arch:"), cpuArch);
+    //设置内核版本号
+//    qDebug() << QSysInfo::kernelType() << QSysInfo::kernelVersion();
+    QLabel * kernelLabel = new QLabel(tr("UNKNOWN"));
+    kernelLabel->setText(QSysInfo::kernelType() + " " + QSysInfo::kernelVersion());
+    ui->systemFormLayout->addRow(tr("Kernel Version"), kernelLabel);
+
+
+    /**
+     * 设置硬件详情的信息项目
+     */
     QLabel * manufacturers = new QLabel(tr("UNKNOWN"));
     if (infoMap.contains(MANUFACTURER))
         manufacturers->setText(QString(infoMap.find(MANUFACTURER).value()));
@@ -128,33 +167,6 @@ void About::initUI(){
 //    ui->devicesFormLayout->addRow(tr("system bit"), "system bit");
 //    ui->devicesFormLayout->addRow(tr("kernel version"), "kernel version");
 //    ui->devicesFormLayout->addRow(tr("architecture"), "architecture");
-
-/*    //设置桌面环境logo
-    envlogoLabel = new QLabel(pluginWidget);
-    envlogoLabel->setAutoFillBackground(true);
-    envlogoLabel->setScaledContents(true);
-    QPixmap envlogoPixmap("://logo.svg");
-    envlogoLabel->setPixmap(envlogoPixmap);
-    envlogoLabel->setFixedSize(envlogoPixmap.size());
-    envlogoLabel->setGeometry(QRect(pluginWidget->width() - 70 - envlogoLabel->width(), ui->summaryLabel->geometry().bottom() + 25, envlogoLabel->width(), envlogoLabel->height()));
-
-    //
-    logoLabel = new QLabel(pluginWidget);
-    logoLabel->setAutoFillBackground(true);
-    logoLabel->setScaledContents(true); //自动缩放，显示图像大小自动调整为QLabel大小
-
-    QPixmap logopixmap;
-    if (infoMap.contains(MANUFACTURER)){
-        logopixmap = QPixmap(QString("://manufacturers/%1.jpg").arg(QString(infoMap.find(MANUFACTURER).value())));
-    }
-    else{
-        logopixmap = QPixmap("://manufacturers/UBUNTUKYLIN.jpg");
-    }
-    logoLabel->setPixmap(logopixmap);
-    logoLabel->setFixedSize(logopixmap.size());
-    logoLabel->setGeometry(QRect(pluginWidget->width() - 70 - logoLabel->width(), ui->infoLabel->geometry().bottom() + 25, logoLabel->width(), logoLabel->height()));
-//    logoLabel->setMask(logopixmap.mask());
-*/
 }
 
 void About::_call_dbus_get_computer_info(){

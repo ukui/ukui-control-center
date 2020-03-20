@@ -58,7 +58,7 @@ public:
     void plugin_delay_control() Q_DECL_OVERRIDE;
 
 public:
-    void initComponent();
+    void setupComponent();
 
     void initUI();
 

@@ -101,7 +101,6 @@
         <file>secondaryleftmenu/touchpadWhite.png</file>
         <file>plugins/theme/dark.png</file>
         <file>plugins/theme/default.png</file>
-        <file>plugins/userinfo/defaultface.png</file>
         <file>primaryleftmenu/network.png</file>
         <file>plugins/theme/light.png</file>
         <file>plugins/netconnect/wifi1.png</file>
@@ -123,6 +122,11 @@
         <file>secondaryleftmenu/experienceplanWhite.png</file>
         <file>plugins/shortcut/note.png</file>
         <file>plugins/screenlock/none.png</file>
+        <file>plugins/about/logo.png</file>
+        <file>plugins/fonts/down.png</file>
+        <file>plugins/fonts/up.png</file>
+        <file>plugins/userinfo/default.png</file>
+        <file>plugins/autoboot/add.png</file>
     </qresource>
     <qresource prefix="/">
         <file>i18n/zh_CN.qm</file>

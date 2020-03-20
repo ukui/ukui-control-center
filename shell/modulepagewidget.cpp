@@ -58,7 +58,7 @@ ModulePageWidget::ModulePageWidget(QWidget *parent) :
     //功能区域
     ui->scrollArea->setStyleSheet("#scrollArea{border: 0px solid;}");
     ui->scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    ui->scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+//    ui->scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     //初始化记录标志位
     flagBit = true;

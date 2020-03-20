@@ -50,21 +50,18 @@ public:
     explicit ChangeFaceDialog(QWidget *parent = 0);
     ~ChangeFaceDialog();
 
-    void set_face_label(QString iconfile);
-    void set_username_label(QString username);
-    void set_account_type_label(QString atype);
-    void set_face_list_status(QString facefile);
+    void setFace(QString iconfile);
+    void setUsername(QString username);
+    void setAccountType(QString atype);
 
-    void show_faces();
+    void loadSystemFaces();
+
+    void showLocalFaceDialog();
 
     QMap<QString, QListWidgetItem *> delitemMap;
 
 private:
     Ui::ChangeFaceDialog *ui;
-
-private slots:
-    void item_changed_slot(QListWidgetItem * current, QListWidgetItem * previous);
-    void custom_face_choosed_slot();
 
 Q_SIGNALS:
     void face_file_send(QString file, QString username);

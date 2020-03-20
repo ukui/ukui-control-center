@@ -25,6 +25,7 @@
 
 #include <QX11Info>
 #include <QGSettings/QGSettings>
+#include <QStyledItemDelegate>
 
 #include "shell/interface.h"
 #include "SwitchButton/switchbutton.h"
@@ -69,6 +70,8 @@ private:
 
     QString leftStr;
     QString rightStr;
+
+    QStyledItemDelegate* itemDelege;
 
 };
 
