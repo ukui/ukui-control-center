@@ -138,6 +138,7 @@ class Widget : public QWidget
 
   public Q_SLOTS:
     void save();
+    void scaleChangedSlot(int index);
 
   private:
     void loadQml();
@@ -187,6 +188,8 @@ class Widget : public QWidget
 
     Slider *slider;
     QGSettings *m_gsettings = nullptr;
+
+    int screenScale = 1;
 
 };
 

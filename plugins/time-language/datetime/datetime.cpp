@@ -25,7 +25,7 @@
 #include <QDir>
 
 
-#define FORMAT_SCHEMA "org.ukui.panel.plugins"
+#define FORMAT_SCHEMA "org.ukui.control-center.panel.plugins"
 #define TIME_FORMAT_KEY "hour-system"
 
 DateTime::DateTime()

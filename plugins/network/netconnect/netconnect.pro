@@ -23,11 +23,15 @@ LIBS          +=  -L/usr/lib/ -lgsettings-qt
 
 SOURCES += \
         kylin_network_interface.c \
-        netconnect.cpp
+        netconnect.cpp \
+        netconnectwork.cpp \
+        wifi.cpp
 
 HEADERS += \
         kylin_network_interface.h \
-        netconnect.h
+        netconnect.h \
+        netconnectwork.h \
+        wifi.h
 
 FORMS += \
         netconnect.ui

@@ -26,6 +26,7 @@
 
 #include "themewidget.h"
 #include "widgetgroup.h"
+#include "cursor/xcursortheme.h"
 
 #include <QDebug>
 
@@ -60,6 +61,31 @@
 #define CURSOR_THEME_KEY "cursor-theme"
 
 #define ICONWIDGETHEIGH 74
+
+
+namespace {
+
+    // Preview cursors
+    const char * const cursor_names[] =
+    {
+        "left_ptr",
+        "left_ptr_watch",
+        "wait",
+        "pointing_hand",
+        "whats_this",
+        "ibeam",
+        "size_all",
+        "size_fdiag",
+        "cross",
+        "split_h",
+        "size_ver",
+        "size_hor",
+        "size_bdiag",
+        "split_v",
+    };
+
+    const int numCursors      = 9;     // The number of cursors from the above list to be previewed
+}
 
 Theme::Theme()
 {
@@ -315,9 +341,21 @@ void Theme::initCursorTheme(){
     });
 
     for (QString cursor : cursorThemes){
-        ThemeWidget * widget  = new ThemeWidget(QSize(24, 24), cursor, QStringList(""));
 
+//        qDebug()<<"cursor is----------->"<<cursor<<endl;
+
+        QList<QPixmap> cursorVec;
+        QString path = CURSORS_THEMES_PATH + cursor;
+        XCursorTheme *cursorTheme = new XCursorTheme(path);
+
+        for(int i = 0; i < numCursors; i++){
+            QImage image = cursorTheme->loadImage(cursor_names[i],20);
+            cursorVec.append(QPixmap::fromImage(image));
+        }
+
+        ThemeWidget * widget  = new ThemeWidget(QSize(24, 24), cursor, cursorVec);
         widget->setValue(cursor);
+
         //加入Layout
         ui->cursorVerLayout->addWidget(widget);
 

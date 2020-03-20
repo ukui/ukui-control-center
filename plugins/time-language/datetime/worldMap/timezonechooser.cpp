@@ -99,7 +99,7 @@ TimeZoneChooser::TimeZoneChooser():QFrame ()
     connect(m_searchInput, &QLineEdit::editingFinished, [this]{
         QString timezone = m_searchInput->text();
         timezone = m_zoneCompletion.value(timezone,timezone);
-//        m_map->setTimezone(timezone);
+        m_map->setTimezone(timezone);
     });
 
 

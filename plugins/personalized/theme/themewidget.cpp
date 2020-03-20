@@ -87,6 +87,67 @@ ThemeWidget::ThemeWidget(QSize iSize, QString name, QStringList iStringList, QWi
 
 }
 
+ThemeWidget::ThemeWidget(QSize iSize, QString name, const QList<QPixmap> &listMap, QWidget *parent) :
+    QWidget(parent)
+{
+    setFixedHeight(66);
+    setAttribute(Qt::WA_DeleteOnClose);
+
+    setStyleSheet("background: #F4F4F4; border-radius: 6px;");
+
+    pValue = "";
+
+
+    QHBoxLayout * mainHorLayout = new QHBoxLayout(this);
+    mainHorLayout->setSpacing(16);
+    mainHorLayout->setContentsMargins(16, 0, 16, 0);
+
+    //占位Label，解决隐藏选中图标后文字Label位置的变化
+    placeHolderLabel = new QLabel(this);
+    QSizePolicy phSizePolicy = placeHolderLabel->sizePolicy();
+    phSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
+    phSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
+    placeHolderLabel->setSizePolicy(phSizePolicy);
+    placeHolderLabel->setFixedSize(QSize(16, 16)); //选中图标的大小为16*16
+
+    selectedLabel = new QLabel(this);
+    QSizePolicy sSizePolicy = selectedLabel->sizePolicy();
+    sSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
+    sSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
+    selectedLabel->setSizePolicy(sSizePolicy);
+    selectedLabel->setScaledContents(true);
+    selectedLabel->setPixmap(QPixmap("://img/plugins/theme/selected.png"));
+
+    QLabel * nameLabel = new QLabel(this);
+    QSizePolicy nameSizePolicy = nameLabel->sizePolicy();
+    nameSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
+    nameSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
+    nameLabel->setSizePolicy(nameSizePolicy);
+    nameLabel->setFixedWidth(102);
+    nameLabel->setText(name);
+
+    QHBoxLayout * iconHorLayout = new QHBoxLayout;
+    iconHorLayout->setSpacing(25);
+    iconHorLayout->setMargin(0);
+    for (QPixmap icon : listMap){
+        QLabel * label = new QLabel(this);
+        label->setFixedSize(iSize);
+        label->setPixmap(icon);
+        iconHorLayout->addWidget(label);
+    }
+
+
+    mainHorLayout->addWidget(placeHolderLabel);
+    mainHorLayout->addWidget(selectedLabel);
+    mainHorLayout->addWidget(nameLabel);
+    mainHorLayout->addStretch(1);
+    mainHorLayout->addLayout(iconHorLayout);
+    mainHorLayout->addStretch(2);
+
+    setLayout(mainHorLayout);
+
+}
+
 ThemeWidget::~ThemeWidget()
 {
 }
