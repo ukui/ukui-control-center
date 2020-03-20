@@ -1,9 +1,4 @@
 <schemalist gettext-domain="ukui-control-center">
-  <enum id="org.ukui.control-center.noticeorigin.Type">
-    <value value="0" nick="none"/>
-    <value value="1" nick="corner"/>
-    <value value="2" nick="all"/>
-  </enum>
   <schema id="org.ukui.control-center.notice" path="/org/ukui/control-center/notice/">
     <key name="show-new-feature" type="b">
       <default>true</default>
@@ -21,26 +16,4 @@
       <description>Binding to eject an optical disc.</description>
     </key>
   </schema>
-  <schema id="org.ukui.control-center.noticeorigin">
-    <key name="messages" type="b">
-      <default>true</default>
-      <summary>messages notice</summary>
-      <description>.</description>
-    </key>
-    <key name="voice" type="b">
-      <default>true</default>
-      <summary>voice notice</summary>
-      <description>.</description>
-    </key>
-    <key name="maximize" type='i'>
-      <default>3</default>
-      <summary>maximize num of messages</summary>
-      <description>The maximize num of messages on notice window.</description>
-    </key>
-    <key name="type" enum="org.ukui.control-center.noticeorigin.Type">
-      <default>'corner'</default>
-      <summary>type of notice message</summary>
-      <description>the type of notice in system.</description>
-    </key>
-    </schema>
 </schemalist>

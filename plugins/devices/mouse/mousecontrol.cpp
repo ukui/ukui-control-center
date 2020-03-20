@@ -69,14 +69,10 @@ MouseControl::MouseControl()
     ui->visibilityWidget->setStyleSheet("QWidget{background: #F4F4F4;}");
     ui->pointerSizeWidget->setStyleSheet("QWidget{background: #F4F4F4; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
 
-    //构建Combox代理，否则样式不全部生效
-    itemDelege = new QStyledItemDelegate();
+    //全局未生效，再次设置
     ui->pointerSizeComBox->setStyleSheet(qss);
-    ui->pointerSizeComBox->setItemDelegate(itemDelege);
-    ui->pointerSizeComBox->setMaxVisibleItems(5);
     ui->handHabitComBox->setStyleSheet(qss);
-    ui->handHabitComBox->setItemDelegate(itemDelege);
-    ui->handHabitComBox->setMaxVisibleItems(5);
+
 
     ui->cursorWeightWidget->setStyleSheet("QWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
     ui->cursorSpeedWidget->setStyleSheet("QWidget{background: #F4F4F4;}");

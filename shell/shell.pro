@@ -49,8 +49,6 @@ inst4.path = /usr/share/glib-2.0/schemas/
 inst5.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.panel.plugins.gschema.xml
 inst5.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.panel.plugins.gschema.xml
 inst5.path = /usr/share/glib-2.0/schemas/
-inst6.files += $$PROJECT_ROOTDIR/data/faces/
-inst6.path = /usr/share/ukui/
 
 target.source += $$TARGET
 target.path = /usr/bin
@@ -61,7 +59,6 @@ INSTALLS +=  \
 	    inst3 \
             inst4 \
             inst5 \
-	    inst6 \
             target \
 
 INCLUDEPATH += qtsingleapplication

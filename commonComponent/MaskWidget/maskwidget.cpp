@@ -38,7 +38,6 @@ MaskWidget::~MaskWidget()
 
 
 void MaskWidget::paintEvent(QPaintEvent *event){
-    Q_UNUSED(event)
     QPainter painter(this);
 
     painter.setRenderHint(QPainter:: Antialiasing, true);  //设置渲染,启动反锯齿

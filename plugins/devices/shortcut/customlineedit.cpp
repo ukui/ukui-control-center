@@ -41,13 +41,11 @@ CustomLineEdit::~CustomLineEdit()
 //}
 
 void CustomLineEdit::focusInEvent(QFocusEvent *evt){
-    Q_UNUSED(evt)
     if (this->text() == _oldshortcut)
         this->setText(_wait);
 }
 
 void CustomLineEdit::focusOutEvent(QFocusEvent *evt){
-    Q_UNUSED(evt)
     if (this->text() == _wait)
         this->setText(_oldshortcut);
 }
