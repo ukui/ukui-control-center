@@ -56,6 +56,9 @@
 #define SYSTHEMEPATH "/usr/share/themes/"
 #define CURSORS_THEMES_PATH "/usr/share/icons/"
 
+#define CURSOR_THEME_SCHEMA "org.mate.peripherals-mouse"
+#define CURSOR_THEME_KEY "cursor-theme"
+
 #define ICONWIDGETHEIGH 74
 
 Theme::Theme()
@@ -99,6 +102,8 @@ Theme::Theme()
     gtkSettings = new QGSettings(id);
     const QByteArray idd(THEME_QT_SCHEMA);
     qtSettings = new QGSettings(idd);
+    const QByteArray iid(CURSOR_THEME_SCHEMA);
+    curSettings = new QGSettings(iid);
 
     setupComponent();
     initThemeMode();
@@ -113,6 +118,7 @@ Theme::~Theme()
     delete ui;
     delete gtkSettings;
     delete qtSettings;
+    delete curSettings;
 
 }
 
@@ -294,7 +300,8 @@ void Theme::initCursorTheme(){
 //    qDebug() << cursorThemes;
 
     //获取当前指针主题
-    QString currentCursorTheme = QString("Breeze_Snow");
+    QString currentCursorTheme;
+    currentCursorTheme = curSettings->get(CURSOR_THEME_KEY).toString();
 
     WidgetGroup * cursorThemeWidgetGroup = new WidgetGroup;
     connect(cursorThemeWidgetGroup, &WidgetGroup::widgetChanged, [=](ThemeWidget * preWidget, ThemeWidget * curWidget){
@@ -304,6 +311,7 @@ void Theme::initCursorTheme(){
 
         QString value = curWidget->getValue();
         //设置光标主题
+        curSettings->set(CURSOR_THEME_KEY, value);
     });
 
     for (QString cursor : cursorThemes){
