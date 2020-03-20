@@ -63,6 +63,9 @@ NetConnect::NetConnect():m_wifiList(new Wifi)
     ui->openWifiWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
     ui->openWIifLayout->addWidget(wifiBtn);
 
+    ui->openWifiWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+    ui->openWIifLayout->addWidget(wifiBtn);
+
     //构建网络配置对象
     nmg  = new QNetworkConfigurationManager();
     initComponent();
