@@ -1371,17 +1371,17 @@ folder will be deleted!</source>
         <translation>网络状态</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="73"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="86"/>
         <source>Available Network</source>
         <translation>可用网络</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="112"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="125"/>
         <source>open wifi</source>
         <translation>打开wifi</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="170"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="183"/>
         <source>Change net settings</source>
         <translation>更改网络设置</translation>
     </message>
@@ -1391,16 +1391,17 @@ folder will be deleted!</source>
         <translation>网络连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="150"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="159"/>
-        <source>Connect</source>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="178"/>
+        <source>connected</source>
         <translation>已连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="154"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="163"/>
+        <source>Connect</source>
+        <translation type="vanished">已连接</translation>
+    </message>
+    <message>
         <source>Disconnect</source>
-        <translation>未连接</translation>
+        <translation type="vanished">未连接</translation>
     </message>
 </context>
 <context>

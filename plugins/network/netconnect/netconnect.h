@@ -32,11 +32,10 @@
 #include <QStringList>
 #include <QGSettings/qgsettings.h>
 
+#include "wifi.h"
+#include "netconnectwork.h"
 #include "shell/interface.h"
-
-
 #include "SwitchButton/switchbutton.h"
-
 
 enum {
     DISCONNECTED,
@@ -79,7 +78,7 @@ public:
 public:
     void initComponent();
     void getNetList();
-    void rebuildNetStatusComponent();
+    void rebuildNetStatusComponent(QString iconPath, QString netName);
     void rebuildAvailComponent(QString iconpath, QString netName);
 
     void _acquireCardInfo();
@@ -103,6 +102,15 @@ private:
     QStringList lanList;            // list of wired network
     QString connectedLan;
     QGSettings *m_gsettings = nullptr;
+
+    Wifi *m_wifiList;
+    QThread *pThread;
+    NetconnectWork *pNetWorker;
+
+    QStringList TwifiList;
+    QStringList TlanList;
+
+    QString actLanName;
 
 
 private:
