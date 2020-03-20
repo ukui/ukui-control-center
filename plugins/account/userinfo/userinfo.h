@@ -56,6 +56,7 @@ typedef struct _UserInfomation {
     bool current;
     bool logined;
     bool autologin;
+    bool noPwdLogin;
     qint64 uid;
 }UserInfomation;
 

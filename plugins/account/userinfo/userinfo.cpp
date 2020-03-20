@@ -157,6 +157,22 @@ UserInfomation UserInfo::_acquireUserInfo(QString objpath){
         if (user.username == QString(g_get_user_name())){
             user.current = true;
             user.logined = true;
+
+            //获取当前用户免密登录属性
+            QDBusInterface *tmpSysinterface = new QDBusInterface("com.control.center.qt.systemdbus",
+                                             "/",
+                                             "com.control.center.interface",
+                                             QDBusConnection::systemBus());
+            //获取免密登录状态
+            QDBusReply<QString> noPwdres;
+            noPwdres  = tmpSysinterface ->call("getNoPwdLoginStatus");
+            //const QString &tmp=noPwdres;
+            if(!noPwdres.isValid()){
+                qDebug()<<"获取tmpSysinterface状态不合法---->"<< noPwdres.error();
+            }
+            delete tmpSysinterface;
+
+            user.noPwdLogin = noPwdres.value().contains(user.username) ? true : false;
         }
         user.accounttype = propertyMap.find("AccountType").value().toInt();
         if (user.accounttype == ADMINISTRATOR)
@@ -225,13 +241,27 @@ void UserInfo::initComponent(){
     //修改当前用户免密登录
     connect(nopwdSwitchBtn, &SwitchButton::checkedChanged, [=](bool checked){
 
+        UserInfomation user = allUserInfoMap.value(g_get_user_name());
+        //免密登录状态改变
+
+        QDBusInterface * tmpSysinterface = new QDBusInterface("com.control.center.qt.systemdbus",
+                                                              "/",
+                                                              "com.control.center.interface",
+                                                              QDBusConnection::systemBus());
+
+        if (!tmpSysinterface->isValid()){
+            qCritical() << "Create Client Interface Failed When excute gpasswd: " << QDBusConnection::systemBus().lastError();
+            return;
+        }
+        tmpSysinterface->call("setNoPwdLoginStatus", checked, user.username);
+
+        delete tmpSysinterface;
+
     });
 
     //修改当前用户自动登录
     connect(autoLoginSwitchBtn, &SwitchButton::checkedChanged, [=](bool checked){
-        QString userName = ui->userNameLabel->text();
-
-        UserInfomation user = (UserInfomation)(allUserInfoMap.find(userName).value());
+        UserInfomation user = allUserInfoMap.value(g_get_user_name());
 
         UserDispatcher * userdispatcher  = new UserDispatcher(user.objpath);
 
@@ -303,6 +333,8 @@ void UserInfo::_refreshUserInfoUI(){
             ui->userTypeLabel->setText(_accountTypeIntToString(user.accounttype));
             //设置登录状态
             autoLoginSwitchBtn->setChecked(user.autologin);
+            //设置免密登录状态
+            nopwdSwitchBtn->setChecked(user.noPwdLogin);
 
         } else { //其他用户
             QListWidgetItem * item = otherUserItemMap.value(user.objpath); //是否需要判断？？
