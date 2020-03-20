@@ -83,13 +83,13 @@
        <property name="minimumSize">
         <size>
          <width>400</width>
-         <height>226</height>
+         <height>222</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
          <width>400</width>
-         <height>226</height>
+         <height>222</height>
         </size>
        </property>
       </widget>
@@ -98,6 +98,9 @@
       <spacer name="horizontalSpacer">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Expanding</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
