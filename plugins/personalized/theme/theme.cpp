@@ -57,7 +57,7 @@
 #define SYSTHEMEPATH "/usr/share/themes/"
 #define CURSORS_THEMES_PATH "/usr/share/icons/"
 
-#define CURSOR_THEME_SCHEMA "org.mate.peripherals-mouse"
+#define CURSOR_THEME_SCHEMA "org.ukui.peripherals-mouse"
 #define CURSOR_THEME_KEY "cursor-theme"
 
 #define ICONWIDGETHEIGH 74

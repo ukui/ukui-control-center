@@ -185,12 +185,11 @@ void Wallpaper::setupComponent(){
         if (index != _getCurrentBgForm()){
             if (PICTURE == index){
                 //设置图片背景
+                ui->listWidget->setCurrentItem(ui->listWidget->item(0));
 
                 QString fileName = ui->listWidget->currentItem()->data(Qt::UserRole).toString();
 
                 bgsettings->set(FILENAME, fileName);
-                ui->listWidget->setCurrentItem(ui->listWidget->item(0));
-
 
             } else if (COLOR == index){
                 //设置图片背景为空
@@ -227,8 +226,6 @@ void Wallpaper::setupComponent(){
 
 int Wallpaper::_getCurrentBgForm(){
     QString filename = bgsettings->get(FILENAME).toString();
-
-    qDebug() << "----------" << filename;
 
     int current = 0;
 
@@ -475,8 +472,6 @@ void Wallpaper::picWallpaperChangedSlot(QListWidgetItem * current, QListWidgetIt
 
 //    QWidget * currentWidget = ui->listWidget->itemWidget(current);
 //    currentWidget->setStyleSheet("QWidget{border: 5px solid #daebff}");
-
-
 
     QString filename = current->data(Qt::UserRole).toString();
     bgsettings->set(FILENAME, QVariant(filename));

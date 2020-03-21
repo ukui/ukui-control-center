@@ -1356,27 +1356,27 @@ folder will be deleted!</source>
         <translation>鼠标</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="116"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="120"/>
         <source>Lefthand</source>
         <translation>左手</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="117"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="121"/>
         <source>Righthand</source>
         <translation>右手</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="125"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="129"/>
         <source>Default(Recommended)</source>
         <translation>默认（推荐）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="126"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="130"/>
         <source>Medium</source>
         <translation>中等</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="127"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="131"/>
         <source>Large</source>
         <translation>较大</translation>
     </message>
@@ -1389,17 +1389,17 @@ folder will be deleted!</source>
         <translation>网络状态</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="86"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="80"/>
         <source>Available Network</source>
         <translation>可用网络</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="125"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="119"/>
         <source>open wifi</source>
         <translation>打开wifi</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="183"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="177"/>
         <source>Change net settings</source>
         <translation>更改网络设置</translation>
     </message>
@@ -1409,7 +1409,7 @@ folder will be deleted!</source>
         <translation>网络连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="178"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="181"/>
         <source>connected</source>
         <translation>已连接</translation>
     </message>
@@ -1901,32 +1901,32 @@ folder will be deleted!</source>
         <translation type="vanished">默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="351"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="400"/>
         <source>basic</source>
         <translation>基础</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="353"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="402"/>
         <source>classical</source>
         <translation>经典</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="355"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="404"/>
         <source>default</source>
         <translation>默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="357"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="406"/>
         <source>Unknown</source>
         <translation>未知</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="219"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="221"/>
         <source>Update Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="474"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="476"/>
         <source>Add Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1998,42 +1998,47 @@ folder will be deleted!</source>
         <translation>屏保背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="178"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="181"/>
         <source>Enable screensaver</source>
         <translation>开启屏保</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="249"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="252"/>
         <source>Screensaver program</source>
         <translation>屏幕保护程序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="383"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="386"/>
         <source>idle time</source>
         <translation>等待时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="492"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="495"/>
         <source>Min</source>
         <translation>分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="580"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="583"/>
         <source>Lock screen when screensaver boot</source>
         <translation>激活屏保时锁定屏幕</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="56"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="67"/>
         <source>screensaver</source>
         <translation>屏保</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="126"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="143"/>
+        <source>Default_ukui</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="144"/>
         <source>Blank_Only</source>
         <translation>黑屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="127"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="145"/>
         <source>Random</source>
         <translation>随机</translation>
     </message>
@@ -2134,7 +2139,7 @@ folder will be deleted!</source>
         <translation>恢复默认设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="68"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="97"/>
         <source>theme</source>
         <translation>主题</translation>
     </message>
@@ -2402,86 +2407,86 @@ folder will be deleted!</source>
         <translation>背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="104"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="107"/>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="297"/>
         <source>picture</source>
         <translation>图片</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="104"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="107"/>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="297"/>
         <source>color</source>
         <translation>颜色</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="154"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="157"/>
         <source>%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="168"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="171"/>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="343"/>
         <source>wallpaper</source>
         <translation>平铺</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="169"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="172"/>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="344"/>
         <source>centered</source>
         <translation>居中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="170"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="173"/>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="345"/>
         <source>scaled</source>
         <translation>比例放大</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="171"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="174"/>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="346"/>
         <source>stretched</source>
         <translation>伸展</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="172"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="175"/>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="347"/>
         <source>zoom</source>
         <translation>缩放</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="173"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="176"/>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="348"/>
         <source>spanned</source>
         <translation>适合宽度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="563"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="561"/>
         <source>selsect custom wallpaper file</source>
         <translation>选择自定义壁纸文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="564"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="562"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="565"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="563"/>
         <source>Position: </source>
         <translation>位置： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="566"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="564"/>
         <source>FileName: </source>
         <translation>文件名： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="567"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="565"/>
         <source>FileType: </source>
         <translation>文件类型： </translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="563"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="568"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="566"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -2507,14 +2512,14 @@ folder will be deleted!</source>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
+    <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="817"/>
         <source>Sorry, your configuration could not be applied.
-
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
-        <translation>抱歉,配置不能应用</translation>
+        <translation>抱歉，配置不能应用.</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="819"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="818"/>
         <source>@title:window</source>
         <comment>Unsupported Configuration</comment>
         <translation>窗口</translation>
