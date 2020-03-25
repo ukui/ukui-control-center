@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += widgets xml
+QT       += widgets xml dbus
 
 TEMPLATE = lib
 CONFIG += plugin
@@ -13,9 +13,12 @@ TARGET = $$qtLibraryTarget(wallpaper)
 DESTDIR = ../../../pluginlibs
 
 include(../../../env.pri)
+include($$PROJECT_COMPONENTSOURCE/flowlayout.pri)
+include($$PROJECT_COMPONENTSOURCE/maskwidget.pri)
 
 INCLUDEPATH   +=  \
                  $$PROJECT_ROOTDIR \
+                 $$PROJECT_COMPONENTSOURCE \
 
 LIBS += -L/usr/lib/ -lgsettings-qt
 
@@ -28,6 +31,7 @@ PKGCONFIG     += gio-2.0 \
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
+    pictureunit.cpp \
         wallpaper.cpp \
     xmlhandle.cpp \
     component/custdomitemmodel.cpp \
@@ -35,6 +39,7 @@ SOURCES += \
     workerobject.cpp
 
 HEADERS += \
+    pictureunit.h \
         wallpaper.h \
     xmlhandle.h \
     component/custdomitemmodel.h \

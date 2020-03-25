@@ -48,7 +48,7 @@ void SimpleThread::run(){
             continue;
 
         QString filename = QString(iters.key());
-        QPixmap pixmap = QPixmap(filename).scaled(IMAGE_SIZE);
+        QPixmap pixmap = QPixmap(filename)/*.scaled(IMAGE_SIZE)*/;
 
         emit widgetItemCreate(pixmap, filename);
 //        QPixmap pixmap(filename);
