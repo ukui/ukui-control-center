@@ -32,6 +32,7 @@
 #include <QGSettings/QGSettings>
 
 #include "shell/interface.h"
+#include "FlowLayout/flowlayout.h"
 
 #include "xmlhandle.h"
 #include "component/custdomitemmodel.h"
@@ -83,15 +84,14 @@ public:
     void plugin_delay_control() Q_DECL_OVERRIDE;
 
 public:
+    void setupQStylesheet();
     void setupComponent();
+    void setupConnect();
     void initBgFormStatus();
     int _getCurrentBgForm();
     void initPreviewStatus();
 
     void showComponent(int index);
-
-    void appendPicWpItem(QPixmap pixmap, QString filename);
-    void appendColWpItem(QString color);
 
 private:
     Ui::Wallpaper *ui;
@@ -99,6 +99,12 @@ private:
     QString pluginName;
     int pluginType;
     QWidget * pluginWidget;
+
+private:
+    FlowLayout * picFlowLayout;
+    FlowLayout * colorFlowLayout;
+
+private:
 
     QMap<QString, QMap<QString, QString> > wallpaperinfosMap;
 
@@ -108,8 +114,6 @@ private:
     QMap<QString, QListWidgetItem*> delItemsMap;
 
     CustdomItemModel wpListModel;
-
-    void component_init();
 
     //尝试mode view
     void setlistview();
@@ -123,8 +127,6 @@ private:
     QStyledItemDelegate *itemDelege;
 
 public slots:
-    void picWallpaperChangedSlot(QListWidgetItem * current, QListWidgetItem * previous);
-    void colWallpaperChangedSlot(QListWidgetItem * current, QListWidgetItem * previous);
     void resetDefaultWallpaperSlot();
     void wpOptionsChangedSlot(QString op);
 

@@ -266,7 +266,6 @@ void DateTime::time_format_clicked_slot(bool flag){
         qDebug()<<"org.ukui.control-center.panel.plugins not installed"<<endl;
         return;
     }
-
     QStringList keys = m_formatsettings->keys();
     if (keys.contains("hour-system")) {
         if(flag == true) {
