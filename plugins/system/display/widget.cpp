@@ -28,6 +28,7 @@
 #include <KPluginFactory>
 #include <KAboutData>
 #include <KMessageBox>
+#include <QStyledItemDelegate>
 //#include <KLocalizedString>
 #include <KF5/KScreen/kscreen/output.h>
 #include <KF5/KScreen/kscreen/edid.h>
@@ -43,6 +44,12 @@
 #define UKUI_CONTORLCENTER_PANEL_SCHEMAS "org.ukui.control-center.panel.plugins"
 
 #define NIGHT_MODE_KEY "nightmode"
+#define SCRENN_SCALE_SCHMES "org.ukui.session"
+#define GDK_SCALE_KEY "gdk-scale"
+#define QT_SCALE_KEY "qt-scale-factor"
+#define USER_SACLE_KEY "hidpi"
+
+
 
 Q_DECLARE_METATYPE(KScreen::OutputPtr)
 
@@ -75,8 +82,9 @@ Widget::Widget(QWidget *parent)
 
 
     ui->applyButton->setStyleSheet("QPushButton{background-color:#F4F4F4;border-radius:6px}"
-                                   "QPushButton:hover{background-color: #3D6BE5;};border-radius:6px");
+                                   "QPushButton:hover{background-color: #3D6BE5;color:white};border-radius:6px");
     ui->primaryCombo->setContentsMargins(8,0,0,0);
+    ui->primaryCombo->setItemDelegate(new QStyledItemDelegate());
 
     closeScreenButton = new SwitchButton;
     ui->showScreenLayout->addWidget(closeScreenButton);
@@ -180,7 +188,7 @@ Widget::Widget(QWidget *parent)
     loadQml();
     setBrigthnessFile();
     //亮度调节UI
-//    initBrightnessUI();    
+//    initBrightnessUI();
 
 }
 
@@ -551,10 +559,11 @@ void Widget::writeScale(float scale) {
         this->proRes.append(strAutoQT);
     }
     writeFile(filepath, this->proRes);
+    setSessionScale(static_cast<int>(scale));
 }
 
 
-void Widget::initGSettings() {   
+void Widget::initGSettings() {
     QByteArray id(UKUI_CONTORLCENTER_PANEL_SCHEMAS);
     if(QGSettings::isSchemaInstalled(id)) {
 //        qDebug()<<"initGSettings-------------------->"<<endl;
@@ -570,6 +579,15 @@ void Widget::initGSettings() {
 //            setNightModebyPanel(value);
 //        }
 //    });
+
+    QByteArray scaleId(SCRENN_SCALE_SCHMES);
+    if(QGSettings::isSchemaInstalled(scaleId)) {
+//        qDebug()<<"initGSettings-------------------->"<<endl;
+        scaleGSettings = new QGSettings(scaleId)        ;
+    } else {
+        qDebug()<<"org.ukui.session schemas not installed"<<endl;
+        return ;
+    }
 }
 
 bool Widget::getNightModeGSetting(const QString &key) {
@@ -591,6 +609,23 @@ void Widget::setNightModebyPanel(bool judge) {
 //    }  else {
 //        QProcess::execute("killall redshift");
 //    }
+}
+
+void Widget::setSessionScale(int scale) {
+
+    if (!scaleGSettings) {
+        return;
+    }    
+    QStringList keys = scaleGSettings->keys();
+    if (keys.contains("hidpi")){
+        scaleGSettings->set(USER_SACLE_KEY, true);
+    }
+    if (keys.contains("gdk-scale")){
+        scaleGSettings->set(GDK_SCALE_KEY, scale);
+    }
+    if (keys.contains("qt-scale-factor")) {
+        scaleGSettings->set(QT_SCALE_KEY, scale);
+    }
 }
 
 void Widget::clearOutputIdentifiers()
@@ -744,10 +779,13 @@ void Widget::save()
 
     bool atLeastOneEnabledOutput = false;
     int i = 0;
-    Q_FOREACH(const KScreen::OutputPtr &output, config->outputs()) {
+    int connectedScreen = 0;
+    Q_FOREACH(const KScreen::OutputPtr &output, config->outputs()) {        
         KScreen::ModePtr mode = output->currentMode();
         if (output->isEnabled()) {
+//            qDebug()<<"atLeastOneEnabledOutput------------>"<<endl;
             atLeastOneEnabledOutput = true;
+            connectedScreen++;
         }
         if (!output->isConnected())
             continue;
@@ -769,7 +807,7 @@ void Widget::save()
                 return;
             }
         }
-        qDebug()<<" clone mode--------->"<<endl;
+//        qDebug()<<" clone mode--------->"<<endl;
         inputXml[i].isClone = base->isCloneMode() == true?"true":"false";
         inputXml[i].outputName = output->name();
 
@@ -798,12 +836,10 @@ void Widget::save()
         getEdidInfo(output->name(),&inputXml[i]);
         i++;
     }
-
-    if (!atLeastOneEnabledOutput) {
-        qDebug()<<"atLeastOneEnabledOutput------>"<<endl;
-
+    if (!atLeastOneEnabledOutput || (1 == connectedScreen && !closeScreenButton->isChecked())) {
         KMessageBox::error(this,tr("please insure at least one output!"),
                            tr("Warning"),KMessageBox::Notify);
+        closeScreenButton->setChecked(true);
         return ;
     }
 

@@ -14,6 +14,7 @@
 
 //#include <KLocalizedString>
 #include <QComboBox>
+#include <QGSettings/QGSettings>
 
 #include <KF5/KScreen/kscreen/output.h>
 #include <KF5/KScreen/kscreen/edid.h>
@@ -21,11 +22,23 @@
 #include "ComboBox/combobox.h"
 
 
+#define SCRENN_SCALE_SCHMES "org.ukui.session"
+
+#define GDK_SCALE_KEY "gdk-scale"
+
+
 OutputConfig::OutputConfig(QWidget *parent)
     : QWidget(parent)
     , mOutput(nullptr)
 {
     //加载qss样式文件
+    QByteArray idScale(SCRENN_SCALE_SCHMES);
+    if (QGSettings::isSchemaInstalled(idScale)) {
+//        qDebug()<<"initGSettings-------------------->"<<endl;
+        m_gsettings = new QGSettings(idScale);
+    } else {
+        qDebug()<<"org.ukui.session.required-components not installed"<<endl;        
+    }
 
     QFile QssFile("://combox.qss");
     QssFile.open(QFile::ReadOnly);
@@ -138,7 +151,7 @@ void OutputConfig::initUi()
 //    resLayout->addStretch();
 
 
-    QWidget *resWidget = new QWidget(this);    
+    QWidget *resWidget = new QWidget(this);
     resWidget->setLayout(resLayout);
     resWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
 //    mResolution->setStyleSheet("background-color:#F8F9F9");
@@ -211,7 +224,7 @@ void OutputConfig::initUi()
 
 
     //刷新率下拉框
-    mRefreshRate = new QComboBox();  
+    mRefreshRate = new QComboBox();
     mRefreshRate->setFont(ft);
 //    mRefreshRate->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     mRefreshRate->setMinimumSize(402,30);
@@ -294,10 +307,27 @@ void OutputConfig::initUi()
         scaleCombox->setCurrentIndex(scale - 1);
     }
     slotScaleChanged(scale - 1);
+
+    int gScale = getScreenScale();
+    if (gScale <= scaleCombox->count() && gScale > 0) {
+        scaleCombox->setCurrentIndex(gScale - 1);
+    }
 }
 
 int OutputConfig::getMaxReslotion() {
 
+}
+
+int OutputConfig::getScreenScale() {
+    if (!m_gsettings) {
+        return 1;
+    }
+    const QStringList list = m_gsettings->keys();
+    if (!list.contains("gdk-scale")) {
+        return 1;
+    }
+    int scale  = m_gsettings->get(GDK_SCALE_KEY).toBool();
+    return scale;
 }
 
 void OutputConfig::setOutput(const KScreen::OutputPtr &output)
@@ -444,4 +474,3 @@ int OutputConfig::scaleRet() {
 //    qDebug()<<"scale---------------->"<<scale.toInt();
     return scale.toInt();
 }
-
