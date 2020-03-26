@@ -71,6 +71,7 @@ void ChangeFaceDialog::loadSystemFaces(){
         QPushButton * button = new QPushButton;
         button->setAttribute(Qt::WA_DeleteOnClose);
         button->setFixedSize(QSize(48, 48));
+        button->setStyleSheet("QPushButton{border: none;}");
 
         QHBoxLayout * mainHorLayout = new QHBoxLayout(button);
         mainHorLayout->setSpacing(0);
