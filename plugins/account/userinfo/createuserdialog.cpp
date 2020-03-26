@@ -127,10 +127,13 @@ void CreateUserDialog::setupConnect(){
     });
 
     connect(ui->pwdsureLineEdit, &QLineEdit::textChanged, [=](QString text){
-        if (text != ui->pwdLineEdit->text())
+        if (text != ui->pwdLineEdit->text()){
+            isCreateUser = true;
             ui->tipLabel->setText(tr("Inconsistency with pwd"));
-        else
+        } else {
+            isCreateUser = false;
             ui->tipLabel->setText("");
+        }
 
         refreshConfirmBtnStatus();
     });
@@ -198,24 +201,32 @@ void CreateUserDialog::refreshConfirmBtnStatus(){
     if (ui->usernameLineEdit->text().isEmpty() ||
             ui->pwdLineEdit->text().isEmpty() ||
             ui->pwdsureLineEdit->text().isEmpty() ||
-            !ui->tipLabel->text().isEmpty())
+            !ui->tipLabel->text().isEmpty() ||
+            !isCreateUser)
         ui->confirmBtn->setEnabled(false);
     else
         ui->confirmBtn->setEnabled(true);
 }
 
 
-void CreateUserDialog::pwdLegalityCheck(QString pwd){
-    if (pwd.length() < PWD_LOW_LENGTH)
+void CreateUserDialog::pwdLegalityCheck(QString pwd){    
+    if (pwd.length() < PWD_LOW_LENGTH) {
+        isCreateUser = false;
         ui->tipLabel->setText(tr("Password length needs to more than %1 character!").arg(PWD_LOW_LENGTH - 1));
-    else if (pwd.length() > PWD_HIGH_LENGTH)
+    } else if (pwd.length() > PWD_HIGH_LENGTH) {
+        isCreateUser = false;
         ui->tipLabel->setText(tr("Password length needs to less than %1 character!").arg(PWD_HIGH_LENGTH + 1));
-    else
+    } else {
+        isCreateUser = true;
         ui->tipLabel->setText("");
+    }
 
     //防止先输入确认密码，再输入密码后pwdsuretipLabel无法刷新
-    if (ui->pwdLineEdit->text() == ui->pwdsureLineEdit->text())
+    if (ui->pwdLineEdit->text() == ui->pwdsureLineEdit->text()) {
+        isCreateUser = true;
         ui->tipLabel->setText("");
+    }
+
 
     refreshConfirmBtnStatus();
 }
@@ -241,15 +252,20 @@ void CreateUserDialog::nameLegalityCheck(QString username){
 //            process->start(cmd);
 
             if (usersStringList.contains(username)){
+                isCreateUser = false;
                 ui->tipLabel->setText(tr("The user name is already in use, please use a different one."));
-            }
-            else
+            } else {
+                isCreateUser = true;
                 ui->tipLabel->setText("");
-        }
-        else
+            }
+        } else {
+            isCreateUser = false;
             ui->tipLabel->setText(tr("User name length need to less than %1 letters!").arg(USER_LENGTH));
-    else
+    } else {
+        isCreateUser = false;
         ui->tipLabel->setText(tr("The user name can only be composed of letters, numbers and underline!"));
+    }
+
 
     refreshConfirmBtnStatus();
 }
