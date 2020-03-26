@@ -59,28 +59,20 @@ Power::Power()
     pluginType = SYSTEM;
 
     const QByteArray id(POWERMANAGER_SCHEMA);
-    settings = new QGSettings(id);
 
-    pluginWidget->setStyleSheet("background: #ffffff;");
-
-    ui->balanceWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
-    ui->savingWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
-    ui->customWidget->setStyleSheet("QWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
-    ui->custom1Widget->setStyleSheet("QWidget{background: #F4F4F4;}");
-    ui->custom2Widget->setStyleSheet("QWidget{background: #F4F4F4;}"
-                                     "QWidget#custom2Widget{border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
-
-    ui->acBtn->setStyleSheet("QPushButton#acBtn:checked{background: #3D6BE5; border-radius: 4px; color: #ffffff;}");
-    ui->batteryBtn->setStyleSheet("QPushButton#batteryBtn:checked{background: #3D6BE5; border-radius: 4px; color: #ffffff;}");
-
-    ui->iconWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
-
-
-
+    setupStylesheet();
     setupComponent();
-    setupConnect();
-    initModeStatus();
-    initIconPolicyStatus();
+
+    if (QGSettings::isSchemaInstalled(id)){
+        settings = new QGSettings(id);
+        setupConnect();
+        initModeStatus();
+        initCustomPlanStatus();
+        initIconPolicyStatus();
+    } else {
+        qCritical() << POWERMANAGER_SCHEMA << "not installed!\n";
+    }
+
 }
 
 Power::~Power()
@@ -102,6 +94,25 @@ QWidget * Power::get_plugin_ui(){
 }
 
 void Power::plugin_delay_control(){
+
+}
+
+void Power::setupStylesheet(){
+    pluginWidget->setStyleSheet("background: #ffffff;");
+
+    ui->balanceWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+    ui->savingWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+    ui->customWidget->setStyleSheet("QWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
+    ui->custom1Widget->setStyleSheet("QWidget{background: #F4F4F4;}");
+    ui->custom2Widget->setStyleSheet("QWidget{background: #F4F4F4;}"
+                                     "QWidget#custom2Widget{border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
+
+    ui->acBtn->setStyleSheet("QPushButton#acBtn:checked{background: #3D6BE5; border-radius: 4px; color: #ffffff;}"
+                             "QPushButton#acBtn:!checked{background: #ffffff; border-radius: 4px;}");
+    ui->batteryBtn->setStyleSheet("QPushButton#batteryBtn:checked{background: #3D6BE5; border-radius: 4px; color: #ffffff;}"
+                                  "QPushButton#batteryBtn:!checked{background: #ffffff; border-radius: 4px; color: #000000;}");
+
+    ui->iconWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
 
 }
 
@@ -173,7 +184,6 @@ void Power::setupConnect(){
 
         refreshUI();
         if (id == BALANCE){
-            resetCustomPlanUI();
             //设置显示器关闭
             settings->set(SLEEP_DISPLAY_AC_KEY, DISPLAY_BALANCE);
             settings->set(SLEEP_DISPLAY_BATT_KEY, DISPLAY_BALANCE);
@@ -181,7 +191,6 @@ void Power::setupConnect(){
             settings->set(SLEEP_COMPUTER_AC_KEY, COMPUTER_BALANCE);
             settings->set(SLEEP_COMPUTER_BATT_KEY, COMPUTER_BALANCE);
         } else if (id == SAVING){
-            resetCustomPlanUI();
             //设置显示器关闭
             settings->set(SLEEP_DISPLAY_AC_KEY, DISPLAY_SAVING);
             settings->set(SLEEP_DISPLAY_BATT_KEY, DISPLAY_SAVING);
@@ -245,6 +254,8 @@ void Power::initModeStatus(){
         ui->savingRadioBtn->setChecked(true);
     } else {
         ui->custdomRadioBtn->setChecked(true);
+        //
+        ui->acBtn->setChecked(true);
     }
     refreshUI();
 }
@@ -254,20 +265,6 @@ void Power::initIconPolicyStatus(){
     ui->iconComboBox->blockSignals(true);
     ui->iconComboBox->setCurrentIndex(ui->iconComboBox->findData(value));
     ui->iconComboBox->blockSignals(false);
-}
-
-void Power::resetCustomPlanUI(){
-    //默认初始
-    ui->acBtn->setChecked(true);
-    //信号阻塞
-    ui->sleepComboBox->blockSignals(true);
-    ui->closeComboBox->blockSignals(true);
-    ui->sleepComboBox->setCurrentIndex(0);
-    ui->closeComboBox->setCurrentIndex(0);
-
-    //信号阻塞解除
-    ui->sleepComboBox->blockSignals(false);
-    ui->closeComboBox->blockSignals(false);
 }
 
 void Power::initCustomPlanStatus(){
@@ -322,10 +319,18 @@ void Power::initCustomPlanStatus(){
 
 void Power::refreshUI(){
     if (ui->powerModeBtnGroup->checkedId() != CUSTDOM){
-        ui->custom1Widget->setEnabled(false);
-        ui->custom2Widget->setEnabled(false);
+//        ui->custom1Widget->setEnabled(false);
+//        ui->custom2Widget->setEnabled(false);
+        ui->custom1Widget->hide();
+        ui->custom2Widget->hide();
+        ui->customWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+
+
     } else {
-        ui->custom1Widget->setEnabled(true);
-        ui->custom2Widget->setEnabled(true);
+//        ui->custom1Widget->setEnabled(true);
+//        ui->custom2Widget->setEnabled(true);
+        ui->custom1Widget->show();
+        ui->custom2Widget->show();
+        ui->customWidget->setStyleSheet("QWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
     }
 }
