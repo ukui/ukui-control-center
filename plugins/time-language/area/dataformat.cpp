@@ -4,7 +4,7 @@
 #include <QDateTime>
 #include <QDebug>
 
-#define PANEL_GSCHEMAL   "org.ukui.panel.plugins"
+#define PANEL_GSCHEMAL   "org.ukui.control-center.panel.plugins"
 #define CALENDAR_KEY     "calendar"
 #define DAY_KEY          "firstday"
 #define DATE_FORMATE_KEY "date"
@@ -174,7 +174,7 @@ void DataFormat::writeGsettings(const QString &key, const QString &value) {
     const QStringList list = m_gsettings->keys();
     if (!list.contains(key)) {
         return ;
-    }
+    }    
     m_gsettings->set(key,value);
 }
 
@@ -214,7 +214,7 @@ void DataFormat::confirm_btn_slot() {
     if ( 0 == ui->calendarBox->currentIndex()) {
         calendarValue = "lunar";
     } else {
-        calendarValue = "solarLunar";
+        calendarValue = "solarlunar";
     }
 
     if ( 0 == ui->dayBox->currentIndex()) {
