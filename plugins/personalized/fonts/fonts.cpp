@@ -20,6 +20,8 @@
 #include "fonts.h"
 #include "ui_fonts.h"
 
+#include <QLabel>
+
 #include <QDebug>
 
 #define N 3
@@ -101,61 +103,26 @@ Fonts::Fonts()
     pluginType = PERSONALIZED;
 
 
-    pluginWidget->setStyleSheet("background: #ffffff;");
-    ui->fontSizeWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 4px;}");
-//    ui->fontSizeLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
-
-    ui->fontTypeWidget->setStyleSheet("QWidget#fontTypeWidget{background: #F4F4F4; border-radius: 4px;}");
-    ui->fontSelectLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
-    ui->monoSelectLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
-
-    ui->fontSizeSlider->setStyleSheet("QSlider{height: 20px;}"
-                                      "QSlider::groove:horizontal{border: none;}"
-                                      "QSlider::add-page:horizontal{background: #808080; border-radius: 2px; margin-top: 8px; margin-bottom: 9px;}"
-                                      "QSlider::sub-page:horizontal{background: #3D6BE5; border-radius: 2px; margin-top: 8px; margin-bottom: 9px;}"
-                                      "QSlider::handle:horizontal{width: 20px; height: 20px; border-image: url(:/img/plugins/fonts/bigRoller.png);}"
-                                      "");
+    setupStylesheet();
 
 
-    ui->advancedBtn->setStyleSheet("QPushButton#advancedBtn{background: #F4F4F4; border: none;}");
-
-    ui->advancedWidget->setStyleSheet("QWidget#advancedWidget{background: #F4F4F4; border-radius: 4px;}");
-    ui->defaultFontLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
-    ui->monoFontLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
-    ui->docFontLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
-    ui->peonyFontLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
-    ui->titleFontLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
-
-
-    ui->sampleBtn1->setStyleSheet("QPushButton{background: #F0F0F0; border-radius: 4px;}"
-                                  "QPushButton:checked{background: #F0F3FD; border-radius: 4px;}");
-    ui->sampleBtn2->setStyleSheet("QPushButton{background: #F0F0F0; border-radius: 4px;}"
-                                  "QPushButton:checked{background: #F0F3FD; border-radius: 4px;}");
-    ui->sampleBtn3->setStyleSheet("QPushButton{background: #F0F0F0; border-radius: 4px;}"
-                                  "QPushButton:checked{background: #F0F3FD; border-radius: 4px;}");
-    ui->sampleBtn4->setStyleSheet("QPushButton{background: #F0F0F0; border-radius: 4px;}"
-                                  "QPushButton:checked{background: #F0F3FD; border-radius: 4px;}");
-
-    ui->fontSizeSlider->setMinimum(100);
-    ui->fontSizeSlider->setMaximum(275);
-    ui->fontSizeSlider->setSingleStep(25);
-    ui->fontSizeSlider->setPageStep(25);
-    ui->fontSizeSlider->setTickPosition(QSlider::TicksBelow);
+    //    const QByteArray iddd(PEONY_SCHEMA);
+    //    peonysettings = new QGSettings(iddd);
 
     const QByteArray id(INTERFACE_SCHEMA);
-    ifsettings = new QGSettings(id);
     const QByteArray idd(MARCO_SCHEMA);
-    marcosettings = new QGSettings(idd);
-//    const QByteArray iddd(PEONY_SCHEMA);
-//    peonysettings = new QGSettings(iddd);
     const QByteArray iid(FONT_RENDER_SCHEMA);
-    rendersettings = new QGSettings(iid);
 
-    _getDefaultFontinfo();
+    if (QGSettings::isSchemaInstalled(id) && QGSettings::isSchemaInstalled(iid) && QGSettings::isSchemaInstalled(idd)){
+        marcosettings = new QGSettings(idd);
+        ifsettings = new QGSettings(id);
+        rendersettings = new QGSettings(iid);
 
-    setupComponent();
-    setupConnect();
-    initFontStatus();
+        _getDefaultFontinfo();
+        setupComponent();
+        setupConnect();
+        initFontStatus();
+    }
 
 }
 
@@ -182,6 +149,43 @@ QWidget *Fonts::get_plugin_ui(){
 
 void Fonts::plugin_delay_control(){
 
+}
+
+void Fonts::setupStylesheet(){
+    pluginWidget->setStyleSheet("background: #ffffff;");
+    ui->fontSizeWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 4px;}");
+//    ui->fontSizeLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
+
+    ui->fontTypeWidget->setStyleSheet("QWidget#fontTypeWidget{background: #F4F4F4; border-radius: 4px;}");
+    ui->fontSelectLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
+    ui->monoSelectLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
+
+    ui->fontSizeSlider->setStyleSheet("QSlider{height: 20px;}"
+                                      "QSlider::groove:horizontal{border: none;}"
+                                      "QSlider::add-page:horizontal{background: #808080; border-radius: 2px; margin-top: 8px; margin-bottom: 9px;}"
+                                      "QSlider::sub-page:horizontal{background: #3D6BE5; border-radius: 2px; margin-top: 8px; margin-bottom: 9px;}"
+                                      "QSlider::handle:horizontal{width: 20px; height: 20px; border-image: url(:/img/plugins/fonts/bigRoller.png);}"
+                                      "");
+
+
+    ui->advancedBtn->setStyleSheet("QPushButton#advancedBtn{background: #F4F4F4; border: none; border-radius: 4px;}");
+
+    ui->advancedWidget->setStyleSheet("QWidget#advancedWidget{background: #F4F4F4; border-radius: 4px;}");
+    ui->defaultFontLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
+    ui->monoFontLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
+    ui->docFontLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
+    ui->peonyFontLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
+    ui->titleFontLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
+
+
+    ui->sampleBtn1->setStyleSheet("QPushButton{background: #F0F0F0; border-radius: 4px;}"
+                                  "QPushButton:checked{background: #F0F3FD; border-radius: 4px;}");
+    ui->sampleBtn2->setStyleSheet("QPushButton{background: #F0F0F0; border-radius: 4px;}"
+                                  "QPushButton:checked{background: #F0F3FD; border-radius: 4px;}");
+    ui->sampleBtn3->setStyleSheet("QPushButton{background: #F0F0F0; border-radius: 4px;}"
+                                  "QPushButton:checked{background: #F0F3FD; border-radius: 4px;}");
+    ui->sampleBtn4->setStyleSheet("QPushButton{background: #F0F0F0; border-radius: 4px;}"
+                                  "QPushButton:checked{background: #F0F3FD; border-radius: 4px;}");
 }
 
 void Fonts::setupComponent(){
@@ -220,6 +224,12 @@ void Fonts::setupComponent(){
 
     ui->titleSizeComBox->setItemDelegate(itemDelege);
     ui->titleSizeComBox->setMaxVisibleItems(5);
+
+    ui->fontSizeSlider->setMinimum(100);
+    ui->fontSizeSlider->setMaximum(275);
+    ui->fontSizeSlider->setSingleStep(25);
+    ui->fontSizeSlider->setPageStep(25);
+    ui->fontSizeSlider->setTickPosition(QSlider::TicksBelow);
 
     //导入系统字体列表
     QStringList fontfamiles = fontdb.families();
@@ -295,13 +305,25 @@ void Fonts::setupComponent(){
     ui->sampleBtn3->setUserData(Qt::UserRole, example3);
     ui->sampleBtn4->setUserData(Qt::UserRole, example4);
 
+//    setSampleButton(ui->sampleBtn1);
 
-    ////绑定信号
-    //字体效果按钮
-    connect(ui->sampleBtnGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), [=](QAbstractButton * button){
-        setFontEffect(button);
-    });
+}
 
+void Fonts::setSampleButton(QPushButton *button){
+    QVBoxLayout * base1VerLayout = new QVBoxLayout(button);
+    base1VerLayout->setSpacing(12);
+    base1VerLayout->setMargin(0);
+//    QFont font;
+//    font.setHintingPreference(QFont::PreferNoHinting);
+    QLabel * enLabel = new QLabel(button);
+    enLabel->setText("Thanks For Using The ukcc");
+    enLabel->setAlignment(Qt::AlignCenter);
+    QLabel * cnLabel = new QLabel(button);
+    cnLabel->setText(tr("Thanks For Using The ukcc"));
+    cnLabel->setAlignment(Qt::AlignCenter);
+    base1VerLayout->addWidget(enLabel);
+    base1VerLayout->addWidget(cnLabel);
+    button->setLayout(base1VerLayout);
 }
 
 void Fonts::setupConnect(){
@@ -376,7 +398,8 @@ void Fonts::setupConnect(){
         marcosettings->set(TITLEBAR_FONT_KEY, QVariant(QString("%1 %2").arg(text).arg(titlebarfontStrList.at(1))));
     });
 
-
+    ////绑定信号
+    //字体效果按钮
     connect(ui->sampleBtnGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), [=](QAbstractButton * button){
         setFontEffect(button);
     });
