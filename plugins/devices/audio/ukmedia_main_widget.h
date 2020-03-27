@@ -117,7 +117,7 @@ public:
     static gboolean updateDefaultInputStream (UkmediaMainWidget *w);
 
 Q_SIGNALS:
-    void appVolumeChangedSignal(bool is_mute,int volume,const gchar *app_name);
+    void appVolumeChangedSignal(bool is_mute,int volume,const QString app_name);
 
 private Q_SLOTS:
     void themeComboxIndexChangedSlot(int index);
@@ -141,6 +141,7 @@ private:
     QStringList *m_pThemeDisplayNameList;
     QStringList *m_pThemeNameList;
     QStringList *m_pDeviceNameList;
+    QStringList *m_pAppNameList;
 //    QStringList *m_pInputDeviceDisplayNameList;
 //    QStringList *m_pOutputDeviceDisplayNameList;
     QStringList *m_pOutputStreamList;

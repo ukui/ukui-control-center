@@ -2,13 +2,14 @@
 #include <QDebug>
 UkmediaApplicationWidget::UkmediaApplicationWidget(QWidget *parent) : QWidget(parent)
 {
-    m_pAppWid = new QWidget();
     m_pApplicationLabel = new QLabel(tr("Application Volume"));
     m_pNoAppLabel = new QLabel(tr("No application is currently playing or recording audio"),this);
+    m_pAppWid = new QWidget(this);
     m_pGridlayout = new QGridLayout();
     m_pAppVolumeList = new QStringList;
     m_pApplicationLabel->setFixedSize(160,18);
     m_pNoAppLabel->setFixedSize(300,14);
+    m_pNoAppLabel->move(0,30);
     this->setMinimumSize(550,320);
     this->setMaximumSize(960,500);
     m_pAppWid->setMinimumSize(550,320);
@@ -34,9 +35,5 @@ UkmediaApplicationWidget::UkmediaApplicationWidget(QWidget *parent) : QWidget(pa
 
 UkmediaApplicationWidget::~UkmediaApplicationWidget()
 {
-    delete m_pAppLabel;
-    delete m_pAppIconLabel;
-    delete m_pAppIconBtn;
-    delete m_pAppVolumeLabel;
-    delete m_pAppSlider;
+
 }

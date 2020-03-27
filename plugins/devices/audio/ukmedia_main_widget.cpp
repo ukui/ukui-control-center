@@ -36,12 +36,12 @@ enum {
 UkmediaMainWidget::UkmediaMainWidget(QWidget *parent)
     : QWidget(parent)
 {
-    m_pOutputWidget = new UkmediaOutputWidget(this);
-    m_pInputWidget = new UkmediaInputWidget(this);
-    m_pAppWidget = new UkmediaApplicationWidget(this);
-    m_pSoundWidget = new UkmediaSoundEffectsWidget(this);
+    m_pOutputWidget = new UkmediaOutputWidget();
+    m_pInputWidget = new UkmediaInputWidget();
+    m_pAppWidget = new UkmediaApplicationWidget();
+    m_pSoundWidget = new UkmediaSoundEffectsWidget();
 
-    QVBoxLayout *m_pvLayout = new QVBoxLayout(this);
+    QVBoxLayout *m_pvLayout = new QVBoxLayout();
     m_pvLayout->addWidget(m_pOutputWidget);
     m_pvLayout->addWidget(m_pInputWidget);
     m_pvLayout->addWidget(m_pSoundWidget);
@@ -64,7 +64,7 @@ UkmediaMainWidget::UkmediaMainWidget(QWidget *parent)
     m_pInputStreamList = new QStringList;
     m_pAppVolumeList = new QStringList;
     m_pStreamControlList = new QStringList;
-
+    m_pAppNameList = new QStringList;
     //创建context
     m_pContext = mate_mixer_context_new();
 
@@ -365,15 +365,39 @@ void UkmediaMainWidget::onStreamControlRemoved (MateMixerStream *m_pStream,const
 {
     Q_UNUSED(m_pStream);
     g_debug("on stream control removed");
-    removeApplicationControl(m_pWidget, m_pName);
+    if (m_pWidget->m_pStreamControlList->count() > 0 && m_pWidget->m_pAppNameList->count() > 0) {
+        removeApplicationControl(m_pWidget, m_pName);
+    }
+    else {
+        m_pWidget->m_pStreamControlList->clear();
+        m_pWidget->m_pAppNameList->clear();
+    }
 }
 
 void UkmediaMainWidget::removeApplicationControl(UkmediaMainWidget *m_pWidget,const gchar *m_pName)
 {
     g_debug ("Removing application stream %s", m_pName);
     int i = m_pWidget->m_pStreamControlList->indexOf(m_pName);
+    if (m_pWidget->m_pStreamControlList->count() > m_pWidget->m_pAppNameList->count()) {
+        if (i <= 0)
+            return;
+        m_pWidget->m_pStreamControlList->removeAt(i);
+        return;
+    }
+    if ( i < m_pWidget->m_pAppNameList->count() || i < m_pWidget->m_pAppWidget->m_pGridlayout->count()) {
+        while (m_pWidget->m_pAppWidget->m_pGridlayout->count() > 0) {
+            QLayoutItem *item ;
+            if ((item = m_pWidget->m_pAppWidget->m_pGridlayout->takeAt(0)) != 0) {
+                item->widget()->setParent(nullptr);
+                delete item;
+            }
+        }
+        return;
+    }
 
+    qDebug() << "*************count" << m_pWidget->m_pAppWidget->m_pGridlayout->count() << i;
     m_pWidget->m_pStreamControlList->removeAt(i);
+    m_pWidget->m_pAppNameList->removeAt(i);
     //当播放音乐的应用程序退出后删除该项
     QLayoutItem *item ;
     if ((item = m_pWidget->m_pAppWidget->m_pGridlayout->takeAt(i)) != 0) {
@@ -423,15 +447,15 @@ void UkmediaMainWidget::addAppToAppwidget(UkmediaMainWidget *m_pWidget,int appnu
     m_pWidget->m_pAppVolumeList->append(appIconName);
 
     //widget显示应用音量
-    m_pWidget->m_pApplicationWidget = new QWidget();
+    m_pWidget->m_pApplicationWidget = new QWidget(m_pWidget->m_pAppWidget->m_pAppWid);
     m_pWidget->m_pApplicationWidget->setMinimumSize(550,50);
     m_pWidget->m_pApplicationWidget->setMaximumSize(960,50);
     QHBoxLayout *m_pHlayout = new QHBoxLayout();
     m_pWidget->m_pAppWidget->m_pAppLabel = new QLabel();
-    m_pWidget->m_pAppWidget->m_pAppIconBtn = new QPushButton();
-    m_pWidget->m_pAppWidget->m_pAppIconLabel = new QLabel();
-    m_pWidget->m_pAppWidget->m_pAppVolumeLabel = new QLabel();
-    m_pWidget->m_pAppWidget->m_pAppSlider = new AudioSlider();
+    m_pWidget->m_pAppWidget->m_pAppIconBtn = new QPushButton;
+    m_pWidget->m_pAppWidget->m_pAppIconLabel = new QLabel;
+    m_pWidget->m_pAppWidget->m_pAppVolumeLabel = new QLabel;
+    m_pWidget->m_pAppWidget->m_pAppSlider = new AudioSlider;
     m_pWidget->m_pAppWidget->m_pAppSlider->setOrientation(Qt::Horizontal);
 
     //设置每项的固定大小
@@ -440,21 +464,18 @@ void UkmediaMainWidget::addAppToAppwidget(UkmediaMainWidget *m_pWidget,int appnu
     m_pWidget->m_pAppWidget->m_pAppIconLabel->setFixedSize(24,24);
     m_pWidget->m_pAppWidget->m_pAppVolumeLabel->setFixedSize(36,14);
 
-    QSpacerItem *item1 = new QSpacerItem(16,20);
-    QSpacerItem *item2 = new QSpacerItem(8,20);
-
     m_pWidget->m_pAppWidget->m_pAppVolumeLabel->setFixedHeight(16);
-    m_pHlayout->addItem(item1);
+    m_pHlayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed,QSizePolicy::Fixed));
     m_pHlayout->addWidget(m_pWidget->m_pAppWidget->m_pAppIconBtn);
-    m_pHlayout->addItem(item2);
+    m_pHlayout->addItem(new QSpacerItem(8,20,QSizePolicy::Fixed,QSizePolicy::Fixed));
     m_pHlayout->addWidget(m_pWidget->m_pAppWidget->m_pAppLabel);
-    m_pHlayout->addItem(item1);
+    m_pHlayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed,QSizePolicy::Fixed));
     m_pHlayout->addWidget(m_pWidget->m_pAppWidget->m_pAppIconLabel);
-    m_pHlayout->addItem(item1);
+    m_pHlayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed,QSizePolicy::Fixed));
     m_pHlayout->addWidget(m_pWidget->m_pAppWidget->m_pAppSlider);
-    m_pHlayout->addItem(item1);
+    m_pHlayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed,QSizePolicy::Fixed));
     m_pHlayout->addWidget(m_pWidget->m_pAppWidget->m_pAppVolumeLabel);
-    m_pHlayout->addItem(item1);
+    m_pHlayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed,QSizePolicy::Fixed));
     m_pWidget->m_pApplicationWidget->setLayout(m_pHlayout);
     m_pWidget->m_pApplicationWidget->layout()->setContentsMargins(0,0,0,0);
     m_pHlayout->setSpacing(0);
@@ -486,6 +507,8 @@ void UkmediaMainWidget::addAppToAppwidget(UkmediaMainWidget *m_pWidget,int appnu
     appLabelStr.append("Label");
     appVolumeLabelStr.append("VolumeLabel");
     appIconLabelStr.append("VolumeIconLabel");
+    qDebug() << "appslider name :" << appSliderStr;
+    m_pWidget->m_pAppNameList->append(appSliderStr);
     m_pWidget->m_pAppWidget->m_pAppSlider->setObjectName(appSliderStr);
     m_pWidget->m_pAppWidget->m_pAppLabel->setObjectName(appLabelStr);
     m_pWidget->m_pAppWidget->m_pAppVolumeLabel->setObjectName(appVolumeLabelStr);
@@ -521,14 +544,14 @@ void UkmediaMainWidget::addAppToAppwidget(UkmediaMainWidget *m_pWidget,int appnu
 
     /*滑动条控制应用音量*/
     connect(m_pWidget->m_pAppWidget->m_pAppSlider,&QSlider::valueChanged,[=](int value){
-        QSlider *m_pSlider= m_pWidget->findChild<QSlider*>(appSliderStr);
+        QSlider *m_pSlider= m_pWidget->m_pApplicationWidget->findChild<QSlider*>(appSliderStr);
         m_pSlider->setValue(value);
-        QLabel *m_pLabel = m_pWidget->findChild<QLabel*>(appVolumeLabelStr);
+        QLabel *m_pLabel = m_pWidget->m_pApplicationWidget->findChild<QLabel*>(appVolumeLabelStr);
         QString percent;
         percent = QString::number(value);
         percent.append("%");
         m_pLabel->setText(percent);
-        QLabel *appIcon = m_pWidget->findChild<QLabel*>(appIconLabelStr);
+        QLabel *appIcon = m_pWidget->m_pApplicationWidget->findChild<QLabel*>(appIconLabelStr);
 
         int volume = int(value*65536/100);
         mate_mixer_stream_control_set_volume(m_pControl,(int)volume);
@@ -562,11 +585,13 @@ void UkmediaMainWidget::addAppToAppwidget(UkmediaMainWidget *m_pWidget,int appnu
 //                     G_CALLBACK (app_volume_mute),
 //                     w);
 
-    connect(m_pWidget,&UkmediaMainWidget::appVolumeChangedSignal,[=](bool isMute,int volume,const gchar *app_name){
+    connect(m_pWidget,&UkmediaMainWidget::appVolumeChangedSignal,[=](bool isMute,int volume,QString app_name){
         Q_UNUSED(isMute);
         QString slider_str = app_name;
-        slider_str.append("Slider");
-        QSlider *s = m_pWidget->findChild<QSlider*>(slider_str);
+//        slider_str.append("Slider");
+        QSlider *s = m_pWidget->m_pApplicationWidget->findChild<QSlider*>(slider_str);
+        if (s == nullptr)
+            return;
         s->setValue(volume);
     });
 
@@ -608,10 +633,15 @@ void UkmediaMainWidget::updateAppVolume(MateMixerStreamControl *m_pControl, GPar
     guint volume ;
     volume = guint(value*100/65536.0+0.5);
     bool isMute = mate_mixer_stream_control_get_mute(m_pControl);
+    const gchar *controlName = mate_mixer_stream_control_get_name(m_pControl);
+    int index = m_pWidget->m_pStreamControlList->indexOf(controlName);
     MateMixerStreamControlFlags control_flags = mate_mixer_stream_control_get_flags(m_pControl);
     MateMixerAppInfo *info = mate_mixer_stream_control_get_app_info(m_pControl);
     const gchar *m_pAppName = mate_mixer_app_info_get_name(info);
-    Q_EMIT m_pWidget->appVolumeChangedSignal(isMute,volume,m_pAppName);
+    if (index < 0 )
+        return;
+    QString appName = m_pWidget->m_pAppNameList->at(index);
+    Q_EMIT m_pWidget->appVolumeChangedSignal(isMute,volume,appName);
 
     //静音可读并且处于静音
     if ((control_flags & MATE_MIXER_STREAM_CONTROL_MUTE_WRITABLE) ) {

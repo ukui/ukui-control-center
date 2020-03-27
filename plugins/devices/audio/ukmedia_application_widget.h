@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QLabel>
 #include <QPushButton>
+#include <QScrollArea>
 #include "ukmedia_output_widget.h"
 class UkmediaApplicationWidget : public QWidget
 {
@@ -26,6 +27,7 @@ private:
     QPushButton *m_pAppIconBtn;
     QLabel *m_pAppVolumeLabel;
     AudioSlider *m_pAppSlider;
+//    QScrollArea *m_pAppArea;
     QGridLayout *m_pGridlayout;
 };
 
