@@ -5,7 +5,7 @@
             <summary>nightmode status</summary>
             <description>nightmode used in UKUI Desktop Environment ,control by ukui-panel and ukui-control-center</description>
         </key>
-        <key name="hour-system" type="s">
+        <key name="hoursystem" type="s">
             <default>'24'</default>
             <summary>HourSystem status</summary>
             <description>hoursystem used in UKUI Desktop Environment ,ontrol by ukui-panel and ukui-control-center</description>
@@ -22,8 +22,8 @@
         </key>
         <key name="date" type="s">
             <default>'cn'</default>
-            <summary>first of week</summary>
-            <description>Select the first day of the week</description>
+            <summary>date formate</summary>
+            <description>date format</description>
         </key>
         <key name="time" type="s">
             <default>'24'</default>

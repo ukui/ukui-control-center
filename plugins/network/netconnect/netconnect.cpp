@@ -25,6 +25,7 @@
 
 #include <QGSettings/QGSettings>
 #include <QProcess>
+#include <QTimer>
 
 
 #define CONTROL_CENTER_WIFI "org.ukui.control-center.wifi.switch"
@@ -69,8 +70,8 @@ NetConnect::NetConnect():m_wifiList(new Wifi)
     //构建网络配置对象
     nmg  = new QNetworkConfigurationManager();
     initComponent();
-    getNetList();
 
+    getNetList();
 }
 
 NetConnect::~NetConnect()
@@ -228,7 +229,7 @@ void NetConnect::_acquireCardInfo(){
 }
 
 
-void NetConnect::getNetList() {    
+void NetConnect::getNetList() {
     ui->availableListWidget->clear();
     ui->statusListWidget->clear();
 
@@ -243,6 +244,9 @@ void NetConnect::getNetList() {
         QMap<QString, int>::iterator iter = this->wifiList.begin();
         QString iconamePah;
         while(iter != this->wifiList.end()) {
+            if (!wifiBtn->isChecked()){
+                break;
+            }
             iconamePah= ":/img/plugins/netconnect/wifi" + QString::number(iter.value())+".png";
             rebuildAvailComponent(iconamePah , iter.key());
             iter++;
@@ -434,7 +438,7 @@ void NetConnect::getWifiListDone(QStringList getwifislist, QStringList getlanLis
         lanList.clear();
         connectedLan.clear();
 
-        // 获取当前连接的lan name        
+        // 获取当前连接的lan name
         activecon *actLan = kylin_network_get_activecon_info();
         int indexLan = 0;
         while(actLan[indexLan].con_name != NULL){
@@ -487,7 +491,7 @@ bool NetConnect::getSwitchStatus(QString key){
     if (!list.contains(key)) {
         return true;
     }
-    bool res = m_gsettings->get(key).toBool();    
+    bool res = m_gsettings->get(key).toBool();
     return res;
 }
 
@@ -517,7 +521,8 @@ int NetConnect::setSignal(QString lv) {
 }
 
 void NetConnect::wifiSwitchSlot(bool signal){
-    qDebug()<<"wifiSwitchSlot--------------->"<<endl;
+    getNetList();
+//    qDebug()<<"wifiSwitchSlot--------------->"<<endl;
     if(!m_gsettings) {
         return ;
     }
