@@ -76,8 +76,7 @@ public:
     void plugin_delay_control() Q_DECL_OVERRIDE;
 
 public:
-    void initComponent();
-    void getNetList();
+    void initComponent();    
     void rebuildNetStatusComponent(QString iconPath, QString netName);
     void rebuildAvailComponent(QString iconpath, QString netName);
 
@@ -122,6 +121,7 @@ private:
 
 private slots:
     void wifiSwitchSlot(bool signal);
+    void getNetList();
 
 
 

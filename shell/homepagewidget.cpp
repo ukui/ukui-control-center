@@ -44,7 +44,7 @@ HomePageWidget::HomePageWidget(QWidget *parent) :
     pmainWindow = (MainWindow *)parentWidget();
 
     //
-    ui->listWidget->setStyleSheet("QListWidget#listWidget{border: none;}");
+    ui->listWidget->setStyleSheet("QListWidget#listWidget{border: none;background:#FFFFFF}");
 
 
 

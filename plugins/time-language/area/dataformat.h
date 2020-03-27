@@ -37,10 +37,6 @@ Q_SIGNALS:
 
 private slots:
     void datetime_update_slot();
-    void calendar_change_slot(int);
-    void day_change_slot(int);
-    void date_change_slot(int);
-    void time_change_slot(int);
     void confirm_btn_slot();
 
 };
