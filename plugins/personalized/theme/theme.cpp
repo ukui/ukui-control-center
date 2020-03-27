@@ -97,46 +97,30 @@ Theme::Theme()
     pluginName = tr("theme");
     pluginType = PERSONALIZED;
 
-
-    pluginWidget->setStyleSheet("background: #ffffff;");
-
-    ui->defaultBtn->setStyleSheet("QPushButton{border-image: url('://img/plugins/theme/default.png')}");
-    ui->lightBtn->setStyleSheet("QPushButton{border-image: url('://img/plugins/theme/light.png')}");
-    ui->darkBtn->setStyleSheet("QPushButton{border-image: url('://img/plugins/theme/dark.png')}");
-    ui->defaultSelectedLabel->setPixmap(QPixmap("://img/plugins/theme/selected.png"));
-    ui->lightSelectedLabel->setPixmap(QPixmap("://img/plugins/theme/selected.png"));
-    ui->darkSelectedLabel->setPixmap(QPixmap("://img/plugins/theme/selected.png"));
-
-    ui->controlWidget->setStyleSheet("QWidget#controlWidget{background: #F4F4F4; border-radius: 6px;}");
-
-    ui->effectWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
-    ui->line->setStyleSheet("QFrame{border-top: 1px solid #CCCCCC; border-left: none; border-right: none; border-bottom: none;}");
-
-    ui->resetBtn->setStyleSheet("QPushButton#resetBtn{border: none;}"
-                                "QPushButton:hover:!pressed#resetBtn{border: none; background: #3D6BE5; border-radius: 2px;}"
-                                "QPushButton:hover:pressed#resetBtn{border: none; background: #2C5AD6; border-radius: 2px;}");
-
-    ui->transparencySlider->setStyleSheet("QSlider{height: 20px;}"
-                                          "QSlider::groove:horizontal{border: none;}"
-                                          "QSlider::add-page:horizontal{background: #808080; border-radius: 2px; margin-top: 8px; margin-bottom: 9px;}"
-                                          "QSlider::sub-page:horizontal{background: #3D6BE5; border-radius: 2px; margin-top: 8px; margin-bottom: 9px;}"
-                                          "QSlider::handle:horizontal{width: 20px; height: 20px; border-image: url(:/img/plugins/fonts/bigRoller.png);}"
-                                          "");
-
-    //初始化gsettings
     const QByteArray id(THEME_GTK_SCHEMA);
-    gtkSettings = new QGSettings(id);
     const QByteArray idd(THEME_QT_SCHEMA);
-    qtSettings = new QGSettings(idd);
     const QByteArray iid(CURSOR_THEME_SCHEMA);
-    curSettings = new QGSettings(iid);
 
+    //设置样式
+    setupStylesheet();
+    //设置组件
     setupComponent();
-    initThemeMode();
-    initIconTheme();
-    initControlTheme();
-    initCursorTheme();
-    initEffectSettings();
+
+    if (QGSettings::isSchemaInstalled(id) &&
+            QGSettings::isSchemaInstalled(id) &&
+            QGSettings::isSchemaInstalled(iid)){
+        gtkSettings = new QGSettings(id);
+        qtSettings = new QGSettings(idd);
+        curSettings = new QGSettings(iid);
+
+        initThemeMode();
+        initIconTheme();
+        initCursorTheme();
+        initEffectSettings();
+    } else {
+        qCritical() << THEME_GTK_SCHEMA << "or" << THEME_QT_SCHEMA << "or" << CURSOR_THEME_SCHEMA << "not installed\n";
+    }
+
 }
 
 Theme::~Theme()
@@ -164,10 +148,39 @@ void Theme::plugin_delay_control(){
 
 }
 
+void Theme::setupStylesheet(){
+    pluginWidget->setStyleSheet("background: #ffffff;");
+
+    ui->controlWidget->setStyleSheet("QWidget#controlWidget{background: #F4F4F4; border-radius: 6px;}");
+
+    ui->effectWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+    ui->line->setStyleSheet("QFrame{border-top: 1px solid #CCCCCC; border-left: none; border-right: none; border-bottom: none;}");
+
+    ui->resetBtn->setStyleSheet("QPushButton#resetBtn{background: #F4F4F4; border: none; border-radius: 4px;}"
+                                "QPushButton:hover:!pressed#resetBtn{border: none; background: #3D6BE5; border-radius: 2px;}"
+                                "QPushButton:hover:pressed#resetBtn{border: none; background: #2C5AD6; border-radius: 2px;}");
+
+    ui->transparencySlider->setStyleSheet("QSlider{height: 20px;}"
+                                          "QSlider::groove:horizontal{border: none;}"
+                                          "QSlider::add-page:horizontal{background: #808080; border-radius: 2px; margin-top: 8px; margin-bottom: 9px;}"
+                                          "QSlider::sub-page:horizontal{background: #3D6BE5; border-radius: 2px; margin-top: 8px; margin-bottom: 9px;}"
+                                          "QSlider::handle:horizontal{width: 20px; height: 20px; border-image: url(:/img/plugins/fonts/bigRoller.png);}"
+                                          "");
+}
+
 void Theme::setupComponent(){
-    ui->defaultBtn->setProperty("value", "ukui-default");
-    ui->lightBtn->setProperty("value", "ukui-white");
-    ui->darkBtn->setProperty("value", "ukui-black");
+
+    ui->lightButton->hide();
+
+    ui->defaultButton->setProperty("value", "ukui-white");
+    ui->lightButton->setProperty("value", "ukui-default");
+    ui->darkButton->setProperty("value", "ukui-black");
+
+    buildThemeModeBtn(ui->defaultButton, tr("Default"), "default");
+    buildThemeModeBtn(ui->lightButton, tr("Light"), "light");
+    buildThemeModeBtn(ui->darkButton, tr("Dark"), "dark");
+
+    setupControlTheme();
 
     ui->effectLabel->hide();
     ui->effectWidget->hide();
@@ -178,6 +191,49 @@ void Theme::setupComponent(){
 
 }
 
+void Theme::buildThemeModeBtn(QPushButton *button, QString name, QString icon){
+    //设置默认按钮
+    button->setStyleSheet("QPushButton{background: #ffffff; border: none;}");
+
+    QVBoxLayout * baseVerLayout = new QVBoxLayout(button);
+    baseVerLayout->setSpacing(8);
+    baseVerLayout->setMargin(0);
+    QLabel * iconLabel = new QLabel(button);
+    iconLabel->setFixedSize(QSize(176, 105));
+    iconLabel->setScaledContents(true);
+    QString fullicon = QString("://img/plugins/theme/%1.png").arg(icon);
+    iconLabel->setPixmap(QPixmap(fullicon));
+
+    QHBoxLayout * bottomHorLayout = new QHBoxLayout;
+    bottomHorLayout->setSpacing(8);
+    bottomHorLayout->setMargin(0);
+    QLabel * statusLabel = new QLabel(button);
+    statusLabel->setFixedSize(QSize(16, 16));
+    statusLabel->setScaledContents(true);
+    connect(ui->themeModeBtnGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), [=](QAbstractButton * eBtn){
+        if (eBtn == button)
+            statusLabel->setPixmap(QPixmap("://img/plugins/theme/selected.png"));
+        else
+            statusLabel->clear();
+    });
+    QLabel * nameLabel = new QLabel(button);
+    QSizePolicy nameSizePolicy = nameLabel->sizePolicy();
+    nameSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
+    nameSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
+    nameLabel->setSizePolicy(nameSizePolicy);
+    nameLabel->setText(name);
+
+    bottomHorLayout->addStretch();
+    bottomHorLayout->addWidget(statusLabel);
+    bottomHorLayout->addWidget(nameLabel);
+    bottomHorLayout->addStretch();
+
+    baseVerLayout->addWidget(iconLabel);
+    baseVerLayout->addLayout(bottomHorLayout);
+
+    button->setLayout(baseVerLayout);
+}
+
 void Theme::initThemeMode(){
     //获取当前主题
     QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
@@ -185,30 +241,18 @@ void Theme::initThemeMode(){
     for (QAbstractButton * button : ui->themeModeBtnGroup->buttons()){
         QVariant valueVariant = button->property("value");
         if (valueVariant.isValid() && valueVariant.toString() == currentThemeMode)
-            button->setChecked(true);
+            button->click();
+//            button->setChecked(true);
     }
 
-    //设置选中图标的显示状态
-    ui->defaultSelectedLabel->setVisible(ui->defaultBtn->isChecked());
-    ui->lightSelectedLabel->setVisible(ui->lightBtn->isChecked());
-    ui->darkSelectedLabel->setVisible(ui->darkBtn->isChecked());
-    //反向设置占位Labe的显示状态，放置选中图标隐藏后文字Label位置变化
-    ui->defaultPlaceHolderLabel->setHidden(ui->defaultBtn->isChecked());
-    ui->lightPlaceHolderLabel->setHidden(ui->lightBtn->isChecked());
-    ui->darkPlaceHolderLabel->setHidden(ui->darkBtn->isChecked());
-
     connect(ui->themeModeBtnGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), this, [=](QAbstractButton * button){
-        ui->defaultSelectedLabel->setVisible(ui->defaultBtn->isChecked());
-        ui->lightSelectedLabel->setVisible(ui->lightBtn->isChecked());
-        ui->darkSelectedLabel->setVisible(ui->darkBtn->isChecked());
-        ui->defaultPlaceHolderLabel->setHidden(ui->defaultBtn->isChecked());
-        ui->lightPlaceHolderLabel->setHidden(ui->lightBtn->isChecked());
-        ui->darkPlaceHolderLabel->setHidden(ui->darkBtn->isChecked());
-
         //设置主题
         QString themeMode = button->property("value").toString();
-        qtSettings->set(MODE_QT_KEY, themeMode);
-        gtkSettings->set(MODE_GTK_KEY, themeMode);
+        QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
+        if (QString::compare(currentThemeMode, themeMode)){
+            qtSettings->set(MODE_QT_KEY, themeMode);
+            gtkSettings->set(MODE_GTK_KEY, themeMode);
+        }
     });
 }
 
@@ -263,7 +307,7 @@ void Theme::initIconTheme(){
     }
 }
 
-void Theme::initControlTheme(){
+void Theme::setupControlTheme(){
     QStringList colorStringList;
     colorStringList << QString("#3D6BE5");
     colorStringList << QString("#FA6C63");
@@ -341,8 +385,6 @@ void Theme::initCursorTheme(){
     });
 
     for (QString cursor : cursorThemes){
-
-//        qDebug()<<"cursor is----------->"<<cursor<<endl;
 
         QList<QPixmap> cursorVec;
         QString path = CURSORS_THEMES_PATH + cursor;

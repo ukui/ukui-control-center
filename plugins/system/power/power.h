@@ -49,12 +49,12 @@ public:
     void plugin_delay_control() Q_DECL_OVERRIDE;
 
 public:
+    void setupStylesheet();
     void setupComponent();
     void setupConnect();
     void initModeStatus();
     void initCustomPlanStatus();
     void initIconPolicyStatus();
-    void resetCustomPlanUI();
 
 
     void refreshUI();

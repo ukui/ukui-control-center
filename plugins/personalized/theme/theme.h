@@ -29,8 +29,10 @@
 #include "shell/interface.h"
 
 
+class QPushButton;
 class SwitchButton;
 class QGSettings;
+class WidgetGroup;
 
 namespace Ui {
 class Theme;
@@ -53,12 +55,15 @@ public:
 
 public:
 
+    void setupStylesheet();
     void setupComponent();
     void initThemeMode();
     void initIconTheme();
-    void initControlTheme();
+    void setupControlTheme();
     void initCursorTheme();
     void initEffectSettings();
+
+    void buildThemeModeBtn(QPushButton * button, QString name, QString icon);
 
     QString dullTranslation(QString str);
 
@@ -77,6 +82,8 @@ private:
     QGSettings * curSettings;
 
     SwitchButton * effectSwitchBtn;
+
+    WidgetGroup * iconThemeWidgetGroup;
 
 };
 
