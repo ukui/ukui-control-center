@@ -582,7 +582,7 @@ void UkmediaMainWidget::addAppToAppwidget(UkmediaMainWidget *m_pWidget,int appnu
     m_pWidget->m_pAppWidget->m_pAppSlider->setStyleSheet("QSlider::groove:horizontal {"
                                            "border: 0px solid #bbb; }"
                                            "QSlider::sub-page:horizontal {"
-                                           "background: #2e8ad2;border-radius: 2px;"
+                                           "background: #3D6BE5;border-radius: 2px;"
                                            "margin-top:8px;margin-bottom:9px;}"
                                            "QSlider::add-page:horizontal {"
                                            "background:  rgba(52,70,80,90%);"
