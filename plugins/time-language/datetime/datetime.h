@@ -133,6 +133,7 @@ private slots:
 
 private:
     void loadHour();
+    void connectGSetting();
 
 };
 

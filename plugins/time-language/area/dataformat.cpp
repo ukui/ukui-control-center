@@ -8,7 +8,7 @@
 #define CALENDAR_KEY     "calendar"
 #define DAY_KEY          "firstday"
 #define DATE_FORMATE_KEY "date"
-#define TIME_KEY         "time"
+#define TIME_KEY         "hoursystem"
 
 DataFormat::DataFormat(QWidget *parent) :
     QDialog(parent),
@@ -121,10 +121,6 @@ void DataFormat::initConnect() {
     m_itimer->start(1000);
 
     connect(m_itimer,SIGNAL(timeout()), this, SLOT(datetime_update_slot()));
-    connect(ui->calendarBox, SIGNAL(currentIndexChanged(int)), SLOT(calendar_change_slot(int)));
-    connect(ui->dayBox, SIGNAL(currentIndexChanged(int)), SLOT(day_change_slot(int)));
-    connect(ui->dateBox, SIGNAL(currentIndexChanged(int)), SLOT(date_change_slot(int)));
-    connect(ui->timeBox, SIGNAL(currentIndexChanged(int)), SLOT(time_change_slot(int)));
     connect(ui->confirmButton, SIGNAL(clicked(bool)), SLOT(confirm_btn_slot()));
     connect(ui->cancelButton, SIGNAL(clicked()), SLOT(close()));
     connect(ui->closeBtn, &QPushButton::clicked, [=](bool checked){
@@ -135,12 +131,14 @@ void DataFormat::initConnect() {
 }
 
 void DataFormat::initComponent() {
+
     if (!m_gsettings) {
         return ;
     }
     const QStringList list = m_gsettings->keys();
 
-    if (!list.contains("calendar") || !list.contains("firstday")){
+    if (!list.contains("calendar") || !list.contains("firstday")
+            || !list.contains("date") || !list.contains("hoursystem")){
         return ;
     }
 
@@ -160,10 +158,19 @@ void DataFormat::initComponent() {
 
     QString dateFormat = m_gsettings->get(DATE_FORMATE_KEY).toString();
     if ("cn" == dateFormat) {
+       ui->dateBox->setCurrentIndex(0);
+    } else {
+       ui->dateBox->setCurrentIndex(1);
+    }
+
+    QString timeformate = m_gsettings->get(TIME_KEY).toString();
+    if ("24" == timeformate) {
        ui->timeBox->setCurrentIndex(0);
     } else {
+//       qDebug()<<"initComponent----------->"<<timeformate<<endl;
        ui->timeBox->setCurrentIndex(1);
     }
+
 }
 
 void DataFormat::writeGsettings(const QString &key, const QString &value) {
@@ -175,7 +182,7 @@ void DataFormat::writeGsettings(const QString &key, const QString &value) {
     if (!list.contains(key)) {
         return ;
     }    
-    m_gsettings->set(key,value);
+    m_gsettings->set(key,value);    
 }
 
 void DataFormat::datetime_update_slot() {
@@ -189,21 +196,6 @@ void DataFormat::datetime_update_slot() {
     ui->timeBox->setItemText(1,timeStr);
 }
 
-void DataFormat::calendar_change_slot(int index) {
-
-}
-
-void DataFormat::day_change_slot(int index) {
-
-}
-
-void DataFormat::date_change_slot(int index) {
-
-}
-
-void DataFormat::time_change_slot(int index) {
-
-}
 
 void DataFormat::confirm_btn_slot() {
     QString calendarValue;
@@ -238,7 +230,8 @@ void DataFormat::confirm_btn_slot() {
     writeGsettings("calendar", calendarValue);
     writeGsettings("firstday", dayValue);
     writeGsettings("date", dateValue);
-    writeGsettings("time", timeValue);
+    writeGsettings("hoursystem", timeValue);
 
-    emit this->dataChangedSignal();
+    emit dataChangedSignal();
+    this->close();
 }
