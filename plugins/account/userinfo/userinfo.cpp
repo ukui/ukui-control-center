@@ -355,8 +355,8 @@ void UserInfo::_refreshUserInfoUI(){
 void UserInfo::_buildWidgetForItem(UserInfomation user){
     HoverWidget * baseWidget = new HoverWidget(user.username);
     baseWidget->setStyleSheet("background: #ffffff;");
-    baseWidget->setMinimumSize(550,50);
-    baseWidget->setMaximumSize(960,50);
+//    baseWidget->setMinimumSize(550,50);
+//    baseWidget->setMaximumSize(960,50);
     baseWidget->setAttribute(Qt::WA_DeleteOnClose);
 
     QHBoxLayout * baseVerLayout = new QHBoxLayout(baseWidget);
@@ -378,7 +378,7 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     QPushButton * faceBtn = new QPushButton(widget);
     faceBtn->setObjectName("faceBtn");
     faceBtn->setFixedSize(32, 32);
-//    faceBtn->setIcon(QIcon(user.iconfile));
+    faceBtn->setIcon(QIcon(user.iconfile));
     faceBtn->setIconSize(faceBtn->size());
     connect(faceBtn, &QPushButton::clicked, [=](bool checked){
         Q_UNUSED(checked)
