@@ -4,7 +4,7 @@ UkmediaApplicationWidget::UkmediaApplicationWidget(QWidget *parent) : QWidget(pa
 {
     m_pAppWid = new QWidget();
     m_pApplicationLabel = new QLabel(tr("Application Volume"));
-    m_pNoAppLabel = new QLabel(tr("No application is currently playing or recording audio"),m_pAppWid);
+    m_pNoAppLabel = new QLabel(tr("No application is currently playing or recording audio"),this);
     m_pGridlayout = new QGridLayout();
     m_pAppVolumeList = new QStringList;
     m_pApplicationLabel->setFixedSize(160,18);

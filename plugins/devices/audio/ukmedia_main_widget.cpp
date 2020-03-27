@@ -423,15 +423,15 @@ void UkmediaMainWidget::addAppToAppwidget(UkmediaMainWidget *m_pWidget,int appnu
     m_pWidget->m_pAppVolumeList->append(appIconName);
 
     //widget显示应用音量
-    m_pWidget->m_pApplicationWidget = new QWidget(m_pWidget->m_pAppWidget->m_pAppWid);
+    m_pWidget->m_pApplicationWidget = new QWidget();
     m_pWidget->m_pApplicationWidget->setMinimumSize(550,50);
     m_pWidget->m_pApplicationWidget->setMaximumSize(960,50);
-    QHBoxLayout *m_pHlayout = new QHBoxLayout(m_pWidget->m_pApplicationWidget);
-    m_pWidget->m_pAppWidget->m_pAppLabel = new QLabel(m_pWidget->m_pApplicationWidget);
-    m_pWidget->m_pAppWidget->m_pAppIconBtn = new QPushButton(m_pWidget->m_pApplicationWidget);
-    m_pWidget->m_pAppWidget->m_pAppIconLabel = new QLabel(m_pWidget->m_pApplicationWidget);
-    m_pWidget->m_pAppWidget->m_pAppVolumeLabel = new QLabel(m_pWidget->m_pApplicationWidget);
-    m_pWidget->m_pAppWidget->m_pAppSlider = new AudioSlider(m_pWidget->m_pApplicationWidget);
+    QHBoxLayout *m_pHlayout = new QHBoxLayout();
+    m_pWidget->m_pAppWidget->m_pAppLabel = new QLabel();
+    m_pWidget->m_pAppWidget->m_pAppIconBtn = new QPushButton();
+    m_pWidget->m_pAppWidget->m_pAppIconLabel = new QLabel();
+    m_pWidget->m_pAppWidget->m_pAppVolumeLabel = new QLabel();
+    m_pWidget->m_pAppWidget->m_pAppSlider = new AudioSlider();
     m_pWidget->m_pAppWidget->m_pAppSlider->setOrientation(Qt::Horizontal);
 
     //设置每项的固定大小
