@@ -80,7 +80,9 @@ public:
     void plugin_delay_control() Q_DECL_OVERRIDE;
 
 public:
-    void initComponent();
+    void setupStylesheet();
+    void setupComponent();
+    void setupConnect();
     void initProxyModeStatus();
     void initAutoProxyStatus();
     void initManualProxyStatus();
