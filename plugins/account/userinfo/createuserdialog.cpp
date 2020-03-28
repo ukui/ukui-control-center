@@ -40,7 +40,7 @@ CreateUserDialog::CreateUserDialog(QStringList userlist, QWidget *parent) :
     setAttribute(Qt::WA_DeleteOnClose);
 
     ui->frame->setStyleSheet("QFrame{background: #ffffff; border: none; border-radius: 6px;}");
-    ui->closeBtn->setStyleSheet("QPushButton{background: #ffffff;}");
+    ui->closeBtn->setStyleSheet("QPushButton{background: #ffffff; border: none;}");
 
     ui->usernameLineEdit->setStyleSheet("QLineEdit{background: #F4F4F4; border: none; border-radius: 4px;}");
     ui->pwdLineEdit->setStyleSheet("QLineEdit{background: #F4F4F4; border: none; border-radius: 4px;}");

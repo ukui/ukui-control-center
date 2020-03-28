@@ -316,15 +316,19 @@ void UserInfo::_refreshUserInfoUI(){
     for (; it != allUserInfoMap.end(); it++){
         UserInfomation user = it.value();
 
-        //用户头像筛选
-        QString iconfile = user.iconfile;
+        //用户头像为.face且.face文件不存在
+        char * iconpath = user.iconfile.toLatin1().data();
+        if (!g_file_test(iconpath, G_FILE_TEST_EXISTS)){
+            user.iconfile = DEFAULTFACE;
+            //更新用户数据
+            allUserInfoMap.find(it.key()).value().iconfile = DEFAULTFACE;
+        }
 
         //当前用户
         if (user.username == QString(g_get_user_name())){
             //设置用户头像
-            QPixmap iconPixmap = QPixmap(iconfile);
-            iconPixmap.scaled(ui->currentUserFaceLabel->size(), Qt::KeepAspectRatio);
-            ui->currentUserFaceLabel->setScaledContents(true);
+            QPixmap iconPixmap = QPixmap(user.iconfile).scaled(ui->currentUserFaceLabel->size());
+//            ui->currentUserFaceLabel->setScaledContents(true);
             ui->currentUserFaceLabel->setPixmap(iconPixmap);
 
             //设置用户名
@@ -351,8 +355,8 @@ void UserInfo::_refreshUserInfoUI(){
 void UserInfo::_buildWidgetForItem(UserInfomation user){
     HoverWidget * baseWidget = new HoverWidget(user.username);
     baseWidget->setStyleSheet("background: #ffffff;");
-    baseWidget->setMinimumSize(550,50);
-    baseWidget->setMaximumSize(960,50);
+//    baseWidget->setMinimumSize(550,50);
+//    baseWidget->setMaximumSize(960,50);
     baseWidget->setAttribute(Qt::WA_DeleteOnClose);
 
     QHBoxLayout * baseVerLayout = new QHBoxLayout(baseWidget);
@@ -374,7 +378,7 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     QPushButton * faceBtn = new QPushButton(widget);
     faceBtn->setObjectName("faceBtn");
     faceBtn->setFixedSize(32, 32);
-//    faceBtn->setIcon(QIcon(user.iconfile));
+    faceBtn->setIcon(QIcon(user.iconfile));
     faceBtn->setIconSize(faceBtn->size());
     connect(faceBtn, &QPushButton::clicked, [=](bool checked){
         Q_UNUSED(checked)
@@ -469,7 +473,7 @@ void UserInfo::showCreateUserDialog(){
     connect(dialog, &CreateUserDialog::newUserWillCreate, this, [=](QString uName, QString pwd, QString pin, int aType){
         createUser(uName, pwd, pin, aType);
     });
-    dialog->exec();
+    dialog->show();
 }
 
 void UserInfo::createUser(QString username, QString pwd, QString pin, int atype){
@@ -510,7 +514,7 @@ void UserInfo::showDeleteUserDialog(QString username){
     connect(dialog, &DelUserDialog::removefile_send, this, [=](bool removeFile, QString userName){
         deleteUser(removeFile, userName);
     });
-    dialog->exec();
+    dialog->open();
 }
 
 void UserInfo::deleteUser(bool removefile, QString username){
@@ -557,7 +561,7 @@ void UserInfo::showChangeTypeDialog(QString username){
         connect(dialog, &ChangeTypeDialog::type_send, this, [=](int atype, QString userName){
             changeUserType(atype, userName);
         });
-        dialog->exec();
+        dialog->show();
 
     } else {
         qDebug() << "User Data Error When Change User type";
@@ -592,7 +596,7 @@ void UserInfo::showChangeFaceDialog(QString username){
     connect(dialog, &ChangeFaceDialog::face_file_send, [=](QString faceFile, QString userName){
         changeUserFace(faceFile, userName);
     });
-    dialog->exec();
+    dialog->show();
 }
 
 void UserInfo::changeUserFace(QString facefile, QString username){
@@ -636,7 +640,7 @@ void UserInfo::showChangePwdDialog(QString username){
         connect(dialog, &ChangePwdDialog::passwd_send, this, [=](QString pwd, QString userName){
             changeUserPwd(pwd, userName);
         });
-        dialog->exec();
+        dialog->show();
 
     } else {
         qDebug() << "User Info Data Error When Change User type";

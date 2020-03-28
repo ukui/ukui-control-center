@@ -244,6 +244,18 @@ MainWindow::MainWindow(QWidget *parent) :
                 ui->stackedWidget->setCurrentIndex(1);
                 modulepageWidget->switchPage(pluginsObjMap.value(funcStr));
             }
+        } else if (QApplication::arguments().at(1) == "-p"){
+            //电源
+            QList<FuncInfo> pFuncStructList = FunctionSelect::funcinfoList[SYSTEM];
+            QString funcStr = pFuncStructList.at(POWER).namei18nString;
+
+            QMap<QString, QObject *> pluginsObjMap = modulesList.at(SYSTEM);
+
+            if (pluginsObjMap.keys().contains(funcStr)){
+                //开始跳转
+                ui->stackedWidget->setCurrentIndex(1);
+                modulepageWidget->switchPage(pluginsObjMap.value(funcStr));
+            }
         }
 
     }

@@ -88,12 +88,12 @@ void Printer::initComponent(){
         pdHorLayout->setSpacing(8);
         pdHorLayout->setContentsMargins(16, 0, 0, 0);
 
-        QPushButton * pdBtn = new QPushButton(pdWidget);
         QLabel * pdIconLabel = new QLabel(pdWidget);
         QSizePolicy iconSizePolicy = pdIconLabel->sizePolicy();
         iconSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
         iconSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
         pdIconLabel->setSizePolicy(iconSizePolicy);
+        pdIconLabel->setFixedSize(QSize(24, 24));
         pdIconLabel->setScaledContents(true);
         pdIconLabel->setPixmap(QPixmap("://img/plugins/printer/printer.png"));
 
@@ -105,7 +105,7 @@ void Printer::initComponent(){
         pdLabel->setScaledContents(true);
         pdLabel->setText(printer.at(num));
 
-        pdHorLayout->addWidget(pdBtn);
+        pdHorLayout->addWidget(pdIconLabel);
         pdHorLayout->addWidget(pdLabel);
         pdHorLayout->addStretch();
 
@@ -119,7 +119,7 @@ void Printer::initComponent(){
 
 
         QListWidgetItem * item = new QListWidgetItem(ui->listWidget);
-        item->setSizeHint(QSize(502, ITEMFIXEDHEIGH));
+        item->setSizeHint(QSize(ui->listWidget->width(), ITEMFIXEDHEIGH));
         ui->listWidget->setItemWidget(item, baseWidget);
     }
 
