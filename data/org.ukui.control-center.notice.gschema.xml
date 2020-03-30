@@ -21,7 +21,7 @@
       <description>Binding to eject an optical disc.</description>
     </key>
   </schema>
-  <schema id="org.ukui.control-center.noticeorigin">
+  <schema id="org.ukui.control-center.noticeorigin" path="/org/ukui/control-center/noticeorigin/">
     <key name="messages" type="b">
       <default>true</default>
       <summary>messages notice</summary>
@@ -30,6 +30,36 @@
     <key name="voice" type="b">
       <default>true</default>
       <summary>voice notice</summary>
+      <description>.</description>
+    </key>
+    <key name="kylin-video" type="b">
+      <default>true</default>
+      <summary>kylin-video notice</summary>
+      <description>.</description>
+    </key>
+    <key name="kylin-videonumber" type="s">
+      <default>"1"</default>
+      <summary>kylin-video notice</summary>
+      <description>.</description>
+    </key>
+    <key name="kylin-assistant" type="b">
+      <default>true</default>
+      <summary>kylin-assistant notice</summary>
+      <description>.</description>
+    </key>
+    <key name="kylin-assistantnumber" type="s">
+      <default>"1"</default>
+      <summary>kylin-assistant notice</summary>
+      <description>.</description>
+    </key>
+    <key name="ubuntu-kylin-software-center" type="b">
+      <default>true</default>
+      <summary>ubuntu-kylin-software-center notice</summary>
+      <description>.</description>
+    </key>
+    <key name="ubuntu-kylin-software-centernumber" type="s">
+      <default>'1'</default>
+      <summary>ubuntu-kylin-software-center notice</summary>
       <description>.</description>
     </key>
     <key name="maximize" type='i'>
