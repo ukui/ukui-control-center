@@ -117,6 +117,7 @@ Theme::Theme()
         initIconTheme();
         initCursorTheme();
         initEffectSettings();
+        initConnection();
     } else {
         qCritical() << THEME_GTK_SCHEMA << "or" << THEME_QT_SCHEMA << "or" << CURSOR_THEME_SCHEMA << "not installed\n";
     }
@@ -246,6 +247,7 @@ void Theme::initThemeMode(){
     }
 
     connect(ui->themeModeBtnGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), this, [=](QAbstractButton * button){
+
         //设置主题
         QString themeMode = button->property("value").toString();
         QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
@@ -420,6 +422,10 @@ void Theme::initEffectSettings(){
 //    ui->effectWidget->hide();
 }
 
+void Theme::initConnection() {
+    connect(ui->resetBtn, &QPushButton::clicked, this, &Theme::resetBtnClickSlot);
+}
+
 QStringList Theme::_getSystemCursorThemes(){
     QStringList themes;
     QDir themesDir(CURSORS_THEMES_PATH);
@@ -446,4 +452,44 @@ QString Theme::dullTranslation(QString str){
         return QObject::tr("default");
     } else
         return QObject::tr("Unknown");
+}
+
+// reset all of themes, include cursor, icon,and etc...
+void Theme::resetBtnClickSlot() {
+
+    // reset theme(because MODE_QT_KEY's default is null, use "SET" to reset default key )
+    QString theme = "ukui-white";
+    qtSettings->set(MODE_QT_KEY, theme);
+    gtkSettings->set(MODE_GTK_KEY, theme);
+
+    // reset cursor default theme    
+    QString cursorTheme = "breeze_cursors";
+    curSettings->set(CURSOR_THEME_KEY,cursorTheme);
+
+
+    //reset icon default theme
+    qtSettings->reset(ICON_QT_KEY);
+    gtkSettings->reset(ICON_GTK_KEY);
+
+
+
+    clearLayout(ui->iconThemeVerLayout->layout(), true);
+    clearLayout(ui->cursorVerLayout->layout(), true);
+
+    initThemeMode();
+    initIconTheme();
+    initCursorTheme();
+}
+
+void Theme::clearLayout(QLayout* mlayout, bool deleteWidgets)
+{
+    if ( mlayout->layout() != NULL )
+    {
+        QLayoutItem* item;
+        while ( ( item = mlayout->layout()->takeAt( 0 ) ) != NULL )
+        {
+            delete item->widget();
+            delete item;
+        }
+    }
 }
