@@ -1,3 +1,13 @@
+ukui-control-center (2.0.2-1) unstable; urgency=medium
+
+  * New upstream bugfix release:
+    - Avoid crash when adjust the fonts and proxy.
+    - Fix that failed to create new user.
+    - Fix the memory leak in wallpaper module.
+    - Fix the segfault when delete gsettings.
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Mon, 30 Mar 2020 20:40:57 +0800
+
 ukui-control-center (2.0.1.1-1) unstable; urgency=medium
 
   [ He Bing ]
