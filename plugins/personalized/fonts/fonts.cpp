@@ -102,6 +102,7 @@ Fonts::Fonts()
     pluginName = tr("fonts");
     pluginType = PERSONALIZED;
 
+    settingsCreate = false;
 
     setupStylesheet();
 
@@ -114,6 +115,7 @@ Fonts::Fonts()
     const QByteArray iid(FONT_RENDER_SCHEMA);
 
     if (QGSettings::isSchemaInstalled(id) && QGSettings::isSchemaInstalled(iid) && QGSettings::isSchemaInstalled(idd)){
+        settingsCreate = true;
         marcosettings = new QGSettings(idd);
         ifsettings = new QGSettings(id);
         rendersettings = new QGSettings(iid);
@@ -129,10 +131,13 @@ Fonts::Fonts()
 Fonts::~Fonts()
 {
     delete ui;
-    delete ifsettings;
-    delete marcosettings;
-//    delete peonysettings;
-    delete rendersettings;
+    if (settingsCreate){
+        delete ifsettings;
+        delete marcosettings;
+    //    delete peonysettings;
+        delete rendersettings;
+    }
+
 }
 
 QString Fonts::get_plugin_name(){

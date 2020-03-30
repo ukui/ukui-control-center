@@ -51,6 +51,70 @@ Proxy::Proxy()
     pluginName = tr("proxy");
     pluginType = NETWORK;
 
+    settingsCreate = false;
+
+    const QByteArray id(PROXY_SCHEMA);
+    const QByteArray idd(HTTP_PROXY_SCHEMA);
+    const QByteArray iddd(HTTPS_PROXY_SCHEMA);
+    const QByteArray iid(FTP_PROXY_SCHEMA);
+    const QByteArray iiid(SOCKS_PROXY_SCHEMA);
+
+    setupStylesheet();
+    setupComponent();
+
+    if (QGSettings::isSchemaInstalled(id) && QGSettings::isSchemaInstalled(idd) &&
+            QGSettings::isSchemaInstalled(iddd) && QGSettings::isSchemaInstalled(iid) &&
+            QGSettings::isSchemaInstalled(iiid)){
+
+        settingsCreate = true;
+        proxysettings = new QGSettings(id);
+        httpsettings = new QGSettings(idd);
+        securesettings = new QGSettings(iddd);
+        ftpsettings = new QGSettings(iid);
+        sockssettings = new QGSettings(iiid);
+
+        setupConnect();
+        initProxyModeStatus();
+        initAutoProxyStatus();
+        initManualProxyStatus();
+        initIgnoreHostStatus();
+    } else {
+        qCritical() << "Xml needed by Proxy is not installed";
+    }
+
+}
+
+Proxy::~Proxy()
+{
+    delete ui;
+
+    if (settingsCreate){
+        delete proxysettings;
+        delete httpsettings;
+        delete securesettings;
+        delete ftpsettings;
+        delete sockssettings;
+    }
+}
+
+QString Proxy::get_plugin_name(){
+    return pluginName;
+}
+
+int Proxy::get_plugin_type(){
+    return pluginType;
+}
+
+QWidget *Proxy::get_plugin_ui(){
+    return pluginWidget;
+}
+
+void Proxy::plugin_delay_control(){
+
+}
+
+void Proxy::setupStylesheet(){
+
     pluginWidget->setStyleSheet("background: #ffffff;");
 
     ui->autoWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
@@ -78,52 +142,9 @@ Proxy::Proxy()
     ui->ignoreHostsWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px}");
     ui->ignoreHostTextEdit->setStyleSheet("QTextEdit{background: #ffffff; border: none; border-radius: 4px; font-size: 14px; color: #000000;}");
 
-    const QByteArray id(PROXY_SCHEMA);
-    proxysettings = new QGSettings(id);
-    const QByteArray idd(HTTP_PROXY_SCHEMA);
-    httpsettings = new QGSettings(idd);
-    const QByteArray iddd(HTTPS_PROXY_SCHEMA);
-    securesettings = new QGSettings(iddd);
-    const QByteArray iid(FTP_PROXY_SCHEMA);
-    ftpsettings = new QGSettings(iid);
-    const QByteArray iiid(SOCKS_PROXY_SCHEMA);
-    sockssettings = new QGSettings(iiid);
-
-    initComponent();
-
-    initProxyModeStatus();
-    initAutoProxyStatus();
-    initManualProxyStatus();
-    initIgnoreHostStatus();
 }
 
-Proxy::~Proxy()
-{
-    delete ui;
-    delete proxysettings;
-    delete httpsettings;
-    delete securesettings;
-    delete ftpsettings;
-    delete sockssettings;
-}
-
-QString Proxy::get_plugin_name(){
-    return pluginName;
-}
-
-int Proxy::get_plugin_type(){
-    return pluginType;
-}
-
-QWidget *Proxy::get_plugin_ui(){
-    return pluginWidget;
-}
-
-void Proxy::plugin_delay_control(){
-
-}
-
-void Proxy::initComponent(){
+void Proxy::setupComponent(){
     //添加自动配置代理开关按钮
     autoSwitchBtn = new SwitchButton(ui->autoWidget);
     autoSwitchBtn->setObjectName("auto");
@@ -175,7 +196,9 @@ void Proxy::initComponent(){
     socksPortValue->key = PROXY_PORT_KEY;
     ui->socksPortLineEdit->setUserData(Qt::UserRole, socksPortValue);
 
+}
 
+void Proxy::setupConnect(){
     connect(autoSwitchBtn, SIGNAL(checkedChanged(bool)), this, SLOT(proxyModeChangedSlot(bool)));
     connect(manualSwitchBtn, SIGNAL(checkedChanged(bool)), this, SLOT(proxyModeChangedSlot(bool)));
     connect(ui->urlLineEdit, &QLineEdit::textChanged, this, [=](const QString &txt){proxysettings->set(PROXY_AUTOCONFIG_URL_KEY, QVariant(txt));});

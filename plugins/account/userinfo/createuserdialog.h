@@ -54,6 +54,10 @@ private:
     bool back;
     QStringList usersStringList;
 
+    QString nameTip;
+    QString pwdTip;
+    QString pwdSureTip;
+
 private:
     QStyledItemDelegate* itemDelege;
     bool isCreateUser = false;

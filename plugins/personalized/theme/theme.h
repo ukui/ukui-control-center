@@ -85,6 +85,9 @@ private:
 
     WidgetGroup * iconThemeWidgetGroup;
 
+    bool settingsCreate;
+
 };
 
 #endif // THEME_H
+

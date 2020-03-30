@@ -79,6 +79,9 @@ private:
 
     QStyledItemDelegate *itemDelege;
 
+private:
+    bool settingsCreate;
+
 };
 
 #endif // POWER_H
