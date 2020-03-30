@@ -60,6 +60,7 @@ private:
 
 private:
     QStyledItemDelegate* itemDelege;
+    bool isCreateUser = false;
 
 Q_SIGNALS:
     void newUserWillCreate(QString username, QString pwd, QString pin, int atype);
