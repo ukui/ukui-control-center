@@ -5,6 +5,8 @@ ukui-control-center (2.0.2-1) unstable; urgency=medium
     - Fix that failed to create new user.
     - Fix the memory leak in wallpaper module.
     - Fix the segfault when delete gsettings.
+  * debian/control:
+    - Add build dependencies: edid-decode redshift.
 
  -- handsome_feng <jianfengli@ubuntukylin.com>  Mon, 30 Mar 2020 20:40:57 +0800
 
