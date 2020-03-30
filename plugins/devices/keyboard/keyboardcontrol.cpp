@@ -42,6 +42,8 @@ KeyboardControl::KeyboardControl()
     pluginName = tr("keyboard");
     pluginType = DEVICES;
 
+    settingsCreate = false;
+
     setupStylesheet();
     setupComponent();
 
@@ -52,6 +54,8 @@ KeyboardControl::KeyboardControl()
     const QByteArray idd(KBD_LAYOUTS_SCHEMA);
 
     if (QGSettings::isSchemaInstalled(id) && QGSettings::isSchemaInstalled(idd)){
+        settingsCreate = true;
+
         kbdsettings = new QGSettings(idd);
         settings = new QGSettings(id);
 
@@ -69,8 +73,11 @@ KeyboardControl::KeyboardControl()
 KeyboardControl::~KeyboardControl()
 {
     delete ui;
-    delete kbdsettings;
-    delete settings;
+    if (settingsCreate){
+        delete kbdsettings;
+        delete settings;
+    }
+
 }
 
 QString KeyboardControl::get_plugin_name(){

@@ -112,6 +112,8 @@ private:
     QGSettings * ftpsettings;
     QGSettings * sockssettings;
 
+    bool settingsCreate;
+
 
 public slots:
     void proxyModeChangedSlot(bool checked);

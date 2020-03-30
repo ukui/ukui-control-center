@@ -76,6 +76,9 @@ private:
 
 
     QStyledItemDelegate* itemDelege;
+
+private:
+    bool settingsCreate;
 };
 
 #endif // KEYBOARDCONTROL_H

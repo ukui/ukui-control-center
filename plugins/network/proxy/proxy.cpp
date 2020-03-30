@@ -51,6 +51,8 @@ Proxy::Proxy()
     pluginName = tr("proxy");
     pluginType = NETWORK;
 
+    settingsCreate = false;
+
     const QByteArray id(PROXY_SCHEMA);
     const QByteArray idd(HTTP_PROXY_SCHEMA);
     const QByteArray iddd(HTTPS_PROXY_SCHEMA);
@@ -63,6 +65,8 @@ Proxy::Proxy()
     if (QGSettings::isSchemaInstalled(id) && QGSettings::isSchemaInstalled(idd) &&
             QGSettings::isSchemaInstalled(iddd) && QGSettings::isSchemaInstalled(iid) &&
             QGSettings::isSchemaInstalled(iiid)){
+
+        settingsCreate = true;
         proxysettings = new QGSettings(id);
         httpsettings = new QGSettings(idd);
         securesettings = new QGSettings(iddd);
@@ -78,20 +82,19 @@ Proxy::Proxy()
         qCritical() << "Xml needed by Proxy is not installed";
     }
 
-
-
-
-
 }
 
 Proxy::~Proxy()
 {
     delete ui;
-    delete proxysettings;
-    delete httpsettings;
-    delete securesettings;
-    delete ftpsettings;
-    delete sockssettings;
+
+    if (settingsCreate){
+        delete proxysettings;
+        delete httpsettings;
+        delete securesettings;
+        delete ftpsettings;
+        delete sockssettings;
+    }
 }
 
 QString Proxy::get_plugin_name(){

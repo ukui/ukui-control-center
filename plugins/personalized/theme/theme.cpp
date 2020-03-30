@@ -97,6 +97,8 @@ Theme::Theme()
     pluginName = tr("theme");
     pluginType = PERSONALIZED;
 
+    settingsCreate = false;
+
     const QByteArray id(THEME_GTK_SCHEMA);
     const QByteArray idd(THEME_QT_SCHEMA);
     const QByteArray iid(CURSOR_THEME_SCHEMA);
@@ -106,12 +108,12 @@ Theme::Theme()
     //设置组件
     setupComponent();
 
-    if (QGSettings::isSchemaInstalled(id) &&
-            QGSettings::isSchemaInstalled(id) &&
-            QGSettings::isSchemaInstalled(iid)){
+    if (QGSettings::isSchemaInstalled(id) && QGSettings::isSchemaInstalled(idd) && QGSettings::isSchemaInstalled(iid)){
         gtkSettings = new QGSettings(id);
         qtSettings = new QGSettings(idd);
         curSettings = new QGSettings(iid);
+
+        settingsCreate = true;
 
         initThemeMode();
         initIconTheme();
@@ -126,9 +128,11 @@ Theme::Theme()
 Theme::~Theme()
 {
     delete ui;
-    delete gtkSettings;
-    delete qtSettings;
-    delete curSettings;
+    if (settingsCreate){
+        delete gtkSettings;
+        delete qtSettings;
+        delete curSettings;
+    }
 
 }
 
