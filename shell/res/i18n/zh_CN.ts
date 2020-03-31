@@ -281,6 +281,19 @@
     </message>
 </context>
 <context>
+    <name>Audio</name>
+    <message>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="26"/>
+        <source>Audio</source>
+        <translation type="unfinished">声音</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/audio.cpp" line="33"/>
+        <source>声音</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AutoBoot</name>
     <message>
         <location filename="../../../plugins/system/autoboot/autoboot.ui" line="53"/>
@@ -2246,6 +2259,108 @@ folder will be deleted!</source>
     </message>
 </context>
 <context>
+    <name>UkmediaApplicationWidget</name>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_application_widget.cpp" line="6"/>
+        <source>Application Volume</source>
+        <translation type="unfinished">应用音量</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_application_widget.cpp" line="7"/>
+        <source>No application is currently playing or recording audio</source>
+        <translation type="unfinished">当前没有应用程序正在播放或录制音频</translation>
+    </message>
+</context>
+<context>
+    <name>UkmediaInputWidget</name>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="37"/>
+        <source>Input</source>
+        <translation type="unfinished">输入</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="38"/>
+        <source>Select input device</source>
+        <translation type="unfinished">选择输入设备</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="41"/>
+        <source>volume</source>
+        <translation type="unfinished">音量大小</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="45"/>
+        <source>Input level</source>
+        <translation type="unfinished">输入等级</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="46"/>
+        <source>low</source>
+        <translation type="unfinished">低</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="48"/>
+        <source>high</source>
+        <translation type="unfinished">高</translation>
+    </message>
+</context>
+<context>
+    <name>UkmediaOutputWidget</name>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="45"/>
+        <source>Output</source>
+        <translation type="unfinished">输出</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="46"/>
+        <source>Select output device</source>
+        <translation type="unfinished">选择输出设备</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="48"/>
+        <source>Master volume</source>
+        <translation type="unfinished">主音量大小</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="52"/>
+        <source>Channel balance</source>
+        <translation type="unfinished">声道平衡</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="53"/>
+        <source>Left</source>
+        <translation type="unfinished">左</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="55"/>
+        <source>right</source>
+        <translation type="unfinished">右</translation>
+    </message>
+</context>
+<context>
+    <name>UkmediaSoundEffectsWidget</name>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="14"/>
+        <source>System sound</source>
+        <translation type="unfinished">系统音效</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="15"/>
+        <source>System sound theme</source>
+        <translation type="unfinished">系统音效主题</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="17"/>
+        <source>Shutdown</source>
+        <translation type="unfinished">关机</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="19"/>
+        <source>Lagout</source>
+        <translation type="unfinished">注销</translation>
+    </message>
+</context>
+<context>
     <name>UnifiedOutputConfig</name>
     <message>
         <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="91"/>
@@ -2379,37 +2494,37 @@ folder will be deleted!</source>
 <context>
     <name>Wallpaper</name>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="53"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="91"/>
         <source>Desktop Background</source>
         <translation>桌面背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="197"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="274"/>
         <source>Select form</source>
         <translation>选择背景形式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="260"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="337"/>
         <source>Picture options</source>
         <translation>图片放置方式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="392"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="490"/>
         <source>Browser local wp</source>
         <translation>浏览本地壁纸</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="373"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="471"/>
         <source>Browser online wp</source>
         <translation>浏览线上壁纸</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="424"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="522"/>
         <source>Restore default wp</source>
         <translation>恢复默认壁纸</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="582"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="648"/>
         <source>Ok</source>
         <translation>确定</translation>
     </message>
@@ -2418,91 +2533,78 @@ folder will be deleted!</source>
         <translation type="obsolete">添加</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="45"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="51"/>
         <source>background</source>
         <translation>背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="107"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="297"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="118"/>
         <source>picture</source>
         <translation>图片</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="107"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="297"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="118"/>
         <source>color</source>
         <translation>颜色</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="157"/>
-        <source>%1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="171"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="343"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="143"/>
         <source>wallpaper</source>
         <translation>平铺</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="172"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="344"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="144"/>
         <source>centered</source>
         <translation>居中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="173"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="345"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="145"/>
         <source>scaled</source>
         <translation>比例放大</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="174"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="346"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="146"/>
         <source>stretched</source>
         <translation>伸展</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="175"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="347"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="147"/>
         <source>zoom</source>
         <translation>缩放</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="176"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="348"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="148"/>
         <source>spanned</source>
         <translation>适合宽度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="561"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="416"/>
         <source>selsect custom wallpaper file</source>
         <translation>选择自定义壁纸文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="562"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="417"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="563"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="418"/>
         <source>Position: </source>
         <translation>位置： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="564"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="419"/>
         <source>FileName: </source>
         <translation>文件名： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="565"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="420"/>
         <source>FileType: </source>
         <translation>文件类型： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="563"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="566"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="629"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="421"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -2519,23 +2621,23 @@ folder will be deleted!</source>
         <translation>夜间模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="834"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="840"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="835"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="841"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="846"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="853"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="847"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="854"/>
         <source>@title:window</source>
         <comment>Unsupported Configuration</comment>
         <translation>窗口</translation>

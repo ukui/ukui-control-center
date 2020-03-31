@@ -11,6 +11,7 @@ SUBDIRS = \
           devices/mouse \
           devices/keyboard \
           devices/touchpad \
+          devices/audio \
           personalized/wallpaper \
           personalized/theme \
           personalized/screenlock \
