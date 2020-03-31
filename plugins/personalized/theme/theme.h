@@ -89,11 +89,10 @@ private:
 
     WidgetGroup * iconThemeWidgetGroup;    
 
+    bool settingsCreate;
 
 private slots:
     void resetBtnClickSlot();
-
-    bool settingsCreate;
 
 };
 
