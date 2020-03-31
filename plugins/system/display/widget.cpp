@@ -984,6 +984,12 @@ void Widget::checkOutputScreen(bool judge){
 //       return ;
 //   qDebug()<<"newPrimary---------->"<<newPrimary<<endl;
 
+
+   KScreen::OutputPtr  mainScreen=  mConfig->primaryOutput();
+   qDebug()<<"mainScreen is------------>"<<mainScreen<<endl;
+   if (!mainScreen) {
+       mConfig->setPrimaryOutput(newPrimary);
+   }
    newPrimary->setEnabled(judge);
    ui->primaryCombo->setCurrentIndex(index);
    Q_EMIT changed();
