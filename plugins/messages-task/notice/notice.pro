@@ -1,6 +1,6 @@
 QT       += widgets
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+#greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TEMPLATE = lib
 CONFIG += plugin
@@ -8,7 +8,16 @@ CONFIG += plugin
 TARGET = $$qtLibraryTarget(notice)
 DESTDIR = ../../../pluginlibs
 
+##加载gio库和gio-unix库，用于处理desktop文件
+CONFIG        += link_pkgconfig \
+                 C++11
+PKGCONFIG     += gio-2.0 \
+                 gio-unix-2.0 \
+#                 Qt5Xdg
+
+
 include(../../../env.pri)
+include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
 include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
 
 INCLUDEPATH   +=  \
@@ -33,10 +42,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    appdetail.cpp \
     notice.cpp
 
 HEADERS += \
+    appdetail.h \
     notice.h
 
 FORMS += \
+    appdetail.ui \
     notice.ui

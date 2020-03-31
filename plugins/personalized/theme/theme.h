@@ -22,6 +22,7 @@
 
 #include <QObject>
 #include <QtPlugin>
+#include <QLayout>
 
 #include <QMap>
 #include <QDir>
@@ -62,6 +63,7 @@ public:
     void setupControlTheme();
     void initCursorTheme();
     void initEffectSettings();
+    void initConnection();
 
     void buildThemeModeBtn(QPushButton * button, QString name, QString icon);
 
@@ -70,20 +72,26 @@ public:
     QStringList _getSystemCursorThemes();
 
 private:
+    void clearLayout(QLayout* mlayout, bool deleteWidgets);
+
+private:
     Ui::Theme *ui;
 
     QString pluginName;
     int pluginType;
     QWidget * pluginWidget;
 
-private:
     QGSettings * gtkSettings;
     QGSettings * qtSettings;
     QGSettings * curSettings;
 
     SwitchButton * effectSwitchBtn;
 
-    WidgetGroup * iconThemeWidgetGroup;
+    WidgetGroup * iconThemeWidgetGroup;    
+
+
+private slots:
+    void resetBtnClickSlot();
 
     bool settingsCreate;
 

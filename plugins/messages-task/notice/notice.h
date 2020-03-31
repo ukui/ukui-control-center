@@ -22,11 +22,27 @@
 
 #include <QObject>
 #include <QtPlugin>
+#include <QPushButton>
+#include <QDebug>
+#include <QVector>
 
 #include <QGSettings/QGSettings>
 
 #include <shell/interface.h>
 #include "SwitchButton/switchbutton.h"
+
+/* qt会将glib里的signals成员识别为宏，所以取消该宏
+ * 后面如果用到signals时，使用Q_SIGNALS代替即可
+ **/
+#ifdef signals
+#undef signals
+#endif
+
+extern "C" {
+#include <glib.h>
+#include <gio/gio.h>
+#include <gio/gdesktopappinfo.h>
+}
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Notice; }
@@ -50,7 +66,13 @@ public:
 
 public:
     void setupComponent();
+    void setupGSettings();
+    void initAppSwitchbtn(SwitchButton *appBtn, QString appName);
     void initNoticeStatus();
+    void initOriNoticeStatus();
+
+private:
+    void changeAppstatus(bool checked, QString name,SwitchButton *appBtn);
 
 private:
     Ui::Notice *ui;
@@ -60,12 +82,16 @@ private:
     int pluginType;
     QWidget * pluginWidget;
 
-private:
     SwitchButton * newfeatureSwitchBtn;
     SwitchButton * enableSwitchBtn;
-    SwitchButton * lockscreenSwitchBtn;
+    SwitchButton * lockscreenSwitchBtn;       
+
+    QMap<QString, bool> appMap;
 
     QGSettings * nSetting;
+    QGSettings * oriSettings;
+    QStringList appsName;
+    QStringList appsKey;
 
 
 };

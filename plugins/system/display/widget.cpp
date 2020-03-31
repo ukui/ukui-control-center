@@ -780,10 +780,10 @@ void Widget::save()
     bool atLeastOneEnabledOutput = false;
     int i = 0;
     int connectedScreen = 0;
-    Q_FOREACH(const KScreen::OutputPtr &output, config->outputs()) {        
+    Q_FOREACH(const KScreen::OutputPtr &output, config->outputs()) {
         KScreen::ModePtr mode = output->currentMode();
         if (output->isEnabled()) {
-//            qDebug()<<"atLeastOneEnabledOutput------------>"<<endl;
+            qDebug()<<"atLeastOneEnabledOutput------------>"<<endl;
             atLeastOneEnabledOutput = true;
             connectedScreen++;
         }
@@ -836,7 +836,8 @@ void Widget::save()
         getEdidInfo(output->name(),&inputXml[i]);
         i++;
     }
-    if (!atLeastOneEnabledOutput || (1 == connectedScreen && !closeScreenButton->isChecked())) {
+    if (!atLeastOneEnabledOutput ) {
+        qDebug()<<"atLeastOneEnabledOutput---->"<<connectedScreen<<endl;
         KMessageBox::error(this,tr("please insure at least one output!"),
                            tr("Warning"),KMessageBox::Notify);
         closeScreenButton->setChecked(true);
@@ -938,8 +939,8 @@ void Widget::checkOutputScreen(bool judge){
 //   qDebug()<<"is enable screen---->"<<judge<<endl;
    int index  = ui->primaryCombo->currentIndex();
    const KScreen::OutputPtr newPrimary = mConfig->output(ui->primaryCombo->itemData(index).toInt());
-   if(ui->primaryCombo->count()<=1&&judge ==false)
-       return ;
+//   if(ui->primaryCombo->count()<=1&&judge ==false)
+//       return ;
 //   qDebug()<<"newPrimary---------->"<<newPrimary<<endl;
 
    newPrimary->setEnabled(judge);
