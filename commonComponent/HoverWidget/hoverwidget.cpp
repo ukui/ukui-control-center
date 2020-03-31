@@ -56,3 +56,7 @@ void HoverWidget::paintEvent(QPaintEvent *event){
     QPainter p(this);
     style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
+
+void HoverWidget::mousePressEvent(QMouseEvent *event) {
+    emit widgetClicked(_name);
+}

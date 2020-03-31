@@ -26,7 +26,7 @@
 #include <QHBoxLayout>
 #include <QPluginLoader>
 #include <QPainter>
-
+#include <libmatemixer/matemixer.h>
 #include "utils/keyvalueconverter.h"
 #include "utils/functionselect.h"
 
@@ -51,7 +51,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+    //初始化mixer
+    mate_mixer_init();
     //设置初始大小
     resize(QSize(820, 600));
     //设置窗体无边框
@@ -306,8 +307,8 @@ void MainWindow::loadPlugins(){
     foreach (QString fileName, pluginsDir.entryList(QDir::Files)){
         if (fileName == "libdesktop.so")
             continue;
-        if (fileName == "libnotice.so")
-            continue;
+//        if (fileName == "libnotice.so")
+//            continue;
         if (fileName == "libexperienceplan.so")
             continue;
 

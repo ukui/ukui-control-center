@@ -38,8 +38,10 @@ protected:
     virtual void enterEvent(QEvent * event);
     virtual void leaveEvent(QEvent * event);
     virtual void paintEvent(QPaintEvent * event);
+    virtual void mousePressEvent(QMouseEvent * event);
 
 Q_SIGNALS:
+    void widgetClicked(QString name);
     void enterWidget(QString name);
     void leaveWidget(QString name);
 };
