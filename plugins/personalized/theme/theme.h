@@ -87,13 +87,13 @@ private:
 
     SwitchButton * effectSwitchBtn;
 
-    WidgetGroup * iconThemeWidgetGroup;    
+    WidgetGroup * iconThemeWidgetGroup;
+
+    bool settingsCreate;
 
 
 private slots:
     void resetBtnClickSlot();
-
-    bool settingsCreate;
 
 };
 
