@@ -986,7 +986,7 @@ void Widget::checkOutputScreen(bool judge){
 
 
    KScreen::OutputPtr  mainScreen=  mConfig->primaryOutput();
-   qDebug()<<"mainScreen is------------>"<<mainScreen<<endl;
+//   qDebug()<<"mainScreen is------------>"<<mainScreen<<endl;
    if (!mainScreen) {
        mConfig->setPrimaryOutput(newPrimary);
    }

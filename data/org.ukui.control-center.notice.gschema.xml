@@ -21,7 +21,7 @@
       <description>Binding to eject an optical disc.</description>
     </key>
   </schema>
-  <schema id="org.ukui.control-center.noticeorigin" path="/org/ukui/control-center/noticeorigin/">
+  <schema id="org.ukui.control-center.noticeorigin">
     <key name="messages" type="b">
       <default>true</default>
       <summary>messages notice</summary>
