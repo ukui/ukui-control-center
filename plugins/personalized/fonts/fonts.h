@@ -104,6 +104,9 @@ private:
 
     QFontDatabase fontdb;
 
+private:
+    bool settingsCreate;
+
 };
 
 #endif // FONTS_H

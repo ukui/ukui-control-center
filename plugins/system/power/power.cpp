@@ -58,12 +58,15 @@ Power::Power()
     pluginName = tr("power");
     pluginType = SYSTEM;
 
+    settingsCreate = false;
+
     const QByteArray id(POWERMANAGER_SCHEMA);
 
     setupStylesheet();
     setupComponent();
 
     if (QGSettings::isSchemaInstalled(id)){
+        settingsCreate = true;
         settings = new QGSettings(id);
         setupConnect();
         initModeStatus();
@@ -78,7 +81,8 @@ Power::Power()
 Power::~Power()
 {
     delete ui;
-    delete settings;
+    if (settingsCreate)
+        delete settings;
 }
 
 QString Power::get_plugin_name(){

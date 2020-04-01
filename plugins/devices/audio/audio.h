@@ -23,11 +23,10 @@
 #include <QWidget>
 #include <QObject>
 #include <QtPlugin>
-#include "mainui/interface.h"
-
 #include <QProcess>
 
-#include "../../pluginsComponent/customwidget.h"
+#include "shell/interface.h"
+#include "ukmedia_main_widget.h"
 
 namespace Ui {
 class Audio;
@@ -45,21 +44,15 @@ public:
 
     QString get_plugin_name() Q_DECL_OVERRIDE;
     int get_plugin_type() Q_DECL_OVERRIDE;
-    CustomWidget * get_plugin_ui() Q_DECL_OVERRIDE;
+    QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
     void plugin_delay_control() Q_DECL_OVERRIDE;
 
 private:
     Ui::Audio *ui;
     QString pluginName;
-    int pluginType;
-    CustomWidget * pluginWidget;
+    int pluginType;    
 
-private slots:
-    void change_soundtheme_page();
-    void change_preference_page();
-
-    void sound_settings_btn_clicked_slot();
-
+    UkmediaMainWidget *pluginWidget;
 };
 
 #endif // AUDIO_H

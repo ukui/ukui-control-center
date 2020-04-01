@@ -51,6 +51,8 @@ Wallpaper::Wallpaper()
     pluginName = tr("background");
     pluginType = PERSONALIZED;
 
+    settingsCreate = false;
+
     //设置样式
     setupQStylesheet();
     //初始化控件
@@ -58,6 +60,8 @@ Wallpaper::Wallpaper()
     //初始化gsettings
     const QByteArray id(BACKGROUND);
     if (QGSettings::isSchemaInstalled(id)){
+        settingsCreate = true;
+
         bgsettings = new QGSettings(id);
         setupConnect();
         initBgFormStatus();
@@ -70,7 +74,10 @@ Wallpaper::Wallpaper()
 Wallpaper::~Wallpaper()
 {
     delete ui;
-    delete bgsettings;
+    if (settingsCreate){
+        delete bgsettings;
+    }
+
     delete xmlhandleObj;
 
 }

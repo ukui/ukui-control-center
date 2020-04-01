@@ -87,7 +87,9 @@ private:
 
     SwitchButton * effectSwitchBtn;
 
-    WidgetGroup * iconThemeWidgetGroup;    
+    WidgetGroup * iconThemeWidgetGroup;
+
+    bool settingsCreate;
 
 
 private slots:
@@ -96,3 +98,4 @@ private slots:
 };
 
 #endif // THEME_H
+

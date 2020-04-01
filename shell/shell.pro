@@ -31,7 +31,8 @@ LIBS += -L/usr/lib/ -lX11
 CONFIG        += link_pkgconfig \
                  C++11
 PKGCONFIG     += gio-2.0 \
-                 gio-unix-2.0
+                 gio-unix-2.0 \
+                 libmatemixer
 
 inst1.files += ukui-control-center.desktop
 inst1.path = /usr/share/applications

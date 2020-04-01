@@ -126,6 +126,9 @@ private:
     QMap<QString, QListWidgetItem*> picWpItemMap;
     QStyledItemDelegate *itemDelege;
 
+private:
+    bool settingsCreate;
+
 public slots:
     void resetDefaultWallpaperSlot();
     void wpOptionsChangedSlot(QString op);
