@@ -69,6 +69,7 @@ MainWindow::MainWindow(QWidget *parent) :
 //    else
 //        panelicon = QIcon("://applications-system.svg");
     this->setWindowIcon(panelicon);
+    this->setWindowTitle(tr("ukcc"));
 
     //中部内容区域
     ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background: #ffffff; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
