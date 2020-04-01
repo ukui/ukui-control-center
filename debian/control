@@ -21,10 +21,9 @@ Build-Depends: debhelper-compat (= 12),
                libdconf-dev,
                edid-decode,
                redshift,
-	       libmatemixer-dev,
-	       libqt5xdg-dev,
-	       qtmultimedia5-dev,
-	       libxml2-dev
+	       	   libmatemixer-dev,
+	           libqt5xdg-dev,
+	           qtmultimedia5-dev,
 Standards-Version: 4.5.0
 Rules-Requires-Root: no
 Homepage: https://github.com/ukui/ukui-control-center
@@ -42,6 +41,7 @@ Suggests: gsettings-desktop-schemas,
           ukui-screensaver,
           ukui-settings-daemon,
           qml-module-qtgraphicaleffects,
+		  qtdeclarative5-kf5declarative,
 Description: utilities to configure the UKUI desktop
  The UKUI control center contains configuration applets for the UKUI desktop,
  allowing to set accessibility configuration, desktop fonts, keyboard

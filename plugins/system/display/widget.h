@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QVariantMap>
 #include <QGSettings/QGSettings>
+#include <QSettings>
 
 #include <KF5/KScreen/kscreen/config.h>
 
@@ -190,6 +191,7 @@ class Widget : public QWidget
     Slider *slider;
     QGSettings *m_gsettings = nullptr;
     QGSettings *scaleGSettings = nullptr;
+    QSettings *m_qsettings = nullptr;
 
     int screenScale = 1;
 

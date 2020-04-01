@@ -190,6 +190,15 @@ Widget::Widget(QWidget *parent)
     //亮度调节UI
 //    initBrightnessUI();
 
+
+    QString filename = QDir::homePath() + "/.config/clone.ini";
+    m_qsettings = new QSettings(filename, QSettings::IniFormat);
+
+    m_qsettings->beginGroup("Clone");;
+    bool judge = m_qsettings->value("switch", judge).toBool();
+    m_unifybutton->setChecked(judge);
+    m_qsettings->endGroup();
+
 }
 
 Widget::~Widget()
@@ -408,8 +417,34 @@ void Widget::slotUnifyOutputs()
         }
     }
 
-    if (base->isCloneMode()) {
+    if (base->isCloneMode() && !m_unifybutton->isChecked()) {
         qDebug()<<"取消clone------------>"<<endl;
+
+        QPoint secPoint;
+        KScreen::OutputList screens =  mPrevConfig->connectedOutputs();
+
+        QMap<int, KScreen::OutputPtr>::iterator it = screens.begin();
+        while (it != screens.end()) {
+
+            KScreen::OutputPtr screen= it.value();
+//            qDebug()<<"screens is-------->"<<screen<<endl;
+            if (screen->isPrimary()) {
+
+                secPoint = QPoint(screen->size().width(),0);
+            }
+            it++;
+        }
+
+        QMap<int, KScreen::OutputPtr>::iterator secIt = screens.begin();
+        while (secIt != screens.end()) {
+            KScreen::OutputPtr screen= secIt.value();
+            qDebug()<<"screens is-------->"<<screen<<endl;
+            if (!screen->isPrimary()) {
+                screen->setPos(secPoint);
+            }
+            secIt++;
+        }
+
         setConfig(mPrevConfig);
         mPrevConfig.clear();
 
@@ -419,7 +454,7 @@ void Widget::slotUnifyOutputs()
         closeScreenButton->setEnabled(true);
         ui->primaryCombo->setEnabled(true);
 //        ui->unifyButton->setText(tr("统一输出"));
-    } else {
+    } else if (!base->isCloneMode() && m_unifybutton->isChecked()){
         // Clone the current config, so that we can restore it in case user
         // breaks the cloning
         qDebug()<<"点击统一输出---->"<<endl;
@@ -772,6 +807,12 @@ void Widget::save()
         return;
     }
 
+    m_qsettings->beginGroup("Clone");
+    m_qsettings->setValue("switch", m_unifybutton->isChecked());
+    m_qsettings->endGroup();
+    m_qsettings->sync();
+
+
     const KScreen::ConfigPtr &config = this->currentConfig();
 
     const int countOutput = config->connectedOutputs().count();
@@ -943,6 +984,12 @@ void Widget::checkOutputScreen(bool judge){
 //       return ;
 //   qDebug()<<"newPrimary---------->"<<newPrimary<<endl;
 
+
+   KScreen::OutputPtr  mainScreen=  mConfig->primaryOutput();
+//   qDebug()<<"mainScreen is------------>"<<mainScreen<<endl;
+   if (!mainScreen) {
+       mConfig->setPrimaryOutput(newPrimary);
+   }
    newPrimary->setEnabled(judge);
    ui->primaryCombo->setCurrentIndex(index);
    Q_EMIT changed();

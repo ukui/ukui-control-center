@@ -39,6 +39,12 @@ CreateUserDialog::CreateUserDialog(QStringList userlist, QWidget *parent) :
     setAttribute(Qt::WA_TranslucentBackground);
     setAttribute(Qt::WA_DeleteOnClose);
 
+    ui->label_8->adjustSize();
+    ui->label_8->setWordWrap(true);
+
+    ui->label_10->adjustSize();
+    ui->label_10->setWordWrap(true);
+
     ui->frame->setStyleSheet("QFrame{background: #ffffff; border: none; border-radius: 6px;}");
     ui->closeBtn->setStyleSheet("QPushButton{background: #ffffff; border: none;}");
 

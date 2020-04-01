@@ -87,7 +87,9 @@ private:
 
     SwitchButton * effectSwitchBtn;
 
-    WidgetGroup * iconThemeWidgetGroup;    
+    WidgetGroup * iconThemeWidgetGroup;
+
+    bool settingsCreate;
 
     bool settingsCreate;
 
