@@ -651,14 +651,15 @@ void Widget::setSessionScale(int scale) {
     if (!scaleGSettings) {
         return;
     }    
-    QStringList keys = scaleGSettings->keys();
+    QStringList keys = scaleGSettings->keys();   
     if (keys.contains("hidpi")){
         scaleGSettings->set(USER_SACLE_KEY, true);
     }
-    if (keys.contains("gdk-scale")){
+    if (keys.contains("gdkScale")){
+
         scaleGSettings->set(GDK_SCALE_KEY, scale);
     }
-    if (keys.contains("qt-scale-factor")) {
+    if (keys.contains("qtScaleFactor")) {
         scaleGSettings->set(QT_SCALE_KEY, scale);
     }
 }

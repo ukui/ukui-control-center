@@ -302,16 +302,19 @@ void OutputConfig::initUi()
             this, &OutputConfig::slotScaleChanged);
 
     int scale = this->scaleRet();
+
     scaleCombox->setCurrentIndex(0);
     if (scale <= scaleCombox->count() && scale > 0) {
+        qDebug()<<"scale is----->"<<scale<<endl;
         scaleCombox->setCurrentIndex(scale - 1);
     }
     slotScaleChanged(scale - 1);
 
-    int gScale = getScreenScale();
-    if (gScale <= scaleCombox->count() && gScale > 0) {
-        scaleCombox->setCurrentIndex(gScale - 1);
-    }
+//    int gScale = getScreenScale();
+//    qDebug()<<"scale is----->test--------->"<<gScale<<endl;
+//    if (gScale <= scaleCombox->count() && gScale > 0) {
+//        scaleCombox->setCurrentIndex(gScale - 1);
+//    }
 }
 
 int OutputConfig::getMaxReslotion() {
@@ -323,10 +326,13 @@ int OutputConfig::getScreenScale() {
         return 1;
     }
     const QStringList list = m_gsettings->keys();
-    if (!list.contains("gdk-scale")) {
+
+    if (!list.contains("gdkScale")) {
         return 1;
     }
+
     int scale  = m_gsettings->get(GDK_SCALE_KEY).toBool();
+    qDebug()<<"key is------->"<<scale<<endl;
     return scale;
 }
 
