@@ -251,7 +251,8 @@ void DateTime::changetime_slot(){
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     m_itimer->stop();
     m_itimer->start();
-    dialog->exec();
+//    dialog->exec();
+     dialog->show();
 }
 
 
