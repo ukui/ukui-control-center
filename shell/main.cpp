@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
     QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QtSingleApplication a(argc, argv);
     if (a.isRunning()){
-        a.sendMessage(QApplication::arguments().at(1));
+        a.sendMessage(QApplication::arguments().length() > 1 ? QApplication::arguments().at(1) : a.applicationFilePath());
         qDebug() << QObject::tr("ukui-control-center had already running!");
         return EXIT_SUCCESS;
     } else {
