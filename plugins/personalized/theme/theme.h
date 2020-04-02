@@ -91,9 +91,6 @@ private:
 
     bool settingsCreate;
 
-    bool settingsCreate;
-
-
 private slots:
     void resetBtnClickSlot();
 
