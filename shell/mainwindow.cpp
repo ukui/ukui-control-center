@@ -101,6 +101,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->maxBtn->setIcon(QIcon("://img/titlebar/max.png"));
     ui->closeBtn->setIcon(QIcon("://img/titlebar/close.png"));
 
+    ui->searchLineEdit->hide();
+
     //
 
     //初始化功能列表数据

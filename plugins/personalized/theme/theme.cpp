@@ -177,6 +177,10 @@ void Theme::setupComponent(){
 
     ui->lightButton->hide();
 
+    //无用的控制主题
+    ui->label_3->hide();
+    ui->controlWidget->hide();
+
     ui->defaultButton->setProperty("value", "ukui-white");
     ui->lightButton->setProperty("value", "ukui-default");
     ui->darkButton->setProperty("value", "ukui-black");
