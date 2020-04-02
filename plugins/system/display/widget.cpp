@@ -104,7 +104,8 @@ Widget::Widget(QWidget *parent)
 
     initNightStatus();
 
-    nightButton->setVisible(this->m_redshiftIsValid);
+//    nightButton->setVisible(this->m_redshiftIsValid);
+    ui->nightwidget->setVisible(this->m_redshiftIsValid);
 //    qDebug()<<"set night mode here ---->"<<this->m_isNightMode<<endl;
     nightButton->setChecked(this->m_isNightMode);
 
@@ -620,10 +621,10 @@ void Widget::setSessionScale(int scale) {
     if (keys.contains("hidpi")){
         scaleGSettings->set(USER_SACLE_KEY, true);
     }
-    if (keys.contains("gdk-scale")){
+    if (keys.contains("gdkScale")){
         scaleGSettings->set(GDK_SCALE_KEY, scale);
     }
-    if (keys.contains("qt-scale-factor")) {
+    if (keys.contains("qtScaleFactor")) {
         scaleGSettings->set(QT_SCALE_KEY, scale);
     }
 }
