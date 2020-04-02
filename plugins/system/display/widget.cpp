@@ -104,7 +104,9 @@ Widget::Widget(QWidget *parent)
 
     initNightStatus();
 
-    nightButton->setVisible(this->m_redshiftIsValid);
+//    nightButton->setVisible(this->m_redshiftIsValid);
+      ui->nightwidget->setVisible(this->m_redshiftIsValid);
+
 //    qDebug()<<"set night mode here ---->"<<this->m_isNightMode<<endl;
     nightButton->setChecked(this->m_isNightMode);
 
