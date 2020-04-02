@@ -69,6 +69,7 @@ MainWindow::MainWindow(QWidget *parent) :
 //    else
 //        panelicon = QIcon("://applications-system.svg");
     this->setWindowIcon(panelicon);
+    this->setWindowTitle(tr("ukcc"));
 
     //中部内容区域
     ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background: #ffffff; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
@@ -184,87 +185,54 @@ MainWindow::MainWindow(QWidget *parent) :
     //快捷参数
     if (QApplication::arguments().length() > 1){
 
-        if (QApplication::arguments().at(1) == "-m"){
-            //显示器
-            QList<FuncInfo> pFuncStructList = FunctionSelect::funcinfoList[SYSTEM];
-            QString funcStr = pFuncStructList.at(DISPLAY).namei18nString;
-
-            QMap<QString, QObject *> pluginsObjMap = modulesList.at(SYSTEM);
-
-            if (pluginsObjMap.keys().contains(funcStr)){
-                //开始跳转
-                ui->stackedWidget->setCurrentIndex(1);
-                modulepageWidget->switchPage(pluginsObjMap.value(funcStr));
-            }
-        } else if (QApplication::arguments().at(1) == "-b"){
-            //背景
-            QList<FuncInfo> pFuncStructList = FunctionSelect::funcinfoList[PERSONALIZED];
-            QString funcStr = pFuncStructList.at(BACKGROUND).namei18nString;
-
-            QMap<QString, QObject *> pluginsObjMap = modulesList.at(PERSONALIZED);
-
-            if (pluginsObjMap.keys().contains(funcStr)){
-                //开始跳转
-                ui->stackedWidget->setCurrentIndex(1);
-                modulepageWidget->switchPage(pluginsObjMap.value(funcStr));
-            }
-        } else if (QApplication::arguments().at(1) == "-d"){
-            //桌面
-            QList<FuncInfo> pFuncStructList = FunctionSelect::funcinfoList[PERSONALIZED];
-            QString funcStr = pFuncStructList.at(DESKTOP).namei18nString;
-
-            QMap<QString, QObject *> pluginsObjMap = modulesList.at(PERSONALIZED);
-
-            if (pluginsObjMap.keys().contains(funcStr)){
-                //开始跳转
-                ui->stackedWidget->setCurrentIndex(1);
-                modulepageWidget->switchPage(pluginsObjMap.value(funcStr));
-            }
-        } else if (QApplication::arguments().at(1) == "-u"){
-            //账户
-            QList<FuncInfo> pFuncStructList = FunctionSelect::funcinfoList[ACCOUNT];
-            QString funcStr = pFuncStructList.at(USERINFO).namei18nString;
-
-            QMap<QString, QObject *> pluginsObjMap = modulesList.at(ACCOUNT);
-
-            if (pluginsObjMap.keys().contains(funcStr)){
-                //开始跳转
-                ui->stackedWidget->setCurrentIndex(1);
-                modulepageWidget->switchPage(pluginsObjMap.value(funcStr));
-            }
-
-        } else if (QApplication::arguments().at(1) == "-a"){
-            //关于
-            QList<FuncInfo> pFuncStructList = FunctionSelect::funcinfoList[NOTICEANDTASKS];
-            QString funcStr = pFuncStructList.at(ABOUT).namei18nString;
-
-            QMap<QString, QObject *> pluginsObjMap = modulesList.at(NOTICEANDTASKS);
-
-            if (pluginsObjMap.keys().contains(funcStr)){
-                //开始跳转
-                ui->stackedWidget->setCurrentIndex(1);
-                modulepageWidget->switchPage(pluginsObjMap.value(funcStr));
-            }
-        } else if (QApplication::arguments().at(1) == "-p"){
-            //电源
-            QList<FuncInfo> pFuncStructList = FunctionSelect::funcinfoList[SYSTEM];
-            QString funcStr = pFuncStructList.at(POWER).namei18nString;
-
-            QMap<QString, QObject *> pluginsObjMap = modulesList.at(SYSTEM);
-
-            if (pluginsObjMap.keys().contains(funcStr)){
-                //开始跳转
-                ui->stackedWidget->setCurrentIndex(1);
-                modulepageWidget->switchPage(pluginsObjMap.value(funcStr));
-            }
-        }
-
+        bootOptionsFilter(QApplication::arguments().at(1));
     }
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::bootOptionsFilter(QString opt){
+    if (opt == "-m"){
+        //显示器
+        bootOptionsSwitch(SYSTEM, DISPLAY);
+
+    } else if (opt == "-b"){
+        //背景
+        bootOptionsSwitch(PERSONALIZED, BACKGROUND);
+
+    } else if (opt == "-d"){
+        //桌面
+        bootOptionsSwitch(PERSONALIZED, DESKTOP);
+
+    } else if (opt == "-u"){
+        //账户
+        bootOptionsSwitch(ACCOUNT, USERINFO);
+
+    } else if (opt == "-a"){
+        //关于
+        bootOptionsSwitch(NOTICEANDTASKS, ABOUT);
+
+    } else if (opt == "-p"){
+        //电源
+        bootOptionsSwitch(SYSTEM, POWER);
+    }
+}
+
+void MainWindow::bootOptionsSwitch(int moduleNum, int funcNum){
+
+    QList<FuncInfo> pFuncStructList = FunctionSelect::funcinfoList[moduleNum];
+    QString funcStr = pFuncStructList.at(funcNum).namei18nString;
+
+    QMap<QString, QObject *> pluginsObjMap = modulesList.at(moduleNum);
+
+    if (pluginsObjMap.keys().contains(funcStr)){
+        //开始跳转
+        ui->stackedWidget->setCurrentIndex(1);
+        modulepageWidget->switchPage(pluginsObjMap.value(funcStr));
+    }
 }
 
 void MainWindow::setBtnLayout(QPushButton * &pBtn){
@@ -502,7 +470,9 @@ void MainWindow::functionBtnClicked(QObject *plugin){
 }
 
 void MainWindow::sltMessageReceived(const QString &msg) {
-    Q_UNUSED(msg)
+
+    bootOptionsFilter(msg);
+
     Qt::WindowFlags flags = windowFlags();
     flags |= Qt::WindowStaysOnTopHint;
     setWindowFlags(flags);

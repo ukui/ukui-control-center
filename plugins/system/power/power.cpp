@@ -70,7 +70,6 @@ Power::Power()
         settings = new QGSettings(id);
         setupConnect();
         initModeStatus();
-        initCustomPlanStatus();
         initIconPolicyStatus();
     } else {
         qCritical() << POWERMANAGER_SCHEMA << "not installed!\n";
@@ -203,8 +202,7 @@ void Power::setupConnect(){
             settings->set(SLEEP_COMPUTER_BATT_KEY, COMPUTER_SAVING);
 
         } else {
-            ui->acBtn->setChecked(true);
-            initCustomPlanStatus();
+            resetCustomPlanStatus();
         }
 
     });
@@ -260,6 +258,8 @@ void Power::initModeStatus(){
         ui->custdomRadioBtn->setChecked(true);
         //
         ui->acBtn->setChecked(true);
+
+        initCustomPlanStatus();
     }
     refreshUI();
 }
@@ -269,6 +269,20 @@ void Power::initIconPolicyStatus(){
     ui->iconComboBox->blockSignals(true);
     ui->iconComboBox->setCurrentIndex(ui->iconComboBox->findData(value));
     ui->iconComboBox->blockSignals(false);
+}
+
+void Power::resetCustomPlanStatus(){
+    //当其他电源计划切换至自定义时，默认状态为从不
+    //设置显示器关闭
+    settings->set(SLEEP_DISPLAY_AC_KEY, 0);
+    settings->set(SLEEP_DISPLAY_BATT_KEY, 0);
+    //设置计算机睡眠
+    settings->set(SLEEP_COMPUTER_AC_KEY, 0);
+    settings->set(SLEEP_COMPUTER_BATT_KEY, 0);
+
+    ui->acBtn->setChecked(true);
+    initCustomPlanStatus();
+
 }
 
 void Power::initCustomPlanStatus(){

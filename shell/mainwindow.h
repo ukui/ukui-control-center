@@ -51,6 +51,9 @@ public:
     QMap<QString, QObject *> exportModule(int);
     void setModuleBtnHightLight(int id);
 
+    void bootOptionsFilter(QString opt);
+    void bootOptionsSwitch(int moduleNum, int funcNum);
+
 private:
     Ui::MainWindow *ui;
 
