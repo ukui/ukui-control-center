@@ -69,21 +69,6 @@ UserInfo::UserInfo()
     //设置界面用户信息
     _refreshUserInfoUI();
 
-
-//    pwdSignalMapper = new QSignalMapper(this);
-//    faceSignalMapper = new QSignalMapper(this);
-//    typeSignalMapper = new QSignalMapper(this);
-//    delSignalMapper = new QSignalMapper(this);
-
-//    faceSize = QSize(64, 64);
-//    itemSize = QSize(230, 106); //?需要比btnsize大多少？否则显示不全
-//    btnSize = QSize(222, 92);
-
-
-//    get_all_users();
-//    ui_component_init();
-//    ui_status_init();
-
 }
 
 UserInfo::~UserInfo()
@@ -520,12 +505,6 @@ void UserInfo::showDeleteUserDialog(QString username){
 void UserInfo::deleteUser(bool removefile, QString username){
     qDebug() << allUserInfoMap.keys() << username;
 
-    UserInfomation user = (UserInfomation)(allUserInfoMap.find(username).value());
-
-    sysdispatcher->delete_user(user.uid, removefile);
-}
-
-void UserInfo::delete_user_slot(bool removefile, QString username){
     UserInfomation user = (UserInfomation)(allUserInfoMap.find(username).value());
 
     sysdispatcher->delete_user(user.uid, removefile);

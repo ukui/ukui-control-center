@@ -23,10 +23,6 @@
 #include <QObject>
 #include <QtPlugin>
 
-//#include <QToolButton>
-//#include <QMenu>
-//#include <QAction>
-#include <QSignalMapper>
 #include <QMouseEvent>
 
 #include "shell/interface.h"
@@ -111,15 +107,6 @@ public:
     void showChangeFaceDialog(QString username);
     void changeUserFace(QString facefile, QString username);
 
-    void get_all_users();
-    UserInfomation init_user_info(QString objpath);
-    void setup_otherusers_ui();
-    void build_item_with_widget(UserInfomation user);
-    void ui_component_init();
-
-    QString accounttype_enum_to_string(int id);
-    QString login_status_bool_to_string(bool status);
-
 protected:
     bool eventFilter(QObject *watched, QEvent *event);
 
@@ -144,43 +131,10 @@ private:
 
     QString _newUserPwd;
 
-//    QMap<QString, QToolButton *> otherbtnMap;
-    QMap<QString, QListWidgetItem *> otherItemMap;
-
-    QSignalMapper * pwdSignalMapper;
-    QSignalMapper * faceSignalMapper;
-    QSignalMapper * typeSignalMapper;
-    QSignalMapper * delSignalMapper;
-
-    QSize faceSize;
-    QSize itemSize;
-    QSize btnSize;
-
-
     QString pwdcreate;
 
     QDBusInterface * sysinterface;
 
-private slots:
-//    void show_change_pwd_dialog_slot(QString username);
-//    void change_pwd_slot(QString pwd, QString username);
-//    void change_pwd_done_slot();
-
-//    void show_change_face_dialog_slot(QString username);
-//    void change_face_slot(QString facefile, QString username);
-//    void change_face_done_slot();
-
-//    void show_change_accounttype_dialog_slot(QString username);
-//    void change_accounttype_slot(int atype, QString username, bool status);
-//    void change_accounttype_done_slot();
-
-//    void show_del_user_dialog_slot(QString username);
-    void delete_user_slot(bool removefile, QString username);
-//    void delete_user_done_slot(QString objpath);
-
-//    void show_create_user_dialog_slot();
-//    void create_user_slot(QString username, QString pwd, QString pin, int atype, bool autologin);
-//    void create_user_done_slot(QString objpath);
 };
 
 #endif // USERINFO_H
