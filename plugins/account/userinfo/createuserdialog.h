@@ -62,9 +62,6 @@ private:
     QStyledItemDelegate* itemDelege;
     bool isCreateUser = false;
 
-private slots:
-    void resetBtnClickSlot();
-
 Q_SIGNALS:
     void newUserWillCreate(QString username, QString pwd, QString pin, int atype);
 
