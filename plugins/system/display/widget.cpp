@@ -65,27 +65,6 @@ Widget::Widget(QWidget *parent)
     ui->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
     ui->quickWidget->setContentsMargins(0,0,0,9);
 
-
-    ui->mainwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
-    ui->screenwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
-    ui->nightwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
-    ui->unionwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
-
-
-    ui->mainScreenButton->setStyleSheet("QPushButton{background-color:#F8F9F9;border-radius:6px;font-size:14px;}"
-                                   "QPushButton:hover{background-color: #3D6BE5;};border-radius:6px");
-
-//    ui->primaryCombo->setStyleSheet("background-color:#F8F9F9");
-//    ui->primaryCombo->setMaxVisibleItems(1);
-
-    ui->showMonitorwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
-
-
-    ui->applyButton->setStyleSheet("QPushButton{background-color:#F4F4F4;border-radius:6px}"
-                                   "QPushButton:hover{background-color: #3D6BE5;color:white};border-radius:6px");
-    ui->primaryCombo->setContentsMargins(8,0,0,0);
-    ui->primaryCombo->setItemDelegate(new QStyledItemDelegate());
-
     closeScreenButton = new SwitchButton;
     ui->showScreenLayout->addWidget(closeScreenButton);
 
@@ -102,18 +81,23 @@ Widget::Widget(QWidget *parent)
     nightLayout->addWidget(nightButton);
 
 
+    initUiQss();
+    initTemptSlider();
+    initConfigFile();
+    initUiComponent();
     initNightStatus();
 
 //    nightButton->setVisible(this->m_redshiftIsValid);
       ui->nightwidget->setVisible(this->m_redshiftIsValid);
 
 //    qDebug()<<"set night mode here ---->"<<this->m_isNightMode<<endl;
-    nightButton->setChecked(this->m_isNightMode);
+//    nightButton->setChecked(this->m_isNightMode);
 
 
-    connect(this,&Widget::nightModeChanged,nightButton,&SwitchButton::setChecked);
+//    connect(this,&Widget::nightModeChanged,nightButton,&SwitchButton::setChecked);
 //    connect(this,&Widget::redShiftValidChanged,nightButton,&SwitchButton::setVisible);
-    connect(nightButton,&SwitchButton::checkedChanged,this,&Widget::setNightMode);
+    connect(nightButton,SIGNAL(checkedChanged(bool)),this,SLOT(showNightWidget(bool)));
+    connect(singleButton, SIGNAL(buttonClicked(int)), this, SLOT(showCustomWiget(int)));
 
 
     //这里是设置主显示器(已经废弃重写了)
@@ -192,14 +176,6 @@ Widget::Widget(QWidget *parent)
     //亮度调节UI
 //    initBrightnessUI();
 
-
-    QString filename = QDir::homePath() + "/.config/clone.ini";
-    m_qsettings = new QSettings(filename, QSettings::IniFormat);
-
-    m_qsettings->beginGroup("Clone");;
-    bool judge = m_qsettings->value("switch", judge).toBool();
-    m_unifybutton->setChecked(judge);
-    m_qsettings->endGroup();
 
 }
 
@@ -666,6 +642,66 @@ void Widget::setSessionScale(int scale) {
     }
 }
 
+void Widget::writeConfigFile() {
+
+    m_qsettings->beginGroup("redshift");
+    QString optime = ui->opHourCom->currentText() + ":" + ui->opMinCom->currentText();
+    QString cltime = ui->clHourCom->currentText() + ":" + ui->clMinCom->currentText();
+    QString value = QString::number(ui->temptSlider->value());
+
+
+    if ( !ui->customradioBtn->isChecked()) {
+        optime = "17:55";
+        cltime = "05:04";
+    }
+
+    m_qsettings->setValue("dawn-time", cltime);
+    m_qsettings->setValue("dusk-time", optime);
+    m_qsettings->setValue("temp-day", value);
+    m_qsettings->setValue("temp-night", value);
+
+    m_qsettings->endGroup();
+
+    m_qsettings->beginGroup("switch");
+    m_qsettings->setValue("unionswitch", m_unifybutton->isChecked());
+    m_qsettings->setValue("nightjudge", nightButton->isChecked());
+    m_qsettings->setValue("sunjudge", ui->sunradioBtn->isChecked());
+    m_qsettings->setValue("manualjudge", ui->customradioBtn->isChecked());
+
+    m_qsettings->endGroup();
+    m_qsettings->sync();
+
+}
+
+void Widget::showNightWidget(bool judge) {
+    if (judge) {
+        ui->sunwidget->setVisible(true);
+        ui->customwidget->setVisible(true);
+        ui->temptwidget->setVisible(true);
+    } else {
+        ui->sunwidget->setVisible(false);
+        ui->customwidget->setVisible(false);
+
+        ui->temptwidget->setVisible(false);
+    }
+
+   if (judge && ui->customradioBtn->isChecked()) {
+       showCustomWiget(CUSTOM);
+   } else {
+       showCustomWiget(SUN);
+   }
+}
+
+void Widget::showCustomWiget(int index) {
+    if (SUN == index) {
+        ui->opwidget->setVisible(false);
+        ui->clswidget->setVisible(false);
+    } else if (CUSTOM == index) {
+        ui->opwidget->setVisible(true);;
+        ui->clswidget->setVisible(true);
+    }
+}
+
 void Widget::clearOutputIdentifiers()
 {
     mOutputTimer->stop();
@@ -810,12 +846,6 @@ void Widget::save()
         return;
     }
 
-    m_qsettings->beginGroup("Clone");
-    m_qsettings->setValue("switch", m_unifybutton->isChecked());
-    m_qsettings->endGroup();
-    m_qsettings->sync();
-
-
     const KScreen::ConfigPtr &config = this->currentConfig();
 
     const int countOutput = config->connectedOutputs().count();
@@ -827,7 +857,7 @@ void Widget::save()
     Q_FOREACH(const KScreen::OutputPtr &output, config->outputs()) {
         KScreen::ModePtr mode = output->currentMode();
         if (output->isEnabled()) {
-            qDebug()<<"atLeastOneEnabledOutput------------>"<<endl;
+//            qDebug()<<"atLeastOneEnabledOutput------------>"<<endl;
             atLeastOneEnabledOutput = true;
             connectedScreen++;
         }
@@ -879,10 +909,18 @@ void Widget::save()
 
         getEdidInfo(output->name(),&inputXml[i]);
         i++;
-    }
+    }   
     if (!atLeastOneEnabledOutput ) {
         qDebug()<<"atLeastOneEnabledOutput---->"<<connectedScreen<<endl;
         KMessageBox::error(this,tr("please insure at least one output!"),
+                           tr("Warning"),KMessageBox::Notify);
+        closeScreenButton->setChecked(true);
+        return ;
+    } else if( ((ui->opHourCom->currentIndex() < ui->clHourCom->currentIndex()) ||
+               (ui->opHourCom->currentIndex() == ui->clHourCom->currentIndex()  &&
+                ui->opMinCom->currentIndex() <= ui->clMinCom->currentIndex()))  &&
+               CUSTOM == singleButton->checkedId() && nightButton->isChecked()) {
+        KMessageBox::error(this,tr("Morning time should be earlier than evening time!"),
                            tr("Warning"),KMessageBox::Notify);
         closeScreenButton->setChecked(true);
         return ;
@@ -891,6 +929,8 @@ void Widget::save()
     initScreenXml(countOutput);
     writeScreenXml(countOutput);
     writeScale(static_cast<float>(this->screenScale));
+    writeConfigFile();
+    setNightMode(nightButton->isChecked());
 
 
     if (!KScreen::Config::canBeApplied(config)) {
@@ -1183,6 +1223,79 @@ void Widget::setBrightnesSldierValue(QString name){
 void Widget::setBrigthnessFile(){
     brightnessFile = getenv("HOME");
     brightnessFile += "/.xinputrc";
+}
+
+void Widget::initTemptSlider() {
+    ui->temptSlider->setRange(1.1*1000,6500);
+    ui->temptSlider->setTracking(true);
+
+    for (int i = 0; i < 24; i++) {
+        ui->opHourCom->addItem(QString::number(i));
+        ui->clHourCom->addItem(QString::number(i));
+    }
+
+    for (int i = 0; i < 60; i++) {
+        ui->opMinCom->addItem(QString::number(i));
+        ui->clMinCom->addItem(QString::number(i));
+    }
+}
+
+void Widget::initConfigFile() {
+
+    QString filename = QDir::homePath() + "/.config/redshift.conf";
+    m_qsettings = new QSettings(filename, QSettings::IniFormat);
+
+    m_qsettings->beginGroup("redshift");
+
+    QString optime = m_qsettings->value("dusk-time", "").toString();
+    QString cltime = m_qsettings->value("dawn-time", "").toString();
+    QString temptValue = m_qsettings->value("temp-day", "").toString();
+
+    if ("" != optime){
+        QString ophour = optime.split(":").at(0);
+        QString opmin = optime.split(":").at(1);
+
+        qDebug()<<"optime is----->"<<ophour.toInt()<<" "<<opmin.toInt()<<endl;
+
+        ui->opHourCom->setCurrentIndex(ophour.toInt());
+        ui->opMinCom->setCurrentIndex(opmin.toInt());
+    }
+
+    if ("" != cltime) {
+        QString clhour = cltime.split(":").at(0);
+        QString clmin = cltime.split(":").at(1);
+
+        ui->clHourCom->setCurrentIndex(clhour.toInt());
+        ui->clMinCom->setCurrentIndex(clmin.toInt());
+    }
+
+
+    if ("" != temptValue) {
+        int value = temptValue.toInt();
+        ui->temptSlider->setValue(value);
+    }
+
+    m_qsettings->endGroup();
+
+
+    m_qsettings->beginGroup("switch");;
+
+    bool unionjudge = m_qsettings->value("unionswitch", unionjudge).toBool();
+    bool nightjudge = m_qsettings->value("nightjudge", nightjudge).toBool();
+    bool sunjudge = m_qsettings->value("sunjudge", sunjudge).toBool();
+    bool manualjudge = m_qsettings->value("manualjudge", manualjudge).toBool();
+
+    qDebug()<<"unionjudge is-------->"<<unionjudge<<endl;
+    m_unifybutton->setChecked(unionjudge);
+    nightButton->setChecked(nightjudge);
+
+    if (!(sunjudge && manualjudge)) {
+        ui->sunradioBtn->setChecked(sunjudge);
+        ui->customradioBtn->setChecked(manualjudge);
+    }
+
+    m_qsettings->endGroup();
+
 }
 
 void Widget::writeScreenXml(int count){
@@ -1485,7 +1598,7 @@ void Widget::setNightMode(const bool nightMode){
     QString serverCmd;
 
     if(nightMode) {
-        cmd = "start";
+        cmd = "restart";
         serverCmd = "enable";
     } else {
         cmd = "stop";
@@ -1560,6 +1673,63 @@ void Widget::writeFile(const QString &filepath, const QStringList &content) {
     file.close();
 }
 
+void Widget::initUiQss() {
+
+    ui->mainwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+    ui->screenwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+    ui->nightwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+    ui->unionwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+
+    ui->nightwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+    ui->sunwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+    ui->customwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+    ui->opwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+    ui->clswidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+    ui->temptwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+
+    ui->mainScreenButton->setStyleSheet("QPushButton{background-color:#F8F9F9;border-radius:6px;font-size:14px;}"
+                                   "QPushButton:hover{background-color: #3D6BE5;};border-radius:6px");
+
+//    ui->primaryCombo->setStyleSheet("background-color:#F8F9F9");
+//    ui->primaryCombo->setMaxVisibleItems(1);
+
+    ui->showMonitorwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+
+
+    ui->applyButton->setStyleSheet("QPushButton{background-color:#F4F4F4;border-radius:6px}"
+                                   "QPushButton:hover{background-color: #3D6BE5;color:white};border-radius:6px");
+
+    ui->primaryCombo->setContentsMargins(8,0,0,0);
+    ui->primaryCombo->setItemDelegate(new QStyledItemDelegate());
+
+    ui->opHourCom->setItemDelegate(new QStyledItemDelegate());
+    ui->opHourCom->setMaxVisibleItems(5);
+    ui->opMinCom->setItemDelegate(new QStyledItemDelegate());
+    ui->opMinCom->setMaxVisibleItems(5);
+    ui->clHourCom->setItemDelegate(new QStyledItemDelegate());
+    ui->clHourCom->setMaxVisibleItems(5);
+    ui->clMinCom->setItemDelegate(new QStyledItemDelegate());
+    ui->clMinCom->setMaxVisibleItems(5);
+}
+
+void Widget::initUiComponent() {
+
+    singleButton = new QButtonGroup();
+    singleButton->addButton(ui->sunradioBtn);
+    singleButton->addButton(ui->customradioBtn);
+
+
+    singleButton->setId(ui->sunradioBtn, SUN);
+    singleButton->setId(ui->customradioBtn, CUSTOM);
+
+
+    MODE value = ui->customradioBtn->isChecked() == SUN ? SUN : CUSTOM;
+    showNightWidget(nightButton->isChecked());
+    if (nightButton->isChecked()) {
+        showCustomWiget(value);
+    }
+}
+
 void Widget::setRedShiftIsValid(bool redshiftIsValid){
     if(m_redshiftIsValid == redshiftIsValid) {
         return ;
@@ -1594,12 +1764,3 @@ void Widget::initNightStatus(){
     setRedShiftIsValid(isRedShiftValid);
 
 }
-
-
-
-
-
-
-
-
-
