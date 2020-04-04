@@ -105,6 +105,10 @@ void DefineShortcutItem::setShortcutName(QString newName){
     pLabel->setText(newName);
 }
 
+void DefineShortcutItem::setShortcutBinding(QString newBinding){
+    pLineEdit->setText(newBinding);
+}
+
 void DefineShortcutItem::mousePressEvent(QMouseEvent *e){
     if (e->button() == Qt::LeftButton && _deleteable){
         pButton->show();

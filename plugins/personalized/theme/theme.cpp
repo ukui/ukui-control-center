@@ -176,6 +176,9 @@ void Theme::setupStylesheet(){
 void Theme::setupComponent(){
 
     ui->lightButton->hide();
+    //隐藏现阶段不支持功能
+    ui->controlLabel->hide();
+    ui->controlWidget->hide();
 
     ui->defaultButton->setProperty("value", "ukui-white");
     ui->lightButton->setProperty("value", "ukui-default");
