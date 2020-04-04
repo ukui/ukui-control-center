@@ -20,6 +20,8 @@
 #include "changetypedialog.h"
 #include "ui_changetypedialog.h"
 
+#include "elipsemaskwidget.h"
+
 #include <QDebug>
 
 ChangeTypeDialog::ChangeTypeDialog(QWidget *parent) :
@@ -48,6 +50,10 @@ ChangeTypeDialog::~ChangeTypeDialog()
 }
 
 void ChangeTypeDialog::setupComonpent(){
+
+    ElipseMaskWidget * ctMaskWidget = new ElipseMaskWidget(ui->faceLabel);
+    ctMaskWidget->setGeometry(0, 0, ui->faceLabel->width(), ui->faceLabel->height());
+
     ui->buttonGroup->setId(ui->standardRadioButton, 0);
     ui->buttonGroup->setId(ui->adminRadioButton, 1);
 

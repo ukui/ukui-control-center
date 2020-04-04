@@ -1,0 +1,226 @@
+/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
+ *
+ * Copyright (C) 2019 Tianjin KYLIN Information Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+ *
+ */
+#include "showallshortcut.h"
+#include "ui_showallshortcut.h"
+
+#include <QPainter>
+#include <QStyleOption>
+
+#include <QDebug>
+
+#define TITLEWIDGETHEIGH 36
+
+ShowAllShortcut::ShowAllShortcut(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::ShowAllShortcut)
+{
+    ui->setupUi(this);
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
+    setAttribute(Qt::WA_TranslucentBackground);
+
+    ui->frame->setStyleSheet("QFrame{background: #ffffff; border: none; border-radius: 6px;}");
+
+    //关闭按钮在右上角，窗体radius 6px，所以按钮只得6px
+    ui->closeBtn->setStyleSheet("QPushButton#closeBtn{background: #ffffff; border: none; border-radius: 6px;}"
+                                "QPushButton:hover:!pressed#closeBtn{background: #FA6056; border: none; border-top-left-radius: 2px; border-top-right-radius: 6px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;}"
+                                "QPushButton:hover:pressed#closeBtn{background: #E54A50; border: none; border-top-left-radius: 2px; border-top-right-radius: 6px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;}");
+
+    ui->closeBtn->setIcon(QIcon("://img/titlebar/close.png"));
+
+    connect(ui->closeBtn, &QPushButton::clicked, [=](bool checked){
+        Q_UNUSED(checked)
+        close();
+    });
+
+}
+
+ShowAllShortcut::~ShowAllShortcut()
+{
+    delete ui;
+}
+
+void ShowAllShortcut::buildComponent(QMap<QString, QMap<QString, QString> > shortcutsMap){
+    if (ui->scrollArea->widget()){
+        ui->scrollArea->takeWidget();
+        delete ui->scrollArea->widget();
+    }
+
+    QWidget * baseWidget = new QWidget;
+    baseWidget->setAttribute(Qt::WA_DeleteOnClose);
+    baseWidget->setFixedWidth(ui->scrollArea->width());
+    baseWidget->setStyleSheet("QWidget{background: #ffffff;/* border-radius: 6px;*/ }");
+
+    QVBoxLayout * baseVerLayout = new QVBoxLayout(baseWidget);
+    baseVerLayout->setSpacing(0);
+    baseVerLayout->setMargin(0);
+
+    QMap<QString, QMap<QString, QString>>::iterator it = shortcutsMap.begin();
+    for (; it != shortcutsMap.end(); it++){
+        ClickWidget * tWidget = new ClickWidget(it.key());
+        if (it == shortcutsMap.begin()){
+            tWidget->setStyleSheet("ClickWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
+        } else{
+            tWidget->setStyleSheet("ClickWidget{background: #F4F4F4;}");
+        }
+
+        QWidget * gWidget = buildGeneralWidget(it.value());
+
+        if ((it+1) == shortcutsMap.end())
+            connect(tWidget, &ClickWidget::widgetClicked, [=](bool checked){
+                gWidget->setVisible(checked);
+                if (tWidget->checked()){
+                    tWidget->setStyleSheet("ClickWidget{background: #F4F4F4;}");
+                } else {
+                    tWidget->setStyleSheet("ClickWidget{background: #F4F4F4; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
+                }
+            });
+        else
+            connect(tWidget, &ClickWidget::widgetClicked, [=](bool checked){
+                gWidget->setVisible(checked);
+            });
+
+
+        baseVerLayout->addWidget(tWidget);
+        baseVerLayout->addWidget(gWidget);
+    }
+    baseVerLayout->addStretch();
+
+    ui->scrollArea->setWidget(baseWidget);
+
+}
+
+QWidget * ShowAllShortcut::buildTitleWidget(QString tName){
+    QWidget * titleWidget = new QWidget;
+    titleWidget->setAttribute(Qt::WA_DeleteOnClose);
+    titleWidget->setFixedHeight(TITLEWIDGETHEIGH);
+    titleWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+
+    QHBoxLayout * titleHorLayout = new QHBoxLayout(titleWidget);
+    titleHorLayout->setSpacing(0);
+    titleHorLayout->setContentsMargins(16, 0, 32, 0);
+
+    QLabel * titleNameLabel = new QLabel(titleWidget);
+    titleNameLabel->setText(tName);
+
+    QPushButton * directionBtn = new QPushButton(titleWidget);
+    directionBtn->setFixedSize(16, 16);
+    directionBtn->setCheckable(true);
+
+    titleHorLayout->addWidget(titleNameLabel);
+    titleHorLayout->addStretch();
+    titleHorLayout->addWidget(directionBtn);
+
+    titleWidget->setLayout(titleHorLayout);
+
+    return titleWidget;
+}
+
+QWidget * ShowAllShortcut::buildGeneralWidget(QMap<QString, QString> subShortcutsMap){
+
+    QWidget * pWidget = new QWidget;
+    pWidget->setAttribute(Qt::WA_DeleteOnClose);
+    pWidget->setStyleSheet("QWidget{background: #ffffff; border: none;}");
+    QVBoxLayout * pVerLayout = new QVBoxLayout(pWidget);
+    pVerLayout->setSpacing(2);
+    pVerLayout->setMargin(0);
+
+    pWidget->setLayout(pVerLayout);
+
+    QMap<QString, QString>::iterator it = subShortcutsMap.begin();
+
+    for (; it != subShortcutsMap.end(); it++){
+
+        QWidget * gWidget = new QWidget;
+        gWidget->setFixedHeight(TITLEWIDGETHEIGH);
+        gWidget->setStyleSheet("QWidget{background: #D5D5D5; border: none;}");
+
+        QHBoxLayout * gHorLayout = new QHBoxLayout(gWidget);
+        gHorLayout->setSpacing(0);
+        gHorLayout->setContentsMargins(16, 0, 32, 0);
+
+        QLabel * nameLabel  = new QLabel(gWidget);
+        nameLabel->setText(it.key());
+
+        QLabel * bindingLabel = new QLabel(gWidget);
+        bindingLabel->setText(it.value());
+
+        gHorLayout->addWidget(nameLabel);
+        gHorLayout->addStretch();
+        gHorLayout->addWidget(bindingLabel);
+
+        gWidget->setLayout(gHorLayout);
+
+
+        pVerLayout->addWidget(gWidget);
+    }
+
+    return pWidget;
+
+}
+
+ClickWidget::ClickWidget(QString name){
+    setAttribute(Qt::WA_DeleteOnClose);
+    setFixedHeight(TITLEWIDGETHEIGH);
+
+    QHBoxLayout * titleHorLayout = new QHBoxLayout(this);
+    titleHorLayout->setSpacing(0);
+    titleHorLayout->setContentsMargins(16, 0, 32, 0);
+
+    QLabel * titleNameLabel = new QLabel(this);
+    titleNameLabel->setText(name);
+    titleNameLabel->setStyleSheet("background: #F4F4F4;");
+
+    directionBtn = new QPushButton(this);
+    directionBtn->setFixedSize(16, 16);
+    directionBtn->setCheckable(true);
+    directionBtn->setChecked(true);
+    directionBtn->setStyleSheet("QPushButton{background: #F4F4F4; border: none;}"
+                                "QPushButton:checked{background: #F4F4F4; border:none; border-image: url(:/img/plugins/shortcut/up.png)}"
+                                "QPushButton:!checked{background: #F4F4F4; border:none; border-image: url(:/img/plugins/shortcut/down.png)}");
+
+    connect(directionBtn, &QPushButton::clicked, this, &ClickWidget::widgetClicked);
+
+    titleHorLayout->addWidget(titleNameLabel);
+    titleHorLayout->addStretch();
+    titleHorLayout->addWidget(directionBtn);
+
+    setLayout(titleHorLayout);
+}
+
+bool ClickWidget::checked(){
+    return directionBtn->isChecked();
+}
+
+void ClickWidget::mousePressEvent(QMouseEvent *e){
+    Q_UNUSED(e)
+
+    directionBtn->setChecked(!directionBtn->isChecked());
+
+    emit widgetClicked(directionBtn->isChecked());
+}
+
+void ClickWidget::paintEvent(QPaintEvent *e){
+    Q_UNUSED(e)
+    QStyleOption opt;
+    opt.init(this);
+    QPainter p(this);
+    style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
+}
+

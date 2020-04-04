@@ -71,12 +71,17 @@ Shortcut::Shortcut()
                                "QPushButton:hover:!pressed{background: #3d6be5; border-radius: 4px;}"
                                "QPushButton:hover:pressed{background: #415FC4; border-radius: 4px;}");
 
+    ui->resetBtn->setStyleSheet("QPushButton{background: #E9E9E9; border-radius: 4px;}"
+                               "QPushButton:hover:!pressed{background: #3d6be5; border-radius: 4px;}"
+                               "QPushButton:hover:pressed{background: #415FC4; border-radius: 4px;}");
+
     ui->customListWidget->setStyleSheet("QListWidget#customListWidget{background: #ffffff; border: none;}");
 
     ui->addWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
 
     pKeyMap = new KeyMap;
     addDialog = new addShortcutDialog();
+    showDialog = new ShowAllShortcut();
 
     showList << "terminal" << "screenshot" << "area-screenshot" << "peony-qt" << "logout" << "screensaver";
 
@@ -90,6 +95,7 @@ Shortcut::~Shortcut()
     delete ui;
     delete pKeyMap;
     delete addDialog;
+    delete showDialog;
 }
 
 QString Shortcut::get_plugin_name(){
@@ -111,8 +117,6 @@ void Shortcut::plugin_delay_control(){
 void Shortcut::setupComponent(){
     ui->addLabel->setPixmap(QPixmap("://img/plugins/printer/add.png"));
 
-    ui->showBtn->hide();
-
     ui->generalListWidget->setFocusPolicy(Qt::NoFocus);
     ui->generalListWidget->setSelectionMode(QAbstractItemView::NoSelection);
     ui->generalListWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -127,12 +131,63 @@ void Shortcut::setupComponent(){
 //    ui->customListWidget->setFixedHeight((showList.length() * ITEMHEIGH));
 
     ui->addWidget->installEventFilter(this);
+    ui->generalListWidget->setSelectionMode(QAbstractItemView::SingleSelection);
+
+    ui->resetBtn->hide();
 
 }
 
 void Shortcut::setupConnect(){
+    connect(ui->showBtn, &QPushButton::clicked, [=]{
+        QMap<QString, QString> systemMap;
+        QMap<QString, QString> desktopMap;
+
+        //最新快捷键数据
+        for (int i = 0; i < generalEntries.count(); i++){
+            if (generalEntries[i]->gsSchema == KEYBINDINGS_DESKTOP_SCHEMA){
+                desktopMap.insert(generalEntries[i]->keyStr, generalEntries[i]->valueStr);
+            } else if (generalEntries[i]->gsSchema == KEYBINDINGS_SYSTEM_SCHEMA){
+                systemMap.insert(generalEntries[i]->keyStr, generalEntries[i]->valueStr);
+            }
+
+        }
+        QMap<QString, QMap<QString, QString>> generalMaps;
+        generalMaps.insert(tr("Desktop"), desktopMap);
+        generalMaps.insert(tr("System"), systemMap);
+        showDialog->buildComponent(generalMaps);
+        showDialog->show();
+    });
+
     connect(addDialog, &addShortcutDialog::shortcutInfoSignal, [=](QString path, QString name, QString exec){
         createNewShortcut(path, name, exec);
+    });
+
+    connect(ui->generalListWidget, &QListWidget::itemSelectionChanged, [=]{
+        QList<QListWidgetItem *> selectedItems = ui->generalListWidget->selectedItems();
+        if (selectedItems.count() == 1){
+            ui->resetBtn->show();
+        } else{
+            ui->resetBtn->hide();
+        }
+    });
+
+    connect(ui->resetBtn, &QPushButton::clicked, [=]{
+        QList<QListWidgetItem *> selectedItems = ui->generalListWidget->selectedItems();
+        if (!selectedItems.isEmpty()){
+            QListWidgetItem * sItem = selectedItems.first();
+            DefineShortcutItem * wItem = dynamic_cast<DefineShortcutItem *>(ui->generalListWidget->itemWidget(sItem));
+            KeyEntry * currentEntry = dynamic_cast<KeyEntry *>(wItem->userData(Qt::UserRole));
+
+            const QByteArray id(currentEntry->gsSchema.toLatin1().data());
+            QGSettings * settings = new QGSettings(id);
+
+            settings->reset(currentEntry->keyStr);
+
+            QString value = settings->get(currentEntry->keyStr).toString();
+            wItem->setShortcutBinding(value);
+
+            delete settings;
+        }
     });
 }
 
@@ -474,7 +529,7 @@ bool Shortcut::eventFilter(QObject *watched, QEvent *event){
             QMouseEvent * mouseEvent = static_cast<QMouseEvent *>(event);
             if (mouseEvent->button() == Qt::LeftButton){
                 addDialog->setTitleText(QObject::tr("Add Shortcut"));
-                addDialog->exec();
+                addDialog->show();
                 return true;
             } else
                 return false;
