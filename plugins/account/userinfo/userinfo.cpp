@@ -29,6 +29,7 @@
 
 #include "SwitchButton/switchbutton.h"
 #include "HoverWidget/hoverwidget.h"
+#include "elipsemaskwidget.h"
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -215,6 +216,10 @@ void UserInfo::initComponent(){
     ui->listWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->listWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->listWidget->setSpacing(0);
+
+    ElipseMaskWidget * mainElipseMaskWidget = new ElipseMaskWidget(ui->currentUserFaceLabel);
+    mainElipseMaskWidget->setBgColor("#F4F4F4");
+    mainElipseMaskWidget->setGeometry(0, 0, ui->currentUserFaceLabel->width(), ui->currentUserFaceLabel->height());
 
     //设置添加用户的图标
     ui->addBtn->setIcon(QIcon("://img/plugins/userinfo/add.png"));

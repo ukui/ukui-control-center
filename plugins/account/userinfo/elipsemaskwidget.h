@@ -17,54 +17,32 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef DEFINESHORTCUTITEM_H
-#define DEFINESHORTCUTITEM_H
+#ifndef ELIPSEMASKWIDGET_H
+#define ELIPSEMASKWIDGET_H
 
 #include <QWidget>
 
-class QLabel;
-class QPushButton;
-class CustomLineEdit;
-
-class DefineShortcutItem : public QWidget
+class ElipseMaskWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit DefineShortcutItem(QString name, QString binding);
-    ~DefineShortcutItem();
+    explicit ElipseMaskWidget(QWidget *parent = nullptr);
+    ~ElipseMaskWidget();
 
 public:
-    QWidget * widgetComponent();
-    QLabel * labelComponent();
-    QPushButton * btnComponent();
-    CustomLineEdit * lineeditComponent();
-
-public:
-    void setDeleteable(bool deleteable);
-    void setUpdateable(bool updateable);
-
-    void setShortcutName(QString newName);
-    void setShortcutBinding(QString newBinding);
+    void setBgColor(QString color);
 
 protected:
-    virtual void mousePressEvent(QMouseEvent * e);
-    virtual void mouseDoubleClickEvent(QMouseEvent * e);
-
+    void paintEvent(QPaintEvent *event);
 
 private:
-    QWidget * pWidget;
-    QLabel * pLabel;
-    CustomLineEdit * pLineEdit;
-    QPushButton * pButton;
-
-private:
-    bool _deleteable;
-    bool _updateable;
-
-Q_SIGNALS:
-    void updateShortcutSignal();
+    int pWidth;
+    int pHeigh;
+    int pRadius;
+    int pBorder;
+    QString pColor;
 
 };
 
-#endif // DEFINESHORTCUTITEM_H
+#endif // ELIPSEMASKWIDGET_H

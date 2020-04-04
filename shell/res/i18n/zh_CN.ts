@@ -1718,7 +1718,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="162"/>
         <source>present</source>
-        <translation>近当存在电池时显示</translation>
+        <translation>仅当存在电池时显示</translation>
     </message>
 </context>
 <context>
@@ -2126,7 +2126,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/devices/shortcut/shortcut.ui" line="122"/>
         <source>Show all shortcut</source>
-        <translation>显示全不快捷键</translation>
+        <translation>显示全部快捷键</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/shortcut/shortcut.ui" line="166"/>
