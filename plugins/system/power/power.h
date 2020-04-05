@@ -54,6 +54,7 @@ public:
     void setupConnect();
     void initModeStatus();
     void initCustomPlanStatus();
+    void resetCustomPlanStatus();
     void initIconPolicyStatus();
 
 
