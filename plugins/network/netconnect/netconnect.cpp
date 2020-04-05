@@ -170,8 +170,9 @@ void NetConnect::rebuildNetStatusComponent(QString iconPath, QString netName){
     nameSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
     nameLabel->setSizePolicy(nameSizePolicy);
     nameLabel->setScaledContents(true);
-    nameLabel->setText(netName);
-
+    if ("No Net" != netName) {
+        nameLabel->setText(netName);
+    }
 
     QLabel * statusLabel = new QLabel(devWidget);
     QSizePolicy statusSizePolicy = statusLabel->sizePolicy();
@@ -179,7 +180,12 @@ void NetConnect::rebuildNetStatusComponent(QString iconPath, QString netName){
     statusSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
     statusLabel->setSizePolicy(statusSizePolicy);
     statusLabel->setScaledContents(true);
-    statusLabel->setText(tr("connected"));
+    if ("No Net" != netName) {
+        statusLabel->setText(tr("connected"));
+    } else {
+        statusLabel->setText(tr("No network"));
+    }
+
 
     devHorLayout->addWidget(iconLabel);
     devHorLayout->addWidget(nameLabel);
@@ -479,6 +485,10 @@ void NetConnect::getWifiListDone(QStringList getwifislist, QStringList getlanLis
         QString lanIconamePah= ":/img/plugins/netconnect/eth.png";
         rebuildNetStatusComponent(lanIconamePah, this->actLanName);
 //        qDebug()<<"name is=------------>"<<this->actLanName;
+    }
+
+    if (this->connectedWifi.isEmpty() && this->actLanName.isEmpty())  {
+        rebuildNetStatusComponent(":/img/plugins/netconnect/nonet.png" , "No Net");
     }
 }
 

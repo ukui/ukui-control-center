@@ -940,6 +940,9 @@ void Widget::save()
         return;
     }
 
+    KMessageBox::information(this,tr("Some applications need to be restarted to take effect"));
+
+
     m_blockChanges = true;
     /* Store the current config, apply settings */
     auto *op = new KScreen::SetConfigOperation(config);
