@@ -19,12 +19,18 @@ Build-Depends: debhelper-compat (= 12),
                libkf5screen-bin,
                qtdeclarative5-dev,
                libdconf-dev,
+<<<<<<< HEAD
                edid-decode,
                redshift,
 	       libmatemixer-dev,
 	       libqt5xdg-dev,
 	       qtmultimedia5-dev,
 	       libxml2-dev
+=======
+               libmatemixer-dev,
+               libqt5xdg-dev,
+               qtmultimedia5-dev,
+>>>>>>> upstream/master
 Standards-Version: 4.5.0
 Rules-Requires-Root: no
 Homepage: https://github.com/ukui/ukui-control-center
@@ -35,6 +41,9 @@ Package: ukui-control-center
 Architecture: any
 Depends: ${shlibs:Depends},
          ${misc:Depends}
+Recommends: edid-decode,
+            redshift,
+            qml-module-qtquick-controls
 Suggests: gsettings-desktop-schemas,
           mate-desktop-common,
           ukui-power-manager,

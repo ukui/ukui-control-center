@@ -49,12 +49,13 @@ public:
     void plugin_delay_control() Q_DECL_OVERRIDE;
 
 public:
+    void setupStylesheet();
     void setupComponent();
     void setupConnect();
     void initModeStatus();
     void initCustomPlanStatus();
+    void resetCustomPlanStatus();
     void initIconPolicyStatus();
-    void resetCustomPlanUI();
 
 
     void refreshUI();
@@ -78,6 +79,9 @@ private:
     QStringList iconShowList;
 
     QStyledItemDelegate *itemDelege;
+
+private:
+    bool settingsCreate;
 
 };
 

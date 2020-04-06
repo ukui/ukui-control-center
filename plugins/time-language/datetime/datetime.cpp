@@ -27,7 +27,8 @@
 
 
 #define FORMAT_SCHEMA "org.ukui.control-center.panel.plugins"
-#define TIME_FORMAT_KEY "hour-system"
+#define TIME_FORMAT_KEY "hoursystem"
+#define DATE_KEY "date"
 
 DateTime::DateTime()
 {
@@ -59,7 +60,7 @@ DateTime::DateTime()
         const QByteArray id(FORMAT_SCHEMA);
         m_formatsettings = new QGSettings(id);
     }
-
+    connectGSetting();
     //初始化dbus
     m_datetimeiface = new QDBusInterface("org.freedesktop.timedate1",
                                        "/org/freedesktop/timedate1",
@@ -213,8 +214,15 @@ bool DateTime::fileIsExits(const QString &filepath) {
 }
 
 void DateTime::datetime_update_slot(){
-    //当前时间
+    QString dateformat;
+    if(m_formatsettings) {
+        QStringList keys = m_formatsettings->keys();
+        if(keys.contains("date")) {
+            dateformat =  m_formatsettings->get(DATE_KEY).toString();
+        }
+    }
 
+    //当前时间    
     current = QDateTime::currentDateTime();
 //    qDebug()<<"current time is-------->"<<current<<endl;
 
@@ -224,7 +232,13 @@ void DateTime::datetime_update_slot(){
     }else{
         currentsecStr = current.toString("AP hh: mm : ss");
     }
-    QString timeAndWeek = current.toString("yyyy/MM/dd ddd");
+    QString timeAndWeek;
+    if ("cn" == dateformat) {
+       timeAndWeek = current.toString("yyyy/MM/dd ddd");
+    } else {
+       timeAndWeek = current.toString("yyyy-MM-dd ddd");
+    }
+
 //    qDebug()<<"year is----------->"<<timeAndWeek<<endl;
     ui->dateLabel->setText(timeAndWeek);
     ui->timeClockLable->setText(currentsecStr);
@@ -237,7 +251,8 @@ void DateTime::changetime_slot(){
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     m_itimer->stop();
     m_itimer->start();
-    dialog->exec();
+//    dialog->exec();
+    dialog->show();
 }
 
 
@@ -267,7 +282,7 @@ void DateTime::time_format_clicked_slot(bool flag){
         return;
     }
     QStringList keys = m_formatsettings->keys();
-    if (keys.contains("hour-system")) {
+    if (keys.contains("hoursystem")) {
         if(flag == true) {
             m_formatsettings->set(TIME_FORMAT_KEY, "24");
         } else {
@@ -312,11 +327,29 @@ void DateTime::loadHour() {
     if (!m_formatsettings) {
         qDebug()<<"org.ukui.control-center.panel.plugins not installed"<<endl;
         return;
+    }    
+    QStringList keys = m_formatsettings->keys();
+    QString format;
+    if (keys.contains("hoursystem")) {
+        format = m_formatsettings->get(TIME_FORMAT_KEY).toString();
     }
-    QString format =m_formatsettings->get(TIME_FORMAT_KEY).toString();
     if (format == "24") {
         m_formTimeBtn->setChecked(true);
     } else {
         m_formTimeBtn->setChecked(false);
     }
+}
+
+void DateTime::connectGSetting() {
+    connect(m_formatsettings, &QGSettings::changed, this, [=] (const QString &key) {
+//            qDebug()<<"status changed ------------>"<<endl;
+        if (key == "hoursystem") {
+            QString value = m_formatsettings->get(TIME_FORMAT_KEY).toString();
+            bool checked = (value == "24" ? true : false);
+            m_formTimeBtn->setChecked(checked);
+        }
+        if (key == "date") {
+            QString value = m_formatsettings->get(DATE_KEY).toString();
+        }
+    });
 }

@@ -28,6 +28,8 @@
 #include <syslog.h>
 #include <QObject>
 #include <QDesktopWidget>
+#include <QCommandLineOption>
+#include <QCommandLineParser>
 
 #include "framelessExtended/framelesshandle.h"
 
@@ -51,7 +53,7 @@ int main(int argc, char *argv[])
     QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QtSingleApplication a(argc, argv);
     if (a.isRunning()){
-        a.sendMessage(a.applicationFilePath());
+        a.sendMessage(QApplication::arguments().length() > 1 ? QApplication::arguments().at(1) : a.applicationFilePath());
         qDebug() << QObject::tr("ukui-control-center had already running!");
         return EXIT_SUCCESS;
     } else {
@@ -64,6 +66,28 @@ int main(int argc, char *argv[])
             else
                 qDebug() << "Load translations file" << locale << "failed!";
         }
+
+        //命令行参数
+        QCoreApplication::setApplicationName("ukui-control-center");
+        QCoreApplication::setApplicationVersion("2.0");
+        QCommandLineParser parser;
+        QCommandLineOption monitorRoleOption("m", "Go to monitor settings page");
+        QCommandLineOption backgroundRoleOption("b", "Go to background settings page");
+        QCommandLineOption userinfoRoleOption("u", "Go to userinfo settings page");
+        QCommandLineOption aboutRoleOption("a", "Go to about settings page");
+        QCommandLineOption powerRoleOption("p", "Go to power settings page");
+//        QCommandLineOption powerRoleOption(QStringList() << "aaa" << "bbb", "ccccccccccccccccc");
+
+//        parser.setApplicationDescription("eeeeeeeeeeeee");
+        parser.addHelpOption();
+        parser.addVersionOption();
+        parser.addOption(monitorRoleOption);
+        parser.addOption(backgroundRoleOption);
+        parser.addOption(userinfoRoleOption);
+        parser.addOption(aboutRoleOption);
+        parser.addOption(powerRoleOption);
+//        parser.addPositionalArgument("ffff", "ggggggggggggggggggg");
+        parser.process(a);
 
         //加载qss样式文件
         QString qss;

@@ -17,33 +17,32 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef HOVERWIDGET_H
-#define HOVERWIDGET_H
+#ifndef ELIPSEMASKWIDGET_H
+#define ELIPSEMASKWIDGET_H
 
 #include <QWidget>
-#include <QEvent>
 
-class HoverWidget : public QWidget
+class ElipseMaskWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit HoverWidget(QString mname, QWidget *parent = 0);
-    ~HoverWidget();
+    explicit ElipseMaskWidget(QWidget *parent = nullptr);
+    ~ElipseMaskWidget();
 
 public:
-    QString _name;
+    void setBgColor(QString color);
 
 protected:
-    virtual void enterEvent(QEvent * event);
-    virtual void leaveEvent(QEvent * event);
-    virtual void paintEvent(QPaintEvent * event);
-    virtual void mousePressEvent(QMouseEvent * event);
+    void paintEvent(QPaintEvent *event);
 
-Q_SIGNALS:
-    void widgetClicked(QString name);
-    void enterWidget(QString name);
-    void leaveWidget(QString name);
+private:
+    int pWidth;
+    int pHeigh;
+    int pRadius;
+    int pBorder;
+    QString pColor;
+
 };
 
-#endif // HOVERWIDGET_H
+#endif // ELIPSEMASKWIDGET_H

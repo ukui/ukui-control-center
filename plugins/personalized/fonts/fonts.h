@@ -65,6 +65,7 @@ public:
     void plugin_delay_control() Q_DECL_OVERRIDE;
 
 public:
+    void setupStylesheet();
     void setupComponent();
     void setupConnect();
     void initFontStatus();
@@ -74,6 +75,8 @@ public:
 
     void setFontEffect(QAbstractButton * button);
     void resetDefault();
+
+    void setSampleButton(QPushButton * button);
 
     void _getDefaultFontinfo();
     void _getCurrentFontInfo();
@@ -100,6 +103,9 @@ private:
     QStyledItemDelegate *itemDelege;
 
     QFontDatabase fontdb;
+
+private:
+    bool settingsCreate;
 
 };
 

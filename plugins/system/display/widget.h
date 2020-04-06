@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QVariantMap>
 #include <QGSettings/QGSettings>
+#include <QSettings>
+#include <QButtonGroup>
 
 #include <KF5/KScreen/kscreen/config.h>
 
@@ -40,6 +42,11 @@ typedef struct xml{
     bool isEnable;
 }xmlFile;
 
+typedef enum {
+    SUN,
+    CUSTOM,
+}MODE;
+
 
 namespace KScreen
 {
@@ -71,6 +78,8 @@ class Widget : public QWidget
     QStringList  getscreenBrightnesValue();
     //获取配置文件位置
     void setBrigthnessFile();
+    void initTemptSlider();
+    void initConfigFile();
     //获取屏幕xml文件
     void writeScreenXml(int count);
     //初始化屏幕配置文件
@@ -85,6 +94,9 @@ class Widget : public QWidget
 
     float converToScale(const int value);
     int scaleToSlider(const float value);
+
+    void initUiComponent();
+    void initUiQss();
 
 
 
@@ -114,6 +126,8 @@ class Widget : public QWidget
     void primaryOutputSelected(int index);
     void primaryOutputChanged(const KScreen::OutputPtr &output);
 
+    void showNightWidget(bool judge);
+    void showCustomWiget(int index);
 
     //按钮选择主屏确认按钮
     void primaryButtonEnable();
@@ -152,7 +166,7 @@ class Widget : public QWidget
     bool getNightModeGSetting(const QString &key);
     void setNightModebyPanel(bool judge);
     void setSessionScale(int scale);
-
+    void writeConfigFile();
 
   private:
     Ui::DisplayWindow *ui;
@@ -190,8 +204,11 @@ class Widget : public QWidget
     Slider *slider;
     QGSettings *m_gsettings = nullptr;
     QGSettings *scaleGSettings = nullptr;
+    QSettings *m_qsettings = nullptr;
 
     int screenScale = 1;
+
+    QButtonGroup *singleButton;
 
 };
 

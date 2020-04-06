@@ -31,6 +31,7 @@
 #include "keymap.h"
 #include "addshortcutdialog.h"
 #include "getshortcutworker.h"
+#include "showallshortcut.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Shortcut; }
@@ -111,6 +112,7 @@ private:
     KeyMap * pKeyMap;
 
     addShortcutDialog * addDialog;
+    ShowAllShortcut * showDialog;
 
 Q_SIGNALS:
     void hideDelBtn();

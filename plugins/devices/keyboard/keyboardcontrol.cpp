@@ -42,54 +42,42 @@ KeyboardControl::KeyboardControl()
     pluginName = tr("keyboard");
     pluginType = DEVICES;
 
-    pluginWidget->setStyleSheet("background: #ffffff;");
+    settingsCreate = false;
 
-    //隐藏未开发功能
-    ui->repeatWidget_4->hide();
-    ui->repeatWidget_5->hide();
-
-    ui->repeatWidget_0->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
-    ui->repeatWidget_1->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
-    ui->repeatWidget_2->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
-
-    ui->repeatWidget_3->setStyleSheet("QWidget#repeatWidget_3{background: #F4F4F4; border-radius: 6px;}");
-    ui->repeatLabel_3->setStyleSheet("QLabel{background: #F4F4F4; font-size: 14px; color: #D9000000;}");
-
-    ui->repeatWidget_4->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
-    ui->repeatWidget_5->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
-
-
-    ui->layoutWidget_0->setStyleSheet("QWidget#layoutWidget_0{background: #F4F4F4; border-radius: 6px;}");
-    ui->layoutLabel_0->setStyleSheet("QLabel{background: #F4F4F4; font-size: 14px; color: #D9000000;}");
-
-    ui->layoutWidget_1->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+    setupStylesheet();
+    setupComponent();
 
     //初始化键盘通用设置GSettings
     const QByteArray id(KEYBOARD_SCHEMA);
-    settings = new QGSettings(id);
 
     //初始化键盘布局GSettings
     const QByteArray idd(KBD_LAYOUTS_SCHEMA);
-    kbdsettings = new QGSettings(idd);
 
-    //构建布局管理器对象
-    layoutmanagerObj = new KbdLayoutManager(kbdsettings->get(KBD_LAYOUTS_KEY).toStringList());
+    if (QGSettings::isSchemaInstalled(id) && QGSettings::isSchemaInstalled(idd)){
+        settingsCreate = true;
 
-    //构建Combox代理，否则样式不全部生效
-    itemDelege = new QStyledItemDelegate();
+        kbdsettings = new QGSettings(idd);
+        settings = new QGSettings(id);
 
-    initComponent();
-    initGeneralStatus();
+        //构建布局管理器对象
+        layoutmanagerObj = new KbdLayoutManager(kbdsettings->get(KBD_LAYOUTS_KEY).toStringList());
 
-    rebuildLayoutsComBox();
+        setupConnect();
+        initGeneralStatus();
+
+        rebuildLayoutsComBox();
+    }
 
 }
 
 KeyboardControl::~KeyboardControl()
 {
     delete ui;
-    delete kbdsettings;
-    delete settings;
+    if (settingsCreate){
+        delete kbdsettings;
+        delete settings;
+    }
+
 }
 
 QString KeyboardControl::get_plugin_name(){
@@ -108,7 +96,33 @@ void KeyboardControl::plugin_delay_control(){
 
 }
 
-void KeyboardControl::initComponent(){
+void KeyboardControl::setupStylesheet(){
+    pluginWidget->setStyleSheet("background: #ffffff;");
+
+    ui->repeatWidget_0->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+    ui->repeatWidget_1->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+    ui->repeatWidget_2->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+
+    ui->repeatWidget_3->setStyleSheet("QWidget#repeatWidget_3{background: #F4F4F4; border-radius: 6px;}");
+    ui->repeatLabel_3->setStyleSheet("QLabel{background: #F4F4F4; font-size: 14px; color: #D9000000;}");
+
+    ui->repeatWidget_4->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+    ui->repeatWidget_5->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+
+
+    ui->layoutWidget_0->setStyleSheet("QWidget#layoutWidget_0{background: #F4F4F4; border-radius: 6px;}");
+    ui->layoutLabel_0->setStyleSheet("QLabel{background: #F4F4F4; font-size: 14px; color: #D9000000;}");
+
+    ui->layoutWidget_1->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+}
+
+void KeyboardControl::setupComponent(){
+    //构建Combox代理，否则样式不全部生效
+    itemDelege = new QStyledItemDelegate();
+
+    //隐藏未开发功能
+    ui->repeatWidget_4->hide();
+    ui->repeatWidget_5->hide();
 
     //重复输入开关按钮
     keySwitchBtn = new SwitchButton(pluginWidget);
@@ -128,7 +142,9 @@ void KeyboardControl::initComponent(){
 
     ui->addBtn->setIcon(QIcon("://img/plugins/keyboardcontrol/add.png"));
     ui->addBtn->setIconSize(QSize(48, 48));
+}
 
+void KeyboardControl::setupConnect(){
     connect(keySwitchBtn, &SwitchButton::checkedChanged, this, [=](bool checked){
         settings->set(REPEAT_KEY, checked);
     });
@@ -152,10 +168,18 @@ void KeyboardControl::initComponent(){
     });
     connect(layoutmanagerObj, &KbdLayoutManager::add_new_variant_signals, [=](QString layout){
         rebuildLayoutsComBox();
-
-        qDebug() << layout;
     });
 
+    connect(ui->layoutsComBox, QOverload<int>::of(&QComboBox::currentIndexChanged), [=](int index){
+        QStringList layoutsList;
+        layoutsList.append(ui->layoutsComBox->currentData(Qt::UserRole).toString());
+        for (int i = 0; i < ui->layoutsComBox->count(); i++){
+            QString id = ui->layoutsComBox->itemData(i, Qt::UserRole).toString();
+            if (i != index) //跳过当前item
+                layoutsList.append(id);
+        }
+        kbdsettings->set(KBD_LAYOUTS_KEY, layoutsList);
+    });
 }
 
 void KeyboardControl::initGeneralStatus(){

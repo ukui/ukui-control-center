@@ -39,8 +39,14 @@ CreateUserDialog::CreateUserDialog(QStringList userlist, QWidget *parent) :
     setAttribute(Qt::WA_TranslucentBackground);
     setAttribute(Qt::WA_DeleteOnClose);
 
+    ui->label_8->adjustSize();
+    ui->label_8->setWordWrap(true);
+
+    ui->label_10->adjustSize();
+    ui->label_10->setWordWrap(true);
+
     ui->frame->setStyleSheet("QFrame{background: #ffffff; border: none; border-radius: 6px;}");
-    ui->closeBtn->setStyleSheet("QPushButton{background: #ffffff;}");
+    ui->closeBtn->setStyleSheet("QPushButton{background: #ffffff; border: none;}");
 
     ui->usernameLineEdit->setStyleSheet("QLineEdit{background: #F4F4F4; border: none; border-radius: 4px;}");
     ui->pwdLineEdit->setStyleSheet("QLineEdit{background: #F4F4F4; border: none; border-radius: 4px;}");
@@ -70,6 +76,11 @@ CreateUserDialog::~CreateUserDialog()
 }
 
 void CreateUserDialog::setupComonpent(){
+    nameTip = "";
+    pwdTip = "";
+    pwdSureTip = "";
+
+
     ui->pwdLineEdit->setEchoMode(QLineEdit::Password);
     ui->pwdsureLineEdit->setEchoMode(QLineEdit::Password);
 //    ui->pinLineEdit->setEchoMode(QLineEdit::Password);
@@ -127,10 +138,16 @@ void CreateUserDialog::setupConnect(){
     });
 
     connect(ui->pwdsureLineEdit, &QLineEdit::textChanged, [=](QString text){
-        if (text != ui->pwdLineEdit->text())
-            ui->tipLabel->setText(tr("Inconsistency with pwd"));
-        else
-            ui->tipLabel->setText("");
+        if (!text.isEmpty() && text != ui->pwdLineEdit->text()){
+            pwdSureTip = tr("Inconsistency with pwd");
+        } else {
+            pwdSureTip = "";
+        }
+
+        ui->tipLabel->setText(pwdSureTip);
+        if (pwdSureTip.isEmpty()){
+            pwdTip.isEmpty() ? ui->tipLabel->setText(nameTip) : ui->tipLabel->setText(pwdTip);
+        }
 
         refreshConfirmBtnStatus();
     });
@@ -198,36 +215,47 @@ void CreateUserDialog::refreshConfirmBtnStatus(){
     if (ui->usernameLineEdit->text().isEmpty() ||
             ui->pwdLineEdit->text().isEmpty() ||
             ui->pwdsureLineEdit->text().isEmpty() ||
-            !ui->tipLabel->text().isEmpty())
+            !nameTip.isEmpty() || !pwdTip.isEmpty() || !pwdSureTip.isEmpty())
         ui->confirmBtn->setEnabled(false);
     else
         ui->confirmBtn->setEnabled(true);
 }
 
 
-void CreateUserDialog::pwdLegalityCheck(QString pwd){
-    if (pwd.length() < PWD_LOW_LENGTH)
-        ui->tipLabel->setText(tr("Password length needs to more than %1 character!").arg(PWD_LOW_LENGTH - 1));
-    else if (pwd.length() > PWD_HIGH_LENGTH)
-        ui->tipLabel->setText(tr("Password length needs to less than %1 character!").arg(PWD_HIGH_LENGTH + 1));
-    else
-        ui->tipLabel->setText("");
+void CreateUserDialog::pwdLegalityCheck(QString pwd){    
+    if (pwd.length() < PWD_LOW_LENGTH) {
+        pwdTip = tr("Password length needs to more than %1 character!").arg(PWD_LOW_LENGTH - 1);
+    } else if (pwd.length() > PWD_HIGH_LENGTH) {
+        pwdTip = tr("Password length needs to less than %1 character!").arg(PWD_HIGH_LENGTH + 1);
+    } else {
+        pwdTip = "";
+    }
 
     //防止先输入确认密码，再输入密码后pwdsuretipLabel无法刷新
-    if (ui->pwdLineEdit->text() == ui->pwdsureLineEdit->text())
-        ui->tipLabel->setText("");
+    if (!ui->pwdsureLineEdit->text().isEmpty()){
+        if (ui->pwdLineEdit->text() == ui->pwdsureLineEdit->text()) {
+            pwdSureTip = "";
+        } else {
+            pwdSureTip = tr("Inconsistency with pwd");
+        }
+    }
+
+    ui->tipLabel->setText(pwdTip);
+    if (pwdTip.isEmpty()){
+        pwdSureTip.isEmpty() ? ui->tipLabel->setText(nameTip) : ui->tipLabel->setText(pwdSureTip);
+    }
 
     refreshConfirmBtnStatus();
 }
 
 void CreateUserDialog::nameLegalityCheck(QString username){
     if (username.isEmpty())
-        ui->tipLabel->setText(tr("The user name cannot be empty"));
+        nameTip = tr("The user name cannot be empty");
     else if (username.startsWith("_") || username.left(1).contains((QRegExp("[0-9]")))){
-        ui->tipLabel->setText(tr("The first character must be lowercase letters!"));
+        nameTip = tr("The first character must be lowercase letters!");
     }
     else if (username.contains(QRegExp("[A-Z]"))){
-        ui->tipLabel->setText(tr("User name can not contain capital letters!"));
+        nameTip = tr("User name can not contain capital letters!");
     }
     else if (username.contains(QRegExp("[a-z]")) || username.contains(QRegExp("[0-9]")) || username.contains("_"))
         if (username.length() > 0 && username.length() < USER_LENGTH){
@@ -241,15 +269,22 @@ void CreateUserDialog::nameLegalityCheck(QString username){
 //            process->start(cmd);
 
             if (usersStringList.contains(username)){
-                ui->tipLabel->setText(tr("The user name is already in use, please use a different one."));
+                nameTip = tr("The user name is already in use, please use a different one.");
+            } else {
+                nameTip = "";
             }
-            else
-                ui->tipLabel->setText("");
-        }
-        else
-            ui->tipLabel->setText(tr("User name length need to less than %1 letters!").arg(USER_LENGTH));
-    else
-        ui->tipLabel->setText(tr("The user name can only be composed of letters, numbers and underline!"));
+        } else {
+            nameTip = tr("User name length need to less than %1 letters!").arg(USER_LENGTH);
+    } else {
+        nameTip = tr("The user name can only be composed of letters, numbers and underline!");
+    }
+
+    ui->tipLabel->setText(nameTip);
+
+    if (nameTip.isEmpty()){
+        pwdTip.isEmpty() ? ui->tipLabel->setText(pwdSureTip) : ui->tipLabel->setText(pwdTip);
+    }
+
 
     refreshConfirmBtnStatus();
 }

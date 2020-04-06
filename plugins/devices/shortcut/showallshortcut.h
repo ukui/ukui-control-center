@@ -17,33 +17,54 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef HOVERWIDGET_H
-#define HOVERWIDGET_H
+#ifndef SHOWALLSHORTCUT_H
+#define SHOWALLSHORTCUT_H
 
-#include <QWidget>
-#include <QEvent>
+#include <QDialog>
 
-class HoverWidget : public QWidget
+namespace Ui {
+class ShowAllShortcut;
+}
+
+class ClickWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit HoverWidget(QString mname, QWidget *parent = 0);
-    ~HoverWidget();
+    explicit ClickWidget(QString name);
+    ~ClickWidget(){}
 
 public:
-    QString _name;
+    bool checked();
 
 protected:
-    virtual void enterEvent(QEvent * event);
-    virtual void leaveEvent(QEvent * event);
-    virtual void paintEvent(QPaintEvent * event);
-    virtual void mousePressEvent(QMouseEvent * event);
+    void mousePressEvent(QMouseEvent * e);
+    void paintEvent(QPaintEvent * e);
+
+private:
+    QPushButton * directionBtn;
 
 Q_SIGNALS:
-    void widgetClicked(QString name);
-    void enterWidget(QString name);
-    void leaveWidget(QString name);
+    void widgetClicked(bool checked);
+
 };
 
-#endif // HOVERWIDGET_H
+class ShowAllShortcut : public QDialog
+{
+    Q_OBJECT
+
+public:
+    explicit ShowAllShortcut(QWidget *parent = nullptr);
+    ~ShowAllShortcut();
+
+public:
+    void buildComponent(QMap<QString, QMap<QString, QString>> shortcutsMap);
+
+    QWidget * buildTitleWidget(QString tName);
+    QWidget * buildGeneralWidget(QMap<QString, QString> subShortcutsMap);
+
+private:
+    Ui::ShowAllShortcut *ui;
+};
+
+#endif // SHOWALLSHORTCUT_H

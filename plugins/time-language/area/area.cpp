@@ -28,11 +28,11 @@
 #include <QTimer>
 #include <QGSettings/QGSettings>
 
-#define PANEL_GSCHEMAL   "org.ukui.panel.plugins"
+#define PANEL_GSCHEMAL   "org.ukui.control-center.panel.plugins"
 #define CALENDAR_KEY     "calendar"
 #define DAY_KEY          "firstday"
 #define DATE_FORMATE_KEY "date"
-#define TIME_KEY         "time"
+#define TIME_KEY         "hoursystem"
 
 const QVector<QString> CFormats{"zh_SG.UTF-8", "zh_CN.UTF-8", "lt_LT.UTF-8", "en_ZW.UTF-8", "en_ZM.UTF-8",
                                "en_ZA.UTF-8", "en_US.UTF-8", "en_SG.UTF-8", "en_PH.UTF-8", "en_NZ.UTF-8",
@@ -68,12 +68,9 @@ Area::Area()
         m_gsettings = new QGSettings(id);
 
 ////        监听key的value是否发生了变化
-//        connect(m_gsettings, &QGSettings::changed, this, [=] (const QString &key) {
-//            if (key == "switch") {
-//                bool judge = getSwitchStatus(key);
-//                wifiBtn->setChecked(judge);
-//            }
-//        });
+        connect(m_gsettings, &QGSettings::changed, this, [=] (const QString &key) {
+            initFormatData();
+        });
     }
 
     unsigned int uid = getuid();
@@ -190,6 +187,8 @@ void Area::initComponent() {
 
 
 void Area::initFormatData() {
+//    qDebug()<<"initFormatData------>"<<endl;
+
     if (!m_gsettings) {
         return ;
     }
@@ -216,7 +215,7 @@ void Area::initFormatData() {
     QDateTime current = QDateTime::currentDateTime();
     QString currentsecStr  ;
     QString dateFormat = m_gsettings->get(DATE_FORMATE_KEY).toString();
-    if ("cn" == dateFormat) {
+    if ("cn" == dateFormat) {        
        currentsecStr = current.toString("yyyy/MM/dd ");;
     } else {
        currentsecStr = current.toString("yyyy-MM-dd ");
@@ -224,7 +223,6 @@ void Area::initFormatData() {
     ui->datelabelshow->setText(currentsecStr);
 
     this->hourformat = m_gsettings->get(TIME_KEY).toString();
-
 }
 
 void Area::change_language_slot(int index){
@@ -253,6 +251,7 @@ void Area::change_area_slot(int index){
 }
 
 void Area::datetime_update_slot() {
+
     QDateTime current = QDateTime::currentDateTime();
     QString timeStr;
     if ("24" == this->hourformat) {
@@ -279,7 +278,8 @@ void Area::changeform_slot() {
     connect(dialog, SIGNAL(dataChangedSignal()),this,SLOT(initFormatData()));
     dialog->setWindowTitle(tr("change data format"));
     dialog->setAttribute(Qt::WA_DeleteOnClose);
-    dialog->exec();
+//    dialog->exec();
+    dialog->show();
 
 
 }

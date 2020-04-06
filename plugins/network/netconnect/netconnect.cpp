@@ -25,6 +25,7 @@
 
 #include <QGSettings/QGSettings>
 #include <QProcess>
+#include <QTimer>
 
 
 #define CONTROL_CENTER_WIFI "org.ukui.control-center.wifi.switch"
@@ -69,8 +70,8 @@ NetConnect::NetConnect():m_wifiList(new Wifi)
     //构建网络配置对象
     nmg  = new QNetworkConfigurationManager();
     initComponent();
-    getNetList();
 
+    getNetList();
 }
 
 NetConnect::~NetConnect()
@@ -169,8 +170,9 @@ void NetConnect::rebuildNetStatusComponent(QString iconPath, QString netName){
     nameSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
     nameLabel->setSizePolicy(nameSizePolicy);
     nameLabel->setScaledContents(true);
-    nameLabel->setText(netName);
-
+    if ("No Net" != netName) {
+        nameLabel->setText(netName);
+    }
 
     QLabel * statusLabel = new QLabel(devWidget);
     QSizePolicy statusSizePolicy = statusLabel->sizePolicy();
@@ -178,7 +180,12 @@ void NetConnect::rebuildNetStatusComponent(QString iconPath, QString netName){
     statusSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
     statusLabel->setSizePolicy(statusSizePolicy);
     statusLabel->setScaledContents(true);
-    statusLabel->setText(tr("connected"));
+    if ("No Net" != netName) {
+        statusLabel->setText(tr("connected"));
+    } else {
+        statusLabel->setText(tr("No network"));
+    }
+
 
     devHorLayout->addWidget(iconLabel);
     devHorLayout->addWidget(nameLabel);
@@ -228,7 +235,7 @@ void NetConnect::_acquireCardInfo(){
 }
 
 
-void NetConnect::getNetList() {    
+void NetConnect::getNetList() {
     ui->availableListWidget->clear();
     ui->statusListWidget->clear();
 
@@ -243,6 +250,9 @@ void NetConnect::getNetList() {
         QMap<QString, int>::iterator iter = this->wifiList.begin();
         QString iconamePah;
         while(iter != this->wifiList.end()) {
+            if (!wifiBtn->isChecked()){
+                break;
+            }
             iconamePah= ":/img/plugins/netconnect/wifi" + QString::number(iter.value())+".png";
             rebuildAvailComponent(iconamePah , iter.key());
             iter++;
@@ -434,7 +444,7 @@ void NetConnect::getWifiListDone(QStringList getwifislist, QStringList getlanLis
         lanList.clear();
         connectedLan.clear();
 
-        // 获取当前连接的lan name        
+        // 获取当前连接的lan name
         activecon *actLan = kylin_network_get_activecon_info();
         int indexLan = 0;
         while(actLan[indexLan].con_name != NULL){
@@ -476,6 +486,10 @@ void NetConnect::getWifiListDone(QStringList getwifislist, QStringList getlanLis
         rebuildNetStatusComponent(lanIconamePah, this->actLanName);
 //        qDebug()<<"name is=------------>"<<this->actLanName;
     }
+
+    if (this->connectedWifi.isEmpty() && this->actLanName.isEmpty())  {
+        rebuildNetStatusComponent(":/img/plugins/netconnect/nonet.png" , "No Net");
+    }
 }
 
 bool NetConnect::getSwitchStatus(QString key){
@@ -487,7 +501,7 @@ bool NetConnect::getSwitchStatus(QString key){
     if (!list.contains(key)) {
         return true;
     }
-    bool res = m_gsettings->get(key).toBool();    
+    bool res = m_gsettings->get(key).toBool();
     return res;
 }
 
@@ -517,7 +531,8 @@ int NetConnect::setSignal(QString lv) {
 }
 
 void NetConnect::wifiSwitchSlot(bool signal){
-    qDebug()<<"wifiSwitchSlot--------------->"<<endl;
+    getNetList();
+//    qDebug()<<"wifiSwitchSlot--------------->"<<endl;
     if(!m_gsettings) {
         return ;
     }

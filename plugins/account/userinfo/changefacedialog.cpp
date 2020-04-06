@@ -21,6 +21,7 @@
 #include "ui_changefacedialog.h"
 
 #include "FlowLayout/flowlayout.h"
+#include "elipsemaskwidget.h"
 
 #include <QDebug>
 
@@ -39,6 +40,10 @@ ChangeFaceDialog::ChangeFaceDialog(QWidget *parent) :
     ui->closeBtn->setStyleSheet("QPushButton{background: #ffffff; border: none;}");
 
     ui->closeBtn->setIcon(QIcon("://img/titlebar/close.png"));
+
+    ElipseMaskWidget * cfMaskWidget = new ElipseMaskWidget(ui->faceLabel);
+//    cfMaskWidget->setBgColor("#F4F4F4");
+    cfMaskWidget->setGeometry(0, 0, ui->faceLabel->width(), ui->faceLabel->height());
 
     loadSystemFaces();
 
@@ -67,10 +72,15 @@ void ChangeFaceDialog::loadSystemFaces(){
     foreach (QString filename, facesDir.entryList(QDir::Files)){
 //        facesList.append(FACEPATH + filename);
         QString fullface = QString("%1%2").arg(FACEPATH).arg(filename);
+        if (fullface.endsWith(".svg"))
+            continue;
+        if (fullface.endsWith("default.png"))
+            continue;
 
         QPushButton * button = new QPushButton;
         button->setAttribute(Qt::WA_DeleteOnClose);
         button->setFixedSize(QSize(48, 48));
+        button->setStyleSheet("QPushButton{border: none;}");
 
         QHBoxLayout * mainHorLayout = new QHBoxLayout(button);
         mainHorLayout->setSpacing(0);

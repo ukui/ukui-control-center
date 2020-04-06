@@ -50,8 +50,8 @@ public:
     static void addApplicationControl (UkmediaMainWidget *w, MateMixerStreamControl *control);
     static void onStreamControlAdded (MateMixerStream *stream,const gchar *name,UkmediaMainWidget  *w);
     static void onStreamControlRemoved (MateMixerStream *stream,const gchar *name,UkmediaMainWidget *w);
-    static void onContextStoredControlAdded (MateMixerContext *context,const gchar *name,UkmediaMainWidget *w);
 
+    static void onContextStoredControlAdded (MateMixerContext *context,const gchar *name,UkmediaMainWidget *w);
     static void onContextDeviceAdded (MateMixerContext *context, const gchar *name, UkmediaMainWidget *w);
     static void addDevice (UkmediaMainWidget *w, MateMixerDevice *device);
     static void onContextDeviceRemoved (MateMixerContext *context,const gchar *name,UkmediaMainWidget *w);
@@ -123,6 +123,8 @@ private Q_SLOTS:
     void outputWidgetSliderChangedSlot(int value);
     void inputWidgetSliderChangedSlot(int value);
 private:
+
+private:
     UkmediaInputWidget *m_pInputWidget;
     UkmediaOutputWidget *m_pOutputWidget;
     UkmediaSoundEffectsWidget *m_pSoundWidget;
@@ -140,11 +142,11 @@ private:
     QStringList *m_pThemeNameList;
     QStringList *m_pDeviceNameList;
     QStringList *m_pAppNameList;
+
     QStringList *m_pOutputStreamList;
     QStringList *m_pInputStreamList;
     QStringList *m_pAppVolumeList;
     QStringList *m_pStreamControlList;
-
     GSettings *m_pSoundSettings;
     LevelScale scale;
     gdouble peakFraction;

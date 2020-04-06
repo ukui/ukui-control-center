@@ -44,7 +44,7 @@ HomePageWidget::HomePageWidget(QWidget *parent) :
     pmainWindow = (MainWindow *)parentWidget();
 
     //
-    ui->listWidget->setStyleSheet("QListWidget#listWidget{border: none;}");
+    ui->listWidget->setStyleSheet("QListWidget#listWidget{border: none;background:#FFFFFF}");
 
 
 
@@ -156,8 +156,8 @@ void HomePageWidget::initUI(){
                 continue;
             }
             //跳过不在首页显示的功能
-            if (!single.mainShow)
-                continue;
+//            if (!single.mainShow)
+//                continue;
 
             ClickLabel * label = new ClickLabel(single.namei18nString, widget);
             label->setStyleSheet("font-size: 14px; color: #91434345;");

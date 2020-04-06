@@ -17,33 +17,40 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef HOVERWIDGET_H
-#define HOVERWIDGET_H
+#include "elipsemaskwidget.h"
 
-#include <QWidget>
-#include <QEvent>
+#include <QPainter>
 
-class HoverWidget : public QWidget
+ElipseMaskWidget::ElipseMaskWidget(QWidget *parent) :
+    QWidget(parent)
 {
-    Q_OBJECT
+    setAttribute(Qt::WA_DeleteOnClose);
+    pWidth = parent->width();
+    pHeigh = parent->height();
+    pRadius = 6;
+    pColor = QString("#ffffff");
+    pBorder = 1;
+}
 
-public:
-    explicit HoverWidget(QString mname, QWidget *parent = 0);
-    ~HoverWidget();
+ElipseMaskWidget::~ElipseMaskWidget()
+{
+}
 
-public:
-    QString _name;
+void ElipseMaskWidget::setBgColor(QString color){
+    pColor = color;
+}
 
-protected:
-    virtual void enterEvent(QEvent * event);
-    virtual void leaveEvent(QEvent * event);
-    virtual void paintEvent(QPaintEvent * event);
-    virtual void mousePressEvent(QMouseEvent * event);
+void ElipseMaskWidget::paintEvent(QPaintEvent *e){
+    Q_UNUSED(e)
 
-Q_SIGNALS:
-    void widgetClicked(QString name);
-    void enterWidget(QString name);
-    void leaveWidget(QString name);
-};
+    QPainterPath cPath;
+    cPath.addRect(0, 0, pWidth, pHeigh);
+    cPath.addEllipse(0, 0, pWidth, pHeigh);
 
-#endif // HOVERWIDGET_H
+    QPainter painter(this);
+    painter.setRenderHint(QPainter:: Antialiasing, true);  //设置渲染,启动反锯齿
+    painter.setPen(QPen(QColor(pColor), pBorder));
+    painter.drawPath(cPath);
+    painter.fillPath(cPath, QBrush(QColor(pColor)));
+
+}

@@ -90,6 +90,10 @@ UkmediaMainWidget::UkmediaMainWidget(QWidget *parent)
     m_pInputStream = mate_mixer_context_get_default_input_stream(m_pContext);
     m_pOutputStream = mate_mixer_context_get_default_output_stream(m_pContext);
     contextSetProperty(this);
+//    点击输出设备
+    connect(m_pOutputWidget->m_pOutputDeviceCombobox,SIGNAL(currentIndexChanged(QString)),this,SLOT(outputDeviceComboxIndexChangedSlot(QString)));
+//    点击输入设备
+    connect(m_pInputWidget->m_pInputDeviceCombobox,SIGNAL(currentIndexChanged(QString)),this,SLOT(inputDeviceComboxIndexChangedSlot(QString)));
 
     g_signal_connect (G_OBJECT (m_pContext),
                      "notify::state",
@@ -165,7 +169,6 @@ void UkmediaMainWidget::onContextStoredControlAdded(MateMixerContext *m_pContext
     g_debug("on conext stored control add");
     MateMixerStreamControl *m_pControl;
     MateMixerStreamControlMediaRole mediaRole;
-//    qDebug() <<  "on context stored control added";
     m_pControl = MATE_MIXER_STREAM_CONTROL (mate_mixer_context_get_stored_control (m_pContext, m_pName));
     if (G_UNLIKELY (m_pControl == nullptr))
         return;
@@ -181,7 +184,6 @@ void UkmediaMainWidget::onContextStoredControlAdded(MateMixerContext *m_pContext
 void UkmediaMainWidget::onContextStreamAdded (MateMixerContext *m_pContext,const gchar *m_pName,UkmediaMainWidget *m_pWidget)
 {
     g_debug("on context stream added");
-//    qDebug() << "on context stream added" << m_pName;
     MateMixerStream *m_pStream;
     m_pStream = mate_mixer_context_get_stream (m_pContext, m_pName);
     if (G_UNLIKELY (m_pStream == nullptr))
@@ -220,11 +222,17 @@ void UkmediaMainWidget::addStream (UkmediaMainWidget *m_pWidget, MateMixerStream
         m_pName  = mate_mixer_stream_get_name (m_pStream);
         m_pLabel = mate_mixer_stream_get_label (m_pStream);
         if (m_pStream == m_pInput) {
-//            qDebug() << "stream == input ----------" << m_pName << m_pLabel;
             ukuiBarSetStream(m_pWidget,m_pStream);
             m_pControl = mate_mixer_stream_get_default_control(m_pStream);
             updateInputSettings (m_pWidget,m_pControl);
         }
+        if (m_pStream == m_pInput) {
+            ukuiBarSetStream (m_pWidget, m_pStream);
+            m_pControl = mate_mixer_stream_get_default_control(m_pStream);
+            updateInputSettings (m_pWidget,m_pControl);
+        }
+        m_pName  = mate_mixer_stream_get_name (m_pStream);
+        m_pLabel = mate_mixer_stream_get_label (m_pStream);
         m_pWidget->m_pInputStreamList->append(m_pName);
         m_pWidget->m_pInputWidget->m_pInputDeviceCombobox->addItem(m_pLabel);
     }
@@ -236,7 +244,6 @@ void UkmediaMainWidget::addStream (UkmediaMainWidget *m_pWidget, MateMixerStream
         m_pName  = mate_mixer_stream_get_name (m_pStream);
         m_pLabel = mate_mixer_stream_get_label (m_pStream);
         if (m_pStream == m_pOutput) {
-//            qDebug() << "stream == output-------" << m_pName << m_pLabel;
             updateOutputSettings(m_pWidget,m_pControl);
             ukuiBarSetStream (m_pWidget, m_pStream);
         }
@@ -254,6 +261,12 @@ void UkmediaMainWidget::addStream (UkmediaMainWidget *m_pWidget, MateMixerStream
             switchList = switchList->next;
         }
 
+        if (m_pStream == m_pOutput) {
+            updateOutputSettings(m_pWidget,m_pControl);
+            ukuiBarSetStream (m_pWidget, m_pStream);
+        }
+        m_pName  = mate_mixer_stream_get_name (m_pStream);
+        m_pLabel = mate_mixer_stream_get_label (m_pStream);
         m_pWidget->m_pOutputStreamList->append(m_pName);
         m_pWidget->m_pOutputWidget->m_pOutputDeviceCombobox->addItem(m_pLabel);
     }
@@ -270,7 +283,9 @@ void UkmediaMainWidget::addStream (UkmediaMainWidget *m_pWidget, MateMixerStream
                 m_pWidget->m_pStreamControlList->append(m_pStreamControlName);
                 if G_UNLIKELY (m_pControl == nullptr)
                     return;
-//                qDebug() << "add stream"  << m_pStreamControlName ;
+                m_pWidget->m_pStreamControlList->append(m_pName);
+                if G_UNLIKELY (m_pControl == nullptr)
+                    return;
                 addApplicationControl (m_pWidget, m_pControl);
             }
         }
@@ -329,10 +344,7 @@ void UkmediaMainWidget::addApplicationControl (UkmediaMainWidget *m_pWidget, Mat
     QString app_icon_name = mate_mixer_app_info_get_icon(m_pInfo);
 
     m_pAppName = mate_mixer_app_info_get_name (m_pInfo);
-//    qDebug() << "add application control" << m_pAppName;
-    /*
-    addAppToAppwidget(m_pWidget,appnum,m_pAppName,app_icon_name,m_pControl);
-    */
+
     if (m_pAppName == nullptr)
         m_pAppName = mate_mixer_stream_control_get_label (m_pControl);
     if (m_pAppName == nullptr)
@@ -378,7 +390,6 @@ void UkmediaMainWidget::onStreamControlAdded (MateMixerStream *m_pStream,const g
 
             role = mate_mixer_stream_control_get_role (m_pControl);
             if (role == MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION) {
-//                qDebug() << "on stream control added";
                 addApplicationControl(m_pWidget, m_pControl);
             }
         }
@@ -393,11 +404,13 @@ void UkmediaMainWidget::onStreamControlRemoved (MateMixerStream *m_pStream,const
     Q_UNUSED(m_pStream);
     g_debug("on stream control removed");
     if (m_pWidget->m_pStreamControlList->count() > 0 && m_pWidget->m_pAppNameList->count() > 0) {
+
         int i = m_pWidget->m_pStreamControlList->indexOf(m_pName);
         if (i < 0)
             return;
         m_pWidget->m_pStreamControlList->removeAt(i);
         m_pWidget->m_pAppNameList->removeAt(i);
+
     }
     else {
         m_pWidget->m_pStreamControlList->clear();
@@ -458,7 +471,7 @@ void UkmediaMainWidget::onContextStreamRemoved (MateMixerContext *m_pContext,con
     Q_UNUSED(m_pContext);
     Q_UNUSED(m_pName);
     g_debug("on context stream removed");
-//    qDebug() << "on context stream removed";
+
     removeStream (m_pWidget, m_pName);
 }
 
@@ -473,7 +486,6 @@ void UkmediaMainWidget::removeStream (UkmediaMainWidget *m_pWidget, const gchar 
     if (index >= 0) {
         m_pWidget->m_pInputStreamList->removeAt(index);
         m_pWidget->m_pInputWidget->m_pInputDeviceCombobox->removeItem(index);
-//        qDebug() << "remove input stream :" << m_pName;
     }
     else {
         index = m_pWidget->m_pOutputStreamList->indexOf(m_pName);
@@ -548,15 +560,14 @@ void UkmediaMainWidget::onContextDefaultInputStreamNotify (MateMixerContext *m_p
         return;
     m_pWidget->m_pInputWidget->m_pInputDeviceCombobox->setCurrentIndex(index);
     updateIconInput(m_pWidget);
+
     setInputStream(m_pWidget, m_pStream);
 }
 
 void UkmediaMainWidget::setInputStream(UkmediaMainWidget *m_pWidget, MateMixerStream *m_pStream)
 {
     g_debug("set input stream");
-//    qDebug() << "set input stream";
     if (m_pStream == nullptr) {
-//        qDebug() << "input is null" ;
         return;
     }
 
@@ -804,7 +815,7 @@ void UkmediaMainWidget::updateIconOutput(UkmediaMainWidget *m_pWidget)
     //初始化滑动条的值
     int volume = mate_mixer_stream_control_get_volume(m_pControl);
     int value = volume *100 /65536.0+0.5;
-//    qDebug() << "default stream control name:" << mate_mixer_stream_control_get_name(m_pControl) << "value:" << value;
+
     m_pWidget->m_pOutputWidget->m_pOpVolumeSlider->setValue(value);
     QString percent = QString::number(value);
     percent.append("%");
@@ -827,6 +838,34 @@ void UkmediaMainWidget::updateIconOutput(UkmediaMainWidget *m_pWidget)
     else {
         m_pWidget->m_pOutputWidget->m_pOutputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/audio-volume-high.svg"));
     }
+
+    //输出音量控制
+    //输出滑动条和音量控制
+    connect(m_pWidget->m_pOutputWidget->m_pOpVolumeSlider,&QSlider::valueChanged,[=](int value){
+        QString percent;
+
+        percent = QString::number(value);
+        int volume = value*65536/100;
+        mate_mixer_stream_control_set_volume(m_pControl,guint(volume));
+        if (value <= 0) {
+            mate_mixer_stream_control_set_mute(m_pControl,TRUE);
+            mate_mixer_stream_control_set_volume(m_pControl,0);
+            percent = QString::number(0);
+            m_pWidget->m_pOutputWidget->m_pOutputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/audio-volume-muted.svg"));
+        }
+        else if (value > 0 && value <= 33) {
+            m_pWidget->m_pOutputWidget->m_pOutputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/audio-volume-low.svg"));
+        }
+        else if (value > 33 && value <= 66) {
+            m_pWidget->m_pOutputWidget->m_pOutputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/audio-volume-medium.svg"));
+        }
+        else {
+            m_pWidget->m_pOutputWidget->m_pOutputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/audio-volume-high.svg"));
+        }
+        mate_mixer_stream_control_set_mute(m_pControl,FALSE);
+        percent.append("%");
+        m_pWidget->m_pOutputWidget->m_pOpVolumePercentLabel->setText(percent);
+    });
 
     if (m_pControl != nullptr) {
         g_debug ("Output icon enabled");
@@ -959,8 +998,7 @@ void UkmediaMainWidget::updateOutputSettings (UkmediaMainWidget *m_pWidget,MateM
     if (m_pControl == nullptr) {
         return;
     }
-//    qDebug() << "update output settings is not null";
-//    qDebug() << "update output settings" << mate_mixer_stream_control_get_name(m_pControl);
+
     flags = mate_mixer_stream_control_get_flags(m_pControl);
 
     if (flags & MATE_MIXER_STREAM_CONTROL_CAN_BALANCE) {
@@ -1463,7 +1501,7 @@ void UkmediaMainWidget::outputDeviceComboxIndexChangedSlot(QString str)
     flags = mate_mixer_context_get_backend_flags (m_pContext);
 
     if (flags & MATE_MIXER_BACKEND_CAN_SET_DEFAULT_OUTPUT_STREAM) {
-//        qDebug() << "设置默认的输出stream:" << str << "获取的stream名:" << mate_mixer_stream_get_label(stream) << mate_mixer_stream_get_name(stream);
+
         mate_mixer_context_set_default_output_stream (m_pContext, stream);
         MateMixerStreamControl *c = mate_mixer_stream_get_default_control(stream);
         int(mate_mixer_stream_control_get_volume(c) *100 /65536.0+0.5);
@@ -1482,7 +1520,6 @@ void UkmediaMainWidget::inputDeviceComboxIndexChangedSlot(QString str)
     g_debug("input device combox index changed slot");
     MateMixerBackendFlags flags;
     int index = m_pInputWidget->m_pInputDeviceCombobox->findText(str);
-//    qDebug() << index;
     if (index == -1)
         return;
     const QString str1 =  m_pInputStreamList->at(index);
@@ -1510,10 +1547,10 @@ void UkmediaMainWidget::inputDeviceComboxIndexChangedSlot(QString str)
 void UkmediaMainWidget::setOutputStream (UkmediaMainWidget *m_pWidget, MateMixerStream *m_pStream)
 {
     g_debug("set output stream");
+
     int i = 0;
     if (m_pStream == nullptr) {
         return;
-//        qDebug() << "set output stream is nullptr";
     }
     MateMixerStreamControl *m_pControl;
     ukuiBarSetStream(m_pWidget,m_pStream);
@@ -1522,14 +1559,12 @@ void UkmediaMainWidget::setOutputStream (UkmediaMainWidget *m_pWidget, MateMixer
         controls = mate_mixer_context_list_stored_controls (m_pWidget->m_pContext);
         if (controls == nullptr) {
             return;
-//            qDebug() << "list strored control is null";
         }
         /* Move all stored controls to the newly selected default stream */
         while (controls != nullptr) {
             MateMixerStream        *parent;
             MateMixerStreamControl *m_pControl;
             m_pControl = MATE_MIXER_STREAM_CONTROL (controls->data);
-            qDebug() << "list control name" << mate_mixer_stream_control_get_name(m_pControl) << ++i;
             parent  = mate_mixer_stream_control_get_stream (m_pControl);
 
             /* Prefer streamless controls to stay the way they are, forcing them to

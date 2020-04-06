@@ -51,8 +51,9 @@ public:
     void plugin_delay_control() Q_DECL_OVERRIDE;
 
 public:
-
-    void initComponent();
+    void setupStylesheet();
+    void setupComponent();
+    void setupConnect();
     void initGeneralStatus();
     void rebuildLayoutsComBox();
 
@@ -75,6 +76,9 @@ private:
 
 
     QStyledItemDelegate* itemDelege;
+
+private:
+    bool settingsCreate;
 };
 
 #endif // KEYBOARDCONTROL_H

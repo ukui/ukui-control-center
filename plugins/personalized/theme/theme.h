@@ -22,6 +22,7 @@
 
 #include <QObject>
 #include <QtPlugin>
+#include <QLayout>
 
 #include <QMap>
 #include <QDir>
@@ -29,8 +30,10 @@
 #include "shell/interface.h"
 
 
+class QPushButton;
 class SwitchButton;
 class QGSettings;
+class WidgetGroup;
 
 namespace Ui {
 class Theme;
@@ -53,16 +56,23 @@ public:
 
 public:
 
+    void setupStylesheet();
     void setupComponent();
     void initThemeMode();
     void initIconTheme();
-    void initControlTheme();
+    void setupControlTheme();
     void initCursorTheme();
     void initEffectSettings();
+    void initConnection();
+
+    void buildThemeModeBtn(QPushButton * button, QString name, QString icon);
 
     QString dullTranslation(QString str);
 
     QStringList _getSystemCursorThemes();
+
+private:
+    void clearLayout(QLayout* mlayout, bool deleteWidgets);
 
 private:
     Ui::Theme *ui;
@@ -71,13 +81,20 @@ private:
     int pluginType;
     QWidget * pluginWidget;
 
-private:
     QGSettings * gtkSettings;
     QGSettings * qtSettings;
     QGSettings * curSettings;
 
     SwitchButton * effectSwitchBtn;
 
+    WidgetGroup * iconThemeWidgetGroup;
+
+    bool settingsCreate;
+
+private slots:
+    void resetBtnClickSlot();
+
 };
 
 #endif // THEME_H
+

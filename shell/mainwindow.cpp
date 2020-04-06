@@ -69,6 +69,7 @@ MainWindow::MainWindow(QWidget *parent) :
 //    else
 //        panelicon = QIcon("://applications-system.svg");
     this->setWindowIcon(panelicon);
+    this->setWindowTitle(tr("ukcc"));
 
     //中部内容区域
     ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background: #ffffff; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
@@ -184,75 +185,54 @@ MainWindow::MainWindow(QWidget *parent) :
     //快捷参数
     if (QApplication::arguments().length() > 1){
 
-        if (QApplication::arguments().at(1) == "-m"){
-            //显示器
-            QList<FuncInfo> pFuncStructList = FunctionSelect::funcinfoList[SYSTEM];
-            QString funcStr = pFuncStructList.at(DISPLAY).namei18nString;
-
-            QMap<QString, QObject *> pluginsObjMap = modulesList.at(SYSTEM);
-
-            if (pluginsObjMap.keys().contains(funcStr)){
-                //开始跳转
-                ui->stackedWidget->setCurrentIndex(1);
-                modulepageWidget->switchPage(pluginsObjMap.value(funcStr));
-            }
-        } else if (QApplication::arguments().at(1) == "-b"){
-            //背景
-            QList<FuncInfo> pFuncStructList = FunctionSelect::funcinfoList[PERSONALIZED];
-            QString funcStr = pFuncStructList.at(BACKGROUND).namei18nString;
-
-            QMap<QString, QObject *> pluginsObjMap = modulesList.at(PERSONALIZED);
-
-            if (pluginsObjMap.keys().contains(funcStr)){
-                //开始跳转
-                ui->stackedWidget->setCurrentIndex(1);
-                modulepageWidget->switchPage(pluginsObjMap.value(funcStr));
-            }
-        } else if (QApplication::arguments().at(1) == "-d"){
-            //桌面
-            QList<FuncInfo> pFuncStructList = FunctionSelect::funcinfoList[PERSONALIZED];
-            QString funcStr = pFuncStructList.at(DESKTOP).namei18nString;
-
-            QMap<QString, QObject *> pluginsObjMap = modulesList.at(PERSONALIZED);
-
-            if (pluginsObjMap.keys().contains(funcStr)){
-                //开始跳转
-                ui->stackedWidget->setCurrentIndex(1);
-                modulepageWidget->switchPage(pluginsObjMap.value(funcStr));
-            }
-        } else if (QApplication::arguments().at(1) == "-u"){
-            //账户
-            QList<FuncInfo> pFuncStructList = FunctionSelect::funcinfoList[ACCOUNT];
-            QString funcStr = pFuncStructList.at(USERINFO).namei18nString;
-
-            QMap<QString, QObject *> pluginsObjMap = modulesList.at(ACCOUNT);
-
-            if (pluginsObjMap.keys().contains(funcStr)){
-                //开始跳转
-                ui->stackedWidget->setCurrentIndex(1);
-                modulepageWidget->switchPage(pluginsObjMap.value(funcStr));
-            }
-
-        } else if (QApplication::arguments().at(1) == "-a"){
-            //关于
-            QList<FuncInfo> pFuncStructList = FunctionSelect::funcinfoList[NOTICEANDTASKS];
-            QString funcStr = pFuncStructList.at(ABOUT).namei18nString;
-
-            QMap<QString, QObject *> pluginsObjMap = modulesList.at(NOTICEANDTASKS);
-
-            if (pluginsObjMap.keys().contains(funcStr)){
-                //开始跳转
-                ui->stackedWidget->setCurrentIndex(1);
-                modulepageWidget->switchPage(pluginsObjMap.value(funcStr));
-            }
-        }
-
+        bootOptionsFilter(QApplication::arguments().at(1));
     }
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::bootOptionsFilter(QString opt){
+    if (opt == "-m"){
+        //显示器
+        bootOptionsSwitch(SYSTEM, DISPLAY);
+
+    } else if (opt == "-b"){
+        //背景
+        bootOptionsSwitch(PERSONALIZED, BACKGROUND);
+
+    } else if (opt == "-d"){
+        //桌面
+        bootOptionsSwitch(PERSONALIZED, DESKTOP);
+
+    } else if (opt == "-u"){
+        //账户
+        bootOptionsSwitch(ACCOUNT, USERINFO);
+
+    } else if (opt == "-a"){
+        //关于
+        bootOptionsSwitch(NOTICEANDTASKS, ABOUT);
+
+    } else if (opt == "-p"){
+        //电源
+        bootOptionsSwitch(SYSTEM, POWER);
+    }
+}
+
+void MainWindow::bootOptionsSwitch(int moduleNum, int funcNum){
+
+    QList<FuncInfo> pFuncStructList = FunctionSelect::funcinfoList[moduleNum];
+    QString funcStr = pFuncStructList.at(funcNum).namei18nString;
+
+    QMap<QString, QObject *> pluginsObjMap = modulesList.at(moduleNum);
+
+    if (pluginsObjMap.keys().contains(funcStr)){
+        //开始跳转
+        ui->stackedWidget->setCurrentIndex(1);
+        modulepageWidget->switchPage(pluginsObjMap.value(funcStr));
+    }
 }
 
 void MainWindow::setBtnLayout(QPushButton * &pBtn){
@@ -295,46 +275,46 @@ void MainWindow::loadPlugins(){
     foreach (QString fileName, pluginsDir.entryList(QDir::Files)){
         if (fileName == "libdesktop.so")
             continue;
-        if (fileName == "libnotice.so")
-            continue;
+//        if (fileName == "libnotice.so")
+//            continue;
         if (fileName == "libexperienceplan.so")
             continue;
 
         qDebug() << "Scan Plugin: " << fileName;
         //gsettings-desktop-schemas
-        const char * proxyFile = "/usr/share/glib-2.0/schemas/org.gnome.system.proxy.gschema.xml";
-        const char * gnomedesktopFile = "/usr/share/glib-2.0/schemas/org.gnome.desktop.wm.preferences.gschema.xml";
+//        const char * proxyFile = "/usr/share/glib-2.0/schemas/org.gnome.system.proxy.gschema.xml";
+//        const char * gnomedesktopFile = "/usr/share/glib-2.0/schemas/org.gnome.desktop.wm.preferences.gschema.xml";
         //mate-desktop-common
-        const char * interfaceFile = "/usr/share/glib-2.0/schemas/org.mate.interface.gschema.xml";
-        const char * bgFile = "/usr/share/glib-2.0/schemas/org.mate.background.gschema.xml";
+//        const char * interfaceFile = "/usr/share/glib-2.0/schemas/org.mate.interface.gschema.xml";
+//        const char * bgFile = "/usr/share/glib-2.0/schemas/org.mate.background.gschema.xml";
         //peony-common
 //        const char * peonyFile = "/usr/share/glib-2.0/schemas/org.ukui.peony.gschema.xml";
         //libmatekbd-common
-        const char * kbdFile = "/usr/share/glib-2.0/schemas/org.mate.peripherals-keyboard-xkb.gschema.xml";
+//        const char * kbdFile = "/usr/share/glib-2.0/schemas/org.mate.peripherals-keyboard-xkb.gschema.xml";
         //ukui-power-manager-common
-        const char * powerFile = "/usr/share/glib-2.0/schemas/org.ukui.power-manager.gschema.xml";
+//        const char * powerFile = "/usr/share/glib-2.0/schemas/org.ukui.power-manager.gschema.xml";
         //ukui-session-manager
         const char * sessionFile = "/usr/share/glib-2.0/schemas/org.ukui.session.gschema.xml";
         //ukui-screensaver
         const char * screensaverFile = "/usr/share/glib-2.0/schemas/org.ukui.screensaver.gschema.xml";
         //ukui-settings-daemon-common
-        const char * usdFile = "/usr/share/glib-2.0/schemas/org.ukui.font-rendering.gschema.xml";
+//        const char * usdFile = "/usr/share/glib-2.0/schemas/org.ukui.font-rendering.gschema.xml";
 
         //代理功能依赖gsettings-desktop-schemas
-        if (!g_file_test(proxyFile, G_FILE_TEST_EXISTS) && fileName == "libproxy.so")
-            continue;
+//        if (!g_file_test(proxyFile, G_FILE_TEST_EXISTS) && fileName == "libproxy.so")
+//            continue;
         //字体功能依赖gsettings-desktop-schemas,mate-desktop-common,peony-common,ukui-settings-daemon-common
-        if ((!g_file_test(interfaceFile, G_FILE_TEST_EXISTS) ||
-                !g_file_test(gnomedesktopFile, G_FILE_TEST_EXISTS) ||
+//        if ((!g_file_test(interfaceFile, G_FILE_TEST_EXISTS) ||
+//                !g_file_test(gnomedesktopFile, G_FILE_TEST_EXISTS) ||
 //                !g_file_test(peonyFile, G_FILE_TEST_EXISTS) ||
-                !g_file_test(usdFile, G_FILE_TEST_EXISTS)) && fileName == "libfonts.so")
-            continue;
+//                !g_file_test(usdFile, G_FILE_TEST_EXISTS)) && fileName == "libfonts.so")
+//            continue;
         //键盘功能的键盘布局依赖libmatekbd-common
-        if (!g_file_test(kbdFile, G_FILE_TEST_EXISTS) && fileName == "libkeyboard.so")
-            continue;
+//        if (!g_file_test(kbdFile, G_FILE_TEST_EXISTS) && fileName == "libkeyboard.so")
+//            continue;
         //电源功能依赖ukui-power-manager-common
-        if (!g_file_test(powerFile, G_FILE_TEST_EXISTS) && fileName == "libpower.so")
-            continue;
+//        if (!g_file_test(powerFile, G_FILE_TEST_EXISTS) && fileName == "libpower.so")
+//            continue;
         //屏保功能依赖ukui-session-manager
         if ((!g_file_test(screensaverFile, G_FILE_TEST_EXISTS) ||
                 !g_file_test(sessionFile, G_FILE_TEST_EXISTS)) &&
@@ -344,12 +324,12 @@ void MainWindow::loadPlugins(){
 //        if (!g_file_test(peonyFile, G_FILE_TEST_EXISTS) && fileName == "libdesktop.so")
 //            continue;
         //wallpaper mate-desktop-common
-        if (!g_file_test(bgFile, G_FILE_TEST_EXISTS) && fileName == "libwallpaper.so")
-            continue;
+//        if (!g_file_test(bgFile, G_FILE_TEST_EXISTS) && fileName == "libwallpaper.so")
+//            continue;
         //主题功能依赖gsettings-desktop-schemas,mate-desktop-common
-        if ((!g_file_test(interfaceFile, G_FILE_TEST_EXISTS) ||
-                !g_file_test(gnomedesktopFile, G_FILE_TEST_EXISTS)) && fileName == "libtheme.so")
-            continue;
+//        if ((!g_file_test(interfaceFile, G_FILE_TEST_EXISTS) ||
+//                !g_file_test(gnomedesktopFile, G_FILE_TEST_EXISTS)) && fileName == "libtheme.so")
+//            continue;
 
         QPluginLoader loader(pluginsDir.absoluteFilePath(fileName));
         QObject * plugin = loader.instance();
@@ -490,7 +470,9 @@ void MainWindow::functionBtnClicked(QObject *plugin){
 }
 
 void MainWindow::sltMessageReceived(const QString &msg) {
-    Q_UNUSED(msg)
+
+    bootOptionsFilter(msg);
+
     Qt::WindowFlags flags = windowFlags();
     flags |= Qt::WindowStaysOnTopHint;
     setWindowFlags(flags);
