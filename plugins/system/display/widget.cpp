@@ -145,7 +145,7 @@ Widget::Widget(QWidget *parent)
 
 
     connect(ui->applyButton,SIGNAL(clicked()),this,SLOT(save()));
-    connect(ui->applyButton,SIGNAL(clicked()),this,SLOT(saveBrigthnessConfig()));
+//    connect(ui->applyButton,SIGNAL(clicked()),this,SLOT(saveBrigthnessConfig()));
 
 
 
