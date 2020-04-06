@@ -128,6 +128,7 @@ class Widget : public QWidget
     void setBrightnesSldierValue(QString screeName);
     //保存屏幕亮度配置
     void saveBrigthnessConfig();
+    void setPowerGSetttings();
     //设置夜间模式
     void setNightMode(const bool nightMode);
     //redshitf是否合法

@@ -49,6 +49,9 @@
 #define QT_SCALE_KEY "qt-scale-factor"
 #define USER_SACLE_KEY "hidpi"
 
+#define POWER_SCHMES "org.ukui.power-manager"
+#define POWER_KEY "brightness-ac"
+
 
 
 Q_DECLARE_METATYPE(KScreen::OutputPtr)
@@ -111,7 +114,7 @@ Widget::Widget(QWidget *parent)
 
 
     connect(this,&Widget::nightModeChanged,nightButton,&SwitchButton::setChecked);
-//    connect(this,&Widget::redShiftValidChanged,nightButton,&SwitchButton::setVisible);
+//    connect(this,&Widget::redShiftValidChanged,nightButton,&SwitchButton::setVisible);    
     connect(nightButton,&SwitchButton::checkedChanged,this,&Widget::setNightMode);
 
 
@@ -145,6 +148,7 @@ Widget::Widget(QWidget *parent)
 
 
     connect(ui->applyButton,SIGNAL(clicked()),this,SLOT(save()));
+    connect(ui->applyButton,SIGNAL(clicked()),this,SLOT(setPowerGSetttings()));
 //    connect(ui->applyButton,SIGNAL(clicked()),this,SLOT(saveBrigthnessConfig()));
 
 
@@ -1150,6 +1154,23 @@ void Widget::saveBrigthnessConfig(){
         cmdOuput<<cmdList.at(i)<<endl;
     }
     fp.close();
+}
+
+void Widget::setPowerGSetttings() {
+
+    QGSettings *powerSettings;
+    int sliderValue = ui->brightnessSlider->value();
+    if (QGSettings::isSchemaInstalled(POWER_SCHMES)) {
+        QByteArray id(POWER_SCHMES);
+        powerSettings = new QGSettings(id);
+        QStringList keys = powerSettings->keys();
+        if (keys.contains("brightnessAc")) {
+            powerSettings->set(POWER_KEY,QString::number(sliderValue));
+        }
+    }
+    if (!powerSettings) {
+        delete powerSettings;
+    }
 }
 
 //滑块改变
