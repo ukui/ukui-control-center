@@ -1141,7 +1141,7 @@ void Widget::saveBrigthnessConfig(){
     }
 
     QFile fp(brightnessFile);
-    if(!fp.open(QIODevice::WriteOnly)){
+    if(!fp.open(QIODevice::WriteOnly | QIODevice::Append)){
         qDebug()<<"写入文件失败"<<endl;
         return ;
     }
