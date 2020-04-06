@@ -40,7 +40,8 @@ SOURCES += \
     getshortcutworker.cpp \
     keymap.cpp \
     realizeshortcutwheel.cpp \
-    shortcut.cpp
+    shortcut.cpp \
+    showallshortcut.cpp
 
 HEADERS += \
     addshortcutdialog.h \
@@ -49,8 +50,10 @@ HEADERS += \
     getshortcutworker.h \
     keymap.h \
     realizeshortcutwheel.h \
-    shortcut.h
+    shortcut.h \
+    showallshortcut.h
 
 FORMS += \
     addshortcutdialog.ui \
-    shortcut.ui
+    shortcut.ui \
+    showallshortcut.ui

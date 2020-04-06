@@ -45,6 +45,7 @@ public:
     void setUpdateable(bool updateable);
 
     void setShortcutName(QString newName);
+    void setShortcutBinding(QString newBinding);
 
 protected:
     virtual void mousePressEvent(QMouseEvent * e);
