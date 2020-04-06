@@ -26,7 +26,7 @@
       <default>true</default>
       <summary>messages notice</summary>
       <description>.</description>
-    </key>
+    </key>git
     <key name="voice" type="b">
       <default>true</default>
       <summary>voice notice</summary>
