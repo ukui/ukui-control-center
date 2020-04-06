@@ -82,7 +82,8 @@
         </property>
         <property name="font">
          <font>
-          <pointsize>9</pointsize>
+          <family>Noto Sans CJK SC</family>
+          <pointsize>11</pointsize>
          </font>
         </property>
         <property name="text">
@@ -371,6 +372,9 @@ QSlider::handle:horizontal {
     background: #3D6BE5;
     border-radius:10px;
 }</string>
+          </property>
+          <property name="minimum">
+           <number>1</number>
           </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
