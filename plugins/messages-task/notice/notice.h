@@ -31,6 +31,14 @@
 #include <shell/interface.h>
 #include "SwitchButton/switchbutton.h"
 
+
+//typedef _NoticeEntry NoticeEntry;
+//struct _NoticeEntry : QObjectUserData{
+////    int keyval;
+//    QString gsSchema;
+//    QString keyStr;
+//};
+
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
  **/
@@ -67,9 +75,9 @@ public:
 public:
     void setupComponent();
     void setupGSettings();
-    void initAppSwitchbtn(SwitchButton *appBtn, QString appName);
     void initNoticeStatus();
     void initOriNoticeStatus();
+    void initGSettings();
 
 private:
     void changeAppstatus(bool checked, QString name,SwitchButton *appBtn);
@@ -92,6 +100,7 @@ private:
     QGSettings * oriSettings;
     QStringList appsName;
     QStringList appsKey;
+    QVector<QGSettings*> *vecGsettins;
 
 
 };

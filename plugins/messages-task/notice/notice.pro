@@ -23,8 +23,9 @@ include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
 INCLUDEPATH   +=  \
                  $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
+                 /usr/include/dconf
 
-LIBS          +=  -L/usr/lib/ -lgsettings-qt
+LIBS          +=  -L/usr/lib/ -lgsettings-qt -ldconf
 
 
 CONFIG += c++11
@@ -43,11 +44,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     appdetail.cpp \
-    notice.cpp
+    notice.cpp \
+    realizenotice.cpp
 
 HEADERS += \
     appdetail.h \
-    notice.h
+    notice.h \
+    realizenotice.h
 
 FORMS += \
     appdetail.ui \

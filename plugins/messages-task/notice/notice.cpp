@@ -20,6 +20,7 @@
 #include "notice.h"
 #include "ui_notice.h"
 #include "appdetail.h"
+#include "realizenotice.h"
 #include "commonComponent/HoverWidget/hoverwidget.h"
 
 #define NOTICE_SCHEMA "org.ukui.control-center.notice"
@@ -27,8 +28,6 @@
 #define ENABLE_NOTICE_KEY "enable-notice"
 #define SHOWON_LOCKSCREEN_KEY "show-on-lockscreen"
 
-#define NOTICE_ORIGIN_SCHEMA "org.ukui.control-center.noticeorigin"
-#define NOTICE_ORIGIN_PATH "/org/ukui/control-center/noticeorigin/"
 
 #define DESKTOPPATH "/usr/share/applications/"
 
@@ -37,11 +36,12 @@ Notice::Notice()
     ui = new Ui::Notice;
     pluginWidget = new QWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-    appsName<<"kylin-video"<<"ubuntu-kylin-software-center"<<"kylin-assistant";
-    appsKey<<"kylinVideo"<<"ubuntuKylinSoftwareCenter"<<"kylinAssistant";
+    appsName<<"ukui-power-statistics";//<<"kylin-video"<<"kylin-assistant";
+    appsKey<<"电源管理";//<<"麒麟影音"<<"麒麟助手";
 
     ui->setupUi(pluginWidget);
 
+    vecGsettins = new QVector<QGSettings*>();
     pluginName = tr("notice");
     pluginType = NOTICEANDTASKS;
 
@@ -70,7 +70,7 @@ Notice::Notice()
 Notice::~Notice()
 {
     delete ui;
-
+    delete vecGsettins;
     delete nSetting;
 }
 
@@ -116,25 +116,9 @@ void Notice::setupComponent(){
 
 void Notice::setupGSettings() {
 
-    if(QGSettings::isSchemaInstalled(NOTICE_SCHEMA) &&
-            QGSettings::isSchemaInstalled(NOTICE_ORIGIN_SCHEMA)) {
-
+    if(QGSettings::isSchemaInstalled(NOTICE_SCHEMA)) {
         QByteArray id(NOTICE_SCHEMA);
         nSetting = new QGSettings(id);
-
-        QByteArray orid(NOTICE_ORIGIN_SCHEMA);
-        oriSettings = new QGSettings(orid);
-    }
-}
-
-void Notice::initAppSwitchbtn(SwitchButton *appBtn,QString appName) {
-    if (oriSettings) {
-        QStringList appKeys = oriSettings->keys();
-//        qDebug()<<"key is------->"<<appKeys<<endl;
-        bool judge = oriSettings->get(appName).toBool();
-        appBtn->setChecked(judge);
-    } else {
-        qDebug()<<" qgsettings is not installed "<<endl;
     }
 }
 
@@ -152,14 +136,17 @@ void Notice::initNoticeStatus(){
 
 void Notice::initOriNoticeStatus() {
 
-    for(int i = 0; i < appsName.length(); i++){
+    initGSettings();
+
+    for (int i = 0; i < appsName.length(); i++)
+    {
         QByteArray ba = QString(DESKTOPPATH + appsName.at(i) + ".desktop").toUtf8();
         GDesktopAppInfo * audioinfo = g_desktop_app_info_new_from_filename(ba.constData());
         QString appname = g_app_info_get_name(G_APP_INFO(audioinfo));
 
 //        qDebug()<<"notify appname is------------->"<<appname<<endl;
 
-        ////构建Widget
+        //构建Widget
         QWidget * baseWidget = new QWidget();
         baseWidget->setAttribute(Qt::WA_DeleteOnClose);
 
@@ -173,22 +160,7 @@ void Notice::initOriNoticeStatus() {
         devWidget->setMinimumHeight(50);
         devWidget->setMaximumHeight(50);
         devWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
-        connect(devWidget, &HoverWidget::enterWidget, this, [=](QString name){
-            Q_UNUSED(name)
-            devWidget->setStyleSheet("background: #EEF2FD;");
 
-        });
-
-        connect(devWidget, &HoverWidget::leaveWidget, this, [=](QString name){
-            Q_UNUSED(name)
-            devWidget->setStyleSheet("background: #F4F4F4;");
-        });
-
-        connect(devWidget, &HoverWidget::widgetClicked, this, [=](QString name){
-//            qDebug()<<"clicked widget--------->"<<endl;
-            AppDetail *app= new AppDetail(name,appsName.at(i));
-            app->show();
-        });
         QHBoxLayout * devHorLayout = new QHBoxLayout();
         devHorLayout->setSpacing(8);
         devHorLayout->setContentsMargins(16, 0, 16, 0);
@@ -210,43 +182,6 @@ void Notice::initOriNoticeStatus() {
         nameLabel->setText(appname);
 
         SwitchButton *appSwitch = new SwitchButton();
-        initAppSwitchbtn(appSwitch, appsName.at(i));
-
-        if (oriSettings) {
-            connect(oriSettings, &QGSettings::changed, [=](QString key){
-//                qDebug()<<"change key is--->"<<key<<endl;
-                if (key == appsKey.at(i)) {
-                    bool judge = oriSettings->get(appsKey.at(i)).toBool();
-                    appSwitch->setChecked(judge);
-                }
-            });
-        }
-
-//        appsBtn->append(appSwitch);
-        connect(enableSwitchBtn, &SwitchButton::checkedChanged, [=](bool checked) {
-//            qDebug()<<"checked is-------->"<<checked<<endl;
-            changeAppstatus(checked, appname, appSwitch);
-        });
-
-//        if (enableSwitchBtn->isChecked()){
-//            bool value =  oriSettings->get(appsName.at(i)).toBool();
-//            appSwitch->setChecked(value);
-//        } else {
-//            appSwitch->setChecked(false);
-//        }
-
-        connect(appSwitch, &SwitchButton::checkedChanged, [=](bool checked){
-            qDebug()<<"key and bool is------>"<<appsName.at(i)<<appSwitch->isChecked()<<endl;
-
-            if (oriSettings){
-                oriSettings->set(appsName.at(i), checked);
-            }
-            if (checked) {
-
-                enableSwitchBtn->setChecked(true);
-                appSwitch->setChecked(true);
-            }
-        });
 
         devHorLayout->addWidget(iconBtn);
         devHorLayout->addWidget(nameLabel);
@@ -265,7 +200,111 @@ void Notice::initOriNoticeStatus() {
         item->setSizeHint(QSize(502, 52));
 
         ui->applistWidget->setItemWidget(item, baseWidget);
+//        QString availablepath = findFreePath();
+
+        QList<char *> listChar =  listExistsCustomNoticePath();
+
+        const QByteArray id(NOTICE_ORIGIN_SCHEMA);
+        QGSettings * settings = nullptr;
+        QString path;
+
+        for (int j = 0; j < listChar.length(); j++) {
+            path =QString("%1%2").arg(NOTICE_ORIGIN_PATH).arg(QString(listChar.at(j)));
+            settings = new QGSettings(id, path.toLatin1().data());
+            vecGsettins->append(settings);
+            QStringList keys = settings->keys();
+
+            if (keys.contains(static_cast<QString>(NAME_KEY))) {
+                QString appName = settings->get(NAME_KEY).toString();
+                if ( appsKey.at(i) == appName) {
+//                    qDebug() <<" keys is----->name"<<keys<<" "<<appName<<" "<<listChar.at(j)<<endl;
+                    bool isCheck = settings->get(MESSAGES_KEY).toBool();
+                    appSwitch->setChecked(isCheck);
+                    break;
+                }
+            }
+        }
+
+        connect(devWidget, &HoverWidget::enterWidget, this, [=](QString name){
+            Q_UNUSED(name)
+            devWidget->setStyleSheet("background: #CFCFCF;");
+
+        });
+
+        connect(devWidget, &HoverWidget::leaveWidget, this, [=](QString name){
+            Q_UNUSED(name)
+            devWidget->setStyleSheet("background: #F4F4F4;");
+        });
+
+        connect(devWidget, &HoverWidget::widgetClicked, this, [=](QString name){
+//            qDebug()<<"clicked widget--------->"<<endl;
+            AppDetail *app;
+            app= new AppDetail(name,appsName.at(i), settings);
+            app->show();
+        });
+
+        connect(settings, &QGSettings::changed, [=](QString key){
+//            qDebug()<<"settings key is--->"<<key<<endl;
+            if (static_cast<QString>(MESSAGES_KEY) == key) {
+                bool judge = settings->get(MESSAGES_KEY).toBool();
+                appSwitch->setChecked(judge);
+            }
+        });
+
+        connect(enableSwitchBtn, &SwitchButton::checkedChanged, [=](bool checked) {
+            //qDebug()<<"checked is-------->"<<checked<<endl;
+            changeAppstatus(checked, appname, appSwitch);
+        });
+
+        connect(appSwitch, &SwitchButton::checkedChanged, [=](bool checked){
+            QStringList keys = settings->keys();
+            QString name = settings->get(NAME_KEY).toString();
+//            qDebug()<<"settings key--------->"<<keys<<name<<endl;
+            settings->set(MESSAGES_KEY, checked);
+        });
+
+
+//        delete newSetttings;
+//        delete settings;
     }
+}
+
+
+void Notice::initGSettings() {
+    for (int i = 0; i < appsName.length(); i++) {
+        QList<char *> listChar =  listExistsCustomNoticePath();
+
+        const QByteArray id(NOTICE_ORIGIN_SCHEMA);
+        QGSettings * settings = nullptr;
+        QGSettings * newSetttings = nullptr;
+        QString path;
+        bool isExist = false;
+
+        for (int j = 0; j < listChar.length(); j++) {
+            path =QString("%1%2").arg(NOTICE_ORIGIN_PATH).arg(QString(listChar.at(j)));
+            settings = new QGSettings(id, path.toLatin1().data());
+            QStringList keys = settings->keys();
+
+            if (keys.contains(static_cast<QString>(NAME_KEY))) {
+                QString appName = settings->get(NAME_KEY).toString();
+                if ( appsKey.at(i) == appName) {
+                    isExist = true;
+                }
+            }
+        }
+        if (!isExist) {
+            path = findFreePath();
+            qDebug()<<"not contains newSetttings ----->path"<<path<<endl;
+            newSetttings = new QGSettings(id, path.toLatin1().data());
+            newSetttings->set(NAME_KEY, appsKey.at(i));
+            newSetttings->set(MESSAGES_KEY, true);
+        }
+
+        if (newSetttings) {
+            delete newSetttings;
+        }
+    }
+
 }
 
 void Notice::changeAppstatus(bool checked, QString name, SwitchButton *appBtn) {
