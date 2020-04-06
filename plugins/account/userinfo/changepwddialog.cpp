@@ -20,6 +20,8 @@
 #include "changepwddialog.h"
 #include "ui_changepwddialog.h"
 
+#include "elipsemaskwidget.h"
+
 #include <QStyledItemDelegate>
 
 #define PWD_LOW_LENGTH 6
@@ -63,6 +65,10 @@ ChangePwdDialog::~ChangePwdDialog()
 }
 
 void ChangePwdDialog::setupComponent(){
+
+    ElipseMaskWidget * cpMaskWidget = new ElipseMaskWidget(ui->faceLabel);
+    cpMaskWidget->setGeometry(0, 0, ui->faceLabel->width(), ui->faceLabel->height());
+
     ui->pwdtypeComboBox->addItem(tr("General Pwd"));
 
     ui->pwdLineEdit->setEchoMode(QLineEdit::Password);

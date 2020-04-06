@@ -34,6 +34,7 @@ PKGCONFIG     += gio-2.0 \
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
+    elipsemaskwidget.cpp \
         userinfo.cpp \
     qtdbus/systemdbusdispatcher.cpp \
     changepwddialog.cpp \
@@ -44,6 +45,7 @@ SOURCES += \
     createuserdialog.cpp
 
 HEADERS += \
+    elipsemaskwidget.h \
         userinfo.h \
     qtdbus/systemdbusdispatcher.h \
     changepwddialog.h \
