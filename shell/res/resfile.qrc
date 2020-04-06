@@ -130,6 +130,7 @@
         <file>plugins/autoboot/desktop.png</file>
         <file>plugins/shortcut/down.png</file>
         <file>plugins/shortcut/up.png</file>
+        <file>plugins/wallpaper/none.png</file>
     </qresource>
     <qresource prefix="/">
         <file>i18n/zh_CN.qm</file>
