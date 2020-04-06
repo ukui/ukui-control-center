@@ -139,22 +139,22 @@
     <message>
         <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="125"/>
         <source>Allow notification</source>
-        <translation type="unfinished"></translation>
+        <translation>允许通知</translation>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="169"/>
         <source>Number of notification centers</source>
-        <translation type="unfinished"></translation>
+        <translation>通知中心显示数量</translation>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="243"/>
         <source>cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="262"/>
         <source>confirm</source>
-        <translation type="unfinished">确认</translation>
+        <translation>确认</translation>
     </message>
 </context>
 <context>
@@ -316,14 +316,8 @@
 <context>
     <name>Audio</name>
     <message>
-        <location filename="../../../plugins/devices/audio/audio.ui" line="26"/>
         <source>Audio</source>
-        <translation type="unfinished">声音</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/audio.cpp" line="33"/>
-        <source>声音</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">声音</translation>
     </message>
 </context>
 <context>
@@ -597,13 +591,13 @@ the integrity of your system.</source>
     <name>CreateUserDialog</name>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="195"/>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="98"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="104"/>
         <source>UserName</source>
         <translation>用户名</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="291"/>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="99"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="105"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
@@ -659,58 +653,58 @@ change system settings</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="100"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="106"/>
         <source>Password Identify</source>
         <translation>密码确认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="104"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="110"/>
         <source>General Password</source>
         <translation>通用密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="136"/>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="232"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="142"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="238"/>
         <source>Inconsistency with pwd</source>
         <translation>和密码不一致</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="221"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="227"/>
         <source>Password length needs to more than %1 character!</source>
         <translation>密码长度至少大于%1个字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="223"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="229"/>
         <source>Password length needs to less than %1 character!</source>
         <translation>密码长度需要小于%1个字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="245"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="251"/>
         <source>The user name cannot be empty</source>
         <translation>用户名不能为空</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="247"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="253"/>
         <source>The first character must be lowercase letters!</source>
         <translation>首字符必须为小写字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="250"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="256"/>
         <source>User name can not contain capital letters!</source>
         <translation>用户名不能包含大写字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="264"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="270"/>
         <source>The user name is already in use, please use a different one.</source>
         <translation>用户名已存在，请换用其他用户名。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="269"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="275"/>
         <source>User name length need to less than %1 letters!</source>
         <translation>用户名长度需要小于%1个字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="271"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="277"/>
         <source>The user name can only be composed of letters, numbers and underline!</source>
         <translation>用户名只能由字母、数字以及下划线组成！</translation>
     </message>
@@ -1046,7 +1040,42 @@ folder will be deleted!</source>
         <translation>亮</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="425"/>
+        <location filename="../../../plugins/system/display/display.ui" line="440"/>
+        <source>follow the sunrise and sunset(17:55-05:04)</source>
+        <translation>跟随日出日落（17:55-05:04）</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/display.ui" line="501"/>
+        <source>custom time</source>
+        <translation>自定义时间</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/display.ui" line="562"/>
+        <source>opening time</source>
+        <translation>开启时间</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/display.ui" line="610"/>
+        <source>closing time</source>
+        <translation>关闭时间</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/display.ui" line="670"/>
+        <source>color temperature</source>
+        <translation>色温</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/display.ui" line="677"/>
+        <source>warm</source>
+        <translation>暖</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/display.ui" line="726"/>
+        <source>cold</source>
+        <translation>冷</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/display.ui" line="752"/>
         <source>apply</source>
         <translation>应用</translation>
     </message>
@@ -1508,7 +1537,7 @@ folder will be deleted!</source>
         <translation>设置通知来源</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/notice/notice.cpp" line="45"/>
+        <location filename="../../../plugins/messages-task/notice/notice.cpp" line="47"/>
         <source>notice</source>
         <translation>通知</translation>
     </message>
@@ -1577,7 +1606,7 @@ folder will be deleted!</source>
         <translation>缩放屏幕</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="374"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="380"/>
         <source>%1 Hz</source>
         <translation></translation>
     </message>
@@ -1660,63 +1689,63 @@ folder will be deleted!</source>
         <translation>电源</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="130"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="144"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="129"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="143"/>
         <source>never</source>
         <translation>从不</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="130"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="144"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="129"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="143"/>
         <source>10 min</source>
         <translation>10分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="130"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="144"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="129"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="143"/>
         <source>30 min</source>
         <translation>30分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="130"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="144"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="129"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="143"/>
         <source>60 min</source>
         <translation>60分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="130"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="144"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="129"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="143"/>
         <source>120 min</source>
         <translation>120分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="130"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="129"/>
         <source>300 min</source>
         <translation>300分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="130"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="144"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="129"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="143"/>
         <source>20 min</source>
         <translation>20分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="144"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="143"/>
         <source>1 min</source>
         <translation>1分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="144"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="143"/>
         <source>5 min</source>
         <translation>5分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="162"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="161"/>
         <source>always</source>
         <translation>总是显示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="162"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="161"/>
         <source>present</source>
         <translation>仅当存在电池时显示</translation>
     </message>
@@ -2305,103 +2334,85 @@ folder will be deleted!</source>
 <context>
     <name>UkmediaApplicationWidget</name>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_application_widget.cpp" line="5"/>
         <source>Application Volume</source>
-        <translation type="unfinished">应用音量</translation>
+        <translation type="obsolete">应用音量</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_application_widget.cpp" line="6"/>
         <source>No application is currently playing or recording audio</source>
-        <translation type="unfinished">当前没有应用程序正在播放或录制音频</translation>
+        <translation type="obsolete">当前没有应用程序正在播放或录制音频</translation>
     </message>
 </context>
 <context>
     <name>UkmediaInputWidget</name>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="37"/>
         <source>Input</source>
-        <translation type="unfinished">输入</translation>
+        <translation type="obsolete">输入</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="38"/>
         <source>Select input device</source>
-        <translation type="unfinished">选择输入设备</translation>
+        <translation type="obsolete">选择输入设备</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="41"/>
         <source>volume</source>
-        <translation type="unfinished">音量大小</translation>
+        <translation type="obsolete">音量大小</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="45"/>
         <source>Input level</source>
-        <translation type="unfinished">输入等级</translation>
+        <translation type="obsolete">输入等级</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="46"/>
         <source>low</source>
-        <translation type="unfinished">低</translation>
+        <translation type="obsolete">低</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="48"/>
         <source>high</source>
-        <translation type="unfinished">高</translation>
+        <translation type="obsolete">高</translation>
     </message>
 </context>
 <context>
     <name>UkmediaOutputWidget</name>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="45"/>
         <source>Output</source>
-        <translation type="unfinished">输出</translation>
+        <translation type="obsolete">输出</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="46"/>
         <source>Select output device</source>
-        <translation type="unfinished">选择输出设备</translation>
+        <translation type="obsolete">选择输出设备</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="48"/>
         <source>Master volume</source>
-        <translation type="unfinished">主音量大小</translation>
+        <translation type="obsolete">主音量大小</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="52"/>
         <source>Channel balance</source>
-        <translation type="unfinished">声道平衡</translation>
+        <translation type="obsolete">声道平衡</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="53"/>
         <source>Left</source>
-        <translation type="unfinished">左</translation>
+        <translation type="obsolete">左</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="55"/>
         <source>right</source>
-        <translation type="unfinished">右</translation>
+        <translation type="obsolete">右</translation>
     </message>
 </context>
 <context>
     <name>UkmediaSoundEffectsWidget</name>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="14"/>
         <source>System sound</source>
-        <translation type="unfinished">系统音效</translation>
+        <translation type="obsolete">系统音效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="15"/>
         <source>System sound theme</source>
-        <translation type="unfinished">系统音效主题</translation>
+        <translation type="obsolete">系统音效主题</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="17"/>
         <source>Shutdown</source>
-        <translation type="unfinished">关机</translation>
+        <translation type="obsolete">关机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="19"/>
         <source>Lagout</source>
-        <translation type="unfinished">注销</translation>
+        <translation type="obsolete">注销</translation>
     </message>
 </context>
 <context>
@@ -2665,23 +2676,29 @@ folder will be deleted!</source>
         <translation>夜间模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="841"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="938"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="842"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="939"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="947"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="854"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="946"/>
+        <source>Morning time should be earlier than evening time!</source>
+        <translation>早晨时刻应早于晚上的时刻!</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="961"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="855"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="962"/>
         <source>@title:window</source>
         <comment>Unsupported Configuration</comment>
         <translation>窗口</translation>
