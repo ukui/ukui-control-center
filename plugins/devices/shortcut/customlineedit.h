@@ -43,6 +43,8 @@ private:
     QString _wait;
     QString _setalready;
 
+    QList<int> modifiedsList;
+
 Q_SIGNALS:
     void shortcutCodeSignals(QList<int>);
 
