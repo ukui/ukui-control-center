@@ -31,7 +31,6 @@ INSTALLS += target
 
 SOURCES += \
         audio.cpp \
-        ukmedia_application_widget.cpp \
         ukmedia_input_widget.cpp \
         ukmedia_main_widget.cpp \
         ukmedia_output_widget.cpp \
@@ -39,7 +38,6 @@ SOURCES += \
 
 HEADERS += \
         audio.h \
-        ukmedia_application_widget.h \
         ukmedia_input_widget.h \
         ukmedia_main_widget.h \
         ukmedia_output_widget.h \

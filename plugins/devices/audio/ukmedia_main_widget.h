@@ -3,7 +3,6 @@
 
 #include <QWidget>
 #include "ukmedia_output_widget.h"
-#include "ukmedia_application_widget.h"
 #include "ukmedia_input_widget.h"
 #include "ukmedia_sound_effects_widget.h"
 
@@ -51,10 +50,7 @@ public:
     static void addApplicationControl (UkmediaMainWidget *w, MateMixerStreamControl *control);
     static void onStreamControlAdded (MateMixerStream *stream,const gchar *name,UkmediaMainWidget  *w);
     static void onStreamControlRemoved (MateMixerStream *stream,const gchar *name,UkmediaMainWidget *w);
-    static void removeApplicationControl (UkmediaMainWidget *w,const gchar *name);
-    static void addAppToAppwidget(UkmediaMainWidget *w,int appnum,const gchar *app_name,QString app_icon_name,MateMixerStreamControl *control);
     static void onContextStoredControlAdded (MateMixerContext *context,const gchar *name,UkmediaMainWidget *w);
-    static void updateAppVolume (MateMixerStreamControl *control, GParamSpec *pspec ,UkmediaMainWidget *w);
 
     static void onContextDeviceAdded (MateMixerContext *context, const gchar *name, UkmediaMainWidget *w);
     static void addDevice (UkmediaMainWidget *w, MateMixerDevice *device);
@@ -100,9 +96,8 @@ public:
     static void playAlretSoundFromPath (QString path);
     static void setOutputStream (UkmediaMainWidget *w, MateMixerStream *stream);
     static void updateOutputStreamList(UkmediaMainWidget *w,MateMixerStream *stream);
-
-    static void ukuiBarSetStream (UkmediaMainWidget *w,MateMixerStream *stream);
-    static void ukuiBarSetStreamControl (UkmediaMainWidget *w,MateMixerStreamControl *control);
+    static void ukuiBarSetStream (UkmediaMainWidget *w ,MateMixerStream *stream);
+    static void ukuiBarSetStreamControl (UkmediaMainWidget *w,MateMixerDirection direction,MateMixerStreamControl *control);
 
     static void updateInputSettings (UkmediaMainWidget *w,MateMixerStreamControl *control);
     static void onStreamControlMonitorValue (MateMixerStream *stream,gdouble value,UkmediaMainWidget *w);
@@ -125,40 +120,38 @@ private Q_SLOTS:
     void outputDeviceComboxIndexChangedSlot(QString str);
     void inputDeviceComboxIndexChangedSlot(QString str);
     void inputLevelValueChangedSlot();
+    void outputWidgetSliderChangedSlot(int value);
+    void inputWidgetSliderChangedSlot(int value);
 private:
-    UkmediaApplicationWidget *m_pAppWidget;
     UkmediaInputWidget *m_pInputWidget;
     UkmediaOutputWidget *m_pOutputWidget;
     UkmediaSoundEffectsWidget *m_pSoundWidget;
 
     MateMixerContext *m_pContext;
-//    MateMixerStream *m_pStream;
+    MateMixerStream *m_pInputStream;
+    MateMixerStream *m_pOutputStream;
     MateMixerStream *m_pInput;
-//    MateMixerStream *m_pOutput;
-//    MateMixerStreamControl *m_Control;
+    MateMixerStreamControl *m_pOutputBarStreamControl;
+    MateMixerStreamControl *m_pInputBarStreamControl;
+    MateMixerStreamControl *m_pControl;
 
     QStringList *m_pSoundList;
     QStringList *m_pThemeDisplayNameList;
     QStringList *m_pThemeNameList;
     QStringList *m_pDeviceNameList;
     QStringList *m_pAppNameList;
-//    QStringList *m_pInputDeviceDisplayNameList;
-//    QStringList *m_pOutputDeviceDisplayNameList;
     QStringList *m_pOutputStreamList;
     QStringList *m_pInputStreamList;
     QStringList *m_pAppVolumeList;
     QStringList *m_pStreamControlList;
 
-//    QMediaPlayer *m_pPlayer;
     GSettings *m_pSoundSettings;
     LevelScale scale;
     gdouble peakFraction;
-//    gdouble rmsFraction;
     gdouble maxPeak;
 
     guint maxPeakId;
     QWidget *m_pApplicationWidget;
-//    QGridLayout *gridlayout;
 };
 
 #endif // WIDGET_H

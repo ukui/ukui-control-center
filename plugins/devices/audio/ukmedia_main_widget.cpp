@@ -38,14 +38,12 @@ UkmediaMainWidget::UkmediaMainWidget(QWidget *parent)
 {
     m_pOutputWidget = new UkmediaOutputWidget();
     m_pInputWidget = new UkmediaInputWidget();
-    m_pAppWidget = new UkmediaApplicationWidget();
     m_pSoundWidget = new UkmediaSoundEffectsWidget();
 
     QVBoxLayout *m_pvLayout = new QVBoxLayout();
     m_pvLayout->addWidget(m_pOutputWidget);
     m_pvLayout->addWidget(m_pInputWidget);
     m_pvLayout->addWidget(m_pSoundWidget);
-    m_pvLayout->addWidget(m_pAppWidget);
     m_pvLayout->setSpacing(48);
     this->setLayout(m_pvLayout);
     this->setMinimumWidth(582);
@@ -88,11 +86,10 @@ UkmediaMainWidget::UkmediaMainWidget(QWidget *parent)
 
     }
 
+    //当出现获取输入输出异常时，使用默认的输入输出stream
+    m_pInputStream = mate_mixer_context_get_default_input_stream(m_pContext);
+    m_pOutputStream = mate_mixer_context_get_default_output_stream(m_pContext);
     contextSetProperty(this);
-//    点击输出设备
-    connect(m_pOutputWidget->m_pOutputDeviceCombobox,SIGNAL(currentIndexChanged(QString)),this,SLOT(outputDeviceComboxIndexChangedSlot(QString)));
-//    点击输入设备
-    connect(m_pInputWidget->m_pInputDeviceCombobox,SIGNAL(currentIndexChanged(QString)),this,SLOT(inputDeviceComboxIndexChangedSlot(QString)));
 
     g_signal_connect (G_OBJECT (m_pContext),
                      "notify::state",
@@ -121,6 +118,12 @@ UkmediaMainWidget::UkmediaMainWidget(QWidget *parent)
     //报警声音,从指定路径获取报警声音文件
     populateModelFromDir(this,SOUND_SET_DIR);
 
+    //输出音量控制
+    //输出滑动条音量控制
+    connect(m_pOutputWidget->m_pOpVolumeSlider,SIGNAL(valueChanged(int)),this,SLOT(outputWidgetSliderChangedSlot(int)));
+    //输入滑动条音量控制
+    connect(m_pInputWidget->m_pIpVolumeSlider,SIGNAL(valueChanged(int)),this,SLOT(inputWidgetSliderChangedSlot(int)));
+
     //点击报警音量时播放报警声音
     connect(m_pSoundWidget->m_pShutdownCombobox,SIGNAL(currentIndexChanged(int)),this,SLOT(comboxIndexChangedSlot(int)));
     connect(m_pSoundWidget->m_pLagoutCombobox ,SIGNAL(currentIndexChanged(int)),this,SLOT(comboxIndexChangedSlot(int)));
@@ -145,9 +148,13 @@ void UkmediaMainWidget::onContextStateNotify (MateMixerContext *m_pContext,GPara
         updateIconInput(m_pWidget);
     }
     else if (state == MATE_MIXER_STATE_FAILED) {
+        UkuiMessageBox::critical(m_pWidget,tr("sound error"),tr("load sound failed"),UkuiMessageBox::Yes | UkuiMessageBox::No,UkuiMessageBox::Yes);
         g_debug(" mate mixer state failed");
     }
-
+    //    点击输出设备
+    connect(m_pWidget->m_pOutputWidget->m_pOutputDeviceCombobox,SIGNAL(currentIndexChanged(QString)),m_pWidget,SLOT(outputDeviceComboxIndexChangedSlot(QString)));
+    //    点击输入设备
+    connect(m_pWidget->m_pInputWidget->m_pInputDeviceCombobox,SIGNAL(currentIndexChanged(QString)),m_pWidget,SLOT(inputDeviceComboxIndexChangedSlot(QString)));
 }
 
 /*
@@ -158,13 +165,14 @@ void UkmediaMainWidget::onContextStoredControlAdded(MateMixerContext *m_pContext
     g_debug("on conext stored control add");
     MateMixerStreamControl *m_pControl;
     MateMixerStreamControlMediaRole mediaRole;
+//    qDebug() <<  "on context stored control added";
     m_pControl = MATE_MIXER_STREAM_CONTROL (mate_mixer_context_get_stored_control (m_pContext, m_pName));
     if (G_UNLIKELY (m_pControl == nullptr))
         return;
 
     mediaRole = mate_mixer_stream_control_get_media_role (m_pControl);
     if (mediaRole == MATE_MIXER_STREAM_CONTROL_MEDIA_ROLE_EVENT)
-        ukuiBarSetStreamControl (m_pWidget, m_pControl);
+        ukuiBarSetStreamControl (m_pWidget,MATE_MIXER_DIRECTION_UNKNOWN, m_pControl);
 }
 
 /*
@@ -173,6 +181,7 @@ void UkmediaMainWidget::onContextStoredControlAdded(MateMixerContext *m_pContext
 void UkmediaMainWidget::onContextStreamAdded (MateMixerContext *m_pContext,const gchar *m_pName,UkmediaMainWidget *m_pWidget)
 {
     g_debug("on context stream added");
+//    qDebug() << "on context stream added" << m_pName;
     MateMixerStream *m_pStream;
     m_pStream = mate_mixer_context_get_stream (m_pContext, m_pName);
     if (G_UNLIKELY (m_pStream == nullptr))
@@ -199,7 +208,6 @@ void UkmediaMainWidget::listDevice(UkmediaMainWidget *m_pWidget,MateMixerContext
 void UkmediaMainWidget::addStream (UkmediaMainWidget *m_pWidget, MateMixerStream *m_pStream,MateMixerContext *m_pContext)
 {
     g_debug("add stream");
-
     const GList *m_pControls;
     MateMixerDirection direction;
     direction = mate_mixer_stream_get_direction (m_pStream);
@@ -209,13 +217,14 @@ void UkmediaMainWidget::addStream (UkmediaMainWidget *m_pWidget, MateMixerStream
     if (direction == MATE_MIXER_DIRECTION_INPUT) {
         MateMixerStream *m_pInput;
         m_pInput = mate_mixer_context_get_default_input_stream (m_pContext);
+        m_pName  = mate_mixer_stream_get_name (m_pStream);
+        m_pLabel = mate_mixer_stream_get_label (m_pStream);
         if (m_pStream == m_pInput) {
-            ukuiBarSetStream (m_pWidget, m_pStream);
+//            qDebug() << "stream == input ----------" << m_pName << m_pLabel;
+            ukuiBarSetStream(m_pWidget,m_pStream);
             m_pControl = mate_mixer_stream_get_default_control(m_pStream);
             updateInputSettings (m_pWidget,m_pControl);
         }
-        m_pName  = mate_mixer_stream_get_name (m_pStream);
-        m_pLabel = mate_mixer_stream_get_label (m_pStream);
         m_pWidget->m_pInputStreamList->append(m_pName);
         m_pWidget->m_pInputWidget->m_pInputDeviceCombobox->addItem(m_pLabel);
     }
@@ -224,12 +233,27 @@ void UkmediaMainWidget::addStream (UkmediaMainWidget *m_pWidget, MateMixerStream
         MateMixerStreamControl *m_pControl;
         m_pOutput = mate_mixer_context_get_default_output_stream (m_pContext);
         m_pControl = mate_mixer_stream_get_default_control (m_pStream);
+        m_pName  = mate_mixer_stream_get_name (m_pStream);
+        m_pLabel = mate_mixer_stream_get_label (m_pStream);
         if (m_pStream == m_pOutput) {
+//            qDebug() << "stream == output-------" << m_pName << m_pLabel;
             updateOutputSettings(m_pWidget,m_pControl);
             ukuiBarSetStream (m_pWidget, m_pStream);
         }
-        m_pName  = mate_mixer_stream_get_name (m_pStream);
-        m_pLabel = mate_mixer_stream_get_label (m_pStream);
+
+        const GList *switchList;
+        MateMixerSwitch *swt;
+        switchList = mate_mixer_stream_list_switches(m_pStream);
+        while (switchList != nullptr) {
+            swt = MATE_MIXER_SWITCH(switchList->data);
+            //            MateMixerSwitchOption *opt = MATE_MIXER_SWITCH_OPTION(optionList->data);
+            MateMixerSwitchOption *opt = mate_mixer_switch_get_active_option(swt);
+            const char *name = mate_mixer_switch_option_get_name(opt);
+            const char *label = mate_mixer_switch_option_get_label(opt);
+            qDebug() << "opt name:" << name << "opt label:" << label;
+            switchList = switchList->next;
+        }
+
         m_pWidget->m_pOutputStreamList->append(m_pName);
         m_pWidget->m_pOutputWidget->m_pOutputDeviceCombobox->addItem(m_pLabel);
     }
@@ -238,13 +262,15 @@ void UkmediaMainWidget::addStream (UkmediaMainWidget *m_pWidget, MateMixerStream
         MateMixerStreamControl    *m_pControl = MATE_MIXER_STREAM_CONTROL (m_pControls->data);
         MateMixerStreamControlRole role;
         role = mate_mixer_stream_control_get_role (m_pControl);
+        const gchar *m_pStreamControlName = mate_mixer_stream_control_get_name(m_pControl);
         if (role == MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION) {
             MateMixerAppInfo *m_pAppInfo = mate_mixer_stream_control_get_app_info(m_pControl);
             const gchar *m_pAppName = mate_mixer_app_info_get_name(m_pAppInfo);
             if (strcmp(m_pAppName,"ukui-session") != 0) {
-                m_pWidget->m_pStreamControlList->append(m_pName);
+                m_pWidget->m_pStreamControlList->append(m_pStreamControlName);
                 if G_UNLIKELY (m_pControl == nullptr)
                     return;
+//                qDebug() << "add stream"  << m_pStreamControlName ;
                 addApplicationControl (m_pWidget, m_pControl);
             }
         }
@@ -303,8 +329,10 @@ void UkmediaMainWidget::addApplicationControl (UkmediaMainWidget *m_pWidget, Mat
     QString app_icon_name = mate_mixer_app_info_get_icon(m_pInfo);
 
     m_pAppName = mate_mixer_app_info_get_name (m_pInfo);
+//    qDebug() << "add application control" << m_pAppName;
+    /*
     addAppToAppwidget(m_pWidget,appnum,m_pAppName,app_icon_name,m_pControl);
-
+    */
     if (m_pAppName == nullptr)
         m_pAppName = mate_mixer_stream_control_get_label (m_pControl);
     if (m_pAppName == nullptr)
@@ -328,7 +356,7 @@ void UkmediaMainWidget::addApplicationControl (UkmediaMainWidget *m_pWidget, Mat
         else
             m_pAppIcon = "applications-multimedia";
     }
-    ukuiBarSetStreamControl (m_pWidget, m_pControl);
+    ukuiBarSetStreamControl (m_pWidget,direction, m_pControl);
 }
 
 void UkmediaMainWidget::onStreamControlAdded (MateMixerStream *m_pStream,const gchar *m_pName,UkmediaMainWidget *m_pWidget)
@@ -350,12 +378,11 @@ void UkmediaMainWidget::onStreamControlAdded (MateMixerStream *m_pStream,const g
 
             role = mate_mixer_stream_control_get_role (m_pControl);
             if (role == MATE_MIXER_STREAM_CONTROL_ROLE_APPLICATION) {
+//                qDebug() << "on stream control added";
                 addApplicationControl(m_pWidget, m_pControl);
             }
         }
     }
-
-
 }
 
 /*
@@ -366,289 +393,15 @@ void UkmediaMainWidget::onStreamControlRemoved (MateMixerStream *m_pStream,const
     Q_UNUSED(m_pStream);
     g_debug("on stream control removed");
     if (m_pWidget->m_pStreamControlList->count() > 0 && m_pWidget->m_pAppNameList->count() > 0) {
-        removeApplicationControl(m_pWidget, m_pName);
+        int i = m_pWidget->m_pStreamControlList->indexOf(m_pName);
+        if (i < 0)
+            return;
+        m_pWidget->m_pStreamControlList->removeAt(i);
+        m_pWidget->m_pAppNameList->removeAt(i);
     }
     else {
         m_pWidget->m_pStreamControlList->clear();
         m_pWidget->m_pAppNameList->clear();
-    }
-}
-
-void UkmediaMainWidget::removeApplicationControl(UkmediaMainWidget *m_pWidget,const gchar *m_pName)
-{
-    g_debug ("Removing application stream %s", m_pName);
-    int i = m_pWidget->m_pStreamControlList->indexOf(m_pName);
-    if (m_pWidget->m_pStreamControlList->count() > m_pWidget->m_pAppNameList->count()) {
-        if (i <= 0)
-            return;
-        m_pWidget->m_pStreamControlList->removeAt(i);
-        return;
-    }
-    if ( i < m_pWidget->m_pAppNameList->count() || i < m_pWidget->m_pAppWidget->m_pGridlayout->count()) {
-        while (m_pWidget->m_pAppWidget->m_pGridlayout->count() > 0) {
-            QLayoutItem *item ;
-            if ((item = m_pWidget->m_pAppWidget->m_pGridlayout->takeAt(0)) != 0) {
-                item->widget()->setParent(nullptr);
-                delete item;
-            }
-        }
-        return;
-    }
-
-    qDebug() << "*************count" << m_pWidget->m_pAppWidget->m_pGridlayout->count() << i;
-    m_pWidget->m_pStreamControlList->removeAt(i);
-    m_pWidget->m_pAppNameList->removeAt(i);
-    //当播放音乐的应用程序退出后删除该项
-    QLayoutItem *item ;
-    if ((item = m_pWidget->m_pAppWidget->m_pGridlayout->takeAt(i)) != 0) {
-        item->widget()->setParent(nullptr);
-        delete item;
-    }
-    m_pWidget->m_pAppWidget->m_pGridlayout->update();
-    if (appnum <= 0) {
-        g_warn_if_reached ();
-        appnum = 1;
-    }
-    appnum--;
-    m_pWidget->m_pAppWidget->m_pGridlayout->setContentsMargins(0,0,0,m_pWidget->m_pAppWidget->m_pAppWid->height()-appnum*52);
-    if (appnum <= 0)
-        m_pWidget->m_pAppWidget->m_pNoAppLabel->show();
-    else
-        m_pWidget->m_pAppWidget->m_pNoAppLabel->hide();
-
-}
-
-void UkmediaMainWidget::addAppToAppwidget(UkmediaMainWidget *m_pWidget,int appnum, const gchar *m_pAppName,QString appIconName,MateMixerStreamControl *m_pControl)
-{
-    g_debug("add app to widget");
-    //获取应用静音状态及音量
-    int volume = 0;
-    gboolean isMute = false;
-    gdouble normal = 0.0;
-    QString percent;
-    isMute = mate_mixer_stream_control_get_mute(m_pControl);
-    volume = mate_mixer_stream_control_get_volume(m_pControl);
-    normal = mate_mixer_stream_control_get_normal_volume(m_pControl);
-    int displayVolume = 100 * volume / normal;
-
-    //设置应用的图标
-    QString iconName = "/usr/share/applications/";
-    iconName.append(appIconName);
-    iconName.append(".desktop");
-    XdgDesktopFile xdg;
-    xdg.load(iconName);
-    GError **error = nullptr;
-    GKeyFileFlags flags = G_KEY_FILE_NONE;
-    GKeyFile *keyflie = g_key_file_new();
-
-    g_key_file_load_from_file(keyflie,iconName.toLocal8Bit(),flags,error);
-    char *m_pIconStr = g_key_file_get_locale_string(keyflie,"Desktop Entry","Icon",nullptr,nullptr);
-    QIcon icon = QIcon::fromTheme(QString::fromLocal8Bit(m_pIconStr));
-    m_pWidget->m_pAppVolumeList->append(appIconName);
-
-    //widget显示应用音量
-    m_pWidget->m_pApplicationWidget = new QWidget(m_pWidget->m_pAppWidget->m_pAppWid);
-    m_pWidget->m_pApplicationWidget->setMinimumSize(550,50);
-    m_pWidget->m_pApplicationWidget->setMaximumSize(960,50);
-    QHBoxLayout *m_pHlayout = new QHBoxLayout();
-    m_pWidget->m_pAppWidget->m_pAppLabel = new QLabel();
-    m_pWidget->m_pAppWidget->m_pAppIconBtn = new QPushButton;
-    m_pWidget->m_pAppWidget->m_pAppIconLabel = new QLabel;
-    m_pWidget->m_pAppWidget->m_pAppVolumeLabel = new QLabel;
-    m_pWidget->m_pAppWidget->m_pAppSlider = new AudioSlider;
-    m_pWidget->m_pAppWidget->m_pAppSlider->setOrientation(Qt::Horizontal);
-
-    //设置每项的固定大小
-    m_pWidget->m_pAppWidget->m_pAppLabel->setFixedSize(160,14);
-    m_pWidget->m_pAppWidget->m_pAppIconBtn->setFixedSize(32,32);
-    m_pWidget->m_pAppWidget->m_pAppIconLabel->setFixedSize(24,24);
-    m_pWidget->m_pAppWidget->m_pAppVolumeLabel->setFixedSize(36,14);
-
-    m_pWidget->m_pAppWidget->m_pAppVolumeLabel->setFixedHeight(16);
-    m_pHlayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed,QSizePolicy::Fixed));
-    m_pHlayout->addWidget(m_pWidget->m_pAppWidget->m_pAppIconBtn);
-    m_pHlayout->addItem(new QSpacerItem(8,20,QSizePolicy::Fixed,QSizePolicy::Fixed));
-    m_pHlayout->addWidget(m_pWidget->m_pAppWidget->m_pAppLabel);
-    m_pHlayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed,QSizePolicy::Fixed));
-    m_pHlayout->addWidget(m_pWidget->m_pAppWidget->m_pAppIconLabel);
-    m_pHlayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed,QSizePolicy::Fixed));
-    m_pHlayout->addWidget(m_pWidget->m_pAppWidget->m_pAppSlider);
-    m_pHlayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed,QSizePolicy::Fixed));
-    m_pHlayout->addWidget(m_pWidget->m_pAppWidget->m_pAppVolumeLabel);
-    m_pHlayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed,QSizePolicy::Fixed));
-    m_pWidget->m_pApplicationWidget->setLayout(m_pHlayout);
-    m_pWidget->m_pApplicationWidget->layout()->setContentsMargins(0,0,0,0);
-    m_pHlayout->setSpacing(0);
-
-//    hlayout->addWidget(app_widget);
-    //添加widget到gridlayout中
-    m_pWidget->m_pAppWidget->m_pGridlayout->addWidget(m_pWidget->m_pApplicationWidget);
-    m_pWidget->m_pAppWidget->m_pGridlayout->setVerticalSpacing(1);
-    m_pWidget->m_pAppWidget->m_pGridlayout->setContentsMargins(0,0,0,m_pWidget->m_pAppWidget->height()-appnum*52);
-
-    QSize icon_size(32,32);
-    m_pWidget->m_pAppWidget->m_pAppIconBtn->setIconSize(icon_size);
-    m_pWidget->m_pAppWidget->m_pAppIconBtn->setStyleSheet("QPushButton{background:transparent;border:0px;padding-left:0px;}");
-    m_pWidget->m_pAppWidget->m_pAppIconBtn->setIcon(icon);
-//    m_pWidget->appIconBtn->setFlat(true);
-//    m_pWidget->appIconBtn->setEnabled(true);
-    m_pWidget->m_pAppWidget->m_pAppIconBtn->setFocusPolicy(Qt::NoFocus);
-
-    m_pWidget->m_pAppWidget->m_pAppSlider->setMaximum(100);
-    m_pWidget->m_pAppWidget->m_pAppSlider->setMinimumSize(178,20);
-    m_pWidget->m_pAppWidget->m_pAppSlider->setMaximumSize(800,20);
-
-    QString appSliderStr = m_pAppName;
-    QString appLabelStr = m_pAppName;
-    QString appVolumeLabelStr = m_pAppName;
-    QString appIconLabelStr = m_pAppName;
-
-    appSliderStr.append("Slider");
-    appLabelStr.append("Label");
-    appVolumeLabelStr.append("VolumeLabel");
-    appIconLabelStr.append("VolumeIconLabel");
-    qDebug() << "appslider name :" << appSliderStr;
-    m_pWidget->m_pAppNameList->append(appSliderStr);
-    m_pWidget->m_pAppWidget->m_pAppSlider->setObjectName(appSliderStr);
-    m_pWidget->m_pAppWidget->m_pAppLabel->setObjectName(appLabelStr);
-    m_pWidget->m_pAppWidget->m_pAppVolumeLabel->setObjectName(appVolumeLabelStr);
-    m_pWidget->m_pAppWidget->m_pAppIconLabel->setObjectName(appIconLabelStr);
-    percent = QString::number(displayVolume);
-    percent.append("%");
-    //设置label 和滑动条的值
-    m_pWidget->m_pAppWidget->m_pAppLabel->setText(m_pAppName);
-    m_pWidget->m_pAppWidget->m_pAppSlider->setValue(displayVolume);
-    m_pWidget->m_pAppWidget->m_pAppVolumeLabel->setText(percent);
-    //设置声音标签图标
-    QPixmap pix;
-    if (isMute) {
-        m_pWidget->m_pAppWidget->m_pAppSlider->setValue(displayVolume);
-        mate_mixer_stream_control_set_mute(m_pControl,isMute);
-    }
-    if (displayVolume <= 0) {
-        pix = QPixmap("/usr/share/ukui-media/img/audio-volume-muted.svg");
-        m_pWidget->m_pAppWidget->m_pAppIconLabel->setPixmap(pix);
-    }
-    else if (displayVolume > 0 && displayVolume <= 33) {
-        pix = QPixmap("/usr/share/ukui-media/img/audio-volume-low.svg");
-        m_pWidget->m_pAppWidget->m_pAppIconLabel->setPixmap(pix);
-    }
-    else if (displayVolume >33 && displayVolume <= 66) {
-        pix = QPixmap("/usr/share/ukui-media/img/audio-volume-medium.svg");
-        m_pWidget->m_pAppWidget->m_pAppIconLabel->setPixmap(pix);
-    }
-    else {
-        pix = QPixmap("/usr/share/ukui-media/img/audio-volume-high.svg");
-        m_pWidget->m_pAppWidget->m_pAppIconLabel->setPixmap(pix);
-    }
-
-    /*滑动条控制应用音量*/
-    connect(m_pWidget->m_pAppWidget->m_pAppSlider,&QSlider::valueChanged,[=](int value){
-        QSlider *m_pSlider= m_pWidget->m_pApplicationWidget->findChild<QSlider*>(appSliderStr);
-        m_pSlider->setValue(value);
-        QLabel *m_pLabel = m_pWidget->m_pApplicationWidget->findChild<QLabel*>(appVolumeLabelStr);
-        QString percent;
-        percent = QString::number(value);
-        percent.append("%");
-        m_pLabel->setText(percent);
-        QLabel *appIcon = m_pWidget->m_pApplicationWidget->findChild<QLabel*>(appIconLabelStr);
-
-        int volume = int(value*65536/100);
-        mate_mixer_stream_control_set_volume(m_pControl,(int)volume);
-        //设置声音标签图标
-        QPixmap pix;
-        if (value <= 0) {
-            pix = QPixmap("/usr/share/ukui-media/img/audio-volume-muted.svg");
-            appIcon->setPixmap(pix);
-        }
-        else if (value > 0 && value <= 33) {
-            pix = QPixmap("/usr/share/ukui-media/img/audio-volume-low.svg");
-            appIcon->setPixmap(pix);
-        }
-        else if (value >33 && value <= 66) {
-            pix = QPixmap("/usr/share/ukui-media/img/audio-volume-medium.svg");
-            appIcon->setPixmap(pix);
-        }
-        else {
-            pix = QPixmap("/usr/share/ukui-media/img/audio-volume-high.svg");
-            appIcon->setPixmap(pix);
-        }
-    });
-    /*应用音量同步*/
-    g_signal_connect (G_OBJECT (m_pControl),
-                     "notify::volume",
-                     G_CALLBACK (updateAppVolume),
-                     m_pWidget);
-
-//    g_signal_connect (G_OBJECT (control),
-//                     "notify::muted",
-//                     G_CALLBACK (app_volume_mute),
-//                     w);
-
-    connect(m_pWidget,&UkmediaMainWidget::appVolumeChangedSignal,[=](bool isMute,int volume,QString app_name){
-        Q_UNUSED(isMute);
-        QString slider_str = app_name;
-//        slider_str.append("Slider");
-        QSlider *s = m_pWidget->m_pApplicationWidget->findChild<QSlider*>(slider_str);
-        if (s == nullptr)
-            return;
-        s->setValue(volume);
-    });
-
-    m_pWidget->m_pApplicationWidget->setStyleSheet("QWidget{"
-                              "background: rgba(244,244,244,1);"
-                              "border-radius: 4px;}");
-
-    if (appnum <= 0)
-        m_pWidget->m_pAppWidget->m_pNoAppLabel->show();
-    else
-        m_pWidget->m_pAppWidget->m_pNoAppLabel->hide();
-
-    m_pWidget->m_pAppWidget->m_pAppSlider->setStyleSheet("QSlider::groove:horizontal {"
-                                           "border: 0px solid #bbb; }"
-                                           "QSlider::sub-page:horizontal {"
-                                           "background: #3D6BE5;border-radius: 2px;"
-                                           "margin-top:8px;margin-bottom:9px;}"
-                                           "QSlider::add-page:horizontal {"
-                                           "background:  rgba(52,70,80,90%);"
-                                           "border: 0px solid #777;"
-                                           "border-radius: 2px;"
-                                           "margin-top:8px;"
-                                           "margin-bottom:9px;}"
-                                           "QSlider::handle:horizontal {"
-                                           "width: 20px;"
-                                           "height: 20px;"
-                                           "background: rgb(61,107,229);"
-                                           "border-radius:10px;}");
-}
-
-/*
-    同步应用音量
-*/
-void UkmediaMainWidget::updateAppVolume(MateMixerStreamControl *m_pControl, GParamSpec *pspec, UkmediaMainWidget *m_pWidget)
-{
-    Q_UNUSED(pspec);
-    g_debug("update app volume");
-    guint value = mate_mixer_stream_control_get_volume(m_pControl);
-    guint volume ;
-    volume = guint(value*100/65536.0+0.5);
-    bool isMute = mate_mixer_stream_control_get_mute(m_pControl);
-    const gchar *controlName = mate_mixer_stream_control_get_name(m_pControl);
-    int index = m_pWidget->m_pStreamControlList->indexOf(controlName);
-    MateMixerStreamControlFlags control_flags = mate_mixer_stream_control_get_flags(m_pControl);
-    MateMixerAppInfo *info = mate_mixer_stream_control_get_app_info(m_pControl);
-    const gchar *m_pAppName = mate_mixer_app_info_get_name(info);
-    if (index < 0 )
-        return;
-    QString appName = m_pWidget->m_pAppNameList->at(index);
-    Q_EMIT m_pWidget->appVolumeChangedSignal(isMute,volume,appName);
-
-    //静音可读并且处于静音
-    if ((control_flags & MATE_MIXER_STREAM_CONTROL_MUTE_WRITABLE) ) {
-    }
-    if (control_flags & MATE_MIXER_STREAM_CONTROL_VOLUME_WRITABLE) {
-        //设置滑动条的值
-//        Q_EMIT->emitVolume(volume);
     }
 }
 
@@ -705,6 +458,7 @@ void UkmediaMainWidget::onContextStreamRemoved (MateMixerContext *m_pContext,con
     Q_UNUSED(m_pContext);
     Q_UNUSED(m_pName);
     g_debug("on context stream removed");
+//    qDebug() << "on context stream removed";
     removeStream (m_pWidget, m_pName);
 }
 
@@ -719,11 +473,15 @@ void UkmediaMainWidget::removeStream (UkmediaMainWidget *m_pWidget, const gchar 
     if (index >= 0) {
         m_pWidget->m_pInputStreamList->removeAt(index);
         m_pWidget->m_pInputWidget->m_pInputDeviceCombobox->removeItem(index);
+//        qDebug() << "remove input stream :" << m_pName;
     }
-    index = m_pWidget->m_pOutputStreamList->indexOf(m_pName);
-    if (index >= 0) {
-        m_pWidget->m_pOutputStreamList->removeAt(index);
-        m_pWidget->m_pOutputWidget->m_pOutputDeviceCombobox->removeItem(index);
+    else {
+        index = m_pWidget->m_pOutputStreamList->indexOf(m_pName);
+        if (index >= 0) {
+            m_pWidget->m_pOutputStreamList->removeAt(index);
+            m_pWidget->m_pOutputWidget->m_pOutputDeviceCombobox->removeItem(index);
+//            qDebug() << "remove output stream :" << m_pName ;
+        }
     }
     if (m_pWidget->m_pAppVolumeList != nullptr) {
         ukuiBarSetStream(m_pWidget,nullptr);
@@ -767,7 +525,8 @@ void UkmediaMainWidget::onContextDeviceRemoved (MateMixerContext *m_pContext,con
     Q_UNUSED(m_pContext);
     g_debug("on context device removed");
     int index = m_pWidget->m_pDeviceNameList->indexOf(m_pName);
-    m_pWidget->m_pDeviceNameList->removeAt(index);
+    if (index >= 0)
+        m_pWidget->m_pDeviceNameList->removeAt(index);
 }
 
 /*
@@ -779,12 +538,28 @@ void UkmediaMainWidget::onContextDefaultInputStreamNotify (MateMixerContext *m_p
     g_debug ("on context default input stream notify");
     MateMixerStream *m_pStream;
     m_pStream = mate_mixer_context_get_default_input_stream (m_pContext);
+    if (m_pStream == nullptr) {
+        //当输入流更改异常时，使用默认的输入流，不应该发生这种情况
+        m_pStream = m_pWidget->m_pInputStream;
+    }
+    QString deviceName = mate_mixer_stream_get_label(m_pStream);
+    int index = m_pWidget->m_pInputWidget->m_pInputDeviceCombobox->findText(deviceName);
+    if (index < 0)
+        return;
+    m_pWidget->m_pInputWidget->m_pInputDeviceCombobox->setCurrentIndex(index);
+    updateIconInput(m_pWidget);
     setInputStream(m_pWidget, m_pStream);
 }
 
 void UkmediaMainWidget::setInputStream(UkmediaMainWidget *m_pWidget, MateMixerStream *m_pStream)
 {
     g_debug("set input stream");
+//    qDebug() << "set input stream";
+    if (m_pStream == nullptr) {
+//        qDebug() << "input is null" ;
+        return;
+    }
+
     MateMixerStreamControl *m_pControl = mate_mixer_stream_get_default_control(m_pStream);
     if (m_pControl != nullptr) {
         mate_mixer_stream_control_set_monitor_enabled (m_pControl, FALSE);
@@ -822,8 +597,8 @@ void UkmediaMainWidget::setInputStream(UkmediaMainWidget *m_pWidget, MateMixerSt
     if (G_LIKELY (m_pControl != nullptr))
         mate_mixer_stream_control_set_monitor_enabled (m_pControl, TRUE);
 
-    m_pControl = mate_mixer_stream_get_default_control(m_pStream);
-    updateInputSettings (m_pWidget,m_pControl);
+//    m_pControl = mate_mixer_stream_get_default_control(m_pStream);
+    updateInputSettings (m_pWidget,m_pWidget->m_pInputBarStreamControl);
 }
 
 /*
@@ -849,7 +624,19 @@ void UkmediaMainWidget::onContextDefaultOutputStreamNotify (MateMixerContext *m_
     Q_UNUSED(pspec);
     g_debug("on context default output stream notify");
     MateMixerStream *m_pStream;
+//    qDebug() << "on context default stream notify********";
     m_pStream = mate_mixer_context_get_default_output_stream (m_pContext);
+
+    if (m_pStream == nullptr) {
+//        qDebug() << "on context default output steam notify:" << "stream is null";
+        //当输出流更改异常时，使用默认的输入流，不应该发生这种情况
+        m_pStream = m_pWidget->m_pOutputStream;
+    }
+    QString deviceName = mate_mixer_stream_get_label(m_pStream);
+    int index = m_pWidget->m_pOutputWidget->m_pOutputDeviceCombobox->findText(deviceName);
+    if (index < 0)
+        return;
+    m_pWidget->m_pOutputWidget->m_pOutputDeviceCombobox->setCurrentIndex(index);
     updateIconOutput(m_pWidget);
     setOutputStream (m_pWidget, m_pStream);
 }
@@ -957,28 +744,28 @@ void UkmediaMainWidget::updateIconInput (UkmediaMainWidget *m_pWidget)
     else
         g_debug ("There is no recording application, input icon disabled");
 
-    connect(m_pWidget->m_pInputWidget->m_pIpVolumeSlider,&QSlider::valueChanged,[=](int value){
-        QString percent;
-        if (value <= 0) {
-            mate_mixer_stream_control_set_mute(m_pControl,TRUE);
-            mate_mixer_stream_control_set_volume(m_pControl,0);
-            percent = QString::number(0);
-            m_pWidget->m_pInputWidget->m_pInputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/microphone-mute.svg"));
-        }
-        else if (value > 0 && value <= 33) {
-            m_pWidget->m_pInputWidget->m_pInputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/microphone-low.svg"));
-        }
-        else if (value >33 && value <= 66) {
-            m_pWidget->m_pInputWidget->m_pInputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/microphone-medium.svg"));
-        }
-        else {
-            m_pWidget->m_pInputWidget->m_pInputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/microphone-high.svg"));
-        }
-        percent = QString::number(value);
-        mate_mixer_stream_control_set_mute(m_pControl,FALSE);
-        percent.append("%");
-        m_pWidget->m_pInputWidget->m_pIpVolumePercentLabel->setText(percent);
-    });
+//    connect(m_pWidget->m_pInputWidget->m_pIpVolumeSlider,&QSlider::valueChanged,[=](int value){
+//        QString percent;
+//        if (value <= 0) {
+//            mate_mixer_stream_control_set_mute(m_pControl,TRUE);
+//            mate_mixer_stream_control_set_volume(m_pControl,0);
+//            percent = QString::number(0);
+//            m_pWidget->m_pInputWidget->m_pInputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/microphone-mute.svg"));
+//        }
+//        else if (value > 0 && value <= 33) {
+//            m_pWidget->m_pInputWidget->m_pInputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/microphone-low.svg"));
+//        }
+//        else if (value >33 && value <= 66) {
+//            m_pWidget->m_pInputWidget->m_pInputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/microphone-medium.svg"));
+//        }
+//        else {
+//            m_pWidget->m_pInputWidget->m_pInputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/microphone-high.svg"));
+//        }
+//        percent = QString::number(value);
+//        mate_mixer_stream_control_set_mute(m_pControl,FALSE);
+//        percent.append("%");
+//        m_pWidget->m_pInputWidget->m_pIpVolumePercentLabel->setText(percent);
+//    });
     streamStatusIconSetControl(m_pWidget, m_pControl);
 
     if (m_pControl != nullptr) {
@@ -1017,6 +804,7 @@ void UkmediaMainWidget::updateIconOutput(UkmediaMainWidget *m_pWidget)
     //初始化滑动条的值
     int volume = mate_mixer_stream_control_get_volume(m_pControl);
     int value = volume *100 /65536.0+0.5;
+//    qDebug() << "default stream control name:" << mate_mixer_stream_control_get_name(m_pControl) << "value:" << value;
     m_pWidget->m_pOutputWidget->m_pOpVolumeSlider->setValue(value);
     QString percent = QString::number(value);
     percent.append("%");
@@ -1040,33 +828,6 @@ void UkmediaMainWidget::updateIconOutput(UkmediaMainWidget *m_pWidget)
         m_pWidget->m_pOutputWidget->m_pOutputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/audio-volume-high.svg"));
     }
 
-    //输出音量控制
-    //输出滑动条和音量控制
-    connect(m_pWidget->m_pOutputWidget->m_pOpVolumeSlider,&QSlider::valueChanged,[=](int value){
-        QString percent;
-
-        percent = QString::number(value);
-        int volume = value*65536/100;
-        mate_mixer_stream_control_set_volume(m_pControl,guint(volume));
-        if (value <= 0) {
-            mate_mixer_stream_control_set_mute(m_pControl,TRUE);
-            mate_mixer_stream_control_set_volume(m_pControl,0);
-            percent = QString::number(0);
-            m_pWidget->m_pOutputWidget->m_pOutputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/audio-volume-muted.svg"));
-        }
-        else if (value > 0 && value <= 33) {
-            m_pWidget->m_pOutputWidget->m_pOutputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/audio-volume-low.svg"));
-        }
-        else if (value > 33 && value <= 66) {
-            m_pWidget->m_pOutputWidget->m_pOutputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/audio-volume-medium.svg"));
-        }
-        else {
-            m_pWidget->m_pOutputWidget->m_pOutputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/audio-volume-high.svg"));
-        }
-        mate_mixer_stream_control_set_mute(m_pControl,FALSE);
-        percent.append("%");
-        m_pWidget->m_pOutputWidget->m_pOpVolumePercentLabel->setText(percent);
-    });
     if (m_pControl != nullptr) {
         g_debug ("Output icon enabled");
     }
@@ -1198,6 +959,8 @@ void UkmediaMainWidget::updateOutputSettings (UkmediaMainWidget *m_pWidget,MateM
     if (m_pControl == nullptr) {
         return;
     }
+//    qDebug() << "update output settings is not null";
+//    qDebug() << "update output settings" << mate_mixer_stream_control_get_name(m_pControl);
     flags = mate_mixer_stream_control_get_flags(m_pControl);
 
     if (flags & MATE_MIXER_STREAM_CONTROL_CAN_BALANCE) {
@@ -1686,7 +1449,8 @@ void UkmediaMainWidget::outputDeviceComboxIndexChangedSlot(QString str)
     g_debug("output device combox index changed slot");
     MateMixerBackendFlags flags;
     int index = m_pOutputWidget->m_pOutputDeviceCombobox->findText(str);
-
+    if (index == -1)
+        return;
     const QString str1 =  m_pOutputStreamList->at(index);
     const gchar *name = str1.toLocal8Bit();
     MateMixerStream *stream = mate_mixer_context_get_stream(m_pContext,name);
@@ -1699,6 +1463,7 @@ void UkmediaMainWidget::outputDeviceComboxIndexChangedSlot(QString str)
     flags = mate_mixer_context_get_backend_flags (m_pContext);
 
     if (flags & MATE_MIXER_BACKEND_CAN_SET_DEFAULT_OUTPUT_STREAM) {
+//        qDebug() << "设置默认的输出stream:" << str << "获取的stream名:" << mate_mixer_stream_get_label(stream) << mate_mixer_stream_get_name(stream);
         mate_mixer_context_set_default_output_stream (m_pContext, stream);
         MateMixerStreamControl *c = mate_mixer_stream_get_default_control(stream);
         int(mate_mixer_stream_control_get_volume(c) *100 /65536.0+0.5);
@@ -1717,6 +1482,9 @@ void UkmediaMainWidget::inputDeviceComboxIndexChangedSlot(QString str)
     g_debug("input device combox index changed slot");
     MateMixerBackendFlags flags;
     int index = m_pInputWidget->m_pInputDeviceCombobox->findText(str);
+//    qDebug() << index;
+    if (index == -1)
+        return;
     const QString str1 =  m_pInputStreamList->at(index);
     const gchar *name = str1.toLocal8Bit();
     MateMixerStream *stream = mate_mixer_context_get_stream(m_pContext,name);
@@ -1742,20 +1510,30 @@ void UkmediaMainWidget::inputDeviceComboxIndexChangedSlot(QString str)
 void UkmediaMainWidget::setOutputStream (UkmediaMainWidget *m_pWidget, MateMixerStream *m_pStream)
 {
     g_debug("set output stream");
+    int i = 0;
+    if (m_pStream == nullptr) {
+        return;
+//        qDebug() << "set output stream is nullptr";
+    }
     MateMixerStreamControl *m_pControl;
     ukuiBarSetStream(m_pWidget,m_pStream);
     if (m_pStream != nullptr) {
         const GList *controls;
         controls = mate_mixer_context_list_stored_controls (m_pWidget->m_pContext);
+        if (controls == nullptr) {
+            return;
+//            qDebug() << "list strored control is null";
+        }
         /* Move all stored controls to the newly selected default stream */
         while (controls != nullptr) {
             MateMixerStream        *parent;
             MateMixerStreamControl *m_pControl;
             m_pControl = MATE_MIXER_STREAM_CONTROL (controls->data);
+            qDebug() << "list control name" << mate_mixer_stream_control_get_name(m_pControl) << ++i;
             parent  = mate_mixer_stream_control_get_stream (m_pControl);
 
             /* Prefer streamless controls to stay the way they are, forcing them to
-                 * a particular owning stream would be wrong for eg. event controls */
+            * a particular owning stream would be wrong for eg. event controls */
             if (parent != nullptr && parent != m_pStream) {
                 MateMixerDirection direction = mate_mixer_stream_get_direction (parent);
 
@@ -1766,7 +1544,11 @@ void UkmediaMainWidget::setOutputStream (UkmediaMainWidget *m_pWidget, MateMixer
         }
     }
     updateOutputStreamList (m_pWidget, m_pStream);
-    updateOutputSettings(m_pWidget,m_pControl);
+    if (m_pControl == nullptr) {
+        return;
+//        qDebug() << "m_pControl is null";
+    }
+    updateOutputSettings(m_pWidget,m_pWidget->m_pOutputBarStreamControl);
 }
 
 /*
@@ -1792,15 +1574,22 @@ void UkmediaMainWidget::ukuiBarSetStream (UkmediaMainWidget  *w,MateMixerStream 
 
     if (m_pStream != nullptr)
         m_pControl = mate_mixer_stream_get_default_control (m_pStream);
-    ukuiBarSetStreamControl (w, m_pControl);
+    MateMixerDirection direction = mate_mixer_stream_get_direction(m_pStream);
+    ukuiBarSetStreamControl (w,direction,m_pControl);
 }
 
-void UkmediaMainWidget::ukuiBarSetStreamControl (UkmediaMainWidget *m_pWidget,MateMixerStreamControl *m_pControl)
+void UkmediaMainWidget::ukuiBarSetStreamControl (UkmediaMainWidget *m_pWidget,MateMixerDirection direction,MateMixerStreamControl *m_pControl)
 {
     Q_UNUSED(m_pWidget);
     g_debug("ukui bar set stream control");
     const gchar *m_pName;
     if (m_pControl != nullptr) {
+        if (direction == MATE_MIXER_DIRECTION_OUTPUT) {
+            m_pWidget->m_pOutputBarStreamControl = m_pControl;
+        }
+        else if (direction == MATE_MIXER_DIRECTION_INPUT) {
+            m_pWidget->m_pInputBarStreamControl = m_pControl;
+        }
         m_pName = mate_mixer_stream_control_get_name (m_pControl);
     }
 }
@@ -1834,6 +1623,70 @@ void UkmediaMainWidget::ukuiUpdatePeakValue (UkmediaMainWidget *m_pWidget)
     }
 }
 
+/*
+    滚动输出音量滑动条
+*/
+void UkmediaMainWidget::outputWidgetSliderChangedSlot(int value)
+{
+    m_pOutputStream = mate_mixer_context_get_default_output_stream(m_pContext);
+    if (m_pOutputStream != nullptr)
+        m_pControl = mate_mixer_stream_get_default_control(m_pOutputStream);
+    QString percent;
+
+    percent = QString::number(value);
+    int volume = value*65536/100;
+    mate_mixer_stream_control_set_volume(m_pControl,guint(volume));
+    if (value <= 0) {
+        mate_mixer_stream_control_set_mute(m_pControl,TRUE);
+        mate_mixer_stream_control_set_volume(m_pControl,0);
+        percent = QString::number(0);
+        m_pOutputWidget->m_pOutputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/audio-volume-muted.svg"));
+    }
+    else if (value > 0 && value <= 33) {
+        m_pOutputWidget->m_pOutputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/audio-volume-low.svg"));
+    }
+    else if (value > 33 && value <= 66) {
+        m_pOutputWidget->m_pOutputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/audio-volume-medium.svg"));
+    }
+    else {
+        m_pOutputWidget->m_pOutputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/audio-volume-high.svg"));
+    }
+    mate_mixer_stream_control_set_mute(m_pControl,FALSE);
+    percent.append("%");
+    m_pOutputWidget->m_pOpVolumePercentLabel->setText(percent);
+}
+
+/*
+    滚动输入滑动条
+*/
+void UkmediaMainWidget::inputWidgetSliderChangedSlot(int value)
+{
+    m_pInputStream = mate_mixer_context_get_default_input_stream(m_pContext);
+    m_pControl = mate_mixer_stream_get_default_control(m_pInputStream);
+
+    QString percent;
+    if (value <= 0) {
+        mate_mixer_stream_control_set_mute(m_pControl,TRUE);
+        mate_mixer_stream_control_set_volume(m_pControl,0);
+        percent = QString::number(0);
+        m_pInputWidget->m_pInputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/microphone-mute.svg"));
+    }
+    else if (value > 0 && value <= 33) {
+        m_pInputWidget->m_pInputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/microphone-low.svg"));
+    }
+    else if (value >33 && value <= 66) {
+        m_pInputWidget->m_pInputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/microphone-medium.svg"));
+    }
+    else {
+        m_pInputWidget->m_pInputIconBtn->setIcon(QIcon("/usr/share/ukui-media/img/microphone-high.svg"));
+    }
+    percent = QString::number(value);
+    value = value * 65536 / 100;
+    mate_mixer_stream_control_set_mute(m_pControl,FALSE);
+    mate_mixer_stream_control_set_volume(m_pControl,value);
+    percent.append("%");
+    m_pInputWidget->m_pIpVolumePercentLabel->setText(percent);
+}
 
 void UkmediaMainWidget::inputLevelValueChangedSlot()
 {

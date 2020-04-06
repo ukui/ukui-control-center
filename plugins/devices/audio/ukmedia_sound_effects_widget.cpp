@@ -4,6 +4,10 @@
 #include <QVBoxLayout>
 #include <QDebug>
 
+UkuiMessageBox::UkuiMessageBox()
+{
+}
+
 UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(parent)
 {
     m_pThemeWidget = new QWidget(this);
