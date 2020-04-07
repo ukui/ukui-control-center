@@ -33,7 +33,7 @@ Printer::Printer(){
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("printer");
+    pluginName = tr("Printer");
     pluginType = DEVICES;
 
     pluginWidget->setStyleSheet("background: #ffffff;");

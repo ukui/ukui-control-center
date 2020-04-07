@@ -49,7 +49,7 @@ MouseControl::MouseControl()
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("mouse");
+    pluginName = tr("Mouse");
     pluginType = DEVICES;
 
     QString qss;

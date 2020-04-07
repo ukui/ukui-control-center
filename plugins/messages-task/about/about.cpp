@@ -33,7 +33,7 @@ About::About()
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("about");
+    pluginName = tr("About");
     pluginType = NOTICEANDTASKS;
 
     pluginWidget->setStyleSheet("background: #ffffff;");

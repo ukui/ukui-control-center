@@ -54,7 +54,7 @@ UserInfo::UserInfo()
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("userinfo");
+    pluginName = tr("Userinfo");
     pluginType = ACCOUNT;
 
     //构建System dbus调度对象

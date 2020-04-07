@@ -57,7 +57,7 @@ Touchpad::Touchpad()
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("touchpad");
+    pluginName = tr("Touchpad");
     pluginType = DEVICES;
 
     QString qss;

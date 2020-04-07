@@ -47,14 +47,14 @@ void FunctionSelect::initValue(){
         funcStruct.mainShow = true;
         systemList.append(funcStruct);
     }
-    systemList[DISPLAY].nameString = QString("display");
-    systemList[DISPLAY].namei18nString =  QObject::tr("display");
-    systemList[DEFAULTAPP].nameString = QString("defaultapp");
-    systemList[DEFAULTAPP].namei18nString =  QObject::tr("defaultapp");
-    systemList[POWER].nameString = QString("power");
-    systemList[POWER].namei18nString = QObject::tr("power");
-    systemList[AUTOBOOT].nameString = QString("autoboot");
-    systemList[AUTOBOOT].namei18nString = QObject::tr("autoboot");
+    systemList[DISPLAY].nameString = QString("Display");
+    systemList[DISPLAY].namei18nString =  QObject::tr("Display");
+    systemList[DEFAULTAPP].nameString = QString("Defaultapp");
+    systemList[DEFAULTAPP].namei18nString =  QObject::tr("Defaultapp");
+    systemList[POWER].nameString = QString("Power");
+    systemList[POWER].namei18nString = QObject::tr("Power");
+    systemList[AUTOBOOT].nameString = QString("Autoboot");
+    systemList[AUTOBOOT].namei18nString = QObject::tr("Autoboot");
 
     funcinfoList.append(systemList);
 
@@ -67,20 +67,20 @@ void FunctionSelect::initValue(){
         funcStruct.mainShow = true;
         devicesList.append(funcStruct);
     }
-    devicesList[PRINTER].nameString = QString("printer");
-    devicesList[PRINTER].namei18nString = QObject::tr("printer");
-    devicesList[MOUSE].nameString = QString("mouse");
-    devicesList[MOUSE].namei18nString = QObject::tr("mouse");
-    devicesList[TOUCHPAD].nameString = QString("touchpad");
-    devicesList[TOUCHPAD].namei18nString = QObject::tr("touchpad");
+    devicesList[PRINTER].nameString = QString("Printer");
+    devicesList[PRINTER].namei18nString = QObject::tr("Printer");
+    devicesList[MOUSE].nameString = QString("Mouse");
+    devicesList[MOUSE].namei18nString = QObject::tr("Mouse");
+    devicesList[TOUCHPAD].nameString = QString("Touchpad");
+    devicesList[TOUCHPAD].namei18nString = QObject::tr("Touchpad");
     devicesList[TOUCHPAD].mainShow = false;
-    devicesList[KEYBOARD].nameString = QString("keyboard");
-    devicesList[KEYBOARD].namei18nString = QObject::tr("keyboard");
-    devicesList[SHORTCUT].nameString = QString("shortcut");
-    devicesList[SHORTCUT].namei18nString = QObject::tr("shortcut");
+    devicesList[KEYBOARD].nameString = QString("Keyboard");
+    devicesList[KEYBOARD].namei18nString = QObject::tr("Keyboard");
+    devicesList[SHORTCUT].nameString = QString("Shortcut");
+    devicesList[SHORTCUT].namei18nString = QObject::tr("Shortcut");
     devicesList[SHORTCUT].mainShow = false;
-    devicesList[AUDIO].nameString = QString("audio");
-    devicesList[AUDIO].namei18nString = QObject::tr("audio");
+    devicesList[AUDIO].nameString = QString("Audio");
+    devicesList[AUDIO].namei18nString = QObject::tr("Audio");
 
     funcinfoList.append(devicesList);
 
@@ -93,18 +93,18 @@ void FunctionSelect::initValue(){
         funcStruct.mainShow = true;
         personalizedList.append(funcStruct);
     }
-    personalizedList[BACKGROUND].nameString = QString("background");
-    personalizedList[BACKGROUND].namei18nString = QObject::tr("background");
-    personalizedList[THEME].nameString = QString("theme");
-    personalizedList[THEME].namei18nString = QObject::tr("theme");
-    personalizedList[SCREENLOCK].nameString = QString("screenlock");
-    personalizedList[SCREENLOCK].namei18nString = QObject::tr("screenlock");
-    personalizedList[FONTS].nameString = QString("fonts");
-    personalizedList[FONTS].namei18nString = QObject::tr("fonts");
-    personalizedList[SCREENSAVER].nameString = QString("screensaver");
-    personalizedList[SCREENSAVER].namei18nString = QObject::tr("screensaver");
-    personalizedList[DESKTOP].nameString = QString("desktop");
-    personalizedList[DESKTOP].namei18nString = QObject::tr("desktop");
+    personalizedList[BACKGROUND].nameString = QString("Background");
+    personalizedList[BACKGROUND].namei18nString = QObject::tr("Background");
+    personalizedList[THEME].nameString = QString("Theme");
+    personalizedList[THEME].namei18nString = QObject::tr("Theme");
+    personalizedList[SCREENLOCK].nameString = QString("Screenlock");
+    personalizedList[SCREENLOCK].namei18nString = QObject::tr("Screenlock");
+    personalizedList[FONTS].nameString = QString("Fonts");
+    personalizedList[FONTS].namei18nString = QObject::tr("Fonts");
+    personalizedList[SCREENSAVER].nameString = QString("Screensaver");
+    personalizedList[SCREENSAVER].namei18nString = QObject::tr("Screensaver");
+    personalizedList[DESKTOP].nameString = QString("Desktop");
+    personalizedList[DESKTOP].namei18nString = QObject::tr("Desktop");
     personalizedList[DESKTOP].mainShow = false;
     funcinfoList.append(personalizedList);
 
@@ -117,12 +117,12 @@ void FunctionSelect::initValue(){
         funcStruct.mainShow = true;
         networkList.append(funcStruct);
     }
-    networkList[NETCONNECT].nameString = QString("netconnect");
-    networkList[NETCONNECT].namei18nString = QObject::tr("netconnect");
-    networkList[VPN].nameString = QString("vpn");
-    networkList[VPN].namei18nString = QObject::tr("vpn");
-    networkList[PROXY].nameString = QString("proxy");
-    networkList[PROXY].namei18nString = QObject::tr("proxy");
+    networkList[NETCONNECT].nameString = QString("Netconnect");
+    networkList[NETCONNECT].namei18nString = QObject::tr("Netconnect");
+    networkList[VPN].nameString = QString("Vpn");
+    networkList[VPN].namei18nString = QObject::tr("Vpn");
+    networkList[PROXY].nameString = QString("Proxy");
+    networkList[PROXY].namei18nString = QObject::tr("Proxy");
 
     funcinfoList.append(networkList);
 
@@ -136,8 +136,8 @@ void FunctionSelect::initValue(){
         accountList.append(funcStruct);
     }
 
-    accountList[USERINFO].nameString = QString("userinfo");
-    accountList[USERINFO].namei18nString = QObject::tr("userinfo");
+    accountList[USERINFO].nameString = QString("Userinfo");
+    accountList[USERINFO].namei18nString = QObject::tr("Userinfo");
 
     funcinfoList.append(accountList);
 
@@ -151,10 +151,10 @@ void FunctionSelect::initValue(){
         datetimeList.append(funcStruct);
     }
 
-    datetimeList[DAT].nameString = QString("datetime");
-    datetimeList[DAT].namei18nString = QObject::tr("datetime");
-    datetimeList[AREA].nameString = QString("area");
-    datetimeList[AREA].namei18nString = QObject::tr("area");
+    datetimeList[DAT].nameString = QString("Datetime");
+    datetimeList[DAT].namei18nString = QObject::tr("Datetime");
+    datetimeList[AREA].nameString = QString("Area");
+    datetimeList[AREA].namei18nString = QObject::tr("Area");
 
     funcinfoList.append(datetimeList);
 
@@ -168,10 +168,10 @@ void FunctionSelect::initValue(){
         seupdatesList.append(funcStruct);
     }
 
-    seupdatesList[UPDATES].nameString = QString("update");
-    seupdatesList[UPDATES].namei18nString = QObject::tr("update");
-    seupdatesList[BACKUP].nameString = QString("backup");
-    seupdatesList[BACKUP].namei18nString = QObject::tr("backup");
+    seupdatesList[UPDATES].nameString = QString("Update");
+    seupdatesList[UPDATES].namei18nString = QObject::tr("Update");
+    seupdatesList[BACKUP].nameString = QString("Backup");
+    seupdatesList[BACKUP].namei18nString = QObject::tr("Backup");
 
     funcinfoList.append(seupdatesList);
 
@@ -185,12 +185,12 @@ void FunctionSelect::initValue(){
         natList.append(funcStruct);
     }
 
-    natList[NOTICE].nameString = QString("notice");
-    natList[NOTICE].namei18nString = QObject::tr("notice");
-    natList[ABOUT].nameString = QString("about");
-    natList[ABOUT].namei18nString = QObject::tr("about");
-    natList[EXPERIENCEPLAN].nameString = QString("experienceplan");
-    natList[EXPERIENCEPLAN].namei18nString = QObject::tr("experienceplan");
+    natList[NOTICE].nameString = QString("Notice");
+    natList[NOTICE].namei18nString = QObject::tr("Notice");
+    natList[ABOUT].nameString = QString("About");
+    natList[ABOUT].namei18nString = QObject::tr("About");
+    natList[EXPERIENCEPLAN].nameString = QString("Experienceplan");
+    natList[EXPERIENCEPLAN].namei18nString = QObject::tr("Experienceplan");
 
     funcinfoList.append(natList);
 }

@@ -42,7 +42,7 @@ Notice::Notice()
     ui->setupUi(pluginWidget);
 
     vecGsettins = new QVector<QGSettings*>();
-    pluginName = tr("notice");
+    pluginName = tr("Notice");
     pluginType = NOTICEANDTASKS;
 
     pluginWidget->setStyleSheet("background: #ffffff;");

@@ -55,7 +55,7 @@ Power::Power()
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("power");
+    pluginName = tr("Power");
     pluginType = SYSTEM;
 
     settingsCreate = false;

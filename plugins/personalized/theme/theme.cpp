@@ -94,7 +94,7 @@ Theme::Theme()
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("theme");
+    pluginName = tr("Theme");
     pluginType = PERSONALIZED;
 
     settingsCreate = false;

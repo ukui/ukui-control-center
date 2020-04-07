@@ -49,7 +49,7 @@ Area::Area()
     pluginWidget->setStyleSheet("background: #ffffff;");
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("area");
+    pluginName = tr("Area");
     pluginType = DATETIME;
 
     QFile QssFile("://combox.qss");

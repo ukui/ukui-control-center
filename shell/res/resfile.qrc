@@ -19,16 +19,16 @@
         <file>titlebar/max.png</file>
         <file>titlebar/close.png</file>
         <file>titlebar/back.png</file>
-        <file>secondaryleftmenu/theme.png</file>
-        <file>secondaryleftmenu/screensaver.png</file>
-        <file>secondaryleftmenu/screenlock.png</file>
-        <file>secondaryleftmenu/power.png</file>
-        <file>secondaryleftmenu/fonts.png</file>
-        <file>secondaryleftmenu/display.png</file>
-        <file>secondaryleftmenu/desktop.png</file>
-        <file>secondaryleftmenu/defaultapp.png</file>
-        <file>secondaryleftmenu/background.png</file>
-        <file>secondaryleftmenu/autoboot.png</file>
+        <file>secondaryleftmenu/Theme.png</file>
+        <file>secondaryleftmenu/Screensaver.png</file>
+        <file>secondaryleftmenu/Screenlock.png</file>
+        <file>secondaryleftmenu/Power.png</file>
+        <file>secondaryleftmenu/Fonts.png</file>
+        <file>secondaryleftmenu/Display.png</file>
+        <file>secondaryleftmenu/Desktop.png</file>
+        <file>secondaryleftmenu/Defaultapp.png</file>
+        <file>secondaryleftmenu/Background.png</file>
+        <file>secondaryleftmenu/Autoboot.png</file>
         <file>plugins/theme/selected.png</file>
         <file>plugins/desktop/trash.png</file>
         <file>plugins/desktop/homefolder.png</file>
@@ -38,11 +38,11 @@
         <file>plugins/printer/printer.png</file>
         <file>plugins/keyboardcontrol/add.png</file>
         <file>plugins/vpn/add.png</file>
-        <file>secondaryleftmenu/update.png</file>
-        <file>secondaryleftmenu/backup.png</file>
-        <file>secondaryleftmenu/vpn.png</file>
-        <file>secondaryleftmenu/netconnect.png</file>
-        <file>secondaryleftmenu/proxy.png</file>
+        <file>secondaryleftmenu/Update.png</file>
+        <file>secondaryleftmenu/Backup.png</file>
+        <file>secondaryleftmenu/Vpn.png</file>
+        <file>secondaryleftmenu/Netconnect.png</file>
+        <file>secondaryleftmenu/Proxy.png</file>
         <file>primaryleftmenu/updateChecked.png</file>
         <file>primaryleftmenu/update.png</file>
         <file>primaryleftmenu/systemChecked.png</file>
@@ -61,44 +61,42 @@
         <file>primaryleftmenu/checked-2.png</file>
         <file>primaryleftmenu/checked.png</file>
         <file>plugins/userinfo/add.png</file>
-        <file>secondaryleftmenu/userinfo.png</file>
-        <file>secondaryleftmenu/printer.png</file>
-        <file>secondaryleftmenu/keyboard.png</file>
-        <file>secondaryleftmenu/mouse.png</file>
-        <file>secondaryleftmenu/about.png</file>
-        <file>secondaryleftmenu/touchpad.png</file>
+        <file>secondaryleftmenu/Userinfo.png</file>
+        <file>secondaryleftmenu/Printer.png</file>
+        <file>secondaryleftmenu/Keyboard.png</file>
+        <file>secondaryleftmenu/Mouse.png</file>
+        <file>secondaryleftmenu/Touchpad.png</file>
         <file>dropArrow/downpx.png</file>
-        <file>secondaryleftmenu/autobootWhite.png</file>
-        <file>secondaryleftmenu/defaultappWhite.png</file>
-        <file>secondaryleftmenu/powerWhite.png</file>
-        <file>secondaryleftmenu/displayWhite.png</file>
-        <file>secondaryleftmenu/backgroundWhite.png</file>
-        <file>secondaryleftmenu/screenlockWhite.png</file>
-        <file>secondaryleftmenu/themeWhite.png</file>
-        <file>secondaryleftmenu/screensaverWhite.png</file>
-        <file>secondaryleftmenu/desktopWhite.png</file>
-        <file>secondaryleftmenu/proxyWhite.png</file>
-        <file>secondaryleftmenu/vpnWhite.png</file>
-        <file>secondaryleftmenu/netconnectWhite.png</file>
-        <file>secondaryleftmenu/fontsWhite.png</file>
-        <file>secondaryleftmenu/userinfoWhite.png</file>
-        <file>secondaryleftmenu/datetime.png</file>
-        <file>secondaryleftmenu/datetimeWhite.png</file>
-        <file>secondaryleftmenu/area.png</file>
-        <file>secondaryleftmenu/areaWhite.png</file>
-        <file>secondaryleftmenu/backupWhite.png</file>
-        <file>secondaryleftmenu/aboutWhite.png</file>
-        <file>secondaryleftmenu/printerWhite.png</file>
-        <file>secondaryleftmenu/keyboardWhite.png</file>
-        <file>secondaryleftmenu/audioWhite.png</file>
-        <file>secondaryleftmenu/audio.png</file>
-        <file>secondaryleftmenu/mousecontrol.png</file>
-        <file>secondaryleftmenu/mousecontrolWhite.png</file>
-        <file>secondaryleftmenu/updateWhite.png</file>
+        <file>secondaryleftmenu/AutobootWhite.png</file>
+        <file>secondaryleftmenu/DefaultappWhite.png</file>
+        <file>secondaryleftmenu/PowerWhite.png</file>
+        <file>secondaryleftmenu/DisplayWhite.png</file>
+        <file>secondaryleftmenu/BackgroundWhite.png</file>
+        <file>secondaryleftmenu/ScreenlockWhite.png</file>
+        <file>secondaryleftmenu/ThemeWhite.png</file>
+        <file>secondaryleftmenu/ScreensaverWhite.png</file>
+        <file>secondaryleftmenu/DesktopWhite.png</file>
+        <file>secondaryleftmenu/ProxyWhite.png</file>
+        <file>secondaryleftmenu/VpnWhite.png</file>
+        <file>secondaryleftmenu/NetconnectWhite.png</file>
+        <file>secondaryleftmenu/FontsWhite.png</file>
+        <file>secondaryleftmenu/UserinfoWhite.png</file>
+        <file>secondaryleftmenu/Datetime.png</file>
+        <file>secondaryleftmenu/DatetimeWhite.png</file>
+        <file>secondaryleftmenu/Area.png</file>
+        <file>secondaryleftmenu/AreaWhite.png</file>
+        <file>secondaryleftmenu/BackupWhite.png</file>
+        <file>secondaryleftmenu/PrinterWhite.png</file>
+        <file>secondaryleftmenu/KeyboardWhite.png</file>
+        <file>secondaryleftmenu/AudioWhite.png</file>
+        <file>secondaryleftmenu/Audio.png</file>
+        <file>secondaryleftmenu/Mousecontrol.png</file>
+        <file>secondaryleftmenu/MousecontrolWhite.png</file>
+        <file>secondaryleftmenu/UpdateWhite.png</file>
         <file>plugins/fonts/bigRoller.png</file>
         <file>plugins/fonts/smallRoller.png</file>
-        <file>secondaryleftmenu/mouseWhite.png</file>
-        <file>secondaryleftmenu/touchpadWhite.png</file>
+        <file>secondaryleftmenu/MouseWhite.png</file>
+        <file>secondaryleftmenu/TouchpadWhite.png</file>
         <file>plugins/theme/dark.png</file>
         <file>plugins/theme/default.png</file>
         <file>primaryleftmenu/network.png</file>
@@ -110,16 +108,16 @@
         <file>plugins/netconnect/eth.png</file>
         <file>titlebar/closeWhite.png</file>
         <file>plugins/shortcut/add.png</file>
-        <file>secondaryleftmenu/shortcutWhite.png</file>
-        <file>secondaryleftmenu/shortcut.png</file>
+        <file>secondaryleftmenu/ShortcutWhite.png</file>
+        <file>secondaryleftmenu/Shortcut.png</file>
         <file>homepage/noticeandtasks.png</file>
         <file>homepage/noticeandtasksHover.png</file>
         <file>primaryleftmenu/noticeandtasks.png</file>
         <file>primaryleftmenu/noticeandtasksChecked.png</file>
-        <file>secondaryleftmenu/notice.png</file>
-        <file>secondaryleftmenu/noticeWhite.png</file>
-        <file>secondaryleftmenu/experienceplan.png</file>
-        <file>secondaryleftmenu/experienceplanWhite.png</file>
+        <file>secondaryleftmenu/Notice.png</file>
+        <file>secondaryleftmenu/NoticeWhite.png</file>
+        <file>secondaryleftmenu/Experienceplan.png</file>
+        <file>secondaryleftmenu/ExperienceplanWhite.png</file>
         <file>plugins/shortcut/note.png</file>
         <file>plugins/screenlock/none.png</file>
         <file>plugins/about/logo.png</file>
@@ -131,6 +129,8 @@
         <file>plugins/shortcut/down.png</file>
         <file>plugins/shortcut/up.png</file>
         <file>plugins/netconnect/nonet.png</file>
+        <file>secondaryleftmenu/AboutWhite.png</file>
+        <file>secondaryleftmenu/About.png</file>
     </qresource>
     <qresource prefix="/">
         <file>i18n/zh_CN.qm</file>

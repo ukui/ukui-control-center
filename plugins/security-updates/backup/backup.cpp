@@ -29,7 +29,7 @@ Backup::Backup()
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("backup");
+    pluginName = tr("Backup");
     pluginType = UPDATE;
 
     pluginWidget->setStyleSheet("background: #ffffff;");

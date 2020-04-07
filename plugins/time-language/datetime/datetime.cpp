@@ -38,7 +38,7 @@ DateTime::DateTime()
     pluginWidget->setStyleSheet("background: #ffffff;");
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("datetime");
+    pluginName = tr("Datetime");
     pluginType = DATETIME;
 
 //    qDebug()<<"进入时间日期UI------------------》"<<endl;

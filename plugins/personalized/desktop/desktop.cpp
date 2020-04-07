@@ -47,7 +47,7 @@ Desktop::Desktop()
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("desktop");
+    pluginName = tr("Desktop");
     pluginType = PERSONALIZED;
 
     pluginWidget->setStyleSheet("background: #ffffff;");
