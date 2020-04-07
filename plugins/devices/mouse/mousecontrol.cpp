@@ -82,18 +82,23 @@ MouseControl::MouseControl()
 
     //初始化鼠标设置GSettings
     const QByteArray id(MOUSE_SCHEMA);
-    settings = new QGSettings(id);
 
-    setupComponent();
+    if (QGSettings::isSchemaInstalled(MOUSE_SCHEMA)){
+        settings = new QGSettings(id);
 
-    initHandHabitStatus();
-    initPointerStatus();
+        setupComponent();
+
+        initHandHabitStatus();
+        initPointerStatus();
+    }
+
 }
 
 MouseControl::~MouseControl()
 {
     delete ui;
-    delete settings;
+    if (QGSettings::isSchemaInstalled(MOUSE_SCHEMA))
+        delete settings;
 }
 
 QString MouseControl::get_plugin_name(){
