@@ -21,7 +21,7 @@ TimeZoneChooser::TimeZoneChooser():QFrame ()
     m_cancelBtn = new QPushButton(tr("Cancel"));
     m_confirmBtn = new QPushButton(tr("Confirm"));
 
-    setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog);//无边框
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);//无边框
     setAttribute(Qt::WA_StyledBackground,true);
 
     this->setStyleSheet("background-color: rgb(22, 24, 26)");
