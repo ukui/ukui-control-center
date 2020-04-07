@@ -1,3 +1,11 @@
+ukui-control-center (2.0.4-1) unstable; urgency=medium
+
+  * New upstream bugfix release:
+    - Add judgement for gsettings to avoid crash.
+    - Add judgement for FormatsLocale to avoid crash.
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Tue, 07 Apr 2020 16:08:40 +0800
+
 ukui-control-center (2.0.3-1) unstable; urgency=medium
 
   * New upstream bugfix release:
