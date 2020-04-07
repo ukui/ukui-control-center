@@ -305,7 +305,7 @@ void OutputConfig::initUi()
 
     scaleCombox->setCurrentIndex(0);
     if (scale <= scaleCombox->count() && scale > 0) {
-        qDebug()<<"scale is----->"<<scale<<endl;
+//        qDebug()<<"scale is----->"<<scale<<endl;
         scaleCombox->setCurrentIndex(scale - 1);
     }
     slotScaleChanged(scale - 1);

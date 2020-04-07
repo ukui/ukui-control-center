@@ -45,9 +45,6 @@ extern "C" {
 #include <gio/gio.h>
 }
 
-#define FORMAT_SCHEMA "org.ukui.panel.indicator.calendar"
-#define TIME_FORMAT_KEY "use-24h-format"
-
 namespace Ui {
 class changtimedialog;
 }

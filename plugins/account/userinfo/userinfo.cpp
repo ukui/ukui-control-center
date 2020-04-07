@@ -360,8 +360,8 @@ void UserInfo::_refreshUserInfoUI(){
 void UserInfo::_buildWidgetForItem(UserInfomation user){
     HoverWidget * baseWidget = new HoverWidget(user.username);
     baseWidget->setStyleSheet("background: #ffffff;");
-//    baseWidget->setMinimumSize(550,50);
-//    baseWidget->setMaximumSize(960,50);
+    baseWidget->setMinimumSize(550,50);
+    baseWidget->setMaximumSize(960,50);
     baseWidget->setAttribute(Qt::WA_DeleteOnClose);
 
     QHBoxLayout * baseVerLayout = new QHBoxLayout(baseWidget);
