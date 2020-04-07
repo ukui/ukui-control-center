@@ -151,9 +151,7 @@ private:
     LevelScale scale;
     gdouble peakFraction;
     gdouble maxPeak;
-
     guint maxPeakId;
-    QWidget *m_pApplicationWidget;
 };
 
 #endif // WIDGET_H
