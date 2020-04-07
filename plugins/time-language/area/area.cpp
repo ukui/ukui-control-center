@@ -73,6 +73,7 @@ Area::Area()
         });
     }
 
+    formatJudge = false;
     unsigned int uid = getuid();
     objpath = objpath +"/org/freedesktop/Accounts/User"+QString::number(uid);
 
@@ -239,6 +240,10 @@ void Area::change_language_slot(int index){
 
 void Area::change_area_slot(int index){
     qDebug()<<"area----------->"<<endl;
+
+    if (!formatJudge) {
+        return;
+    }
     QDBusReply<bool> res;
     switch (index) {
     case 0:
@@ -333,7 +338,10 @@ QStringList Area::getUserDefaultLanguage() {
     if (reply.isValid()){
         QMap<QString, QVariant> propertyMap;
         propertyMap = reply.value();
-        formats = propertyMap.find("FormatsLocale").value().toString();        
+        if (propertyMap.contains("FormatsLocale")) {
+            formatJudge = true;
+            formats = propertyMap.find("FormatsLocale").value().toString();
+        }
         if(language.isEmpty()) {
             language = propertyMap.find("Language").value().toString();
         }

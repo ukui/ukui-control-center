@@ -85,6 +85,7 @@ private:
     QTimer *m_itimer = nullptr;
     QString hourformat;
     QString qss;
+    bool formatJudge;
 
 private:
     void initUI();
