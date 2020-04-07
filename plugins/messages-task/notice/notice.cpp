@@ -37,7 +37,7 @@ Notice::Notice()
     pluginWidget = new QWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     appsName<<"ukui-power-statistics";//<<"kylin-video"<<"kylin-assistant";
-    appsKey<<"电源管理";//<<"麒麟影音"<<"麒麟助手";
+    appsKey<<"电源管理器";//<<"麒麟影音"<<"麒麟助手";
 
     ui->setupUi(pluginWidget);
 
@@ -296,8 +296,12 @@ void Notice::initGSettings() {
             path = findFreePath();
             qDebug()<<"not contains newSetttings ----->path"<<path<<endl;
             newSetttings = new QGSettings(id, path.toLatin1().data());
-            newSetttings->set(NAME_KEY, appsKey.at(i));
-            newSetttings->set(MESSAGES_KEY, true);
+            QStringList keys = newSetttings->keys();
+            if (keys.contains(static_cast<QString>(NAME_KEY)) &&
+                    keys.contains(static_cast<QString>(MESSAGES_KEY))) {
+                newSetttings->set(NAME_KEY, appsKey.at(i));
+                newSetttings->set(MESSAGES_KEY, true);
+            }
         }
 
         if (newSetttings) {
