@@ -153,7 +153,7 @@
     <message>
         <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="169"/>
         <source>Number of notification centers</source>
-        <translation>通知中心显示数量</translation>
+        <translation>最大通知数量</translation>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="243"/>
@@ -325,8 +325,14 @@
 <context>
     <name>Audio</name>
     <message>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="26"/>
         <source>Audio</source>
-        <translation type="obsolete">声音</translation>
+        <translation type="unfinished">声音</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/audio.cpp" line="33"/>
+        <source>声音</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1405,7 +1411,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../mainwindow.cpp" line="72"/>
         <source>ukcc</source>
-        <translation>设置</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1837,7 +1843,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="161"/>
         <source>present</source>
-        <translation>仅当存在电池时显示</translation>
+        <translation>近当存在电池时显示</translation>
     </message>
 </context>
 <context>
@@ -2304,7 +2310,7 @@ folder will be deleted!</source>
         <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="53"/>
         <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="67"/>
         <source>Screensaver</source>
-        <translation>屏保背景</translation>
+        <translation>屏保</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="181"/>
@@ -2361,7 +2367,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/devices/shortcut/shortcut.ui" line="122"/>
         <source>Show all shortcut</source>
-        <translation>显示全部快捷键</translation>
+        <translation>显示全不快捷键</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/shortcut/shortcut.ui" line="185"/>
@@ -2586,74 +2592,103 @@ folder will be deleted!</source>
 <context>
     <name>UkmediaInputWidget</name>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="37"/>
         <source>Input</source>
-        <translation type="obsolete">输入</translation>
+        <translation type="unfinished">输入</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="38"/>
         <source>Select input device</source>
-        <translation type="obsolete">选择输入设备</translation>
+        <translation type="unfinished">选择输入设备</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="41"/>
         <source>volume</source>
-        <translation type="obsolete">音量大小</translation>
+        <translation type="unfinished">音量大小</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="45"/>
         <source>Input level</source>
-        <translation type="obsolete">输入等级</translation>
+        <translation type="unfinished">输入等级</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="46"/>
         <source>low</source>
-        <translation type="obsolete">低</translation>
+        <translation type="unfinished">低</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="48"/>
         <source>high</source>
-        <translation type="obsolete">高</translation>
+        <translation type="unfinished">高</translation>
+    </message>
+</context>
+<context>
+    <name>UkmediaMainWidget</name>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="155"/>
+        <source>sound error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="155"/>
+        <source>load sound failed</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>UkmediaOutputWidget</name>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="45"/>
         <source>Output</source>
-        <translation type="obsolete">输出</translation>
+        <translation type="unfinished">输出</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="46"/>
         <source>Select output device</source>
-        <translation type="obsolete">选择输出设备</translation>
+        <translation type="unfinished">选择输出设备</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="48"/>
         <source>Master volume</source>
-        <translation type="obsolete">主音量大小</translation>
+        <translation type="unfinished">主音量大小</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="52"/>
         <source>Channel balance</source>
-        <translation type="obsolete">声道平衡</translation>
+        <translation type="unfinished">声道平衡</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="53"/>
         <source>Left</source>
-        <translation type="obsolete">左</translation>
+        <translation type="unfinished">左</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="55"/>
         <source>right</source>
-        <translation type="obsolete">右</translation>
+        <translation type="unfinished">右</translation>
     </message>
 </context>
 <context>
     <name>UkmediaSoundEffectsWidget</name>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="18"/>
         <source>System sound</source>
-        <translation type="obsolete">系统音效</translation>
+        <translation type="unfinished">系统音效</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="19"/>
         <source>System sound theme</source>
-        <translation type="obsolete">系统音效主题</translation>
+        <translation type="unfinished">系统音效主题</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="21"/>
         <source>Shutdown</source>
-        <translation type="obsolete">关机</translation>
+        <translation type="unfinished">关机</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="23"/>
         <source>Lagout</source>
-        <translation type="obsolete">注销</translation>
+        <translation type="unfinished">注销</translation>
     </message>
 </context>
 <context>
@@ -2965,7 +3000,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="943"/>
         <source>Some applications need to be restarted to take effect</source>
-        <translation type="unfinished"></translation>
+        <translation>缩放配置需要重启后生效</translation>
     </message>
 </context>
 <context>
