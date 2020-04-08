@@ -3,8 +3,13 @@
 #include <cmath>
 #include <QDebug>
 #include <locale.h>
+#include <libintl.h>
 
 const QString zoneTabFile = "/usr/share/zoneinfo/zone.tab";
+
+const char kTimezoneDomain[] = "installer-timezones";
+
+const char kDefaultLocale[] = "en_US.UTF-8";
 
 QString ZoneInfo::readRile(const QString& filepath) {
     QFile file(filepath);
@@ -86,10 +91,19 @@ int ZoneInfo::getZoneInfoByZone(ZoneinfoList list, QString timezone) {
 
 
 QString ZoneInfo::getLocalTimezoneName(QString timezone, QString locale) {
-    setlocale(LC_ALL, QString(locale + ".UTF-8").toStdString().c_str());
-    int index = timezone.lastIndexOf('/');
-    setlocale(LC_ALL, "en_US.UTF-8");
-    return (index > -1) ? timezone.mid(index + 1) : timezone;
+    (void) setlocale(LC_ALL, QString(locale + ".UTF-8").toStdString().c_str());
+    const QString local_name(dgettext(kTimezoneDomain,
+                                      timezone.toStdString().c_str()));
+    int index = local_name.lastIndexOf('/');
+    if (index == -1) {
+      // Some translations of locale name contains non-standard char.
+      index = local_name.lastIndexOf("∕");
+    }
+
+    // Reset locale.
+    (void) setlocale(LC_ALL, kDefaultLocale);
+
+    return (index > -1) ? local_name.mid(index + 1) : local_name;
 }
 
 double ZoneInfo::radians(double degrees) {

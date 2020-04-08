@@ -49,6 +49,8 @@ inst5.files += $$PROJECT_ROOTDIR/data/org.ukui.control-center.panel.plugins.gsch
 inst5.path = /usr/share/glib-2.0/schemas/
 inst6.files += $$PROJECT_ROOTDIR/data/faces/
 inst6.path = /usr/share/ukui/
+inst7.files += $$PROJECT_ROOTDIR/data/installer-timezones.mo
+inst7.path = /usr/share/locale/zh_CN/LC_MESSAGES/
 
 target.source += $$TARGET
 target.path = /usr/bin
@@ -56,10 +58,11 @@ target.path = /usr/bin
 INSTALLS +=  \
             inst1 \
             inst2 \
-	    inst3 \
+            inst3 \
             inst4 \
             inst5 \
-	    inst6 \
+            inst6 \
+            inst7 \
             target \
 
 INCLUDEPATH += qtsingleapplication
@@ -108,5 +111,6 @@ RESOURCES += \
     res/resfile.qrc
 
 DISTFILES += \
+    ../data/installer-timezones.mo \
     ../data/org.ukui.control-center.panel.plugins.gschema.xml \
     ../data/org.ukui.control-center.wifi.switch.gschema.xml
