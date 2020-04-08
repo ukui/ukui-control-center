@@ -4,7 +4,14 @@
 #include <QWidget>
 #include <QComboBox>
 #include <QLabel>
+#include <QMessageBox>
 #include <QStyledItemDelegate>
+
+class UkuiMessageBox : public QMessageBox
+{
+public:
+    explicit UkuiMessageBox();
+};
 
 class UkmediaSoundEffectsWidget : public QWidget
 {
