@@ -1,3 +1,4 @@
+
 /* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  *
  * Copyright (C) 2019 Tianjin KYLIN Information Technology Co., Ltd.
@@ -31,6 +32,7 @@
 #include <QStyledItemDelegate>
 #include <QFile>
 #include <QListView>
+#include <QPainter>
 
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
@@ -61,6 +63,9 @@ public:
     void initStatus();
     void hourComboxSetup();
     void ymdComboxSetup();
+
+protected:
+    void paintEvent(QPaintEvent *);
 
 private:
     QTimer *m_chtimer = nullptr;

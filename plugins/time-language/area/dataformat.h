@@ -6,6 +6,7 @@
 #include <QGSettings/QGSettings>
 #include <QListView>
 #include <QFile>
+#include <QPainter>
 
 namespace Ui {
 class DataFormat;
@@ -18,6 +19,9 @@ class DataFormat : public QDialog
 public:
     explicit DataFormat(QWidget *parent = nullptr);
     ~DataFormat();
+
+protected:
+    void paintEvent(QPaintEvent *);
 
 private:
     QTimer *m_itimer;
