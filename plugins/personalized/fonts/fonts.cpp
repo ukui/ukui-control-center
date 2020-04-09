@@ -99,7 +99,7 @@ Fonts::Fonts()
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("fonts");
+    pluginName = tr("Fonts");
     pluginType = PERSONALIZED;
 
     settingsCreate = false;

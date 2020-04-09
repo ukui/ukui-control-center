@@ -39,7 +39,7 @@ KeyboardControl::KeyboardControl()
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("keyboard");
+    pluginName = tr("Keyboard");
     pluginType = DEVICES;
 
     settingsCreate = false;

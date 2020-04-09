@@ -60,7 +60,7 @@ Shortcut::Shortcut()
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("shortcut");
+    pluginName = tr("Shortcut");
     pluginType = DEVICES;
 
     pluginWidget->setStyleSheet("background: #ffffff;");

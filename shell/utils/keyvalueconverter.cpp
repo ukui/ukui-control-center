@@ -43,28 +43,28 @@ QString KeyValueConverter::keycodeTokeyi18nstring(int code){
     QString nameString;
     switch (code) {
     case SYSTEM:
-        nameString = tr("system");
+        nameString = tr("System");
         break;
     case DEVICES:
-        nameString = tr("devices");
+        nameString = tr("Devices");
         break;
     case PERSONALIZED:
-        nameString = tr("personalized");
+        nameString = tr("Personalized");
         break;
     case NETWORK:
-        nameString = tr("network");
+        nameString = tr("Network");
         break;
     case ACCOUNT:
-        nameString = tr("account");
+        nameString = tr("Account");
         break;
     case DATETIME:
-        nameString = tr("datetime");
+        nameString = tr("Datetime");
         break;
     case UPDATE:
-        nameString = tr("update");
+        nameString = tr("Update");
         break;
     case NOTICEANDTASKS:
-        nameString = tr("messages");
+        nameString = tr("Messages");
         break;
     default:
         break;

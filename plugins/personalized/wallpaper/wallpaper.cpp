@@ -48,7 +48,7 @@ Wallpaper::Wallpaper()
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("background");
+    pluginName = tr("Background");
     pluginType = PERSONALIZED;
 
     settingsCreate = false;

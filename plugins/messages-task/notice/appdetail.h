@@ -6,6 +6,11 @@
 
 #include "SwitchButton/switchbutton.h"
 
+#define MESSAGES_KEY "messages"
+#define VOICE_KEY "voice"
+#define MAXIMINE_KEY "maximize"
+#define NAME_KEY "name"
+
 namespace Ui {
 class AppDetail;
 }
@@ -15,7 +20,7 @@ class AppDetail : public QDialog
     Q_OBJECT
 
 public:
-    explicit AppDetail(QString Name, QString key, QWidget *parent = nullptr);
+    explicit AppDetail(QString Name, QString key, QGSettings *gsettings, QWidget *parent = nullptr);
     ~AppDetail();
 
 private:
@@ -29,7 +34,7 @@ private:
     void initUiStatus();
     void initComponent();
     void initConnect();
-    void initGSettings();
+//    void initGSettings();
 
 private slots:
     void confirmbtnSlot();

@@ -30,7 +30,7 @@ ExperiencePlan::ExperiencePlan()
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("experienceplan");
+    pluginName = tr("Experienceplan");
     pluginType = NOTICEANDTASKS;
 
     pluginWidget->setStyleSheet("background: #ffffff;");

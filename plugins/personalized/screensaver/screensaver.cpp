@@ -64,7 +64,7 @@ Screensaver::Screensaver()
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("screensaver");
+    pluginName = tr("Screensaver");
     pluginType = PERSONALIZED;
 
     pluginWidget->setStyleSheet("background: #ffffff;");

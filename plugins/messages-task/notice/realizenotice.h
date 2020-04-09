@@ -17,21 +17,12 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef CHANGTIME_H
-#define CHANGTIME_H
+#ifndef REALIZENOTICE_H
+#define REALIZENOTICE_H
 
-#include <QDialog>
-#include <QWidget>
-#include <QTimer>
-#include <QDateTime>
+
 #include <QGSettings/QGSettings>
-#include <QDBusInterface>
-#include <QDBusConnection>
-#include <QDBusReply>
-#include <QStyledItemDelegate>
-#include <QFile>
-#include <QListView>
-
+#include <QList>
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -43,41 +34,29 @@
 extern "C" {
 #include <glib.h>
 #include <gio/gio.h>
+#include <dconf/dconf.h>
 }
 
-namespace Ui {
-class changtimedialog;
-}
+#define NOTICE_SCHEMA "org.ukui.control-center.notice"
+#define NEW_FEATURE_KEY "show-new-feature"
+#define ENABLE_NOTICE_KEY "enable-notice"
+#define SHOWON_LOCKSCREEN_KEY "show-on-lockscreen"
 
-class ChangtimeDialog : public QDialog
-{
-    Q_OBJECT
+#define NOTICE_ORIGIN_SCHEMA "org.ukui.control-center.noticeorigin"
+#define NOTICE_ORIGIN_PATH "/org/ukui/control-center/noticeorigin/"
 
-public:
-    explicit ChangtimeDialog(bool hour, QWidget *parent = nullptr);
-    ~ChangtimeDialog();
+#define MAX_SHORTCUTS 1000
 
-    void initUi();
-    void initStatus();
-    void hourComboxSetup();
-    void ymdComboxSetup();
+#define MESSAGES_KEY "messages"
+#define VOICE_KEY "voice"
+#define MAXIMINE_KEY "maximize"
+#define NAME_KEY "name"
 
-private:
-    QTimer *m_chtimer = nullptr;
-    Ui::changtimedialog *ui;
+#define MAX_CUSTOM_SHORTCUTS 1000
 
-    QGSettings * m_formatsettings = nullptr;
-    QDBusInterface *m_datetimeInterface = nullptr;
-    bool m_isEFHour; //24小时制
-    QString qss;        
+QList<char *> listExistsCustomNoticePath();
+
+QString findFreePath();
 
 
-private slots:
-    void datetimeUpdateSlot();
-    void dayUpdateSlot();
-    void changtimeApplySlot();
-
-
-};
-
-#endif // CHANGTIME_H
+#endif // REALIZENOTICE_H

@@ -36,7 +36,7 @@ NetConnect::NetConnect():m_wifiList(new Wifi)
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("netconnect");
+    pluginName = tr("Netconnect");
     pluginType = NETWORK;
 
     wifiBtn = new SwitchButton();

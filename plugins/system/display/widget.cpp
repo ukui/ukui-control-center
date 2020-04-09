@@ -130,7 +130,7 @@ Widget::Widget(QWidget *parent)
 
 
     connect(ui->applyButton,SIGNAL(clicked()),this,SLOT(save()));
-    connect(ui->applyButton,SIGNAL(clicked()),this,SLOT(saveBrigthnessConfig()));
+//    connect(ui->applyButton,SIGNAL(clicked()),this,SLOT(saveBrigthnessConfig()));
 
 
 
@@ -1225,7 +1225,7 @@ void Widget::setBrightnesSldierValue(QString name){
 //亮度配置文件位置
 void Widget::setBrigthnessFile(){
     brightnessFile = getenv("HOME");
-    brightnessFile += "/.xinputrc";
+    brightnessFile += "/.xprofile";
 }
 
 void Widget::initTemptSlider() {
@@ -1258,7 +1258,7 @@ void Widget::initConfigFile() {
         QString ophour = optime.split(":").at(0);
         QString opmin = optime.split(":").at(1);
 
-        qDebug()<<"optime is----->"<<ophour.toInt()<<" "<<opmin.toInt()<<endl;
+//        qDebug()<<"optime is----->"<<ophour.toInt()<<" "<<opmin.toInt()<<endl;
 
         ui->opHourCom->setCurrentIndex(ophour.toInt());
         ui->opMinCom->setCurrentIndex(opmin.toInt());
@@ -1288,7 +1288,7 @@ void Widget::initConfigFile() {
     bool sunjudge = m_qsettings->value("sunjudge", sunjudge).toBool();
     bool manualjudge = m_qsettings->value("manualjudge", manualjudge).toBool();
 
-    qDebug()<<"unionjudge is-------->"<<unionjudge<<endl;
+//    qDebug()<<"unionjudge is-------->"<<unionjudge<<endl;
     m_unifybutton->setChecked(unionjudge);
     nightButton->setChecked(nightjudge);
 

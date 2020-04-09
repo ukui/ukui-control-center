@@ -48,7 +48,7 @@ Proxy::Proxy()
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("proxy");
+    pluginName = tr("Proxy");
     pluginType = NETWORK;
 
     settingsCreate = false;

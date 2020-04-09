@@ -29,7 +29,7 @@ Vpn::Vpn()
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("vpn");
+    pluginName = tr("Vpn");
     pluginType = NETWORK;
 
     pluginWidget->setStyleSheet("background: #ffffff;");

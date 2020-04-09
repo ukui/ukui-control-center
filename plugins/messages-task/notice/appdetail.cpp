@@ -7,8 +7,8 @@
 
 #define NOTICE_ORIGIN_SCHEMA "org.ukui.control-center.noticeorigin"
 
-AppDetail::AppDetail(QString Name,QString key, QWidget *parent) :
-    QDialog(parent),appKey(key),appName(Name),
+AppDetail::AppDetail(QString Name,QString key, QGSettings *gsettings, QWidget *parent) :
+    QDialog(parent),appKey(key),m_gsettings(gsettings), appName(Name),
     ui(new Ui::AppDetail)
 {
 //    qDebug()<<"name is------>"<<keys<<endl;
@@ -17,8 +17,8 @@ AppDetail::AppDetail(QString Name,QString key, QWidget *parent) :
     setAttribute(Qt::WA_TranslucentBackground);
 
     initUiStatus();
-    initGSettings();
-    initComponent();    
+//    initGSettings();
+    initComponent();
     initConnect();
 }
 
@@ -52,11 +52,10 @@ void AppDetail::initComponent() {
     }
 
     if (m_gsettings) {
-        QString numkey = appKey + "number";
-        bool judge = m_gsettings->get(appKey).toBool();
-        QString numvalue = m_gsettings->get(numkey).toString();
+        bool judge = m_gsettings->get(MESSAGES_KEY).toBool();
+        QString numvalue = m_gsettings->get(MAXIMINE_KEY).toString();
 
-        qDebug()<<"numvalue is------->"<<numvalue<<endl;
+//        qDebug()<<"numvalue is------->"<<numvalue<<endl;
 
         enablebtn->setChecked(judge);
         ui->numberComboBox->setCurrentText(numvalue);
@@ -81,22 +80,22 @@ void AppDetail::initConnect() {
 
 }
 
-void AppDetail::initGSettings() {
-    if(QGSettings::isSchemaInstalled(NOTICE_ORIGIN_SCHEMA)) {
+//void AppDetail::initGSettings() {
+//    if(QGSettings::isSchemaInstalled(NOTICE_ORIGIN_SCHEMA)) {
 
-        QByteArray orid(NOTICE_ORIGIN_SCHEMA);
-        m_gsettings = new QGSettings(orid);
-    }
-}
+//        QByteArray orid(NOTICE_ORIGIN_SCHEMA);
+//        m_gsettings = new QGSettings(orid);
+//    }
+//}
 
 void AppDetail::confirmbtnSlot() {
     //TODO: get gsetting may invalid, so program will throw crash error
     if (m_gsettings) {
         bool judge = enablebtn->isChecked();
-        QString num = ui->numberComboBox->currentText();
-        QString numvalue = appKey+"number";
-        m_gsettings->set(appKey, judge);
-        m_gsettings->set(numvalue, num);
+        int num = ui->numberComboBox->currentIndex() + 1;
+
+        m_gsettings->set(MESSAGES_KEY, judge);
+        m_gsettings->set(MAXIMINE_KEY, num);
     }
     close();
 }

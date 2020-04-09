@@ -9,7 +9,7 @@
 #include <QCompleter>
 #include <QDebug>
 #include <QHBoxLayout>
-
+#include <QPainter>
 TimeZoneChooser::TimeZoneChooser():QFrame ()
 {
     m_map = new TimezoneMap(this);
@@ -21,15 +21,17 @@ TimeZoneChooser::TimeZoneChooser():QFrame ()
     m_cancelBtn = new QPushButton(tr("Cancel"));
     m_confirmBtn = new QPushButton(tr("Confirm"));
 
-    setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog);//无边框
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);//无边框
     setAttribute(Qt::WA_StyledBackground,true);
 
-    this->setStyleSheet("background-color: rgb(22, 24, 26)");
-
+    this->setObjectName("MapFrame");
+//    this->setStyleSheet("QFrame#MapFrame{background-color: rgb(22, 24, 26);border-radius:4px}");
 
     closeBtn->setIcon(QIcon("://img/titlebar/closeWhite.png"));
+    closeBtn->setFlat(true);
 
-//    m_searchInput->setMinimumWidth(560);
+    m_searchInput->setMinimumSize(560,40);
+    m_searchInput->setMaximumSize(560,40);
 //    m_searchInput->setMinimumHeight(40);
     m_searchInput->setStyleSheet("background-color: rgb(229, 240, 250 )");
     m_cancelBtn->setStyleSheet("background-color: rgb(229, 240, 250 )");
@@ -37,11 +39,12 @@ TimeZoneChooser::TimeZoneChooser():QFrame ()
 
 /*    m_title->setMinimumWidth(179);
     m_title->setMinimumHeight(29);*/;
+    m_title->setObjectName("titleLabel");
     m_title->setStyleSheet("color: rgb(229, 240, 250 )");
     m_title->setText(tr("change timezone"));
 
 
-    initSize();   
+    initSize();
 
     QHBoxLayout *wbLayout = new QHBoxLayout;
     wbLayout->setMargin(6);
@@ -123,7 +126,7 @@ TimeZoneChooser::TimeZoneChooser():QFrame ()
 
         m_searchInput->setCompleter(completer);
 
-        m_popup = completer->popup();        
+        m_popup = completer->popup();
         m_popup->setAttribute(Qt::WA_TranslucentBackground);
         m_popup->installEventFilter(this);
 
@@ -161,6 +164,20 @@ bool TimeZoneChooser::eventFilter(QObject* obj, QEvent *event) {
     return false;
 }
 
+void TimeZoneChooser::paintEvent(QPaintEvent *e)
+{
+    QStyleOption opt;
+    opt.init(this);
+    QPainter p(this);
+    p.setBrush(QBrush(QColor(22, 24, 26)));
+    p.setPen(QColor(22, 24, 26));
+    p.setRenderHint(QPainter::Antialiasing);  // 反锯齿;
+    p.drawRoundedRect(opt.rect,6,6);
+    QPainterPath path;
+//    setProperty("blurRegion",QRegion(path.toFillPolygon().toPolygon()));
+    style()->drawPrimitive(QStyle::PE_Frame, &opt, &p, this);
+
+}
 //获取适合屏幕的地图大小
 QSize TimeZoneChooser::getFitSize(){
     const QDesktopWidget *desktop = QApplication::desktop();
@@ -199,7 +216,7 @@ void TimeZoneChooser::initSize(){
 //    qDebug()<<"scale------>"<<MapPictureWidth / scale<<" "<<MapPictureHeight / scale<<endl;
     m_map->setFixedSize(MapPictureWidth / scale, MapPictureHeight / scale);
 
-    m_searchInput->setFixedWidth(250);
+//    m_searchInput->setFixedWidth(250);
     m_cancelBtn->setFixedWidth(120);
     m_confirmBtn->setFixedWidth(120);
 }

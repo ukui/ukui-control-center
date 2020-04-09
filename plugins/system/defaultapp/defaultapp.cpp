@@ -41,7 +41,7 @@ DefaultApp::DefaultApp(){
 
     itemDelege = new QStyledItemDelegate();
 
-    pluginName = tr("defaultapp");
+    pluginName = tr("Defaultapp");
     pluginType = SYSTEM;
 
 

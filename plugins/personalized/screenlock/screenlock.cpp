@@ -38,7 +38,7 @@ Screenlock::Screenlock()
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("screenlock");
+    pluginName = tr("Screenlock");
     pluginType = PERSONALIZED;
 
     pluginWidget->setStyleSheet("background: #ffffff;");

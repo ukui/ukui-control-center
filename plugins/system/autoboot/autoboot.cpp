@@ -57,7 +57,7 @@ AutoBoot::AutoBoot(){
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
 
-    pluginName = tr("autoboot");
+    pluginName = tr("Autoboot");
     pluginType = SYSTEM;
 
 
