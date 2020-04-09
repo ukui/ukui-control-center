@@ -141,27 +141,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="83"/>
+        <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="98"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="125"/>
+        <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="140"/>
         <source>Allow notification</source>
         <translation>允许通知</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="169"/>
+        <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="184"/>
         <source>Number of notification centers</source>
         <translation>最大通知数量</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="243"/>
+        <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="258"/>
         <source>cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="262"/>
+        <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="277"/>
         <source>confirm</source>
         <translation>确认</translation>
     </message>
@@ -376,9 +376,14 @@
         <translation>备份</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/backup/backup.ui" line="69"/>
         <source>Back up your files to other drives, and when the original files are lost, damaged, or deleted, you can restore them to ensure 
 the integrity of your system.</source>
+        <translation type="vanished">将您的文件备份到其他驱动器，当源文件丢失、受损或被删除时可以还原它们，保证系统的完整性。</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/backup/backup.ui" line="69"/>
+        <source>Back up your files to other drives, and when the original files are lost, damaged, or deleted, 
+you can restore them to ensure the integrity of your system.</source>
         <translation>将您的文件备份到其他驱动器，当源文件丢失、受损或被删除时可以还原它们，保证系统的完整性。</translation>
     </message>
     <message>
@@ -517,13 +522,13 @@ the integrity of your system.</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="77"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="137"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="175"/>
         <source>New Password</source>
         <translation>新密码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="78"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="138"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="176"/>
         <source>New Password Identify</source>
         <translation>新密码确认</translation>
     </message>
@@ -698,32 +703,32 @@ change system settings</source>
         <translation>密码长度需要小于%1个字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="253"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="292"/>
         <source>The user name cannot be empty</source>
         <translation>用户名不能为空</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="255"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="294"/>
         <source>The first character must be lowercase letters!</source>
         <translation>首字符必须为小写字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="258"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="297"/>
         <source>User name can not contain capital letters!</source>
         <translation>用户名不能包含大写字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="272"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="311"/>
         <source>The user name is already in use, please use a different one.</source>
         <translation>用户名已存在，请换用其他用户名。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="277"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="316"/>
         <source>User name length need to less than %1 letters!</source>
         <translation>用户名长度需要小于%1个字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="279"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="318"/>
         <source>The user name can only be composed of letters, numbers and underline!</source>
         <translation>用户名只能由字母、数字以及下划线组成！</translation>
     </message>
@@ -736,40 +741,40 @@ change system settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/dataformat.ui" line="106"/>
+        <location filename="../../../plugins/time-language/area/dataformat.ui" line="121"/>
         <source>change format of data</source>
         <translation>更改数据格式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/dataformat.ui" line="169"/>
+        <location filename="../../../plugins/time-language/area/dataformat.ui" line="184"/>
         <location filename="../../../plugins/time-language/area/dataformat.cpp" line="91"/>
         <source>calendar</source>
         <translation>日历</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/dataformat.ui" line="243"/>
+        <location filename="../../../plugins/time-language/area/dataformat.ui" line="258"/>
         <source>first day</source>
         <translation>一周第一天</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/dataformat.ui" line="317"/>
+        <location filename="../../../plugins/time-language/area/dataformat.ui" line="332"/>
         <location filename="../../../plugins/time-language/area/dataformat.cpp" line="93"/>
         <source>date</source>
         <translation>日期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/dataformat.ui" line="391"/>
+        <location filename="../../../plugins/time-language/area/dataformat.ui" line="406"/>
         <location filename="../../../plugins/time-language/area/dataformat.cpp" line="94"/>
         <source>time</source>
         <translation>时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/dataformat.ui" line="493"/>
+        <location filename="../../../plugins/time-language/area/dataformat.ui" line="508"/>
         <source>cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/dataformat.ui" line="512"/>
+        <location filename="../../../plugins/time-language/area/dataformat.ui" line="527"/>
         <source>confirm</source>
         <translation>确认</translation>
     </message>
@@ -944,61 +949,66 @@ folder will be deleted!</source>
 <context>
     <name>Desktop</name>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="53"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="38"/>
         <source>Icon Show On Desktop</source>
         <translation>显示在桌面的图标</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="139"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="124"/>
         <source>Computerdesktop</source>
         <translation>我的电脑</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="227"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="212"/>
         <source>Trashdesktop</source>
         <translation>垃圾箱</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="315"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="300"/>
         <source>Homedesktop</source>
         <translation>家目录</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="403"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="388"/>
         <source>Volumedesktop</source>
         <translation>挂载卷</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="491"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="476"/>
         <source>Networkdesktop</source>
         <translation>网络</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="538"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="523"/>
         <source>Icon Lock on Menu</source>
         <translation>锁定在开始菜单的图标</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="608"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="593"/>
         <source>Computermenu</source>
         <translation>我的电脑</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="696"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="681"/>
         <source>Trashmenu</source>
         <translation>垃圾箱</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="784"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="769"/>
         <source>Filesystemmenu</source>
         <translation>文件系统</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="882"/>
+        <source>Tray icon</source>
+        <translation>显示在托盘上的图标</translation>
     </message>
     <message>
         <source>Homemenu</source>
         <translation type="vanished">家目录</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="872"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="857"/>
         <source>Settingmenu</source>
         <translation>设置</translation>
     </message>
@@ -1011,7 +1021,7 @@ folder will be deleted!</source>
         <translation type="vanished">桌面</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.cpp" line="50"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.cpp" line="52"/>
         <source>Desktop</source>
         <translation>桌面</translation>
     </message>
@@ -1561,8 +1571,13 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.ui" line="180"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="42"/>
+        <source>Network settings</source>
+        <translation>网络设置</translation>
+    </message>
+    <message>
         <source>Change net settings</source>
-        <translation>更改网络设置</translation>
+        <translation type="vanished">更改网络设置</translation>
     </message>
     <message>
         <source>netconnect</source>
@@ -1574,12 +1589,12 @@ folder will be deleted!</source>
         <translation>网络连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="184"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="186"/>
         <source>connected</source>
         <translation>已连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="186"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="188"/>
         <source>No network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2853,14 +2868,18 @@ folder will be deleted!</source>
         <translation>浏览本地壁纸</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="522"/>
+        <source>Reset to default</source>
+        <translation>恢复默认设置</translation>
+    </message>
+    <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="471"/>
         <source>Browser online wp</source>
         <translation>浏览线上壁纸</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="522"/>
         <source>Restore default wp</source>
-        <translation>恢复默认壁纸</translation>
+        <translation type="vanished">恢复默认壁纸</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="648"/>
@@ -3041,7 +3060,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="123"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="163"/>
         <source>selsect desktop</source>
         <translation>选择桌面</translation>
     </message>
