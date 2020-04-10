@@ -221,6 +221,9 @@ void MainWindow::bootOptionsFilter(QString opt){
     } else if (opt == "-t") {
         // Datetime moudle
         bootOptionsSwitch(DATETIME, AREA);
+    } else if (opt == "-s") {
+        // Audio module
+        bootOptionsSwitch(DEVICES, AUDIO);
     }
 }
 
