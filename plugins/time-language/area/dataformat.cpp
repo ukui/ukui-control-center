@@ -31,6 +31,8 @@ DataFormat::DataFormat(QWidget *parent) :
         QssFile.close();
     }
 
+    locale = QLocale::system().name();
+
 
     initUi();
     initConnect();
@@ -93,8 +95,11 @@ void DataFormat::initUi() {
     ui->dateLabel->setText(tr("date"));
     ui->timeLabel->setText(tr("time"));
 
-    ui->calendarBox->addItem(tr("lunar"));
     ui->calendarBox->addItem(tr("solar calendar"));
+
+    if ("zh_CN" == locale){
+        ui->calendarBox->addItem(tr("lunar"));
+    }
 
     ui->dayBox->addItem(tr("monday"));
     ui->dayBox->addItem(tr("sunday"));        
@@ -143,7 +148,7 @@ void DataFormat::initComponent() {
     }
 
     QString clac = m_gsettings->get(CALENDAR_KEY).toString();
-    if ("lunar" == clac) {
+    if ("solarlunar" == clac) {
         ui->calendarBox->setCurrentIndex(0);
     } else {
         ui->calendarBox->setCurrentIndex(1);

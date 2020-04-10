@@ -27,6 +27,7 @@ private:
     QTimer *m_itimer;
     QGSettings *m_gsettings = nullptr;
     QString qss;
+    QString locale;
 
 private:
     Ui::DataFormat *ui;
