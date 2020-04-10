@@ -218,6 +218,9 @@ void MainWindow::bootOptionsFilter(QString opt){
     } else if (opt == "-p"){
         //电源
         bootOptionsSwitch(SYSTEM, POWER);
+    } else if (opt == "-t") {
+        // Datetime moudle
+        bootOptionsSwitch(DATETIME, AREA);
     }
 }
 
