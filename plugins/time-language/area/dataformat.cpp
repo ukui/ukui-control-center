@@ -209,9 +209,9 @@ void DataFormat::confirm_btn_slot() {
     QString timeValue;
 
     if ( 0 == ui->calendarBox->currentIndex()) {
-        calendarValue = "lunar";
-    } else {
         calendarValue = "solarlunar";
+    } else {
+        calendarValue = "lunar";
     }
 
     if ( 0 == ui->dayBox->currentIndex()) {
