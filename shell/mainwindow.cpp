@@ -273,8 +273,8 @@ void MainWindow::loadPlugins(){
 
 
     foreach (QString fileName, pluginsDir.entryList(QDir::Files)){
-        if (fileName == "libdesktop.so")
-            continue;
+//        if (fileName == "libdesktop.so")
+//            continue;
 //        if (fileName == "libnotice.so")
 //            continue;
         if (fileName == "libexperienceplan.so")
