@@ -35,7 +35,7 @@ DateTime::DateTime()
     ui = new Ui::DateTime;
     pluginWidget = new QWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-    pluginWidget->setStyleSheet("background: #ffffff;");
+//    pluginWidget->setStyleSheet("background: #ffffff;");
     ui->setupUi(pluginWidget);
 
     pluginName = tr("Datetime");
@@ -116,29 +116,29 @@ void DateTime::component_init(){
     ui->titleLabel->setContentsMargins(0,0,0,16);
     ui->timeClockLable->setContentsMargins(0,0,0,16);
 
-    ui->synsystimeBtn->setStyleSheet("QPushButton{background-color:#E9E9E9;border-radius:4px}"
-                                   "QPushButton:hover{background-color: #3D6BE5;color:white;};border-radius:4px");
+//    ui->synsystimeBtn->setStyleSheet("QPushButton{background-color:#E9E9E9;border-radius:4px}"
+//                                   "QPushButton:hover{background-color: #3D6BE5;color:white;};border-radius:4px");
 
     ui->synsystimeBtn->setText(tr("Sync system time"));
 
-    ui->chgtimebtn->setStyleSheet("QPushButton{background-color:#E5E7E9;border-radius:4px}"
-                                   "QPushButton:hover{background-color: #3D6BE5;color:white;};border-radius:4px");
+//    ui->chgtimebtn->setStyleSheet("QPushButton{background-color:#E5E7E9;border-radius:4px}"
+//                                   "QPushButton:hover{background-color: #3D6BE5;color:white;};border-radius:4px");
 
     ui->chgtimebtn->setText(tr("Change time"));
 
-    ui->chgzonebtn->setStyleSheet("QPushButton{background-color:#E5E7E9;border-radius:4px}"
-                                   "QPushButton:hover{background-color: #3D6BE5;color:white;};border-radius:4px");
+//    ui->chgzonebtn->setStyleSheet("QPushButton{background-color:#E5E7E9;border-radius:4px}"
+//                                   "QPushButton:hover{background-color: #3D6BE5;color:white;};border-radius:4px");
     ui->chgzonebtn->setText(tr("Change time zone"));
 
 
     ui->chgLayout->setSpacing(16);
 
-    ui->hourWidget->setStyleSheet("background-color:#E5E7E9;border-radius:6px");
+//    ui->hourWidget->setStyleSheet("background-color:#E5E7E9;border-radius:6px");
 
-    ui->syslabel->setStyleSheet("QLabel#syslabel{background: #3D6BE5;border-radius:4px;}");
+//    ui->syslabel->setStyleSheet("QLabel#syslabel{background: #3D6BE5;border-radius:4px;}");
     ui->syslabel->setVisible(false);
 
-    ui->endlabel->setStyleSheet("QLabel#endlabel{background: #3D6BE5;border-radius:4px;}");
+//    ui->endlabel->setStyleSheet("QLabel#endlabel{background: #3D6BE5;border-radius:4px;}");
     ui->endlabel->setVisible(false);
 
 //    m_formTimeBtn->setChecked(false);

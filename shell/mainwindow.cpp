@@ -58,9 +58,9 @@ MainWindow::MainWindow(QWidget *parent) :
     //设置窗体无边框
     setWindowFlags(Qt::FramelessWindowHint | Qt::Widget);
     //该设置去掉了窗体透明后的黑色背景
-    setAttribute(Qt::WA_TranslucentBackground, true);
+//    setAttribute(Qt::WA_TranslucentBackground, true);
     //将最外层窗体设置为透明
-    setStyleSheet("QMainWindow#MainWindow{background-color: transparent;}");
+//    setStyleSheet("QMainWindow#MainWindow{background-color: transparent;}");
 
     //设置panel图标
     QIcon panelicon;
@@ -71,26 +71,26 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setWindowIcon(panelicon);
     this->setWindowTitle(tr("ukcc"));
 
-    //中部内容区域
-    ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background: #ffffff; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
-    //标题栏widget
-    ui->titlebarWidget->setStyleSheet("QWidget#titlebarWidget{background: #ffffff; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
-//    //左上角文字
-//    ui->mainLabel->setStyleSheet("QLabel#mainLabel{font-size: 18px; color: #40000000;}");
-    //左上角返回按钮
-    ui->backBtn->setStyleSheet("QPushButton#backBtn{background: #ffffff; border: none;}");
-    //顶部搜索框
-    ui->searchLineEdit->setStyleSheet("QLineEdit#searchLineEdit{background: #FFEDEDED; border: none; border-radius: 6px;}");
-    //右上角按钮stylesheet
-    ui->minBtn->setStyleSheet("QPushButton#minBtn{background: #ffffff; border: none;}"
-                              "QPushButton:hover:!pressed#minBtn{background: #FF3D6BE5; border-radius: 2px;}"
-                              "QPushButton:hover:pressed#minBtn{background: #415FC4; border-radius: 2px;}");
-    ui->maxBtn->setStyleSheet("QPushButton#maxBtn{background: #ffffff; border: none;}"
-                              "QPushButton:hover:!pressed#maxBtn{background: #FF3D6BE5; border-radius: 2px;}"
-                              "QPushButton:hover:pressed#maxBtn{background: #415FC4; border-radius: 2px;}");
-    ui->closeBtn->setStyleSheet("QPushButton#closeBtn{background: #ffffff; border: none;}"
-                                "QPushButton:hover:!pressed#closeBtn{background: #FA6056; border-radius: 2px;}"
-                                "QPushButton:hover:pressed#closeBtn{background: #E54A50; border-radius: 2px;}");
+//    //中部内容区域
+//    ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background: #ffffff; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
+//    //标题栏widget
+//    ui->titlebarWidget->setStyleSheet("QWidget#titlebarWidget{background: #ffffff; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
+////    //左上角文字
+////    ui->mainLabel->setStyleSheet("QLabel#mainLabel{font-size: 18px; color: #40000000;}");
+//    //左上角返回按钮
+//    ui->backBtn->setStyleSheet("QPushButton#backBtn{background: #ffffff; border: none;}");
+//    //顶部搜索框
+//    ui->searchLineEdit->setStyleSheet("QLineEdit#searchLineEdit{background: #FFEDEDED; border: none; border-radius: 6px;}");
+//    //右上角按钮stylesheet
+//    ui->minBtn->setStyleSheet("QPushButton#minBtn{background: #ffffff; border: none;}"
+//                              "QPushButton:hover:!pressed#minBtn{background: #FF3D6BE5; border-radius: 2px;}"
+//                              "QPushButton:hover:pressed#minBtn{background: #415FC4; border-radius: 2px;}");
+//    ui->maxBtn->setStyleSheet("QPushButton#maxBtn{background: #ffffff; border: none;}"
+//                              "QPushButton:hover:!pressed#maxBtn{background: #FF3D6BE5; border-radius: 2px;}"
+//                              "QPushButton:hover:pressed#maxBtn{background: #415FC4; border-radius: 2px;}");
+//    ui->closeBtn->setStyleSheet("QPushButton#closeBtn{background: #ffffff; border: none;}"
+//                                "QPushButton:hover:!pressed#closeBtn{background: #FA6056; border-radius: 2px;}"
+//                                "QPushButton:hover:pressed#closeBtn{background: #E54A50; border-radius: 2px;}");
 
     //左侧一级菜单
     ui->leftsidebarWidget->setStyleSheet("QWidget#leftsidebarWidget{background: #cccccc; border: none; border-top-left-radius: 6px; border-bottom-left-radius: 6px;}");
@@ -146,14 +146,14 @@ MainWindow::MainWindow(QWidget *parent) :
 
         if (index){ //首页部分组件样式
             //中部内容区域
-            ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background: #ffffff; border-bottom-right-radius: 6px;}");
+//            ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background: #ffffff; border-bottom-right-radius: 6px;}");
             //标题栏widget
-            ui->titlebarWidget->setStyleSheet("QWidget#titlebarWidget{background: #ffffff; border-top-right-radius: 6px;}");
+//            ui->titlebarWidget->setStyleSheet("QWidget#titlebarWidget{background: #ffffff; border-top-right-radius: 6px;}");
         } else { //次页部分组件样式
             //中部内容区域
-            ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background: #ffffff; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
+//            ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background: #ffffff; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
             //标题栏widget
-            ui->titlebarWidget->setStyleSheet("QWidget#titlebarWidget{background: #ffffff; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
+//            ui->titlebarWidget->setStyleSheet("QWidget#titlebarWidget{background: #ffffff; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
         }
     });
 

@@ -49,46 +49,46 @@ DataFormat::~DataFormat()
 void DataFormat::initUi() {    
 //    this->setStyleSheet("background: #ffffff;");
 
-    ui->calendarBox->setStyleSheet(qss);;
-    ui->calendarBox->setView(new QListView());
-    ui->calendarBox->setMaxVisibleItems(5);
+//    ui->calendarBox->setStyleSheet(qss);;
+//    ui->calendarBox->setView(new QListView());
+//    ui->calendarBox->setMaxVisibleItems(5);
 
-    ui->dayBox->setStyleSheet(qss);;
-    ui->dayBox->setView(new QListView());
-    ui->dayBox->setMaxVisibleItems(5);
+//    ui->dayBox->setStyleSheet(qss);;
+//    ui->dayBox->setView(new QListView());
+//    ui->dayBox->setMaxVisibleItems(5);
 
-    ui->dateBox->setStyleSheet(qss);;
-    ui->dateBox->setView(new QListView());
-    ui->dateBox->setMaxVisibleItems(5);
+//    ui->dateBox->setStyleSheet(qss);;
+//    ui->dateBox->setView(new QListView());
+//    ui->dateBox->setMaxVisibleItems(5);
 
-    ui->timeBox->setStyleSheet(qss);;
-    ui->timeBox->setView(new QListView());
-    ui->timeBox->setMaxVisibleItems(5);
+//    ui->timeBox->setStyleSheet(qss);;
+//    ui->timeBox->setView(new QListView());
+//    ui->timeBox->setMaxVisibleItems(5);
 
 
 //    ui->frame->setStyleSheet("QFrame{background: #ffffff;}");
     //关闭按钮在右上角，窗体radius 6px，所以按钮只得6px
     ui->closeBtn->setIcon(QIcon("://img/titlebar/close.png"));
-    ui->closeBtn->setStyleSheet("QPushButton#closeBtn{background: #ffffff; border: none; border-radius: 6px;}"
-                                "QPushButton:hover:!pressed#closeBtn{background: #FA6056; border: none; border-top-left-radius: 2px; border-top-right-radius: 6px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;}"
-                                "QPushButton:hover:pressed#closeBtn{background: #E54A50; border: none; border-top-left-radius: 2px; border-top-right-radius: 6px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;}");
+//    ui->closeBtn->setStyleSheet("QPushButton#closeBtn{background: #ffffff; border: none; border-radius: 6px;}"
+//                                "QPushButton:hover:!pressed#closeBtn{background: #FA6056; border: none; border-top-left-radius: 2px; border-top-right-radius: 6px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;}"
+//                                "QPushButton:hover:pressed#closeBtn{background: #E54A50; border: none; border-top-left-radius: 2px; border-top-right-radius: 6px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;}");
 
 
-    ui->calendarLabel->setStyleSheet("QLabel#calendarLabel{background: #F4F4F4;}");
-    ui->dayLabel->setStyleSheet("QLabel#dayLabel{background: #F4F4F4;}");
-    ui->dateLabel->setStyleSheet("QLabel#dateLabel{background: #F4F4F4;}");
-    ui->timeLabel->setStyleSheet("QLabel#timeLabel{background: #F4F4F4;}");
+//    ui->calendarLabel->setStyleSheet("QLabel#calendarLabel{background: #F4F4F4;}");
+//    ui->dayLabel->setStyleSheet("QLabel#dayLabel{background: #F4F4F4;}");
+//    ui->dateLabel->setStyleSheet("QLabel#dateLabel{background: #F4F4F4;}");
+//    ui->timeLabel->setStyleSheet("QLabel#timeLabel{background: #F4F4F4;}");
 
-    ui->calendarwidget->setStyleSheet("QWidget#calendarwidget{background: #F4F4F4; border-radius: 6px;}");
-    ui->daywidget->setStyleSheet("QWidget#daywidget{background: #F4F4F4; border-radius: 6px;}");
-    ui->datewidget->setStyleSheet("QWidget#datewidget{background: #F4F4F4; border-radius: 6px;}");
-    ui->timewidget->setStyleSheet("QWidget#timewidget{background: #F4F4F4; border-radius: 6px;}");
+//    ui->calendarwidget->setStyleSheet("QWidget#calendarwidget{background: #F4F4F4; border-radius: 6px;}");
+//    ui->daywidget->setStyleSheet("QWidget#daywidget{background: #F4F4F4; border-radius: 6px;}");
+//    ui->datewidget->setStyleSheet("QWidget#datewidget{background: #F4F4F4; border-radius: 6px;}");
+//    ui->timewidget->setStyleSheet("QWidget#timewidget{background: #F4F4F4; border-radius: 6px;}");
 
 
-    ui->cancelButton->setStyleSheet("QPushButton{background-color:#E5E7E9;border-radius:4px}"
-                                   "QPushButton:hover{background-color: #3D6BE5;color:white;};border-radius:4px");
-    ui->confirmButton->setStyleSheet("QPushButton{background-color:#E5E7E9;border-radius:4px}"
-                                   "QPushButton:hover{background-color: #3D6BE5;color:white;};border-radius:4px");
+//    ui->cancelButton->setStyleSheet("QPushButton{background-color:#E5E7E9;border-radius:4px}"
+//                                   "QPushButton:hover{background-color: #3D6BE5;color:white;};border-radius:4px");
+//    ui->confirmButton->setStyleSheet("QPushButton{background-color:#E5E7E9;border-radius:4px}"
+//                                   "QPushButton:hover{background-color: #3D6BE5;color:white;};border-radius:4px");
 
     ui->calendarLabel->setText(tr("calendar"));
     ui->dayLabel->setText(tr("first day of week"));

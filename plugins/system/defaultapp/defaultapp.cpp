@@ -45,25 +45,25 @@ DefaultApp::DefaultApp(){
     pluginType = SYSTEM;
 
 
-    pluginWidget->setStyleSheet("background: #ffffff;");
+//    pluginWidget->setStyleSheet("background: #ffffff;");
 
-    ui->browserWidget->setStyleSheet("QWidget#browserWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
-    ui->browserLabel->setStyleSheet("QLabel#browserLabel{background: #F4F4F4;}");
+//    ui->browserWidget->setStyleSheet("QWidget#browserWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
+//    ui->browserLabel->setStyleSheet("QLabel#browserLabel{background: #F4F4F4;}");
 
-    ui->mailWidget->setStyleSheet("QWidget#mailWidget{background: #F4F4F4;}");
-    ui->mailLabel->setStyleSheet("QLabel#mailLabel{background: #F4F4F4;}");
+//    ui->mailWidget->setStyleSheet("QWidget#mailWidget{background: #F4F4F4;}");
+//    ui->mailLabel->setStyleSheet("QLabel#mailLabel{background: #F4F4F4;}");
 
-    ui->imageWidget->setStyleSheet("QWidget#imageWidget{background: #F4F4F4;}");
-    ui->imageLabel->setStyleSheet("QLabel#imageLabel{background: #F4F4F4;}");
+//    ui->imageWidget->setStyleSheet("QWidget#imageWidget{background: #F4F4F4;}");
+//    ui->imageLabel->setStyleSheet("QLabel#imageLabel{background: #F4F4F4;}");
 
-    ui->audioWidget->setStyleSheet("QWidget#audioWidget{background: #F4F4F4;}");
-    ui->audioLabel->setStyleSheet("QLabel#audioLabel{background: #F4F4F4;}");
+//    ui->audioWidget->setStyleSheet("QWidget#audioWidget{background: #F4F4F4;}");
+//    ui->audioLabel->setStyleSheet("QLabel#audioLabel{background: #F4F4F4;}");
 
-    ui->videoWidget->setStyleSheet("QWidget#videoWidget{background: #F4F4F4;}");
-    ui->videoLabel->setStyleSheet("QLabel#videoLabel{background: #F4F4F4;}");
+//    ui->videoWidget->setStyleSheet("QWidget#videoWidget{background: #F4F4F4;}");
+//    ui->videoLabel->setStyleSheet("QLabel#videoLabel{background: #F4F4F4;}");
 
-    ui->textWidget->setStyleSheet("QWidget#textWidget{background: #F4F4F4; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
-    ui->textLabel->setStyleSheet("QLabel#textLabel{background: #F4F4F4;}");
+//    ui->textWidget->setStyleSheet("QWidget#textWidget{background: #F4F4F4; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
+//    ui->textLabel->setStyleSheet("QLabel#textLabel{background: #F4F4F4;}");
 
     initUI();
 

@@ -61,11 +61,11 @@ AutoBoot::AutoBoot(){
     pluginType = SYSTEM;
 
 
-    pluginWidget->setStyleSheet("background: #ffffff;");
-    ui->addWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+//    pluginWidget->setStyleSheet("background: #ffffff;");
+//    ui->addWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
 
-    ui->listWidget->setStyleSheet("QListWidget#listWidget{background: #ffffff; border: none;}"
-                                  "");
+//    ui->listWidget->setStyleSheet("QListWidget#listWidget{background: #ffffff; border: none;}"
+//                                  "");
 
     ui->addBtn->setIcon(QIcon("://img/plugins/autoboot/add.png"));
     ui->addBtn->setIconSize(QSize(48, 48));
@@ -138,7 +138,7 @@ void AutoBoot::initUI(){
     headWidget->setAttribute(Qt::WA_DeleteOnClose);
     headWidget->setObjectName("headWidget");
 //    headWidget->setFixedHeight(36);
-    headWidget->setStyleSheet("QWidget#headWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
+//    headWidget->setStyleSheet("QWidget#headWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
 
     QHBoxLayout * headHorLayout = new QHBoxLayout(headWidget);
     headHorLayout->setSpacing(16);
@@ -150,7 +150,7 @@ void AutoBoot::initUI(){
 //    nameLabel->setSizePolicy(nameSizePolicy);
     nameLabel->setFixedWidth(220);
     nameLabel->setText(tr("Name"));
-    nameLabel->setStyleSheet("background: #F4F4F4;");
+//    nameLabel->setStyleSheet("background: #F4F4F4;");
 
     QLabel * statusLabel = new QLabel(headWidget);
 //    QSizePolicy statusSizePolicy = statusLabel->sizePolicy();
@@ -158,7 +158,7 @@ void AutoBoot::initUI(){
 //    statusLabel->setSizePolicy(statusSizePolicy);
     statusLabel->setFixedWidth(68);
     statusLabel->setText(tr("Status"));
-    statusLabel->setStyleSheet("background: #F4F4F4;");
+//    statusLabel->setStyleSheet("background: #F4F4F4;");
 
     headHorLayout->addWidget(nameLabel);
     headHorLayout->addStretch();
@@ -198,7 +198,7 @@ void AutoBoot::initUI(){
         widget->setMaximumHeight(60);
 
         widget->setAttribute(Qt::WA_DeleteOnClose);
-        widget->setStyleSheet("background: #F4F4F4;");
+//        widget->setStyleSheet("background: #F4F4F4;");
 
         QHBoxLayout * mainHLayout = new QHBoxLayout(widget);
         mainHLayout->setContentsMargins(16, 0, 32, 0);
@@ -207,10 +207,10 @@ void AutoBoot::initUI(){
         QLabel * iconLabel = new QLabel(widget);
         iconLabel->setFixedSize(32, 32);
         iconLabel->setPixmap(it.value().pixmap);
-        iconLabel->setStyleSheet("background: #F4F4F4");
+//        iconLabel->setStyleSheet("background: #F4F4F4");
 
         QLabel * textLabel = new QLabel(widget);
-        textLabel->setStyleSheet("background: #F4F4F4");
+//        textLabel->setStyleSheet("background: #F4F4F4");
         textLabel->setFixedWidth(250);
         textLabel->setText(bname);
 
@@ -229,9 +229,9 @@ void AutoBoot::initUI(){
         connect(dBtn, &QPushButton::clicked, this, [=]{
             del_autoboot_realize(bname);
         });
-        dBtn->setStyleSheet(""
-                            "QPushButton{background: #FA6056; border-radius: 2px;}"
-                            "QPushButton:hover:pressed{background: #E54A50; border-radius: 2px;}");
+//        dBtn->setStyleSheet(""
+//                            "QPushButton{background: #FA6056; border-radius: 2px;}"
+//                            "QPushButton:hover:pressed{background: #E54A50; border-radius: 2px;}");
 
         QLabel * pLabel = new QLabel(widget);
         pLabel->setFixedSize(QSize(32, 32));

@@ -38,9 +38,9 @@ ShowAllShortcut::ShowAllShortcut(QWidget *parent) :
 //    ui->frame->setStyleSheet("QFrame{background: #ffffff; border: none; border-radius: 6px;}");
 
     //关闭按钮在右上角，窗体radius 6px，所以按钮只得6px
-    ui->closeBtn->setStyleSheet("QPushButton#closeBtn{background: #ffffff; border: none; border-radius: 6px;}"
-                                "QPushButton:hover:!pressed#closeBtn{background: #FA6056; border: none; border-top-left-radius: 2px; border-top-right-radius: 6px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;}"
-                                "QPushButton:hover:pressed#closeBtn{background: #E54A50; border: none; border-top-left-radius: 2px; border-top-right-radius: 6px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;}");
+//    ui->closeBtn->setStyleSheet("QPushButton#closeBtn{background: #ffffff; border: none; border-radius: 6px;}"
+//                                "QPushButton:hover:!pressed#closeBtn{background: #FA6056; border: none; border-top-left-radius: 2px; border-top-right-radius: 6px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;}"
+//                                "QPushButton:hover:pressed#closeBtn{background: #E54A50; border: none; border-top-left-radius: 2px; border-top-right-radius: 6px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;}");
 
     ui->closeBtn->setIcon(QIcon("://img/titlebar/close.png"));
 
@@ -75,9 +75,9 @@ void ShowAllShortcut::buildComponent(QMap<QString, QMap<QString, QString> > shor
     for (; it != shortcutsMap.end(); it++){
         ClickWidget * tWidget = new ClickWidget(it.key());
         if (it == shortcutsMap.begin()){
-            tWidget->setStyleSheet("ClickWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
+//            tWidget->setStyleSheet("ClickWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
         } else{
-            tWidget->setStyleSheet("ClickWidget{background: #F4F4F4;}");
+//            tWidget->setStyleSheet("ClickWidget{background: #F4F4F4;}");
         }
 
         QWidget * gWidget = buildGeneralWidget(it.value());
@@ -86,9 +86,9 @@ void ShowAllShortcut::buildComponent(QMap<QString, QMap<QString, QString> > shor
             connect(tWidget, &ClickWidget::widgetClicked, [=](bool checked){
                 gWidget->setVisible(checked);
                 if (tWidget->checked()){
-                    tWidget->setStyleSheet("ClickWidget{background: #F4F4F4;}");
+//                    tWidget->setStyleSheet("ClickWidget{background: #F4F4F4;}");
                 } else {
-                    tWidget->setStyleSheet("ClickWidget{background: #F4F4F4; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
+//                    tWidget->setStyleSheet("ClickWidget{background: #F4F4F4; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
                 }
             });
         else
@@ -110,7 +110,7 @@ QWidget * ShowAllShortcut::buildTitleWidget(QString tName){
     QWidget * titleWidget = new QWidget;
     titleWidget->setAttribute(Qt::WA_DeleteOnClose);
     titleWidget->setFixedHeight(TITLEWIDGETHEIGH);
-    titleWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+//    titleWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
 
     QHBoxLayout * titleHorLayout = new QHBoxLayout(titleWidget);
     titleHorLayout->setSpacing(0);
@@ -136,7 +136,7 @@ QWidget * ShowAllShortcut::buildGeneralWidget(QMap<QString, QString> subShortcut
 
     QWidget * pWidget = new QWidget;
     pWidget->setAttribute(Qt::WA_DeleteOnClose);
-    pWidget->setStyleSheet("QWidget{background: #ffffff; border: none;}");
+//    pWidget->setStyleSheet("QWidget{background: #ffffff; border: none;}");
     QVBoxLayout * pVerLayout = new QVBoxLayout(pWidget);
     pVerLayout->setSpacing(2);
     pVerLayout->setMargin(0);
@@ -149,7 +149,7 @@ QWidget * ShowAllShortcut::buildGeneralWidget(QMap<QString, QString> subShortcut
 
         QWidget * gWidget = new QWidget;
         gWidget->setFixedHeight(TITLEWIDGETHEIGH);
-        gWidget->setStyleSheet("QWidget{background: #D5D5D5; border: none;}");
+//        gWidget->setStyleSheet("QWidget{background: #D5D5D5; border: none;}");
 
         QHBoxLayout * gHorLayout = new QHBoxLayout(gWidget);
         gHorLayout->setSpacing(0);
@@ -223,15 +223,15 @@ ClickWidget::ClickWidget(QString name){
 
     QLabel * titleNameLabel = new QLabel(this);
     titleNameLabel->setText(name);
-    titleNameLabel->setStyleSheet("background: #F4F4F4;");
+//    titleNameLabel->setStyleSheet("background: #F4F4F4;");
 
     directionBtn = new QPushButton(this);
     directionBtn->setFixedSize(16, 16);
     directionBtn->setCheckable(true);
     directionBtn->setChecked(true);
-    directionBtn->setStyleSheet("QPushButton{background: #F4F4F4; border: none;}"
-                                "QPushButton:checked{background: #F4F4F4; border:none; border-image: url(:/img/plugins/shortcut/up.png)}"
-                                "QPushButton:!checked{background: #F4F4F4; border:none; border-image: url(:/img/plugins/shortcut/down.png)}");
+//    directionBtn->setStyleSheet("QPushButton{background: #F4F4F4; border: none;}"
+//                                "QPushButton:checked{background: #F4F4F4; border:none; border-image: url(:/img/plugins/shortcut/up.png)}"
+//                                "QPushButton:!checked{background: #F4F4F4; border:none; border-image: url(:/img/plugins/shortcut/down.png)}");
 
     connect(directionBtn, &QPushButton::clicked, this, &ClickWidget::widgetClicked);
 

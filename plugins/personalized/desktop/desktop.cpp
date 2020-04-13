@@ -51,18 +51,18 @@ Desktop::Desktop()
     pluginName = tr("Desktop");
     pluginType = PERSONALIZED;
 
-    pluginWidget->setStyleSheet("background: #ffffff;");
+//    pluginWidget->setStyleSheet("background: #ffffff;");
 
-    ui->deskComputerWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
-    ui->deskTrashWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
-    ui->deskHomeWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
-    ui->deskVolumeWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
-    ui->deskNetworkWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+//    ui->deskComputerWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+//    ui->deskTrashWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+//    ui->deskHomeWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+//    ui->deskVolumeWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+//    ui->deskNetworkWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
 
-    ui->menuComputerWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
-    ui->menuTrashWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
-    ui->menuFilesystemWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
-    ui->menuSettingWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+//    ui->menuComputerWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+//    ui->menuTrashWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+//    ui->menuFilesystemWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+//    ui->menuSettingWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
 
     ui->trayListWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->trayListWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -81,7 +81,7 @@ Desktop::Desktop()
     ui->menuFilesystemWidget->setVisible(false);
     ui->menuSettingWidget->setVisible(false);
 
-    ui->trayListWidget->setStyleSheet("QListWidget#trayListWidget{border: none;}");
+//    ui->trayListWidget->setStyleSheet("QListWidget#trayListWidget{border: none;}");
 
     vecGsettings = new QVector<QGSettings*>();
     const QByteArray id(DESKTOP_SCHEMA);
@@ -248,7 +248,7 @@ void Desktop::initTrayStatus(QString name, QIcon icon, QGSettings *gsettings) {
     devWidget->setMaximumWidth(960);
     devWidget->setMinimumHeight(50);
     devWidget->setMaximumHeight(50);
-    devWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+//    devWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
 
     QHBoxLayout * devHorLayout = new QHBoxLayout();
     devHorLayout->setSpacing(8);

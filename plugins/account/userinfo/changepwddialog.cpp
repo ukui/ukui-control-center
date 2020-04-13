@@ -37,19 +37,19 @@ ChangePwdDialog::ChangePwdDialog(QWidget *parent) :
     setAttribute(Qt::WA_DeleteOnClose);
 
 //    ui->frame->setStyleSheet("QFrame{background: #ffffff; border: none; border-radius: 6px;}");
-    ui->closeBtn->setStyleSheet("QPushButton{background: #ffffff; border: none;}");
-    ui->pwdLineEdit->setStyleSheet("QLineEdit{background: #F4F4F4; border: none; border-radius: 4px;}");
-    ui->pwdsureLineEdit->setStyleSheet("QLineEdit{background: #F4F4F4; border: none; border-radius: 4px;}");
+//    ui->closeBtn->setStyleSheet("QPushButton{background: #ffffff; border: none;}");
+//    ui->pwdLineEdit->setStyleSheet("QLineEdit{background: #F4F4F4; border: none; border-radius: 4px;}");
+//    ui->pwdsureLineEdit->setStyleSheet("QLineEdit{background: #F4F4F4; border: none; border-radius: 4px;}");
 
 
     //构建Combox代理，否则样式不全部生效
     QStyledItemDelegate * itemDelege = new QStyledItemDelegate();
-    ui->pwdtypeComboBox->setItemDelegate(itemDelege);
-    ui->pwdtypeComboBox->setMaxVisibleItems(5);
-    ui->pwdtypeComboBox->setStyleSheet("QComboBox{background: #F4F4F4; border-radius: 4px; font-size:14px;padding-left: 8px; color: black; min-height: 30px; combobox-popup: 0;}"
-                                     "QComboBox::down-arrow{image:url(://img/dropArrow/downpx.png)}"
-                                     "QComboBox::drop-down{width: 30px; border: none;}"
-                                     "");
+//    ui->pwdtypeComboBox->setItemDelegate(itemDelege);
+//    ui->pwdtypeComboBox->setMaxVisibleItems(5);
+//    ui->pwdtypeComboBox->setStyleSheet("QComboBox{background: #F4F4F4; border-radius: 4px; font-size:14px;padding-left: 8px; color: black; min-height: 30px; combobox-popup: 0;}"
+//                                     "QComboBox::down-arrow{image:url(://img/dropArrow/downpx.png)}"
+//                                     "QComboBox::drop-down{width: 30px; border: none;}"
+//                                     "");
 
 
     ui->closeBtn->setIcon(QIcon("://img/titlebar/close.png"));

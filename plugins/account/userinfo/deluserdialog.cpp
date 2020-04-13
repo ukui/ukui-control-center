@@ -31,7 +31,7 @@ DelUserDialog::DelUserDialog(QWidget *parent) :
     setAttribute(Qt::WA_TranslucentBackground);
 
 //    ui->frame->setStyleSheet("QFrame{background: #ffffff; border: none; border-radius: 6px;}");
-    ui->closeBtn->setStyleSheet("QPushButton{background: #ffffff;}");
+//    ui->closeBtn->setStyleSheet("QPushButton{background: #ffffff;}");
 
     ui->closeBtn->setIcon(QIcon("://img/titlebar/close.png"));
 

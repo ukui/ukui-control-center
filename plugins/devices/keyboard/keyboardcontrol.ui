@@ -827,37 +827,7 @@ QSlider::handle:horizontal {
                   </size>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">QComboBox{
-    background: rgba(255, 255, 255);
-    border: 1px solid rgb(255, 255, 255);
-    font-size:12px;
-    color: black;
-    combobox-popup: 0;  /* 配合setMaxVisibleItems设置下拉框显示的条数，超过的滚动显示 */
-}
-
-QComboBox::down-arrow{
-    image:url(://img/dropArrow/downpx.png);
-}
- 
-QComboBox QAbstractItemView::item {
-    min-height: 30px;
-    border-radius: 2px ;
-    color:black;
-    background-color: rgba(255, 255, 255);
-}
-
-QComboBox QAbstractItemView::item:selected{
-    background: #3D6BE5;
-}
-
-QComboBox::drop-down{
-    width: 30px;
-    border: none;
-}
-
-
-
-</string>
+                  <string notr="true"/>
                  </property>
                 </widget>
                </item>

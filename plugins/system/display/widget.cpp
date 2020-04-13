@@ -1044,7 +1044,7 @@ void Widget::checkOutputScreen(bool judge){
 //亮度调节UI
 void Widget::initBrightnessUI(){
     //亮度调节
-    ui->brightnesswidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+//    ui->brightnesswidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
 
     ui->brightnessSlider->setRange(0.2*100,100);
     ui->brightnessSlider->setTracking(true);
@@ -1678,41 +1678,41 @@ void Widget::writeFile(const QString &filepath, const QStringList &content) {
 
 void Widget::initUiQss() {
 
-    ui->mainwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
-    ui->screenwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
-    ui->nightwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
-    ui->unionwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+//    ui->mainwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+//    ui->screenwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+//    ui->nightwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+//    ui->unionwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
 
-    ui->nightwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
-    ui->sunwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
-    ui->customwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
-    ui->opwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
-    ui->clswidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
-    ui->temptwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+//    ui->nightwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+//    ui->sunwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+//    ui->customwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+//    ui->opwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+//    ui->clswidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+//    ui->temptwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
 
-    ui->mainScreenButton->setStyleSheet("QPushButton{background-color:#F8F9F9;border-radius:6px;font-size:14px;}"
-                                   "QPushButton:hover{background-color: #3D6BE5;};border-radius:6px");
+//    ui->mainScreenButton->setStyleSheet("QPushButton{background-color:#F8F9F9;border-radius:6px;font-size:14px;}"
+//                                   "QPushButton:hover{background-color: #3D6BE5;};border-radius:6px");
 
 //    ui->primaryCombo->setStyleSheet("background-color:#F8F9F9");
 //    ui->primaryCombo->setMaxVisibleItems(1);
 
-    ui->showMonitorwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+//    ui->showMonitorwidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
 
 
-    ui->applyButton->setStyleSheet("QPushButton{background-color:#F4F4F4;border-radius:6px}"
-                                   "QPushButton:hover{background-color: #3D6BE5;color:white};border-radius:6px");
+//    ui->applyButton->setStyleSheet("QPushButton{background-color:#F4F4F4;border-radius:6px}"
+//                                   "QPushButton:hover{background-color: #3D6BE5;color:white};border-radius:6px");
 
-    ui->primaryCombo->setContentsMargins(8,0,0,0);
-    ui->primaryCombo->setItemDelegate(new QStyledItemDelegate());
+//    ui->primaryCombo->setContentsMargins(8,0,0,0);
+//    ui->primaryCombo->setItemDelegate(new QStyledItemDelegate());
 
-    ui->opHourCom->setItemDelegate(new QStyledItemDelegate());
-    ui->opHourCom->setMaxVisibleItems(5);
-    ui->opMinCom->setItemDelegate(new QStyledItemDelegate());
-    ui->opMinCom->setMaxVisibleItems(5);
-    ui->clHourCom->setItemDelegate(new QStyledItemDelegate());
-    ui->clHourCom->setMaxVisibleItems(5);
-    ui->clMinCom->setItemDelegate(new QStyledItemDelegate());
-    ui->clMinCom->setMaxVisibleItems(5);
+//    ui->opHourCom->setItemDelegate(new QStyledItemDelegate());
+//    ui->opHourCom->setMaxVisibleItems(5);
+//    ui->opMinCom->setItemDelegate(new QStyledItemDelegate());
+//    ui->opMinCom->setMaxVisibleItems(5);
+//    ui->clHourCom->setItemDelegate(new QStyledItemDelegate());
+//    ui->clHourCom->setMaxVisibleItems(5);
+//    ui->clMinCom->setItemDelegate(new QStyledItemDelegate());
+//    ui->clMinCom->setMaxVisibleItems(5);
 }
 
 void Widget::initUiComponent() {

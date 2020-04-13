@@ -69,15 +69,15 @@ Touchpad::Touchpad()
         QssFile.close();
     }
 
-    pluginWidget->setStyleSheet("background: #ffffff;");
+//    pluginWidget->setStyleSheet("background: #ffffff;");
 
     ui->scrollingTypeComBox->setView(new QListView());
-    ui->scrollingTypeComBox->setStyleSheet(qss);
+//    ui->scrollingTypeComBox->setStyleSheet(qss);
 
-    ui->enableWidget->setStyleSheet("QWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
-    ui->typingWidget->setStyleSheet("QWidget{background: #F4F4F4;}");
-    ui->clickWidget->setStyleSheet("QWidget{background: #F4F4F4;}");
-    ui->scrollingWidget->setStyleSheet("QWidget{background: #F4F4F4; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
+//    ui->enableWidget->setStyleSheet("QWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
+//    ui->typingWidget->setStyleSheet("QWidget{background: #F4F4F4;}");
+//    ui->clickWidget->setStyleSheet("QWidget{background: #F4F4F4;}");
+//    ui->scrollingWidget->setStyleSheet("QWidget{background: #F4F4F4; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
 
     const QByteArray id(TOUCHPAD_SCHEMA);
     tpsettings = new QGSettings(id);

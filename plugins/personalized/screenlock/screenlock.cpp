@@ -41,21 +41,21 @@ Screenlock::Screenlock()
     pluginName = tr("Screenlock");
     pluginType = PERSONALIZED;
 
-    pluginWidget->setStyleSheet("background: #ffffff;");
+//    pluginWidget->setStyleSheet("background: #ffffff;");
 
-    ui->loginWidget->setStyleSheet("QWidget{background: #F4F4F4; border: none; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
-    ui->enableWidget->setStyleSheet("QWidget{background: #F4F4F4; border: none; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
+//    ui->loginWidget->setStyleSheet("QWidget{background: #F4F4F4; border: none; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
+//    ui->enableWidget->setStyleSheet("QWidget{background: #F4F4F4; border: none; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
 
-    QString btnQss = QString("background: #E9E9E9; border: none; border-radius: 4px;");
-    ui->browserLocalwpBtn->setStyleSheet(btnQss);
-    ui->browserOnlinewpBtn->setStyleSheet(btnQss);
+//    QString btnQss = QString("background: #E9E9E9; border: none; border-radius: 4px;");
+//    ui->browserLocalwpBtn->setStyleSheet(btnQss);
+//    ui->browserOnlinewpBtn->setStyleSheet(btnQss);
 
-    ui->delaySlider->setStyleSheet("QSlider{height: 20px;}"
-                                   "QSlider::groove:horizontal{border: none;}"
-                                   "QSlider::add-page:horizontal{background: #808080; border-radius: 2px; margin-top: 8px; margin-bottom: 9px;}"
-                                   "QSlider::sub-page:horizontal{background: #3D6BE5; border-radius: 2px; margin-top: 8px; margin-bottom: 9px;}"
-                                   "QSlider::handle:horizontal{width: 20px; height: 20px; border-image: url(:/img/plugins/fonts/bigRoller.png);}"
-                                   "");
+//    ui->delaySlider->setStyleSheet("QSlider{height: 20px;}"
+//                                   "QSlider::groove:horizontal{border: none;}"
+//                                   "QSlider::add-page:horizontal{background: #808080; border-radius: 2px; margin-top: 8px; margin-bottom: 9px;}"
+//                                   "QSlider::sub-page:horizontal{background: #3D6BE5; border-radius: 2px; margin-top: 8px; margin-bottom: 9px;}"
+//                                   "QSlider::handle:horizontal{width: 20px; height: 20px; border-image: url(:/img/plugins/fonts/bigRoller.png);}"
+//                                   "");
 
     const QByteArray id(SCREENLOCK_BG_SCHEMA);
     lSetting = new QGSettings(id);

@@ -43,11 +43,11 @@ NetConnect::NetConnect():m_wifiList(new Wifi)
 
     wifiBtn = new SwitchButton();
 
-    pluginWidget->setStyleSheet("background: #ffffff;");
+//    pluginWidget->setStyleSheet("background: #ffffff;");
 
 
-    ui->statusListWidget->setStyleSheet("QListWidget#statusListWidget{border: none;}");
-    ui->availableListWidget->setStyleSheet("QListWidget#availableListWidget{border: none;}");
+//    ui->statusListWidget->setStyleSheet("QListWidget#statusListWidget{border: none;}");
+//    ui->availableListWidget->setStyleSheet("QListWidget#availableListWidget{border: none;}");
 
     ui->statusListWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->statusListWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -63,10 +63,10 @@ NetConnect::NetConnect():m_wifiList(new Wifi)
 
 //    ui->detailBtn->setStyleSheet("QPushButton{border: none;}");
 
-    ui->openWifiWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+//    ui->openWifiWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
     ui->openWIifLayout->addWidget(wifiBtn);
 
-    ui->openWifiWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+//    ui->openWifiWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
     ui->openWIifLayout->addWidget(wifiBtn);
 
     //构建网络配置对象
@@ -153,7 +153,7 @@ void NetConnect::rebuildNetStatusComponent(QString iconPath, QString netName){
     devWidget->setMaximumHeight(50);
 
 //        devWidget->setFixedHeight(50);
-    devWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+//    devWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
     QHBoxLayout * devHorLayout = new QHBoxLayout(devWidget);
     devHorLayout->setSpacing(8);
     devHorLayout->setContentsMargins(16, 0, 0, 0);
@@ -307,7 +307,7 @@ void NetConnect::rebuildAvailComponent(QString iconPath, QString netName){
     devWidget->setMaximumHeight(50);
 
 //        devWidget->setFixedHeight(50);
-    devWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+//    devWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
     QHBoxLayout * devHorLayout = new QHBoxLayout(devWidget);
     devHorLayout->setSpacing(8);
     devHorLayout->setContentsMargins(16, 0, 0, 0);

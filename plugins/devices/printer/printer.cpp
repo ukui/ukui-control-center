@@ -36,11 +36,11 @@ Printer::Printer(){
     pluginName = tr("Printer");
     pluginType = DEVICES;
 
-    pluginWidget->setStyleSheet("background: #ffffff;");
-    ui->addWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+//    pluginWidget->setStyleSheet("background: #ffffff;");
+//    ui->addWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
 
     ui->listWidget->setSpacing(0);
-    ui->listWidget->setStyleSheet("QListWidget#listWidget{border: none;}");
+//    ui->listWidget->setStyleSheet("QListWidget#listWidget{border: none;}");
 
     initComponent();
 }

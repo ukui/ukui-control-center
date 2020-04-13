@@ -154,23 +154,23 @@ void Theme::plugin_delay_control(){
 }
 
 void Theme::setupStylesheet(){
-    pluginWidget->setStyleSheet("background: #ffffff;");
+//    pluginWidget->setStyleSheet("background: #ffffff;");
 
-    ui->controlWidget->setStyleSheet("QWidget#controlWidget{background: #F4F4F4; border-radius: 6px;}");
+//    ui->controlWidget->setStyleSheet("QWidget#controlWidget{background: #F4F4F4; border-radius: 6px;}");
 
-    ui->effectWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
-    ui->line->setStyleSheet("QFrame{border-top: 1px solid #CCCCCC; border-left: none; border-right: none; border-bottom: none;}");
+//    ui->effectWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+//    ui->line->setStyleSheet("QFrame{border-top: 1px solid #CCCCCC; border-left: none; border-right: none; border-bottom: none;}");
 
-    ui->resetBtn->setStyleSheet("QPushButton#resetBtn{background: #F4F4F4; border: none; border-radius: 4px;}"
-                                "QPushButton:hover:!pressed#resetBtn{border: none; background: #3D6BE5; border-radius: 2px;}"
-                                "QPushButton:hover:pressed#resetBtn{border: none; background: #2C5AD6; border-radius: 2px;}");
+//    ui->resetBtn->setStyleSheet("QPushButton#resetBtn{background: #F4F4F4; border: none; border-radius: 4px;}"
+//                                "QPushButton:hover:!pressed#resetBtn{border: none; background: #3D6BE5; border-radius: 2px;}"
+//                                "QPushButton:hover:pressed#resetBtn{border: none; background: #2C5AD6; border-radius: 2px;}");
 
-    ui->transparencySlider->setStyleSheet("QSlider{height: 20px;}"
-                                          "QSlider::groove:horizontal{border: none;}"
-                                          "QSlider::add-page:horizontal{background: #808080; border-radius: 2px; margin-top: 8px; margin-bottom: 9px;}"
-                                          "QSlider::sub-page:horizontal{background: #3D6BE5; border-radius: 2px; margin-top: 8px; margin-bottom: 9px;}"
-                                          "QSlider::handle:horizontal{width: 20px; height: 20px; border-image: url(:/img/plugins/fonts/bigRoller.png);}"
-                                          "");
+//    ui->transparencySlider->setStyleSheet("QSlider{height: 20px;}"
+//                                          "QSlider::groove:horizontal{border: none;}"
+//                                          "QSlider::add-page:horizontal{background: #808080; border-radius: 2px; margin-top: 8px; margin-bottom: 9px;}"
+//                                          "QSlider::sub-page:horizontal{background: #3D6BE5; border-radius: 2px; margin-top: 8px; margin-bottom: 9px;}"
+//                                          "QSlider::handle:horizontal{width: 20px; height: 20px; border-image: url(:/img/plugins/fonts/bigRoller.png);}"
+//                                          "");
 }
 
 void Theme::setupComponent(){
@@ -201,7 +201,7 @@ void Theme::setupComponent(){
 
 void Theme::buildThemeModeBtn(QPushButton *button, QString name, QString icon){
     //设置默认按钮
-    button->setStyleSheet("QPushButton{background: #ffffff; border: none;}");
+//    button->setStyleSheet("QPushButton{background: #ffffff; border: none;}");
 
     QVBoxLayout * baseVerLayout = new QVBoxLayout(button);
     baseVerLayout->setSpacing(8);
@@ -335,7 +335,7 @@ void Theme::setupControlTheme(){
         button->setFixedSize(QSize(48, 48));
         button->setCheckable(true);
         QString btnStyle = QString("QPushButton{background: %1; border-radius: 4px;}").arg(color);
-        button->setStyleSheet(btnStyle);
+//        button->setStyleSheet(btnStyle);
         colorBtnGroup->addButton(button, colorStringList.indexOf(color));
 
 

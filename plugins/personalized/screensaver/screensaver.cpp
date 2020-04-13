@@ -67,9 +67,9 @@ Screensaver::Screensaver()
     pluginName = tr("Screensaver");
     pluginType = PERSONALIZED;
 
-    pluginWidget->setStyleSheet("background: #ffffff;");
+//    pluginWidget->setStyleSheet("background: #ffffff;");
 
-    ui->previewWidget->setStyleSheet("#previewWidget{background: black; border-radius: 6px;}");
+//    ui->previewWidget->setStyleSheet("#previewWidget{background: black; border-radius: 6px;}");
     ui->previewWidget->setAutoFillBackground(true);
 
     mPreviewWidget = new PreviewWidget;
@@ -78,15 +78,15 @@ Screensaver::Screensaver()
     mPreviewLayout->addWidget(mPreviewWidget);
     ui->previewWidget->setLayout(mPreviewLayout);
 
-    ui->enableWidget->setStyleSheet("QWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
+//    ui->enableWidget->setStyleSheet("QWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
 
-    ui->programWidget->setStyleSheet("QWidget#programWidget{background: #F4F4F4;}");
-    ui->programLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
+//    ui->programWidget->setStyleSheet("QWidget#programWidget{background: #F4F4F4;}");
+//    ui->programLabel->setStyleSheet("QLabel{background: #F4F4F4;}");
 
-    ui->idleWidget->setStyleSheet("QWidget{background: #F4F4F4; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
-    ui->idleLineEdit->setStyleSheet("QLineEdit{background: #ffffff; border-radius: 0px;}");
+//    ui->idleWidget->setStyleSheet("QWidget{background: #F4F4F4; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
+//    ui->idleLineEdit->setStyleSheet("QLineEdit{background: #ffffff; border-radius: 0px;}");
 
-    ui->lockWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+//    ui->lockWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
 
     process = new QProcess();
 

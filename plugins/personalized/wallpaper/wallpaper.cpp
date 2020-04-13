@@ -98,22 +98,22 @@ void Wallpaper::plugin_delay_control(){
 }
 
 void Wallpaper::setupQStylesheet(){
-    pluginWidget->setStyleSheet("background: #ffffff;");
+//    pluginWidget->setStyleSheet("background: #ffffff;");
 
-    ui->previewLabel->setStyleSheet("QLabel#previewLabel{border-radius: 6px;}");
+//    ui->previewLabel->setStyleSheet("QLabel#previewLabel{border-radius: 6px;}");
 
-    ui->switchWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+//    ui->switchWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
 
 //    ui->listWidget->setStyleSheet("QListWidget#listWidget{background: #ffffff; border: none;}");
 //    ui->colorListWidget->setStyleSheet("QListWidget#colorListWidget{background: #ffffff; border: none;}");
 
-    QString btnQss = QString("QPushButton{background: #E9E9E9; border-radius: 4px;}"
-                             "QPushButton:hover:!pressed{background: #3d6be5; border: none; border-radius: 4px;}"
-                             "QPushButton:hover:pressed{background: #415FC4; border: none; border-radius: 4px;}");
-    ui->browserLocalwpBtn->setStyleSheet(btnQss);
-    ui->browserOnlinewpBtn->setStyleSheet(btnQss);
+//    QString btnQss = QString("QPushButton{background: #E9E9E9; border-radius: 4px;}"
+//                             "QPushButton:hover:!pressed{background: #3d6be5; border: none; border-radius: 4px;}"
+//                             "QPushButton:hover:pressed{background: #415FC4; border: none; border-radius: 4px;}");
+//    ui->browserLocalwpBtn->setStyleSheet(btnQss);
+//    ui->browserOnlinewpBtn->setStyleSheet(btnQss);
 
-    ui->resetBtn->setStyleSheet(btnQss);
+//    ui->resetBtn->setStyleSheet(btnQss);
 }
 
 void Wallpaper::setupComponent(){
@@ -228,7 +228,7 @@ void Wallpaper::setupConnect(){
         connect(button, &QPushButton::clicked, [=]{
 
             QString widgetQss = QString("QWidget{background: %1; border-radius: 6px;}").arg(color);
-            ui->previewWidget->setStyleSheet(widgetQss);
+//            ui->previewWidget->setStyleSheet(widgetQss);
 
             ///设置系统纯色背景
             bgsettings->set(FILENAME, "");
@@ -354,7 +354,7 @@ void Wallpaper::initPreviewStatus(){
     QString color = bgsettings->get(PRIMARY).toString();
     if (!color.isEmpty()){
         QString widgetQss = QString("QWidget{background: %1; border-radius: 6px;}").arg(color);
-        ui->previewWidget->setStyleSheet(widgetQss);
+//        ui->previewWidget->setStyleSheet(widgetQss);
     }
 }
 

@@ -63,21 +63,21 @@ Shortcut::Shortcut()
     pluginName = tr("Shortcut");
     pluginType = DEVICES;
 
-    pluginWidget->setStyleSheet("background: #ffffff;");
+//    pluginWidget->setStyleSheet("background: #ffffff;");
 
-    ui->generalListWidget->setStyleSheet("QListWidget#generalListWidget{background: #ffffff; border: none;}");
+//    ui->generalListWidget->setStyleSheet("QListWidget#generalListWidget{background: #ffffff; border: none;}");
 
-    ui->showBtn->setStyleSheet("QPushButton{background: #E9E9E9; border-radius: 4px;}"
-                               "QPushButton:hover:!pressed{background: #3d6be5; border-radius: 4px;}"
-                               "QPushButton:hover:pressed{background: #415FC4; border-radius: 4px;}");
+//    ui->showBtn->setStyleSheet("QPushButton{background: #E9E9E9; border-radius: 4px;}"
+//                               "QPushButton:hover:!pressed{background: #3d6be5; border-radius: 4px;}"
+//                               "QPushButton:hover:pressed{background: #415FC4; border-radius: 4px;}");
 
-    ui->resetBtn->setStyleSheet("QPushButton{background: #E9E9E9; border-radius: 4px;}"
-                               "QPushButton:hover:!pressed{background: #3d6be5; border-radius: 4px;}"
-                               "QPushButton:hover:pressed{background: #415FC4; border-radius: 4px;}");
+//    ui->resetBtn->setStyleSheet("QPushButton{background: #E9E9E9; border-radius: 4px;}"
+//                               "QPushButton:hover:!pressed{background: #3d6be5; border-radius: 4px;}"
+//                               "QPushButton:hover:pressed{background: #415FC4; border-radius: 4px;}");
 
-    ui->customListWidget->setStyleSheet("QListWidget#customListWidget{background: #ffffff; border: none;}");
+//    ui->customListWidget->setStyleSheet("QListWidget#customListWidget{background: #ffffff; border: none;}");
 
-    ui->addWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+//    ui->addWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
 
     pKeyMap = new KeyMap;
     addDialog = new addShortcutDialog();
@@ -336,8 +336,8 @@ void Shortcut::initItemsStyle(QListWidget *listWidget){
 
         QWidget * widget = listWidget->itemWidget(listWidget->item(row));
         DefineShortcutItem * pShortcutItem = dynamic_cast<DefineShortcutItem *>(widget);
-        pShortcutItem->widgetComponent()->setStyleSheet(style);
-        pShortcutItem->btnComponent()->setStyleSheet(subStyle);
+//        pShortcutItem->widgetComponent()->setStyleSheet(style);
+//        pShortcutItem->btnComponent()->setStyleSheet(subStyle);
     }
 }
 

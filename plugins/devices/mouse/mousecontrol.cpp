@@ -61,24 +61,24 @@ MouseControl::MouseControl()
         QssFile.close();
     }
 
-    pluginWidget->setStyleSheet("background: #ffffff;");
+//    pluginWidget->setStyleSheet("background: #ffffff;");
 
-    ui->handWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
-    ui->pointerSpeedWidget->setStyleSheet("QWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
-    ui->sensitivityWidget->setStyleSheet("QWidget{background: #F4F4F4;}");
-    ui->visibilityWidget->setStyleSheet("QWidget{background: #F4F4F4;}");
-    ui->pointerSizeWidget->setStyleSheet("QWidget{background: #F4F4F4; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
+//    ui->handWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
+//    ui->pointerSpeedWidget->setStyleSheet("QWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
+//    ui->sensitivityWidget->setStyleSheet("QWidget{background: #F4F4F4;}");
+//    ui->visibilityWidget->setStyleSheet("QWidget{background: #F4F4F4;}");
+//    ui->pointerSizeWidget->setStyleSheet("QWidget{background: #F4F4F4; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
 
     //全局未生效，再次设置
-    ui->pointerSizeComBox->setView(new QListView());
-    ui->pointerSizeComBox->setStyleSheet(qss);
-    ui->handHabitComBox->setView(new QListView());
-    ui->handHabitComBox->setStyleSheet(qss);
+//    ui->pointerSizeComBox->setView(new QListView());
+//    ui->pointerSizeComBox->setStyleSheet(qss);
+//    ui->handHabitComBox->setView(new QListView());
+//    ui->handHabitComBox->setStyleSheet(qss);
 
 
-    ui->cursorWeightWidget->setStyleSheet("QWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
-    ui->cursorSpeedWidget->setStyleSheet("QWidget{background: #F4F4F4;}");
-    ui->flashingWidget->setStyleSheet("QWidget{background: #F4F4F4;  border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
+//    ui->cursorWeightWidget->setStyleSheet("QWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
+//    ui->cursorSpeedWidget->setStyleSheet("QWidget{background: #F4F4F4;}");
+//    ui->flashingWidget->setStyleSheet("QWidget{background: #F4F4F4;  border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
 
     //初始化鼠标设置GSettings
     const QByteArray id(MOUSE_SCHEMA);

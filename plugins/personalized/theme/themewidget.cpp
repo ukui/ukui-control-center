@@ -34,7 +34,7 @@ ThemeWidget::ThemeWidget(QSize iSize, QString name, QStringList iStringList, QWi
     setFixedHeight(66);
     setAttribute(Qt::WA_DeleteOnClose);
 
-    setStyleSheet("background: #F4F4F4; border-radius: 6px;");
+//    setStyleSheet("background: #F4F4F4; border-radius: 6px;");
 
     pValue = "";
 
@@ -93,7 +93,7 @@ ThemeWidget::ThemeWidget(QSize iSize, QString name, const QList<QPixmap> &listMa
     setFixedHeight(66);
     setAttribute(Qt::WA_DeleteOnClose);
 
-    setStyleSheet("background: #F4F4F4; border-radius: 6px;");
+//    setStyleSheet("background: #F4F4F4; border-radius: 6px;");
 
     pValue = "";
 

@@ -46,7 +46,7 @@ Area::Area()
     itemDelege = new QStyledItemDelegate();
     pluginWidget = new QWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-    pluginWidget->setStyleSheet("background: #ffffff;");
+//    pluginWidget->setStyleSheet("background: #ffffff;");
     ui->setupUi(pluginWidget);
 
     pluginName = tr("Area");
@@ -128,11 +128,11 @@ void Area::initUI(){
     ui->titleLabel->setText(tr("current area"));
 
     ui->countrylabel->setText(tr("display format area"));
-    ui->showformwidget->setStyleSheet("QWidget#showformwidget{background-color:#E5E7E9;border-radius:6px}");
-    ui->countrylabel->setStyleSheet("QLabel#countrylabel{background: #E5E7E9;}");
+//    ui->showformwidget->setStyleSheet("QWidget#showformwidget{background-color:#E5E7E9;border-radius:6px}");
+//    ui->countrylabel->setStyleSheet("QLabel#countrylabel{background: #E5E7E9;}");
 
 
-    ui->countrycomboBox->setStyleSheet(qss);
+//    ui->countrycomboBox->setStyleSheet(qss);
 //    ui->countrycomboBox->setItemDelegate(itemDelege);
     ui->countrycomboBox->setView(new QListView());
     ui->countrycomboBox->setMaxVisibleItems(5);
@@ -146,19 +146,19 @@ void Area::initUI(){
     ui->datelabel->setText(tr("date"));
     ui->timelabel->setText(tr("time"));
 
-    ui->chgformButton->setStyleSheet("QPushButton{background-color:#E5E7E9;border-radius:4px}"
-                                   "QPushButton:hover{background-color: #3D6BE5;color:white;};border-radius:4px");
+//    ui->chgformButton->setStyleSheet("QPushButton{background-color:#E5E7E9;border-radius:4px}"
+//                                   "QPushButton:hover{background-color: #3D6BE5;color:white;};border-radius:4px");
 
     ui->chgformButton->setText(tr("change format of data"));
 
-    ui->formwidget->setStyleSheet("background-color:#E5E7E9;border-radius:6px");
+//    ui->formwidget->setStyleSheet("background-color:#E5E7E9;border-radius:6px");
 
     ui->title3Label->setText(tr("first language"));
-    ui->languagewidget->setStyleSheet("QWidget#languagewidget{background-color:#E5E7E9;border-radius:6px}");
+//    ui->languagewidget->setStyleSheet("QWidget#languagewidget{background-color:#E5E7E9;border-radius:6px}");
     ui->languagelabel->setText(tr("system language"));
-    ui->languagelabel->setStyleSheet("QLabel#languagelabel{background: #E5E7E9;}");
+//    ui->languagelabel->setStyleSheet("QLabel#languagelabel{background: #E5E7E9;}");
 
-    ui->addlanwidget->setStyleSheet("QWidget#addlanwidget{background-color:#E5E7E9;border-radius:6px}");
+//    ui->addlanwidget->setStyleSheet("QWidget#addlanwidget{background-color:#E5E7E9;border-radius:6px}");
 
 //    ui->langcomboBox->setItemDelegate(itemDelege);
     ui->langcomboBox->setView(new QListView());
@@ -166,7 +166,7 @@ void Area::initUI(){
     ui->langcomboBox->addItem(tr("English"));
     ui->langcomboBox->addItem(tr("Chinese"));
 
-    ui->addlanlabel->setStyleSheet("QLabel{background-color:#E5E7E9}");
+//    ui->addlanlabel->setStyleSheet("QLabel{background-color:#E5E7E9}");
     ui->addlanlabel->setText(tr("add main language"));
 
     ui->addlanBtn->setIcon(QIcon("://img/plugins/printer/add.png"));

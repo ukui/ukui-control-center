@@ -131,7 +131,7 @@ void OutputConfig::initUi()
 
     //分辨率下拉框
     mResolution = new ResolutionSlider(mOutput, this);
-    mResolution->setFont(ft);
+//    mResolution->setFont(ft);
     mResolution->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     mResolution->setMinimumSize(402,30);
     mResolution->setMaximumSize(16777215,30);
@@ -139,7 +139,7 @@ void OutputConfig::initUi()
 
     QLabel *resLabel = new QLabel(this);
     resLabel->setText(tr("resolution"));
-    resLabel->setFont(ft);
+//    resLabel->setFont(ft);
     resLabel->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     resLabel->setMinimumSize(118,30);
     resLabel->setMaximumSize(118,30);
@@ -153,7 +153,7 @@ void OutputConfig::initUi()
 
     QWidget *resWidget = new QWidget(this);
     resWidget->setLayout(resLayout);
-    resWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+//    resWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
 //    mResolution->setStyleSheet("background-color:#F8F9F9");
 
     resWidget->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
@@ -168,17 +168,17 @@ void OutputConfig::initUi()
     //方向下拉框
     mRotation = new QComboBox();
 
-    mRotation->setFont(ft);
+//    mRotation->setFont(ft);
     mRotation->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     mRotation->setMinimumSize(402,30);
     mRotation->setMaximumSize(16777215,30);
-    mRotation->setStyleSheet(qss);
-    mRotation->setItemDelegate(itemDelege);
+//    mRotation->setStyleSheet(qss);
+//    mRotation->setItemDelegate(itemDelege);
 
 
     QLabel *rotateLabel = new QLabel();
     rotateLabel->setText(tr("orientation"));
-    rotateLabel->setFont(ft);
+//    rotateLabel->setFont(ft);
     rotateLabel->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     rotateLabel->setMinimumSize(118,30);
     rotateLabel->setMaximumSize(118,30);
@@ -192,7 +192,7 @@ void OutputConfig::initUi()
 
     QWidget *rotateWidget = new QWidget();
     rotateWidget->setLayout(rotateLayout);
-    rotateWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+//    rotateWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
 //    mRotation->setStyleSheet("background-color:#F8F9F9");
 
     rotateWidget->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
@@ -225,17 +225,17 @@ void OutputConfig::initUi()
 
     //刷新率下拉框
     mRefreshRate = new QComboBox();
-    mRefreshRate->setFont(ft);
+//    mRefreshRate->setFont(ft);
 //    mRefreshRate->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     mRefreshRate->setMinimumSize(402,30);
     mRefreshRate->setMaximumSize(16777215,30);
-    mRefreshRate->setStyleSheet(qss);
-    mRefreshRate->setItemDelegate(itemDelege);
-    mRefreshRate->setMaxVisibleItems(5);
+//    mRefreshRate->setStyleSheet(qss);
+//    mRefreshRate->setItemDelegate(itemDelege);
+//    mRefreshRate->setMaxVisibleItems(5);
 
     QLabel *freshLabel = new QLabel();
     freshLabel->setText(tr("refresh rate"));
-    freshLabel->setFont(ft);
+//    freshLabel->setFont(ft);
     freshLabel->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     freshLabel->setMinimumSize(118,30);
     freshLabel->setMaximumSize(118,30);
@@ -247,7 +247,7 @@ void OutputConfig::initUi()
 
     QWidget *freshWidget = new QWidget(this);
     freshWidget->setLayout(freshLayout);
-    freshWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+//    freshWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
 
     freshWidget->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     freshWidget->setMinimumSize(550,50);
@@ -266,9 +266,9 @@ void OutputConfig::initUi()
 //    mRefreshRate->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     scaleCombox->setMinimumSize(402,30);
     scaleCombox->setMaximumSize(16777215,30);
-    scaleCombox->setStyleSheet(qss);
-    scaleCombox->setItemDelegate(itemDelege);
-    scaleCombox->setMaxVisibleItems(5);
+//    scaleCombox->setStyleSheet(qss);
+//    scaleCombox->setItemDelegate(itemDelege);
+//    scaleCombox->setMaxVisibleItems(5);
     scaleCombox->addItem(tr("100%"));
     int maxReslu = mResolution->getMaxResolution().width();
     if (maxReslu >= 2000 && maxReslu <= 3800) {
@@ -291,7 +291,7 @@ void OutputConfig::initUi()
 
     QWidget *scaleWidget = new QWidget(this);
     scaleWidget->setLayout(scaleLayout);
-    scaleWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+//    scaleWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
 
     scaleWidget->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     scaleWidget->setMinimumSize(550,50);

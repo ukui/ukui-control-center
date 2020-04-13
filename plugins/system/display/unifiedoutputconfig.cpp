@@ -101,8 +101,8 @@ void UnifiedOutputConfig::initUi()
 
     QWidget *resWidget = new QWidget(this);
     resWidget->setLayout(resLayout);
-    resWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
-    mResolution->setStyleSheet("background-color:#F8F9F9");
+//    resWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+//    mResolution->setStyleSheet("background-color:#F8F9F9");
 
     resWidget->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     resWidget->setMinimumSize(552,50);
@@ -125,9 +125,9 @@ void UnifiedOutputConfig::initUi()
     mRotation->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     mRotation->setMinimumSize(402,30);
     mRotation->setMaximumSize(16777215,30);
-    mRotation->setStyleSheet(qss);
-    mRotation->setItemDelegate(itemDelege);
-    mRotation->setMaxVisibleItems(5);
+//    mRotation->setStyleSheet(qss);
+//    mRotation->setItemDelegate(itemDelege);
+//    mRotation->setMaxVisibleItems(5);
 
 
     QLabel *rotateLabel = new QLabel(this);
@@ -153,7 +153,7 @@ void UnifiedOutputConfig::initUi()
 
     QWidget *rotateWidget = new QWidget(this);
     rotateWidget->setLayout(roatateLayout);
-    rotateWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+//    rotateWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
 //    mRotation->setStyleSheet("background-color:#F8F9F9");
 
     rotateWidget->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
@@ -170,20 +170,20 @@ void UnifiedOutputConfig::initUi()
     mRefreshRate->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     mRefreshRate->setMinimumSize(402,30);
     mRefreshRate->setMaximumSize(16777215,30);
-    QString cqss = "QComboBox{"
-                  "background: rgba(244,244,244);"
-                  "border-radius:6px;"
-                  "font-size:12px;"
-                  "color: black;"
-                  "}"
-                  "QComboBox::down-arrow {"
-                  "image:url(:/images/downpx.png);"
-                  "}"
-                  "QComboBox::drop-down {"
-                  "width: 30px;"
-                  "border: none;"
-                  "}";
-    mRefreshRate->setStyleSheet(cqss);
+//    QString cqss = "QComboBox{"
+//                  "background: rgba(244,244,244);"
+//                  "border-radius:6px;"
+//                  "font-size:12px;"
+//                  "color: black;"
+//                  "}"
+//                  "QComboBox::down-arrow {"
+//                  "image:url(:/images/downpx.png);"
+//                  "}"
+//                  "QComboBox::drop-down {"
+//                  "width: 30px;"
+//                  "border: none;"
+//                  "}";
+//    mRefreshRate->setStyleSheet(cqss);
 
     QLabel *freshLabel = new QLabel(this);
     freshLabel->setText(tr("refresh rate"));
@@ -202,7 +202,7 @@ void UnifiedOutputConfig::initUi()
 
     QWidget *freshWidget = new QWidget(this);
     freshWidget->setLayout(freshLayout);
-    freshWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
+//    freshWidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
 
     vbox->addWidget(freshWidget);
 

@@ -37,7 +37,7 @@ ChangeFaceDialog::ChangeFaceDialog(QWidget *parent) :
     setAttribute(Qt::WA_DeleteOnClose);
 
 //    ui->frame->setStyleSheet("QFrame{background: #ffffff; border: none; border-radius: 6px;}");
-    ui->closeBtn->setStyleSheet("QPushButton{background: #ffffff; border: none;}");
+//    ui->closeBtn->setStyleSheet("QPushButton{background: #ffffff; border: none;}");
 
     ui->closeBtn->setIcon(QIcon("://img/titlebar/close.png"));
 
@@ -80,7 +80,7 @@ void ChangeFaceDialog::loadSystemFaces(){
         QPushButton * button = new QPushButton;
         button->setAttribute(Qt::WA_DeleteOnClose);
         button->setFixedSize(QSize(48, 48));
-        button->setStyleSheet("QPushButton{border: none;}");
+//        button->setStyleSheet("QPushButton{border: none;}");
 
         QHBoxLayout * mainHorLayout = new QHBoxLayout(button);
         mainHorLayout->setSpacing(0);
