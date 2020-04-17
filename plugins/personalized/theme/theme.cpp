@@ -247,6 +247,14 @@ void Theme::buildThemeModeBtn(QPushButton *button, QString name, QString icon){
 }
 
 void Theme::initThemeMode(){
+    //监听主题改变
+    connect(qtSettings, &QGSettings::changed, this, [=](const QString &key){
+        if (key == "styleName") {
+            auto style = qtSettings->get(key).toString();
+            qApp->setStyle(new InternalStyle(style));
+        }
+    });
+
     //获取当前主题
     QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
     qApp->setStyle(new InternalStyle(currentThemeMode));
@@ -264,8 +272,8 @@ void Theme::initThemeMode(){
         QString themeMode = button->property("value").toString();
         QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
         if (QString::compare(currentThemeMode, themeMode)){
-            qtSettings->set(MODE_QT_KEY, themeMode);
             qApp->setStyle(new InternalStyle(themeMode));
+            qtSettings->set(MODE_QT_KEY, themeMode);
             gtkSettings->set(MODE_GTK_KEY, themeMode);
         }
     });
