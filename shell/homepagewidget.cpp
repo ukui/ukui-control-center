@@ -161,7 +161,7 @@ void HomePageWidget::initUI(){
                 continue;
 
             ClickLabel * label = new ClickLabel(single.namei18nString, widget);
-            label->setStyleSheet("color: palette(Shadow);}");
+            label->setStyleSheet("color: palette(Shadow);");
 //            palette().color(QPalette::Text)
 
             connect(label, SIGNAL(clicked()), moduleSignalMapper, SLOT(map()));
