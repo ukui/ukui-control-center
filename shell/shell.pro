@@ -74,6 +74,7 @@ INCLUDEPATH += qtsingleapplication
 DEPENDPATH += qtsingleapplication
 
 SOURCES += \
+    customstyle.cpp \
         main.cpp \
         mainwindow.cpp \
     framelessExtended/cursorposcalculator.cpp \
@@ -90,6 +91,7 @@ SOURCES += \
     qtsingleapplication/qtlocalpeer.cpp
 
 HEADERS += \
+    customstyle.h \
         mainwindow.h \
         interface.h \
     framelessExtended/cursorposcalculator.h \
