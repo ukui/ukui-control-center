@@ -230,7 +230,7 @@ void Wallpaper::setupConnect(){
         connect(button, &QPushButton::clicked, [=]{
 
             QString widgetQss = QString("QWidget{background: %1; border-radius: 6px;}").arg(color);
-//            ui->previewWidget->setStyleSheet(widgetQss);
+            ui->previewWidget->setStyleSheet(widgetQss);
 
             ///设置系统纯色背景
             bgsettings->set(FILENAME, "");
