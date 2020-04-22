@@ -40,6 +40,7 @@ ShowAllShortcut::ShowAllShortcut(QWidget *parent) :
     ui->titleLabel->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
     ui->closeBtn->setProperty("useIconHighlightEffect", true);
     ui->closeBtn->setProperty("iconHighlightEffectMode", 1);
+    ui->closeBtn->setFlat(true);
 
 //    ui->frame->setStyleSheet("QFrame{background: #ffffff; border: none; border-radius: 6px;}");
 
