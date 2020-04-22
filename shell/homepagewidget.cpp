@@ -119,11 +119,11 @@ void HomePageWidget::initUI(){
             for (FuncInfo tmpStruct : tmpList){
                 if (moduleMap.keys().contains(tmpStruct.namei18nString)){
                     firstFunc = tmpStruct.namei18nString;
+                    //跳转
+                    pmainWindow->functionBtnClicked(moduleMap.value(firstFunc));
                     break;
                 }
             }
-            //跳转
-            pmainWindow->functionBtnClicked(moduleMap.value(firstFunc));
 
         });
 
