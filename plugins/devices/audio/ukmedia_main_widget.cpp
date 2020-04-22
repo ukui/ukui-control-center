@@ -65,6 +65,7 @@ UkmediaMainWidget::UkmediaMainWidget(QWidget *parent)
     m_pvLayout->addWidget(m_pOutputWidget);
     m_pvLayout->addWidget(m_pInputWidget);
     m_pvLayout->addWidget(m_pSoundWidget);
+    m_pvLayout->addSpacerItem(new QSpacerItem(20,0,QSizePolicy::Fixed,QSizePolicy::Expanding));
     m_pvLayout->setSpacing(48);
     this->setLayout(m_pvLayout);
     this->setMinimumWidth(582);
