@@ -9,11 +9,11 @@ SUBDIRS = \
           system/display \
           devices/printer \
           devices/mouse \
-          devices/keyboard \
-          devices/touchpad \
-          devices/audio \
+#          devices/keyboard \
+#          devices/touchpad \
+#          devices/audio \
           personalized/wallpaper \
-          personalized/theme \
+#          personalized/theme \
           personalized/screenlock \
           personalized/fonts \
           personalized/screensaver \
@@ -22,7 +22,7 @@ SUBDIRS = \
           network/vpn \
           network/proxy \
           account/userinfo \
-          account/networkaccount \
+#          account/networkaccount \
           security-updates/backup \
           messages-task/about \
           time-language/datetime \
