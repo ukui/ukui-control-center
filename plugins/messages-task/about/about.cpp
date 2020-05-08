@@ -258,6 +258,7 @@ void About::setupSerialComponent() {
     ui->serviceContent->setText(serial);
 
     connect(ui->activeButton, &QPushButton::clicked, this, &About::runActiveWindow);
+    connect(ui->trialButton, &QPushButton::clicked, this, &About::showPdf);
 }
 
 void About::setupComponent(){
@@ -400,6 +401,13 @@ void About::_call_dbus_get_computer_info(){
 
 void About::runActiveWindow() {
     QString cmd = "kylin-activation";
+
+    QProcess process(this);
+    process.startDetached(cmd);
+}
+
+void About::showPdf() {
+    QString cmd = "caja /usr/share/man/statement.pdf.gz";
 
     QProcess process(this);
     process.startDetached(cmd);

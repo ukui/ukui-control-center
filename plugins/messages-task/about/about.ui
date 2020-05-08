@@ -573,7 +573,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="trialButton">
         <property name="minimumSize">
          <size>
           <width>150</width>

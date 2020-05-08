@@ -89,6 +89,7 @@ private:
 private slots:
 //    void call_finished_slot(QDBusPendingCallWatcher * call);
     void runActiveWindow();
+    void showPdf();
 };
 
 #endif // ABOUT_H
