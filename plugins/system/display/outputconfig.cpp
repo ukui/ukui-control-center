@@ -336,7 +336,7 @@ int OutputConfig::getScreenScale() {
     }
 
     int scale  = m_gsettings->get(GDK_SCALE_KEY).toInt();
-    qDebug()<<"key is------->"<<scale<<endl;
+//    qDebug()<<"key is------->"<<scale<<endl;
     return scale;
 }
 
