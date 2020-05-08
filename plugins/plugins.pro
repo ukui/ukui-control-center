@@ -9,11 +9,11 @@ SUBDIRS = \
           system/display \
           devices/printer \
           devices/mouse \
-#          devices/keyboard \
-#          devices/touchpad \
+          devices/keyboard \
+          devices/touchpad \
 #          devices/audio \
           personalized/wallpaper \
-#          personalized/theme \
+          personalized/theme \
           personalized/screenlock \
           personalized/fonts \
           personalized/screensaver \

@@ -253,12 +253,12 @@ void Theme::buildThemeModeBtn(QPushButton *button, QString name, QString icon){
     QLabel * statusLabel = new QLabel(button);
     statusLabel->setFixedSize(QSize(16, 16));
     statusLabel->setScaledContents(true);
-    connect(ui->themeModeBtnGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), [=](QAbstractButton * eBtn){
-        if (eBtn == button)
-            statusLabel->setPixmap(QPixmap("://img/plugins/theme/selected.png"));
-        else
-            statusLabel->clear();
-    });
+//    connect(ui->themeModeBtnGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), [=](QAbstractButton * eBtn){
+//        if (eBtn == button)
+//            statusLabel->setPixmap(QPixmap("://img/plugins/theme/selected.png"));
+//        else
+//            statusLabel->clear();
+//    });
     QLabel * nameLabel = new QLabel(button);
     QSizePolicy nameSizePolicy = nameLabel->sizePolicy();
     nameSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
@@ -307,17 +307,17 @@ void Theme::initThemeMode(){
 //            button->setChecked(true);
     }
 
-    connect(ui->themeModeBtnGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), this, [=](QAbstractButton * button){
+//    connect(ui->themeModeBtnGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), this, [=](QAbstractButton * button){
 
-        //设置主题
-        QString themeMode = button->property("value").toString();
-        QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
-        if (QString::compare(currentThemeMode, themeMode)){
-            qApp->setStyle(new InternalStyle(themeMode));
-            qtSettings->set(MODE_QT_KEY, themeMode);
-            gtkSettings->set(MODE_GTK_KEY, themeMode);
-        }
-    });
+//        //设置主题
+//        QString themeMode = button->property("value").toString();
+//        QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
+//        if (QString::compare(currentThemeMode, themeMode)){
+//            qApp->setStyle(new InternalStyle(themeMode));
+//            qtSettings->set(MODE_QT_KEY, themeMode);
+//            gtkSettings->set(MODE_GTK_KEY, themeMode);
+//        }
+//    });
 }
 
 void Theme::initIconTheme(){
@@ -413,10 +413,10 @@ void Theme::setupControlTheme(){
         selectedColorLabel->setPixmap(QPixmap("://img/plugins/theme/selected.png"));
         //初始化选中图标状态
         selectedColorLabel->setVisible(button->isChecked());
-        connect(colorBtnGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), this,[=]{
-            selectedColorLabel->setVisible(button->isChecked());
-            //设置控件主题
-        });
+//        connect(colorBtnGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), this,[=]{
+//            selectedColorLabel->setVisible(button->isChecked());
+//            //设置控件主题
+//        });
 
         colorHorLayout->addStretch();
         colorHorLayout->addWidget(selectedColorLabel);
