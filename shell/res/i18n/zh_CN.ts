@@ -392,8 +392,10 @@
 <context>
     <name>Audio</name>
     <message>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="26"/>
+        <location filename="../../../plugins/devices/audio/audio.cpp" line="33"/>
         <source>Audio</source>
-        <translation type="vanished">声音</translation>
+        <translation>声音</translation>
     </message>
 </context>
 <context>
@@ -1623,7 +1625,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="336"/>
         <source>Thanks For Using The ukcc</source>
-        <translation type="unfinished"></translation>
+        <translation>欢迎使用控制面板</translation>
     </message>
 </context>
 <context>
@@ -3241,93 +3243,111 @@ folder will be deleted!</source>
 <context>
     <name>UkmediaInputWidget</name>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="46"/>
         <source>Input</source>
-        <translation type="vanished">输入</translation>
+        <translation>输入</translation>
     </message>
     <message>
         <source>Select input device</source>
         <translation type="vanished">选择输入设备</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="48"/>
         <source>Input device</source>
-        <translation type="vanished">选择输入设备</translation>
+        <translation>选择输入设备</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="51"/>
         <source>volume</source>
-        <translation type="vanished">音量大小</translation>
+        <translation>音量大小</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="55"/>
         <source>Input level</source>
-        <translation type="vanished">输入等级</translation>
+        <translation>输入等级</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="56"/>
         <source>low</source>
-        <translation type="vanished">低</translation>
+        <translation>低</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="58"/>
         <source>high</source>
-        <translation type="vanished">高</translation>
+        <translation>高</translation>
     </message>
 </context>
 <context>
     <name>UkmediaMainWidget</name>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="240"/>
         <source>sound error</source>
-        <translation type="vanished">声音错误</translation>
+        <translation>声音错误</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="240"/>
         <source>load sound failed</source>
-        <translation type="vanished">加载声音失败</translation>
+        <translation>加载声音失败</translation>
     </message>
 </context>
 <context>
     <name>UkmediaOutputWidget</name>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="68"/>
         <source>Output</source>
-        <translation type="vanished">输出</translation>
+        <translation>输出</translation>
     </message>
     <message>
         <source>Select output device</source>
         <translation type="vanished">选择输出设备</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="70"/>
         <source>Output device</source>
-        <translation type="vanished">选择输出设备</translation>
+        <translation>选择输出设备</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="72"/>
         <source>Master volume</source>
-        <translation type="vanished">主音量大小</translation>
+        <translation>主音量大小</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="76"/>
         <source>Channel balance</source>
-        <translation type="vanished">声道平衡</translation>
+        <translation>声道平衡</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="77"/>
         <source>Left</source>
-        <translation type="vanished">左</translation>
+        <translation>左</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="79"/>
         <source>right</source>
-        <translation type="vanished">右</translation>
+        <translation>右</translation>
     </message>
 </context>
 <context>
     <name>UkmediaSoundEffectsWidget</name>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="39"/>
         <source>System sound</source>
-        <translation type="vanished">系统音效</translation>
+        <translation>系统音效</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="41"/>
         <source>Sound theme</source>
-        <translation type="vanished">系统音效主题</translation>
+        <translation>系统音效主题</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="43"/>
         <source>Prompt voice</source>
-        <translation type="vanished">提示音</translation>
+        <translation>提示音</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="45"/>
         <source>Boot music</source>
-        <translation type="vanished">开关机音乐</translation>
+        <translation>开关机音乐</translation>
     </message>
     <message>
         <source>System sound theme</source>

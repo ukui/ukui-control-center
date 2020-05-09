@@ -34,7 +34,15 @@ GetShortcutWorker::~GetShortcutWorker()
 void GetShortcutWorker::run(){
 
     // list system shortcut
-    GSettings * systemgsettings = g_settings_new(KEYBINDINGS_SYSTEM_SCHEMA);
+    QByteArray id(KEYBINDINGS_SYSTEM_SCHEMA);
+    GSettings * systemgsettings;
+    if (QGSettings::isSchemaInstalled(id)) {
+        systemgsettings = g_settings_new(KEYBINDINGS_SYSTEM_SCHEMA);
+    } else {
+        return;
+    }
+
+
     char ** skeys = g_settings_list_keys(systemgsettings);
     for (int i=0; skeys[i]!= NULL; i++){
         //切换为mutter后，原先为string的变为字符串数组，这块只取了字符串数组的第一个元素

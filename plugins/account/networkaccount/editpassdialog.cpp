@@ -188,7 +188,7 @@ EditPassDialog::EditPassDialog(QWidget *parent) : QWidget(parent)
 
    // setStyleSheet("EditPassDialog{border-radius:6px;}");
     setAttribute(Qt::WA_TranslucentBackground, true);
-    setWindowFlag(Qt::FramelessWindowHint);
+    setWindowFlags(Qt::FramelessWindowHint);
     setWindowModality(Qt::ApplicationModal);
     del_btn->raise();
     cancel->setFocusPolicy(Qt::NoFocus);
