@@ -28,6 +28,8 @@
 
 #include <QDebug>
 
+const QString TYPEVERSION = "Kylin V10";
+
 About::About()
 {
     ui = new Ui::About;
@@ -58,10 +60,10 @@ About::About()
 //    qDebug() << QSysInfo::productType();
 //    qDebug() << QSysInfo::productVersion();
 //    qDebug() << "-------end---------->";
-    _call_dbus_get_computer_info();
+//    _call_dbus_get_computer_info();
     _data_init();
 
-    setupComponent();
+//    setupComponent();
     setupDesktopComponent();
     setupKernelCompenent();
     setupVersionCompenent();
@@ -145,22 +147,22 @@ void About::setupKernelCompenent() {
     QString cpuType;
 
     //ubuntukylin youker DBus interface
-    QDBusInterface *youkerInterface = new QDBusInterface("com.ubuntukylin.youker",
-                                     "/",
-                                     "com.ubuntukylin.youker",
+    QDBusInterface *youkerInterface = new QDBusInterface("com.kylin.assistant.systemdaemon",
+                                     "/com/kylin/assistant/systemdaemon",
+                                     "com.kylin.assistant.systemdaemon",
                                      QDBusConnection::systemBus());
     if (!youkerInterface->isValid()) {
         qCritical() << "Create youker Interface Failed When Get Computer info: " << QDBusConnection::systemBus().lastError();
-        return;
+//        return;
     }
 
-    QDBusInterface *sessionInterface = new QDBusInterface("com.ubuntukylin.session",
-                                     "/",
-                                     "com.ubuntukylin.session",
+    QDBusInterface *sessionInterface = new QDBusInterface("com.kylin.assistant.sessiondaemon",
+                                     "/com/kylin/assistant/sessiondaemon",
+                                     "com.kylin.assistant.sessiondaemon",
                                      QDBusConnection::sessionBus());
     if (!sessionInterface->isValid()) {
-        qCritical() << "Create youker seeion Interface Failed When Get Computer info: " << QDBusConnection::sessionBus().lastError();
-        return;
+        qCritical() << "Create sessionInterface  Failed When Get Computer info: " << QDBusConnection::sessionBus().lastError();
+//        return;
     }
 
     QDBusReply<QMap<QString, QVariant>> diskinfo;
@@ -171,6 +173,7 @@ void About::setupKernelCompenent() {
         QMap<QString, QVariant> res = diskinfo.value();
         diskSize = res["DiskCapacity"].toString();
     }
+
 
     QDBusReply<QMap<QString, QVariant>> cpuinfo;
     cpuinfo  = youkerInterface ->call("get_cpu_info");
@@ -195,6 +198,8 @@ void About::setupKernelCompenent() {
     ui->diskContent->setText(diskSize);
     ui->kernalContent->setText(kernal);
     ui->memoryContent->setText(memorySize);
+
+    qDebug()<<"cpuType and "<<cpuType<<" "<<diskSize<<" "<<kernal<<" "<<memorySize<<endl;
 }
 
 void About::setupVersionCompenent() {
@@ -211,12 +216,18 @@ void About::setupVersionCompenent() {
         }
     }
     ui->versionContent->setText(version);
+//    if (version != "Kylin V10") {
+//        ui->activeFrame->setVisible(false);
+//        trialButton
+//    }
 
     //设置桌面环境LOGO
     ui->logoLabel->setPixmap(QPixmap("://img/plugins/about/logo.png"));
 }
 
 void About::setupSerialComponent() {
+    ui->trialButton->setFlat(true);
+    ui->trialButton->setStyleSheet("text-align: left");
     //ubuntukylin youker DBus interface
     QDBusInterface *activeInterface = new QDBusInterface("org.freedesktop.activation",
                                      "/org/freedesktop/activation",
@@ -353,9 +364,9 @@ QStringList About::readFile(QString filepath) {
 
 
 void About::_call_dbus_get_computer_info(){
-    interface = new QDBusInterface("com.control.center.qt.systemdbus",
-                                     "/",
-                                     "com.control.center.interface",
+    interface = new QDBusInterface("com.kylin.assistant.qsessiondbus",
+                                     "/com/kylin/assistant/qsessiondbus",
+                                     "com.kylin.assistant.qsessiondbus",
                                      QDBusConnection::systemBus());
 
     if (!interface->isValid()){
@@ -407,7 +418,7 @@ void About::runActiveWindow() {
 }
 
 void About::showPdf() {
-    QString cmd = "caja /usr/share/man/statement.pdf.gz";
+    QString cmd = "atril /usr/share/man/statement.pdf.gz";
 
     QProcess process(this);
     process.startDetached(cmd);
