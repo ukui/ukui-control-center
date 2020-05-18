@@ -223,11 +223,8 @@ void About::setupVersionCompenent() {
         ui->activeFrame->setVisible(false);
         ui->trialButton->setVisible(false);
         //设置桌面环境LOGO
-        ui->logoLabel->setPixmap(QPixmap("://img/plugins/about/logo.png"));
+        ui->logoLabel->setPixmap(QPixmap("://img/plugins/about/logoukui.png"));
     }
-
-
-
 }
 
 void About::setupSerialComponent() {
@@ -424,7 +421,7 @@ void About::runActiveWindow() {
 
 void About::showPdf() {
     QString cmd = "atril /usr/share/man/statement.pdf.gz";
-
     QProcess process(this);
     process.startDetached(cmd);
 }
+

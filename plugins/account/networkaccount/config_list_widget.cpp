@@ -544,4 +544,3 @@ config_list_widget::~config_list_widget() {
     thread->wait();
 }
 
-
