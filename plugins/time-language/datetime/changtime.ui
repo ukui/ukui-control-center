@@ -61,6 +61,12 @@
       </property>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <property name="topMargin">
+         <number>8</number>
+        </property>
+        <property name="rightMargin">
+         <number>8</number>
+        </property>
         <item>
          <spacer name="horizontalSpacer_2">
           <property name="orientation">
@@ -78,7 +84,7 @@
          <widget class="QPushButton" name="closeBtn">
           <property name="minimumSize">
            <size>
-            <width>48</width>
+            <width>32</width>
             <height>32</height>
            </size>
           </property>
@@ -182,14 +188,14 @@
              </property>
              <property name="minimumSize">
               <size>
-               <width>34</width>
-               <height>14</height>
+               <width>0</width>
+               <height>0</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>34</width>
-               <height>14</height>
+               <width>38</width>
+               <height>16777215</height>
               </size>
              </property>
              <property name="text">
@@ -303,14 +309,14 @@
              </property>
              <property name="minimumSize">
               <size>
-               <width>27</width>
-               <height>14</height>
+               <width>0</width>
+               <height>0</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>27</width>
-               <height>14</height>
+               <width>36</width>
+               <height>16777215</height>
               </size>
              </property>
              <property name="text">
@@ -329,7 +335,7 @@
              <property name="minimumSize">
               <size>
                <width>258</width>
-               <height>0</height>
+               <height>32</height>
               </size>
              </property>
              <property name="maximumSize">
@@ -381,13 +387,13 @@
              <property name="minimumSize">
               <size>
                <width>27</width>
-               <height>14</height>
+               <height>0</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>27</width>
-               <height>14</height>
+               <width>36</width>
+               <height>16777215</height>
               </size>
              </property>
              <property name="text">
@@ -454,13 +460,13 @@
              </property>
              <property name="minimumSize">
               <size>
-               <width>27</width>
-               <height>14</height>
+               <width>0</width>
+               <height>0</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>27</width>
+               <width>36</width>
                <height>16777215</height>
               </size>
              </property>
