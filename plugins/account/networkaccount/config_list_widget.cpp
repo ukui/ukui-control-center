@@ -103,7 +103,7 @@ void config_list_widget::setret_conf(int ret) {
 
 void config_list_widget::setret_man(int ret) {
     if(ret == 0) {
-        emit doconf();
+        //emit doconf();
         //qDebug()<<"1111 manul";
     }
 }
@@ -119,7 +119,7 @@ void config_list_widget::setret_check(QString ret) {
         ret_ok = true;
         info->setText(tr("Your account：%1").arg(code));
         stacked_widget->setCurrentWidget(container);
-        emit doconf();
+        QFuture<void> res1 = QtConcurrent::run(this, &config_list_widget::handle_conf);
     } else if((code == "" || code =="201" || code == "203" || code == "401" ) && ret_ok == false){
         client->once = true;
         stacked_widget->setCurrentWidget(null_widget);
