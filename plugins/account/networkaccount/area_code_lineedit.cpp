@@ -20,6 +20,7 @@
 #include "area_code_lineedit.h"
 
 
+/* 读取国家代码JSon文件并写入ComboBox */
 void area_code_lineedit::InittoCountrycode() {
     loadfile = new QFile(":/country.json",this);
     if(!loadfile->open(QIODevice::ReadOnly)) {
@@ -53,7 +54,7 @@ area_code_lineedit::area_code_lineedit(QWidget *parent) : QLineEdit(parent)
 {
     //Allocate the memories
     combobox = new ql_combobobx(this);
-    vertical_line = new QFrame;
+    vertical_line = new QFrame(this);
     layout = new QHBoxLayout;
 
     //Resize
@@ -91,4 +92,8 @@ area_code_lineedit::area_code_lineedit(QWidget *parent) : QLineEdit(parent)
     setLayout(layout);
     setContentsMargins(0,0,0,0);
 
+}
+
+area_code_lineedit::~area_code_lineedit() {
+    delete json_file;
 }
