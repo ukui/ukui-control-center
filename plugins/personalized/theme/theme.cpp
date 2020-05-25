@@ -191,8 +191,12 @@ void Theme::setupSettings() {
 
     kwinSettings->endGroup();
 
-    effectSwitchBtn->setChecked(!kwin);
+    effectSwitchBtn->setChecked(kwin);
 
+    QFileInfo dir(filename);
+    if (!dir.isFile()) {
+        effectSwitchBtn->setChecked(true);
+    }
 }
 
 void Theme::setupComponent(){
@@ -254,22 +258,28 @@ void Theme::buildThemeModeBtn(QPushButton *button, QString name, QString icon){
     QLabel * statusLabel = new QLabel(button);
     statusLabel->setFixedSize(QSize(16, 16));
     statusLabel->setScaledContents(true);
-#if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
-    connect(ui->themeModeBtnGroup, static_cast<void (QButtonGroup::*)(QAbstractButton *)>(&QButtonGroup::buttonClicked), [=](QAbstractButton * eBtn){
-#else
-    connect(ui->themeModeBtnGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), [=](QAbstractButton * eBtn){
-#endif
-        if (eBtn == button)
-            statusLabel->setPixmap(QPixmap("://img/plugins/theme/selected.png"));
-        else
-            statusLabel->clear();
-    });
+
     QLabel * nameLabel = new QLabel(button);
     QSizePolicy nameSizePolicy = nameLabel->sizePolicy();
     nameSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
     nameSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
     nameLabel->setSizePolicy(nameSizePolicy);
     nameLabel->setText(name);
+
+#if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
+    connect(ui->themeModeBtnGroup, static_cast<void (QButtonGroup::*)(QAbstractButton *)>(&QButtonGroup::buttonClicked), [=](QAbstractButton * eBtn){
+#else
+    connect(ui->themeModeBtnGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), [=](QAbstractButton * eBtn){
+#endif
+        if (eBtn == button) {
+            nameLabel->setStyleSheet("color: #ffffff;");
+            statusLabel->setPixmap(QPixmap("://img/plugins/theme/selected.png"));
+        }
+        else {
+            nameLabel->setStyleSheet("color: palette(windowText);");
+            statusLabel->clear();
+        }
+    });
 
     bottomHorLayout->addStretch();
     bottomHorLayout->addWidget(statusLabel);
@@ -502,7 +512,7 @@ void Theme::initConnection() {
 
     connect(effectSwitchBtn, &SwitchButton::checkedChanged, [this](bool checked) {
         QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
-        writeKwinSettings(!checked, currentThemeMode);
+        writeKwinSettings(checked, currentThemeMode);
     });
 }
 
