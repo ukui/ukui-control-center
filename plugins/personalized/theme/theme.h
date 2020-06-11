@@ -61,8 +61,6 @@ public:
     void plugin_delay_control() Q_DECL_OVERRIDE;
 
 public:
-
-    void setupStylesheet();
     void setupSettings();
     void setupComponent();
     void initThemeMode();
@@ -102,6 +100,7 @@ private:
 
 private slots:
     void resetBtnClickSlot();
+    // write the kwin's configuration
     void writeKwinSettings(bool change, QString theme);
 
 };

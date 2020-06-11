@@ -86,7 +86,7 @@ namespace {
         "split_v",
     };
 
-    const int numCursors      = 9;     // The number of cursors from the above list to be previewed
+    const int numCursors = 9;     // The number of cursors from the above list to be previewed
 }
 
 Theme::Theme()
@@ -107,8 +107,6 @@ Theme::Theme()
     const QByteArray idd(THEME_QT_SCHEMA);
     const QByteArray iid(CURSOR_THEME_SCHEMA);
 
-    //设置样式
-    setupStylesheet();
     //设置组件
     setupComponent();
 
@@ -125,7 +123,7 @@ Theme::Theme()
         initThemeMode();
         initIconTheme();
         initCursorTheme();
-        initEffectSettings();
+//        initEffectSettings();
         initConnection();
     } else {
         qCritical() << THEME_GTK_SCHEMA << "or" << THEME_QT_SCHEMA << "or" << CURSOR_THEME_SCHEMA << "not installed\n";
@@ -159,27 +157,6 @@ QWidget *Theme::get_plugin_ui(){
 void Theme::plugin_delay_control(){
 
 }
-
-void Theme::setupStylesheet(){
-//    pluginWidget->setStyleSheet("background: #ffffff;");
-
-//    ui->controlWidget->setStyleSheet("QWidget#controlWidget{background: #F4F4F4; border-radius: 6px;}");
-
-//    ui->effectWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
-//    ui->line->setStyleSheet("QFrame{border-top: 1px solid #CCCCCC; border-left: none; border-right: none; border-bottom: none;}");
-
-//    ui->resetBtn->setStyleSheet("QPushButton#resetBtn{background: #F4F4F4; border: none; border-radius: 4px;}"
-//                                "QPushButton:hover:!pressed#resetBtn{border: none; background: #3D6BE5; border-radius: 2px;}"
-//                                "QPushButton:hover:pressed#resetBtn{border: none; background: #2C5AD6; border-radius: 2px;}");
-
-//    ui->transparencySlider->setStyleSheet("QSlider{height: 20px;}"
-//                                          "QSlider::groove:horizontal{border: none;}"
-//                                          "QSlider::add-page:horizontal{background: #808080; border-radius: 2px; margin-top: 8px; margin-bottom: 9px;}"
-//                                          "QSlider::sub-page:horizontal{background: #3D6BE5; border-radius: 2px; margin-top: 8px; margin-bottom: 9px;}"
-//                                          "QSlider::handle:horizontal{width: 20px; height: 20px; border-image: url(:/img/plugins/fonts/bigRoller.png);}"
-//                                          "");
-}
-
 
 void Theme::setupSettings() {
     QString filename = QDir::homePath() + "/.config/ukui-kwinrc";
@@ -297,6 +274,7 @@ void Theme::initThemeMode(){
     connect(qtSettings, &QGSettings::changed, this, [=](const QString &key){
         if (key == "styleName") {
             auto style = qtSettings->get(key).toString();
+            writeKwinSettings(true, style);
             qApp->setStyle(new InternalStyle(style));
         }
 
@@ -335,7 +313,7 @@ void Theme::initThemeMode(){
             qtSettings->set(MODE_QT_KEY, themeMode);
             gtkSettings->set(MODE_GTK_KEY, themeMode);
 
-            writeKwinSettings(!effectSwitchBtn->isChecked(), themeMode);
+            writeKwinSettings(true, themeMode);
         }
     });
 }
@@ -592,11 +570,12 @@ void Theme::writeKwinSettings(bool change, QString theme) {
 
     kwinSettings->sync();
 
+
 #if QT_VERSION <= QT_VERSION_CHECK(5,12,0)
 
 #else
-    QDBusMessage message = QDBusMessage::createSignal("/KWin", "org.ukui.KWin", "reloadConfig");
-    QDBusConnection::sessionBus().send(message);
+        QDBusMessage message = QDBusMessage::createSignal("/KWin", "org.ukui.KWin", "reloadConfig");
+        QDBusConnection::sessionBus().send(message);
 #endif
 }
 
