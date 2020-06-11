@@ -26,6 +26,7 @@
 #include <QHBoxLayout>
 #include <QPluginLoader>
 #include <QPainter>
+#include <QPainterPath>
 #include <QProcess>
 #include <libmatemixer/matemixer.h>
 #include "utils/keyvalueconverter.h"

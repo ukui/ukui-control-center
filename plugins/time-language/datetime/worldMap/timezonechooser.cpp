@@ -10,6 +10,7 @@
 #include <QDebug>
 #include <QHBoxLayout>
 #include <QPainter>
+#include <QPainterPath>
 TimeZoneChooser::TimeZoneChooser():QFrame ()
 {
     m_map = new TimezoneMap(this);

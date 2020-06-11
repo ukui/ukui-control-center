@@ -21,6 +21,7 @@
 #include "ui_showallshortcut.h"
 
 #include <QPainter>
+#include <QPainterPath>
 #include <QStyleOption>
 
 #include <QDebug>

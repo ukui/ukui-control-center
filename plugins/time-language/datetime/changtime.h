@@ -33,6 +33,7 @@
 #include <QFile>
 #include <QListView>
 #include <QPainter>
+#include <QPainterPath>
 
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏

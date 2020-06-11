@@ -20,6 +20,7 @@
 #include "ukui_custom_style.h"
 #include <QStyleOption>
 #include <QPainter>
+#include <QPainterPath>
 #include <QEvent>
 #include <QPaintEvent>
 #include <QDebug>
