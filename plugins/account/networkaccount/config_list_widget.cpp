@@ -75,8 +75,6 @@ void config_list_widget::setname(QString n) {
 /* 客户端回调函数集 */
 void config_list_widget::setret_oss(int ret) {
     if(ret == 0) {
-        emit docheck();
-        emit doconf();
         //qDebug()<<"init oss is 0";
     } else {
         //emit dologout();
@@ -179,6 +177,13 @@ void config_list_widget::init_gui() {
     title2 = new QSvgWidget(":/new/image/96_color.svg");
     logout = new QLabel(this);
     login  = new QPushButton(tr("Sign in"),this);
+    mansync = new QTimer(this);
+    mansync->stop();
+    svg_hd = new ql_svg_handler(this);
+    tooltips = new QToolTips(exit_page);
+    texttips = new QLabel(tooltips);
+    texttips->setText(tr("Stop sync"));
+    exit_page->installEventFilter(this);
 
     //    gif = new QLabel(status);
     //    gif->setWindowFlags(Qt::FramelessWindowHint);//无边框
@@ -208,24 +213,12 @@ void config_list_widget::init_gui() {
     auto_syn->make_itemon();
     auto_syn->get_swbtn()->set_id(mapid.size());
     container->setFocusPolicy(Qt::NoFocus);
-    edit->setStyleSheet("QPushButton{border-style: flat;"
-                        "background-image:url(:/new/image/edit.png);"
-                        "background-repeat:no-repeat;background-position :center;"
-                        "border-width:0px;width:34px;height:34px;}"
-                        "QPushButton:hover{"
-                        "background-image: url(:new/image/edit_hover.png);"
-                        "background-repeat:no-repeat;background-position :center;"
-                        "border-width:0px;width:34px;height:34px;"
-                        "border-radius:4px}"
-                        "QPushButton:click{"
-                        "background-image: url(:new/image/edit_hover.png);"
-                        "background-repeat:no-repeat;background-position :center;"
-                        "border-width:0px;width:34px;height:34px;border-radius:4px}");
+    edit->setFixedSize(34,34);
     edit->installEventFilter(this);
     stacked_widget->addWidget(container);
 
     //控件大小尺寸设置
-    setContentsMargins(0,0,0,0);
+    setContentsMargins(0,0,32,0);
     setMinimumWidth(550);
     tab->resize(200,72);
     stacked_widget->adjustSize();
@@ -280,7 +273,8 @@ void config_list_widget::init_gui() {
     container->setLayout(cvlayout);
 
     login->setFixedSize(180,36);
-
+    edit->setFlat(true);
+    edit->setStyleSheet("QPushButton{background:transparent;}");
     null_widget->resize(550,892);
     logout->setText(tr("Synchronize your personalized settings and data"));
     logout->setStyleSheet("font-size:18px;");
@@ -312,6 +306,8 @@ void config_list_widget::init_gui() {
 
 
     exit_page->setFocusPolicy(Qt::NoFocus);
+    QPixmap pixmap = svg_hd->loadSvg(":/new/image/edit.svg");
+    edit->setIcon(pixmap);
 
     //连接信号
     connect(auto_syn->get_swbtn(),SIGNAL(status(int,int)),this,SLOT(on_auto_syn(int,int)));
@@ -327,6 +323,10 @@ void config_list_widget::init_gui() {
     for(int btncnt = 0;btncnt < list->get_list().size();btncnt ++) {
         connect(list->get_item(btncnt)->get_swbtn(),SIGNAL(status(int,int)),this,SLOT(on_switch_button(int,int)));
     }
+
+    connect(mansync,&QTimer::timeout,[=] () {
+        emit doman();
+    });
 
     struct stat buffer;
     char conf_path[512]={0};
@@ -363,6 +363,32 @@ void config_list_widget::open_cloud() {
     login_dialog->on_close();
 }
 
+bool config_list_widget::eventFilter(QObject *watched, QEvent *event) {
+    if(watched == edit) {
+        if(event->type() == QEvent::Enter) {
+            QPixmap pixmap = svg_hd->loadSvg(":/new/image/edit_hover.svg");
+            edit->setIcon(pixmap);
+        }
+        if(event->type() == QEvent::Leave) {
+            QPixmap pixmap = svg_hd->loadSvg(":/new/image/edit.svg");
+            edit->setIcon(pixmap);
+        }
+    }
+    if(watched == exit_page) {
+        if(event->type() == QEvent::FocusIn && tooltips->isHidden() == true && exit_page->property("on") == true) {
+            QPoint pos;
+            pos.setX(this->mapToGlobal(QPoint(0, 0)).x() + 26);
+            pos.setY(this->mapToGlobal(QPoint(0, 0)).y() + 26);
+            tooltips->move(pos);
+            tooltips->show();
+        }
+        if((event->type() == QEvent::FocusOut && tooltips->isHidden() == false) || exit_page->property("on") == false) {
+            tooltips->hide();
+        }
+    }
+    return QWidget::eventFilter(watched,event);
+}
+
 /* 登录成功处理事件 */
 void config_list_widget::finished_load(int ret,QString uuid) {
     //qDebug()<<"wb111"<<ret;
@@ -371,7 +397,9 @@ void config_list_widget::finished_load(int ret,QString uuid) {
     }
    // qDebug()<<"wb222"<<ret;
     if (ret == 0) {
-        emit doman();
+        emit docheck();
+        emit doconf();
+        mansync->start(1000);
         QFuture<void> res1 = QtConcurrent::run(this, &config_list_widget::handle_conf);
     } else if(ret == 401 || ret == 203 || ret == 201) {
         emit dologout();
@@ -523,6 +551,7 @@ void config_list_widget::push_files() {
 void config_list_widget::download_over() {
     //emit docheck();
     if(exit_page->property("on") == true) {
+        mansync->stop();
         gif->hide();
         exit_page->setText(tr("Exit"));
         exit_page->setProperty("on",false);

@@ -43,8 +43,9 @@ EditPassDialog::EditPassDialog(QWidget *parent) : QWidget(parent)
     hlayout = new QHBoxLayout;                  //验证码布局
     btnlayout = new QHBoxLayout;                //按钮布局
     timer = new QTimer(this);                   //验证码计时器
-    tips = new QLabel(this);                    //错误提示
+    tips = new ql_label_info(this);                    //错误提示
     vboxlayout = new QVBoxLayout;               //主窗口界面布局
+    svg_hd = new ql_svg_handler(this);          //SVG控制器
 
 
 
@@ -64,8 +65,6 @@ EditPassDialog::EditPassDialog(QWidget *parent) : QWidget(parent)
     pass_tips->setStyleSheet("font-size:14px;");
     pass_tips->setFixedHeight(16);
     valid_code->setMaxLength(4);
-    tips->setText("<html><head/><body><p><img src=':/new/image/_.png'/><span style=' font-size:14px;color:#F53547'>"
-                        "&nbsp;&nbsp;"+code+"</span></p></body></html>");
     stackwidget->setCurrentWidget(content);
 
     //控件尺寸大小设置
@@ -85,7 +84,7 @@ EditPassDialog::EditPassDialog(QWidget *parent) : QWidget(parent)
     success->setFixedSize(420,446);
 
     del_btn->setGeometry(this->width() - 46,14,30,30);
-
+    del_btn->setFlat(true);
     //设置样式表
     QString liness = "QLineEdit{background-color:#F4F4F4;border-radius: 4px;border:1px none #3D6BE5;font-size: 14px;color: rgba(0,0,0,0.85);lineedit-password-character: 42;}"
                      "QLineEdit:hover{background-color:#F4F4F4;border-radius: 4px;border:1px solid #3D6BE5;font-size: 14px;color:rgba(0,0,0,0.85)}"
@@ -100,19 +99,14 @@ EditPassDialog::EditPassDialog(QWidget *parent) : QWidget(parent)
     QString btns = "QPushButton {font-size:14px;background: #E7E7E7;color:rgba(0,0,0,0.85);border-radius: 4px;}"
                     "QPushButton:hover{font-size:14px;color:rgba(61,107,229,0.85);position:relative;border-radius: 4px;}"
                     "QPushButton:click{font-size:14px;color:rgba(61,107,229,0.85);position:relative;border-radius: 4px;}";
-    del_btn->setStyleSheet("QPushButton{width:30px;height:30px;border-style: flat;"
-                           "background-image:url(:/new/image/delete.png);"
-                           "background-repeat:no-repeat;background-position :center;"
-                           "border-width:0px;width:30px;height:30px;}"
-                           "QPushButton:hover{background-color:#F86457;width:30px;height:30px;"
-                           "background-image: url(:new/image/delete_click.png);"
-                           "background-repeat:no-repeat;background-position :center;"
-                           "border-width:0px;width:30px;height:30px;"
+    del_btn->setFlat(true);
+    QPixmap pixmap = svg_hd->loadSvg(":/new/image/delete.svg");
+    del_btn->setIcon(pixmap);
+    del_btn->setStyleSheet("QPushButton{background:transparent;border-radius:4px;}"
+                           "QPushButton:hover{background:transparent;background-color:#F86457;"
                            "border-radius:4px}"
-                           "QPushButton:click{background-color:#E44C50;width:30px;height:30px;"
-                           "background-image: url(:new/image/delete_click.png);"
-                           "background-repeat:no-repeat;background-position :center;"
-                           "border-width:0px;width:30px;height:30px;border-radius:4px}");
+                           "QPushButton:click{background:transparent;background-color:#E44C50;border-radius:4px}");
+    del_btn->installEventFilter(this);
     title->setStyleSheet(labelss);
     //account->setStyleSheet(liness);
     //newpass->setStyleSheet(liness);
@@ -264,8 +258,9 @@ void EditPassDialog::set_code(QString codenum) {
 
 /* 设置提示错误消息 */
 void EditPassDialog::setstyleline() {
-    tips->setText("<html><head/><body><p><img src=':/new/image/_.png'/><span style=' font-size:14px;color:#F53547'>"
-                        "&nbsp;&nbsp;"+code+"</span></p></body></html>");
+    QPixmap pixmap = svg_hd->loadSvg(":/new/image/_.svg");
+    tips->set_text(code);
+    tips->setpixmap(pixmap);
 }
 
 /* 验证码发送按钮处理 */
@@ -489,6 +484,16 @@ bool EditPassDialog::eventFilter(QObject *w, QEvent *e) {
 
 //        }
 //    }
+    if(w == del_btn) {
+        if(e->type() == QEvent::Enter) {
+            QPixmap pixmap = svg_hd->loadSvg(":/new/image/delete_click.svg");
+            del_btn->setIcon(pixmap);
+        }
+        if(e->type() == QEvent::Leave) {
+            QPixmap pixmap = svg_hd->loadSvg(":/new/image/delete.svg");
+            del_btn->setIcon(pixmap);
+        }
+    }
     if(w == newpass) {
         if (e->type() == QEvent::FocusIn && !tips->isHidden()) {
             tips->hide();
