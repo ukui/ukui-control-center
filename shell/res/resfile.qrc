@@ -126,6 +126,7 @@
     </qresource>
     <qresource prefix="/">
         <file>i18n/zh_CN.qm</file>
+        <file>i18n/tr.ts</file>
         <file>global.qss</file>
         <file>combox.qss</file>
     </qresource>
