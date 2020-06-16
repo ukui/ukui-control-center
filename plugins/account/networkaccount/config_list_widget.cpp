@@ -91,7 +91,7 @@ void config_list_widget::setret_logout(int ret) {
 void config_list_widget::setret_conf(int ret) {
     //qDebug()<<ret<<"csacasca";
     if(ret == 0) {
-        QFuture<void> res1 = QtConcurrent::run(this, &config_list_widget::handle_conf);
+        //QFuture<void> res1 = QtConcurrent::run(this, &config_list_widget::handle_conf);
     } else {
         //emit dologout();
     }
@@ -115,7 +115,8 @@ void config_list_widget::setret_check(QString ret) {
         code = ret;
         info->setText(tr("Your account：%1").arg(ret));
         stacked_widget->setCurrentWidget(container);
-        QFuture<void> res1 = QtConcurrent::run(this, &config_list_widget::handle_conf);
+        handle_conf();
+        //QFuture<void> res1 = QtConcurrent::run(this, &config_list_widget::handle_conf);
     } else if((ret == "" || ret =="201" || ret == "203" || ret == "401" ) && ret_ok == false){
         ret_ok = true;
         stacked_widget->setCurrentWidget(null_widget);
@@ -123,7 +124,8 @@ void config_list_widget::setret_check(QString ret) {
         info->setText(tr("Your account：%1").arg(ret));
         code = ret;
         stacked_widget->setCurrentWidget(container);
-        QFuture<void> res1 = QtConcurrent::run(this, &config_list_widget::handle_conf);
+        handle_conf();
+        //QFuture<void> res1 = QtConcurrent::run(this, &config_list_widget::handle_conf);
     }
 }
 
@@ -154,12 +156,21 @@ void config_list_widget::init_gui() {
     edit_dialog = new EditPassDialog;//修改密码窗口
     //qDebug()<<"000000";
     hbox = new QHBoxLayout;//信息框布局
-    gif = new QLabel(exit_page);//同步动画
-    pm = new QMovie(":/new/image/autosync.gif");
+    //gif = new QLabel(exit_page);//同步动画
+    //pm = new QMovie(":/new/image/autosync.gif");
+    pm = new ql_animation_label(exit_page); //同步动画
+    pm->settext(tr("Sync"));
+
+    animationlayout = new QHBoxLayout;
+    animationlayout->addWidget(pm);
+    animationlayout->setMargin(0);
+    animationlayout->setSpacing(0);
+    animationlayout->setAlignment(Qt::AlignCenter);
+    exit_page->setLayout(animationlayout);
+
     login_cloud = new QTimer(this);
     login_cloud->stop();
 
-    gif->hide();
     edit_dialog->hide();
     login_dialog->hide();
     edit_dialog->set_client(client,thread);//安装客户端通信
@@ -182,9 +193,18 @@ void config_list_widget::init_gui() {
     svg_hd = new ql_svg_handler(this);
     tooltips = new QToolTips(exit_page);
     texttips = new QLabel(tooltips);
+    tipslayout = new QHBoxLayout;
+
+    tipslayout->addWidget(texttips);
+    tipslayout->setMargin(0);
+    tipslayout->setSpacing(0);
+    tipslayout->setAlignment(Qt::AlignCenter);
+    tooltips->setLayout(tipslayout);
     texttips->setText(tr("Stop sync"));
     exit_page->installEventFilter(this);
 
+
+    tooltips->setFixedSize(86,44);
     //    gif = new QLabel(status);
     //    gif->setWindowFlags(Qt::FramelessWindowHint);//无边框
     //    gif->setAttribute(Qt::WA_TranslucentBackground);//背景透明
@@ -222,15 +242,16 @@ void config_list_widget::init_gui() {
     setMinimumWidth(550);
     tab->resize(200,72);
     stacked_widget->adjustSize();
-    list->resize(550,container->size().height());
     auto_syn->get_widget()->setFixedHeight(50);
     info->setFixedHeight(40);
 
     tab->setSizeIncrement(QSize(size().width(),1));
     container->setSizeIncrement(QSize(size().width(),size().height()));
-    list->setSizeIncrement(QSize(size().width(),size().height()));
 
     namewidget->setFixedHeight(36);
+    list->setMinimumWidth(550);
+    list->setSizeIncrement(QSize(size().width(),size().height()));
+    list->setMinimumHeight(container->size().height() - 82);
     title2->setFixedSize(96,96);
 
 //    gif->setMinimumSize(120,36);
@@ -260,6 +281,7 @@ void config_list_widget::init_gui() {
     VBox_tab->addLayout(HBox_tab_btn_sub);
     tab->setLayout(VBox_tab);
     tab->setContentsMargins(0,0,0,0);
+    container->setMinimumWidth(550);
 
 
 
@@ -270,6 +292,7 @@ void config_list_widget::init_gui() {
     cvlayout->addWidget(auto_syn->get_widget());
     cvlayout->addSpacing(16);
     cvlayout->addWidget(list);
+    cvlayout->addStretch();
     container->setLayout(cvlayout);
 
     login->setFixedSize(180,36);
@@ -279,6 +302,7 @@ void config_list_widget::init_gui() {
     logout->setText(tr("Synchronize your personalized settings and data"));
     logout->setStyleSheet("font-size:18px;");
 
+    exit_page->setStyleSheet("QPushButton[on=true]{background-color:#3D6BE5;border-radius:4px;}");
     exit_page->setProperty("on",false);
 
     exit_page->setFixedSize(120,36);
@@ -328,24 +352,17 @@ void config_list_widget::init_gui() {
         emit doman();
     });
 
-    struct stat buffer;
-    char conf_path[512]={0};
     //All.conf的
     QString all_conf_path = QDir::homePath() + "/.cache/kylinssoclient/";
-    QString all_conf_path2 = QDir::homePath() + "/.cache/kylinssoclient/All.conf";
     fsWatcher.addPath(all_conf_path);
-    qstrcpy(conf_path,all_conf_path2.toStdString().c_str());
 
     connect(&fsWatcher,&QFileSystemWatcher::directoryChanged,[this] () {
-         QFuture<void> res1 = QtConcurrent::run(this, &config_list_widget::handle_conf);
+         handle_conf();
     });
 
     //
-    if(stat(conf_path, &buffer) == 0) {
-        QFuture<void> res1 = QtConcurrent::run(this, &config_list_widget::handle_conf);
-    }
     setMaximumWidth(960);
-    adjustSize();
+    //adjustSize();
 }
 
 /* 打开登录框处理事件 */
@@ -375,14 +392,14 @@ bool config_list_widget::eventFilter(QObject *watched, QEvent *event) {
         }
     }
     if(watched == exit_page) {
-        if(event->type() == QEvent::FocusIn && tooltips->isHidden() == true && exit_page->property("on") == true) {
+        if(event->type() == QEvent::Enter && tooltips->isHidden() == true && exit_page->property("on") == true) {
             QPoint pos;
-            pos.setX(this->mapToGlobal(QPoint(0, 0)).x() + 26);
-            pos.setY(this->mapToGlobal(QPoint(0, 0)).y() + 26);
+            pos.setX(exit_page->mapToGlobal(QPoint(0, 0)).x() + 26);
+            pos.setY(exit_page->mapToGlobal(QPoint(0, 0)).y() + 26);
             tooltips->move(pos);
             tooltips->show();
         }
-        if((event->type() == QEvent::FocusOut && tooltips->isHidden() == false) || exit_page->property("on") == false) {
+        if((event->type() == QEvent::Leave && tooltips->isHidden() == false) || exit_page->property("on") == false) {
             tooltips->hide();
         }
     }
@@ -409,11 +426,13 @@ void config_list_widget::finished_load(int ret,QString uuid) {
 /* 读取滑动按钮列表 */
 void config_list_widget::handle_conf() {
     if(Config_File(home).Get("Auto-sync","enable").toString() == "true") {
+        list->show();
         auto_syn->make_itemon();
         for(int i  = 0;i < mapid.size();i ++) {
             list->get_item(i)->set_active(true);
         }
     } else {
+        list->hide();
         auto_syn->make_itemoff();
         auto_ok = false;
         for(int i  = 0;i < mapid.size();i ++) {
@@ -469,6 +488,11 @@ void config_list_widget::on_auto_syn(int on,int id) {
     }
     //emit docheck();
     auto_ok = on;
+    if(auto_ok) {
+        list->show();
+    } else {
+        list->hide();
+    }
     for(int i  = 0;i < mapid.size();i ++) {
         list->get_item(i)->set_active(auto_ok);
     }
@@ -527,10 +551,11 @@ void config_list_widget::download_files() {
     //emit docheck();
     if(exit_page->property("on") == false) {
         exit_page->setProperty("on",true);
+        exit_page->style()->unpolish(exit_page);
+        exit_page->style()->polish(exit_page);
+        exit_page->update();
         exit_page->setText("");
-        pm->start();
-        gif->setMovie(pm);
-        gif->show();
+        pm->startmoive();
     }
 }
 
@@ -542,9 +567,10 @@ void config_list_widget::push_files() {
     if(exit_page->property("on") == false) {
         exit_page->setText("");
         exit_page->setProperty("on",true);
-        pm->start();
-        gif->setMovie(pm);
-        gif->show();
+        exit_page->style()->unpolish(exit_page);
+        exit_page->style()->polish(exit_page);
+        exit_page->update();
+        pm->startmoive();
     }
 }
 
@@ -552,28 +578,37 @@ void config_list_widget::download_over() {
     //emit docheck();
     if(exit_page->property("on") == true) {
         mansync->stop();
-        gif->hide();
+        pm->stop();
         exit_page->setText(tr("Exit"));
         exit_page->setProperty("on",false);
+        exit_page->style()->unpolish(exit_page);
+        exit_page->style()->polish(exit_page);
+        exit_page->update();
     }
 }
 
 void config_list_widget::push_over() {
     //emit docheck();
     if(exit_page->property("on") == true) {
-        gif->hide();
+        if(mansync->isActive()) {
+            mansync->stop();
+        }
+        pm->stop();
         exit_page->setText(tr("Exit"));
         exit_page->setProperty("on",false);
+        exit_page->style()->unpolish(exit_page);
+        exit_page->style()->polish(exit_page);
+        exit_page->update();
     }
 }
 
 /* 析构函数 */
 config_list_widget::~config_list_widget() {
     delete list;
-    delete pm;
     delete login_dialog;
     delete edit_dialog;
     delete client;
+    delete title2;
     if(thread)
     {
         thread->quit();
