@@ -7,6 +7,7 @@
 #include <QListView>
 #include <QFile>
 #include <QPainter>
+#include <QPainterPath>
 
 namespace Ui {
 class DataFormat;

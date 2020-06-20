@@ -23,6 +23,7 @@
 #include <QDialog>
 #include <QProcess>
 #include <QPainter>
+#include <QPainterPath>
 
 #include <QKeyEvent>
 #include <QFile>
