@@ -22,7 +22,7 @@ INCLUDEPATH   +=  \
                  $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
 
-LIBS          += -L/usr/lib/ -lcrypt
+LIBS          += -L/usr/lib/ -lcrypt -lpwquality
 
 ##加载gio库和gio-unix库
 CONFIG        += link_pkgconfig \
@@ -32,6 +32,7 @@ PKGCONFIG     += gio-2.0 \
 
 
 #DEFINES += QT_DEPRECATED_WARNINGS
+DEFINES += ENABLEPQ
 
 SOURCES += \
     elipsemaskwidget.cpp \
