@@ -45,7 +45,6 @@ config_list_widget::config_list_widget(QWidget *parent) : QWidget(parent) {
 
     thread->start();    //线程开始
     stacked_widget = new QStackedWidget(this);
-    stacked_widget->resize(550,400);
     stacked_widget->setWindowFlags(Qt::FramelessWindowHint | Qt::CustomizeWindowHint);
     emit docheck();     //检测是否登录
     init_gui();         //初始化gui
@@ -245,13 +244,9 @@ void config_list_widget::init_gui() {
     auto_syn->get_widget()->setFixedHeight(50);
     info->setFixedHeight(40);
 
-    tab->setSizeIncrement(QSize(size().width(),1));
-    container->setSizeIncrement(QSize(size().width(),size().height()));
 
     namewidget->setFixedHeight(36);
     list->setMinimumWidth(550);
-    list->setSizeIncrement(QSize(size().width(),size().height()));
-    list->setMinimumHeight(container->size().height() - 82);
     title2->setFixedSize(96,96);
 
 //    gif->setMinimumSize(120,36);
@@ -292,13 +287,11 @@ void config_list_widget::init_gui() {
     cvlayout->addWidget(auto_syn->get_widget());
     cvlayout->addSpacing(16);
     cvlayout->addWidget(list);
-    cvlayout->addStretch();
     container->setLayout(cvlayout);
 
     login->setFixedSize(180,36);
     edit->setFlat(true);
     edit->setStyleSheet("QPushButton{background:transparent;}");
-    null_widget->resize(550,892);
     logout->setText(tr("Synchronize your personalized settings and data"));
     logout->setStyleSheet("font-size:18px;");
 
@@ -324,9 +317,6 @@ void config_list_widget::init_gui() {
     vboxlayout->addWidget(stacked_widget);
     vboxlayout->setAlignment(Qt::AlignCenter | Qt::AlignTop);
     this->setLayout(vboxlayout);
-    logout->adjustSize();
-    list->adjustSize();
-    container->adjustSize();
 
 
     exit_page->setFocusPolicy(Qt::NoFocus);
@@ -359,10 +349,13 @@ void config_list_widget::init_gui() {
     connect(&fsWatcher,&QFileSystemWatcher::directoryChanged,[this] () {
          handle_conf();
     });
-
     //
     setMaximumWidth(960);
-    //adjustSize();
+    logout->adjustSize();
+    list->adjustSize();
+    container->adjustSize();
+    stacked_widget->adjustSize();
+    adjustSize();
 }
 
 /* 打开登录框处理事件 */
