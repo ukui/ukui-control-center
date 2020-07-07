@@ -193,6 +193,12 @@ void config_list_widget::init_gui() {
     tooltips = new QToolTips(exit_page);
     texttips = new QLabel(tooltips);
     tipslayout = new QHBoxLayout;
+    listwidget = new QStackedWidget(this);
+    listnull = new QWidget(this);
+
+    listwidget->addWidget(list);
+    listwidget->addWidget(listnull);
+    listwidget->setContentsMargins(0,0,0,0);
 
     tipslayout->addWidget(texttips);
     tipslayout->setMargin(0);
@@ -286,7 +292,7 @@ void config_list_widget::init_gui() {
     cvlayout->addSpacing(16);
     cvlayout->addWidget(auto_syn->get_widget());
     cvlayout->addSpacing(16);
-    cvlayout->addWidget(list);
+    cvlayout->addWidget(listwidget);
     container->setLayout(cvlayout);
 
     login->setFixedSize(180,36);
@@ -349,10 +355,18 @@ void config_list_widget::init_gui() {
     connect(&fsWatcher,&QFileSystemWatcher::directoryChanged,[this] () {
          handle_conf();
     });
+    connect(auto_syn->get_swbtn(),&QL_SwichButton::status,[=] (int on,int id) {
+       if(on == 1) {
+           listwidget->setCurrentWidget(list);
+       } else {
+           listwidget->setCurrentWidget(listnull);
+       }
+    });
     //
     setMaximumWidth(960);
     logout->adjustSize();
     list->adjustSize();
+    listwidget->adjustSize();
     container->adjustSize();
     stacked_widget->adjustSize();
     adjustSize();
@@ -481,11 +495,6 @@ void config_list_widget::on_auto_syn(int on,int id) {
     }
     //emit docheck();
     auto_ok = on;
-    if(auto_ok) {
-        list->show();
-    } else {
-        list->hide();
-    }
     for(int i  = 0;i < mapid.size();i ++) {
         list->get_item(i)->set_active(auto_ok);
     }
