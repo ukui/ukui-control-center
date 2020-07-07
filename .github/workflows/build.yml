@@ -35,4 +35,4 @@ jobs:
         run: ls -l /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules && sudo dpkg -L libkf5widgetsaddons-dev
 
       - name: QMake configure & Make
-        run: mkdir build && cd build && qmake .. && make -j$(nproc)
+        run: mkdir build && cd build && qmake .. -o qmake.log && cat qmake.log && make -j$(nproc)
