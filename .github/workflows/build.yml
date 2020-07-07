@@ -1,0 +1,27 @@
+name: ukui-control-center build CI
+
+on:
+  push:
+    branches:
+      - master
+  
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout ukui-control-center source
+        uses: actions/checkout@v2
+      
+      - name: Install Qt # default is Qt 5.12.9
+        uses: jurplel/install-qt-action@v2
+      
+      - name: Install dependencies
+        run: sudo apt-get install libkf5widgetsaddons-dev libkf5config-dev libkf5configwidgets-dev libkf5screen-dev debhelper-compat libqt5svg5-dev libgsettings-qt-dev libglib2.0-dev libmatekbd-dev libqt5x11extras5-dev libxklavier-dev qtdeclarative5-dev libdconf-dev libmatemixer-dev libqt5xdg-dev qtmultimedia5-dev libxml2-dev
+
+      - name: QMake configure & Make
+        run: mkdir build && cd build && qmake .. && make -j$(nproc)
