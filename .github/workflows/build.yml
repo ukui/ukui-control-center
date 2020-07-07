@@ -31,5 +31,8 @@ jobs:
       - name: Install dependencies
         run: sudo apt-get install libkf5widgetsaddons-dev libkf5config-dev libkf5configwidgets-dev libkf5screen-dev debhelper-compat libqt5svg5-dev libgsettings-qt-dev libglib2.0-dev libmatekbd-dev libqt5x11extras5-dev libxklavier-dev qtdeclarative5-dev libdconf-dev libmatemixer-dev libqt5xdg-dev qtmultimedia5-dev libxml2-dev
 
+      - name: Print Qt modules
+        run: ls -l /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules && sudo dpkg -L libkf5widgetsaddons-dev
+
       - name: QMake configure & Make
         run: mkdir build && cd build && qmake .. && make -j$(nproc)
