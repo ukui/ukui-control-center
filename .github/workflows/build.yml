@@ -4,10 +4,14 @@ on:
   push:
     branches:
 <<<<<<< HEAD
+<<<<<<< HEAD
       - master
 =======
       - fix/header
 >>>>>>> 89df7c1... Create build.yml
+=======
+      - tools/ci-fix-header
+>>>>>>> 97045bb... Update CI
   
   pull_request:
     branches:
