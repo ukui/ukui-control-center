@@ -14,11 +14,10 @@
 
 //#include <KLocalizedString>
 #include <QComboBox>
-#include <QGSettings/QGSettings>
+#include <QGSettings>
 
 #include <KF5/KScreen/kscreen/output.h>
 #include <KF5/KScreen/kscreen/edid.h>
-#include <QGSettings/QGSettings>
 
 #include "ComboBox/combobox.h"
 

@@ -20,7 +20,7 @@
 #include "theme.h"
 #include "ui_theme.h"
 
-#include <QGSettings/QGSettings>
+#include <QGSettings>
 
 #include "SwitchButton/switchbutton.h"
 

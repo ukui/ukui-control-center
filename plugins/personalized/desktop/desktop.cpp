@@ -20,7 +20,7 @@
 #include "desktop.h"
 #include "ui_desktop.h"
 
-#include <QGSettings/QGSettings>
+#include <QGSettings>
 #include "SwitchButton/switchbutton.h"
 #include "realizedesktop.h"
 
