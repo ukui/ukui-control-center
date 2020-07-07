@@ -17,6 +17,7 @@ INCLUDEPATH   +=  \
 
 LIBS          +=  -L/usr/lib/ -lgsettings-qt
 
+PKG_CONFIG    += gsettings-qt \
 
 CONFIG += c++11
 
