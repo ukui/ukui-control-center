@@ -17,9 +17,11 @@ INCLUDEPATH   +=  \
 
 LIBS          +=  -L/usr/lib/ -lgsettings-qt
 
-PKG_CONFIG    += gsettings-qt \
+CONFIG +=  \ 
+          link_pkgconfig \
+          c++11 \
 
-CONFIG += c++11
+PKGCONFIG += gsettings-qt \
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
