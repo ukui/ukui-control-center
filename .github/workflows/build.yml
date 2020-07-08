@@ -1,8 +1,9 @@
-name: ukui-control-center build CI
+name: build
 
 on:
   push:
     branches:
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       - master
@@ -13,26 +14,31 @@ on:
       - tools/ci-fix-header
 >>>>>>> 97045bb... Update CI
   
+=======
+      - master
+
+>>>>>>> 9798d01... Use repository Qt
   pull_request:
-    branches:
+    branches: 
       - master
 
 jobs:
-  build:
+  test:
+
     runs-on: ubuntu-20.04
 
     steps:
-      - name: Checkout ukui-control-center source
-        uses: actions/checkout@v2
-      
-      - name: Install Qt # default is Qt 5.12.9
-        uses: jurplel/install-qt-action@v2
-      
-      - name: Install dependencies
-        run: sudo apt-get install libkf5widgetsaddons-dev libkf5config-dev libkf5configwidgets-dev libkf5screen-dev debhelper-compat libqt5svg5-dev libgsettings-qt-dev libglib2.0-dev libmatekbd-dev libqt5x11extras5-dev libxklavier-dev qtdeclarative5-dev libdconf-dev libmatemixer-dev libqt5xdg-dev qtmultimedia5-dev libxml2-dev
+    - name: Checkout peony source
+      uses: actions/checkout@v2
 
-      - name: Print Qt modules
-        run: ls -l /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules && sudo dpkg -L libkf5widgetsaddons-dev
+    - name: Update apt repository
+      run: sudo apt-get update -y
 
-      - name: QMake configure & Make
-        run: mkdir build && cd build && qmake .. -o qmake.log && cat qmake.log && make -j$(nproc)
+    - name: Install latest Qt5
+      run: sudo apt-get -y install build-essential qt5-default qttools5-dev-tools
+
+    - name: Instal dependcies
+      run: sudo apt-get install pkg-kde-tools pkg-config libkf5widgetsaddons-dev libkf5config-dev libkf5configwidgets-dev libkf5screen-dev debhelper-compat libqt5svg5-dev libgsettings-qt-dev libglib2.0-dev libmatekbd-dev libqt5x11extras5-dev libxklavier-dev qtdeclarative5-dev libdconf-dev libmatemixer-dev libqt5xdg-dev qtmultimedia5-dev libxml2-dev
+
+    - name: QMake configure & Make
+      run: mkdir build && cd build && qmake .. && make -j$(nproc)
