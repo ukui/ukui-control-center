@@ -3,7 +3,11 @@ name: ukui-control-center build CI
 on:
   push:
     branches:
+<<<<<<< HEAD
       - master
+=======
+      - fix/header
+>>>>>>> 89df7c1... Create build.yml
   
   pull_request:
     branches:
