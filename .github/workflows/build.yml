@@ -3,21 +3,8 @@ name: build
 on:
   push:
     branches:
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-      - master
-=======
-      - fix/header
->>>>>>> 89df7c1... Create build.yml
-=======
-      - tools/ci-fix-header
->>>>>>> 97045bb... Update CI
-  
-=======
       - master
 
->>>>>>> 9798d01... Use repository Qt
   pull_request:
     branches: 
       - master
