@@ -25,7 +25,7 @@
 #include <QListView>
 
 #include <QX11Info>
-#include <QGSettings/QGSettings>
+#include <QGSettings>
 #include <QStyledItemDelegate>
 
 #include <QProcess>

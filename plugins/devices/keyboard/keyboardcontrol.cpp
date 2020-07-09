@@ -20,7 +20,7 @@
 #include "keyboardcontrol.h"
 #include "ui_keyboardcontrol.h"
 
-#include <QGSettings/QGSettings>
+#include <QGSettings>
 
 #include <QDebug>
 #include <QMouseEvent>

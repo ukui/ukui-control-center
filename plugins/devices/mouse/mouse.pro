@@ -27,7 +27,8 @@ LIBS          +=  -L/usr/lib/  -lXi -lgsettings-qt
 CONFIG        += link_pkgconfig \
                  C++11
 PKGCONFIG     += gio-2.0 \
-                 gio-unix-2.0
+                 gio-unix-2.0 \
+                 gsettings-qt \
 
 
 #DEFINES += QT_DEPRECATED_WARNINGS
