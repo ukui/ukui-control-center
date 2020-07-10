@@ -205,8 +205,8 @@
     </message>
     <message>
         <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="146"/>
-        <source>selsect autoboot desktop</source>
-        <translation>Otomatik önyükleme masaüstü seç</translation>
+        <source>select autoboot desktop</source>
+        <translation>otomatik önyükleme masaüstü seç</translation>
     </message>
 </context>
 <context>
@@ -3961,8 +3961,8 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="277"/>
-        <source>Select form</source>
-        <translation>Form Seç</translation>
+        <source>Select from</source>
+        <translation>From seç</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="309"/>
@@ -4049,8 +4049,8 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="421"/>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="450"/>
-        <source>selsect custom wallpaper file</source>
-        <translation>Özel duvar kağıdı dosyasını seç</translation>
+        <source>select custom wallpaper file</source>
+        <translation>özel duvar kağıdı dosyasını seç</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="422"/>
@@ -4169,8 +4169,8 @@ Genel nedenler, toplam ekran boyutunun çok büyük olması veya GPU&apos;nuz ta
     </message>
     <message>
         <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="185"/>
-        <source>selsect desktop</source>
-        <translation>Masaüstü Seç</translation>
+        <source>select desktop</source>
+        <translation>masaüstü seç</translation>
     </message>
 </context>
 <context>

@@ -205,7 +205,7 @@
     </message>
     <message>
         <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="146"/>
-        <source>selsect autoboot desktop</source>
+        <source>select autoboot desktop</source>
         <translation>选择自启动程序</translation>
     </message>
 </context>
@@ -546,7 +546,7 @@ you can restore them to ensure the integrity of your system.</source>
     <name>ChangeFaceDialog</name>
     <message>
         <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="139"/>
-        <source>selsect custom face file</source>
+        <source>select custom face file</source>
         <translation>选择自定义头像文件</translation>
     </message>
     <message>
@@ -4015,7 +4015,7 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="277"/>
-        <source>Select form</source>
+        <source>Select from</source>
         <translation>选择背景形式</translation>
     </message>
     <message>
@@ -4103,7 +4103,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="421"/>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="450"/>
-        <source>selsect custom wallpaper file</source>
+        <source>select custom wallpaper file</source>
         <translation>选择自定义壁纸文件</translation>
     </message>
     <message>
@@ -4226,7 +4226,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     </message>
     <message>
         <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="185"/>
-        <source>selsect desktop</source>
+        <source>select desktop</source>
         <translation>选择桌面</translation>
     </message>
 </context>
