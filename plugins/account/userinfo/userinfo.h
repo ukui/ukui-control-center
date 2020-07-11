@@ -41,6 +41,7 @@
 #include "changevailddialog.h"
 #include "deluserdialog.h"
 #include "createuserdialog.h"
+#include "HoverWidget/hoverwidget.h"
 
 #ifdef ENABLEPQ
 extern "C" {
@@ -160,7 +161,7 @@ public:
     void readCurrentPwdConf();
 
 protected:
-    bool eventFilter(QObject *watched, QEvent *event);
+//    bool eventFilter(QObject *watched, QEvent *event);
 
 private:
     Ui::UserInfo *ui;
@@ -168,6 +169,7 @@ private:
     QString pluginName;
     int pluginType;
     QWidget * pluginWidget;
+    HoverWidget *addWgt;
 
 private:
     SwitchButton * nopwdSwitchBtn;
