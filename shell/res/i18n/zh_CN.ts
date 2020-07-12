@@ -3682,7 +3682,7 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.ui" line="456"/>
-        <source>Effect settting</source>
+        <source>Effect setting</source>
         <translation>效果设置</translation>
     </message>
     <message>

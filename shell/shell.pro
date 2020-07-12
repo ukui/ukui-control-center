@@ -48,6 +48,7 @@ target.source += $$TARGET
 target.path = /usr/bin
 
 INSTALLS +=  \
+            target \
             desktop \
             schemes \
             face \

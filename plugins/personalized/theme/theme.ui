@@ -453,7 +453,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>Effect settting</string>
+           <string>Effect setting</string>
           </property>
          </widget>
         </item>
