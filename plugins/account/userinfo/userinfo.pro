@@ -3,6 +3,11 @@
 # Project created by QtCreator 2019-06-29T14:35:43
 #
 #-------------------------------------------------
+include(../../../env.pri)
+include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
+include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
+include($$PROJECT_COMPONENTSOURCE/flowlayout.pri)
+include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
 
 QT       += widgets dbus
 
@@ -10,20 +15,14 @@ TEMPLATE = lib
 CONFIG += plugin
 
 TARGET = $$qtLibraryTarget(userinfo)
-DESTDIR = ../../../pluginlibs
-
-
-include(../../../env.pri)
-include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
-include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
-include($$PROJECT_COMPONENTSOURCE/flowlayout.pri)
-include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
+DESTDIR = ../..
+target.path = $${PLUGIN_INSTALL_DIRS}
 
 INCLUDEPATH   +=  \
                  $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
 
-LIBS          += -L/usr/lib/ -lcrypt
+LIBS          += -L$$[QT_INSTALL_LIBS] -lcrypt
 
 ##加载gio库和gio-unix库
 CONFIG        += link_pkgconfig \
@@ -36,7 +35,7 @@ PKGCONFIG     += gio-2.0 \
 
 SOURCES += \
     elipsemaskwidget.cpp \
-        userinfo.cpp \
+    userinfo.cpp \
     qtdbus/systemdbusdispatcher.cpp \
     changepwddialog.cpp \
     qtdbus/userdispatcher.cpp \
@@ -48,7 +47,7 @@ SOURCES += \
 
 HEADERS += \
     elipsemaskwidget.h \
-        userinfo.h \
+    userinfo.h \
     qtdbus/systemdbusdispatcher.h \
     changepwddialog.h \
     qtdbus/userdispatcher.h \
@@ -59,7 +58,7 @@ HEADERS += \
     changevailddialog.h
 
 FORMS += \
-        userinfo.ui \
+    userinfo.ui \
     changepwddialog.ui \
     changetypedialog.ui \
     changefacedialog.ui \
@@ -67,4 +66,4 @@ FORMS += \
     createuserdialog.ui \
     changevailddialog.ui
 
-RESOURCES += \
+INSTALLS += target

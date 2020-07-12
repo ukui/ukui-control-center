@@ -2,17 +2,16 @@ QT       += core gui svg dbus
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-
-TEMPLATE = lib
-CONFIG += c++11
-CONFIG += plugin
-TARGET = $$qtLibraryTarget(networkaccount)
-DESTDIR = ../../../pluginlibs
-
 include(../../../env.pri)
 
+TEMPLATE = lib
+CONFIG += c++11 plugin
+TARGET = $$qtLibraryTarget(networkaccount)
+DESTDIR = ../..
+target.path = $${PLUGIN_INSTALL_DIRS}
+
 INCLUDEPATH += \
-               $$PROJECT_ROOTDIR \
+    $$PROJECT_ROOTDIR \
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
@@ -30,7 +29,7 @@ SOURCES += \
     bindphonedialog.cpp \
     config_file.cpp \
     config_list_widget.cpp \
-	dbushandleclient.cpp \
+    dbushandleclient.cpp \
     dialog_login_reg.cpp \
     editpassdialog.cpp \
     item_list.cpp \
@@ -57,7 +56,7 @@ HEADERS += \
     bindphonedialog.h \
     config_file.h \
     config_list_widget.h \
-	dbushandleclient.h \
+    dbushandleclient.h \
     dialog_login_reg.h \
     editpassdialog.h \
     item_list.h \
@@ -86,4 +85,4 @@ RESOURCES += \
     json/jsonFile.qrc \
     qss.qrc
 
-DISTFILES += \
+INSTALLS += target

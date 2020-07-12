@@ -375,6 +375,8 @@ void Screensaver::status_init(){
     int mode;
     char * name;
 
+    screensaver_bin = QString(QT_INSTALL_LIBS) + "/ukui-screensaver/ukui-screensaver-default";
+
     screensaver_settings = g_settings_new(SCREENSAVER_SCHEMA);
     mode = g_settings_get_enum(screensaver_settings, MODE_KEY);
     if (mode == MODE_DEFAULT_UKUI){
@@ -443,7 +445,6 @@ void Screensaver::status_init(){
 //    delete publicdata;
 }
 
-#define UKUI_SCREENSAVER_BIN "/usr/lib/ukui-screensaver/ukui-screensaver-default"
 void Screensaver::startupScreensaver(){
     //关闭屏保
     closeScreensaver();
@@ -452,8 +453,8 @@ void Screensaver::startupScreensaver(){
         QStringList args;
         args << "-window-id" << QString::number(ui->previewWidget->winId());
         //启动屏保
-        process->startDetached(UKUI_SCREENSAVER_BIN, args);
-        runStringList.append(UKUI_SCREENSAVER_BIN);
+        process->startDetached(screensaver_bin, args);
+        runStringList.append(screensaver_bin);
     }
     else if (ui->comboBox->currentIndex() == 1){//黑屏
         ui->previewWidget->update();
@@ -490,8 +491,8 @@ void Screensaver::kill_and_start(){
         QStringList args;
         args << "-window-id" << QString::number(mPreviewWidget->winId());
         //启动屏保
-        process->startDetached(UKUI_SCREENSAVER_BIN, args);
-        runStringList.append(UKUI_SCREENSAVER_BIN);
+        process->startDetached(screensaver_bin, args);
+        runStringList.append(screensaver_bin);
     }
     else if (ui->comboBox->currentIndex() == 1){//黑屏
         mPreviewWidget->update();

@@ -4,18 +4,18 @@
 #
 #-------------------------------------------------
 
+include(../../../env.pri)
+include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
+include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
+
 QT       += widgets
 
 TEMPLATE = lib
 CONFIG += plugin
 
 TARGET = $$qtLibraryTarget(vpn)
-DESTDIR = ../../../pluginlibs
-
-include(../../../env.pri)
-include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
-include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
-
+DESTDIR = ../..
+target.path = $${PLUGIN_INSTALL_DIRS}
 
 INCLUDEPATH   +=  \
                  $$PROJECT_COMPONENTSOURCE \
@@ -25,10 +25,12 @@ INCLUDEPATH   +=  \
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
-        vpn.cpp
+    vpn.cpp
 
 HEADERS += \
-        vpn.h
+    vpn.h
 
 FORMS += \
-        vpn.ui
+    vpn.ui
+
+INSTALLS += target

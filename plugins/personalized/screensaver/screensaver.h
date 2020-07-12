@@ -146,6 +146,8 @@ private:
 
     QGSettings * screenlock_settings = nullptr;
 
+    QString screensaver_bin;
+
 //    SwitchButton * activeswitchbtn;
 //    SwitchButton * lockswitchbtn;
 
@@ -154,7 +156,6 @@ private:
     QStyledItemDelegate *itemDelege;
 
     Uslider * uslider;
-
 
 private slots:
     void themesComboxChanged(int index);

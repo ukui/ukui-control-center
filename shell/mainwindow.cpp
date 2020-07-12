@@ -386,13 +386,15 @@ void MainWindow::loadPlugins(){
     static bool installed = (QCoreApplication::applicationDirPath() == QDir(("/usr/bin")).canonicalPath());
 
     if (installed)
-        pluginsDir = QDir("/usr/lib/control-center/pluginlibs/");
+        pluginsDir = QDir(PLUGIN_INSTALL_DIRS);
     else {
-        pluginsDir = QDir(qApp->applicationDirPath() + "/pluginlibs/");
+        pluginsDir = QDir(qApp->applicationDirPath() + "/plugins");
     }
 
-    bool isExistCloud  = isExitsCloudAccount();    
+    bool isExistCloud  = isExitsCloudAccount();
     foreach (QString fileName, pluginsDir.entryList(QDir::Files)){
+        if (!fileName.endsWith(".so"))
+            continue;
 //        if (fileName == "libdesktop.so")
 //            continue;
 //        if (fileName == "libnotice.so")
