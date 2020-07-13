@@ -1,6 +1,6 @@
 ukui-control-center (2.0.5-1) unstable; urgency=medium
 
-  * New upstream release.
+  * New upstream release. (Closes: #964606)
   * debian/control:
     - Add libmatemixer-dev, qtmultimedia5-dev, libxml2-dev, qtbase5-dev,
       libcanberra-dev to Build-Depends.
@@ -92,7 +92,7 @@ ukui-control-center (1.1.5-0ubuntu1) cosmic; urgency=medium
 ukui-control-center (1.1.4-0ubuntu1) cosmic; urgency=medium
 
   * Adjust the width of the wallpaper layout. (LP: #1766506)
-  * Drop liboobs.
+  * Drop liboobs. (Closes: #888672)
 
  -- handsome_feng <jianfengli@ubuntukylin.com>  Tue, 10 Jul 2018 09:48:14 +0800
 
