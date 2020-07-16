@@ -81,11 +81,8 @@ private:
     QStringList buttonStringList;
     QStringList iconShowList;
 
-    QStyledItemDelegate *itemDelege;
-
 private:
     bool settingsCreate;
-
 };
 
 #endif // POWER_H

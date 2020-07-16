@@ -49,6 +49,7 @@ CreateUserDialog::CreateUserDialog(QStringList userlist, QWidget *parent) :
 
     ui->closeBtn->setStyleSheet("QPushButton:hover:!pressed#closeBtn{background: #FA6056; border-radius: 4px;}"
                                 "QPushButton:hover:pressed#closeBtn{background: #E54A50; border-radius: 4px;}");
+    ui->tipLabel->setAlignment(Qt::AlignCenter);
 
     ui->label_8->adjustSize();
     ui->label_8->setWordWrap(true);
@@ -69,16 +70,9 @@ CreateUserDialog::CreateUserDialog(QStringList userlist, QWidget *parent) :
 //                                     "QComboBox::down-arrow{image:url(://img/dropArrow/downpx.png)}"
 //                                     "QComboBox::drop-down{width: 30px; border: none;}"
 //                                     "");
-    //构建Combox代理，否则样式不全部生效
-    itemDelege = new QStyledItemDelegate();
-    ui->pwdTypeComBox->setItemDelegate(itemDelege);
-    ui->pwdTypeComBox->setMaxVisibleItems(5);
-
-
     initPwdChecked();
     setupComonpent();
     setupConnect();
-
 }
 
 CreateUserDialog::~CreateUserDialog()
