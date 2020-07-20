@@ -17,39 +17,38 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef NETWORKACCOUNT_H
-#define NETWORKACCOUNT_H
+#include "configfile.h"
+#include <QDebug>
 
-
-#include <QObject>
-#include <QtPlugin>
-#include "mainwidget.h"
-
-#include "shell/interface.h"
-
-
-
-class networkaccount : public QObject, CommonInterface
+ConfigFile::ConfigFile(QString qstrfilename)
 {
-    Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kycc.CommonInterface")
-    Q_INTERFACES(CommonInterface)
+    if (qstrfilename.isEmpty())
+    {
+        m_qstrFileName = "/kylinssoclient/All.conf";
+    }
+    else
+    {
+        m_qstrFileName = qstrfilename;
+    }
 
-public:
-    networkaccount();
-    QString get_plugin_name() Q_DECL_OVERRIDE;
-    int get_plugin_type() Q_DECL_OVERRIDE;
-    QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
-    void plugin_delay_control() Q_DECL_OVERRIDE;
+    m_psetting = new QSettings(m_qstrFileName, QSettings::IniFormat);
+}
 
-public:
-    void initComponent();
+ConfigFile::~ConfigFile()
+{
+    delete m_psetting;
+    m_psetting = 0;
+}
 
-private:
-    //    Ui::networkaccount *ui;
-    QString pluginName;
-    int pluginType;
-    QWidget * pluginWidget;
-};
+void ConfigFile::Set(QString qstrnodename,QString qstrkeyname,QVariant qvarvalue)
+{
 
-#endif // NETWORKACCOUNT_H
+    m_psetting->setValue(QString("/%1/%2").arg(qstrnodename).arg(qstrkeyname), qvarvalue);
+    m_psetting->sync();
+}
+
+QVariant ConfigFile::Get(QString qstrnodename,QString qstrkeyname)
+{
+    QVariant qvar = m_psetting->value(QString("/%1/%2").arg(qstrnodename).arg(qstrkeyname));
+    return qvar;
+}

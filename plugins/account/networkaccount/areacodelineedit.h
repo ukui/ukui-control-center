@@ -17,39 +17,43 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef NETWORKACCOUNT_H
-#define NETWORKACCOUNT_H
-
+#ifndef AREA_CODE_LINEEDIT_H
+#define AREA_CODE_LINEEDIT_H
 
 #include <QObject>
-#include <QtPlugin>
-#include "mainwidget.h"
+#include <QWidget>
+#include <QComboBox>
+#include <QJsonObject>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonParseError>
+#include <QFile>
+#include <QDebug>
+#include <QHBoxLayout>
+#include <QLineEdit>
+#include <QStandardItemModel>
+#include <QListView>
+#include "combobox.h"
 
-#include "shell/interface.h"
-
-
-
-class networkaccount : public QObject, CommonInterface
+class AreaCodeLineEdit : public QLineEdit
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kycc.CommonInterface")
-    Q_INTERFACES(CommonInterface)
-
 public:
-    networkaccount();
-    QString get_plugin_name() Q_DECL_OVERRIDE;
-    int get_plugin_type() Q_DECL_OVERRIDE;
-    QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
-    void plugin_delay_control() Q_DECL_OVERRIDE;
-
-public:
-    void initComponent();
-
+    explicit    AreaCodeLineEdit(QWidget *parent = nullptr);
+    void        InittoCountrycode();
+    ~AreaCodeLineEdit();
 private:
-    //    Ui::networkaccount *ui;
-    QString pluginName;
-    int pluginType;
-    QWidget * pluginWidget;
+    ComboBox *m_countryComboBox;
+    QJsonArray m_jsonCode;
+    QJsonArray m_jsonArray;
+    QJsonDocument *m_jsonFile;
+    QFrame *m_verticalLine;
+    QFile *m_loadFile;
+    QMap<QString,QPair<QString,QString>>m_countryCode;
+    QStandardItemModel *m_stardardModel;
+    QHBoxLayout *m_hboxLayout;
+signals:
+
 };
 
-#endif // NETWORKACCOUNT_H
+#endif // AREA_CODE_LINEEDIT_H

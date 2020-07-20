@@ -17,39 +17,31 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef NETWORKACCOUNT_H
-#define NETWORKACCOUNT_H
-
+#ifndef QL_LINEEDIT_PASS_H
+#define QL_LINEEDIT_PASS_H
 
 #include <QObject>
-#include <QtPlugin>
-#include "mainwidget.h"
+#include <QWidget>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QHBoxLayout>
+#include <QRegExpValidator>
+#include "svghandler.h"
 
-#include "shell/interface.h"
-
-
-
-class networkaccount : public QObject, CommonInterface
+class PasswordLineEdit : public QLineEdit
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kycc.CommonInterface")
-    Q_INTERFACES(CommonInterface)
-
 public:
-    networkaccount();
-    QString get_plugin_name() Q_DECL_OVERRIDE;
-    int get_plugin_type() Q_DECL_OVERRIDE;
-    QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
-    void plugin_delay_control() Q_DECL_OVERRIDE;
-
-public:
-    void initComponent();
-
+    PasswordLineEdit(QWidget *parent = nullptr);
+    bool check();
+    QPushButton* get_visble();
 private:
-    //    Ui::networkaccount *ui;
-    QString pluginName;
-    int pluginType;
-    QWidget * pluginWidget;
+    QPushButton *m_changeStatusBtn;
+    SVGHandler *m_svgHandler;
+    QHBoxLayout *m_workLayout;
+signals:
+    void verify_text();
+    void false_text();
 };
 
-#endif // NETWORKACCOUNT_H
+#endif // QL_LINEEDIT_PASS_H
