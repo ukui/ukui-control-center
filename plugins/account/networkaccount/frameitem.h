@@ -17,39 +17,38 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef NETWORKACCOUNT_H
-#define NETWORKACCOUNT_H
-
+#ifndef NETWORK_ITEM_H
+#define NETWORK_ITEM_H
 
 #include <QObject>
-#include <QtPlugin>
-#include "mainwidget.h"
+#include <QWidget>
+#include <QDebug>
+#include <QLabel>
+#include <QHBoxLayout>
+#include "switchbutton.h"
+#include <QFrame>
 
-#include "shell/interface.h"
-
-
-
-class networkaccount : public QObject, CommonInterface
+class FrameItem : public QWidget
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kycc.CommonInterface")
-    Q_INTERFACES(CommonInterface)
-
 public:
-    networkaccount();
-    QString get_plugin_name() Q_DECL_OVERRIDE;
-    int get_plugin_type() Q_DECL_OVERRIDE;
-    QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
-    void plugin_delay_control() Q_DECL_OVERRIDE;
-
-public:
-    void initComponent();
-
+    explicit        FrameItem(QWidget *parent = nullptr);
+    void            set_itemname(QString name);
+    QString         get_itemname();
+    void            make_itemoff();
+    void            make_itemon();
+    QHBoxLayout*    get_layout();
+    SwitchButton* get_swbtn();
+    QWidget*        get_widget();
+    void            set_active(bool ok);
 private:
-    //    Ui::networkaccount *ui;
-    QString pluginName;
-    int pluginType;
-    QWidget * pluginWidget;
+    QLabel          *m_itemName;
+    QHBoxLayout     *m_workLayout;
+    QFrame          *m_itemFrame;
+    int             m_bOn;
+    SwitchButton  *m_switchBtn;
+signals:
+
 };
 
-#endif // NETWORKACCOUNT_H
+#endif // NETWORK_ITEM_H

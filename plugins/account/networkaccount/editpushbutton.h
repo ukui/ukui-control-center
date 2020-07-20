@@ -17,39 +17,34 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef NETWORKACCOUNT_H
-#define NETWORKACCOUNT_H
-
+#ifndef QL_PUSHBUTTON_EDIT_H
+#define QL_PUSHBUTTON_EDIT_H
 
 #include <QObject>
-#include <QtPlugin>
-#include "mainwidget.h"
+#include <QWidget>
+#include <QPushButton>
+#include "tooltips.h"
+#include <QLabel>
+#include <QHBoxLayout>
+#include <QDebug>
+#include <QEvent>
+#include <QTimer>
 
-#include "shell/interface.h"
-
-
-
-class networkaccount : public QObject, CommonInterface
+class EditPushButton : public QPushButton
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kycc.CommonInterface")
-    Q_INTERFACES(CommonInterface)
-
 public:
-    networkaccount();
-    QString get_plugin_name() Q_DECL_OVERRIDE;
-    int get_plugin_type() Q_DECL_OVERRIDE;
-    QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
-    void plugin_delay_control() Q_DECL_OVERRIDE;
+    explicit        EditPushButton(QWidget *parent = nullptr);
+    void            enterEvent(QEvent *e);
+    void            leaveEvent(QEvent *e);
+protected:
+    Tooltips        *m_toolTips;
+    QLabel          *m_resetLabel;
+    QHBoxLayout     *m_workLayout;
+    QTimer          *m_cTimer;
+public slots:
+signals:
 
-public:
-    void initComponent();
-
-private:
-    //    Ui::networkaccount *ui;
-    QString pluginName;
-    int pluginType;
-    QWidget * pluginWidget;
 };
 
-#endif // NETWORKACCOUNT_H
+#endif // QL_PUSHBUTTON_EDIT_H

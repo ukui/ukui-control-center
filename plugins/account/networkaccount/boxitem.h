@@ -17,39 +17,30 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef NETWORKACCOUNT_H
-#define NETWORKACCOUNT_H
-
+#ifndef QL_BOX_ITEM_H
+#define QL_BOX_ITEM_H
 
 #include <QObject>
-#include <QtPlugin>
-#include "mainwidget.h"
-
-#include "shell/interface.h"
-
+#include <QWidget>
+#include <QHBoxLayout>
+#include <QLabel>
 
 
-class networkaccount : public QObject, CommonInterface
+class BoxItem : public QWidget
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kycc.CommonInterface")
-    Q_INTERFACES(CommonInterface)
-
 public:
-    networkaccount();
-    QString get_plugin_name() Q_DECL_OVERRIDE;
-    int get_plugin_type() Q_DECL_OVERRIDE;
-    QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
-    void plugin_delay_control() Q_DECL_OVERRIDE;
-
-public:
-    void initComponent();
-
+    explicit BoxItem(QWidget *parent = nullptr);
+    void set_country_code(QString str);
+    void set_code(QString str);
+protected:
+    virtual void enterEvent(QEvent * event);
+    virtual void leaveEvent(QEvent * event);
 private:
-    //    Ui::networkaccount *ui;
-    QString pluginName;
-    int pluginType;
-    QWidget * pluginWidget;
+    QLabel *m_countryCode;
+    QLabel *m_countryName;
+signals:
+
 };
 
-#endif // NETWORKACCOUNT_H
+#endif // QL_BOX_ITEM_H

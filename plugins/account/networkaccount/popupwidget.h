@@ -17,39 +17,29 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef NETWORKACCOUNT_H
-#define NETWORKACCOUNT_H
-
+#ifndef QL_POPUP_H
+#define QL_POPUP_H
 
 #include <QObject>
-#include <QtPlugin>
-#include "mainwidget.h"
+#include <QWidget>
+#include <QPainter>
+#include <QPainterPath>
+#include <QtMath>
+#include <QVBoxLayout>
 
-#include "shell/interface.h"
-
-
-
-class networkaccount : public QObject, CommonInterface
+class PopupWidget : public QWidget
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kycc.CommonInterface")
-    Q_INTERFACES(CommonInterface)
-
 public:
-    networkaccount();
-    QString get_plugin_name() Q_DECL_OVERRIDE;
-    int get_plugin_type() Q_DECL_OVERRIDE;
-    QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
-    void plugin_delay_control() Q_DECL_OVERRIDE;
+    explicit        PopupWidget(QWidget *parent = nullptr);
+    int             m_positionX;
+    int             m_positionY;
+    int             m_borderRadius;
+    int             m_alphaValue;
+protected:
+    void            paintEvent(QPaintEvent *event);
+signals:
 
-public:
-    void initComponent();
-
-private:
-    //    Ui::networkaccount *ui;
-    QString pluginName;
-    int pluginType;
-    QWidget * pluginWidget;
 };
 
-#endif // NETWORKACCOUNT_H
+#endif // QL_POPUP_H

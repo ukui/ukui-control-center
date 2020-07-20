@@ -17,30 +17,50 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef SUCCESSDIAOLOG_H
-#define SUCCESSDIAOLOG_H
+#ifndef QL_COMBOBOBX_H
+#define QL_COMBOBOBX_H
 
 #include <QObject>
 #include <QWidget>
+#include <QLineEdit>
 #include <QPushButton>
-#include <QLabel>
+#include <QListWidget>
+#include <QGraphicsDropShadowEffect>
+#include <QHBoxLayout>
 #include <QVBoxLayout>
-#include <QPixmap>
-#include <QGraphicsSvgItem>
-#include <QSvgWidget>
-class SuccessDiaolog : public QWidget
+#include <QtMath>
+#include <QPainter>
+#include <QLabel>
+#include <QDebug>
+#include <QFile>
+#include <QScrollBar>
+#include "boxitem.h"
+#include "popupwidget.h"
+#include <QScrollArea>
+#include "svghandler.h"
+
+class ComboBox : public QWidget
 {
     Q_OBJECT
 public:
-    explicit SuccessDiaolog(QWidget *parent = nullptr);
-    QPushButton *m_backloginBtn;
-    QLabel      *m_textLabel;
-    QSvgWidget      *m_bkgWidget;
-    void     set_mode_text(int mode);
+    explicit ComboBox(QWidget *parent = nullptr);
+    void addItem(QString country,QString code);
+public slots:
+    void showpopup();
+    void closepopup(QListWidgetItem *item);
+protected:
+    int idx;
 private:
-    QVBoxLayout *m_workLayout;
+    QLineEdit       *m_mainLineEdit;
+    QPushButton     *m_pushButton;
+    QListWidget     *m_listWidget;
+    QWidget         *m_popupWidget;
+    QHBoxLayout     *m_lineeditLayout;
+    QVBoxLayout     *m_popupLayout;
+    QVBoxLayout     *m_comboboxLayout;
+    SVGHandler  *m_svgHandler;
 signals:
-
+    void currentIndexChanged(int index);
 };
 
-#endif // SUCCESSDIAOLOG_H
+#endif // QL_COMBOBOBX_H

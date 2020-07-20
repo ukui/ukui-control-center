@@ -416,6 +416,14 @@
     </message>
 </context>
 <context>
+    <name>AreaCodeLineEdit</name>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/areacodelineedit.cpp" line="83"/>
+        <source>Sign up by Phone</source>
+        <translation>请输入手机号码</translation>
+    </message>
+</context>
+<context>
     <name>Audio</name>
     <message>
         <location filename="../../../plugins/devices/audio/audio.ui" line="26"/>
@@ -432,7 +440,7 @@
         <translation>开机启动设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="140"/>
+        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="132"/>
         <source>Add autoboot app </source>
         <translation>添加自启动程序 </translation>
     </message>
@@ -446,12 +454,12 @@
         <translation>开机启动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="200"/>
+        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="204"/>
         <source>Name</source>
         <translation>程序名称</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="208"/>
+        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="212"/>
         <source>Status</source>
         <translation>当前状态</translation>
     </message>
@@ -513,12 +521,12 @@ you can restore them to ensure the integrity of your system.</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/bindphonedialog.cpp" line="40"/>
         <source>Your code here</source>
-        <translation type="unfinished">输入验证码</translation>
+        <translation>输入验证码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/bindphonedialog.cpp" line="41"/>
         <source>Get phone code</source>
-        <translation type="unfinished">获取绑定手机验证码</translation>
+        <translation>获取绑定手机验证码</translation>
     </message>
 </context>
 <context>
@@ -778,18 +786,18 @@ you can restore them to ensure the integrity of your system.</source>
     <name>CreateUserDialog</name>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="201"/>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="138"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="139"/>
         <source>UserName</source>
         <translation>用户名</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="297"/>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="139"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="140"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="433"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="417"/>
         <source>Account Type</source>
         <translation>用户类型</translation>
     </message>
@@ -809,89 +817,89 @@ you can restore them to ensure the integrity of your system.</source>
         <translation>确认密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="516"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="500"/>
         <source>standard user</source>
         <translation>标准用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="529"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="513"/>
         <source>Standard users can use most software, but cannot install the software and 
 change system settings</source>
         <translation>标准账户可以使用大多数软件，但是不能安装软件和更改系统配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="618"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="602"/>
         <source>administrator</source>
         <translation>管理员用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="631"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="615"/>
         <source>Administrators can make any changes they need</source>
         <translation>管理员账户可以更改任何系统配置，包括安装软件和升级软件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="693"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="677"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="712"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="696"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="140"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="141"/>
         <source>Password Identify</source>
         <translation>密码确认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="144"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="145"/>
         <source>General Password</source>
         <translation>通用密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="176"/>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="296"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="177"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="297"/>
         <source>Inconsistency with pwd</source>
         <translation>和密码不一致</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="283"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="284"/>
         <source>Password length needs to more than %1 character!</source>
         <translation>密码长度至少大于%1个字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="285"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="286"/>
         <source>Password length needs to less than %1 character!</source>
         <translation>密码长度需要小于%1个字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="362"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="377"/>
         <source>The user name cannot be empty</source>
         <translation>用户名不能为空</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="364"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="379"/>
         <source>The first character must be lowercase letters!</source>
         <translation>首字符必须为小写字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="367"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="382"/>
         <source>User name can not contain capital letters!</source>
         <translation>用户名不能包含大写字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="381"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="396"/>
         <source>The user name is already in use, please use a different one.</source>
         <translation>用户名已存在，请换用其他用户名。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="386"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="401"/>
         <source>User name length need to less than %1 letters!</source>
         <translation>用户名长度需要小于%1个字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="388"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="403"/>
         <source>The user name can only be composed of letters, numbers and underline!</source>
         <translation>用户名只能由字母、数字以及下划线组成！</translation>
     </message>
@@ -1120,67 +1128,67 @@ folder will be deleted!</source>
 <context>
     <name>Desktop</name>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="47"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="50"/>
         <source>Icon Show On Desktop</source>
         <translation>显示在桌面的图标</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="136"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="144"/>
         <source>Computerdesktop</source>
         <translation>计算机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="227"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="235"/>
         <source>Trashdesktop</source>
         <translation>垃圾箱</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="318"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="326"/>
         <source>Homedesktop</source>
         <translation>家目录</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="409"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="417"/>
         <source>Volumedesktop</source>
         <translation>挂载卷</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="500"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="508"/>
         <source>Networkdesktop</source>
         <translation>网络</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="530"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="543"/>
         <source>Set Start Menu</source>
         <translation>设置开始菜单</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="589"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="602"/>
         <source>Always use the start menu in full screen</source>
         <translation>一直使用全屏&quot;开始&quot;菜单</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="620"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="633"/>
         <source>Icon Lock on Menu</source>
         <translation>锁定在开始菜单的图标</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="693"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="711"/>
         <source>Computermenu</source>
         <translation>计算机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="966"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="984"/>
         <source>Trashmenu</source>
         <translation>回收站</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="875"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="893"/>
         <source>Filesystemmenu</source>
         <translation>个人</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="996"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="1016"/>
         <source>Tray icon</source>
         <translation>显示在托盘上的图标</translation>
     </message>
@@ -1189,7 +1197,7 @@ folder will be deleted!</source>
         <translation type="vanished">家目录</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="784"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="802"/>
         <source>Settingmenu</source>
         <translation>设置</translation>
     </message>
@@ -1210,231 +1218,160 @@ folder will be deleted!</source>
 <context>
     <name>Dialog_login_reg</name>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="28"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="740"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="974"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="978"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="1004"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="1038"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="1076"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="1524"/>
         <source>Sign in</source>
-        <translation>登录</translation>
+        <translation type="vanished">登录</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="29"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="739"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="1009"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="1046"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="1087"/>
         <source>Sign up</source>
-        <translation>注册云账户</translation>
+        <translation type="vanished">注册云账户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="55"/>
         <source>Login in progress</source>
-        <translation>登录中</translation>
+        <translation type="vanished">登录中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="483"/>
         <source>Error code:</source>
-        <translation>错误代码：</translation>
+        <translation type="vanished">错误代码：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="483"/>
         <source>!</source>
-        <translation>！</translation>
+        <translation type="vanished">！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="485"/>
         <source>Internal error occurring!</source>
-        <translation>服务器错误！</translation>
+        <translation type="vanished">服务器错误！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="486"/>
         <source>Failed to sign up!</source>
-        <translation>注册失败!</translation>
+        <translation type="vanished">注册失败!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="487"/>
         <source>Failed attempt to return value!</source>
-        <translation>登录返回值异常！</translation>
+        <translation type="vanished">登录返回值异常！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="488"/>
         <source>Check your connection!</source>
-        <translation>登录失败或网络异常！</translation>
+        <translation type="vanished">登录失败或网络异常！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="489"/>
         <source>Failed to get by phone!</source>
-        <translation>手机获取验证码失败！</translation>
+        <translation type="vanished">手机获取验证码失败！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="490"/>
         <source>Failed to get by user!</source>
-        <translation>用户名获取验证码失败！</translation>
+        <translation type="vanished">用户名获取验证码失败！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="491"/>
         <source>Failed to reset password!</source>
-        <translation>重置密码失败！</translation>
+        <translation type="vanished">重置密码失败！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="492"/>
         <source>Phone binding falied!</source>
-        <translation>手机绑定失败！</translation>
+        <translation type="vanished">手机绑定失败！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="493"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="496"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="506"/>
         <source>Please check your information!</source>
-        <translation>缺少必要信息！</translation>
+        <translation type="vanished">缺少必要信息！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="494"/>
         <source>Please check your account!</source>
-        <translation>账户或密码错误！</translation>
+        <translation type="vanished">账户或密码错误！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="495"/>
         <source>Failed due to server error!</source>
-        <translation>服务器错误！</translation>
+        <translation type="vanished">服务器错误！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="497"/>
         <source>User existing!</source>
-        <translation>用户名已存在！</translation>
+        <translation type="vanished">用户名已存在！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="498"/>
         <source>Phone number already in used!</source>
-        <translation>手机号码已被使用！</translation>
+        <translation type="vanished">手机号码已被使用！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="499"/>
         <source>Please check your format!</source>
-        <translation>手机号码格式错误！</translation>
+        <translation type="vanished">手机号码格式错误！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="500"/>
         <source>Your are reach the limit!</source>
-        <translation>该手机当日接收短信次数达到上限！</translation>
+        <translation type="vanished">该手机当日接收短信次数达到上限！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="501"/>
         <source>Please check your phone number!</source>
-        <translation>手机号码其他错误！</translation>
+        <translation type="vanished">手机号码其他错误！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="502"/>
         <source>Please check your code!</source>
-        <translation>手机验证码错误！</translation>
+        <translation type="vanished">手机验证码错误！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="503"/>
         <source>Account doesn&apos;t exist!</source>
-        <translation>用户名不存在！</translation>
+        <translation type="vanished">用户名不存在！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="504"/>
         <source>User has bound the phone!</source>
-        <translation>用户已经绑定手机号！</translation>
+        <translation type="vanished">用户已经绑定手机号！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="505"/>
         <source>Sending code error occurring!</source>
-        <translation>发送验证码异常！</translation>
+        <translation type="vanished">发送验证码异常！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="520"/>
         <source>Your code is wrong!</source>
-        <translation>验证码错误！</translation>
+        <translation type="vanished">验证码错误！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="955"/>
         <source>Binding Phone</source>
-        <translation>绑定手机</translation>
+        <translation type="vanished">绑定手机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="958"/>
         <source>Bind now</source>
-        <translation>绑定</translation>
+        <translation type="vanished">绑定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="894"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="907"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="920"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="933"/>
         <source>Resend ( %1 )</source>
-        <translation>重新发送（%1）</translation>
+        <translation type="vanished">重新发送（%1）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="899"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="912"/>
         <source>Get phone code</source>
-        <translation>获取绑定手机验证码</translation>
+        <translation type="vanished">获取绑定手机验证码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="925"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="938"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="973"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="1006"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="1037"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="1075"/>
         <source>Send</source>
-        <translation>发送验证码</translation>
+        <translation type="vanished">发送验证码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="645"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="808"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="870"/>
         <source>At least 6 bit, include letters and digt</source>
-        <translation type="unfinished">至少六位，包含大小写字母、数字</translation>
+        <translation type="obsolete">至少六位，包含大小写字母、数字</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="600"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="607"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="652"/>
         <source>Please check your password!</source>
-        <translation>两次密码设置不一致！</translation>
+        <translation type="vanished">两次密码设置不一致！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="706"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="716"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="1008"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="1481"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.h" line="56"/>
         <source>Sign in Cloud</source>
-        <translation>登录云账户</translation>
+        <translation type="vanished">登录云账户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="755"/>
         <source>Forget</source>
-        <translation>忘记密码</translation>
+        <translation type="vanished">忘记密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="757"/>
         <source>Set</source>
-        <translation>设置</translation>
+        <translation type="vanished">设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="758"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="779"/>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="957"/>
         <source>Back</source>
-        <translation>返回登录</translation>
+        <translation type="vanished">返回登录</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="777"/>
         <source>Create Account</source>
-        <translation>注册云账户</translation>
+        <translation type="vanished">注册云账户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/dialog_login_reg.cpp" line="780"/>
         <source>Sign up now</source>
-        <translation>立即注册</translation>
+        <translation type="vanished">立即注册</translation>
     </message>
 </context>
 <context>
@@ -1445,67 +1382,67 @@ folder will be deleted!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="176"/>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="183"/>
         <source>Display Advanced Settings</source>
         <translation>显示高级设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="248"/>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="255"/>
         <source>Performance</source>
         <translation>性能模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="318"/>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="325"/>
         <source>Applicable to machine with discrete graphics, which can accelerate the rendering of 3D graphics.</source>
         <translation>适用于具有独立显卡的机器，能够充分发挥显卡的性能，对3D图形绘制进行加速。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="331"/>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="338"/>
         <source>(Note: not support connect graphical with xmanager on windows.)</source>
         <translation>（注意：本模式不支持Windows上个使用Xmanager等工具连接图形显示）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="405"/>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="412"/>
         <source>Compatible</source>
         <translation>兼容模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="475"/>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="482"/>
         <source>Applicable to machine with integrated graphics,  there is no 3D graphics acceleration. </source>
         <translation>适用于集成显卡，BMC显卡等只具备基础显示功能，无3D图形绘制加速。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="488"/>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="495"/>
         <source>(Note: need connect graphical with xmanager on windows, use this option.)</source>
         <translation>（注意：需要使用Windows上Xmanager等工具连接图形的机器请选择本项）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="562"/>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="569"/>
         <source>Automatic</source>
         <translation>自动检测</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="632"/>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="639"/>
         <source>Auto select according to environment, delay the login time (about 0.5 sec).</source>
         <translation>自动检测显示环境，会增加登录延时（0.5秒左右）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="650"/>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="657"/>
         <source>Threshold:</source>
         <translation>阈值设置：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="660"/>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="667"/>
         <source>Apply</source>
         <translation>应用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="667"/>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="674"/>
         <source>Reset</source>
         <translation>重置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="682"/>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="689"/>
         <source>(Note: select this option to use 3D graphics acceleration and xmanager.)</source>
         <translation>（注意：使用3D图形加速，且用Xmanager连接图形时选择本项）</translation>
     </message>
@@ -1810,6 +1747,14 @@ folder will be deleted!</source>
     </message>
 </context>
 <context>
+    <name>EditPushButton</name>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/editpushbutton.cpp" line="31"/>
+        <source>Reset</source>
+        <translation>重置密码</translation>
+    </message>
+</context>
+<context>
     <name>ExperiencePlan</name>
     <message>
         <location filename="../../../plugins/messages-task/experienceplan/experienceplan.ui" line="79"/>
@@ -1948,6 +1893,44 @@ folder will be deleted!</source>
         <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="332"/>
         <source>Thanks For Using The ukcc</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ItemList</name>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/itemlist.h" line="41"/>
+        <source>Walpaper</source>
+        <translation>桌面壁纸</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/itemlist.h" line="41"/>
+        <source>ScreenSaver</source>
+        <translation>屏保</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/itemlist.h" line="41"/>
+        <source>Menu</source>
+        <translation>开始菜单</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/itemlist.h" line="41"/>
+        <source>Quick Start</source>
+        <translation>快速启动项</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/itemlist.h" line="41"/>
+        <source>Tab</source>
+        <translation>任务栏</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/itemlist.h" line="41"/>
+        <source>Weather</source>
+        <translation>麒麟天气</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/itemlist.h" line="41"/>
+        <source>Media</source>
+        <translation>麒麟影音</translation>
     </message>
 </context>
 <context>
@@ -2195,6 +2178,301 @@ folder will be deleted!</source>
     </message>
 </context>
 <context>
+    <name>MCodeWidget</name>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/mcodewidget.cpp" line="33"/>
+        <source>SongTi</source>
+        <translation>宋体</translation>
+    </message>
+</context>
+<context>
+    <name>MainDialog</name>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="28"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="740"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="974"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="978"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1004"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1038"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1076"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1525"/>
+        <source>Sign in</source>
+        <translation>登录</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="29"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="739"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1009"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1046"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1087"/>
+        <source>Sign up</source>
+        <translation>注册云账户</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="55"/>
+        <source>Login in progress</source>
+        <translation>登录中</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="483"/>
+        <source>Error code:</source>
+        <translation>错误代码：</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="483"/>
+        <source>!</source>
+        <translation>！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="485"/>
+        <source>Internal error occurring!</source>
+        <translation>服务器错误！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="486"/>
+        <source>Failed to sign up!</source>
+        <translation>注册失败!</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="487"/>
+        <source>Failed attempt to return value!</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="488"/>
+        <source>Check your connection!</source>
+        <translation>登录失败或网络异常！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="489"/>
+        <source>Failed to get by phone!</source>
+        <translation>手机获取验证码失败！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="490"/>
+        <source>Failed to get by user!</source>
+        <translation>用户名获取验证码失败！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="491"/>
+        <source>Failed to reset password!</source>
+        <translation>重置密码失败！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="492"/>
+        <source>Phone binding falied!</source>
+        <translation>手机绑定失败！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="493"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="496"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="506"/>
+        <source>Please check your information!</source>
+        <translation>缺少必要信息！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="494"/>
+        <source>Please check your account!</source>
+        <translation>账户或密码错误！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="495"/>
+        <source>Failed due to server error!</source>
+        <translation>服务器错误！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="497"/>
+        <source>User existing!</source>
+        <translation>用户名已存在！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="498"/>
+        <source>Phone number already in used!</source>
+        <translation>手机号码已被使用！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="499"/>
+        <source>Please check your format!</source>
+        <translation>手机号码格式错误！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="500"/>
+        <source>Your are reach the limit!</source>
+        <translation>该手机当日接收短信次数达到上限！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="501"/>
+        <source>Please check your phone number!</source>
+        <translation>手机号码其他错误！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="502"/>
+        <source>Please check your code!</source>
+        <translation>手机验证码错误！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="503"/>
+        <source>Account doesn&apos;t exist!</source>
+        <translation>用户名不存在！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="504"/>
+        <source>User has bound the phone!</source>
+        <translation>用户已经绑定手机号！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="505"/>
+        <source>Sending code error occurring!</source>
+        <translation>发送验证码异常！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="520"/>
+        <source>Your code is wrong!</source>
+        <translation>验证码错误！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="600"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="607"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="652"/>
+        <source>Please check your password!</source>
+        <translation>两次密码设置不一致！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="645"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="808"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="870"/>
+        <source>At least 6 bit, include letters and digt</source>
+        <translation>至少六位，包含大小写字母、数字</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="706"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="716"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1008"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1481"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.h" line="56"/>
+        <source>Sign in Cloud</source>
+        <translation>登录云账户</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="755"/>
+        <source>Forget</source>
+        <translation>忘记密码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="757"/>
+        <source>Set</source>
+        <translation>设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="758"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="779"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="957"/>
+        <source>Back</source>
+        <translation>返回登录</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="777"/>
+        <source>Create Account</source>
+        <translation>注册云账户</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="780"/>
+        <source>Sign up now</source>
+        <translation>立即注册</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="894"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="907"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="920"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="933"/>
+        <source>Resend ( %1 )</source>
+        <translation>重新发送（%1）</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="899"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="912"/>
+        <source>Get phone code</source>
+        <translation>获取绑定手机验证码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="925"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="938"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="973"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1006"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1037"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1075"/>
+        <source>Send</source>
+        <translation>发送验证码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="955"/>
+        <source>Binding Phone</source>
+        <translation>绑定手机</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="958"/>
+        <source>Bind now</source>
+        <translation>绑定</translation>
+    </message>
+</context>
+<context>
+    <name>MainWidget</name>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.h" line="83"/>
+        <source>Disconnected</source>
+        <translation>未连接</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="66"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="115"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="123"/>
+        <source>Your account：%1</source>
+        <translation>您的云账户：%1</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="150"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="584"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="599"/>
+        <source>Exit</source>
+        <translation>退出登录</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="161"/>
+        <source>Sync</source>
+        <translation>同步中</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="189"/>
+        <source>Sign in</source>
+        <translation>登录</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="208"/>
+        <source>Stop sync</source>
+        <translation>结束同步</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="222"/>
+        <source>Sync your settings</source>
+        <translation>同步您的设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="226"/>
+        <source>Your account:%1</source>
+        <translation>您的云账户：%1</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="237"/>
+        <source>Auto sync</source>
+        <translation>自动同步</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="301"/>
+        <source>Synchronize your personalized settings and data</source>
+        <translation>同步您账户的数据以及个性化设置</translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="../../mainwindow.ui" line="145"/>
@@ -2202,12 +2480,12 @@ folder will be deleted!</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="92"/>
+        <location filename="../../mainwindow.cpp" line="93"/>
         <source>ukcc</source>
         <translation>控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="489"/>
+        <location filename="../../mainwindow.cpp" line="500"/>
         <source>HOME</source>
         <translation>首页</translation>
     </message>
@@ -2689,98 +2967,98 @@ folder will be deleted!</source>
         <translation>电源</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="131"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="143"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="163"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="154"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="166"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="186"/>
         <source>never</source>
         <translation>从不</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="131"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="143"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="163"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="154"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="166"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="186"/>
         <source>10 min</source>
         <translation>10分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="131"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="143"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="154"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="166"/>
         <source>30 min</source>
         <translation>30分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="131"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="143"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="154"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="166"/>
         <source>60 min</source>
         <translation>60分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="131"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="143"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="154"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="166"/>
         <source>120 min</source>
         <translation>120分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="131"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="154"/>
         <source>300 min</source>
         <translation>300分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="131"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="143"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="163"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="154"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="166"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="186"/>
         <source>20 min</source>
         <translation>20分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="143"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="163"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="166"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="186"/>
         <source>1 min</source>
         <translation>1分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="143"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="163"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="166"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="186"/>
         <source>5 min</source>
         <translation>5分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="155"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="178"/>
         <source>nothing</source>
         <translation>无操作</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="155"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="178"/>
         <source>blank</source>
         <translation>黑屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="155"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="178"/>
         <source>suspend</source>
         <translation>挂起</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="155"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="178"/>
         <source>hibernate</source>
         <translation>休眠</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="155"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="178"/>
         <source>shutdown</source>
         <translation>关机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="180"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="203"/>
         <source>always</source>
         <translation>总是显示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="180"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="203"/>
         <source>present</source>
         <translation>仅当存在电池时显示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="180"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="203"/>
         <source>charge</source>
         <translation>仅当使用电池时显示</translation>
     </message>
@@ -3385,22 +3663,22 @@ folder will be deleted!</source>
         <translation>锁屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="68"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="74"/>
         <source>Screenlock Interface</source>
         <translation>锁屏界面</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="136"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="142"/>
         <source>Screenlock Set</source>
         <translation>锁屏设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="262"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="268"/>
         <source>Lock screen when screensaver boot</source>
         <translation>激活屏保时锁定屏幕</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="334"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="340"/>
         <source>Lock screen delay</source>
         <translation>锁屏延时</translation>
     </message>
@@ -3409,22 +3687,22 @@ folder will be deleted!</source>
         <translation type="vanished">分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="368"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="374"/>
         <source>Select screenlock background</source>
         <translation>选择锁屏背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="411"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="417"/>
         <source>Browser online wp</source>
         <translation>浏览线上壁纸</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="430"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="436"/>
         <source>Browser local wp</source>
         <translation>浏览本地壁纸</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="190"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="196"/>
         <source>Show picture of screenlock on screenlogin</source>
         <translation>显示锁屏壁纸在登录页面</translation>
     </message>
@@ -3588,7 +3866,7 @@ folder will be deleted!</source>
     <name>SecurityCenter</name>
     <message>
         <location filename="../../../plugins/security-updates/securitycenter/securitycenter.ui" line="14"/>
-        <location filename="../../../plugins/security-updates/securitycenter/securitycenter.cpp" line="93"/>
+        <location filename="../../../plugins/security-updates/securitycenter/securitycenter.cpp" line="92"/>
         <source>SecurityCenter</source>
         <translation>安全中心</translation>
     </message>
@@ -3608,42 +3886,42 @@ folder will be deleted!</source>
         <translation>打开安全中心</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/securitycenter/securitycenter.cpp" line="135"/>
+        <location filename="../../../plugins/security-updates/securitycenter/securitycenter.cpp" line="134"/>
         <source>Virus Protection</source>
         <translation>病毒防护</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/securitycenter/securitycenter.cpp" line="136"/>
+        <location filename="../../../plugins/security-updates/securitycenter/securitycenter.cpp" line="135"/>
         <source>Protect system from threats</source>
         <translation>实时防护，帮助系统免受威胁</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/securitycenter/securitycenter.cpp" line="141"/>
+        <location filename="../../../plugins/security-updates/securitycenter/securitycenter.cpp" line="140"/>
         <source>Network Protection</source>
         <translation>网络保护</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/securitycenter/securitycenter.cpp" line="142"/>
+        <location filename="../../../plugins/security-updates/securitycenter/securitycenter.cpp" line="141"/>
         <source>Setup app that can access web</source>
         <translation>设置可访问网络的应用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/securitycenter/securitycenter.cpp" line="147"/>
+        <location filename="../../../plugins/security-updates/securitycenter/securitycenter.cpp" line="146"/>
         <source>App Execution Control</source>
         <translation>应用执行控制</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/securitycenter/securitycenter.cpp" line="148"/>
+        <location filename="../../../plugins/security-updates/securitycenter/securitycenter.cpp" line="147"/>
         <source>App install and exe protection</source>
         <translation>应用程序安装和执行保护</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/securitycenter/securitycenter.cpp" line="153"/>
+        <location filename="../../../plugins/security-updates/securitycenter/securitycenter.cpp" line="152"/>
         <source>Account Security</source>
         <translation>账户安全</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/securitycenter/securitycenter.cpp" line="154"/>
+        <location filename="../../../plugins/security-updates/securitycenter/securitycenter.cpp" line="153"/>
         <source>Protect account and login security</source>
         <translation>保护账户和登录的安全性</translation>
     </message>
@@ -3747,7 +4025,7 @@ folder will be deleted!</source>
 <context>
     <name>Theme</name>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="67"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="73"/>
         <source>Theme Mode</source>
         <translation>主题模式</translation>
     </message>
@@ -3776,27 +4054,27 @@ folder will be deleted!</source>
         <translation type="vanished">中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="267"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="273"/>
         <source>Icon theme</source>
         <translation>图标主题</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="324"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="330"/>
         <source>Control theme</source>
         <translation>控件主题</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="399"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="405"/>
         <source>Cursor theme</source>
         <translation>光标主题</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="456"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="462"/>
         <source>Effect setting</source>
         <translation>效果设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="591"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="597"/>
         <source>Transparency</source>
         <translation>透明度</translation>
     </message>
@@ -3805,7 +4083,7 @@ folder will be deleted!</source>
         <translation type="vanished">透明特效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="519"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="525"/>
         <source>Performance mode</source>
         <translation>特效模式</translation>
     </message>
@@ -3822,7 +4100,7 @@ folder will be deleted!</source>
         <translation type="vanished">高</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="699"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="705"/>
         <source>Reset to default</source>
         <translation>恢复默认设置</translation>
     </message>
@@ -4456,34 +4734,34 @@ folder will be deleted!</source>
         <translation>夜间模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="565"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="574"/>
         <source>Some applications need to be logouted to take effect</source>
         <translation>应用程序需要注销才能生效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="941"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="950"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="942"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="950"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="951"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="959"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="949"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="958"/>
         <source>Morning time should be earlier than evening time!</source>
         <translation>早晨时刻应早于晚上的时刻!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="968"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="977"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="969"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="978"/>
         <source>@title:window</source>
         <comment>Unsupported Configuration</comment>
         <translation>窗口</translation>
@@ -4539,9 +4817,8 @@ Common reasons are that the overall screen size is too big, or you enabled more 
 <context>
     <name>area_code_lineedit</name>
     <message>
-        <location filename="../../../plugins/account/networkaccount/area_code_lineedit.cpp" line="83"/>
         <source>Sign up by Phone</source>
-        <translation>请输入手机号码</translation>
+        <translation type="vanished">请输入手机号码</translation>
     </message>
 </context>
 <context>
@@ -4594,46 +4871,36 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">平铺</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/config_list_widget.cpp" line="222"/>
         <source>Sync your settings</source>
-        <translation>同步您的设置</translation>
+        <translation type="vanished">同步您的设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/config_list_widget.cpp" line="226"/>
         <source>Your account:%1</source>
-        <translation>您的云账户：%1</translation>
+        <translation type="vanished">您的云账户：%1</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/config_list_widget.cpp" line="150"/>
-        <location filename="../../../plugins/account/networkaccount/config_list_widget.cpp" line="584"/>
-        <location filename="../../../plugins/account/networkaccount/config_list_widget.cpp" line="599"/>
         <source>Exit</source>
-        <translation>退出登录</translation>
+        <translation type="vanished">退出登录</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/config_list_widget.cpp" line="161"/>
         <source>Sync</source>
-        <translation>同步中</translation>
+        <translation type="vanished">同步中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/config_list_widget.cpp" line="189"/>
         <source>Sign in</source>
-        <translation>登录</translation>
+        <translation type="vanished">登录</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/config_list_widget.cpp" line="208"/>
         <source>Stop sync</source>
-        <translation>结束同步</translation>
+        <translation type="vanished">结束同步</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/config_list_widget.cpp" line="237"/>
         <source>Auto sync</source>
-        <translation>自动同步</translation>
+        <translation type="vanished">自动同步</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/config_list_widget.cpp" line="301"/>
         <source>Synchronize your personalized settings and data</source>
-        <translation>同步您账户的数据以及个性化设置</translation>
+        <translation type="vanished">同步您账户的数据以及个性化设置</translation>
     </message>
     <message>
         <source>Login Cloud to get a better experience</source>
@@ -4648,66 +4915,54 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">如需同步设置，请先登录您的云账户。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/config_list_widget.cpp" line="66"/>
-        <location filename="../../../plugins/account/networkaccount/config_list_widget.cpp" line="115"/>
-        <location filename="../../../plugins/account/networkaccount/config_list_widget.cpp" line="123"/>
         <source>Your account：%1</source>
-        <translation>您的云账户：%1</translation>
+        <translation type="vanished">您的云账户：%1</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/config_list_widget.h" line="86"/>
         <source>Disconnected</source>
-        <translation>未连接</translation>
+        <translation type="vanished">未连接</translation>
     </message>
 </context>
 <context>
     <name>item_list</name>
     <message>
-        <location filename="../../../plugins/account/networkaccount/item_list.h" line="41"/>
         <source>Menu</source>
-        <translation>开始菜单</translation>
+        <translation type="vanished">开始菜单</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/item_list.h" line="41"/>
         <source>Quick Start</source>
-        <translation>快速启动项</translation>
+        <translation type="vanished">快速启动项</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/item_list.h" line="41"/>
         <source>Tab</source>
-        <translation>任务栏</translation>
+        <translation type="vanished">任务栏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/item_list.h" line="41"/>
         <source>ScreenSaver</source>
-        <translation>屏保</translation>
+        <translation type="vanished">屏保</translation>
     </message>
     <message>
         <source>User Profile</source>
         <translation type="vanished">用户头像</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/item_list.h" line="41"/>
         <source>Weather</source>
-        <translation>麒麟天气</translation>
+        <translation type="vanished">麒麟天气</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/item_list.h" line="41"/>
         <source>Media</source>
-        <translation>麒麟影音</translation>
+        <translation type="vanished">麒麟影音</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/item_list.h" line="41"/>
         <source>Walpaper</source>
-        <translation>桌面壁纸</translation>
+        <translation type="vanished">桌面壁纸</translation>
     </message>
 </context>
 <context>
     <name>mcode_widget</name>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mcode_widget.cpp" line="33"/>
         <source>SongTi</source>
-        <translation>宋体</translation>
+        <translation type="vanished">宋体</translation>
     </message>
 </context>
 <context>
@@ -4721,9 +4976,8 @@ Common reasons are that the overall screen size is too big, or you enabled more 
 <context>
     <name>ql_pushbutton_edit</name>
     <message>
-        <location filename="../../../plugins/account/networkaccount/ql_pushbutton_edit.cpp" line="31"/>
         <source>Reset</source>
-        <translation>重置密码</translation>
+        <translation type="vanished">重置密码</translation>
     </message>
 </context>
 </TS>

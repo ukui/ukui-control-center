@@ -17,39 +17,33 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef NETWORKACCOUNT_H
-#define NETWORKACCOUNT_H
-
+#ifndef ITEM_LIST_H
+#define ITEM_LIST_H
 
 #include <QObject>
-#include <QtPlugin>
-#include "mainwidget.h"
+#include <QListWidget>
+#include <QMouseEvent>
+#include <QComboBox>
+#include "frameitem.h"
 
-#include "shell/interface.h"
+#define CURSIZE 6
 
-
-
-class networkaccount : public QObject, CommonInterface
+class ItemList : public QListWidget
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kycc.CommonInterface")
-    Q_INTERFACES(CommonInterface)
-
 public:
-    networkaccount();
-    QString get_plugin_name() Q_DECL_OVERRIDE;
-    int get_plugin_type() Q_DECL_OVERRIDE;
-    QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
-    void plugin_delay_control() Q_DECL_OVERRIDE;
-
-public:
-    void initComponent();
-
+    explicit        ItemList(QListWidget *parent = nullptr,int itemssize = CURSIZE);
+    QStringList     get_list();
+    FrameItem*   get_item(int cur);
+    void            add_item(QString item_name);
 private:
-    //    Ui::networkaccount *ui;
-    QString pluginName;
-    int pluginType;
-    QWidget * pluginWidget;
+    QListWidgetItem *m_listwidgetItem[30];
+    QStringList     m_szItemNameList = {tr("Walpaper"),tr("ScreenSaver"),tr("Menu"),tr("Quick Start"),tr("Tab"),tr("Weather"),tr("Media")};
+    int             m_cItemCnt = 0;
+    FrameItem    *m_itemWidget[30];
+    QPoint          m_startPoint;
+signals:
+
 };
 
-#endif // NETWORKACCOUNT_H
+#endif // ITEM_LIST_H
