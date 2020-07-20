@@ -50,14 +50,12 @@ void centerToScreen(QWidget* widget) {
 
 int main(int argc, char *argv[])
 {
-    QtSingleApplication a(argc, argv);
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 6, 0))
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+#endif
 
-    if (QApplication::desktop()->width() >= 2560) {
-        #if (QT_VERSION >= QT_VERSION_CHECK(5, 6, 0))
-                QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-                QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-        #endif
-    }
+    QtSingleApplication a(argc, argv);
 
     if (a.isRunning()){
         a.sendMessage(QApplication::arguments().length() > 1 ? QApplication::arguments().at(1) : a.applicationFilePath());
