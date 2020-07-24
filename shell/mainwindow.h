@@ -27,10 +27,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <libintl.h>
-gboolean dispalyIsOk;
-GtkBuilder *builder;
-GtkWindow *window;
-GtkApplication * app;
+
+extern gboolean dispalyIsOk;
+extern GtkBuilder *builder;
+extern GtkWindow *window;
+extern GtkApplication * app;
 
 typedef struct _ButtonData ButtonData;
 
@@ -41,69 +42,69 @@ struct _ButtonData
 	gchar *title;
 };
 
-ButtonData data_time;
-ButtonData data_count;
-ButtonData data_theme;
-ButtonData data_app;
-ButtonData data_network;
-ButtonData data_key;
-ButtonData data_mouse;
-ButtonData data_printer;
-ButtonData data_sound;
-ButtonData data_net;
-ButtonData data_start;
-ButtonData data_display;
-ButtonData data_power;
-ButtonData data_system;
+extern ButtonData data_time;
+extern ButtonData data_count;
+extern ButtonData data_theme;
+extern ButtonData data_app;
+extern ButtonData data_network;
+extern ButtonData data_key;
+extern ButtonData data_mouse;
+extern ButtonData data_printer;
+extern ButtonData data_sound;
+extern ButtonData data_net;
+extern ButtonData data_start;
+extern ButtonData data_display;
+extern ButtonData data_power;
+extern ButtonData data_system;
 
-GtkNotebook *notebook1;
-GtkNotebook *notebook2;
+extern GtkNotebook *notebook1;
+extern GtkNotebook *notebook2;
 
-GtkButton *bt_startpage;
+extern GtkButton *bt_startpage;
 
-GtkButton *button1;
-GtkButton *button2;
-GtkButton *button3;
-GtkButton *button4;
-GtkButton *button5;
-GtkButton *button6;
-GtkButton *button7;
-GtkButton *button8;
-GtkButton *button9;
-GtkButton *button10;
-GtkButton *button11;
-GtkButton *button12;
-GtkButton *button13;
-GtkButton *button14;
+extern GtkButton *button1;
+extern GtkButton *button2;
+extern GtkButton *button3;
+extern GtkButton *button4;
+extern GtkButton *button5;
+extern GtkButton *button6;
+extern GtkButton *button7;
+extern GtkButton *button8;
+extern GtkButton *button9;
+extern GtkButton *button10;
+extern GtkButton *button11;
+extern GtkButton *button12;
+extern GtkButton *button13;
+extern GtkButton *button14;
 
-GtkViewport *vp_time;
-GtkButton *bt_time;
-GtkViewport *vp_count;
-GtkButton *bt_count;
-GtkViewport *vp_theme;
-GtkButton *bt_theme;
-GtkViewport *vp_app;
-GtkButton *bt_app;
-GtkViewport *vp_network;
-GtkButton *bt_network;
-GtkViewport *vp_key;
-GtkButton *bt_key;
-GtkViewport *vp_mouse;
-GtkButton *bt_mouse;
-GtkViewport *vp_printer;
-GtkButton *bt_printer;
-GtkViewport *vp_sound;
-GtkButton *bt_sound;
-GtkViewport *vp_net;
-GtkButton *bt_net;
-GtkViewport *vp_start;
-GtkButton *bt_start;
-GtkViewport *vp_display;
-GtkButton *bt_display;
-GtkViewport *vp_power;
-GtkButton *bt_power;
-GtkViewport *vp_system;
-GtkButton *bt_system;
+extern GtkViewport *vp_time;
+extern GtkButton *bt_time;
+extern GtkViewport *vp_count;
+extern GtkButton *bt_count;
+extern GtkViewport *vp_theme;
+extern GtkButton *bt_theme;
+extern GtkViewport *vp_app;
+extern GtkButton *bt_app;
+extern GtkViewport *vp_network;
+extern GtkButton *bt_network;
+extern GtkViewport *vp_key;
+extern GtkButton *bt_key;
+extern GtkViewport *vp_mouse;
+extern GtkButton *bt_mouse;
+extern GtkViewport *vp_printer;
+extern GtkButton *bt_printer;
+extern GtkViewport *vp_sound;
+extern GtkButton *bt_sound;
+extern GtkViewport *vp_net;
+extern GtkButton *bt_net;
+extern GtkViewport *vp_start;
+extern GtkButton *bt_start;
+extern GtkViewport *vp_display;
+extern GtkButton *bt_display;
+extern GtkViewport *vp_power;
+extern GtkButton *bt_power;
+extern GtkViewport *vp_system;
+extern GtkButton *bt_system;
 
 gboolean on_all_quit();
 void ukui_init(int *argc, char **argv[]);
