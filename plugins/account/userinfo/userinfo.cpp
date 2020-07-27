@@ -326,6 +326,8 @@ void UserInfo::initComponent(){
 //    QString filename = "/etc/lightdm/lightdm.conf";
 //    autoSettings = new QSettings(filename, QSettings::IniFormat);
 
+    ui->listWidget->setStyleSheet("QListWidget::Item:hover{background:palette(base);}");
+
     addWgt = new HoverWidget("");
     addWgt->setObjectName("addwgt");
     addWgt->setMinimumSize(QSize(580, 50));
@@ -371,7 +373,7 @@ void UserInfo::initComponent(){
 
 
 //    ui->listWidget->setStyleSheet("QListWidget{border: none}");
-    ui->listWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+//    ui->listWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 //    ui->listWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->listWidget->setSpacing(0);
 
@@ -644,7 +646,7 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     baseWidget->setLayout(baseVerLayout);
 
     QListWidgetItem * item = new QListWidgetItem(ui->listWidget);
-    item->setSizeHint(QSize(ui->listWidget->width(), ITEMHEIGH));
+    item->setSizeHint(QSize(ui->listWidget->width() - 2, ITEMHEIGH));
     item->setData(Qt::UserRole, QVariant(user.objpath));
     ui->listWidget->setItemWidget(item, baseWidget);
 
