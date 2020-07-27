@@ -42,16 +42,9 @@
 
 
 #define QML_PATH "kcm_kscreen/qml/"
+
 #define UKUI_CONTORLCENTER_PANEL_SCHEMAS "org.ukui.control-center.panel.plugins"
-
 #define NIGHT_MODE_KEY "nightmodestatus"
-
-
-//#define SCRENN_SCALE_SCHMES "org.ukui.session"
-//#define GDK_SCALE_KEY "gdk-scale"
-//#define QT_SCALE_KEY "qt-scale-factor"
-//#define USER_SACLE_KEY "hidpi"
-
 
 #define FONT_RENDERING_DPI "org.ukui.SettingsDaemon.plugins.xsettings"
 #define DPI_KEY "scaling-factor"
