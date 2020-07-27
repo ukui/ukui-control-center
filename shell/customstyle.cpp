@@ -16,58 +16,8 @@ InternalStyle::InternalStyle(const QString &styleName, QObject *parent) : QProxy
 
 }
 
-void InternalStyle::drawPrimitive(QStyle::PrimitiveElement element, const QStyleOption *option, QPainter *painter, const QWidget *widget) const
-{
-    //qDebug()<<element;
-    switch (element) {
-    case QStyle::PE_Frame: {
-//        painter->fillRect(option->rect, option->palette.button().color());
-        return;
-//        painter->save();
-//        painter->setRenderHint(QPainter::Antialiasing, true);
-//        painter->setPen(QPen(option->palette.foreground(), 1.0));
-//        painter->drawRect(option->rect.adjusted(+1, +1, -1, -1));
-//        painter->restore();        
-        QStyleOptionFrame frame = *qstyleoption_cast<const QStyleOptionFrame *>(option);
-        QFrame::Shape shape = frame.frameShape;
-        switch (shape) {
-        case QFrame::Box: {
-            //border top radius
-            painter->fillRect(frame.rect, Qt::red);
-            return;
-        }
-        case QFrame::HLine: {
-            //border bottom radius
-            painter->fillRect(frame.rect, Qt::green);
-            return;
-        }
-        case QFrame::VLine: {
-            //both top and bottom
-            painter->fillRect(frame.rect, Qt::blue);
-            return;
-        }
-        default:
-//            qDebug()<<"this is deafault"<<endl;
-            return;
-        }
-        return;
-    }
-    case PE_IndicatorViewItemCheck:
-    case PE_PanelItemViewRow:
-    case PE_PanelItemViewItem: {
-        if (widget->parent() && widget->inherits("QComboBoxPrivateContainer"))
-            break;
-        return;
-    }
-    default:
-        break;
-    }
-    return QProxyStyle::drawPrimitive(element, option, painter, widget);
-}
-
 void InternalStyle::drawControl(QStyle::ControlElement element, const QStyleOption *option, QPainter *painter, const QWidget *widget) const
 {
-//    qDebug()<<element;
     switch(element)
     {
     case CE_ShapedFrame: {
@@ -142,17 +92,17 @@ void InternalStyle::drawControl(QStyle::ControlElement element, const QStyleOpti
         return;
         break;
     }
-    case CE_ItemViewItem: {
-        if (widget->parent() && ((widget->parent()->inherits("QComboBoxPrivateContainer") ||
-                                  (qobject_cast<const QFileDialog*>(widget->topLevelWidget()) &&
-                                   qobject_cast<const QAbstractItemView*>(widget)))))
-        {
-            break;
-        }
-        QStyleOptionViewItem item = *qstyleoption_cast<const QStyleOptionViewItem *>(option);
-        item.palette.setColor(QPalette::Highlight, item.palette.base().color());
-        return QProxyStyle::drawControl(element, &item, painter, widget);
-    }
+//    case CE_ItemViewItem: {
+//        if (widget->parent() && ((widget->parent()->inherits("QComboBoxPrivateContainer") ||
+//                                  (qobject_cast<const QFileDialog*>(widget->topLevelWidget()) &&
+//                                   qobject_cast<const QAbstractItemView*>(widget)))))
+//        {
+//            break;
+//        }
+//        QStyleOptionViewItem item = *qstyleoption_cast<const QStyleOptionViewItem *>(option);
+//        item.palette.setColor(QPalette::Highlight, item.palette.base().color());
+//        return QProxyStyle::drawControl(element, &item, painter, widget);
+//    }
     default:
         break;
     }
