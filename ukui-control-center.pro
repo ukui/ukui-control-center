@@ -6,7 +6,7 @@ SUBDIRS = \
     registeredQDbus \
     plugins\
     shell \
-    tastenbrett \
+#    tastenbrett \
 
 
 TRANSLATIONS += \
