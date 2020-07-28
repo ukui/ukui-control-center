@@ -78,6 +78,11 @@ public:
     void initGSettings();
 
 private:
+    void changeAppstatus(bool checked, QString name,SwitchButton *appBtn);
+    void setHiddenNoticeApp(bool status);
+
+private:
+    Ui::Notice *ui;
     QString pluginName;
     int pluginType;
     QWidget * pluginWidget;
@@ -93,11 +98,5 @@ private:
     QStringList appsName;
     QStringList appsKey;
     QVector<QGSettings*> *vecGsettins;
-
-    void changeAppstatus(bool checked, QString name,SwitchButton *appBtn);
-
-private:
-    Ui::Notice *ui;
-
 };
 #endif // NOTICE_H
