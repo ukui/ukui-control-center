@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>716</height>
+    <height>781</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -248,33 +248,7 @@
         <item>
          <widget class="QSlider" name="midHorSlider">
           <property name="styleSheet">
-           <string notr="true">QSlider{
-    width: 178px;
-    height: 20px;
-}
-QSlider::groove:horizontal {
-    border: 0px solid #bbb;
-
-}
-QSlider::sub-page:horizontal {
-    background: #3D6BE5;
-    border-radius: 2px;
-    margin-top:8px;
-    margin-bottom:9px;
-}
-QSlider::add-page:horizontal {
-    background:  rgba(52,70,80,90%);
-    border: 0px solid #777;
-    border-radius: 2px;
-    margin-top:8px;
-    margin-bottom:9px;
-}
-QSlider::handle:horizontal {
-    width: 20px;
-    height: 20px;
-    background: #3D6BE5;
-    border-radius:10px;
-}</string>
+           <string notr="true"/>
           </property>
           <property name="maximum">
            <number>9</number>
@@ -327,13 +301,13 @@ QSlider::handle:horizontal {
     <widget class="QFrame" name="doubleClickFrame">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>550</width>
        <height>60</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>960</width>
        <height>60</height>
       </size>
      </property>
@@ -417,33 +391,7 @@ QSlider::handle:horizontal {
         <item>
          <widget class="QSlider" name="doubleclickHorSlider">
           <property name="styleSheet">
-           <string notr="true">QSlider{
-    width: 178px;
-    height: 20px;
-}
-QSlider::groove:horizontal {
-    border: 0px solid #bbb;
-
-}
-QSlider::sub-page:horizontal {
-    background: #3D6BE5;
-    border-radius: 2px;
-    margin-top:8px;
-    margin-bottom:9px;
-}
-QSlider::add-page:horizontal {
-    background:  rgba(52,70,80,90%);
-    border: 0px solid #777;
-    border-radius: 2px;
-    margin-top:8px;
-    margin-bottom:9px;
-}
-QSlider::handle:horizontal {
-    width: 20px;
-    height: 20px;
-    background: #3D6BE5;
-    border-radius:10px;
-}</string>
+           <string notr="true"/>
           </property>
           <property name="minimum">
            <number>100</number>
@@ -634,33 +582,7 @@ QSlider::handle:horizontal {
         <item>
          <widget class="QSlider" name="pointerSpeedSlider">
           <property name="styleSheet">
-           <string notr="true">QSlider{
-    width: 178px;
-    height: 20px;
-}
-QSlider::groove:horizontal {
-    border: 0px solid #bbb;
-
-}
-QSlider::sub-page:horizontal {
-    background: #3D6BE5;
-    border-radius: 2px;
-    margin-top:8px;
-    margin-bottom:9px;
-}
-QSlider::add-page:horizontal {
-    background:  rgba(52,70,80,90%);
-    border: 0px solid #777;
-    border-radius: 2px;
-    margin-top:8px;
-    margin-bottom:9px;
-}
-QSlider::handle:horizontal {
-    width: 20px;
-    height: 20px;
-    background: #3D6BE5;
-    border-radius:10px;
-}</string>
+           <string notr="true"/>
           </property>
           <property name="minimum">
            <number>100</number>
@@ -806,33 +728,7 @@ QSlider::handle:horizontal {
         <item>
          <widget class="QSlider" name="pointerSensitivitySlider">
           <property name="styleSheet">
-           <string notr="true">QSlider{
-    width: 178px;
-    height: 20px;
-}
-QSlider::groove:horizontal {
-    border: 0px solid #bbb;
-
-}
-QSlider::sub-page:horizontal {
-    background: #3D6BE5;
-    border-radius: 2px;
-    margin-top:8px;
-    margin-bottom:9px;
-}
-QSlider::add-page:horizontal {
-    background:  rgba(52,70,80,90%);
-    border: 0px solid #777;
-    border-radius: 2px;
-    margin-top:8px;
-    margin-bottom:9px;
-}
-QSlider::handle:horizontal {
-    width: 20px;
-    height: 20px;
-    background: #3D6BE5;
-    border-radius:10px;
-}</string>
+           <string notr="true"/>
           </property>
           <property name="minimum">
            <number>100</number>
@@ -1251,33 +1147,7 @@ QSlider::handle:horizontal {
         <item>
          <widget class="QSlider" name="cursorWeightSlider">
           <property name="styleSheet">
-           <string notr="true">QSlider{
-    width: 178px;
-    height: 20px;
-}
-QSlider::groove:horizontal {
-    border: 0px solid #bbb;
-
-}
-QSlider::sub-page:horizontal {
-    background: #3D6BE5;
-    border-radius: 2px;
-    margin-top:8px;
-    margin-bottom:9px;
-}
-QSlider::add-page:horizontal {
-    background:  rgba(52,70,80,90%);
-    border: 0px solid #777;
-    border-radius: 2px;
-    margin-top:8px;
-    margin-bottom:9px;
-}
-QSlider::handle:horizontal {
-    width: 20px;
-    height: 20px;
-    background: #3D6BE5;
-    border-radius:10px;
-}</string>
+           <string notr="true"/>
           </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
@@ -1440,33 +1310,7 @@ QSlider::handle:horizontal {
         <item>
          <widget class="QSlider" name="cursorSpeedSlider">
           <property name="styleSheet">
-           <string notr="true">QSlider{
-    width: 178px;
-    height: 20px;
-}
-QSlider::groove:horizontal {
-    border: 0px solid #bbb;
-
-}
-QSlider::sub-page:horizontal {
-    background: #3D6BE5;
-    border-radius: 2px;
-    margin-top:8px;
-    margin-bottom:9px;
-}
-QSlider::add-page:horizontal {
-    background:  rgba(52,70,80,90%);
-    border: 0px solid #777;
-    border-radius: 2px;
-    margin-top:8px;
-    margin-bottom:9px;
-}
-QSlider::handle:horizontal {
-    width: 20px;
-    height: 20px;
-    background: #3D6BE5;
-    border-radius:10px;
-}</string>
+           <string notr="true"/>
           </property>
           <property name="minimum">
            <number>100</number>

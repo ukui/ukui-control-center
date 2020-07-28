@@ -28,7 +28,6 @@
 #define ENABLE_NOTICE_KEY "enable-notice"
 #define SHOWON_LOCKSCREEN_KEY "show-on-lockscreen"
 
-
 #define DESKTOPPATH "/usr/share/applications/"
 
 Notice::Notice()
@@ -48,19 +47,10 @@ Notice::Notice()
     ui->titleLabel->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
     ui->title2Label->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
 
-//    pluginWidget->setStyleSheet("background: #ffffff;");
-
     ui->newfeatureWidget->setVisible(false);
-//    ui->newfeatureWidget->setStyleSheet("QWidget{background: #F4F4F4; border: none; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
-
-
-//    ui->enableWidget->setStyleSheet("QWidget{background: #F4F4F4; border: none;}");
-
     ui->lockscreenWidget->setVisible(false);
-//    ui->lockscreenWidget->setStyleSheet("QWidget{background: #F4F4F4; border: none; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
 
     ui->title2Label->setContentsMargins(0,0,0,16);
-//    ui->applistWidget->setStyleSheet("QListWidget#applistWidget{border: none;}");
     ui->applistWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->applistWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
@@ -107,23 +97,18 @@ void Notice::setupComponent(){
     ui->enableHorLayout->addWidget(enableSwitchBtn);
     ui->lockscreenHorLayout->addWidget(lockscreenSwitchBtn);
 
-
-
-    connect(newfeatureSwitchBtn, &SwitchButton::checkedChanged, [=](bool checked){        
+    connect(newfeatureSwitchBtn, &SwitchButton::checkedChanged, [=](bool checked){
         nSetting->set(NEW_FEATURE_KEY, checked);
     });
-    connect(enableSwitchBtn, &SwitchButton::checkedChanged, [=](bool checked){        
-//        qDebug()<<"checked is-------->"<<endl;
+    connect(enableSwitchBtn, &SwitchButton::checkedChanged, [=](bool checked){
         nSetting->set(ENABLE_NOTICE_KEY, checked);        
     });
     connect(lockscreenSwitchBtn, &SwitchButton::checkedChanged, [=](bool checked){
-
         nSetting->set(SHOWON_LOCKSCREEN_KEY, checked);
     });
 }
 
 void Notice::setupGSettings() {
-
     if(QGSettings::isSchemaInstalled(NOTICE_SCHEMA)) {
         QByteArray id(NOTICE_SCHEMA);
         nSetting = new QGSettings(id);
@@ -140,6 +125,8 @@ void Notice::initNoticeStatus(){
     newfeatureSwitchBtn->blockSignals(false);
     enableSwitchBtn->blockSignals(false);
     lockscreenSwitchBtn->blockSignals(false);
+
+    setHiddenNoticeApp(enableSwitchBtn->isChecked());
 }
 
 void Notice::initOriNoticeStatus() {
@@ -270,14 +257,13 @@ void Notice::initOriNoticeStatus() {
         });
 
         connect(enableSwitchBtn, &SwitchButton::checkedChanged, [=](bool checked) {
-            //qDebug()<<"checked is-------->"<<checked<<endl;
+            setHiddenNoticeApp(checked);
             changeAppstatus(checked, appname, appSwitch);
         });
 
         connect(appSwitch, &SwitchButton::checkedChanged, [=](bool checked){
             QStringList keys = settings->keys();
             QString name = settings->get(NAME_KEY).toString();
-//            qDebug()<<"settings key--------->"<<keys<<name<<endl;
             settings->set(MESSAGES_KEY, checked);
         });
 
@@ -330,8 +316,9 @@ void Notice::initGSettings() {
 }
 
 void Notice::changeAppstatus(bool checked, QString name, SwitchButton *appBtn) {
-    // if master swtich is off, record app's pre status
-//    qDebug()<<"changeAppstatus------------->"<<checked<<endl;
+    /*
+     * if master swtich is off, record app's pre status
+     */
     bool judge;
     if (!checked) {
         judge = appBtn->isChecked();
@@ -343,4 +330,11 @@ void Notice::changeAppstatus(bool checked, QString name, SwitchButton *appBtn) {
     }
 }
 
-
+void Notice::setHiddenNoticeApp(bool status)
+{
+    if (status) {
+        ui->applistWidget->setVisible(true);
+    } else {
+        ui->applistWidget->setVisible(false);
+    }
+}

@@ -184,31 +184,6 @@ void ChangtimeDialog::changtimeApplySlot(){
 }
 
 void ChangtimeDialog::initUi(){
-
-//    ui->hourcomboBox->setStyleSheet(qss);
-//    ui->hourcomboBox->setView(new QListView());
-//    ui->hourcomboBox->setMaxVisibleItems(5);
-
-//    ui->mincomboBox->setStyleSheet(qss);
-//    ui->mincomboBox->setView(new QListView());
-//    ui->mincomboBox->setMaxVisibleItems(5);
-
-//    ui->seccomboBox->setView(new QListView());
-//    ui->seccomboBox->setStyleSheet(qss);
-//    ui->seccomboBox->setMaxVisibleItems(5);
-
-//    ui->yearcomboBox->setStyleSheet(qss);
-//    ui->yearcomboBox->setView(new QListView());
-//    ui->yearcomboBox->setMaxVisibleItems(5);
-
-//    ui->monthcomboBox->setStyleSheet(qss);
-//    ui->monthcomboBox->setView(new QListView());
-//    ui->monthcomboBox->setMaxVisibleItems(5);
-
-//    ui->daycomboBox->setStyleSheet(qss);
-//    ui->daycomboBox->setView(new QListView());
-//    ui->daycomboBox->setMaxVisibleItems(4);
-
 //    this->setStyleSheet("background: #ffffff;");
     ui->timelabel->setText(tr("time"));
 //    ui->timelabel->setStyleSheet("QLabel#timelabel{background: #F4F4F4;}");
@@ -221,17 +196,6 @@ void ChangtimeDialog::initUi(){
 
     ui->daylabel->setText(tr("day"));
 //    ui->daylabel->setStyleSheet("QLabel#daylabel{background: #F4F4F4;}");
-
-//    ui->timewidget->setStyleSheet("QWidget#timewidget{background: #F4F4F4; border-radius: 6px;}");
-//    ui->yearwidget->setStyleSheet("QWidget#yearwidget{background: #F4F4F4; border-radius: 6px;}");
-//    ui->monthwidget->setStyleSheet("QWidget#monthwidget{background: #F4F4F4; border-radius: 6px;}");
-//    ui->daywidget->setStyleSheet("QWidget#daywidget{background: #F4F4F4; border-radius: 6px;}");
-
-
-//    ui->cancelButton->setStyleSheet("QPushButton{background-color:#E5E7E9;border-radius:4px}"
-//                                   "QPushButton:hover{background-color: #3D6BE5;color:white};border-radius:4px");
-//    ui->confirmButton->setStyleSheet("QPushButton{background-color:#E5E7E9;border-radius:4px}"
-//                                   "QPushButton:hover{background-color: #3D6BE5;color:white};border-radius:4px");
 
     hourComboxSetup();
     for(int m = 0; m < 60; m++){

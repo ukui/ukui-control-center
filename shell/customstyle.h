@@ -24,7 +24,6 @@ class InternalStyle : public QProxyStyle
 public:
     explicit InternalStyle(const QString &styleName, QObject *parent = nullptr);
 
-    void drawPrimitive(QStyle::PrimitiveElement element, const QStyleOption *option, QPainter *painter, const QWidget *widget) const;
     void drawControl(QStyle::ControlElement element,
                      const QStyleOption *option,
                      QPainter *painter,

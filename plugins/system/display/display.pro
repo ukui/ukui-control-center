@@ -22,7 +22,7 @@ INCLUDEPATH   +=  \
 LIBS          += -L$$[QT_INSTALL_LIBS] -lgsettings-qt
 
 PKGCONFIG += gsettings-qt     \
-#             gtk+-3.0         \
+             gtk+-3.0         \
 #             glib-2.0         \
              mate-desktop-2.0 \
 

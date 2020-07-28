@@ -211,7 +211,7 @@ void Screenlock::initScreenlockStatus(){
     connect(pWorker, &BuildPicUnitsWorker::pixmapGeneral, this, [=](QPixmap pixmap, BgInfo bgInfo){
         //设置当前锁屏壁纸的预览
         if (bgInfo.filename == bgStr){
-            ui->previewLabel->setPixmap(pixmap);
+            ui->previewLabel->setPixmap(QPixmap(bgStr).scaled(ui->previewLabel->size()));
         }
 
         //线程中构建控件传递会报告event无法install 的警告
@@ -220,7 +220,7 @@ void Screenlock::initScreenlockStatus(){
         picUnit->setFilenameText(bgInfo.filename);
 
         connect(picUnit, &PictureUnit::clicked, [=](QString filename){
-            ui->previewLabel->setPixmap(pixmap);
+            ui->previewLabel->setPixmap(QPixmap(filename).scaled(ui->previewLabel->size()));
             lSetting->set(SCREENLOCK_BG_KEY, filename);
             setLockBackground(loginbgSwitchBtn->isChecked());
         });

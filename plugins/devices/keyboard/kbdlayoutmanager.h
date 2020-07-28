@@ -65,7 +65,7 @@ public:
     void rebuildVariantCombo();
 
     void rebuild_listwidget();
-    void preview();
+//    void preview();
 
 protected:
     void paintEvent(QPaintEvent * event);

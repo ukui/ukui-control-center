@@ -47,6 +47,7 @@
 #define THEME_QT_SCHEMA "org.ukui.style"
 #define MODE_QT_KEY "style-name"
 #define THEME_TRAN_KEY "menu-transparency"
+#define PEONY_TRAN_KEY "peony-side-bar-transparency"
 
 /* QT图标主题 */
 #define ICON_QT_KEY "icon-theme-name"
@@ -229,6 +230,7 @@ void Theme::setupComponent(){
     connect(ui->tranSlider, &QSlider::valueChanged, [=](int value){
         personliseGsettings->set(PERSONALSIE_TRAN_KEY, static_cast<double>(value)/100.0);
         qtSettings->set(THEME_TRAN_KEY, value);
+        qtSettings->set(PEONY_TRAN_KEY, value);
         ui->tranLabel->setText(QString::number(static_cast<double>(ui->tranSlider->value())/100.0));
     });
     setupControlTheme();
@@ -585,6 +587,7 @@ void Theme::resetBtnClickSlot() {
     //reset icon default theme
     qtSettings->reset(ICON_QT_KEY);
     qtSettings->reset(THEME_TRAN_KEY);
+    qtSettings->reset(PEONY_TRAN_KEY);
     gtkSettings->reset(ICON_GTK_KEY);
 
     ui->tranSlider->setValue(transparency);

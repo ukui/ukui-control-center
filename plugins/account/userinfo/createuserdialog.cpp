@@ -21,6 +21,7 @@
 #include "ui_createuserdialog.h"
 
 #include <QDebug>
+#include <QDir>
 
 #define MOBILE 0
 #define PC 1
@@ -57,19 +58,8 @@ CreateUserDialog::CreateUserDialog(QStringList userlist, QWidget *parent) :
     ui->label_10->adjustSize();
     ui->label_10->setWordWrap(true);
 
-//    ui->frame->setStyleSheet("QFrame{background: #ffffff; border: none; border-radius: 6px;}");
-//    ui->closeBtn->setStyleSheet("QPushButton{background: #ffffff; border: none;}");
-
-//    ui->usernameLineEdit->setStyleSheet("QLineEdit{background: #F4F4F4; border: none; border-radius: 4px;}");
-//    ui->pwdLineEdit->setStyleSheet("QLineEdit{background: #F4F4F4; border: none; border-radius: 4px;}");
-//    ui->pwdsureLineEdit->setStyleSheet("QLineEdit{background: #F4F4F4; border: none; border-radius: 4px;}");
-
     ui->closeBtn->setIcon(QIcon("://img/titlebar/close.svg"));
 
-//    ui->pwdTypeComBox->setStyleSheet("QComboBox{background: #F4F4F4; border-radius: 4px; font-size:14px;padding-left: 8px; color: black; min-height: 30px; combobox-popup: 0;}"
-//                                     "QComboBox::down-arrow{image:url(://img/dropArrow/downpx.png)}"
-//                                     "QComboBox::drop-down{width: 30px; border: none;}"
-//                                     "");
     initPwdChecked();
     setupComonpent();
     setupConnect();
@@ -357,6 +347,18 @@ void CreateUserDialog::keyPressEvent(QKeyEvent *event)
     QDialog::keyPressEvent(event);
 }
 
+QStringList CreateUserDialog::getHomeUser()
+{
+    QStringList homeList;
+    QDir dir("/home");
+    if (dir.exists())
+    {
+        homeList = dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+    }
+
+    return homeList;
+}
+
 bool CreateUserDialog::nameTraverse(QString username){
     QString::const_iterator cit = NULL;
     for (cit = username.cbegin(); cit < username.cend(); cit++){
@@ -403,12 +405,16 @@ void CreateUserDialog::nameLegalityCheck(QString username){
         nameTip = tr("The user name can only be composed of letters, numbers and underline!");
     }
 
+     QStringList homeDir = getHomeUser();
+     if (homeDir.contains(username) && nameTip.isEmpty()) {
+         nameTip = tr("The username is configured, please change the username");
+     }
+
     ui->tipLabel->setText(nameTip);
 
     if (nameTip.isEmpty()){
         pwdTip.isEmpty() ? ui->tipLabel->setText(pwdSureTip) : ui->tipLabel->setText(pwdTip);
     }
-
 
     refreshConfirmBtnStatus();
 }
