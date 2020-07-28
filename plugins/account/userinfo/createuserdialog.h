@@ -24,11 +24,9 @@
 #include <QProcess>
 #include <QPainter>
 #include <QPainterPath>
-
 #include <QKeyEvent>
 #include <QFile>
 #include <QStyledItemDelegate>
-
 
 #ifdef ENABLEPQ
 extern "C" {
@@ -71,19 +69,22 @@ protected:
     void keyPressEvent(QKeyEvent *);
 
 private:
+    QStringList getHomeUser();
+
+private:
     Ui::CreateUserDialog *ui;
 
-    QProcess * process;
     bool back;
-    QStringList usersStringList;
+    bool isCreateUser = false;
+    bool enablePwdQuality;
+
+    QProcess * process;
 
     QString nameTip;
     QString pwdTip;
     QString pwdSureTip;
 
-private:
-    bool isCreateUser = false;
-    bool enablePwdQuality;
+    QStringList usersStringList;
 
 #ifdef ENABLEPQ
     pwquality_settings_t *settings;
