@@ -103,7 +103,13 @@ void ShowAllShortcut::buildComponent(QMap<QString, QMap<QString, QString> > shor
 
     QMap<QString, QMap<QString, QString>>::iterator it = shortcutsMap.begin();
     for (; it != shortcutsMap.end(); it++){
-        ClickWidget * tWidget = new ClickWidget(it.key());
+
+        ClickWidget * tWidget;
+        if (it.key() == "Desktop")
+            tWidget = new ClickWidget(tr("Desktop"));
+        else
+            tWidget = new ClickWidget(it.key());
+
         if (it == shortcutsMap.begin()){
 //            tWidget->setStyleSheet("ClickWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
         } else{
