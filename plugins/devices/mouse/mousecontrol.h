@@ -50,9 +50,7 @@ public:
     QGSettings * mSettings;
 
 protected:
-    void mousePressEvent(QMouseEvent *ev);
     void mouseDoubleClickEvent(QMouseEvent *event);
-
 };
 
 class MouseControl : public QObject, CommonInterface
@@ -70,7 +68,6 @@ public:
     QWidget *get_plugin_ui() Q_DECL_OVERRIDE;
     void plugin_delay_control() Q_DECL_OVERRIDE;
 
-public:
     void setupComponent();
     void initHandHabitStatus();
     void initPointerStatus();
@@ -82,11 +79,8 @@ public:
 private:
     Ui::MouseControl *ui;
 
-    QString pluginName;
-    int pluginType;
     QWidget * pluginWidget;
 
-private:
     SwitchButton * visiblityBtn;
     SwitchButton * flashingBtn;
 
@@ -94,8 +88,11 @@ private:
     QGSettings * sesstionSetttings;
     QGSettings * desktopSettings;
 
+    int pluginType;
+
     QString leftStr;
     QString rightStr;
+    QString pluginName;
 };
 
 #endif // MOUSECONTROL_H

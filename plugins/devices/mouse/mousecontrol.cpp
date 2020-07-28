@@ -83,17 +83,10 @@ MyLabel::~MyLabel(){
         delete mSettings;
 }
 
-void MyLabel::mousePressEvent(QMouseEvent *ev){
-    setPixmap(QPixmap(":/img/plugins/mouse/double-click-maybe.png"));
-    int delay = mSettings->get(DOUBLE_CLICK_KEY).toInt();
-    QTimer::singleShot(delay, this, [=]{
-        setPixmap(QPixmap(":/img/plugins/mouse/double-click-off.png"));
-    });
-}
-
 void MyLabel::mouseDoubleClickEvent(QMouseEvent *event){
+    int delay = mSettings->get(DOUBLE_CLICK_KEY).toInt();
     setPixmap(QPixmap(":/img/plugins/mouse/double-click-on.png"));
-    QTimer::singleShot(2500, this, [=]{
+    QTimer::singleShot(delay, this, [=]{
         setPixmap(QPixmap(":/img/plugins/mouse/double-click-off.png"));
     });
 }
@@ -231,6 +224,7 @@ void MouseControl::setupComponent(){
 
      connect(ui->doubleclickHorSlider, &QSlider::sliderReleased, [=]{
         settings->set(DOUBLE_CLICK_KEY, ui->doubleclickHorSlider->value());
+        qApp->setDoubleClickInterval(ui->doubleclickHorSlider->value());
      });
 
     connect(ui->pointerSpeedSlider, &QSlider::valueChanged, [=](int value){
