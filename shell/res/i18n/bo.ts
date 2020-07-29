@@ -640,34 +640,34 @@ you can restore them to ensure the integrity of your system.</source>
     </message>
 </context>
 <context>
-    <name>ChangeVaildDialog</name>
+    <name>ChangeValidDialog</name>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.ui" line="26"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="26"/>
         <source>Dialog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.ui" line="180"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="180"/>
         <source>Password Validity Setting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.ui" line="312"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="312"/>
         <source>Current passwd validity:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.ui" line="394"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="394"/>
         <source>Adjust date to:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.ui" line="473"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="473"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.ui" line="480"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="480"/>
         <source>Certain</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2895,7 +2895,7 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="566"/>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="167"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="167"/>
         <source>Unknown</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3045,84 +3045,84 @@ folder will be deleted!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="161"/>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="198"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="161"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="198"/>
         <source>Never</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="200"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="200"/>
         <source>Year</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="218"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="218"/>
         <source>Jan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="219"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="219"/>
         <source>Feb</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="220"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="220"/>
         <source>Mar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="221"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="221"/>
         <source>Apr</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="222"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="222"/>
         <source>May</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="223"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="223"/>
         <source>Jun</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="224"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="224"/>
         <source>Jul</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="225"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="225"/>
         <source>Aug</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="226"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="226"/>
         <source>Sep</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="227"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="227"/>
         <source>Oct</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="228"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="228"/>
         <source>Nov</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="229"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="229"/>
         <source>Dec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="250"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="250"/>
         <source>Day</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="228"/>
-        <source>min lenght %1
+        <source>min length %1
 </source>
         <translation type="unfinished"></translation>
     </message>
@@ -3510,7 +3510,8 @@ folder will be deleted!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/showallshortcut.cpp" line="151"/>
+        <location filename="../../../plugins/devices/shortcut/showallshortcut.cpp" line="109"/>
+        <location filename="../../../plugins/devices/shortcut/showallshortcut.cpp" line="157"/>
         <source>Desktop</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3931,7 +3932,7 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="361"/>
-        <source>Change vaild</source>
+        <source>Change valid</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
