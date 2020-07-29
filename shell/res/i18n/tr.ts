@@ -74,14 +74,6 @@
         <translation>Deneme sürümü sorumluluk reddi</translation>
     </message>
     <message>
-        <source>Devices Summary</source>
-        <translation type="vanished">Cihaz Özeti</translation>
-    </message>
-    <message>
-        <source>about</source>
-        <translation type="vanished">Hakkında</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/messages-task/about/about.cpp" line="41"/>
         <source>About</source>
         <translation>Hakkında</translation>
@@ -110,42 +102,6 @@
         <location filename="../../../plugins/messages-task/about/about.cpp" line="262"/>
         <source>Activated</source>
         <translation>Aktif</translation>
-    </message>
-    <message>
-        <source>UNKNOWN</source>
-        <translation type="vanished">BİLİNMEYEN</translation>
-    </message>
-    <message>
-        <source>Current desktop env:</source>
-        <translation type="vanished">Geçerli masaüstü:</translation>
-    </message>
-    <message>
-        <source>OS Version:</source>
-        <translation type="vanished">OS Sürümü</translation>
-    </message>
-    <message>
-        <source>CPU Arch:</source>
-        <translation type="vanished">CPU Mimarisi:</translation>
-    </message>
-    <message>
-        <source>Kernel Version</source>
-        <translation type="vanished">Çekirdek Sürümü:</translation>
-    </message>
-    <message>
-        <source>Manufacturers:</source>
-        <translation type="vanished">Üreticiler::</translation>
-    </message>
-    <message>
-        <source>Product Name:</source>
-        <translation type="vanished">Ürün Adı:</translation>
-    </message>
-    <message>
-        <source>Version:</source>
-        <translation type="vanished">Sürüm:</translation>
-    </message>
-    <message>
-        <source>Serial Number:</source>
-        <translation type="vanished">Seri No:</translation>
     </message>
 </context>
 <context>
@@ -262,7 +218,7 @@
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="233"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="276"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="266"/>
         <source>lunar</source>
         <translation>Ay takvimi</translation>
     </message>
@@ -270,10 +226,6 @@
         <location filename="../../../plugins/time-language/area/area.ui" line="256"/>
         <source>First day of the week</source>
         <translation>Haftanın ilk günü</translation>
-    </message>
-    <message>
-        <source>day</source>
-        <translation type="vanished">gün</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="293"/>
@@ -292,10 +244,6 @@
         <translation></translation>
     </message>
     <message>
-        <source>area</source>
-        <translation type="vanished">Alan</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="53"/>
         <location filename="../../../plugins/time-language/area/area.cpp" line="157"/>
         <source>current area</source>
@@ -307,72 +255,68 @@
         <translation>Zaman Biçimi Düzeni</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="169"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="163"/>
         <source>US</source>
         <translation>US</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="172"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="166"/>
         <source>format of area</source>
         <translation>Zaman Biçimi</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="206"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="198"/>
         <source>addwgt</source>
         <translation>Widget Ekle</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="214"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="206"/>
         <source>Add main language</source>
         <translation>Ana Dil Ekle</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="226"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="173"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="167"/>
         <source>calendar</source>
         <translation>Takvim</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="174"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="168"/>
         <source>first day of week</source>
         <translation>Haftanın ilk günü</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="286"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="175"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="169"/>
         <source>date</source>
         <translation>Tarih</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="316"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="176"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="170"/>
         <source>time</source>
         <translation>Zaman</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="352"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="181"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="175"/>
         <source>change format of data</source>
         <translation>Zaman Biçimini Düzenle</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="185"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="179"/>
         <source>first language</source>
         <translation>Sistem Dili</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="187"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="181"/>
         <source>system language</source>
         <translation>Sistem Dili</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="170"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="164"/>
         <source>CN</source>
         <translation>CN</translation>
-    </message>
-    <message>
-        <source>Need to cancel to take effect</source>
-        <translation>Etkili olması için iptal etmeniz gerekiyor</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.cpp" line="108"/>
@@ -380,37 +324,33 @@
         <translation>Etkili olması için oturumu kapatmanız gerekiyor</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="195"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="187"/>
         <source>English</source>
         <translation>İngilizce</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="196"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="188"/>
         <source>Chinese</source>
         <translation>Çince</translation>
     </message>
     <message>
-        <source>add main language</source>
-        <translation>Anadil Ekle</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="278"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="268"/>
         <source>solar calendar</source>
         <translation>Güneş Takvimi</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="263"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="283"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="273"/>
         <source>monday</source>
         <translation>Pazartesi</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="285"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="275"/>
         <source>sunday</source>
         <translation>Pazar</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="353"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="343"/>
         <source>change data format</source>
         <translation>Zaman Biçimini Düzenle</translation>
     </message>
@@ -445,10 +385,6 @@
         <translation>Otomatik Yükleme Uygulaması Ekle </translation>
     </message>
     <message>
-        <source>autoboot</source>
-        <translation type="vanished">Oto başlat</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="63"/>
         <source>Autoboot</source>
         <translation>Oto başlat</translation>
@@ -471,11 +407,6 @@
         <location filename="../../../plugins/security-updates/backup/backup.cpp" line="42"/>
         <source>Backup</source>
         <translation>Yedekle</translation>
-    </message>
-    <message>
-        <source>Back up your files to other drives, and when the original files are lost, damaged, or deleted, you can restore them to ensure 
-the integrity of your system.</source>
-        <translation type="vanished">Dosyalarınızı diğer sürücülere yedekleyin ve orijinal dosyalar kaybolduğunda, hasar gördüğünde veya silindiğinde, sisteminizin bütünlüğünü sağlamak için bunları geri yükleyebilirsiniz.</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="69"/>
@@ -504,21 +435,9 @@ sisteminizin bütünlüğünü sağlamak için bunları geri yükleyebilirsiniz.
         <source>Begin restore</source>
         <translation>Yükleme Başlat</translation>
     </message>
-    <message>
-        <source>backup</source>
-        <translation type="vanished">Yedekle</translation>
-    </message>
 </context>
 <context>
     <name>BindPhoneDialog</name>
-    <message>
-        <source>Your account here</source>
-        <translation type="obsolete">Hesabınız Burada</translation>
-    </message>
-    <message>
-        <source>Your password here</source>
-        <translation type="obsolete">Parolanız burada</translation>
-    </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/bindphonedialog.cpp" line="40"/>
         <source>Your code here</source>
@@ -645,7 +564,7 @@ sisteminizin bütünlüğünü sağlamak için bunları geri yükleyebilirsiniz.
         <translation>Onayla</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="110"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="109"/>
         <source>General Pwd</source>
         <translation>Genel Parola</translation>
     </message>
@@ -670,10 +589,6 @@ sisteminizin bütünlüğünü sağlamak için bunları geri yükleyebilirsiniz.
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="233"/>
         <source>Password length needs to less than %1 character!</source>
         <translation>Şifre uzunluğu %1 karakterden az olmalı!</translation>
-    </message>
-    <message>
-        <source>Password length needs to more than 5 character!</source>
-        <translation type="vanished">Şifre uzunluğu 5 karakterden fazla olmalı!</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="130"/>
@@ -726,74 +641,107 @@ sisteminizin bütünlüğünü sağlamak için bunları geri yükleyebilirsiniz.
     </message>
 </context>
 <context>
-    <name>ChangeVaildDialog</name>
+    <name>ChangeValidDialog</name>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.ui" line="26"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="26"/>
         <source>Dialog</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.ui" line="180"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="180"/>
         <source>Password Validity Setting</source>
-        <translation>Şifre Geçerlilik Ayarı</translation>
+        <translation type="unfinished">Şifre Geçerlilik Ayarı</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.ui" line="312"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="312"/>
         <source>Current passwd validity:</source>
-        <translation>Mevcut şifre geçerliliği:</translation>
+        <translation type="unfinished">Mevcut şifre geçerliliği:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.ui" line="394"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="394"/>
         <source>Adjust date to:</source>
-        <translation>Tarihi şu şekilde ayarlayın:</translation>
+        <translation type="unfinished">Tarihi şu şekilde ayarlayın:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.ui" line="473"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="473"/>
         <source>Cancel</source>
-        <translation>İptal</translation>
+        <translation type="unfinished">İptal</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.ui" line="480"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="480"/>
         <source>Certain</source>
-        <translation>Belirli</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ChangtimeDialog</name>
     <message>
-        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="222"/>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="197"/>
         <source>day</source>
         <translation>Gün</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="213"/>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="188"/>
         <source>time</source>
         <translation>Saat</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="216"/>
-        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="246"/>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="191"/>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="210"/>
         <source>year</source>
         <translation>Yıl</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="219"/>
-        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="249"/>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="194"/>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="213"/>
         <source>month</source>
         <translation>Ay</translation>
+    </message>
+</context>
+<context>
+    <name>ColorDialog</name>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/colordialog.ui" line="14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/colordialog.ui" line="49"/>
+        <source>     B</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/colordialog.ui" line="99"/>
+        <source>Cancel</source>
+        <translation type="unfinished">İptal</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/colordialog.ui" line="131"/>
+        <source>OK</source>
+        <translation type="unfinished">Tamam</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/colordialog.ui" line="269"/>
+        <source>     R</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/colordialog.ui" line="294"/>
+        <source>     G</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>CreateUserDialog</name>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="201"/>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="139"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="129"/>
         <source>UserName</source>
         <translation>Kullanıcı Adı</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="297"/>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="140"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="130"/>
         <source>Password</source>
         <translation>Parola</translation>
     </message>
@@ -850,60 +798,65 @@ sistem ayarlarını değiştir</translation>
         <translation>Onayla</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="141"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="131"/>
         <source>Password Identify</source>
         <translation>Parola Tanımlama</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="145"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="135"/>
         <source>General Password</source>
         <translation>Genel Parola</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="177"/>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="297"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="167"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="287"/>
         <source>Inconsistency with pwd</source>
         <translation>Parola ile tutarsız</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="284"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="274"/>
         <source>Password length needs to more than %1 character!</source>
         <translation>Şifre uzunluğu %1 karakterden fazla olmalı!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="286"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="276"/>
         <source>Password length needs to less than %1 character!</source>
         <translation>Şifre uzunluğu %1 karakterden az olmalı!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="377"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="379"/>
         <source>The user name cannot be empty</source>
         <translation>Kullanıcı adı boş olamaz</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="379"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="381"/>
         <source>The first character must be lowercase letters!</source>
         <translation>İlk karakter küçük harf olmalıdır!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="382"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="384"/>
         <source>User name can not contain capital letters!</source>
         <translation>Kullanıcı adı büyük harf içeremez!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="396"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="398"/>
         <source>The user name is already in use, please use a different one.</source>
         <translation>Kullanıcı adı zaten kullanılıyor, lütfen farklı bir ad kullanın.</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="401"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="403"/>
         <source>User name length need to less than %1 letters!</source>
         <translation>Kullanıcı adı uzunluğu %1 harften az olmalı!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="403"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="405"/>
         <source>The user name can only be composed of letters, numbers and underline!</source>
         <translation>Kullanıcı adı sadece harf, rakam ve altı çizili olabilir!</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="410"/>
+        <source>The username is configured, please change the username</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1025,10 +978,6 @@ sistem ayarlarını değiştir</translation>
         <translation>Senkronizasyon Tamamlandı</translation>
     </message>
     <message>
-        <source>datetime</source>
-        <translation type="vanished">Tarih Saat</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="46"/>
         <source>Datetime</source>
         <translation>Tarih Saat</translation>
@@ -1039,17 +988,13 @@ sistem ayarlarını değiştir</translation>
         <translation>24 saat biçimi</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="260"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="259"/>
         <source>change time</source>
         <translation>Saati değiştir</translation>
     </message>
 </context>
 <context>
     <name>DefaultApp</name>
-    <message>
-        <source>defaultapp</source>
-        <translation type="vanished">Varsayılan uyg.</translation>
-    </message>
     <message>
         <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="42"/>
         <source>Defaultapp</source>
@@ -1195,185 +1140,14 @@ folder will be deleted!</source>
         <translation>Tepsi Simgesi</translation>
     </message>
     <message>
-        <source>Homemenu</source>
-        <translation type="vanished">Giriş</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/personalized/desktop/desktop.ui" line="802"/>
         <source>Settingmenu</source>
         <translation>Ayarlar</translation>
     </message>
     <message>
-        <source>Networkmenu</source>
-        <translation type="vanished">Ağ</translation>
-    </message>
-    <message>
-        <source>desktop</source>
-        <translation type="vanished">Masaüstü</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/personalized/desktop/desktop.cpp" line="52"/>
         <source>Desktop</source>
         <translation>Masaüstü</translation>
-    </message>
-</context>
-<context>
-    <name>Dialog_login_reg</name>
-    <message>
-        <source>Sign in</source>
-        <translation>Giriş Yap</translation>
-    </message>
-    <message>
-        <source>Sign up</source>
-        <translation>Kayıt Ol</translation>
-    </message>
-    <message>
-        <source>Login in progress</source>
-        <translation>Giriş devam ediyor</translation>
-    </message>
-    <message>
-        <source>Error code:</source>
-        <translation>Hata Kodu:</translation>
-    </message>
-    <message>
-        <source>!</source>
-        <translation>!</translation>
-    </message>
-    <message>
-        <source>Internal error occurring!</source>
-        <translation>Dahili hata oluştu!</translation>
-    </message>
-    <message>
-        <source>Failed to sign up!</source>
-        <translation>Kaydolamadı!</translation>
-    </message>
-    <message>
-        <source>Failed attempt to return value!</source>
-        <translation>Değer döndürülemedi!</translation>
-    </message>
-    <message>
-        <source>Check your connection!</source>
-        <translation>Bağlantınızı kontrol edin!</translation>
-    </message>
-    <message>
-        <source>Failed to get by phone!</source>
-        <translation>Telefonla alınamadı!</translation>
-    </message>
-    <message>
-        <source>Failed to get by user!</source>
-        <translation>Kullanıcı tarafından alınamadı!</translation>
-    </message>
-    <message>
-        <source>Failed to reset password!</source>
-        <translation>Şifre sıfırlanamadı!</translation>
-    </message>
-    <message>
-        <source>Phone binding falied!</source>
-        <translation>Telefon bağlama başarısız!</translation>
-    </message>
-    <message>
-        <source>Please check your information!</source>
-        <translation>Lütfen bilgilerinizi kontrol edin!</translation>
-    </message>
-    <message>
-        <source>Please check your account!</source>
-        <translation>Lütfen bilgilerinizi kontrol edin!</translation>
-    </message>
-    <message>
-        <source>Failed due to server error!</source>
-        <translation>Sunucu hatası nedeniyle başarısız oldu!</translation>
-    </message>
-    <message>
-        <source>User existing!</source>
-        <translation>Kullanıcı mevcut!</translation>
-    </message>
-    <message>
-        <source>Phone number already in used!</source>
-        <translation>Telefon numarası zaten kullanılıyor!</translation>
-    </message>
-    <message>
-        <source>Please check your format!</source>
-        <translation>Lütfen biçiminizi kontrol edin!</translation>
-    </message>
-    <message>
-        <source>Your are reach the limit!</source>
-        <translation>Sınıra ulaşıyorsunuz!</translation>
-    </message>
-    <message>
-        <source>Please check your phone number!</source>
-        <translation>Lütfen telefon numaranızı kontrol edin!</translation>
-    </message>
-    <message>
-        <source>Please check your code!</source>
-        <translation>Lütfen kodunuzu kontrol edin!</translation>
-    </message>
-    <message>
-        <source>Account doesn&apos;t exist!</source>
-        <translation>Hesap mevcut değil!</translation>
-    </message>
-    <message>
-        <source>User has bound the phone!</source>
-        <translation>Kullanıcı telefonu bağladı!</translation>
-    </message>
-    <message>
-        <source>Sending code error occurring!</source>
-        <translation>Gönderme kodu hatası oluştu!</translation>
-    </message>
-    <message>
-        <source>Your code is wrong!</source>
-        <translation>Kodunuz yanlış!</translation>
-    </message>
-    <message>
-        <source>Binding Phone</source>
-        <translation>Telefon Bağlanıyor</translation>
-    </message>
-    <message>
-        <source>Bind now</source>
-        <translation>Şimdi bağla</translation>
-    </message>
-    <message>
-        <source>Resend ( %1 )</source>
-        <translation>Tekrar gönder (%1)</translation>
-    </message>
-    <message>
-        <source>Get phone code</source>
-        <translation>Telefon kodunu al</translation>
-    </message>
-    <message>
-        <source>Send</source>
-        <translation>Gönder</translation>
-    </message>
-    <message>
-        <source>At least 6 bit, include letters and digt</source>
-        <translation>En az 6 karakter, harf ve rakam ekleyin</translation>
-    </message>
-    <message>
-        <source>Please check your password!</source>
-        <translation>Lütfen şifrenizi kontrol edin!</translation>
-    </message>
-    <message>
-        <source>Sign in Cloud</source>
-        <translation>Bulutta Oturum Aç</translation>
-    </message>
-    <message>
-        <source>Forget</source>
-        <translation>Unut</translation>
-    </message>
-    <message>
-        <source>Set</source>
-        <translation>Ayarla</translation>
-    </message>
-    <message>
-        <source>Back</source>
-        <translation>Geri</translation>
-    </message>
-    <message>
-        <source>Create Account</source>
-        <translation>Hesap Oluştur</translation>
-    </message>
-    <message>
-        <source>Sign up now</source>
-        <translation>Şimdi kayıt ol</translation>
     </message>
 </context>
 <context>
@@ -1452,10 +1226,6 @@ folder will be deleted!</source>
 <context>
     <name>DisplaySet</name>
     <message>
-        <source>display</source>
-        <translation type="vanished">Ekran</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/system/display/display.cpp" line="32"/>
         <source>Display</source>
         <translation>Ekran</translation>
@@ -1477,10 +1247,6 @@ folder will be deleted!</source>
         <location filename="../../../plugins/system/display/display.ui" line="144"/>
         <source>set as home screen</source>
         <translation>Ana Ekran Yap</translation>
-    </message>
-    <message>
-        <source>close monitor</source>
-        <translation type="vanished">Monitörü kapat</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/display.ui" line="301"/>
@@ -1561,21 +1327,9 @@ folder will be deleted!</source>
         <translation>Parolayı Düzenle</translation>
     </message>
     <message>
-        <source>Your account here</source>
-        <translation type="vanished">Hesabınız burada</translation>
-    </message>
-    <message>
-        <source>Your password here</source>
-        <translation type="obsolete">Parolanız burada</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/account/networkaccount/editpassdialog.cpp" line="58"/>
         <source>Your new password here</source>
         <translation>Yeni parolanız burada</translation>
-    </message>
-    <message>
-        <source>Your code here</source>
-        <translation type="vanished">Kodunuz burada</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/editpassdialog.cpp" line="59"/>
@@ -1635,10 +1389,6 @@ folder will be deleted!</source>
         <location filename="../../../plugins/account/networkaccount/editpassdialog.cpp" line="549"/>
         <source>Send</source>
         <translation>Gönder</translation>
-    </message>
-    <message>
-        <source>Success！</source>
-        <translation>Başarılı!</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/editpassdialog.cpp" line="361"/>
@@ -1779,10 +1529,6 @@ folder will be deleted!</source>
         <translation>(Kullanıcı Deneyimi Planı)</translation>
     </message>
     <message>
-        <source>experienceplan</source>
-        <translation type="vanished">Deneyim planı</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/messages-task/experienceplan/experienceplan.cpp" line="33"/>
         <source>Experienceplan</source>
         <translation>Deneyim Planı</translation>
@@ -1846,10 +1592,6 @@ folder will be deleted!</source>
         <location filename="../../../plugins/personalized/fonts/fonts.ui" line="1048"/>
         <source>Select text sample that looks clearest</source>
         <translation>En net görünen metin örneğini seç</translation>
-    </message>
-    <message>
-        <source>fonts</source>
-        <translation type="vanished">Yazı Tipi</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="219"/>
@@ -1958,50 +1700,18 @@ folder will be deleted!</source>
         <translation>Ekle</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/kbdlayoutmanager.cpp" line="154"/>
+        <location filename="../../../plugins/devices/keyboard/kbdlayoutmanager.cpp" line="60"/>
         <source>Add Layout</source>
         <translation>Düzen Ekle</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/kbdlayoutmanager.cpp" line="222"/>
+        <location filename="../../../plugins/devices/keyboard/kbdlayoutmanager.cpp" line="223"/>
         <source>Del</source>
         <translation>Sil</translation>
     </message>
 </context>
 <context>
     <name>KeyValueConverter</name>
-    <message>
-        <source>system</source>
-        <translation type="vanished">Sistem</translation>
-    </message>
-    <message>
-        <source>devices</source>
-        <translation type="vanished">Aygıtlar</translation>
-    </message>
-    <message>
-        <source>personalized</source>
-        <translation type="vanished">Özelleştirme</translation>
-    </message>
-    <message>
-        <source>network</source>
-        <translation type="vanished">Ağ</translation>
-    </message>
-    <message>
-        <source>account</source>
-        <translation type="vanished">Hesap</translation>
-    </message>
-    <message>
-        <source>datetime</source>
-        <translation type="vanished">Tarih Saat</translation>
-    </message>
-    <message>
-        <source>update</source>
-        <translation type="vanished">Güncelleme</translation>
-    </message>
-    <message>
-        <source>messages</source>
-        <translation type="vanished">Mesajlar</translation>
-    </message>
     <message>
         <location filename="../../utils/keyvalueconverter.cpp" line="46"/>
         <source>System</source>
@@ -2106,10 +1816,6 @@ folder will be deleted!</source>
         <translation>Düzeni Sıfırla</translation>
     </message>
     <message>
-        <source>Message of capslock</source>
-        <translation>Capslock mesajı</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="699"/>
         <source>Enable numlock</source>
         <translation>Numlock Etkinleştir</translation>
@@ -2128,10 +1834,6 @@ folder will be deleted!</source>
         <location filename="../../../plugins/devices/keyboard/keyboardcontrol.cpp" line="143"/>
         <source>Install layouts</source>
         <translation>Klavye kur</translation>
-    </message>
-    <message>
-        <source>keyboard</source>
-        <translation type="vanished">Klavye</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboardcontrol.cpp" line="46"/>
@@ -2244,22 +1946,22 @@ folder will be deleted!</source>
     <name>MainDialog</name>
     <message>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="28"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="740"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="974"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="978"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1004"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1038"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1076"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1525"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="741"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="975"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="979"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1005"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1039"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1077"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1526"/>
         <source>Sign in</source>
         <translation>Oturum Aç</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="29"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="739"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1009"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1046"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1087"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="740"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1010"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1047"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1088"/>
         <source>Sign up</source>
         <translation>Kayıt Ol</translation>
     </message>
@@ -2269,203 +1971,203 @@ folder will be deleted!</source>
         <translation>Giriş devam ediyor</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="483"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="484"/>
         <source>Error code:</source>
         <translation>Hata kodu:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="483"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="484"/>
         <source>!</source>
         <translation>!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="485"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="486"/>
         <source>Internal error occurring!</source>
         <translation>Dahili hata oluştu!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="486"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="487"/>
         <source>Failed to sign up!</source>
         <translation>Kaydolamadı!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="487"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="488"/>
         <source>Failed attempt to return value!</source>
         <translation>Değer döndürülemedi!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="488"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="489"/>
         <source>Check your connection!</source>
         <translation>Bağlantınızı kontrol edin!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="489"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="490"/>
         <source>Failed to get by phone!</source>
         <translation>Telefonla alınamadı!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="490"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="491"/>
         <source>Failed to get by user!</source>
         <translation>Kullanıcı tarafından alınamadı!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="491"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="492"/>
         <source>Failed to reset password!</source>
         <translation>Şifre sıfırlanamadı!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="492"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="493"/>
         <source>Phone binding falied!</source>
         <translation>Telefon bağlama başarısız!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="493"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="496"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="506"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="494"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="497"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="507"/>
         <source>Please check your information!</source>
         <translation>Lütfen bilgilerinizi kontrol edin!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="494"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="495"/>
         <source>Please check your account!</source>
         <translation>Lütfen hesabınızı kontrol edin!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="495"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="496"/>
         <source>Failed due to server error!</source>
         <translation>Sunucu hatası nedeniyle başarısız oldu!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="497"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="498"/>
         <source>User existing!</source>
         <translation>Kullanıcı mevcut!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="498"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="499"/>
         <source>Phone number already in used!</source>
         <translation>Telefon numarası zaten kullanılıyor!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="499"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="500"/>
         <source>Please check your format!</source>
         <translation>Lütfen biçiminizi kontrol edin!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="500"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="501"/>
         <source>Your are reach the limit!</source>
         <translation>Sınıra ulaşıyorsunuz!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="501"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="502"/>
         <source>Please check your phone number!</source>
         <translation>Lütfen telefon numaranızı kontrol edin!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="502"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="503"/>
         <source>Please check your code!</source>
         <translation>Lütfen kodunuzu kontrol edin!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="503"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="504"/>
         <source>Account doesn&apos;t exist!</source>
         <translation>Hesap mevcut değil!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="504"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="505"/>
         <source>User has bound the phone!</source>
         <translation>Kullanıcı telefonu bağladı!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="505"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="506"/>
         <source>Sending code error occurring!</source>
         <translation>Gönderme kodu hatası oluştu!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="520"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="521"/>
         <source>Your code is wrong!</source>
         <translation>Kodunuz yanlış!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="600"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="607"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="652"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="601"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="608"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="653"/>
         <source>Please check your password!</source>
         <translation>Lütfen şifrenizi kontrol edin!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="645"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="808"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="870"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="646"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="809"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="871"/>
         <source>At least 6 bit, include letters and digt</source>
         <translation>En az 6 karakter, harf ve rakam ekleyin</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="706"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="716"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1008"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1481"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="707"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="717"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1009"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1482"/>
         <location filename="../../../plugins/account/networkaccount/maindialog.h" line="56"/>
         <source>Sign in Cloud</source>
         <translation>Giriş yap Bulut</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="755"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="756"/>
         <source>Forget</source>
         <translation>Unut</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="757"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="758"/>
         <source>Set</source>
         <translation>Ayarla</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="758"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="779"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="957"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="759"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="780"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="958"/>
         <source>Back</source>
         <translation>Geri</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="777"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="778"/>
         <source>Create Account</source>
         <translation>Hesap Oluştur</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="780"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="781"/>
         <source>Sign up now</source>
         <translation>Şimdi kayıt ol</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="894"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="907"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="920"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="933"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="895"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="908"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="921"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="934"/>
         <source>Resend ( %1 )</source>
         <translation>Tekrar gönder ( %1)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="899"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="912"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="900"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="913"/>
         <source>Get phone code</source>
         <translation>Telefon kodunu al</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="925"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="938"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="973"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1006"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1037"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1075"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="926"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="939"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="974"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1007"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1038"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="1076"/>
         <source>Send</source>
         <translation>Gönder</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="955"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="956"/>
         <source>Binding Phone</source>
         <translation>Telefon Bağlama</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="958"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="959"/>
         <source>Bind now</source>
         <translation>Şimdi bağla</translation>
     </message>
@@ -2540,7 +2242,7 @@ folder will be deleted!</source>
         <translation>Denetim Merkezi</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="487"/>
+        <location filename="../../mainwindow.cpp" line="455"/>
         <source>HOME</source>
         <translation>GİRİŞ</translation>
     </message>
@@ -2566,19 +2268,19 @@ folder will be deleted!</source>
         <translation>Kullanılan El</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="539"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="487"/>
         <source>Pointer Settings</source>
         <translation>İşaretçi Ayarları</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="605"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="553"/>
         <source>Speed</source>
         <translation>Hız</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="244"/>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="630"/>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1509"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="578"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1353"/>
         <source>Slow</source>
         <translation>Yavaş</translation>
     </message>
@@ -2588,117 +2290,109 @@ folder will be deleted!</source>
         <translation>Fare Hızı</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="314"/>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="706"/>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1436"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="288"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="628"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1306"/>
         <source>Fast</source>
         <translation>Hızlı</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="388"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="362"/>
         <source>Doubleclick  delay</source>
         <translation>Çift Tıklama Gecikmesi</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="413"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="387"/>
         <source>Short</source>
         <translation>Kısa</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="486"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="434"/>
         <source>Long</source>
         <translation>Uzun</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="777"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="699"/>
         <source>Sensitivity</source>
         <translation>Hassaslık</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="802"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="724"/>
         <source>Low</source>
         <translation>Düşük</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="878"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="774"/>
         <source>High</source>
         <translation>Yüksek</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="946"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="842"/>
         <source>Visibility</source>
         <translation>Görünürlük</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1024"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="920"/>
         <source>Pointer size</source>
         <translation>İşaretçi Boyutu</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1074"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="970"/>
         <source>Cursor Settings</source>
         <translation>İmleç Ayarları</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1222"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1118"/>
         <source>Cursor weight</source>
         <translation>İmleç Genişliği</translation>
     </message>
     <message>
-        <source> Cursor weight</source>
-        <translation type="obsolete">İmleç Genişliği</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1247"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1143"/>
         <source>Thin</source>
         <translation>İnce</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1308"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1178"/>
         <source>Coarse</source>
         <translation>Kalın</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1411"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1281"/>
         <source>Cursor speed</source>
         <translation>İmleç Hızı</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1141"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1037"/>
         <source>Enable flashing on text area</source>
         <translation>Metin alanında yanıp sönmeyi etkinleştir</translation>
     </message>
     <message>
-        <source>mouse</source>
-        <translation type="vanished">Fare</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="109"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="102"/>
         <source>Mouse</source>
         <translation>Fare</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="197"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="190"/>
         <source>Lefthand</source>
         <translation>Sol el</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="198"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="191"/>
         <source>Righthand</source>
         <translation>Sağ el</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="209"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="202"/>
         <source>Default(Recommended)</source>
         <translation>Standart (Önerilen)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="210"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="203"/>
         <source>Medium</source>
         <translation>Orta</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="211"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="204"/>
         <source>Large</source>
         <translation>Büyük</translation>
     </message>
@@ -2706,44 +2400,36 @@ folder will be deleted!</source>
 <context>
     <name>NetConnect</name>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="41"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="38"/>
         <source>Netconnect Status</source>
         <translation>Bağlantı Durumu</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="78"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="270"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="75"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="269"/>
         <source>Waitting...</source>
         <translation>Bekleniyor...</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="145"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="142"/>
         <source>Available Network</source>
         <translation>Uygun Ağ</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="168"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="165"/>
         <source>Refresh</source>
         <translation>Yenile</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="218"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="215"/>
         <source>open wifi</source>
         <translation>Wifi aç</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="322"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="305"/>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="48"/>
         <source>Network settings</source>
         <translation>Ağ Ayarları</translation>
-    </message>
-    <message>
-        <source>Change net settings</source>
-        <translation type="vanished">Ağ ayarlarını değiştir</translation>
-    </message>
-    <message>
-        <source>netconnect</source>
-        <translation type="vanished">Bağlantı</translation>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="42"/>
@@ -2759,14 +2445,6 @@ folder will be deleted!</source>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="188"/>
         <source>No network</source>
         <translation>Bağlantı yok</translation>
-    </message>
-    <message>
-        <source>Connect</source>
-        <translation type="vanished">Bağlı</translation>
-    </message>
-    <message>
-        <source>Disconnect</source>
-        <translation type="vanished">Bağlı Değil</translation>
     </message>
 </context>
 <context>
@@ -2802,11 +2480,7 @@ folder will be deleted!</source>
         <translation>Bildirim Kaynağı</translation>
     </message>
     <message>
-        <source>notice</source>
-        <translation type="vanished">Bildirim</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/notice/notice.cpp" line="45"/>
+        <location filename="../../../plugins/messages-task/notice/notice.cpp" line="44"/>
         <source>Notice</source>
         <translation>Bildirim</translation>
     </message>
@@ -2944,11 +2618,6 @@ folder will be deleted!</source>
         <translation>Performansı en aza indir</translation>
     </message>
     <message>
-        <source>Bala&amp;nce (suggest)</source>
-        <translation type="obsolete">Dengeli (Önerilen)
-</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/system/power/power.ui" line="183"/>
         <source>Autobalance energy and performance with available hardware</source>
         <translation>Mevcut donanım ile enerji ve performansı otomatik olarak dengeleme</translation>
@@ -3004,17 +2673,9 @@ folder will be deleted!</source>
         <translation>S3 ila S4 durumlarında:</translation>
     </message>
     <message>
-        <source>Power Icon Settings</source>
-        <translation>Güç Simgesi Ayarları</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/system/power/power.ui" line="1019"/>
         <source>Power icon:</source>
         <translation>Güç Simgesi:</translation>
-    </message>
-    <message>
-        <source>power</source>
-        <translation type="vanished">Güç</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="57"/>
@@ -3136,10 +2797,6 @@ folder will be deleted!</source>
         <translation>Mevcut Yazıcıların Listesi</translation>
     </message>
     <message>
-        <source>printer</source>
-        <translation type="vanished">Yazıcı</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/devices/printer/printer.cpp" line="37"/>
         <source>Printer</source>
         <translation>Yazıcı</translation>
@@ -3211,10 +2868,6 @@ folder will be deleted!</source>
         <translation>Yok sayılan ana bilgisayarların listesi. birden fazla giriş için (;) ile ayırın</translation>
     </message>
     <message>
-        <source>proxy</source>
-        <translation type="vanished">Ağ Vekili</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/network/proxy/proxy.cpp" line="51"/>
         <source>Proxy</source>
         <translation>Ağ Vekili</translation>
@@ -3223,164 +2876,35 @@ folder will be deleted!</source>
 <context>
     <name>QObject</name>
     <message>
-        <source>display</source>
-        <translation type="vanished">Ekran</translation>
-    </message>
-    <message>
-        <source>defaultapp</source>
-        <translation type="vanished">Uygulama</translation>
-    </message>
-    <message>
-        <source>power</source>
-        <translation type="vanished">Güç</translation>
-    </message>
-    <message>
-        <source>autoboot</source>
-        <translation type="vanished">Oto başlat</translation>
-    </message>
-    <message>
-        <source>printer</source>
-        <translation type="vanished">Yazıcı</translation>
-    </message>
-    <message>
-        <source>mousecontrol</source>
-        <translation type="vanished">Fare</translation>
-    </message>
-    <message>
-        <source>mouse</source>
-        <translation type="vanished">Fare</translation>
-    </message>
-    <message>
-        <source>touchpad</source>
-        <translation type="vanished">Touchpad</translation>
-    </message>
-    <message>
-        <source>keyboard</source>
-        <translation type="vanished">Klavye</translation>
-    </message>
-    <message>
-        <source>shortcut</source>
-        <translation type="vanished">Kısayol</translation>
-    </message>
-    <message>
-        <source>audio</source>
-        <translation type="vanished">Ses</translation>
-    </message>
-    <message>
-        <source>background</source>
-        <translation type="vanished">Arkaplan</translation>
-    </message>
-    <message>
-        <source>screenlock</source>
-        <translation type="vanished">Ekran kilidi</translation>
-    </message>
-    <message>
-        <source>fonts</source>
-        <translation type="vanished">Fontlar</translation>
-    </message>
-    <message>
         <location filename="../../utils/functionselect.cpp" line="108"/>
         <source>Screensaver</source>
         <translation>Ekran koruyucu</translation>
     </message>
     <message>
-        <source>desktop</source>
-        <translation type="vanished">Masaüstü</translation>
-    </message>
-    <message>
-        <source>netconnect</source>
-        <translation type="vanished">Ağ</translation>
-    </message>
-    <message>
-        <source>vpn</source>
-        <translation type="vanished">VPN</translation>
-    </message>
-    <message>
-        <source>proxy</source>
-        <translation type="vanished">Ağ Vekili</translation>
-    </message>
-    <message>
-        <source>userinfo</source>
-        <translation type="vanished">Kullanıcı</translation>
-    </message>
-    <message>
-        <source>datetime</source>
-        <translation type="vanished">Tarih saat</translation>
-    </message>
-    <message>
-        <source>area</source>
-        <translation type="vanished">Alan</translation>
-    </message>
-    <message>
-        <source>update</source>
-        <translation type="vanished">Güncelleme</translation>
-    </message>
-    <message>
-        <source>backup</source>
-        <translation type="vanished">Yedekleme</translation>
-    </message>
-    <message>
-        <source>notice</source>
-        <translation type="vanished">Bildirim</translation>
-    </message>
-    <message>
-        <source>about</source>
-        <translation type="vanished">Hakkında</translation>
-    </message>
-    <message>
-        <source>experienceplan</source>
-        <translation type="vanished">Deneyim planı</translation>
-    </message>
-    <message>
-        <source>theme</source>
-        <translation type="vanished">Tema</translation>
-    </message>
-    <message>
-        <location filename="../../main.cpp" line="62"/>
-        <source>ukui-control-center had already running!</source>
-        <translation>ukui kontrol merkezi zaten çalışıyor!</translation>
-    </message>
-    <message>
-        <source>basicIcon</source>
-        <translation type="vanished">Temel simge</translation>
-    </message>
-    <message>
-        <source>classicalIcon</source>
-        <translation type="vanished">Klasik simge</translation>
-    </message>
-    <message>
-        <source>defaultIcon</source>
-        <translation type="vanished">Varsayılan simge</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="559"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="560"/>
         <source>basic</source>
         <translation>Temel</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="561"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="562"/>
         <source>classical</source>
         <translation>Klasik</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="563"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="564"/>
         <source>default</source>
         <translation>Varsayılan</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="565"/>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="167"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="566"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="167"/>
         <source>Unknown</source>
         <translation>Bilinmeyen</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="326"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="355"/>
         <source>Update Shortcut</source>
         <translation>Kısayoları Güncelle</translation>
-    </message>
-    <message>
-        <source>Add Shortcut</source>
-        <translation>Kısayol Ekle</translation>
     </message>
     <message>
         <location filename="../../utils/functionselect.cpp" line="51"/>
@@ -3524,10 +3048,9 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="228"/>
-        <source>min lenght %1
+        <source>min length %1
 </source>
-        <translation>En az uzunluk %1
-</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="238"/>
@@ -3586,80 +3109,85 @@ folder will be deleted!</source>
 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="161"/>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="198"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="161"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="198"/>
         <source>Never</source>
         <translation>Asla</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="200"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="200"/>
         <source>Year</source>
         <translation>Yıl</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="218"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="218"/>
         <source>Jan</source>
         <translation>Oca</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="219"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="219"/>
         <source>Feb</source>
         <translation>Şub</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="220"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="220"/>
         <source>Mar</source>
         <translation>Mar</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="221"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="221"/>
         <source>Apr</source>
         <translation>Nis</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="222"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="222"/>
         <source>May</source>
         <translation>May</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="223"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="223"/>
         <source>Jun</source>
         <translation>Haz</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="224"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="224"/>
         <source>Jul</source>
         <translation>Tem</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="225"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="225"/>
         <source>Aug</source>
         <translation>Ağu</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="226"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="226"/>
         <source>Sep</source>
         <translation>Eyl</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="227"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="227"/>
         <source>Oct</source>
         <translation>Eki</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="228"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="228"/>
         <source>Nov</source>
         <translation>Kas</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="229"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="229"/>
         <source>Dec</source>
         <translation>Ara</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changevailddialog.cpp" line="250"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="250"/>
         <source>Day</source>
         <translation>Gün</translation>
+    </message>
+    <message>
+        <location filename="../../main.cpp" line="79"/>
+        <source>ukui-control-center is already running!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3709,10 +3237,6 @@ folder will be deleted!</source>
 <context>
     <name>ResolutionSlider</name>
     <message>
-        <source>(recommend)</source>
-        <translation type="vanished">(önerilen)</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/system/display/resolutionslider.cpp" line="115"/>
         <source>No available resolutions</source>
         <translation>Kullanılabilir çözünürlük yok</translation>
@@ -3747,10 +3271,6 @@ folder will be deleted!</source>
         <translation>Ekran kilidi gecikmesi</translation>
     </message>
     <message>
-        <source>Min</source>
-        <translation type="vanished">Dk</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="374"/>
         <source>Select screenlock background</source>
         <translation>Ekran kilidi arkaplanını Seç</translation>
@@ -3771,62 +3291,42 @@ folder will be deleted!</source>
         <translation>Ekran girişinde ekran kilidinin resmini göster</translation>
     </message>
     <message>
-        <source>Enabel screenlock</source>
-        <translation type="vanished">Ekran kilidi aktif</translation>
-    </message>
-    <message>
-        <source>Open</source>
-        <translation type="obsolete">Aç</translation>
-    </message>
-    <message>
-        <source>screenlock</source>
-        <translation type="vanished">Ekran kilidi</translation>
-    </message>
-    <message>
-        <source>picture</source>
-        <translation type="obsolete">Resim</translation>
-    </message>
-    <message>
-        <source>Never</source>
-        <translation type="vanished">Asla</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="119"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="118"/>
         <source>5m</source>
         <translation>5 dk</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="119"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="118"/>
         <source>10m</source>
         <translation>10 dk</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="119"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="118"/>
         <source>30m</source>
         <translation>30 dk</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="119"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="118"/>
         <source>45m</source>
         <translation>45 dk</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="119"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="118"/>
         <source>1m</source>
         <translation>1 dk</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="120"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="119"/>
         <source>1h</source>
         <translation>1 sa</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="120"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="119"/>
         <source>1.5h</source>
         <translation>1.5 sa</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="120"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="119"/>
         <source>3h</source>
         <translation>3 sa</translation>
     </message>
@@ -3855,73 +3355,57 @@ folder will be deleted!</source>
         <translation>Bekleme Süresi</translation>
     </message>
     <message>
-        <source>Min</source>
-        <translation type="vanished">Dk</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="448"/>
         <source>Lock screen when screensaver boot</source>
         <translation>Ekran koruyucu açıldığında ekranı kilitle</translation>
     </message>
     <message>
-        <source>screensaver</source>
-        <translation type="vanished">Ekran koruyucu</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="145"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="168"/>
         <source>Default_ukui</source>
         <translation>Ukui Varsayılanı</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="146"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="169"/>
         <source>Blank_Only</source>
         <translation>Sadece Kalın</translation>
     </message>
     <message>
-        <source>Random</source>
-        <translation>Rasgele</translation>
-    </message>
-    <message>
-        <source>Never</source>
-        <translation type="vanished">Asla</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="157"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="180"/>
         <source>5m</source>
         <translation>5 dk</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="157"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="180"/>
         <source>10m</source>
         <translation>10 dk</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="157"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="180"/>
         <source>30m</source>
         <translation>30 dk</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="157"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="180"/>
         <source>45m</source>
         <translation>45 dk</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="157"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="180"/>
         <source>1m</source>
         <translation>1 dk</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="158"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="181"/>
         <source>1h</source>
         <translation>1 sa</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="158"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="181"/>
         <source>1.5h</source>
         <translation>1.5 sa</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="158"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="181"/>
         <source>3h</source>
         <translation>3 sa</translation>
     </message>
@@ -4008,7 +3492,7 @@ folder will be deleted!</source>
         <translation>Özel Kısayollar</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="145"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="159"/>
         <source>Add custom shortcut</source>
         <translation>Özel Kısayol Ekle</translation>
     </message>
@@ -4018,21 +3502,9 @@ folder will be deleted!</source>
         <translation>Varsayılana Sıfırla</translation>
     </message>
     <message>
-        <source>shortcut</source>
-        <translation type="vanished">Kısayol</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="63"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="77"/>
         <source>Shortcut</source>
         <translation>Kısayol</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>Masaüstü</translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation>Sistem</translation>
     </message>
 </context>
 <context>
@@ -4048,7 +3520,8 @@ folder will be deleted!</source>
         <translation>Sistem Kısayolları</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/showallshortcut.cpp" line="151"/>
+        <location filename="../../../plugins/devices/shortcut/showallshortcut.cpp" line="109"/>
+        <location filename="../../../plugins/devices/shortcut/showallshortcut.cpp" line="157"/>
         <source>Desktop</source>
         <translation>Masaüstü</translation>
     </message>
@@ -4117,10 +3590,6 @@ folder will be deleted!</source>
         <translation>Koyu</translation>
     </message>
     <message>
-        <source>Middle</source>
-        <translation type="vanished">Orta</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/personalized/theme/theme.ui" line="273"/>
         <source>Icon theme</source>
         <translation>Simge Teması</translation>
@@ -4146,34 +3615,14 @@ folder will be deleted!</source>
         <translation>Şeffaflık</translation>
     </message>
     <message>
-        <source>Transparent effects</source>
-        <translation type="vanished">Şeffaflık Efekti</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/personalized/theme/theme.ui" line="525"/>
         <source>Performance mode</source>
         <translation>Performans Modu</translation>
     </message>
     <message>
-        <source>Transparent</source>
-        <translation type="vanished">Şeffaflık</translation>
-    </message>
-    <message>
-        <source>Low</source>
-        <translation type="vanished">Düşük</translation>
-    </message>
-    <message>
-        <source>High</source>
-        <translation type="vanished">Yüksek</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/personalized/theme/theme.ui" line="705"/>
         <source>Reset to default</source>
         <translation>Varsayılana Dön</translation>
-    </message>
-    <message>
-        <source>theme</source>
-        <translation type="vanished">Tema</translation>
     </message>
 </context>
 <context>
@@ -4193,14 +3642,6 @@ folder will be deleted!</source>
         <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="144"/>
         <source>change timezone</source>
         <translation>zaman dilimini değiştir</translation>
-    </message>
-    <message>
-        <source>change zonne</source>
-        <translation type="vanished">Zaman dilimini değiştir</translation>
-    </message>
-    <message>
-        <source>Change Timezone</source>
-        <translation type="vanished">Zaman dilimini değiştir</translation>
     </message>
 </context>
 <context>
@@ -4236,10 +3677,6 @@ folder will be deleted!</source>
         <translation>Dokunmatik yüzey bulunamadı</translation>
     </message>
     <message>
-        <source>touchpad</source>
-        <translation type="vanished">Dokunmatik Yüzey</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="60"/>
         <source>Touchpad</source>
         <translation>Dokunmatik Yüzey</translation>
@@ -4271,74 +3708,44 @@ folder will be deleted!</source>
     </message>
 </context>
 <context>
-    <name>UkmediaApplicationWidget</name>
-    <message>
-        <source>Application Volume</source>
-        <translation type="obsolete">Uygulama Sesi</translation>
-    </message>
-    <message>
-        <source>No application is currently playing or recording audio</source>
-        <translation type="obsolete">Şu anda hiçbir uygulama ses çalmıyor veya kaydetmiyor</translation>
-    </message>
-</context>
-<context>
     <name>UkmediaInputWidget</name>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="49"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="53"/>
         <source>Input</source>
         <translation>Giriş</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="51"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="55"/>
         <source>Input Device</source>
         <translation>Giriş Aygıtı</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="54"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="58"/>
         <source>Volume</source>
         <translation>Ses</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="58"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="62"/>
         <source>Input Level</source>
         <translation>Giriş Seviyesi</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="59"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="63"/>
         <source>Low</source>
         <translation>Düşük</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="61"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="65"/>
         <source>High</source>
         <translation>Yüksek</translation>
     </message>
     <message>
-        <source>Select input device</source>
-        <translation type="vanished">Giriş aygıtı seç</translation>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="70"/>
+        <source>Select Device</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Input device</source>
-        <translation>Giriş Aygıtı</translation>
-    </message>
-    <message>
-        <source>volume</source>
-        <translation>Ses</translation>
-    </message>
-    <message>
-        <source>Input level</source>
-        <translation type="vanished">Giriş Seviyesi</translation>
-    </message>
-    <message>
-        <source>low</source>
-        <translation type="vanished">Düşük</translation>
-    </message>
-    <message>
-        <source>high</source>
-        <translation type="vanished">Yüksek</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="64"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="68"/>
         <source>Connector</source>
         <translation>Bağlayıcı</translation>
     </message>
@@ -4346,12 +3753,12 @@ folder will be deleted!</source>
 <context>
     <name>UkmediaMainWidget</name>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="337"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="341"/>
         <source>sound error</source>
         <translation>Ses hatası</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="337"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="341"/>
         <source>load sound failed</source>
         <translation>Yükleme sesi başarısız</translation>
     </message>
@@ -4359,95 +3766,48 @@ folder will be deleted!</source>
 <context>
     <name>UkmediaOutputWidget</name>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="71"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="75"/>
         <source>Output</source>
         <translation>Çıkış</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="73"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="77"/>
         <source>Output Device</source>
         <translation>Çıkış Aygıtı</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="75"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="79"/>
         <source>Master Volume</source>
         <translation>Ana Ses</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="79"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="83"/>
         <source>Balance</source>
         <translation>Denge</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="82"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="86"/>
         <source>Right</source>
         <translation>Sağ</translation>
     </message>
     <message>
-        <source>Select output device</source>
-        <translation type="vanished">Çıkış aygıtı seç</translation>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="89"/>
+        <source>Profile</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Output device</source>
-        <translation>Çıkış Aygıtı</translation>
-    </message>
-    <message>
-        <source>Master volume</source>
-        <translation>Ana Ses</translation>
-    </message>
-    <message>
-        <source>Channel balance</source>
-        <translation type="vanished">Kanal dengesi</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="80"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="84"/>
         <source>Left</source>
         <translation>Sol</translation>
     </message>
     <message>
-        <source>right</source>
-        <translation type="vanished">Sağ</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="83"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="87"/>
         <source>Connector</source>
         <translation>Ses Çıkışı</translation>
     </message>
 </context>
 <context>
     <name>UkmediaSoundEffectsWidget</name>
-    <message>
-        <source>System sound</source>
-        <translation type="vanished">Sistem Sesi</translation>
-    </message>
-    <message>
-        <source>Sound theme</source>
-        <translation>Ses Teması</translation>
-    </message>
-    <message>
-        <source>Prompt voice</source>
-        <translation type="vanished">Ses İstemi</translation>
-    </message>
-    <message>
-        <source>Boot music</source>
-        <translation>Açılış Müziği</translation>
-    </message>
-    <message>
-        <source>System sound theme</source>
-        <translation type="vanished">Sistem sesi teması</translation>
-    </message>
-    <message>
-        <source>prompt voice</source>
-        <translation type="vanished">Ses İstemi</translation>
-    </message>
-    <message>
-        <source>Shutdown</source>
-        <translation type="obsolete">Kapat</translation>
-    </message>
-    <message>
-        <source>Lagout</source>
-        <translation type="vanished">Çıkış</translation>
-    </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="48"/>
         <source>System Sound</source>
@@ -4564,10 +3924,6 @@ folder will be deleted!</source>
 <context>
     <name>UserInfo</name>
     <message>
-        <source>userinfo</source>
-        <translation type="vanished">Kullanıcı</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="57"/>
         <source>Userinfo</source>
         <translation>Kullanıcı</translation>
@@ -4588,7 +3944,7 @@ folder will be deleted!</source>
         <translation>Root</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="615"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="617"/>
         <source>Delete</source>
         <translation>Sil</translation>
     </message>
@@ -4599,20 +3955,20 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="231"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="597"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="599"/>
         <source>Change pwd</source>
         <translation>Parola Değiştir</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="296"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="587"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="589"/>
         <source>Change type</source>
         <translation>Tür Değiştir</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="361"/>
-        <source>Change vaild</source>
-        <translation>Değişiklik geçerli</translation>
+        <source>Change valid</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="429"/>
@@ -4630,7 +3986,7 @@ folder will be deleted!</source>
         <translation>Diğer Kullanıcılar</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="338"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="340"/>
         <source>Add new user</source>
         <translation>Yeni kullanıcı ekle</translation>
     </message>
@@ -4646,10 +4002,6 @@ folder will be deleted!</source>
         <location filename="../../../plugins/network/vpn/vpn.cpp" line="83"/>
         <source>Add vpn connect</source>
         <translation>Vpn Bağlantısı Ekle</translation>
-    </message>
-    <message>
-        <source>vpn</source>
-        <translation type="vanished">VPN</translation>
     </message>
     <message>
         <location filename="../../../plugins/network/vpn/vpn.cpp" line="33"/>
@@ -4690,21 +4042,9 @@ folder will be deleted!</source>
         <translation>İnternetten Al</translation>
     </message>
     <message>
-        <source>Restore default wp</source>
-        <translation type="vanished">Varsayılana Dön</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="589"/>
         <source>Ok</source>
         <translation>Tamam</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation type="obsolete">Ekle</translation>
-    </message>
-    <message>
-        <source>background</source>
-        <translation type="vanished">Arkaplan</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="53"/>
@@ -4722,69 +4062,74 @@ folder will be deleted!</source>
         <translation>Renk</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="128"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="135"/>
+        <source>Add custom shortcut</source>
+        <translation type="unfinished">Özel Kısayol Ekle</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="160"/>
         <source>wallpaper</source>
         <translation>Duvar Kağıdı</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="129"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="161"/>
         <source>centered</source>
         <translation>Ortalanmış</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="130"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="162"/>
         <source>scaled</source>
         <translation>Döşe</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="131"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="163"/>
         <source>stretched</source>
         <translation>Uzatılmış</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="132"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="164"/>
         <source>zoom</source>
         <translation>Yakınlaştır</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="133"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="165"/>
         <source>spanned</source>
         <translation>Yayılmış</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="415"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="444"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="447"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="476"/>
         <source>select custom wallpaper file</source>
         <translation>özel duvar kağıdı dosyasını seç</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="416"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="445"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="448"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="477"/>
         <source>Select</source>
         <translation>Seç</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="417"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="446"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="449"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="478"/>
         <source>Position: </source>
         <translation>Konum: </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="418"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="447"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="450"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="479"/>
         <source>FileName: </source>
         <translation>Dosya Adı: </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="419"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="448"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="451"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="480"/>
         <source>FileType: </source>
         <translation>Dosya Türü: </translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="570"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="420"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="449"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="452"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="481"/>
         <source>Cancel</source>
         <translation>İptal</translation>
     </message>
@@ -4792,51 +4137,43 @@ folder will be deleted!</source>
 <context>
     <name>Widget</name>
     <message>
-        <source>screen zoom </source>
-        <translation type="vanished">Ekran Yakınlaştırma </translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="112"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="105"/>
         <source>night mode</source>
         <translation>Gece modu</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="574"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="567"/>
         <source>Some applications need to be logouted to take effect</source>
         <translation>Bazı uygulamaların aktif olması için oturum açılması gerekir</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="950"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="952"/>
         <source>please insure at least one output!</source>
         <translation>Lütfen en az bir çıktı alın!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="951"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="959"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="953"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="961"/>
         <source>Warning</source>
         <translation>Uyarı</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="958"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="960"/>
         <source>Morning time should be earlier than evening time!</source>
         <translation>Sabah vakti akşam saatinden daha erken olmalı!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="977"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="979"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>Maalesef, yapılandırmanız uygulanamadı. 
 Genel nedenler, toplam ekran boyutunun çok büyük olması veya GPU&apos;nuz tarafından desteklenenden daha fazla ekran etkinleştirmenizdir.</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="978"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="980"/>
         <source>@title:window</source>
         <comment>Unsupported Configuration</comment>
         <translation>Desteklenmeyen Yapılandırma</translation>
-    </message>
-    <message>
-        <source>Some applications need to be restarted to take effect</source>
-        <translation>Etkili olması için bazı uygulamaların yeniden başlatılması gerekiyor</translation>
     </message>
 </context>
 <context>
@@ -4883,13 +4220,6 @@ Genel nedenler, toplam ekran boyutunun çok büyük olması veya GPU&apos;nuz ta
     </message>
 </context>
 <context>
-    <name>area_code_lineedit</name>
-    <message>
-        <source>Sign up by Phone</source>
-        <translation>Telefon ile kaydol</translation>
-    </message>
-</context>
-<context>
     <name>changtimedialog</name>
     <message>
         <location filename="../../../plugins/time-language/datetime/changtime.ui" line="32"/>
@@ -4933,119 +4263,11 @@ Genel nedenler, toplam ekran boyutunun çok büyük olması veya GPU&apos;nuz ta
     </message>
 </context>
 <context>
-    <name>config_list_widget</name>
-    <message>
-        <source>wallpaper</source>
-        <translation type="vanished">Duvar kağıdı</translation>
-    </message>
-    <message>
-        <source>Sync your settings</source>
-        <translation>Ayarlarınızı senkronize edin</translation>
-    </message>
-    <message>
-        <source>Your account:%1</source>
-        <translation>Hesabınız: %1</translation>
-    </message>
-    <message>
-        <source>Exit</source>
-        <translation>Çıkış</translation>
-    </message>
-    <message>
-        <source>Sync</source>
-        <translation>Senk</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Giriş</translation>
-    </message>
-    <message>
-        <source>Stop sync</source>
-        <translation>Senk. Durdur</translation>
-    </message>
-    <message>
-        <source>Auto sync</source>
-        <translation>Otomatik Senk</translation>
-    </message>
-    <message>
-        <source>Synchronize your personalized settings and data</source>
-        <translation>Kişiselleştirilmiş ayarlarınızı ve verilerinizi senkronize edin</translation>
-    </message>
-    <message>
-        <source>Login Cloud to get a better experience</source>
-        <translation type="vanished">Daha iyi bir deneyim için Cloud&apos;a giriş yapın</translation>
-    </message>
-    <message>
-        <source>Sign in/Sign up</source>
-        <translation type="vanished">Giriş Yap/Kayıt Ol</translation>
-    </message>
-    <message>
-        <source>You must sign in when you attempt to sync your settings.</source>
-        <translation type="vanished">Ayarlarınızı senkronize etmeye çalıştığınızda oturum açmanız gerekir.</translation>
-    </message>
-    <message>
-        <source>Your account：%1</source>
-        <translation>Hesabınız: %1</translation>
-    </message>
-    <message>
-        <source>Disconnected</source>
-        <translation>Bağlı değil</translation>
-    </message>
-</context>
-<context>
-    <name>item_list</name>
-    <message>
-        <source>Menu</source>
-        <translation>Menü</translation>
-    </message>
-    <message>
-        <source>Quick Start</source>
-        <translation>Hızlı Başlat</translation>
-    </message>
-    <message>
-        <source>Tab</source>
-        <translation>Sekme</translation>
-    </message>
-    <message>
-        <source>ScreenSaver</source>
-        <translation>Ekran Koruyucu</translation>
-    </message>
-    <message>
-        <source>User Profile</source>
-        <translation type="vanished">Kullanıcı Profili</translation>
-    </message>
-    <message>
-        <source>Weather</source>
-        <translation>Hava Durumu</translation>
-    </message>
-    <message>
-        <source>Media</source>
-        <translation>Medya</translation>
-    </message>
-    <message>
-        <source>Walpaper</source>
-        <translation>Duvar kağıdı</translation>
-    </message>
-</context>
-<context>
-    <name>mcode_widget</name>
-    <message>
-        <source>SongTi</source>
-        <translation></translation>
-    </message>
-</context>
-<context>
     <name>networkaccount</name>
     <message>
         <location filename="../../../plugins/account/networkaccount/networkaccount.cpp" line="25"/>
         <source>NetworkAccount</source>
         <translation>Ağ Hesabı</translation>
-    </message>
-</context>
-<context>
-    <name>ql_pushbutton_edit</name>
-    <message>
-        <source>Reset</source>
-        <translation>Sıfırla</translation>
     </message>
 </context>
 </TS>

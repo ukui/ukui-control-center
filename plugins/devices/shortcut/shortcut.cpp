@@ -28,6 +28,20 @@
 #include "realizeshortcutwheel.h"
 #include "defineshortcutitem.h"
 
+
+/* qt会将glib里的signals成员识别为宏，所以取消该宏
+ * 后面如果用到signals时，使用Q_SIGNALS代替即可
+ **/
+#ifdef signals
+#undef signals
+#endif
+
+extern "C" {
+#include <glib.h>
+#include <glib/gi18n.h>
+}
+
+
 #define ITEMHEIGH 36
 
 //快捷键屏蔽键
@@ -292,7 +306,22 @@ void Shortcut::initFunctionStatus(){
 void Shortcut::appendGeneralItems(){
     for (KeyEntry * gkeyEntry: generalEntries){
         if (showList.contains(gkeyEntry->keyStr)){
-            DefineShortcutItem * singleWidget = new DefineShortcutItem(gkeyEntry->keyStr, gkeyEntry->valueStr);
+
+            GSettingsSchema * pSettings;
+
+            pSettings = g_settings_schema_source_lookup(g_settings_schema_source_new_from_directory("/usr/share/glib-2.0/schemas/", g_settings_schema_source_get_default(), FALSE, NULL),
+                                                        KEYBINDINGS_DESKTOP_SCHEMA,
+                                                        FALSE);
+
+            QByteArray ba = QString("ukui-settings-daemon").toLatin1();
+            QByteArray ba1 = gkeyEntry->keyStr.toLatin1();
+
+            GSettingsSchemaKey * keyObj = g_settings_schema_get_key(pSettings, ba1.data());
+
+            char * i18nKey;
+            i18nKey = const_cast<char *>(g_dgettext(ba.data(), g_settings_schema_key_get_summary(keyObj)));
+
+            DefineShortcutItem * singleWidget = new DefineShortcutItem(QString(i18nKey), gkeyEntry->valueStr);
             singleWidget->setFrameShape(QFrame::Shape::Box);
 //            singleWidget->setUserData(Qt::UserRole, gkeyEntry);
             singleWidget->setProperty("userData", QVariant::fromValue(gkeyEntry));
