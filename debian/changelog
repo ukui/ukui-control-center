@@ -1,3 +1,9 @@
+ukui-control-center (3.0.0-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Thu, 30 Jul 2020 11:43:51 +0000
+
 ukui-control-center (2.0.5-1) unstable; urgency=medium
 
   * New upstream release. (Closes: #964606)
