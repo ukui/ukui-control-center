@@ -1,4 +1,4 @@
- /* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
+/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  *
  * Copyright (C) 2019 Tianjin KYLIN Information Technology Co., Ltd.
  *
@@ -646,7 +646,7 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     baseWidget->setLayout(baseVerLayout);
 
     QListWidgetItem * item = new QListWidgetItem(ui->listWidget);
-    item->setSizeHint(QSize(ui->listWidget->width() - 2, ITEMHEIGH));
+    item->setSizeHint(QSize(ui->listWidget->width() - 4, ITEMHEIGH));
     item->setData(Qt::UserRole, QVariant(user.objpath));
     ui->listWidget->setItemWidget(item, baseWidget);
 
