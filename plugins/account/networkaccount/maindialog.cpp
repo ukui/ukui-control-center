@@ -557,7 +557,6 @@ void MainDialog::on_login_btn() {
         QString phone,mcode;                    //如果用户选择手机登录，执行此处
         phone = m_loginDialog->get_user_name();
         mcode = m_loginDialog->get_login_code()->text();
-
         m_submitBtn->setText("");
         m_blueEffect->startmoive();
         emit dophonelogin(phone,mcode,m_uuid);
@@ -913,7 +912,6 @@ void MainDialog::on_send_code() {
         setshow(m_stackedWidget);
         return ;
     }
-
     if(m_passDialog->get_user_name() != "" && m_passDialog->get_user_confirm() !="" && m_passDialog->get_user_newpass() != "") {
         //qstrcpy(name,box_pass->get_user_name().toStdString().c_str());
         name = m_passDialog->get_user_name();
