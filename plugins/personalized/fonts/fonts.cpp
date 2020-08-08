@@ -58,7 +58,7 @@
 */
 
 typedef struct _FontInfo FontInfo;
-struct _FontInfo{
+struct _FontInfo {
     QString type;
     QString gtkfont;
     QString docfont;
@@ -75,20 +75,20 @@ struct _FontInfo{
 FontInfo defaultfontinfo;
 
 //字体效果
-typedef enum{
+typedef enum {
     ANTIALIASING_NONE,
     ANTIALIASING_GRAYSCALE,
     ANTIALIASING_RGBA
 }Antialiasing;
 
-typedef enum{
+typedef enum {
     HINT_NONE,
     HINT_SLIGHT,
     HINT_MEDIUM,
     HINT_FULL
 }Hinting;
 
-struct FontEffects{
+struct FontEffects {
     Antialiasing antial;
     Hinting hinting;
 };
@@ -113,17 +113,13 @@ Fonts::Fonts()
 
     setupStylesheet();
 
-
-    //    const QByteArray iddd(PEONY_SCHEMA);
-    //    peonysettings = new QGSettings(iddd);
-
     const QByteArray styleID(STYLE_FONT_SCHEMA);
     const QByteArray id(INTERFACE_SCHEMA);
     const QByteArray idd(MARCO_SCHEMA);
     const QByteArray iid(FONT_RENDER_SCHEMA);
 
     if (QGSettings::isSchemaInstalled(id) && QGSettings::isSchemaInstalled(iid) && QGSettings::isSchemaInstalled(idd) &&
-            QGSettings::isSchemaInstalled(styleID)){
+            QGSettings::isSchemaInstalled(styleID)) {
         settingsCreate = true;
         marcosettings = new QGSettings(idd);
         ifsettings = new QGSettings(id);
@@ -135,7 +131,6 @@ Fonts::Fonts()
         setupConnect();
         initFontStatus();
     }
-
 }
 
 Fonts::~Fonts()
@@ -148,7 +143,6 @@ Fonts::~Fonts()
         delete rendersettings;
         delete stylesettings;
     }
-
 }
 
 QString Fonts::get_plugin_name(){
@@ -168,6 +162,8 @@ void Fonts::plugin_delay_control(){
 }
 
 void Fonts::setupStylesheet(){
+    ui->advancedBtn->setVisible(false);
+    ui->advancedFrame->setVisible(false);
     ui->titleSecondLabel->setVisible(false);
     ui->sampleBtn1->setVisible(false);
     ui->sampleBtn2->setVisible(false);
@@ -188,12 +184,6 @@ void Fonts::setupComponent(){
 
     ui->fontLayout->addWidget(uslider);
     ui->fontLayout->addSpacing(8);
-
-//    ui->fontSizeSlider->setMinimum(100);
-//    ui->fontSizeSlider->setMaximum(275);
-//    ui->fontSizeSlider->setSingleStep(25);
-//    ui->fontSizeSlider->setPageStep(25);
-//    ui->fontSizeSlider->setTickPosition(QSlider::TicksBelow);
 
     //导入系统字体列表
     QStringList fontfamiles = fontdb.families();
@@ -216,8 +206,7 @@ void Fonts::setupComponent(){
         ui->titleFontComBox->addItem(font);
     }
 
-    ////导入字体大小列表
-    //获取当前字体
+    // 获取当前字体
     QStringList gtkfontStrList = _splitFontNameSize(ifsettings->get(GTK_FONT_KEY).toString());
     QStringList docfontStrList = _splitFontNameSize(ifsettings->get(DOC_FONT_KEY).toString());
     QStringList monospacefontStrList = _splitFontNameSize(ifsettings->get(MONOSPACE_FONT_KEY).toString());
@@ -276,9 +265,7 @@ void Fonts::setupComponent(){
     ui->sampleBtn2->setProperty("userData", QVariant::fromValue(example2));
     ui->sampleBtn3->setProperty("userData", QVariant::fromValue(example3));
     ui->sampleBtn4->setProperty("userData", QVariant::fromValue(example4));
-
 //    setSampleButton(ui->sampleBtn1);
-
 }
 
 void Fonts::setSampleButton(QPushButton *button){
