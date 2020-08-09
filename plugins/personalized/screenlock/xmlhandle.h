@@ -17,32 +17,43 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#include "buildpicunitsworker.h"
+#ifndef XMLHANDLE_H
+#define XMLHANDLE_H
 
-#include <QMetaType>
+#include <QXmlStreamReader>
+#include <QXmlStreamWriter>
+#include <QFile>
+#include <QDir>
+#include <QString>
+#include <QMap>
 
-BuildPicUnitsWorker::BuildPicUnitsWorker()
-{
-    //自定义结构提，线程传递时无法放入列表，注册解决
-    qRegisterMetaType<BgInfo>("BgInfo");
-}
+#define WALLPAPERDIR "/usr/share/ukui-background-properties"
 
-BuildPicUnitsWorker::~BuildPicUnitsWorker()
-{
-    delete xmlHandleObj;
-}
+class XmlHandle{
 
-void BuildPicUnitsWorker::run(){
-    //构建xmlhandle对象
-    xmlHandleObj = new XmlHandle();
+public:
+    XmlHandle();
+    ~XmlHandle();
 
-    //解析壁纸数据，如果本地xml文件不存在则自动构建
-    xmlHandleObj->init();
+public:
+    void init();
+    void xmlreader(QString filename);
+    void xmlUpdate(QMap<QString, QMap<QString, QString>> wallpaperinfosMap);
+    QMap<QString, QMap<QString, QString> > requireXmlData();
 
-    //获取本地壁纸列表
-    QMap<QString, BgInfo> wholeBgInfo = BgFileParse::bgFileReader();
-    for (BgInfo sinBfInfo : wholeBgInfo){
+public:
+    QString localconf;
 
-        emit pixmapGeneral(QPixmap(sinBfInfo.filename).scaled(QSize(166, 110)), sinBfInfo);
-    }
-}
+private:
+    QDir xmlDir;
+
+private:
+    QStringList _getXmlFiles(QString path);
+    void _parseWallpaper(QXmlStreamReader &reader);
+    void _xmlGenerate();
+
+    QMap<QString, QMap<QString, QString>> wallpapersMap;
+
+};
+
+#endif // XMLHANDLE_H
