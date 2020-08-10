@@ -78,24 +78,14 @@ class Widget : public QWidget
     // 亮度调节UI
     void initBrightnessUI();
     QString getScreenName(QString name = "");
-    // 获得显示器名称(shell获得)
-    QStringList  getscreenBrightnesName();
-    // 获得显示器名称(shell获得)
-    QStringList  getscreenBrightnesValue();
-    // 获取配置文件位置
-    void setBrigthnessFile();
     void initTemptSlider();
     void initConfigFile();
-    // 获取屏幕xml文件
     void writeScreenXml(int count);
     // 初始化屏幕配置文件
     void initScreenXml(int count);
-    //获取edid信息
+    // 获取edid信息
     void getEdidInfo(QString monitorName,xmlFile *xml);
     void setIsNightMode(bool isNightMode);
-
-    QStringList readFile(const QString& filepath);
-    void writeFile(const QString& filepath, const QStringList& content);
 
     float converToScale(const int value);
     int scaleToSlider(const float value);
@@ -141,8 +131,6 @@ class Widget : public QWidget
     void setBrightnessScreen(int brightnessValue);
     // 设置亮度滑块数值
     void setBrightnesSldierValue(QString screeName);
-    // 保存屏幕亮度配置
-    void saveBrigthnessConfig();
     // 设置夜间模式
     void setNightMode(const bool nightMode);
     // redshitf是否合法
@@ -162,12 +150,8 @@ class Widget : public QWidget
     void addOutputToPrimaryCombo(const KScreen::OutputPtr &output);
     KScreen::OutputPtr findOutput(const KScreen::ConfigPtr &config, const QVariantMap &info);
 
-//    float scaleRet();
     void writeScale(int scale);
     void initGSettings();
-    bool getNightModeGSetting(const QString &key);
-    void setNightModebyPanel(bool judge);
-    void setSessionScale(int scale);
     void writeConfigFile();
 
   private:
@@ -189,7 +173,6 @@ class Widget : public QWidget
     ControlPanel *mControlPanel = nullptr;
     // 设置主显示器相关控件
     OutputConfig *mOutputConfig = nullptr;
-
 
     QList<QQuickView*> mOutputIdentifiers;
     QTimer *mOutputTimer = nullptr;
