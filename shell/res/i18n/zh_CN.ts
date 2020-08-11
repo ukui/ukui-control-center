@@ -617,7 +617,7 @@ you can restore them to ensure the integrity of your system.</source>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="147"/>
         <source>Change Pwd</source>
-        <translation>更改密码</translation>
+        <translation>修改密码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="295"/>
@@ -4812,13 +4812,13 @@ folder will be deleted!</source>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="231"/>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="599"/>
         <source>Change pwd</source>
-        <translation>更改密码</translation>
+        <translation>修改密码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="296"/>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="589"/>
         <source>Change type</source>
-        <translation>更改类型</translation>
+        <translation>修改类型</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="361"/>
