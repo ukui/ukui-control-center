@@ -30,7 +30,12 @@
 
 #include <QTimer>
 #include <QStringList>
+#include <QString>
 #include <QGSettings>
+
+#include <QListWidget>
+#include <QListWidgetItem>
+#include <HoverWidget/hoverwidget.h>
 
 #include "wifi.h"
 #include "netconnectwork.h"
@@ -108,6 +113,9 @@ private:
 
     QString actLanName;
 
+    QListWidget *ListWidget;
+    QMap<QString, QListWidgetItem *> AvailableNetworkMap;
+
 private:
     int setSignal(QString lv);      //get wifi's strength
     QStringList execGetLanList();
@@ -121,6 +129,12 @@ private:
 
     // clear the lan and wifi list
     void clearContent();
+
+    //ListWidget
+    void _resetListWidgetHeigh();
+    void _acquireAvailableNetwork();
+    void deleteNetworkDone(QString);
+    void _buildWidgetForItem(QString);
 
 private slots:
     void wifiSwitchSlot(bool signal);
