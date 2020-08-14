@@ -137,8 +137,15 @@ void UserInfo::_acquireAllUsersInfo(){
         allUserInfoMap.insert(user.username, user);
     }
 
-    //处理root登录
-
+    if (allUserInfoMap.isEmpty()) {
+        ui->currentUserFrame->setVisible(false);
+        ui->autoLoginFrame->setVisible(false);
+        ui->liveFrame->setVisible(true);
+    } else {
+        ui->currentUserFrame->setVisible(true);
+        ui->autoLoginFrame->setVisible(true);
+        ui->liveFrame->setVisible(false);
+    }
 }
 
 UserInfomation UserInfo::_acquireUserInfo(QString objpath){

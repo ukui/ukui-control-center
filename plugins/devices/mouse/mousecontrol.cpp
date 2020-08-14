@@ -20,11 +20,15 @@
 #include "mousecontrol.h"
 #include "ui_mousecontrol.h"
 
-#include <QSizePolicy>
-#include <QTimer>
-
+#include <QDir>
 #include <QFile>
+#include <QTimer>
 #include <QDebug>
+#include <QSettings>
+#include <QSizePolicy>
+#include <QtDBus>
+#include <QtDBus/QDBusMessage>
+#include <QtDBus/QDBusConnection>
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -105,34 +109,6 @@ MouseControl::MouseControl()
     ui->titleLabel->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
     ui->title2Label->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
 
-//    QString qss;
-//    QFile QssFile("://combox.qss");
-//    QssFile.open(QFile::ReadOnly);
-
-//    if (QssFile.isOpen()){
-//        qss = QLatin1String(QssFile.readAll());
-//        QssFile.close();
-//    }
-
-//    pluginWidget->setStyleSheet("background: #ffffff;");
-
-//    ui->handWidget->setStyleSheet("QWidget{background: #F4F4F4; border-radius: 6px;}");
-//    ui->pointerSpeedWidget->setStyleSheet("QWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
-//    ui->sensitivityWidget->setStyleSheet("QWidget{background: #F4F4F4;}");
-//    ui->visibilityWidget->setStyleSheet("QWidget{background: #F4F4F4;}");
-//    ui->pointerSizeWidget->setStyleSheet("QWidget{background: #F4F4F4; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
-
-    //全局未生效，再次设置
-//    ui->pointerSizeComBox->setView(new QListView());
-//    ui->pointerSizeComBox->setStyleSheet(qss);
-//    ui->handHabitComBox->setView(new QListView());
-//    ui->handHabitComBox->setStyleSheet(qss);
-
-
-//    ui->cursorWeightWidget->setStyleSheet("QWidget{background: #F4F4F4; border-top-left-radius: 6px; border-top-right-radius: 6px;}");
-//    ui->cursorSpeedWidget->setStyleSheet("QWidget{background: #F4F4F4;}");
-//    ui->flashingWidget->setStyleSheet("QWidget{background: #F4F4F4;  border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
-
     //初始化鼠标设置GSettings
     const QByteArray id(MOUSE_SCHEMA);
     const QByteArray sessionId(SESSION_SCHEMA);
@@ -149,9 +125,6 @@ MouseControl::MouseControl()
         initCursorStatus();
         initWheelStatus();
     }
-
-
-
 }
 
 MouseControl::~MouseControl()
@@ -239,15 +212,7 @@ void MouseControl::setupComponent(){
         settings->set(LOCATE_KEY, checked);
     });
 
-    connect(ui->pointerSizeComBox, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged), [=](int index){
-        Q_UNUSED(index)
-        settings->set(CURSOR_SIZE_KEY, ui->pointerSizeComBox->currentData().toInt());
-
-        QStringList keys = sesstionSetttings->keys();
-        if (keys.contains("mouseSizeChanged")) {
-            sesstionSetttings->set(SESSION_MOUSE_KEY, true);
-        }
-    });
+    connect(ui->pointerSizeComBox, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MouseControl::mouseSizeChange);
 
     connect(flashingBtn, &SwitchButton::checkedChanged, [=](bool checked){
         desktopSettings->set(CURSOR_BLINK_KEY, checked);
@@ -359,4 +324,35 @@ void MouseControl::_set_mouse_mid_speed(int value){
     QProcess * setProcess = new QProcess();
     setProcess->start(cmd);
     setProcess->waitForFinished();
+}
+
+void MouseControl::mouseSizeChange() {
+
+    settings->set(CURSOR_SIZE_KEY, ui->pointerSizeComBox->currentData().toInt());
+
+    QStringList keys = sesstionSetttings->keys();
+    if (keys.contains("mouseSizeChanged")) {
+        sesstionSetttings->set(SESSION_MOUSE_KEY, true);
+    }
+
+    QString filename = QDir::homePath() + "/.config/kcminputrc";
+    QSettings *mouseSettings = new QSettings(filename, QSettings::IniFormat);
+
+    mouseSettings->beginGroup("Mouse");
+    mouseSettings->setValue("cursorSize", ui->pointerSizeComBox->currentData().toInt());
+    mouseSettings->endGroup();
+
+    delete mouseSettings;
+
+#if QT_VERSION <= QT_VERSION_CHECK(5,12,0)
+
+#else
+    QDBusMessage message = QDBusMessage::createSignal("/KGlobalSettings", "org.kde.KGlobalSettings", "notifyChange");
+    QList<QVariant> args;
+    args.append(5);
+    args.append(0);
+    message.setArguments(args);
+    QDBusConnection::sessionBus().send(message);
+#endif
+
 }

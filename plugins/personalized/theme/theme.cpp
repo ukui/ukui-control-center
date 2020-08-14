@@ -184,7 +184,7 @@ void Theme::plugin_delay_control(){
 
 void Theme::setupSettings() {
     QString filename = QDir::homePath() + "/.config/ukui-kwinrc";
-    kwinSettings = new QSettings(filename, QSettings::IniFormat);
+    kwinSettings = new QSettings(filename, QSettings::IniFormat, this);
 
     kwinSettings->beginGroup("Plugins");
 
@@ -437,8 +437,6 @@ void Theme::setupControlTheme(){
 //        button->setStyleSheet(btnStyle);
         colorBtnGroup->addButton(button, colorStringList.indexOf(color));
 
-
-
         QVBoxLayout * colorVerLayout = new QVBoxLayout();
         colorVerLayout->setSpacing(0);
         colorVerLayout->setMargin(0);
@@ -490,6 +488,18 @@ void Theme::initCursorTheme(){
         QString value = curWidget->getValue();
         //设置光标主题
         curSettings->set(CURSOR_THEME_KEY, value);
+
+#if QT_VERSION <= QT_VERSION_CHECK(5,12,0)
+
+#else
+        QDBusMessage message = QDBusMessage::createSignal("/KGlobalSettings", "org.kde.KGlobalSettings", "notifyChange");
+        QList<QVariant> args;
+        args.append(5);
+        args.append(0);
+        message.setArguments(args);
+        QDBusConnection::sessionBus().send(message);
+#endif
+
     });
 
     for (QString cursor : cursorThemes){
