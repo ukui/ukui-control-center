@@ -83,6 +83,62 @@ MainWindow::MainWindow(QWidget *parent) :
         }
     });
 
+    //设置panel图标
+    QIcon panelicon;
+    if (QIcon::hasThemeIcon("ukui-control-center"))
+        panelicon = QIcon::fromTheme("ukui-control-center");
+//    else
+//        panelicon = QIcon("://applications-system.svg");
+    this->setWindowIcon(panelicon);
+    this->setWindowTitle(tr("ukcc"));
+
+    //中部内容区域
+    ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background: palette(base); border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
+    //标题栏widget
+    ui->titlebarWidget->setStyleSheet("QWidget#titlebarWidget{background: palette(base); border-top-left-radius: 6px; border-top-right-radius: 6px;}");
+////    //左上角文字
+////    ui->mainLabel->setStyleSheet("QLabel#mainLabel{font-size: 18px; color: #40000000;}");
+
+    //左上角返回按钮
+    backBtn->setProperty("useIconHighlightEffect", true);
+    backBtn->setProperty("iconHighlightEffectMode", 1);
+    backBtn->setFlat(true);
+
+//    ui->backBtn->setStyleSheet("QPushButton#backBtn{background: #ffffff; border: none;}");
+//    //顶部搜索框
+//    ui->searchLineEdit->setStyleSheet("QLineEdit#searchLineEdit{background: #FFEDEDED; border: none; border-radius: 6px;}");
+    //右上角按钮stylesheet
+    minBtn->setProperty("useIconHighlightEffect", true);
+    minBtn->setProperty("iconHighlightEffectMode", 1);
+    minBtn->setFlat(true);
+    maxBtn->setProperty("useIconHighlightEffect", true);
+    maxBtn->setProperty("iconHighlightEffectMode", 1);
+    maxBtn->setFlat(true);
+    closeBtn->setProperty("useIconHighlightEffect", true);
+    closeBtn->setProperty("iconHighlightEffectMode", 1);
+    closeBtn->setFlat(true);
+    closeBtn->installEventFilter(this);
+
+//    ui->minBtn->setStyleSheet("QPushButton#minBtn{background: #ffffff; border: none;}"
+//                              "QPushButton:hover:!pressed#minBtn{background: #FF3D6BE5; border-radius: 2px;}"
+//                              "QPushButton:hover:pressed#minBtn{background: #415FC4; border-radius: 2px;}");
+//    ui->maxBtn->setStyleSheet("QPushButton#maxBtn{background: #ffffff; border: none;}"
+//                              "QPushButton:hover:!pressed#maxBtn{background: #FF3D6BE5; border-radius: 2px;}"
+//                              "QPushButton:hover:pressed#maxBtn{background: #415FC4; border-radius: 2px;}");
+    closeBtn->setStyleSheet("QPushButton:hover:!pressed#closeBtn{background: #FA6056; border-radius: 4px;}"
+                                "QPushButton:hover:pressed#closeBtn{background: #E54A50; border-radius: 4px;}");
+
+    //左侧一级菜单
+//    ui->leftsidebarWidget->setStyleSheet("QWidget#leftsidebarWidget{background: #cccccc; border: none; border-top-left-radius: 6px; border-bottom-left-radius: 6px;}");
+    ui->leftsidebarWidget->setStyleSheet("QWidget#leftsidebarWidget{background-color: palette(button);border: none; border-top-left-radius: 6px; border-bottom-left-radius: 6px;}");
+
+    //设置左上角按钮图标
+    backBtn->setIcon(QIcon("://img/titlebar/back.svg"));
+
+    //设置右上角按钮图标
+    minBtn->setIcon(QIcon::fromTheme("window-minimize-symbolic"));
+    maxBtn->setIcon(QIcon::fromTheme("window-maximize-symbolic"));
+    closeBtn->setIcon(renderSvg(QIcon::fromTheme("window-close-symbolic"),"default"));
     initStyleSheet();
 
     //初始化功能列表数据
@@ -126,7 +182,7 @@ MainWindow::MainWindow(QWidget *parent) :
 //    ui->leftsidebarWidget->setVisible(ui->stackedWidget->currentIndex());
     connect(ui->stackedWidget, &QStackedWidget::currentChanged, this, [=](int index){
         //左侧边栏显示/不显示
-        ui->leftsidebarWidget->setVisible(index);
+        ui->leftsidebarWidget->setVisible(false);
         //左上角显示字符/返回按钮
         backBtn->setVisible(index);
         titleLabel->setHidden(index);
@@ -145,13 +201,14 @@ MainWindow::MainWindow(QWidget *parent) :
     });
 
     //加载左侧边栏一级菜单
-    initLeftsideBar();
+//    initLeftsideBar();
 
+    initMenu();
     bIsFullScreen = false;
 
     //加载首页Widget
-    homepageWidget = new HomePageWidget(this);
-    ui->stackedWidget->addWidget(homepageWidget);
+//    homepageWidget = new HomePageWidget(this);
+//    ui->stackedWidget->addWidget(homepageWidget);
 
     //加载功能页Widget
     modulepageWidget = new ModulePageWidget(this);
@@ -285,26 +342,26 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
             if (this->windowState() == Qt::WindowMaximized) {
                 QFont font = this->font();
                 int width = font.pointSize();
-                ui->leftsidebarWidget->setMaximumWidth(width * 10 +20);
-                for (int i = 0; i <= 9; i++) {
-                    QPushButton * btn = static_cast<QPushButton *>(ui->leftsidebarVerLayout->itemAt(i)->widget());
+//                ui->leftsidebarWidget->setMaximumWidth(width * 10 +20);
+//                for (int i = 0; i <= 9; i++) {
+//                    QPushButton * btn = static_cast<QPushButton *>(ui->leftsidebarVerLayout->itemAt(i)->widget());
 
-                    if (btn) {
-                        QLayout *layout = btn->layout();
-                        QLabel * tipLabel = static_cast<QLabel *>(layout->itemAt(1)->widget());
-                        tipLabel->setVisible(true);
-                    }
-                }
+//                    if (btn) {
+//                        QLayout *layout = btn->layout();
+//                        QLabel * tipLabel = static_cast<QLabel *>(layout->itemAt(1)->widget());
+//                        tipLabel->setVisible(true);
+//                    }
+//                }
             } else {
-                ui->leftsidebarWidget->setMaximumWidth(60);
-                for (int i = 0; i <= 9; i++) {
-                    QPushButton * btn = static_cast<QPushButton *>(ui->leftsidebarVerLayout->itemAt(i)->widget());
-                    if (btn) {
-                        QLayout *layout = btn->layout();
-                        QLabel * tipLabel = static_cast<QLabel *>(layout->itemAt(1)->widget());
-                        tipLabel->setVisible(false);
-                    }
-                }
+//                ui->leftsidebarWidget->setMaximumWidth(60);
+//                for (int i = 0; i <= 9; i++) {
+//                    QPushButton * btn = static_cast<QPushButton *>(ui->leftsidebarVerLayout->itemAt(i)->widget());
+//                    if (btn) {
+//                        QLayout *layout = btn->layout();
+//                        QLabel * tipLabel = static_cast<QLabel *>(layout->itemAt(1)->widget());
+//                        tipLabel->setVisible(false);
+//                    }
+//                }
             }
         } else if (event->type() == QEvent::MouseButtonDblClick) {
             bool res = dblOnEdge(dynamic_cast<QMouseEvent*>(event));
@@ -492,9 +549,10 @@ void MainWindow::initLeftsideBar(){
             button->setStyleSheet("QPushButton::checked{background: palette(base); border-top-left-radius: 6px;border-bottom-left-radius: 6px;}"
                                   "QPushButton::!checked{background: palette(button);border: none;}");
 
+//            button->setChecked(true);
+
             connect(button, &QPushButton::clicked, this, [=]{
                 QPushButton * btn = dynamic_cast<QPushButton *>(QObject::sender());
-
                 int selectedInt = leftBtnGroup->id(btn);
 
                 //获取一级菜单列表的第一项
@@ -504,10 +562,81 @@ void MainWindow::initLeftsideBar(){
                 for (FuncInfo tmpStruct : tmpList){
                     if (currentFuncMap.keys().contains(tmpStruct.namei18nString)){
                         modulepageWidget->switchPage(currentFuncMap.value(tmpStruct.namei18nString));
+//                        qDebug()<<"1";
                         break;
                     }
                 }
             });
+
+            ui->leftsidebarVerLayout->addWidget(button);
+        }
+    }
+
+    ui->leftsidebarVerLayout->addStretch();
+}
+
+
+void MainWindow::initMenu(){
+
+    leftBtnGroup = new QButtonGroup();
+    leftMicBtnGroup = new QButtonGroup();
+
+    //构建左侧边栏返回首页按钮
+    QPushButton * hBtn = buildLeftsideBtn("homepage",tr("HOME"));
+    hBtn->setObjectName("homepage");
+    connect(hBtn, &QPushButton::clicked, this, [=]{
+        ui->stackedWidget->setCurrentIndex(0);
+    });
+    hBtn->setStyleSheet("QPushButton#homepage{background: palette(button); border: none;}");
+//    hBtn->setStyleSheet("QPushButton#homepage{background: palette(base);}");
+    ui->leftsidebarVerLayout->addStretch();
+    ui->leftsidebarVerLayout->addWidget(hBtn);
+
+    QString locale = QLocale::system().name();
+    for(int type = 0; type < TOTALMODULES; type++){
+        //循环构建左侧边栏一级菜单按钮
+        if (moduleIndexList.contains(type)){
+            QString mnameString = kvConverter->keycodeTokeystring(type);
+            QString mnamei18nString  = kvConverter->keycodeTokeyi18nstring(type); //设置TEXT
+
+            QPushButton * button;
+            QString btnName = "btn" + QString::number(type + 1);
+            if ("zh_CN" == locale) {
+                button = buildLeftsideBtn(mnameString,mnamei18nString);
+                button->setToolTip(mnamei18nString);
+            } else {
+                button = buildLeftsideBtn(mnameString,mnameString);
+                button->setToolTip(mnameString);
+            }
+            button->setObjectName(btnName);
+            button->setCheckable(true);
+            leftBtnGroup->addButton(button, type);
+
+            //设置样式
+//            button->setStyleSheet("QPushButton::checked{background: palette(button); border: none; border-image: url('://img/primaryleftmenu/checked.png');}"
+//                                  "QPushButton::!checked{background: palette(button);border: none;}");
+            button->setStyleSheet("QPushButton::checked{background: palette(base); border-top-left-radius: 6px;border-bottom-left-radius: 6px;}"
+                                  "QPushButton::!checked{background: palette(button);border: none;}");
+
+//            button->setChecked(true);
+//            qDebug()<<"2";
+
+//            connect(button, &QPushButton::clicked, this, [=]{
+//                QPushButton * btn = dynamic_cast<QPushButton *>(QObject::sender());
+//                int selectedInt = leftBtnGroup->id(btn);
+
+//                //获取一级菜单列表的第一项
+//                QList<FuncInfo> tmpList = FunctionSelect::funcinfoList[selectedInt];
+//                QMap<QString, QObject *> currentFuncMap = modulesList[selectedInt];
+
+//                for (FuncInfo tmpStruct : tmpList){
+//                    if (currentFuncMap.keys().contains(tmpStruct.namei18nString)){
+//                        modulepageWidget->switchPage(currentFuncMap.value(tmpStruct.namei18nString));
+//                        qDebug()<<"2";
+//                        break;
+//                    }
+//                }
+//            });
 
             ui->leftsidebarVerLayout->addWidget(button);
         }

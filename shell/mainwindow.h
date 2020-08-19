@@ -91,6 +91,7 @@ private:
     void setBtnLayout(QPushButton * &pBtn);
     void loadPlugins();
     void initLeftsideBar();
+    void initMenu();
     QPushButton * buildLeftsideBtn(QString bname, QString tipName);
     bool isExitsCloudAccount();
 
@@ -108,6 +109,9 @@ public slots:
     void functionBtnClicked(QObject * plugin);
     void sltMessageReceived(const QString &msg);
     void switchPage(QString moduleName);
+
+signals:
+    void btnclicked();
 };
 
 #endif // MAINWINDOW_H
