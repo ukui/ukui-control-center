@@ -51,7 +51,7 @@ Notice::Notice()
     ui->lockscreenWidget->setVisible(false);
 
     ui->title2Label->setContentsMargins(0,0,0,16);
-    ui->applistWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+//    ui->applistWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->applistWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     initSearchText();
@@ -212,7 +212,8 @@ void Notice::initOriNoticeStatus() {
         baseWidget->setLayout(baseVerLayout);
 
         QListWidgetItem * item = new QListWidgetItem(ui->applistWidget);
-        item->setSizeHint(QSize(502, 52));
+//        item->setSizeHint(QSize(502, 52));
+        item->setSizeHint(QSize(QSizePolicy::Expanding, 52));
 
         ui->applistWidget->setItemWidget(item, baseWidget);
 //        QString availablepath = findFreePath();
