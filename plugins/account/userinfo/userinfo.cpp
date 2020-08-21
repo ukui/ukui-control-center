@@ -359,12 +359,12 @@ void UserInfo::initComponent(){
 //    QString filename = "/etc/lightdm/lightdm.conf";
 //    autoSettings = new QSettings(filename, QSettings::IniFormat);
 
-    ui->listWidget->setStyleSheet("QListWidget::Item:hover{background:palette(base);}");
+    ui->listWidget->setStyleSheet("QListWidget::Item{background:palette(base);}");
 
     addWgt = new HoverWidget("");
     addWgt->setObjectName("addwgt");
-    addWgt->setMinimumSize(QSize(580, 50));
-    addWgt->setMaximumSize(QSize(960, 50));
+    addWgt->setMinimumSize(QSize(804, 64));
+    addWgt->setMaximumSize(QSize(16777215, 64));
     addWgt->setStyleSheet("HoverWidget#addwgt{background: palette(button); border-radius: 4px;}HoverWidget:hover:!pressed#addwgt{background: #3D6BE5; border-radius: 4px;}");
 
     QHBoxLayout *addLyt = new QHBoxLayout;
@@ -517,7 +517,7 @@ void UserInfo::initComponent(){
 
 void UserInfo::_resetListWidgetHeigh(){
     //设置其他用户控件的总高度
-    ui->listWidget->setFixedHeight((allUserInfoMap.count()) * ITEMHEIGH);
+    ui->listWidget->setFixedHeight((allUserInfoMap.count() - 1) * (ITEMHEIGH + 2));
 }
 
 void UserInfo::initAllUserStatus(){
@@ -583,8 +583,8 @@ void UserInfo::_refreshUserInfoUI(){
 
 void UserInfo::_buildWidgetForItem(UserInfomation user){
     HoverWidget * baseWidget = new HoverWidget(user.username);
-    baseWidget->setMinimumSize(550,50);
-    baseWidget->setMaximumSize(960,50);
+    baseWidget->setMinimumSize(804,64);
+    baseWidget->setMaximumSize(16777215,64);
     baseWidget->setAttribute(Qt::WA_DeleteOnClose);
 
     QHBoxLayout * baseVerLayout = new QHBoxLayout(baseWidget);

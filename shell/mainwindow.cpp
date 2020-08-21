@@ -21,7 +21,7 @@
 #include "ui_mainwindow.h"
 #include "utils/keyvalueconverter.h"
 #include "utils/functionselect.h"
-
+#include <QFont>
 #include <QLabel>
 #include <QLocale>
 #include <QPushButton>
@@ -62,14 +62,13 @@ MainWindow::MainWindow(QWidget *parent) :
     // 初始化mixer
     mate_mixer_init();
     // 设置初始大小
-    resize(QSize(820, 600));
+    resize(QSize(1200, 675));
     // 设置窗体无边框
     setWindowFlags(Qt::FramelessWindowHint | Qt::Widget);
     this->installEventFilter(this);
 //    closeBtn->setFixedSize(32,32);
     // 该设置去掉了窗体透明后的黑色背景
-    setAttribute(Qt::WA_TranslucentBackground, true);
-
+//    setAttribute(Qt::WA_TranslucentBackground, true);
     const QByteArray id("org.ukui.style");
     QGSettings * fontSetting = new QGSettings(id);
     connect(fontSetting, &QGSettings::changed,[=](QString key){
@@ -80,6 +79,7 @@ MainWindow::MainWindow(QWidget *parent) :
                 widget->setFont(font);
             }
             ui->leftsidebarWidget->setMaximumWidth(width * 10 +20);
+//            ui->leftsidebarWidget->setMinimumHeight(614);
         }
     });
 
@@ -297,7 +297,7 @@ void MainWindow::paintEvent(QPaintEvent *event) {
     p.setRenderHint(QPainter::Antialiasing);
     QPainterPath rectPath;
     if(!bIsFullScreen) {
-        rectPath.addRoundedRect(this->rect().adjusted(1, 1, -1, -1), 6, 6);
+        rectPath.addRoundedRect(this->rect().adjusted(0, 0, 0, 0), 0, 0);
 
         // 画一个黑底
         QPixmap pixmap(this->rect().size());
@@ -388,14 +388,13 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
 
 void MainWindow::initTileBar() {
 
-    ui->titleLayout->setContentsMargins(5, 0, 10, 0);
+    ui->titleLayout->setContentsMargins(300, 12, 10, 0);
     m_searchWidget = new SearchWidget(this);
     m_searchWidget->setPlaceholderText(tr("Search"));
     m_searchWidget->setFocusPolicy(Qt::ClickFocus);
     m_searchWidget->installEventFilter(this);
-
-
-
+    titleLabel  = new QLabel(tr("UKCC"), this);
+    titleLabel->resize(80,32);
     ui->titleLayout->addWidget(m_searchWidget, Qt::AlignCenter);
     connect(m_searchWidget, &SearchWidget::notifyModuleSearch, this, &MainWindow::switchPage);
 
@@ -403,15 +402,18 @@ void MainWindow::initTileBar() {
     minBtn      = new QPushButton(this);
     maxBtn      = new QPushButton(this);
     closeBtn     = new QPushButton(this);
-    titleLabel  = new QLabel(tr("UKCC"), this);
+
 
     backBtn->setFixedSize(32, 32);
     minBtn->setFixedSize(32, 32);
     maxBtn->setFixedSize(32, 32);
-    titleLabel->setFixedSize(32, 32);
-    m_searchWidget->setMinimumWidth(350);
 
-    ui->titleLayout->addWidget(titleLabel);
+    m_searchWidget->setMinimumWidth(248);
+    m_searchWidget->setMinimumHeight(48);
+
+//    ui->titleLayout->addWidget(titleLabel);
+    titleLabel->setGeometry(rect().x()+32, rect().y()+20,80, 32);
+    titleLabel->setParent(this);
     ui->titleLayout->addWidget(backBtn);
     ui->titleLayout->addStretch();
     ui->titleLayout->addWidget(m_searchWidget);
