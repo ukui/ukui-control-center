@@ -227,7 +227,7 @@ void MainWidget::init_gui() {
     m_nullwidgetContainer = new QWidget(this);
     m_cRetry = new QTimer(this);
 
-    m_mainWidget->setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Ignored);
+    //m_mainWidget->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
 
     m_stackedWidget->addWidget(m_itemList);
     m_stackedWidget->addWidget(m_nullwidgetContainer);
@@ -370,7 +370,25 @@ void MainWidget::init_gui() {
         cItem ++;
     }
 
+    if(m_mainWidget->currentWidget() == m_nullWidget) {
+        setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Ignored);
+    } else {
+        setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred);
+    }
+
     //连接信号
+    connect(m_mainWidget,&QStackedWidget::currentChanged,[this] (int index) {
+       if(m_mainWidget->widget(index) == m_nullWidget) {
+           setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Ignored);
+           m_mainWidget->adjustSize();
+           adjustSize();
+       } else {
+           setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred);
+           m_mainWidget->adjustSize();
+           adjustSize();
+       }
+    });
+
     connect(m_autoSyn->get_swbtn(),SIGNAL(status(int,int)),this,SLOT(on_auto_syn(int,int)));
     connect(m_login_btn,SIGNAL(clicked()),this,SLOT(on_login()));
     connect(m_openEditDialog_btn,SIGNAL(clicked()),this,SLOT(neweditdialog()));
@@ -380,6 +398,7 @@ void MainWidget::init_gui() {
     connect(m_mainDialog,&MainDialog::on_login_success, [this] () {
         m_cLoginTimer->setSingleShot(true);
         m_cLoginTimer->start(15000);
+        m_bIsStopped = false;
     });
 
     connect(m_mainDialog,&MainDialog::on_login_failed,[this] () {
