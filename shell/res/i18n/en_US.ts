@@ -1383,7 +1383,7 @@ folder will be deleted!</source>
 <context>
     <name>DisplaySet</name>
     <message>
-        <location filename="../../../plugins/system/display/display.cpp" line="32"/>
+        <location filename="../../../plugins/system/display/display.cpp" line="31"/>
         <source>Display</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2824,6 +2824,7 @@ Please retry for login!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.ui" line="123"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="307"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2846,12 +2847,18 @@ Please retry for login!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="241"/>
-        <source>connected</source>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="167"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="180"/>
+        <source>Refreshing...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="243"/>
+        <source>connected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="245"/>
         <source>No network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2942,31 +2949,29 @@ Please retry for login!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="259"/>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="266"/>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="268"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="263"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="265"/>
         <source>200%</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/outputconfig.cpp" line="261"/>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="264"/>
         <source>100%</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="269"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="266"/>
         <source>300%</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="276"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="273"/>
         <source>screen zoom</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/display/screen zoom</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="366"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="363"/>
         <source>%1 Hz</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4657,34 +4662,34 @@ in the file system invalid!</source>
         <extra-contents_path>/display/night mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="537"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="536"/>
         <source>Some applications need to be logouted to take effect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="874"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="872"/>
         <source>please insure at least one output!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="875"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="883"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="873"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="881"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="882"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="880"/>
         <source>Morning time should be earlier than evening time!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="902"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="900"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="903"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="901"/>
         <source>@title:window</source>
         <comment>Unsupported Configuration</comment>
         <translation type="unfinished"></translation>
