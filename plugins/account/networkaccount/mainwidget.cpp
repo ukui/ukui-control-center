@@ -65,7 +65,7 @@ void MainWidget::setname(QString n) {
     if(m_szCode != "" && m_szCode !="201" && m_szCode != "203" && m_szCode != "401" && !m_bTokenValid) {
         m_infoTab->setText(tr("Your account：%1").arg(m_szCode));
         m_mainWidget->setCurrentWidget(m_widgetContainer);
-        setshow(m_mainWidget);
+        //setshow(m_mainWidget);
         m_bTokenValid = true;              //开启登录状态
 
         m_autoSyn->set_change(0,"0");
@@ -518,8 +518,8 @@ bool MainWidget::eventFilter(QObject *watched, QEvent *event) {
     if(watched == m_exitCloud_btn) {
         if(event->type() == QEvent::Enter && m_syncTooltips->isHidden() == true && m_exitCloud_btn->property("on") == true) {
             QPoint pos;
-            pos.setX(m_exitCloud_btn->mapToGlobal(QPoint(0, 0)).x() + 26);
-            pos.setY(m_exitCloud_btn->mapToGlobal(QPoint(0, 0)).y() + 26);
+            pos.setX(m_exitCloud_btn->mapToGlobal(QPoint(0, 0)).x() + 34);
+            pos.setY(m_exitCloud_btn->mapToGlobal(QPoint(0, 0)).y() + 34);
             m_syncTooltips->move(pos);
             m_syncTooltips->show();
         }
