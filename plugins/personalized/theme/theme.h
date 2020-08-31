@@ -95,6 +95,7 @@ private:
     QGSettings * qtSettings;
     QGSettings * curSettings;
     QSettings  * kwinSettings;
+    QSettings  * themeSettings;
     QGSettings * kwinGsettings =  nullptr;
     QGSettings * personliseGsettings = nullptr;
 
@@ -109,7 +110,7 @@ private:
 private slots:
     void resetBtnClickSlot();
     // write the kwin's configuration
-    void writeKwinSettings(bool change, QString theme, int effect = 0);
+    void writeKwinSettings(bool change, QString theme, bool effect = false);
 
 };
 

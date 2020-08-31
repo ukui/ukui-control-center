@@ -58,6 +58,7 @@ UserInfo::UserInfo()
     pluginName = tr("User Info");
     pluginType = ACCOUNT;
     ui->titleLabel->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
+    ui->title2Label->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
 
     //构建System dbus调度对象
     sysdispatcher = new SystemDbusDispatcher;

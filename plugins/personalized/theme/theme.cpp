@@ -209,6 +209,9 @@ void Theme::setupSettings() {
     QString filename = QDir::homePath() + "/.config/ukui-kwinrc";
     kwinSettings = new QSettings(filename, QSettings::IniFormat, this);
 
+    QString themefile = QDir::homePath() + "/.config/kdeglobals";
+    themeSettings = new QSettings(themefile, QSettings::IniFormat, this);
+
     kwinSettings->beginGroup("Plugins");
 
     bool kwin = kwinSettings->value("blurEnabled", kwin).toBool();
@@ -563,7 +566,7 @@ void Theme::initConnection() {
     connect(effectSwitchBtn, &SwitchButton::checkedChanged, [this](bool checked) {
         QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
         ui->transFrame->setVisible(checked);
-        writeKwinSettings(checked, currentThemeMode);
+        writeKwinSettings(checked, currentThemeMode, true);
     });
 
 #if QT_VERSION < QT_VERSION_CHECK(5, 7, 0)
@@ -636,14 +639,8 @@ void Theme::resetBtnClickSlot() {
     initCursorTheme();
 }
 
-void Theme::writeKwinSettings(bool change, QString theme, int effect) {
+void Theme::writeKwinSettings(bool change, QString theme, bool effect) {
 
-    QString th = "";
-    if ("ukui-default" == theme) {
-        th = "__aurorae__svg__Ukui-classic";
-    } else if ("ukui-dark" == theme){
-        th = "__aurorae__svg__Ukui-classic-dark";
-    }
     if (!change) {
         kwinSettings->clear();
         kwinSettings->beginGroup("Plugins");
@@ -672,20 +669,28 @@ void Theme::writeKwinSettings(bool change, QString theme, int effect) {
         kwinSettings->endGroup();
     }
 
-    if (!th.isEmpty()) {
-        kwinSettings->beginGroup("org.kde.kdecoration2");
-        kwinSettings->setValue("theme", th);
-        kwinSettings->setValue("library", "org.ukui.kwin.aurorae");
-        kwinSettings->endGroup();
+    kwinSettings->sync();
+
+    QString th = "";
+    if ("ukui-default" == theme) {
+        th = "0";
+    } else if ("ukui-dark" == theme){
+        th = "1";
     }
 
-    kwinSettings->sync();
+    themeSettings->beginGroup("Theme");
+    themeSettings->setValue("Style", th);
+    themeSettings->endGroup();
+
+    themeSettings->sync();
 
 #if QT_VERSION <= QT_VERSION_CHECK(5,12,0)
 
 #else
+    if (effect) {
         QDBusMessage message = QDBusMessage::createSignal("/KWin", "org.ukui.KWin", "reloadConfig");
         QDBusConnection::sessionBus().send(message);
+    }
 #endif
 }
 
