@@ -108,7 +108,6 @@ TimeZoneChooser::TimeZoneChooser():QFrame ()
         m_map->setTimezone(timezone);
     });
 
-
     QTimer::singleShot(0, [this] {
 
 //        qDebug()<<"single slot-------->"<<endl;
@@ -128,6 +127,14 @@ TimeZoneChooser::TimeZoneChooser():QFrame ()
         completer->setCaseSensitivity(Qt::CaseInsensitive);
 
         m_searchInput->setCompleter(completer);
+
+        connect(completer, QOverload<const QString &>::of(&QCompleter::activated),
+            [=](const QString &text) {
+
+            QString timezone = m_searchInput->text();
+            timezone = m_zoneCompletion.value(timezone,timezone);
+            m_map->setTimezone(timezone);
+        });
 
         m_popup = completer->popup();
         m_popup->setAttribute(Qt::WA_TranslucentBackground);
