@@ -77,6 +77,8 @@
 const QString defCursor = "DMZ-White";
 const int transparency = 95;
 
+const QStringList effectList {"blur", "kwin4_effect_translucency", "kwin4_effect_maximize", "zoom"};
+
 namespace {
 
     // Preview cursors
@@ -208,6 +210,9 @@ void Theme::initSearchText() {
 void Theme::setupSettings() {
     QString filename = QDir::homePath() + "/.config/ukui-kwinrc";
     kwinSettings = new QSettings(filename, QSettings::IniFormat, this);
+
+    QString themefile = QDir::homePath() + "/.config/kdeglobals";
+    themeSettings = new QSettings(themefile, QSettings::IniFormat, this);
 
     kwinSettings->beginGroup("Plugins");
 
@@ -563,7 +568,7 @@ void Theme::initConnection() {
     connect(effectSwitchBtn, &SwitchButton::checkedChanged, [this](bool checked) {
         QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
         ui->transFrame->setVisible(checked);
-        writeKwinSettings(checked, currentThemeMode);
+        writeKwinSettings(checked, currentThemeMode, true);
     });
 
 #if QT_VERSION < QT_VERSION_CHECK(5, 7, 0)
@@ -636,57 +641,68 @@ void Theme::resetBtnClickSlot() {
     initCursorTheme();
 }
 
-void Theme::writeKwinSettings(bool change, QString theme, int effect) {
+void Theme::writeKwinSettings(bool change, QString theme, bool effect) {
 
-    QString th = "";
-    if ("ukui-default" == theme) {
-        th = "__aurorae__svg__Ukui-classic";
-    } else if ("ukui-dark" == theme){
-        th = "__aurorae__svg__Ukui-classic-dark";
-    }
     if (!change) {
-        kwinSettings->clear();
         kwinSettings->beginGroup("Plugins");
-        kwinSettings->setValue("blurEnabled",false);
-        kwinSettings->setValue("contrastEnabled",false);
-        kwinSettings->setValue("kwin4_effect_dialogparentEnabled",false);
-        kwinSettings->setValue("kwin4_effect_fadingpopupsEnabled",false);
-        kwinSettings->setValue("kwin4_effect_frozenappEnabled",false);
-        kwinSettings->setValue("kwin4_effect_loginEnabled",false);
-        kwinSettings->setValue("kwin4_effect_logoutEnabled",false);
-        kwinSettings->setValue("kwin4_effect_maximizeEnabled",false);
-        kwinSettings->setValue("kwin4_effect_maximizeEnabled",false);
-        kwinSettings->setValue("kwin4_effect_morphingpopupsEnabled",false);
-        kwinSettings->setValue("kwin4_effect_squashEnabled",false);
-        kwinSettings->setValue("kwin4_effect_translucencyEnabled",false);
-        kwinSettings->setValue("presentwindowsEnabled",false);
-        kwinSettings->setValue("screenedgeEnabled",false);
-        kwinSettings->setValue("slideEnabled",false);
-        kwinSettings->setValue("slidingpopupsEnabled",false);
-        kwinSettings->setValue("zoomEnabled",false);
+        kwinSettings->setValue("blurEnabled", false);
+        kwinSettings->setValue("kwin4_effect_maximizeEnabled", false);
+        kwinSettings->setValue("kwin4_effect_translucencyEnabled", false);
+        kwinSettings->setValue("zoomEnabled", false);
         kwinSettings->endGroup();
-    } else {
-        kwinSettings->clear();
-        kwinSettings->beginGroup("Plugins");
-        kwinSettings->setValue("blurEnabled",true);
-        kwinSettings->endGroup();
-    }
+#if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
 
-    if (!th.isEmpty()) {
-        kwinSettings->beginGroup("org.kde.kdecoration2");
-        kwinSettings->setValue("theme", th);
-        kwinSettings->setValue("library", "org.ukui.kwin.aurorae");
+#else
+        for (int i = 0; i < effectList.length(); i++) {
+            QDBusMessage message = QDBusMessage::createMethodCall("org.ukui.KWin",
+                                                       "/Effects",
+                                                       "org.ukui.kwin.Effects",
+                                                       "unloadEffect");
+            message << effectList.at(i);
+            QDBusConnection::sessionBus().send(message);
+
+        }
+#endif
+    } else {
+        kwinSettings->beginGroup("Plugins");
+        kwinSettings->setValue("blurEnabled", true);
+        kwinSettings->setValue("kwin4_effect_maximizeEnabled", true);
+        kwinSettings->setValue("kwin4_effect_translucencyEnabled", true);
+        kwinSettings->setValue("zoomEnabled", true);
         kwinSettings->endGroup();
+#if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
+
+#else
+        // 开启模糊特效：
+        for (int i = 0; i < effectList.length(); i++) {
+
+            QDBusMessage message = QDBusMessage::createMethodCall("org.ukui.KWin",
+                                                                  "/Effects",
+                                                                  "org.ukui.kwin.Effects",
+                                                                  "loadEffect");
+            message << effectList.at(i);
+            QDBusConnection::sessionBus().send(message);
+        }
+#endif
+
     }
 
     kwinSettings->sync();
 
-#if QT_VERSION <= QT_VERSION_CHECK(5,12,0)
+    QString th = "";
+    if ("ukui-default" == theme) {
+        th = "0";
+    } else if ("ukui-dark" == theme){
+        th = "1";
+    }
 
-#else
-        QDBusMessage message = QDBusMessage::createSignal("/KWin", "org.ukui.KWin", "reloadConfig");
-        QDBusConnection::sessionBus().send(message);
-#endif
+    themeSettings->beginGroup("Theme");
+    themeSettings->setValue("Style", th);
+    themeSettings->endGroup();
+
+    themeSettings->sync();
+
+
 }
 
 void Theme::clearLayout(QLayout* mlayout, bool deleteWidgets)

@@ -200,7 +200,7 @@ void About::setupVersionCompenent() {
         version = "UbuntuKylin 20.04.1 LTS";
     }
     ui->versionContent->setText(version);
-    if (version == "Kylin V10" || version == "Kylin V10.1") {
+    if (version == "Kylin V10" || version == "Kylin V10.1" || "Kylin V4" == version) {
         ui->logoLabel->setPixmap(QPixmap("://img/plugins/about/galaxyUnicorn.png"));
     } else {
 //        qDebug()<<"version----->"<<version<<endl;

@@ -126,6 +126,7 @@ void ModulePageWidget::initUI(){
             QListWidgetItem * item = new QListWidgetItem(leftListWidget);
             item->setSizeHint(QSize(ui->leftStackedWidget->width() + 45, 40)); //QSize(120, 40) spacing: 12px;
             leftListWidget->setItemWidget(item, leftWidgetItem);
+            leftListWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
             strItemsMap.insert(single.namei18nString, item);
 

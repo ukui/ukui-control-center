@@ -88,8 +88,12 @@ SearchWidget::SearchWidget(QWidget *parent)
         }
     });
 
-    //鼠标点击后直接页面跳转(存在同名信号)
-    connect(m_completer, SIGNAL(activated(QString)), this, SLOT(onCompleterActivated(QString)));
+    //鼠标点击后直接页面跳转(https://doc.qt.io/qt-5/qcompleter.html#activated-1)
+    connect(m_completer, QOverload<const QString &>::of(&QCompleter::activated),
+        [=](const QString &text) {
+        Q_UNUSED(text);
+        Q_EMIT returnPressed();
+    });
 }
 
 SearchWidget::~SearchWidget() {

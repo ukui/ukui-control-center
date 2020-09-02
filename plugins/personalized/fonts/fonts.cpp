@@ -190,10 +190,10 @@ void Fonts::setupComponent(){
 
     QStringList fontScale;
     fontScale<< tr("11") << tr("12") << tr("13") << tr("14") << tr("15")
-              <<tr("16") << tr("17") << tr("18");
+              <<tr("16");// << tr("17") << tr("18");
 
     uslider  = new Uslider(fontScale);
-    uslider->setRange(1,8);
+    uslider->setRange(1,6);
     uslider->setTickInterval(1);
     uslider->setPageStep(1);
 

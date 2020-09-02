@@ -534,6 +534,8 @@ KScreen::OutputPtr Widget::findOutput(const KScreen::ConfigPtr &config, const QV
 void Widget::writeScale(int scale) {
     if (isScaleChanged) {
         KMessageBox::information(this,tr("Some applications need to be logouted to take effect"));
+    } else {
+        return;
     }
     isScaleChanged = false;
     int cursize;
@@ -889,7 +891,7 @@ void Widget::save()
 //#if QT_VERSION < QT_VERSION_CHECK(5, 7, 0)
 //    setcomBoxScale();
 //#else
-    writeScale(static_cast<float>(this->screenScale));
+    writeScale(this->screenScale);
 //#endif
     writeConfigFile();
     setNightMode(nightButton->isChecked());
