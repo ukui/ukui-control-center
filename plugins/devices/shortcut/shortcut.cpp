@@ -130,7 +130,7 @@ void Shortcut::connectToServer(){
     {
         qDebug() << "fail to connect to service";
         qDebug() << qPrintable(QDBusConnection::systemBus().lastError().message());
-        exit(1);
+        return;
     }
 //    QDBusConnection::sessionBus().connect(cloudInterface, SIGNAL(shortcutChanged()), this, SLOT(shortcutChangedSlot()));
     QDBusConnection::sessionBus().connect(QString(), QString("/org/kylinssoclient/path"), QString("org.freedesktop.kylinssoclient.interface"), "shortcutChanged", this, SLOT(shortcutChangedSlot()));
