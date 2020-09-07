@@ -471,7 +471,7 @@
     <message>
         <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="63"/>
         <source>Auto Boot</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Oto. Başlat</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="192"/>
@@ -656,12 +656,12 @@ sisteminizin bütünlüğünü sağlamak için bunları geri yükleyebilirsiniz.
     <message>
         <location filename="../../../plugins/account/userinfo/changegroupdialog.ui" line="122"/>
         <source>User Group Settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kullanıcı Grubu Ayarları</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changegroupdialog.ui" line="152"/>
         <source>User groups available in the system</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sistemde bulunan kullanıcı grupları</translation>
     </message>
     <message>
         <source>Add new user</source>
@@ -670,7 +670,7 @@ sisteminizin bütünlüğünü sağlamak için bunları geri yükleyebilirsiniz.
     <message>
         <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="200"/>
         <source>Add user group</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kullanıcı grubu ekle</translation>
     </message>
 </context>
 <context>
@@ -837,7 +837,7 @@ sisteminizin bütünlüğünü sağlamak için bunları geri yükleyebilirsiniz.
     <message>
         <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="500"/>
         <source>Certain</source>
-        <translation></translation>
+        <translation>Belirli</translation>
     </message>
 </context>
 <context>
@@ -875,7 +875,7 @@ sisteminizin bütünlüğünü sağlamak için bunları geri yükleyebilirsiniz.
     <message>
         <location filename="../../../plugins/personalized/wallpaper/colordialog.ui" line="61"/>
         <source>     B</source>
-        <translation></translation>
+        <translation>     M</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/colordialog.ui" line="227"/>
@@ -890,12 +890,12 @@ sisteminizin bütünlüğünü sağlamak için bunları geri yükleyebilirsiniz.
     <message>
         <location filename="../../../plugins/personalized/wallpaper/colordialog.ui" line="174"/>
         <source>     R</source>
-        <translation></translation>
+        <translation>   K</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/colordialog.ui" line="199"/>
         <source>     G</source>
-        <translation></translation>
+        <translation>     Y</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/colordialog.cpp" line="90"/>
@@ -913,7 +913,7 @@ sisteminizin bütünlüğünü sağlamak için bunları geri yükleyebilirsiniz.
     <message>
         <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="181"/>
         <source>Add New Group</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yeni Grup Ekle</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="213"/>
@@ -928,7 +928,7 @@ sisteminizin bütünlüğünü sağlamak için bunları geri yükleyebilirsiniz.
     <message>
         <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="321"/>
         <source>Members</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Üyeler</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="75"/>
@@ -938,7 +938,7 @@ sisteminizin bütünlüğünü sağlamak için bunları geri yükleyebilirsiniz.
     <message>
         <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="94"/>
         <source>Certain</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Belirli</translation>
     </message>
 </context>
 <context>
@@ -1072,7 +1072,7 @@ sistem ayarlarını değiştir</translation>
     <message>
         <location filename="../../../plugins/devices/shortcut/customlineedit.cpp" line="28"/>
         <source>New Shortcut...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yeni Kısayol</translation>
     </message>
 </context>
 <context>
@@ -1230,7 +1230,7 @@ sistem ayarlarını değiştir</translation>
     <message>
         <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="42"/>
         <source>Default App</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Varsayılan Uygulama</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="79"/>
@@ -1312,7 +1312,7 @@ sistem ayarlarını değiştir</translation>
     <message>
         <location filename="../../../plugins/account/userinfo/definegroupitem.cpp" line="53"/>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Düzenle</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/definegroupitem.cpp" line="62"/>
@@ -1352,7 +1352,7 @@ sistem ayarlarını değiştir</translation>
     <message>
         <location filename="../../../plugins/account/userinfo/delgroupdialog.ui" line="141"/>
         <source>Remind</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hatırlat</translation>
     </message>
 </context>
 <context>
@@ -1825,12 +1825,12 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="109"/>
         <source>Certain</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Belirli</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="196"/>
         <source>Edit User Group</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kullanıcı Grubunu Düzenle</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="228"/>
@@ -1845,7 +1845,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="336"/>
         <source>Members</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Üyeler</translation>
     </message>
 </context>
 <context>
@@ -2214,7 +2214,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/frameitem.cpp" line="121"/>
         <source>Cloud verifyed file download failed, please login out to retry!</source>
-        <translation>云校验失败，请检查网络或退出云账户重试！</translation>
+        <translation>Bulutla doğrulanmış dosya indirme işlemi başarısız oldu, yeniden denemek için lütfen oturumu kapatın!</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/frameitem.cpp" line="124"/>
@@ -2268,7 +2268,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/itemlist.h" line="40"/>
         <source>Avatar</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Avatar</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/itemlist.h" line="41"/>
@@ -2278,7 +2278,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/itemlist.h" line="41"/>
         <source>Themes</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Temalar</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/itemlist.h" line="42"/>
@@ -2288,12 +2288,12 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/itemlist.h" line="42"/>
         <source>Date/Time</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tarih/Zaman</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/itemlist.h" line="42"/>
         <source>Default Open</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Varsayılan Açık</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/itemlist.h" line="42"/>
@@ -2303,12 +2303,12 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/itemlist.h" line="42"/>
         <source>Option</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Seçenek</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/itemlist.h" line="42"/>
         <source>Peony</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Peony</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/itemlist.h" line="43"/>
@@ -2338,7 +2338,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/itemlist.h" line="43"/>
         <source>Terminal</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Uçbirim</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/itemlist.h" line="41"/>
@@ -2366,12 +2366,12 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/devices/keyboard/preview/kbpreviewframe.cpp" line="321"/>
         <source>No preview found</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Önizleme bulunamadı</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/preview/kbpreviewframe.cpp" line="325"/>
         <source>Unable to open Preview !</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Önizleme açılamıyor!</translation>
     </message>
 </context>
 <context>
@@ -2533,7 +2533,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="475"/>
         <source>Input characters to test the repetition effect：</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tekrarlama etkisini test etmek için karakterleri girin: </translation>
     </message>
     <message>
         <source>Test repetition rate of the input character:</source>
@@ -2583,7 +2583,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboardcontrol.cpp" line="119"/>
         <source>Input characters to test the repetition effect:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tekrarlama etkisini test etmek için karakterleri girin:</translation>
         <extra-contents_path>/keyboard/Input characters to test the repetition effect:</extra-contents_path>
     </message>
     <message>
@@ -2612,13 +2612,13 @@ folder will be deleted!</source>
         <location filename="../../../plugins/devices/keyboard/preview/keyboardpainter.cpp" line="67"/>
         <location filename="../../../plugins/devices/keyboard/preview/keyboardpainter.cpp" line="69"/>
         <source>Keyboard layout levels</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Klavye düzeni seviyeleri</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/preview/keyboardpainter.cpp" line="67"/>
         <location filename="../../../plugins/devices/keyboard/preview/keyboardpainter.cpp" line="69"/>
         <source>Level %1, %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Seviye %1, %2</translation>
     </message>
 </context>
 <context>
@@ -2695,7 +2695,7 @@ folder will be deleted!</source>
         <location filename="../../../plugins/account/networkaccount/logindialog.cpp" line="97"/>
         <location filename="../../../plugins/account/networkaccount/logindialog.cpp" line="222"/>
         <source>Your account/phone here</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hesabınız/telefonunuz burada</translation>
     </message>
     <message>
         <source>Your account here</source>
@@ -2723,7 +2723,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/mcodewidget.cpp" line="33"/>
         <source>SongTi</source>
-        <translation>ŞarkıTi</translation>
+        <translation>SongTi</translation>
     </message>
 </context>
 <context>
@@ -3020,7 +3020,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="192"/>
         <source>Sync</source>
-        <translation>Senk</translation>
+        <translation>Senk.</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="220"/>
@@ -3030,7 +3030,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="242"/>
         <source>Stop sync</source>
-        <translation>Senk. Durdur</translation>
+        <translation>Senk. durdur</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="256"/>
@@ -3045,7 +3045,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="271"/>
         <source>Auto sync</source>
-        <translation>Otomatik Senk</translation>
+        <translation>Otomatik Senk.</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="336"/>
@@ -3056,7 +3056,8 @@ folder will be deleted!</source>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="538"/>
         <source>Unauthorized device or OSS falied.
 Please retry for login!</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yetkisiz cihaz veya işletim sistemi başarısız oldu.
+Lütfen giriş için tekrar deneyin!</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="617"/>
@@ -3115,7 +3116,7 @@ Please retry for login!</source>
     <message>
         <location filename="../../mainwindow.cpp" line="358"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ara</translation>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="68"/>
@@ -3353,7 +3354,7 @@ Please retry for login!</source>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="167"/>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="180"/>
         <source>Refreshing...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yenileniyor...</translation>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="243"/>
@@ -3592,12 +3593,12 @@ Please retry for login!</source>
     <message>
         <location filename="../../../plugins/system/power/power.ui" line="611"/>
         <source>Change PC sleep time:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">PC uyku süresini değiştirin:</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.ui" line="713"/>
         <source>Change DP close time:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">DP kapanış zamanını değiştirin:</translation>
     </message>
     <message>
         <source>Change pc sleep time:</source>
@@ -4033,12 +4034,12 @@ Please retry for login!</source>
     <message>
         <location filename="../../utils/functionselect.cpp" line="53"/>
         <source>Default App</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Varsayılan Uyg.</translation>
     </message>
     <message>
         <location filename="../../utils/functionselect.cpp" line="58"/>
         <source>Auto Boot</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Otomatik Başlat</translation>
     </message>
     <message>
         <location filename="../../utils/functionselect.cpp" line="72"/>
@@ -4103,7 +4104,7 @@ Please retry for login!</source>
     <message>
         <location filename="../../utils/functionselect.cpp" line="144"/>
         <source>User Info</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kullanıcı Bilgisi</translation>
     </message>
     <message>
         <source>Netconnect</source>
@@ -4126,7 +4127,7 @@ Please retry for login!</source>
     <message>
         <location filename="../../utils/functionselect.cpp" line="146"/>
         <source>Cloud Account</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bulut Hesabı</translation>
     </message>
     <message>
         <source>NetworkAccount</source>
@@ -4176,7 +4177,7 @@ Please retry for login!</source>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="262"/>
         <source>min length %1
 </source>
-        <translation>en az uzunluk %1
+        <translation>En az uzunluk %1
 </translation>
     </message>
     <message>
@@ -4320,7 +4321,9 @@ Please retry for login!</source>
         <source>Are you sure to delete &quot;%1&quot; group, 
 which will make some file components 
 in the file system invalid!</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1 grubu silmek istediğinizden emin misiniz,
+bazı dosya bileşenleri oluşturacak
+dosya sisteminde geçersiz!</translation>
     </message>
 </context>
 <context>
@@ -5272,7 +5275,7 @@ in the file system invalid!</source>
     <message>
         <location filename="../../../plugins/security-updates/update/update.ui" line="155"/>
         <source>Check for updates</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Güncellemeleri kontrol et</translation>
     </message>
     <message>
         <source>CheckUpdate</source>
@@ -5292,7 +5295,7 @@ in the file system invalid!</source>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="58"/>
         <source>User Info</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kullanıcı Bilgisi</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="138"/>
@@ -5345,7 +5348,7 @@ in the file system invalid!</source>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="423"/>
         <source>User group</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kullanıcı Grubu</translation>
     </message>
     <message>
         <source>Change vaild</source>
@@ -5368,7 +5371,7 @@ in the file system invalid!</source>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="649"/>
         <source>Currently in Live mode, please create a new user and log out</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Şu anda Canlı modda, lütfen yeni bir kullanıcı oluşturun ve oturumu kapatın</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="686"/>
@@ -5518,18 +5521,18 @@ in the file system invalid!</source>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="497"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Duvarkağıdı Dosyaları(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="497"/>
         <source>allFiles(*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tüm Dosyalar(*.*)</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="504"/>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="543"/>
         <source>select custom wallpaper file</source>
-        <translation>özel duvar kağıdı dosyasını seç</translation>
+        <translation>Özel duvar kağıdı dosyasını seç</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="505"/>
@@ -5553,7 +5556,7 @@ in the file system invalid!</source>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="508"/>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="547"/>
         <source>FileType: </source>
-        <translation>文件类型： </translation>
+        <translation>Dosya Türü: </translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="642"/>
@@ -5660,7 +5663,7 @@ Genel nedenler, toplam ekran boyutunun çok büyük olması veya GPU&apos;nuz ta
     <message>
         <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="186"/>
         <source>select desktop</source>
-        <translation>masaüstü seç</translation>
+        <translation>Masaüstü seç</translation>
     </message>
 </context>
 <context>
@@ -5816,7 +5819,7 @@ Genel nedenler, toplam ekran boyutunun çok büyük olması veya GPU&apos;nuz ta
     <message>
         <location filename="../../../plugins/account/networkaccount/networkaccount.cpp" line="25"/>
         <source>Cloud Account</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bulut Hesabı</translation>
     </message>
 </context>
 <context>
