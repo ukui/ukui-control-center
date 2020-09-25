@@ -852,7 +852,7 @@ void MainWindow::initStyleSheet() {
     // 设置右上角按钮图标
     minBtn->setIcon(QIcon::fromTheme("window-minimize-symbolic"));
     maxBtn->setIcon(QIcon::fromTheme("window-maximize-symbolic"));
-    closeBtn->setIcon(renderSvg(QIcon::fromTheme("window-close-symbolic"),"default"));
+    closeBtn->setIcon(renderSvg(QIcon::fromTheme("window-close-symbolic"),"gray"));
     closeBtn->setObjectName("closeBtn");
     closeBtn->setStyleSheet("QPushButton:hover:!pressed#closeBtn{background: #FA6056; border-radius: 4px;width:32px;height:32px;}"
                             "QPushButton#closeBtn{border-radius: 4px;width:32px;height:32px;}"
