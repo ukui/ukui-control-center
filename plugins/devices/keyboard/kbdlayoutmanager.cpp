@@ -266,8 +266,10 @@ void KbdLayoutManager::preview()
 
     KeyboardPainter* layoutPreview = new KeyboardPainter();
 
+
     qDebug() << " layoutID:"  << layoutID << "variantID:" << variantID <<endl;
     layoutPreview->generateKeyboardLayout(layoutID, variantID, "pc104", "");
+    layoutPreview->setWindowTitle(tr("Keyboard Preview"));
     layoutPreview->setModal(true);
     layoutPreview->exec();
 }
