@@ -44,6 +44,7 @@ About::About() {
     ui->titleLabel->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
 
     initSearchText();
+    initActiveDbus();
     setupDesktopComponent();
     setupKernelCompenent();
     setupVersionCompenent();
@@ -180,18 +181,14 @@ void About::setupVersionCompenent() {
 void About::setupSerialComponent() {
     ui->trialButton->setFlat(true);
     ui->trialButton->setStyleSheet("text-align: left");
-    QDBusInterface *activeInterface = new QDBusInterface("org.freedesktop.activation",
-                                     "/org/freedesktop/activation",
-                                     "org.freedesktop.activation.interface",
-                                     QDBusConnection::systemBus(), this);
-    if (!activeInterface->isValid()) {
+    if (!activeInterface.get()->isValid()) {
         qDebug() << "Create active Interface Failed When Get Computer info: " << QDBusConnection::systemBus().lastError();
         return;
     }
 
     int status;
     QDBusReply<int> activeStatus;
-    activeStatus  = activeInterface ->call("status");
+    activeStatus  = activeInterface.get()->call("status");
     if (!activeStatus.isValid()) {
         qDebug()<<"activeStatus is invalid"<<endl;
     } else {
@@ -200,7 +197,7 @@ void About::setupSerialComponent() {
 
     QString serial;
     QDBusReply<QString> serialReply;
-    serialReply  = activeInterface ->call("serial_number");
+    serialReply  = activeInterface.get()->call("serial_number");
     if (!serialReply.isValid()) {
         qDebug()<<"serialReply is invalid"<<endl;
     } else {
@@ -257,6 +254,17 @@ void About::initSearchText() {
     ui->diskLabel->setText(tr("Disk"));
 }
 
+void About::initActiveDbus() {
+    activeInterface = QSharedPointer<QDBusInterface>(
+                new QDBusInterface("org.freedesktop.activation",
+                                   "/org/freedesktop/activation",
+                                   "org.freedesktop.activation.interface",
+                                   QDBusConnection::systemBus()));
+    if (activeInterface.get()->isValid()) {
+        connect(activeInterface.get(), SIGNAL(activation_result(int)), this, SLOT(activeSlot(int)));
+    }
+}
+
 void About::runActiveWindow() {
     QString cmd = "kylin-activation";
 
@@ -268,5 +276,11 @@ void About::showPdf() {
     QString cmd = "atril /usr/share/man/statement.pdf.gz";
     QProcess process(this);
     process.startDetached(cmd);
+}
+
+void About::activeSlot(int activeSignal) {
+    if (!activeSignal) {
+        setupSerialComponent();
+    }
 }
 
