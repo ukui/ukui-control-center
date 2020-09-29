@@ -247,6 +247,11 @@ void KbdLayoutManager::rebuild_listwidget(){
         ui->listWidget->setItemWidget(item, layoutWidget);
     }
 
+    if (!ui->listWidget->count()) {
+        ui->installedFrame->setVisible(false);
+    } else {
+        ui->installedFrame->setVisible(true);
+    }
 }
 
 void KbdLayoutManager::preview()
