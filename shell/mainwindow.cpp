@@ -39,6 +39,9 @@
 #define QueryLineEditBackground "#FFFFFF" //搜索框背景
 #define QueryLineEditClickedBackground "#FFFFFF" //搜索框背景选中
 #define QueryLineEditClickedBorder "rgba(61, 107, 229, 1)" //搜索框背景选中边框
+
+const QByteArray kVinoSchemas    = "org.gnome.Vino";
+
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
  **/
@@ -539,6 +542,10 @@ void MainWindow::loadPlugins(){
         if (fileName == "libexperienceplan.so")
             continue;
         if ("libnetworkaccount.so" == fileName && !isExistCloud) {
+            continue;
+        }
+
+        if (!QGSettings::isSchemaInstalled(kVinoSchemas) && "libvino.so" == fileName) {
             continue;
         }
 

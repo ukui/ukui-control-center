@@ -10,7 +10,7 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="140"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="249"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="246"/>
         <source>version</source>
         <translation>版本</translation>
         <extra-contents_path>/about/version</extra-contents_path>
@@ -27,28 +27,28 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="271"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="251"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="248"/>
         <source>Kernel</source>
         <translation>内核</translation>
         <extra-contents_path>/about/Kernel</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="310"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="253"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="250"/>
         <source>CPU</source>
         <translation>CPU</translation>
         <extra-contents_path>/about/CPU</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="358"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="255"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="252"/>
         <source>Memory</source>
         <translation>内存</translation>
         <extra-contents_path>/about/Memory</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="406"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="257"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="254"/>
         <source>Disk</source>
         <translation>硬盘</translation>
         <extra-contents_path>/about/Disk</extra-contents_path>
@@ -97,22 +97,22 @@
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="128"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="129"/>
         <source>Disk:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="143"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="144"/>
         <source> available</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="213"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="210"/>
         <source>Inactivated</source>
         <translation>未激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="215"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="212"/>
         <source>Activated</source>
         <translation>已激活</translation>
     </message>
@@ -1423,7 +1423,7 @@ folder will be deleted!</source>
     <name>Desktop</name>
     <message>
         <location filename="../../../plugins/personalized/desktop/desktop.ui" line="50"/>
-        <location filename="../../../plugins/personalized/desktop/desktop.cpp" line="131"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.cpp" line="132"/>
         <source>Icon Show On Desktop</source>
         <translation>显示在桌面的图标</translation>
         <extra-contents_path>/desktop/Icon Show On Desktop</extra-contents_path>
@@ -1485,7 +1485,7 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/desktop/desktop.ui" line="1019"/>
-        <location filename="../../../plugins/personalized/desktop/desktop.cpp" line="133"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.cpp" line="134"/>
         <source>Tray icon</source>
         <translation>显示在托盘上的图标</translation>
         <extra-contents_path>/desktop/Tray icon</extra-contents_path>
@@ -1765,12 +1765,12 @@ folder will be deleted!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="139"/>
+        <location filename="../../../plugins/system/display/display.ui" line="127"/>
         <source>monitor</source>
         <translation>显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="185"/>
+        <location filename="../../../plugins/system/display/display.ui" line="173"/>
         <source>set as home screen</source>
         <translation>设为主屏</translation>
     </message>
@@ -1779,12 +1779,12 @@ folder will be deleted!</source>
         <translation type="vanished">关闭显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="342"/>
+        <location filename="../../../plugins/system/display/display.ui" line="330"/>
         <source>unify output</source>
         <translation>统一输出</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="246"/>
+        <location filename="../../../plugins/system/display/display.ui" line="234"/>
         <source>open monitor</source>
         <translation>打开显示器</translation>
     </message>
@@ -1794,62 +1794,62 @@ folder will be deleted!</source>
         <translation>显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="300"/>
+        <location filename="../../../plugins/system/display/display.ui" line="288"/>
         <source>Advanced</source>
         <translation>高级显示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="401"/>
+        <location filename="../../../plugins/system/display/display.ui" line="389"/>
         <source>screen brightness adjustment</source>
         <translation>调整屏幕亮度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="408"/>
+        <location filename="../../../plugins/system/display/display.ui" line="396"/>
         <source>dark</source>
         <translation>暗</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="431"/>
+        <location filename="../../../plugins/system/display/display.ui" line="419"/>
         <source>bright</source>
         <translation>亮</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="499"/>
+        <location filename="../../../plugins/system/display/display.ui" line="487"/>
         <source>follow the sunrise and sunset(17:55-05:04)</source>
         <translation>跟随日落日出（17:55-05:04）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="563"/>
+        <location filename="../../../plugins/system/display/display.ui" line="551"/>
         <source>custom time</source>
         <translation>自定义时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="627"/>
+        <location filename="../../../plugins/system/display/display.ui" line="615"/>
         <source>opening time</source>
         <translation>开启时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="710"/>
+        <location filename="../../../plugins/system/display/display.ui" line="698"/>
         <source>closing time</source>
         <translation>关闭时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="805"/>
+        <location filename="../../../plugins/system/display/display.ui" line="793"/>
         <source>color temperature</source>
         <translation>色温</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="812"/>
+        <location filename="../../../plugins/system/display/display.ui" line="800"/>
         <source>warm</source>
         <translation>暖</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="861"/>
+        <location filename="../../../plugins/system/display/display.ui" line="849"/>
         <source>cold</source>
         <translation>冷</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="898"/>
+        <location filename="../../../plugins/system/display/display.ui" line="886"/>
         <source>apply</source>
         <translation>应用</translation>
     </message>
@@ -2400,6 +2400,10 @@ folder will be deleted!</source>
 <context>
     <name>KbPreviewFrame</name>
     <message>
+        <source>Keyboard Preview</source>
+        <translation type="obsolete">布局预览</translation>
+    </message>
+    <message>
         <location filename="../../../plugins/devices/keyboard/preview/kbpreviewframe.cpp" line="321"/>
         <source>No preview found</source>
         <translation type="unfinished"></translation>
@@ -2441,6 +2445,11 @@ folder will be deleted!</source>
         <location filename="../../../plugins/devices/keyboard/kbdlayoutmanager.cpp" line="224"/>
         <source>Del</source>
         <translation>删除</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/kbdlayoutmanager.cpp" line="272"/>
+        <source>Keyboard Preview</source>
+        <translation type="unfinished">布局预览</translation>
     </message>
 </context>
 <context>
@@ -2636,6 +2645,10 @@ folder will be deleted!</source>
         <location filename="../../../plugins/devices/keyboard/preview/keyboardpainter.cpp" line="31"/>
         <source>Close</source>
         <translation>关闭</translation>
+    </message>
+    <message>
+        <source>Keyboard Preview</source>
+        <translation type="vanished">布局预览</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/preview/keyboardpainter.cpp" line="67"/>
@@ -3141,23 +3154,23 @@ Please retry for login!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="431"/>
+        <location filename="../../mainwindow.cpp" line="434"/>
         <source>Search</source>
-        <translation type="unfinished">搜索</translation>
+        <translation>搜索</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="71"/>
-        <location filename="../../mainwindow.cpp" line="453"/>
+        <location filename="../../mainwindow.cpp" line="74"/>
+        <location filename="../../mainwindow.cpp" line="456"/>
         <source>UKCC</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="823"/>
+        <location filename="../../mainwindow.cpp" line="831"/>
         <source>ukcc</source>
         <translation>控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="590"/>
+        <location filename="../../mainwindow.cpp" line="598"/>
         <source>HOME</source>
         <translation>首页</translation>
     </message>
@@ -3780,10 +3793,9 @@ Please retry for login!</source>
         <extra-contents_path>/printer/Add Printers And Scanners</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/printer/printer.cpp" line="97"/>
+        <location filename="../../../plugins/devices/printer/printer.cpp" line="96"/>
         <source>Add printers and scanners</source>
         <translation>添加打印机和扫描仪</translation>
-        <extra-contents_path>/printer/Add printers and scanners</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/printer/printer.ui" line="166"/>
@@ -4130,12 +4142,17 @@ Please retry for login!</source>
         <translation>网络连接</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="144"/>
+        <location filename="../../utils/functionselect.cpp" line="131"/>
+        <source>Vino</source>
+        <translation>桌面共享</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="146"/>
         <source>User Info</source>
         <translation>账户信息</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="178"/>
+        <location filename="../../utils/functionselect.cpp" line="180"/>
         <source>Security Center</source>
         <translation>安全中心</translation>
     </message>
@@ -4158,17 +4175,17 @@ Please retry for login!</source>
         <translation type="vanished">账户信息</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="146"/>
+        <location filename="../../utils/functionselect.cpp" line="148"/>
         <source>Cloud Account</source>
         <translation>云账户</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="161"/>
+        <location filename="../../utils/functionselect.cpp" line="163"/>
         <source>Datetime</source>
         <translation>时间和日期</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="163"/>
+        <location filename="../../utils/functionselect.cpp" line="165"/>
         <source>Area</source>
         <translation>语言和地区</translation>
     </message>
@@ -4177,27 +4194,27 @@ Please retry for login!</source>
         <translation type="vanished">安全中心</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="180"/>
+        <location filename="../../utils/functionselect.cpp" line="182"/>
         <source>Update</source>
         <translation>更新</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="182"/>
+        <location filename="../../utils/functionselect.cpp" line="184"/>
         <source>Backup</source>
         <translation>备份</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="197"/>
+        <location filename="../../utils/functionselect.cpp" line="199"/>
         <source>Notice</source>
         <translation>通知</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="199"/>
+        <location filename="../../utils/functionselect.cpp" line="201"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="201"/>
+        <location filename="../../utils/functionselect.cpp" line="203"/>
         <source>Experienceplan</source>
         <translation>体验计划</translation>
     </message>
@@ -4374,9 +4391,9 @@ Please retry for login!</source>
         <translation type="vanished">日</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="64"/>
+        <location filename="../../main.cpp" line="63"/>
         <source>ukui-control-center is already running!</source>
-        <translation type="unfinished"></translation>
+        <translation>控制面板已运行!</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/delgroupdialog.cpp" line="34"/>
@@ -4733,6 +4750,34 @@ in the file system invalid!</source>
         <location filename="../../../plugins/security-updates/securitycenter/securitycenter.cpp" line="217"/>
         <source>Protect account and login security</source>
         <translation>保护账户和登录的安全性</translation>
+    </message>
+</context>
+<context>
+    <name>ShareMain</name>
+    <message>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="41"/>
+        <source>Share</source>
+        <translation>共享</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="52"/>
+        <source>Allow others to view your desktop</source>
+        <translation>允许其他人查看您的桌面</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="59"/>
+        <source>Security</source>
+        <translation>安全</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="69"/>
+        <source>You must confirm every visit for this machine</source>
+        <translation>您必须为本机机器确认每次访问</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="84"/>
+        <source>Require user to enter this password: </source>
+        <translation>要求用户输入此密码: </translation>
     </message>
 </context>
 <context>
@@ -5469,6 +5514,15 @@ in the file system invalid!</source>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="374"/>
         <source>Add new user</source>
         <translation>添加新用户</translation>
+    </message>
+</context>
+<context>
+    <name>Vino</name>
+    <message>
+        <location filename="../../../plugins/network/vino/vino.ui" line="14"/>
+        <location filename="../../../plugins/network/vino/vino.cpp" line="27"/>
+        <source>Vino</source>
+        <translation>桌面共享</translation>
     </message>
 </context>
 <context>
