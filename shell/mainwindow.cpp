@@ -39,6 +39,9 @@
 #define QueryLineEditBackground "#FFFFFF" //搜索框背景
 #define QueryLineEditClickedBackground "#FFFFFF" //搜索框背景选中
 #define QueryLineEditClickedBorder "rgba(61, 107, 229, 1)" //搜索框背景选中边框
+
+const QByteArray kVinoSchemas    = "org.gnome.Vino";
+
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
  **/
@@ -542,6 +545,10 @@ void MainWindow::loadPlugins(){
             continue;
         }
 
+        if (!QGSettings::isSchemaInstalled(kVinoSchemas) && "libvino.so" == fileName) {
+            continue;
+        }
+
         qDebug() << "Scan Plugin: " << fileName;
 
         //ukui-session-manager
@@ -852,7 +859,7 @@ void MainWindow::initStyleSheet() {
     // 设置右上角按钮图标
     minBtn->setIcon(QIcon::fromTheme("window-minimize-symbolic"));
     maxBtn->setIcon(QIcon::fromTheme("window-maximize-symbolic"));
-    closeBtn->setIcon(renderSvg(QIcon::fromTheme("window-close-symbolic"),"default"));
+    closeBtn->setIcon(renderSvg(QIcon::fromTheme("window-close-symbolic"),"gray"));
     closeBtn->setObjectName("closeBtn");
     closeBtn->setStyleSheet("QPushButton:hover:!pressed#closeBtn{background: #FA6056; border-radius: 4px;width:32px;height:32px;}"
                             "QPushButton#closeBtn{border-radius: 4px;width:32px;height:32px;}"

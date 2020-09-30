@@ -268,6 +268,11 @@ void KbdLayoutManager::rebuild_listwidget(){
         ui->listWidget->setItemWidget(item, layoutWidget);
     }
 
+    if (!ui->listWidget->count()) {
+        ui->installedFrame->setVisible(false);
+    } else {
+        ui->installedFrame->setVisible(true);
+    }
 }
 
 void KbdLayoutManager::preview()
@@ -287,8 +292,10 @@ void KbdLayoutManager::preview()
 
     KeyboardPainter* layoutPreview = new KeyboardPainter();
 
+
     qDebug() << " layoutID:"  << layoutID << "variantID:" << variantID <<endl;
     layoutPreview->generateKeyboardLayout(layoutID, variantID, "pc104", "");
+    layoutPreview->setWindowTitle(tr("Keyboard Preview"));
     layoutPreview->setModal(true);
     layoutPreview->exec();
 }

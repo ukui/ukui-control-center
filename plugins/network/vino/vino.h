@@ -17,37 +17,29 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef ABOUT_H
-#define ABOUT_H
+#ifndef VINO_H
+#define VINO_H
 
-#include <QObject>
-#include <QtPlugin>
-
-#include <QDBusInterface>
-#include <QDBusConnection>
-#include <QDBusError>
-#include <QDBusReply>
-
-#include <QSysInfo>
-#include <QLabel>
-#include <QStringList>
+#include <QWidget>
 #include <QSharedPointer>
+#include <QStringLiteral>
 
 #include "shell/interface.h"
+#include "sharemain.h"
 
-namespace Ui {
-class About;
-}
+QT_BEGIN_NAMESPACE
+namespace Ui { class Vino; }
+QT_END_NAMESPACE
 
-class About : public QObject, CommonInterface
+class Vino : public QObject, CommonInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.kycc.CommonInterface")
     Q_INTERFACES(CommonInterface)
 
 public:
-    About();
-    ~About();
+    Vino();
+    ~Vino();
 
     QString get_plugin_name() Q_DECL_OVERRIDE;
     int get_plugin_type() Q_DECL_OVERRIDE;
@@ -56,35 +48,10 @@ public:
     const QString name() const  Q_DECL_OVERRIDE;
 
 private:
-    void initUI();
-    QStringList  readFile(QString filePath);
-
-    void initSearchText();
-    void initActiveDbus();
-    void setupDesktopComponent();
-    void setupKernelCompenent();
-    void setupVersionCompenent();
-    void setupSerialComponent();
-
-private:
-    Ui::About *ui;
+    Ui::Vino *ui;
     QString pluginName;
     int pluginType;
-    QWidget * pluginWidget;
+    ShareMain* pluginWidget;
 
-    QLabel * envlogoLabel;
-    QLabel * logoLabel;
-
-    QDBusInterface * interface;
-
-    QString computerinfo;
-    QMap<QString, QString> infoMap;
-    QSharedPointer<QDBusInterface> activeInterface;
-
-private slots:
-    void runActiveWindow();
-    void showPdf();
-    void activeSlot(int activeSignal);
 };
-
-#endif // ABOUT_H
+#endif // VINO_H
