@@ -306,10 +306,12 @@ void OutputConfig::slotResolutionChanged(const QSize &size)
         return;
     }
 
-    KScreen::ModePtr selectedMode  = mOutput->currentMode();
+    KScreen::ModePtr selectedMode;
+    KScreen::ModePtr currentMode  = mOutput->currentMode();
     QList<KScreen::ModePtr> modes;
     Q_FOREACH (const KScreen::ModePtr &mode, mOutput->modes()) {
         if (mode->size() == size) {
+            selectedMode = mode;
             modes << mode;
         }
     }
@@ -329,7 +331,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size)
         // If selected refresh rate is other then what we consider the "Auto" value
         // - that is it's not the highest resolution - then select it, otherwise
         // we stick with "Auto"
-        if (mode == selectedMode && mRefreshRate->count() > 1) {
+        if (mode == currentMode && mRefreshRate->count() > 1) {
             // i + 1 since 0 is auto
             mRefreshRate->setCurrentIndex(i + 1);
         }
