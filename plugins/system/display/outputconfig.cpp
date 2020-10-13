@@ -21,6 +21,8 @@
 
 #include "ComboBox/combobox.h"
 
+#define XSETTING_RENDERING_DPI "org.ukui.SettingsDaemon.plugins.xsettings"
+
 #define FONT_RENDERING_DPI "org.ukui.font-rendering"
 #define DPI_KEY "dpi"
 
@@ -290,7 +292,8 @@ void OutputConfig::initUi()
     scaleFrame->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     scaleFrame->setMinimumSize(550,50);
     scaleFrame->setMaximumSize(960,50);
-//    vbox->addWidget(scaleFrame);
+    vbox->addWidget(scaleFrame);
+    scaleFrame->setVisible(isSupportDPI());
 
     int scale = getScreenScale();
 #if QT_VERSION < QT_VERSION_CHECK(5,7,0)
@@ -475,4 +478,17 @@ int OutputConfig::scaleRet() {
         }
     }
     return scale;
+}
+
+bool OutputConfig::isSupportDPI() {
+    const QByteArray id(XSETTING_RENDERING_DPI);
+
+    if (QGSettings::isSchemaInstalled(id)) {
+        QGSettings dpiSetting(id);
+        QStringList keys = dpiSetting.keys();
+        if (keys.contains("scalingFactor")) {
+            return true;
+        }
+    }
+    return false;
 }

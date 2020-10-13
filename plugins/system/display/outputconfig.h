@@ -39,6 +39,7 @@ class OutputConfig : public QWidget
     void initConfig(const KScreen::ConfigPtr &config);
     QStringList readFile(const QString& filepath);
     int scaleRet();
+    bool isSupportDPI();
 
   protected Q_SLOTS:
     void slotResolutionChanged(const QSize &size);
