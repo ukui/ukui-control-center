@@ -290,7 +290,7 @@ void OutputConfig::initUi()
     scaleFrame->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     scaleFrame->setMinimumSize(550,50);
     scaleFrame->setMaximumSize(960,50);
-    vbox->addWidget(scaleFrame);
+//    vbox->addWidget(scaleFrame);
 
     int scale = getScreenScale();
 #if QT_VERSION < QT_VERSION_CHECK(5,7,0)
