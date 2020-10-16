@@ -683,6 +683,28 @@ you can restore them to ensure the integrity of your system.</source>
         <source>Add user group</source>
         <translation>添加用户组</translation>
     </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="228"/>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="236"/>
+        <source>Tips</source>
+        <translation>提示</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="228"/>
+        <source>Invalid Id!</source>
+        <translation>无效组ID!</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="231"/>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="239"/>
+        <source>OK</source>
+        <translation>确定</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="236"/>
+        <source>Invalid Group Name!</source>
+        <translation>无效组名!</translation>
+    </message>
 </context>
 <context>
     <name>ChangePwdDialog</name>
@@ -1440,6 +1462,14 @@ in the file system invalid!</source>
         <source>Remind</source>
         <translation>提醒</translation>
     </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/delgroupdialog.cpp" line="34"/>
+        <source>Are you sure to delete &quot;%1&quot; group, 
+which will make some file components 
+in the file system invalid!</source>
+        <translation>确定删除&quot;%1&quot;组,这将使得文件系统
+中的某些文件组件ID无效!</translation>
+    </message>
 </context>
 <context>
     <name>DelUserDialog</name>
@@ -1937,6 +1967,21 @@ folder will be deleted!</source>
         <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="336"/>
         <source>Members</source>
         <translation>组成员</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.cpp" line="160"/>
+        <source>Tips</source>
+        <translation>提示</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.cpp" line="160"/>
+        <source>Invalid Id!</source>
+        <translation>无效组ID!</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.cpp" line="163"/>
+        <source>OK</source>
+        <translation>确定</translation>
     </message>
 </context>
 <context>
@@ -4450,10 +4495,9 @@ Please retry for login!</source>
         <translation>控制面板已运行!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/delgroupdialog.cpp" line="34"/>
-        <source>Are you sure to delete &quot;%1&quot; group, 
-which will make some file components 
-in the file system invalid!</source>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="109"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="406"/>
+        <source>Pwd input error, re-enter!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
