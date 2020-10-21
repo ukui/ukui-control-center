@@ -102,23 +102,18 @@ void MainWindow::bootOptionsFilter(QString opt) {
     if (opt == "-m") {
         //显示器
         bootOptionsSwitch(SYSTEM, DISPLAY);
-
     } else if (opt == "-b") {
         //背景
         bootOptionsSwitch(PERSONALIZED, BACKGROUND);
-
     } else if (opt == "-d") {
-        //桌面
+        // 桌面
         bootOptionsSwitch(PERSONALIZED, DESKTOP);
-
     } else if (opt == "-u") {
-        //账户
+        // 账户
         bootOptionsSwitch(ACCOUNT, USERINFO);
-
     } else if (opt == "-a") {
         //关于
         bootOptionsSwitch(NOTICEANDTASKS, ABOUT);
-
     } else if (opt == "-p") {
         //电源
         bootOptionsSwitch(SYSTEM, POWER);
@@ -131,8 +126,8 @@ void MainWindow::bootOptionsFilter(QString opt) {
     } else if (opt == "-n") {
         // notice module
         bootOptionsSwitch(NOTICEANDTASKS, NOTICE);
-    } else if (opt == "-v") {
-        // notice module
+    } else if (opt == "-g") {
+        // VPN module
         bootOptionsSwitch(NETWORK, VPN);
     }
 }
