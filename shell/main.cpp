@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
     QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 
-    QString id = QString(QLatin1String(getenv("DISPLAY")));
+    QString id = QString("ukui-control-center" + QLatin1String(getenv("DISPLAY")));
     QtSingleApplication a(id, argc, argv);
 
     if (a.isRunning()) {
