@@ -25,14 +25,14 @@ SOURCES += \
             group_manager_server.cpp \
             main.cpp
 
-target.path = /usr/sbin/
+target.path = /usr/bin/
 !isEmpty(target.path): INSTALLS += target
 
 dbus_conf.path = /etc/dbus-1/system.d
 dbus_conf.files +=  conf/org.ukui.groupmanager.conf
 INSTALLS += dbus_conf
 
-systemd_service.path = /usr/lib/systemd/system
+systemd_service.path = /lib/systemd/system
 systemd_service.files += conf/ukui-group-manager.service
 INSTALLS += systemd_service
 

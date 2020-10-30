@@ -3,7 +3,7 @@ Description=group-manager-server
 
 [Service]
 User=root
-ExecStart=/usr/sbin/group-manager-server
+ExecStart=/usr/bin/group-manager-server
 
 [Install]
 WantedBy=multi-user.target
