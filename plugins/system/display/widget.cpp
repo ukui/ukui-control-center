@@ -61,6 +61,7 @@ extern "C" {
 
 #define POWER_SCHMES                     "org.ukui.power-manager"
 #define POWER_KEY                        "brightness-ac"
+#define POWER_BAT_KEY                    "brightness-bat"
 
 #define ADVANCED_SCHEMAS                 "org.ukui.session.required-components"
 #define ADVANCED_KEY                     "windowmanager"
@@ -81,7 +82,7 @@ Widget::Widget(QWidget *parent)
 #if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
     oriApply = true;
 #else
-    oriApply = false;
+    mOriApply = false;
     ui->quickWidget->setAttribute(Qt::WA_AlwaysStackOnTop);
     ui->quickWidget->setClearColor(Qt::transparent);
 #endif
@@ -125,10 +126,10 @@ Widget::Widget(QWidget *parent)
 #if QT_VERSION <= QT_VERSION_CHECK(5,12,0)
     ui->nightframe->setVisible(false);
 #else
-    ui->nightframe->setVisible(this->m_redshiftIsValid);
+    ui->nightframe->setVisible(this->mRedshiftIsValid);
 #endif
 
-    mNightButton->setChecked(this->m_isNightMode);
+    mNightButton->setChecked(this->mIsNightMode);
     showNightWidget(mNightButton->isChecked());
 
     initConnection();
@@ -437,20 +438,18 @@ KScreen::OutputPtr Widget::findOutput(const KScreen::ConfigPtr &config, const QV
 }
 
 void Widget::writeScale(int scale) {
-    if (isScaleChanged) {
+    if (mIsScaleChanged) {
         QMessageBox::information(this, tr("Information"), tr("Some applications need to be logouted to take effect"));
     } else {
         return;
     }
-    isScaleChanged = false;
+    mIsScaleChanged = false;
     int cursize;
-    QGSettings * dpiSettings;
-    QGSettings * cursorSettings;
     QByteArray id(FONT_RENDERING_DPI);
     QByteArray iid(MOUSE_SIZE_SCHEMAS);
     if (QGSettings::isSchemaInstalled(FONT_RENDERING_DPI) && QGSettings::isSchemaInstalled(MOUSE_SIZE_SCHEMAS)) {
-        dpiSettings = new QGSettings(id, QByteArray());
-        cursorSettings = new QGSettings(iid, QByteArray());
+        QGSettings dpiSettings(id);
+        QGSettings cursorSettings(iid);
 
         if (1 == scale)  {
             cursize = 24;
@@ -463,32 +462,29 @@ void Widget::writeScale(int scale) {
             cursize = 24;
         }
 
-        QStringList keys = dpiSettings->keys();
+        QStringList keys = dpiSettings.keys();
         if (keys.contains("scalingFactor")) {
-            dpiSettings->set(SCALE_KEY, scale);
+            dpiSettings.set(SCALE_KEY, scale);
         }
-        cursorSettings->set(CURSOR_SIZE_KEY, cursize);
-
-        delete dpiSettings;
-        delete cursorSettings;
+        cursorSettings.set(CURSOR_SIZE_KEY, cursize);
     }
 }
 
 void Widget::initGSettings() {
     QByteArray id(UKUI_CONTORLCENTER_PANEL_SCHEMAS);
     if(QGSettings::isSchemaInstalled(id)) {
-        m_gsettings = new QGSettings(id, QByteArray(), this);
-        if (m_gsettings->keys().contains(THEME_NIGHT_KEY)) {
-            mThemeButton->setChecked(m_gsettings->get(THEME_NIGHT_KEY).toBool());
+        mGsettings = new QGSettings(id, QByteArray(), this);
+        if (mGsettings->keys().contains(THEME_NIGHT_KEY)) {
+            mThemeButton->setChecked(mGsettings->get(THEME_NIGHT_KEY).toBool());
         }
     } else {
         qDebug() << Q_FUNC_INFO << "org.ukui.control-center.panel.plugins not install";
         return;
     }
 
-    connect(m_gsettings, &QGSettings::changed, this, [=](QString key) {
+    connect(mGsettings, &QGSettings::changed, this, [=](QString key) {
         if (static_cast<QString>(NIGHT_MODE_KEY) == key) {
-            bool status =  m_gsettings->get(key).toBool();
+            bool status =  mGsettings->get(key).toBool();
             initConfigFile(true, status);
         }
     });
@@ -496,6 +492,7 @@ void Widget::initGSettings() {
     QByteArray powerId(POWER_SCHMES);
     if (QGSettings::isSchemaInstalled(POWER_SCHMES)) {
         mPowerGSettings = new QGSettings(powerId, QByteArray(), this);
+        mPowerKeys = mPowerGSettings->keys();
         connect(mPowerGSettings, &QGSettings::changed, this, [=](QString key) {
             if ("brightnessAc" == key || "brightnessBat") {
                 ui->brightnessSlider->setValue(mPowerGSettings->get(key).toInt());
@@ -506,11 +503,11 @@ void Widget::initGSettings() {
 
 void Widget::writeConfigFile() {
 
-    if (m_gsettings) {
-        m_gsettings->set(NIGHT_MODE_KEY, mNightButton->isChecked());
+    if (mGsettings) {
+        mGsettings->set(NIGHT_MODE_KEY, mNightButton->isChecked());
     }
 
-    m_qsettings->beginGroup("redshift");
+    mQsettings->beginGroup("redshift");
     QString optime = ui->opHourCom->currentText() + ":" + ui->opMinCom->currentText();
     QString cltime = ui->clHourCom->currentText() + ":" + ui->clMinCom->currentText();
     QString value = QString::number(ui->temptSlider->value());
@@ -521,22 +518,22 @@ void Widget::writeConfigFile() {
         cltime = "05:04";
     }
 
-    m_qsettings->setValue("dawn-time", cltime);
-    m_qsettings->setValue("dusk-time", optime);
-    m_qsettings->setValue("temp-day", tempDayBrig);
-    m_qsettings->setValue("temp-night", value);
+    mQsettings->setValue("dawn-time", cltime);
+    mQsettings->setValue("dusk-time", optime);
+    mQsettings->setValue("temp-day", tempDayBrig);
+    mQsettings->setValue("temp-night", value);
 
-    m_qsettings->endGroup();
+    mQsettings->endGroup();
 
-    m_qsettings->beginGroup("switch");
-    m_qsettings->setValue("unionswitch", mUnifyButton->isChecked());
-    m_qsettings->setValue("nightjudge", mNightButton->isChecked());
-    m_qsettings->setValue("sunjudge", ui->sunradioBtn->isChecked());
-    m_qsettings->setValue("manualjudge", ui->customradioBtn->isChecked());
-    m_qsettings->setValue("nightStatus", mNightButton->isChecked());
+    mQsettings->beginGroup("switch");
+    mQsettings->setValue("unionswitch", mUnifyButton->isChecked());
+    mQsettings->setValue("nightjudge", mNightButton->isChecked());
+    mQsettings->setValue("sunjudge", ui->sunradioBtn->isChecked());
+    mQsettings->setValue("manualjudge", ui->customradioBtn->isChecked());
+    mQsettings->setValue("nightStatus", mNightButton->isChecked());
 
-    m_qsettings->endGroup();
-    m_qsettings->sync();
+    mQsettings->endGroup();
+    mQsettings->sync();
 }
 
 void Widget::setcomBoxScale() {
@@ -640,8 +637,8 @@ void Widget::showCustomWiget(int index) {
 }
 
 void Widget::slotThemeChanged(bool judge) {
-    if (m_gsettings->keys().contains(THEME_NIGHT_KEY)) {
-        m_gsettings->set(THEME_NIGHT_KEY, judge);
+    if (mGsettings->keys().contains(THEME_NIGHT_KEY)) {
+        mGsettings->set(THEME_NIGHT_KEY, judge);
     }
 }
 
@@ -914,7 +911,7 @@ void Widget::scaleChangedSlot(int index) {
         this->screenScale = 1;
         break;
     }
-    isScaleChanged = true;
+    mIsScaleChanged = true;
 }
 
 void Widget::changedSlot() {
@@ -977,8 +974,7 @@ void Widget::initBrightnessUI() {
 
     setBrightnesSldierValue();
 
-    connect(ui->brightnessSlider,&QSlider::valueChanged,
-            this,&Widget::setBrightnessScreen);
+    connect(ui->brightnessSlider, &QSlider::valueChanged, this, &Widget::setBrightnessScreen);
 }
 
 void Widget::initConnection() {
@@ -993,13 +989,14 @@ void Widget::initConnection() {
     mControlPanel = new ControlPanel(this);
     connect(mControlPanel, &ControlPanel::changed, this, &Widget::changed);
     connect(this, &Widget::changed, this, &Widget::changedSlot);
+    connect(mControlPanel, &ControlPanel::scaleChanged, this, &Widget::scaleChangedSlot);
 
     ui->controlPanelLayout->addWidget(mControlPanel);
 
     // TODO: Find out why adjusting the screen orientation does not take effect
     connect(ui->applyButton, &QPushButton::clicked, this, [=]() {
        save();
-       if (oriApply) {
+       if (mOriApply) {
            QTimer::singleShot(1000, this,
                [this] () {
                   save();
@@ -1032,7 +1029,12 @@ void Widget::initConnection() {
 
 
 void Widget::setBrightnessScreen(int value) {
-    mPowerGSettings->set(POWER_KEY, value);
+
+    if (mPowerKeys.contains("brightnessBat") && mOnBattery) {
+        mPowerGSettings->set(POWER_BAT_KEY, value);
+    } else {
+        mPowerGSettings->set(POWER_KEY, value);
+    }
 }
 
 //滑块改变
@@ -1059,13 +1061,13 @@ void Widget::initTemptSlider() {
 
 void Widget::initConfigFile(bool changed, bool status) {
     QString filename = QDir::homePath() + "/.config/redshift.conf";
-    m_qsettings = new QSettings(filename, QSettings::IniFormat);
+    mQsettings = new QSettings(filename, QSettings::IniFormat,this);
 
-    m_qsettings->beginGroup("redshift");
+    mQsettings->beginGroup("redshift");
 
-    QString optime = m_qsettings->value("dusk-time", "").toString();
-    QString cltime = m_qsettings->value("dawn-time", "").toString();
-    QString temptValue = m_qsettings->value("temp-night", "").toString();
+    QString optime = mQsettings->value("dusk-time", "").toString();
+    QString cltime = mQsettings->value("dawn-time", "").toString();
+    QString temptValue = mQsettings->value("temp-night", "").toString();
 
     if ("" != optime) {
         QString ophour = optime.split(":").at(0);
@@ -1088,16 +1090,16 @@ void Widget::initConfigFile(bool changed, bool status) {
         ui->temptSlider->setValue(value);
     }
 
-    m_qsettings->endGroup();
+    mQsettings->endGroup();
 
-    m_qsettings->beginGroup("switch");;
+    mQsettings->beginGroup("switch");;
 
     bool sunjudge    = false;
     bool manualjudge = false;
-    bool unionjudge  = m_qsettings->value("unionswitch", unionjudge).toBool();
-    bool nightjudge  = m_qsettings->value("nightjudge", nightjudge).toBool();
-    manualjudge      = m_qsettings->value("manualjudge", manualjudge).toBool();
-    sunjudge         = m_qsettings->value("sunjudge", sunjudge).toBool();
+    bool unionjudge  = mQsettings->value("unionswitch", unionjudge).toBool();
+    bool nightjudge  = mQsettings->value("nightjudge", nightjudge).toBool();
+    manualjudge      = mQsettings->value("manualjudge", manualjudge).toBool();
+    sunjudge         = mQsettings->value("sunjudge", sunjudge).toBool();
 
     mUnifyButton->setChecked(unionjudge);
     mNightButton->setChecked(nightjudge);
@@ -1110,7 +1112,7 @@ void Widget::initConfigFile(bool changed, bool status) {
         ui->temptSlider->setValue(3500);
     }
 
-    m_qsettings->endGroup();
+    mQsettings->endGroup();
 
     if (changed) {
         mNightButton->setChecked(status);
@@ -1154,7 +1156,6 @@ void Widget::writeScreenXml(int count) {
             // 获得元素e的所有子结点的列表
             QDomElement e = n.toElement();
             QDomNodeList list = e.childNodes();
-//            qDebug()<<"list.count()---->"<<list.count();
 
             // 遍历该列表
             for(int i=0; i<list.count(); i++)
@@ -1173,7 +1174,6 @@ void Widget::writeScreenXml(int count) {
                             &&inputXml[i-1].isEnable
                             &&e2.count() > 3){
 
-//                            qDebug()<<"e2  count is---->"<<e2.count()<<endl;
                             qDebug() << "    "<< (node.toElement().tagName())
                                     <<(node.toElement().attribute("name"));
                             for (int j=0; j<e2.count(); j++) {
@@ -1223,7 +1223,6 @@ void Widget::writeScreenXml(int count) {
                                    &&inputXml[i-1].isEnable
                                    &&e2.count() <= 3){
 
-//                            qDebug()<<"增加节点---->"<<endl;
                             QDomElement width  = doc.createElement("width");
                             QDomText widthtext = doc.createTextNode(inputXml[i-1].widthValue);
                             width.appendChild(widthtext);
@@ -1438,10 +1437,10 @@ void Widget::updateNightStatus() {
 
 
 void Widget::setIsNightMode(bool isNightMode) {
-    if(m_isNightMode == isNightMode){
+    if(mIsNightMode == isNightMode){
         return ;
     }
-    m_isNightMode = isNightMode;
+    mIsNightMode = isNightMode;
    // emit nightModeChanged(isNightMode);
 }
 
@@ -1471,20 +1470,33 @@ void Widget::initUiComponent() {
     QDBusReply<QVariant> briginfo;
     briginfo  = brightnessInterface.call("Get", "org.freedesktop.UPower.Device", "PowerSupply");
     if (!briginfo.value().toBool()) {
-        qDebug()<<"brightness info is invalid"<<endl;
         ui->brightnessframe->setVisible(false);
     } else {
-        bool status = briginfo.value().toBool();
-        ui->brightnessframe->setVisible(status);
+        ui->brightnessframe->setVisible(true);
+    }
+
+    QDBusInterface batteryInterface("org.freedesktop.UPower",
+                                    "/org/freedesktop/UPower",
+                                    "org.freedesktop.DBus.Properties",
+                                     QDBusConnection::systemBus());
+    if (!batteryInterface.isValid()) {
+        qDebug() << "Create UPower Battery Interface Failed : " << QDBusConnection::systemBus().lastError();
+        return;
+    }
+
+    QDBusReply<QVariant> batteryInfo;
+    batteryInfo  = batteryInterface.call("Get", "org.freedesktop.UPower", "OnBattery");
+    if (batteryInfo.isValid()) {
+        mOnBattery = batteryInfo.value().toBool();
     }
 }
 
 void Widget::setRedShiftIsValid(bool redshiftIsValid) {
-    if(m_redshiftIsValid == redshiftIsValid) {
+    if(mRedshiftIsValid == redshiftIsValid) {
         return ;
     }
 
-    m_redshiftIsValid = redshiftIsValid;
+    mRedshiftIsValid = redshiftIsValid;
     emit redShiftValidChanged(redshiftIsValid);
 }
 
@@ -1499,7 +1511,7 @@ void Widget::initNightStatus() {
     QByteArray qbaOutput = process_2->readAllStandardOutput();
 
     QString tmpNight = qbaOutput;
-    m_isNightMode = (tmpNight=="active\n" ? true : false);
+    mIsNightMode = (tmpNight=="active\n" ? true : false);
 
     if (isRedShiftValid){
         updateNightStatus();

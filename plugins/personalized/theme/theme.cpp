@@ -67,6 +67,8 @@
 
 const QString defCursor = "DMZ-White";
 const QString UbuntuVesionEnhance = "20.10";
+const QString kXder = "XRender";
+
 const int transparency = 75;
 
 const QStringList effectList {"blur", "kwin4_effect_translucency", "kwin4_effect_maximize", "zoom"};
@@ -203,17 +205,26 @@ void Theme::setupSettings() {
     QString filename = QDir::homePath() + "/.config/ukui-kwinrc";
     kwinSettings = new QSettings(filename, QSettings::IniFormat, this);
 
-    QStringList keys = kwinSettings->allKeys();
+    QStringList keys = kwinSettings->childGroups();
 
     kwinSettings->beginGroup("Plugins");
-
     bool kwin = kwinSettings->value("blurEnabled", kwin).toBool();
 
-    if (!keys.contains("blurEnabled")) {
+    if (!kwinSettings->childKeys().contains("blurEnabled")) {
         kwin = true;
     }
 
     kwinSettings->endGroup();
+
+    if (keys.contains("Compositing")) {
+        kwinSettings->beginGroup("Compositing");
+        QString xder;
+        xder = kwinSettings->value("Backend", xder).toString();
+        if (xder == kXder) {
+            ui->effectFrame->setVisible(false);
+        }
+        kwinSettings->endGroup();
+    }
 
     effectSwitchBtn->setChecked(kwin);
 
@@ -484,6 +495,15 @@ void Theme::initCursorTheme(){
 #if QT_VERSION <= QT_VERSION_CHECK(5,12,0)
 
 #else
+        QString filename = QDir::homePath() + "/.config/kcminputrc";
+        QSettings *mouseSettings = new QSettings(filename, QSettings::IniFormat);
+
+        mouseSettings->beginGroup("Mouse");
+        mouseSettings->setValue("cursorTheme", value);
+        mouseSettings->endGroup();
+
+        delete mouseSettings;
+
         QDBusMessage message = QDBusMessage::createSignal("/KGlobalSettings", "org.kde.KGlobalSettings", "notifyChange");
         QList<QVariant> args;
         args.append(5);
@@ -491,7 +511,6 @@ void Theme::initCursorTheme(){
         message.setArguments(args);
         QDBusConnection::sessionBus().send(message);
 #endif
-
     });
 
     for (QString cursor : cursorThemes){

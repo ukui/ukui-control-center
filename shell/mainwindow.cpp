@@ -820,7 +820,6 @@ void MainWindow::sltMessageReceived(const QString &msg) {
     Qt::WindowFlags flags = windowFlags();
     flags |= Qt::WindowStaysOnTopHint;
     setWindowFlags(flags);
-    show();
     flags &= ~Qt::WindowStaysOnTopHint;
     setWindowFlags(flags);
     showNormal();
