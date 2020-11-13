@@ -163,6 +163,7 @@ class Widget : public QWidget
     void initNightUI();
     // 是否恢复应用之前的配置
     bool isRestoreConfig();
+    QString getCpuInfo();
 
   private:
     Ui::DisplayWindow *ui;

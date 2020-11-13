@@ -66,6 +66,8 @@ extern "C" {
 #define ADVANCED_SCHEMAS                 "org.ukui.session.required-components"
 #define ADVANCED_KEY                     "windowmanager"
 
+const QString kCpu = "ZHAOXIN";
+
 Q_DECLARE_METATYPE(KScreen::OutputPtr)
 
 Widget::Widget(QWidget *parent)
@@ -83,8 +85,11 @@ Widget::Widget(QWidget *parent)
     oriApply = true;
 #else
     mOriApply = false;
-    ui->quickWidget->setAttribute(Qt::WA_AlwaysStackOnTop);
-    ui->quickWidget->setClearColor(Qt::transparent);
+    if (!getCpuInfo().startsWith(kCpu, Qt::CaseInsensitive)) {
+        ui->quickWidget->setAttribute(Qt::WA_AlwaysStackOnTop);
+        ui->quickWidget->setClearColor(Qt::transparent);
+    }
+
 #endif
 
     ui->quickWidget->setContentsMargins(0,0,0,9);
@@ -603,6 +608,28 @@ bool Widget::isRestoreConfig() {
           break;
     }
     return res;
+}
+
+QString Widget::getCpuInfo() {
+    QDBusInterface youkerInterface("com.kylin.assistant.systemdaemon",
+                                   "/com/kylin/assistant/systemdaemon",
+                                   "com.kylin.assistant.systemdaemon",
+                                   QDBusConnection::systemBus());
+    if (!youkerInterface.isValid()) {
+        qCritical() << "Create youker Interface Failed When Get Computer info: " << QDBusConnection::systemBus().lastError();
+        return QString();
+    }
+
+    QDBusReply<QMap<QString, QVariant>> cpuinfo;
+    QString cpuType;
+    cpuinfo  = youkerInterface.call("get_cpu_info");
+    if (!cpuinfo.isValid()) {
+        qDebug() << "cpuinfo is invalid" << endl;
+    } else {
+        QMap<QString, QVariant> res = cpuinfo.value();
+        cpuType = res["CpuVersion"].toString();
+    }
+    return cpuType;
 }
 
 

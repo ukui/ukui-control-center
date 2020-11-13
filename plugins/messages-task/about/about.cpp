@@ -127,7 +127,7 @@ void About::setupKernelCompenent() {
 
     QDBusReply<QMap<QString, QVariant>> cpuinfo;
     cpuinfo  = youkerInterface.call("get_cpu_info");
-    if (!diskinfo.isValid()) {
+    if (!cpuinfo.isValid()) {
         qDebug() << "cpuinfo is invalid" << endl;
     } else {
         QMap<QString, QVariant> res = cpuinfo.value();
