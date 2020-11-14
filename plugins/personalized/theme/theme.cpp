@@ -216,16 +216,6 @@ void Theme::setupSettings() {
 
     kwinSettings->endGroup();
 
-    if (keys.contains("Compositing")) {
-        kwinSettings->beginGroup("Compositing");
-        QString xder;
-        xder = kwinSettings->value("Backend", xder).toString();
-        if (xder == kXder) {
-            ui->effectFrame->setVisible(false);
-        }
-        kwinSettings->endGroup();
-    }
-
     effectSwitchBtn->setChecked(kwin);
 
     QFileInfo dir(filename);
@@ -237,6 +227,18 @@ void Theme::setupSettings() {
         ui->transFrame->setVisible(true);
     } else {
         ui->transFrame->setVisible(false);
+    }
+
+    if (keys.contains("Compositing")) {
+        kwinSettings->beginGroup("Compositing");
+        QString xder;
+        xder = kwinSettings->value("Backend", xder).toString();
+        if (xder == kXder) {
+            ui->effectFrame->setVisible(false);
+            ui->transFrame->setVisible(false);
+            ui->effectLabel->setVisible(false);
+        }
+        kwinSettings->endGroup();
     }
 }
 
@@ -255,7 +257,7 @@ void Theme::setupComponent(){
     buildThemeModeBtn(ui->lightButton, tr("Light"), "light");
     buildThemeModeBtn(ui->darkButton, tr("Dark"), "dark");
 
-    ui->tranSlider->setRange(35, 90);
+    ui->tranSlider->setRange(35, 100);
 
     ui->tranSlider->setValue(static_cast<int>(personliseGsettings->get(PERSONALSIE_TRAN_KEY).toDouble() * 100.0));
     connect(ui->tranSlider, &QSlider::sliderReleased, this, [=]() {
