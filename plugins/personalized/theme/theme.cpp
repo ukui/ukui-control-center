@@ -237,6 +237,7 @@ void Theme::setupSettings() {
             ui->effectFrame->setVisible(false);
             ui->transFrame->setVisible(false);
             ui->effectLabel->setVisible(false);
+            personliseGsettings->set(PERSONALSIE_EFFECT_KEY, false);
         }
         kwinSettings->endGroup();
     }
