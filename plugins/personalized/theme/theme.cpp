@@ -193,8 +193,12 @@ void Theme::setupSettings() {
     if (keys.contains("Compositing")) {
         kwinSettings->beginGroup("Compositing");
         QString xder;
+        bool kwinOG;
+        bool kwinEN;
         xder = kwinSettings->value("Backend", xder).toString();
-        if (xder == kXder) {
+        kwinOG = kwinSettings->value("OpenGLIsUnsafe", kwinOG).toBool();
+        kwinEN = kwinSettings->value("Enabled", kwinEN).toBool();
+        if (xder == kXder || kwinOG || !kwinEN) {
             ui->effectFrame->setVisible(false);
             ui->transFrame->setVisible(false);
             ui->effectLabel->setVisible(false);
@@ -536,10 +540,10 @@ void Theme::initConnection() {
 
     connect(effectSwitchBtn, &SwitchButton::checkedChanged, [this](bool checked) {
         if (!checked) {
-            personliseGsettings->set(PERSONALSIE_TRAN_KEY, 0.9);
-            qtSettings->set(THEME_TRAN_KEY, 90);
-            qtSettings->set(PEONY_TRAN_KEY, 90);
-            ui->tranSlider->setValue(90);
+            personliseGsettings->set(PERSONALSIE_TRAN_KEY, 0.95);
+            qtSettings->set(THEME_TRAN_KEY, 95);
+            qtSettings->set(PEONY_TRAN_KEY, 95);
+            ui->tranSlider->setValue(95);
         }
         // 提供给外部监听特效接口
         personliseGsettings->set(PERSONALSIE_EFFECT_KEY, checked);
@@ -648,12 +652,14 @@ void Theme::resetBtnClickSlot() {
 
     //reset icon default theme
     qtSettings->reset(ICON_QT_KEY);
-    qtSettings->reset(THEME_TRAN_KEY);
-    qtSettings->reset(PEONY_TRAN_KEY);
-    gtkSettings->reset(ICON_GTK_KEY);
-    personliseGsettings->reset(PERSONALSIE_TRAN_KEY);
 
-    ui->tranSlider->setValue(transparency);
+    if (ui->effectFrame->isVisible() && effectSwitchBtn->isChecked()) {
+        qtSettings->reset(THEME_TRAN_KEY);
+        qtSettings->reset(PEONY_TRAN_KEY);
+        gtkSettings->reset(ICON_GTK_KEY);
+        personliseGsettings->reset(PERSONALSIE_TRAN_KEY);
+        ui->tranSlider->setValue(transparency);
+    }
 
     QString icoName = qtSettings->get(ICON_QT_KEY).toString();
 

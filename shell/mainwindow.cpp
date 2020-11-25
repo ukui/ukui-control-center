@@ -303,14 +303,14 @@ void MainWindow::initUI() {
 
         if (index){ //首页部分组件样式
             //中部内容区域
-            ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background: palette(base); border-bottom-right-radius: 12px;}");
+            ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background: palette(base); border-bottom-right-radius: 6px;}");
             // 标题栏
-            ui->titleWdiget->setStyleSheet("QWidget#titleWdiget{background-color: palette(base); border-top-right-radius: 12px;}");
+            ui->titleWdiget->setStyleSheet("QWidget#titleWdiget{background-color: palette(base); border-top-right-radius: 6px;}");
         } else { //次页部分组件样式
             //中部内容区域
-            ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background:  palette(base); border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;}");
+            ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background:  palette(base); border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
             // 标题栏
-            ui->titleWdiget->setStyleSheet("QWidget#titleWdiget{background-color: palette(base);border-top-left-radius: 12px; border-top-right-radius: 12px;}");
+            ui->titleWdiget->setStyleSheet("QWidget#titleWdiget{background-color: palette(base);border-top-left-radius: 6px; border-top-right-radius: 6px;}");
         }
     });
 
@@ -560,7 +560,7 @@ void MainWindow::initLeftsideBar(){
             button->setCheckable(true);
             leftBtnGroup->addButton(button, type);
 
-            button->setStyleSheet("QPushButton::checked{background: palette(base); border-top-left-radius: 12px;border-bottom-left-radius: 12px;}"
+            button->setStyleSheet("QPushButton::checked{background: palette(base); border-top-left-radius: 6px;border-bottom-left-radius: 6px;}"
                                   "QPushButton::!checked{background: palette(button);border: none;}");
 
             connect(button, &QPushButton::clicked, this, [=]{
@@ -702,7 +702,7 @@ void MainWindow::initStyleSheet() {
     this->setWindowTitle(tr("ukcc"));
 
     // 中部内容区域
-    ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background: palette(base); border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;}");
+    ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background: palette(base); border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
 
     // 左上角返回按钮
     backBtn->setProperty("useIconHighlightEffect", true);
@@ -719,7 +719,7 @@ void MainWindow::initStyleSheet() {
     closeBtn->setProperty("isWindowButton", 0x02);
     closeBtn->setProperty("useIconHighlightEffect", 0x08);
     closeBtn->setFlat(true);
-    ui->leftsidebarWidget->setStyleSheet("QWidget#leftsidebarWidget{background-color: palette(button);border: none; border-top-left-radius: 12px; border-bottom-left-radius: 12px;}");
+    ui->leftsidebarWidget->setStyleSheet("QWidget#leftsidebarWidget{background-color: palette(button);border: none; border-top-left-radius: 6px; border-bottom-left-radius: 6px;}");
 
     // 设置左上角按钮图标
     backBtn->setIcon(QIcon("://img/titlebar/back.svg"));

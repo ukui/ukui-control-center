@@ -398,7 +398,7 @@ void UserInfo::initComponent(){
     ui->autoLoginHorLayout->addWidget(autoLoginSwitchBtn);
 
 
-//    ui->listWidget->setStyleSheet("QListWidget{border: none}");
+//    ui->listWidget->setStyleSheet("QListWidget{background: #00ffff}");
 //    ui->listWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 //    ui->listWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->listWidget->setSpacing(0);
@@ -515,7 +515,7 @@ void UserInfo::initComponent(){
 
 void UserInfo::_resetListWidgetHeigh(){
     //设置其他用户控件的总高度
-    ui->listWidget->setFixedHeight((allUserInfoMap.count()) * ITEMHEIGH);
+    ui->listWidget->setFixedHeight((allUserInfoMap.count()) * ITEMHEIGH - allUserInfoMap.count() * 6);
 }
 
 void UserInfo::initAllUserStatus(){
