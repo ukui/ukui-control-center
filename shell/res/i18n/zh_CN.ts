@@ -610,154 +610,195 @@ you can restore them to ensure the integrity of your system.</source>
 <context>
     <name>ChangeFaceDialog</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="140"/>
         <source>select custom face file</source>
-        <translation type="vanished">选择自定义头像文件</translation>
+        <translation>选择自定义头像文件</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="141"/>
         <source>Select</source>
-        <translation type="vanished">选择</translation>
+        <translation>选择</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="142"/>
         <source>Position: </source>
-        <translation type="vanished">位置： </translation>
+        <translation>位置： </translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="143"/>
         <source>FileName: </source>
-        <translation type="vanished">文件名： </translation>
+        <translation>文件名： </translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="144"/>
         <source>FileType: </source>
-        <translation type="vanished">文件类型： </translation>
+        <translation>文件类型： </translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="145"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="158"/>
         <source>Warning</source>
-        <translation type="vanished">警告</translation>
+        <translation>警告</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="158"/>
         <source>The avatar is larger than 1M, please choose again</source>
-        <translation type="vanished">警告，头像大于1M请重新选择</translation>
+        <translation>警告，头像大于1M请重新选择</translation>
     </message>
     <message>
         <source>The avatar is larger than 2M, please choose again</source>
         <translation type="vanished">警告，头像大于2M请重新选择</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="138"/>
         <source>Change User Face</source>
-        <translation type="vanished">更改用户头像</translation>
+        <translation>更改用户头像</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="225"/>
         <source>Select face from local</source>
-        <translation type="vanished">从本地选择用户头像</translation>
+        <translation>从本地选择用户头像</translation>
     </message>
 </context>
 <context>
     <name>ChangeGroupDialog</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.ui" line="26"/>
         <source>Dialog</source>
-        <translation type="vanished">用户组</translation>
+        <translation>用户组</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.ui" line="122"/>
         <source>User Group Settings</source>
-        <translation type="vanished">用户组设置</translation>
+        <translation>用户组设置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.ui" line="152"/>
         <source>User groups available in the system</source>
-        <translation type="vanished">系统中可用的用户组</translation>
+        <translation>系统中可用的用户组</translation>
     </message>
     <message>
         <source>Add new user</source>
         <translation type="obsolete">添加新用户</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="205"/>
         <source>User group</source>
-        <translation type="vanished">用户组</translation>
+        <translation>用户组</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="253"/>
         <source>Add user group</source>
-        <translation type="vanished">添加用户组</translation>
+        <translation>添加用户组</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="288"/>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="296"/>
         <source>Tips</source>
-        <translation type="vanished">提示</translation>
+        <translation>提示</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="288"/>
         <source>Invalid Id!</source>
-        <translation type="vanished">无效组ID!</translation>
+        <translation>无效组ID!</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="291"/>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="299"/>
         <source>OK</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="296"/>
         <source>Invalid Group Name!</source>
-        <translation type="vanished">无效组名!</translation>
+        <translation>无效组名!</translation>
     </message>
 </context>
 <context>
     <name>ChangePwdDialog</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="147"/>
         <source>Change Pwd</source>
-        <translation type="vanished">更改密码</translation>
+        <translation>更改密码</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="301"/>
         <source>Pwd type</source>
-        <translation type="vanished">密码类型</translation>
+        <translation>密码类型</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="376"/>
         <source>Cur pwd</source>
-        <translation type="vanished">当前密码</translation>
+        <translation>当前密码</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="408"/>
         <source>New pwd</source>
-        <translation type="vanished">新密码</translation>
+        <translation>新密码</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="453"/>
         <source>New pwd sure</source>
-        <translation type="vanished">新密码确认</translation>
+        <translation>新密码确认</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="530"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="552"/>
         <source>Confirm</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="71"/>
         <source>Change pwd</source>
-        <translation type="vanished">更改密码</translation>
+        <translation>更改密码</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="89"/>
         <source>Cur pwd checking!</source>
-        <translation type="vanished">当前密码检查!</translation>
+        <translation>当前密码检查!</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="227"/>
         <source>General Pwd</source>
-        <translation type="vanished">通用密码</translation>
+        <translation>通用密码</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="233"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="392"/>
         <source>Current Password</source>
-        <translation type="vanished">当前密码</translation>
+        <translation>当前密码</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="234"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="393"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="401"/>
         <source>New Password</source>
-        <translation type="vanished">新密码</translation>
+        <translation>新密码</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="235"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="394"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="402"/>
         <source>New Password Identify</source>
-        <translation type="vanished">新密码确认</translation>
+        <translation>新密码确认</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="335"/>
         <source>Contains illegal characters!</source>
-        <translation type="vanished">含有非法字符！</translation>
+        <translation>含有非法字符！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="337"/>
         <source>Same with old pwd</source>
-        <translation type="vanished">与旧密码相同</translation>
+        <translation>与旧密码相同</translation>
     </message>
     <message>
         <source>Password length needs to more than %1 character!</source>
@@ -772,47 +813,58 @@ you can restore them to ensure the integrity of your system.</source>
         <translation type="vanished">密码长度需要大于5个字符！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="250"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="367"/>
         <source>Inconsistency with pwd</source>
-        <translation type="vanished">与新密码不同</translation>
+        <translation>与新密码不同</translation>
     </message>
 </context>
 <context>
     <name>ChangeTypeDialog</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="157"/>
         <source>Make sure that there is at least one administrator on the computer</source>
-        <translation type="vanished">请确保该计算机上至少有一个管理员用户</translation>
+        <translation>请确保该计算机上至少有一个管理员用户</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="364"/>
         <source>Standard users can use most software, but cannot install software and change system settings</source>
-        <translation type="vanished">标准账户可以使用大多数软件，但是不能安装软件和更改系统配置</translation>
+        <translation>标准账户可以使用大多数软件，但是不能安装软件和更改系统配置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="144"/>
         <source>Change Account Type</source>
-        <translation type="vanished">更改用户类型</translation>
+        <translation>更改用户类型</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="351"/>
         <source>standard user</source>
-        <translation type="vanished">标准用户</translation>
+        <translation>标准用户</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="461"/>
         <source>administrator</source>
-        <translation type="vanished">管理员用户</translation>
+        <translation>管理员用户</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="474"/>
         <source>Administrators can make any changes they need</source>
-        <translation type="vanished">管理员账户可以更改任何系统配置，包括安装软件和升级软件</translation>
+        <translation>管理员账户可以更改任何系统配置，包括安装软件和升级软件</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="527"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="549"/>
         <source>Confirm</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.cpp" line="38"/>
         <source>Change type</source>
-        <translation type="vanished">更改类型</translation>
+        <translation>更改类型</translation>
     </message>
 </context>
 <context>
@@ -841,32 +893,39 @@ you can restore them to ensure the integrity of your system.</source>
 <context>
     <name>ChangeValidDialog</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="26"/>
         <source>Dialog</source>
-        <translation type="obsolete">更改时间</translation>
+        <translation type="unfinished">更改时间</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="180"/>
         <source>Password Validity Setting</source>
-        <translation type="vanished">密码有效期设置</translation>
+        <translation>密码有效期设置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="312"/>
         <source>Current passwd validity:</source>
-        <translation type="vanished">当前密码有效期至:</translation>
+        <translation>当前密码有效期至:</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="394"/>
         <source>Adjust date to:</source>
-        <translation type="vanished">调整有效期至:</translation>
+        <translation>调整有效期至:</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="493"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="500"/>
         <source>Certain</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="41"/>
         <source>Change valid</source>
-        <translation type="vanished">密码时效</translation>
+        <translation>密码时效</translation>
     </message>
 </context>
 <context>
@@ -933,24 +992,29 @@ you can restore them to ensure the integrity of your system.</source>
 <context>
     <name>CreateGroupDialog</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="vanished">添加用户组</translation>
+        <translation>添加用户组</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="181"/>
         <source>Add New Group</source>
-        <translation type="vanished">添加用户组</translation>
+        <translation>添加用户组</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="213"/>
         <source>Name</source>
-        <translation type="vanished">组名</translation>
+        <translation>组名</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="260"/>
         <source>Id</source>
-        <translation type="vanished">组ID</translation>
+        <translation>组ID</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="321"/>
         <source>Members</source>
-        <translation type="vanished">组成员</translation>
+        <translation>组成员</translation>
     </message>
     <message>
         <source>Group Name</source>
@@ -965,80 +1029,101 @@ you can restore them to ensure the integrity of your system.</source>
         <translation type="vanished">组成员</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="75"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="94"/>
         <source>Certain</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.cpp" line="153"/>
         <source>Add user group</source>
-        <translation type="vanished">添加用户组</translation>
+        <translation>添加用户组</translation>
     </message>
 </context>
 <context>
     <name>CreateUserDialog</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="201"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="138"/>
         <source>UserName</source>
-        <translation type="vanished">用户名</translation>
+        <translation>用户名</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="297"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="139"/>
         <source>Password</source>
-        <translation type="vanished">密码</translation>
+        <translation>密码</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="417"/>
         <source>Account Type</source>
-        <translation type="vanished">用户类型</translation>
+        <translation>用户类型</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="136"/>
         <source>Add New Account</source>
-        <translation type="vanished">添加新用户</translation>
+        <translation>添加新用户</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="249"/>
         <source>PwdType</source>
-        <translation type="vanished">密码类型</translation>
+        <translation>密码类型</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="345"/>
         <source>PasswordSure</source>
-        <translation type="vanished">确认密码</translation>
+        <translation>确认密码</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="500"/>
         <source>standard user</source>
-        <translation type="vanished">标准用户</translation>
+        <translation>标准用户</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="513"/>
         <source>Standard users can use most software, but cannot install the software and 
 change system settings</source>
-        <translation type="vanished">标准账户可以使用大多数软件，但是不能安装软件和更改系统配置</translation>
+        <translation>标准账户可以使用大多数软件，但是不能安装软件和更改系统配置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="602"/>
         <source>administrator</source>
-        <translation type="vanished">管理员用户</translation>
+        <translation>管理员用户</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="615"/>
         <source>Administrators can make any changes they need</source>
-        <translation type="vanished">管理员账户可以更改任何系统配置，包括安装软件和升级软件</translation>
+        <translation>管理员账户可以更改任何系统配置，包括安装软件和升级软件</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="677"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="696"/>
         <source>Confirm</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="140"/>
         <source>Password Identify</source>
-        <translation type="vanished">密码确认</translation>
+        <translation>密码确认</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="144"/>
         <source>General Password</source>
-        <translation type="vanished">通用密码</translation>
+        <translation>通用密码</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="176"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="313"/>
         <source>Inconsistency with pwd</source>
-        <translation type="vanished">和密码不一致</translation>
+        <translation>和密码不一致</translation>
     </message>
     <message>
         <source>Password length needs to more than %1 character!</source>
@@ -1049,48 +1134,58 @@ change system settings</source>
         <translation type="vanished">密码长度需要小于%1个字符！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="47"/>
         <source>Add new user</source>
-        <translation type="vanished">添加新用户</translation>
+        <translation>添加新用户</translation>
     </message>
     <message>
         <source>Password cannot be made up entirely by Numbers!</source>
         <translation type="obsolete">密码复杂度过低！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="266"/>
         <source>Contains illegal characters!</source>
-        <translation type="vanished">含有非法字符！</translation>
+        <translation>含有非法字符！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="416"/>
         <source>The user name cannot be empty</source>
-        <translation type="vanished">用户名不能为空</translation>
+        <translation>用户名不能为空</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="418"/>
         <source>The first character must be lowercase letters!</source>
-        <translation type="vanished">首字符必须为小写字符！</translation>
+        <translation>首字符必须为小写字符！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="421"/>
         <source>User name can not contain capital letters!</source>
-        <translation type="vanished">用户名不能包含大写字符！</translation>
+        <translation>用户名不能包含大写字符！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="433"/>
         <source>The user name is already in use, please use a different one.</source>
-        <translation type="vanished">用户名已存在，请换用其他用户名。</translation>
+        <translation>用户名已存在，请换用其他用户名。</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="435"/>
         <source>The name corresponds to the group already exists.</source>
-        <translation type="vanished">用户名对应组已存在，请更换用户名.</translation>
+        <translation>用户名对应组已存在，请更换用户名.</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="440"/>
         <source>User name length need to less than %1 letters!</source>
-        <translation type="vanished">用户名长度需要小于%1个字符！</translation>
+        <translation>用户名长度需要小于%1个字符！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="442"/>
         <source>The user name can only be composed of letters, numbers and underline!</source>
-        <translation type="vanished">用户名只能由字母、数字以及下划线组成！</translation>
+        <translation>用户名只能由字母、数字以及下划线组成！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="447"/>
         <source>The username is configured, please change the username</source>
-        <translation type="vanished">用户配置已存在，请更换用户名</translation>
+        <translation>用户配置已存在，请更换用户名</translation>
     </message>
 </context>
 <context>
@@ -1349,12 +1444,14 @@ change system settings</source>
 <context>
     <name>DefineGroupItem</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/definegroupitem.cpp" line="53"/>
         <source>Edit</source>
-        <translation type="vanished">编辑</translation>
+        <translation>编辑</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/definegroupitem.cpp" line="62"/>
         <source>Delete</source>
-        <translation type="vanished">删除</translation>
+        <translation>删除</translation>
     </message>
 </context>
 <context>
@@ -1368,8 +1465,9 @@ change system settings</source>
 <context>
     <name>DelGroupDialog</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/delgroupdialog.ui" line="26"/>
         <source>Dialog</source>
-        <translation type="vanished">删除用户组</translation>
+        <translation>删除用户组</translation>
     </message>
     <message>
         <source>Are you sure to delete this group, 
@@ -1378,20 +1476,23 @@ in the file system invalid!</source>
         <translation type="vanished">确定删除此用户组? 这将使得文件系统\n中的某些文件组件ID无效!</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/delgroupdialog.ui" line="243"/>
         <source>Delete</source>
-        <translation type="vanished">删除</translation>
+        <translation>删除</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/delgroupdialog.ui" line="221"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>RemoveFile</source>
         <translation type="obsolete">删除文件</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/delgroupdialog.ui" line="141"/>
         <source>Remind</source>
-        <translation type="vanished">提醒</translation>
+        <translation>提醒</translation>
     </message>
     <message>
         <source>Are you sure to delete &quot;%1&quot; group, 
@@ -1401,33 +1502,39 @@ in the file system invalid!</source>
 中的某些文件组件ID无效!</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/delgroupdialog.cpp" line="53"/>
         <source>Delete user group</source>
-        <translation type="vanished">删除用户组</translation>
+        <translation>删除用户组</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/delgroupdialog.cpp" line="66"/>
         <source>Are you sure to delete the group, which will make some file components in the file system invalid!</source>
-        <translation type="vanished">确定删除该用户组，这将使得文件系统中的某些文件组件ID无效！</translation>
+        <translation>确定删除该用户组，这将使得文件系统中的某些文件组件ID无效！</translation>
     </message>
 </context>
 <context>
     <name>DelUserDialog</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/deluserdialog.ui" line="217"/>
         <source>Delete the user, belonging to the user&apos;s desktop,
 documents, favorites, music, pictures and video 
 folder will be deleted!</source>
-        <translation type="vanished">删除用户，用户所属的桌面、文档、收藏夹、音乐、图片和视频文件夹中的内容将全部被删除！</translation>
+        <translation>删除用户，用户所属的桌面、文档、收藏夹、音乐、图片和视频文件夹中的内容将全部被删除！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/deluserdialog.ui" line="286"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/deluserdialog.ui" line="308"/>
         <source>KeepFile</source>
-        <translation type="vanished">保留文件</translation>
+        <translation>保留文件</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/deluserdialog.ui" line="330"/>
         <source>RemoveFile</source>
-        <translation type="vanished">删除文件</translation>
+        <translation>删除文件</translation>
     </message>
 </context>
 <context>
@@ -1868,48 +1975,59 @@ folder will be deleted!</source>
 <context>
     <name>EditGroupDialog</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="26"/>
         <source>Dialog</source>
-        <translation type="vanished">编辑用户组</translation>
+        <translation>编辑用户组</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="87"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="109"/>
         <source>Certain</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="196"/>
         <source>Edit User Group</source>
-        <translation type="vanished">编辑用户组</translation>
+        <translation>编辑用户组</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="228"/>
         <source>Name</source>
-        <translation type="vanished">组名</translation>
+        <translation>组名</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="275"/>
         <source>Id</source>
-        <translation type="vanished">组ID</translation>
+        <translation>组ID</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="336"/>
         <source>Members</source>
-        <translation type="vanished">组成员</translation>
+        <translation>组成员</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.cpp" line="169"/>
         <source>Tips</source>
-        <translation type="vanished">提示</translation>
+        <translation>提示</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.cpp" line="169"/>
         <source>Invalid Id!</source>
-        <translation type="vanished">无效组ID!</translation>
+        <translation>无效组ID!</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.cpp" line="172"/>
         <source>OK</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.cpp" line="221"/>
         <source>Edit user group</source>
-        <translation type="vanished">编辑用户组</translation>
+        <translation>编辑用户组</translation>
     </message>
 </context>
 <context>
@@ -4095,6 +4213,7 @@ Please retry for login!</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="641"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="175"/>
         <source>Unknown</source>
         <translation>未知</translation>
     </message>
@@ -4283,8 +4402,10 @@ Please retry for login!</source>
         <translation>体验计划</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="169"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="206"/>
         <source>Never</source>
-        <translation type="vanished">从不</translation>
+        <translation>从不</translation>
     </message>
     <message>
         <source>Year</source>
@@ -4404,8 +4525,10 @@ Please retry for login!</source>
         <translation>控制面板已运行!</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="107"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="424"/>
         <source>Pwd input error, re-enter!</source>
-        <translation type="vanished">密码输入错误,重新输入!</translation>
+        <translation>密码输入错误,重新输入!</translation>
     </message>
     <message>
         <location filename="../../utils/utils.cpp" line="22"/>
@@ -4576,6 +4699,60 @@ run start-pulseaudio-x11 manually.</source>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="3646"/>
         <source>Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="258"/>
+        <source>min length %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="268"/>
+        <source>min digit num %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="277"/>
+        <source>min upper num %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="286"/>
+        <source>min lower num %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="295"/>
+        <source>min other num %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="305"/>
+        <source>min char class %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="314"/>
+        <source>max repeat %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="323"/>
+        <source>max class repeat %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="332"/>
+        <source>max sequence %1
+</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5617,81 +5794,105 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">账户信息</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="56"/>
         <source>User Info</source>
-        <translation type="vanished">账户信息</translation>
+        <translation>账户信息</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="129"/>
         <source>standard user</source>
-        <translation type="vanished">标准用户</translation>
+        <translation>标准用户</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="131"/>
         <source>administrator</source>
-        <translation type="vanished">管理员用户</translation>
+        <translation>管理员用户</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="133"/>
         <source>root</source>
-        <translation type="vanished">Root</translation>
+        <translation>Root</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="709"/>
         <source>Delete</source>
-        <translation type="vanished">删除</translation>
+        <translation>删除</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="812"/>
         <source>Warning</source>
-        <translation type="vanished">警告</translation>
+        <translation>警告</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="812"/>
         <source>The user is logged in, please delete the user after logging out</source>
-        <translation type="vanished">用户已经登录，请注销后删除用户</translation>
+        <translation>用户已经登录，请注销后删除用户</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="41"/>
         <source>Current User</source>
-        <translation type="vanished">当前用户</translation>
+        <translation>当前用户</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="222"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="115"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="691"/>
         <source>Change pwd</source>
-        <translation type="vanished">更改密码</translation>
+        <translation>更改密码</translation>
         <extra-contents_path>/userinfo/Change pwd</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="287"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="117"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="678"/>
         <source>Change type</source>
-        <translation type="vanished">更改类型</translation>
+        <translation>更改类型</translation>
         <extra-contents_path>/userinfo/Change type</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="352"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="119"/>
         <source>Change valid</source>
-        <translation type="vanished">密码时效</translation>
+        <translation>密码时效</translation>
         <extra-contents_path>/userinfo/Change valid</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="417"/>
         <source>User group</source>
-        <translation type="vanished">用户组</translation>
+        <translation>用户组</translation>
     </message>
     <message>
         <source>Change vaild</source>
         <translation type="vanished">密码时效</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="529"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="121"/>
         <source>Login no passwd</source>
-        <translation type="vanished">免密登录</translation>
+        <translation>免密登录</translation>
         <extra-contents_path>/userinfo/Login no passwd</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="607"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="123"/>
         <source>enable autoLogin</source>
-        <translation type="vanished">自动登录</translation>
+        <translation>自动登录</translation>
         <extra-contents_path>/userinfo/enable autoLogin</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="685"/>
         <source>Currently in Live mode, please create a new user and log out</source>
-        <translation type="vanished">当前处于试用模式，请创建一个新用户并注销生效</translation>
+        <translation>当前处于试用模式，请创建一个新用户并注销生效</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="722"/>
         <source>Other Users</source>
-        <translation type="vanished">其他用户</translation>
+        <translation>其他用户</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="364"/>
         <source>Add new user</source>
-        <translation type="vanished">添加新用户</translation>
+        <translation>添加新用户</translation>
     </message>
 </context>
 <context>

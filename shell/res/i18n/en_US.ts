@@ -508,6 +508,284 @@ you can restore them to ensure the integrity of your system.</source>
     </message>
 </context>
 <context>
+    <name>ChangeFaceDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="138"/>
+        <source>Change User Face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="225"/>
+        <source>Select face from local</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="140"/>
+        <source>select custom face file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="141"/>
+        <source>Select</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="142"/>
+        <source>Position: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="143"/>
+        <source>FileName: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="144"/>
+        <source>FileType: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="145"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="158"/>
+        <source>Warning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="158"/>
+        <source>The avatar is larger than 1M, please choose again</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ChangeGroupDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.ui" line="26"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.ui" line="122"/>
+        <source>User Group Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.ui" line="152"/>
+        <source>User groups available in the system</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="205"/>
+        <source>User group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="253"/>
+        <source>Add user group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="288"/>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="296"/>
+        <source>Tips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="288"/>
+        <source>Invalid Id!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="291"/>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="299"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="296"/>
+        <source>Invalid Group Name!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ChangePwdDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="147"/>
+        <source>Change Pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="301"/>
+        <source>Pwd type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="376"/>
+        <source>Cur pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="408"/>
+        <source>New pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="453"/>
+        <source>New pwd sure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="530"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="552"/>
+        <source>Confirm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="71"/>
+        <source>Change pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="89"/>
+        <source>Cur pwd checking!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="227"/>
+        <source>General Pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="233"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="392"/>
+        <source>Current Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="234"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="393"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="401"/>
+        <source>New Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="235"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="394"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="402"/>
+        <source>New Password Identify</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="250"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="367"/>
+        <source>Inconsistency with pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="335"/>
+        <source>Contains illegal characters!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="337"/>
+        <source>Same with old pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ChangeTypeDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="144"/>
+        <source>Change Account Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="157"/>
+        <source>Make sure that there is at least one administrator on the computer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="351"/>
+        <source>standard user</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="364"/>
+        <source>Standard users can use most software, but cannot install software and change system settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="461"/>
+        <source>administrator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="474"/>
+        <source>Administrators can make any changes they need</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="527"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="549"/>
+        <source>Confirm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.cpp" line="38"/>
+        <source>Change type</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ChangeValidDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="26"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="180"/>
+        <source>Password Validity Setting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="312"/>
+        <source>Current passwd validity:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="394"/>
+        <source>Adjust date to:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="493"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="500"/>
+        <source>Certain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="41"/>
+        <source>Change valid</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ChangtimeDialog</name>
     <message>
         <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="169"/>
@@ -565,6 +843,181 @@ you can restore them to ensure the integrity of your system.</source>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/colordialog.cpp" line="91"/>
         <source>Custom color</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CreateGroupDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="75"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="94"/>
+        <source>Certain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="181"/>
+        <source>Add New Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="213"/>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="260"/>
+        <source>Id</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="321"/>
+        <source>Members</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.cpp" line="153"/>
+        <source>Add user group</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CreateUserDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="136"/>
+        <source>Add New Account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="201"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="138"/>
+        <source>UserName</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="249"/>
+        <source>PwdType</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="297"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="139"/>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="345"/>
+        <source>PasswordSure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="417"/>
+        <source>Account Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="500"/>
+        <source>standard user</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="513"/>
+        <source>Standard users can use most software, but cannot install the software and 
+change system settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="602"/>
+        <source>administrator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="615"/>
+        <source>Administrators can make any changes they need</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="677"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="696"/>
+        <source>Confirm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="47"/>
+        <source>Add new user</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="140"/>
+        <source>Password Identify</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="144"/>
+        <source>General Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="176"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="313"/>
+        <source>Inconsistency with pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="266"/>
+        <source>Contains illegal characters!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="416"/>
+        <source>The user name cannot be empty</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="418"/>
+        <source>The first character must be lowercase letters!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="421"/>
+        <source>User name can not contain capital letters!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="433"/>
+        <source>The user name is already in use, please use a different one.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="435"/>
+        <source>The name corresponds to the group already exists.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="440"/>
+        <source>User name length need to less than %1 letters!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="442"/>
+        <source>The user name can only be composed of letters, numbers and underline!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="447"/>
+        <source>The username is configured, please change the username</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -802,10 +1255,81 @@ you can restore them to ensure the integrity of your system.</source>
     </message>
 </context>
 <context>
+    <name>DefineGroupItem</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo/definegroupitem.cpp" line="53"/>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/definegroupitem.cpp" line="62"/>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DefineShortcutItem</name>
     <message>
         <location filename="../../../plugins/devices/shortcut/defineshortcutitem.cpp" line="59"/>
         <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DelGroupDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo/delgroupdialog.ui" line="26"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/delgroupdialog.ui" line="141"/>
+        <source>Remind</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/delgroupdialog.ui" line="221"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/delgroupdialog.ui" line="243"/>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/delgroupdialog.cpp" line="53"/>
+        <source>Delete user group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/delgroupdialog.cpp" line="66"/>
+        <source>Are you sure to delete the group, which will make some file components in the file system invalid!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DelUserDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo/deluserdialog.ui" line="217"/>
+        <source>Delete the user, belonging to the user&apos;s desktop,
+documents, favorites, music, pictures and video 
+folder will be deleted!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/deluserdialog.ui" line="286"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/deluserdialog.ui" line="308"/>
+        <source>KeepFile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/deluserdialog.ui" line="330"/>
+        <source>RemoveFile</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1062,6 +1586,64 @@ you can restore them to ensure the integrity of your system.</source>
     <message>
         <location filename="../../../plugins/system/display/display.ui" line="891"/>
         <source>apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>EditGroupDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="26"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="87"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="109"/>
+        <source>Certain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="196"/>
+        <source>Edit User Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="228"/>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="275"/>
+        <source>Id</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="336"/>
+        <source>Members</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.cpp" line="169"/>
+        <source>Tips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.cpp" line="169"/>
+        <source>Invalid Id!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.cpp" line="172"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.cpp" line="221"/>
+        <source>Edit user group</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3229,6 +3811,7 @@ run start-pulseaudio-x11 manually.</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="641"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="175"/>
         <source>Unknown</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3290,6 +3873,72 @@ run start-pulseaudio-x11 manually.</source>
     <message>
         <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="34"/>
         <source>December</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="107"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="424"/>
+        <source>Pwd input error, re-enter!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="169"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="206"/>
+        <source>Never</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="258"/>
+        <source>min length %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="268"/>
+        <source>min digit num %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="277"/>
+        <source>min upper num %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="286"/>
+        <source>min lower num %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="295"/>
+        <source>min other num %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="305"/>
+        <source>min char class %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="314"/>
+        <source>max repeat %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="323"/>
+        <source>max class repeat %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="332"/>
+        <source>max sequence %1
+</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4127,6 +4776,106 @@ run start-pulseaudio-x11 manually.</source>
     <message>
         <location filename="../../../plugins/security-updates/update/update.ui" line="155"/>
         <source>Check for updates</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UserInfo</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="41"/>
+        <source>Current User</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="222"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="115"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="691"/>
+        <source>Change pwd</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/userinfo/Change pwd</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="287"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="117"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="678"/>
+        <source>Change type</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/userinfo/Change type</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="352"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="119"/>
+        <source>Change valid</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/userinfo/Change valid</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="417"/>
+        <source>User group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="529"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="121"/>
+        <source>Login no passwd</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/userinfo/Login no passwd</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="607"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="123"/>
+        <source>enable autoLogin</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/userinfo/enable autoLogin</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="685"/>
+        <source>Currently in Live mode, please create a new user and log out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="722"/>
+        <source>Other Users</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="56"/>
+        <source>User Info</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="129"/>
+        <source>standard user</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="131"/>
+        <source>administrator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="133"/>
+        <source>root</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="364"/>
+        <source>Add new user</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="709"/>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="812"/>
+        <source>Warning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="812"/>
+        <source>The user is logged in, please delete the user after logging out</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
