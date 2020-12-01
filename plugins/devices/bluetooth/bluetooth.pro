@@ -1,3 +1,4 @@
+include(../../../env.pri)
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets dbus
@@ -12,7 +13,6 @@ TARGET = $$qtLibraryTarget(bluetooth)
 DESTDIR = ../..
 target.path = $${PLUGIN_INSTALL_DIRS}
 
-include(../../../env.pri)
 include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
 
 INCLUDEPATH   +=  \
