@@ -56,6 +56,7 @@ void Utils::setCLIName(QCommandLineParser &parser) {
 
     QCommandLineOption updateRoleOption("update", QObject::tr("Go to update settings page"));
     QCommandLineOption backupRoleOption("backup", QObject::tr("Go to backup settings page"));
+    QCommandLineOption upgradeRoleOption("upgrade", QObject::tr("Go to upgrade settings page"));
 
     QCommandLineOption noticeRoleOption(QStringList() << "n" << "notice", QObject::tr("Go to notice settings page"));
     QCommandLineOption aboutRoleOption(QStringList() << "a" << "about", QObject::tr("Go to about settings page"));
@@ -74,6 +75,7 @@ void Utils::setCLIName(QCommandLineParser &parser) {
         parser.addOption(userinfoRoleOption);
         parser.addOption(datetimeRoleOption);
         parser.addOption(updateRoleOption);
+        parser.addOption(upgradeRoleOption);
 
     }
 
@@ -85,6 +87,8 @@ void Utils::setCLIName(QCommandLineParser &parser) {
     parser.addOption(userinfoRoleOption);
     parser.addOption(datetimeRoleOption);
     parser.addOption(updateRoleOption);
+    parser.addOption(upgradeRoleOption);
+
 #endif
 
     parser.addOption(monitorRoleOption);

@@ -90,6 +90,7 @@ enum SeUpdatesIndex{
     SECURITYCENTER,
     UPDATES,
     BACKUP,
+    UPGRADE,
     TOTALSUFUNC,
 };
 

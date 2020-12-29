@@ -145,6 +145,9 @@
         <file>secondaryleftmenu/BluetoothWhite.svg</file>
         <file>secondaryleftmenu/TouchScreenWhite.svg</file>
         <file>secondaryleftmenu/TouchScreen.svg</file>
+        <file>plugins/upgrade/refresh.png</file>
+        <file>secondaryleftmenu/Upgrade.svg</file>
+        <file>secondaryleftmenu/UpgradeWhite.svg</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>

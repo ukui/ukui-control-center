@@ -150,7 +150,9 @@ void MainWindow::bootOptionsFilter(QString opt) {
         bootOptionsSwitch(DATETIME, AREA);
     } else if (opt == "--update") {
         bootOptionsSwitch(UPDATE, UPDATES);
-    } else if (opt == "--backup") {
+    } else if (opt == "--upgrade") {
+        bootOptionsSwitch(UPDATE, UPGRADE);
+    }else if (opt == "--backup") {
         bootOptionsSwitch(UPDATE, BACKUP);
     } else if (opt == "--notice" || opt == "-n") {
         bootOptionsSwitch(NOTICEANDTASKS, NOTICE);

@@ -188,6 +188,8 @@ void FunctionSelect::initValue(){
     seupdatesList[UPDATES].namei18nString = QObject::tr("Update");
     seupdatesList[BACKUP].nameString = QString("Backup");
     seupdatesList[BACKUP].namei18nString = QObject::tr("Backup");
+    seupdatesList[UPGRADE].nameString = QString("Upgrade");
+    seupdatesList[UPGRADE].namei18nString = QObject::tr("Upgrade");
 
     funcinfoList.append(seupdatesList);
 
