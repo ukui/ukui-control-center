@@ -1,6 +1,6 @@
 include(../../../env.pri)
 
-QT       +=  core gui widgets network dbus #QApt sql
+QT       +=  core gui widgets network dbus QApt sql
 
 TEMPLATE = lib
 CONFIG += plugin link_pkgconfig c++11
@@ -38,40 +38,40 @@ DEFINES += QT_DEPRECATED_WARNINGS \
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-#    src/appupdate.cpp \
-#    src/changelogwidget.cpp \
-#    src/daemonipcdbus.cpp \
-#    src/listwig.cpp \
-#    src/logwindow.cpp \
-#    src/m_updatelog.cpp \
-#    src/mainwindow.cpp \
-#    src/shadowwidget.cpp \
-#    src/switchbutton.cpp \
-#    src/tabwidget.cpp \
-#    src/traybusthread.cpp \
-#    src/updatedbus.cpp \
-#    src/updatelog.cpp \
-#    src/widgetstyle.cpp \
+    src/appupdate.cpp \
+    src/changelogwidget.cpp \
+    src/daemonipcdbus.cpp \
+    src/listwig.cpp \
+    src/logwindow.cpp \
+    src/m_updatelog.cpp \
+    src/mainwindow.cpp \
+    src/shadowwidget.cpp \
+    src/switchbutton.cpp \
+    src/tabwidget.cpp \
+    src/traybusthread.cpp \
+    src/updatedbus.cpp \
+    src/updatelog.cpp \
+    src/widgetstyle.cpp \
     upgrade.cpp
 
-#HEADERS += \
-#    src/appupdate.h \
-#    src/changelogwidget.h \
-#    src/connection.h \
-#    src/daemonipcdbus.h \
-#    src/listwig.h \
-#    src/logwindow.h \
-#    src/m_updatelog.h \
-#    src/mainwindow.h \
-#    src/metatypes.h \
-#    src/shadowwidget.h \
-#    src/switchbutton.h \
-#    src/tabwidget.h \
-#    src/traybusthread.h \
-#    src/updatedbus.h \
-#    src/updatelog.h \
-#    src/utils.h \
-#    src/widgetstyle.h \
+HEADERS += \
+    src/appupdate.h \
+    src/changelogwidget.h \
+    src/connection.h \
+    src/daemonipcdbus.h \
+    src/listwig.h \
+    src/logwindow.h \
+    src/m_updatelog.h \
+    src/mainwindow.h \
+    src/metatypes.h \
+    src/shadowwidget.h \
+    src/switchbutton.h \
+    src/tabwidget.h \
+    src/traybusthread.h \
+    src/updatedbus.h \
+    src/updatelog.h \
+    src/utils.h \
+    src/widgetstyle.h \
     upgrade.h
 
 # Default rules for deployment.
