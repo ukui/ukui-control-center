@@ -1,6 +1,6 @@
 include(../../../env.pri)
 
-QT       +=  core gui widgets network dbus QApt sql
+QT       +=  core gui widgets network dbus sql
 
 TEMPLATE = lib
 CONFIG += plugin link_pkgconfig c++11
