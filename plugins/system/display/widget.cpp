@@ -206,10 +206,12 @@ void Widget::setConfig(const KScreen::ConfigPtr &config) {
     slotOutputEnabledChanged();
 
     if (isCloneMode() && mFirstLoad) {
+        mUnifyButton->blockSignals(true);
         mUnifyButton->setChecked(true);
-        mFirstLoad = false;
+        mUnifyButton->blockSignals(false);
         slotUnifyOutputs();
     }
+    mFirstLoad = false;
 }
 
 KScreen::ConfigPtr Widget::currentConfig() const {
