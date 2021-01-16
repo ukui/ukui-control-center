@@ -6,7 +6,7 @@
 <br>
 
 ## 系 统
-系统配置设置提供了显示器、默认应用、电源、开机启动四个模块。
+系统配置设置提供了显示器、触摸屏、默认应用、电源、开机启动五个模块。
 
 ### 显示器
 显示器可以配置显示相关的设置，上方彩色矩形代表当前屏幕，中间显示了显示器名称及接口名，如图所示。
@@ -21,30 +21,45 @@
 
 - 夜间模式具有调整色温度、夜间模式自定义时间段打开/关闭
 
+### 触摸屏
+触摸屏可以进行触摸相关的设置，在触摸点位置偏移时校准触点或调整触摸映射，如图所示。
+
+![触摸屏](image/touchscreen.png)
+
+- 显示器：选择要映射到的显示器
+
+- 触摸屏标识：选择要映射或校准的触摸屏
+
+- 触摸设备：所选触摸屏名称
+
+- 点击触摸映射按钮，将选定的触摸屏映射到指定显示器
+
+- 点击触摸校准按钮，启动工具对选定触摸屏进行校准
+
 ### 默认应用
 默认应用可以修改图中几种类型的默认打开应用：
 
-![图 3 默认应用-big](image/default.png)
+![图 4 默认应用-big](image/default.png)
 
 ### 电 源
 - 提供平衡、节能、自定义模式可选
 
-![图 4-1 系统电源设置-big](image/power.png)
+![图 5-1 系统电源设置-big](image/power.png)
 
 - 在通用设置中可以设置电源图标显示或者隐藏
 
 - 在“自定义”模式下，用户可设置系统在空闲多少时间后，挂起和关闭显示器
 
-![图 4-2 自定义模式](image/power-custom.png)
+![图 5-2 自定义模式](image/power-custom.png)
 
 ### 开机启动
 列表中显示当前系统已存在的开机启动软件。
 
-![图 5 开机启动-big](image/autoboot.png)
+![图 6 开机启动-big](image/autoboot.png)
 
 点击“添加自启动程序”，可添加开机启动应用。
 
-![图 6 开机启动添加](image/add-autoboot.png)
+![图 7 开机启动添加](image/add-autoboot.png)
 
 1）填写“程序名”；
 
@@ -61,7 +76,7 @@
 
 ### 打印机
 打印机功能提供了打印机程序入口
-![图 7 打印机-big](image/printer.png)
+![图 8 打印机-big](image/printer.png)
 
 ### 触摸板
 触摸板提供了以下功能设置
@@ -69,7 +84,7 @@
 2）打字时触摸板开启/关闭
 3） 触摸板鼠标点击开启/关闭
 4）触摸滚动方式(禁用滚动,垂直滚动,水平边界滚动,垂直双指滚动,水平双指滚动)
-![图 8 触摸板-big](image/touchpad.png)
+![图 9 触摸板-big](image/touchpad.png)
 
 ### 鼠 标
 对鼠标键、鼠标指针、光标进行个性化设置。
@@ -98,12 +113,12 @@
 
 - 光标速度
 
-![图 9 鼠标设备-big](image/mouse.png)
+![图 10 鼠标设备-big](image/mouse.png)
 
 ### 键 盘
 对键盘进行常规通用设置，并能够根据键盘语言调整键盘布局。
 
-![图 10 键盘设备-big](image/keyboard.png)
+![图 11 键盘设备-big](image/keyboard.png)
 
 1）启用按键重复设置：按下某个按键不放，系统会将该行为作为重复的键盘输入。启用按键重复设置后，可对延时、速度两个选项进行设置。
 
@@ -116,13 +131,13 @@
 ### 快捷键
 查看所有快捷键，添加或删除自定义快捷键。
 
-![图 11 快捷键-big](image/shortcut.png)
+![图 12 快捷键-big](image/shortcut.png)
 
 Tips：系统快捷键不允许修改。
 
 点击“添加自定义快捷键”，弹出添加窗口。
 
-![图 12 添加快捷键](image/add-shortcut.png)
+![图 13 添加快捷键](image/add-shortcut.png)
 
 1）确认添加后，该快捷键的按键会显示“disable”；
 
@@ -133,7 +148,7 @@ Tips：系统快捷键不允许修改。
 ### 声 音
 对输入、输出和系统音效进行设置，如图所示。
 
-![图 13 声音-big](image/audio.png)
+![图 14 声音-big](image/audio.png)
 
 - 主音量大小：调节当前的输出音量，通过移动滑动条来控制系统输出音量大小
 
@@ -175,7 +190,7 @@ Tips：系统快捷键不允许修改。
 
 - 发现的蓝牙涉笔基础操作：鼠标悬浮到发现的设备上，出现配对按钮，点击配对按钮与设备配对；点击移除按钮，移除设备；设备配对后会自己连接，出现在我的设备一栏，这时鼠标再悬浮到设备上，出现断开按钮，点击断开按钮与设备断开连接
 
-![图 14 背景形式选择-big](image/blutooth.png)
+![图 15 背景形式选择-big](image/blutooth.png)
 
 <br>
 
@@ -185,45 +200,45 @@ Tips：系统快捷键不允许修改。
 ### 背 景
 针对桌面背景，提供两种背景形式的选择：颜色、图片。
 
-![图 15 背景-big](image/background.png)
+![图 16 背景-big](image/background.png)
 
 ### 主 题
 主题包括主题模式、图标主题、光标主题。
 
 - 主题模式：
 
-![图 16 主题模式](image/theme.png)
+![图 17 主题模式](image/theme.png)
 
 - 图标主题和光标主题：
 
-![图 17 图标&光标主题](image/theme-cursor.png)
+![图 18 图标&光标主题](image/theme-cursor.png)
 
 - 透明度和特效模式（部分机型不支持）：
 
-![图 18 特效模式](image/theme-effect.png)
+![图 19 特效模式](image/theme-effect.png)
 
 ### 锁 屏
 
 选择在登录界面显示的背景图片。
 
-![图 19 锁屏设置-big](image/screenlock.png)
+![图 20 锁屏设置-big](image/screenlock.png)
 
 ### 字 体
 对字体、大小、等宽进行常规设置。
 
 点击“恢复默认设置”按钮将所有字体设置还原为系统默认状态。
 
-![图 20 字体设置-big](image/font.png)
+![图 21 字体设置-big](image/font.png)
 
 ### 屏 保
 设置屏保程序、等待时间。
 
-![图 21 屏保设置-big](image/screensaver.png)
+![图 22 屏保设置-big](image/screensaver.png)
 
 ### 桌 面
 设置锁定在开始菜单和托盘上的图标。
 
-![图 22 桌面设置-big](image/desktop.png)
+![图 23 桌面设置-big](image/desktop.png)
 <br>
 
 ## 网 络
@@ -231,37 +246,37 @@ Tips：系统快捷键不允许修改。
 
 ### 网络连接
 网络连接包括，可用网络显示(无线,有线)，开启/关闭wifi等功能，具体网络配置可参考“桌面环境”中的“网络”部分。
-![图 23 网络-big](image/netconnect.png)
+![图 24 网络-big](image/netconnect.png)
 
 ### VPN
 打开外部VPN设置程序
-![图 24 VPN-big](image/vpn.png)
+![图 25 VPN-big](image/vpn.png)
 
 ### 代理
 自动代理开启/关闭，手动代理设置(包括HTTP, HTTPS, FTP,SOCKS代理)
-![图 25 代理-big](image/delegate.png)
+![图 26 代理-big](image/delegate.png)
 
 ### 桌面共享
 勾选“允许其他人查看您的桌面”后，可设置访问时需要确认，或者要求输入指定密码。
 
-![图 26 桌面共享-big](image/vino.png)
+![图 27 桌面共享-big](image/vino.png)
 <br>
 
 ## 账 户
 对系统用户进行管理配置，允许管理员创建用户、删除用户、修改用户信息。
 
-![图 27 账户信息设置-big](image/account.png)
+![图 28 账户信息设置-big](image/account.png)
 
 ### 当前用户
 #### 更改用户头像
 点击用户头像，即可进行修改，图片可从本机图片中选择。
 
-![图 28 更改用户头像](image/account-face.png)
+![图 29 更改用户头像](image/account-face.png)
 
 #### 更改密码
 点击“更改密码”，即可修改当前用户的密码。
 
-![图 29 更改密码](image/account-pwd.png)
+![图 30 更改密码](image/account-pwd.png)
 
 #### 更改账户类型
 系统用户类型分两种：标准用户和管理员用户。
@@ -272,24 +287,24 @@ Tips：系统快捷键不允许修改。
 
 Tips：系统至少需要存在一个管理员用户。
 
-![图 30 更改用户类型](image/account-type.png)
+![图 31 更改用户类型](image/account-type.png)
 
 ### 其他用户
 可编辑其他用户信息，添加新用户，删除用户等。
 
 - 添加新用户：输入用户名、密码，并选择用户类型，如图所示
 
-![图 31 添加新用户](image/account-add.png)
+![图 32 添加新用户](image/account-add.png)
 
 - 编辑用户
 
-![图 32 编辑用户](image/account-edit.png)
+![图 33 编辑用户](image/account-edit.png)
 <br>
 
 ## 云账户
 云账户可用于同步控制面板配置选项，需要注册登录生效。
 
-![图 33 云账户-big](image/cloudaccount.png)
+![图 34 云账户-big](image/cloudaccount.png)
 ### 登录方式
 - 通过麒麟ID登录中心登录，使用云账户只需拥有麒麟ID即可。
 
@@ -332,28 +347,28 @@ Tips：系统至少需要存在一个管理员用户。
 ## 时间和日期
 主界面如图所示：
 
-![图 34 时间和日期-big](image/datetime.png)
+![图 35 时间和日期-big](image/datetime.png)
 
 - 同步系统时间：与互联网上的NTP服务器时间同步
 
 - 手动更改时间：手动设置时间和年月日
 
-![图 35 手动更改时间](image/datetime-change.png)
+![图 36 手动更改时间](image/datetime-change.png)
 
 - 时间格式分12小时和24小时，点击右侧开关立即生效
 
 - 更改时区：如图所示，根据个人需求进行选择
 
-![图 36 时区-big](image/datetime-zone.png)
+![图 37 时区-big](image/datetime-zone.png)
 
 ### 语言和地区
 主界面如图所示:
 
-![图 37 区域语言-big](image/area.png)
+![图 38 区域语言-big](image/area.png)
 
 - 更改数据格式：自定义日历、一周第一天、日期、时间
 
-![图 38 更改格式数据](image/area-format.png)
+![图 39 更改格式数据](image/area-format.png)
 
 - 首选语言：系统窗口、菜单及网页的显示语言，首选推荐语言为简体中文
 
@@ -365,14 +380,14 @@ Tips：系统至少需要存在一个管理员用户。
 ### 安全中心
 提供了安全中心的入口。
 
-![图 39 安全中心-big](image/security.png)
+![图 40 安全中心-big](image/security.png)
 
 ### 备 份
 - 开始备份：将文件备份到其他驱动器
 
 - 开始还原：查看备份列表，并选择还原点进行恢复
 
-![图 40 备份和还原-big](image/backup.png)
+![图 41 备份和还原-big](image/backup.png)
 
 ### 更 新
 
@@ -386,13 +401,13 @@ Tips：系统至少需要存在一个管理员用户。
 - 更新设置：设置是否允许推送可更新的应用以及是否在全部更新之前自动备份。
 <br>
 
-![图 41 系统更新-big](image/update.png)
+![图 42 系统更新-big](image/update.png)
 <br>
 
 更新完成后，可在更新历史中查看更新情况。
 
 
-![图 42 历史更新-big](image/historylog.png)
+![图 43 历史更新-big](image/historylog.png)
 
 ### 后台更新
 
@@ -401,15 +416,15 @@ Tips：系统至少需要存在一个管理员用户。
 
 - 当有重要更新时，会在后台静默更新，在升级前后用户都会收到通知信息。
 
-![图 43 后台更新-big](image/notiffirst.png)
+![图 44 后台更新-big](image/notiffirst.png)
 
-![图 44 后台更新-big](image/notiend.png)
+![图 45 后台更新-big](image/notiend.png)
 
 - 当有可用更新时，右下角出现更新图标，并弹出选择界面供用户选择。
 
-![图 45 后台更新-big](image/tray.png)
+![图 46 后台更新-big](image/tray.png)
 
-![图 46 后台更新-big](image/choicewidget.png)
+![图 47 后台更新-big](image/choicewidget.png)
 
 - 当用户选择同意更新后，会弹出控制面板>更新界面，进行检查更新
 
@@ -421,11 +436,11 @@ Tips：系统至少需要存在一个管理员用户。
 ### 通 知
 如图所示：
 
-![图 47 通知-big](image/notice.png)
+![图 48 通知-big](image/notice.png)
 
 ### 关 于
 显示本机系统的版本、设备规格、授权激活信息。
-![图 48 通知-big](image/about.png)
+![图 49 通知-big](image/about.png)
 <br>
 
 ## 常见问题
@@ -436,4 +451,3 @@ Tips：系统至少需要存在一个管理员用户。
 大概率是因为权限问题。
 
 在键盘上按下 Ctrl + Alt + T 组合键打开命令行终端，输入“rm ~/.config/dconf/user”后按下Enter。
-
