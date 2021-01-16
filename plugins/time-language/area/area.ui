@@ -462,7 +462,7 @@
         </size>
        </property>
        <property name="text">
-        <string>TextLabel</string>
+        <string>first language</string>
        </property>
       </widget>
      </item>
@@ -540,7 +540,7 @@
            </size>
           </property>
           <property name="text">
-           <string>TextLabel</string>
+           <string>system language</string>
           </property>
          </widget>
         </item>
