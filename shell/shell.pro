@@ -21,6 +21,7 @@ include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
 
 DEFINES += PLUGIN_INSTALL_DIRS='\\"$${PLUGIN_INSTALL_DIRS}\\"'
 
+
 LIBS += -L$$[QT_INSTALL_LIBS] -lX11 -lgsettings-qt -lXi
 
 #LIBS += -L$$[QT_INSTALL_LIBS] -lkylinssoclient
@@ -51,8 +52,8 @@ guideCN.path += /usr/share/kylin-user-guide/data/guide/ukui-control-center/
 guideEN.files += $$PROJECT_ROOTDIR/data/en_US/
 guideEN.path += /usr/share/kylin-user-guide/data/guide/ukui-control-center/
 
-ukccIcon.files　+= $$PROJECT_ROOTDIR/data/ukui-control-center.png
-ukccIcon.path　+= /usr/share/kylin-user-guide/data/guide/ukui-control-center/
+imageformats.files += $$PROJECT_ROOTDIR/data/ukui-control-center.png
+imageformats.path = /usr/share/kylin-user-guide/data/guide/ukui-control-center/
 
 target.source += $$TARGET
 target.path = /usr/bin
@@ -65,8 +66,8 @@ INSTALLS +=  \
             face    \
             mo      \
             guideCN \
-            ukccICon \
-            guideEN
+            imageformats \
+            guideEN  \
 
 INCLUDEPATH += qtsingleapplication
 DEPENDPATH += qtsingleapplication
