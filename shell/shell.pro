@@ -48,6 +48,9 @@ mo.path = /usr/share/locale/zh_CN/LC_MESSAGES/
 guideCN.files += $$PROJECT_ROOTDIR/data/zh_CN/
 guideCN.path += /usr/share/kylin-user-guide/data/guide/ukui-control-center/
 
+guideEN.files += $$PROJECT_ROOTDIR/data/en_US/
+guideEN.path += /usr/share/kylin-user-guide/data/guide/ukui-control-center/
+
 ukccIcon.files　+= $$PROJECT_ROOTDIR/data/ukui-control-center.png
 ukccIcon.path　+= /usr/share/kylin-user-guide/data/guide/ukui-control-center/
 
@@ -62,7 +65,8 @@ INSTALLS +=  \
             face    \
             mo      \
             guideCN \
-            ukccICon
+            ukccICon \
+            guideEN
 
 INCLUDEPATH += qtsingleapplication
 DEPENDPATH += qtsingleapplication
