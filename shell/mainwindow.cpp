@@ -763,7 +763,16 @@ bool MainWindow::isExitBluetooth() {
     process.waitForFinished();
     QByteArray output = process.readAllStandardOutput();
     QString str_output = output;
-    return str_output.contains(QString("bluetooth"), Qt::CaseInsensitive);
+    bool isDevice = str_output.contains(QString("bluetooth"), Qt::CaseInsensitive);
+    bool isAddress = true;
+
+    QByteArray bluetoothId("org.ukui.bluetooth");
+    if (QGSettings::isSchemaInstalled(bluetoothId)) {
+        QGSettings bluetoothGSetting(bluetoothId);
+        isAddress = bluetoothGSetting.get("adapter-address").toString().isEmpty() ? false : true;
+    }
+
+    return isDevice && isAddress;
 }
 
 void MainWindow::setModuleBtnHightLight(int id) {
