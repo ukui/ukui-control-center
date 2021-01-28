@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
         a.installTranslator(&translator);
 
         // 命令行参数
-        QCoreApplication::setApplicationName(QObject::tr("ukui-control-center");
+        QCoreApplication::setApplicationName(QObject::tr("ukui-control-center"));
         QCoreApplication::setApplicationVersion("2.0");
 
         QCommandLineParser parser;
