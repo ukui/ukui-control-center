@@ -30,6 +30,7 @@
 
 extern "C" {
 #include <gio/gdesktopappinfo.h>
+#include <glib.h>
 }
 
 Backup::Backup()
@@ -50,7 +51,7 @@ Backup::Backup()
 
     connect(ui->restoreBtn, &QPushButton::clicked, this, [=](bool checked){
         Q_UNUSED(checked)
-        btnClicked();
+        restoreSlots();
     });
 }
 
@@ -97,6 +98,17 @@ void Backup::btnClicked() {
     QString desktopfp = "/usr/share/applications/yhkylin-backup-tools.desktop";
     GDesktopAppInfo *desktopAppInfo = g_desktop_app_info_new_from_filename(desktopfp.toLocal8Bit().data());
     g_app_info_launch(G_APP_INFO(desktopAppInfo), nullptr, nullptr, nullptr);
+    g_object_unref(desktopAppInfo);
+    return;
+}
+
+void Backup::restoreSlots() {
+    QString desktopfp = "/usr/share/applications/yhkylin-backup-tools.desktop";
+    GDesktopAppInfo *desktopAppInfo = g_desktop_app_info_new_from_filename(desktopfp.toLocal8Bit().data());
+
+    GList *arg = NULL;
+    arg = g_list_append(arg, gpointer("--restore"));
+    g_app_info_launch_uris(G_APP_INFO(desktopAppInfo), arg, nullptr, nullptr);
     g_object_unref(desktopAppInfo);
     return;
 }

@@ -48,6 +48,7 @@ public:
 public:
     void initTitleLabel();
     void btnClicked();
+    void restoreSlots();
 
 private:
     Ui::Backup *ui;
