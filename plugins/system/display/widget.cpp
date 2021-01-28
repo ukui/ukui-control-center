@@ -575,7 +575,7 @@ bool Widget::isRestoreConfig() {
         msg.setText(tr("After modifying the resolution or refresh rate, "
                        "due to compatibility issues between the display device and the graphics card, "
                        "the display may be abnormal or unable to display\n"
-                       "If something goes wrong, the settings will be restored after 10 seconds"));
+                       "If something goes wrong, the settings will be restored after 9 seconds"));
         msg.addButton(tr("Save Config"), QMessageBox::AcceptRole);
         msg.addButton(tr("Restore Config"), QMessageBox::RejectRole);
 
