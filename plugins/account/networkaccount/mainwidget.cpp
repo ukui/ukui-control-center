@@ -75,13 +75,13 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent) {
 
 
     QProcess proc;
-    proc.start("lsb_release -r");
+    QStringList option;
+    option << "-c" << "lsb_release -r | awk -F'\t' '{print $2}'";
+    proc.start("/bin/bash",option);
     proc.waitForFinished();
-    QByteArrayList releaseList = proc.readAll().split('\t');
-    QByteArray ar = releaseList.at(1);
+    QByteArray ar = proc.readAll().toStdString().c_str();
     m_confName = "All-" + ar.replace("\n","") + ".conf";
     m_szConfPath = QDir::homePath() + "/.cache/kylinId/" + m_confName;
-
 
     m_animateLayout = new QHBoxLayout;
 
@@ -183,6 +183,7 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent) {
         }
         if(bIsLogging) {
             m_mainDialog->on_close();
+            bIsLogging = false;
         }
         //qDebug() << "csacasacasca";
         if(keyList.size() > 2) {
@@ -209,13 +210,20 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent) {
                 emit closedialog();
                 handle_conf();
             } else {
-                on_auto_syn(0,-1);
+                m_autoSyn->make_itemoff();
+                m_pSettings->setValue("Auto-sync/enable","false");
+                m_pSettings->sync();
+                m_bAutoSyn = false;
                 m_autoSyn->get_swbtn()->set_swichbutton_val(0);
                 m_syncDialog = new SyncDialog(m_szCode,m_szConfPath);
                 m_syncDialog->m_List = keyList.isEmpty() ? m_szItemlist : keyList;
                 connect(m_syncDialog, &SyncDialog::sendKeyMap, this,[=] (QStringList keyList) {
                     Q_UNUSED(keyList);
-                    on_auto_syn(1,-1);
+                    m_autoSyn->make_itemon();
+                    m_pSettings->setValue("Auto-sync/enable","true");
+                    m_pSettings->sync();
+                    m_bAutoSyn = true;
+                    m_autoSyn->get_swbtn()->set_swichbutton_val(1);
                     emit doselect(keyList);
                     m_syncDialog->close();
                     handle_conf();
@@ -223,6 +231,7 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent) {
 
                 connect(m_syncDialog, &SyncDialog::coverMode, this, [=] () {
                     on_auto_syn(1,-1);
+                    emit doman();
                     m_syncDialog->close();
                     handle_conf();
                 });
@@ -236,7 +245,7 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent) {
             handle_conf();
         }
     });
-
+    emit docheck();
     connect(thread,&QThread::finished,thread,&QObject::deleteLater);
 
     m_dbusClient->connectSignal("finished_init_oss",this,SLOT(finished_load(int,QString)));
@@ -250,7 +259,6 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent) {
     m_dbusClient->connectSignal("finishedLogout",this,SLOT(finishedLogout(int)));
     m_dbusClient->moveToThread(thread);
     thread->start();    //线程开始
-    emit docheck();
 
 }
 
@@ -278,7 +286,7 @@ void MainWidget::checkUserName(QString name) {
     m_szCode = name;
     if(name == "" || name =="201" || name == "203" || name == "401" || name == "500" || name == "502") {
         m_mainWidget->setCurrentWidget(m_nullWidget);
-        on_login_out();
+        emit dologout();
         return ;
     }
     m_pSettings = new QSettings(m_szConfPath,QSettings::IniFormat);
@@ -287,7 +295,7 @@ void MainWidget::checkUserName(QString name) {
     if(m_pSettings != nullptr)
         m_syncTimeLabel->setText(tr("The latest time sync is: ") +  m_pSettings->value("Auto-sync/time").toString().toStdString().c_str());
     //setshow(m_mainWidget);
-    if(m_bTokenValid == true) {
+    if(m_bTokenValid == false) {
         m_mainWidget->setCurrentWidget(m_widgetContainer);
     }
    // qDebug() << "ssssss";
@@ -450,6 +458,7 @@ void MainWidget::init_gui() {
     m_nullWidget->setLayout(m_welcomeLayout);
     m_nullWidget->adjustSize();
     m_mainWidget->addWidget(m_nullWidget);
+    m_mainWidget->setCurrentWidget(m_nullWidget);
     m_vboxLayout->addWidget(m_mainWidget);
     m_vboxLayout->setAlignment(Qt::AlignCenter | Qt::AlignTop);
     this->setLayout(m_vboxLayout);
@@ -459,17 +468,6 @@ void MainWidget::init_gui() {
 
     m_exitCloud_btn->setFocusPolicy(Qt::NoFocus);
     QtConcurrent::run([=] () {
-
-        for(int btncnt = 0;btncnt < m_itemList->get_list().size();btncnt ++) {
-            connect(m_itemList->get_item(btncnt)->get_swbtn(),SIGNAL(status(int,int)),this,SLOT(on_switch_button(int,int)));
-        }
-        int cItem = 0;
-
-
-        for(const QString &key : qAsConst(m_szItemlist)) {
-            m_itemMap.insert(key,m_itemList->get_item(cItem)->get_itemname());
-            cItem ++;
-        }
 
         QProcess proc;
         QStringList options;
@@ -487,6 +485,17 @@ void MainWidget::init_gui() {
         setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Ignored);
     } else {
         setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred);
+    }
+
+    for(int btncnt = 0;btncnt < m_itemList->get_list().size();btncnt ++) {
+        connect(m_itemList->get_item(btncnt)->get_swbtn(),SIGNAL(status(int,int)),this,SLOT(on_switch_button(int,int)));
+    }
+    int cItem = 0;
+
+
+    for(const QString &key : qAsConst(m_szItemlist)) {
+        m_itemMap.insert(key,m_itemList->get_item(cItem)->get_itemname());
+        cItem ++;
     }
 
     connect(this,&MainWidget::oldVersion,[=] () {
@@ -538,16 +547,19 @@ void MainWidget::init_gui() {
         download_files();
     });
     //All.conf的
-    QString all_conf_path = m_szConfPath;
+    QString all_conf_path = QDir::homePath() + "/.cache/kylinId";
     m_fsWatcher.addPath(all_conf_path);
+
 
     connect(&m_fsWatcher,&QFileSystemWatcher::directoryChanged,this,[this] () {
         QFile conf( m_szConfPath);
         if(conf.exists() == true && m_pSettings != nullptr) {
             m_syncTimeLabel->setText(tr("The latest time sync is: ") +  m_pSettings->value("Auto-sync/time").toString());
-            handle_conf();
+            if(!m_bAutoSyn)
+                handle_conf();
         }
     });
+
 
     connect(m_lazyTimer,&QTimer::timeout,this,[this] () {
        //emit doman();
@@ -646,6 +658,7 @@ void MainWidget::on_login() {
     connect(m_mainDialog,&MainDialog::on_login_failed,this, [this] () {
         m_cLoginTimer->stop();
         m_bIsStopped = true;
+        bIsLogging = false;
     });
 
     connect(m_cLoginTimer,&QTimer::timeout,m_mainWidget,[this]() {
@@ -694,6 +707,7 @@ void MainWidget::finished_conf(int ret) {
         showDesktopNotify(tr("Network can not reach!"));
         return ;
     }
+    m_bTokenValid = true;
      emit doquerry(m_szCode);
 }
 
@@ -857,7 +871,7 @@ void MainWidget::on_login_out() {
     } else {
         emit dosend("exit");
         QProcess proc;
-        proc.start("killall kylin-sso-client");
+        proc.startDetached("killall kylin-sso-client");
         push_over();
     }
 
