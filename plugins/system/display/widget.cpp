@@ -892,6 +892,10 @@ void Widget::save() {
         auto *op = new KScreen::SetConfigOperation(mPrevConfig);
         op->exec();
     } else {
+#ifdef KIRIN
+        config->output(mScreenId)->setPrimary(true);
+        mScreen->updateOutputsPlacement();
+#endif
         callMethod(config->primaryOutput()->geometry());
         mPrevConfig = config->clone();
         writeScreenXml();
@@ -1119,6 +1123,8 @@ void Widget::primaryButtonEnable(bool status) {
     ui->mainScreenButton->setEnabled(false);
     const KScreen::OutputPtr newPrimary = mConfig->output(ui->primaryCombo->itemData(index).toInt());
     mConfig->setPrimaryOutput(newPrimary);
+
+    mScreenId = newPrimary->id();
 
     Q_EMIT changed();
 }
