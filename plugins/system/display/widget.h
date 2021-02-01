@@ -14,6 +14,8 @@
 #include <QSharedPointer>
 #include <QHash>
 #include <QVariant>
+#include <QScreen>
+#include <QMultiMap>
 
 #include <KF5/KScreen/kscreen/config.h>
 
@@ -130,6 +132,10 @@ class Widget : public QWidget
     void initNightStatus();
     void nightChangedSlot(QHash<QString, QVariant> nightArg);
 
+    //Set primary screen
+    void setScreenPrimary(QString screenName);
+    void callMethod(QRect geometry);
+
   public Q_SLOTS:
     void save();
     void scaleChangedSlot(int index);
@@ -142,8 +148,8 @@ class Widget : public QWidget
     void addOutputToPrimaryCombo(const KScreen::OutputPtr &output);
     KScreen::OutputPtr findOutput(const KScreen::ConfigPtr &config, const QVariantMap &info);
 
-    void writeScale(int scale);
     void setTitleLabel();
+    void writeScale(int scale);
     void initGSettings();
     void setcomBoxScale();
     void initNightUI();
@@ -201,6 +207,8 @@ class Widget : public QWidget
     QHash<QString, QVariant> mNightConfig;
 
     int screenScale = 1;
+    int  mScreenId  = 1;
+
     // 是否为夜间模式
     bool mIsNightMode     = false;
     bool mRedshiftIsValid = false;
@@ -210,8 +218,6 @@ class Widget : public QWidget
     bool mOnBattery       = false;
     bool mBlockChanges    = false;
     bool mFirstLoad       = true;
-
 };
 
 #endif // WIDGET_H
-

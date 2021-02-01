@@ -239,15 +239,6 @@ void Widget::loadQml() {
 }
 
 void Widget::resetPrimaryCombo() {
-#if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
-
-#else
-    bool isPrimaryDisplaySupported = mConfig->supportedFeatures().testFlag(KScreen::Config::Feature::PrimaryDisplay);
-    ui->screenframe->setVisible(isPrimaryDisplaySupported);
-    ui->primaryLabel->setVisible(isPrimaryDisplaySupported);
-    ui->primaryCombo->setVisible(isPrimaryDisplaySupported);
-#endif
-
     // Don't emit currentIndexChanged when resetting
     bool blocked = ui->primaryCombo->blockSignals(true);
     ui->primaryCombo->clear();
@@ -466,6 +457,12 @@ KScreen::OutputPtr Widget::findOutput(const KScreen::ConfigPtr &config, const QV
     return KScreen::OutputPtr();
 }
 
+void Widget::setTitleLabel() {
+    QFont font;
+    font.setPixelSize(18);
+    ui->titleLabel->setFont(font);
+}
+
 void Widget::writeScale(int scale) {
 
     if (scale != scaleGSettings->get(SCALE_KEY).toInt()) {
@@ -500,13 +497,6 @@ void Widget::writeScale(int scale) {
         }
         cursorSettings.set(CURSOR_SIZE_KEY, cursize);
     }
-}
-
-void Widget::setTitleLabel()
-{
-    QFont font;
-    font.setPixelSize(18);
-    ui->titleLabel->setFont(font);
 }
 
 void Widget::initGSettings() {
@@ -817,6 +807,15 @@ void Widget::slotIdentifyOutputs(KScreen::ConfigOperation *op) {
     mOutputTimer->start(2500);
 }
 
+void Widget::callMethod(QRect geometry)
+{
+    QDBusMessage message = QDBusMessage::createMethodCall("org.ukui.SettingsDaemon",
+                                           "/org/ukui/SettingsDaemon/xrandr",
+                                           "org.ukui.SettingsDaemon.xrandr",
+                                           "priScreenChanged");
+    message << geometry.x()<< geometry.y()<<geometry.width()<<geometry.height();
+    QDBusConnection::sessionBus().send(message);
+}
 
 void Widget::save() {
     if (!this) {
@@ -889,9 +888,11 @@ void Widget::save() {
     );
 
     if (isRestoreConfig()) {
+        callMethod(mPrevConfig->primaryOutput()->geometry());
         auto *op = new KScreen::SetConfigOperation(mPrevConfig);
         op->exec();
     } else {
+        callMethod(config->primaryOutput()->geometry());
         mPrevConfig = config->clone();
         writeScreenXml();
         QString dir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) %
@@ -1095,6 +1096,7 @@ void Widget::mainScreenButtonSelect(int index) {
     } else {
         ui->mainScreenButton->setEnabled(true);
     }
+
     // 设置是否勾选
     mCloseScreenButton->setEnabled(true);
     ui->showMonitorframe->setVisible(connectCount > 1 ? true : false);
@@ -1117,6 +1119,7 @@ void Widget::primaryButtonEnable(bool status) {
     ui->mainScreenButton->setEnabled(false);
     const KScreen::OutputPtr newPrimary = mConfig->output(ui->primaryCombo->itemData(index).toInt());
     mConfig->setPrimaryOutput(newPrimary);
+
     Q_EMIT changed();
 }
 
