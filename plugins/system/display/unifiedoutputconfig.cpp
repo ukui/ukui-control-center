@@ -1,12 +1,9 @@
 #include "unifiedoutputconfig.h"
 #include "resolutionslider.h"
 #include "utils.h"
-//#include "kcm_screen_debug.h"
 
 #include <QComboBox>
 #include <QIcon>
-//#include <KLocalizedString>
-
 #include <QLabel>
 #include <QGridLayout>
 #include <QSpacerItem>
@@ -19,7 +16,6 @@
 
 #include <KF5/KScreen/kscreen/output.h>
 #include <KF5/KScreen/kscreen/config.h>
-
 
 bool operator<(const QSize &s1, const QSize &s2)
 {
@@ -98,8 +94,6 @@ void UnifiedOutputConfig::initUi()
 
     //方向下拉框
     mRotation = new QComboBox();
-    connect(mRotation, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-            this, &UnifiedOutputConfig::slotRotationChanged);
 
     mRotation->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     mRotation->setMinimumSize(402,30);
@@ -261,9 +255,9 @@ void UnifiedOutputConfig::slotRotationChangedDerived(int index){
         static_cast<KScreen::Output::Rotation>(mRotation->itemData(index).toInt());
     auto mainOutput = mConfig->primaryOutput();
     Q_FOREACH (const KScreen::OutputPtr &clone, mClones) {
-        if(clone->isConnected()&&clone->isEnabled()){
+        if (clone->isConnected() && clone->isEnabled()) {
             mainOutput->setRotation(rotation);
-            if(!clone->isPrimary()){
+            if (!clone->isPrimary()) {
                 clone->setRotation(rotation);
             }
         }

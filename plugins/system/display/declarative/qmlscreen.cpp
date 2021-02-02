@@ -67,10 +67,8 @@ void QMLScreen::setConfig(const KScreen::ConfigPtr &config)
             });
     connect(m_config.data(), &KScreen::Config::outputRemoved,
             this, &QMLScreen::removeOutput);
-    //qDebug()<<"所要拿取的配置为------>"<<m_config<<endl;
+
     for (const KScreen::OutputPtr &output : m_config->outputs()) {
-//        qDebug()<<"\noutput类型----debug------>"<<output<<" "<<
-//                  "\noutput原始类型------->"<<QVariant::fromValue(qobject_cast<KScreen::OutputPtr>(output))<<" "<<endl;
         addOutput(output);
     }
 
@@ -78,16 +76,13 @@ void QMLScreen::setConfig(const KScreen::ConfigPtr &config)
 
     for (QMLOutput *qmlOutput : m_outputMap) {
         if (qmlOutput->output()->isConnected() && qmlOutput->output()->isEnabled()) {
-            //qDebug()<<"qmlOutput---->"<<qmlOutput<<endl;
             qmlOutput->dockToNeighbours();
         }
     }
 }
 
-
 void QMLScreen::addOutput(const KScreen::OutputPtr &output)
 {
-    //qDebug()<<"qmlscreen.cpp-------> output类型------->"<<output<<endl;
     QMLOutputComponent comp(qmlEngine(this), this);
 
     QMLOutput *qmloutput = comp.createForOutput(output);
@@ -185,6 +180,17 @@ void QMLScreen::setActiveOutput(QMLOutput *output)
 
 void QMLScreen::setScreenPos(QMLOutput *output) {
 
+    // 镜像模式下跳过屏幕旋转处理
+    QVector<QPoint> screenPos;
+    for (const KScreen::OutputPtr &output : m_config->outputs()) {
+        QPoint pos = output->pos();
+        if (screenPos.contains(pos)) {
+            return ;
+        } else {
+            screenPos.push_back(pos);
+        }
+    }
+
     int x1, y1;
     int width1, height1;
     int x2, y2;
@@ -196,6 +202,7 @@ void QMLScreen::setScreenPos(QMLOutput *output) {
     height1 = output->height();
 
     int connectedScreen = 0;
+
     QMLOutput *other;
     Q_FOREACH (QMLOutput *qmlOutput, m_outputMap) {
         if (qmlOutput->output()->isConnected()) {
@@ -209,6 +216,7 @@ void QMLScreen::setScreenPos(QMLOutput *output) {
             height2 = other->height();
         }
     }
+
 
     if (connectedScreen < 2) {
         return ;
