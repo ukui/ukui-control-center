@@ -727,6 +727,8 @@ void AutoBoot::add_autoboot_realize_slot(QString path, QString name, QString exe
     char * filename, * filepath;
 
     filename = path.section("/", -1, -1).toUtf8().data();
+    // 需要定位desktop解析失败原因，bug#37606
+    qDebug() << "desktop: "<< path.section("/", -1, -1).toUtf8().data();
 
     filepath = g_build_filename(localconfigdir, filename, NULL);
 
