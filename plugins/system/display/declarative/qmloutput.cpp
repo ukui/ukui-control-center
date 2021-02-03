@@ -538,14 +538,6 @@ bool QMLOutput::maybeSnapTo(QMLOutput *other)
 
         return true;
     }
-    if (!(this->output()->isConnected() && other->output()->isConnected())) {
-        if ((x() + width()) > 550) {
-            setPosition(QPointF(550 - width(), y()));
-        }
-        if ((y() + height()) > 300) {
-            setPosition(QPointF(x(), 350 - height()));
-        }
-    }
     return false;
 }
 

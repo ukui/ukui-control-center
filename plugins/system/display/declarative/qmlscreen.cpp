@@ -183,11 +183,13 @@ void QMLScreen::setScreenPos(QMLOutput *output) {
     // 镜像模式下跳过屏幕旋转处理
     QVector<QPoint> screenPos;
     for (const KScreen::OutputPtr &output : m_config->outputs()) {
-        QPoint pos = output->pos();
-        if (screenPos.contains(pos)) {
-            return ;
-        } else {
-            screenPos.push_back(pos);
+        if (output->isConnected()) {
+            QPoint pos = output->pos();
+            if (screenPos.contains(pos)) {
+                return ;
+            } else {
+                screenPos.push_back(pos);
+            }
         }
     }
 
@@ -208,7 +210,7 @@ void QMLScreen::setScreenPos(QMLOutput *output) {
         if (qmlOutput->output()->isConnected()) {
             connectedScreen++;
         }
-        if (qmlOutput != output) {
+        if (qmlOutput != output && qmlOutput->output()->isConnected()) {
             other = qmlOutput;
             x2 = other->x();
             y2 = other->y();
@@ -216,7 +218,6 @@ void QMLScreen::setScreenPos(QMLOutput *output) {
             height2 = other->height();
         }
     }
-
 
     if (connectedScreen < 2) {
         return ;
