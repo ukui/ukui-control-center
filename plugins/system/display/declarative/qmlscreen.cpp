@@ -262,7 +262,6 @@ void QMLScreen::setScreenPos(QMLOutput *output) {
 
 QSize QMLScreen::maxScreenSize() const
 {
-    //qDebug()<<"m_config->screen()->maxSize()--->"<<m_config->screen()->maxSize()<<endl;
     return m_config->screen()->maxSize();
 }
 
@@ -315,7 +314,6 @@ void QMLScreen::outputPositionChanged()
 
 void QMLScreen::qmlOutputMoved(QMLOutput *qmlOutput)
 {
-    //qDebug()<<"qmlOutputMoved------>"<<endl;
     if (qmlOutput->isCloneMode()) {
         return;
     }
@@ -408,10 +406,9 @@ void QMLScreen::setOutputScale(float scale)
     emit outputScaleChanged();
 }
 
-//应该是画坐标的地方?
+// 画坐标
 void QMLScreen::updateOutputsPlacement()
 {
-    //qDebug()<<"updateOutputsPlacement---->"<<endl;
     if (width() <= 0)
         return;
 
@@ -424,7 +421,6 @@ void QMLScreen::updateOutputsPlacement()
         }
 
         if (qmlOutput->outputX() + qmlOutput->currentOutputWidth() > initialActiveScreenSize.width()) {
-           // qDebug()<<qmlOutput->outputX()<<qmlOutput->currentOutputWidth()<<initialActiveScreenSize.width()<<endl;
             initialActiveScreenSize.setWidth(qmlOutput->outputX() + qmlOutput->currentOutputWidth());
         }
         if (qmlOutput->outputY() + qmlOutput->currentOutputHeight() > initialActiveScreenSize.height()) {
@@ -434,7 +430,6 @@ void QMLScreen::updateOutputsPlacement()
 
     auto initialScale = outputScale();
 
-    //qDebug() << " -----debug0--->outputScale" << initialScale;
     auto scale = initialScale;
     qreal lastX = -1.0;
     do {
@@ -442,8 +437,6 @@ void QMLScreen::updateOutputsPlacement()
 
         const QPointF offset((width() - activeScreenSize.width()) / 2.0,
                              (height() - activeScreenSize.height()) / 2.0);
-
-       // qDebug() << " ----------debug1--->offset-->" << offset;
 
         lastX = -1.0;
         qreal lastY = -1.0;
@@ -459,7 +452,6 @@ void QMLScreen::updateOutputsPlacement()
                               offset.y() + (qmlOutput->outputY() * scale)));
             lastX = qMax(lastX, qmlOutput->position().x() + qmlOutput->width() / initialScale * scale);
             lastY = qMax(lastY, qmlOutput->position().y());
-           // qDebug()<<"坐标---->"<<lastX<<" "<<lastY<<endl;
             qmlOutput->blockSignals(false);
         }
 

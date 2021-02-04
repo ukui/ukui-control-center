@@ -888,22 +888,27 @@ void Widget::save() {
     );
 
     if (isRestoreConfig()) {
+#ifdef KIRIN
         callMethod(mPrevConfig->primaryOutput()->geometry());
+#endif
         auto *op = new KScreen::SetConfigOperation(mPrevConfig);
         op->exec();
     } else {
 #ifdef KIRIN
         config->output(mScreenId)->setPrimary(true);
-        mScreen->updateOutputsPlacement();
-#endif
         callMethod(config->primaryOutput()->geometry());
+#endif
+        mScreen->updateOutputsPlacement();
         mPrevConfig = config->clone();
         writeScreenXml();
+
+#ifdef KIRIN
         QString dir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) %
                                                         QStringLiteral("/kscreen/") %
                                                         QStringLiteral("" /*"configs/"*/);
         QString hash = mPrevConfig->connectedOutputsHash();
         writeFile(dir % hash);
+#endif
     }
 }
 
@@ -1131,12 +1136,13 @@ void Widget::primaryButtonEnable(bool status) {
 
 void Widget::checkOutputScreen(bool judge) {
    int index  = ui->primaryCombo->currentIndex();
-   const KScreen::OutputPtr newPrimary = mConfig->output(ui->primaryCombo->itemData(index).toInt());
+   KScreen::OutputPtr newPrimary = mConfig->output(ui->primaryCombo->itemData(index).toInt());
 
    KScreen::OutputPtr mainScreen = mConfig->primaryOutput();
    if (!mainScreen) {
        mConfig->setPrimaryOutput(newPrimary);
    }
+   mainScreen = mConfig->primaryOutput();
 
    newPrimary->setEnabled(judge);
 
@@ -1145,11 +1151,11 @@ void Widget::checkOutputScreen(bool judge) {
        if (outptr->isEnabled()) {
            enabledOutput++;
        }
+       if (mainScreen != outptr && outptr->isConnected()) {
+           newPrimary = outptr;
+       }
 
        if (enabledOutput >= 2) {
-           if (!mainScreen && outptr != newPrimary) {
-               mainScreen = outptr;
-           }
            // 设置副屏在主屏右边
            newPrimary->setPos(QPoint(mainScreen->pos().x() + mainScreen->size().width(),
                                mainScreen->pos().y()));
