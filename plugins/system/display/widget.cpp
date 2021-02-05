@@ -870,7 +870,6 @@ void Widget::save() {
                                  tr("Sorry, your configuration could not be applied.\nCommon reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU."));
         return;
     }
-
     mBlockChanges = true;
     /* Store the current config, apply settings */
     auto *op = new KScreen::SetConfigOperation(config);
@@ -886,6 +885,11 @@ void Widget::save() {
             mBlockChanges = false;
         }
     );
+#ifdef KIRIN
+    config->output(mScreenId)->setPrimary(true);
+    callMethod(config->primaryOutput()->geometry());
+#endif
+    mScreen->updateOutputsPlacement();
 
     if (isRestoreConfig()) {
 #ifdef KIRIN
@@ -894,14 +898,8 @@ void Widget::save() {
         auto *op = new KScreen::SetConfigOperation(mPrevConfig);
         op->exec();
     } else {
-#ifdef KIRIN
-        config->output(mScreenId)->setPrimary(true);
-        callMethod(config->primaryOutput()->geometry());
-#endif
-        mScreen->updateOutputsPlacement();
         mPrevConfig = config->clone();
         writeScreenXml();
-
 #ifdef KIRIN
         QString dir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) %
                                                         QStringLiteral("/kscreen/") %
