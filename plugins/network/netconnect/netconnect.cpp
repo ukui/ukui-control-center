@@ -50,7 +50,7 @@ bool sortByVal(const QPair<QString, int> &l, const QPair<QString, int> &r) {
 
 NetConnect::NetConnect() :  mFirstLoad(true)
 {
-    pluginName = tr("Link");
+    pluginName = tr("Connect");
     pluginType = NETWORK;
 }
 
@@ -600,17 +600,11 @@ int NetConnect::setSignal(QString lv) {
 
     if(signal > 75){
         signalLv = 1;
-    }
-    if(signal > 55 && signal <= 75){
+    } else if(signal > 55 && signal <= 75){
         signalLv = 2;
-    }
-    if(signal > 35 && signal <= 55){
+    } else if(signal > 35 && signal <= 55){
         signalLv = 3;
-    }
-    if(signal > 15 && signal <= 35){
-        signalLv = 4;
-    }
-    if(signal <= 15){
+    } else if(signal  < 35){
         signalLv = 4;
     }
 
