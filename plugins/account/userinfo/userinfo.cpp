@@ -550,7 +550,7 @@ QStringList UserInfo::getLoginedUsers() {
                                   QDBusConnection::systemBus());
 
     if (loginInterface.isValid()) {
-        qDebug() << "create interface sucess";
+        qDebug() << "create interface success";
     }
 
     QDBusMessage result = loginInterface.call("ListUsers");
