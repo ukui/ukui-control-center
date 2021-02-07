@@ -181,16 +181,8 @@ void QMLScreen::setActiveOutput(QMLOutput *output)
 void QMLScreen::setScreenPos(QMLOutput *output) {
 
     // 镜像模式下跳过屏幕旋转处理
-    QVector<QPoint> screenPos;
-    for (const KScreen::OutputPtr &output : m_config->outputs()) {
-        if (output->isConnected()) {
-            QPoint pos = output->pos();
-            if (screenPos.contains(pos)) {
-                return ;
-            } else {
-                screenPos.push_back(pos);
-            }
-        }
+    if (this->primaryOutput()->isCloneMode()) {
+        return ;
     }
 
     int x1, y1;
