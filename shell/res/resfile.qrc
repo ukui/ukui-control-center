@@ -175,6 +175,8 @@
         <file>plugins/upgrade/loading15.svg</file>
         <file>plugins/upgrade/loading16.svg</file>
         <file>plugins/upgrade/loading17.svg</file>
+        <file>secondaryleftmenu/Date.svg</file>
+        <file>secondaryleftmenu/DateWhite.svg</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>
