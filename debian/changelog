@@ -1,3 +1,54 @@
+ukui-control-center (3.0.1-1-40.1) v101; urgency=medium
+
+  * 任务栏WiFi列表显示已经连接，但是控制面板的WiFi列表依然显示无网络连接(bug#38090)
+  * 不带安全性的WiFi，仍显示上锁(bug#38361)
+  * 搜索字体显示不全(bug#34565)
+  * 屏蔽1920x1080且50hz以下分辨率(bug#32123)
+
+ -- zhoubin <zhoubin@kylinos.cn>  Sun, 07 Feb 2021 15:27:51 +0800
+
+ukui-control-center (3.0.1-1-40) v101; urgency=medium
+
+  * 修复用户手册错别字(bug#38116)
+  * 夜间模式在loongson上无效(bug#32814)
+  * 恢复默认透明度(bug#35990)
+  * 设置副屏在主屏右边(bug#27025)
+  * 添加自启动程序，设置程序名，添加一个程序后，设置好的程序名被更改(bug#19188)
+  * 用户手册图片显示不全(bug#35424)
+  * 在控制面板任务栏搜索安全中心搜索不到设置项(bug#37349)
+  * 无法添加biometri-manager.desktop文件(bug#37606)
+  * 解决无法设置镜像模式方向问题(#bug22989)
+  * 更改夜间模式描述(bug#22278i)
+  * 更改字体大小为16后，控制面板-安全中心字体没有加粗(bug#35704)
+  * 英文字体显示不全(bug#30701)
+  * 更新版本信息(bug#37030)
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 05 Feb 2021 15:23:21 +0800
+
+ukui-control-center (3.0.1-1-39.4) v101; urgency=medium
+
+  * 云账户信号槽更改
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 29 Jan 2021 19:53:10 +0800
+
+ukui-control-center (3.0.1-1-39.3) v101; urgency=medium
+
+  * 更改亮度gsettings
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 29 Jan 2021 14:46:17 +0800
+
+ukui-control-center (3.0.1-1-39.2) v101; urgency=medium
+
+  * 更新翻译
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 28 Jan 2021 14:47:30 +0800
+
+ukui-control-center (3.0.1-1-39.1) v101; urgency=medium
+
+  * 解决跳转编译失败问题
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 28 Jan 2021 14:30:15 +0800
+
 ukui-control-center (3.0.1-1-39) v101; urgency=medium
 
   * 补充通知中心缺失的图标与汉化
