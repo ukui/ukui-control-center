@@ -35,6 +35,7 @@
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QVBoxLayout>
 #include <QTimer>
+#include <QFrame>
 
 #include "shell/interface.h"
 
@@ -104,24 +105,12 @@ private:
     QSharedPointer<QProcess> cmd;
 
     bool mFirstLoad;
-    /**
-      以下为任务栏设置相关界面
-      */
-    /**
-         * @brief initPanelSetUI/initPanelSetItem
-         * 初始化任务栏设置界面/初始化任务栏设置的Item
-         */
     void initPanelSetUI();
     void initPanelSetItem();
-    /**
-         * @brief getPanelSize / getPanelPosition
-         * 获取 任务栏尺寸/ 任务栏位置
-         */
+
     int getPanelSize();
     int getPanelPosition();
-    /**
-     * @brief 任务栏设置界面的元素
-     */
+
     QGSettings  *settings;
     QHBoxLayout *hLayoutPanelSet;
     QHBoxLayout *hLayoutPanelSizeSet;
@@ -135,6 +124,10 @@ private:
     QComboBox   *comboBoxPanelPosition;
     QSpinBox    *spinBoxQuickLaunchNum;
 
+    QStringList mPanelGSettings;
+
+    QFrame *quicklaunchNumFrame;
+
 private slots:
     void removeTrayItem(QString itemName);
     void addTrayItem(QGSettings * trayGSetting);
@@ -143,12 +136,6 @@ private slots:
     QMap<QString, QIcon> readOuputSlot();
     void readErrorSlot();
     void slotCloudAccout(const QString &key);
-    /**
-     * @brief panelSizeComboboxChangedSlot
-     * panelPositionComboboxChangedSlot
-     * quicklaunchNumSpinBoxChangedSlot
-     * 任务栏大小/位置/快速启动栏可存在的应用数量 发生改变的槽函数
-     */
     void panelSizeComboboxChangedSlot(int );
     void panelPositionComboboxChangedSlot(int );
     void quicklaunchNumSpinBoxChangedSlot(int);

@@ -580,10 +580,16 @@ void Desktop::readErrorSlot() {
 void Desktop::initPanelSetUI()
 {
     QFrame * panelSetupFrame = new QFrame();
+    panelSetupFrame->setMaximumWidth(960);
+    panelSetupFrame->setFixedHeight(50);
     panelSetupFrame->setFrameShape(QFrame::Shape::Box);
     QFrame * panelSetupPositionFrame=new QFrame();
+    panelSetupPositionFrame->setFixedHeight(50);
+    panelSetupPositionFrame->setMaximumWidth(960);
     panelSetupPositionFrame->setFrameShape(QFrame::Shape::Box);
-    QFrame *quicklaunchNumFrame=new QFrame();
+    quicklaunchNumFrame=new QFrame();
+    quicklaunchNumFrame->setFixedHeight(50);
+    quicklaunchNumFrame->setMaximumWidth(960);
     quicklaunchNumFrame->setFrameShape(QFrame::Shape::Box);
 
     hLayoutPanelSet = new QHBoxLayout();
@@ -632,7 +638,8 @@ void Desktop::initPanelSetUI()
 void Desktop::initPanelSetItem()
 {
     const QByteArray id(PANEL_SETTINGS);
-    settings = new QGSettings(id);
+    settings = new QGSettings(id, QByteArray(), this);
+    mPanelGSettings = settings->keys();
     QStringList mPanleSizeList;
     mPanleSizeList<<tr("Small Size")<<tr("Mudium Size")<<tr("Large Size");
     QStringList mPanelPositionList;
@@ -642,7 +649,13 @@ void Desktop::initPanelSetItem()
     comboBoxPanelSize->setCurrentIndex(getPanelSize());
     comboBoxPanelPosition->addItems(mPanelPositionList);
     comboBoxPanelPosition->setCurrentIndex(getPanelPosition());
-    spinBoxQuickLaunchNum->setValue(settings->get(QUICKLAUNCH_APP_NUM).toInt());
+
+    if (mPanelGSettings.contains(QUICKLAUNCH_APP_NUM)) {
+        spinBoxQuickLaunchNum->setValue(settings->get(QUICKLAUNCH_APP_NUM).toInt());
+    } else {
+        quicklaunchNumFrame->setVisible(false);
+    }
+
 
     QObject::connect(settings, &QGSettings::changed, this, [=] (const QString &key){
         if(key == PANEL_POSITION_KEY){
