@@ -4,12 +4,13 @@
 activecon *kylin_network_get_activecon_info(char *path) {
     char *chr = "nmcli connection show -active > ";
     char *cmd = (char *) malloc(strlen(chr) + strlen(path) + 1);
-    strcpy(cmd, chr);
-    strcat(cmd, path);
+    strncpy(cmd, chr, strlen(chr) + strlen(path) + 1);
+    strncat(cmd, path, strlen(path));
     int status = system(cmd);
     if (status != 0) {
         syslog(LOG_ERR, "execute 'nmcli connection show -active' in function 'kylin_network_get_activecon_info' failed");
     }
+    free(cmd);
     char *filename = path;
 
     FILE *activefp;
