@@ -1,3 +1,17 @@
+ukui-control-center (3.0.2-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Sat, 06 Feb 2021 07:21:51 +0000
+
+ukui-control-center (3.0.1-1) unstable; urgency=medium
+
+  * New upstream bugfix:
+    - Don't show zoom option while ukui-settings-daemon do not support
+      it. (LP: #1899244)
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Tue, 13 Oct 2020 17:46:03 +0800
+
 ukui-control-center (3.0.0-1) unstable; urgency=medium
 
   * New upstream release.

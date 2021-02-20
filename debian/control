@@ -36,7 +36,7 @@ Build-Depends: debhelper-compat (= 12),
                libpolkit-qt5-1-dev,
                libpulse-dev,
                libkf5bluezqt-dev
-Standards-Version: 4.5.0
+Standards-Version: 4.5.1
 Rules-Requires-Root: no
 Homepage: https://github.com/ukui/ukui-control-center
 Vcs-Browser: https://github.com/ukui/ukui-control-center
