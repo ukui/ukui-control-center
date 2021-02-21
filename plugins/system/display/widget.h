@@ -132,8 +132,9 @@ class Widget : public QWidget
     void initNightStatus();
     void nightChangedSlot(QHash<QString, QVariant> nightArg);
 
-    //Set primary screen
-    void callMethod(QRect geometry);
+    // Set primary screen
+    void callMethod(QRect geometry, QString name);
+    QString getPrimaryWaylandScreen();
 
   public Q_SLOTS:
     void save();

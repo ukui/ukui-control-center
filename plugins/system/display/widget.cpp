@@ -186,6 +186,7 @@ void Widget::setConfig(const KScreen::ConfigPtr &config) {
 
     // 选择主屏幕输出
     QMLOutput *qmlOutput = mScreen->primaryOutput();
+
     if (qmlOutput) {
         mScreen->setActiveOutput(qmlOutput);
     } else {
@@ -400,7 +401,6 @@ void Widget::slotUnifyOutputs() {
         ui->showMonitorframe->setVisible(false);
         ui->primaryCombo->setEnabled(false);
         ui->mainScreenButton->setEnabled(false);
-
         mControlPanel->setUnifiedOutput(base->outputPtr());
     }
     Q_EMIT changed();
@@ -806,14 +806,25 @@ void Widget::slotIdentifyOutputs(KScreen::ConfigOperation *op) {
     mOutputTimer->start(2500);
 }
 
-void Widget::callMethod(QRect geometry)
-{
+void Widget::callMethod(QRect geometry, QString name) {
     QDBusMessage message = QDBusMessage::createMethodCall("org.ukui.SettingsDaemon",
-                                           "/org/ukui/SettingsDaemon/xrandr",
-                                           "org.ukui.SettingsDaemon.xrandr",
+                                           "/org/ukui/SettingsDaemon/wayland",
+                                           "org.ukui.SettingsDaemon.wayland",
                                            "priScreenChanged");
-    message << geometry.x()<< geometry.y()<<geometry.width()<<geometry.height();
+    message << geometry.x()<< geometry.y() << geometry.width() << geometry.height() << name;
     QDBusConnection::sessionBus().send(message);
+}
+
+QString Widget::getPrimaryWaylandScreen() {
+    QDBusInterface screenIfc("org.ukui.SettingsDaemon",
+                             "/org/ukui/SettingsDaemon/wayland",
+                             "org.ukui.SettingsDaemon.wayland",
+                             QDBusConnection::sessionBus());
+    QDBusReply<QString> screenReply =  screenIfc.call("priScreenName");
+    if (screenReply.isValid()) {
+        return screenReply.value();
+    }
+    return QString();
 }
 
 void Widget::save() {
@@ -884,15 +895,16 @@ void Widget::save() {
             mBlockChanges = false;
         }
     );
+
 #ifdef KIRIN
     config->output(mScreenId)->setPrimary(true);
-    callMethod(config->primaryOutput()->geometry());
+    callMethod(config->primaryOutput()->geometry(), config->primaryOutput()->name());
 #endif
     mScreen->updateOutputsPlacement();
 
     if (isRestoreConfig()) {
 #ifdef KIRIN
-        callMethod(mPrevConfig->primaryOutput()->geometry());
+        callMethod(mPrevConfig->primaryOutput()->geometry(), config->primaryOutput()->name());
 #endif
         auto *op = new KScreen::SetConfigOperation(mPrevConfig);
         op->exec();
@@ -1097,11 +1109,22 @@ void Widget::mainScreenButtonSelect(int index) {
 
     const KScreen::OutputPtr newPrimary = mConfig->output(ui->primaryCombo->itemData(index).toInt());
     int connectCount  = mConfig->connectedOutputs().count();
+
+
+#ifdef KIRIN
+    if (!getPrimaryWaylandScreen().compare(newPrimary->name(), Qt::CaseInsensitive)) {
+        ui->mainScreenButton->setEnabled(false);
+    } else {
+        ui->mainScreenButton->setEnabled(true);
+    }
+
+#else
     if (newPrimary == mConfig->primaryOutput()) {
         ui->mainScreenButton->setEnabled(false);
     } else {
         ui->mainScreenButton->setEnabled(true);
     }
+#endif
 
     // 设置是否勾选
     mCloseScreenButton->setEnabled(true);
@@ -1117,6 +1140,7 @@ void Widget::mainScreenButtonSelect(int index) {
 
 // 设置主屏按钮
 void Widget::primaryButtonEnable(bool status) {
+
     Q_UNUSED(status);
     if (!mConfig) {
         return;
