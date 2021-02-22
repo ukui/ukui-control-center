@@ -1160,6 +1160,7 @@ void Widget::checkOutputScreen(bool judge) {
    KScreen::OutputPtr newPrimary = mConfig->output(ui->primaryCombo->itemData(index).toInt());
 
    KScreen::OutputPtr mainScreen = mConfig->primaryOutput();
+
    if (!mainScreen) {
        mConfig->setPrimaryOutput(newPrimary);
    }
@@ -1178,7 +1179,7 @@ void Widget::checkOutputScreen(bool judge) {
 
        if (enabledOutput >= 2) {
            // 设置副屏在主屏右边
-           newPrimary->setPos(QPoint(mainScreen->pos().x() + mainScreen->size().width(),
+           newPrimary->setPos(QPoint(mainScreen->pos().x() + mainScreen->geometry().width(),
                                mainScreen->pos().y()));
        }
    }
