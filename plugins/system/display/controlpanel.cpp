@@ -1,11 +1,11 @@
 #include "controlpanel.h"
 #include "outputconfig.h"
 #include "unifiedoutputconfig.h"
-//#include "kcm_screen_debug.h"
 
 #include <QVBoxLayout>
 #include <QDebug>
 #include <QLabel>
+#include <QDBusInterface>
 #include <KF5/KScreen/kscreen/config.h>
 
 ControlPanel::ControlPanel(QWidget *parent)
@@ -15,6 +15,8 @@ ControlPanel::ControlPanel(QWidget *parent)
     setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     mLayout = new QVBoxLayout(this);
     mLayout->setContentsMargins(0,0,0,0);
+
+    isWayland();
 }
 
 ControlPanel::~ControlPanel()
@@ -66,10 +68,9 @@ void ControlPanel::addOutput(const KScreen::OutputPtr &output)
 
     mOutputConfigs << outputCfg;
 
-#ifdef KIRIN
-    activateOutput(mCurrentOutput);
-#endif
-
+    if (mIsWayland) {
+        activateOutput(mCurrentOutput);
+    }
 }
 
 void ControlPanel::removeOutput(int outputId)
@@ -113,6 +114,18 @@ void ControlPanel::activateOutputNoParam()
     Q_FOREACH (OutputConfig *cfg, mOutputConfigs) {
         qDebug()<<cfg->output()->id()<<" id";
         cfg->setVisible(cfg->output()->id() == 66);
+    }
+}
+
+void ControlPanel::isWayland() {
+    QDBusInterface screenIfc("org.ukui.SettingsDaemon",
+                             "/org/ukui/SettingsDaemon/wayland",
+                             "org.ukui.SettingsDaemon.wayland",
+                             QDBusConnection::sessionBus());
+    if (screenIfc.isValid()) {
+        mIsWayland = true;
+    } else {
+        mIsWayland = false;
     }
 }
 

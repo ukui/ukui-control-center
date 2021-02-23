@@ -35,9 +35,10 @@ class OutputConfig : public QWidget
     void setShowScaleOption(bool showScaleOption);
     bool showScaleOption() const;
 
-    //拿取配置
     void initConfig(const KScreen::ConfigPtr &config);
-    QStringList readFile(const QString& filepath);
+
+  private:
+    void isWayland();
 
   protected Q_SLOTS:
     void slotResolutionChanged(const QSize &size);
@@ -54,17 +55,20 @@ class OutputConfig : public QWidget
     int getScreenScale();
 
   protected:
-    QLabel *mTitle = nullptr;
     KScreen::OutputPtr mOutput;
-    QCheckBox *mEnabled = nullptr;
+    QLabel           *mTitle      = nullptr;
+    QCheckBox        *mEnabled    = nullptr;
     ResolutionSlider *mResolution = nullptr;
-    QComboBox *mRotation = nullptr;
-    QComboBox *mScale = nullptr;
-    QComboBox *mRefreshRate = nullptr;
-    QComboBox *mMonitor = nullptr;
+
+    QComboBox *mRotation     = nullptr;
+    QComboBox *mScale        = nullptr;
+    QComboBox *mRefreshRate  = nullptr;
+    QComboBox *mMonitor      = nullptr;
     QComboBox *tmpResolution = nullptr;
-    QComboBox *scaleCombox = nullptr;
+    QComboBox *scaleCombox   = nullptr;
+
     bool mShowScaleOption  = false;
+    bool mIsWayland        = false;
 
 #if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
     KScreen::ConfigPtr mConfig ;
@@ -72,11 +76,7 @@ class OutputConfig : public QWidget
     KScreen::ConfigPtr mConfig = nullptr;
 #endif
 
-    QString qss;
-    QStringList proRes;        //profile文件内容
-
     QGSettings *m_gsettings = nullptr;
-
 };
 
 #endif // OUTPUTCONFIG_H

@@ -31,19 +31,22 @@ class ResolutionSlider : public QWidget
 
   private:
     void init();
+    void isWayland();
 
+  private:
     KScreen::OutputPtr mOutput;
 
     QList<QSize> mModes;
     QList<QSize> mExcludeModes;
 
-    QLabel *mSmallestLabel = nullptr;
-    QLabel *mBiggestLabel = nullptr;
-    QLabel *mCurrentLabel = nullptr;
-    QSlider *mSlider = nullptr;
-    QComboBox *mComboBox = nullptr;
+    QLabel    *mSmallestLabel = nullptr;
+    QLabel    *mBiggestLabel  = nullptr;
+    QLabel    *mCurrentLabel  = nullptr;
+    QSlider   *mSlider        = nullptr;
+    QComboBox *mComboBox      = nullptr;
 
-    QString qss;
+    bool      mIsWayland      = false;
+
 };
 
 #endif // RESOLUTIONSLIDER_H

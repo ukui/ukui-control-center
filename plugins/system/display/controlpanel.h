@@ -26,6 +26,9 @@ public:
     void setUnifiedOutput(const KScreen::OutputPtr &output);
     void activateOutputNoParam();
 
+private:
+    void isWayland();
+
 public Q_SLOTS:
     void activateOutput(const KScreen::OutputPtr &output);
 
@@ -47,6 +50,8 @@ private:
     UnifiedOutputConfig *mUnifiedOutputCfg;
 
     KScreen::OutputPtr mCurrentOutput;
+
+    bool mIsWayland;
 
 };
 

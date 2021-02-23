@@ -135,6 +135,7 @@ class Widget : public QWidget
     // Set primary screen
     void callMethod(QRect geometry, QString name);
     QString getPrimaryWaylandScreen();
+    void isWayland();
 
   public Q_SLOTS:
     void save();
@@ -219,6 +220,7 @@ class Widget : public QWidget
     bool mOnBattery       = false;
     bool mBlockChanges    = false;
     bool mFirstLoad       = true;
+    bool mIsWayland       = false;
 
     QString mCPU;
 };

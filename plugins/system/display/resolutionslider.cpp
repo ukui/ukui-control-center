@@ -8,6 +8,8 @@
 #include <QFile>
 #include <QStyledItemDelegate>
 
+#include <QDBusInterface>
+
 #include <KF5/KScreen/kscreen/output.h>
 
 static bool sizeLessThan(const QSize &sizeA, const QSize &sizeB)
@@ -31,6 +33,7 @@ ResolutionSlider::ResolutionSlider(const KScreen::OutputPtr &output, QWidget *pa
 #endif
 
     init();
+    isWayland();
 }
 
 ResolutionSlider::~ResolutionSlider()
@@ -78,9 +81,9 @@ void ResolutionSlider::init()
             if (size.width() * size.height() < 1024 * 768
                     || mExcludeModes.contains(size)
                     || size.width() < 1024) {
-#ifdef KIRIN
+        if (mIsWayland) {
                 mModes.removeOne(size);
-#endif
+        }
                 continue;
             }
             if (size == mModes[0]) {
@@ -147,6 +150,18 @@ void ResolutionSlider::init()
             mCurrentLabel->setText(Utils::sizeToString(size));
             Q_EMIT resolutionChanged(size);
         }
+    }
+}
+
+void ResolutionSlider::isWayland() {
+    QDBusInterface screenIfc("org.ukui.SettingsDaemon",
+                             "/org/ukui/SettingsDaemon/wayland",
+                             "org.ukui.SettingsDaemon.wayland",
+                             QDBusConnection::sessionBus());
+    if (screenIfc.isValid()) {
+        mIsWayland = true;
+    } else {
+        mIsWayland = false;
     }
 }
 

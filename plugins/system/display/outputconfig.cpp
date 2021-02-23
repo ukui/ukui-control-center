@@ -14,6 +14,8 @@
 #include <QComboBox>
 #include <QGSettings>
 
+#include <QDBusInterface>
+
 #include <KF5/KScreen/kscreen/output.h>
 #include <KF5/KScreen/kscreen/edid.h>
 
@@ -28,6 +30,7 @@ OutputConfig::OutputConfig(QWidget *parent)
     : QWidget(parent)
     , mOutput(nullptr)
 {
+    isWayland();
 }
 
 OutputConfig::OutputConfig(const KScreen::OutputPtr &output, QWidget *parent)
@@ -125,9 +128,14 @@ void OutputConfig::initUi()
     rotateFrame->setMaximumSize(960,50);
 
     mRotation->addItem( tr("arrow-up"), KScreen::Output::None);
-    mRotation->addItem( tr("90° arrow-right"), KScreen::Output::Right);
+    if (mIsWayland) {
+        mRotation->addItem( tr("90° arrow-right"), KScreen::Output::Left);
+        mRotation->addItem(tr("90° arrow-left"), KScreen::Output::Right);
+    } else {
+        mRotation->addItem( tr("90° arrow-right"), KScreen::Output::Right);
+        mRotation->addItem(tr("90° arrow-left"), KScreen::Output::Left);
+    }
     mRotation->addItem( tr("arrow-down"), KScreen::Output::Inverted);
-    mRotation->addItem(tr("90° arrow-left"), KScreen::Output::Left);
     connect(mRotation, static_cast<void(QComboBox::*)(int)>(&QComboBox::activated),
             this, &OutputConfig::slotRotationChanged);
     mRotation->setCurrentIndex(mRotation->findData(mOutput->rotation()));
@@ -326,24 +334,15 @@ void OutputConfig::initConfig(const KScreen::ConfigPtr &config){
     mConfig = config;
 }
 
-QStringList OutputConfig::readFile(const QString& filepath) {
-    QFile file(filepath);
-    if(file.exists()) {
-        if(!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            qWarning() << "ReadFile() failed to open" << filepath;
-            return QStringList();
-        }
-        QTextStream textStream(&file);
-        while(!textStream.atEnd()) {
-            QString line= textStream.readLine();
-            line.remove('\n');
-            this->proRes<<line;
-        }
-        file.close();
-        return this->proRes;
+void OutputConfig::isWayland() {
+    QDBusInterface screenIfc("org.ukui.SettingsDaemon",
+                             "/org/ukui/SettingsDaemon/wayland",
+                             "org.ukui.SettingsDaemon.wayland",
+                             QDBusConnection::sessionBus());
+    if (screenIfc.isValid()) {
+        mIsWayland = true;
     } else {
-        qWarning() << filepath << " not found"<<endl;
-        return QStringList();
+        mIsWayland = false;
     }
 }
 

@@ -84,7 +84,6 @@ Widget::Widget(QWidget *parent)
     ui->setupUi(this);
     ui->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
     ui->quickWidget->setContentsMargins(0,0,0,9);
-    setHideModuleInfo();
 
     mCloseScreenButton = new SwitchButton(this);
     ui->showScreenLayout->addWidget(mCloseScreenButton);
@@ -92,7 +91,9 @@ Widget::Widget(QWidget *parent)
     mUnifyButton = new SwitchButton(this);
     ui->unionLayout->addWidget(mUnifyButton);
 
+    setHideModuleInfo();
     initNightUI();
+    isWayland();
 
     QProcess * process = new QProcess;
     process->start("lsb_release -r");
@@ -827,6 +828,18 @@ QString Widget::getPrimaryWaylandScreen() {
     return QString();
 }
 
+void Widget::isWayland() {
+    QDBusInterface screenIfc("org.ukui.SettingsDaemon",
+                             "/org/ukui/SettingsDaemon/wayland",
+                             "org.ukui.SettingsDaemon.wayland",
+                             QDBusConnection::sessionBus());
+    if (screenIfc.isValid()) {
+        mIsWayland = true;
+    } else {
+        mIsWayland = false;
+    }
+}
+
 void Widget::save() {
     if (!this) {
         return;
@@ -896,28 +909,28 @@ void Widget::save() {
         }
     );
 
-#ifdef KIRIN
-    config->output(mScreenId)->setPrimary(true);
-    callMethod(config->primaryOutput()->geometry(), config->primaryOutput()->name());
-#endif
+    if (mIsWayland) {
+        config->output(mScreenId)->setPrimary(true);
+        callMethod(config->primaryOutput()->geometry(), config->primaryOutput()->name());
+    }
     mScreen->updateOutputsPlacement();
 
     if (isRestoreConfig()) {
-#ifdef KIRIN
-        callMethod(mPrevConfig->primaryOutput()->geometry(), config->primaryOutput()->name());
-#endif
+        if (mIsWayland) {
+            callMethod(mPrevConfig->primaryOutput()->geometry(), config->primaryOutput()->name());
+        }
         auto *op = new KScreen::SetConfigOperation(mPrevConfig);
         op->exec();
     } else {
         mPrevConfig = config->clone();
         writeScreenXml();
-#ifdef KIRIN
-        QString dir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) %
-                                                        QStringLiteral("/kscreen/") %
-                                                        QStringLiteral("" /*"configs/"*/);
-        QString hash = mPrevConfig->connectedOutputsHash();
-        writeFile(dir % hash);
-#endif
+        if (mIsWayland) {
+            QString dir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) %
+                                                            QStringLiteral("/kscreen/") %
+                                                            QStringLiteral("" /*"configs/"*/);
+            QString hash = mPrevConfig->connectedOutputsHash();
+            writeFile(dir % hash);
+        }
     }
 }
 
@@ -1110,21 +1123,19 @@ void Widget::mainScreenButtonSelect(int index) {
     const KScreen::OutputPtr newPrimary = mConfig->output(ui->primaryCombo->itemData(index).toInt());
     int connectCount  = mConfig->connectedOutputs().count();
 
-
-#ifdef KIRIN
-    if (!getPrimaryWaylandScreen().compare(newPrimary->name(), Qt::CaseInsensitive)) {
-        ui->mainScreenButton->setEnabled(false);
+    if (mIsWayland) {
+        if (!getPrimaryWaylandScreen().compare(newPrimary->name(), Qt::CaseInsensitive)) {
+            ui->mainScreenButton->setEnabled(false);
+        } else {
+            ui->mainScreenButton->setEnabled(true);
+        }
     } else {
-        ui->mainScreenButton->setEnabled(true);
+        if (newPrimary == mConfig->primaryOutput()) {
+            ui->mainScreenButton->setEnabled(false);
+        } else {
+            ui->mainScreenButton->setEnabled(true);
+        }
     }
-
-#else
-    if (newPrimary == mConfig->primaryOutput()) {
-        ui->mainScreenButton->setEnabled(false);
-    } else {
-        ui->mainScreenButton->setEnabled(true);
-    }
-#endif
 
     // 设置是否勾选
     mCloseScreenButton->setEnabled(true);
