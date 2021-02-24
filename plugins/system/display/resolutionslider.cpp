@@ -32,8 +32,8 @@ ResolutionSlider::ResolutionSlider(const KScreen::OutputPtr &output, QWidget *pa
             this, &ResolutionSlider::init);
 #endif
 
-    init();
     isWayland();
+    init();
 }
 
 ResolutionSlider::~ResolutionSlider()
@@ -81,9 +81,10 @@ void ResolutionSlider::init()
             if (size.width() * size.height() < 1024 * 768
                     || mExcludeModes.contains(size)
                     || size.width() < 1024) {
-        if (mIsWayland) {
-                mModes.removeOne(size);
-        }
+
+                if (mIsWayland) {
+                    mModes.removeOne(size);
+                }
                 continue;
             }
             if (size == mModes[0]) {

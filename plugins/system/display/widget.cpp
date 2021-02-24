@@ -1405,7 +1405,7 @@ void Widget::initNightStatus() {
                              "/ColorCorrect",
                              "org.ukui.kwin.ColorCorrect",
                              QDBusConnection::sessionBus());
-    if (colorIft.isValid() && !mCPU.startsWith(kLoong, Qt::CaseInsensitive)) {
+    if (colorIft.isValid() && !mCPU.startsWith(kLoong, Qt::CaseInsensitive) && !mIsWayland) {
         this->mRedshiftIsValid = true;
     } else {
         qWarning() << "create org.ukui.kwin.ColorCorrect failed";
