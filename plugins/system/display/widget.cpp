@@ -833,7 +833,8 @@ void Widget::isWayland() {
                              "/org/ukui/SettingsDaemon/wayland",
                              "org.ukui.SettingsDaemon.wayland",
                              QDBusConnection::sessionBus());
-    if (screenIfc.isValid()) {
+    QDBusReply<QString> screenReply =  screenIfc.call("priScreenName");
+    if (screenReply.isValid()) {
         mIsWayland = true;
     } else {
         mIsWayland = false;

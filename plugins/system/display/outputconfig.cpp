@@ -248,6 +248,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size)
         return;
     }
 
+    QString modeID;
     KScreen::ModePtr selectedMode;
     KScreen::ModePtr currentMode  = mOutput->currentMode();
     QList<KScreen::ModePtr> modes;
@@ -259,7 +260,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size)
     }
 
     Q_ASSERT(selectedMode);
-    mOutput->setCurrentModeId(selectedMode->id());
+    modeID = selectedMode->id();
 
     // Don't remove the first "Auto" item - prevents ugly flicker of the combobox
     // when changing resolution
@@ -281,6 +282,13 @@ void OutputConfig::slotResolutionChanged(const QSize &size)
             mRefreshRate->setCurrentIndex(i + 1);
         }
     }
+
+    if (-1 == mRefreshRate->currentIndex() || 0 == mRefreshRate->currentIndex()) {
+        qDebug() << Q_FUNC_INFO;
+        modeID = mRefreshRate->itemData(1).toString();
+    }
+
+    mOutput->setCurrentModeId(modeID);
 
     Q_EMIT changed();
 }
