@@ -486,7 +486,7 @@ void Theme::initCursorTheme(){
         QString value = curWidget->getValue();
         //设置光标主题
         curSettings->set(CURSOR_THEME_KEY, value);
-        kwinCursorSlot();
+        kwinCursorSlot(value);
     });
 
     for (QString cursor : cursorThemes){
@@ -619,7 +619,7 @@ void Theme::setupGSettings() {
     personliseGsettings = new QGSettings(iiid, QByteArray(), this);
 }
 
-void Theme::kwinCursorSlot() {
+void Theme::kwinCursorSlot(QString value) {
 
     QString filename = QDir::homePath() + "/.config/kcminputrc";
     QSettings *mouseSettings = new QSettings(filename, QSettings::IniFormat);
@@ -654,7 +654,7 @@ QString Theme::dullTranslation(QString str) {
 void Theme::resetBtnClickSlot() {
 
     emit ui->themeModeBtnGroup->buttonClicked(ui->defaultButton);
-    kwinCursorSlot();
+    kwinCursorSlot(kDefCursor);
 
     // reset cursor default theme
     curSettings->reset(CURSOR_THEME_KEY);
