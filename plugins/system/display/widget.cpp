@@ -64,7 +64,6 @@ extern "C" {
 
 #define POWER_SCHMES                     "org.ukui.power-manager"
 #define POWER_KEY                        "brightness-ac"
-#define POWER_BAT_KEY                    "brightness-bat"
 
 #define ADVANCED_SCHEMAS                 "org.ukui.session.required-components"
 #define ADVANCED_KEY                     "windowmanager"
@@ -1224,7 +1223,7 @@ void Widget::checkOutputScreen(bool judge) {
 
 // 亮度调节UI
 void Widget::initBrightnessUI() {
-    ui->brightnessSlider->setRange(1, 100);
+    ui->brightnessSlider->setRange(0, 100);
     ui->brightnessSlider->setTracking(true);
 
     setBrightnesSldierValue();
@@ -1288,11 +1287,7 @@ void Widget::setBrightnessScreen(int value) {
 //滑块改变
 void Widget::setBrightnesSldierValue() {
     int value = 99;
-    if (mPowerKeys.contains("brightnessBat") && mOnBattery) {
-        value = mPowerGSettings->get(POWER_BAT_KEY).toInt();
-    } else {
-        value = mPowerGSettings->get(POWER_KEY).toInt();
-    }
+    value = mPowerGSettings->get(POWER_KEY).toInt();
 
     ui->brightnessSlider->setValue(value);
 }
