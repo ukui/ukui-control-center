@@ -6,6 +6,7 @@
 #include "ui_display.h"
 #include "displayperformancedialog.h"
 #include "colorinfo.h"
+#include "../../../shell/utils/utils.h"
 
 #include <QHBoxLayout>
 #include <QTimer>
@@ -1516,7 +1517,7 @@ void Widget::initNightStatus() {
                              "/ColorCorrect",
                              "org.ukui.kwin.ColorCorrect",
                              QDBusConnection::sessionBus());
-    if (colorIft.isValid() && !mCPU.startsWith(kLoong, Qt::CaseInsensitive) && !mIsWayland) {
+    if (colorIft.isValid() && Utils::isExistEffect() && !mIsWayland) {
         this->mRedshiftIsValid = true;
     } else {
         qWarning() << "create org.ukui.kwin.ColorCorrect failed";
@@ -1568,5 +1569,7 @@ void Widget::initNightStatus() {
 }
 
 void Widget::nightChangedSlot(QHash<QString, QVariant> nightArg) {
-    mNightButton->setChecked(nightArg["Active"].toBool());
+    if (this->mRedshiftIsValid) {
+        mNightButton->setChecked(nightArg["Active"].toBool());
+    }
 }
