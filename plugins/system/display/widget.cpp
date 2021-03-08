@@ -848,11 +848,22 @@ void Widget::slotIdentifyOutputs(KScreen::ConfigOperation *op) {
 }
 
 void Widget::callMethod(QRect geometry, QString name) {
+    auto scale = 1;
+    QDBusInterface waylandIfc("org.ukui.SettingsDaemon",
+                              "/org/ukui/SettingsDaemon/wayland",
+                              "org.ukui.SettingsDaemon.wayland",
+                              QDBusConnection::sessionBus());
+
+    QDBusReply<int> reply =  waylandIfc.call("scale");
+    if (reply.isValid()) {
+        scale = reply.value();
+    }
+
     QDBusMessage message = QDBusMessage::createMethodCall("org.ukui.SettingsDaemon",
                                            "/org/ukui/SettingsDaemon/wayland",
                                            "org.ukui.SettingsDaemon.wayland",
                                            "priScreenChanged");
-    message << geometry.x()<< geometry.y() << geometry.width() << geometry.height() << name;
+    message << geometry.x() / scale << geometry.y() / scale << geometry.width() / scale << geometry.height() / scale << name;
     QDBusConnection::sessionBus().send(message);
 }
 
