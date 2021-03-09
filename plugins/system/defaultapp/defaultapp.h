@@ -107,6 +107,7 @@ private:
     QString mDefaultText;
 
     bool isCloudEmitted;
+    bool mFirstLoad;
 
 public slots:
     void browserComBoBox_changed_cb(int index);

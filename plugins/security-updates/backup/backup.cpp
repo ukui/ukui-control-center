@@ -33,7 +33,7 @@ extern "C" {
 #include <glib.h>
 }
 
-Backup::Backup()
+Backup::Backup() : mFirstLoad(true)
 {
     ui = new Ui::Backup;
     pluginWidget = new QWidget;
@@ -43,22 +43,14 @@ Backup::Backup()
     pluginName = tr("Backup");
     pluginType = UPDATE;
 
-    initTitleLabel();
-    connect(ui->backBtn, &QPushButton::clicked, this, [=](bool checked){
-        Q_UNUSED(checked)
-        btnClicked();
-    });
-
-    connect(ui->restoreBtn, &QPushButton::clicked, this, [=](bool checked){
-        Q_UNUSED(checked)
-        restoreSlots();
-    });
 }
 
 Backup::~Backup()
 {
-    delete ui;
-    ui = nullptr;
+    if (!mFirstLoad) {
+        delete ui;
+        ui = nullptr;
+    }
 }
 
 QString Backup::get_plugin_name() {
@@ -70,6 +62,19 @@ int Backup::get_plugin_type() {
 }
 
 QWidget *Backup::get_plugin_ui() {
+    if (mFirstLoad) {
+        mFirstLoad = false;
+        initTitleLabel();
+        connect(ui->backBtn, &QPushButton::clicked, this, [=](bool checked){
+            Q_UNUSED(checked)
+            btnClicked();
+        });
+
+        connect(ui->restoreBtn, &QPushButton::clicked, this, [=](bool checked){
+            Q_UNUSED(checked)
+            restoreSlots();
+        });
+    }
     return pluginWidget;
 }
 

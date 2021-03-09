@@ -38,7 +38,8 @@ const QString kenBj = "Asia/Beijing";
 #define TIME_FORMAT_KEY "hoursystem"
 #define DATE_KEY        "date"
 
-DateTime::DateTime() {
+DateTime::DateTime() : mFirstLoad(true)
+{
     ui = new Ui::DateTime;
     pluginWidget = new QWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
@@ -46,62 +47,15 @@ DateTime::DateTime() {
 
     pluginName = tr("Date");
     pluginType = DATETIME;
-    initTitleLabel();
 
-    m_zoneinfo = new ZoneInfo;
-    m_timezone = new TimeZoneChooser(pluginWidget);
-    m_itimer = new QTimer(this);
-    m_itimer->start(1000);
-    connect(m_itimer,SIGNAL(timeout()), this, SLOT(datetime_update_slot()));
 
-    m_formTimeBtn = new SwitchButton;
-    //~ contents_path /date/24-hour clock
-    m_formTimeLabel = new QLabel(tr("24-hour clock"));
-
-    // 初始化gsettings
-    const QByteArray id(FORMAT_SCHEMA);
-    if (QGSettings::isSchemaInstalled(id)) {
-        const QByteArray id(FORMAT_SCHEMA);
-        m_formatsettings = new QGSettings(id, QByteArray(), this);
-        connect(m_formatsettings, &QGSettings::changed, this, [=](QString key) {
-            QString hourFormat = m_formatsettings->get(TIME_FORMAT_KEY).toString();
-            bool status = ("24" == hourFormat ? false : true);
-            time_format_clicked_slot(status, true);
-        });
-    }
-    connectToServer();
-    connectGSetting();
-    //初始化dbus
-    m_datetimeiface = new QDBusInterface("org.freedesktop.timedate1",
-                                       "/org/freedesktop/timedate1",
-                                       "org.freedesktop.timedate1",
-                                       QDBusConnection::systemBus(), this);
-
-    m_datetimeiproperties = new QDBusInterface("org.freedesktop.timedate1",
-                                             "/org/freedesktop/timedate1",
-                                             "org.freedesktop.DBus.Properties",
-                                             QDBusConnection::systemBus(), this);
-    component_init();
-    status_init();
-
-    connect(ui->chgtimebtn,SIGNAL(clicked()),this,SLOT(changetime_slot()));
-    connect(ui->chgzonebtn,SIGNAL(clicked()),this,SLOT(changezone_slot()));
-    connect(m_formTimeBtn, &SwitchButton::checkedChanged, this, [=](bool status) {
-        time_format_clicked_slot(status, false);
-    });
-    connect(m_timezone, &TimeZoneChooser::confirmed, this, [this] (const QString &timezone) {
-        changezone_slot(timezone);
-        m_timezone->hide();
-        const QString locale = QLocale::system().name();
-        QString localizedTimezone = m_zoneinfo->getLocalTimezoneName(timezone, locale);
-        ui->timezoneLabel->setText(localizedTimezone);
-    });
-    connect(ui->synsystimeBtn,SIGNAL(clicked()),this,SLOT(rsync_with_network_slot()));
 }
 
 DateTime::~DateTime() {
-    delete ui;
-    ui = nullptr;
+    if (!mFirstLoad) {
+        delete ui;
+        ui = nullptr;
+    }
 }
 
 QString DateTime::get_plugin_name() {
@@ -113,6 +67,62 @@ int DateTime::get_plugin_type() {
 }
 
 QWidget *DateTime::get_plugin_ui() {
+
+    if (mFirstLoad) {
+
+        mFirstLoad = false;
+
+        initTitleLabel();
+        m_zoneinfo = new ZoneInfo;
+        m_timezone = new TimeZoneChooser(pluginWidget);
+        m_itimer = new QTimer(this);
+        m_itimer->start(1000);
+        connect(m_itimer,SIGNAL(timeout()), this, SLOT(datetime_update_slot()));
+
+        m_formTimeBtn = new SwitchButton;
+        //~ contents_path /date/24-hour clock
+        m_formTimeLabel = new QLabel(tr("24-hour clock"));
+
+        // 初始化gsettings
+        const QByteArray id(FORMAT_SCHEMA);
+        if (QGSettings::isSchemaInstalled(id)) {
+            const QByteArray id(FORMAT_SCHEMA);
+            m_formatsettings = new QGSettings(id, QByteArray(), this);
+            connect(m_formatsettings, &QGSettings::changed, this, [=](QString key) {
+                QString hourFormat = m_formatsettings->get(TIME_FORMAT_KEY).toString();
+                bool status = ("24" == hourFormat ? false : true);
+                time_format_clicked_slot(status, true);
+            });
+        }
+        connectToServer();
+        connectGSetting();
+        //初始化dbus
+        m_datetimeiface = new QDBusInterface("org.freedesktop.timedate1",
+                                           "/org/freedesktop/timedate1",
+                                           "org.freedesktop.timedate1",
+                                           QDBusConnection::systemBus(), this);
+
+        m_datetimeiproperties = new QDBusInterface("org.freedesktop.timedate1",
+                                                 "/org/freedesktop/timedate1",
+                                                 "org.freedesktop.DBus.Properties",
+                                                 QDBusConnection::systemBus(), this);
+        component_init();
+        status_init();
+
+        connect(ui->chgtimebtn,SIGNAL(clicked()),this,SLOT(changetime_slot()));
+        connect(ui->chgzonebtn,SIGNAL(clicked()),this,SLOT(changezone_slot()));
+        connect(m_formTimeBtn, &SwitchButton::checkedChanged, this, [=](bool status) {
+            time_format_clicked_slot(status, false);
+        });
+        connect(m_timezone, &TimeZoneChooser::confirmed, this, [this] (const QString &timezone) {
+            changezone_slot(timezone);
+            m_timezone->hide();
+            const QString locale = QLocale::system().name();
+            QString localizedTimezone = m_zoneinfo->getLocalTimezoneName(timezone, locale);
+            ui->timezoneLabel->setText(localizedTimezone);
+        });
+        connect(ui->synsystimeBtn,SIGNAL(clicked()),this,SLOT(rsync_with_network_slot()));
+    }
     return pluginWidget;
 }
 

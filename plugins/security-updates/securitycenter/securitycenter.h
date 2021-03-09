@@ -93,5 +93,7 @@ private:
     int pluginType;
     QWidget * pluginWidget;
 
+    bool mFirstLoad;
+
 };
 #endif // SECURITYCENTER_H

@@ -118,7 +118,7 @@ private:
     QGSettings * sockssettings;
 
     bool settingsCreate;
-
+    bool mFirstLoad;
 
 public slots:
     void proxyModeChangedSlot(bool checked);

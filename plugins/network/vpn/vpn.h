@@ -64,6 +64,8 @@ private:
     QWidget * pluginWidget;
     HoverWidget * addWgt;
 
+    bool mFirstLoad;
+
 };
 
 #endif // VPN_H

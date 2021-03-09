@@ -35,67 +35,20 @@
 #define DATE_FORMATE_KEY "date"
 #define TIME_KEY         "hoursystem"
 
-Area::Area()
+Area::Area() : mFirstLoad(true)
 {
-    ui = new Ui::Area;
-    pluginWidget = new QWidget;
-    pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-    ui->setupUi(pluginWidget);
-
     pluginName = tr("Area");
     pluginType = DATETIME;
-
-    ui->countrylabel->adjustSize();
-    ui->languagelabel->adjustSize();
-    ui->formframe->adjustSize();
-
-    const QByteArray id(PANEL_GSCHEMAL);
-
-    if(QGSettings::isSchemaInstalled(id)) {
-        m_gsettings = new QGSettings(id, QByteArray(), pluginWidget);
-        mDateFormat = m_gsettings->get(DATE_FORMATE_KEY).toString();
-        connect(m_gsettings, &QGSettings::changed, this, [=](QString key) {
-            mDateFormat = m_gsettings->get(DATE_FORMATE_KEY).toString();
-            if ("hoursystem" == key) {
-                initFormatData();
-            }
-        });
-    }
-
-    unsigned int uid = getuid();
-    objpath = objpath +"/org/freedesktop/Accounts/User"+QString::number(uid);
-
-
-    m_areaInterface = new QDBusInterface("org.freedesktop.Accounts",
-                                         objpath,
-                                         "org.freedesktop.Accounts.User",
-                                         QDBusConnection::systemBus());
-
-    m_itimer = new QTimer();
-    m_itimer->start(1000);
-
-
-    initTitleLabel();
-    initUI();
-    initComponent();
-    connectToServer();
-
-    connect(m_itimer,SIGNAL(timeout()), this, SLOT(datetime_update_slot()));
-    connect(ui->langcomboBox,SIGNAL(currentIndexChanged(int)),this,SLOT(change_language_slot(int)));
-    connect(ui->countrycomboBox,SIGNAL(currentIndexChanged(int)),this,SLOT(change_area_slot(int)));
-    connect(ui->chgformButton,SIGNAL(clicked()),this,SLOT(changeform_slot()));
-    connect(ui->countrycomboBox, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-            [=]{
-        KMessageBox::information(ui->languageframe_2, tr("Need to log off to take effect"));
-    });
 }
 
 Area::~Area()
 {
-    delete ui;
-    ui = nullptr;
-    delete m_itimer;
-    m_itimer = nullptr;
+    if (!mFirstLoad) {
+        delete ui;
+        ui = nullptr;
+        delete m_itimer;
+        m_itimer = nullptr;
+    }
 }
 
 void Area::cloudChangedSlot(const QString &key) {
@@ -130,6 +83,59 @@ int Area::get_plugin_type() {
 }
 
 QWidget *Area::get_plugin_ui() {
+    if (mFirstLoad) {
+
+        mFirstLoad = false;
+
+        ui = new Ui::Area;
+        pluginWidget = new QWidget;
+        pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
+        ui->setupUi(pluginWidget);
+
+        ui->countrylabel->adjustSize();
+        ui->languagelabel->adjustSize();
+        ui->formframe->adjustSize();
+
+        const QByteArray id(PANEL_GSCHEMAL);
+
+        if(QGSettings::isSchemaInstalled(id)) {
+            m_gsettings = new QGSettings(id, QByteArray(), pluginWidget);
+            mDateFormat = m_gsettings->get(DATE_FORMATE_KEY).toString();
+            connect(m_gsettings, &QGSettings::changed, this, [=](QString key) {
+                mDateFormat = m_gsettings->get(DATE_FORMATE_KEY).toString();
+                if ("hoursystem" == key) {
+                    initFormatData();
+                }
+            });
+        }
+
+        unsigned int uid = getuid();
+        objpath = objpath +"/org/freedesktop/Accounts/User"+QString::number(uid);
+
+
+        m_areaInterface = new QDBusInterface("org.freedesktop.Accounts",
+                                             objpath,
+                                             "org.freedesktop.Accounts.User",
+                                             QDBusConnection::systemBus());
+
+        m_itimer = new QTimer();
+        m_itimer->start(1000);
+
+
+        initTitleLabel();
+        initUI();
+        initComponent();
+        connectToServer();
+
+        connect(m_itimer,SIGNAL(timeout()), this, SLOT(datetime_update_slot()));
+        connect(ui->langcomboBox,SIGNAL(currentIndexChanged(int)),this,SLOT(change_language_slot(int)));
+        connect(ui->countrycomboBox,SIGNAL(currentIndexChanged(int)),this,SLOT(change_area_slot(int)));
+        connect(ui->chgformButton,SIGNAL(clicked()),this,SLOT(changeform_slot()));
+        connect(ui->countrycomboBox, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+                [=]{
+            KMessageBox::information(ui->languageframe_2, tr("Need to log off to take effect"));
+        });
+    }
     return pluginWidget;
 }
 

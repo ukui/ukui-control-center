@@ -56,6 +56,7 @@ private:
     QString pluginName;
     int pluginType;
     QWidget * pluginWidget;
+    bool mFirstLoad;
 };
 
 #endif // BACKUP_H

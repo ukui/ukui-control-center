@@ -153,29 +153,21 @@ void BlockWidget::paintEvent(QPaintEvent *event){
     style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-SecurityCenter::SecurityCenter()
+SecurityCenter::SecurityCenter() : mFirstLoad(true)
 {
     ui = new Ui::SecurityCenter;
-    pluginWidget = new QWidget;
-    pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-    ui->setupUi(pluginWidget);
     pluginName = tr("Security Center");
     pluginType = UPDATE;
 
-    initTitleLabel();
-    initSearchText();
-    initComponent();
 
-    connect(ui->pushButton, &QPushButton::clicked, [=]{
-        QString cmd = "/usr/sbin/ksc-defender";
-        runExternalApp(cmd);
-    });
 }
 
 SecurityCenter::~SecurityCenter()
 {
-    delete ui;
-    ui = nullptr;
+    if (!mFirstLoad) {
+        delete ui;
+        ui = nullptr;
+    }
 }
 
 QString SecurityCenter::get_plugin_name(){
@@ -187,6 +179,22 @@ int SecurityCenter::get_plugin_type(){
 }
 
 QWidget * SecurityCenter::get_plugin_ui(){
+    if (mFirstLoad) {
+        mFirstLoad = false;
+        pluginWidget = new QWidget;
+        pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
+        ui->setupUi(pluginWidget);
+
+
+        initTitleLabel();
+        initSearchText();
+        initComponent();
+
+        connect(ui->pushButton, &QPushButton::clicked, [=]{
+            QString cmd = "/usr/sbin/ksc-defender";
+            runExternalApp(cmd);
+        });
+    }
     return pluginWidget;
 }
 

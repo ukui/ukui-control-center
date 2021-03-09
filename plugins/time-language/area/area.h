@@ -96,6 +96,8 @@ private:
     HoverWidget    *addWgt;
     QDBusInterface *cloudInterface;
 
+    bool mFirstLoad;
+
 private slots:
     void initFormatData();
     void run_external_app_slot();

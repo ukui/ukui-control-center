@@ -109,6 +109,7 @@ private:
     ZoneInfo* m_zoneinfo;
 
     QDateTime current;
+    bool mFirstLoad;
 
 Q_SIGNALS:
     void changed();

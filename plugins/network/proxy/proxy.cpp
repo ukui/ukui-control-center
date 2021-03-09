@@ -41,79 +41,82 @@
 #define PROXY_HOST_KEY       "host"
 #define PROXY_PORT_KEY       "port"
 
-Proxy::Proxy()
+Proxy::Proxy() : mFirstLoad(true)
 {
     ui = new Ui::Proxy;
-    pluginWidget = new QWidget;
-    pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-    ui->setupUi(pluginWidget);
-
     pluginName = tr("Proxy");
     pluginType = NETWORK;
-
-    settingsCreate = false;
-
-    const QByteArray id(PROXY_SCHEMA);
-    const QByteArray idd(HTTP_PROXY_SCHEMA);
-    const QByteArray iddd(HTTPS_PROXY_SCHEMA);
-    const QByteArray iid(FTP_PROXY_SCHEMA);
-    const QByteArray iiid(SOCKS_PROXY_SCHEMA);
-
-    initTitleLabel();
-    initSearchText();
-    setupStylesheet();
-    setupComponent();
-
-    if (QGSettings::isSchemaInstalled(id) && QGSettings::isSchemaInstalled(idd) &&
-            QGSettings::isSchemaInstalled(iddd) && QGSettings::isSchemaInstalled(iid) &&
-            QGSettings::isSchemaInstalled(iiid)){
-
-        settingsCreate = true;
-        proxysettings = new QGSettings(id);
-        httpsettings = new QGSettings(idd);
-        securesettings = new QGSettings(iddd);
-        ftpsettings = new QGSettings(iid);
-        sockssettings = new QGSettings(iiid);
-
-        setupConnect();
-        initProxyModeStatus();
-        initAutoProxyStatus();
-        initManualProxyStatus();
-        initIgnoreHostStatus();
-    } else {
-        qCritical() << "Xml needed by Proxy is not installed";
-    }
-
 }
 
 Proxy::~Proxy()
 {
-    delete ui;
-    ui = nullptr;
+    if (!mFirstLoad) {
+        delete ui;
+        ui = nullptr;
 
-    if (settingsCreate){
-        delete proxysettings;
-        proxysettings = nullptr;
-        delete httpsettings;
-        httpsettings = nullptr;
-        delete securesettings;
-        securesettings = nullptr;
-        delete ftpsettings;
-        ftpsettings = nullptr;
-        delete sockssettings;
-        sockssettings = nullptr;
+        if (settingsCreate){
+            delete proxysettings;
+            proxysettings = nullptr;
+            delete httpsettings;
+            httpsettings = nullptr;
+            delete securesettings;
+            securesettings = nullptr;
+            delete ftpsettings;
+            ftpsettings = nullptr;
+            delete sockssettings;
+            sockssettings = nullptr;
+        }
     }
 }
 
-QString Proxy::get_plugin_name(){
+QString Proxy::get_plugin_name() {
     return pluginName;
 }
 
-int Proxy::get_plugin_type(){
+int Proxy::get_plugin_type() {
     return pluginType;
 }
 
-QWidget *Proxy::get_plugin_ui(){
+QWidget *Proxy::get_plugin_ui() {
+    if (mFirstLoad) {
+        mFirstLoad = false;
+        pluginWidget = new QWidget;
+        pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
+        ui->setupUi(pluginWidget);
+
+        settingsCreate = false;
+
+        const QByteArray id(PROXY_SCHEMA);
+        const QByteArray idd(HTTP_PROXY_SCHEMA);
+        const QByteArray iddd(HTTPS_PROXY_SCHEMA);
+        const QByteArray iid(FTP_PROXY_SCHEMA);
+        const QByteArray iiid(SOCKS_PROXY_SCHEMA);
+
+        initTitleLabel();
+        initSearchText();
+        setupStylesheet();
+        setupComponent();
+
+        if (QGSettings::isSchemaInstalled(id) && QGSettings::isSchemaInstalled(idd) &&
+                QGSettings::isSchemaInstalled(iddd) && QGSettings::isSchemaInstalled(iid) &&
+                QGSettings::isSchemaInstalled(iiid)){
+
+            settingsCreate = true;
+            proxysettings = new QGSettings(id);
+            httpsettings = new QGSettings(idd);
+            securesettings = new QGSettings(iddd);
+            ftpsettings = new QGSettings(iid);
+            sockssettings = new QGSettings(iiid);
+
+            setupConnect();
+            initProxyModeStatus();
+            initAutoProxyStatus();
+            initManualProxyStatus();
+            initIgnoreHostStatus();
+        } else {
+            qCritical() << "Xml needed by Proxy is not installed";
+        }
+    }
     return pluginWidget;
 }
 

@@ -23,24 +23,18 @@
 #include <QProcess>
 #include <QMouseEvent>
 
-Vpn::Vpn()
+Vpn::Vpn() : mFirstLoad(true)
 {
-    ui = new Ui::Vpn;
-    pluginWidget = new QWidget;
-    pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-    ui->setupUi(pluginWidget);
-
     pluginName = tr("Vpn");
     pluginType = NETWORK;
-
-    initTitleLabel();
-    initComponent();
 }
 
 Vpn::~Vpn()
 {
-    delete ui;
-    ui = nullptr;
+    if (!mFirstLoad) {
+        delete ui;
+        ui = nullptr;
+    }
 }
 
 QString Vpn::get_plugin_name(){
@@ -52,6 +46,16 @@ int Vpn::get_plugin_type(){
 }
 
 QWidget *Vpn::get_plugin_ui(){
+    if (mFirstLoad) {
+        mFirstLoad = false;
+        ui = new Ui::Vpn;
+        pluginWidget = new QWidget;
+        pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
+        ui->setupUi(pluginWidget);
+
+        initTitleLabel();
+        initComponent();
+    }
     return pluginWidget;
 }
 
