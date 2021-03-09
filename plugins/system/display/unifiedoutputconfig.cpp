@@ -84,16 +84,14 @@ void UnifiedOutputConfig::initUi()
     resFrame->setMinimumSize(552,50);
     resFrame->setMaximumSize(960,50);
 
-
     vbox->addWidget(resFrame);
     connect(mResolution, &ResolutionSlider::resolutionChanged,
             this, &UnifiedOutputConfig::slotResolutionChanged);
 
-
     slotResolutionChanged(mResolution->currentResolution());
 
     //方向下拉框
-    mRotation = new QComboBox();
+    mRotation = new QComboBox(this);
 
     mRotation->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     mRotation->setMinimumSize(402,30);
@@ -105,19 +103,20 @@ void UnifiedOutputConfig::initUi()
     rotateLabel->setMinimumSize(118,30);
     rotateLabel->setMaximumSize(118,30);
 
-    connect(mRotation, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-            this, &UnifiedOutputConfig::slotRotationChangedDerived);
-
     mRotation->addItem(tr("arrow-up"), KScreen::Output::None);
     mRotation->addItem(tr("90° arrow-right"), KScreen::Output::Right);
     mRotation->addItem(tr("arrow-down"), KScreen::Output::Inverted);
     mRotation->addItem(tr("90° arrow-left"), KScreen::Output::Left);
 
+    int index = mRotation->findData(mOutput->rotation());
+    mRotation->setCurrentIndex(index);
+
+    connect(mRotation, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this, &UnifiedOutputConfig::slotRotationChangedDerived);
 
     QHBoxLayout *roatateLayout = new QHBoxLayout();
     roatateLayout->addWidget(rotateLabel);
     roatateLayout->addWidget(mRotation);
-
 
     QFrame *rotateFrame = new QFrame(this);
     rotateFrame->setFrameShape(QFrame::Shape::Box);
@@ -127,9 +126,7 @@ void UnifiedOutputConfig::initUi()
     rotateFrame->setMinimumSize(552,50);
     rotateFrame->setMaximumSize(960,50);
 
-
     vbox->addWidget(rotateFrame);
-
 
     //统一输出刷新率下拉框
     mRefreshRate = new QComboBox(this);
@@ -210,7 +207,12 @@ KScreen::OutputPtr UnifiedOutputConfig::createFakeOutput()
         modes.insert(mode->id(), mode);
     }
     fakeOutput->setModes(modes);
-    fakeOutput->setCurrentModeId(Utils::sizeToString(commonResults.last()));
+    if (!mOutput->currentModeId().isEmpty()) {
+        fakeOutput->setCurrentModeId(Utils::sizeToString(mOutput->currentMode()->size()));
+    } else {
+        fakeOutput->setCurrentModeId(Utils::sizeToString(commonResults.last()));
+    }
+
     return fakeOutput;
 }
 

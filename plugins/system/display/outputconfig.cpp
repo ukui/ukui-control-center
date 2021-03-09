@@ -76,7 +76,6 @@ void OutputConfig::initUi()
     mResolution->setMinimumSize(402,30);
     mResolution->setMaximumSize(16777215,30);
 
-
     QLabel *resLabel = new QLabel(this);
     //~ contents_path /display/resolution
     resLabel->setText(tr("resolution"));
@@ -127,15 +126,10 @@ void OutputConfig::initUi()
     rotateFrame->setMinimumSize(550,50);
     rotateFrame->setMaximumSize(960,50);
 
-    mRotation->addItem( tr("arrow-up"), KScreen::Output::None);
-    if (mIsWayland) {
-        mRotation->addItem( tr("90° arrow-right"), KScreen::Output::Left);
-        mRotation->addItem(tr("90° arrow-left"), KScreen::Output::Right);
-    } else {
-        mRotation->addItem( tr("90° arrow-right"), KScreen::Output::Right);
-        mRotation->addItem(tr("90° arrow-left"), KScreen::Output::Left);
-    }
-    mRotation->addItem( tr("arrow-down"), KScreen::Output::Inverted);
+    mRotation->addItem(tr("arrow-up"), KScreen::Output::None);
+    mRotation->addItem(tr("90° arrow-right"), KScreen::Output::Right);
+    mRotation->addItem(tr("90° arrow-left"), KScreen::Output::Left);
+    mRotation->addItem(tr("arrow-down"), KScreen::Output::Inverted);
     connect(mRotation, static_cast<void(QComboBox::*)(int)>(&QComboBox::activated),
             this, &OutputConfig::slotRotationChanged);
     mRotation->setCurrentIndex(mRotation->findData(mOutput->rotation()));
@@ -253,7 +247,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size)
     KScreen::ModePtr currentMode  = mOutput->currentMode();
     QList<KScreen::ModePtr> modes;
     Q_FOREACH (const KScreen::ModePtr &mode, mOutput->modes()) {
-        if (mode->size() == size && mode->id() == mOutput->currentModeId()) {
+        if (mode->size() == size) {
             selectedMode = mode;
             modes << mode;
         }
