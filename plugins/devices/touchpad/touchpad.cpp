@@ -85,27 +85,25 @@ QWidget *Touchpad::get_plugin_ui(){
         ui->titleLabel->setText(tr("Touchpad Settings"));
 
         initTitleLabel();
+        initWaylandDbus();
+        isWaylandPlatform();
         setupComponent();
-        if (!isWaylandPlatform()) {
-            ui->scrollingTypeComBox->setView(new QListView());
-            const QByteArray id(TOUCHPAD_SCHEMA);
+        ui->scrollingTypeComBox->setView(new QListView());
+        const QByteArray id(TOUCHPAD_SCHEMA);
 
-            if (QGSettings::isSchemaInstalled(TOUCHPAD_SCHEMA)){
-                tpsettings = new QGSettings(id, QByteArray(), this);
-                initConnection();
-                if (findSynaptics()){
-                    qDebug() << "Touch Devices Available";
-                    ui->tipLabel->hide();
-                    initTouchpadStatus();
-                } else {
-                    ui->clickFrame->hide();
-                    ui->enableFrame->hide();
-                    ui->scrollingFrame->hide();
-                    ui->typingFrame->hide();
-                }
+        if (QGSettings::isSchemaInstalled(TOUCHPAD_SCHEMA)){
+            tpsettings = new QGSettings(id, QByteArray(), this);
+            initConnection();
+            if (findSynaptics() || mExistTouchpad) {
+                qDebug() << "Touch Devices Available";
+                ui->tipLabel->hide();
+                initTouchpadStatus();
+            } else {
+                ui->clickFrame->hide();
+                ui->enableFrame->hide();
+                ui->scrollingFrame->hide();
+                ui->typingFrame->hide();
             }
-        } else {
-            initWaylandDbus();
         }
     }
     return pluginWidget;
@@ -136,11 +134,17 @@ void Touchpad::setupComponent(){
     clickBtn = new SwitchButton(pluginWidget);
     ui->clickHorLayout->addWidget(clickBtn);
 
-    ui->scrollingTypeComBox->addItem(tr("Disable rolling"), N_SCROLLING);
-    ui->scrollingTypeComBox->addItem(tr("Vertical edge scrolling"), V_EDGE_KEY);
-    ui->scrollingTypeComBox->addItem(tr("Horizontal edge scrolling"), H_EDGE_KEY);
-    ui->scrollingTypeComBox->addItem(tr("Vertical two-finger scrolling"), V_FINGER_KEY);
-    ui->scrollingTypeComBox->addItem(tr("Horizontal two-finger scrolling"), H_FINGER_KEY);
+    if (mIsWayland) {
+        ui->scrollingTypeComBox->addItem(tr("Disable rolling"), N_SCROLLING);
+        ui->scrollingTypeComBox->addItem(tr("Edge scrolling"), V_EDGE_KEY);
+        ui->scrollingTypeComBox->addItem(tr("Two-finger scrolling"), V_FINGER_KEY);
+    } else {
+        ui->scrollingTypeComBox->addItem(tr("Disable rolling"), N_SCROLLING);
+        ui->scrollingTypeComBox->addItem(tr("Vertical edge scrolling"), V_EDGE_KEY);
+        ui->scrollingTypeComBox->addItem(tr("Horizontal edge scrolling"), H_EDGE_KEY);
+        ui->scrollingTypeComBox->addItem(tr("Vertical two-finger scrolling"), V_FINGER_KEY);
+        ui->scrollingTypeComBox->addItem(tr("Horizontal two-finger scrolling"), H_FINGER_KEY);
+    }
 }
 
 void Touchpad::initConnection() {
@@ -157,23 +161,20 @@ void Touchpad::initConnection() {
         tpsettings->set(TOUCHPAD_CLICK_KEY, checked);
     });
 
-#if QT_VERSION <= QT_VERSION_CHECK(5, 12, 8)
     connect(ui->scrollingTypeComBox, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged), [=](int index){
-#else
-    connect(ui->scrollingTypeComBox, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged), [=](int index){
-#endif
         Q_UNUSED(index)
         //旧滚动类型设置为false,跳过N_SCROLLING
         QString oldType = _findKeyScrollingType();
-        if (QString::compare(oldType, N_SCROLLING) != 0)
-        tpsettings->set(oldType, false);
+        if (QString::compare(oldType, N_SCROLLING) != 0) {
+            tpsettings->set(oldType, false);
+        }
 
         //新滚动类型设置为true,跳过N_SCROLLING
         QString data = ui->scrollingTypeComBox->currentData().toString();
         if (QString::compare(data, N_SCROLLING) != 0)
             tpsettings->set(data, true);
 
-        if(QString::compare(data, N_SCROLLING) == 0){
+        if (QString::compare(data, N_SCROLLING) == 0) {
             tpsettings->set(V_EDGE_KEY,false);
             tpsettings->set(H_EDGE_KEY,false);
             tpsettings->set(V_FINGER_KEY,false);
@@ -223,7 +224,7 @@ void Touchpad::setModuleVisible(bool visible) {
     ui->scrollingFrame->setVisible(visible);
 }
 
-bool Touchpad::isWaylandPlatform() {
+void Touchpad::isWaylandPlatform() {
     QProcess processGrep;
 
     processGrep.start("bash", QStringList() << "-c" << "env | grep XDG_SESSION_TYPE");
@@ -231,7 +232,7 @@ bool Touchpad::isWaylandPlatform() {
     processGrep.waitForFinished();
     QString platform = processGrep.readAll();
 
-    return platform.trimmed() == "XDG_SESSION_TYPE=wayland" ? true : false;
+    mIsWayland = platform.trimmed() == "XDG_SESSION_TYPE=wayland" ? true : false;
 }
 
 void Touchpad::initWaylandDbus() {
@@ -260,24 +261,12 @@ void Touchpad::initWaylandTouchpadStatus() {
                                                              this);
             if (deviceIface->isValid() &&
                     deviceIface->property("touchpad").toBool()) {
-                mDeviceIface = deviceIface;
-                enableBtn->setChecked(mDeviceIface->property("enabled").toBool());
-                clickBtn->setChecked(mDeviceIface->property("tapToClick").toBool());
-
-                ui->scrollingFrame->hide();
-                ui->typingFrame->hide();
-                ui->tipLabel->hide();
-
-                initWaylandConnection();
-
+                mExistTouchpad = true;
                 return;
             }
         }
     }
-    ui->scrollingFrame->hide();
-    ui->typingFrame->hide();
-    ui->clickFrame->hide();
-    ui->enableFrame->hide();
+    mExistTouchpad = false;
 }
 
 void Touchpad::initWaylandConnection() {

@@ -64,7 +64,7 @@ public:
 
 private:
     void setModuleVisible(bool visible);
-    bool isWaylandPlatform();
+    void isWaylandPlatform();
 
     void initWaylandDbus();
     void initWaylandTouchpadStatus();
@@ -85,6 +85,8 @@ private:
     QGSettings * tpsettings;
 
     bool mFirstLoad;
+    bool mIsWayland;
+    bool mExistTouchpad;
 
     QDBusInterface *mWaylandIface;
     QDBusInterface *mDeviceIface;
