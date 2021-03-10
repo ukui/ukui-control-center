@@ -321,15 +321,18 @@ void Widget::slotUnifyOutputs() {
     if (base->isCloneMode() && !mUnifyButton->isChecked()) {
 
         QPoint secPoint;
+        QString primaryWaylandScreen = "";
+        if (mIsWayland) {
+            primaryWaylandScreen = getPrimaryWaylandScreen();
+        }
+
         KScreen::OutputList screens =  mPrevConfig->connectedOutputs();
-
-
         QMap<int, KScreen::OutputPtr>::iterator it = screens.begin();
         while (it != screens.end()) {
 
             KScreen::OutputPtr screen= it.value();
 
-            if (screen->isPrimary()) {
+            if (screen->isPrimary() || screen->name().compare(primaryWaylandScreen, Qt::CaseInsensitive)) {
                 KScreen::ModeList modes = screen->modes();
                 Q_FOREACH(const KScreen::ModePtr &mode, modes) {
                     if (screen->currentModeId() == mode->id()) {
