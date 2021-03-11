@@ -142,6 +142,9 @@ class Widget : public QWidget
     // 设置外接显示器亮度
     void setDDCBrighthessSlot(int brightnessValue);
 
+    void shortAddBrightnessSlot();
+    void shortCutBrightnessSlot();
+
   public Q_SLOTS:
     void save();
     void scaleChangedSlot(int index);
@@ -235,6 +238,8 @@ class Widget : public QWidget
     QString mCPU;
 
     QShortcut *mApplyShortcut;
+    QShortcut *mAddBrightnessShortCut;
+    QShortcut *mCutBrightnessShortCut;
 };
 
 #endif // WIDGET_H

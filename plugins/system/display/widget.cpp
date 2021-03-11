@@ -935,6 +935,24 @@ void Widget::setDDCBrighthessSlot(int brightnessValue) {
     }
 }
 
+void Widget::shortAddBrightnessSlot() {
+    int value = ui->brightnessSlider->value();
+    if (value < 100) {
+        value = (value + 10) <= 100 ? (value + 10) : 100;
+        ui->brightnessSlider->setValue(value);
+        setDDCBrightness();
+    }
+}
+
+void Widget::shortCutBrightnessSlot() {
+    int value = ui->brightnessSlider->value();
+    if (value > 0) {
+        value = (value - 10) >= 0 ? (value - 10) : 0;
+        ui->brightnessSlider->setValue(value);
+        setDDCBrightness();
+    }
+}
+
 void Widget::save() {
     if (!this) {
         return;
@@ -1360,6 +1378,12 @@ void Widget::initConnection() {
 
     mApplyShortcut = new QShortcut(QKeySequence("Ctrl+A"), this);
     connect(mApplyShortcut, SIGNAL(activated()), this, SLOT(save()));
+
+    mAddBrightnessShortCut = new QShortcut(QKeySequence("Right"), this);
+    connect(mAddBrightnessShortCut, SIGNAL(activated()), this, SLOT(shortAddBrightnessSlot()));
+
+    mCutBrightnessShortCut = new QShortcut(QKeySequence("Left"), this);
+    connect(mCutBrightnessShortCut, SIGNAL(activated()), this, SLOT(shortCutBrightnessSlot()));
 }
 
 
