@@ -1159,7 +1159,7 @@ bool Widget::writeFile(const QString &filePath)
         }
 
         writeGlobalPart(output, info, oldOutput);
-        info[QStringLiteral("primary")] = output->isPrimary();
+        info[QStringLiteral("primary")] = !output->name().compare(mConfig->output(mScreenId)->name(), Qt::CaseInsensitive);
         info[QStringLiteral("enabled")] = output->isEnabled();
 
         auto setOutputConfigInfo = [&info](const KScreen::OutputPtr &out) {
