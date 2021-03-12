@@ -1,3 +1,45 @@
+ukui-control-center (3.0.1-1-48) v101; urgency=medium
+
+  * 使用左右键快捷键调整亮度
+  * 解决BUG#41698【控制面板】输入正确的当前密码，按tab键后，概率性提示密码错误
+  * 解决BUG#37381 【控制面板】【用户头像】更改用户头像，选择头像图片时，选择框异常
+  * 解决BUG#39995【账户信息】更改用户头像，未选择图像，点击确认，头像恢复到默认状态
+  * 解决bug#21438通过控制面板的显示器设置夜间模式后，不生效
+  * 解决bug39116#打开控制面板，控制面板显示黑屏三秒
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 12 Mar 2021 09:32:23 +0800
+
+ukui-control-center (3.0.1-1-47.2) v101; urgency=medium
+
+  * 取消modeid是否相等判断
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 09 Mar 2021 09:02:44 +0800
+
+ukui-control-center (3.0.1-1-47.1) v101; urgency=medium
+
+  * 取消modeid是否相等判断
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 08 Mar 2021 20:57:24 +0800
+
+ukui-control-center (3.0.1-1-47) v101; urgency=medium
+
+  * wayland添加缩放判断
+  * 添加搜索词过滤(bug#40243)
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 08 Mar 2021 16:05:52 +0800
+
+ukui-control-center (3.0.1-1-46.2) v101; urgency=medium
+
+  * 平台问题chroot problem，重新上传
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 04 Mar 2021 16:26:44 +0800
+
+ukui-control-center (3.0.1-1-46.1) v101; urgency=medium
+
+  * 还原插拔屏幕修改
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 04 Mar 2021 14:51:38 +0800
+
 ukui-control-center (3.0.1-1-46) v101; urgency=medium
 
   * 解决禅道bug40205 39709
