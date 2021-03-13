@@ -21,8 +21,11 @@ class UnifiedOutputConfig : public OutputConfig
   private Q_SLOTS:
     void slotResolutionChanged(const QSize &size);
 
-    //统一输出后调整屏幕方向统一代码
+    // 统一输出后调整屏幕方向统一代码
     void slotRotationChangedDerived(int index);
+
+    void slotRestoreResoltion();
+    void slotRestoreRatation();
 
   private:
     void initUi() override;

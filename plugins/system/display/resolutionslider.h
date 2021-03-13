@@ -22,10 +22,12 @@ class ResolutionSlider : public QWidget
     QSize currentResolution() const;
     QSize getMaxResolution() const;
 
+    void setResolution(const QSize &size);
+
   Q_SIGNALS:
     void resolutionChanged(const QSize &size);
 
-  private Q_SLOTS:
+  public Q_SLOTS:
     void slotValueChanged(int);
     void slotOutputModeChanged();
 

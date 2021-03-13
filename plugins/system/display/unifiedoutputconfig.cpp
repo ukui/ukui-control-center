@@ -66,6 +66,13 @@ void UnifiedOutputConfig::initUi()
     mResolution->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     mResolution->setMinimumSize(402,30);
 
+
+    connect(mOutput.data(), &KScreen::Output::currentModeIdChanged,
+            this, &UnifiedOutputConfig::slotRestoreResoltion);
+
+    connect(mOutput.data(), &KScreen::Output::rotationChanged,
+            this, &UnifiedOutputConfig::slotRestoreRatation);
+
     QLabel *resLabel = new QLabel(this);
     resLabel->setText(tr("resolution"));
     resLabel->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
@@ -261,6 +268,17 @@ void UnifiedOutputConfig::slotRotationChangedDerived(int index){
         }
     }
     Q_EMIT changed();
+}
+
+void UnifiedOutputConfig::slotRestoreResoltion() {
+
+    if (!(mResolution->currentResolution() == mOutput->currentMode()->size())) {
+        mResolution->setResolution(mOutput->currentMode()->size());
+    }
+}
+
+void UnifiedOutputConfig::slotRestoreRatation() {
+    mRotation->setCurrentIndex(mRotation->findData(mOutput->rotation()));
 }
 
 

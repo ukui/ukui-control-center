@@ -166,6 +166,12 @@ QSize ResolutionSlider::getMaxResolution() const {
     return mModes.first();
 }
 
+void ResolutionSlider::setResolution(const QSize &size) {
+    mComboBox->blockSignals(true);
+    mComboBox->setCurrentIndex(mModes.indexOf(size));
+    mComboBox->blockSignals(false);
+}
+
 void ResolutionSlider::slotOutputModeChanged()
 {
     if (!mOutput->currentMode()) {
