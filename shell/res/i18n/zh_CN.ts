@@ -284,10 +284,10 @@
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="69"/>
         <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="92"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="281"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="460"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="513"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="659"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="297"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="476"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="529"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="675"/>
         <source>Update</source>
         <translation>更新</translation>
     </message>
@@ -298,128 +298,134 @@
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="101"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="117"/>
         <source>Download failed!</source>
         <translation>下载失败！</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="103"/>
+        <source>failed to get from the source!</source>
+        <translation>从源中获取失败！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="119"/>
         <source>The download cache has been removed</source>
         <translation>下载缓存已被删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="191"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="207"/>
         <source>Being installed</source>
         <translation>正在安装</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="198"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="205"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="214"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="221"/>
         <source>Update succeeded!</source>
         <translation>更新成功！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="215"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="225"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="231"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="241"/>
         <source>Update failed!</source>
         <translation>更新失败！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="218"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="234"/>
         <source>Failure reason:</source>
         <translation>失败原因：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="275"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="449"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="291"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="465"/>
         <source>details</source>
         <translation>详情</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="324"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="389"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="340"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="405"/>
         <source>Update log</source>
         <translation>更新日志</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="368"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="369"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="374"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="384"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="385"/>
         <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="390"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="406"/>
         <source>Newest:</source>
         <translation>最新：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="398"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="404"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="414"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="420"/>
         <source>Download size:</source>
         <translation>下载大小：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="431"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="447"/>
         <source>Current version:</source>
         <translation>当前版本：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="443"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="459"/>
         <source>back</source>
         <translation>收起</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="515"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="531"/>
         <source>In the pause</source>
         <translation>暂停中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="471"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="531"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="487"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="547"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="466"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="482"/>
         <source>A single update will not automatically backup the system, if you want to backup, please click Update All.</source>
         <translation>单个更新不会自动备份系统，如需备份，请点击全部更新。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="467"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="483"/>
         <source>Prompt information</source>
         <translation>提示信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="470"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="486"/>
         <source>Do not backup, continue to update</source>
         <translation>不备份，继续更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="472"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="488"/>
         <source>Cancel update</source>
         <translation>取消更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="476"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="492"/>
         <source>This time will no longer prompt</source>
         <translation>本次更新不再提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="542"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="550"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="558"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="566"/>
         <source>Get depends failed!</source>
         <translation>依赖获取异常！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="600"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="616"/>
         <source>In the update</source>
         <translation>更新中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="149"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="535"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="638"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="165"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="551"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="654"/>
         <source>Ready to install</source>
         <translation>准备安装</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="718"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="734"/>
         <source>No content.</source>
         <translation>暂无内容.</translation>
     </message>
@@ -6399,7 +6405,7 @@ run start-pulseaudio-x11 manually.</source>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="162"/>
-        <source>In backup</source>
+        <source>In backup:</source>
         <translation>备份中：</translation>
     </message>
     <message>
