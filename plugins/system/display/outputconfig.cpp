@@ -248,7 +248,12 @@ void OutputConfig::slotResolutionChanged(const QSize &size)
     QList<KScreen::ModePtr> modes;
     Q_FOREACH (const KScreen::ModePtr &mode, mOutput->modes()) {
         if (mode->size() == size) {
-            selectedMode = mode;
+            if (mIsFirstLoad && mOutput->currentModeId() == mode->id()) {
+                selectedMode = mode;
+                mIsFirstLoad = false;
+            } else if (!mIsFirstLoad){
+                selectedMode = mode;
+            }
             modes << mode;
         }
     }
