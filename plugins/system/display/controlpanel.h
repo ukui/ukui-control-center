@@ -14,6 +14,8 @@ class QCheckBox;
 class QSlider;
 class QComboBox;
 
+const QString kSession = "wayland";
+
 class ControlPanel : public QFrame
 {
     Q_OBJECT

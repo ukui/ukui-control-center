@@ -225,14 +225,12 @@ void Touchpad::setModuleVisible(bool visible) {
 }
 
 void Touchpad::isWaylandPlatform() {
-    QProcess processGrep;
-
-    processGrep.start("bash", QStringList() << "-c" << "env | grep XDG_SESSION_TYPE");
-
-    processGrep.waitForFinished();
-    QString platform = processGrep.readAll();
-
-    mIsWayland = platform.trimmed() == "XDG_SESSION_TYPE=wayland" ? true : false;
+    QString sessionType = getenv("XDG_SESSION_TYPE");
+    if (!sessionType.compare(kSession, Qt::CaseSensitive)) {
+        mIsWayland = true;
+    } else {
+        mIsWayland = false;
+    }
 }
 
 void Touchpad::initWaylandDbus() {

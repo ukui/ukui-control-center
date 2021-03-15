@@ -116,11 +116,9 @@ void ControlPanel::activateOutputNoParam()
 }
 
 void ControlPanel::isWayland() {
-    QDBusInterface screenIfc("org.ukui.SettingsDaemon",
-                             "/org/ukui/SettingsDaemon/wayland",
-                             "org.ukui.SettingsDaemon.wayland",
-                             QDBusConnection::sessionBus());
-    if (screenIfc.isValid()) {
+    QString sessionType = getenv("XDG_SESSION_TYPE");
+
+    if (!sessionType.compare(kSession, Qt::CaseSensitive)) {
         mIsWayland = true;
     } else {
         mIsWayland = false;

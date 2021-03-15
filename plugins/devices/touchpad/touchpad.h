@@ -34,6 +34,8 @@
 #include "shell/interface.h"
 #include "SwitchButton/switchbutton.h"
 
+const QString kSession = "wayland";
+
 namespace Ui {
 class Touchpad;
 }

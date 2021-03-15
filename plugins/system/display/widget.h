@@ -24,8 +24,6 @@
 #include "slider.h"
 #include "SwitchButton/switchbutton.h"
 
-const QString tempDayBrig  = "6500";
-
 class QLabel;
 class QMLOutput;
 class QMLScreen;

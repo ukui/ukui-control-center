@@ -69,8 +69,9 @@ extern "C" {
 #define ADVANCED_SCHEMAS                 "org.ukui.session.required-components"
 #define ADVANCED_KEY                     "windowmanager"
 
-const QString kCpu   = "ZHAOXIN";
-const QString kLoong = "Loongson";
+const QString kCpu     = "ZHAOXIN";
+const QString kLoong   = "Loongson";
+const QString tempDayBrig  = "6500";
 
 Q_DECLARE_METATYPE(KScreen::OutputPtr)
 
@@ -910,12 +911,9 @@ QString Widget::getPrimaryWaylandScreen() {
 }
 
 void Widget::isWayland() {
-    QDBusInterface screenIfc("org.ukui.SettingsDaemon",
-                             "/org/ukui/SettingsDaemon/wayland",
-                             "org.ukui.SettingsDaemon.wayland",
-                             QDBusConnection::sessionBus());
-    QDBusReply<QString> screenReply =  screenIfc.call("priScreenName");
-    if (screenReply.isValid()) {
+    QString sessionType = getenv("XDG_SESSION_TYPE");
+
+    if (!sessionType.compare(kSession, Qt::CaseSensitive)) {
         mIsWayland = true;
     } else {
         mIsWayland = false;
