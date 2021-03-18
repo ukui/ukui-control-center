@@ -1020,14 +1020,14 @@ void Widget::save() {
         }
     );
 
-    if (mIsWayland) {
+    if (mIsWayland && -1 != mScreenId) {
         config->output(mScreenId)->setPrimary(true);
         callMethod(config->primaryOutput()->geometry(), config->primaryOutput()->name());
     }
     mScreen->updateOutputsPlacement();
 
     if (isRestoreConfig()) {
-        if (mIsWayland) {
+        if (mIsWayland && -1 != mScreenId) {
             callMethod(mPrevConfig->primaryOutput()->geometry(), config->primaryOutput()->name());
         }
         auto *op = new KScreen::SetConfigOperation(mPrevConfig);
@@ -1157,7 +1157,7 @@ bool Widget::writeFile(const QString &filePath)
         }
 
         writeGlobalPart(output, info, oldOutput);
-        info[QStringLiteral("primary")] = !output->name().compare(mConfig->output(mScreenId)->name(), Qt::CaseInsensitive);
+        info[QStringLiteral("primary")] = !output->name().compare(getPrimaryWaylandScreen(), Qt::CaseInsensitive);
         info[QStringLiteral("enabled")] = output->isEnabled();
 
         auto setOutputConfigInfo = [&info](const KScreen::OutputPtr &out) {
@@ -1262,6 +1262,7 @@ void Widget::mainScreenButtonSelect(int index) {
 
 // 设置主屏按钮
 void Widget::primaryButtonEnable(bool status) {
+
 
     Q_UNUSED(status);
     if (!mConfig) {

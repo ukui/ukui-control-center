@@ -219,7 +219,7 @@ class Widget : public QWidget
     QHash<QString, QVariant> mNightConfig;
 
     int screenScale = 1;
-    int mScreenId  = 1;
+    int mScreenId  = -1;
 
     // 是否为夜间模式
     bool mIsNightMode     = false;
