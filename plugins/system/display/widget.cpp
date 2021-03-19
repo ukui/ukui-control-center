@@ -1313,12 +1313,13 @@ void Widget::checkOutputScreen(bool judge) {
 
 // 亮度调节UI
 void Widget::initBrightnessUI() {
-    ui->brightnessSlider->setRange(0, 100);
-    ui->brightnessSlider->setTracking(true);
-
     if (mIsWayland) {
-        connect(ui->brightnessSlider, &QSlider::sliderReleased, this, &Widget::setDDCBrightness);
+        ui->brightnessSlider->setRange(0, 10);
+        ui->brightnessSlider->setTickInterval(1);
+        ui->brightnessSlider->setPageStep(1);
+        connect(ui->brightnessSlider, &QSlider::valueChanged, this, &Widget::setDDCBrightness);
     } else {
+        ui->brightnessSlider->setRange(0, 100);
         connect(ui->brightnessSlider, &QSlider::valueChanged, this, &Widget::setBrightnessScreen);
     }
 }
@@ -1377,12 +1378,6 @@ void Widget::initConnection() {
 
     mApplyShortcut = new QShortcut(QKeySequence("Ctrl+A"), this);
     connect(mApplyShortcut, SIGNAL(activated()), this, SLOT(save()));
-
-    mAddBrightnessShortCut = new QShortcut(QKeySequence("Right"), this);
-    connect(mAddBrightnessShortCut, SIGNAL(activated()), this, SLOT(shortAddBrightnessSlot()));
-
-    mCutBrightnessShortCut = new QShortcut(QKeySequence("Left"), this);
-    connect(mCutBrightnessShortCut, SIGNAL(activated()), this, SLOT(shortCutBrightnessSlot()));
 }
 
 
@@ -1391,7 +1386,8 @@ void Widget::setBrightnessScreen(int value) {
 }
 
 void Widget::setDDCBrightness() {
-    int value = ui->brightnessSlider->value();
+    int value = ui->brightnessSlider->value() * 10;
+    qDebug() << Q_FUNC_INFO << "Set brightness:" << value;
     if (mIsWayland && !mIsBattery) {
         setDDCBrighthessSlot(value);
     } else {
@@ -1405,7 +1401,8 @@ void Widget::setBrightnesSldierValue() {
     value = mPowerGSettings->get(POWER_KEY).toInt();
 
     if (mIsWayland && !mIsBattery) {
-        ui->brightnessSlider->setValue(getDDCBrighthess());
+        int realValue = getDDCBrighthess() == 0 ? 0 : getDDCBrighthess() / 10;
+        ui->brightnessSlider->setValue(realValue);
     } else {
         ui->brightnessSlider->setValue(value);
     }

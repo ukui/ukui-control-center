@@ -236,8 +236,6 @@ class Widget : public QWidget
     QString mCPU;
 
     QShortcut *mApplyShortcut;
-    QShortcut *mAddBrightnessShortCut;
-    QShortcut *mCutBrightnessShortCut;
 };
 
 #endif // WIDGET_H
