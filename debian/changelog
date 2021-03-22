@@ -1,3 +1,13 @@
+ukui-control-center (3.0.1-1-50) v101; urgency=medium
+
+  * 解决bug#43396去掉夜间模式，但搜索框中仍然可以搜索到
+  * 解决bug#42412控制面板”的显示器名称和“系统投屏”的第一屏幕名称不一致
+  * 解决bug#42752【个性化】更改光标主题不生效
+  * 解决bug#43073主副屏幕更改问题
+  * 备份还原dbus接口添加参数(锁定系统更新时的备份操作)
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 19 Mar 2021 18:59:43 +0800
+
 ukui-control-center (3.0.1-1-49) v101; urgency=medium
 
   * 公司内部bug#42078键盘输入测试字符，有些字符没有显示完全
