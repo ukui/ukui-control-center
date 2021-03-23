@@ -9,7 +9,7 @@
         <translation>系统概述</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="349"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="365"/>
         <source>version</source>
         <translation>版本</translation>
         <extra-contents_path>/about/version</extra-contents_path>
@@ -33,27 +33,31 @@
         <translation>银河麒麟桌面操作系统V10 (SP1)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="183"/>
         <source>Copyright @ 2009-2021 KylinSoft. All rights reserved.</source>
-        <translation>版权所有 @ 2009-2021 麒麟软件 保留所有权利。</translation>
+        <translation type="vanished">版权所有 @ 2009-2021 麒麟软件 保留所有权利。</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="183"/>
+        <source>Copyright © 2009-2021 KylinSoft. All rights reserved.</source>
+        <translation>版权所有 © 2009-2021 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="271"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="351"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="367"/>
         <source>Kernel</source>
         <translation>内核</translation>
         <extra-contents_path>/about/Kernel</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="310"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="353"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="369"/>
         <source>CPU</source>
         <translation>CPU</translation>
         <extra-contents_path>/about/CPU</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="358"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="355"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="371"/>
         <source>Memory</source>
         <translation>内存</translation>
         <extra-contents_path>/about/Memory</extra-contents_path>
@@ -115,7 +119,7 @@
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="230"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="246"/>
         <source>The system has expired. The expiration time is:</source>
         <translation>您的系统已激活，技术服务已到期：</translation>
     </message>
@@ -128,12 +132,12 @@
         <translation type="vanished">可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="232"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="248"/>
         <source>Inactivated</source>
         <translation>未激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="221"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="237"/>
         <source>Activated</source>
         <translation>已激活</translation>
     </message>

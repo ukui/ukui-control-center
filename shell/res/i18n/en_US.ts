@@ -9,7 +9,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="349"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="365"/>
         <source>version</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/about/version</extra-contents_path>
@@ -26,26 +26,26 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="183"/>
-        <source>Copyright @ 2009-2021 KylinSoft. All rights reserved.</source>
+        <source>Copyright © 2009-2021 KylinSoft. All rights reserved.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="271"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="351"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="367"/>
         <source>Kernel</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/about/Kernel</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="310"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="353"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="369"/>
         <source>CPU</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/about/CPU</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="358"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="355"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="371"/>
         <source>Memory</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/about/Memory</extra-contents_path>
@@ -91,17 +91,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="221"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="237"/>
         <source>Activated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="230"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="246"/>
         <source>The system has expired. The expiration time is:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="232"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="248"/>
         <source>Inactivated</source>
         <translation type="unfinished"></translation>
     </message>
