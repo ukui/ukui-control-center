@@ -9,34 +9,43 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="140"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="350"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="349"/>
         <source>version</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/about/version</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="140"/>
+        <source>Version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="147"/>
+        <source>Kylin Linux Desktop V10 (SP1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="183"/>
-        <source>Copyright 2009-2021 @ Kylinos All rights reserved</source>
+        <source>Copyright @ 2009-2021 KylinSoft. All rights reserved.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="271"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="352"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="351"/>
         <source>Kernel</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/about/Kernel</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="310"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="354"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="353"/>
         <source>CPU</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/about/CPU</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="358"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="356"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="355"/>
         <source>Memory</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/about/Memory</extra-contents_path>
@@ -82,17 +91,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="222"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="221"/>
         <source>Activated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="231"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="230"/>
         <source>The system has expired. The expiration time is:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="233"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="232"/>
         <source>Inactivated</source>
         <translation type="unfinished"></translation>
     </message>

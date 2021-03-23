@@ -184,7 +184,6 @@ void About::setupVersionCompenent() {
         }
     }
 
-    ui->versionContent->setText(version);
     if (!versionID.compare(vTen, Qt::CaseInsensitive) ||
             !versionID.compare(vTenEnhance, Qt::CaseInsensitive) ||
             !versionID.compare(vFour, Qt::CaseInsensitive)) {
