@@ -171,6 +171,8 @@ void MouseControl::initSearchText() {
     ui->delayLabel->setText(tr("Doubleclick  delay"));
     //~ contents_path /mouse/Speed
     ui->speedLabel->setText(tr("Speed"));
+    ui->label_2->setMinimumWidth(50);
+    ui->label_3->setMinimumWidth(50);
     //~ contents_path /mouse/Acceleration
     ui->accelLabel->setText(tr("Acceleration"));
     //~ contents_path /mouse/Visibility
@@ -181,6 +183,12 @@ void MouseControl::initSearchText() {
     ui->flashLabel->setText(tr("Enable flashing on text area"));
     //~ contents_path /mouse/Cursor speed
     ui->cursorspdLabel->setText(tr("Cursor speed"));
+    ui->label_17->setMinimumWidth(50);
+    ui->label_18->setMinimumWidth(50);
+    ui->label_6->setMinimumWidth(50);
+    ui->label_7->setMinimumWidth(50);
+    ui->label_21->setMinimumWidth(50);
+    ui->label_22->setMinimumWidth(50);
 }
 
 void MouseControl::initTitleLabel() {
