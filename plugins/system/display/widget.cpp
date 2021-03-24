@@ -208,6 +208,10 @@ void Widget::setConfig(const KScreen::ConfigPtr &config) {
     }
     mFirstLoad = false;
     setBrightnesSldierValue();
+
+    if (mIsWayland) {
+        mScreenId = getPrimaryScreenID();
+    }
 }
 
 KScreen::ConfigPtr Widget::currentConfig() const {
@@ -676,6 +680,17 @@ int Widget::getDDCBrighthess() {
         return reply.value();
     }
     return 0;
+}
+
+int Widget::getPrimaryScreenID() {
+    QString primaryScreen = getPrimaryWaylandScreen();
+    int screenId;
+    for (const KScreen::OutputPtr &output : mConfig->outputs()) {
+        if (!output->name().compare(primaryScreen, Qt::CaseInsensitive)) {
+            screenId = output->id();
+        }
+    }
+    return screenId;
 }
 
 
@@ -1262,7 +1277,6 @@ void Widget::mainScreenButtonSelect(int index) {
 
 // 设置主屏按钮
 void Widget::primaryButtonEnable(bool status) {
-
 
     Q_UNUSED(status);
     if (!mConfig) {

@@ -171,6 +171,8 @@ class Widget : public QWidget
     QString getMonitorType();
     int getDDCBrighthess();
 
+    int getPrimaryScreenID();
+
   private:
     Ui::DisplayWindow *ui;
     QMLScreen *mScreen = nullptr;
