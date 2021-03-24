@@ -78,6 +78,8 @@ class QMLScreen : public QQuickItem
     void setActiveOutput() {
         setActiveOutput(qobject_cast<QMLOutput*>(sender()));
     }
+
+    void setActiveOutputByCombox(int screenId);
     void setScreenPos() {
         setScreenPos(qobject_cast<QMLOutput*>(sender()));
     }

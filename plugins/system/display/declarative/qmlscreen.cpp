@@ -254,6 +254,18 @@ void QMLScreen::setScreenPos(QMLOutput *output) {
     }
 }
 
+void QMLScreen::setActiveOutputByCombox(int screenId) {
+    QHash<KScreen::OutputPtr, QMLOutput*>::const_iterator it = m_outputMap.constBegin();
+    while (it != m_outputMap.constEnd()) {
+        if (screenId == it.key()->id()) {
+            setActiveOutput(it.value());
+            return ;
+        }
+        it++;
+    }
+}
+
+
 QSize QMLScreen::maxScreenSize() const
 {
     return m_config->screen()->maxSize();

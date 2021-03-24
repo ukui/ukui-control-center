@@ -1272,6 +1272,8 @@ void Widget::mainScreenButtonSelect(int index) {
     mCloseScreenButton->setChecked(newPrimary->isEnabled());
     mCloseScreenButton->blockSignals(blockded);
     mControlPanel->activateOutput(newPrimary);
+
+    mScreen->setActiveOutputByCombox(newPrimary->id());
 }
 
 
