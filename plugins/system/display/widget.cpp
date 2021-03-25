@@ -1051,9 +1051,24 @@ void Widget::save() {
         }
     );
 
+    int enableScreenCount = 0;
+    KScreen::OutputPtr enableOutput;
+    for (const KScreen::OutputPtr &output : mConfig->outputs()) {
+        if (output->isEnabled()) {
+            enableOutput = output;
+            enableScreenCount++;
+        }
+    }
+
     if (mIsWayland && -1 != mScreenId) {
-        config->output(mScreenId)->setPrimary(true);
-        callMethod(config->primaryOutput()->geometry(), config->primaryOutput()->name());
+        if (enableScreenCount >= 2) {
+            config->output(mScreenId)->setPrimary(true);
+            callMethod(config->primaryOutput()->geometry(), config->primaryOutput()->name());
+        } else {
+            enableOutput->setPrimary(true);
+            callMethod(enableOutput->geometry(), enableOutput->name());
+        }
+
     }
     mScreen->updateOutputsPlacement();
 
