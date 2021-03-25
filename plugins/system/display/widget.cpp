@@ -773,9 +773,12 @@ void Widget::outputAdded(const KScreen::OutputPtr &output) {
             }
         }
     }
+
+    ui->unionframe->setVisible(mConfig->connectedOutputs().count() > 1);
 }
 
 void Widget::outputRemoved(int outputId) {
+
     KScreen::OutputPtr output = mConfig->output(outputId);
     if (!output.isNull()) {
         output->disconnect(this);
@@ -806,6 +809,7 @@ void Widget::outputRemoved(int outputId) {
             qmlOutput->blockSignals(false);
         }
     }
+    ui->unionframe->setVisible(mConfig->connectedOutputs().count() > 1);
 }
 
 void Widget::primaryOutputSelected(int index) {
@@ -1277,7 +1281,7 @@ void Widget::mainScreenButtonSelect(int index) {
 
     // 设置是否勾选
     mCloseScreenButton->setEnabled(true);
-    ui->showMonitorframe->setVisible(connectCount > 1 ? true : false);
+    ui->showMonitorframe->setVisible(connectCount > 1);
 
     // 初始化时不要发射信号
     const bool blockded = mCloseScreenButton->blockSignals(true);
@@ -1360,9 +1364,6 @@ void Widget::initConnection() {
     //是否禁用主显示器确认按钮
     connect(ui->primaryCombo, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             this, &Widget::mainScreenButtonSelect);
-    connect(ui->primaryCombo, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-            this, &Widget::mainScreenButtonSelect);
-
 
     //主屏确认按钮
     connect(ui->mainScreenButton, SIGNAL(clicked(bool)), this, SLOT(primaryButtonEnable(bool)));
