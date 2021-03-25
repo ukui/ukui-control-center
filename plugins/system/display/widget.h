@@ -169,6 +169,7 @@ class Widget : public QWidget
     bool isBacklight();
 
     QString getMonitorType();
+    bool isLaptopScreen();
     int getDDCBrighthess();
 
     int getPrimaryScreenID();

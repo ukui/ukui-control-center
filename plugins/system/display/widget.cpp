@@ -526,7 +526,11 @@ void Widget::initGSettings() {
         mPowerKeys = mPowerGSettings->keys();
         connect(mPowerGSettings, &QGSettings::changed, this, [=](QString key) {
             if ("brightnessAc" == key || "brightnessBat" == key) {
-                ui->brightnessSlider->setValue(mPowerGSettings->get(key).toInt());
+                int value = mPowerGSettings->get(key).toInt();
+                if (mIsWayland) {
+                    value = (value == 0 ? 0 : value / 10);
+                }
+                ui->brightnessSlider->setValue(value);
             }
         });
     }
@@ -664,6 +668,15 @@ QString Widget::getMonitorType() {
         type = "9";
     }
     return type;
+}
+
+bool Widget::isLaptopScreen() {
+    int index  = ui->primaryCombo->currentIndex();
+    KScreen::OutputPtr output = mConfig->output(ui->primaryCombo->itemData(index).toInt());
+    if (output->type() == KScreen::Output::Type::Panel) {
+        return true;
+    }
+    return false;
 }
 
 int Widget::getDDCBrighthess() {
@@ -937,15 +950,13 @@ void Widget::isWayland() {
 
 void Widget::setDDCBrighthessSlot(int brightnessValue) {
 
-    if (mIsWayland && !mOnBattery) {
-        QString type = getMonitorType();
-        QDBusInterface ukccIfc("com.control.center.qt.systemdbus",
-                               "/",
-                               "com.control.center.interface",
-                               QDBusConnection::systemBus());
+    QString type = getMonitorType();
+    QDBusInterface ukccIfc("com.control.center.qt.systemdbus",
+                           "/",
+                           "com.control.center.interface",
+                           QDBusConnection::systemBus());
 
-        ukccIfc.call("setDDCBrightness", QString::number(brightnessValue), type);
-    }
+    ukccIfc.call("setDDCBrightness", QString::number(brightnessValue), type);
 }
 
 void Widget::shortAddBrightnessSlot() {
@@ -1403,11 +1414,10 @@ void Widget::setBrightnessScreen(int value) {
 
 void Widget::setDDCBrightness() {
     int value = ui->brightnessSlider->value() * 10;
-    qDebug() << Q_FUNC_INFO << "Set brightness:" << value;
-    if (mIsWayland && !mIsBattery) {
+    if (!isLaptopScreen()) {
         setDDCBrighthessSlot(value);
     } else {
-        mPowerGSettings->set(POWER_KEY, value);
+        setBrightnessScreen(value);
     }
 }
 
