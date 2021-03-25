@@ -419,14 +419,10 @@ void MouseControl::mouseSizeChange() {
     delete mouseSettings;
     mouseSettings = nullptr;
 
-#if QT_VERSION <= QT_VERSION_CHECK(5,12,0)
-
-#else
     QDBusMessage message = QDBusMessage::createSignal("/KGlobalSettings", "org.kde.KGlobalSettings", "notifyChange");
     QList<QVariant> args;
     args.append(5);
     args.append(0);
     message.setArguments(args);
     QDBusConnection::sessionBus().send(message);
-#endif
 }

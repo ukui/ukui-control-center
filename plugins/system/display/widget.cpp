@@ -505,6 +505,7 @@ void Widget::writeScale(int scale) {
             scaleGSettings->set(SCALE_KEY, scale);
         }
         cursorSettings.set(CURSOR_SIZE_KEY, cursize);
+        Utils::setKwinMouseSize(cursize);
     }
 }
 
