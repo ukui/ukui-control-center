@@ -1068,12 +1068,13 @@ void Widget::save() {
             enableOutput->setPrimary(true);
             callMethod(enableOutput->geometry(), enableOutput->name());
         }
-
     }
+
     mScreen->updateOutputsPlacement();
 
     if (isRestoreConfig()) {
         if (mIsWayland && -1 != mScreenId) {
+            config->output(mScreenId)->setPrimary(true);
             callMethod(mPrevConfig->primaryOutput()->geometry(), config->primaryOutput()->name());
         }
         auto *op = new KScreen::SetConfigOperation(mPrevConfig);
