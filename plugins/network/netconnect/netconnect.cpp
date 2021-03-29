@@ -156,13 +156,6 @@ void NetConnect::initComponent(){
     const QByteArray id(CONTROL_CENTER_WIFI);
     if(QGSettings::isSchemaInstalled(id)) {
         m_gsettings = new QGSettings(id, QByteArray(), this);
-
-        connect(m_gsettings, &QGSettings::changed, this, [=] (const QString &key) {
-            if (key == "switchor") {
-                bool judge = getSwitchStatus(key);
-                wifiBtn->setChecked(judge);
-            }
-        });
     }
 
     // 详细设置按钮connect
@@ -267,9 +260,11 @@ void NetConnect::rebuildNetStatusComponent(QString iconPath, QString netName) {
 void NetConnect::getNetList() {
 
     bool wifiSt = getwifiisEnable();
-    if (!wifiSt) {
-        wifiBtn->setChecked(wifiSt);
-    }
+
+    wifiBtn->blockSignals(true);
+    wifiBtn->setChecked(getInitStatus());
+    wifiBtn->blockSignals(false);
+
     wifiBtn->setEnabled(wifiSt);
     ui->openWifiFrame->setVisible(wifiSt);
 
@@ -607,17 +602,14 @@ int NetConnect::setSignal(QString lv) {
     return signalLv;
 }
 
-void NetConnect::wifiSwitchSlot(bool signal) {
-    if(!m_gsettings) {
-        return ;
-    }
-    const QStringList list = m_gsettings->keys();
-    if (!list.contains("switch")) {
-        return ;
-    }
-    m_gsettings->set("switch",signal);
-
-    QTimer::singleShot(2*1000, this, SLOT(getNetList()));
+void NetConnect::wifiSwitchSlot(bool status) {
+    QString wifiStatus = status ? "on" : "off";
+    QString program = "nmcli";
+    QStringList arg;
+    arg << "radio" << "wifi" << wifiStatus;
+    QProcess *nmcliCmd = new QProcess(this);
+    nmcliCmd->start(program, arg);
+    nmcliCmd->waitForStarted();
 }
 
 void NetConnect::getActiveConInfo(QList<ActiveConInfo>& qlActiveConInfo) {
