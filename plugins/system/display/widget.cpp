@@ -573,7 +573,9 @@ void Widget::initNightUI() {
 bool Widget::isRestoreConfig() {
     int cnt = 9;
     int ret;
+    QRect rect =this->topLevelWidget()->geometry();
     QMessageBox msg;
+    int msgX = 0, msgY = 0;
     if (mConfigChanged) {
         msg.setWindowTitle(tr("Hint"));
         msg.setText(tr("After modifying the resolution or refresh rate, "
@@ -596,6 +598,9 @@ bool Widget::isRestoreConfig() {
             }
         });
         cntDown.start(1000);
+        msgX = rect.x() + rect.width()/2 - 500/2 -5;
+        msgY = rect.y() + rect.height()/2 - 145/2 + 5;
+        msg.move(msgX, msgY);
         ret = msg.exec();
     }
 
