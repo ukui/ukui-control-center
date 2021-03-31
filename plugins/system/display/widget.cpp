@@ -579,9 +579,9 @@ bool Widget::isRestoreConfig() {
         msg.setText(tr("After modifying the resolution or refresh rate, "
                        "due to compatibility issues between the display device and the graphics card, "
                        "the display may be abnormal or unable to display\n"
-                       "If something goes wrong, the settings will be restored after 9 seconds"));
-        msg.addButton(tr("Save Config"), QMessageBox::AcceptRole);
-        msg.addButton(tr("Restore Config"), QMessageBox::RejectRole);
+                       "the settings will be saved after 9 seconds"));
+        msg.addButton(tr("Save Config"), QMessageBox::RejectRole);
+        msg.addButton(tr("Restore Config"), QMessageBox::AcceptRole);
 
         QTimer cntDown;
         QObject::connect(&cntDown, &QTimer::timeout, [&msg,&cnt, &cntDown, &ret]()->void{
@@ -592,14 +592,14 @@ bool Widget::isRestoreConfig() {
                 msg.setText(QString(tr("After modifying the resolution or refresh rate, "
                                     "due to compatibility issues between the display device and the graphics card, "
                                     "the display may be abnormal or unable to display \n"
-                                    "If something goes wrong, the settings will be restored after %1 seconds")).arg(cnt));
+                                    "the settings will be saved after %1 seconds")).arg(cnt));
             }
         });
         cntDown.start(1000);
         ret = msg.exec();
     }
 
-    bool res = true;
+    bool res = false;
     switch (ret) {
       case QMessageBox::AcceptRole:
           res = false;
@@ -1075,9 +1075,7 @@ void Widget::save() {
 
     if (isRestoreConfig()) {
         if (mIsWayland && -1 != mScreenId) {
-
-            config->output(mScreenId)->setPrimary(true);
-            callMethod(mPrevConfig->output(mScreenId)->geometry(), config->primaryOutput()->name());
+            callMethod(mPrevConfig->output(mScreenId)->geometry(), mPrevConfig->output(mScreenId)->name());
         }
         auto *op = new KScreen::SetConfigOperation(mPrevConfig);
         op->exec();

@@ -4220,12 +4220,12 @@ Please retry or relogin!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4254"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4361"/>
         <source>PulseAudio Volume Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4268"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4375"/>
         <source>Connection to PulseAudio failed. Automatic retry in 5s
 
 In this case this is likely because PULSE_SERVER in the Environment/X11 Root Window Properties
@@ -4236,38 +4236,37 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4314"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4421"/>
         <source>pa_context_subscribe() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4320"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4427"/>
         <source>pa_context_get_card_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4332"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4439"/>
         <source>Failed to initialize stream_restore extension: %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4337"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4444"/>
         <source>Connection failed, attempting reconnect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4352"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4460"/>
         <source>pa_ext_stream_restore_read() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4405"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4551"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4660"/>
         <source>pa_context_get_card_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4567"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4676"/>
         <source>Card callback failure</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5476,29 +5475,29 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4243"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4350"/>
         <source>Establishing connection to PulseAudio. Please wait...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4388"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4496"/>
         <source>pa_ext_stream_restore_write() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4728"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4823"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4844"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4938"/>
         <source> (unplugged)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4731"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4821"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4847"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4936"/>
         <source> (unavailable)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4815"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4930"/>
         <source> (plugged in)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6013,9 +6012,9 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="579"/>
-        <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
-If something goes wrong, the settings will be restored after 9 seconds</source>
+        <location filename="../../../plugins/system/display/widget.cpp" line="592"/>
+        <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
+the settings will be saved after %1 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6024,14 +6023,14 @@ If something goes wrong, the settings will be restored after 9 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="584"/>
-        <source>Restore Config</source>
+        <location filename="../../../plugins/system/display/widget.cpp" line="579"/>
+        <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
+the settings will be saved after 9 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="592"/>
-        <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
-If something goes wrong, the settings will be restored after %1 seconds</source>
+        <location filename="../../../plugins/system/display/widget.cpp" line="584"/>
+        <source>Restore Config</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
