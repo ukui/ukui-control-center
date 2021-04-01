@@ -1080,6 +1080,7 @@ void Widget::save() {
 
     if (isRestoreConfig()) {
         if (mIsWayland && -1 != mScreenId) {
+            mPrevConfig->output(mScreenId)->setPrimary(true);
             callMethod(mPrevConfig->output(mScreenId)->geometry(), mPrevConfig->output(mScreenId)->name());
         }
         auto *op = new KScreen::SetConfigOperation(mPrevConfig);
