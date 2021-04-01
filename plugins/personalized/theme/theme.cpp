@@ -667,7 +667,7 @@ QString Theme::dullTranslation(QString str) {
 void Theme::resetBtnClickSlot() {
 
     emit ui->themeModeBtnGroup->buttonClicked(ui->defaultButton);
-    kwinCursorSlot(kDefCursor);
+
 
     // reset cursor default theme
     curSettings->reset(CURSOR_THEME_KEY);
@@ -678,7 +678,7 @@ void Theme::resetBtnClickSlot() {
     } else {
         cursorTheme = defaultCursor;
     }
-
+    kwinCursorSlot(cursorTheme);
     // Reset icon default theme
     qtSettings->reset(ICON_QT_KEY);
 
