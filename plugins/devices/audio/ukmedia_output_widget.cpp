@@ -172,14 +172,14 @@ UkmediaOutputWidget::UkmediaOutputWidget(QWidget *parent) : QWidget(parent)
     //声道平衡添加布局
     QHBoxLayout *soundLayout = new QHBoxLayout(m_pChannelBalanceWidget);
     m_pOpBalanceLabel->setFixedSize(150,32);
-    m_pLeftBalanceLabel->setFixedSize(32,24);
+    m_pLeftBalanceLabel->setFixedSize(36,24);
     m_pOpBalanceSlider->setFixedHeight(20);
-    m_pRightBalanceLabel->setFixedSize(55,24);
+    m_pRightBalanceLabel->setFixedSize(55,28);
     soundLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     soundLayout->addWidget(m_pOpBalanceLabel);
     soundLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     soundLayout->addWidget(m_pLeftBalanceLabel);
-    soundLayout->addItem(new QSpacerItem(8,20,QSizePolicy::Fixed));
+    soundLayout->addItem(new QSpacerItem(4,20,QSizePolicy::Fixed));
     soundLayout->addWidget(m_pOpBalanceSlider);
     soundLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     soundLayout->addWidget(m_pRightBalanceLabel);
