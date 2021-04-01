@@ -1386,8 +1386,7 @@ Please authenticate yourself to continue</source>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="233"/>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="353"/>
         <source>Inconsistency with pwd</source>
-        <translation>
-与新密码不同</translation>
+        <translation>与新密码不同</translation>
     </message>
 </context>
 <context>
