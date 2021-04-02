@@ -1,3 +1,33 @@
+ukui-control-center (3.0.1-1-55) v101; urgency=medium
+
+  * 解决bug#42212旧密码可与新密码相同
+  * 解决bug#44081同步win+p更改
+  * 解决bug#选择非默认光标主题后点击恢复默认设置，拉伸窗体光标显示为“白”光标
+  * 解决bug#43275
+  * 解决bug#43635,bug#43632,bug#43141
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 02 Apr 2021 09:58:44 +0800
+
+ukui-control-center (3.0.1-1-54) v101; urgency=medium
+
+  * 解决bug#45596 恢复原来配置主屏幕更改问题
+  * 解决bug#45235可用网络列表中，“网络连接”的按钮和灰色背景有部分重叠
+  * 解决bug#45233更改用户部分UI
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 30 Mar 2021 16:01:44 +0800
+
+ukui-control-center (3.0.1-1-53) v101; urgency=medium
+
+  * 解决bug#43244 【双屏】【VGA+HDMI】更改HDMI屏分辨率为1024*768，刷新率为60，重新打开控制面板，分辨率自动变为1280*720
+
+ -- zhoubin <zhoubin@kylinos.cn>  Sat, 27 Mar 2021 11:37:15 +0800
+
+ukui-control-center (3.0.1-1-52.1) v101; urgency=medium
+
+  * 解决输入设备未及时更新以及深色主题下未反白的问题(封昭翔)
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 25 Mar 2021 17:07:22 +0800
+
 ukui-control-center (3.0.1-1-52) v101; urgency=medium
 
   * 解决bug#43058显示预览没有切换
