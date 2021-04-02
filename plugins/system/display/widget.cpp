@@ -336,14 +336,12 @@ void Widget::slotUnifyOutputs() {
         KScreen::OutputList screens =  mPrevConfig->connectedOutputs();
         QMap<int, KScreen::OutputPtr>::iterator it = screens.begin();
         while (it != screens.end()) {
-
             KScreen::OutputPtr screen= it.value();
-
-            if (screen->isPrimary() || screen->name().compare(primaryWaylandScreen, Qt::CaseInsensitive)) {
+            if (screen->isPrimary()) {
                 KScreen::ModeList modes = screen->modes();
                 Q_FOREACH(const KScreen::ModePtr &mode, modes) {
                     if (screen->currentModeId() == mode->id()) {
-                        secPoint = QPoint(mode->size().width(), 0);
+                        secPoint = QPoint(screen->pos().x() + mode->size().width(), 0);
                         invertedSecPoint = QPoint(mode->size().height(), 0);
                     }
                 }
@@ -358,16 +356,13 @@ void Widget::slotUnifyOutputs() {
                 if (screen->rotation() == KScreen::Output::Rotation::Left || \
                         screen->rotation() == KScreen::Output::Rotation::Right) {
                     screen->setPos(invertedSecPoint);
-                }
-                else {
+                } else {
                     screen->setPos(secPoint);
                 }
             }
             secIt++;
         }
-
         setConfig(mPrevConfig);
-        mPrevConfig.clear();
 
         ui->primaryCombo->setEnabled(true);
         mCloseScreenButton->setEnabled(true);
@@ -1086,7 +1081,6 @@ void Widget::save() {
 
     mScreen->updateOutputsPlacement();
 
-
     if (isRestoreConfig()) {
         if (mIsWayland && -1 != mScreenId) {
             mPrevConfig->output(mScreenId)->setPrimary(true);
@@ -1423,7 +1417,7 @@ void Widget::initConnection() {
     });
 
     connect(QApplication::desktop(), &QDesktopWidget::resized, this, [=] {
-       mUnifyButton->setChecked(isCloneMode());
+        mUnifyButton->setChecked(isCloneMode());
     });
 
     QDBusConnection::sessionBus().connect(QString(),
