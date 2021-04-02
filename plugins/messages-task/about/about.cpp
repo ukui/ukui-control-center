@@ -102,7 +102,11 @@ void About::setupDesktopComponent() {
     // 设置当前桌面环境信息
     if (!dEnv.isEmpty()) {
         QString desktop = dEnv.section("=", -1, -1);
-        ui->desktopContent->setText(desktop);
+        if (desktop.contains("UKUI", Qt::CaseInsensitive)) {
+            ui->desktopContent->setText("UKUI");
+        } else {
+            ui->desktopContent->setText(desktop);
+        }
     }
 
     QString name = qgetenv("USER");
