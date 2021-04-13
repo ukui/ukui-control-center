@@ -251,3 +251,16 @@ bool Utils::isWayland() {
         return false;
     }
 }
+
+bool Utils::isCommunity()
+{
+    QString filename = "/etc/os-release";
+    QSettings osSettings(filename, QSettings::IniFormat);
+
+    QString versionID = osSettings.value("VERSION_ID").toString();
+
+    if (versionID.compare("20.04", Qt::CaseSensitive)) {
+        return false;
+    }
+    return true;
+}

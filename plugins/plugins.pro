@@ -27,6 +27,7 @@ SUBDIRS = \
           account/networkaccount \
           security-updates/securitycenter \
           security-updates/backup \
+          security-updates/update \
 #          security-updates/upgrade \
           messages-task/about \
           system/touchscreen \
