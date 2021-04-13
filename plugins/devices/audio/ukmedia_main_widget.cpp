@@ -3296,11 +3296,13 @@ void UkmediaMainWidget::outputListWidgetCurrentRowChangedSlot(int row)
         setProfile += endOutputProfile;
         setProfile += "+";
         setProfile +=endInputProfile;
+        m_pOutputWidget->m_pOutputDeviceCombobox->blockSignals(true);
         system(setProfile.toLocal8Bit().data());
         QString deviceLabel = wid->deviceLabel->text();
         QTimer *time = new QTimer;
         time->start(100);
         connect(time,&QTimer::timeout,[=](){
+            m_pOutputWidget->m_pOutputDeviceCombobox->blockSignals(false);
             int index = m_pCardNameList->indexOf(deviceLabel);
             if (index != -1) {
                 const QString str1 =  m_pOutputStreamList->at(index);
@@ -3336,11 +3338,13 @@ void UkmediaMainWidget::outputListWidgetCurrentRowChangedSlot(int row)
         setProfile += wid->deviceLabel->text();
         setProfile += " ";
         setProfile += profileName;
+        m_pOutputWidget->m_pOutputDeviceCombobox->blockSignals(true);
         system(setProfile.toLocal8Bit().data());
         QTimer *time = new QTimer;
         time->start(100);
         QString deviceLabel = wid->deviceLabel->text();
         connect(time,&QTimer::timeout,[=](){
+            m_pOutputWidget->m_pOutputDeviceCombobox->blockSignals(false);
             m_pOutputWidget->m_pOutputDeviceCombobox->update();
             int index = m_pCardNameList->indexOf(deviceLabel);
             if (index >= 0) {
