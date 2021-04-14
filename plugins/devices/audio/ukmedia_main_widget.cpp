@@ -1153,7 +1153,7 @@ void UkmediaMainWidget::addDevice(UkmediaMainWidget *m_pWidget, MateMixerDevice 
 {
     g_debug("add device");
     const gchar *pName;
-    char *pLabel;
+
     const gchar *profileLabel = NULL;
     /*
          * const gchar *m_pLabel;
@@ -1161,19 +1161,20 @@ void UkmediaMainWidget::addDevice(UkmediaMainWidget *m_pWidget, MateMixerDevice 
         */
     m_pWidget->m_pDevice = pDevice;
     pName  = mate_mixer_device_get_name (pDevice);
-    pLabel = (char *)mate_mixer_device_get_label(pDevice);
+    const char *pLabel = mate_mixer_device_get_label(pDevice);
+    QString sLabel(pLabel);
     m_pWidget->m_pDeviceNameList->append(pName);
 
     if (m_pWidget->m_pOutputWidget->m_pSelectCombobox->findText(pLabel)) {
 
         if (strstr(pName,"hdmi")) {
-            strcat(pLabel," (HDMI)");
+            sLabel+=" (HDMI)";
         }
         else if (strstr(pName,"dp")) {
-            strcat(pLabel," (DP)");
+            sLabel+=" (DP)";
         }
         else if (strstr(pName,"usb")) {
-            strcat(pLabel," (USB)");
+            sLabel+=" (USB)";
         }
 
     }
