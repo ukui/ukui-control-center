@@ -1,3 +1,19 @@
+ukui-control-center (3.0.1-1-57.1) v101; urgency=medium
+
+  * 修改翻译："自动登录"改为开机自动登录；
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 22 Apr 2021 17:53:50 +0800
+
+ukui-control-center (3.0.1-1-57) v101; urgency=medium
+
+  * 990分数缩放添加
+  * 解决bug#43141使用i2ctransfer写入bus数据调整台式机亮度
+  * 解决bug#50120鼠标左键可以点击
+  * 添加搜索插件
+  * 解决bug#32085打开统一输出，点击两次应用设置，再关闭统一输出，显示器预览窗口仍然显示Unified outputs
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 22 Apr 2021 15:40:18 +0800
+
 ukui-control-center (3.0.1-1-56) v101; urgency=medium
 
   * 解决bug#34463拔掉HDMI屏再接入，控制面板中两个屏的位置不对

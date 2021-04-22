@@ -1398,7 +1398,7 @@ Please authenticate yourself to continue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/creategroupdialog.cpp" line="207"/>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.cpp" line="206"/>
         <source>Add user group</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3564,65 +3564,53 @@ Please retry or relogin!</source>
 <context>
     <name>OutputConfig</name>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="78"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="90"/>
         <source>resolution</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="105"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="122"/>
         <source>orientation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="122"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="139"/>
         <source>arrow-up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="123"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="140"/>
         <source>90° arrow-right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="125"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="142"/>
         <source>arrow-down</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="124"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="141"/>
         <source>90° arrow-left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="137"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="154"/>
         <source>frequency</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="153"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="170"/>
         <source>auto</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="165"/>
-        <source>100%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="167"/>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="193"/>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="333"/>
-        <source>200%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="172"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="209"/>
         <source>screen zoom</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="268"/>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="274"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="297"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="303"/>
         <source>%1 Hz</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6248,70 +6236,70 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="586"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="587"/>
         <source>unify output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="590"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="591"/>
         <source>night mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="598"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="599"/>
         <source>Theme follow night mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="611"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="612"/>
         <source>Hint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="625"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="626"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
 the settings will be saved after %1 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="616"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="617"/>
         <source>Save Config</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="612"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="613"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after 9 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="617"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="618"/>
         <source>Restore Config</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1090"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1097"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1091"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1098"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1090"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1091"/>
         <source>please insure at least one output!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1098"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1099"/>
         <source>Open time should be earlier than close time!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1108"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1109"/>
         <source>Warnning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1109"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1110"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation type="unfinished"></translation>
