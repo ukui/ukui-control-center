@@ -518,17 +518,13 @@ void MainWindow::loadPlugins(){
                 continue;
         }
 #endif
-        if (!fileName.endsWith(".so")) {
-            continue;
-        } else if (fileName == "libexperienceplan.so") {
-            continue;
-        } else if ("libnetworkaccount.so" == fileName && !isExitsCloudAccount()) {
-            continue;
-        } else if (!QGSettings::isSchemaInstalled(kVinoSchemas) && "libvino.so" == fileName) {
-            continue;
-        } else if ("libbluetooth.so" == fileName && !isExitBluetooth()) {
-            continue;
-        }else if ("libtouchscreen.so" == fileName && !isExitTouchScreen()) {
+        if (!fileName.endsWith(".so")
+                || (fileName == "libexperienceplan.so")
+                || ("libnetworkaccount.so" == fileName && !isExitsCloudAccount())
+                || (!QGSettings::isSchemaInstalled(kVinoSchemas) && "libvino.so" == fileName)
+                || ("libbluetooth.so" == fileName && !isExitBluetooth())
+                || ("libtouchscreen.so" == fileName && !isExitTouchScreen())
+                || ("libupdate.so" == fileName && !Utils::isCommunity())) {
             continue;
         }
 
