@@ -829,6 +829,8 @@ void MainWindow::functionBtnClicked(QObject *plugin) {
 }
 
 void MainWindow::sltMessageReceived(const QString &msg) {
+    this->hide();
+    this->show();
     showNormal();
     bootOptionsFilter(msg);
 
