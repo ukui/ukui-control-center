@@ -1080,8 +1080,13 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="231"/>
+        <source>Allow Bluetooth devices to be discoverable</source>
+        <translation>允许蓝牙设备可以被发现</translation>
+        <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
+    </message>
+    <message>
         <source>Discoverable</source>
-        <translation>设备可见性</translation>
+        <translation type="vanished">设备可见性</translation>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
@@ -2267,12 +2272,12 @@ folder will be deleted!</source>
         <translation>连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="38"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="37"/>
         <source>Disconnect</source>
         <translation>断开</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="43"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="41"/>
         <source>Remove</source>
         <translation>移除</translation>
     </message>
@@ -2606,42 +2611,42 @@ folder will be deleted!</source>
         <translation>亮</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="518"/>
+        <location filename="../../../plugins/system/display/display.ui" line="525"/>
         <source>follow the sunrise and sunset(17:55-05:04)</source>
         <translation>跟随日落日出（17:55-05:04）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="582"/>
+        <location filename="../../../plugins/system/display/display.ui" line="589"/>
         <source>custom time</source>
         <translation>自定义时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="646"/>
+        <location filename="../../../plugins/system/display/display.ui" line="653"/>
         <source>opening time</source>
         <translation>开启时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="729"/>
+        <location filename="../../../plugins/system/display/display.ui" line="736"/>
         <source>closing time</source>
         <translation>关闭时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="824"/>
+        <location filename="../../../plugins/system/display/display.ui" line="831"/>
         <source>color temperature</source>
         <translation>色温</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="831"/>
+        <location filename="../../../plugins/system/display/display.ui" line="838"/>
         <source>warm</source>
         <translation>暖</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="854"/>
+        <location filename="../../../plugins/system/display/display.ui" line="861"/>
         <source>cold</source>
         <translation>冷</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="891"/>
+        <location filename="../../../plugins/system/display/display.ui" line="898"/>
         <source>apply</source>
         <translation>应用</translation>
     </message>
@@ -8054,18 +8059,18 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1091"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1071"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1091"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1098"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1071"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1078"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1099"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1079"/>
         <source>Open time should be earlier than close time!</source>
         <translation>开启时间必须大于关闭时间！</translation>
     </message>
@@ -8074,12 +8079,12 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">早晨时刻应早于晚上的时刻!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1109"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1089"/>
         <source>Warnning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1110"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1090"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>

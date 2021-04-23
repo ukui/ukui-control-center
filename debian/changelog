@@ -1,3 +1,10 @@
+ukui-control-center (3.0.1-1-57.2) v101; urgency=medium
+
+  * 解决bug#50577显示亮度调整数值
+  * 解决bug#43141修改分辨率后加延时，得到准确的控制面板位置
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 23 Apr 2021 18:00:29 +0800
+
 ukui-control-center (3.0.1-1-57.1) v101; urgency=medium
 
   * 修改翻译："自动登录"改为开机自动登录；
