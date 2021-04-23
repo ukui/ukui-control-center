@@ -116,7 +116,7 @@ private Q_SLOTS:
     void mainScreenButtonSelect(int index);     // 是否禁用设置主屏按钮
     void checkOutputScreen(bool judge);         // 是否禁用屏幕
     void setBrightnessScreen(int value);        // 设置屏幕亮度
-    void setDDCBrightness();
+    void setDDCBrightness(int value);
     void setBrightSliderVisible();              // 笔记本外接屏幕不可调整亮度
 
     void setBrightnesSldierValue();             // 设置亮度滑块数值
@@ -130,9 +130,6 @@ private Q_SLOTS:
     void isWayland();
 
     void setDDCBrighthessSlot(int brightnessValue);// 设置外接显示器亮度
-
-    void shortAddBrightnessSlot();
-    void shortCutBrightnessSlot();
 
 public Q_SLOTS:
     void save();

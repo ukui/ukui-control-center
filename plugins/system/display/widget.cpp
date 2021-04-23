@@ -1035,26 +1035,6 @@ void Widget::setDDCBrighthessSlot(int brightnessValue)
     }
 }
 
-void Widget::shortAddBrightnessSlot()
-{
-    int value = ui->brightnessSlider->value();
-    if (value < 100) {
-        value = (value + 10) <= 100 ? (value + 10) : 100;
-        ui->brightnessSlider->setValue(value);
-        setDDCBrightness();
-    }
-}
-
-void Widget::shortCutBrightnessSlot()
-{
-    int value = ui->brightnessSlider->value();
-    if (value > 0) {
-        value = (value - 10) >= 0 ? (value - 10) : 0;
-        ui->brightnessSlider->setValue(value);
-        setDDCBrightness();
-    }
-}
-
 void Widget::save()
 {
     if (!this) {
@@ -1435,14 +1415,18 @@ void Widget::checkOutputScreen(bool judge)
 // 亮度调节UI
 void Widget::initBrightnessUI()
 {
+    ui->brightnessSlider->setRange(0, 100);
     if (mIsWayland && !mIsBattery) {
-        ui->brightnessSlider->setRange(0, 10);
-        ui->brightnessSlider->setTickInterval(1);
-        ui->brightnessSlider->setPageStep(1);
         connect(ui->brightnessSlider, &QSlider::valueChanged, this, &Widget::setDDCBrightness);
     } else {
-        ui->brightnessSlider->setRange(0, 100);
         connect(ui->brightnessSlider, &QSlider::valueChanged, this, &Widget::setBrightnessScreen);
+    }
+
+    if (mIsWayland) {
+        ui->darkLabel->setVisible(false);
+        ui->brihghtLabel->setVisible(false);
+    } else {
+        ui->brightValueLabel->setVisible(false);
     }
 }
 
@@ -1505,13 +1489,14 @@ void Widget::initConnection()
 void Widget::setBrightnessScreen(int value)
 {
     qDebug() << Q_FUNC_INFO << value;
+    ui->brightValueLabel->setText(QString::number(value));
     mPowerGSettings->set(POWER_KEY, value);
 }
 
-void Widget::setDDCBrightness()
+void Widget::setDDCBrightness(int value)
 {
-    int value = ui->brightnessSlider->value() * 10;
     qDebug() << Q_FUNC_INFO << value;
+    ui->brightValueLabel->setText(QString::number(value));
     if (!isLaptopScreen()) {
         setDDCBrighthessSlot(value);
     } else {
@@ -1533,9 +1518,11 @@ void Widget::setBrightnesSldierValue()
     value = mPowerGSettings->get(POWER_KEY).toInt();
 
     if (mIsWayland && !mIsBattery) {
-        int realValue = getDDCBrighthess() == 0 ? 0 : getDDCBrighthess() / 10;
+        int realValue = getDDCBrighthess();
+        ui->brightValueLabel->setText(QString::number(realValue));
         ui->brightnessSlider->setValue(realValue);
     } else {
+        ui->brightValueLabel->setText(QString::number(value));
         ui->brightnessSlider->setValue(value);
     }
 }
