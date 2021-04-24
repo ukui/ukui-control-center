@@ -708,7 +708,7 @@ QString Widget::getMonitorType()
     if (monitor.contains("VGA", Qt::CaseInsensitive)) {
         type = "4";
     } else {
-        type = "9";
+        type = "8";
     }
     return type;
 }
