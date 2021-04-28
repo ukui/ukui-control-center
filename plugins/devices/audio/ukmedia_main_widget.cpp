@@ -1130,6 +1130,7 @@ void UkmediaMainWidget::removeStream (UkmediaMainWidget *m_pWidget, const gchar 
     if (m_pWidget->m_pAppVolumeList != nullptr) {
         ukuiBarSetStream(m_pWidget,nullptr);
     }
+    m_pWidget->m_pInputWidget->m_pInputLevelProgressBar->setValue(0);
 }
 
 /*
@@ -1596,7 +1597,7 @@ void UkmediaMainWidget::updateIconInput (UkmediaMainWidget *m_pWidget)
     const gchar *inputControlName = mate_mixer_stream_control_get_name(m_pControl);
 
     if (inputControlName != nullptr && inputControlName != "auto_null.monitor") {
-        if (strstr(inputControlName,"alsa_input"))
+        if (strstr(inputControlName,"alsa_input") || strstr(inputControlName,"3a_source") || strstr(inputControlName,"bluez_source") || strstr(inputControlName,"bt_sco_source"))
             show = true;
     }
 
@@ -3551,10 +3552,8 @@ void UkmediaMainWidget::updateInputSettings (UkmediaMainWidget *m_pWidget,MateMi
     }
 
     flags = mate_mixer_stream_control_get_flags (m_pControl);
-
     /* Enable level bar only if supported by the control */
     if (flags & MATE_MIXER_STREAM_CONTROL_HAS_MONITOR) {
-           qDebug() << "monitor control voulme notify " << mate_mixer_stream_control_get_name(m_pControl);
         m_pWidget->m_pPrivInputControl = m_pControl;
         g_signal_connect (G_OBJECT (m_pControl),
                           "monitor-value",
