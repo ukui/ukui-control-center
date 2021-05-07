@@ -40,6 +40,7 @@
 #include <QPainter>
 #include <QtMath>
 #include <QGSettings>
+#include <QPainterPath>
 
 #include "updatedbus.h"
 

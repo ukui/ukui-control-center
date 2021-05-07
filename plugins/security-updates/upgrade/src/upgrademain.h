@@ -34,6 +34,7 @@
 #include <QVector>
 #include <QScrollArea>
 #include <QGSettings>
+#include <QPainterPath>
 
 #include "connection.h"
 #include "daemonipcdbus.h"
