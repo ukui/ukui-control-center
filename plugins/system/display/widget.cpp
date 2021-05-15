@@ -664,8 +664,7 @@ bool Widget::isCloneMode()
     KScreen::OutputPtr output = mConfig->primaryOutput();
     if (mConfig->connectedOutputs().count() >= 2) {
         foreach (KScreen::OutputPtr secOutput, mConfig->connectedOutputs()) {
-
-            if (secOutput->geometry() != output->geometry()) {
+            if (secOutput->geometry() != output->geometry() || !secOutput->isEnabled()) {
                 return false;
             }
         }
@@ -1039,7 +1038,7 @@ void Widget::kdsScreenchangeSlot()
         KScreen::OutputPtr output = config->primaryOutput();
         if (config->connectedOutputs().count() >= 2) {
             foreach (KScreen::OutputPtr secOutput, config->connectedOutputs()) {
-                if (secOutput->geometry() != output->geometry()) {
+                if (secOutput->geometry() != output->geometry() || !secOutput->isEnabled()) {
                     cloneMode = false;
                 }
             }
@@ -1485,6 +1484,12 @@ void Widget::initConnection()
 
     connect(QApplication::desktop(), &QDesktopWidget::resized, this, [=] {
         QTimer::singleShot(1000, this, [=]{
+            kdsScreenchangeSlot();
+        });
+    });
+
+    connect(QApplication::desktop(), &QDesktopWidget::screenCountChanged, this, [=] {
+        QTimer::singleShot(1000, this, [=] {
             kdsScreenchangeSlot();
         });
     });
