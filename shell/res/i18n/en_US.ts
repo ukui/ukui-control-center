@@ -1225,7 +1225,7 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="411"/>
-        <source>Standard users can use most software, but cannot install software and change system settings</source>
+        <source>Standard users can use most software, but cannot change system settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1456,27 +1456,26 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="526"/>
-        <source>Standard users can use most software, but cannot install the software and 
-change system settings</source>
+        <source>Standard users can use most software, but cannot change system settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="628"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="627"/>
         <source>administrator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="641"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="640"/>
         <source>Administrators can make any changes they need</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="716"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="715"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="735"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="734"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1513,37 +1512,37 @@ change system settings</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="396"/>
-        <source>The first character must be lowercase letters!</source>
+        <source>Must be begin with lower letters!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="399"/>
-        <source>User name can not contain capital letters!</source>
+        <source>Can not contain capital letters!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="421"/>
-        <source>The user name is already in use, please use a different one.</source>
+        <source>Name already in use, change another one.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="423"/>
-        <source>The name corresponds to the group already exists.</source>
+        <source>Name corresponds to group already exists.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="428"/>
-        <source>User name length need to less than %1 letters!</source>
+        <source>Name length must less than %1 letters!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="430"/>
-        <source>The user name can only be composed of letters, numbers and underline!</source>
+        <source>Can only contain letters,digits,underline!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="435"/>
-        <source>The username is configured, please change the username</source>
+        <source>Username&apos;s folder exists, change another one</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
