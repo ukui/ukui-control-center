@@ -823,7 +823,6 @@ void Widget::outputAdded(const KScreen::OutputPtr &output)
     if (!mFirstLoad) {
         QTimer::singleShot(2000, this, [=] {
             mainScreenButtonSelect(ui->primaryCombo->currentIndex());
-            mUnifyButton->setChecked(isCloneMode());
         });
     }
 }
@@ -1486,13 +1485,13 @@ void Widget::initConnection()
     });
 
     connect(QApplication::desktop(), &QDesktopWidget::resized, this, [=] {
-        QTimer::singleShot(1000, this, [=]{
+        QTimer::singleShot(1500, this, [=]{
             kdsScreenchangeSlot();
         });
     });
 
     connect(QApplication::desktop(), &QDesktopWidget::screenCountChanged, this, [=] {
-        QTimer::singleShot(1000, this, [=] {
+        QTimer::singleShot(1500, this, [=] {
             kdsScreenchangeSlot();
         });
     });

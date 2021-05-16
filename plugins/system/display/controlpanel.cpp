@@ -78,7 +78,6 @@ void ControlPanel::removeOutput(int outputId)
             mOutputConfigs.removeOne(outputCfg);
             delete outputCfg;
             outputCfg = nullptr;
-            return;
         } else {
             outputCfg->setVisible(true);
         }
