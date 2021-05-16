@@ -480,6 +480,9 @@ void Widget::setTitleLabel()
     QFont font;
     font.setPixelSize(18);
     ui->titleLabel->setFont(font);
+
+    //~ contents_path /display/monitor
+    ui->primaryLabel->setText(tr("monitor"));
 }
 
 void Widget::writeScale(double scale)
@@ -570,11 +573,11 @@ void Widget::setcomBoxScale()
 
 void Widget::initNightUI()
 {
-    // ~ contents_path /display/unify output
+    //~ contents_path /display/unify output
     ui->unifyLabel->setText(tr("unify output"));
 
     QHBoxLayout *nightLayout = new QHBoxLayout(ui->nightframe);
-    // ~ contents_path /display/night mode
+    //~ contents_path /display/night mode
     nightLabel = new QLabel(tr("night mode"), this);
     mNightButton = new SwitchButton(this);
     nightLayout->addWidget(nightLabel);

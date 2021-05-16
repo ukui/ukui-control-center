@@ -177,7 +177,7 @@ void AutoBoot::initTitleLabel()
 
 void AutoBoot::initStyle()
 {
-    // ~ contents_path /autoboot/Autoboot Settings
+    //~ contents_path /autoboot/Autoboot Settings
     ui->titleLabel->setText(tr("Autoboot Settings"));
 }
 

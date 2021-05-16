@@ -86,7 +86,7 @@ void OutputConfig::initUi()
     mResolution->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 
     QLabel *resLabel = new QLabel(this);
-    // ~ contents_path /display/resolution
+    //~ contents_path /display/resolution
     resLabel->setText(tr("resolution"));
     resLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     resLabel->setFixedSize(118, 30);
@@ -205,7 +205,7 @@ void OutputConfig::initUi()
             this, &OutputConfig::slotScaleChanged);
 
     QLabel *scaleLabel = new QLabel(this);
-    // ~ contents_path /display/screen zoom
+    //~ contents_path /display/screen zoom
     scaleLabel->setText(tr("screen zoom"));
     scaleLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     scaleLabel->setFixedSize(118, 30);
