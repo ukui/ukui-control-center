@@ -3414,7 +3414,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.ui" line="142"/>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="147"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="593"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="676"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3433,7 +3433,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="52"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="337"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="338"/>
         <source>Connect</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3444,7 +3444,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="209"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="500"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="533"/>
         <source>No net</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3454,12 +3454,12 @@ Please retry or relogin!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="436"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="468"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="582"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="665"/>
         <source>Refreshing...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3467,72 +3467,77 @@ Please retry or relogin!</source>
 <context>
     <name>NetDetail</name>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="88"/>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="93"/>
         <source>SSID:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="89"/>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="94"/>
         <source>Protocol</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="91"/>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="96"/>
         <source>Security Type:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="92"/>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="97"/>
         <source>Hz:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="93"/>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="98"/>
         <source>Chan:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="96"/>
-        <source>BandWidth:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="97"/>
-        <source>IPV4:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="98"/>
-        <source>IPV4 Dns:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="99"/>
-        <source>IPV4 GateWay:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="100"/>
-        <source>IPV4 Prefix:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="101"/>
-        <source>IPV6:</source>
+        <source>Link Speed(rx/tx)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="102"/>
-        <source>IPV6 Prefix:</source>
+        <source>BandWidth:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="103"/>
-        <source>IPV6 GateWay:</source>
+        <source>IPV4:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="104"/>
+        <source>IPV4 Dns:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="105"/>
+        <source>IPV4 GateWay:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="106"/>
+        <source>IPV4 Prefix:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="107"/>
+        <source>IPV6:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="108"/>
+        <source>IPV6 Prefix:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="109"/>
+        <source>IPV6 GateWay:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="110"/>
         <source>Mac:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6415,28 +6420,28 @@ the settings will be saved after %1 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1088"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1095"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1087"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1094"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1088"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1087"/>
         <source>please insure at least one output!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1096"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1095"/>
         <source>Open time should be earlier than close time!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1106"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1105"/>
         <source>Warnning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1107"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1106"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation type="unfinished"></translation>

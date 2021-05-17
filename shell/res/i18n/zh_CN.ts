@@ -4387,7 +4387,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.ui" line="142"/>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="147"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="593"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="676"/>
         <source>Refresh</source>
         <translation>刷新</translation>
     </message>
@@ -4427,7 +4427,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="209"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="500"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="533"/>
         <source>No net</source>
         <translation>无连接</translation>
     </message>
@@ -4437,12 +4437,12 @@ Please retry or relogin!</source>
         <translation>网络详情</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="436"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="468"/>
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="582"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="665"/>
         <source>Refreshing...</source>
         <translation>刷新中...</translation>
     </message>
@@ -4456,7 +4456,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="52"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="337"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="338"/>
         <source>Connect</source>
         <translation>网络连接</translation>
     </message>
@@ -4468,72 +4468,77 @@ Please retry or relogin!</source>
 <context>
     <name>NetDetail</name>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="88"/>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="93"/>
         <source>SSID:</source>
         <translation>SSID：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="89"/>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="94"/>
         <source>Protocol</source>
         <translation>协议：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="91"/>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="96"/>
         <source>Security Type:</source>
         <translation>安全类型：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="92"/>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="97"/>
         <source>Hz:</source>
         <translation>网络频带：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="93"/>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="98"/>
         <source>Chan:</source>
         <translation>网络通道：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="96"/>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="99"/>
+        <source>Link Speed(rx/tx)</source>
+        <translation>链接速度(接收/传输):</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="102"/>
         <source>BandWidth:</source>
         <translation>带宽：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="97"/>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="103"/>
         <source>IPV4:</source>
         <translation>IPV4：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="98"/>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="104"/>
         <source>IPV4 Dns:</source>
         <translation>IPV4 Dns:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="99"/>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="105"/>
         <source>IPV4 GateWay:</source>
         <translation>网关：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="100"/>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="106"/>
         <source>IPV4 Prefix:</source>
         <translation>前缀：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="101"/>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="107"/>
         <source>IPV6:</source>
         <translation>IPV6:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="102"/>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="108"/>
         <source>IPV6 Prefix:</source>
         <translation>前缀：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="103"/>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="109"/>
         <source>IPV6 GateWay:</source>
         <translation>网关：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="104"/>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="110"/>
         <source>Mac:</source>
         <translation>物理地址：</translation>
     </message>
@@ -8233,18 +8238,18 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1088"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1087"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1088"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1095"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1087"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1094"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1096"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1095"/>
         <source>Open time should be earlier than close time!</source>
         <translation>开启时间必须大于关闭时间！</translation>
     </message>
@@ -8253,12 +8258,12 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">早晨时刻应早于晚上的时刻!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1106"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1105"/>
         <source>Warnning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1107"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1106"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>
