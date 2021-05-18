@@ -708,9 +708,7 @@ bool Widget::isLaptopScreen()
 {
     int index = ui->primaryCombo->currentIndex();
     KScreen::OutputPtr output = mConfig->output(ui->primaryCombo->itemData(index).toInt());
-    if (output->type() == KScreen::Output::Type::Panel
-            ||(!mIsWayland && mIsBattery && output->type() == KScreen::Output::Type::DisplayPort
-               && mCPU.startsWith(kCpu, Qt::CaseInsensitive))) {
+    if (output->type() == KScreen::Output::Type::Panel) {
         return true;
     }
     return false;
@@ -719,7 +717,8 @@ bool Widget::isLaptopScreen()
 bool Widget::isVisibleBrightness()
 {
     if ((mIsBattery && isLaptopScreen())
-            || (mIsWayland && !mIsBattery)) {
+            || (mIsWayland && !mIsBattery)
+            || (!mIsWayland && mIsBattery)) {
         return true;
     }
     return false;
