@@ -234,7 +234,7 @@ UkmediaMainWidget::UkmediaMainWidget(QWidget *parent)
         }
         if (m_pBootSetting->keys().contains("logoutMusic")) {
             bool logout = m_pBootSetting->get(UKUI_LOGOUT_MUSIC_KEY).toBool();
-            m_pSoundWidget->m_pWakeupMusicButton->setChecked(logout);
+            m_pSoundWidget->m_pLogoutButton->setChecked(logout);
         }
         if (m_pBootSetting->keys().contains("weakupMusic")) {
             bool m_hasMusic = m_pBootSetting->get(UKUI_WAKEUP_MUSIC_KEY).toBool();
