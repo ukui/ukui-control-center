@@ -706,9 +706,8 @@ QString Widget::getMonitorType()
 
 bool Widget::isLaptopScreen()
 {
-    int index = ui->primaryCombo->currentIndex();
-    KScreen::OutputPtr output = mConfig->output(ui->primaryCombo->itemData(index).toInt());
-    if (output->type() == KScreen::Output::Type::Panel) {
+    const QString &monitor = ui->primaryCombo->currentText();
+    if (monitor == "eDP-1") {
         return true;
     }
     return false;
