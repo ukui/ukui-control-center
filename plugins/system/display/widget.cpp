@@ -188,6 +188,7 @@ void Widget::setConfig(const KScreen::ConfigPtr &config)
     mControlPanel->setConfig(mConfig);
     mUnifyButton->setEnabled(mConfig->connectedOutputs().count() > 1);
     ui->unionframe->setVisible(mConfig->outputs().count() > 1);
+    ui->brightnessframe->setVisible(isVisibleBrightness());
 
     for (const KScreen::OutputPtr &output : mConfig->outputs()) {
         outputAdded(output);
@@ -364,7 +365,7 @@ void Widget::slotUnifyOutputs()
         ui->primaryCombo->setEnabled(true);
         mCloseScreenButton->setEnabled(true);
         ui->showMonitorframe->setVisible(true);
-        ui->brightnessframe->setVisible(true);
+        ui->brightnessframe->setVisible(isVisibleBrightness());
         ui->primaryCombo->setEnabled(true);
     } else if (!base->isCloneMode() && mUnifyButton->isChecked()) {
         // Clone the current config, so that we can restore it in case user
@@ -708,6 +709,16 @@ bool Widget::isLaptopScreen()
     int index = ui->primaryCombo->currentIndex();
     KScreen::OutputPtr output = mConfig->output(ui->primaryCombo->itemData(index).toInt());
     if (output->type() == KScreen::Output::Type::Panel) {
+        return true;
+    }
+    return false;
+}
+
+bool Widget::isVisibleBrightness()
+{
+    if ((mIsBattery && isLaptopScreen())
+            || (mIsWayland && !mIsBattery)
+            || (!mIsWayland && mIsBattery)) {
         return true;
     }
     return false;
@@ -1374,7 +1385,7 @@ void Widget::mainScreenButtonSelect(int index)
     mCloseScreenButton->setChecked(newPrimary->isEnabled());
     mCloseScreenButton->blockSignals(false);
 
-    ui->brightnessframe->setVisible(newPrimary->isEnabled());
+    ui->brightnessframe->setVisible(newPrimary->isEnabled() && isVisibleBrightness());
     mControlPanel->activateOutput(newPrimary);
 
     mScreen->setActiveOutputByCombox(newPrimary->id());
@@ -1533,7 +1544,7 @@ void Widget::setBrightSliderVisible()
 {
     int value;
     if (mIsBattery && !mUnifyButton->isChecked()) {
-        ui->brightnessframe->setVisible(isLaptopScreen());
+        ui->brightnessframe->setVisible(isVisibleBrightness());
         if (isLaptopScreen()) {
             value = getLaptopBrightness();
         }
@@ -1668,11 +1679,6 @@ void Widget::initUiComponent()
     QDBusReply<QVariant> briginfo;
     briginfo = brightnessInterface.call("Get", "org.freedesktop.UPower.Device", "PowerSupply");
     mIsBattery = briginfo.value().toBool();
-    if (!mIsBattery && !mIsWayland) {
-        ui->brightnessframe->setVisible(true);
-    } else {
-        ui->brightnessframe->setVisible(true);
-    }
 
     mUPowerInterface = QSharedPointer<QDBusInterface>(
         new QDBusInterface("org.freedesktop.UPower",
