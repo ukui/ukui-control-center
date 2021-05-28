@@ -381,7 +381,7 @@ void Widget::slotUnifyOutputs()
         mPrevConfig = mConfig->clone();
 
         for (QMLOutput *output: mScreen->outputs()) {
-            if (output != mScreen->primaryOutput()) {
+            if (output != mScreen->primaryOutput() && mScreen->primaryOutput()) {
                 output->output()->setRotation(mScreen->primaryOutput()->output()->rotation());
             }
 
