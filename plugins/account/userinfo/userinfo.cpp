@@ -839,7 +839,7 @@ void UserInfo::showCreateUserDialog(){
         usersStringList << tmp.toString();
     }
 
-    CreateUserDialog * dialog = new CreateUserDialog(usersStringList);
+    CreateUserDialog * dialog = new CreateUserDialog(usersStringList,pluginWidget);
     dialog->setRequireLabel(pwdMsg);
     connect(dialog, &CreateUserDialog::newUserWillCreate, this, [=](QString uName, QString pwd, QString pin, int aType){
         createUser(uName, pwd, pin, aType);
@@ -907,7 +907,7 @@ void UserInfo::showDeleteUserDialog(QString username){
     }
     UserInfomation user = (UserInfomation)(allUserInfoMap.find(username).value());
 
-    DelUserDialog * dialog = new DelUserDialog;
+    DelUserDialog * dialog = new DelUserDialog(pluginWidget);
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->setUsername(user.username);
     connect(dialog, &DelUserDialog::removefile_send, this, [=](bool removeFile){
@@ -978,7 +978,7 @@ void UserInfo::deleteUserDone(QString objpath){
 }
 
 void UserInfo::showChangeGroupDialog(){
-    ChangeGroupDialog * dialog = new ChangeGroupDialog();
+    ChangeGroupDialog * dialog = new ChangeGroupDialog(pluginWidget);
     dialog->exec();
 }
 
@@ -986,7 +986,7 @@ void UserInfo::showChangeValidDialog(QString username){
     if (allUserInfoMap.keys().contains(username)){
         UserInfomation user = allUserInfoMap.value(username);
 
-        ChangeValidDialog * dialog = new ChangeValidDialog(user.username);
+        ChangeValidDialog * dialog = new ChangeValidDialog(user.username,pluginWidget);
         dialog->setUserName();
         dialog->setUserLogo(user.iconfile);
         dialog->setUserType(_accountTypeIntToString(user.accounttype));
@@ -1002,7 +1002,7 @@ void UserInfo::showChangeTypeDialog(QString username){
     if (allUserInfoMap.keys().contains(username)){
         UserInfomation user = allUserInfoMap.value(username);
 
-        ChangeTypeDialog * dialog = new ChangeTypeDialog;
+        ChangeTypeDialog * dialog = new ChangeTypeDialog(pluginWidget);
         dialog->setFace(user.iconfile);
         dialog->setUsername(user.realname);
         dialog->setCurrentAccountTypeLabel(_accountTypeIntToString(user.accounttype));
@@ -1062,7 +1062,7 @@ void UserInfo::showChangeFaceDialog(QString username){
     if (allUserInfoMap.keys().contains(username)){
         UserInfomation user = allUserInfoMap.value(username);
 
-        ChangeFaceDialog * dialog = new ChangeFaceDialog;
+        ChangeFaceDialog * dialog = new ChangeFaceDialog(pluginWidget);
         dialog->setFace(user.iconfile);
         dialog->setUsername(user.realname);
         dialog->setAccountType(_accountTypeIntToString(user.accounttype));
@@ -1109,7 +1109,7 @@ void UserInfo::showChangePwdDialog(QString username){
 
     if (allUserInfoMap.keys().contains(username)){
         UserInfomation user = allUserInfoMap.value(username);
-        ChangePwdDialog * dialog = new ChangePwdDialog(user.current, user.username);
+        ChangePwdDialog * dialog = new ChangePwdDialog(user.current, user.username,pluginWidget);
         dialog->setFace(user.iconfile);
         dialog->setUsername(user.realname);
         dialog->setAccountType(_accountTypeIntToString(user.accounttype));
