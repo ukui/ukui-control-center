@@ -343,7 +343,7 @@ void Widget::slotUnifyOutputs()
     }
 
     // 取消统一输出
-    if (base->isCloneMode() && !mUnifyButton->isChecked()) {
+    if (!mUnifyButton->isChecked()) {
         KScreen::OutputList screens = mPrevConfig->connectedOutputs();
 
         KScreen::OutputPtr mainScreen = mPrevConfig->output(getPrimaryScreenID());
@@ -375,7 +375,7 @@ void Widget::slotUnifyOutputs()
         ui->showMonitorframe->setVisible(true);
         ui->brightnessframe->setVisible(isVisibleBrightness());
         ui->primaryCombo->setEnabled(true);
-    } else if (!base->isCloneMode() && mUnifyButton->isChecked()) {
+    } else if (mUnifyButton->isChecked()) {
         // Clone the current config, so that we can restore it in case user
         // breaks the cloning
         mPrevConfig = mConfig->clone();
@@ -907,7 +907,6 @@ void Widget::primaryOutputSelected(int index)
     }
 
     mConfig->setPrimaryOutput(newPrimary);
-    Q_EMIT changed();
 }
 
 // 主输出
@@ -1157,6 +1156,7 @@ void Widget::save()
             writeFile(mDir % hash);
         }
         mBlockChanges = false;
+        mConfigChanged = false;
     });
 
     int enableScreenCount = 0;
