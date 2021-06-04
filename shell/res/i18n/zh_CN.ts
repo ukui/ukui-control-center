@@ -8454,7 +8454,7 @@ If something goes wrong, the settings will be restored after 9 seconds</source>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="622"/>
         <source>Save Config</source>
-        <transl允许其他人远程连接您的桌面并控制您的屏幕当前配置</translation>
+        <translation>允许其他人远程连接您的桌面并控制您的屏幕当前配置</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="623"/>
