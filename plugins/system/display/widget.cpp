@@ -345,6 +345,12 @@ void Widget::slotUnifyOutputs()
     // 取消统一输出
     if (!mUnifyButton->isChecked()) {
         KScreen::OutputList screens = mPrevConfig->connectedOutputs();
+        if (mIsKDSChanged) {
+            Q_FOREACH(KScreen::OutputPtr output, screens){
+                output->setCurrentModeId("0");
+            }
+            mIsKDSChanged = false;
+        }
 
         KScreen::OutputPtr mainScreen = mPrevConfig->output(getPrimaryScreenID());
         mainScreen->setPos(QPoint(0, 0));
@@ -1062,25 +1068,11 @@ void Widget::setDDCBrighthessSlot(int brightnessValue)
     }
 }
 
-void Widget::kdsScreenchangeSlot()
+void Widget::kdsScreenchangeSlot(QString status)
 {
-    connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished,
-            [&](KScreen::ConfigOperation *op) {
-        bool cloneMode = true;
-        KScreen::ConfigPtr config = qobject_cast<KScreen::GetConfigOperation *>(op)->config();
-        KScreen::OutputPtr output = config->primaryOutput();
-        if (config->connectedOutputs().count() >= 2) {
-            foreach (KScreen::OutputPtr secOutput, config->connectedOutputs()) {
-                if ((output != nullptr) &&
-                        (secOutput->geometry() != output->geometry() || !secOutput->isEnabled())) {
-                    cloneMode = false;
-                }
-            }
-        } else {
-            cloneMode = false;
-        }
-        mUnifyButton->setChecked(cloneMode);
-    });
+    bool isCheck = (status == "copy") ? true : false;
+    mIsKDSChanged = true;
+    mUnifyButton->setChecked(isCheck);
 }
 
 void Widget::save()
@@ -1515,17 +1507,12 @@ void Widget::initConnection()
         checkOutputScreen(checked);
     });
 
-    connect(QApplication::desktop(), &QDesktopWidget::resized, this, [=] {
-        QTimer::singleShot(1500, this, [=]{
-            kdsScreenchangeSlot();
-        });
-    });
-
-    connect(QApplication::desktop(), &QDesktopWidget::screenCountChanged, this, [=] {
-        QTimer::singleShot(1500, this, [=] {
-            kdsScreenchangeSlot();
-        });
-    });
+    QDBusConnection::sessionBus().connect(QString(),
+                                          QString("/"),
+                                          "org.ukui.ukcc.session.interface",
+                                          "screenChanged",
+                                          this,
+                                          SLOT(kdsScreenchangeSlot(QString)));
 
     QDBusConnection::sessionBus().connect(QString(),
                                           QString("/ColorCorrect"),

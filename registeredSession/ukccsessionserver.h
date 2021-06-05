@@ -39,7 +39,7 @@ public slots:
     QVariantMap getModuleHideStatus();
     QString     GetSecurityConfigPath();
     QString getScreenMode();
-    QString setScreenMode(QString screenMode);
+    void setScreenMode(QString screenMode);
 
 };
 

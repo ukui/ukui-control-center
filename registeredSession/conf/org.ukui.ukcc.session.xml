@@ -21,7 +21,6 @@
       <arg type="s" direction="out"/>
     </method>
     <method name="setScreenMode">
-      <arg type="s" direction="out"/>
       <arg name="screenMode" type="s" direction="in"/>
     </method>
   </interface>

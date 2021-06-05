@@ -37,7 +37,7 @@ QString ukccSessionServer::getScreenMode()
     return mScreenMode;
 }
 
-QString ukccSessionServer::setScreenMode(QString screenMode)
+void ukccSessionServer::setScreenMode(QString screenMode)
 {
     mScreenMode = screenMode;
     Q_EMIT screenChanged(mScreenMode);
