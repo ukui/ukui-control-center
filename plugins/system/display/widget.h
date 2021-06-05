@@ -163,6 +163,8 @@ private:
     int getPrimaryScreenID();
     bool existInBrightnessFrameV(QString name);
 
+    void setDDCBrightnessN(int value, QString screenName);
+
 private:
     Ui::DisplayWindow *ui;
     QMLScreen *mScreen = nullptr;
