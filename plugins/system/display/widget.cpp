@@ -427,7 +427,6 @@ void Widget::slotUnifyOutputs()
         ui->mainScreenButton->setEnabled(false);
         mControlPanel->setUnifiedOutput(base->outputPtr());
     }
-    Q_EMIT changed();
 }
 
 // FIXME: Copy-pasted from KDED's Serializer::findOutput()
@@ -578,16 +577,6 @@ void Widget::initGSettings()
     }
 }
 
-void Widget::setcomBoxScale()
-{
-    int scale = 1;
-    QComboBox *scaleCombox = findChild<QComboBox *>(QString("scaleCombox"));
-    if (scaleCombox) {
-        scale = ("100%" == scaleCombox->currentText() ? 1 : 2);
-    }
-    writeScale(scale);
-}
-
 void Widget::initNightUI()
 {
     //~ contents_path /display/unify output
@@ -623,7 +612,8 @@ bool Widget::isRestoreConfig()
             msg.move(msgX, msgY);
         });
     });
-    if (mConfigChanged) {
+
+    if (mConfigChanged && !mIsUnifyChanged) {
         msg.setWindowTitle(tr("Hint"));
         msg.setText(tr("After modifying the resolution or refresh rate, "
                        "due to compatibility issues between the display device and the graphics card, "
@@ -905,8 +895,6 @@ void Widget::outputAdded(const KScreen::OutputPtr &output)
             this, &Widget::slotOutputConnectedChanged);
     connect(output.data(), &KScreen::Output::isEnabledChanged,
             this, &Widget::slotOutputEnabledChanged);
-    connect(output.data(), &KScreen::Output::posChanged,
-            this, &Widget::changed);
 
     addOutputToPrimaryCombo(output);
 
@@ -928,8 +916,9 @@ void Widget::outputAdded(const KScreen::OutputPtr &output)
     mUnifyButton->setEnabled(mConfig->connectedOutputs().count() > 1);
 
     if (!mFirstLoad) {
-        QTimer::singleShot(2000, this, [=] {
+        QTimer::singleShot(1500, this, [=] {
             mainScreenButtonSelect(ui->primaryCombo->currentIndex());
+            mUnifyButton->setChecked(isCloneMode());
         });
     }
 }
@@ -1220,7 +1209,6 @@ void Widget::save()
                                  tr("Sorry, your configuration could not be applied.\nCommon reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU."));
         return;
     }
-    mBlockChanges = true;
     /* Store the current config, apply settings */
     auto *op = new KScreen::SetConfigOperation(config);
 
@@ -1236,7 +1224,7 @@ void Widget::save()
             QString hash = config->connectedOutputsHash();
             writeFile(mDir % hash);
         }
-        mBlockChanges = false;
+        mIsUnifyChanged = false;
         mConfigChanged = false;
     });
 
@@ -1502,8 +1490,6 @@ void Widget::primaryButtonEnable(bool status)
     mConfig->setPrimaryOutput(newPrimary);
 
     mScreenId = newPrimary->id();
-
-    Q_EMIT changed();
 }
 
 void Widget::checkOutputScreen(bool judge)
@@ -1537,7 +1523,6 @@ void Widget::checkOutputScreen(bool judge)
     }
 
     ui->primaryCombo->setCurrentIndex(index);
-    Q_EMIT changed();
 }
 
 
@@ -1568,6 +1553,7 @@ void Widget::initConnection()
 
     connect(mUnifyButton, &SwitchButton::checkedChanged,
             [this] {
+        mIsUnifyChanged = true;
         slotUnifyOutputs();
     });
 

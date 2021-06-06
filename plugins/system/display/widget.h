@@ -143,7 +143,6 @@ private:
     void setTitleLabel();
     void writeScale(double scale);
     void initGSettings();
-    void setcomBoxScale();
     void initNightUI();
 
     bool isRestoreConfig();                       // 是否恢复应用之前的配置
@@ -212,17 +211,17 @@ private:
     double mScreenScale = 1.0;
     int mScreenId = -1;
 
-    bool mIsNightMode = false;
+    bool mIsNightMode     = false;
     bool mRedshiftIsValid = false;
-    bool mIsScaleChanged = false;
+    bool mIsScaleChanged  = false;
     bool mOriApply;
-    bool mConfigChanged = false;
-    bool mOnBattery = false;
-    bool mBlockChanges = false;
-    bool mFirstLoad = true;
-    bool mIsWayland = false;
-    bool mIsBattery = false;
-    bool mIsKDSChanged = false;
+    bool mConfigChanged   = false;
+    bool mOnBattery       = false;
+    bool mIsUnifyChanged  = false;
+    bool mFirstLoad       = true;
+    bool mIsWayland       = false;
+    bool mIsBattery       = false;
+    bool mIsKDSChanged    = false;
 
     bool threadRunExit = false;
     QFuture<void> threadRun;
