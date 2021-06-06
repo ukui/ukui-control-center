@@ -125,8 +125,6 @@ private Q_SLOTS:
     QString getPrimaryWaylandScreen();
     void isWayland();
 
-
-    void setDDCBrighthessSlot(int brightnessValue);// 设置外接显示器亮度
     void kdsScreenchangeSlot(QString status);
 
 public Q_SLOTS:
