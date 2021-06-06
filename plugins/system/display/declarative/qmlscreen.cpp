@@ -62,7 +62,8 @@ void QMLScreen::setConfig(const KScreen::ConfigPtr &config)
     m_config = config;
     connect(m_config.data(), &KScreen::Config::outputAdded,
             this, [this](const KScreen::OutputPtr &output) {
-        QTimer::singleShot(1000, this, [=]{
+        QTimer::singleShot(1000, this, [=] {
+            m_manuallyMovedOutputs.clear();
             addOutput(output);
             updateOutputsPlacement();
         });
