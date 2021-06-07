@@ -215,7 +215,6 @@ void Theme::setupSettings() {
 
 void Theme::setupComponent() {
 
-    ui->lightButton->setVisible(getSystemVersion());
     //隐藏现阶段不支持功能
     ui->controlLabel->hide();
     ui->controlWidget->hide();
