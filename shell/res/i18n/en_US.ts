@@ -613,7 +613,7 @@
     </message>
     <message>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="69"/>
-        <source>Back up your files to other drives, and when the original files are lost, damaged, or deleted,
+        <source>Back up your files to other drives, and when the original files are lost, damaged, or deleted, 
 you can restore them to ensure the integrity of your system.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -637,6 +637,122 @@ you can restore them to ensure the integrity of your system.</source>
     <message>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="197"/>
         <source>Begin restore</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Battery</name>
+    <message>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="56"/>
+        <source>Battery</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="173"/>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="202"/>
+        <source>10m</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="173"/>
+        <source>20m</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="173"/>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="202"/>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="229"/>
+        <source>30m</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="173"/>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="202"/>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="230"/>
+        <source>1h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="173"/>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="202"/>
+        <source>2h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="174"/>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="203"/>
+        <source>never</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="202"/>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="229"/>
+        <source>5m</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="229"/>
+        <source>1m</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="229"/>
+        <source>3m</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="229"/>
+        <source>15m</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="296"/>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="326"/>
+        <source>General</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/battery/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="297"/>
+        <source>Time to sleep after %1 minute of idle time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="298"/>
+        <source>(No operation for %1 minute is considered idle)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="298"/>
+        <source>Time to sleep after %1 minute of idle time %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="301"/>
+        <source>Time to close display :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="302"/>
+        <source>Time to close display</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="304"/>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="305"/>
+        <source>Time to decrease screen brightness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="307"/>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="308"/>
+        <source>Battery level is lower than</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="310"/>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="311"/>
+        <source>Run</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3156,64 +3272,64 @@ Please retry or relogin!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="75"/>
-        <location filename="../../mainwindow.cpp" line="389"/>
-        <location filename="../../mainwindow.cpp" line="757"/>
+        <location filename="../../mainwindow.cpp" line="82"/>
+        <location filename="../../mainwindow.cpp" line="396"/>
+        <location filename="../../mainwindow.cpp" line="765"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="369"/>
+        <location filename="../../mainwindow.cpp" line="376"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="398"/>
+        <location filename="../../mainwindow.cpp" line="405"/>
         <source>Main menu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="399"/>
+        <location filename="../../mainwindow.cpp" line="406"/>
         <source>Minimize</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="400"/>
+        <location filename="../../mainwindow.cpp" line="407"/>
         <source>Maximize/Normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="401"/>
+        <location filename="../../mainwindow.cpp" line="408"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="459"/>
+        <location filename="../../mainwindow.cpp" line="466"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="461"/>
+        <location filename="../../mainwindow.cpp" line="468"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="463"/>
+        <location filename="../../mainwindow.cpp" line="470"/>
         <source>Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="589"/>
+        <location filename="../../mainwindow.cpp" line="597"/>
         <source>Home</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="862"/>
+        <location filename="../../mainwindow.cpp" line="892"/>
         <source>Warnning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="862"/>
+        <location filename="../../mainwindow.cpp" line="892"/>
         <source>This function has been controlled</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3617,209 +3733,150 @@ Please retry or relogin!</source>
 <context>
     <name>Power</name>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="91"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="438"/>
         <source>select power plan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="167"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="148"/>
-        <source>Balance (suggest)</source>
-        <translation type="unfinished"></translation>
-        <extra-contents_path>/power/Balance (suggest)</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.ui" line="183"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="428"/>
         <source>Autobalance energy and performance with available hardware</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="277"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="150"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="429"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="472"/>
         <source>Saving</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/power/Saving</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="293"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="429"/>
         <source>Minimize performance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="395"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="152"/>
-        <source>Custom</source>
-        <translation type="unfinished"></translation>
-        <extra-contents_path>/power/Custom</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.ui" line="411"/>
-        <source>Users develop personalized power plans</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.ui" line="517"/>
-        <source>Power supply</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.ui" line="551"/>
-        <source>Battery powered</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.ui" line="611"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="356"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="496"/>
-        <source>Change PC sleep time:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.ui" line="713"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="373"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="497"/>
-        <source>Change DP close time:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.ui" line="818"/>
-        <source>When close lid:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.ui" line="898"/>
-        <source>Screen darkens use battery:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.ui" line="950"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="439"/>
         <source>General Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="1019"/>
-        <source>Power icon:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="74"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="59"/>
         <source>Power</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="207"/>
-        <source>Enter idle state %1 min and sleep after %2 min :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="211"/>
-        <source>Enter idle state %1 min and close after %2 min :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="235"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="245"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="266"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="272"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="310"/>
         <source>never</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="235"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="245"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="266"/>
-        <source>10 min</source>
+        <location filename="../../../plugins/system/power/power.cpp" line="271"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="309"/>
+        <source>10m</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="235"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="245"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="266"/>
-        <source>20 min</source>
+        <location filename="../../../plugins/system/power/power.cpp" line="271"/>
+        <source>20m</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="235"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="245"/>
-        <source>30 min</source>
+        <location filename="../../../plugins/system/power/power.cpp" line="271"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="309"/>
+        <source>30m</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="235"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="245"/>
-        <source>60 min</source>
+        <location filename="../../../plugins/system/power/power.cpp" line="271"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="309"/>
+        <source>1h</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="235"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="245"/>
-        <source>120 min</source>
+        <location filename="../../../plugins/system/power/power.cpp" line="271"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="309"/>
+        <source>2h</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="235"/>
-        <source>300 min</source>
+        <location filename="../../../plugins/system/power/power.cpp" line="309"/>
+        <source>5m</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="245"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="266"/>
-        <source>1 min</source>
+        <location filename="../../../plugins/system/power/power.cpp" line="428"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="470"/>
+        <source>Balance</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/power/Balance (suggest)</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="442"/>
+        <source>Time to sleep after %1 minute of idle time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="245"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="266"/>
-        <source>5 min</source>
+        <location filename="../../../plugins/system/power/power.cpp" line="443"/>
+        <source>(No operation for %1 minute is considered idle)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="256"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="443"/>
+        <source>Time to sleep after %1 minute of idle time %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="445"/>
+        <source>Time to close display :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="446"/>
+        <source>Time to close display</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="448"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="449"/>
+        <source>Set sleeping to hibernation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="451"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="452"/>
+        <source>Press the power button</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="454"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="455"/>
+        <source>Notebook cover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="482"/>
         <source>nothing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="256"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="482"/>
         <source>blank</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="256"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="482"/>
         <source>suspend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="262"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="488"/>
         <source>hibernate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="256"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="482"/>
         <source>shutdown</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="279"/>
-        <source>always</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="279"/>
-        <source>present</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="279"/>
-        <source>charge</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="529"/>
-        <source>When the power button is pressed:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="554"/>
-        <source>Perform operations when battery is low:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3963,151 +4020,156 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../utils/functionselect.cpp" line="60"/>
+        <source>Battery</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="62"/>
         <source>Auto Boot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="74"/>
+        <location filename="../../utils/functionselect.cpp" line="76"/>
         <source>Printer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="76"/>
+        <location filename="../../utils/functionselect.cpp" line="78"/>
         <source>Mouse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="78"/>
+        <location filename="../../utils/functionselect.cpp" line="80"/>
         <source>Touchpad</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="81"/>
+        <location filename="../../utils/functionselect.cpp" line="83"/>
         <source>Keyboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="83"/>
+        <location filename="../../utils/functionselect.cpp" line="85"/>
         <source>Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="86"/>
+        <location filename="../../utils/functionselect.cpp" line="88"/>
         <source>Audio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="89"/>
+        <location filename="../../utils/functionselect.cpp" line="91"/>
         <source>Bluetooth</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="104"/>
+        <location filename="../../utils/functionselect.cpp" line="106"/>
         <source>Background</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="107"/>
+        <location filename="../../utils/functionselect.cpp" line="109"/>
         <source>Theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="109"/>
+        <location filename="../../utils/functionselect.cpp" line="111"/>
         <source>Screenlock</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="111"/>
+        <location filename="../../utils/functionselect.cpp" line="113"/>
         <source>Fonts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="113"/>
+        <location filename="../../utils/functionselect.cpp" line="115"/>
         <source>Screensaver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="116"/>
+        <location filename="../../utils/functionselect.cpp" line="118"/>
         <source>Desktop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="130"/>
+        <location filename="../../utils/functionselect.cpp" line="132"/>
         <source>Connect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="136"/>
+        <location filename="../../utils/functionselect.cpp" line="138"/>
         <source>Vino</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="152"/>
+        <location filename="../../utils/functionselect.cpp" line="154"/>
         <source>User Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="186"/>
+        <location filename="../../utils/functionselect.cpp" line="188"/>
         <source>Security Center</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="132"/>
+        <location filename="../../utils/functionselect.cpp" line="134"/>
         <source>Vpn</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="134"/>
+        <location filename="../../utils/functionselect.cpp" line="136"/>
         <source>Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="154"/>
+        <location filename="../../utils/functionselect.cpp" line="156"/>
         <source>Cloud Account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="169"/>
+        <location filename="../../utils/functionselect.cpp" line="171"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="171"/>
+        <location filename="../../utils/functionselect.cpp" line="173"/>
         <source>Area</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="188"/>
+        <location filename="../../utils/functionselect.cpp" line="190"/>
         <source>Backup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="190"/>
+        <location filename="../../utils/functionselect.cpp" line="192"/>
         <source>Update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="192"/>
+        <location filename="../../utils/functionselect.cpp" line="194"/>
         <source>Upgrade</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="207"/>
+        <location filename="../../utils/functionselect.cpp" line="209"/>
         <source>Notice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="209"/>
+        <location filename="../../utils/functionselect.cpp" line="211"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="211"/>
+        <location filename="../../utils/functionselect.cpp" line="213"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="213"/>
+        <location filename="../../utils/functionselect.cpp" line="215"/>
         <source>Experienceplan</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4267,72 +4329,51 @@ Please retry or relogin!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="61"/>
         <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="177"/>
         <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="214"/>
         <source>Never</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="61"/>
-        <source>10min</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="61"/>
-        <source>20min</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="62"/>
-        <source>40min</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="62"/>
-        <source>80min</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="65"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="53"/>
         <source>interactive</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="65"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="69"/>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="49"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="53"/>
         <source>suspend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="65"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="69"/>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="49"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="53"/>
         <source>hibernate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="65"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="69"/>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="49"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="53"/>
         <source>shutdown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="69"/>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="49"/>
         <source>nothing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="69"/>
+        <location filename="../../../plugins/system/battery/battery.cpp" line="49"/>
         <source>blank</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4456"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4459"/>
         <source>PulseAudio Volume Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4470"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4473"/>
         <source>Connection to PulseAudio failed. Automatic retry in 5s
 
 In this case this is likely because PULSE_SERVER in the Environment/X11 Root Window Properties
@@ -4343,37 +4384,37 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4516"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4519"/>
         <source>pa_context_subscribe() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4521"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4524"/>
         <source>pa_context_get_card_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4533"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4536"/>
         <source>Failed to initialize stream_restore extension: %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4538"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4541"/>
         <source>Connection failed, attempting reconnect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4554"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4557"/>
         <source>pa_ext_stream_restore_read() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4775"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4778"/>
         <source>pa_context_get_card_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4791"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4794"/>
         <source>Card callback failure</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5775,29 +5816,29 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4445"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4448"/>
         <source>Establishing connection to PulseAudio. Please wait...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4590"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4593"/>
         <source>pa_ext_stream_restore_write() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4902"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4995"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4905"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4998"/>
         <source> (unplugged)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4905"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4993"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4908"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4996"/>
         <source> (unavailable)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4987"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4990"/>
         <source> (plugged in)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6384,14 +6425,8 @@ the settings will be saved after 14 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="631"/>
-        <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
-the settings will be saved after %1 seconds</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1802"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1809"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1804"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1811"/>
         <source>Brightness</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6412,28 +6447,34 @@ the settings will be saved after %1 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1194"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1201"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="631"/>
+        <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
+the settings will be saved after %1 seconds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1196"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1203"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1194"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1196"/>
         <source>please insure at least one output!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1202"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1204"/>
         <source>Open time should be earlier than close time!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1212"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1214"/>
         <source>Warnning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1213"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1215"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation type="unfinished"></translation>
