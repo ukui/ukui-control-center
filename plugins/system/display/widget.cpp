@@ -976,6 +976,8 @@ void Widget::outputRemoved(int outputId)
     mUnifyButton->setChecked(mConfig->connectedOutputs().count() > 1);
     mUnifyButton->blockSignals(false);
     mainScreenButtonSelect(ui->primaryCombo->currentIndex());
+    // 在双屏下拔掉显示器，然后更改配置应用，恢复到原来配置崩溃
+    mPrevConfig = mConfig->clone();
 }
 
 void Widget::primaryOutputSelected(int index)
