@@ -6,7 +6,7 @@ CONFIG   += plugin
 include($$PROJECT_COMPONENTSOURCE/comboxframe.pri)
 include($$PROJECT_COMPONENTSOURCE/uslider.pri)
 
-TARGET = $$qtLibraryTarget(power)
+TARGET = $$qtLibraryTarget(battery)
 DESTDIR = ../..
 target.path = $${PLUGIN_INSTALL_DIRS}
 INSTALLS += target
@@ -26,13 +26,11 @@ PKGCONFIG += gsettings-qt \
              gio-unix-2.0 \
              upower-glib
 
-QMAKE_CXXFLAGS *= -D_FORTIFY_SOURCE=2 -O2
-
-FORMS +=
-
 HEADERS += \
-    power.h \
-    powermacrodata.h \
+    ../power/powermacrodata.h \
+    battery.h \
 
 SOURCES += \
-    power.cpp
+    battery.cpp
+
+FORMS +=

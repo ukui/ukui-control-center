@@ -731,13 +731,13 @@
         <extra-contents_path>/backup/Backup</extra-contents_path>
     </message>
     <message>
-        <source>Back up your files to other drives, and when the original files are lost, damaged, or deleted, you can restore them to ensure 
+        <source>Back up your files to other drives, and when the original files are lost, damaged, or deleted, you can restore them to ensure
 the integrity of your system.</source>
         <translation type="vanished">将您的文件备份到其他驱动器，当源文件丢失、受损或被删除时可以还原它们，保证系统的完整性。</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="69"/>
-        <source>Back up your files to other drives, and when the original files are lost, damaged, or deleted, 
+        <source>Back up your files to other drives, and when the original files are lost, damaged, or deleted,
 you can restore them to ensure the integrity of your system.</source>
         <translation>将您的文件备份到其他驱动器，当源文件丢失、受损、删除时还原它们，保证系统的完整性。</translation>
     </message>
@@ -1696,7 +1696,7 @@ Please authenticate yourself to continue</source>
         <translation>标准账户可以使用大多数软件，但是不能修改系统配置</translation>
     </message>
     <message>
-        <source>Standard users can use most software, but cannot install the software and 
+        <source>Standard users can use most software, but cannot install the software and
 change system settings</source>
         <translation type="vanished">标准账户可以使用大多数软件，但是不能安装软件和更改系统配置</translation>
     </message>
@@ -2127,8 +2127,8 @@ change system settings</source>
         <translation></translation>
     </message>
     <message>
-        <source>Are you sure to delete this group, 
-which will make some file components 
+        <source>Are you sure to delete this group,
+which will make some file components
 in the file system invalid!</source>
         <translation type="vanished">确定删除此用户组? 这将使得文件系统\n中的某些文件组件ID无效!</translation>
     </message>
@@ -2151,8 +2151,8 @@ in the file system invalid!</source>
         <translation type="vanished">提醒</translation>
     </message>
     <message>
-        <source>Are you sure to delete &quot;%1&quot; group, 
-which will make some file components 
+        <source>Are you sure to delete &quot;%1&quot; group,
+which will make some file components
 in the file system invalid!</source>
         <translation type="vanished">确定删除&quot;%1&quot;组,这将使得文件系统
 中的某些文件组件ID无效!</translation>
@@ -2172,7 +2172,7 @@ in the file system invalid!</source>
     <name>DelUserDialog</name>
     <message>
         <source>Delete the user, belonging to the user&apos;s desktop,
-documents, favorites, music, pictures and video 
+documents, favorites, music, pictures and video
 folder will be deleted!</source>
         <translation type="vanished">删除用户，用户所属的桌面、文档、收藏夹、音乐、图片和视频文件夹中的内容将全部被删除！</translation>
     </message>
@@ -8228,7 +8228,7 @@ The settings will be saved after 9 seconds</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="631"/>
-        <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
+        <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after %1 seconds</source>
         <translation>修改分辨率或刷新率后，由于显示设备与 显卡兼容性问题，有可能显示不正常。系统将在%1秒后保存配置</translation>
     </message>
@@ -8253,7 +8253,7 @@ If something goes wrong, the settings will be restored after 9 seconds</source>
         <translation>恢复之前配置</translation>
     </message>
     <message>
-        <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
+        <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>

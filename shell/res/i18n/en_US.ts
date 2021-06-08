@@ -613,7 +613,7 @@
     </message>
     <message>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="69"/>
-        <source>Back up your files to other drives, and when the original files are lost, damaged, or deleted, 
+        <source>Back up your files to other drives, and when the original files are lost, damaged, or deleted,
 you can restore them to ensure the integrity of your system.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6385,7 +6385,7 @@ the settings will be saved after 14 seconds</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="631"/>
-        <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
+        <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after %1 seconds</source>
         <translation type="unfinished"></translation>
     </message>
