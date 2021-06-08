@@ -1242,7 +1242,7 @@ void Widget::save()
 
     for (int index = 0; index <= 1; index++) {
         KScreen::OutputPtr output = mConfig->output(ui->primaryCombo->itemData(index).toInt());
-        if (enableScreenCount == 1 && output->isEnabled()) {
+        if (!output.isNull() && enableScreenCount == 1 && output->isEnabled()) {
             ui->primaryCombo->setCurrentIndex(index);
         }
     }
