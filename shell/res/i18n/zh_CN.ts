@@ -3935,7 +3935,7 @@ folder will be deleted!</source>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="103"/>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="430"/>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="440"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1098"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1104"/>
         <location filename="../../../plugins/account/networkaccount/mainwidget.h" line="106"/>
         <source>Disconnected</source>
         <translation>未连接</translation>
@@ -3952,13 +3952,13 @@ Please retry for login!</source>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="476"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1153"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1170"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1159"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1176"/>
         <source>Exit</source>
         <translation>退出登录</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="837"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="842"/>
         <source>Sync</source>
         <translation>同步中</translation>
     </message>
@@ -3977,23 +3977,23 @@ Please retry for login!</source>
         <translation>登录失败，请检查你的网络连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1127"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1142"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1133"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1148"/>
         <source>Stop sync</source>
         <translation>结束同步</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="841"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="846"/>
         <source>Sync your settings</source>
         <translation>同步您的设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="845"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="850"/>
         <source>Your account:%1</source>
         <translation>您的云账户：%1</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="846"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="851"/>
         <source>Auto sync</source>
         <translation>自动同步</translation>
     </message>
@@ -4003,7 +4003,7 @@ Please retry for login!</source>
         <translation>等待同步！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="826"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="831"/>
         <source>Synchronize your personalized settings and data</source>
         <translation>同步您账户的数据以及个性化设置</translation>
     </message>
@@ -4015,10 +4015,10 @@ Please retry for login!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="315"/>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="411"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1131"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1146"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1163"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1179"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1137"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1152"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1169"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1185"/>
         <source>The latest time sync is: </source>
         <translation>上次同步时间为: </translation>
     </message>
@@ -4033,36 +4033,36 @@ Please retry for login!</source>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="320"/>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="603"/>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="623"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="671"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="939"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="958"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1238"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="676"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="944"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="963"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1244"/>
         <source>Network can not reach!</source>
         <translation>网络不可达！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="704"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="709"/>
         <source>The Cloud Account Service version is out of date!</source>
         <translation>云账户服务版本已经过期，请升级！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="904"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="909"/>
         <source>KylinID open error!</source>
         <translation>麒麟ID客户端打开失败!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="978"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="983"/>
         <source>Unauthorized device or OSS falied.
 Please retry or relogin!</source>
         <translation>设备凭证已过期，请重新登录！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="982"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="987"/>
         <source>Authorization failed!</source>
         <translation>认证失败，请重新登录！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1225"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1231"/>
         <source>Kylin Cloud Account</source>
         <translation>云账户</translation>
     </message>
@@ -4072,7 +4072,7 @@ Please retry or relogin!</source>
         <translation>该操作可能覆盖您目前的快捷键！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1228"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1234"/>
         <source>Cloud ID desktop message</source>
         <translation>云账户消息</translation>
     </message>
@@ -4393,10 +4393,8 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.ui" line="192"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="139"/>
         <source>open wifi</source>
         <translation>打开wifi</translation>
-        <extra-contents_path>/netconnect/open wifi</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.ui" line="240"/>
@@ -4434,6 +4432,12 @@ Please retry or relogin!</source>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="242"/>
         <source>Detail</source>
         <translation>网络详情</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="139"/>
+        <source>open WLAN</source>
+        <translation>打开WLAN</translation>
+        <extra-contents_path>/netconnect/open WLAN</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="534"/>
@@ -4636,19 +4640,18 @@ Please retry or relogin!</source>
         <translation type="vanished">刷新率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="170"/>
         <source>auto</source>
-        <translation>自动</translation>
+        <translation type="vanished">自动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="209"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="208"/>
         <source>screen zoom</source>
         <translation>缩放屏幕</translation>
         <extra-contents_path>/display/screen zoom</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="295"/>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="301"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="294"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="300"/>
         <source>%1 Hz</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7649,55 +7652,61 @@ run start-pulseaudio-x11 manually.</source>
 <context>
     <name>UnifiedOutputConfig</name>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="76"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="87"/>
         <source>resolution</source>
         <translation>分辨率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="105"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="121"/>
         <source>orientation</source>
         <translation>方向</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="110"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="126"/>
         <source>arrow-up</source>
         <translation>不旋转</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="111"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="127"/>
         <source>90° arrow-right</source>
         <translation>90°顺时针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="112"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="128"/>
         <source>arrow-down</source>
         <translation>上下颠倒</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="113"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="129"/>
         <source>90° arrow-left</source>
         <translation>90°逆时针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="142"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="158"/>
         <source>frequency</source>
         <translation>刷新率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="173"/>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="270"/>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="276"/>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="313"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="189"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="360"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="366"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="403"/>
         <source>%1 Hz</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="247"/>
+        <source>screen zoom</source>
+        <translation>缩放屏幕</translation>
+        <extra-contents_path>/display/screen zoom</extra-contents_path>
     </message>
     <message>
         <source>refresh rate</source>
         <translation type="vanished">刷新率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="147"/>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="300"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="163"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="390"/>
         <source>auto</source>
         <translation>自动</translation>
     </message>
@@ -8202,8 +8211,8 @@ the settings will be saved after 14 seconds</source>
         <translation>修改分辨率或刷新率后，由于显示设备与 显卡兼容性问题，有可能显示不正常。系统将在14秒后保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1792"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1799"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1802"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1809"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
@@ -8249,18 +8258,18 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1190"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1194"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1190"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1197"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1194"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1201"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1198"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1202"/>
         <source>Open time should be earlier than close time!</source>
         <translation>开启时间必须大于关闭时间！</translation>
     </message>
@@ -8269,12 +8278,12 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">早晨时刻应早于晚上的时刻!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1208"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1212"/>
         <source>Warnning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1209"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1213"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>
