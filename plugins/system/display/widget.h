@@ -163,6 +163,8 @@ private:
 
     void setDDCBrightnessN(int value, QString screenName);
 
+    void setScreenKDS(QString kdsConfig);
+
 private:
     Ui::DisplayWindow *ui;
     QMLScreen *mScreen = nullptr;
@@ -189,6 +191,7 @@ private:
     QString     mCPU;
     QString     mDir;
     QStringList mPowerKeys;
+    QString     mKDSChanged;
 
     SwitchButton *mNightButton = nullptr;
     SwitchButton *mCloseScreenButton = nullptr;
@@ -222,7 +225,9 @@ private:
     bool mFirstLoad       = true;
     bool mIsWayland       = false;
     bool mIsBattery       = false;
-    bool mIsKDSChanged    = false;
+
+    bool threadRunExit = false;
+    QFuture<void> threadRun;
     
     QShortcut *mApplyShortcut;
     QVector<BrightnessFrame*> BrightnessFrameV;

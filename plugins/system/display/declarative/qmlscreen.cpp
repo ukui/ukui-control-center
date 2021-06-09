@@ -343,11 +343,8 @@ void QMLScreen::outputConnectedChanged()
 
 void QMLScreen::outputEnabledChanged()
 {
-    const KScreen::OutputPtr output(qobject_cast<KScreen::Output *>(sender()), [](void *){
-        });
-    if (output->isEnabled()) {
-        updateOutputsPlacement();
-    }
+    const KScreen::OutputPtr output(qobject_cast<KScreen::Output *>(sender()), [](void *){});
+
     int enabledCount = 0;
 
     Q_FOREACH (const KScreen::OutputPtr &output, m_outputMap.keys()) {

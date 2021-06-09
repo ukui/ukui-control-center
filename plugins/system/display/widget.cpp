@@ -341,12 +341,6 @@ void Widget::slotUnifyOutputs()
     // 取消统一输出
     if (!mUnifyButton->isChecked()) {
         KScreen::OutputList screens = mPrevConfig->connectedOutputs();
-        if (mIsKDSChanged) {
-            Q_FOREACH(KScreen::OutputPtr output, screens){
-                output->setCurrentModeId("0");
-            }
-            mIsKDSChanged = false;
-        }
 
         KScreen::OutputPtr mainScreen = mPrevConfig->output(getPrimaryScreenID());
         mainScreen->setPos(QPoint(0, 0));
@@ -1154,13 +1148,45 @@ void Widget::setDDCBrightnessN(int value, QString screenName)
        if (mLock.tryLock()) {
             ukccIfc.call("setDDCBrightness", QString::number(value), type);
             mLock.unlock();
+       }
+}
+
+void Widget::setScreenKDS(QString kdsConfig)
+{
+    KScreen::OutputList screens = mConfig->connectedOutputs();
+    if (kdsConfig == "expand") {
+        Q_FOREACH(KScreen::OutputPtr output, screens) {
+            if (!output.isNull() && !mUnifyButton->isChecked()) {
+                output->setEnabled(true);
+                output->setCurrentModeId("0");
+            }
         }
+    } else if (kdsConfig == "first") {
+        for (int i = 0; i < screens.size(); i++) {
+            if (!screens[i].isNull()) {
+                screens[i]->setEnabled((i == 0));
+            }
+        }
+    } else if (kdsConfig == "second") {
+        for (int i = 0; i < screens.size(); i++) {
+            if (!screens[i].isNull()) {
+                screens[i]->setEnabled((i != 0));
+            }
+        }
+    } else {
+        Q_FOREACH(KScreen::OutputPtr output, screens) {
+            if (!output.isNull()) {
+                output->setEnabled(true);
+            }
+        }
+    }
 }
 
 void Widget::kdsScreenchangeSlot(QString status)
 {
     bool isCheck = (status == "copy") ? true : false;
-    mIsKDSChanged = true;
+    mKDSChanged = status;
+    setScreenKDS(mKDSChanged);
     mUnifyButton->setChecked(isCheck);
 }
 
