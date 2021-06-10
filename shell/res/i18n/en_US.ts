@@ -1782,13 +1782,13 @@ Please authenticate yourself to continue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="434"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="442"/>
         <source>  </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="435"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="440"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="443"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="448"/>
         <source>Sync from network failed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2930,9 +2930,9 @@ Please authenticate yourself to continue</source>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="276"/>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="300"/>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="307"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="647"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="862"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="873"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="648"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="863"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="874"/>
         <source>Sign in</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3003,7 +3003,7 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="376"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="397"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="398"/>
         <source>Please check your information!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3028,11 +3028,6 @@ Please authenticate yourself to continue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="381"/>
-        <source>User doesn&apos;t exist!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="382"/>
         <source>Network can not reach!</source>
         <translation type="unfinished"></translation>
@@ -3043,7 +3038,9 @@ Please authenticate yourself to continue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="381"/>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="384"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="390"/>
         <source>Account or password error!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3073,11 +3070,6 @@ Please authenticate yourself to continue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="390"/>
-        <source>Account doesn&apos;t exist!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="391"/>
         <source>User has bound the phone!</source>
         <translation type="unfinished"></translation>
@@ -3094,43 +3086,48 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="394"/>
-        <source>Phone code error!</source>
+        <source>Too many failed attemps,please wait!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="395"/>
-        <source>Code can not be empty!</source>
+        <source>Phone code error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="396"/>
+        <source>Code can not be empty!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="397"/>
         <source>MCode can not be empty!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="479"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="480"/>
         <source>Your code is wrong!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="493"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="592"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="494"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="593"/>
         <source>Please check your phone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="837"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="838"/>
         <location filename="../../../plugins/account/networkaccount/maindialog.h" line="54"/>
         <source>Sign in Cloud</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="622"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="623"/>
         <source>Resend ( %1 )</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="627"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="628"/>
         <source>Get</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3506,7 +3503,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.ui" line="142"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="761"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="808"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3523,7 +3520,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="76"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="385"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="432"/>
         <source>Connect</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3534,27 +3531,27 @@ Please retry or relogin!</source>
         <extra-contents_path>/netconnect/open WLAN</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="233"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="280"/>
         <source>Connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="616"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="663"/>
         <source>No net</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="242"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="289"/>
         <source>Detail</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="534"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="581"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="749"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="796"/>
         <source>Refreshing...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4368,12 +4365,12 @@ Please retry or relogin!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4459"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4606"/>
         <source>PulseAudio Volume Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4473"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4620"/>
         <source>Connection to PulseAudio failed. Automatic retry in 5s
 
 In this case this is likely because PULSE_SERVER in the Environment/X11 Root Window Properties
@@ -4384,37 +4381,37 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4519"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4666"/>
         <source>pa_context_subscribe() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4524"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4671"/>
         <source>pa_context_get_card_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4536"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4683"/>
         <source>Failed to initialize stream_restore extension: %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4541"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4688"/>
         <source>Connection failed, attempting reconnect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4557"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4704"/>
         <source>pa_ext_stream_restore_read() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4778"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4925"/>
         <source>pa_context_get_card_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4794"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4941"/>
         <source>Card callback failure</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5806,39 +5803,39 @@ run start-pulseaudio-x11 manually.</source>
 <context>
     <name>UkmediaMainWidget</name>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="682"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="691"/>
         <source>sound error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="682"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="691"/>
         <source>load sound failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4448"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4595"/>
         <source>Establishing connection to PulseAudio. Please wait...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4593"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4740"/>
         <source>pa_ext_stream_restore_write() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4905"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4998"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="5052"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="5145"/>
         <source> (unplugged)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4908"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4996"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="5055"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="5143"/>
         <source> (unavailable)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4990"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="5137"/>
         <source> (plugged in)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6387,94 +6384,94 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="506"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="499"/>
         <source>Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="507"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="500"/>
         <source>Some applications need to be logouted to take effect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="583"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="576"/>
         <source>unify output</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/display/unify output</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="587"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="580"/>
         <source>night mode</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/display/night mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="595"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="588"/>
         <source>Theme follow night mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="617"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="610"/>
         <source>Hint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="618"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="611"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after 14 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1804"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1811"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1857"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1864"/>
         <source>Brightness</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="622"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="615"/>
         <source>Save Config</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="496"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="489"/>
         <source>monitor</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/display/monitor</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="623"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="616"/>
         <source>Restore Config</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="631"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="624"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
 the settings will be saved after %1 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1196"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1203"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1248"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1255"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1196"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1248"/>
         <source>please insure at least one output!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1204"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1256"/>
         <source>Open time should be earlier than close time!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1214"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1266"/>
         <source>Warnning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1215"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1267"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation type="unfinished"></translation>
