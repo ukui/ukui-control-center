@@ -175,9 +175,10 @@ private:
     KScreen::ConfigPtr mPrevConfig;
     KScreen::OutputPtr res;                       // 这是outPutptr结果
 #else
-    KScreen::ConfigPtr mConfig = nullptr;
-    KScreen::ConfigPtr mPrevConfig = nullptr;
-    KScreen::OutputPtr res = nullptr;
+    KScreen::ConfigPtr mConfig          = nullptr;
+    KScreen::ConfigPtr mPrevConfig      = nullptr;
+    KScreen::ConfigPtr mPreScreenConfig = nullptr;
+    KScreen::OutputPtr res              = nullptr;
 #endif
 
     ControlPanel *mControlPanel = nullptr;

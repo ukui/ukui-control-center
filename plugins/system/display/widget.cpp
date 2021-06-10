@@ -173,6 +173,7 @@ void Widget::setConfig(const KScreen::ConfigPtr &config)
     }
     mConfig = config;
     mPrevConfig = config->clone();
+    mPreScreenConfig = config->clone();
 
     KScreen::ConfigMonitor::instance()->addConfig(mConfig);
     resetPrimaryCombo();
@@ -975,7 +976,7 @@ void Widget::outputRemoved(int outputId)
     mUnifyButton->blockSignals(false);
     mainScreenButtonSelect(ui->primaryCombo->currentIndex());
     // 在双屏下拔掉显示器，然后更改配置应用，恢复到原来配置崩溃
-    mPrevConfig = mConfig->clone();
+    mPreScreenConfig = mConfig->clone();
 }
 
 void Widget::primaryOutputSelected(int index)
@@ -1311,17 +1312,18 @@ void Widget::save()
 
     if (isRestoreConfig()) {
         if (mIsWayland && -1 != mScreenId) {
-            mPrevConfig->output(mScreenId)->setPrimary(true);
-            callMethod(mPrevConfig->output(mScreenId)->geometry(), mPrevConfig->output(mScreenId)->name());
+            mPreScreenConfig->output(mScreenId)->setPrimary(true);
+            callMethod(mPreScreenConfig->output(mScreenId)->geometry(), mPreScreenConfig->output(mScreenId)->name());
         }
-        auto *op = new KScreen::SetConfigOperation(mPrevConfig);
+        auto *op = new KScreen::SetConfigOperation(mPreScreenConfig);
         op->exec();
 
         // 无法知道什么时候执行完操作
         QTimer::singleShot(1000, this, [=]() {
-            writeFile(mDir % mPrevConfig->connectedOutputsHash());
+            writeFile(mDir % mPreScreenConfig->connectedOutputsHash());
         });
     } else {
+        mPreScreenConfig = mConfig->clone();
         writeScreenXml();
     }
 
@@ -1419,7 +1421,7 @@ bool Widget::writeGlobalPart(const KScreen::OutputPtr &output, QVariantMap &info
 bool Widget::writeFile(const QString &filePath)
 {
     const KScreen::OutputList outputs = mConfig->outputs();
-    const auto oldConfig = mPrevConfig;
+    const auto oldConfig = mPreScreenConfig;
     KScreen::OutputList oldOutputs;
     if (oldConfig) {
         oldOutputs = oldConfig->outputs();
