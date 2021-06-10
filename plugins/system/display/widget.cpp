@@ -1182,12 +1182,34 @@ void Widget::setScreenKDS(QString kdsConfig)
     }
 }
 
+void Widget::setActiveScreen()
+{
+    int enableCount = 0;
+    int connectCount = 0;
+    Q_FOREACH(const KScreen::OutputPtr &output, mConfig->connectedOutputs()) {
+        connectCount++;
+        enableCount = (output->isEnabled() ? (++enableCount) : enableCount);
+    }
+    if (connectCount > enableCount) {
+        for (int index = 0; index <= ui->primaryCombo->count(); index++) {
+            KScreen::OutputPtr output = mConfig->output(ui->primaryCombo->itemData(index).toInt());
+            if (!output.isNull() && output->isEnabled()) {
+                ui->primaryCombo->setCurrentIndex(index);
+            }
+        }
+    }
+
+}
+
 void Widget::kdsScreenchangeSlot(QString status)
 {
     bool isCheck = (status == "copy") ? true : false;
     mKDSChanged = status;
     setScreenKDS(mKDSChanged);
     mUnifyButton->setChecked(isCheck);
+    QTimer::singleShot(1500, this, [=]{
+        setActiveScreen();
+    });
 }
 
 void Widget::save()
@@ -1272,13 +1294,6 @@ void Widget::save()
         }
     }
 
-    for (int index = 0; index <= 1; index++) {
-        KScreen::OutputPtr output = mConfig->output(ui->primaryCombo->itemData(index).toInt());
-        if (!output.isNull() && enableScreenCount == 1 && output->isEnabled()) {
-            ui->primaryCombo->setCurrentIndex(index);
-        }
-    }
-
     if (mIsWayland && -1 != mScreenId) {
         if (enableScreenCount >= 2 && !config.isNull() && !config->output(mScreenId).isNull()) {
             config->output(mScreenId)->setPrimary(true);
@@ -1310,6 +1325,7 @@ void Widget::save()
         writeScreenXml();
     }
 
+    setActiveScreen();
 }
 
 QVariantMap metadata(const KScreen::OutputPtr &output)
