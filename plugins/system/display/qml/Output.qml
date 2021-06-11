@@ -47,14 +47,14 @@ QMLOutput {
         "DVIA",
         "DVID",
         "HDMI",
-        "eDP-1",
+        "eDP",
         "TV",
         "TVComposite",
         "TVSVideo",
         "TVComponent",
         "TVSCART",
         "TVC4",
-        "DP-1"
+        "DP"
     ];
 
     width: monitorMouseArea.width;
