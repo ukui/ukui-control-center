@@ -478,7 +478,7 @@ void Wallpaper::resetDefaultWallpaperSlot(){
 void Wallpaper::showLocalWpDialog(){
     QStringList filters;
     filters<<tr("Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)")<<tr("allFiles(*.*)");
-    QFileDialog fd;
+    QFileDialog fd(pluginWidget);
     QList<QUrl> usb_list = fd.sidebarUrls();
     int sidebarNum = 8;// 最大添加U盘数，可以自己定义
     QString home_path = QDir::homePath().section("/", -1, -1);
@@ -552,7 +552,7 @@ void Wallpaper::showLocalWpDialog(){
 
 void Wallpaper::add_custom_wallpaper(){
     QString filters = "Wallpaper files(*.png *.jpg)";
-    QFileDialog fd;
+    QFileDialog fd(pluginWidget);
 
     fd.setDirectory(QString(const_cast<char *>(g_get_user_special_dir(G_USER_DIRECTORY_PICTURES))));
     fd.setAcceptMode(QFileDialog::AcceptOpen);

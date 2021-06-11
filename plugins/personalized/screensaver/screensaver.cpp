@@ -663,7 +663,7 @@ void Screensaver::initScreensaverSourceFrame()
         connect(sourceBtn,&QPushButton::clicked, this, [=]{
             QString filter;
             filter = tr("Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp *.svg)");
-            QFileDialog fd;
+            QFileDialog fd(pluginWidget);
             fd.setDirectory(QString(qScreensaverDefaultSetting->get(BACKGROUND_PATH_KEY).toString()));
             fd.setAcceptMode(QFileDialog::AcceptOpen);
             fd.setViewMode(QFileDialog::List);

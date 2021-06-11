@@ -194,7 +194,7 @@ AddAutoBoot::~AddAutoBoot()
 void AddAutoBoot::open_desktop_dir_slots()
 {
     QString filters = tr("Desktop files(*.desktop)");
-    QFileDialog fd;
+    QFileDialog fd(this);
     fd.setDirectory(DESKTOPPATH);
     fd.setAcceptMode(QFileDialog::AcceptOpen);
     fd.setViewMode(QFileDialog::List);

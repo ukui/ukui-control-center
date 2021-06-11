@@ -154,7 +154,7 @@ void ChangeFaceDialog::setAccountType(QString atype)
 void ChangeFaceDialog::showLocalFaceDialog()
 {
     QString filters = "Face files(*.jpg *.jpeg *.png *.svg)";
-    QFileDialog fd;
+    QFileDialog fd(this);
     QList<QUrl> usb_list = fd.sidebarUrls();
     int sidebarNum = 8;// 最大添加U盘数，可以自己定义
     QString home_path = QDir::homePath().section("/", -1, -1);
