@@ -831,7 +831,7 @@ you can restore them to ensure the integrity of your system.</source>
     <message>
         <location filename="../../../plugins/system/battery/battery.cpp" line="229"/>
         <source>1m</source>
-        <translation>1小时</translation>
+        <translation>1分钟</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/battery/battery.cpp" line="229"/>
@@ -853,7 +853,7 @@ you can restore them to ensure the integrity of your system.</source>
     <message>
         <location filename="../../../plugins/system/battery/battery.cpp" line="297"/>
         <source>Time to sleep after %1 minute of idle time</source>
-        <translation>空闲时间 %1 分钟后进入睡眠状态</translation>
+        <translation>空闲时间 %1 分钟后进入睡眠状态:</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/battery/battery.cpp" line="298"/>
@@ -868,18 +868,18 @@ you can restore them to ensure the integrity of your system.</source>
     <message>
         <location filename="../../../plugins/system/battery/battery.cpp" line="301"/>
         <source>Time to close display :</source>
-        <translation>此时间段后关闭显示器：</translation>
+        <translation>此时间段后关闭显示器:</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/battery/battery.cpp" line="302"/>
         <source>Time to close display</source>
-        <translation>此时间段后关闭显示器</translation>
+        <translation>此时间段后关闭显示器:</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/battery/battery.cpp" line="304"/>
         <location filename="../../../plugins/system/battery/battery.cpp" line="305"/>
         <source>Time to decrease screen brightness</source>
-        <translation>此时间段降低屏幕亮度</translation>
+        <translation>此时间段降低屏幕亮度:</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/battery/battery.cpp" line="307"/>
@@ -5006,7 +5006,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="442"/>
         <source>Time to sleep after %1 minute of idle time</source>
-        <translation>空闲时间 %1 分钟后进入睡眠状态</translation>
+        <translation>空闲时间 %1 分钟后进入睡眠状态:</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="443"/>
@@ -5016,7 +5016,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="443"/>
         <source>Time to sleep after %1 minute of idle time %2</source>
-        <translation>空闲时间%1分钟后进入睡眠%2</translation>
+        <translation>空闲时间%1分钟后进入睡眠%2:</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="445"/>
@@ -5026,25 +5026,25 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="446"/>
         <source>Time to close display</source>
-        <translation>此时间段后关闭显示器</translation>
+        <translation>此时间段后关闭显示器:</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="448"/>
         <location filename="../../../plugins/system/power/power.cpp" line="449"/>
         <source>Set sleeping to hibernation</source>
-        <translation>睡眠此时间段后进入休眠</translation>
+        <translation>睡眠此时间段后进入休眠:</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="451"/>
         <location filename="../../../plugins/system/power/power.cpp" line="452"/>
         <source>Press the power button</source>
-        <translation>按电源键时执行</translation>
+        <translation>按电源键时执行:</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="454"/>
         <location filename="../../../plugins/system/power/power.cpp" line="455"/>
         <source>Notebook cover</source>
-        <translation>笔记本合盖时执行</translation>
+        <translation>笔记本合盖时执行:</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="482"/>
