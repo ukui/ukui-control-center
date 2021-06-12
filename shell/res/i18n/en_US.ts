@@ -1023,44 +1023,44 @@ Please authenticate yourself to continue</source>
 <context>
     <name>BlueToothMain</name>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="115"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="116"/>
         <source>Bluetooth</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/bluetooth/Bluetooth</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="174"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="145"/>
+        <source>Turn on :</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="175"/>
         <source>Bluetooth adapter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="202"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="203"/>
         <source>Show icon on taskbar</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/bluetooth/Show icon on taskbar</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="232"/>
-        <source>Allow Bluetooth devices to be discoverable</source>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="233"/>
+        <source>Discoverable by nearby Bluetooth devices</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="263"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="264"/>
         <source>My Devices</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="283"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="284"/>
         <source>Other Devices</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="144"/>
-        <source>Turn on Bluetooth</source>
-        <translation type="unfinished"></translation>
-        <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
     </message>
 </context>
 <context>
@@ -1074,11 +1074,13 @@ Please authenticate yourself to continue</source>
 <context>
     <name>BluetoothNameLabel</name>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="66"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="67"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="125"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="126"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="159"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="37"/>
+        <source>Double-click to change the device name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="89"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="152"/>
         <source>Can now be found as &quot;%1&quot;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2067,12 +2069,12 @@ Please authenticate yourself to continue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="153"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="145"/>
         <source>Device connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="157"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="149"/>
         <source>Device not connected</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3503,7 +3505,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.ui" line="142"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="808"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="879"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3520,7 +3522,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="76"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="432"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="502"/>
         <source>Connect</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3531,27 +3533,27 @@ Please retry or relogin!</source>
         <extra-contents_path>/netconnect/open WLAN</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="280"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="347"/>
         <source>Connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="663"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="734"/>
         <source>No net</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="289"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="357"/>
         <source>Detail</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="581"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="652"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="796"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="867"/>
         <source>Refreshing...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6384,94 +6386,94 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="499"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="500"/>
         <source>Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="500"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="501"/>
         <source>Some applications need to be logouted to take effect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="576"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="577"/>
         <source>unify output</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/display/unify output</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="580"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="581"/>
         <source>night mode</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/display/night mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="588"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="589"/>
         <source>Theme follow night mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="610"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="611"/>
         <source>Hint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="611"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="612"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after 14 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1857"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1864"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1859"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1866"/>
         <source>Brightness</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="615"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="616"/>
         <source>Save Config</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="489"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="490"/>
         <source>monitor</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/display/monitor</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="616"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="617"/>
         <source>Restore Config</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="624"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="625"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
 the settings will be saved after %1 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1248"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1255"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1249"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1256"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1248"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1249"/>
         <source>please insure at least one output!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1256"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1257"/>
         <source>Open time should be earlier than close time!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1266"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1267"/>
         <source>Warnning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1267"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1268"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation type="unfinished"></translation>
