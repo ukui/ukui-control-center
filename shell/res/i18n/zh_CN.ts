@@ -3345,12 +3345,12 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/itemlist.h" line="43"/>
         <source>Weather</source>
-        <translation>麒麟天气</translation>
+        <translation>天气</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/itemlist.h" line="43"/>
         <source>Media</source>
-        <translation>麒麟影音</translation>
+        <translation>影音</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/itemlist.h" line="43"/>
@@ -4204,11 +4204,11 @@ Please retry or relogin!</source>
     </message>
     <message>
         <source>Media</source>
-        <translation type="vanished">麒麟影音</translation>
+        <translation type="vanished">影音</translation>
     </message>
     <message>
         <source>Weather</source>
-        <translation type="vanished">麒麟天气</translation>
+        <translation type="vanished">天气</translation>
     </message>
     <message>
         <source>Sync downloading,please wait!</source>
@@ -7058,12 +7058,12 @@ run start-pulseaudio-x11 manually.</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/syncdialog.h" line="47"/>
         <source>Weather</source>
-        <translation>麒麟天气</translation>
+        <translation>天气</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/syncdialog.h" line="47"/>
         <source>Media</source>
-        <translation>麒麟影音</translation>
+        <translation>影音</translation>
     </message>
 </context>
 <context>
@@ -8811,11 +8811,11 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     </message>
     <message>
         <source>Weather</source>
-        <translation type="vanished">麒麟天气</translation>
+        <translation type="vanished">天气</translation>
     </message>
     <message>
         <source>Media</source>
-        <translation type="vanished">麒麟影音</translation>
+        <translation type="vanished">影音</translation>
     </message>
     <message>
         <source>Walpaper</source>
