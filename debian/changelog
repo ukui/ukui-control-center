@@ -1,3 +1,73 @@
+ukui-control-center (3.0.1-1-60.5) v101; urgency=medium
+
+  * 提交commit:d151852
+  * bug#56581
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 31 May 2021 09:01:58 +0800
+
+ukui-control-center (3.0.1-1-60.4) v101; urgency=medium
+
+  * 提交commit:3dca19
+  * 周夏立：自测bug，插件加载失败
+
+ -- zhoubin <zhoubin@kylinos.cn>  Sun, 30 May 2021 16:20:29 +0800
+
+ukui-control-center (3.0.1-1-60.3) v101; urgency=medium
+
+  * 提交commit:f53fc2e
+  * bug#57955,56579,57101,57929,57102,56581,57510
+
+ -- zhoubin <zhoubin@kylinos.cn>  Sun, 30 May 2021 14:55:44 +0800
+
+ukui-control-center (3.0.1-1-60.2) v101; urgency=medium
+
+  * 解决bug#57037
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 27 May 2021 09:14:23 +0800
+
+ukui-control-center (3.0.1-1-60.1) v101; urgency=medium
+
+  * 解决bug#56018
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 20 May 2021 09:28:16 +0800
+
+ukui-control-center (3.0.1-1-60) v101; urgency=medium
+
+  * 重新上传,更新未开放插件
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 19 May 2021 08:49:38 +0800
+
+ukui-control-center (3.0.1-1-59) v101; urgency=medium
+
+  * 提交日期:2021-0517:e194b54
+  * 修复 bug#53731,#52497,#51076,#52347,#51346,#21194,#52347,#51976
+  * 修复 bug#51976,#50766,#44809,#54814,#53631,#54498,#54353,#50738
+  * 修复 bug#40387,#52665,#53049,#53045,#53052,#52581,#53007,#51061
+  * 修复 bug#50726,#52735,#51061,#50174,#48215,#50607,#50757,#52377
+  * 修复 bug#39931,#50758,#51005,#51730,#52360,#50777,#50777,#50847
+  * 修复 bug#52099,#51610,#51740,#43212,#51523
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 18 May 2021 19:43:34 +0800
+
+ukui-control-center (3.0.1-1-58) v101; urgency=medium
+
+  * 解决bug#51730，在当次添加程序中，如果用户手动输入了程序名和程序描述
+  * 解决bug#52360锁屏背景本地图片不能用于登陆背景的问题
+  * 解决bug#50847(bug#52099),bug#51610,bug#51740
+  * 解决bug#43212与win+p显示的位置不同
+  * 解决bug#51523
+  * 解决bug##51978连接网络后，进入设置，点击网络设置按钮无响应
+  * 解决bug#43892重新插拔后分辨率没有成功被更改
+  * 解决bug#50815,bug#51611,bug#51012,bug#51545,bug#205521、修改时区英语显示不全，增加按钮宽度。2、二级导航间距缩小。3、990分辨率不过滤1152*864。4、打印机界面标题字体大小修改
+  * 解决bug#46711 and bug#459701、恢复快捷键的搜索；2、日期显示跟随字体设置
+  * 解决bug#50042,bug#49291,bug#452401、修复同步时间gif加载慢的bug  2、修复窗口置顶问题  3、修复背景恢复默认设置未选中的bug  4、新增打开背景以及锁屏自动选定图片
+  * BUG: 增大用户账户中改名操作响应点击事件的区域
+  * BUG#50607 【990】【控制面板|账户】改名的按钮不能点击
+  * BUG#50757 【9A0】【控制面板|账户】点击改名的按钮不可修改，点击账户名位置可以修改用户
+  * BUG#52377 【V10SP1】【控制面板|账户信息】建议增大更改用户名的点击范围
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 07 May 2021 11:26:20 +0800
+
 ukui-control-center (3.0.1-1-57.2) v101; urgency=medium
 
   * 解决bug#50577显示亮度调整数值
