@@ -1046,18 +1046,24 @@ void Widget::kdsScreenchangeSlot()
     connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished,
             [&](KScreen::ConfigOperation *op) {
         bool cloneMode = true;
+        int enableOutputCnt = 0;
         KScreen::ConfigPtr config = qobject_cast<KScreen::GetConfigOperation *>(op)->config();
         KScreen::OutputPtr output = config->primaryOutput();
         if (config->connectedOutputs().count() >= 2) {
             foreach (KScreen::OutputPtr secOutput, config->connectedOutputs()) {
+                if (secOutput->isEnabled()) {
+                    enableOutputCnt++;
+                }
                 if ((output != nullptr) &&
                         (secOutput->geometry() != output->geometry() || !secOutput->isEnabled())) {
                     cloneMode = false;
                 }
             }
+            cloneMode = enableOutputCnt <= 1 ? false : cloneMode;
         } else {
             cloneMode = false;
         }
+
         mUnifyButton->setChecked(cloneMode);
     });
 }
