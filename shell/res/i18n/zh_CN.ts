@@ -5009,7 +5009,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="322"/>
         <source>5m</source>
-        <translation>5小时</translation>
+        <translation>5分钟</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="441"/>
