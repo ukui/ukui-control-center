@@ -29,6 +29,14 @@
 #define ITEMFIXEDHEIGH 58
 #define THEME_QT_SCHEMA                  "org.ukui.style"
 #define MODE_QT_KEY                      "style-name"
+
+enum {
+    NOT_SUPPORT_P2P = 0,
+    SUPPORT_P2P_WITHOUT_DEV,
+    SUPPORT_P2P_PERFECT,
+    OP_NO_RESPONSE
+};
+
 Projection::Projection()
 {
     pluginName = tr("Projection");
@@ -198,10 +206,20 @@ QWidget *Projection::get_plugin_ui(){
     QList<QVariant> outArgs = result.arguments();
     int projectionstatus = outArgs.at(0).value<int>();
     qDebug() << "---->" << projectionstatus;
-    if (projectionstatus != 1) {
-        QMessageBox::information(NULL, QStringLiteral("提示"), QStringLiteral("投屏无法使用"));
+    if (NOT_SUPPORT_P2P == projectionstatus) {
+        QMessageBox::information(NULL, QStringLiteral("提示"), QStringLiteral("由于无线网卡驱动不支持，投屏无法使用"));
         ui->pronamelabel->setEnabled(false);
         projectionBtn->setEnabled(false);
+    }
+    else if (SUPPORT_P2P_WITHOUT_DEV == projectionstatus) {
+        QMessageBox::information(NULL, QStringLiteral("提示"), QStringLiteral("由于无线网卡驱动限制，投屏开启后会关闭网络管理器，导致wifi断开。\n当不使用投屏时请关闭投屏功能，否则会影响网络使用"));
+        ui->pronamelabel->setEnabled(true);
+        projectionBtn->setEnabled(true);
+    }
+    else if (OP_NO_RESPONSE == projectionstatus) {
+        QMessageBox::information(NULL, QStringLiteral("提示"), QStringLiteral("查询无线网卡暂时无响应，请稍后再试"));
+        ui->pronamelabel->setEnabled(true);
+        projectionBtn->setEnabled(true);
     }
 
     return pluginWidget;
