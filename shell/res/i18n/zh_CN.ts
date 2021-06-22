@@ -1154,29 +1154,29 @@ Please authenticate yourself to continue</source>
         <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="118"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="127"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="144"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="153"/>
         <source>Turn on :</source>
         <translation>开启：</translation>
         <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="174"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="183"/>
         <source>Bluetooth adapter</source>
         <translation>蓝牙适配器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="202"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="211"/>
         <source>Show icon on taskbar</source>
         <translation>在任务栏显示蓝牙图标</translation>
         <extra-contents_path>/bluetooth/Show icon on taskbar</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="232"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="241"/>
         <source>Discoverable by nearby Bluetooth devices</source>
         <translation>可被附近的蓝牙设备发现</translation>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
@@ -1192,7 +1192,7 @@ Please authenticate yourself to continue</source>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="264"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="273"/>
         <source>My Devices</source>
         <translation>我的设备</translation>
     </message>
@@ -1201,7 +1201,7 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">现在可被发现为 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="281"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="290"/>
         <source>Other Devices</source>
         <translation>蓝牙设备</translation>
     </message>
@@ -5506,7 +5506,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../utils/functionselect.cpp" line="77"/>
         <source>Projection</source>
-        <translation type="unfinished">投屏</translation>
+        <translation>投屏</translation>
     </message>
     <message>
         <location filename="../../utils/functionselect.cpp" line="80"/>
@@ -7586,7 +7586,7 @@ run start-pulseaudio-x11 manually.</source>
     <message>
         <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="71"/>
         <source>Input what you are looking for</source>
-        <translation type="unfinished"></translation>
+        <translation>输入查找内容</translation>
     </message>
     <message>
         <source>change timezone</source>
@@ -8953,7 +8953,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="470"/>
         <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="503"/>
         <source>Search content</source>
-        <translation type="unfinished"></translation>
+        <translation>搜索内容</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="550"/>
