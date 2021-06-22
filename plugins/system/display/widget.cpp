@@ -322,6 +322,13 @@ void Widget::slotOutputConnectedChanged()
     resetPrimaryCombo();
 }
 
+// 更改方向，再更改分辨率重叠问题
+void Widget::slotQmloutOutChanged()
+{
+    QMLOutput *output = mScreen->primaryOutput();
+    mScreen->setScreenPos(output);
+}
+
 void Widget::slotUnifyOutputs()
 {
     QMLOutput *base = mScreen->primaryOutput();
@@ -902,6 +909,12 @@ void Widget::outputAdded(const KScreen::OutputPtr &output)
             this, &Widget::slotOutputConnectedChanged);
     connect(output.data(), &KScreen::Output::isEnabledChanged,
             this, &Widget::slotOutputEnabledChanged);
+    connect(output.data(), &KScreen::Output::currentModeIdChanged,
+            this, [this]() {
+        QTimer::singleShot(200, this, [=]{
+           slotQmloutOutChanged();
+        });
+    });
 
     addOutputToPrimaryCombo(output);
 

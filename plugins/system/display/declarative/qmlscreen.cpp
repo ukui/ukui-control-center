@@ -228,15 +228,21 @@ void QMLScreen::setScreenCenterPos()
 
 void QMLScreen::setScreenPos(QMLOutput *output)
 {
+    if ((output->outputPtr()->rotation() == KScreen::Output::Left || output->outputPtr()->rotation() == KScreen::Output::Right)
+            && (output->width() > output->height())) {
+        qreal fwidth = output->size().width();
+        qreal fheight = output->size().height();
+        output->setSize(QSizeF(fheight, fwidth));
+    }
     // 镜像模式下跳过屏幕旋转处理
     if (this->primaryOutput() && this->primaryOutput()->isCloneMode()) {
         return;
     }
 
-    int x1 = 0, y1 = 0;
-    int width1 = 0, height1 = 0;
-    int x2 = 0, y2 = 0;
-    int width2 = 0, height2 = 0;
+    qreal x1 = 0, y1 = 0;
+    qreal width1 = 0, height1 = 0;
+    qreal x2 = 0, y2 = 0;
+    qreal width2 = 0, height2 = 0;
 
     x1 = output->x();
     y1 = output->y();
@@ -254,6 +260,12 @@ void QMLScreen::setScreenPos(QMLOutput *output)
             other = qmlOutput;
             x2 = other->x();
             y2 = other->y();
+            if ((other->outputPtr()->rotation() == KScreen::Output::Left || other->outputPtr()->rotation() == KScreen::Output::Right) &&
+                    (other->width() >  other->height())) {
+                qreal swidth = qmlOutput->width();
+                qreal sheigth = qmlOutput->height();
+                qmlOutput->setSize(QSizeF(sheigth, swidth));
+            }
             width2 = other->width();
             height2 = other->height();
         }
