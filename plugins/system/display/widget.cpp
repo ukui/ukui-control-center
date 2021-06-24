@@ -326,7 +326,10 @@ void Widget::slotOutputConnectedChanged()
 void Widget::slotQmloutOutChanged()
 {
     QMLOutput *output = mScreen->primaryOutput();
-    mScreen->setScreenPos(output);
+    if (output != nullptr && !output->outputPtr().isNull()) {
+        mScreen->setScreenPos(output);
+    }
+
 }
 
 void Widget::slotUnifyOutputs()
