@@ -304,6 +304,7 @@ void Widget::slotOutputEnabledChanged()
 {
     // 点击禁用屏幕输出后的改变
     resetPrimaryCombo();
+    setActiveScreen(mKDSChanged);
     int enabledOutputsCount = 0;
     Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
         if (output->isEnabled()) {
@@ -1212,20 +1213,28 @@ void Widget::setScreenKDS(QString kdsConfig)
     }
 }
 
-void Widget::setActiveScreen()
+void Widget::setActiveScreen(QString status)
 {
+    int activeScreenId = 1;
     int enableCount = 0;
     int connectCount = 0;
     Q_FOREACH(const KScreen::OutputPtr &output, mConfig->connectedOutputs()) {
         connectCount++;
         enableCount = (output->isEnabled() ? (++enableCount) : enableCount);
     }
-    if (connectCount > enableCount) {
-        for (int index = 0; index <= ui->primaryCombo->count(); index++) {
-            KScreen::OutputPtr output = mConfig->output(ui->primaryCombo->itemData(index).toInt());
-            if (!output.isNull() && output->isEnabled()) {
-                ui->primaryCombo->setCurrentIndex(index);
-            }
+
+    if (status == "second") {
+        activeScreenId = connectCount;
+    }
+
+    for (int index = 0; index <= ui->primaryCombo->count(); index++) {
+        KScreen::OutputPtr output = mConfig->output(ui->primaryCombo->itemData(index).toInt());
+        if (status.isEmpty() && connectCount > enableCount && !output.isNull() && output->isEnabled()) {
+            ui->primaryCombo->setCurrentIndex(index);
+        }
+
+        if (!status.isEmpty() && !output.isNull() && activeScreenId == output->id()) {
+            ui->primaryCombo->setCurrentIndex(index);
         }
     }
 
@@ -1239,7 +1248,6 @@ void Widget::kdsScreenchangeSlot(QString status)
     setScreenKDS(mKDSChanged);
     mUnifyButton->setChecked(isCheck);
     QTimer::singleShot(1500, this, [=]{
-        setActiveScreen();
         Q_FOREACH(KScreen::OutputPtr output, mConfig->connectedOutputs()) {
             if (output.isNull())
                 continue;
@@ -1647,11 +1655,7 @@ void Widget::initConnection()
     connect(mNightButton, SIGNAL(checkedChanged(bool)), this, SLOT(showNightWidget(bool)));
     connect(mThemeButton, SIGNAL(checkedChanged(bool)), this, SLOT(slotThemeChanged(bool)));
     connect(singleButton, SIGNAL(buttonClicked(int)), this, SLOT(showCustomWiget(int)));
-    connect(ui->primaryCombo, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-            this, [=](int index){
-        mainScreenButtonSelect(index);
-        showBrightnessFrame();  //当前屏幕框变化的时候，显示，此时不判断
-    });
+
 
     connect(ui->mainScreenButton, SIGNAL(clicked(bool)), this, SLOT(primaryButtonEnable(bool)));
     mControlPanel = new ControlPanel(this);
@@ -1702,6 +1706,12 @@ void Widget::initConnection()
 
     mApplyShortcut = new QShortcut(QKeySequence("Ctrl+A"), this);
     connect(mApplyShortcut, SIGNAL(activated()), this, SLOT(save()));
+
+    connect(ui->primaryCombo, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this, [=](int index) {
+        mainScreenButtonSelect(index);
+        showBrightnessFrame();  //当前屏幕框变化的时候，显示，此时不判断
+    });
 }
 
 

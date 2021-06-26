@@ -163,7 +163,7 @@ private:
 
     void setDDCBrightnessN(int value, QString screenName);
     void setScreenKDS(QString kdsConfig);
-    void setActiveScreen();
+    void setActiveScreen(QString status = "");
 
 private:
     Ui::DisplayWindow *ui;
