@@ -21,6 +21,7 @@
 #include <QFuture>
 
 #include <KF5/KScreen/kscreen/config.h>
+#include <unistd.h>
 
 #include "outputconfig.h"
 #include "SwitchButton/switchbutton.h"
@@ -68,7 +69,6 @@ public:
     void initConnection();
     QString getScreenName(QString name = "");
     void initTemptSlider();
-    void writeScreenXml();
 
     bool writeFile(const QString &filePath);
     void writeGlobal(const KScreen::OutputPtr &output);
