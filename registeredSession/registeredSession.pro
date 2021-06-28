@@ -40,4 +40,5 @@ target.path = /usr/bin/
 
 HEADERS += \
     json.h \
+    screenStruct.h \
     ukccsessionserver.h

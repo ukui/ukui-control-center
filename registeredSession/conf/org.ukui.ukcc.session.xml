@@ -23,5 +23,11 @@
     <method name="setScreenMode">
       <arg name="screenMode" type="s" direction="in"/>
     </method>
+    <method name="setPreScreenCfg">
+      <arg name="preScreenCfg" type="av" direction="in"/>
+    </method>
+    <method name="getPreScreenCfg">
+      <arg type="av" direction="out"/>
+    </method>
   </interface>
 </node>

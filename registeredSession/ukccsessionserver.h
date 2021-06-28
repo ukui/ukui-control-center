@@ -10,8 +10,10 @@
 #include <QCoreApplication>
 #include <QDBusContext>
 #include <QScopedPointer>
+#include <QDBusVariant>
 
 #include "json.h"
+#include "screenStruct.h"
 
 using QtJson::JsonObject;
 using QtJson::JsonArray;
@@ -28,19 +30,23 @@ private:
 
 private:
     QString mScreenMode;
+    QVariantList mPreScreenCfg;
+    QString mFilePath;
+
 
 Q_SIGNALS:
     void configChanged();
     void screenChanged(QString status);
 
-public slots:
+public Q_SLOTS:
     void exitService();
     void        ReloadSecurityConfig();
     QVariantMap getModuleHideStatus();
     QString     GetSecurityConfigPath();
     QString getScreenMode();
     void setScreenMode(QString screenMode);
-
+    void setPreScreenCfg(QVariantList preScreenCfg);
+    QVariantList getPreScreenCfg();
 };
 
 #endif // UKCCSESSIONSERVER_H

@@ -25,6 +25,7 @@
 #include "outputconfig.h"
 #include "SwitchButton/switchbutton.h"
 #include "brightnessFrame.h"
+#include "screenConfig.h"
 
 class QLabel;
 class QMLOutput;
@@ -165,6 +166,9 @@ private:
     void setScreenKDS(QString kdsConfig);
     void setActiveScreen(QString status = "");
 
+    QList<ScreenConfig> getPreScreenCfg();
+    void setPreScreenCfg();
+
 private:
     Ui::DisplayWindow *ui;
     QMLScreen *mScreen = nullptr;
@@ -192,7 +196,7 @@ private:
     QString     mCPU;
     QString     mDir;
     QStringList mPowerKeys;
-    QString     mKDSChanged;
+    QString     mKDSCfg;
 
     SwitchButton *mNightButton = nullptr;
     SwitchButton *mCloseScreenButton = nullptr;
@@ -210,6 +214,7 @@ private:
     QButtonGroup *singleButton;
 
     QSharedPointer<QDBusInterface> mUPowerInterface;
+    QSharedPointer<QDBusInterface> mUkccInterface;
 
     QHash<QString, QVariant> mNightConfig;
 
