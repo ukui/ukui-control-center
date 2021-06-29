@@ -224,13 +224,13 @@ private:
     bool mIsNightMode     = false;
     bool mRedshiftIsValid = false;
     bool mIsScaleChanged  = false;
-    bool mOriApply;
     bool mConfigChanged   = false;
     bool mOnBattery       = false;
     bool mIsUnifyChanged  = false;
     bool mFirstLoad       = true;
     bool mIsWayland       = false;
     bool mIsBattery       = false;
+    bool mIsOutputAdd     = false;
 
     bool threadRunExit = false;
     QFuture<void> threadRun;

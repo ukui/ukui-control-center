@@ -63,7 +63,7 @@ QVariantList ukccSessionServer::getPreScreenCfg()
             Q_FOREACH(QVariant variant, obj) {
                 QMap<QString, QVariant> map = variant.toMap();
                 ScreenConfig screenCfg;
-                screenCfg.screenId = map["id"].toInt();
+                screenCfg.screenId = map["id"].toString();
                 screenCfg.screenModeId = map["modeid"].toString();
                 screenCfg.screenPosX = map["x"].toInt();
                 screenCfg.screenPosY = map["y"].toInt();

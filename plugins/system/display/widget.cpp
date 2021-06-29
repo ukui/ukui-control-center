@@ -353,8 +353,12 @@ void Widget::slotUnifyOutputs()
             KScreen::OutputList screens = mPrevConfig->connectedOutputs();
             QList<ScreenConfig> preScreenCfg = getPreScreenCfg();
             Q_FOREACH(ScreenConfig cfg, preScreenCfg) {
-                screens[cfg.screenId]->setCurrentModeId(cfg.screenModeId);
-                screens[cfg.screenId]->setPos(QPoint(cfg.screenPosX, cfg.screenPosY));
+                Q_FOREACH(KScreen::OutputPtr output, screens) {
+                    if (!cfg.screenId.compare(output->name())) {
+                        output->setCurrentModeId(cfg.screenModeId);
+                        output->setPos(QPoint(cfg.screenPosX, cfg.screenPosY));
+                    }
+                }
             }
         }
 
@@ -369,7 +373,7 @@ void Widget::slotUnifyOutputs()
         // breaks the cloning
         mPrevConfig = mConfig->clone();
 
-        if (!mFirstLoad) {
+        if (!mFirstLoad && !mIsOutputAdd) {
             setPreScreenCfg(mPrevConfig->connectedOutputs());
         }
 
@@ -926,8 +930,10 @@ void Widget::outputAdded(const KScreen::OutputPtr &output)
 
     if (!mFirstLoad) {
         QTimer::singleShot(1500, this, [=] {
+            mIsOutputAdd = true;
             mainScreenButtonSelect(ui->primaryCombo->currentIndex());
             mUnifyButton->setChecked(isCloneMode());
+            mIsOutputAdd = false;
         });
     }
     showBrightnessFrame();
@@ -1278,7 +1284,7 @@ void Widget::setPreScreenCfg(KScreen::OutputList screens)
     QVariantList retlist;
     while (nowIt != screens.end()) {
         ScreenConfig cfg;
-        cfg.screenId = nowIt.value()->id();
+        cfg.screenId = nowIt.value()->name();
         cfg.screenModeId = nowIt.value()->currentModeId();
         cfg.screenPosX = nowIt.value()->pos().x();
         cfg.screenPosY = nowIt.value()->pos().y();
@@ -1702,8 +1708,11 @@ void Widget::checkOutputScreen(bool judge)
         QList<ScreenConfig> preScreenCfg = getPreScreenCfg();
         KScreen::OutputList screens = mConfig->connectedOutputs();
         Q_FOREACH(ScreenConfig cfg, preScreenCfg) {
-            screens[cfg.screenId]->setPos(QPoint(cfg.screenPosX, cfg.screenPosY));
-            qDebug() << screens[cfg.screenId]->pos() << cfg.screenId;
+            Q_FOREACH(KScreen::OutputPtr output, screens) {
+                if (!cfg.screenId.compare(output->name())) {
+                    output->setPos(QPoint(cfg.screenPosX, cfg.screenPosY));
+                }
+            }
         }
     }
 

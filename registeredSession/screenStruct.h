@@ -6,7 +6,7 @@
 
 struct ScreenConfig
 {
-    int screenId;
+    QString screenId;
     QString screenModeId;
     int screenPosX;
     int screenPosY;
