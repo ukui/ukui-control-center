@@ -370,7 +370,7 @@ void Widget::slotUnifyOutputs()
         mPrevConfig = mConfig->clone();
 
         if (!mFirstLoad) {
-            setPreScreenCfg();
+            setPreScreenCfg(mPrevConfig->connectedOutputs());
         }
 
         for (QMLOutput *output: mScreen->outputs()) {
@@ -1271,9 +1271,8 @@ QList<ScreenConfig> Widget::getPreScreenCfg()
     return preScreenCfg;
 }
 
-void Widget::setPreScreenCfg()
+void Widget::setPreScreenCfg(KScreen::OutputList screens)
 {
-    KScreen::OutputList screens = mPrevConfig->connectedOutputs();
     QMap<int, KScreen::OutputPtr>::iterator nowIt = screens.begin();
 
     QVariantList retlist;
@@ -1685,7 +1684,6 @@ void Widget::primaryButtonEnable(bool status)
 
 void Widget::checkOutputScreen(bool judge)
 {
-    ui->primaryCombo->blockSignals(true);
     int index = ui->primaryCombo->currentIndex();
     KScreen::OutputPtr newPrimary = mConfig->output(ui->primaryCombo->itemData(index).toInt());
 
@@ -1698,25 +1696,21 @@ void Widget::checkOutputScreen(bool judge)
 
     newPrimary->setEnabled(judge);
 
-    int enabledOutput = 0;
-    Q_FOREACH (KScreen::OutputPtr outptr, mConfig->outputs()) {
-        if (outptr->isEnabled()) {
-            enabledOutput++;
-        }
-        if (mainScreen != outptr && outptr->isConnected()) {
-            newPrimary = outptr;
-        }
-
-        if (enabledOutput >= 2) {
-            // 设置副屏在主屏右边
-            newPrimary->setPos(QPoint(mainScreen->pos().x() + mainScreen->geometry().width(),
-                                      mainScreen->pos().y()));
+    if (!judge) {
+        setPreScreenCfg(mConfig->connectedOutputs());
+    } else {
+        QList<ScreenConfig> preScreenCfg = getPreScreenCfg();
+        KScreen::OutputList screens = mConfig->connectedOutputs();
+        Q_FOREACH(ScreenConfig cfg, preScreenCfg) {
+            screens[cfg.screenId]->setPos(QPoint(cfg.screenPosX, cfg.screenPosY));
+            qDebug() << screens[cfg.screenId]->pos() << cfg.screenId;
         }
     }
+
+    ui->primaryCombo->blockSignals(true);
     ui->primaryCombo->setCurrentIndex(index);
     ui->primaryCombo->blockSignals(false);
     mainScreenButtonSelect(index);
-
 }
 
 

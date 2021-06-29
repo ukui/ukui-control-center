@@ -167,7 +167,7 @@ private:
     void setActiveScreen(QString status = "");
 
     QList<ScreenConfig> getPreScreenCfg();
-    void setPreScreenCfg();
+    void setPreScreenCfg(KScreen::OutputList screens);
 
 private:
     Ui::DisplayWindow *ui;
