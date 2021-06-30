@@ -1322,7 +1322,10 @@ void Widget::kdsScreenchangeSlot(QString status)
     bool isCheck = (status == "copy") ? true : false;
     mKDSCfg = status;
     setScreenKDS(mKDSCfg);
-    mUnifyButton->setChecked(isCheck);
+    if (mConfig->connectedOutputs().count() >= 2) {
+        mUnifyButton->setChecked(isCheck);
+    }
+
     QTimer::singleShot(1500, this, [=]{
         Q_FOREACH(KScreen::OutputPtr output, mConfig->connectedOutputs()) {
             if (output.isNull())
