@@ -1325,6 +1325,7 @@ void Widget::kdsScreenchangeSlot(QString status)
     if (mConfig->connectedOutputs().count() >= 2) {
         mUnifyButton->setChecked(isCheck);
     }
+    mKDSCfg.clear();
 
     QTimer::singleShot(1500, this, [=]{
         Q_FOREACH(KScreen::OutputPtr output, mConfig->connectedOutputs()) {
