@@ -23,21 +23,15 @@
 #include <QDebug>
 #include <QBoxLayout>
 
-#define SSTHEMEPATH "/usr/share/applications/screensavers/"
-#define ID_PREFIX "screensavers-ukui-"
+#define SSTHEMEPATH        "/usr/share/applications/screensavers/"
+#define ID_PREFIX          "screensavers-ukui-"
 
 #define SCREENSAVER_SCHEMA "org.ukui.screensaver"
-#define MODE_KEY "mode"
-#define THEMES_KEY "themes"
-#define LOCK_KEY "lock-enabled"
-#define ACTIVE_KEY "idle-activation-enabled"
-
-#define SESSION_SCHEMA "org.ukui.session"
-#define IDLE_DELAY_KEY "idle-delay"
-
-#define BACKGROUND_SCHEMA "org.mate.background"
-
-const QString BACK_FILENAME_KEY = "pictureFilename";
+#define MODE_KEY           "mode"
+#define THEMES_KEY         "themes"
+#define LOCK_KEY           "lock-enabled"
+#define ACTIVE_KEY         "idle-activation-enabled"
+#define IDLE_DELAY_KEY     "idle-delay"
 
 #define IDLEMIN 1
 #define IDLEMAX 120
@@ -51,14 +45,6 @@ typedef enum
     MODE_IMAGE,
     MODE_DEFAULT_UKUI,
 }SaverMode;
-
-void PreviewWidget::paintEvent(QPaintEvent *e){
-//    QPainter painter(this);
-//    painter.setCompositionMode(QPainter::CompositionMode_DestinationOver);
-//    qDebug() << Q_FUNC_INFO << this->rect();
-//    painter.fillRect(this->rect(), Qt::red);
-}
-
 
 Screensaver::Screensaver() : mFirstLoad(true)
 {
@@ -134,26 +120,18 @@ void Screensaver::initSearchText() {
 }
 
 void Screensaver::initComponent() {
-    if (QGSettings::isSchemaInstalled(SCREENSAVER_SCHEMA)) {
-        const QByteArray id(SCREENSAVER_SCHEMA);
-        screenlock_settings = new QGSettings(id, QByteArray(), this);
 
-        connect(screenlock_settings, &QGSettings::changed, [=](QString key) {
+    if (QGSettings::isSchemaInstalled(SCREENSAVER_SCHEMA)) {
+        qScreenSaverSetting = new QGSettings(SCREENSAVER_SCHEMA, QByteArray(), this);
+        connect(qScreenSaverSetting, &QGSettings::changed, [=](QString key) {
             if (key == "lockEnabled") {
-                bool judge = screenlock_settings->get(LOCK_KEY).toBool();
+                bool judge = qScreenSaverSetting->get(LOCK_KEY).toBool();
                 if (judge && !enableSwitchBtn->isChecked()) {
                     enableSwitchBtn->setChecked(judge);
                 }
             }
         });
-    }
-
-    if (QGSettings::isSchemaInstalled(SESSION_SCHEMA)) {
-        qSessionSetting = new QGSettings(SESSION_SCHEMA, QByteArray(), this);
-    }
-
-    if (QGSettings::isSchemaInstalled(SCREENSAVER_SCHEMA)) {
-        qScreenSaverSetting = new QGSettings(SCREENSAVER_SCHEMA, QByteArray(), this);
+        mScreenSaverKeies = qScreenSaverSetting->keys();
     }
 
     screensaver_bin = "/usr/lib/ukui-screensaver/ukui-screensaver-default";
@@ -171,7 +149,7 @@ void Screensaver::initComponent() {
     //初始化屏保程序下拉列表
     ui->comboBox->addItem(tr("Default_ukui"));
     ui->comboBox->addItem(tr("Blank_Only"));
-//    ui->comboBox->addItem(tr("Random"));
+
     QMap<QString, SSThemeInfo>::iterator it = infoMap.begin();
     for (int index = 2; it != infoMap.end(); it++, index++) {
         SSThemeInfo info = (SSThemeInfo)it.value();
@@ -195,9 +173,6 @@ void Screensaver::initComponent() {
     connect(enableSwitchBtn, &SwitchButton::checkedChanged, this, [=](bool checked) {
         screensaver_settings = g_settings_new(SCREENSAVER_SCHEMA);
         g_settings_set_boolean(screensaver_settings, ACTIVE_KEY, checked);
-
-        //刷新LockWidget状态
-//        ui->lockFrame->setVisible(checked);
         g_object_unref(screensaver_settings);
     });
 
@@ -210,15 +185,16 @@ void Screensaver::initComponent() {
 
     connect(uslider, &QSlider::valueChanged, this, [=] {
         int value = convertToLocktime(uslider->value());
-        session_settings = g_settings_new(SESSION_SCHEMA);
-        g_settings_set_int(session_settings, IDLE_DELAY_KEY, value);
-        g_object_unref(session_settings);
+        if (mScreenSaverKeies.contains("idleDelay")) {
+            qScreenSaverSetting->set(IDLE_DELAY_KEY, value);
+        }
     });
+
     connectToServer();
 
-    connect(qSessionSetting, &QGSettings::changed, this,[=](const QString& key) {
+    connect(qScreenSaverSetting, &QGSettings::changed, this,[=](const QString& key) {
        if ("idleDelay" == key) {
-           auto value = qSessionSetting->get(key).toInt();
+           auto value = qScreenSaverSetting->get(key).toInt();
            uslider->setValue(lockConvertToSlider(value));
        }
     });
@@ -273,7 +249,7 @@ void Screensaver::initThemeStatus() {
     if (QGSettings::isSchemaInstalled(id)) {
         screensaver_settings = g_settings_new(SCREENSAVER_SCHEMA);
     } else {
-        qDebug()<<"org.ukui.screensaver not installed"<<endl;
+        qDebug()<<"org.ukui.screensaver not installed";
         return ;
     }
 
@@ -285,9 +261,6 @@ void Screensaver::initThemeStatus() {
     else if (mode == MODE_BLANK_ONLY) {
         ui->comboBox->setCurrentIndex(1); //Black_Only
     }
-//    else if (mode == MODE_RANDOM){
-//        ui->comboBox->setCurrentIndex(2); //Random
-//    }
     else{
         gchar ** strv;
         strv = g_settings_get_strv(screensaver_settings, THEMES_KEY);
@@ -312,15 +285,11 @@ void Screensaver::initThemeStatus() {
 }
 
 void Screensaver::initIdleSliderStatus() {
-    int minutes;
-    session_settings = g_settings_new(SESSION_SCHEMA);
-    minutes = g_settings_get_int(session_settings, IDLE_DELAY_KEY);
+    int minutes = qScreenSaverSetting->get(IDLE_DELAY_KEY).toInt();
 
     uslider->blockSignals(true);
     uslider->setValue(lockConvertToSlider(minutes));
     uslider->blockSignals(false);
-
-    g_object_unref(session_settings);
 }
 
 void Screensaver::component_init() {
@@ -361,13 +330,12 @@ void Screensaver::status_init() {
 
     //获取空闲时间
     int minutes;
-    minutes = g_settings_get_int(session_settings, IDLE_DELAY_KEY);
+    minutes = g_settings_get_int(screensaver_settings, IDLE_DELAY_KEY);
     uslider->setValue(lockConvertToSlider(minutes));
 
     connect(ui->comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(combobox_changed_slot(int)));
 
     connect(mPreviewWidget, SIGNAL(destroyed(QObject*)), this, SLOT(kill_screensaver_preview()));
-
 }
 
 void Screensaver::startupScreensaver() {
@@ -383,9 +351,6 @@ void Screensaver::startupScreensaver() {
     } else if (ui->comboBox->currentIndex() == 1) {//黑屏
         ui->previewWidget->update();
     }
-//    else if (ui->comboBox->currentIndex() == 2){//随机
-//        ui->previewWidget->update();
-//    }
     else {// 屏保
         SSThemeInfo info = ui->comboBox->currentData().value<SSThemeInfo>();
         QStringList args;
@@ -496,14 +461,7 @@ int Screensaver::lockConvertToSlider(const int value) {
 
 
 void Screensaver::set_idle_gsettings_value(int value) {
-    g_settings_set_int(session_settings, IDLE_DELAY_KEY, value);
-}
-
-void Screensaver::slider_released_slot() {
-    int minutes;
-//    minutes = ui->idleSlider->value();
-    minutes = convertToLocktime(uslider->value());
-    set_idle_gsettings_value(minutes);
+    g_settings_set_int(screensaver_settings, IDLE_DELAY_KEY, value);
 }
 
 void Screensaver::lockbtn_changed_slot(bool status) {
@@ -538,7 +496,6 @@ void Screensaver::themesComboxChanged(int index) {
         SSThemeInfo info = variant.value<SSThemeInfo>();
         QByteArray ba = info.id.toLatin1();
         strv = g_strsplit(ba.data(), "%%%", 1);
-        qDebug() << Q_FUNC_INFO << "wxy-----------" <<strv;
         g_settings_set_strv(screensaver_settings, THEMES_KEY, (const gchar * const*)strv);
     }
     g_object_unref(screensaver_settings);
@@ -597,17 +554,6 @@ void Screensaver::combobox_changed_slot(int index) {
 
     //启动屏保
     kill_and_start();
-}
-
-void Screensaver::kill_screensaver_preview() {
-    //需要手动杀死分离启动的屏保预览程序
-//    if (!killList.isEmpty()){
-//        process->start(QString("killall"), killList);
-//        process->waitForStarted();
-//        process->waitForFinished(2000);
-
-//        killList.clear();
-//    }
 }
 
 SSThemeInfo Screensaver::_info_new(const char *path) {

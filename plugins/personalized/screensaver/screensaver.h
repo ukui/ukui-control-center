@@ -74,8 +74,6 @@ public:
     ~PreviewWidget(){
 
     }
-protected:
-    void paintEvent(QPaintEvent *e);
 };
 
 class Screensaver : public QObject, CommonInterface
@@ -136,19 +134,16 @@ private:
     QMap<QString, SSThemeInfo> infoMap;
 
     GSettings  * screensaver_settings;
-    GSettings  * session_settings;
-    QGSettings * screenlock_settings = nullptr;
-    QGSettings * qSessionSetting = nullptr;
     QGSettings * qScreenSaverSetting = nullptr;
-    QGSettings * qBgSetting = nullptr;
 
     QProcess   * process;
 
     QString      pluginName;
     QString      screensaver_bin;
 
-    QStringList  killList;
-    QStringList  runStringList;
+    QStringList killList;
+    QStringList runStringList;
+    QStringList mScreenSaverKeies;
 
     Uslider    * uslider;
 
@@ -165,8 +160,6 @@ private slots:
     void combobox_changed_slot(int index);
     void activebtn_changed_slot(bool status);
     void lockbtn_changed_slot(bool status);
-    void slider_released_slot();
-    void kill_screensaver_preview();
     void keyChangedSlot(const QString &key);
 
 Q_SIGNALS:
