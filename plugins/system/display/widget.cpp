@@ -1354,8 +1354,10 @@ void Widget::save()
     const KScreen::ConfigPtr &config = this->currentConfig();
 
     bool atLeastOneEnabledOutput = false;
+    int enableCount = 0;
     Q_FOREACH (const KScreen::OutputPtr &output, config->outputs()) {
         if (output->isEnabled()) {
+            enableCount++;
             atLeastOneEnabledOutput = true;
         }
         if (!output->isConnected())
@@ -1456,6 +1458,10 @@ void Widget::save()
         });
     } else {
         mPreScreenConfig = mConfig->clone();
+    }
+
+    if (enableCount >= 2 && !mUnifyButton->isChecked()) {
+        setPreScreenCfg(mConfig->connectedOutputs());
     }
 
     setActiveScreen();
@@ -1732,7 +1738,6 @@ void Widget::initConnection()
     connect(mNightButton, SIGNAL(checkedChanged(bool)), this, SLOT(showNightWidget(bool)));
     connect(mThemeButton, SIGNAL(checkedChanged(bool)), this, SLOT(slotThemeChanged(bool)));
     connect(singleButton, SIGNAL(buttonClicked(int)), this, SLOT(showCustomWiget(int)));
-
 
     connect(ui->mainScreenButton, SIGNAL(clicked(bool)), this, SLOT(primaryButtonEnable(bool)));
     mControlPanel = new ControlPanel(this);
