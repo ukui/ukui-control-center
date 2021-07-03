@@ -1440,6 +1440,7 @@ void Widget::save()
         }
         mIsUnifyChanged = false;
         mConfigChanged = false;
+        mainScreenButtonSelect(ui->primaryCombo->currentIndex());
     });
 
     mScreen->updateOutputsPlacement();
