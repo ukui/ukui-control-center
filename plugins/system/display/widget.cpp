@@ -1354,10 +1354,8 @@ void Widget::save()
     const KScreen::ConfigPtr &config = this->currentConfig();
 
     bool atLeastOneEnabledOutput = false;
-    int enableCount = 0;
     Q_FOREACH (const KScreen::OutputPtr &output, config->outputs()) {
         if (output->isEnabled()) {
-            enableCount++;
             atLeastOneEnabledOutput = true;
         }
         if (!output->isConnected())
@@ -1402,24 +1400,7 @@ void Widget::save()
                                  tr("Sorry, your configuration could not be applied.\nCommon reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU."));
         return;
     }
-    /* Store the current config, apply settings */
-    auto *op = new KScreen::SetConfigOperation(config);
 
-    /* Block until the operation is completed, otherwise KCMShell will terminate
-     * before we get to execute the Operation */
-    op->exec();
-
-    // The 1000ms is a bit "random" here, it's what works on the systems I've tested, but ultimately, this is a hack
-    // due to the fact that we just can't be sure when xrandr is done changing things, 1000 doesn't seem to get in the way
-    QTimer::singleShot(1000, this,
-                       [=]() {
-        if (mIsWayland) {
-            QString hash = config->connectedOutputsHash();
-            writeFile(mDir % hash);
-        }
-        mIsUnifyChanged = false;
-        mConfigChanged = false;
-    });
     int enableScreenCount = 0;
     KScreen::OutputPtr enableOutput;
     for (const KScreen::OutputPtr &output : mConfig->outputs()) {
@@ -1442,6 +1423,25 @@ void Widget::save()
         }
     }
 
+    /* Store the current config, apply settings */
+    auto *op = new KScreen::SetConfigOperation(config);
+
+    /* Block until the operation is completed, otherwise KCMShell will terminate
+     * before we get to execute the Operation */
+    op->exec();
+
+    // The 1000ms is a bit "random" here, it's what works on the systems I've tested, but ultimately, this is a hack
+    // due to the fact that we just can't be sure when xrandr is done changing things, 1000 doesn't seem to get in the way
+    QTimer::singleShot(1000, this,
+                       [=]() {
+        if (mIsWayland) {
+            QString hash = config->connectedOutputsHash();
+            writeFile(mDir % hash);
+        }
+        mIsUnifyChanged = false;
+        mConfigChanged = false;
+    });
+
     mScreen->updateOutputsPlacement();
 
     if (isRestoreConfig()) {
@@ -1460,7 +1460,7 @@ void Widget::save()
         mPreScreenConfig = mConfig->clone();
     }
 
-    if (enableCount >= 2 && !mUnifyButton->isChecked()) {
+    if (enableScreenCount >= 2 && !mUnifyButton->isChecked()) {
         setPreScreenCfg(mConfig->connectedOutputs());
     }
 
