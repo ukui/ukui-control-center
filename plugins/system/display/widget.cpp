@@ -1187,7 +1187,9 @@ void Widget::setScreenKDS(QString kdsConfig)
         KScreen::OutputList screensPre = mPrevConfig->connectedOutputs();
 
         KScreen::OutputPtr mainScreen = mPrevConfig->output(getPrimaryScreenID());
-        mainScreen->setPos(QPoint(0, 0));
+        if (!mainScreen.isNull()) {
+            mainScreen->setPos(QPoint(0, 0));
+        }
 
         KScreen::OutputPtr preIt = mainScreen;
         QMap<int, KScreen::OutputPtr>::iterator nowIt = screensPre.begin();
