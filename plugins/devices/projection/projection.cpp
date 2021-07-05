@@ -326,3 +326,5 @@ void Projection::initComponent(){
     addWgt->hide();
 }
 
+
+
