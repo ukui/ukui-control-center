@@ -22,7 +22,7 @@
 
 #include <QProcess>
 #include <QMessageBox>
-
+#include <QIcon>
 #include <QDebug>
 #include <QMouseEvent>
 
@@ -52,25 +52,20 @@ Projection::Projection()
     if (result != 0) {
         projectionBtn->setChecked(true);
     }
-//    ui->pinframe->hide();
-
+//   ui->pinframe->hide();
 
     connect(projectionBtn, SIGNAL(checkedChanged(bool)), this, SLOT(projectionButtonClickSlots(bool)));
-    m_pin = new QLabel(pluginWidget);
+    // m_pin = new QLabel(pluginWidget);
     ui->label->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
     //~ contents_path /bluetooth/Open Bluetooth
     ui->titleLabel->setText(tr("Open Projection"));
     ui->titleLabel->setStyleSheet("QLabel{font-size: 14px; color: palette(windowText);}");
-    //ui->namelabel->setText(tr("Projection Name"));
-    //ui->namelabel->setStyleSheet("QLabel{font-size: 14px; color: palette(windowText);}");
-    ui->pronamelabel->setStyleSheet("QLineEdit{background-color:transparent;"
-                                              "border-width:0;"
-                                              "border-style:outset}");
+    ui->projectionName->setStyleSheet("QLineEdit{background-color:transparent;"
+                                              "border-width:0;");
     m_pServiceInterface = new QDBusInterface("org.freedesktop.miracleagent",
                                              "/org/freedesktop/miracleagent",
                                              "org.freedesktop.miracleagent.op",
                                              QDBusConnection::sessionBus());
-
     QString path=QDir::homePath()+"/.config/miracast.ini";
     QSettings *setting=new QSettings(path,QSettings::IniFormat);
     setting->beginGroup("projection");
@@ -85,20 +80,41 @@ Projection::Projection()
         setting->setValue("host",hostName);
         setting->sync();
         setting->endGroup();
-    } else {
+        initComponent();
+    }else {
         hostName = setting->value("host").toString();
     }
-    ui->pronamelabel->setText(hostName);
-    ui->pronamelabel->setMaxLength(16);
-    ui->pronamelabel->setAlignment(Qt::AlignRight);
-    ui->pronamelabel->installEventFilter(this);
+    ui->projectionName->setText(hostName);
 
+    ui->projectionNameChange->setPixmap(QIcon::fromTheme("document-edit-symbolic").pixmap(ui->projectionNameChange->size()));
 
+    // ui->pronamelabel->setMaxLength(16);
+    // ui->pronamelabel->setAlignment(Qt::AlignRight);
+    ui->projectionNameWidget->installEventFilter(this);
     ui->horizontalLayout->addWidget(projectionBtn);
-    //ui->horizontalLayout_21->addWidget(m_pin);
-
-
     initComponent();
+}
+
+void Projection::changeProjectionName(QString name){
+    qDebug() << name;
+    QString path=QDir::homePath()+"/.config/miracast.ini";
+    QSettings *setting=new QSettings(path,QSettings::IniFormat);
+    setting->beginGroup("projection");
+    setting->setValue("host",name);
+    setting->sync();
+    setting->endGroup();
+    m_pServiceInterface->call("UiSetName",name);
+    ui->projectionName->setText(name);
+}
+
+void Projection::showChangeProjectionNameDialog(){
+
+    ChangeProjectionName * dialog = new ChangeProjectionName();
+
+    connect(dialog, &ChangeProjectionName::sendNewProjectionName, [=](QString name){
+        changeProjectionName(name);
+    });
+    dialog->exec();
 }
 
 bool Projection::getWifiStatus() {
@@ -129,61 +145,15 @@ void Projection::setWifiStatus(bool status) {
 }
 
 bool Projection::eventFilter(QObject *watched, QEvent *event){
-    if (watched == ui->pronamelabel)
-        {
-            if (event->type() == QEvent::KeyPress)
-            {
-                QKeyEvent* keyevt = static_cast<QKeyEvent*>(event);
-                if ((keyevt->key() == Qt::Key_Return) ||
-                    (keyevt->key() == Qt::Key_Escape) ||
-                    (keyevt->key() == Qt::Key_Enter))   // Qt::Key_Return是大键盘的回车键 Qt::Key_Enter是小键盘的回车键
-                {
-                    QString str_name =ui->pronamelabel->text().remove(QRegExp("\\s"));
-                    QString path=QDir::homePath()+"/.config/miracast.ini";
-                    QSettings *setting=new QSettings(path,QSettings::IniFormat);
-                    setting->beginGroup("projection");
 
-                    if (str_name != NULL) {
-                        setting->setValue("host",str_name);
-                        setting->sync();
-                        setting->endGroup();
-                        m_pServiceInterface->call("UiSetName",str_name);
-                        ui->pronamelabel->clearFocus();
-                    } else {
-                        qDebug()<<"回车";
-                        enter = true;
-                        QMessageBox::information(NULL, QStringLiteral("提示"), QStringLiteral("投屏端名不能为空"));
-                        hostName = setting->value("host").toString();                       
-                        ui->pronamelabel->setText(hostName);
-                        ui->pronamelabel->clearFocus();
-                    }
-                }
-            }
-            else if (event->type() == QEvent::FocusOut)
-            {
-                QString str_name =ui->pronamelabel->text().remove(QRegExp("\\s"));
-                QString path=QDir::homePath()+"/.config/miracast.ini";
-                QSettings *setting=new QSettings(path,QSettings::IniFormat);
-                setting->beginGroup("projection");
-                if (str_name != NULL) {
-                    setting->setValue("host",str_name);
-                    setting->sync();
-                    setting->endGroup();
-                    m_pServiceInterface->call("UiSetName",str_name);
-                    ui->pronamelabel->deselect();
-                } else {
-                    qDebug()<<"失去焦点";
-                    if (enter) {
-                        enter = false;
-                    } else {
-                        QMessageBox::information(NULL, QStringLiteral("提示"), QStringLiteral("投屏端名不能为空"));
-                        hostName = setting->value("host").toString();
-                        ui->pronamelabel->setText(hostName);
-                        ui->pronamelabel->deselect();
-                    }
-                }
+    if (watched == ui->projectionNameWidget){
+        if (event->type() == QEvent::MouseButtonPress){
+            QMouseEvent * mouseEvent = static_cast<QMouseEvent *>(event);
+            if (mouseEvent->button() == Qt::LeftButton ){
+                showChangeProjectionNameDialog();
             }
         }
+    }
     return QObject::eventFilter(watched, event);
 }
 
@@ -238,10 +208,10 @@ QWidget *Projection::get_plugin_ui(){
     ui->label_3->hide();
     ui->widget_2->show();
     ui->label_setsize->setText("");
-    //    projectionstatus=1;//
+    // projectionstatus=1;//
     if (NOT_SUPPORT_P2P == projectionstatus) {
         ui->label_2->setText("未检测到无线网卡或网卡驱动不支持，投屏功能不可用");
-       ui->pronamelabel->setEnabled(false);
+        ui->projectionNameWidget->setEnabled(false);
         projectionBtn->setEnabled(false);
     }
 
@@ -266,7 +236,7 @@ QWidget *Projection::get_plugin_ui(){
     else if (OP_NO_RESPONSE == projectionstatus) {
 
         ui->label_2->setText("该功能软件服务异常，请稍后再试");
-       ui->pronamelabel->setEnabled(true);
+        ui->projectionNameWidget->setEnabled(true);
         projectionBtn->setEnabled(true);
     }
 
@@ -293,10 +263,8 @@ void Projection::projectionPinSlots(QString type, QString pin) {
 
 void Projection::projectionButtonClickSlots(bool status) {
 
-    qDebug() << "aaaaaa";
     if (status){        
-         m_pServiceInterface->call("Start",ui->pronamelabel->text(),"");
-       // m_pServiceInterface->call("Start",);
+         m_pServiceInterface->call("Start",ui->projectionName->text(),"");
     } else {
         m_pServiceInterface->call("Stop");
     }
@@ -325,6 +293,3 @@ void Projection::initComponent(){
     addWgt->setLayout(addLyt);
     addWgt->hide();
 }
-
-
-
