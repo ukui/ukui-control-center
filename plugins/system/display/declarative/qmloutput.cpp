@@ -228,7 +228,6 @@ int QMLOutput::currentOutputWidth() const
 
 void QMLOutput::currentModeIdChanged()
 {
-    //qDebug()<<"currentModeIdChanged---->"<<endl;
     if (!m_output) {
         return;
     }
@@ -260,13 +259,11 @@ void QMLOutput::currentModeIdChanged()
 
 int QMLOutput::outputX() const
 {
-    //qDebug()<<"outputX--->"<<m_output->pos().x()<<endl;
     return m_output->pos().x();
 }
 
 void QMLOutput::setOutputX(int x)
 {
-//    qDebug()<<"setOutputX--->"<<x<<endl;
     if (m_output->pos().rx() == x) {
         return;
     }
@@ -279,13 +276,11 @@ void QMLOutput::setOutputX(int x)
 
 int QMLOutput::outputY() const
 {
-    //qDebug()<<"outputY--->"<<m_output->pos().y()<<endl;
     return m_output->pos().y();
 }
 
 void QMLOutput::setOutputY(int y)
 {
-//    qDebug()<<"setOutputY--->"<<y<<endl;
     if (m_output->pos().ry() == y) {
         return;
     }
@@ -313,7 +308,6 @@ void QMLOutput::setIsCloneMode(bool isCloneMode)
 
 void QMLOutput::dockToNeighbours()
 {
-    //qDebug()<<"dockToNeighbours---->"<<endl;
     Q_FOREACH (QMLOutput *otherQmlOutput, m_screen->outputs()) {
         if (otherQmlOutput == this) {
             continue;
@@ -583,14 +577,11 @@ void QMLOutput::moved()
 //旋转时计算坐标更改方向
 void QMLOutput::updateRootProperties()
 {
-    //qDebug()<<"updateRootProperties----->"<<endl;
     const float transformedWidth = (m_output->isHorizontal() ? currentOutputWidth() : currentOutputHeight()) * m_screen->outputScale();
     const float transformedHeight = (m_output->isHorizontal() ? currentOutputHeight() : currentOutputWidth()) * m_screen->outputScale();
 
     const float transformedX = x() + (width() / 2.0) - (transformedWidth / 2.0);
     const float transformedY = y() + (height() / 2.0) - (transformedHeight / 2.0);
-
-    //qDebug()<<"transformedWidth: "<<transformedWidth<<"transformedHeight: "<<transformedHeight<<endl;
 
     setPosition(QPointF(transformedX, transformedY));
     setSize(QSizeF(transformedWidth, transformedHeight));

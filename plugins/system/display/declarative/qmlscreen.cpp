@@ -62,8 +62,8 @@ void QMLScreen::setConfig(const KScreen::ConfigPtr &config)
     m_config = config;
     connect(m_config.data(), &KScreen::Config::outputAdded,
             this, [this](const KScreen::OutputPtr &output) {
-            m_manuallyMovedOutputs.clear();
             addOutput(output);
+            m_manuallyMovedOutputs.clear();
             updateOutputsPlacement();
     });
     connect(m_config.data(), &KScreen::Config::outputRemoved,
@@ -127,7 +127,8 @@ void QMLScreen::addOutput(const KScreen::OutputPtr &output)
     connect(qmloutput, SIGNAL(heightChanged()),
             this, SLOT(setScreenPos()));
 
-    qmloutput->updateRootProperties();
+    // bug#65441
+    // qmloutput->updateRootProperties();
 }
 
 void QMLScreen::removeOutput(int outputId)
