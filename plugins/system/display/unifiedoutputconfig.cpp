@@ -170,7 +170,7 @@ void UnifiedOutputConfig::initUi()
         KScreen::OutputPtr sOutput = sConfig -> primaryOutput();
 
         for (int i = 0; i < mRefreshRate->count(); ++i) {
-            if (!sOutput.isNull() && mRefreshRate->itemText(i) == tr("%1 Hz").arg(QLocale().toString(sOutput->currentMode()->refreshRate()))) {
+            if (!sOutput.isNull() && !sOutput->currentMode().isNull() && mRefreshRate->itemText(i) == tr("%1 Hz").arg(QLocale().toString(sOutput->currentMode()->refreshRate()))) {
                 mRefreshRate->setCurrentIndex(i);
             }
         }
