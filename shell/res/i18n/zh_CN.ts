@@ -2823,7 +2823,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/system/display/display.ui" line="342"/>
         <source>unify output</source>
-        <translation>统一输出</translation>
+        <translation>镜像模式</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/display.ui" line="246"/>
