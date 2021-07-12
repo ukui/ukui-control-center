@@ -8537,7 +8537,7 @@ run start-pulseaudio-x11 manually.</source>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="576"/>
         <source>unify output</source>
-        <translation>统一输出</translation>
+        <translation>镜像模式</translation>
         <extra-contents_path>/display/unify output</extra-contents_path>
     </message>
     <message>
