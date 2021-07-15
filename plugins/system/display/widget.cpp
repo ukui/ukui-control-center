@@ -1359,11 +1359,7 @@ void Widget::save()
 
     const KScreen::ConfigPtr &config = this->currentConfig();
 
-    bool atLeastOneEnabledOutput = false;
     Q_FOREACH (const KScreen::OutputPtr &output, config->outputs()) {
-        if (output->isEnabled()) {
-            atLeastOneEnabledOutput = true;
-        }
         if (!output->isConnected())
             continue;
 
@@ -1383,11 +1379,7 @@ void Widget::save()
         }
     }
 
-    if (!atLeastOneEnabledOutput) {
-        QMessageBox::warning(this, tr("Warning"), tr("please insure at least one output!"));
-        mCloseScreenButton->setChecked(true);
-        return;
-    } else if (((ui->opHourCom->currentIndex() < ui->clHourCom->currentIndex())
+    if (((ui->opHourCom->currentIndex() < ui->clHourCom->currentIndex())
                 || (ui->opHourCom->currentIndex() == ui->clHourCom->currentIndex()
                     && ui->opMinCom->currentIndex() <= ui->clMinCom->currentIndex()))
                && CUSTOM == singleButton->checkedId() && mNightButton->isChecked()) {
@@ -1707,6 +1699,22 @@ void Widget::primaryButtonEnable(bool status)
 
 void Widget::checkOutputScreen(bool judge)
 {
+    const KScreen::ConfigPtr &config = this->currentConfig();
+
+    int enableOutputCount = 0;
+    Q_FOREACH (const KScreen::OutputPtr &output, config->outputs()) {
+        if (output->isEnabled()) {
+            enableOutputCount++;
+        }
+    }
+    if (enableOutputCount < 2 && !judge) {
+        QMessageBox::warning(this, tr("Warning"), tr("please insure at least one output!"));
+        mCloseScreenButton->blockSignals(true);
+        mCloseScreenButton->setChecked(true);
+        mCloseScreenButton->blockSignals(false);
+        return;
+    }
+
     int index = ui->primaryCombo->currentIndex();
     KScreen::OutputPtr newPrimary = mConfig->output(ui->primaryCombo->itemData(index).toInt());
 
