@@ -2504,15 +2504,20 @@ void UkmediaMainWidget::selectComboboxChangedSlot(int index)
             profileName = mate_mixer_switch_option_get_name(option);
             if (!strstr(profileName,"off")) {
                 m_pProfileNameList->append(profileName);
+                m_pOutputWidget->m_pProfileCombobox->blockSignals(true);
                 m_pOutputWidget->m_pProfileCombobox->addItem(profileLabel);
+                m_pOutputWidget->m_pProfileCombobox->blockSignals(false);
             }
             /* Select the currently active option of the switch */
             options = options->next;
         }
         switches = switches->next;
     }
-    if (setProfileLabel != nullptr)
+    if (setProfileLabel != nullptr) {
+        m_pOutputWidget->m_pProfileCombobox->blockSignals(true);
         m_pOutputWidget->m_pProfileCombobox->setCurrentText(setProfileLabel);
+        m_pOutputWidget->m_pProfileCombobox->blockSignals(false);
+    }
 }
 
 /*
@@ -3700,7 +3705,9 @@ void UkmediaMainWidget::updateProfileOption()
             qDebug() <<"添加流的配置文件 ============ :" <<profileLabel;
             if (!strstr(profileName,"off")) {
                 m_pProfileNameList->append(profileName);
+                m_pOutputWidget->m_pProfileCombobox->blockSignals(true);
                 m_pOutputWidget->m_pProfileCombobox->addItem(profileLabel);
+                m_pOutputWidget->m_pProfileCombobox->blockSignals(false);
             }
             /* Select the currently active option of the switch */
             options = options->next;
@@ -3729,7 +3736,9 @@ void UkmediaMainWidget::updateDeviceInfo (UkmediaMainWidget *w, MateMixerDevice 
             profileLabel = mate_mixer_switch_option_get_label (active);
 
         qDebug() << "update device info ,设置combobox profile:" << profileLabel;
+        w->m_pOutputWidget->m_pProfileCombobox->blockSignals(true);
         w->m_pOutputWidget->m_pProfileCombobox->setCurrentText(profileLabel);
+        w->m_pOutputWidget->m_pProfileCombobox->blockSignals(false);
     }
 
     status = deviceStatus (device);
