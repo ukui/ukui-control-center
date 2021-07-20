@@ -238,7 +238,7 @@ QWidget *Projection::get_plugin_ui(){
 
     //First, we check whether service process is running
     if (NO_SERVICE == projectionstatus) {
-        ui->label_2->setText("服务异常，可能由于软件包未正确安装");
+        ui->label_2->setText("服务异常，请重启系统");
         ui->projectionNameWidget->setEnabled(false);
         projectionBtn->setEnabled(false);
     }
@@ -254,7 +254,7 @@ QWidget *Projection::get_plugin_ui(){
         {
             qDebug()<<"wifi is on now";
             if(SUPPORT_P2P_WITHOUT_DEV == projectionstatus)
-                ui->label_3->setText("使用时请保持WLAN处于开启状态；开启投屏会断开无线网络的接入");
+                ui->label_3->setText("使用时请保持WLAN处于开启状态；开启投屏后，无线网络相关功能会失效");
             if(SUPPORT_P2P_PERFECT == projectionstatus)
                 ui->label_3->setText("使用时请保持WLAN处于开启状态；开启投屏会短暂中断无线连接");
             ui->widget->show();
@@ -302,7 +302,12 @@ void Projection::projectionPinSlots(QString type, QString pin) {
 void Projection::projectionButtonClickSlots(bool status) {
 
     if (status){        
-         m_pServiceInterface->call("Start",ui->projectionName->text(),"");
+        QDBusMessage result = m_pServiceInterface->call("Start",ui->projectionName->text(),"");
+        QList<QVariant> outArgs = result.arguments();
+        int res = outArgs.at(0).value<int>();
+        qDebug() << "Execute Start method call result -->" << res;
+        if(res)
+           ui->label_3->setText("执行失败，请再次打开该页面查看");
     } else {
         m_pServiceInterface->call("Stop");
     }
