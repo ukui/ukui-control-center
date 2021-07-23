@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2019-06-29T13:45:31
+# Project created by QtCreator 2021-07-20T13:54:31
 #
 #-------------------------------------------------
 
@@ -13,7 +13,7 @@ QT       += widgets network dbus gui core
 TEMPLATE = lib
 CONFIG += plugin
 
-TARGET = $$qtLibraryTarget(netconnect)
+TARGET = $$qtLibraryTarget(wlanconnect)
 DESTDIR = ../..
 target.path = $${PLUGIN_INSTALL_DIRS}
 
@@ -31,12 +31,17 @@ PKGCONFIG += gsettings-qt \
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
-    netconnect.cpp
+    wlanconnect.cpp
 
 HEADERS += \
-    netconnect.h
+    wlanconnect.h
 
 FORMS += \
-    netconnect.ui
+    wlanconnect.ui
 
-INSTALLS += target
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+DISTFILES +=

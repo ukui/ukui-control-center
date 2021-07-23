@@ -114,8 +114,10 @@ void MainWindow::bootOptionsFilter(QString opt) {
         bootOptionsSwitch(DEVICES, KEYBOARD);
     } else if (opt == "--shortcut") {
         bootOptionsSwitch(DEVICES, SHORTCUT);
-    } else if (opt == "--netconnect") {
-        bootOptionsSwitch(NETWORK, NETCONNECT);
+    } else if (opt == "--wiredconnect") {
+        bootOptionsSwitch(NETWORK, WIREDCONNECT);
+    } else if (opt == "--wlanconnect") {
+        bootOptionsSwitch(NETWORK, WLANCONNECT);
     } else if (opt == "--vpn" || opt == "-g") {
         bootOptionsSwitch(NETWORK, VPN);
     } else if (opt == "--proxy") {

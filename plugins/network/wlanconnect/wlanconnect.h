@@ -17,9 +17,9 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef NETCONNECT_H
-#define NETCONNECT_H
 
+#ifndef WLANCONNECT_H
+#define WLANCONNECT_H
 
 #include <QObject>
 #include <QtPlugin>
@@ -46,86 +46,79 @@
 #include "SwitchButton/switchbutton.h"
 #include "commonComponent/HoverBtn/hoverbtn.h"
 
-enum {
-    DISCONNECTED,
-    NOINTERNET,
-    CONNECTED
-};
-
-namespace Ui {
-class NetConnect;
-}
-
 typedef struct ActiveConInfo_s {
     QString strConName;
     QString strConUUID;
     QString strConType;
 }ActiveConInfo;
 
-class NetConnect : public QObject, CommonInterface
+namespace Ui {
+class WlanConnect;
+}
+
+class WlanConnect : public QObject, CommonInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.kycc.CommonInterface")
     Q_INTERFACES(CommonInterface)
 
 public:
-    NetConnect();
-    ~NetConnect();
+    WlanConnect();
+    ~WlanConnect();
 
     QString get_plugin_name() Q_DECL_OVERRIDE;
     int get_plugin_type() Q_DECL_OVERRIDE;
     QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
     void plugin_delay_control() Q_DECL_OVERRIDE;
     const QString name() const  Q_DECL_OVERRIDE;
-
 public:
-    void initSearchText();
-    void initComponent();
-    void rebuildNetStatusComponent(QString iconPath, QMap<QString, bool> netNameMap);
-    void rebuildAvailComponent(QString iconpath, QString netName, QString type);
-
-    void runExternalApp();
-    void runKylinmApp(QString netName, QString type);
-
     bool getwifiisEnable();
-
-    void getActiveConInfo(QList<ActiveConInfo>& qlActiveConInfo);
-
+    void initComponent();
+    void runExternalApp();
+    void initSearchText();
+    void rebuildAvailComponent(QString iconpath, QString netName, QString type);
+    void rebuildWifiActComponent(QString iconPath, QStringList netNameList);
+    void runKylinmApp(QString netName, QString type);
 private:
-    Ui::NetConnect     *ui;
+    bool getInitStatus();
+    void clearContent();
+
+    bool getWifiStatus();
+    bool getHasWirelessCard();
+
+    int                setSignal(QString lv);
+    QString            wifiIcon(bool isLock, int strength);
+    void               getWifiListDone(QVector<QStringList> wifislist);
+    void               getActiveConInfo(QList<ActiveConInfo>& qlActiveConInfo);
+private:
+    Ui::WlanConnect *ui;
 
     QString            pluginName;
     int                pluginType;
     QWidget            *pluginWidget;
 
+    QStringList        TwifiList;
+    QStringList        lanList;
+    QStringList        wifilist;
 
     QDBusInterface     *m_interface = nullptr;
     QDBusInterface     *kdsDbus = nullptr;
-    SwitchButton       *wiredSwitch;
+    QList<ActiveConInfo> mActiveInfo;
 
-    QMap<QString, bool> actLanNames;
+    QMap<QString, int> connectedWifi;
+    QMap<QString,int>  wifiList;
 
-    QMap<QString, bool> noneAct;
+    QStringList        actWifiNames;
 
-    QStringList        TlanList;
-    QStringList        lanList;
-
+    QString            connectWifi;
+    QTimer             *refreshTimer;
+private:
+    SwitchButton       *wifiBtn;
     bool               mFirstLoad;
 
-    QList<ActiveConInfo> mActiveInfo;
-private:
-    QStringList execGetLanList();
-    void         getWifiListDone(QStringList lanList);
-
-    bool        getInitStatus();
-    void        clearContent();
 private slots:
+    void refreshNetInfoTimerSlot();
     void wifiSwitchSlot(bool status);
     void getNetList();
-    void netPropertiesChangeSlot(QMap<QString, QVariant> property);
-    void refreshNetInfoSlot();
 };
-
-Q_DECLARE_METATYPE(QList<QDBusObjectPath>);
-
-#endif // NETCONNECT_H
+#endif // WLANCONNECT_H

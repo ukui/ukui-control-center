@@ -64,8 +64,6 @@
         <file>secondaryleftmenu/KeyboardWhite.svg</file>
         <file>secondaryleftmenu/Mouse.svg</file>
         <file>secondaryleftmenu/MouseWhite.svg</file>
-        <file>secondaryleftmenu/Netconnect.svg</file>
-        <file>secondaryleftmenu/NetconnectWhite.svg</file>
         <file>secondaryleftmenu/Notice.svg</file>
         <file>secondaryleftmenu/NoticeWhite.svg</file>
         <file>secondaryleftmenu/Power.svg</file>
@@ -202,6 +200,10 @@
         <file>homepage/security.svg</file>
         <file>homepage/application.svg</file>
         <file>homepage/search_f.svg</file>
+        <file>secondaryleftmenu/WiredConnectWhite.svg</file>
+        <file>secondaryleftmenu/WiredConnect.svg</file>
+        <file>secondaryleftmenu/Wlanconnect.svg</file>
+        <file>secondaryleftmenu/Wlanconnect White.svg</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>

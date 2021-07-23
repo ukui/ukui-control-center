@@ -4371,7 +4371,7 @@ Please retry or relogin!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="395"/>
+        <location filename="../../mainwindow.cpp" line="397"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -4380,44 +4380,44 @@ Please retry or relogin!</source>
         <translation type="vanished">设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="415"/>
-        <location filename="../../mainwindow.cpp" line="644"/>
-        <location filename="../../mainwindow.cpp" line="855"/>
+        <location filename="../../mainwindow.cpp" line="417"/>
+        <location filename="../../mainwindow.cpp" line="646"/>
+        <location filename="../../mainwindow.cpp" line="857"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="424"/>
+        <location filename="../../mainwindow.cpp" line="426"/>
         <source>Main menu</source>
         <translation>主菜单</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="425"/>
+        <location filename="../../mainwindow.cpp" line="427"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="426"/>
+        <location filename="../../mainwindow.cpp" line="428"/>
         <source>Maximize/Normal</source>
         <translation>最大化/正常</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="427"/>
+        <location filename="../../mainwindow.cpp" line="429"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="491"/>
+        <location filename="../../mainwindow.cpp" line="493"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="493"/>
+        <location filename="../../mainwindow.cpp" line="495"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="495"/>
+        <location filename="../../mainwindow.cpp" line="497"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
@@ -4426,12 +4426,12 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="976"/>
+        <location filename="../../mainwindow.cpp" line="978"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="976"/>
+        <location filename="../../mainwindow.cpp" line="978"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
@@ -4620,10 +4620,8 @@ Please retry or relogin!</source>
 <context>
     <name>NetConnect</name>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="38"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="107"/>
         <source>Netconnect Status</source>
-        <translation>网络状态</translation>
+        <translation type="vanished">网络状态</translation>
         <extra-contents_path>/netconnect/Netconnect Status</extra-contents_path>
     </message>
     <message>
@@ -4631,26 +4629,40 @@ Please retry or relogin!</source>
         <translation type="vanished">加载中...</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="106"/>
         <source>Available Network</source>
-        <translation>可用网络</translation>
+        <translation type="vanished">可用网络</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="129"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="966"/>
         <source>Refresh</source>
-        <translation>刷新</translation>
+        <translation type="vanished">刷新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="179"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="109"/>
         <source>open wifi</source>
-        <translation>打开WLAN</translation>
+        <translation type="vanished">打开WLAN</translation>
         <extra-contents_path>/netconnect/open wifi</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="227"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="105"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="38"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="106"/>
+        <source>Wired Network</source>
+        <translation>有线网络</translation>
+        <extra-contents_path>/netconnect/Netconnect Status</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="106"/>
+        <source>Other Networks</source>
+        <translation>其他网络</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="172"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="108"/>
+        <source>open</source>
+        <translation>打开</translation>
+        <extra-contents_path>/netconnect/open wifi</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="220"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="104"/>
         <source>Network settings</source>
         <translation>网络设置</translation>
     </message>
@@ -4671,32 +4683,32 @@ Please retry or relogin!</source>
         <translation type="vanished">连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="247"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="301"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="53"/>
+        <source>WiredConnect</source>
+        <translation>有线网络</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="181"/>
         <source>Connected</source>
         <translation>已连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="784"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="345"/>
         <source>No net</source>
         <translation>无连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="257"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="310"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="190"/>
         <source>Detail</source>
         <translation>网络详情</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="659"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="676"/>
         <source>None</source>
-        <translation>无</translation>
+        <translation type="vanished">无</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="954"/>
         <source>Refreshing...</source>
-        <translation>刷新中...</translation>
+        <translation type="vanished">刷新中...</translation>
     </message>
     <message>
         <source>connected</source>
@@ -4707,8 +4719,7 @@ Please retry or relogin!</source>
         <translation type="vanished">无网络连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="53"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="525"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="226"/>
         <source>Connect</source>
         <translation>网络连接</translation>
     </message>
@@ -4720,83 +4731,68 @@ Please retry or relogin!</source>
 <context>
     <name>NetDetail</name>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="93"/>
         <source>SSID:</source>
-        <translation>SSID：</translation>
+        <translation type="vanished">SSID：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="94"/>
         <source>Protocol</source>
-        <translation>协议：</translation>
+        <translation type="vanished">协议：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="96"/>
         <source>Security Type:</source>
-        <translation>安全类型：</translation>
+        <translation type="vanished">安全类型：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="97"/>
         <source>Hz:</source>
-        <translation>网络频带：</translation>
+        <translation type="vanished">网络频带：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="98"/>
         <source>Chan:</source>
-        <translation>网络通道：</translation>
+        <translation type="vanished">网络通道：</translation>
     </message>
     <message>
         <source>Link Speed(rx/tx)</source>
         <translation type="vanished">链接速度(接收/传输):</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="99"/>
         <source>Link Speed(rx/tx):</source>
-        <translation>链接速度(接收/传输):</translation>
+        <translation type="vanished">链接速度(接收/传输):</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="102"/>
         <source>BandWidth:</source>
-        <translation>带宽：</translation>
+        <translation type="vanished">带宽：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="103"/>
         <source>IPV4:</source>
-        <translation>IPV4：</translation>
+        <translation type="vanished">IPV4：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="104"/>
         <source>IPV4 Dns:</source>
-        <translation>IPV4 Dns:</translation>
+        <translation type="vanished">IPV4 Dns:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="105"/>
         <source>IPV4 GateWay:</source>
-        <translation>网关：</translation>
+        <translation type="vanished">网关：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="106"/>
         <source>IPV4 Prefix:</source>
-        <translation>前缀：</translation>
+        <translation type="vanished">前缀：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="107"/>
         <source>IPV6:</source>
-        <translation>IPV6:</translation>
+        <translation type="vanished">IPV6:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="108"/>
         <source>IPV6 Prefix:</source>
-        <translation>前缀：</translation>
+        <translation type="vanished">前缀：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="109"/>
         <source>IPV6 GateWay:</source>
-        <translation>网关：</translation>
+        <translation type="vanished">网关：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="110"/>
         <source>Mac:</source>
-        <translation>物理地址：</translation>
+        <translation type="vanished">物理地址：</translation>
     </message>
 </context>
 <context>
@@ -5561,7 +5557,7 @@ Please retry or relogin!</source>
         <translation type="vanished">字体</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="138"/>
+        <location filename="../../utils/functionselect.cpp" line="140"/>
         <source>Screensaver</source>
         <translation>屏保</translation>
     </message>
@@ -5725,12 +5721,12 @@ Please retry or relogin!</source>
         <translation>触摸屏</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="226"/>
+        <location filename="../../utils/functionselect.cpp" line="228"/>
         <source>Default App</source>
         <translation>默认应用</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="228"/>
+        <location filename="../../utils/functionselect.cpp" line="230"/>
         <source>Auto Boot</source>
         <translation>开机启动</translation>
     </message>
@@ -5775,34 +5771,43 @@ Please retry or relogin!</source>
         <translation>蓝牙</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="133"/>
+        <location filename="../../utils/functionselect.cpp" line="135"/>
         <source>Background</source>
         <translation>背景</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="131"/>
+        <location filename="../../utils/functionselect.cpp" line="133"/>
         <source>Theme</source>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="135"/>
+        <location filename="../../utils/functionselect.cpp" line="112"/>
+        <source>WiredConnect</source>
+        <translation>有线网络</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="114"/>
+        <source>WlanConnect</source>
+        <translation>无线局域网</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="137"/>
         <source>Screenlock</source>
         <translation>锁屏</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="140"/>
+        <location filename="../../utils/functionselect.cpp" line="142"/>
         <source>Fonts</source>
         <translation>字体</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="142"/>
+        <location filename="../../utils/functionselect.cpp" line="144"/>
         <source>Desktop</source>
         <translation>桌面</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="112"/>
         <source>Connect</source>
-        <translation>网络连接</translation>
+        <translation type="vanished">网络连接</translation>
     </message>
     <message>
         <location filename="../../utils/functionselect.cpp" line="58"/>
@@ -5810,12 +5815,12 @@ Please retry or relogin!</source>
         <translation>桌面共享</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="158"/>
+        <location filename="../../utils/functionselect.cpp" line="160"/>
         <source>User Info</source>
         <translation>账户信息</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="175"/>
+        <location filename="../../utils/functionselect.cpp" line="177"/>
         <source>Date</source>
         <translation>时间日期</translation>
     </message>
@@ -5824,7 +5829,7 @@ Please retry or relogin!</source>
         <translation type="vanished">时间日期</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="211"/>
+        <location filename="../../utils/functionselect.cpp" line="213"/>
         <source>Security Center</source>
         <translation>安全中心</translation>
     </message>
@@ -5833,12 +5838,12 @@ Please retry or relogin!</source>
         <translation type="vanished">网络连接</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="114"/>
+        <location filename="../../utils/functionselect.cpp" line="116"/>
         <source>Vpn</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="116"/>
+        <location filename="../../utils/functionselect.cpp" line="118"/>
         <source>Proxy</source>
         <translation>代理</translation>
     </message>
@@ -5847,7 +5852,7 @@ Please retry or relogin!</source>
         <translation type="vanished">账户信息</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="160"/>
+        <location filename="../../utils/functionselect.cpp" line="162"/>
         <source>Cloud Account</source>
         <translation>云账户</translation>
     </message>
@@ -5856,7 +5861,7 @@ Please retry or relogin!</source>
         <translation type="vanished">时间日期</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="177"/>
+        <location filename="../../utils/functionselect.cpp" line="179"/>
         <source>Area</source>
         <translation>区域语言</translation>
     </message>
@@ -5865,17 +5870,17 @@ Please retry or relogin!</source>
         <translation type="vanished">安全中心</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="194"/>
+        <location filename="../../utils/functionselect.cpp" line="196"/>
         <source>Update</source>
         <translation>安全与更新</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="192"/>
+        <location filename="../../utils/functionselect.cpp" line="194"/>
         <source>Backup</source>
         <translation>备份</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="196"/>
+        <location filename="../../utils/functionselect.cpp" line="198"/>
         <source>Upgrade</source>
         <translation>更新</translation>
     </message>
@@ -5885,7 +5890,7 @@ Please retry or relogin!</source>
         <translation>通知</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="243"/>
+        <location filename="../../utils/functionselect.cpp" line="245"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -8959,6 +8964,50 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <location filename="../../../plugins/system/touchscreen/widget.cpp" line="457"/>
         <source>%1</source>
         <translation>%1</translation>
+    </message>
+</context>
+<context>
+    <name>WlanConnect</name>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.ui" line="14"/>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="47"/>
+        <source>WlanConnect</source>
+        <translation>无线局域网</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.ui" line="26"/>
+        <source>WLAN</source>
+        <translation>无线局域网</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.ui" line="82"/>
+        <source>open</source>
+        <translation>打开</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.ui" line="160"/>
+        <source>Other Networks</source>
+        <translation>其他网络</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.ui" line="214"/>
+        <source>Network settings</source>
+        <translation>网络设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="371"/>
+        <source>Connected</source>
+        <translation>已连接</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="381"/>
+        <source>Detail</source>
+        <translation>网络详情</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="399"/>
+        <source>Connect</source>
+        <translation>网络连接</translation>
     </message>
 </context>
 <context>

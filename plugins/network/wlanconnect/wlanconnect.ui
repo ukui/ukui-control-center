@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>NetConnect</class>
- <widget class="QWidget" name="NetConnect">
+ <class>WlanConnect</class>
+ <widget class="QWidget" name="WlanConnect">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,22 +10,10 @@
     <height>710</height>
    </rect>
   </property>
-  <property name="minimumSize">
-   <size>
-    <width>0</width>
-    <height>0</height>
-   </size>
-  </property>
-  <property name="maximumSize">
-   <size>
-    <width>16777215</width>
-    <height>16777215</height>
-   </size>
-  </property>
   <property name="windowTitle">
-   <string notr="true">NetConnect</string>
+   <string>WlanConnect</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2">
+  <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0,0,0,0,0,0">
    <item>
     <widget class="TitleLabel" name="titleLabel">
      <property name="sizePolicy">
@@ -35,7 +23,7 @@
       </sizepolicy>
      </property>
      <property name="text">
-      <string>Wired Network</string>
+      <string>WLAN</string>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -43,10 +31,76 @@
     </widget>
    </item>
    <item>
-    <layout class="QVBoxLayout" name="detailLayOut">
+    <layout class="QVBoxLayout" name="detailLayOut_3">
      <property name="spacing">
       <number>1</number>
      </property>
+     <property name="rightMargin">
+      <number>32</number>
+     </property>
+     <item>
+      <widget class="QFrame" name="openWifiFrame">
+       <property name="minimumSize">
+        <size>
+         <width>550</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>960</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_9">
+        <property name="leftMargin">
+         <number>18</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>9</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <layout class="QHBoxLayout" name="openWIifLayout_3">
+          <item>
+           <widget class="QLabel" name="openLabel_3">
+            <property name="minimumSize">
+             <size>
+              <width>118</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>open</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_7">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>523</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
     </layout>
    </item>
    <item>
@@ -79,7 +133,7 @@
        <height>50</height>
       </size>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <layout class="QHBoxLayout" name="horizontalLayout_11">
       <property name="leftMargin">
        <number>0</number>
       </property>
@@ -93,9 +147,9 @@
        <number>0</number>
       </property>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <layout class="QHBoxLayout" name="horizontalLayout_12">
         <item>
-         <widget class="TitleLabel" name="title2Label">
+         <widget class="TitleLabel" name="title2Label_3">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -111,7 +165,7 @@
          </widget>
         </item>
         <item>
-         <spacer name="horizontalSpacer_3">
+         <spacer name="horizontalSpacer_9">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -129,79 +183,19 @@
     </widget>
    </item>
    <item>
-    <widget class="QFrame" name="openWifiFrame">
-     <property name="minimumSize">
-      <size>
-       <width>550</width>
-       <height>50</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>960</width>
-       <height>50</height>
-      </size>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::Box</enum>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_5">
-      <property name="leftMargin">
-       <number>18</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="rightMargin">
-       <number>9</number>
-      </property>
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
-      <item>
-       <layout class="QHBoxLayout" name="openWIifLayout">
-        <item>
-         <widget class="QLabel" name="openLabel">
-          <property name="minimumSize">
-           <size>
-            <width>118</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>open</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>523</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <layout class="QVBoxLayout" name="verticalLayout">
+    <layout class="QVBoxLayout" name="verticalLayout_4">
      <item>
-      <layout class="QVBoxLayout" name="availableLayout">
+      <layout class="QVBoxLayout" name="availableLayout_3">
        <property name="spacing">
         <number>1</number>
        </property>
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout">
+      <layout class="QHBoxLayout" name="horizontalLayout_10">
+       <property name="spacing">
+        <number>8</number>
+       </property>
        <item>
         <widget class="QPushButton" name="detailBtn">
          <property name="minimumSize">
@@ -222,7 +216,7 @@
         </widget>
        </item>
        <item>
-        <spacer name="horizontalSpacer">
+        <spacer name="horizontalSpacer_8">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
@@ -246,14 +240,13 @@
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>40</height>
+       <height>331</height>
       </size>
      </property>
     </spacer>
    </item>
   </layout>
  </widget>
- <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
    <class>TitleLabel</class>

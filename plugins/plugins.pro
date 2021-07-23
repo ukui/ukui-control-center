@@ -23,6 +23,7 @@ SUBDIRS = \
           personalized/screensaver \
           personalized/desktop \
           network/netconnect \
+          network/wlanconnect \
           network/vpn \
           network/proxy \
           account/userinfo \

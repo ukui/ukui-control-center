@@ -31,7 +31,7 @@ void HoverBtn::initUI() {
     mInfoItem->setGeometry(0, 0, this->width(), this->height());
 
     mHLayout = new QHBoxLayout(mInfoItem);
-    mHLayout->setSpacing(8);
+    mHLayout->setSpacing(16);
 
     mPitIcon  = new QLabel(mInfoItem);
     mHLayout->addWidget(mPitIcon);

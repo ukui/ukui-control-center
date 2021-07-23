@@ -65,7 +65,8 @@ enum DevicesIndex{
 };
 
 enum NetworkIndex{
-    NETCONNECT,
+    WIREDCONNECT,
+    WLANCONNECT,
     VPN,
     PROXY,
     TOTALNETFUNC,

@@ -108,8 +108,10 @@ void FunctionSelect::initValueNetwork() {
         funcStruct.mainShow = true;
         networkList.append(funcStruct);
     }
-    networkList[NETCONNECT].nameString = QString("Netconnect");
-    networkList[NETCONNECT].namei18nString = QObject::tr("Connect");
+    networkList[WIREDCONNECT].nameString = QString("WiredConnect");
+    networkList[WIREDCONNECT].namei18nString = QObject::tr("WiredConnect");
+    networkList[WLANCONNECT].nameString = QString("Wlanconnect");
+    networkList[WLANCONNECT].namei18nString = QObject::tr("WlanConnect");
     networkList[VPN].nameString = QString("Vpn");
     networkList[VPN].namei18nString = QObject::tr("Vpn");
     networkList[PROXY].nameString = QString("Proxy");
