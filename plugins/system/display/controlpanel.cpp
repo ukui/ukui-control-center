@@ -59,6 +59,32 @@ void ControlPanel::setConfig(const KScreen::ConfigPtr &config)
     for (const KScreen::OutputPtr &output : mConfig->outputs()) {
         addOutput(output);
     }
+
+    //监听每个显示屏是否关闭的信号
+    for (const KScreen::OutputPtr &output : mConfig->outputs()) {
+        connect(output.data(),&KScreen::Output::isEnabledChanged,[=](){
+           mScaleSize = QSize();
+           int count = 0;
+           for (const KScreen::OutputPtr &moutput : mConfig->outputs()) {
+               if(moutput->isEnabled()) {
+                   count++;
+                   changescalemax(output);
+               }
+           }
+           //根据可用显示屏数量，刷新缩放选项
+           if (count == 1) {
+               //将mScalesize置为0，用来作为初始化缩放项的判断条件
+               mScaleSize = QSize(0,0);
+           }
+           for (OutputConfig *outputCfg : mOutputConfigs) {
+               outputCfg->slotScaleIndex(mScaleSize);
+           }
+           //初始化之后，恢复
+           if (mScaleSize == QSize(0,0)) {
+               mScaleSize = QSize();
+           }
+        });
+    }
 }
 
 void ControlPanel::addOutput(const KScreen::OutputPtr &output)

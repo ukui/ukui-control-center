@@ -64,8 +64,12 @@ void OutputConfig::initUi()
     connect(mOutput.data(), &KScreen::Output::currentModeIdChanged,
             this, [=]() {
         mRefreshRate->blockSignals(true);
-        if (mOutput->currentMode())
+        mScaleCombox->blockSignals(true);
+        if (mOutput->currentMode()) {
             slotResolutionChanged(mOutput->currentMode()->size(), false);
+            slotScaleIndex(mOutput->currentMode()->size());
+        }
+        mScaleCombox->blockSignals(false);
         mRefreshRate->blockSignals(false);
     });
 
@@ -103,9 +107,6 @@ void OutputConfig::initUi()
             this, [=](QSize size){
                 slotResolutionChanged(size, true);
             });
-
-    connect(mResolution, &ResolutionSlider::resolutionChanged,
-            this, &OutputConfig::slotScaleIndex);
 
     // 方向下拉框
     mRotation = new QComboBox(this);
@@ -351,10 +352,13 @@ void OutputConfig::slotScaleIndex(const QSize &size)
 {
     QSize scalesize;
 
-    if (mScaleSize != QSize()) {
-        scalesize = size.width() > mScaleSize.width() ? mScaleSize : size;
-    } else {
+    if (mScaleSize == QSize(0,0)) {
+        //当只有一个显示屏可用时，初始化当前分辨率下的缩放项
+        scalesize = mResolution->currentResolution();
+    } else if (mScaleSize == QSize()){
         scalesize = size;
+    } else {
+        scalesize = size.width() > mScaleSize.width() ? mScaleSize : size;
     }
 
     if (!scalesize.isValid()) {
@@ -365,21 +369,26 @@ void OutputConfig::slotScaleIndex(const QSize &size)
     mScaleCombox->clear();
     mScaleCombox->addItem("100%", 1.0);
 
-    if (scalesize.width() >= 1024 ) {
+    if (scalesize.width() > 1024 ) {
         mScaleCombox->addItem("125%", 1.25);
     }
-    if (scalesize.width() >= 1920 ) {
+    if (scalesize.width() == 1920 ) {
         mScaleCombox->addItem("150%", 1.5);
     }
-    if (scalesize.width() >= 2560) {
+    if (scalesize.width() > 1920) {
+        mScaleCombox->addItem("150%", 1.5);
         mScaleCombox->addItem("175%", 1.75);
+    }
+    if (scalesize.width() > 2160) {
         mScaleCombox->addItem("200%", 2.0);
     }
-    if (scalesize.width() >= 3072) {
+    if (scalesize.width() > 2560) {
         mScaleCombox->addItem("225%", 2.25);
+    }
+    if (scalesize.width() > 3072) {
         mScaleCombox->addItem("250%", 2.5);
     }
-    if (scalesize.width() >= 3840) {
+    if (scalesize.width() > 3840) {
         mScaleCombox->addItem("275%", 2.75);
     }
 

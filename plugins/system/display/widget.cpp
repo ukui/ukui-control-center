@@ -515,11 +515,8 @@ void Widget::writeScale(double scale)
         mIsScaleChanged = true;
     }
 
-    if (mIsScaleChanged) {
-        QMessageBox::information(this, tr("Information"),
-                                 tr("Some applications need to be logouted to take effect"));
-    } else {
-        return;
+    if (!mIsScaleChanged) {
+       return;
     }
 
     mIsScaleChanged = false;
