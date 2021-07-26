@@ -1095,6 +1095,7 @@ void Widget::applyNightModeSlot()
                              tr("Open time should be earlier than close time!"));
         return;
     }
+
     setNightMode(mNightButton->isChecked());
 }
 
@@ -1740,9 +1741,9 @@ void Widget::setNightMode(const bool nightMode)
     } else {
         mNightConfig["Active"] = true;
         if (ui->sunradioBtn->isChecked()) {
-            mNightConfig["EveningBeginFixed"] = "17:55:00";
-            mNightConfig["MorningBeginFixed"] = "05:55:04";
-            mNightConfig["Mode"] = 0;
+            mNightConfig["EveningBeginFixed"] = "17:55:01";
+            mNightConfig["MorningBeginFixed"] = "05:55:00";
+            mNightConfig["Mode"] = 2;
         } else if (ui->customradioBtn->isChecked()) {
             mNightConfig["EveningBeginFixed"] = ui->opHourCom->currentText() + ":"
                                                 + ui->opMinCom->currentText() + ":00";
@@ -1855,7 +1856,7 @@ void Widget::initNightStatus()
 
     this->mIsNightMode = mNightConfig["Active"].toBool();
     ui->temptSlider->setValue(mNightConfig["CurrentColorTemperature"].toInt());
-    if (mNightConfig["Mode"].toInt() != 2) {
+    if (mNightConfig["EveningBeginFixed"].toString() == "17:55:01") {
         ui->sunradioBtn->setChecked(true);
     } else {
         ui->customradioBtn->setChecked(true);
