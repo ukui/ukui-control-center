@@ -1453,7 +1453,7 @@ void Widget::save()
     mScreen->updateOutputsPlacement();
 
     if (isRestoreConfig()) {
-        if (mIsWayland && -1 != mScreenId) {
+        if (mIsWayland && -1 != mScreenId && !mPreScreenConfig->output(mScreenId).isNull()) {
             mPreScreenConfig->output(mScreenId)->setPrimary(true);
             callMethod(mPreScreenConfig->output(mScreenId)->geometry(), mPreScreenConfig->output(mScreenId)->name());
         }
