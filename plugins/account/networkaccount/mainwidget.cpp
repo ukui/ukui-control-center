@@ -1030,6 +1030,7 @@ void MainWidget::handle_conf() {
 }
 
 void MainWidget::ctrlAutoSync(int status) {
+    QString faileTips = tr("Please check your connetion!");
     if (status == NETWORK_FAILURE) {
         m_bIsFailed = false;
         m_autoSyn->set_active(false);
@@ -1037,6 +1038,7 @@ void MainWidget::ctrlAutoSync(int status) {
         for (int i  = 0;i < m_szItemlist.size();i ++) {
             m_itemList->get_item(i)->set_active(false);
         }
+        m_syncTimeLabel->setText(faileTips);
     } else if (status == SYNC_FAILURE) {
         m_bIsFailed = true;
         m_autoSyn->make_itemoff();
@@ -1046,6 +1048,7 @@ void MainWidget::ctrlAutoSync(int status) {
         for (int i  = 0;i < m_szItemlist.size();i ++) {
             m_itemList->get_item(i)->set_active(false);
         }
+        m_syncTimeLabel->setText(faileTips);
     } else if (status == SYNC_NORMAL) {
         m_bIsFailed = false;
         m_autoSyn->set_active(true);
@@ -1054,6 +1057,7 @@ void MainWidget::ctrlAutoSync(int status) {
             m_itemList->get_item(i)->set_active(true);
             m_itemList->get_item(i)->set_change(0,"0");
         }
+        refreshSyncDate();
     }
 }
 
