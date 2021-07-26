@@ -348,9 +348,8 @@ void Widget::slotUnifyOutputs()
 
     // 取消统一输出
     if (!mUnifyButton->isChecked()) {
-
+        KScreen::OutputList screens = mPrevConfig->connectedOutputs();
         if (mKDSCfg.isEmpty()) {
-            KScreen::OutputList screens = mPrevConfig->connectedOutputs();
             QList<ScreenConfig> preScreenCfg = getPreScreenCfg();
             int posX = preScreenCfg.at(0).screenPosX;
             bool isOverlap = false;
@@ -370,6 +369,18 @@ void Widget::slotUnifyOutputs()
                 }
             }
         }
+
+        QPoint raw(0,0);
+        int originCount = 0;
+        Q_FOREACH(KScreen::OutputPtr output, screens) {
+            if (output->pos() == raw) {
+                originCount++;
+            }
+            if (originCount >= 2) {
+                setScreenKDS("expand");
+            }
+        }
+
 
         setConfig(mPrevConfig);
 
