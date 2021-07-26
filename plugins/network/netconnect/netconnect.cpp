@@ -148,8 +148,8 @@ void NetConnect::initComponent() {
         runExternalApp();
     });
     getNetList();
-    ui->openWifiFrame->setVisible(false);
-    ui->verticalLayout_2->setContentsMargins(0, 0, 32, 0);
+
+    ui->verticalLayout->setContentsMargins(0, 0, 32, 0);
 }
 
 void NetConnect::refreshNetInfoSlot() {
@@ -377,7 +377,7 @@ void NetConnect::clearContent() {
 
     if (ui->detailLayOut->layout() != NULL) {
         QLayoutItem* item;
-        while ((item = ui->detailLayOut->layout()->takeAt(0)) != NULL) {
+        while ((item = ui->detailLayOut->layout()->takeAt(1)) != NULL) {
             delete item->widget();
             delete item;
             item = nullptr;

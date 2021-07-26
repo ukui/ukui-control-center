@@ -14,6 +14,15 @@
    <string>WlanConnect</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0,0,0,0,0,0">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
    <item>
     <widget class="TitleLabel" name="titleLabel">
      <property name="sizePolicy">
@@ -240,7 +249,7 @@
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>331</height>
+       <height>40</height>
       </size>
      </property>
     </spacer>

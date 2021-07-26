@@ -177,7 +177,7 @@ void WlanConnect::refreshNetInfoTimerSlot() {
 void WlanConnect::getNetList() {
     refreshTimer->stop();
     wifiBtn->blockSignals(true);
-    getInitStatus();
+    wifiBtn->setChecked(getInitStatus());
     wifiBtn->blockSignals(false);
     this->wifilist.clear();
     QDBusReply<QVector<QStringList>> reply = m_interface->call("getWifiList");
