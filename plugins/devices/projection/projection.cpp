@@ -277,10 +277,16 @@ QWidget *Projection::get_plugin_ui(){
         ui->projectionNameWidget->setEnabled(false);
         projectionBtn->setEnabled(false);
     }
-
+    //监听WLAN开关
+    QDBusConnection::systemBus().connect(QString(), QString("/org/freedesktop/NetworkManager"), "org.freedesktop.NetworkManager", "PropertiesChanged", this, SLOT(netPropertiesChangeSlot(QMap<QString,QVariant>)));
     return pluginWidget;
 }
-
+void Projection::netPropertiesChangeSlot(QMap<QString, QVariant> property) {
+    if (property.keys().contains("WirelessEnabled")) {
+        qDebug()<<"WLAN status changed";
+        get_plugin_ui();
+    }
+}
 void Projection::plugin_delay_control(){
 
 }

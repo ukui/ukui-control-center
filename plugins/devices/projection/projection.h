@@ -86,6 +86,7 @@ private:
 public slots:
     void projectionButtonClickSlots(bool status);
     void projectionPinSlots(QString type,QString pin);
+    void netPropertiesChangeSlot(QMap<QString, QVariant> property);
 
 };
 
