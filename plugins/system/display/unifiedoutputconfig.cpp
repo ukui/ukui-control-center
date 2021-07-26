@@ -93,10 +93,8 @@ void UnifiedOutputConfig::initUi()
     connect(mResolution, &ResolutionSlider::resolutionChanged,
             this, &UnifiedOutputConfig::slotResolutionChanged);
 
-    #if (QT_VERSION >= QT_VERSION_CHECK(5, 14, 0))
-        connect(mResolution, &ResolutionSlider::resolutionChanged,
-                this, &UnifiedOutputConfig::slotScaleIndex);
-    #endif
+    connect(mResolution, &ResolutionSlider::resolutionChanged,
+            this, &UnifiedOutputConfig::slotScaleIndex);
 
     // 方向下拉框
     mRotation = new QComboBox(this);
@@ -184,19 +182,34 @@ void UnifiedOutputConfig::initUi()
 
 void UnifiedOutputConfig::slotScaleIndex(const QSize &size)
 {
+    mScaleCombox->blockSignals(true);
     mScaleCombox->clear();
     mScaleCombox->addItem("100%", 1.0);
 
-    if (k150Scale.contains(size)) {
+    if (size.width() > 1024 ) {
         mScaleCombox->addItem("125%", 1.25);
+    }
+    if (size.width() == 1920 ) {
         mScaleCombox->addItem("150%", 1.5);
     }
-    if (k175Scale.contains(size)) {
+    if (size.width() > 1920) {
+        mScaleCombox->addItem("150%", 1.5);
         mScaleCombox->addItem("175%", 1.75);
     }
-    if (k200Scale.contains(size)) {
+    if (size.width() >= 2160) {
         mScaleCombox->addItem("200%", 2.0);
     }
+    if (size.width() > 2560) {
+        mScaleCombox->addItem("225%", 2.25);
+    }
+    if (size.width() > 3072) {
+        mScaleCombox->addItem("250%", 2.5);
+    }
+    if (size.width() > 3840) {
+        mScaleCombox->addItem("275%", 2.75);
+    }
+
+    mScaleCombox->blockSignals(false);
 }
 
 void UnifiedOutputConfig::initscale(QVBoxLayout *vbox)
@@ -206,20 +219,7 @@ void UnifiedOutputConfig::initscale(QVBoxLayout *vbox)
 
     double scale = getScreenScale();
 
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 14, 0))
     slotScaleIndex(mResolution->currentResolution());
-#else
-    int maxReslu = mResolution->getMaxResolution().width();
-    mScaleCombox->addItem("100%", 1.0);
-    if (maxReslu >= 2000) {
-        mScaleCombox->addItem("200%", 2.0);
-    }
-
-    mScaleCombox->setCurrentIndex(0);
-    if (mScaleCombox->findData(scale) == -1) {
-        mScaleCombox->addItem("200%", 2.0);
-    }
-#endif
     mScaleCombox->setCurrentText(QString::number(scale * 100) + "%");
 
     if (mScaleCombox->findData(scale) == -1) {
