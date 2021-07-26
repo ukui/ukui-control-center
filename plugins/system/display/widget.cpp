@@ -1141,18 +1141,21 @@ void Widget::setScreenKDS(QString kdsConfig)
                 screens[i]->setEnabled((i == 0));
             }
         }
+        delayApply();
     } else if (kdsConfig == "second") {
         for (int i = 0; i < screens.size(); i++) {
             if (!screens[i].isNull()) {
                 screens[i]->setEnabled((i != 0));
             }
         }
+        delayApply();
     } else {
         Q_FOREACH(KScreen::OutputPtr output, screens) {
             if (!output.isNull()) {
                 output->setEnabled(true);
             }
         }
+        delayApply();
     }
 }
 
@@ -1209,6 +1212,7 @@ void Widget::kdsScreenchangeSlot(QString status)
             showBrightnessFrame(2);
         }
     });
+
 }
 
 void Widget::delayApply()
