@@ -55,6 +55,14 @@ void UnifiedOutputConfig::setOutput(const KScreen::OutputPtr &output)
 
 void UnifiedOutputConfig::initUi()
 {
+    connect(mOutput.data(), &KScreen::Output::currentModeIdChanged,
+            this, [=]() {
+        mScaleCombox->blockSignals(true);
+        if (mOutput->currentMode()) {
+            slotScaleIndex(mOutput->currentMode()->size());
+        }
+        mScaleCombox->blockSignals(false);
+    });
     QVBoxLayout *vbox = new QVBoxLayout(this);
     vbox->setContentsMargins(0, 0, 0, 0);
     setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
@@ -92,9 +100,6 @@ void UnifiedOutputConfig::initUi()
     vbox->addWidget(resFrame);
     connect(mResolution, &ResolutionSlider::resolutionChanged,
             this, &UnifiedOutputConfig::slotResolutionChanged);
-
-    connect(mResolution, &ResolutionSlider::resolutionChanged,
-            this, &UnifiedOutputConfig::slotScaleIndex);
 
     // 方向下拉框
     mRotation = new QComboBox(this);
@@ -208,6 +213,12 @@ void UnifiedOutputConfig::slotScaleIndex(const QSize &size)
     if (size.width() > 3840) {
         mScaleCombox->addItem("275%", 2.75);
     }
+
+    double scale = getScreenScale();
+    if (mScaleCombox->findData(scale) == -1) {
+        scale = 1.0;
+    }
+    mScaleCombox->setCurrentText(QString::number(scale * 100) + "%");
 
     mScaleCombox->blockSignals(false);
 }
