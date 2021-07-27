@@ -135,7 +135,7 @@ private:
     QComboBox *ntpCombox = nullptr;
     bool  changeZoneFlag = false;
     QStringList timezonesList;
-
+    QString localZone;
 Q_SIGNALS:
     void changed();
 

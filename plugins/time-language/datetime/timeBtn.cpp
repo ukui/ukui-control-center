@@ -74,14 +74,13 @@ void TimeBtn::updateTime(bool hour_24) {
     QDateTime thisZoneTime;
     const double timeDelta = (thisZone.offsetFromUtc(QDateTime::currentDateTime()) - currentZone.offsetFromUtc(QDateTime::currentDateTime())) / 3600.0;
     QString dateLiteral;
-    if (thisZoneTime.time().hour() + timeDelta >= 24) {
+    if (QDateTime::currentDateTime().toTimeZone(thisZone).time().hour() + timeDelta >= 24) {
         dateLiteral = tr("Tomorrow");
-    } else if (thisZoneTime.time().hour() + timeDelta <= 0) {
+    } else if (QDateTime::currentDateTime().toTimeZone(thisZone).time().hour() + timeDelta < 0) {
         dateLiteral = tr("Yesterday");
     } else {
         dateLiteral = tr("Today");
     }
-
     int decimalNumber = 1;
     //小时取余,再取分钟,将15分钟的双倍只显示一位小数,其他的都显示两位小数
     switch ((thisZone.offsetFromUtc(QDateTime::currentDateTime()) - currentZone.offsetFromUtc(QDateTime::currentDateTime())) / 3600 / 60 / 15) {

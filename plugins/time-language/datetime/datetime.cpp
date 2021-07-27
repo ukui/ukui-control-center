@@ -258,7 +258,16 @@ void DateTime::initComponent()
 
     QDateTime currentime = QDateTime::currentDateTime();
     QString timeAndWeek = currentime.toString("yyyy/MM/dd  ddd").replace("周","星期");
-    ui->dateLabel->setText(timeAndWeek + "     " + localizedTimezone);
+    QTimeZone localTimezone = QTimeZone(localZone.toLatin1().data());
+
+    int utcOff = localTimezone.offsetFromUtc(QDateTime::currentDateTime())/3600;
+    QString gmData;
+    if (utcOff >= 0) {
+        gmData = QString("(GMT+%1:%2)").arg(utcOff, 2, 10, QLatin1Char('0')).arg(utcOff / 60, 2, 10, QLatin1Char('0'));
+    } else {
+        gmData = QString("(GMT%1:%2)").arg(utcOff, 3, 10, QLatin1Char('0')).arg(utcOff / 60, 2, 10, QLatin1Char('0'));
+    }
+    ui->dateLabel->setText(timeAndWeek + "       " + gmData + "  " + localizedTimezone);
 
     QFile tzfile("://zoneUtc");
     if (!tzfile.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -282,6 +291,7 @@ void DateTime::initStatus()
     const QString locale = QLocale::system().name();
     QDBusReply<QVariant> tz = m_datetimeiproperties->call("Get", "org.freedesktop.timedate1", "Timezone");
     localizedTimezone = getLocalTimezoneName(tz.value().toString(), locale);
+    localZone = tz.value().toString();
     loadHour();
 }
 
@@ -556,7 +566,16 @@ void DateTime::datetimeUpdateSlot()
 {
     setCurrentTime();
     QString timeAndWeek = getTimeAndWeek(current);
-    ui->dateLabel->setText(timeAndWeek + "     " + localizedTimezone);
+    QTimeZone localTimezone = QTimeZone(localZone.toLatin1().data());
+
+    int utcOff = (localTimezone.offsetFromUtc(QDateTime::currentDateTime()))/3600;
+    QString gmData;
+    if (utcOff >= 0) {
+        gmData = QString("(GMT+%1:%2)").arg(utcOff, 2, 10, QLatin1Char('0')).arg(utcOff / 60, 2, 10, QLatin1Char('0'));
+    } else {
+        gmData = QString("(GMT%1:%2)").arg(utcOff, 3, 10, QLatin1Char('0')).arg(utcOff / 60, 2, 10, QLatin1Char('0'));
+    }
+    ui->dateLabel->setText(timeAndWeek + "       " + gmData + "  " + localizedTimezone);
 }
 
 void DateTime::changetimeSlot()
@@ -699,6 +718,7 @@ void DateTime::initConnect()
 
     connect(m_timezone, &TimeZoneChooser::confirmed, this, [this] (const QString &timezone) {
         if (changeZoneFlag) {
+            localZone = timezone;
             changezoneSlot(timezone);
             const QString locale = QLocale::system().name();
             localizedTimezone = m_zoneinfo->getLocalTimezoneName(timezone, locale);

@@ -2151,13 +2151,13 @@ change system settings</source>
         <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="181"/>
         <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="239"/>
         <source>Manual Time</source>
-        <translation type="unfinished"></translation>
+        <translation>手动设置时间</translation>
         <extra-contents_path>/date/Manual Time</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="237"/>
         <source>Sync Time</source>
-        <translation type="unfinished"></translation>
+        <translation>自动同步时间</translation>
         <extra-contents_path>/date/Sync Time</extra-contents_path>
     </message>
     <message>
@@ -7802,27 +7802,27 @@ run start-pulseaudio-x11 manually.</source>
     <message>
         <location filename="../../../plugins/time-language/datetime/timeBtn.cpp" line="78"/>
         <source>Tomorrow</source>
-        <translation type="unfinished"></translation>
+        <translation>明天</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/timeBtn.cpp" line="80"/>
         <source>Yesterday</source>
-        <translation type="unfinished"></translation>
+        <translation>昨天</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/timeBtn.cpp" line="82"/>
         <source>Today</source>
-        <translation type="unfinished"></translation>
+        <translation>今天</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/timeBtn.cpp" line="101"/>
         <source>%1 hours earlier than local</source>
-        <translation type="unfinished"></translation>
+        <translation>比本地早%1小时</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/timeBtn.cpp" line="103"/>
         <source>%1 hours later than local</source>
-        <translation type="unfinished"></translation>
+        <translation>比本地晚%1小时</translation>
     </message>
 </context>
 <context>
