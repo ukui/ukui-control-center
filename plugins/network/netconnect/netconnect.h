@@ -123,7 +123,6 @@ private slots:
     void wifiSwitchSlot(bool status);
     void getNetList();
     void netPropertiesChangeSlot(QMap<QString, QVariant> property);
-    void refreshNetInfoSlot();
 };
 
 Q_DECLARE_METATYPE(QList<QDBusObjectPath>);

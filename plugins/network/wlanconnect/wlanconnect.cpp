@@ -96,7 +96,12 @@ const QString WlanConnect::name() const {
 }
 
 void WlanConnect::initSearchText() {
-
+    //~ contents_path /wlanconnect/Network settings"
+    ui->detailBtn->setText(tr("Network settings"));
+    //~ contents_path /wlanconnect/WLAN
+    ui->titleLabel->setText(tr("WLAN"));
+    //~ contents_path /wlanconnect/open
+    ui->openLabel->setText(tr("open"));
 }
 
 void WlanConnect::initComponent() {

@@ -101,10 +101,11 @@ const QString NetConnect::name() const {
 }
 
 void NetConnect::initSearchText() {
+    //~ contents_path /netconnect/Network settings"
     ui->detailBtn->setText(tr("Network settings"));
     //~ contents_path /netconnect/Netconnect Status
     ui->titleLabel->setText(tr("Wired Network"));
-    //~ contents_path /netconnect/open wifi
+    //~ contents_path /netconnect/open
     ui->openLabel->setText(tr("open"));
 }
 
@@ -141,8 +142,6 @@ void NetConnect::initComponent() {
 
     // 有线网络断开或连接时刷新可用网络列表
     connect(m_interface,SIGNAL(actWiredConnectionChanged()), this, SLOT(getNetList()));
-    // 网络配置信息发生变化时刷新可用网络列表
-    connect(m_interface,SIGNAL(configurationChanged()), this, SLOT(refreshNetInfoSlot()));
     connect(ui->detailBtn, &QPushButton::clicked, this, [=](bool checked) {
         Q_UNUSED(checked)
         runExternalApp();
@@ -150,10 +149,6 @@ void NetConnect::initComponent() {
     getNetList();
 
     ui->verticalLayout->setContentsMargins(0, 0, 32, 0);
-}
-
-void NetConnect::refreshNetInfoSlot() {
-//    emit ui->RefreshBtn->clicked(true);
 }
 
 void NetConnect::rebuildNetStatusComponent(QString iconPath, QMap<QString, bool> netNameMap) {

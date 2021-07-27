@@ -80,7 +80,7 @@
         <item>
          <layout class="QHBoxLayout" name="openWIifLayout_3">
           <item>
-           <widget class="QLabel" name="openLabel_3">
+           <widget class="QLabel" name="openLabel">
             <property name="minimumSize">
              <size>
               <width>118</width>
