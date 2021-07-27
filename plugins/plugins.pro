@@ -2,20 +2,20 @@ TEMPLATE = subdirs
 SUBDIRS = \
           devices/bluetooth \
           devices/shortcut \
-          messages-task/experienceplan \
-          messages-task/notice \
-          messages-task/search \
-          network/vino \
-          system/defaultapp \
-          system/power \
-          system/autoboot \
-          system/display \
           devices/printer \
-          system/projection \
           devices/mouse \
           devices/keyboard \
           devices/touchpad \
           devices/audio \
+          application/defaultapp \
+          application/autoboot \
+          system/about \
+          system/power \
+          system/display \
+          system/notice \
+          system/projection \
+          system/touchscreen \
+          system/vino \
           personalized/wallpaper \
           personalized/theme \
           personalized/screenlock \
@@ -32,7 +32,7 @@ SUBDIRS = \
           security-updates/backup \
           security-updates/update \
 #          security-updates/upgrade \
-          messages-task/about \
-          system/touchscreen \
+          messages-task/experienceplan \
+          messages-task/search \
           time-language/datetime \
           time-language/area

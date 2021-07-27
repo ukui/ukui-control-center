@@ -34,7 +34,6 @@ typedef struct _AutoApp{
     QString bname;
     QString path;
 
-//    bool enable;
     bool no_display;
     bool shown;
     bool hidden;

@@ -31,8 +31,12 @@
 #include <QStringList>
 #include <QSharedPointer>
 #include <QGSettings/QGSettings>
+#include <QPushButton>
+#include <QHBoxLayout>
+#include "HpQRCodeInterface.h"
 
 #include "shell/interface.h"
+#include "Label/titlelabel.h"
 
 namespace Ui {
 class About;
@@ -55,46 +59,91 @@ public:
     const QString name() const Q_DECL_OVERRIDE;
 
 private:
-    void initUI();
-    QStringList  readFile(QString filePath);
-
+    void initUI(QWidget *widget);
+    void retranslateUi();
     void initSearchText();
     void initActiveDbus();
+    void setupSerialComponent();
+    void setupVersionCompenent();
     void setupDesktopComponent();
     void setupKernelCompenent();
-    void setupVersionCompenent();
-    void setupSerialComponent();
-    bool QLabelSetText(QLabel *label, QString string);
-
-    qlonglong calculateTotalRam();
-
-    QStringList totalMemory();
-
-    QString getTotalMemory();
+    void setupDiskCompenet();
+    void setupSystemVersion();
 
     QStringList getUserDefaultLanguage();
+    QStringList  readFile(QString filepath);
+    QString getTotalMemory();
 private:
-    Ui::About *ui;
+    QWidget *pluginWidget;
+    QFrame *mHoldWidget;
+    QWidget *mQrCodeWidget;
     QString pluginName;
     int pluginType;
-    QWidget *pluginWidget;
 
-    QLabel *envlogoLabel;
-    QLabel *logoLabel;
+    TitleLabel *mTitleLabel;
+    TitleLabel *mHoldTitleLabel;
 
-    QDBusInterface *interface;
+    QFrame *mInformationFrame;
+    QFrame *mActivationFrame;
+    QFrame *mVersionFrame;
+    QFrame *mVersionNumFrame;
+    QFrame *mKernelFrame;
+    QFrame *mCpuFrame;
+    QFrame *mMemoryFrame;
+    QFrame *mDiskFrame;
+    QFrame *mDesktopFrame;
+    QFrame *mUsernameFrame;
 
-    QString computerinfo;
-    QMap<QString, QString> infoMap;
-    QSharedPointer<QDBusInterface> activeInterface;
+    QHBoxLayout *mDiskLayout;
+
+    QLabel *mLogoLabel;
+    QLabel *mVersionLabel_1;
+    QLabel *mVersionNumLabel_1;
+    QLabel *mKernelLabel_1;
+    QLabel *mCpuLabel_1;
+    QLabel *mMemoryLabel_1;
+    QLabel *mDiskLabel_1;
+    QLabel *mDesktopLabel_1;
+    QLabel *mUsernameLabel_1;
+    QLabel *mVersionLabel_2;
+    QLabel *mVersionNumLabel_2;
+    QLabel *mKernelLabel_2;
+    QLabel *mCpuLabel_2;
+    QLabel *mMemoryLabel_2;
+    QLabel *mDiskLabel_2;
+    QLabel *mDesktopLabel_2;
+    QLabel *mUsernameLabel_2;
+    QLabel *mStatusLabel_1;
+    QLabel *mStatusLabel_2;
+    QLabel *mTimeLabel_1;
+    QLabel *mTimeLabel_2;
+    QLabel *mSequenceLabel_1;
+    QLabel *mSequenceLabel_2;
+    QLabel *mTrialLabel;
+    QLabel *mHpLabel;
+    QLabel *mEducateIconLabel;
+    QLabel *mEducateLabel;
+
+
+    QPushButton *mActivationBtn;
+    QPushButton *mTrialBtn;
+    QPushButton *mHpBtn;
+    QPushButton *mEducateBtn;
+
+    QStringList diskInfo;
+    QMap<QString, QStringList> disk2; //disk2的结构 QMap<块设备名，总大小和可用大小>
 
     bool mFirstLoad;
 
+    QSharedPointer<QDBusInterface> activeInterface;
+
     QGSettings *themeStyleQgsettings;
+    hp::QRCodeInterface *app;//hp插件
 private slots:
+    void activeSlot(int activeSignal);
     void runActiveWindow();
     void showPdf();
-    void activeSlot(int activeSignal);
+
 };
 
 #endif // ABOUT_H

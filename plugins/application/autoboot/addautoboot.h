@@ -25,6 +25,8 @@
 #include <QPainter>
 #include <QPainterPath>
 #include <QLineEdit>
+#include <QLabel>
+#include <QVBoxLayout>
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
  **/
@@ -59,7 +61,6 @@ protected:
     void paintEvent(QPaintEvent *);
 
 private:
-    Ui::AddAutoBoot *ui;
     QString selectFile;
     QString mDesktopExec;
     QString mDesktopIcon;
@@ -67,9 +68,28 @@ private:
     bool userEditCommentFlag = false;
     GDir *mdir;
 
+    QFrame *mAppFrame;
+    QFrame *mBtnFrame;
+
+    QLabel *mTitleLabel;
+    QLabel *mAppNameLabel;
+    QLabel *mAppPathLabel;
+    QLabel *mAppBewriteLabel;
+    QLabel *mHintLabel;
+
+    QLineEdit *mAppNameEdit;
+    QLineEdit *mAppPathEdit;
+    QLineEdit *mAppBewriteEdit;
+
+    QPushButton *mOpenBtn;
+    QPushButton *mCancelBtn;
+    QPushButton *mCertainBtn;
+
 private:
+    void initUi(QDialog *AddAutoBoot);
     void initStyle();
     void initConnection();
+    void retranslateUi();
 
 private slots:
     void open_desktop_dir_slots();

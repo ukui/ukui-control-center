@@ -18,11 +18,13 @@
  *
  */
 #include "addautoboot.h"
-#include "ui_addautoboot.h"
 #include "CloseButton/closebutton.h"
 
 #include <QDebug>
 #include <QFileInfo>
+#include <QSettings>
+#include <QPushButton>
+#include <QApplication>
 
 // #define DESKTOPPATH "/etc/xdg/autostart/"
 #define DESKTOPPATH "/usr/share/applications/"
@@ -30,13 +32,12 @@
 extern void qt_blurImage(QImage &blurImage, qreal radius, bool quality, int transposed);
 
 AddAutoBoot::AddAutoBoot(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::AddAutoBoot)
+    QDialog(parent)
 {
-    ui->setupUi(this);
     setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
     setAttribute(Qt::WA_TranslucentBackground);
 
+    initUi(this);
     initStyle();
     initConnection();
 }
@@ -45,40 +46,33 @@ void AddAutoBoot::resetBeforeClose()
 {
     userEditNameFlag = false;
     userEditCommentFlag = false;
-    ui->certainBtn->setEnabled(false);
-    ui->hintLabel->clear();
-    ui->nameLineEdit->setToolTip("");
-    ui->commentLineEdit->setToolTip("");
-    ui->execLineEdit->setToolTip("");
-    ui->nameLineEdit->setText(QString());
-    ui->commentLineEdit->setText(QString());
-    ui->execLineEdit->setText(QString());
+    mCertainBtn->setEnabled(false);
+    mHintLabel->clear();
+    mAppNameEdit->setToolTip("");
+    mAppBewriteEdit->setToolTip("");
+    mAppPathEdit->setToolTip("");
+    mAppNameEdit->setText(QString());
+    mAppBewriteEdit->setText(QString());
+    mAppPathEdit->setText(QString());
     close();
 }
 
 bool AddAutoBoot::getFilename(GDir *dir,const char *Name)
 {
-    QString filedir = QString(g_build_filename(g_get_user_config_dir(), "autostart", NULL))+"/";
+    QString filedir = "/etc/xdg/autostart/";
     const char *desktopName;
     if (dir) {
         while ((desktopName = g_dir_read_name(dir))) {
             QString filePath = filedir + QString::fromUtf8(desktopName);
-            QByteArray ba;
-            ba = filePath.toUtf8();
-            GKeyFile *keyfile;
-            char *name;
-            keyfile = g_key_file_new();
-            if (!g_key_file_load_from_file(keyfile, ba.data(), G_KEY_FILE_NONE, NULL)) {
+            GKeyFile *keyfile = g_key_file_new();
+            if (!g_key_file_load_from_file(keyfile, filePath.toLatin1().data(), G_KEY_FILE_NONE, NULL)) {
                 g_key_file_free(keyfile);
-                g_dir_close(mdir);
                 return false;
             }
-            name = g_key_file_get_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
+            QString name = g_key_file_get_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
                                                 G_KEY_FILE_DESKTOP_KEY_NAME, NULL);
             g_key_file_free(keyfile);
-            qDebug()<<Name<<  "  "<<name;
-            if (QString::fromUtf8(name) == QString::fromUtf8(Name)) {
-                g_dir_close(mdir);
+            if (name == QString::fromUtf8(Name)) {
                return true;
             }
         }
@@ -128,67 +122,138 @@ void AddAutoBoot::paintEvent(QPaintEvent *event)
     p.restore();
 }
 
+void AddAutoBoot::initUi(QDialog *AddAutoBoot)
+{
+     AddAutoBoot->resize(420, 308);
+     QVBoxLayout *mverticalLayout = new QVBoxLayout(AddAutoBoot);
+     mverticalLayout->setSpacing(16);
+     mverticalLayout->setContentsMargins(32, 32, 32, 24);
+
+     mTitleLabel = new QLabel(AddAutoBoot);
+     mTitleLabel->setFixedHeight(24);
+
+     mAppFrame = new QFrame(AddAutoBoot);
+     mAppFrame->setFixedSize(356,160);
+     mAppFrame->setFrameShape(QFrame::NoFrame);
+     mAppFrame->setFrameShadow(QFrame::Raised);
+
+     QGridLayout *mAppLayout = new QGridLayout(mAppFrame);
+     mAppLayout->setHorizontalSpacing(8);
+     mAppLayout->setVerticalSpacing(4);
+     mAppNameLabel = new QLabel(mAppFrame);
+     mAppPathLabel = new QLabel(mAppFrame);
+     mAppBewriteLabel = new QLabel(mAppFrame);
+     mAppNameEdit = new QLineEdit(mAppFrame);
+     mAppPathEdit = new QLineEdit(mAppFrame);
+     mAppBewriteEdit = new QLineEdit(mAppFrame);
+     mOpenBtn = new QPushButton(mAppFrame);
+     mHintLabel = new QLabel(mAppFrame);
+
+     mAppLayout->addWidget(mAppNameLabel,0,0,1,2);
+     mAppLayout->addWidget(mAppNameEdit,0,2,1,3);
+     mAppLayout->addWidget(mAppPathLabel,1,0,1,2);
+     mAppLayout->addWidget(mAppPathEdit,1,2,1,2);
+     mAppLayout->addWidget(mOpenBtn,1,4,1,1);
+     mAppLayout->addWidget(mAppBewriteLabel,2,0,1,2);
+     mAppLayout->addWidget(mAppBewriteEdit,2,2,1,3);
+     mAppLayout->addWidget(mHintLabel,3,2,1,3);
+
+     mBtnFrame = new QFrame(AddAutoBoot);
+     mBtnFrame->setFixedSize(356,36);
+     mBtnFrame->setFrameShape(QFrame::NoFrame);
+
+     QHBoxLayout *mBtnLayout = new QHBoxLayout(mBtnFrame);
+     mBtnLayout->setContentsMargins(0,0,0,0);
+     mBtnLayout->setSpacing(16);
+     mCancelBtn = new QPushButton(mBtnFrame);
+     mCancelBtn->setFixedSize(100,36);
+     mCertainBtn = new QPushButton(mBtnFrame);
+     mCertainBtn->setFixedSize(100,36);
+
+     mBtnLayout->addStretch();
+     mBtnLayout->addWidget(mCancelBtn);
+     mBtnLayout->addWidget(mCertainBtn);
+
+     mverticalLayout->addWidget(mTitleLabel);
+     mverticalLayout->addWidget(mAppFrame);
+     mverticalLayout->addSpacing(8);
+     mverticalLayout->addWidget(mBtnFrame);
+
+     retranslateUi();
+}
+
 void AddAutoBoot::initStyle()
 {
-    ui->titleLabel->setStyleSheet("QLabel{color: palette(windowText);}");
+    mTitleLabel->setStyleSheet("QLabel{color: palette(windowText);}");
 
     selectFile = "";
 
-    ui->nameLineEdit->setPlaceholderText(tr("Program name"));
-    ui->execLineEdit->setPlaceholderText(tr("Program exec"));
-    ui->commentLineEdit->setPlaceholderText(tr("Program comment"));
+    mAppNameEdit->setPlaceholderText(tr("Program name"));
+    mAppPathEdit->setPlaceholderText(tr("Program exec"));
+    mAppBewriteEdit->setPlaceholderText(tr("Program comment"));
 
-    ui->hintLabel->setAlignment(Qt::AlignCenter);
-    ui->hintLabel->setStyleSheet("color:red;");
-    ui->certainBtn->setEnabled(false);
+    mHintLabel->setAlignment(Qt::AlignLeft);
+    mHintLabel->setStyleSheet("color:red;");
+    mCertainBtn->setEnabled(false);
 
 }
 
 void AddAutoBoot::initConnection()
 {
-    connect(ui->openBtn, SIGNAL(clicked(bool)), this, SLOT(open_desktop_dir_slots()));
-    connect(ui->cancelBtn, SIGNAL(clicked(bool)), this, SLOT(close()));
-    connect(ui->execLineEdit, SIGNAL(textEdited(QString)), this, SLOT(execLinEditSlot(QString)));
+    connect(mOpenBtn, SIGNAL(clicked(bool)), this, SLOT(open_desktop_dir_slots()));
+    connect(mCancelBtn, SIGNAL(clicked(bool)), this, SLOT(close()));
+    connect(mAppPathEdit, SIGNAL(textEdited(QString)), this, SLOT(execLinEditSlot(QString)));
 
-    connect(ui->cancelBtn, &QPushButton::clicked, [=] {
+    connect(mCancelBtn, &QPushButton::clicked, [=] {
         resetBeforeClose();
     });
-    connect(ui->certainBtn, &QPushButton::clicked, this, [=] {
-        emit autoboot_adding_signals(selectFile, ui->nameLineEdit->text(), mDesktopExec,
-                                     ui->commentLineEdit->text(), mDesktopIcon);
+    connect(mCertainBtn, &QPushButton::clicked, this, [=] {
+        emit autoboot_adding_signals(selectFile, mAppNameEdit->text(), mDesktopExec,
+                                     mAppBewriteEdit->text(), mDesktopIcon);
         resetBeforeClose();
     });
 
-    connect(ui->nameLineEdit, &QLineEdit::editingFinished, this, [=](){
-        if (ui->nameLineEdit->text().isEmpty()) {
+    connect(mAppNameEdit, &QLineEdit::editingFinished, this, [=](){
+        if (mAppNameEdit->text().isEmpty()) {
             userEditNameFlag = false;
         } else {        // 用户输入了程序名
             userEditNameFlag = true;
         }
     });
-    connect(ui->commentLineEdit, &QLineEdit::editingFinished, this, [=](){
-        if (ui->commentLineEdit->text().isEmpty()) {
+    connect(mAppBewriteEdit, &QLineEdit::editingFinished, this, [=](){
+        if (mAppBewriteEdit->text().isEmpty()) {
             userEditCommentFlag = false;
         } else {        // 用户输入了描述
             userEditCommentFlag = true;
         }
     });
 
-    connect(ui->nameLineEdit, &QLineEdit::textChanged, this, [=](){
-        ui->nameLineEdit->setToolTip(ui->nameLineEdit->text());
+    connect(mAppNameEdit, &QLineEdit::textChanged, this, [=](){
+        mAppNameEdit->setToolTip(mAppNameEdit->text());
     });
-    connect(ui->commentLineEdit, &QLineEdit::textChanged, this, [=](){
-        ui->commentLineEdit->setToolTip(ui->commentLineEdit->text());
+    connect(mAppBewriteEdit, &QLineEdit::textChanged, this, [=](){
+        mAppBewriteEdit->setToolTip(mAppBewriteEdit->text());
     });
-    connect(ui->execLineEdit, &QLineEdit::textChanged, this, [=](){
-        ui->execLineEdit->setToolTip(ui->execLineEdit->text());
+    connect(mAppPathEdit, &QLineEdit::textChanged, this, [=](){
+        mAppPathEdit->setToolTip(mAppPathEdit->text());
     });
+}
+
+void AddAutoBoot::retranslateUi()
+{
+    mHintLabel->setText(QString());
+    mTitleLabel->setText(QApplication::translate("AddAutoBoot", "Add autoboot program", nullptr));
+    mAppNameLabel->setText(QApplication::translate("AddAutoBoot", "Program name", nullptr));
+    mAppPathLabel->setText(QApplication::translate("AddAutoBoot", "Program exec", nullptr));
+    mAppBewriteLabel->setText(QApplication::translate("AddAutoBoot", "Program comment", nullptr));
+    mOpenBtn->setText(QApplication::translate("AddAutoBoot", "Open", nullptr));
+    mCancelBtn->setText(QApplication::translate("AddAutoBoot", "Cancel", nullptr));
+    mCertainBtn->setText(QApplication::translate("AddAutoBoot", "Certain", nullptr));
 }
 
 AddAutoBoot::~AddAutoBoot()
 {
-    delete ui;
-    ui = nullptr;
+
 }
 
 void AddAutoBoot::open_desktop_dir_slots()
@@ -237,28 +302,26 @@ void AddAutoBoot::open_desktop_dir_slots()
                                          G_KEY_FILE_DESKTOP_KEY_ICON, NULL);
 
     if (userEditNameFlag == false) {   // 用户输入了程序名，以用户输入为准，否则以自带的为准
-        ui->nameLineEdit->setText(QString(mname));
+        mAppNameEdit->setText(QString(mname));
     }
 
-    ui->execLineEdit->setText(QString(selectedfile));
+    mAppPathEdit->setText(QString(selectedfile));
     if (userEditCommentFlag == false) {   // 用户输入了程序描述，以用户输入为准，否则以自带的为准
-        ui->commentLineEdit->setText(QString(comment));
+        mAppBewriteEdit->setText(QString(comment));
     }
 
-    emit ui->execLineEdit->textEdited(QString(selectedfile));
+    emit mAppPathEdit->textEdited(QString(selectedfile));
 
     mdir = g_dir_open(g_build_filename(g_get_user_config_dir(), "autostart", NULL), 0, NULL);
 
     if (no_display) {
-        ui->hintLabel->setText(tr("desktop file not allowed add"));
-        ui->hintLabel->setAlignment(Qt::AlignCenter);
-        ui->hintLabel->setStyleSheet("color:red;");
-        ui->certainBtn->setEnabled(false);
+        mHintLabel->setText(tr("desktop file not allowed add"));
+        mHintLabel->setStyleSheet("color:red;");
+        mCertainBtn->setEnabled(false);
     } else if (getFilename(mdir,name)) {
-        ui->hintLabel->setText(tr("desktop file  already exist"));
-        ui->hintLabel->setAlignment(Qt::AlignCenter);
-        ui->hintLabel->setStyleSheet("color:red;");
-        ui->certainBtn->setEnabled(false);
+        mHintLabel->setText(tr("desktop file  already exist"));
+        mHintLabel->setStyleSheet("color:red;");
+        mCertainBtn->setEnabled(false);
     }
 
     g_key_file_free(keyfile);
@@ -269,8 +332,8 @@ void AddAutoBoot::execLinEditSlot(const QString &fileName)
     selectFile = fileName;
     QFileInfo fileInfo(fileName);
     if (fileInfo.isFile() && fileName.endsWith("desktop")) {
-        ui->hintLabel->clear();
-        ui->certainBtn->setEnabled(true);
+        mHintLabel->clear();
+        mCertainBtn->setEnabled(true);
 
         QByteArray ba;
         ba = fileName.toUtf8();
@@ -295,19 +358,18 @@ void AddAutoBoot::execLinEditSlot(const QString &fileName)
                                                G_KEY_FILE_DESKTOP_KEY_COMMENT, NULL, NULL);
 
         if (userEditNameFlag == false) {   // 用户输入了程序名，以用户输入为准，否则以自带的为准
-            ui->nameLineEdit->setText(QString(name));
+            mAppNameEdit->setText(QString(name));
         }
 
-        ui->execLineEdit->setText(fileName);
+        mAppPathEdit->setText(fileName);
         if (userEditCommentFlag == false) {   // 用户输入了程序描述，以用户输入为准，否则以自带的为准
-            ui->commentLineEdit->setText(QString(comment));
+            mAppBewriteEdit->setText(QString(comment));
         }
 
         g_key_file_free(keyfile);
     } else {
-        ui->hintLabel->setText(tr("desktop file not exist"));
-        ui->hintLabel->setAlignment(Qt::AlignCenter);
-        ui->hintLabel->setStyleSheet("color:red;");
-        ui->certainBtn->setEnabled(false);
+        mHintLabel->setText(tr("desktop file not exist"));
+        mHintLabel->setStyleSheet("color:red;");
+        mCertainBtn->setEnabled(false);
     }
 }

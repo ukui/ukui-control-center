@@ -34,8 +34,7 @@ PKGCONFIG     += gio-2.0 \
 
 SOURCES += \
     autoboot.cpp \
-    addautoboot.cpp \
-    autobootworker.cpp
+    addautoboot.cpp
 
 HEADERS += \
     autoboot.h \
@@ -43,6 +42,7 @@ HEADERS += \
     datadefined.h \
     autobootworker.h
 
-FORMS += \
-    autoboot.ui \
-    addautoboot.ui
+FORMS +=
+
+RESOURCES += \
+    res/img.qrc

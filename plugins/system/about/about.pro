@@ -20,13 +20,15 @@ INCLUDEPATH   +=  \
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 HEADERS += \
-    about.h
+    HpQRCodeInterface.h \
+    about.h \
+    trialdialog.h
 
 SOURCES += \
-    about.cpp
+    about.cpp \
+    trialdialog.cpp
 
-FORMS += \
-    about.ui
+FORMS +=
 
 RESOURCES += \
     res/img.qrc

@@ -26,9 +26,11 @@
 #include "shell/interface.h"
 #include "datadefined.h"
 #include "addautoboot.h"
+#include "Label/titlelabel.h"
 #include "HoverWidget/hoverwidget.h"
 #include <QtDBus>
 #include <QGSettings>
+#include <QVBoxLayout>
 
 namespace Ui {
 class AutoBoot;
@@ -53,26 +55,21 @@ public:
 private:
     void initAddBtn();
     void initStyle();
-    void initUI();
+    void initUI(QWidget *widget);
+    void initAutoUI();
+    void initStatus();
     void initConnection();
-    void update_app_status();
-    void del_autoboot_realize(QString bname);
+    void delAutoApp(QString bname);
     void connectToServer();
-    void initConfig();
+    bool initConfig();
     void setupGSettings();
 
-    void _walk_config_dirs();
-    AutoApp _app_new(const char *path);
-    gboolean _key_file_get_boolean(GKeyFile *keyfile, const gchar *key, gboolean defaultvalue);
-    gboolean _key_file_get_shown(GKeyFile *keyfile, const char *currentdesktop);
-    bool _stop_autoapp(QString bname);
-    bool _delete_autoapp(QString bname);
-    bool _enable_autoapp(QString bname, bool status);
-    bool _delete_local_autoapp(QString bname);
-    gboolean _key_file_to_file(GKeyFile *keyfile, const gchar *path);
-    bool _copy_desktop_file_to_local(QString bname);
-
+    AutoApp setInformation(QString filepath);
+    bool copyFileToLocal(QString bname);
+    bool deleteLocalAutoapp(QString bname);
+    bool setAutoAppStatus(QString bname, bool status);
     void clearAutoItem();
+    bool eventFilter(QObject *obj, QEvent *event);
 
 private:
     Ui::AutoBoot *ui;
@@ -89,9 +86,11 @@ private:
     QMap<QString, AutoApp> statusMaps;
     QMultiMap<QString, QWidget *> appgroupMultiMaps;
 
-    char *localconfigdir;
-
     HoverWidget *addWgt;
+
+    TitleLabel *mTitleLabel;
+    QFrame *mAutoBootFrame;
+    QVBoxLayout *mAutoBootLayout;
 
     bool mFirstLoad;
 
