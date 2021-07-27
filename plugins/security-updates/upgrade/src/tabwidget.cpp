@@ -739,6 +739,7 @@ void TabWid::hideUpdateBtnSlot(bool isSucceed)
         checkUpdateBtn->stop();
         //        checkUpdateBtn->setText(tr("检查更新"));
         checkUpdateBtn->setText(tr("Check Update"));
+        updateMutual->fileUnLock();
         if(updateMutual->failedList.size() == 0)
         {
             bacupInit(false);
@@ -762,6 +763,8 @@ void TabWid::changeUpdateAllSlot()
         //        checkUpdateBtn->setText("全部更新");
         checkUpdateBtn->setText(tr("UpdateAll"));
         checkUpdateBtn->setEnabled(true);
+    } else {
+        checkUpdateBtn->setEnabled(false);
     }
 }
 
@@ -808,7 +811,7 @@ void TabWid::receiveBackupStartResult(int result)
         backupMessageBox(tr("Kylin backup restore tool could not find the UUID, this update will not backup the system!"));
         break;
     default:
-        backupMessageBox(tr("The backup restore partition is abnormal. You may not have a backup restore partition.For more details,see /var/log/backup.log"));
+//        backupMessageBox(tr("The backup restore partition is abnormal. You may not have a backup restore partition.For more details,see /var/log/backup.log"));
         break;
     }
 }
