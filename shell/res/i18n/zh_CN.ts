@@ -1202,7 +1202,7 @@ Please authenticate yourself to continue</source>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="664"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="668"/>
         <source>No Bluetooth adapter detected !</source>
         <translation>未检测到蓝牙适配器！</translation>
     </message>
@@ -4102,7 +4102,7 @@ folder will be deleted!</source>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="103"/>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="431"/>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="441"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1110"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1114"/>
         <location filename="../../../plugins/account/networkaccount/mainwidget.h" line="106"/>
         <source>Disconnected</source>
         <translation>未连接</translation>
@@ -4119,8 +4119,8 @@ Please retry for login!</source>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="477"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1165"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1182"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1169"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1186"/>
         <source>Exit</source>
         <translation>退出登录</translation>
     </message>
@@ -4144,8 +4144,8 @@ Please retry for login!</source>
         <translation>登录失败，请检查你的网络连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1139"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1154"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1143"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1158"/>
         <source>Stop sync</source>
         <translation>结束同步</translation>
     </message>
@@ -4182,10 +4182,10 @@ Please retry for login!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="315"/>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="412"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1143"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1158"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1175"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1191"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1147"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1162"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1179"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1195"/>
         <source>The latest time sync is: </source>
         <translation>上次同步时间为: </translation>
     </message>
@@ -4203,7 +4203,7 @@ Please retry for login!</source>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="682"/>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="950"/>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="969"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1250"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1254"/>
         <source>Network can not reach!</source>
         <translation>网络不可达！</translation>
     </message>
@@ -4229,7 +4229,12 @@ Please retry or relogin!</source>
         <translation>认证失败，请重新登录！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1237"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1033"/>
+        <source>Please check your connetion!</source>
+        <translation>请检查您的网络情况！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1241"/>
         <source>Kylin Cloud Account</source>
         <translation>云账户</translation>
     </message>
@@ -4239,7 +4244,7 @@ Please retry or relogin!</source>
         <translation>该操作可能覆盖您目前的快捷键！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1240"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1244"/>
         <source>Cloud ID desktop message</source>
         <translation>云账户消息</translation>
     </message>
@@ -4554,7 +4559,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.ui" line="139"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="1079"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="1086"/>
         <source>Refresh</source>
         <translation>刷新</translation>
     </message>
@@ -4586,19 +4591,19 @@ Please retry or relogin!</source>
         <translation type="vanished">连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="356"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="411"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="359"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="414"/>
         <source>Connected</source>
         <translation>已连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="931"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="938"/>
         <source>No net</source>
         <translation>无连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="366"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="421"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="369"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="424"/>
         <source>Detail</source>
         <translation>网络详情</translation>
     </message>
@@ -4609,13 +4614,13 @@ Please retry or relogin!</source>
         <extra-contents_path>/netconnect/open WLAN</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="796"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="818"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="803"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="825"/>
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="1067"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="1074"/>
         <source>Refreshing...</source>
         <translation>刷新中...</translation>
     </message>
@@ -4629,7 +4634,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="76"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="652"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="659"/>
         <source>Connect</source>
         <translation>网络连接</translation>
     </message>
@@ -4768,38 +4773,38 @@ Please retry or relogin!</source>
 <context>
     <name>OutputConfig</name>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="84"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="88"/>
         <source>resolution</source>
         <translation>分辨率</translation>
         <extra-contents_path>/display/resolution</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="116"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="117"/>
         <source>orientation</source>
         <translation>方向</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="133"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="134"/>
         <source>arrow-up</source>
         <translation>不旋转</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="134"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="135"/>
         <source>90° arrow-right</source>
         <translation>90° 顺时针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="136"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="137"/>
         <source>arrow-down</source>
         <translation>上下颠倒</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="135"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="136"/>
         <source>90° arrow-left</source>
         <translation>90° 逆时针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="148"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="149"/>
         <source>frequency</source>
         <translation>刷新率</translation>
     </message>
@@ -4812,14 +4817,14 @@ Please retry or relogin!</source>
         <translation type="vanished">自动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="189"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="190"/>
         <source>screen zoom</source>
         <translation>缩放屏幕</translation>
         <extra-contents_path>/display/screen zoom</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="275"/>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="281"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="276"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="282"/>
         <source>%1 Hz</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6118,12 +6123,12 @@ Please retry or relogin!</source>
         <translation>自动启动的应用程序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4701"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4721"/>
         <source>PulseAudio Volume Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4715"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4735"/>
         <source>Connection to PulseAudio failed. Automatic retry in 5s
 
 In this case this is likely because PULSE_SERVER in the Environment/X11 Root Window Properties
@@ -6134,37 +6139,37 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4761"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4781"/>
         <source>pa_context_subscribe() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4766"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4786"/>
         <source>pa_context_get_card_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4778"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4798"/>
         <source>Failed to initialize stream_restore extension: %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4783"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4803"/>
         <source>Connection failed, attempting reconnect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4799"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4819"/>
         <source>pa_ext_stream_restore_read() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="5020"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="5040"/>
         <source>pa_context_get_card_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="5036"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="5056"/>
         <source>Card callback failure</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7133,9 +7138,9 @@ run start-pulseaudio-x11 manually.</source>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="68"/>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="279"/>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="309"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="531"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="604"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="733"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="532"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="605"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="734"/>
         <source>Check Update</source>
         <translation>检查更新</translation>
     </message>
@@ -7151,7 +7156,7 @@ run start-pulseaudio-x11 manually.</source>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="85"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="645"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="646"/>
         <source>Prompt information</source>
         <translation>提示信息</translation>
     </message>
@@ -7180,10 +7185,10 @@ run start-pulseaudio-x11 manually.</source>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="114"/>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="122"/>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="225"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="541"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="630"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="712"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="754"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="542"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="631"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="713"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="756"/>
         <source>UpdateAll</source>
         <translation>全部更新</translation>
     </message>
@@ -7224,22 +7229,22 @@ run start-pulseaudio-x11 manually.</source>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="154"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="784"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="786"/>
         <source>Start backup,getting progress</source>
         <translation>开始备份，正在获取进度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="791"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="793"/>
         <source>Failed to write configuration file, this update will not back up the system!</source>
         <translation>写入配置文件失败，本次更新不会备份系统！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="795"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="797"/>
         <source>Insufficient backup space, this update will not backup your system!</source>
         <translation>备份空间不足，本次更新不会备份系统！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="799"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="801"/>
         <source>Kylin backup restore tool could not find the UUID, this update will not backup the system!</source>
         <translation>麒麟备份还原工具无法找到UUID，本次更新不会备份系统</translation>
     </message>
@@ -7311,65 +7316,65 @@ run start-pulseaudio-x11 manually.</source>
         <translation>全部更新前备份系统</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="533"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="737"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="534"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="739"/>
         <source>Your system is the latest!</source>
         <translation>您的系统已是最新！</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="113"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="543"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="544"/>
         <source>Updatable app detected on your system!</source>
         <translation>检测到你的系统有可更新的应用！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="569"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="724"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="570"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="725"/>
         <source>Last refresh:</source>
         <translation>上次更新：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="571"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="572"/>
         <source>Last Checked:</source>
         <translation>上次检测：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="618"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="619"/>
         <source>Updating the software source</source>
         <translation>正在更新软件源</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="643"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="644"/>
         <source>This update will not backup the current system, do you want to continue the update?</source>
         <translation>本次更新不会备份当前系统，是否继续更新？</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="650"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="651"/>
         <source>Yes, keep updating</source>
         <translation>是，继续更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="651"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="652"/>
         <source>No, backup now</source>
         <translation>否，立即备份</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="652"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="653"/>
         <source>Not updated</source>
         <translation>暂不更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="743"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="745"/>
         <source>Part of the update failed!</source>
         <translation>部分更新失败！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="764"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="766"/>
         <source>An important update is in progress, please wait.</source>
         <translation>正在进行一项重要更新，请等待。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="802"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="804"/>
         <source>The backup restore partition is abnormal. You may not have a backup restore partition.For more details,see /var/log/backup.log</source>
         <translation>备份还原分区异常，您可能没有备份还原分区。更多详细信息，可以参看/var/log/backup.log</translation>
     </message>
@@ -7378,7 +7383,7 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">其他错误!请查看/var/log/backup.txt</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="809"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="811"/>
         <source>Calculating Capacity...</source>
         <translation>计算系统空间大小</translation>
     </message>
@@ -7804,29 +7809,29 @@ run start-pulseaudio-x11 manually.</source>
         <translation>加载声音失败</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4690"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4710"/>
         <source>Establishing connection to PulseAudio. Please wait...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4835"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="4855"/>
         <source>pa_ext_stream_restore_write() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="5153"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="5246"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="5173"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="5266"/>
         <source> (unplugged)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="5156"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="5244"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="5176"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="5264"/>
         <source> (unavailable)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="5238"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="5258"/>
         <source> (plugged in)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8018,50 +8023,50 @@ run start-pulseaudio-x11 manually.</source>
 <context>
     <name>UnifiedOutputConfig</name>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="75"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="83"/>
         <source>resolution</source>
         <translation>分辨率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="109"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="112"/>
         <source>orientation</source>
         <translation>方向</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="114"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="117"/>
         <source>arrow-up</source>
         <translation>不旋转</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="115"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="118"/>
         <source>90° arrow-right</source>
         <translation>90°顺时针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="116"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="119"/>
         <source>arrow-down</source>
         <translation>上下颠倒</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="117"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="120"/>
         <source>90° arrow-left</source>
         <translation>90°逆时针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="146"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="149"/>
         <source>frequency</source>
         <translation>刷新率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="177"/>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="348"/>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="354"/>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="391"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="180"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="359"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="365"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="402"/>
         <source>%1 Hz</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="235"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="246"/>
         <source>screen zoom</source>
         <translation>缩放屏幕</translation>
         <extra-contents_path>/display/screen zoom</extra-contents_path>
@@ -8071,8 +8076,8 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">刷新率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="151"/>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="378"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="154"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="389"/>
         <source>auto</source>
         <translation>自动</translation>
     </message>
@@ -8538,45 +8543,43 @@ run start-pulseaudio-x11 manually.</source>
         <extra-contents_path>/display/unify output</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="580"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="602"/>
         <source>night mode</source>
         <translation>夜间模式</translation>
         <extra-contents_path>/display/night mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="500"/>
         <source>Some applications need to be logouted to take effect</source>
-        <translation>部分程序需要注销生效</translation>
+        <translation type="vanished">部分程序需要注销生效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="489"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="515"/>
         <source>monitor</source>
         <translation>显示器</translation>
         <extra-contents_path>/display/monitor</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="499"/>
         <source>Information</source>
-        <translation>信息</translation>
+        <translation type="vanished">信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="576"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="598"/>
         <source>Mirror Display</source>
         <translation>镜像显示</translation>
         <extra-contents_path>/display/unify output</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="588"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="610"/>
         <source>Theme follow night mode</source>
         <translation>主题跟随夜间模式变化</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="610"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="632"/>
         <source>Hint</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="611"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="633"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after 29 seconds</source>
         <translation>修改分辨率或刷新率后，由于显示设备与 显卡兼容性问题，有可能显示不正常。系统将在29秒后保存配置</translation>
@@ -8587,14 +8590,14 @@ the settings will be saved after 14 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与 显卡兼容性问题，有可能显示不正常。系统将在14秒后保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="624"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="646"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
 the settings will be saved after %1 seconds</source>
         <translation>修改分辨率或刷新率后，由于显示设备与 显卡兼容性问题，有可能显示不正常。系统将在%1秒后保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2033"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2040"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2072"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2079"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
@@ -8624,12 +8627,12 @@ If something goes wrong, the settings will be restored after 9 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在9秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="615"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="637"/>
         <source>Save Config</source>
         <translation>保存当前配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="616"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="638"/>
         <source>Restore Config</source>
         <translation>恢复之前配置</translation>
     </message>
@@ -8639,18 +8642,18 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1387"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1737"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1387"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1394"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1412"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1737"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1395"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1413"/>
         <source>Open time should be earlier than close time!</source>
         <translation>开启时间必须大于关闭时间！</translation>
     </message>
@@ -8659,12 +8662,12 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">早晨时刻应早于晚上的时刻!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1405"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1423"/>
         <source>Warnning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1406"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1424"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>
