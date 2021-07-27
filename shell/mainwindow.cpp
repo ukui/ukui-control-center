@@ -275,7 +275,7 @@ void MainWindow::initUI() {
                     font.setWeight(QFont::Medium);
                     fontTime.setPixelSize(font.pointSize() * 23 / 11);
                     widget->setFont(fontTime);
-                } else if(className.contains("TitleLabel")) {
+                } else if(className.contains("TitleLabel") || widget->objectName() == "DateTime_Info") {
                     QFont fontTitle;
                     fontTitle.setPixelSize(font.pointSize() * 18 / 11);
                     fontTitle.setWeight(QFont::Medium);

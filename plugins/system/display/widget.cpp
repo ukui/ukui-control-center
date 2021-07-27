@@ -819,7 +819,7 @@ void Widget::clearOutputIdentifiers()
 
 void Widget::addBrightnessFrame(QString name, bool openFlag, QString serialNum)
 {
-    if (mIsBattery && !name.contains("eDP"))  //笔记本非内置
+    if (mIsBattery && (!name.contains("eDP") && !name.contains("DisplayPort-0", Qt::CaseInsensitive)))  //笔记本非内置
         return;
     for (int i = 0; i < BrightnessFrameV.size(); ++i) {  //已经有了
         if (name == BrightnessFrameV[i]->getOutputName())
@@ -827,15 +827,16 @@ void Widget::addBrightnessFrame(QString name, bool openFlag, QString serialNum)
     }
 
     BrightnessFrame *frame = nullptr;
-    if (mIsBattery && name.contains("eDP")) {
+    if (mIsBattery && (name.contains("eDP") || name.contains("DisplayPort-0", Qt::CaseInsensitive))) {
         frame = new BrightnessFrame(name, true, serialNum);
     } else if(!mIsBattery) {
         frame = new BrightnessFrame(name, false, serialNum);
     }
-    BrightnessFrameV.push_back(frame);
-
-    ui->unifyBrightLayout->addWidget(frame);
-    frame->runConnectThread(openFlag);
+    if (frame != nullptr) {
+        BrightnessFrameV.push_back(frame);
+        ui->unifyBrightLayout->addWidget(frame);
+        frame->runConnectThread(openFlag);
+    }
 
 }
 

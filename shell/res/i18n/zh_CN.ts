@@ -2060,16 +2060,6 @@ change system settings</source>
         <translation>当前时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="375"/>
-        <source>titleLabel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="382"/>
-        <source>summaryLabel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>timezone</source>
         <translation type="vanished">时区</translation>
     </message>
@@ -2083,21 +2073,19 @@ change system settings</source>
         <extra-contents_path>/date/Sync from network successful</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="800"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="805"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="773"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="782"/>
         <source>Sync from network failed</source>
         <translation>时间同步失败</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="218"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="197"/>
         <source>Change time</source>
-        <translation>手动更改时间</translation>
+        <translation type="vanished">手动更改时间</translation>
         <extra-contents_path>/date/Change time</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="193"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="199"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="285"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="226"/>
         <source>Change time zone</source>
         <translation>更改时区</translation>
         <extra-contents_path>/date/Change time zone</extra-contents_path>
@@ -2119,23 +2107,24 @@ change system settings</source>
         <translation type="vanished">时间日期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="82"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="83"/>
         <source>Date</source>
         <translation>时间日期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="139"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="142"/>
         <source>Other Timezone</source>
-        <translation>其他时区</translation>
+        <translation>其他时区时间</translation>
+        <extra-contents_path>/date/Other Timezone</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="152"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="155"/>
         <source>24-hour clock</source>
         <translation>24小时制</translation>
         <extra-contents_path>/date/24-hour clock</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="154"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="156"/>
         <source>Sync from network</source>
         <translation>同步网络时间</translation>
     </message>
@@ -2144,63 +2133,70 @@ change system settings</source>
         <translation type="vanished">添加时区以显示时间，最多可以添加5个</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="247"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="292"/>
         <source>Add time zones to display the time,only 5 can be added</source>
         <translation>添加时区，最多添加５个</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="250"/>
-        <source>addTimeWgt</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="271"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="584"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="316"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="576"/>
         <source>Add Timezone</source>
         <translation>添加时区</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="399"/>
         <source>Delete</source>
-        <translation>删除</translation>
+        <translation type="vanished">删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="433"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="181"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="239"/>
+        <source>Manual Time</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/date/Manual Time</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="237"/>
+        <source>Sync Time</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/date/Sync Time</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="423"/>
         <source>Time Server</source>
         <translation>服务器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="435"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="425"/>
         <source>Default</source>
         <translation>系统默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="437"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="427"/>
         <source>Customize</source>
         <translation>自定义</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="445"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="437"/>
         <source>Server Address</source>
         <translation>服务器地址</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="450"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="442"/>
         <source>Required</source>
         <translation>必需</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="451"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="443"/>
         <source>Save</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="586"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="578"/>
         <source>Change Timezone</source>
         <translation>更改时区</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="799"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="772"/>
         <source>  </source>
         <translation></translation>
     </message>
@@ -2209,7 +2205,7 @@ change system settings</source>
         <translation type="vanished">同步网络时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="573"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="565"/>
         <source>change time</source>
         <translation>更改时间</translation>
     </message>
@@ -7802,6 +7798,34 @@ run start-pulseaudio-x11 manually.</source>
     </message>
 </context>
 <context>
+    <name>TimeBtn</name>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/timeBtn.cpp" line="78"/>
+        <source>Tomorrow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/timeBtn.cpp" line="80"/>
+        <source>Yesterday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/timeBtn.cpp" line="82"/>
+        <source>Today</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/timeBtn.cpp" line="101"/>
+        <source>%1 hours earlier than local</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/timeBtn.cpp" line="103"/>
+        <source>%1 hours later than local</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>TimeZoneChooser</name>
     <message>
         <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="34"/>
@@ -8869,8 +8893,8 @@ the settings will be saved after 14 seconds</source>
         <translation>是否保留当前修改的配置？将在14秒后自动保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1888"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1895"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1889"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1896"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
@@ -8916,19 +8940,19 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1246"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1247"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1081"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1246"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1253"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1082"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1247"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1254"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1082"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1083"/>
         <source>Open time should be earlier than close time!</source>
         <translation>开启时间必须大于关闭时间！</translation>
     </message>
@@ -8937,7 +8961,7 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">早晨时刻应早于晚上的时刻!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1254"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1255"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>

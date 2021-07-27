@@ -37,7 +37,9 @@
 #include <qmath.h>
 #include <polkit-qt5-1/polkitqt1-authority.h>
 #include "ImageUtil/imageutil.h"
-#include "Label/fixlabel.h"
+#include "clock.h"
+#include <QButtonGroup>
+#include <QCalendarWidget>
 
 const char kTimezoneDomain[] = "installer-timezones";
 const char kDefaultLocale[]  = "en_US.UTF-8";
@@ -51,7 +53,7 @@ const QString kenBj =           "Asia/Beijing";
 //#define SYNC_TIME_KEY           "synctime"
 #define NTP_KEY                 "ntp"
 #define TIMEZONES_KEY           "timezones"
-#define MAX_TIMES               5
+#define MAX_TIMES               500
 
 volatile bool syncThreadFlag =  false;
 
@@ -78,7 +80,6 @@ DateTime::DateTime() : mFirstLoad(true)
     pluginWidget = new QWidget;
     pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(pluginWidget);
-    ui->infoFrame->setFrameShape(QFrame::Shape::Box);
     pluginName = tr("Date");
     pluginType = DATETIME;
 }
@@ -116,6 +117,7 @@ QWidget *DateTime::get_plugin_ui()
         initComponent();
         initConnect();
         connectToServer();
+        initTimeShow();
     }
     return pluginWidget;
 }
@@ -136,6 +138,7 @@ void DateTime::initTitleLabel()
     QGSettings *m_fontSetting = new QGSettings("org.ukui.style");
     QFont font;
     ui->titleLabel_2->adjustSize();
+    //~ contents_path /date/Other Timezone
     ui->titleLabel_2->setText(tr("Other Timezone"));
     ui->timeClockLable->setObjectName("timeClockLable");
     font.setPixelSize(m_fontSetting->get("systemFontSize").toInt() * 23 / 11);
@@ -150,8 +153,7 @@ void DateTime::initUI()
     m_formTimeBtn       = new SwitchButton(pluginWidget);
     //~ contents_path /date/24-hour clock
     m_formTimeLabel     = new QLabel(tr("24-hour clock"), pluginWidget);
-    syncTimeBtn         = new SwitchButton(pluginWidget);
-    syncNetworkLabel    = new QLabel(tr("Sync from network"), pluginWidget);
+    ui->syncLabel->setText(tr("Sync from network"));
     syncNetworkRetLabel = new QLabel(pluginWidget);
     syncNetworkRetLabel->setStyleSheet("QLabel{font-size: 15px; color: #D9F82929;}");
 
@@ -159,6 +161,35 @@ void DateTime::initUI()
     m_timezone          = new TimeZoneChooser(pluginWidget);
     m_itimer            = new QTimer(this);
     m_itimer->start(1000);
+
+    ui->showFrame->adjustSize();
+
+    ui->frame_3->adjustSize();
+    ui->frame_3->setObjectName("baseFrame");
+    ui->frame_3->setStyleSheet("QFrame#baseFrame{background-color:palette(base);}");
+    Clock *m_clock = new Clock();
+    //ui->clockFrame->setFrameShape(QFrame::Shape::Box);
+    ui->clockLayout->addWidget(m_clock);
+//    ui->dateEdit->calendarWidget()->setVisible(false);
+   // ui->dateEdit->adjustSize();
+//    ui->dateEdit->setStyleSheet("QCalendarWidget QWidget#qt_calendar_navigationbar{\
+//                                background-color: palette(window);\
+//                                }");
+
+
+    //~ contents_path /date/Manual Time
+    ui->timeLabel->setText(tr("Manual Time"));
+    for (int m = 0; m < 60; m++) {
+        ui->minComboBox->addItem(QString::number(m));
+    }
+
+    for (int s = 0; s < 60; s++) {
+        ui->secComboBox->addItem(QString::number(s));
+    }
+
+    for (int h = 0; h < 24; h++){
+        ui->hourComboBox->addItem(QString::number(h));
+    }
 
     const QByteArray id(FORMAT_SCHEMA);
     if (QGSettings::isSchemaInstalled(id)) {
@@ -184,8 +215,6 @@ void DateTime::initUI()
                                              QDBusConnection::systemBus(), this);
 
     initNtp();
-    initTimeShow();
-
 }
 
 void DateTime::initComponent()
@@ -193,8 +222,6 @@ void DateTime::initComponent()
     ui->titleLabel->setContentsMargins(0,0,0,0);
     ui->timeClockLable->setContentsMargins(0,0,0,0);
 
-    //~ contents_path /date/Change time
-    ui->chgtimebtn->setText(tr("Change time"));
     //~ contents_path /date/Change time zone
     ui->chgzonebtn->setText(tr("Change time zone"));
 
@@ -204,12 +231,30 @@ void DateTime::initComponent()
     hourLayout->addWidget(m_formTimeLabel);
     hourLayout->addWidget(m_formTimeBtn);
 
-    QHBoxLayout *syncLayout = new QHBoxLayout(ui->syncFrame);
+    ui->radioButton->adjustSize();
+    ui->radioButton_2->adjustSize();
+    //~ contents_path /date/Sync Time
+    ui->radioButton->setText(tr("Sync Time"));
+    //~ contents_path /date/Manual Time
+    ui->radioButton_2->setText(tr("Manual Time"));
 
-    syncLayout->addWidget(syncNetworkLabel);
-    syncLayout->addStretch();
-    syncLayout->addWidget(syncNetworkRetLabel);
-    syncLayout->addWidget(syncTimeBtn);
+    ui->syncHintFrame->adjustSize();
+    ui->hintLayout->addWidget(syncNetworkRetLabel);
+
+    QButtonGroup *timeGroupBtn = new QButtonGroup(this);
+    timeGroupBtn->addButton(ui->radioButton, 0);
+    timeGroupBtn->addButton(ui->radioButton_2, 1);
+
+    connect(timeGroupBtn, QOverload<int>::of(&QButtonGroup::buttonClicked), this, [=](int id){
+        if (id == 0) {
+            synctimeFormatSlot(true, true);
+        } else {
+            synctimeFormatSlot(false, true);
+            syncNetworkRetLabel->clear();
+        }
+    });
+
+
 
     QDateTime currentime = QDateTime::currentDateTime();
     QString timeAndWeek = currentime.toString("yyyy/MM/dd  ddd").replace("周","星期");
@@ -245,11 +290,11 @@ void DateTime::initTimeShow()
 {
     ui->summaryLabel->setObjectName("summaryText");
     ui->summaryLabel->setText(tr("Add time zones to display the time,only 5 can be added"));
+    ui->summaryLabel->setVisible(false);
 
     HoverWidget *addTimeWgt = new HoverWidget("");
-    addTimeWgt->setObjectName(tr("addTimeWgt"));
+    addTimeWgt->setObjectName("addTimeWgt");
     addTimeWgt->setMinimumSize(QSize(580, 50));
-    addTimeWgt->setMaximumSize(QSize(960, 50));
 
     QPalette pal;
     QBrush brush = pal.highlight();  //获取window的色值
@@ -274,6 +319,7 @@ void DateTime::initTimeShow()
     iconLabel->setProperty("useIconHighlightEffect", true);
     iconLabel->setProperty("iconHighlightEffectMode", 1);
 
+    addLyt->addStretch();
     addLyt->addWidget(iconLabel);
     addLyt->addWidget(textLabel);
     addLyt->addStretch();
@@ -320,7 +366,6 @@ void DateTime::initTimeShow()
             }
             m_formatsettings->set(TIMEZONES_KEY, timezonesList);
         }
-        ui->showFrame->setFixedHeight(timesNum * (50 + 2) + 16 - 2);
 
         for (int i = 0; i < timesNum; ++i) {
             newTimeshow(timezonesList[i]);
@@ -344,81 +389,25 @@ void DateTime::addTimezone(const QString &timezone)
      if (m_formatsettings->keys().contains(TIMEZONES_KEY)) {
         m_formatsettings->set(TIMEZONES_KEY, timezonesList);
      }
-    ui->showFrame->setFixedHeight(timezonesList.size() * (50 + 2) + 16 - 2);
     newTimeshow(timezone);
 }
 
 void DateTime::newTimeshow(const QString &timezone)
 {
-    HoverWidget *addWgt       = new HoverWidget(timezone);
-    QHBoxLayout *addWgtLayout = new QHBoxLayout(addWgt);
-    QWidget     *timeWid      = new QWidget(addWgt);
-    QHBoxLayout *timeLayout   = new QHBoxLayout(timeWid);
-    QPushButton *btn          = new QPushButton(addWgt);
-    TitleLabel  *label_1      = new TitleLabel(addWgt);    //时间,和标题字号一致
-    FixLabel    *label_2      = new FixLabel(addWgt);    //日期
-
-    ui->showLayout->addWidget(addWgt);
-    addWgt->setParent(ui->showFrame);
-    addWgt->setObjectName("addWgt");
-    addWgt->setStyleSheet("HoverWidget#addWgt{background: palette(base);}");
-    addWgtLayout->setMargin(0);
-    addWgtLayout->setSpacing(16);
-    addWgt->setMinimumSize(QSize(552, 50));  //552 - 96
-    addWgt->setMaximumSize(QSize(960, 50));//960-96
-    addWgt->setAttribute(Qt::WA_DeleteOnClose);
-
-    addWgtLayout->addWidget(timeWid);
-    timeWid     ->setObjectName("timeWid");
-    timeWid     ->setStyleSheet("QWidget#timeWid{background-color: palette(window); border-radius: 4px;}");
-
-    addWgtLayout->addWidget(btn);
-
-    timeLayout->addWidget(label_1);
-    timeLayout->addWidget(label_2);
-    timeLayout->setSpacing(24);
-    label_1->setObjectName("label_1_time");
-    label_2->setObjectName("label_2_week");
-    timeLayout->addStretch();
-
-    QTimeZone thisZone = QTimeZone(timezone.toLatin1().data());
-    QDateTime thisZoneTime = QDateTime::currentDateTime().toTimeZone(thisZone);
-    QString thisZoneTimeStr ;
-    if (m_formTimeBtn->isChecked()) {
-        thisZoneTimeStr = thisZoneTime.toString("hh : mm : ss");
-    } else {
-        thisZoneTimeStr = thisZoneTime.toString("AP hh: mm : ss");
-    }
-
-    label_1->setText(thisZoneTimeStr);
-
-    const QString locale = QLocale::system().name();
-    QString timeAndWeek = getTimeAndWeek(thisZoneTime);
-    label_2->setText(timeAndWeek + "     " + m_zoneinfo->getLocalTimezoneName(timezone, locale));
-
-    btn->setText(tr("Delete"));
-    btn->setFixedSize(80,  36);
-    btn->hide();
-
-    connect(addWgt, &HoverWidget::enterWidget, this, [=](){
-        btn->show();
-    });
-    connect(addWgt, &HoverWidget::leaveWidget, this, [=](){
-        btn->hide();
+    TimeBtn *timeBtn = new TimeBtn(timezone);
+    ui->showLayout->addWidget(timeBtn);
+    timeBtn->updateTime(m_formTimeBtn->isChecked());
+    connect(timeBtn->deleteBtn, &QPushButton::clicked, this, [=](){
+       timezonesList.removeOne(timezone);
+       if (m_formatsettings->keys().contains(TIMEZONES_KEY)) {
+           m_formatsettings->set(TIMEZONES_KEY, timezonesList);
+       }
+       timeBtn->close();
     });
 
-    connect(btn, &QPushButton::clicked, this, [=](){
-        timezonesList.removeOne(addWgt->_name);
-        if (m_formatsettings->keys().contains(TIMEZONES_KEY)) {
-            m_formatsettings->set(TIMEZONES_KEY, timezonesList);
-        }
-        ui->showFrame->setFixedHeight(timezonesList.size() * (50 + 2) + 16 - 2);
-        addWgt->close();
-        if (!ui->addFrame->isEnabled() && timezonesList.size() < MAX_TIMES) {
-           ui->addFrame->setEnabled(true);
-        }
+    connect(m_itimer, &QTimer::timeout, this, [=](){
+        timeBtn->updateTime(m_formTimeBtn->isChecked());
     });
-
 }
 
 void DateTime::initNtp()
@@ -426,7 +415,8 @@ void DateTime::initNtp()
     QLabel      *ntpLabel  = new QLabel(ui->ntpFrame);
     QHBoxLayout *ntpLayout = new QHBoxLayout(ui->ntpFrame);
                  ntpCombox = new QComboBox(ui->ntpFrame);
-    ntpLabel->setFixedWidth(260);
+    ntpLabel->setFixedWidth(135);
+    ntpLayout->setContentsMargins(16,8,26,8);
     ui->ntpFrame->setLayout(ntpLayout);
     ntpLayout->addWidget(ntpLabel);
     ntpLayout->addWidget(ntpCombox);
@@ -441,10 +431,12 @@ void DateTime::initNtp()
     QHBoxLayout *ntpLayout_2 = new QHBoxLayout(ui->ntpFrame_2);
     QLineEdit *ntpLineEdit = new QLineEdit();
     QPushButton *saveBtn = new QPushButton(ui->ntpFrame_2);
+
+    ntpLayout_2->setContentsMargins(16,8,26,8);
     ntpLineEdit->setParent(ui->ntpFrame_2);
     ntpLabel_2->setText(tr("Server Address"));
     ntpLayout_2->addWidget(ntpLabel_2);
-    ntpLabel_2->setFixedWidth(260);
+    ntpLabel_2->setFixedWidth(135);
     ntpLayout_2->addWidget(ntpLineEdit);
     ntpLayout_2->addWidget(saveBtn);
     ntpLineEdit->setPlaceholderText(tr("Required"));
@@ -628,7 +620,6 @@ void DateTime::loadHour()
     }
     QStringList keys = m_formatsettings->keys();
     QString format;
-    bool formatB;
     if (keys.contains("hoursystem")) {
         format = m_formatsettings->get(TIME_FORMAT_KEY).toString();
     }
@@ -644,24 +635,22 @@ void DateTime::loadHour()
     QDBusReply<QVariant> ret = m_datetimeiproperties->call("Get", "org.freedesktop.timedate1", "NTP");
     bool syncFlag = ret.value().toBool();
 
-    syncTimeBtn->setChecked(syncFlag);
     if (syncFlag != false) {
-        ui->chgtimebtn->setEnabled(false);
+        setNtpFrame(true);
+        ui->setTimeFrame->setVisible(false);
+        ui->radioButton->blockSignals(true);
+        ui->radioButton->setChecked(true);
+        ui->radioButton->blockSignals(false);
 
     } else {
         setNtpFrame(false);
+        initSetTime();
+        ui->setTimeFrame->setVisible(true);
+        ui->radioButton_2->blockSignals(true);
+        ui->radioButton_2->setChecked(true);
+        ui->radioButton_2->blockSignals(false);
     }
 
-//    if (keys.contains(SYNC_TIME_KEY)) {
-//        formatB = m_formatsettings->get(SYNC_TIME_KEY).toBool();
-//        syncTimeBtn->setChecked(formatB);
-//        if (formatB != false) {
-//            ui->chgtimebtn->setEnabled(false);
-
-//        } else {
-//            setNtpFrame(false);
-//        }
-//    }
 }
 
 QString  DateTime::getTimeAndWeek(const QDateTime timeZone)
@@ -682,42 +671,11 @@ QString  DateTime::getTimeAndWeek(const QDateTime timeZone)
     return timeAndWeek;
 }
 
-void DateTime::setCurrentTimeOthers()
-{
-    for (QObject *obj : ui->showFrame->children()) {
-        if (obj->objectName() == "addWgt") {
-            HoverWidget *addWgt = static_cast<HoverWidget*>(obj);
-            QTimeZone thisZone     = QTimeZone(addWgt->_name.toLatin1().data());
-            QDateTime thisZoneTime = QDateTime::currentDateTime().toTimeZone(thisZone);
-            for (QObject *objTime : addWgt->children()) {
-                if (objTime->objectName() == "timeWid") {
-                    QWidget *timeWid = static_cast<QWidget*>(objTime);
-                    for (QObject *objLabel : timeWid->children()){
-                        if (objLabel->objectName() == "label_1_time") {
-                            QString currentsecStr ;
-                            if (m_formTimeBtn->isChecked()) {
-                                currentsecStr = thisZoneTime.toString("hh : mm : ss");
-                            } else {
-                                currentsecStr = thisZoneTime.toString("AP hh: mm : ss");
-                            }
-                            QLabel *label_1 = static_cast<QLabel*>(objLabel);
-                            label_1->setText(currentsecStr);
-                        } else if(objLabel->objectName() == "label_2_week") {
-                            QLabel *label_2 = static_cast<QLabel*>(objLabel);
-                            QString timeAndWeek  = getTimeAndWeek(thisZoneTime);
-                            label_2->setText(timeAndWeek + "     " + m_zoneinfo->getLocalTimezoneName(addWgt->_name, QLocale::system().name()));
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
 
 
 void DateTime::setCurrentTime()
 {
-    setCurrentTimeOthers();
+    initSetTime();
     current = QDateTime::currentDateTime();
     QString currentsecStr ;
     if (m_formTimeBtn->isChecked()) {
@@ -730,7 +688,6 @@ void DateTime::setCurrentTime()
 
 void DateTime::initConnect()
 {
-    connect(ui->chgtimebtn,SIGNAL(clicked()),this,SLOT(changetimeSlot()));
     connect(ui->chgzonebtn, &QPushButton::clicked, this, [=](){
         changeZoneFlag = true;
         changezoneSlot();
@@ -739,11 +696,6 @@ void DateTime::initConnect()
     connect(m_formTimeBtn, &SwitchButton::checkedChanged, this, [=](bool status) {
         timeFormatClickedSlot(status, false);
     });
-
-    connect(syncTimeBtn, &SwitchButton::checkedChanged, this,[=](bool status) {
-        synctimeFormatSlot(status,true); //按钮被改变，需要修改
-    });
-
 
     connect(m_timezone, &TimeZoneChooser::confirmed, this, [this] (const QString &timezone) {
         if (changeZoneFlag) {
@@ -765,6 +717,26 @@ void DateTime::initConnect()
             m_formTimeBtn->setChecked(checked);
         }
     });
+
+    connect(ui->dateEdit, &QDateEdit::dateChanged, this, [=]() {
+        setTime();
+    });
+
+    connect(ui->hourComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated), this, [=]() {
+        setTime();
+    });
+
+    connect(ui->minComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated), this, [=]() {
+        setTime();
+    });
+
+    connect(ui->secComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated), this, [=]() {
+        setTime();
+    });
+
+
+
+
 }
 
 QString DateTime::getLocalTimezoneName(QString timezone, QString locale)
@@ -786,6 +758,7 @@ QString DateTime::getLocalTimezoneName(QString timezone, QString locale)
 
 void DateTime::synctimeFormatSlot(bool status,bool outChange)
 {
+    Q_UNUSED(outChange);
     if (!m_formatsettings) {
         qDebug()<<"org.ukui.control-center.panel.plugins not installed"<<endl;
         return;
@@ -793,19 +766,24 @@ void DateTime::synctimeFormatSlot(bool status,bool outChange)
 
     QDBusMessage retDBus =  rsyncWithNetworkSlot(status);
     if (status != false) {
-        ui->chgtimebtn->setEnabled(false);
+        ui->setTimeFrame->setVisible(false);
         setNtpFrame(true);
         if (retDBus.type() == QDBusMessage::ReplyMessage) {
             QString successMSG = tr("  ");
             QString failMSG = tr("Sync from network failed");
             CGetSyncRes *syncThread = new CGetSyncRes(this,successMSG,failMSG);
-            connect(syncThread,SIGNAL(finished()),syncThread,SLOT(deleteLater()));
+            connect(syncThread, &CGetSyncRes::finished, this, [=](){
+                syncThread->deleteLater();
+                ui->radioButton_2->setEnabled(true);
+            });
             syncThread->start();
+            ui->radioButton_2->setEnabled(false);
         } else {
             syncNetworkRetLabel->setText(tr("Sync from network failed"));
         }
     } else {
-        ui->chgtimebtn->setEnabled(true);
+        initSetTime();
+        ui->setTimeFrame->setVisible(true);
         setNtpFrame(false);
     }
 }
@@ -858,6 +836,38 @@ void DateTime::setNtpFrame(bool visiable)
     }
 }
 
+void DateTime::initSetTime() {
+    QDateTime m_time = QDateTime::currentDateTime();
+
+    ui->dateEdit->blockSignals(true);
+    ui->hourComboBox->blockSignals(true);
+    ui->minComboBox->blockSignals(true);
+    ui->secComboBox->blockSignals(true);
+
+    ui->dateEdit->setDate(m_time.date());
+    ui->hourComboBox->setCurrentIndex(m_time.time().hour());
+    ui->minComboBox->setCurrentIndex(m_time.time().minute());
+    ui->secComboBox->setCurrentIndex(m_time.time().second());
+
+    ui->dateEdit->blockSignals(false);
+    ui->hourComboBox->blockSignals(false);
+    ui->minComboBox->blockSignals(false);
+    ui->secComboBox->blockSignals(false);
+}
+
+void DateTime::setTime() {
+    QDate tmpdate(ui->dateEdit->date());
+    QTime tmptime(ui->hourComboBox->currentIndex(), ui->minComboBox->currentIndex(),ui->secComboBox->currentIndex());
+    QDateTime setdt(tmpdate,tmptime);
+
+    m_datetimeiface->call("SetTime", QVariant::fromValue(setdt.toSecsSinceEpoch() * G_TIME_SPAN_SECOND), false, true);
+
+}
+
+bool DateTime::getSyncStatus() {
+    return ui->radioButton->isChecked();
+}
+
 CGetSyncRes::CGetSyncRes(DateTime *dataTimeUI,QString successMSG,QString failMSG)
 {
     this -> dataTimeUI = dataTimeUI;
@@ -872,12 +882,15 @@ CGetSyncRes::~CGetSyncRes()
 void CGetSyncRes::run()
 {
     for(qint8 i = 0; i < 80; ++i) {
+        if (this->dataTimeUI->getSyncStatus() == false) {
+            this->dataTimeUI->syncNetworkRetLabel->clear();
+            return;
+        }
         struct timex txc = {};
         if (adjtimex(&txc) < 0 || txc.maxerror >= 16000000) {  //未能同步时间
             int picNum = i - qFloor(i/8)*8; //限制在0~7
             QString pixName = QString(":/img/plugins/upgrade/loading%1.svg").arg(picNum+10);
             QPixmap pix(pixName);
-            this->dataTimeUI->syncTimeBtn->setEnabled(false);
             qApp->processEvents();
             this->dataTimeUI->syncNetworkRetLabel->setPixmap(pix);
             msleep(70);
@@ -885,11 +898,9 @@ void CGetSyncRes::run()
         } else {                                               //同步时间成功
             DateTime::syncRTC();
             this->dataTimeUI->syncNetworkRetLabel->setText(successMSG);
-            this->dataTimeUI->syncTimeBtn->setEnabled(true);
             return;
         }
     }
-    this->dataTimeUI->syncTimeBtn->setEnabled(true);
     this->dataTimeUI->syncNetworkRetLabel->setText(failMSG);
     if (syncThreadFlag == false) { //创建线程一直查时间同步是否成功
         CSyncTime *syncTimeThread = new CSyncTime(this->dataTimeUI,successMSG,failMSG);
@@ -918,7 +929,7 @@ void CSyncTime::run()
                                            "org.freedesktop.timedate1",
                                            QDBusConnection::systemBus(), this);
     while (true) {
-        if (this->dataTimeUI->syncTimeBtn->isChecked() == false) {
+        if (this->dataTimeUI->getSyncStatus() == false) {
             syncThreadFlag = false;
             delete r_datetimeiface;
             return;

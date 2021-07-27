@@ -41,6 +41,8 @@
 #include <QGSettings>
 #include <QComboBox>
 
+#include "timeBtn.h"
+#include "Label/fixlabel.h"
 #include "worldMap/timezonechooser.h"
 #include "worldMap/zoneinfo.h"
 #include "SwitchButton/switchbutton.h"
@@ -93,6 +95,10 @@ public:
     void setNtpFrame(bool visiable);
     void addTimezone(const QString& timezone);
     void newTimeshow(const QString& timezone);
+    void initSetTime();
+    void setTime();
+    bool getSyncStatus();
+
 public:
     QLabel       *syncNetworkRetLabel = nullptr;
     SwitchButton *syncTimeBtn         = nullptr; //网络时间同步按钮
@@ -148,8 +154,9 @@ private:
     void loadHour();
     void setCurrentTime();
     void initConnect();
-    QString getLocalTimezoneName(QString timezone, QString locale);
-    void setCurrentTimeOthers();
+
+public:
+    static QString getLocalTimezoneName(QString timezone, QString locale);
     QString getTimeAndWeek(const QDateTime timeZone);
 };
 

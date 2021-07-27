@@ -37,8 +37,10 @@ PKGCONFIG     += gio-2.0 \
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
+    clock.cpp \
     datetime.cpp \
     changtime.cpp \
+    timeBtn.cpp \
     worldMap/zoneinfo.cpp \
     worldMap/toolpop.cpp \
     worldMap/timezonemap.cpp \
@@ -47,8 +49,10 @@ SOURCES += \
     worldMap/poplist.cpp
 
 HEADERS += \
+    clock.h \
     datetime.h \
     changtime.h \
+    timeBtn.h \
     worldMap/zoneinfo.h \
     worldMap/toolpop.h \
     worldMap/timezonemap.h \
