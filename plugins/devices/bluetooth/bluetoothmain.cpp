@@ -900,8 +900,8 @@ void BlueToothMain::clearUiShowDeviceList()
 
         //剔除重新开始扫描时，不在设备列表中的device
         if (! Discovery_device_address.contains(last_discovery_device_address.at(i))){
-            removeDeviceItemUI(last_discovery_device_address.at(i));
-            //receiveRemoveSignal(last_discovery_device_address.at(i));//没有改变动作从列表中删除
+            //removeDeviceItemUI(last_discovery_device_address.at(i));
+            receiveRemoveSignal(last_discovery_device_address.at(i));//没有改变动作从列表中删除
         }
     }
 }
@@ -916,7 +916,7 @@ void BlueToothMain::serviceDiscoveredChange(BluezQt::DevicePtr device)
 
     if(device->isPaired() || device->isConnected()) {
         qDebug() << Q_FUNC_INFO << "device is Paired or Connected" << __LINE__;
-        addMyDeviceItemUI(device);
+        //addMyDeviceItemUI(device);
         return;
     }
 
