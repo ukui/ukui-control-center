@@ -1,0 +1,29 @@
+From 27256c48e046d23757430d7bd620bd92af4d297a Mon Sep 17 00:00:00 2001
+From: Hongfei Shang <shanghongfei@kylinos.cn>
+Date: Fri, 14 May 2021 19:54:08 +0800
+Subject: [PATCH 3/4] fix touch pen drag title bar issue
+
+when drag the title by with touch pen, the drag
+status will never get release.
+
+Signed-off-by: Hongfei Shang <shanghongfei@kylinos.cn>
+---
+ shell/framelessExtended/widgethandlerealize.cpp | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/shell/framelessExtended/widgethandlerealize.cpp b/shell/framelessExtended/widgethandlerealize.cpp
+index 362a179..aba8bb3 100644
+--- a/shell/framelessExtended/widgethandlerealize.cpp
++++ b/shell/framelessExtended/widgethandlerealize.cpp
+@@ -270,6 +270,8 @@ void WidgetHandleRealize::handleLeaveEvent(QEvent *event){
+     Q_UNUSED(event)
+     if (!leftBtnPressed)
+         widgetInAction->unsetCursor();
++    leftBtnPressed = false;
++    pressedMousePos.reset();
+ }
+ 
+ void WidgetHandleRealize::handleHoverMoveEvent(QHoverEvent *event){
+-- 
+2.25.1
+

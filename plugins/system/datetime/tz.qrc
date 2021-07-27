@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>zoneUtc</file>
+        <file>sys.gif</file>
+        <file>images/indicator.png</file>
+        <file>list.css</file>
+        <file>images/map.png</file>
+        <file>images/map.svg</file>
+        <file>images/map-white.svg</file>
+        <file>images/map-gray.svg</file>
+        <file>images/map-black.svg</file>
+    </qresource>
+</RCC>

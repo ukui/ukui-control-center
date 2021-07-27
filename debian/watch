@@ -1,0 +1,2 @@
+version=4
+https://github.com/ukui/ukui-control-center/releases .*/ukui-control-center_(\d\S+)\.orig\.tar\.gz

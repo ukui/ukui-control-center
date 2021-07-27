@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>System Recovery</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFA08B" offset="0%"></stop>
+            <stop stop-color="#F14C29" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Edu-OS-Light" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="PC-控制面板17-系统还原" transform="translate(-1408.000000, -772.000000)">
+            <g id="弹窗-高级设置-添加" transform="translate(1392.000000, 760.000000)">
+                <g id="System-Recovery" transform="translate(16.000000, 12.000000)">
+                    <rect id="矩形" stroke="#979797" fill="#D8D8D8" opacity="0" x="0.5" y="0.5" width="23" height="23" rx="1"></rect>
+                    <path d="M14.6444399,3.93628783 L21.6339299,16.9833358 C22.4163319,18.4438196 21.866638,20.2620379 20.4061542,21.0444399 C19.9704364,21.2778601 19.4837925,21.4 18.98949,21.4 L5.01051004,21.4 C3.35365579,21.4 2.01051004,20.0568542 2.01051004,18.4 C2.01051004,17.9056975 2.13264989,17.4190535 2.36607013,16.9833358 L9.35556009,3.93628783 C10.1379621,2.475804 11.9561804,1.92611011 13.4166642,2.70851216 C13.9379999,2.98779914 14.3651529,3.41495213 14.6444399,3.93628783 Z" id="三角形" stroke="url(#linearGradient-1)" fill="#FF5F3D" fill-rule="nonzero"></path>
+                    <path d="M12,7 C12.9407478,7 13.7033746,7.76262678 13.7033746,8.70337459 C13.7033746,8.77120548 13.6993229,8.83897581 13.6912412,8.90632353 L13.0743794,14.0468382 C13.0091172,14.5906903 12.5477538,15 12,15 C11.4522462,15 10.9908828,14.5906903 10.9256206,14.0468382 L10.3087588,8.90632353 C10.1966732,7.97227682 10.8630043,7.12421902 11.7970511,7.01213341 C11.8643988,7.00405169 11.9321691,7 12,7 Z" id="矩形" fill="#FFFFFF" fill-rule="nonzero"></path>
+                    <rect id="矩形备份-19" fill="#FFFFFF" fill-rule="nonzero" x="10.4" y="15.8" width="3.2" height="3.2" rx="1.6"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

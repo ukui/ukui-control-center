@@ -1,0 +1,49 @@
+name: Check build
+
+on:
+  push:
+    branches: 
+    - dev-unity
+  pull_request:
+    branches: 
+    - dev-unity
+
+jobs:
+  ubuntu-latest:
+    name: on Ubuntu Latest
+    runs-on: ubuntu-20.04
+    container: docker.io/library/ubuntu:latest
+    env:
+      DEBIAN_FRONTEND: noninteractive
+    steps:
+      - name: Checkout ukui-control-center source code
+        uses: actions/checkout@v2
+      - name: Update apt repository
+        run: apt-get update -y
+      - name: Install build dependencies
+        run: apt-get install -y build-essential qt5-default qttools5-dev-tools pkg-kde-tools pkg-config libqt5svg5-dev libgsettings-qt-dev libglib2.0-dev libmatekbd-dev libqt5x11extras5-dev libxklavier-dev libkf5widgetsaddons-dev libkf5config-dev libkf5configwidgets-dev libkf5screen-dev libkf5screen-bin libkf5i18n-dev libkf5windowsystem-dev libkf5guiaddons-dev libkf5coreaddons-dev qtdeclarative5-dev libdconf-dev libmatemixer-dev qtmultimedia5-dev libxml2-dev qtbase5-dev libcanberra-dev libmate-desktop-dev libx11-dev libxkbfile-dev libboost-dev qttools5-dev-tools libxcb-xkb-dev libpam0g-dev
+      - name: QMake configure & Make
+        run: |
+          mkdir build;
+          cd build;
+          qmake ..;
+          make -j$(nproc);
+  ubuntu-rolling:
+    name: on Ubuntu Rolling
+    runs-on: ubuntu-20.04
+    container: docker.io/library/ubuntu:rolling
+    env:
+      DEBIAN_FRONTEND: noninteractive
+    steps:
+      - name: Checkout ukui-control-center source code
+        uses: actions/checkout@v2
+      - name: Update apt repository
+        run: apt-get update -y
+      - name: Install build dependencies
+        run: apt-get install -y build-essential qt5-default qttools5-dev-tools pkg-kde-tools pkg-config libqt5svg5-dev libgsettings-qt-dev libglib2.0-dev libmatekbd-dev libqt5x11extras5-dev libxklavier-dev libkf5widgetsaddons-dev libkf5config-dev libkf5configwidgets-dev libkf5screen-dev libkf5screen-bin libkf5i18n-dev libkf5windowsystem-dev libkf5guiaddons-dev libkf5coreaddons-dev qtdeclarative5-dev libdconf-dev libmatemixer-dev qtmultimedia5-dev libxml2-dev qtbase5-dev libcanberra-dev libmate-desktop-dev libx11-dev libxkbfile-dev libboost-dev qttools5-dev-tools libxcb-xkb-dev libpam0g-dev
+      - name: QMake configure & Make
+        run: |
+          mkdir build;
+          cd build;
+          qmake ..;
+          make -j$(nproc);       

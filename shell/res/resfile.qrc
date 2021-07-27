@@ -1,0 +1,227 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>plugins/desktop/trash.png</file>
+        <file>plugins/desktop/homefolder.png</file>
+        <file>plugins/desktop/default.png</file>
+        <file>plugins/desktop/computer.png</file>
+        <file>plugins/printer/add.png</file>
+        <file>plugins/printer/printer.png</file>
+        <file>plugins/keyboardcontrol/add.png</file>
+        <file>plugins/vpn/add.png</file>
+        <file>plugins/userinfo/add.png</file>
+        <file>dropArrow/downpx.png</file>
+        <file>plugins/fonts/bigRoller.png</file>
+        <file>plugins/fonts/smallRoller.png</file>
+        <file>plugins/shortcut/add.png</file>
+        <file>plugins/shortcut/note.png</file>
+        <file>plugins/screenlock/none.png</file>
+        <file>plugins/about/logo.png</file>
+        <file>plugins/fonts/down.png</file>
+        <file>plugins/fonts/up.png</file>
+        <file>plugins/userinfo/default.png</file>
+        <file>plugins/autoboot/add.png</file>
+        <file>plugins/autoboot/desktop.png</file>
+        <file>plugins/shortcut/down.png</file>
+        <file>plugins/shortcut/up.png</file>
+        <file>plugins/about/galaxyUnicorn.png</file>
+        <file>plugins/about/logoukui.png</file>
+        <file>homepage/account.svg</file>
+        <file>homepage/datetime.svg</file>
+        <file>homepage/devices.svg</file>
+        <file>homepage/network.svg</file>
+        <file>homepage/noticeandtasks.svg</file>
+        <file>homepage/personalized.svg</file>
+        <file>homepage/system.svg</file>
+        <file>homepage/update.svg</file>
+        <file>secondaryleftmenu/Defaultapp.svg</file>
+        <file>secondaryleftmenu/DefaultappWhite.svg</file>
+        <file>secondaryleftmenu/Desktop.svg</file>
+        <file>secondaryleftmenu/DesktopWhite.svg</file>
+        <file>secondaryleftmenu/Experienceplan.svg</file>
+        <file>secondaryleftmenu/ExperienceplanWhite.svg</file>
+        <file>secondaryleftmenu/Notice.svg</file>
+        <file>secondaryleftmenu/NoticeWhite.svg</file>
+        <file>secondaryleftmenu/Screensaver.svg</file>
+        <file>secondaryleftmenu/ScreensaverWhite.svg</file>
+        <file>secondaryleftmenu/Shortcut.svg</file>
+        <file>secondaryleftmenu/ShortcutWhite.svg</file>
+        <file>secondaryleftmenu/Update.svg</file>
+        <file>secondaryleftmenu/UpdateWhite.svg</file>
+        <file>titlebar/close.svg</file>
+        <file>titlebar/max.svg</file>
+        <file>titlebar/revert.svg</file>
+        <file>primaryleftmenu/account.svg</file>
+        <file>primaryleftmenu/checked.svg</file>
+        <file>primaryleftmenu/devices.svg</file>
+        <file>primaryleftmenu/homepage.svg</file>
+        <file>primaryleftmenu/network.svg</file>
+        <file>primaryleftmenu/noticeandtasks.svg</file>
+        <file>primaryleftmenu/personalized.svg</file>
+        <file>primaryleftmenu/system.svg</file>
+        <file>primaryleftmenu/update.svg</file>
+        <file>primaryleftmenu/datetime.svg</file>
+        <file>titlebar/min.svg</file>
+        <file>titlebar/back.svg</file>
+        <file>secondaryleftmenu/NetworkAccount.svg</file>
+        <file>secondaryleftmenu/NetworkAccountWhite.svg</file>
+        <file>plugins/netconnect/eth.svg</file>
+        <file>plugins/netconnect/nonet.svg</file>
+        <file>plugins/securitycenter/kysec.png</file>
+        <file>plugins/securitycenter/kysecHover.png</file>
+        <file>plugins/securitycenter/net.png</file>
+        <file>plugins/securitycenter/netHover.png</file>
+        <file>plugins/securitycenter/protect.png</file>
+        <file>plugins/securitycenter/protectHover.png</file>
+        <file>plugins/securitycenter/user.png</file>
+        <file>plugins/securitycenter/userHover.png</file>
+        <file>plugins/theme/selected.svg</file>
+        <file>plugins/shortcut/up.svg</file>
+        <file>plugins/shortcut/down.svg</file>
+        <file>plugins/update/update.png</file>
+        <file>plugins/mouse/double-click-maybe.png</file>
+        <file>plugins/mouse/double-click-off.png</file>
+        <file>plugins/mouse/double-click-on.png</file>
+        <file>titlebar/add.svg</file>
+        <file>plugins/update/update.svg</file>
+        <file>secondaryleftmenu/SecurityCenter.svg</file>
+        <file>secondaryleftmenu/SecurityCenterWhite.svg</file>
+        <file>plugins/about/logoukui.svg</file>
+        <file>plugins/userinfo/notice.png</file>
+        <file>plugins/userinfo/pwdEncrypted.png</file>
+        <file>plugins/userinfo/pwdUnscramble.png</file>
+        <file>plugins/userinfo/close.svg</file>
+        <file>plugins/userinfo/delete.png</file>
+        <file>plugins/userinfo/type.svg</file>
+        <file>plugins/userinfo/password.svg</file>
+        <file>plugins/userinfo/deluser.svg</file>
+        <file>plugins/netconnect/addnet.svg</file>
+        <file>plugins/backup/Warning-bro.svg</file>
+        <file>plugins/wallpaper/setColor.png</file>
+        <file>titlebar/resetBgd.svg</file>
+        <file>titlebar/openLocal.svg</file>
+        <file>plugins/datetime/date.svg</file>
+        <file>plugins/datetime/time.png</file>
+        <file>plugins/display/bright.svg</file>
+        <file>plugins/display/dark.svg</file>
+        <file>plugins/operatingmode/PadMode.png</file>
+        <file>plugins/operatingmode/PCMode.png</file>
+        <file>plugins/mouse/slider.svg</file>
+        <file>plugins/power/Battery.svg</file>
+        <file>plugins/power/BatteryWhite.svg</file>
+        <file>plugins/power/Supply.svg</file>
+        <file>plugins/power/SupplyWhite.svg</file>
+        <file>plugins/proxy/icon.png</file>
+        <file>plugins/theme/Light color.png</file>
+        <file>plugins/theme/system default.png</file>
+        <file>plugins/theme/dark mode.png</file>
+        <file>plugins/netconnect/info.svg</file>
+        <file>secondaryleftmenu/SafeeyeWhite.svg</file>
+        <file>secondaryleftmenu/Safeeye.svg</file>
+        <file>plugins/userinfo/phone.svg</file>
+        <file>plugins/userinfo/phonenum.svg</file>
+        <file>plugins/userinfo/smscode.svg</file>
+        <file>dropArrow/ukui-control center-tab selected.svg</file>
+        <file>dropArrow/LOGO.png</file>
+        <file>dropArrow/search.svg</file>
+        <file>plugins/datetime/time-zone.png</file>
+        <file>plugins/datetime/Time.png</file>
+        <file>plugins/netconnect/pb-top-network-offline.png</file>
+        <file>plugins/netconnect/pb-network-online.png</file>
+        <file>plugins/netconnect/pb-network-offline.png</file>
+        <file>plugins/theme/close_white.svg</file>
+        <file>plugins/theme/disabled.svg</file>
+        <file>plugins/theme/notselected_default.svg</file>
+        <file>plugins/theme/notselected_hover.svg</file>
+        <file>plugins/theme/selected_click.svg</file>
+        <file>plugins/theme/selected_default.svg</file>
+        <file>plugins/theme/selected_hover.svg</file>
+        <file>plugins/userinfo/successed.png</file>
+        <file>plugins/netconnect/wifion5.png</file>
+        <file>plugins/netconnect/wifion1.png</file>
+        <file>plugins/netconnect/wifion2.png</file>
+        <file>plugins/netconnect/wifion3.png</file>
+        <file>plugins/netconnect/wifion4.png</file>
+        <file>secondaryleftmenu/Userinfo.svg</file>
+        <file>secondaryleftmenu/UserinfoWhite.svg</file>
+        <file>secondaryleftmenu/Bluetooth.svg</file>
+        <file>secondaryleftmenu/BluetoothWhite.svg</file>
+        <file>plugins/pen/setting-illus-pen.png</file>
+        <file>secondaryleftmenu/Date &amp; Time.svg</file>
+        <file>secondaryleftmenu/Date &amp; TimeWhite.svg</file>
+        <file>secondaryleftmenu/Displays.svg</file>
+        <file>secondaryleftmenu/DisplaysWhite.svg</file>
+        <file>secondaryleftmenu/Fonts.svg</file>
+        <file>secondaryleftmenu/FontsWhite.svg</file>
+        <file>secondaryleftmenu/Keyboard.svg</file>
+        <file>secondaryleftmenu/KeyboardWhite.svg</file>
+        <file>secondaryleftmenu/Language &amp; Region.svg</file>
+        <file>secondaryleftmenu/Language &amp; RegionWhite.svg</file>
+        <file>secondaryleftmenu/StartupWhite.svg</file>
+        <file>secondaryleftmenu/Startup.svg</file>
+        <file>secondaryleftmenu/LockscreenWhite.svg</file>
+        <file>secondaryleftmenu/Lockscreen.svg</file>
+        <file>secondaryleftmenu/Mouse.svg</file>
+        <file>secondaryleftmenu/MouseWhite.svg</file>
+        <file>secondaryleftmenu/Network.svg</file>
+        <file>secondaryleftmenu/NetworkWhite.svg</file>
+        <file>secondaryleftmenu/Pen.svg</file>
+        <file>secondaryleftmenu/PenWhite.svg</file>
+        <file>secondaryleftmenu/Battery.svg</file>
+        <file>secondaryleftmenu/BatteryWhite.svg</file>
+        <file>secondaryleftmenu/PrintersWhite.svg</file>
+        <file>secondaryleftmenu/Printers.svg</file>
+        <file>secondaryleftmenu/ProxyWhite.svg</file>
+        <file>secondaryleftmenu/Proxy.svg</file>
+        <file>secondaryleftmenu/System Recovery.svg</file>
+        <file>secondaryleftmenu/System RecoveryWhite.svg</file>
+        <file>secondaryleftmenu/Operation Mode.svg</file>
+        <file>secondaryleftmenu/Operation ModeWhite.svg</file>
+        <file>secondaryleftmenu/Theme.svg</file>
+        <file>secondaryleftmenu/ThemeWhite.svg</file>
+        <file>secondaryleftmenu/Trackpad.svg</file>
+        <file>secondaryleftmenu/TrackpadWhite.svg</file>
+        <file>secondaryleftmenu/Sounds .svg</file>
+        <file>secondaryleftmenu/Sounds White.svg</file>
+        <file>secondaryleftmenu/VPN.svg</file>
+        <file>secondaryleftmenu/VPNWhite.svg</file>
+        <file>secondaryleftmenu/Wallpaper.svg</file>
+        <file>secondaryleftmenu/WallpaperWhite.svg</file>
+        <file>plugins/userinfo/qring.png</file>
+        <file>plugins/userinfo/delete.svg</file>
+        <file>plugins/userinfo/num-delete.svg</file>
+        <file>plugins/pen/open_inuse.png</file>
+        <file>plugins/netconnect/wifi5.png</file>
+        <file>plugins/netconnect/wifi4.png</file>
+        <file>plugins/netconnect/wifi3.png</file>
+        <file>plugins/netconnect/wifi2.png</file>
+        <file>plugins/netconnect/wifi1.png</file>
+        <file>plugins/netconnect/wifionpwd1.svg</file>
+        <file>plugins/netconnect/wifionpwd2.svg</file>
+        <file>plugins/netconnect/wifionpwd3.svg</file>
+        <file>plugins/netconnect/wifipwd5 .svg</file>
+        <file>plugins/netconnect/wifipwd4.svg</file>
+        <file>plugins/netconnect/wifipwd3.svg</file>
+        <file>plugins/netconnect/wifipwd2.svg</file>
+        <file>plugins/netconnect/wifionpwd5.svg</file>
+        <file>plugins/netconnect/wifionpwd4.svg</file>
+        <file>plugins/netconnect/wifipwd1.svg</file>
+        <file>dropArrow/Logo.png</file>
+        <file>plugins/pen/setting-illus-pen_small.png</file>
+        <file>plugins/backup/Low battery.svg</file>
+        <file>plugins/backup/System Recovery.svg</file>
+        <file>plugins/backup/window-close-symbolic.svg</file>
+        <file>secondaryleftmenu/About &amp; Support.svg</file>
+        <file>secondaryleftmenu/About &amp; SupportWhite.svg</file>
+        <file>plugins/userinfo/settingedit.svg</file>
+        <file>plugins/userinfo/warning.svg</file>
+        <file>plugins/backup/setting-reset.svg</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>global.qss</file>
+        <file>combox.qss</file>
+        <file>plugins/update/update.png</file>
+        <file>dpinyin.dict</file>
+        <file>i18n/zh_CN.ts</file>
+        <file>i18n/en_US.ts</file>
+    </qresource>
+</RCC>

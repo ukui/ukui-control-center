@@ -1,0 +1,9 @@
+<schemalist gettext-domain="ukui-control-center">
+  <schema id="org.ukui.control-center.experienceplan" path="/org/ukui/control-center/experienceplan/">
+    <key name="join" type="b">
+      <default>true</default>
+      <summary>join user experience plan</summary>
+      <description>Whether this plugin would be activated by ukui-settings-daemon or not</description>
+    </key>
+  </schema>
+</schemalist>

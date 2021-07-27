@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=System Settings
+Name[zh_CN]=系统设置
+Name[zh_HK]=系统设置
+Name[zh_TW]=系统设置
+Name[tr]=Denetim Merkezi
+Comment=UKUI控制面板
+Comment[tr]=UKUI Kontrol Merkezi
+Icon=ukui-control-center
+Exec=ukui-control-center
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Qt;Settings;
+OnlyShowIn=UKUI;
+Keywords=UKUI;control;center;configuration;tool;destop;preferences;

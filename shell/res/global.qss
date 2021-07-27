@@ -1,0 +1,23 @@
+/*通用label*/
+QLabel{
+    font-size:14px; color: #D9000000;
+}
+
+/*首页模块标题label*/
+QLabel#mptitleLabel{
+    font-size: 16px; color: #DE000000;
+}
+
+/*功能页标题label*/
+QLabel#titleLabel, #title2Label, #title3Label{
+    font-size: 18px; color: #BF000000;
+}
+
+/*时钟label*/
+QLabel#timeClockLable{
+    font-size: 24px; QFont::Bold;
+}
+
+QPushButton{
+    font-size:14px;
+}

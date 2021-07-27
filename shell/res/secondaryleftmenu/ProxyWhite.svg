@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>proxy</title>
+    <g id="Icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon-Sets" transform="translate(-212.000000, -2458.000000)" fill-rule="nonzero">
+            <g id="编组-9" transform="translate(0.000000, 2401.000000)">
+                <g id="proxy" transform="translate(212.000000, 57.000000)">
+                    <rect id="矩形" fill="#000000" opacity="0" x="0" y="0" width="16" height="16"></rect>
+                    <rect id="矩形" fill="#FFFFFF" x="2" y="8" width="5.5" height="3" rx="1.5"></rect>
+                    <path d="M2.5,12 L4.5,12 C4.77614237,12 5,12.2238576 5,12.5 L5,14.5 C5,14.7761424 4.77614237,15 4.5,15 L3.5,15 C2.67157288,15 2,14.3284271 2,13.5 L2,12.5 C2,12.2238576 2.22385763,12 2.5,12 Z" id="矩形备份-2" fill="#FFFFFF"></path>
+                    <path d="M11.5,12 L13.5,12 C13.7761424,12 14,12.2238576 14,12.5 L14,13.5 C14,14.3284271 13.3284271,15 12.5,15 L11.5,15 C11.2238576,15 11,14.7761424 11,14.5 L11,12.5 C11,12.2238576 11.2238576,12 11.5,12 Z" id="矩形备份-4" fill="#FFFFFF"></path>
+                    <rect id="矩形备份-3" fill="#FFFFFF" x="6" y="12" width="4" height="3" rx="1.5"></rect>
+                    <rect id="矩形备份" fill="#FFFFFF" x="8.5" y="8" width="5.5" height="3" rx="1.5"></rect>
+                    <path d="M8,1 C10.6666667,3.49702944 12,5.49702944 12,7 L12,7 L9.33333333,7 C9.33333333,6.49900981 8.88888889,5.83234315 8,5 C7.11111111,5.83234315 6.66666667,6.49900981 6.66666667,7 L4,7 C4,5.49702944 5.33333333,3.49702944 8,1 Z" id="形状结合" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

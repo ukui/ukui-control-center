@@ -1,0 +1,19 @@
+<schemalist gettext-domain="ukui-control-center">
+  <schema id="org.ukui.control-center.wifi.switch" path="/org/ukui/control-center/wifi/switch/">
+    <key type="b" name="switch">
+      <default>true</default>
+      <summary>wifi switch</summary>
+      <description>wifi switch</description>
+    </key>
+    <key type="b" name="wificard">
+      <default>true</default>
+      <summary>Wireless network card</summary>
+      <description>Determine if the wireless network card is inserted</description>
+    </key>
+    <key type="b" name="switchor">
+      <default>true</default>
+      <summary>wifi switchor</summary>
+      <description>wifi switch of kylin network manager</description>
+    </key>
+  </schema>
+</schemalist>

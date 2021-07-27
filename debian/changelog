@@ -1,0 +1,623 @@
+ukui-control-center (3.0.4-2+2021-0714) v101; urgency=medium
+
+  * Fix:解决锁屏设置为永不后，重启控制面板设置失效问题。
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Wed, 14 Jul 2021 17:13:09 +0800
+
+ukui-control-center (3.0.4-2+2021-0712) v101; urgency=medium
+
+  * Fix: 修复将锁屏调节到从不后，手动设置锁屏不生效问题 #65801
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Mon, 12 Jul 2021 15:18:16 +0800
+
+ukui-control-center (3.0.4-2+2021-0709.2) v101; urgency=medium
+
+  * Fix: 修复将锁屏调节到从不后，手动设置锁屏不生效问题 #65801
+
+ -- zhangpengfei <zhangpengfei@kylinos.cn>  Fri, 09 Jul 2021 17:28:50 +0800
+
+ukui-control-center (3.0.4-2+2021-0519) v101; urgency=medium
+
+  * Fix: 修复锁屏时间设置失效问题
+  * Fix: 修复护眼中心切换主题控制面板不生效问题
+  * Fix: 去除声卡off配置文件
+  * Fix: Variable miss use or lack a default value.
+  * Fix: When drag the title by with touch pen, the drag status will never get release.
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Tue, 18 May 2021 13:36:40 +0800
+
+ukui-control-center (3.0.4-1+2021-0421-1) v101; urgency=medium
+
+  * Fix: 修复平板模式下只有一个屏幕打开屏幕显示为镜像屏幕的问题.
+  * Feature: 去除自动旋转功能,外显不可以放在上下.
+  * Feature: 去除开机启动、光标主题、字体、操作模式、电源自定义模式,去掉更改时区功能、语言与地区.
+  * Fix: Adjust ui of netconnect according to blueprint.#45491
+  * Fix: 在更换头像界面增加监听用户名变化功能. #47495
+  * Feature: 增加用户改名功能. #46210
+  * Fix: 在更换头像界面增加监听用户名变化功能. #47495
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Tue, 20 Apr 2021 14:22:12 +0800
+
+ukui-control-center (3.0.4-1+2021-0414-1) v101; urgency=medium
+
+  * Fix: 优化搜索条目
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Mon, 12 Apr 2021 14:43:36 +0800
+
+ukui-control-center (3.0.4-1+2021-0406-1) v101; urgency=medium
+
+  * Fix: 设置默认的提示音量为50
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Tue, 06 Apr 2021 10:19:43 +0800
+
+ukui-control-center (3.0.4-1+2021-0331-1) v101; urgency=medium
+
+  * Fix: Translation problems.#34111 #34119
+  * Fix: Display problem.#25906
+  * Fix: 去掉夜间模式自定义时间.#44970
+  * Fix: 去掉VPN插件
+  * Fix: 修复平板模式依然可以设置为扩展模式的问题.#43247
+  * Fix: 修复4K屏镜像模式失败的问题.#44518
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Mon, 29 Mar 2021 15:18:03 +0800
+
+ukui-control-center (3.0.4-1+2021-0324-1) v101; urgency=medium
+
+  * Fix: 修改about界面hp插件的刷新按钮.
+  * Fix: 修复切换为镜像模式控制面板崩溃问题. #43895
+  * Fix: 更改关于模块名称.#44036
+  * Fix: Add a power dialog when system recovery.#43552
+  * Fix: Change new phone's vercode.#43553
+  * Fix: 修复禁用控制面板后仍然可以启动.#44271
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Tue, 23 Mar 2021 09:30:03 +0800
+
+ukui-control-center (3.0.4-1+2021-0319-1.1) v101; urgency=medium
+
+  * Fix: Add a power dialog when system recovery.
+  * Fix: 添加XML文件内容异常判断.
+  * Fix: 修复偶然拖动无效的问题.
+  * Fix: 修复默认不是跟随日出日落.
+  * Fix: The problem that the system authorization does not work when the synchronization time is turned on and off by ordinary users.#39771
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Fri, 19 Mar 2021 11:28:26 +0800
+
+ukui-control-center (3.0.4-1+2021-0316-1) v101; urgency=medium
+
+  * Fix: 解决打开控制点击声音控制面板退出的问题.
+  * Fix: Two automatic rotation boxes appear.#42626
+  * Fix: The local wallpaper browsing window style of the lock screen interface has no border processing; The control panel flashes when the screen is folded.#41480 #41748
+  * Fix: Adjust the background color and lock the screen UI.
+  * Fix: Adjust translation.
+  * Fix: username can not. #42608
+
+ -- zhouxiali <zhouxiali@kylinos.cn> Tue, 16 Mar 2021 15:20:18 +0800
+
+ukui-control-center (3.0.4-1+2021-0315-1) v101; urgency=medium
+
+  * Fix: Click the sound plugin to flash back. #42594
+  * Fix: 解决控制面板中没有输入反馈的问题.
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Mon, 15 Mar 2021 10:38:46 +0800
+
+ukui-control-center (3.0.4-1+2021-0313-1) v101; urgency=medium
+
+  * Fix: 切换到平板模式，打开屏幕会导致控制面板最小化，调整电源UI.#41996,
+  * Fix: 开启控制面板时预加载蓝牙插件.
+  * Fix: Wifi list will refresh two times when opened wifi switch.#34096
+  * Fix: Control center crashed by connecting wifi.#42030
+  * Fix: Adjust about and touch pad UI,Shortcuts to switch on-screen mode display drop-down menus will not be disabled.
+  * Fix: Fixed an issue where opening the control panel again caused the control panel to flash back. #42311
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Sat, 13 Mar 2021 10:15:24 +0800
+
+ukui-control-center (3.0.4-1+2021-0310-1.1) v101; urgency=medium
+
+  * Fix: 修复光标速度关闭后重新打开控制面板打开光标速度开关，光标依然为最低值的问题.#42076
+  * Fix: 修复切换镜像模式和拓展模式后显示器名称错误的问题.#40210 #40136
+  * Fix: hp plugin size.
+  * Fix: 调整触摸板UI.
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Wed, 10 Mar 2021 14:22:16 +0800
+
+ukui-control-center (3.0.4-1+2021-0308-1) v101; urgency=medium
+
+  * Feature: Add HP plug-in in about interface .
+  * Fix: When the lock screen is not set, the lock screen wallpaper follows
+    the background wallpaper.#40894
+  * Fix: 优化搜索条目.#37993
+  * Fix: 添加按F1调出用户手册功能.
+  * Fix: tablet-mode,Press the night mode button and the window shake.#41580
+  * Fix: 修复在某些机器上never显示不去问题.
+  * Fix: 修复全天夜间模式不生效问题.#41178
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Mon, 08 Mar 2021 13:48:58 +0800
+
+ukui-control-center (3.0.4-1+2021-0303-1) v101; urgency=medium
+
+  * Fix: Net will not be connect automatically when clicked in control center.
+  * Fix: 点击夜间模式窗口抖动问题. #36964
+  * Fix: 窗口右上角最大最小关闭ToolTip样式. #34255
+  * Fix: The updated version displays the content.
+  * Fix: Optimize printer loading speed.
+  * Fix: media input and media output.
+  * Fix: Switching tablet mode causes the cursor speed slider to
+    disappear.#37437
+  * Fix: about 中过滤掉软盘.
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Wed, 03 Mar 2021 15:35:46 +0800
+
+ukui-control-center (3.0.4-1+2021-0226-1) v101; urgency=medium
+
+  * Fix: 加快时间刷新速度，避免打开时显示空白
+  * Fix: 去除冗余代码，调整“屏幕”弹窗UI
+  * Fix: 修复旋转屏幕后控制面板大小异常问题
+  * Fix: 解决触控板设置速度后不生效的问题，添加了滚轮移动滑块和点击移动滑块
+  * Fix: 优化控制面板启动速度
+  * Fix: 隐藏字体恢复默认功能
+  * Fix: 修复首次打开控制面板电源自定义为空的问题
+  * Fix: right-clicke is false 
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Fri, 26 Feb 2021 14:16:45 +0800
+
+ukui-control-center (3.0.4-1+2021-0224-1.1) v101; urgency=medium
+
+  * Fix: Change the traslation.
+  * Fix: Adjusting night mode time does not take effect. #39202
+  * Fix: Plugging and unplugging the monitor causes the monitor to overlap.#33183
+  * Fix: Changing time zone authorization popup is not on top.#39071
+  * Fix: 增加内存和硬盘信息显示总容量和可用容量. #33041
+  * Fix: 增加了多硬盘电脑的硬盘信息显示兼容性；#33018
+  * Fix: 增加优盘信息不显示处理.#37177
+  * Fix: 锁屏时间增加了2小时选项；将‘从不’改为‘永不’；优化了英文状态时'Never'的显示位置. #33933
+  * Fix: 切换语言后，时区显示问题.#34384
+  * Fix: Monitor mirror mode button synchronization problem.#36213
+  * Fix: Icon for unconnected Lan is not incorrect.
+  * Fix: Custom values can not be set to zero.#38435
+  * Fix: Fix translation for power.#38437
+  * Fix: The default theme icon is HP.
+  * Fix: Adjust the touchpad interface UI.
+  * Fix: Restore the interface authorization popup problem.
+  * Fix: Plug monitor will not pop up prompt window.#35433
+  * Fix: The search box cursor does not blink when the mouse speed is maximum.#37209
+  * Fix: Fixed mouse cursor speed slider issue.#37218
+  * Fix: Modify the display text in mirror mode.#35790
+  * Fix: Call kylin-nm with new cmd options & exchange resouce pictrues for wifi icons.#38506 #36977
+  * Fix: 修改压感笔的right-clicked默认值为false
+
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Wed, 24 Feb 2021 13:59:41 +0800
+
+ukui-control-center (3.0.4-1+2021-0205) v101; urgency=medium
+
+  * Fix: Button style and Control interval.
+  * Fix: Fix the translation.
+  * Fix: Synchronize sidebar button state.
+  * Fix: Adjust the search box color.#33472
+  * Fix: UI adjustment of the proxy interface.#33897
+  * Fix: Adjust the VPN interface.#32879
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Fri, 05 Feb 2021 14:09:19 +0800
+
+ukui-control-center (3.0.4-1+2021-0203) v101; urgency=medium
+
+  * Fix: Add tip when is no network.
+  * Fix: 在多任务视图中存在控制面板字体的问题.#34315
+  * Fix: Remove useless plugins,The default option is to follow the sunrise or
+    sunset. #35737
+  * Fix: Mouse speed setting reboot does not work.
+  * Fix：add about widget user manuals link jump.
+  * Fix: change interface from kylin-sso-backend.
+  * Fix: Update theme.cpp.
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Wed, 03 Feb 2021 10:54:05 +0800
+
+ukui-control-center (3.0.4-1+2021-0127) v101; urgency=medium
+
+  * Fix: Failed to switch locale but locale display succeeded.#34262
+  * Fix: Search results abnormal problems.
+  * Fix: Adjust the UI about the About interface.#35332
+  * Fix: Adjust the theme UI interface.#34943
+  * Fix: Adjust ui according to blueprint.#34779
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Wed, 27 Jan 2021 11:40:30 +0800
+
+ukui-control-center (3.0.4-1+2021-0125.1) v101; urgency=medium
+
+  * Fix: Clicking the mirror button does not respond to the problem. #35589
+  * Fix: The sound plugin failed to load.
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Mon, 25 Jan 2021 14:21:01 +0800
+
+ukui-control-center (3.0.4-1+2021-0123) v101; urgency=medium
+
+  * Fix: Clicking the mirror button does not respond to the problem. #35589
+  * Fix: UI adjustment. #34411 #34309 #34269 #34158 #34132 #34116 #33775
+    #33639
+  * Fix: Cannot input Chinese. #19693
+  * Fix: Modify settings in custom style.
+  * Fix: change set password page UI.
+  * Fix: Adjust the UI about the interface.#34214
+  * Fix: The icon on the left is not visible in dark mode.#35309
+  * Fix: The default automatic theme is not enabled. #32887
+  * Fix: The search box is not centered. #34318
+  * Fix: Automatic rotation into the tablet mode automatically open.#35379
+  * Fix: Modify night mode time popup in English.#35108
+  * Fix: There is no printer interface. #34951
+  * Fix: Right click on the background menu and you're actually going to go to
+    power.#35019
+  * Fix: Fill in touchpad miss slow and fast label. #35149
+  * Fix: Lan list disappeared when wifi switch status changed.#35045
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Sat, 23 Jan 2021 13:01:25 +0800
+
+ukui-control-center (3.0.4-1+2021-0120.1) v101; urgency=medium
+
+   * Fix: Modify restore popover UI. #34411
+   * Fix: Under English condition, the display of the screen auto-rotation
+     component is incomplete. #34309
+   * Fix: Change the screen module UI. #34269
+   * Fix: Change the English name of the system settings in the Start menu.
+     #34158
+   * Fix: Modify the popover style for the change language. #34132
+   * Fix: Adjust the Bluetooth interface UI. #34116
+   * Fix: Remove the opacity adjustment function. #33775
+   * Fix: Screen preview window translation issues. #33639
+   * Fix: Fixed an issue with switching WiFi lags. #34089
+   * Fix: optimize the user experience at adjust touchpad motion accel.
+   * Fix: Adjust gsettings value in power plugin.
+   * Fix: Add slider to adjust touchpad motion accel. #33743
+   * Fix: Change the English name of the left menu bar. #30718
+   * Feature: Add version number display.
+   * Fix: Adjust the left menu bar icon.
+   * Fix: Adjust the UI of userinfo.
+   * Fix: Adjust ui for netconnect according to blueprint.#30318
+   * Fix: Lan list get stuck when toggledn wifi switch. #34089
+   * Fix: 解决音效主题的两个选项内容相同的问题. #27937
+   * Fix: add qring.png
+   * Fix: Add QR code.
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Wed, 20 Jan 2021 17:24:55 +0800
+
+ukui-control-center (3.0.4-1+2021-0113) v101; urgency=medium
+
+  * Fix: BlanceVolume move so fast by touchPad.#27146
+  * Fix: Height of ui is incorrect & lan list is incorrect.#30823
+  * Fix: Modified the error message when changing the phone number and
+    retrieving the password.
+  * Feature: Temporarily disable other font options.
+  * Fix: The calendar switch causes the calendar format box to be blank.#30764
+  * Fix: No system version number.#32740
+  * Fix: Backup interface to add prompt box.#29974
+  * Fix: Logout will not prompt for password.
+  * Fix: touch pad double fingers move so fast.#27146
+  * Fix: WIN + P switch display mode control panel does not follow the
+    display.#25533
+  * Fix: The display preview window displays problems.#32572
+  * Fix: Monitor night mode adjustment time problem.#32312
+  * Fix: Gsetting key missing.#32642
+  * Fix: The mirror mode switch is invalid.#28507
+  * Feature: Display function cutting.#32738
+  * Fix: WifiList is static which can not be clicked to open kylin-nm.#32374
+  * Fix: Restore the prompt restart interface.
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Wed, 13 Jan 2021 10:23:25 +0800
+
+ukui-control-center (3.0.4-1+2021-0106.3) v101; urgency=medium
+
+  * Fix: In English mode, the calendar format is empty.#30764
+  * Fix: Moving screen flicker issue.
+  * Fix: Lock screen problem. #30474
+  * Fix: Adjust the Area popover UI. #30267
+  * Fix: Display coincidence problem #26789
+  * Fix: In English mode, the calendar format is empty.#30764 
+
+ -- sunfengsheng <sunfengsheng@kylinos.cn>  Wed, 06 Jan 2021 10:32:36 +0800
+
+ukui-control-center (3.0.3-1+2020-1230) v101; urgency=medium
+
+  * Feature: Add qr code authentication method & delete user dialog.
+  * Feature: Add change phone method.
+  * Fix: Display coincidence problem. #26789
+  * Fix: Lock screen problem. Adjust the Area popover. UI #30267
+  * Fix: Moving screen flicker issue.
+  * Fix: Fix the alertdialog display incomplete. #28536
+
+ -- zhangjiaping <zhangjiaping@kylinos.cn>  Wed, 30 Dec 2020 14:41:20 +0800
+
+ukui-control-center (3.0.3-1+2020-1227) v101; urgency=medium
+
+  * Fix: update gsettings name.
+  * Feature: Modify icon theme and cursor theme.
+  * Fix: Lock screen interface time will not change in real time. #29876
+  * Fix: The wallpaper is not arranged neatly. #29580
+  * Fix: inaccurate translation. #27876
+  * Fix: PC mode can save the user's current display mode. #29474
+  * Fix: Synchronous display mode.
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Sat, 26 Dec 2020 20:47:44 +0800
+
+ukui-control-center (3.0.3-1+2020-1223) v101; urgency=medium
+
+  * Fix: Wallpaper arrangement will not be saved.
+  * Fix: Optimize logic for auto rotation.
+  * Fix: There is no line between 'allday' & 'custom'.
+  * Fix: There is no wifi in wifi-list some time.
+  * Fix: Some application mouse cursor flicker speed does not take effect.
+  * Fix: Date map UI refactoring.
+  * Fix: Lock screen slider calibration adjustment.
+  * Fix: The base of color adjustment.
+  * Fix: Cancel to write config file when setting power mode.
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Wed, 23 Dec 2020 08:58:55 +0800
+
+ukui-control-center (3.0.3-1+2020-1216) v101; urgency=medium
+
+  * Fix: Turn on the monitor in mirror mode.
+  * Fix: Flash back after rotating the screen. 
+  * Fix: Turn on or off tablet-mode causes the ukui-control-center pop up multiple windows.
+  * Fix: Display in Chinese for morning and afternoon.
+  * Fix: The moving secondary screen has blank space. 
+  * Fix: Rename "close this monitor" to "Open this monitor"
+  * Fix: Bluetooth and stylus were not searched.
+  * Fix: Exist line in wallpaper.
+  * Fix: The lock screen date format cannot be changed.
+  * Fix: The half-screen display date screen is not complete.
+  * Fix: Restore the prompt box does not change with the theme.
+  * Fix: Restart control panel left title color exception.
+  * Fix: Blur switch is closed when frist time install operating system.
+  * Fix: Adjust ui for the power buttons.
+  * Fix: In English mode, the default font disappears.
+  * Fix: Some fonts do not take effect after the font style is set. 
+  * Fix: The popover does not change with the theme when switching languages.
+  * Fix: Icon themes disappeared.
+  * Fix: Automatic topic switching exception. Slider style issues.
+  * Fix: Display interface elongation problem.
+  * Fix: SuspendFrame is not hidden when do not choose custom mode.
+  * Feature: Check DbusInterface before using.
+  * Feature: Watch for auto-rotation switch status.
+  * Fix: The default input device cannot record.
+  * Fix: Cue tones filter to remove unwanted cue tones.
+  * Fix: Multiple screen rotations.  
+  * Fix: The touchpad setting is abnormal after swiping.
+
+ -- zhouxiali <zhouxiali@kylinos.cn>  Wed, 16 Dec 2020 10:21:25 +0800
+
+ukui-control-center (3.0.3-1+2020-1128) v101; urgency=medium
+
+  * Fix: Unable to set picture with .tiff suffix to be screenlock background.
+  * Fix: Disable handlemove event.
+  * Fix: Watch for gsettings values changing.
+  * Fix: Mainwindow is restored to be default size when placed on top
+  * Fix: Fix bugs for automatical theme.
+  * Fix: Window is unable to darg when exchange theme mode.
+  * Fix: Set 'idle-dim-time' in seconds instead of minutes.
+  * Fix: The theme RadioButton does not display.
+  * Fix: Search Box style problem.
+  * Fix: Fix:UI adjustment. Language area adjustment
+  * Fix: Transparency problems
+  * Feature: Adjust ui according to blueprint
+ -- zhangjiaping <zhangjiaping@kylinos.cn>  Sat, 28 Nov 2020 15:03:07 +0800
+
+ukui-control-center (3.0.2-1+2020-1126) v101; urgency=medium
+
+  * Fix: Adjust the background color according to the design draft
+  * Fix: Display、datetime、operatingmode UI adjustment and translation adjustment
+  * Fix: Control-center will be minimized when checked screenlock.
+  * Fix: Setting style to ukui-light failed.
+  * Fix: Overwrite wheelevent for left menu widget.
+  * Fix: There is only one theme icon
+  * Fix: time synchronization problem and time zone format problem
+  * Fix: Remove the "enter the power" function,Display optimization
+
+  * Feature: Add mouse acceleration function
+  * Feature: Remove paddings between group titles and plugin titles.
+  * Feature: New touch pen module
+ -- zhangjiaping <zhangjiaping@kylinos.cn>  Sat, 26 Nov 2020 9:20:26 +0800
+
+ukui-control-center (3.0.2-1+2020-1121) v101; urgency=medium
+
+  * Fix: Double-click in tablet mode to change the window size
+  * Fix: UI for netconnect is out of blueprint
+  * Fix: Desktop overlap problem optimization
+  * Fix: Control center stuck when turned or/off flight mode.
+  * Fix: Fixed mouse cursor speed adjustment slider that does not follow the switch display
+  * Fix: translation problems
+  * Fix: move 'bluetooth' to 'NET'
+  * Feature: Adjust UI for pen,display,bluetooth,audio,screensaver,datetime and printer
+  * Feature: Add function for automatically setting theme and brightness
+  * Feature: Adapt ukui-kwin
+  * Feature: Add new plugin 'pen'
+  * Feature: Removed the ability for administrators to modify other user avatars
+  * Feature: Removed the hover highlight effect on the left menu bar
+  * Feature: Modify config file when setting power mode.
+
+ -- zhangjiaping <zhangjiaping@kylinos.cn>  Sat, 21 Nov 2020 17:19:26 +0800
+
+ukui-control-center (3.0.1-1+2020-1117-2) v101; urgency=medium
+
+  * Fix: Unable to set images in .tiff format to be wallpaper.
+  * Fix: Modify gsettings value in tablet-mode when setting display rotations.
+  * Fix: Enable to connect network in control center.
+  * Feature: Adjust UI
+  * Feature: update interface.
+  * Feature: icon-theme changed.
+  * Feature: Add judging statement to prevent errors.
+  * Feature: Modify config file when setting power mode.
+
+ -- zhangjiaping <zhangjiaping@kylinos.cn>  Tue, 17 Nov 2020 14:23:12 +0800
+
+ukui-control-center (3.0.1-1+0917) v101; urgency=medium
+
+  * Feature: Modify the wallpaper module interface UI.
+  * Feature: Adjust ui according to bule print.
+  * Feature: Modify the BACKUP module UI interface.
+  * Feature: Add search box animation effect,adjust the UI style of the interface.
+  * Feature: Add mute icon button click Mute/Cancel mute function.
+  * Feature: Adjust ui for power and datetime according to blue print. 
+  * Fix: User list will not be refreshed when changing other users' face.
+  * Fix: Fix ukui-control-center open blank display problem.
+    Link: http://172.17.66.192/biz/bug-view-18543.html
+  * Fix: Display refresh rate modification does not take effect.
+    Link:http://172.17.66.192/biz/bug-view-8243.html
+  * Fix: Delete user ListWidgetItem when deleting operation failed.
+
+ -- leichen <leichen@kylinos.cn>  Thu, 17 Sep 2020 14:42:53 +0800
+
+ukui-control-center (3.0.0-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Thu, 30 Jul 2020 11:43:51 +0000
+
+ukui-control-center (2.0.5-1) unstable; urgency=medium
+
+  * New upstream release. (Closes: #964606)
+  * debian/control:
+    - Add libmatemixer-dev, qtmultimedia5-dev, libxml2-dev, qtbase5-dev,
+      libcanberra-dev to Build-Depends.
+    - Add qml-module-qtgraphicaleffects, edid-decode to Depends.
+    - Move edid-decode from Recommends to Depends.
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Sun, 12 Jul 2020 18:22:09 +0800
+
+ukui-control-center (2.0.4-1) unstable; urgency=medium
+
+  * New upstream bugfix release:
+    - Add judgement for gsettings to avoid crash.
+    - Add judgement for FormatsLocale to avoid crash.
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Tue, 07 Apr 2020 16:08:40 +0800
+
+ukui-control-center (2.0.3-1) unstable; urgency=medium
+
+  * New upstream bugfix release:
+    - Fix the wrong return value of QGsettings.
+    - Fix that failed to reset the theme.
+    - Fix the error when open display module.
+    - Fix that the settings been reset on multi-screen.
+    - Fix that the user information display incomplete.
+    - Fix a memory leak.
+    - Remove the useless component.
+    - Fix that can't switch to the submodule when it already opened.
+    - Fix the wrong default value of power plan.
+    - Avoid crash when set default app.
+    - Fix the error when create user.
+    - Fix the spelling errors in zh_CN.ts.
+    - Fix that the function of adjust brightness didn't work.
+    - Fix the error when set shortcuts.
+    - Fix the error when the path of background contains chinese.
+  * debian/control:
+    - Add qml-module-qtquick-controls to depends. (LP: #1870934)
+    - Remove the unused build-depends libdbus-glib-1-dev.
+      (Closes: #955851)
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Tue, 07 Apr 2020 00:13:01 +0800
+
+ukui-control-center (2.0.2-1) unstable; urgency=medium
+
+  * New upstream bugfix release:
+    - Avoid crash when adjust the fonts and proxy.
+    - Fix that failed to create new user.
+    - Fix the memory leak in wallpaper module.
+    - Fix the segfault when delete gsettings.
+  * debian/control:
+    - Add build dependencies: edid-decode redshift.
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Mon, 30 Mar 2020 20:40:57 +0800
+
+ukui-control-center (2.0.1.1-1) unstable; urgency=medium
+
+  [ He Bing ]
+  * New upstream release.
+    - Migrate from gtk3.0 to Qt5.
+
+  [ handsome_feng ]
+  * Debian:
+    - Bump standard version to 4.5.0.
+    - Bump compat level to 12.
+    - Set Rules-Requires-Root to no.
+    - Refresh the depends and suggests.
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Sat, 21 Mar 2020 17:43:39 +0800
+
+ukui-control-center (1.1.6-2) unstable; urgency=medium
+
+  * Debian/control:
+    + Drop gnome-control-center-face. (Closes: #911061)
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Wed, 17 Oct 2018 14:04:33 +0800
+
+ukui-control-center (1.1.6-1) unstable; urgency=medium
+
+  * Change background-image when theme changed.
+  * Add theme settings page.
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Tue, 25 Sep 2018 11:15:48 +0800
+
+ukui-control-center (1.1.5-0ubuntu1) cosmic; urgency=medium
+
+  * Didn't show 'Sleep' when can't hibernate. (LP: #1762119)
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Sun, 23 Sep 2018 12:53:01 +0800
+
+ukui-control-center (1.1.4-0ubuntu1) cosmic; urgency=medium
+
+  * Adjust the width of the wallpaper layout. (LP: #1766506)
+  * Drop liboobs. (Closes: #888672)
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Tue, 10 Jul 2018 09:48:14 +0800
+
+ukui-control-center (1.1.3-0ubuntu1) bionic; urgency=medium
+
+  * Fix that user icon is incomplete when creating user.
+  * Fix that the default browser does not work.
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Wed, 18 Apr 2018 17:23:34 +0800
+
+ukui-control-center (1.1.2-0ubuntu1) bionic; urgency=medium
+
+  * Fix the issue that user icon can't be selected. (LP: #1755408)
+  * Highlight current selected font.
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Thu, 12 Apr 2018 19:35:12 +0800
+
+ukui-control-center (1.1.1-0ubuntu1) bionic; urgency=medium
+
+  * Adapt the ukwm windowmanager.
+  * Add brightness adjustment options.
+  * Only open one window at the same time. (LP: #1682134)
+  * Adjust the user-account's layout. (LP: #1755423)
+  * Fix error when adding launguage layout. (LP: #1755636)
+  * Remove some low resolution. (LP: #1755650)
+  * Fix the problem that can't preview screensavers. (LP: #1724156)
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Sat, 17 Mar 2018 16:17:33 +0800
+
+ukui-control-center (1.1.0-0ubuntu1) bionic; urgency=medium
+
+  * Update API of ukui-menus.
+  * Use GApplication to rewrite the command-line parameter.
+  * Update the shell/ukcc.css.
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Wed, 28 Feb 2018 14:10:06 +0800
+
+ukui-control-center (1.0.4-0ubuntu1) artful; urgency=medium
+
+  * Adjust the whole layout.
+  * Update translation.
+  * Update the icons.
+  * Add the page of screensaver-settings.
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Wed, 13 Sep 2017 11:31:55 +0800
+ukui-control-center (1.0.3-2) unstable; urgency=medium
+
+  * Use tracker.d.o team address (Closes: #899844)
+
+ -- Aron Xu <aron@debian.org>  Mon, 09 Jul 2018 14:40:01 +0800
+
+ukui-control-center (1.0.3-1) unstable; urgency=medium
+
+  * Initial release (Closes: #872964)
+
+ -- Aron Xu <aron@debian.org>  Sat, 26 Aug 2017 09:58:32 +0800

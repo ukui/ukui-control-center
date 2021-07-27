@@ -1,0 +1,39 @@
+<schemalist gettext-domain="ukui-control-center">
+  <schema id="org.ukui.control-center.personalise" path="/org/ukui/control-center/personalise/">
+    <key type="d" name="transparency">
+      <default>0.75</default>
+      <summary>Control the transparency of all components</summary>
+      <description>Control the transparency of all components</description>
+    </key>
+    <key type="i" name="blurry">
+      <default>3</default>
+      <summary>Control the frosted glass effect of the component</summary>
+      <description>1- Low effect;2-Middle effect;3-High effect</description>
+    </key>
+    <key type="b" name="effect">
+      <default>true</default>
+      <summary>Control panel special effects transmit signal</summary>
+      <description>ture:Special effects open; false: Special effects off</description>
+    </key>
+    <key type="b" name="mode">
+      <default>false</default>
+      <summary>Mode switch flag bit</summary>
+      <description>ture: Mode Switch; false: Move screen</description>
+    </key>
+    <key type="b" name="ischecked">
+      <default>true</default>
+      <summary>Control check status is ukui-control-center or ukui-siderbar pressed</summary>
+      <description>ture:ukui-control-center; false: ukui-siderbar</description>
+    </key>
+    <key type="i" name="cursor-speed">
+      <default>1200</default>
+      <summary>Control the cursor speed</summary>
+      <description>0-Low speed; 1200-High speed</description>
+    </key>
+    <key type="s" name="power-mode">
+      <default>'balance'</default>
+      <summary>Power mode status</summary>
+      <description>balance mode; saving mode</description>
+    </key>
+  </schema>
+</schemalist>

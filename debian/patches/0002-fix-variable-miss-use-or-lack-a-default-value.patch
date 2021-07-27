@@ -1,0 +1,184 @@
+From 43a7396ea231ed89f56c5addb280b87e0b194a4d Mon Sep 17 00:00:00 2001
+From: Hongfei Shang <shanghongfei@kylinos.cn>
+Date: Fri, 14 May 2021 19:53:19 +0800
+Subject: [PATCH 2/4] fix variable miss use or lack a default value.
+
+these miss use will cause segment fault by accident.
+
+Signed-off-by: Hongfei Shang <shanghongfei@kylinos.cn>
+---
+ plugins/devices/display/widget.cpp              |  1 +
+ plugins/system/audio/ukmedia_main_widget.cpp    |  5 +++--
+ shell/framelessExtended/widgethandlerealize.cpp | 17 ++++++++++++-----
+ shell/framelessExtended/widgethandlerealize.h   |  4 +++-
+ shell/modulepagewidget.cpp                      |  3 ++-
+ 5 files changed, 21 insertions(+), 9 deletions(-)
+
+diff --git a/plugins/devices/display/widget.cpp b/plugins/devices/display/widget.cpp
+index d7e8811..81c3f83 100644
+--- a/plugins/devices/display/widget.cpp
++++ b/plugins/devices/display/widget.cpp
+@@ -412,6 +412,7 @@ void DisplayWidget::hasAutoLight()
+         propertyMap = reply.value();
+         hasAutoLighted = propertyMap.find("HasAmbientLight").value().toBool();
+     } else {
++        hasAutoLighted = false;
+         qDebug() << "reply failed";
+     }
+     if (hasAutoLighted) {
+diff --git a/plugins/system/audio/ukmedia_main_widget.cpp b/plugins/system/audio/ukmedia_main_widget.cpp
+index 04c39dc..cc7a40e 100644
+--- a/plugins/system/audio/ukmedia_main_widget.cpp
++++ b/plugins/system/audio/ukmedia_main_widget.cpp
+@@ -75,6 +75,7 @@ UkmediaMainWidget::UkmediaMainWidget(QWidget *parent)
+     m_pOutputWidget = new UkmediaOutputWidget();
+     m_pInputWidget = new UkmediaInputWidget();
+     m_pSoundWidget = new  UkmediaSoundEffectsWidget();
++    m_pInitAlertVolumeSetting = NULL;
+ 
+     mThemeName = UKUI_THEME_WHITE;
+     QVBoxLayout *m_pvLayout = new QVBoxLayout();
+@@ -360,7 +361,7 @@ void UkmediaMainWidget::createAlertSound(UkmediaMainWidget *pWidget)
+             volume = int(volume*100/65536.0+0.5);
+             //如果为第一次运行需要关闭dp对应的配置文件
+ 
+-            if (m_pInitAlertVolumeSetting->keys().contains("alertSound")) {
++            if (m_pInitAlertVolumeSetting && m_pInitAlertVolumeSetting->keys().contains("alertSound")) {
+                 bool isInit = m_pInitAlertVolumeSetting->get(ALERT_SOUND).toBool();
+                 if (isInit) {
+                     volume = m_pInitAlertVolumeSetting->get(ALERT_VOLUME).toInt();
+@@ -3972,7 +3973,7 @@ void UkmediaMainWidget::executeVolumeUpdate(bool isMuted)
+     info.channel_map.channels = 1;
+     info.channel_map.map[0] = PA_CHANNEL_POSITION_MONO;
+     volume.channels = 1;
+-    if (m_pInitAlertVolumeSetting->keys().contains("alertSound")) {
++    if (m_pInitAlertVolumeSetting && m_pInitAlertVolumeSetting->keys().contains("alertSound")) {
+         bool isInit = m_pInitAlertVolumeSetting->get(ALERT_SOUND).toBool();
+         if (isInit) {
+             int alertVolume = m_pInitAlertVolumeSetting->get(ALERT_VOLUME).toInt();
+diff --git a/shell/framelessExtended/widgethandlerealize.cpp b/shell/framelessExtended/widgethandlerealize.cpp
+index 0c10ffd..362a179 100644
+--- a/shell/framelessExtended/widgethandlerealize.cpp
++++ b/shell/framelessExtended/widgethandlerealize.cpp
+@@ -20,7 +20,6 @@
+ #include "widgethandlerealize.h"
+ 
+ #include <QDebug>
+-#include <QGSettings>
+ #include <X11/Xlib.h>
+ #include <QtX11Extras/QX11Info>
+ #include <QApplication>
+@@ -33,6 +32,7 @@ WidgetHandleRealize::WidgetHandleRealize(FramelessHandlePrivate *_fpri, QWidget
+ 
+     leftBtnPressed = false;
+     cursorShapeChanged = false;
++    tablet_mode_settings = NULL;
+ 
+     currentWindowFlags = widgetInAction->windowFlags();
+ 
+@@ -46,17 +46,21 @@ WidgetHandleRealize::~WidgetHandleRealize()
+     widgetInAction->setMouseTracking(false);
+     widgetInAction->setWindowFlags(currentWindowFlags);
+     widgetInAction->setAttribute(Qt::WA_Hover, false);
++    if (tablet_mode_settings)
++        delete tablet_mode_settings;
+ }
+ 
+ QWidget * WidgetHandleRealize::currentWidget(){
+     return widgetInAction;
+ }
+ 
+-void WidgetHandleRealize::handleWidgetEvent(QEvent *event){
++bool WidgetHandleRealize::handleWidgetEvent(QEvent *event){
++    bool handled = true;
+     //监听平板模式切换
+     if(QGSettings::isSchemaInstalled("org.ukui.SettingsDaemon.plugins.tablet-mode")){
+-        QGSettings * tablet_mode =  new QGSettings("org.ukui.SettingsDaemon.plugins.tablet-mode", QByteArray(),this);
+-        is_tablet_mode = tablet_mode->get("tablet-mode").toBool();
++        if (!tablet_mode_settings)
++            tablet_mode_settings =  new QGSettings("org.ukui.SettingsDaemon.plugins.tablet-mode", QByteArray(),this);
++        is_tablet_mode = tablet_mode_settings->get("tablet-mode").toBool();
+         if(is_tablet_mode){
+             switch (event->type()){
+             case QEvent::MouseButtonPress:
+@@ -66,12 +70,13 @@ void WidgetHandleRealize::handleWidgetEvent(QEvent *event){
+                 handleMouseReleaseEvent(dynamic_cast<QMouseEvent *>(event));
+                 break;
+             case QEvent::Leave:
+-                handleLeaveEvent(dynamic_cast<QMouseEvent *>(event));
++                handleLeaveEvent(event);
+                 break;
+             case QEvent::HoverMove:
+                 handleHoverMoveEvent(dynamic_cast<QHoverEvent *>(event));
+                 break;
+             default:
++                handled = false;
+                 break;
+             }
+         } else {
+@@ -92,10 +97,12 @@ void WidgetHandleRealize::handleWidgetEvent(QEvent *event){
+                 handleHoverMoveEvent(dynamic_cast<QHoverEvent *>(event));
+                 break;
+             default:
++                handled = false;
+                 break;
+             }
+         }
+     }
++    return handled;
+ }
+ 
+ void WidgetHandleRealize::updateCursorShape(const QPoint &gMousePos){
+diff --git a/shell/framelessExtended/widgethandlerealize.h b/shell/framelessExtended/widgethandlerealize.h
+index 0a22a75..0ac5e75 100644
+--- a/shell/framelessExtended/widgethandlerealize.h
++++ b/shell/framelessExtended/widgethandlerealize.h
+@@ -25,6 +25,7 @@
+ #include <QEvent>
+ #include <QMouseEvent>
+ #include <QHoverEvent>
++#include <QGSettings>
+ 
+ #include "framelesshandleprivate.h"
+ #include "cursorposcalculator.h"
+@@ -39,7 +40,7 @@ public:
+ public:
+     QWidget * currentWidget();
+ 
+-    void handleWidgetEvent(QEvent * event);
++    bool handleWidgetEvent(QEvent * event);
+ 
+ private:
+     void updateCursorShape(const QPoint &gMousePos);
+@@ -57,6 +58,7 @@ private:
+     FramelessHandlePrivate * fpri;
+     QWidget * widgetInAction;
+     QPoint dragPos;
++    QGSettings* tablet_mode_settings;
+ 
+     CursorPosCalculator pressedMousePos;
+     CursorPosCalculator moveMousePos;
+diff --git a/shell/modulepagewidget.cpp b/shell/modulepagewidget.cpp
+index e032f0d..5844bd8 100644
+--- a/shell/modulepagewidget.cpp
++++ b/shell/modulepagewidget.cpp
+@@ -38,6 +38,7 @@ ModulePageWidget::ModulePageWidget(QWidget *parent) :
+     QWidget(parent),
+     ui(new Ui::ModulePageWidget)
+ {
++    qtSettings = NULL;
+     ui->setupUi(this);
+     //关闭菜单响应
+     ui->scrollArea->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+@@ -162,7 +163,7 @@ void ModulePageWidget::initUI(){
+ 
+         titleItem->setFlags((Qt::ItemFlag)0);
+         const QByteArray idd(THEME_QT_SCHEMA);
+-        if  (QGSettings::isSchemaInstalled(idd)){
++        if  (QGSettings::isSchemaInstalled(idd) && !qtSettings){
+             qtSettings = new QGSettings(idd);
+         }
+         currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
+-- 
+2.25.1
+

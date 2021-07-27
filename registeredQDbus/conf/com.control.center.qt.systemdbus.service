@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=com.control.center.qt.systemdbus
+Exec=/usr/bin/launchSysDbus
+User=root

@@ -1,0 +1,51 @@
+<schemalist gettext-domain="ukui-control-center">
+  <enum id="org.ukui.control-center.noticeorigin.Type">
+    <value value="0" nick="none"/>
+    <value value="1" nick="corner"/>
+    <value value="2" nick="all"/>
+  </enum>
+  <schema id="org.ukui.control-center.notice" path="/org/ukui/control-center/notice/">
+    <key name="show-new-feature" type="b">
+      <default>true</default>
+      <summary>Activation of this plugin</summary>
+      <description>Whether this plugin would be activated by ukui-settings-daemon or not</description>
+    </key>
+    <key name="enable-notice" type="b">
+      <default>true</default>
+      <summary>Show OSD notification</summary>
+      <description>Whether an OSD notification is shown to notify about changes</description>
+    </key>
+    <key name="show-on-lockscreen" type="b">
+      <default>true</default>
+      <summary>Eject</summary>
+      <description>Binding to eject an optical disc.</description>
+    </key>
+  </schema>
+  <schema id="org.ukui.control-center.noticeorigin">
+    <key name="messages" type="b">
+      <default>true</default>
+      <summary>messages notice</summary>
+      <description>.</description>
+    </key>
+    <key name="voice" type="b">
+      <default>true</default>
+      <summary>voice notice</summary>
+      <description>.</description>
+    </key>
+    <key name="maximize" type='i'>
+      <default>3</default>
+      <summary>maximize num of messages</summary>
+      <description>The maximize num of messages on notice window.</description>
+    </key>
+    <key name="name" type='s'>
+      <default>''</default>
+      <summary>app's name</summary>
+      <description>The name passed to the sidebar</description>
+    </key>
+    <key name="type" enum="org.ukui.control-center.noticeorigin.Type">
+      <default>'corner'</default>
+      <summary>type of notice message</summary>
+      <description>the type of notice in system.</description>
+    </key>
+    </schema>
+</schemalist>

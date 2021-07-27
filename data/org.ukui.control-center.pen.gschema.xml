@@ -1,0 +1,14 @@
+<schemalist gettext-domain="ukui-control-center">
+  <schema id="org.ukui.control-center.pen" path="/org/ukui/control-center/pen/">
+    <key name="right-click" type="b">
+      <default>false</default>
+      <summary>Map button to right-click</summary>
+      <description>Whether map button in pen to right-click</description>
+    </key>
+    <key name="multi-touch" type="b">
+      <default>true</default>
+      <summary>Multi touch function</summary>
+      <description>Whether open multi-touch</description>
+    </key>
+  </schema>
+</schemalist>
