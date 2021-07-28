@@ -283,7 +283,7 @@ void Power::InitUI(QWidget *widget)
     mPowerLayout->setContentsMargins(16, 0, 16, 0);
 
 
-    mPowerLabel = new QLabel(Powerwidget);
+    mPowerLabel = new QLabel(mPowerFrame);
     mPowerLabel->setMinimumSize(550,60);
 
     mPowerComboBox = new QComboBox(mPowerFrame);
