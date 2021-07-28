@@ -5,10 +5,10 @@ LanguageFrame::LanguageFrame(QString name, QWidget *parent)
     :QFrame(parent)
 {
     QHBoxLayout *layout = new QHBoxLayout(this);
-    this->setFixedHeight(50);
+    this->setFixedHeight(60);
     this->setFrameShape(QFrame::Box);
     this->setMinimumWidth(550);
-    this->setMaximumWidth(960);
+//    this->setMaximumWidth(960);
     layout->setContentsMargins(16,0,16,0);
 
     nameLabel = new QLabel();

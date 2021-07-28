@@ -30,6 +30,7 @@
 #include "utils/utils.h"
 #include "component/leftwidgetitem.h"
 #include "component/leftmenulist.h"
+#include <QScrollBar>
 
 ModulePageWidget::ModulePageWidget(QWidget *parent) :
     QWidget(parent),
@@ -53,8 +54,11 @@ void ModulePageWidget::initUI() {
 
     rightSizePolicy.setHorizontalStretch(5);
 
-
     ui->widget->setSizePolicy(rightSizePolicy);
+    ui->widget->setObjectName("widget");
+    ui->widget->setStyleSheet("QWidget#widget{background-color: palette(window);}");
+    ui->scrollArea->setStyleSheet("QScrollArea{background-color: palette(window);}");
+    ui->scrollArea->verticalScrollBar()->setProperty("drawScrollBarGroove", false);
 }
 
 void ModulePageWidget::switchPage(QObject *plugin, bool recorded){

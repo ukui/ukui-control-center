@@ -40,6 +40,7 @@
 #include "clock.h"
 #include <QButtonGroup>
 #include <QCalendarWidget>
+#include "Frame/hlineframe.h"
 
 const char kTimezoneDomain[] = "installer-timezones";
 const char kDefaultLocale[]  = "en_US.UTF-8";
@@ -162,6 +163,7 @@ void DateTime::initUI()
     m_itimer            = new QTimer(this);
     m_itimer->start(1000);
 
+    ui->frame_7->adjustSize();
     ui->showFrame->adjustSize();
 
     ui->frame_3->adjustSize();
@@ -304,7 +306,7 @@ void DateTime::initTimeShow()
 
     HoverWidget *addTimeWgt = new HoverWidget("");
     addTimeWgt->setObjectName("addTimeWgt");
-    addTimeWgt->setMinimumSize(QSize(580, 50));
+    addTimeWgt->setMinimumSize(QSize(580, 60));
 
     QPalette pal;
     QBrush brush = pal.highlight();  //获取window的色值
@@ -315,7 +317,7 @@ void DateTime::initTimeShow()
            .arg(highLightColor.green()*0.8 + 255*0.2)
            .arg(highLightColor.blue()*0.8 + 255*0.2);
 
-    addTimeWgt->setStyleSheet(QString("HoverWidget#addTimeWgt{background: palette(button); \
+    addTimeWgt->setStyleSheet(QString("HoverWidget#addTimeWgt{background: palette(base); \
                                                       border-radius: 4px;}\
                               HoverWidget:hover:!pressed#addTimeWgt{background: %1; \
                                                                     border-radius: 4px;}").arg(stringColor));
@@ -344,8 +346,8 @@ void DateTime::initTimeShow()
 
     // 悬浮改变Widget状态
     connect(addTimeWgt, &HoverWidget::enterWidget, this, [=](){
-        if (!ui->addFrame->isEnabled())
-            return;
+//        if (!ui->addFrame->isEnabled())
+//            return;
         iconLabel->setProperty("useIconHighlightEffect", false);
         iconLabel->setProperty("iconHighlightEffectMode", 0);
         QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "white", 12);
@@ -355,8 +357,8 @@ void DateTime::initTimeShow()
 
     // 还原状态
     connect(addTimeWgt, &HoverWidget::leaveWidget, this, [=](){
-        if (!ui->addFrame->isEnabled())
-            return;
+//        if (!ui->addFrame->isEnabled())
+//            return;
         iconLabel->setProperty("useIconHighlightEffect", true);
         iconLabel->setProperty("iconHighlightEffectMode", 1);
         QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
@@ -370,7 +372,7 @@ void DateTime::initTimeShow()
         int timesNum = timezonesList.size();
         if (timezonesList.size() >= MAX_TIMES) {
             timesNum = MAX_TIMES;
-            ui->addFrame->setEnabled(false);
+            //ui->addFrame->setEnabled(false);
             for (int i = MAX_TIMES; i < timezonesList.size(); ++i) {
                 timezonesList.removeLast();
             }
@@ -394,7 +396,7 @@ void DateTime::addTimezone(const QString &timezone)
     }
     timezonesList.append(timezone);
     if (timezonesList.size() >= MAX_TIMES) {
-        ui->addFrame->setEnabled(false);
+        //ui->addFrame->setEnabled(false);
     }
      if (m_formatsettings->keys().contains(TIMEZONES_KEY)) {
         m_formatsettings->set(TIMEZONES_KEY, timezonesList);
@@ -405,7 +407,10 @@ void DateTime::addTimezone(const QString &timezone)
 void DateTime::newTimeshow(const QString &timezone)
 {
     TimeBtn *timeBtn = new TimeBtn(timezone);
+    HLineFrame *line = new HLineFrame();
+
     ui->showLayout->addWidget(timeBtn);
+    ui->showLayout->addWidget(line);
     timeBtn->updateTime(m_formTimeBtn->isChecked());
     connect(timeBtn->deleteBtn, &QPushButton::clicked, this, [=](){
        timezonesList.removeOne(timezone);
@@ -413,6 +418,7 @@ void DateTime::newTimeshow(const QString &timezone)
            m_formatsettings->set(TIMEZONES_KEY, timezonesList);
        }
        timeBtn->close();
+       line->close();
     });
 
     connect(m_itimer, &QTimer::timeout, this, [=](){
@@ -470,7 +476,7 @@ void DateTime::initNtp()
         }
     });
 
-
+    ui->line_2->setVisible(false);
     const QString ntpFileName = "/etc/systemd/timesyncd.conf.d/kylin.conf";
     QFile ntpFile(ntpFileName);
     if (!ntpFile.exists()) {    //默认
@@ -488,6 +494,7 @@ void DateTime::initNtp()
                 ntpCombox->setCurrentIndex(i);
                 ntpLineEdit->setText(initAddress);
                 ui->ntpFrame_2->setVisible(true);
+                ui->line_2->setVisible(true);
                 break;
             }
         }
@@ -496,11 +503,13 @@ void DateTime::initNtp()
     ntpComboxPreId = ntpCombox->currentIndex();
 
     connect(ntpCombox, &QComboBox::currentTextChanged, this, [=](){
+        ui->line_2->setVisible(false);
         QString setAddr;
         if (m_formatsettings->keys().contains(NTP_KEY))
             setAddr = m_formatsettings->get(NTP_KEY).toString();
         if (ntpCombox->currentIndex() == (ntpCombox->count() - 1) && setAddr == "") { //自定义且为空
             ui->ntpFrame_2->setVisible(true);  //需要添加地址并点击保存再授权
+            ui->line_2->setVisible(true);
         } else {
             if (ntpCombox->currentIndex() == 0) {  //默认
                 setAddr = "default";
@@ -510,6 +519,7 @@ void DateTime::initNtp()
                 ui->ntpFrame_2->setVisible(false);
             } else { //自定义且不为空
                 ui->ntpFrame_2->setVisible(true);
+                ui->line_2->setVisible(true);
             }
             if (!setNtpAddr(setAddr)) {   //失败or不修改
                 ntpCombox->blockSignals(true);
@@ -517,6 +527,7 @@ void DateTime::initNtp()
                 ntpCombox->blockSignals(false);
                 if (ntpComboxPreId == ntpCombox->count() - 1) {
                     ui->ntpFrame_2->setVisible(true);
+                    ui->line_2->setVisible(true);
                 } else {
                     ui->ntpFrame_2->setVisible(false);
                 }
@@ -784,7 +795,7 @@ void DateTime::synctimeFormatSlot(bool status,bool outChange)
         return;
     }
 
-    QDBusMessage retDBus =  rsyncWithNetworkSlot(status);
+    QDBusMessage retDBus = rsyncWithNetworkSlot(status);
     if (status != false) {
         ui->setTimeFrame->setVisible(false);
         setNtpFrame(true);
@@ -853,6 +864,12 @@ void DateTime::setNtpFrame(bool visiable)
         ui->ntpFrame_2->setVisible(ntpCombox->currentIndex() == ntpCombox->count() - 1);
     } else {
         ui->ntpFrame_2->setVisible(visiable);
+    }
+
+    if (!ui->ntpFrame_2->isHidden()) {
+        ui->line_2->setVisible(true);
+    } else {
+        ui->line_2->setVisible(false);
     }
 }
 

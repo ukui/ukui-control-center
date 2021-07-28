@@ -352,6 +352,14 @@ void MainWindow::initUI() {
     modulepageWidget = new ModulePageWidget(this);
     ui->stackedWidget->addWidget(modulepageWidget);
 
+    connect(ui->stackedWidget, &QStackedWidget::currentChanged, this, [=] (int id){
+        if (id == 0) {
+            ui->titleWidget->setStyleSheet("QWidget#titleWidget{background-color:palette(base)}");
+        } else {
+            ui->titleWidget->setStyleSheet("QWidget#titleWidget{background-color:palette(window)}");
+        }
+    });
+
     //top left return button
     connect(backBtn, &QPushButton::clicked, this, [=]{
         ui->stackedWidget->setCurrentIndex(0);
@@ -483,8 +491,7 @@ void MainWindow::onF1ButtonClicked() {
 }
 
 void MainWindow::initUkccAbout() {
-
-    mOptionBtn->setStyleSheet("background-color: palette(base);");
+    mOptionBtn->setStyleSheet("QToolButton{background-color: transparent;}");
     mOptionBtn->setPopupMode(QToolButton::InstantPopup);
     QMenu* ukccMain = new QMenu(this);
     ukccMain->setObjectName("mainMenu");
@@ -866,7 +873,6 @@ void MainWindow::initStyleSheet() {
 
     mOptionBtn->setProperty("useIconHighlightEffect", 0x2);
     mOptionBtn->setProperty("isWindowButton", 0x01);
-
 
     minBtn->setProperty("useIconHighlightEffect", 0x2);
     minBtn->setProperty("isWindowButton", 0x01);

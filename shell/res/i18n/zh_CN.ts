@@ -536,7 +536,7 @@
         <location filename="../../../plugins/time-language/area/area.ui" line="169"/>
         <location filename="../../../plugins/time-language/area/area.cpp" line="376"/>
         <source>Current Region</source>
-        <translation>当前区域</translation>
+        <translation>显示日期、时间和货币格式的区域</translation>
         <extra-contents_path>/area/Current Region</extra-contents_path>
     </message>
     <message>
@@ -555,7 +555,7 @@
         <location filename="../../../plugins/time-language/area/area.ui" line="374"/>
         <location filename="../../../plugins/time-language/area/area.cpp" line="382"/>
         <source>Date</source>
-        <translation>时间日期</translation>
+        <translation>日期</translation>
         <extra-contents_path>/area/Date</extra-contents_path>
     </message>
     <message>
@@ -617,7 +617,7 @@
     <message>
         <location filename="../../../plugins/time-language/area/area.cpp" line="146"/>
         <source>Language for system windows,menus and web pages</source>
-        <translation>选择一种语言作为系统窗口、菜单和网页的显示语言</translation>
+        <translation>显示在系统窗口、菜单和网页的语言</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.cpp" line="171"/>
@@ -4616,6 +4616,11 @@ Please retry or relogin!</source>
 <context>
     <name>NetConnect</name>
     <message>
+        <source>Netconnect Status</source>
+        <translation type="vanished">网络状态</translation>
+        <extra-contents_path>/netconnect/Netconnect Status</extra-contents_path>
+    </message>
+    <message>
         <source>Waitting...</source>
         <translation type="vanished">加载中...</translation>
     </message>
@@ -4628,30 +4633,34 @@ Please retry or relogin!</source>
         <translation type="vanished">刷新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="47"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="107"/>
+        <source>open wifi</source>
+        <translation type="vanished">打开WLAN</translation>
+        <extra-contents_path>/netconnect/open wifi</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="38"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="106"/>
         <source>Wired Network</source>
         <translation>有线网络</translation>
         <extra-contents_path>/netconnect/Netconnect Status</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="181"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="106"/>
         <source>Other Networks</source>
         <translation>其他网络</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="103"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="109"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="172"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="108"/>
         <source>open</source>
         <translation>打开</translation>
-        <extra-contents_path>/netconnect/open</extra-contents_path>
+        <extra-contents_path>/netconnect/open wifi</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="232"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="105"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="220"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="104"/>
         <source>Network settings</source>
         <translation>网络设置</translation>
-        <extra-contents_path>/netconnect/Network settings&quot;</extra-contents_path>
     </message>
     <message>
         <source>Change net settings</source>
@@ -4675,17 +4684,17 @@ Please retry or relogin!</source>
         <translation>有线网络</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="176"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="181"/>
         <source>Connected</source>
         <translation>已连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="340"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="345"/>
         <source>No net</source>
         <translation>无连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="185"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="190"/>
         <source>Detail</source>
         <translation>网络详情</translation>
     </message>
@@ -4706,7 +4715,7 @@ Please retry or relogin!</source>
         <translation type="vanished">无网络连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="221"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="226"/>
         <source>Connect</source>
         <translation>网络连接</translation>
     </message>
@@ -8990,43 +8999,37 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation>无线局域网</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.ui" line="35"/>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="102"/>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.ui" line="26"/>
         <source>WLAN</source>
         <translation>无线局域网</translation>
-        <extra-contents_path>/wlanconnect/WLAN</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.ui" line="91"/>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="104"/>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.ui" line="82"/>
         <source>open</source>
         <translation>打开</translation>
-        <extra-contents_path>/wlanconnect/open</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.ui" line="169"/>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.ui" line="160"/>
         <source>Other Networks</source>
         <translation>其他网络</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.ui" line="223"/>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="100"/>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.ui" line="214"/>
         <source>Network settings</source>
         <translation>网络设置</translation>
-        <extra-contents_path>/wlanconnect/Network settings&quot;</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="380"/>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="371"/>
         <source>Connected</source>
         <translation>已连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="390"/>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="381"/>
         <source>Detail</source>
         <translation>网络详情</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="408"/>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="399"/>
         <source>Connect</source>
         <translation>网络连接</translation>
     </message>

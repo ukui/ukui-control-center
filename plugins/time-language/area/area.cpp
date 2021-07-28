@@ -28,6 +28,7 @@
 #include <QGSettings>
 #include <QMessageBox>
 #include "languageFrame.h"
+#include "Frame/hlineframe.h"
 
 #define PANEL_GSCHEMAL   "org.ukui.control-center.panel.plugins"
 #define CALENDAR_KEY     "calendar"
@@ -93,8 +94,6 @@ QWidget *Area::get_plugin_ui() {
 
         ui->countrylabel->adjustSize();
         ui->formframe->adjustSize();
-        ui->formframe->setObjectName("formframe");
-        ui->formframe->setStyleSheet("QFrame#formframe{background-color: palette(base);}");
 
         const QByteArray id(PANEL_GSCHEMAL);
 
@@ -150,8 +149,7 @@ void Area::initUI() {
 
     addWgt = new HoverWidget("");
     addWgt->setObjectName(tr("addwgt"));
-    addWgt->setMinimumSize(QSize(580, 50));
-    addWgt->setMaximumSize(QSize(960, 50));
+    addWgt->setMinimumSize(QSize(580, 60));
     QPalette pal;
     QBrush brush = pal.highlight();  //获取window的色值
     QColor highLightColor = brush.color();
@@ -160,7 +158,7 @@ void Area::initUI() {
            .arg(highLightColor.green()*0.8 + 255*0.2)
            .arg(highLightColor.blue()*0.8 + 255*0.2);
 
-    addWgt->setStyleSheet(QString("HoverWidget#addwgt{background: palette(button);\
+    addWgt->setStyleSheet(QString("HoverWidget#addwgt{background: palette(base);\
                                    border-radius: 4px;}\
                                    HoverWidget:hover:!pressed#addwgt{background: %1;  \
                                    border-radius: 4px;}").arg(stringColor));
@@ -204,13 +202,15 @@ void Area::initUI() {
         textLabel->setStyleSheet("color: palette(windowText);");
     });
 
-    ui->addBtnLayout->addWidget(addWgt);
+    ui->languageFrame->layout()->addWidget(addWgt);
 }
 
 void Area::initLanguage()
 {
     LanguageFrame *chineseFrame = new LanguageFrame(tr("Simplified Chinese"));
     LanguageFrame *englishFrame = new LanguageFrame(tr("English"));
+    HLineFrame *lineF = new HLineFrame();
+    HLineFrame *lineF_2 = new HLineFrame();
 
     QStringList res = getUserDefaultLanguage();
     QString lang = res.at(1);
@@ -224,8 +224,10 @@ void Area::initLanguage()
         englishFrame->showSelectedIcon(true);
     }
 
-    ui->addLyt->addWidget(chineseFrame);
-    ui->addLyt->addWidget(englishFrame);
+    ui->languageFrame->layout()->addWidget(chineseFrame);
+    ui->languageFrame->layout()->addWidget(lineF);
+    ui->languageFrame->layout()->addWidget(englishFrame);
+    ui->languageFrame->layout()->addWidget(lineF_2);
 
     connect(chineseFrame, &LanguageFrame::clicked, this, [=](){
         englishFrame->showSelectedIcon(false);
