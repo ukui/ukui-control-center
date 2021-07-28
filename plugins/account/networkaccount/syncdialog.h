@@ -32,6 +32,8 @@
 #include <QHBoxLayout>
 #include <QPainterPath>
 
+#include "titlelabel.h"
+
 class SyncDialog : public QDialog
 {
     Q_OBJECT
@@ -56,7 +58,7 @@ protected:
     void paintEvent(QPaintEvent * event);
 
 private:
-    QLabel * mTitle;
+    TitleLabel * mTitle;
     QLabel * mTips;
     QPushButton * mSyncButton;
     QPushButton * mCancelButton;
