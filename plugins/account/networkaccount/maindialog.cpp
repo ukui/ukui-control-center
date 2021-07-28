@@ -38,7 +38,7 @@ MainDialog::MainDialog(QWidget *parent) : QDialog(parent)
     m_containerWidget = new QWidget(this);            //业务逻辑主界面
     m_baseWidget = new QStackedWidget(this);  //用于切换成功页面和业务逻辑操作页面（包括登录等模块)
 
-    m_titleLable = new QLabel(status,this);        //页面标题（业务逻辑重用）
+    m_titleLable = new TitleLabel(this);        //页面标题（业务逻辑重用）
     m_stackedWidget = new QStackedWidget(this);   //用于切换业务逻辑操作页面（包括登录，注册，绑定，忘记密码）
     m_workLayout = new QVBoxLayout;           //业务界面主体布局
     m_subLayout = new QHBoxLayout;           //切换登录模式按钮布局
@@ -56,6 +56,7 @@ MainDialog::MainDialog(QWidget *parent) : QDialog(parent)
     m_svgHandler = new SVGHandler(this);
 
 
+    m_titleLable->setText(status);
     //计时器初始化
     m_timer->stop();
     //隐藏同步开关动画
@@ -76,7 +77,6 @@ MainDialog::MainDialog(QWidget *parent) : QDialog(parent)
     setFocusPolicy(Qt::NoFocus);
     m_loginDialog->setContentsMargins(0,0,0,0);
     //title->setGeometry(31 + sizeoff,48 + sizeoff,160,24);
-    m_titleLable->setStyleSheet("font-size: 24px;font-weight:500;");
 
     m_submitBtn->setFixedSize(338,36);
     m_submitBtn->setFocusPolicy(Qt::NoFocus);
@@ -98,7 +98,7 @@ MainDialog::MainDialog(QWidget *parent) : QDialog(parent)
 
     m_submitBtn->setStyleSheet("QPushButton {background-color: #3790FA;border-radius: 4px;color:rgba(255,255,255,0.85);}"
                                 "QPushButton:hover {background-color: #40A9FB;border-radius: 4px;position:relative;color:rgba(255,255,255,0.85);}"
-                                "QPushButton:click {background-color: #40A9FB;border-radius: 4px;postion:realative;color:rgba(255,255,255,0.85);}");
+                                "QPushButton:click {background-color: #40A9FB;border-radius: 4px;postion:relative;color:rgba(255,255,255,0.85);}");
     m_regBtn->setStyleSheet("QPushButton{background: transparent;border-radius: 4px;} "
                                     "QPushButton:hover{background: transparent;border-radius: 4px;color:rgba(55,144,250,0.85);}"
                                     "QPushButton:click{background: transparent;border-radius: 4px;color:rgba(55,144,250,0.85);}");
@@ -378,7 +378,7 @@ QString MainDialog::messagebox(const int &code) const {
     case 500:ret = tr("Failed due to server error!");break;
     case 501:ret = tr("User and passsword can't be empty!");break;
     case 502:ret = tr("User existing!");break;
-    case 503:ret = tr("Account or password error!");break;
+    case 503:ret = tr("User doesn't exist!");break;
     case 504:ret = tr("Network can not reach!");break;
     case 505:ret = tr("Phone can't be empty!");break;
     case 511:ret = tr("Account or password error!");break;
@@ -387,11 +387,10 @@ QString MainDialog::messagebox(const int &code) const {
     case 612:ret = tr("Your are reach the limit!");break;
     case 613:ret = tr("Please check your phone number!");break;
     case 614:ret = tr("Please check your code!");break;
-    case 615:ret = tr("Account or password error!");break;
+    case 615:ret = tr("Account doesn't exist!");break;
     case 616:ret = tr("User has bound the phone!");break;
     case 619:ret = tr("Sending code error occurred!");break;
     case 632:ret = tr("Phone code is expired!");break;
-    case 656:ret = tr("Too many failed attemps,please wait!");
     case 702:ret = tr("Phone code error!");break;
     case 703:ret = tr("Code can not be empty!");break;
     case 704:ret = tr("MCode can not be empty!");break;

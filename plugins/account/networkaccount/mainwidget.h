@@ -40,12 +40,15 @@
 #include "configfile.h"
 #include "svghandler.h"
 #include "blueeffect.h"
+#include "titlelabel.h"
 
 #define NETWORK_FAILURE 1002
 #define SYNC_FAILURE 1003
 #define SYNC_NORMAL 1004
 #define SYNC_FIRST 1005
 #define LOGOUT 1005
+
+#define ACC_INFO "kylinid"
 
 #define TOKEN_MIN_SIZE 100
 
@@ -56,7 +59,7 @@ class MainWidget : public QWidget
 public:
     explicit        MainWidget(QWidget *parent = nullptr);
     ~MainWidget();
-    QLabel*         get_title();
+    TitleLabel*         get_title();
     QLabel*         get_info();
     QWidget*        get_login_dialog();
     void            init_gui();
@@ -79,7 +82,7 @@ protected:
 private:
     ItemList       *m_itemList;
     FrameItem    *m_autoSyn;
-    QLabel              *m_title;
+    TitleLabel              *m_title;
     QLabel              *m_infoTab;
     QLabel              *m_exitCode;
     Blueeffect          *m_blueEffect_sync;
@@ -97,7 +100,7 @@ private:
     QTimer              *m_singleTimer;
     QTimer              *m_manTimer;
     QTimer              *m_checkTimer;
-    QLabel              *m_welcomeMsg;
+    TitleLabel              *m_welcomeMsg;
     QSvgWidget              *m_welcomeImage;
     QVBoxLayout         *m_welcomeLayout;
     QVBoxLayout         *m_workLayout;
