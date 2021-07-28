@@ -95,7 +95,7 @@ void OutputConfig::initUi()
     mRotation->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 
     QLabel *rotateLabel = new QLabel(this);
-    // ~contents_path /display/orientation
+    //~ contents_path /display/orientation
     rotateLabel->setText(tr("orientation"));
     rotateLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     rotateLabel->setFixedSize(118, 30);
@@ -127,7 +127,7 @@ void OutputConfig::initUi()
     mRefreshRate = new QComboBox(this);
 
     QLabel *freshLabel = new QLabel(this);
-    // ~contents_path /display/frequency
+    //~ contents_path /display/frequency
     freshLabel->setText(tr("frequency"));
     freshLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     freshLabel->setFixedSize(118, 30);

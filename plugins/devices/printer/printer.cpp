@@ -30,7 +30,6 @@
 
 Printer::Printer() : mFirstLoad(true)
 {
-    //~ contents_path /printer/Printer
     pluginName = tr("Printer");
     pluginType = DEVICES;
 }

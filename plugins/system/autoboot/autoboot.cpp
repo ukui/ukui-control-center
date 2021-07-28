@@ -143,7 +143,8 @@ void AutoBoot::initAddBtn()
     QHBoxLayout *addLyt = new QHBoxLayout;
 
     QLabel *iconLabel = new QLabel(pluginWidget);
-    QLabel *textLabel = new QLabel(tr("Add autoboot app "), pluginWidget);
+    //~ contents_path /autoboot/Add autoboot app
+    QLabel *textLabel = new QLabel(tr("Add autoboot app "), pluginWidget); 
     QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
     iconLabel->setPixmap(pixgray);
     iconLabel->setProperty("useIconHighlightEffect", true);

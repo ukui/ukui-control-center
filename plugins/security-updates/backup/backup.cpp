@@ -85,10 +85,12 @@ const QString Backup::name() const
 
 void Backup::initTitleLabel()
 {
-    //~ contents_path /backup/Backup
     ui->titleLabel->setText(tr("Backup"));
-    //~ contents_path /backup/Restore
     ui->title2Label->setText(tr("Restore"));
+    //~ contents_path /backup/Begin backup
+    ui->backBtn->setText(tr("Begin backup"));
+    //~ contents_path /backup/Begin restore
+    ui->restoreBtn->setText(tr("Begin restore"));
 }
 
 void Backup::initConnection()

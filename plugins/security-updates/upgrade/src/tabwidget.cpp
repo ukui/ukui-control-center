@@ -40,6 +40,7 @@ void TabWid::initDbus()
     isAutoBackupSBtn->setChecked(true);
     checkUpdateBtn->stop();
     //    checkUpdateBtn->setText(tr("检查更新"));
+
     checkUpdateBtn->setText(tr("Check Update"));
 
     checkUpdateBtn->setText(tr("initializing"));
@@ -567,6 +568,7 @@ void TabWid::allComponents()
 
     updateSettingLab = new TitleLabel();
     //    updateSettingLab->setText(tr("更新设置"));
+    //~ contents_path /upgrade/Update Settings
     updateSettingLab->setText(tr("Update Settings"));
     updateSettingLab->setFixedHeight(25);
     updateSettingWidget = new QWidget(this);

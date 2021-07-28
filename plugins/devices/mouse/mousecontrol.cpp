@@ -167,6 +167,8 @@ const QString MouseControl::name() const {
 void MouseControl::initSearchText() {
     //~ contents_path /mouse/Hand habit
     ui->handLabel->setText(tr("Hand habit"));
+    //~ contents_path /mouse/mouse wheel speed
+    ui->slowLabel->setText(tr("mouse wheel speed"));
     //~ contents_path /mouse/Doubleclick  delay
     ui->delayLabel->setText(tr("Doubleclick  delay"));
     //~ contents_path /mouse/Speed

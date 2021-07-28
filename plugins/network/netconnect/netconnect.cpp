@@ -111,6 +111,7 @@ const QString NetConnect::name() const {
 }
 
 void NetConnect::initSearchText() {
+    //~ contents_path /netconnect/Network settings
     ui->detailBtn->setText(tr("Network settings"));
     //~ contents_path /netconnect/Netconnect Status
     ui->titleLabel->setText(tr("Netconnect Status"));

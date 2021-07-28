@@ -108,6 +108,10 @@ void Screenlock::initSearchText() {
     ui->loginpicLabel->setText(tr("Show picture of screenlock on screenlogin"));
     //~ contents_path /screenlock/Lock screen when screensaver boot
     ui->activepicLabel->setText(tr("Lock screen when screensaver boot"));
+    //~ contents_path /screenlock/Browser local wp
+    ui->browserLocalwpBtn->setText(tr("Browser local wp"));
+    //~ contents_path /screenlock/Browser online wp
+    ui->browserOnlinewpBtn->setText(tr("Browser online wp"));
 }
 
 void Screenlock::setupComponent()
