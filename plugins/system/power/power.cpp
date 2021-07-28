@@ -93,6 +93,9 @@ QWidget * Power::get_plugin_ui() {
 
                 }
             });
+            connect(settings,&QGSettings::changed,[=](QString key){
+                initCustomPlanStatus();
+            });
         }
 
         InitUI(pluginWidget);
@@ -279,7 +282,7 @@ void Power::InitUI(QWidget *widget)
     mPowerLayout->setContentsMargins(16, 0, 16, 0);
 
 
-    mPowerLabel = new QLabel(Powerwidget);
+    mPowerLabel = new QLabel(mPowerFrame);
     mPowerLabel->setMinimumSize(550,60);
 
     mPowerComboBox = new QComboBox(mPowerFrame);
