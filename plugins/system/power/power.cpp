@@ -93,6 +93,9 @@ QWidget * Power::get_plugin_ui() {
 
                 }
             });
+            connect(settings,&QGSettings::changed,[=](QString key){
+                initCustomPlanStatus();
+            });
         }
 
         InitUI(pluginWidget);
