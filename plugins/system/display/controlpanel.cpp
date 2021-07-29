@@ -1,6 +1,7 @@
 #include "controlpanel.h"
 #include "outputconfig.h"
 #include "unifiedoutputconfig.h"
+#include "utils.h"
 
 #include <QVBoxLayout>
 #include <QDebug>
@@ -90,8 +91,10 @@ void ControlPanel::removeOutput(int outputId)
     if (mUnifiedOutputCfg) {
         mUnifiedOutputCfg->setVisible(false);
     }
-
     for (OutputConfig *outputCfg : mOutputConfigs) {
+        if (!outputCfg || !outputCfg->output()) {
+            continue;
+        }
         if (outputCfg->output()->id() == outputId) {
             mOutputConfigs.removeOne(outputCfg);
             outputCfg->deleteLater();
@@ -128,7 +131,6 @@ void ControlPanel::activateOutputNoParam()
     }
 
     Q_FOREACH (OutputConfig *cfg, mOutputConfigs) {
-        qDebug()<<cfg->output()->id()<<" id";
         cfg->setVisible(cfg->output()->id() == 66);
     }
 }

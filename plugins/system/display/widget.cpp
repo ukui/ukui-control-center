@@ -3,10 +3,10 @@
 #include "declarative/qmloutput.h"
 #include "declarative/qmlscreen.h"
 #include "utils.h"
-#include "scalesize.h"
 #include "ui_display.h"
 #include "displayperformancedialog.h"
 #include "colorinfo.h"
+#include "scalesize.h"
 #include "../../../shell/utils/utils.h"
 #include "../../../shell/mainwindow.h"
 
@@ -379,9 +379,19 @@ void Widget::slotUnifyOutputs()
         if (mKDSCfg.isEmpty() && isExistCfg) {
             KScreen::OutputList screens = mPrevConfig->connectedOutputs();
             QList<ScreenConfig> preScreenCfg = getPreScreenCfg();
+            int posX = preScreenCfg.at(0).screenPosX;
+            bool isOverlap = false;
+            for (int i = 1; i< preScreenCfg.count(); i++) {
+                if (posX == preScreenCfg.at(i).screenPosX) {
+                    isOverlap = true;
+                    setScreenKDS("expand");
+                    break;
+                }
+            }
+
             Q_FOREACH(ScreenConfig cfg, preScreenCfg) {
                 Q_FOREACH(KScreen::OutputPtr output, screens) {
-                    if (!cfg.screenId.compare(output->name())) {
+                    if (!cfg.screenId.compare(output->name()) && !isOverlap) {
                         output->setCurrentModeId(cfg.screenModeId);
                         output->setPos(QPoint(cfg.screenPosX, cfg.screenPosY));
                     }
@@ -610,7 +620,7 @@ bool Widget::isRestoreConfig()
     int cnt = 15;
     int ret = -100;
     MainWindow *mainWindow = static_cast<MainWindow*>(this->topLevelWidget());
-    QMessageBox msg(this);
+    QMessageBox msg;
     connect(mainWindow, &MainWindow::posChanged, this, [=,&msg]() {
         QTimer::singleShot(8, this, [=,&msg]() { //窗管会移动窗口，等待8ms,确保在窗管移动之后再move，时间不能太长，否则会看到移动的路径
             QRect rect = this->topLevelWidget()->geometry();
@@ -633,14 +643,12 @@ bool Widget::isRestoreConfig()
         QObject::connect(&cntDown, &QTimer::timeout, [&msg, &cnt, &cntDown, &ret]()->void {
             if (--cnt < 0) {
                 cntDown.stop();
-                msg.hide();
                 msg.close();
             } else {
                 msg.setText(QString(tr("After modifying the resolution or refresh rate, "
                                        "due to compatibility issues between the display device and the graphics card, "
                                        "the display may be abnormal or unable to display \n"
                                        "the settings will be saved after %1 seconds")).arg(cnt));
-                msg.show();
             }
         });
         cntDown.start(1000);
@@ -771,6 +779,11 @@ int Widget::getPrimaryScreenID()
     return screenId;
 }
 
+void Widget::setScreenIsApply(bool isApply)
+{
+    mIsScreenAdd = !isApply;
+}
+
 void Widget::showNightWidget(bool judge)
 {
     if (judge) {
@@ -825,7 +838,6 @@ void Widget::addBrightnessFrame(QString name, bool openFlag, QString serialNum)
         if (name == BrightnessFrameV[i]->getOutputName())
             return;
     }
-
     BrightnessFrame *frame = nullptr;
     if (mIsBattery && (name.contains("eDP") || name.contains("DisplayPort-0", Qt::CaseInsensitive))) {
         frame = new BrightnessFrame(name, true, serialNum);
@@ -1083,6 +1095,7 @@ void Widget::applyNightModeSlot()
                              tr("Open time should be earlier than close time!"));
         return;
     }
+
     setNightMode(mNightButton->isChecked());
 }
 
@@ -1129,18 +1142,21 @@ void Widget::setScreenKDS(QString kdsConfig)
                 screens[i]->setEnabled((i == 0));
             }
         }
+        delayApply();
     } else if (kdsConfig == "second") {
         for (int i = 0; i < screens.size(); i++) {
             if (!screens[i].isNull()) {
                 screens[i]->setEnabled((i != 0));
             }
         }
+        delayApply();
     } else {
         Q_FOREACH(KScreen::OutputPtr output, screens) {
             if (!output.isNull()) {
                 output->setEnabled(true);
             }
         }
+        delayApply();
     }
 }
 
@@ -1197,6 +1213,7 @@ void Widget::kdsScreenchangeSlot(QString status)
             showBrightnessFrame(2);
         }
     });
+
 }
 
 void Widget::delayApply()
@@ -1594,6 +1611,7 @@ void Widget::initConnection()
     connect(mUnifyButton, &SwitchButton::checkedChanged,
             [this] {
         slotUnifyOutputs();
+        setScreenIsApply(true);
         delayApply();
 		showBrightnessFrame();
     });
@@ -1723,9 +1741,9 @@ void Widget::setNightMode(const bool nightMode)
     } else {
         mNightConfig["Active"] = true;
         if (ui->sunradioBtn->isChecked()) {
-            mNightConfig["EveningBeginFixed"] = "17:55:00";
-            mNightConfig["MorningBeginFixed"] = "05:55:04";
-            mNightConfig["Mode"] = 0;
+            mNightConfig["EveningBeginFixed"] = "17:55:01";
+            mNightConfig["MorningBeginFixed"] = "05:55:00";
+            mNightConfig["Mode"] = 2;
         } else if (ui->customradioBtn->isChecked()) {
             mNightConfig["EveningBeginFixed"] = ui->opHourCom->currentText() + ":"
                                                 + ui->opMinCom->currentText() + ":00";
@@ -1838,7 +1856,7 @@ void Widget::initNightStatus()
 
     this->mIsNightMode = mNightConfig["Active"].toBool();
     ui->temptSlider->setValue(mNightConfig["CurrentColorTemperature"].toInt());
-    if (mNightConfig["Mode"].toInt() != 2) {
+    if (mNightConfig["EveningBeginFixed"].toString() == "17:55:01") {
         ui->sunradioBtn->setChecked(true);
     } else {
         ui->customradioBtn->setChecked(true);

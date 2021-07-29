@@ -22,9 +22,6 @@
 
 #include "ComboBox/combobox.h"
 
-#define SCALE_SCHEMAS "org.ukui.SettingsDaemon.plugins.xsettings"
-#define SCALE_KEY     "scaling-factor"
-
 double mScaleres = 0;
 
 OutputConfig::OutputConfig(QWidget *parent) :
@@ -98,7 +95,7 @@ void OutputConfig::initUi()
     mRotation->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 
     QLabel *rotateLabel = new QLabel(this);
-    // ~contents_path /display/orientation
+    //~ contents_path /display/orientation
     rotateLabel->setText(tr("orientation"));
     rotateLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     rotateLabel->setFixedSize(118, 30);
@@ -130,7 +127,7 @@ void OutputConfig::initUi()
     mRefreshRate = new QComboBox(this);
 
     QLabel *freshLabel = new QLabel(this);
-    // ~contents_path /display/frequency
+    //~ contents_path /display/frequency
     freshLabel->setText(tr("frequency"));
     freshLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     freshLabel->setFixedSize(118, 30);
@@ -153,6 +150,16 @@ void OutputConfig::initUi()
     slotResolutionChanged(mResolution->currentResolution(), true);
     connect(mRefreshRate, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated),
             this, &OutputConfig::slotRefreshRateChanged);
+
+    // 缩放率下拉框
+    QFrame *scaleFrame = new QFrame(this);
+    scaleFrame->setFrameShape(QFrame::Shape::Box);
+
+    scaleFrame->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+    scaleFrame->setMinimumSize(550, 50);
+    scaleFrame->setMaximumSize(960, 50);
+
+    QHBoxLayout *scaleLayout = new QHBoxLayout(scaleFrame);
 
     mScaleCombox = new QComboBox(this);
     mScaleCombox->setObjectName("scaleCombox");
@@ -177,17 +184,9 @@ void OutputConfig::initUi()
     scaleLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     scaleLabel->setFixedSize(118, 30);
 
-    QHBoxLayout *scaleLayout = new QHBoxLayout();
     scaleLayout->addWidget(scaleLabel);
     scaleLayout->addWidget(mScaleCombox);
 
-    QFrame *scaleFrame = new QFrame(this);
-    scaleFrame->setFrameShape(QFrame::Shape::Box);
-    scaleFrame->setLayout(scaleLayout);
-
-    scaleFrame->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    scaleFrame->setMinimumSize(550, 50);
-    scaleFrame->setMaximumSize(960, 50);
     vbox->addWidget(scaleFrame);
 
     initConnection();
@@ -236,7 +235,10 @@ void OutputConfig::initDpiConnection()
     if (QGSettings::isSchemaInstalled(SCALE_SCHEMAS)) {
         mDpiSettings = new QGSettings(id, QByteArray(), this);
         connect(mDpiSettings, &QGSettings::changed, this, [=](QString key) {
-            slotDPIChanged(key);
+            if (!key.compare("scalingFactor", Qt::CaseSensitive)) {
+                slotDPIChanged(key);
+            }
+
         });
     }
 }
@@ -350,14 +352,15 @@ void OutputConfig::slotScaleChanged(int index)
 
 void OutputConfig::slotDPIChanged(QString key)
 {
-    if (!key.compare("scalingFactor", Qt::CaseSensitive)) {
-        double scale = mDpiSettings->get(key).toDouble();
+    double scale = mDpiSettings->get(key).toDouble();
+    if (mScaleCombox) {
         if (mScaleCombox->findData(scale) == -1) {
             mScaleCombox->addItem(scaleToString(scale), scale);
         }
         mScaleCombox->blockSignals(true);
         mScaleCombox->setCurrentText(scaleToString(scale));
         mScaleCombox->blockSignals(false);
+
     }
 }
 
@@ -390,10 +393,10 @@ void OutputConfig::slotScaleIndex(const QSize &size)
     if (msize.width() >= 3072) {
        mScaleCombox->addItem("225%", 2.25);
        mScaleCombox->addItem("250%", 2.5);
-   }
-   if (msize.width() >= 3840) {
+    }
+    if (msize.width() >= 3840) {
        mScaleCombox->addItem("275%", 2.75);
-   }
+    }
 
     double scale = getScreenScale();
 
