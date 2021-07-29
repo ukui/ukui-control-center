@@ -21,6 +21,7 @@
 #include <QDesktopServices>
 #include <QApplication>
 #include <QUrl>
+#include <QtConcurrent/QtConcurrent>
 
 
 extern void qt_blurImage(QImage &blurImage, qreal radius, bool quality, int transposed);
@@ -252,19 +253,25 @@ void MainDialog::set_client(DBusUtils *c) {
     connect(this, &MainDialog::dologin, this, [=] (QString kylinID,QString pass) {
         QList<QVariant> argList;
         argList << kylinID << pass;
-        m_dbusClient->callMethod("userLogin",argList);
+        QtConcurrent::run([=]() {
+            m_dbusClient->callMethod("userLogin",argList);
+        });
     });
 
     connect(this, &MainDialog::dogetmcode_phone_log, this, [=] (QString phone) {
         QList<QVariant> argList;
         argList << phone;
-        m_dbusClient->callMethod("getMCodeByPhone",argList);
+        QtConcurrent::run([=]() {
+            m_dbusClient->callMethod("getMCodeByPhone",argList);
+        });
     });
 
     connect(this, &MainDialog::dophonelogin, this, [=] (QString phone,QString code) {
         QList<QVariant> argList;
         argList << phone << code;
-        m_dbusClient->callMethod("phoneLogin",argList);
+        QtConcurrent::run([=]() {
+            m_dbusClient->callMethod("phoneLogin",argList);
+        });
     });
 
     connect(m_dbusClient,&DBusUtils::taskFinished,this,[=] (const QString &taskName,int ret) {
