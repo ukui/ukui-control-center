@@ -118,6 +118,10 @@ void TabWid::backupMessageBox(QString str)
         versionInformationLab->setText(tr("Updatable app detected on your system!"));
         checkUpdateBtn->setText(tr("UpdateAll"));
         haveMessageBox = false;
+        foreach (AppUpdateWid *wid, widgetList) {
+            wid->updateAPPBtn->show();
+        }
+        bacupInit(false);
     }
     else if(ret == QMessageBox::Abort)
     {
@@ -127,6 +131,7 @@ void TabWid::backupMessageBox(QString str)
         //       checkUpdateBtn->setText(tr("全部更新"));
         checkUpdateBtn->setText(tr("UpdateAll"));
         haveMessageBox = false;
+        bacupInit(false);
     }
     haveMessageBox = false;
 }
@@ -755,17 +760,25 @@ void TabWid::hideUpdateBtnSlot(bool isSucceed)
     }
 }
 
-void TabWid::changeUpdateAllSlot()
+void TabWid::changeUpdateAllSlot(bool isUpdate)
 {
 
-    if(checkUpdateBtn->isEnabled() == false)
-    {
-        //        checkUpdateBtn->setText("全部更新");
+    if (isUpdate) {
         checkUpdateBtn->setText(tr("UpdateAll"));
         checkUpdateBtn->setEnabled(true);
-    } else {
+    }else {
+        checkUpdateBtn->setText(tr("UpdateAll"));
         checkUpdateBtn->setEnabled(false);
     }
+
+//    if(checkUpdateBtn->isEnabled() == false)
+//    {
+//        //        checkUpdateBtn->setText("全部更新");
+//        checkUpdateBtn->setText(tr("UpdateAll"));
+//        checkUpdateBtn->setEnabled(true);
+//    } else {
+//        checkUpdateBtn->setEnabled(false);
+//    }
 }
 
 

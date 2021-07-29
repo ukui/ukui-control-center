@@ -280,6 +280,7 @@ void AppUpdateWid::showInstallStatues(QString status,QString appAptName, float p
         int pgs = progress;
 //        appVersion->setText(tr("正在安装")+"("+QString::number(pgs)+"%)");
         appVersion->setText(tr("Being installed")+"("+QString::number(pgs)+"%)");
+        emit changeUpdateAllSignal(false);
         appVersion->setToolTip("");
         updateAPPBtn->hide();
         if(status == "apt_finish")
@@ -316,6 +317,7 @@ void AppUpdateWid::showInstallStatues(QString status,QString appAptName, float p
             detaileInfo->hide();
             largeWidget->hide();
             emit hideUpdateBtnSignal(true);
+            emit changeUpdateAllSignal(true);
 
         }
         else if(status == "apt_error")
@@ -626,7 +628,7 @@ void AppUpdateWid::cancelOrUpdate()
 //        appVersion->setText(tr("暂停中"));
         appVersion->setText(tr("In the pause"));
         appVersion->setToolTip("");
-        emit changeUpdateAllSignal();
+        emit changeUpdateAllSignal(true);
     }
 }
 
@@ -634,7 +636,7 @@ void AppUpdateWid::updateOneApp()
 {
     if(appAllMsg.msg.getDepends == true)
     {
-        emit changeUpdateAllSignal();
+        emit changeUpdateAllSignal(false);
         if(checkSourcesType() != file){
             isCancel = false;
             firstDownload = true;
