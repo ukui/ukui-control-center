@@ -54,6 +54,8 @@ public:
     void initTitleLabel();
     void initComponent();
     void runExternalApp();
+    void setLabelText(QLabel *label,QString text);
+    bool eventFilter(QObject *obj, QEvent *event);
 
 private:
     Ui::Printer *ui;
