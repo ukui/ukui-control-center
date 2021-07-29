@@ -427,10 +427,13 @@ void MainWidget::checkBackEnd() {
 void MainWidget::refreshSyncDate() {
     QFile fileConf(m_szConfPath);
     QVariant ret = ConfigFile(m_szConfPath).Get("Auto-sync","time");
-    if (m_pSettings != nullptr && fileConf.exists() && fileConf.size() > 1 && !ret.isNull())
+    if (m_pSettings != nullptr && fileConf.exists() && fileConf.size() > 1 && !ret.isNull()) {
         m_syncTimeLabel->setText(tr("The latest time sync is: ") +   ret.toString().toStdString().c_str());
-    else
+    }
+    else {
+        emit isSync(true);
         m_syncTimeLabel->setText(tr("Waiting for initialization..."));
+    }
 }
 
 //更新用户信息，获取用户名
@@ -463,13 +466,19 @@ void MainWidget::checkUserName(QString name) {
     //当前用户名为用户名
 
     //这里要根据上次同步的情况来设置显示情况 to do
-    if (m_pSettings->value("Auto-sync/run").toString() == "failed") {
+    QString failePath = QDir::homePath() + "/.cache/kylinId/failed";
+    QFile fileLock(failePath);
+    if (fileLock.exists()) {
         ctrlAutoSync(SYNC_FAILURE);
         m_bIsFailed = true;
     } else {
         m_bIsFailed = false;
         ctrlAutoSync(SYNC_NORMAL);
     }
+    if(m_stackedWidget->currentWidget() != m_itemList && m_bTokenValid) {
+        m_stackedWidget->setCurrentWidget(m_itemList);
+    }
+
     m_szCode = name;
     //设置用户名
     m_infoTab->setText(tr("Your account：%1").arg(m_szCode));
@@ -604,7 +613,6 @@ void MainWidget::singleExecutor(QTimer *timer, int mesc) {
 void MainWidget::setTokenWatcher() {
     QString tokenFile = QDir::homePath() + "/.cache/kylinId/" + ACC_INFO;
     m_fsWatcher.addPath(tokenFile);
-
     connect(&m_fsWatcher,&QFileSystemWatcher::fileChanged,this,[=] () {
         QFile token(tokenFile);
         //可能存在token为空的情况，故应该保证token.size()大于TOKEN_MIN_SIZE才能为有效token
@@ -871,7 +879,7 @@ void MainWidget::init_gui() {
     m_infoTab->setText(tr("Your account:%1").arg(m_szCode));
     m_autoSyn->set_itemname(tr("Auto sync"));
     m_autoSyn->make_itemoff();
-    m_itemList->hide();
+    m_stackedWidget->setCurrentWidget(m_nullwidgetContainer);
     m_widgetContainer->setFocusPolicy(Qt::NoFocus);
     m_mainWidget->addWidget(m_widgetContainer);
 
@@ -986,10 +994,13 @@ void MainWidget::finished_conf(int ret) {
         return ;
     }
     if (ret == 0) {
-        m_bTokenValid = true;
-        m_pSettings->setValue("Auto-sync/enable","false");
-        m_pSettings->sync();
-        m_itemList->hide();
+        if (!m_bTokenValid) {
+            m_pSettings->setValue("Auto-sync/enable","false");
+            m_pSettings->sync();
+            m_stackedWidget->setCurrentWidget(m_nullwidgetContainer);
+            m_autoSyn->make_itemoff();
+            m_bTokenValid = true;
+        }
         handle_conf();
     }
 }
@@ -1034,11 +1045,13 @@ void MainWidget::handle_conf() {
     bool ret = m_pSettings->value("Auto-sync/enable").toString() == "false";
     if (ret) {
         m_autoSyn->make_itemoff();
-        m_itemList->hide();
+        m_stackedWidget->setCurrentWidget(m_nullwidgetContainer);
         //此时云端和本地开关本来就是关闭的，不可能进行同步
         emit isSync(false);
     } else {
-        m_autoSyn->make_itemon();
+        //保证自动同步按钮状态正确
+        if(m_stackedWidget->currentWidget() != m_itemList)
+            m_autoSyn->make_itemon();
     }
     for (int i  = 0;i < m_szItemlist.size();i ++) {
         judge_item(  ConfigFile(m_szConfPath).Get(m_szItemlist.at(i),"enable").toString(),i);
@@ -1103,12 +1116,16 @@ void MainWidget::on_auto_syn(bool checked) {
         return ;
      }
     if (checked == true) {
+        //检查同步错误锁文件是否存在
+        QString filePath = QDir::homePath() + "/.cache/kylinId/failed";
+        QFile fileLock(filePath);
+        if(fileLock.exists()) {
+            fileLock.remove();
+        }
         m_keyInfoList.clear();
-
         //用户试图打开自动同步，将同步尝试设置为正常状态
         ctrlAutoSync(SYNC_NORMAL);
         m_itemList->show();
-
         //用户打开自动按钮开关，进行下载同步，要考虑到用户token有效，但是没有All.conf的情况出现
         QFile file( m_szConfPath);
         if (file.exists() == false) {
@@ -1138,8 +1155,10 @@ void MainWidget::on_login_out() {
         m_szCode = tr("Disconnected");
         m_bTokenValid = false; //Token失效
         m_firstLoad = true;
-        if (m_mainWidget->currentWidget() != m_nullWidget)
+        if (m_mainWidget->currentWidget() != m_nullWidget) {
             m_mainWidget->setCurrentWidget(m_nullWidget);
+            m_itemList->hide();
+        }
 
     } else {
         //同步正在开始，结束同步
