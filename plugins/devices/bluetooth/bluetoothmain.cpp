@@ -37,7 +37,7 @@ BlueToothMain::BlueToothMain(QWidget *parent)
     if(m_manager->adapters().size() == 0){
         showMainWindowError();
         return;
-    } 
+    }
     qDebug() << m_localDevice->name() << m_localDevice->isPowered() << m_localDevice->isDiscoverable() << m_localDevice->isDiscovering() << m_localDevice->address();
 
     showNormalMainWindow();
@@ -227,29 +227,31 @@ void BlueToothMain::InitMainbottomUI()
     }
 
     discovering_timer = new QTimer(this);
-    discovering_timer->setInterval(18000);
+    discovering_timer->setInterval(28000);
     connect(discovering_timer,&QTimer::timeout,this,[=]{
         qDebug() << __FUNCTION__ << "discovering_timer:timeout" << __LINE__ ;
-        if(m_localDevice->isDiscovering()){
-            m_localDevice->stopDiscovery();
+        if(!m_localDevice->isDiscovering()){
+            m_localDevice->startDiscovery();
         }
+        discovering_timer->stop();
+        clearUiShowDeviceList();
 
         QTimer::singleShot(2000,this,[=]{
-            if(!m_localDevice->isDiscovering())
-               m_localDevice->startDiscovery();
+            Discovery_device_address.clear();
+            discovering_timer->start();
+            //this->startDiscovery();
         });
     });
 
 
     IntermittentScann_timer_count = 0;
     IntermittentScann_timer= new QTimer(this);
-    IntermittentScann_timer->setInterval(1000);
+    IntermittentScann_timer->setInterval(2000);
     connect(IntermittentScann_timer,&QTimer::timeout,this,[=]
     {
         qDebug() << __FUNCTION__ << "IntermittentScann_timer_count:" << IntermittentScann_timer_count << __LINE__ ;
 
-        IntermittentScann_timer_count++;
-        if (IntermittentScann_timer_count > 5)
+        if (IntermittentScann_timer_count >= 2)
         {
             IntermittentScann_timer_count = 0;
             IntermittentScann_timer->stop();
@@ -257,11 +259,12 @@ void BlueToothMain::InitMainbottomUI()
             {
                 m_localDevice->startDiscovery();
             }
+            //this->startDiscovery();
             discovering_timer->start();
         }
         else
         {
-            if (0 == IntermittentScann_timer_count%2)
+            if (1 == IntermittentScann_timer_count%2)
             {
                 if(m_localDevice->isDiscovering())
                 {
@@ -278,6 +281,8 @@ void BlueToothMain::InitMainbottomUI()
             }
 
         }
+        IntermittentScann_timer_count++;
+
     });
 
     //开启时延迟1.8s后开启扫描，留点设备回连时间
@@ -329,9 +334,11 @@ void BlueToothMain::startDiscovery()
 void BlueToothMain::adapterChanged()
 {
     connect(m_manager,&BluezQt::Manager::adapterRemoved,this,[=](BluezQt::AdapterPtr adapter){
+//        qDebug() << Q_FUNC_INFO << adapter_address_list.indexOf(adapter.data()->address());
+//        qDebug() << Q_FUNC_INFO << adapter_list->currentIndex() << adapter_address_list.at(adapter_list->currentIndex()) << adapter.data()->address() <<__LINE__;
         qDebug() << Q_FUNC_INFO << __LINE__;
         int i = adapter_address_list.indexOf(adapter.data()->address());
-        qDebug() << Q_FUNC_INFO << __LINE__ << adapter_list->count() << adapter_address_list << adapter_name_list << i;
+        qDebug() << Q_FUNC_INFO << __LINE__ << i;
         adapter_name_list.removeAt(i);
         adapter_address_list.removeAll(adapter.data()->address());
 
@@ -411,7 +418,7 @@ void BlueToothMain::updateUIWhenAdapterChanged()
         loadLabel->setVisible(true);
         if (!m_timer->isActive())
             m_timer->start();
-        discovering_timer->start();
+        //discovering_timer->start();
     }
 
     connect(m_localDevice.data(),&BluezQt::Adapter::uuidsChanged,this,[=](const QStringList &uuids){
@@ -513,6 +520,7 @@ void BlueToothMain::addMyDeviceItemUI(BluezQt::DevicePtr device)
     DeviceInfoItem *item  = frame_middle->findChild<DeviceInfoItem *>(device->address());
     if (item)
     {
+        qDebug() << __FUNCTION__ << device->name()  <<"paired_dev_layout exist" << __LINE__;
         return;
     }
 
@@ -691,13 +699,13 @@ void BlueToothMain::adapterConnectFun()
            m_timer->start();
            //discovering_timer->start();
            //每次开启后清除适配器扫描列表
-           if (0 == IntermittentScann_timer_count)
-                Discovery_device_address.clear();
+           //if (0 == IntermittentScann_timer_count)
+           //     Discovery_device_address.clear();
        }
        else
        {
-           if (0 == IntermittentScann_timer_count)
-               clearUiShowDeviceList();
+           //if (0 == IntermittentScann_timer_count)
+           //    clearUiShowDeviceList();
            //delayStartDiscover_timer->start();
        }
     });
@@ -770,6 +778,21 @@ void BlueToothMain::clearAllDeviceItemUi()
     }
 }
 
+void BlueToothMain::clearTimer()
+{
+    if (discovering_timer->isActive())
+        discovering_timer->stop();
+
+    if (delayStartDiscover_timer->isActive())
+        delayStartDiscover_timer->stop();
+
+    if (IntermittentScann_timer->isActive())
+        IntermittentScann_timer->stop();
+
+    if (poweronAgain_timer->isActive())
+        poweronAgain_timer->stop();
+}
+
 void BlueToothMain::onClick_Open_Bluetooth(bool ischeck)
 {
     if(ischeck)
@@ -823,6 +846,7 @@ void BlueToothMain::addOneBluetoothDeviceItemUi(BluezQt::DevicePtr device)
     DeviceInfoItem *item = device_list->findChild<DeviceInfoItem *>(device->address());
     if (item)
     {
+        qDebug() << __FUNCTION__ << device->name() <<"device_list exist" << __LINE__;
         return ;
     }
 
@@ -847,8 +871,17 @@ void BlueToothMain::addOneBluetoothDeviceItemUi(BluezQt::DevicePtr device)
             device_list_layout->addWidget(item,Qt::AlignTop);
         else
         {
-            device_list_layout->insertWidget(0,item,0,Qt::AlignTop);
+            if (device->rssi() > MaxRssiValue)
+            {
+                qDebug() << __FUNCTION__ << "MaxRssiValue:" << MaxRssiValue << __LINE__;
+                MaxRssiValue = device->rssi();
+                device_list_layout->insertWidget(0,item,0,Qt::AlignTop);
+            }
+            else
+                device_list_layout->insertWidget(1,item,0,Qt::AlignTop);
+
         }
+
         last_discovery_device_address << device->address();
     }
 }
@@ -877,10 +910,21 @@ void BlueToothMain::serviceDiscovered(BluezQt::DevicePtr device)
 
 void BlueToothMain::clearUiShowDeviceList()
 {
+    qDebug() << Q_FUNC_INFO << __LINE__ ;
+
     for (int i = 0  ; i < last_discovery_device_address.size() ; i++) {
+
+        if (m_manager->adapters().size() > 0)
+        {
+            BluezQt::DevicePtr device = m_localDevice->deviceForAddress(last_discovery_device_address.at(i));
+            if (device->isPaired() || device->isConnected())
+                continue;
+        }
+
         //剔除重新开始扫描时，不在设备列表中的device
         if (! Discovery_device_address.contains(last_discovery_device_address.at(i))){
-            removeDeviceItemUI(last_discovery_device_address.at(i));
+            //removeDeviceItemUI(last_discovery_device_address.at(i));
+            receiveRemoveSignal(last_discovery_device_address.at(i));//没有改变动作从列表中删除
         }
     }
 }
@@ -895,6 +939,7 @@ void BlueToothMain::serviceDiscoveredChange(BluezQt::DevicePtr device)
 
     if(device->isPaired() || device->isConnected()) {
         qDebug() << Q_FUNC_INFO << "device is Paired or Connected" << __LINE__;
+        //addMyDeviceItemUI(device);
         return;
     }
 
@@ -910,10 +955,28 @@ void BlueToothMain::serviceDiscoveredChange(BluezQt::DevicePtr device)
 void BlueToothMain::receiveConnectsignal(QString device)
 {
 
-    if (m_localDevice->isDiscovering())
-    {
-        m_localDevice->stopDiscovery();
-    }
+    qDebug() <<__FUNCTION__ << " device name :" << device << __LINE__ ;
+
+//    if (m_localDevice->isDiscovering())
+//    {
+//        m_localDevice->stopDiscovery();
+//    }
+
+//    int ps_bluetooth = system("ps aux|grep ukui-bluetooth|grep -v \"grep\" ");
+//    qDebug() <<__FUNCTION__ <<  ps_bluetooth << __LINE__ ;
+
+//    if (256 == ps_bluetooth)
+//    {
+//        QString cmd_path = "/usr/bin/ukui-bluetooth";
+//        QFileInfo fileInfo(cmd_path);
+
+//        if(fileInfo.exists())
+//        {
+//            QProcess *process = new QProcess(this);
+//            qDebug() << Q_FUNC_INFO;
+//            process->start(cmd_path,NULL);
+//        }
+//    }
 
     QDBusMessage m = QDBusMessage::createMethodCall("org.ukui.bluetooth","/org/ukui/bluetooth","org.ukui.bluetooth","connectToDevice");
     m << device;
@@ -1066,8 +1129,9 @@ void BlueToothMain::adapterComboxChanged(int i)
 //    qDebug() << Q_FUNC_INFO << i << adapter_address_list.at(i) << adapter_name_list.at(i) << adapter_address_list << adapter_name_list;
     if(i != -1){
         m_localDevice = m_manager->adapterForAddress(adapter_address_list.at(i));
+
         if (m_localDevice.isNull())
-	    return;
+        return;
         m_localDevice->stopDiscovery();
         updateUIWhenAdapterChanged();
         if(settings)

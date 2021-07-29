@@ -49,7 +49,11 @@ BluetoothNameLabel::BluetoothNameLabel(QWidget *parent, int x, int y):
     if(QGSettings::isSchemaInstalled("org.ukui.style")){
         settings = new QGSettings("org.ukui.style");
         if(settings->get("style-name").toString() == "ukui-black" || settings->get("style-name").toString() == "ukui-dark")
+        {
             style_flag = true;
+            icon_pencil->setProperty("setIconHighlightEffectDefaultColor", QColor(Qt::white));
+            icon_pencil->setProperty("useIconHighlightEffect", 0x10);
+        }
         else
             style_flag = false;
 
@@ -138,11 +142,16 @@ void BluetoothNameLabel::enterEvent(QEvent *event)
 //    this->update();
 
     if(style_flag)
+    {
         this->setStyleSheet("QWidget#BluetoothNameLabel{background-color:black;border:none;border-radius:2px;}");
-    else
-        this->setStyleSheet("QWidget#BluetoothNameLabel{background-color:white;border:none;border-radius:2px;}");
-}
 
+
+    }
+    else
+    {
+        this->setStyleSheet("QWidget#BluetoothNameLabel{background-color:white;border:none;border-radius:2px;}");
+    }
+}
 void BluetoothNameLabel::LineEdit_Input_Complete()
 {
     qDebug() << Q_FUNC_INFO;
@@ -187,7 +196,11 @@ void BluetoothNameLabel::settings_changed(const QString &key)
     qDebug() << Q_FUNC_INFO <<key;
     if(key == "styleName"){
         if(settings->get("style-name").toString() == "ukui-black" || settings->get("style-name").toString() == "ukui-dark")
+        {
+            icon_pencil->setProperty("setIconHighlightEffectDefaultColor", QColor(Qt::white));
+            icon_pencil->setProperty("useIconHighlightEffect", 0x10);
             style_flag = true;
+        }
         else
             style_flag = false;
     }else if(key == "systemFontSize"){

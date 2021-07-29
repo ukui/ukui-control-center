@@ -2,6 +2,8 @@
 
 DeviceInfoItem::DeviceInfoItem(QWidget *parent) : QWidget(parent)
 {
+    qDebug() << Q_FUNC_INFO << __LINE__;
+
     if(QGSettings::isSchemaInstalled("org.ukui.style")){
         item_gsettings = new QGSettings("org.ukui.style");
         connect(item_gsettings,&QGSettings::changed,this,&DeviceInfoItem::GSettingsChanges);
@@ -50,6 +52,8 @@ DeviceInfoItem::~DeviceInfoItem()
 
 void DeviceInfoItem::initInfoPage(QString d_name, DEVICE_STATUS status, BluezQt::DevicePtr device)
 {
+    qDebug() << Q_FUNC_INFO << __LINE__;
+
     this->setObjectName(device->address());
 
     connect(device.data(),&BluezQt::Device::pairedChanged,this,[=](bool paird){
