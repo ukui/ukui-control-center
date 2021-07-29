@@ -475,10 +475,6 @@ void MainWidget::checkUserName(QString name) {
         m_bIsFailed = false;
         ctrlAutoSync(SYNC_NORMAL);
     }
-    if(m_stackedWidget->currentWidget() != m_itemList && m_bTokenValid) {
-        m_stackedWidget->setCurrentWidget(m_itemList);
-    }
-
     m_szCode = name;
     //设置用户名
     m_infoTab->setText(tr("Your account：%1").arg(m_szCode));
@@ -601,6 +597,7 @@ void MainWidget::layoutUI() {
     m_vboxLayout->addWidget(m_mainWidget);
     m_vboxLayout->setAlignment(Qt::AlignCenter | Qt::AlignTop);
     this->setLayout(m_vboxLayout);
+    m_stackedWidget->setCurrentWidget(m_nullwidgetContainer);
 
 }
 
@@ -879,7 +876,6 @@ void MainWidget::init_gui() {
     m_infoTab->setText(tr("Your account:%1").arg(m_szCode));
     m_autoSyn->set_itemname(tr("Auto sync"));
     m_autoSyn->make_itemoff();
-    m_stackedWidget->setCurrentWidget(m_nullwidgetContainer);
     m_widgetContainer->setFocusPolicy(Qt::NoFocus);
     m_mainWidget->addWidget(m_widgetContainer);
 
@@ -1050,8 +1046,10 @@ void MainWidget::handle_conf() {
         emit isSync(false);
     } else {
         //保证自动同步按钮状态正确
-        if(m_stackedWidget->currentWidget() != m_itemList)
+        if(m_stackedWidget->currentWidget() != m_itemList) {
+            m_stackedWidget->setCurrentWidget(m_itemList);
             m_autoSyn->make_itemon();
+        }
     }
     for (int i  = 0;i < m_szItemlist.size();i ++) {
         judge_item(  ConfigFile(m_szConfPath).Get(m_szItemlist.at(i),"enable").toString(),i);
@@ -1125,7 +1123,7 @@ void MainWidget::on_auto_syn(bool checked) {
         m_keyInfoList.clear();
         //用户试图打开自动同步，将同步尝试设置为正常状态
         ctrlAutoSync(SYNC_NORMAL);
-        m_itemList->show();
+        m_stackedWidget->setCurrentWidget(m_itemList);
         //用户打开自动按钮开关，进行下载同步，要考虑到用户token有效，但是没有All.conf的情况出现
         QFile file( m_szConfPath);
         if (file.exists() == false) {
@@ -1134,7 +1132,6 @@ void MainWidget::on_auto_syn(bool checked) {
         } else {
             emit doquerry(m_szCode);
         }
-        m_stackedWidget->setCurrentWidget(m_itemList);
     } else {
         m_stackedWidget->setCurrentWidget(m_nullwidgetContainer);
     }
@@ -1157,7 +1154,7 @@ void MainWidget::on_login_out() {
         m_firstLoad = true;
         if (m_mainWidget->currentWidget() != m_nullWidget) {
             m_mainWidget->setCurrentWidget(m_nullWidget);
-            m_itemList->hide();
+            m_stackedWidget->setCurrentWidget(m_nullwidgetContainer);
         }
 
     } else {
