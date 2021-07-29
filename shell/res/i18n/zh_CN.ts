@@ -4,24 +4,70 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="47"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="394"/>
         <source>System Summary</source>
         <translation>系统概述</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="275"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="395"/>
+        <source>Support</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/about/about.cpp" line="397"/>
+        <source>Version Number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/about/about.cpp" line="402"/>
+        <source>DateRes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/about/about.cpp" line="404"/>
+        <source>Wechat code scanning obtains HP professional technical support</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/about/about.cpp" line="405"/>
+        <source>See more about Kylin Tianqi edu platform</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/about/about.cpp" line="407"/>
+        <source>&lt;&lt;Protocol&gt;&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/about/about.cpp" line="424"/>
+        <source>Learn more HP user manual&gt;&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/about/about.cpp" line="430"/>
+        <source>See user manual&gt;&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/about/about.cpp" line="497"/>
         <source>Technical service has expired</source>
         <translation>已过期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="277"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="499"/>
         <source>Extended</source>
         <translation>延长服务</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="392"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="702"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="711"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="854"/>
+        <source>avaliable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>version</source>
-        <translation>版本</translation>
+        <translation type="vanished">版本</translation>
         <extra-contents_path>/about/version</extra-contents_path>
     </message>
     <message>
@@ -33,88 +79,84 @@
         <translation type="vanished">版权所有2009-2021@kylinos保留所有权利</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="138"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="438"/>
         <source>Version</source>
         <translation>版本</translation>
+        <extra-contents_path>/about/version</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="145"/>
         <source>Kylin Linux Desktop V10 (SP1)</source>
-        <translation>银河麒麟桌面操作系统V10 (SP1)</translation>
+        <translation type="vanished">银河麒麟桌面操作系统V10 (SP1)</translation>
     </message>
     <message>
         <source>Copyright @ 2009-2021 KylinSoft. All rights reserved.</source>
         <translation type="vanished">版权所有 @ 2009-2021 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="181"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="560"/>
         <source>Copyright © 2009-2021 KylinSoft. All rights reserved.</source>
         <translation>版权所有 © 2009-2021 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="269"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="394"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="440"/>
         <source>Kernel</source>
         <translation>内核</translation>
         <extra-contents_path>/about/Kernel</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="308"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="396"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="442"/>
         <source>CPU</source>
         <translation>CPU</translation>
         <extra-contents_path>/about/CPU</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="356"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="398"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="444"/>
         <source>Memory</source>
         <translation>内存</translation>
         <extra-contents_path>/about/Memory</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="404"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="398"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="709"/>
         <source>Disk</source>
         <translation>硬盘</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="458"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="446"/>
         <source>Desktop</source>
         <translation>桌面</translation>
+        <extra-contents_path>/about/Desktop</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="488"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="399"/>
         <source>User</source>
         <translation>用户名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="534"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="400"/>
         <source>Active Status</source>
         <translation>激活状态</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="573"/>
         <source>DataRes</source>
-        <translation>有效期</translation>
+        <translation type="vanished">有效期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="603"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="401"/>
         <source>Serial</source>
         <translation>序列号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="669"/>
         <source>Protocol</source>
-        <translation>免责协议</translation>
+        <translation type="vanished">免责协议</translation>
     </message>
     <message>
         <source>Service serial number</source>
         <translation type="vanished">序列号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="639"/>
         <source>Active</source>
-        <translation>激活</translation>
+        <translation type="vanished">激活</translation>
     </message>
     <message>
         <source>Trial version disclaimer</source>
@@ -129,7 +171,7 @@
         <translation type="vanished">关于</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="55"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="57"/>
         <source>About</source>
         <translation>关于</translation>
         <extra-contents_path>/about/About</extra-contents_path>
@@ -147,12 +189,12 @@
         <translation type="vanished">可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="281"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="503"/>
         <source>Inactivated</source>
         <translation>未激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="267"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="489"/>
         <source>Activated</source>
         <translation>已激活</translation>
     </message>
@@ -196,12 +238,12 @@
 <context>
     <name>AddAppDialog</name>
     <message>
-        <location filename="../../../plugins/system/defaultapp/addappdialog.ui" line="74"/>
+        <location filename="../../../plugins/application/defaultapp/addappdialog.ui" line="74"/>
         <source>OK</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/addappdialog.ui" line="81"/>
+        <location filename="../../../plugins/application/defaultapp/addappdialog.ui" line="81"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -209,76 +251,75 @@
 <context>
     <name>AddAutoBoot</name>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="32"/>
         <source>Add AutoBoot</source>
-        <translation>添加自启动程序</translation>
+        <translation type="vanished">添加自启动程序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="162"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="245"/>
         <source>Add autoboot program</source>
         <translation>添加自启动程序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="218"/>
-        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="137"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="191"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="246"/>
         <source>Program name</source>
         <translation>程序名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="246"/>
-        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="138"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="192"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="247"/>
         <source>Program exec</source>
         <translation>程序路径</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="361"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="249"/>
         <source>Open</source>
         <translation>浏览</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="274"/>
-        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="139"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="193"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="248"/>
         <source>Program comment</source>
         <translation>程序描述</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="429"/>
-        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="205"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="250"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="270"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="454"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="251"/>
         <source>Certain</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="196"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="261"/>
         <source>Desktop files(*.desktop)</source>
         <translation>桌面文件(*.desktop)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="203"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="268"/>
         <source>select autoboot desktop</source>
         <translation>选择自启动程序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="204"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="269"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="253"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="318"/>
         <source>desktop file not allowed add</source>
         <translation>此应用不允许添加</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="258"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="322"/>
         <source>desktop file  already exist</source>
         <translation>桌面文件已经存在</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="308"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="371"/>
         <source>desktop file not exist</source>
         <translation>desktop文件不存在</translation>
     </message>
@@ -286,32 +327,32 @@
 <context>
     <name>AppDetail</name>
     <message>
-        <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="32"/>
+        <location filename="../../../plugins/system/notice/appdetail.ui" line="32"/>
         <source>Dialog</source>
         <translation>更改时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="97"/>
+        <location filename="../../../plugins/system/notice/appdetail.ui" line="97"/>
         <source>App</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="163"/>
+        <location filename="../../../plugins/system/notice/appdetail.ui" line="163"/>
         <source>Allow notification</source>
         <translation>允许通知</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="213"/>
+        <location filename="../../../plugins/system/notice/appdetail.ui" line="213"/>
         <source>Number of notification centers</source>
         <translation>最大通知数量</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="290"/>
+        <location filename="../../../plugins/system/notice/appdetail.ui" line="290"/>
         <source>cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="309"/>
+        <location filename="../../../plugins/system/notice/appdetail.ui" line="309"/>
         <source>confirm</source>
         <translation>确认</translation>
     </message>
@@ -768,14 +809,13 @@
 <context>
     <name>AutoBoot</name>
     <message>
-        <location filename="../../../plugins/system/autoboot/autoboot.ui" line="88"/>
-        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="187"/>
+        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="559"/>
         <source>Autoboot Settings</source>
         <translation>开机启动设置</translation>
         <extra-contents_path>/autoboot/Autoboot Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="146"/>
+        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="519"/>
         <source>Add autoboot app </source>
         <translation>添加自启动程序 </translation>
     </message>
@@ -788,22 +828,20 @@
         <translation type="vanished">开机启动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="61"/>
+        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="65"/>
         <source>Auto Boot</source>
         <translation>开机启动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="225"/>
         <source>Name</source>
-        <translation>程序名称</translation>
+        <translation type="vanished">程序名称</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="229"/>
         <source>Status</source>
-        <translation>当前状态</translation>
+        <translation type="vanished">当前状态</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="290"/>
+        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="209"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
@@ -1419,32 +1457,32 @@ Please authenticate yourself to continue</source>
 <context>
     <name>ChangeProjectionName</name>
     <message>
-        <location filename="../../../plugins/devices/projection/changeprojectionname.cpp" line="24"/>
+        <location filename="../../../plugins/system/projection/changeprojectionname.cpp" line="24"/>
         <source>Name is too long, change another one.</source>
         <translation>名称过长，请更改</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/changeprojectionname.ui" line="26"/>
+        <location filename="../../../plugins/system/projection/changeprojectionname.ui" line="26"/>
         <source>Change Username</source>
         <translation type="unfinished">修改用户名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/changeprojectionname.ui" line="96"/>
+        <location filename="../../../plugins/system/projection/changeprojectionname.ui" line="96"/>
         <source>Changename</source>
         <translation>修改名称</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/changeprojectionname.ui" line="132"/>
+        <location filename="../../../plugins/system/projection/changeprojectionname.ui" line="132"/>
         <source>ChangeProjectionname</source>
         <translation>设备名称</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/changeprojectionname.ui" line="213"/>
+        <location filename="../../../plugins/system/projection/changeprojectionname.ui" line="213"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/changeprojectionname.ui" line="194"/>
+        <location filename="../../../plugins/system/projection/changeprojectionname.ui" line="194"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -2060,6 +2098,34 @@ change system settings</source>
         <translation>当前时间</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="389"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="531"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="420"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="427"/>
+        <source>RadioButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="617"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="649"/>
+        <source>:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="826"/>
+        <source>titleLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="833"/>
+        <source>summaryLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>timezone</source>
         <translation type="vanished">时区</translation>
     </message>
@@ -2073,8 +2139,8 @@ change system settings</source>
         <extra-contents_path>/date/Sync from network successful</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="773"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="782"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="793"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="802"/>
         <source>Sync from network failed</source>
         <translation>时间同步失败</translation>
     </message>
@@ -2133,13 +2199,13 @@ change system settings</source>
         <translation type="vanished">添加时区以显示时间，最多可以添加5个</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="292"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="302"/>
         <source>Add time zones to display the time,only 5 can be added</source>
         <translation>添加时区，最多添加５个</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="316"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="576"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="326"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="595"/>
         <source>Add Timezone</source>
         <translation>添加时区</translation>
     </message>
@@ -2161,42 +2227,42 @@ change system settings</source>
         <extra-contents_path>/date/Sync Time</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="423"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="433"/>
         <source>Time Server</source>
         <translation>服务器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="425"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="435"/>
         <source>Default</source>
         <translation>系统默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="427"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="437"/>
         <source>Customize</source>
         <translation>自定义</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="437"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="447"/>
         <source>Server Address</source>
         <translation>服务器地址</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="442"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="452"/>
         <source>Required</source>
         <translation>必需</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="443"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="453"/>
         <source>Save</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="578"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="597"/>
         <source>Change Timezone</source>
         <translation>更改时区</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="772"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="792"/>
         <source>  </source>
         <translation></translation>
     </message>
@@ -2205,7 +2271,7 @@ change system settings</source>
         <translation type="vanished">同步网络时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="565"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="584"/>
         <source>change time</source>
         <translation>更改时间</translation>
     </message>
@@ -2221,42 +2287,42 @@ change system settings</source>
         <translation type="vanished">默认应用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="38"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="38"/>
         <source>Default App</source>
         <translation type="unfinished">默认应用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="334"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="334"/>
         <source>Browser</source>
         <translation>浏览器</translation>
         <extra-contents_path>/defaultapp/Browser</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="336"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="336"/>
         <source>Mail</source>
         <translation>电子邮件</translation>
         <extra-contents_path>/defaultapp/Mail</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="338"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="338"/>
         <source>Image Viewer</source>
         <translation>图像查看器</translation>
         <extra-contents_path>/defaultapp/Image Viewer</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="340"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="340"/>
         <source>Audio Player</source>
         <translation>音频播放器</translation>
         <extra-contents_path>/defaultapp/Audio Player</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="342"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="342"/>
         <source>Video Player</source>
         <translation>视频播放器</translation>
         <extra-contents_path>/defaultapp/Video Player</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="344"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="344"/>
         <source>Text Editor</source>
         <translation>文档编辑器</translation>
         <extra-contents_path>/defaultapp/Text Editor</extra-contents_path>
@@ -2265,42 +2331,42 @@ change system settings</source>
 <context>
     <name>DefaultAppWindow</name>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="53"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.ui" line="53"/>
         <source>Select Default Application</source>
         <translation>默认应用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="130"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.ui" line="130"/>
         <source>Browser</source>
         <translation>浏览器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="216"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.ui" line="216"/>
         <source>Mail</source>
         <translation>电子邮件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="299"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.ui" line="299"/>
         <source>Image Viewer</source>
         <translation>图像查看器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="382"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.ui" line="382"/>
         <source>Audio Player</source>
         <translation>音频播放器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="465"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.ui" line="465"/>
         <source>Video Player</source>
         <translation>视频播放器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="548"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.ui" line="548"/>
         <source>Text Editor</source>
         <translation>文档编辑器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="594"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.ui" line="594"/>
         <source>Reset to default</source>
         <translation>恢复默认设置</translation>
     </message>
@@ -3356,29 +3422,29 @@ folder will be deleted!</source>
 <context>
     <name>InputPwdDialog</name>
     <message>
-        <location filename="../../../plugins/network/vino/inputpwddialog.cpp" line="27"/>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="27"/>
         <source>Set Password</source>
         <translation>设置密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/inputpwddialog.cpp" line="65"/>
-        <location filename="../../../plugins/network/vino/inputpwddialog.cpp" line="84"/>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="65"/>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="84"/>
         <source>Password can not be blank</source>
         <translation>密码不能为空</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/inputpwddialog.cpp" line="51"/>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="51"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/inputpwddialog.cpp" line="56"/>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="56"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/inputpwddialog.cpp" line="60"/>
-        <location filename="../../../plugins/network/vino/inputpwddialog.cpp" line="89"/>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="60"/>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="89"/>
         <source>less than or equal to 8</source>
         <translation>密码长度需要小于等于８</translation>
     </message>
@@ -4794,7 +4860,7 @@ Please retry or relogin!</source>
 <context>
     <name>Notice</name>
     <message>
-        <location filename="../../../plugins/messages-task/notice/notice.ui" line="62"/>
+        <location filename="../../../plugins/system/notice/notice.ui" line="62"/>
         <source>Notice Settings</source>
         <translation>通知</translation>
     </message>
@@ -4804,29 +4870,29 @@ Please retry or relogin!</source>
         <extra-contents_path>/notice/Set the type of notice in the operation center</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/notice/notice.ui" line="75"/>
-        <location filename="../../../plugins/messages-task/notice/notice.cpp" line="138"/>
+        <location filename="../../../plugins/system/notice/notice.ui" line="75"/>
+        <location filename="../../../plugins/system/notice/notice.cpp" line="138"/>
         <source>Set notice type of operation center</source>
         <translation>设置在通知中心显示的通知信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/notice/notice.ui" line="137"/>
+        <location filename="../../../plugins/system/notice/notice.ui" line="137"/>
         <source>Show new feature ater system upgrade</source>
         <translation>系统版本更新后显示新增内容</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/notice/notice.ui" line="212"/>
+        <location filename="../../../plugins/system/notice/notice.ui" line="212"/>
         <source>Get notifications from the app</source>
         <translation>获取来自应用和其他发送者的通知</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/notice/notice.ui" line="284"/>
+        <location filename="../../../plugins/system/notice/notice.ui" line="284"/>
         <source>Show notifications on the lock screen</source>
         <translation>在锁屏界面上显示通知</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/notice/notice.ui" line="333"/>
-        <location filename="../../../plugins/messages-task/notice/notice.cpp" line="140"/>
+        <location filename="../../../plugins/system/notice/notice.ui" line="333"/>
+        <location filename="../../../plugins/system/notice/notice.cpp" line="140"/>
         <source>Notice Origin</source>
         <translation>设置通知来源</translation>
     </message>
@@ -4835,7 +4901,7 @@ Please retry or relogin!</source>
         <translation type="vanished">通知</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/notice/notice.cpp" line="40"/>
+        <location filename="../../../plugins/system/notice/notice.cpp" line="40"/>
         <source>Notice</source>
         <translation>通知</translation>
     </message>
@@ -5378,28 +5444,28 @@ Please retry or relogin!</source>
 <context>
     <name>Projection</name>
     <message>
-        <location filename="../../../plugins/devices/projection/projection.ui" line="37"/>
-        <location filename="../../../plugins/devices/projection/projection.cpp" line="42"/>
+        <location filename="../../../plugins/system/projection/projection.ui" line="53"/>
+        <location filename="../../../plugins/system/projection/projection.cpp" line="49"/>
         <source>Projection</source>
         <translation>投屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/projection.ui" line="180"/>
+        <location filename="../../../plugins/system/projection/projection.ui" line="230"/>
         <source>msg info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/projection.ui" line="193"/>
+        <location filename="../../../plugins/system/projection/projection.ui" line="243"/>
         <source>label for set size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/projection.ui" line="297"/>
+        <location filename="../../../plugins/system/projection/projection.ui" line="350"/>
         <source>msg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/projection.cpp" line="61"/>
+        <location filename="../../../plugins/system/projection/projection.cpp" line="66"/>
         <source>Open Projection</source>
         <translation>开启投屏</translation>
         <extra-contents_path>/bluetooth/Open Bluetooth</extra-contents_path>
@@ -5409,7 +5475,7 @@ Please retry or relogin!</source>
         <translation type="vanished">投屏端名称</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/projection.cpp" line="285"/>
+        <location filename="../../../plugins/system/projection/projection.cpp" line="328"/>
         <source>Add Bluetooths</source>
         <translation>添加蓝牙</translation>
         <extra-contents_path>/bluetooth/Add Bluetooths</extra-contents_path>
@@ -7068,32 +7134,32 @@ run start-pulseaudio-x11 manually.</source>
 <context>
     <name>ShareMain</name>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="49"/>
+        <location filename="../../../plugins/system/vino/sharemain.cpp" line="49"/>
         <source>Share</source>
         <translation>共享</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="58"/>
+        <location filename="../../../plugins/system/vino/sharemain.cpp" line="58"/>
         <source>Allow others to view your desktop</source>
         <translation>允许其他人远程连接您的桌面</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="73"/>
+        <location filename="../../../plugins/system/vino/sharemain.cpp" line="73"/>
         <source>Allow connection to control screen</source>
         <translation>允许其他人远程连接您的桌面并控制您的屏幕</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="81"/>
+        <location filename="../../../plugins/system/vino/sharemain.cpp" line="81"/>
         <source>Security</source>
         <translation>安全</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="90"/>
+        <location filename="../../../plugins/system/vino/sharemain.cpp" line="90"/>
         <source>You must confirm every visit for this machine</source>
         <translation>您必须为本机机器确认每次访问</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="105"/>
+        <location filename="../../../plugins/system/vino/sharemain.cpp" line="105"/>
         <source>Require user to enter this password: </source>
         <translation>要求用户输入此密码: </translation>
     </message>
@@ -7824,12 +7890,12 @@ run start-pulseaudio-x11 manually.</source>
         <translation>今天</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/timeBtn.cpp" line="101"/>
+        <location filename="../../../plugins/time-language/datetime/timeBtn.cpp" line="100"/>
         <source>%1 hours earlier than local</source>
         <translation>比本地早%1小时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/timeBtn.cpp" line="103"/>
+        <location filename="../../../plugins/time-language/datetime/timeBtn.cpp" line="102"/>
         <source>%1 hours later than local</source>
         <translation>比本地晚%1小时</translation>
     </message>
@@ -7918,86 +7984,146 @@ run start-pulseaudio-x11 manually.</source>
 <context>
     <name>Touchpad</name>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="41"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="86"/>
         <source>Touchpad Settings</source>
-        <translation>触摸板设置</translation>
+        <translation type="vanished">触摸板设置</translation>
         <extra-contents_path>/touchpad/Touchpad Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="177"/>
         <source>Enabled touchpad</source>
-        <translation>启用触摸板</translation>
+        <translation type="vanished">启用触摸板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="246"/>
         <source>Disable touchpad while typing</source>
-        <translation>打字时禁用触摸板</translation>
+        <translation type="vanished">打字时禁用触摸板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="315"/>
         <source>Enable mouse clicks with touchpad</source>
-        <translation>启用触摸板的鼠标点击</translation>
+        <translation type="vanished">启用触摸板的鼠标点击</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="108"/>
         <source> Mouse to disable  touchpad</source>
-        <translation>连接鼠标或无线触控板时禁用内置触摸版</translation>
+        <translation type="vanished">连接鼠标或无线触控板时禁用内置触摸版</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="393"/>
         <source>Scrolling</source>
-        <translation>滚动</translation>
+        <translation type="vanished">滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="426"/>
         <source>No touchpad found</source>
-        <translation>未发现触摸板设备</translation>
+        <translation type="vanished">未发现触摸板设备</translation>
     </message>
     <message>
         <source>touchpad</source>
         <translation type="vanished">触摸板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="56"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="31"/>
         <source>Touchpad</source>
         <translation>触摸板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="137"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="141"/>
         <source>Disable rolling</source>
-        <translation>禁用滚动</translation>
+        <translation type="vanished">禁用滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="138"/>
+        <source>Edge scrolling</source>
+        <translation type="vanished">边界滚动</translation>
+    </message>
+    <message>
+        <source>Two-finger scrolling</source>
+        <translation type="vanished">双指滚动</translation>
+    </message>
+    <message>
+        <source>Vertical edge scrolling</source>
+        <translation type="vanished">垂直边界滚动</translation>
+    </message>
+    <message>
+        <source>Horizontal edge scrolling</source>
+        <translation type="vanished">水平边界滚动</translation>
+    </message>
+    <message>
+        <source>Vertical two-finger scrolling</source>
+        <translation type="vanished">垂直双指滚动</translation>
+    </message>
+    <message>
+        <source>Horizontal two-finger scrolling</source>
+        <translation type="vanished">水平双指滚动</translation>
+    </message>
+</context>
+<context>
+    <name>TouchpadUI</name>
+    <message>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="19"/>
+        <source>Touchpad Setting</source>
+        <translation>触摸板设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="23"/>
+        <source>No touchpad found</source>
+        <translation>未发现触摸板设备</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="37"/>
+        <source>Disable touchpad when using the mouse</source>
+        <translation>插入鼠标时禁用触摸板</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="52"/>
+        <source>Cursor Speed</source>
+        <translation>光标速度</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="53"/>
+        <source>Slow</source>
+        <translation>慢</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="54"/>
+        <source>Fast</source>
+        <translation>快</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="73"/>
+        <source>Disable touchpad when typing</source>
+        <translation>打字时禁用触摸板</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="89"/>
+        <source>Touch and click on the touchpad</source>
+        <translation>触摸板轻触点击</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="105"/>
+        <source>Scroll bar slides with finger</source>
+        <translation>滚动条跟随手指滑动</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="120"/>
+        <source>Scrolling area</source>
+        <translation>滚动区域</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="122"/>
+        <source>Disable scrolling</source>
+        <translation>禁止</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="123"/>
         <source>Edge scrolling</source>
         <translation>边界滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="139"/>
-        <source>Two-finger scrolling</source>
-        <translation>双指滚动</translation>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="124"/>
+        <source>Two-finger scrolling in the middle area</source>
+        <translation>中间区域双指滚动</translation>
     </message>
+</context>
+<context>
+    <name>TrialDialog</name>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="142"/>
-        <source>Vertical edge scrolling</source>
-        <translation>垂直边界滚动</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="143"/>
-        <source>Horizontal edge scrolling</source>
-        <translation>水平边界滚动</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="144"/>
-        <source>Vertical two-finger scrolling</source>
-        <translation>垂直双指滚动</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="145"/>
-        <source>Horizontal two-finger scrolling</source>
-        <translation>水平双指滚动</translation>
+        <location filename="../../../plugins/system/about/trialdialog.cpp" line="9"/>
+        <source>Set</source>
+        <translation type="unfinished">设置</translation>
     </message>
 </context>
 <context>
@@ -8673,7 +8799,7 @@ run start-pulseaudio-x11 manually.</source>
 <context>
     <name>Vino</name>
     <message>
-        <location filename="../../../plugins/network/vino/vino.cpp" line="24"/>
+        <location filename="../../../plugins/system/vino/vino.cpp" line="24"/>
         <source>Vino</source>
         <translation>桌面共享</translation>
     </message>

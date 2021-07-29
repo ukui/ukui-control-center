@@ -22,23 +22,9 @@
 
 #include <QObject>
 #include <QtPlugin>
-#include <QListView>
-
-#include <QGSettings>
-#include <QX11Info>
-#include <QDBusInterface>
-#include <QProcess>
-#include <QDBusReply>
-#include <QVector>
 
 #include "shell/interface.h"
-#include "SwitchButton/switchbutton.h"
-
-const QString kSession = "wayland";
-
-namespace Ui {
-class Touchpad;
-}
+#include "touchpadui.h"
 
 class Touchpad : public QObject, CommonInterface
 {
@@ -56,42 +42,13 @@ public:
     void plugin_delay_control() Q_DECL_OVERRIDE;
     const QString name() const  Q_DECL_OVERRIDE;
 
-public:
-    void setupComponent();
-    void initConnection();
-    void initTouchpadStatus();
-
-    QString _findKeyScrollingType();
-
 private:
-    void setModuleVisible(bool visible);
-    void isWaylandPlatform();
-
-    void initWaylandDbus();
-    void initWaylandTouchpadStatus();
-    void initWaylandConnection();
-
-private:
-    Ui::Touchpad *ui;
-
     QString pluginName;
     int pluginType;
-    QWidget * pluginWidget;
+    TouchpadUI * pluginWidget;
 
 private:
-    SwitchButton * enableBtn;
-    SwitchButton * typingBtn;
-    SwitchButton * clickBtn;
-    SwitchButton * mMouseDisTouchBtn;
-
-    QGSettings * tpsettings;
-
     bool mFirstLoad;
-    bool mIsWayland;
-    bool mExistTouchpad;
-
-    QDBusInterface *mWaylandIface;
-    QDBusInterface *mDeviceIface;
 
 };
 
