@@ -6920,7 +6920,6 @@ run start-pulseaudio-x11 manually.</source>
     <message>
         <source>Secure Config</source>
         <translation type="vanished">系统安全配置</translation>
-        <extra-contents_path>/securitycenter/Secure Config</extra-contents_path>
     </message>
     <message>
         <source>Simple Config</source>
