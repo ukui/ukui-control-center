@@ -63,14 +63,19 @@ void OutputConfig::initUi()
 
     connect(mOutput.data(), &KScreen::Output::currentModeIdChanged,
             this, [=]() {
-        mRefreshRate->blockSignals(true);
-        mScaleCombox->blockSignals(true);
         if (mOutput->currentMode()) {
-            slotResolutionChanged(mOutput->currentMode()->size(), false);
-            slotScaleIndex(mOutput->currentMode()->size());
+            if (mRefreshRate) {
+                mRefreshRate->blockSignals(true);
+                slotResolutionChanged(mOutput->currentMode()->size(), false);
+                mRefreshRate->blockSignals(false);
+            }
+
+            if (mScaleCombox) {
+                mScaleCombox->blockSignals(true);
+                slotScaleIndex(mOutput->currentMode()->size());
+                mScaleCombox->blockSignals(false);
+            }
         }
-        mScaleCombox->blockSignals(false);
-        mRefreshRate->blockSignals(false);
     });
 
     setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
