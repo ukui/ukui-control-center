@@ -115,7 +115,7 @@ private:
 private:
     FlowLayout * picFlowLayout;
     FlowLayout * colorFlowLayout;
-
+    int picNum = 0;
 private:
 
     QMap<QString, QMap<QString, QString> > wallpaperinfosMap;

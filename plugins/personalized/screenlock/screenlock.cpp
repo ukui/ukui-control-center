@@ -39,6 +39,7 @@
 #define MATE_BACKGROUND_SCHEMAS "org.mate.background"
 #define FILENAME                "picture-filename"
 const QString kylinUrl        = "https://www.ubuntukylin.com/wallpaper.html";
+const QString kylinBackgroundName2 = "/usr/share/backgrounds/aurora.jpg";
 
 Screenlock::Screenlock() : mFirstLoad(true)
 {
@@ -76,8 +77,6 @@ QWidget *Screenlock::get_plugin_ui()
         ui->setupUi(pluginWidget);
 
         ui->titleLabel->setStyleSheet(" QLabel{color: palette(windowText);}");
-        ui->title1Label->setStyleSheet("QLabel{color: palette(windowText);}");
-        ui->title2Label->setStyleSheet("QLabel{color: palette(windowText);}");
 
         const QByteArray id(SCREENLOCK_BG_SCHEMA);
         lSetting = new QGSettings(id, QByteArray(), this);
@@ -108,15 +107,19 @@ void Screenlock::initSearchText() {
     ui->loginpicLabel->setText(tr("Show picture of screenlock on screenlogin"));
     //~ contents_path /screenlock/Lock screen when screensaver boot
     ui->activepicLabel->setText(tr("Lock screen when screensaver boot"));
+    //~ contents_path /screenlock/Online Picture
+    ui->onlineLabel->setOpenExternalLinks(true);
+    ui->onlineLabel->setText(QString("<a href = %1> %2</a>").arg(kylinUrl).arg(tr("Online Picture")));
+    ui->onlineLabel->setAlignment(Qt::AlignLeft);
+
+    //~ contents_path /wallpaper/Reset To Default
+    ui->resetBtn->setText(tr("Reset To Default"));
 }
 
 void Screenlock::setupComponent()
 {
     mUKCConfig = QDir::homePath() + "/.config/ukui/ukui-control-center.conf";
     lockSetting = new QSettings(mUKCConfig, QSettings::IniFormat, this);
-
-    //锁屏延时暂时不可用，屏蔽
-    ui->enableFrame->hide();
 
     QString name = qgetenv("USER");
     if (name.isEmpty()) {
@@ -135,7 +138,7 @@ void Screenlock::setupComponent()
     uslider->setTickInterval(1);
     uslider->setPageStep(1);
 
-    ui->lockhorizontalLayout->addWidget(uslider);
+    ui->delayFrame->layout()->addWidget(uslider);
 
     loginbgSwitchBtn = new SwitchButton(pluginWidget);
     ui->loginbgHorLayout->addWidget(loginbgSwitchBtn);
@@ -176,9 +179,12 @@ void Screenlock::setupComponent()
     });
 
     //设置布局
-    flowLayout = new FlowLayout;
-    flowLayout->setContentsMargins(0, 0, 0, 0);
-    ui->backgroundsWidget->setLayout(flowLayout);
+    flowLayout = new FlowLayout(ui->backgroundsWidget, -1, 36, 36);
+    flowLayout->setContentsMargins(16, 16, 16, 16);
+
+    //锁屏延时暂时不可用，屏蔽
+    ui->delayFrame->hide();
+    ui->line_3->hide();
 }
 
 void Screenlock::setupConnect()
@@ -201,10 +207,7 @@ void Screenlock::setupConnect()
     }
 
     connect(ui->browserLocalwpBtn, &QPushButton::clicked, this, &Screenlock::setScreenLockBgSlot);
-
-    connect(ui->browserOnlinewpBtn, &QPushButton::clicked, [=] {
-        QDesktopServices::openUrl(QUrl(kylinUrl));
-    });
+    connect(ui->resetBtn, SIGNAL(clicked(bool)), this, SLOT(resetDefaultScreenLockSlot()));
 }
 
 void Screenlock::initScreenlockStatus()
@@ -424,8 +427,6 @@ void Screenlock::keyChangedSlot(const QString &key)
 
 void Screenlock::setScreenLockBgSlot()
 {
-
-
     QStringList filters;
     filters<<tr("Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)")<<tr("allFiles(*.*)");
     QFileDialog fd(pluginWidget);
@@ -510,4 +511,32 @@ QString Screenlock::copyLoginFile(QString fileName) {
     QString loginCmd = QString("cp %1 %2").arg(fileName).arg(loginFilename);
     process.startDetached(loginCmd);
     return loginFilename;
+}
+
+void Screenlock::resetDefaultScreenLockSlot(){
+    GSettings * wpgsettings;
+    wpgsettings = g_settings_new(SCREENLOCK_BG_SCHEMA);
+    GVariant * variant = g_settings_get_default_value(wpgsettings, SCREENLOCK_BG_KEY);
+    gsize size = g_variant_get_size(variant);
+    const char * dwp = g_variant_get_string(variant, &size);
+    g_object_unref(wpgsettings);
+    lSetting->set(SCREENLOCK_BG_KEY, QVariant(QString(dwp)));
+    setClickedPic(kylinBackgroundName2);//默认背景图片和aurora.jpg一样，暂时特殊标记
+}
+
+void Screenlock::setClickedPic(QString fileName) {
+    for (int i = flowLayout->count() - 1; i >= 0; --i) {
+        QLayoutItem *it      = flowLayout->itemAt(i);
+        PictureUnit *picUnit = static_cast<PictureUnit*>(it->widget());
+        if (fileName == picUnit->filenameText()) {
+            if (prePicUnit != nullptr) {
+                prePicUnit->changeClickedFlag(false);
+                prePicUnit->setStyleSheet("border-width: 0px;");
+            }
+            picUnit->changeClickedFlag(true);
+            prePicUnit = picUnit;
+            picUnit->setFrameShape(QFrame::Box);
+            picUnit->setStyleSheet(picUnit->clickedStyleSheet);
+        }
+    }
 }

@@ -34,7 +34,7 @@ PictureUnit::PictureUnit()
     clickedStyleSheet = QString("border-width: 6px;border-style: solid;border-color: %1;").arg(stringColor);
     clickedFlag = false;
     setAttribute(Qt::WA_DeleteOnClose);
-    setFixedSize(QSize(166, 110));
+    setFixedSize(QSize(160, 110));
     setScaledContents(true);
 
     MaskWidget * maskWidget = new MaskWidget(this);

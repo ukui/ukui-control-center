@@ -70,6 +70,7 @@ public:
     void setupComponent();
     void setupConnect();
     void initScreenlockStatus();
+    void setClickedPic(QString fileName);
 
 private:
     int convertToLocktime(const int value);
@@ -113,6 +114,7 @@ private:
 
 public Q_SLOTS:
     void keyChangedSlot(const QString &key);
+    void resetDefaultScreenLockSlot();
 
 private slots:
     void setScreenLockBgSlot();

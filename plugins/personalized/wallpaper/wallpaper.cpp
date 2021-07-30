@@ -108,17 +108,23 @@ const QString Wallpaper::name() const {
 }
 
 void Wallpaper::initSearchText() {
-    //~ contents_path /wallpaper/Select from
-    ui->selectLabel->setText(tr("Select from"));
+    //~ contents_path /wallpaper/Background
+    ui->selectLabel->setText(tr("Background"));
     //~ contents_path /wallpaper/Browser local wp
     ui->browserLocalwpBtn->setText(tr("Browser local wp"));
-    //~ contents_path /wallpaper/Browser online wp
-    ui->browserOnlinewpBtn->setText(tr("Browser online wp"));
-    //~ contents_path /wallpaper/Reset to default
-    ui->resetBtn->setText(tr("Reset to default"));
+    //~ contents_path /wallpaper/Online Picture
+    ui->onlineLabel->setOpenExternalLinks(true);
+    ui->onlineLabel->setText(QString("<a href = %1> %2</a>").arg(kylinUrl).arg(tr("Online Picture")));
+    ui->onlineLabel->setAlignment(Qt::AlignLeft);
+    //~ contents_path /wallpaper/Reset To Default
+    ui->resetBtn->setText(tr("Reset To Default"));
 }
 
 void Wallpaper::setupComponent(){
+
+    ui->showModeLabel->setHidden(true);
+    ui->line_2->setHidden(true);
+    ui->showModeComboBox->setHidden(true);
 
     QString name = qgetenv("USER");
     if (name.isEmpty()) {
@@ -135,18 +141,20 @@ void Wallpaper::setupComponent(){
     ui->formComBox->addItem(formList.at(1), COLOR);
 
     // 图片背景
-    picFlowLayout = new FlowLayout(ui->picListWidget);
-    picFlowLayout->setContentsMargins(0, 0, 0, 0);
-    ui->picListWidget->setLayout(picFlowLayout);
+    ui->picFrame->adjustSize();
+    picFlowLayout = new FlowLayout(ui->picFrame, -1, 36, 36);
+    picFlowLayout->setContentsMargins(16, 16, 16, 16);
+    ui->picFrame->setLayout(picFlowLayout);
+
     // 纯色背景
     colorFlowLayout = new FlowLayout(ui->colorListWidget);
-    colorFlowLayout->setContentsMargins(0, 0, 0, 0);
+    colorFlowLayout->setContentsMargins(16, 16, 16, 16);
     ui->colorListWidget->setLayout(colorFlowLayout);
 
     colWgt = new HoverWidget("");
     colWgt->setObjectName("colWgt");
-    colWgt->setMinimumSize(QSize(580, 50));
-    colWgt->setMaximumSize(QSize(960, 50));
+    colWgt->setFixedHeight(60);
+
     QPalette pal;
     QBrush brush = pal.highlight();  //获取window的色值
     QColor highLightColor = brush.color();
@@ -155,7 +163,7 @@ void Wallpaper::setupComponent(){
            .arg(highLightColor.green()*0.8 + 255*0.2)
            .arg(highLightColor.blue()*0.8 + 255*0.2);
 
-    colWgt->setStyleSheet(QString("HoverWidget#colWgt{background: palette(button);\
+    colWgt->setStyleSheet(QString("HoverWidget#colWgt{background: palette(base);\
                                    border-radius: 4px;}\
                                    HoverWidget:hover:!pressed#colWgt{background: %1;  \
                                    border-radius: 4px;}").arg(stringColor));
@@ -166,6 +174,7 @@ void Wallpaper::setupComponent(){
     iconLabel->setPixmap(pixgray);
     iconLabel->setProperty("useIconHighlightEffect", true);
     iconLabel->setProperty("iconHighlightEffectMode", 1);
+    addLyt->addStretch();
     addLyt->addWidget(iconLabel);
     addLyt->addWidget(textLabel);
     addLyt->addStretch();
@@ -238,6 +247,8 @@ void Wallpaper::setupConnect(){
         });
 
         picFlowLayout->addWidget(picUnit);
+        picNum++;
+        ui->picFrame->setMaximumHeight(ceil(picNum/4.0)*146 + 16 + 16 - 36);
 
     });
     connect(pObject, &WorkerObject::workComplete, this, [=](QMap<QString, QMap<QString, QString>> wpInfoMaps){
@@ -260,10 +271,6 @@ void Wallpaper::setupConnect(){
 
     connect(ui->browserLocalwpBtn, &QPushButton::clicked, [=]{
         showLocalWpDialog();
-    });
-
-    connect(ui->browserOnlinewpBtn, &QPushButton::clicked, [=]{
-        QDesktopServices::openUrl(QUrl(kylinUrl));
     });
 
     connect(ui->resetBtn, SIGNAL(clicked(bool)), this, SLOT(resetDefaultWallpaperSlot()));
@@ -303,14 +310,16 @@ void Wallpaper::setupConnect(){
         Q_UNUSED(index)
         //切换
         int currentPage = ui->formComBox->currentData(Qt::UserRole).toInt();
-        ui->substackedWidget->setCurrentIndex(currentPage);
-
-        if (currentPage == COLOR){
-            ui->wallpaperWidget->setMaximumHeight(600);
-        } else if (currentPage == PICTURE) {
-            ui->wallpaperWidget->setMaximumHeight(16777215);
+        if (currentPage == PICTURE) {
+            ui->colorFrame->setHidden(true);
+            ui->picFrame->setHidden(false);
+            ui->bottomWidget->setHidden(false);
+            ui->picFrame->setMaximumHeight(ceil(picNum/4.0)*146 + 16 + 16 - 36);
+        } else if (currentPage == COLOR){
+            ui->picFrame->setHidden(true);
+            ui->colorFrame->setHidden(false);
+            ui->bottomWidget->setHidden(true);
         }
-
     });
     //壁纸变动后改变用户属性
     connect(bgsettings, &QGSettings::changed, [=](QString key){
@@ -384,7 +393,16 @@ void Wallpaper::initBgFormStatus(){
     ui->formComBox->blockSignals(true);
     ui->formComBox->setCurrentIndex(currentIndex);
     ui->formComBox->blockSignals(false);
-    ui->substackedWidget->setCurrentIndex(currentIndex);
+    if (ui->formComBox->currentIndex() == PICTURE) {
+        ui->colorFrame->setHidden(true);
+        ui->picFrame->setHidden(false);
+        ui->bottomWidget->setHidden(false);
+    } else if (ui->formComBox->currentIndex() == COLOR){
+        ui->picFrame->setHidden(true);
+        ui->colorFrame->setHidden(false);
+        ui->bottomWidget->setHidden(true);
+    }
+
     ui->previewStackedWidget->setCurrentIndex(currentIndex);
 
     //根据背景形式选择显示组件

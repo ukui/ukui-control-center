@@ -38,6 +38,7 @@ public:
     void enterEvent(QEvent *e);
     void leaveEvent(QEvent *e);
     QString clickedStyleSheet;
+    QString filenameText();
 protected:
     void mousePressEvent(QMouseEvent * e);
 
