@@ -285,7 +285,10 @@ void Screensaver::initThemeStatus() {
 }
 
 void Screensaver::initIdleSliderStatus() {
-    int minutes = qScreenSaverSetting->get(IDLE_DELAY_KEY).toInt();
+    int minutes = 0;
+    if (qScreenSaverSetting->keys().contains("idleDelay")) {
+        minutes = qScreenSaverSetting->get(IDLE_DELAY_KEY).toInt();
+    }
 
     uslider->blockSignals(true);
     uslider->setValue(lockConvertToSlider(minutes));
@@ -329,8 +332,10 @@ void Screensaver::status_init() {
     g_object_unref(screensaver_settings);
 
     //获取空闲时间
-    int minutes;
-    minutes = g_settings_get_int(screensaver_settings, IDLE_DELAY_KEY);
+    int minutes = 0;
+    if (qScreenSaverSetting->keys().contains("idleDelay")) {
+        minutes = qScreenSaverSetting->get(IDLE_DELAY_KEY).toInt();
+    }
     uslider->setValue(lockConvertToSlider(minutes));
 
     connect(ui->comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(combobox_changed_slot(int)));
@@ -456,12 +461,6 @@ int Screensaver::lockConvertToSlider(const int value) {
         return 1;
         break;
     }
-}
-
-
-
-void Screensaver::set_idle_gsettings_value(int value) {
-    g_settings_set_int(screensaver_settings, IDLE_DELAY_KEY, value);
 }
 
 void Screensaver::lockbtn_changed_slot(bool status) {

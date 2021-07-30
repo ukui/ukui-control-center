@@ -111,7 +111,6 @@ public:
     void component_init();
     void status_init();
 
-    void set_idle_gsettings_value(int value);
     void screensaver_switch();
 
     void kill_and_start();
