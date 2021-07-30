@@ -84,12 +84,6 @@ void OutputConfig::initUi()
                 slotResolutionChanged(size, emitFlag);
             });
 
-    connect(mResolution, &ResolutionSlider::resolutionChanged,
-            this, &OutputConfig::slotScaleIndex);
-
-    connect(mResolution, &ResolutionSlider::resolutionsave,
-            this, &OutputConfig::slotScaleIndex);
-
     // 方向下拉框
     mRotation = new QComboBox(this);
     mRotation->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
@@ -222,10 +216,19 @@ void OutputConfig::initConnection()
 
     connect(mOutput.data(), &KScreen::Output::currentModeIdChanged,
             this, [=]() {
-        mRefreshRate->blockSignals(true);
-        if (mOutput->currentMode())
-            slotResolutionChanged(mOutput->currentMode()->size(), false);
-        mRefreshRate->blockSignals(false);
+        if (mOutput->currentMode()) {
+            if (mRefreshRate) {
+                mRefreshRate->blockSignals(true);
+                slotResolutionChanged(mOutput->currentMode()->size(), false);
+                mRefreshRate->blockSignals(false);
+            }
+
+            if (mScaleCombox) {
+                mScaleCombox->blockSignals(true);
+                slotScaleIndex(mOutput->currentMode()->size());
+                mScaleCombox->blockSignals(false);
+            }
+        }
     });
 }
 
