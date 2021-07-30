@@ -515,8 +515,13 @@ void Widget::writeScale(double scale)
         mIsScaleChanged = true;
     }
 
-    if (!mIsScaleChanged) {
-       return;
+    if (mIsScaleChanged) {
+        if (!mConfigChanged || mIsUnifyChanged) {
+            QMessageBox::information(this, tr("Information"),
+                                     tr("Some applications need to be logouted to take effect"));
+        }
+    } else {
+        return;
     }
 
     mIsScaleChanged = false;
