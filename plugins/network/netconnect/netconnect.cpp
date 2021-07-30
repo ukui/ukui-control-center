@@ -1318,14 +1318,15 @@ int NetConnect::getActiveConInfo(QList<ActiveConInfo>& qlActiveConInfo, bool wir
                                                 replyDevicesPaths.at(0).path(),
                                                 "org.freedesktop.NetworkManager.Device.Wired",
                                                 QDBusConnection::systemBus());
-                    activeNet.strBandWidth = netDeviceifc.property("Speed").toString() + "Mb/s";
+                    activeNet.strBandWidth = netDeviceifc.property("Speed").toString() + "Mbps";
                     activeNet.strMac = netDeviceifc.property("HwAddress").toString().toLower();
                 } else {
                     QDBusInterface netDeviceifc("org.freedesktop.NetworkManager",
                                                 replyDevicesPaths.at(0).path(),
                                                 "org.freedesktop.NetworkManager.Device.Wireless",
                                                 QDBusConnection::systemBus());
-                    activeNet.strBandWidth = netDeviceifc.property("Bitrate").toString() + "Mb/s";
+                    float bandWidth = netDeviceifc.property("Bitrate").toFloat() / 1000;
+                    activeNet.strBandWidth = QString("%1").arg(bandWidth) + "Mbps";
                     activeNet.strMac = netDeviceifc.property("HwAddress").toString().toLower();
                 }
             } else {
