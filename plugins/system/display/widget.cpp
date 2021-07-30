@@ -91,36 +91,13 @@ Widget::Widget(QWidget *parent) :
     ui->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
     ui->quickWidget->setContentsMargins(0, 0, 0, 9);
 
-    mCloseScreenButton = new SwitchButton(this);
-    ui->showScreenLayout->addWidget(mCloseScreenButton);
-
-    mUnifyButton = new SwitchButton(this);
-    ui->unionLayout->addWidget(mUnifyButton);
-
     qDBusRegisterMetaType<ScreenConfig>();
 
+    initComponent();
     setHideModuleInfo();
     initNightUI();
-    isWayland();
 
-    QProcess *process = new QProcess;
-    process->start("lsb_release -r");
-    process->waitForFinished();
-
-    QByteArray ba = process->readAllStandardOutput();
-    QString osReleaseCrude = QString(ba.data());
-    QStringList res = osReleaseCrude.split(":");
-    QString osRelease = res.length() >= 2 ? res.at(1) : "";
-    osRelease = osRelease.simplified();
-
-    const QByteArray idd(ADVANCED_SCHEMAS);
-    if (QGSettings::isSchemaInstalled(idd) && osRelease == "V10") {
-        ui->advancedBtn->show();
-        ui->advancedHorLayout->setContentsMargins(9, 8, 9, 32);
-    } else {
-        ui->advancedBtn->hide();
-        ui->advancedHorLayout->setContentsMargins(9, 0, 9, 0);
-    }
+    initAdvanceScreen();
 
     setTitleLabel();
     initGSettings();
@@ -195,7 +172,7 @@ void Widget::setConfig(const KScreen::ConfigPtr &config, bool showBrightnessFram
     mScreen->setConfig(mConfig);
     mControlPanel->setConfig(mConfig);
     mUnifyButton->setEnabled(mConfig->connectedOutputs().count() > 1);
-    ui->unionframe->setVisible(mConfig->outputs().count() > 1);
+    ui->unionframe->setVisible(false);
 
     for (const KScreen::OutputPtr &output : mConfig->outputs()) {
         if (false == unifySetconfig) {
@@ -337,7 +314,7 @@ void Widget::slotOutputEnabledChanged()
         }
     }
     mUnifyButton->setEnabled(enabledOutputsCount > 1);
-    ui->unionframe->setVisible(enabledOutputsCount > 1);
+    ui->unionframe->setVisible(false);
 }
 
 void Widget::slotOutputConnectedChanged()
@@ -352,6 +329,7 @@ void Widget::slotOutputConnectedChanged()
 
     resetPrimaryCombo();
 
+    setMulScreenVisiable();
 }
 
 void Widget::slotUnifyOutputs()
@@ -456,7 +434,7 @@ void Widget::slotUnifyOutputs()
         mCloseScreenButton->setEnabled(false);
         ui->showMonitorframe->setVisible(false);
         ui->primaryCombo->setEnabled(false);
-        ui->mainScreenButton->setEnabled(false);
+        ui->mainScreenButton->setVisible(false);
         mControlPanel->setUnifiedOutput(base->outputPtr());
     }
 }
@@ -507,6 +485,35 @@ KScreen::OutputPtr Widget::findOutput(const KScreen::ConfigPtr &config, const QV
     }
 
     return KScreen::OutputPtr();
+}
+
+void Widget::initComponent()
+{
+    mCloseScreenButton = new SwitchButton(this);
+    ui->showScreenLayout->addWidget(mCloseScreenButton);
+
+    mUnifyButton = new SwitchButton(this);
+    ui->unionLayout->addWidget(mUnifyButton);
+
+    mMultiScreenFrame = new QFrame(this);
+    mMultiScreenFrame->setFrameShape(QFrame::Shape::Box);
+
+    QHBoxLayout *multiScreenlay = new QHBoxLayout();
+    mMultiScreenLabel = new QLabel(tr("Multi-screen"), this);
+    mMultiScreenLabel->setFixedSize(118, 30);
+
+    mMultiScreenCombox = new QComboBox(this);
+
+    mMultiScreenCombox->addItem(tr("First Screen"));
+    mMultiScreenCombox->addItem(tr("Clone Screen"));
+    mMultiScreenCombox->addItem(tr("Extend Screen"));
+    mMultiScreenCombox->addItem(tr("Vice Screen"));
+
+    multiScreenlay->addWidget(mMultiScreenLabel);
+    multiScreenlay->addWidget(mMultiScreenCombox);
+
+    mMultiScreenFrame->setLayout(multiScreenlay);
+    ui->multiscreenLyt->addWidget(mMultiScreenFrame);
 }
 
 void Widget::setHideModuleInfo()
@@ -615,6 +622,28 @@ void Widget::initNightUI()
     themeLayout->addWidget(mThemeButton);
 }
 
+void Widget::initAdvanceScreen()
+{
+    QProcess *process = new QProcess;
+    process->start("lsb_release -r");
+    process->waitForFinished();
+
+    QByteArray ba = process->readAllStandardOutput();
+    QString osReleaseCrude = QString(ba.data());
+    QStringList res = osReleaseCrude.split(":");
+    QString osRelease = res.length() >= 2 ? res.at(1) : "";
+    osRelease = osRelease.simplified();
+
+    const QByteArray idd(ADVANCED_SCHEMAS);
+    if (QGSettings::isSchemaInstalled(idd) && osRelease == "V10") {
+        ui->advancedBtn->show();
+        ui->advancedHorLayout->setContentsMargins(9, 8, 9, 32);
+    } else {
+        ui->advancedBtn->hide();
+        ui->advancedHorLayout->setContentsMargins(9, 0, 9, 0);
+    }
+}
+
 bool Widget::isRestoreConfig()
 {
     int cnt = 15;
@@ -643,12 +672,14 @@ bool Widget::isRestoreConfig()
         QObject::connect(&cntDown, &QTimer::timeout, [&msg, &cnt, &cntDown, &ret]()->void {
             if (--cnt < 0) {
                 cntDown.stop();
+                msg.hide();
                 msg.close();
             } else {
                 msg.setText(QString(tr("After modifying the resolution or refresh rate, "
                                        "due to compatibility issues between the display device and the graphics card, "
                                        "the display may be abnormal or unable to display \n"
                                        "the settings will be saved after %1 seconds")).arg(cnt));
+                msg.show();
             }
         });
         cntDown.start(1000);
@@ -784,6 +815,37 @@ void Widget::setScreenIsApply(bool isApply)
     mIsScreenAdd = !isApply;
 }
 
+void Widget::setMulScreenVisiable()
+{
+    bool isMult = mConfig->connectedOutputs().count() >= 2 ? true : false;
+    mMultiScreenFrame->setVisible(isMult);
+    initMultScreenStatus();
+}
+
+void Widget::initMultScreenStatus()
+{
+    mMultiScreenCombox->blockSignals(true);
+    if (isCloneMode()) {
+        mMultiScreenCombox->setCurrentIndex(CLONE);
+    } else {
+        int enableCount = 0;
+        KScreen::OutputList screens = mConfig->connectedOutputs();
+        Q_FOREACH(KScreen::OutputPtr output, screens) {
+            if (output->isEnabled()) {
+                enableCount++;
+            }
+        }
+        if (enableCount >= 2) {
+            mMultiScreenCombox->setCurrentIndex(EXTEND);
+        } else if (screens.begin().value()->isEnabled()) {
+            mMultiScreenCombox->setCurrentIndex(FIRST);
+        } else {
+            mMultiScreenCombox->setCurrentIndex(VICE);
+        }
+    }
+    mMultiScreenCombox->blockSignals(false);
+}
+
 void Widget::showNightWidget(bool judge)
 {
     if (judge) {
@@ -813,13 +875,6 @@ void Widget::showCustomWiget(int index)
     } else if (CUSTOM == index) {
         ui->opframe->setVisible(true);
         ui->clsframe->setVisible(true);
-    }
-}
-
-void Widget::slotThemeChanged(bool judge)
-{
-    if (mGsettings->keys().contains(THEME_NIGHT_KEY)) {
-        mGsettings->set(THEME_NIGHT_KEY, judge);
     }
 }
 
@@ -890,7 +945,7 @@ void Widget::outputAdded(const KScreen::OutputPtr &output, bool connectChanged)
         }
     }
 
-    ui->unionframe->setVisible(mConfig->connectedOutputs().count() > 1);
+    ui->unionframe->setVisible(false);
     mUnifyButton->setEnabled(mConfig->connectedOutputs().count() > 1);
 
     showBrightnessFrame();
@@ -929,7 +984,7 @@ void Widget::outputRemoved(int outputId, bool connectChanged)
             qmlOutput->blockSignals(false);
         }
     }
-    ui->unionframe->setVisible(mConfig->connectedOutputs().count() > 1);
+    ui->unionframe->setVisible(false);
     mUnifyButton->blockSignals(true);
     mUnifyButton->setChecked(mConfig->connectedOutputs().count() > 1);
     mUnifyButton->blockSignals(false);
@@ -1074,17 +1129,6 @@ QString Widget::getPrimaryWaylandScreen()
     return QString();
 }
 
-void Widget::isWayland()
-{
-    QString sessionType = getenv("XDG_SESSION_TYPE");
-
-    if (!sessionType.compare(kSession, Qt::CaseSensitive)) {
-        mIsWayland = true;
-    } else {
-        mIsWayland = false;
-    }
-}
-
 void Widget::applyNightModeSlot()
 {
     if (((ui->opHourCom->currentIndex() < ui->clHourCom->currentIndex())
@@ -1111,16 +1155,18 @@ void Widget::setScreenKDS(QString kdsConfig)
             }
         }
 
-        KScreen::OutputList screensPre = mPrevConfig->connectedOutputs();
+        KScreen::OutputList screensPre = mConfig->connectedOutputs();
 
-        KScreen::OutputPtr mainScreen = mPrevConfig->primaryOutput();
-        mainScreen->setPos(QPoint(0, 0));
+        KScreen::OutputPtr mainScreen = mConfig->primaryOutput();
+        if (!mainScreen.isNull()) {
+            mainScreen->setPos(QPoint(0, 0));
+        }
 
         KScreen::OutputPtr preIt = mainScreen;
         QMap<int, KScreen::OutputPtr>::iterator nowIt = screensPre.begin();
 
         while (nowIt != screensPre.end()) {
-            if (nowIt.value() != mainScreen) {
+            if (nowIt.value() != mainScreen && !nowIt.value().isNull()) {
                 nowIt.value()->setPos(QPoint(preIt->pos().x() + preIt->size().width(), 0));
                 KScreen::ModeList modes = preIt->modes();
                 Q_FOREACH (const KScreen::ModePtr &mode, modes) {
@@ -1137,17 +1183,25 @@ void Widget::setScreenKDS(QString kdsConfig)
             nowIt++;
         }
     } else if (kdsConfig == "first") {
-        for (int i = 0; i < screens.size(); i++) {
-            if (!screens[i].isNull()) {
-                screens[i]->setEnabled((i == 0));
+        QMap<int, KScreen::OutputPtr>::iterator nowIt = screens.begin();
+        while (nowIt != screens.end()) {
+            if (!nowIt.value().isNull()) {
+                bool flag = (nowIt.key() == screens.begin().key());
+                nowIt.value()->setEnabled(flag);
+                nowIt.value()->setPrimary(flag);
             }
+            nowIt++;
         }
         delayApply();
     } else if (kdsConfig == "second") {
-        for (int i = 0; i < screens.size(); i++) {
-            if (!screens[i].isNull()) {
-                screens[i]->setEnabled((i != 0));
+        QMap<int, KScreen::OutputPtr>::iterator nowIt = screens.begin();
+        while (nowIt != screens.end()) {
+            if (!nowIt.value().isNull()) {
+                bool flag = (nowIt.key() != screens.begin().key());
+                nowIt.value()->setEnabled(flag);
+                nowIt.value()->setPrimary(flag);
             }
+            nowIt++;
         }
         delayApply();
     } else {
@@ -1156,7 +1210,6 @@ void Widget::setScreenKDS(QString kdsConfig)
                 output->setEnabled(true);
             }
         }
-        delayApply();
     }
 }
 
@@ -1212,8 +1265,32 @@ void Widget::kdsScreenchangeSlot(QString status)
         } else {
             showBrightnessFrame(2);
         }
+        initMultScreenStatus();
     });
+}
 
+void Widget::setMultiScreenSlot(int index)
+{
+    if (FIRST == index) {
+        if (!mUnifyButton->isChecked()) {
+            setPreScreenCfg(mConfig->connectedOutputs());
+        }
+        mUnifyButton->setChecked(false);
+        setScreenKDS("first");
+    } else if (CLONE == index) {
+        setScreenKDS("clone");
+        mUnifyButton->setChecked(true);
+    } else if (EXTEND == index) {
+        setScreenKDS("expand");
+        mUnifyButton->setChecked(false);
+        delayApply();
+    } else {
+        if (!mUnifyButton->isChecked()) {
+            setPreScreenCfg(mConfig->connectedOutputs());
+        }
+        mUnifyButton->setChecked(false);
+        setScreenKDS("second");
+    }
 }
 
 void Widget::delayApply()
@@ -1321,7 +1398,7 @@ void Widget::save()
     }
     int flag = mUnifyButton->isChecked() ? 1 : 2;
     showBrightnessFrame(flag);  //成功应用之后，重新显示亮度条,传入是否统一输出,1表示打开，2表示关闭
-	
+
 }
 
 QVariantMap metadata(const KScreen::OutputPtr &output)
@@ -1513,9 +1590,9 @@ void Widget::mainScreenButtonSelect(int index)
         }
     } else {
         if (newPrimary == mConfig->primaryOutput()) {
-            ui->mainScreenButton->setEnabled(false);
+            ui->mainScreenButton->setVisible(false);
         } else {
-            ui->mainScreenButton->setEnabled(true);
+            ui->mainScreenButton->setVisible(true);
         }
     }
 
@@ -1531,6 +1608,8 @@ void Widget::mainScreenButtonSelect(int index)
     mControlPanel->activateOutput(newPrimary);
 
     mScreen->setActiveOutputByCombox(newPrimary->id());
+
+    setMulScreenVisiable();
 }
 
 // 设置主屏按钮
@@ -1541,7 +1620,7 @@ void Widget::primaryButtonEnable(bool status)
         return;
     }
     int index = ui->primaryCombo->currentIndex();
-    ui->mainScreenButton->setEnabled(false);
+    ui->mainScreenButton->setVisible(false);
     const KScreen::OutputPtr newPrimary = mConfig->output(ui->primaryCombo->itemData(index).toInt());
     mConfig->setPrimaryOutput(newPrimary);
 }
@@ -1584,7 +1663,6 @@ void Widget::checkOutputScreen(bool judge)
 
 void Widget::initConnection()
 {
-    connect(mThemeButton, SIGNAL(checkedChanged(bool)), this, SLOT(slotThemeChanged(bool)));
     connect(ui->primaryCombo, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             this, &Widget::mainScreenButtonSelect);
 
@@ -1650,6 +1728,10 @@ void Widget::initConnection()
     connect(singleButton, QOverload<int>::of(&QButtonGroup::buttonClicked), this, [=](int index){
         showCustomWiget(index);
         applyNightModeSlot();
+    });
+
+    connect(mMultiScreenCombox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index){
+        setMultiScreenSlot(index);
     });
 
     QDBusConnection::sessionBus().connect(QString(),
@@ -1950,6 +2032,7 @@ void Widget::setPreScreenCfg(KScreen::OutputList screens)
 {
     QMap<int, KScreen::OutputPtr>::iterator nowIt = screens.begin();
 
+    int posCount = 0;
     QVariantList retlist;
     while (nowIt != screens.end()) {
         ScreenConfig cfg;
@@ -1960,7 +2043,15 @@ void Widget::setPreScreenCfg(KScreen::OutputList screens)
 
         QVariant variant = QVariant::fromValue(cfg);
         retlist << variant;
+
+        if (nowIt.value()->pos() == QPoint(0, 0)) {
+            posCount++;
+        }
         nowIt++;
+    }
+
+    if (posCount >= 2) {
+        return;
     }
 
     mUkccInterface.get()->call("setPreScreenCfg", retlist);

@@ -45,6 +45,13 @@ typedef enum {
     CUSTOM,
 }MODE;
 
+typedef enum {
+    FIRST,
+    CLONE,
+    EXTEND,
+    VICE,
+}MULTISCREEN;
+
 namespace KScreen {
 class ConfigOperation;
 }
@@ -118,8 +125,6 @@ private Q_SLOTS:
     void showNightWidget(bool judge);
     void showCustomWiget(int index);
 
-    void slotThemeChanged(bool judge);
-
     void primaryButtonEnable(bool);             // 按钮选择主屏确认按钮
     void mainScreenButtonSelect(int index);     // 是否禁用设置主屏按钮
     void checkOutputScreen(bool judge);         // 是否禁用屏幕
@@ -131,8 +136,9 @@ private Q_SLOTS:
 
     void callMethod(QRect geometry, QString name);// 设置wayland主屏幕
     QString getPrimaryWaylandScreen();
-    void isWayland();
     void kdsScreenchangeSlot(QString status);
+
+    void setMultiScreenSlot(int index);
 
     void applyNightModeSlot();
 
@@ -150,12 +156,15 @@ private:
     void addOutputToPrimaryCombo(const KScreen::OutputPtr &output);
     KScreen::OutputPtr findOutput(const KScreen::ConfigPtr &config, const QVariantMap &info);
 
+    void initComponent();
     void setHideModuleInfo();
     void setTitleLabel();
     void writeScale(double scale);
     void initGSettings();
     void setcomBoxScale();
     void initNightUI();
+
+    void initAdvanceScreen();
 
     bool isRestoreConfig();   // 是否恢复应用之前的配置
     bool isCloneMode();
@@ -169,6 +178,9 @@ private:
     int getPrimaryScreenID();
 
     void setScreenIsApply(bool isApply);
+
+    void setMulScreenVisiable();
+    void initMultScreenStatus();
 
 private:
     Ui::DisplayWindow *ui;
@@ -201,6 +213,11 @@ private:
     SwitchButton *mThemeButton = nullptr;
 
     QLabel *nightLabel = nullptr;
+    QLabel *mMultiScreenLabel = nullptr;
+
+    QComboBox *mMultiScreenCombox = nullptr;
+
+    QFrame *mMultiScreenFrame = nullptr;
 
     QGSettings *mGsettings = nullptr;
     QGSettings *scaleGSettings = nullptr;

@@ -74,8 +74,8 @@ void OutputConfig::initUi()
     resFrame->setLayout(resLayout);
 
     resFrame->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    resFrame->setMinimumSize(552, 50);
-    resFrame->setMaximumSize(960, 50);
+    resFrame->setMinimumWidth(552);
+    resFrame->setFixedHeight(50);
 
     vbox->addWidget(resFrame);
 
@@ -110,8 +110,8 @@ void OutputConfig::initUi()
     rotateFrame->setLayout(rotateLayout);
 
     rotateFrame->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    rotateFrame->setMinimumSize(550, 50);
-    rotateFrame->setMaximumSize(960, 50);
+    rotateFrame->setMinimumWidth(552);
+    rotateFrame->setFixedHeight(50);
 
     mRotation->addItem(tr("arrow-up"), KScreen::Output::None);
     mRotation->addItem(tr("90° arrow-right"), KScreen::Output::Right);
@@ -141,8 +141,9 @@ void OutputConfig::initUi()
     freshFrame->setLayout(freshLayout);
 
     freshFrame->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    freshFrame->setMinimumSize(550, 50);
-    freshFrame->setMaximumSize(960, 50);
+    freshFrame->setMinimumWidth(550);
+    freshFrame->setFixedHeight(50);
+
 
     mRefreshRate->addItem(tr("auto"), -1);
     vbox->addWidget(freshFrame);
@@ -156,8 +157,9 @@ void OutputConfig::initUi()
     scaleFrame->setFrameShape(QFrame::Shape::Box);
 
     scaleFrame->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    scaleFrame->setMinimumSize(550, 50);
-    scaleFrame->setMaximumSize(960, 50);
+    scaleFrame->setMinimumWidth(550);
+    scaleFrame->setFixedHeight(50);
+
 
     QHBoxLayout *scaleLayout = new QHBoxLayout(scaleFrame);
 

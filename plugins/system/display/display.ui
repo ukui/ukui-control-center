@@ -59,7 +59,7 @@
      </property>
      <property name="maximumSize">
       <size>
-       <width>960</width>
+       <width>16777215</width>
        <height>16777215</height>
       </size>
      </property>
@@ -99,6 +99,9 @@
     </widget>
    </item>
    <item>
+    <layout class="QHBoxLayout" name="multiscreenLyt"/>
+   </item>
+   <item>
     <layout class="QVBoxLayout" name="verticalLayout_3">
      <property name="spacing">
       <number>2</number>
@@ -113,7 +116,7 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>960</width>
+         <width>16777215</width>
          <height>50</height>
         </size>
        </property>
@@ -218,7 +221,7 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>960</width>
+         <width>16777215</width>
          <height>50</height>
         </size>
        </property>
@@ -326,7 +329,7 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>960</width>
+         <width>16777215</width>
          <height>50</height>
         </size>
        </property>
@@ -418,7 +421,7 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>960</width>
+         <width>16777215</width>
          <height>50</height>
         </size>
        </property>
@@ -437,7 +440,7 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>960</width>
+         <width>16777215</width>
          <height>50</height>
         </size>
        </property>
@@ -456,7 +459,7 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>960</width>
+         <width>16777215</width>
          <height>50</height>
         </size>
        </property>
@@ -520,7 +523,7 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>960</width>
+         <width>16777215</width>
          <height>50</height>
         </size>
        </property>
@@ -584,7 +587,7 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>960</width>
+         <width>16777215</width>
          <height>50</height>
         </size>
        </property>
@@ -679,7 +682,7 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>960</width>
+         <width>16777215</width>
          <height>50</height>
         </size>
        </property>
@@ -762,7 +765,7 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>960</width>
+         <width>16777215</width>
          <height>50</height>
         </size>
        </property>

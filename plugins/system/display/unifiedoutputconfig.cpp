@@ -87,8 +87,8 @@ void UnifiedOutputConfig::initUi()
     resFrame->setLayout(resLayout);
 
     resFrame->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    resFrame->setMinimumSize(552, 50);
-    resFrame->setMaximumSize(960, 50);
+    resFrame->setMinimumWidth(552);
+    resFrame->setFixedHeight(50);
 
     vbox->addWidget(resFrame);
     connect(mResolution, &ResolutionSlider::resolutionChanged,
@@ -127,8 +127,8 @@ void UnifiedOutputConfig::initUi()
     rotateFrame->setLayout(roatateLayout);
 
     rotateFrame->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    rotateFrame->setMinimumSize(552, 50);
-    rotateFrame->setMaximumSize(960, 50);
+    rotateFrame->setMinimumWidth(552);
+    rotateFrame->setFixedHeight(50);
 
     vbox->addWidget(rotateFrame);
 
@@ -157,8 +157,8 @@ void UnifiedOutputConfig::initUi()
     vbox->addWidget(freshFrame);
 
     freshFrame->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    freshFrame->setMinimumSize(552, 50);
-    freshFrame->setMaximumSize(960, 50);
+    freshFrame->setMinimumWidth(552);
+    freshFrame->setFixedHeight(50);
 
     slotResolutionChanged(mResolution->currentResolution());
     connect(mRefreshRate, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated),
