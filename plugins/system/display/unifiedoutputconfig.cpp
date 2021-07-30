@@ -57,11 +57,13 @@ void UnifiedOutputConfig::initUi()
 {
     connect(mOutput.data(), &KScreen::Output::currentModeIdChanged,
             this, [=]() {
-        mScaleCombox->blockSignals(true);
         if (mOutput->currentMode()) {
-            slotScaleIndex(mOutput->currentMode()->size());
+            if (mScaleCombox) {
+                mScaleCombox->blockSignals(true);
+                slotScaleIndex(mOutput->currentMode()->size());
+                mScaleCombox->blockSignals(false);
+            }
         }
-        mScaleCombox->blockSignals(false);
     });
     QVBoxLayout *vbox = new QVBoxLayout(this);
     vbox->setContentsMargins(0, 0, 0, 0);
