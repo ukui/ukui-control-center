@@ -33,7 +33,6 @@ ThemeWidget::ThemeWidget(QSize iSize, QString name, QStringList iStringList, QWi
 {
     setFixedHeight(66);
     setMinimumWidth(550);
-    setMaximumWidth(960);
     setAttribute(Qt::WA_DeleteOnClose);
 
     pValue = "";
@@ -78,14 +77,13 @@ ThemeWidget::ThemeWidget(QSize iSize, QString name, QStringList iStringList, QWi
         iconHorLayout->addWidget(label);
     }
 
-    mainHorLayout->addWidget(selectedbtn);
     mainHorLayout->addWidget(nameLabel);
     mainHorLayout->addStretch(1);
     mainHorLayout->addLayout(iconHorLayout);
     mainHorLayout->addStretch(2);
+    mainHorLayout->addWidget(selectedbtn);
 
     setLayout(mainHorLayout);
-
 }
 
 ThemeWidget::ThemeWidget(QSize iSize, QString name, const QList<QPixmap> &listMap, QWidget *parent) :
@@ -93,7 +91,6 @@ ThemeWidget::ThemeWidget(QSize iSize, QString name, const QList<QPixmap> &listMa
 {
     setFixedHeight(66);
     setMinimumWidth(550);
-    setMaximumWidth(960);
     setAttribute(Qt::WA_DeleteOnClose);
 
     pValue = "";
@@ -138,12 +135,12 @@ ThemeWidget::ThemeWidget(QSize iSize, QString name, const QList<QPixmap> &listMa
         iconHorLayout->addWidget(label);
     }
 
-    mainHorLayout->addWidget(selectedbtn);
+
     mainHorLayout->addWidget(nameLabel);
     mainHorLayout->addStretch(1);
     mainHorLayout->addLayout(iconHorLayout);
     mainHorLayout->addStretch(2);
-
+    mainHorLayout->addWidget(selectedbtn);
 
     setLayout(mainHorLayout);
 
@@ -181,7 +178,7 @@ void ThemeWidget::paintEvent(QPaintEvent *event){
     opt.init(this);
     QPainter p(this);
     p.save();
-    p.setBrush(opt.palette.color(QPalette::Button));
+    p.setBrush(opt.palette.color(QPalette::Base));
     p.setPen(Qt::transparent);
     p.setOpacity(0.6);
     p.drawRoundedRect(this->rect(), 6, 6);

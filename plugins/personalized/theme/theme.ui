@@ -59,7 +59,7 @@
       <item>
        <layout class="QVBoxLayout" name="verticalLayout">
         <property name="spacing">
-         <number>0</number>
+         <number>1</number>
         </property>
         <property name="bottomMargin">
          <number>10</number>
@@ -78,7 +78,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QWidget" name="themeModeWidget" native="true">
+         <widget class="QFrame" name="themeModeFrame">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -90,6 +90,9 @@
             <width>16777215</width>
             <height>145</height>
            </size>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::Box</enum>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_2">
            <property name="spacing">
@@ -380,7 +383,7 @@
            <item>
             <layout class="QVBoxLayout" name="iconThemeVerLayout">
              <property name="spacing">
-              <number>8</number>
+              <number>1</number>
              </property>
             </layout>
            </item>
@@ -528,7 +531,7 @@
            <item>
             <layout class="QVBoxLayout" name="cursorVerLayout">
              <property name="spacing">
-              <number>8</number>
+              <number>1</number>
              </property>
             </layout>
            </item>
@@ -596,7 +599,7 @@
           </property>
           <property name="maximumSize">
            <size>
-            <width>960</width>
+            <width>16777215</width>
             <height>200</height>
            </size>
           </property>
@@ -622,7 +625,7 @@
            <item>
             <layout class="QHBoxLayout" name="effectHorLayout">
              <property name="spacing">
-              <number>0</number>
+              <number>1</number>
              </property>
              <property name="leftMargin">
               <number>6</number>
@@ -671,7 +674,7 @@
           </property>
           <property name="maximumSize">
            <size>
-            <width>960</width>
+            <width>16777215</width>
             <height>16777215</height>
            </size>
           </property>
