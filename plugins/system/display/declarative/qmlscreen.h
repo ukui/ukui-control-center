@@ -69,6 +69,7 @@ public:
     void setConfig(const KScreen::ConfigPtr &config);
 
     void updateOutputsPlacement();
+    void setPosByConfig();
 
     void setActiveOutput(QMLOutput *output);
 

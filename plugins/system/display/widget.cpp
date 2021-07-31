@@ -1310,6 +1310,7 @@ void Widget::setPreScreenCfg(KScreen::OutputList screens)
     QMap<int, KScreen::OutputPtr>::iterator nowIt = screens.begin();
 
     QVariantList retlist;
+    int enableCount = 0;
     while (nowIt != screens.end()) {
         ScreenConfig cfg;
         cfg.screenId = nowIt.value()->name();
@@ -1319,7 +1320,15 @@ void Widget::setPreScreenCfg(KScreen::OutputList screens)
 
         QVariant variant = QVariant::fromValue(cfg);
         retlist << variant;
+
+        if (nowIt.value()->isEnabled()) {
+            enableCount++;
+        }
         nowIt++;
+    }
+
+    if (enableCount < 2) {
+        return;
     }
 
     mUkccInterface.get()->call("setPreScreenCfg", retlist);
@@ -1462,8 +1471,6 @@ void Widget::save()
         mConfigChanged = false;
         mainScreenButtonSelect(ui->primaryCombo->currentIndex());
     });
-
-    mScreen->updateOutputsPlacement();
 
     if (isRestoreConfig()) {
         if (mIsWayland && -1 != mScreenId && !mPreScreenConfig->output(mScreenId).isNull()) {
@@ -1747,8 +1754,6 @@ void Widget::checkOutputScreen(bool judge)
     }
     mainScreen = mConfig->primaryOutput();
 
-    newPrimary->setEnabled(judge);
-
     if (!judge) {
         setPreScreenCfg(mConfig->connectedOutputs());
     } else {
@@ -1762,6 +1767,7 @@ void Widget::checkOutputScreen(bool judge)
             }
         }
     }
+    newPrimary->setEnabled(judge);
 
     ui->primaryCombo->blockSignals(true);
     ui->primaryCombo->setCurrentIndex(index);
