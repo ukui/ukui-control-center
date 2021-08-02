@@ -327,6 +327,7 @@ void Widget::slotOutputEnabledChanged()
     }
     mUnifyButton->setEnabled(enabledOutputsCount > 1);
     ui->unionframe->setVisible(enabledOutputsCount > 1);
+    showBrightnessFrame();
 }
 
 void Widget::slotOutputConnectedChanged()
@@ -2035,66 +2036,68 @@ void Widget::nightChangedSlot(QHash<QString, QVariant> nightArg)
 
 void Widget::showBrightnessFrame(const int flag)
 {
-    int *pFlag = new int(flag);
-    QObject::connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished,
-                     [&, pFlag](KScreen::ConfigOperation *op) {
-        bool allShowFlag = true;
+    QTimer::singleShot(200, this, [=]{
+        int *pFlag = new int(flag);
+        QObject::connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished,
+                         [&, pFlag](KScreen::ConfigOperation *op) {
+            bool allShowFlag = true;
 
-        KScreen::ConfigPtr config = qobject_cast<KScreen::GetConfigOperation *>(op)->config();
+            KScreen::ConfigPtr config = qobject_cast<KScreen::GetConfigOperation *>(op)->config();
 
-        KScreen::OutputPtr output = config->primaryOutput();
-        if (mConfig->connectedOutputs().count() >= 2) {
-            foreach (KScreen::OutputPtr secOutput, config->connectedOutputs()) {
-                if (secOutput->geometry() != output->geometry() || !secOutput->isEnabled()) {
-                    allShowFlag = false;
-                }
-                for (int i = 0; i < BrightnessFrameV.size(); ++i) { //检查其它显示屏是否实际打开，否则关闭，适用于显示器插拔
-                    if (BrightnessFrameV[i]->outputName == Utils::outputName(secOutput)) {
-                        if (secOutput->isEnabled()) {
-                            BrightnessFrameV[i]->openFlag = true;
-                        } else {
-                            BrightnessFrameV[i]->openFlag = false;
+            KScreen::OutputPtr output = config->primaryOutput();
+            if (mConfig->connectedOutputs().count() >= 2) {
+                foreach (KScreen::OutputPtr secOutput, config->connectedOutputs()) {
+                    if (secOutput->geometry() != output->geometry() || !secOutput->isEnabled()) {
+                        allShowFlag = false;
+                    }
+                    for (int i = 0; i < BrightnessFrameV.size(); ++i) { //检查其它显示屏是否实际打开，否则关闭，适用于显示器插拔
+                        if (BrightnessFrameV[i]->outputName == Utils::outputName(secOutput)) {
+                            if (secOutput->isEnabled()) {
+                                BrightnessFrameV[i]->openFlag = true;
+                            } else {
+                                BrightnessFrameV[i]->openFlag = false;
+                            }
+                            break;
                         }
-                        break;
+                    }
+                }
+            } else {  //只有一个屏幕，把它亮度条打开，防止remove出问题
+                allShowFlag = false;
+                for (int i = 0; i < BrightnessFrameV.size(); ++i) {
+                    if (BrightnessFrameV[i]->outputName == Utils::outputName(output)) {
+                        BrightnessFrameV[i]->openFlag = true;
                     }
                 }
             }
-        } else {  //只有一个屏幕，把它亮度条打开，防止remove出问题
-            allShowFlag = false;
-            for (int i = 0; i < BrightnessFrameV.size(); ++i) {
-                if (BrightnessFrameV[i]->outputName == Utils::outputName(output)) {
+
+            ui->unifyBrightFrame->setFixedHeight(0);
+            if (*pFlag == 0 && allShowFlag == false && mUnifyButton->isChecked()) {  //选中了镜像模式，实际是扩展模式
+
+            } else if ((allShowFlag == true && *pFlag == 0) || *pFlag == 1) { //镜像模式/即将成为镜像模式
+                ui->unifyBrightFrame->setFixedHeight(BrightnessFrameV.size() * (50 + 2 + 2));
+                for (int i = 0; i < BrightnessFrameV.size(); ++i) {
                     BrightnessFrameV[i]->openFlag = true;
-                }
-            }
-        }
-
-        ui->unifyBrightFrame->setFixedHeight(0);
-        if (*pFlag == 0 && allShowFlag == false && mUnifyButton->isChecked()) {  //选中了镜像模式，实际是扩展模式
-
-        } else if ((allShowFlag == true && *pFlag == 0) || *pFlag == 1) { //镜像模式/即将成为镜像模式
-            ui->unifyBrightFrame->setFixedHeight(BrightnessFrameV.size() * (50 + 2 + 2));
-            for (int i = 0; i < BrightnessFrameV.size(); ++i) {
-                BrightnessFrameV[i]->openFlag = true;
-                BrightnessFrameV[i]->setTextLableName(tr("Brightness") + QString("(") + BrightnessFrameV[i]->outputName + QString(")"));
-                BrightnessFrameV[i]->setVisible(true);
-            }
-        } else {
-            for (int i = 0; i < BrightnessFrameV.size(); ++i) {
-                if (ui->primaryCombo->currentText() == BrightnessFrameV[i]->outputName && BrightnessFrameV[i]->openFlag) {
-                    ui->unifyBrightFrame->setFixedHeight(52);
-                    BrightnessFrameV[i]->setTextLableName(tr("Brightness"));
+                    BrightnessFrameV[i]->setTextLableName(tr("Brightness") + QString("(") + BrightnessFrameV[i]->outputName + QString(")"));
                     BrightnessFrameV[i]->setVisible(true);
-                    //不能break，要把其他的frame隐藏
-                } else {
-                    BrightnessFrameV[i]->setVisible(false);
+                }
+            } else {
+                for (int i = 0; i < BrightnessFrameV.size(); ++i) {
+                    if (ui->primaryCombo->currentText() == BrightnessFrameV[i]->outputName && BrightnessFrameV[i]->openFlag) {
+                        ui->unifyBrightFrame->setFixedHeight(52);
+                        BrightnessFrameV[i]->setTextLableName(tr("Brightness"));
+                        BrightnessFrameV[i]->setVisible(true);
+                        //不能break，要把其他的frame隐藏
+                    } else {
+                        BrightnessFrameV[i]->setVisible(false);
+                    }
                 }
             }
-        }
-        if (ui->unifyBrightFrame->height() > 0) {
-            ui->unifyBrightFrame->setVisible(true);
-        } else {
-            ui->unifyBrightFrame->setVisible(false);
-        }
-        delete pFlag;
+            if (ui->unifyBrightFrame->height() > 0) {
+                ui->unifyBrightFrame->setVisible(true);
+            } else {
+                ui->unifyBrightFrame->setVisible(false);
+            }
+            delete pFlag;
+        });
     });
 }
