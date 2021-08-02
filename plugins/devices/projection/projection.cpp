@@ -57,7 +57,8 @@ Projection::Projection()
     projectionBtn = new SwitchButton(pluginWidget);
 
 //   ui->pinframe->hide();
-
+    init_button_status(get_process_status());
+//    qDebug()<<"---- Projection contructed, then subscribe slot func ";
     connect(projectionBtn, SIGNAL(checkedChanged(bool)), this, SLOT(projectionButtonClickSlots(bool)));
     // m_pin = new QLabel(pluginWidget);
     // ui->label->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
@@ -205,20 +206,35 @@ int Projection::get_plugin_type(){
     return pluginType;
 }
 
-QWidget *Projection::get_plugin_ui(){
+int Projection::get_process_status(void)
+{
     int res;
-    int projectionstatus;
 
     do{
         res = system("checkDaemonRunning.sh");
     }while(SYSTEM_CMD_ERROR == res);
 
-    if (res == PROJECTION_RUNNING) {
+    return res;
+}
+
+void Projection::init_button_status(int status)
+{
+//    qDebug()<<"---- button init status "<<status;
+    if (status == PROJECTION_RUNNING) {
         projectionBtn->setChecked(true);
     }
     else {
         projectionBtn->setChecked(false);//projection not switch-on, or daemon programs not running at all
     }
+}
+
+QWidget *Projection::get_plugin_ui(){
+    int res;
+    int projectionstatus;
+
+    res = get_process_status();
+
+    init_button_status(res);
 
     if (res == DAEMON_NOT_RUNNING){
         projectionstatus = NO_SERVICE;
