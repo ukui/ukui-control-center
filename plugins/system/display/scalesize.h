@@ -28,6 +28,8 @@ const QVector<QSize> k275Scale{QSize(3840, 2160)};
 
 extern QSize  mScaleSize;
 
+extern QSize mScaleSizeRes;
+
 extern double mScreenScale;
 
 #endif // SCALESIZE_H

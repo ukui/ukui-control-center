@@ -55,16 +55,6 @@ void UnifiedOutputConfig::setOutput(const KScreen::OutputPtr &output)
 
 void UnifiedOutputConfig::initUi()
 {
-    connect(mOutput.data(), &KScreen::Output::currentModeIdChanged,
-            this, [=]() {
-        if (mOutput->currentMode()) {
-            if (mScaleCombox) {
-                mScaleCombox->blockSignals(true);
-                slotScaleIndex(mOutput->currentMode()->size());
-                mScaleCombox->blockSignals(false);
-            }
-        }
-    });
     QVBoxLayout *vbox = new QVBoxLayout(this);
     vbox->setContentsMargins(0, 0, 0, 0);
     setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
@@ -187,86 +177,12 @@ void UnifiedOutputConfig::initUi()
     initscale(vbox);
 }
 
-void UnifiedOutputConfig::slotScaleIndex(const QSize &size)
-{
-    qDebug()<<"---";
-    mScaleCombox->blockSignals(true);
-    mScaleCombox->clear();
-    mScaleCombox->addItem("100%", 1.0);
-
-    if (size.width() > 1024 ) {
-        mScaleCombox->addItem("125%", 1.25);
-    }
-    if (size.width() == 1920 ) {
-        mScaleCombox->addItem("150%", 1.5);
-    }
-    if (size.width() > 1920) {
-        mScaleCombox->addItem("150%", 1.5);
-        mScaleCombox->addItem("175%", 1.75);
-    }
-    if (size.width() >= 2160) {
-        mScaleCombox->addItem("200%", 2.0);
-    }
-    if (size.width() > 2560) {
-        mScaleCombox->addItem("225%", 2.25);
-    }
-    if (size.width() > 3072) {
-        mScaleCombox->addItem("250%", 2.5);
-    }
-    if (size.width() > 3840) {
-        mScaleCombox->addItem("275%", 2.75);
-    }
-
-    double scale = getScreenScale();
-    if (mScaleCombox->findData(scale) == -1) {
-        scale = 1.0;
-    }
-    mScaleCombox->setCurrentText(QString::number(scale * 100) + "%");
-
-    mScaleCombox->blockSignals(false);
-}
-
 void UnifiedOutputConfig::initscale(QVBoxLayout *vbox)
 {
-    mScaleCombox = new QComboBox(this);
-    mScaleCombox->setObjectName("scaleCombox");
-
-    double scale = getScreenScale();
-
-    slotScaleIndex(mResolution->currentResolution());
-    mScaleCombox->setCurrentText(QString::number(scale * 100) + "%");
-
-    if (mScaleCombox->findData(scale) == -1) {
-        mScaleCombox->addItem(QString::number(scale * 100) + "%", scale);
-        mScaleCombox->setCurrentText(QString::number(scale * 100) + "%");
-    }
-
-    connect(mScaleCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-            this, &UnifiedOutputConfig::slotScaleChanged);
-
-    QLabel *scaleLabel = new QLabel(this);
-    //~ contents_path /display/screen zoom
-    scaleLabel->setText(tr("screen zoom"));
-    scaleLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    scaleLabel->setFixedSize(118, 30);
-
-    QHBoxLayout *scaleLayout = new QHBoxLayout();
-    scaleLayout->addWidget(scaleLabel);
-    scaleLayout->addWidget(mScaleCombox);
 
     QFrame *scaleFrame = new QFrame(this);
-    scaleFrame->setFrameShape(QFrame::Shape::Box);
-    scaleFrame->setLayout(scaleLayout);
-
-    scaleFrame->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    scaleFrame->setMinimumSize(550, 50);
-    scaleFrame->setMaximumSize(960, 50);
     vbox->addWidget(scaleFrame);
-}
-
-void UnifiedOutputConfig::slotScaleChanged(int index)
-{
-    Q_EMIT scaleChanged(mScaleCombox->itemData(index).toDouble());
+    scaleFrame->hide();
 }
 
 KScreen::OutputPtr UnifiedOutputConfig::createFakeOutput()

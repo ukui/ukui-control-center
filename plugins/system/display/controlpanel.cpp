@@ -41,50 +41,15 @@ void ControlPanel::setConfig(const KScreen::ConfigPtr &config)
     mConfig = config;
     connect(mConfig.data(), &KScreen::Config::outputAdded,
             this, [=](const KScreen::OutputPtr &output){
-        changescalemax(output);
         addOutput(output);
-        for (OutputConfig *outputCfg : mOutputConfigs) {
-            outputCfg->slotScaleIndex(mScaleSize);
-        }
     });
     connect(mConfig.data(), &KScreen::Config::outputRemoved,
             this, &ControlPanel::removeOutput);
 
     for (const KScreen::OutputPtr &output : mConfig->outputs()) {
-        if (output->isConnected()) {
-            changescalemax(output);
-        }
-    }
-
-    for (const KScreen::OutputPtr &output : mConfig->outputs()) {
         addOutput(output);
     }
 
-    //监听每个显示屏是否关闭的信号
-    for (const KScreen::OutputPtr &output : mConfig->outputs()) {
-        connect(output.data(),&KScreen::Output::isEnabledChanged,[=](){
-           mScaleSize = QSize();
-           int count = 0;
-           for (const KScreen::OutputPtr &moutput : mConfig->outputs()) {
-               if(moutput->isEnabled()) {
-                   count++;
-                   changescalemax(output);
-               }
-           }
-           //根据可用显示屏数量，刷新缩放选项
-           if (count == 1) {
-               //将mScalesize置为0，用来作为初始化缩放项的判断条件
-               mScaleSize = QSize(0,0);
-           }
-           for (OutputConfig *outputCfg : mOutputConfigs) {
-               outputCfg->slotScaleIndex(mScaleSize);
-           }
-           //初始化之后，恢复
-           if (mScaleSize == QSize(0,0)) {
-               mScaleSize = QSize();
-           }
-        });
-    }
 }
 
 void ControlPanel::addOutput(const KScreen::OutputPtr &output)
@@ -126,15 +91,6 @@ void ControlPanel::removeOutput(int outputId)
         }
     }
 
-    //有显示器移除时，获取最新的限制缩放率
-    mScaleSize = QSize();
-    for (const KScreen::OutputPtr &output : mConfig->outputs()) {
-         changescalemax(output);
-    }
-    //该缩放率直接作用
-    for (OutputConfig *outputCfg : mOutputConfigs) {
-        outputCfg->slotScaleIndex(mScaleSize);
-    }
 }
 
 void ControlPanel::activateOutput(const KScreen::OutputPtr &output)
@@ -210,8 +166,5 @@ void ControlPanel::setUnifiedOutput(const KScreen::OutputPtr &output)
         mLayout->insertWidget(mLayout->count() - 2, mUnifiedOutputCfg);
         connect(mUnifiedOutputCfg, &UnifiedOutputConfig::changed,
                 this, &ControlPanel::changed);
-
-        connect(mUnifiedOutputCfg, &UnifiedOutputConfig::scaleChanged,
-                this, &ControlPanel::scaleChanged);
     }
 }
