@@ -84,6 +84,8 @@ public:
     void initUiComponent();
     void addBrightnessFrame(QString name, bool openFlag);
     void showBrightnessFrame(const int flag = 0);
+
+    void changescale();
 protected:
     bool eventFilter(QObject *object, QEvent *event) override;
 
