@@ -300,7 +300,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
             }
         }
         if (alreadyExisted == false) {   //不添加已经存在的项
-            mRefreshRate->addItem(tr("%1 Hz").arg(QLocale().toString(mode->refreshRate())), mode->id());
+            mRefreshRate->addItem(tr("%1 Hz").arg(QLocale().toString(mode->refreshRate(), 'f', 2)), mode->id());
         }
 
         // If selected refresh rate is other then what we consider the "Auto" value

@@ -273,7 +273,7 @@ void UnifiedOutputConfig::slotResolutionChanged(const QSize &size)
                }
            }
            if (alreadyExisted == false) {   //不添加重复的项
-               VrefreshTemp.append(tr("%1 Hz").arg(QLocale().toString(mode->refreshRate())));
+               VrefreshTemp.append(tr("%1 Hz").arg(QLocale().toString(mode->refreshRate(), 'f', 2)));
            }
         }
 
