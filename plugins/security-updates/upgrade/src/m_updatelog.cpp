@@ -289,7 +289,7 @@ void m_updatelog::defaultItem()
 
 QString m_updatelog::translationVirtualPackage(QString str)
 {
-    QString retStr;
+    QString retStr = str;
     /*判断json文件是否存在*/
     QString filename = QString("/usr/share/kylin-update-desktop-config/data/") +str +".json";
     QFile file(filename);
@@ -340,6 +340,8 @@ QString m_updatelog::translationVirtualPackage(QString str)
         return "系统内核组件";
     if(str == "kylin-update-desktop-kydroid")
         return "kydroid补丁包";
+    if(str == "kylin-update-desktop")
+        return "麒麟系统升级";
 
     /* 从软件商店数据库根据包名获取应用中文名 */
     QString dst;
