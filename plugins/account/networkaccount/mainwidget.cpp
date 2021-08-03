@@ -425,6 +425,8 @@ void MainWidget::checkBackEnd() {
 
 
 void MainWidget::refreshSyncDate() {
+    if (m_status != SYNC_NORMAL) return ;
+
     QFile fileConf(m_szConfPath);
     QVariant ret = ConfigFile(m_szConfPath).Get("Auto-sync","time");
     if (m_pSettings != nullptr && fileConf.exists() && fileConf.size() > 1 && !ret.isNull()) {
@@ -1062,6 +1064,7 @@ void MainWidget::handle_conf() {
 
 void MainWidget::ctrlAutoSync(int status) {
     QString faileTips = tr("Please check your connetion!");
+    m_status = status;
     if (status == NETWORK_FAILURE) {
         m_bIsFailed = false;
         m_autoSyn->set_active(false);

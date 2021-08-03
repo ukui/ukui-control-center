@@ -141,6 +141,7 @@ private:
     bool            m_bIsOnline = true; //网络是否通
     bool            m_bIsOldBackEnds = false; //是否是旧的后台程序
     bool            m_bIsFailed = false; //是否同步失败
+    int             m_status;
 
 public slots:
     void            on_login_out();
