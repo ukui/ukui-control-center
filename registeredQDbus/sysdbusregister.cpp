@@ -39,11 +39,6 @@ extern "C" {
 
 }
 #include <QtConcurrent/QtConcurrent>
-#include "run-passwd2.h"
-
-PasswdHandler * passwd_handler = NULL;
-
-static void chpasswd_cb(PasswdHandler * passwd_handler, GError * error, gpointer user_data);
 
 QStringList ddcProIdList;
 
@@ -161,9 +156,22 @@ int SysdbusRegister::changeOtherUserPasswd(QString username, QString pwd){
     std::string str2 = pwd.toStdString();
     const char * passwd = str2.c_str();
 
-    passwd_handler = passwd_init();
+    QString output;
 
-    passwd_change_password(passwd_handler, user_name, passwd, chpasswd_cb, NULL);
+    char * cmd = g_strdup_printf("/usr/bin/changeotheruserpwd %s %s", user_name, passwd);
+
+    FILE   *stream;
+    char buf[256];
+
+    if ((stream = popen(cmd, "r" )) == NULL){
+        return -1;
+    }
+
+    while(fgets(buf, 256, stream) != NULL){
+        output = QString(buf).simplified();
+    }
+
+    pclose(stream);
 
     return 1;
 
@@ -208,13 +216,6 @@ int SysdbusRegister::getDDCBrightness(QString type) {
         return bright;
 
     return -1;
-}
-
-static void chpasswd_cb(PasswdHandler *passwd_handler, GError *error, gpointer user_data){
-    Q_UNUSED(passwd_handler)
-    Q_UNUSED(error)
-    Q_UNUSED(user_data)
-    g_warning("chpasswd_cb run");
 }
 
 int SysdbusRegister::changeRTC() {
