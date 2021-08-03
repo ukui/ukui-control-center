@@ -34,7 +34,7 @@ ShareMain::ShareMain(QWidget *parent) :
     QWidget(parent)
 {
     mVlayout = new QVBoxLayout(this);
-    mVlayout->setContentsMargins(0, 0, 32, 0);
+    mVlayout->setContentsMargins(0, 0, 40, 0);
     initUI();
     initConnection();
 }
@@ -45,12 +45,12 @@ ShareMain::~ShareMain()
 
 void ShareMain::initUI()
 {
-    mShareTitleLabel = new TitleLabel(this);
-    mShareTitleLabel->setText(tr("Share"));
+    mVinoTitleLabel = new TitleLabel(this);
+    mVinoTitleLabel->setText(tr("Remote Desktop"));
     mEnableFrame = new QFrame(this);
     mEnableFrame->setFrameShape(QFrame::Shape::Box);
-    mEnableFrame->setMinimumSize(550, 50);
-    mEnableFrame->setMaximumSize(960, 50);
+    mEnableFrame->setMinimumSize(550, 60);
+    mEnableFrame->setMaximumSize(16777215, 60);
 
     QHBoxLayout *enableHLayout = new QHBoxLayout();
 
@@ -64,8 +64,8 @@ void ShareMain::initUI()
 
     mViewFrame = new QFrame(this);
     mViewFrame->setFrameShape(QFrame::Shape::Box);
-    mViewFrame->setMinimumSize(550, 50);
-    mViewFrame->setMaximumSize(960, 50);
+    mViewFrame->setMinimumSize(550, 60);
+    mViewFrame->setMaximumSize(16777215, 60);
 
     QHBoxLayout *viewHLayout = new QHBoxLayout();
 
@@ -77,12 +77,10 @@ void ShareMain::initUI()
 
     mViewFrame->setLayout(viewHLayout);
 
-    mSecurityTitleLabel = new TitleLabel(this);
-    mSecurityTitleLabel->setText(tr("Security"));
     mSecurityFrame = new QFrame(this);
     mSecurityFrame->setFrameShape(QFrame::Shape::Box);
-    mSecurityFrame->setMinimumSize(550, 50);
-    mSecurityFrame->setMaximumSize(960, 50);
+    mSecurityFrame->setMinimumSize(550, 60);
+    mSecurityFrame->setMaximumSize(16777215, 60);
 
     QHBoxLayout *secHLayout = new QHBoxLayout();
 
@@ -96,8 +94,8 @@ void ShareMain::initUI()
 
     mSecurityPwdFrame = new QFrame(this);
     mSecurityPwdFrame->setFrameShape(QFrame::Shape::Box);
-    mSecurityPwdFrame->setMinimumSize(550, 50);
-    mSecurityPwdFrame->setMaximumSize(960, 50);
+    mSecurityPwdFrame->setMinimumSize(550, 60);
+    mSecurityPwdFrame->setMaximumSize(16777215, 60);
 
     QHBoxLayout *pwdHLayout = new QHBoxLayout();
 
@@ -115,14 +113,37 @@ void ShareMain::initUI()
 
     mSecurityPwdFrame->setLayout(pwdHLayout);
 
-    mVlayout->addWidget(mShareTitleLabel);
-    mVlayout->addWidget(mEnableFrame);
-    mVlayout->addWidget(mViewFrame);
-    mVlayout->addSpacing(32);
-    mVlayout->setSpacing(8);
+    QFrame *line_1 = new QFrame(this);
+    line_1->setMinimumSize(QSize(0, 1));
+    line_1->setMaximumSize(QSize(16777215, 1));
+    line_1->setLineWidth(0);
+    line_1->setFrameShape(QFrame::HLine);
+    line_1->setFrameShadow(QFrame::Sunken);
 
-    mVlayout->addWidget(mSecurityTitleLabel);
+    QFrame *line_2 = new QFrame(this);
+    line_2->setMinimumSize(QSize(0, 1));
+    line_2->setMaximumSize(QSize(16777215, 1));
+    line_2->setLineWidth(0);
+    line_2->setFrameShape(QFrame::HLine);
+    line_2->setFrameShadow(QFrame::Sunken);
+
+    QFrame *line_3 = new QFrame(this);
+    line_3->setMinimumSize(QSize(0, 1));
+    line_3->setMaximumSize(QSize(16777215, 1));
+    line_3->setLineWidth(0);
+    line_3->setFrameShape(QFrame::HLine);
+    line_3->setFrameShadow(QFrame::Sunken);
+
+    mVlayout->addWidget(mVinoTitleLabel);
+    mVlayout->addSpacing(8);
+    mVlayout->addWidget(mEnableFrame);
+    mVlayout->addWidget(line_1);
+    mVlayout->addWidget(mViewFrame);
+    mVlayout->addWidget(line_2);
+    mVlayout->setSpacing(0);
+
     mVlayout->addWidget(mSecurityFrame);
+    mVlayout->addWidget(line_3);
     mVlayout->addWidget(mSecurityPwdFrame);
 
     mVlayout->addStretch();
@@ -182,7 +203,7 @@ void ShareMain::setFrameVisible(bool visible)
     mViewFrame->setVisible(visible);
     mSecurityFrame->setVisible(visible);
     mSecurityPwdFrame->setVisible(visible);
-    mSecurityTitleLabel->setVisible(visible);
+    mVinoTitleLabel->setVisible(visible);
 }
 
 void ShareMain::setVinoService(bool status)
@@ -222,7 +243,7 @@ void ShareMain::accessSlot(bool status)
 
 void ShareMain::pwdEnableSlot(bool status)
 {
-    if (status) {        
+    if (status) {
         mPwdinputBtn->setVisible(secpwd == "keyring" ? false:true);
         mPwdinputBtn->setText(QByteArray::fromBase64(mVinoGsetting->get(kVncPwdKey).toString().toLatin1()));
         pwdInputSlot();

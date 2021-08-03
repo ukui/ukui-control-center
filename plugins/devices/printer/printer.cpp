@@ -18,7 +18,6 @@
  *
  */
 #include "printer.h"
-#include "ui_printer.h"
 
 #include <QtPrintSupport/QPrinterInfo>
 #include <QProcess>
@@ -30,7 +29,6 @@
 
 Printer::Printer() : mFirstLoad(true)
 {
-    //~ contents_path /printer/Printer
     pluginName = tr("Printer");
     pluginType = DEVICES;
 }
@@ -38,8 +36,7 @@ Printer::Printer() : mFirstLoad(true)
 Printer::~Printer()
 {
     if (!mFirstLoad) {
-        delete ui;
-        ui = nullptr;
+
     }
 }
 
@@ -57,22 +54,21 @@ QWidget *Printer::get_plugin_ui()
 {
     if (mFirstLoad) {
         mFirstLoad = false;
-        ui = new Ui::Printer;
         pluginWidget = new QWidget;
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-        ui->setupUi(pluginWidget);
 
-        //~ contents_path /printer/Add Printers And Scanners
-        ui->titleLabel->setText(tr("Add Printers And Scanners"));
+//        //~ contents_path /printer/Add Printers And Scanners
+//        ui->titleLabel->setText(tr("Add Printers And Scanners"));
 
-        // 禁用选中效果
-        ui->listWidget->setFocusPolicy(Qt::NoFocus);
-        ui->listWidget->setSelectionMode(QAbstractItemView::NoSelection);
-
-        initTitleLabel();
-        initComponent();
+        initUi(pluginWidget);
 
         refreshPrinterDevSlot();
+        mTimer = new QTimer(this);
+        connect(mTimer, &QTimer::timeout, this, [=] {
+            refreshPrinterDevSlot();
+        });
+
+        mTimer->start(1000);
     }
     return pluginWidget;
 }
@@ -86,17 +82,95 @@ const QString Printer::name() const
     return QStringLiteral("printer");
 }
 
+void Printer::initUi(QWidget *widget)
+{
+    QVBoxLayout *mverticalLayout = new QVBoxLayout(widget);
+    mverticalLayout->setSpacing(0);
+    mverticalLayout->setContentsMargins(0, 0, 40, 100);
+
+    PrinterWidget = new QWidget(widget);
+    PrinterWidget->setMinimumSize(QSize(550, 0));
+    PrinterWidget->setMaximumSize(QSize(16777215, 16777215));
+
+    QVBoxLayout *PrinterLayout = new QVBoxLayout(PrinterWidget);
+    PrinterLayout->setContentsMargins(0, 0, 0, 0);
+    PrinterLayout->setSpacing(1);
+
+    mPrinterLabel = new TitleLabel(PrinterWidget);
+    mPrinterLabel->setText(tr("Printers And Scanners"));
+
+    mPrinterListFrame = new QFrame(PrinterWidget);
+    mPrinterListFrame->setMinimumSize(QSize(550, 0));
+    mPrinterListFrame->setMaximumSize(QSize(16777215, 16777215));
+    mPrinterListFrame->setFrameShape(QFrame::Box);
+
+    mPrinterListLayout = new QVBoxLayout(mPrinterListFrame);
+    mPrinterListLayout->setContentsMargins(0, 0, 0, 0);
+    mPrinterListLayout->setSpacing(0);
+
+    initComponent();
+
+    PrinterLayout->addWidget(mPrinterLabel);
+    PrinterLayout->addSpacing(7);
+    PrinterLayout->addWidget(mPrinterListFrame);
+    PrinterLayout->addWidget(mAddWgt);
+
+    mverticalLayout->addWidget(PrinterWidget);
+    mverticalLayout->addStretch();
+
+}
+
+void Printer::initPrinterUi()
+{
+    clearAutoItem();
+    for (int i = 0; i < mPrinterList.count(); i++) {
+        QPushButton *mPriterBtn = new QPushButton(mPrinterListFrame);
+        mPriterBtn->setProperty("useButtonPalette", true);
+        mPriterBtn->setMinimumSize(QSize(580, 60));
+        mPriterBtn->setMaximumSize(QSize(16777215, 60));
+        QHBoxLayout *mPrinterLyt = new QHBoxLayout(mPriterBtn);
+        mPrinterLyt->setSpacing(16);
+
+        QLabel *iconLabel = new QLabel(mPriterBtn);
+        QIcon printerIcon = QIcon::fromTheme("printer");
+        iconLabel->setPixmap(printerIcon.pixmap(printerIcon.actualSize(QSize(24, 24))));
+        FixLabel *textLabel = new FixLabel(mPriterBtn);
+        textLabel->setText(mPrinterList.at(i));
+
+        mPrinterLyt->addWidget(iconLabel);
+        mPrinterLyt->addWidget(textLabel,Qt::AlignLeft);
+
+        QFrame *line = new QFrame(mPrinterListFrame);
+        line->setMinimumSize(QSize(0, 1));
+        line->setMaximumSize(QSize(16777215, 1));
+        line->setLineWidth(0);
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
+
+        mPrinterListLayout->addWidget(mPriterBtn);
+        mPrinterListLayout->addWidget(line);
+
+        if (i == mPrinterList.count() - 1) {
+            delete line;
+            line = nullptr;
+        }
+        connect(mPriterBtn, &QPushButton::clicked, this, [=]() {
+            runExternalApp();
+        });
+
+    }
+}
+
 void Printer::initTitleLabel()
 {
-    ui->listWidget->setSpacing(1);
 }
 
 void Printer::initComponent()
 {
     mAddWgt = new HoverWidget("", pluginWidget);
     mAddWgt->setObjectName("mAddwgt");
-    mAddWgt->setMinimumSize(QSize(580, 50));
-    mAddWgt->setMaximumSize(QSize(960, 50));
+    mAddWgt->setMinimumSize(QSize(580, 60));
+    mAddWgt->setMaximumSize(QSize(16777215, 60));
     QPalette pal;
     QBrush brush = pal.highlight();  //获取window的色值
     QColor highLightColor = brush.color();
@@ -109,25 +183,22 @@ void Printer::initComponent()
                                    border-radius: 4px;}\
                                    HoverWidget:hover:!pressed#mAddwgt{background: %1;\
                                    border-radius: 4px;}").arg(stringColor));
-
-    ui->listWidget->setStyleSheet("QListWidget::Item:hover{background:palette(base);}");
-
     QHBoxLayout *addLyt = new QHBoxLayout;
 
     QLabel *iconLabel = new QLabel();
-    QLabel *textLabel = new QLabel(tr("Add printers and scanners"));
+    QLabel *textLabel = new QLabel(tr("Add"));
     QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
     iconLabel->setPixmap(pixgray);
     iconLabel->setProperty("useIconHighlightEffect", true);
     iconLabel->setProperty("iconHighlightEffectMode", 1);
 
+    addLyt->addStretch();
     addLyt->addWidget(iconLabel);
     addLyt->addWidget(textLabel);
     addLyt->addStretch();
     mAddWgt->setLayout(addLyt);
 
-    connect(mAddWgt, &HoverWidget::widgetClicked, this, [=](QString mname) {
-        Q_UNUSED(mname)
+    connect(mAddWgt, &HoverWidget::widgetClicked, this, [=]() {
         runExternalApp();
     });
 
@@ -150,18 +221,12 @@ void Printer::initComponent()
         iconLabel->setPixmap(pixgray);
         textLabel->setStyleSheet("color: palette(windowText);");
     });
-    ui->addLyt->addWidget(mAddWgt);
-    mTimer = new QTimer(this);
-    connect(mTimer, &QTimer::timeout, this, [=] {
-        refreshPrinterDevSlot();
-    });
-
-    mTimer->start(1000);
 }
 
 void Printer::refreshPrinterDevSlot()
 {
     QStringList printer = QPrinterInfo::availablePrinterNames();
+    bool IsListChange = false;
 
     for (int num = 0; num < printer.count(); num++) {
         QStringList env = QProcess::systemEnvironment();
@@ -177,43 +242,30 @@ void Printer::refreshPrinterDevSlot()
         delete process;
         QString printer_stat = QString(ba.data());
 
-        HoverBtn *printerItem = new HoverBtn(printer.at(num), pluginWidget);
-        printerItem->mPitLabel->setText(printer.at(num));
-        printerItem->mAbtBtn->setText(tr("Attrs"));
-        QIcon printerIcon = QIcon::fromTheme("printer");
-        printerItem->mPitIcon->setPixmap(printerIcon.pixmap(printerIcon.actualSize(QSize(24, 24))));
-        connect(printerItem->mAbtBtn, &QPushButton::clicked, this, [=] {
-            runExternalApp();
-        });
-
-        // 标志位flag用来判断该打印机是否可用，flag1用来决定是否新增窗口(为真则加)
         bool flag = printer_stat.contains("disable", Qt::CaseSensitive)
                     || printer_stat.contains("Unplugged or turned off", Qt::CaseSensitive);
 
-        bool flag1 = true;
-
-        // 遍历窗口列表，判断列表中是否已经存在该打印机，若存在，便判断该打印机是否可用，不可用则从列表中删除该打印机窗口
-        for (int j = 0; j < ui->listWidget->count(); j++) {
-            QString itemData = ui->listWidget->item(j)->data(Qt::UserRole).toString();
-            if (!itemData.compare(printer.at(num))) {
-                if (flag) {
-                    ui->listWidget->takeItem(j);
-                    flag1 = false;
-                    break;
-                }
-                flag1 = false;
-                break;
+        if (flag) {
+            if (mPrinterList.contains(printer.at(num))) {
+                mPrinterList.removeOne(printer.at(num));
+                IsListChange = true;
+            }
+        } else {
+            if (!mPrinterList.contains(printer.at(num))) {
+                mPrinterList.append(printer.at(num));
+                IsListChange = true;
             }
         }
+    }
+    //打印机列表内容有变化，则清空再构建一遍
+    if (IsListChange) {
+        initPrinterUi();
+    }
 
-        //
-        if (!flag && flag1) {
-            QListWidgetItem *item = new QListWidgetItem(ui->listWidget);
-            item->setData(Qt::UserRole, printer.at(num));
-
-            item->setSizeHint(QSize(QSizePolicy::Expanding, 50));
-            ui->listWidget->setItemWidget(item, printerItem);
-        }
+    if (mPrinterList.count() == 0) {
+        mPrinterListFrame->setVisible(false);
+    } else {
+        mPrinterListFrame->setVisible(true);
     }
 }
 
@@ -223,4 +275,17 @@ void Printer::runExternalApp()
 
     QProcess process(this);
     process.startDetached(cmd);
+}
+
+void Printer::clearAutoItem()
+{
+    if (mPrinterListLayout->layout() != NULL) {
+        QLayoutItem *item;
+        while ((item = mPrinterListLayout->layout()->takeAt(0)) != NULL)
+        {
+            delete item->widget();
+            delete item;
+            item = nullptr;
+        }
+    }
 }

@@ -33,7 +33,6 @@ SOURCES += \
 HEADERS += \
         printer.h
 
-FORMS += \
-        printer.ui
+FORMS +=
 
 INSTALLS += target

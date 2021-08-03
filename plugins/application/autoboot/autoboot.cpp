@@ -113,7 +113,7 @@ void AutoBoot::initUI(QWidget *widget)
 {
     QVBoxLayout *mverticalLayout = new QVBoxLayout(widget);
     mverticalLayout->setSpacing(0);
-    mverticalLayout->setContentsMargins(0, 0, 32, 100);
+    mverticalLayout->setContentsMargins(0, 0, 40, 100);
 
     QWidget *AutobootWidget = new QWidget(widget);
     AutobootWidget->setMinimumSize(QSize(550, 0));
@@ -128,11 +128,11 @@ void AutoBoot::initUI(QWidget *widget)
     mAutoBootFrame = new QFrame(AutobootWidget);
     mAutoBootFrame->setMinimumSize(QSize(550, 0));
     mAutoBootFrame->setMaximumSize(QSize(960, 16777215));
-    mAutoBootFrame->setFrameShape(QFrame::NoFrame);
+    mAutoBootFrame->setFrameShape(QFrame::Box);
 
     mAutoBootLayout = new QVBoxLayout(mAutoBootFrame);
     mAutoBootLayout->setContentsMargins(0, 0, 0, 0);
-    mAutoBootLayout->setSpacing(2);
+    mAutoBootLayout->setSpacing(0);
 
     initAddBtn();
 
@@ -161,7 +161,7 @@ void AutoBoot::initAutoUI()
         QFrame *baseWidget = new QFrame(pluginWidget);
         baseWidget->setMinimumWidth(550);
         baseWidget->setMaximumWidth(960);
-        baseWidget->setFrameShape(QFrame::Box);
+        baseWidget->setFrameShape(QFrame::NoFrame);
         baseWidget->setAttribute(Qt::WA_DeleteOnClose);
 
         QVBoxLayout *baseVerLayout = new QVBoxLayout(baseWidget);
@@ -224,8 +224,18 @@ void AutoBoot::initAutoUI()
         mainHLayout->addWidget(button);
         widget->setLayout(mainHLayout);
 
+        QFrame *line = new QFrame(pluginWidget);
+        line->setMinimumSize(QSize(0, 1));
+        line->setMaximumSize(QSize(16777215, 1));
+        line->setLineWidth(0);
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
+
         baseVerLayout->addWidget(widget);
-        baseVerLayout->addStretch();
+        if (index == statusMaps.count() - 1) {
+            line->hide();
+        }
+        baseVerLayout->addWidget(line);
 
         baseWidget->setLayout(baseVerLayout);
 

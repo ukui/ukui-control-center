@@ -70,6 +70,9 @@ private:
     void setupDiskCompenet();
     void setupSystemVersion();
 
+    void setLabelText(QLabel *label,QString text);
+    bool eventFilter(QObject *obj, QEvent *event);
+
     QStringList getUserDefaultLanguage();
     QStringList  readFile(QString filepath);
     QString getTotalMemory();
@@ -139,10 +142,13 @@ private:
 
     QGSettings *themeStyleQgsettings;
     hp::QRCodeInterface *app;//hp插件
+
+Q_SIGNALS:
+    void resize();
+
 private slots:
     void activeSlot(int activeSignal);
     void runActiveWindow();
-    void showPdf();
 
 };
 

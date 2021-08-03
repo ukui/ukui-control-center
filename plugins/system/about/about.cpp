@@ -27,6 +27,7 @@
 #include <QFile>
 #include <QGridLayout>
 #include <QPluginLoader>
+#include <QEvent>
 
 #ifdef Q_OS_LINUX
 #include <sys/sysinfo.h>
@@ -112,11 +113,11 @@ void About::initUI(QWidget *widget)
 {
     QVBoxLayout *mverticalLayout = new QVBoxLayout(widget);
     mverticalLayout->setSpacing(0);
-    mverticalLayout->setContentsMargins(0, 0, 32, 100);
+    mverticalLayout->setContentsMargins(0, 0, 40, 100);
 
     QWidget *Aboutwidget = new QWidget(widget);
     Aboutwidget->setMinimumSize(QSize(550, 0));
-    Aboutwidget->setMaximumSize(QSize(960, 16777215));
+    Aboutwidget->setMaximumSize(QSize(16777215, 16777215));
 
     QVBoxLayout *AboutLayout = new QVBoxLayout(Aboutwidget);
     AboutLayout->setContentsMargins(0, 0, 0, 0);
@@ -127,7 +128,7 @@ void About::initUI(QWidget *widget)
 
     mInformationFrame = new QFrame(Aboutwidget);
     mInformationFrame->setMinimumSize(QSize(550, 0));
-    mInformationFrame->setMaximumSize(QSize(960, 16777215));
+    mInformationFrame->setMaximumSize(QSize(16777215, 16777215));
     mInformationFrame->setFrameShape(QFrame::Box);
 
     QVBoxLayout *mInformationLayout = new QVBoxLayout(mInformationFrame);
@@ -139,8 +140,9 @@ void About::initUI(QWidget *widget)
     mInformationLayout->addWidget(mLogoLabel);
 
     mVersionFrame = new QFrame(mInformationFrame);
+    mVersionFrame->installEventFilter(this);
     mVersionFrame->setMinimumSize(QSize(550, 30));
-    mVersionFrame->setMaximumSize(QSize(960, 30));
+    mVersionFrame->setMaximumSize(QSize(16777215, 30));
     mVersionFrame->setFrameShape(QFrame::NoFrame);
 
     QHBoxLayout *mVersionLayout = new QHBoxLayout(mVersionFrame);
@@ -161,7 +163,7 @@ void About::initUI(QWidget *widget)
 
     mVersionNumFrame = new QFrame(mInformationFrame);
     mVersionNumFrame->setMinimumSize(QSize(550, 30));
-    mVersionNumFrame->setMaximumSize(QSize(960, 30));
+    mVersionNumFrame->setMaximumSize(QSize(16777215, 30));
     mVersionNumFrame->setFrameShape(QFrame::NoFrame);
 
     QHBoxLayout *mVersionNumLayout = new QHBoxLayout(mVersionNumFrame);
@@ -182,7 +184,7 @@ void About::initUI(QWidget *widget)
 
     mKernelFrame = new QFrame(mInformationFrame);
     mKernelFrame->setMinimumSize(QSize(550, 30));
-    mKernelFrame->setMaximumSize(QSize(960, 30));
+    mKernelFrame->setMaximumSize(QSize(16777215, 30));
     mKernelFrame->setFrameShape(QFrame::NoFrame);
 
     QHBoxLayout *mKernerLayout = new QHBoxLayout(mKernelFrame);
@@ -203,7 +205,7 @@ void About::initUI(QWidget *widget)
 
     mCpuFrame = new QFrame(mInformationFrame);
     mCpuFrame->setMinimumSize(QSize(550, 30));
-    mCpuFrame->setMaximumSize(QSize(960, 30));
+    mCpuFrame->setMaximumSize(QSize(16777215, 30));
     mCpuFrame->setFrameShape(QFrame::NoFrame);
 
     QHBoxLayout *mCpuLayout = new QHBoxLayout(mCpuFrame);
@@ -224,7 +226,7 @@ void About::initUI(QWidget *widget)
 
     mMemoryFrame = new QFrame(mInformationFrame);
     mMemoryFrame->setMinimumSize(QSize(550, 30));
-    mMemoryFrame->setMaximumSize(QSize(960, 30));
+    mMemoryFrame->setMaximumSize(QSize(16777215, 30));
     mMemoryFrame->setFrameShape(QFrame::NoFrame);
 
     QHBoxLayout *mMemoryLayout = new QHBoxLayout(mMemoryFrame);
@@ -245,7 +247,7 @@ void About::initUI(QWidget *widget)
 
     mDiskFrame = new QFrame(mInformationFrame);
     mDiskFrame->setMinimumSize(QSize(550, 30));
-    mDiskFrame->setMaximumSize(QSize(960, 30));
+    mDiskFrame->setMaximumSize(QSize(16777215, 30));
     mDiskFrame->setFrameShape(QFrame::NoFrame);
 
     mDiskLayout = new QHBoxLayout(mDiskFrame);
@@ -266,7 +268,7 @@ void About::initUI(QWidget *widget)
 
     mDesktopFrame = new QFrame(mInformationFrame);
     mDesktopFrame->setMinimumSize(QSize(550, 30));
-    mDesktopFrame->setMaximumSize(QSize(960, 30));
+    mDesktopFrame->setMaximumSize(QSize(16777215, 30));
     mDesktopFrame->setFrameShape(QFrame::NoFrame);
 
     QHBoxLayout *mDesktopLayout = new QHBoxLayout(mDesktopFrame);
@@ -287,7 +289,7 @@ void About::initUI(QWidget *widget)
 
     mUsernameFrame = new QFrame(mInformationFrame);
     mUsernameFrame->setMinimumSize(QSize(550, 30));
-    mUsernameFrame->setMaximumSize(QSize(960, 30));
+    mUsernameFrame->setMaximumSize(QSize(16777215, 30));
     mUsernameFrame->setFrameShape(QFrame::NoFrame);
 
     QHBoxLayout *mUsernameLayout = new QHBoxLayout(mUsernameFrame);
@@ -308,7 +310,7 @@ void About::initUI(QWidget *widget)
 
     mActivationFrame = new QFrame(Aboutwidget);
     mActivationFrame->setMinimumSize(QSize(550, 0));
-    mActivationFrame->setMaximumSize(QSize(960, 16777215));
+    mActivationFrame->setMaximumSize(QSize(16777215, 16777215));
     mActivationFrame->setFrameShape(QFrame::Box);
 
     QGridLayout *mActivationLayout = new QGridLayout(mActivationFrame);
@@ -351,7 +353,7 @@ void About::initUI(QWidget *widget)
 
     mHoldWidget = new QFrame(Aboutwidget);
     mHoldWidget->setMinimumSize(QSize(550, 112));
-    mHoldWidget->setMaximumSize(QSize(960, 112));
+    mHoldWidget->setMaximumSize(QSize(16777215, 112));
     mHoldWidget->setFrameShape(QFrame::Box);
 
     QGridLayout *mHoldLayout = new QGridLayout(mHoldWidget);
@@ -424,12 +426,21 @@ void About::retranslateUi()
     mHpBtn->setText(tr("Learn more HP user manual>>"));
     mHpBtn->setStyleSheet("background: transparent;color:#2FB3E8;font-size:16px;font-family:Microsoft YaHei;"
                   "border-width:1px;text-decoration:underline;border-style:none none none;border-color:#2FB3E8;");
-    //connect(mHpBtn,&QPushButton::clicked,this,&About::on_pushButton_2_clicked);
+    connect(mHpBtn,&QPushButton::clicked,this,[=](){
+        QString cmd = "/usr/share/hp-document/hp-document";
+        QProcess process(this);
+        process.startDetached(cmd);
+    });
 
     mEducateIconLabel->setPixmap(QPixmap(":/help-app.png").scaled(mLogoLabel->size(), Qt::KeepAspectRatio));
     mEducateBtn->setText(tr("See user manual>>"));
     mEducateBtn->setStyleSheet("background: transparent;color:#2FB3E8;font-size:16px;font-family:Microsoft YaHei;"
                   "border-width:1px;text-decoration:underline;border-style:none none none;border-color:#2FB3E8;");
+    connect(mEducateBtn,&QPushButton::clicked,this,[=](){
+        QString cmd = "/usr/bin/kylin-user-guide";
+        QProcess process(this);
+        process.startDetached(cmd);
+    });
 }
 
 void About::initSearchText()
@@ -507,11 +518,10 @@ void About::setupSerialComponent()
     mSequenceLabel_2->setText(serial);
 
     connect(mActivationBtn, &QPushButton::clicked, this, &About::runActiveWindow);
-    connect(mTrialBtn, &QPushButton::clicked, this, &About::showPdf);
-//    connect(mTrialBtn, &QPushButton::clicked, this, [=](){
-//        TrialDialog *mDialog = new TrialDialog(pluginWidget);
-//        mDialog->exec();
-//    });
+    connect(mTrialBtn, &QPushButton::clicked, this, [=](){
+        TrialDialog *mDialog = new TrialDialog(pluginWidget);
+        mDialog->show();
+    });
 }
 
 void About::setupVersionCompenent()
@@ -557,7 +567,10 @@ void About::setupVersionCompenent()
     }
 
     if (!version.isEmpty()) {
-        mVersionLabel_2->setText(version + "  " + tr("Copyright © 2009-2021 KylinSoft. All rights reserved."));
+        setLabelText(mVersionLabel_2,version + "  " + tr("Copyright © 2009-2021 KylinSoft. All rights reserved."));
+        connect(this,&About::resize,[=](){
+           setLabelText(mVersionLabel_2,version + "  " + tr("Copyright © 2009-2021 KylinSoft. All rights reserved."));
+        });
     }
 
     if (!versionID.compare(vTen, Qt::CaseInsensitive) ||
@@ -747,6 +760,30 @@ void About::setupSystemVersion()
     mVersionNumLabel_2->setText(content2);
 }
 
+void About::setLabelText(QLabel *label, QString text)
+{
+    QFontMetrics  fontMetrics(label->font());
+    int fontSize = fontMetrics.width(text);
+    if (fontSize > label->width()) {
+        label->setText(fontMetrics.elidedText(text, Qt::ElideRight, label->width()));
+        label->setToolTip(text);
+    } else {
+        label->setText(text);
+        label->setToolTip("");
+    }
+}
+
+bool About::eventFilter(QObject *obj, QEvent *event)
+{
+    if (obj == mVersionFrame) {
+        if (event->type() == QEvent::Resize) {
+            mVersionLabel_2->setFixedWidth(mVersionFrame->width()-176);
+            emit resize();
+        }
+        return false;
+    }
+}
+
 QStringList About::getUserDefaultLanguage()
 {
     QString formats;
@@ -868,60 +905,4 @@ void About::runActiveWindow()
     QProcess process(this);
     process.startDetached(cmd);
 }
-
-void About::showPdf()
-{
-    QStringList res = getUserDefaultLanguage();
-    QString lang = res.at(1);
-    QString cmd;
-    QFile pdfFile_zh("/usr/share/kylin-verify-gui/免责协议.pdf");
-    QFile pdfFile_en("/usr/share/kylin-verify-gui/disclaimers.pdf");
-    if (lang.split(':').at(0) == "zh_CN") {
-        if (pdfFile_zh.exists()) {
-            cmd = "atril /usr/share/kylin-verify-gui/免责协议.pdf";
-        } else {
-            cmd = "atril /usr/share/man/statement.pdf.gz";
-        }
-    } else {
-        if (pdfFile_en.exists()) {
-            cmd = "atril /usr/share/kylin-verify-gui/disclaimers.pdf";
-        }
-        else {
-            cmd = "atril /usr/share/man/statement_en.pdf.gz";
-        }
-    }
-
-    QProcess process(this);
-    process.startDetached(cmd);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -24,11 +24,14 @@
 #include <QObject>
 #include <QtPlugin>
 #include <QTimer>
+#include <QListWidget>
 
 #include "shell/interface.h"
 #include "HoverWidget/hoverwidget.h"
 #include "ImageUtil/imageutil.h"
 #include "HoverBtn/hoverbtn.h"
+#include "Label/titlelabel.h"
+#include "Label/fixlabel.h"
 
 namespace Ui {
 class Printer;
@@ -51,16 +54,27 @@ public:
     const QString name() const  Q_DECL_OVERRIDE;
 
 public:
+    void initUi(QWidget *widget);
+    void initPrinterUi();
     void initTitleLabel();
     void initComponent();
     void runExternalApp();
+    void clearAutoItem();
 
 private:
-    Ui::Printer *ui;
     QString pluginName;
     int pluginType;
     QWidget * pluginWidget;
+    QWidget *PrinterWidget;
     HoverWidget * mAddWgt;
+    QPushButton *mAddBtn;
+
+    QFrame *mPrinterListFrame;
+
+    TitleLabel *mPrinterLabel;
+    QListWidget *mPrinterListWidget;
+    QStringList mPrinterList;
+    QVBoxLayout *mPrinterListLayout;
 
     bool mFirstLoad;
 

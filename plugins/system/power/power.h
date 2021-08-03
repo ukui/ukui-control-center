@@ -26,6 +26,8 @@
 #include <QGSettings>
 #include <QDBusInterface>
 #include <QDBusReply>
+#include <QRadioButton>
+#include <QButtonGroup>
 
 #include "shell/interface.h"
 #include "Label/titlelabel.h"
@@ -66,6 +68,7 @@ public:
     void isLidPresent();
     void isHibernateSupply();
     bool isExitBattery();
+    double getBattery();
     bool QLabelSetText(QLabel *label, QString string);
 
 private:
@@ -77,6 +80,8 @@ private:
     QGSettings *stylesettings;
     QGSettings *sessionsettings;
     QGSettings *screensettings;
+    QGSettings *m_centerSettings;
+    QGSettings *m_qsettings;
 
     QString pluginName;
     int pluginType;
@@ -100,6 +105,12 @@ private:
     QLabel *mBatterySaveLabel;
     QLabel *mDisplayTimeLabel;
 
+    QLabel *mSaveLabel_1;
+    QLabel *mSaveLabel_2;
+    QLabel *mBalanceLabel_1;
+    QLabel *mBalanceLabel_2;
+
+
     QFrame *mSleepPwdFrame;
     QFrame *mWakenPwdFrame;
     QFrame *mPowerKeyFrame;
@@ -114,6 +125,9 @@ private:
     QFrame *mLowSaveFrame;
     QFrame *mBatterySaveFrame;
     QFrame *mDisplayTimeFrame;
+
+    QFrame *mSaveFrame;
+    QFrame *mBalanceFrame;
 
     QComboBox *mPowerKeyComboBox;
     QComboBox *mCloseComboBox;
@@ -131,6 +145,15 @@ private:
     SwitchButton *mLowSaveBtn;
     SwitchButton *mBatterySaveBtn;
     SwitchButton *mDisplayTimeBtn;
+
+    QRadioButton *mSaveBtn;
+    QRadioButton *mBalanceBtn;
+
+    QButtonGroup *mPowerBtnGroup;
+
+    QSpacerItem *verticalSpacer;
+    QSpacerItem *verticalSpacer_1;
+    QSpacerItem *verticalSpacer_2;
 
     QStringList buttonStringList;
     QStringList sleepStringList;

@@ -31,6 +31,7 @@
 
 #include <shell/interface.h>
 #include "SwitchButton/switchbutton.h"
+#include "Label/titlelabel.h"
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -65,6 +66,7 @@ public:
     void plugin_delay_control() Q_DECL_OVERRIDE;
     const QString name() const  Q_DECL_OVERRIDE;
 
+    void initUi(QWidget *widget);
     void initSearchText();
     void setupComponent();
     void setupGSettings();
@@ -79,10 +81,15 @@ private:
     void setHiddenNoticeApp(bool status);
 
 private:
-    Ui::Notice *ui;
     QString pluginName;
     int pluginType;
     QWidget * pluginWidget;
+
+    TitleLabel *mNoticeLabel;
+    QLabel *mGetNoticeLabel;
+
+    QFrame *mNoticeAppFrame;
+    QFrame *mGetNoticeFrame;
 
     SwitchButton * newfeatureSwitchBtn;
     SwitchButton * enableSwitchBtn;

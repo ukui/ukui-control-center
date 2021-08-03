@@ -75,8 +75,7 @@ private:
     QRadioButton *mNoticeOBtn;
     QRadioButton *mNoticeNBtn;
 
-    TitleLabel *mShareTitleLabel;
-    TitleLabel *mSecurityTitleLabel;
+    TitleLabel *mVinoTitleLabel;
     QLabel *mEnableLabel;
     QLabel *mViewLabel;
     QLabel *mAccessLabel;

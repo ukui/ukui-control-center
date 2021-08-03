@@ -18,7 +18,6 @@
  *
  */
 #include "notice.h"
-#include "ui_notice.h"
 #include "appdetail.h"
 #include "realizenotice.h"
 #include "commonComponent/HoverWidget/hoverwidget.h"
@@ -44,8 +43,6 @@ Notice::Notice() : mFirstLoad(true)
 Notice::~Notice()
 {
     if (!mFirstLoad) {
-        delete ui;
-        ui = nullptr;
         delete mstringlist;
         mstringlist = nullptr;
         qDeleteAll(vecGsettins);
@@ -66,21 +63,13 @@ int Notice::get_plugin_type()
 QWidget *Notice::get_plugin_ui()
 {
     if (mFirstLoad) {
-        ui = new Ui::Notice;
         pluginWidget = new QWidget;
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-        ui->setupUi(pluginWidget);
         mFirstLoad = false;
+
+        initUi(pluginWidget);
         //获取已经存在的动态路径
         listChar = listExistsCustomNoticePath();
-
-        ui->newfeatureWidget->setVisible(false);
-        ui->lockscreenWidget->setVisible(false);
-        ui->title2Label->hide();
-        ui->verticalSpacer->changeSize(0,0);
-        ui->noticeLabel->hide();
-
-
         mstringlist = new QStringList();
 
         initSearchText();
@@ -131,37 +120,68 @@ const QString Notice::name() const
     return QStringLiteral("notice");
 }
 
+void Notice::initUi(QWidget *widget)
+{
+    QVBoxLayout *mverticalLayout = new QVBoxLayout(widget);
+    mverticalLayout->setSpacing(0);
+    mverticalLayout->setContentsMargins(0, 0, 40, 100);
+
+    QWidget *Noticewidget = new QWidget(widget);
+    Noticewidget->setMinimumSize(QSize(550, 0));
+    Noticewidget->setMaximumSize(QSize(960, 16777215));
+
+    QVBoxLayout *NoticeLayout = new QVBoxLayout(Noticewidget);
+    NoticeLayout->setContentsMargins(0, 0, 0, 0);
+    NoticeLayout->setSpacing(8);
+
+    mNoticeLabel = new TitleLabel(Noticewidget);
+
+    mGetNoticeFrame  = new QFrame(Noticewidget);
+    mGetNoticeFrame->setMinimumSize(QSize(550, 60));
+    mGetNoticeFrame->setMaximumSize(QSize(960, 60));
+    mGetNoticeFrame->setFrameShape(QFrame::Box);
+
+    QHBoxLayout *mGetNoticeLayout = new QHBoxLayout(mGetNoticeFrame);
+    mGetNoticeLayout->setContentsMargins(16,0,16,0);
+
+    mGetNoticeLabel = new QLabel(mGetNoticeFrame);
+    mGetNoticeLabel->setFixedWidth(550);
+    enableSwitchBtn = new SwitchButton(mGetNoticeFrame);
+
+    mGetNoticeLayout->addWidget(mGetNoticeLabel,Qt::AlignLeft);
+    mGetNoticeLayout->addStretch();
+    mGetNoticeLayout->addWidget(enableSwitchBtn,Qt::AlignRight);
+
+    mNoticeAppFrame = new QFrame(Noticewidget);
+    mNoticeAppFrame->setMinimumSize(QSize(550, 0));
+    mNoticeAppFrame->setMaximumSize(QSize(960, 16777215));
+    mNoticeAppFrame->setFrameShape(QFrame::Box);
+
+    applistverticalLayout = new QVBoxLayout(mNoticeAppFrame);
+    applistverticalLayout->setContentsMargins(0,0,0,0);
+    applistverticalLayout->setSpacing(0);
+
+    NoticeLayout->addWidget(mNoticeLabel);
+    NoticeLayout->addWidget(mGetNoticeFrame);
+    NoticeLayout->addWidget(mNoticeAppFrame);
+
+    mverticalLayout->addWidget(Noticewidget);
+    mverticalLayout->addStretch();
+
+}
+
 
 void Notice::initSearchText()
 {
-    // ~ contents_path /notice/Set notice type of operation center
-    ui->noticeLabel->setText(tr("Set notice type of operation center"));
-    // ~ contents_path /notice/Notice Origin
-    ui->title2Label->setText(tr("Notice Origin"));
+    mNoticeLabel->setText(tr("Notice Settings"));
+    mGetNoticeLabel->setText(tr("Get notifications from the app"));
 }
 
 void Notice::setupComponent()
-{
-    newfeatureSwitchBtn = new SwitchButton(pluginWidget);
-    enableSwitchBtn = new SwitchButton(pluginWidget);
-    lockscreenSwitchBtn = new SwitchButton(pluginWidget);
-    applistverticalLayout = new QVBoxLayout();
-    applistverticalLayout->setSpacing(1);
-    applistverticalLayout->setContentsMargins(0, 0, 0, 1);
-    ui->newfeatureHorLayout->addWidget(newfeatureSwitchBtn);
-    ui->enableHorLayout->addWidget(enableSwitchBtn);
-    ui->lockscreenHorLayout->addWidget(lockscreenSwitchBtn);
-    ui->frame->setLayout(applistverticalLayout);
-
-    connect(newfeatureSwitchBtn, &SwitchButton::checkedChanged, [=](bool checked){
-        nSetting->set(NEW_FEATURE_KEY, checked);
-    });
+{   
     connect(enableSwitchBtn, &SwitchButton::checkedChanged, [=](bool checked){
         nSetting->set(ENABLE_NOTICE_KEY, checked);
         setHiddenNoticeApp(checked);
-    });
-    connect(lockscreenSwitchBtn, &SwitchButton::checkedChanged, [=](bool checked){
-        nSetting->set(SHOWON_LOCKSCREEN_KEY, checked);
     });
 }
 
@@ -183,15 +203,10 @@ void Notice::setupGSettings()
 
 void Notice::initNoticeStatus()
 {
-    newfeatureSwitchBtn->blockSignals(true);
     enableSwitchBtn->blockSignals(true);
-    lockscreenSwitchBtn->blockSignals(true);
-    newfeatureSwitchBtn->setChecked(nSetting->get(NEW_FEATURE_KEY).toBool());
     enableSwitchBtn->setChecked(nSetting->get(ENABLE_NOTICE_KEY).toBool());
-    lockscreenSwitchBtn->setChecked(nSetting->get(SHOWON_LOCKSCREEN_KEY).toBool());
-    newfeatureSwitchBtn->blockSignals(false);
     enableSwitchBtn->blockSignals(false);
-    lockscreenSwitchBtn->blockSignals(false);
+
     isCN_env = nSetting->get(IS_CN).toBool();
     mlocale = QLocale::system().name();
     if (mlocale == "zh_CN") {
@@ -233,6 +248,7 @@ void Notice::initListUI(QDir dir,QString mpath,QStringList *stringlist)
         if (!whitelist.contains(file_name)) {
             continue;
         }
+        count++;
         QSettings* desktopFile = new QSettings(mpath+file_name, QSettings::IniFormat);
         QString no_display,not_showin,only_showin,appname,appname_CN,appname_US,icon;
         if (desktopFile) {
@@ -270,13 +286,11 @@ void Notice::initListUI(QDir dir,QString mpath,QStringList *stringlist)
         stringlist->append(appname);
         // 构建Widget
 
-
-
-        QFrame *baseWidget = new QFrame();
+        QFrame *baseWidget = new QFrame(mNoticeAppFrame);
         baseWidget->setMinimumWidth(550);
         baseWidget->setMaximumWidth(960);
-        baseWidget->setFixedHeight(50);
-        baseWidget->setFrameShape(QFrame::Shape::Box);
+        baseWidget->setFixedHeight(60);
+        baseWidget->setFrameShape(QFrame::Shape::NoFrame);
         baseWidget->setAttribute(Qt::WA_DeleteOnClose);
 
         QPushButton *iconBtn = new QPushButton(baseWidget);
@@ -302,9 +316,18 @@ void Notice::initListUI(QDir dir,QString mpath,QStringList *stringlist)
         devHorLayout->addStretch();
         devHorLayout->addWidget(appSwitch);
 
-        baseWidget->setLayout(devHorLayout);
+        QFrame *line = new QFrame(pluginWidget);
+        line->setMinimumSize(QSize(0, 1));
+        line->setMaximumSize(QSize(16777215, 1));
+        line->setLineWidth(0);
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
 
         applistverticalLayout->addWidget(baseWidget);
+        applistverticalLayout->addWidget(line);
+        if (count == whitelist.count()) {
+            line->hide();
+        }
 
         //创建gsettings对象
         if(appname_CN == nullptr) {
@@ -391,7 +414,7 @@ void Notice::initListUI(QDir dir,QString mpath,QStringList *stringlist)
 
 void Notice::setHiddenNoticeApp(bool status)
 {
-    ui->frame->setVisible(status);
+    mNoticeAppFrame->setVisible(status);
 }
 
 void Notice::loadlist()
