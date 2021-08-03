@@ -235,77 +235,38 @@ QString NetConnect::getSystemEnvironment() {
 }
 
 bool NetConnect::getWirelessStatus() {
-    QDBusInterface interface( "org.freedesktop.NetworkManager",
-                              "/org/freedesktop/NetworkManager",
-                              "org.freedesktop.DBus.Properties",
-                              QDBusConnection::systemBus() );
-
-    QDBusMessage resultAllDevices = interface.call("Get", "org.freedesktop.NetworkManager", "AllDevices");
-    QList<QVariant> outArgsAllDevices = resultAllDevices.arguments();
-    QVariant firstAllDevices = outArgsAllDevices.at(0);
-    QDBusVariant dbvFirstAllDevices = firstAllDevices.value<QDBusVariant>();
-    QVariant vFirstAllDevices = dbvFirstAllDevices.variant();
-    QDBusArgument dbusArgsAllDevices = vFirstAllDevices.value<QDBusArgument>();
-
-    QDBusObjectPath objPathDevice;
-    dbusArgsAllDevices.beginArray();
-    QString path;
-    while (!dbusArgsAllDevices.atEnd()) {
-        dbusArgsAllDevices >> objPathDevice;
-        QDBusInterface netWireless("org.freedesktop.NetworkManager",
-                                   objPathDevice.path(),
-                                   "org.freedesktop.NetworkManager.Device.Wireless",
-                                   QDBusConnection::systemBus());
-        QString str = netWireless.property("HwAddress").toString();
-        if (str != "") {
-            path = objPathDevice.path();
-        }
+    QString tmpPath = "/tmp/kylin-nm-iface-" + QDir::home().dirName();
+    QString cmd = "export LANG='en_US.UTF-8';export LANGUAGE='en_US';nmcli -f TYPE,DEVICE,STATE device > " + tmpPath;
+    QProcess process;
+    process.start(cmd);
+    process.waitForFinished();
+    QFile file(tmpPath);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug()<<"Can't open the file ~/.config/kylin-nm-iface!";
     }
-    if(path.isEmpty()) {
-        return false;
-    }
-    QDBusInterface netWireless("org.freedesktop.NetworkManager",
-                               path,
-                               "org.freedesktop.NetworkManager.Device",
-                               QDBusConnection::systemBus());
-    QString interfaceInfo = netWireless.property("Interface").toString();
-
-    QString program = "ip";
-    QStringList arg;
-    arg <<"l";
-
-    QProcess *ipCmd = new QProcess(this);
-    ipCmd->start(program, arg);
-    ipCmd->waitForFinished();
-    QString output = ipCmd->readAll();
-    if (interfaceInfo == "") {
-        return false;
-    } else {
-        QStringList slist;
-        QString wirelessInfo;
-        foreach (QString line, output.split("\n")) {
-            line.replace(QRegExp("[\\s]+"), " ");
-            slist.append(line);
-        }
-
-        for (int i = 0; i < slist.size(); i++) {
-            QString str = slist.at(i);
-            if (!str.isEmpty() && str.contains(interfaceInfo)) {
-                wirelessInfo = str;
+    QString txt = file.readAll();
+    QStringList txtList = txt.split("\n");
+    file.close();
+    for (int i = 1; i < txtList.size(); i ++) {
+        QString line = txtList.at(i);
+        qDebug()<<line;
+        if (line != "") {
+            int index1 = line.indexOf(" ");
+            QString type = line.left(index1);
+            QString lastStr = line.mid(index1).trimmed();
+            int index2 = lastStr.indexOf(" ");
+            QString istateStr = lastStr.mid(index2).trimmed();
+            if (type == "wifi") { //仅统计第一个无线网卡，后续无线网卡状态必然等于或差与第一个获取到的无线网卡
+                if (istateStr == "unmanaged" || istateStr == "unavailable") {
+                    continue;
+                } else {
+                    //已连接，未连接，连接中
+                    return true;
+                }
             }
         }
-        wirelessInfo = wirelessInfo.split("<").at(1);
-        wirelessInfo = wirelessInfo.split(">").at(0);
-        if (!wirelessInfo.isEmpty()) {
-            if (wirelessInfo.contains("UP")) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return true;
-        }
     }
+    return false;
 }
 
 //获取当前机器是否有无线网卡设备
@@ -473,11 +434,7 @@ void NetConnect:: getNetList() {
     } else {
         connectWifi.clear();
         if (wirelessStatus && reply.value().length() !=0) {
-            if (reply.value().at(0).at(0) != "--") {
-                connectWifi = reply.value().at(0).at(0);
-            } else {
-                connectWifi = "--";
-            }
+            connectWifi = reply.value().at(0).at(0);
         } else {
             connectWifi = "--";
         }
@@ -812,7 +769,7 @@ int NetConnect::getWifiListDone(QVector<QStringList> getwifislist, QStringList g
                             wname += "lock";
                         }
                         connectedWifi.insert(wname, this->setSignal(getwifislist.at(i).at(1)));
-                    } else if (connectWifi != "--" && getwifislist.at(i).at(0) == connectWifi && getwifislist.at(i).at(0) != actWifiName && !actWifiName.isEmpty()) {
+                    } else if (connectWifi != "--" && connectWifi != actWifiName && !actWifiName.isEmpty()) {
                         wname = actWifiName;
                         lockType = getwifislist.at(i).at(2);
                         freq = getwifislist.at(i).at(3) + " MHz";
