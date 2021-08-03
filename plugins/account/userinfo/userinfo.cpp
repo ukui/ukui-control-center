@@ -911,6 +911,9 @@ void UserInfo::createUserDone(QString objpath){
 
     //构建Item
     _buildWidgetForItem(user);
+
+    //更新界面显示
+    _refreshUserInfoUI();
 }
 
 void UserInfo::showDeleteUserDialog(QString username){
@@ -990,6 +993,9 @@ void UserInfo::deleteUserDone(QString objpath){
 
     //重置其他用户ListWidget高度
     _resetListWidgetHeigh();
+
+    //更新界面显示
+    _refreshUserInfoUI();
 }
 
 void UserInfo::showChangeGroupDialog(){
