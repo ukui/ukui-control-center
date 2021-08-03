@@ -249,7 +249,6 @@ bool NetConnect::getWirelessStatus() {
     file.close();
     for (int i = 1; i < txtList.size(); i ++) {
         QString line = txtList.at(i);
-        qDebug()<<line;
         if (line != "") {
             int index1 = line.indexOf(" ");
             QString type = line.left(index1);
@@ -769,7 +768,7 @@ int NetConnect::getWifiListDone(QVector<QStringList> getwifislist, QStringList g
                             wname += "lock";
                         }
                         connectedWifi.insert(wname, this->setSignal(getwifislist.at(i).at(1)));
-                    } else if (connectWifi != "--" && connectWifi != actWifiName && !actWifiName.isEmpty()) {
+                    } else if (connectWifi != "--" && getwifislist.at(i).at(0) == connectWifi && getwifislist.at(i).at(0) != actWifiName && !actWifiName.isEmpty()) {
                         wname = actWifiName;
                         lockType = getwifislist.at(i).at(2);
                         freq = getwifislist.at(i).at(3) + " MHz";
