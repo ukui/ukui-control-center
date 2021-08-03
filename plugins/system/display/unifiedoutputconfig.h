@@ -23,7 +23,6 @@ private Q_SLOTS:
 
     // 统一输出后调整屏幕方向统一代码
     void slotRotationChangedDerived(int index);
-
     void slotRestoreResoltion();
     void slotRestoreRatation();
     void slotRefreshRateChanged(int index);
@@ -34,7 +33,6 @@ Q_SIGNALS:
 private:
     void initUi() override;
     void initscale(QVBoxLayout *vbox);
-    void slotScaleIndex(const QSize &size);
     KScreen::OutputPtr createFakeOutput();
     QString findBestMode(const KScreen::OutputPtr &output, const QSize &size);
 
