@@ -5244,7 +5244,8 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/devices/projection/projection.cpp" line="247"/>
         <source>Network card is not detected or the driver is not supported.</source>
-        <translation>未检测到无线网卡或网卡驱动不支持，投屏功能不可用</translation>
+        <translation>未检测到无线网卡或网卡驱动不支持
+投屏功能不可用</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/projection/projection.cpp" line="257"/>
@@ -5257,6 +5258,11 @@ Wireless-network functions will be invalid when the screen projection on</source
         <source>Please keep WLAN on;
 Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>使用时请保持WLAN处于开启状态；开启投屏会短暂中断无线连接</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="281"/>
+        <source>After opening the switch button,open the projection screen in the mobile phone drop-down menu,follow the prompts.See the user manual for details</source>
+        <translation>开启投屏后，在手机下拉菜单中打开投屏，根据提示操作。详见用户手册</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/projection/projection.cpp" line="270"/>

@@ -279,6 +279,7 @@ QWidget *Projection::get_plugin_ui(){
             ui->widget_2->hide();
             ui->projectionNameWidget->setEnabled(true);
             projectionBtn->setEnabled(true);
+            ui->label_setsize->setText(tr("After opening the switch button,open the projection screen in the mobile phone drop-down menu,follow the prompts.See the user manual for details"));
         }
         else
         {
