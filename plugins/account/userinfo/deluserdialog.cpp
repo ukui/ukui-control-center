@@ -58,13 +58,13 @@ void DelUserDialog::setupComonpent(){
     ui->buttonGroup->setId(ui->delRadioBtn, 1);
 
     ui->delRadioBtn->setChecked(true);
+
+    ui->frame_2->installEventFilter(this);
+    ui->frame_3->installEventFilter(this);
 }
 
 void DelUserDialog::setupConnect(){
 
-//    connect(ui->closeBtn, &CloseButton::clicked, [=](){
-//        close();
-//    });
     connect(ui->cancelPushBtn, SIGNAL(clicked()), this, SLOT(reject()));
 
     connect(ui->deleteBtn, &QPushButton::clicked, this, [=]{
@@ -138,4 +138,19 @@ void DelUserDialog::paintEvent(QPaintEvent *event) {
     p.fillPath(rectPath,palette().color(QPalette::Base));
     p.restore();
 
+}
+
+bool DelUserDialog::eventFilter(QObject *watched, QEvent *event){
+    if (event->type() == QEvent::MouseButtonPress){
+        QMouseEvent * mouseEvent = static_cast<QMouseEvent *>(event);
+        if (mouseEvent->button() == Qt::LeftButton ){
+            if (watched == ui->frame_2){
+                ui->keepRadioBtn->setChecked(true);
+            } else if (watched == ui->frame_3){
+                ui->delRadioBtn->setChecked(true);
+            }
+        }
+    }
+
+    return QObject::eventFilter(watched, event);
 }
