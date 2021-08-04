@@ -168,6 +168,8 @@ private:
 
     int getPrimaryScreenID();
 
+    void setScreenIsApply(bool isApply);
+
 private:
     Ui::DisplayWindow *ui;
     QMLScreen *mScreen = nullptr;
@@ -227,7 +229,6 @@ private:
     bool mIsBattery = false;
     bool mIsScreenAdd = false;
     bool mIsRestore = false;
-
 
     QShortcut *mApplyShortcut;
     QVector<BrightnessFrame*> BrightnessFrameV;
