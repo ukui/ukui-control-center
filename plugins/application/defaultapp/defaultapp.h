@@ -30,6 +30,8 @@
 #include <QTime>
 
 #include "shell/interface.h"
+#include "Label/fixlabel.h"
+#include "Label/titlelabel.h"
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -74,7 +76,8 @@ public:
     void plugin_delay_control() Q_DECL_OVERRIDE;
     const QString name() const  Q_DECL_OVERRIDE;
 
-    void initUI();
+    void initUi(QWidget *widget);
+    void initDefaultUI();
     void initSlots();
     void initSearchText();
 
@@ -97,6 +100,29 @@ private:
 
     QWidget * pluginWidget;
 
+    QFrame *mBrowserFrame;
+    QFrame *mMailFrame;
+    QFrame *mImageFrame;
+    QFrame *mAudioFrame;
+    QFrame *mVideoFrame;
+    QFrame *mTextFrame;
+
+    TitleLabel *mTitleLabel;
+    FixLabel *mBrowserLabel;
+    FixLabel *mMailLabel;
+    FixLabel *mImageLabel;
+    FixLabel *mAudioLabel;
+    FixLabel *mVideoLabel;
+    FixLabel *mTextLabel;
+
+    QComboBox *mBrowserCombo;
+    QComboBox *mMailCombo;
+    QComboBox *mImageCombo;
+    QComboBox *mAudioCombo;
+    QComboBox *mVideoCombo;
+    QComboBox *mTextCombo;
+
+
     QString pluginName;
     int pluginType;
     QDBusInterface *m_cloudInterface;
@@ -107,6 +133,8 @@ private:
     QString mDefaultAdudio;
     QString mDefaultVideo;
     QString mDefaultText;
+
+    QString mDefaultString;
 
     QStringList browserList;
 

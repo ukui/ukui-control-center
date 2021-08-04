@@ -30,7 +30,6 @@ INCLUDEPATH   +=  \
 
 SOURCES += \
     defaultapp.cpp \
-    addappdialog.cpp \
 #    component/custdomcombobox.cpp
 
 HEADERS += \
@@ -38,6 +37,4 @@ HEADERS += \
     addappdialog.h \
 #    component/custdomcombobox.h
 
-FORMS += \
-    defaultapp.ui \
-    addappdialog.ui
+FORMS +=

@@ -37,22 +37,4 @@ extern "C" {
 #include <gio/gdesktopappinfo.h>
 }
 
-namespace Ui {
-class AddAppDialog;
-}
-
-class AddAppDialog : public QDialog
-{
-    Q_OBJECT
-
-public:
-    explicit AddAppDialog(QWidget *parent = 0);
-    ~AddAppDialog();
-
-private:
-    Ui::AddAppDialog *ui;
-
-    QDir apps;
-};
-
 #endif // ADDAPPDIALOG_H

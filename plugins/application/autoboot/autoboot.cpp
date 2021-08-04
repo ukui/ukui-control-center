@@ -117,7 +117,7 @@ void AutoBoot::initUI(QWidget *widget)
 
     QWidget *AutobootWidget = new QWidget(widget);
     AutobootWidget->setMinimumSize(QSize(550, 0));
-    AutobootWidget->setMaximumSize(QSize(960, 16777215));
+    AutobootWidget->setMaximumSize(QSize(16777215, 16777215));
 
     QVBoxLayout *AutobootLayout = new QVBoxLayout(AutobootWidget);
     AutobootLayout->setContentsMargins(0, 0, 0, 0);
@@ -127,7 +127,7 @@ void AutoBoot::initUI(QWidget *widget)
 
     mAutoBootFrame = new QFrame(AutobootWidget);
     mAutoBootFrame->setMinimumSize(QSize(550, 0));
-    mAutoBootFrame->setMaximumSize(QSize(960, 16777215));
+    mAutoBootFrame->setMaximumSize(QSize(16777215, 16777215));
     mAutoBootFrame->setFrameShape(QFrame::Box);
 
     mAutoBootLayout = new QVBoxLayout(mAutoBootFrame);
@@ -160,7 +160,7 @@ void AutoBoot::initAutoUI()
 
         QFrame *baseWidget = new QFrame(pluginWidget);
         baseWidget->setMinimumWidth(550);
-        baseWidget->setMaximumWidth(960);
+        baseWidget->setMaximumWidth(16777215);
         baseWidget->setFrameShape(QFrame::NoFrame);
         baseWidget->setAttribute(Qt::WA_DeleteOnClose);
 
@@ -170,7 +170,7 @@ void AutoBoot::initAutoUI()
 
         HoverWidget *widget = new HoverWidget(bname);
         widget->setMinimumWidth(550);
-        widget->setMaximumWidth(960);
+        widget->setMaximumWidth(16777215);
 
         widget->setMinimumHeight(60);
         widget->setMaximumHeight(60);
@@ -510,7 +510,7 @@ void AutoBoot::initAddBtn()
     addWgt = new HoverWidget("", pluginWidget);
     addWgt->setObjectName("addwgt");
     addWgt->setMinimumSize(QSize(580, 60));
-    addWgt->setMaximumSize(QSize(960, 60));
+    addWgt->setMaximumSize(QSize(16777215, 60));
     QPalette pal;
     QBrush brush = pal.highlight();  //获取window的色值
     QColor highLightColor = brush.color();

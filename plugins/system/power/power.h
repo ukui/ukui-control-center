@@ -70,6 +70,8 @@ public:
     bool isExitBattery();
     double getBattery();
     bool QLabelSetText(QLabel *label, QString string);
+    void clearAutoItem(QVBoxLayout *mLyt);
+
 
 private:
 
@@ -110,7 +112,9 @@ private:
     QLabel *mBalanceLabel_1;
     QLabel *mBalanceLabel_2;
 
-
+    QFrame *Powerwidget;
+    QFrame *PowerPlanwidget;
+    QFrame *Batterywidget;
     QFrame *mSleepPwdFrame;
     QFrame *mWakenPwdFrame;
     QFrame *mPowerKeyFrame;
@@ -125,9 +129,23 @@ private:
     QFrame *mLowSaveFrame;
     QFrame *mBatterySaveFrame;
     QFrame *mDisplayTimeFrame;
-
     QFrame *mSaveFrame;
     QFrame *mBalanceFrame;
+
+    QFrame *line_1;
+    QFrame *line_2;
+    QFrame *line_3;
+    QFrame *line_4;
+    QFrame *line_5;
+    QFrame *line_6;
+    QFrame *line_7;
+    QFrame *line_8;
+    QFrame *line_9;
+    QFrame *line_10;
+    QFrame *line_11;
+    QFrame *line_12;
+
+    QSpacerItem *mItem;
 
     QComboBox *mPowerKeyComboBox;
     QComboBox *mCloseComboBox;
@@ -165,6 +183,9 @@ private:
     QStringList LowpowerStringList;
 
     QStringList mKeys;
+
+    QVBoxLayout *BatteryLayout;
+    QVBoxLayout *PowerLayout;
 
     bool mFirstLoad;
     bool isExitsLid;

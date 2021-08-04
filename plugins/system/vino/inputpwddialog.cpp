@@ -25,7 +25,7 @@ InputPwdDialog::~InputPwdDialog()
 void InputPwdDialog::setupInit()
 {
     setWindowTitle(tr("Set Password"));
-    this->resize(380, 161);
+    this->setFixedSize(380, 161);
     this->setMinimumSize(QSize(380, 161));
     this->setMaximumSize(QSize(380, 161));
 

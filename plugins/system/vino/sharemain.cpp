@@ -45,10 +45,18 @@ ShareMain::~ShareMain()
 
 void ShareMain::initUI()
 {
+    QFrame *mVinoFrame = new QFrame(this);
+    mVinoFrame->setMinimumSize(550, 0);
+    mVinoFrame->setMaximumSize(16777215, 16777215);
+    mVinoFrame->setFrameShape(QFrame::Box);
+
+    QVBoxLayout *mVinoLyt = new QVBoxLayout(mVinoFrame);
+    mVinoLyt->setContentsMargins(0, 0, 0, 0);
+
     mVinoTitleLabel = new TitleLabel(this);
     mVinoTitleLabel->setText(tr("Remote Desktop"));
     mEnableFrame = new QFrame(this);
-    mEnableFrame->setFrameShape(QFrame::Shape::Box);
+    mEnableFrame->setFrameShape(QFrame::Shape::NoFrame);
     mEnableFrame->setMinimumSize(550, 60);
     mEnableFrame->setMaximumSize(16777215, 60);
 
@@ -63,7 +71,7 @@ void ShareMain::initUI()
     mEnableFrame->setLayout(enableHLayout);
 
     mViewFrame = new QFrame(this);
-    mViewFrame->setFrameShape(QFrame::Shape::Box);
+    mViewFrame->setFrameShape(QFrame::Shape::NoFrame);
     mViewFrame->setMinimumSize(550, 60);
     mViewFrame->setMaximumSize(16777215, 60);
 
@@ -78,7 +86,7 @@ void ShareMain::initUI()
     mViewFrame->setLayout(viewHLayout);
 
     mSecurityFrame = new QFrame(this);
-    mSecurityFrame->setFrameShape(QFrame::Shape::Box);
+    mSecurityFrame->setFrameShape(QFrame::Shape::NoFrame);
     mSecurityFrame->setMinimumSize(550, 60);
     mSecurityFrame->setMaximumSize(16777215, 60);
 
@@ -93,7 +101,7 @@ void ShareMain::initUI()
     mSecurityFrame->setLayout(secHLayout);
 
     mSecurityPwdFrame = new QFrame(this);
-    mSecurityPwdFrame->setFrameShape(QFrame::Shape::Box);
+    mSecurityPwdFrame->setFrameShape(QFrame::Shape::NoFrame);
     mSecurityPwdFrame->setMinimumSize(550, 60);
     mSecurityPwdFrame->setMaximumSize(16777215, 60);
 
@@ -134,18 +142,19 @@ void ShareMain::initUI()
     line_3->setFrameShape(QFrame::HLine);
     line_3->setFrameShadow(QFrame::Sunken);
 
+    mVinoLyt->addWidget(mEnableFrame);
+    mVinoLyt->addWidget(line_1);
+    mVinoLyt->addWidget(mViewFrame);
+    mVinoLyt->addWidget(line_2);
+    mVinoLyt->setSpacing(0);
+
+    mVinoLyt->addWidget(mSecurityFrame);
+    mVinoLyt->addWidget(line_3);
+    mVinoLyt->addWidget(mSecurityPwdFrame);
+
     mVlayout->addWidget(mVinoTitleLabel);
-    mVlayout->addSpacing(8);
-    mVlayout->addWidget(mEnableFrame);
-    mVlayout->addWidget(line_1);
-    mVlayout->addWidget(mViewFrame);
-    mVlayout->addWidget(line_2);
-    mVlayout->setSpacing(0);
-
-    mVlayout->addWidget(mSecurityFrame);
-    mVlayout->addWidget(line_3);
-    mVlayout->addWidget(mSecurityPwdFrame);
-
+    mVlayout->setSpacing(8);
+    mVlayout->addWidget(mVinoFrame);
     mVlayout->addStretch();
 }
 

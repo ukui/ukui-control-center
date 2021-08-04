@@ -115,10 +115,10 @@ QWidget * Power::get_plugin_ui() {
             isLidPresent();
             isHibernateSupply();
             isExitBattery();
-            resetui();
             setupComponent();
             initCustomPlanStatus();
             setupConnect();
+            resetui();
         }
     }
 
@@ -137,33 +137,33 @@ const QString Power::name() const {
 void Power::InitUI(QWidget *widget)
 {
     QVBoxLayout *mverticalLayout = new QVBoxLayout(widget);
-    mverticalLayout->setSpacing(0);
+    mverticalLayout->setSpacing(8);
     mverticalLayout->setContentsMargins(0, 0, 40, 40);
 
-    QWidget *Powerwidget = new QWidget(widget);
+    CustomTitleLabel = new TitleLabel(widget);
+
+    mverticalLayout->addWidget(CustomTitleLabel);
+
+    Powerwidget = new QFrame(widget);
     Powerwidget->setMinimumSize(QSize(550, 0));
     Powerwidget->setMaximumSize(QSize(16777215, 16777215));
+    Powerwidget->setFrameShape(QFrame::Box);
 
-    QVBoxLayout *PowerLayout = new QVBoxLayout(Powerwidget);
+
+    PowerLayout = new QVBoxLayout(Powerwidget);
     PowerLayout->setContentsMargins(0, 0, 0, 0);
-    PowerLayout->setSpacing(1);
-
-    CustomTitleLabel = new TitleLabel(Powerwidget);
-
-    PowerLayout->addWidget(CustomTitleLabel);
-    verticalSpacer_2 = new QSpacerItem(20, 7, QSizePolicy::Fixed, QSizePolicy::Fixed);
-    PowerLayout->addItem(verticalSpacer_2);
+    PowerLayout->setSpacing(0);
 
     mSleepPwdFrame = new QFrame(Powerwidget);
     mSleepPwdFrame->setMinimumSize(QSize(550, 60));
-    mSleepPwdFrame->setMaximumSize(QSize(960, 60));
-    mSleepPwdFrame->setFrameShape(QFrame::Box);
+    mSleepPwdFrame->setMaximumSize(QSize(16777215, 60));
+    mSleepPwdFrame->setFrameShape(QFrame::NoFrame);
 
     QHBoxLayout *mSleepPwdLayout = new QHBoxLayout(mSleepPwdFrame);
     mSleepPwdLayout->setContentsMargins(16, 0, 16, 0);
 
     mSleepPwdLabel = new QLabel(mSleepPwdFrame);
-    mSleepPwdLabel->setMinimumSize(550,60);
+    mSleepPwdLabel->setFixedSize(550,60);
 
     mSleepPwdBtn = new SwitchButton(mSleepPwdFrame);
 
@@ -173,17 +173,24 @@ void Power::InitUI(QWidget *widget)
 
     PowerLayout->addWidget(mSleepPwdFrame);
 
+    line_1 = new QFrame(Powerwidget);
+    line_1->setMinimumSize(QSize(0, 1));
+    line_1->setMaximumSize(QSize(16777215, 1));
+    line_1->setLineWidth(0);
+    line_1->setFrameShape(QFrame::HLine);
+    line_1->setFrameShadow(QFrame::Sunken);
+    PowerLayout->addWidget(line_1);
 
     mWakenPwdFrame = new QFrame(Powerwidget);
     mWakenPwdFrame->setMinimumSize(QSize(550, 49));
-    mWakenPwdFrame->setMaximumSize(QSize(960, 49));
-    mWakenPwdFrame->setFrameShape(QFrame::Box);
+    mWakenPwdFrame->setMaximumSize(QSize(16777215, 49));
+    mWakenPwdFrame->setFrameShape(QFrame::NoFrame);
 
     QHBoxLayout *mWakenPwdLayout = new QHBoxLayout(mWakenPwdFrame);
     mWakenPwdLayout->setContentsMargins(16, 0, 16, 0);
 
     mWakenPwdLabel = new QLabel(mWakenPwdFrame);
-    mWakenPwdLabel->setMinimumSize(550,49);
+    mWakenPwdLabel->setFixedSize(550,49);
 
     mWakenPwdBtn = new SwitchButton(mWakenPwdFrame);
 
@@ -193,18 +200,26 @@ void Power::InitUI(QWidget *widget)
 
     PowerLayout->addWidget(mWakenPwdFrame);
 
+    line_2 = new QFrame(Powerwidget);
+    line_2->setMinimumSize(QSize(0, 1));
+    line_2->setMaximumSize(QSize(16777215, 1));
+    line_2->setLineWidth(0);
+    line_2->setFrameShape(QFrame::HLine);
+    line_2->setFrameShadow(QFrame::Sunken);
+    PowerLayout->addWidget(line_2);
+
     mPowerKeyFrame = new QFrame(Powerwidget);
     mPowerKeyFrame->setObjectName("mpowerkeyframe");
     mPowerKeyFrame->setMinimumSize(QSize(550, 69));
-    mPowerKeyFrame->setMaximumSize(QSize(960, 69));
-    mPowerKeyFrame->setFrameShape(QFrame::Box);
+    mPowerKeyFrame->setMaximumSize(QSize(16777215, 69));
+    mPowerKeyFrame->setFrameShape(QFrame::NoFrame);
 
 
     QHBoxLayout *mPowerKeyLayout = new QHBoxLayout(mPowerKeyFrame);
     mPowerKeyLayout->setContentsMargins(16, 0, 16, 0);
 
     mPowerKeyLabel = new QLabel(mPowerKeyFrame);
-    mPowerKeyLabel->setMinimumSize(550,69);
+    mPowerKeyLabel->setFixedSize(550,69);
 
     mPowerKeyComboBox = new QComboBox(mPowerKeyFrame);
     mPowerKeyComboBox->setFixedHeight(40);
@@ -215,17 +230,25 @@ void Power::InitUI(QWidget *widget)
 
     PowerLayout->addWidget(mPowerKeyFrame);
 
+    line_3 = new QFrame(Powerwidget);
+    line_3->setMinimumSize(QSize(0, 1));
+    line_3->setMaximumSize(QSize(16777215, 1));
+    line_3->setLineWidth(0);
+    line_3->setFrameShape(QFrame::HLine);
+    line_3->setFrameShadow(QFrame::Sunken);
+    PowerLayout->addWidget(line_3);
+
     mCloseFrame = new QFrame(Powerwidget);
     mCloseFrame->setObjectName("mcloseframe");
     mCloseFrame->setMinimumSize(QSize(550, 60));
-    mCloseFrame->setMaximumSize(QSize(960, 60));
-    mCloseFrame->setFrameShape(QFrame::Box);
+    mCloseFrame->setMaximumSize(QSize(16777215, 60));
+    mCloseFrame->setFrameShape(QFrame::NoFrame);
 
     QHBoxLayout *mCloseLayout = new QHBoxLayout(mCloseFrame);
     mCloseLayout->setContentsMargins(16, 0, 16, 0);
 
     mCloseLabel = new QLabel(mCloseFrame);
-    mCloseLabel->setMinimumSize(550,60);
+    mCloseLabel->setFixedSize(550,60);
 
     mCloseComboBox = new QComboBox(mCloseFrame);
     mCloseComboBox->setFixedHeight(40);
@@ -235,20 +258,27 @@ void Power::InitUI(QWidget *widget)
     mCloseLayout->addWidget(mCloseComboBox);
 
     PowerLayout->addWidget(mCloseFrame);
-    PowerLayout->addSpacing(1);
+
+    line_4 = new QFrame(Powerwidget);
+    line_4->setMinimumSize(QSize(0, 1));
+    line_4->setMaximumSize(QSize(16777215, 1));
+    line_4->setLineWidth(0);
+    line_4->setFrameShape(QFrame::HLine);
+    line_4->setFrameShadow(QFrame::Sunken);
+    PowerLayout->addWidget(line_4);
 
     mSleepFrame = new QFrame(Powerwidget);
     mSleepFrame->setObjectName("msleepframe");
     mSleepFrame->setMinimumSize(QSize(550, 59));
-    mSleepFrame->setMaximumSize(QSize(960, 59));
-    mSleepFrame->setFrameShape(QFrame::Box);
+    mSleepFrame->setMaximumSize(QSize(16777215, 59));
+    mSleepFrame->setFrameShape(QFrame::NoFrame);
 
 
     QHBoxLayout *mSleepLayout = new QHBoxLayout(mSleepFrame);
     mSleepLayout->setContentsMargins(16, 0, 16, 0);
 
     mSleepLabel = new QLabel(mSleepFrame);
-    mSleepLabel->setMinimumSize(550,59);
+    mSleepLabel->setFixedSize(550,59);
 
     mSleepComboBox = new QComboBox(mSleepFrame);
     mSleepComboBox->setFixedHeight(40);
@@ -259,18 +289,26 @@ void Power::InitUI(QWidget *widget)
 
     PowerLayout->addWidget(mSleepFrame);
 
+    line_5 = new QFrame(Powerwidget);
+    line_5->setMinimumSize(QSize(0, 1));
+    line_5->setMaximumSize(QSize(16777215, 1));
+    line_5->setLineWidth(0);
+    line_5->setFrameShape(QFrame::HLine);
+    line_5->setFrameShadow(QFrame::Sunken);
+    PowerLayout->addWidget(line_5);
+
     mCloseLidFrame = new QFrame(Powerwidget);
     mCloseLidFrame->setObjectName("mcloselidframe");
     mCloseLidFrame->setMinimumSize(QSize(550, 59));
-    mCloseLidFrame->setMaximumSize(QSize(960, 59));
-    mCloseLidFrame->setFrameShape(QFrame::Box);
+    mCloseLidFrame->setMaximumSize(QSize(16777215, 59));
+    mCloseLidFrame->setFrameShape(QFrame::NoFrame);
 
 
     QHBoxLayout *mCloseLidLayout = new QHBoxLayout(mCloseLidFrame);
     mCloseLidLayout->setContentsMargins(16, 0, 16, 0);
 
     mCloseLidLabel = new QLabel(mCloseLidFrame);
-    mCloseLidLabel->setMinimumSize(550,59);
+    mCloseLidLabel->setFixedSize(550,59);
 
     mCloseLidComboBox = new QComboBox(mCloseLidFrame);
     mCloseLidComboBox->setFixedHeight(40);
@@ -280,23 +318,31 @@ void Power::InitUI(QWidget *widget)
     mCloseLidLayout->addWidget(mCloseLidComboBox);
 
     PowerLayout->addWidget(mCloseLidFrame);
-    verticalSpacer = new QSpacerItem(20, 39, QSizePolicy::Fixed, QSizePolicy::Fixed);
-    PowerLayout->addItem(verticalSpacer);
 
-    PowerPlanTitleLabel = new TitleLabel(Powerwidget);
-    PowerLayout->addWidget(PowerPlanTitleLabel);
+    mverticalLayout->addWidget(Powerwidget);
+    mItem = new QSpacerItem(20, 24, QSizePolicy::Fixed);
+    mverticalLayout->addSpacerItem(mItem);
 
-    verticalSpacer_1 = new QSpacerItem(20, 7, QSizePolicy::Fixed, QSizePolicy::Fixed);
-    PowerLayout->addItem(verticalSpacer_1);
+    PowerPlanTitleLabel = new TitleLabel(widget);
+    mverticalLayout->addWidget(PowerPlanTitleLabel);
 
+    PowerPlanwidget = new QFrame(widget);
+    PowerPlanwidget->setMinimumSize(QSize(550, 0));
+    PowerPlanwidget->setMaximumSize(QSize(16777215, 16777215));
+    PowerPlanwidget->setFrameShape(QFrame::Box);
+
+
+    QVBoxLayout *PowerPlanLayout = new QVBoxLayout(PowerPlanwidget);
+    PowerPlanLayout->setContentsMargins(0, 0, 0, 0);
+    PowerPlanLayout->setSpacing(0);
 
     //Intel的布局
-    mPowerBtnGroup = new QButtonGroup(Powerwidget);
+    mPowerBtnGroup = new QButtonGroup(PowerPlanwidget);
 
     mBalanceFrame = new QFrame(Powerwidget);
     mBalanceFrame->setMinimumSize(QSize(550, 60));
-    mBalanceFrame->setMaximumSize(QSize(960, 60));
-    mBalanceFrame->setFrameShape(QFrame::Box);
+    mBalanceFrame->setMaximumSize(QSize(16777215, 60));
+    mBalanceFrame->setFrameShape(QFrame::NoFrame);
 
     QHBoxLayout *mBalanceLayout = new QHBoxLayout(mBalanceFrame);
     mBalanceLayout->setContentsMargins(16,0,16,0);
@@ -314,12 +360,20 @@ void Power::InitUI(QWidget *widget)
     mBalanceLayout->addStretch();
     mBalanceLayout->addWidget(mBalanceBtn);
 
-    PowerLayout->addWidget(mBalanceFrame);
+    PowerPlanLayout->addWidget(mBalanceFrame);
 
-    mSaveFrame = new QFrame(Powerwidget);
+    line_6 = new QFrame(PowerPlanwidget);
+    line_6->setMinimumSize(QSize(0, 1));
+    line_6->setMaximumSize(QSize(16777215, 1));
+    line_6->setLineWidth(0);
+    line_6->setFrameShape(QFrame::HLine);
+    line_6->setFrameShadow(QFrame::Sunken);
+    PowerPlanLayout->addWidget(line_6);
+
+    mSaveFrame = new QFrame(PowerPlanwidget);
     mSaveFrame->setMinimumSize(QSize(550, 60));
-    mSaveFrame->setMaximumSize(QSize(960, 60));
-    mSaveFrame->setFrameShape(QFrame::Box);
+    mSaveFrame->setMaximumSize(QSize(16777215, 60));
+    mSaveFrame->setFrameShape(QFrame::NoFrame);
 
     QHBoxLayout *mSaveLayout = new QHBoxLayout(mSaveFrame);
     mSaveLayout->setContentsMargins(16,0,16,0);
@@ -337,20 +391,20 @@ void Power::InitUI(QWidget *widget)
     mSaveLayout->addStretch();
     mSaveLayout->addWidget(mSaveBtn);
 
-    PowerLayout->addWidget(mSaveFrame);
+    PowerPlanLayout->addWidget(mSaveFrame);
 
-    mPowerFrame = new QFrame(Powerwidget);
+    mPowerFrame = new QFrame(PowerPlanwidget);
     mPowerFrame->setObjectName("mpowerframe");
     mPowerFrame->setMinimumSize(QSize(550, 60));
-    mPowerFrame->setMaximumSize(QSize(960, 60));
-    mPowerFrame->setFrameShape(QFrame::Box);
+    mPowerFrame->setMaximumSize(QSize(16777215, 60));
+    mPowerFrame->setFrameShape(QFrame::NoFrame);
 
     QHBoxLayout *mPowerLayout = new QHBoxLayout(mPowerFrame);
     mPowerLayout->setContentsMargins(16, 0, 16, 0);
 
 
-    mPowerLabel = new QLabel(Powerwidget);
-    mPowerLabel->setMinimumSize(550,60);
+    mPowerLabel = new QLabel(PowerPlanwidget);
+    mPowerLabel->setFixedSize(550,60);
 
     mPowerComboBox = new QComboBox(mPowerFrame);
     mPowerComboBox->setFixedHeight(40);
@@ -359,19 +413,27 @@ void Power::InitUI(QWidget *widget)
     mPowerLayout->addWidget(mPowerLabel);
     mPowerLayout->addWidget(mPowerComboBox);
 
-    PowerLayout->addWidget(mPowerFrame);
+    PowerPlanLayout->addWidget(mPowerFrame);
 
-    mBatteryFrame = new QFrame(Powerwidget);
+    line_7 = new QFrame(PowerPlanwidget);
+    line_7->setMinimumSize(QSize(0, 1));
+    line_7->setMaximumSize(QSize(16777215, 1));
+    line_7->setLineWidth(0);
+    line_7->setFrameShape(QFrame::HLine);
+    line_7->setFrameShadow(QFrame::Sunken);
+    PowerPlanLayout->addWidget(line_7);
+
+    mBatteryFrame = new QFrame(PowerPlanwidget);
     mBatteryFrame->setObjectName("mbatteryframe");
     mBatteryFrame->setMinimumSize(QSize(550, 59));
-    mBatteryFrame->setMaximumSize(QSize(960, 59));
-    mBatteryFrame->setFrameShape(QFrame::Box);
+    mBatteryFrame->setMaximumSize(QSize(16777215, 59));
+    mBatteryFrame->setFrameShape(QFrame::NoFrame);
 
     QHBoxLayout *mBatteryLayout = new QHBoxLayout(mBatteryFrame);
     mBatteryLayout->setContentsMargins(16, 0, 16, 0);
 
     mBatteryLabel = new QLabel(mBatteryFrame);
-    mBatteryLabel->setMinimumSize(550,59);
+    mBatteryLabel->setFixedSize(550,59);
 
     mBatteryComboBox = new QComboBox(mBatteryFrame);
     mBatteryComboBox->setFixedHeight(40);
@@ -380,24 +442,35 @@ void Power::InitUI(QWidget *widget)
     mBatteryLayout->addWidget(mBatteryLabel);
     mBatteryLayout->addWidget(mBatteryComboBox);
 
-    PowerLayout->addWidget(mBatteryFrame);
-    PowerLayout->addSpacing(40);
+    PowerPlanLayout->addWidget(mBatteryFrame);
+
+    mverticalLayout->addWidget(PowerPlanwidget);
+    mverticalLayout->addSpacing(24);
 
     BatteryPlanTitleLabel = new TitleLabel(Powerwidget);
-    PowerLayout->addWidget(BatteryPlanTitleLabel);
-    PowerLayout->addSpacing(7);
+    mverticalLayout->addWidget(BatteryPlanTitleLabel);
 
-    mDarkenFrame = new QFrame(Powerwidget);
+    Batterywidget = new QFrame(widget);
+    Batterywidget->setMinimumSize(QSize(550, 0));
+    Batterywidget->setMaximumSize(QSize(16777215, 16777215));
+    Batterywidget->setFrameShape(QFrame::Box);
+
+
+    BatteryLayout = new QVBoxLayout(Batterywidget);
+    BatteryLayout->setContentsMargins(0, 0, 0, 0);
+    BatteryLayout->setSpacing(0);
+
+    mDarkenFrame = new QFrame(Batterywidget);
     mDarkenFrame->setObjectName("mdarkenframe");
     mDarkenFrame->setMinimumSize(QSize(550, 59));
-    mDarkenFrame->setMaximumSize(QSize(960, 59));
-    mDarkenFrame->setFrameShape(QFrame::Box);
+    mDarkenFrame->setMaximumSize(QSize(16777215, 59));
+    mDarkenFrame->setFrameShape(QFrame::NoFrame);
 
     QHBoxLayout *mDarkenLayout = new QHBoxLayout(mDarkenFrame);
     mDarkenLayout->setContentsMargins(16, 0, 16, 0);
 
     mDarkenLabel = new QLabel(mDarkenFrame);
-    mDarkenLabel->setMinimumSize(550,59);
+    mDarkenLabel->setFixedSize(550,59);
 
     mDarkenComboBox = new QComboBox(mDarkenFrame);
     mDarkenComboBox->setFixedHeight(40);
@@ -406,19 +479,27 @@ void Power::InitUI(QWidget *widget)
     mDarkenLayout->addWidget(mDarkenLabel);
     mDarkenLayout->addWidget(mDarkenComboBox);
 
-    PowerLayout->addWidget(mDarkenFrame);
+    BatteryLayout->addWidget(mDarkenFrame);
 
-    mLowpowerFrame = new QFrame(Powerwidget);
+    line_8 = new QFrame(Batterywidget);
+    line_8->setMinimumSize(QSize(0, 1));
+    line_8->setMaximumSize(QSize(16777215, 1));
+    line_8->setLineWidth(0);
+    line_8->setFrameShape(QFrame::HLine);
+    line_8->setFrameShadow(QFrame::Sunken);
+    BatteryLayout->addWidget(line_8);
+
+    mLowpowerFrame = new QFrame(Batterywidget);
     mLowpowerFrame->setObjectName("mlowpowerframe");
     mLowpowerFrame->setMinimumSize(QSize(550, 60));
-    mLowpowerFrame->setMaximumSize(QSize(960, 60));
-    mLowpowerFrame->setFrameShape(QFrame::Box);
+    mLowpowerFrame->setMaximumSize(QSize(16777215, 60));
+    mLowpowerFrame->setFrameShape(QFrame::NoFrame);
 
 
     mLowpowerLabel1 = new QLabel(mLowpowerFrame);
     mLowpowerLabel1->setFixedSize(84,60);
     mLowpowerLabel2 = new QLabel(mLowpowerFrame);
-    mLowpowerLabel2->setFixedSize(72,60);
+    mLowpowerLabel2->setFixedSize(356,60);
 
     QHBoxLayout *mLowpowerLayout = new QHBoxLayout(mLowpowerFrame);
     mLowpowerLayout->setContentsMargins(16, 0, 16, 0);
@@ -433,23 +514,30 @@ void Power::InitUI(QWidget *widget)
     mLowpowerLayout->addWidget(mLowpowerLabel1);
     mLowpowerLayout->addWidget(mLowpowerComboBox1);
     mLowpowerLayout->addWidget(mLowpowerLabel2);
-    mLowpowerLayout->addSpacerItem(new QSpacerItem(284, 20, QSizePolicy::Maximum));
     mLowpowerLayout->addWidget(mLowpowerComboBox2);
 
-    PowerLayout->addWidget(mLowpowerFrame);
+    BatteryLayout->addWidget(mLowpowerFrame);
 
-    mNoticeLFrame = new QFrame(Powerwidget);
+    line_9 = new QFrame(Batterywidget);
+    line_9->setMinimumSize(QSize(0, 1));
+    line_9->setMaximumSize(QSize(16777215, 1));
+    line_9->setLineWidth(0);
+    line_9->setFrameShape(QFrame::HLine);
+    line_9->setFrameShadow(QFrame::Sunken);
+    BatteryLayout->addWidget(line_9);
+
+    mNoticeLFrame = new QFrame(Batterywidget);
     mNoticeLFrame->setObjectName("mnoticeframe");
     mNoticeLFrame->setMinimumSize(QSize(550, 60));
-    mNoticeLFrame->setMaximumSize(QSize(960, 60));
-    mNoticeLFrame->setFrameShape(QFrame::Box);
+    mNoticeLFrame->setMaximumSize(QSize(16777215, 60));
+    mNoticeLFrame->setFrameShape(QFrame::NoFrame);
 
 
     QHBoxLayout *mNoticeLayout = new QHBoxLayout(mNoticeLFrame);
     mNoticeLayout->setContentsMargins(16, 0, 16, 0);
 
     mNoticeLabel = new QLabel(mNoticeLFrame);
-    mNoticeLabel->setMinimumSize(550,59);
+    mNoticeLabel->setFixedSize(550,59);
 
     mNoticeComboBox = new QComboBox(mNoticeLFrame);
     mNoticeComboBox->setFixedHeight(40);
@@ -458,20 +546,28 @@ void Power::InitUI(QWidget *widget)
     mNoticeLayout->addWidget(mNoticeLabel);
     mNoticeLayout->addWidget(mNoticeComboBox);
 
-    PowerLayout->addWidget(mNoticeLFrame);
+    BatteryLayout->addWidget(mNoticeLFrame);
 
-    mLowSaveFrame = new QFrame(Powerwidget);
+    line_10 = new QFrame(Batterywidget);
+    line_10->setMinimumSize(QSize(0, 1));
+    line_10->setMaximumSize(QSize(16777215, 1));
+    line_10->setLineWidth(0);
+    line_10->setFrameShape(QFrame::HLine);
+    line_10->setFrameShadow(QFrame::Sunken);
+    BatteryLayout->addWidget(line_10);
+
+    mLowSaveFrame = new QFrame(Batterywidget);
     mLowSaveFrame->setObjectName("mlowsaveframe");
     mLowSaveFrame->setMinimumSize(QSize(550, 60));
-    mLowSaveFrame->setMaximumSize(QSize(960, 60));
-    mLowSaveFrame->setFrameShape(QFrame::Box);
+    mLowSaveFrame->setMaximumSize(QSize(16777215, 60));
+    mLowSaveFrame->setFrameShape(QFrame::NoFrame);
 
 
     QHBoxLayout *mLowSaveLayout = new QHBoxLayout(mLowSaveFrame);
     mLowSaveLayout->setContentsMargins(16, 0, 16, 0);
 
     mLowSaveLabel = new QLabel(mLowSaveFrame);
-    mLowSaveLabel->setMinimumSize(550,59);
+    mLowSaveLabel->setFixedSize(550,59);
 
     mLowSaveBtn = new SwitchButton(mLowSaveFrame);
 
@@ -479,19 +575,27 @@ void Power::InitUI(QWidget *widget)
     mLowSaveLayout->addStretch();
     mLowSaveLayout->addWidget(mLowSaveBtn);
 
-    PowerLayout->addWidget(mLowSaveFrame);
+    BatteryLayout->addWidget(mLowSaveFrame);
 
-    mBatterySaveFrame = new QFrame(Powerwidget);
+    line_11 = new QFrame(Batterywidget);
+    line_11->setMinimumSize(QSize(0, 1));
+    line_11->setMaximumSize(QSize(16777215, 1));
+    line_11->setLineWidth(0);
+    line_11->setFrameShape(QFrame::HLine);
+    line_11->setFrameShadow(QFrame::Sunken);
+    BatteryLayout->addWidget(line_11);
+
+    mBatterySaveFrame = new QFrame(Batterywidget);
     mBatterySaveFrame->setObjectName("mbatterysaveframe");
     mBatterySaveFrame->setMinimumSize(QSize(550, 60));
-    mBatterySaveFrame->setMaximumSize(QSize(960, 60));
-    mBatterySaveFrame->setFrameShape(QFrame::Box);
+    mBatterySaveFrame->setMaximumSize(QSize(16777215, 60));
+    mBatterySaveFrame->setFrameShape(QFrame::NoFrame);
 
     QHBoxLayout *mBatterySaveLayout = new QHBoxLayout(mBatterySaveFrame);
     mBatterySaveLayout->setContentsMargins(16, 0, 16, 0);
 
     mBatterySaveLabel = new QLabel(mBatterySaveFrame);
-    mBatterySaveLabel->setMinimumSize(550,59);
+    mBatterySaveLabel->setFixedSize(550,59);
 
     mBatterySaveBtn = new SwitchButton(mBatterySaveFrame);
 
@@ -499,20 +603,28 @@ void Power::InitUI(QWidget *widget)
     mBatterySaveLayout->addStretch();
     mBatterySaveLayout->addWidget(mBatterySaveBtn);
 
-    PowerLayout->addWidget(mBatterySaveFrame);
+    BatteryLayout->addWidget(mBatterySaveFrame);
 
-    mDisplayTimeFrame = new QFrame(Powerwidget);
+    line_12 = new QFrame(Batterywidget);
+    line_12->setMinimumSize(QSize(0, 1));
+    line_12->setMaximumSize(QSize(16777215, 1));
+    line_12->setLineWidth(0);
+    line_12->setFrameShape(QFrame::HLine);
+    line_12->setFrameShadow(QFrame::Sunken);
+    BatteryLayout->addWidget(line_12);
+
+    mDisplayTimeFrame = new QFrame(Batterywidget);
     mDisplayTimeFrame->setObjectName("mdisplaytimeframe");
     mDisplayTimeFrame->setMinimumSize(QSize(550, 60));
-    mDisplayTimeFrame->setMaximumSize(QSize(960, 60));
-    mDisplayTimeFrame->setFrameShape(QFrame::Box);
+    mDisplayTimeFrame->setMaximumSize(QSize(16777215, 60));
+    mDisplayTimeFrame->setFrameShape(QFrame::NoFrame);
 
 
     QHBoxLayout *mDisplayTimeLayout = new QHBoxLayout(mDisplayTimeFrame);
     mDisplayTimeLayout->setContentsMargins(16, 0, 16, 0);
 
     mDisplayTimeLabel = new QLabel(mDisplayTimeFrame);
-    mDisplayTimeLabel->setMinimumSize(550,59);
+    mDisplayTimeLabel->setFixedSize(550,59);
 
     mDisplayTimeBtn = new SwitchButton(mDisplayTimeFrame);
 
@@ -520,9 +632,9 @@ void Power::InitUI(QWidget *widget)
     mDisplayTimeLayout->addStretch();
     mDisplayTimeLayout->addWidget(mDisplayTimeBtn);
 
-    PowerLayout->addWidget(mDisplayTimeFrame);
+    BatteryLayout->addWidget(mDisplayTimeFrame);
 
-    mverticalLayout->addWidget(Powerwidget);
+    mverticalLayout->addWidget(Batterywidget);
     mverticalLayout->addStretch();
 
     retranslateUi();
@@ -609,54 +721,49 @@ void Power::resetui()
 {
     //990隐藏这些设置项
     if (Utils::isWayland()) {
+        line_9->hide();
         mNoticeLFrame->hide();
+        line_10->hide();
         mLowSaveFrame->hide();
+        line_11->hide();
         mBatterySaveFrame->hide();
+        line_12->hide();
         mDisplayTimeFrame->hide();
+    }
+
+    //不存在盖子隐藏该项
+    if (!isExitsLid) {
+        mCloseLidFrame->hide();
+        line_5->hide();
+    }
+
+    //不存在电池隐藏这些设置项
+    if (!hasBat) {
+        line_7->hide();
+        mBatteryFrame->hide();
+        BatteryPlanTitleLabel->hide();
+        clearAutoItem(BatteryLayout);
+        Batterywidget->hide();
     }
 
     //Intel作如下处理
     QString sysVersion = "/etc/apt/ota_version";
     QFile file(sysVersion);
     if (file.exists()) {
-        mSleepPwdFrame->hide();
-        mWakenPwdFrame->hide();
-        mPowerKeyFrame->hide();
-        mCloseFrame->hide();
-        mSleepFrame->hide();
-        mCloseLidFrame->hide();
         mPowerFrame->hide();
         mBatteryFrame->hide();
-        mDarkenFrame->hide();
-        mLowpowerFrame->hide();
-        mNoticeLFrame->hide();
-        mLowSaveFrame->hide();
-        mBatterySaveFrame->hide();
-        mDisplayTimeFrame->hide();
+        clearAutoItem(BatteryLayout);
+        clearAutoItem(PowerLayout);
         CustomTitleLabel->hide();
         BatteryPlanTitleLabel->hide();
-        verticalSpacer->changeSize(0,0);
-        verticalSpacer_2->changeSize(0,0);
+        Powerwidget->hide();
+        Batterywidget->hide();
+        mItem->changeSize(0,0);
+        line_7->hide();
     } else {
         mBalanceFrame->hide();
+        line_6->hide();
         mSaveFrame->hide();
-    }
-
-    //不存在盖子隐藏该项
-    if (!isExitsLid) {
-        mCloseLidFrame->hide();
-    }
-
-    //不存在电池隐藏这些设置项
-    if (!hasBat) {
-        mBatteryFrame->hide();
-        BatteryPlanTitleLabel->hide();
-        mDarkenFrame->hide();
-        mLowpowerFrame->hide();
-        mNoticeLFrame->hide();
-        mLowSaveFrame->hide();
-        mBatterySaveFrame->hide();
-        mDisplayTimeFrame->hide();
     }
 }
 
@@ -1061,6 +1168,19 @@ bool Power::QLabelSetText(QLabel *label, QString string)
     }
     label->setText(str);
     return is_over_length;
+}
+
+void Power::clearAutoItem(QVBoxLayout *mLyt)
+{
+    if (mLyt->layout() != NULL) {
+        QLayoutItem *item;
+        while ((item = mLyt->layout()->takeAt(0)) != NULL)
+        {
+            delete item->widget();
+            delete item;
+            item = nullptr;
+        }
+    }
 }
 
 
