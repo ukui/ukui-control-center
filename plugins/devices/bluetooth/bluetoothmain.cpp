@@ -287,6 +287,7 @@ void BlueToothMain::InitMainbottomUI()
                 {
                     m_localDevice->startDiscovery();
                 }
+
             }
 
         }
@@ -404,19 +405,12 @@ void BlueToothMain::updateUIWhenAdapterChanged()
     connect(m_localDevice.data(),&BluezQt::Adapter::discoveringChanged,this,[=](bool discover){
        if(discover){
            m_timer->start();
-           //discovering_timer->start();
-           //每次开启后清除适配器扫描列表
-//           if (0 == IntermittentScann_timer_count)
-//           {
-//                Discovery_device_address.clear();
-//                qDebug() << __FUNCTION__ << "Discovery_device_address "<< __LINE__;
-//           }
+           loadLabel->setVisible(true);
        }
        else
        {
-           //if (0 == IntermittentScann_timer_count)
-           //    clearUiShowDeviceList();
-           //delayStartDiscover_timer->start();
+           m_timer->stop();
+           loadLabel->setVisible(false);
        }
     });
     qDebug() << Q_FUNC_INFO << __LINE__;
@@ -425,7 +419,8 @@ void BlueToothMain::updateUIWhenAdapterChanged()
         loadLabel->setVisible(true);
         if (!m_timer->isActive())
             m_timer->start();
-        //discovering_timer->start();
+        //if (!discovering_timer->isActive())
+        //    discovering_timer->start();
     }
 
     connect(m_localDevice.data(),&BluezQt::Adapter::uuidsChanged,this,[=](const QStringList &uuids){
@@ -740,6 +735,8 @@ BlueToothMain::~BlueToothMain()
     settings = nullptr;
     delete device_list;
     device_list = nullptr;
+    clearAllDeviceItemUi();
+
 }
 void BlueToothMain::clearAllDeviceItemUi()
 {
@@ -934,10 +931,13 @@ void BlueToothMain::receiveConnectsignal(QString device)
 
     qDebug() <<__FUNCTION__ << " device name :" << device << __LINE__ ;
 
-//    if (m_localDevice->isDiscovering())
-//    {
-//        m_localDevice->stopDiscovery();
-//    }
+    if (m_localDevice->isDiscovering())
+    {
+        clearTimer();
+        m_localDevice->stopDiscovery();
+        if (!delayStartDiscover_timer->isActive())
+            delayStartDiscover_timer->start();
+    }
 
     int ps_bluetooth = system("ps aux|grep ukui-bluetooth|grep -v \"grep\" ");
     qDebug() <<__FUNCTION__ <<  ps_bluetooth << __LINE__ ;
