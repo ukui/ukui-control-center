@@ -174,6 +174,7 @@ void Widget::setConfig(const KScreen::ConfigPtr &config, bool showBrightnessFram
     mPrevConfig = config->clone();
     mPreScreenConfig = config->clone();
 
+    changescale();
     KScreen::ConfigMonitor::instance()->addConfig(mConfig);
     resetPrimaryCombo();
     connect(mConfig.data(), &KScreen::Config::outputAdded,
@@ -323,23 +324,6 @@ void Widget::slotOutputEnabledChanged()
     Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
         if (output->isEnabled()) {
             ++enabledOutputsCount;
-            for (int i = 0; i < BrightnessFrameV.size(); ++i) {
-                if (BrightnessFrameV[i]->outputName == Utils::outputName(output) && !BrightnessFrameV[i]->slider->isEnabled()) {
-                    QtConcurrent::run([=]{
-                        int initValue = getDDCBrighthess(BrightnessFrameV[i]->outputName);
-                        if (initValue == -1 || BrightnessFrameV[i] == nullptr)
-                            return;
-                        BrightnessFrameV[i]->slider->setValue(initValue);
-                        BrightnessFrameV[i]->slider->setEnabled(true);
-                        BrightnessFrameV[i]->setTextLableValue(QString::number(initValue));
-                        connect(BrightnessFrameV[i]->slider, &QSlider::valueChanged, this, [=](){
-                                            qDebug()<<BrightnessFrameV[i]->outputName<<"brightness"<<" is changed, value = "<<BrightnessFrameV[i]->slider->value();
-                                            BrightnessFrameV[i]->setTextLableValue(QString::number(BrightnessFrameV[i]->slider->value()));
-                                            setDDCBrightnessN(BrightnessFrameV[i]->slider->value(), BrightnessFrameV[i]->outputName);
-                        });
-                    });
-                }
-            }
         }
         if (enabledOutputsCount > 1) {
             break;
@@ -386,9 +370,8 @@ void Widget::slotUnifyOutputs()
 
     // 取消统一输出
     if (!mUnifyButton->isChecked()) {
-
+        KScreen::OutputList screens = mPrevConfig->connectedOutputs();
         if (mKDSCfg.isEmpty()) {
-            KScreen::OutputList screens = mPrevConfig->connectedOutputs();
             QList<ScreenConfig> preScreenCfg = getPreScreenCfg();
             int posX = preScreenCfg.at(0).screenPosX;
             bool isOverlap = false;
@@ -408,6 +391,18 @@ void Widget::slotUnifyOutputs()
                 }
             }
         }
+
+        QPoint raw(0,0);
+        int originCount = 0;
+        Q_FOREACH(KScreen::OutputPtr output, screens) {
+            if (output->pos() == raw) {
+                originCount++;
+            }
+            if (originCount >= 2) {
+                setScreenKDS("expand");
+            }
+        }
+
 
         setConfig(mPrevConfig);
 
@@ -908,7 +903,6 @@ void Widget::addBrightnessFrame(QString name, bool openFlag)
     BrightnessFrame *frame = new BrightnessFrame;
     frame->openFlag = openFlag;
     frame->setTextLableValue("0"); //最低亮度10,获取前为0
-    frame->slider->setEnabled(false);
     BrightnessFrameV.push_back(frame);
 
     for (int i = 0; i < deleteFrameNameV.size(); ++i) {
@@ -921,7 +915,6 @@ void Widget::addBrightnessFrame(QString name, bool openFlag)
         int initValue = mPowerGSettings->get(POWER_KEY).toInt();
         frame->setTextLableValue(QString::number(initValue));
         frame->slider->setValue(initValue);
-        frame->slider->setEnabled(true);
         ui->unifyBrightLayout->addWidget(frame);
         connect(frame->slider, &QSlider::valueChanged, this, [=](){
             qDebug()<<name<<"brightness"<<" is changed, value = "<<frame->slider->value();
@@ -931,15 +924,12 @@ void Widget::addBrightnessFrame(QString name, bool openFlag)
     } else if(!mIsBattery) {
         frame->outputName = name;
         ui->unifyBrightLayout->addWidget(frame);
+        frame->slider->setValue(10);
         QtConcurrent::run([=]{
-            if (openFlag == false)
-                return;
-
             int initValue = getDDCBrighthess(frame->outputName);
             if (initValue == -1 || frame == nullptr)
                 return;
             frame->slider->setValue(initValue);
-            frame->slider->setEnabled(true);
             frame->setTextLableValue(QString::number(initValue));
             connect(frame->slider, &QSlider::valueChanged, this, [=](){
                                  qDebug()<<name<<"brightness"<<" is changed, value = "<<frame->slider->value();
@@ -947,6 +937,7 @@ void Widget::addBrightnessFrame(QString name, bool openFlag)
                                  setDDCBrightnessN(frame->slider->value(), name);
             });
         });
+
     }
 }
 
@@ -969,7 +960,6 @@ void Widget::outputAdded(const KScreen::OutputPtr &output)
             }
         });
     }
-
 
     connect(output.data(), &KScreen::Output::isConnectedChanged,
             this, &Widget::slotOutputConnectedChanged);
@@ -1014,6 +1004,7 @@ void Widget::outputAdded(const KScreen::OutputPtr &output)
 
 void Widget::outputRemoved(int outputId)
 {
+    // 刷新缩放选项
     changescale();
 
     KScreen::OutputPtr output = mConfig->output(outputId);
@@ -1359,6 +1350,7 @@ void Widget::setPreScreenCfg(KScreen::OutputList screens)
     QMap<int, KScreen::OutputPtr>::iterator nowIt = screens.begin();
 
     QVariantList retlist;
+    int enableCount = 0;
     while (nowIt != screens.end()) {
         ScreenConfig cfg;
         cfg.screenId = nowIt.value()->name();
@@ -1368,7 +1360,13 @@ void Widget::setPreScreenCfg(KScreen::OutputList screens)
 
         QVariant variant = QVariant::fromValue(cfg);
         retlist << variant;
+        if (nowIt.value()->isEnabled()) {
+            enableCount++;
+        }
         nowIt++;
+    }
+    if (enableCount < 2) {
+        return;
     }
 
     mUkccInterface.get()->call("setPreScreenCfg", retlist);
@@ -1512,10 +1510,8 @@ void Widget::save()
         mainScreenButtonSelect(ui->primaryCombo->currentIndex());
     });
 
-    mScreen->updateOutputsPlacement();
-
     if (isRestoreConfig()) {
-        if (mIsWayland && -1 != mScreenId) {
+        if (mIsWayland && -1 != mScreenId && !mPreScreenConfig->output(mScreenId).isNull()) {
             mPreScreenConfig->output(mScreenId)->setPrimary(true);
             callMethod(mPreScreenConfig->output(mScreenId)->geometry(), mPreScreenConfig->output(mScreenId)->name());
         }
@@ -1724,6 +1720,14 @@ void Widget::mainScreenButtonSelect(int index)
     }
 
     const KScreen::OutputPtr newPrimary = mConfig->output(ui->primaryCombo->itemData(index).toInt());
+
+    if (!newPrimary->isEnabled()) {
+        ui->scaleCombo->setEnabled(false);
+    } else {
+        ui->scaleCombo->setEnabled(true);
+    }
+
+
     int connectCount = mConfig->connectedOutputs().count();
 
     if (mIsWayland) {
@@ -1738,12 +1742,6 @@ void Widget::mainScreenButtonSelect(int index)
         } else {
             ui->mainScreenButton->setEnabled(true);
         }
-    }
-
-    if (!newPrimary->isEnabled()) {
-        ui->scaleCombo->setEnabled(false);
-    } else {
-        ui->scaleCombo->setEnabled(true);
     }
 
     // 设置是否勾选
@@ -1802,8 +1800,6 @@ void Widget::checkOutputScreen(bool judge)
     }
     mainScreen = mConfig->primaryOutput();
 
-    newPrimary->setEnabled(judge);
-
     if (!judge) {
         setPreScreenCfg(mConfig->connectedOutputs());
     } else {
@@ -1817,6 +1813,7 @@ void Widget::checkOutputScreen(bool judge)
             }
         }
     }
+    newPrimary->setEnabled(judge);
 
     ui->primaryCombo->blockSignals(true);
     ui->primaryCombo->setCurrentIndex(index);
@@ -1890,6 +1887,7 @@ void Widget::initConnection()
             this, [=](int index) {
         mainScreenButtonSelect(index);
         showBrightnessFrame();  //当前屏幕框变化的时候，显示，此时不判断
+
     });
 }
 
@@ -2096,13 +2094,11 @@ void Widget::showBrightnessFrame(const int flag)
                         allShowFlag = false;
                     }
                     for (int i = 0; i < BrightnessFrameV.size(); ++i) { //检查其它显示屏是否实际打开，否则关闭，适用于显示器插拔
-                        if (BrightnessFrameV[i]->outputName == Utils::outputName(secOutput)) {
-                            if (secOutput->isEnabled()) {
-                                BrightnessFrameV[i]->openFlag = true;
-                            } else {
-                                BrightnessFrameV[i]->openFlag = false;
-                            }
-                            break;
+                            if (BrightnessFrameV[i]->outputName == Utils::outputName(secOutput)){
+                                if (!secOutput->isEnabled())
+                                    BrightnessFrameV[i]->openFlag = false;
+                                else
+                                    BrightnessFrameV[i]->openFlag = true;
                         }
                     }
                 }

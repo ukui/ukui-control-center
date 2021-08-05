@@ -20,13 +20,29 @@
 #include "qmloutputcomponent.h"
 #include "qmloutput.h"
 
+#include "screenConfig.h"
+
 #include <KF5/KScreen/kscreen/output.h>
 #include <KF5/KScreen/kscreen/config.h>
+
+#include <QDBusMessage>
+#include <QDBusArgument>
+#include <QDBusInterface>
 
 #include <QTimer>
 #include <sys/socket.h>
 
 Q_DECLARE_METATYPE(KScreen::OutputPtr)
+
+static bool sizeLessThan(ScreenConfig posxA, ScreenConfig posxB)
+{
+    return posxA.screenPosX > posxB.screenPosY;
+}
+
+static bool sizeLessThanQml(QPointF posxA, QPointF posxB)
+{
+    return posxA.x() > posxB.x();
+}
 
 QMLScreen::QMLScreen(QQuickItem *parent) :
     QQuickItem(parent)
@@ -523,6 +539,7 @@ void QMLScreen::updateOutputsPlacement()
 
     auto scale = initialScale;
     qreal lastX = -1.0;
+    int enableCount;
     do {
         auto activeScreenSize = initialActiveScreenSize * scale;
 
@@ -531,8 +548,13 @@ void QMLScreen::updateOutputsPlacement()
 
         lastX = -1.0;
         qreal lastY = -1.0;
+        enableCount = 0;
         Q_FOREACH (QQuickItem *item, childItems()) {
             QMLOutput *qmlOutput = qobject_cast<QMLOutput *>(item);
+            if (m_config->connectedOutputs().count() >= 2 && qmlOutput->outputPtr()->isEnabled()) {
+                enableCount++;
+            }
+            // 连接
             if ((!qmlOutput->output()->isConnected() || !qmlOutput->output()->isEnabled()
                     || m_manuallyMovedOutputs.contains(qmlOutput)) && !qmlOutput->isCloneMode()) {
                 continue;
@@ -563,8 +585,62 @@ void QMLScreen::updateOutputsPlacement()
         }
     } while (lastX > width());
 
+    if (enableCount == 1) {
+        setPosByConfig();
+    }
+
     // Use a timer to avoid binding loop on width()
     QTimer::singleShot(0, this, [scale, this] {
         setOutputScale(scale);
     });
+}
+
+void QMLScreen::setPosByConfig()
+{
+    if (!m_config.isNull()) {
+
+        QDBusInterface mUkccInterface("org.ukui.ukcc.session",
+                                       "/",
+                                       "org.ukui.ukcc.session.interface",
+                                       QDBusConnection::sessionBus());
+
+        QDBusMessage msg = mUkccInterface.call("getPreScreenCfg");
+        if (msg.type() == QDBusMessage::ErrorMessage) {
+            qWarning() << "get pre screen cfg failed";
+        }
+        QDBusArgument argument = msg.arguments().at(0).value<QDBusArgument>();
+        QList<QVariant> infos;
+        argument >> infos;
+
+        QList<QPointF> qmlScreens;
+        QList<ScreenConfig> preScreenCfg;
+        for (int i = 0; i < infos.size(); i++) {
+            ScreenConfig cfg;
+            infos.at(i).value<QDBusArgument>() >> cfg;
+            preScreenCfg.append(cfg);
+        }
+
+        std::sort(preScreenCfg.begin(), preScreenCfg.end(), sizeLessThan);
+
+        Q_FOREACH (QQuickItem *item, childItems()) {
+            QMLOutput *qmlOutput = qobject_cast<QMLOutput *>(item);
+            qmlScreens.append(qmlOutput->position());
+        }
+        std::sort(qmlScreens.begin(), qmlScreens.end(), sizeLessThanQml);
+
+        QMLOutput *adjustOutput;
+        for (int i =0; i < preScreenCfg.count(); i++) {
+            for (int j = 0; j < childItems().count(); j++) {
+                QMLOutput *qmlOutput = qobject_cast<QMLOutput *>(childItems().at(j));
+                adjustOutput = qmlOutput;
+                if (!qmlOutput->outputPtr()->name().compare(preScreenCfg.at(i).screenId)) {
+                    qmlOutput->blockSignals(true);
+                    qmlOutput->setPosition(qmlScreens.at(i));
+                    qmlOutput->blockSignals(false);
+                }
+            }
+        }
+
+        setScreenPos(adjustOutput);
+    }
 }
