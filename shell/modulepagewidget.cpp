@@ -57,6 +57,15 @@ void ModulePageWidget::initUI() {
     ui->widget->setSizePolicy(rightSizePolicy);
     ui->widget->setObjectName("widget");
     ui->widget->setStyleSheet("QWidget#widget{background-color: palette(window);}");
+    ui->scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+    ui->scrollArea->verticalScrollBar()->setHidden(true);
+    connect(ui->scrollArea->verticalScrollBar(),&QScrollBar::rangeChanged,this, [=](){
+        if (ui->scrollArea->verticalScrollBar()->maximum() == 0) {
+            ui->scrollArea->verticalScrollBar()->setHidden(true);
+        } else {
+            ui->scrollArea->verticalScrollBar()->setHidden(false);
+        }
+    });
     ui->scrollArea->setStyleSheet("QScrollArea{background-color: palette(window);}");
     ui->scrollArea->verticalScrollBar()->setProperty("drawScrollBarGroove", false);
 }

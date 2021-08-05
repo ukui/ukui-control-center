@@ -22,6 +22,7 @@
 
 #include <QWidget>
 #include <QDebug>
+#include <QtMath>
 
 FlowLayout::FlowLayout(QWidget *parent, int margin, int hSpacing, int vSpacing) :
     QLayout(parent),
@@ -50,7 +51,7 @@ void FlowLayout::addItem(QLayoutItem *item){
 }
 
 int FlowLayout::horizontalSpacing() const{
-    if (m_hSpace >= 0) {
+    if (m_hSpace >= 0 || m_hSpace == -1) {
         return m_hSpace;
     } else {
         return smartSpacing(QStyle::PM_LayoutHorizontalSpacing);
@@ -58,7 +59,7 @@ int FlowLayout::horizontalSpacing() const{
 }
 
 int FlowLayout::verticalSpacing() const{
-    if (m_vSpace >= 0) {
+    if (m_vSpace >= 0 || m_vSpace == -1) {
         return m_vSpace;
     } else {
         return smartSpacing(QStyle::PM_LayoutVerticalSpacing);
@@ -120,17 +121,27 @@ int FlowLayout::doLayout(const QRect &rect, bool testOnly) const{
     int y = effectiveRect.y();
     int lineHeight = 0;
 
+    int fillX = 0;
+    bool bFillX = false;
+
     QLayoutItem *item;
     foreach (item, itemList) {
         QWidget *wid = item->widget();
         int spaceX = horizontalSpacing();
-        if (spaceX == -1)
-            spaceX = wid->style()->layoutSpacing(
-                        QSizePolicy::PushButton, QSizePolicy::PushButton, Qt::Horizontal);
+        if (spaceX == -1) {
+            if (!bFillX) {
+                bFillX = true;
+                fillX = fillSpaceX(wid);
+            }
+            spaceX = fillX;
+        }
         int spaceY = verticalSpacing();
-        if (spaceY == -1)
+        if (spaceY == -1 && fillX >= 0) {
+            spaceY = fillX; 
+        } else {
             spaceY = wid->style()->layoutSpacing(
                         QSizePolicy::PushButton, QSizePolicy::PushButton, Qt::Vertical);
+        }
 
         int nextX = x + item->sizeHint().width() + spaceX;
         if (nextX - spaceX > effectiveRect.right() && lineHeight > 0) {
@@ -160,3 +171,32 @@ int FlowLayout::smartSpacing(QStyle::PixelMetric pm) const{
         return static_cast<QLayout *>(parent)->spacing();
     }
 }
+
+int FlowLayout::fillSpaceX(QWidget *wid) const{
+    int num = 0;
+    int x = 0;
+    int numH = 0;
+    int len = this->parentWidget()->width() - this->contentsMargins().left() - this->contentsMargins().right();
+    while (true) {
+       num++;
+       if (num * (wid->width() + 4) - 4 >= len) {  //最小间距4px
+           break;
+       }
+    }
+
+    num = num - 1;
+    if (num <= 1) {
+        numH = itemList.size();
+        return 32;
+    }
+    int height = wid->height();
+    numH = ceil(double(itemList.size()) / num);
+    x = len + 4 - num * (wid->width() + 4);
+    x = ceil(double(x)/(num - 1)) + 4;
+    x = x - 1;   //考虑边框等因素影响
+
+    int maxY = numH * (height + x) + 32 - x;
+    this->parentWidget()->setFixedHeight(maxY);
+    return x;
+}
+

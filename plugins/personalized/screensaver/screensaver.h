@@ -175,8 +175,8 @@ private:
     QDBusInterface *m_cloudInterface;
 
     bool mFirstLoad;
-    QLabel *sourcePathLine = nullptr;
-    QTextEdit *inputText;
+    QLineEdit *sourcePathLine = nullptr;
+    QLineEdit *inputText;
     PreviewWindow *previewWind;
     QString sourcePathText;
     PressLabel *previewLabel = nullptr;

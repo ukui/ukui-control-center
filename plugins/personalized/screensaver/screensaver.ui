@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>915</height>
+    <height>1049</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -42,10 +42,10 @@
     <number>0</number>
    </property>
    <property name="rightMargin">
-    <number>32</number>
+    <number>24</number>
    </property>
    <property name="bottomMargin">
-    <number>214</number>
+    <number>16</number>
    </property>
    <item>
     <widget class="TitleLabel" name="titleLabel">
@@ -61,79 +61,77 @@
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <property name="spacing">
-      <number>0</number>
+    <widget class="QFrame" name="viewFrame">
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
      </property>
-     <property name="rightMargin">
-      <number>9</number>
-     </property>
-     <item>
-      <widget class="PreviewWidget" name="previewWidget" native="true">
-       <property name="minimumSize">
-        <size>
-         <width>300</width>
-         <height>180</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>300</width>
-         <height>180</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Expanding</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-    </layout>
-   </item>
-   <item>
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeType">
-      <enum>QSizePolicy::Fixed</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>32</height>
-      </size>
-     </property>
-    </spacer>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>16</number>
+      </property>
+      <property name="topMargin">
+       <number>16</number>
+      </property>
+      <property name="rightMargin">
+       <number>16</number>
+      </property>
+      <property name="bottomMargin">
+       <number>16</number>
+      </property>
+      <item>
+       <widget class="PreviewWidget" name="previewWidget" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>300</width>
+          <height>180</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>300</width>
+          <height>180</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Expanding</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
    </item>
    <item>
     <widget class="QFrame" name="frame">
      <property name="minimumSize">
       <size>
        <width>550</width>
-       <height>508</height>
+       <height>0</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
        <width>16777215</width>
-       <height>508</height>
+       <height>16777215</height>
       </size>
      </property>
      <property name="frameShape">
-      <enum>QFrame::NoFrame</enum>
+      <enum>QFrame::Box</enum>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
@@ -143,7 +141,7 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <property name="spacing">
-       <number>2</number>
+       <number>20</number>
       </property>
       <property name="leftMargin">
        <number>0</number>
@@ -163,17 +161,83 @@
          <number>2</number>
         </property>
         <item>
-         <widget class="QFrame" name="programFrame">
+         <layout class="QHBoxLayout" name="lockhorizontalLayout">
+          <property name="spacing">
+           <number>8</number>
+          </property>
+          <property name="leftMargin">
+           <number>16</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>16</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="FixLabel" name="idleLabel">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>196</width>
+              <height>60</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>220</width>
+              <height>60</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Idle time</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="idleCombox"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line_2">
           <property name="minimumSize">
            <size>
-            <width>550</width>
-            <height>50</height>
+            <width>0</width>
+            <height>1</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>960</width>
-            <height>50</height>
+            <width>16777215</width>
+            <height>1</height>
+           </size>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="programFrame">
+          <property name="minimumSize">
+           <size>
+            <width>550</width>
+            <height>60</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>60</height>
            </size>
           </property>
           <property name="frameShape">
@@ -201,7 +265,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_4">
              <property name="spacing">
-              <number>0</number>
+              <number>8</number>
              </property>
              <property name="leftMargin">
               <number>16</number>
@@ -210,7 +274,7 @@
               <number>16</number>
              </property>
              <item>
-              <widget class="QLabel" name="programLabel">
+              <widget class="FixLabel" name="programLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -219,14 +283,14 @@
                </property>
                <property name="minimumSize">
                 <size>
-                 <width>200</width>
-                 <height>36</height>
+                 <width>196</width>
+                 <height>60</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>198</width>
-                 <height>36</height>
+                 <width>220</width>
+                 <height>60</height>
                 </size>
                </property>
                <property name="text">
@@ -265,6 +329,25 @@
          </widget>
         </item>
         <item>
+         <widget class="Line" name="line">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>1</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>1</height>
+           </size>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QFrame" name="customizeFrame">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -275,13 +358,13 @@
           <property name="minimumSize">
            <size>
             <width>550</width>
-            <height>374</height>
+            <height>100</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>960</width>
-            <height>374</height>
+            <width>16777215</width>
+            <height>16777215</height>
            </size>
           </property>
           <property name="frameShape">
@@ -311,95 +394,6 @@
              <property name="spacing">
               <number>2</number>
              </property>
-            </layout>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QFrame" name="idleFrame">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>550</width>
-            <height>60</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>960</width>
-            <height>80</height>
-           </size>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::Box</enum>
-          </property>
-          <property name="lineWidth">
-           <number>0</number>
-          </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_7">
-           <property name="spacing">
-            <number>0</number>
-           </property>
-           <property name="leftMargin">
-            <number>0</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
-            <number>0</number>
-           </property>
-           <item>
-            <layout class="QHBoxLayout" name="lockhorizontalLayout">
-             <property name="spacing">
-              <number>0</number>
-             </property>
-             <property name="leftMargin">
-              <number>16</number>
-             </property>
-             <property name="topMargin">
-              <number>0</number>
-             </property>
-             <property name="rightMargin">
-              <number>16</number>
-             </property>
-             <property name="bottomMargin">
-              <number>0</number>
-             </property>
-             <item>
-              <widget class="QLabel" name="idleLabel">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>196</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>196</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="text">
-                <string>Idle time</string>
-               </property>
-              </widget>
-             </item>
             </layout>
            </item>
           </layout>
@@ -458,7 +452,7 @@
          <number>16</number>
         </property>
         <item>
-         <widget class="QLabel" name="enableLabel">
+         <widget class="FixLabel" name="enableLabel">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -473,7 +467,7 @@
           </property>
           <property name="maximumSize">
            <size>
-            <width>196</width>
+            <width>220</width>
             <height>16777215</height>
            </size>
           </property>
@@ -536,6 +530,11 @@
    <extends>QWidget</extends>
    <header>screensaver.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>FixLabel</class>
+   <extends>QLabel</extends>
+   <header>Label/fixlabel.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -27,6 +27,10 @@
 #include <QLineEdit>
 #include "ComboBox/combobox.h"
 #include <QListView>
+#include "Frame/hlineframe.h"
+#include <QRadioButton>
+#include <QButtonGroup>
+#include "Label/fixlabel.h"
 
 #define SSTHEMEPATH                 "/usr/share/applications/screensavers/"
 #define ID_PREFIX                   "screensavers-ukui-"
@@ -221,41 +225,36 @@ void Screensaver::initComponent()
 //    }
     //初始化滑动条
     QStringList scaleList;
-    scaleList<< "5m" << "10m" << "15m" << "30m" << "1h"
+    scaleList<< tr("5min") << tr("10min") << tr("15min") << tr("30min") << tr("1hour")
               << tr("Never");
 
-    uslider = new Uslider(scaleList);
-    uslider->setRange(1,6);
-    uslider->setTickInterval(1);
-    uslider->setPageStep(1);
-    ui->lockhorizontalLayout->setSpacing(10);
-    ui->lockhorizontalLayout->addWidget(uslider);
+    ui->idleCombox->addItems(scaleList);
 
-    ui->idleFrame->setFixedHeight(80);
     connect(qScreenSaverSetting, &QGSettings::changed, this, [=](const QString key) {
         if ("idleActivationEnabled" == key) {
             auto status = qScreenSaverSetting->get(ACTIVE_KEY).toBool();
             if (status == false) {
-                uslider->setValue(lockConvertToSlider(silderNeverValue));
+                ui->idleCombox->setCurrentIndex(5);
             }
         }
     });
 
-    connect(uslider, &QSlider::valueChanged, this, [=] {
-        int value = convertToLocktime(uslider->value());
-        if (value == silderNeverValue) {  //关闭锁屏
-            screensaver_settings = g_settings_new(SCREENSAVER_SCHEMA);  
+    connect(ui->idleCombox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](){
+        int value = ui->idleCombox->currentIndex();
+        if (value == 5) {  //关闭锁屏
+            screensaver_settings = g_settings_new(SCREENSAVER_SCHEMA);
             g_settings_set_boolean(screensaver_settings, ACTIVE_KEY, false);
             g_object_unref(screensaver_settings);
         }
         else {
+            int setValue = convertToLocktime(value + 1);
             if (qScreenSaverSetting->get(ACTIVE_KEY).toBool() == false) {  //需先打开屏保
-                screensaver_settings = g_settings_new(SCREENSAVER_SCHEMA);  
+                screensaver_settings = g_settings_new(SCREENSAVER_SCHEMA);
                 g_settings_set_boolean(screensaver_settings, ACTIVE_KEY, true);
                 g_object_unref(screensaver_settings);
             }
             if (mScreenSaverKeies.contains("idleDelay")) {
-                qScreenSaverSetting->set(IDLE_DELAY_KEY, value);
+                qScreenSaverSetting->set(IDLE_DELAY_KEY, setValue);
             }
         }
     });
@@ -264,7 +263,7 @@ void Screensaver::initComponent()
        if ("idleDelay" == key) {
             if (qScreenSaverSetting->get(ACTIVE_KEY).toBool() == true) {
                 int value = qScreenSaverSetting->get(key).toInt();
-                uslider->setValue(lockConvertToSlider(value));
+                ui->idleCombox->setCurrentIndex(lockConvertToSlider(value) - 1);
             }
        }
     });
@@ -348,19 +347,17 @@ void Screensaver::initThemeStatus()
 
 void Screensaver::initIdleSliderStatus()
 {
-    int minutes;
+    int minutes = 0;
     //先判断是否开启屏保，未开启则[从不]
-    if (qScreenSaverSetting->get(ACTIVE_KEY).toBool() == false) {
-        uslider->blockSignals(true);
-        uslider->setValue(lockConvertToSlider(silderNeverValue));
-        uslider->blockSignals(false);
+    if (qScreenSaverSetting->get(ACTIVE_KEY).toBool() == false || !mScreenSaverKeies.contains("idleDelay")) {
+        ui->idleCombox->blockSignals(true);
+        ui->idleCombox->setCurrentIndex(5);
+        ui->idleCombox->blockSignals(false);
     } else {
-        if (mScreenSaverKeies.contains("idleDelay")) {
-            minutes = qScreenSaverSetting->get(IDLE_DELAY_KEY).toInt();
-        }
-        uslider->blockSignals(true);
-        uslider->setValue(lockConvertToSlider(minutes));
-        uslider->blockSignals(false);
+        minutes = qScreenSaverSetting->get(IDLE_DELAY_KEY).toInt();
+        ui->idleCombox->blockSignals(true);
+        ui->idleCombox->setCurrentIndex(lockConvertToSlider(minutes) - 1);
+        ui->idleCombox->blockSignals(false);
     }
 }
 
@@ -594,22 +591,23 @@ void Screensaver::keyChangedSlot(const QString &key) {
 }
 
 void Screensaver::showCustomizeFrame() {
-    ui->frame->setFixedHeight(132 + 350 + 52 + 2);
+    //ui->frame->setFixedHeight(132 + 350 + 52 + 2);
     ui->customizeFrame->setVisible(true);
 }
 
 void Screensaver::hideCustomizeFrame() {
-    ui->frame->setFixedHeight(132);   //50 + 80 + 2
+    //ui->frame->setFixedHeight(132);   //50 + 80 + 2
     ui->customizeFrame->setVisible(false);
 }
 
 void Screensaver::initCustomizeFrame() {
     ui->customizeFrame->setFrameShape(QFrame::NoFrame);
-    ui->customizeFrame->setFixedHeight(350 + 52);
+    ui->customizeFrame->setFixedHeight(366);
+    ui->customizeFrame->adjustSize();
     ui->customizeLayout->setMargin(0);
     initScreensaverSourceFrame();
-    initTimeSetFrame();
     initPictureSwitchFrame();
+    initTimeSetFrame();
     initShowTextFrame();
     initShowTextSetFrame();
     initShowtimeFrame();
@@ -619,22 +617,20 @@ void Screensaver::initScreensaverSourceFrame()
 {
     QFrame *screensaverSourceFrame = new QFrame();
     QHBoxLayout *sourceLayout = new QHBoxLayout();
-    QLabel *sourceLabel = new QLabel();
-    sourcePathLine = new QLabel();
+    FixLabel *sourceLabel = new FixLabel();
+    sourcePathLine = new QLineEdit();
     QPushButton *sourceBtn = new QPushButton();
-    screensaverSourceFrame->setFixedHeight(50);
-    screensaverSourceFrame->setObjectName("screensaverSourceFrame");
-    screensaverSourceFrame->setStyleSheet("QFrame#screensaverSourceFrame{background-color: palette(window);border-radius: 6px;}");
+    screensaverSourceFrame->setFixedHeight(60);
     screensaverSourceFrame->setLayout(sourceLayout);
     sourceLayout->setContentsMargins(16,0,16,0);
     sourceLayout->addWidget(sourceLabel);
     sourceLayout->addWidget(sourcePathLine);
     sourceLayout->addWidget(sourceBtn);
     sourceLabel->setText(tr("Screensaver source"));
-    sourceLabel->setFixedWidth(196);
-    sourceLabel->setStyleSheet("background-color: palette(window);");
+    sourceLabel->setFixedWidth(220);
     sourcePathLine->setFixedHeight(36);
     sourcePathLine->setMinimumWidth(252);
+    sourcePathLine->setReadOnly(true);
     sourceBtn->setFixedSize(80,36);
     sourceBtn->setText(tr("Select"));
     sourceBtn->raise();
@@ -709,23 +705,22 @@ void Screensaver::initScreensaverSourceFrame()
     }
 
     ui->customizeLayout->addWidget(screensaverSourceFrame);
+    HLineFrame *line = new HLineFrame();
+    ui->customizeLayout->addWidget(line);
 }
 
 void Screensaver::initTimeSetFrame() {
     QFrame *timeSetFrame = new QFrame();
     QHBoxLayout *timeSetLayout = new QHBoxLayout();
-    QLabel *timeSetLabel = new QLabel();
+    FixLabel *timeSetLabel = new FixLabel();
     QComboBox *timeCom = new QComboBox();
-    timeSetFrame->setFixedHeight(50);
-    timeSetFrame->setObjectName("timeSetFrame");
-    timeSetFrame->setStyleSheet("QFrame#timeSetFrame{background-color: palette(window);border-radius: 6px;}");
+    timeSetFrame->setFixedHeight(60);
     timeSetFrame->setLayout(timeSetLayout);
     timeSetLayout->setContentsMargins(16,0,16,0);
     timeSetLayout->addWidget(timeSetLabel);
     timeSetLayout->addWidget(timeCom);
-    timeSetLabel->setStyleSheet("background-color: palette(window);");
     timeSetLabel->setText(tr("Switching time"));
-    timeSetLabel->setFixedWidth(196);
+    timeSetLabel->setFixedWidth(220);
     timeCom->setFixedHeight(36);
     timeCom->setMinimumWidth(340);
     timeCom->addItem(tr("1min"));
@@ -757,132 +752,106 @@ void Screensaver::initTimeSetFrame() {
         });
     }
     ui->customizeLayout->addWidget(timeSetFrame);
+    HLineFrame *line = new HLineFrame();
+    ui->customizeLayout->addWidget(line);
 }
+
+
 
 void Screensaver::initPictureSwitchFrame() {
     QFrame *pictureSwitchFrame = new QFrame();
     QHBoxLayout *randomLayout = new QHBoxLayout();
-    QLabel *randomLabel = new QLabel();
+    FixLabel *randomLabel = new FixLabel();
     SwitchButton *randomBtn = new SwitchButton();
-    pictureSwitchFrame->setFixedHeight(50);
-    pictureSwitchFrame->setStyleSheet("background-color: palette(window);border-radius: 6px;");
+    QRadioButton *radioOrder = new QRadioButton();
+    QRadioButton *radioRand = new QRadioButton();
+    QButtonGroup *modeBtn   = new QButtonGroup();
+    modeBtn->addButton(radioOrder, 0);
+    modeBtn->addButton(radioRand, 1);
+
+    radioOrder->setFixedWidth(200);
+    radioRand->setFixedWidth(100);
+    radioOrder->setText(tr("Ordinal"));
+    radioRand->setText(tr("Random"));
+
+    pictureSwitchFrame->setFixedHeight(60);
     pictureSwitchFrame->setLayout(randomLayout);
     randomLayout->setContentsMargins(16,0,16,0);
     randomLayout->addWidget(randomLabel);
-    randomLayout->addStretch();
-    randomLayout->addWidget(randomBtn);
+    randomLayout->addWidget(radioOrder);
+    randomLayout->addWidget(radioRand);
     randomLabel->setText(tr("Random switching"));
-    randomLabel->setFixedWidth(196);
+    randomLabel->setFixedWidth(220);
+    randomLayout->addStretch();
+
     if (qScreensaverDefaultSetting != nullptr && \
         qScreensaverDefaultSetting->keys().contains(CONTAIN_AUTO_SWITCH_KEY, Qt::CaseSensitive)) { //存在【随机切换】
         randomBtn->setChecked(qScreensaverDefaultSetting->get(AUTO_SWITCH_KEY).toBool());
-        connect(randomBtn, &SwitchButton::checkedChanged, this, [=](){
-            qScreensaverDefaultSetting->set(AUTO_SWITCH_KEY, randomBtn->isChecked());
+        if (qScreensaverDefaultSetting->get(AUTO_SWITCH_KEY).toBool()) {
+             radioRand->setChecked(true);
+             radioOrder->setChecked(false);
+        } else {
+             radioRand->setChecked(false);
+             radioOrder->setChecked(true);
+        }
+        connect(modeBtn, QOverload<int>::of(&QButtonGroup::buttonClicked), this, [=](int id){
+            if (id == 0) {
+                qScreensaverDefaultSetting->set(AUTO_SWITCH_KEY, false);
+            } else {
+                qScreensaverDefaultSetting->set(AUTO_SWITCH_KEY, true);
+            }
         });
     } else { //不存在【随机切换】
-        randomBtn->setEnabled(false);
+        radioRand->setChecked(true);
+        radioOrder->setChecked(false);
     }
     ui->customizeLayout->addWidget(pictureSwitchFrame);
+    HLineFrame *line = new HLineFrame();
+    ui->customizeLayout->addWidget(line);
 }
 
 void Screensaver::initShowTextFrame() {
     QFrame *showTextFrame = new QFrame();
     QHBoxLayout *showTextLayout = new QHBoxLayout();
-    QLabel *showLabel = new QLabel();
-    QWidget *textWid = new QWidget();
-    QVBoxLayout *widVLayout = new QVBoxLayout();
-    inputText = new QTextEdit(); //用户输入文字
-    QFrame *noticeFrame = new QFrame();
-    QLabel  *noticeLabel = new QLabel();
-    QVBoxLayout *textLayout = new QVBoxLayout();
-    QVBoxLayout *noticeLayout = new QVBoxLayout();
-    showTextFrame->setObjectName("showTextFrame");
-    showTextFrame->setFixedHeight(114 + 28);
-    showTextFrame->setStyleSheet("QFrame#showTextFrame{background-color: palette(window); border-radius: 6px;}");
+    FixLabel *showLabel = new FixLabel();
+    inputText = new QLineEdit(); //用户输入文字
+    showTextFrame->setFixedHeight(60);
     showTextFrame->setLayout(showTextLayout);
     showTextLayout->setContentsMargins(16,6,15,8);
-    showTextLayout->addWidget(textWid);
-    showTextLayout->addLayout(textLayout);
-    //showTextLayout->addWidget(inputText);
-    textLayout->addWidget(inputText);
-    textLayout->addWidget(noticeFrame);
-    noticeFrame->setLayout(noticeLayout);
-    textWid->setLayout(widVLayout);
-    textWid->setFixedWidth(196);
-    widVLayout->setMargin(0);
-    widVLayout->addWidget(showLabel);
-    widVLayout->addStretch();
-    showLabel->setText(tr("Display text"));
-    showLabel->setFixedWidth(196);
-    inputText->setContextMenuPolicy(Qt::NoContextMenu); //不要右击菜单，右击菜单导致选择状态的清除不好实现
-    inputText->setFixedHeight(100);
-    //inputText->setFontPointSize(14);
-    inputText->setAcceptRichText(false); //去掉复制文字的颜色字体等属性
-    inputText->moveCursor(QTextCursor::Start); //不加这个在输入文字之前复制字体大小可能不对，会受复制内容影响。
-    inputText->setObjectName("inputText");
-    inputText->setStyleSheet("QTextEdit{background-color: palette(base); border-top-left-radius: 6px; border-top-right-radius: 6px;}");
-   // inputText->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
-    inputText->setPlaceholderText(tr("Enter text, up to 30 characters"));
+    showTextLayout->addWidget(showLabel);
+    showTextLayout->addWidget(inputText);
 
-    noticeLayout->setMargin(4);
-    QHBoxLayout *noticeLabelLayout = new QHBoxLayout();
-    noticeLayout->addStretch();
-    noticeLayout->addLayout(noticeLabelLayout);
-    noticeLabelLayout->addStretch();
-    noticeLabelLayout->addWidget(noticeLabel);
-
-    noticeFrame->setStyleSheet("QFrame{background-color: palette(base); border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
-    noticeFrame->setFixedHeight(28);
-
-    noticeLabel->setStyleSheet("background-color: palette(base);");
-    noticeLabel->setText("0/30");
-    noticeLabel->setFixedSize(70,25);
-    noticeLabel->setAlignment(Qt::AlignCenter | Qt::AlignRight);
+    showLabel->setText(tr("Text(up to 30 characters):"));
+    showLabel->setFixedWidth(220);
     if (qScreensaverDefaultSetting != nullptr && \
         qScreensaverDefaultSetting->keys().contains(CONTAIN_MYTEXT_KEY, Qt::CaseSensitive)) { //存在【文本设置】
         inputText->setText(qScreensaverDefaultSetting->get(MYTEXT_KEY).toString());     //初始化文本
-        noticeLabel->setText(QString("%1/30").arg(inputText->toPlainText().count()));  //初始化字符数
-        connect(inputText,&QTextEdit::textChanged, this, [=]{
-            if(inputText->toPlainText().count() > 30) {
-                noticeLabel->setText("30/30");
-                int length = inputText->toPlainText().count();
-                QString text = inputText->toPlainText();
-                int position = inputText->textCursor().position(); //输入后光标原应该在的位置
-                QTextCursor text_cursor = inputText->textCursor();
-                text.remove(position - (length - 30), length - 30);//去掉多余的文字
-                inputText->setText(text);
-                text_cursor.setPosition(position - (length - 30));//光标移到正确的位置
-                inputText->setTextCursor(text_cursor);
-            } else if (inputText->toPlainText().count() == 30) {
-                noticeLabel->setText("30/30");
-            } else {
-                noticeLabel->setText(QString("%1/30").arg(inputText->toPlainText().count()));
-            }
-            qScreensaverDefaultSetting->set(MYTEXT_KEY, inputText->toPlainText());
+        connect(inputText,&QLineEdit::textChanged, this, [=]{
+            inputText->setText(inputText->text().mid(0, 30));
+            qScreensaverDefaultSetting->set(MYTEXT_KEY, inputText->text());
         });
     } else {//不存在【文本设置】
         inputText->setEnabled(false);
     }
     ui->customizeLayout->addWidget(showTextFrame);
+    HLineFrame *line = new HLineFrame();
+    ui->customizeLayout->addWidget(line);
 }
 
 void Screensaver::initShowtimeFrame()
 {
     QFrame *showTimeFrame = new QFrame();
     QHBoxLayout *showTimeLayout = new QHBoxLayout(showTimeFrame);
-    QLabel *showTimeLabel = new QLabel();
+    FixLabel *showTimeLabel = new FixLabel();
 
-    showTimeFrame->setFixedHeight(50);
-    showTimeFrame->setObjectName("showTimeFrame");
-    showTimeFrame->setStyleSheet("QFrame#showTimeFrame{background-color: palette(window);border-radius: 6px;}");
-
+    showTimeFrame->setFixedHeight(60);
     showTimeLayout->setContentsMargins(16,0,16,0);
     showTimeLayout->addWidget(showTimeLabel);
     //添加休息时间显示按钮
     showTimeBtn = new SwitchButton(showTimeFrame);
     showTimeLayout->addStretch();
     showTimeLayout->addWidget(showTimeBtn);
-    showTimeLabel->setFixedWidth(196);
+    showTimeLabel->setFixedWidth(220);
     //~ contents_path /screensaver/Show rest time
     showTimeLabel->setText(tr("Show rest time"));
     ui->customizeLayout->addWidget(showTimeFrame);
@@ -891,43 +860,52 @@ void Screensaver::initShowtimeFrame()
 void Screensaver::initShowTextSetFrame() {
     QFrame *showTextSetFrame = new QFrame();
     QHBoxLayout *textSetLayout = new QHBoxLayout();
-    QLabel *textSetLabel = new QLabel();
-    QComboBox *textPositionCom = new QComboBox();
-    showTextSetFrame->setFixedHeight(50);
-    showTextSetFrame->setObjectName("showTextSetFrame");
-    showTextSetFrame->setStyleSheet("QFrame#showTextSetFrame{background-color: palette(window);border-radius: 6px;}");
+    FixLabel *textSetLabel = new FixLabel();
+    QButtonGroup *groupBtn = new QButtonGroup();
+    QRadioButton *radioRandom = new QRadioButton(this);
+    QRadioButton *radioCenter = new QRadioButton(this);
+
+    groupBtn->addButton(radioRandom, 0);
+    groupBtn->addButton(radioCenter, 1);
+
+    showTextSetFrame->setFixedHeight(60);
     showTextSetFrame->setLayout(textSetLayout);
     textSetLayout->addWidget(textSetLabel);
     textSetLayout->setContentsMargins(16,0,16,0);
-    textSetLabel->setStyleSheet("background-color: palette(window);");
     textSetLabel->setText(tr("Text position"));
-    textSetLabel->setFixedWidth(196);
-    textSetLayout->addWidget(textPositionCom);
-    textPositionCom->setFixedHeight(36);
-    textPositionCom->setMinimumWidth(340);
-    textPositionCom->addItem(tr("Centered"));
-    textPositionCom->addItem(tr("Randow(Bubble text)"));
+    textSetLabel->setFixedWidth(220);
+    radioRandom->setFixedWidth(200);
+    radioCenter->setFixedWidth(100);
+
+    textSetLayout->addWidget(radioRandom);
+    textSetLayout->addWidget(radioCenter);
+    textSetLayout->addStretch();
+    radioCenter->setText(tr("Centered"));
+    radioRandom->setText(tr("Randow(Bubble text)"));
 
     if (qScreensaverDefaultSetting != nullptr && \
         qScreensaverDefaultSetting->keys().contains(CONTAIN_TEXT_CENTER_KEY, Qt::CaseSensitive)) { //存在【文本设置】
         if (qScreensaverDefaultSetting->get(TEXT_CENTER_KEY).toBool() == true) {
-            textPositionCom->setCurrentIndex(0);
+            radioCenter->setChecked(true);
         } else {
-            textPositionCom->setCurrentIndex(1);
+            radioRandom->setChecked(true);
         }
 
-        connect(textPositionCom, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](){
-            if (textPositionCom->currentIndex() == 0) {
-                qScreensaverDefaultSetting->set(TEXT_CENTER_KEY, true);
-            } else {
+        connect(groupBtn, QOverload<int>::of(&QButtonGroup::buttonClicked), this, [=](int id){
+            if (id == 0) {
                 qScreensaverDefaultSetting->set(TEXT_CENTER_KEY, false);
+            } else if (id == 1) {
+                qScreensaverDefaultSetting->set(TEXT_CENTER_KEY, true);
             }
         });
     } else { //不存在【文本设置】
-        textPositionCom->setEnabled(false);
+        radioRandom->setEnabled(false);
+        radioCenter->setEnabled(false);
     }
 
     ui->customizeLayout->addWidget(showTextSetFrame);
+    HLineFrame *line = new HLineFrame();
+    ui->customizeLayout->addWidget(line);
 }
 
 void Screensaver::setSourcePathText()
@@ -987,21 +965,6 @@ bool Screensaver::eventFilter(QObject *watched, QEvent *event)
 
     if (event->type() == QEvent::Resize && watched == sourcePathLine) {
         setSourcePathText();
-    }
-    if (event->type() == QEvent::MouseButtonPress) {
-        QMouseEvent *mEvent   = static_cast<QMouseEvent*>(event);
-        // QWidget *srcParent    = static_cast<QWidget*>(sourcePathLine->parent()); //得到sourcePathLine父窗口
-        QWidget *inTextParent = static_cast<QWidget*>(inputText->parent());      //得到inputText父窗口
-        // QPoint  srcPoint      = srcParent   ->mapFromGlobal(mEvent->globalPos());//得到鼠标点击位置相对于父窗口坐标
-        QPoint  inTextPoint   = inTextParent->mapFromGlobal(mEvent->globalPos());//得到鼠标点击位置相对于父窗口坐标
-        // if (!sourcePathLine->geometry().contains(srcPoint)) {
-        //     sourcePathLine->deselect();  //清除选中效果
-        // }
-        if (!inputText->geometry().contains(inTextPoint)) { //清除选中效果
-            QTextCursor cursor = inputText->textCursor();
-            cursor.movePosition(QTextCursor::End);
-            inputText->setTextCursor(cursor);
-        }
     }
     return QObject::eventFilter(watched, event);
 }

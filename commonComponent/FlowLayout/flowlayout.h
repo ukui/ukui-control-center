@@ -45,6 +45,7 @@ public:
     void setGeometry(const QRect &rect) Q_DECL_OVERRIDE;
     QSize sizeHint() const Q_DECL_OVERRIDE;
     QLayoutItem *takeAt(int index) Q_DECL_OVERRIDE;
+    int fillSpaceX(QWidget *wid) const;
 
 private:
     int doLayout(const QRect &rect, bool testOnly) const;

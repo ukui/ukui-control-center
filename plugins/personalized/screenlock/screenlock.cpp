@@ -179,8 +179,7 @@ void Screenlock::setupComponent()
     });
 
     //设置布局
-    flowLayout = new FlowLayout(ui->backgroundsWidget, -1, 36, 36);
-    flowLayout->setContentsMargins(16, 16, 16, 16);
+    flowLayout = new FlowLayout(ui->backgroundsWidget, 16, -1, -1);
 
     //锁屏延时暂时不可用，屏蔽
     ui->delayFrame->hide();

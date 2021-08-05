@@ -142,13 +142,11 @@ void Wallpaper::setupComponent(){
 
     // 图片背景
     ui->picFrame->adjustSize();
-    picFlowLayout = new FlowLayout(ui->picFrame, -1, 36, 36);
-    picFlowLayout->setContentsMargins(16, 16, 16, 16);
+    picFlowLayout = new FlowLayout(ui->picFrame,16, -1, -1);
     ui->picFrame->setLayout(picFlowLayout);
 
     // 纯色背景
-    colorFlowLayout = new FlowLayout(ui->colorListWidget);
-    colorFlowLayout->setContentsMargins(16, 16, 16, 16);
+    colorFlowLayout = new FlowLayout(ui->colorListWidget,16, -1, -1);
     ui->colorListWidget->setLayout(colorFlowLayout);
 
     colWgt = new HoverWidget("");
@@ -248,7 +246,6 @@ void Wallpaper::setupConnect(){
 
         picFlowLayout->addWidget(picUnit);
         picNum++;
-        ui->picFrame->setMaximumHeight(ceil(picNum/4.0)*146 + 16 + 16 - 36);
 
     });
     connect(pObject, &WorkerObject::workComplete, this, [=](QMap<QString, QMap<QString, QString>> wpInfoMaps){
@@ -314,7 +311,6 @@ void Wallpaper::setupConnect(){
             ui->colorFrame->setHidden(true);
             ui->picFrame->setHidden(false);
             ui->bottomWidget->setHidden(false);
-            ui->picFrame->setMaximumHeight(ceil(picNum/4.0)*146 + 16 + 16 - 36);
         } else if (currentPage == COLOR){
             ui->picFrame->setHidden(true);
             ui->colorFrame->setHidden(false);
