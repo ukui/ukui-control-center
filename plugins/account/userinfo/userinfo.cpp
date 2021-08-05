@@ -425,6 +425,7 @@ void UserInfo::initComponent(){
     QHBoxLayout *addLyt = new QHBoxLayout;
 
     QLabel * iconLabel = new QLabel();
+    //~ contents_path /userinfo/Add new user
     QLabel * textLabel = new QLabel(tr("Add new user"));
     QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
     iconLabel->setPixmap(pixgray);
