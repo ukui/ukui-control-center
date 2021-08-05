@@ -79,6 +79,7 @@ public:
     void rebuildAvailComponent(QString iconpath, QString netName, QString type);
     void rebuildWifiActComponent(QString iconPath, QStringList netNameList);
     void runKylinmApp(QString netName, QString type);
+
 private:
     bool getInitStatus();
     void clearContent();
@@ -90,6 +91,10 @@ private:
     QString            wifiIcon(bool isLock, int strength);
     void               getWifiListDone(QVector<QStringList> wifislist);
     void               getActiveConInfo(QList<ActiveConInfo>& qlActiveConInfo);
+
+protected:
+    bool eventFilter(QObject *w,QEvent *e);
+
 private:
     Ui::WlanConnect *ui;
 

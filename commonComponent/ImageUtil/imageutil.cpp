@@ -21,6 +21,7 @@
 #include "imageutil.h"
 
 #include <QPainter>
+#include <QSvgRenderer>
 
 const QPixmap ImageUtil::loadSvg(const QString &path, const QString color, int size)
 {

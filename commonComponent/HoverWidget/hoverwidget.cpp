@@ -23,10 +23,11 @@
 #include <QStyleOption>
 
 #include <QDebug>
+#define THEME_QT_SCHEMA                  "org.ukui.style"
+#define MODE_QT_KEY                      "style-name"
 
-HoverWidget::HoverWidget(QString mname, QWidget *parent) :
-    QWidget(parent),
-    _name(mname)
+HoverWidget::HoverWidget(QWidget *parent) :
+    QWidget(parent)
 {
     setAttribute(Qt::WA_DeleteOnClose);
 }
@@ -36,13 +37,13 @@ HoverWidget::~HoverWidget()
 }
 
 void HoverWidget::enterEvent(QEvent *event){
-    emit enterWidget(_name);
+    emit enterWidget();
 
     QWidget::enterEvent(event);
 }
 
 void HoverWidget::leaveEvent(QEvent *event){
-    emit leaveWidget(_name);
+    emit leaveWidget();
 
     QWidget::leaveEvent(event);
 }
@@ -58,5 +59,5 @@ void HoverWidget::paintEvent(QPaintEvent *event){
 }
 
 void HoverWidget::mousePressEvent(QMouseEvent *event) {
-    emit widgetClicked(_name);
+    emit widgetClicked();
 }

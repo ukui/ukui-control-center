@@ -22,7 +22,6 @@
 #define IMAGEUTIL_H
 
 #include <QPixmap>
-#include <QSvgRenderer>
 #include <QApplication>
 
 class ImageUtil

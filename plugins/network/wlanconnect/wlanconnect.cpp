@@ -104,6 +104,17 @@ void WlanConnect::initSearchText() {
     ui->openLabel->setText(tr("open"));
 }
 
+bool WlanConnect::eventFilter(QObject *w, QEvent *e) {
+    if (e->type() == QEvent::Enter) {
+        if (w->findChild<QWidget*>())
+            w->findChild<QWidget*>()->setStyleSheet("QWidget{background: palette(button);border-radius:4px;}");
+    } else if (e->type() == QEvent::Leave) {
+        if (w->findChild<QWidget*>())
+            w->findChild<QWidget*>()->setStyleSheet("QWidget{background: palette(base);border-radius:4px;}");
+    }
+    return QObject::eventFilter(w,e);
+}
+
 void WlanConnect::initComponent() {
     wifiBtn = new SwitchButton(pluginWidget);
     ui->openWIifLayout_3->addWidget(wifiBtn);
@@ -138,7 +149,6 @@ void WlanConnect::initComponent() {
     });
 
     m_interface->call("requestRefreshWifiList");
-    ui->verticalLayout_4->setContentsMargins(0, 0, 32, 0);
 }
 
 void WlanConnect::wifiSwitchSlot(bool status) {
@@ -389,6 +399,7 @@ void WlanConnect::rebuildWifiActComponent(QString iconPath, QStringList netNameL
         deviceItem->mAbtBtn->setMinimumWidth(100);
         deviceItem->mAbtBtn->setText(tr("Detail"));
 
+        deviceItem->installEventFilter(this);
         vLayout->addWidget(deviceItem);
         frame->setLayout(vLayout);
         ui->detailLayOut_3->addWidget(frame);
@@ -396,22 +407,23 @@ void WlanConnect::rebuildWifiActComponent(QString iconPath, QStringList netNameL
 }
 
 void WlanConnect::rebuildAvailComponent(QString iconPath, QString netName, QString type) {
-    HoverBtn * wifiItem = new HoverBtn(netName, false, pluginWidget);
-    wifiItem->mPitLabel->setText(netName);
+    HoverBtn * wlanItem = new HoverBtn(netName, false, pluginWidget);
+    wlanItem->mPitLabel->setText(netName);
 
     QIcon searchIcon = QIcon::fromTheme(iconPath);
     if (iconPath != KLanSymbolic && iconPath != NoNetSymbolic) {
-        wifiItem->mPitIcon->setProperty("useIconHighlightEffect", 0x10);
+        wlanItem->mPitIcon->setProperty("useIconHighlightEffect", 0x10);
     }
-    wifiItem->mPitIcon->setPixmap(searchIcon.pixmap(searchIcon.actualSize(QSize(24, 24))));
-    wifiItem->mAbtBtn->setMinimumWidth(100);
-    wifiItem->mAbtBtn->setText(tr("Connect"));
+    wlanItem->mPitIcon->setPixmap(searchIcon.pixmap(searchIcon.actualSize(QSize(24, 24))));
+    wlanItem->mAbtBtn->setMinimumWidth(100);
+    wlanItem->mAbtBtn->setText(tr("Connect"));
 
-    connect(wifiItem->mAbtBtn, &QPushButton::clicked, this, [=] {
+    wlanItem->installEventFilter(this);
+    connect(wlanItem->mAbtBtn, &QPushButton::clicked, this, [=] {
         runKylinmApp(netName,type);
     });
 
-    ui->availableLayout_3->addWidget(wifiItem);
+    ui->availableLayout_3->addWidget(wlanItem);
 }
 
 void WlanConnect::runKylinmApp(QString netName, QString type) {

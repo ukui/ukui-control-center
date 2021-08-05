@@ -22,28 +22,28 @@
 
 #include <QWidget>
 #include <QEvent>
+#include <QLayout>
+#include <QLabel>
+#include <QPixmap>
+#include "commonComponent/ImageUtil/imageutil.h"
 
 class HoverWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit HoverWidget(QString mname, QWidget *parent = 0);
+    explicit HoverWidget( QWidget *parent = 0);
     ~HoverWidget();
-
-public:
-    QString _name;
 
 protected:
     virtual void enterEvent(QEvent * event);
     virtual void leaveEvent(QEvent * event);
     virtual void paintEvent(QPaintEvent * event);
     virtual void mousePressEvent(QMouseEvent * event);
-
 Q_SIGNALS:
-    void widgetClicked(QString name);
-    void enterWidget(QString name);
-    void leaveWidget(QString name);
+    void widgetClicked();
+    void enterWidget();
+    void leaveWidget();
 };
 
 #endif // HOVERWIDGET_H

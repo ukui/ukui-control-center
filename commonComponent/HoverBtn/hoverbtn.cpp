@@ -5,7 +5,7 @@
 HoverBtn::HoverBtn(QString mname, bool isHide, QWidget *parent) :
    mName(mname), mIsHide(isHide), QWidget(parent)
 {
-    this->setMaximumSize(960, 50);
+    this->setMaximumHeight(50);
     this->setMinimumSize(550, 50);
     initUI();
 }
@@ -13,7 +13,7 @@ HoverBtn::HoverBtn(QString mname, bool isHide, QWidget *parent) :
 HoverBtn::HoverBtn(QString mname, QString detailName, QWidget *parent) :
     mName(mname), mDetailName(detailName), QWidget(parent)
 {
-    this->setMaximumSize(960, 50);
+    this->setMaximumHeight(50);
     this->setMinimumSize(550, 50);
     initUI();
 }

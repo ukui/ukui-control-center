@@ -31,7 +31,9 @@
 #include <QtAlgorithms>
 
 #define ITEMHEIGH           50
-#define CONTROL_CENTER_WIFI "org.ukui.control-center.wifi.switch"
+#define CONTROL_CENTER_WIFI              "org.ukui.control-center.wifi.switch"
+#define THEME_QT_SCHEMA                  "org.ukui.style"
+#define MODE_QT_KEY                      "style-name"
 
 const QString KWifiSymbolic     = "network-wireless-signal-excellent";
 const QString KWifiLockSymbolic = "network-wireless-secure-signal-excellent";
@@ -58,6 +60,7 @@ NetConnect::~NetConnect() {
     if (!mFirstLoad) {
         delete ui;
         ui = nullptr;
+        delete qtSettings;
     }
     delete m_interface;
 }
@@ -109,10 +112,27 @@ void NetConnect::initSearchText() {
     ui->openLabel->setText(tr("open"));
 }
 
+bool NetConnect::eventFilter(QObject *w, QEvent *e) {
+    if (e->type() == QEvent::Enter) {
+        if (w->findChild<QWidget*>())
+            w->findChild<QWidget*>()->setStyleSheet("QWidget{background: palette(button);border-radius:4px;}");
+    } else if (e->type() == QEvent::Leave) {
+        if (w->findChild<QWidget*>())
+            w->findChild<QWidget*>()->setStyleSheet("QWidget{background: palette(base);border-radius:4px;}");
+    }
+    return QObject::eventFilter(w,e);
+}
+
 void NetConnect::initComponent() {
     wiredSwitch = new SwitchButton(pluginWidget);
     ui->openWIifLayout->addWidget(wiredSwitch);
+    initHoverWidget();
+    //添加有线网络按钮
+    connect(addLanWidget, &HoverWidget::widgetClicked, this, [=](){
 
+    });
+
+    ui->verticalLayout_4->addWidget(addLanWidget);
     kdsDbus = new QDBusInterface("org.ukui.kds", \
                                  "/", \
                                  "org.ukui.kds.interface", \
@@ -147,8 +167,79 @@ void NetConnect::initComponent() {
         runExternalApp();
     });
     getNetList();
+}
 
-    ui->verticalLayout->setContentsMargins(0, 0, 32, 0);
+void NetConnect::initHoverWidget() {
+    const QByteArray idd(THEME_QT_SCHEMA);
+    if  (QGSettings::isSchemaInstalled(idd)){
+        qtSettings = new QGSettings(idd);
+    }
+    addLanWidget = new HoverWidget;
+    addLanWidget->setObjectName("addLanWidget");
+    addLanWidget->setMinimumSize(QSize(550, 60));
+    addLanWidget->setMaximumSize(QSize(16777215, 60));
+    addLanWidget->setStyleSheet("HoverWidget#addLanWidget{background: palette(base); border-radius: 4px;}"
+                                "HoverWidget:hover:!pressed#addLanWidget{background: palette(button); border-radius: 4px;}");
+
+    QHBoxLayout *addLyt = new QHBoxLayout;
+
+    QLabel * iconLabel = new QLabel;
+
+    //~ contents_path /netconnect/Add Wired Network
+    QLabel * addWiredNetLabel = new QLabel(tr("Add Wired Network"));
+
+    QPixmap pixgray = ImageUtil::loadSvg(":/img/plugins/netconnect/add.svg", "black", 15);
+    iconLabel->setPixmap(pixgray);
+    addLyt->addStretch();
+    addLyt->addWidget(iconLabel);
+    addLyt->addItem(new QSpacerItem(15,10,QSizePolicy::Fixed));
+    addLyt->addWidget(addWiredNetLabel);
+    addLyt->addStretch();
+    addLanWidget->setLayout(addLyt);
+
+    //图标跟随主题变化
+    QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
+    if ("ukui-white" == currentThemeMode || "ukui-default" == currentThemeMode || "ukui-light" == currentThemeMode || "ukui-white-unity" == currentThemeMode) {
+        QPixmap pixgray = ImageUtil::loadSvg(":/img/plugins/netconnect/add.svg", "black", 15);
+        iconLabel->setPixmap(pixgray);
+    } else if ("ukui-dark" == currentThemeMode || "ukui-black" == currentThemeMode || "ukui-black-unity" == currentThemeMode){
+        QPixmap pixgray = ImageUtil::loadSvg(":/img/plugins/netconnect/add.svg", "white", 15);
+        iconLabel->setPixmap(pixgray);
+    }
+    connect(qtSettings,&QGSettings::changed,this,[=](const QString &key){
+        if (key == "styleName") {
+            QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
+            if ("ukui-white" == currentThemeMode || "ukui-default" == currentThemeMode || "ukui-light" == currentThemeMode || "ukui-white-unity" == currentThemeMode) {
+                QPixmap pixgray = ImageUtil::loadSvg(":/img/plugins/netconnect/add.svg", "black", 15);
+                iconLabel->setPixmap(pixgray);
+            } else if ("ukui-dark" == currentThemeMode || "ukui-black" == currentThemeMode || "ukui-black-unity" == currentThemeMode){
+                QPixmap pixgray = ImageUtil::loadSvg(":/img/plugins/netconnect/add.svg", "white", 15);
+                iconLabel->setPixmap(pixgray);
+            }
+        }
+    });
+    // 还原状态
+    connect(addLanWidget, &HoverWidget::leaveWidget, this, [=](){
+        QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
+        if ("ukui-white" == currentThemeMode || "ukui-default" == currentThemeMode || "ukui-light" == currentThemeMode || "ukui-white-unity" == currentThemeMode) {
+            QPixmap pixgray = ImageUtil::loadSvg(":/img/plugins/netconnect/add.svg", "black", 15);
+            iconLabel->setPixmap(pixgray);
+        } else if ("ukui-dark" == currentThemeMode || "ukui-black" == currentThemeMode || "ukui-black-unity" == currentThemeMode){
+            QPixmap pixgray = ImageUtil::loadSvg(":/img/plugins/netconnect/add.svg", "white", 15);
+            iconLabel->setPixmap(pixgray);
+        }
+    });
+    // 悬浮改变Widget状态
+    connect(addLanWidget, &HoverWidget::enterWidget, this, [=](){
+        QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
+        if ("ukui-white" == currentThemeMode || "ukui-default" == currentThemeMode || "ukui-light" == currentThemeMode || "ukui-white-unity" == currentThemeMode) {
+            QPixmap pixgray = ImageUtil::loadSvg(":/img/plugins/netconnect/add.svg", "black", 15);
+            iconLabel->setPixmap(pixgray);
+        } else if ("ukui-dark" == currentThemeMode || "ukui-black" == currentThemeMode || "ukui-black-unity" == currentThemeMode){
+            QPixmap pixgray = ImageUtil::loadSvg(":/img/plugins/netconnect/add.svg", "white", 15);
+            iconLabel->setPixmap(pixgray);
+        }
+    });
 }
 
 void NetConnect::rebuildNetStatusComponent(QString iconPath, QMap<QString, bool> netNameMap) {
@@ -184,6 +275,7 @@ void NetConnect::rebuildNetStatusComponent(QString iconPath, QMap<QString, bool>
         deviceItem->mAbtBtn->setMinimumWidth(100);
         deviceItem->mAbtBtn->setText(tr("Detail"));
 
+        deviceItem->installEventFilter(this);
         vLayout->addWidget(deviceItem);
         frame->setLayout(vLayout);
         ui->detailLayOut->addWidget(frame);
@@ -209,22 +301,22 @@ void NetConnect::netPropertiesChangeSlot(QMap<QString, QVariant> property) {
 }
 
 void NetConnect::rebuildAvailComponent(QString iconPath, QString netName, QString type) {
-    HoverBtn * wifiItem = new HoverBtn(netName, false, pluginWidget);
-    wifiItem->mPitLabel->setText(netName);
+    HoverBtn * lanItem = new HoverBtn(netName, false, pluginWidget);
+    lanItem->mPitLabel->setText(netName);
 
     QIcon searchIcon = QIcon::fromTheme(iconPath);
     if (iconPath != KLanSymbolic && iconPath != NoNetSymbolic) {
-        wifiItem->mPitIcon->setProperty("useIconHighlightEffect", 0x10);
+        lanItem->mPitIcon->setProperty("useIconHighlightEffect", 0x10);
     }
-    wifiItem->mPitIcon->setPixmap(searchIcon.pixmap(searchIcon.actualSize(QSize(24, 24))));
-    wifiItem->mAbtBtn->setMinimumWidth(100);
-    wifiItem->mAbtBtn->setText(tr("Connect"));
-
-    connect(wifiItem->mAbtBtn, &QPushButton::clicked, this, [=] {
+    lanItem->mPitIcon->setPixmap(searchIcon.pixmap(searchIcon.actualSize(QSize(24, 24))));
+    lanItem->mAbtBtn->setMinimumWidth(100);
+    lanItem->mAbtBtn->setText(tr("Connect"));
+    lanItem->installEventFilter(this);
+    connect(lanItem->mAbtBtn, &QPushButton::clicked, this, [=] {
         runKylinmApp(netName,type);
     });
 
-    ui->availableLayout->addWidget(wifiItem);
+    ui->availableLayout->addWidget(lanItem);
 }
 
 void NetConnect::runExternalApp() {

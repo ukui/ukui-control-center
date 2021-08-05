@@ -204,6 +204,7 @@
         <file>secondaryleftmenu/WiredConnect.svg</file>
         <file>secondaryleftmenu/Wlanconnect.svg</file>
         <file>secondaryleftmenu/Wlanconnect White.svg</file>
+        <file>plugins/netconnect/add.svg</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>

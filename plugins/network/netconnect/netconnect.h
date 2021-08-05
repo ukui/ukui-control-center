@@ -45,6 +45,7 @@
 #include "shell/interface.h"
 #include "SwitchButton/switchbutton.h"
 #include "commonComponent/HoverBtn/hoverbtn.h"
+#include "commonComponent/HoverWidget/hoverwidget.h"
 
 enum {
     DISCONNECTED,
@@ -91,13 +92,16 @@ public:
 
     void getActiveConInfo(QList<ActiveConInfo>& qlActiveConInfo);
 
+protected:
+    bool eventFilter(QObject *w,QEvent *e);
+
 private:
     Ui::NetConnect     *ui;
 
     QString            pluginName;
     int                pluginType;
     QWidget            *pluginWidget;
-
+    HoverWidget        *addLanWidget;
 
     QDBusInterface     *m_interface = nullptr;
     QDBusInterface     *kdsDbus = nullptr;
@@ -113,12 +117,15 @@ private:
     bool               mFirstLoad;
 
     QList<ActiveConInfo> mActiveInfo;
+
+    QGSettings         *qtSettings;
 private:
     QStringList execGetLanList();
     void         getWifiListDone(QStringList lanList);
 
     bool        getInitStatus();
     void        clearContent();
+    void        initHoverWidget();
 private slots:
     void wifiSwitchSlot(bool status);
     void getNetList();
