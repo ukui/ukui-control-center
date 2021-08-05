@@ -184,14 +184,6 @@ void ChangePwdDialog::setupConnect(){
     connect(pcThread, &PwdCheckThread::complete, this, [=](QString re){
         curPwdTip = re;
 
-        if (pwdTip.isEmpty() && pwdSureTip.isEmpty()){
-            ui->tipLabel->setText(curPwdTip);
-        }
-
-        if (curPwdTip.isEmpty()){
-            pwdTip.isEmpty() ? ui->tipLabel->setText(pwdSureTip) : ui->tipLabel->setText(pwdTip);
-        }
-
         if (re.isEmpty()){ //密码校验成功
 
             this->accept();
@@ -199,6 +191,8 @@ void ChangePwdDialog::setupConnect(){
             emit passwd_send(ui->curPwdLineEdit->text(), ui->pwdLineEdit->text());
 
         } else {
+            ui->tipLabel->setText(curPwdTip);
+
             ui->curPwdLineEdit->setText("");
 
             refreshConfirmBtnStatus();
@@ -214,37 +208,12 @@ void ChangePwdDialog::setupConnect(){
 
     if (isCurrentUser){
 
-//        connect(timerForCheckPwd, &QTimer::timeout, [=]{
-//            /* 密码为空不检测 */
-//            if (ui->curPwdLineEdit->text().isEmpty()){
-//                return;
-//            }
-
-//            pcThread->setArgs(currentUserName, ui->curPwdLineEdit->text());
-
-//            pcThread->start();
-
-//        });
-
         connect(ui->curPwdLineEdit, &QLineEdit::textChanged, [=](QString txt){
-//            pwdLegalityCheck();
-
-//            ui->confirmPushBtn->setEnabled(false);
-
-//            timerForCheckPwd->start();
 
             if (!txt.isEmpty()){
                 curPwdTip = "";
-            }
-
-            if (pwdTip.isEmpty() && pwdSureTip.isEmpty()){
                 ui->tipLabel->setText(curPwdTip);
             }
-
-            if (curPwdTip.isEmpty()){
-                pwdTip.isEmpty() ? ui->tipLabel->setText(pwdSureTip) : ui->tipLabel->setText(pwdTip);
-            }
-
 
             refreshConfirmBtnStatus();
         });
@@ -262,9 +231,6 @@ void ChangePwdDialog::setupConnect(){
 
             refreshCancelBtnStatus();
 
-//            this->accept();
-
-//            emit passwd_send(ui->curPwdLineEdit->text(), ui->pwdLineEdit->text());
         });
     } else {
         connect(ui->confirmPushBtn, &QPushButton::clicked, [=]{
@@ -290,7 +256,15 @@ void ChangePwdDialog::setupConnect(){
 
         ui->tipLabel->setText(pwdSureTip);
         if (pwdSureTip.isEmpty()){
-            pwdTip.isEmpty() ? ui->tipLabel->setText(curPwdTip) : ui->tipLabel->setText(pwdTip);
+            if (!pwdTip.isEmpty()){
+                if (QLabelSetText(ui->tipLabel, pwdTip)){
+                    ui->tipLabel->setToolTip(pwdTip);
+                }
+            } else if (!curPwdTip.isEmpty()){
+                if (QLabelSetText(ui->tipLabel, curPwdTip)){
+                    ui->tipLabel->setToolTip(curPwdTip);
+                }
+            }
         }
 
         refreshConfirmBtnStatus();
@@ -407,9 +381,20 @@ void ChangePwdDialog::pwdLegalityCheck(){
         }
     }
 
-    ui->tipLabel->setText(pwdTip);
+    if (QLabelSetText(ui->tipLabel, pwdTip)){
+        ui->tipLabel->setToolTip(pwdTip);
+    }
     if (pwdTip.isEmpty()){
-        pwdSureTip.isEmpty() ? ui->tipLabel->setText(curPwdTip) : ui->tipLabel->setText(pwdSureTip);
+        if (!pwdSureTip.isEmpty()){
+            if (QLabelSetText(ui->tipLabel, pwdSureTip)){
+                ui->tipLabel->setToolTip(pwdSureTip);
+            }
+
+        } else if (!curPwdTip.isEmpty()){
+            if (QLabelSetText(ui->tipLabel, curPwdTip)){
+                ui->tipLabel->setToolTip(curPwdTip);
+            }
+        }
     }
 }
 
@@ -451,6 +436,20 @@ void ChangePwdDialog::refreshConfirmBtnStatus(){
         else
             ui->confirmPushBtn->setEnabled(true);
     }
+}
+
+bool ChangePwdDialog::QLabelSetText(QLabel *label, QString string)
+{
+    bool is_over_length = false;
+    QFontMetrics fontMetrics(label->font());
+    int fontSize = fontMetrics.width(string);
+    QString str = string;
+    if (fontSize > (label->width()-5)) {
+        str = fontMetrics.elidedText(string, Qt::ElideRight, label->width()-10);
+        is_over_length = true;
+    }
+    label->setText(str);
+    return is_over_length;
 }
 
 

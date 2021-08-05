@@ -60,7 +60,7 @@ DefineGroupItem::DefineGroupItem(QString groupName)
 
     pDelBtn = new QPushButton(this);
     pDelBtn->setText(tr("Delete"));
-    pDelBtn->setFixedSize(60,36);
+    pDelBtn->setFixedSize(90,36);
     pDelBtn->hide();
 
     QSizePolicy btnSizePolicy2 = pDelBtn->sizePolicy();

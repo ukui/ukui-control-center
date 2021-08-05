@@ -24,6 +24,7 @@
 #include <QPainter>
 #include <QPainterPath>
 #include <QThread>
+#include <QLabel>
 
 #include <QTimer>
 
@@ -79,6 +80,8 @@ private:
 
     bool checkCharLegitimacy(QString password);
     bool checkOtherPasswd(QString name, QString pwd);
+
+    bool QLabelSetText(QLabel *label, QString string);
 
     QString currentUserName;
     QString pwdTip;

@@ -142,6 +142,9 @@ void CreateUserDialog::setupConnect(){
 
     connect(ui->usernameLineEdit, &QLineEdit::textChanged, [=](QString text){
         nameLegalityCheck(text);
+
+        /* 用户名更新后需要确认密码是否还包含用户名 */
+        pwdLegalityCheck(ui->pwdLineEdit->text());
     });
 
     connect(ui->pwdLineEdit, &QLineEdit::textChanged, [=](QString text){

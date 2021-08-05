@@ -38,8 +38,8 @@ ChangeTypeDialog::ChangeTypeDialog(QWidget *parent) :
     setWindowTitle(tr("Change type"));
 
     ui->titleLabel->setStyleSheet("QLabel{color: palette(windowText);}");
-    if (QLabelSetText(ui->tipLabel,tr("Make sure that there is at least one administrator on the computer"))) {
-        ui->tipLabel->setToolTip(tr("Make sure that there is at least one administrator on the computer"));
+    if (QLabelSetText(ui->tipLabel,tr("Ensure that must have admin on system"))) {
+        ui->tipLabel->setToolTip(tr("Ensure that must have admin on system"));
     }
 //    ui->closeBtn->setProperty("useIconHighlightEffect", true);
 //    ui->closeBtn->setProperty("iconHighlightEffectMode", 1);
