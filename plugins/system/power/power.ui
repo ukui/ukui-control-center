@@ -156,7 +156,10 @@
               </widget>
              </item>
              <item>
-              <widget class="QLabel" name="label_3">
+              <widget class="FixLabel" name="label_3">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -1060,11 +1063,16 @@
    <extends>QLabel</extends>
    <header>Label/titlelabel.h</header>
   </customwidget>
+  <customwidget>
+   <class>FixLabel</class>
+   <extends>QLabel</extends>
+   <header>Label/fixlabel.h</header>
+  </customwidget>
  </customwidgets>
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="powerTypeBtnGroup"/>
   <buttongroup name="powerModeBtnGroup"/>
+  <buttongroup name="powerTypeBtnGroup"/>
  </buttongroups>
 </ui>
