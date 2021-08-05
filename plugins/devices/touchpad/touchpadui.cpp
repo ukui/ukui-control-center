@@ -140,31 +140,27 @@ void TouchpadUI::initUI()
 
 void TouchpadUI::initConnection()
 {
-    QByteArray id(kTouchpadSchemas);
-    QByteArray id1(kMouseSchemas);
+    QByteArray touchpadId(kTouchpadSchemas);
+    QByteArray mouseId(kMouseSchemas);
 
-    if (QGSettings::isSchemaInstalled(id) && QGSettings::isSchemaInstalled(id1)) {
+    if (QGSettings::isSchemaInstalled(touchpadId) && QGSettings::isSchemaInstalled(mouseId)) {
         mTouchpadGsetting = new QGSettings(kTouchpadSchemas, QByteArray(), this);
         mMouseGsetting = new QGSettings(kMouseSchemas, QByteArray(), this);
 
-//        initEnableStatus();
         isTouchpadExist();
 
-        connect(mMouseDisableBtn, &SwitchButton::checkedChanged, this, [=](bool checked){
-            mTouchpadGsetting->set(kMouseDisableKey, checked);
-            qDebug() << "mousedisable" << checked;
-        });
+        connect(mMouseDisableBtn, &SwitchButton::checkedChanged, this, &TouchpadUI::mouseDisableSlot);
+
         connect(mCursorSpeedSlider, &QSlider::valueChanged, this, &TouchpadUI::cursorSpeedSlot);
-        connect(mTypingDisableBtn, &SwitchButton::checkedChanged, this, [=](bool checked){
-            mTouchpadGsetting->set(kTypingDisableKey, checked);
-        });
-        connect(mClickBtn, &SwitchButton::checkedChanged, this, [=](bool checked){
-            mTouchpadGsetting->set(kClickKey, checked);
-        });
-        connect(mScrollSlideBtn, &SwitchButton::checkedChanged, this, [=](bool checked){
-            mTouchpadGsetting->set(kScrollSlideKey, !checked);
-        });
-        connect(mScrollTypeComBox, QOverload<const QString &>::of(&QComboBox::currentIndexChanged), this, &TouchpadUI::scrolltypeSlot);
+
+        connect(mTypingDisableBtn, &SwitchButton::checkedChanged, this, &TouchpadUI::typingDisableSlot);
+
+        connect(mClickBtn, &SwitchButton::checkedChanged, this, &TouchpadUI::clickSlot);
+
+        connect(mScrollSlideBtn, &SwitchButton::checkedChanged, this, &TouchpadUI::scrollSlideSlot);
+
+        connect(mScrollTypeComBox, QOverload<const QString &>::of(&QComboBox::currentIndexChanged),
+                this, &TouchpadUI::scrolltypeSlot);
     }
 }
 
@@ -177,7 +173,7 @@ void TouchpadUI::initEnableStatus()
 
     // 初始化光标速度
     mCursorSpeedSlider->blockSignals(true);
-    mCursorSpeedSlider->setValue(static_cast<int>(mMouseGsetting->get(kCursorSpeedKey).toDouble()*10));
+    mCursorSpeedSlider->setValue(static_cast<int>(mMouseGsetting->get(kCursorSpeedKey).toDouble() * 10));
     mCursorSpeedSlider->blockSignals(false);
 
     // 初始化打字时禁用触摸板
@@ -208,6 +204,7 @@ void TouchpadUI::isTouchpadExist()
         setFrameVisible(true);
         mTipLabel->hide();
         initEnableStatus();
+
         // 默认水平双指滚动有效
         mTouchpadGsetting->set(H_FINGER_KEY, true);
     } else {
@@ -217,11 +214,13 @@ void TouchpadUI::isTouchpadExist()
 
 QString TouchpadUI::_findKeyScrollingType()
 {
-    if (mTouchpadGsetting->get(V_EDGE_KEY).toBool())
+    if (mTouchpadGsetting->get(V_EDGE_KEY).toBool()) {
         return V_EDGE_KEY;
+    }
 
-    if (mTouchpadGsetting->get(V_FINGER_KEY).toBool())
+    if (mTouchpadGsetting->get(V_FINGER_KEY).toBool()) {
         return V_FINGER_KEY;
+    }
 
     return N_SCROLLING;
 }
@@ -242,12 +241,14 @@ bool TouchpadUI::findSynaptics()
     int n_devices;
     bool retval;
 
-    if (_supportsXinputDevices() == false)
+    if (_supportsXinputDevices() == false) {
         return true;
+    }
 
     device_info = XListInputDevices (QX11Info::display(), &n_devices);
-    if (device_info == nullptr)
+    if (device_info == nullptr) {
         return false;
+    }
 
     retval = false;
     for (int i = 0; i < n_devices; i++) {
@@ -259,8 +260,9 @@ bool TouchpadUI::findSynaptics()
             break;
         }
     }
-    if (device_info != nullptr)
+    if (device_info != nullptr) {
         XFreeDeviceList (device_info);
+    }
 
     return retval;
 }
@@ -279,11 +281,12 @@ bool TouchpadUI::_supportsXinputDevices()
 XDevice* TouchpadUI::_deviceIsTouchpad (XDeviceInfo *deviceinfo)
 {
     XDevice *device;
-    if (deviceinfo->type != XInternAtom (QX11Info::display(), XI_TOUCHPAD, true))
+    if (deviceinfo->type != XInternAtom (QX11Info::display(), XI_TOUCHPAD, true)) {
         return nullptr;
+    }
+
     device = XOpenDevice (QX11Info::display(), deviceinfo->id);
-    if(device == nullptr)
-    {
+    if(device == nullptr) {
         qDebug()<<"device== null";
         return nullptr;
     }
@@ -304,8 +307,10 @@ bool TouchpadUI::_deviceHasProperty(XDevice *device, const char *property_name)
     unsigned char *data;
 
     prop = XInternAtom (QX11Info::display(), property_name, True);
-    if (!prop)
+    if (!prop) {
         return false;
+    }
+
     if ((XGetDeviceProperty (QX11Info::display(), device, prop, 0, 1, False,
                              XA_INTEGER, &realtype, &realformat, &nitems,
                              &bytes_after, &data) == Success) && (realtype != None))
@@ -317,12 +322,33 @@ bool TouchpadUI::_deviceHasProperty(XDevice *device, const char *property_name)
 }
 
 /* slot functions */
-void TouchpadUI::cursorSpeedSlot(int value)
+
+void TouchpadUI::mouseDisableSlot(bool status)
 {
-    mMouseGsetting->set(kCursorSpeedKey, static_cast<double>(value)/mCursorSpeedSlider->maximum()*10);
+    mTouchpadGsetting->set(kMouseDisableKey, status);
 }
 
-void TouchpadUI::scrolltypeSlot(const QString text)
+void TouchpadUI::cursorSpeedSlot(int value)
+{
+    mMouseGsetting->set(kCursorSpeedKey, static_cast<double>(value) / mCursorSpeedSlider->maximum() * 10);
+}
+
+void TouchpadUI::typingDisableSlot(bool status)
+{
+    mTouchpadGsetting->set(kTypingDisableKey, status);
+}
+
+void TouchpadUI::clickSlot(bool status)
+{
+    mTouchpadGsetting->set(kClickKey, status);
+}
+
+void TouchpadUI::scrollSlideSlot(bool status)
+{
+    mTouchpadGsetting->set(kScrollSlideKey, !status);
+}
+
+void TouchpadUI::scrolltypeSlot()
 {
     //旧滚动类型设置为false,跳过N_SCROLLING
     QString oldType = _findKeyScrollingType();

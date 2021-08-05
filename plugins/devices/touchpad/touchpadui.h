@@ -88,8 +88,11 @@ private:
     XDevice* _deviceIsTouchpad (XDeviceInfo * deviceinfo);
     bool _deviceHasProperty (XDevice * device, const char * property_name);
 
-private slots:
+    void mouseDisableSlot(bool status);
     void cursorSpeedSlot(int value);
-    void scrolltypeSlot(const QString text);
+    void typingDisableSlot(bool status);
+    void clickSlot(bool status);
+    void scrollSlideSlot(bool status);
+    void scrolltypeSlot();
 };
 #endif // TOUCHPAD_H
