@@ -215,7 +215,7 @@ void AutoBoot::initUI()
     headHorLayout->setContentsMargins(64, 0, 32, 0);
 
     QLabel *nameLabel = new QLabel(headWidget);
-    nameLabel->setFixedWidth(220);
+    nameLabel->setFixedWidth(340);
     nameLabel->setText(tr("Name"));
 
     QLabel *statusLabel = new QLabel(headWidget);
@@ -223,9 +223,9 @@ void AutoBoot::initUI()
     statusLabel->setText(tr("Status"));
 
     headHorLayout->addWidget(nameLabel);
-    headHorLayout->addStretch();
+    headHorLayout->addStretch(5);
     headHorLayout->addWidget(statusLabel);
-    headHorLayout->addStretch();
+    headHorLayout->addStretch(0);
 
     headWidget->setLayout(headHorLayout);
 
@@ -268,8 +268,8 @@ void AutoBoot::initUI()
         iconLabel->setFixedSize(32, 32);
         iconLabel->setPixmap(it.value().pixmap);
 
-        QLabel *textLabel = new QLabel(widget);
-        textLabel->setFixedWidth(250);
+        FixLabel *textLabel = new FixLabel(widget);
+        textLabel->setFixedWidth(340);
         textLabel->setText(appName);
 
         SwitchButton *button = new SwitchButton(widget);
@@ -292,9 +292,9 @@ void AutoBoot::initUI()
 
         mainHLayout->addWidget(iconLabel);
         mainHLayout->addWidget(textLabel);
-        mainHLayout->addStretch(1);
+        mainHLayout->addStretch(5);
         mainHLayout->addWidget(button);
-        mainHLayout->addStretch(1);
+        mainHLayout->addStretch(0);
         mainHLayout->addWidget(pLabel);
         mainHLayout->addWidget(dBtn);
         widget->setLayout(mainHLayout);
