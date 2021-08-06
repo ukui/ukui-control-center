@@ -174,7 +174,7 @@ void NetConnect::initHoverWidget() {
     if  (QGSettings::isSchemaInstalled(idd)){
         qtSettings = new QGSettings(idd);
     }
-    addLanWidget = new HoverWidget;
+    addLanWidget = new HoverWidget("");
     addLanWidget->setObjectName("addLanWidget");
     addLanWidget->setMinimumSize(QSize(550, 60));
     addLanWidget->setMaximumSize(QSize(16777215, 60));

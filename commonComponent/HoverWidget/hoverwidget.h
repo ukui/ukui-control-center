@@ -32,8 +32,11 @@ class HoverWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit HoverWidget( QWidget *parent = 0);
+    explicit HoverWidget(QString mname, QWidget *parent = 0);
     ~HoverWidget();
+
+public:
+    QString _name;
 
 protected:
     virtual void enterEvent(QEvent * event);
@@ -41,9 +44,9 @@ protected:
     virtual void paintEvent(QPaintEvent * event);
     virtual void mousePressEvent(QMouseEvent * event);
 Q_SIGNALS:
-    void widgetClicked();
-    void enterWidget();
-    void leaveWidget();
+    void widgetClicked(QString name);
+    void enterWidget(QString name);
+    void leaveWidget(QString name);
 };
 
 #endif // HOVERWIDGET_H
