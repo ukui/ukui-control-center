@@ -186,7 +186,7 @@ void AutoBoot::initAutoUI()
         iconLabel->setPixmap(it.value().pixmap);
 
         QLabel *textLabel = new QLabel(widget);
-        textLabel->setFixedWidth(250);
+        textLabel->setFixedWidth(500);
         textLabel->setText(appName);
 
         SwitchButton *button = new SwitchButton(widget);
@@ -197,10 +197,11 @@ void AutoBoot::initAutoUI()
         appgroupMultiMaps.insert(it.key(), button);
 
         QToolButton *deBtn = new QToolButton(widget);
+        deBtn->setStyleSheet("QToolButton:!checked{background-color: palette(base)}");
+        deBtn->setProperty("useButtonPalette", true);
         deBtn->setPopupMode(QToolButton::InstantPopup);
         deBtn->setFixedSize(QSize(36, 36));
         deBtn->setIcon(QIcon(":/more.svg"));
-        deBtn->setProperty("isWindowButton", 0x01);
 
         QMenu *pMenu = new QMenu(deBtn);
         pMenu->installEventFilter(this);
@@ -325,7 +326,7 @@ bool AutoBoot::copyFileToLocal(QString bname)
         return false;
 
     //将复制的文件权限改为可读写
-    QFile(dstPath).setPermissions(QFileDevice::ReadOwner | QFileDevice::WriteOwner);
+    QFile(dstPath).setPermissions(QFileDevice::ReadGroup | QFileDevice::WriteGroup);
 
     // 更新数据，将新加入该目录下的应用信息读取，加入到localappMaps，更新statusMaps对应应用的信息
     AutoApp addapp;
@@ -376,26 +377,32 @@ bool AutoBoot::deleteLocalAutoapp(QString bname)
 bool AutoBoot::setAutoAppStatus(QString bname, bool status)
 {
     QString dstpath = QDir::homePath()+LOCAL_CONFIG_DIR+bname;
-
     //修改hidden字段
-    QSettings* desktopFile = new QSettings(dstpath, QSettings::IniFormat);
-    if (desktopFile) {
-       desktopFile->setIniCodec("utf-8");
-       desktopFile->beginGroup("Desktop Entry");
-       desktopFile->setValue("Hidden", !status);
-       desktopFile->endGroup();
-       delete desktopFile;
-       desktopFile = nullptr;
-       // 更新数据
-       QMap<QString, AutoApp>::iterator updateit = statusMaps.find(bname);
-       if (updateit == statusMaps.end())
-           qDebug() << "Start autoboot failed because autoBoot Data Error";
-       else {
-           updateit.value().hidden = !status;
-       }
-       return true;
+    GKeyFile *keyfile = g_key_file_new();
+    if (!g_key_file_load_from_file(keyfile, dstpath.toLatin1().data(), G_KEY_FILE_NONE, NULL)) {
+        g_key_file_free(keyfile);
+
+        return false;
     }
-    return false;
+    g_key_file_set_boolean(keyfile, G_KEY_FILE_DESKTOP_GROUP,
+                                        G_KEY_FILE_DESKTOP_KEY_HIDDEN, !status);
+
+    if (!_key_file_to_file(keyfile, dstpath.toLatin1().data())) {
+        qDebug() << "Stop autoboot failed because could not save desktop file";
+        g_free(dstpath.toLatin1().data());
+        return false;
+    }
+
+    g_key_file_free(keyfile);
+
+   // 更新数据
+   QMap<QString, AutoApp>::iterator updateit = statusMaps.find(bname);
+   if (updateit == statusMaps.end())
+       qDebug() << "Start autoboot failed because autoBoot Data Error";
+   else {
+       updateit.value().hidden = !status;
+   }
+
 }
 
 void AutoBoot::clearAutoItem()
@@ -429,6 +436,28 @@ bool AutoBoot::eventFilter(QObject *obj, QEvent *event)
         }
         return false;
     }
+}
+
+gboolean AutoBoot::_key_file_to_file(GKeyFile *keyfile, const gchar *path)
+{
+    GError *werror;
+    gchar *data;
+    gsize length;
+    gboolean res;
+
+    werror = NULL;
+    data = g_key_file_to_data(keyfile, &length, &werror);
+
+    if (werror)
+        return FALSE;
+
+    res = g_file_set_contents(path, data, length, &werror);
+    g_free(data);
+
+    if (werror)
+        return FALSE;
+
+    return res;
 }
 
 void AutoBoot::checkbox_changed_cb(QString bname)
@@ -507,58 +536,9 @@ void AutoBoot::add_autoboot_realize_slot(QString path, QString name, QString exe
 
 void AutoBoot::initAddBtn()
 {
-    addWgt = new HoverWidget("", pluginWidget);
-    addWgt->setObjectName("addwgt");
-    addWgt->setMinimumSize(QSize(580, 60));
-    addWgt->setMaximumSize(QSize(16777215, 60));
-    QPalette pal;
-    QBrush brush = pal.highlight();  //获取window的色值
-    QColor highLightColor = brush.color();
-    QString stringColor = QString("rgba(%1,%2,%3)") //叠加20%白色
-           .arg(highLightColor.red()*0.8 + 255*0.2)
-           .arg(highLightColor.green()*0.8 + 255*0.2)
-           .arg(highLightColor.blue()*0.8 + 255*0.2);
-
-    addWgt->setStyleSheet(QString("HoverWidget#addwgt{background: palette(button);\
-                                   border-radius: 4px;}\
-                                   HoverWidget:hover:!pressed#addwgt{background: %1;  \
-                                   border-radius: 4px;}").arg(stringColor));
-    QHBoxLayout *addLyt = new QHBoxLayout(addWgt);
-
-    QLabel *iconLabel = new QLabel(pluginWidget);
-    QLabel *textLabel = new QLabel(tr("Add autoboot app "), pluginWidget);
-    QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
-    iconLabel->setPixmap(pixgray);
-    iconLabel->setProperty("useIconHighlightEffect", true);
-    iconLabel->setProperty("iconHighlightEffectMode", 1);
-    addLyt->addStretch();
-    addLyt->addWidget(iconLabel);
-    addLyt->addWidget(textLabel);
-    addLyt->addStretch();
-    addWgt->setLayout(addLyt);
-
-    // 悬浮改变Widget状态
-    connect(addWgt, &HoverWidget::enterWidget, this, [=](){
-
-        iconLabel->setProperty("useIconHighlightEffect", false);
-        iconLabel->setProperty("iconHighlightEffectMode", 0);
-        QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "white", 12);
-        iconLabel->setPixmap(pixgray);
-        textLabel->setStyleSheet("color: white;");
-    });
-
-    // 还原状态
-    connect(addWgt, &HoverWidget::leaveWidget, this, [=](){
-
-        iconLabel->setProperty("useIconHighlightEffect", true);
-        iconLabel->setProperty("iconHighlightEffectMode", 1);
-        QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
-        iconLabel->setPixmap(pixgray);
-        textLabel->setStyleSheet("color: palette(windowText);");
-    });
+    addWgt = new AddBtn(pluginWidget);
     dialog = new AddAutoBoot(pluginWidget);
-    connect(addWgt, &HoverWidget::widgetClicked, this, [=](QString mname){
-        Q_UNUSED(mname);
+    connect(addWgt, &AddBtn::clicked, this, [=](){
         dialog->exec();
     });
 }

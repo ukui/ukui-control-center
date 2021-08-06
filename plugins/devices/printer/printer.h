@@ -32,6 +32,7 @@
 #include "HoverBtn/hoverbtn.h"
 #include "Label/titlelabel.h"
 #include "Label/fixlabel.h"
+#include "AddBtn/addbtn.h"
 
 namespace Ui {
 class Printer;
@@ -66,7 +67,7 @@ private:
     int pluginType;
     QWidget * pluginWidget;
     QWidget *PrinterWidget;
-    HoverWidget * mAddWgt;
+    AddBtn * mAddWgt;
     QPushButton *mAddBtn;
 
     QFrame *mPrinterListFrame;

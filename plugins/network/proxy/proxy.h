@@ -29,9 +29,13 @@
 #include "certificationdialog.h"
 
 #include <QGSettings>
+#include <QRadioButton>
+#include <QLineEdit>
 
 #include "shell/interface.h"
 #include "SwitchButton/switchbutton.h"
+#include "Label/titlelabel.h"
+#include "HoverWidget/hoverwidget.h"
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -83,6 +87,7 @@ public:
     const QString name() const  Q_DECL_OVERRIDE;
 
 public:
+    void initUi(QWidget *widget);
     void initSearchText();
     void setupStylesheet();
     void setupComponent();
@@ -106,6 +111,50 @@ private:
     int pluginType;
     QWidget * pluginWidget;
 
+    TitleLabel *mTitleLabel;
+    QLabel *mAutoProxyLabel;
+    QLabel *mUrlLabel;
+    QLabel *mManualProxyLabel;
+    QLabel *mHTTPLabel;
+    QLabel *mHTTPSLabel;
+    QLabel *mFTPLabel;
+    QLabel *mSOCKSLabel;
+    QLabel *mIgnoreLabel;
+
+
+    QFrame *mAutoFrame;
+    HoverWidget *mAutoProxyWidget;
+    QFrame *mUrlFrame;
+
+    QFrame *mManualFrame;
+    HoverWidget *mManualProxyWidget;
+    QFrame *mHTTPFrame;
+    QFrame *mHTTPSFrame;
+    QFrame *mFTPFrame;
+    QFrame *mSOCKSFrame;
+    QFrame *mIgnoreFrame;
+
+    QFrame *line_1;
+    QFrame *line_2;
+    QFrame *line_3;
+    QFrame *line_4;
+    QFrame *line_5;
+    QFrame *line_6;
+
+    QRadioButton *mAutoBtn;
+    QRadioButton *mManualBtn;
+    QPushButton *mCetificationBtn;
+
+    QLineEdit *mUrlLineEdit;
+    QLineEdit *mHTTPLineEdit_1;
+    QLineEdit *mHTTPLineEdit_2;
+    QLineEdit *mHTTPSLineEdit_1;
+    QLineEdit *mHTTPSLineEdit_2;
+    QLineEdit *mFTPLineEdit_1;
+    QLineEdit *mFTPLineEdit_2;
+    QLineEdit *mSOCKSLineEdit_1;
+    QLineEdit *mSOCKSLineEdit_2;
+    QLineEdit *mIgnoreLineEdit;
 private:
     SwitchButton * autoSwitchBtn;
     SwitchButton * manualSwitchBtn;

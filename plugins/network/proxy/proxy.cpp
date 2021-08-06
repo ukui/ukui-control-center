@@ -83,7 +83,7 @@ QWidget *Proxy::get_plugin_ui() {
         pluginWidget = new QWidget;
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
         ui->setupUi(pluginWidget);
-
+       // initUi(pluginWidget);
         settingsCreate = false;
 
         const QByteArray id(PROXY_SCHEMA);
@@ -126,6 +126,142 @@ void Proxy::plugin_delay_control(){
 const QString Proxy::name() const {
 
     return QStringLiteral("proxy");
+}
+
+void Proxy::initUi(QWidget *widget)
+{
+    QVBoxLayout *mverticalLayout = new QVBoxLayout(widget);
+    mverticalLayout->setSpacing(8);
+    mverticalLayout->setContentsMargins(0, 0, 40, 100);
+
+    mTitleLabel = new TitleLabel(widget);
+
+    // 自动代理模块
+    mAutoFrame = new QFrame(widget);
+    mAutoFrame->setMinimumSize(QSize(550, 0));
+    mAutoFrame->setMaximumSize(QSize(16777215, 16777215));
+    mAutoFrame->setFrameShape(QFrame::Box);
+
+    QVBoxLayout *AutobootLayout = new QVBoxLayout(mAutoFrame);
+    AutobootLayout->setContentsMargins(0, 0, 0, 0);
+    AutobootLayout->setSpacing(0);
+
+    mAutoProxyWidget = new HoverWidget("",widget);
+    mAutoProxyWidget->setObjectName("mAutoProxyWidget");
+    mAutoProxyWidget->setMinimumSize(QSize(550, 60));
+    mAutoProxyWidget->setMaximumSize(QSize(16777215, 60));
+    mAutoProxyWidget->setStyleSheet(QString("HoverWidget#mAutoProxyWidget{background: palette(base);\
+                                   border-radius: 4px;}"));
+
+    QHBoxLayout *mAutoProxyLayout = new QHBoxLayout(mAutoProxyWidget);
+    mAutoProxyLayout->setContentsMargins(16, 0, 24, 0);
+    mAutoProxyLayout->setSpacing(0);
+
+    mAutoProxyLabel = new QLabel(mAutoProxyWidget);
+    mAutoProxyLabel->setFixedWidth(400);
+
+    mAutoBtn = new QRadioButton(mAutoProxyWidget);
+
+    mAutoProxyLayout->addWidget(mAutoProxyLabel);
+    mAutoProxyLayout->addStretch();
+    mAutoProxyLayout->addWidget(mAutoBtn);
+
+    line_1 = new QFrame(mAutoFrame);
+    line_1->setMinimumSize(QSize(0, 1));
+    line_1->setMaximumSize(QSize(16777215, 1));
+    line_1->setLineWidth(0);
+    line_1->setFrameShape(QFrame::HLine);
+    line_1->setFrameShadow(QFrame::Sunken);
+
+    mUrlFrame = new QFrame(mAutoFrame);
+    mUrlFrame->setMinimumSize(QSize(550, 60));
+    mUrlFrame->setMaximumSize(QSize(16777215, 60));
+    mUrlFrame->setFrameShape(QFrame::NoFrame);
+
+    QHBoxLayout *mUrlLayout = new QHBoxLayout(mUrlFrame);
+    mUrlLayout->setContentsMargins(16, 0, 16, 0);
+    mUrlLayout->setSpacing(8);
+
+    mUrlLabel = new QLabel(mUrlFrame);
+    mUrlLabel->setFixedWidth(136);
+
+    mUrlLineEdit = new QLineEdit(mUrlFrame);
+    mUrlLineEdit->setFixedHeight(36);
+
+    mUrlLayout->addWidget(mUrlLabel);
+    mUrlLayout->addWidget(mUrlLineEdit);
+
+    AutobootLayout->addWidget(mAutoProxyWidget);
+    AutobootLayout->addWidget(line_1);
+    AutobootLayout->addWidget(mUrlFrame);
+
+//    connect(mAutoProxyWidget,&HoverWidget::widgetClicked,[=](){
+//        emit mAutoBtn->click();
+//    });
+
+    // 手动代理模块
+    mManualFrame = new QFrame(widget);
+    mManualFrame->setMinimumSize(QSize(550, 0));
+    mManualFrame->setMaximumSize(QSize(16777215, 16777215));
+    mManualFrame->setFrameShape(QFrame::Box);
+
+    QVBoxLayout *mManualLayout = new QVBoxLayout(mManualFrame);
+    mManualLayout->setContentsMargins(0, 0, 0, 0);
+    mManualLayout->setSpacing(0);
+
+    mManualProxyWidget = new HoverWidget("",widget);
+    mManualProxyWidget->setObjectName("mManualProxyWidget");
+    mManualProxyWidget->setMinimumSize(QSize(550, 60));
+    mManualProxyWidget->setMaximumSize(QSize(16777215, 60));
+    mManualProxyWidget->setStyleSheet(QString("HoverWidget#mManualProxyWidget{background: palette(base);\
+                                   border-radius: 4px;}"));
+
+    QHBoxLayout *mManualProxyLayout = new QHBoxLayout(mManualProxyWidget);
+    mManualProxyLayout->setContentsMargins(16, 0, 24, 0);
+    mManualProxyLayout->setSpacing(0);
+
+    mManualProxyLabel = new QLabel(mManualProxyWidget);
+    mManualProxyLabel->setFixedWidth(400);
+
+    mManualBtn = new QRadioButton(mManualProxyWidget);
+
+    mManualProxyLayout->addWidget(mManualProxyLabel);
+    mManualProxyLayout->addStretch();
+    mManualProxyLayout->addWidget(mManualBtn);
+
+    line_2 = new QFrame(mManualFrame);
+    line_2->setMinimumSize(QSize(0, 1));
+    line_2->setMaximumSize(QSize(16777215, 1));
+    line_2->setLineWidth(0);
+    line_2->setFrameShape(QFrame::HLine);
+    line_2->setFrameShadow(QFrame::Sunken);
+
+//    mHTTPFrame = new QFrame(mManualFrame);
+//    mHTTPFrame->setMinimumSize(QSize(550, 60));
+//    mHTTPFrame->setMaximumSize(QSize(16777215, 60));
+//    mHTTPFrame->setFrameShape(QFrame::NoFrame);
+
+//    QHBoxLayout *mHTTPLayout = new QHBoxLayout(mHTTPFrame);
+//    mHTTPLayout->setContentsMargins(16, 0, 16, 0);
+//    mHTTPLayout->setSpacing(8);
+
+//    mHTTPLabel = new QLabel(mHTTPFrame);
+//    mHTTPLabel->setFixedWidth(136);
+
+//    mUrlLineEdit = new QLineEdit(mUrlFrame);
+//    mUrlLineEdit->setFixedHeight(36);
+
+//    mUrlLayout->addWidget(mUrlLabel);
+//    mUrlLayout->addWidget(mUrlLineEdit);
+
+    mManualLayout->addWidget(mManualProxyWidget);
+    mManualLayout->addWidget(line_2);
+
+    mverticalLayout->addWidget(mTitleLabel);
+    mverticalLayout->addWidget(mAutoFrame);
+    mverticalLayout->addWidget(mManualFrame);
+    mverticalLayout->addStretch();
+
 }
 
 void Proxy::initSearchText() {

@@ -28,6 +28,8 @@
 #include "addautoboot.h"
 #include "Label/titlelabel.h"
 #include "HoverWidget/hoverwidget.h"
+#include "AddBtn/addbtn.h"
+
 #include <QtDBus>
 #include <QGSettings>
 #include <QVBoxLayout>
@@ -70,6 +72,7 @@ private:
     bool setAutoAppStatus(QString bname, bool status);
     void clearAutoItem();
     bool eventFilter(QObject *obj, QEvent *event);
+    gboolean _key_file_to_file(GKeyFile *keyfile, const gchar *path);
 
 private:
     Ui::AutoBoot *ui;
@@ -86,7 +89,7 @@ private:
     QMap<QString, AutoApp> statusMaps;
     QMultiMap<QString, QWidget *> appgroupMultiMaps;
 
-    HoverWidget *addWgt;
+    AddBtn *addWgt;
 
     TitleLabel *mTitleLabel;
     QFrame *mAutoBootFrame;

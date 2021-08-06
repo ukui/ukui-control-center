@@ -94,7 +94,7 @@ void Printer::initUi(QWidget *widget)
 
     QVBoxLayout *PrinterLayout = new QVBoxLayout(PrinterWidget);
     PrinterLayout->setContentsMargins(0, 0, 0, 0);
-    PrinterLayout->setSpacing(1);
+    PrinterLayout->setSpacing(0);
 
     mPrinterLabel = new TitleLabel(PrinterWidget);
     mPrinterLabel->setText(tr("Printers And Scanners"));
@@ -111,7 +111,7 @@ void Printer::initUi(QWidget *widget)
     initComponent();
 
     PrinterLayout->addWidget(mPrinterLabel);
-    PrinterLayout->addSpacing(7);
+    PrinterLayout->addSpacing(8);
     PrinterLayout->addWidget(mPrinterListFrame);
     PrinterLayout->addWidget(mAddWgt);
 
@@ -128,6 +128,7 @@ void Printer::initPrinterUi()
         mPriterBtn->setProperty("useButtonPalette", true);
         mPriterBtn->setMinimumSize(QSize(580, 60));
         mPriterBtn->setMaximumSize(QSize(16777215, 60));
+        mPriterBtn->setStyleSheet("QPushButton:!checked{background-color: palette(base)}");
         QHBoxLayout *mPrinterLyt = new QHBoxLayout(mPriterBtn);
         mPrinterLyt->setSpacing(16);
 
@@ -150,10 +151,6 @@ void Printer::initPrinterUi()
         mPrinterListLayout->addWidget(mPriterBtn);
         mPrinterListLayout->addWidget(line);
 
-        if (i == mPrinterList.count() - 1) {
-            delete line;
-            line = nullptr;
-        }
         connect(mPriterBtn, &QPushButton::clicked, this, [=]() {
             runExternalApp();
         });
@@ -167,60 +164,12 @@ void Printer::initTitleLabel()
 
 void Printer::initComponent()
 {
-    mAddWgt = new HoverWidget("", pluginWidget);
-    mAddWgt->setObjectName("mAddwgt");
-    mAddWgt->setMinimumSize(QSize(580, 60));
-    mAddWgt->setMaximumSize(QSize(16777215, 60));
-    QPalette pal;
-    QBrush brush = pal.highlight();  //获取window的色值
-    QColor highLightColor = brush.color();
-    QString stringColor = QString("rgba(%1,%2,%3)") //叠加20%白色
-           .arg(highLightColor.red()*0.8 + 255*0.2)
-           .arg(highLightColor.green()*0.8 + 255*0.2)
-           .arg(highLightColor.blue()*0.8 + 255*0.2);
+    mAddWgt = new AddBtn(pluginWidget);
 
-    mAddWgt->setStyleSheet(QString("HoverWidget#mAddwgt{background: palette(button);\
-                                   border-radius: 4px;}\
-                                   HoverWidget:hover:!pressed#mAddwgt{background: %1;\
-                                   border-radius: 4px;}").arg(stringColor));
-    QHBoxLayout *addLyt = new QHBoxLayout;
-
-    QLabel *iconLabel = new QLabel();
-    QLabel *textLabel = new QLabel(tr("Add"));
-    QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
-    iconLabel->setPixmap(pixgray);
-    iconLabel->setProperty("useIconHighlightEffect", true);
-    iconLabel->setProperty("iconHighlightEffectMode", 1);
-
-    addLyt->addStretch();
-    addLyt->addWidget(iconLabel);
-    addLyt->addWidget(textLabel);
-    addLyt->addStretch();
-    mAddWgt->setLayout(addLyt);
-
-    connect(mAddWgt, &HoverWidget::widgetClicked, this, [=]() {
+    connect(mAddWgt, &AddBtn::clicked, this, [=]() {
         runExternalApp();
     });
 
-    // 悬浮改变Widget状态
-    connect(mAddWgt, &HoverWidget::enterWidget, this, [=](){
-
-        iconLabel->setProperty("useIconHighlightEffect", false);
-        iconLabel->setProperty("iconHighlightEffectMode", 0);
-        QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "white", 12);
-        iconLabel->setPixmap(pixgray);
-        textLabel->setStyleSheet("color: white;");
-    });
-
-    // 还原状态
-    connect(mAddWgt, &HoverWidget::leaveWidget, this, [=](){
-
-        iconLabel->setProperty("useIconHighlightEffect", true);
-        iconLabel->setProperty("iconHighlightEffectMode", 1);
-        QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
-        iconLabel->setPixmap(pixgray);
-        textLabel->setStyleSheet("color: palette(windowText);");
-    });
 }
 
 void Printer::refreshPrinterDevSlot()

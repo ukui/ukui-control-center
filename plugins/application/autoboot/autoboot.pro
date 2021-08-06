@@ -9,6 +9,7 @@ include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
 include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
 include($$PROJECT_COMPONENTSOURCE/closebutton.pri)
 include($$PROJECT_COMPONENTSOURCE/label.pri)
+include($$PROJECT_COMPONENTSOURCE/addbtn.pri)
 
 QT       += widgets svg dbus
 TEMPLATE = lib
@@ -46,3 +47,7 @@ FORMS +=
 
 RESOURCES += \
     res/img.qrc
+
+DISTFILES += \
+    addbtn \
+    addbtn.pri
