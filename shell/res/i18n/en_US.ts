@@ -492,7 +492,7 @@
         <location filename="../../../plugins/time-language/area/area.cpp" line="233"/>
         <location filename="../../../plugins/time-language/area/area.cpp" line="239"/>
         <location filename="../../../plugins/time-language/area/area.cpp" line="413"/>
-        <source>Need to log off to take effect</source>
+        <source>Need to logout to take effect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

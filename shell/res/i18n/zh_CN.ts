@@ -555,7 +555,7 @@
         <location filename="../../../plugins/time-language/area/area.ui" line="374"/>
         <location filename="../../../plugins/time-language/area/area.cpp" line="382"/>
         <source>Date</source>
-        <translation>时间日期</translation>
+        <translation>日期</translation>
         <extra-contents_path>/area/Date</extra-contents_path>
     </message>
     <message>
@@ -622,7 +622,7 @@
     <message>
         <location filename="../../../plugins/time-language/area/area.cpp" line="171"/>
         <source>Add main language</source>
-        <translation>添加首语言</translation>
+        <translation>添加语言</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.cpp" line="212"/>
@@ -697,7 +697,7 @@
         <location filename="../../../plugins/time-language/area/area.cpp" line="233"/>
         <location filename="../../../plugins/time-language/area/area.cpp" line="239"/>
         <location filename="../../../plugins/time-language/area/area.cpp" line="413"/>
-        <source>Need to log off to take effect</source>
+        <source>Need to logout to take effect</source>
         <translation>需要注销生效</translation>
     </message>
     <message>
@@ -727,7 +727,7 @@
     </message>
     <message>
         <source>add main language</source>
-        <translation type="vanished">添加首语言</translation>
+        <translation type="vanished">添加语言</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.cpp" line="386"/>

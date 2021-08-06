@@ -641,10 +641,9 @@
         <translation type="vanished">Etkili olması için iptal etmeniz gerekiyor</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="233"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="239"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="413"/>
-        <source>Need to log off to take effect</source>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="134"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="299"/>
+        <source>Need to logout to take effect</source>
         <translation>Etkili olması için oturumu kapatmanız gerekiyor</translation>
     </message>
     <message>
