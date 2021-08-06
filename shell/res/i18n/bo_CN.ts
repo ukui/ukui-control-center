@@ -329,9 +329,9 @@
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.cpp" line="163"/>
-        <source>first language</source>
+        <source>First Language</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/area/first language</extra-contents_path>
+        <extra-contents_path>/area/First Language</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.cpp" line="164"/>
@@ -355,7 +355,7 @@
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.cpp" line="180"/>
-        <source>Add main language</source>
+        <source>Add language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

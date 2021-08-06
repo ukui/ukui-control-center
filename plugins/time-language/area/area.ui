@@ -471,7 +471,7 @@
         </size>
        </property>
        <property name="text">
-        <string>first language</string>
+        <string>First Language</string>
        </property>
       </widget>
      </item>

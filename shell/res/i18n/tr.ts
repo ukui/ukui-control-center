@@ -596,8 +596,8 @@
         <translation>Widget Ekle</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="171"/>
-        <source>Add main language</source>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="196"/>
+        <source>Add language</source>
         <translation>Ana Dil Ekle</translation>
     </message>
     <message>
@@ -621,11 +621,11 @@
         <translation type="vanished">Zaman Biçimini Düzenle</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.ui" line="474"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="144"/>
-        <source>first language</source>
+        <location filename="../../../plugins/time-language/area/area.ui" line="465"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="168"/>
+        <source>First Language</source>
         <translation>Sistem Dili</translation>
-        <extra-contents_path>/area/first language</extra-contents_path>
+        <extra-contents_path>/area/First Language</extra-contents_path>
     </message>
     <message>
         <source>system language</source>
@@ -656,7 +656,7 @@
         <translation type="vanished">Çince</translation>
     </message>
     <message>
-        <source>add main language</source>
+        <source>Add language</source>
         <translation type="vanished">Ana dil ekle</translation>
     </message>
     <message>

@@ -435,13 +435,13 @@
          <widget class="QPushButton" name="browserLocalwpBtn">
           <property name="minimumSize">
            <size>
-            <width>240</width>
+            <width>210</width>
             <height>36</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>240</width>
+            <width>210</width>
             <height>36</height>
            </size>
           </property>
@@ -454,13 +454,13 @@
          <widget class="QPushButton" name="browserOnlinewpBtn">
           <property name="minimumSize">
            <size>
-            <width>240</width>
+            <width>210</width>
             <height>36</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>240</width>
+            <width>210</width>
             <height>36</height>
            </size>
           </property>

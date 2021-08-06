@@ -140,8 +140,8 @@ void Area::run_external_app_slot() {
 void Area::initUI() {
     //~ contents_path /area/Regional Format
     ui->titleLabel->setText(tr("Regional Format"));
-    //~ contents_path /area/first language
-    ui->title3Label->setText(tr("first language"));
+    //~ contents_path /area/First Language
+    ui->title3Label->setText(tr("First Language"));
 
     ui->summaryLabel->setText(tr("Language for system windows,menus and web pages"));
     ui->summaryLabel->setVisible(true);
@@ -168,7 +168,7 @@ void Area::initUI() {
     QHBoxLayout *addLyt = new QHBoxLayout;
 
     QLabel * iconLabel = new QLabel();
-    QLabel * textLabel = new QLabel(tr("Add main language"));
+    QLabel * textLabel = new QLabel(tr("Add language"));
     QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
     iconLabel->setPixmap(pixgray);
     iconLabel->setProperty("useIconHighlightEffect", true);

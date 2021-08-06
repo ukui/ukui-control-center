@@ -634,11 +634,11 @@ void Screensaver::initScreensaverSourceFrame()
     sourceLayout->addWidget(sourcePathLine);
     sourceLayout->addWidget(sourceBtn);
     sourceLabel->setText(tr("Screensaver source"));
-    sourceLabel->setFixedWidth(196);
+    sourceLabel->setFixedWidth(210);
     sourceLabel->setStyleSheet("background-color: palette(window);");
     sourcePathLine->setFixedHeight(36);
     sourcePathLine->setMinimumWidth(252);
-    sourceBtn->setFixedSize(80,36);
+    sourceBtn->setFixedSize(98,36);
     sourceBtn->setText(tr("Select"));
     sourceBtn->raise();
     if (qScreensaverDefaultSetting != nullptr && \
@@ -728,7 +728,7 @@ void Screensaver::initTimeSetFrame() {
     timeSetLayout->addWidget(timeCom);
     timeSetLabel->setStyleSheet("background-color: palette(window);");
     timeSetLabel->setText(tr("Switching time"));
-    timeSetLabel->setFixedWidth(196);
+    timeSetLabel->setFixedWidth(210);
     timeCom->setFixedHeight(36);
     timeCom->setMinimumWidth(340);
     timeCom->addItem(tr("1min"));
@@ -775,7 +775,7 @@ void Screensaver::initPictureSwitchFrame() {
     randomLayout->addStretch();
     randomLayout->addWidget(randomBtn);
     randomLabel->setText(tr("Random switching"));
-    randomLabel->setFixedWidth(196);
+    randomLabel->setFixedWidth(210);
     if (qScreensaverDefaultSetting != nullptr && \
         qScreensaverDefaultSetting->keys().contains(CONTAIN_AUTO_SWITCH_KEY, Qt::CaseSensitive)) { //存在【随机切换】
         randomBtn->setChecked(qScreensaverDefaultSetting->get(AUTO_SWITCH_KEY).toBool());
@@ -811,12 +811,12 @@ void Screensaver::initShowTextFrame() {
     textLayout->addWidget(noticeFrame);
     noticeFrame->setLayout(noticeLayout);
     textWid->setLayout(widVLayout);
-    textWid->setFixedWidth(196);
+    textWid->setFixedWidth(210);
     widVLayout->setMargin(0);
     widVLayout->addWidget(showLabel);
     widVLayout->addStretch();
     showLabel->setText(tr("Display text"));
-    showLabel->setFixedWidth(196);
+    showLabel->setFixedWidth(210);
     inputText->setContextMenuPolicy(Qt::NoContextMenu); //不要右击菜单，右击菜单导致选择状态的清除不好实现
     inputText->setFixedHeight(100);
     //inputText->setFontPointSize(14);
@@ -885,7 +885,7 @@ void Screensaver::initShowtimeFrame()
     showTimeBtn = new SwitchButton(showTimeFrame);
     showTimeLayout->addStretch();
     showTimeLayout->addWidget(showTimeBtn);
-    showTimeLabel->setFixedWidth(196);
+    showTimeLabel->setFixedWidth(210);
     //~ contents_path /screensaver/Show rest time
     showTimeLabel->setText(tr("Show rest time"));
     ui->customizeLayout->addWidget(showTimeFrame);
@@ -904,7 +904,7 @@ void Screensaver::initShowTextSetFrame() {
     textSetLayout->setContentsMargins(16,0,16,0);
     textSetLabel->setStyleSheet("background-color: palette(window);");
     textSetLabel->setText(tr("Text position"));
-    textSetLabel->setFixedWidth(196);
+    textSetLabel->setFixedWidth(210);
     textSetLayout->addWidget(textPositionCom);
     textPositionCom->setFixedHeight(36);
     textPositionCom->setMinimumWidth(340);

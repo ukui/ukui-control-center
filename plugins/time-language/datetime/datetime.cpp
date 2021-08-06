@@ -195,8 +195,8 @@ void DateTime::initComponent()
 
     //~ contents_path /date/Change time
     ui->chgtimebtn->setText(tr("Change time"));
-    //~ contents_path /date/Change time zone
-    ui->chgzonebtn->setText(tr("Change time zone"));
+    //~ contents_path /date/Change timezone
+    ui->chgzonebtn->setText(tr("Change timezone"));
 
     ui->hourFrame->setVisible(false);  //移到area里面了
     QHBoxLayout *hourLayout = new QHBoxLayout(ui->hourFrame);
@@ -247,7 +247,7 @@ void DateTime::initTimeShow()
     ui->summaryLabel->setText(tr("Add time zones to display the time,only 5 can be added"));
 
     HoverWidget *addTimeWgt = new HoverWidget("");
-    addTimeWgt->setObjectName(tr("addTimeWgt"));
+    addTimeWgt->setObjectName("addTimeWgt");
     addTimeWgt->setMinimumSize(QSize(580, 50));
     addTimeWgt->setMaximumSize(QSize(960, 50));
 
@@ -397,7 +397,7 @@ void DateTime::newTimeshow(const QString &timezone)
     label_2->setText(timeAndWeek + "     " + m_zoneinfo->getLocalTimezoneName(timezone, locale));
 
     btn->setText(tr("Delete"));
-    btn->setFixedSize(80,  36);
+    btn->setFixedSize(98, 36);
     btn->hide();
 
     connect(addWgt, &HoverWidget::enterWidget, this, [=](){

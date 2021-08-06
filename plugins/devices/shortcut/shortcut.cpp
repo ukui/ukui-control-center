@@ -477,11 +477,11 @@ void Shortcut::buildCustomItem(KeyEntry *nkeyEntry)
     bindingLabel->setText(nkeyEntry->bindingStr);
 
     delBtn->setText(tr("Delete"));
-    delBtn->setFixedSize(80,  36);
+    delBtn->setFixedSize(98,  36);
     delBtn->hide();
 
     editBtn->setText(tr("Edit"));
-    editBtn->setFixedSize(80, 36);
+    editBtn->setFixedSize(98, 36);
     editBtn->hide();
 
 

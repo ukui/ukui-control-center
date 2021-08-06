@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>915</height>
+    <height>1058</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -201,7 +201,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_4">
              <property name="spacing">
-              <number>0</number>
+              <number>8</number>
              </property>
              <property name="leftMargin">
               <number>16</number>
@@ -210,7 +210,7 @@
               <number>16</number>
              </property>
              <item>
-              <widget class="QLabel" name="programLabel">
+              <widget class="FixLabel" name="programLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -219,13 +219,13 @@
                </property>
                <property name="minimumSize">
                 <size>
-                 <width>200</width>
+                 <width>210</width>
                  <height>36</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>198</width>
+                 <width>210</width>
                  <height>36</height>
                 </size>
                </property>
@@ -536,6 +536,11 @@
    <extends>QWidget</extends>
    <header>screensaver.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>FixLabel</class>
+   <extends>QLabel</extends>
+   <header>Label/fixlabel.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

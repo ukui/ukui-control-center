@@ -505,11 +505,16 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.ui" line="474"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="144"/>
-        <source>first language</source>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="165"/>
+        <source>first day of week</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/area/first language</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.ui" line="465"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="170"/>
+        <source>First Language</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/area/First Language</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.cpp" line="213"/>
@@ -544,8 +549,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="380"/>
-        <source>First Day Of Week</source>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="187"/>
+        <source>Add language</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/area/First Day Of Week</extra-contents_path>
     </message>
