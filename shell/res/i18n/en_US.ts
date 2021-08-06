@@ -1226,37 +1226,37 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="175"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="438"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="423"/>
         <source>Current Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="176"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="439"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="447"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="424"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="432"/>
         <source>New Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="177"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="440"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="448"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="425"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="433"/>
         <source>New Password Identify</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="286"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="406"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="252"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="380"/>
         <source>Inconsistency with pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="368"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="342"/>
         <source>Contains illegal characters!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="370"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="344"/>
         <source>Same with old pwd</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1269,19 +1269,8 @@ Please authenticate yourself to continue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changetypedialog.cpp" line="41"/>
-        <location filename="../../../plugins/account/userinfo/changetypedialog.cpp" line="42"/>
-        <source>Make sure that there is at least one administrator on the computer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="409"/>
         <source>standard user</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="456"/>
-        <source>Standard users can use most software, but cannot change system settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1291,7 +1280,12 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="359"/>
-        <source>Administrators can make any changes they need</source>
+        <source>Users can make any changes they need</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="456"/>
+        <source>Users cannot change system settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1307,6 +1301,12 @@ Please authenticate yourself to continue</source>
     <message>
         <location filename="../../../plugins/account/userinfo/changetypedialog.cpp" line="38"/>
         <source>Change type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.cpp" line="41"/>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.cpp" line="42"/>
+        <source>Ensure that must have admin on system</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1517,17 +1517,17 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="529"/>
-        <source>Standard users can use most software, but cannot change system settings</source>
+        <source>Users cannot change system settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="646"/>
+        <source>Users can make any changes they need</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="633"/>
         <source>administrator</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="646"/>
-        <source>Administrators can make any changes they need</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1556,53 +1556,53 @@ Please authenticate yourself to continue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="153"/>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="291"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="156"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="294"/>
         <source>Inconsistency with pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="243"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="246"/>
         <source>Contains illegal characters!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="394"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="397"/>
         <source>The user name cannot be empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="396"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="399"/>
         <source>Must be begin with lower letters!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="399"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="402"/>
         <source>Can not contain capital letters!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="421"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="424"/>
         <source>Name already in use, change another one.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="423"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="426"/>
         <source>Name corresponds to group already exists.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="428"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="431"/>
         <source>Name length must less than %1 letters!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="430"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="433"/>
         <source>Can only contain letters,digits,underline!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="435"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="438"/>
         <source>Username&apos;s folder exists, change another one</source>
         <translation type="unfinished"></translation>
     </message>
