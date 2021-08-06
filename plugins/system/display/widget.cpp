@@ -207,7 +207,7 @@ void Widget::setConfig(const KScreen::ConfigPtr &config, bool showBrightnessFram
                 this, &Widget::slotOutputEnabledChanged);
         }
     }
-   unifySetconfig = false;
+    unifySetconfig = false;
     // 择主屏幕输出
     QMLOutput *qmlOutput = mScreen->primaryOutput();
 
@@ -312,11 +312,6 @@ void Widget::slotFocusedOutputChanged(QMLOutput *output)
     ui->primaryCombo->setCurrentIndex(index);
 }
 
-void Widget::slotFocusedOutputChangedNoParam()
-{
-    mControlPanel->activateOutput(res);
-}
-
 void Widget::slotOutputEnabledChanged()
 {
     // 点击禁用屏幕输出后的改变
@@ -374,7 +369,7 @@ void Widget::slotUnifyOutputs()
     }
 
     // 取消统一输出
-    if (base->isCloneMode() && !mUnifyButton->isChecked()) {
+    if (!mUnifyButton->isChecked()) {
         bool isExistCfg = QFile::exists((QDir::homePath() + "/.config/ukui/ukcc-screenPreCfg.json"));
         if (mKDSCfg.isEmpty() && isExistCfg) {
             KScreen::OutputList screens = mPrevConfig->connectedOutputs();
@@ -407,7 +402,7 @@ void Widget::slotUnifyOutputs()
         mCloseScreenButton->setEnabled(true);
         ui->showMonitorframe->setVisible(true);
         ui->primaryCombo->setEnabled(true);
-    } else if (!base->isCloneMode() && mUnifyButton->isChecked()) {
+    } else if (mUnifyButton->isChecked()) {
         // Clone the current config, so that we can restore it in case user
         // breaks the cloning
         mPrevConfig = mConfig->clone();
@@ -1138,20 +1133,6 @@ void Widget::setScreenKDS(QString kdsConfig)
             }
             nowIt++;
         }
-    } else if (kdsConfig == "first") {
-        for (int i = 0; i < screens.size(); i++) {
-            if (!screens[i].isNull()) {
-                screens[i]->setEnabled((i == 0));
-            }
-        }
-        delayApply();
-    } else if (kdsConfig == "second") {
-        for (int i = 0; i < screens.size(); i++) {
-            if (!screens[i].isNull()) {
-                screens[i]->setEnabled((i != 0));
-            }
-        }
-        delayApply();
     } else {
         Q_FOREACH(KScreen::OutputPtr output, screens) {
             if (!output.isNull()) {
@@ -1193,13 +1174,16 @@ void Widget::setActiveScreen(QString status)
 //通过win+p修改，不存在按钮影响亮度显示的情况，直接就应用了，此时每个屏幕的openFlag是没有修改的，需要单独处理(setScreenKDS)
 void Widget::kdsScreenchangeSlot(QString status)
 {
-    bool isCheck = (status == "copy") ? true : false;
-    mKDSCfg = status;
-    setScreenKDS(mKDSCfg);
-    if (mConfig->connectedOutputs().count() >= 2) {
-        mUnifyButton->setChecked(isCheck);
-    }
-    QTimer::singleShot(1500, this, [=]{ //需要延时
+    QTimer::singleShot(2500, this, [=] { //需要延时
+        bool isCheck = (status == "copy") ? true : false;
+        mKDSCfg = status;
+        if (mKDSCfg != "copy" && !mUnifyButton->isChecked()) {
+            delayApply();;
+        }
+        if (mConfig->connectedOutputs().count() >= 2) {
+            mUnifyButton->setChecked(isCheck);
+        }
+
         Q_FOREACH(KScreen::OutputPtr output, mConfig->connectedOutputs()) {
             if (output.isNull())
                 continue;
@@ -1224,6 +1208,8 @@ void Widget::delayApply()
         // kds与插拔不触发应用操作
         if (mKDSCfg.isEmpty() && !mIsScreenAdd) {
             save();
+        } else {
+            mPrevConfig = mConfig->clone();
         }
         mKDSCfg.clear();
         mIsScreenAdd = false;
@@ -1232,6 +1218,7 @@ void Widget::delayApply()
 
 void Widget::save()
 {
+    qDebug() << Q_FUNC_INFO << ": apply the screen config";
     if (!this) {
         return;
     }
@@ -1507,19 +1494,13 @@ void Widget::mainScreenButtonSelect(int index)
     const KScreen::OutputPtr newPrimary = mConfig->output(ui->primaryCombo->itemData(index).toInt());
     int connectCount = mConfig->connectedOutputs().count();
 
-    if (mIsWayland) {
-        if (!getPrimaryWaylandScreen().compare(newPrimary->name(), Qt::CaseInsensitive)) {
-            ui->mainScreenButton->setEnabled(false);
-        } else {
-            ui->mainScreenButton->setEnabled(true);
-        }
+
+    if (newPrimary == mConfig->primaryOutput() || mUnifyButton->isChecked() || !newPrimary->isEnabled()) {
+        ui->mainScreenButton->setEnabled(false);
     } else {
-        if (newPrimary == mConfig->primaryOutput()) {
-            ui->mainScreenButton->setEnabled(false);
-        } else {
-            ui->mainScreenButton->setEnabled(true);
-        }
+        ui->mainScreenButton->setEnabled(true);
     }
+
 
     // 设置是否勾选
     mCloseScreenButton->setEnabled(true);
