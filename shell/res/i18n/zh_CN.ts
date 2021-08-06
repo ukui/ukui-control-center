@@ -4492,76 +4492,56 @@ Please retry or relogin!</source>
 <context>
     <name>MouseControl</name>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="53"/>
         <source>Mouse Key Settings</source>
-        <translation>鼠标键设置</translation>
+        <translation type="vanished">鼠标键设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="132"/>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="169"/>
         <source>Hand habit</source>
-        <translation>惯用手</translation>
+        <translation type="vanished">惯用手</translation>
         <extra-contents_path>/mouse/Hand habit</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="516"/>
         <source>Pointer Settings</source>
-        <translation>指针设置</translation>
+        <translation type="vanished">指针设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="598"/>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="173"/>
         <source>Speed</source>
-        <translation>速度</translation>
+        <translation type="vanished">速度</translation>
         <extra-contents_path>/mouse/Speed</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="257"/>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="636"/>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1286"/>
         <source>Slow</source>
-        <translation>慢</translation>
+        <translation type="vanished">慢</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="219"/>
         <source>mouse wheel speed</source>
-        <translation>鼠标滚轮速度</translation>
+        <translation type="vanished">鼠标滚轮速度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="304"/>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="686"/>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1336"/>
         <source>Fast</source>
-        <translation>快</translation>
+        <translation type="vanished">快</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="378"/>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="171"/>
         <source>Doubleclick  delay</source>
-        <translation>鼠标双击间隔时长</translation>
+        <translation type="vanished">鼠标双击间隔时长</translation>
         <extra-contents_path>/mouse/Doubleclick  delay</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="416"/>
         <source>Short</source>
-        <translation>短</translation>
+        <translation type="vanished">短</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="463"/>
         <source>Long</source>
-        <translation>长</translation>
+        <translation type="vanished">长</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="757"/>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="177"/>
         <source>Acceleration</source>
-        <translation>鼠标加速</translation>
+        <translation type="vanished">鼠标加速</translation>
         <extra-contents_path>/mouse/Acceleration</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1098"/>
         <source>Cursor weight</source>
-        <translation>光标粗细</translation>
+        <translation type="vanished">光标粗细</translation>
     </message>
     <message>
         <source>Sensitivity</source>
@@ -4577,50 +4557,39 @@ Please retry or relogin!</source>
         <translation type="vanished">高</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="822"/>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="179"/>
         <source>Visibility</source>
-        <translation>按Ctrl键显示指针位置</translation>
+        <translation type="vanished">按Ctrl键显示指针位置</translation>
         <extra-contents_path>/mouse/Visibility</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="900"/>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="181"/>
         <source>Pointer size</source>
-        <translation>指针大小</translation>
+        <translation type="vanished">指针大小</translation>
         <extra-contents_path>/mouse/Pointer size</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="950"/>
         <source>Cursor Settings</source>
-        <translation>光标设置</translation>
+        <translation type="vanished">光标设置</translation>
     </message>
     <message>
         <source> Cursor weight</source>
         <translation type="obsolete">光标粗细</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1123"/>
         <source>Thin</source>
-        <translation>细</translation>
+        <translation type="vanished">细</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1158"/>
         <source>Coarse</source>
-        <translation>粗</translation>
+        <translation type="vanished">粗</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1261"/>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="185"/>
         <source>Cursor speed</source>
-        <translation>光标速度</translation>
+        <translation type="vanished">光标速度</translation>
         <extra-contents_path>/mouse/Cursor speed</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1017"/>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="183"/>
         <source>Enable flashing on text area</source>
-        <translation>启用文本区域的光标闪烁</translation>
+        <translation type="vanished">启用文本区域的光标闪烁</translation>
         <extra-contents_path>/mouse/Enable flashing on text area</extra-contents_path>
     </message>
     <message>
@@ -4628,40 +4597,147 @@ Please retry or relogin!</source>
         <translation type="vanished">鼠标</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="103"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="24"/>
         <source>Mouse</source>
         <translation>鼠标</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="199"/>
         <source>Lefthand</source>
+        <translation type="vanished">左手</translation>
+    </message>
+    <message>
+        <source>Righthand</source>
+        <translation type="vanished">右手</translation>
+    </message>
+    <message>
+        <source>Default(Recommended)</source>
+        <translation type="vanished">默认（推荐）</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <translation type="vanished">中等</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="vanished">较大</translation>
+    </message>
+</context>
+<context>
+    <name>MouseUI</name>
+    <message>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="54"/>
+        <source>Mouse</source>
+        <translation>鼠标</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="61"/>
+        <source>Pointer</source>
+        <translation>指针</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="69"/>
+        <source>Cursor</source>
+        <translation>光标</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="106"/>
+        <source>Dominant hand</source>
+        <translation>惯用手</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="108"/>
+        <source>Left hand</source>
         <translation>左手</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="200"/>
-        <source>Righthand</source>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="109"/>
+        <source>Right hand</source>
         <translation>右手</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="216"/>
-        <source>Default(Recommended)</source>
-        <translation>默认（推荐）</translation>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="132"/>
+        <source>Wheel speed</source>
+        <translation>滚轮速度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="217"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="134"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="192"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="315"/>
+        <source>Slow</source>
+        <translation>慢</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="140"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="199"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="322"/>
+        <source>Fast</source>
+        <translation>快</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="160"/>
+        <source>Double-click interval time</source>
+        <translation>双击间隔时长</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="162"/>
+        <source>Short</source>
+        <translation>短</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="169"/>
+        <source>Long</source>
+        <translation>长</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="190"/>
+        <source>Pointer speed</source>
+        <translation>指针速度</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="220"/>
+        <source>Mouse acceleration</source>
+        <translation>鼠标加速</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="239"/>
+        <source>Show pointer position when pressing ctrl</source>
+        <translation>按Ctrl键时显示指针位置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="259"/>
+        <source>Pointer size</source>
+        <translation>指针大小</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="261"/>
+        <source>Small(recommend)</source>
+        <translation>小（推荐）</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="262"/>
         <source>Medium</source>
-        <translation>中等</translation>
+        <translation>中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="218"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="263"/>
         <source>Large</source>
-        <translation>较大</translation>
+        <translation>大</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="293"/>
+        <source>Blinking cursor in text area</source>
+        <translation>文本区域光标闪烁</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="313"/>
+        <source>Cursor speed</source>
+        <translation>光标速度</translation>
     </message>
 </context>
 <context>
     <name>MyLabel</name>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="84"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="21"/>
         <source>double-click to test</source>
         <translation>双击测试</translation>
     </message>

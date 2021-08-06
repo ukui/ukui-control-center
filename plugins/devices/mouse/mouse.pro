@@ -36,12 +36,13 @@ PKGCONFIG     += gio-2.0 \
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
-        mousecontrol.cpp
+        mousecontrol.cpp \
+        mouseui.cpp
 
 HEADERS += \
-        mousecontrol.h
+        mousecontrol.h \
+        mouseui.h
 
-FORMS += \
-        mousecontrol.ui
+FORMS +=
 
 INSTALLS += target

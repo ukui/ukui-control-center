@@ -21,34 +21,9 @@
 #define MOUSECONTROL_H
 
 #include <QObject>
-#include <QtPlugin>
-#include <QListView>
-#include <QX11Info>
-#include <QGSettings>
-#include <QStyledItemDelegate>
-#include <QProcess>
-#include <QLabel>
-#include <QStringList>
 
 #include "shell/interface.h"
-#include "SwitchButton/switchbutton.h"
-
-namespace Ui {
-class MouseControl;
-}
-
-class MyLabel : public QLabel {
-    Q_OBJECT
-public:
-    MyLabel();
-    ~MyLabel();
-
-public:
-    QGSettings * mSettings;
-
-protected:
-    void mouseDoubleClickEvent(QMouseEvent *event);
-};
+#include "mouseui.h"
 
 class MouseControl : public QObject, CommonInterface
 {
@@ -66,37 +41,11 @@ public:
     void plugin_delay_control() Q_DECL_OVERRIDE;
     const QString name() const  Q_DECL_OVERRIDE;
 
-    void initSearchText();
-    void setupComponent();
-    void initHandHabitStatus();
-    void initPointerStatus();
-    void initCursorStatus();
-    void initWheelStatus();
-
-private slots:
-    void mouseSizeChange();
 private:
-    Ui::MouseControl *ui;
-
-    QWidget * pluginWidget;
-
-    SwitchButton * visiblityBtn;
-    SwitchButton * flashingBtn;
-    SwitchButton * mAccelBtn;
-
-
-    QGSettings *settings;
-    QGSettings *sesstionSetttings;
-    QGSettings *desktopSettings;
-    QGSettings *mThemeSettings;
+    MouseUI *pluginWidget;
 
     int pluginType;
-
-    QString leftStr;
-    QString rightStr;
     QString pluginName;
-
-    QStringList mouseKeys;
 
     bool mFirstLoad;
 };
