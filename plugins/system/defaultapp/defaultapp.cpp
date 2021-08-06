@@ -161,6 +161,10 @@ void DefaultApp::initUI() {
                 const char * iconname = g_icon_to_string(g_app_info_get_icon(G_APP_INFO(imageinfo)));
                 QIcon appicon;
                 appicon = QIcon::fromTheme(QString(iconname));
+
+                if(single == "display-im6.q16.desktop" || single == "display-im6.desktop") {
+                    continue;
+                }
                 if (currentimage == single) {
                     continue;
                 }
