@@ -750,11 +750,14 @@ void TabWid::hideUpdateBtnSlot(bool isSucceed)
             bacupInit(false);
             //            versionInformationLab->setText(tr("您的系统已是最新！"));
             versionInformationLab->setText(tr("Your system is the latest!"));
+            checkUpdateBtn->hide();
             systemPortraitLab->setPixmap(QPixmap(":/img/plugins/upgrade/normal.png").scaled(96,96));
         }
         else
         {
             //            versionInformationLab->setText(tr("部分更新失败！"));
+            checkUpdateBtn->setText(tr("Check Update"));
+            checkUpdateBtn->setEnabled(true);
             versionInformationLab->setText(tr("Part of the update failed!"));
         }
     }
@@ -763,6 +766,9 @@ void TabWid::hideUpdateBtnSlot(bool isSucceed)
 void TabWid::changeUpdateAllSlot(bool isUpdate)
 {
 
+    if (updateMutual->importantList.size() == 0)
+        return ;
+
     if (isUpdate) {
         checkUpdateBtn->setText(tr("UpdateAll"));
         checkUpdateBtn->setEnabled(true);
@@ -770,15 +776,6 @@ void TabWid::changeUpdateAllSlot(bool isUpdate)
         checkUpdateBtn->setText(tr("UpdateAll"));
         checkUpdateBtn->setEnabled(false);
     }
-
-//    if(checkUpdateBtn->isEnabled() == false)
-//    {
-//        //        checkUpdateBtn->setText("全部更新");
-//        checkUpdateBtn->setText(tr("UpdateAll"));
-//        checkUpdateBtn->setEnabled(true);
-//    } else {
-//        checkUpdateBtn->setEnabled(false);
-//    }
 }
 
 
@@ -824,7 +821,7 @@ void TabWid::receiveBackupStartResult(int result)
         backupMessageBox(tr("Kylin backup restore tool could not find the UUID, this update will not backup the system!"));
         break;
     default:
-//        backupMessageBox(tr("The backup restore partition is abnormal. You may not have a backup restore partition.For more details,see /var/log/backup.log"));
+        //        backupMessageBox(tr("The backup restore partition is abnormal. You may not have a backup restore partition.For more details,see /var/log/backup.log"));
         break;
     }
 }
