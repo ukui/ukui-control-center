@@ -367,7 +367,7 @@ void MouseUI::initConnection()
 
 void MouseUI::gsettingConnection()
 {
-    // 命令行修改 gsetting 的值图形界面做出相应改变
+    // 命令行修改 gsetting 的 key 值图形界面做出相应改变
     connect(mMouseGsetting,&QGSettings::changed,[=] (const QString &key){
         if(key == "leftHanded") {
             int handHabit = mMouseGsetting->get(kDominantHandKey).toBool();

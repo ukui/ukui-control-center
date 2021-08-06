@@ -35,6 +35,7 @@ void TouchpadUI::initUI()
 
     mMouseDisableBtn = new SwitchButton(this);
     mMouseDisableLabel = new QLabel(tr("Disable touchpad when using the mouse"), this);
+//    mMouseDisableLabel->setMinimumWidth(200);
     MouseDisableHLayout->addWidget(mMouseDisableLabel);
     MouseDisableHLayout->addStretch();
     MouseDisableHLayout->addWidget(mMouseDisableBtn);
@@ -50,9 +51,14 @@ void TouchpadUI::initUI()
     QHBoxLayout *CursorSpeedHLayout = new QHBoxLayout();
 
     mCursorSpeedLabel = new QLabel(tr("Cursor Speed"), this);
+    mCursorSpeedLabel->setMinimumWidth(200);
     mCursorSpeedSlowLabel = new QLabel(tr("Slow"), this);
     mCursorSpeedFastLabel = new QLabel(tr("Fast"), this);
     mCursorSpeedSlider = new QSlider(Qt::Horizontal);
+    mCursorSpeedSlider->setMinimum(100);
+    mCursorSpeedSlider->setMaximum(1000);
+    mCursorSpeedSlider->setSingleStep(50);
+    mCursorSpeedSlider->setPageStep(50);
     CursorSpeedHLayout->addWidget(mCursorSpeedLabel);
     CursorSpeedHLayout->addWidget(mCursorSpeedSlowLabel);
     CursorSpeedHLayout->addWidget(mCursorSpeedSlider);
@@ -161,7 +167,34 @@ void TouchpadUI::initConnection()
 
         connect(mScrollTypeComBox, QOverload<const QString &>::of(&QComboBox::currentIndexChanged),
                 this, &TouchpadUI::scrolltypeSlot);
+
+        gsettingConnectUi();
     }
+}
+
+void TouchpadUI::gsettingConnectUi()
+{
+    //key值不明
+//    connect(mTouchpadGsetting, &QGSettings::changed, this, [=](const QString &key) {
+//        if (key == "disable-on-external-mouse") {
+//            mMouseDisableBtn->setChecked(mTouchpadGsetting->get(kMouseDisableKey).toBool());
+//        } else if (key == "disable-while-typing") {
+//            mTypingDisableBtn->setChecked(mTouchpadGsetting->get(kTypingDisableKey).toBool());
+//        } else if (key == "tap-to-click") {
+//            mClickBtn->setChecked(mTouchpadGsetting->get(kClickKey).toBool());
+//        } else if (key == "natural-scroll") {
+//            mScrollSlideBtn->setChecked(mTouchpadGsetting->get(kScrollSlideKey).toBool());
+//        }
+//    });
+
+    //命令行或鼠标设置指针速度时（共用一个key）改变 key 值，界面做出相应的改变
+    connect(mMouseGsetting, &QGSettings::changed, this, [=](const QString &key) {
+       if (key == "motionAcceleration") {
+           mCursorSpeedSlider->blockSignals(true);
+           mCursorSpeedSlider->setValue(static_cast<int>(mMouseGsetting->get(kCursorSpeedKey).toDouble() * 100));
+           mCursorSpeedSlider->blockSignals(false);
+       }
+    });
 }
 
 void TouchpadUI::initEnableStatus()
@@ -173,7 +206,7 @@ void TouchpadUI::initEnableStatus()
 
     // 初始化光标速度
     mCursorSpeedSlider->blockSignals(true);
-    mCursorSpeedSlider->setValue(static_cast<int>(mMouseGsetting->get(kCursorSpeedKey).toDouble() * 10));
+    mCursorSpeedSlider->setValue(static_cast<int>(mMouseGsetting->get(kCursorSpeedKey).toDouble() * 100));
     mCursorSpeedSlider->blockSignals(false);
 
     // 初始化打字时禁用触摸板

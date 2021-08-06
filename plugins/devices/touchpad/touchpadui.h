@@ -79,6 +79,7 @@ private:
 private:
     void initUI();
     void initConnection();
+    void gsettingConnectUi();
     void initEnableStatus();
     void setFrameVisible(bool visible);
     void isTouchpadExist();
