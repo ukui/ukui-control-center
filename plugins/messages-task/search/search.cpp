@@ -35,8 +35,8 @@ int Search::get_plugin_type()
 QWidget *Search::get_plugin_ui()
 {
     ui = new Ui::Search;
-    m_plugin_widget->setAttribute(Qt::WA_DeleteOnClose);
-    ui->setupUi(m_plugin_widget);
+    m_pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
+    ui->setupUi(m_pluginWidget);
 
     const QByteArray id(UKUI_SEARCH_SCHEMAS);
     if (QGSettings::isSchemaInstalled(id)) {
@@ -85,7 +85,7 @@ QWidget *Search::get_plugin_ui()
         m_searchMethodBtn->setEnabled(false);
         m_webEngineFrame->mCombox->setEnabled(false);
     }
-    return m_plugin_widget;
+    return m_pluginWidget;
 }
 
 void Search::plugin_delay_control()
@@ -103,66 +103,135 @@ const QString Search::name() const
  */
 void Search::initUi()
 {
-    m_plugin_widget = new QWidget;
-    m_mainLyt = new QVBoxLayout(m_plugin_widget);
-    m_plugin_widget->setLayout(m_mainLyt);
+    m_pluginWidget = new QWidget;
+    m_mainLyt = new QVBoxLayout(m_pluginWidget);
+    m_pluginWidget->setLayout(m_mainLyt);
+
+    m_titleLabel = new TitleLabel(m_setFrame);
+    m_titleLabel->setText(tr("Search"));
+    m_mainLyt->addWidget(m_titleLabel);
+
+//    m_descLabel = new QLabel(m_pluginWidget);
+//    m_descLabel->setText(tr("Creating index can help you getting results quickly."));
     //设置搜索模式部分的ui
-    m_methodTitleLabel = new TitleLabel(m_plugin_widget);
-    m_methodTitleLabel->setText(tr("Create Index"));
-    m_descLabel = new QLabel(m_plugin_widget);
-    m_descLabel->setText(tr("Creating index can help you getting results quickly."));
-    m_searchMethodFrame = new QFrame(m_plugin_widget);
-    m_searchMethodFrame->setFrameShape(QFrame::Shape::Box);
-    m_searchMethodFrame->setFixedHeight(56);
+    m_setFrame = new QFrame(m_pluginWidget);
+    m_setFrame->setFrameShape(QFrame::Shape::Box);
+    m_setFrameLyt = new QVBoxLayout(m_setFrame);
+    m_setFrameLyt->setContentsMargins(0, 0, 0, 0);
+    m_setFrameLyt->setSpacing(0);
+
+    m_searchMethodFrame = new QFrame(m_setFrame);
+//    m_searchMethodFrame->setFrameShape(QFrame::Shape::Box);
+//    m_searchMethodFrame->setFixedHeight(70);
     m_searchMethodFrame->setMinimumWidth(550);
     m_searchMethodFrame->setMaximumWidth(960);
     m_searchMethodLyt = new QHBoxLayout(m_searchMethodFrame);
+    m_searchMethodLyt->setContentsMargins(16, 18, 16, 21);
     m_searchMethodFrame->setLayout(m_searchMethodLyt);
-    m_searchMethodLabel = new QLabel(m_searchMethodFrame);
-    m_searchMethodLabel->setText(tr("Create Index"));
+
+    m_descFrame = new QFrame(m_searchMethodFrame);
+    m_descFrameLyt = new QVBoxLayout(m_descFrame);
+    m_descFrameLyt->setContentsMargins(0, 0, 0, 0);
+    m_descFrame->setLayout(m_descFrameLyt);
+    m_descLabel1 = new QLabel(m_descFrame);
+    m_descLabel2 = new QLabel(m_descFrame);
+    m_descLabel1->setText("Create index");
+    m_descLabel2->setText("Creating index can help you getting results quickly.");
+    m_descLabel2->setEnabled(false);
+    m_descFrameLyt->addWidget(m_descLabel1);
+    m_descFrameLyt->addWidget(m_descLabel2);
+//    m_searchMethodLabel->setText(tr("Create index\nCreating index can help you getting results quickly."));
     m_searchMethodBtn = new SwitchButton(m_searchMethodFrame);
-    m_searchMethodLyt->addWidget(m_searchMethodLabel);
+    m_searchMethodLyt->addWidget(m_descFrame);
     m_searchMethodLyt->addStretch();
     m_searchMethodLyt->addWidget(m_searchMethodBtn);
-    m_mainLyt->addWidget(m_methodTitleLabel);
-    m_mainLyt->addWidget(m_descLabel);
-    m_mainLyt->addWidget(m_searchMethodFrame);
+    m_setFrameLyt->addWidget(m_searchMethodFrame);
+
+    QFrame *line = new QFrame(m_setFrame);
+    line->setMinimumSize(QSize(0, 1));
+    line->setMaximumSize(QSize(16777215, 1));
+    line->setLineWidth(0);
+    line->setFrameShape(QFrame::HLine);
+    line->setFrameShadow(QFrame::Sunken);
+    m_setFrameLyt->addWidget(line);
+
+    //设置网页搜索引擎部分的ui
+//    m_webEngineLyt = new QVBoxLayout(m_setFrame);
+//    m_webEngineLyt->setContentsMargins(16, 0, 16, 0);
+//    m_webEngineLabel = new TitleLabel(m_searchMethodFrame);
+//    m_webEngineLabel->setLayout(m_webEngineLyt);
+//    m_webEngineLabel->setText(tr("Web Engine"));
+    m_webEngineFrame = new ComboxFrame(tr("Default web searching engine"), m_searchMethodFrame);
+//    m_webEngineFrame->setLayout(m_webEngineLyt);
+    m_webEngineFrame->setContentsMargins(8, 0, 16, 0);
+    m_webEngineFrame->setFixedHeight(56);
+    m_webEngineFrame->setMinimumWidth(550);
+    m_webEngineFrame->setMaximumWidth(960);
+    m_webEngineFrame->mCombox->insertItem(0, QIcon(":/img/plugins/search/baidu.svg"), tr("baidu"), "baidu");
+    m_webEngineFrame->mCombox->insertItem(1, QIcon(":/img/plugins/search/sougou.svg"), tr("sougou"), "sougou");
+    m_webEngineFrame->mCombox->insertItem(2, QIcon(":/img/plugins/search/360.svg"), tr("360"), "360");
+//    m_mainLyt->addSpacing(32);
+//    m_mainLyt->setSpacing(8);
+//    m_mainLyt->addWidget(m_webEngineLabel);
+    m_setFrameLyt->addWidget(m_webEngineFrame);
+    m_mainLyt->addWidget(m_setFrame);
+
     //设置黑名单文件夹部分的ui
-    m_blockDirTitleLabel = new TitleLabel(m_plugin_widget);
+    m_blockDirTitleLabel = new TitleLabel(m_pluginWidget);
     m_blockDirTitleLabel->setText(tr("Block Folders"));
-    m_blockDirDescLabel = new QLabel(m_plugin_widget);
+    m_blockDirDescLabel = new QLabel(m_pluginWidget);
     m_blockDirDescLabel->setWordWrap(true);
     m_blockDirDescLabel->setText(tr("Following folders will not be searched. You can set it by adding and removing folders."));
-    m_blockDirsFrame = new QFrame(m_plugin_widget);
-    m_blockDirsFrame->setFrameShape(QFrame::Shape::NoFrame);
+
+    m_blockDirsFrame = new QFrame(m_pluginWidget);
+    m_blockDirsFrame->setFrameShape(QFrame::Shape::Box);
     m_blockDirsLyt = new QVBoxLayout(m_blockDirsFrame);
+    m_blockDirsLyt->setDirection(QBoxLayout::BottomToTop);
     m_blockDirsFrame->setLayout(m_blockDirsLyt);
     m_blockDirsLyt->setContentsMargins(0, 0, 0, 0);
     m_blockDirsLyt->setSpacing(2);
-    m_addBlockDirWidget = new HoverWidget("", m_plugin_widget);
-    m_addBlockDirWidget->setObjectName("addBlockDirWidget");
-    QPalette pal;
-    QBrush brush = pal.highlight();  //获取window的色值
-    QColor highLightColor = brush.color();
-    QString stringColor = QString("rgba(%1,%2,%3)") //叠加20%白色
-           .arg(highLightColor.red()*0.8 + 255*0.2)
-           .arg(highLightColor.green()*0.8 + 255*0.2)
-           .arg(highLightColor.blue()*0.8 + 255*0.2);
 
-    m_addBlockDirWidget->setStyleSheet(QString("HoverWidget#addBlockDirWidget{background: palette(button);\
-                                   border-radius: 4px;}\
-                                   HoverWidget:hover:!pressed#addBlockDirWidget{background: %1;  \
-                                   border-radius: 4px;}").arg(stringColor));
-    m_addBlockDirWidget->setFixedHeight(50);
+
+    QFrame * m_addBlockDirFrame = new QFrame(m_blockDirsFrame);
+    m_addBlockDirFrame->setFrameShape(QFrame::Shape::NoFrame);
+    m_addBlockDirFrame->setFixedHeight(60);
+
+
+
+    m_addBlockDirWidget = new HoverWidget("", m_addBlockDirFrame);
+    m_addBlockDirWidget->setFixedHeight(60);
     m_addBlockDirWidget->setMaximumWidth(960);
+
+
+//        m_addBlockDirWidget->setObjectName("addBlockDirWidget");
+//        QPalette pal;
+//        QBrush brush = pal.highlight();  //获取window的色值
+//        QColor highLightColor = brush.color();
+//        QString stringColor = QString("rgba(%1,%2,%3)") //叠加20%白色
+//               .arg(highLightColor.red()*0.8 + 255*0.2)
+//               .arg(highLightColor.green()*0.8 + 255*0.2)
+//               .arg(highLightColor.blue()*0.8 + 255*0.2);
+
+//        m_addBlockDirWidget->setStyleSheet(QString("HoverWidget#addBlockDirWidget{background: palette(button);\
+//                                       border-radius: 4px;}\
+//                                       HoverWidget:hover:!pressed#addBlockDirWidget{background: %1;  \
+//                                       border-radius: 4px;}").arg(stringColor));
+
+
     m_addBlockDirIcon = new QLabel(m_addBlockDirWidget);
     m_addBlockDirIcon->setPixmap(QIcon(":/img/titlebar/add.svg").pixmap(12, 12));
     m_addBlockDirIcon->setProperty("useIconHighlightEffect", true);
     m_addBlockDirIcon->setProperty("iconHighlightEffectMode", 1);
+
     m_addBlockDirLabel = new QLabel(m_addBlockDirWidget);
     m_addBlockDirLabel->setText(tr("Choose folder"));
+
     m_addBlockDirLyt = new QHBoxLayout(m_addBlockDirWidget);
     m_addBlockDirWidget->setLayout(m_addBlockDirLyt);
+
+    m_blockDirsLyt->addWidget(m_addBlockDirWidget);
+
+    m_addBlockDirLyt->addStretch();
     m_addBlockDirLyt->addWidget(m_addBlockDirIcon);
     m_addBlockDirLyt->addWidget(m_addBlockDirLabel);
     m_addBlockDirLyt->addStretch();
@@ -170,43 +239,30 @@ void Search::initUi()
     m_mainLyt->addWidget(m_blockDirTitleLabel);
     m_mainLyt->addWidget(m_blockDirDescLabel);
     m_mainLyt->addWidget(m_blockDirsFrame);
-    m_mainLyt->addWidget(m_addBlockDirWidget);
-    //设置网页搜索引擎部分的ui
-    m_webEngineLabel = new TitleLabel(m_plugin_widget);
-    m_webEngineLabel->setText(tr("Web Engine"));
-    m_webEngineFrame = new ComboxFrame(tr("Default web searching engine"), m_plugin_widget);
-    m_webEngineFrame->setFixedHeight(56);
-    m_webEngineFrame->setMinimumWidth(550);
-    m_webEngineFrame->setMaximumWidth(960);
-    m_webEngineFrame->mCombox->insertItem(0, QIcon(":/img/plugins/search/baidu.svg"), tr("baidu"), "baidu");
-    m_webEngineFrame->mCombox->insertItem(1, QIcon(":/img/plugins/search/sougou.svg"), tr("sougou"), "sougou");
-    m_webEngineFrame->mCombox->insertItem(2, QIcon(":/img/plugins/search/360.svg"), tr("360"), "360");
-    m_mainLyt->addSpacing(32);
-    m_mainLyt->setSpacing(8);
-    m_mainLyt->addWidget(m_webEngineLabel);
-    m_mainLyt->addWidget(m_webEngineFrame);
+//    m_mainLyt->addWidget(m_addBlockDirFrame);
     m_mainLyt->addStretch();
     m_mainLyt->setContentsMargins(0, 0, 40, 0);
 
-    // 悬浮改变Widget状态
-    connect(m_addBlockDirWidget, &HoverWidget::enterWidget, this, [=](){
 
-        m_addBlockDirIcon->setProperty("useIconHighlightEffect", false);
-        m_addBlockDirIcon->setProperty("iconHighlightEffectMode", 0);
-        QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "white", 12);
-        m_addBlockDirIcon->setPixmap(pixgray);
-        m_addBlockDirLabel->setStyleSheet("color: white;");
-    });
+    // 悬浮改变Widget状态
+//    connect(m_addBlockDirWidget, &HoverWidget::enterWidget, this, [=](){
+
+//        m_addBlockDirIcon->setProperty("useIconHighlightEffect", false);
+//        m_addBlockDirIcon->setProperty("iconHighlightEffectMode", 0);
+//        QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "white", 12);
+//        m_addBlockDirIcon->setPixmap(pixgray);
+//        m_addBlockDirLabel->setStyleSheet("color: white;");
+//    });
 
     // 还原状态
-    connect(m_addBlockDirWidget, &HoverWidget::leaveWidget, this, [=](){
+//    connect(m_addBlockDirWidget, &HoverWidget::leaveWidget, this, [=](){
 
-        m_addBlockDirIcon->setProperty("useIconHighlightEffect", true);
-        m_addBlockDirIcon->setProperty("iconHighlightEffectMode", 1);
-        QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
-        m_addBlockDirIcon->setPixmap(pixgray);
-        m_addBlockDirLabel->setStyleSheet("color: palette(windowText);");
-    });
+//        m_addBlockDirIcon->setProperty("useIconHighlightEffect", true);
+//        m_addBlockDirIcon->setProperty("iconHighlightEffectMode", 1);
+//        QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
+//        m_addBlockDirIcon->setPixmap(pixgray);
+//        m_addBlockDirLabel->setStyleSheet("color: palette(windowText);");
+//    });
 }
 
 /**
@@ -303,14 +359,23 @@ void Search::appendBlockDirToList(const QString &path)
     dirFrameLayout->setContentsMargins(16, 0, 16, 0);
     QLabel * iconLabel = new QLabel(dirFrame);
     QLabel * pathLabel = new QLabel(dirFrame);
+
     dirFrameLayout->addWidget(iconLabel);
     iconLabel->setPixmap(QIcon::fromTheme("inode-directory").pixmap(QSize(24, 24)));
     pathLabel->setText(path);
     dirFrameLayout->addWidget(pathLabel);
     dirFrameLayout->addStretch();
-    QPushButton * delBtn = new QPushButton(dirWidget);
-    delBtn->setText(tr("delete"));
+    QPushButton * delBtn = new QPushButton(dirFrame);
+    delBtn->setIcon(QIcon::fromTheme("window-close-symbolic"));
+    delBtn->setFixedSize(30, 30);
+    delBtn->setToolTip(tr("delete"));
+    delBtn->setProperty("isWindowButton", 0x2);
+    delBtn->setProperty("useIconHighlightEffect", 0x8);
+    delBtn->setFlat(true);
+
+
     delBtn->hide();
+    dirFrameLayout->addWidget(delBtn);
     connect(delBtn, &QPushButton::clicked, this, [ = ]() {
         setBlockDir(path, false);
         getBlockDirs();
@@ -322,7 +387,17 @@ void Search::appendBlockDirToList(const QString &path)
         delBtn->hide();
     });
     dirWidgetLyt->addWidget(dirFrame);
-    dirWidgetLyt->addWidget(delBtn);
+//    dirWidgetLyt->addWidget(delBtn);
+
+    QFrame *line = new QFrame(m_blockDirsFrame);
+    line->setMinimumSize(QSize(0, 1));
+    line->setMaximumSize(QSize(16777215, 1));
+    line->setLineWidth(0);
+    line->setFrameShape(QFrame::HLine);
+    line->setFrameShadow(QFrame::Sunken);
+//    m_setFrameLyt->addWidget(line);
+
+    m_blockDirsLyt->addWidget(line);
     m_blockDirsLyt->addWidget(dirWidget);
 }
 
@@ -342,7 +417,7 @@ void Search::setupConnection()
 
 void Search::onBtnAddFolderClicked()
 {
-    QFileDialog * fileDialog = new QFileDialog(m_plugin_widget);
+    QFileDialog * fileDialog = new QFileDialog(m_pluginWidget);
 //    fileDialog->setFileMode(QFileDialog::Directory); //允许查看文件和文件夹，但只允许选择文件夹
     fileDialog->setFileMode(QFileDialog::DirectoryOnly); //只允许查看文件夹
 //    fileDialog->setViewMode(QFileDialog::Detail);
@@ -369,19 +444,19 @@ void Search::onBtnAddFolderClicked()
         break;
     case ReturnCode::PathEmpty :
         qWarning() << "Add blocked folder failed, choosen path is empty! path = " << selectedDir;
-        QMessageBox::warning(m_plugin_widget, tr("Warning"), tr("Add blocked folder failed, choosen path is empty!"));
+        QMessageBox::warning(m_pluginWidget, tr("Warning"), tr("Add blocked folder failed, choosen path is empty!"));
         break;
     case ReturnCode::NotInHomeDir :
         qWarning() << "Add blocked folder failed, it is not in home path! path = " << selectedDir;
-        QMessageBox::warning(m_plugin_widget, tr("Warning"), tr("Add blocked folder failed, it is not in home path!"));
+        QMessageBox::warning(m_pluginWidget, tr("Warning"), tr("Add blocked folder failed, it is not in home path!"));
         break;
     case ReturnCode::ParentExist :
         qWarning() << "Add blocked folder failed, its parent dir is exist! path = " << selectedDir;
-        QMessageBox::warning(m_plugin_widget, tr("Warning"), tr("Add blocked folder failed, its parent dir is exist!"));
+        QMessageBox::warning(m_pluginWidget, tr("Warning"), tr("Add blocked folder failed, its parent dir is exist!"));
         break;
     case ReturnCode::HasBeenBlocked :
         qWarning() << "Add blocked folder failed, it has been already blocked! path = " << selectedDir;
-        QMessageBox::warning(m_plugin_widget, tr("Warning"), tr("Add blocked folder failed, it has been already blocked!"));
+        QMessageBox::warning(m_pluginWidget, tr("Warning"), tr("Add blocked folder failed, it has been already blocked!"));
         break;
     default:
         break;

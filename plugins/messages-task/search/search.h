@@ -55,7 +55,7 @@ public:
 private:
     Ui::Search *ui;
 
-    QWidget * m_plugin_widget = nullptr;
+    QWidget * m_pluginWidget = nullptr;
     QString m_plugin_name = "";
     int m_plugin_type = 0;
 
@@ -63,13 +63,24 @@ private:
 
     void initUi();
     QVBoxLayout * m_mainLyt = nullptr;
+    TitleLabel * m_titleLabel = nullptr;
+
+    QFrame *m_setFrame = nullptr;
+    QVBoxLayout *m_setFrameLyt = nullptr;
     //设置搜索模式
-    TitleLabel * m_methodTitleLabel = nullptr;
-    QLabel * m_descLabel = nullptr;
-    QFrame * m_searchMethodFrame = nullptr;
-    QHBoxLayout * m_searchMethodLyt = nullptr;
-    QLabel * m_searchMethodLabel = nullptr;
+    QFrame *m_descFrame = nullptr;
+    QVBoxLayout *m_descFrameLyt = nullptr;
+    QLabel *m_descLabel1 = nullptr;
+    QLabel *m_descLabel2 = nullptr;
+    QFrame *m_searchMethodFrame = nullptr;
+    QHBoxLayout *m_searchMethodLyt = nullptr;
+//    QLabel *m_searchMethodLabel = nullptr;
     SwitchButton * m_searchMethodBtn = nullptr;
+    //设置搜索引擎
+    TitleLabel * m_webEngineLabel = nullptr;
+    ComboxFrame * m_webEngineFrame = nullptr;
+    QVBoxLayout * m_webEngineLyt = nullptr;
+
     //设置黑名单
     TitleLabel * m_blockDirTitleLabel = nullptr;
     QLabel * m_blockDirDescLabel = nullptr;
@@ -88,9 +99,7 @@ private:
     void removeBlockDirFromList(const QString &path);
     void initBlockDirsList();
 //    void refreshBlockDirsList();
-    //设置搜索引擎
-    TitleLabel * m_webEngineLabel = nullptr;
-    ComboxFrame * m_webEngineFrame = nullptr;
+
 
     void setupConnection();
 
