@@ -26,6 +26,7 @@ private Q_SLOTS:
     void slotRestoreResoltion();
     void slotRestoreRatation();
     void slotRefreshRateChanged(int index);
+    void slotScaleChanged(int index);
 
 Q_SIGNALS:
     void scaleChanged(double scale);
