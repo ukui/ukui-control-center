@@ -398,6 +398,7 @@ QString MainDialog::messagebox(const int &code) const {
     case 616:ret = tr("User has bound the phone!");break;
     case 619:ret = tr("Sending code error occurred!");break;
     case 632:ret = tr("Phone code is expired!");break;
+    case 656:ret = tr("Too many failed attemps,please wait!");break;
     case 702:ret = tr("Phone code error!");break;
     case 703:ret = tr("Code can not be empty!");break;
     case 704:ret = tr("MCode can not be empty!");break;
