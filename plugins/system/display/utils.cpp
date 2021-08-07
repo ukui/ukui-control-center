@@ -12,7 +12,11 @@ QString Utils::outputName(const KScreen::OutputPtr &output)
 
 QString Utils::outputName(const KScreen::Output *output)
 {
-    return kOutput.at(output->type());
+    if (output != nullptr) {
+        return kOutput.at(output->type());
+    }
+
+    return kOutput.at(0);
 }
 
 QString Utils::sizeToString(const QSize &size)

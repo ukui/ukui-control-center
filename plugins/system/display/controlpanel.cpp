@@ -49,7 +49,6 @@ void ControlPanel::setConfig(const KScreen::ConfigPtr &config)
     for (const KScreen::OutputPtr &output : mConfig->outputs()) {
         addOutput(output);
     }
-
 }
 
 void ControlPanel::addOutput(const KScreen::OutputPtr &output)
@@ -90,7 +89,6 @@ void ControlPanel::removeOutput(int outputId)
             outputCfg->setVisible(true);
         }
     }
-
 }
 
 void ControlPanel::activateOutput(const KScreen::OutputPtr &output)

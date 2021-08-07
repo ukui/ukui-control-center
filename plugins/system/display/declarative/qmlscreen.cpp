@@ -133,17 +133,17 @@ void QMLScreen::addOutput(const KScreen::OutputPtr &output)
     connect(qmloutput, SIGNAL(clicked()),
             this, SLOT(setActiveOutput()));
 
-    connect(qmloutput, SIGNAL(mouseReleased()),
-            this, SLOT(setScreenPos()));
+    connect(qmloutput, SIGNAL(mouseReleased(bool)),
+            this, SLOT(setScreenPos(bool)));
 
-    connect(qmloutput, SIGNAL(rotationChanged()),
-            this, SLOT(setScreenPos()));
+    connect(qmloutput, SIGNAL(rotationChanged(bool)),
+            this, SLOT(setScreenPos(bool)));
 
-    connect(qmloutput, SIGNAL(widthChanged()),
-            this, SLOT(setScreenPos()));
+    connect(qmloutput, SIGNAL(widthChanged(bool)),
+            this, SLOT(setScreenPos(bool)));
 
-    connect(qmloutput, SIGNAL(heightChanged()),
-            this, SLOT(setScreenPos()));
+    connect(qmloutput, SIGNAL(heightChanged(bool)),
+            this, SLOT(setScreenPos(bool)));
 
     // bug#65441
     // qmloutput->updateRootProperties();
@@ -263,8 +263,12 @@ void QMLScreen::setScreenCenterPos()
     }
 }
 
-void QMLScreen::setScreenPos(QMLOutput *output)
+void QMLScreen::setScreenPosCenter(QMLOutput *output, bool isReleased)
 {
+    if (output == nullptr) {
+        return;
+    }
+    QPointF posBefore = output->position();
     if ((output->outputPtr()->rotation() == KScreen::Output::Left || output->outputPtr()->rotation() == KScreen::Output::Right)
             && (output->width() > output->height())) {
         qreal fwidth = output->size().width();
@@ -349,6 +353,10 @@ void QMLScreen::setScreenPos(QMLOutput *output)
     }
 
     setScreenCenterPos();
+    QPointF posAfter = output->position();
+    if (isReleased && (posBefore != posAfter)) {
+        Q_EMIT released();
+    }
 }
 
 void QMLScreen::setActiveOutputByCombox(int screenId)

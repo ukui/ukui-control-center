@@ -58,7 +58,9 @@ void OutputConfig::initUi()
     connect(mOutput.data(), &KScreen::Output::rotationChanged,
             this, [=]() {
         const int index = mRotation->findData(mOutput->rotation());
+        mRotation->blockSignals(true);
         mRotation->setCurrentIndex(index);
+        mRotation->blockSignals(false);
     });
 
     connect(mOutput.data(), &KScreen::Output::currentModeIdChanged,
@@ -70,6 +72,10 @@ void OutputConfig::initUi()
                 mRefreshRate->blockSignals(false);
             }
         }
+    });
+
+    connect(mOutput.data(), &KScreen::Output::isEnabledChanged, this, [=](){
+       slotEnableWidget();
     });
 
     setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
@@ -134,7 +140,7 @@ void OutputConfig::initUi()
     mRotation->addItem(tr("90° arrow-right"), KScreen::Output::Right);
     mRotation->addItem(tr("90° arrow-left"), KScreen::Output::Left);
     mRotation->addItem(tr("arrow-down"), KScreen::Output::Inverted);
-    connect(mRotation, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated),
+    connect(mRotation, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             this, &OutputConfig::slotRotationChanged);
     mRotation->setCurrentIndex(mRotation->findData(mOutput->rotation()));
 
@@ -164,7 +170,7 @@ void OutputConfig::initUi()
     vbox->addWidget(freshFrame);
 
     slotResolutionChanged(mResolution->currentResolution(), true);
-    connect(mRefreshRate, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated),
+    connect(mRefreshRate, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             this, &OutputConfig::slotRefreshRateChanged);
 
     mScaleCombox = new QComboBox(this);
@@ -198,6 +204,8 @@ void OutputConfig::initUi()
     scaleFrame->setMaximumSize(960, 50);
     vbox->addWidget(scaleFrame);
     scaleFrame->hide();
+
+    slotEnableWidget();
 }
 
 double OutputConfig::getScreenScale()
@@ -260,7 +268,9 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
     // Don't remove the first "Auto" item - prevents ugly flicker of the combobox
     // when changing resolution
     for (int i = mRefreshRate->count(); i >= 1; --i) {
+        mRefreshRate->blockSignals(true);
         mRefreshRate->removeItem(i - 1);
+        mRefreshRate->blockSignals(false);
     }
 
     for (int i = 0, total = modes.count(); i < total; ++i) {
@@ -274,7 +284,9 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
             }
         }
         if (alreadyExisted == false) {   //不添加已经存在的项
+            mRefreshRate->blockSignals(true);
             mRefreshRate->addItem(tr("%1 Hz").arg(QLocale().toString(mode->refreshRate())), mode->id());
+            mRefreshRate->blockSignals(false);
         }
 
         // If selected refresh rate is other then what we consider the "Auto" value
@@ -282,7 +294,9 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
         // we stick with "Auto"
         if (mode == currentMode && mRefreshRate->count() > 1) {
             // i + 1 since 0 is auto
+            mRefreshRate->blockSignals(true);
             mRefreshRate->setCurrentIndex(i);
+            mRefreshRate->blockSignals(false);
         }
     }
 
@@ -343,6 +357,18 @@ void OutputConfig::slotDPIChanged(QString key)
     }
 }
 
+void OutputConfig::slotEnableWidget()
+{
+    if (mOutput.data()->isEnabled()) {
+        mResolution->setEnabled(true);
+        mRotation->setEnabled(true);
+        mRefreshRate->setEnabled(true);
+    } else {
+        mResolution->setEnabled(false);
+        mRotation->setEnabled(false);
+        mRefreshRate->setEnabled(false);
+    }
+}
 
 void OutputConfig::setShowScaleOption(bool showScaleOption)
 {

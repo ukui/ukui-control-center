@@ -127,11 +127,10 @@ private Q_SLOTS:
     void initNightStatus();                     // 初始化夜间模式
     void nightChangedSlot(QHash<QString, QVariant> nightArg);
 
-    void callMethod(QRect geometry, QString name);// 设置wayland主屏幕
-    QString getPrimaryWaylandScreen();
     void isWayland();
 
     void kdsScreenchangeSlot(QString status);
+    void delayApply();
 
 public Q_SLOTS:
     void save();
@@ -163,7 +162,6 @@ private:
     int getDDCBrighthess();
     int getDDCBrighthess(QString name);
     int getLaptopBrightness() const;
-    int getPrimaryScreenID();
 
     void setDDCBrightnessN(int value, QString screenName);
     void setScreenKDS(QString kdsConfig);
@@ -171,6 +169,10 @@ private:
 
     QList<ScreenConfig> getPreScreenCfg();
     void setPreScreenCfg(KScreen::OutputList screens);
+
+    void setScreenIsApply(bool isApply);
+
+    int screenEnableCount();
 
 private:
     Ui::DisplayWindow *ui;
@@ -221,9 +223,7 @@ private:
 
     QHash<QString, QVariant> mNightConfig;
 
-    int mScreenId = -1;
-
-    double scaleres;
+    double scaleres = 1.0;
 
     bool mIsNightMode     = false;
     bool mRedshiftIsValid = false;
@@ -235,6 +235,10 @@ private:
     bool mIsWayland       = false;
     bool mIsBattery       = false;
     bool mIsOutputAdd     = false;
+    bool mIsScreenAdd     = false;
+    bool mIsSCaleRes      = false;
+
+    QSize mScaleSizeRes = QSize();
 
     bool threadRunExit = false;
     QFuture<void> threadRun;
@@ -244,6 +248,7 @@ private:
     QVector<QString> deleteFrameNameV;  //用二级指针判断null出现问题，只想到这种方式排除段错误
     BrightnessFrame *currentBrightnessFrame;
     bool exitFlag = false;
+
 
 };
 
