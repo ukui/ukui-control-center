@@ -73,6 +73,8 @@ private slots:
     void receiveConnectsignal(QString);
     void receiveDisConnectSignal(QString);
     void receiveRemoveSignal(QString);
+    void startBluetoothDiscovery();
+    void receiveBluetoothDiscovery(bool);
     void Refresh_load_Label_icon();
     void set_tray_visible(bool);
     void set_discoverable(bool);

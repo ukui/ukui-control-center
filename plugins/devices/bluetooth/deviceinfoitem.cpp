@@ -151,7 +151,7 @@ void DeviceInfoItem::resizeEvent(QResizeEvent *event)
 
 void DeviceInfoItem::enterEvent(QEvent *event)
 {
-    qDebug() << Q_FUNC_INFO << __LINE__;
+    //qDebug() << Q_FUNC_INFO << __LINE__;
 
     AnimationFlag = true;
 
@@ -177,7 +177,7 @@ void DeviceInfoItem::enterEvent(QEvent *event)
 
 void DeviceInfoItem::leaveEvent(QEvent *event)
 {
-    qDebug() << Q_FUNC_INFO << __LINE__;
+    //qDebug() << Q_FUNC_INFO << __LINE__;
 
 //    QDateTime current_date_time = QDateTime::currentDateTime();
 //    QString current_time = current_date_time.toString("hh:mm:ss.zzz ");
@@ -215,6 +215,8 @@ void DeviceInfoItem::onClick_Connect_Btn(bool isclicked)
                     device_status->setText(tr("device unLink"));
             }
             connect_timer->stop();
+            emit connectComplete();
+
         });
 
         emit sendConnectDevice(device_item->address());
@@ -285,6 +287,7 @@ void DeviceInfoItem::changeDevStatus(bool pair)
 //        QIcon icon_status = QIcon::fromTheme("software-installed-symbolic");
 //        device_status->setPixmap(icon_status.pixmap(QSize(24,24)));
     }
+    emit connectComplete();
 }
 
 void DeviceInfoItem::setDevConnectedIcon(bool connected)
