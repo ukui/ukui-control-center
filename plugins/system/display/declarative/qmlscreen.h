@@ -73,7 +73,7 @@ public:
 
     void setActiveOutput(QMLOutput *output);
 
-    void setScreenPos(QMLOutput *output);
+    void setScreenPosCenter(QMLOutput *output, bool isReleased);
 
     void setScreenCenterPos();
 public Q_SLOTS:
@@ -83,9 +83,9 @@ public Q_SLOTS:
     }
 
     void setActiveOutputByCombox(int screenId);
-    void setScreenPos()
+    void setScreenPos(bool isReleased)
     {
-        setScreenPos(qobject_cast<QMLOutput*>(sender()));
+        setScreenPosCenter(qobject_cast<QMLOutput*>(sender()), isReleased);
     }
 
 Q_SIGNALS:
@@ -95,6 +95,7 @@ Q_SIGNALS:
     void outputScaleChanged();
 
     void focusedOutputChanged(QMLOutput *output);
+    void released();
 
 private Q_SLOTS:
     void addOutput(const KScreen::OutputPtr &output);

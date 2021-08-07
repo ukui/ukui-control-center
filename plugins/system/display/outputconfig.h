@@ -44,7 +44,7 @@ protected Q_SLOTS:
     void slotRefreshRateChanged(int index);
     void slotScaleChanged(int index);
     void slotDPIChanged(QString key);
-
+    void slotEnableWidget();
 
 Q_SIGNALS:
     void changed();

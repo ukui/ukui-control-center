@@ -160,7 +160,7 @@ void UnifiedOutputConfig::initUi()
     freshFrame->setMaximumSize(960, 50);
 
     slotResolutionChanged(mResolution->currentResolution());
-    connect(mRefreshRate, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated),
+    connect(mRefreshRate, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
         this, &UnifiedOutputConfig::slotRefreshRateChanged);
 
     QObject::connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished,
@@ -179,10 +179,14 @@ void UnifiedOutputConfig::initUi()
 
 void UnifiedOutputConfig::initscale(QVBoxLayout *vbox)
 {
-
     QFrame *scaleFrame = new QFrame(this);
     vbox->addWidget(scaleFrame);
     scaleFrame->hide();
+}
+
+void UnifiedOutputConfig::slotScaleChanged(int index)
+{
+    Q_EMIT scaleChanged(mScaleCombox->itemData(index).toDouble());
 }
 
 KScreen::OutputPtr UnifiedOutputConfig::createFakeOutput()
@@ -323,7 +327,6 @@ void UnifiedOutputConfig::slotRefreshRateChanged(int index)
             }
         }
     }
-    Q_EMIT changed();
 }
 
 QString UnifiedOutputConfig::findBestMode(const KScreen::OutputPtr &output, const QSize &size)
@@ -361,5 +364,7 @@ void UnifiedOutputConfig::slotRestoreResoltion()
 
 void UnifiedOutputConfig::slotRestoreRatation()
 {
+    mRotation->blockSignals(true);
     mRotation->setCurrentIndex(mRotation->findData(mOutput->rotation()));
+    mRotation->blockSignals(false);
 }
