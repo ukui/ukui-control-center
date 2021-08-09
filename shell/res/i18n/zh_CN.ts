@@ -5389,38 +5389,81 @@ Please retry or relogin!</source>
 <context>
     <name>Projection</name>
     <message>
-        <location filename="../../../plugins/devices/projection/projection.ui" line="37"/>
-        <location filename="../../../plugins/devices/projection/projection.cpp" line="42"/>
+        <location filename="../../../plugins/devices/projection/projection.ui" line="53"/>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="49"/>
         <source>Projection</source>
         <translation>投屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/projection.ui" line="180"/>
+        <location filename="../../../plugins/devices/projection/projection.ui" line="230"/>
         <source>msg info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/projection.ui" line="193"/>
+        <location filename="../../../plugins/devices/projection/projection.ui" line="243"/>
         <source>label for set size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/projection.ui" line="297"/>
+        <location filename="../../../plugins/devices/projection/projection.ui" line="350"/>
         <source>msg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/projection.cpp" line="61"/>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="66"/>
         <source>Open Projection</source>
         <translation>开启投屏</translation>
         <extra-contents_path>/bluetooth/Open Bluetooth</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="241"/>
+        <source>Service exception,please restart the system</source>
+        <translation>服务异常，请重启系统</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="247"/>
+        <source>Network card is not detected or the driver is not supported.</source>
+        <translation>未检测到无线网卡或网卡驱动不支持
+投屏功能不可用</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="257"/>
+        <source>Please keep WLAN on;
+Wireless-network functions will be invalid when the screen projection on</source>
+        <translation>使用时请保持WLAN处于开启状态；开启投屏后，无线网络相关功能会失效</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="259"/>
+        <source>Please keep WLAN on;
+Wireless will be temporarily disconnected when the screen projection on</source>
+        <translation>使用时请保持WLAN处于开启状态；开启投屏会短暂中断无线连接</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="281"/>
+        <source>After opening the switch button,open the projection screen in the mobile phone drop-down menu,follow the prompts.See the user manual for details</source>
+        <translation>开启投屏后，在手机下拉菜单中打开投屏，根据提示操作。详见用户手册</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="270"/>
+        <source>WLAN is off, please turn on WLAN</source>
+        <translation>WLAN未开启，请打开WLAN开关</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="276"/>
+        <source>Wireless network card is busy. Please try again later</source>
+        <translation>无线网卡繁忙，请稍后再试</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="316"/>
+        <source>Failed to execute. Please reopen the page later</source>
+        <translation>执行失败，请再次打开该页面查看</translation>
     </message>
     <message>
         <source>Projection Name</source>
         <translation type="vanished">投屏端名称</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/projection.cpp" line="285"/>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="334"/>
         <source>Add Bluetooths</source>
         <translation>添加蓝牙</translation>
         <extra-contents_path>/bluetooth/Add Bluetooths</extra-contents_path>
