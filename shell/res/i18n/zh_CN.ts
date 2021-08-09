@@ -6533,13 +6533,13 @@ run start-pulseaudio-x11 manually.</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="242"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="713"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="749"/>
         <source>5min</source>
         <translation>5分钟</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="242"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="714"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="750"/>
         <source>10min</source>
         <translation>10分钟</translation>
     </message>
@@ -6550,7 +6550,7 @@ run start-pulseaudio-x11 manually.</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="242"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="715"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="751"/>
         <source>30min</source>
         <translation>30分钟</translation>
     </message>
@@ -6566,7 +6566,7 @@ run start-pulseaudio-x11 manually.</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="657"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="673"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="707"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
@@ -6576,67 +6576,67 @@ run start-pulseaudio-x11 manually.</source>
         <translation>壁纸文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp *.svg)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="672"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="706"/>
         <source>select custom screensaver dir</source>
         <translation>选择自定义屏保路径</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="674"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="708"/>
         <source>Position: </source>
         <translation>位置:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="675"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="709"/>
         <source>FileName: </source>
         <translation>文件名:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="676"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="710"/>
         <source>FileType: </source>
         <translation>文件类型:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="677"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="711"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="708"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="744"/>
         <source>Switching time</source>
         <translation>更换时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="712"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="748"/>
         <source>1min</source>
         <translation>1分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="755"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="791"/>
         <source>Random switching</source>
         <translation>随机切换</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="791"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="827"/>
         <source>Display text</source>
         <translation>显示文本</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="801"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="837"/>
         <source>Enter text, up to 30 characters</source>
         <translation>输入文本，最多30个字符</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="852"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="888"/>
         <source>Text position</source>
         <translation>文本位置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="857"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="893"/>
         <source>Centered</source>
         <translation>居中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="858"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="894"/>
         <source>Randow(Bubble text)</source>
         <translation>随机(气泡文本)</translation>
     </message>
@@ -8764,6 +8764,16 @@ the settings will be saved after 14 seconds</source>
         <translation>是否保留当前修改的配置？将在14秒后自动保存配置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="639"/>
+        <source>Save</source>
+        <translation>保存</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="640"/>
+        <source>Not Save</source>
+        <translation>不保存</translation>
+    </message>
+    <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="1907"/>
         <location filename="../../../plugins/system/display/widget.cpp" line="1914"/>
         <source>Brightness</source>
@@ -8796,14 +8806,12 @@ If something goes wrong, the settings will be restored after 9 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在9秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="639"/>
         <source>Save Config</source>
-        <translation>保存配置</translation>
+        <translation type="vanished">保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="640"/>
         <source>Restore Config</source>
-        <translation>恢复之前配置</translation>
+        <translation type="vanished">恢复之前配置</translation>
     </message>
     <message>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 

@@ -636,8 +636,8 @@ bool Widget::isRestoreConfig()
                        "due to compatibility issues between the display device and the graphics card, "
                        "the display may be abnormal or unable to display\n"
                        "the settings will be saved after 14 seconds"));
-        msg.addButton(tr("Save Config"), QMessageBox::RejectRole);
-        msg.addButton(tr("Restore Config"), QMessageBox::AcceptRole);
+        msg.addButton(tr("Save"), QMessageBox::RejectRole);
+        msg.addButton(tr("Not Save"), QMessageBox::AcceptRole);
 
         QTimer cntDown;
         QObject::connect(&cntDown, &QTimer::timeout, [&msg, &cnt, &cntDown, &ret]()->void {
