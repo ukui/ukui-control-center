@@ -77,6 +77,8 @@ ChangePwdDialog::ChangePwdDialog(bool _isCurrentUser, QString _username, QWidget
 
     pcThread = new PwdCheckThread();
 
+    remoteUser = isRemoteUser();
+
 
     initPwdChecked();
     setupComponent();
@@ -90,6 +92,38 @@ ChangePwdDialog::~ChangePwdDialog()
 
 //    pcThread->terminate();
 //    delete pcThread;
+}
+
+bool ChangePwdDialog::isRemoteUser(){
+
+    FILE * stream;
+    char output[256];
+
+    char * command = "cat /etc/passwd | awk -F : '{print$1}'";
+    bool result;
+
+    QStringList userslist;
+
+    if ((stream = popen(command, "r")) == NULL){
+        return false;
+    }
+
+    while(fgets(output, 256, stream) != NULL){
+        userslist.append(QString(output).simplified());
+    }
+
+    qDebug() << "userslist: " << userslist;
+    qDebug() << currentUserName;
+
+    if (userslist.contains(currentUserName)){
+        result = false;
+    } else {
+        result = true;
+    }
+
+    pclose(stream);
+    return result;
+
 }
 
 bool ChangePwdDialog::checkOtherPasswd(QString name, QString pwd){
@@ -128,7 +162,10 @@ bool ChangePwdDialog::checkOtherPasswd(QString name, QString pwd){
 
 void ChangePwdDialog::initPwdChecked(){
 
-
+    if (remoteUser){
+        enablePwdQuality = false;
+        return;
+    }
 
 #ifdef ENABLEPQ
     int ret;
@@ -208,30 +245,40 @@ void ChangePwdDialog::setupConnect(){
 
     if (isCurrentUser){
 
-        connect(ui->curPwdLineEdit, &QLineEdit::textChanged, [=](QString txt){
+        if (remoteUser) {
+            connect(ui->confirmPushBtn, &QPushButton::clicked, [=]{
+                this->accept();
 
-            if (!txt.isEmpty()){
-                curPwdTip = "";
-                ui->tipLabel->setText(curPwdTip);
-            }
+                emit passwd_send3(ui->curPwdLineEdit->text(), ui->pwdLineEdit->text());
+            });}
+        else {
+            connect(ui->curPwdLineEdit, &QLineEdit::textChanged, [=](QString txt){
 
-            refreshConfirmBtnStatus();
-        });
+                if (!txt.isEmpty()){
+                    curPwdTip = "";
+                    ui->tipLabel->setText(curPwdTip);
+                }
 
-        connect(ui->confirmPushBtn, &QPushButton::clicked, [=]{
+                refreshConfirmBtnStatus();
+            });
 
-            if (pwdChecking)
-                return;
+            connect(ui->confirmPushBtn, &QPushButton::clicked, [=]{
 
-            pcThread->setArgs(currentUserName, ui->curPwdLineEdit->text());
+                if (pwdChecking)
+                    return;
 
-            pcThread->start();
+                pcThread->setArgs(currentUserName, ui->curPwdLineEdit->text());
 
-            pwdChecking = true;
+                pcThread->start();
 
-            refreshCancelBtnStatus();
+                pwdChecking = true;
 
-        });
+                refreshCancelBtnStatus();
+
+            });
+
+        }
+
     } else {
         connect(ui->confirmPushBtn, &QPushButton::clicked, [=]{
             this->accept();

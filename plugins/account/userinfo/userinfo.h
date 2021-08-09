@@ -46,6 +46,8 @@
 #include "biometricenroll.h"
 #include "biometricmoreinfo.h"
 
+#include "pwdchangethread.h"
+
 #ifdef ENABLEPQ
 extern "C" {
 #include <pwquality.h>
@@ -209,6 +211,8 @@ private:
     int pluginType;
     QWidget * pluginWidget;
     HoverWidget *addWgt;
+
+    PwdChangeThread * pcgThread;
 
     //增加生物密码
     HoverWidget *addBioFeatureWidget;
