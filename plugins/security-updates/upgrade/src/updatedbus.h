@@ -83,6 +83,8 @@ public:
 //dbus接口函数定义完毕
     //
     void onRequestSendDesktopNotify(QString message);
+    void SetDownloadLimit(int,bool);
+    int GetDownloadLimit(void);
     QStringList inameList;  //重要更新列表
     QStringList importantList;
     QStringList failedList;

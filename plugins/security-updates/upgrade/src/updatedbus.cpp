@@ -48,7 +48,28 @@ UpdateDbus::UpdateDbus(QObject *parent)
     setImportantStatus(true);
 
 }
+void UpdateDbus::SetDownloadLimit(int value,bool whetherlimit)
+{
+    interface->call("set_downloadspeed_max",value,whetherlimit);
+}
 
+int UpdateDbus::GetDownloadLimit(void)
+{
+    QDBusPendingReply<int> reply = interface->call("get_downloadspeed_limit_value");
+    if (!reply.isValid())
+    {
+        qDebug()<<"error getting download speed limit value";
+        return -1;
+    }
+    if (reply.argumentAt(0)==true)
+    {
+        return reply.argumentAt(1).toInt();
+    }
+    else
+    {
+        return -2;
+    }
+}
 void UpdateDbus::onRequestSendDesktopNotify(QString message)
 {
     QDBusInterface iface("org.freedesktop.Notifications",
