@@ -174,19 +174,6 @@ void TouchpadUI::initConnection()
 
 void TouchpadUI::gsettingConnectUi()
 {
-    //key值不明
-//    connect(mTouchpadGsetting, &QGSettings::changed, this, [=](const QString &key) {
-//        if (key == "disable-on-external-mouse") {
-//            mMouseDisableBtn->setChecked(mTouchpadGsetting->get(kMouseDisableKey).toBool());
-//        } else if (key == "disable-while-typing") {
-//            mTypingDisableBtn->setChecked(mTouchpadGsetting->get(kTypingDisableKey).toBool());
-//        } else if (key == "tap-to-click") {
-//            mClickBtn->setChecked(mTouchpadGsetting->get(kClickKey).toBool());
-//        } else if (key == "natural-scroll") {
-//            mScrollSlideBtn->setChecked(mTouchpadGsetting->get(kScrollSlideKey).toBool());
-//        }
-//    });
-
     //命令行或鼠标设置指针速度时（共用一个key）改变 key 值，界面做出相应的改变
     connect(mMouseGsetting, &QGSettings::changed, this, [=](const QString &key) {
        if (key == "motionAcceleration") {
