@@ -38,7 +38,7 @@ ShortcutLine::ShortcutLine(QList<KeyEntry *> generalEntries,
                            systemEntry(generalEntries),
                            customEntry(customEntries)
 {
-    this->setReadOnly(true);
+//    this->setReadOnly(true);
     initInputKeyAndText(true);
 }
 
