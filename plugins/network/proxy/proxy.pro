@@ -34,15 +34,12 @@ PKGCONFIG     += gio-2.0 \
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
-    proxy.cpp \
-    certificationdialog.cpp
+    proxy.cpp
 
 HEADERS += \
     proxy.h \
     certificationdialog.h
 
-FORMS += \
-    proxy.ui \
-    certificationdialog.ui
+FORMS +=
 
 INSTALLS += target

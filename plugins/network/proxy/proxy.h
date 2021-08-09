@@ -31,6 +31,9 @@
 #include <QGSettings>
 #include <QRadioButton>
 #include <QLineEdit>
+#include <QCheckBox>
+#include <QTextEdit>
+#include <QButtonGroup>
 
 #include "shell/interface.h"
 #include "SwitchButton/switchbutton.h"
@@ -89,7 +92,7 @@ public:
 public:
     void initUi(QWidget *widget);
     void initSearchText();
-    void setupStylesheet();
+    void retranslateUi();
     void setupComponent();
     void setupConnect();
     void initProxyModeStatus();
@@ -98,15 +101,10 @@ public:
     void initIgnoreHostStatus();
 
     void manualProxyTextChanged(QString txt);
-
-    void showCertificationDialog();
-
     int _getCurrentProxyMode();
     void _setSensitivity();
 
 private:
-    Ui::Proxy *ui;
-
     QString pluginName;
     int pluginType;
     QWidget * pluginWidget;
@@ -116,10 +114,18 @@ private:
     QLabel *mUrlLabel;
     QLabel *mManualProxyLabel;
     QLabel *mHTTPLabel;
+    QLabel *mHTTPPortLabel;
     QLabel *mHTTPSLabel;
+    QLabel *mHTTPSPortLabel;
     QLabel *mFTPLabel;
+    QLabel *mFTPPortLabel;
     QLabel *mSOCKSLabel;
+    QLabel *mSOCKSPortLabel;
     QLabel *mIgnoreLabel;
+
+    QLabel *mCertificationLabel;
+    QLabel *mUserNameLabel;
+    QLabel *mPwdLabel;
 
 
     QFrame *mAutoFrame;
@@ -133,6 +139,7 @@ private:
     QFrame *mFTPFrame;
     QFrame *mSOCKSFrame;
     QFrame *mIgnoreFrame;
+    QFrame *mCertificationFrame_1;
 
     QFrame *line_1;
     QFrame *line_2;
@@ -143,7 +150,9 @@ private:
 
     QRadioButton *mAutoBtn;
     QRadioButton *mManualBtn;
-    QPushButton *mCetificationBtn;
+    QCheckBox *mCertificationBtn;
+
+    QButtonGroup *mProxyBtnGroup;
 
     QLineEdit *mUrlLineEdit;
     QLineEdit *mHTTPLineEdit_1;
@@ -154,11 +163,11 @@ private:
     QLineEdit *mFTPLineEdit_2;
     QLineEdit *mSOCKSLineEdit_1;
     QLineEdit *mSOCKSLineEdit_2;
-    QLineEdit *mIgnoreLineEdit;
-private:
-    SwitchButton * autoSwitchBtn;
-    SwitchButton * manualSwitchBtn;
+    QLineEdit *mUserNameLineEdit;
+    QLineEdit *mPwdLineEdit;
 
+    QTextEdit *mIgnoreLineEdit;
+private:
     QGSettings * proxysettings;
     QGSettings * httpsettings;
     QGSettings * securesettings;
@@ -167,9 +176,6 @@ private:
 
     bool settingsCreate;
     bool mFirstLoad;
-
-public slots:
-    void proxyModeChangedSlot(bool checked);
 
 };
 

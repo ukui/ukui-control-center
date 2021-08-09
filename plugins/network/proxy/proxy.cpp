@@ -43,30 +43,13 @@
 
 Proxy::Proxy() : mFirstLoad(true)
 {
-    ui = new Ui::Proxy;
     pluginName = tr("Proxy");
     pluginType = NETWORK;
 }
 
 Proxy::~Proxy()
 {
-    if (!mFirstLoad) {
-        delete ui;
-        ui = nullptr;
 
-        if (settingsCreate){
-            delete proxysettings;
-            proxysettings = nullptr;
-            delete httpsettings;
-            httpsettings = nullptr;
-            delete securesettings;
-            securesettings = nullptr;
-            delete ftpsettings;
-            ftpsettings = nullptr;
-            delete sockssettings;
-            sockssettings = nullptr;
-        }
-    }
 }
 
 QString Proxy::get_plugin_name() {
@@ -82,9 +65,9 @@ QWidget *Proxy::get_plugin_ui() {
         mFirstLoad = false;
         pluginWidget = new QWidget;
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-        ui->setupUi(pluginWidget);
-       // initUi(pluginWidget);
-        settingsCreate = false;
+       // ui->setupUi(pluginWidget);
+        initUi(pluginWidget);
+        retranslateUi();
 
         const QByteArray id(PROXY_SCHEMA);
         const QByteArray idd(HTTP_PROXY_SCHEMA);
@@ -93,19 +76,17 @@ QWidget *Proxy::get_plugin_ui() {
         const QByteArray iiid(SOCKS_PROXY_SCHEMA);
 
         initSearchText();
-        setupStylesheet();
         setupComponent();
 
         if (QGSettings::isSchemaInstalled(id) && QGSettings::isSchemaInstalled(idd) &&
                 QGSettings::isSchemaInstalled(iddd) && QGSettings::isSchemaInstalled(iid) &&
                 QGSettings::isSchemaInstalled(iiid)){
 
-            settingsCreate = true;
-            proxysettings = new QGSettings(id);
-            httpsettings = new QGSettings(idd);
-            securesettings = new QGSettings(iddd);
-            ftpsettings = new QGSettings(iid);
-            sockssettings = new QGSettings(iiid);
+            proxysettings = new QGSettings(id,QByteArray(),this);
+            httpsettings = new QGSettings(idd,QByteArray(),this);
+            securesettings = new QGSettings(iddd,QByteArray(),this);
+            ftpsettings = new QGSettings(iid,QByteArray(),this);
+            sockssettings = new QGSettings(iiid,QByteArray(),this);
 
             setupConnect();
             initProxyModeStatus();
@@ -132,7 +113,9 @@ void Proxy::initUi(QWidget *widget)
 {
     QVBoxLayout *mverticalLayout = new QVBoxLayout(widget);
     mverticalLayout->setSpacing(8);
-    mverticalLayout->setContentsMargins(0, 0, 40, 100);
+    mverticalLayout->setContentsMargins(0, 0, 40, 40);
+
+    mProxyBtnGroup = new QButtonGroup(this);
 
     mTitleLabel = new TitleLabel(widget);
 
@@ -161,6 +144,7 @@ void Proxy::initUi(QWidget *widget)
     mAutoProxyLabel->setFixedWidth(400);
 
     mAutoBtn = new QRadioButton(mAutoProxyWidget);
+    mProxyBtnGroup->addButton(mAutoBtn);
 
     mAutoProxyLayout->addWidget(mAutoProxyLabel);
     mAutoProxyLayout->addStretch();
@@ -195,10 +179,6 @@ void Proxy::initUi(QWidget *widget)
     AutobootLayout->addWidget(line_1);
     AutobootLayout->addWidget(mUrlFrame);
 
-//    connect(mAutoProxyWidget,&HoverWidget::widgetClicked,[=](){
-//        emit mAutoBtn->click();
-//    });
-
     // 手动代理模块
     mManualFrame = new QFrame(widget);
     mManualFrame->setMinimumSize(QSize(550, 0));
@@ -224,6 +204,7 @@ void Proxy::initUi(QWidget *widget)
     mManualProxyLabel->setFixedWidth(400);
 
     mManualBtn = new QRadioButton(mManualProxyWidget);
+    mProxyBtnGroup->addButton(mManualBtn);
 
     mManualProxyLayout->addWidget(mManualProxyLabel);
     mManualProxyLayout->addStretch();
@@ -236,26 +217,211 @@ void Proxy::initUi(QWidget *widget)
     line_2->setFrameShape(QFrame::HLine);
     line_2->setFrameShadow(QFrame::Sunken);
 
-//    mHTTPFrame = new QFrame(mManualFrame);
-//    mHTTPFrame->setMinimumSize(QSize(550, 60));
-//    mHTTPFrame->setMaximumSize(QSize(16777215, 60));
-//    mHTTPFrame->setFrameShape(QFrame::NoFrame);
+    mHTTPFrame = new QFrame(mManualFrame);
+    mHTTPFrame->setMinimumSize(QSize(550, 0));
+    mHTTPFrame->setMaximumSize(QSize(16777215, 16777215));
+    mHTTPFrame->setFrameShape(QFrame::NoFrame);
 
-//    QHBoxLayout *mHTTPLayout = new QHBoxLayout(mHTTPFrame);
-//    mHTTPLayout->setContentsMargins(16, 0, 16, 0);
-//    mHTTPLayout->setSpacing(8);
+    QVBoxLayout *mHTTPLayout = new QVBoxLayout(mHTTPFrame);
+    mHTTPLayout->setSpacing(10);
+    mHTTPLayout->setContentsMargins(16, 12, 16, 8);
 
-//    mHTTPLabel = new QLabel(mHTTPFrame);
-//    mHTTPLabel->setFixedWidth(136);
+    QFrame *mHTTPFrame_1 = new QFrame(mHTTPFrame);
+    mHTTPFrame_1->setMinimumSize(QSize(550, 60));
+    mHTTPFrame_1->setMaximumSize(QSize(16777215, 60));
+    mHTTPFrame_1->setFrameShape(QFrame::NoFrame);
 
-//    mUrlLineEdit = new QLineEdit(mUrlFrame);
-//    mUrlLineEdit->setFixedHeight(36);
+    QHBoxLayout *mHTTPLayout_1 = new QHBoxLayout(mHTTPFrame_1);
+    mHTTPLayout_1->setSpacing(8);
+    mHTTPLayout_1->setContentsMargins(0, 0, 0, 0);
+    mHTTPLabel = new QLabel(mHTTPFrame_1);
+    mHTTPLabel->setFixedWidth(136);
+    mHTTPPortLabel = new QLabel(mHTTPFrame_1);
+    mHTTPPortLabel->setFixedWidth(100);
+    mHTTPPortLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    mHTTPLineEdit_1 = new QLineEdit(mHTTPFrame_1);
+    mHTTPLineEdit_1->setMinimumWidth(300);
+    mHTTPLineEdit_1->setFixedHeight(36);
+    mHTTPLineEdit_2 = new QLineEdit(mHTTPFrame_1);
+    mHTTPLineEdit_2->setFixedHeight(36);
+    mHTTPLayout_1->addWidget(mHTTPLabel);
+    mHTTPLayout_1->addWidget(mHTTPLineEdit_1);
+    mHTTPLayout_1->addWidget(mHTTPPortLabel);
+    mHTTPLayout_1->addWidget(mHTTPLineEdit_2);
 
-//    mUrlLayout->addWidget(mUrlLabel);
-//    mUrlLayout->addWidget(mUrlLineEdit);
+    QFrame *mCertificationFrame = new QFrame(mHTTPFrame);
+    mCertificationFrame->setMinimumSize(QSize(550, 20));
+    mCertificationFrame->setMaximumSize(QSize(16777215, 20));
+    mCertificationFrame->setFrameShape(QFrame::NoFrame);
+    QHBoxLayout *mCertificationLyt = new QHBoxLayout(mCertificationFrame);
+    mCertificationLyt->setContentsMargins(144, 0, 0, 0);
+    mCertificationLyt->setSpacing(8);
+    mCertificationBtn = new QCheckBox(mCertificationFrame);
+    mCertificationBtn->setFixedSize(16,16);
+    mCertificationLabel = new QLabel(mCertificationFrame);
+    mCertificationLabel->setMinimumWidth(200);
+    mCertificationLyt->addWidget(mCertificationBtn,Qt::AlignTop);
+    mCertificationLyt->addWidget(mCertificationLabel);
+    mCertificationLyt->addStretch();
+
+    mCertificationFrame_1 = new QFrame(mHTTPFrame);
+    mCertificationFrame_1->setMinimumSize(QSize(550, 60));
+    mCertificationFrame_1->setMaximumSize(QSize(16777215, 60));
+    mCertificationFrame_1->setFrameShape(QFrame::NoFrame);
+    QHBoxLayout *mCertificationLyt_1 = new QHBoxLayout(mCertificationFrame_1);
+    mCertificationLyt_1->setContentsMargins(144, 0, 0, 0);
+    mCertificationLyt_1->setSpacing(8);
+    mPwdLabel = new QLabel(mCertificationFrame_1);
+    mPwdLabel->setFixedWidth(100);
+    mPwdLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    mPwdLineEdit = new QLineEdit(mCertificationFrame_1);
+    mPwdLineEdit->setFixedHeight(36);
+  //  mPwdLineEdit->setEchoMode(QLineEdit::Password);
+
+    QFrame *mUserFrame = new QFrame(mCertificationFrame_1);
+    mUserFrame->setFrameShape(QFrame::NoFrame);
+    QHBoxLayout *mUserLyt = new QHBoxLayout(mUserFrame);
+    mUserLyt->setContentsMargins(0, 0, 0, 0);
+    mUserLyt->setSpacing(8);
+    mUserNameLabel = new QLabel(mUserFrame);
+    mUserNameLabel->setFixedWidth(112);
+    mUserNameLineEdit = new QLineEdit(mUserFrame);
+    mUserNameLineEdit->setMinimumWidth(180);
+    mUserNameLineEdit->setFixedHeight(36);
+    mUserLyt->addWidget(mUserNameLabel);
+    mUserLyt->addWidget(mUserNameLineEdit);
+
+    mCertificationLyt_1->addWidget(mUserFrame);
+    mCertificationLyt_1->addWidget(mPwdLabel);
+    mCertificationLyt_1->addWidget(mPwdLineEdit);
+
+    mHTTPLayout->addWidget(mHTTPFrame_1);
+    mHTTPLayout->addWidget(mCertificationFrame);
+    mHTTPLayout->addWidget(mCertificationFrame_1);
+
+    line_3 = new QFrame(mManualFrame);
+    line_3->setMinimumSize(QSize(0, 1));
+    line_3->setMaximumSize(QSize(16777215, 1));
+    line_3->setLineWidth(0);
+    line_3->setFrameShape(QFrame::HLine);
+    line_3->setFrameShadow(QFrame::Sunken);
+
+    mHTTPSFrame = new QFrame(mManualFrame);
+    mHTTPSFrame->setMinimumSize(QSize(550, 60));
+    mHTTPSFrame->setMaximumSize(QSize(16777215, 60));
+    mHTTPSFrame->setFrameShape(QFrame::NoFrame);
+
+    QHBoxLayout *mHTTPSLayout = new QHBoxLayout(mHTTPSFrame);
+    mHTTPSLayout->setSpacing(8);
+    mHTTPSLayout->setContentsMargins(16, 0, 16, 0);
+    mHTTPSLabel = new QLabel(mHTTPSFrame);
+    mHTTPSLabel->setFixedWidth(136);
+    mHTTPSPortLabel = new QLabel(mHTTPSFrame);
+    mHTTPSPortLabel->setFixedWidth(100);
+    mHTTPSPortLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    mHTTPSLineEdit_1 = new QLineEdit(mHTTPSFrame);
+    mHTTPSLineEdit_1->setMinimumWidth(300);
+    mHTTPSLineEdit_1->setFixedHeight(36);
+    mHTTPSLineEdit_2 = new QLineEdit(mHTTPSFrame);
+    mHTTPSLineEdit_2->setFixedHeight(36);
+    mHTTPSLayout->addWidget(mHTTPSLabel);
+    mHTTPSLayout->addWidget(mHTTPSLineEdit_1);
+    mHTTPSLayout->addWidget(mHTTPSPortLabel);
+    mHTTPSLayout->addWidget(mHTTPSLineEdit_2);
+
+    line_4 = new QFrame(mManualFrame);
+    line_4->setMinimumSize(QSize(0, 1));
+    line_4->setMaximumSize(QSize(16777215, 1));
+    line_4->setLineWidth(0);
+    line_4->setFrameShape(QFrame::HLine);
+    line_4->setFrameShadow(QFrame::Sunken);
+
+    mFTPFrame = new QFrame(mManualFrame);
+    mFTPFrame->setMinimumSize(QSize(550, 60));
+    mFTPFrame->setMaximumSize(QSize(16777215, 60));
+    mFTPFrame->setFrameShape(QFrame::NoFrame);
+
+    QHBoxLayout *mFTPLayout = new QHBoxLayout(mFTPFrame);
+    mFTPLayout->setSpacing(8);
+    mFTPLayout->setContentsMargins(16, 0, 16, 0);
+    mFTPLabel = new QLabel(mFTPFrame);
+    mFTPLabel->setFixedWidth(136);
+    mFTPPortLabel = new QLabel(mFTPFrame);
+    mFTPPortLabel->setFixedWidth(100);
+    mFTPPortLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    mFTPLineEdit_1 = new QLineEdit(mFTPFrame);
+    mFTPLineEdit_1->setMinimumWidth(300);
+    mFTPLineEdit_1->setFixedHeight(36);
+    mFTPLineEdit_2 = new QLineEdit(mFTPFrame);
+    mFTPLineEdit_2->setFixedHeight(36);
+    mFTPLayout->addWidget(mFTPLabel);
+    mFTPLayout->addWidget(mFTPLineEdit_1);
+    mFTPLayout->addWidget(mFTPPortLabel);
+    mFTPLayout->addWidget(mFTPLineEdit_2);
+
+    line_5 = new QFrame(mManualFrame);
+    line_5->setMinimumSize(QSize(0, 1));
+    line_5->setMaximumSize(QSize(16777215, 1));
+    line_5->setLineWidth(0);
+    line_5->setFrameShape(QFrame::HLine);
+    line_5->setFrameShadow(QFrame::Sunken);
+
+    mSOCKSFrame = new QFrame(mManualFrame);
+    mSOCKSFrame->setMinimumSize(QSize(550, 60));
+    mSOCKSFrame->setMaximumSize(QSize(16777215, 60));
+    mSOCKSFrame->setFrameShape(QFrame::NoFrame);
+
+    QHBoxLayout *mSOCKSLayout = new QHBoxLayout(mSOCKSFrame);
+    mSOCKSLayout->setSpacing(8);
+    mSOCKSLayout->setContentsMargins(16, 0, 16, 0);
+    mSOCKSLabel = new QLabel(mSOCKSFrame);
+    mSOCKSLabel->setFixedWidth(136);
+    mSOCKSPortLabel = new QLabel(mSOCKSFrame);
+    mSOCKSPortLabel->setFixedWidth(100);
+    mSOCKSPortLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    mSOCKSLineEdit_1 = new QLineEdit(mSOCKSFrame);
+    mSOCKSLineEdit_1->setMinimumWidth(300);
+    mSOCKSLineEdit_1->setFixedHeight(36);
+    mSOCKSLineEdit_2 = new QLineEdit(mSOCKSFrame);
+    mSOCKSLineEdit_2->setFixedHeight(36);
+    mSOCKSLayout->addWidget(mSOCKSLabel);
+    mSOCKSLayout->addWidget(mSOCKSLineEdit_1);
+    mSOCKSLayout->addWidget(mSOCKSPortLabel);
+    mSOCKSLayout->addWidget(mSOCKSLineEdit_2);
+
+    line_6 = new QFrame(mManualFrame);
+    line_6->setMinimumSize(QSize(0, 1));
+    line_6->setMaximumSize(QSize(16777215, 1));
+    line_6->setLineWidth(0);
+    line_6->setFrameShape(QFrame::HLine);
+    line_6->setFrameShadow(QFrame::Sunken);
+
+    mIgnoreFrame = new QFrame(mManualFrame);
+    mIgnoreFrame->setMinimumSize(QSize(550, 0));
+    mIgnoreFrame->setMaximumSize(QSize(16777215, 16777215));
+    mIgnoreFrame->setFrameShape(QFrame::NoFrame);
+    QVBoxLayout *mIgnoreLayout = new QVBoxLayout(mIgnoreFrame);
+    mIgnoreLayout->setSpacing(10);
+    mIgnoreLayout->setContentsMargins(16, 0, 16, 24);
+    mIgnoreLabel = new QLabel(mIgnoreFrame);
+    mIgnoreLabel->setFixedHeight(36);
+    mIgnoreLineEdit = new QTextEdit(mIgnoreFrame);
+    mIgnoreLineEdit->setFixedHeight(120);
+    mIgnoreLineEdit->setStyleSheet("border-radius:6px;background-color: palette(button)");
+    mIgnoreLayout->addWidget(mIgnoreLabel);
+    mIgnoreLayout->addWidget(mIgnoreLineEdit);
 
     mManualLayout->addWidget(mManualProxyWidget);
     mManualLayout->addWidget(line_2);
+    mManualLayout->addWidget(mHTTPFrame);
+    mManualLayout->addWidget(line_3);
+    mManualLayout->addWidget(mHTTPSFrame);
+    mManualLayout->addWidget(line_4);
+    mManualLayout->addWidget(mFTPFrame);
+    mManualLayout->addWidget(line_5);
+    mManualLayout->addWidget(mSOCKSFrame);
+    mManualLayout->addWidget(line_6);
+    mManualLayout->addWidget(mIgnoreFrame);
 
     mverticalLayout->addWidget(mTitleLabel);
     mverticalLayout->addWidget(mAutoFrame);
@@ -265,90 +431,137 @@ void Proxy::initUi(QWidget *widget)
 }
 
 void Proxy::initSearchText() {
-    //~ contents_path /proxy/Auto proxy
-    ui->autoLabel->setText(tr("Auto proxy"));
-    //~ contents_path /proxy/Manual proxy
-    ui->manualLabel->setText(tr("Manual proxy"));
+
 }
 
-void Proxy::setupStylesheet(){
+void Proxy::retranslateUi()
+{
+    mTitleLabel->setText(tr("System Proxy"));
+    mAutoProxyLabel->setText(tr("Auto Proxy"));
+    mUrlLabel->setText(tr("Auto url"));
+    mManualProxyLabel->setText(tr("Manual Proxy"));
+    mHTTPLabel->setText(tr("Http Proxy"));
+    mHTTPSLabel->setText(tr("Https Proxy"));
+    mFTPLabel->setText(tr("Ftp Proxy"));
+    mSOCKSLabel->setText(tr("Socks Proxy"));
+    mHTTPPortLabel->setText(tr("Port"));
+    mHTTPSPortLabel->setText(tr("Port"));
+    mFTPPortLabel->setText(tr("Port"));
+    mSOCKSPortLabel->setText(tr("Port"));
+    mIgnoreLabel->setText(tr("List of ignored hosts. more than one entry, please separate with english semicolon(;)"));
+    mCertificationLabel->setText(tr("Enable Authentication"));
+    mUserNameLabel->setText(tr("User Name"));
+    mPwdLabel->setText(tr("Password"));
 }
 
 void Proxy::setupComponent(){
-    //添加自动配置代理开关按钮
-    autoSwitchBtn = new SwitchButton(ui->autoFrame);
-    autoSwitchBtn->setObjectName("auto");
-    ui->autoHorLayout->addWidget(autoSwitchBtn);
-
-    //添加手动配置代理开关按钮
-    manualSwitchBtn = new SwitchButton(ui->manualFrame);
-    manualSwitchBtn->setObjectName("manual");
-    ui->manualHorLayout->addWidget(manualSwitchBtn);
-
-    ui->cetificationBtn->hide();
-
     //QLineEdit 设置数据
     GSData httpHostData;
     httpHostData.schema = HTTP_PROXY_SCHEMA;
     httpHostData.key = PROXY_HOST_KEY;
-    ui->httpHostLineEdit->setProperty("gData", QVariant::fromValue(httpHostData));
+    mHTTPLineEdit_1->setProperty("gData", QVariant::fromValue(httpHostData));
 
     GSData httpsHostData;
     httpsHostData.schema = HTTPS_PROXY_SCHEMA;
     httpsHostData.key = PROXY_HOST_KEY;
-    ui->httpsHostLineEdit->setProperty("gData", QVariant::fromValue(httpsHostData));
+    mHTTPSLineEdit_1->setProperty("gData", QVariant::fromValue(httpsHostData));
 
     GSData ftpHostData;
     ftpHostData.schema = FTP_PROXY_SCHEMA;
     ftpHostData.key = PROXY_HOST_KEY;
-    ui->ftpHostLineEdit->setProperty("gData", QVariant::fromValue(ftpHostData));
+    mFTPLineEdit_1->setProperty("gData", QVariant::fromValue(ftpHostData));
 
     GSData socksHostData;
     socksHostData.schema = SOCKS_PROXY_SCHEMA;
     socksHostData.key = PROXY_HOST_KEY;
-    ui->socksHostLineEdit->setProperty("gData", QVariant::fromValue(socksHostData));
+    mSOCKSLineEdit_1->setProperty("gData", QVariant::fromValue(socksHostData));
 
     GSData httpPortData;
     httpPortData.schema = HTTP_PROXY_SCHEMA;
     httpPortData.key = PROXY_PORT_KEY;
-    ui->httpPortLineEdit->setProperty("gData", QVariant::fromValue(httpPortData));
+    mHTTPLineEdit_2->setProperty("gData", QVariant::fromValue(httpPortData));
 
     GSData httpsPortData;
     httpsPortData.schema = HTTPS_PROXY_SCHEMA;
     httpsPortData.key = PROXY_PORT_KEY;
-    ui->httpsPortLineEdit->setProperty("gData", QVariant::fromValue(httpsPortData));
+    mHTTPSLineEdit_2->setProperty("gData", QVariant::fromValue(httpsPortData));
 
     GSData ftpPortData;
     ftpPortData.schema = FTP_PROXY_SCHEMA;
     ftpPortData.key = PROXY_PORT_KEY;
-    ui->ftpPortLineEdit->setProperty("gData", QVariant::fromValue(ftpPortData));
+    mFTPLineEdit_2->setProperty("gData", QVariant::fromValue(ftpPortData));
 
     GSData socksPortData;
     socksPortData.schema = SOCKS_PROXY_SCHEMA;
     socksPortData.key = PROXY_PORT_KEY;
-    ui->socksPortLineEdit->setProperty("gData", QVariant::fromValue(socksPortData));
+    mSOCKSLineEdit_2->setProperty("gData", QVariant::fromValue(socksPortData));
 }
 
 void Proxy::setupConnect(){
-    connect(autoSwitchBtn, SIGNAL(checkedChanged(bool)), this, SLOT(proxyModeChangedSlot(bool)));
-    connect(manualSwitchBtn, SIGNAL(checkedChanged(bool)), this, SLOT(proxyModeChangedSlot(bool)));
-    connect(ui->urlLineEdit, &QLineEdit::textChanged, this, [=](const QString &txt){proxysettings->set(PROXY_AUTOCONFIG_URL_KEY, QVariant(txt));});
+    connect(mAutoProxyWidget,&HoverWidget::widgetClicked,[=](){
+        emit mAutoBtn->click();
+    });
 
-    connect(ui->httpHostLineEdit, &QLineEdit::textChanged, this, [=](const QString &txt){manualProxyTextChanged(txt);});
-    connect(ui->httpsHostLineEdit, &QLineEdit::textChanged, this, [=](const QString &txt){manualProxyTextChanged(txt);});
-    connect(ui->ftpHostLineEdit, &QLineEdit::textChanged, this, [=](const QString &txt){manualProxyTextChanged(txt);});
-    connect(ui->socksHostLineEdit, &QLineEdit::textChanged, this, [=](const QString &txt){manualProxyTextChanged(txt);});
-    connect(ui->httpPortLineEdit, &QLineEdit::textChanged, this, [=](const QString &txt){manualProxyTextChanged(txt);});
-    connect(ui->httpsPortLineEdit, &QLineEdit::textChanged, this, [=](const QString &txt){manualProxyTextChanged(txt);});
-    connect(ui->ftpPortLineEdit, &QLineEdit::textChanged, this, [=](const QString &txt){manualProxyTextChanged(txt);});
-    connect(ui->socksPortLineEdit, &QLineEdit::textChanged, this, [=](const QString &txt){manualProxyTextChanged(txt);});
+    connect(mManualProxyWidget,&HoverWidget::widgetClicked,[=](){
+        emit mManualBtn->click();
+    });
 
-//    connect(ui->cetificationBtn, &QPushButton::clicked, [=](bool checked){
-//        Q_UNUSED(checked)
-//        showCertificationDialog();
-//    });
-    connect(ui->ignoreHostTextEdit, &QTextEdit::textChanged, this, [=](){
-        QString text = ui->ignoreHostTextEdit->toPlainText();
+    connect(mCertificationBtn, &QCheckBox::clicked, this, [=](){
+        bool cerChecked = mCertificationBtn->isChecked();
+        mCertificationFrame_1->setEnabled(cerChecked);
+        httpsettings->set(HTTP_AUTH_KEY, QVariant(cerChecked));
+        if (cerChecked) {
+            mUserNameLineEdit->setText(httpsettings->get(HTTP_AUTH_USER_KEY).toString());
+            mPwdLineEdit->setText(httpsettings->get(HTTP_AUTH_PASSWD_KEY).toString());
+        } else {
+            mUserNameLineEdit->setText("");
+            mPwdLineEdit->setText("");
+        }
+    });
+
+    connect(mProxyBtnGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), [=](QAbstractButton * eBtn){
+        if (eBtn == mAutoBtn) {
+            mAutoBtn->setChecked(true);
+            mManualBtn->setChecked(false);
+            proxysettings->set(PROXY_MODE_KEY,"auto");
+        }
+        else if (eBtn == mManualBtn){
+            mAutoBtn->setChecked(false);
+            mManualBtn->setChecked(true);
+            proxysettings->set(PROXY_MODE_KEY,"manual");
+        } else {
+            mAutoBtn->setChecked(false);
+            mManualBtn->setChecked(false);
+            proxysettings->set(PROXY_MODE_KEY,"none");
+        }
+        _setSensitivity();
+    });
+
+    connect(mUrlLineEdit, &QLineEdit::textChanged, this, [=](const QString &txt){proxysettings->set(PROXY_AUTOCONFIG_URL_KEY, QVariant(txt));});
+
+    connect(mHTTPLineEdit_1, &QLineEdit::textChanged, this, [=](const QString &txt){manualProxyTextChanged(txt);});
+    connect(mHTTPSLineEdit_1, &QLineEdit::textChanged, this, [=](const QString &txt){manualProxyTextChanged(txt);});
+    connect(mFTPLineEdit_1, &QLineEdit::textChanged, this, [=](const QString &txt){manualProxyTextChanged(txt);});
+    connect(mSOCKSLineEdit_1, &QLineEdit::textChanged, this, [=](const QString &txt){manualProxyTextChanged(txt);});
+    connect(mHTTPLineEdit_2, &QLineEdit::textChanged, this, [=](const QString &txt){manualProxyTextChanged(txt);});
+    connect(mHTTPSLineEdit_2, &QLineEdit::textChanged, this, [=](const QString &txt){manualProxyTextChanged(txt);});
+    connect(mFTPLineEdit_2, &QLineEdit::textChanged, this, [=](const QString &txt){manualProxyTextChanged(txt);});
+    connect(mSOCKSLineEdit_2, &QLineEdit::textChanged, this, [=](const QString &txt){manualProxyTextChanged(txt);});
+
+    connect(mPwdLineEdit, &QLineEdit::textChanged, this, [=](QString str){
+        if (str != "") {
+            httpsettings->set(HTTP_AUTH_PASSWD_KEY,QVariant(str));
+        }
+    });
+
+    connect(mUserNameLineEdit, &QLineEdit::textChanged, this, [=](QString str){
+        if (str != "") {
+            httpsettings->set(HTTP_AUTH_USER_KEY,QVariant(str));
+        }
+    });
+
+    connect(mIgnoreLineEdit, &QTextEdit::textChanged, this, [=](){
+        QString text = mIgnoreLineEdit->toPlainText();
         QStringList hostStringList = text.split(";");
         proxysettings->set(IGNORE_HOSTS_KEY, QVariant(hostStringList));
     });
@@ -357,90 +570,99 @@ void Proxy::setupConnect(){
 void Proxy::initProxyModeStatus(){
     int mode = _getCurrentProxyMode();
 
-    autoSwitchBtn->blockSignals(true);
-    manualSwitchBtn->blockSignals(true);
+    mAutoBtn->blockSignals(true);
+    mManualBtn->blockSignals(true);
+    mCertificationBtn->blockSignals(true);
 
     if (mode == AUTO){
-        autoSwitchBtn->setChecked(true);
+        mAutoBtn->setChecked(true);
     } else if (mode == MANUAL){
-        manualSwitchBtn->setChecked(true);
+        mManualBtn->setChecked(true);
     } else{
-        autoSwitchBtn->setChecked(false);
-        manualSwitchBtn->setChecked(false);
+        mAutoBtn->setChecked(false);
+        mManualBtn->setChecked(false);
     }
 
-    autoSwitchBtn->blockSignals(false);
-    manualSwitchBtn->blockSignals(false);
+    if (httpsettings->get(HTTP_AUTH_KEY).toBool()) {
+        mUserNameLineEdit->setText(httpsettings->get(HTTP_AUTH_USER_KEY).toString());
+        mPwdLineEdit->setText(httpsettings->get(HTTP_AUTH_PASSWD_KEY).toString());
+    }
+    mCertificationBtn->setChecked(httpsettings->get(HTTP_AUTH_KEY).toBool());
+    mCertificationFrame_1->setEnabled(httpsettings->get(HTTP_AUTH_KEY).toBool());
+
+    mAutoBtn->blockSignals(false);
+    mManualBtn->blockSignals(false);
+    mCertificationBtn->blockSignals(false);
 
     _setSensitivity();
 }
 
 void Proxy::initAutoProxyStatus(){
 
-    ui->urlLineEdit->blockSignals(true);
+    mUrlLineEdit->blockSignals(true);
     //设置当前url
     QString urlString = proxysettings->get(PROXY_AUTOCONFIG_URL_KEY).toString();
-    ui->urlLineEdit->setText(urlString);
+    mUrlLineEdit->setText(urlString);
 
-    ui->urlLineEdit->blockSignals(false);
+    mUrlLineEdit->blockSignals(false);
 }
 
 void Proxy::initManualProxyStatus(){
     //信号阻塞
-    ui->httpHostLineEdit->blockSignals(true);
-    ui->httpsHostLineEdit->blockSignals(true);
-    ui->ftpHostLineEdit->blockSignals(true);
-    ui->socksHostLineEdit->blockSignals(true);
+    mHTTPLineEdit_1->blockSignals(true);
+    mHTTPSLineEdit_1->blockSignals(true);
+    mFTPLineEdit_1->blockSignals(true);
+    mSOCKSLineEdit_1->blockSignals(true);
 
-    ui->httpPortLineEdit->blockSignals(true);
-    ui->httpsPortLineEdit->blockSignals(true);
-    ui->ftpPortLineEdit->blockSignals(true);
-    ui->socksPortLineEdit->blockSignals(true);
+    mHTTPLineEdit_2->blockSignals(true);
+    mHTTPSLineEdit_2->blockSignals(true);
+    mFTPLineEdit_2->blockSignals(true);
+    mSOCKSLineEdit_2->blockSignals(true);
 
     //HTTP
     QString httphost = httpsettings->get(PROXY_HOST_KEY).toString();
-    ui->httpHostLineEdit->setText(httphost);
+    mHTTPLineEdit_1->setText(httphost);
     int httpport = httpsettings->get(PROXY_PORT_KEY).toInt();
-    ui->httpPortLineEdit->setText(QString::number(httpport));
+    mHTTPLineEdit_2->setText(QString::number(httpport));
 
     //HTTPS
     QString httpshost = securesettings->get(PROXY_HOST_KEY).toString();
-    ui->httpsHostLineEdit->setText(httpshost);
+    mHTTPSLineEdit_1->setText(httpshost);
     int httpsport = securesettings->get(PROXY_PORT_KEY).toInt();
-    ui->httpsPortLineEdit->setText(QString::number(httpsport));
+    mHTTPSLineEdit_2->setText(QString::number(httpsport));
 
     //FTP
     QString ftphost = ftpsettings->get(PROXY_HOST_KEY).toString();
-    ui->ftpHostLineEdit->setText(ftphost);
+    mFTPLineEdit_1->setText(ftphost);
     int ftppost = ftpsettings->get(PROXY_PORT_KEY).toInt();
-    ui->ftpPortLineEdit->setText(QString::number(ftppost));
+    mFTPLineEdit_2->setText(QString::number(ftppost));
 
     //SOCKS
     QString sockshost = sockssettings->get(PROXY_HOST_KEY).toString();
-    ui->socksHostLineEdit->setText(sockshost);
+    mSOCKSLineEdit_1->setText(sockshost);
     int socksport = sockssettings->get(PROXY_PORT_KEY).toInt();
-    ui->socksPortLineEdit->setText(QString::number(socksport));
+    mSOCKSLineEdit_2->setText(QString::number(socksport));
 
     //解除信号阻塞
-    ui->httpHostLineEdit->blockSignals(false);
-    ui->httpsHostLineEdit->blockSignals(false);
-    ui->ftpHostLineEdit->blockSignals(false);
-    ui->socksHostLineEdit->blockSignals(false);
+    mHTTPLineEdit_1->blockSignals(false);
+    mHTTPSLineEdit_1->blockSignals(false);
+    mFTPLineEdit_1->blockSignals(false);
+    mSOCKSLineEdit_1->blockSignals(false);
 
-    ui->httpPortLineEdit->blockSignals(false);
-    ui->httpsPortLineEdit->blockSignals(false);
-    ui->ftpPortLineEdit->blockSignals(false);
-    ui->socksPortLineEdit->blockSignals(false);
+    mHTTPLineEdit_2->blockSignals(false);
+    mHTTPSLineEdit_2->blockSignals(false);
+    mFTPLineEdit_2->blockSignals(false);
+    mSOCKSLineEdit_2->blockSignals(false);
 }
 
 void Proxy::initIgnoreHostStatus(){
-    ui->ignoreHostTextEdit->blockSignals(true);
+    mIgnoreLineEdit->blockSignals(true);
 
     //设置当前ignore host
     QStringList ignorehost = proxysettings->get(IGNORE_HOSTS_KEY).toStringList();
-    ui->ignoreHostTextEdit->setPlainText(ignorehost.join(";"));
+    mIgnoreLineEdit->setPlainText(ignorehost.join(";"));
 
-    ui->ignoreHostTextEdit->blockSignals(false);
+    mIgnoreLineEdit->blockSignals(false);
 }
 
 int Proxy::_getCurrentProxyMode(){
@@ -454,23 +676,17 @@ int Proxy::_getCurrentProxyMode(){
 
 void Proxy::_setSensitivity(){
     //自动配置代理界面敏感性
-    bool autoChecked = autoSwitchBtn->isChecked();
-    ui->urlFrame->setVisible(autoChecked);
+    bool autoChecked = mAutoBtn->isChecked();
+    mUrlFrame->setEnabled(autoChecked);
 
 
     //手动配置代理界面敏感性
-    bool manualChecked = manualSwitchBtn->isChecked();
-    ui->httpFrame->setVisible(manualChecked);
-    ui->httpsFrame->setVisible(manualChecked);
-    ui->ftpFrame->setVisible(manualChecked);
-    ui->socksFrame->setVisible(manualChecked);
+    bool manualChecked = mManualBtn->isChecked();
+    mHTTPFrame->setEnabled(manualChecked);
+    mHTTPSFrame->setEnabled(manualChecked);
+    mFTPFrame->setEnabled(manualChecked);
+    mSOCKSFrame->setEnabled(manualChecked);
 
-}
-
-void Proxy::showCertificationDialog(){
-    QDialog * certificationDialog = new CertificationDialog(pluginWidget);
-    certificationDialog->setAttribute(Qt::WA_DeleteOnClose);
-    certificationDialog->show();
 }
 
 void Proxy::manualProxyTextChanged(QString txt){
@@ -480,7 +696,9 @@ void Proxy::manualProxyTextChanged(QString txt){
 
     //获取控件保存的用户数据
     GSData currentData = who->property("gData").value<GSData>();
-    QString schema = currentData.schema; QString key = currentData.key;
+    QString schema = currentData.schema;
+    qDebug()<<schema;
+    QString key = currentData.key;
 
     //构建临时QGSettings
     const QByteArray id = schema.toUtf8();
@@ -491,37 +709,4 @@ void Proxy::manualProxyTextChanged(QString txt){
 
     delete setting;
     setting = nullptr;
-}
-
-void Proxy::proxyModeChangedSlot(bool checked){
-    GSettings * proxygsettings;
-    proxygsettings = g_settings_new(PROXY_SCHEMA);
-
-    //两个switchbutton要达到互斥的效果，自定义按钮暂时未支持添加buttongroup
-    QObject * object = QObject::sender();
-    if (object->objectName() == "auto"){ //区分哪个switchbutton
-        if (checked){
-            if (manualSwitchBtn->isChecked())
-                manualSwitchBtn->setChecked(false);
-            g_settings_set_enum(proxygsettings, PROXY_MODE_KEY, AUTO);
-        }
-        else{
-            if (!manualSwitchBtn->isChecked())
-                g_settings_set_enum(proxygsettings, PROXY_MODE_KEY, NONE);
-        }
-    }
-    else{
-        if (checked){
-            if (autoSwitchBtn->isChecked())
-                autoSwitchBtn->setChecked(false);
-            g_settings_set_enum(proxygsettings, PROXY_MODE_KEY, MANUAL);
-        }
-        else{
-            if (!autoSwitchBtn->isChecked())
-                g_settings_set_enum(proxygsettings, PROXY_MODE_KEY, NONE);
-        }
-    }
-    g_object_unref(proxygsettings);
-
-    _setSensitivity();
 }
