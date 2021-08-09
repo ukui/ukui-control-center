@@ -23,6 +23,7 @@
 #include "ComboBox/combobox.h"
 
 double mScaleres = 0;
+const float kExcludeRate = 50.00;
 
 OutputConfig::OutputConfig(QWidget *parent) :
     QWidget(parent),
@@ -299,7 +300,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
                 break;
             }
         }
-        if (alreadyExisted == false) {   //不添加已经存在的项
+        if (alreadyExisted == false && mode->refreshRate() >= kExcludeRate) {   //不添加已经存在的项
             mRefreshRate->addItem(tr("%1 Hz").arg(QLocale().toString(mode->refreshRate())), mode->id());
         }
 
