@@ -84,6 +84,7 @@ QWidget *About::get_plugin_ui()
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
         ui->setupUi(pluginWidget);
         ui->activeContent->setText(tr("Active Status"));
+        ui->diskContent->setVisible(false);
 
         initSearchText();
         initActiveDbus();
@@ -163,7 +164,6 @@ void About::setupKernelCompenent()
     }
 
     ui->cpuContent->setText(cpuType);
-    ui->diskContent->setVisible(false);
 }
 
 void About::setupVersionCompenent()

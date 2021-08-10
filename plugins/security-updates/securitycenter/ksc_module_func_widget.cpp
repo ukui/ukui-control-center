@@ -15,8 +15,6 @@ ksc_module_func_widget::ksc_module_func_widget(QWidget *parent) :
     ui(new Ui::ksc_module_func_widget)
 {
     ui->setupUi(this);
-
-    setFixedSize(QSize(280, 120));
     ui->module_name->setObjectName("ksc_module_func_widget_name_label");
     ui->module_name->setProperty("mouse_state", "normal");
     ui->module_name->setText(tr("TextLabel"));

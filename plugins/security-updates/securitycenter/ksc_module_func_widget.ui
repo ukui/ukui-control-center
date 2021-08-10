@@ -173,6 +173,9 @@
              <property name="spacing">
               <number>0</number>
              </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
              <item>
               <widget class="FixLabel" name="label_1">
                <property name="sizePolicy">
@@ -189,7 +192,7 @@
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>212</width>
+                 <width>16777215</width>
                  <height>16777215</height>
                 </size>
                </property>
@@ -234,7 +237,7 @@
   <customwidget>
    <class>FixLabel</class>
    <extends>QLabel</extends>
-   <header location="global">Label/fixlabel.h</header>
+   <header>Label/fixlabel.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -12,8 +12,8 @@
 #include"fontwatcher.h"
 
 #define FOUND_COUINT_MAX 1000
-#define MODULE_BUTTON_WIDTH 280
-#define MODULE_BUTTON_HEIGHT 120
+#define MODULE_BUTTON_WIDTH 340
+#define MODULE_BUTTON_HEIGHT 140
 
 ksc_main_page_widget::ksc_main_page_widget(QWidget *parent) :
     QWidget(parent),
