@@ -35,12 +35,14 @@ PKGCONFIG     += gio-2.0 \
 
 SOURCES += \
     autoboot.cpp \
-    addautoboot.cpp
+    addautoboot.cpp \
+    rmenu.cpp
 
 HEADERS += \
     autoboot.h \
     addautoboot.h \
-    datadefined.h
+    datadefined.h \
+    rmenu.h
 
 FORMS +=
 

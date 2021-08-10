@@ -71,7 +71,6 @@ private:
     bool deleteLocalAutoapp(QString bname);
     bool setAutoAppStatus(QString bname, bool status);
     void clearAutoItem();
-    bool eventFilter(QObject *obj, QEvent *event);
     gboolean _key_file_to_file(GKeyFile *keyfile, const gchar *path);
 
 private:

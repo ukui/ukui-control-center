@@ -31,6 +31,7 @@
 #include <QGSettings>
 #include <QToolButton>
 #include <QMenu>
+#include "rmenu.h"
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -202,8 +203,7 @@ void AutoBoot::initAutoUI()
         deBtn->setFixedSize(QSize(36, 36));
         deBtn->setIcon(QIcon(":/more.svg"));
 
-        QMenu *pMenu = new QMenu(deBtn);
-        pMenu->installEventFilter(this);
+        RMenu *pMenu = new RMenu(deBtn);
 
         deBtn->setMenu(pMenu);
         QAction* mDel = new QAction(tr("Delete"),this);
@@ -410,30 +410,12 @@ void AutoBoot::clearAutoItem()
         QLayoutItem *item;
         while ((item = mAutoBootLayout->layout()->takeAt(0)) != NULL)
         {
-            delete item->widget();
+            if(item->widget()) {
+               item->widget()->setParent(NULL);
+            }
             delete item;
             item = nullptr;
         }
-    }
-}
-
-bool AutoBoot::eventFilter(QObject *obj, QEvent *event)
-{
-    QString strObjName(obj->metaObject()->className());
-    if (strObjName == "QMenu") {
-        if (event->type() == QEvent::Show) {
-            QMenu *mMenu = static_cast<QMenu *>(obj);
-            if (mMenu) {
-                int menuXPos = mMenu->pos().x();
-                int menuWidth = mMenu->size().width()-4;
-                int buttonWidth = 36;
-                QPoint pos = QPoint(menuXPos - menuWidth + buttonWidth,
-                                    mMenu->pos().y());
-                mMenu->move(pos);
-                return true;
-            }
-        }
-        return false;
     }
 }
 
@@ -644,10 +626,8 @@ void AutoBoot::delAutoApp(QString bname)
     }
 
     deleteLocalAutoapp(bname);
-    QTimer::singleShot(100, this, [&,this](){
-        clearAutoItem();
-        initAutoUI();
-    });
+    clearAutoItem();
+    initAutoUI();
 }
 
 void AutoBoot::connectToServer()
