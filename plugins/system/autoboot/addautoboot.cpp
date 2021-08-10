@@ -36,6 +36,9 @@ AddAutoBoot::AddAutoBoot(QWidget *parent) :
     ui->setupUi(this);
     setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
     setAttribute(Qt::WA_TranslucentBackground);
+    ui->label->setText(tr("Program name"));
+    ui->label_2->setText(tr("Program exec"));
+    ui->label_3->setText(tr("Program comment"));
 
     initStyle();
     initConnection();
