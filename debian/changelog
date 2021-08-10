@@ -1,3 +1,305 @@
+ukui-control-center (3.0.1-1-87) v101; urgency=medium
+
+  * 提交commit:
+  * bug#72154自定义为空时，允许添加所有名称的快捷键
+  * bug#58619#屏蔽低50hz以下刷新率
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 09 Aug 2021 20:29:28 +0800
+
+ukui-control-center (3.0.1-1-86) v101; urgency=medium
+
+  * 提交commit:e77f96b
+  * Task#43700 支持安全管控平台域用户通过控制面板修改密码
+  * bug68989图像查看器有个默认应用：ImageMagick
+  * bug#29118修改了时间日期、地区、背景、屏保、锁屏插件
+  * bug#68943:英文模式下控制面板中的设置“注销后生效“翻译有误
+  * bug#71818:区域语言界面中"时间日期"应按需求改为"日期"、"添加首语言"应按需求改为"添加语言"
+  * bug#61780自定义及ukui屏保加载较慢所导致，初始化时，先预览黑色屏保，确保覆盖掉上一次插件的页面
+  * bug#70161关闭控制面板，关于窗口仍存在
+  * bug#70328显示面板重复
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 09 Aug 2021 14:51:00 +0800
+
+ukui-control-center (3.0.1-1-85) v101; urgency=medium
+
+  * 提交commit: 0a22dba
+  * bug#53826英文语言登录环境下，系统电源界面和个性化锁屏界面，文字显示不全
+  * bug#69876 【账户】新建用户，判断密码包含了某种形式的用户名后，修改用户名，密码判断提示语不变，无法进行确定操作 …
+  * bug#70081 【账户信息】16号字体下，修改账号密码提示语显示不全
+  * bug#62947 【系统设置|账户设置】英文环境16号字体时删除用户组的按钮显示不全 
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 06 Aug 2021 10:34:34 +0800
+
+ukui-control-center (3.0.1-1-84) v101; urgency=medium
+
+  * 提交commit:3231751
+  * 更新翻译
+  * 同步0610安全中心改动
+  * bug#70026修复设置延时为最短时输入重复的问题
+  * Task#43696 【控制面板】账户信息修改密码页面提示语与PAM模块保持一致
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 05 Aug 2021 13:54:21 +0800
+
+ukui-control-center (3.0.1-1-83) v101; urgency=medium
+
+  * 提交commit:4392b2
+  * bug#70495按0820需求更改无线网络名称
+  * bug#69686 【设置|账户信息】删除用户时建议增大点击范围
+  * bug#57896 【用户】当前用户的默认头像不展示
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 04 Aug 2021 11:35:01 +0800
+
+ukui-control-center (3.0.1-1-82) v101; urgency=medium
+
+  * 提交commit:36d67c7
+  * 任务&&需求 42519电源管理的设计
+  * bug#67493显示器模块只显示一个
+  * bug#67708,66209,
+  * bug:67020点击连接网络连接直接跳转到对应网络连接界面
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 29 Jul 2021 09:14:21 +0800
+
+ukui-control-center (3.0.1-1-81) v101; urgency=medium
+
+  * 提交commit: aeebc2b
+  * bug#65647,59057
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 29 Jul 2021 09:12:48 +0800
+
+ukui-control-center (3.0.1-1-80.1) v101; urgency=medium
+
+  * 提交commit：f9655aba
+  * 添加亮度依赖ddcutil
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 07 Jul 2021 16:01:23 +0800
+
+ukui-control-center (3.0.1-1-80) v101; urgency=medium
+
+  * 提交commit:06bf7a0
+  * bug#65268,57385，63723,63442
+  * 任务&&需求：6656，6006，
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 06 Jul 2021 19:32:23 +0800
+
+ukui-control-center (3.0.1-1-79) v101; urgency=medium
+
+  * 提交commit: 91782de
+  * bug#63713，#63712，#63711，#62753，#61704，#63413，#59591，64307,54275,61992,64775
+  * 需求：42519，41834
+
+ -- zhoubin <zhoubin@kylinos.cn>  Sat, 03 Jul 2021 17:00:36 +0800
+
+ukui-control-center (3.0.1-1-78) v101; urgency=medium
+
+  * 提交commit:4d468b9
+  * bug#63479,62667
+  * 任务&&需求：42224
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 30 Jun 2021 19:44:48 +0800
+
+ukui-control-center (3.0.1-1-77) v101; urgency=medium
+
+  * 提交commit:7a270a
+  * 增加控制面板通知来源应用
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 29 Jun 2021 21:00:48 +0800
+
+ukui-control-center (3.0.1-1-76) v101; urgency=medium
+
+  * 提交commit: a0b605
+  * bug#62373,62995,60426
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 29 Jun 2021 15:38:52 +0800
+
+ukui-control-center (3.0.1-1-75) v101; urgency=medium
+
+  * commit:797980c
+  * bug#62832,61360
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 28 Jun 2021 16:35:13 +0800
+
+ukui-control-center (3.0.1-1-73) v101; urgency=medium
+
+  * 提交commit: 992c967
+  * bug#63635,63632,62998,62246,41652,62012,63394
+
+ -- zhoubin <zhoubin@kylinos.cn>  Sat, 26 Jun 2021 21:33:16 +0800
+
+ukui-control-center (3.0.1-1-72) v101; urgency=medium
+
+  * 提交commit: d0f9855
+  * bug#61603,61607,44177,56671,60084,57445,61923
+  * 任务&&需求：6649,6659,5721,6657,6685,
+
+ -- zhoubin <zhoubin@kylinos.cn>  Sat, 26 Jun 2021 21:32:36 +0800
+
+ukui-control-center (3.0.1-1-71) v101; urgency=medium
+
+  * 提交commit: ba2f501
+  * 任务＆＆需求：6546,61941,6812,6548,6723
+  * bug:62246,61766,58807,61741,61416,,61615,60067,59653,57799,54836,61375
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 18 Jun 2021 19:28:43 +0800
+
+ukui-control-center (3.0.1-1-70.2) v101; urgency=medium
+
+  * 提交commit: a4c2ee7
+  * bug38116,
+  * 去掉云账户中的麒麟描述 麒麟影音 和 麒麟天气
+
+ -- zhoubin <zhoubin@kylinos.cn>  Sat, 12 Jun 2021 09:36:15 +0800
+
+ukui-control-center (3.0.1-1-70.1) v101; urgency=medium
+
+  * 提交commit:e3ea66b
+  * bug#59286
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 11 Jun 2021 21:36:09 +0800
+
+ukui-control-center (3.0.1-1-70) v101; urgency=medium
+
+  * 提交commit: 19b0cb7
+  * bug#61166,61140,60661,60930,60899,60941
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 11 Jun 2021 13:58:48 +0800
+
+ukui-control-center (3.0.1-1-69.1) v101; urgency=medium
+
+  * 提交commit: 1f90ec6
+  * bug#57822
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 10 Jun 2021 19:31:21 +0800
+
+ukui-control-center (3.0.1-1-69) v101; urgency=medium
+
+  * 提交commit:1f5d352
+  * bug：60445,38116,60374,
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 09 Jun 2021 21:36:48 +0800
+
+ukui-control-center (3.0.1-1-68.3) v101; urgency=medium
+
+  * 隐藏浅色模式（zc）
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 09 Jun 2021 16:45:01 +0800
+
+ukui-control-center (3.0.1-1-68.2) v101; urgency=medium
+
+  * 提交commit: 4ebda00 
+  * 添加分数缩放依赖ukui-qt5xcb-plugin
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 09 Jun 2021 14:15:29 +0800
+
+ukui-control-center (3.0.1-1-68.1) v101; urgency=medium
+
+  * 提交commit:0580d5b
+  * 因前期需求沟通问题，完成控制面板需求时刻意未加投屏运行依赖miraclecast。现miraclecast已经进入平台特补上运行依赖
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 09 Jun 2021 11:32:50 +0800
+
+ukui-control-center (3.0.1-1-68) v101; urgency=medium
+
+  * 提交commit: ecc4d5b
+  * bug:52060,
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 09 Jun 2021 10:12:06 +0800
+
+ukui-control-center (3.0.1-1-67) v101; urgency=medium
+
+  * 提交commit: 02a48ff
+  * bug:59732,59123
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 08 Jun 2021 19:36:17 +0800
+
+ukui-control-center (3.0.1-1-66) v101; urgency=medium
+
+  * 提交commit: 85a9bce
+  * 需求：6484,
+  * 任务：33121
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 07 Jun 2021 20:43:52 +0800
+
+ukui-control-center (3.0.1-1-65) v101; urgency=medium
+
+  * 提交commit: c45da7f
+  * bug#59834,52375
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 07 Jun 2021 13:46:55 +0800
+
+ukui-control-center (3.0.1-1-64) v101; urgency=medium
+
+  * 提交commit:ba54964
+  * 需求：33136,33118,33130,6552,6380,6378,6204,6568
+  * bug:54951,55292,57329
+
+ -- zhoubin <zhoubin@kylinos.cn>  Sun, 06 Jun 2021 17:18:51 +0800
+
+ukui-control-center (3.0.1-1-63) v101; urgency=medium
+
+  * 提交commit: 4e4eb51
+  * bug#57513,58936,57017,59294
+  * 需求：6404,
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 04 Jun 2021 16:54:06 +0800
+
+ukui-control-center (3.0.1-1-62) v101; urgency=medium
+
+  * 提交commit:d987223
+  * bug#57329
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 02 Jun 2021 20:12:14 +0800
+
+ukui-control-center (3.0.1-1-61) v101; urgency=medium
+
+  * 提交commit: 3d73016
+  * 需求：6494,6368,6416,6201,6200,5277,6203,6202,
+  * Bug: 57955,55220
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 31 May 2021 20:00:38 +0800
+
+ukui-control-center (3.0.1-1-60.1) v101; urgency=medium
+
+  * 解决bug#56018
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 20 May 2021 09:28:16 +0800
+
+ukui-control-center (3.0.1-1-60) v101; urgency=medium
+
+  * 重新上传,更新未开放插件
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 19 May 2021 08:49:38 +0800
+
+ukui-control-center (3.0.1-1-59) v101; urgency=medium
+
+  * 提交日期:2021-0517:e194b54
+  * 修复 bug#53731,#52497,#51076,#52347,#51346,#21194,#52347,#51976
+  * 修复 bug#51976,#50766,#44809,#54814,#53631,#54498,#54353,#50738
+  * 修复 bug#40387,#52665,#53049,#53045,#53052,#52581,#53007,#51061
+  * 修复 bug#50726,#52735,#51061,#50174,#48215,#50607,#50757,#52377
+  * 修复 bug#39931,#50758,#51005,#51730,#52360,#50777,#50777,#50847
+  * 修复 bug#52099,#51610,#51740,#43212,#51523
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 18 May 2021 19:43:34 +0800
+
+ukui-control-center (3.0.1-1-58) v101; urgency=medium
+
+  * 解决bug#51730，在当次添加程序中，如果用户手动输入了程序名和程序描述
+  * 解决bug#52360锁屏背景本地图片不能用于登陆背景的问题
+  * 解决bug#50847(bug#52099),bug#51610,bug#51740
+  * 解决bug#43212与win+p显示的位置不同
+  * 解决bug#51523
+  * 解决bug##51978连接网络后，进入设置，点击网络设置按钮无响应
+  * 解决bug#43892重新插拔后分辨率没有成功被更改
+  * 解决bug#50815,bug#51611,bug#51012,bug#51545,bug#205521、修改时区英语显示不全，增加按钮宽度。2、二级导航间距缩小。3、990分辨率不过滤1152*864。4、打印机界面标题字体大小修改
+  * 解决bug#46711 and bug#459701、恢复快捷键的搜索；2、日期显示跟随字体设置
+  * 解决bug#50042,bug#49291,bug#452401、修复同步时间gif加载慢的bug  2、修复窗口置顶问题  3、修复背景恢复默认设置未选中的bug  4、新增打开背景以及锁屏自动选定图片
+  * BUG: 增大用户账户中改名操作响应点击事件的区域
+  * BUG#50607 【990】【控制面板|账户】改名的按钮不能点击
+  * BUG#50757 【9A0】【控制面板|账户】点击改名的按钮不可修改，点击账户名位置可以修改用户
+  * BUG#52377 【V10SP1】【控制面板|账户信息】建议增大更改用户名的点击范围
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 07 May 2021 11:26:20 +0800
+
 ukui-control-center (3.0.1-1-57.2) v101; urgency=medium
 
   * 解决bug#50577显示亮度调整数值
@@ -39,7 +341,7 @@ ukui-control-center (3.0.1-1-56) v101; urgency=medium
 
 ukui-control-center (3.0.1-1-55) v101; urgency=medium
 
-  * 解决bug#42212旧密码可与新密码相同
+  * 解决bug#44212旧密码可与新密码相同
   * 解决bug#44081同步win+p更改
   * 解决bug#选择非默认光标主题后点击恢复默认设置，拉伸窗体光标显示为“白”光标
   * 解决bug#43275
