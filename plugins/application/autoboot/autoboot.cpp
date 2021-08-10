@@ -21,7 +21,6 @@
 #include "SwitchButton/switchbutton.h"
 #include "HoverWidget/hoverwidget.h"
 #include "ImageUtil/imageutil.h"
-#include "autobootworker.h"
 
 #include <QThread>
 #include <QSignalMapper>
@@ -326,7 +325,7 @@ bool AutoBoot::copyFileToLocal(QString bname)
         return false;
 
     //将复制的文件权限改为可读写
-    QFile(dstPath).setPermissions(QFileDevice::ReadGroup | QFileDevice::WriteGroup);
+    QFile(dstPath).setPermissions(QFileDevice::ReadOwner | QFileDevice::WriteOwner);
 
     // 更新数据，将新加入该目录下的应用信息读取，加入到localappMaps，更新statusMaps对应应用的信息
     AutoApp addapp;

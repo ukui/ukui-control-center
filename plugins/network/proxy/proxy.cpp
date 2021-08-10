@@ -18,7 +18,6 @@
  *
  */
 #include "proxy.h"
-#include "ui_proxy.h"
 
 #include <QDebug>
 

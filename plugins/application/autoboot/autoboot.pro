@@ -40,8 +40,7 @@ SOURCES += \
 HEADERS += \
     autoboot.h \
     addautoboot.h \
-    datadefined.h \
-    autobootworker.h
+    datadefined.h
 
 FORMS +=
 
