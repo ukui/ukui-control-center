@@ -566,11 +566,11 @@ void UserInfo::initComponent(){
             }
 
             if ((checked != status)) {
-                if (checked) {
-                    userdispatcher->change_user_autologin(user.username);
-                } else {
-                    userdispatcher->change_user_autologin("");
-                }
+                userdispatcher->change_user_autologin(checked);
+                bool status = !getAutomaticLogin().compare(user.username, Qt::CaseSensitive);
+                autoLoginSwitchBtn->blockSignals(true);
+                autoLoginSwitchBtn->setChecked(status);
+                autoLoginSwitchBtn->blockSignals(false);
             }
         });
 
