@@ -378,30 +378,30 @@ bool AutoBoot::setAutoAppStatus(QString bname, bool status)
     QString dstpath = QDir::homePath()+LOCAL_CONFIG_DIR+bname;
     //修改hidden字段
     GKeyFile *keyfile = g_key_file_new();
-    if (!g_key_file_load_from_file(keyfile, dstpath.toLatin1().data(), G_KEY_FILE_NONE, NULL)) {
+    if (!g_key_file_load_from_file(keyfile, dstpath.toUtf8().data(), G_KEY_FILE_NONE, NULL)) {
         g_key_file_free(keyfile);
 
         return false;
     }
     g_key_file_set_boolean(keyfile, G_KEY_FILE_DESKTOP_GROUP,
                                         G_KEY_FILE_DESKTOP_KEY_HIDDEN, !status);
-
-    if (!_key_file_to_file(keyfile, dstpath.toLatin1().data())) {
+    if (!_key_file_to_file(keyfile, dstpath.toUtf8().data())) {
         qDebug() << "Stop autoboot failed because could not save desktop file";
-        g_free(dstpath.toLatin1().data());
+        g_free(dstpath.toUtf8().data());
         return false;
     }
 
     g_key_file_free(keyfile);
-
    // 更新数据
    QMap<QString, AutoApp>::iterator updateit = statusMaps.find(bname);
-   if (updateit == statusMaps.end())
+   if (updateit == statusMaps.end()) {
        qDebug() << "Start autoboot failed because autoBoot Data Error";
+
+   }
    else {
        updateit.value().hidden = !status;
    }
-
+    return true;
 }
 
 void AutoBoot::clearAutoItem()
