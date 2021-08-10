@@ -253,7 +253,7 @@ UserInfomation UserInfo::_acquireUserInfo(QString objpath){
         user.iconfile = propertyMap.find("IconFile").value().toString();
         user.passwdtype = propertyMap.find("PasswordMode").value().toInt();
         user.uid = propertyMap.find("Uid").value().toInt();
-        user.autologin = getAutomaticLogin().contains(user.username, Qt::CaseSensitive);
+        user.autologin = !getAutomaticLogin().compare(user.username, Qt::CaseSensitive);
         user.objpath = objpath;
     }
     else
@@ -553,7 +553,7 @@ void UserInfo::initComponent(){
 
             UserDispatcher * userdispatcher  = new UserDispatcher(user.objpath);
 
-            bool status = getAutomaticLogin().contains(user.username, Qt::CaseSensitive);
+            bool status = !getAutomaticLogin().compare(user.username, Qt::CaseSensitive);
 
             if (checked && !isOpenAutoLogin(user.username)) {
                 autoLoginSwitchBtn->blockSignals(true);
@@ -965,7 +965,7 @@ void UserInfo::delete_user_slot(bool removefile, QString username){
 void UserInfo::pwdAndAutoChangedSlot(QString key) {
     if ("option" == key) {
         autoLoginSwitchBtn->blockSignals(true);
-        autoLoginSwitchBtn->setChecked(getAutomaticLogin().contains(mUserName, Qt::CaseSensitive));
+        autoLoginSwitchBtn->setChecked(!getAutomaticLogin().compare(mUserName, Qt::CaseSensitive));
         autoLoginSwitchBtn->blockSignals(false);
         nopwdSwitchBtn->setChecked(getNoPwdStatus());
     } else if( "avatar" == key) {
@@ -986,6 +986,11 @@ void UserInfo::propertyChangedSlot(QString property, QMap<QString, QVariant> pro
             int type = propertyMap.value("AccountType").toInt();
             ui->userTypeLabel->setText(_accountTypeIntToString(type));
         }
+    }
+    if (propertyMap.keys().contains("AutomaticLogin")) {
+        autoLoginSwitchBtn->blockSignals(true);
+        autoLoginSwitchBtn->setChecked(!getAutomaticLogin().compare(mUserName));
+        autoLoginSwitchBtn->blockSignals(false);
     }
 }
 
