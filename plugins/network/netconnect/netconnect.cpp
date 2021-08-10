@@ -698,6 +698,7 @@ int NetConnect::getWifiListDone(QVector<QStringList> getwifislist, QStringList g
     clearContent();
     mActiveInfo.clear();
     QString speed = getWifiSpeed();
+    qDebug()<<"获取到的速度："<<speed;
     bool wirelessStatus = getWirelessStatus();
     if (!speed.contains("/") && runCount < 1) {
         QElapsedTimer time;
@@ -760,6 +761,7 @@ int NetConnect::getWifiListDone(QVector<QStringList> getwifislist, QStringList g
                         mActiveInfo[index].strChan = chan;
                         mActiveInfo[index].strHz = freq;
                         if (isNullSpeed) {
+                            qDebug()<<"speed is null";
                             mActiveInfo[index].strSpeed = "null";
                         } else {
                             mActiveInfo[index].strSpeed = speed + " (Mbps)";
@@ -782,6 +784,7 @@ int NetConnect::getWifiListDone(QVector<QStringList> getwifislist, QStringList g
                         mActiveInfo[index].strChan = chan;
                         mActiveInfo[index].strHz = freq;
                         if (isNullSpeed) {
+                            qDebug()<<"speed is null";
                             mActiveInfo[index].strSpeed = "null";
                         } else {
                             mActiveInfo[index].strSpeed = speed + " (Mbps)";
@@ -913,7 +916,6 @@ QString NetConnect::getWifiSpeed() {
         line.replace(QRegExp("[\\s]+"), "");
         slist.append(line);
     }
-
     for (int i = 0; i < slist.length(); i++) {
         QString str = slist.at(i);
         if (str.contains("rxbitrate:")) {
@@ -924,6 +926,11 @@ QString NetConnect::getWifiSpeed() {
             txSpeed = str;
         }
     }
+    qDebug()<<rxSpeed;
+    qDebug()<<txSpeed;
+
+    rxSpeed = rxSpeed.split("MBit/s").at(0);
+    txSpeed = rxSpeed.split("MBit/s").at(0);
     QString uSpeed;
     QString dSpeed;
     for (int i = 0; i < rxSpeed.length(); i++) {
@@ -940,11 +947,17 @@ QString NetConnect::getWifiSpeed() {
             dSpeed.append(txSpeed.at(i));
         }
     }
+    qDebug()<<uSpeed;
+    qDebug()<<dSpeed;
+
     if (uSpeed == "" && dSpeed == "") {
+        qDebug()<<"uSpeed and dSpeed is all Empty!";
         return "/";
     } else if (uSpeed == "" && dSpeed != "") {
+        qDebug()<<"uSpeed is Empty!";
         return dSpeed;
     }
+
     return uSpeed + "/" + dSpeed;
 }
 
