@@ -96,6 +96,7 @@ QWidget * Power::get_plugin_ui() {
         pluginWidget = new QWidget;
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
         ui->setupUi(pluginWidget);
+        ui->label_3->setText(tr("Autobalance energy and performance with available hardware"));
 
         const QByteArray id(POWERMANAGER_SCHEMA);
         const QByteArray sessionId(SESSION_SCHEMA);

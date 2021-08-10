@@ -83,6 +83,7 @@ QWidget *About::get_plugin_ui()
         pluginWidget = new QWidget;
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
         ui->setupUi(pluginWidget);
+        ui->activeContent->setText(tr("Active Status"));
 
         initSearchText();
         initActiveDbus();

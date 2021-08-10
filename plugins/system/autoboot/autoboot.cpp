@@ -221,17 +221,17 @@ void AutoBoot::initUI()
     headHorLayout->setContentsMargins(64, 0, 32, 0);
 
     QLabel *nameLabel = new QLabel(headWidget);
-    nameLabel->setFixedWidth(220);
+    nameLabel->setFixedWidth(400);
     nameLabel->setText(tr("Name"));
 
     QLabel *statusLabel = new QLabel(headWidget);
-    statusLabel->setFixedWidth(150);
+    statusLabel->setFixedWidth(180);
     statusLabel->setText(tr("Status"));
 
     headHorLayout->addWidget(nameLabel);
-    headHorLayout->addStretch();
+    headHorLayout->addStretch(5);
     headHorLayout->addWidget(statusLabel);
-    headHorLayout->addStretch();
+    headHorLayout->addStretch(3);
 
     headWidget->setLayout(headHorLayout);
 
@@ -274,8 +274,8 @@ void AutoBoot::initUI()
         iconLabel->setFixedSize(32, 32);
         iconLabel->setPixmap(it.value().pixmap);
 
-        QLabel *textLabel = new QLabel(widget);
-        textLabel->setFixedWidth(250);
+        FixLabel *textLabel = new FixLabel(widget);
+        textLabel->setFixedWidth(400);
         textLabel->setText(appName);
 
         SwitchButton *button = new SwitchButton(widget);
@@ -286,21 +286,21 @@ void AutoBoot::initUI()
         appgroupMultiMaps.insert(it.key(), button);
 
         QPushButton *dBtn = new QPushButton(widget);
-        dBtn->setFixedSize(QSize(64, 32));
+        dBtn->setFixedSize(QSize(100, 32));
         dBtn->setText(tr("Delete"));
         dBtn->setHidden(true);
         connect(dBtn, &QPushButton::clicked, this, [=] {
             del_autoboot_realize(bname);
         });
         QLabel *pLabel = new QLabel(widget);
-        pLabel->setFixedSize(QSize(64, 32));
+        pLabel->setFixedSize(QSize(100, 32));
         pLabel->setHidden(false);
 
         mainHLayout->addWidget(iconLabel);
         mainHLayout->addWidget(textLabel);
-        mainHLayout->addStretch(1);
+        mainHLayout->addStretch(5);
         mainHLayout->addWidget(button);
-        mainHLayout->addStretch(1);
+        mainHLayout->addStretch(3);
         mainHLayout->addWidget(pLabel);
         mainHLayout->addWidget(dBtn);
         widget->setLayout(mainHLayout);

@@ -47,12 +47,12 @@ void InputPwdDialog::setupInit()
 
     mCancelBtn = new QPushButton(this);
     mCancelBtn->setContentsMargins(36,6,36,6);
-    mCancelBtn->setGeometry(132,99,100,33);
+    mCancelBtn->setGeometry(112,99,110,33);
     mCancelBtn->setText(tr("Cancel"));
 
     mConfirmBtn = new QPushButton(this);
     mConfirmBtn->setContentsMargins(36,6,36,6);
-    mConfirmBtn->setGeometry(248,99,100,33);
+    mConfirmBtn->setGeometry(238,99,110,33);
     mConfirmBtn->setText(tr("Confirm"));
 
     if(QByteArray::fromBase64(mgsettings->get(kVncPwdKey).toString().toLatin1()).length() == 8) {
