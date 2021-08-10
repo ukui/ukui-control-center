@@ -117,6 +117,7 @@ private:
     QGSettings *mThemeSettings;
 
 private:
+    QFrame* myLine();
     void initUI();
     void setDominantHandFrame();
     void setWheelSpeedFrame();

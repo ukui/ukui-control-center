@@ -77,6 +77,7 @@ private:
     QGSettings *mMouseGsetting;
 
 private:
+    QFrame* myLine();
     void initUI();
     void initConnection();
     void gsettingConnectUi();

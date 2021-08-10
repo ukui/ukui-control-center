@@ -40,6 +40,7 @@ SOURCES += \
     keyboardcontrol.cpp \
     kbdlayoutmanager.cpp \
  \#    tastenbrett.cpp
+    keyboardmain.cpp \
     preview/debug.cpp \
     preview/geometry_components.cpp \
     preview/geometry_parser.cpp \
@@ -58,6 +59,7 @@ HEADERS += \
     keyboardcontrol.h \
     kbdlayoutmanager.h \
  \#    tastenbrett.h
+    keyboardmain.h \
     preview/config-keyboard.h \
     preview/config-workspace.h \
     preview/debug.h \
@@ -75,7 +77,6 @@ HEADERS += \
     preview/xkb_rules.h
 
 FORMS += \
-    keyboardcontrol.ui \
     kbdlayoutmanager.ui \
     layoutmanager.ui
 

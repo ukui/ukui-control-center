@@ -4,7 +4,7 @@ TouchpadUI::TouchpadUI(QWidget *parent)
     : QWidget(parent)
 {
     mVlayout = new QVBoxLayout(this);
-    mVlayout->setContentsMargins(0, 0, 32, 0);
+    mVlayout->setContentsMargins(0, 0, 40, 0);
     initUI();
     initConnection();
 }
@@ -13,8 +13,28 @@ TouchpadUI::~TouchpadUI()
 {
 }
 
+QFrame* TouchpadUI::myLine()
+{
+    QFrame *line = new QFrame(this);
+    line->setMinimumSize(QSize(0, 1));
+    line->setMaximumSize(QSize(16777215, 1));
+    line->setLineWidth(0);
+    line->setFrameShape(QFrame::HLine);
+    line->setFrameShadow(QFrame::Sunken);
+
+    return line;
+}
+
 void TouchpadUI::initUI()
 {
+    QFrame *touchpadFrame = new QFrame(this);
+    touchpadFrame->setMinimumSize(550, 0);
+    touchpadFrame->setMaximumSize(16777215, 16777215);
+    touchpadFrame->setFrameShape(QFrame::Box);
+
+    QVBoxLayout *touchpadLyt = new QVBoxLayout(touchpadFrame);
+    touchpadLyt->setContentsMargins(0, 0, 0, 0);
+
     mTouchpadSetTitleLabel = new TitleLabel(this);
     mTouchpadSetTitleLabel->setText(tr("Touchpad Setting"));
 
@@ -28,14 +48,13 @@ void TouchpadUI::initUI()
     /* MouseDisable */
     mMouseDisableFrame = new QFrame(this);
     mMouseDisableFrame->setFrameShape(QFrame::Shape::Box);
-    mMouseDisableFrame->setMinimumSize(550, 50);
-    mMouseDisableFrame->setMaximumSize(960, 50);
+    mMouseDisableFrame->setMinimumSize(550, 60);
+    mMouseDisableFrame->setMaximumSize(16777215, 60);
 
     QHBoxLayout *MouseDisableHLayout = new QHBoxLayout();
 
     mMouseDisableBtn = new SwitchButton(this);
     mMouseDisableLabel = new QLabel(tr("Disable touchpad when using the mouse"), this);
-//    mMouseDisableLabel->setMinimumWidth(200);
     MouseDisableHLayout->addWidget(mMouseDisableLabel);
     MouseDisableHLayout->addStretch();
     MouseDisableHLayout->addWidget(mMouseDisableBtn);
@@ -45,8 +64,8 @@ void TouchpadUI::initUI()
     /* CursorSpeed */
     mCursorSpeedFrame = new QFrame(this);
     mCursorSpeedFrame->setFrameShape(QFrame::Shape::Box);
-    mCursorSpeedFrame->setMinimumSize(550, 50);
-    mCursorSpeedFrame->setMaximumSize(960, 50);
+    mCursorSpeedFrame->setMinimumSize(550, 60);
+    mCursorSpeedFrame->setMaximumSize(16777215, 60);
 
     QHBoxLayout *CursorSpeedHLayout = new QHBoxLayout();
 
@@ -69,8 +88,8 @@ void TouchpadUI::initUI()
     /* TypingDisableFrame */
     mTypingDisableFrame = new QFrame(this);
     mTypingDisableFrame->setFrameShape(QFrame::Shape::Box);
-    mTypingDisableFrame->setMinimumSize(550, 50);
-    mTypingDisableFrame->setMaximumSize(960, 50);
+    mTypingDisableFrame->setMinimumSize(550, 60);
+    mTypingDisableFrame->setMaximumSize(16777215, 60);
 
     QHBoxLayout *TypingDisableHLayout = new QHBoxLayout();
 
@@ -85,8 +104,8 @@ void TouchpadUI::initUI()
     /* click */
     mClickFrame = new QFrame(this);
     mClickFrame->setFrameShape(QFrame::Shape::Box);
-    mClickFrame->setMinimumSize(550, 50);
-    mClickFrame->setMaximumSize(960, 50);
+    mClickFrame->setMinimumSize(550, 60);
+    mClickFrame->setMaximumSize(16777215, 60);
 
     QHBoxLayout *ClickHLayout = new QHBoxLayout();
 
@@ -101,8 +120,8 @@ void TouchpadUI::initUI()
     /* ScrollSlideFrame */
     mScrollSlideFrame = new QFrame(this);
     mScrollSlideFrame->setFrameShape(QFrame::Shape::Box);
-    mScrollSlideFrame->setMinimumSize(550, 50);
-    mScrollSlideFrame->setMaximumSize(960, 50);
+    mScrollSlideFrame->setMinimumSize(550, 60);
+    mScrollSlideFrame->setMaximumSize(16777215, 60);
 
     QHBoxLayout *ScrollSlideHLayout = new QHBoxLayout();
 
@@ -117,8 +136,8 @@ void TouchpadUI::initUI()
     /* ScrollAreaFrame */
     mScrollAreaFrame = new QFrame(this);
     mScrollAreaFrame->setFrameShape(QFrame::Shape::Box);
-    mScrollAreaFrame->setMinimumSize(550, 50);
-    mScrollAreaFrame->setMaximumSize(960, 50);
+    mScrollAreaFrame->setMinimumSize(550, 60);
+    mScrollAreaFrame->setMaximumSize(16777215, 60);
 
     QHBoxLayout *ScrollAreaHLayout = new QHBoxLayout();
 
@@ -133,13 +152,28 @@ void TouchpadUI::initUI()
     mScrollAreaFrame->setLayout(ScrollAreaHLayout);
 
     /* addwidget */
+    QFrame *mouseAndSpeedLine = myLine();
+    QFrame *speedAndTypingLine = myLine();
+    QFrame *typingAndClickLine = myLine();
+    QFrame *clickAndSlideLine = myLine();
+    QFrame *slideAndAreaLine = myLine();
+
+    touchpadLyt->addWidget(mMouseDisableFrame);
+    touchpadLyt->addWidget(mouseAndSpeedLine);
+    touchpadLyt->addWidget(mCursorSpeedFrame);
+    touchpadLyt->addWidget(speedAndTypingLine);
+    touchpadLyt->addWidget(mTypingDisableFrame);
+    touchpadLyt->addWidget(typingAndClickLine);
+    touchpadLyt->addWidget(mClickFrame);
+    touchpadLyt->addWidget(clickAndSlideLine);
+    touchpadLyt->addWidget(mScrollSlideFrame);
+    touchpadLyt->addWidget(slideAndAreaLine);
+    touchpadLyt->addWidget(mScrollAreaFrame);
+    touchpadLyt->setSpacing(0);
+
     mVlayout->addWidget(mTouchpadSetTitleLabel);
-    mVlayout->addWidget(mMouseDisableFrame);
-    mVlayout->addWidget(mCursorSpeedFrame);
-    mVlayout->addWidget(mTypingDisableFrame);
-    mVlayout->addWidget(mClickFrame);
-    mVlayout->addWidget(mScrollSlideFrame);
-    mVlayout->addWidget(mScrollAreaFrame);
+    mVlayout->setSpacing(8);
+    mVlayout->addWidget(touchpadFrame);
     mVlayout->addLayout(mTipHLayout);
     mVlayout->addStretch();
 }

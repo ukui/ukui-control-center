@@ -324,6 +324,14 @@
     </message>
 </context>
 <context>
+    <name>AddBtn</name>
+    <message>
+        <location filename="../../../commonComponent/AddBtn/addbtn.cpp" line="19"/>
+        <source>Add</source>
+        <translation type="unfinished">添加</translation>
+    </message>
+</context>
+<context>
     <name>AppDetail</name>
     <message>
         <source>Dialog</source>
@@ -798,15 +806,14 @@
 <context>
     <name>AutoBoot</name>
     <message>
-        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="569"/>
+        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="549"/>
         <source>Autoboot Settings</source>
         <translation>开机启动设置</translation>
         <extra-contents_path>/autoboot/Autoboot Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="529"/>
         <source>Add autoboot app </source>
-        <translation>添加自启动程序 </translation>
+        <translation type="vanished">添加自启动程序 </translation>
     </message>
     <message>
         <source>autoboot</source>
@@ -830,7 +837,7 @@
         <translation type="vanished">当前状态</translation>
     </message>
     <message>
-        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="209"/>
+        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="210"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
@@ -3710,81 +3717,64 @@ folder will be deleted!</source>
 <context>
     <name>KeyboardControl</name>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="91"/>
         <source>Keys Settings</source>
-        <translation>通用设置</translation>
+        <translation type="vanished">通用设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="159"/>
-        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.cpp" line="120"/>
         <source>Enable repeat key</source>
-        <translation>启用按键重复设置</translation>
+        <translation type="vanished">启用按键重复设置</translation>
         <extra-contents_path>/keyboard/Enable repeat key</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="249"/>
-        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.cpp" line="122"/>
         <source>Delay</source>
-        <translation>延迟</translation>
+        <translation type="vanished">延迟</translation>
         <extra-contents_path>/keyboard/Delay</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="262"/>
         <source>Short</source>
-        <translation>短</translation>
+        <translation type="vanished">短</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="294"/>
         <source>Long</source>
-        <translation>长</translation>
+        <translation type="vanished">长</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="368"/>
-        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.cpp" line="124"/>
         <source>Speed</source>
-        <translation>速度</translation>
+        <translation type="vanished">速度</translation>
         <extra-contents_path>/keyboard/Speed</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="381"/>
         <source>Slow</source>
-        <translation>慢</translation>
+        <translation type="vanished">慢</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="413"/>
         <source>Fast</source>
-        <translation>快</translation>
+        <translation type="vanished">快</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="475"/>
         <source>Input characters to test the repetition effect：</source>
-        <translation>输入字符测试重复效果：</translation>
+        <translation type="vanished">输入字符测试重复效果：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="699"/>
         <source>Input Settings</source>
-        <translation>输入法设置</translation>
+        <translation type="vanished">输入法设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="872"/>
         <source>Input Set</source>
-        <translation>输入法设置</translation>
+        <translation type="vanished">输入法设置</translation>
     </message>
     <message>
         <source>Input settings</source>
         <translation type="vanished">输入法设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.cpp" line="126"/>
         <source>Input characters to test the repetition effect:</source>
-        <translation>输入字符测试重复效果：</translation>
+        <translation type="vanished">输入字符测试重复效果：</translation>
         <extra-contents_path>/keyboard/Input characters to test the repetition effect:</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="572"/>
-        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.cpp" line="128"/>
         <source>Tip of keyboard</source>
-        <translation>启用按键提示</translation>
+        <translation type="vanished">启用按键提示</translation>
         <extra-contents_path>/keyboard/Tip of keyboard</extra-contents_path>
     </message>
     <message>
@@ -3801,19 +3791,16 @@ folder will be deleted!</source>
         <translation type="vanished">大写锁定提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="647"/>
         <source>Enable numlock</source>
-        <translation>小键盘开启提示</translation>
+        <translation type="vanished">小键盘开启提示</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
         <translation type="vanished">键盘布局</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="767"/>
-        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.cpp" line="130"/>
         <source>Keyboard layout</source>
-        <translation>键盘布局</translation>
+        <translation type="vanished">键盘布局</translation>
         <extra-contents_path>/keyboard/Keyboard layout</extra-contents_path>
     </message>
     <message>
@@ -3825,9 +3812,67 @@ folder will be deleted!</source>
         <translation type="vanished">键盘</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.cpp" line="42"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.cpp" line="24"/>
         <source>Keyboard</source>
         <translation>键盘</translation>
+    </message>
+</context>
+<context>
+    <name>KeyboardMain</name>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="27"/>
+        <source>Key board settings</source>
+        <translation>键盘设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="37"/>
+        <source>Input method settings</source>
+        <translation>输入法设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="98"/>
+        <source>Key repeat</source>
+        <translation>按键重复</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="118"/>
+        <source>Delay</source>
+        <translation>延迟</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="120"/>
+        <source>Short</source>
+        <translation>短</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="122"/>
+        <source>Long</source>
+        <translation>长</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="146"/>
+        <source>Speed</source>
+        <translation>速度</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="148"/>
+        <source>Slow</source>
+        <translation>慢</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="150"/>
+        <source>Fast</source>
+        <translation>快</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="174"/>
+        <source>Input test</source>
+        <translation>输入测试</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="193"/>
+        <source>Key tips</source>
+        <translation>按键提示</translation>
     </message>
 </context>
 <context>
@@ -5512,9 +5557,8 @@ Please retry or relogin!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/printer/printer.cpp" line="189"/>
         <source>Add</source>
-        <translation type="unfinished">添加</translation>
+        <translation type="obsolete">添加</translation>
     </message>
 </context>
 <context>
@@ -5566,7 +5610,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/proxy/proxy.ui" line="129"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="133"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="269"/>
         <source>Auto proxy</source>
         <translation>开启自动代理</translation>
         <extra-contents_path>/proxy/Auto proxy</extra-contents_path>
@@ -5583,7 +5627,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/proxy/proxy.ui" line="346"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="135"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="271"/>
         <source>Manual proxy</source>
         <translation>开启手动代理</translation>
         <extra-contents_path>/proxy/Manual proxy</extra-contents_path>
@@ -6976,126 +7020,123 @@ run start-pulseaudio-x11 manually.</source>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/search/search.cpp" line="8"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="111"/>
         <source>Search</source>
         <translation>搜索</translation>
         <extra-contents_path>/search/Search</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="111"/>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="122"/>
         <source>Create Index</source>
-        <translation>创建索引</translation>
+        <translation type="vanished">创建索引</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="113"/>
         <source>Creating index can help you getting results quickly.</source>
-        <translation>创建索引可以帮助您快速获取搜索结果</translation>
+        <translation type="vanished">创建索引可以帮助您快速获取搜索结果</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="176"/>
         <source>Web Engine</source>
-        <translation>搜索引擎</translation>
+        <translation type="vanished">搜索引擎</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="177"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="164"/>
         <source>Default web searching engine</source>
         <translation>默认互联网搜索引擎</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="181"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="170"/>
         <source>baidu</source>
         <translation>百度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="182"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="171"/>
         <source>sougou</source>
         <translation>搜狗</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="183"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="172"/>
         <source>360</source>
         <translation>360</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="132"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="181"/>
         <source>Block Folders</source>
         <translation>屏蔽文件夹</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="135"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="184"/>
         <source>Following folders will not be searched. You can set it by adding and removing folders.</source>
         <translation>搜索将不再查看以下文件夹，通过添加和删除可以设置文件索引位置。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="163"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="227"/>
         <source>Choose folder</source>
         <translation>选择要屏蔽的文件夹</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="312"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="371"/>
         <source>delete</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="350"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="425"/>
         <source>Directories</source>
         <translation>文件夹</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="351"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="426"/>
         <source>select blocked folder</source>
         <translation>选择要屏蔽的文件夹</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="352"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="427"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="353"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="428"/>
         <source>Position: </source>
         <translation>位置: </translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="354"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="429"/>
         <source>FileName: </source>
         <translation>文件名: </translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="355"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="430"/>
         <source>FileType: </source>
         <translation>文件类型: </translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="356"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="431"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="372"/>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="376"/>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="380"/>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="384"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="447"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="451"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="455"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="459"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="372"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="447"/>
         <source>Add blocked folder failed, choosen path is empty!</source>
         <translation>添加文件夹失败，路径为空！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="376"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="451"/>
         <source>Add blocked folder failed, it is not in home path!</source>
         <translation>添加文件夹失败，请选择用户目录下的文件夹！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="380"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="455"/>
         <source>Add blocked folder failed, its parent dir is exist!</source>
         <translation>添加文件夹失败，父文件夹已被屏蔽！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="384"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="459"/>
         <source>Add blocked folder failed, it has been already blocked!</source>
         <translation>添加文件夹失败，该文件夹已被屏蔽！</translation>
     </message>
@@ -8171,52 +8212,52 @@ run start-pulseaudio-x11 manually.</source>
         <translation>插入鼠标时禁用触摸板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="52"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="53"/>
         <source>Cursor Speed</source>
         <translation>光标速度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="53"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="55"/>
         <source>Slow</source>
         <translation>慢</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="54"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="56"/>
         <source>Fast</source>
         <translation>快</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="72"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="78"/>
         <source>Disable touchpad when typing</source>
         <translation>打字时禁用触摸板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="88"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="94"/>
         <source>Touch and click on the touchpad</source>
         <translation>触摸板轻触点击</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="104"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="110"/>
         <source>Scroll bar slides with finger</source>
         <translation>滚动条跟随手指滑动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="119"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="125"/>
         <source>Scrolling area</source>
         <translation>滚动区域</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="121"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="127"/>
         <source>Disable scrolling</source>
         <translation>禁止</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="122"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="128"/>
         <source>Edge scrolling</source>
         <translation>边界滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="123"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="129"/>
         <source>Two-finger scrolling in the middle area</source>
         <translation>中间区域双指滚动</translation>
     </message>

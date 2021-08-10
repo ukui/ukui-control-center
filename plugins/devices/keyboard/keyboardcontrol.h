@@ -21,21 +21,10 @@
 #define KEYBOARDCONTROL_H
 
 #include <QObject>
-#include <QtPlugin>
-#include <QStyledItemDelegate>
 
 #include "shell/interface.h"
-#include "SwitchButton/switchbutton.h"
-#include "HoverWidget/hoverwidget.h"
-#include "ImageUtil/imageutil.h"
+#include "keyboardmain.h"
 
-#include "kbdlayoutmanager.h"
-
-namespace Ui {
-class KeyboardControl;
-}
-
-class QGSettings;
 
 class KeyboardControl : public QObject, CommonInterface
 {
@@ -53,33 +42,11 @@ public:
     void plugin_delay_control() Q_DECL_OVERRIDE;
     const QString name() const Q_DECL_OVERRIDE;
 
-    void setupStylesheet();
-    void setupComponent();
-    void setupConnect();
-    void initGeneralStatus();
-    void rebuildLayoutsComBox();
-    void setKeyboardVisible(bool checked);
-
 private:
-    Ui::KeyboardControl *ui;
-
     QString pluginName;
     int pluginType;
-    QWidget * pluginWidget;
+    KeyboardMain *pluginWidget;
 
-    QGSettings * settings;
-//    QGSettings * kbdsettings;
-    QGSettings * osdSettings;
-
-    SwitchButton * keySwitchBtn;
-    SwitchButton * tipKeyboardSwitchBtn;
-    SwitchButton * numLockSwitchBtn;
-
-    KbdLayoutManager * layoutmanagerObj;
-
-    HoverWidget * addWgt;
-
-    bool settingsCreate;
     bool mFirstLoad;
 };
 

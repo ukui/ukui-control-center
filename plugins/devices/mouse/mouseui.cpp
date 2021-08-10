@@ -39,7 +39,7 @@ MouseUI::MouseUI(QWidget *parent)
     : QWidget(parent)
 {
     mVlayout = new QVBoxLayout(this);
-    mVlayout->setContentsMargins(0, 0, 32, 0);
+    mVlayout->setContentsMargins(0, 0, 40, 0);
     initUI();
     initConnection();
 }
@@ -48,18 +48,55 @@ MouseUI::~MouseUI()
 {
 }
 
+QFrame* MouseUI::myLine()
+{
+    QFrame *line = new QFrame(this);
+    line->setMinimumSize(QSize(0, 1));
+    line->setMaximumSize(QSize(16777215, 1));
+    line->setLineWidth(0);
+    line->setFrameShape(QFrame::HLine);
+    line->setFrameShadow(QFrame::Sunken);
+
+    return line;
+}
+
 void MouseUI::initUI()
 {
+    //鼠标
+    QFrame *mouseFrame = new QFrame(this);
+    mouseFrame->setMinimumSize(550, 0);
+    mouseFrame->setMaximumSize(16777215, 16777215);
+    mouseFrame->setFrameShape(QFrame::Box);
+
+    QVBoxLayout *mouseLyt = new QVBoxLayout(mouseFrame);
+    mouseLyt->setContentsMargins(0, 0, 0, 0);
+
+    //指针
+    QFrame *pointerFrame = new QFrame(this);
+    pointerFrame->setMinimumSize(550, 0);
+    pointerFrame->setMaximumSize(16777215, 16777215);
+    pointerFrame->setFrameShape(QFrame::Box);
+
+    QVBoxLayout *pointerLyt = new QVBoxLayout(pointerFrame);
+    pointerLyt->setContentsMargins(0, 0, 0, 0);
+
+    //光标
+    QFrame *cursorFrame = new QFrame(this);
+    cursorFrame->setMinimumSize(550, 0);
+    cursorFrame->setMaximumSize(16777215, 16777215);
+    cursorFrame->setFrameShape(QFrame::Box);
+
+    QVBoxLayout *cursorLyt = new QVBoxLayout(cursorFrame);
+    cursorLyt->setContentsMargins(0, 0, 0, 0);
+
     mMouseTitleLabel = new TitleLabel(this);
     mMouseTitleLabel->setText(tr("Mouse"));
-
     setDominantHandFrame();
     setWheelSpeedFrame();
     setDoubleClickFrame();
 
     mPointerTitleLabel = new TitleLabel(this);
     mPointerTitleLabel->setText(tr("Pointer"));
-
     setPointerSpeedFrame();
     setMouseAccelerationFrame();
     setPointerPositionFrame();
@@ -67,29 +104,50 @@ void MouseUI::initUI()
 
     mCursorTitleLabel = new TitleLabel(this);
     mCursorTitleLabel->setText(tr("Cursor"));
-
     setBlinkCursorFrame();
     setCursorSpeedFrame();
 
     /* add all frame to widget */
+    QFrame *dominantAndWheelLine =myLine();
+    QFrame *wheelAndDoubleLine = myLine();
+    QFrame *pointerAndMouseLine = myLine();
+    QFrame *mouseAndPointerPositionLine = myLine();
+    QFrame *positionAndSizeLine = myLine();
+    QFrame *blinkAndCursorspeedLine = myLine();
+
+    mouseLyt->addWidget(mDominantHandFrame);
+    mouseLyt->addWidget(dominantAndWheelLine);
+    mouseLyt->addWidget(mWheelSpeedFrame);
+    mouseLyt->addWidget(wheelAndDoubleLine);
+    mouseLyt->addWidget(mDoubleClickIntervalFrame);
+    mouseLyt->setSpacing(0);
+
+    pointerLyt->addWidget(mPointerSpeedFrame);
+    pointerLyt->addWidget(pointerAndMouseLine);
+    pointerLyt->addWidget(mMouseAccelerationFrame);
+    pointerLyt->addWidget(mouseAndPointerPositionLine);
+    pointerLyt->addWidget(mPointerPositionFrame);
+    pointerLyt->addWidget(positionAndSizeLine);
+    pointerLyt->addWidget(mPointerSizeFrame);
+    pointerLyt->setSpacing(0);
+
+    cursorLyt->addWidget(mBlinkingCursorOnTextFrame);
+    cursorLyt->addWidget(blinkAndCursorspeedLine);
+    cursorLyt->addWidget(mCursorSpeedFrame);
+    cursorLyt->setSpacing(0);
+
     mVlayout->addWidget(mMouseTitleLabel);
-    mVlayout->addWidget(mDominantHandFrame);
-    mVlayout->addWidget(mWheelSpeedFrame);
-    mVlayout->addWidget(mDoubleClickIntervalFrame);
+    mVlayout->addWidget(mouseFrame);
     mVlayout->addSpacing(32);
     mVlayout->setSpacing(8);
 
     mVlayout->addWidget(mPointerTitleLabel);
-    mVlayout->addWidget(mPointerSpeedFrame);
-    mVlayout->addWidget(mMouseAccelerationFrame);
-    mVlayout->addWidget(mPointerPositionFrame);
-    mVlayout->addWidget(mPointerSizeFrame);
+    mVlayout->addWidget(pointerFrame);
     mVlayout->addSpacing(32);
     mVlayout->setSpacing(8);
 
     mVlayout->addWidget(mCursorTitleLabel);
-    mVlayout->addWidget(mBlinkingCursorOnTextFrame);
-    mVlayout->addWidget(mCursorSpeedFrame);
+    mVlayout->addWidget(cursorFrame);
     mVlayout->addStretch();
 }
 
@@ -98,8 +156,8 @@ void MouseUI::setDominantHandFrame()
     /* dominant hand Frame Setting */
     mDominantHandFrame = new QFrame(this);
     mDominantHandFrame->setFrameShape(QFrame::Shape::Box);
-    mDominantHandFrame->setMinimumSize(550, 50);
-    mDominantHandFrame->setMaximumSize(960, 50);
+    mDominantHandFrame->setMinimumSize(550, 60);
+    mDominantHandFrame->setMaximumSize(16777215, 60);
 
     QHBoxLayout *dominantHandHLayout = new QHBoxLayout();
 
@@ -124,8 +182,8 @@ void MouseUI::setWheelSpeedFrame()
     /* wheel speed Frame Setting */
     mWheelSpeedFrame = new QFrame(this);
     mWheelSpeedFrame->setFrameShape(QFrame::Shape::Box);
-    mWheelSpeedFrame->setMinimumSize(550, 50);
-    mWheelSpeedFrame->setMaximumSize(960, 50);
+    mWheelSpeedFrame->setMinimumSize(550, 60);
+    mWheelSpeedFrame->setMaximumSize(16777215, 60);
 
     QHBoxLayout *wheelSpeedHLayout = new QHBoxLayout();
 
@@ -152,8 +210,8 @@ void MouseUI::setDoubleClickFrame()
     /* Double Click Interval time Frame Setting */
     mDoubleClickIntervalFrame = new QFrame(this);
     mDoubleClickIntervalFrame->setFrameShape(QFrame::Shape::Box);
-    mDoubleClickIntervalFrame->setMinimumSize(550, 50);
-    mDoubleClickIntervalFrame->setMaximumSize(960, 50);
+    mDoubleClickIntervalFrame->setMinimumSize(550, 60);
+    mDoubleClickIntervalFrame->setMaximumSize(16777215, 60);
 
     QHBoxLayout *doubleClickIntervalHLayout = new QHBoxLayout();
 
@@ -182,8 +240,8 @@ void MouseUI::setPointerSpeedFrame()
     /* Pointer Speed Frame Setting */
     mPointerSpeedFrame = new QFrame(this);
     mPointerSpeedFrame->setFrameShape(QFrame::Shape::Box);
-    mPointerSpeedFrame->setMinimumSize(550, 50);
-    mPointerSpeedFrame->setMaximumSize(960, 50);
+    mPointerSpeedFrame->setMinimumSize(550, 60);
+    mPointerSpeedFrame->setMaximumSize(16777215, 60);
 
     QHBoxLayout *pointerSpeedHLayout = new QHBoxLayout();
 
@@ -211,8 +269,8 @@ void MouseUI::setMouseAccelerationFrame()
     /* Mouse Acceleration Frame Setting */
     mMouseAccelerationFrame = new QFrame(this);
     mMouseAccelerationFrame->setFrameShape(QFrame::Shape::Box);
-    mMouseAccelerationFrame->setMinimumSize(550, 50);
-    mMouseAccelerationFrame->setMaximumSize(960, 50);
+    mMouseAccelerationFrame->setMinimumSize(550, 60);
+    mMouseAccelerationFrame->setMaximumSize(16777215, 60);
 
     QHBoxLayout *mouseAccelerationHLayout = new QHBoxLayout();
 
@@ -231,8 +289,8 @@ void MouseUI::setPointerPositionFrame()
     /* Pointer Position Frame Setting */
     mPointerPositionFrame = new QFrame(this);
     mPointerPositionFrame->setFrameShape(QFrame::Shape::Box);
-    mPointerPositionFrame->setMinimumSize(550, 50);
-    mPointerPositionFrame->setMaximumSize(960, 50);
+    mPointerPositionFrame->setMinimumSize(550, 60);
+    mPointerPositionFrame->setMaximumSize(16777215, 60);
 
     QHBoxLayout *PointerPositionHLayout = new QHBoxLayout();
 
@@ -251,8 +309,8 @@ void MouseUI::setPointerSizeFrame()
     /* Pointer Size Frame Setting */
     mPointerSizeFrame = new QFrame(this);
     mPointerSizeFrame->setFrameShape(QFrame::Shape::Box);
-    mPointerSizeFrame->setMinimumSize(550, 50);
-    mPointerSizeFrame->setMaximumSize(960, 50);
+    mPointerSizeFrame->setMinimumSize(550, 60);
+    mPointerSizeFrame->setMaximumSize(16777215, 60);
 
     QHBoxLayout *pointerSizeHLayout = new QHBoxLayout();
 
@@ -285,8 +343,8 @@ void MouseUI::setBlinkCursorFrame()
     /* Blinking Cursor On Text Frame Setting */
     mBlinkingCursorOnTextFrame = new QFrame(this);
     mBlinkingCursorOnTextFrame->setFrameShape(QFrame::Shape::Box);
-    mBlinkingCursorOnTextFrame->setMinimumSize(550, 50);
-    mBlinkingCursorOnTextFrame->setMaximumSize(960, 50);
+    mBlinkingCursorOnTextFrame->setMinimumSize(550, 60);
+    mBlinkingCursorOnTextFrame->setMaximumSize(16777215, 60);
 
     QHBoxLayout *blinkingCursorOnTextHLayout = new QHBoxLayout();
 
@@ -305,8 +363,8 @@ void MouseUI::setCursorSpeedFrame()
     /* Cursor Speed Frame Setting */
     mCursorSpeedFrame = new QFrame(this);
     mCursorSpeedFrame->setFrameShape(QFrame::Shape::Box);
-    mCursorSpeedFrame->setMinimumSize(550, 50);
-    mCursorSpeedFrame->setMaximumSize(960, 50);
+    mCursorSpeedFrame->setMinimumSize(550, 60);
+    mCursorSpeedFrame->setMaximumSize(16777215, 60);
 
     QHBoxLayout *cursorSpeedHLayout = new QHBoxLayout();
 
