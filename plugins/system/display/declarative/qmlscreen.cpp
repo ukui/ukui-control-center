@@ -236,10 +236,10 @@ void QMLScreen::setScreenPos(QMLOutput *output, bool isReleased)
         return;
     }
 
-    int x1 = 0, y1 = 0;
-    int width1 = 0, height1 = 0;
-    int x2 = 0, y2 = 0;
-    int width2 = 0, height2 = 0;
+    float x1 = 0, y1 = 0;
+    float width1 = 0, height1 = 0;
+    float x2 = 0, y2 = 0;
+    float width2 = 0, height2 = 0;
 
     x1 = output->x();
     y1 = output->y();
