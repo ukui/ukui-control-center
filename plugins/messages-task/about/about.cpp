@@ -124,12 +124,20 @@ void About::setupDesktopComponent()
         }
     }
 
-    QString name = qgetenv("USER");
-    if (name.isEmpty()) {
-        name = qgetenv("USERNAME");
-    }
+    qlonglong uid = getuid();
+    QDBusInterface user("org.freedesktop.Accounts",
+                        "/org/freedesktop/Accounts",
+                        "org.freedesktop.Accounts",
+                        QDBusConnection::systemBus());
+    QDBusMessage result = user.call("FindUserById", uid);
+    QString userpath = result.arguments().value(0).value<QDBusObjectPath>().path();
+    QDBusInterface *userInterface = new QDBusInterface ("org.freedesktop.Accounts",
+                                          userpath,
+                                        "org.freedesktop.Accounts.User",
+                                        QDBusConnection::systemBus());
+    QString userName = userInterface->property("RealName").value<QString>();
 
-    ui->userContent->setText(name);
+    ui->userContent->setText(userName);
 }
 
 void About::setupKernelCompenent()
