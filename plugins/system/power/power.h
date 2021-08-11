@@ -81,9 +81,9 @@ private:
     QString pluginName;
     int pluginType;
 
-    TitleLabel *CustomTitleLabel;
-    TitleLabel *PowerPlanTitleLabel;
-    TitleLabel *BatteryPlanTitleLabel;
+    QLabel *CustomTitleLabel;
+    QLabel *PowerPlanTitleLabel;
+    QLabel *BatteryPlanTitleLabel;
     QLabel *mSleepPwdLabel;
     QLabel *mWakenPwdLabel;
     QLabel *mPowerKeyLabel;

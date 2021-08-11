@@ -135,7 +135,8 @@ void Power::InitUI(QWidget *widget)
     PowerLayout->setContentsMargins(0, 0, 0, 0);
     PowerLayout->setSpacing(1);
 
-    CustomTitleLabel = new TitleLabel(Powerwidget);
+    CustomTitleLabel = new QLabel(Powerwidget);
+    CustomTitleLabel->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
 
     PowerLayout->addWidget(CustomTitleLabel);
     PowerLayout->addSpacing(7);
@@ -268,7 +269,9 @@ void Power::InitUI(QWidget *widget)
     PowerLayout->addWidget(mCloseLidFrame);
     PowerLayout->addSpacing(39);
 
-    PowerPlanTitleLabel = new TitleLabel(Powerwidget);
+    PowerPlanTitleLabel = new QLabel(Powerwidget);
+    PowerPlanTitleLabel->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
+
     PowerLayout->addWidget(PowerPlanTitleLabel);
     PowerLayout->addSpacing(7);
 
@@ -316,7 +319,8 @@ void Power::InitUI(QWidget *widget)
     PowerLayout->addWidget(mBatteryFrame);
     PowerLayout->addSpacing(40);
 
-    BatteryPlanTitleLabel = new TitleLabel(Powerwidget);
+    BatteryPlanTitleLabel = new QLabel(Powerwidget);
+    BatteryPlanTitleLabel->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
     PowerLayout->addWidget(BatteryPlanTitleLabel);
     PowerLayout->addSpacing(7);
 
