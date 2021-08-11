@@ -560,6 +560,7 @@ void MainWidget::layoutUI() {
     m_welcomeLayout->addWidget(m_welcomeMsg,0,Qt::AlignCenter);
     m_welcomeLayout->addSpacing(8);
     m_welcomeLayout->addWidget(m_exitCode,0,Qt::AlignCenter);
+    //~ contents_path /networkaccount/Sign in
     m_welcomeLayout->addWidget(m_login_btn,0,Qt::AlignCenter);
     m_welcomeLayout->addStretch();
     m_welcomeLayout->setAlignment(Qt::AlignCenter | Qt::AlignTop);
