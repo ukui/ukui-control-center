@@ -149,12 +149,7 @@ void Proxy::initUi(QWidget *widget)
     mAutoProxyLayout->addStretch();
     mAutoProxyLayout->addWidget(mAutoBtn);
 
-    line_1 = new QFrame(mAutoFrame);
-    line_1->setMinimumSize(QSize(0, 1));
-    line_1->setMaximumSize(QSize(16777215, 1));
-    line_1->setLineWidth(0);
-    line_1->setFrameShape(QFrame::HLine);
-    line_1->setFrameShadow(QFrame::Sunken);
+    line_1 = setLine(mAutoFrame);
 
     mUrlFrame = new QFrame(mAutoFrame);
     mUrlFrame->setMinimumSize(QSize(550, 60));
@@ -209,12 +204,7 @@ void Proxy::initUi(QWidget *widget)
     mManualProxyLayout->addStretch();
     mManualProxyLayout->addWidget(mManualBtn);
 
-    line_2 = new QFrame(mManualFrame);
-    line_2->setMinimumSize(QSize(0, 1));
-    line_2->setMaximumSize(QSize(16777215, 1));
-    line_2->setLineWidth(0);
-    line_2->setFrameShape(QFrame::HLine);
-    line_2->setFrameShadow(QFrame::Sunken);
+    line_2 = setLine(mManualFrame);
 
     mHTTPFrame = new QFrame(mManualFrame);
     mHTTPFrame->setMinimumSize(QSize(550, 0));
@@ -298,12 +288,7 @@ void Proxy::initUi(QWidget *widget)
     mHTTPLayout->addWidget(mCertificationFrame);
     mHTTPLayout->addWidget(mCertificationFrame_1);
 
-    line_3 = new QFrame(mManualFrame);
-    line_3->setMinimumSize(QSize(0, 1));
-    line_3->setMaximumSize(QSize(16777215, 1));
-    line_3->setLineWidth(0);
-    line_3->setFrameShape(QFrame::HLine);
-    line_3->setFrameShadow(QFrame::Sunken);
+    line_3 = setLine(mManualFrame);
 
     mHTTPSFrame = new QFrame(mManualFrame);
     mHTTPSFrame->setMinimumSize(QSize(550, 60));
@@ -328,12 +313,7 @@ void Proxy::initUi(QWidget *widget)
     mHTTPSLayout->addWidget(mHTTPSPortLabel);
     mHTTPSLayout->addWidget(mHTTPSLineEdit_2);
 
-    line_4 = new QFrame(mManualFrame);
-    line_4->setMinimumSize(QSize(0, 1));
-    line_4->setMaximumSize(QSize(16777215, 1));
-    line_4->setLineWidth(0);
-    line_4->setFrameShape(QFrame::HLine);
-    line_4->setFrameShadow(QFrame::Sunken);
+    line_4 = setLine(mManualFrame);
 
     mFTPFrame = new QFrame(mManualFrame);
     mFTPFrame->setMinimumSize(QSize(550, 60));
@@ -358,12 +338,7 @@ void Proxy::initUi(QWidget *widget)
     mFTPLayout->addWidget(mFTPPortLabel);
     mFTPLayout->addWidget(mFTPLineEdit_2);
 
-    line_5 = new QFrame(mManualFrame);
-    line_5->setMinimumSize(QSize(0, 1));
-    line_5->setMaximumSize(QSize(16777215, 1));
-    line_5->setLineWidth(0);
-    line_5->setFrameShape(QFrame::HLine);
-    line_5->setFrameShadow(QFrame::Sunken);
+    line_5 = setLine(mManualFrame);
 
     mSOCKSFrame = new QFrame(mManualFrame);
     mSOCKSFrame->setMinimumSize(QSize(550, 60));
@@ -388,12 +363,7 @@ void Proxy::initUi(QWidget *widget)
     mSOCKSLayout->addWidget(mSOCKSPortLabel);
     mSOCKSLayout->addWidget(mSOCKSLineEdit_2);
 
-    line_6 = new QFrame(mManualFrame);
-    line_6->setMinimumSize(QSize(0, 1));
-    line_6->setMaximumSize(QSize(16777215, 1));
-    line_6->setLineWidth(0);
-    line_6->setFrameShape(QFrame::HLine);
-    line_6->setFrameShadow(QFrame::Sunken);
+    line_6 = setLine(mManualFrame);
 
     mIgnoreFrame = new QFrame(mManualFrame);
     mIgnoreFrame->setMinimumSize(QSize(550, 0));
@@ -686,6 +656,17 @@ void Proxy::_setSensitivity(){
     mFTPFrame->setEnabled(manualChecked);
     mSOCKSFrame->setEnabled(manualChecked);
 
+}
+
+QFrame *Proxy::setLine(QFrame *frame)
+{
+    QFrame *line = new QFrame(frame);
+    line->setMinimumSize(QSize(0, 1));
+    line->setMaximumSize(QSize(16777215, 1));
+    line->setLineWidth(0);
+    line->setFrameShape(QFrame::HLine);
+    line->setFrameShadow(QFrame::Sunken);
+    return line;
 }
 
 void Proxy::manualProxyTextChanged(QString txt){

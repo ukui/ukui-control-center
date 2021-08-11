@@ -89,6 +89,7 @@ public:
     bool setTextEditorsDefautlProgram(char * appid);
 
     void connectToServer();
+    QFrame *setLine(QFrame *frame);
 
 private:
     QString getDefaultAppId(const char * contentType);

@@ -95,7 +95,10 @@ QWidget * Power::get_plugin_ui() {
             m_centerSettings = new QGSettings(IVd,QByteArray(), this);
             if (QGSettings::isSchemaInstalled(Vd)) {
                 m_qsettings = new QGSettings(Vd,QByteArray(), this);
+            } else {
+                m_qsettings = nullptr;
             }
+
 
             connect(stylesettings,&QGSettings::changed,[=](QString key)
             {
@@ -136,6 +139,7 @@ const QString Power::name() const {
 
 void Power::InitUI(QWidget *widget)
 {
+    // 整体布局
     QVBoxLayout *mverticalLayout = new QVBoxLayout(widget);
     mverticalLayout->setSpacing(8);
     mverticalLayout->setContentsMargins(0, 0, 40, 40);
@@ -144,6 +148,7 @@ void Power::InitUI(QWidget *widget)
 
     mverticalLayout->addWidget(CustomTitleLabel);
 
+    // 通用设置布局
     Powerwidget = new QFrame(widget);
     Powerwidget->setMinimumSize(QSize(550, 0));
     Powerwidget->setMaximumSize(QSize(16777215, 16777215));
@@ -173,12 +178,7 @@ void Power::InitUI(QWidget *widget)
 
     PowerLayout->addWidget(mSleepPwdFrame);
 
-    line_1 = new QFrame(Powerwidget);
-    line_1->setMinimumSize(QSize(0, 1));
-    line_1->setMaximumSize(QSize(16777215, 1));
-    line_1->setLineWidth(0);
-    line_1->setFrameShape(QFrame::HLine);
-    line_1->setFrameShadow(QFrame::Sunken);
+    line_1 = setLine(Powerwidget);
     PowerLayout->addWidget(line_1);
 
     mWakenPwdFrame = new QFrame(Powerwidget);
@@ -200,12 +200,7 @@ void Power::InitUI(QWidget *widget)
 
     PowerLayout->addWidget(mWakenPwdFrame);
 
-    line_2 = new QFrame(Powerwidget);
-    line_2->setMinimumSize(QSize(0, 1));
-    line_2->setMaximumSize(QSize(16777215, 1));
-    line_2->setLineWidth(0);
-    line_2->setFrameShape(QFrame::HLine);
-    line_2->setFrameShadow(QFrame::Sunken);
+    line_2 = setLine(Powerwidget);
     PowerLayout->addWidget(line_2);
 
     mPowerKeyFrame = new QFrame(Powerwidget);
@@ -230,12 +225,7 @@ void Power::InitUI(QWidget *widget)
 
     PowerLayout->addWidget(mPowerKeyFrame);
 
-    line_3 = new QFrame(Powerwidget);
-    line_3->setMinimumSize(QSize(0, 1));
-    line_3->setMaximumSize(QSize(16777215, 1));
-    line_3->setLineWidth(0);
-    line_3->setFrameShape(QFrame::HLine);
-    line_3->setFrameShadow(QFrame::Sunken);
+    line_3 = setLine(Powerwidget);
     PowerLayout->addWidget(line_3);
 
     mCloseFrame = new QFrame(Powerwidget);
@@ -259,12 +249,7 @@ void Power::InitUI(QWidget *widget)
 
     PowerLayout->addWidget(mCloseFrame);
 
-    line_4 = new QFrame(Powerwidget);
-    line_4->setMinimumSize(QSize(0, 1));
-    line_4->setMaximumSize(QSize(16777215, 1));
-    line_4->setLineWidth(0);
-    line_4->setFrameShape(QFrame::HLine);
-    line_4->setFrameShadow(QFrame::Sunken);
+    line_4 = setLine(Powerwidget);
     PowerLayout->addWidget(line_4);
 
     mSleepFrame = new QFrame(Powerwidget);
@@ -289,12 +274,7 @@ void Power::InitUI(QWidget *widget)
 
     PowerLayout->addWidget(mSleepFrame);
 
-    line_5 = new QFrame(Powerwidget);
-    line_5->setMinimumSize(QSize(0, 1));
-    line_5->setMaximumSize(QSize(16777215, 1));
-    line_5->setLineWidth(0);
-    line_5->setFrameShape(QFrame::HLine);
-    line_5->setFrameShadow(QFrame::Sunken);
+    line_5 = setLine(Powerwidget);
     PowerLayout->addWidget(line_5);
 
     mCloseLidFrame = new QFrame(Powerwidget);
@@ -331,12 +311,12 @@ void Power::InitUI(QWidget *widget)
     PowerPlanwidget->setMaximumSize(QSize(16777215, 16777215));
     PowerPlanwidget->setFrameShape(QFrame::Box);
 
-
+    // 电源计划布局
     QVBoxLayout *PowerPlanLayout = new QVBoxLayout(PowerPlanwidget);
     PowerPlanLayout->setContentsMargins(0, 0, 0, 0);
     PowerPlanLayout->setSpacing(0);
 
-    //Intel的布局
+    // Intel的布局
     mPowerBtnGroup = new QButtonGroup(PowerPlanwidget);
 
     mBalanceFrame = new QFrame(Powerwidget);
@@ -362,12 +342,7 @@ void Power::InitUI(QWidget *widget)
 
     PowerPlanLayout->addWidget(mBalanceFrame);
 
-    line_6 = new QFrame(PowerPlanwidget);
-    line_6->setMinimumSize(QSize(0, 1));
-    line_6->setMaximumSize(QSize(16777215, 1));
-    line_6->setLineWidth(0);
-    line_6->setFrameShape(QFrame::HLine);
-    line_6->setFrameShadow(QFrame::Sunken);
+    line_6 = setLine(PowerPlanwidget);
     PowerPlanLayout->addWidget(line_6);
 
     mSaveFrame = new QFrame(PowerPlanwidget);
@@ -415,12 +390,7 @@ void Power::InitUI(QWidget *widget)
 
     PowerPlanLayout->addWidget(mPowerFrame);
 
-    line_7 = new QFrame(PowerPlanwidget);
-    line_7->setMinimumSize(QSize(0, 1));
-    line_7->setMaximumSize(QSize(16777215, 1));
-    line_7->setLineWidth(0);
-    line_7->setFrameShape(QFrame::HLine);
-    line_7->setFrameShadow(QFrame::Sunken);
+    line_7 = setLine(PowerPlanwidget);
     PowerPlanLayout->addWidget(line_7);
 
     mBatteryFrame = new QFrame(PowerPlanwidget);
@@ -450,6 +420,7 @@ void Power::InitUI(QWidget *widget)
     BatteryPlanTitleLabel = new TitleLabel(Powerwidget);
     mverticalLayout->addWidget(BatteryPlanTitleLabel);
 
+    // 电池节能计划
     Batterywidget = new QFrame(widget);
     Batterywidget->setMinimumSize(QSize(550, 0));
     Batterywidget->setMaximumSize(QSize(16777215, 16777215));
@@ -481,12 +452,7 @@ void Power::InitUI(QWidget *widget)
 
     BatteryLayout->addWidget(mDarkenFrame);
 
-    line_8 = new QFrame(Batterywidget);
-    line_8->setMinimumSize(QSize(0, 1));
-    line_8->setMaximumSize(QSize(16777215, 1));
-    line_8->setLineWidth(0);
-    line_8->setFrameShape(QFrame::HLine);
-    line_8->setFrameShadow(QFrame::Sunken);
+    line_8 = setLine(Batterywidget);
     BatteryLayout->addWidget(line_8);
 
     mLowpowerFrame = new QFrame(Batterywidget);
@@ -518,12 +484,7 @@ void Power::InitUI(QWidget *widget)
 
     BatteryLayout->addWidget(mLowpowerFrame);
 
-    line_9 = new QFrame(Batterywidget);
-    line_9->setMinimumSize(QSize(0, 1));
-    line_9->setMaximumSize(QSize(16777215, 1));
-    line_9->setLineWidth(0);
-    line_9->setFrameShape(QFrame::HLine);
-    line_9->setFrameShadow(QFrame::Sunken);
+    line_9 = setLine(Batterywidget);
     BatteryLayout->addWidget(line_9);
 
     mNoticeLFrame = new QFrame(Batterywidget);
@@ -548,12 +509,7 @@ void Power::InitUI(QWidget *widget)
 
     BatteryLayout->addWidget(mNoticeLFrame);
 
-    line_10 = new QFrame(Batterywidget);
-    line_10->setMinimumSize(QSize(0, 1));
-    line_10->setMaximumSize(QSize(16777215, 1));
-    line_10->setLineWidth(0);
-    line_10->setFrameShape(QFrame::HLine);
-    line_10->setFrameShadow(QFrame::Sunken);
+    line_10 = setLine(Batterywidget);
     BatteryLayout->addWidget(line_10);
 
     mLowSaveFrame = new QFrame(Batterywidget);
@@ -577,12 +533,7 @@ void Power::InitUI(QWidget *widget)
 
     BatteryLayout->addWidget(mLowSaveFrame);
 
-    line_11 = new QFrame(Batterywidget);
-    line_11->setMinimumSize(QSize(0, 1));
-    line_11->setMaximumSize(QSize(16777215, 1));
-    line_11->setLineWidth(0);
-    line_11->setFrameShape(QFrame::HLine);
-    line_11->setFrameShadow(QFrame::Sunken);
+    line_11 = setLine(Batterywidget);
     BatteryLayout->addWidget(line_11);
 
     mBatterySaveFrame = new QFrame(Batterywidget);
@@ -605,12 +556,7 @@ void Power::InitUI(QWidget *widget)
 
     BatteryLayout->addWidget(mBatterySaveFrame);
 
-    line_12 = new QFrame(Batterywidget);
-    line_12->setMinimumSize(QSize(0, 1));
-    line_12->setMaximumSize(QSize(16777215, 1));
-    line_12->setLineWidth(0);
-    line_12->setFrameShape(QFrame::HLine);
-    line_12->setFrameShadow(QFrame::Sunken);
+    line_12 = setLine(Batterywidget);
     BatteryLayout->addWidget(line_12);
 
     mDisplayTimeFrame = new QFrame(Batterywidget);
@@ -988,6 +934,26 @@ void Power::setupConnect()
         }
     });
 
+    connect(settings,&QGSettings::changed,[=](){
+        initCustomPlanStatus();
+    });
+
+    if (m_qsettings) {
+        connect(m_qsettings,&QGSettings::changed,this,[=](const QString &key){
+            bool whichChecked = m_centerSettings->get(ISWHICHCHECKED).toBool();
+            if (key == "energysavingmode") {
+                bool savingMode = m_qsettings->get(ENERGYSAVINGMODE).toBool();
+                if (savingMode) {
+                    mSaveBtn->setChecked(true);
+                } else {
+                    if (!whichChecked) {
+                        mBalanceBtn->setChecked(true);
+                    }
+                }
+            }
+        });
+    }
+
 
 }
 
@@ -1176,11 +1142,24 @@ void Power::clearAutoItem(QVBoxLayout *mLyt)
         QLayoutItem *item;
         while ((item = mLyt->layout()->takeAt(0)) != NULL)
         {
-            delete item->widget();
+            if(item->widget()) {
+               item->widget()->setParent(NULL);
+            }
             delete item;
             item = nullptr;
         }
     }
+}
+
+QFrame *Power::setLine(QFrame *frame)
+{
+    QFrame *line = new QFrame(frame);
+    line->setMinimumSize(QSize(0, 1));
+    line->setMaximumSize(QSize(16777215, 1));
+    line->setLineWidth(0);
+    line->setFrameShape(QFrame::HLine);
+    line->setFrameShadow(QFrame::Sunken);
+    return line;
 }
 
 

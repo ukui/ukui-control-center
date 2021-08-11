@@ -140,9 +140,9 @@ void AddAutoBoot::initUi(QDialog *AddAutoBoot)
      QGridLayout *mAppLayout = new QGridLayout(mAppFrame);
      mAppLayout->setHorizontalSpacing(8);
      mAppLayout->setVerticalSpacing(4);
-     mAppNameLabel = new QLabel(mAppFrame);
-     mAppPathLabel = new QLabel(mAppFrame);
-     mAppBewriteLabel = new QLabel(mAppFrame);
+     mAppNameLabel = new FixLabel(mAppFrame);
+     mAppPathLabel = new FixLabel(mAppFrame);
+     mAppBewriteLabel = new FixLabel(mAppFrame);
      mAppNameEdit = new QLineEdit(mAppFrame);
      mAppPathEdit = new QLineEdit(mAppFrame);
      mAppBewriteEdit = new QLineEdit(mAppFrame);

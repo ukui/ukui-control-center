@@ -114,12 +114,7 @@ void DefaultApp::initUi(QWidget *widget)
     mBrowserLyt->addWidget(mBrowserLabel);
     mBrowserLyt->addWidget(mBrowserCombo);
 
-    QFrame *line_1 = new QFrame(mDefaultFrame);
-    line_1->setMinimumSize(QSize(0, 1));
-    line_1->setMaximumSize(QSize(16777215, 1));
-    line_1->setLineWidth(0);
-    line_1->setFrameShape(QFrame::HLine);
-    line_1->setFrameShadow(QFrame::Sunken);
+    QFrame *line_1 = setLine(mDefaultFrame);
 
     mMailFrame = new QFrame(mDefaultFrame);
     mMailFrame->setMinimumSize(QSize(550, 60));
@@ -139,12 +134,7 @@ void DefaultApp::initUi(QWidget *widget)
     mMailLyt->addWidget(mMailLabel);
     mMailLyt->addWidget(mMailCombo);
 
-    QFrame *line_2 = new QFrame(mDefaultFrame);
-    line_2->setMinimumSize(QSize(0, 1));
-    line_2->setMaximumSize(QSize(16777215, 1));
-    line_2->setLineWidth(0);
-    line_2->setFrameShape(QFrame::HLine);
-    line_2->setFrameShadow(QFrame::Sunken);
+    QFrame *line_2 = setLine(mDefaultFrame);
 
     mImageFrame = new QFrame(mDefaultFrame);
     mImageFrame->setMinimumSize(QSize(550, 60));
@@ -164,12 +154,7 @@ void DefaultApp::initUi(QWidget *widget)
     mImageLyt->addWidget(mImageLabel);
     mImageLyt->addWidget(mImageCombo);
 
-    QFrame *line_3 = new QFrame(mDefaultFrame);
-    line_3->setMinimumSize(QSize(0, 1));
-    line_3->setMaximumSize(QSize(16777215, 1));
-    line_3->setLineWidth(0);
-    line_3->setFrameShape(QFrame::HLine);
-    line_3->setFrameShadow(QFrame::Sunken);
+    QFrame *line_3 = setLine(mDefaultFrame);
 
     mAudioFrame = new QFrame(mDefaultFrame);
     mAudioFrame->setMinimumSize(QSize(550, 60));
@@ -189,12 +174,7 @@ void DefaultApp::initUi(QWidget *widget)
     mAudioLyt->addWidget(mAudioLabel);
     mAudioLyt->addWidget(mAudioCombo);
 
-    QFrame *line_4 = new QFrame(mDefaultFrame);
-    line_4->setMinimumSize(QSize(0, 1));
-    line_4->setMaximumSize(QSize(16777215, 1));
-    line_4->setLineWidth(0);
-    line_4->setFrameShape(QFrame::HLine);
-    line_4->setFrameShadow(QFrame::Sunken);
+    QFrame *line_4 = setLine(mDefaultFrame);
 
     mVideoFrame = new QFrame(mDefaultFrame);
     mVideoFrame->setMinimumSize(QSize(550, 60));
@@ -214,12 +194,7 @@ void DefaultApp::initUi(QWidget *widget)
     mVideoLyt->addWidget(mVideoLabel);
     mVideoLyt->addWidget(mVideoCombo);
 
-    QFrame *line_5 = new QFrame(mDefaultFrame);
-    line_5->setMinimumSize(QSize(0, 1));
-    line_5->setMaximumSize(QSize(16777215, 1));
-    line_5->setLineWidth(0);
-    line_5->setFrameShape(QFrame::HLine);
-    line_5->setFrameShadow(QFrame::Sunken);
+    QFrame *line_5 = setLine(mDefaultFrame);
 
     mTextFrame = new QFrame(mDefaultFrame);
     mTextFrame->setMinimumSize(QSize(550, 60));
@@ -917,6 +892,17 @@ void DefaultApp::connectToServer(){
     QDBusConnection::sessionBus().connect(QString(), QString("/org/kylinssoclient/path"), QString("org.freedesktop.kylinssoclient.interface"), "keyChanged", this, SLOT(keyChangedSlot(QString)));
     // 将以后所有DBus调用的超时设置为 milliseconds
     m_cloudInterface->setTimeout(2147483647); // -1 为默认的25s超时
+}
+
+QFrame *DefaultApp::setLine(QFrame *frame)
+{
+    QFrame *line = new QFrame(frame);
+    line->setMinimumSize(QSize(0, 1));
+    line->setMaximumSize(QSize(16777215, 1));
+    line->setLineWidth(0);
+    line->setFrameShape(QFrame::HLine);
+    line->setFrameShadow(QFrame::Sunken);
+    return line;
 }
 
 void DefaultApp::keyChangedSlot(const QString &key) {

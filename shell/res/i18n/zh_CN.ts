@@ -11,42 +11,42 @@
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="397"/>
         <source>Support</source>
-        <translation type="unfinished"></translation>
+        <translation>支持</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="399"/>
         <source>Version Number</source>
-        <translation type="unfinished"></translation>
+        <translation>版本号</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="404"/>
         <source>DateRes</source>
-        <translation type="unfinished"></translation>
+        <translation>到期时间</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="406"/>
         <source>Wechat code scanning obtains HP professional technical support</source>
-        <translation type="unfinished"></translation>
+        <translation>微信扫码获得HP专业技术支持</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="407"/>
         <source>See more about Kylin Tianqi edu platform</source>
-        <translation type="unfinished"></translation>
+        <translation>查看麒麟天启教育平台更多信息</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="409"/>
         <source>&lt;&lt;Protocol&gt;&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;&lt;试用免责协议&gt;&gt;</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="426"/>
         <source>Learn more HP user manual&gt;&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>了解更多 Hp用户手册&gt;&gt;</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="436"/>
         <source>See user manual&gt;&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>查看用户手册</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="508"/>
@@ -59,11 +59,11 @@
         <translation>延长服务</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/about/about.cpp" line="706"/>
         <location filename="../../../plugins/system/about/about.cpp" line="715"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="724"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="891"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="882"/>
         <source>avaliable</source>
-        <translation type="unfinished"></translation>
+        <translation>可用</translation>
     </message>
     <message>
         <source>version</source>
@@ -118,7 +118,7 @@
     </message>
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="400"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="722"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="713"/>
         <source>Disk</source>
         <translation>硬盘</translation>
     </message>
@@ -328,7 +328,7 @@
     <message>
         <location filename="../../../commonComponent/AddBtn/addbtn.cpp" line="19"/>
         <source>Add</source>
-        <translation type="unfinished">添加</translation>
+        <translation>添加</translation>
     </message>
 </context>
 <context>
@@ -806,7 +806,7 @@
 <context>
     <name>AutoBoot</name>
     <message>
-        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="549"/>
+        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="530"/>
         <source>Autoboot Settings</source>
         <translation>开机启动设置</translation>
         <extra-contents_path>/autoboot/Autoboot Settings</extra-contents_path>
@@ -837,7 +837,7 @@
         <translation type="vanished">当前状态</translation>
     </message>
     <message>
-        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="210"/>
+        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="209"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
@@ -1298,30 +1298,24 @@ Please authenticate yourself to continue</source>
 <context>
     <name>CertificationDialog</name>
     <message>
-        <location filename="../../../plugins/network/proxy/certificationdialog.ui" line="26"/>
-        <location filename="../../../plugins/network/proxy/certificationdialog.ui" line="88"/>
         <source>UserCertification</source>
-        <translation>用户认证</translation>
+        <translation type="vanished">用户认证</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/certificationdialog.ui" line="161"/>
         <source>User:</source>
-        <translation>用户名：</translation>
+        <translation type="vanished">用户名：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/certificationdialog.ui" line="238"/>
         <source>Passwd:</source>
-        <translation>密码：</translation>
+        <translation type="vanished">密码：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/certificationdialog.ui" line="298"/>
         <source>Close</source>
-        <translation>关闭</translation>
+        <translation type="vanished">关闭</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/certificationdialog.cpp" line="33"/>
         <source>Certification</source>
-        <translation>认证</translation>
+        <translation type="vanished">认证</translation>
     </message>
 </context>
 <context>
@@ -2285,45 +2279,45 @@ change system settings</source>
     <message>
         <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="38"/>
         <source>Default App</source>
-        <translation type="unfinished">默认应用</translation>
+        <translation>默认应用</translation>
     </message>
     <message>
         <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="62"/>
         <source>No program available</source>
-        <translation type="unfinished"></translation>
+        <translation>无可用程序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="542"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="517"/>
         <source>Browser</source>
         <translation>浏览器</translation>
         <extra-contents_path>/defaultapp/Browser</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="544"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="519"/>
         <source>Mail</source>
         <translation>电子邮件</translation>
         <extra-contents_path>/defaultapp/Mail</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="546"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="521"/>
         <source>Image Viewer</source>
         <translation>图像查看器</translation>
         <extra-contents_path>/defaultapp/Image Viewer</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="548"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="523"/>
         <source>Audio Player</source>
         <translation>音频播放器</translation>
         <extra-contents_path>/defaultapp/Audio Player</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="550"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="525"/>
         <source>Video Player</source>
         <translation>视频播放器</translation>
         <extra-contents_path>/defaultapp/Video Player</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="552"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="527"/>
         <source>Text Editor</source>
         <translation>文档编辑器</translation>
         <extra-contents_path>/defaultapp/Text Editor</extra-contents_path>
@@ -2332,7 +2326,7 @@ change system settings</source>
 <context>
     <name>DefaultAppWindow</name>
     <message>
-        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="540"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="515"/>
         <source>Select Default Application</source>
         <translation>默认应用</translation>
     </message>
@@ -3820,57 +3814,57 @@ folder will be deleted!</source>
 <context>
     <name>KeyboardMain</name>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="27"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="39"/>
         <source>Key board settings</source>
         <translation>键盘设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="37"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="49"/>
         <source>Input method settings</source>
         <translation>输入法设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="98"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="86"/>
         <source>Key repeat</source>
         <translation>按键重复</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="118"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="106"/>
         <source>Delay</source>
         <translation>延迟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="120"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="108"/>
         <source>Short</source>
         <translation>短</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="122"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="110"/>
         <source>Long</source>
         <translation>长</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="146"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="134"/>
         <source>Speed</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="148"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="136"/>
         <source>Slow</source>
         <translation>慢</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="150"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="138"/>
         <source>Fast</source>
         <translation>快</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="174"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="162"/>
         <source>Input test</source>
         <translation>输入测试</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="193"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="181"/>
         <source>Key tips</source>
         <translation>按键提示</translation>
     </message>
@@ -4670,111 +4664,111 @@ Please retry or relogin!</source>
 <context>
     <name>MouseUI</name>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="54"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="93"/>
         <source>Mouse</source>
         <translation>鼠标</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="61"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="99"/>
         <source>Pointer</source>
         <translation>指针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="69"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="106"/>
         <source>Cursor</source>
         <translation>光标</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="106"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="164"/>
         <source>Dominant hand</source>
         <translation>惯用手</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="108"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="166"/>
         <source>Left hand</source>
         <translation>左手</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="109"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="167"/>
         <source>Right hand</source>
         <translation>右手</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="132"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="190"/>
         <source>Wheel speed</source>
         <translation>滚轮速度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="134"/>
         <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="192"/>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="315"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="250"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="373"/>
         <source>Slow</source>
         <translation>慢</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="140"/>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="199"/>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="322"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="198"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="257"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="380"/>
         <source>Fast</source>
         <translation>快</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="160"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="218"/>
         <source>Double-click interval time</source>
         <translation>双击间隔时长</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="162"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="220"/>
         <source>Short</source>
         <translation>短</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="169"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="227"/>
         <source>Long</source>
         <translation>长</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="190"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="248"/>
         <source>Pointer speed</source>
         <translation>指针速度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="220"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="278"/>
         <source>Mouse acceleration</source>
         <translation>鼠标加速</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="239"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="297"/>
         <source>Show pointer position when pressing ctrl</source>
         <translation>按Ctrl键时显示指针位置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="259"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="317"/>
         <source>Pointer size</source>
         <translation>指针大小</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="261"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="319"/>
         <source>Small(recommend)</source>
         <translation>小（推荐）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="262"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="320"/>
         <source>Medium</source>
         <translation>中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="263"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="321"/>
         <source>Large</source>
         <translation>大</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="293"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="351"/>
         <source>Blinking cursor in text area</source>
         <translation>文本区域光标闪烁</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="313"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="371"/>
         <source>Cursor speed</source>
         <translation>光标速度</translation>
     </message>
@@ -5125,14 +5119,14 @@ Please retry or relogin!</source>
         <translation type="vanished">电源计划</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="669"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="670"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="615"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="616"/>
         <source>Balance (suggest)</source>
         <translation>平衡(推荐)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="673"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="674"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="619"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="620"/>
         <source>Saving</source>
         <translation>节能</translation>
     </message>
@@ -5146,8 +5140,8 @@ Please retry or relogin!</source>
 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="677"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="678"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="623"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="624"/>
         <source>Autobalance energy and performance with available hardware</source>
         <translation>利用可用的硬件自动平衡消耗与性能</translation>
     </message>
@@ -5157,8 +5151,8 @@ Please retry or relogin!</source>
         <extra-contents_path>/power/Custom</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="681"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="682"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="627"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="628"/>
         <source>Users develop personalized power plans</source>
         <translation>用户制定个性化电源计划</translation>
     </message>
@@ -5236,9 +5230,9 @@ Please retry or relogin!</source>
         <translation type="vanished">系统%1分钟后进入空闲状态并于%2分钟后关闭显示器：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="803"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="813"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="832"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="749"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="759"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="778"/>
         <source>never</source>
         <translation>从不</translation>
     </message>
@@ -5275,154 +5269,154 @@ Please retry or relogin!</source>
         <translation type="vanished">5分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="645"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="646"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="591"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="592"/>
         <source>Require password when sleep/hibernation</source>
         <translation>睡眠/休眠唤醒时需要密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="649"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="650"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="595"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="596"/>
         <source>Password required when waking up the screen</source>
         <translation>唤醒屏幕时需要密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="653"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="599"/>
         <source>Press the power button</source>
         <translation>按电源键时执行</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="657"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="658"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="603"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="604"/>
         <source>Time to close display</source>
         <translation>此时间段后关闭显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="661"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="662"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="607"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="608"/>
         <source>Time to sleep</source>
         <translation>此时间段后系统进入睡眠</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="665"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="666"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="611"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="612"/>
         <source>Notebook cover</source>
         <translation>笔记本合盖时执行</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="685"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="686"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="690"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="631"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="632"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="636"/>
         <source>Using power</source>
         <translation>使用电源时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="689"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="635"/>
         <source>Using battery</source>
         <translation>使用电池时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="693"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="694"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="639"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="640"/>
         <source> Time to darken</source>
         <translation>此时间段后降低屏幕亮度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="697"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="698"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="643"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="644"/>
         <source>Battery level is lower than</source>
         <translation>电量低于</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="701"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="647"/>
         <source>Run</source>
         <translation>时执行</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="703"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="704"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="649"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="650"/>
         <source>Low battery notification</source>
         <translation>低电量时通知</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="707"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="653"/>
         <source>Automatically run saving mode when low battery</source>
         <translation>低电量时自动开启节能模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="708"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="654"/>
         <source>Automatically run saving mode when the low battery</source>
         <translation>低电量时自动开启节能模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="711"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="712"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="657"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="658"/>
         <source>Automatically run saving mode when using battery</source>
         <translation>使用电池时自动开启节能模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="715"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="716"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="661"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="662"/>
         <source>Display remaining charging time and usage time</source>
         <translation>显示剩余充电时间和剩余使用时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="773"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="719"/>
         <source>General</source>
         <translation>通用</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="775"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="721"/>
         <source>Select Powerplan</source>
         <translation>电源计划</translation>
         <extra-contents_path>/power/Select Powerplan</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="777"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="723"/>
         <source>Battery saving plan</source>
         <translation>电池节能计划</translation>
         <extra-contents_path>/power/Battery saving plan</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="783"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="840"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="729"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="786"/>
         <source>nothing</source>
         <translation>无操作</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="783"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="840"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="729"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="786"/>
         <source>blank</source>
         <translation>关闭显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="783"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="794"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="840"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="729"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="740"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="786"/>
         <source>suspend</source>
         <translation>睡眠</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="789"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="794"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="846"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="735"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="740"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="792"/>
         <source>hibernate</source>
         <translation>休眠</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="794"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="740"/>
         <source>interactive</source>
         <translation>询问</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="803"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="832"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="749"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="778"/>
         <source>5min</source>
         <translation>5分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="832"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="778"/>
         <source>20min</source>
         <translation>20分钟</translation>
     </message>
@@ -5431,55 +5425,55 @@ Please retry or relogin!</source>
         <translation type="vanished">10分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="803"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="813"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="749"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="759"/>
         <source>15min</source>
         <translation>15分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="803"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="813"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="749"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="759"/>
         <source>30min</source>
         <translation>30分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="803"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="813"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="749"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="759"/>
         <source>1h</source>
         <translation>1小时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="803"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="813"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="749"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="759"/>
         <source>2h</source>
         <translation>2小时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="803"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="813"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="832"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="749"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="759"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="778"/>
         <source>10min</source>
         <translation>10分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="813"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="759"/>
         <source>3h</source>
         <translation>3小时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="823"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="827"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="769"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="773"/>
         <source>Balance Model</source>
         <translation>平衡模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="823"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="827"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="769"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="773"/>
         <source>Save Model</source>
         <translation>节能模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="832"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="778"/>
         <source>1min</source>
         <translation>1分钟</translation>
     </message>
@@ -5488,9 +5482,9 @@ Please retry or relogin!</source>
         <translation type="vanished">3分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="783"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="794"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="840"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="729"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="740"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="786"/>
         <source>shutdown</source>
         <translation>关机</translation>
     </message>
@@ -5554,7 +5548,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/devices/printer/printer.cpp" line="100"/>
         <source>Printers And Scanners</source>
-        <translation type="unfinished"></translation>
+        <translation>打印机和扫描仪</translation>
     </message>
     <message>
         <source>Add</source>
@@ -5604,78 +5598,93 @@ Please retry or relogin!</source>
 <context>
     <name>Proxy</name>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="53"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="409"/>
         <source>Auto Proxy</source>
         <translation>自动设置代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="129"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="269"/>
         <source>Auto proxy</source>
-        <translation>开启自动代理</translation>
+        <translation type="vanished">开启自动代理</translation>
         <extra-contents_path>/proxy/Auto proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="204"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="410"/>
         <source>Auto url</source>
         <translation>自动配置URL</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="270"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="411"/>
         <source>Manual Proxy</source>
         <translation>手动设置代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="346"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="271"/>
         <source>Manual proxy</source>
-        <translation>开启手动代理</translation>
+        <translation type="vanished">开启手动代理</translation>
         <extra-contents_path>/proxy/Manual proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="436"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="412"/>
         <source>Http Proxy</source>
         <translation>HTTP代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="481"/>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="648"/>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="796"/>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="944"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="416"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="417"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="418"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="419"/>
         <source>Port</source>
         <translation>端口</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="516"/>
         <source>Cetification</source>
-        <translation>认证</translation>
+        <translation type="vanished">认证</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="603"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="408"/>
+        <source>System Proxy</source>
+        <translation>系统代理</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="413"/>
         <source>Https Proxy</source>
         <translation>HTTPS代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="751"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="414"/>
         <source>Ftp Proxy</source>
         <translation>FTP代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="899"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="415"/>
         <source>Socks Proxy</source>
         <translation>SOCKS代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="1041"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="420"/>
         <source>List of ignored hosts. more than one entry, please separate with english semicolon(;)</source>
         <translation>忽略的主机列表，请使用英文分号（;）</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="421"/>
+        <source>Enable Authentication</source>
+        <translation>启用认证</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="422"/>
+        <source>User Name</source>
+        <translation>用户名</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="423"/>
+        <source>Password</source>
+        <translation>密码</translation>
     </message>
     <message>
         <source>proxy</source>
         <translation type="vanished">代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="47"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="45"/>
         <source>Proxy</source>
         <translation>代理</translation>
     </message>
@@ -7281,7 +7290,7 @@ run start-pulseaudio-x11 manually.</source>
     <message>
         <location filename="../../../plugins/system/vino/sharemain.cpp" line="57"/>
         <source>Remote Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>远程桌面</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/vino/sharemain.cpp" line="66"/>
@@ -8197,67 +8206,67 @@ run start-pulseaudio-x11 manually.</source>
 <context>
     <name>TouchpadUI</name>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="19"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="39"/>
         <source>Touchpad Setting</source>
         <translation>触摸板设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="23"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="43"/>
         <source>No touchpad found</source>
         <translation>未发现触摸板设备</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="37"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="57"/>
         <source>Disable touchpad when using the mouse</source>
         <translation>插入鼠标时禁用触摸板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="53"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="72"/>
         <source>Cursor Speed</source>
         <translation>光标速度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="55"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="74"/>
         <source>Slow</source>
         <translation>慢</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="56"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="75"/>
         <source>Fast</source>
         <translation>快</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="78"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="97"/>
         <source>Disable touchpad when typing</source>
         <translation>打字时禁用触摸板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="94"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="113"/>
         <source>Touch and click on the touchpad</source>
         <translation>触摸板轻触点击</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="110"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="129"/>
         <source>Scroll bar slides with finger</source>
         <translation>滚动条跟随手指滑动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="125"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="144"/>
         <source>Scrolling area</source>
         <translation>滚动区域</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="127"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="146"/>
         <source>Disable scrolling</source>
         <translation>禁止</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="128"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="147"/>
         <source>Edge scrolling</source>
         <translation>边界滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="129"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="148"/>
         <source>Two-finger scrolling in the middle area</source>
         <translation>中间区域双指滚动</translation>
     </message>
@@ -8267,29 +8276,31 @@ run start-pulseaudio-x11 manually.</source>
     <message>
         <location filename="../../../plugins/system/about/trialdialog.cpp" line="12"/>
         <source>Set</source>
-        <translation type="unfinished">设置</translation>
+        <translation>系统设置</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/about/trialdialog.cpp" line="37"/>
         <source>Yinhe Kylin OS(Trail Version) Disclaimer</source>
-        <translation type="unfinished"></translation>
+        <translation>银河麒麟操作系统（试用版）免责声明</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/about/trialdialog.cpp" line="46"/>
         <source>Dear customer:
     Thank you for trying Yinhe Kylin OS(trail version)! This version is free for users who only try out, no commercial purpose is permitted. The trail period lasts one year and it starts from the ex-warehouse time of the OS. No after-sales service is provided during the trail stage. If any security problems occurred when user put important files or do any commercial usage in system, all consequences are taken by users. Kylin software Co., Ltd. take no legal risk in trail version.
     During trail stage,if you want any technology surpport or activate the system, please buy“Yinhe Kylin Operating System”official version or authorization by contacting 400-089-1870.</source>
-        <translation type="unfinished"></translation>
+        <translation>尊敬的客户：
+    您好！随机安装的“银河麒麟操作系统（试用版）”是针对该版本对应的行业客户的免费试用版本，用于整机的试用、测试和评估，不能用于其他任何商业用途。此试用版本以软件出库时间计时，试用时间为一年。试用期间不提供相关正版软件的售后服务，如果客户在试用版本上自行存放重要文件及私自进行商业用途，由此产生的任何安全问题及结果一概由用户自己承担，麒麟软件有限公司不承担任何法律风险。
+    在试用过程中，如希望激活或者得到专业的技术服务支持，请您购买“银河麒麟操作系统”正式版本或授权，联系方式如下：400-089-1870。</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/about/trialdialog.cpp" line="54"/>
         <source>Kylin software Co., Ltd.</source>
-        <translation type="unfinished"></translation>
+        <translation>麒麟软件有限公司</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/about/trialdialog.cpp" line="62"/>
         <source>www.Kylinos.cn</source>
-        <translation type="unfinished"></translation>
+        <translation>www.kylinos.cn</translation>
     </message>
 </context>
 <context>

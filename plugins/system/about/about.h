@@ -149,6 +149,7 @@ Q_SIGNALS:
 private slots:
     void activeSlot(int activeSignal);
     void runActiveWindow();
+    void ChangedSlot();
 
 };
 

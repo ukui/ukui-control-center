@@ -27,6 +27,7 @@
 #include <QLineEdit>
 #include <QLabel>
 #include <QVBoxLayout>
+#include <Label/fixlabel.h>
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
  **/
@@ -72,9 +73,9 @@ private:
     QFrame *mBtnFrame;
 
     QLabel *mTitleLabel;
-    QLabel *mAppNameLabel;
-    QLabel *mAppPathLabel;
-    QLabel *mAppBewriteLabel;
+    FixLabel *mAppNameLabel;
+    FixLabel *mAppPathLabel;
+    FixLabel *mAppBewriteLabel;
     QLabel *mHintLabel;
 
     QLineEdit *mAppNameEdit;

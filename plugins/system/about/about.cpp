@@ -617,20 +617,11 @@ void About::setupDesktopComponent()
         }
     }
 
-    qlonglong uid = getuid();
-    QDBusInterface user("org.freedesktop.Accounts",
-                        "/org/freedesktop/Accounts",
-                        "org.freedesktop.Accounts",
-                        QDBusConnection::systemBus());
-    QDBusMessage result = user.call("FindUserById", uid);
-    QString userpath = result.arguments().value(0).value<QDBusObjectPath>().path();
-    QDBusInterface *userInterface = new QDBusInterface ("org.freedesktop.Accounts",
-                                          userpath,
-                                        "org.freedesktop.Accounts.User",
-                                        QDBusConnection::systemBus());
-    QString userName = userInterface->property("RealName").value<QString>();
+    ChangedSlot();
 
-    mUsernameLabel_2->setText(userName);
+    QDBusConnection::systemBus().connect(QString(), QString("/org/freedesktop/Accounts/User1000"),
+                                          QString("org.freedesktop.Accounts.User"), "Changed",this,
+                                         SLOT(ChangedSlot()));
 }
 
 void About::setupKernelCompenent()
@@ -904,5 +895,22 @@ void About::runActiveWindow()
 
     QProcess process(this);
     process.startDetached(cmd);
+}
+
+void About::ChangedSlot()
+{
+    qlonglong uid = getuid();
+    QDBusInterface user("org.freedesktop.Accounts",
+                        "/org/freedesktop/Accounts",
+                        "org.freedesktop.Accounts",
+                        QDBusConnection::systemBus());
+    QDBusMessage result = user.call("FindUserById", uid);
+    QString userpath = result.arguments().value(0).value<QDBusObjectPath>().path();
+    QDBusInterface *userInterface = new QDBusInterface ("org.freedesktop.Accounts",
+                                          userpath,
+                                        "org.freedesktop.Accounts.User",
+                                        QDBusConnection::systemBus());
+    QString userName = userInterface->property("RealName").value<QString>();
+    mUsernameLabel_2->setText(userName);
 }
 

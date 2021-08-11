@@ -71,6 +71,7 @@ public:
     double getBattery();
     bool QLabelSetText(QLabel *label, QString string);
     void clearAutoItem(QVBoxLayout *mLyt);
+    QFrame *setLine(QFrame *frame);
 
 
 private:

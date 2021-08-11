@@ -104,6 +104,8 @@ public:
     int _getCurrentProxyMode();
     void _setSensitivity();
 
+    QFrame *setLine(QFrame *frame);
+
 private:
     QString pluginName;
     int pluginType;
