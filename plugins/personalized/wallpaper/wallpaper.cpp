@@ -31,8 +31,6 @@
 #include <QFileSystemWatcher>
 
 const QString kylinUrl = "https://www.ubuntukylin.com/wallpaper.html";
-const QString kylinBackgroundName1 = "/usr/share/backgrounds/warty-final-ubuntukylin.jpg";
-const QString kylinBackgroundName2 = "/usr/share/backgrounds/aurora.jpg";
 
 enum{
     PICTURE,   // 图片背景
@@ -200,8 +198,7 @@ void Wallpaper::setupConnect(){
         PictureUnit * picUnit = new PictureUnit;
         picUnit->setPixmap(pixmap);
         picUnit->setFilenameText(filename);
-        if (bgFileName == filename || \
-                (bgFileName == kylinBackgroundName1 && filename == kylinBackgroundName2)) {
+        if (bgFileName == filename) {
             if (prePicUnit != nullptr) {
                 prePicUnit->changeClickedFlag(false);
                 prePicUnit->setStyleSheet("border-width: 0px;");
@@ -462,7 +459,7 @@ void Wallpaper::resetDefaultWallpaperSlot(){
     g_object_unref(wpgsettings);
 
     bgsettings->set(FILENAME, QVariant(QString(dwp)));
-    setClickedPic(kylinBackgroundName2);//默认背景图片和aurora.jpg一样，暂时特殊标记
+    setClickedPic(QString(dwp));
 }
 
 void Wallpaper::showLocalWpDialog(){
