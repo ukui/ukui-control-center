@@ -5367,18 +5367,18 @@ Please retry or relogin!</source>
     <name>Printer</name>
     <message>
         <location filename="../../../plugins/devices/printer/printer.ui" line="91"/>
-        <location filename="../../../plugins/devices/printer/printer.cpp" line="66"/>
+        <location filename="../../../plugins/devices/printer/printer.cpp" line="65"/>
         <source>Add Printers And Scanners</source>
         <translation>添加打印机和扫描仪</translation>
         <extra-contents_path>/printer/Add Printers And Scanners</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/printer/printer.cpp" line="118"/>
+        <location filename="../../../plugins/devices/printer/printer.cpp" line="117"/>
         <source>Add printers and scanners</source>
         <translation>添加打印机和扫描仪</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/printer/printer.cpp" line="182"/>
+        <location filename="../../../plugins/devices/printer/printer.cpp" line="181"/>
         <source>Attrs</source>
         <translation>属性</translation>
     </message>
@@ -5396,10 +5396,9 @@ Please retry or relogin!</source>
         <translation type="vanished">打印机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/printer/printer.cpp" line="34"/>
+        <location filename="../../../plugins/devices/printer/printer.cpp" line="33"/>
         <source>Printer</source>
         <translation>打印机</translation>
-        <extra-contents_path>/printer/Printer</extra-contents_path>
     </message>
 </context>
 <context>

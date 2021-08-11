@@ -57,6 +57,7 @@ Q_SIGNALS:
     void widgetClicked(QString name);
     void enterWidget(QString name);
     void leaveWidget(QString name);
+    void resize();
 };
 
 #endif // HOVERBTN_H
