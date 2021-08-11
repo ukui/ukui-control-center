@@ -273,6 +273,8 @@ private:
     bool isOpenAutoLogin(const QString &userName);
     void initUserPropertyConnection(const QStringList &objPath);
 
+    bool QLabelSetText(QLabel *label, QString string);
+
 private slots:
     void delete_user_slot(bool removefile, QString username);
     void propertyChangedSlot(QString, QMap<QString, QVariant>, QStringList);
