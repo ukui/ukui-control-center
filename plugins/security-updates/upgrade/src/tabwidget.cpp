@@ -529,6 +529,7 @@ void TabWid::allComponents()
 
     updateSettingLab = new TitleLabel();
     //    updateSettingLab->setText(tr("更新设置"));
+    //~ contents_path /upgrade/Update Settings
     updateSettingLab->setText(tr("Update Settings"));
     updateSettingLab->setFixedHeight(25);
     updateSettingWidget = new QWidget(this);

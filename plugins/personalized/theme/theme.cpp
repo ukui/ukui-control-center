@@ -163,6 +163,8 @@ void Theme::initSearchText() {
     ui->perforLabel->setText(tr("Performance mode"));
     //~ contents_path /theme/Transparency
     ui->transparencyLabel->setText(tr("Transparency"));
+    //~ contents_path /theme/Reset to default
+    ui->resetBtn->setText(tr("Reset to default"));
 }
 
 void Theme::setupSettings() {
@@ -339,14 +341,13 @@ void Theme::buildThemeModeBtn(QPushButton *button, QString name, QString icon){
     });
     connect(iconLabel,&IconLabel::leaveWidget,[=](){
         if (!button->isChecked()) {
-           // qDebug()<<"-------";
             iconLabel->setStyleSheet("border: 0px");
         }
 
      });
 
     bottomHorLayout->addStretch();
-    bottomHorLayout->setContentsMargins(0,4,0,0);
+    bottomHorLayout->setContentsMargins(0,16,0,0);
     bottomHorLayout->addWidget(statusbtn);
     bottomHorLayout->addWidget(nameLabel);
     bottomHorLayout->addStretch();

@@ -51,7 +51,6 @@ const QString vFour = "v4";
 
 About::About() : mFirstLoad(true)
 {
-    //~ contents_path /about/About
     pluginName = tr("About");
     pluginType = NOTICEANDTASKS;
 }
@@ -397,7 +396,18 @@ void About::initSearchText()
     ui->cpuLabel->setText(tr("CPU"));
     //~ contents_path /about/Memory
     ui->memoryLabel->setText(tr("Memory"));
+    //~ contents_path /about/Desktop
+    ui->label_3->setText(tr("Desktop"));
+    //~ contents_path /about/User
+    ui->label_6->setText(tr("User"));
+    //~ contents_path /about/Active Status
+    ui->label_5->setText(tr("Active Status"));
+    //~ contents_path /about/Active
+    ui->activeButton->setText(tr("Active"));
+    //~ contents_path /about/Protocol
+    ui->trialButton->setText(tr("Protocol"));
     ui->diskLabel->setVisible(false);
+
 }
 
 void About::initActiveDbus()

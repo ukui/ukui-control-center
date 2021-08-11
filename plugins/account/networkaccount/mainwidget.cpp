@@ -511,6 +511,7 @@ void MainWidget::initMemoryAlloc() {
     m_welcomeLayout = new QVBoxLayout;
     m_welcomeImage = new QSvgWidget(":/new/image/96_color.svg");
     m_welcomeMsg = new TitleLabel(this);
+    //~ contents_path /networkaccount/Sign in
     m_login_btn  = new QPushButton(tr("Sign in"),this);
     m_svgHandler = new SVGHandler(this);
     m_stackedWidget = new QStackedWidget(this);

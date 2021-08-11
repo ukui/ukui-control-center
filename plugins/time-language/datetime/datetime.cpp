@@ -151,6 +151,7 @@ void DateTime::initUI()
     //~ contents_path /date/24-hour clock
     m_formTimeLabel     = new QLabel(tr("24-hour clock"), pluginWidget);
     syncTimeBtn         = new SwitchButton(pluginWidget);
+    //~ contents_path /date/Sync from network
     syncNetworkLabel    = new QLabel(tr("Sync from network"), pluginWidget);
     syncNetworkRetLabel = new QLabel(pluginWidget);
     syncNetworkRetLabel->setStyleSheet("QLabel{font-size: 15px; color: #D9F82929;}");

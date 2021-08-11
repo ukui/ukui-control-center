@@ -46,6 +46,7 @@ ShareMain::~ShareMain()
 void ShareMain::initUI()
 {
     mShareTitleLabel = new TitleLabel(this);
+    //~ contents_path /vino/Share
     mShareTitleLabel->setText(tr("Share"));
     mEnableFrame = new QFrame(this);
     mEnableFrame->setFrameShape(QFrame::Shape::Box);
@@ -78,6 +79,7 @@ void ShareMain::initUI()
     mViewFrame->setLayout(viewHLayout);
 
     mSecurityTitleLabel = new TitleLabel(this);
+    //~ contents_path /vino/Security
     mSecurityTitleLabel->setText(tr("Security"));
     mSecurityFrame = new QFrame(this);
     mSecurityFrame->setFrameShape(QFrame::Shape::Box);

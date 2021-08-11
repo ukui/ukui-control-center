@@ -114,14 +114,12 @@ UkmediaOutputWidget::UkmediaOutputWidget(QWidget *parent) : QWidget(parent)
     m_pRightBalanceLabel = new QLabel(tr("Right"),m_pChannelBalanceWidget);
     m_pOutputPortLabel = new QLabel(tr("Connector"),m_pOutputPortWidget);
     m_pOutputPortCombobox = new QComboBox(m_pOutputPortWidget);
-    //~ contents_path /audio/Profile
     m_pProfileLabel = new QLabel(tr("Profile"),m_pProfileWidget);
     m_pProfileCombobox = new QComboBox(m_pProfileWidget);
     m_pProfileCombobox->setMinimumSize(50,32);
     m_pProfileCombobox->setMaximumSize(900,32);
     m_pselectWidget->setMinimumSize(550,50);
     m_pselectWidget->setMaximumSize(960,50);
-    //~ contents_path /audio/Card
     m_pSelectDeviceLabel = new QLabel(tr("Card"),m_pselectWidget);
     m_pSelectCombobox = new QComboBox(m_pselectWidget);
     m_pProfileLabel->setFixedSize(115,24);

@@ -102,11 +102,12 @@ const QString NetConnect::name() const {
 }
 
 void NetConnect::initSearchText() {
-    ui->detailBtn->setText(tr("Network settings"));
     //~ contents_path /netconnect/Netconnect Status
     ui->titleLabel->setText(tr("Netconnect Status"));
     //~ contents_path /netconnect/open WLAN
     ui->openLabel->setText(tr("open WLAN"));
+    //~ contents_path /netconnect/Network settings
+    ui->detailBtn->setText(tr("Network settings"));
 }
 
 void NetConnect::initComponent() {

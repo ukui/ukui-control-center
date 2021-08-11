@@ -59,7 +59,6 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
     //~ contents_path /audio/Alert Sound
     m_pShutdownlabel = new QLabel(tr("Alert Sound"),m_pAlertSoundWidget);
     m_pAlertSoundCombobox = new QComboBox(m_pAlertSoundWidget);
-    //~ contents_path /audio/Alert Volume
     m_pAlertSoundLabel = new QLabel(tr("Alert Volume"),m_pAlertSoundVolumeWidget);
     m_pAlertVolumeLabel = new QLabel(m_pAlertSoundVolumeWidget);
     m_pAlertSlider = new UkmediaVolumeSlider(m_pAlertSoundVolumeWidget);
@@ -78,12 +77,19 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
 //    m_pAlertIconBtn->setProperty("useIconHighlightEffect",true);
 //    m_pAlertIconBtn->setProperty("iconHighlightEffectMode",true);
 
+    //~ contents_path /audio/Beep Switch
     m_pAlertSoundSwitchLabel = new QLabel(tr("Beep Switch"),m_pAlertSoundSwitchWidget);
+    //~ contents_path /audio/Poweroff Music
     m_pPoweroffMusicLabel = new QLabel(tr("Poweroff Music"),m_pPoweroffMusicWidget);
+    //~ contents_path /audio/Startup Music
     m_pStartupMusicLabel = new QLabel(tr("Startup Music"),m_pStartupMusicWidget);
+    //~ contents_path /audio/Wakeup Music
     m_pWakeupMusicLabel = new QLabel(tr("Wakeup Music"),m_pWakeupMusicWidget);
+    //~ contents_path /audio/Volume Change
     m_pVolumeChangeLabel = new QLabel(tr("Volume Change"),m_pVolumeChangeWidget);
+    //~ contents_path /audio/Logout Music
     m_pLagoutLabel = new QLabel(tr("Logout Music"),m_pLagoutWidget);
+
 
     m_pLagoutCombobox = new QComboBox(m_pLagoutWidget);
     m_pStartupButton = new SwitchButton(m_pStartupMusicWidget);
