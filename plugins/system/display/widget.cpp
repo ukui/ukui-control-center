@@ -91,6 +91,7 @@ Widget::Widget(QWidget *parent) :
     ui->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
     ui->quickWidget->setContentsMargins(0, 0, 0, 9);
 
+    firstAddOutputName = "";
     mCloseScreenButton = new SwitchButton(this);
     ui->showScreenLayout->addWidget(mCloseScreenButton);
 
@@ -832,14 +833,14 @@ void Widget::clearOutputIdentifiers()
 
 void Widget::addBrightnessFrame(QString name, bool openFlag, QString serialNum)
 {
-    if (mIsBattery && (!name.contains("eDP") && !name.contains("DisplayPort-0", Qt::CaseInsensitive)))  //笔记本非内置
+    if (mIsBattery && name != firstAddOutputName)  //笔记本非内置
         return;
     for (int i = 0; i < BrightnessFrameV.size(); ++i) {  //已经有了
         if (name == BrightnessFrameV[i]->getOutputName())
             return;
     }
     BrightnessFrame *frame = nullptr;
-    if (mIsBattery && (name.contains("eDP") || name.contains("DisplayPort-0", Qt::CaseInsensitive))) {
+    if (mIsBattery && name == firstAddOutputName) {
         frame = new BrightnessFrame(name, true, serialNum);
     } else if(!mIsBattery) {
         frame = new BrightnessFrame(name, false, serialNum);
@@ -855,6 +856,9 @@ void Widget::addBrightnessFrame(QString name, bool openFlag, QString serialNum)
 
 void Widget::outputAdded(const KScreen::OutputPtr &output, bool connectChanged)
 {
+    if (firstAddOutputName == "" && output->isConnected()) {
+        firstAddOutputName = Utils::outputName(output);
+    }
     if (output->isConnected()) {
         QString name = Utils::outputName(output);
         addBrightnessFrame(name, output->isEnabled(), output->edid()->serial());
