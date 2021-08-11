@@ -373,21 +373,23 @@ void Widget::slotUnifyOutputs()
     if (!mUnifyButton->isChecked()) {
         KScreen::OutputList screens = mPrevConfig->connectedOutputs();
         if (mKDSCfg.isEmpty()) {
-            QList<ScreenConfig> preScreenCfg = getPreScreenCfg();
-            int posX = preScreenCfg.at(0).screenPosX;
-            bool isOverlap = false;
-            for (int i = 1; i< preScreenCfg.count(); i++) {
-                if (posX == preScreenCfg.at(i).screenPosX) {
-                    isOverlap = true;
-                    setScreenKDS("expand");
-                    break;
+            if (!getPreScreenCfg().isEmpty()) {
+                QList<ScreenConfig> preScreenCfg = getPreScreenCfg();
+                int posX = preScreenCfg.at(0).screenPosX;
+                bool isOverlap = false;
+                for (int i = 1; i< preScreenCfg.count(); i++) {
+                    if (posX == preScreenCfg.at(i).screenPosX) {
+                        isOverlap = true;
+                        setScreenKDS("expand");
+                        break;
+                    }
                 }
-            }
-            Q_FOREACH(ScreenConfig cfg, preScreenCfg) {
-                Q_FOREACH(KScreen::OutputPtr output, screens) {
-                    if (!cfg.screenId.compare(output->name()) && !isOverlap) {
-                        output->setCurrentModeId(cfg.screenModeId);
-                        output->setPos(QPoint(cfg.screenPosX, cfg.screenPosY));
+                Q_FOREACH(ScreenConfig cfg, preScreenCfg) {
+                    Q_FOREACH(KScreen::OutputPtr output, screens) {
+                        if (!cfg.screenId.compare(output->name()) && !isOverlap) {
+                            output->setCurrentModeId(cfg.screenModeId);
+                            output->setPos(QPoint(cfg.screenPosX, cfg.screenPosY));
+                        }
                     }
                 }
             }
@@ -403,7 +405,6 @@ void Widget::slotUnifyOutputs()
                 setScreenKDS("expand");
             }
         }
-
 
         setConfig(mPrevConfig);
 
