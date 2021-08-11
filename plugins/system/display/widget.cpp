@@ -323,6 +323,14 @@ void Widget::slotOutputEnabledChanged()
     setActiveScreen(mKDSCfg);
     int enabledOutputsCount = 0;
     Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
+        for (int i = 0; i < BrightnessFrameV.size(); ++i) {
+                if (BrightnessFrameV[i]->outputName == Utils::outputName(output)){
+                    if (!output->isEnabled())
+                        BrightnessFrameV[i]->openFlag = false;
+                    else
+                        BrightnessFrameV[i]->openFlag = true;
+            }
+        }
         if (output->isEnabled()) {
             ++enabledOutputsCount;
         }
@@ -332,7 +340,7 @@ void Widget::slotOutputEnabledChanged()
     }
     mUnifyButton->setEnabled(screenEnableCount() > 1);
     ui->unionframe->setVisible(screenEnableCount() > 1);
-    showBrightnessFrame();
+    showBrightnessFrame(10);
 }
 
 void Widget::slotOutputConnectedChanged()
@@ -2054,7 +2062,7 @@ void Widget::nightChangedSlot(QHash<QString, QVariant> nightArg)
 
 void Widget::showBrightnessFrame(const int flag)
 {
-    QTimer::singleShot(200, this, [=]{
+    QTimer::singleShot(100, this, [=]{
         int *pFlag = new int(flag);
         QObject::connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished,
                          [&, pFlag](KScreen::ConfigOperation *op) {
@@ -2068,22 +2076,22 @@ void Widget::showBrightnessFrame(const int flag)
                     if (secOutput->geometry() != output->geometry() || !secOutput->isEnabled()) {
                         allShowFlag = false;
                     }
-                    for (int i = 0; i < BrightnessFrameV.size(); ++i) { //检查其它显示屏是否实际打开，否则关闭，适用于显示器插拔
-                            if (BrightnessFrameV[i]->outputName == Utils::outputName(secOutput)){
-                                if (!secOutput->isEnabled())
-                                    BrightnessFrameV[i]->openFlag = false;
-                                else
-                                    BrightnessFrameV[i]->openFlag = true;
-                        }
-                    }
+//                    for (int i = 0; i < BrightnessFrameV.size(); ++i) { //检查其它显示屏是否实际打开，否则关闭，适用于显示器插拔
+//                            if (BrightnessFrameV[i]->outputName == Utils::outputName(secOutput) && *pFlag != 10){
+//                                if (!secOutput->isEnabled())
+//                                    BrightnessFrameV[i]->openFlag = false;
+//                                else
+//                                    BrightnessFrameV[i]->openFlag = true;
+//                        }
+//                    }
                 }
             } else {  //只有一个屏幕，把它亮度条打开，防止remove出问题
                 allShowFlag = false;
-                for (int i = 0; i < BrightnessFrameV.size(); ++i) {
-                    if (BrightnessFrameV[i]->outputName == Utils::outputName(output)) {
-                        BrightnessFrameV[i]->openFlag = true;
-                    }
-                }
+//                for (int i = 0; i < BrightnessFrameV.size(); ++i) {
+//                    if (BrightnessFrameV[i]->outputName == Utils::outputName(output)) {
+//                        BrightnessFrameV[i]->openFlag = true;
+//                    }
+//                }
             }
 
             ui->unifyBrightFrame->setFixedHeight(0);
