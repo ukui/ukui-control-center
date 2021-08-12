@@ -132,6 +132,8 @@ void FunctionSelect::initValue(){
     devicesList[MOUSE].namei18nString = QObject::tr("Mouse");
     devicesList[TRACKPAD].nameString = QString("Trackpad");
     devicesList[TRACKPAD].namei18nString = QObject::tr("Trackpad");
+    devicesList[GESTURE].nameString = QString("Gesture");
+    devicesList[GESTURE].namei18nString = QObject::tr("Gesture");
     devicesList[PEN].nameString = QString("Pen");
     devicesList[PEN].namei18nString = QObject::tr("Pen");
     devicesList[TRACKPAD].mainShow = false;

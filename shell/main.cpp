@@ -106,6 +106,7 @@ int main(int argc, char *argv[])
         QCommandLineOption printerOption("printer", "Go to printer settings page");
         QCommandLineOption mouseOption("mouse", "Go to mouse settings page");
         QCommandLineOption touchpadOption("trackpad", "Go to trackpad settings page");
+        QCommandLineOption gestureOption("gesture", "Go to gesture settings page");
         QCommandLineOption printersOption("pen", "Go to pen settings page");
 //        QCommandLineOption keyboardOption("keyboard", "Go to keyboard settings page");
         QCommandLineOption aboutOption("about", "Go to about settings page");
@@ -142,6 +143,7 @@ int main(int argc, char *argv[])
         parser.addOption(printerOption);
         parser.addOption(mouseOption);
         parser.addOption(touchpadOption);
+        parser.addOption(gestureOption);
         parser.addOption(printersOption);
 //        parser.addOption(keyboardOption);
         parser.addOption(aboutOption);

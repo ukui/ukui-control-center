@@ -52,6 +52,7 @@ enum DevicesIndex{
     MOUSE,
     TRACKPAD,
     PEN,
+    GESTURE,
     TOTALDEVICESFUNC,
 };
 
