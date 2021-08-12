@@ -532,6 +532,18 @@ void BlueToothMain::addMyDeviceItemUI(BluezQt::DevicePtr device)
         connect(item,SIGNAL(sendDisconnectDeviceAddress(QString)),this,SLOT(receiveDisConnectSignal(QString)));
         connect(item,SIGNAL(sendDeleteDeviceAddress(QString)),this,SLOT(receiveRemoveSignal(QString)));
         connect(item,SIGNAL(sendPairedAddress(QString)),this,SLOT(change_device_parent(QString)));
+        QGSettings *changeTheme;
+        const QByteArray id_Theme("org.ukui.style");
+        if (QGSettings::isSchemaInstalled(id_Theme))
+            changeTheme = new QGSettings(id_Theme);
+
+        connect(changeTheme, &QGSettings::changed, this, [=] (const QString &key){
+           if (key == "iconThemeName"){
+               DeviceInfoItem *item = frame_middle->findChild<DeviceInfoItem *>(device->address());
+               if (item)
+                   item->refresh_device_icon(device->type());
+           }
+        });
         if(device->isConnected())
             item->initInfoPage(device->name(), DEVICE_STATUS::LINK, device);
         else
@@ -842,6 +854,18 @@ void BlueToothMain::addOneBluetoothDeviceItemUi(BluezQt::DevicePtr device)
         connect(item,SIGNAL(sendDisconnectDeviceAddress(QString)),this,SLOT(receiveDisConnectSignal(QString)));
         connect(item,SIGNAL(sendDeleteDeviceAddress(QString)),this,SLOT(receiveRemoveSignal(QString)));
         connect(item,SIGNAL(sendPairedAddress(QString)),this,SLOT(change_device_parent(QString)));
+        QGSettings *changeTheme;
+        const QByteArray id_Theme("org.ukui.style");
+        if (QGSettings::isSchemaInstalled(id_Theme))
+            changeTheme = new QGSettings(id_Theme);
+        connect(changeTheme, &QGSettings::changed, this, [=] (const QString &key){
+           if (key == "iconThemeName"){
+               DeviceInfoItem *item = device_list->findChild<DeviceInfoItem *>(device->address());
+               if (item)
+                   item->refresh_device_icon(device->type());
+           }
+        });
+
         item->initInfoPage(device->name(), DEVICE_STATUS::UNLINK, device);
         if(device->name() == device->address())
             device_list_layout->addWidget(item,Qt::AlignTop);
