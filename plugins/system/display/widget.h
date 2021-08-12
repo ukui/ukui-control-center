@@ -225,8 +225,12 @@ private:
     bool mIsBattery = false;
     bool mIsScreenAdd = false;
     bool mIsRestore = false;
+
     bool mIsSCaleRes = false;
     bool mIsChange = false;
+
+    QString firstAddOutputName;
+
 
     QShortcut *mApplyShortcut;
     QVector<BrightnessFrame*> BrightnessFrameV;
