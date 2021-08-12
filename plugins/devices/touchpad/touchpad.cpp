@@ -42,7 +42,6 @@ extern "C" {
 #define DISABLE_WHILE_TYPING_KEY "disable-while-typing"
 #define TOUCHPAD_CLICK_KEY "tap-to-click"
 #define V_EDGE_KEY "vertical-edge-scrolling"
-#define H_EDGE_KEY "horizontal-edge-scrolling"
 #define V_FINGER_KEY "vertical-two-finger-scrolling"
 #define H_FINGER_KEY "horizontal-two-finger-scrolling"
 #define N_SCROLLING "none"
@@ -226,9 +225,7 @@ void Touchpad::setupComponent(){
     //
     ui->scrollingTypeComBox->addItem(tr("Disable rolling"), N_SCROLLING);
     ui->scrollingTypeComBox->addItem(tr("Vertical edge scrolling"), V_EDGE_KEY);
-    ui->scrollingTypeComBox->addItem(tr("Horizontal edge scrolling"), H_EDGE_KEY);
     ui->scrollingTypeComBox->addItem(tr("Vertical two-finger scrolling"), V_FINGER_KEY);
-    ui->scrollingTypeComBox->addItem(tr("Horizontal two-finger scrolling"), H_FINGER_KEY);
 
     connect(enableBtn, &SwitchButton::checkedChanged, [=](bool checked){
         tpsettings->set(ACTIVE_TOUCHPAD_KEY, checked);
@@ -283,30 +280,18 @@ void Touchpad::initTouchpadStatus(){
     ui->scrollingTypeComBox->blockSignals(false);
 }
 
-QString Touchpad::_findKeyScrollingType(){
+QString Touchpad::_findKeyScrollingType()
+{
+    //水平滚动默认有效
+    tpsettings->set(H_FINGER_KEY, true);
+
     if (tpsettings->get(V_EDGE_KEY).toBool()) {
-        tpsettings->set(H_EDGE_KEY,false);
         tpsettings->set(V_FINGER_KEY,false);
-        tpsettings->set(H_FINGER_KEY,false);
         return V_EDGE_KEY;
-    }
-    if (tpsettings->get(H_EDGE_KEY).toBool()) {
-        tpsettings->set(V_EDGE_KEY,false);
-        tpsettings->set(V_FINGER_KEY,false);
-        tpsettings->set(H_FINGER_KEY,false);
-        return H_EDGE_KEY;
     }
     if (tpsettings->get(V_FINGER_KEY).toBool()) {
         tpsettings->set(V_EDGE_KEY,false);
-        tpsettings->set(H_EDGE_KEY,false);
-        tpsettings->set(H_FINGER_KEY,false);
         return V_FINGER_KEY;
-    }
-    if (tpsettings->get(H_FINGER_KEY).toBool()) {
-        tpsettings->set(V_EDGE_KEY,false);
-        tpsettings->set(H_EDGE_KEY,false);
-        tpsettings->set(V_FINGER_KEY,false);
-        return H_FINGER_KEY;
     }
     return N_SCROLLING;
 }
