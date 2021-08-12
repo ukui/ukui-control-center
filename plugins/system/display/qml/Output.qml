@@ -95,7 +95,7 @@ QMLOutput {
         preventStealing: true;
 
         drag {
-            target: root.isDragEnabled && !root.isCloneMode ? root : null;
+            target: root.isDragEnabled && !root.isCloneMode && (root.enableCount >= 2) ? root : null;
             axis: Drag.XandYAxis;
             minimumX: 0;
             maximumX: screen.maxScreenSize.width - root.width;

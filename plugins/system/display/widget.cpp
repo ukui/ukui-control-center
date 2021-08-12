@@ -234,6 +234,8 @@ void Widget::setConfig(const KScreen::ConfigPtr &config, bool showBrightnessFram
     if (showBrightnessFrameFlag == true) {
         showBrightnessFrame();   //初始化的时候，显示
     }
+
+    enableChangedSlot();
 }
 
 KScreen::ConfigPtr Widget::currentConfig() const
@@ -1413,10 +1415,25 @@ void Widget::delayApply()
         if (mKDSCfg.isEmpty() && !mIsScreenAdd) {
             slotQmloutOutChanged();
             save();
+            enableChangedSlot();
         }
         mKDSCfg.clear();
         mIsScreenAdd = false;
     });
+}
+
+void Widget::enableChangedSlot()
+{
+    int count = 0;
+    for (KScreen::OutputPtr output : mConfig->connectedOutputs()) {
+        if (output->isEnabled()) {
+            count++;
+        }
+    }
+
+    for (QMLOutput *output: mScreen->outputs()) {
+        output->setEnableCount(count);
+    }
 }
 
 void Widget::save()
@@ -1821,15 +1838,6 @@ void Widget::initConnection()
         delayApply();
         changescale();
     });
-
-
-//    connect(ui->applyButton, &QPushButton::clicked, this, [=]() {
-//        QStringList keys = scaleGSettings->keys();
-//        if (keys.contains("scalingFactor")) {
-//            scaleres = scaleGSettings->get(SCALE_KEY).toDouble();
-//        }
-//        save();
-
 
     connect(ui->advancedBtn, &QPushButton::clicked, this, [=] {
         DisplayPerformanceDialog *dialog = new DisplayPerformanceDialog;

@@ -83,6 +83,7 @@ void QMLScreen::setConfig(const KScreen::ConfigPtr &config)
             QTimer::singleShot(200, this,[=]{
                 updateOutputsPlacement();
             });
+            enableChangedSlot();
     });
     connect(m_config.data(), &KScreen::Config::outputRemoved,
             this, &QMLScreen::removeOutput);
@@ -161,6 +162,7 @@ void QMLScreen::removeOutput(int outputId)
             return;
         }
     }
+    enableChangedSlot();
 }
 
 int QMLScreen::connectedOutputsCount() const
@@ -368,6 +370,21 @@ void QMLScreen::setActiveOutputByCombox(int screenId)
             return;
         }
         it++;
+    }
+}
+
+void QMLScreen::enableChangedSlot()
+{
+    int count = 0;
+    for (KScreen::OutputPtr output : m_config->connectedOutputs()) {
+        if (output->isEnabled()) {
+            count++;
+        }
+    }
+
+    Q_FOREACH (QQuickItem *item, childItems()) {
+        QMLOutput *qmlOutput = qobject_cast<QMLOutput *>(item);
+        qmlOutput->setEnableCount(count);
     }
 }
 

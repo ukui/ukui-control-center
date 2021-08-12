@@ -20,6 +20,7 @@
 #include "qmlscreen.h"
 
 #include <KF5/KScreen/kscreen/output.h>
+#include <KF5/KScreen/kscreen/config.h>
 
 #include <QStandardItem>
 #include <QStandardItemModel>
@@ -340,6 +341,18 @@ void QMLOutput::dockToNeighbours()
             continue;
         }
     }
+}
+
+int QMLOutput::enableCount() const
+{
+    return m_enableCount;
+}
+
+void QMLOutput::setEnableCount(int count)
+{
+    Q_UNUSED(count);
+    m_enableCount = count;
+    Q_EMIT enableCountChanged();
 }
 
 KScreen::ModePtr QMLOutput::bestMode() const

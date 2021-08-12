@@ -88,6 +88,9 @@ public Q_SLOTS:
         setScreenPosCenter(qobject_cast<QMLOutput*>(sender()), isReleased);
     }
 
+    // 是否禁用小屏幕拖动
+    void enableChangedSlot();
+
 Q_SIGNALS:
     void connectedOutputsCountChanged();
     void enabledOutputsCountChanged();

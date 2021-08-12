@@ -132,6 +132,8 @@ private Q_SLOTS:
     void kdsScreenchangeSlot(QString status);
     void delayApply();
 
+    void enableChangedSlot();                  // 是否禁用小屏幕拖动
+
 public Q_SLOTS:
     void save();
     void scaleChangedSlot(double scale);

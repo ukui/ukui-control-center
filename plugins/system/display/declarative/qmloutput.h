@@ -46,6 +46,11 @@ class QMLOutput : public QQuickItem
                WRITE setIsCloneMode
                NOTIFY isCloneModeChanged)
 
+    Q_PROPERTY(int enableCount
+               READ enableCount
+               WRITE setEnableCount
+               NOTIFY enableCountChanged)
+
     Q_PROPERTY(QMLScreen* screen
                READ screen
                WRITE setScreen
@@ -154,6 +159,9 @@ public:
 
     void dockToNeighbours();
 
+    int enableCount() const;
+    void setEnableCount(int count = 0);
+
 public Q_SLOTS:
     void updateRootProperties();
 
@@ -178,6 +186,8 @@ Q_SIGNALS:
 
     void isCloneModeChanged();
 
+    void enableCountChanged();
+
 private Q_SLOTS:
     void moved();
     void currentModeIdChanged();
@@ -198,6 +208,7 @@ private:
     QMLOutput *m_bottomDock;
 
     bool m_isCloneMode;
+    int m_enableCount;
 };
 
 #endif // QMLOUTPUT_H
