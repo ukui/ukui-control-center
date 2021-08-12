@@ -537,6 +537,7 @@ void MainWindow::loadPlugins(){
                 || ("libnetworkaccount.so" == fileName && !isExitsCloudAccount())
                 || (!QGSettings::isSchemaInstalled(kVinoSchemas) && "libvino.so" == fileName)
                 || ("libbluetooth.so" == fileName && !isExitBluetooth())
+                || ("libpower.so" == fileName && !isExitsPower())
                 || ("libtouchscreen.so" == fileName && !isExitTouchScreen())
                 || ("libupdate.so" == fileName && !Utils::isCommunity())) {
             continue;
@@ -741,6 +742,13 @@ bool MainWindow::isExitsCloudAccount() {
         }
     }
     return false;
+}
+
+bool MainWindow::isExitsPower()
+{
+    QProcess *process = new QProcess(this);
+    process->start("ukui-power-manager",NULL);
+    return process->waitForStarted() ? true : false;
 }
 
 bool MainWindow::dblOnEdge(QMouseEvent *event) {
