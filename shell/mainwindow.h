@@ -111,7 +111,7 @@ private:
     void initLeftsideBar();
     QPushButton * buildLeftsideBtn(QString bname, QString tipName);
     bool isExitsCloudAccount();
-
+    bool isExitsPower();
     bool dblOnEdge(QMouseEvent *event);
     void initStyleSheet();
     void changeSearchSlot();
