@@ -46,12 +46,6 @@ void ControlPanel::setConfig(const KScreen::ConfigPtr &config)
             this, &ControlPanel::removeOutput);
 
     for (const KScreen::OutputPtr &output : mConfig->outputs()) {
-        if (output->isConnected()) {
-            changescalemax(output);
-        }
-    }
-
-    for (const KScreen::OutputPtr &output : mConfig->outputs()) {
         addOutput(output, false);
     }
 }
@@ -135,19 +129,6 @@ void ControlPanel::activateOutputNoParam()
     }
 }
 
-void ControlPanel::changescalemax(const KScreen::OutputPtr &output)
-{
-    QSize sizescale = QSize();
-    Q_FOREACH (const KScreen::ModePtr &mode, output->modes()) {
-        if (sizescale.width() <= mode->size().width()) {
-            sizescale = mode->size();
-        }
-    }
-    if (mScaleSize == QSize() || mScaleSize.width() > sizescale.width()) {
-        mScaleSize = sizescale;
-    }
-}
-
 void ControlPanel::isWayland()
 {
     QString sessionType = getenv("XDG_SESSION_TYPE");
@@ -189,21 +170,8 @@ void ControlPanel::slotOutputConnectedChanged()
     });
 
     if (output->isConnected()) {
-        changescalemax(output);
         addOutput(output, true);
-        for (OutputConfig *outputCfg : mOutputConfigs) {
-            outputCfg->slotScaleIndex(mScaleSize);
-        }
     } else {
         removeOutput(output->id());
-        mScaleSize = QSize();
-        for (const KScreen::OutputPtr &output : mConfig->outputs()) {
-            if (output->isConnected()) {
-                changescalemax(output);
-            }
-        }
-        for (OutputConfig *outputCfg : mOutputConfigs) {
-            outputCfg->slotScaleIndex(mScaleSize);
-        }
     }
 }

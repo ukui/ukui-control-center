@@ -53,8 +53,6 @@ public:
 
     void resetBeforeClose();
 
-    bool getFilename(GDir *dir,const char *Name);
-
 protected:
     void paintEvent(QPaintEvent *);
 
@@ -65,7 +63,6 @@ private:
     QString mDesktopIcon;
     bool userEditNameFlag    = false;
     bool userEditCommentFlag = false;
-    GDir *mdir;
 
 private:
     void initStyle();

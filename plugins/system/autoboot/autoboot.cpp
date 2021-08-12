@@ -783,6 +783,15 @@ void AutoBoot::add_autoboot_realize_slot(QString path, QString name, QString exe
     if (path.isEmpty())
         return;
 
+    // 判断是否有重复项，重复则不加入对应列表
+    QMap<QString, AutoApp>::iterator it = statusMaps.begin();
+    for (int index = 0; it != statusMaps.end(); it++, index++) {
+        if (it.value().name == name) {
+            return;
+        }
+    }
+
+
     char *filename, *filepath;
     QByteArray ba = path.section("/", -1, -1).toUtf8();
 
