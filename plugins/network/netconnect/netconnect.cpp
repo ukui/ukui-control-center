@@ -501,6 +501,11 @@ void NetConnect::netDetailSlot(NetDetail *netDetail,QString netName, bool status
             }
             netDetail->setSSID(netInfo.strConName);
             netDetail->setProtocol(netInfo.strConType);
+            if (netInfo.strConType == "bluetooth") {
+                netDetail->setBandWidth("- -");
+            } else {
+                netDetail->setBandWidth(netInfo.strBandWidth);
+            }
             netDetail->setIPV4(netInfo.strIPV4Address);
             netDetail->setIPV4Dns(netInfo.strIPV4Dns);
             netDetail->setIPV4Gateway(netInfo.strIPV4GateWay);
@@ -509,7 +514,6 @@ void NetConnect::netDetailSlot(NetDetail *netDetail,QString netName, bool status
             netDetail->setIPV6Prefix(netInfo.strIPV6Prefix);
             netDetail->setIPV6Gt(netInfo.strIPV6GateWay);
             netDetail->setMac(netInfo.strMac);
-            netDetail->setBandWidth(netInfo.strBandWidth);
             netDetail->setVisible(actLanNames.value(netName));
             deviceItem->mAbtBtn->setVisible(true);
             preActLan.insert(netName, status);
@@ -699,7 +703,8 @@ int NetConnect::getWifiListDone(QVector<QStringList> getwifislist, QStringList g
                 int indexLan = 0;
                 while (indexLan < mActiveInfo.size()) {
                     if (mActiveInfo[indexLan].strConType == "ethernet"
-                            || mActiveInfo[indexLan].strConType == "802-3-ethernet"){
+                     || mActiveInfo[indexLan].strConType == "802-3-ethernet"
+                     || mActiveInfo[indexLan].strConType == "bluetooth"){
                         actLanNames.insert(mActiveInfo[indexLan].strConName, false);
                     }
                     indexLan ++;
@@ -1147,6 +1152,13 @@ int NetConnect::getActiveConInfo(QList<ActiveConInfo>& qlActiveConInfo) {
                     QDBusInterface netDeviceifc("org.freedesktop.NetworkManager",
                                                 replyDevicesPaths.at(0).path(),
                                                 "org.freedesktop.NetworkManager.Device.Wired",
+                                                QDBusConnection::systemBus());
+                    activeNet.strBandWidth = netDeviceifc.property("Speed").toString() + "Mb/s";
+                    activeNet.strMac = netDeviceifc.property("HwAddress").toString().toLower();
+                } else if (!activeNet.strConType.compare("bluetooth", Qt::CaseInsensitive)){
+                    QDBusInterface netDeviceifc("org.freedesktop.NetworkManager",
+                                                replyDevicesPaths.at(0).path(),
+                                                "org.freedesktop.NetworkManager.Device.Bluetooth",
                                                 QDBusConnection::systemBus());
                     activeNet.strBandWidth = netDeviceifc.property("Speed").toString() + "Mb/s";
                     activeNet.strMac = netDeviceifc.property("HwAddress").toString().toLower();
