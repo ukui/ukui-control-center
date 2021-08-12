@@ -83,6 +83,8 @@ Itemwidget::~Itemwidget()
 {
     delete ui;
     delete movie;
+    delete gesturesetting;
+
 }
 
 void Itemwidget::on_pushButton_clicked()

@@ -69,10 +69,9 @@ private:
     QString pluginName;
     int pluginType;
     QWidget * pluginWidget;
-    HoverWidget * addWgt;
-    QLabel * rightBtn;
-    SwitchButton * moreBtn;
-    QGSettings * m_settings;
+//    HoverWidget * addWgt;
+//    QLabel * rightBtn;
+//    SwitchButton * moreBtn;
     bool mFirstLoad;
 
 private slots:

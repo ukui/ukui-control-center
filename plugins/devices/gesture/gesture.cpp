@@ -39,7 +39,9 @@ Gesture::~Gesture()
     {
 
         delete ui;
+        delete pluginWidget;
         delete gesturesetting;
+        delete gifFlowLayout;
     }
 }
 
