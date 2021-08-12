@@ -80,6 +80,7 @@ private:
     QFrame *info_page = nullptr;
     QTimer *icon_timer = nullptr;
     QTimer *connect_timer = nullptr;
+    QTimer *del_btn_show_timer = nullptr;
     int i = 7;
 
     QPropertyAnimation *enter_action = nullptr;

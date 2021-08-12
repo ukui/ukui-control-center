@@ -1015,6 +1015,7 @@ void BlueToothMain::receiveRemoveSignal(QString address)
     qDebug() << Q_FUNC_INFO << address;
     removeDeviceItemUI(address);
     m_localDevice->removeDevice(m_localDevice->deviceForAddress(address));
+    //startBluetoothDiscovery();
 }
 void BlueToothMain::startBluetoothDiscovery()
 {

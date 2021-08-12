@@ -43,6 +43,14 @@ DeviceInfoItem::DeviceInfoItem(QWidget *parent) : QWidget(parent)
     del_btn = new QPushButton(tr("Remove"),this);
     del_btn->setVisible(false);
     connect(del_btn,SIGNAL(clicked(bool)),this,SLOT(onClick_Delete_Btn(bool)));
+
+    del_btn_show_timer = new QTimer();
+    del_btn_show_timer->setInterval(1500);
+    connect(del_btn_show_timer,&QTimer::timeout,this,[=]{
+        qDebug() << Q_FUNC_INFO << "show del btn!!!";
+        del_btn_show_timer->stop();
+        del_btn->setEnabled(true);
+    });
 }
 
 DeviceInfoItem::~DeviceInfoItem()
@@ -216,6 +224,8 @@ void DeviceInfoItem::onClick_Connect_Btn(bool isclicked)
             }
             connect_timer->stop();
             emit connectComplete();
+            del_btn_show_timer->start();
+            //del_btn->setEnabled(true);
 
         });
 
@@ -243,6 +253,9 @@ void DeviceInfoItem::onClick_Connect_Btn(bool isclicked)
         if(!device_status->isVisible())
             device_status->setVisible(true);
     }
+    del_btn_show_timer->stop();
+    del_btn->setEnabled(false);
+
 }
 
 void DeviceInfoItem::onClick_Disconnect_Btn(bool isclicked)
@@ -278,6 +291,9 @@ void DeviceInfoItem::changeDevStatus(bool pair)
             //QIcon icon_status = QIcon::fromTheme("ukui-dialog-success");
             //device_status->setPixmap(icon_status.pixmap(QSize(24,24)));
         }
+
+        //del_btn->setEnabled(true);
+        del_btn_show_timer->start();
         emit sendPairedAddress(device_item->address());
     }else{
         device_status->setVisible(true);
@@ -308,6 +324,9 @@ void DeviceInfoItem::setDevConnectedIcon(bool connected)
             connect_btn->setVisible(false);
             disconnect_btn->setGeometry(this->width()-BTN_1_X,2,BTN_1_WIDTH,45);
             disconnect_btn->setVisible(true);
+            emit connectComplete();
+            del_btn_show_timer->start();
+            //del_btn->setEnabled(true);
         }
 
     }
