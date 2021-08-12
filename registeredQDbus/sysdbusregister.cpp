@@ -26,6 +26,8 @@
 #include <stdlib.h>
 #include <QDir>
 
+#include <polkit-qt5-1/polkitqt1-authority.h>
+
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
  **/
@@ -49,6 +51,8 @@ SysdbusRegister::SysdbusRegister()
     mHibernateSet->setIniCodec("UTF-8");
     runThreadFlag = false;
     getBrightnessInfo();
+
+    _id = 0;
 }
 
 SysdbusRegister::~SysdbusRegister()
@@ -57,6 +61,12 @@ SysdbusRegister::~SysdbusRegister()
 
 void SysdbusRegister::exitService() {
     qApp->exit(0);
+}
+
+int SysdbusRegister::setPid(qint64 id){
+    _id = id;
+
+    return 1;
 }
 
 QString SysdbusRegister::GetComputerInfo() {
@@ -150,6 +160,22 @@ void SysdbusRegister::setPasswdAging(int days, QString username) {
 
 int SysdbusRegister::changeOtherUserPasswd(QString username, QString pwd){
 
+    if (_id == 0){
+        return -1;
+    }
+
+    PolkitQt1::Authority::Result result;
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action",
+                PolkitQt1::UnixProcessSubject(_id),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::No){
+        _id = 0;
+        return -1;
+    }
+
     std::string str1 = username.toStdString();
     const char * user_name = str1.c_str();
 
@@ -164,6 +190,7 @@ int SysdbusRegister::changeOtherUserPasswd(QString username, QString pwd){
     char buf[256];
 
     if ((stream = popen(cmd, "r" )) == NULL){
+        _id = 0;
         return -1;
     }
 
@@ -173,6 +200,8 @@ int SysdbusRegister::changeOtherUserPasswd(QString username, QString pwd){
 
     pclose(stream);
 
+    // reset
+    _id = 0;
     return 1;
 
 }

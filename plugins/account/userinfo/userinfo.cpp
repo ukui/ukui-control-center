@@ -909,6 +909,7 @@ void UserInfo::createUserDone(QString objpath){
         qCritical() << "Create Client Interface Failed When : " << QDBusConnection::systemBus().lastError();
         return;
     }
+    tmpSysinterface->call("setPid", QCoreApplication::applicationPid());
     tmpSysinterface->call("changeOtherUserPasswd", _newUserName, _newUserPwd);
 
     delete tmpSysinterface;
@@ -1189,19 +1190,7 @@ void UserInfo::showChangePwdDialog(QString username){
 
         });
         connect(dialog, &ChangePwdDialog::passwd_send2, this, [=](QString pwd){
-
-            PolkitQt1::Authority::Result result;
-
-            result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
-                        "org.control.center.qt.systemdbus.action",
-                        PolkitQt1::UnixProcessSubject(QCoreApplication::applicationPid()),
-                        PolkitQt1::Authority::AllowUserInteraction);
-
-            if (result == PolkitQt1::Authority::Yes){
-                changeUserPwd(pwd, username);
-            }
-
-
+            changeUserPwd(pwd, username);
         });
         connect(dialog, &ChangePwdDialog::passwd_send3, this, [=](QString currentpwd, QString pwd){
             pcgThread->setArgs(currentpwd, pwd);
@@ -1232,7 +1221,10 @@ void UserInfo::changeUserPwd(QString pwd, QString username){
         qCritical() << "Create Client Interface Failed When : " << QDBusConnection::systemBus().lastError();
         return;
     }
-    tmpSysinterface->call("changeOtherUserPasswd", username, pwd);
+    QDBusReply<int> reply = tmpSysinterface->call("setPid", QCoreApplication::applicationPid());
+    if (reply.isValid()){
+        tmpSysinterface->call("changeOtherUserPasswd", username, pwd);
+    }
 
     delete tmpSysinterface;
     tmpSysinterface = nullptr;

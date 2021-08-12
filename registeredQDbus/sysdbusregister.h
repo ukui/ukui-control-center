@@ -50,6 +50,8 @@ private:
     QVector<struct brightInfo> brightInfo_V;
     volatile bool runThreadFlag;
 
+    qint64 _id;
+
 signals:
     Q_SCRIPTABLE void nameChanged(QString);
     Q_SCRIPTABLE void computerinfo(QString);
@@ -58,6 +60,8 @@ public slots:
 
     Q_SCRIPTABLE void exitService();
     Q_SCRIPTABLE QString GetComputerInfo();
+    // 设置进程id
+    Q_SCRIPTABLE int setPid(qint64 id);
 
     // 设置免密登录状态
     Q_SCRIPTABLE void setNoPwdLoginStatus(bool status,QString username);
