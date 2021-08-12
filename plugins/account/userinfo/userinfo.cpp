@@ -212,12 +212,8 @@ void UserInfo::_acquireAllUsersInfo(){
 
     if (allUserInfoMap.isEmpty()) {
         ui->currentUserFrame->setVisible(false);
-
-        ui->liveFrame->setVisible(true);
     } else {
         ui->currentUserFrame->setVisible(true);
-
-        ui->liveFrame->setVisible(false);
     }
 }
 
