@@ -57,30 +57,6 @@ void AddAutoBoot::resetBeforeClose()
     close();
 }
 
-bool AddAutoBoot::getFilename(GDir *dir,const char *Name)
-{
-    QString filedir = "/etc/xdg/autostart/";
-    const char *desktopName;
-    if (dir) {
-        while ((desktopName = g_dir_read_name(dir))) {
-            QString filePath = filedir + QString::fromUtf8(desktopName);
-            GKeyFile *keyfile = g_key_file_new();
-            if (!g_key_file_load_from_file(keyfile, filePath.toLatin1().data(), G_KEY_FILE_NONE, NULL)) {
-                g_key_file_free(keyfile);
-                return false;
-            }
-            QString name = g_key_file_get_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
-                                                G_KEY_FILE_DESKTOP_KEY_NAME, NULL);
-            g_key_file_free(keyfile);
-            if (name == QString::fromUtf8(Name)) {
-               return true;
-            }
-        }
-    }
-    g_dir_close(mdir);
-    return false;
-}
-
 void AddAutoBoot::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event);
@@ -312,14 +288,8 @@ void AddAutoBoot::open_desktop_dir_slots()
 
     emit mAppPathEdit->textEdited(QString(selectedfile));
 
-    mdir = g_dir_open(g_build_filename(g_get_user_config_dir(), "autostart", NULL), 0, NULL);
-
     if (no_display) {
         mHintLabel->setText(tr("desktop file not allowed add"));
-        mHintLabel->setStyleSheet("color:red;");
-        mCertainBtn->setEnabled(false);
-    } else if (getFilename(mdir,name)) {
-        mHintLabel->setText(tr("desktop file  already exist"));
         mHintLabel->setStyleSheet("color:red;");
         mCertainBtn->setEnabled(false);
     }
