@@ -202,6 +202,7 @@ private:
     QString     mDir;
     QStringList mPowerKeys;
     QString     mKDSCfg;
+    QString     mPreKDSCfg;
 
     SwitchButton *mNightButton = nullptr;
     SwitchButton *mCloseScreenButton = nullptr;
