@@ -78,6 +78,7 @@ enum NetworkIndex{
 enum AccountIndex{
     USERINFO,
     NETWORKACCOUNT,
+    BIOMETRICS,
     TOTALACCOUNTFUNC,
 };
 
