@@ -52,6 +52,7 @@ private:
     QString pluginName;
     int pluginType;
     CustomWidget * pluginWidget;
+    bool mFirstLoad;
 };
 
 #endif // LOGINOPTIONS_H

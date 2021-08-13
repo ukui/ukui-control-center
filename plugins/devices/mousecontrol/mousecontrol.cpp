@@ -42,33 +42,19 @@ struct KindsRolling : QObjectUserData{
     QString kind;
 };
 
-MouseControl::MouseControl()
+MouseControl::MouseControl() : mFirstLoad(true)
 {
-    ui = new Ui::MouseControl;
-    pluginWidget = new CustomWidget;
-    pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-    ui->setupUi(pluginWidget);
-
     pluginName = tr("mousecontrol");
     pluginType = DEVICES;
-
-//    const QByteArray id(TOUCHPAD_SCHEMA);
-//    tpsettings = new QGSettings(id);
-
-    const QByteArray idd(GNOME_TOUCHPAD_SCHEMA);
-    gnomeSettings = new QGSettings(idd);
-
-    InitDBusMouse();
-
-    component_init();
-    status_init();
 }
 
 MouseControl::~MouseControl()
 {
-    delete ui;
-    ui = nullptr;
-    DeInitDBusMouse();
+    if (!mFirstLoad) {
+        delete ui;
+        ui = nullptr;
+        DeInitDBusMouse();
+    }
 }
 
 QString MouseControl::get_plugin_name(){
@@ -80,6 +66,25 @@ int MouseControl::get_plugin_type(){
 }
 
 CustomWidget * MouseControl::get_plugin_ui(){
+
+    if (mFirstLoad) {
+        mFirstLoad = false;
+        ui = new Ui::MouseControl;
+        pluginWidget = new CustomWidget;
+        pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
+        ui->setupUi(pluginWidget);
+
+        //    const QByteArray id(TOUCHPAD_SCHEMA);
+        //    tpsettings = new QGSettings(id);
+
+        const QByteArray idd(GNOME_TOUCHPAD_SCHEMA);
+        gnomeSettings = new QGSettings(idd);
+
+        InitDBusMouse();
+
+        component_init();
+        status_init();
+    }
     return pluginWidget;
 }
 

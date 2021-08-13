@@ -20,21 +20,18 @@
 #include "recovery.h"
 #include "ui_recovery.h"
 
-Recovery::Recovery()
+Recovery::Recovery() : mFirstLoad(true)
 {
-    ui = new Ui::Recovery;
-    pluginWidget = new CustomWidget;
-    pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-    ui->setupUi(pluginWidget);
-
     pluginName = tr("recovery");
     pluginType = SECURITY_UPDATES;
 }
 
 Recovery::~Recovery()
 {
-    delete ui;
-    ui = nullptr;
+    if (!mFirstLoad) {
+        delete ui;
+        ui = nullptr;
+    }
 }
 
 QString Recovery::get_plugin_name(){
@@ -46,6 +43,13 @@ int Recovery::get_plugin_type(){
 }
 
 CustomWidget *Recovery::get_plugin_ui(){
+    if (mFirstLoad) {
+        mFirstLoad = false;
+        ui = new Ui::Recovery;
+        pluginWidget = new CustomWidget;
+        pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
+        ui->setupUi(pluginWidget);
+    }
     return pluginWidget;
 }
 

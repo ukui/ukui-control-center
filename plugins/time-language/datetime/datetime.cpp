@@ -74,11 +74,6 @@ const QStringList ntpAddressList = {
 
 DateTime::DateTime() : mFirstLoad(true)
 {
-    ui = new Ui::DateTime;
-    pluginWidget = new QWidget;
-    pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-    ui->setupUi(pluginWidget);
-    ui->infoFrame->setFrameShape(QFrame::Shape::Box);
     pluginName = tr("Date");
     pluginType = DATETIME;
 }
@@ -105,9 +100,12 @@ int DateTime::get_plugin_type()
 
 QWidget *DateTime::get_plugin_ui()
 {
-
     if (mFirstLoad) {
-
+        ui = new Ui::DateTime;
+        pluginWidget = new QWidget;
+        pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
+        ui->setupUi(pluginWidget);
+        ui->infoFrame->setFrameShape(QFrame::Shape::Box);
         mFirstLoad = false;
 
         initUI();

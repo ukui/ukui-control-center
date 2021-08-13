@@ -23,25 +23,18 @@
 #include <QMovie>
 #include <QDebug>
 
-Update::Update()
+Update::Update() : mFirstLoad(true)
 {
-    ui = new Ui::Update;
-    pluginWidget = new QWidget;
-    pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-    ui->setupUi(pluginWidget);
-
     pluginName = tr("Update");
-    pluginType = UPDATE;
-
-    ui_init();
-
-    connect(ui->checkBtn, SIGNAL(clicked()), this, SLOT(update_btn_clicked()));
+    pluginType = UPDATE; 
 }
 
 Update::~Update()
 {
-    delete ui;
-    ui = nullptr;
+    if (!mFirstLoad) {
+        delete ui;
+        ui = nullptr;
+    }
 }
 
 QString Update::get_plugin_name(){
@@ -53,6 +46,15 @@ int Update::get_plugin_type(){
 }
 
 QWidget *Update::get_plugin_ui(){
+    if (mFirstLoad) {
+        mFirstLoad = false;
+        ui = new Ui::Update;
+        pluginWidget = new QWidget;
+        pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
+        ui->setupUi(pluginWidget);
+        ui_init();
+        connect(ui->checkBtn, SIGNAL(clicked()), this, SLOT(update_btn_clicked()));
+    }
     return pluginWidget;
 }
 

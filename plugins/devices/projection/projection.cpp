@@ -44,58 +44,11 @@ enum {
     DAEMON_NOT_RUNNING = 512
 };
 
-Projection::Projection()
+Projection::Projection() : mFirstLoad(true)
 {
     pluginName = tr("Projection");
     //~ contents_path /bluetooth/Bluetooth
     pluginType = DEVICES;
-    ui = new Ui::Projection;
-    pluginWidget = new QWidget;
-    pluginWidget->setAttribute(Qt::WA_StyledBackground,true);
-    pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-    ui->setupUi(pluginWidget);
-    projectionBtn = new SwitchButton(pluginWidget);
-
-//   ui->pinframe->hide();
-    init_button_status(get_process_status());
-//    qDebug()<<"---- Projection contructed, then subscribe slot func ";
-    connect(projectionBtn, SIGNAL(checkedChanged(bool)), this, SLOT(projectionButtonClickSlots(bool)));
-    // m_pin = new QLabel(pluginWidget);
-    // ui->label->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
-    ui->label->setStyleSheet("QLabel{color: palette(windowText);}");
-    //~ contents_path /bluetooth/Open Bluetooth
-    ui->titleLabel->setText(tr("Open Projection"));
-    ui->titleLabel->setStyleSheet("QLabel{color: palette(windowText);}");
-
-    m_pServiceInterface = new QDBusInterface("org.freedesktop.miracleagent",
-                                             "/org/freedesktop/miracleagent",
-                                             "org.freedesktop.miracleagent.op",
-                                             QDBusConnection::sessionBus());
-    QString path=QDir::homePath()+"/.config/miracast.ini";
-    QSettings *setting=new QSettings(path,QSettings::IniFormat);
-    setting->beginGroup("projection");
-    bool bo=setting->contains("host");
-    qDebug()<<bo<<"bo";
-    if (!bo) {
-        QDBusInterface *hostInterface = new QDBusInterface("org.freedesktop.hostname1",
-                                                          "/org/freedesktop/hostname1",
-                                                          "org.freedesktop.hostname1",
-                                                          QDBusConnection::systemBus());
-        hostName = hostInterface->property("Hostname").value<QString>();
-        setting->setValue("host",hostName);
-        setting->sync();
-        setting->endGroup();
-        initComponent();
-    }else {
-        hostName = setting->value("host").toString();
-    }
-    //ui->projectionNameWidget->setFixedHeight(40);
-    ui->projectionName->setText(hostName);
-    ui->projectionNameChange->setProperty("useIconHighlightEffect", 0x8);
-    ui->projectionNameChange->setPixmap(QIcon::fromTheme("document-edit-symbolic").pixmap(ui->projectionNameChange->size()));
-    ui->projectionNameWidget->installEventFilter(this);
-    ui->horizontalLayout->addWidget(projectionBtn);
-    initComponent();
 }
 
 void Projection::changeProjectionName(QString name){
@@ -188,8 +141,10 @@ void Projection::delaymsec(int msec)
 
 Projection::~Projection()
 {
-    delete ui;
-    delete m_pServiceInterface;
+    if (!mFirstLoad) {
+        delete ui;
+        delete m_pServiceInterface;
+    }
 }
 
 QString Projection::get_plugin_name(){
@@ -229,6 +184,58 @@ void Projection::init_button_status(int status)
 }
 
 QWidget *Projection::get_plugin_ui(){
+
+    if (mFirstLoad) {
+        mFirstLoad = false;
+        ui = new Ui::Projection;
+        pluginWidget = new QWidget;
+        pluginWidget->setAttribute(Qt::WA_StyledBackground,true);
+        pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
+        ui->setupUi(pluginWidget);
+        projectionBtn = new SwitchButton(pluginWidget);
+
+    //   ui->pinframe->hide();
+        init_button_status(get_process_status());
+    //    qDebug()<<"---- Projection contructed, then subscribe slot func ";
+        connect(projectionBtn, SIGNAL(checkedChanged(bool)), this, SLOT(projectionButtonClickSlots(bool)));
+        // m_pin = new QLabel(pluginWidget);
+        // ui->label->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
+        ui->label->setStyleSheet("QLabel{color: palette(windowText);}");
+        //~ contents_path /bluetooth/Open Bluetooth
+        ui->titleLabel->setText(tr("Open Projection"));
+        ui->titleLabel->setStyleSheet("QLabel{color: palette(windowText);}");
+
+        m_pServiceInterface = new QDBusInterface("org.freedesktop.miracleagent",
+                                                "/org/freedesktop/miracleagent",
+                                                "org.freedesktop.miracleagent.op",
+                                                QDBusConnection::sessionBus());
+        QString path=QDir::homePath()+"/.config/miracast.ini";
+        QSettings *setting=new QSettings(path,QSettings::IniFormat);
+        setting->beginGroup("projection");
+        bool bo=setting->contains("host");
+        qDebug()<<bo<<"bo";
+        if (!bo) {
+            QDBusInterface *hostInterface = new QDBusInterface("org.freedesktop.hostname1",
+                                                            "/org/freedesktop/hostname1",
+                                                            "org.freedesktop.hostname1",
+                                                            QDBusConnection::systemBus());
+            hostName = hostInterface->property("Hostname").value<QString>();
+            setting->setValue("host",hostName);
+            setting->sync();
+            setting->endGroup();
+            initComponent();
+        }else {
+            hostName = setting->value("host").toString();
+        }
+        //ui->projectionNameWidget->setFixedHeight(40);
+        ui->projectionName->setText(hostName);
+        ui->projectionNameChange->setProperty("useIconHighlightEffect", 0x8);
+        ui->projectionNameChange->setPixmap(QIcon::fromTheme("document-edit-symbolic").pixmap(ui->projectionNameChange->size()));
+        ui->projectionNameWidget->installEventFilter(this);
+        ui->horizontalLayout->addWidget(projectionBtn);
+        initComponent();
+    }
+
     int res;
     int projectionstatus;
 

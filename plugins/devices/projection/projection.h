@@ -74,6 +74,7 @@ private:
     QLabel *m_pin;
     bool enter = false;
     QString hostName;
+    bool mFirstLoad;
 
 private:
     QTimer * pTimer;

@@ -64,7 +64,8 @@ private:
     QWidget * pluginWidget;
 
     QSettings * syncSettings = nullptr;
-
+    bool mFirstLoad;
+    
 private slots:
     void update_btn_clicked();
 };

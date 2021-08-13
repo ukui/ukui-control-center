@@ -20,21 +20,18 @@
 #include "multitask.h"
 #include "ui_multitask.h"
 
-Multitask::Multitask()
-{
-    ui = new Ui::Multitask;
-    pluginWidget = new CustomWidget;
-    pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-    ui->setupUi(pluginWidget);
-
+Multitask::Multitask() : mFirstLoad(true)
+{   
     pluginName = tr("multitask");
     pluginType = MESSAGES_TASK;
 }
 
 Multitask::~Multitask()
 {
-    delete ui;
-    ui = nullptr;
+    if (!mFirstLoad) {
+        delete ui;
+        ui = nullptr;
+    }
 }
 
 QString Multitask::get_plugin_name(){
@@ -46,6 +43,13 @@ int Multitask::get_plugin_type(){
 }
 
 CustomWidget * Multitask::get_plugin_ui(){
+    if (mFirstLoad) {
+        mFirstLoad = false;
+        ui = new Ui::Multitask;
+        pluginWidget = new CustomWidget;
+        pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
+        ui->setupUi(pluginWidget);
+    }
     return pluginWidget;
 }
 

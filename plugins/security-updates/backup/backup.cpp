@@ -37,11 +37,6 @@ extern "C" {
 
 Backup::Backup() : mFirstLoad(true)
 {
-    ui = new Ui::Backup;
-    pluginWidget = new QWidget;
-    pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-    ui->setupUi(pluginWidget);
-
     pluginName = tr("Backup");
     pluginType = UPDATE;
 }
@@ -68,6 +63,10 @@ QWidget *Backup::get_plugin_ui()
 {
     if (mFirstLoad) {
         mFirstLoad = false;
+        ui = new Ui::Backup;
+        pluginWidget = new QWidget;
+        pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
+        ui->setupUi(pluginWidget);
         initTitleLabel();
         initConnection();
     }

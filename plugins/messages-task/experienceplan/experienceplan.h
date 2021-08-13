@@ -55,7 +55,8 @@ public:
 
 private:
     Ui::ExperiencePlan *ui;
-
+    bool mFirstLoad;
+    
 private:
     QString pluginName;
     int pluginType;

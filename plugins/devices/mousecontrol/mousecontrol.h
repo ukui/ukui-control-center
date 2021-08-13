@@ -102,7 +102,7 @@ private:
     QStringList _get_cursors_themes();
     void _refresh_touchpad_widget_status();
     void _refresh_rolling_btn_status();
-
+    bool mFirstLoad;
 
 private slots:
     void mouseprimarykey_changed_slot(int id);

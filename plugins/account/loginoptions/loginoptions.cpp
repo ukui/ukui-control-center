@@ -20,21 +20,18 @@
 #include "loginoptions.h"
 #include "ui_loginoptions.h"
 
-LoginOptions::LoginOptions()
+LoginOptions::LoginOptions(): mFirstLoad(true)
 {
-    ui = new Ui::LoginOptions;
-    pluginWidget = new CustomWidget;
-    pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-    ui->setupUi(pluginWidget);
-
     pluginName = tr("loginoptions");
     pluginType = ACCOUNT;
 }
 
 LoginOptions::~LoginOptions()
 {
-    delete ui;
-    ui = nullptr;
+    if (!mFirstLoad) {
+        delete ui;
+        ui = nullptr;
+    }
 }
 
 QString LoginOptions::get_plugin_name(){
@@ -46,6 +43,13 @@ int LoginOptions::get_plugin_type(){
 }
 
 CustomWidget * LoginOptions::get_plugin_ui(){
+    if (mFirstLoad) {
+        mFirstLoad = false;
+        ui = new Ui::LoginOptions;
+        pluginWidget = new CustomWidget;
+        pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
+        ui->setupUi(pluginWidget);
+    }
     return pluginWidget;
 }
 

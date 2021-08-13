@@ -23,30 +23,20 @@
 #define E_PLAN_SCHEMA "org.ukui.control-center.experienceplan"
 #define JOIN_KEY "join"
 
-ExperiencePlan::ExperiencePlan()
+ExperiencePlan::ExperiencePlan() : mFirstLoad(true)
 {
-    ui = new Ui::ExperiencePlan;
-    pluginWidget = new QWidget;
-    pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-    ui->setupUi(pluginWidget);
-
     pluginName = tr("Experienceplan");
     pluginType = NOTICEANDTASKS;
-
-    QByteArray id(E_PLAN_SCHEMA);
-    eSettings = new QGSettings(id);
-
-    setupComponent();
-    initEpStatus();
-
 }
 
 ExperiencePlan::~ExperiencePlan()
 {
-    delete ui;
-    ui = nullptr;
-    delete eSettings;
-    eSettings = nullptr;
+    if (!mFirstLoad) {
+        delete ui;
+        ui = nullptr;
+        delete eSettings;
+        eSettings = nullptr;
+    }
 }
 
 QString ExperiencePlan::get_plugin_name(){
@@ -58,6 +48,18 @@ int ExperiencePlan::get_plugin_type(){
 }
 
 QWidget * ExperiencePlan::get_plugin_ui(){
+    if (mFirstLoad) {
+        mFirstLoad = false;
+        ui = new Ui::ExperiencePlan;
+        pluginWidget = new QWidget;
+        pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
+        ui->setupUi(pluginWidget);
+        QByteArray id(E_PLAN_SCHEMA);
+        eSettings = new QGSettings(id);
+
+        setupComponent();
+        initEpStatus();
+    }
     return pluginWidget;
 }
 
