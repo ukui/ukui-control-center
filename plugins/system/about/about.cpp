@@ -339,7 +339,7 @@ void About::initUI(QWidget *widget)
     mActivationLayout->addWidget(mActivationBtn, 1, 3, 4, 1,Qt::AlignHCenter | Qt::AlignRight);
 
     mTrialBtn = new QPushButton(Aboutwidget);
-    mTrialBtn->setFixedSize(100,40);
+    mTrialBtn->setFixedSize(200,40);
     mTrialBtn->setStyleSheet("background: transparent;font-family:Microsoft YaHei;"
                   "border-width:1px;text-decoration:underline;border-style:none none none;");
 
