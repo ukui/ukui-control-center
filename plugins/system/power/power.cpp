@@ -1161,7 +1161,3 @@ QFrame *Power::setLine(QFrame *frame)
     line->setFrameShadow(QFrame::Sunken);
     return line;
 }
-
-
-
-

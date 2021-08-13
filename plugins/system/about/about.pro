@@ -1,8 +1,8 @@
 include(../../../env.pri)
 include($$PROJECT_COMPONENTSOURCE/label.pri)
 
-QT       += widgets dbus KI18n KCoreAddons
-
+QT       += widgets dbus KI18n KCoreAddons \
+             widgets dbus concurrent
 TEMPLATE = lib
 CONFIG += plugin \
           link_pkgconfig

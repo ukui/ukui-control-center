@@ -526,76 +526,81 @@ void About::setupSerialComponent()
 
 void About::setupVersionCompenent()
 {
-    QString versionPath = "/etc/os-release";
-    QStringList osRes = readFile(versionPath);
-    QString versionID;
-    QString version;
+    QFuture<void> versionfuture = QtConcurrent::run([=]() {
+        QString versionPath = "/etc/os-release";
+        QStringList osRes = readFile(versionPath);
+        QString versionID;
+        QString version;
 
-    if (QGSettings::isSchemaInstalled(THEME_STYLE_SCHEMA)) {
-            themeStyleQgsettings = new QGSettings(THEME_STYLE_SCHEMA, QByteArray(), this);
-    } else {
-        themeStyleQgsettings = nullptr;
-        qDebug()<<THEME_STYLE_SCHEMA<<" not installed";
-    }
-
-    for (QString str : osRes) {
-        if (str.contains("VERSION_ID=")) {
-            QRegExp rx("VERSION_ID=\"(.*)\"$");
-            int pos = rx.indexIn(str);
-            if (pos > -1) {
-                versionID = rx.cap(1);
-            }
-        }
-
-        if (!QLocale::system().name().compare("zh_CN", Qt::CaseInsensitive)) {
-            if (str.contains("VERSION=")) {
-                QRegExp rx("VERSION=\"(.*)\"$");
-                int pos = rx.indexIn(str);
-                if (pos > -1) {
-                    version = rx.cap(1);
-                }
-            }
+        if (QGSettings::isSchemaInstalled(THEME_STYLE_SCHEMA)) {
+                themeStyleQgsettings = new QGSettings(THEME_STYLE_SCHEMA, QByteArray(), this);
         } else {
-            if (str.contains("VERSION_US=")) {
-                QRegExp rx("VERSION_US=\"(.*)\"$");
+            themeStyleQgsettings = nullptr;
+            qDebug()<<THEME_STYLE_SCHEMA<<" not installed";
+        }
+
+        for (QString str : osRes) {
+            if (str.contains("VERSION_ID=")) {
+                QRegExp rx("VERSION_ID=\"(.*)\"$");
                 int pos = rx.indexIn(str);
                 if (pos > -1) {
-                    version = rx.cap(1);
+                    versionID = rx.cap(1);
                 }
             }
-        }
-    }
 
-    if (!version.isEmpty()) {
-        setLabelText(mVersionLabel_2,version + "  " + tr("Copyright © 2009-2021 KylinSoft. All rights reserved."));
-        connect(this,&About::resize,[=](){
-           setLabelText(mVersionLabel_2,version + "  " + tr("Copyright © 2009-2021 KylinSoft. All rights reserved."));
-        });
-    }
-
-    if (!versionID.compare(vTen, Qt::CaseInsensitive) ||
-            !versionID.compare(vTenEnhance, Qt::CaseInsensitive) ||
-            !versionID.compare(vFour, Qt::CaseInsensitive)) {
-        mLogoLabel->setPixmap(QPixmap("://img/plugins/about/logo-light.svg").scaled(mLogoLabel->size(), Qt::KeepAspectRatio)); //默认设置为light
-        if (themeStyleQgsettings != nullptr && themeStyleQgsettings->keys().contains(CONTAIN_STYLE_NAME_KEY)) {
-            if (themeStyleQgsettings->get(STYLE_NAME_KEY).toString() == UKUI_DARK) { //深色模式改为dark
-                mLogoLabel->setPixmap(QPixmap("://img/plugins/about/logo-dark.svg").scaled(mLogoLabel->size(), Qt::KeepAspectRatio));
-            }
-            connect(themeStyleQgsettings,&QGSettings::changed,this,[=](QString changedKey) {  //监听主题变化
-                if (changedKey == CONTAIN_STYLE_NAME_KEY) {
-                    if (themeStyleQgsettings->get(STYLE_NAME_KEY).toString() == UKUI_DARK) {
-                        mLogoLabel->setPixmap(QPixmap("://img/plugins/about/logo-dark.svg").scaled(mLogoLabel->size(), Qt::KeepAspectRatio));
-                    } else {
-                        mLogoLabel->setPixmap(QPixmap("://img/plugins/about/logo-light.svg").scaled(mLogoLabel->size(), Qt::KeepAspectRatio));
+            if (!QLocale::system().name().compare("zh_CN", Qt::CaseInsensitive)) {
+                if (str.contains("VERSION=")) {
+                    QRegExp rx("VERSION=\"(.*)\"$");
+                    int pos = rx.indexIn(str);
+                    if (pos > -1) {
+                        version = rx.cap(1);
                     }
                 }
+            } else {
+                if (str.contains("VERSION_US=")) {
+                    QRegExp rx("VERSION_US=\"(.*)\"$");
+                    int pos = rx.indexIn(str);
+                    if (pos > -1) {
+                        version = rx.cap(1);
+                    }
+                }
+            }
+        }
+
+        if (!version.isEmpty()) {
+            setLabelText(mVersionLabel_2,version + "  " + tr("Copyright © 2009-2021 KylinSoft. All rights reserved."));
+            connect(this,&About::resize,[=](){
+               setLabelText(mVersionLabel_2,version + "  " + tr("Copyright © 2009-2021 KylinSoft. All rights reserved."));
             });
-       }
-    } else {
-        mActivationFrame->setVisible(false);
-        mTrialBtn->setVisible(false);
-        mLogoLabel->setPixmap(QPixmap("://img/plugins/about/logoukui.svg"));
-    }
+        }
+
+        if (!versionID.compare(vTen, Qt::CaseInsensitive) ||
+                !versionID.compare(vTenEnhance, Qt::CaseInsensitive) ||
+                !versionID.compare(vFour, Qt::CaseInsensitive)) {
+            mLogoLabel->setPixmap(QPixmap("://img/plugins/about/logo-light.svg").scaled(mLogoLabel->size(), Qt::KeepAspectRatio)); //默认设置为light
+            if (themeStyleQgsettings != nullptr && themeStyleQgsettings->keys().contains(CONTAIN_STYLE_NAME_KEY)) {
+                if (themeStyleQgsettings->get(STYLE_NAME_KEY).toString() == UKUI_DARK) { //深色模式改为dark
+                    mLogoLabel->setPixmap(QPixmap("://img/plugins/about/logo-dark.svg").scaled(mLogoLabel->size(), Qt::KeepAspectRatio));
+                }
+                connect(themeStyleQgsettings,&QGSettings::changed,this,[=](QString changedKey) {  //监听主题变化
+                    if (changedKey == CONTAIN_STYLE_NAME_KEY) {
+                        if (themeStyleQgsettings->get(STYLE_NAME_KEY).toString() == UKUI_DARK) {
+                            mLogoLabel->setPixmap(QPixmap("://img/plugins/about/logo-dark.svg").scaled(mLogoLabel->size(), Qt::KeepAspectRatio));
+                        } else {
+                            mLogoLabel->setPixmap(QPixmap("://img/plugins/about/logo-light.svg").scaled(mLogoLabel->size(), Qt::KeepAspectRatio));
+                        }
+                    }
+                });
+           }
+        } else {
+            mActivationFrame->setVisible(false);
+            mTrialBtn->setVisible(false);
+            mLogoLabel->setPixmap(QPixmap("://img/plugins/about/logoukui.svg"));
+        }
+    });
+
+    versionfuture.waitForFinished();
+
 }
 
 void About::setupDesktopComponent()

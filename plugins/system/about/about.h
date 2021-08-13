@@ -33,6 +33,10 @@
 #include <QGSettings/QGSettings>
 #include <QPushButton>
 #include <QHBoxLayout>
+#include <QThread>
+#include <QtConcurrent>
+#include <QFuture>
+
 #include "HpQRCodeInterface.h"
 
 #include "shell/interface.h"
