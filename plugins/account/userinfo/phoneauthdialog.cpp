@@ -394,6 +394,7 @@ void PhoneAuthDialog::initUI(){
         hidePromptMsg();
         emit returnSignal();
     });
+    wechatAuthBtn->setAutoDefault(false);
 }
 
 void PhoneAuthDialog::themeChanged(const quint32 currentTheme){
