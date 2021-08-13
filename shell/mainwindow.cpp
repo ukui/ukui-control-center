@@ -43,6 +43,7 @@
 #include <QShortcut>
 #include <QMouseEvent>
 #include <QScrollBar>
+#include <KWindowSystem>
 #include "component/leftwidgetitem.h"
 
 #define STYLE_FONT_SCHEMA  "org.ukui.style"
@@ -970,9 +971,13 @@ void MainWindow::functionBtnClicked(QObject *plugin) {
 }
 
 void MainWindow::sltMessageReceived(const QString &msg) {
-    this->hide();
+    //    if (!this->isActiveWindow()) {
+    //        this->hide();
+    //        this->show();
+    //        showNormal();
+    //    }
+    KWindowSystem::forceActiveWindow(this->winId());
     this->show();
-    showNormal();
     bootOptionsFilter(msg);
 
     //Qt::WindowFlags flags = windowFlags();

@@ -116,6 +116,20 @@ QWidget *Area::get_plugin_ui() {
         initComponent();
         connectToServer();
         initConnect();
+    } else {
+        ui->dateBox->blockSignals(true);
+        int index = ui->dateBox->currentIndex();
+        ui->dateBox->clear();
+
+        QString currentsecStr;
+        QDateTime current = QDateTime::currentDateTime();
+        currentsecStr = current.toString("yyyy/MM/dd ");
+        ui->dateBox->addItem(currentsecStr);
+        currentsecStr = current.toString("yyyy-MM-dd ");
+        ui->dateBox->addItem(currentsecStr);
+
+        ui->dateBox->setCurrentIndex(index);
+        ui->dateBox->blockSignals(false);
     }
     return pluginWidget;
 }

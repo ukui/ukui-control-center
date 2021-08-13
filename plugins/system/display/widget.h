@@ -247,6 +247,7 @@ private:
     bool mIsScreenAdd = false;
     bool mIsRestore = false;
 
+    QString firstAddOutputName;
     QShortcut *mApplyShortcut;
     QVector<BrightnessFrame*> BrightnessFrameV;
     //BrightnessFrame *currentBrightnessFrame;

@@ -21,6 +21,7 @@
 #define INTERFACE_H
 
 #include <QPushButton>
+#include <QFile>
 
 class QString;
 class QWidget;
@@ -142,6 +143,11 @@ public:
     }
     QPushButton *pluginBtn = nullptr;
 
+    bool isIntel(){
+        QString sysVersion = "/etc/apt/ota_version";
+        QFile file(sysVersion);
+        return file.exists();
+    }
 };
 
 #define CommonInterface_iid "org.kycc.CommonInterface"

@@ -277,6 +277,9 @@ void Screensaver::initComponent()
 
 void Screensaver::initPreviewWidget()
 {
+    previewWind->setVisible(false);
+    ui->previewWidget->update();
+    qApp->processEvents();
     startupScreensaver();
 }
 

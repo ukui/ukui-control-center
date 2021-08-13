@@ -110,12 +110,16 @@ void addShortcutDialog::slotsSetup()
     connect(ui->nameLineEdit, &QLineEdit::textChanged, [=](){
         QStringList customName;
         QString text = ui->nameLineEdit->text();
-        for (KeyEntry *ckeyEntry : customEntry) {
-            customName << ckeyEntry->nameStr;
-            if (customName.contains(text) && text != editName) {
-                nameIsAvailable = false;
-            } else {
-                nameIsAvailable = true;
+        if (customEntry.isEmpty()) {
+            nameIsAvailable = true;
+        } else {
+            for (KeyEntry *ckeyEntry : customEntry) {
+                customName << ckeyEntry->nameStr;
+                if (customName.contains(text) && text != editName) {
+                    nameIsAvailable = false;
+                } else {
+                    nameIsAvailable = true;
+                }
             }
         }
         refreshCertainChecked(2);
