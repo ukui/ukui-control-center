@@ -28,6 +28,7 @@ SUBDIRS = \
           network/proxy \
           account/userinfo \
           account/networkaccount \
+          account/biometrics \
           security-updates/securitycenter \
           security-updates/backup \
           security-updates/update \
