@@ -746,9 +746,15 @@ bool MainWindow::isExitsCloudAccount() {
 
 bool MainWindow::isExitsPower()
 {
-    QProcess *process = new QProcess(this);
-    process->start("ukui-power-manager",NULL);
-    return process->waitForStarted() ? true : false;
+    QProcess *process = new QProcess;
+    process->start("dpkg -l ukui-power-manager");
+    process->waitForFinished();
+
+    QByteArray ba = process->readAllStandardOutput();
+    delete process;
+    QString mOutput = QString(ba.data());
+
+    return mOutput.contains("ii", Qt::CaseSensitive) ? true : false;
 }
 
 bool MainWindow::dblOnEdge(QMouseEvent *event) {
