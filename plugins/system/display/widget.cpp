@@ -1216,6 +1216,8 @@ void Widget::setDDCBrightnessN(int value, QString screenName)
 void Widget::setScreenKDS(QString kdsConfig)
 {
     KScreen::OutputList screens = mConfig->connectedOutputs();
+    int firstScreenID = screens.begin().key();
+    int endScreenID = screens.end().key();
     if (kdsConfig == "expand") {
         Q_FOREACH(KScreen::OutputPtr output, screens) {
             if (!output.isNull() && !mUnifyButton->isChecked()) {
@@ -1252,16 +1254,16 @@ void Widget::setScreenKDS(QString kdsConfig)
             nowIt++;
         }
     } else if (kdsConfig == "first") {
-        for (int i = 0; i < screens.size(); i++) {
-            if (!screens[i].isNull()) {
-                screens[i]->setEnabled((i == 0));
-            }
+        QMapIterator<int, KScreen::OutputPtr> firstIt(screens);
+        while (firstIt.hasNext()) {
+            firstIt.next();
+            firstIt.value()->setEnabled(firstIt.key() == firstScreenID);
         }
     } else if (kdsConfig == "second") {
-        for (int i = 0; i < screens.size(); i++) {
-            if (!screens[i].isNull()) {
-                screens[i]->setEnabled((i != 0));
-            }
+        QMapIterator<int, KScreen::OutputPtr> endIt(screens);
+        while (endIt.hasNext()) {
+            endIt.next();
+            endIt.value()->setEnabled(endIt.key() == endScreenID);
         }
     } else {
         Q_FOREACH(KScreen::OutputPtr output, screens) {
@@ -1384,8 +1386,13 @@ int Widget::screenEnableCount()
 //通过win+p修改，不存在按钮影响亮度显示的情况，直接就应用了，此时每个屏幕的openFlag是没有修改的，需要单独处理(setScreenKDS)
 void Widget::kdsScreenchangeSlot(QString status)
 {
+    if (!status.compare(mPreKDSCfg)) {
+        return;
+    }
+
     bool isCheck = (status == "copy") ? true : false;
     mKDSCfg = status;
+    mPreKDSCfg = status;
     setScreenKDS(mKDSCfg);
     if (mConfig->connectedOutputs().count() >= 2) {
         mUnifyButton->setChecked(isCheck);
