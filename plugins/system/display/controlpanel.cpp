@@ -94,7 +94,7 @@ void ControlPanel::removeOutput(int outputId)
 void ControlPanel::activateOutput(const KScreen::OutputPtr &output)
 {
     // Ignore activateOutput when in unified mode
-    if (mUnifiedOutputCfg && mIsCloneMode) {
+    if ((mUnifiedOutputCfg && mIsCloneMode) || output.isNull()) {
         return;
     }
 
@@ -113,7 +113,6 @@ void ControlPanel::activateOutputNoParam()
     }
 
     Q_FOREACH (OutputConfig *cfg, mOutputConfigs) {
-        qDebug()<<cfg->output()->id()<<" id";
         cfg->setVisible(cfg->output()->id() == 66);
     }
 }
