@@ -215,6 +215,22 @@
         <file>plugins/userinfo/settingedit.svg</file>
         <file>plugins/userinfo/warning.svg</file>
         <file>plugins/backup/setting-reset.svg</file>
+        <file>secondaryleftmenu/Gesture.svg</file>
+        <file>secondaryleftmenu/GestureWhite.svg</file>
+        <file>plugins/gesture/gesture.ini</file>
+        <file>plugins/gesture/Movingobjects.gif</file>
+        <file>plugins/gesture/pause.png</file>
+        <file>plugins/gesture/play.png</file>
+        <file>plugins/gesture/Showsidebar.png</file>
+        <file>plugins/gesture/Showtaskbar.png</file>
+        <file>plugins/gesture/Textselection.png</file>
+        <file>plugins/gesture/Zoompicture.png</file>
+        <file>plugins/gesture/Rotatethepicture.png</file>
+        <file>plugins/gesture/Programminimization.png</file>
+        <file>plugins/gesture/Movingobjects.png</file>
+        <file>plugins/gesture/Enterglobalsearch.png</file>
+        <file>plugins/gesture/Displaymultitaskingview.png</file>
+        <file>plugins/gesture/Boxselectedobject.png</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>

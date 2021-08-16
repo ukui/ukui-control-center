@@ -329,6 +329,8 @@ void MainWindow::bootOptionsFilter(QString opt){
         bootOptionsSwitch(DEVICES, TRACKPAD);
     } else if (opt == "--pen") {
         bootOptionsSwitch(DEVICES, PEN);
+    } else if (opt == "--gesture") {
+        bootOptionsSwitch(DEVICES, GESTURE);
     } else if (opt == "--about") {
         bootOptionsSwitch(OTHER, ABOUT);
     }

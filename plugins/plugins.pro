@@ -8,6 +8,7 @@ SUBDIRS = \
           devices/mouse \
           devices/touchpad \
           devices/pen \
+          devices/gesture \
           system/audio \
           personalized/wallpaper \
           personalized/theme \
