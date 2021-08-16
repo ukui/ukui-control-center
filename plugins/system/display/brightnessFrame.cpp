@@ -10,7 +10,7 @@
 
 #define POWER_SCHMES                     "org.ukui.power-manager"
 #define POWER_KEY                        "brightness-ac"
-
+ 
 BrightnessFrame::BrightnessFrame(const QString &name, const bool &isBattery, const QString &serialNum, QWidget *parent) :
     QFrame(parent)
 {
