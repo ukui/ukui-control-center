@@ -240,6 +240,7 @@ private:
     bool mIsOutputAdd     = false;
     bool mIsScreenAdd     = false;
     bool mIsSCaleRes      = false;
+    bool mIsChange = false;
 
     QSize mScaleSizeRes = QSize();
 

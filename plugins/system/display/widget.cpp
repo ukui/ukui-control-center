@@ -552,9 +552,12 @@ void Widget::writeScale(double scale)
     }
 
     if (mIsScaleChanged) {
-        if (!mConfigChanged || mIsUnifyChanged) {
+        if (!mIsChange) {
             QMessageBox::information(this, tr("Information"),
                                      tr("Some applications need to be logouted to take effect"));
+        } else {
+            // 非主动切换缩放率，则不弹提示弹窗
+            mIsChange = false;
         }
     } else {
         return;
@@ -1522,7 +1525,6 @@ void Widget::save()
     if (isRestoreConfig()) {
         auto *op = new KScreen::SetConfigOperation(mPreScreenConfig);
         op->exec();
-
         // 无法知道什么时候执行完操作
         QTimer::singleShot(1000, this, [=]() {
             writeFile(mDir % mPreScreenConfig->connectedOutputsHash());
@@ -2154,7 +2156,6 @@ void Widget::changescale()
 
         }
     }
-
     if (mScaleSizeRes != QSize(0,0)) {
         QSize scalesize = mScaleSizeRes;
         ui->scaleCombo->blockSignals(true);
@@ -2192,6 +2193,8 @@ void Widget::changescale()
         if (ui->scaleCombo->findData(scale) == -1) {
             //记录分辨率切换时，新分辨率不存在的缩放率，在用户点击恢复设置时写入
             mIsSCaleRes = true;
+            //记录是否因分辨率导致的缩放率变化
+            mIsChange = true;
             scaleres = scale;
             scale = 1.0;
         }
