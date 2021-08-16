@@ -63,6 +63,7 @@ public:
     QString getImage(int type);
     Result getResult();
     void resetUI();
+    void setIsFace(bool val);
 
 protected:
     void paintEvent(QPaintEvent * event);
@@ -80,12 +81,14 @@ private slots:
     void StopOpsCallBack(const QDBusMessage &);
     void showFinishPrompt();
     void errorCallBack(const QDBusError &);
+    void onFrameWritten(int);
 
 private:
     Ui::BiometricEnrollDialog *ui;
     void setupInit();
     void handleErrorResult(int error);
     QString transferBioType(int type);
+    QStringList getFeaturelist(int drvid, int uid, int indexStart, int indexEnd);
 
     Result opsResult;
     QDBusInterface *serviceInterface;
@@ -97,6 +100,9 @@ private:
     bool isProcessed;
 
     QMovie *movie;
+    bool isFace = false;
+    int fd = -1;
+    int dup_fd = -1;
 
 private slots:
 

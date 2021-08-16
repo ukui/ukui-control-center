@@ -591,10 +591,7 @@ void UserInfo::initComponent(){
     });
 
     //初始化生物密码控件
-    if(isShowBiometric())
-        initBioComonent();
-    else
-        setBiometricDeviceVisible(false);
+    initBioComonent();
 }
 
 void UserInfo::_resetListWidgetHeigh(){
