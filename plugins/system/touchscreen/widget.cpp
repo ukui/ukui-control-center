@@ -317,12 +317,12 @@ void Widget::outputRemoved(int outputId) {
 }
 
 void Widget::touchscreenAdded() {
-    //initui();
+    initui();
     resettouchscreenCombo();
 }
 
 void Widget::touchscreenRemoved() {
-    //initui();
+    initui();
     resettouchscreenCombo();
 
 }
