@@ -1788,7 +1788,7 @@ void Widget::setNightMode(const bool nightMode)
         mNightConfig["Active"] = true;
         if (ui->sunradioBtn->isChecked()) {
             mNightConfig["EveningBeginFixed"] = "17:55:01";
-            mNightConfig["MorningBeginFixed"] = "05:55:00";
+            mNightConfig["MorningBeginFixed"] = "05:04:00";
             mNightConfig["Mode"] = 2;
         } else if (ui->customradioBtn->isChecked()) {
             mNightConfig["EveningBeginFixed"] = ui->opHourCom->currentText() + ":"

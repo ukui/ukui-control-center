@@ -82,6 +82,7 @@ QWidget *Desktop::get_plugin_ui() {
         ui->setupUi(pluginWidget);
 
         ui->listWidget->setItemDelegate(new ListDelegate(this));
+        ui->listWidget->hide();
 
         ui->titleLabel->setVisible(false);
 
@@ -132,6 +133,7 @@ void Desktop::initSearchText() {
     ui->titleLabel->setText(tr("Icon Show On Desktop"));
     //~ contents_path /desktop/Tray icon
     ui->title3Label->setText(tr("Tray icon"));
+    ui->title3Label->hide();
 }
 
 void Desktop::initTranslation() {

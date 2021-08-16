@@ -124,7 +124,9 @@ const QString Fonts::name() const {
 
 void Fonts::initSearchText() {
     //~ contents_path /fonts/Font size
-    ui->fontSizeLabel->setText(tr("Font size"));
+    ui->fontSizeLabel->setText(tr("Font size"));   
+    //~ contents_path /fonts/Fonts select
+    ui->monoSelectLabel->setText(tr("Fonts select"));
     //~ contents_path /fonts/Mono font
     ui->monoSelectLabel->setText(tr("Mono font"));
     //~ contents_path /fonts/Reset to default

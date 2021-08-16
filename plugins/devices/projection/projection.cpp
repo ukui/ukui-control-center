@@ -47,7 +47,6 @@ enum {
 Projection::Projection()
 {
     pluginName = tr("Projection");
-    //~ contents_path /bluetooth/Bluetooth
     pluginType = DEVICES;
     ui = new Ui::Projection;
     pluginWidget = new QWidget;
@@ -63,7 +62,7 @@ Projection::Projection()
     // m_pin = new QLabel(pluginWidget);
     // ui->label->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
     ui->label->setStyleSheet("QLabel{color: palette(windowText);}");
-    //~ contents_path /bluetooth/Open Bluetooth
+    //~ contents_path /projection/Open Projection
     ui->titleLabel->setText(tr("Open Projection"));
     ui->titleLabel->setStyleSheet("QLabel{color: palette(windowText);}");
 
@@ -347,7 +346,7 @@ void Projection::initComponent(){
     QHBoxLayout *addLyt = new QHBoxLayout;
 
     QLabel * iconLabel = new QLabel();
-    //~ contents_path /bluetooth/Add Bluetooths
+    //~ contents_path /projection/Add Bluetooths
     QLabel * textLabel = new QLabel(tr("Add Bluetooths"));
     QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
     iconLabel->setPixmap(pixgray);

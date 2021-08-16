@@ -40,6 +40,7 @@ void TabWid::initDbus()
     isAutoBackupSBtn->setChecked(true);
     checkUpdateBtn->stop();
     //    checkUpdateBtn->setText(tr("检查更新"));
+    //~ contents_path /upgrade/Check Update
     checkUpdateBtn->setText(tr("Check Update"));
 
     //    checkUpdateBtn->setText(tr("正在初始化"));
@@ -484,6 +485,7 @@ void TabWid::allComponents()
     QHBoxLayout *historyUpdateLogLayout = new QHBoxLayout();
     historyUpdateLog = new QPushButton(this); // 历史日志弹出窗口控制按钮
     //    historyUpdateLog->setText(tr("查看更新历史"));
+    //~ contents_path /upgrade/View history
     historyUpdateLog->setText(tr("View history"));
     historyUpdateLogWid->setLayout(historyUpdateLogLayout);
     historyUpdateLogLayout->setAlignment(Qt::AlignLeft);
