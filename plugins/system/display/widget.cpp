@@ -1736,7 +1736,7 @@ void Widget::mainScreenButtonSelect(int index)
 
     int connectCount = mConfig->connectedOutputs().count();
 
-    if (newPrimary == mConfig->primaryOutput() || mUnifyButton->isChecked() || (ui->primaryCombo->count() == 1) || !newPrimary->isEnabled()) {
+    if (newPrimary == mConfig->primaryOutput() || mUnifyButton->isChecked() || (mConfig->connectedOutputs().count() == 1) || !newPrimary->isEnabled()) {
         ui->mainScreenButton->setEnabled(false);
     } else {
         ui->mainScreenButton->setEnabled(true);
