@@ -36,6 +36,13 @@ void TabWid::initDbus()
     connect(isAutoBackupSBtn,&SwitchButton::checkedChanged,this,&TabWid::isAutoBackupChanged);
     connect(isAutoUpgradeSBtn, &SwitchButton::checkedChanged, this, &TabWid::isAutoUpgradeChanged);
     connect(updateSource,&UpdateSource::getReplyFalseSignal,this,&TabWid::getReplyFalseSlot);
+    connect(DownloadLimitBtn,&SwitchButton::checkedChanged,this,&TabWid::DownloadLimitSwitchChanged);
+    connect(DownloadLimitValue,static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged),this,&TabWid::DownloadLimitValueChanged);
+    //initialize download limit switch button
+    DownloadLimitBtn->setChecked(false);
+    //set download limit range
+    DownloadLimitValue->setRange(0,30000);
+    DownloadLimitValue->setValue(1000);
     //    bacupInit();//初始化备份
     isAutoBackupSBtn->setChecked(true);
     checkUpdateBtn->stop();
@@ -597,6 +604,19 @@ void TabWid::allComponents()
     isAutoBackupLayout->addWidget(isAutoBackupLab);
     isAutoBackupLayout->addWidget(isAutoBackupSBtn);
     isAutoBackupWidget->setLayout(isAutoBackupLayout);
+
+    //download speed limit
+    DownloadLimitWidget = new QFrame();
+    DownloadLimitWidget->setFrameShape(QFrame::Box);
+    DownloadLimitLayout = new QHBoxLayout();
+    DownloadLimitLab = new QLabel();
+    DownloadLimitLab->setText(tr("Download Limit"));
+    DownloadLimitBtn = new SwitchButton();
+    DownloadLimitValue = new QSpinBox();
+    DownloadLimitLayout->addWidget(DownloadLimitLab);
+    DownloadLimitLayout->addWidget(DownloadLimitValue);
+    DownloadLimitLayout->addWidget(DownloadLimitBtn);
+    DownloadLimitWidget->setLayout(DownloadLimitLayout);
     /*是否自动更新选项*/
     isAutoUpgradeWidget = new QFrame();
     isAutoUpgradeWidget->setFrameShape(QFrame::Box);
@@ -628,6 +648,9 @@ void TabWid::allComponents()
     updatesettingLayout->addWidget(isAutoCheckWidget);
     //    updatesettingLayout->addWidget(isAutoBackupWidget);
     updatesettingLayout->addWidget(isAutoUpgradeWidget);
+    updatesettingLayout->setSpacing(2);
+    updatesettingLayout->setMargin(0);
+    updatesettingLayout->addWidget(DownloadLimitWidget);
     updatesettingLayout->setSpacing(2);
     updatesettingLayout->setMargin(0);
 
@@ -902,6 +925,46 @@ void TabWid::checkUpdateBtnClicked()
     }
 }
 
+
+void TabWid::DownloadLimitSwitchChanged()
+{
+    if(DownloadLimitBtn->isChecked()==false)
+    {
+        qDebug()<<"download limit disabled";
+        DownloadLimitValue->hide();
+        updateMutual->SetDownloadLimit(0,false);
+    }
+    else if (DownloadLimitBtn->isChecked()==true)
+    {
+        qDebug()<<"download limit enabled";
+        DownloadLimitValue->show();
+        int dlimit = DownloadLimitValue->value();
+        updateMutual->SetDownloadLimit(dlimit,true);
+    }
+    else
+    {
+        qWarning()<<"download limit disabled,this should not happen";
+        updateMutual->SetDownloadLimit(0,false);
+    }
+}
+
+void TabWid::DownloadLimitValueChanged(int value)
+{
+    if(DownloadLimitBtn->isChecked()==false)
+    {
+        updateMutual->SetDownloadLimit(0,false);
+    }
+    else if (DownloadLimitBtn->isChecked()==true)
+    {
+        //int dlimit = DownloadLimitValue->value();
+        updateMutual->SetDownloadLimit(value,true);
+    }
+    else
+    {
+        qDebug()<<"Download Limit Changed";
+        updateMutual->SetDownloadLimit(0,false);
+    }
+}
 void TabWid::isAutoCheckedChanged()     //自动检测按钮绑定的槽函数
 {
     if(isAutoCheckSBtn->isChecked() == false)

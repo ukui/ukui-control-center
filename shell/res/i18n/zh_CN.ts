@@ -7474,6 +7474,11 @@ run start-pulseaudio-x11 manually.</source>
         <extra-contents_path>/upgrade/Update Settings</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="571"/>
+        <source>Download Limit</source>
+        <translation>下载限速</translation>
+    </message>
+    <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="583"/>
         <source>Allowed to renewable notice</source>
         <translation>允许通知可更新的应用</translation>
