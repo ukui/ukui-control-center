@@ -5149,21 +5149,16 @@ Please retry or relogin!</source>
         <translation>30分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="250"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="260"/>
         <source>60 min</source>
-        <translation>60分钟</translation>
+        <translation type="vanished">60分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="250"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="260"/>
         <source>120 min</source>
-        <translation>120分钟</translation>
+        <translation type="vanished">120分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="250"/>
         <source>300 min</source>
-        <translation>300分钟</translation>
+        <translation type="vanished">300分钟</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="250"/>
@@ -5171,6 +5166,11 @@ Please retry or relogin!</source>
         <location filename="../../../plugins/system/power/power.cpp" line="281"/>
         <source>20 min</source>
         <translation>20分钟</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="250"/>
+        <source>5h</source>
+        <translation>5小时</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="260"/>
@@ -5308,12 +5308,16 @@ Please retry or relogin!</source>
         <translation type="vanished">30分钟</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="250"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="260"/>
         <source>1h</source>
-        <translation type="vanished">1小时</translation>
+        <translation>1小时</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="250"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="260"/>
         <source>2h</source>
-        <translation type="vanished">2小时</translation>
+        <translation>2小时</translation>
     </message>
     <message>
         <source>10min</source>
