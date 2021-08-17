@@ -192,6 +192,7 @@ void Wallpaper::setupComponent(){
         textLabel_1->setStyleSheet("color: #2FB3E8;font-weight: 400;");
     });
     ui->titleLabel->setAlignment(Qt::AlignLeft);
+
     connect(localBgd, &HoverWidget::widgetClicked,[=]{
         showLocalWpDialog();
     });
@@ -594,9 +595,8 @@ void Wallpaper::showLocalWpDialog(){
     //由于文件管理器画壁纸使用QPixmap解析壁纸文件，不支持tif和tiff格式，故此处去掉这两种格式的选择
 //    filters<<tr("Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)")<<tr("allFiles(*.*)");
     filters<<tr("Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.wdp)");
-    QFileDialog fd;
-    fd.setWindowFlags(Qt::FramelessWindowHint);
-    //fd.setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint);
+    QFileDialog fd(pluginWidget);
+
     fd.setDirectory(QString(const_cast<char *>(g_get_user_special_dir(G_USER_DIRECTORY_PICTURES))));
     fd.setAcceptMode(QFileDialog::AcceptOpen);
     fd.setViewMode(QFileDialog::List);
