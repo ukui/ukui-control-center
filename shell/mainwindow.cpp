@@ -237,7 +237,6 @@ void MainWindow::initUI() {
     } else {
         this->setMinimumSize(1160, 720);
     }
-
     ui->setupUi(this);
     ui->centralWidget->setStyleSheet("QWidget#centralWidget{background: palette(base); border-radius: 6px;}");
 
@@ -298,6 +297,7 @@ void MainWindow::initUI() {
     });
     connect(closeBtn, &QPushButton::clicked, this, [=] {
         close();
+        exit(0);
     });
 
     connect(ui->stackedWidget, &QStackedWidget::currentChanged, this, [=](int index){

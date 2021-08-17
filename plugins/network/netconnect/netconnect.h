@@ -113,14 +113,12 @@ public:
     void rebuildNetStatusComponent(QString iconPath, QMap<QString, bool> netNameMap);
     void rebuildWifiActComponent(QString iconPath, QMap<QString, bool> netNameMap);
     void rebuildAvailComponent(QString iconpath, QString netName, QString type);
-
     void runExternalApp();
     void runKylinmApp(QString netName, QString type);
 
     bool getwifiisEnable();
 
     int getActiveConInfo(QList<ActiveConInfo>& qlActiveConInfo);
-
 private:
     Ui::NetConnect     *ui;
 
@@ -146,6 +144,7 @@ private:
 
     QStringList        wifilist;
     QThread            *pThread;
+
     NetconnectWork     *pNetWorker;
 
     QStringList        TwifiList;
@@ -174,7 +173,6 @@ private:
     bool        getInitStatus();
     bool        getWifiStatus();
     bool        getHasWirelessCard();
-
     void        clearContent();
 
     void        deleteNetworkDone(QString);
@@ -194,6 +192,7 @@ private slots:
     void netDetailOpen(NetDetail *netDetail,QString netName);
     void refreshNetInfoTimerSlot();
     void refreshNetInfoSlot();
+
 signals:
     void refresh();
 };

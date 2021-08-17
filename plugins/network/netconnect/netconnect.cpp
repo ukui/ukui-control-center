@@ -21,7 +21,6 @@
 #include "ui_netconnect.h"
 
 #include "../shell/utils/utils.h"
-
 #include <QGSettings>
 #include <QProcess>
 #include <QTimer>
@@ -113,7 +112,6 @@ void NetConnect::initSearchText() {
 void NetConnect::initComponent() {
     wifiBtn = new SwitchButton(pluginWidget);
     ui->openWIifLayout->addWidget(wifiBtn);
-
     kdsDbus = new QDBusInterface("org.ukui.kds", \
                                  "/", \
                                  "org.ukui.kds.interface", \
@@ -148,7 +146,6 @@ void NetConnect::initComponent() {
     connect(m_interface,SIGNAL(actWiredConnectionChanged()), this, SLOT(getNetList()));
     // 网络配置信息发生变化时刷新可用网络列表
     connect(m_interface,SIGNAL(configurationChanged()), this, SLOT(refreshNetInfoSlot()));
-
     connect(ui->RefreshBtn, &QPushButton::clicked, this, [=](bool checked) {
         Q_UNUSED(checked)
         setWifiBtnDisable();
@@ -175,15 +172,11 @@ void NetConnect::initComponent() {
         QElapsedTimer time;
         time.start();
         kdsDbus->call("emitRfkillStatusChanged");
-        while (time.elapsed() < 2000) {
+        while (time.elapsed() < 1000) {
             QCoreApplication::processEvents();
-        }
-        if (m_interface) {
-            m_interface->call("requestRefreshWifiList");
         }
         getNetList();
     });
-
     ui->RefreshBtn->setEnabled(false);
     wifiBtn->setEnabled(false);
     ui->openWifiFrame->setVisible(false);
@@ -327,7 +320,6 @@ void NetConnect::rebuildNetStatusComponent(QString iconPath, QMap<QString, bool>
         ++iter;
     }
 }
-
 void NetConnect::getNetList() {
     refreshTimer->stop();
     wifiBtn->blockSignals(true);
@@ -1029,14 +1021,19 @@ int NetConnect::setSignal(QString lv) {
 }
 
 void NetConnect::wifiSwitchSlot(bool status) {
-
-    QString wifiStatus = status ? "on" : "off";
-    QString program = "nmcli";
-    QStringList arg;
-    arg << "radio" << "wifi" << wifiStatus;
-    QProcess *nmcliCmd = new QProcess(this);
-    nmcliCmd->start(program, arg);
-    nmcliCmd->waitForFinished();
+    pThread = new QThread();
+    pNetWorker = new NetconnectWork;
+    pNetWorker->moveToThread(pThread);
+    connect(pThread, &QThread::finished, pThread, &QThread::deleteLater);
+    connect(pThread, &QThread::started, pNetWorker,[=]{
+        pNetWorker->run(status);
+    });
+    connect(pNetWorker, &NetconnectWork::complete,pNetWorker, &NetconnectWork::deleteLater);
+    connect(pNetWorker, &NetconnectWork::complete,[=](){
+        pThread->quit();
+        pThread->destroyed();
+    });
+    pThread->start();
 }
 
 int NetConnect::getActiveConInfo(QList<ActiveConInfo>& qlActiveConInfo) {
