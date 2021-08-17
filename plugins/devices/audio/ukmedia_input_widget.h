@@ -30,6 +30,7 @@
 #include <QProgressBar>
 #include <QListWidget>
 #include "ukui_custom_style.h"
+#include "titlelabel.h"
 
 class UkmediaInputWidget : public QWidget
 {
@@ -52,7 +53,7 @@ private:
     QFrame *m_pInputPortWidget;
     QListWidget *m_pInputListWidget;
 
-    QLabel *m_pInputLabel;
+    TitleLabel *m_pInputLabel;
     QLabel *m_pInputDeviceLabel;
     QLabel *m_pIpVolumeLabel;
     QLabel *m_pInputLevelLabel;

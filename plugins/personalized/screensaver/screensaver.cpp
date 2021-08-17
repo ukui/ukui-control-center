@@ -83,7 +83,6 @@ QWidget *Screensaver::get_plugin_ui() {
 
         process = new QProcess();
 
-        initTitleLabel();
         initSearchText();
         _acquireThemeinfoList();
         initComponent();
@@ -102,12 +101,6 @@ void Screensaver::plugin_delay_control() {
 const QString Screensaver::name() const {
 
     return QStringLiteral("screensaver");
-}
-
-void Screensaver::initTitleLabel() {
-    QFont font;
-    font.setPixelSize(18);
-    ui->titleLabel->setFont(font);
 }
 
 void Screensaver::initSearchText() {

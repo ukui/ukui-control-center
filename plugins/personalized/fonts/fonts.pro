@@ -6,11 +6,13 @@
 
 include(../../../env.pri)
 include($$PROJECT_COMPONENTSOURCE/uslider.pri)
+include($$PROJECT_COMPONENTSOURCE/label.pri)
 
 QT       += widgets dbus
 
 TEMPLATE = lib
-CONFIG   += plugin
+CONFIG   += plugin \
+          link_pkgconfig
 
 TARGET = $$qtLibraryTarget(fonts)
 DESTDIR = ../..

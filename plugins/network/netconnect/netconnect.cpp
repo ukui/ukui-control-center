@@ -109,7 +109,6 @@ QWidget *NetConnect::get_plugin_ui() {
         if(!m_interface->isValid()) {
             qWarning() << qPrintable(QDBusConnection::sessionBus().lastError().message());
         }
-        initTitleLabel();
         initSearchText();
         initComponent();
     }
@@ -125,11 +124,6 @@ const QString NetConnect::name() const {
     return QStringLiteral("netconnect");
 }
 
-void NetConnect::initTitleLabel() {
-    QFont font;
-    font.setPixelSize(18);
-    ui->titleLabel->setFont(font);
-}
 
 void NetConnect::initSearchText() {
     ui->detailBtn->setText(tr("Network settings"));

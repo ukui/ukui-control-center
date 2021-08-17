@@ -15,7 +15,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
-    <widget class="QLabel" name="touchscreenLabel">
+    <widget class="TitleLabel" name="touchscreenLabel">
      <property name="text">
       <string>TouchScreen</string>
      </property>
@@ -291,6 +291,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>TitleLabel</class>
+   <extends>QLabel</extends>
+   <header>titlelabel.h</header>
+  </customwidget>
+ </customwidgets>
  <tabstops>
   <tabstop>monitorCombo</tabstop>
   <tabstop>touchscreenCombo</tabstop>

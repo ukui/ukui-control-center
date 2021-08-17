@@ -4,11 +4,13 @@
 #
 #-------------------------------------------------
 include(../../../env.pri)
+include($$PROJECT_COMPONENTSOURCE/label.pri)
 
 QT       += widgets
 
 TEMPLATE = lib
-CONFIG += plugin
+CONFIG += plugin \
+          link_pkgconfig \
 
 TARGET = $$qtLibraryTarget(backup)
 DESTDIR = ../..
@@ -16,13 +18,17 @@ target.path = $${PLUGIN_INSTALL_DIRS}
 INSTALLS += target
 
 INCLUDEPATH   +=  \
+                 $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
 
 ##加载gio库和gio-unix库
 CONFIG        += link_pkgconfig \
                  C++11
 PKGCONFIG     += gio-2.0 \
+                 gsettings-qt \
                  gio-unix-2.0
+
+LIBS     += -L$$[QT_INSTALL_LIBS] -lgsettings-qt
 
 QMAKE_CXXFLAGS *= -D_FORTIFY_SOURCE=2 -O2
 #DEFINES += QT_DEPRECATED_WARNINGS

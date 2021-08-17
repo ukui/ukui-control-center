@@ -111,7 +111,6 @@ Theme::Theme()
     ui->setupUi(pluginWidget);
 
     setupGSettings();
-    initTitleLabel();
     initSearchText();
 
     // 设置组件
@@ -150,14 +149,6 @@ const QString Theme::name() const {
     return QStringLiteral("theme");
 }
 
-void Theme::initTitleLabel() {
-    QFont font;
-    font.setPixelSize(18);
-    ui->titleLabel->setFont(font);
-    ui->iconLabel->setFont(font);
-    ui->controlLabel->setFont(font);
-    ui->cursorLabel->setFont(font);
-}
 
 void Theme::initSearchText() {
     //~ contents_path /theme/Theme Mode

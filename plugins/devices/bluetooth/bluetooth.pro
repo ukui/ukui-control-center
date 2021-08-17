@@ -1,19 +1,23 @@
 include(../../../env.pri)
+include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
+include($$PROJECT_COMPONENTSOURCE/label.pri)
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets dbus BluezQt
 
 TEMPLATE = lib
 CONFIG += c++11
-CONFIG += plugin
+CONFIG += plugin \
+          link_pkgconfig \
 
 LIBS += -L /usr/lib/x86_64-linux-gnu -l KF5BluezQt
+LIBS     += -L$$[QT_INSTALL_LIBS] -lgsettings-qt
 
-TARGET = $$qtLibraryTarget(bluetooth)
 DESTDIR = ../..
+TARGET = $$qtLibraryTarget(bluetooth)
+PKGCONFIG += gsettings-qt
 target.path = $${PLUGIN_INSTALL_DIRS}
 
-include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
 
 INCLUDEPATH   +=  \
                  $$PROJECT_COMPONENTSOURCE \

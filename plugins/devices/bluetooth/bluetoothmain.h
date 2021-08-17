@@ -2,6 +2,7 @@
 #define BLUETOOTHMAIN_H
 
 #include "SwitchButton/switchbutton.h"
+#include "titlelabel.h"
 
 #include <polkit-qt5-1/PolkitQt1/Authority>
 

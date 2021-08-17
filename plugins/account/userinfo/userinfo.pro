@@ -9,11 +9,13 @@ include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
 include($$PROJECT_COMPONENTSOURCE/flowlayout.pri)
 include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
 include($$PROJECT_COMPONENTSOURCE/closebutton.pri)
+include($$PROJECT_COMPONENTSOURCE/label.pri)
 
 QT       += widgets dbus gui
 
 TEMPLATE = lib
-CONFIG += plugin
+CONFIG += plugin link_pkgconfig
+
 
 TARGET = $$qtLibraryTarget(userinfo)
 DESTDIR = ../..
@@ -23,7 +25,7 @@ INCLUDEPATH   +=  \
                  $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
 
-LIBS          += -L$$[QT_INSTALL_LIBS] -lcrypt -lpolkit-qt5-core-1 -lpam
+LIBS          += -L$$[QT_INSTALL_LIBS] -lcrypt -lpolkit-qt5-core-1 -lpam -lgsettings-qt
 
 ##加载gio库和gio-unix库
 CONFIG        += link_pkgconfig \

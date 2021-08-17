@@ -51,12 +51,8 @@ BlueToothMain::BlueToothMain(QWidget *parent)
 void BlueToothMain::InitMainTopUI()
 {
     //~ contents_path /bluetooth/Bluetooth
-    QLabel *label_1 = new QLabel(tr("Bluetooth"),frame_top);
-    label_1->setFixedSize(100,25);
-    label_1->setStyleSheet("QLabel{\
-                           font-size: 18px;\
-                           font-weight: 500;\
-                           line-height: 25px;}");
+    TitleLabel *label_1 = new TitleLabel(frame_top);
+    label_1->setText(tr("Bluetooth"));
 
     QVBoxLayout *top_layout = new QVBoxLayout();
     top_layout->setSpacing(8);
@@ -219,13 +215,8 @@ void BlueToothMain::InitMainbottomUI()
     title_layout->setContentsMargins(0,0,10,0);
 
     //~ contents_path /bluetooth/Other Devices
-    QLabel *label_1 = new QLabel(tr("Other Devices"),frame_bottom);
-    label_1->setStyleSheet("QLabel{\
-                          width: 72px;\
-                          height: 25px;\
-                          font-size: 18px;\
-                          font-weight: 500;\
-                          line-height: 25px;}");
+    TitleLabel *label_1 = new TitleLabel(frame_bottom);
+    label_1->setText(tr("Other Devices"));
 
     loadLabel = new QLabel(frame_bottom);
     loadLabel->setFixedSize(24,24);

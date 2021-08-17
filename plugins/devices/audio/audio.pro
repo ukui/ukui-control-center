@@ -5,13 +5,16 @@
 #-------------------------------------------------
 
 include(../../../env.pri)
+include($$PROJECT_COMPONENTSOURCE/label.pri)
+include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
 
 QT       += widgets xml
 
 TEMPLATE = lib
-CONFIG += plugin
+CONFIG += plugin \
+          link_pkgconfig \
 
-include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
+LIBS     += -L$$[QT_INSTALL_LIBS] -lgsettings-qt
 
 INCLUDEPATH += ../../.. \
                $$PROJECT_COMPONENTSOURCE \

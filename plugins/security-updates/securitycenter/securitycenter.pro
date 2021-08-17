@@ -1,15 +1,21 @@
 include(../../../env.pri)
 include($$PROJECT_COMPONENTSOURCE/flowlayout.pri)
+include($$PROJECT_COMPONENTSOURCE/label.pri)
 
 QT       += widgets
 
 TEMPLATE = lib
-CONFIG += plugin
+CONFIG += plugin \
+          link_pkgconfig
 
 TARGET = $$qtLibraryTarget(securitycenter)
 DESTDIR = ../..
 target.path = $${PLUGIN_INSTALL_DIRS}
 INSTALLS += target
+
+PKGCONFIG += gsettings-qt
+
+LIBS     += -L$$[QT_INSTALL_LIBS] -lgsettings-qt
 
 INCLUDEPATH   +=  \
                  $$PROJECT_ROOTDIR \

@@ -122,7 +122,6 @@ QWidget *Area::get_plugin_ui() {
         m_itimer->start(1000);
 
 
-        initTitleLabel();
         initUI();
         initComponent();
         connectToServer();
@@ -337,14 +336,6 @@ QStringList Area::readFile(const QString& filepath) {
         qWarning() << filepath << " not found"<<endl;
         return QStringList();
     }
-}
-
-void Area::initTitleLabel() {
-    QFont font;
-    font.setPixelSize(18);
-    ui->titleLabel->setFont(font);
-    ui->title2Label->setFont(font);
-    ui->title3Label->setFont(font);
 }
 
 QStringList Area::getUserDefaultLanguage() {

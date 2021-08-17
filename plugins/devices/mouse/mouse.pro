@@ -7,12 +7,14 @@
 include(../../../env.pri)
 include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
 include($$PROJECT_COMPONENTSOURCE/uslider.pri)
+include($$PROJECT_COMPONENTSOURCE/label.pri)
 
 QT       += widgets x11extras dbus
 
 #greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TEMPLATE = lib
-CONFIG += plugin
+CONFIG += plugin \
+          link_pkgconfig
 
 TARGET = $$qtLibraryTarget(mouse)
 DESTDIR = ../..

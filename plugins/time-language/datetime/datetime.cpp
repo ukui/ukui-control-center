@@ -109,7 +109,6 @@ void DateTime::initTitleLabel()
     QFont font;
     font.setFamily(m_fontSetting->get("systemFont").toString());
     font.setPointSize(m_fontSetting->get("systemFontSize").toInt());
-    ui->titleLabel->setFont(font);
     ui->timeClockLable->setObjectName("timeClockLable");
     font.setPointSize(font.pointSize() + 8);
     font.setBold(true);

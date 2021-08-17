@@ -530,9 +530,6 @@ void Widget::setHideModuleInfo()
 
 void Widget::setTitleLabel()
 {
-    QFont font;
-    font.setPixelSize(18);
-    ui->titleLabel->setFont(font);
 
     //~ contents_path /display/monitor
     ui->primaryLabel->setText(tr("monitor"));

@@ -250,12 +250,19 @@ void MainWindow::initUI() {
             QFont font = this->font();
             int width = font.pointSize();
             for (auto widget : qApp->allWidgets()) {
+                QString className(widget->metaObject()->className());
                 if (widget->objectName() == "timeClockLable") {
                     QFont fontTime;
-                    fontTime.setPointSize(font.pointSize() + 8);
-                    fontTime.setBold(true);
+                    font.setWeight(QFont::Medium);
+                    fontTime.setPixelSize(font.pointSize() * 23 / 11);
                     widget->setFont(fontTime);
+                } else if(className.contains("TitleLabel")) {
+                    QFont fontTitle;
+                    fontTitle.setPixelSize(font.pointSize() * 18 / 11);
+                    fontTitle.setWeight(QFont::Medium);
+                    widget->setFont(fontTitle);
                 } else {
+                    font.setWeight(QFont::Normal);
                     widget->setFont(font);
                 }
             }

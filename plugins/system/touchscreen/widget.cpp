@@ -76,7 +76,6 @@ Widget::Widget(QWidget *parent)
     m_pXinputManager->start();
 
     ui->setupUi(this);
-    ui->touchscreenLabel->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
 
 #if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
     oriApply = true;

@@ -5,9 +5,12 @@
 #-------------------------------------------------
 
 include(../../../env.pri)
+include($$PROJECT_COMPONENTSOURCE/label.pri)
+
 QT            += widgets dbus concurrent
 TEMPLATE = lib
-CONFIG        += plugin
+CONFIG        += plugin \
+                 link_pkgconfig
 
 TARGET = $$qtLibraryTarget(defaultapp)
 DESTDIR = ../..
@@ -18,10 +21,14 @@ INSTALLS += target
 CONFIG        += link_pkgconfig \
                  C++11
 PKGCONFIG     += gio-2.0 \
-                 gio-unix-2.0
+                 gio-unix-2.0 \
+                 gsettings-qt
 
 INCLUDEPATH   +=  \
+                 $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
+
+LIBS     += -L$$[QT_INSTALL_LIBS] -lgsettings-qt
 
 QMAKE_CXXFLAGS *= -D_FORTIFY_SOURCE=2 -O2
 #LIBS          += -L$$[QT_INSTALL_LIBS] -ldefaultprograms \

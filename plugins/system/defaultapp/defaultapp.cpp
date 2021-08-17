@@ -64,8 +64,6 @@ QWidget *DefaultApp::get_plugin_ui() {
 
         isCloudEmitted = false;
 
-        ui->titleLabel->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
-
         initUI();
         connectToServer();
 #ifdef __sw_64__

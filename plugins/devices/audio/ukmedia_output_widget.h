@@ -33,6 +33,7 @@
 #include "ukui_list_widget_item.h"
 #include "customstyle.h"
 #include <QListWidget>
+#include "titlelabel.h"
 
 
 class AudioSlider : public QSlider
@@ -106,7 +107,7 @@ private:
     QLabel *m_pSelectDeviceLabel;
     QLabel *m_pProfileLabel;
     QLabel *m_pOutputPortLabel;
-    QLabel *m_pOutputLabel;
+    TitleLabel *m_pOutputLabel;
     QLabel *m_pOutputDeviceLabel;
     QLabel *m_pOpVolumeLabel;
     QLabel *m_pOpVolumePercentLabel;

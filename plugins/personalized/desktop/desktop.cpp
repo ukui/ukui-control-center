@@ -112,7 +112,6 @@ QWidget *Desktop::get_plugin_ui() {
             mQtSettings = new QGSettings(iid,QByteArray(),this);
         }
         cmd = QSharedPointer<QProcess>(new QProcess());
-        initTitleLabel();
         initSearchText();
         initTranslation();
         setupComponent();
@@ -133,14 +132,6 @@ const QString Desktop::name() const {
     return QStringLiteral("desktop");
 }
 
-void Desktop::initTitleLabel() {
-    QFont font;
-    font.setPixelSize(18);
-    ui->titleLabel->setFont(font);
-    ui->title3Label->setFont(font);
-    ui->title2Label->setFont(font);
-    ui->menuLabel->setFont(font);
-}
 
 void Desktop::initSearchText() {
     //~ contents_path /desktop/Icon Show On Desktop

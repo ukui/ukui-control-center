@@ -8,11 +8,17 @@ include(../../../env.pri)
 include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
 include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
 include($$PROJECT_COMPONENTSOURCE/hoverbtn.pri)
+include($$PROJECT_COMPONENTSOURCE/label.pri)
 
 QT       += widgets printsupport
 
 TEMPLATE = lib
-CONFIG += plugin
+CONFIG += plugin \
+          link_pkgconfig
+
+PKGCONFIG += gsettings-qt
+
+LIBS     += -L$$[QT_INSTALL_LIBS] -lgsettings-qt
 
 TARGET = $$qtLibraryTarget(printer)
 DESTDIR = ../..

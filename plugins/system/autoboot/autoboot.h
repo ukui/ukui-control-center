@@ -54,7 +54,6 @@ public:
 
 private:
     void initAddBtn();
-    void initTitleLabel();
     void initStyle();
     void initUI();
     void initConnection();

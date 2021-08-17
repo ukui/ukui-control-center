@@ -134,7 +134,6 @@ QWidget *Fonts::get_plugin_ui() {
         ui->setupUi(pluginWidget);
 
         settingsCreate = false;
-        initTitleLabel();
         initSearchText();
         setupStylesheet();
 
@@ -167,12 +166,6 @@ void Fonts::plugin_delay_control() {
 const QString Fonts::name() const {
 
     return QStringLiteral("fonts");
-}
-
-void Fonts::initTitleLabel() {
-    QFont font;
-    font.setPixelSize(18);
-    ui->titleLabel->setFont(font);
 }
 
 void Fonts::initSearchText() {

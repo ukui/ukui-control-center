@@ -32,6 +32,7 @@
 #include <QDebug>
 #include <QGSettings/QGSettings>
 #include "SwitchButton/switchbutton.h"
+#include "titlelabel.h"
 
 const QByteArray kVinoSchemas = "org.gnome.Vino";
 const QString kVinoViewOnlyKey = "view-only";
@@ -72,10 +73,10 @@ private:
     QRadioButton *mNoticeOBtn;
     QRadioButton *mNoticeNBtn;
 
-    QLabel *mShareTitleLabel;
+    TitleLabel *mShareTitleLabel;
     QLabel *mEnableLabel;
     QLabel *mViewLabel;
-    QLabel *mSecurityTitleLabel;
+    TitleLabel *mSecurityTitleLabel;
     QLabel *mAccessLabel;
     QLabel *mPwdsLabel;
     QLabel *mNoticeTitleLabel;

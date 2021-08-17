@@ -74,7 +74,6 @@ QWidget *KeyboardControl::get_plugin_ui() {
         mFirstLoad = false;
         settingsCreate = false;
 
-        initTitleLabel();
         setupStylesheet();
         setupComponent();
 
@@ -115,12 +114,6 @@ const QString KeyboardControl::name() const {
     return QStringLiteral("keyboard");
 }
 
-void KeyboardControl::initTitleLabel() {
-    QFont font;
-    font.setPixelSize(18);
-    ui->titleLabel->setFont(font);
-    ui->title2Label->setFont(font);
-}
 
 void KeyboardControl::setupStylesheet(){
 
