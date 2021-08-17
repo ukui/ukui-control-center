@@ -1159,8 +1159,9 @@ Please authenticate yourself to continue</source>
 <context>
     <name>Biometrics</name>
     <message>
+        <location filename="../../../plugins/account/biometrics/biometrics.cpp" line="24"/>
         <source>Biometrics</source>
-        <translation type="vanished">生物识别与密码</translation>
+        <translation>生物识别与密码</translation>
     </message>
 </context>
 <context>

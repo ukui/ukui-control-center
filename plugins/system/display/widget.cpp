@@ -2036,10 +2036,14 @@ void Widget::changescale()
     mScaleSizeRes = QSize();
     for (const KScreen::OutputPtr &output : mConfig->outputs()) {
         if (output->isEnabled()) {
-            if (mScaleSizeRes == QSize()) {
-                mScaleSizeRes = output->currentMode()->size();
+            if (output->currentMode()) {
+                if (mScaleSizeRes == QSize()) {
+                    mScaleSizeRes = output->currentMode()->size();
+                } else {
+                    mScaleSizeRes = mScaleSizeRes.width() < output->currentMode()->size().width()?mScaleSizeRes:output->currentMode()->size();
+                }
             } else {
-                mScaleSizeRes = mScaleSizeRes.width() < output->currentMode()->size().width()?mScaleSizeRes:output->currentMode()->size();
+                return;
             }
 
         }
