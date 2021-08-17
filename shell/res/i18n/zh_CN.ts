@@ -3244,22 +3244,21 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">系统设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="594"/>
+        <location filename="../../mainwindow.cpp" line="578"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="595"/>
         <source>Maximize/Restore</source>
-        <translation>最大化/还原</translation>
+        <translation type="vanished">最大化/还原</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="596"/>
+        <location filename="../../mainwindow.cpp" line="580"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="551"/>
+        <location filename="../../mainwindow.cpp" line="535"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -3269,10 +3268,21 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="230"/>
-        <location filename="../../mainwindow.cpp" line="555"/>
+        <location filename="../../mainwindow.cpp" line="227"/>
+        <location filename="../../mainwindow.cpp" line="539"/>
         <source>System Settings</source>
         <translation>系统设置</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="433"/>
+        <source>Restore</source>
+        <translation>还原</translation>
+    </message>
+    <message>
+        <location filename="../../mainwindow.cpp" line="436"/>
+        <location filename="../../mainwindow.cpp" line="579"/>
+        <source>Maximize</source>
+        <translation>最大化</translation>
     </message>
     <message>
         <source>UKCC</source>

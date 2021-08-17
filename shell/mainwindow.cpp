@@ -441,8 +441,10 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
             if (this->windowState() == Qt::WindowMaximized) {
                 QFont font = this->font();
                 maxBtn->setIcon(QIcon::fromTheme("window-restore-symbolic"));
+                maxBtn->setToolTip(tr("Restore"));
             } else {
                 maxBtn->setIcon(QIcon::fromTheme("window-maximize-symbolic"));
+                maxBtn->setToolTip(tr("Maximize"));
             }
         } else if (event->type() == QEvent::MouseButtonDblClick) {
             if (!is_tablet_mode) {
@@ -592,7 +594,7 @@ void MainWindow::initTileBar() {
     closeBtn->setFixedSize(48, 48);
 
     minBtn->setToolTip(tr("Minimize"));
-    maxBtn->setToolTip(tr("Maximize/Restore"));
+    maxBtn->setToolTip(tr("Maximize"));
     closeBtn->setToolTip(tr("Close"));
 
     m_searchWidget->setMinimumWidth(320);
