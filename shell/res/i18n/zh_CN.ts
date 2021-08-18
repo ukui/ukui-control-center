@@ -8993,12 +8993,12 @@ the settings will be saved after 14 seconds</source>
         <translation>是否保留当前修改的配置？将在14秒后自动保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="670"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="671"/>
         <source>Not Save</source>
         <translation>不保存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="671"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="670"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
