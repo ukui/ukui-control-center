@@ -34,6 +34,7 @@
 #include "getshortcutworker.h"
 #include "HoverWidget/hoverwidget.h"
 #include "ImageUtil/imageutil.h"
+#include "AddBtn/addbtn.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -68,7 +69,7 @@ public:
     void buildCustomItem(KeyEntry *nkeyEntry);
     QWidget *buildGeneralWidget(QString schema, QMap<QString, QString> subShortcutsMap);
 
-    void createNewShortcut(QString path, QString name, QString exec, QString key, bool buildFlag = true);
+    void createNewShortcut(QString path, QString name, QString exec, QString key, bool buildFlag = true, bool convertFlag = true);
     void deleteCustomShortcut(QString path);
 
     bool keyIsForbidden(QString key);
@@ -77,6 +78,7 @@ public:
 
     QString keyToUI(QString key);
     QString keyToLib(QString key);
+    QString getShowShortcutString(QString src);
 
 private:
     Ui::Shortcut *ui;
@@ -84,8 +86,6 @@ private:
     QString pluginName;
     int pluginType;
     QWidget *pluginWidget;
-
-    HoverWidget *addWgt;
 
 private:
     QThread *pThread;
@@ -103,5 +103,6 @@ private slots:
 
 Q_SIGNALS:
     void hideDelBtn();
+    void updateCustomShortcut();
 };
 #endif // SHORTCUT_H

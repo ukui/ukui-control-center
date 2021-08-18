@@ -72,7 +72,7 @@ void ShortcutLine::keyPressEvent(QKeyEvent *e)
     if (firstKey == SNULL) {
         firstKey = keyToString(keyValue);
         if (keyValue == Qt::Key_Control || keyValue == Qt::Key_Alt || keyValue == Qt::Key_Shift) {
-            this->setText(firstKey + QString(" + "));
+            this->setText(firstKey + QString("   "));
         } else {                       //第一个键不是三个辅助键中的其中一个
             this->setText(firstKey);  //显示一下，增强用户交互性
             qApp->processEvents();
@@ -85,7 +85,7 @@ void ShortcutLine::keyPressEvent(QKeyEvent *e)
         if ((keyValue == Qt::Key_Control || keyValue == Qt::Key_Alt || keyValue == Qt::Key_Shift) &&
                 keyToString(keyValue) != firstKey) {
             secondKey = keyToString(keyValue);
-            this->setText(firstKey + QString(" + ") + secondKey + QString(" + "));
+            this->setText(firstKey + QString("   ") + secondKey + QString("   "));
         } else {  //第二个键是主键(最后一个键)
             if (lastKeyIsAvailable(keyValue, keyCode)) {   // 合法
                 secondKey = keyToString(keyValue);
@@ -137,10 +137,10 @@ void ShortcutLine::shortCutObtained(const bool &flag, const int &keyNum)
         shortCutObtainedFlag = true;
         if (2 == keyNum) {
             seq = QKeySequence(firstKey + QString("+") + secondKey);
-            this->setText(firstKey + QString(" + ") + secondKey);
+            this->setText(firstKey + QString("   ") + secondKey);
         } else {
             seq = QKeySequence(firstKey + QString("+") + secondKey + QString("+") + thirdKey);
-            this->setText(firstKey + QString(" + ") + secondKey + QString(" + ") + thirdKey);
+            this->setText(firstKey + QString("   ") + secondKey + QString("   ") + thirdKey);
         }
 
         if (conflictWithGlobalShortcuts(seq) || conflictWithStandardShortcuts(seq)
@@ -259,6 +259,10 @@ QString ShortcutLine::keyToLib(QString key)
 
 void ShortcutLine::setKeySequence(QKeySequence setSeq){
     this->seq = setSeq;
+}
+
+void ShortcutLine::updateCustomEntry(QList<KeyEntry *> customEntries) {
+    this->customEntry = customEntries;
 }
 
 QString ShortcutLine::keyToString(int keyValue)

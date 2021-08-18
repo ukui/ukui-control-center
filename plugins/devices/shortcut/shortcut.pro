@@ -3,6 +3,8 @@ include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
 include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
 include($$PROJECT_COMPONENTSOURCE/closebutton.pri)
 include($$PROJECT_COMPONENTSOURCE/label.pri)
+include($$PROJECT_COMPONENTSOURCE/frame.pri)
+include($$PROJECT_COMPONENTSOURCE/addbtn.pri)
 
 QT       += widgets dbus KXmlGui KGlobalAccel
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -35,6 +37,7 @@ SOURCES += \
     addshortcutdialog.cpp \
     customlineedit.cpp \
     defineshortcutitem.cpp \
+    doubleclicklineedit.cpp \
     getshortcutworker.cpp \
     keymap.cpp \
     realizeshortcutwheel.cpp \
@@ -45,6 +48,7 @@ HEADERS += \
     addshortcutdialog.h \
     customlineedit.h \
     defineshortcutitem.h \
+    doubleclicklineedit.h \
     getshortcutworker.h \
     keyentry.h \
     keymap.h \

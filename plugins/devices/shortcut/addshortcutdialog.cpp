@@ -432,3 +432,7 @@ void addShortcutDialog::setKeyText(const QString &text)
     editSeq = seq;
     shortcutLine->setKeySequence(seq);
 }
+
+void addShortcutDialog::setSourceEnable(bool enabled) {
+    ui->openBtn->setEnabled(enabled);
+}

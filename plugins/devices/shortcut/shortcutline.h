@@ -40,6 +40,7 @@ public:
     QString keyToString(int keyValue);
     QKeySequence keySequence();
     void setKeySequence(QKeySequence setSeq);
+    void updateCustomEntry(QList<KeyEntry *> customEntries);
 
 Q_SIGNALS:
     void shortCutAvailable(const int &flag); //0:success, -1:shortcut invalid, -2:shortcut conflict

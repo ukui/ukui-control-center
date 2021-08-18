@@ -39,7 +39,7 @@ void LeftsidebarWidget::paintEvent(QPaintEvent *event)
     opt.init(this);
     QPainter p(this);
     p.setPen(Qt::NoPen);
-   QColor color = palette().color(QPalette::Base);
+    QColor color = palette().color(QPalette::Base);
     // QColor color = palette().color(QPalette::Window);
     color.setAlpha(transparency);
     QPalette pal(this->palette());

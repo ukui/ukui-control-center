@@ -63,7 +63,7 @@ public:
     void setExecText(const QString &text);
     void setNameText(const QString &text);
     void setKeyText(const QString  &text);
-
+    void setSourceEnable(bool enabled);
 protected:
     void paintEvent(QPaintEvent *);
 

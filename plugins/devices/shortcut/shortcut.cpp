@@ -28,6 +28,9 @@
 #include "realizeshortcutwheel.h"
 #include "defineshortcutitem.h"
 #include "Label/fixlabel.h"
+#include "Frame/hlineframe.h"
+#include "doubleclicklineedit.h"
+#include <QMenu>
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -169,62 +172,8 @@ void Shortcut::setupComponent()
     systemVerLayout->addStretch();
     systemTitleWidget->setLayout(systemVerLayout);
 
-    addWgt = new HoverWidget("");
-    addWgt->setObjectName("addwgt");
-    addWgt->setMinimumSize(QSize(580, 50));
-    addWgt->setMaximumSize(QSize(960, 50));
-    QPalette pal;
-    QBrush brush = pal.highlight();  //获取window的色值
-    QColor highLightColor = brush.color();
-
-    QString stringColor = QString("rgba(%1,%2,%3)") //叠加20%白色
-           .arg(highLightColor.red()*0.8 + 255*0.2)
-           .arg(highLightColor.green()*0.8 + 255*0.2)
-           .arg(highLightColor.blue()*0.8 + 255*0.2);
-
-    addWgt->setStyleSheet(QString("HoverWidget#addwgt{background: palette(button); \
-                                                      border-radius: 4px;}\
-                              HoverWidget:hover:!pressed#addwgt{background: %1; \
-                                                                    border-radius: 4px;}").arg(stringColor));
-    QHBoxLayout *addLyt = new QHBoxLayout;
-
-    QLabel *iconLabel = new QLabel();
-    //~ contents_path /shortcut/Add custom shortcut
-    QLabel *textLabel = new QLabel(tr("Add custom shortcut"));
-    QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
-
-    iconLabel->setPixmap(pixgray);
-    iconLabel->setProperty("useIconHighlightEffect", true);
-    iconLabel->setProperty("iconHighlightEffectMode", 1);
-    addLyt->addWidget(iconLabel);
-    addLyt->addWidget(textLabel);
-    addLyt->addStretch();
-    addWgt->setLayout(addLyt);
-
-    // 悬浮改变Widget状态
-    connect(addWgt, &HoverWidget::enterWidget, this, [=](){
-        iconLabel->setProperty("useIconHighlightEffect", false);
-        iconLabel->setProperty("iconHighlightEffectMode", 0);
-        QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "white", 12);
-        iconLabel->setPixmap(pixgray);
-        textLabel->setStyleSheet("color: white;");
-    });
-
-    // 还原状态
-    connect(addWgt, &HoverWidget::leaveWidget, this, [=](){
-        iconLabel->setProperty("useIconHighlightEffect", true);
-        iconLabel->setProperty("iconHighlightEffectMode", 1);
-        QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
-        iconLabel->setPixmap(pixgray);
-        textLabel->setStyleSheet("color: palette(windowText);");
-    });
-
-    ui->addLyt->addWidget(addWgt);
-}
-
-void Shortcut::setupConnect()
-{
-    connect(addWgt, &HoverWidget::widgetClicked, this, [=](){
+    AddBtn *addBtn = new AddBtn();
+    connect(addBtn, &AddBtn::clicked, this, [=](){
         addShortcutDialog *addDialog = new addShortcutDialog(generalEntries, customEntries, pluginWidget);
         addDialog->setTitleText(QObject::tr("Customize Shortcut"));
 
@@ -235,6 +184,13 @@ void Shortcut::setupConnect()
 
         addDialog->exec();
     });
+
+    ui->addLyt->addWidget(addBtn);
+}
+
+void Shortcut::setupConnect()
+{
+
 }
 
 void Shortcut::initFunctionStatus()
@@ -350,18 +306,20 @@ QWidget *Shortcut::buildGeneralWidget(QString schema, QMap<QString, QString> sub
     QWidget *pWidget = new QWidget;
     pWidget->setAttribute(Qt::WA_DeleteOnClose);
     QVBoxLayout *pVerLayout = new QVBoxLayout(pWidget);
-    pVerLayout->setSpacing(2);
-    pVerLayout->setContentsMargins(0, 0, 0, 16);
-
-    pWidget->setLayout(pVerLayout);
+    pVerLayout->setSpacing(0);
+    pVerLayout->setContentsMargins(0, 0, 0, 0);
 
     QMap<QString, QString>::iterator it = subShortcutsMap.begin();
 
-    for (; it != subShortcutsMap.end(); it++) {
+    for (int i = 0; it != subShortcutsMap.end(); it++,i++) {
+        if (i != 0) {
+            HLineFrame *line = new HLineFrame;
+            pVerLayout->addWidget(line);
+        }
         QWidget *gWidget = new QWidget;
-        gWidget->setFixedHeight(TITLEWIDGETHEIGH);
+        gWidget->setFixedHeight(52);
         gWidget->setStyleSheet(
-            "QWidget{background: palette(window); border: none; border-radius: 4px}");
+            "QWidget{background: palette(base); border: none; border-radius: 4px}");
 
         QHBoxLayout *gHorLayout = new QHBoxLayout(gWidget);
         gHorLayout->setSpacing(24);
@@ -383,7 +341,7 @@ QWidget *Shortcut::buildGeneralWidget(QString schema, QMap<QString, QString> sub
         QFontMetrics  fontMetrics(nameLabel->font());
         QLabel *bindingLabel = new QLabel(gWidget);
 
-        bindingLabel->setText(it.value());
+        bindingLabel->setText(getShowShortcutString(it.value()));
         bindingLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 
         nameLabel->setText(fontMetrics.elidedText(QString(i18nKey), Qt::ElideRight, 180));
@@ -429,8 +387,7 @@ void Shortcut::appendGeneralItems(QMap<QString, QMap<QString, QString> > shortcu
     for (; it != shortcutsMap.end(); it++) {
         QWidget *gWidget = buildGeneralWidget(it.key(), it.value());
         if (gWidget != NULL) {
-            gWidget->setMaximumWidth(960);
-            ui->verticalLayout->addWidget(gWidget);
+            ui->showFrame->layout()->addWidget(gWidget);
         }
     }
 }
@@ -444,64 +401,40 @@ void Shortcut::appendCustomItems()
 
 void Shortcut::buildCustomItem(KeyEntry *nkeyEntry)
 {
-    HoverWidget *customWid         = new HoverWidget("");
-    QHBoxLayout *customWidLayout   = new QHBoxLayout(customWid);
-    QFrame      *infoFrame         = new QFrame(customWid);
-    QHBoxLayout *infoLayout        = new QHBoxLayout(infoFrame);
+    QFrame *frame = new QFrame;
+    frame->setFixedHeight(60);
+    ui->verticalLayout_3->addWidget(frame);
+    QHBoxLayout *layout = new QHBoxLayout(frame);
+    QHBoxLayout *lineEditLayout = new QHBoxLayout;
+    DoubleClickLineEdit *nameLineEdit = new DoubleClickLineEdit(customEntries,frame);
+    DoubleClickShortCut *bingdingLineEdit = new DoubleClickShortCut(generalEntries, customEntries);
+    nameLineEdit->setFixedHeight(36);
+    bingdingLineEdit->setFixedHeight(36);
+    bingdingLineEdit->setAlignment(Qt::AlignRight);
+    HLineFrame *line = new HLineFrame;
+    ui->verticalLayout_3->addWidget(line);
 
-    QPushButton *delBtn       = new QPushButton(customWid);
-    QPushButton *editBtn      = new QPushButton(customWid);
-    FixLabel    *nameLabel    = new FixLabel(customWid);
-    FixLabel    *bindingLabel = new FixLabel(customWid);
+    QPushButton *btn = new QPushButton(frame);
+    QMenu *menu = new QMenu(btn);
+    btn->setMenu(menu);
+    QAction *edit = new QAction(btn);
+    QAction *del = new QAction(btn);
+    edit->setText(tr("Edit"));
+    del->setText(tr("Delete"));
+    menu->addAction(edit);
+    menu->addAction(del);
 
-    ui->verticalLayout_3->addWidget(customWid);
-    customWid->setObjectName("customWid");
-    customWid->setStyleSheet("HoverWidget#customWid{background: palette(base);}");
-    customWidLayout->setMargin(0);
-    customWidLayout->setSpacing(16);
-    customWid->setMinimumSize(QSize(550, 50));
-    customWid->setMaximumSize(QSize(960, 50));
-    customWid->setAttribute(Qt::WA_DeleteOnClose);
-
-    infoFrame->setFrameShape(QFrame::Shape::Box);
-    customWidLayout->addWidget(infoFrame);
-    infoLayout->setContentsMargins(16, 0, 16, 0);
-    infoLayout->addWidget(nameLabel);
-    infoLayout->addStretch();
-    infoLayout->addWidget(bindingLabel);
-
-    customWidLayout->addWidget(editBtn);
-    customWidLayout->addWidget(delBtn);
-
-    nameLabel->setText(nkeyEntry->nameStr);
-    bindingLabel->setText(nkeyEntry->bindingStr);
-
-    delBtn->setText(tr("Delete"));
-    delBtn->setFixedSize(80,  36);
-    delBtn->hide();
-
-    editBtn->setText(tr("Edit"));
-    editBtn->setFixedSize(80, 36);
-    editBtn->hide();
-
-
-    connect(customWid, &HoverWidget::enterWidget, this, [=](){
-        delBtn->show();
-        editBtn->show();
-    });
-    connect(customWid, &HoverWidget::leaveWidget, this, [=](){
-        delBtn->hide();
-        editBtn->hide();
-    });
-
-    connect(delBtn, &QPushButton::clicked, this, [=](){
-        customWid->deleteLater();
+    connect(del, &QAction::triggered, this, [=](){
+        frame->deleteLater();
+        line->deleteLater();
         deleteCustomShortcut(nkeyEntry->gsPath);
         customEntries.removeOne(nkeyEntry);
+        Q_EMIT updateCustomShortcut();
     });
 
-    connect(editBtn, &QPushButton::clicked, this, [=](){
+    connect(edit, &QAction::triggered, this, [=](){
         addShortcutDialog *addDialog = new addShortcutDialog(generalEntries, customEntries, pluginWidget);
+        addDialog->setSourceEnable(false);
         addDialog->setTitleText(QObject::tr("Edit Shortcut"));
 
         addDialog->setExecText(nkeyEntry->actionStr);
@@ -517,13 +450,56 @@ void Shortcut::buildCustomItem(KeyEntry *nkeyEntry)
             nkeyEntry->nameStr   = name;
             nkeyEntry->bindingStr= key;
 
-            nameLabel->setText(name);
-            nameLabel->setToolTip(name);
-            bindingLabel->setText(addDialog->keyToLib(key));
+            nameLineEdit->setToolTip(name);
+            nameLineEdit->blockSignals(true);
+            nameLineEdit->setText(name);
+            nameLineEdit->blockSignals(false);
+            bingdingLineEdit->blockSignals(true);
+            bingdingLineEdit->setText(getShowShortcutString(addDialog->keyToLib(key)));
+            bingdingLineEdit->blockSignals(false);
         });
 
         addDialog->exec();
+        Q_EMIT updateCustomShortcut();
     });
+
+    btn->setIcon(QIcon::fromTheme("view-more-horizontal-symbolic"));
+    btn->setStyleSheet("QPushButton:!checked{background-color: palette(base)}");
+    btn->setProperty("useButtonPalette", true);
+    btn->setFixedSize(36,36);
+
+    layout->setContentsMargins(8,0,16,0);
+    layout->setSpacing(24);
+    layout->addLayout(lineEditLayout);
+    layout->addWidget(btn);
+//    layout->addStretch();
+
+    lineEditLayout->setMargin(0);
+    lineEditLayout->setSpacing(140);
+    lineEditLayout->addWidget(nameLineEdit);
+    lineEditLayout->addWidget(bingdingLineEdit);
+
+    nameLineEdit->blockSignals(true);
+    nameLineEdit->setText(nkeyEntry->nameStr);
+    nameLineEdit->blockSignals(false);
+    bingdingLineEdit->blockSignals(true);
+    bingdingLineEdit->setText(getShowShortcutString(nkeyEntry->bindingStr));
+    bingdingLineEdit->blockSignals(false);
+
+    connect(nameLineEdit, &DoubleClickLineEdit::strChanged, this, [=](){
+        createNewShortcut(nkeyEntry->gsPath, nameLineEdit->text(), nkeyEntry->actionStr, nkeyEntry->bindingStr, false, false); //只修改
+    });
+
+    connect(bingdingLineEdit, &DoubleClickShortCut::shortcutChanged, this, [=](){
+        createNewShortcut(nkeyEntry->gsPath, nkeyEntry->nameStr, nkeyEntry->actionStr, bingdingLineEdit->keySequence().toString(), false, true); //只修改
+    });
+
+    connect(this, &Shortcut::updateCustomShortcut, this, [=](){
+        nameLineEdit->updateCustomEntry(customEntries);
+        bingdingLineEdit->updateCustomEntry(customEntries);
+    });
+
+    return;
 
 }
 
@@ -557,7 +533,7 @@ QString Shortcut::keyToLib(QString key)
     return key;
 }
 
-void Shortcut::createNewShortcut(QString path, QString name, QString exec, QString key, bool buildFlag)
+void Shortcut::createNewShortcut(QString path, QString name, QString exec, QString key, bool buildFlag, bool convertFlag)
 {
     qDebug() << "createNewShortcut" << path << name << exec << key;
     QString availablepath;
@@ -568,7 +544,11 @@ void Shortcut::createNewShortcut(QString path, QString name, QString exec, QStri
         KeyEntry *nKeyentry = new KeyEntry;
         nKeyentry->gsPath = availablepath;
         nKeyentry->nameStr = name;
-        nKeyentry->bindingStr = keyToLib(key);
+        if (convertFlag == true) {
+            nKeyentry->bindingStr = keyToLib(key);
+        } else {
+            nKeyentry->bindingStr = key;
+        }
         nKeyentry->actionStr = exec;
 
         customEntries.append(nKeyentry);
@@ -583,6 +563,11 @@ void Shortcut::createNewShortcut(QString path, QString name, QString exec, QStri
             if (customEntries[i]->gsPath == availablepath) {
                 customEntries[i]->nameStr = name;
                 customEntries[i]->actionStr = exec;
+                if (convertFlag == true) {
+                    customEntries[i]->bindingStr = keyToLib(key);
+                } else {
+                    customEntries[i]->bindingStr = key;
+                }
                 break;
             }
         }
@@ -591,13 +576,18 @@ void Shortcut::createNewShortcut(QString path, QString name, QString exec, QStri
     const QByteArray id(KEYBINDINGS_CUSTOM_SCHEMA);
     const QByteArray idd(availablepath.toLatin1().data());
     QGSettings *settings = new QGSettings(id, idd, this);
+    if (convertFlag == true) {
+         settings->set(BINDING_KEY, keyToLib(key));
+    } else {
+         settings->set(BINDING_KEY, key);
+    }
 
-    settings->set(BINDING_KEY, keyToLib(key));
     settings->set(NAME_KEY, name);
     settings->set(ACTION_KEY, exec);
 
     delete settings;
     settings = nullptr;
+    Q_EMIT updateCustomShortcut();
 }
 
 void Shortcut::deleteCustomShortcut(QString path)
@@ -640,3 +630,21 @@ void Shortcut::shortcutChangedSlot()
     isCloudService = true;
     initFunctionStatus();
 }
+
+QString Shortcut::getShowShortcutString(QString src) {
+    src.replace("<","");
+    src.replace(">","   ");
+    src.replace(" or ",tr(" or "));
+    QStringList temp_list = src.split(" ");
+    QString str;
+    for(qint32 i = 0; i < temp_list.count(); i++) {
+        str += temp_list.at(i)
+                    .left(1).toUpper() +
+                    temp_list.at(i)
+                    .mid(1, temp_list.at(i).length() - 1).toLower();
+        str += " ";
+    }
+    str.replace("Or","or");
+    return  str;
+}
+

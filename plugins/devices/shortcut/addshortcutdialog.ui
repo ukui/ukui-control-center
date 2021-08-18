@@ -237,7 +237,7 @@
     </layout>
    </item>
    <item>
-    <widget class="QWidget" name="widget" native="true">
+    <widget class="QFrame" name="wFrame">
      <property name="minimumSize">
       <size>
        <width>0</width>
@@ -249,6 +249,9 @@
        <width>16777215</width>
        <height>36</height>
       </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <property name="spacing">
@@ -302,7 +305,7 @@
            </size>
           </property>
           <property name="frameShape">
-           <enum>QFrame::NoFrame</enum>
+           <enum>QFrame::Box</enum>
           </property>
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
