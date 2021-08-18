@@ -81,6 +81,7 @@ private slots:
     void change_adapter_name(const QString &name);
     void change_device_parent(const QString &address);
     void adapterPoweredChanged(bool value);
+    void delay_adapterPoweredChanged(bool value);
     void adapterComboxChanged(int i);
     void adapterNameChanged(const QString &name);
     void adapterDeviceRemove(BluezQt::DevicePtr ptr);

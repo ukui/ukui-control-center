@@ -693,7 +693,7 @@ BluezQt::AdapterPtr BlueToothMain::getDefaultAdapter()
 
 void BlueToothMain::adapterConnectFun()
 {
-    connect(m_localDevice.data(),&BluezQt::Adapter::poweredChanged,this,&BlueToothMain::adapterPoweredChanged);
+    connect(m_localDevice.data(),&BluezQt::Adapter::poweredChanged,this,&BlueToothMain::delay_adapterPoweredChanged);
     connect(m_localDevice.data(),&BluezQt::Adapter::deviceAdded,this,&BlueToothMain::serviceDiscovered);
     connect(m_localDevice.data(),&BluezQt::Adapter::deviceChanged,this,&BlueToothMain::serviceDiscoveredChange);
     connect(m_localDevice.data(),&BluezQt::Adapter::nameChanged,this,&BlueToothMain::adapterNameChanged);
@@ -1025,6 +1025,13 @@ void BlueToothMain::change_device_parent(const QString &address)
     }else{
         return;
     }
+}
+
+void BlueToothMain::delay_adapterPoweredChanged(bool value)
+{
+    QTimer::singleShot(1000,this,[=]{
+        adapterPoweredChanged(value);
+    });
 }
 
 void BlueToothMain::adapterPoweredChanged(bool value)
