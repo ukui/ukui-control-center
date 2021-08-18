@@ -2036,6 +2036,7 @@ void Widget::changescale()
     mScaleSizeRes = QSize();
     for (const KScreen::OutputPtr &output : mConfig->outputs()) {
         if (output->isEnabled()) {
+            // 作判空判断，防止控制面板闪退
             if (output->currentMode()) {
                 if (mScaleSizeRes == QSize()) {
                     mScaleSizeRes = output->currentMode()->size();

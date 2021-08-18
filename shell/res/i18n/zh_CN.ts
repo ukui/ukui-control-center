@@ -4659,7 +4659,7 @@ Please retry or relogin!</source>
     <name>NetConnect</name>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.ui" line="38"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="106"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="105"/>
         <source>Netconnect Status</source>
         <translation>网络状态</translation>
         <extra-contents_path>/netconnect/Netconnect Status</extra-contents_path>
@@ -4675,7 +4675,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.ui" line="129"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="976"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="968"/>
         <source>Refresh</source>
         <translation>刷新</translation>
     </message>
@@ -4686,7 +4686,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.ui" line="227"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="110"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="109"/>
         <source>Network settings</source>
         <translation>网络设置</translation>
         <extra-contents_path>/netconnect/Network settings</extra-contents_path>
@@ -4708,36 +4708,36 @@ Please retry or relogin!</source>
         <translation type="vanished">连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="248"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="302"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="241"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="295"/>
         <source>Connected</source>
         <translation>已连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="794"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="786"/>
         <source>No net</source>
         <translation>无连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="258"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="311"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="251"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="304"/>
         <source>Detail</source>
         <translation>网络详情</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="108"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="107"/>
         <source>open WLAN</source>
         <translation>打开无线局域网</translation>
         <extra-contents_path>/netconnect/open WLAN</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="668"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="685"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="660"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="677"/>
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="964"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="956"/>
         <source>Refreshing...</source>
         <translation>刷新中...</translation>
     </message>
@@ -4750,8 +4750,8 @@ Please retry or relogin!</source>
         <translation type="vanished">无网络连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="53"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="534"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="52"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="526"/>
         <source>Connect</source>
         <translation>网络连接</translation>
     </message>
@@ -5493,10 +5493,9 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">投屏端名称</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/projection.cpp" line="350"/>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="349"/>
         <source>Add Bluetooths</source>
         <translation>添加蓝牙</translation>
-        <extra-contents_path>/projection/Add Bluetooths</extra-contents_path>
     </message>
 </context>
 <context>

@@ -346,7 +346,6 @@ void Projection::initComponent(){
     QHBoxLayout *addLyt = new QHBoxLayout;
 
     QLabel * iconLabel = new QLabel();
-    //~ contents_path /projection/Add Bluetooths
     QLabel * textLabel = new QLabel(tr("Add Bluetooths"));
     QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
     iconLabel->setPixmap(pixgray);
