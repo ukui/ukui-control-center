@@ -313,11 +313,6 @@ void Widget::slotFocusedOutputChanged(QMLOutput *output)
     ui->primaryCombo->setCurrentIndex(index);
 }
 
-void Widget::slotFocusedOutputChangedNoParam()
-{
-    mControlPanel->activateOutput(res);
-}
-
 void Widget::slotOutputEnabledChanged()
 {
     // 点击禁用屏幕输出后的改变
@@ -1336,6 +1331,7 @@ void Widget::setPreScreenCfg(KScreen::OutputList screens)
         cfg.screenModeId = nowIt.value()->currentModeId();
         cfg.screenPosX = nowIt.value()->pos().x();
         cfg.screenPosY = nowIt.value()->pos().y();
+        cfg.primary = nowIt.value()->isPrimary();
 
         QVariant variant = QVariant::fromValue(cfg);
         retlist << variant;
@@ -1358,6 +1354,7 @@ void Widget::setPreScreenCfg(KScreen::OutputList screens)
         map["modeid"] = screenCfg.screenModeId;
         map["x"] = screenCfg.screenPosX;
         map["y"] = screenCfg.screenPosY;
+        map["primary"] = screenCfg.primary;
         outputList << map;
     }
 
@@ -1805,6 +1802,7 @@ void Widget::checkOutputScreen(bool judge)
             Q_FOREACH(KScreen::OutputPtr output, screens) {
                 if (!cfg.screenId.compare(output->name())) {
                     output->setPos(QPoint(cfg.screenPosX, cfg.screenPosY));
+                    output->setPrimary(cfg.primary);
                 }
             }
         }

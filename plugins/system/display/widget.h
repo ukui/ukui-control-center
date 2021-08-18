@@ -66,7 +66,6 @@ public:
     void setConfig(const KScreen::ConfigPtr &config, bool showBrightnessFrameFlag = false);
     KScreen::ConfigPtr currentConfig() const;
 
-    void slotFocusedOutputChangedNoParam();
     void initConnection();
     QString getScreenName(QString name = "");
     void initTemptSlider();
@@ -180,16 +179,9 @@ private:
     Ui::DisplayWindow *ui;
     QMLScreen *mScreen = nullptr;
 
-#if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
-    KScreen::ConfigPtr mConfig;
-    KScreen::ConfigPtr mPrevConfig;
-    KScreen::OutputPtr res;                       // 这是outPutptr结果
-#else
     KScreen::ConfigPtr mConfig          = nullptr;
     KScreen::ConfigPtr mPrevConfig      = nullptr;
     KScreen::ConfigPtr mPreScreenConfig = nullptr;
-    KScreen::OutputPtr res              = nullptr;
-#endif
 
     ControlPanel *mControlPanel = nullptr;
 
