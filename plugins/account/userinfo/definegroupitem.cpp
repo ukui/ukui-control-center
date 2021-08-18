@@ -51,7 +51,7 @@ DefineGroupItem::DefineGroupItem(QString groupName)
 
     pEditBtn = new QPushButton(this);
     pEditBtn->setText(tr("Edit"));
-    pEditBtn->setFixedSize(60,36);
+    pEditBtn->setFixedSize(90,36);
     pEditBtn->hide();
 
     QSizePolicy btnSizePolicy = pEditBtn->sizePolicy();
@@ -60,7 +60,7 @@ DefineGroupItem::DefineGroupItem(QString groupName)
 
     pDelBtn = new QPushButton(this);
     pDelBtn->setText(tr("Delete"));
-    pDelBtn->setFixedSize(90,36);
+    pDelBtn->setFixedSize(120,36);
     pDelBtn->hide();
 
     QSizePolicy btnSizePolicy2 = pDelBtn->sizePolicy();
