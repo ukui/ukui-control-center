@@ -190,11 +190,7 @@ void DefaultApp::initUI() {
                 const char * iconname = g_icon_to_string(g_app_info_get_icon(G_APP_INFO(imageinfo)));
                 QIcon appicon;
                 appicon = QIcon::fromTheme(QString(iconname));
-
-                if(!browserList.contains(appname)){
-                    ui->imageComBoBox->addItem(appicon, appname, single);
-                }
-
+                ui->imageComBoBox->addItem(appicon, appname, single);
                 if ("eom.desktop" == single) {
                     mDefaultPic = appname;
                 }
