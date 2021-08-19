@@ -6,6 +6,7 @@
 #include <QLabel>
 #include <QPushButton>
 #include "sharemain.h"
+#include "Label/fixlabel.h"
 
 
 InputPwdDialog::InputPwdDialog(QGSettings *Keygsettiings,QWidget *parent) :
@@ -24,36 +25,69 @@ InputPwdDialog::~InputPwdDialog()
 
 void InputPwdDialog::setupInit()
 {
-    setWindowTitle(tr("Set Password"));
-    this->setFixedSize(380, 161);
-    this->setMinimumSize(QSize(380, 161));
-    this->setMaximumSize(QSize(380, 161));
+    setWindowTitle(tr("Set"));
+    this->setFixedSize(480, 160);
 
+    QVBoxLayout *mInputPwdLyt = new QVBoxLayout(this);
+    mInputPwdLyt->setContentsMargins(24, 24, 24, 24);
+    mInputPwdLyt->setSpacing(8);
 
-    mpwd = new QLineEdit(this);
-    mpwd->setGeometry(32, 25, 316,42);
-//    mpwd->setFocus();
-//    mpwd->clearFocus();
+    QFrame *mInputPwdFrame = new QFrame(this);
+    mInputPwdFrame->setFixedSize(432, 36);
+    mInputPwdFrame->setFrameShape(QFrame::Box);
+
+    QHBoxLayout *mLyt_1= new QHBoxLayout(mInputPwdFrame);
+    mLyt_1->setContentsMargins(0, 0, 0, 0);
+    mLyt_1->setSpacing(8);
+
+    FixLabel *mSetPwdLabel = new FixLabel(mInputPwdFrame);
+    mSetPwdLabel->setFixedSize(72, 36);
+    mSetPwdLabel->setText(tr("Set Password"));
+
+    mpwd = new QLineEdit(mInputPwdFrame);
+    mpwd->setFixedSize(352, 36);
     mpwd->installEventFilter(this);
-    this->installEventFilter(this);
+
+    mLyt_1->addWidget(mSetPwdLabel);
+    mLyt_1->addWidget(mpwd);
 
     mfirstload = true;
     mstatus = false;
 
     mHintLabel = new QLabel(this);
-    mHintLabel->setGeometry(32,67,316,28);
-    mHintLabel->setContentsMargins(8,2,8,2);
+    mHintLabel->setFixedSize(432,36);
+    mHintLabel->setContentsMargins(80, 0, 0, 0);
     mHintLabel->setStyleSheet("color:red;");
 
-    mCancelBtn = new QPushButton(this);
-    mCancelBtn->setContentsMargins(36,6,36,6);
-    mCancelBtn->setGeometry(132,99,100,33);
+    QFrame *mInputPwdFrame_1 = new QFrame(this);
+    mInputPwdFrame_1->setFixedSize(432, 36);
+    mInputPwdFrame_1->setFrameShape(QFrame::Box);
+
+    QHBoxLayout *mLyt_2= new QHBoxLayout(mInputPwdFrame_1);
+    mLyt_2->setContentsMargins(0, 0, 0, 0);
+    mLyt_2->setSpacing(16);
+
+
+    mLyt_1->addWidget(mSetPwdLabel);
+    mLyt_1->addWidget(mpwd);
+
+    mCancelBtn = new QPushButton(mInputPwdFrame_1);
+    mCancelBtn->setFixedSize(96, 36);
     mCancelBtn->setText(tr("Cancel"));
 
-    mConfirmBtn = new QPushButton(this);
-    mConfirmBtn->setContentsMargins(36,6,36,6);
-    mConfirmBtn->setGeometry(248,99,100,33);
+    mConfirmBtn = new QPushButton(mInputPwdFrame_1);
+    mConfirmBtn->setFixedSize(96, 36);
     mConfirmBtn->setText(tr("Confirm"));
+
+    mLyt_2->addStretch();
+    mLyt_2->addWidget(mCancelBtn);
+    mLyt_2->addWidget(mConfirmBtn);
+
+    mInputPwdLyt->addWidget(mInputPwdFrame);
+    mInputPwdLyt->addWidget(mHintLabel);
+    mInputPwdLyt->addStretch();
+    mInputPwdLyt->addWidget(mInputPwdFrame_1);
+
 
     if(QByteArray::fromBase64(mgsettings->get(kVncPwdKey).toString().toLatin1()).length() == 8) {
         mpwd->setText(QByteArray::fromBase64(mgsettings->get(kVncPwdKey).toString().toLatin1()));
@@ -78,17 +112,15 @@ void InputPwdDialog::mpwdInputSlot(const QString &pwd)
     if (pwd.length() <= 7 && !pwd.isEmpty()) {
         QByteArray text = pwd.toLocal8Bit();
         secPwd = text.toBase64();
-        mHintLabel->setVisible(false);
+        mHintLabel->setText("");
     } else if (pwd.isEmpty()) {
         mConfirmBtn->setEnabled(false);
         mHintLabel->setText(tr("Password can not be blank"));
         mHintLabel->setStyleSheet("color:red;");
-        mHintLabel->setVisible(true);
         secPwd = NULL;
     } else {
         mHintLabel->setText(tr("less than or equal to 8"));
         mHintLabel->setStyleSheet("color:red;");
-        mHintLabel->setVisible(true);
         mpwd->setText(pwd.mid(0, 8));
         QByteArray text = pwd.mid(0, 8).toLocal8Bit();
         secPwd = text.toBase64();

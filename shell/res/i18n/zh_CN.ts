@@ -4,64 +4,64 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="396"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="398"/>
         <source>System Summary</source>
         <translation>系统概述</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="397"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="399"/>
         <source>Support</source>
         <translation>支持</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="399"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="401"/>
         <source>Version Number</source>
         <translation>版本号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="404"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="406"/>
         <source>DateRes</source>
         <translation>到期时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="406"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="408"/>
         <source>Wechat code scanning obtains HP professional technical support</source>
         <translation>微信扫码获得HP专业技术支持</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="407"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="409"/>
         <source>See more about Kylin Tianqi edu platform</source>
         <translation>查看麒麟天启教育平台更多信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="409"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="411"/>
         <source>&lt;&lt;Protocol&gt;&gt;</source>
         <translation>&lt;&lt;试用免责协议&gt;&gt;</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="426"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="430"/>
         <source>Learn more HP user manual&gt;&gt;</source>
         <translation>了解更多 Hp用户手册&gt;&gt;</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="436"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="440"/>
         <source>See user manual&gt;&gt;</source>
         <translation>查看用户手册</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="508"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="517"/>
         <source>Technical service has expired</source>
         <translation>已过期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="510"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="519"/>
         <source>Extended</source>
         <translation>延长服务</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="711"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="720"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="887"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="725"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="734"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="905"/>
         <source>avaliable</source>
         <translation>可用</translation>
     </message>
@@ -79,7 +79,7 @@
         <translation type="vanished">版权所有2009-2021@kylinos保留所有权利</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="449"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="454"/>
         <source>Version</source>
         <translation>版本</translation>
         <extra-contents_path>/about/version</extra-contents_path>
@@ -93,48 +93,48 @@
         <translation type="vanished">版权所有 @ 2009-2021 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="571"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="573"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="581"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="583"/>
         <source>Copyright © 2009-2021 KylinSoft. All rights reserved.</source>
         <translation>版权所有 © 2009-2021 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="451"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="456"/>
         <source>Kernel</source>
         <translation>内核</translation>
         <extra-contents_path>/about/Kernel</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="453"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="458"/>
         <source>CPU</source>
         <translation>CPU</translation>
         <extra-contents_path>/about/CPU</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="455"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="460"/>
         <source>Memory</source>
         <translation>内存</translation>
         <extra-contents_path>/about/Memory</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="400"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="718"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="402"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="732"/>
         <source>Disk</source>
         <translation>硬盘</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="457"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="462"/>
         <source>Desktop</source>
         <translation>桌面</translation>
         <extra-contents_path>/about/Desktop</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="401"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="403"/>
         <source>User</source>
         <translation>用户名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="402"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="404"/>
         <source>Active Status</source>
         <translation>激活状态</translation>
     </message>
@@ -143,7 +143,7 @@
         <translation type="vanished">有效期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="403"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="405"/>
         <source>Serial</source>
         <translation>序列号</translation>
     </message>
@@ -190,12 +190,12 @@
         <translation type="vanished">可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="514"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="523"/>
         <source>Inactivated</source>
         <translation>未激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="500"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="509"/>
         <source>Activated</source>
         <translation>已激活</translation>
     </message>
@@ -668,9 +668,8 @@
         <extra-contents_path>/area/system language</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="176"/>
         <source>Simplified Chinese</source>
-        <translation>简体中文</translation>
+        <translation type="vanished">简体中文</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.cpp" line="348"/>
@@ -758,9 +757,8 @@
         <extra-contents_path>/area/regional format</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="177"/>
         <source>English</source>
-        <translation>English</translation>
+        <translation type="vanished">English</translation>
     </message>
     <message>
         <source>Chinese</source>
@@ -809,7 +807,7 @@
 <context>
     <name>AutoBoot</name>
     <message>
-        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="538"/>
+        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="540"/>
         <source>Autoboot Settings</source>
         <translation>开机启动设置</translation>
         <extra-contents_path>/autoboot/Autoboot Settings</extra-contents_path>
@@ -840,7 +838,7 @@
         <translation type="vanished">当前状态</translation>
     </message>
     <message>
-        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="209"/>
+        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="211"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
@@ -2293,47 +2291,47 @@ change system settings</source>
         <translation type="vanished">默认应用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="38"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="37"/>
         <source>Default App</source>
         <translation>默认应用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="62"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="61"/>
         <source>No program available</source>
         <translation>无可用程序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="517"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="296"/>
         <source>Browser</source>
         <translation>浏览器</translation>
         <extra-contents_path>/defaultapp/Browser</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="519"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="298"/>
         <source>Mail</source>
         <translation>电子邮件</translation>
         <extra-contents_path>/defaultapp/Mail</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="521"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="300"/>
         <source>Image Viewer</source>
         <translation>图像查看器</translation>
         <extra-contents_path>/defaultapp/Image Viewer</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="523"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="302"/>
         <source>Audio Player</source>
         <translation>音频播放器</translation>
         <extra-contents_path>/defaultapp/Audio Player</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="525"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="304"/>
         <source>Video Player</source>
         <translation>视频播放器</translation>
         <extra-contents_path>/defaultapp/Video Player</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="527"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="306"/>
         <source>Text Editor</source>
         <translation>文档编辑器</translation>
         <extra-contents_path>/defaultapp/Text Editor</extra-contents_path>
@@ -2342,7 +2340,7 @@ change system settings</source>
 <context>
     <name>DefaultAppWindow</name>
     <message>
-        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="515"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="294"/>
         <source>Select Default Application</source>
         <translation>默认应用</translation>
     </message>
@@ -3426,29 +3424,34 @@ folder will be deleted!</source>
 <context>
     <name>InputPwdDialog</name>
     <message>
-        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="27"/>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="45"/>
         <source>Set Password</source>
         <translation>设置密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="65"/>
-        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="84"/>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="99"/>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="118"/>
         <source>Password can not be blank</source>
         <translation>密码不能为空</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="51"/>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="76"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="56"/>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="28"/>
+        <source>Set</source>
+        <translation type="unfinished">系统设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="80"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="60"/>
-        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="89"/>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="94"/>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="122"/>
         <source>less than or equal to 8</source>
         <translation>密码长度需要小于等于８</translation>
     </message>
