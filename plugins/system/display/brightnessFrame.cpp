@@ -19,7 +19,7 @@ BrightnessFrame::BrightnessFrame(QWidget *parent) :
     slider->setRange(10, 100);
 
     labelValue = new QLabel(this);
-    labelValue->setFixedWidth(30);
+    labelValue->setFixedWidth(36);
     labelValue->setAlignment(Qt::AlignRight);
 
     layout->addWidget(labelName);
