@@ -431,10 +431,15 @@ void MainWidget::refreshSyncDate() {
     QVariant ret = ConfigFile(m_szConfPath).Get("Auto-sync","time");
     if (m_pSettings != nullptr && fileConf.exists() && fileConf.size() > 1 && !ret.isNull()) {
         m_syncTimeLabel->setText(tr("The latest time sync is: ") +   ret.toString().toStdString().c_str());
+        m_syncTimeLabel->show();
     }
-    else {
+    else if (m_pSettings != nullptr && fileConf.exists() && fileConf.size() > 1){
+        emit isSync(false);
+        m_syncTimeLabel->hide();
+    } else {
         emit isSync(true);
         m_syncTimeLabel->setText(tr("Waiting for initialization..."));
+        m_syncTimeLabel->show();
     }
 }
 
