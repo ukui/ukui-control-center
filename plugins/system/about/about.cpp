@@ -109,6 +109,7 @@ const QString About::name() const
     return QStringLiteral("about");
 }
 
+/* 初始化整体UI布局 */
 void About::initUI(QWidget *widget)
 {
     QVBoxLayout *mverticalLayout = new QVBoxLayout(widget);
@@ -391,6 +392,7 @@ void About::initUI(QWidget *widget)
     retranslateUi();
 }
 
+/* 初始化各文本内容 */
 void About::retranslateUi()
 {
     mTitleLabel->setText(tr("System Summary"));
@@ -408,6 +410,8 @@ void About::retranslateUi()
 
     mTrialBtn->setText(tr("<<Protocol>>"));
 
+
+    //Intel部分
 #ifdef WIN32
     QPluginLoader loader("../HpQRCodePlugin/hp-qrcode-plugind.dll");
 #else
@@ -443,6 +447,7 @@ void About::retranslateUi()
     });
 }
 
+/* 添加搜索索引 */
 void About::initSearchText()
 {
     //~ contents_path /about/version
@@ -457,6 +462,7 @@ void About::initSearchText()
     mDesktopLabel_1->setText(tr("Desktop"));
 }
 
+/* 初始化DBus对象 */
 void About::initActiveDbus()
 {
     activeInterface = QSharedPointer<QDBusInterface>(
@@ -469,6 +475,7 @@ void About::initActiveDbus()
     }
 }
 
+/* 获取激活信息 */
 void About::setupSerialComponent()
 {
     if (!activeInterface.get()->isValid()) {
@@ -496,6 +503,8 @@ void About::setupSerialComponent()
     if (dateReply.type() == QDBusMessage::ReplyMessage) {
         dateRes = dateReply.arguments().at(0).toString();
     }
+
+    // 为1则为~激活状态，否则~再根据是存在到期时间，存在为~已到期，否则为~未激活
     if (1 == status) {
         mStatusLabel_2->setText(tr("Activated"));
         mTimeLabel_2->setText(dateRes);
@@ -524,6 +533,7 @@ void About::setupSerialComponent()
     });
 }
 
+/* 获取logo图片 */
 void About::setupVersionCompenent()
 {
     QFuture<void> versionfuture = QtConcurrent::run([=]() {
@@ -603,6 +613,7 @@ void About::setupVersionCompenent()
 
 }
 
+/* 获取桌面信息 */
 void About::setupDesktopComponent()
 {
     // 获取当前桌面环境
@@ -629,6 +640,7 @@ void About::setupDesktopComponent()
                                          SLOT(ChangedSlot()));
 }
 
+/* 获取CPU信息 */
 void About::setupKernelCompenent()
 {
     QString memorySize;
@@ -662,6 +674,8 @@ void About::setupKernelCompenent()
     mCpuLabel_2->setText(cpuType);
 }
 
+
+/* 获取硬盘信息 */
 void About::setupDiskCompenet()
 {
     QProcess process_1;
@@ -728,6 +742,7 @@ void About::setupDiskCompenet()
     }
 }
 
+/* 获取系统版本 */
 void About::setupSystemVersion()
 {
     QString sysVersion = "/etc/apt/ota_version";
@@ -756,6 +771,7 @@ void About::setupSystemVersion()
     mVersionNumLabel_2->setText(content2);
 }
 
+/* 处理文本宽度 */
 void About::setLabelText(QLabel *label, QString text)
 {
     QFontMetrics  fontMetrics(label->font());
@@ -769,6 +785,7 @@ void About::setLabelText(QLabel *label, QString text)
     }
 }
 
+/* 处理窗口缩放时的文本显示 */
 bool About::eventFilter(QObject *obj, QEvent *event)
 {
     if (obj == mVersionFrame) {
@@ -809,6 +826,7 @@ QStringList About::getUserDefaultLanguage()
     return result;
 }
 
+/* 读取/etc/os-release文件的内容 */
 QStringList About::readFile(QString filepath)
 {
     QStringList fileCont;
@@ -894,6 +912,7 @@ void About::activeSlot(int activeSignal)
     }
 }
 
+/* 打开激活窗口 */
 void About::runActiveWindow()
 {
     QString cmd = "kylin-activation";
@@ -902,6 +921,7 @@ void About::runActiveWindow()
     process.startDetached(cmd);
 }
 
+/* 获取用户昵称 */
 void About::ChangedSlot()
 {
     qlonglong uid = getuid();

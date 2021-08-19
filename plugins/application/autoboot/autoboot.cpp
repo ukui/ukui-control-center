@@ -109,6 +109,7 @@ const QString AutoBoot::name() const
     return QStringLiteral("autoboot");
 }
 
+/* 初始化整体UI布局 */
 void AutoBoot::initUI(QWidget *widget)
 {
     QVBoxLayout *mverticalLayout = new QVBoxLayout(widget);
@@ -146,6 +147,7 @@ void AutoBoot::initUI(QWidget *widget)
     initAutoUI();
 
 }
+
 
 void AutoBoot::initAutoUI()
 {

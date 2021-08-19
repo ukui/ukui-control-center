@@ -28,6 +28,8 @@
 #include <QtDBus>
 #include <QtConcurrent>
 #include <QTime>
+#include <QFileSystemWatcher>
+
 
 #include "shell/interface.h"
 #include "Label/fixlabel.h"
@@ -80,6 +82,8 @@ public:
     void initDefaultUI();
     void initSlots();
     void initSearchText();
+    void initDefaultAppInfo(const char* type, QComboBox *combox);
+    void resetUi();
 
     bool setWebBrowsersDefaultProgram(char * appid);
     bool setMailReadersDefaultProgram(char * appid);
@@ -89,6 +93,7 @@ public:
     bool setTextEditorsDefautlProgram(char * appid);
 
     void connectToServer();
+    void watchFileChange();
     QFrame *setLine(QFrame *frame);
 
 private:
@@ -132,14 +137,18 @@ private:
     QString mDefaultMail;
     QString mDefaultPic;
     QString mDefaultAdudio;
-    QString mDefaultVideo;
+    QString mDefaultVideonum;
     QString mDefaultText;
 
     QString mDefaultString;
 
     QStringList browserList;
+    QString watchfile;
 
     bool mFirstLoad;
+    bool mComboChange = false;
+
+    QFileSystemWatcher *mConfigFileWatcher;
 
 public slots:
     void browserComBoBox_changed_cb(int index);
@@ -149,7 +158,6 @@ public slots:
     void videoComBoBox_changed_cb(int index);
     void textComBoBox_changed_cb(int index);
     void keyChangedSlot(const QString &key);
-    void resetDefaultApp();
 Q_SIGNALS:
     void appInitDone(int index,const QString &type);
 };
