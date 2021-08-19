@@ -152,77 +152,29 @@ void Area::run_external_app_slot() {
 
 void Area::initUI() {
     //~ contents_path /area/Regional Format
-    ui->titleLabel->setText(tr("Regional Format"));
-    //~ contents_path /area/first language
-    ui->title3Label->setText(tr("first language"));
+    ui->titleLabel->setText(tr("Language Format"));
+    //~ contents_path /area/system language
+    ui->title3Label->setText(tr("System Language"));
 
+    ui->summaryLabel->setContentsMargins(16,0,0,0);
     ui->summaryLabel->setText(tr("Language for system windows,menus and web pages"));
     ui->summaryLabel->setVisible(true);
 
     initLanguage();
 
-    addWgt = new HoverWidget("");
-    addWgt->setObjectName(tr("addwgt"));
-    addWgt->setMinimumSize(QSize(580, 60));
-    QPalette pal;
-    QBrush brush = pal.highlight();  //获取window的色值
-    QColor highLightColor = brush.color();
-    QString stringColor = QString("rgba(%1,%2,%3)") //叠加20%白色
-           .arg(highLightColor.red()*0.8 + 255*0.2)
-           .arg(highLightColor.green()*0.8 + 255*0.2)
-           .arg(highLightColor.blue()*0.8 + 255*0.2);
-
-    addWgt->setStyleSheet(QString("HoverWidget#addwgt{background: palette(base);\
-                                   border-radius: 4px;}\
-                                   HoverWidget:hover:!pressed#addwgt{background: %1;  \
-                                   border-radius: 4px;}").arg(stringColor));
-
-    QHBoxLayout *addLyt = new QHBoxLayout;
-
-    QLabel * iconLabel = new QLabel();
-    QLabel * textLabel = new QLabel(tr("Add main language"));
-    QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
-    iconLabel->setPixmap(pixgray);
-    iconLabel->setProperty("useIconHighlightEffect", true);
-    iconLabel->setProperty("iconHighlightEffectMode", 1);
-
-    addLyt->addWidget(iconLabel);
-    addLyt->addWidget(textLabel);
-    addLyt->addStretch();
-    addWgt->setLayout(addLyt);
-
-    connect(addWgt, &HoverWidget::widgetClicked, this, [=](QString mname) {
-        Q_UNUSED(mname);
-        add_lan_btn_slot();
+    AddBtn *addBtn = new AddBtn;
+    addBtn->setFixedHeight(60);
+    connect(addBtn,&AddBtn::clicked,this,[=](){
+       add_lan_btn_slot();
     });
 
-    // 悬浮改变Widget状态
-    connect(addWgt, &HoverWidget::enterWidget, this, [=](){
-
-        iconLabel->setProperty("useIconHighlightEffect", false);
-        iconLabel->setProperty("iconHighlightEffectMode", 0);
-        QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "white", 12);
-        iconLabel->setPixmap(pixgray);
-        textLabel->setStyleSheet("color: white;");
-    });
-
-    // 还原状态
-    connect(addWgt, &HoverWidget::leaveWidget, this, [=](){
-
-        iconLabel->setProperty("useIconHighlightEffect", true);
-        iconLabel->setProperty("iconHighlightEffectMode", 1);
-        QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
-        iconLabel->setPixmap(pixgray);
-        textLabel->setStyleSheet("color: palette(windowText);");
-    });
-
-    ui->languageFrame->layout()->addWidget(addWgt);
+    ui->languageFrame->layout()->addWidget(addBtn);
 }
 
 void Area::initLanguage()
 {
-    LanguageFrame *chineseFrame = new LanguageFrame(tr("Simplified Chinese"));
-    LanguageFrame *englishFrame = new LanguageFrame(tr("English"));
+    LanguageFrame *chineseFrame = new LanguageFrame("简体中文");
+    LanguageFrame *englishFrame = new LanguageFrame("English");
     HLineFrame *lineF = new HLineFrame();
     HLineFrame *lineF_2 = new HLineFrame();
 

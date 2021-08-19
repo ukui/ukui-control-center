@@ -54,7 +54,7 @@ const QString kenBj =           "Asia/Beijing";
 //#define SYNC_TIME_KEY           "synctime"
 #define NTP_KEY                 "ntp"
 #define TIMEZONES_KEY           "timezones"
-#define MAX_TIMES               500
+#define MAX_TIMES               5
 
 volatile bool syncThreadFlag =  false;
 
@@ -142,8 +142,9 @@ void DateTime::initTitleLabel()
     //~ contents_path /date/Other Timezone
     ui->titleLabel_2->setText(tr("Other Timezone"));
     ui->timeClockLable->setObjectName("timeClockLable");
-    font.setPixelSize(m_fontSetting->get("systemFontSize").toInt() * 23 / 11);
+    font.setPixelSize(m_fontSetting->get("systemFontSize").toInt() * 28 / 11);
     font.setWeight(QFont::Medium);
+    font.setBold(true);
     ui->timeClockLable->setFont(font);
     delete m_fontSetting;
     m_fontSetting = nullptr;
@@ -154,7 +155,8 @@ void DateTime::initUI()
     m_formTimeBtn       = new SwitchButton(pluginWidget);
     //~ contents_path /date/24-hour clock
     m_formTimeLabel     = new QLabel(tr("24-hour clock"), pluginWidget);
-    ui->syncLabel->setText(tr("Sync from network"));
+    //~ contents_path /date/Sync time
+    ui->syncLabel->setText(tr("Sync Time"));
     syncNetworkRetLabel = new QLabel(pluginWidget);
     syncNetworkRetLabel->setStyleSheet("QLabel{font-size: 15px; color: #D9F82929;}");
 
@@ -224,7 +226,7 @@ void DateTime::initComponent()
     ui->timeClockLable->setContentsMargins(0,0,0,0);
 
     //~ contents_path /date/Change time zone
-    ui->chgzonebtn->setText(tr("Change time zone"));
+    ui->chgzonebtn->setText(tr("Change timezone"));
 
     ui->hourFrame->setVisible(false);  //移到area里面了
     QHBoxLayout *hourLayout = new QHBoxLayout(ui->hourFrame);
@@ -234,8 +236,8 @@ void DateTime::initComponent()
 
     ui->radioButton->adjustSize();
     ui->radioButton_2->adjustSize();
-    //~ contents_path /date/Sync Time
-    ui->radioButton->setText(tr("Sync Time"));
+    //~ contents_path /date/Auto Sync Time
+    ui->radioButton->setText(tr("Auto Sync Time"));
     //~ contents_path /date/Manual Time
     ui->radioButton_2->setText(tr("Manual Time"));
 
@@ -303,66 +305,11 @@ void DateTime::initTimeShow()
     ui->summaryLabel->setText(tr("Add time zones to display the time,only 5 can be added"));
     ui->summaryLabel->setVisible(false);
 
-    HoverWidget *addTimeWgt = new HoverWidget("");
-    addTimeWgt->setObjectName("addTimeWgt");
-    addTimeWgt->setMinimumSize(QSize(580, 60));
-
-    QPalette pal;
-    QBrush brush = pal.highlight();  //获取window的色值
-    QColor highLightColor = brush.color();
-
-    QString stringColor = QString("rgba(%1,%2,%3)") //叠加20%白色
-           .arg(highLightColor.red()*0.8 + 255*0.2)
-           .arg(highLightColor.green()*0.8 + 255*0.2)
-           .arg(highLightColor.blue()*0.8 + 255*0.2);
-
-    addTimeWgt->setStyleSheet(QString("HoverWidget#addTimeWgt{background: palette(base); \
-                                                      border-radius: 4px;}\
-                              HoverWidget:hover:!pressed#addTimeWgt{background: %1; \
-                                                                    border-radius: 4px;}").arg(stringColor));
-
-    QHBoxLayout *addLyt = new QHBoxLayout;
-
-    QLabel * iconLabel = new QLabel();
-    QLabel * textLabel = new QLabel(tr("Add Timezone"));
-    QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
-    iconLabel->setPixmap(pixgray);
-    iconLabel->setProperty("useIconHighlightEffect", true);
-    iconLabel->setProperty("iconHighlightEffectMode", 1);
-
-    addLyt->addStretch();
-    addLyt->addWidget(iconLabel);
-    addLyt->addWidget(textLabel);
-    addLyt->addStretch();
-    addTimeWgt->setLayout(addLyt);
-    ui->addLayout->addWidget(addTimeWgt);
-
-    connect(addTimeWgt, &HoverWidget::widgetClicked, this, [=](QString mname) {
-        Q_UNUSED(mname);
+    AddBtn * addTimeBtn = new AddBtn;
+    ui->addLayout->addWidget(addTimeBtn);
+    connect(addTimeBtn,&AddBtn::clicked,this,[=](){
         changeZoneFlag = false;
         changezoneSlot(1);
-    });
-
-    // 悬浮改变Widget状态
-    connect(addTimeWgt, &HoverWidget::enterWidget, this, [=](){
-//        if (!ui->addFrame->isEnabled())
-//            return;
-        iconLabel->setProperty("useIconHighlightEffect", false);
-        iconLabel->setProperty("iconHighlightEffectMode", 0);
-        QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "white", 12);
-        iconLabel->setPixmap(pixgray);
-        textLabel->setStyleSheet("color: white;");
-    });
-
-    // 还原状态
-    connect(addTimeWgt, &HoverWidget::leaveWidget, this, [=](){
-//        if (!ui->addFrame->isEnabled())
-//            return;
-        iconLabel->setProperty("useIconHighlightEffect", true);
-        iconLabel->setProperty("iconHighlightEffectMode", 1);
-        QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
-        iconLabel->setPixmap(pixgray);
-        textLabel->setStyleSheet("color: palette(windowText);");
     });
 
     if (m_formatsettings->keys().contains(TIMEZONES_KEY)) {
@@ -371,7 +318,7 @@ void DateTime::initTimeShow()
         int timesNum = timezonesList.size();
         if (timezonesList.size() >= MAX_TIMES) {
             timesNum = MAX_TIMES;
-            //ui->addFrame->setEnabled(false);
+            ui->addFrame->setEnabled(false);
             for (int i = MAX_TIMES; i < timezonesList.size(); ++i) {
                 timezonesList.removeLast();
             }
@@ -395,7 +342,7 @@ void DateTime::addTimezone(const QString &timezone)
     }
     timezonesList.append(timezone);
     if (timezonesList.size() >= MAX_TIMES) {
-        //ui->addFrame->setEnabled(false);
+        ui->addFrame->setEnabled(false);
     }
      if (m_formatsettings->keys().contains(TIMEZONES_KEY)) {
         m_formatsettings->set(TIMEZONES_KEY, timezonesList);
@@ -418,6 +365,9 @@ void DateTime::newTimeshow(const QString &timezone)
        }
        timeBtn->close();
        line->close();
+       if (!ui->addFrame->isEnabled() && timezonesList.size() < MAX_TIMES) {
+            ui->addFrame->setEnabled(true);
+        }
     });
 
     connect(m_itimer, &QTimer::timeout, this, [=](){
@@ -435,7 +385,7 @@ void DateTime::initNtp()
     ui->ntpFrame->setLayout(ntpLayout);
     ntpLayout->addWidget(ntpLabel);
     ntpLayout->addWidget(ntpCombox);
-    ntpLabel->setText(tr("Time Server"));
+    ntpLabel->setText(tr("Sync Server"));
     ntpCombox->setFixedHeight(36);
     ntpCombox->addItem(tr("Default"));
     ntpCombox->addItems(ntpAddressList);

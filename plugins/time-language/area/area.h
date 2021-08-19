@@ -33,7 +33,7 @@
 #include <QDBusReply>
 #include <QGSettings>
 #include <QListView>
-
+#include "AddBtn/addbtn.h"
 
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏

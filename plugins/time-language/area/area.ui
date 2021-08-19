@@ -53,7 +53,7 @@
       </size>
      </property>
      <property name="text">
-      <string>Regional Format</string>
+      <string>Language Format</string>
      </property>
     </widget>
    </item>
@@ -565,7 +565,7 @@
         </size>
        </property>
        <property name="text">
-        <string>first language</string>
+        <string>System Language</string>
        </property>
       </widget>
      </item>

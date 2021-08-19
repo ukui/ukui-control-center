@@ -18,6 +18,8 @@ include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
 include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
 include($$PROJECT_COMPONENTSOURCE/label.pri)
 include($$PROJECT_COMPONENTSOURCE/frame.pri)
+include($$PROJECT_COMPONENTSOURCE/addbtn.pri)
+include($$PROJECT_COMPONENTSOURCE/button.pri)
 
 TARGET = $$qtLibraryTarget(datetime)
 DESTDIR = ../..

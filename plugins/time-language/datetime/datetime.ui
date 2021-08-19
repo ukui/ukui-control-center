@@ -98,6 +98,18 @@
       </property>
       <item>
        <widget class="QFrame" name="frame_2">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>156</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>156</height>
+         </size>
+        </property>
         <property name="frameShape">
          <enum>QFrame::Box</enum>
         </property>
@@ -112,13 +124,13 @@
           <number>16</number>
          </property>
          <property name="topMargin">
-          <number>24</number>
+          <number>0</number>
          </property>
          <property name="rightMargin">
           <number>0</number>
          </property>
          <property name="bottomMargin">
-          <number>24</number>
+          <number>0</number>
          </property>
          <item>
           <widget class="QFrame" name="clockFrame">
@@ -164,6 +176,18 @@
          </item>
          <item>
           <widget class="QFrame" name="frame_5">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>90</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>90</height>
+            </size>
+           </property>
            <property name="frameShape">
             <enum>QFrame::StyledPanel</enum>
            </property>
@@ -171,6 +195,9 @@
             <enum>QFrame::Raised</enum>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_6">
+            <property name="spacing">
+             <number>0</number>
+            </property>
             <property name="leftMargin">
              <number>0</number>
             </property>
@@ -194,13 +221,13 @@
               <property name="minimumSize">
                <size>
                 <width>151</width>
-                <height>36</height>
+                <height>48</height>
                </size>
               </property>
               <property name="maximumSize">
                <size>
                 <width>167000</width>
-                <height>167000</height>
+                <height>48</height>
                </size>
               </property>
               <property name="font">
@@ -212,6 +239,9 @@
               </property>
               <property name="text">
                <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
               </property>
              </widget>
             </item>
@@ -253,36 +283,39 @@
                  <property name="minimumSize">
                   <size>
                    <width>153</width>
-                   <height>20</height>
+                   <height>36</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
                    <width>167000</width>
-                   <height>18000</height>
+                   <height>36</height>
                   </size>
                  </property>
                  <property name="text">
                   <string/>
                  </property>
+                 <property name="alignment">
+                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                 </property>
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="chgzonebtn">
+                <widget class="FixButton" name="chgzonebtn">
                  <property name="minimumSize">
                   <size>
-                   <width>188</width>
+                   <width>120</width>
                    <height>36</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>188</width>
+                   <width>120</width>
                    <height>36</height>
                   </size>
                  </property>
                  <property name="text">
-                  <string>Change time zone</string>
+                  <string>Change timezone</string>
                  </property>
                 </widget>
                </item>
@@ -1089,6 +1122,11 @@
    <class>FixLabel</class>
    <extends>QLabel</extends>
    <header>Label/fixlabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>FixButton</class>
+   <extends>QPushButton</extends>
+   <header>Button/fixbutton.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

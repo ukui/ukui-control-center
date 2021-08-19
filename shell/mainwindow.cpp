@@ -224,7 +224,7 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
                 m_animation->stop();
                 m_animation->setStartValue(QRect((m_searchWidget->width()-(m_queryIcon->width()+m_queryText->width()+10))/2,0,
                                                  m_queryIcon->width()+m_queryText->width()+30,(m_searchWidget->height()+32)/2));
-                m_animation->setEndValue(QRect(0, 0, m_queryIcon->width() + 5,(m_searchWidget->height()+32)/2));
+                m_animation->setEndValue(QRect(8, 0, m_queryIcon->width() + 5,(m_searchWidget->height()+32)/2));
                 m_animation->setEasingCurve(QEasingCurve::OutQuad);
                 m_animation->start();
                 m_searchWidget->setTextMargins(30, 1, 0, 1);
@@ -273,8 +273,9 @@ void MainWindow::initUI() {
                 QString className(widget->metaObject()->className());
                 if (widget->objectName() == "timeClockLable") {
                     QFont fontTime;
-                    font.setWeight(QFont::Medium);
-                    fontTime.setPixelSize(font.pointSize() * 23 / 11);
+                    fontTime.setBold(true);
+                    fontTime.setWeight(QFont::Medium);
+                    fontTime.setPixelSize(font.pointSize() * 28 / 11);
                     widget->setFont(fontTime);
                 } else if(widget->objectName() == "DateTime_Info") {
                     QFont fontTitle;
