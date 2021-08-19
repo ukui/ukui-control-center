@@ -527,13 +527,14 @@ void Power::retranslateUi()
 
 void Power::resetui()
 {
-    //990隐藏这些设置项
+    //9X0隐藏这些设置项
     if (Utils::isWayland()) {
         mNoticeLFrame->hide();
         mLowSaveFrame->hide();
         mBatterySaveFrame->hide();
         mDisplayTimeFrame->hide();
         mWakenPwdFrame->hide();
+        mCloseFrame->hide();
     }
 
     //不存在盖子隐藏该项
