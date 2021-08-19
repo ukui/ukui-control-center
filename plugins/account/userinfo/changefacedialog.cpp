@@ -63,6 +63,7 @@ ChangeFaceDialog::ChangeFaceDialog(QWidget *parent) :
     historyFacesFlowLayout = new FlowLayout(ui->historyFacesWidget);
     ui->historyFacesWidget->setLayout(historyFacesFlowLayout);
 
+    btnsGroup = new QButtonGroup;
 //    ElipseMaskWidget * cfMaskWidget = new ElipseMaskWidget(ui->faceLabel);
 ////    cfMaskWidget->setBgColor("#F4F4F4");
 //    cfMaskWidget->setGeometry(0, 0, ui->faceLabel->width(), ui->faceLabel->height());
@@ -104,9 +105,12 @@ void ChangeFaceDialog::loadSystemFaces(){
             continue;
 
         QPushButton * button = new QPushButton;
+        button->setCheckable(true);
         button->setAttribute(Qt::WA_DeleteOnClose);
         button->setFixedSize(QSize(56, 56));
 //        button->setStyleSheet("QPushButton{border: none;}");
+
+        btnsGroup->addButton(button);
 
         QHBoxLayout * mainHorLayout = new QHBoxLayout(button);
         mainHorLayout->setSpacing(0);

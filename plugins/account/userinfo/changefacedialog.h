@@ -30,6 +30,7 @@
 #include <QDBusInterface>
 #include <QDBusReply>
 #include <FlowLayout/flowlayout.h>
+#include <QButtonGroup>
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -81,6 +82,7 @@ private:
     Ui::ChangeFaceDialog *ui;
     QString m_username;
     QPixmap PixmapToRound(const QString &src, int radius);
+    QButtonGroup *btnsGroup;
 
 Q_SIGNALS:
     void face_file_send(QString file, QString username);
