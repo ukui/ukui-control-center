@@ -82,7 +82,7 @@ public:
     int scaleToSlider(const float value);
 
     void initUiComponent();
-    void addBrightnessFrame(QString name, bool openFlag);
+    void addBrightnessFrame(QString name, bool openFlag, QString serialNum);
     void showBrightnessFrame(const int flag = 0);
 
     void changescale();
@@ -160,10 +160,10 @@ private:
     QString getMonitorType();
 
     int getDDCBrighthess();
-    int getDDCBrighthess(QString name);
+    int getDDCBrighthess(QString name, QString serialNum);
     int getLaptopBrightness() const;
 
-    void setDDCBrightnessN(int value, QString screenName);
+    void setDDCBrightnessN(int value, QString serialNum);
     void setScreenKDS(QString kdsConfig);
     void setActiveScreen(QString status = "");
 

@@ -5,7 +5,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = launchSysDbus
 TEMPLATE = app
 
-CONFIG += console c++11 link_pkgconfig
+CONFIG += console c++11 link_pkgconfig concurrent
 CONFIG -= app_bundle
 
 PKGCONFIG     += gio-2.0 \

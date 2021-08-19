@@ -25,6 +25,13 @@
 #include <QProcess>
 #include <QFile>
 #include <QSettings>
+#include <QVector>
+
+struct brightInfo {
+    QString serialNum;
+    QString busType;
+    int     brightness;
+};
 
 class SysdbusRegister : public QObject
 {
@@ -38,8 +45,9 @@ public:
 
 private:
     QString mHibernateFile;
-
     QSettings *mHibernateSet;
+    QVector<struct brightInfo> brightInfo_V;
+    volatile bool runThreadFlag;
 
 signals:
     Q_SCRIPTABLE void nameChanged(QString);
@@ -79,6 +87,11 @@ public slots:
 
     // 修改硬件时间
     Q_SCRIPTABLE int changeRTC();
+
+    //获取显示器i2c bus号
+    Q_SCRIPTABLE void getBrightnessInfo();
+    Q_SCRIPTABLE void setDDCBrightnessUkui(QString brightness, QString serialNum);
+    Q_SCRIPTABLE int  getDDCBrightnessUkui(QString serialNum);
 
 };
 

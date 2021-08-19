@@ -325,6 +325,23 @@ void Widget::slotOutputEnabledChanged()
     Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
         if (output->isEnabled()) {
             ++enabledOutputsCount;
+            for (int i = 0; i < BrightnessFrameV.size(); ++i) {
+                if (BrightnessFrameV[i]->outputName == Utils::outputName(output) && !BrightnessFrameV[i]->slider->isEnabled()) {
+                    QtConcurrent::run([=]{
+                        int initValue = getDDCBrighthess(BrightnessFrameV[i]->outputName,BrightnessFrameV[i]->serialNum);
+                        if (initValue == -1 || BrightnessFrameV[i] == nullptr)
+                            return;
+                        BrightnessFrameV[i]->slider->setValue(initValue);
+                        BrightnessFrameV[i]->slider->setEnabled(true);
+                        BrightnessFrameV[i]->setTextLableValue(QString::number(initValue));
+                        connect(BrightnessFrameV[i]->slider, &QSlider::valueChanged, this, [=](){
+                                            qDebug()<<BrightnessFrameV[i]->outputName<<"brightness"<<" is changed, value = "<<BrightnessFrameV[i]->slider->value();
+                                            BrightnessFrameV[i]->setTextLableValue(QString::number(BrightnessFrameV[i]->slider->value()));
+                                            setDDCBrightnessN(BrightnessFrameV[i]->slider->value(), BrightnessFrameV[i]->serialNum);
+                        });
+                    });
+                }
+            }
         }
         if (enabledOutputsCount > 1) {
             break;
@@ -806,36 +823,30 @@ int Widget::getDDCBrighthess()
     return 0;
 }
 
-int Widget::getDDCBrighthess(QString name)
+int Widget::getDDCBrighthess(QString name, QString serialNum)
 {
-    QString type;
-    int times = 100;
-    if (name.contains("VGA", Qt::CaseInsensitive)) {
-        type = "4";
-    } else {
-        type = "8";
-    }
+    int times = 10;
     QDBusInterface ukccIfc("com.control.center.qt.systemdbus",
                            "/",
                            "com.control.center.interface",
                            QDBusConnection::systemBus());
-
+    QDBusReply<int> reply;
     while (--times) {
-        if (exitFlag == true)
-            return -1;
         for (int i = 0; i < deleteFrameNameV.size(); ++i) {
             if (name == deleteFrameNameV[i]) {  //该屏幕已经被remove
                 deleteFrameNameV.remove(i);
                 return -1;
             }
         }
-        QDBusReply<int> reply = ukccIfc.call("getDDCBrightness", type);
-        if (reply.isValid() && reply.value() > 0) {
+        if (serialNum == "" || exitFlag)
+            return -1;
+        reply = ukccIfc.call("getDDCBrightnessUkui", serialNum);
+        if (reply.isValid() && reply.value() >= 0 && reply.value() <= 100) {
             return reply.value();
         }
-        usleep(80000);
+        sleep(2);
     }
-    return 0;
+    return -1;
 }
 
 int Widget::getLaptopBrightness() const
@@ -889,7 +900,7 @@ void Widget::clearOutputIdentifiers()
     mOutputIdentifiers.clear();
 }
 
-void Widget::addBrightnessFrame(QString name, bool openFlag)
+void Widget::addBrightnessFrame(QString name, bool openFlag, QString serialNum)
 {
     if (mIsBattery && name != "eDP")  //笔记本非内置
         return;
@@ -899,10 +910,11 @@ void Widget::addBrightnessFrame(QString name, bool openFlag)
             return;
     }
     BrightnessFrame *frame = new BrightnessFrame;
+    frame->serialNum = serialNum;
     frame->openFlag = openFlag;
     frame->setTextLableValue("0"); //最低亮度10,获取前为0
     BrightnessFrameV.push_back(frame);
-
+    frame->slider->setEnabled(false);
     for (int i = 0; i < deleteFrameNameV.size(); ++i) {
         if (deleteFrameNameV[i] == name) {
             deleteFrameNameV.remove(i);
@@ -914,6 +926,7 @@ void Widget::addBrightnessFrame(QString name, bool openFlag)
         frame->setTextLableValue(QString::number(initValue));
         frame->slider->setValue(initValue);
         ui->unifyBrightLayout->addWidget(frame);
+        frame->slider->setEnabled(true);
         connect(frame->slider, &QSlider::valueChanged, this, [=](){
             qDebug()<<name<<"brightness"<<" is changed, value = "<<frame->slider->value();
             mPowerGSettings->set(POWER_KEY, frame->slider->value());
@@ -924,15 +937,18 @@ void Widget::addBrightnessFrame(QString name, bool openFlag)
         ui->unifyBrightLayout->addWidget(frame);
         frame->slider->setValue(10);
         QtConcurrent::run([=]{
-            int initValue = getDDCBrighthess(frame->outputName);
+            if (openFlag == false)
+                return;
+            int initValue = getDDCBrighthess(name,serialNum);
             if (initValue == -1 || frame == nullptr)
                 return;
+            frame->slider->setEnabled(true);
             frame->slider->setValue(initValue);
             frame->setTextLableValue(QString::number(initValue));
             connect(frame->slider, &QSlider::valueChanged, this, [=](){
-                                 qDebug()<<name<<"brightness"<<" is changed, value = "<<frame->slider->value();
-                                 frame->setTextLableValue(QString::number(frame->slider->value()));
-                                 setDDCBrightnessN(frame->slider->value(), name);
+                 qDebug()<<name<<"brightness"<<" is changed, value = "<<frame->slider->value();
+                 frame->setTextLableValue(QString::number(frame->slider->value()));
+                 setDDCBrightnessN(frame->slider->value(), frame->serialNum);
             });
         });
 
@@ -941,8 +957,11 @@ void Widget::addBrightnessFrame(QString name, bool openFlag)
 
 void Widget::outputAdded(const KScreen::OutputPtr &output)
 {
-    QString name = Utils::outputName(output);
-    addBrightnessFrame(name, output->isEnabled());
+    if (output->isConnected()) {
+        QString name = Utils::outputName(output);
+        addBrightnessFrame(name, output->isEnabled(), output->edid()->serial());
+    }
+
     // 刷新缩放选项，监听新增显示屏的mode变化
     changescale();
     if (output->isConnected()) {
@@ -1186,24 +1205,22 @@ void Widget::isWayland()
 }
 
 
-void Widget::setDDCBrightnessN(int value, QString screenName)
+void Widget::setDDCBrightnessN(int value, QString serialNum)
 {
-    QString type;
-    if (screenName.contains("VGA", Qt::CaseInsensitive)) {
-        type = "4";
-    } else {
-        type = "8";
-    }
+    if (serialNum == "")
+            return;
+
     QDBusInterface ukccIfc("com.control.center.qt.systemdbus",
                            "/",
                            "com.control.center.interface",
                            QDBusConnection::systemBus());
 
 
-       if (mLock.tryLock()) {
-            ukccIfc.call("setDDCBrightness", QString::number(value), type);
-            mLock.unlock();
-       }
+    if (mLock.tryLock()) {
+        ukccIfc.call("setDDCBrightnessUkui", QString::number(value), serialNum);
+        mLock.unlock();
+    }
+
 }
 
 void Widget::setScreenKDS(QString kdsConfig)
@@ -2078,11 +2095,11 @@ void Widget::showBrightnessFrame(const int flag)
                         allShowFlag = false;
                     }
                     for (int i = 0; i < BrightnessFrameV.size(); ++i) { //检查其它显示屏是否实际打开，否则关闭，适用于显示器插拔
-                            if (BrightnessFrameV[i]->outputName == Utils::outputName(secOutput)){
-                                if (!secOutput->isEnabled())
-                                    BrightnessFrameV[i]->openFlag = false;
-                                else
-                                    BrightnessFrameV[i]->openFlag = true;
+                        if (BrightnessFrameV[i]->outputName == Utils::outputName(secOutput)){
+                            if (!secOutput->isEnabled())
+                                BrightnessFrameV[i]->openFlag = false;
+                            else
+                                BrightnessFrameV[i]->openFlag = true;
                         }
                     }
                 }

@@ -17,6 +17,7 @@ public:
     void setTextLableValue(QString text);
     Uslider *slider = nullptr;
     QString outputName;
+    QString serialNum;
     bool    openFlag = true;
 private:
     QLabel *labelName = nullptr;
