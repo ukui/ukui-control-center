@@ -79,6 +79,7 @@
 #define PERSONALSIE_SCHEMA "org.ukui.control-center.personalise"
 #define PERSONALSIE_TRAN_KEY "transparency"
 #define PERSONALSIE_BLURRY_KEY "blurry"
+#define PERSONALSIE_EFFECT_KEY "effect"
 
 const QString defCursor = "DMZ-White";
 const int transparency = 95;
@@ -569,6 +570,7 @@ void Theme::initConnection() {
         } else {
             personliseGsettings->set(PERSONALSIE_TRAN_KEY,1);
         }
+        personliseGsettings->set(PERSONALSIE_EFFECT_KEY, checked);
         QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
 //        ui->transFrame->setVisible(checked);
         writeKwinSettings(checked, currentThemeMode, true);
