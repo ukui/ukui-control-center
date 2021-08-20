@@ -547,6 +547,7 @@ void TabWid::allComponents()
     allProgressBar->setFixedHeight(4);
     allProgressBar->hide();
     allProgressBar->setValue(0);
+    allProgressBar->setTextVisible(false);
 
     progressLabel = new QLabel(systemWidget);
     //    progressLabel->setText(tr("45M/300M"));
