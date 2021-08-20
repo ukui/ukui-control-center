@@ -83,6 +83,7 @@ private:
     QString m_username;
     QPixmap PixmapToRound(const QString &src, int radius);
     QButtonGroup *btnsGroup;
+    QPushButton *old_delBtn = nullptr;
 
 Q_SIGNALS:
     void face_file_send(QString file, QString username);

@@ -181,6 +181,15 @@ void ChangeFaceDialog::loadHistoryFaces(){
         QLabel * delBtnLabel = new QLabel(delBtn);
         delBtnLabel->setScaledContents(true);
         delBtnLabel->setPixmap(QPixmap(":/img/plugins/userinfo/delete.png"));
+
+        delBtnLayout->addStretch();
+        delBtnLayout->addWidget(delBtn);
+        delBtnLayout->setContentsMargins(0,0,0,50);
+
+        mainHorLayout->addWidget(iconLabel);
+        iconLabel->setLayout(delBtnLayout);
+        delBtn->hide();
+
         connect(delBtn, &QPushButton::clicked, this, [=]{
             sysinterface = new QDBusInterface("com.control.center.qt.systemdbus",
                                              "/",
@@ -200,20 +209,28 @@ void ChangeFaceDialog::loadHistoryFaces(){
                 sysinterface->call("systemRun", QVariant(cmd));
             }
             loadHistoryFaces();
+
+            old_delBtn = nullptr;
         });
-
-        delBtnLayout->addStretch();
-        delBtnLayout->addWidget(delBtn);
-        delBtnLayout->setContentsMargins(0,0,0,50);
-
-        mainHorLayout->addWidget(iconLabel);
-        iconLabel->setLayout(delBtnLayout);
 
         button->setLayout(mainHorLayout);
         historyFacesFlowLayout->addWidget(button);
         connect(button, &QPushButton::clicked, this, [=]{
             setFace(historyface);
             confirmFile = historyface;
+
+            delBtn->show();
+
+            if (old_delBtn != nullptr) {
+                qDebug() << delBtn << old_delBtn;
+
+                old_delBtn->hide();
+                old_delBtn = delBtn;
+            }
+            //qDebug() << k << "old " << &old_delBtn << "curr " << delBtn;
+            if (old_delBtn == nullptr) {
+                old_delBtn = delBtn;
+            }
         });
     }
 
@@ -225,6 +242,7 @@ void ChangeFaceDialog::loadHistoryFaces(){
     historyFacesFlowLayout->addWidget(addBtn);
     connect(addBtn, &QPushButton::clicked, this, [=]{
         showLocalFaceDialog();
+        old_delBtn = nullptr;
     });
 }
 
