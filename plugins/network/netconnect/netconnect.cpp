@@ -172,8 +172,11 @@ void NetConnect::initComponent() {
         QElapsedTimer time;
         time.start();
         kdsDbus->call("emitRfkillStatusChanged");
-        while (time.elapsed() < 1000) {
+        while (time.elapsed() < 2000) {
             QCoreApplication::processEvents();
+        }
+        if (m_interface) {
+            m_interface->call("requestRefreshWifiList");
         }
         getNetList();
     });
@@ -398,7 +401,7 @@ void NetConnect::netPropertiesChangeSlot(QMap<QString, QVariant> property) {
 }
 
 //网络详情页填充
-void NetConnect::netDetailOpen(NetDetail *netDetail,QString netName){
+void NetConnect::netDetailOpen(QString netName){
     foreach (ActiveConInfo netInfo, mActiveInfo) {
         if (!netInfo.strConName.compare(netName, Qt::CaseInsensitive)) {
             if (!netInfo.strConType.compare("802-3-ethernet", Qt::CaseInsensitive)) {
