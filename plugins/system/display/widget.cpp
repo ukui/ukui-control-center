@@ -410,16 +410,16 @@ void Widget::slotUnifyOutputs()
                     }
                 }
             }
-        }
 
-        QPoint raw(0,0);
-        int originCount = 0;
-        Q_FOREACH(KScreen::OutputPtr output, screens) {
-            if (output->pos() == raw) {
-                originCount++;
-            }
-            if (originCount >= 2) {
-                setScreenKDS("expand");
+            QPoint raw(0,0);
+            int originCount = 0;
+            Q_FOREACH(KScreen::OutputPtr output, screens) {
+                if (output->pos() == raw) {
+                    originCount++;
+                }
+                if (originCount >= 2) {
+                    setScreenKDS("expand");
+                }
             }
         }
 
@@ -1400,19 +1400,19 @@ int Widget::screenEnableCount()
 //通过win+p修改，不存在按钮影响亮度显示的情况，直接就应用了，此时每个屏幕的openFlag是没有修改的，需要单独处理(setScreenKDS)
 void Widget::kdsScreenchangeSlot(QString status)
 {
-    if (!status.compare(mPreKDSCfg)) {
-        return;
-    }
+    QTimer::singleShot(2500, this, [=] {
+        if (!status.compare(mPreKDSCfg)) {
+            return;
+        }
 
-    bool isCheck = (status == "copy") ? true : false;
-    mKDSCfg = status;
-    mPreKDSCfg = status;
-    setScreenKDS(mKDSCfg);
-    if (mConfig->connectedOutputs().count() >= 2) {
-        mUnifyButton->setChecked(isCheck);
-    }
+        bool isCheck = (status == "copy") ? true : false;
+        mKDSCfg = status;
+        mPreKDSCfg = status;
+        mPrevConfig = mConfig->clone();
+        if (mConfig->connectedOutputs().count() >= 2) {
+            mUnifyButton->setChecked(isCheck);
+        }
 
-    QTimer::singleShot(1500, this, [=]{
         Q_FOREACH(KScreen::OutputPtr output, mConfig->connectedOutputs()) {
             if (output.isNull())
                 continue;
@@ -1444,6 +1444,7 @@ void Widget::delayApply()
 
 void Widget::save()
 {
+    qDebug() << Q_FUNC_INFO << "apply config";
     if (!this) {
         return;
     }
