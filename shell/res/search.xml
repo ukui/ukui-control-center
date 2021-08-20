@@ -670,8 +670,8 @@
         <ChineseFunc>夜间模式</ChineseFunc>
         <EnglishFunc>Night Mode</EnglishFunc>
     </plugin>
-    <plugin>
-        <pinyinPlugin>cloudaccount</pinyinPlugin>
+    <plugin name="cloudaccount">
+        <pinyinPlugin>yunzhanghu</pinyinPlugin>
         <pinyinfunc>yunzhanghu</pinyinfunc>
         <ChinesePlugin>云账户</ChinesePlugin>
         <ChineseFunc>云账户</ChineseFunc>
