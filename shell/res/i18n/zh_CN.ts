@@ -3442,7 +3442,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="28"/>
         <source>Set</source>
-        <translation type="unfinished">系统设置</translation>
+        <translation>系统设置</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="80"/>
