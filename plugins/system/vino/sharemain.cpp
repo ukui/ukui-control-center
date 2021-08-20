@@ -121,26 +121,9 @@ void ShareMain::initUI()
 
     mSecurityPwdFrame->setLayout(pwdHLayout);
 
-    QFrame *line_1 = new QFrame(this);
-    line_1->setMinimumSize(QSize(0, 1));
-    line_1->setMaximumSize(QSize(16777215, 1));
-    line_1->setLineWidth(0);
-    line_1->setFrameShape(QFrame::HLine);
-    line_1->setFrameShadow(QFrame::Sunken);
-
-    QFrame *line_2 = new QFrame(this);
-    line_2->setMinimumSize(QSize(0, 1));
-    line_2->setMaximumSize(QSize(16777215, 1));
-    line_2->setLineWidth(0);
-    line_2->setFrameShape(QFrame::HLine);
-    line_2->setFrameShadow(QFrame::Sunken);
-
-    QFrame *line_3 = new QFrame(this);
-    line_3->setMinimumSize(QSize(0, 1));
-    line_3->setMaximumSize(QSize(16777215, 1));
-    line_3->setLineWidth(0);
-    line_3->setFrameShape(QFrame::HLine);
-    line_3->setFrameShadow(QFrame::Sunken);
+    line_1 = setLine(mVinoFrame);
+    line_2 = setLine(mVinoFrame);
+    line_3 = setLine(mVinoFrame);
 
     mVinoLyt->addWidget(mEnableFrame);
     mVinoLyt->addWidget(line_1);
@@ -212,7 +195,9 @@ void ShareMain::setFrameVisible(bool visible)
     mViewFrame->setVisible(visible);
     mSecurityFrame->setVisible(visible);
     mSecurityPwdFrame->setVisible(visible);
-    mVinoTitleLabel->setVisible(visible);
+    line_1->setVisible(visible);
+    line_2->setVisible(visible);
+    line_3->setVisible(visible);
 }
 
 void ShareMain::setVinoService(bool status)
@@ -228,6 +213,17 @@ void ShareMain::setVinoService(bool status)
             vinoIfc.call("DisableService", "vino-server");
         }
     }
+}
+
+QFrame *ShareMain::setLine(QFrame *frame)
+{
+    QFrame *line = new QFrame(frame);
+    line->setMinimumSize(QSize(0, 1));
+    line->setMaximumSize(QSize(16777215, 1));
+    line->setLineWidth(0);
+    line->setFrameShape(QFrame::HLine);
+    line->setFrameShadow(QFrame::Sunken);
+    return line;
 }
 
 void ShareMain::enableSlot(bool status)

@@ -65,6 +65,9 @@ private:
     QFrame *mNoticeWFrame;
     QFrame *mNoticeOFrame;
     QFrame *mNoticeNFrame;
+    QFrame *line_1;
+    QFrame *line_2;
+    QFrame *line_3;
 
     SwitchButton *mEnableBtn;  // 允许其他人查看桌面
     SwitchButton *mViewBtn;    // 允许连接控制屏幕
@@ -100,6 +103,7 @@ private:
     void initEnableStatus();
     void setFrameVisible(bool visible);
     void setVinoService(bool status);
+    QFrame *setLine(QFrame *frame);
 
 private slots:
     void enableSlot(bool status);
