@@ -81,7 +81,6 @@ private:
     Ui::ChangePwdDialog *ui;
 
     bool checkCharLegitimacy(QString password);
-    bool checkOtherPasswd(QString name, QString pwd);
 
     bool QLabelSetText(QLabel *label, QString string);
 

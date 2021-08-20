@@ -112,9 +112,6 @@ bool ChangePwdDialog::isRemoteUser(){
         userslist.append(QString(output).simplified());
     }
 
-    qDebug() << "userslist: " << userslist;
-    qDebug() << currentUserName;
-
     if (userslist.contains(currentUserName)){
         result = false;
     } else {
@@ -124,40 +121,6 @@ bool ChangePwdDialog::isRemoteUser(){
     pclose(stream);
     return result;
 
-}
-
-bool ChangePwdDialog::checkOtherPasswd(QString name, QString pwd){
-    FILE * stream;
-    char command[128];
-    char output[256];
-
-    QByteArray ba1 = name.toLatin1();
-
-    //
-    if (pwd.contains("'")){
-        snprintf(command, 128, "/usr/bin/checkTest %s \"%s\"", ba1.data(), pwd.toLatin1().data());
-    } else {
-
-        snprintf(command, 128, "/usr/bin/checkTest %s '%s'", ba1.data(), pwd.toLatin1().data());
-    }
-
-    if ((stream = popen(command, "r")) == NULL){
-        return false;
-    }
-
-    while(fgets(output, 256, stream) != NULL){
-        qDebug() << "output:" << QString(output).simplified();
-    }
-
-//    if (fread(output, sizeof(char), 128, stream) > 0){
-//        pclose(stream);
-//        return true;
-//    }
-
-
-
-    pclose(stream);
-    return false;
 }
 
 void ChangePwdDialog::initPwdChecked(){
@@ -257,6 +220,7 @@ void ChangePwdDialog::setupConnect(){
                 if (!txt.isEmpty()){
                     curPwdTip = "";
                     ui->tipLabel->setText(curPwdTip);
+                    pwdLegalityCheck();
                 }
 
                 refreshConfirmBtnStatus();

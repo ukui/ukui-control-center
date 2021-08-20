@@ -61,6 +61,8 @@ extern "C" {
 #define DEFAULTFACE "/usr/share/ukui/faces/default.png"
 #define ITEMHEIGH 52
 
+#define STYLE_FONT_SCHEMA  "org.ukui.style"
+
 UserInfo::UserInfo() : mFirstLoad(true)
 {
     pluginName = tr("User Info");
@@ -74,6 +76,8 @@ UserInfo::~UserInfo()
         ui = nullptr;
         delete autoSettings;
         autoSettings = nullptr;
+        delete pSetting;
+        pSetting = nullptr;
     }
 }
 
@@ -94,6 +98,9 @@ QWidget *UserInfo::get_plugin_ui() {
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
         ui->setupUi(pluginWidget);
 
+        const QByteArray styleID(STYLE_FONT_SCHEMA);
+        pSetting = new QGSettings(styleID, QByteArray(), this);
+
         // 构建System dbus调度对象
         sysdispatcher = new SystemDbusDispatcher(this);
 
@@ -108,6 +115,24 @@ QWidget *UserInfo::get_plugin_ui() {
         initAllUserStatus();
         // 设置界面用户信息
         _refreshUserInfoUI();
+
+        connect(pSetting, &QGSettings::changed, this, [=](QString key){
+            if (QString::compare(key, "systemFontSize") == 0){
+
+                QMap<QString, UserInfomation>::iterator it = allUserInfoMap.begin();
+                for (; it != allUserInfoMap.end(); it++){
+                    UserInfomation user = it.value();
+
+                    //当前用户
+                    if (user.username == QString(g_get_user_name())){
+                        //刷新
+                        if (QLabelSetText(ui->userNameLabel, user.realname))
+                            ui->userNameLabel->setToolTip(user.realname);
+                    }
+                }
+            }
+
+        });
     }
     return pluginWidget;
 }
@@ -586,9 +611,10 @@ void UserInfo::initComponent(){
 //    });
 
     //成功新建用户的回调
-    connect(sysdispatcher, &SystemDbusDispatcher::createuserdone, this, [=](QString objPath){
-        createUserDone(objPath);
-    });
+//    connect(sysdispatcher, &SystemDbusDispatcher::createuserdone, this, [=](QString objPath){
+//        createUserDone(objPath);
+//    });
+    QDBusConnection::systemBus().connect(QString(), QString(), "org.freedesktop.Accounts", "UserAdded", this, SLOT(createUserDone(QDBusObjectPath)));
 
     //初始化生物密码控件
     initBioComonent();
@@ -884,19 +910,7 @@ QStringList UserInfo::getUsersList()
 
 void UserInfo::createUser(QString username, QString pwd, QString pin, int atype){
     Q_UNUSED(pin);
-    sysdispatcher->create_user(username, "", atype);
-
-    //使用全局变量传递新建用户密码
-    _newUserPwd = pwd;
-    _newUserName = username;
-}
-
-void UserInfo::createUserDone(QString objpath){
-    UserDispatcher * userdispatcher  = new UserDispatcher(objpath);
-    //设置默认头像
-    userdispatcher->change_user_face(DEFAULTFACE);
-    //设置默认密码
-//    userdispatcher->change_user_pwd(_newUserPwd, "");
+//    sysdispatcher->create_user(username, "", atype);
     QDBusInterface * tmpSysinterface = new QDBusInterface("com.control.center.qt.systemdbus",
                                                           "/",
                                                           "com.control.center.interface",
@@ -906,11 +920,17 @@ void UserInfo::createUserDone(QString objpath){
         qCritical() << "Create Client Interface Failed When : " << QDBusConnection::systemBus().lastError();
         return;
     }
+
     tmpSysinterface->call("setPid", QCoreApplication::applicationPid());
-    tmpSysinterface->call("changeOtherUserPasswd", _newUserName, _newUserPwd);
+    tmpSysinterface->call("createUser", username, username, atype, DEFAULTFACE, pwd);
 
     delete tmpSysinterface;
     tmpSysinterface = nullptr;
+
+}
+
+void UserInfo::createUserDone(QDBusObjectPath op){
+    QString objpath = op.path();
 
     //刷新全部用户信息
     _acquireAllUsersInfo();
@@ -1227,15 +1247,22 @@ void UserInfo::changeUserPwd(QString pwd, QString username){
     tmpSysinterface = nullptr;
 }
 
+
+#define FONTSWIDTH 100
+
 bool UserInfo::QLabelSetText(QLabel *label, QString string)
 {
     bool is_over_length = false;
     QFontMetrics fontMetrics(label->font());
     int fontSize = fontMetrics.width(string);
+
     QString str = string;
-    if (fontSize > (label->width()-5)) {
-        str = fontMetrics.elidedText(string, Qt::ElideRight, label->width()-10);
+    if (fontSize > FONTSWIDTH) {
+        label->setFixedWidth(FONTSWIDTH);
+        str = fontMetrics.elidedText(string, Qt::ElideRight, FONTSWIDTH);
         is_over_length = true;
+    } else {
+        label->setFixedWidth(fontSize);
     }
     label->setText(str);
     return is_over_length;

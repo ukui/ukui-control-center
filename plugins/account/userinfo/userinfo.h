@@ -27,6 +27,8 @@
 #include <QMouseEvent>
 #include <QSettings>
 
+#include <QDBusObjectPath>
+
 #include "shell/interface.h"
 
 #include "qtdbus/systemdbusdispatcher.h"
@@ -167,7 +169,6 @@ public:
 
     void showCreateUserDialog();
     void createUser(QString username, QString pwd, QString pin, int atype);
-    void createUserDone(QString objpath);
 
     void showDeleteUserDialog(QString username);
     void deleteUser(bool removefile, QString username);
@@ -213,6 +214,8 @@ private:
     HoverWidget *addWgt;
 
     PwdChangeThread * pcgThread;
+
+    QGSettings * pSetting;
 
     //增加生物密码
     HoverWidget *addBioFeatureWidget;
@@ -291,6 +294,8 @@ private slots:
      * @param deviceNum 插拔动作后该驱动拥有的设备数量
      */
     void onBiometricUSBDeviceHotPlug(int drvid, int action, int deviceNum);
+
+    void createUserDone(QDBusObjectPath op);
 
 };
 

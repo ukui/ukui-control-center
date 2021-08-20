@@ -26,6 +26,9 @@
 #include <stdlib.h>
 #include <QDir>
 
+#include <QDBusInterface>
+#include <QDBusReply>
+
 #include <polkit-qt5-1/polkitqt1-authority.h>
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
@@ -158,6 +161,34 @@ void SysdbusRegister::setPasswdAging(int days, QString username) {
     QProcess::execute(cmd);
 }
 
+int SysdbusRegister::_changeOtherUserPasswd(QString username, QString pwd){
+
+    std::string str1 = username.toStdString();
+    const char * user_name = str1.c_str();
+
+    std::string str2 = pwd.toStdString();
+    const char * passwd = str2.c_str();
+
+    QString output;
+
+    char * cmd = g_strdup_printf("/usr/bin/changeotheruserpwd %s %s", user_name, passwd);
+
+    FILE   *stream;
+    char buf[256];
+
+    if ((stream = popen(cmd, "r" )) == NULL){
+        return -1;
+    }
+
+    while(fgets(buf, 256, stream) != NULL){
+        output = QString(buf).simplified();
+    }
+
+    pclose(stream);
+
+    return 1;
+}
+
 int SysdbusRegister::changeOtherUserPasswd(QString username, QString pwd){
 
     if (_id == 0){
@@ -176,31 +207,57 @@ int SysdbusRegister::changeOtherUserPasswd(QString username, QString pwd){
         return -1;
     }
 
-    std::string str1 = username.toStdString();
-    const char * user_name = str1.c_str();
+    _changeOtherUserPasswd(username, pwd);
 
-    std::string str2 = pwd.toStdString();
-    const char * passwd = str2.c_str();
+    // reset
+    _id = 0;
+    return 1;
 
-    QString output;
+}
 
-    char * cmd = g_strdup_printf("/usr/bin/changeotheruserpwd %s %s", user_name, passwd);
+int SysdbusRegister::createUser(QString name, QString fullname, int accounttype, QString faceicon, QString pwd){
+    if (_id == 0){
+        return -1;
+    }
 
-    FILE   *stream;
-    char buf[256];
+    PolkitQt1::Authority::Result result;
 
-    if ((stream = popen(cmd, "r" )) == NULL){
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action",
+                PolkitQt1::UnixProcessSubject(_id),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::No){
         _id = 0;
         return -1;
     }
 
-    while(fgets(buf, 256, stream) != NULL){
-        output = QString(buf).simplified();
+    QDBusInterface iface("org.freedesktop.Accounts",
+                         "/org/freedesktop/Accounts",
+                         "org.freedesktop.Accounts",
+                         QDBusConnection::systemBus());
+
+    QDBusReply<QDBusObjectPath> reply = iface.call("CreateUser", name, fullname, accounttype);
+
+    if (reply.isValid()){
+        QString op = reply.value().path();
+        if (!op.isEmpty()){
+
+            QDBusInterface ifaceUser("org.freedesktop.Accounts",
+                                     op,
+                                     "org.freedesktop.Accounts.User",
+                                     QDBusConnection::systemBus());
+            // 设置头像
+            ifaceUser.call("SetIconFile", faceicon);
+
+            // 设置密码
+            _changeOtherUserPasswd(name, pwd);
+
+
+        }
     }
 
-    pclose(stream);
 
-    // reset
     _id = 0;
     return 1;
 
