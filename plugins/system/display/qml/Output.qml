@@ -79,7 +79,6 @@ QMLOutput {
         //是否激活时的透明度
         opacity: root.output.enabled ? 1.0 : 0.3;
         transformOrigin: Item.Center;
-        enabled: root.output.enabled;
         rotation: {
             if (output.rotation === KScreenOutput.None) {
                 return 0;
