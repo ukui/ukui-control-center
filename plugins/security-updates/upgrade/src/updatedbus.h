@@ -98,6 +98,7 @@ public:
     void fileUnLock();
     //调用接口插入数据库
     void insertInstallStates(QString item, QString info);
+    void disconnectDbusSignal();
 signals:
     void copyFinish(QString appName);
     void transferAptProgress(QString status,QString appName,float aptPercent,QString errormsg);

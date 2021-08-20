@@ -91,7 +91,7 @@ void TabWid::getAutoUpgradeStatus()
         isAutoUpgrade = true;
         /*如果自动更新在备份中，那就直接绑定备份还原信号即可*/
         isAllUpgrade = true;
-        bool ret = autoUpdateLoadUpgradeList(true  );
+        bool ret = autoUpdateLoadUpgradeList(true);
         if (ret) {
             bacupInit(true);
             backup->creatInterface();
@@ -118,7 +118,9 @@ void TabWid::getAutoUpgradeStatus()
         isAllUpgrade = true;
         checkUpdateBtn->hide();
         checkUpdateBtn->setText(tr("UpdateAll"));
-        autoUpdateLoadUpgradeList(false);
+        bool ret = autoUpdateLoadUpgradeList(false);
+        if (!ret)
+            updateMutual->disconnectDbusSignal();
     } else if (!ret.compare("idle")) {
         /*如果没有进行自动更新，那就不需要操作 */
         checkUpdateBtn->setEnabled(true);
@@ -173,6 +175,7 @@ bool TabWid::autoUpdateLoadUpgradeList(bool isBackUp)
         return true;
     }
 }
+
 
 void TabWid::unableToConnectSource()
 {
