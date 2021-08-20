@@ -552,7 +552,6 @@ void MainWindow::loadPlugins(){
                 || (!QGSettings::isSchemaInstalled(kVinoSchemas) && "libvino.so" == fileName)
                 || ("libbluetooth.so" == fileName && !isExitBluetooth())
                 || ("libpower.so" == fileName && !isExitsPower())
-                || ("libtouchscreen.so" == fileName && isExitTouchScreen())
                 || ("libupdate.so" == fileName && !Utils::isCommunity())) {
             continue;
         }
