@@ -82,6 +82,8 @@ public:
 //    bool makeDirs(QString path);
 //dbus接口函数定义完毕
     //
+    void SetDownloadLimit(int,bool);
+    int GetDownloadLimit(void);
     void onRequestSendDesktopNotify(QString message);
     QStringList inameList;  //重要更新列表
     QStringList importantList;
@@ -96,6 +98,7 @@ public:
     void fileUnLock();
     //调用接口插入数据库
     void insertInstallStates(QString item, QString info);
+    void disconnectDbusSignal();
 signals:
     void copyFinish(QString appName);
     void transferAptProgress(QString status,QString appName,float aptPercent,QString errormsg);

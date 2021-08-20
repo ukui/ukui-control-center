@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QTabWidget>
 #include <QLabel>
+#include <QSpinBox>
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -88,6 +89,12 @@ public:
     QHBoxLayout *isAutoBackupLayout;
     QLabel *isAutoBackupLab;
     SwitchButton *isAutoBackupSBtn;
+    //download limit widgets
+    QFrame *DownloadLimitWidget;
+    QHBoxLayout *DownloadLimitLayout;
+    QLabel *DownloadLimitLab;
+    SwitchButton *DownloadLimitBtn;
+    QSpinBox *DownloadLimitValue;
 
     QFrame *isAutoUpgradeWidget;
     QVBoxLayout *isAutoUpgradeLayout;
@@ -136,6 +143,9 @@ public slots:
     void hideUpdateBtnSlot(bool isSucceed);
     void changeUpdateAllSlot(bool isUpdate);
 
+    void DownloadLimitSwitchChanged();
+    void DownloadLimitValueChanged(int);
+
     void getAllProgress(QString pkgName, int Progress, QString type);
     //调用源管理器相关
     void slotUpdateTemplate(QString status);
@@ -165,7 +175,7 @@ private:
 
     void getAutoUpgradeStatus();
     bool get_battery();
-    void autoUpdateLoadUpgradeList();
+    bool autoUpdateLoadUpgradeList(bool isBackUp);
 
     void fileLock();
     void fileUnLock();

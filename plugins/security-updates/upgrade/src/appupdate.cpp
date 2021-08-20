@@ -326,6 +326,7 @@ void AppUpdateWid::showInstallStatues(QString status,QString appAptName, float p
             detaileInfo->hide();
             largeWidget->hide();
             emit hideUpdateBtnSignal(true);
+
         }
         else if(status == "apt_error")
         {
@@ -460,6 +461,7 @@ void AppUpdateWid::updateAppUi(QString name)
         dispalyName = map.value("name");
     else
         dispalyName = translationVirtualPackage(name);
+
     appNameLab->setText(dispalyName);
     /*判断图标，优先级: JSON文件指定 > qrc资源文件中 > 主题 > 默认*/
     if (!map.value("icon").isNull()) {
@@ -512,9 +514,10 @@ void AppUpdateWid::updateAppUi(QString name)
     QFontMetrics fontWidth(someInfoEdit->font());//得到每个字符的宽度
     QString StrMsg = fontWidth.elidedText(chlog, Qt::ElideRight,600);//最大宽度
     someInfoEdit->append(StrMsg);
-    if(appAllMsg.msg.allSize == 0)
+    if(appAllMsg.msg.allSize == 0 || appAllMsg.packageSize == 0)
     {
-        someInfoEdit->append(tr("Download size:")+QString(modifySizeUnit(appAllMsg.packageSize)));
+        someInfoEdit->append(tr("Download completed"));
+//        someInfoEdit->append(tr("Download size:")+QString(modifySizeUnit(appAllMsg.packageSize)));
         //        someInfoEdit->append(tr("下载大小：")+QString(modifySizeUnit(appAllMsg.packageSize)));
     }
     else
@@ -522,13 +525,13 @@ void AppUpdateWid::updateAppUi(QString name)
         //        someInfoEdit->append(tr("下载大小：")+QString(modifySizeUnit(appAllMsg.msg.allSize)));
         someInfoEdit->append(tr("Download size:")+QString(modifySizeUnit(appAllMsg.msg.allSize)));
     }
-
-    if(name.contains("kylin-update-desktop")||name == "linux-generic")
-    {
+    if (!map.value("icon").isNull()) {
+        haveThemeIcon = true;
+        updatelog1->logAppIcon->setPixmap(QPixmap(map.value("icon")));
+    } else if(name.contains("kylin-update-desktop")||name == "linux-generic") {
         pkgIconPath = QString(":/img/plugins/upgrade/%1.png").arg(name);
         updatelog1->logAppIcon->setPixmap(QPixmap(pkgIconPath));
-    }
-    else{
+    } else {
         if(QIcon::fromTheme(name).hasThemeIcon(name))
         {
             QIcon icon = QIcon::fromTheme(name);
@@ -621,7 +624,7 @@ void AppUpdateWid::cancelOrUpdate()
 {
     if(updateAPPBtn->text() == tr("Update"))
     {
-        emit changeUpdateAllSignal(true);
+//        emit changeUpdateAllSignal(true);
         /*判断电量是否支持更新*/
         if (!get_battery()) {
             QMessageBox msgBox;
@@ -639,7 +642,6 @@ void AppUpdateWid::cancelOrUpdate()
         if(m_updateMutual->isPointOutNotBackup == true)
         {
             QMessageBox msgBox;
-            //            msgBox.setText(tr("单个更新不会自动备份系统，如需备份，请点击全部更新。"));
             msgBox.setText(tr("A single update will not automatically backup the system, if you want to backup, please click Update All."));
             msgBox.setWindowTitle(tr("Prompt information"));
             msgBox.setStandardButtons(QMessageBox::YesAll
@@ -649,7 +651,6 @@ void AppUpdateWid::cancelOrUpdate()
             msgBox.setButtonText(QMessageBox::Cancel,tr("Cancel update"));
             QCheckBox *cb = new QCheckBox(&msgBox);
             msgBox.setCheckBox(cb);
-            //            msgBox.checkBox()->setText(tr("本次更新不再提示"));
             msgBox.checkBox()->setText(tr("This time will no longer prompt"));
             msgBox.checkBox()->show();
             msgBox.button(QMessageBox::Cancel)->hide();

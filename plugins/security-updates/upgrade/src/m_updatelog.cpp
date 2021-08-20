@@ -44,7 +44,7 @@ m_updatelog::m_updatelog(QWidget* parent) : QDialog(parent)
     initGsettings();//初始化Gsettings
     dynamicLoadingInit();//动态加载
     updatesql();//更新列表
-    //    defaultItem();//设置默认选中
+//    defaultItem();//设置默认选中
     //监听更新完成信号
     UpdateDbus *uddbus = UpdateDbus::getInstance();
     connect(uddbus->interface,SIGNAL(update_sqlite_signal(QString,QString)),this,SLOT(historyUpdateNow(QString,QString)));
@@ -195,9 +195,9 @@ void m_updatelog::initGsettings()
     qtSettings = new QGSettings(iid, QByteArray(), this);
 
     connect(qtSettings,&QGSettings::changed,this,[=] (const QString &key) {
-        if(key == "systemFontSize") {
-            timer->start(100);
-        }
+       if(key == "systemFontSize") {
+          timer->start(100);
+       }
     });
 }
 
@@ -289,7 +289,7 @@ void m_updatelog::defaultItem()
 
 QString m_updatelog::translationVirtualPackage(QString str)
 {
-    QString retStr;
+    QString retStr = str;
     /*判断json文件是否存在*/
     QString filename = QString("/usr/share/kylin-update-desktop-config/data/") +str +".json";
     QFile file(filename);
@@ -340,6 +340,8 @@ QString m_updatelog::translationVirtualPackage(QString str)
         return "系统内核组件";
     if(str == "kylin-update-desktop-kydroid")
         return "kydroid补丁包";
+    if(str == "kylin-update-desktop")
+        return "麒麟系统升级";
 
     /* 从软件商店数据库根据包名获取应用中文名 */
     QString dst;
@@ -362,6 +364,7 @@ QString m_updatelog::translationVirtualPackage(QString str)
     }
     return retStr;
 }
+
 
 void m_updatelog::dynamicLoadingInit()
 {
@@ -462,19 +465,19 @@ void m_updatelog::slotSearch(QString packageName)
 
 void m_updatelog::cacheDynamicLoad(void)
 {
-    disconnect(mainListwidget->verticalScrollBar() , &QScrollBar::valueChanged , this , &m_updatelog::dynamicLoading);
+     disconnect(mainListwidget->verticalScrollBar() , &QScrollBar::valueChanged , this , &m_updatelog::dynamicLoading);
 }
 
 void m_updatelog::clearList(void)
 {
-    int sum = mainListwidget->count();
+   int sum = mainListwidget->count();
 
-    for (int i = sum ; i >= 0 ; i--) {
-        QListWidgetItem *item = mainListwidget->takeItem(i);
-        delete item;
-    }
+   for (int i = sum ; i >= 0 ; i--) {
+       QListWidgetItem *item = mainListwidget->takeItem(i);
+       delete item;
+   }
 
-    return;
+   return;
 }
 
 QString m_updatelog::conversionPackageName(QString package)

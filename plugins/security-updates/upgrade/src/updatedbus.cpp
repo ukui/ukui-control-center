@@ -48,6 +48,46 @@ UpdateDbus::UpdateDbus(QObject *parent)
     setImportantStatus(true);
 
 }
+void UpdateDbus::disconnectDbusSignal()
+{
+    QDBusConnection::systemBus().connect(QString("cn.kylinos.KylinUpdateManager"), QString("/cn/kylinos/KylinUpdateManager"),
+                                         QString("cn.kylinos.KylinUpdateManager"),
+                                         QString("kum_apt_signal"), this, SLOT(getAptSignal(QString, QMap<QString, QVariant>)));
+
+    QDBusConnection::systemBus().connect(QString("cn.kylinos.KylinUpdateManager"), QString("/cn/kylinos/KylinUpdateManager"),
+                                         QString("cn.kylinos.KylinUpdateManager"),
+                                         QString("important_app_message_signal"), this, SLOT(getAppMessageSignal(QMap<QString, QVariant>, QStringList, QStringList, QStringList, QStringList, QString, bool)));
+
+    QDBusConnection::systemBus().connect(QString("cn.kylinos.KylinUpdateManager"), QString("/cn/kylinos/KylinUpdateManager"),
+                                         QString("cn.kylinos.KylinUpdateManager"),
+                                         QString("get_message_finished_signal"), this, SLOT(slotFinishGetMessage(QString)));
+
+    QDBusConnection::systemBus().connect(QString("cn.kylinos.KylinUpdateManager"), QString("/cn/kylinos/KylinUpdateManager"),
+                                         QString("cn.kylinos.KylinUpdateManager"),
+                                         QString("copy_finish"), this, SLOT(slotCopyFinished(QString)));
+}
+void UpdateDbus::SetDownloadLimit(int value,bool whetherlimit)
+{
+    interface->call("set_downloadspeed_max",value,whetherlimit);
+}
+
+int UpdateDbus::GetDownloadLimit(void)
+{
+    QDBusPendingReply<int> reply = interface->call("get_downloadspeed_limit_value");
+    if (!reply.isValid())
+    {
+        qDebug()<<"error getting download speed limit value";
+        return -1;
+    }
+    if (reply.argumentAt(0)==true)
+    {
+        return reply.argumentAt(1).toInt();
+    }
+    else
+    {
+        return -2;
+    }
+}
 
 void UpdateDbus::onRequestSendDesktopNotify(QString message)
 {
@@ -244,7 +284,7 @@ void UpdateDbus::getAppMessageSignal(QMap<QString, QVariant> map, QStringList ur
         if(it.key() == "size")
         {
             dateQVariant = it.value();
-            appAllMsg.packageSize = dateQVariant.toInt();
+            appAllMsg.packageSize = dateQVariant.toString().toLong();
         }
         if(it.key() == "description")
         {

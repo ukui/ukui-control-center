@@ -82,6 +82,7 @@ public:
     bool isAutoUpgrade = false;
     bool haveThemeIcon = false;
 
+
 public slots:
     void showDetails();
     void showUpdateLog();
