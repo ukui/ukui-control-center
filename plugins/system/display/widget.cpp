@@ -422,7 +422,7 @@ void Widget::slotUnifyOutputs()
         // breaks the cloning
         mPrevConfig = mConfig->clone();
 
-        if (!mFirstLoad && !mIsOutputAdd) {
+        if (!mFirstLoad && !mIsOutputAdd && mKDSCfg.isEmpty()) {
             setPreScreenCfg(mPrevConfig->connectedOutputs());
         }
 
@@ -1383,11 +1383,14 @@ int Widget::screenEnableCount()
 //通过win+p修改，不存在按钮影响亮度显示的情况，直接就应用了，此时每个屏幕的openFlag是没有修改的，需要单独处理(setScreenKDS)
 void Widget::kdsScreenchangeSlot(QString status)
 {
+    qDebug() << Q_FUNC_INFO << "changed by kds";
+    if (!status.compare(mPreKDSCfg)) {
+        return;
+    }
+    if (!mUnifyButton->isChecked()) {
+        setPreScreenCfg(mConfig->connectedOutputs());
+    }
     QTimer::singleShot(2500, this, [=] {
-        if (!status.compare(mPreKDSCfg)) {
-            return;
-        }
-
         bool isCheck = (status == "copy") ? true : false;
         mKDSCfg = status;
         mPreKDSCfg = status;
@@ -1525,6 +1528,7 @@ void Widget::save()
             writeFile(mDir % mPreScreenConfig->connectedOutputsHash());
         });
     } else {
+        mPreKDSCfg.clear();  // 控制面板主动操作，清除win+p标志位
         mPreScreenConfig = mConfig->clone();
     }
 
