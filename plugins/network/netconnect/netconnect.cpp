@@ -400,49 +400,6 @@ void NetConnect::netPropertiesChangeSlot(QMap<QString, QVariant> property) {
     }
 }
 
-//网络详情页填充
-void NetConnect::netDetailOpen(QString netName){
-    foreach (ActiveConInfo netInfo, mActiveInfo) {
-        if (!netInfo.strConName.compare(netName, Qt::CaseInsensitive)) {
-            if (!netInfo.strConType.compare("802-3-ethernet", Qt::CaseInsensitive)) {
-                netDetail->setSSID(netInfo.strConName);
-                netDetail->setProtocol(netInfo.strConType);
-                netDetail->setIPV4(netInfo.strIPV4Address);
-                netDetail->setIPV4Dns(netInfo.strIPV4Dns);
-                netDetail->setIPV4Gateway(netInfo.strIPV4GateWay);
-                netDetail->setIPV4Mask(netInfo.strIPV4Prefix);
-                netDetail->setIPV6(netInfo.strIPV6Address);
-                netDetail->setIPV6Prefix(netInfo.strIPV6Prefix);
-                netDetail->setIPV6Gt(netInfo.strIPV6GateWay);
-                netDetail->setMac(netInfo.strMac);
-                netDetail->setBandWidth(netInfo.strBandWidth);
-            } else {
-                QString wifiName;
-                if (connectWifi != "--" && connectWifi != netInfo.strConName) {
-                    wifiName = connectWifi;
-                } else {
-                    wifiName = netInfo.strConName;
-                }
-                netDetail->setSSID(wifiName);
-                netDetail->setProtocol(netInfo.strConType);
-                netDetail->setSecType(netInfo.strSecType);
-                netDetail->setHz(netInfo.strHz);
-                netDetail->setChan(netInfo.strChan);
-                netDetail->setSpeed(netInfo.strSpeed);
-                netDetail->setIPV4(netInfo.strIPV4Address);
-                netDetail->setIPV4Mask(netInfo.strIPV4Prefix);
-                netDetail->setIPV4Dns(netInfo.strIPV4Dns);
-                netDetail->setIPV4Gateway(netInfo.strIPV4GateWay);
-                netDetail->setIPV6(netInfo.strIPV6Address);
-                netDetail->setIPV6Prefix(netInfo.strIPV6Prefix);
-                netDetail->setIPV6Gt(netInfo.strIPV6GateWay);
-                netDetail->setMac(netInfo.strMac);
-                netDetail->setBandWidth(netInfo.strBandWidth);
-            }
-        }
-    }
-}
-
 //无线网络详情页构建
 void NetConnect::netDetailSlot(NetDetail *wlanDetail, QString netName, bool status) {
     foreach (ActiveConInfo netInfo, mActiveInfo) {
