@@ -19,6 +19,7 @@
 #include <QMultiMap>
 #include <QShortcut>
 #include <QFuture>
+#include <QVBoxLayout>
 
 #include <KF5/KScreen/kscreen/config.h>
 
@@ -26,6 +27,9 @@
 #include "SwitchButton/switchbutton.h"
 #include "brightnessFrame.h"
 #include "screenConfig.h"
+#include "Label/titlelabel.h"
+#include "Label/fixlabel.h"
+#include "Uslider/uslider.h"
 
 class QLabel;
 class QMLOutput;
@@ -71,10 +75,11 @@ public:
     void setConfig(const KScreen::ConfigPtr &config, bool showBrightnessFrameFlag = false);
     KScreen::ConfigPtr currentConfig() const;
 
+    void initNightModeUi();
     void slotFocusedOutputChangedNoParam();
     void initConnection();
     QString getScreenName(QString name = "");
-    void initTemptSlider();
+    void setNightComponent();
     void writeScreenXml();
 
     bool writeFile(const QString &filePath);
@@ -132,6 +137,8 @@ private Q_SLOTS:
     void setNightMode(const bool nightMode);    // 设置夜间模式
 
     void initNightStatus();                     // 初始化夜间模式
+
+    void setNightModeSetting();                 // 通过配置文件设置夜间模式
     void nightChangedSlot(QHash<QString, QVariant> nightArg);
 
     void callMethod(QRect geometry, QString name);// 设置wayland主屏幕
@@ -163,7 +170,7 @@ private:
     void initGSettings();
     void setcomBoxScale();
     void initNightUI();
-
+    QFrame *setLine(QFrame *frame);
     void initAdvanceScreen();
 
     bool isRestoreConfig();   // 是否恢复应用之前的配置
@@ -211,17 +218,43 @@ private:
     SwitchButton *mCloseScreenButton = nullptr;
     SwitchButton *mUnifyButton = nullptr;
     SwitchButton *mThemeButton = nullptr;
+    SwitchButton *mNightModeBtn = nullptr;
+
+    TitleLabel *mNightModeLabel = nullptr;
+    QLabel *mOpenLabel = nullptr;
+    QLabel *mTimeModeLabel = nullptr;
+    QLabel *mCustomTimeLabel = nullptr;
+    FixLabel *mTemptLabel = nullptr;
+    QLabel *mWarmLabel = nullptr;
+    QLabel *mColdLabel = nullptr;
+    QLabel *mLabel_1 = nullptr;
 
     QLabel *nightLabel = nullptr;
     QLabel *mMultiScreenLabel = nullptr;
 
+    QComboBox *mTimeModeCombox = nullptr;
+    QComboBox *mOpenTimeHCombox = nullptr;
+    QComboBox *mQpenTimeMCombox = nullptr;
+    QComboBox *mCloseTimeHCombox = nullptr;
+    QComboBox *mCloseTimeMCombox = nullptr;
     QComboBox *mMultiScreenCombox = nullptr;
 
-    QFrame *mMultiScreenFrame = nullptr;
+    Uslider *mTemptSlider = nullptr;
+
+    QFrame *mMultiScreenFrame = nullptr;   
+    QFrame *mNightModeFrame = nullptr;
+    QFrame *mOpenFrame = nullptr;
+    QFrame *mTimeModeFrame = nullptr;
+    QFrame *mCustomTimeFrame = nullptr;
+    QFrame *mTemptFrame = nullptr;
+    QFrame *line_1 = nullptr;
+    QFrame *line_2 = nullptr;
+    QFrame *line_3 = nullptr;
 
     QGSettings *mGsettings = nullptr;
     QGSettings *scaleGSettings = nullptr;
     QGSettings *mPowerGSettings = nullptr;
+    QGSettings *m_colorSettings = nullptr;
 
     QSettings *mQsettings = nullptr;
 
@@ -246,6 +279,8 @@ private:
     bool mIsBattery = false;
     bool mIsScreenAdd = false;
     bool mIsRestore = false;
+
+    QStringList mTimeModeStringList;
 
     QString firstAddOutputName;
     QShortcut *mApplyShortcut;

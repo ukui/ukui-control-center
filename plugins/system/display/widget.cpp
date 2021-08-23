@@ -65,6 +65,16 @@ extern "C" {
 #define FONT_RENDERING_DPI               "org.ukui.SettingsDaemon.plugins.xsettings"
 #define SCALE_KEY                        "scaling-factor"
 
+#define SETTINGS_DAEMON_COLOR_SCHEMAS    "org.ukui.SettingsDaemon.plugins.color"
+#define AUTO_KEY                         "night-light-schedule-automatic"
+#define AllDAY_KEY                       "night-light-allday"
+#define NIGHT_ENABLE_KEY                 "night-light-enabled"
+#define NIGHT_FROM_KEY                   "night-light-schedule-from"
+#define NIGHT_TO_KEY                     "night-light-schedule-to"
+#define AUTO_NIGHT_FROM_KEY              "night-light-schedule-automatic-from"
+#define AUTO_NIGHT_TO_KEY                "night-light-schedule-automatic-to"
+#define NIGHT_TEMPERATURE_KEY            "night-light-temperature"
+
 #define MOUSE_SIZE_SCHEMAS               "org.ukui.peripherals-mouse"
 #define CURSOR_SIZE_KEY                  "cursor-size"
 
@@ -88,6 +98,7 @@ Widget::Widget(QWidget *parent) :
     gdk_init(NULL, NULL);
 
     ui->setupUi(this);
+    initNightModeUi();
     ui->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
     ui->quickWidget->setContentsMargins(0, 0, 0, 9);
 
@@ -101,18 +112,20 @@ Widget::Widget(QWidget *parent) :
 
     setTitleLabel();
     initGSettings();
-    initTemptSlider();
+    setNightComponent();
     initUiComponent();
     initNightStatus();
 
 #if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
-    ui->nightframe->setVisible(false);
+    mNightModeLabel->hide();
+    mNightModeFrame->setVisible(false);
 #else
-    ui->nightframe->setVisible(this->mRedshiftIsValid);
+    mNightModeFrame->setVisible(this->mRedshiftIsValid);
+    mNightModeLabel->setVisible(this->mRedshiftIsValid);
 #endif
 
-    mNightButton->setChecked(this->mIsNightMode);
-    showNightWidget(mNightButton->isChecked());
+    mNightModeBtn->setChecked(this->mIsNightMode);
+    showNightWidget(mNightModeBtn->isChecked());
 
     initConnection();
     loadQml();
@@ -217,6 +230,135 @@ void Widget::setConfig(const KScreen::ConfigPtr &config, bool showBrightnessFram
 KScreen::ConfigPtr Widget::currentConfig() const
 {
     return mConfig;
+}
+
+void Widget::initNightModeUi()
+{
+    ui->verticalLayout->setSpacing(8);
+    mNightModeLabel = new TitleLabel(this);
+    mNightModeLabel->setText(tr("Night Mode"));
+
+    mNightModeFrame = new QFrame(this);
+    mNightModeFrame->setMinimumSize(550, 0);
+    mNightModeFrame->setMaximumSize(16777215, 16777215);
+    mNightModeFrame->setFrameShape(QFrame::Box);
+
+    QVBoxLayout *mNightModeLyt = new QVBoxLayout(mNightModeFrame);
+    mNightModeLyt->setSpacing(0);
+    mNightModeLyt->setContentsMargins(0, 0, 0, 0);
+
+    /* Open */
+    mOpenFrame = new QFrame(mNightModeFrame);
+    mOpenFrame->setMinimumSize(550, 60);
+    mOpenFrame->setMaximumSize(16777215, 60);
+    mOpenFrame->setFrameShape(QFrame::NoFrame);
+    QHBoxLayout *mOpenLyt = new QHBoxLayout(mOpenFrame);
+    mOpenLyt->setSpacing(0);
+    mOpenLabel = new QLabel(mOpenFrame);
+    mOpenLabel->setFixedWidth(200);
+    mOpenLabel->setText(tr("Open"));
+    mNightModeBtn = new SwitchButton(mOpenFrame);
+    mOpenLyt->addWidget(mOpenLabel);
+    mOpenLyt->addStretch();
+    mOpenLyt->addWidget(mNightModeBtn);
+
+    /* Time Mode */
+    mTimeModeFrame = new QFrame(mNightModeFrame);
+    mTimeModeFrame->setMinimumSize(550, 60);
+    mTimeModeFrame->setMaximumSize(16777215, 60);
+    mTimeModeFrame->setFrameShape(QFrame::NoFrame);
+    QHBoxLayout *mTimeModeLyt = new QHBoxLayout(mTimeModeFrame);
+    mTimeModeLyt->setSpacing(8);
+    mTimeModeLabel = new QLabel(mTimeModeFrame);
+    mTimeModeLabel->setFixedWidth(200);
+    mTimeModeLabel->setText(tr("Time"));
+    mTimeModeCombox = new QComboBox(mTimeModeFrame);
+    mTimeModeCombox->setMinimumSize(0, 40);
+    mTimeModeCombox->setMaximumSize(16777215, 40);
+    mTimeModeLyt->addWidget(mTimeModeLabel);
+    mTimeModeLyt->addWidget(mTimeModeCombox);
+
+    /* Custom Time */
+    mCustomTimeFrame = new QFrame(mNightModeFrame);
+    mCustomTimeFrame->setMinimumSize(550, 60);
+    mCustomTimeFrame->setMaximumSize(16777215, 60);
+    mCustomTimeFrame->setFrameShape(QFrame::NoFrame);
+    QHBoxLayout *mCustomTimeLyt = new QHBoxLayout(mCustomTimeFrame);
+    mCustomTimeLyt->setSpacing(8);
+    mCustomTimeLabel = new QLabel(mCustomTimeFrame);
+    mCustomTimeLabel->setFixedWidth(350);
+    mCustomTimeLabel->setText(tr("Custom Time"));
+    mOpenTimeHCombox = new QComboBox(mCustomTimeFrame);
+    mOpenTimeHCombox->setFixedSize(64, 40);
+    mQpenTimeMCombox = new QComboBox(mCustomTimeFrame);
+    mQpenTimeMCombox->setFixedSize(64, 40);
+    mCloseTimeHCombox = new QComboBox(mCustomTimeFrame);
+    mCloseTimeHCombox->setFixedSize(64, 40);
+    mCloseTimeMCombox = new QComboBox(mCustomTimeFrame);
+    mCloseTimeMCombox->setFixedSize(64, 40);
+    mLabel_1 = new QLabel(mCustomTimeFrame);
+    mLabel_1->setFixedWidth(20);
+    mLabel_1->setText(tr("to"));
+    QLabel *mLabel_2 = new QLabel(mCustomTimeFrame);
+    mLabel_2->setFixedWidth(4);
+    mLabel_2->setText(":");
+    QLabel *mLabel_3 = new QLabel(mCustomTimeFrame);
+    mLabel_3->setFixedWidth(4);
+    mLabel_3->setText(":");
+    mCustomTimeLyt->addWidget(mCustomTimeLabel);
+    mCustomTimeLyt->addStretch();
+    mCustomTimeLyt->addWidget(mOpenTimeHCombox);
+    mCustomTimeLyt->addWidget(mLabel_2);
+    mCustomTimeLyt->addWidget(mQpenTimeMCombox);
+    mCustomTimeLyt->addWidget(mLabel_1);
+    mCustomTimeLyt->addWidget(mCloseTimeHCombox);
+    mCustomTimeLyt->addWidget(mLabel_3);
+    mCustomTimeLyt->addWidget(mCloseTimeMCombox);
+
+    /* Color Temperature */
+    mTemptFrame = new QFrame(mNightModeFrame);
+    mTemptFrame->setMinimumSize(550, 60);
+    mTemptFrame->setMaximumSize(16777215, 60);
+    mTemptFrame->setFrameShape(QFrame::NoFrame);
+    QHBoxLayout *mTemptLyt = new QHBoxLayout(mTemptFrame);
+    mTemptLyt->setSpacing(8);
+    mTemptLabel = new FixLabel(mTemptFrame);
+    mTemptLabel->setFixedWidth(200);
+    mTemptLabel->setText(tr("Color Temperature"));
+    mWarmLabel = new QLabel(mTemptFrame);
+    mWarmLabel->setFixedWidth(64);
+    mWarmLabel->setText(tr("Warmer"));
+    mColdLabel = new QLabel(mTemptFrame);
+    mColdLabel->setFixedWidth(64);
+    mColdLabel->setText(tr("Colder"));
+    mTemptSlider = new Uslider(mTemptFrame);
+    mTemptSlider->setMinimumWidth(0);
+    mTemptSlider->setMinimumWidth(16777215);
+    mTemptSlider->setOrientation(Qt::Orientation::Horizontal);
+    mTemptLyt->addWidget(mTemptLabel);
+    mTemptLyt->addWidget(mWarmLabel);
+    mTemptLyt->addWidget(mTemptSlider);
+    mTemptLyt->addWidget(mColdLabel);
+
+    line_1 = setLine(mNightModeFrame);
+    line_2 = setLine(mNightModeFrame);
+    line_3 = setLine(mNightModeFrame);
+
+    mNightModeLyt->addWidget(mOpenFrame);
+    mNightModeLyt->addWidget(line_1);
+    mNightModeLyt->addWidget(mTimeModeFrame);
+    mNightModeLyt->addWidget(line_2);
+    mNightModeLyt->addWidget(mCustomTimeFrame);
+    mNightModeLyt->addWidget(line_3);
+    mNightModeLyt->addWidget(mTemptFrame);
+
+    ui->verticalLayout->addWidget(mNightModeLabel);
+    ui->verticalLayout->addWidget(mNightModeFrame);
+    ui->sunframe->setVisible(false);
+    ui->customframe->setVisible(false);
+    ui->temptframe->setVisible(false);
+    ui->themeFrame->setVisible(false);
+    ui->nightframe->setVisible(false);
 }
 
 void Widget::loadQml()
@@ -582,9 +724,25 @@ void Widget::initGSettings()
         }
     } else {
         qDebug() << Q_FUNC_INFO << "org.ukui.control-center.panel.plugins not install";
-        return;
     }
 
+    QByteArray nightId(SETTINGS_DAEMON_COLOR_SCHEMAS);
+    if(QGSettings::isSchemaInstalled(nightId)) {
+        m_colorSettings = new QGSettings(nightId);
+        setNightModeSetting();
+        connect(m_colorSettings, &QGSettings::changed, [=](const QString &key){
+            if(key == "nightLightTemperature")
+            {
+                int value = m_colorSettings->get(NIGHT_TEMPERATURE_KEY).toInt();
+                mTemptSlider->setValue(value);
+            }
+            else if(key == "nightLightScheduleAutomatic" || key == "nightLightEnabled" || key == "nightLightAllday") {
+                setNightModeSetting();
+            }
+        });
+    } else {
+        qDebug() << Q_FUNC_INFO << "org.ukui.SettingsDaemon.plugins.color not install";
+    }
 
     QByteArray scaleId(FONT_RENDERING_DPI);
     if (QGSettings::isSchemaInstalled(scaleId)) {
@@ -620,6 +778,17 @@ void Widget::initNightUI()
     themeLayout->addWidget(new QLabel(tr("Theme follow night mode")));
     themeLayout->addStretch();
     themeLayout->addWidget(mThemeButton);
+}
+
+QFrame *Widget::setLine(QFrame *frame)
+{
+    QFrame *line = new QFrame(frame);
+    line->setMinimumSize(QSize(0, 1));
+    line->setMaximumSize(QSize(16777215, 1));
+    line->setLineWidth(0);
+    line->setFrameShape(QFrame::HLine);
+    line->setFrameShadow(QFrame::Sunken);
+    return line;
 }
 
 void Widget::initAdvanceScreen()
@@ -848,23 +1017,18 @@ void Widget::initMultScreenStatus()
 
 void Widget::showNightWidget(bool judge)
 {
-    if (judge) {
-        ui->sunframe->setVisible(true);
-        ui->customframe->setVisible(true);
-        ui->temptframe->setVisible(true);
-        ui->themeFrame->setVisible(false);
+    mTimeModeFrame->setVisible(judge);
+    if (mTimeModeCombox->currentIndex() == 2) {
+        mCustomTimeFrame->setVisible(judge);
+        line_2->setVisible(judge);
     } else {
-        ui->sunframe->setVisible(false);
-        ui->customframe->setVisible(false);
-        ui->temptframe->setVisible(false);
-        ui->themeFrame->setVisible(false);
+        mCustomTimeFrame->setVisible(false);
+        line_2->setVisible(false);
     }
 
-    if (judge && ui->customradioBtn->isChecked()) {
-        showCustomWiget(CUSTOM);
-    } else {
-        showCustomWiget(SUN);
-    }
+    mTemptFrame->setVisible(judge);
+    line_1->setVisible(judge);
+    line_3->setVisible(judge);
 }
 
 void Widget::showCustomWiget(int index)
@@ -1135,16 +1299,16 @@ QString Widget::getPrimaryWaylandScreen()
 
 void Widget::applyNightModeSlot()
 {
-    if (((ui->opHourCom->currentIndex() < ui->clHourCom->currentIndex())
-         || (ui->opHourCom->currentIndex() == ui->clHourCom->currentIndex()
-             && ui->opMinCom->currentIndex() <= ui->clMinCom->currentIndex()))
-            && CUSTOM == singleButton->checkedId() && mNightButton->isChecked()) {
+    if (((mOpenTimeHCombox->currentIndex() < mCloseTimeHCombox->currentIndex())
+         || (mOpenTimeHCombox->currentIndex() == mCloseTimeHCombox->currentIndex()
+             && mQpenTimeMCombox->currentIndex() <= mCloseTimeMCombox->currentIndex()))
+            && mTimeModeCombox->currentIndex() == 2 && mNightModeBtn->isChecked()) {
         QMessageBox::warning(this, tr("Warning"),
                              tr("Open time should be earlier than close time!"));
         return;
     }
 
-    setNightMode(mNightButton->isChecked());
+    setNightMode(mNightModeBtn->isChecked());
 }
 
 
@@ -1704,34 +1868,45 @@ void Widget::initConnection()
         delayApply();
     });
 
-    connect(mNightButton, &SwitchButton::checkedChanged, this, [=](bool status){
-        showNightWidget(status);
-        applyNightModeSlot();
+    connect(mOpenTimeHCombox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=]{
+        if (m_colorSettings) {
+            m_colorSettings->set(NIGHT_FROM_KEY,mOpenTimeHCombox->currentText() + ":"+ mQpenTimeMCombox->currentText() + ":00");
+        } else {
+            applyNightModeSlot();
+        }
     });
 
-    connect(ui->opHourCom, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=]{
-        applyNightModeSlot();;
+    connect(mQpenTimeMCombox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=]{
+        if (m_colorSettings) {
+            m_colorSettings->set(NIGHT_FROM_KEY,mOpenTimeHCombox->currentText() + ":"+ mQpenTimeMCombox->currentText() + ":00");
+        } else {
+            applyNightModeSlot();
+        }
     });
 
-    connect(ui->opMinCom, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=]{
-        applyNightModeSlot();
+    connect(mCloseTimeHCombox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=]{
+        if (m_colorSettings) {
+            m_colorSettings->set(NIGHT_TO_KEY,mCloseTimeHCombox->currentText() + ":"+ mCloseTimeMCombox->currentText() + ":00");
+        } else {
+            applyNightModeSlot();
+        }
     });
 
-    connect(ui->clHourCom, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=]{
-        applyNightModeSlot();;
+    connect(mCloseTimeMCombox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=]{
+        if (m_colorSettings) {
+            m_colorSettings->set(NIGHT_TO_KEY,mCloseTimeHCombox->currentText() + ":"+ mCloseTimeMCombox->currentText() + ":00");
+        } else {
+            applyNightModeSlot();
+        }
     });
 
-    connect(ui->clMinCom, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=]{
-        applyNightModeSlot();
-    });
+    connect(mTemptSlider, &QSlider::valueChanged, this, [=]{
+        if (m_colorSettings) {
+            m_colorSettings->set(NIGHT_TEMPERATURE_KEY,mTemptSlider->value());
+        } else {
+            applyNightModeSlot();
+        }
 
-    connect(ui->temptSlider, &QSlider::valueChanged, this, [=]{
-        applyNightModeSlot();
-    });
-
-    connect(singleButton, QOverload<int>::of(&QButtonGroup::buttonClicked), this, [=](int index){
-        showCustomWiget(index);
-        applyNightModeSlot();
     });
 
     connect(mMultiScreenCombox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index){
@@ -1765,22 +1940,57 @@ void Widget::initConnection()
        // mainScreenButtonSelect(index);
         showBrightnessFrame();  //当前屏幕框变化的时候，显示，此时不判断
     });
+
+    connect(mTimeModeCombox, QOverload<int>::of(&QComboBox::currentIndexChanged),[=](){
+        switch (mTimeModeCombox->currentIndex()) {
+        case 0:
+            mCustomTimeFrame->hide();
+            line_2->hide();
+            break;
+        case 1:
+            mCustomTimeFrame->hide();
+            line_2->hide();
+            break;
+        case 2:
+            mCustomTimeFrame->setVisible(true);
+            line_2->setVisible(true);
+            break;
+        }
+        applyNightModeSlot();
+    });
+
+    connect(mNightModeBtn, &SwitchButton::checkedChanged,[=](bool checked){
+        showNightWidget(checked);
+        if (m_colorSettings) {
+            m_colorSettings->set(NIGHT_ENABLE_KEY,checked);
+        } else {
+            applyNightModeSlot();
+        }
+
+    });
 }
 
 
-void Widget::initTemptSlider()
+void Widget::setNightComponent()
 {
-    ui->temptSlider->setRange(1.1*1000, 6500);
-    ui->temptSlider->setTracking(true);
+    /* 设置时间模式 */
+    mTimeModeStringList << tr("All Day") << tr("Follow the sunrise and sunset(17:55-06:23)") << tr("Custom Time");
+    mTimeModeCombox->insertItem(0, mTimeModeStringList.at(0));
+    mTimeModeCombox->insertItem(1, mTimeModeStringList.at(1));
+    mTimeModeCombox->insertItem(2, mTimeModeStringList.at(2));
+
+
+    mTemptSlider->setRange(1.1*1000, 6500);
+    mTemptSlider->setTracking(true);
 
     for (int i = 0; i < 24; i++) {
-        ui->opHourCom->addItem(QStringLiteral("%1").arg(i, 2, 10, QLatin1Char('0')));
-        ui->clHourCom->addItem(QStringLiteral("%1").arg(i, 2, 10, QLatin1Char('0')));
+        mOpenTimeHCombox->addItem(QStringLiteral("%1").arg(i, 2, 10, QLatin1Char('0')));
+        mCloseTimeHCombox->addItem(QStringLiteral("%1").arg(i, 2, 10, QLatin1Char('0')));
     }
 
     for (int i = 0; i < 60; i++) {
-        ui->opMinCom->addItem(QStringLiteral("%1").arg(i, 2, 10, QLatin1Char('0')));
-        ui->clMinCom->addItem(QStringLiteral("%1").arg(i, 2, 10, QLatin1Char('0')));
+        mQpenTimeMCombox->addItem(QStringLiteral("%1").arg(i, 2, 10, QLatin1Char('0')));
+        mCloseTimeMCombox->addItem(QStringLiteral("%1").arg(i, 2, 10, QLatin1Char('0')));
     }
 }
 
@@ -1826,18 +2036,20 @@ void Widget::setNightMode(const bool nightMode)
         mNightConfig["Active"] = false;
     } else {
         mNightConfig["Active"] = true;
-        if (ui->sunradioBtn->isChecked()) {
+        if (mTimeModeCombox->currentIndex() == 1) {
             mNightConfig["EveningBeginFixed"] = "17:55:01";
-            mNightConfig["MorningBeginFixed"] = "05:55:00";
+            mNightConfig["MorningBeginFixed"] = "06:23:00";
             mNightConfig["Mode"] = 2;
-        } else if (ui->customradioBtn->isChecked()) {
-            mNightConfig["EveningBeginFixed"] = ui->opHourCom->currentText() + ":"
-                                                + ui->opMinCom->currentText() + ":00";
-            mNightConfig["MorningBeginFixed"] = ui->clHourCom->currentText() + ":"
-                                                + ui->clMinCom->currentText() + ":00";
+        } else if (mTimeModeCombox->currentIndex() == 2) {
+            mNightConfig["EveningBeginFixed"] = mOpenTimeHCombox->currentText() + ":"
+                                                + mQpenTimeMCombox->currentText() + ":00";
+            mNightConfig["MorningBeginFixed"] = mCloseTimeHCombox->currentText() + ":"
+                                                + mCloseTimeMCombox->currentText() + ":00";
             mNightConfig["Mode"] = 2;
+        } else if (mTimeModeCombox->currentIndex() == 0) {
+             mNightConfig["Mode"] = 3;
         }
-        mNightConfig["NightTemperature"] = ui->temptSlider->value();
+        mNightConfig["NightTemperature"] = mTemptSlider->value();
     }
 
     colorIft.call("setNightColorConfig", mNightConfig);
@@ -1917,6 +2129,9 @@ void Widget::initNightStatus()
         qWarning() << "create org.ukui.kwin.ColorCorrect failed";
         return;
     }
+    if (m_colorSettings) {
+        return;
+    }
 
     QDBusMessage result = colorIft.call("nightColorInfo");
 
@@ -1941,31 +2156,85 @@ void Widget::initNightStatus()
     }
 
     this->mIsNightMode = mNightConfig["Active"].toBool();
-    ui->temptSlider->setValue(mNightConfig["CurrentColorTemperature"].toInt());
-    if (mNightConfig["EveningBeginFixed"].toString() == "17:55:01") {
-        ui->sunradioBtn->setChecked(true);
+    mTemptSlider->setValue(mNightConfig["CurrentColorTemperature"].toInt());
+    if (mNightConfig["EveningBeginFixed"].toString() == "17:55:01" && mNightConfig["Mode"].toInt() == 2) {
+        mTimeModeCombox->setCurrentIndex(1);
+        mCustomTimeFrame->hide();
+        line_2->hide();
+    } else if (mNightConfig["Mode"].toInt() == 3) {
+        mTimeModeCombox->setCurrentIndex(0);
+        mCustomTimeFrame->hide();
+        line_2->hide();
     } else {
-        ui->customradioBtn->setChecked(true);
+        mTimeModeCombox->setCurrentIndex(2);
         QString openTime = mNightConfig["EveningBeginFixed"].toString();
         QString ophour = openTime.split(":").at(0);
         QString opmin = openTime.split(":").at(1);
 
-        ui->opHourCom->setCurrentIndex(ophour.toInt());
-        ui->opMinCom->setCurrentIndex(opmin.toInt());
+        mOpenTimeHCombox->setCurrentIndex(ophour.toInt());
+        mQpenTimeMCombox->setCurrentIndex(opmin.toInt());
 
         QString cltime = mNightConfig["MorningBeginFixed"].toString();
         QString clhour = cltime.split(":").at(0);
         QString clmin = cltime.split(":").at(1);
 
-        ui->clHourCom->setCurrentIndex(clhour.toInt());
-        ui->clMinCom->setCurrentIndex(clmin.toInt());
+        mCloseTimeHCombox->setCurrentIndex(clhour.toInt());
+        mCloseTimeMCombox->setCurrentIndex(clmin.toInt());
+    }
+
+}
+
+void Widget::setNightModeSetting()
+{
+    if (!m_colorSettings) {
+        applyNightModeSlot();
+        return;
+    }
+    if (m_colorSettings->get(NIGHT_ENABLE_KEY).toBool()) {
+        mNightModeBtn->setChecked(true);
+        if(m_colorSettings->get(AllDAY_KEY).toBool())
+        {
+            mTimeModeCombox->setCurrentIndex(0);
+        } else if(m_colorSettings->get(AUTO_KEY).toBool()) {
+            mTimeModeCombox->setCurrentIndex(1);
+            QString openTime = m_colorSettings->get(AUTO_NIGHT_FROM_KEY).toString();
+            QString ophour = openTime.split(":").at(0);
+            QString opmin = openTime.split(":").at(1);
+            QString cltime = m_colorSettings->get(AUTO_NIGHT_TO_KEY).toString();
+            QString clhour = cltime.split(":").at(0);
+            QString clmin = cltime.split(":").at(1);
+            if (ophour != "17" || opmin != "55" || clhour != "06" || clmin != "23") {
+                m_colorSettings->set(AUTO_NIGHT_FROM_KEY, "17:55:00");
+                m_colorSettings->set(AUTO_NIGHT_TO_KEY, "06:23:00");
+            }
+
+        } else {
+            mTimeModeCombox->setCurrentIndex(2);
+            QString openTime = m_colorSettings->get(NIGHT_FROM_KEY).toString();
+            QString ophour = openTime.split(":").at(0);
+            QString opmin = openTime.split(":").at(1);
+
+            mOpenTimeHCombox->setCurrentIndex(ophour.toInt());
+            mQpenTimeMCombox->setCurrentIndex(opmin.toInt());
+
+            QString cltime = m_colorSettings->get(NIGHT_TO_KEY).toString();
+            QString clhour = cltime.split(":").at(0);
+            QString clmin = cltime.split(":").at(1);
+
+            mCloseTimeHCombox->setCurrentIndex(clhour.toInt());
+            mCloseTimeMCombox->setCurrentIndex(clmin.toInt());
+        }
+        showNightWidget(true);
+    } else {
+        mNightModeBtn->setChecked(false);
+        showNightWidget(false);
     }
 }
 
 void Widget::nightChangedSlot(QHash<QString, QVariant> nightArg)
 {
     if (this->mRedshiftIsValid) {
-        mNightButton->setChecked(nightArg["Active"].toBool());
+        mNightModeBtn->setChecked(nightArg["Active"].toBool());
     }
 }
 
