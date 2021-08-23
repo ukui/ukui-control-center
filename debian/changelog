@@ -1,3 +1,41 @@
+ukui-control-center (3.0.1-1-116hw) v101; urgency=medium
+
+  * 提交commit:b9fa5b5
+  * bug#74284右键更改图片默认打开方式为奇安信后，控制面板中设置图像查看器的默认应用无效
+  * bug#74444设置屏幕为低分辨率，接入双屏后设为高缩放率注销后登录打开显示面板拔掉外接屏，控制面板弹出两个窗口且外显仍然存在
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 19 Aug 2021 16:42:16 +0800
+
+ukui-control-center (3.0.1-1-115hw) v101; urgency=medium
+
+  * 提交commit:1c7d1df
+  * bug#73974托盘设计已经更改，但是设置里还有“显示在托盘上的图标”字段
+  * bug#73133第一次打开控制面板主屏按钮状态错误
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 17 Aug 2021 15:49:25 +0800
+
+ukui-control-center (3.0.1-1-114hw) v101; urgency=medium
+
+  * 提交commit:08c396b
+  * bug#73707win+p同时选择一个项目两次控制面板状态错误
+  * bug#68984解决WiFi协商速率显示为null的问题
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 13 Aug 2021 11:30:27 +0800
+
+ukui-control-center (3.0.1-1-113hw) v101; urgency=medium
+
+  * 提交commit:bc43b34
+  * 71607配置文件为空错误(通用bug)
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 11 Aug 2021 19:49:19 +0800
+
+ukui-control-center (3.0.1-1-112hw) v101; urgency=medium
+
+  * 提交commit:ec35ddb(111hw为重构源版本)
+  * wayland双屏幕重构版本
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 11 Aug 2021 11:14:29 +0800
+
 ukui-control-center (3.0.1-1-110hw) v101; urgency=medium
 
   * 提交commit:a4f0ed7
