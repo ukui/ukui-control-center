@@ -931,7 +931,7 @@ void Widget::addBrightnessFrame(QString name, bool openFlag, QString serialNum)
             qDebug()<<name<<"brightness"<<" is changed, value = "<<frame->slider->value();
             mPowerGSettings->set(POWER_KEY, frame->slider->value());
             frame->setTextLableValue(QString::number(mPowerGSettings->get(POWER_KEY).toInt()));
-        });
+	    });
     } else if(!mIsBattery) {
         frame->outputName = name;
         ui->unifyBrightLayout->addWidget(frame);
@@ -959,7 +959,11 @@ void Widget::outputAdded(const KScreen::OutputPtr &output)
 {
     if (output->isConnected()) {
         QString name = Utils::outputName(output);
-        addBrightnessFrame(name, output->isEnabled(), output->edid()->serial());
+        QString serialNum  = "";
+        if (output->name().contains("/")) {
+            serialNum = output->name().split("/").at(1);
+        }
+        addBrightnessFrame(name, output->isEnabled(),serialNum);
     }
 
     // 刷新缩放选项，监听新增显示屏的mode变化
