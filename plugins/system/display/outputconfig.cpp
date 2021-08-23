@@ -84,12 +84,6 @@ void OutputConfig::initUi()
                 slotResolutionChanged(size, emitFlag);
             });
 
-    connect(mResolution, &ResolutionSlider::resolutionChanged,
-            this, &OutputConfig::slotScaleIndex);
-
-    connect(mResolution, &ResolutionSlider::resolutionsave,
-            this, &OutputConfig::slotScaleIndex);
-
     // 方向下拉框
     mRotation = new QComboBox(this);
     mRotation->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
@@ -166,20 +160,6 @@ void OutputConfig::initUi()
     mScaleCombox = new QComboBox(this);
     mScaleCombox->setObjectName("scaleCombox");
 
-    double scale = getScreenScale();
-
-    slotScaleIndex(mResolution->currentResolution());
-
-    mScaleCombox->setCurrentText(scaleToString(scale));
-
-    if (mScaleCombox->findData(scale) == -1) {
-        mScaleCombox->addItem(scaleToString(scale), scale);
-        mScaleCombox->setCurrentText(scaleToString(scale));
-    }
-
-    connect(mScaleCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-            this, &OutputConfig::slotScaleChanged);
-
     QLabel *scaleLabel = new QLabel(this);
     //~ contents_path /display/screen zoom
     scaleLabel->setText(tr("screen zoom"));
@@ -190,6 +170,7 @@ void OutputConfig::initUi()
     scaleLayout->addWidget(mScaleCombox);
 
     vbox->addWidget(scaleFrame);
+    scaleFrame->hide();
 
     initConnection();
 }
@@ -366,58 +347,7 @@ void OutputConfig::slotDPIChanged(QString key)
     }
 }
 
-void OutputConfig::slotScaleIndex(const QSize &size)
-{
-    QSize msize;
-    if (mScaleSize != QSize()) {
-        msize = size.width() > mScaleSize.width()?mScaleSize:size;
-    } else {
-        msize = size;
-    }
-    if (!msize.isValid()) {
-        return;
-    }
 
-    mScaleCombox->blockSignals(true);
-    mScaleCombox->clear();
-    mScaleCombox->addItem("100%", 1.0);
-
-    if (msize.width() >= 1024 ) {
-        mScaleCombox->addItem("125%", 1.25);
-    }
-    if (msize.width() >= 1920 ) {
-        mScaleCombox->addItem("150%", 1.5);
-    }
-    if (msize.width() >= 2560) {
-        mScaleCombox->addItem("175%", 1.75);
-        mScaleCombox->addItem("200%", 2.0);
-    }
-    if (msize.width() >= 3072) {
-       mScaleCombox->addItem("225%", 2.25);
-       mScaleCombox->addItem("250%", 2.5);
-    }
-    if (msize.width() >= 3840) {
-       mScaleCombox->addItem("275%", 2.75);
-    }
-
-    double scale = getScreenScale();
-
-    if (mScaleCombox->findData(scale) == -1) {
-        //该变量保存改变前的缩放率，当用户点击恢复时，恢复对应的缩放率
-        mScaleres = scale;
-
-        scale = 1.0;
-        if (QGSettings::isSchemaInstalled(SCALE_SCHEMAS)) {
-            if (mDpiSettings->keys().contains("scalingFactor")) {
-                mDpiSettings->set(SCALE_KEY,scale);
-            }
-        }
-        QMessageBox::information(this, tr("Information"),
-                                 tr("Some applications need to be logouted to take effect"));
-    }
-    mScaleCombox->setCurrentText(scaleToString(scale));
-    mScaleCombox->blockSignals(false);
-}
 
 void OutputConfig::setShowScaleOption(bool showScaleOption)
 {

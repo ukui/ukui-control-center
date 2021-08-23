@@ -101,6 +101,7 @@ public:
     QList<ScreenConfig> getPreScreenCfg();
     void setPreScreenCfg(KScreen::OutputList screens);
 
+    void changescale();
 protected:
     bool eventFilter(QObject *object, QEvent *event) override;
 
@@ -266,6 +267,9 @@ private:
     QHash<QString, QVariant> mNightConfig;
 
     double mScreenScale = 1.0;
+    double scaleres = 1.0;
+
+    QSize mScaleSizeRes = QSize();
 
     bool mIsNightMode = false;
     bool mRedshiftIsValid = false;
@@ -279,6 +283,9 @@ private:
     bool mIsBattery = false;
     bool mIsScreenAdd = false;
     bool mIsRestore = false;
+
+    bool mIsSCaleRes = false;
+    bool mIsChange = false;
 
     QStringList mTimeModeStringList;
 

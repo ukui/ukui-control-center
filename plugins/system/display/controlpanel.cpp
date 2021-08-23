@@ -46,12 +46,6 @@ void ControlPanel::setConfig(const KScreen::ConfigPtr &config)
             this, &ControlPanel::removeOutput);
 
     for (const KScreen::OutputPtr &output : mConfig->outputs()) {
-        if (output->isConnected()) {
-            changescalemax(output);
-        }
-    }
-
-    for (const KScreen::OutputPtr &output : mConfig->outputs()) {
         addOutput(output, false);
     }
 }
@@ -189,21 +183,8 @@ void ControlPanel::slotOutputConnectedChanged()
     });
 
     if (output->isConnected()) {
-        changescalemax(output);
         addOutput(output, true);
-        for (OutputConfig *outputCfg : mOutputConfigs) {
-            outputCfg->slotScaleIndex(mScaleSize);
-        }
     } else {
         removeOutput(output->id());
-        mScaleSize = QSize();
-        for (const KScreen::OutputPtr &output : mConfig->outputs()) {
-            if (output->isConnected()) {
-                changescalemax(output);
-            }
-        }
-        for (OutputConfig *outputCfg : mOutputConfigs) {
-            outputCfg->slotScaleIndex(mScaleSize);
-        }
     }
 }

@@ -43,9 +43,6 @@ protected Q_SLOTS:
     void slotScaleChanged(int index);
     void slotDPIChanged(QString key);
 
-public Q_SLOTS:
-    void slotScaleIndex(const QSize &size);
-
 Q_SIGNALS:
     void changed();
     void scaleChanged(double scale);
