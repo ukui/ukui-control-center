@@ -38,6 +38,7 @@
 #include <polkit-qt5-1/polkitqt1-authority.h>
 #include "ImageUtil/imageutil.h"
 #include "Label/fixlabel.h"
+#include <QtConcurrent/QtConcurrent>
 
 const char kTimezoneDomain[] = "installer-timezones";
 const char kDefaultLocale[]  = "en_US.UTF-8";
@@ -105,18 +106,23 @@ int DateTime::get_plugin_type()
 
 QWidget *DateTime::get_plugin_ui()
 {
-
-    if (mFirstLoad) {
-
-        mFirstLoad = false;
-
-        initUI();
-        initTitleLabel();
-        initStatus();
-        initComponent();
-        initConnect();
-        connectToServer();
-    }
+     QTimer::singleShot(1, this, [=]() {
+        if (mFirstLoad) {
+            mFirstLoad = false;
+            initUI();
+            qApp->processEvents();
+            initTitleLabel();
+            qApp->processEvents();
+            initStatus();
+            qApp->processEvents();
+            initComponent();
+            qApp->processEvents();
+            initConnect();
+            qApp->processEvents();
+            connectToServer();
+            qApp->processEvents();
+        }
+     });
     return pluginWidget;
 }
 
@@ -159,6 +165,8 @@ void DateTime::initUI()
     m_zoneinfo          = new ZoneInfo;
     m_timezone          = new TimeZoneChooser(pluginWidget);
     m_itimer            = new QTimer(this);
+
+    ntpCombox = new QComboBox(ui->ntpFrame);
     m_itimer->start(1000);
 
     const QByteArray id(FORMAT_SCHEMA);
@@ -185,7 +193,9 @@ void DateTime::initUI()
                                              QDBusConnection::systemBus(), this);
 
     initNtp();
-    initTimeShow();
+    QTimer::singleShot(1, this, [=]() {
+        initTimeShow();
+    });
 
 }
 
@@ -325,6 +335,7 @@ void DateTime::initTimeShow()
 
         for (int i = 0; i < timesNum; ++i) {
             newTimeshow(timezonesList[i]);
+            qApp->processEvents();
         }
      }
 }
@@ -426,7 +437,7 @@ void DateTime::initNtp()
 {
     QLabel      *ntpLabel  = new QLabel(ui->ntpFrame);
     QHBoxLayout *ntpLayout = new QHBoxLayout(ui->ntpFrame);
-                 ntpCombox = new QComboBox(ui->ntpFrame);
+
     ntpLabel->setFixedWidth(260);
     ui->ntpFrame->setLayout(ntpLayout);
     ntpLayout->addWidget(ntpLabel);
