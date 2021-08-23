@@ -231,6 +231,15 @@
         <file>plugins/gesture/Enterglobalsearch.png</file>
         <file>plugins/gesture/Displaymultitaskingview.png</file>
         <file>plugins/gesture/Boxselectedobject.png</file>
+        <file>plugins/gesture/Boxselectedobject.gif</file>
+        <file>plugins/gesture/Displaymultitaskingview.gif</file>
+        <file>plugins/gesture/Enterglobalsearch.gif</file>
+        <file>plugins/gesture/Programminimization.gif</file>
+        <file>plugins/gesture/Rotatethepicture.gif</file>
+        <file>plugins/gesture/Showsidebar.gif</file>
+        <file>plugins/gesture/Showtaskbar.gif</file>
+        <file>plugins/gesture/Textselection.gif</file>
+        <file>plugins/gesture/Zoompicture.gif</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>
