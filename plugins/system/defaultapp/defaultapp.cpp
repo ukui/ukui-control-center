@@ -168,9 +168,10 @@ void DefaultApp::initUI() {
                 if (currentimage == single) {
                     continue;
                 }
-                if(!browserList.contains(appname)) {
-                    ui->imageComBoBox->addItem(appicon, appname, single);
-                }
+                ui->imageComBoBox->addItem(appicon, appname, single);
+//                if(!browserList.contains(appname)) {
+//                    ui->imageComBoBox->addItem(appicon, appname, single);
+//                }
             }
         }
         qDebug() <<"IMAGE耗时："<<timedebuge.elapsed()<<"ms";//输出计时
