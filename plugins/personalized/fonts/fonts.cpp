@@ -135,10 +135,10 @@ void Fonts::setupStylesheet(){
 }
 
 void Fonts::setupComponent(){
-
+    ui->resetBtn->setVisible(false);
     QStringList fontScale;
-    fontScale<< tr("11") << tr("12") << tr("13") << tr("14") << tr("15")
-              <<tr("16");
+    fontScale<< "11pt" << "12pt" << "13pt" << "14pt" << "15pt"
+              <<"16pt";
 
     uslider  = new Uslider(fontScale);
     uslider->setRange(1,6);

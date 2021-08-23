@@ -274,3 +274,9 @@ QRect Utils::sizeOnCursor()
     QRect desk_rect = m->screenGeometry(m->screenNumber(QCursor::pos()));
     return desk_rect;
 }
+
+bool Utils::isTablet()
+{
+    return QFile::exists("");
+
+}

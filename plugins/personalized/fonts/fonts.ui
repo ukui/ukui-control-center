@@ -61,7 +61,7 @@
      </property>
      <property name="maximumSize">
       <size>
-       <width>960</width>
+       <width>16777215</width>
        <height>80</height>
       </size>
      </property>
@@ -129,7 +129,7 @@
     <widget class="QFrame" name="fontTypeFrame">
      <property name="maximumSize">
       <size>
-       <width>960</width>
+       <width>16777215</width>
        <height>60</height>
       </size>
      </property>
@@ -198,7 +198,7 @@
     <widget class="QFrame" name="fontTypeFrame_2">
      <property name="maximumSize">
       <size>
-       <width>960</width>
+       <width>16777215</width>
        <height>60</height>
       </size>
      </property>

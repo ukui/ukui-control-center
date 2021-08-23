@@ -572,7 +572,8 @@ void MainWindow::loadPlugins(){
                 || ("libbluetooth.so" == fileName && !isExitBluetooth())
                 || ("libpower.so" == fileName && !isExitsPower())
                 || ("libtouchscreen.so" == fileName && !isExitTouchScreen())
-                || ("libupdate.so" == fileName && !Utils::isCommunity())) {
+                || ("libupdate.so" == fileName && !Utils::isCommunity())
+                || ("libfonts.so") == fileName && Utils::isTablet()) {
             continue;
         }
 
