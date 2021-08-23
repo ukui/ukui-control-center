@@ -9199,77 +9199,128 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">屏幕缩放 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="608"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="766"/>
         <source>unify output</source>
         <translation>统一输出</translation>
         <extra-contents_path>/display/unify output</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="612"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="770"/>
         <source>night mode</source>
         <translation>夜间模式</translation>
         <extra-contents_path>/display/night mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="543"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="685"/>
         <source>Some applications need to be logouted to take effect</source>
         <translation>部分程序需要注销生效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="502"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="239"/>
+        <source>Night Mode</source>
+        <translation>夜间模式</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="259"/>
+        <source>Open</source>
+        <translation>打开</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="274"/>
+        <source>Time</source>
+        <translation>时间</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="290"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1987"/>
+        <source>Custom Time</source>
+        <translation>自定义</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="301"/>
+        <source>to</source>
+        <translation>至</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="327"/>
+        <source>Color Temperature</source>
+        <translation>屏幕色温</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="330"/>
+        <source>Warmer</source>
+        <translation>较暖</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="333"/>
+        <source>Colder</source>
+        <translation>较冷</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="644"/>
         <source>Multi-screen</source>
         <translation>多屏显示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="507"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="649"/>
         <source>First Screen</source>
         <translation>第一屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="508"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="650"/>
         <source>Clone Screen</source>
         <translation>镜像屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="509"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="651"/>
         <source>Extend Screen</source>
         <translation>拓展屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="510"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="652"/>
         <source>Vice Screen</source>
         <translation>其他屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="531"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="673"/>
         <source>monitor</source>
         <translation>显示器</translation>
         <extra-contents_path>/display/monitor</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="542"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="684"/>
         <source>Information</source>
         <translation>信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="620"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="778"/>
         <source>Theme follow night mode</source>
         <translation>主题跟随夜间模式变化</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="663"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="832"/>
         <source>Hint</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="664"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="833"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after 14 seconds</source>
         <translation>是否保留当前修改的配置？将在14秒后自动保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1993"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2000"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1987"/>
+        <source>All Day</source>
+        <translation>全天</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1987"/>
+        <source>Follow the sunrise and sunset(17:55-06:23)</source>
+        <translation>跟随日出日落(17:55-06:23)</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2272"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2279"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
@@ -9284,7 +9335,7 @@ The settings will be saved after 9 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与 显卡兼容性问题，有可能显示不正常。系统将在9秒后保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="678"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="847"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
 the settings will be saved after %1 seconds</source>
         <translation>是否保留当前修改的配置？将在%1秒后自动保存配置</translation>
@@ -9300,12 +9351,12 @@ If something goes wrong, the settings will be restored after 9 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在9秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="668"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="837"/>
         <source>Save Config</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="669"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="838"/>
         <source>Restore Config</source>
         <translation>恢复</translation>
     </message>
@@ -9315,19 +9366,19 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1345"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1509"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1142"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1345"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1352"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1306"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1509"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1516"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1143"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1307"/>
         <source>Open time should be earlier than close time!</source>
         <translation>开启时间必须大于关闭时间！</translation>
     </message>
@@ -9336,7 +9387,7 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">早晨时刻应早于晚上的时刻!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1353"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1517"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>
