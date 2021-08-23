@@ -637,10 +637,13 @@ void QMLScreen::setPosByConfig()
         std::sort(qmlScreens.begin(), qmlScreens.end(), sizeLessThanQml);
 
         QMLOutput *adjustOutput;
-        for (int i =0; i < preScreenCfg.count(); i++) {
+        for (int i = 0; i < preScreenCfg.count(); i++) {
             for (int j = 0; j < childItems().count(); j++) {
                 QMLOutput *qmlOutput = qobject_cast<QMLOutput *>(childItems().at(j));
-                adjustOutput = qmlOutput;
+                if (qmlOutput != nullptr) {
+                    adjustOutput = qmlOutput;
+                }
+
                 if (!qmlOutput->outputPtr()->name().compare(preScreenCfg.at(i).screenId)) {
                     qmlOutput->blockSignals(true);
                     qmlOutput->setPosition(qmlScreens.at(i));
@@ -649,6 +652,6 @@ void QMLScreen::setPosByConfig()
             }
         }
 
-        setScreenPos(adjustOutput);
+        setScreenPosCenter(adjustOutput, false);
     }
 }
