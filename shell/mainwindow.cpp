@@ -117,6 +117,8 @@ MainWindow::MainWindow(QWidget *parent) :
         bootOptionsFilter(QApplication::arguments().at(1));
     }
     this->setFocus();
+
+    connect(modulepageWidget,SIGNAL(pageChangeSignal()),this,SLOT(pageChangeSlot()));
 }
 void MainWindow::setAppStyle()
 {
@@ -219,6 +221,7 @@ void MainWindow::initStyleSheet() {
     m_queryWid->setGeometry(QRect((m_searchWidget->width()-(m_queryIcon->width()+m_queryText->width()+10))/2,0,
                                   m_queryIcon->width()+m_queryText->width()+10,35));
     m_queryWid->show();
+
     ui->titleLayout->setContentsMargins(400,0,0,0);
     ui->titleLayout->setAlignment(m_searchWidget,Qt::AlignCenter);
     // 设置panel图标
@@ -843,4 +846,13 @@ const QPixmap MainWindow::renderSvg(const QIcon &icon, QString cgColor) {
         }
     }
     return QPixmap::fromImage(img);
+}
+
+
+void MainWindow::pageChangeSlot()
+{
+    if (this->m_searchWidget->text().count()) {
+        this->m_searchWidget->setText(QString::fromUtf8(""));
+        this->m_searchWidget->clearFocus();
+    }
 }

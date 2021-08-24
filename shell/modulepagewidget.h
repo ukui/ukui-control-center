@@ -81,6 +81,10 @@ private:
 public slots:
     void currentLeftitemChanged(QListWidgetItem * cur, QListWidgetItem * pre);
 
+Q_SIGNALS:
+    void pageChangeSignal();
+
+
 };
 
 #endif // MODULEPAGEWIDGET_H

@@ -67,6 +67,7 @@ ModulePageWidget::ModulePageWidget(QWidget *parent) :
 
     initUI();
 
+
 }
 LeftWidget::LeftWidget(QWidget *parent) : QListWidget(parent) {
 }
@@ -252,7 +253,7 @@ void ModulePageWidget::initUI(){
     //左侧二级菜单标题及上侧二级菜单标题随功能页变化联动
     connect(ui->leftStackedWidget, &QStackedWidget::currentChanged, this, [=](int index){
         QString titleString = mkvConverter->keycodeTokeyi18nstring(index);
-
+          //qDebug()<<titleString;
         //        ui->mtitleLabel->setText(titleString);
 //        ui->mmtitleLabel->setText(titleString);
 
@@ -347,4 +348,5 @@ void ModulePageWidget::currentLeftitemChanged(QListWidgetItem *cur, QListWidgetI
     } else {
         //        qDebug() << "plugin widget not fount!";
     }
+    emit pageChangeSignal();
 }
