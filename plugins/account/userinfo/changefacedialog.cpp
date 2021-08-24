@@ -222,12 +222,10 @@ void ChangeFaceDialog::loadHistoryFaces(){
             delBtn->show();
 
             if (old_delBtn != nullptr) {
-                qDebug() << delBtn << old_delBtn;
-
                 old_delBtn->hide();
                 old_delBtn = delBtn;
             }
-            //qDebug() << k << "old " << &old_delBtn << "curr " << delBtn;
+
             if (old_delBtn == nullptr) {
                 old_delBtn = delBtn;
             }
@@ -247,7 +245,25 @@ void ChangeFaceDialog::loadHistoryFaces(){
 }
 
 void ChangeFaceDialog::setFace(QString iconfile){
-    ui->faceLabel->setPixmap(PixmapToRound(iconfile, ui->faceLabel->width()/2));
+    QPixmap rect = pixmapAdjustLabel(iconfile);
+    ui->faceLabel->setPixmap(PixmapToRound(rect, ui->faceLabel->width()/2));
+}
+
+QPixmap ChangeFaceDialog::pixmapAdjustLabel(QString iconfile)
+{
+    //设置用户头像
+    QPixmap iconcop = QPixmap(iconfile);
+    if (iconcop.width() > iconcop.height()) {
+        QPixmap iconPixmap = iconcop.copy((iconcop.width() - iconcop.height())/2, 0, iconcop.height(), iconcop.height());
+        // 根据label高度等比例缩放图片
+        QPixmap rectPixmap = iconPixmap.scaledToHeight(ui->faceLabel->height());
+        return rectPixmap;
+    } else {
+        QPixmap iconPixmap = iconcop.copy(0, (iconcop.height() - iconcop.width())/2, iconcop.width(), iconcop.width());
+        // 根据label宽度等比例缩放图片
+        QPixmap rectPixmap = iconPixmap.scaledToWidth(ui->faceLabel->width());
+        return rectPixmap;
+    }
 }
 
 void ChangeFaceDialog::setRealname(QString realname){
@@ -356,8 +372,8 @@ void ChangeFaceDialog::showLocalFaceDialog(){
     loadHistoryFaces();
 }
 
-QPixmap ChangeFaceDialog::PixmapToRound(const QString &src, int radius) {
-    if (src == "") {
+QPixmap ChangeFaceDialog::PixmapToRound(const QPixmap &src, int radius) {
+    if (src.isNull()) {
         return QPixmap();
     }
     QPixmap pixmapa(src);

@@ -81,9 +81,10 @@ protected:
 private:
     Ui::ChangeFaceDialog *ui;
     QString m_username;
-    QPixmap PixmapToRound(const QString &src, int radius);
+    QPixmap PixmapToRound(const QPixmap &src, int radius);
     QButtonGroup *btnsGroup;
     QPushButton *old_delBtn = nullptr;
+    QPixmap pixmapAdjustLabel(QString iconfile);
 
 Q_SIGNALS:
     void face_file_send(QString file, QString username);
