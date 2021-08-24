@@ -2243,7 +2243,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     <message>
         <location filename="../../../plugins/devices/display/widget.cpp" line="311"/>
         <source>Display</source>
-        <translation type="unfinished">显示器</translation>
+        <translation>屏幕</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/display/widget.cpp" line="324"/>
@@ -2757,7 +2757,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     <message>
         <location filename="../../../plugins/devices/gesture/gesture.ui" line="72"/>
         <location filename="../../../plugins/devices/gesture/gesture.cpp" line="30"/>
-        <location filename="../../../plugins/devices/gesture/gesture.cpp" line="63"/>
+        <location filename="../../../plugins/devices/gesture/gesture.cpp" line="65"/>
         <source>Gesture</source>
         <translatorcomment>手势</translatorcomment>
         <translation type="unfinished">手势</translation>
@@ -2818,14 +2818,14 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="77"/>
-        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="192"/>
-        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="227"/>
+        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="80"/>
+        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="195"/>
+        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="230"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="109"/>
+        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="112"/>
         <source>PushButton</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4048,8 +4048,8 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     <message>
         <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="305"/>
         <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="381"/>
-        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="478"/>
-        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="596"/>
+        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="479"/>
+        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="597"/>
         <source>Network connection failure, please check</source>
         <translation type="unfinished">网络连接故障，请检查</translation>
     </message>
@@ -4059,7 +4059,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="unfinished">未知错误，请稍后重试</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="577"/>
+        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="578"/>
         <source>Please use the correct wechat scan code</source>
         <translation type="unfinished">请使用正确的微信扫码</translation>
     </message>
@@ -4820,55 +4820,55 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">体验计划</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="315"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="311"/>
         <source>min length %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="325"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="321"/>
         <source>min digit num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="334"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="330"/>
         <source>min upper num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="343"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="339"/>
         <source>min lower num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="352"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="348"/>
         <source>min other num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="362"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="358"/>
         <source>min char class %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="371"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="367"/>
         <source>max repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="380"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="376"/>
         <source>max class repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="389"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="385"/>
         <source>max sequence %1
 </source>
         <translation type="unfinished"></translation>
@@ -5465,42 +5465,42 @@ run start-pulseaudio-x11 manually.</source>
     <name>Touchpad</name>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="58"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="70"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="69"/>
         <source>Touchpad Settings</source>
         <translation>触摸板设置</translation>
         <extra-contents_path>/touchpad/Touchpad Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="151"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="181"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="180"/>
         <source>Enabled touchpad</source>
         <translation>启用触摸板</translation>
         <extra-contents_path>/touchpad/Enabled touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="369"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="183"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="182"/>
         <source>Disable touchpad while typing</source>
         <translation>打字时禁用触摸板</translation>
         <extra-contents_path>/touchpad/Disable touchpad while typing</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="460"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="185"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="184"/>
         <source>Enable mouse clicks with touchpad</source>
         <translation>触摸板轻触点击</translation>
         <extra-contents_path>/touchpad/Enable mouse clicks with touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="560"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="187"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="186"/>
         <source>Scrolling</source>
         <translation>滚动</translation>
         <extra-contents_path>/touchpad/Scrolling</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="242"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="189"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="188"/>
         <source>Touchpad speed</source>
         <translation>触摸板速度</translation>
         <extra-contents_path>/touchpad/Touchpad speed</extra-contents_path>
@@ -5529,34 +5529,32 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">触摸板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="66"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="65"/>
         <source>Trackpad</source>
         <translation type="unfinished">触摸板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="227"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="226"/>
         <source>Disable rolling</source>
         <translation>禁用滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="228"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="227"/>
         <source>Vertical edge scrolling</source>
         <translation>垂直边界滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="229"/>
         <source>Horizontal edge scrolling</source>
-        <translation>水平边界滚动</translation>
+        <translation type="vanished">水平边界滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="230"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="228"/>
         <source>Vertical two-finger scrolling</source>
         <translation>垂直双指滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="231"/>
         <source>Horizontal two-finger scrolling</source>
-        <translation>水平双指滚动</translation>
+        <translation type="vanished">水平双指滚动</translation>
     </message>
 </context>
 <context>
@@ -5972,7 +5970,7 @@ run start-pulseaudio-x11 manually.</source>
         <translation>Root</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="724"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="720"/>
         <source>set pwd</source>
         <translation type="unfinished">设置密码</translation>
     </message>
@@ -5990,7 +5988,7 @@ run start-pulseaudio-x11 manually.</source>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="334"/>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="146"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1104"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1100"/>
         <source>Change pwd</source>
         <translation type="unfinished">修改密码</translation>
         <extra-contents_path>/userinfo/Change pwd</extra-contents_path>
@@ -6025,29 +6023,24 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">自动登录</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="523"/>
-        <source>Currently in Live mode, please create a new user and log out</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="571"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="498"/>
         <source>system reboot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="626"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="553"/>
         <source>Unclosed apps start after a restart</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="695"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="622"/>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="138"/>
         <source>Other Users</source>
         <translation>其他用户</translation>
         <extra-contents_path>/userinfo/Other Users</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="427"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="423"/>
         <source>Add new user</source>
         <translation>添加新用户</translation>
     </message>
