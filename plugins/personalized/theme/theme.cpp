@@ -75,7 +75,7 @@ const int transparency = 75;
 int save_trans = 0;
 
 const QStringList effectList {"blur", "kwin4_effect_translucency", "kwin4_effect_maximize", "zoom"};
-const QStringList kIconsList {"computer", "user-trash", "folder", "ukui-control-center", "kylin-software-center", "kylin-video", "kylin-assistant"};
+const QStringList kIconsList {"computer", "user-trash", "system-file-manager", "ukui-control-center", "kylin-software-center", "kylin-video", "kylin-assistant"};
 
 namespace {
 
