@@ -512,7 +512,7 @@ void TabWid::allComponents()
     //    labUpdate->setText(tr("更新"));
     labUpdate->setText(tr("Update"));
     labUpdate->adjustSize();
-    labUpdate->setFixedHeight(25);
+    labUpdate->setFixedHeight(27);
 
     scrollArea->setWidget(updateTab);
     scrollArea->setFrameStyle(0);
@@ -521,7 +521,7 @@ void TabWid::allComponents()
     scrollArea->setWidgetResizable(true);
 
     systemWidget->resize(560,140);
-    systemWidget->setFixedHeight(140);
+    systemWidget->setFixedHeight(160);
 
     systemPortraitLab = new QLabel();
     tab1HLayout = new QHBoxLayout();
@@ -581,7 +581,7 @@ void TabWid::allComponents()
     //    updateSettingLab->setText(tr("更新设置"));
     //~ contents_path /upgrade/Update Settings
     updateSettingLab->setText(tr("Update Settings"));
-    updateSettingLab->setFixedHeight(25);
+    updateSettingLab->setFixedHeight(27);
     updateSettingWidget = new QWidget(this);
     updatesettingLayout = new QVBoxLayout();
     updateSettingWidget->setLayout(updatesettingLayout);
