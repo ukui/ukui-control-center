@@ -139,8 +139,8 @@ void Fonts::setupStylesheet(){
 void Fonts::setupComponent(){
 
     QStringList fontScale;
-    fontScale<< tr("11") << tr("12") << tr("13") << tr("14") << tr("15")
-              <<tr("16");
+    fontScale<< tr("10") << tr("11") << tr("12") << tr("13") << tr("14")
+              <<tr("15");
 
     uslider  = new Uslider(fontScale);
     uslider->setRange(1,6);
@@ -248,28 +248,28 @@ QStringList Fonts::_splitFontNameSize(QString value) {
 
 int Fonts::fontConvertToSlider(const int size) const {
     switch (size) {
-    case 11:
+    case 10:
         return 1;
         break;
-    case 12:
+    case 11:
         return 2;
         break;
-    case 13:
+    case 12:
         return 3;
         break;
-    case 14:
+    case 13:
         return 4;
         break;
-    case 15:
+    case 14:
         return 5;
         break;
-    case 16:
+    case 15:
         return 6;
         break;
-    case 17:
+    case 16:
         return 7;
         break;
-    case 18:
+    case 17:
         return 8;
         break;
     default:
@@ -282,30 +282,30 @@ int Fonts::sliderConvertToSize(const int value) const
 {
     switch (value) {
     case 1:
-        return 11;
+        return 10;
         break;
     case 2:
-        return 12;
+        return 11;
         break;
     case 3:
-        return 13;
+        return 12;
         break;
     case 4:
-        return 14;
+        return 13;
         break;
     case 5:
-        return 15;
+        return 14;
         break;
     case 6:
-        return 16;
+        return 15;
         break;
     case 7:
-        return 17;
+        return 16;
         break;
     case 8:
-        return 18;
+        return 17;
     default:
-        return 11;
+        return 10;
         break;
     }
 }
