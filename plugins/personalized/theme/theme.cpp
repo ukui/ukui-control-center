@@ -346,7 +346,7 @@ void Theme::buildThemeModeBtn(QPushButton *button, QString name, QString icon){
      });
 
     bottomHorLayout->addStretch();
-    bottomHorLayout->setContentsMargins(0,4,0,0);
+    bottomHorLayout->setContentsMargins(0, 16, 0, 0);
     bottomHorLayout->addWidget(statusbtn);
     bottomHorLayout->addWidget(nameLabel);
     bottomHorLayout->addStretch();

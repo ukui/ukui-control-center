@@ -465,18 +465,18 @@ void Power::InitUI(QWidget *widget)
     mLowpowerLabel1 = new QLabel(mLowpowerFrame);
     mLowpowerLabel1->setFixedSize(84,60);
     mLowpowerLabel2 = new QLabel(mLowpowerFrame);
-    mLowpowerLabel2->setFixedSize(356,60);
+    mLowpowerLabel2->setFixedSize(370,60);
 
     QHBoxLayout *mLowpowerLayout = new QHBoxLayout(mLowpowerFrame);
     mLowpowerLayout->setContentsMargins(16, 0, 16, 0);
 
     mLowpowerComboBox1 = new QComboBox(mLowpowerFrame);
-    mLowpowerComboBox1->setFixedSize(70, 40);
+    mLowpowerComboBox1->setFixedSize(80, 40);
     mLowpowerComboBox2 = new QComboBox(mLowpowerFrame);
     mLowpowerComboBox2->setFixedHeight(40);
     mLowpowerComboBox2->setMinimumWidth(200);
 
-    mLowpowerLayout->setSpacing(16);
+    mLowpowerLayout->setSpacing(8);
     mLowpowerLayout->addWidget(mLowpowerLabel1);
     mLowpowerLayout->addWidget(mLowpowerComboBox1);
     mLowpowerLayout->addWidget(mLowpowerLabel2);
