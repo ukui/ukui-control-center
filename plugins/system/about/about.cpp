@@ -319,13 +319,13 @@ void About::initUI(QWidget *widget)
     mActivationLayout->setContentsMargins(16, 16, 16, 8);
 
     mStatusLabel_1 = new QLabel(mActivationFrame);
-    mStatusLabel_1->setFixedSize(166,30);
+    mStatusLabel_1->setFixedSize(160,30);
     mStatusLabel_2 = new QLabel(mActivationFrame);
     mSequenceLabel_1 = new QLabel(mActivationFrame);
-    mSequenceLabel_1->setFixedSize(166,30);
+    mSequenceLabel_1->setFixedSize(160,30);
     mSequenceLabel_2 = new QLabel(mActivationFrame);
     mTimeLabel_1 = new QLabel(mActivationFrame);
-    mTimeLabel_1->setFixedSize(166,30);
+    mTimeLabel_1->setFixedSize(160,30);
     mTimeLabel_2 = new QLabel(mActivationFrame);
     mActivationBtn = new QPushButton(mActivationFrame);
 

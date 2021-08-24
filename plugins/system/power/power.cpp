@@ -1017,6 +1017,9 @@ void Power::initCustomPlanStatus()
         mLowSaveFrame->hide();
         mBatterySaveFrame->hide();
         mDisplayTimeFrame->hide();
+        line_10->hide();
+        line_11->hide();
+        line_12->hide();
     }
 
     if (m_centerSettings->keys().contains("PowerMode")) {

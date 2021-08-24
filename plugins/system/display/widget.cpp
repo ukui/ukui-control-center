@@ -362,6 +362,7 @@ void Widget::initNightModeUi()
     mColdLabel = new QLabel(mTemptFrame);
     mColdLabel->setFixedWidth(64);
     mColdLabel->setText(tr("Colder"));
+    mColdLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     mTemptSlider = new Uslider(mTemptFrame);
     mTemptSlider->setMinimumWidth(0);
     mTemptSlider->setMinimumWidth(16777215);
