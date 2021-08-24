@@ -694,7 +694,6 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
         }
         sourcePortMap.insert(info.index,temp);
     }
-    qDebug() << "update source" << m_pDefaultSink->name<<m_pDefaultSink->index;
 
     if (is_new)
         updateDeviceVisibility();
