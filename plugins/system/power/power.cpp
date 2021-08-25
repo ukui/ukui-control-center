@@ -465,18 +465,18 @@ void Power::InitUI(QWidget *widget)
     mLowpowerLabel1 = new QLabel(mLowpowerFrame);
     mLowpowerLabel1->setFixedSize(84,60);
     mLowpowerLabel2 = new QLabel(mLowpowerFrame);
-    mLowpowerLabel2->setFixedSize(356,60);
+    mLowpowerLabel2->setFixedSize(370,60);
 
     QHBoxLayout *mLowpowerLayout = new QHBoxLayout(mLowpowerFrame);
     mLowpowerLayout->setContentsMargins(16, 0, 16, 0);
 
     mLowpowerComboBox1 = new QComboBox(mLowpowerFrame);
-    mLowpowerComboBox1->setFixedSize(70, 40);
+    mLowpowerComboBox1->setFixedSize(80, 40);
     mLowpowerComboBox2 = new QComboBox(mLowpowerFrame);
     mLowpowerComboBox2->setFixedHeight(40);
     mLowpowerComboBox2->setMinimumWidth(200);
 
-    mLowpowerLayout->setSpacing(16);
+    mLowpowerLayout->setSpacing(8);
     mLowpowerLayout->addWidget(mLowpowerLabel1);
     mLowpowerLayout->addWidget(mLowpowerComboBox1);
     mLowpowerLayout->addWidget(mLowpowerLabel2);
@@ -844,7 +844,7 @@ void Power::setupConnect()
         connect(mBatteryComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index) {
             //当开启了 低电量自动开启节能模式 时，在此低电量范围内调整电池计划，则自动关闭 低电量自动开启节能模式
             if (!Utils::isWayland() && mKeys.contains("lowBatteryAutoSave")) {
-                if (mLowSaveBtn->isChecked() &&  getBattery() <= settings->get(PERCENTAGE_LOW).toInt()) {
+                if (mLowSaveBtn->isChecked() &&  getBattery() <= settings->get(PERCENTAGE_LOW).toDouble()) {
                     mLowSaveBtn->setChecked(false);
                 }
             }
