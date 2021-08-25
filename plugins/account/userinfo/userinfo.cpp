@@ -623,9 +623,16 @@ void UserInfo::_refreshUserInfoUI(){
         //当前用户
         if (user.username == QString(g_get_user_name())){
             //设置用户头像
-            QPixmap iconPixmap = QPixmap(user.iconfile).scaled(ui->currentUserFaceLabel->size());
-            ui->currentUserFaceLabel->setScaledContents(true);
-            ui->currentUserFaceLabel->setPixmap(iconPixmap);
+            QPixmap iconcop = QPixmap(user.iconfile);
+            if (iconcop.width() > iconcop.height()) {
+                QPixmap iconPixmap = iconcop.copy((iconcop.width() - iconcop.height())/2, 0, iconcop.height(), iconcop.height());
+                // 根据label高度等比例缩放图片
+                ui->currentUserFaceLabel->setPixmap(iconPixmap.scaledToHeight(ui->currentUserFaceLabel->height()));
+            } else {
+                QPixmap iconPixmap = iconcop.copy(0, (iconcop.height() - iconcop.width())/2, iconcop.width(), iconcop.width());
+                // 根据label宽度等比例缩放图片
+                ui->currentUserFaceLabel->setPixmap(iconPixmap.scaledToWidth(ui->currentUserFaceLabel->width()));
+            }
 
             current_user = user;
 

@@ -117,6 +117,8 @@ MainWindow::MainWindow(QWidget *parent) :
         bootOptionsFilter(QApplication::arguments().at(1));
     }
     this->setFocus();
+
+    connect(modulepageWidget,SIGNAL(pageChangeSignal()),this,SLOT(pageChangeSlot()));
 }
 void MainWindow::setAppStyle()
 {
@@ -219,6 +221,7 @@ void MainWindow::initStyleSheet() {
     m_queryWid->setGeometry(QRect((m_searchWidget->width()-(m_queryIcon->width()+m_queryText->width()+10))/2,0,
                                   m_queryIcon->width()+m_queryText->width()+10,35));
     m_queryWid->show();
+
     ui->titleLayout->setContentsMargins(400,0,0,0);
     ui->titleLayout->setAlignment(m_searchWidget,Qt::AlignCenter);
     // 设置panel图标
@@ -441,8 +444,10 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
             if (this->windowState() == Qt::WindowMaximized) {
                 QFont font = this->font();
                 maxBtn->setIcon(QIcon::fromTheme("window-restore-symbolic"));
+                maxBtn->setToolTip(tr("Restore"));
             } else {
                 maxBtn->setIcon(QIcon::fromTheme("window-maximize-symbolic"));
+                maxBtn->setToolTip(tr("Maximize"));
             }
         } else if (event->type() == QEvent::MouseButtonDblClick) {
             if (!is_tablet_mode) {
@@ -592,7 +597,7 @@ void MainWindow::initTileBar() {
     closeBtn->setFixedSize(48, 48);
 
     minBtn->setToolTip(tr("Minimize"));
-    maxBtn->setToolTip(tr("Maximize/Restore"));
+    maxBtn->setToolTip(tr("Maximize"));
     closeBtn->setToolTip(tr("Close"));
 
     m_searchWidget->setMinimumWidth(320);
@@ -841,4 +846,13 @@ const QPixmap MainWindow::renderSvg(const QIcon &icon, QString cgColor) {
         }
     }
     return QPixmap::fromImage(img);
+}
+
+
+void MainWindow::pageChangeSlot()
+{
+    if (this->m_searchWidget->text().count()) {
+        this->m_searchWidget->setText(QString::fromUtf8(""));
+        this->m_searchWidget->clearFocus();
+    }
 }

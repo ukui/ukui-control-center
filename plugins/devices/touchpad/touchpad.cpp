@@ -124,6 +124,7 @@ Touchpad::Touchpad()
     touchpadMotionAccel = tpsettings->get(TOUCHPAD_MOTION_ACCEL).toDouble();
     touchpadMotionAccel = touchpadMotionAccel == -1 ? 20 : (ui->touchpadSpeedSlider->maximum() - (touchpadMotionAccel*10 -3));
     ui->touchpadSpeedSlider->setValue(touchpadMotionAccel*1);
+
     connect(ui->touchpadSpeedSlider,&QSlider::sliderMoved,this,[=](int value){
            //printf("%s %d %d\n",__FUNCTION__,__LINE__,ui->touchpadSpeedSlider->maximum() - value+3);
            tpsettings->set(TOUCHPAD_MOTION_ACCEL, (ui->touchpadSpeedSlider->maximum() - value+3)/10.0);

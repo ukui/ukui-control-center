@@ -70,7 +70,7 @@ private:
 private:
     BorderShadowEffect *m_effect;
     ModulePageWidget * modulepageWidget;
-
+    SearchWidget      * m_searchWidget;
     QButtonGroup * leftBtnGroup;
     QButtonGroup * leftMicBtnGroup; //
     bool bIsFullScreen;
@@ -81,7 +81,7 @@ private:
     QList<QMap<QString, QObject *>> modulesList;
 
     KeyValueConverter * kvConverter;
-    SearchWidget      * m_searchWidget;
+
     QPushButton       * minBtn;
     QPushButton       * maxBtn;
     QPushButton       * closeBtn;
@@ -125,6 +125,7 @@ public slots:
     void switchPage(QString moduleName);
     void animationFinishedSlot();
     void sltMessageReceived(const QString &msg);
+    void pageChangeSlot();
 signals:
     void btnclicked();
 };

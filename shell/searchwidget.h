@@ -15,10 +15,25 @@
 #include <QXmlStreamReader>
 #include <QtDBus>
 
+#include "QGSettings/QGSettings"
+
 const QString XML_Source = "source";
 const QString XML_Title = "translation";
 const QString XML_Numerusform = "numerusform";
 const QString XML_Explain_Path = "extra-contents_path";
+
+class ukItemModel :public QAbstractItemModel{
+public :ukItemModel(QObject *parent = nullptr)
+        : QAbstractItemModel(parent)
+    {
+
+    }
+    void resetSelf(){
+        beginResetModel();
+        endResetModel();
+    }
+};
+
 
 class SearchWidget : public QLineEdit
 {
@@ -43,11 +58,12 @@ public:
     bool jumpContentPathWidget(QString path);
     void setLanguage(QString type);
     void addModulesName(QString moduleName, QString searchName, QString translation = "");
-
+    void clearText();
 private Q_SLOTS:
     void onCompleterActivated(QString value);
     void screenAddedProcess();
     void screenRemovedProcess();
+    void xrandrKeyChange(QString key);
 Q_SIGNALS:
     void notifyModuleSearch(QString);
     void screenAdd();
@@ -63,6 +79,10 @@ private:
     void clearSearchData();
     //判断系统是否支持自动亮度
     void hasAutoLight();
+
+    QGSettings            *m_XrandrSetting;
+    QGSettings            *m_TabletSetting;
+
 private:
     int screenNum;
     QString pinyinTxt;

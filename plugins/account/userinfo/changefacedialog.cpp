@@ -63,6 +63,7 @@ ChangeFaceDialog::ChangeFaceDialog(QWidget *parent) :
     historyFacesFlowLayout = new FlowLayout(ui->historyFacesWidget);
     ui->historyFacesWidget->setLayout(historyFacesFlowLayout);
 
+    btnsGroup = new QButtonGroup;
 //    ElipseMaskWidget * cfMaskWidget = new ElipseMaskWidget(ui->faceLabel);
 ////    cfMaskWidget->setBgColor("#F4F4F4");
 //    cfMaskWidget->setGeometry(0, 0, ui->faceLabel->width(), ui->faceLabel->height());
@@ -104,9 +105,12 @@ void ChangeFaceDialog::loadSystemFaces(){
             continue;
 
         QPushButton * button = new QPushButton;
+        button->setCheckable(true);
         button->setAttribute(Qt::WA_DeleteOnClose);
         button->setFixedSize(QSize(56, 56));
 //        button->setStyleSheet("QPushButton{border: none;}");
+
+        btnsGroup->addButton(button);
 
         QHBoxLayout * mainHorLayout = new QHBoxLayout(button);
         mainHorLayout->setSpacing(0);
@@ -177,6 +181,15 @@ void ChangeFaceDialog::loadHistoryFaces(){
         QLabel * delBtnLabel = new QLabel(delBtn);
         delBtnLabel->setScaledContents(true);
         delBtnLabel->setPixmap(QPixmap(":/img/plugins/userinfo/delete.png"));
+
+        delBtnLayout->addStretch();
+        delBtnLayout->addWidget(delBtn);
+        delBtnLayout->setContentsMargins(0,0,0,50);
+
+        mainHorLayout->addWidget(iconLabel);
+        iconLabel->setLayout(delBtnLayout);
+        delBtn->hide();
+
         connect(delBtn, &QPushButton::clicked, this, [=]{
             sysinterface = new QDBusInterface("com.control.center.qt.systemdbus",
                                              "/",
@@ -196,20 +209,26 @@ void ChangeFaceDialog::loadHistoryFaces(){
                 sysinterface->call("systemRun", QVariant(cmd));
             }
             loadHistoryFaces();
+
+            old_delBtn = nullptr;
         });
-
-        delBtnLayout->addStretch();
-        delBtnLayout->addWidget(delBtn);
-        delBtnLayout->setContentsMargins(0,0,0,50);
-
-        mainHorLayout->addWidget(iconLabel);
-        iconLabel->setLayout(delBtnLayout);
 
         button->setLayout(mainHorLayout);
         historyFacesFlowLayout->addWidget(button);
         connect(button, &QPushButton::clicked, this, [=]{
             setFace(historyface);
             confirmFile = historyface;
+
+            delBtn->show();
+
+            if (old_delBtn != nullptr) {
+                old_delBtn->hide();
+                old_delBtn = delBtn;
+            }
+
+            if (old_delBtn == nullptr) {
+                old_delBtn = delBtn;
+            }
         });
     }
 
@@ -221,11 +240,30 @@ void ChangeFaceDialog::loadHistoryFaces(){
     historyFacesFlowLayout->addWidget(addBtn);
     connect(addBtn, &QPushButton::clicked, this, [=]{
         showLocalFaceDialog();
+        old_delBtn = nullptr;
     });
 }
 
 void ChangeFaceDialog::setFace(QString iconfile){
-    ui->faceLabel->setPixmap(PixmapToRound(iconfile, ui->faceLabel->width()/2));
+    QPixmap rect = pixmapAdjustLabel(iconfile);
+    ui->faceLabel->setPixmap(PixmapToRound(rect, ui->faceLabel->width()/2));
+}
+
+QPixmap ChangeFaceDialog::pixmapAdjustLabel(QString iconfile)
+{
+    //设置用户头像
+    QPixmap iconcop = QPixmap(iconfile);
+    if (iconcop.width() > iconcop.height()) {
+        QPixmap iconPixmap = iconcop.copy((iconcop.width() - iconcop.height())/2, 0, iconcop.height(), iconcop.height());
+        // 根据label高度等比例缩放图片
+        QPixmap rectPixmap = iconPixmap.scaledToHeight(ui->faceLabel->height());
+        return rectPixmap;
+    } else {
+        QPixmap iconPixmap = iconcop.copy(0, (iconcop.height() - iconcop.width())/2, iconcop.width(), iconcop.width());
+        // 根据label宽度等比例缩放图片
+        QPixmap rectPixmap = iconPixmap.scaledToWidth(ui->faceLabel->width());
+        return rectPixmap;
+    }
 }
 
 void ChangeFaceDialog::setRealname(QString realname){
@@ -334,8 +372,8 @@ void ChangeFaceDialog::showLocalFaceDialog(){
     loadHistoryFaces();
 }
 
-QPixmap ChangeFaceDialog::PixmapToRound(const QString &src, int radius) {
-    if (src == "") {
+QPixmap ChangeFaceDialog::PixmapToRound(const QPixmap &src, int radius) {
+    if (src.isNull()) {
         return QPixmap();
     }
     QPixmap pixmapa(src);

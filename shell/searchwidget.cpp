@@ -11,6 +11,16 @@
 #include <QRegularExpression>
 #include <QtXml>
 #include <QGuiApplication>
+#include <QApplication>
+#include <QX11Info>
+
+#define SETTINGS_XRANDR_SCHEMAS "org.ukui.SettingsDaemon.plugins.xrandr"
+#define SETTINGS_TABLET_SCHEMAS "org.ukui.SettingsDaemon.plugins.tablet-mode"
+#define XRANDR_ROTATION_KEY     "xrandr-rotations"
+#define XRANDR_RT_ROTATION_KEY     "xrandr-rt-rotations"
+#define XRANDR_PC_ROTATION_KEY0     "xrandr-pc-rotation0"
+#define TABLET_AUTO_KEY         "auto-rotation"
+#define TABLET_MODE_KEY         "tablet-mode"
 
 class ukCompleter : public QCompleter
 {
@@ -24,16 +34,20 @@ public:
     bool eventFilter(QObject *o, QEvent *e) override;
 };
 
+
 SearchWidget::SearchWidget(QWidget *parent)
     : QLineEdit(parent)
     , m_xmlExplain("")
     , m_bIsChinese(false)
     , m_searchValue("")
     , m_bIstextEdited(false)
-{
-    hasAutoLight();
+{   
+    m_XrandrSetting = new QGSettings(SETTINGS_XRANDR_SCHEMAS);
+    m_TabletSetting = new QGSettings(SETTINGS_TABLET_SCHEMAS);
+
     setAttribute(Qt::WA_StyledBackground,true);
-    m_model = new QStandardItemModel(this);
+    m_model = new QStandardItemModel(nullptr);//
+
     m_completer = new ukCompleter(m_model, this);
     m_completer->popup()->setAttribute(Qt::WA_InputMethodEnabled);
     m_completer->setFilterMode(Qt::MatchContains);//设置QCompleter支持匹配字符搜索
@@ -56,6 +70,8 @@ SearchWidget::SearchWidget(QWidget *parent)
 
     connect(this, &QLineEdit::textChanged, this, [ = ] {
         QString retValue = text();
+
+
         if (m_bIstextEdited) {
             m_bIstextEdited = false;
             return ;
@@ -81,7 +97,7 @@ SearchWidget::SearchWidget(QWidget *parent)
     connect(this, &QLineEdit::returnPressed, this, [ = ] {
 
         if (!text().isEmpty()) {
-            //enter defalt set first
+//            enter defalt set first
             if (!jumpContentPathWidget(text())) {
                 const QString &currentCompletion = this->completer()->currentCompletion();
                 qDebug() << Q_FUNC_INFO << " [SearchWidget] currentCompletion : " << currentCompletion;
@@ -92,11 +108,16 @@ SearchWidget::SearchWidget(QWidget *parent)
                     jumpContentPathWidget(transPinyinToChinese(currentCompletion));
                 }
             }
+//            setText(QString::fromLocal8Bit(""));
         }
     });
 
     //鼠标点击后直接页面跳转(存在同名信号)
     connect(m_completer, SIGNAL(activated(QString)), this, SLOT(onCompleterActivated(QString)));
+
+    connect(m_XrandrSetting, SIGNAL(changed(QString)),this,SLOT(xrandrKeyChange(QString)));
+    connect(m_TabletSetting, SIGNAL(changed(QString)),this,SLOT(xrandrKeyChange(QString)));
+
 }
 
 SearchWidget::~SearchWidget() {
@@ -139,6 +160,43 @@ void SearchWidget::screenAddedProcess() {
 void SearchWidget::screenRemovedProcess() {
     screenNum = QGuiApplication::screens().count();
     loadxml();
+}
+
+void SearchWidget::xrandrKeyChange(QString key)
+{
+    static int lastAnge = 0xff;
+    int Angle = 0;
+    QString sAngle;
+    QString tabletMode = m_TabletSetting->get(TABLET_MODE_KEY).toString();
+    QString isAutoRotation = m_TabletSetting->get(TABLET_AUTO_KEY).toString();
+
+    if (tabletMode.toUpper().contains("TRUE")) {
+        if (isAutoRotation.toUpper().contains("TRUE")) {
+            sAngle = m_XrandrSetting->get(XRANDR_RT_ROTATION_KEY).toString();
+        } else {
+            sAngle = m_XrandrSetting->get(XRANDR_ROTATION_KEY).toString();
+        }
+
+    } else {
+        sAngle = m_XrandrSetting->get(XRANDR_PC_ROTATION_KEY0).toString();
+    }
+
+    if (sAngle.contains("normal")) {
+        Angle = 1;
+    } else if (sAngle.contains("left")) {
+        Angle = 2;
+    } else if (sAngle.contains("upside-down")) {
+        Angle = 4;
+    } else if (sAngle.contains("right")) {
+        Angle = 8;
+    }
+
+    if (lastAnge!=Angle) {
+        qDebug()<<key<<"change angle"<<lastAnge<<"to"<<Angle;
+        lastAnge = Angle;
+        this->m_completer->popup()->close();
+//        this->clearFocus();这里无法主动失焦，只能用close
+    }
 }
 
 bool SearchWidget::jumpContentPathWidget(QString path) {
@@ -470,6 +528,7 @@ void SearchWidget::appendChineseData(SearchWidget::SearchBoxStruct data) {
         //存储 汉字和拼音 : 在选择对应的下拉框数据后,会将Qt::UserRole数据设置到输入框(即pinyin)
         //而在输入框发送 DSearchEdit::textChanged 信号时,会遍历m_inputList,根据pinyin获取到对应汉字,再将汉字设置到输入框
         m_inputList.append(transdata);
+        qDebug()<<"hanziTxt:"<<hanziTxt;
     } else {
         //先添加使用appenRow添加Qt::EditRole数据(用于下拉框显示),然后添加Qt::UserRole数据(用于输入框搜索)
         //Qt::EditRole数据用于显示搜索到的结果(汉字)
@@ -493,6 +552,7 @@ void SearchWidget::appendChineseData(SearchWidget::SearchBoxStruct data) {
                             .arg(removeDigital(Chinese2Pinyin(data.translateContent)));
 
         m_model->appendRow(new QStandardItem(/*icon.value(),*/ hanziTxt));
+        qDebug()<<"hanziTxt:"<<hanziTxt;
         //设置Qt::UserRole搜索的拼音(即搜索拼音会显示上面的汉字)
         m_model->setData(m_model->index(m_model->rowCount() - 1, 0), pinyinTxt, Qt::UserRole);
 
@@ -546,6 +606,8 @@ void SearchWidget::onCompleterActivated(QString value) {
     Q_EMIT returnPressed();
 }
 
+
+
 bool ukCompleter::eventFilter(QObject *o, QEvent *e) {
     if (e->type() == QEvent::FocusOut) {
         return QCompleter::eventFilter(o, e);
@@ -585,4 +647,12 @@ bool ukCompleter::eventFilter(QObject *o, QEvent *e) {
         }
     }
     return QCompleter::eventFilter(o, e);
+}
+
+void SearchWidget::clearText()
+{
+//    if (this->text().count())
+//    qDebug()<<"test!!!!!!!"<<this->text().count();
+//    this->clearText();
+//    this->setText(QString::fromLocal8Bit(""));
 }

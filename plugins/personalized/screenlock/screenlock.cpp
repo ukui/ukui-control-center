@@ -561,8 +561,8 @@ void Screenlock::showLocalWpDialog(){
     QStringList filters;
     //由于锁屏无法解析.tiff格式文件，故去掉此类文件的选择
     filters<<tr("Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.wdp)");
-    QFileDialog fd;
-    fd.setWindowFlags(Qt::FramelessWindowHint);
+    QFileDialog fd(pluginWidget);
+
     fd.setDirectory(QString(const_cast<char *>(g_get_user_special_dir(G_USER_DIRECTORY_PICTURES))));
     fd.setAcceptMode(QFileDialog::AcceptOpen);
     fd.setViewMode(QFileDialog::List);

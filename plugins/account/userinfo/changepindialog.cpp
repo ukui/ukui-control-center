@@ -26,6 +26,7 @@ ChangePinDialog::ChangePinDialog(QString username, QWidget *parent) :
     closeBtn->setProperty("iconHighlightEffectMode", 1);
     closeBtn->setFlat(true);
     closeBtn->setIcon(QIcon(":/img/plugins/userinfo/close.svg"));
+    closeBtn->setAutoDefault(false);
     connect(closeBtn, &QPushButton::clicked, [=]{
         close();
     });
