@@ -801,7 +801,7 @@ void TabWid::receiveBackupStartResult(int result)
         backupMessageBox(tr("Kylin backup restore tool could not find the UUID, this update will not backup the system!"));
         break;
     default:
-        backupMessageBox(tr("The backup restore partition is abnormal. You may not have a backup restore partition.For more details,see /var/log/backup.log"));
+        //backupMessageBox(tr("The backup restore partition is abnormal. You may not have a backup restore partition.For more details,see /var/log/backup.log"));
         break;
     }
 }
