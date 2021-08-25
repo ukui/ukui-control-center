@@ -91,7 +91,9 @@ void UnifiedOutputConfig::initUi()
 
     vbox->addWidget(resFrame);
     connect(mResolution, &ResolutionSlider::resolutionChanged,
-            this, &UnifiedOutputConfig::slotResolutionChanged);
+            this, [=](QSize size){
+        slotResolutionChanged(size, true);
+    });
 
     // 方向下拉框
     mRotation = new QComboBox(this);
@@ -159,7 +161,7 @@ void UnifiedOutputConfig::initUi()
     freshFrame->setMinimumSize(552, 50);
     freshFrame->setMaximumSize(960, 50);
 
-    slotResolutionChanged(mResolution->currentResolution());
+    slotResolutionChanged(mResolution->currentResolution(), true);
     connect(mRefreshRate, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
         this, &UnifiedOutputConfig::slotRefreshRateChanged);
 
@@ -167,12 +169,13 @@ void UnifiedOutputConfig::initUi()
                          [&](KScreen::ConfigOperation *op) {
         KScreen::ConfigPtr sConfig = qobject_cast<KScreen::GetConfigOperation *>(op)->config();
         KScreen::OutputPtr sOutput = sConfig -> primaryOutput();
-
+        mRefreshRate->blockSignals(true);    
         for (int i = 0; i < mRefreshRate->count(); ++i) {
             if (mRefreshRate->itemText(i) == tr("%1 Hz").arg(QLocale().toString(sOutput->currentMode()->refreshRate()))) {
                 mRefreshRate->setCurrentIndex(i);
             }
         }
+        mRefreshRate->blockSignals(false); 
     });
     initscale(vbox);
 }
@@ -246,25 +249,28 @@ KScreen::OutputPtr UnifiedOutputConfig::createFakeOutput()
     return fakeOutput;
 }
 
-void UnifiedOutputConfig::slotResolutionChanged(const QSize &size)
+void UnifiedOutputConfig::slotResolutionChanged(const QSize &size ,bool setFlag)
 {
     // Ignore disconnected outputs
     if (!size.isValid()) {
         return;
     }
     QVector<QString>Vrefresh;
+    mRefreshRate->blockSignals(true);
     for (int i = mRefreshRate->count(); i >= 0; --i) {
             mRefreshRate->removeItem(i);
     }
+    mRefreshRate->blockSignals(false);
     Q_FOREACH (const KScreen::OutputPtr &clone, mClones) {
         const QString &id = findBestMode(clone, size);
         if (id.isEmpty()) {
             // FIXME: Error?
             return;
         }
-
-        clone->setCurrentModeId(id);
-        clone->setPos(QPoint(0, 0));
+        if (setFlag) {
+            clone->setCurrentModeId(id);
+            clone->setPos(QPoint(0, 0));
+        }
 
         QList<KScreen::ModePtr> modes;
         Q_FOREACH (const KScreen::ModePtr &mode, clone->modes()) {
@@ -304,21 +310,24 @@ void UnifiedOutputConfig::slotResolutionChanged(const QSize &size)
                 }
             }
             if (existFlag == false) {  //不存在添加到容器中
+                mRefreshRate->blockSignals(true);
                 mRefreshRate->addItem(Vrefresh[i]);
+                mRefreshRate->blockSignals(false);
             }
         }
     }
     if (mRefreshRate->count() == 0) {
+        mRefreshRate->blockSignals(true);
         mRefreshRate->addItem(tr("auto"), -1);
+        mRefreshRate->blockSignals(false);
     }
-    Q_EMIT changed();
+    if (setFlag) {
+        Q_EMIT changed();
+    }
 }
 
 void UnifiedOutputConfig::slotRefreshRateChanged(int index)
 {
-    if (index == 0) {
-        index = 1;
-    }
     Q_FOREACH (const KScreen::OutputPtr &clone, mClones) {
         Q_FOREACH (const KScreen::ModePtr &mode, clone->modes()) {
             if (mode->size() == mResolution->currentResolution() && \
@@ -327,6 +336,7 @@ void UnifiedOutputConfig::slotRefreshRateChanged(int index)
             }
         }
     }
+    Q_EMIT changed();
 }
 
 QString UnifiedOutputConfig::findBestMode(const KScreen::OutputPtr &output, const QSize &size)
@@ -359,7 +369,16 @@ void UnifiedOutputConfig::slotRestoreResoltion()
 {
     if (!(mResolution->currentResolution() == mOutput->currentMode()->size())) {
         mResolution->setResolution(mOutput->currentMode()->size());
+        slotResolutionChanged(mOutput->currentMode()->size(), false);
     }
+
+    mRefreshRate->blockSignals(true);
+    for (int i = 0; i < mRefreshRate->count(); ++i) {
+        if (mRefreshRate->itemText(i) == tr("%1 Hz").arg(QLocale().toString(mOutput->currentMode()->refreshRate()))) {
+            mRefreshRate->setCurrentIndex(i);
+        }
+    }
+    mRefreshRate->blockSignals(false);
 }
 
 void UnifiedOutputConfig::slotRestoreRatation()
