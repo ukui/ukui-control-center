@@ -274,7 +274,10 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
         modeID = mRefreshRate->itemData(1).toString();
     }
 
-    mOutput->setCurrentModeId(modeID);
+    if (!modeID.isEmpty()) {
+        mOutput->setCurrentModeId(modeID);
+    }
+
 
     if (emitFlag)
         Q_EMIT changed();
