@@ -2101,7 +2101,7 @@ change system settings</source>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/datetime.ui" line="193"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="200"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="210"/>
         <source>Change timezone</source>
         <translation>更改时区</translation>
         <extra-contents_path>/date/Change timezone</extra-contents_path>
@@ -2129,14 +2129,14 @@ change system settings</source>
         <translation type="vanished">时间同步成功</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="801"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="806"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="812"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="817"/>
         <source>Sync from network failed</source>
         <translation>时间同步失败</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/datetime.ui" line="218"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="198"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="208"/>
         <source>Change time</source>
         <translation>手动更改时间</translation>
         <extra-contents_path>/date/Change time</extra-contents_path>
@@ -2163,23 +2163,23 @@ change system settings</source>
         <translation type="vanished">时间日期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="82"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="83"/>
         <source>Date</source>
         <translation>时间日期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="139"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="145"/>
         <source>Other Timezone</source>
         <translation>其他时区</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="152"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="158"/>
         <source>24-hour clock</source>
         <translation>24小时制</translation>
         <extra-contents_path>/date/24-hour clock</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="155"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="161"/>
         <source>Sync from network</source>
         <translation>同步网络时间</translation>
         <extra-contents_path>/date/Sync from network</extra-contents_path>
@@ -2189,58 +2189,58 @@ change system settings</source>
         <translation type="vanished">添加时区以显示时间，最多可以添加5个</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="248"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="258"/>
         <source>Add time zones to display the time,only 5 can be added</source>
         <translation>添加时区，最多添加５个</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="272"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="585"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="282"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="596"/>
         <source>Add Timezone</source>
         <translation>添加时区</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="400"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="411"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="434"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="445"/>
         <source>Time Server</source>
         <translation>服务器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="436"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="447"/>
         <source>Default</source>
         <translation>系统默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="438"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="449"/>
         <source>Customize</source>
         <translation>自定义</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="446"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="457"/>
         <source>Server Address</source>
         <translation>服务器地址</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="451"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="462"/>
         <source>Required</source>
         <translation>必需</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="452"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="463"/>
         <source>Save</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="587"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="598"/>
         <source>Change Timezone</source>
         <translation>更改时区</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="800"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="811"/>
         <source>  </source>
         <translation></translation>
     </message>
@@ -2249,7 +2249,7 @@ change system settings</source>
         <translation type="vanished">同步网络时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="574"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="585"/>
         <source>change time</source>
         <translation>更改时间</translation>
     </message>
@@ -2270,37 +2270,42 @@ change system settings</source>
         <translation>默认应用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="339"/>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="65"/>
+        <source>No program available</source>
+        <translation>无可用程序</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="127"/>
         <source>Browser</source>
         <translation>浏览器</translation>
         <extra-contents_path>/defaultapp/Browser</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="341"/>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="129"/>
         <source>Mail</source>
         <translation>电子邮件</translation>
         <extra-contents_path>/defaultapp/Mail</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="343"/>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="131"/>
         <source>Image Viewer</source>
         <translation>图像查看器</translation>
         <extra-contents_path>/defaultapp/Image Viewer</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="345"/>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="133"/>
         <source>Audio Player</source>
         <translation>音频播放器</translation>
         <extra-contents_path>/defaultapp/Audio Player</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="347"/>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="135"/>
         <source>Video Player</source>
         <translation>视频播放器</translation>
         <extra-contents_path>/defaultapp/Video Player</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="349"/>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="137"/>
         <source>Text Editor</source>
         <translation>文档编辑器</translation>
         <extra-contents_path>/defaultapp/Text Editor</extra-contents_path>
@@ -3310,13 +3315,17 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="142"/>
+        <source>10</source>
+        <translation type="unfinished">10</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="143"/>
         <source>15</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="143"/>
         <source>16</source>
-        <translation>16</translation>
+        <translation type="vanished">16</translation>
     </message>
     <message>
         <source>Thanks For Using The ukcc</source>
@@ -4679,7 +4688,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.ui" line="129"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="928"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="971"/>
         <source>Refresh</source>
         <translation>刷新</translation>
     </message>
@@ -4718,7 +4727,7 @@ Please retry or relogin!</source>
         <translation>已连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="746"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="789"/>
         <source>No net</source>
         <translation>无连接</translation>
     </message>
@@ -4735,13 +4744,13 @@ Please retry or relogin!</source>
         <extra-contents_path>/netconnect/open WLAN</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="620"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="637"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="663"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="680"/>
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="916"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="959"/>
         <source>Refreshing...</source>
         <translation>刷新中...</translation>
     </message>
@@ -4755,7 +4764,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="52"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="486"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="529"/>
         <source>Connect</source>
         <translation>网络连接</translation>
     </message>
@@ -6323,136 +6332,136 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>自动启动的应用程序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1451"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1450"/>
         <source>pa_context_subscribe() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1467"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1466"/>
         <source>pa_context_client_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1474"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1473"/>
         <source>pa_context_get_card_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1481"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1480"/>
         <source>pa_context_get_sink_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1488"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1487"/>
         <source>pa_context_get_source_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1253"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1252"/>
         <source>Failed to initialize stream_restore extension: %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1495"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1494"/>
         <source>pa_context_get_sink_input_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1502"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1501"/>
         <source>pa_context_get_source_output_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1518"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1517"/>
         <source>Connection failed, attempting reconnect</source>
         <translation>连接失败，尝试重新连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1270"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1269"/>
         <source>pa_ext_stream_restore_read() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="212"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1385"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1460"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1384"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1459"/>
         <source>pa_context_get_server_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1143"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1614"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1142"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1613"/>
         <source>Sink input callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1163"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1162"/>
         <source>Source output callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1203"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1202"/>
         <source>Client callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1219"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1218"/>
         <source>Server info callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1287"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1286"/>
         <source>Failed to initialize device manager extension: %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1306"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1305"/>
         <source>pa_ext_device_manager_read() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1323"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1322"/>
         <source>pa_context_get_sink_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1336"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1335"/>
         <source>pa_context_get_source_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1349"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1362"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1348"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1361"/>
         <source>pa_context_get_sink_input_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1375"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1374"/>
         <source>pa_context_get_client_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1411"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1410"/>
         <source>pa_context_get_card_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1538"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1537"/>
         <source>Ukui Media Volume Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1081"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1080"/>
         <source>Card callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1099"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1098"/>
         <source>Sink callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1122"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1121"/>
         <source>Source callback failure</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8540,12 +8549,12 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="750"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="749"/>
         <source>Ignoring sink-input due to it being designated as an event and thus handled by the Event widget</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1047"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1046"/>
         <source>Establishing connection to PulseAudio. Please wait...</source>
         <translation type="unfinished"></translation>
     </message>
