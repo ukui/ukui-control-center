@@ -18,8 +18,8 @@ public:
 
     void setOutput(const KScreen::OutputPtr &output) override;
 
-private Q_SLOTS:
-    void slotResolutionChanged(const QSize &size);
+private:
+    void slotResolutionChanged(const QSize &size, bool setFlag);
 
     // 统一输出后调整屏幕方向统一代码
     void slotRotationChangedDerived(int index);
