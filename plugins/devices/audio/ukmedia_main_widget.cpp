@@ -1279,7 +1279,9 @@ void UkmediaMainWidget::onContextDefaultInputStreamNotify (MateMixerContext *m_p
     qDebug() << "onContextDefaultInputStreamNotify" << mate_mixer_stream_get_name(m_pStream) << index << m_pWidget->m_pInputPortLabelList->count();
     if (index < 0) {
         //if input stream is monitor stream,set input list widget select null
+        m_pWidget->m_pInputWidget->m_pInputListWidget->blockSignals(true);
         m_pWidget->m_pInputWidget->m_pInputListWidget->setCurrentRow(-1);
+        m_pWidget->m_pInputWidget->m_pInputListWidget->blockSignals(false);
         return;
     }
     else {
@@ -1641,7 +1643,9 @@ void UkmediaMainWidget::updateIconInput (UkmediaMainWidget *m_pWidget)
     }
 
     if (strstr(inputControlName,".monitor")) {
+        m_pWidget->m_pInputWidget->m_pInputListWidget->blockSignals(true);
         m_pWidget->m_pInputWidget->m_pInputListWidget->setCurrentRow(-1);
+        m_pWidget->m_pInputWidget->m_pInputListWidget->blockSignals(false);
     }
 
     m_pWidget->m_pStream = m_pStream;
@@ -5445,8 +5449,8 @@ void UkmediaMainWidget::deleteNotAvailableInputPort()
             int index = indexOfInputPortInInputListWidget(it.value());
             if (index == -1)
                 return;
-            QListWidgetItem *item = m_pInputWidget->m_pInputListWidget->takeItem(index);
             m_pInputWidget->m_pInputListWidget->blockSignals(true);
+            QListWidgetItem *item = m_pInputWidget->m_pInputListWidget->takeItem(index);
             m_pInputWidget->m_pInputListWidget->removeItemWidget(item);
             m_pInputWidget->m_pInputListWidget->blockSignals(false);
             m_pCurrentInputPortLabelList->removeAt(index);
