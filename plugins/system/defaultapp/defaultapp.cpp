@@ -63,9 +63,11 @@ QWidget *DefaultApp::get_plugin_ui() {
         ui->setupUi(pluginWidget);
 
         ui->titleLabel->setStyleSheet("QLabel{color: palette(windowText);}");
-        initUI();
-        initSlots();
-        connectToServer();
+        QTimer::singleShot( 1, this, [=](){
+            initUI();
+            initSlots();
+            connectToServer();
+        });
 #ifdef __sw_64__
         ui->ResetBtn->show();
 #else
@@ -131,8 +133,8 @@ void DefaultApp::initUI() {
         }
     }
 
-    qDebug() <<"browser耗时："<<timedebuge.elapsed()<<"ms";//输出计时
-    qDebug() << "BROWSER 主线程" << QThread::currentThreadId() << QThread::currentThread();
+//    qDebug() <<"browser耗时："<<timedebuge.elapsed()<<"ms";//输出计时
+//    qDebug() << "BROWSER 主线程" << QThread::currentThreadId() << QThread::currentThread();
 
     // IMAGE
     {
@@ -174,8 +176,8 @@ void DefaultApp::initUI() {
 //                }
             }
         }
-        qDebug() <<"IMAGE耗时："<<timedebuge.elapsed()<<"ms";//输出计时
-        qDebug() << "IMAGE线程" << QThread::currentThreadId() << QThread::currentThread();
+//        qDebug() <<"IMAGE耗时："<<timedebuge.elapsed()<<"ms";//输出计时
+//        qDebug() << "IMAGE线程" << QThread::currentThreadId() << QThread::currentThread();
     });
 
     // MAIL
@@ -211,8 +213,8 @@ void DefaultApp::initUI() {
                 ui->mailComBoBox->addItem(appicon, appname, single);
             }
         }
-        qDebug() <<"MAIL耗时："<<timedebuge.elapsed()<<"ms";//输出计时
-        qDebug() << "MAIL线程" << QThread::currentThreadId() << QThread::currentThread();
+//        qDebug() <<"MAIL耗时："<<timedebuge.elapsed()<<"ms";//输出计时
+//        qDebug() << "MAIL线程" << QThread::currentThreadId() << QThread::currentThread();
     });
 
     // AUDIO
@@ -248,8 +250,8 @@ void DefaultApp::initUI() {
                 ui->audioComBoBox->addItem(appicon, appname, single);
             }
         }
-        qDebug() <<"AUDIO耗时："<<timedebuge.elapsed()<<"ms";//输出计时
-        qDebug() << "AUDIO线程" << QThread::currentThreadId() << QThread::currentThread();
+//        qDebug() <<"AUDIO耗时："<<timedebuge.elapsed()<<"ms";//输出计时
+//        qDebug() << "AUDIO线程" << QThread::currentThreadId() << QThread::currentThread();
     });
 
     // VIDEO
@@ -285,8 +287,8 @@ void DefaultApp::initUI() {
                 ui->videoComBoBox->addItem(appicon, appname, single);
             }
         }
-        qDebug() <<"VIDEO耗时："<<timedebuge.elapsed()<<"ms";//输出计时
-        qDebug() << "VIDEO线程" << QThread::currentThreadId() << QThread::currentThread();
+//        qDebug() <<"VIDEO耗时："<<timedebuge.elapsed()<<"ms";//输出计时
+//        qDebug() << "VIDEO线程" << QThread::currentThreadId() << QThread::currentThread();
     });
 
     // TEXT
@@ -322,8 +324,8 @@ void DefaultApp::initUI() {
                 ui->textComBoBox->addItem(appicon, appname, single);
             }
         }
-        qDebug() <<"TEXT耗时："<<timedebuge.elapsed()<<"ms";//输出计时
-        qDebug() << "TEXT线程" << QThread::currentThreadId() << QThread::currentThread();
+//        qDebug() <<"TEXT耗时："<<timedebuge.elapsed()<<"ms";//输出计时
+//        qDebug() << "TEXT线程" << QThread::currentThreadId() << QThread::currentThread();
     });
 
     imagefuture.waitForFinished();
@@ -331,7 +333,7 @@ void DefaultApp::initUI() {
     audiofuture.waitForFinished();
     videofuture.waitForFinished();
     textfuture.waitForFinished();
-    qDebug()<<"initUI耗时："<<timedebuge.elapsed()<<"ms";//输出计时
+//    qDebug()<<"initUI耗时："<<timedebuge.elapsed()<<"ms";//输出计时
 }
 
 void DefaultApp::initSearchText() {
