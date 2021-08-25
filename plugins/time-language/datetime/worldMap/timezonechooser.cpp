@@ -365,3 +365,14 @@ void TimeZoneChooser::animationFinishedSlot()
         m_queryWid->layout()->addWidget(m_queryText);
     }
 }
+
+void TimeZoneChooser::keyPressEvent(QKeyEvent *event)
+{
+    if (event->key() == Qt::Key_Escape) {
+        this->hide();
+    }
+    else {
+        QDialog::keyPressEvent(event);
+    }
+    return;
+}

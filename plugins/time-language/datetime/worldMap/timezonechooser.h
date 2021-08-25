@@ -26,6 +26,7 @@ Q_SIGNALS:
     void cancelled();
 
 protected:
+    void keyPressEvent(QKeyEvent* event);
     void keyRealeaseEvent(QKeyEvent* event);
     bool eventFilter(QObject* obj, QEvent* event);
 
