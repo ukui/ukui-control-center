@@ -77,6 +77,7 @@ public:
     void initUI();
     void initSlots();
     void initSearchText();
+    void initDefaultAppInfo(const char* type, QComboBox *combox);
 
     bool setWebBrowsersDefaultProgram(char * appid);
     bool setMailReadersDefaultProgram(char * appid);
@@ -108,6 +109,7 @@ private:
     QString mDefaultVideo;
     QString mDefaultText;
 
+    QString mDefaultString;
     QStringList browserList;
 
     bool mFirstLoad;
