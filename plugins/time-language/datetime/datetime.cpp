@@ -76,6 +76,11 @@ DateTime::DateTime() : mFirstLoad(true)
 {
     pluginName = tr("Date");
     pluginType = DATETIME;
+    ui = new Ui::DateTime;
+    pluginWidget = new QWidget;
+    pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
+    ui->setupUi(pluginWidget);
+    ui->infoFrame->setFrameShape(QFrame::Shape::Box);
 }
 
 DateTime::~DateTime()
@@ -101,19 +106,22 @@ int DateTime::get_plugin_type()
 QWidget *DateTime::get_plugin_ui()
 {
     if (mFirstLoad) {
-        ui = new Ui::DateTime;
-        pluginWidget = new QWidget;
-        pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-        ui->setupUi(pluginWidget);
-        ui->infoFrame->setFrameShape(QFrame::Shape::Box);
-        mFirstLoad = false;
+        QTimer::singleShot(1, this, [=]() {
+            mFirstLoad = false;
 
-        initUI();
-        initTitleLabel();
-        initStatus();
-        initComponent();
-        initConnect();
-        connectToServer();
+            initUI();
+            qApp->processEvents();
+            initTitleLabel();
+            qApp->processEvents();
+            initStatus();
+            qApp->processEvents();
+            initComponent();
+            qApp->processEvents();
+            initConnect();
+            qApp->processEvents();
+            connectToServer();
+            qApp->processEvents();
+        });
     }
     return pluginWidget;
 }
@@ -158,6 +166,7 @@ void DateTime::initUI()
     m_timezone          = new TimeZoneChooser(pluginWidget);
     m_itimer            = new QTimer(this);
     m_itimer->start(1000);
+    ntpCombox = new QComboBox(ui->ntpFrame);
 
     const QByteArray id(FORMAT_SCHEMA);
     if (QGSettings::isSchemaInstalled(id)) {
@@ -183,8 +192,9 @@ void DateTime::initUI()
                                              QDBusConnection::systemBus(), this);
 
     initNtp();
-    initTimeShow();
-
+    QTimer::singleShot(1, this, [=]() {
+        initTimeShow();
+    });
 }
 
 void DateTime::initComponent()
@@ -322,6 +332,7 @@ void DateTime::initTimeShow()
 
         for (int i = 0; i < timesNum; ++i) {
             newTimeshow(timezonesList[i]);
+            qApp->processEvents();
         }
      }
 }
@@ -423,7 +434,7 @@ void DateTime::initNtp()
 {
     QLabel      *ntpLabel  = new QLabel(ui->ntpFrame);
     QHBoxLayout *ntpLayout = new QHBoxLayout(ui->ntpFrame);
-                 ntpCombox = new QComboBox(ui->ntpFrame);
+
     ntpLabel->setFixedWidth(260);
     ui->ntpFrame->setLayout(ntpLayout);
     ntpLayout->addWidget(ntpLabel);
