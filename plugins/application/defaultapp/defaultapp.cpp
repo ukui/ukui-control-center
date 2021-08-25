@@ -317,7 +317,9 @@ void DefaultApp::initDefaultAppInfo(const char* type, QComboBox *combox)
     QString appname = g_app_info_get_name(G_APP_INFO(textinfo));
     const char * iconname = g_icon_to_string(g_app_info_get_icon(G_APP_INFO(textinfo)));
     QIcon appicon;
-    appicon = QIcon::fromTheme(QString(iconname));
+    appicon = QIcon::fromTheme(QString(QLatin1String(iconname)),
+                               QIcon(QString("/usr/share/pixmaps/"+QString(QLatin1String(iconname))
+                                             +".png")));
     if (appname != NULL) {
         combox->addItem(appicon, appname, currentapp);
 
