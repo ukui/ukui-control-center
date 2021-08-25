@@ -61,10 +61,12 @@ QWidget *DefaultApp::get_plugin_ui() {
         mDefaultString = tr("No program available");
         initUi(pluginWidget);
         initSearchText();
-        initDefaultUI();
-        initSlots();
-        connectToServer();
-        watchFileChange();
+         QTimer::singleShot( 1, this, [=](){
+             initDefaultUI();
+             initSlots();
+             connectToServer();
+             watchFileChange();
+         });
     }
     return pluginWidget;
 }
@@ -285,8 +287,8 @@ void DefaultApp::initDefaultUI() {
     // TEXT
     initDefaultAppInfo(TEXTTYPE,mTextCombo);
 
-    qDebug()<<"initUI耗时："<<timedebuge.elapsed()<<"ms";//输出计时
-    qDebug() << "主线程" << QThread::currentThreadId() << QThread::currentThread();
+//    qDebug()<<"initUI耗时："<<timedebuge.elapsed()<<"ms";//输出计时
+//    qDebug() << "主线程" << QThread::currentThreadId() << QThread::currentThread();
 }
 
 /* 添加搜索索引 */
@@ -401,9 +403,9 @@ void DefaultApp::browserComBoBox_changed_cb(int index) {
         timedebuge.start();//开始计时
         QString appid = mBrowserCombo->itemData(index).toString();
         QByteArray ba = appid.toUtf8(); // QString to char *
-        qDebug()<<"browserComBoBox_changed_cb："<<timedebuge.elapsed()<<"ms" << appid;
+//        qDebug()<<"browserComBoBox_changed_cb："<<timedebuge.elapsed()<<"ms" << appid;
         setWebBrowsersDefaultProgram(ba.data());
-        qDebug()<<"browserComBoBox_changed_cb线程耗时："<<timedebuge.elapsed()<<"ms" << appid;//输出计时
+//        qDebug()<<"browserComBoBox_changed_cb线程耗时："<<timedebuge.elapsed()<<"ms" << appid;//输出计时
     });
     future.waitForFinished();
 }
@@ -417,7 +419,7 @@ void DefaultApp::mailComBoBox_changed_cb(int index) {
         QString appid = mMailCombo->itemData(index).toString();
         QByteArray ba = appid.toUtf8(); // QString to char *
         setMailReadersDefaultProgram(ba.data());
-        qDebug()<<"mailComBoBox_changed_cb线程耗时："<<timedebuge.elapsed()<<"ms";//输出计时
+//        qDebug()<<"mailComBoBox_changed_cb线程耗时："<<timedebuge.elapsed()<<"ms";//输出计时
     });
     future.waitForFinished();
 }
@@ -431,7 +433,7 @@ void DefaultApp::imageComBoBox_changed_cb(int index) {
         QString appid = mImageCombo->itemData(index).toString();
         QByteArray ba = appid.toUtf8(); // QString to char *
         setImageViewersDefaultProgram(ba.data());
-        qDebug()<<"imageComBoBox_changed_cb线程耗时："<<timedebuge.elapsed()<<"ms";//输出计时
+//        qDebug()<<"imageComBoBox_changed_cb线程耗时："<<timedebuge.elapsed()<<"ms";//输出计时
     });
     future.waitForFinished();
 }
@@ -445,7 +447,7 @@ void DefaultApp::audioComBoBox_changed_cb(int  index) {
         QString appid = mAudioCombo->itemData(index).toString();
         QByteArray ba = appid.toUtf8(); // QString to char *
         setAudioPlayersDefaultProgram(ba.data());
-        qDebug()<<"audioComBoBox_changed_cb线程耗时："<<timedebuge.elapsed()<<"ms";//输出计时
+//        qDebug()<<"audioComBoBox_changed_cb线程耗时："<<timedebuge.elapsed()<<"ms";//输出计时
     });
     future.waitForFinished();
 }
@@ -460,7 +462,7 @@ void DefaultApp::videoComBoBox_changed_cb(int index) {
         QByteArray ba = appid.toUtf8(); // QString to char *
         setVideoPlayersDefaultProgram(ba.data());
         qDebug() << __FUNCTION__  << QThread::currentThreadId() << QThread::currentThread();
-        qDebug()<<"videoComBoBox_changed_cb线程耗时："<<timedebuge.elapsed()<<"ms";//输出计时
+//        qDebug()<<"videoComBoBox_changed_cb线程耗时："<<timedebuge.elapsed()<<"ms";//输出计时
     });
     future.waitForFinished();
 }
@@ -474,7 +476,7 @@ void DefaultApp::textComBoBox_changed_cb(int index) {
         QString appid = mTextCombo->itemData(index).toString();
         QByteArray ba = appid.toUtf8(); // QString to char *
         setTextEditorsDefautlProgram(ba.data());
-        qDebug()<<"textComBoBox_changed_cb线程耗时："<<timedebuge.elapsed()<<"ms";//输出计时
+//        qDebug()<<"textComBoBox_changed_cb线程耗时："<<timedebuge.elapsed()<<"ms";//输出计时
     });
     future.waitForFinished();
 }

@@ -9004,7 +9004,7 @@ run start-pulseaudio-x11 manually.</source>
     <message>
         <location filename="../../../plugins/system/vino/vino.cpp" line="24"/>
         <source>Vino</source>
-        <translation>桌面共享</translation>
+        <translation>远程桌面</translation>
     </message>
 </context>
 <context>

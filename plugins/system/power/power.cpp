@@ -844,7 +844,7 @@ void Power::setupConnect()
         connect(mBatteryComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index) {
             //当开启了 低电量自动开启节能模式 时，在此低电量范围内调整电池计划，则自动关闭 低电量自动开启节能模式
             if (!Utils::isWayland() && mKeys.contains("lowBatteryAutoSave")) {
-                if (mLowSaveBtn->isChecked() &&  getBattery() <= settings->get(PERCENTAGE_LOW).toInt()) {
+                if (mLowSaveBtn->isChecked() &&  getBattery() <= settings->get(PERCENTAGE_LOW).toDouble()) {
                     mLowSaveBtn->setChecked(false);
                 }
             }
