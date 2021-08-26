@@ -293,7 +293,9 @@ void ChangePwdDialog::setFace(QString iconfile){
 }
 
 void ChangePwdDialog::setUsername(QString realname){
-    ui->usernameLabel->setText(realname);
+    if (QLabelSetText(ui->usernameLabel, realname)){
+        ui->usernameLabel->setToolTip(realname);
+    }
 }
 
 void ChangePwdDialog::setAccountType(QString aType){

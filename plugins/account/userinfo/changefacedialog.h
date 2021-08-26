@@ -45,6 +45,8 @@ namespace Ui {
 class ChangeFaceDialog;
 }
 
+class QLabel;
+
 class ChangeFaceDialog : public QDialog
 {
     Q_OBJECT
@@ -68,6 +70,8 @@ protected:
 
 private:
     Ui::ChangeFaceDialog *ui;
+
+    bool QLabelSetText(QLabel *label, QString string);
 
 private:
     QString selectedFaceIcon;

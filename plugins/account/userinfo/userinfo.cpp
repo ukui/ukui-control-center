@@ -63,6 +63,8 @@ extern "C" {
 
 #define STYLE_FONT_SCHEMA  "org.ukui.style"
 
+#define FONTSWIDTH 100
+
 UserInfo::UserInfo() : mFirstLoad(true)
 {
     pluginName = tr("User Info");
@@ -780,7 +782,19 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     nameSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
     nameSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
     nameLabel->setSizePolicy(nameSizePolicy);
-    nameLabel->setText(user.realname);
+//    nameLabel->setText(user.realname);
+    if (QLabelSetText(nameLabel, user.realname)){
+        nameLabel->setToolTip(user.realname);
+    }
+
+    connect(pSetting, &QGSettings::changed, this, [=](QString key){
+        if (QString::compare(key, "systemFontSize") == 0){
+            if (QLabelSetText(nameLabel, user.realname)){
+                nameLabel->setToolTip(user.realname);
+            }
+        }
+
+    });
 
     QString btnQss = QString("QPushButton{background: #ffffff; border-radius: 4px;}");
 
@@ -1246,9 +1260,6 @@ void UserInfo::changeUserPwd(QString pwd, QString username){
     delete tmpSysinterface;
     tmpSysinterface = nullptr;
 }
-
-
-#define FONTSWIDTH 100
 
 bool UserInfo::QLabelSetText(QLabel *label, QString string)
 {

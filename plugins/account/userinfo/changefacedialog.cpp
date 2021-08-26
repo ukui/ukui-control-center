@@ -24,6 +24,8 @@
 #include "elipsemaskwidget.h"
 #include "CloseButton/closebutton.h"
 
+#include <QLabel>
+
 #include <QDebug>
 #include <QMessageBox>
 #include <QFileSystemWatcher>
@@ -143,7 +145,9 @@ void ChangeFaceDialog::setFace(QString iconfile)
 
 void ChangeFaceDialog::setUsername(QString username)
 {
-    ui->usernameLabel->setText(username);
+    if (QLabelSetText(ui->usernameLabel, username)){
+        ui->usernameLabel->setToolTip(username);
+    }
 }
 
 void ChangeFaceDialog::setAccountType(QString atype)
@@ -225,6 +229,24 @@ void ChangeFaceDialog::showLocalFaceDialog()
     if (!ui->saveBtn->isEnabled())
         ui->saveBtn->setEnabled(true);
 // emit face_file_send(selectedfile);
+}
+
+bool ChangeFaceDialog::QLabelSetText(QLabel *label, QString string)
+{
+    bool is_over_length = false;
+    QFontMetrics fontMetrics(label->font());
+    int fontSize = fontMetrics.width(string);
+
+    QString str = string;
+    if (fontSize > 100) {
+        label->setFixedWidth(100);
+        str = fontMetrics.elidedText(string, Qt::ElideRight, 100);
+        is_over_length = true;
+    } else {
+        label->setFixedWidth(fontSize);
+    }
+    label->setText(str);
+    return is_over_length;
 }
 
 void ChangeFaceDialog::paintEvent(QPaintEvent *event)
