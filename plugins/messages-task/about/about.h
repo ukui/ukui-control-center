@@ -95,6 +95,7 @@ private slots:
     void runActiveWindow();
     void showPdf();
     void activeSlot(int activeSignal);
+    void ChangedSlot();
 };
 
 #endif // ABOUT_H
