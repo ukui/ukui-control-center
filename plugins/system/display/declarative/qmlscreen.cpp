@@ -278,7 +278,7 @@ void QMLScreen::setScreenPosCenter(QMLOutput *output, bool isReleased)
         output->setSize(QSizeF(fheight, fwidth));
     }
     // 镜像模式下跳过屏幕旋转处理
-    if (this->primaryOutput() && this->primaryOutput()->isCloneMode()) {
+    if (this->primaryOutput() && isCloneMode()) {
         return;
     }
 
@@ -314,6 +314,11 @@ void QMLScreen::setScreenPosCenter(QMLOutput *output, bool isReleased)
         }
     }
 
+    // 坐标为负的情况，bug#76350
+    if (x1 < 0 || y1 < 0 || x2 < 0 || y2 < 0) {
+        return;
+    }
+
     if (connectedScreen < 2) {
         setScreenCenterPos();
         return;
@@ -336,6 +341,8 @@ void QMLScreen::setScreenPosCenter(QMLOutput *output, bool isReleased)
             output->setX(x2);
             output->setY(y2 - height1);
         }
+
+
 
         // 矩形是否相交
         if (!(x1 + width1 <= x2 || x2 + width2 <= x1
@@ -532,6 +539,21 @@ void QMLScreen::setOutputScale(float scale)
         return;
     m_outputScale = scale;
     emit outputScaleChanged();
+}
+
+bool QMLScreen::isCloneMode()
+{
+    KScreen::OutputPtr output = m_config->primaryOutput();
+    if (m_config->connectedOutputs().count() >= 2) {
+        foreach (KScreen::OutputPtr secOutput, m_config->connectedOutputs()) {
+            if (secOutput->geometry() != output->geometry() || !secOutput->isEnabled()) {
+                return false;
+            }
+        }
+    } else {
+        return false;
+    }
+    return true;
 }
 
 // 画坐标
