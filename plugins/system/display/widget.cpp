@@ -398,6 +398,11 @@ void Widget::slotUnifyOutputs()
             return;
         }
     }
+    for (QMLOutput *output: mScreen->outputs()) {
+        if (output) {
+            output->setIsCloneMode(mUnifyButton->isChecked());
+        }
+    }
 
     // 取消统一输出
     if (!mUnifyButton->isChecked()) {
@@ -452,7 +457,6 @@ void Widget::slotUnifyOutputs()
             }
 
             if (!output->output()->isEnabled()) {
-                output->setVisible(false);
                 continue;
             }
 
@@ -468,14 +472,11 @@ void Widget::slotUnifyOutputs()
             if (base != output) {
                 clones << output->output()->id();
                 output->setCloneOf(base);
-                output->setVisible(false);
             }
         }
 
         base->output()->setClones(clones);
-
-        base->setIsCloneMode(true);
-
+        base->setIsCloneMode(true, true);
         mScreen->updateOutputsPlacement();
 
         // 关闭开关
@@ -744,7 +745,7 @@ bool Widget::isCloneMode()
     }
     if (mConfig->connectedOutputs().count() >= 2) {
         foreach (KScreen::OutputPtr secOutput, mConfig->connectedOutputs()) {
-            if (secOutput->geometry() != output->geometry() || !secOutput->isEnabled()) {
+            if (secOutput->pos() != output->pos() || !secOutput->isEnabled()) {
                 return false;
             }
         }
@@ -928,20 +929,6 @@ void Widget::outputAdded(const KScreen::OutputPtr &output, bool connectChanged)
         });
     }
 
-    // 检查统一输出-防止多显示屏幕
-    if (mUnifyButton->isChecked()) {
-        for (QMLOutput *qmlOutput: mScreen->outputs()) {
-            if (!qmlOutput->output()->isConnected()) {
-                continue;
-            }
-            if (!qmlOutput->isCloneMode()) {
-                qmlOutput->blockSignals(true);
-                qmlOutput->setVisible(false);
-                qmlOutput->blockSignals(false);
-            }
-        }
-    }
-
     ui->unionframe->setVisible(mConfig->connectedOutputs().count() > 1);
     mUnifyButton->setEnabled(mConfig->connectedOutputs().count() > 1);
 
@@ -978,9 +965,6 @@ void Widget::outputRemoved(int outputId, bool connectChanged)
                 continue;
             }
             qmlOutput->setIsCloneMode(false);
-            qmlOutput->blockSignals(true);
-            qmlOutput->setVisible(true);
-            qmlOutput->blockSignals(false);
         }
     }
     ui->unionframe->setVisible(mConfig->connectedOutputs().count() > 1);
@@ -1355,7 +1339,7 @@ void Widget::save()
 
     setActiveScreen();
 
-	for (int i = 0; i < BrightnessFrameV.size(); ++i) {   //应用成功再更新屏幕是否开启的状态，判断亮度条是否打开
+    for (int i = 0; i < BrightnessFrameV.size(); ++i) {   //应用成功再更新屏幕是否开启的状态，判断亮度条是否打开
         for (KScreen::OutputPtr output : mConfig->outputs()) {
             if (BrightnessFrameV[i]->getOutputName() == Utils::outputName(output)) {
                 BrightnessFrameV[i]->setOutputEnable(output->isEnabled());
@@ -1364,7 +1348,7 @@ void Widget::save()
     }
     int flag = mUnifyButton->isChecked() ? 1 : 2;
     showBrightnessFrame(flag);  //成功应用之后，重新显示亮度条,传入是否统一输出,1表示打开，2表示关闭
-	
+
 }
 
 QVariantMap metadata(const KScreen::OutputPtr &output)
@@ -1619,7 +1603,7 @@ void Widget::checkOutputScreen(bool judge)
     }
 
     ui->primaryCombo->setCurrentIndex(index);
-	ui->primaryCombo->blockSignals(false);
+    ui->primaryCombo->blockSignals(false);
 }
 
 
@@ -1652,9 +1636,11 @@ void Widget::initConnection()
     connect(mUnifyButton, &SwitchButton::checkedChanged,
             [this] {
         slotUnifyOutputs();
-        setScreenIsApply(true);
+        /*  bug#54275 避免拔插触发save()
+            setScreenIsApply(true);
+        */
         delayApply();
-		showBrightnessFrame();
+        showBrightnessFrame();
     });
 
     connect(mCloseScreenButton, &SwitchButton::checkedChanged,
