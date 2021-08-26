@@ -111,6 +111,7 @@ private:
     void qmlOutputMoved(QMLOutput *qmlOutput);
     void updateCornerOutputs();
     void setOutputScale(float scale);
+    bool isCloneMode();
 
     KScreen::ConfigPtr m_config;
     QHash<KScreen::OutputPtr, QMLOutput *> m_outputMap;
