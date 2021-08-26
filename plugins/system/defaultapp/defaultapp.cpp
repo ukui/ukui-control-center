@@ -98,26 +98,26 @@ void DefaultApp::initSlots() {
 }
 
 void DefaultApp::initUI() {
+
     // 若默认应用被卸载，系统会自动设置某个其它应用为默认应用，若不存在其它应用，则显示"无可用程序"
 
     QTime timedebuge;//声明一个时钟对象
     timedebuge.start();//开始计时
     // BROWSER
     initDefaultAppInfo(BROWSERTYPE,ui->browserComBoBox);
-
-
+    qApp->processEvents();
     // IMAGE
     initDefaultAppInfo(IMAGETYPE,ui->imageComBoBox);
-
+    qApp->processEvents();
     // MAIL
     initDefaultAppInfo(MAILTYPE,ui->mailComBoBox);
-
+    qApp->processEvents();
     // AUDIO
     initDefaultAppInfo(AUDIOTYPE,ui->audioComBoBox);
-
+    qApp->processEvents();
     // VIDEO
     initDefaultAppInfo(VIDEOTYPE,ui->videoComBoBox);
-
+    qApp->processEvents();
     // TEXT
     initDefaultAppInfo(TEXTTYPE,ui->textComBoBox);
 }
