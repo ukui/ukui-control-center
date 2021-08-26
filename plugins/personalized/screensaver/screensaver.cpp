@@ -615,11 +615,13 @@ void Screensaver::keyChangedSlot(const QString &key) {
 void Screensaver::showCustomizeFrame() {
     ui->frame->setFixedHeight(492);     //184 + 306 + 4
     ui->customizeFrame->setVisible(true);
+    ui->showTimeFrame->setVisible(true);
 }
 
 void Screensaver::hideCustomizeFrame() {
-    ui->frame->setFixedHeight(184);   //50 + 50 + 80 + 4
+    ui->frame->setFixedHeight(184 - 52);   //50 + 50 + 80 + 4
     ui->customizeFrame->setVisible(false);
+    ui->showTimeFrame->setVisible(false);
 }
 
 void Screensaver::initCustomizeFrame() {
