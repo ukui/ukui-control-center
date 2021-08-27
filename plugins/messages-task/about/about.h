@@ -65,6 +65,9 @@ private:
     void setupVersionCompenent();
     void setupSerialComponent();
     bool QLabelSetText(QLabel *label, QString string);
+    void showExtend(QString dateres);
+    char *ntpdate();
+    int getMonth(QString month);
 
     qlonglong calculateTotalRam();
 
@@ -73,6 +76,8 @@ private:
     QString getTotalMemory();
 
     QStringList getUserDefaultLanguage();
+
+
 private:
     Ui::About *ui;
     QString pluginName;
