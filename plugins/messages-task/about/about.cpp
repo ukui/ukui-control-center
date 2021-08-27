@@ -297,7 +297,7 @@ void About::setupSerialComponent()
                 QStringList list_1 = s1.split(" ");
                 QStringList list_2 = dateRes.split("-");
 
-                if (QString(list_2.at(0)).toInt() > QString(list_1.at(4)).toInt() ) { //未到服务到期时间
+                if (QString(list_2.at(0)).toInt() < QString(list_1.at(4)).toInt() ) { //未到服务到期时间
                     ui->timeContent->setText(dateRes);
                 } else if (QString(list_2.at(0)).toInt() == QString(list_1.at(4)).toInt()) {
                     if (QString(list_2.at(1)).toInt() > getMonth(list_1.at(1))) {
@@ -326,6 +326,7 @@ void About::setupSerialComponent()
 
 void About::showExtend(QString dateres)
 {
+    ui->timeContent->setStyleSheet("color:red;");
     ui->timeContent->setText(dateres+QString("(%1)").arg(tr("expired")));
     ui->activeButton->setVisible(true);
     ui->trialButton->setVisible(true);
