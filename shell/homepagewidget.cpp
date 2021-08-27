@@ -107,14 +107,23 @@ void HomePageWidget::initUI() {
         majorHorLayout->setSpacing(0);
 
         //内容Widget的构建
-        ResHoverWidget * widget = new ResHoverWidget(modulenameString);
+        QPushButton * widget = new QPushButton();
+        QString moduleName = modulenameString;
+        QString picModuleName = modulenameString;
         widget->setMinimumWidth(300);
-        widget->setMinimumHeight(80);
+        widget->setMinimumHeight(88);
         widget->setAttribute(Qt::WA_DeleteOnClose);
+        widget->setProperty("useButtonPalette", true);
 
+        if (picModuleName == "search_f") {
+            picModuleName = "search";
+        } else if (picModuleName == "datetime") {
+            picModuleName = "time-language";
+        }
         widget->setObjectName("itemWidget");
-        widget->setStyleSheet("ResHoverWidget:hover:!pressed#itemWidget{background: palette(Highlight); border-radius: 4px;}");
-        connect(widget, &ResHoverWidget::widgetClicked, [=](QString moduleName) {
+        widget->setStyleSheet("QPushButton:!checked{background-color: palette(base)}");
+
+        connect(widget, &QPushButton::clicked, [=]() {
             int moduleIndex = kvConverter->keystringTokeycode(moduleName);
 
             //获取模块的第一项跳转
@@ -141,9 +150,10 @@ void HomePageWidget::initUI() {
         logoLabel->setObjectName("logoLabel");
         logoLabel->setScaledContents(true);
 
-        QString path = (QString(":/img/homepage/%1.svg").arg(modulenameString));
-        QPixmap pix = loadSvg(path, HIGHLIGHT);
-
+        QString path = (QString(":/img/homepage/kylin-settings-%1.png").arg(picModuleName));
+//        QPixmap pix = loadSvg(path, HIGHLIGHT);
+        QPixmap pix;
+        pix.load(path);
         logoLabel->setPixmap(pix);
 
         QVBoxLayout * rightVerLayout = new QVBoxLayout();
@@ -201,37 +211,6 @@ void HomePageWidget::initUI() {
         baseVerLayout->addStretch();
 
         baseWidget->setLayout(baseVerLayout);
-
-        //悬浮改变Widget状态
-        connect(widget, &ResHoverWidget::enterWidget, this, [=](QString mname){
-            Q_UNUSED(mname)
-            ResHoverWidget * w = dynamic_cast<ResHoverWidget *>(QObject::sender());
-            QPixmap cgPix = loadSvg(path, WHITE);
-            logoLabel->setPixmap(cgPix);
-
-            titleLabel->setStyleSheet("color: palette(Light);");
-
-
-            QList<ClickLabel *> clabelList = w->findChildren<ClickLabel *>();
-            for (ClickLabel * tmpLabel : clabelList) {
-                tmpLabel->setStyleSheet("color: palette(Light);");
-            }
-        });
-        //还原状态
-        connect(widget, &ResHoverWidget::leaveWidget, this, [=](QString mname) {
-            Q_UNUSED(mname)
-            ResHoverWidget * w = dynamic_cast<ResHoverWidget *>(QObject::sender());
-            QPixmap cgPix = loadSvg(path, HIGHLIGHT);
-            logoLabel->setPixmap(cgPix);
-
-            titleLabel->setStyleSheet("color: palette(windowText);");
-
-            QList<ClickLabel *> clabelList = w->findChildren<ClickLabel *>();
-            for (ClickLabel * tmpLabel : clabelList){
-                tmpLabel->setStyleSheet("color: palette(Shadow);");
-            }
-        });
-
 
         QListWidgetItem * item = new QListWidgetItem(ui->listWidget);
         item->setSizeHint(QSize(356, 120));

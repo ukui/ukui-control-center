@@ -28,14 +28,6 @@
         <file>plugins/shortcut/up.png</file>
         <file>plugins/about/galaxyUnicorn.png</file>
         <file>plugins/about/logoukui.png</file>
-        <file>homepage/account.svg</file>
-        <file>homepage/datetime.svg</file>
-        <file>homepage/devices.svg</file>
-        <file>homepage/network.svg</file>
-        <file>homepage/noticeandtasks.svg</file>
-        <file>homepage/personalized.svg</file>
-        <file>homepage/system.svg</file>
-        <file>homepage/update.svg</file>
         <file>secondaryleftmenu/About.svg</file>
         <file>secondaryleftmenu/AboutWhite.svg</file>
         <file>secondaryleftmenu/Area.svg</file>
@@ -198,14 +190,21 @@
         <file>secondaryleftmenu/Search.svg</file>
         <file>secondaryleftmenu/SearchWhite.svg</file>
         <file>titlebar/index.svg</file>
-        <file>homepage/security.svg</file>
-        <file>homepage/application.svg</file>
-        <file>homepage/search_f.svg</file>
         <file>secondaryleftmenu/WiredConnectWhite.svg</file>
         <file>secondaryleftmenu/WiredConnect.svg</file>
         <file>secondaryleftmenu/Wlanconnect.svg</file>
         <file>secondaryleftmenu/Wlanconnect White.svg</file>
         <file>plugins/netconnect/add.svg</file>
+        <file>homepage/kylin-settings-account.png</file>
+        <file>homepage/kylin-settings-application.png</file>
+        <file>homepage/kylin-settings-devices.png</file>
+        <file>homepage/kylin-settings-personalized.png</file>
+        <file>homepage/kylin-settings-network.png</file>
+        <file>homepage/kylin-settings-search.png</file>
+        <file>homepage/kylin-settings-security.png</file>
+        <file>homepage/kylin-settings-system.png</file>
+        <file>homepage/kylin-settings-time-language.png</file>
+        <file>homepage/kylin-settings-update.png</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>
