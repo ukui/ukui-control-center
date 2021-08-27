@@ -42,11 +42,8 @@ Q_SIGNALS:
 
 private:
     QWidget *m_pInputWidget;
-    QFrame *m_pInputDeviceWidget;
     QFrame *m_pVolumeWidget;
     QFrame *m_pInputLevelWidget;
-
-    QListWidget *m_pInputListWidget;
 
     TitleLabel *m_pInputLabel;
     QLabel *m_pInputDeviceLabel;
@@ -60,6 +57,9 @@ private:
 
     QString sliderQss;
     QVBoxLayout *m_pVlayout;
+
+    QComboBox *m_pInputDeviceSelectBox;
+    QFrame *m_pInputSlectWidget;
 
 };
 

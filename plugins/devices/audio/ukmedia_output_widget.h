@@ -33,6 +33,7 @@
 #include "ukui_list_widget_item.h"
 #include "customstyle.h"
 #include <QListWidget>
+#include <QComboBox>
 
 class AudioSlider : public QSlider
 {
@@ -92,10 +93,8 @@ public Q_SLOTS:
 
 private:
     QWidget *m_pOutputWidget;
-    QFrame *m_pOutputDeviceWidget;
     QFrame *m_pMasterVolumeWidget;
     QFrame *m_pChannelBalanceWidget;
-    QListWidget *m_pOutputListWidget;
 
     TitleLabel *m_pOutputLabel;
     QLabel *m_pOutputDeviceLabel;
@@ -104,6 +103,9 @@ private:
     QLabel *m_pOpBalanceLabel;
     QLabel *m_pLeftBalanceLabel;
     QLabel *m_pRightBalanceLabel;
+
+    QComboBox *m_pDeviceSelectBox;
+    QFrame *m_pOutputSlectWidget;
 
     UkuiButtonDrawSvg *m_pOutputIconBtn;
     AudioSlider *m_pOpVolumeSlider;

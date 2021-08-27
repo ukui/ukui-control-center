@@ -81,7 +81,7 @@ bool UkmediaVolumeControl::setSinkVolume(int index,int value)
     for (int i=0;i<v.channels;i++)
         v.values[i] = value;
     if (balance != 0) {
-        qDebug() << "pa_cvolume_set_balance" <<balance;
+        qDebug() << "pa_cvolume_set_balance" <<balance; 
         pa_cvolume_set_balance(&v,&defaultChannelMap,balance);
     }
 
@@ -151,7 +151,7 @@ bool UkmediaVolumeControl::setBalanceVolume(int index, int value, float b)
         v.values[i] = value;
     if (b != 0) {
         balance = b;
-        qDebug() << "pa_cvolume_set_balance 1111111111" <<balance;
+        qDebug() << "pa_cvolume_set_balance" <<balance;
         pa_cvolume_set_balance(&v,&defaultChannelMap,balance);
     }
 
@@ -205,6 +205,7 @@ int UkmediaVolumeControl::getSourceVolume()
     return sourceVolume;
 }
 
+//获取默认的输出设备名字和输入设备的名字还有此时系统的输出的音量(更新不快)
 int UkmediaVolumeControl::getDefaultSinkIndex()
 {
     pa_operation *o;
@@ -399,6 +400,7 @@ static void updatePorts(UkmediaVolumeControl *d, std::map<QByteArray, PortInfo> 
     }
 
     Q_EMIT d->updatePortSignal();
+    Q_EMIT d->updateCboxPortSignal();
     it = ports.find(d->activePort);
 
     if (it != ports.end()) {
@@ -415,7 +417,8 @@ static void setIconByName(QLabel* label, const char* name) {
 }
 
 void UkmediaVolumeControl::updateCard(UkmediaVolumeControl *c, const pa_card_info &info) {
-
+    bool insertInputPort = false;
+    bool insertOutputPort = false;
     bool is_new = false;
     const char *description;
     QMap<QString,QString> tempInput;
@@ -453,6 +456,7 @@ void UkmediaVolumeControl::updateCard(UkmediaVolumeControl *c, const pa_card_inf
             p.profiles.push_back((*p_profile)->name);
         if (p.direction == 1 && p.available != PA_PORT_AVAILABLE_NO) {
 //            portMap.insertMulti(p.name,p.description.data());
+            insertOutputPort = true;
             qDebug() << " add sink port name "<< info.index << p.name << p.description.data();
             tempOutput.insertMulti(p.name,p.description.data());
 
@@ -467,18 +471,30 @@ void UkmediaVolumeControl::updateCard(UkmediaVolumeControl *c, const pa_card_inf
             cardProfileMap.insertMulti(info.index,portProfileName);
         }
         else if (p.direction == 2 && p.available != PA_PORT_AVAILABLE_NO){
-
+            insertInputPort = true;
             qDebug() << " add source port name "<< info.index << p.name << p.description.data();
             tempInput.insertMulti(p.name,p.description.data());
             for (auto p_profile : p.profiles) {
-                inputPortProfileNameMap.insertMulti(p.description.data(),p_profile.data());
+                inputPortNameLabelMap.insertMulti(p.description.data(),p_profile.data());
             }
+            inputPortProfileNameMap.insert(info.index,inputPortNameLabelMap);
         }
         c->ports[p.name] = p;
     }
-    inputPortMap.insert(info.index,tempInput);
-    outputPortMap.insert(info.index,tempOutput);
+    if (insertInputPort) {
+        inputPortMap.insert(info.index,tempInput);
+    }
+    else {
+        inputPortMap.remove(info.index);
+    }
+    if (insertOutputPort) {
+        outputPortMap.insert(info.index,tempOutput);
+    }
+    else {
+        outputPortMap.remove(info.index);
+    }
     cardActiveProfileMap.insert(info.index,info.active_profile->name);
+
     c->profiles.clear();
     for (auto p_profile : profile_priorities) {
         bool hasNo = false, hasOther = false;
@@ -692,8 +708,9 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
         for (pa_source_port_info ** sourcePort = info.ports; *sourcePort != nullptr; ++sourcePort) {
             temp.insertMulti(info.name,(*sourcePort)->name);
         }
-        sourcePortMap.insert(info.index,temp);
+        sourcePortMap.insert(info.card,temp);
     }
+    qDebug() << "update source" << m_pDefaultSink->name<<m_pDefaultSink->index;
 
     if (is_new)
         updateDeviceVisibility();
@@ -1126,11 +1143,12 @@ void UkmediaVolumeControl::sourceCb(pa_context *c, const pa_source_info *i, int 
         decOutstanding(w);
         return;
     }
-    qDebug() << "sourceCb" << i->name << i->description << i->volume.values[PA_CHANNELS_MAX];
+    qDebug() << "sourceCb" << i->name << i->description << i->volume.values[0];
     w->sourceIndex = i->index;
     w->sourceMuted = i->mute;
     w->sourceMap.insert(i->index,i->name);
     w->updateSource(*i);
+
 }
 
 void UkmediaVolumeControl::sinkInputCb(pa_context *c, const pa_sink_input_info *i, int eol, void *userdata) {
@@ -1403,6 +1421,8 @@ void UkmediaVolumeControl::subscribeCb(pa_context *c, pa_subscription_event_type
                 w->removeInputProfile();
                 w->removeCard(index);
                 Q_EMIT w->updatePortSignal();
+                Q_EMIT w->updateCboxPortSignal();
+
             }
             else {
                 pa_operation *o;
@@ -1838,11 +1858,18 @@ bool UkmediaVolumeControl::isExitOutputPort(QString name)
 
 void UkmediaVolumeControl::removeInputProfile()
 {
-    QMap<QString,QString>::iterator it;
+    QMap<int, QMap<QString,QString>>::iterator it;
+    QMap<QString,QString>::iterator at;
+    QMap<QString,QString> temp;
     for (it=inputPortProfileNameMap.begin();it!=inputPortProfileNameMap.end();) {
-        if (!isExitInputPort(it.value())) {
-            it = inputPortProfileNameMap.erase(it);
-            continue;
+        temp = it.value();
+        for (at=temp.begin();at!=temp.end();) {
+
+            if (!isExitInputPort(at.value())) {
+                it = inputPortProfileNameMap.erase(it);
+                return;
+            }
+            ++at;
         }
         ++it;
     }

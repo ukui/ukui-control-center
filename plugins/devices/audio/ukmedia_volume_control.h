@@ -163,7 +163,7 @@ public:
     QMap<int,QMap<QString,QString>> outputPortMap; //输出端口
     QMap<int,QMap<QString,QString>> inputPortMap; //输入端口
     QMap<QString, QString> profileNameMap; //声卡输出配置文件
-    QMap<QString, QString> inputPortProfileNameMap; //声卡输入配置文件
+    QMap<int, QMap<QString,QString>>inputPortProfileNameMap; //声卡输入配置文件
     QMap<int, QMap<QString,int>> cardProfilePriorityMap; //记录声卡优先级配置文件
     QMap<int, QList<QString>> cardProfileMap;
     QMap<int, QString> cardMap;
@@ -182,6 +182,7 @@ Q_SIGNALS:
     void checkDeviceSelectionSianal(const pa_card_info *info);
     void peakChangedSignal(double v);
     void updatePortSignal();
+    void updateCboxPortSignal();
     void deviceChangedSignal();
 
 
