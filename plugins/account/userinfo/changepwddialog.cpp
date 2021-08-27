@@ -67,7 +67,6 @@ ChangePwdDialog::ChangePwdDialog(bool _isCurrentUser, QString _username, QWidget
     pwdChecking = false;
 
     ui->titleLabel->setStyleSheet("QLabel{color: palette(windowText);}");
-    ui->pwdFrame->setFrameShape(QFrame::Shape::Box);
     ui->tipLabel->setAlignment(Qt::AlignCenter);
     ui->tipLabel->setStyleSheet("color:red;");
 
@@ -165,8 +164,6 @@ void ChangePwdDialog::setupComponent(){
 
     ElipseMaskWidget * cpMaskWidget = new ElipseMaskWidget(ui->faceLabel);
     cpMaskWidget->setGeometry(0, 0, ui->faceLabel->width(), ui->faceLabel->height());
-
-    ui->pwdtypeComboBox->setText(tr("General Pwd"));
 
     ui->curPwdLineEdit->setEchoMode(QLineEdit::Password);
     ui->pwdLineEdit->setEchoMode(QLineEdit::Password);

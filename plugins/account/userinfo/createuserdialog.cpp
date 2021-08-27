@@ -117,9 +117,6 @@ void CreateUserDialog::setupComonpent(){
     ui->pwdLineEdit->setPlaceholderText(tr("Password"));
     ui->pwdsureLineEdit->setPlaceholderText(tr("Password Identify"));
 
-
-    ui->pwdTypeComBox->addItem(tr("General Password"));
-
     // 给radiobtn设置id，id即accoutnType，方便直接返回id值
     ui->buttonGroup->setId(ui->standardRadioBtn, 0);
     ui->buttonGroup->setId(ui->adminRadioBtn, 1);
@@ -177,13 +174,9 @@ void CreateUserDialog::setupConnect(){
         QString uName, pwd, pin;
 
         uName = ui->usernameLineEdit->text();
-        if (ui->pwdTypeComBox->currentIndex() == 0){
-            pwd = ui->pwdLineEdit->text();
-            pin = "";
-        } else {
-            pwd = "";
-            pin = ui->pwdLineEdit->text();
-        }
+        pwd = ui->pwdLineEdit->text();
+        pin = "";
+
         emit newUserWillCreate(uName, pwd, pin, ui->buttonGroup->checkedId());
 
     });
