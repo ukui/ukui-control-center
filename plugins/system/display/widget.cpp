@@ -1390,7 +1390,9 @@ void Widget::kdsScreenchangeSlot(QString status)
     if (!mUnifyButton->isChecked()) {
         setPreScreenCfg(mConfig->connectedOutputs());
     }
+
     QTimer::singleShot(2500, this, [=] {
+        bool isPreChecked = mUnifyButton->isChecked();
         bool isCheck = (status == "copy") ? true : false;
         mKDSCfg = status;
         mPreKDSCfg = status;
@@ -1398,6 +1400,7 @@ void Widget::kdsScreenchangeSlot(QString status)
         if (mConfig->connectedOutputs().count() >= 2) {
             mUnifyButton->setChecked(isCheck);
         }
+        bool afterChecked = mUnifyButton->isChecked();
 
         Q_FOREACH(KScreen::OutputPtr output, mConfig->connectedOutputs()) {
             if (output.isNull())
@@ -1412,6 +1415,10 @@ void Widget::kdsScreenchangeSlot(QString status)
             showBrightnessFrame(1);
         } else {
             showBrightnessFrame(2);
+        }
+        // 统一输出按钮状态未改变，清除标志位
+        if (isPreChecked == afterChecked) {
+            mKDSCfg.clear();
         }
     });
 }
