@@ -9,17 +9,15 @@
         <translation>系统概述</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="283"/>
         <source>Technical service has expired</source>
-        <translation>已过期</translation>
+        <translation type="vanished">已过期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="285"/>
         <source>Extended</source>
-        <translation>延长服务</translation>
+        <translation type="vanished">延长服务</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="400"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="505"/>
         <source>version</source>
         <translation>版本</translation>
         <extra-contents_path>/about/version</extra-contents_path>
@@ -53,21 +51,21 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="269"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="402"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="507"/>
         <source>Kernel</source>
         <translation>内核</translation>
         <extra-contents_path>/about/Kernel</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="308"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="404"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="509"/>
         <source>CPU</source>
         <translation>CPU</translation>
         <extra-contents_path>/about/CPU</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="356"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="406"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="511"/>
         <source>Memory</source>
         <translation>内存</translation>
         <extra-contents_path>/about/Memory</extra-contents_path>
@@ -79,22 +77,22 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="458"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="408"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="513"/>
         <source>Desktop</source>
         <translation>桌面</translation>
         <extra-contents_path>/about/Desktop</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="488"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="410"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="515"/>
         <source>User</source>
         <translation>用户名</translation>
         <extra-contents_path>/about/User</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="534"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="85"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="412"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="92"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="517"/>
         <source>Active Status</source>
         <translation>激活状态</translation>
         <extra-contents_path>/about/Active Status</extra-contents_path>
@@ -102,7 +100,7 @@
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="573"/>
         <source>DataRes</source>
-        <translation>有效期</translation>
+        <translation>服务到期时间</translation>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="603"/>
@@ -111,7 +109,7 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="669"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="416"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="521"/>
         <source>Protocol</source>
         <translation>免责协议</translation>
         <extra-contents_path>/about/Protocol</extra-contents_path>
@@ -122,7 +120,8 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="639"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="414"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="278"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="519"/>
         <source>Active</source>
         <translation>激活</translation>
         <extra-contents_path>/about/Active</extra-contents_path>
@@ -140,7 +139,7 @@
         <translation type="vanished">关于</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="54"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="61"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
@@ -157,14 +156,24 @@
         <translation type="vanished">可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="289"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="277"/>
         <source>Inactivated</source>
         <translation>未激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="275"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="282"/>
         <source>Activated</source>
         <translation>已激活</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="322"/>
+        <source>expired</source>
+        <translation>已过期</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="325"/>
+        <source>Extend</source>
+        <translation>延长服务</translation>
     </message>
     <message>
         <source>UNKNOWN</source>
@@ -1314,43 +1323,43 @@ Please authenticate yourself to continue</source>
 <context>
     <name>ChangeFaceDialog</name>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="196"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="200"/>
         <source>select custom face file</source>
         <translation>选择自定义头像文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="197"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="201"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="198"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="202"/>
         <source>Position: </source>
         <translation>位置： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="199"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="203"/>
         <source>FileName: </source>
         <translation>文件名： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="200"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="204"/>
         <source>FileType: </source>
         <translation>文件类型： </translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="317"/>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="201"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="205"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="216"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="220"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="217"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="221"/>
         <source>The avatar is larger than 1M, please choose again</source>
         <translation>警告，头像大于1M请重新选择</translation>
     </message>
@@ -1523,21 +1532,21 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="175"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="434"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="436"/>
         <source>Current Password</source>
         <translation>当前密码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="176"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="435"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="443"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="437"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="445"/>
         <source>New Password</source>
         <translation>新密码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="177"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="436"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="444"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="438"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="446"/>
         <source>New Password Identify</source>
         <translation>新密码确认</translation>
     </message>
@@ -1546,12 +1555,12 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">密码输入错误,重新输入!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="353"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="355"/>
         <source>Contains illegal characters!</source>
         <translation>含有非法字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="355"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="357"/>
         <source>Same with old pwd</source>
         <translation>与旧密码相同</translation>
     </message>
@@ -1569,7 +1578,7 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="263"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="391"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="393"/>
         <source>Inconsistency with pwd</source>
         <translation>与新密码不同</translation>
     </message>
@@ -6466,55 +6475,55 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="330"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="332"/>
         <source>min length %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="340"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="342"/>
         <source>min digit num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="349"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="351"/>
         <source>min upper num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="358"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="360"/>
         <source>min lower num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="367"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="369"/>
         <source>min other num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="377"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="379"/>
         <source>min char class %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="386"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="388"/>
         <source>max repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="395"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="397"/>
         <source>max class repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="404"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="406"/>
         <source>max sequence %1
 </source>
         <translation type="unfinished"></translation>
@@ -8698,7 +8707,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">账户信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="68"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="70"/>
         <source>User Info</source>
         <translation>账户信息</translation>
     </message>
@@ -8711,77 +8720,77 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">管理员用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="169"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="171"/>
         <source>root</source>
         <translation>Root</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="525"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="527"/>
         <source>Pwd Changed Succes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1331"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1342"/>
         <source>Hint</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1332"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1343"/>
         <source>The system only allows one user to log in automatically.After it is turned on, the automatic login of other users will be turned off.Is it turned on?</source>
         <translation>系统只允许一个用户自动登录，开启后将关闭其他用户的自动登录，是否开启？</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1335"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1346"/>
         <source>Trun on</source>
         <translation>开启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1336"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1347"/>
         <source>Close on</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1406"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1417"/>
         <source>Add biometric feature</source>
         <translation>添加生物密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1881"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1892"/>
         <source>Rename</source>
         <translation>重命名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1895"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1906"/>
         <source>Verify</source>
         <translation>验证</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1915"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1926"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="165"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="167"/>
         <source>Standard</source>
         <translation>标准用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="167"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="169"/>
         <source>Admin</source>
         <translation>管理员</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="823"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="837"/>
         <source>Del</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="955"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="969"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="955"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="969"/>
         <source>The user is logged in, please delete the user after logging out</source>
         <translation>用户已经登录，请注销后删除用户</translation>
     </message>
@@ -8791,12 +8800,12 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>当前用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="805"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="819"/>
         <source>Change pwd</source>
         <translation>更改密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="792"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="806"/>
         <source>Change type</source>
         <translation>更改类型</translation>
     </message>
@@ -8814,14 +8823,14 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="301"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="151"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="153"/>
         <source>Password</source>
         <translation>修改密码</translation>
         <extra-contents_path>/userinfo/Password</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="320"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="153"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="155"/>
         <source>Type</source>
         <translation>账户类型</translation>
         <extra-contents_path>/userinfo/Type</extra-contents_path>
@@ -8833,20 +8842,20 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="358"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="159"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="161"/>
         <source>Group</source>
         <translation>用户组</translation>
         <extra-contents_path>/userinfo/Group</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="424"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="155"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="157"/>
         <source>Login no passwd</source>
         <translation>免密登录</translation>
         <extra-contents_path>/userinfo/Login no passwd</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="157"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="159"/>
         <source>enable autoLogin</source>
         <translation>开机自动登录</translation>
         <extra-contents_path>/userinfo/enable autoLogin</extra-contents_path>
@@ -8892,7 +8901,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>其他用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="459"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="461"/>
         <source>Add new user</source>
         <translation>添加新用户</translation>
         <extra-contents_path>/userinfo/Add new user</extra-contents_path>
