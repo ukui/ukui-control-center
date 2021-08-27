@@ -356,46 +356,32 @@
 <context>
     <name>AppUpdateWid</name>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="73"/>
         <source>Lack of local disk space!</source>
-        <translation>磁盘空间不足！</translation>
+        <translation type="vanished">磁盘空间不足！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="79"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="102"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="399"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="622"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="693"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="859"/>
         <source>Update</source>
-        <translation>更新</translation>
+        <translation type="vanished">更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="96"/>
         <source>Network abnormal!</source>
-        <translation>网络异常！</translation>
+        <translation type="vanished">网络异常！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="111"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="127"/>
         <source>Download failed!</source>
-        <translation>下载失败！</translation>
+        <translation type="vanished">下载失败！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="113"/>
         <source>failed to get from the source!</source>
-        <translation>从源中获取失败！</translation>
+        <translation type="vanished">从源中获取失败！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="129"/>
         <source>The download cache has been removed</source>
-        <translation>下载缓存已被删除</translation>
+        <translation type="vanished">下载缓存已被删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="288"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="291"/>
         <source>Being installed</source>
-        <translation>正在安装</translation>
+        <translation type="vanished">正在安装</translation>
     </message>
     <message>
         <source>Update succeeded , please restart the system!</source>
@@ -406,152 +392,108 @@
         <translation type="vanished"> 更新成功，请注销重新登录系统!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="315"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="324"/>
         <source>Update succeeded!</source>
-        <translation>更新成功！</translation>
+        <translation type="vanished">更新成功！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="333"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="343"/>
         <source>Update failed!</source>
-        <translation>更新失败！</translation>
+        <translation type="vanished">更新失败！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="336"/>
         <source>Failure reason:</source>
-        <translation>失败原因：</translation>
+        <translation type="vanished">失败原因：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="393"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="609"/>
         <source>details</source>
-        <translation>详情</translation>
+        <translation type="vanished">详情</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="442"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="508"/>
         <source>Update log</source>
-        <translation>更新日志</translation>
+        <translation type="vanished">更新日志</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="488"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="489"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="494"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="509"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="697"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="698"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="702"/>
         <source>Newest:</source>
-        <translation>最新：</translation>
+        <translation type="vanished">最新：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="517"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="523"/>
         <source>Download size:</source>
-        <translation>下载大小：</translation>
+        <translation type="vanished">下载大小：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="550"/>
         <source>Current version:</source>
-        <translation>当前版本：</translation>
+        <translation type="vanished">当前版本：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="603"/>
         <source>back</source>
-        <translation>收起</translation>
+        <translation type="vanished">收起</translation>
     </message>
     <message>
         <source>In the pause</source>
         <translation type="vanished">暂停中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="648"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="720"/>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="vanished">取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="302"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="304"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="305"/>
         <source>Update succeeded , It is recommended that you restart later!</source>
-        <translation>更新成功，建议您稍后重启！</translation>
+        <translation type="vanished">更新成功，建议您稍后重启！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="309"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="311"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="312"/>
         <source>Update succeeded , It is recommended that you log out later and log in again!</source>
-        <translation>更新成功，建议您稍后注销重新登录系统！</translation>
+        <translation type="vanished">更新成功，建议您稍后注销重新登录系统！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="628"/>
         <source>The battery is below 50% and the update cannot be downloaded</source>
-        <translation>电池电量低于 50%，无法下载更新</translation>
+        <translation type="vanished">电池电量低于 50%，无法下载更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="631"/>
         <source>OK</source>
-        <translation>确定</translation>
+        <translation type="vanished">确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="643"/>
         <source>A single update will not automatically backup the system, if you want to backup, please click Update All.</source>
-        <translation>单个更新不会自动备份系统，如需备份，请点击全部更新。</translation>
+        <translation type="vanished">单个更新不会自动备份系统，如需备份，请点击全部更新。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="644"/>
         <source>Prompt information</source>
-        <translation>提示信息</translation>
+        <translation type="vanished">提示信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="647"/>
         <source>Do not backup, continue to update</source>
-        <translation>不备份，继续更新</translation>
+        <translation type="vanished">不备份，继续更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="649"/>
         <source>Cancel update</source>
-        <translation>取消更新</translation>
+        <translation type="vanished">取消更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="653"/>
         <source>This time will no longer prompt</source>
-        <translation>本次更新不再提示</translation>
+        <translation type="vanished">本次更新不再提示</translation>
     </message>
     <message>
         <source>Calculate the download speed</source>
         <translation type="vanished">正在获取当前下载进度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="739"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="746"/>
         <source>Get depends failed!</source>
-        <translation>依赖获取异常！</translation>
+        <translation type="vanished">依赖获取异常！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="796"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="799"/>
         <source>In the update</source>
-        <translation>更新中</translation>
+        <translation type="vanished">更新中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="175"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="724"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="837"/>
         <source>Ready to install</source>
-        <translation>准备安装</translation>
+        <translation type="vanished">准备安装</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="728"/>
         <source>Calculate the download progress</source>
-        <translation>正在计算当前下载速度</translation>
+        <translation type="vanished">正在计算当前下载速度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="918"/>
         <source>No content.</source>
-        <translation>暂无内容.</translation>
+        <translation type="vanished">暂无内容.</translation>
     </message>
 </context>
 <context>
@@ -922,6 +864,7 @@ you can restore them to ensure the integrity of your system.</source>
     <name>BiometricEnrollDialog</name>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricenroll.ui" line="26"/>
+        <location filename="../../../plugins/account/biometrics/biometricenroll.ui" line="26"/>
         <source>Dialog</source>
         <translation></translation>
     </message>
@@ -932,56 +875,67 @@ you can restore them to ensure the integrity of your system.</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricenroll.ui" line="312"/>
+        <location filename="../../../plugins/account/biometrics/biometricenroll.ui" line="290"/>
         <source>Continue to enroll </source>
         <translation>继续录入</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricenroll.ui" line="344"/>
+        <location filename="../../../plugins/account/biometrics/biometricenroll.ui" line="322"/>
         <source>Finish</source>
         <translation>完成</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="108"/>
+        <location filename="../../../plugins/account/biometrics/biometricenroll.cpp" line="121"/>
         <source>FingerPrint</source>
         <translation>指纹</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="110"/>
+        <location filename="../../../plugins/account/biometrics/biometricenroll.cpp" line="123"/>
         <source>Fingervein</source>
         <translation>指静脉</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="112"/>
+        <location filename="../../../plugins/account/biometrics/biometricenroll.cpp" line="125"/>
         <source>Iris</source>
         <translation>虹膜</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="114"/>
+        <location filename="../../../plugins/account/biometrics/biometricenroll.cpp" line="127"/>
         <source>Face</source>
         <translation>人脸</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="116"/>
+        <location filename="../../../plugins/account/biometrics/biometricenroll.cpp" line="129"/>
         <source>VoicePrint</source>
         <translation>声纹</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="126"/>
+        <location filename="../../../plugins/account/biometrics/biometricenroll.cpp" line="139"/>
         <source>Enroll</source>
         <translation>录入</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="129"/>
+        <location filename="../../../plugins/account/biometrics/biometricenroll.cpp" line="142"/>
         <source>Verify</source>
         <translation>验证</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="132"/>
+        <location filename="../../../plugins/account/biometrics/biometricenroll.cpp" line="145"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="160"/>
+        <location filename="../../../plugins/account/biometrics/biometricenroll.cpp" line="173"/>
         <source>Permission is required.
 Please authenticate yourself to continue</source>
         <translation>需要授权，请先进行认证已继续操作</translation>
@@ -989,37 +943,46 @@ Please authenticate yourself to continue</source>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="183"/>
         <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="318"/>
+        <location filename="../../../plugins/account/biometrics/biometricenroll.cpp" line="197"/>
+        <location filename="../../../plugins/account/biometrics/biometricenroll.cpp" line="367"/>
         <source>Enroll successfully</source>
         <translation>录入成功</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="248"/>
         <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="320"/>
+        <location filename="../../../plugins/account/biometrics/biometricenroll.cpp" line="263"/>
+        <location filename="../../../plugins/account/biometrics/biometricenroll.cpp" line="369"/>
         <source>Verify successfully</source>
         <translation>验证成功</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="251"/>
+        <location filename="../../../plugins/account/biometrics/biometricenroll.cpp" line="266"/>
         <source>Not Match</source>
         <translation>不匹配</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="409"/>
+        <location filename="../../../plugins/account/biometrics/biometricenroll.cpp" line="487"/>
         <source>D-Bus calling error</source>
         <translation>D-Bus获取错误</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="418"/>
+        <location filename="../../../plugins/account/biometrics/biometricenroll.cpp" line="496"/>
         <source>Device is busy</source>
         <translation>设备忙</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="422"/>
+        <location filename="../../../plugins/account/biometrics/biometricenroll.cpp" line="500"/>
         <source>No such device</source>
         <translation>设备不存在</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="426"/>
+        <location filename="../../../plugins/account/biometrics/biometricenroll.cpp" line="504"/>
         <source>Permission denied</source>
         <translation>权限不够</translation>
     </message>
@@ -1028,158 +991,260 @@ Please authenticate yourself to continue</source>
     <name>BiometricMoreInfoDialog</name>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.ui" line="26"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.ui" line="26"/>
         <source>Dialog</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.ui" line="76"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.ui" line="76"/>
         <source>Biometrics </source>
         <translation>生物识别</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.ui" line="166"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.ui" line="166"/>
         <source>Default device </source>
         <translation>默认设备</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.ui" line="208"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.ui" line="208"/>
         <source>Verify Type:</source>
         <translation>验证类型：</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.ui" line="215"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.ui" line="215"/>
         <source>Bus Type:</source>
         <translation>总线类型：</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.ui" line="222"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.ui" line="222"/>
         <source>Device Status:</source>
         <translation>设备状态：</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.ui" line="243"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.ui" line="243"/>
         <source>Storage Type:</source>
         <translation>存储类型：</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.ui" line="250"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.ui" line="250"/>
         <source>Identification Type:</source>
         <translation>验证类型：</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="77"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.cpp" line="77"/>
         <source>Connected</source>
         <translation>已连接</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="77"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.cpp" line="77"/>
         <source>Unconnected</source>
         <translation>未连接</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="126"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.cpp" line="126"/>
         <source>FingerPrint</source>
         <translation>指纹</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="128"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.cpp" line="128"/>
         <source>Fingervein</source>
         <translation>指静脉</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="130"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.cpp" line="130"/>
         <source>Iris</source>
         <translation>虹膜</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="132"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.cpp" line="132"/>
         <source>Face</source>
         <translation>人脸</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="134"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.cpp" line="134"/>
         <source>VoicePrint</source>
         <translation>声纹</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="143"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.cpp" line="143"/>
         <source>Hardware Verification</source>
         <translation>硬件验证</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="145"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.cpp" line="145"/>
         <source>Software Verification</source>
         <translation>软件验证</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="147"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.cpp" line="147"/>
         <source>Mix Verification</source>
         <translation>混合验证</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="149"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.cpp" line="149"/>
         <source>Other Verification</source>
         <translation>其他验证</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="157"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.cpp" line="157"/>
         <source>Device Storage</source>
         <translation>设备存储</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="159"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.cpp" line="159"/>
         <source>OS Storage</source>
         <translation>系统存储</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="161"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.cpp" line="161"/>
         <source>Mix Storage</source>
         <translation>混合存储</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="169"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.cpp" line="169"/>
         <source>Serial</source>
         <translation>串口</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="171"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.cpp" line="171"/>
         <source>USB</source>
         <translation>USB</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="173"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.cpp" line="173"/>
         <source>PCIE</source>
         <translation>PCIE</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="175"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.cpp" line="175"/>
         <source>Any</source>
         <translation>任意类型</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="177"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.cpp" line="177"/>
         <source>Other</source>
         <translation>其他</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="185"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.cpp" line="185"/>
         <source>Hardware Identification</source>
         <translation>硬件识别</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="187"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.cpp" line="187"/>
         <source>Software Identification</source>
         <translation>软件识别</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="189"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.cpp" line="189"/>
         <source>Mix Identification</source>
         <translation>混合识别</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="191"/>
+        <location filename="../../../plugins/account/biometrics/biometricmoreinfo.cpp" line="191"/>
         <source>Other Identification</source>
         <translation>其他识别</translation>
+    </message>
+</context>
+<context>
+    <name>Biometrics</name>
+    <message>
+        <location filename="../../../plugins/account/biometrics/biometrics.cpp" line="24"/>
+        <source>Biometrics</source>
+        <translation>生物特征与密码</translation>
+    </message>
+</context>
+<context>
+    <name>BiometricsWidget</name>
+    <message>
+        <location filename="../../../plugins/account/biometrics/biometricswidget.ui" line="35"/>
+        <source>Biometric password</source>
+        <translation>生物特征</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/biometrics/biometricswidget.ui" line="89"/>
+        <source>Account password</source>
+        <translation>账户密码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/biometrics/biometricswidget.ui" line="109"/>
+        <source>Change password</source>
+        <translation>修改密码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/biometrics/biometricswidget.ui" line="171"/>
+        <source>Enable biometrics </source>
+        <translation>生物特征</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/biometrics/biometricswidget.ui" line="191"/>
+        <source>...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/biometrics/biometricswidget.ui" line="271"/>
+        <source>Device Type</source>
+        <translation>设备类型</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/biometrics/biometricswidget.ui" line="367"/>
+        <source>Device Name</source>
+        <translation>设备名</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/biometrics/biometricswidget.cpp" line="73"/>
+        <source>Add biometric feature</source>
+        <translation>添加生物密码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/biometrics/biometricswidget.cpp" line="233"/>
+        <source>Standard</source>
+        <translation>标准用户</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/biometrics/biometricswidget.cpp" line="235"/>
+        <source>Admin</source>
+        <translation type="unfinished">管理员</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/biometrics/biometricswidget.cpp" line="237"/>
+        <source>root</source>
+        <translation type="unfinished">Root</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/biometrics/biometricswidget.cpp" line="755"/>
+        <source>Delete</source>
+        <translation type="unfinished">删除</translation>
     </message>
 </context>
 <context>
@@ -1388,6 +1453,34 @@ Please authenticate yourself to continue</source>
     </message>
 </context>
 <context>
+    <name>ChangeFeatureName</name>
+    <message>
+        <location filename="../../../plugins/account/biometrics/changefeaturename.ui" line="26"/>
+        <source>Change Username</source>
+        <translation type="unfinished">修改用户名</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/biometrics/changefeaturename.ui" line="90"/>
+        <source>Feature name</source>
+        <translation>特征名称</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/biometrics/changefeaturename.ui" line="181"/>
+        <source>Cancel</source>
+        <translation type="unfinished">取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/biometrics/changefeaturename.ui" line="200"/>
+        <source>Save</source>
+        <translation>保存</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/biometrics/changefeaturename.cpp" line="24"/>
+        <source>Name already in use, change another one.</source>
+        <translation type="unfinished">该用户名已存在，请更改。</translation>
+    </message>
+</context>
+<context>
     <name>ChangeGroupDialog</name>
     <message>
         <location filename="../../../plugins/account/userinfo/changegroupdialog.ui" line="32"/>
@@ -1482,41 +1575,49 @@ Please authenticate yourself to continue</source>
     <name>ChangePwdDialog</name>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="130"/>
+        <location filename="../../../plugins/account/biometrics/changepwddialog.ui" line="130"/>
         <source>Change Pwd</source>
         <translation>更改密码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="317"/>
+        <location filename="../../../plugins/account/biometrics/changepwddialog.ui" line="317"/>
         <source>Pwd type</source>
         <translation>密码类型</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="395"/>
+        <location filename="../../../plugins/account/biometrics/changepwddialog.ui" line="395"/>
         <source>Cur pwd</source>
         <translation>当前密码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="440"/>
+        <location filename="../../../plugins/account/biometrics/changepwddialog.ui" line="440"/>
         <source>New pwd</source>
         <translation>新密码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="485"/>
+        <location filename="../../../plugins/account/biometrics/changepwddialog.ui" line="485"/>
         <source>New pwd sure</source>
         <translation>新密码确认</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="605"/>
+        <location filename="../../../plugins/account/biometrics/changepwddialog.ui" line="605"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="627"/>
+        <location filename="../../../plugins/account/biometrics/changepwddialog.ui" line="627"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="64"/>
+        <location filename="../../../plugins/account/biometrics/changepwddialog.cpp" line="64"/>
         <source>Change pwd</source>
         <translation>更改密码</translation>
     </message>
@@ -1526,12 +1627,15 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="172"/>
+        <location filename="../../../plugins/account/biometrics/changepwddialog.cpp" line="172"/>
         <source>General Pwd</source>
         <translation>通用密码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="178"/>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="389"/>
+        <location filename="../../../plugins/account/biometrics/changepwddialog.cpp" line="178"/>
+        <location filename="../../../plugins/account/biometrics/changepwddialog.cpp" line="389"/>
         <source>Current Password</source>
         <translation>当前密码</translation>
     </message>
@@ -1539,6 +1643,9 @@ Please authenticate yourself to continue</source>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="179"/>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="390"/>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="398"/>
+        <location filename="../../../plugins/account/biometrics/changepwddialog.cpp" line="179"/>
+        <location filename="../../../plugins/account/biometrics/changepwddialog.cpp" line="390"/>
+        <location filename="../../../plugins/account/biometrics/changepwddialog.cpp" line="398"/>
         <source>New Password</source>
         <translation>新密码</translation>
     </message>
@@ -1546,21 +1653,27 @@ Please authenticate yourself to continue</source>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="180"/>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="391"/>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="399"/>
+        <location filename="../../../plugins/account/biometrics/changepwddialog.cpp" line="180"/>
+        <location filename="../../../plugins/account/biometrics/changepwddialog.cpp" line="391"/>
+        <location filename="../../../plugins/account/biometrics/changepwddialog.cpp" line="399"/>
         <source>New Password Identify</source>
         <translation>新密码确认</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="188"/>
+        <location filename="../../../plugins/account/biometrics/changepwddialog.cpp" line="188"/>
         <source>Pwd input error, re-enter!</source>
         <translation>密码输入错误,重新输入!</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="327"/>
+        <location filename="../../../plugins/account/biometrics/changepwddialog.cpp" line="327"/>
         <source>Contains illegal characters!</source>
         <translation>含有非法字符！</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="329"/>
+        <location filename="../../../plugins/account/biometrics/changepwddialog.cpp" line="329"/>
         <source>Same with old pwd</source>
         <translation>与旧密码相同</translation>
     </message>
@@ -1579,6 +1692,8 @@ Please authenticate yourself to continue</source>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="245"/>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="365"/>
+        <location filename="../../../plugins/account/biometrics/changepwddialog.cpp" line="245"/>
+        <location filename="../../../plugins/account/biometrics/changepwddialog.cpp" line="365"/>
         <source>Inconsistency with pwd</source>
         <translation>与新密码不同</translation>
     </message>
@@ -2301,37 +2416,37 @@ change system settings</source>
         <translation>无可用程序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="296"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="298"/>
         <source>Browser</source>
         <translation>浏览器</translation>
         <extra-contents_path>/defaultapp/Browser</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="298"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="300"/>
         <source>Mail</source>
         <translation>电子邮件</translation>
         <extra-contents_path>/defaultapp/Mail</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="300"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="302"/>
         <source>Image Viewer</source>
         <translation>图像查看器</translation>
         <extra-contents_path>/defaultapp/Image Viewer</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="302"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="304"/>
         <source>Audio Player</source>
         <translation>音频播放器</translation>
         <extra-contents_path>/defaultapp/Audio Player</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="304"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="306"/>
         <source>Video Player</source>
         <translation>视频播放器</translation>
         <extra-contents_path>/defaultapp/Video Player</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="306"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="308"/>
         <source>Text Editor</source>
         <translation>文档编辑器</translation>
         <extra-contents_path>/defaultapp/Text Editor</extra-contents_path>
@@ -2340,7 +2455,7 @@ change system settings</source>
 <context>
     <name>DefaultAppWindow</name>
     <message>
-        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="294"/>
+        <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="296"/>
         <source>Select Default Application</source>
         <translation>默认应用</translation>
     </message>
@@ -2626,26 +2741,31 @@ folder will be deleted!</source>
     <name>DeviceType</name>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricdeviceinfo.cpp" line="40"/>
+        <location filename="../../../plugins/account/biometrics/biometricdeviceinfo.cpp" line="40"/>
         <source>FingerPrint</source>
         <translation>指纹</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricdeviceinfo.cpp" line="42"/>
+        <location filename="../../../plugins/account/biometrics/biometricdeviceinfo.cpp" line="42"/>
         <source>FingerVein</source>
         <translation>指静脉</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricdeviceinfo.cpp" line="44"/>
+        <location filename="../../../plugins/account/biometrics/biometricdeviceinfo.cpp" line="44"/>
         <source>Iris</source>
         <translation>虹膜</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricdeviceinfo.cpp" line="46"/>
+        <location filename="../../../plugins/account/biometrics/biometricdeviceinfo.cpp" line="46"/>
         <source>Face</source>
         <translation>人脸</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/biometricdeviceinfo.cpp" line="48"/>
+        <location filename="../../../plugins/account/biometrics/biometricdeviceinfo.cpp" line="48"/>
         <source>VoicePrint</source>
         <translation>声纹</translation>
     </message>
@@ -3310,34 +3430,24 @@ folder will be deleted!</source>
         <translation type="vanished">字体</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="140"/>
         <source>11</source>
-        <translation>11</translation>
+        <translation type="vanished">11</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="140"/>
         <source>12</source>
-        <translation>12</translation>
+        <translation type="vanished">12</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="140"/>
         <source>13</source>
-        <translation>13</translation>
+        <translation type="vanished">13</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="140"/>
         <source>14</source>
-        <translation>14</translation>
+        <translation type="vanished">14</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="140"/>
-        <source>15</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="141"/>
         <source>16</source>
-        <translation>16</translation>
+        <translation type="vanished">16</translation>
     </message>
     <message>
         <source>Thanks For Using The ukcc</source>
@@ -3416,14 +3526,12 @@ folder will be deleted!</source>
 <context>
     <name>HistoryUpdateListWig</name>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/historyupdatelistwig.cpp" line="98"/>
         <source>Success</source>
-        <translation>更新成功</translation>
+        <translation type="vanished">更新成功</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/historyupdatelistwig.cpp" line="100"/>
         <source>Failed</source>
-        <translation>更新失败</translation>
+        <translation type="vanished">更新失败</translation>
     </message>
 </context>
 <context>
@@ -4493,8 +4601,8 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="427"/>
-        <location filename="../../mainwindow.cpp" line="656"/>
-        <location filename="../../mainwindow.cpp" line="880"/>
+        <location filename="../../mainwindow.cpp" line="657"/>
+        <location filename="../../mainwindow.cpp" line="881"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
@@ -4538,12 +4646,12 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="1004"/>
+        <location filename="../../mainwindow.cpp" line="1005"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="1004"/>
+        <location filename="../../mainwindow.cpp" line="1005"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
@@ -5934,12 +6042,17 @@ Please retry or relogin!</source>
         <translation>触摸屏</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="228"/>
+        <location filename="../../utils/functionselect.cpp" line="164"/>
+        <source>Biometrics</source>
+        <translation>生物特征与密码</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="230"/>
         <source>Default App</source>
         <translation>默认应用</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="230"/>
+        <location filename="../../utils/functionselect.cpp" line="232"/>
         <source>Auto Boot</source>
         <translation>开机启动</translation>
     </message>
@@ -6033,7 +6146,7 @@ Please retry or relogin!</source>
         <translation>账户信息</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="177"/>
+        <location filename="../../utils/functionselect.cpp" line="179"/>
         <source>Date</source>
         <translation>时间日期</translation>
     </message>
@@ -6042,7 +6155,7 @@ Please retry or relogin!</source>
         <translation type="vanished">时间日期</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="213"/>
+        <location filename="../../utils/functionselect.cpp" line="215"/>
         <source>Security Center</source>
         <translation>安全中心</translation>
     </message>
@@ -6074,7 +6187,7 @@ Please retry or relogin!</source>
         <translation type="vanished">时间日期</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="179"/>
+        <location filename="../../utils/functionselect.cpp" line="181"/>
         <source>Area</source>
         <translation>区域语言</translation>
     </message>
@@ -6083,17 +6196,17 @@ Please retry or relogin!</source>
         <translation type="vanished">安全中心</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="196"/>
+        <location filename="../../utils/functionselect.cpp" line="198"/>
         <source>Update</source>
         <translation>安全与更新</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="194"/>
+        <location filename="../../utils/functionselect.cpp" line="196"/>
         <source>Backup</source>
         <translation>备份</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="198"/>
+        <location filename="../../utils/functionselect.cpp" line="200"/>
         <source>Upgrade</source>
         <translation>更新</translation>
     </message>
@@ -6103,7 +6216,7 @@ Please retry or relogin!</source>
         <translation>通知</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="245"/>
+        <location filename="../../utils/functionselect.cpp" line="247"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -6580,14 +6693,12 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/backup.cpp" line="135"/>
         <source>system upgrade new backup</source>
-        <translation>系统升级新建备份</translation>
+        <translation type="vanished">系统升级新建备份</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/backup.cpp" line="136"/>
         <source>system upgrade increment backup</source>
-        <translation>系统升级增量备份</translation>
+        <translation type="vanished">系统升级增量备份</translation>
     </message>
 </context>
 <context>
@@ -7615,287 +7726,212 @@ run start-pulseaudio-x11 manually.</source>
 <context>
     <name>TabWid</name>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="43"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="102"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="114"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="119"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="156"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="388"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="416"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="678"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="785"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="923"/>
         <source>Check Update</source>
-        <translation>检查更新</translation>
+        <translation type="vanished">检查更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="46"/>
         <source>initializing</source>
-        <translation>初始化中</translation>
+        <translation type="vanished">初始化中</translation>
     </message>
     <message>
         <source>Service connection abnormal,please retest!</source>
         <translation type="vanished">服务连接异常，请重新检测！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="830"/>
         <source>Prompt information</source>
-        <translation>提示信息</translation>
+        <translation type="vanished">提示信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="174"/>
         <source>Update now</source>
-        <translation>立即更新</translation>
+        <translation type="vanished">立即更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="175"/>
         <source>Cancel update</source>
-        <translation>取消更新</translation>
+        <translation type="vanished">取消更新</translation>
     </message>
     <message>
         <source>No,I Don&apos;t Backup</source>
         <translation type="vanished">否，我不备份</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="182"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="321"/>
         <source>Being updated...</source>
-        <translation>正在更新...</translation>
+        <translation type="vanished">正在更新...</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="109"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="195"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="330"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="706"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="811"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="893"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="960"/>
         <source>UpdateAll</source>
-        <translation>全部更新</translation>
+        <translation type="vanished">全部更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="204"/>
         <source>The backup restore partition could not be found. The system will not be backed up in this update!</source>
-        <translation>未能找到备份还原分区，本次更新不会备份系统！</translation>
+        <translation type="vanished">未能找到备份还原分区，本次更新不会备份系统！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="208"/>
         <source>Kylin backup restore tool is doing other operations, please update later.</source>
-        <translation>麒麟备份还原工具正在进行其他操作，请稍后更新</translation>
+        <translation type="vanished">麒麟备份还原工具正在进行其他操作，请稍后更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="211"/>
         <source>The source manager configuration file is abnormal, the system temporarily unable to update!</source>
-        <translation>源管理器配置文件异常，暂时无法更新！</translation>
+        <translation type="vanished">源管理器配置文件异常，暂时无法更新！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="214"/>
         <source>Backup already, no need to backup again.</source>
-        <translation>已备份，无需再次备份</translation>
+        <translation type="vanished">已备份，无需再次备份</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="228"/>
         <source>Kylin backup restore tool does not exist, this update will not backup the system!</source>
-        <translation>麒麟备份还原工具不存在，本次更新不会备份系统</translation>
+        <translation type="vanished">麒麟备份还原工具不存在，本次更新不会备份系统</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="287"/>
         <source>Backup complete.</source>
-        <translation>备份完成</translation>
+        <translation type="vanished">备份完成</translation>
     </message>
     <message>
         <source>In backup:</source>
         <translation type="vanished">备份中：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="222"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="990"/>
         <source>Start backup,getting progress</source>
-        <translation>开始备份，正在获取进度</translation>
+        <translation type="vanished">开始备份，正在获取进度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="637"/>
         <source>Ready to install</source>
-        <translation>准备安装</translation>
+        <translation type="vanished">准备安装</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="815"/>
         <source>The battery is below 50% and the update cannot be downloaded</source>
-        <translation>电池电量低于 50%，无法下载更新</translation>
+        <translation type="vanished">电池电量低于 50%，无法下载更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="818"/>
         <source>OK</source>
-        <translation>确定</translation>
+        <translation type="vanished">确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="829"/>
         <source>Please back up the system before all updates to avoid unnecessary losses</source>
-        <translation>请在所有更新前备份系统，以免造成不必要的损失</translation>
+        <translation type="vanished">请在所有更新前备份系统，以免造成不必要的损失</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="833"/>
         <source>Only Update</source>
-        <translation>仅更新</translation>
+        <translation type="vanished">仅更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="834"/>
         <source>Back And Update</source>
-        <translation>备份并更新</translation>
+        <translation type="vanished">备份并更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="997"/>
         <source>Failed to write configuration file, this update will not back up the system!</source>
-        <translation>写入配置文件失败，本次更新不会备份系统！</translation>
+        <translation type="vanished">写入配置文件失败，本次更新不会备份系统！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1001"/>
         <source>Insufficient backup space, this update will not backup your system!</source>
-        <translation>备份空间不足，本次更新不会备份系统！</translation>
+        <translation type="vanished">备份空间不足，本次更新不会备份系统！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1005"/>
         <source>Kylin backup restore tool could not find the UUID, this update will not backup the system!</source>
-        <translation>麒麟备份还原工具无法找到UUID，本次更新不会备份系统</translation>
+        <translation type="vanished">麒麟备份还原工具无法找到UUID，本次更新不会备份系统</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="302"/>
         <source>Backup interrupted, stop updating!</source>
-        <translation>备份过程被中断，停止更新！</translation>
+        <translation type="vanished">备份过程被中断，停止更新！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="158"/>
         <source>Failed to connect to software warehouse!</source>
-        <translation>连接软件仓库失败</translation>
+        <translation type="vanished">连接软件仓库失败</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="132"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="242"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="265"/>
         <source>Downloading and installing updates...</source>
-        <translation>正在下载并安装更新...</translation>
+        <translation type="vanished">正在下载并安装更新...</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="243"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="835"/>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="vanished">取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="290"/>
         <source>System is backing up...</source>
-        <translation>系统正在备份中...</translation>
+        <translation type="vanished">系统正在备份中...</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="306"/>
         <source>Backup finished!</source>
-        <translation>备份完成！</translation>
+        <translation type="vanished">备份完成！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="310"/>
         <source>Kylin backup restore tool exception:</source>
-        <translation>麒麟备份还原工具异常：</translation>
+        <translation type="vanished">麒麟备份还原工具异常：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="310"/>
         <source>There will be no backup in this update!</source>
-        <translation>本次更新不会备份系统！</translation>
+        <translation type="vanished">本次更新不会备份系统！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="381"/>
         <source>Getting update list</source>
-        <translation>正在获取更新列表</translation>
+        <translation type="vanished">正在获取更新列表</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="385"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="418"/>
         <source>Software source update failed: </source>
-        <translation>软件源更新失败：</translation>
+        <translation type="vanished">软件源更新失败：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="437"/>
         <source>Update software source :</source>
-        <translation>更新软件源进度：</translation>
+        <translation type="vanished">更新软件源进度：</translation>
     </message>
     <message>
         <source>Reconnect times:</source>
         <translation type="vanished">重连次数：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="464"/>
         <source>Update</source>
-        <translation>更新</translation>
+        <translation type="vanished">更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="487"/>
         <source>View history</source>
-        <translation>查看更新历史</translation>
+        <translation type="vanished">查看更新历史</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="532"/>
         <source>Update Settings</source>
-        <translation>更新设置</translation>
+        <translation type="vanished">更新设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="543"/>
         <source>Allowed to renewable notice</source>
-        <translation>允许通知可更新的应用</translation>
+        <translation type="vanished">允许通知可更新的应用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="553"/>
         <source>Backup current system before updates all</source>
-        <translation>全部更新前备份系统</translation>
+        <translation type="vanished">全部更新前备份系统</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="276"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="680"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="927"/>
         <source>Your system is the latest!</source>
-        <translation>您的系统已是最新！</translation>
+        <translation type="vanished">您的系统已是最新！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="194"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="709"/>
         <source>Updatable app detected on your system!</source>
-        <translation>检测到你的系统有可更新的应用！</translation>
+        <translation type="vanished">检测到你的系统有可更新的应用！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="565"/>
         <source>Automatically download and install updates</source>
-        <translation>自动下载和安装更新</translation>
+        <translation type="vanished">自动下载和安装更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="567"/>
         <source>After it is turned on, the system will automatically download and install updates when there is an available network and available backup and restore partitions.</source>
-        <translation>开启后，当有可用网络和可用备份和恢复分区时，系统会自动下载和安装更新</translation>
+        <translation type="vanished">开启后，当有可用网络和可用备份和恢复分区时，系统会自动下载和安装更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="698"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="746"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="914"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="947"/>
         <source>Last refresh:</source>
-        <translation>上次更新：</translation>
+        <translation type="vanished">上次更新：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="748"/>
         <source>Last Checked:</source>
-        <translation>上次检测：</translation>
+        <translation type="vanished">上次检测：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="780"/>
         <source>trying to reconnect </source>
-        <translation>重新尝试连接</translation>
+        <translation type="vanished">重新尝试连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="780"/>
         <source> times</source>
-        <translation>次数</translation>
+        <translation type="vanished">次数</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="799"/>
         <source>Updating the software source</source>
-        <translation>正在更新软件源</translation>
+        <translation type="vanished">正在更新软件源</translation>
     </message>
     <message>
         <source>This update will not backup the current system, do you want to continue the update?</source>
@@ -7914,28 +7950,24 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">暂不更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="934"/>
         <source>Part of the update failed!</source>
-        <translation>部分更新失败！</translation>
+        <translation type="vanished">部分更新失败！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="971"/>
         <source>An important update is in progress, please wait.</source>
-        <translation>正在进行一项重要更新，请等待。</translation>
+        <translation type="vanished">正在进行一项重要更新，请等待。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1008"/>
         <source>The backup restore partition is abnormal. You may not have a backup restore partition.For more details,see /var/log/backup.log</source>
-        <translation>备份还原分区异常，您可能没有备份还原分区。更多详细信息，可以参看/var/log/backup.log</translation>
+        <translation type="vanished">备份还原分区异常，您可能没有备份还原分区。更多详细信息，可以参看/var/log/backup.log</translation>
     </message>
     <message>
         <source>Other err! please refers /var/log/backup.txt!</source>
         <translation type="vanished">其他错误!请查看/var/log/backup.txt</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1015"/>
         <source>Calculating Capacity...</source>
-        <translation>计算系统空间大小</translation>
+        <translation type="vanished">计算系统空间大小</translation>
     </message>
     <message>
         <source>Update software source progress:</source>
@@ -8760,38 +8792,33 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/updatedbus.cpp" line="63"/>
         <source>System-Upgrade</source>
-        <translation>系统更新</translation>
+        <translation type="vanished">系统更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/updatedbus.cpp" line="66"/>
         <source>ukui-control-center-update</source>
-        <translation>控制面板-更新提示</translation>
+        <translation type="vanished">控制面板-更新提示</translation>
     </message>
 </context>
 <context>
     <name>UpdateLog</name>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/updatelog.cpp" line="17"/>
         <source>Update log</source>
-        <translation>更新日志</translation>
+        <translation type="vanished">更新日志</translation>
     </message>
 </context>
 <context>
     <name>UpdateSource</name>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/updatesource.cpp" line="80"/>
         <source>Connection failed, please reconnect!</source>
-        <translation>连接失败，请重新连接！</translation>
+        <translation type="vanished">连接失败，请重新连接！</translation>
     </message>
 </context>
 <context>
     <name>Upgrade</name>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/upgrade.cpp" line="8"/>
         <source>Upgrade</source>
-        <translation>更新</translation>
+        <translation type="vanished">更新</translation>
         <extra-contents_path>/upgrade/Upgrade</extra-contents_path>
     </message>
 </context>
@@ -9202,19 +9229,19 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">屏幕缩放 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="803"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="804"/>
         <source>unify output</source>
         <translation>统一输出</translation>
         <extra-contents_path>/display/unify output</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="807"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="808"/>
         <source>night mode</source>
         <translation>夜间模式</translation>
         <extra-contents_path>/display/night mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="718"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="719"/>
         <source>Some applications need to be logouted to take effect</source>
         <translation>部分程序需要注销生效</translation>
     </message>
@@ -9235,7 +9262,7 @@ run start-pulseaudio-x11 manually.</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="321"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2049"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2050"/>
         <source>Custom Time</source>
         <translation>自定义</translation>
     </message>
@@ -9260,80 +9287,80 @@ run start-pulseaudio-x11 manually.</source>
         <translation>较冷</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="677"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="678"/>
         <source>Multi-screen</source>
         <translation>多屏显示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="682"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="683"/>
         <source>First Screen</source>
         <translation>第一屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="683"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="684"/>
         <source>Clone Screen</source>
         <translation>镜像屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="684"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="685"/>
         <source>Extend Screen</source>
         <translation>拓展屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="685"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="686"/>
         <source>Vice Screen</source>
         <translation>其他屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="706"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="707"/>
         <source>monitor</source>
         <translation>显示器</translation>
         <extra-contents_path>/display/monitor</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="717"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="718"/>
         <source>Information</source>
         <translation>信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="815"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="816"/>
         <source>Theme follow night mode</source>
         <translation>主题跟随夜间模式变化</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="869"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="870"/>
         <source>Hint</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="870"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="871"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after 14 seconds</source>
         <translation>是否保留当前修改的配置？将在14秒后自动保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="874"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="875"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="875"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="876"/>
         <source>Not Save</source>
         <translation>不保存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2049"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2050"/>
         <source>All Day</source>
         <translation>全天</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2049"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2050"/>
         <source>Follow the sunrise and sunset(17:55-06:23)</source>
         <translation>跟随日出日落(17:55-06:23)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2334"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2341"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2335"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2342"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
@@ -9348,7 +9375,7 @@ The settings will be saved after 9 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与 显卡兼容性问题，有可能显示不正常。系统将在9秒后保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="884"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="885"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
 the settings will be saved after %1 seconds</source>
         <translation>是否保留当前修改的配置？将在%1秒后自动保存配置</translation>
@@ -9377,19 +9404,19 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1563"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1564"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1360"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1563"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1570"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1361"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1564"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1571"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1361"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1362"/>
         <source>Open time should be earlier than close time!</source>
         <translation>开启时间必须大于关闭时间！</translation>
     </message>
@@ -9398,7 +9425,7 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">早晨时刻应早于晚上的时刻!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1571"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1572"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>
@@ -9781,25 +9808,20 @@ Common reasons are that the overall screen size is too big, or you enabled more 
 <context>
     <name>m_updatelog</name>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="57"/>
         <source>No content.</source>
-        <translation>暂无内容.</translation>
+        <translation type="vanished">暂无内容.</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="531"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="564"/>
         <source>Search content</source>
-        <translation>搜索内容</translation>
+        <translation type="vanished">搜索内容</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="611"/>
         <source>History Log</source>
-        <translation>历史更新</translation>
+        <translation type="vanished">历史更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="113"/>
         <source>Update Details</source>
-        <translation>更新详情</translation>
+        <translation type="vanished">更新详情</translation>
     </message>
 </context>
 <context>
