@@ -215,6 +215,191 @@
     </message>
 </context>
 <context>
+    <name>AppUpdateWid</name>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="73"/>
+        <source>Lack of local disk space!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="79"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="102"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="399"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="622"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="693"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="859"/>
+        <source>Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="96"/>
+        <source>Network abnormal!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="111"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="127"/>
+        <source>Download failed!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="113"/>
+        <source>failed to get from the source!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="129"/>
+        <source>The download cache has been removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="175"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="724"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="837"/>
+        <source>Ready to install</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="288"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="291"/>
+        <source>Being installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="302"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="304"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="305"/>
+        <source>Update succeeded , It is recommended that you restart later!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="309"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="311"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="312"/>
+        <source>Update succeeded , It is recommended that you log out later and log in again!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="315"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="324"/>
+        <source>Update succeeded!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="333"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="343"/>
+        <source>Update failed!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="336"/>
+        <source>Failure reason:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="393"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="609"/>
+        <source>details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="442"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="508"/>
+        <source>Update log</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="488"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="489"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="494"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="509"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="697"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="698"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="702"/>
+        <source>Newest:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="517"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="523"/>
+        <source>Download size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="550"/>
+        <source>Current version:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="603"/>
+        <source>back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="628"/>
+        <source>The battery is below 50% and the update cannot be downloaded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="631"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="643"/>
+        <source>A single update will not automatically backup the system, if you want to backup, please click Update All.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="644"/>
+        <source>Prompt information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="647"/>
+        <source>Do not backup, continue to update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="648"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="720"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="649"/>
+        <source>Cancel update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="653"/>
+        <source>This time will no longer prompt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="728"/>
+        <source>Calculate the download progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="739"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="746"/>
+        <source>Get depends failed!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="796"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="799"/>
+        <source>In the update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="918"/>
+        <source>No content.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Area</name>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="26"/>
@@ -2255,6 +2440,19 @@ Please authenticate yourself to continue</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/frameitem.cpp" line="129"/>
         <source>OSS access failed,please relogin!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>HistoryUpdateListWig</name>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/historyupdatelistwig.cpp" line="98"/>
+        <source>Success</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/historyupdatelistwig.cpp" line="100"/>
+        <source>Failed</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4356,6 +4554,16 @@ run start-pulseaudio-x11 manually.</source>
         <source>Go to search settings page</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/backup.cpp" line="135"/>
+        <source>system upgrade new backup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/backup.cpp" line="136"/>
+        <source>system upgrade increment backup</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Screenlock</name>
@@ -5002,6 +5210,296 @@ run start-pulseaudio-x11 manually.</source>
     </message>
 </context>
 <context>
+    <name>TabWid</name>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="43"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="102"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="114"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="119"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="156"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="388"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="416"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="678"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="785"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="923"/>
+        <source>Check Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="46"/>
+        <source>initializing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="109"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="195"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="330"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="706"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="811"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="893"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="960"/>
+        <source>UpdateAll</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="132"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="242"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="265"/>
+        <source>Downloading and installing updates...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="158"/>
+        <source>Failed to connect to software warehouse!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="174"/>
+        <source>Update now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="175"/>
+        <source>Cancel update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="182"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="321"/>
+        <source>Being updated...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="194"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="709"/>
+        <source>Updatable app detected on your system!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="204"/>
+        <source>The backup restore partition could not be found. The system will not be backed up in this update!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="208"/>
+        <source>Kylin backup restore tool is doing other operations, please update later.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="211"/>
+        <source>The source manager configuration file is abnormal, the system temporarily unable to update!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="214"/>
+        <source>Backup already, no need to backup again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="222"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="990"/>
+        <source>Start backup,getting progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="228"/>
+        <source>Kylin backup restore tool does not exist, this update will not backup the system!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="243"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="835"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="276"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="680"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="927"/>
+        <source>Your system is the latest!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="287"/>
+        <source>Backup complete.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="290"/>
+        <source>System is backing up...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="302"/>
+        <source>Backup interrupted, stop updating!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="306"/>
+        <source>Backup finished!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="310"/>
+        <source>Kylin backup restore tool exception:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="310"/>
+        <source>There will be no backup in this update!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="381"/>
+        <source>Getting update list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="385"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="418"/>
+        <source>Software source update failed: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="437"/>
+        <source>Update software source :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="464"/>
+        <source>Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="487"/>
+        <source>View history</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="532"/>
+        <source>Update Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="543"/>
+        <source>Allowed to renewable notice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="553"/>
+        <source>Backup current system before updates all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="565"/>
+        <source>Automatically download and install updates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="567"/>
+        <source>After it is turned on, the system will automatically download and install updates when there is an available network and available backup and restore partitions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="637"/>
+        <source>Ready to install</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="698"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="746"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="914"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="947"/>
+        <source>Last refresh:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="748"/>
+        <source>Last Checked:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="780"/>
+        <source>trying to reconnect </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="780"/>
+        <source> times</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="799"/>
+        <source>Updating the software source</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="815"/>
+        <source>The battery is below 50% and the update cannot be downloaded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="818"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="829"/>
+        <source>Please back up the system before all updates to avoid unnecessary losses</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="830"/>
+        <source>Prompt information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="833"/>
+        <source>Only Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="834"/>
+        <source>Back And Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="934"/>
+        <source>Part of the update failed!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="971"/>
+        <source>An important update is in progress, please wait.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="997"/>
+        <source>Failed to write configuration file, this update will not back up the system!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1001"/>
+        <source>Insufficient backup space, this update will not backup your system!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1005"/>
+        <source>Kylin backup restore tool could not find the UUID, this update will not backup the system!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1008"/>
+        <source>The backup restore partition is abnormal. You may not have a backup restore partition.For more details,see /var/log/backup.log</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1015"/>
+        <source>Calculating Capacity...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Theme</name>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.ui" line="76"/>
@@ -5561,6 +6059,44 @@ run start-pulseaudio-x11 manually.</source>
         <location filename="../../../plugins/security-updates/update/update.ui" line="139"/>
         <source>Check for updates</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UpdateDbus</name>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/updatedbus.cpp" line="63"/>
+        <source>System-Upgrade</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/updatedbus.cpp" line="66"/>
+        <source>ukui-control-center-update</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UpdateLog</name>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/updatelog.cpp" line="17"/>
+        <source>Update log</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UpdateSource</name>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/updatesource.cpp" line="80"/>
+        <source>Connection failed, please reconnect!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Upgrade</name>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/upgrade.cpp" line="8"/>
+        <source>Upgrade</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/upgrade/Upgrade</extra-contents_path>
     </message>
 </context>
 <context>
@@ -6268,6 +6804,30 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <location filename="../../../plugins/security-updates/securitycenter/ksc_module_func_widget.ui" line="217"/>
         <location filename="../../../plugins/security-updates/securitycenter/ksc_module_func_widget.cpp" line="22"/>
         <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>m_updatelog</name>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="57"/>
+        <source>No content.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="113"/>
+        <source>Update Details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="531"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="564"/>
+        <source>Search content</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="611"/>
+        <source>History Log</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
