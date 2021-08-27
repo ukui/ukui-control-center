@@ -20,7 +20,7 @@
 #ifndef ELIPSEMASKWIDGET_H
 #define ELIPSEMASKWIDGET_H
 
-#include <QWidget>
+#include <QFrame>
 
 class ElipseMaskWidget : public QWidget
 {

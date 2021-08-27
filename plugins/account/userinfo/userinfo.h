@@ -20,6 +20,15 @@
 #ifndef USERINFO_H
 #define USERINFO_H
 
+#include "Label/titlelabel.h"
+#include "AddBtn/addbtn.h"
+#include "SwitchButton/switchbutton.h"
+
+#include <QFrame>
+#include <QPushButton>
+
+#include "changeusertype.h"
+
 #include <QObject>
 #include <QtPlugin>
 #include <QFileSystemWatcher>
@@ -36,7 +45,6 @@
 #include "changepwddialog.h"
 #include "changefacedialog.h"
 #include "changetypedialog.h"
-#include "changevaliddialog.h"
 #include "changeusername.h"
 #include "deluserdialog.h"
 #include "createuserdialog.h"
@@ -104,7 +112,6 @@ class UserInfo;
 }
 
 class QDBusInterface;
-class SwitchButton;
 
 class UserInfo : public QObject, CommonInterface
 {
@@ -122,35 +129,72 @@ public:
     void plugin_delay_control() Q_DECL_OVERRIDE;
     const QString name() const  Q_DECL_OVERRIDE;
 
+
+public:
+    AddBtn * addUserBtn;
+
+    SwitchButton * nopwdLoginSBtn;
+    SwitchButton * autoLoginSBtn;
+
+    TitleLabel * currentLabel;
+    TitleLabel * othersLabel;
+    QLabel * currentNickNameLabel;
+    QLabel * currentUserTypeLabel;
+    QLabel * nopwdLoginLabel;
+    QLabel * autoLoginLabel;
+
+    QPushButton * currentUserlogoBtn;
+    QPushButton * changeCurrentPwdBtn;
+    QPushButton * changeCurrentTypeBtn;
+    QPushButton * changeCurrentGroupsBtn;
+
+    QVBoxLayout * mainVerLayout;
+    QVBoxLayout * currentVerLayout;
+    QHBoxLayout * currentUserHorLayout;
+    QVBoxLayout * currentUserinfoVerLayout;
+    QHBoxLayout * nopwdLoginHorLayout;
+    QHBoxLayout * autoLoginHorLayout;
+    QVBoxLayout * otherVerLayout;
+    QHBoxLayout * addUserHorLayout;
+
+    QFrame * currentFrame;
+    QFrame * currentUserFrame;
+    QFrame * nopwdLoginFrame;
+    QFrame * autoLoginFrame;
+    QFrame * othersFrame;
+    QFrame * addUserFrame;
+
+    QFrame * splitHLine1;
+    QFrame * splitHLine2;
+    QFrame * splitVLine1;
+    QFrame * splitVLine2;
+
+public:
+    void initUI();
+    void buildAndSetupUsers();
+    void setUserConnect();
+    void setUserDBusPropertyConnect(const QString pObjPath);
+
+    void showChangeUserTypeDialog(QString u);
+
+protected:
+    QFrame * createHLine(QFrame * f, int len = 0);
+    QFrame * createVLine(QFrame * f, int len = 0);
+    bool setTextDynamic(QLabel * label, QString str);
+
+private:
+    QFrame * buildItemForOthers(UserInfomation user);
+
+
+public slots:
+    void userPropertyChangedSlot(QString, QMap<QString, QVariant>, QStringList);
+
+    /**************/
+
 public:
     void initSearchText();
     void initComponent();
     void initAllUserStatus();
-
-    //初始化生物特征组件
-    void initBioComonent();
-    //添加生物特征
-    void addFeature(FeatureInfo *featureinfo);
-    //更新生物特征设备
-    void updateDevice();
-    void updateFeatureList();
-    void setCurrentDevice(int drvid);
-    void setCurrentDevice(const QString &deviceName);
-    void setCurrentDevice(const DeviceInfoPtr &pDeviceInfo);
-    DeviceInfoPtr findDeviceById(int drvid);
-    DeviceInfoPtr findDeviceByName(const QString &name);
-    bool deviceExists(int drvid);
-    bool deviceExists(const QString &deviceName);
-    void showEnrollDialog();
-    void showVerifyDialog(FeatureInfo *featureinfo);
-    void deleteFeature();
-    void deleteFeaturedone(FeatureInfo *feature);
-    void renameFeaturedone(FeatureInfo *feature,QString newname);
-    void setBiometricDeviceVisible(bool visible);
-    void setBioStatus(bool status);
-    bool getBioStatus();
-    void biometricShowMoreInfoDialog();
-    bool isShowBiometric();
 
     QStringList getLoginedUsers();
     void _acquireAllUsersInfo();
@@ -180,8 +224,6 @@ public:
     void showChangeFaceDialog(QString username);
     void changeUserFace(QString facefile, QString username);
 
-    void showChangeValidDialog(QString username);
-
     void showChangeGroupDialog();
 
     void showChangeNameDialog();
@@ -208,27 +250,22 @@ private:
     QString pluginName;
     int pluginType;
     QWidget * pluginWidget;
+    QWidget * pluginWidget2;
     HoverWidget *addWgt;
 
-    //增加生物密码
-    HoverWidget *addBioFeatureWidget;
-    BiometricProxy      *proxy;
-    DeviceMap           deviceMap;
-    DeviceInfoPtr       currentDevice;
-    BiometricProxy      *m_biometricProxy;
-    QDBusInterface      *serviceInterface;
-    QFileSystemWatcher  *mBiometricWatcher;
+    AddBtn * addUserTmpBtn;
+
+    QFrame * splitTmpHLine1;
+    QFrame * splitTmpHLine2;
 
     SwitchButton * nopwdSwitchBtn;
     SwitchButton * autoLoginSwitchBtn;
-    SwitchButton * enableBiometricBtn;
 
     SystemDbusDispatcher * sysdispatcher;
     QSettings * autoSettings = nullptr;
 
     QMap<QString, UserInfomation> allUserInfoMap;
     QMap<QString, QListWidgetItem *> otherUserItemMap;
-    QMap<QString, QListWidgetItem *> biometricFeatureMap;
 
     QMap<QString, QListWidgetItem *> otherItemMap;
 
@@ -273,18 +310,6 @@ private slots:
     void delete_user_slot(bool removefile, QString username);
     void propertyChangedSlot(QString, QMap<QString, QVariant>, QStringList);
     void pwdAndAutoChangedSlot(QString key);
-
-    void onbiometricTypeBoxCurrentIndexChanged(int index);
-    void onbiometricDeviceBoxCurrentIndexChanged(int index);
-    void updateFeatureListCallback(QDBusMessage callbackReply);
-    void errorCallback(QDBusError error);
-    /**
-     * @brief USB设备热插拔
-     * @param drvid     设备id
-     * @param action    插拔动作（1：插入，-1：拔出）
-     * @param deviceNum 插拔动作后该驱动拥有的设备数量
-     */
-    void onBiometricUSBDeviceHotPlug(int drvid, int action, int deviceNum);
 
 };
 

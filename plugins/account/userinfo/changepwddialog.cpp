@@ -69,8 +69,6 @@ ChangePwdDialog::ChangePwdDialog(bool _isCurrentUser, QString _username, QWidget
     timerForCheckPwd->setInterval(1000);
     timerForCheckPwd->setSingleShot(true);
 
-    ui->titleLabel->setStyleSheet("QLabel{color: palette(windowText);}");
-    ui->pwdFrame->setFrameShape(QFrame::Shape::Box);
     ui->tipLabel->setAlignment(Qt::AlignCenter);
     ui->tipLabel->setStyleSheet("color:red;");
 
@@ -166,11 +164,6 @@ void ChangePwdDialog::initPwdChecked(){
 
 void ChangePwdDialog::setupComponent(){
 
-    ElipseMaskWidget * cpMaskWidget = new ElipseMaskWidget(ui->faceLabel);
-    cpMaskWidget->setGeometry(0, 0, ui->faceLabel->width(), ui->faceLabel->height());
-
-    ui->pwdtypeComboBox->setText(tr("General Pwd"));
-
     ui->curPwdLineEdit->setEchoMode(QLineEdit::Password);
     ui->pwdLineEdit->setEchoMode(QLineEdit::Password);
     ui->pwdsureLineEdit->setEchoMode(QLineEdit::Password);
@@ -259,19 +252,6 @@ void ChangePwdDialog::setupConnect(){
 //        reject();
         close();
     });
-}
-
-void ChangePwdDialog::setFace(QString iconfile){
-    ui->faceLabel->setPixmap(QPixmap(iconfile).scaled(QSize(80, 80)));
-
-}
-
-void ChangePwdDialog::setUsername(QString realname){
-    ui->usernameLabel->setText(realname);
-}
-
-void ChangePwdDialog::setAccountType(QString aType){
-    ui->aTypeLabel->setText(aType);
 }
 
 void ChangePwdDialog::haveCurrentPwdEdit(bool have){

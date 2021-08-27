@@ -4,12 +4,17 @@
 #
 #-------------------------------------------------
 include(../../../env.pri)
-include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
+
 include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
 include($$PROJECT_COMPONENTSOURCE/flowlayout.pri)
 include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
 include($$PROJECT_COMPONENTSOURCE/closebutton.pri)
+
+
+include($$PROJECT_COMPONENTSOURCE/addbtn.pri)
+include($$PROJECT_COMPONENTSOURCE/comboxframe.pri)
 include($$PROJECT_COMPONENTSOURCE/label.pri)
+include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
 
 QT       += widgets dbus gui
 
@@ -39,7 +44,7 @@ PKGCONFIG     += gio-2.0 \
 SOURCES += \
     changegroupdialog.cpp \
     changeusername.cpp \
-    changevaliddialog.cpp \
+    changeusertype.cpp \
     creategroupdialog.cpp \
     definegroupitem.cpp \
     delgroupdialog.cpp \
@@ -65,7 +70,7 @@ SOURCES += \
 HEADERS += \
     changegroupdialog.h \
     changeusername.h \
-    changevaliddialog.h \
+    changeusertype.h \
     creategroupdialog.h \
     definegroupitem.h \
     delgroupdialog.h \
@@ -92,7 +97,6 @@ HEADERS += \
 FORMS += \
     changegroupdialog.ui \
     changeusername.ui \
-    changevaliddialog.ui \
     creategroupdialog.ui \
     delgroupdialog.ui \
     editgroupdialog.ui \

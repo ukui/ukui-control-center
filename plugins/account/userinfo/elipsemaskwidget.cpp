@@ -54,7 +54,7 @@ void ElipseMaskWidget::paintEvent(QPaintEvent *e){
     painter.setBrush(palette().color(QPalette::Base));
     painter.setOpacity(1);
     painter.drawPath(cPath);
-    painter.setBrush(palette().color(QPalette::Button));
+    painter.setBrush(palette().color(QPalette::Window));
     painter.setOpacity(0.45);
     painter.drawPath(cPath);
 }

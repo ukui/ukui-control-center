@@ -91,29 +91,6 @@
            <number>24</number>
           </property>
           <item>
-           <widget class="TitleLabel" name="titleLabel">
-            <property name="text">
-             <string>Change User Face</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="verticalSpacer_3">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>8</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
            <layout class="QHBoxLayout" name="horizontalLayout_3">
             <property name="spacing">
              <number>12</number>
@@ -303,13 +280,13 @@
              <widget class="QPushButton" name="cancelBtn">
               <property name="minimumSize">
                <size>
-                <width>120</width>
+                <width>96</width>
                 <height>36</height>
                </size>
               </property>
               <property name="maximumSize">
                <size>
-                <width>120</width>
+                <width>96</width>
                 <height>36</height>
                </size>
               </property>
@@ -322,13 +299,13 @@
              <widget class="QPushButton" name="saveBtn">
               <property name="minimumSize">
                <size>
-                <width>120</width>
+                <width>96</width>
                 <height>36</height>
                </size>
               </property>
               <property name="maximumSize">
                <size>
-                <width>120</width>
+                <width>96</width>
                 <height>36</height>
                </size>
               </property>

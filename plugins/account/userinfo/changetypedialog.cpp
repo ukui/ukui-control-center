@@ -37,7 +37,6 @@ ChangeTypeDialog::ChangeTypeDialog(QWidget *parent) :
     setAttribute(Qt::WA_DeleteOnClose);
     setWindowTitle(tr("Change type"));
 
-    ui->titleLabel->setStyleSheet("QLabel{color: palette(windowText);}");
     if (QLabelSetText(ui->tipLabel,tr("Make sure that there is at least one administrator on the computer"))) {
         ui->tipLabel->setToolTip(tr("Make sure that there is at least one administrator on the computer"));
     }

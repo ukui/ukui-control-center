@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>380</width>
-    <height>208</height>
+    <width>480</width>
+    <height>296</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>380</width>
-    <height>208</height>
+    <width>480</width>
+    <height>296</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>380</width>
-    <height>208</height>
+    <width>480</width>
+    <height>296</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -68,13 +68,13 @@
       <item>
        <layout class="QVBoxLayout" name="verticalLayout">
         <property name="spacing">
-         <number>8</number>
+         <number>24</number>
         </property>
         <property name="leftMargin">
-         <number>32</number>
+         <number>24</number>
         </property>
         <property name="topMargin">
-         <number>32</number>
+         <number>48</number>
         </property>
         <property name="rightMargin">
          <number>32</number>
@@ -84,43 +84,67 @@
         </property>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout">
+          <property name="spacing">
+           <number>53</number>
+          </property>
           <item>
-           <widget class="TitleLabel" name="label">
+           <widget class="QLabel" name="label">
             <property name="text">
-             <string>Change Username</string>
+             <string>NickName</string>
             </property>
            </widget>
           </item>
           <item>
-           <spacer name="horizontalSpacer">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
+           <widget class="QLineEdit" name="lineEdit">
+            <property name="minimumSize">
              <size>
-              <width>40</width>
-              <height>20</height>
+              <width>0</width>
+              <height>0</height>
              </size>
             </property>
-           </spacer>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit">
-          <property name="minimumSize">
-           <size>
-            <width>316</width>
-            <height>36</height>
-           </size>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <property name="spacing">
+           <number>53</number>
           </property>
-          <property name="maximumSize">
-           <size>
-            <width>316</width>
-            <height>36</height>
-           </size>
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>UserName</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_2"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <property name="spacing">
+           <number>53</number>
           </property>
-         </widget>
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>ComName</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_3"/>
+          </item>
+         </layout>
         </item>
         <item>
          <widget class="QLabel" name="tipLabel">
@@ -210,13 +234,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>TitleLabel</class>
-   <extends>QLabel</extends>
-   <header>Label/titlelabel.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

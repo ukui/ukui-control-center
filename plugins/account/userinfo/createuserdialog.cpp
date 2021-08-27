@@ -46,7 +46,6 @@ CreateUserDialog::CreateUserDialog(QStringList userlist, QWidget *parent) :
     setAttribute(Qt::WA_DeleteOnClose);
     setWindowTitle(tr("Add new user"));
 
-    ui->titleLabel->setStyleSheet("QLabel{color: palette(windowText);}");
     ui->tipLabel->setAlignment(Qt::AlignCenter);
 
     ui->label_8->adjustSize();
@@ -114,11 +113,9 @@ void CreateUserDialog::setupComonpent(){
     ui->pwdsureLineEdit->setEchoMode(QLineEdit::Password);
 
     ui->usernameLineEdit->setPlaceholderText(tr("UserName"));
+    ui->comNamelineEdit->setPlaceholderText(tr("ComName"));
     ui->pwdLineEdit->setPlaceholderText(tr("Password"));
     ui->pwdsureLineEdit->setPlaceholderText(tr("Password Identify"));
-
-
-    ui->pwdTypeComBox->addItem(tr("General Password"));
 
     // 给radiobtn设置id，id即accoutnType，方便直接返回id值
     ui->buttonGroup->setId(ui->standardRadioBtn, 0);
@@ -174,13 +171,7 @@ void CreateUserDialog::setupConnect(){
         QString uName, pwd, pin;
 
         uName = ui->usernameLineEdit->text();
-        if (ui->pwdTypeComBox->currentIndex() == 0){
-            pwd = ui->pwdLineEdit->text();
-            pin = "";
-        } else {
-            pwd = "";
-            pin = ui->pwdLineEdit->text();
-        }
+        pwd = ui->pwdLineEdit->text();
         emit newUserWillCreate(uName, pwd, pin, ui->buttonGroup->checkedId());
 
     });
