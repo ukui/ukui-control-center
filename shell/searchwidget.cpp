@@ -230,7 +230,7 @@ void SearchWidget::loadxml() {
                                 m_TxtList.append(m_searchBoxStruct.translateContent);
                             }
                         }
-                       
+
                         if ((!g_file_test("/usr/sbin/ksc-defender", G_FILE_TEST_EXISTS) && m_searchBoxStruct.fullPagePath.contains("securitycenter",Qt::CaseInsensitive))
                                 || (!MainWindow::isExitBluetooth() && m_searchBoxStruct.fullPagePath.contains("bluetooth",Qt::CaseInsensitive))
                                 || (!Utils::isCommunity() && m_searchBoxStruct.fullPagePath.contains("update")) ) {
@@ -466,6 +466,10 @@ void SearchWidget::initExcludeSearch() {
     if (!Utils::isExistEffect()) {
         mCnExclude << "特效模式" << "透明度";
         mEnExclude << "Performance mode" << "Transparency";
+    }
+    if (!Utils::isExitBattery()) {
+     mCnExclude << "电池节能计划";
+     mEnExclude << "Battery saving plan";
     }
 
     if (Utils::isWayland() || !Utils::isExistEffect()) {
