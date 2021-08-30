@@ -308,9 +308,9 @@ void About::setupSerialComponent()
                 }
             }
         });
-        connect(ui->activeButton, &QPushButton::clicked, this, &About::runActiveWindow);
-        connect(ui->trialButton, &QPushButton::clicked, this, &About::showPdf);
     }
+    connect(ui->activeButton, &QPushButton::clicked, this, &About::runActiveWindow);
+    connect(ui->trialButton, &QPushButton::clicked, this, &About::showPdf);
     ui->serviceContent->setText(serial);
 
 
