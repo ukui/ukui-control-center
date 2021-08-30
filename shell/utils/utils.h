@@ -45,5 +45,6 @@ namespace Utils
     void setKwinMouseSize(int size);
     bool isWayland();
     bool isCommunity();
+    bool isExitBattery();
 }
 #endif // UTILS_H

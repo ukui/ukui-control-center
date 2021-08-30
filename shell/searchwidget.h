@@ -63,6 +63,7 @@ private:
 
     void initExcludeSearch();
 
+
 private:
     QStandardItemModel *m_model;
     QCompleter *m_completer;
