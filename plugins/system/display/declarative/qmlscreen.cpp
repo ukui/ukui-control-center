@@ -644,10 +644,18 @@ void QMLScreen::setPosByConfig()
 
         QList<QPointF> qmlScreens;
         QList<ScreenConfig> preScreenCfg;
+
+
+        QList<QPoint> points;
         for (int i = 0; i < infos.size(); i++) {
             ScreenConfig cfg;
             infos.at(i).value<QDBusArgument>() >> cfg;
             preScreenCfg.append(cfg);
+            // 坐标相同不做处理
+            if (points.contains(QPoint(cfg.screenPosX, cfg.screenPosY))) {
+                return;
+            }
+            points.append(QPoint(cfg.screenPosX, cfg.screenPosY));
         }
 
         std::sort(preScreenCfg.begin(), preScreenCfg.end(), sizeLessThan);
