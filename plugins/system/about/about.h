@@ -73,6 +73,11 @@ private:
     void setupKernelCompenent();
     void setupDiskCompenet();
     void setupSystemVersion();
+    void showExtend(QString dateres);
+    char *ntpdate();
+
+
+    int getMonth(QString month);
 
     void setLabelText(QLabel *label,QString text);
     bool eventFilter(QObject *obj, QEvent *event);

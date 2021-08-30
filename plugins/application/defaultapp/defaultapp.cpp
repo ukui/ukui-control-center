@@ -270,23 +270,21 @@ void DefaultApp::initDefaultUI() {
     timedebuge.start();//开始计时
     // BROWSER  
     initDefaultAppInfo(BROWSERTYPE,mBrowserCombo);
-
-
+    qApp->processEvents();
     // IMAGE
     initDefaultAppInfo(IMAGETYPE,mImageCombo);
-
+    qApp->processEvents();
     // MAIL
     initDefaultAppInfo(MAILTYPE,mMailCombo);
-
+    qApp->processEvents();
     // AUDIO
     initDefaultAppInfo(AUDIOTYPE,mAudioCombo);
-
+    qApp->processEvents();
     // VIDEO
     initDefaultAppInfo(VIDEOTYPE,mVideoCombo);
-
+    qApp->processEvents();
     // TEXT
     initDefaultAppInfo(TEXTTYPE,mTextCombo);
-
 //    qDebug()<<"initUI耗时："<<timedebuge.elapsed()<<"ms";//输出计时
 //    qDebug() << "主线程" << QThread::currentThreadId() << QThread::currentThread();
 }
@@ -320,7 +318,7 @@ void DefaultApp::initDefaultAppInfo(const char* type, QComboBox *combox)
     appicon = QIcon::fromTheme(QString(QLatin1String(iconname)),
                                QIcon(QString("/usr/share/pixmaps/"+QString(QLatin1String(iconname))
                                              +".png")));
-    if (appname != NULL) {
+    if (!appname.isNull()) {
         combox->addItem(appicon, appname, currentapp);
 
         // 将当前默认应用信息写入~/.config/mimeapps.list
@@ -358,7 +356,9 @@ void DefaultApp::initDefaultAppInfo(const char* type, QComboBox *combox)
                 QString appname = g_app_info_get_name(G_APP_INFO(info));
                 const char * iconname = g_icon_to_string(g_app_info_get_icon(G_APP_INFO(info)));
                 QIcon appicon;
-                appicon = QIcon::fromTheme(QString(iconname));
+                appicon = QIcon::fromTheme(QString(QLatin1String(iconname)),
+                                           QIcon(QString("/usr/share/pixmaps/"+QString(QLatin1String(iconname))
+                                                         +".png")));
                 if (current == single) {
                     continue;
                 }

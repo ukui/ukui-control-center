@@ -28,6 +28,12 @@
 #include <QGridLayout>
 #include <QPluginLoader>
 #include <QEvent>
+#include <time.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <netdb.h>
 
 #ifdef Q_OS_LINUX
 #include <sys/sysinfo.h>
@@ -94,7 +100,6 @@ QWidget *About::get_plugin_ui()
         setupKernelCompenent();
         setupDiskCompenet();
         setupSerialComponent();
-
     }
 
     return pluginWidget;
@@ -337,7 +342,7 @@ void About::initUI(QWidget *widget)
     mActivationLayout->addWidget(mSequenceLabel_2, 2, 1, 2, 3,Qt::AlignLeft);
     mActivationLayout->addWidget(mTimeLabel_1, 4, 0, 2, 1);
     mActivationLayout->addWidget(mTimeLabel_2, 4, 1, 2, 3,Qt::AlignLeft);
-    mActivationLayout->addWidget(mActivationBtn, 1, 3, 4, 1,Qt::AlignHCenter | Qt::AlignRight);
+    mActivationLayout->addWidget(mActivationBtn, 1, 3, 4, 1, Qt::AlignRight);
 
     mTrialBtn = new QPushButton(Aboutwidget);
     mTrialBtn->setFixedSize(200,40);
@@ -503,34 +508,51 @@ void About::setupSerialComponent()
     if (dateReply.type() == QDBusMessage::ReplyMessage) {
         dateRes = dateReply.arguments().at(0).toString();
     }
-
-    // 为1则为~激活状态，否则~再根据是存在到期时间，存在为~已到期，否则为~未激活
-    if (1 == status) {
-        mStatusLabel_2->setText(tr("Activated"));
-        mTimeLabel_2->setText(dateRes);
-        mActivationBtn->hide();
-        mTrialBtn->hide();
-    } else {
-        mStatusLabel_2->setStyleSheet("color:red;");
-        mTimeLabel_2->setStyleSheet("color:red;");
-        if (!dateRes.isEmpty()) {
-            mStatusLabel_2->setText(tr("Technical service has expired"));
-            mTimeLabel_2->setText(dateRes);
-            mActivationBtn->setText(tr("Extended"));
-        } else {
-            mTimeLabel_1->hide();
-            mTimeLabel_2->hide();
-            mStatusLabel_2->setText(tr("Inactivated"));
-        }
-    }
-
     mSequenceLabel_2->setText(serial);
 
-    connect(mActivationBtn, &QPushButton::clicked, this, &About::runActiveWindow);
-    connect(mTrialBtn, &QPushButton::clicked, this, [=](){
-        TrialDialog *mDialog = new TrialDialog(pluginWidget);
-        mDialog->show();
-    });
+    if (dateRes.isNull()) {  //未激活
+        mTimeLabel_1->hide();
+        mTimeLabel_2->hide();
+        mStatusLabel_2->setText(tr("Inactivated"));
+        mActivationBtn->setText(tr("Active"));
+    } else {    //已激活
+        mActivationBtn->hide();
+        mTrialBtn->hide();
+        mStatusLabel_2->setText(tr("Activated"));
+        mTimeLabel_2->setText(dateRes);
+        QTimer::singleShot( 1, this, [=](){
+            QString s1(ntpdate());
+            if (s1.isNull()) {    //未连接上网络
+                mTimeLabel_2->setText(dateRes);
+            } else {    //获取到网络时间
+                QStringList list_1 = s1.split(" ");
+                QStringList list_2 = dateRes.split("-");
+
+                if (QString(list_2.at(0)).toInt() > QString(list_1.at(4)).toInt() ) { //未到服务到期时间
+                    mTimeLabel_2->setText(dateRes);
+                } else if (QString(list_2.at(0)).toInt() == QString(list_1.at(4)).toInt()) {
+                    if (QString(list_2.at(1)).toInt() > getMonth(list_1.at(1))) {
+                        mTimeLabel_2->setText(dateRes);
+                    } else if (QString(list_2.at(1)).toInt() == getMonth(list_1.at(1))) {
+                        if (QString(list_2.at(2)).toInt() > QString(list_1.at(2)).toInt()) {
+                            mTimeLabel_2->setText(dateRes);
+                        } else {   // 已过服务到期时间
+                            showExtend(dateRes);
+                        }
+                    } else {
+                        showExtend(dateRes);
+                    }
+                } else {
+                    showExtend(dateRes);
+                }
+            }
+        });
+        connect(mActivationBtn, &QPushButton::clicked, this, &About::runActiveWindow);
+        connect(mTrialBtn, &QPushButton::clicked, this, [=](){
+            TrialDialog *mDialog = new TrialDialog(pluginWidget);
+            mDialog->show();
+        });
+    }
 }
 
 /* 获取logo图片 */
@@ -769,6 +791,90 @@ void About::setupSystemVersion()
     content1.replace('"', "");
     QString content2 = content1.split(" = ").at(1);
     mVersionNumLabel_2->setText(content2);
+}
+
+void About::showExtend(QString dateres)
+{
+    mTimeLabel_2->setText(dateres+QString("(%1)").arg(tr("expired")));
+    mActivationBtn->setVisible(true);
+    mTrialBtn->setVisible(true);
+    mActivationBtn->setText(tr("Extend"));
+}
+
+char *About::ntpdate()
+{
+    char *hostname=(char *)"200.20.186.76";
+    int portno = 123;     //NTP is port 123
+    int maxlen = 1024;        //check our buffers
+    int i;          // misc var i
+    unsigned char msg[48]={010,0,0,0,0,0,0,0,0};    // the packet we send
+    unsigned long  buf[maxlen]; // the buffer we get back
+    struct protoent *proto;
+    struct sockaddr_in server_addr;
+    int s;  // socket
+    long tmit;   // the time -- This is a time_t sort of
+
+    proto = getprotobyname("udp");
+    s = socket(PF_INET, SOCK_DGRAM, proto->p_proto);
+    if (-1 == s) {
+        perror("socket");
+        return NULL;
+    }
+
+    memset( &server_addr, 0, sizeof( server_addr ));
+    server_addr.sin_family=AF_INET;
+    server_addr.sin_addr.s_addr = inet_addr(hostname);
+
+    server_addr.sin_port=htons(portno);
+
+    i=sendto(s,msg,sizeof(msg),0,(struct sockaddr *)&server_addr,sizeof(server_addr));
+    if (-1 == i) {
+        perror("sendto");
+        return NULL;
+    }
+
+    struct sockaddr saddr;
+    socklen_t saddr_l = sizeof (saddr);
+    i=recvfrom(s,buf,48,0,&saddr,&saddr_l);
+    if (-1 == i) {
+        perror("recvfr");
+        return NULL;
+    }
+
+    tmit=ntohl((time_t)buf[4]);    // get transmit time
+
+    tmit -= 2208988800U;
+
+    return ctime(&tmit);
+}
+
+int About::getMonth(QString month)
+{
+    if (month == "Jan") {
+        return 1;
+    } else if (month == "Feb") {
+        return 2;
+    } else if (month == "Mar") {
+        return 3;
+    } else if (month == "Apr") {
+        return 4;
+    } else if (month == "May") {
+        return 5;
+    } else if (month == "Jun") {
+        return 6;
+    } else if (month == "Jul") {
+        return 7;
+    } else if (month == "Aug") {
+        return 8;
+    } else if (month == "Sep" || month == "Sept") {
+        return 9;
+    } else if (month == "Oct") {
+        return 10;
+    } else if (month == "Nov") {
+        return 11;
+    } else if (month == "Dec") {
+        return 12;
+    }
 }
 
 /* 处理文本宽度 */
