@@ -8220,12 +8220,12 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <source>Input Device</source>
-        <translation type="vanished">选择输入设备</translation>
+        <translation>选择输入设备</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="70"/>
-        <source>Input Device:</source>
-        <translation>选择输入设备:</translation>
+        <source>Input Device</source>
+        <translation>选择输入设备</translation>
         <extra-contents_path>/audio/Input Device</extra-contents_path>
     </message>
     <message>
@@ -8250,15 +8250,15 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <source>Select input device</source>
-        <translation type="vanished">选择输入设备</translation>
+        <translation>选择输入设备</translation>
     </message>
     <message>
         <source>Input device</source>
-        <translation type="vanished">选择输入设备</translation>
+        <translation>选择输入设备</translation>
     </message>
     <message>
         <source>volume</source>
-        <translation type="vanished">音量大小</translation>
+        <translation>音量</translation>
     </message>
     <message>
         <source>Input level</source>
@@ -8297,18 +8297,18 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <source>Output Device</source>
-        <translation type="vanished">选择输出设备</translation>
+        <translation>选择输出设备</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="91"/>
-        <source>Output Device:</source>
-        <translation>选择输出设备:</translation>
+        <source>Output Device</source>
+        <translation>选择输出设备</translation>
         <extra-contents_path>/audio/Output Device</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="94"/>
         <source>Master Volume</source>
-        <translation>主音量大小</translation>
+        <translation>音量</translation>
         <extra-contents_path>/audio/Master Volume</extra-contents_path>
     </message>
     <message>
@@ -8402,13 +8402,13 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="57"/>
         <source>Sound Theme</source>
-        <translation>系统音效主题</translation>
+        <translation>音效主题</translation>
         <extra-contents_path>/audio/Sound Theme</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="60"/>
         <source>Alert Sound</source>
-        <translation>通知提示</translation>
+        <translation>通知</translation>
         <extra-contents_path>/audio/Alert Sound</extra-contents_path>
     </message>
     <message>
