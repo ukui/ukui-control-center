@@ -2,8 +2,13 @@
 #define BLUETOOTHMAIN_H
 
 #include "SwitchButton/switchbutton.h"
+#include <string>
 
 #include <polkit-qt5-1/PolkitQt1/Authority>
+
+#include <string>
+#include <glib.h>
+#include <glib/gprintf.h>
 
 #include <KF5/BluezQt/bluezqt/adapter.h>
 #include <KF5/BluezQt/bluezqt/manager.h>
@@ -58,6 +63,7 @@ public:
     void MonitorSleepSignal();
     void showNormalMainWindow();
     void showMainWindowError();
+    void showSpeNoteMainWindow();
     void updateAdaterInfoList();
     BluezQt::AdapterPtr getDefaultAdapter();
     void adapterConnectFun();
@@ -140,6 +146,7 @@ private:
     void addOneBluetoothDeviceItemUi(BluezQt::DevicePtr);
 
     void clearAllDeviceItemUi();
+    void clearAllTimer();
 };
 
 #endif // BLUETOOTHMAIN_H
