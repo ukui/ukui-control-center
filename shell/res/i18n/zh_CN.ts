@@ -8219,12 +8219,12 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>输入</translation>
     </message>
     <message>
-        <source>Input Device</source>
+        <source>Input Device:</source>
         <translation>选择输入设备</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="70"/>
-        <source>Input Device</source>
+        <source>Input Device:</source>
         <translation>选择输入设备</translation>
         <extra-contents_path>/audio/Input Device</extra-contents_path>
     </message>
@@ -8296,12 +8296,12 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>输出</translation>
     </message>
     <message>
-        <source>Output Device</source>
+        <source>Output Device:</source>
         <translation>选择输出设备</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="91"/>
-        <source>Output Device</source>
+        <source>Output Device:</source>
         <translation>选择输出设备</translation>
         <extra-contents_path>/audio/Output Device</extra-contents_path>
     </message>
