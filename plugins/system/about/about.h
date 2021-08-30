@@ -75,8 +75,6 @@ private:
     void setupSystemVersion();
     void showExtend(QString dateres);
     char *ntpdate();
-
-
     int getMonth(QString month);
 
     void setLabelText(QLabel *label,QString text);

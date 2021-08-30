@@ -547,12 +547,12 @@ void About::setupSerialComponent()
                 }
             }
         });
-        connect(mActivationBtn, &QPushButton::clicked, this, &About::runActiveWindow);
-        connect(mTrialBtn, &QPushButton::clicked, this, [=](){
-            TrialDialog *mDialog = new TrialDialog(pluginWidget);
-            mDialog->show();
-        });
     }
+    connect(mActivationBtn, &QPushButton::clicked, this, &About::runActiveWindow);
+    connect(mTrialBtn, &QPushButton::clicked, this, [=](){
+        TrialDialog *mDialog = new TrialDialog(pluginWidget);
+        mDialog->show();
+    });
 }
 
 /* 获取logo图片 */

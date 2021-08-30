@@ -45,6 +45,7 @@ void InputPwdDialog::setupInit()
     mSetPwdLabel->setText(tr("Set Password"));
 
     mpwd = new QLineEdit(mInputPwdFrame);
+    mpwd->setAttribute(Qt::WA_InputMethodEnabled, false);  //限制中文输入法
     mpwd->setFixedSize(352, 36);
     mpwd->installEventFilter(this);
 
