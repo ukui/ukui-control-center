@@ -1189,40 +1189,40 @@ Please authenticate yourself to continue</source>
         <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="54"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="260"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="80"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="286"/>
         <source>Turn on :</source>
         <translation>开启：</translation>
         <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="110"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="320"/>
         <source>Bluetooth adapter</source>
         <translation>蓝牙适配器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="138"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="353"/>
         <source>Show icon on taskbar</source>
         <translation>在任务栏显示蓝牙图标</translation>
         <extra-contents_path>/bluetooth/Show icon on taskbar</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="168"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="385"/>
         <source>Discoverable by nearby Bluetooth devices</source>
         <translation>可被附近的蓝牙设备发现</translation>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="646"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="892"/>
         <source>Bluetooth adapter is abnormal !</source>
         <translation>蓝牙适配器异常！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="647"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="893"/>
         <source>You can refer to the rfkill command for details.</source>
         <translation>可查阅rfkill命令了解详情</translation>
     </message>
@@ -1237,7 +1237,7 @@ Please authenticate yourself to continue</source>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="200"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="425"/>
         <source>My Devices</source>
         <translation>我的设备</translation>
     </message>
@@ -1246,7 +1246,7 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">现在可被发现为 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="217"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="442"/>
         <source>Other Devices</source>
         <translation>蓝牙设备</translation>
     </message>
@@ -1487,32 +1487,31 @@ Please authenticate yourself to continue</source>
         <translation>更改密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="317"/>
         <source>Pwd type</source>
-        <translation>密码类型</translation>
+        <translation type="vanished">密码类型</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="395"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="314"/>
         <source>Cur pwd</source>
         <translation>当前密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="440"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="359"/>
         <source>New pwd</source>
         <translation>新密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="485"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="404"/>
         <source>New pwd sure</source>
         <translation>新密码确认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="605"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="524"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="627"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="546"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
@@ -1526,27 +1525,26 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">当前密码检查!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="169"/>
         <source>General Pwd</source>
-        <translation>通用密码</translation>
+        <translation type="vanished">通用密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="175"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="436"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="172"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="433"/>
         <source>Current Password</source>
         <translation>当前密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="176"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="437"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="445"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="173"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="434"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="442"/>
         <source>New Password</source>
         <translation>新密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="177"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="438"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="446"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="174"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="435"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="443"/>
         <source>New Password Identify</source>
         <translation>新密码确认</translation>
     </message>
@@ -1555,12 +1553,12 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">密码输入错误,重新输入!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="355"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="352"/>
         <source>Contains illegal characters!</source>
         <translation>含有非法字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="357"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="354"/>
         <source>Same with old pwd</source>
         <translation>与旧密码相同</translation>
     </message>
@@ -1577,8 +1575,8 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">密码长度需要大于5个字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="263"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="393"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="260"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="390"/>
         <source>Inconsistency with pwd</source>
         <translation>与新密码不同</translation>
     </message>
@@ -1858,13 +1856,13 @@ Please authenticate yourself to continue</source>
         <translation>用户名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="308"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="260"/>
         <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="117"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="415"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="367"/>
         <source>Account Type</source>
         <translation>用户类型</translation>
     </message>
@@ -1874,27 +1872,26 @@ Please authenticate yourself to continue</source>
         <translation>添加新用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="260"/>
         <source>PwdType</source>
-        <translation>密码类型</translation>
+        <translation type="vanished">密码类型</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="356"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="308"/>
         <source>PasswordSure</source>
         <translation>确认密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="516"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="468"/>
         <source>standard user</source>
         <translation>标准用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="529"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="481"/>
         <source>Users cannot change system settings</source>
         <translation>标准账户不能修改系统配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="646"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="598"/>
         <source>Users can make any changes they need</source>
         <translation>管理员账户可以更改任何系统配置</translation>
     </message>
@@ -1908,7 +1905,7 @@ change system settings</source>
         <translation type="vanished">标准账户可以使用大多数软件，但是不能安装软件和更改系统配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="633"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="585"/>
         <source>administrator</source>
         <translation>管理员用户</translation>
     </message>
@@ -1917,12 +1914,12 @@ change system settings</source>
         <translation type="vanished">管理员账户可以更改任何系统配置，包括安装软件和升级软件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="721"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="673"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="740"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="692"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
@@ -1932,48 +1929,47 @@ change system settings</source>
         <translation>密码确认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="121"/>
         <source>General Password</source>
-        <translation>通用密码</translation>
+        <translation type="vanished">通用密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="156"/>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="294"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="153"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="287"/>
         <source>Inconsistency with pwd</source>
         <translation>和密码不一致</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="399"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="392"/>
         <source>Must be begin with lower letters!</source>
         <translation>用户名必须以小写字母开始！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="402"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="395"/>
         <source>Can not contain capital letters!</source>
         <translation>用户名不能包含大写字母！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="424"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="417"/>
         <source>Name already in use, change another one.</source>
         <translation>该用户名已存在，请更改。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="426"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="419"/>
         <source>Name corresponds to group already exists.</source>
         <translation>用户名对应组已存在，请更改。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="431"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="424"/>
         <source>Name length must less than %1 letters!</source>
         <translation>用户名长度必须小于%1！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="433"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="426"/>
         <source>Can only contain letters,digits,underline!</source>
         <translation>用户名仅能包含字母，数字及下划线</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="438"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="431"/>
         <source>Username&apos;s folder exists, change another one</source>
         <translation>用户目录已存在，请更改</translation>
     </message>
@@ -1995,12 +1991,12 @@ change system settings</source>
         <translation type="obsolete">密码复杂度过低！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="246"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="239"/>
         <source>Contains illegal characters!</source>
         <translation>含有非法字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="397"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="390"/>
         <source>The user name cannot be empty</source>
         <translation>用户名不能为空</translation>
     </message>
@@ -3426,7 +3422,7 @@ folder will be deleted!</source>
 <context>
     <name>InputPwdDialog</name>
     <message>
-        <location filename="../../../plugins/network/vino/inputpwddialog.cpp" line="27"/>
+        <location filename="../../../plugins/network/vino/inputpwddialog.cpp" line="28"/>
         <source>Set Password</source>
         <translation>设置密码</translation>
     </message>
@@ -5024,12 +5020,10 @@ Please retry or relogin!</source>
     <message>
         <source>Balance (suggest)</source>
         <translation type="vanished">平衡(推荐)</translation>
-        <extra-contents_path>/power/Balance (suggest)</extra-contents_path>
     </message>
     <message>
         <source>Saving</source>
         <translation type="vanished">节能</translation>
-        <extra-contents_path>/power/Saving</extra-contents_path>
     </message>
     <message>
         <source>Minimize performance</source>
@@ -5047,7 +5041,6 @@ Please retry or relogin!</source>
     <message>
         <source>Custom</source>
         <translation type="vanished">自定义</translation>
-        <extra-contents_path>/power/Custom</extra-contents_path>
     </message>
     <message>
         <source>Users develop personalized power plans</source>
@@ -5170,113 +5163,114 @@ Please retry or relogin!</source>
         <translation type="vanished">5分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="469"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="470"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="467"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="468"/>
         <source>Require password when sleep/hibernation</source>
         <translation>睡眠/休眠唤醒时需要密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="473"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="474"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="471"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="472"/>
         <source>Password required when waking up the screen</source>
         <translation>唤醒屏幕时需要密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="477"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="475"/>
         <source>Press the power button</source>
         <translation>按电源键时执行</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="481"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="482"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="479"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="480"/>
         <source>Time to close display</source>
         <translation>此时间段后关闭显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="485"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="486"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="483"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="484"/>
         <source>Time to sleep</source>
         <translation>此时间段后系统进入睡眠</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="489"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="490"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="487"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="488"/>
         <source>Notebook cover</source>
         <translation>笔记本合盖时执行</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="493"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="494"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="498"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="491"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="492"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="496"/>
         <source>Using power</source>
         <translation>使用电源时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="497"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="495"/>
         <source>Using battery</source>
         <translation>使用电池时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="501"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="502"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="499"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="500"/>
         <source> Time to darken</source>
         <translation>此时间段后降低屏幕亮度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="505"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="506"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="503"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="504"/>
         <source>Battery level is lower than</source>
         <translation>电量低于</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="509"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="507"/>
         <source>Run</source>
         <translation>时执行</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="511"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="512"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="509"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="510"/>
         <source>Low battery notification</source>
         <translation>低电量时通知</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="515"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="513"/>
         <source>Automatically run saving mode when low battery</source>
         <translation>低电量时自动开启节能模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="516"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="514"/>
         <source>Automatically run saving mode when the low battery</source>
         <translation>低电量时自动开启节能模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="519"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="520"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="517"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="518"/>
         <source>Automatically run saving mode when using battery</source>
         <translation>使用电池时自动开启节能模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="523"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="524"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="521"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="522"/>
         <source>Display remaining charging time and usage time</source>
         <translation>显示剩余充电时间和剩余使用时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="561"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="559"/>
         <source>General</source>
         <translation>通用</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="563"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="561"/>
         <source>Select Powerplan</source>
         <translation>电源计划</translation>
         <extra-contents_path>/power/Select Powerplan</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="467"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="563"/>
         <source>Battery saving plan</source>
         <translation>电池节能计划</translation>
+        <extra-contents_path>/power/Battery saving plan</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="569"/>
@@ -8044,9 +8038,8 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>触摸屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/touchscreen/touchscreen.ui" line="69"/>
         <source>monitor</source>
-        <translation>显示器</translation>
+        <translation type="vanished">显示器</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/touchscreen/touchscreen.ui" line="134"/>
@@ -8072,6 +8065,11 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/system/touchscreen/touchscreen.ui" line="202"/>
         <source>input device</source>
         <translation>触摸设备</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/touchscreen/touchscreen.ui" line="69"/>
+        <source>Monitor</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/system/touchscreen/touchscreen.ui" line="209"/>
@@ -8219,10 +8217,6 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>输入</translation>
     </message>
     <message>
-        <source>Input Device:</source>
-        <translation>选择输入设备</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="70"/>
         <source>Input Device:</source>
         <translation>选择输入设备</translation>
@@ -8250,15 +8244,15 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <source>Select input device</source>
-        <translation>选择输入设备</translation>
+        <translation type="vanished">选择输入设备</translation>
     </message>
     <message>
         <source>Input device</source>
-        <translation>选择输入设备</translation>
+        <translation type="vanished">选择输入设备</translation>
     </message>
     <message>
         <source>volume</source>
-        <translation>音量</translation>
+        <translation type="vanished">音量</translation>
     </message>
     <message>
         <source>Input level</source>
@@ -8294,10 +8288,6 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="88"/>
         <source>Output</source>
         <translation>输出</translation>
-    </message>
-    <message>
-        <source>Output Device:</source>
-        <translation>选择输出设备</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="91"/>
@@ -9155,8 +9145,8 @@ the settings will be saved after 14 seconds</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1953"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1960"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1949"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1956"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
@@ -9236,7 +9226,19 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">缩放配置需要注销后生效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/touchscreen/widget.cpp" line="457"/>
+        <location filename="../../../plugins/system/touchscreen/widget.cpp" line="81"/>
+        <source>touch id</source>
+        <translation>触摸屏标识</translation>
+        <extra-contents_path>/touchscreen/touch id</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/touchscreen/widget.cpp" line="83"/>
+        <source>Monitor</source>
+        <translation>显示器</translation>
+        <extra-contents_path>/touchscreen/monitor</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/touchscreen/widget.cpp" line="461"/>
         <source>%1</source>
         <translation>%1</translation>
     </message>
