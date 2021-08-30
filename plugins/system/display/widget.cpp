@@ -1330,10 +1330,6 @@ void Widget::save()
     // due to the fact that we just can't be sure when xrandr is done changing things, 1000 doesn't seem to get in the way
     QTimer::singleShot(1000, this,
                        [=]() {
-        if (mIsWayland) {
-            QString hash = config->connectedOutputsHash();
-            writeFile(mDir % hash);
-        }
         mBlockChanges = false;
         mConfigChanged = false;
     });
@@ -1350,10 +1346,11 @@ void Widget::save()
     if (isRestoreConfig()) {
         auto *op = new KScreen::SetConfigOperation(mPrevConfig);
         op->exec();
-
     } else {
         mPrevConfig = mConfig->clone();
         writeScreenXml();
+        QString hash = config->connectedOutputsHash();
+        writeFile(mDir % hash);
     }
 
     setActiveScreen();
@@ -1480,8 +1477,7 @@ bool Widget::writeFile(const QString &filePath)
         }
 
         writeGlobalPart(output, info, oldOutput);
-        info[QStringLiteral("primary")] = !output->name().compare(
-            getPrimaryWaylandScreen(), Qt::CaseInsensitive);
+        info[QStringLiteral("primary")] = output->isPrimary();
         info[QStringLiteral("enabled")] = output->isEnabled();
 
         auto setOutputConfigInfo = [&info](const KScreen::OutputPtr &out) {
