@@ -127,7 +127,7 @@ void MainWindow::setAppStyle()
     connect(themeSetting, &QGSettings::changed, this, [=] (const QString &key) {
         if (key == "styleName") {
             QString themeMode = themeSetting->get("style-name").toString();
-            qApp->setStyle(new InternalStyle(themeMode));
+            qApp->setStyle(new InternalStyle("ukui"));
         }
     });
 }
