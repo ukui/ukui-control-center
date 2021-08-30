@@ -5,6 +5,7 @@
 #include <QSpacerItem>
 #include <QLabel>
 #include <QPushButton>
+#include <QRegExpValidator>
 #include "sharemain.h"
 
 
@@ -28,9 +29,8 @@ void InputPwdDialog::setupInit()
     this->resize(380, 161);
     this->setMinimumSize(QSize(380, 161));
     this->setMaximumSize(QSize(380, 161));
-
-
     mpwd = new QLineEdit(this);
+    mpwd->setAttribute(Qt::WA_InputMethodEnabled, false);  //限制中文输入法
     mpwd->setGeometry(32, 25, 316,42);
 //    mpwd->setFocus();
 //    mpwd->clearFocus();
