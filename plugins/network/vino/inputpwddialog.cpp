@@ -31,6 +31,7 @@ void InputPwdDialog::setupInit()
 
 
     mpwd = new QLineEdit(this);
+    mpwd->setAttribute(Qt::WA_InputMethodEnabled, false);  //限制中文输入法
     mpwd->setGeometry(32, 25, 316,42);
 //    mpwd->setFocus();
 //    mpwd->clearFocus();
