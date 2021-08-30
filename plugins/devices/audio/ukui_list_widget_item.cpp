@@ -69,6 +69,7 @@ void UkuiListWidgetItem::setSelected(bool selected){
 }
 
 
+//设置输出设备的设备名字和名称
 void UkuiListWidgetItem::setLabelText(QString portLabel, QString deviceLabel){
 
     this->portLabel->setText(portLabel);

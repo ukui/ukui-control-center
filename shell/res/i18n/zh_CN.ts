@@ -8583,13 +8583,13 @@ run start-pulseaudio-x11 manually.</source>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="74"/>
         <source>Input Device:</source>
-        <translation>选择输入设备:</translation>
+        <translation>选择输入设备</translation>
         <extra-contents_path>/audio/Input Device</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="80"/>
         <source>Volume</source>
-        <translation>音量大小</translation>
+        <translation>音量</translation>
         <extra-contents_path>/audio/Volume</extra-contents_path>
     </message>
     <message>
@@ -8691,13 +8691,13 @@ run start-pulseaudio-x11 manually.</source>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="101"/>
         <source>Output Device:</source>
-        <translation>选择输出设备:</translation>
+        <translation>选择输出设备</translation>
         <extra-contents_path>/audio/Output Device</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="106"/>
         <source>Master Volume</source>
-        <translation>主音量大小</translation>
+        <translation>音量</translation>
         <extra-contents_path>/audio/Master Volume</extra-contents_path>
     </message>
     <message>
@@ -8762,7 +8762,7 @@ run start-pulseaudio-x11 manually.</source>
     </message>
     <message>
         <source>Sound theme</source>
-        <translation type="vanished">系统音效主题</translation>
+        <translation type="vanished">音效主题</translation>
     </message>
     <message>
         <source>Prompt voice</source>
@@ -8774,7 +8774,7 @@ run start-pulseaudio-x11 manually.</source>
     </message>
     <message>
         <source>System sound theme</source>
-        <translation type="vanished">系统音效主题</translation>
+        <translation type="vanished">系统音效</translation>
     </message>
     <message>
         <source>prompt voice</source>
@@ -8796,13 +8796,13 @@ run start-pulseaudio-x11 manually.</source>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="57"/>
         <source>Sound Theme</source>
-        <translation>系统音效主题</translation>
+        <translation>音效主题</translation>
         <extra-contents_path>/audio/Sound Theme</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="60"/>
         <source>Alert Sound</source>
-        <translation>通知提示</translation>
+        <translation>通知</translation>
         <extra-contents_path>/audio/Alert Sound</extra-contents_path>
     </message>
     <message>

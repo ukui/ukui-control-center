@@ -37,36 +37,29 @@ class UkmediaInputWidget : public QWidget
 public:
     explicit UkmediaInputWidget(QWidget *parent = nullptr);
     ~UkmediaInputWidget();
-    void inputWidgetAddPort();
-    void inputWidgetRemovePort();
     friend class UkmediaMainWidget;
 Q_SIGNALS:
 
-public Q_SLOTS:
-
 private:
     QWidget *m_pInputWidget;
-    QFrame *m_pInputDeviceWidget;
     QFrame *m_pVolumeWidget;
     QFrame *m_pInputLevelWidget;
-    QFrame *m_pInputPortWidget;
-    QListWidget *m_pInputListWidget;
 
     TitleLabel *m_pInputLabel;
     QLabel *m_pInputDeviceLabel;
     QLabel *m_pIpVolumeLabel;
     QLabel *m_pInputLevelLabel;
     QLabel *m_pIpVolumePercentLabel;
-    QLabel *m_pInputPortLabel;
 
     UkuiButtonDrawSvg *m_pInputIconBtn;
     AudioSlider *m_pIpVolumeSlider;
     QProgressBar *m_pInputLevelProgressBar;
-    QComboBox *m_pInputDeviceCombobox;
-    QComboBox *m_pInputPortCombobox;
 
     QString sliderQss;
     QVBoxLayout *m_pVlayout;
+
+    QComboBox *m_pInputDeviceSelectBox;
+    QFrame *m_pInputSlectWidget;
 
 };
 

@@ -1,4 +1,4 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
+ /* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  *
  * Copyright (C) 2019 Tianjin KYLIN Information Technology Co., Ltd.
  *
@@ -25,6 +25,7 @@
 #include <QImage>
 #include <QSlider>
 #include <QLabel>
+#include <QMouseEvent>
 #include "Label/titlelabel.h"
 
 static QColor symbolic_color = Qt::gray;
@@ -52,12 +53,10 @@ private:
 
     bool mousePress =false;
 Q_SIGNALS:
-    void silderPressedSignal();
-    void silderReleaseSignal();
+    void silderPressedSignal(int);
 
 protected:
     void mousePressEvent(QMouseEvent *ev);
-    void mouseReleaseEvent(QMouseEvent *e);
     void mouseMoveEvent(QMouseEvent *e)
     {
 //        setCursor(QCursor(Qt::OpenHandCursor));
