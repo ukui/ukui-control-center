@@ -116,6 +116,7 @@ public:
     void initWidget(); //初始化界面
     void initGsettings(); //初始化gsetting值
     void dealSlot(); //处理槽函数
+    void initListWidgetItem(); //初始化output/input list widget的选项
     int valueToPaVolume(int value); //滑动条值转换成音量
     int paVolumeToValue(int value); //音量值转换成滑动条值
     void themeChangeIcons();
@@ -127,6 +128,8 @@ public:
     QPixmap drawDarkColoredPixmap(const QPixmap &source);
     QPixmap drawLightColoredPixmap(const QPixmap &source);
 
+    void alertIconButtonSetIcon(bool state,int value);
+    void createAlertSound(UkmediaMainWidget *w);
     void inputVolumeDarkThemeImage(int value,bool status);
     void outputVolumeDarkThemeImage(int value,bool status);
     int getInputVolume();
@@ -167,46 +170,40 @@ public:
     static void customThemeUpdateTime (void);
     static gboolean customThemeDirIsEmpty (void);
 
+    void addOutputListWidgetItem(QString portName,QString cardName); //添加output listWidget item
+    void addInputListWidgetItem(QString portName, QString cardName); //添加input listwidget item
 
-    //TEST输出
-    void initComboboxItem();//初始化输入输出的Combobox选项框
-    void findOutputComboboxItem(QString cardName,QString portLabel); //初始化Combobox output/input list widget的选项
+    void deleteNotAvailableOutputPort();
+    void deleteNotAvailableInputPort();
+    void addAvailableOutputPort();
+    void addAvailableInputPort();
+    bool outputPortIsNeedDelete(int index,QString name);//port是否需要在outputListWidget删除
+    bool outputPortIsNeedAdd(int index,QString name);//port是否需要在outputListWidget删除
+    bool inputPortIsNeedDelete(int index,QString name);//port是否需要在inputListWidget删除
+    bool inputPortIsNeedAdd(int index,QString name);//port是否需要在inputListWidget删除
 
-    void addComboboxAvailableOutputPort();
-    void addComboboxOutputListWidgetItem(QString portName, QString cardName);
-    void deleteNotAvailableComboboxOutputPort();//删除不可用的端口
-    int indexOfOutputPortInOutputCombobox(QString portName);
-    bool comboboxOutputPortIsNeedAdd(int index,QString name);//port是否需要在Combobox list中添加
-    bool comboboxOutputPortIsNeedDelete(int index,QString name);//port是否需要在Combobox list删除
-
-
-    //TEST输入
-
-    void findInputComboboxItem(QString cardName,QString portLabel); //初始化Combobox output/input list widget的选项
-    void addComboboxAvailableInputPort();
-    void addComboboxInputListWidgetItem(QString portName, QString cardName); //添加input listwidget item
-    void deleteNotAvailableComboboxInputPort();
-    int indexOfInputPortInInputCombobox(QString portName);//获取输入combobox当前的选项框的index
-    bool comboboxInputPortIsNeedAdd(int index,QString name);//port是否需要在Combobox list中添加
-    bool comboboxInputPortIsNeedDelete(int index,QString name);//port是否需要在Combobox list删除
-    //-----------------------------------
+    void removeOutputPortName(const pa_card_info &info);  //移除不可用输出端口name
+    void removeOutputPortLabel(const pa_card_info &info);  //移除不可用的输出端口label
+    void removeInputPortName(const pa_card_info &info);  //移除不可用输入端口Name
+    void removeInputPortLabel(const pa_card_info &info);  //移除不可用输入端口Label
 
     int findCardIndex(QString cardName, QMap<int,QString> cardMap);//查找声卡指定的索引
     QString findCardName(int index,QMap<int,QString> cardMap);
     QString findHighPriorityProfile(int index,QString profile);
-    QString findPortSink(int cardIndex,QString portName);
-    QString findPortSource(int cardIndex,QString portName);
-
-    bool inputComboboxDeviceContainBluetooth();
-    QString blueCardNameInCombobox();//记录蓝牙声卡名称
-
+    void findOutputListWidgetItem(QString cardName,QString portLabel);
+    void findInputListWidgetItem(QString cardName,QString portLabel);
+    QString findPortSink(QString portName);
+    QString findPortSource(QString portName);
+    bool inputDeviceContainBluetooth();
+    int indexOfOutputPortInOutputListWidget(QString portName);
+    int indexOfInputPortInInputListWidget(QString portName);
     void inputStreamMapCardName(QString streamName,QString cardName);
     void outputStreamMapCardName(QString streamName,QString cardName);
     QString findInputStreamCardName(QString streamName);
     QString findOutputStreamCardName(QString streamName);
 
     bool exitBluetoochDevice();
-
+    QString blueCardName(); //记录蓝牙声卡名称
     QString findOutputPortName(int index,QString portLabel); //找到outputPortLabel对应的portName
     QString findInputPortName(int index,QString portLabel); //找到inputPortLabel对应的portName
     QString findOutputPortLabel(int index,QString portName); //查找名为portName对应的portLabel
@@ -217,8 +214,6 @@ public:
     QString findCardActiveProfile(int index); //查找声卡的active profile
 
 private Q_SLOTS:
-
-    void ComboboxIndexChangedSlot(int);
 
     void initVoulmeSlider(); //初始化音量滑动条的值
 
@@ -231,9 +226,8 @@ private Q_SLOTS:
     void outputMuteButtonSlot(); //输出音量静音控制
     void balanceSliderChangedSlot(int v); //平衡值改变
     void peakVolumeChangedSlot(double v); //输入等级
-
-    void updateCboxDevicePort(); //更新combobox设备端口
-    void updateComboboxListWidgetItemSlot();
+    void updateDevicePort(); //更新设备端口
+    void updateListWidgetItemSlot();
 
     void timeSliderSlot();
     void ukuiThemeChangedSlot(const QString &);
@@ -248,12 +242,10 @@ private Q_SLOTS:
     void volumeChangedComboboxChangeSlot(int index);
     void settingMenuComboboxChangedSlot(int index);
 
-    void alertVolumeSliderChangedSlot(int value);
-    void alertSoundVolumeChangedSlot();
-
-    void cboxoutputListWidgetCurrentRowChangedSlot(int row);//combobox output list widget选项改变
-    void cboxinputListWidgetCurrentRowChangedSlot(int row);//combobox input list widget选项改变
-
+//    void alertVolumeSliderChangedSlot(int value);
+//    void alertSoundVolumeChangedSlot();
+    void outputListWidgetCurrentRowChangedSlot(int row); //output list widget选项改变
+    void inputListWidgetCurrentRowChangedSlot(int row); //input list widget选项改变
 
 private:
     UkmediaInputWidget *m_pInputWidget;
@@ -285,14 +277,23 @@ private:
     int callBackCount = 0;
     bool firstEntry = true;
 
-    bool cboxfirstEntry = true;
+    QMap<int, QString> cardMap;
+    QMap<int,QMap<QString,QString>> outputPortMap;
+    QMap<int,QMap<QString,QString>> inputPortMap;
+    QMap<int, QString> outputPortNameMap;
+    QMap<int, QString> inputPortNameMap;
+    QMap<int, QString> outputPortLabelMap;
     QMap<int, QString> currentOutputPortLabelMap;
     QMap<int, QString> currentInputPortLabelMap;
+    QMap<int, QString> inputPortLabelMap;
+//    QMap<QString, QString> profileNameMap;
+//    QMap<QString, QString> inputPortProfileNameMap;
+//    QMap<int, QList<QString>> cardProfileMap;
+//    QMap<int, QMap<QString,int>> cardProfilePriorityMap;
     QMap<QString,QString> inputCardStreamMap;
     QMap<QString,QString> outputCardStreamMap;
-    QMap<int, QString> currentCboxOutputPortLabelMap;
-    QMap<int, QString> currentCboxInputPortLabelMap;
-
+//    QMap<int,QMap<QString,QString>> sinkPortMap;
+//    QMap<int,QMap<QString,QString>> sourcePortMap;
 
     bool updatePort = true;
     bool setDefaultstream = true;

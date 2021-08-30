@@ -47,16 +47,15 @@ Q_SIGNALS:
 public Q_SLOTS:
 
 private:
-    QFrame *m_pLagoutWidget;//注销提示音窗口
-    QFrame *m_pWakeupMusicWidget;//唤醒音乐窗口
-    QFrame *m_pStartupMusicWidget;//设置开机音乐窗口
-    QFrame *m_pPoweroffMusicWidget;//关机提示音
-
-    QFrame *m_pAlertSoundSwitchWidget;//提示音开关窗口
-    QFrame *m_pThemeWidget;//提示音下的系统音效主题
-    QFrame *m_pAlertSoundWidget;//提示音下的通知提示
-    QFrame *m_pVolumeChangeWidget;//提示音下的音量调节
-
+    QFrame *m_pThemeWidget;
+    QFrame *m_pAlertSoundWidget;
+    QFrame *m_pLagoutWidget;
+    QFrame *m_pAlertSoundSwitchWidget;
+    QFrame *m_pAlertSoundVolumeWidget;
+    QFrame *m_pWakeupMusicWidget;
+    QFrame *m_pVolumeChangeWidget;
+    QFrame *m_pStartupMusicWidget;
+    QFrame *m_pPoweroffMusicWidget;
 
     QString qss;
     QStyledItemDelegate *itemDelegate;
@@ -65,8 +64,8 @@ private:
     QLabel *m_pShutdownlabel;
     QLabel *m_pLagoutLabel;
     QLabel *m_pAlertSoundSwitchLabel;
-//    QLabel *m_pAlertSoundLabel;
-//    QLabel *m_pAlertVolumeLabel;
+    QLabel *m_pAlertSoundLabel;
+    QLabel *m_pAlertVolumeLabel;
     QLabel *m_pWakeupMusicLabel;
     QLabel *m_pVolumeChangeLabel;
     QLabel *m_pPoweroffMusicLabel;
@@ -82,8 +81,8 @@ private:
     SwitchButton *m_pLogoutButton;
     SwitchButton *m_pAlertSoundSwitchButton;
     SwitchButton *m_pWakeupMusicButton;
-//    UkmediaVolumeSlider *m_pAlertSlider;
-//    UkuiButtonDrawSvg *m_pAlertIconBtn;
+    UkmediaVolumeSlider *m_pAlertSlider;
+    UkuiButtonDrawSvg *m_pAlertIconBtn;
 };
 
 #endif // UKMEDIASOUNDEFFECTSWIDGET_H
