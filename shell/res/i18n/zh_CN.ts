@@ -6219,7 +6219,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../utils/functionselect.cpp" line="58"/>
         <source>Vino</source>
-        <translation>桌面共享</translation>
+        <translation>远程桌面</translation>
     </message>
     <message>
         <location filename="../../utils/functionselect.cpp" line="161"/>
