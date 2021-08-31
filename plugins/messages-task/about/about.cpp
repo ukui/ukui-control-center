@@ -365,6 +365,15 @@ char *About::ntpdate()
         return NULL;
     }
 
+    // 设置超时
+    struct timeval timeout;
+    timeout.tv_sec = 1;
+    timeout.tv_usec = 0;//微秒
+    if (setsockopt(s, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout)) == -1) {
+        perror("setsockopt failed:");
+        return NULL;
+    }
+
     struct sockaddr saddr;
     socklen_t saddr_l = sizeof (saddr);
     i=recvfrom(s,buf,48,0,&saddr,&saddr_l);
