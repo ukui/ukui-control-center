@@ -282,20 +282,38 @@ void SysdbusRegister::getBrightnessInfo()
 
 void SysdbusRegister::setDDCBrightnessUkui(QString brightness, QString serialNum)
 {
-    for (int i = 0; i < brightInfo_V.size(); i++) {
-        if (brightInfo_V[i].serialNum == serialNum) {
-            setDDCBrightness(brightness, brightInfo_V[i].busType);
-            brightInfo_V[i].brightness = brightness.toInt();
-            return;
+    if (serialNum == "HDMI") {
+        for (int i = 0; i < brightInfo_V.size(); i++) {
+            if (brightInfo_V[i].busType == "8") {
+                setDDCBrightness(brightness, brightInfo_V[i].busType);
+                brightInfo_V[i].brightness = brightness.toInt();
+                return;
+            }
+        }
+    } else {
+        for (int i = 0; i < brightInfo_V.size(); i++) {
+            if (brightInfo_V[i].serialNum == serialNum) {
+                setDDCBrightness(brightness, brightInfo_V[i].busType);
+                brightInfo_V[i].brightness = brightness.toInt();
+                return;
+            }
         }
     }
 }
 
 int SysdbusRegister::getDDCBrightnessUkui(QString serialNum)
 {
-    for (int i = 0; i < brightInfo_V.size(); i++) {
-        if (brightInfo_V[i].serialNum == serialNum && brightInfo_V[i].brightness >= 0 && brightInfo_V[i].brightness <= 100) {
-            return brightInfo_V[i].brightness;
+    if (serialNum == "HDMI") {
+        for (int i = 0; i < brightInfo_V.size(); i++) {
+            if (brightInfo_V[i].busType == "8" && brightInfo_V[i].brightness >= 0 && brightInfo_V[i].brightness <= 100) {
+                return brightInfo_V[i].brightness;
+            }
+        }
+    } else {
+        for (int i = 0; i < brightInfo_V.size(); i++) {
+            if (brightInfo_V[i].serialNum == serialNum && brightInfo_V[i].brightness >= 0 && brightInfo_V[i].brightness <= 100) {
+                return brightInfo_V[i].brightness;
+            }
         }
     }
 

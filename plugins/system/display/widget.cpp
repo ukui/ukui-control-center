@@ -963,6 +963,9 @@ void Widget::outputAdded(const KScreen::OutputPtr &output)
         if (output->name().contains("/")) {
             serialNum = output->name().split("/").at(1);
         }
+        if (output->name().contains("HDMI", Qt::CaseInsensitive)) {
+            serialNum = "HDMI";
+        }
         addBrightnessFrame(name, output->isEnabled(),serialNum);
     }
 
