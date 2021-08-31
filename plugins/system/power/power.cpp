@@ -1090,21 +1090,24 @@ bool Power::isExitBattery()
 {
     /* 默认机器没有电池 */
     hasBat = false;
-    UpClient * client = up_client_new ();
-    GPtrArray *devices = NULL;
-    UpDevice * device;
-    UpDeviceKind kind;
-
-    devices = up_client_get_devices2(client);
-
-    for (guint i=0; i< devices->len; i++) {
-            device = (UpDevice *)g_ptr_array_index (devices, i);
-            g_object_get (device, "kind", &kind, NULL);
-            if (kind == UP_DEVICE_KIND_BATTERY)
-                    hasBat = true;
+    QDBusInterface *brightnessInterface = new QDBusInterface("org.freedesktop.UPower",
+                                     "/org/freedesktop/UPower/devices/DisplayDevice",
+                                     "org.freedesktop.DBus.Properties",
+                                     QDBusConnection::systemBus(), this);
+    if (!brightnessInterface->isValid()) {
+        qDebug() << "Create UPower Interface Failed : " << QDBusConnection::systemBus().lastError();
+        return false;
     }
-    g_ptr_array_unref (devices);
+
+    QDBusReply<QVariant> briginfo;
+    briginfo  = brightnessInterface ->call("Get", "org.freedesktop.UPower.Device", "PowerSupply");
+
+    if (briginfo.value().toBool()) {
+        hasBat = true ;
+    }
+
     return hasBat;
+
 }
 
 double Power::getBattery()
