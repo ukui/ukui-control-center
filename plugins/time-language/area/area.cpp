@@ -279,10 +279,14 @@ void Area::initFormComponent(int8_t value)
 
     if (value >> 0 & 1) {
         QString clac = m_gsettings->get(CALENDAR_KEY).toString();
-        if ("solarlunar" == clac) {
+        if (ui->calendarBox->count() <= 1) {
             ui->calendarBox->setCurrentIndex(0);
         } else {
-            ui->calendarBox->setCurrentIndex(1);
+            if ("solarlunar" == clac) {
+                ui->calendarBox->setCurrentIndex(0);
+            } else {
+                ui->calendarBox->setCurrentIndex(1);
+            }
         }
     }
 

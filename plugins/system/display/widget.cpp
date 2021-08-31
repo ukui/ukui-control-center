@@ -400,7 +400,11 @@ void Widget::slotUnifyOutputs()
     }
     for (QMLOutput *output: mScreen->outputs()) {
         if (output) {
-            output->setIsCloneMode(mUnifyButton->isChecked());
+            if (mUnifyButton->isChecked() && output == base) {
+                output->setIsCloneMode(true, true);
+            } else {
+                output->setIsCloneMode(mUnifyButton->isChecked(), false);
+            }
         }
     }
 
@@ -476,7 +480,6 @@ void Widget::slotUnifyOutputs()
         }
 
         base->output()->setClones(clones);
-        base->setIsCloneMode(true, true);
         mScreen->updateOutputsPlacement();
 
         // 关闭开关
@@ -961,10 +964,9 @@ void Widget::outputRemoved(int outputId, bool connectChanged)
     // 检查统一输出-防止移除后没有屏幕可显示
     if (mUnifyButton->isChecked()) {
         for (QMLOutput *qmlOutput: mScreen->outputs()) {
-            if (!qmlOutput->output()->isConnected()) {
-                continue;
+            if (qmlOutput) {
+                qmlOutput->setIsCloneMode(false, false);
             }
-            qmlOutput->setIsCloneMode(false);
         }
     }
     ui->unionframe->setVisible(mConfig->connectedOutputs().count() > 1);
