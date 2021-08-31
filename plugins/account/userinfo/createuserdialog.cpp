@@ -23,6 +23,7 @@
 
 #include "passwdcheckutil.h"
 
+#include <QLabel>
 #include <QDebug>
 #include <QDir>
 
@@ -157,7 +158,16 @@ void CreateUserDialog::setupConnect(){
 
         ui->tipLabel->setText(pwdSureTip);
         if (pwdSureTip.isEmpty()){
-            pwdTip.isEmpty() ? ui->tipLabel->setText(nameTip) : ui->tipLabel->setText(pwdTip);
+            if (!pwdTip.isEmpty()){
+                if (QLabelSetText(ui->tipLabel, pwdTip)){
+                    ui->tipLabel->setToolTip(pwdTip);
+                }
+            } else if (!nameTip.isEmpty()){
+                if (QLabelSetText(ui->tipLabel, nameTip)){
+                    ui->tipLabel->setToolTip(nameTip);
+                }
+            }
+//            pwdTip.isEmpty() ? ui->tipLabel->setText(nameTip) : ui->tipLabel->setText(pwdTip);
         }
 
         refreshConfirmBtnStatus();
@@ -288,9 +298,20 @@ void CreateUserDialog::pwdLegalityCheck(QString pwd){
         }
     }
 
-    ui->tipLabel->setText(pwdTip);
+    if (QLabelSetText(ui->tipLabel, pwdTip))
+        ui->tipLabel->setToolTip(pwdTip);
     if (pwdTip.isEmpty()){
-        pwdSureTip.isEmpty() ? ui->tipLabel->setText(nameTip) : ui->tipLabel->setText(pwdSureTip);
+        if (!pwdSureTip.isEmpty()){
+            if (QLabelSetText(ui->tipLabel, pwdSureTip)){
+                ui->tipLabel->setToolTip(pwdSureTip);
+            }
+
+        } else if (!nameTip.isEmpty()){
+            if (QLabelSetText(ui->tipLabel, nameTip)){
+                ui->tipLabel->setToolTip(nameTip);
+            }
+        }
+//        pwdSureTip.isEmpty() ? ui->tipLabel->setText(nameTip) : ui->tipLabel->setText(pwdSureTip);
     }
 
     refreshConfirmBtnStatus();
@@ -438,4 +459,18 @@ void CreateUserDialog::nameLegalityCheck(QString username){
     }
 
     refreshConfirmBtnStatus();
+}
+
+bool CreateUserDialog::QLabelSetText(QLabel *label, QString string)
+{
+    bool is_over_length = false;
+    QFontMetrics fontMetrics(label->font());
+    int fontSize = fontMetrics.width(string);
+    QString str = string;
+    if (fontSize > (label->width()-5)) {
+        str = fontMetrics.elidedText(string, Qt::ElideRight, label->width()-10);
+        is_over_length = true;
+    }
+    label->setText(str);
+    return is_over_length;
 }
