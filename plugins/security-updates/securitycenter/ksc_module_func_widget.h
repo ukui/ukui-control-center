@@ -20,8 +20,8 @@ public:
     ~ksc_module_func_widget();
 
     void set_module_data(ksc_defender_module module);
-
     void update_module_data(ksc_defender_module module);
+    void update_module_icon();
 
 private:
     void runExternalApp(QString cmd) {

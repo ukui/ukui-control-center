@@ -43,7 +43,10 @@ QWidget * SecurityCenter::get_plugin_ui(){
 //            QString cmd = "/usr/sbin/ksc-defender";
 //            runExternalApp(cmd);
 //        });
+    }else{
+        pluginWidget->refresh_data();
     }
+
     return pluginWidget;
 }
 

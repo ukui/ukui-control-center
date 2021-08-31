@@ -80,32 +80,97 @@ void ksc_main_page_widget::init_list_widget()
     return ;
 }
 
+void ksc_main_page_widget::refresh_data()
+{
+    ksc_defender_module_list list;
+    QDBusReply<int> reply = m_pInterface->get_kylin_security_center_modules(list);
+    if (!reply.isValid())
+        return;
+
+    foreach (ksc_defender_module module, list) {
+        ksc_module_func_widget *pWidget = m_map.value(module.module_type);
+        if (pWidget)
+        {
+            auto_set_main_icon(module);
+            pWidget->update_module_data(module);
+            pWidget->update_module_icon();
+        }
+    }
+    return;
+}
+
 void ksc_main_page_widget::auto_set_main_icon(ksc_defender_module &module)
 {
     switch (module.module_type) {
-    case DEFENDER_SCAN:
+    case DEFENDER_SCAN:            
         module.module_normal_icon = ":/img/plugins/securitycenter/saomiao.png";
         module.module_hover_icon = ":/img/plugins/securitycenter/saomiao-white.png";
         break;
     case DEFENDER_ACCOUNT:
-        module.module_normal_icon = ":/img/plugins/securitycenter/user_sercity.png";
-        module.module_hover_icon = ":/img/plugins/securitycenter/user_sercity_white.png";
+        if(is_defender_status_good(module)){
+            module.module_normal_icon = ":/img/plugins/securitycenter/zhanghuanquan_good.png";
+            module.module_hover_icon = ":/img/plugins/securitycenter/zhanghuanquan_good_white.png";
+        }else{
+            module.module_normal_icon = ":/img/plugins/securitycenter/zhanghuanquan_warning.png";
+            module.module_hover_icon = ":/img/plugins/securitycenter/zhanghuanquan_warning_white.png";
+        }
+
         break;
     case DEFENDER_NETWORK:
-        module.module_normal_icon = ":/img/plugins/securitycenter/lan.png";
-        module.module_hover_icon = ":/img/plugins/securitycenter/bai.png";
+        if(is_defender_status_good(module)){
+            module.module_normal_icon = ":/img/plugins/securitycenter/wangluobaohu_good.png";
+            module.module_hover_icon = ":/img/plugins/securitycenter/wangluobaohu_good_white.png";
+        }else{
+            module.module_normal_icon = ":/img/plugins/securitycenter/wangluobaohu_warning.png";
+            module.module_hover_icon = ":/img/plugins/securitycenter/wangluobaohu_warning_white.png";
+        }
+
         break;
     case DEFENDER_VIRUS:
-        module.module_normal_icon = ":/img/plugins/securitycenter/bingdufanghu.png";
-        module.module_hover_icon = ":/img/plugins/securitycenter/bingdufanghu-white.png";
+        if(is_defender_virus_good(module)){
+            module.module_normal_icon = ":/img/plugins/securitycenter/bingdufanghu_good.png";
+            module.module_hover_icon = ":/img/plugins/securitycenter/bingdufanghu_good_white.png";
+        }else{
+            module.module_normal_icon = ":/img/plugins/securitycenter/bingdufanghu_warning.png";
+            module.module_hover_icon = ":/img/plugins/securitycenter/bingdufanghu_warning_white.png";
+        }
+
         break;
     case DEFENDER_CONTROL:
-        module.module_normal_icon = ":/img/plugins/securitycenter/yingyonkongzhiyubaohu.png";
-        module.module_hover_icon = ":/img/plugins/securitycenter/yingyongkongzhiyubaohu-white.png";
+        if(is_defender_status_good(module)){
+            module.module_normal_icon = ":/img/plugins/securitycenter/anquanfanghu_good.png";
+            module.module_hover_icon = ":/img/plugins/securitycenter/anquanfanghu_good_white.png";
+        }else{
+            module.module_normal_icon = ":/img/plugins/securitycenter/anquanfanghu_warning.png";
+            module.module_hover_icon = ":/img/plugins/securitycenter/anquanfanghu_warning_white.png";
+        }
+
         break;
     default:
         break;
     }
+}
+
+bool ksc_main_page_widget::is_defender_status_good(ksc_defender_module &module)
+{
+    bool flag = false;
+    if(module.status_list.size() >= 1){
+        if(module.status_list[0] == "无需执行任何操作" || module.status_list[0] == "No action needed"){
+            flag = true;
+        }
+    }
+    return flag;
+}
+
+bool ksc_main_page_widget::is_defender_virus_good(ksc_defender_module &module)
+{
+    bool flag = false;
+    if(module.status_list.size() >= 1){
+        if(module.status_list[0] == "病毒防护软件正在保护您的电脑" || module.status_list[0] == "Virus protection software is protecting your computer"){
+            flag = true;
+        }
+    }
+    return flag;
 }
 
 void ksc_main_page_widget::slot_recv_ksc_defender_module_change(ksc_defender_module module)

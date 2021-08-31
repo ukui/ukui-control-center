@@ -22,6 +22,11 @@ public:
 private:
     void init_list_widget();
     void auto_set_main_icon(ksc_defender_module &module);
+    bool is_defender_status_good(ksc_defender_module &module);
+    bool is_defender_virus_good(ksc_defender_module &module);
+
+public:
+    void refresh_data();
 
 private slots:
     void slot_recv_ksc_defender_module_change(ksc_defender_module module);

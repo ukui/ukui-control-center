@@ -210,6 +210,22 @@
         <file>plugins/securitycenter/user_sercity.png</file>
         <file>plugins/securitycenter/yingyongkongzhiyubaohu-white.png</file>
         <file>plugins/securitycenter/yingyonkongzhiyubaohu.png</file>
+        <file>plugins/securitycenter/anquanfanghu_good_white.png</file>
+        <file>plugins/securitycenter/anquanfanghu_good.png</file>
+        <file>plugins/securitycenter/anquanfanghu_warning_white.png</file>
+        <file>plugins/securitycenter/anquanfanghu_warning.png</file>
+        <file>plugins/securitycenter/bingdufanghu_good_white.png</file>
+        <file>plugins/securitycenter/bingdufanghu_good.png</file>
+        <file>plugins/securitycenter/bingdufanghu_warning_white.png</file>
+        <file>plugins/securitycenter/bingdufanghu_warning.png</file>
+        <file>plugins/securitycenter/wangluobaohu_good_white.png</file>
+        <file>plugins/securitycenter/wangluobaohu_good.png</file>
+        <file>plugins/securitycenter/wangluobaohu_warning_white.png</file>
+        <file>plugins/securitycenter/wangluobaohu_warning.png</file>
+        <file>plugins/securitycenter/zhanghuanquan_good_white.png</file>
+        <file>plugins/securitycenter/zhanghuanquan_good.png</file>
+        <file>plugins/securitycenter/zhanghuanquan_warning_white.png</file>
+        <file>plugins/securitycenter/zhanghuanquan_warning.png</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>

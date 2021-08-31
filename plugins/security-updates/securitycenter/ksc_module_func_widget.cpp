@@ -78,6 +78,11 @@ void ksc_module_func_widget::update_module_data(ksc_defender_module module)
     ui->module_name->setText(m_module.module_name);
 }
 
+void ksc_module_func_widget::update_module_icon()
+{
+     ui->module_icon->setPixmap(QPixmap(m_module.module_normal_icon).scaled(ui->module_icon->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+}
+
 void ksc_module_func_widget::enterEvent(QEvent *event)
 {
     Q_UNUSED(event)
