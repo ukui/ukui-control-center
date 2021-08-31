@@ -6,7 +6,9 @@
 #include <QWidget>
 #include <QRadioButton>
 #include <KF5/KScreen/kscreen/output.h>
-
+#include <QDBusInterface>
+#include <QDBusReply>
+#include <QDBusConnection>
 #include <QGSettings>
 #include "applydialog.h"
 #include "SwitchButton/switchbutton.h"
@@ -53,6 +55,10 @@ protected Q_SLOTS:
     void slotResolutionNotChange();
     void slotScaleNotChange();
     void slotRotationNotChange();
+    void rotationDbusSlot(bool auto_rotation);
+    void tabletModeDbusSlot(bool tablet_mode);
+    void mode_rotationDbusSlot(bool tablet_mode);
+    void mrotationDbusSlot(bool auto_rotation);
 
 private:
     int resolutionIndex = 0;
@@ -91,7 +97,7 @@ private:
     QStringList proRes;        //profile文件内容
 
     QGSettings *m_gsettings = nullptr;
-    QGSettings *m_tgsettings = nullptr;
+    QDBusInterface *m_outputSessionDbus = nullptr;
 
 };
 

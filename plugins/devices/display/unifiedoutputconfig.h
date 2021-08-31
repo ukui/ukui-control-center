@@ -30,6 +30,11 @@ class UnifiedOutputConfig : public OutputConfig
     void slotResolutionNotChange();
     void slotRotationNotChange();
 
+    void rotationRadioDbusSlot(bool auto_rotation);
+    void mode_rotationRadioDbusSlot(bool tablet_mode);
+    void mode_mrotationDbusSlot(bool tablet_mode);
+    void mrotationDbusSlot(bool auto_rotation);
+
 private:
     int resolutionIndex = 0;
     int rotationIndex = 0;
@@ -38,10 +43,13 @@ private:
     void initUi() override;
     KScreen::OutputPtr createFakeOutput();
     QString findBestMode(const KScreen::OutputPtr &output, const QSize &size);
+
+
 private:
     KScreen::ConfigPtr mConfig;
     QList<KScreen::OutputPtr> mClones;
-    QGSettings *m_tgsettings = nullptr;
+
+    QDBusInterface *m_unifiedSessionDbus = nullptr;
 };
 
 #endif // UNIFIEDOUTPUTCONFIG_H

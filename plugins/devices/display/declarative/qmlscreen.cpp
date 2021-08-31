@@ -29,8 +29,6 @@
 
 #include <QTimer>
 #include <sys/socket.h>
-#define TABLET_MODE_SCHEMAS              "org.ukui.SettingsDaemon.plugins.tablet-mode"
-#define TABLET_MODE_KEY                  "tablet-mode"
 
 #define CONTROL_CENTER_MODE              "org.ukui.control-center.personalise"
 Q_DECLARE_METATYPE(KScreen::OutputPtr)
@@ -51,9 +49,12 @@ QMLScreen::QMLScreen(QQuickItem *parent)
             start_x = settings.value("qmlOutput_Position/start_x").toInt();
             start_y = settings.value("qmlOutput_Position/start_y").toInt();
     }
-    if(QGSettings::isSchemaInstalled(TABLET_MODE_SCHEMAS)) {
-        m_tmsettings = new QGSettings(TABLET_MODE_SCHEMAS);
-    }
+
+    m_qmlscreenSessionDbus = new QDBusInterface("com.kylin.statusmanager.interface",
+                                       "/",
+                                       "com.kylin.statusmanager.interface",
+                                       QDBusConnection::sessionBus(), this);
+
     m_outputTimer = new QTimer(this);
     m_screenAddTimer = new QTimer(this);
     connect(m_outputTimer,SIGNAL(timeout()),this,SLOT(mainScreenChanged()),Qt::QueuedConnection);
@@ -70,9 +71,6 @@ QMLScreen::~QMLScreen()
 {
     qDeleteAll(m_outputMap);
     m_outputMap.clear();
-    if (m_tmsettings) {
-        delete m_tmsettings;
-    }
 }
 
 void QMLScreen::screenRemovedProcess() {
@@ -511,7 +509,12 @@ void QMLScreen::updateOutputsPlacement()
     //qDebug()<<"updateOutputsPlacement---->"<<endl;
     if (width() <= 0)
         return;
-    bool isTableMode = m_tmsettings->get(TABLET_MODE_KEY).toBool();
+
+    QDBusReply<bool> isTabletMode;
+    if (m_qmlscreenSessionDbus->isValid()) {
+        isTabletMode = m_qmlscreenSessionDbus->call("get_current_tabletmode");
+    }
+
     QSizeF initialActiveScreenSize;
 
     Q_FOREACH (QQuickItem *item, childItems()) {
@@ -569,7 +572,7 @@ void QMLScreen::updateOutputsPlacement()
                     writeInit("qmlOutput_Position","start_x",509);
                     writeInit("qmlOutput_Position","start_y",108);
                 } else {
-                    if (isTableMode) {
+                    if (isTabletMode) {
                         qmlOutput->setVisible(false);
                     }
                     qmlOutput->setPosition(QPointF(begin_x,begin_y));

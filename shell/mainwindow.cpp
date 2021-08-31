@@ -161,9 +161,14 @@ void MainWindow::initConnection() {
         }
     });
     //监听平板模式切换
-    QGSettings * tablet_mode =  new QGSettings("org.ukui.SettingsDaemon.plugins.tablet-mode", QByteArray(),this);
-    is_tablet_mode = tablet_mode->get("tablet-mode").toBool();
-    if(is_tablet_mode){
+    QDBusInterface *m_statusSessionDbus = new QDBusInterface("com.kylin.statusmanager.interface",
+                                              "/",
+                                              "com.kylin.statusmanager.interface",
+                                              QDBusConnection::sessionBus(),this);
+
+    is_tabletmode = m_statusSessionDbus->call("get_current_tabletmode");
+
+    if(is_tabletmode){
         minBtn->hide();
         maxBtn->hide();
         closeBtn->hide();
@@ -178,25 +183,7 @@ void MainWindow::initConnection() {
         blankLabel2->hide();
         blankLabel3->hide();
     }
-
-    connect(tablet_mode, &QGSettings::changed, this, [=](){
-        is_tablet_mode = tablet_mode->get("tablet-mode").toBool();
-        if(is_tablet_mode){
-            minBtn->hide();
-            maxBtn->hide();
-            closeBtn->hide();
-            blankLabel1->show();
-            blankLabel2->show();
-            blankLabel3->show();
-        } else {
-            minBtn->show();
-            maxBtn->show();
-            closeBtn->show();
-            blankLabel1->hide();
-            blankLabel2->hide();
-            blankLabel3->hide();
-        }
-    });
+    connect(m_statusSessionDbus, SIGNAL(mode_change_signal(bool)), this, SLOT(mainWindow_statusDbusSlot(bool)));
     connect(minBtn, SIGNAL(clicked()), this, SLOT(showMinimized()));
 //    connect(ui->minBtn, &QPushButton::clicked, [=]{
 //        KWindowSystem::minimizeWindow(this->winId());
@@ -216,6 +203,26 @@ void MainWindow::initConnection() {
         close();
     });
 }
+
+void MainWindow::mainWindow_statusDbusSlot(bool tablet_mode)
+{
+    if(tablet_mode){
+        minBtn->hide();
+        maxBtn->hide();
+        closeBtn->hide();
+        blankLabel1->show();
+        blankLabel2->show();
+        blankLabel3->show();
+    } else {
+        minBtn->show();
+        maxBtn->show();
+        closeBtn->show();
+        blankLabel1->hide();
+        blankLabel2->hide();
+        blankLabel3->hide();
+    }
+}
+
 void MainWindow::initStyleSheet() {
     //设置顶部搜索栏
     m_queryWid->setGeometry(QRect((m_searchWidget->width()-(m_queryIcon->width()+m_queryText->width()+10))/2,0,
@@ -450,7 +457,7 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
                 maxBtn->setToolTip(tr("Maximize"));
             }
         } else if (event->type() == QEvent::MouseButtonDblClick) {
-            if (!is_tablet_mode) {
+            if (!is_tabletmode) {
                 bool res = dblOnEdge(dynamic_cast<QMouseEvent*>(event));
                 if (res) {
                     if (this->windowState() == Qt::WindowMaximized) {

@@ -57,51 +57,52 @@ QWidget * WidgetHandleRealize::currentWidget(){
 bool WidgetHandleRealize::handleWidgetEvent(QEvent *event){
     bool handled = true;
     //监听平板模式切换
-    if(QGSettings::isSchemaInstalled("org.ukui.SettingsDaemon.plugins.tablet-mode")){
-        if (!tablet_mode_settings)
-            tablet_mode_settings =  new QGSettings("org.ukui.SettingsDaemon.plugins.tablet-mode", QByteArray(),this);
-        is_tablet_mode = tablet_mode_settings->get("tablet-mode").toBool();
-        if(is_tablet_mode){
-            switch (event->type()){
-            case QEvent::MouseButtonPress:
-                handleMousePressEvent(dynamic_cast<QMouseEvent *>(event));
-                break;
-            case QEvent::MouseButtonRelease:
-                handleMouseReleaseEvent(dynamic_cast<QMouseEvent *>(event));
-                break;
-            case QEvent::Leave:
-                handleLeaveEvent(event);
-                break;
-            case QEvent::HoverMove:
-                handleHoverMoveEvent(dynamic_cast<QHoverEvent *>(event));
-                break;
-            default:
-                handled = false;
-                break;
-            }
-        } else {
-            switch (event->type()){
-            case QEvent::MouseButtonPress:
-                handleMousePressEvent(dynamic_cast<QMouseEvent *>(event));
-                break;
-            case QEvent::MouseButtonRelease:
-                handleMouseReleaseEvent(dynamic_cast<QMouseEvent *>(event));
-                break;
-            case QEvent::MouseMove:
-                handleMouseMoveEvent(dynamic_cast<QMouseEvent *>(event));
-                break;
-            case QEvent::Leave:
-                handleLeaveEvent(dynamic_cast<QMouseEvent *>(event));
-                break;
-            case QEvent::HoverMove:
-                handleHoverMoveEvent(dynamic_cast<QHoverEvent *>(event));
-                break;
-            default:
-                handled = false;
-                break;
-            }
+    m_statusSessionDbus = new QDBusInterface("com.kylin.statusmanager.interface",
+                                              "/",
+                                              "com.kylin.statusmanager.interface",
+                                              QDBusConnection::sessionBus(), this);
+    is_tabletmode = m_statusSessionDbus->call("get_current_tabletmode");
+    if(is_tabletmode){
+        switch (event->type()){
+        case QEvent::MouseButtonPress:
+            handleMousePressEvent(dynamic_cast<QMouseEvent *>(event));
+            break;
+        case QEvent::MouseButtonRelease:
+            handleMouseReleaseEvent(dynamic_cast<QMouseEvent *>(event));
+            break;
+        case QEvent::Leave:
+            handleLeaveEvent(event);
+            break;
+        case QEvent::HoverMove:
+            handleHoverMoveEvent(dynamic_cast<QHoverEvent *>(event));
+            break;
+        default:
+            handled = false;
+            break;
+        }
+    } else {
+        switch (event->type()){
+        case QEvent::MouseButtonPress:
+            handleMousePressEvent(dynamic_cast<QMouseEvent *>(event));
+            break;
+        case QEvent::MouseButtonRelease:
+            handleMouseReleaseEvent(dynamic_cast<QMouseEvent *>(event));
+            break;
+        case QEvent::MouseMove:
+            handleMouseMoveEvent(dynamic_cast<QMouseEvent *>(event));
+            break;
+        case QEvent::Leave:
+            handleLeaveEvent(dynamic_cast<QMouseEvent *>(event));
+            break;
+        case QEvent::HoverMove:
+            handleHoverMoveEvent(dynamic_cast<QHoverEvent *>(event));
+            break;
+        default:
+            handled = false;
+            break;
         }
     }
+
     return handled;
 }
 

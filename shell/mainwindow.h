@@ -31,6 +31,9 @@
 #include <QSvgRenderer>
 #include <QToolTip>
 #include <QPropertyAnimation>
+#include <QtDBus/QDBusInterface>
+#include <QtDBus/QDBusReply>
+
 #include "interface.h"
 #include "modulepagewidget.h"
 #include "searchwidget.h"
@@ -65,7 +68,7 @@ protected:
 //    QRect sideBarRect();
 private:
     Ui::MainWindow *ui;
-    bool is_tablet_mode;
+    QDBusReply<bool> is_tabletmode;
 
 private:
     BorderShadowEffect *m_effect;
@@ -121,11 +124,13 @@ private:
     void initStyleSheet();
     void initConnection();
     void setAppStyle();
+
 public slots:
     void switchPage(QString moduleName);
     void animationFinishedSlot();
     void sltMessageReceived(const QString &msg);
     void pageChangeSlot();
+    void mainWindow_statusDbusSlot(bool tablet_mode);
 signals:
     void btnclicked();
 };

@@ -81,7 +81,7 @@ private:
     void hasAutoLight();
 
     QGSettings            *m_XrandrSetting;
-    QGSettings            *m_TabletSetting;
+    QDBusInterface *m_statusSessionDbus = nullptr;
 
 private:
     int screenNum;

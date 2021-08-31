@@ -15,12 +15,8 @@
 #include <QX11Info>
 
 #define SETTINGS_XRANDR_SCHEMAS "org.ukui.SettingsDaemon.plugins.xrandr"
-#define SETTINGS_TABLET_SCHEMAS "org.ukui.SettingsDaemon.plugins.tablet-mode"
-#define XRANDR_ROTATION_KEY     "xrandr-rotations"
 #define XRANDR_RT_ROTATION_KEY     "xrandr-rt-rotations"
 #define XRANDR_PC_ROTATION_KEY0     "xrandr-pc-rotation0"
-#define TABLET_AUTO_KEY         "auto-rotation"
-#define TABLET_MODE_KEY         "tablet-mode"
 
 class ukCompleter : public QCompleter
 {
@@ -43,8 +39,10 @@ SearchWidget::SearchWidget(QWidget *parent)
     , m_bIstextEdited(false)
 {   
     m_XrandrSetting = new QGSettings(SETTINGS_XRANDR_SCHEMAS);
-    m_TabletSetting = new QGSettings(SETTINGS_TABLET_SCHEMAS);
-
+    m_statusSessionDbus = new QDBusInterface("com.kylin.statusmanager.interface",
+                                              "/",
+                                              "com.kylin.statusmanager.interface",
+                                              QDBusConnection::sessionBus(), this);
     setAttribute(Qt::WA_StyledBackground,true);
     m_model = new QStandardItemModel(nullptr);//
 
@@ -116,7 +114,7 @@ SearchWidget::SearchWidget(QWidget *parent)
     connect(m_completer, SIGNAL(activated(QString)), this, SLOT(onCompleterActivated(QString)));
 
     connect(m_XrandrSetting, SIGNAL(changed(QString)),this,SLOT(xrandrKeyChange(QString)));
-    connect(m_TabletSetting, SIGNAL(changed(QString)),this,SLOT(xrandrKeyChange(QString)));
+    connect(m_statusSessionDbus, SIGNAL(objectNameChanged(QString)),this,SLOT(xrandrKeyChange(QString)));
 
 }
 
@@ -167,14 +165,16 @@ void SearchWidget::xrandrKeyChange(QString key)
     static int lastAnge = 0xff;
     int Angle = 0;
     QString sAngle;
-    QString tabletMode = m_TabletSetting->get(TABLET_MODE_KEY).toString();
-    QString isAutoRotation = m_TabletSetting->get(TABLET_AUTO_KEY).toString();
+    QDBusReply<bool> is_tabletmode = m_statusSessionDbus->call("get_current_tabletmode");
+    QDBusReply<bool> autorotation = m_statusSessionDbus->call("get_auto_rotation");
 
-    if (tabletMode.toUpper().contains("TRUE")) {
-        if (isAutoRotation.toUpper().contains("TRUE")) {
+    if (is_tabletmode) {
+        if (autorotation) {
             sAngle = m_XrandrSetting->get(XRANDR_RT_ROTATION_KEY).toString();
         } else {
-            sAngle = m_XrandrSetting->get(XRANDR_ROTATION_KEY).toString();
+//            sAngle = m_XrandrSetting->get(XRANDR_ROTATION_KEY).toString();
+            QDBusReply<QString> sAngleDbus = m_statusSessionDbus->call("get_current_rotation");
+            sAngle = sAngleDbus;
         }
 
     } else {

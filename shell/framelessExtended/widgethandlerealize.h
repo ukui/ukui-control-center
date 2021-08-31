@@ -26,6 +26,9 @@
 #include <QMouseEvent>
 #include <QHoverEvent>
 #include <QGSettings>
+#include <QtDBus/QDBusInterface>
+#include <QtDBus/QDBusReply>
+#include <QtDBus/QDBusConnection>
 
 #include "framelesshandleprivate.h"
 #include "cursorposcalculator.h"
@@ -59,7 +62,7 @@ private:
     QWidget * widgetInAction;
     QPoint dragPos;
     QGSettings* tablet_mode_settings;
-
+    QDBusInterface *m_statusSessionDbus = nullptr;
     CursorPosCalculator pressedMousePos;
     CursorPosCalculator moveMousePos;
 
@@ -67,7 +70,7 @@ private:
     bool cursorShapeChanged;
 
     Qt::WindowFlags currentWindowFlags;
-    bool is_tablet_mode;
+    QDBusReply<bool> is_tabletmode;
 };
 
 #endif // WIDGETHANDLEREALIZE_H
