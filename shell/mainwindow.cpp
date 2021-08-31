@@ -778,6 +778,7 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
     });
 
     QHBoxLayout * btnHorLayout = new QHBoxLayout();
+    btnHorLayout->setContentsMargins(8, 0, 0, 0);
     btnHorLayout->addWidget(iconBtn, Qt::AlignCenter);
     btnHorLayout->addWidget(textLabel);
     btnHorLayout->addStretch();

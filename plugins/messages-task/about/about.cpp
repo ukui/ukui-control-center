@@ -275,6 +275,7 @@ void About::setupSerialComponent()
         ui->label->hide();
         ui->timeContent->hide();
         ui->activeContent->setText(tr("Inactivated"));
+        ui->activeContent->setStyleSheet("color : red");
         ui->activeButton->setText(tr("Active"));
     } else {    //已激活
         ui->activeButton->hide();
@@ -522,8 +523,8 @@ void About::initSearchText()
     ui->label_3->setText(tr("Desktop"));
     //~ contents_path /about/User
     ui->label_6->setText(tr("User"));
-    //~ contents_path /about/Active Status
-    ui->label_5->setText(tr("Active Status"));
+    //~ contents_path /about/Status
+    ui->label_5->setText(tr("Status"));
     //~ contents_path /about/Active
     ui->activeButton->setText(tr("Active"));
     //~ contents_path /about/Protocol
