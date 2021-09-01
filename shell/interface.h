@@ -70,6 +70,7 @@ enum NetworkIndex{
     WLANCONNECT,
     VPN,
     PROXY,
+    MOBILEHOTSPOT,
     TOTALNETFUNC,
 };
 

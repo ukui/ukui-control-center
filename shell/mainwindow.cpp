@@ -119,6 +119,8 @@ void MainWindow::bootOptionsFilter(QString opt) {
         bootOptionsSwitch(NETWORK, WIREDCONNECT);
     } else if (opt == "--wlanconnect") {
         bootOptionsSwitch(NETWORK, WLANCONNECT);
+    } else if (opt == "--mobilehotspot") {
+        bootOptionsSwitch(NETWORK, MOBILEHOTSPOT);
     } else if (opt == "--vpn" || opt == "-g") {
         bootOptionsSwitch(NETWORK, VPN);
     } else if (opt == "--proxy") {

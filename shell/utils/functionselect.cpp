@@ -117,7 +117,9 @@ void FunctionSelect::initValueNetwork() {
     networkList[PROXY].nameString = QString("Proxy");
     networkList[PROXY].namei18nString = QObject::tr("Proxy");
     networkList[PROXY].mainShow = false;
-    
+    networkList[MOBILEHOTSPOT].nameString = QString("MobileHotspot");
+    networkList[MOBILEHOTSPOT].namei18nString = QObject::tr("MobileHotspot");
+    networkList[MOBILEHOTSPOT].mainShow = false;
     funcinfoList.append(networkList);
 }
 
@@ -163,7 +165,7 @@ void FunctionSelect::initValueAccount() {
     accountList[NETWORKACCOUNT].namei18nString = QObject::tr("Cloud Account");
     accountList[BIOMETRICS].nameString = QString("Biometrics");
     accountList[BIOMETRICS].namei18nString = QObject::tr("Biometrics");
-     accountList[BIOMETRICS].mainShow = false;
+    accountList[BIOMETRICS].mainShow = false;
 
     funcinfoList.append(accountList);
 }
