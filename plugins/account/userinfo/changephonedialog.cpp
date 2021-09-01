@@ -69,7 +69,6 @@ void ChangePhoneDialog::initUI(QString username){
                                     "border-radius:8px;"
                                     "}");
     ui->verifyCodeLine->setStyleSheet("QLineEdit{background-color: #F6F6F6; border: 0px}");
-
     connect(closeBtn, &QPushButton::clicked, [=]{
         close();
     });
@@ -101,6 +100,8 @@ void ChangePhoneDialog::initUI(QString username){
     QRegExp regx_DeviceID2("^[0-9]{1,6}$");
     QValidator *validator_DeviceID1 = new QRegExpValidator(regx_DeviceID1, ui->phoneNumLine);
     QValidator *validator_DeviceID2 = new QRegExpValidator(regx_DeviceID2, ui->verifyCodeLine);
+    ui->phoneNumLine->setTextMargins(10, 0, 0, 0);
+    ui->verifyCodeLine->setTextMargins(10, 0, 0, 0);
     ui->phoneNumLine->setValidator(validator_DeviceID1);
     ui->verifyCodeLine->setValidator(validator_DeviceID2);
 
@@ -363,26 +364,44 @@ void ChangePhoneDialog::paintEvent(QPaintEvent *event)
         ui->verifyCodeLine->setStyleSheet("QLineEdit{background-color: #F6F6F6; border: 0px;"
                                           "border-bottom-left-radius:8px"
                                           "}");
-        ui->getVerifyCode->setStyleSheet("QPushButton{background-color:#F6F6F6;"
-                                         "selection-background-color:#F6F6F6;"
-                                         "border-bottom-right-radius:8px"
-                                          "}");
+        if (ui->getVerifyCode->isEnabled()) {
+            ui->getVerifyCode->setStyleSheet("QPushButton{background-color:#F6F6F6;"
+                                             "selection-background-color:#F6F6F6;"
+                                             "border-bottom-right-radius:8px;"
+                                             "color:#2FB3EB"
+                                              "}");
+        } else {
+            ui->getVerifyCode->setStyleSheet("QPushButton{background-color:#F6F6F6;"
+                                             "selection-background-color:#F6F6F6;"
+                                             "border-bottom-right-radius:8px;"
+                                             "color:#DDDDDD"
+                                              "}");
+        }
         ui->submitButton->setStyleSheet("QPushButton{border-radius:8px;background-color:#DDDDDD;}"
                                         "QPushButton:hover{border-radius:8px;background-color:#2FB3EB;}"
                                         "QPushButton:clicked{border-radius:8px;background-color:#2FB3EB;}");
     }
     else{
-        ui->phoneNumLine->setStyleSheet("QLineEdit{background-color: #31373F; border: 0px;"
+        ui->phoneNumLine->setStyleSheet("QLineEdit{background-color: #030303; border: 0px;"
                                         "border-top-left-radius:8px;"
                                         "border-top-right-radius:8px;"
                                         "}");
-        ui->verifyCodeLine->setStyleSheet("QLineEdit{background-color: #31373F; border: 0px;"
+        ui->verifyCodeLine->setStyleSheet("QLineEdit{background-color: #030303; border: 0px;"
                                           "border-bottom-left-radius:8px"
                                           "}");
-        ui->getVerifyCode->setStyleSheet("QPushButton{background-color:#31373F;"
-                                         "selection-background-color:#31373F;"
-                                         "border-bottom-right-radius:8px"
-                                          "}");
+        if (ui->getVerifyCode->isEnabled()) {
+            ui->getVerifyCode->setStyleSheet("QPushButton{background-color:#030303;"
+                                             "selection-background-color:#030303;"
+                                             "border-bottom-right-radius:8px;"
+                                             "color:#2FB3EB"
+                                              "}");
+        } else {
+            ui->getVerifyCode->setStyleSheet("QPushButton{background-color:#030303;"
+                                             "selection-background-color:#030303;"
+                                             "border-bottom-right-radius:8px;"
+                                             "color:#DDDDDD"
+                                              "}");
+        }
         ui->submitButton->setStyleSheet("QPushButton{border-radius:8px;background-color:#31373F;}"
                                         "QPushButton:hover{border-radius:8px;background-color:#2FB3EB;}"
                                         "QPushButton:clicked{border-radius:8px;background-color:#2FB3EB;}");

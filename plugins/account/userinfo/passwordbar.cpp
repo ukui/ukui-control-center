@@ -78,7 +78,7 @@ void PasswordBar::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event);
     QPainter painter(this);
-    painter.setPen(QColor(0, 0, 0, 255));
+    painter.setPen(QColor(200, 200, 200, 255));
     painter.setRenderHint(QPainter::Antialiasing);
 
     int beginx = 1;
@@ -88,7 +88,7 @@ void PasswordBar::paintEvent(QPaintEvent *event)
             beginx += m_ballSpan + m_ballRadius * 2;
         }
         if(i < m_fillBallCnt)
-            painter.setBrush(QColor(0,0,0,255));
+            painter.setBrush(QColor(200,200,200,255));
         else
             painter.setBrush(QColor(255,255,255,0));
 

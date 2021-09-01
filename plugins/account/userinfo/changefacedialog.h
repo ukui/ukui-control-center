@@ -31,6 +31,11 @@
 #include <QDBusReply>
 #include <FlowLayout/flowlayout.h>
 #include <QButtonGroup>
+#include <QGSettings/QGSettings>
+#include "ImageUtil/imageutil.h"
+
+#define UKUI_QT_STYLE                      "org.ukui.style"
+#define UKUI_STYLE_KEY                     "style-name"
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -85,7 +90,10 @@ private:
     QButtonGroup *btnsGroup;
     QPushButton *old_delBtn = nullptr;
     QPixmap pixmapAdjustLabel(QString iconfile);
-
+    QPushButton *m_closeBtn;
+    bool m_isNightMode;
+    QGSettings *m_style = nullptr;
+    void getThemeStyle(QString key);
 Q_SIGNALS:
     void face_file_send(QString file, QString username);
 };

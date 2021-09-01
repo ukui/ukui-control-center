@@ -22,7 +22,7 @@ QPushButton#getVerifyCodeBtn{
     width: 144px;
     height: 48px;
     border-radius: 8px;
-    border: 1px solid #DDDDDD;
+    border: 0px solid #DDDDDD;
 }
 .phoneBT:hover{
     width: 144px;
