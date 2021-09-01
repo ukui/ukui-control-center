@@ -31,5 +31,11 @@
       <arg name="groupName" type="s" direction="in"/>
       <arg name="userName" type="s" direction="in"/>
     </method>
+    <method name="setPid">
+      <arg type="b" direction="out"/>
+      <arg name="pid" type="i" direction="in"/>
+    </method>
+    <method name="exitService">
+    </method>
   </interface>
 </node>
