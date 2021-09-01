@@ -51,6 +51,7 @@ void Utils::setCLIName(QCommandLineParser &parser) {
     QCommandLineOption projectionRoleOption("projection", QObject::tr("Go to projection settings page"));
     QCommandLineOption mouseRoleOption("mouse", QObject::tr("Go to mouse settings page"));
     QCommandLineOption touchpadRoleOption("touchpad", QObject::tr("Go to touchpad settings page"));
+    QCommandLineOption gestureOption("gesture", "Go to gesture settings page");
 //    QCommandLineOption keyboardRoleOption("keyboard", QObject::tr("Go to keyboard settings page"));
     QCommandLineOption keyboardRoleOption(QStringList() << "k" << "keyboard", QObject::tr("Go to keyboard settings page"));
     QCommandLineOption shortcutRoleOption("shortcut", QObject::tr("Go to shortcut settings page"));
@@ -132,6 +133,7 @@ void Utils::setCLIName(QCommandLineParser &parser) {
     parser.addOption(printerRoleOption);
     parser.addOption(mouseRoleOption);
     parser.addOption(touchpadRoleOption);
+    parser.addOption(gestureOption);
     parser.addOption(keyboardRoleOption);
     parser.addOption(shortcutRoleOption);
     parser.addOption(audioRoleOption);

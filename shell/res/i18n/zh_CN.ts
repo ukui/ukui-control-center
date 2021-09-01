@@ -3604,6 +3604,21 @@ folder will be deleted!</source>
     </message>
 </context>
 <context>
+    <name>Gesture</name>
+    <message>
+        <location filename="../../../plugins/devices/gesture/gesture.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/gesture/gesture.cpp" line="6"/>
+        <location filename="../../../plugins/devices/gesture/gesture.cpp" line="63"/>
+        <source>Gesture</source>
+        <translatorcomment>手势</translatorcomment>
+        <translation type="unfinished">手势</translation>
+    </message>
+</context>
+<context>
     <name>HistoryUpdateListWig</name>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/historyupdatelistwig.cpp" line="98"/>
@@ -3776,6 +3791,26 @@ folder will be deleted!</source>
         <location filename="../../../plugins/account/networkaccount/itemlist.h" line="41"/>
         <source>ShortCut</source>
         <translation>快捷键</translation>
+    </message>
+</context>
+<context>
+    <name>Itemwidget</name>
+    <message>
+        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="80"/>
+        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="195"/>
+        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="230"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="112"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6158,7 +6193,13 @@ Please retry or relogin!</source>
         <translation>触摸板</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="94"/>
+        <location filename="../../utils/functionselect.cpp" line="91"/>
+        <source>Gesture</source>
+        <translatorcomment>手势</translatorcomment>
+        <translation type="unfinished">手势</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="96"/>
         <source>Keyboard</source>
         <translation>键盘</translation>
     </message>

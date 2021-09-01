@@ -7,6 +7,7 @@ SUBDIRS = \
           devices/keyboard \
           devices/touchpad \
           devices/audio \
+          devices/gesture \
           application/defaultapp \
           application/autoboot \
           system/about \
