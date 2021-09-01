@@ -40,17 +40,18 @@ UkuiListWidget::~UkuiListWidget()
 UkuiListWidgetItem::UkuiListWidgetItem(QWidget *parent) :
     QWidget(parent)
 {
-    this->setFixedSize(500,64);
+    this->setFixedSize(500,68);
 
     QVBoxLayout *vLayout = new QVBoxLayout;
 
     portLabel = new QLabel(this);
     deviceLabel = new QLabel(this);
 
-    portLabel->setFixedSize(600,24);
-    deviceLabel->setFixedSize(600,24);
+    portLabel->setFixedSize(600,30);
+    deviceLabel->setFixedSize(600,38);
     vLayout->addWidget(portLabel);
     vLayout->addWidget(deviceLabel);
+    vLayout->setSpacing(0);
     this->setLayout(vLayout);
 
     this->show();
