@@ -857,7 +857,7 @@
               <widget class="QComboBox" name="biometrictypeBox">
                <property name="minimumSize">
                 <size>
-                 <width>444</width>
+                 <width>450</width>
                  <height>0</height>
                 </size>
                </property>
@@ -964,13 +964,13 @@
             <widget class="QPushButton" name="biometricMoreBtn">
              <property name="minimumSize">
               <size>
-               <width>36</width>
+               <width>42</width>
                <height>36</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>36</width>
+               <width>42</width>
                <height>36</height>
               </size>
              </property>
