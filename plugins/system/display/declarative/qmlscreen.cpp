@@ -658,6 +658,11 @@ void QMLScreen::setPosByConfig()
             points.append(QPoint(cfg.screenPosX, cfg.screenPosY));
         }
 
+        // 配置文件为空跳过处理
+        if (preScreenCfg.isEmpty()) {
+            return;
+        }
+
         std::sort(preScreenCfg.begin(), preScreenCfg.end(), sizeLessThan);
 
         Q_FOREACH (QQuickItem *item, childItems()) {
