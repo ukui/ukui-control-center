@@ -19,6 +19,11 @@
         <translation>版本号</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/about/about.cpp" line="409"/>
+        <source>Status</source>
+        <translation>系统状态</translation>
+    </message>
+    <message>
         <location filename="../../../plugins/system/about/about.cpp" line="411"/>
         <source>DateRes</source>
         <translation>服务到期时间</translation>
@@ -142,9 +147,8 @@
         <translation>用户名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="409"/>
         <source>Active Status</source>
-        <translation>激活状态</translation>
+        <translation type="vanished">激活状态</translation>
     </message>
     <message>
         <source>DataRes</source>

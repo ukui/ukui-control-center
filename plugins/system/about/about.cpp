@@ -406,7 +406,7 @@ void About::retranslateUi()
     mVersionNumLabel_1->setText(tr("Version Number"));
     mDiskLabel_1->setText(tr("Disk"));
     mUsernameLabel_1->setText(tr("User"));
-    mStatusLabel_1->setText(tr("Active Status"));
+    mStatusLabel_1->setText(tr("Status"));
     mSequenceLabel_1->setText(tr("Serial"));
     mTimeLabel_1->setText(tr("DateRes"));
 
