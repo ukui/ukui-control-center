@@ -436,7 +436,7 @@
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="519"/>
         <source>Download completed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">下载完成</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="526"/>
@@ -7643,8 +7643,8 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="617"/>
-        <source>Download Limit</source>
-        <translation type="unfinished"></translation>
+        <source>Download Limit(Kb/s)</source>
+        <translation>下载限速(Kb/s)</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="703"/>
@@ -7714,7 +7714,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="796"/>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1024"/>
         <source>No Information!</source>
-        <translation type="unfinished"></translation>
+        <translation>尚未检测更新！</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="287"/>
