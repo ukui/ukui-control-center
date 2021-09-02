@@ -2186,27 +2186,8 @@ void Widget::changescale()
         ui->scaleCombo->clear();
         ui->scaleCombo->addItem("100%", 1.0);
 
-        if (scalesize.width() > 1024 ) {
-            ui->scaleCombo->addItem("125%", 1.25);
-        }
-        if (scalesize.width() == 1920 ) {
-            ui->scaleCombo->addItem("150%", 1.5);
-        }
-        if (scalesize.width() > 1920) {
-            ui->scaleCombo->addItem("150%", 1.5);
-            ui->scaleCombo->addItem("175%", 1.75);
-        }
         if (scalesize.width() >= 2160) {
             ui->scaleCombo->addItem("200%", 2.0);
-        }
-        if (scalesize.width() > 2560) {
-            ui->scaleCombo->addItem("225%", 2.25);
-        }
-        if (scalesize.width() > 3072) {
-            ui->scaleCombo->addItem("250%", 2.5);
-        }
-        if (scalesize.width() > 3840) {
-            ui->scaleCombo->addItem("275%", 2.75);
         }
 
         double scale;
