@@ -1,5 +1,6 @@
 TEMPLATE = subdirs
 SUBDIRS = \
+    account/userinfo_intel \
           devices/bluetooth \
           devices/shortcut \
           devices/printer \
