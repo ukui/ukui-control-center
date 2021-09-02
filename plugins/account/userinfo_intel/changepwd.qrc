@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>phoneauthdialog.qss</file>
+    </qresource>
+</RCC>

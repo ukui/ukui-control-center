@@ -700,12 +700,20 @@ void MainWindow::initLeftsideBar(){
                     }
                 }
 
+                //Intel的账户信息使用User Info Intel
+                QString sysVersion = "/etc/apt/ota_version";
+                QFile file(sysVersion);
+                bool isIntel = file.exists();
+                if ((isIntel && single.namei18nString == "User Info")
+                    || (!isIntel && single.namei18nString == "User Info Intel")) {
+                    continue;
+                }
+
                 //填充左侧菜单
 
                 QPushButton *pluginBtn = buildLeftsideBtn(single.nameString, single.namei18nString);
 
                 leftBtnGroup->addButton(pluginBtn, type);
-
 
                 QHBoxLayout *pluginLayout = new QHBoxLayout();
                 menuLayout->addLayout(pluginLayout);
@@ -714,11 +722,9 @@ void MainWindow::initLeftsideBar(){
                                                  "QPushButton:checked{background-color: palette(highlight);border-radius: 4px;}"
                                                  "QPushButton:!checked{border: none;}");
 
-
                 pluginLayout->addWidget(pluginBtn);
                 CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(moduleMap.value(single.namei18nString));
                 pluginInstance->pluginBtn = pluginBtn;
-
 
                 connect(pluginBtn, &QPushButton::clicked, this, [=](){
                     modulepageWidget->refreshPluginWidget(pluginInstance);

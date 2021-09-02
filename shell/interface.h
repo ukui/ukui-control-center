@@ -85,6 +85,7 @@ enum PersonalizedIndex{
 
 enum AccountIndex{
     USERINFO,
+    USERINFO_INTEL,
     NETWORKACCOUNT,
     BIOMETRICS,
     TOTALACCOUNTFUNC,

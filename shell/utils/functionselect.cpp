@@ -159,11 +159,23 @@ void FunctionSelect::initValueAccount() {
     }
     accountList[USERINFO].nameString = QString("Userinfo");
     accountList[USERINFO].namei18nString = QObject::tr("User Info");
+    accountList[USERINFO_INTEL].nameString = QString("Userinfo");
+    accountList[USERINFO_INTEL].namei18nString = QObject::tr("User Info Intel");
     accountList[NETWORKACCOUNT].nameString = QString("Cloud Account");
     accountList[NETWORKACCOUNT].namei18nString = QObject::tr("Cloud Account");
     accountList[BIOMETRICS].nameString = QString("Biometrics");
     accountList[BIOMETRICS].namei18nString = QObject::tr("Biometrics");
-     accountList[BIOMETRICS].mainShow = false;
+    accountList[BIOMETRICS].mainShow = false;
+
+    //Intel账户信息使用userinfo_intel
+    QString sysVersion = "/etc/apt/ota_version";
+    QFile file(sysVersion);
+    bool isIntel = file.exists();
+    if (isIntel) {
+        accountList[USERINFO].mainShow = false;
+    } else {
+        accountList[USERINFO_INTEL].mainShow = false;
+    }
 
     funcinfoList.append(accountList);
 }

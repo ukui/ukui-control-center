@@ -205,6 +205,25 @@
         <file>homepage/kylin-settings-system.png</file>
         <file>homepage/kylin-settings-time-language.png</file>
         <file>homepage/kylin-settings-update.png</file>
+        <file>plugins/userinfo_intel/add.png</file>
+        <file>plugins/userinfo_intel/close.svg</file>
+        <file>plugins/userinfo_intel/default.png</file>
+        <file>plugins/userinfo_intel/delete.png</file>
+        <file>plugins/userinfo_intel/delete.svg</file>
+        <file>plugins/userinfo_intel/deluser.svg</file>
+        <file>plugins/userinfo_intel/notice.png</file>
+        <file>plugins/userinfo_intel/num-delete.svg</file>
+        <file>plugins/userinfo_intel/password.svg</file>
+        <file>plugins/userinfo_intel/phone.svg</file>
+        <file>plugins/userinfo_intel/phonenum.svg</file>
+        <file>plugins/userinfo_intel/pwdEncrypted.png</file>
+        <file>plugins/userinfo_intel/pwdUnscramble.png</file>
+        <file>plugins/userinfo_intel/qring.png</file>
+        <file>plugins/userinfo_intel/settingedit.svg</file>
+        <file>plugins/userinfo_intel/smscode.svg</file>
+        <file>plugins/userinfo_intel/successed.png</file>
+        <file>plugins/userinfo_intel/type.svg</file>
+        <file>plugins/userinfo_intel/warning.svg</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>
