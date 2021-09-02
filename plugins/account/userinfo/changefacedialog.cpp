@@ -41,12 +41,14 @@ ChangeFaceDialog::ChangeFaceDialog(QWidget *parent) :
     setAttribute(Qt::WA_DeleteOnClose);
 
     ui->titleLabel->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
-    ui->closeBtn->setProperty("useIconHighlightEffect", true);
-    ui->closeBtn->setProperty("iconHighlightEffectMode", 1);
-    ui->closeBtn->setFlat(true);
-
-    ui->closeBtn->setStyleSheet("QPushButton:hover:!pressed#closeBtn{background: #FA6056; border-radius: 4px;}"
-                                "QPushButton:hover:pressed#closeBtn{background: #E54A50; border-radius: 4px;}");
+    m_closeBtn = new QPushButton(this);
+    m_closeBtn->setProperty("useIconHighlightEffect", true);
+    m_closeBtn->setProperty("iconHighlightEffectMode", 1);
+    m_closeBtn->setFlat(true);
+    m_closeBtn->setIcon(QIcon(":/img/plugins/userinfo/close.svg"));
+    m_closeBtn->setFixedSize(36, 36);
+    m_closeBtn->setAutoDefault(false);
+    ui->horizontalLayout_2->addWidget(m_closeBtn);
 
 //    //分割线，其颜色应由主题控制，此处设置样式仅为预览布局效果
 //    ui->line_1->setStyleSheet(".QWidget{background: rgba(66,77,89,1); ipacity: 0.1;}");
@@ -55,13 +57,22 @@ ChangeFaceDialog::ChangeFaceDialog(QWidget *parent) :
 //    ui->frame->setStyleSheet("QFrame{background: #ffffff; border: none; border-radius: 6px;}");
 //    ui->closeBtn->setStyleSheet("QPushButton{background: #ffffff; border: none;}");
 
-
-    ui->closeBtn->setIcon(QIcon("://img/titlebar/close.svg"));
-
     ui->historyFacesWidget->setContentsMargins(4,0,0,0);
 
     historyFacesFlowLayout = new FlowLayout(ui->historyFacesWidget);
     ui->historyFacesWidget->setLayout(historyFacesFlowLayout);
+
+    const QByteArray id_1(UKUI_QT_STYLE);
+    if (QGSettings::isSchemaInstalled(id_1)) {
+        m_style = new QGSettings(id_1);
+        QString themeName = m_style->get(UKUI_STYLE_KEY).toString();
+        if( themeName == "ukui-light" || themeName == "ukui-default" | themeName == "ukui" )
+            m_isNightMode = false;
+        else
+            m_isNightMode = true;
+        qDebug() << "m_isNightMode = " << m_isNightMode;
+        connect(m_style, &QGSettings::changed, this, &ChangeFaceDialog::getThemeStyle);
+    }
 
     btnsGroup = new QButtonGroup;
 //    ElipseMaskWidget * cfMaskWidget = new ElipseMaskWidget(ui->faceLabel);
@@ -70,7 +81,7 @@ ChangeFaceDialog::ChangeFaceDialog(QWidget *parent) :
 
     loadSystemFaces();
 
-    connect(ui->closeBtn, &QPushButton::clicked, [=]{
+    connect(m_closeBtn, &QPushButton::clicked, [=]{
         close();
     });
     connect(ui->cancelBtn, &QPushButton::clicked, [=]{
@@ -84,6 +95,19 @@ ChangeFaceDialog::ChangeFaceDialog(QWidget *parent) :
 ChangeFaceDialog::~ChangeFaceDialog()
 {
     delete ui;
+}
+
+void ChangeFaceDialog::getThemeStyle(QString key)
+{
+    if(key == "styleName") {
+        QString themeName = m_style->get(UKUI_STYLE_KEY).toString();
+        if( themeName == "ukui-light" || themeName == "ukui-default" | themeName == "ukui" )
+            m_isNightMode = false;
+        else
+            m_isNightMode = true;
+        qDebug() << "m_isNightMode = " << m_isNightMode;
+        update();
+    }
 }
 
 void ChangeFaceDialog::loadSystemFaces(){
@@ -109,7 +133,7 @@ void ChangeFaceDialog::loadSystemFaces(){
         button->setAttribute(Qt::WA_DeleteOnClose);
         button->setFixedSize(QSize(56, 56));
 //        button->setStyleSheet("QPushButton{border: none;}");
-
+        button->setAutoDefault(false);
         btnsGroup->addButton(button);
 
         QHBoxLayout * mainHorLayout = new QHBoxLayout(button);
@@ -127,6 +151,7 @@ void ChangeFaceDialog::loadSystemFaces(){
             //show dialog更新头像
             setFace(fullface);
             confirmFile = fullface;
+            ui->confirmBtn->setStyleSheet("background-color:#2FB3EB");
 //            emit face_file_send(fullface, m_username);
         });
         connect(ui->confirmBtn, &QPushButton::clicked, [=]{
@@ -189,7 +214,6 @@ void ChangeFaceDialog::loadHistoryFaces(){
         mainHorLayout->addWidget(iconLabel);
         iconLabel->setLayout(delBtnLayout);
         delBtn->hide();
-
         connect(delBtn, &QPushButton::clicked, this, [=]{
             sysinterface = new QDBusInterface("com.control.center.qt.systemdbus",
                                              "/",
@@ -212,7 +236,11 @@ void ChangeFaceDialog::loadHistoryFaces(){
 
             old_delBtn = nullptr;
         });
-
+        if (m_isNightMode) {
+            ui->confirmBtn->setStyleSheet("background-color:#404040");
+        } else {
+            ui->confirmBtn->setStyleSheet("background-color:#DDDDDD");
+        }
         button->setLayout(mainHorLayout);
         historyFacesFlowLayout->addWidget(button);
         connect(button, &QPushButton::clicked, this, [=]{
@@ -220,8 +248,8 @@ void ChangeFaceDialog::loadHistoryFaces(){
             confirmFile = historyface;
 
             delBtn->show();
-
-            if (old_delBtn != nullptr) {
+            ui->confirmBtn->setStyleSheet("background-color:#2FB3EB");
+            if (old_delBtn != nullptr && old_delBtn != delBtn) {
                 old_delBtn->hide();
                 old_delBtn = delBtn;
             }
@@ -229,6 +257,7 @@ void ChangeFaceDialog::loadHistoryFaces(){
             if (old_delBtn == nullptr) {
                 old_delBtn = delBtn;
             }
+
         });
     }
 
@@ -236,7 +265,16 @@ void ChangeFaceDialog::loadHistoryFaces(){
     QPushButton * addBtn = new QPushButton;
     addBtn->setAttribute(Qt::WA_DeleteOnClose);
     addBtn->setFixedSize(QSize(56, 56));
-    addBtn->setIcon(QIcon("://img/titlebar/add.svg"));
+    QPixmap addpix;
+    if (m_isNightMode) {
+        addpix = ImageUtil::loadSvg("://img/titlebar/add.svg", "white", 16);
+    } else {
+        addpix = ImageUtil::loadSvg("://img/titlebar/add.svg", "black", 16);
+    }
+
+    QIcon ButtonIcon(addpix);
+    addBtn->setIcon(QIcon(ButtonIcon));
+    addBtn->setAutoDefault(false);
     historyFacesFlowLayout->addWidget(addBtn);
     connect(addBtn, &QPushButton::clicked, this, [=]{
         showLocalFaceDialog();

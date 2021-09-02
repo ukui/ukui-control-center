@@ -110,11 +110,13 @@ void PhoneAuthDialog::initUI(){
     p_hCodeLayout->addWidget(getVerifyCodeBtn);
     codeWidget->setObjectName("codeWidget");
 
-    QPushButton * returnButton = new QPushButton(tr("Return"));
-    QPushButton * confirmButton = new QPushButton(tr("Confirm"));
+    returnButton = new QPushButton(tr("Return"));
+    confirmButton = new QPushButton(tr("Confirm"));
     returnButton->setProperty("class", "phoneBT");
     confirmButton->setProperty("class", "phoneBT");
     confirmButton->setDefault(false);
+    confirmButton->setFlat(true);
+    returnButton->setFlat(true);
     QHBoxLayout * p_hLayout = new QHBoxLayout();
     p_hLayout->setSpacing(20);
     p_hLayout->addStretch();
@@ -400,6 +402,12 @@ void PhoneAuthDialog::initUI(){
 void PhoneAuthDialog::themeChanged(const quint32 currentTheme){
     if(currentTheme == 0){
         is_nightTheme = false;
+        confirmButton->setStyleSheet("QPushButton{background-color:#F6F6F6;}"
+                                     "QPushButton:hover:!pressed{background: #F6F6F6;}"
+                                     "QPushButton:pressed{background: #2FB3E8;}");
+        returnButton->setStyleSheet("QPushButton{background-color:#F6F6F6;}"
+                                    "QPushButton:hover:!pressed{background: #F6F6F6;}"
+                                    "QPushButton:pressed{background: #2FB3E8;}");
         phoneNumLine->setStyleSheet("QLineEdit{background-color: #F6F6F6; border: 0px;"
                                         "border-top-left-radius:8px;"
                                         "border-top-right-radius:8px;"
@@ -407,10 +415,19 @@ void PhoneAuthDialog::themeChanged(const quint32 currentTheme){
         verifyCodeLine->setStyleSheet("QLineEdit{background-color: #F6F6F6; border: 0px;"
                                           "border-bottom-left-radius:8px"
                                           "}");
-        getVerifyCodeBtn->setStyleSheet("QPushButton{background-color:#F6F6F6;"
-                                         "selection-background-color:#F6F6F6;"
-                                         "border-bottom-right-radius:8px"
-                                          "}");
+        if (getVerifyCodeBtn->isEnabled()) {
+            getVerifyCodeBtn->setStyleSheet("QPushButton{background-color:#F6F6F6;"
+                                             "selection-background-color:#F6F6F6;"
+                                             "border-bottom-right-radius:8px;"
+                                             "color:#2FB3E8"
+                                              "}");
+        } else {
+            getVerifyCodeBtn->setStyleSheet("QPushButton{background-color:#F6F6F6;"
+                                             "selection-background-color:#F6F6F6;"
+                                             "border-bottom-right-radius:8px;"
+                                             "color:#DDDDDD"
+                                              "}");
+        }
         if(is_phoneVerifyChecked){
             wechatAuthBtn->setStyleSheet("QPushButton{background: #F6F6F6; border-top-left-radius: 8px; border-bottom-left-radius: 8px; font-size: 16px;font-family: NotoSansCJKsc-Regular, NotoSansCJKsc;}"
                                          "QPushButton:hover:!pressed{background: #F6F6F6; border-top-left-radius: 8px; border-bottom-left-radius: 8px; font-size: 16px;font-family: NotoSansCJKsc-Bold, NotoSansCJKsc;font-weight: bold;color: #2FB3E8;}"
@@ -424,17 +441,34 @@ void PhoneAuthDialog::themeChanged(const quint32 currentTheme){
     }
     else{
         is_nightTheme = true;
-        phoneNumLine->setStyleSheet("QLineEdit{background-color: #31373F; border: 0px;"
+        confirmButton->setStyleSheet("QPushButton{background-color:#31373F;}"
+                                     "QPushButton:hover:!pressed{background: #31373F;}"
+                                     "QPushButton:pressed{background: #2FB3E8;}"
+                                     );
+        returnButton->setStyleSheet("QPushButton{background-color:#31373F;}"
+                                    "QPushButton:hover:!pressed{background: #31373F;}"
+                                    "QPushButton:pressed{background: #2FB3E8;}"
+                                    );
+        phoneNumLine->setStyleSheet("QLineEdit{background-color: #030303; border: 0px;"
                                         "border-top-left-radius:8px;"
                                         "border-top-right-radius:8px;"
                                         "}");
-        verifyCodeLine->setStyleSheet("QLineEdit{background-color: #31373F; border: 0px;"
+        verifyCodeLine->setStyleSheet("QLineEdit{background-color: #030303; border: 0px;"
                                           "border-bottom-left-radius:8px"
                                           "}");
-        getVerifyCodeBtn->setStyleSheet("QPushButton{background-color:#31373F;"
-                                         "selection-background-color:#31373F;"
-                                         "border-bottom-right-radius:8px"
-                                          "}");
+        if (getVerifyCodeBtn->isEnabled()) {
+            getVerifyCodeBtn->setStyleSheet("QPushButton{background-color:#030303;"
+                                             "selection-background-color:#030303;"
+                                             "border-bottom-right-radius:8px;"
+                                             "color:#2FB3E8"
+                                              "}");
+        } else {
+            getVerifyCodeBtn->setStyleSheet("QPushButton{background-color:#030303;"
+                                             "selection-background-color:#030303;"
+                                             "border-bottom-right-radius:8px;"
+                                             "color:#DDDDDD"
+                                              "}");
+        }
         if(is_phoneVerifyChecked){
             wechatAuthBtn->setStyleSheet("QPushButton, {background: #31373F; border-top-left-radius: 8px; border-bottom-left-radius: 8px; font-size: 16px;font-family: NotoSansCJKsc-Regular, NotoSansCJKsc;}"
                                          "QPushButton:hover:!pressed{background: #31373F; border-top-left-radius: 8px; border-bottom-left-radius: 8px; font-size: 16px;font-family: NotoSansCJKsc-Bold, NotoSansCJKsc;font-weight: bold;color: #2FB3E8;}"

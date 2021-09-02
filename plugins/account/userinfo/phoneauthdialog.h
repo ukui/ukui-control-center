@@ -62,6 +62,8 @@ private:
     QString m_phone;
 
     QGSettings *m_wifi;
+    QPushButton *returnButton;
+    QPushButton *confirmButton;
 
     void getQRCodeFromURL(QPixmap &qrcode);
     QPixmap beautifyQRCode(QPixmap &);
