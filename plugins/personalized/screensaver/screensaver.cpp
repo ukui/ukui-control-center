@@ -97,6 +97,7 @@ Screensaver::Screensaver() : mFirstLoad(true)
 Screensaver::~Screensaver()
 {
     if (!mFirstLoad) {
+        closeScreensaver();
         delete ui;
         ui = nullptr;
         delete process;
@@ -398,10 +399,12 @@ void Screensaver::startupScreensaver()
 void Screensaver::closeScreensaver() {
     //杀死分离启动的屏保预览程序
     if (!runStringList.isEmpty()) {
-        qDebug()<<"kill --  runStringList;"<<runStringList;
-        process->start(QString("killall"), runStringList);
-        process->waitForStarted();
-        process->waitForFinished(4000);
+        QString cmd = "killall";
+        for(int i = 0; i < runStringList.count(); i++) {
+            cmd = cmd + " " + runStringList.at(i);
+        }
+        qDebug()<<"cmd = "<<cmd;
+        system(cmd.toLatin1().data());
         runStringList.clear();
     }
 }
