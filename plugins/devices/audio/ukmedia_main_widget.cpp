@@ -5282,7 +5282,7 @@ void UkmediaMainWidget::updatePorts(UkmediaMainWidget *w, const pa_card_info &in
             UkuiListWidgetItem *itemW = new UkuiListWidgetItem(w);
 
             QListWidgetItem * item = new QListWidgetItem(w->m_pOutputWidget->m_pOutputListWidget);
-            item->setSizeHint(QSize(200,64)); //QSize(120, 40) spacing: 12px;
+            item->setSizeHint(QSize(200,68)); //QSize(120, 40) spacing: 12px;
             w->m_pOutputWidget->m_pOutputListWidget->blockSignals(true);
             w->m_pOutputWidget->m_pOutputListWidget->setItemWidget(item, itemW);
             w->m_pOutputWidget->m_pOutputListWidget->blockSignals(false);
@@ -5308,7 +5308,7 @@ void UkmediaMainWidget::updatePorts(UkmediaMainWidget *w, const pa_card_info &in
             UkuiListWidgetItem *itemW = new UkuiListWidgetItem(w);
 
             QListWidgetItem * item = new QListWidgetItem(w->m_pInputWidget->m_pInputListWidget);
-            item->setSizeHint(QSize(200,64)); //QSize(120, 40) spacing: 12px;
+            item->setSizeHint(QSize(200,68)); //QSize(120, 40) spacing: 12px;
             w->m_pInputWidget->m_pInputListWidget->setItemWidget(item, itemW);
             QString cardName;
             for(cardNameMap = w->cardMap.begin();cardNameMap!=w->cardMap.end();)
@@ -5484,7 +5484,7 @@ void UkmediaMainWidget::addAvailableOutputPort()
             UkuiListWidgetItem *itemW = new UkuiListWidgetItem(this);
 
             QListWidgetItem * item = new QListWidgetItem(m_pOutputWidget->m_pOutputListWidget);
-            item->setSizeHint(QSize(200,64)); //QSize(120, 40) spacing: 12px;
+            item->setSizeHint(QSize(200,68)); //QSize(120, 40) spacing: 12px;
             m_pOutputWidget->m_pOutputListWidget->blockSignals(true);
             m_pOutputWidget->m_pOutputListWidget->setItemWidget(item, itemW);
             m_pOutputWidget->m_pOutputListWidget->blockSignals(false);
@@ -5530,7 +5530,7 @@ void UkmediaMainWidget::addAvailableInputPort()
             UkuiListWidgetItem *itemW = new UkuiListWidgetItem(this);
 
             QListWidgetItem * item = new QListWidgetItem(m_pInputWidget->m_pInputListWidget);
-            item->setSizeHint(QSize(200,64)); //QSize(120, 40) spacing: 12px;
+            item->setSizeHint(QSize(200,68)); //QSize(120, 40) spacing: 12px;
             m_pInputWidget->m_pInputListWidget->setItemWidget(item, itemW);
             QString cardName;
             int count;
