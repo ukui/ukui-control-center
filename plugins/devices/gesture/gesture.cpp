@@ -39,10 +39,9 @@ Gesture::~Gesture()
     {
 
         delete ui;
-        delete pluginWidget;
-        delete gesturesetting;
-        delete gifFlowLayout;
+
     }
+    delete gesturesetting;
 }
 
 QString Gesture::get_plugin_name(){
@@ -92,9 +91,7 @@ void Gesture::additem()
     }
     gesturesetting->sync();
     gesturesetting->endGroup();
-    qDebug()<<giflist.count();
-    for(int i=0;i<giflist.count();i++){
-        qDebug()<<"=="<<giflist.at(i);
+    for(int i=0;i<giflist.count();i++) {
         Itemwidget * item=new Itemwidget(list.key(i),ui->frame);
         gifFlowLayout->addWidget(item);
     }
