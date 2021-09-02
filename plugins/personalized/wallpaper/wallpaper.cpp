@@ -381,9 +381,9 @@ void Wallpaper::initBgFormStatus(){
 
     int currentIndex = _getCurrentBgForm();
     //设置当前背景形式
-    ui->formComBox->blockSignals(true);
+//    ui->formComBox->blockSignals(true);
     ui->formComBox->setCurrentIndex(currentIndex);
-    ui->formComBox->blockSignals(false);
+//    ui->formComBox->blockSignals(false);
     ui->substackedWidget->setCurrentIndex(currentIndex);
     ui->previewStackedWidget->setCurrentIndex(currentIndex);
 
