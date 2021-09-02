@@ -655,6 +655,7 @@ void Proxy::_setSensitivity(){
     mHTTPSFrame->setEnabled(manualChecked);
     mFTPFrame->setEnabled(manualChecked);
     mSOCKSFrame->setEnabled(manualChecked);
+    mIgnoreFrame->setEnabled(manualChecked);
 
 }
 

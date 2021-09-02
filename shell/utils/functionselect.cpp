@@ -145,9 +145,6 @@ void FunctionSelect::initValuePersonal() {
     personalizedList[SCREENSAVER].namei18nString = QObject::tr("Screensaver");
     personalizedList[FONTS].nameString = QString("Fonts");
     personalizedList[FONTS].namei18nString = QObject::tr("Fonts");
-    personalizedList[DESKTOP].nameString = QString("Desktop");
-    personalizedList[DESKTOP].namei18nString = QObject::tr("Desktop");
-    personalizedList[DESKTOP].mainShow = false;
 
     funcinfoList.append(personalizedList); 
 }
