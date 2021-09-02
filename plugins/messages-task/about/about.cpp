@@ -21,6 +21,7 @@
 
 #include "about.h"
 #include "ui_about.h"
+#include "trialdialog.h"
 
 #include <KFormat>
 #include <unistd.h>
@@ -271,7 +272,7 @@ void About::setupSerialComponent()
     }
     ui->serviceContent->setText(serial);
 
-    if (dateRes.isNull()) {  //未激活
+    if (!dateRes.isNull()) {  //未激活
         ui->label->hide();
         ui->timeContent->hide();
         ui->activeContent->setText(tr("Inactivated"));
@@ -311,7 +312,10 @@ void About::setupSerialComponent()
         });
     }
     connect(ui->activeButton, &QPushButton::clicked, this, &About::runActiveWindow);
-    connect(ui->trialButton, &QPushButton::clicked, this, &About::showPdf);
+    connect(ui->trialButton, &QPushButton::clicked, this, [=](){
+        TrialDialog *mDialog = new TrialDialog(pluginWidget);
+        mDialog->show();
+    });
     ui->serviceContent->setText(serial);
 
 

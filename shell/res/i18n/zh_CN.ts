@@ -17,7 +17,7 @@
         <translation type="vanished">延长服务</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="515"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="519"/>
         <source>version</source>
         <translation>版本</translation>
         <extra-contents_path>/about/version</extra-contents_path>
@@ -51,21 +51,21 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="269"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="517"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="521"/>
         <source>Kernel</source>
         <translation>内核</translation>
         <extra-contents_path>/about/Kernel</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="308"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="519"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="523"/>
         <source>CPU</source>
         <translation>CPU</translation>
         <extra-contents_path>/about/CPU</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="356"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="521"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="525"/>
         <source>Memory</source>
         <translation>内存</translation>
         <extra-contents_path>/about/Memory</extra-contents_path>
@@ -77,27 +77,27 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="458"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="523"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="527"/>
         <source>Desktop</source>
         <translation>桌面</translation>
         <extra-contents_path>/about/Desktop</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="488"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="525"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="529"/>
         <source>User</source>
         <translation>用户名</translation>
         <extra-contents_path>/about/User</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="534"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="527"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="531"/>
         <source>Status</source>
         <translation>激活状态</translation>
         <extra-contents_path>/about/Status</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="92"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="93"/>
         <source>Active Status</source>
         <translation>激活状态</translation>
     </message>
@@ -113,7 +113,7 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="669"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="531"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="535"/>
         <source>Protocol</source>
         <translation>免责协议</translation>
         <extra-contents_path>/about/Protocol</extra-contents_path>
@@ -124,8 +124,8 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="639"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="279"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="529"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="280"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="533"/>
         <source>Active</source>
         <translation>激活</translation>
         <extra-contents_path>/about/Active</extra-contents_path>
@@ -143,7 +143,7 @@
         <translation type="vanished">关于</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="61"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="62"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
@@ -160,22 +160,22 @@
         <translation type="vanished">可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="277"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="278"/>
         <source>Inactivated</source>
         <translation>未激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="283"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="284"/>
         <source>Activated</source>
         <translation>已激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="323"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="327"/>
         <source>expired</source>
         <translation>已过期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="326"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="330"/>
         <source>Extend</source>
         <translation>延长服务</translation>
     </message>
@@ -995,22 +995,22 @@ Please authenticate yourself to continue</source>
         <translation>不匹配</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="487"/>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="488"/>
         <source>D-Bus calling error</source>
         <translation>D-Bus获取错误</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="496"/>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="497"/>
         <source>Device is busy</source>
         <translation>设备忙</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="500"/>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="501"/>
         <source>No such device</source>
         <translation>设备不存在</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="504"/>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="505"/>
         <source>Permission denied</source>
         <translation>权限不够</translation>
     </message>
@@ -1193,40 +1193,46 @@ Please authenticate yourself to continue</source>
         <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="260"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="455"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="959"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="286"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="480"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="985"/>
         <source>Turn on :</source>
         <translation>开启：</translation>
         <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="320"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="511"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1019"/>
         <source>Bluetooth adapter</source>
         <translation>蓝牙适配器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="353"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="539"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1052"/>
         <source>Show icon on taskbar</source>
         <translation>在任务栏显示蓝牙图标</translation>
         <extra-contents_path>/bluetooth/Show icon on taskbar</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="385"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="572"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1084"/>
         <source>Discoverable by nearby Bluetooth devices</source>
         <translation>可被附近的蓝牙设备发现</translation>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="892"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="776"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1585"/>
         <source>Bluetooth adapter is abnormal !</source>
         <translation>蓝牙适配器异常！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="893"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1586"/>
         <source>You can refer to the rfkill command for details.</source>
         <translation>可查阅rfkill命令了解详情</translation>
     </message>
@@ -1241,7 +1247,8 @@ Please authenticate yourself to continue</source>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="425"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="684"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1124"/>
         <source>My Devices</source>
         <translation>我的设备</translation>
     </message>
@@ -1250,7 +1257,8 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">现在可被发现为 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="442"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="703"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1141"/>
         <source>Other Devices</source>
         <translation>蓝牙设备</translation>
     </message>
@@ -1418,34 +1426,34 @@ Please authenticate yourself to continue</source>
         <translation type="obsolete">添加新用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="244"/>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="247"/>
         <source>User group</source>
         <translation>用户组</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="291"/>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="294"/>
         <source>Add user group</source>
         <translation>添加用户组</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="334"/>
-        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="342"/>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="338"/>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="346"/>
         <source>Tips</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="334"/>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="338"/>
         <source>Invalid Id!</source>
         <translation>无效组ID!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="337"/>
-        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="345"/>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="341"/>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="349"/>
         <source>OK</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="342"/>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="346"/>
         <source>Invalid Group Name!</source>
         <translation>无效组名!</translation>
     </message>
@@ -1855,13 +1863,13 @@ Please authenticate yourself to continue</source>
     <name>CreateUserDialog</name>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="212"/>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="116"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="117"/>
         <source>UserName</source>
         <translation>用户名</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="260"/>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="117"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="118"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
@@ -1928,7 +1936,7 @@ change system settings</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="118"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="119"/>
         <source>Password Identify</source>
         <translation>密码确认</translation>
     </message>
@@ -1937,43 +1945,43 @@ change system settings</source>
         <translation type="vanished">通用密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="153"/>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="287"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="154"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="297"/>
         <source>Inconsistency with pwd</source>
         <translation>和密码不一致</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="392"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="413"/>
         <source>Must be begin with lower letters!</source>
         <translation>用户名必须以小写字母开始！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="395"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="416"/>
         <source>Can not contain capital letters!</source>
         <translation>用户名不能包含大写字母！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="417"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="438"/>
         <source>Name already in use, change another one.</source>
         <translation>该用户名已存在，请更改。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="419"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="440"/>
         <source>Name corresponds to group already exists.</source>
         <translation>用户名对应组已存在，请更改。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="424"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="445"/>
         <source>Name length must less than %1 letters!</source>
         <translation>用户名长度必须小于%1！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="426"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="447"/>
         <source>Can only contain letters,digits,underline!</source>
         <translation>用户名仅能包含字母，数字及下划线</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="431"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="452"/>
         <source>Username&apos;s folder exists, change another one</source>
         <translation>用户目录已存在，请更改</translation>
     </message>
@@ -1986,7 +1994,7 @@ change system settings</source>
         <translation type="vanished">密码长度需要小于%1个字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="47"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="48"/>
         <source>Add new user</source>
         <translation>添加新用户</translation>
     </message>
@@ -1995,12 +2003,12 @@ change system settings</source>
         <translation type="obsolete">密码复杂度过低！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="239"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="249"/>
         <source>Contains illegal characters!</source>
         <translation>含有非法字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="390"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="411"/>
         <source>The user name cannot be empty</source>
         <translation>用户名不能为空</translation>
     </message>
@@ -3035,7 +3043,7 @@ folder will be deleted!</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/editgroupdialog.cpp" line="276"/>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.cpp" line="278"/>
         <source>Edit user group</source>
         <translation>编辑用户组</translation>
     </message>
@@ -3431,8 +3439,8 @@ folder will be deleted!</source>
         <translation>设置密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/inputpwddialog.cpp" line="65"/>
-        <location filename="../../../plugins/network/vino/inputpwddialog.cpp" line="84"/>
+        <location filename="../../../plugins/network/vino/inputpwddialog.cpp" line="62"/>
+        <location filename="../../../plugins/network/vino/inputpwddialog.cpp" line="81"/>
         <source>Password can not be blank</source>
         <translation>密码不能为空</translation>
     </message>
@@ -3447,8 +3455,7 @@ folder will be deleted!</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/inputpwddialog.cpp" line="60"/>
-        <location filename="../../../plugins/network/vino/inputpwddialog.cpp" line="89"/>
+        <location filename="../../../plugins/network/vino/inputpwddialog.cpp" line="86"/>
         <source>less than or equal to 8</source>
         <translation>密码长度需要小于等于８</translation>
     </message>
@@ -4697,7 +4704,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.ui" line="129"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="971"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="961"/>
         <source>Refresh</source>
         <translation>刷新</translation>
     </message>
@@ -4730,19 +4737,19 @@ Please retry or relogin!</source>
         <translation type="vanished">连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="244"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="298"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="234"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="288"/>
         <source>Connected</source>
         <translation>已连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="789"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="779"/>
         <source>No net</source>
         <translation>无连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="254"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="307"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="244"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="297"/>
         <source>Detail</source>
         <translation>网络详情</translation>
     </message>
@@ -4753,13 +4760,13 @@ Please retry or relogin!</source>
         <extra-contents_path>/netconnect/open WLAN</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="663"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="680"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="653"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="670"/>
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="959"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="949"/>
         <source>Refreshing...</source>
         <translation>刷新中...</translation>
     </message>
@@ -4773,7 +4780,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="52"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="529"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="519"/>
         <source>Connect</source>
         <translation>网络连接</translation>
     </message>
@@ -8164,6 +8171,38 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="145"/>
         <source>Horizontal two-finger scrolling</source>
         <translation>水平双指滚动</translation>
+    </message>
+</context>
+<context>
+    <name>TrialDialog</name>
+    <message>
+        <location filename="../../../plugins/messages-task/about/trialdialog.cpp" line="12"/>
+        <source>Set</source>
+        <translation>系统设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/about/trialdialog.cpp" line="37"/>
+        <source>Yinhe Kylin OS(Trail Version) Disclaimer</source>
+        <translation>银河麒麟操作系统（试用版）免责声明</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/about/trialdialog.cpp" line="46"/>
+        <source>Dear customer:
+    Thank you for trying Yinhe Kylin OS(trail version)! This version is free for users who only try out, no commercial purpose is permitted. The trail period lasts one year and it starts from the ex-warehouse time of the OS. No after-sales service is provided during the trail stage. If any security problems occurred when user put important files or do any commercial usage in system, all consequences are taken by users. Kylin software Co., Ltd. take no legal risk in trail version.
+    During trail stage,if you want any technology surpport or activate the system, please buy“Yinhe Kylin Operating System”official version or authorization by contacting 400-089-1870.</source>
+        <translation>尊敬的客户：
+    您好！随机安装的“银河麒麟操作系统（试用版）”是针对该版本对应的行业客户的免费试用版本，用于整机的试用、测试和评估，不能用于其他任何商业用途。此试用版本以软件出库时间计时，试用时间为一年。试用期间不提供相关正版软件的售后服务，如果客户在试用版本上自行存放重要文件及私自进行商业用途，由此产生的任何安全问题及结果一概由用户自己承担，麒麟软件有限公司不承担任何法律风险。
+    在试用过程中，如希望激活或者得到专业的技术服务支持，请您购买“银河麒麟操作系统”正式版本或授权，联系方式如下：400-089-1870。</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/about/trialdialog.cpp" line="54"/>
+        <source>Kylin software Co., Ltd.</source>
+        <translation>麒麟软件有限公司</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/about/trialdialog.cpp" line="62"/>
+        <source>www.Kylinos.cn</source>
+        <translation>www.kylinos.cn</translation>
     </message>
 </context>
 <context>
