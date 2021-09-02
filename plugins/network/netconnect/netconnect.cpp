@@ -169,8 +169,6 @@ void NetConnect::initComponent() {
         wifiBtn->blockSignals(true);
         wifiSwitchSlot(checked);
         wifiBtn->blockSignals(false);
-        QElapsedTimer time;
-        time.start();
     });
     ui->RefreshBtn->setEnabled(false);
     wifiBtn->setEnabled(false);
@@ -1023,7 +1021,6 @@ void NetConnect::wifiSwitchSlot(bool status) {
     connect(pThread, &QThread::started, pNetWorker,[=]{
         pNetWorker->run(status);
     });
-    connect(pNetWorker, &NetconnectWork::complete,pNetWorker, &NetconnectWork::deleteLater);
     connect(pNetWorker, &NetconnectWork::complete,[=](){
         pThread->quit();
         pThread->destroyed();
