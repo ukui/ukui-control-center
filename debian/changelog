@@ -1,3 +1,60 @@
+ukui-control-center (3.0.1-1-118.3hw) v101; urgency=medium
+
+  * 亮度更改：fc
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 31 Aug 2021 18:17:24 +0800
+
+ukui-control-center (3.0.1-1-118.2hw) v101; urgency=medium
+
+  * 提交commit:f31caa36
+  * setposconfig为空的崩溃问题
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 31 Aug 2021 14:00:20 +0800
+
+ukui-control-center (3.0.1-1-118.1hw) v101; urgency=medium
+
+  * 提交commit:2c7f13b9
+  * bug#75447win+p后没有应用，清除标志位(通用)
+  * bug#76343镜像模式插拔上下分离问题(通用)
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 27 Aug 2021 17:13:39 +0800
+
+ukui-control-center (3.0.1-1-118hw) v101; urgency=medium
+
+  * 提交commit:511c402c
+  * bug#75398分辨率切到1024* 768或者1280 *1024时 切换为非默认刷新率屏幕没有黑一下弹出保存恢复的提示
+  * bug63240 系统还原，选择系统更新时生成的备份文件，出现“备份还原分区异常”的提示
+  * bug#72438打开声音设置界面，插拔前置3.5mm耳机1-5次，声音设置界面高概率闪退
+  * bug#63240 系统还原，选择系统更新时生成的备份文件，出现“备份还原分区异常”的提示
+  * bug#75398刷新率正常修改并且可恢复
+  * bug#76031启动器，任务栏中文件管理器的图标和主题中不一致
+  * bug#76211点击森海赛尔耳机图标去连接，图标就消失了【一般+高概率1/15+常用功能】
+  * bug#76108搜索耳机时间概率10多秒不达标【一般+高概率1/5+常用功能】
+  * bug#76117关开测试机BT开始到耳机回连后出声时长概率7s多，不达标【一般+高概率1/5+常用功能】
+  * bug#75405 AF30鼠标休眠后回连10s左右【一般+高概率1/6+常用功能】
+  * bug#75284开关测试机BT,耳机不回连【一般+高概率1/5+不常用功能】
+  * bug#74843屏蔽房环境下，BR鼠标搜索概率10多s，KPI≤4s（多于3款BR鼠标有此问题）【一般+高概率1/3+常用功能】
+  * bug#74838屏蔽房环境下，关开测试机蓝牙，JBL音箱不回连【提示+高概率1/8+常用功能】
+  * bug#74579bow键盘刚连上会自动断连一次然后正常【一般+高概率1/15+常用功能】
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 26 Aug 2021 10:25:45 +0800
+
+ukui-control-center (3.0.1-1-117.1hw) v101; urgency=medium
+
+  * 提交commit:f98c904
+  * bug#75443切换到其他屏重新打开控制面板位置分离问题(通用问题)
+  * bug #71254 #71819
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 23 Aug 2021 17:25:23 +0800
+
+ukui-control-center (3.0.1-1-117hw) v101; urgency=medium
+
+  * 提交commit:568ea25
+  * bug#72341:【控制面板|亮度】控制面板调节亮度，亮度值不变且会自动跳到亮度为0状态，然后才可正常调节
+  * bug#74284,bug#74444右键更改图片默认打开方式为奇安信后，控制面板中设置图像查看器的默认应用无效,置屏幕为低分辨率，接入双屏后设为高缩放率注销后登录打开显示面板拔掉外接屏，控制面板弹出两个窗口且外显仍然存在
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 23 Aug 2021 13:57:04 +0800
+
 ukui-control-center (3.0.1-1-116hw) v101; urgency=medium
 
   * 提交commit:b9fa5b5
