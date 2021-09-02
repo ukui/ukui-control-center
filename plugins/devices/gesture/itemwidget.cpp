@@ -62,7 +62,7 @@ Itemwidget::Itemwidget(QString itemname,QWidget *parent) :
 
     color1=ui->label->palette().windowText().color();
     color2=ui->label_2->palette().windowText().color();
-    qDebug()<<ui->label->palette().windowText().color()<<color2;
+//    qDebug()<<ui->label->palette().windowText().color()<<color2;
 
     const QByteArray id(ORG_UKUI_STYLE);
     if (QGSettings::isSchemaInstalled(id)) {
