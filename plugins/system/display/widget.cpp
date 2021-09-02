@@ -304,8 +304,8 @@ void Widget::initNightModeUi()
     mTimeModeLabel->setFixedWidth(200);
     mTimeModeLabel->setText(tr("Time"));
     mTimeModeCombox = new QComboBox(mTimeModeFrame);
-    mTimeModeCombox->setMinimumSize(0, 40);
-    mTimeModeCombox->setMaximumSize(16777215, 40);
+    mTimeModeCombox->setMinimumWidth(0);
+    mTimeModeCombox->setMaximumWidth(16777215);
     mTimeModeLyt->addWidget(mTimeModeLabel);
     mTimeModeLyt->addWidget(mTimeModeCombox);
 
@@ -320,13 +320,13 @@ void Widget::initNightModeUi()
     mCustomTimeLabel->setFixedWidth(350);
     mCustomTimeLabel->setText(tr("Custom Time"));
     mOpenTimeHCombox = new QComboBox(mCustomTimeFrame);
-    mOpenTimeHCombox->setFixedSize(64, 40);
+    mOpenTimeHCombox->setFixedWidth(64);
     mQpenTimeMCombox = new QComboBox(mCustomTimeFrame);
-    mQpenTimeMCombox->setFixedSize(64, 40);
+    mQpenTimeMCombox->setFixedWidth(64);
     mCloseTimeHCombox = new QComboBox(mCustomTimeFrame);
-    mCloseTimeHCombox->setFixedSize(64, 40);
+    mCloseTimeHCombox->setFixedWidth(64);
     mCloseTimeMCombox = new QComboBox(mCustomTimeFrame);
-    mCloseTimeMCombox->setFixedSize(64, 40);
+    mCloseTimeMCombox->setFixedWidth(64);
     mLabel_1 = new QLabel(mCustomTimeFrame);
     mLabel_1->setFixedWidth(20);
     mLabel_1->setText(tr("to"));

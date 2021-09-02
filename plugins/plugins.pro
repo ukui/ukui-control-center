@@ -22,7 +22,6 @@ SUBDIRS = \
           personalized/screenlock \
           personalized/fonts \
           personalized/screensaver \
-          personalized/desktop \
           network/netconnect \
           network/wlanconnect \
           network/vpn \

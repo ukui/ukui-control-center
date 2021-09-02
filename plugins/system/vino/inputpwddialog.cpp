@@ -90,17 +90,15 @@ void InputPwdDialog::setupInit()
     mInputPwdLyt->addWidget(mInputPwdFrame_1);
 
 
-    if(QByteArray::fromBase64(mgsettings->get(kVncPwdKey).toString().toLatin1()).length() == 8) {
-        mpwd->setText(QByteArray::fromBase64(mgsettings->get(kVncPwdKey).toString().toLatin1()));
-        mHintLabel->setText(tr("less than or equal to 8"));
-        mHintLabel->setVisible(true);
-    } else if (mgsettings->get(kVncPwdKey).toString() == "keyring") {
-        mpwd->setText("");
-        mConfirmBtn->setEnabled(false);
-        mHintLabel->setText(tr("Password can not be blank"));
-        mHintLabel->setVisible(true);
-    } else {
-        mpwd->setText(QByteArray::fromBase64(mgsettings->get(kVncPwdKey).toString().toLatin1()));
+    if(QByteArray::fromBase64(mgsettings->get(kVncPwdKey).toString().toLatin1()).length() <= 8) {
+        if (mgsettings->get(kVncPwdKey).toString() == "keyring") {
+            mpwd->setText("");
+            mConfirmBtn->setEnabled(false);
+            mHintLabel->setText(tr("Password can not be blank"));
+            mHintLabel->setVisible(true);
+        } else {
+            mpwd->setText(QByteArray::fromBase64(mgsettings->get(kVncPwdKey).toString().toLatin1()));
+        }
     }
 
 }
@@ -110,7 +108,7 @@ void InputPwdDialog::mpwdInputSlot(const QString &pwd)
     Q_UNUSED(pwd);
     mstatus = true;
     mConfirmBtn->setEnabled(true);
-    if (pwd.length() <= 7 && !pwd.isEmpty()) {
+    if (pwd.length() <= 8 && !pwd.isEmpty()) {
         QByteArray text = pwd.toLocal8Bit();
         secPwd = text.toBase64();
         mHintLabel->setText("");
@@ -148,7 +146,8 @@ void InputPwdDialog::initConnect() {
             this->close();
         }
     });
-    connect(mpwd, &QLineEdit::textChanged, this, &InputPwdDialog::mpwdInputSlot);
+    //使用textEdited信号是为了防止密码框setText时触发信号
+    connect(mpwd, &QLineEdit::textEdited, this, &InputPwdDialog::mpwdInputSlot);
 }
 
 bool InputPwdDialog::eventFilter(QObject *wcg, QEvent *event)
