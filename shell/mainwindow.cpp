@@ -109,6 +109,8 @@ void MainWindow::bootOptionsFilter(QString opt) {
         bootOptionsSwitch(DEVICES, MOUSE);
     } else if (opt == "--touchpad") {
         bootOptionsSwitch(DEVICES, TOUCHPAD);
+    } else if (opt == "--gesture") {
+        bootOptionsSwitch(DEVICES, GESTURE);
     } else if (opt == "--touchscreen") {
         bootOptionsSwitch(DEVICES, TOUCHSCREEN);
     } else if (opt == "--keyboard") {
