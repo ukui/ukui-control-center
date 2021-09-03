@@ -272,7 +272,7 @@ void About::setupSerialComponent()
     }
     ui->serviceContent->setText(serial);
 
-    if (dateRes.isNull()) {  //未激活
+    if (dateRes.isEmpty()) {  //未激活
         ui->label->hide();
         ui->timeContent->hide();
         ui->activeContent->setText(tr("Inactivated"));
@@ -316,9 +316,6 @@ void About::setupSerialComponent()
         TrialDialog *mDialog = new TrialDialog(pluginWidget);
         mDialog->show();
     });
-    ui->serviceContent->setText(serial);
-
-
 }
 
 void About::showExtend(QString dateres)
