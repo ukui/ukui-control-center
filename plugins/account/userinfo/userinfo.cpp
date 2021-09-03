@@ -61,6 +61,10 @@ extern "C" {
 #define DEFAULTFACE "/usr/share/ukui/faces/default.png"
 #define ITEMHEIGH 52
 
+#define STYLE_FONT_SCHEMA  "org.ukui.style"
+
+#define FONTSWIDTH 100
+
 UserInfo::UserInfo() : mFirstLoad(true)
 {
     pluginName = tr("User Info");
@@ -74,6 +78,8 @@ UserInfo::~UserInfo()
         ui = nullptr;
         delete autoSettings;
         autoSettings = nullptr;
+        delete pSetting;
+        pSetting = nullptr;
     }
 }
 
@@ -94,6 +100,9 @@ QWidget *UserInfo::get_plugin_ui() {
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
         ui->setupUi(pluginWidget);
 
+        const QByteArray styleID(STYLE_FONT_SCHEMA);
+        pSetting = new QGSettings(styleID, QByteArray(), this);
+
         // 构建System dbus调度对象
         sysdispatcher = new SystemDbusDispatcher(this);
 
@@ -106,6 +115,24 @@ QWidget *UserInfo::get_plugin_ui() {
         initAllUserStatus();
         // 设置界面用户信息
         _refreshUserInfoUI();
+
+        connect(pSetting, &QGSettings::changed, this, [=](QString key){
+            if (QString::compare(key, "systemFontSize") == 0){
+
+                QMap<QString, UserInfomation>::iterator it = allUserInfoMap.begin();
+                for (; it != allUserInfoMap.end(); it++){
+                    UserInfomation user = it.value();
+
+                    //当前用户
+                    if (user.username == QString(g_get_user_name())){
+                        //刷新
+                        if (QLabelSetText(ui->userNameLabel, user.realname))
+                            ui->userNameLabel->setToolTip(user.realname);
+                    }
+                }
+            }
+
+        });
     }
     return pluginWidget;
 }
@@ -648,7 +675,8 @@ void UserInfo::_refreshUserInfoUI(){
             ui->currentUserFaceLabel->setPixmap(iconPixmap);
 
             //设置用户名
-            ui->userNameLabel->setText(user.realname);
+            if (QLabelSetText(ui->userNameLabel, user.realname))
+                ui->userNameLabel->setToolTip(user.realname);
             ui->userNameChangeLabel->setPixmap(QIcon::fromTheme("document-edit-symbolic").pixmap(ui->userNameChangeLabel->size()));
             //设置用户类型
             ui->userTypeLabel->setText(_accountTypeIntToString(user.accounttype));
@@ -713,7 +741,19 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     nameSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
     nameSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
     nameLabel->setSizePolicy(nameSizePolicy);
-    nameLabel->setText(user.realname);
+//    nameLabel->setText(user.realname);
+    if (QLabelSetText(nameLabel, user.realname)){
+        nameLabel->setToolTip(user.realname);
+    }
+
+    connect(pSetting, &QGSettings::changed, this, [=](QString key){
+        if (QString::compare(key, "systemFontSize") == 0){
+            if (QLabelSetText(nameLabel, user.realname)){
+                nameLabel->setToolTip(user.realname);
+            }
+        }
+
+    });
 
     QString btnQss = QString("QPushButton{background: #ffffff; border-radius: 4px;}");
 
@@ -1154,6 +1194,23 @@ void UserInfo::changeUserPwd(QString pwd, QString username){
     tmpSysinterface = nullptr;
 }
 
+bool UserInfo::QLabelSetText(QLabel *label, QString string)
+{
+    bool is_over_length = false;
+    QFontMetrics fontMetrics(label->font());
+    int fontSize = fontMetrics.width(string);
+
+    QString str = string;
+    if (fontSize > FONTSWIDTH) {
+        label->setFixedWidth(FONTSWIDTH);
+        str = fontMetrics.elidedText(string, Qt::ElideRight, FONTSWIDTH);
+        is_over_length = true;
+    } else {
+        label->setFixedWidth(fontSize);
+    }
+    label->setText(str);
+    return is_over_length;
+}
 
 bool UserInfo::eventFilter(QObject *watched, QEvent *event){
     if (watched == ui->currentUserFaceLabel){
