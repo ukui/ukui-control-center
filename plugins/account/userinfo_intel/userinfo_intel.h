@@ -36,20 +36,20 @@
 #include "qtdbus/systemdbusdispatcher.h"
 #include "qtdbus/userdispatcher.h"
 
-#include "changegroupdialog.h"
-#include "changepwddialog.h"
-#include "changephonedialog.h"
+#include "changegroupinteldialog.h"
+#include "changepwdinteldialog.h"
+#include "changephoneinteldialog.h"
 
-#include "changepindialog.h"
+#include "changepininteldialog.h"
 
-#include "changefacedialog.h"
-#include "changetypedialog.h"
-#include "changevaliddialog.h"
-#include "deluserdialog.h"
-#include "createuserdialog.h"
+#include "changefaceinteldialog.h"
+#include "changetypeinteldialog.h"
+#include "changevalidinteldialog.h"
+#include "deluserinteldialog.h"
+#include "createuserinteldialog.h"
 #include "HoverWidget/hoverwidget.h"
 #include "picturetowhite.h"
-#include "messageboxpower.h"
+#include "messageboxpowerintel.h"
 
 #ifdef ENABLEPQ
 extern "C" {

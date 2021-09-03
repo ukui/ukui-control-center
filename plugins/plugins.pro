@@ -1,6 +1,5 @@
 TEMPLATE = subdirs
 SUBDIRS = \
-    account/userinfo_intel \
           devices/bluetooth \
           devices/shortcut \
           devices/printer \
@@ -28,6 +27,7 @@ SUBDIRS = \
           network/vpn \
           network/proxy \
           account/userinfo \
+          account/userinfo_intel \
           account/networkaccount \
           account/biometrics \
           security-updates/securitycenter \

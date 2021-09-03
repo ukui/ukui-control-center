@@ -34,75 +34,75 @@ PKGCONFIG     += gio-2.0 \
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
-    changegroupdialog.cpp \
-    changepindialog.cpp \
-    changephonedialog.cpp \
-    changevaliddialog.cpp \
-    creategroupdialog.cpp \
-    definegroupitem.cpp \
+    changefaceinteldialog.cpp \
+    changegroupinteldialog.cpp \
+    changephoneinteldialog.cpp \
+    changepininteldialog.cpp \
+    changepwdinteldialog.cpp \
+    changetypeinteldialog.cpp \
+    changevalidinteldialog.cpp \
+    creategroupinteldialog.cpp \
+    createuserinteldialog.cpp \
+    definegroupitemintel.cpp \
     delgroupdialog.cpp \
-    digitalphonedialog.cpp \
+    deluserinteldialog.cpp \
+    digitalauthinteldialog.cpp \
+    digitalphoneinteldialog.cpp \
     elipsemaskwidget.cpp \
-    messageboxpower.cpp \
+    messageboxpowerintel.cpp \
+    numbersbuttonintel.cpp \
+    phoneauthinteldialog.cpp \
     picturetowhite.cpp \
     userinfo_intel.cpp \
     qtdbus/systemdbusdispatcher.cpp \
-    changepwddialog.cpp \
     qtdbus/userdispatcher.cpp \
-    changetypedialog.cpp \
-    changefacedialog.cpp \
-    deluserdialog.cpp \
-    createuserdialog.cpp \
     passwdcheckutil.cpp \
     auth-pam.cpp \
-    passwordbar.cpp \
-    numbersbutton.cpp \
+    passwordbar.cpp
 #    changepasswd.cpp \
-    digitalauthdialog.cpp \
-    phoneauthdialog.cpp
 
 HEADERS += \
-    changegroupdialog.h \
-    changepindialog.h \
-    changephonedialog.h \
-    changevaliddialog.h \
-    creategroupdialog.h \
-    definegroupitem.h \
+    changefaceinteldialog.h \
+    changegroupinteldialog.h \
+    changephoneinteldialog.h \
+    changepininteldialog.h \
+    changepwdinteldialog.h \
+    changetypeinteldialog.h \
+    changevalidinteldialog.h \
+    creategroupinteldialog.h \
+    createuserinteldialog.h \
+    definegroupitemintel.h \
     delgroupdialog.h \
-    digitalphonedialog.h \
+    deluserinteldialog.h \
+    digitalauthinteldialog.h \
+    digitalphoneinteldialog.h \
     elipsemaskwidget.h \
-    messageboxpower.h \
+    messageboxpowerintel.h \
+    numbersbuttonintel.h \
+    phoneauthinteldialog.h \
     picturetowhite.h \
     userinfo_intel.h \
     qtdbus/systemdbusdispatcher.h \
-    changepwddialog.h \
     qtdbus/userdispatcher.h \
-    changetypedialog.h \
-    changefacedialog.h \
-    deluserdialog.h \
-    createuserdialog.h \
     passwdcheckutil.h \
     auth.h \
     auth-pam.h \
-    passwordbar.h \
-    numbersbutton.h \
+    passwordbar.h
 #    changepasswd.h \
-    digitalauthdialog.h \
-    phoneauthdialog.h
 
 FORMS += \
-    changegroupdialog.ui \
-    changephonedialog.ui \
-    changevaliddialog.ui \
-    changepindialog.ui \
-    creategroupdialog.ui \
+    changefaceinteldialog.ui \
+    changegroupinteldialog.ui \
+    changephoneinteldialog.ui \
+    changepininteldialog.ui \
+    changepwdinteldialog.ui \
+    changetypeinteldialog.ui \
+    changevalidinteldialog.ui \
+    creategroupinteldialog.ui \
+    createuserinteldialog.ui \
     delgroupdialog.ui \
-    userinfo_intel.ui \
-    changepwddialog.ui \
-    changetypedialog.ui \
-    changefacedialog.ui \
-    deluserdialog.ui \
-    createuserdialog.ui
+    deluserinteldialog.ui \
+    userinfo_intel.ui
 
 INSTALLS += target
 

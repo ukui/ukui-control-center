@@ -19,8 +19,8 @@
  */
 #include "userinfo_intel.h"
 #include "ui_userinfo_intel.h"
-#include "changepindialog.h"
-#include "changepwddialog.h"
+#include "changepininteldialog.h"
+#include "changepwdinteldialog.h"
 
 #include <QDBusInterface>
 #include <QDBusConnection>
@@ -473,12 +473,12 @@ void UserInfo::initComponent(){
     connect(ui->delUserBtn, &QPushButton::clicked, this, [=](bool checked){
 
         UserInfomation user = allUserInfoMap.value(g_get_user_name());
-        DelUserDialog * dialog = new DelUserDialog;
+        DelUserIntelDialog * dialog = new DelUserIntelDialog;
         dialog->setAttribute(Qt::WA_DeleteOnClose);
         dialog->setFace(user.iconfile);
         dialog->setUsername(user.username,user.realname);
 
-        connect(dialog, &DelUserDialog::removefile_send, this, [=](bool removeFile, QString userName){
+        connect(dialog, &DelUserIntelDialog::removefile_send, this, [=](bool removeFile, QString userName){
             qDebug()<<userName;
             QDBusInterface * m_interface = new QDBusInterface("cn.kylinos.SSOBackend",
                                                               "/cn/kylinos/SSOBackend",
@@ -878,9 +878,9 @@ void UserInfo::showCreateUserDialog(){
         usersStringList << tmp.toString();
     }
 
-    CreateUserDialog * dialog = new CreateUserDialog(usersStringList);
+    CreateUserIntelDialog * dialog = new CreateUserIntelDialog(usersStringList);
     dialog->setRequireLabel(pwdMsg);
-    connect(dialog, &CreateUserDialog::newUserWillCreate, this, [=](QString uName, QString pwd, QString pin, int aType){
+    connect(dialog, &CreateUserIntelDialog::newUserWillCreate, this, [=](QString uName, QString pwd, QString pin, int aType){
         createUser(uName, pwd, pin, aType);
     });
     dialog->exec();
@@ -932,11 +932,11 @@ void UserInfo::showDeleteUserDialog(QString username){
 //                                                      QDBusConnection::systemBus());
 //    m_interface->call("DeleteAccount",user.username);
 //    delete m_interface;
-    DelUserDialog * dialog = new DelUserDialog;
+    DelUserIntelDialog * dialog = new DelUserIntelDialog;
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->setFace(user.iconfile);
     dialog->setUsername(user.username,user.realname);
-    connect(dialog, &DelUserDialog::removefile_send, this, [=](bool removeFile, QString userName){
+    connect(dialog, &DelUserIntelDialog::removefile_send, this, [=](bool removeFile, QString userName){
         qDebug()<<userName;
         deleteUser(removeFile, userName);
     });
@@ -991,7 +991,7 @@ void UserInfo::deleteUserDone(QString objpath){
 }
 
 void UserInfo::showChangeGroupDialog(){
-    ChangeGroupDialog * dialog = new ChangeGroupDialog();
+    ChangeGroupIntelDialog * dialog = new ChangeGroupIntelDialog();
     dialog->exec();
 }
 
@@ -999,7 +999,7 @@ void UserInfo::showChangeValidDialog(QString username){
     if (allUserInfoMap.keys().contains(username)){
         UserInfomation user = allUserInfoMap.value(username);
 
-        ChangeValidDialog * dialog = new ChangeValidDialog(user.username);
+        ChangeValidIntelDialog * dialog = new ChangeValidIntelDialog(user.username);
         dialog->setUserName();
         dialog->setUserLogo(user.iconfile);
         dialog->setUserType(_accountTypeIntToString(user.accounttype));
@@ -1015,14 +1015,14 @@ void UserInfo::showChangeTypeDialog(QString username){
     if (allUserInfoMap.keys().contains(username)){
         UserInfomation user = allUserInfoMap.value(username);
 
-        ChangeTypeDialog * dialog = new ChangeTypeDialog;
+        ChangeTypeIntelDialog * dialog = new ChangeTypeIntelDialog;
         dialog->setFace(user.iconfile);
         dialog->setUsername(user.username);
         dialog->setCurrentAccountTypeLabel(_accountTypeIntToString(user.accounttype));
         dialog->setCurrentAccountTypeBtn(user.accounttype);
         dialog->forbidenChange(adminnum);
 //        connect(dialog, SIGNAL(type_send(int,QString,bool)), this, SLOT(change_accounttype_slot(int,QString,bool)));
-        connect(dialog, &ChangeTypeDialog::type_send, this, [=](int atype, QString userName){
+        connect(dialog, &ChangeTypeIntelDialog::type_send, this, [=](int atype, QString userName){
             changeUserType(atype, userName);
         });
         dialog->exec();
@@ -1052,14 +1052,14 @@ void UserInfo::changeUserType(int atype, QString username){
 void UserInfo::showChangeFaceDialog(QString username){
     UserInfomation user = (UserInfomation)(allUserInfoMap.find(username).value());
 
-    ChangeFaceDialog * dialog = new ChangeFaceDialog;
+    ChangeFaceIntelDialog * dialog = new ChangeFaceIntelDialog;
     dialog->setHistoryFacesPath(QString("/home/%1/.historyfaces").arg(user.username));
     dialog->setFace(user.iconfile);
     dialog->setUsername(user.username);
     dialog->setRealname(user.realname);
     dialog->setAccountType(_accountTypeIntToString(user.accounttype));
 //    dialog->set_face_list_status(user.iconfile);
-    connect(dialog, &ChangeFaceDialog::face_file_send, [=](QString faceFile, QString userName){  
+    connect(dialog, &ChangeFaceIntelDialog::face_file_send, [=](QString faceFile, QString userName){
         changeUserFace(faceFile, userName);
 
     });
@@ -1102,19 +1102,19 @@ void UserInfo::showChangePwdDialog(QString username){
     if (allUserInfoMap.keys().contains(username)){
         UserInfomation user = allUserInfoMap.value(username);
 
-        ChangePinDialog * dialog = new ChangePinDialog(user.username);
-        connect(dialog, &ChangePinDialog::changepwd, [=](){
+        ChangePinIntelDialog * dialog = new ChangePinIntelDialog(user.username);
+        connect(dialog, &ChangePinIntelDialog::changepwd, [=](){
             ui->changePwdBtn->setText(tr("Change pwd"));
         });
 //        dialog->setFace(user.iconfile);
 //        dialog->setUsername(user.username);
 //        dialog->setAccountType(_accountTypeIntToString(user.accounttype));
-//        connect(dialog, &ChangePwdDialog::passwd_send, this, [=](QString pwd, QString userName){
+//        connect(dialog, &ChangePwdIntelDialog::passwd_send, this, [=](QString pwd, QString userName){
 //            changeUserPwd(pwd, userName);
 //        });
         //修改PIN码弹窗（已实现PIN码验证，等待设置PIN码接口）
-       //ChangePinDialog * dialog = new ChangePinDialog;
-       //ChangePwdDialog * dialog = new ChangePwdDialog();
+       //ChangePinIntelDialog * dialog = new ChangePinIntelDialog;
+       //ChangePwdIntelDialog * dialog = new ChangePwdIntelDialog();
        dialog->exec();
 
     } else {
@@ -1125,15 +1125,15 @@ void UserInfo::showChangePhoDialog(QString username){
     if (allUserInfoMap.keys().contains(username)){
         UserInfomation user = allUserInfoMap.value(username);
 
-        ChangePhoneDialog * dialog = new ChangePhoneDialog(user.username);
+        ChangePhoneIntelDialog * dialog = new ChangePhoneIntelDialog(user.username);
 //        dialog->setFace(user.iconfile);
 //        dialog->setUsername(user.username);
 //        dialog->setAccountType(_accountTypeIntToString(user.accounttype));
-//        connect(dialog, &ChangePwdDialog::passwd_send, this, [=](QString pwd, QString userName){
+//        connect(dialog, &ChangePwdIntelDialog::passwd_send, this, [=](QString pwd, QString userName){
 //            changeUserPwd(pwd, userName);
 //        });
         //修改PIN码弹窗（已实现PIN码验证，等待设置PIN码接口）
-//        ChangePinDialog * dialog = new ChangePinDialog;
+//        ChangePinIntelDialog * dialog = new ChangePinIntelDialog;
         dialog->exec();
 
     } else {
@@ -1199,7 +1199,7 @@ bool UserInfo::eventFilter(QObject *watched, QEvent *event){
                     } else {
                         qDebug()<<"回车";
                         enter = true;
-                        MessageBoxPower *messageBoxpower = new MessageBoxPower();
+                        MessageBoxPowerIntel *messageBoxpower = new MessageBoxPowerIntel();
                         messageBoxpower->exec();
                         ui->userNameLabel->setText(userreal.property("RealName").toString());
                         ui->editBtn->show();
@@ -1235,7 +1235,7 @@ bool UserInfo::eventFilter(QObject *watched, QEvent *event){
                     if (enter) {
                         enter = false;
                     } else {
-                        MessageBoxPower *messageBoxpower = new MessageBoxPower;
+                        MessageBoxPowerIntel *messageBoxpower = new MessageBoxPowerIntel;
                         messageBoxpower->exec();
                         ui->userNameLabel->setText(userreal.property("RealName").toString());
                         ui->editBtn->show();
