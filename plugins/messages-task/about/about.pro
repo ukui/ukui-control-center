@@ -20,10 +20,12 @@ INCLUDEPATH   +=  \
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 HEADERS += \
-    about.h
+    about.h \
+    trialdialog.h
 
 SOURCES += \
-    about.cpp
+    about.cpp \
+    trialdialog.cpp
 
 FORMS += \
     about.ui
