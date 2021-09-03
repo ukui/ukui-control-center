@@ -175,6 +175,8 @@ private:
 
     int screenEnableCount();
 
+    void setExtendPrimaryScreen();
+
 private:
     Ui::DisplayWindow *ui;
     QMLScreen *mScreen = nullptr;

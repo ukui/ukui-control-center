@@ -43,6 +43,9 @@
 #include <KF5/KScreen/kscreen/edid.h>
 #include <KF5/KScreen/kscreen/types.h>
 
+#include <KF5/KConfigCore/KSharedConfig>
+#include <KF5/KConfigCore/KConfigGroup>
+
 #ifdef signals
 #undef signals
 #endif
@@ -1380,6 +1383,31 @@ int Widget::screenEnableCount()
     return enableCount;
 }
 
+void Widget::setExtendPrimaryScreen()
+{
+    QVector<KScreen::Output *> outputs;
+    Q_FOREACH (const auto &output, mConfig->outputs()) {
+        outputs << output.data();
+    }
+
+    QCryptographicHash hash(QCryptographicHash::Md5);
+    Q_FOREACH (const KScreen::Output *output, outputs) {
+        hash.addData(output->uuid());
+    }
+    QByteArray groupUuid = QByteArray(1, '0').append(hash.result().toHex()).left(15);
+    const auto config = KSharedConfig::openConfig(QLatin1String("ukui-kwinrc"));
+    const auto outputGroup = config->group("DrmOutputs");
+    const auto configGroup = outputGroup.group(groupUuid);
+
+    Q_FOREACH (const auto &output, outputs) {
+        const auto outputConfig = configGroup.group(output->uuid());
+        bool primary = outputConfig.readEntry<bool>("Primary", false);
+        if (primary) {
+            output->setPrimary(true);
+        }
+    }
+}
+
 //通过win+p修改，不存在按钮影响亮度显示的情况，直接就应用了，此时每个屏幕的openFlag是没有修改的，需要单独处理(setScreenKDS)
 void Widget::kdsScreenchangeSlot(QString status)
 {
@@ -1815,6 +1843,7 @@ void Widget::checkOutputScreen(bool judge)
                 }
             }
         }
+        setExtendPrimaryScreen();
     }
     newPrimary->setEnabled(judge);
 
