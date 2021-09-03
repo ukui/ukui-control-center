@@ -3152,7 +3152,6 @@ change system settings</source>
     <name>DelGroupDialog</name>
     <message>
         <location filename="../../../plugins/account/userinfo/delgroupdialog.ui" line="26"/>
-        <location filename="../../../plugins/account/userinfo_intel/delgroupdialog.ui" line="26"/>
         <source>Dialog</source>
         <translation>删除用户组</translation>
     </message>
@@ -3180,24 +3179,16 @@ in the file system invalid!</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/delgroupdialog.cpp" line="81"/>
-        <location filename="../../../plugins/account/userinfo_intel/delgroupdialog.ui" line="82"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo_intel/delgroupdialog.ui" line="38"/>
-        <source>TextLabel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/account/userinfo_intel/delgroupdialog.ui" line="104"/>
         <source>RemoveFile</source>
-        <translation>删除文件</translation>
+        <translation type="vanished">删除文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo_intel/delgroupdialog.ui" line="145"/>
         <source>Remind</source>
-        <translation>提醒</translation>
+        <translation type="vanished">提醒</translation>
     </message>
     <message>
         <source>Are you sure to delete &quot;%1&quot; group, 
@@ -3214,6 +3205,34 @@ in the file system invalid!</source>
     <message>
         <source>Are you sure to delete the group, which will make some file components in the file system invalid!</source>
         <translation type="vanished">确定删除该用户组，这将使得文件系统中的某些文件组件ID无效！</translation>
+    </message>
+</context>
+<context>
+    <name>DelGroupIntelDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/delgroupinteldialog.ui" line="26"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/delgroupinteldialog.ui" line="38"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/delgroupinteldialog.ui" line="82"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/delgroupinteldialog.ui" line="104"/>
+        <source>RemoveFile</source>
+        <translation>删除文件</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/delgroupinteldialog.ui" line="145"/>
+        <source>Remind</source>
+        <translation type="unfinished">提醒</translation>
     </message>
 </context>
 <context>
@@ -9929,40 +9948,15 @@ Please retry or relogin!</source>
         <translation>账户信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="61"/>
-        <source>User Info Intel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="141"/>
-        <source>Change Tel</source>
-        <translation type="unfinished"></translation>
-        <extra-contents_path>/userinfo/Change Tel</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="169"/>
-        <source>Delete user</source>
-        <translation type="unfinished"></translation>
-        <extra-contents_path>/userinfo/Delete user</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="182"/>
         <source>standard user</source>
-        <translation>标准用户</translation>
+        <translation type="vanished">标准用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="184"/>
         <source>administrator</source>
-        <translation>管理员用户</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="727"/>
-        <source>set pwd</source>
-        <translation type="unfinished"></translation>
+        <translation type="vanished">管理员用户</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="536"/>
-        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="193"/>
         <source>root</source>
         <translation>Root</translation>
     </message>
@@ -10061,20 +10055,13 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="41"/>
-        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="77"/>
-        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="135"/>
         <source>Current User</source>
         <translation>当前用户</translation>
-        <extra-contents_path>/userinfo/Current User</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1147"/>
-        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="334"/>
-        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="146"/>
-        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="1107"/>
         <source>Change pwd</source>
         <translation>更改密码</translation>
-        <extra-contents_path>/userinfo/Change pwd</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1134"/>
@@ -10087,29 +10074,8 @@ Please retry or relogin!</source>
         <extra-contents_path>/userinfo/Change valid</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="289"/>
-        <source>Change phone</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="385"/>
         <source>User group</source>
-        <translation>用户组</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="411"/>
-        <source>Del user</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="498"/>
-        <source>system reboot</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="553"/>
-        <source>Unclosed apps start after a restart</source>
-        <translation type="unfinished"></translation>
+        <translation type="vanished">用户组</translation>
     </message>
     <message>
         <source>Change vaild</source>
@@ -10184,6 +10150,58 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="568"/>
+        <source>Other Users</source>
+        <translation>其他用户</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="817"/>
+        <source>Add new user</source>
+        <translation>添加新用户</translation>
+    </message>
+</context>
+<context>
+    <name>UserInfoIntel</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="77"/>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="135"/>
+        <source>Current User</source>
+        <translation>当前用户</translation>
+        <extra-contents_path>/userinfo/Current User</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="289"/>
+        <source>Change phone</source>
+        <translation>更换手机号</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="334"/>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="146"/>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="1107"/>
+        <source>Change pwd</source>
+        <translation>更换密码</translation>
+        <extra-contents_path>/userinfo/Change pwd</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="385"/>
+        <source>User group</source>
+        <translation>用户组</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="411"/>
+        <source>Del user</source>
+        <translation>删除用户</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="498"/>
+        <source>system reboot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="553"/>
+        <source>Unclosed apps start after a restart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="622"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="138"/>
         <source>Other Users</source>
@@ -10191,10 +10209,46 @@ Please retry or relogin!</source>
         <extra-contents_path>/userinfo/Other Users</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="817"/>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="61"/>
+        <source>User Info Intel</source>
+        <translation>账户信息</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="141"/>
+        <source>Change Tel</source>
+        <translation>更换手机号</translation>
+        <extra-contents_path>/userinfo/Change Tel</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="169"/>
+        <source>Delete user</source>
+        <translation>删除用户</translation>
+        <extra-contents_path>/userinfo/Delete user</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="182"/>
+        <source>standard user</source>
+        <translation>标准用户</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="184"/>
+        <source>administrator</source>
+        <translation>管理员用户</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="193"/>
+        <source>root</source>
+        <translation>Root</translation>
+    </message>
+    <message>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="423"/>
         <source>Add new user</source>
         <translation>添加新用户</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="727"/>
+        <source>set pwd</source>
+        <translation>设置密码</translation>
     </message>
 </context>
 <context>
