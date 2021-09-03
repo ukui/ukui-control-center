@@ -5478,45 +5478,95 @@ Please retry or relogin!</source>
         <extra-contents_path>/projection/Open Projection</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/projection.cpp" line="256"/>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="290"/>
         <source>Service exception,please restart the system</source>
         <translation>服务异常，请重启系统</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/projection.cpp" line="262"/>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="284"/>
         <source>Network card is not detected or the driver is not supported.</source>
         <translation>未检测到无线网卡或网卡驱动不支持
 投屏功能不可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/projection.cpp" line="272"/>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="263"/>
         <source>Please keep WLAN on;
 Wireless-network functions will be invalid when the screen projection on</source>
         <translation>使用时请保持WLAN处于开启状态；开启投屏后，无线网络相关功能会失效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/projection.cpp" line="274"/>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="265"/>
         <source>Please keep WLAN on;
 Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>使用时请保持WLAN处于开启状态；开启投屏会短暂中断无线连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/projection.cpp" line="281"/>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="272"/>
         <source>After opening the switch button,open the projection screen in the mobile phone drop-down menu,follow the prompts.See the user manual for details</source>
         <translation>开启投屏后，在手机下拉菜单中打开投屏，根据提示操作。详见用户手册</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/projection.cpp" line="286"/>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="277"/>
         <source>WLAN is off, please turn on WLAN</source>
         <translation>WLAN未开启，请打开WLAN开关</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/projection.cpp" line="292"/>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="295"/>
         <source>Wireless network card is busy. Please try again later</source>
         <translation>无线网卡繁忙，请稍后再试</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/projection.cpp" line="332"/>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="334"/>
+        <source>projection</source>
+        <translation type="unfinished">投屏</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="338"/>
+        <source>Projection is </source>
+        <translation>投屏功能已</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="338"/>
+        <source>on</source>
+        <translation>开启</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="338"/>
+        <source>off</source>
+        <translation>关闭</translation>
+    </message>
+    <message>
+        <source>The projection function is </source>
+        <translation type="vanished">投屏功能已</translation>
+    </message>
+    <message>
+        <source>tuen on</source>
+        <translation type="vanished">打开</translation>
+    </message>
+    <message>
+        <source>turn off</source>
+        <translation type="vanished">关闭</translation>
+    </message>
+    <message>
+        <source>turn on</source>
+        <translation type="obsolete">打开</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="340"/>
+        <source>Please enable or refresh the scan at the projection device</source>
+        <translation>请在投屏设备端开启或刷新扫描</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="340"/>
+        <source>You need to turn on the projection again</source>
+        <translation>需要投屏请再重新开启</translation>
+    </message>
+    <message>
+        <source>You need to turn on the screen again</source>
+        <translation type="vanished">需要投屏请再重新开启</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="351"/>
         <source>Failed to execute. Please reopen the page later</source>
         <translation>执行失败，请再次打开该页面查看</translation>
     </message>
@@ -5525,7 +5575,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">投屏端名称</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/projection/projection.cpp" line="349"/>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="373"/>
         <source>Add Bluetooths</source>
         <translation>添加蓝牙</translation>
     </message>
