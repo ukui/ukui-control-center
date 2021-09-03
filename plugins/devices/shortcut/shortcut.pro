@@ -6,7 +6,7 @@ include($$PROJECT_COMPONENTSOURCE/label.pri)
 include($$PROJECT_COMPONENTSOURCE/frame.pri)
 include($$PROJECT_COMPONENTSOURCE/addbtn.pri)
 
-QT       += widgets dbus KXmlGui KGlobalAccel
+QT       += widgets dbus KXmlGui KGlobalAccel x11extras
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TEMPLATE = lib
@@ -34,6 +34,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    grab-x11.cpp  \
     addshortcutdialog.cpp \
     customlineedit.cpp \
     defineshortcutitem.cpp \
@@ -45,6 +46,7 @@ SOURCES += \
     shortcutline.cpp
 
 HEADERS += \
+    grab-x11.h  \
     addshortcutdialog.h \
     customlineedit.h \
     defineshortcutitem.h \

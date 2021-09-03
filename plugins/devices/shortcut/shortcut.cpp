@@ -535,6 +535,9 @@ QString Shortcut::keyToLib(QString key)
 
 void Shortcut::createNewShortcut(QString path, QString name, QString exec, QString key, bool buildFlag, bool convertFlag)
 {
+    if (key.contains("Meta")) {
+        key.replace("Meta", "Win");
+    }
     qDebug() << "createNewShortcut" << path << name << exec << key;
     QString availablepath;
     if (path.isEmpty()) {
