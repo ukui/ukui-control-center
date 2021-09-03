@@ -1,46 +1,36 @@
 #include "deviceinfoitem.h"
+#include <QStyle>
+#include "bluetoothmessagebox.h"
+#include <QPushButton>
+#include <QAbstractButton>
 
-DeviceInfoItem::DeviceInfoItem(QWidget *parent) : QWidget(parent)
+#define DEV_CONNECTING_TEXT       tr("Connecting")
+#define DEV_DISCONNECTING_TEXT    tr("Disconnecting")
+#define DEV_CONNECTED_TEXT        tr("Connected")
+#define DEV_UNUNITED_TEXT         tr("Ununited")
+#define DEV_CONNECTION_FAIL_TEXT  tr("Connect fail")
+
+DeviceInfoItem::DeviceInfoItem(QWidget *parent, BluezQt::DevicePtr dev):
+    QFrame(parent),
+    _MDev(dev)
 {
+
     if(QGSettings::isSchemaInstalled("org.ukui.style")){
         item_gsettings = new QGSettings("org.ukui.style");
         connect(item_gsettings,&QGSettings::changed,this,&DeviceInfoItem::GSettingsChanges);
     }
 
-    this->setMinimumSize(580,50);
-    this->setMaximumSize(1000,50);
-//    this->setStyleSheet("background:white;");
+    this->setMinimumSize(580,64);
+    this->setMaximumSize(1800,64);
+    //this->setFixedSize(parent->width(),64);
+    this->setObjectName(_MDev? _MDev.data()->address(): "null");
 
-    info_page = new QFrame(this);
-    info_page->setFrameShape(QFrame::Shape::Box);
-//    info_page->setStyleSheet("background:blue;");
-    info_page->setGeometry(0,0,this->width(),this->height());
+    InitMemberVariables();
+    setDeviceConnectSignals();
 
-    QHBoxLayout *info_page_layout = new QHBoxLayout(info_page);
-    info_page_layout->setSpacing(8);
-    info_page_layout->setContentsMargins(16,0,16,0);
+//    this->setProperty("useIconHighlightEffect", 0x8);
+//    this->setProperty("setIconHighlightEffectDefaultColor", QColor(Qt::black));
 
-    device_icon = new QLabel(info_page);
-    info_page_layout->addWidget(device_icon);
-
-    device_name = new QLabel(info_page);
-    info_page_layout->addWidget(device_name);
-    info_page_layout->addStretch();
-
-    device_status = new QLabel(info_page);
-    info_page_layout->addWidget(device_status);
-
-    connect_btn = new QPushButton(tr("Connect"),this);
-    connect_btn->setVisible(false);
-    connect(connect_btn,SIGNAL(clicked(bool)),this,SLOT(onClick_Connect_Btn(bool)));
-
-    disconnect_btn = new QPushButton(tr("Disconnect"),this);
-    disconnect_btn->setVisible(false);
-    connect(disconnect_btn,SIGNAL(clicked(bool)),this,SLOT(onClick_Disconnect_Btn(bool)));
-
-    del_btn = new QPushButton(tr("Remove"),this);
-    del_btn->setVisible(false);
-    connect(del_btn,SIGNAL(clicked(bool)),this,SLOT(onClick_Delete_Btn(bool)));
 }
 
 DeviceInfoItem::~DeviceInfoItem()
@@ -48,315 +38,525 @@ DeviceInfoItem::~DeviceInfoItem()
 
 }
 
-void DeviceInfoItem::initInfoPage(QString d_name, DEVICE_STATUS status, BluezQt::DevicePtr device)
+
+void DeviceInfoItem::InitMemberVariables()
 {
-    this->setObjectName(device->address());
+    _MStatus = Status::Nomal;
+    _clicked = false;
+    _pressFlag = false;
+    _connDevTimeOutFlag = false;
 
-    connect(device.data(),&BluezQt::Device::pairedChanged,this,[=](bool paird){
-        qDebug() << Q_FUNC_INFO  << "pairedChanged" << paird;
-        changeDevStatus(paird);
+    _iconTimer = new QTimer(this);
+    _iconTimer->setInterval(110);
+    connect(_iconTimer,&QTimer::timeout,this,[=]{
+        if (iconFlag == 0)
+            iconFlag = 7;
+        iconFlag--;
+        update();
     });
-    connect(device.data(),&BluezQt::Device::connectedChanged,this,[=](bool connected){
-        qDebug() << Q_FUNC_INFO << "connectedChanged" << connected;
-        setDevConnectedIcon(connected);
+
+    _devConnTimer = new QTimer(this);
+    _devConnTimer->setInterval(5000);
+    connect(_devConnTimer,&QTimer::timeout,this,[=]{
+        _devConnTimer->stop();
+        _iconTimer->stop();
+        _clicked = false;
+        _connDevTimeOutFlag = true ;
+
+        update();
     });
-    connect(device.data(),&BluezQt::Device::nameChanged,this,[=](QString name){
-        qDebug() << Q_FUNC_INFO << "nameChanged" << name;
-        device_name->setText(name);
-    });
 
+    dev_Menu = new QMenu(this);
+    connect(dev_Menu,&QMenu::triggered,this,&DeviceInfoItem::MenuSignalDeviceFunction);
 
-    QIcon icon_status;
-    refresh_device_icon(device->type());
+}
 
-    if(d_name.isEmpty()){
+void DeviceInfoItem::MenuSignalDeviceFunction(QAction *action)
+{
+    if(NULL == _MDev)
         return;
-    }
-    device_name->setText(d_name);
-
-    d_status = status;
-    device_item = device;
-
-    if(d_status == DEVICE_STATUS::LINK){
-        icon_status = QIcon::fromTheme("ukui-dialog-success");
-        device_status->setPixmap(icon_status.pixmap(QSize(24,24)));
-    }
-//    else if(status == DEVICE_STATUS::UNLINK){
-//        icon_status = QIcon::fromTheme("software-update-available-symbolic");
-//        device_status->setPixmap(icon_status.pixmap(QSize(24,24)));
-//    }
-
-    if(item_gsettings->get("style-name").toString() == "ukui-black" || item_gsettings->get("style-name").toString() == "ukui-dark")
+    qDebug() << Q_FUNC_INFO << action->text() ;
+    if(action->text() == tr("Send files"))
     {
-        device_icon->setProperty("setIconHighlightEffectDefaultColor", QColor(Qt::white));
-        device_icon->setProperty("useIconHighlightEffect", 0x10);
-        device_status->setProperty("setIconHighlightEffectDefaultColor", QColor(Qt::white));
-        device_status->setProperty("useIconHighlightEffect", 0x10);
+        qDebug() << Q_FUNC_INFO << "To :" << _MDev->name() << "Send files" << __LINE__;
+        emit devSendFiles(_MDev.data()->address());
+        //Send_files_by_address(action->statusTip());
     }
-
-    AnimationInit();
-}
-void DeviceInfoItem::refresh_device_icon(BluezQt::Device::Type changeType)
-{
-    qDebug() << __FUNCTION__ << "device changeType" << changeType << __LINE__;
-
-    QIcon icon_device;
-    if(changeType == BluezQt::Device::Computer){
-        icon_device = QIcon::fromTheme("computer-symbolic");
-    }else if(changeType == BluezQt::Device::Phone){
-        icon_device = QIcon::fromTheme("phone-apple-iphone-symbolic");
-    }else if((changeType == BluezQt::Device::Headset)||(changeType == BluezQt::Device::Headphones)){
-        icon_device = QIcon::fromTheme("audio-headphones-symbolic");
-    }else if(changeType == BluezQt::Device::Mouse){
-        icon_device = QIcon::fromTheme("input-mouse-symbolic");
-    }else if(changeType == BluezQt::Device::Keyboard){
-        icon_device = QIcon::fromTheme("input-keyboard-symbolic");
-    }else if(changeType == BluezQt::Device::AudioVideo){
-        icon_device = QIcon::fromTheme("audio-card");
-    }else{
-        icon_device = QIcon::fromTheme("bluetooth-symbolic");
-    }
-
-    device_icon->setPixmap(icon_device.pixmap(QSize(24,24)));
-    device_icon->update();
-
-}
-
-
-QString DeviceInfoItem::get_dev_name()
-{
-    return device_item->name();
-}
-
-void DeviceInfoItem::resizeEvent(QResizeEvent *event)
-{
-//    this->resize(event->size());
-    info_page->resize(event->size());
-}
-
-void DeviceInfoItem::enterEvent(QEvent *event)
-{
-    AnimationFlag = true;
-
-    if (device_status->isVisible())
+    else if(action->text() == tr("Remove"))
     {
-        if (LINK == d_status)
+        QPushButton * cancel_btn = new QPushButton(tr("cancel"));
+        QPushButton * remove_btn = new QPushButton(tr("remove"));
+        QMessageBox * removeBox = new QMessageBox;
+        QIcon icon;
+        icon = QIcon::fromTheme("bluetooth");
+        removeBox->setIcon(QMessageBox::Warning);
+        removeBox->setWindowIcon(icon);
+
+        QString title_text = tr("Sure to remove,")+devName+"?";
+        removeBox->setWindowTitle(title_text);
+        removeBox->setText(tr("After removal, the next connection requires matching PIN code!"));
+        removeBox->addButton(cancel_btn,QMessageBox::ButtonRole::RejectRole);
+        removeBox->addButton(remove_btn,QMessageBox::ButtonRole::AcceptRole);
+
+        removeBox->show();
+        removeBox->exec();
+
+        if (removeBox->clickedButton() == remove_btn)
         {
-            device_status->setToolTip(tr("Device connected"));
+            qDebug() << Q_FUNC_INFO << "To :" << _MDev->name() << "Remove" << __LINE__;
+
+            BluezQt::PendingCall * rm_Call= _MDev->adapter()->removeDevice(_MDev);
+            connect(rm_Call,&BluezQt::PendingCall::finished,this,[&](BluezQt::PendingCall *call)
+            {
+                if (!call->error())
+                {
+                    qDebug() << Q_FUNC_INFO << devName << "Remove OK!" << __LINE__;
+                }
+                else
+                {
+                    qDebug() << Q_FUNC_INFO << devName << "Remove fail!" << __LINE__;
+                }
+            });
         }
         else
         {
-            device_status->setToolTip(tr("Device not connected"));
+            qDebug() << Q_FUNC_INFO << "To :" << _MDev->name() << "Cancel" << __LINE__;
+
         }
-        //else //正在连接状态为做对一切换，暂时不加入
-        //{
-        //    device_status->setToolTip(tr("Connecting device"));
-        //}
-
     }
-
-    mouse_timer->start();
 }
 
-void DeviceInfoItem::leaveEvent(QEvent *event)
+
+void DeviceInfoItem::setDeviceCurrentStatus()
 {
-//    QDateTime current_date_time = QDateTime::currentDateTime();
-//    QString current_time = current_date_time.toString("hh:mm:ss.zzz ");
-//    qDebug() << Q_FUNC_INFO << current_time;
-    AnimationFlag = false;
-
-    disconnect_btn->setVisible(false);
-    connect_btn->setVisible(false);
-    del_btn->setVisible(false);
-
-    leave_action->setStartValue(QRect(0, 0, info_page->width(), info_page->height()));
-    leave_action->setEndValue(QRect(0, 0, this->width(), info_page->height()));
-    leave_action->start();
-}
-
-void DeviceInfoItem::onClick_Connect_Btn(bool isclicked)
-{
-    if(!icon_timer&&!connect_timer){
-        icon_timer = new QTimer(this);
-        icon_timer->setInterval(100);
-
-        connect_timer = new QTimer(this);
-        connect_timer->setInterval(10000);
-
-        connect(connect_timer,&QTimer::timeout,this,[=]{
-            if(icon_timer->isActive()){
-                icon_timer->stop();
-                device_status->setPixmap(QIcon::fromTheme("emblem-danger").pixmap(QSize(24,24)));
-                device_status->update();
+    if (NULL != _MDev)
+    {
+        if (_connDevTimeOutFlag)
+        {
+            _DevStatus = DEVICE_STATUS::ERROR;
+            QTimer::singleShot(8000,this,[=]{
+                _connDevTimeOutFlag = false ;
+                update();
+            });
+        }
+        else
+        {
+            if(_MDev.data()->isPaired())
+            {
+                _DevStatus = DEVICE_STATUS::PAIRED;
+                if (_MDev.data()->isConnected())
+                    _DevStatus = DEVICE_STATUS::LINK;
             }
-            connect_timer->stop();
-        });
-
-        emit sendConnectDevice(device_item->address());
-
-        i = 7;
-
-        if(!device_status->isVisible())
-            device_status->setVisible(true);
-
-        connect(icon_timer,&QTimer::timeout,this,[=]{
-            if(i == -1)
-                i = 7;
-            device_status->setPixmap(QIcon::fromTheme("ukui-loading-"+QString::number(i,10)).pixmap(24,24));
-            device_status->update();
-            i--;
-        });
-        connect_timer->start(10000);
-        icon_timer->start(100);
-
-    }else{
-        emit sendConnectDevice(device_item->address());
-        connect_timer->start(10000);
-        icon_timer->start(100);
-        if(!device_status->isVisible())
-            device_status->setVisible(true);
-    }
-}
-
-void DeviceInfoItem::onClick_Disconnect_Btn(bool isclicked)
-{
-//    qDebug() << Q_FUNC_INFO;
-    emit sendDisconnectDeviceAddress(device_item->address());
-}
-
-void DeviceInfoItem::onClick_Delete_Btn(bool isclicked)
-{
-//    qDebug() << Q_FUNC_INFO;
-//    this->setVisible(false);
-    emit sendDeleteDeviceAddress(device_item->address());
-}
-
-void DeviceInfoItem::changeDevStatus(bool pair)
-{
-    if(icon_timer && icon_timer->isActive())
-        icon_timer->stop();
-
-    if(pair){
-        if (!device_item->isConnected()){
-            device_status->setVisible(false);
-            d_status = DEVICE_STATUS::UNLINK;
-        }else{
-            device_status->setVisible(true);
-            d_status = DEVICE_STATUS::LINK;
-            QIcon icon_status = QIcon::fromTheme("ukui-dialog-success");
-            device_status->setPixmap(icon_status.pixmap(QSize(24,24)));
-        }
-        emit sendPairedAddress(device_item->address());
-    }else{
-//        QIcon icon_status = QIcon::fromTheme("software-installed-symbolic");
-//        device_status->setPixmap(icon_status.pixmap(QSize(24,24)));
-    }
-}
-
-void DeviceInfoItem::setDevConnectedIcon(bool connected)
-{
-    if(icon_timer && icon_timer->isActive())
-        icon_timer->stop();
-
-    if(connected && device_item->isPaired()){
-        d_status = DEVICE_STATUS::LINK;
-        device_status->setVisible(true);
-        QIcon icon_status = QIcon::fromTheme("ukui-dialog-success");
-        device_status->setPixmap(icon_status.pixmap(QSize(24,24)));
-
-        if(connect_btn->isVisible()){
-            connect_btn->setVisible(false);
-            disconnect_btn->setGeometry(this->width()-BTN_1_X,2,BTN_1_WIDTH,45);
-            disconnect_btn->setVisible(true);
-        }
-
-    }else{
-        if(disconnect_btn->isVisible()){
-            disconnect_btn->setVisible(false);
-            connect_btn->setGeometry(this->width()-BTN_1_X,2,BTN_1_WIDTH,45);
-            connect_btn->setVisible(true);
-        }
-
-        d_status = DEVICE_STATUS::UNLINK;
-        device_status->setVisible(false);
-    }
-}
-
-void DeviceInfoItem::AnimationInit()
-{
-    mouse_timer = new QTimer(this);
-    mouse_timer->setInterval(300);
-
-    connect(mouse_timer,&QTimer::timeout,this,[=]{
-        if(AnimationFlag){
-            if(leave_action->state() != QAbstractAnimation::Running){
-                enter_action->setStartValue(QRect(0, 0, info_page->width(), info_page->height()));
-                enter_action->setEndValue(QRect(0, 0, info_page->width()-((device_item->isPaired() && device_item->type() != BluezQt::Device::Mouse && device_item->type() != BluezQt::Device::Keyboard)?ITEM_WIDTH:ITEM_WIDTH1), info_page->height()));
-                enter_action->start();
+            else
+            {
+                _DevStatus = DEVICE_STATUS::NONE;
             }
         }
-        mouse_timer->stop();
-    });
-
-    enter_action = new QPropertyAnimation(info_page,"geometry");
-    enter_action->setDuration(0);
-    enter_action->setEasingCurve(QEasingCurve::OutQuad);
-
-    connect(enter_action,&QPropertyAnimation::finished,this,[=]{
-        if (device_item->isPaired()) {
-            if (device_item->type() != BluezQt::Device::Mouse && device_item->type() != BluezQt::Device::Keyboard) {
-                if (d_status == DEVICE_STATUS::LINK){
-                    disconnect_btn->setGeometry(this->width()-BTN_1_X,2,BTN_1_WIDTH,45);
-                    disconnect_btn->setVisible(true);
-                }else if (d_status == DEVICE_STATUS::UNLINK){
-                    connect_btn->setGeometry(this->width()-BTN_1_X,2,BTN_1_WIDTH,45);
-                    connect_btn->setVisible(true);
-                }
-                del_btn->setGeometry(this->width()-BTN_2_X,2,BTN_2_WIDTH,45);
-                del_btn->setVisible(true);
-            }else{
-                del_btn->setGeometry(this->width()-125,2,BTN_1_WIDTH,45);
-                del_btn->setVisible(true);
-            }
-        } else {
-            connect_btn->setGeometry(this->width()-125,2,BTN_1_WIDTH,45);
-            connect_btn->setVisible(true);
-        }
-    });
-
-
-    leave_action = new QPropertyAnimation(info_page,"geometry");
-    leave_action->setDuration(0);
-    leave_action->setEasingCurve(QEasingCurve::InQuad);
-}
-
-void DeviceInfoItem::updateDeviceStatus(DEVICE_STATUS status)
-{
-    QIcon icon_status;
-    if(status == DEVICE_STATUS::LINK){
-        icon_status = QIcon::fromTheme("emblem-default");
-        device_status->setPixmap(icon_status.pixmap(QSize(24,24)));
-    }else if(status == DEVICE_STATUS::UNLINK){
-        icon_status = QIcon::fromTheme("emblem-important");
-        device_status->setPixmap(icon_status.pixmap(QSize(24,24)));
     }
 }
+
 
 void DeviceInfoItem::GSettingsChanges(const QString &key)
 {
     qDebug() << Q_FUNC_INFO << key;
     if(key == "styleName"){
-        if(item_gsettings->get("style-name").toString() == "ukui-black" || item_gsettings->get("style-name").toString() == "ukui-dark")
+        if(item_gsettings->get("style-name").toString() == "ukui-black" ||
+           item_gsettings->get("style-name").toString() == "ukui-dark")
         {
-            device_icon->setProperty("setIconHighlightEffectDefaultColor", QColor(Qt::white));
-            device_icon->setProperty("useIconHighlightEffect", 0x10);
-            device_status->setProperty("setIconHighlightEffectDefaultColor", QColor(Qt::white));
-            device_status->setProperty("useIconHighlightEffect", 0x10);
-        }else{
-            device_icon->setProperty("setIconHighlightEffectDefaultColor", QColor(Qt::black));
-            device_icon->setProperty("useIconHighlightEffect", 0x10);
-            device_status->setProperty("setIconHighlightEffectDefaultColor", QColor(Qt::white));
-            device_status->setProperty("useIconHighlightEffect", 0x10);
+
+        }
+    }
+}
+
+void DeviceInfoItem::setDeviceConnectSignals()
+{
+    if (_MDev)
+    {
+        connect(_MDev.data(),&BluezQt::Device::nameChanged,this,[=](const QString &name)
+        {
+            devName = name ;
+            update();
+        });
+
+        connect(_MDev.data(),&BluezQt::Device::typeChanged,this,[=](BluezQt::Device::Type type)
+        {
+            update();
+        });
+
+        connect(_MDev.data(),&BluezQt::Device::pairedChanged,this,[=](bool paired)
+        {
+            if(_devConnTimer->isActive())
+                _devConnTimer->stop();
+            if (_iconTimer->isActive())
+                _iconTimer->stop();
+            if (paired)
+            {
+                qDebug() << Q_FUNC_INFO << "pairedChanged" << __LINE__;
+                emit devPaired(_MDev->address());
+            }
+            _clicked = false;
+            _connDevTimeOutFlag = false ;
+            update();
+        });
+
+        connect(_MDev.data(),&BluezQt::Device::connectedChanged,this,[=](bool connected)
+        {
+            if(_devConnTimer->isActive())
+                _devConnTimer->stop();
+            if (_iconTimer->isActive())
+                _iconTimer->stop();
+            _clicked = false;
+            _connDevTimeOutFlag = false ;
+            update();
+        });
+    }
+}
+
+void DeviceInfoItem::initInfoPage(QString d_name, DEVICE_STATUS status, BluezQt::DevicePtr device)
+{
+    _MDev      = device;
+    _DevStatus = status;
+    devName    = device->name();
+
+}
+
+
+void DeviceInfoItem::enterEvent(QEvent *event)
+{
+    Q_UNUSED(event);
+
+    _MStatus = Status::Hover;
+    update();
+}
+
+void DeviceInfoItem::leaveEvent(QEvent *event)
+{
+    Q_UNUSED(event);
+
+    _MStatus = Status::Nomal;
+    update();
+}
+
+void DeviceInfoItem::mousePressEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton) {
+        _pressFlag = true;
+    }
+    if (event->button() == Qt::RightButton)
+    {
+        _rightFlag = true;
+    }
+}
+
+void DeviceInfoItem::MouseClickedDevFunc()
+{
+    qDebug () << Q_FUNC_INFO << __LINE__;
+    if (!_MDev->isPaired())
+        return;
+
+    dev_Menu->clear();
+    QPoint currentWPoint = this->pos();
+    QPoint sreenPoint = QWidget::mapFromGlobal(currentWPoint);
+    //qDebug () <<Q_FUNC_INFO << "allPoint--x--y:" << sreenPoint.x() << sreenPoint.y() <<__LINE__;
+
+    QPalette palette;
+    palette.setBrush(QPalette::Base,QColor(Qt::white));
+    palette.setBrush(QPalette::Active, QPalette::Text,QColor(Qt::black));
+
+    dev_Menu->setProperty("setIconHighlightEffectDefaultColor", dev_Menu->palette().color(QPalette::Active, QPalette::Base));
+    dev_Menu->setPalette(palette);
+    dev_Menu->setMinimumWidth(180);
+    QAction *sendfile = new QAction(dev_Menu);
+    sendfile->setText(tr("Send files"));
+    QAction *remove = new QAction(dev_Menu);
+    remove->setText(tr("Remove"));
+
+    dev_Menu->addAction(sendfile);
+    dev_Menu->addSeparator();
+    dev_Menu->addAction(remove);
+
+    //qDebug () << this->x() << this->y() << "======x ======y";
+    dev_Menu->move(qAbs(sreenPoint.x())+this->width()-200,qAbs(sreenPoint.y())+this->y()+40);
+    dev_Menu->exec();
+
+}
+
+void DeviceInfoItem::mouseReleaseEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton && _pressFlag) {
+        MouseClickedFunc();
+    }
+
+    if (event->button() == Qt::RightButton && _rightFlag) {
+        MouseClickedDevFunc();
+    }
+
+}
+
+void DeviceInfoItem::paintEvent(QPaintEvent *event)
+{
+    Q_UNUSED(event);
+
+    QPainter painter(this);
+    painter.setRenderHint(QPainter::Antialiasing);
+    painter.setPen(QColor(Qt::transparent));
+
+    DrawBackground(painter);
+    DrawStatusIcon(painter);
+    DrawText(painter);
+    DrawStatusText(painter);
+
+    if (_MDev.data()->isPaired())
+    {
+        DrawFuncBtn(painter);
+    }
+}
+
+/************************************************
+ * @brief  ?????????????????
+ * @param  null
+ * @return ?????QColor
+*************************************************/
+QColor DeviceInfoItem::getPainterBrushColor()
+{
+    QColor color;
+    switch (_MStatus) {
+    case Status::Nomal:
+        color = QColor(Qt::white);//("#EBEBEB");
+        break;
+    case Status::Hover:
+        color = QColor("#D7D7D7");
+        break;
+    default:
+        color = QColor(Qt::white);//("#EBEBEB");
+        break;
+    }
+    return color;
+}
+
+/************************************************
+ * @brief  ?????????????????????
+ * @param  null
+ * @return ?????QColor
+*************************************************/
+QColor DeviceInfoItem::getDevStatusColor()
+{
+    QColor color;
+
+    if (_MDev) {
+        if (_MDev.data()->isConnected()) {
+            color = QColor("#2FB3E8");
+        } else {
+            color = QColor("#F4F4F4");
+        }
+    } else {
+        color = QColor("#F4F4F4");
+    }
+
+    return color;
+}
+
+/************************************************
+ * @brief  ???????????????
+ * @param  null
+ * @return ?????QPixmap???
+*************************************************/
+QPixmap DeviceInfoItem::getDevTypeIcon()
+{
+    QIcon icon;
+    if (_MDev) {
+        if (_clicked) {
+            icon = QIcon::fromTheme("ukui-loading-" + QString::number(iconFlag));
+        } else {
+            switch (_MDev.data()->type()) {
+            case BluezQt::Device::Phone:
+                icon = QIcon::fromTheme("phone");
+                break;
+            case BluezQt::Device::Computer:
+                icon = QIcon::fromTheme("computer-symbolic");
+                break;
+            case BluezQt::Device::Headset:
+                icon = QIcon::fromTheme("audio-headset-symbolic");
+                break;
+            case BluezQt::Device::Headphones:
+                icon = QIcon::fromTheme("audio-headphones-symbolic");
+                break;
+            case BluezQt::Device::AudioVideo:
+                icon = QIcon::fromTheme("audio-speakers-symbolic");
+                break;
+            case BluezQt::Device::Keyboard:
+                icon = QIcon::fromTheme("input-keyboard-symbolic");
+                break;
+            case BluezQt::Device::Mouse:
+                icon = QIcon::fromTheme("input-mouse-symbolic");
+                break;
+            default:
+                icon = QIcon::fromTheme("bluetooth-active-symbolic");
+                break;
+            }
+        }
+    } else {
+        if (_clicked) {
+            icon = QIcon::fromTheme("ukui-loading-" + QString::number(iconFlag));
+        } else {
+            icon = QIcon::fromTheme("bluetooth-active-symbolic");
+        }
+    }
+
+    return icon.pixmap(18,18);
+}
+
+/************************************************
+ * @brief  ???????????
+ * @param  painter
+ * @return null
+*************************************************/
+void DeviceInfoItem::DrawBackground(QPainter &painter)
+{
+    painter.save();
+    painter.setBrush(getPainterBrushColor());
+    painter.drawRoundedRect(this->rect(),6,6,Qt::AbsoluteSize);
+    painter.restore();
+}
+
+/************************************************
+ * @brief  ??????????????
+ * @param  painter
+ * @return null
+*************************************************/
+void DeviceInfoItem::DrawStatusIcon(QPainter &painter)
+{
+    painter.save();
+    painter.setBrush(getDevStatusColor());
+    painter.drawEllipse(14,8,45,45);
+    painter.setRenderHint(QPainter::SmoothPixmapTransform);
+    style()->drawItemPixmap(&painter, QRect(20, 12, 35, 35), Qt::AlignCenter, getDevTypeIcon());
+    painter.restore();
+}
+
+/************************************************
+ * @brief  ??????????
+ * @param  painter
+ * @return null
+*************************************************/
+void DeviceInfoItem::DrawText(QPainter &painter)
+{
+    painter.save();
+    painter.setPen(QColor(Qt::black));
+    painter.drawText(64,20,200,24,Qt::AlignLeft,_MDev? _MDev.data()->name(): QString("Example"));
+    painter.restore();
+}
+
+void DeviceInfoItem::DrawStatusText(QPainter &painter)
+{
+    setDeviceCurrentStatus();
+
+    painter.save();
+    painter.setPen(QColor(Qt::black));
+
+    if (_clicked)
+    {
+        if (LINK == _DevStatus)
+            painter.drawText(this->width()-210,16,150,24,Qt::AlignRight,DEV_DISCONNECTING_TEXT);
+        else
+        {
+            if (_MDev.data()->isPaired())
+                painter.drawText(this->width()-210,18,150,24,Qt::AlignRight,DEV_CONNECTING_TEXT);
+            else
+                painter.drawText(this->width()-210,18,180,24,Qt::AlignRight,DEV_CONNECTING_TEXT);
+        }
+    }
+    else if (DEVICE_STATUS::ERROR == _DevStatus)
+    {
+        if (_MDev.data()->isPaired())
+            painter.drawText(this->width()-210,18,150,24,Qt::AlignRight,DEV_CONNECTION_FAIL_TEXT);
+        else
+            painter.drawText(this->width()-210,18,180,24,Qt::AlignRight,DEV_CONNECTION_FAIL_TEXT);
+    }
+    else if (DEVICE_STATUS::PAIRED == _DevStatus)
+        painter.drawText(this->width()-210,18,150,24,Qt::AlignRight,DEV_UNUNITED_TEXT);
+    else if (DEVICE_STATUS::LINK == _DevStatus)
+        painter.drawText(this->width()-210,18,150,24,Qt::AlignRight,DEV_CONNECTED_TEXT);
+    else
+        painter.drawText(this->width()-210,18,150,24,Qt::AlignRight,"");
+
+    painter.restore();
+}
+
+void DeviceInfoItem::DrawFuncBtn(QPainter &painter)
+{
+    painter.save();
+    painter.setPen(QColor(Qt::black));
+    //painter.setBrush(getDevStatusColor());
+    //painter.drawEllipse(this->width()-60,12,40,24);
+    painter.drawText(this->width()-60,12,40,24,Qt::AlignRight,". . .");
+    //painter.setRenderHint(QPainter::SmoothPixmapTransform);
+    //style()->drawItemText(&painter, QRect(this->width()-60,12,40,24), Qt::AlignCenter,painter,0, ". . .");
+
+
+    painter.restore();
+}
+
+/************************************************
+ * @brief  ???????????????????
+ * @param  null
+ * @return null
+*************************************************/
+void DeviceInfoItem::MouseClickedFunc()
+{
+    _clicked = true;
+    _pressFlag = false;
+
+    if (_MDev) {
+        if (_MDev.data()->isConnected()) {
+            _MDev.data()->disconnectFromDevice();
+        } else {
+            _MDev.data()->connectToDevice();
+        }
+    }
+
+    //??_iconTimer?????????loading??
+    if (!_iconTimer->isActive())
+    {
+        _iconTimer->start();
+        _devConnTimer->start();
+    }
+}
+
+/************************************************
+ * @brief  ???????????????????????????
+ * @param  null
+ * @return null
+*************************************************/
+void DeviceInfoItem::DevConnectFunc()
+{
+    if (_MDev)
+    {
+        if (_MDev.data()->type() == BluezQt::Device::AudioVideo ||
+            _MDev.data()->type() == BluezQt::Device::Headphones ||
+            _MDev.data()->type() == BluezQt::Device::Headset    ) {
+
+            BluezQt::AdapterPtr MDevAdapter = _MDev.data()->adapter();
+
+            for (auto dev : MDevAdapter.data()->devices()) {
+
+                if (dev.data()->isConnected() && dev.data()->isPaired()) {
+                    if (dev.data()->type() == BluezQt::Device::AudioVideo ||
+                        dev.data()->type() == BluezQt::Device::Headphones ||
+                        dev.data()->type() == BluezQt::Device::Headset    ) {
+
+                        BluezQt::PendingCall *pending = dev.data()->disconnectFromDevice();
+                        connect(pending,&BluezQt::PendingCall::finished,this,[&](BluezQt::PendingCall *call){
+                            if (!call->error()) {
+                                _MDev.data()->connectToDevice();
+                            }
+                        });
+                    }
+                }
+            }
+
+        } else {
+            _MDev.data()->connectToDevice();
         }
     }
 }

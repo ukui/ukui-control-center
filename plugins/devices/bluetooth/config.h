@@ -10,8 +10,10 @@ enum DEVICE_TYPE{
 };
 
 enum DEVICE_STATUS{
-    LINK = 0,
+    NONE = 0,
+    LINK,
     UNLINK,
+    PAIRED,
     ERROR,
     NOT,
 };

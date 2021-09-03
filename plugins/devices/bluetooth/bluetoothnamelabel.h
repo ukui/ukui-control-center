@@ -15,7 +15,7 @@
 #include <QHBoxLayout>
 #include <QMessageBox>
 
-#define DEVNAMELENGTH 20
+#define DEVNAMELENGTH 30
 
 class BluetoothNameLabel : public QWidget
 {
