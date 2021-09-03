@@ -1,6 +1,5 @@
 #include "deviceinfoitem.h"
 #include <QStyle>
-#include "bluetoothmessagebox.h"
 #include <QPushButton>
 #include <QAbstractButton>
 
