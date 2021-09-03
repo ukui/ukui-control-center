@@ -79,3 +79,19 @@ void ChangeUserName::paintEvent(QPaintEvent *event) {
     p.fillPath(rectPath,palette().color(QPalette::Base));
     p.restore();
 }
+
+void ChangeUserName::keyPressEvent(QKeyEvent * event){
+    switch (event->key())
+    {
+    case Qt::Key_Escape:
+        break;
+    case Qt::Key_Enter:
+        break;
+    case Qt::Key_Return:
+        if (ui->saveBtn->isEnabled())
+            ui->saveBtn->clicked();
+        break;
+    default:
+        QDialog::keyPressEvent(event);
+    }
+}
