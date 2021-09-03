@@ -510,7 +510,7 @@ void About::setupSerialComponent()
     }
     mSequenceLabel_2->setText(serial);
 
-    if (dateRes.isNull()) {  //未激活
+    if (dateRes.isEmpty()) {  //未激活
         mTimeLabel_1->hide();
         mTimeLabel_2->hide();
         mStatusLabel_2->setText(tr("Inactivated"));
