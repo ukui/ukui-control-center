@@ -577,7 +577,9 @@ void MainWindow::loadPlugins(){
                 || ("libpower.so" == fileName && !isExitsPower())
                 || ("libtouchscreen.so" == fileName && !isExitTouchScreen())
                 || ("libupdate.so" == fileName && !Utils::isCommunity())
-                || ("libfonts.so") == fileName && Utils::isTablet()) {
+                || ("libfonts.so" == fileName && Utils::isTablet())
+                || ("libuserinfo.so" == fileName) && Utils::isTablet()
+                || ("libuserinfo_intel.so" == fileName) && !Utils::isTablet()) {
             continue;
         }
 
@@ -704,12 +706,9 @@ void MainWindow::initLeftsideBar(){
                     }
                 }
 
-                //Intel的账户信息使用User Info Intel
-                QString sysVersion = "/etc/apt/ota_version";
-                QFile file(sysVersion);
-                bool isIntel = file.exists();
-                if ((isIntel && single.namei18nString == "User Info")
-                    || (!isIntel && single.namei18nString == "User Info Intel")) {
+                // intel与sp1做区分
+                if ((Utils::isTablet() && single.nameString == "Userinfo")
+                    || (!Utils::isTablet() && single.nameString == "Userinfointel")) {
                     continue;
                 }
 

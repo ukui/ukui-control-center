@@ -249,6 +249,7 @@
         <file>plugins/gesture/Showtaskbar.gif</file>
         <file>plugins/gesture/Textselection.gif</file>
         <file>plugins/gesture/Zoompicture.gif</file>
+        <file>secondaryleftmenu/Userinfointel.svg</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>
