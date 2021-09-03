@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DelGroupDialog</class>
- <widget class="QDialog" name="DelGroupDialog">
+ <class>DelGroupIntelDialog</class>
+ <widget class="QDialog" name="DelGroupIntelDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -107,12 +107,12 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>70</x>
      <y>30</y>
-     <width>63</width>
+     <width>82</width>
      <height>32</height>
     </rect>
    </property>

@@ -18,24 +18,30 @@
  *
  */
 
-#include "delgroupdialog.h"
-#include "ui_delgroupdialog.h"
+#ifndef DELGROUPINTELDIALOG_H
+#define DELGROUPINTELDIALOG_H
 
-DelGroupDialog::DelGroupDialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::DelGroupDialog)
-{
-    ui->setupUi(this);
-    ui->labelPic->setPixmap(QPixmap("://img/plugins/desktop/notice.png"));
+#include <QDialog>
+#include <QPixmap>
+#include <QDebug>
+
+namespace Ui {
+class DelGroupIntelDialog;
 }
 
-DelGroupDialog::~DelGroupDialog()
+class DelGroupIntelDialog : public QDialog
 {
-    delete ui;
-}
+    Q_OBJECT
 
-void DelGroupDialog::setNoticeText(QString txt)
-{
-    qDebug() << "setNoticeText" << txt;
-}
+public:
+    explicit DelGroupIntelDialog(QWidget *parent = nullptr);
+    ~DelGroupIntelDialog();
 
+public:
+    void setNoticeText(QString txt);
+
+private:
+    Ui::DelGroupIntelDialog *ui;
+};
+
+#endif // DELGROUPINTELDIALOG_H

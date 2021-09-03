@@ -105,21 +105,21 @@ typedef struct _PwdQualityOption {
 }PwdQualityOption;
 
 namespace Ui {
-class UserInfo;
+class UserInfoIntel;
 }
 
 class QDBusInterface;
 class SwitchButton;
 
-class UserInfo : public QObject, CommonInterface
+class UserInfoIntel : public QObject, CommonInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.kycc.CommonInterface")
     Q_INTERFACES(CommonInterface)
 
 public:
-    UserInfo();
-    ~UserInfo();
+    UserInfoIntel();
+    ~UserInfoIntel();
 
     QString get_plugin_name() Q_DECL_OVERRIDE;
     int get_plugin_type() Q_DECL_OVERRIDE;
@@ -181,7 +181,7 @@ protected:
     bool eventFilter(QObject *watched, QEvent *event);
 
 private:
-    Ui::UserInfo *ui;
+    Ui::UserInfoIntel *ui;
     bool mFirstLoad;
     QString pluginName;
     QString oldName;

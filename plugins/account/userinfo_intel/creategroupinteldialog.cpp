@@ -65,7 +65,7 @@ void CreateGroupIntelDialog::refreshCertainBtnStatus(){
 
 void CreateGroupIntelDialog::getUsersList()
 {
-    UserInfo * userinfo = new UserInfo;
+    UserInfoIntel * userinfo = new UserInfoIntel;
     QStringList usersList = userinfo->getUsersList();
     qDebug() << "CreateGroupIntelDialog::getUsersList" << usersList.at(0) << usersList.at(1);
     for(int i = 0; i < usersList.size(); i++){

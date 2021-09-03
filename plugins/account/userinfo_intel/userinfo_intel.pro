@@ -44,7 +44,7 @@ SOURCES += \
     creategroupinteldialog.cpp \
     createuserinteldialog.cpp \
     definegroupitemintel.cpp \
-    delgroupdialog.cpp \
+    delgroupinteldialog.cpp \
     deluserinteldialog.cpp \
     digitalauthinteldialog.cpp \
     digitalphoneinteldialog.cpp \
@@ -72,7 +72,7 @@ HEADERS += \
     creategroupinteldialog.h \
     createuserinteldialog.h \
     definegroupitemintel.h \
-    delgroupdialog.h \
+    delgroupinteldialog.h \
     deluserinteldialog.h \
     digitalauthinteldialog.h \
     digitalphoneinteldialog.h \
@@ -100,7 +100,7 @@ FORMS += \
     changevalidinteldialog.ui \
     creategroupinteldialog.ui \
     createuserinteldialog.ui \
-    delgroupdialog.ui \
+    delgroupinteldialog.ui \
     deluserinteldialog.ui \
     userinfo_intel.ui
 
