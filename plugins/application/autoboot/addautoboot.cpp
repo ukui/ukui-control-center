@@ -97,7 +97,6 @@ void AddAutoBoot::paintEvent(QPaintEvent *event)
     p.fillPath(rectPath, palette().color(QPalette::Base));
     p.restore();
 }
-
 void AddAutoBoot::initUi(QDialog *AddAutoBoot)
 {
      AddAutoBoot->resize(420, 308);
@@ -106,7 +105,6 @@ void AddAutoBoot::initUi(QDialog *AddAutoBoot)
      mverticalLayout->setContentsMargins(32, 32, 32, 24);
 
      mTitleLabel = new QLabel(AddAutoBoot);
-     mTitleLabel->setFixedHeight(24);
 
      mAppFrame = new QFrame(AddAutoBoot);
      mAppFrame->setFixedSize(356,160);
@@ -125,6 +123,7 @@ void AddAutoBoot::initUi(QDialog *AddAutoBoot)
      mOpenBtn = new QPushButton(mAppFrame);
      mHintLabel = new QLabel(mAppFrame);
 
+     mOpenBtn->setContentsMargins(8, 0, 8, 0);
      mAppLayout->addWidget(mAppNameLabel,0,0,1,2);
      mAppLayout->addWidget(mAppNameEdit,0,2,1,3);
      mAppLayout->addWidget(mAppPathLabel,1,0,1,2);
@@ -164,9 +163,9 @@ void AddAutoBoot::initStyle()
 
     selectFile = "";
 
-    mAppNameEdit->setPlaceholderText(tr("Program name"));
-    mAppPathEdit->setPlaceholderText(tr("Program exec"));
-    mAppBewriteEdit->setPlaceholderText(tr("Program comment"));
+    mAppNameEdit->setPlaceholderText(tr("Name"));
+    mAppPathEdit->setPlaceholderText(tr("Exec"));
+    mAppBewriteEdit->setPlaceholderText(tr("Comment"));
 
     mHintLabel->setAlignment(Qt::AlignLeft);
     mHintLabel->setStyleSheet("color:red;");
@@ -219,9 +218,9 @@ void AddAutoBoot::retranslateUi()
 {
     mHintLabel->setText(QString());
     mTitleLabel->setText(QApplication::translate("AddAutoBoot", "Add autoboot program", nullptr));
-    mAppNameLabel->setText(QApplication::translate("AddAutoBoot", "Program name", nullptr));
-    mAppPathLabel->setText(QApplication::translate("AddAutoBoot", "Program exec", nullptr));
-    mAppBewriteLabel->setText(QApplication::translate("AddAutoBoot", "Program comment", nullptr));
+    mAppNameLabel->setText(QApplication::translate("AddAutoBoot", "Name", nullptr));
+    mAppPathLabel->setText(QApplication::translate("AddAutoBoot", "Exec", nullptr));
+    mAppBewriteLabel->setText(QApplication::translate("AddAutoBoot", "Comment", nullptr));
     mOpenBtn->setText(QApplication::translate("AddAutoBoot", "Open", nullptr));
     mCancelBtn->setText(QApplication::translate("AddAutoBoot", "Cancel", nullptr));
     mCertainBtn->setText(QApplication::translate("AddAutoBoot", "Certain", nullptr));

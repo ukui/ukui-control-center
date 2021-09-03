@@ -21,12 +21,27 @@
 
 ClickLabel::ClickLabel(const QString &text, QWidget *parent)
 {
-    setText(text);
+    setText(abridge(text));
     adjustSize();
 }
 
 ClickLabel::~ClickLabel()
 {
+}
+
+QString ClickLabel::abridge(QString text)
+{
+    if (text == "WiredConnect"){
+        text = "Wired";
+    } else if (text == "WlanConnect") {
+        text = "Wlan";
+    } else if (text == "Background") {
+        text = "Bkgd";
+    } else if (text == "Screensaver") {
+        text = "Scrsa";
+    }
+
+    return text;
 }
 
 void ClickLabel::mousePressEvent(QMouseEvent *event){

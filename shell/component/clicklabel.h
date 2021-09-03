@@ -31,6 +31,8 @@ public:
     explicit ClickLabel(const QString &text, QWidget *parent = 0);
     ~ClickLabel();
 
+    QString abridge(QString text); // 简写英文多长的应用名称
+
 protected:
     void mousePressEvent(QMouseEvent * event);
 
