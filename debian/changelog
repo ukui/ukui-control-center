@@ -1,3 +1,178 @@
+ukui-control-center (3.0.1-1-95.6) v101; urgency=medium
+
+  * 提交commit:e998b0fc
+  * bug#76624 76558 76298 75909 75908 75170:进行汉化和限速接口说明
+  * bug#77620 bug#75106生物识别问题
+  * bug#75505 【蓝牙】已连接蓝牙设备后，关闭蓝牙，“我的设备”列表隐藏存在延迟
+  * bug#76076 【蓝牙】快速开启和关闭蓝牙开关,出现蓝牙开关自动进行开启和关闭，然后提示无蓝牙设配器界面
+  * bug#68753 【控制面板】搜索框中缺失/多余部分搜索项
+  * bug#56977 【用户手册】系统设置部分需要更新
+  * bug#75106 【需求-人脸透传-7691】【控制面板】账户-账户信息-生物密码，生物设备名字后的更多按钮图标展示不对
+  * bug#77620 【用例103807】【生物特征管理工具】人脸录入框录入的人脸变成紫色，与实际情况不符合
+  * bug#77269 【控制面板】英文模式，15号字体时，通知关于字母底部被遮挡
+  * bug#72731日历问题
+  * bug#54275热插拔问题
+  * bug#67256控制面板-安全中心、备份模块手册没有更新
+  * bug#68753 【控制面板】搜索框中缺失/多余部分搜索项
+  * bug#77229 【黄河F20A8 台式机】【系统设置|电源】台式机电源设置中显示电池相关设置
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 02 Sep 2021 09:54:53 +0800
+
+ukui-control-center (3.0.1-1-95.5) v101; urgency=medium
+
+  * 提交commit:01c68572
+  * bug#71782蓝牙设备刷新长时间没反应，搜索不到其他设备
+  * bug#66846蓝牙关闭后无法打开
+  * bug#77012安全-要求用户输入此密码，可填中文
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 30 Aug 2021 15:41:50 +0800
+
+ukui-control-center (3.0.1-1-95.4) v101; urgency=medium
+
+  * 提交commit:0e76a3fa
+  * bug#75756将时间设置为大于系统激活有效期后，系统激活状态仍显示已激活以及有效期
+  * bug#38116,bug#63394用户手册问题
+  * bug#76020电子邮件为空
+  * bug#73460 【控制面板】16号字体下，账户信息中功能名称显示不全
+  * bug#75613延时响应
+  * bug#75688modeid为空导致的崩溃问题
+  * bug#76244检测ESC键盘事件，默认会删掉dialog，改为hide()
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 30 Aug 2021 09:17:22 +0800
+
+ukui-control-center (3.0.1-1-95.3) v101; urgency=medium
+
+  * 使用kscreen保存接口配置
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 27 Aug 2021 15:34:14 +0800
+
+ukui-control-center (3.0.1-1-95.2) v101; urgency=medium
+
+  * 提交commit:90798c9a
+  * fix bug 75410
+  * bug#75807恢复默认的时候不屏蔽掉combox的信号
+  * bug#75613仅解决该bug的时间语言部分
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 24 Aug 2021 19:20:10 +0800
+
+ukui-control-center (3.0.1-1-95.1) v101; urgency=medium
+
+  * task:7491调整字体范围10-15
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 24 Aug 2021 14:05:14 +0800
+
+ukui-control-center (3.0.1-1-95) v101; urgency=medium
+
+  * 提交commit:da97867
+  * bug#75732网络加载失败
+  * bug#75818开机启动默认列表中存在"UKUI桌面"，此必要自启类程序不应该出现在列表中
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 24 Aug 2021 10:35:46 +0800
+
+ukui-control-center (3.0.1-1-94.1) v101; urgency=medium
+
+  * 网络编译失败问题(无需测试)
+
+ -- zhoubin <zhoubin@kylinos.cn>  Sat, 21 Aug 2021 16:44:15 +0800
+
+ukui-control-center (3.0.1-1-94) v101; urgency=medium
+
+  * 提交commit:41a8204
+  * bug#73645
+  * bug#70657安全中心字体显示不全
+
+ -- zhoubin <zhoubin@kylinos.cn>  Sat, 21 Aug 2021 14:16:16 +0800
+
+ukui-control-center (3.0.1-1-93) v101; urgency=medium
+
+  * 提交commit:9d21692
+  * bug#75243通过键盘快捷键调节屏幕亮度，控制面板亮度不会随着实时更新
+  * bug#75251背景设置中更换任意一张壁纸后点击"恢复默认"，壁纸会恢复默认壁纸但是选中框不会恢复
+  * bug#71126 热拔插USB不能实时更新
+  * bug#29118 #bug74084  
+  * bug#74339 【设置】【账户】修改账户名后账户名显示异常
+  * bug#74247 【账户信息】添加用户需要2次授权认证
+  * bug#74186 【账户信息】添加用户后，当前用户的用户名显示异常；重新打开控制面板后显示正常
+  * bug#74030 【账户信息】修改为长用户名后，控制面板用户名显示为空白；重新打开控制面板后显示正常
+  * bug#73535 【账户信息】新密码与原密码相同，重新输入原密码后，没有提示语
+  * bug#73460 【控制面板】16号字体下，账户信息中功能名称显示不全
+  * bug#69793
+  * bug#73731 进度条文字显示不全
+
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 20 Aug 2021 15:55:17 +0800
+
+ukui-control-center (3.0.1-1-92.3) v101; urgency=medium
+
+  * 解决没有编译问题(未定义符号主题iscommunity) 
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 19 Aug 2021 20:11:49 +0800
+
+ukui-control-center (3.0.1-1-92.2) v101; urgency=medium
+
+  * 解决没有编译问题(未定义符号主题iscommunity)
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 19 Aug 2021 20:01:18 +0800
+
+ukui-control-center (3.0.1-1-92.1) v101; urgency=medium
+
+  * 解决没有编译过成的问题(libmatemixer)
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 19 Aug 2021 19:03:04 +0800
+
+ukui-control-center (3.0.1-1-92) v101; urgency=medium
+
+  * 提交commit:b2e71f3
+  * bug#74898去除对libmatemixer-dev的依赖
+  * bug#45617关开蓝牙后，连接我的设备中的蓝牙设备，无法连接成功
+  * bug#74505开机连接双屏，VGA为主屏，HDMI屏为扩展屏，打开控制面板-显示模块，控制面板闪退（1/10）
+  * bug#73382【控制面板】上方搜索输入框点击后，输入框内的图标与输入框左侧边缘距离过小，与ui不符
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 19 Aug 2021 17:12:47 +0800
+
+ukui-control-center (3.0.1-1-91) v101; urgency=medium
+
+  * 提交commit:91ed9ea
+  * bug#62947 【系统设置|账户设置】英文环境16号字体时删除用户组的按钮显示不全
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 18 Aug 2021 09:33:46 +0800
+
+ukui-control-center (3.0.1-1-90) v101; urgency=medium
+
+  * 提交commit:f5ba2c5
+  * bug#68745夜间模式中跟随日出日落设置不生效，目前效果为全天生效 
+  * 任务&&需求:6144自定义电源计划时间单位优化
+  * bug#74333索功能中缺少“字体选择”搜索项
+  * bug:73645 73643解决闪退问题
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 17 Aug 2021 16:00:32 +0800
+
+ukui-control-center (3.0.1-1-89) v101; urgency=medium
+
+  * 提交commit:5b82bd7
+  * bug#66262后台服务会记录亮度值，第一次打开仍有延迟
+  * task#46122人脸显示
+  * bug#71767拔掉触摸屏,触摸屏选项正常消失
+  * bug#62310正常显示触摸屏的设置
+  * bug#63367用户手册触摸屏设置界面与现有系统不符和图片命名不规范
+  * bug#67311切换主题之后，蓝牙列表的图标显示不统一
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 16 Aug 2021 16:54:34 +0800
+
+ukui-control-center (3.0.1-1-88) v101; urgency=medium
+
+  * 提交commit:0bc4974
+  * bug#65917 ukui-control-center存在任意用户密码修改漏洞
+  * bug#73580手动更改时间日期后，区域语言中日期显示不会实时修改，需要重新关开控制面板生效
+  * bug#70272# 扩展双屏设置偏移
+  * 任务6831默认窗口大小下，代理页面开关“开启手动代理”功能引起详情内容跳动
+  * bug#58570 【账户信息】当用户名较长时，控制面板的用户名会被截断
+  * bug#64916 【控制面板】修改用户名后，修改密码时输入当前密码，提示“密码输入错误
+  * bug#70657应用控制与保护首页未能显示完整，建议显示完整
+  * bug#63102可同设置两个不同用户类型的用户为开机自动登录
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 12 Aug 2021 20:33:42 +0800
+
 ukui-control-center (3.0.1-1-87) v101; urgency=medium
 
   * 提交commit:

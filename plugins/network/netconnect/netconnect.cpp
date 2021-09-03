@@ -169,16 +169,6 @@ void NetConnect::initComponent() {
         wifiBtn->blockSignals(true);
         wifiSwitchSlot(checked);
         wifiBtn->blockSignals(false);
-        QElapsedTimer time;
-        time.start();
-        kdsDbus->call("emitRfkillStatusChanged");
-        while (time.elapsed() < 2000) {
-            QCoreApplication::processEvents();
-        }
-        if (m_interface) {
-            m_interface->call("requestRefreshWifiList");
-        }
-        getNetList();
     });
     ui->RefreshBtn->setEnabled(false);
     wifiBtn->setEnabled(false);
@@ -608,7 +598,7 @@ bool NetConnect::getWifiStatus() {
     }
 }
 
-int NetConnect::getWifiListDone(QVector<QStringList> getwifislist, QStringList getlanList) {
+int NetConnect:: getWifiListDone(QVector<QStringList> getwifislist, QStringList getlanList) {
     clearContent();
     mActiveInfo.clear();
     QString speed = getWifiSpeed();
@@ -1031,7 +1021,6 @@ void NetConnect::wifiSwitchSlot(bool status) {
     connect(pThread, &QThread::started, pNetWorker,[=]{
         pNetWorker->run(status);
     });
-    connect(pNetWorker, &NetconnectWork::complete,pNetWorker, &NetconnectWork::deleteLater);
     connect(pNetWorker, &NetconnectWork::complete,[=](){
         pThread->quit();
         pThread->destroyed();

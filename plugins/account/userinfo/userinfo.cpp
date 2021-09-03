@@ -801,7 +801,7 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     QPushButton * typeBtn = new QPushButton(widget);
 //    typeBtn->setFixedSize(88, 36);
     typeBtn->setFixedHeight(36);
-    typeBtn->setMinimumWidth(88);
+    typeBtn->setMinimumWidth(90);
     typeBtn->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
     typeBtn->setText(tr("Change type"));
 //    typeBtn->setStyleSheet(btnQss);
@@ -814,7 +814,7 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     QPushButton * pwdBtn = new QPushButton(widget);
 //    pwdBtn->setFixedSize(88, 36);
     pwdBtn->setFixedHeight(36);
-    pwdBtn->setMinimumWidth(88);
+    pwdBtn->setMinimumWidth(90);
     pwdBtn->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
     pwdBtn->setText(tr("Change pwd"));
 //    pwdBtn->setStyleSheet(btnQss);
@@ -833,7 +833,7 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     widget->setLayout(mainHorLayout);
 
     QPushButton * delBtn = new QPushButton(baseWidget);
-    delBtn->setFixedSize(60, 36);
+    delBtn->setFixedSize(80, 36);
     delBtn->setText(tr("Del"));
 //    delBtn->setStyleSheet("QPushButton{background: #FA6056; border-radius: 4px}");
     delBtn->hide();

@@ -87,12 +87,15 @@ private slots:
     void change_adapter_name(const QString &name);
     void change_device_parent(const QString &address);
     void adapterPoweredChanged(bool value);
-    void delay_adapterPoweredChanged(bool value);
+    //void delay_adapterPoweredChanged(bool value);
     void adapterComboxChanged(int i);
     void adapterNameChanged(const QString &name);
     void adapterDeviceRemove(BluezQt::DevicePtr ptr);
     void MonitorSleepSlot(bool value);
 private:
+
+//============================================================================
+
     QGSettings *settings = nullptr;
     QString Default_Adapter;
     QStringList paired_device_address;
@@ -100,32 +103,6 @@ private:
     QStringList Discovery_device_address;
     QStringList last_discovery_device_address;
 
-    QStringList adapter_address_list;
-    QStringList adapter_name_list;
-
-    QVBoxLayout *main_layout = nullptr;
-    QFrame *frame_2 = nullptr;
-    QComboBox *adapter_list = nullptr;
-
-    QWidget *main_widget = nullptr;
-    QWidget *frame_top = nullptr;
-    QWidget *frame_middle = nullptr;
-    QVBoxLayout *paired_dev_layout = nullptr;
-    QWidget *frame_bottom = nullptr;
-    BluetoothNameLabel *bluetooth_name = nullptr;
-
-    QVBoxLayout *bottom_layout = nullptr;
-    QScrollArea *device_area = nullptr;
-    QWidget * device_list = nullptr;
-    QVBoxLayout *device_list_layout = nullptr;
-
-    BluezQt::Manager *m_manager = nullptr;
-    BluezQt::InitManagerJob  *job = nullptr;
-    BluezQt::AdapterPtr m_localDevice = nullptr;
-
-    SwitchButton *open_bluetooth = nullptr;
-    SwitchButton *show_panel = nullptr;
-    SwitchButton *switch_discover = nullptr;
 
     QLabel *label_2 = nullptr;
     QLabel *loadLabel = nullptr;
@@ -139,7 +116,7 @@ private:
     int IntermittentScann_timer_count = 0 ;
 
     int i = 7;
-    bool show_flag = false;
+    bool myDevShowFlag = false;
     bool sleep_status = false;
 
     void clearUiShowDeviceList();
@@ -147,6 +124,63 @@ private:
 
     void clearAllDeviceItemUi();
     void clearAllTimer();
+
+
+//============================================================================
+
+//new
+
+    BluezQt::Manager *m_manager = nullptr;
+    BluezQt::InitManagerJob  *job = nullptr;
+    BluezQt::AdapterPtr m_localDevice = nullptr;
+
+    SwitchButton *open_bluetooth = nullptr;
+    SwitchButton *show_panel = nullptr;
+    SwitchButton *switch_discover = nullptr;
+
+
+    QVBoxLayout *main_layout = nullptr;
+    QFrame *frame_2 = nullptr;
+    QComboBox *adapter_list = nullptr;
+
+    QWidget *normal_main_widget = nullptr;
+    QWidget *frame_top = nullptr;
+    QWidget *frame_middle = nullptr;
+    QVBoxLayout *paired_dev_layout = nullptr;
+    QWidget *frame_bottom = nullptr;
+    BluetoothNameLabel *bluetooth_name = nullptr;
+
+    QVBoxLayout *bottom_layout = nullptr;
+    QScrollArea *device_area = nullptr;
+    QWidget * device_list = nullptr;
+    QVBoxLayout *device_list_layout = nullptr;
+
+    QStringList adapter_address_list;
+    QStringList adapter_name_list;
+
+
+    QTimer * btPowerBtnTimer = nullptr;
+
+    void InitMainWindowUi();
+    void InitMainWindowTopUi();
+    void InitMainWindowMiddleUi();
+    void InitMainWindowBottomUi();
+    void ShowNormalMainWindow();
+    void ShowSpecialMainWindow();
+
+    QWidget *errorWidget ;
+    void InitMainWindowError();
+    void ShowErrorMainWindow();
+
+    void RefreshWindowUiState();
+    void RefreshMainWindowTopUi();
+    void RefreshMainWindowMiddleUi();
+    void RefreshMainWindowBottomUi();
+
+    void InitBluetoothManager();
+    //void connectAdapterChanged();
+    void connectManagerChanged();
+    void InitAllTimer();
 };
 
 #endif // BLUETOOTHMAIN_H

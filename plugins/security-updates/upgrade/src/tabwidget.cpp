@@ -614,7 +614,7 @@ void TabWid::allComponents()
     DownloadLimitWidget->setFrameShape(QFrame::Box);
     DownloadLimitLayout = new QHBoxLayout();
     DownloadLimitLab = new QLabel();
-    DownloadLimitLab->setText(tr("Download Limit"));
+    DownloadLimitLab->setText(tr("Download Limit(Kb/s)"));
     DownloadLimitBtn = new SwitchButton();
     DownloadLimitValue = new QSpinBox();
     DownloadLimitLayout->addWidget(DownloadLimitLab);

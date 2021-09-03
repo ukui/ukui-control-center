@@ -243,6 +243,7 @@ void EditGroupDialog::signalsBind()
             }
 
             if(box->isChecked()){
+                QDBusReply<bool> replyBefore1 = cgDialog->serviceInterface->call("setPid", int(QCoreApplication::applicationPid()));
                 QDBusReply<bool> reply = cgDialog->serviceInterface->call("addUserToGroup",
                                                 ui->lineEdit_name->text(),box->text());
                 if (reply.isValid()){
@@ -253,6 +254,7 @@ void EditGroupDialog::signalsBind()
                     qDebug() << "addUserToGroup call failed" << reply.error();
                 }
             } else {
+                QDBusReply<bool> replyBefore1 = cgDialog->serviceInterface->call("setPid", int(QCoreApplication::applicationPid()));
                 QDBusReply<bool> reply = cgDialog->serviceInterface->call("delUserFromGroup",
                                                 ui->lineEdit_name->text(),box->text());
                 if (reply.isValid()){
