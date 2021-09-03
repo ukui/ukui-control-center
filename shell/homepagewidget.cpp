@@ -187,7 +187,7 @@ void HomePageWidget::initUI() {
             QString textName = single.namei18nString;
             /* 设计要求，部分首页显示插件名和导航显示名不一致*/
             if (textName == "时间和日期") {
-                textName = "时间和日期";
+                textName = "时间日期";
             } else if (textName == "区域语言") {
                 textName = "语言";
             }
