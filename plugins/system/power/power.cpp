@@ -683,6 +683,12 @@ void Power::setupConnect()
         });
 
         connect(mBatteryComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index) {
+            //当开启了 低电量自动开启节能模式 时，在此低电量范围内调整电池计划，则自动关闭 低电量自动开启节能模式
+            if (!Utils::isWayland() && settings->keys().contains("lowBatteryAutoSave")) {
+                if (mLowSaveBtn->isChecked() &&  getBattery() <= settings->get(PERCENTAGE_LOW).toDouble()) {
+                    mLowSaveBtn->setChecked(false);
+                }
+            }
             settings->set(POWER_POLICY_BATTARY, index + 1);
         });
     }
@@ -702,6 +708,18 @@ void Power::setupConnect()
 
     connect(mNoticeComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index) {
         settings->set(PERCENTAGE_LOW, (index + 1)*10);
+    });
+
+    connect(mLowSaveBtn,&SwitchButton::checkedChanged, [=](bool checked){
+       settings->set(LOW_BATTERY_AUTO_SAVE,checked);
+    });
+
+    connect(mBatterySaveBtn,&SwitchButton::checkedChanged, [=](bool checked){
+       settings->set(ON_BATTERY_AUTO_SAVE,checked);
+    });
+
+    connect(mDisplayTimeBtn,&SwitchButton::checkedChanged, [=](bool checked){
+       settings->set(DISPLAY_LEFT_TIME_OF_CHARGE_AND_DISCHARGE,checked);
     });
 
 }
@@ -840,6 +858,24 @@ bool Power::isExitBattery()
     }
 
     return hasBat;
+}
+
+double Power::getBattery()
+{
+    QDBusInterface *BatteryInterface = new QDBusInterface("org.freedesktop.UPower",
+                       "/org/freedesktop/UPower/devices/battery_BAT0",
+                       "org.freedesktop.DBus.Properties",
+                        QDBusConnection::systemBus(),this);
+
+
+    if (!BatteryInterface->isValid()) {
+        qDebug() << "Create UPower Battery Interface Failed : " <<
+            QDBusConnection::systemBus().lastError();
+        return 0;
+    }
+    QDBusReply<QVariant> BatteryInfo;
+    BatteryInfo = BatteryInterface->call("Get", "org.freedesktop.UPower.Device", "Percentage");
+    return BatteryInfo.value().toDouble();
 }
 
 bool Power::QLabelSetText(QLabel *label, QString string)
