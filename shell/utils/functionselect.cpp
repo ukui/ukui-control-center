@@ -87,6 +87,8 @@ void FunctionSelect::initValueDevice() {
     devicesList[MOUSE].namei18nString = QObject::tr("Mouse");
     devicesList[TOUCHPAD].nameString = QString("Touchpad");
     devicesList[TOUCHPAD].namei18nString = QObject::tr("Touchpad");
+    devicesList[GESTURE].nameString = QString("Gesture");
+    devicesList[GESTURE].namei18nString = QObject::tr("Gesture");
     devicesList[TOUCHSCREEN].nameString = QString("TouchScreen");
     devicesList[TOUCHSCREEN].namei18nString =  QObject::tr("TouchScreen");
     devicesList[TOUCHSCREEN].mainShow = false;
@@ -117,7 +119,9 @@ void FunctionSelect::initValueNetwork() {
     networkList[PROXY].nameString = QString("Proxy");
     networkList[PROXY].namei18nString = QObject::tr("Proxy");
     networkList[PROXY].mainShow = false;
-    
+    networkList[MOBILEHOTSPOT].nameString = QString("MobileHotspot");
+    networkList[MOBILEHOTSPOT].namei18nString = QObject::tr("MobileHotspot");
+    networkList[MOBILEHOTSPOT].mainShow = false;
     funcinfoList.append(networkList);
 }
 
@@ -141,9 +145,6 @@ void FunctionSelect::initValuePersonal() {
     personalizedList[SCREENSAVER].namei18nString = QObject::tr("Screensaver");
     personalizedList[FONTS].nameString = QString("Fonts");
     personalizedList[FONTS].namei18nString = QObject::tr("Fonts");
-    personalizedList[DESKTOP].nameString = QString("Desktop");
-    personalizedList[DESKTOP].namei18nString = QObject::tr("Desktop");
-    personalizedList[DESKTOP].mainShow = false;
 
     funcinfoList.append(personalizedList); 
 }

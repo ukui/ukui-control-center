@@ -3,89 +3,100 @@
 
 #include "config.h"
 
-
-#include <KF5/BluezQt/bluezqt/device.h>
-
-#include <QWidget>
-#include <QLabel>
-#include <QHBoxLayout>
-#include <QPushButton>
 #include <QFrame>
-#include <QPixmap>
-#include <QString>
+#include <KF5/BluezQt/bluezqt/device.h>
+#include <KF5/BluezQt/bluezqt/adapter.h>
+#include <KF5/BluezQt/bluezqt/pendingcall.h>
+#include <QLabel>
 #include <QIcon>
-#include <QDebug>
-#include <QResizeEvent>
-#include <QPropertyAnimation>
+#include <QColor>
+#include <QPainter>
+#include <QMouseEvent>
 #include <QTimer>
-#include <QDateTime>
+#include <QDebug>
+#include <QMenu>
+#include <QMessageBox>
 #include <QString>
-#include <QFont>
+
 #include <QGSettings/QGSettings>
 
+//#include "../config/config.h"
 
-#define ITEM_WIDTH 220
-#define ITEM_WIDTH1 130
-#define BTN_1_X 215
-#define BTN_2_X 90
-#define BTN_1_WIDTH 120
-#define BTN_2_WIDTH 85
+class BluezQt::Device;
 
-class DeviceInfoItem : public QWidget
+class DeviceInfoItem : public QFrame
 {
     Q_OBJECT
 public:
-    explicit DeviceInfoItem(QWidget *parent = nullptr);
+    DeviceInfoItem(QWidget *parent = nullptr,BluezQt::DevicePtr dev = nullptr);
     ~DeviceInfoItem();
     void initInfoPage(QString d_name = "",DEVICE_STATUS status = DEVICE_STATUS::NOT,BluezQt::DevicePtr device = nullptr);
-    QString get_dev_name();
-    void changeDevStatus(bool);
-    void setDevConnectedIcon(bool);
-    void AnimationInit();
-
     void refresh_device_icon(BluezQt::Device::Type changeType);
+
+    void setDeviceCurrentStatus();
+
+    enum Status{
+        Hover = 0,
+        Nomal,
+    };
+    Q_ENUM(Status)
+
+    void InitMemberVariables();
+
 protected:
-    void resizeEvent(QResizeEvent *event);
-    void enterEvent(QEvent *event);
-    void leaveEvent(QEvent *event);
-signals:
-    void sendConnectDevice(QString);
-    void sendDisconnectDeviceAddress(QString);
-    void sendDeleteDeviceAddress(QString);
-    void send_this_item_is_pair();
-    void sendPairedAddress(QString);
+    void enterEvent(QEvent *);
+    void leaveEvent(QEvent *);
+    void mousePressEvent(QMouseEvent *);
+    void mouseReleaseEvent(QMouseEvent *);
+    void paintEvent(QPaintEvent *);
+
 private slots:
-    void onClick_Connect_Btn(bool);
-    void onClick_Disconnect_Btn(bool);
-    void onClick_Delete_Btn(bool);
-    void updateDeviceStatus(DEVICE_STATUS status = DEVICE_STATUS::NOT);
     void GSettingsChanges(const QString &key);
+    void MenuSignalDeviceFunction(QAction *action);
+
+signals:
+
+    void devPaired(QString);
+    void devConnect(QString);
+    void devDisconnect(QString);
+    void devRemove(QString);
+    void devSendFiles(QString);
+
 private:
+    QColor getPainterBrushColor();
+    QColor getDevStatusColor();
+    QPixmap getDevTypeIcon();
+
+    void DrawBackground(QPainter &);
+    void DrawStatusIcon(QPainter &);
+    void DrawText(QPainter &);
+    void DrawStatusText(QPainter &);
+    void DrawFuncBtn(QPainter &);
+
+    void MouseClickedFunc();
+    void MouseClickedDevFunc();
+    void DevConnectFunc();
+    void setDeviceConnectSignals();
+
+    int iconFlag = 7;
+
+    DEVICE_STATUS _DevStatus;
+    Status        _MStatus;
+    QString        devName;
+
+    bool _clicked   ;
+    bool _pressFlag ;
+    bool _connDevTimeOutFlag ;
+    bool _rightFlag ;
+    bool _removeDevFlag ;
+
+    QMenu  *dev_Menu         = nullptr;
+
+
+    QTimer *_iconTimer       = nullptr;
+    QTimer *_devConnTimer    = nullptr;
+    BluezQt::DevicePtr _MDev = nullptr;
+
     QGSettings *item_gsettings = nullptr;
-
-    QWidget *parent_widget = nullptr;
-    QLabel *device_icon = nullptr;
-    QLabel *device_name = nullptr;
-    QLabel *device_status = nullptr;
-
-    BluezQt::DevicePtr device_item = nullptr;
-
-    QPushButton *connect_btn = nullptr;
-    QPushButton *disconnect_btn = nullptr;
-    QPushButton *del_btn = nullptr;
-
-    DEVICE_STATUS d_status;
-
-    QFrame *info_page = nullptr;
-    QTimer *icon_timer = nullptr;
-    QTimer *connect_timer = nullptr;
-    int i = 7;
-
-    QPropertyAnimation *enter_action = nullptr;
-    QPropertyAnimation *leave_action = nullptr;
-
-    bool AnimationFlag = false;
-    QTimer *mouse_timer = nullptr;
 };
-
 #endif // DEVICEINFOITEM_H

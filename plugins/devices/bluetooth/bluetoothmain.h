@@ -2,8 +2,13 @@
 #define BLUETOOTHMAIN_H
 
 #include "SwitchButton/switchbutton.h"
+#include <string>
 
 #include <polkit-qt5-1/PolkitQt1/Authority>
+
+#include <string>
+#include <glib.h>
+#include <glib/gprintf.h>
 
 #include <KF5/BluezQt/bluezqt/adapter.h>
 #include <KF5/BluezQt/bluezqt/manager.h>
@@ -75,6 +80,9 @@ private slots:
     void receiveConnectsignal(QString);
     void receiveDisConnectSignal(QString);
     void receiveRemoveSignal(QString);
+
+    void receiveSendFileSignal(QString);
+
     void Refresh_load_Label_icon();
     void set_tray_visible(bool);
     void set_discoverable(bool);

@@ -224,6 +224,31 @@
         <file>plugins/userinfo_intel/successed.png</file>
         <file>plugins/userinfo_intel/type.svg</file>
         <file>plugins/userinfo_intel/warning.svg</file>
+        <file>secondaryleftmenu/Gesture.svg</file>
+        <file>secondaryleftmenu/GestureWhite.svg</file>
+        <file>plugins/gesture/gesture.ini</file>
+        <file>plugins/gesture/Movingobjects.gif</file>
+        <file>plugins/gesture/pause.png</file>
+        <file>plugins/gesture/play.png</file>
+        <file>plugins/gesture/Showsidebar.png</file>
+        <file>plugins/gesture/Showtaskbar.png</file>
+        <file>plugins/gesture/Textselection.png</file>
+        <file>plugins/gesture/Zoompicture.png</file>
+        <file>plugins/gesture/Rotatethepicture.png</file>
+        <file>plugins/gesture/Programminimization.png</file>
+        <file>plugins/gesture/Movingobjects.png</file>
+        <file>plugins/gesture/Enterglobalsearch.png</file>
+        <file>plugins/gesture/Displaymultitaskingview.png</file>
+        <file>plugins/gesture/Boxselectedobject.png</file>
+        <file>plugins/gesture/Boxselectedobject.gif</file>
+        <file>plugins/gesture/Displaymultitaskingview.gif</file>
+        <file>plugins/gesture/Enterglobalsearch.gif</file>
+        <file>plugins/gesture/Programminimization.gif</file>
+        <file>plugins/gesture/Rotatethepicture.gif</file>
+        <file>plugins/gesture/Showsidebar.gif</file>
+        <file>plugins/gesture/Showtaskbar.gif</file>
+        <file>plugins/gesture/Textselection.gif</file>
+        <file>plugins/gesture/Zoompicture.gif</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>

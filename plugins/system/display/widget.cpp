@@ -304,8 +304,8 @@ void Widget::initNightModeUi()
     mTimeModeLabel->setFixedWidth(200);
     mTimeModeLabel->setText(tr("Time"));
     mTimeModeCombox = new QComboBox(mTimeModeFrame);
-    mTimeModeCombox->setMinimumSize(0, 40);
-    mTimeModeCombox->setMaximumSize(16777215, 40);
+    mTimeModeCombox->setMinimumWidth(0);
+    mTimeModeCombox->setMaximumWidth(16777215);
     mTimeModeLyt->addWidget(mTimeModeLabel);
     mTimeModeLyt->addWidget(mTimeModeCombox);
 
@@ -320,13 +320,13 @@ void Widget::initNightModeUi()
     mCustomTimeLabel->setFixedWidth(350);
     mCustomTimeLabel->setText(tr("Custom Time"));
     mOpenTimeHCombox = new QComboBox(mCustomTimeFrame);
-    mOpenTimeHCombox->setFixedSize(64, 40);
+    mOpenTimeHCombox->setFixedWidth(64);
     mQpenTimeMCombox = new QComboBox(mCustomTimeFrame);
-    mQpenTimeMCombox->setFixedSize(64, 40);
+    mQpenTimeMCombox->setFixedWidth(64);
     mCloseTimeHCombox = new QComboBox(mCustomTimeFrame);
-    mCloseTimeHCombox->setFixedSize(64, 40);
+    mCloseTimeHCombox->setFixedWidth(64);
     mCloseTimeMCombox = new QComboBox(mCustomTimeFrame);
-    mCloseTimeMCombox->setFixedSize(64, 40);
+    mCloseTimeMCombox->setFixedWidth(64);
     mLabel_1 = new QLabel(mCustomTimeFrame);
     mLabel_1->setFixedWidth(20);
     mLabel_1->setText(tr("to"));
@@ -526,7 +526,13 @@ void Widget::slotUnifyOutputs()
             return;
         }
     }
-
+    for (QMLOutput *output: mScreen->outputs()) {
+        if (mUnifyButton->isChecked() && output == base) {
+            output->setIsCloneMode(true, true);
+        } else {
+            output->setIsCloneMode(mUnifyButton->isChecked(), false);
+        }
+    }
     // 取消统一输出
     if (base->isCloneMode() && !mUnifyButton->isChecked()) {
         bool isExistCfg = QFile::exists((QDir::homePath() + "/.config/ukui/ukcc-screenPreCfg.json"));
@@ -580,7 +586,6 @@ void Widget::slotUnifyOutputs()
             }
 
             if (!output->output()->isEnabled()) {
-                output->setVisible(false);
                 continue;
             }
 
@@ -596,14 +601,10 @@ void Widget::slotUnifyOutputs()
             if (base != output) {
                 clones << output->output()->id();
                 output->setCloneOf(base);
-                output->setVisible(false);
             }
         }
 
         base->output()->setClones(clones);
-
-        base->setIsCloneMode(true);
-
         mScreen->updateOutputsPlacement();
 
         // 关闭开关
@@ -949,7 +950,7 @@ bool Widget::isCloneMode()
     }
     if (mConfig->connectedOutputs().count() >= 2) {
         foreach (KScreen::OutputPtr secOutput, mConfig->connectedOutputs()) {
-            if (secOutput->geometry() != output->geometry() || !secOutput->isEnabled()) {
+            if (secOutput->pos() != output->pos() || !secOutput->isEnabled()) {
                 return false;
             }
         }
@@ -1152,20 +1153,6 @@ void Widget::outputAdded(const KScreen::OutputPtr &output, bool connectChanged)
         });
     }
 
-    // 检查统一输出-防止多显示屏幕
-    if (mUnifyButton->isChecked()) {
-        for (QMLOutput *qmlOutput: mScreen->outputs()) {
-            if (!qmlOutput->output()->isConnected()) {
-                continue;
-            }
-            if (!qmlOutput->isCloneMode()) {
-                qmlOutput->blockSignals(true);
-                qmlOutput->setVisible(false);
-                qmlOutput->blockSignals(false);
-            }
-        }
-    }
-
     ui->unionframe->setVisible(false);
     mUnifyButton->setEnabled(mConfig->connectedOutputs().count() > 1);
 
@@ -1201,10 +1188,7 @@ void Widget::outputRemoved(int outputId, bool connectChanged)
             if (!qmlOutput->output()->isConnected()) {
                 continue;
             }
-            qmlOutput->setIsCloneMode(false);
-            qmlOutput->blockSignals(true);
-            qmlOutput->setVisible(true);
-            qmlOutput->blockSignals(false);
+            qmlOutput->setIsCloneMode(false, false);
         }
     }
     ui->unionframe->setVisible(false);
@@ -1917,7 +1901,9 @@ void Widget::initConnection()
     connect(mUnifyButton, &SwitchButton::checkedChanged,
             [this] {
         slotUnifyOutputs();
-        setScreenIsApply(true);
+        /*  bug#54275 避免拔插触发save()
+            setScreenIsApply(true);
+        */
         delayApply();
 		showBrightnessFrame();
     });

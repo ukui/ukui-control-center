@@ -19,6 +19,11 @@
         <translation>版本号</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/about/about.cpp" line="409"/>
+        <source>Status</source>
+        <translation>系统状态</translation>
+    </message>
+    <message>
         <location filename="../../../plugins/system/about/about.cpp" line="411"/>
         <source>DateRes</source>
         <translation>服务到期时间</translation>
@@ -142,9 +147,8 @@
         <translation>用户名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="409"/>
         <source>Active Status</source>
-        <translation>激活状态</translation>
+        <translation type="vanished">激活状态</translation>
     </message>
     <message>
         <source>DataRes</source>
@@ -263,61 +267,73 @@
         <translation type="vanished">添加自启动程序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="221"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="220"/>
         <source>Add autoboot program</source>
         <translation>添加自启动程序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="167"/>
-        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="222"/>
         <source>Program name</source>
-        <translation>程序名</translation>
+        <translation type="vanished">程序名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="168"/>
-        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="223"/>
         <source>Program exec</source>
-        <translation>程序路径</translation>
+        <translation type="vanished">程序路径</translation>
     </message>
     <message>
-        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="225"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="224"/>
         <source>Open</source>
         <translation>浏览</translation>
     </message>
     <message>
-        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="169"/>
-        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="224"/>
         <source>Program comment</source>
+        <translation type="vanished">程序描述</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="166"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="221"/>
+        <source>Name</source>
+        <translation>程序名</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="167"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="222"/>
+        <source>Exec</source>
+        <translation>程序路径</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="168"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="223"/>
+        <source>Comment</source>
         <translation>程序描述</translation>
     </message>
     <message>
-        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="226"/>
-        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="246"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="225"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="245"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="227"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="226"/>
         <source>Certain</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="237"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="236"/>
         <source>Desktop files(*.desktop)</source>
         <translation>桌面文件(*.desktop)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="244"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="243"/>
         <source>select autoboot desktop</source>
         <translation>选择自启动程序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="245"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="244"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="292"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="291"/>
         <source>desktop file not allowed add</source>
         <translation>此应用不允许添加</translation>
     </message>
@@ -326,7 +342,7 @@
         <translation type="vanished">桌面文件已经存在</translation>
     </message>
     <message>
-        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="341"/>
+        <location filename="../../../plugins/application/autoboot/addautoboot.cpp" line="340"/>
         <source>desktop file not exist</source>
         <translation>desktop文件不存在</translation>
     </message>
@@ -3308,72 +3324,57 @@ folder will be deleted!</source>
 <context>
     <name>Desktop</name>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="50"/>
-        <location filename="../../../plugins/personalized/desktop/desktop.cpp" line="132"/>
         <source>Icon Show On Desktop</source>
-        <translation>显示在桌面的图标</translation>
+        <translation type="vanished">显示在桌面的图标</translation>
         <extra-contents_path>/desktop/Icon Show On Desktop</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="128"/>
         <source>Computerdesktop</source>
-        <translation>计算机</translation>
+        <translation type="vanished">计算机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="219"/>
         <source>Trashdesktop</source>
-        <translation>垃圾箱</translation>
+        <translation type="vanished">垃圾箱</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="310"/>
         <source>Homedesktop</source>
-        <translation>家目录</translation>
+        <translation type="vanished">家目录</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="401"/>
         <source>Volumedesktop</source>
-        <translation>挂载卷</translation>
+        <translation type="vanished">挂载卷</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="492"/>
         <source>Networkdesktop</source>
-        <translation>网络</translation>
+        <translation type="vanished">网络</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="527"/>
         <source>Set Start Menu</source>
-        <translation>设置开始菜单</translation>
+        <translation type="vanished">设置开始菜单</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="586"/>
         <source>Always use the start menu in full screen</source>
-        <translation>一直使用全屏&quot;开始&quot;菜单</translation>
+        <translation type="vanished">一直使用全屏&quot;开始&quot;菜单</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="617"/>
         <source>Icon Lock on Menu</source>
-        <translation>锁定在开始菜单的图标</translation>
+        <translation type="vanished">锁定在开始菜单的图标</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="711"/>
         <source>Computermenu</source>
-        <translation>计算机</translation>
+        <translation type="vanished">计算机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="984"/>
         <source>Trashmenu</source>
-        <translation>回收站</translation>
+        <translation type="vanished">回收站</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="893"/>
         <source>Filesystemmenu</source>
-        <translation>个人</translation>
+        <translation type="vanished">个人</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="1035"/>
-        <location filename="../../../plugins/personalized/desktop/desktop.cpp" line="134"/>
         <source>Tray icon</source>
-        <translation>显示在托盘上的图标</translation>
+        <translation type="vanished">显示在托盘上的图标</translation>
         <extra-contents_path>/desktop/Tray icon</extra-contents_path>
     </message>
     <message>
@@ -3381,9 +3382,8 @@ folder will be deleted!</source>
         <translation type="vanished">家目录</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="802"/>
         <source>Settingmenu</source>
-        <translation>设置</translation>
+        <translation type="vanished">设置</translation>
     </message>
     <message>
         <source>Networkmenu</source>
@@ -3394,9 +3394,8 @@ folder will be deleted!</source>
         <translation type="vanished">桌面</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/desktop/desktop.cpp" line="53"/>
         <source>Desktop</source>
-        <translation>桌面</translation>
+        <translation type="vanished">桌面</translation>
     </message>
 </context>
 <context>
@@ -4282,6 +4281,21 @@ folder will be deleted!</source>
     </message>
 </context>
 <context>
+    <name>Gesture</name>
+    <message>
+        <location filename="../../../plugins/devices/gesture/gesture.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/gesture/gesture.cpp" line="6"/>
+        <location filename="../../../plugins/devices/gesture/gesture.cpp" line="58"/>
+        <source>Gesture</source>
+        <translatorcomment>手势</translatorcomment>
+        <translation type="unfinished">手势</translation>
+    </message>
+</context>
+<context>
     <name>HistoryUpdateListWig</name>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/historyupdatelistwig.cpp" line="98"/>
@@ -4302,8 +4316,8 @@ folder will be deleted!</source>
         <translation>设置密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="100"/>
-        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="119"/>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="97"/>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="117"/>
         <source>Password can not be blank</source>
         <translation>密码不能为空</translation>
     </message>
@@ -4323,8 +4337,7 @@ folder will be deleted!</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="95"/>
-        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="123"/>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="121"/>
         <source>less than or equal to 8</source>
         <translation>密码长度需要小于等于８</translation>
     </message>
@@ -4454,6 +4467,26 @@ folder will be deleted!</source>
         <location filename="../../../plugins/account/networkaccount/itemlist.h" line="41"/>
         <source>ShortCut</source>
         <translation>快捷键</translation>
+    </message>
+</context>
+<context>
+    <name>Itemwidget</name>
+    <message>
+        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="80"/>
+        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="195"/>
+        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="230"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="112"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5351,7 +5384,7 @@ Please retry or relogin!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="407"/>
+        <location filename="../../mainwindow.cpp" line="411"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -5360,44 +5393,44 @@ Please retry or relogin!</source>
         <translation type="vanished">设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="427"/>
-        <location filename="../../mainwindow.cpp" line="657"/>
-        <location filename="../../mainwindow.cpp" line="887"/>
+        <location filename="../../mainwindow.cpp" line="431"/>
+        <location filename="../../mainwindow.cpp" line="661"/>
+        <location filename="../../mainwindow.cpp" line="885"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="436"/>
+        <location filename="../../mainwindow.cpp" line="440"/>
         <source>Main menu</source>
         <translation>主菜单</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="437"/>
+        <location filename="../../mainwindow.cpp" line="441"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="438"/>
+        <location filename="../../mainwindow.cpp" line="442"/>
         <source>Maximize/Normal</source>
         <translation>最大化/正常</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="439"/>
+        <location filename="../../mainwindow.cpp" line="443"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="502"/>
+        <location filename="../../mainwindow.cpp" line="506"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="504"/>
+        <location filename="../../mainwindow.cpp" line="508"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="506"/>
+        <location filename="../../mainwindow.cpp" line="510"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
@@ -6742,7 +6775,7 @@ Please retry or relogin!</source>
         <translation type="vanished">字体</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="141"/>
+        <location filename="../../utils/functionselect.cpp" line="145"/>
         <source>Screensaver</source>
         <translation>屏保</translation>
     </message>
@@ -6901,7 +6934,7 @@ Please retry or relogin!</source>
         <translation type="vanished">开机启动</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="91"/>
+        <location filename="../../utils/functionselect.cpp" line="93"/>
         <source>TouchScreen</source>
         <translation>触摸屏</translation>
     </message>
@@ -6946,12 +6979,18 @@ Please retry or relogin!</source>
         <translation>触摸板</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="94"/>
+        <location filename="../../utils/functionselect.cpp" line="91"/>
+        <source>Gesture</source>
+        <translatorcomment>手势</translatorcomment>
+        <translation type="unfinished">手势</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="96"/>
         <source>Keyboard</source>
         <translation>键盘</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="96"/>
+        <location filename="../../utils/functionselect.cpp" line="98"/>
         <source>Shortcut</source>
         <translation>快捷键</translation>
     </message>
@@ -6966,39 +7005,43 @@ Please retry or relogin!</source>
         <translation>蓝牙</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="136"/>
+        <location filename="../../utils/functionselect.cpp" line="140"/>
         <source>Background</source>
         <translation>背景</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="134"/>
+        <location filename="../../utils/functionselect.cpp" line="138"/>
         <source>Theme</source>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="112"/>
+        <location filename="../../utils/functionselect.cpp" line="114"/>
         <source>WiredConnect</source>
         <translation>有线网络</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="114"/>
+        <location filename="../../utils/functionselect.cpp" line="116"/>
         <source>WlanConnect</source>
         <translation>无线局域网</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="138"/>
+        <location filename="../../utils/functionselect.cpp" line="123"/>
+        <source>MobileHotspot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="142"/>
         <source>Screenlock</source>
         <translation>锁屏</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="143"/>
+        <location filename="../../utils/functionselect.cpp" line="147"/>
         <source>Fonts</source>
         <translation>字体</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="145"/>
         <source>Desktop</source>
-        <translation>桌面</translation>
+        <translation type="vanished">桌面</translation>
     </message>
     <message>
         <source>Connect</source>
@@ -7010,7 +7053,7 @@ Please retry or relogin!</source>
         <translation>远程桌面</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="161"/>
+        <location filename="../../utils/functionselect.cpp" line="162"/>
         <source>User Info</source>
         <translation>账户信息</translation>
     </message>
@@ -7033,12 +7076,12 @@ Please retry or relogin!</source>
         <translation type="vanished">网络连接</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="116"/>
+        <location filename="../../utils/functionselect.cpp" line="118"/>
         <source>Vpn</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="118"/>
+        <location filename="../../utils/functionselect.cpp" line="120"/>
         <source>Proxy</source>
         <translation>代理</translation>
     </message>
@@ -7316,92 +7359,96 @@ Please retry or relogin!</source>
         <translation>触摸板管理</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="55"/>
+        <location filename="../../utils/utils.cpp" line="56"/>
         <source>Go to keyboard settings page</source>
         <translation>键盘设置</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="56"/>
+        <location filename="../../utils/utils.cpp" line="57"/>
         <source>Go to shortcut settings page</source>
         <translation>配置快捷键</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="58"/>
+        <location filename="../../utils/utils.cpp" line="59"/>
         <source>Go to bluetooth settings page</source>
         <translation>蓝牙设置</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="60"/>
+        <location filename="../../utils/utils.cpp" line="61"/>
         <source>Go to background settings page</source>
         <translation>配置桌面壁纸</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="61"/>
+        <location filename="../../utils/utils.cpp" line="62"/>
         <source>Go to theme settings page</source>
         <translation>配置主题</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="62"/>
+        <location filename="../../utils/utils.cpp" line="63"/>
         <source>Go to screenlock settings page</source>
         <translation>锁屏设置</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="63"/>
+        <location filename="../../utils/utils.cpp" line="64"/>
         <source>Go to screensaver settings page</source>
         <translation>屏保设置</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="64"/>
+        <location filename="../../utils/utils.cpp" line="65"/>
         <source>Go to fonts settings page</source>
         <translation>配置用户字体</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="67"/>
         <source>Go to netconnect settings page</source>
-        <translation>网络连接</translation>
+        <translation type="vanished">网络连接</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="69"/>
+        <location filename="../../utils/utils.cpp" line="71"/>
         <source>Go to proxy settings page</source>
         <translation>代理设置</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="71"/>
+        <location filename="../../utils/utils.cpp" line="72"/>
+        <source>Go to mobilehotspot settings page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../utils/utils.cpp" line="74"/>
         <source>Go to userinfo settings page</source>
         <translation>管理用户信息</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="72"/>
+        <location filename="../../utils/utils.cpp" line="75"/>
         <source>Go to cloudaccount settings page</source>
         <translation>配置您的网络账户</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="75"/>
+        <location filename="../../utils/utils.cpp" line="78"/>
         <source>Go to area settings page</source>
         <translation>区域语言</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="77"/>
+        <location filename="../../utils/utils.cpp" line="80"/>
         <source>Go to update settings page</source>
         <translation>更新管理</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="78"/>
+        <location filename="../../utils/utils.cpp" line="81"/>
         <source>Go to backup settings page</source>
         <translation>备份管理</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="79"/>
+        <location filename="../../utils/utils.cpp" line="82"/>
         <source>Go to upgrade settings page</source>
         <translation>更新设置</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="82"/>
+        <location filename="../../utils/utils.cpp" line="85"/>
         <source>Go to about settings page</source>
         <translation>此系统的信息</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="83"/>
+        <location filename="../../utils/utils.cpp" line="86"/>
         <source>Go to search settings page</source>
         <translation>搜索</translation>
     </message>
@@ -7411,27 +7458,37 @@ Please retry or relogin!</source>
         <translation>配置电源管理</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="74"/>
+        <location filename="../../utils/utils.cpp" line="77"/>
         <source>Go to datetime settings page</source>
         <translation>管理日期和时间</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="65"/>
+        <location filename="../../utils/utils.cpp" line="66"/>
         <source>Go to desktop settings page</source>
         <translation>配置托盘，开始菜单图标</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="57"/>
+        <location filename="../../utils/utils.cpp" line="58"/>
         <source>Go to audio settings page</source>
         <translation>音量设置</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="81"/>
+        <location filename="../../utils/utils.cpp" line="68"/>
+        <source>Go to wiredconnect settings page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../utils/utils.cpp" line="69"/>
+        <source>Go to wlanconnect settings page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../utils/utils.cpp" line="84"/>
         <source>Go to notice settings page</source>
         <translation>通知管理模块</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="68"/>
+        <location filename="../../utils/utils.cpp" line="70"/>
         <source>Go to vpn settings page</source>
         <translation>VPN模块</translation>
     </message>

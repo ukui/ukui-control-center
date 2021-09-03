@@ -51,6 +51,7 @@ void Utils::setCLIName(QCommandLineParser &parser) {
     QCommandLineOption projectionRoleOption("projection", QObject::tr("Go to projection settings page"));
     QCommandLineOption mouseRoleOption("mouse", QObject::tr("Go to mouse settings page"));
     QCommandLineOption touchpadRoleOption("touchpad", QObject::tr("Go to touchpad settings page"));
+    QCommandLineOption gestureOption("gesture", "Go to gesture settings page");
 //    QCommandLineOption keyboardRoleOption("keyboard", QObject::tr("Go to keyboard settings page"));
     QCommandLineOption keyboardRoleOption(QStringList() << "k" << "keyboard", QObject::tr("Go to keyboard settings page"));
     QCommandLineOption shortcutRoleOption("shortcut", QObject::tr("Go to shortcut settings page"));
@@ -64,9 +65,11 @@ void Utils::setCLIName(QCommandLineParser &parser) {
     QCommandLineOption fontsRoleOption("fonts", QObject::tr("Go to fonts settings page"));
     QCommandLineOption desktopRoleOption(QStringList() << "d" << "desktop", QObject::tr("Go to desktop settings page"));
 
-    QCommandLineOption netconnectRoleOption("netconnect", QObject::tr("Go to netconnect settings page"));
+    QCommandLineOption wiredconnectRoleOption("wiredconnect", QObject::tr("Go to wiredconnect settings page"));
+    QCommandLineOption wlanconnectRoleOption("wlanconnect", QObject::tr("Go to wlanconnect settings page"));
     QCommandLineOption vpnRoleOption(QStringList() << "g" << "vpn", QObject::tr("Go to vpn settings page"));
     QCommandLineOption proxyRoleOption("proxy", QObject::tr("Go to proxy settings page"));
+    QCommandLineOption mobilehotspotRoleOption("mobilehotspot", QObject::tr("Go to mobilehotspot settings page"));
 
     QCommandLineOption userinfoRoleOption(QStringList() << "u" << "userinfo", QObject::tr("Go to userinfo settings page"));
     QCommandLineOption cloudaccountRoleOption("cloudaccount", QObject::tr("Go to cloudaccount settings page"));
@@ -91,9 +94,11 @@ void Utils::setCLIName(QCommandLineParser &parser) {
         if (!getuid() || !geteuid()){
             //时间和日期 | 用户账户 | 电源管理 |网络连接 |网络代理|更新
             parser.addOption(powerRoleOption);
-            parser.addOption(netconnectRoleOption);
+            parser.addOption(wiredconnectRoleOption);
+            parser.addOption(wlanconnectRoleOption);
             parser.addOption(vpnRoleOption);
             parser.addOption(proxyRoleOption);
+            parser.addOption(mobilehotspotRoleOption);
             parser.addOption(userinfoRoleOption);
             parser.addOption(datetimeRoleOption);
             parser.addOption(updateRoleOption);
@@ -103,9 +108,11 @@ void Utils::setCLIName(QCommandLineParser &parser) {
 
     } else {
         parser.addOption(powerRoleOption);
-        parser.addOption(netconnectRoleOption);
+        parser.addOption(wiredconnectRoleOption);
+        parser.addOption(wlanconnectRoleOption);
         parser.addOption(vpnRoleOption);
         parser.addOption(proxyRoleOption);
+        parser.addOption(mobilehotspotRoleOption);
         parser.addOption(userinfoRoleOption);
         parser.addOption(datetimeRoleOption);
         parser.addOption(updateRoleOption);
@@ -115,9 +122,11 @@ void Utils::setCLIName(QCommandLineParser &parser) {
 
 #else
     parser.addOption(powerRoleOption);
-    parser.addOption(netconnectRoleOption);
+    parser.addOption(wiredconnectRoleOption);
+    parser.addOption(wlanconnectRoleOption);
     parser.addOption(vpnRoleOption);
     parser.addOption(proxyRoleOption);
+    parser.addOption(mobilehotspotRoleOption);
     parser.addOption(userinfoRoleOption);
     parser.addOption(datetimeRoleOption);
     parser.addOption(updateRoleOption);
@@ -132,6 +141,7 @@ void Utils::setCLIName(QCommandLineParser &parser) {
     parser.addOption(printerRoleOption);
     parser.addOption(mouseRoleOption);
     parser.addOption(touchpadRoleOption);
+    parser.addOption(gestureOption);
     parser.addOption(keyboardRoleOption);
     parser.addOption(shortcutRoleOption);
     parser.addOption(audioRoleOption);

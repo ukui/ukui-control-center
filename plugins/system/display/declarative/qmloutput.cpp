@@ -296,16 +296,19 @@ void QMLOutput::setOutputY(int y)
     Q_EMIT outputYChanged();
 }
 
+bool QMLOutput::isCloneModeShow() const
+{
+    return m_cloneModeShow;
+}
+
 bool QMLOutput::isCloneMode() const
 {
     return m_isCloneMode;
 }
 
-void QMLOutput::setIsCloneMode(bool isCloneMode)
+void QMLOutput::setIsCloneMode(bool isCloneMode, bool cloneModeShow)
 {
-    if (m_isCloneMode == isCloneMode) {
-        return;
-    }
+    m_cloneModeShow = cloneModeShow;
 
     m_isCloneMode = isCloneMode;
     Q_EMIT isCloneModeChanged();

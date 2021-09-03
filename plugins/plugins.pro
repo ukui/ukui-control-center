@@ -7,6 +7,7 @@ SUBDIRS = \
           devices/keyboard \
           devices/touchpad \
           devices/audio \
+          devices/gesture \
           application/defaultapp \
           application/autoboot \
           system/about \
@@ -21,7 +22,6 @@ SUBDIRS = \
           personalized/screenlock \
           personalized/fonts \
           personalized/screensaver \
-          personalized/desktop \
           network/netconnect \
           network/wlanconnect \
           network/vpn \

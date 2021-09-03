@@ -109,6 +109,8 @@ void MainWindow::bootOptionsFilter(QString opt) {
         bootOptionsSwitch(DEVICES, MOUSE);
     } else if (opt == "--touchpad") {
         bootOptionsSwitch(DEVICES, TOUCHPAD);
+    } else if (opt == "--gesture") {
+        bootOptionsSwitch(DEVICES, GESTURE);
     } else if (opt == "--touchscreen") {
         bootOptionsSwitch(DEVICES, TOUCHSCREEN);
     } else if (opt == "--keyboard") {
@@ -119,6 +121,8 @@ void MainWindow::bootOptionsFilter(QString opt) {
         bootOptionsSwitch(NETWORK, WIREDCONNECT);
     } else if (opt == "--wlanconnect") {
         bootOptionsSwitch(NETWORK, WLANCONNECT);
+    } else if (opt == "--mobilehotspot") {
+        bootOptionsSwitch(NETWORK, MOBILEHOTSPOT);
     } else if (opt == "--vpn" || opt == "-g") {
         bootOptionsSwitch(NETWORK, VPN);
     } else if (opt == "--proxy") {

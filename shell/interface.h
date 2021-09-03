@@ -59,6 +59,7 @@ enum DevicesIndex{
     PRINTER,
     MOUSE,
     TOUCHPAD,
+    GESTURE,
     TOUCHSCREEN,
     KEYBOARD,
     SHORTCUT,
@@ -70,6 +71,7 @@ enum NetworkIndex{
     WLANCONNECT,
     VPN,
     PROXY,
+    MOBILEHOTSPOT,
     TOTALNETFUNC,
 };
 
