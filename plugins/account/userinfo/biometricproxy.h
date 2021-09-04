@@ -161,7 +161,7 @@ Q_SIGNALS:
      * @param deviceNum 插拔动作后该驱动拥有的设备数量
      */
     void USBDeviceHotPlug(int drvid, int action, int deviceNum);
-
+    void FeatureChanged(int drvid ,int uid,int cType);
 };
 
 #endif // BIOMETRICPROXY_H
