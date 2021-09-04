@@ -219,6 +219,7 @@ BlueToothMain::BlueToothMain(QWidget *parent)
     InitBluetoothManager();
     //刷新界面状态
     RefreshWindowUiState();
+
     return;
 
 
@@ -241,8 +242,8 @@ BlueToothMain::BlueToothMain(QWidget *parent)
 
     //qDebug() << m_localDevice->name() << m_localDevice->isPowered() << m_localDevice->isDiscoverable() << m_localDevice->isDiscovering() << m_localDevice->address();
 
-    qDebug() << Q_FUNC_INFO << "showNormalMainWindow" << __LINE__;
-    showNormalMainWindow();
+    qDebug() << Q_FUNC_INFO << "ShowNormalMainWindow" << __LINE__;
+    //showNormalMainWindow();
 
 }
 
@@ -360,14 +361,12 @@ void BlueToothMain::InitBluetoothManager()
     qDebug() << m_manager->isOperational() << m_manager->isBluetoothBlocked();
     updateAdaterInfoList();
     m_localDevice = getDefaultAdapter();
+
     if (nullptr == m_localDevice)
     {
         qDebug() << Q_FUNC_INFO << "m_localDevice is nullptr";
     }
     connectManagerChanged();
-//    rfkill_init();
-//    rfkill_set_idx();
-
 }
 /*
  * InitMainWindowUi:
@@ -411,17 +410,6 @@ void BlueToothMain::RefreshWindowUiState()
 
     if (nullptr != m_manager)
     {
-        if(m_manager->adapters().size() > 1)
-        {
-            frame_top->setMinimumSize(582,239);
-            frame_top->setMaximumSize(1000,239);
-        }
-        else
-        {
-            frame_top->setMinimumSize(582,187);
-            frame_top->setMaximumSize(1000,187);
-        }
-
         RefreshMainWindowTopUi();
         RefreshMainWindowMiddleUi();
         RefreshMainWindowBottomUi();
@@ -442,8 +430,8 @@ void BlueToothMain::RefreshWindowUiState()
             ShowNormalMainWindow();
         }
 
+        adapterConnectFun();
     }
-
 
 }
 
@@ -500,8 +488,10 @@ void BlueToothMain::InitMainWindowTopUi()
     frame_2->setMinimumWidth(582);
     frame_2->setFrameShape(QFrame::Shape::Box);
     frame_2->setFixedHeight(50);
-    if(adapter_address_list.size() <= 1)
+    //if(adapter_address_list.size() <= 1)
         frame_2->setVisible(false);
+    frame_top->setMinimumSize(582,187);
+    frame_top->setMaximumSize(1000,187);
     layout->addWidget(frame_2);
 
     QHBoxLayout *frame_2_layout = new QHBoxLayout(frame_2);
@@ -588,8 +578,6 @@ void BlueToothMain::RefreshMainWindowTopUi()
 {
     qDebug () << Q_FUNC_INFO << "in" ;
 
-    adapterConnectFun();
-
     if (spe_bt_node && not_hci_node)
     {
         bluetooth_name->setVisible(false);
@@ -606,7 +594,7 @@ void BlueToothMain::RefreshMainWindowTopUi()
     if (nullptr != m_localDevice)
     {
         open_bluetooth->setChecked(m_localDevice->isPowered());
-        emit m_localDevice->poweredChanged(m_localDevice->isPowered());
+        adapterPoweredChanged(m_localDevice->isPowered());
 
         switch_discover->setChecked(m_localDevice->isDiscoverable());
         frame_bottom->setVisible(m_localDevice->isPowered());
@@ -618,10 +606,71 @@ void BlueToothMain::RefreshMainWindowTopUi()
         frame_middle->setVisible(false);
     }
 
+    if((adapter_address_list.size() == adapter_name_list.size()) && (adapter_address_list.size() == 1))
+    {
+        frame_2->setVisible(false);
+        frame_top->setMinimumSize(582,187);
+        frame_top->setMaximumSize(1000,187);
+    }
+    else if((adapter_address_list.size() == adapter_name_list.size()) && (adapter_address_list.size() > 1))
+    {
+        if(!frame_2->isVisible())
+            frame_2->setVisible(true);
+        frame_top->setMinimumSize(582,239);
+        frame_top->setMaximumSize(1000,239);
+    }
     qDebug () << Q_FUNC_INFO << "end" ;
 
 }
 
+void BlueToothMain::addAdapterList(QString newAdapterAddress,QString newAdapterName)
+{
+    qDebug () << Q_FUNC_INFO << __LINE__ ;
+    if (adapter_address_list.indexOf(newAdapterAddress) == -1)
+    {
+        adapter_address_list << newAdapterAddress ;
+        adapter_name_list << newAdapterName ;
+        qDebug () << Q_FUNC_INFO << "";
+        adapter_list->addItem(newAdapterName);
+        int current_index = adapter_address_list.indexOf(m_localDevice->address());
+        adapter_list->setCurrentIndex(current_index);
+
+    }
+
+    qDebug () << Q_FUNC_INFO << adapter_address_list << __LINE__ ;
+    qDebug () << Q_FUNC_INFO << adapter_name_list << __LINE__ ;
+}
+
+void BlueToothMain::removeAdapterList(QString adapterAddress,QString adapterName)
+{
+    qDebug () << Q_FUNC_INFO << adapterName  << adapterAddress <<__LINE__ ;
+    qDebug () << Q_FUNC_INFO << adapter_address_list << __LINE__ ;
+    qDebug () << Q_FUNC_INFO << adapter_name_list << __LINE__ ;
+
+    int index = adapter_address_list.indexOf(adapterAddress);
+    if(index < adapter_address_list.size() && index < adapter_name_list.size())
+    {
+        qDebug () << Q_FUNC_INFO << "removeAdapterList index:" << index ;
+        if (index != -1)
+        {
+            adapter_address_list.removeAt(index);
+            adapter_name_list.removeAt(index);
+            //
+            qDebug () << Q_FUNC_INFO << "disconnect of adapter_list" ;
+            disconnect(adapter_list, SIGNAL(currentIndexChanged(int)), nullptr, nullptr);
+            adapter_list->clear();
+            adapter_list->addItems(adapter_name_list);
+            //adapter_list->removeItem(index);
+            qDebug () << Q_FUNC_INFO << "add connect of adapter_list" ;
+            connect(adapter_list,SIGNAL(currentIndexChanged(int)),this,SLOT(adapterComboxChanged(int)));
+            if (adapter_address_list.size() >= 1 && adapter_name_list.size() >= 1)
+                adapterComboxChanged(0);
+        }
+    }
+
+    qDebug () << Q_FUNC_INFO << adapter_address_list << __LINE__ ;
+    qDebug () << Q_FUNC_INFO << adapter_name_list << __LINE__ ;
+}
 
 void BlueToothMain::RefreshMainWindowMiddleUi()
 {
@@ -640,14 +689,14 @@ void BlueToothMain::RefreshMainWindowMiddleUi()
     }
     device_list_layout->addStretch();
     qDebug() << Q_FUNC_INFO << m_localDevice->devices().size() << myDevShowFlag;
-    if(m_localDevice->isPowered()){
+    qDebug() << Q_FUNC_INFO << m_localDevice->isPowered();
+    if(m_localDevice->isPowered())
+    {
         if(myDevShowFlag)
             frame_middle->setVisible(true);
         else
             frame_middle->setVisible(false);
     }
-
-
 }
 
 void  BlueToothMain::RefreshMainWindowBottomUi()
@@ -655,12 +704,18 @@ void  BlueToothMain::RefreshMainWindowBottomUi()
     qDebug () << Q_FUNC_INFO << "in" ;
     if (nullptr == m_localDevice)
         return;
+
     if(m_localDevice->isPowered())
     {
 
+        frame_bottom->setVisible(true);
         if (m_localDevice->isDiscovering())
            m_timer->start();
-        delayStartDiscover_timer->start();
+        //delayStartDiscover_timer->start();
+    }
+    else
+    {
+        frame_bottom->setVisible(false);
     }
 }
 
@@ -737,13 +792,41 @@ void BlueToothMain::InitMainWindowBottomUi()
 void BlueToothMain::ShowNormalMainWindow()
 {
     qDebug()<< Q_FUNC_INFO << __LINE__;
-    //RefreshWindowUiState();
+    if (m_manager->adapters().size() > 1)
+    {
+        if(!frame_2->isVisible())
+            frame_2->setVisible(true);
+        frame_top->setMinimumSize(582,239);
+        frame_top->setMaximumSize(1000,239);
+    }
+    else
+    {
+        if(frame_2->isVisible())
+            frame_2->setVisible(false);
+        frame_top->setMinimumSize(582,187);
+        frame_top->setMaximumSize(1000,187);
+    }
+
     this->setCentralWidget(normal_main_widget);
 }
 void BlueToothMain::ShowSpecialMainWindow()
 {
     qDebug()<< Q_FUNC_INFO << __LINE__;
     bluetooth_name->setVisible(false);
+
+    if((adapter_address_list.size() == adapter_name_list.size()) && (adapter_address_list.size() == 1))
+    {
+        frame_top->setMinimumSize(582,187);
+        frame_top->setMaximumSize(1000,187);
+    }
+    else if((adapter_address_list.size() == adapter_name_list.size()) && (adapter_address_list.size() > 1))
+    {
+        if(!frame_2->isVisible())
+            frame_2->setVisible(true);
+        frame_top->setMinimumSize(582,239);
+        frame_top->setMaximumSize(1000,239);
+    }
+
     frame_middle->setVisible(false);
     frame_bottom->setVisible(false);
 
@@ -805,72 +888,44 @@ void BlueToothMain::connectManagerChanged()
     connect(m_manager,&BluezQt::Manager::adapterAdded,this,[=](BluezQt::AdapterPtr adapter)
     {
         qDebug() << Q_FUNC_INFO << "adapterAdded";
-        if (adapter_address_list.indexOf(adapter.data()->address()) == -1)
-        {
-            adapter_address_list << adapter.data()->address();
-            adapter_name_list << adapter.data()->name();
-        }
-
+        addAdapterList(adapter->address(),adapter->name());
         qDebug() << Q_FUNC_INFO << adapter_address_list << "===" << adapter_name_list;
-
-        if((adapter_address_list.size() == adapter_name_list.size()) && (adapter_address_list.size() == 1))
-        {
-            frame_top->setMinimumSize(582,187);
-            frame_top->setMaximumSize(1000,187);
-        }
-        else if((adapter_address_list.size() == adapter_name_list.size()) && (adapter_address_list.size() > 1))
-        {
-            if(!frame_2->isVisible())
-                frame_2->setVisible(true);
-            frame_top->setMinimumSize(582,239);
-            frame_top->setMaximumSize(1000,239);
-        }
 
         m_localDevice = getDefaultAdapter();
         adapterConnectFun();
 
-        if (m_manager->adapters().size() > 1)
-        {
-            adapter_list->clear();
-            adapter_list->addItems(adapter_name_list);
-            adapter_list->setCurrentIndex(adapter_address_list.indexOf(m_localDevice.data()->name()));
-        }
-
         M_adapter_flag = true;
-        if (spe_bt_node)
+        if (spe_bt_node && M_power_on)
         {
             not_hci_node = false;
-            onClick_Open_Bluetooth(true);
+            if(m_manager->adapters().size() == 1)
+                onClick_Open_Bluetooth(true);
         }
 
         if (this->centralWidget()->objectName() == "errorWidget" ||
             this->centralWidget()->objectName() == "SpeNoteWidget")
         {
             ShowNormalMainWindow();
-            RefreshMainWindowMiddleUi();
+            //RefreshMainWindowMiddleUi();
         }
+        else
+        {
+            ShowNormalMainWindow();
+            //RefreshWindowUiState();
+        }
+
     });
 
     connect(m_manager,&BluezQt::Manager::adapterRemoved,this,[=](BluezQt::AdapterPtr adapter)
     {
         qDebug() << Q_FUNC_INFO << "adapterRemoved";
+        qDebug() << Q_FUNC_INFO << "Removed" << adapter->address() << adapter->name();
+        removeAdapterList(adapter->address(),adapter->name());
+        qDebug() << Q_FUNC_INFO << __LINE__ << adapter_list->count() << adapter_address_list << adapter_name_list;
 
-        int i = adapter_address_list.indexOf(adapter.data()->address());
-        qDebug() << Q_FUNC_INFO << __LINE__ << adapter_list->count() << adapter_address_list << adapter_name_list << i;
-        adapter_name_list.removeAt(i);
-        adapter_address_list.removeAll(adapter.data()->address());
+        m_localDevice = getDefaultAdapter();
+        adapterConnectFun();
 
-        if (m_manager->adapters().size())
-        {
-            adapter_list->removeItem(i);
-        }
-
-        if((adapter_address_list.size() == adapter_name_list.size())&&(adapter_name_list.size() == 1))
-        {
-            frame_2->setVisible(false);
-            frame_top->setMinimumSize(582,135);
-            frame_top->setMaximumSize(1000,135);
-        }
         qDebug() << Q_FUNC_INFO << adapter_address_list.size();
         if (adapter_address_list.size() == 0)
         {
@@ -884,15 +939,27 @@ void BlueToothMain::connectManagerChanged()
                     ShowErrorMainWindow();
             }
         }
+        else if (adapter_address_list.size() >= 1)
+        {
+            ShowNormalMainWindow();
+        }
     });
 
 
     connect(m_manager,&BluezQt::Manager::adapterChanged,this,[=](BluezQt::AdapterPtr adapter)
     {
-        qDebug() << Q_FUNC_INFO << "adapterChanged" ;
-
-        if (m_localDevice->address() == adapter.data()->address())
-            m_localDevice = adapter;
+        //qDebug() << Q_FUNC_INFO << "adapterChanged" ;
+        //qDebug() << Q_FUNC_INFO << adapter->name() << adapter->address();
+        if(nullptr != m_localDevice)
+        {
+            //qDebug() << Q_FUNC_INFO << "adapterChanged=======" ;
+            if (m_localDevice->address() == adapter.data()->address())
+                m_localDevice = adapter;
+        }
+        else
+        {
+            //m_localDevice = adapter;
+        }
     });
 
     connect(m_manager,&BluezQt::Manager::usableAdapterChanged,this,[=](BluezQt::AdapterPtr adapter)
@@ -1305,7 +1372,7 @@ void BlueToothMain::adapterChanged()
 
         m_localDevice = getDefaultAdapter();
         M_adapter_flag = true ;
-        if (spe_bt_node) //&& M_power_on
+        if (spe_bt_node && M_power_on)
         {
             onClick_Open_Bluetooth(true);
         }
@@ -1315,7 +1382,7 @@ void BlueToothMain::adapterChanged()
 
         if (this->centralWidget()->objectName() == "errorWidget" ||
             this->centralWidget()->objectName() == "SpeNoteWidget") {
-            showNormalMainWindow();
+            ShowNormalMainWindow();
         }
 
         if (m_manager->adapters().size() > 1) {
@@ -1352,32 +1419,20 @@ void BlueToothMain::updateUIWhenAdapterChanged()
     qDebug() << Q_FUNC_INFO << __LINE__;
 
     adapterConnectFun();
-//    if (m_localDevice->isDiscovering())
-//    {
-//        loadLabel->setVisible(true);
-//        if (!m_timer->isActive())
-//            m_timer->start();
-//        //discovering_timer->start();
-//    }
-
-    connect(m_localDevice.data(),&BluezQt::Adapter::uuidsChanged,this,[=](const QStringList &uuids){
-        for (int i = 0 ; i < uuids.size() ; i++)
-        {
-            qDebug()<< uuids.at(i);
-        }
-    });
-
 
     //==============初始化蓝牙信息和基础信息====================================
-     bluetooth_name->set_dev_name(m_localDevice->name());
+    bluetooth_name->set_dev_name(m_localDevice->name());
 
-     if(m_localDevice->isPowered()){
+     if(m_localDevice->isPowered())
+     {
          qDebug() << Q_FUNC_INFO << __LINE__;
          open_bluetooth->setChecked(true);
          bluetooth_name->setVisible(true);
          if(!frame_bottom->isVisible())
              frame_bottom->setVisible(true);
-     }else{
+     }
+     else
+     {
          qDebug() << Q_FUNC_INFO << m_manager->isBluetoothBlocked() << __LINE__;
          open_bluetooth->setChecked(false);
          bluetooth_name->setVisible(false);
@@ -1461,6 +1516,7 @@ void BlueToothMain::addMyDeviceItemUI(BluezQt::DevicePtr device)
     DeviceInfoItem *item  = frame_middle->findChild<DeviceInfoItem *>(device->address());
     if (item)
     {
+        myDevShowFlag = true;
         return;
     }
 
@@ -1480,6 +1536,8 @@ void BlueToothMain::addMyDeviceItemUI(BluezQt::DevicePtr device)
         connect(item,SIGNAL(sendDisconnectDeviceAddress(QString)),this,SLOT(receiveDisConnectSignal(QString)));
         connect(item,SIGNAL(sendDeleteDeviceAddress(QString)),this,SLOT(receiveRemoveSignal(QString)));
         connect(item,SIGNAL(sendPairedAddress(QString)),this,SLOT(change_device_parent(QString)));
+
+        connect(item,SIGNAL(connectComplete()),this,SLOT(startBluetoothDiscovery()));
         QGSettings *changeTheme;
         const QByteArray id_Theme("org.ukui.style");
         if (QGSettings::isSchemaInstalled(id_Theme))
@@ -1503,6 +1561,15 @@ void BlueToothMain::addMyDeviceItemUI(BluezQt::DevicePtr device)
     return;
 }
 
+void BlueToothMain::startBluetoothDiscovery()
+{
+
+    if (!m_localDevice->isDiscovering())
+        m_localDevice->startDiscovery();
+    discovering_timer->start();
+
+}
+
 void BlueToothMain::MonitorSleepSignal()
 {
     if (QDBusConnection::systemBus().connect("org.freedesktop.login1",
@@ -1517,47 +1584,47 @@ void BlueToothMain::MonitorSleepSignal()
     }
 }
 
-void BlueToothMain::showNormalMainWindow()
-{
-    qDebug() << Q_FUNC_INFO << __LINE__;
-    normal_main_widget = new QWidget(this);
-    normal_main_widget->setObjectName("normalWidget");
-    this->setCentralWidget(normal_main_widget);
+//void BlueToothMain::showNormalMainWindow()
+//{
+//    qDebug() << Q_FUNC_INFO << __LINE__;
+//    normal_main_widget = new QWidget(this);
+//    normal_main_widget->setObjectName("normalWidget");
+//    this->setCentralWidget(normal_main_widget);
 
-    main_layout = new QVBoxLayout(normal_main_widget);
-    main_layout->setSpacing(40);
-    main_layout->setContentsMargins(0,0,30,10);
-    frame_top    = new QWidget(normal_main_widget);
-    frame_top->setObjectName("frame_top");
-    if(m_manager->adapters().size() > 1){
-        frame_top->setMinimumSize(582,239);
-        frame_top->setMaximumSize(1000,239);
-    }else{
-        frame_top->setMinimumSize(582,187);
-        frame_top->setMaximumSize(1000,187);
-    }
-    frame_middle = new QWidget(normal_main_widget);
-    frame_middle->setObjectName("frame_middle");
-    frame_bottom = new QWidget(normal_main_widget);
-    frame_bottom->setObjectName("frame_bottom");
-    frame_bottom->setMinimumWidth(582);
-    frame_bottom->setMaximumWidth(1000);
+//    main_layout = new QVBoxLayout(normal_main_widget);
+//    main_layout->setSpacing(40);
+//    main_layout->setContentsMargins(0,0,30,10);
+//    frame_top    = new QWidget(normal_main_widget);
+//    frame_top->setObjectName("frame_top");
+//    if(m_manager->adapters().size() > 1){
+//        frame_top->setMinimumSize(582,239);
+//        frame_top->setMaximumSize(1000,239);
+//    }else{
+//        frame_top->setMinimumSize(582,187);
+//        frame_top->setMaximumSize(1000,187);
+//    }
+//    frame_middle = new QWidget(normal_main_widget);
+//    frame_middle->setObjectName("frame_middle");
+//    frame_bottom = new QWidget(normal_main_widget);
+//    frame_bottom->setObjectName("frame_bottom");
+//    frame_bottom->setMinimumWidth(582);
+//    frame_bottom->setMaximumWidth(1000);
 
-    main_layout->addWidget(frame_top,1,Qt::AlignTop);
-    main_layout->addWidget(frame_middle,1,Qt::AlignTop);
-    main_layout->addWidget(frame_bottom,1,Qt::AlignTop);
-    main_layout->addStretch(10);
+//    main_layout->addWidget(frame_top,1,Qt::AlignTop);
+//    main_layout->addWidget(frame_middle,1,Qt::AlignTop);
+//    main_layout->addWidget(frame_bottom,1,Qt::AlignTop);
+//    main_layout->addStretch(10);
 
-    Discovery_device_address.clear();
-    last_discovery_device_address.clear();
+//    Discovery_device_address.clear();
+//    last_discovery_device_address.clear();
 
-    InitMainTopUI();
-    InitMainMiddleUI();
-    InitMainbottomUI();
-    this->setLayout(main_layout);
-    MonitorSleepSignal();
-    updateUIWhenAdapterChanged();
-}
+//    InitMainTopUI();
+//    InitMainMiddleUI();
+//    InitMainbottomUI();
+//    this->setLayout(main_layout);
+//    MonitorSleepSignal();
+//    updateUIWhenAdapterChanged();
+//}
 
 void BlueToothMain::showMainWindowError()
 {
@@ -1621,25 +1688,36 @@ void BlueToothMain::showSpeNoteMainWindow()
     InitMainTopUI();
     this->setLayout(main_layout);
 
-
 }
 
 void BlueToothMain::updateAdaterInfoList()
 {
+    qDebug () << Q_FUNC_INFO << __LINE__;
     adapter_address_list.clear();
     adapter_name_list.clear();
     if(m_manager->adapters().size())
     {
         for(int i = 0; i < m_manager->adapters().size(); i++)
         {
+            qDebug() << Q_FUNC_INFO << m_manager->adapters().at(i)->address()
+                     << m_manager->adapters().at(i)->name() << __LINE__;
+
             adapter_address_list << m_manager->adapters().at(i)->address();
             adapter_name_list    << m_manager->adapters().at(i)->name();
         }
+        //加入adapter_list
+        adapter_list->addItems(adapter_name_list);
+        if(nullptr != m_localDevice)
+            adapter_list->setCurrentIndex(adapter_name_list.indexOf(m_localDevice->name()));
     }
+    qDebug () << Q_FUNC_INFO << "adapter_address_list:" << adapter_address_list;
+    qDebug () << Q_FUNC_INFO << "adapter_name_list:" << adapter_name_list;
+
 }
 
 BluezQt::AdapterPtr BlueToothMain::getDefaultAdapter()
 {
+    qDebug() << Q_FUNC_INFO << __LINE__;
     BluezQt::AdapterPtr value = nullptr;
     if (!m_manager->adapters().size())
     {
@@ -1666,6 +1744,7 @@ BluezQt::AdapterPtr BlueToothMain::getDefaultAdapter()
 
     if(settings)
         settings->set("adapter-address",QVariant::fromValue(value->address()));
+    qDebug() << Q_FUNC_INFO << value.data()->name() << value.data()->address();
 
     return value;
 }
@@ -1673,6 +1752,7 @@ BluezQt::AdapterPtr BlueToothMain::getDefaultAdapter()
 
 void BlueToothMain::cleanPairDevices()
 {
+    qDebug() << Q_FUNC_INFO << __LINE__;
     QLayoutItem *child;
     while ((child = paired_dev_layout->takeAt(0)) != 0)
     {
@@ -1767,15 +1847,15 @@ void BlueToothMain::onClick_Open_Bluetooth(bool ischeck)
     {
         if (spe_bt_node && not_hci_node)
         {
+            M_power_on = true;
             rfkill_set_idx();
         }
 
-        qDebug() << Q_FUNC_INFO
-                 << "spe_bt_node:"   << spe_bt_node
-                 << "not_hci_node"   << not_hci_node
-                 << "M_adapter_flag" << M_adapter_flag;
+        qDebug() << Q_FUNC_INFO << "spe_bt_node:"   << spe_bt_node;
+        qDebug() << Q_FUNC_INFO << "not_hci_node"   << not_hci_node;
+        qDebug() << Q_FUNC_INFO << "M_adapter_flag" << M_adapter_flag;
 
-        if (!not_hci_node && M_adapter_flag)
+        if (!not_hci_node && M_adapter_flag && (nullptr != m_localDevice))
         {
             if (m_manager->isBluetoothBlocked())
                 m_manager->setBluetoothBlocked(false);
@@ -1788,17 +1868,18 @@ void BlueToothMain::onClick_Open_Bluetooth(bool ischeck)
                 }
                 else
                 {
-                    poweronAgain_timer->start();
+                    //poweronAgain_timer->start();
                     qDebug() << "Failed to turn on Bluetooth:" << p->errorText();
                 }
 
-                switch_discover->setEnabled(true);
+                //switch_discover->setEnabled(true);
 
             });
         }
     }
     else
     {
+        M_power_on = false;
         adapterPoweredChanged(false);
         //断电后先删除所有扫描到的蓝牙设备
         clearAllDeviceItemUi();
@@ -1814,10 +1895,9 @@ void BlueToothMain::onClick_Open_Bluetooth(bool ischeck)
             else
                 qDebug() << "Failed to turn off Bluetooth:" << p->errorText();
         });
-
-
-
     }
+
+    qDebug() << Q_FUNC_INFO << "end" << __LINE__ ;
 }
 
 void BlueToothMain::addOneBluetoothDeviceItemUi(BluezQt::DevicePtr device)
@@ -1845,6 +1925,9 @@ void BlueToothMain::addOneBluetoothDeviceItemUi(BluezQt::DevicePtr device)
         connect(item,SIGNAL(sendDisconnectDeviceAddress(QString)),this,SLOT(receiveDisConnectSignal(QString)));
         connect(item,SIGNAL(sendDeleteDeviceAddress(QString)),this,SLOT(receiveRemoveSignal(QString)));
         connect(item,SIGNAL(sendPairedAddress(QString)),this,SLOT(change_device_parent(QString)));
+
+        connect(item,SIGNAL(connectComplete()),this,SLOT(startBluetoothDiscovery()));
+
         QGSettings *changeTheme;
         const QByteArray id_Theme("org.ukui.style");
         if (QGSettings::isSchemaInstalled(id_Theme))
@@ -1926,10 +2009,11 @@ void BlueToothMain::serviceDiscoveredChange(BluezQt::DevicePtr device)
 void BlueToothMain::receiveConnectsignal(QString device)
 {
 
-//    if (m_localDevice->isDiscovering())
-//    {
-//        m_localDevice->stopDiscovery();
-//    }
+    if (m_localDevice->isDiscovering())
+    {
+        clearAllTimer();
+        m_localDevice->stopDiscovery();
+    }
 
     QDBusMessage m = QDBusMessage::createMethodCall("org.ukui.bluetooth","/org/ukui/bluetooth","org.ukui.bluetooth","connectToDevice");
     m << device;
@@ -1988,7 +2072,12 @@ void BlueToothMain::set_tray_visible(bool value)
 
 void BlueToothMain::set_discoverable(bool value)
 {
-    if(value){
+    qDebug() << Q_FUNC_INFO << value;
+    if (nullptr == m_localDevice)
+        return;
+
+    if(value)
+    {
         if(m_localDevice->discoverableTimeout() != 0)
             m_localDevice->setDiscoverableTimeout(0);
     }
@@ -2056,7 +2145,7 @@ void BlueToothMain::adapterPoweredChanged(bool value)
             open_bluetooth->setChecked(true);
 
         //延时2S开启扫描，给用户回连缓冲
-        delayStartDiscover_timer->start();
+        //delayStartDiscover_timer->start();
 
         //this->startDiscovery();
     }
@@ -2094,26 +2183,43 @@ void BlueToothMain::adapterPoweredChanged(bool value)
 
 void BlueToothMain::adapterComboxChanged(int i)
 {
-//    qDebug() << Q_FUNC_INFO << i << adapter_address_list.at(i) << adapter_name_list.at(i) << adapter_address_list << adapter_name_list;
-    if(i != -1){
-        m_localDevice = m_manager->adapterForAddress(adapter_address_list.at(i));
-        if (m_localDevice.isNull())
-	    return;
-        m_localDevice->stopDiscovery();
-        updateUIWhenAdapterChanged();
-        if(settings)
-            settings->set("adapter-address",QVariant::fromValue(adapter_address_list.at(i)));
-            Default_Adapter = adapter_address_list.at(i);
-    }else{
+    qDebug() << Q_FUNC_INFO << i <<
+                adapter_address_list.at(i) <<
+                adapter_name_list.at(i) <<
+                adapter_address_list <<
+                adapter_name_list;
 
-        if(open_bluetooth->isChecked()){
+    if(i != -1)
+    {
+        if (i >= m_manager->adapters().size())
+        {
+            return;
+        }
+        else
+        {
+
+            m_localDevice = m_manager->adapterForAddress(adapter_address_list.at(i));
+            if (m_localDevice.isNull())
+                return;
+            m_localDevice->stopDiscovery();
+
+            updateUIWhenAdapterChanged();
+            if(settings)
+                settings->set("adapter-address",QVariant::fromValue(adapter_address_list.at(i)));
+                Default_Adapter = adapter_address_list.at(i);
+        }
+    }
+    else
+    {
+        if(open_bluetooth->isChecked())
+        {
             qDebug() << __FUNCTION__<< "index - i : "<< i << __LINE__ ;
-
             open_bluetooth->setChecked(false);
             open_bluetooth->setDisabledFlag(false);
         }
 
-        if(frame_middle->isVisible()){
+        if(frame_middle->isVisible())
+        {
             frame_middle->setVisible(false);
         }
     }

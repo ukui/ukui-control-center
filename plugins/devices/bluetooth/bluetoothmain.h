@@ -61,7 +61,7 @@ public:
     void removeDeviceItemUI(QString address);
     void addMyDeviceItemUI(BluezQt::DevicePtr);
     void MonitorSleepSignal();
-    void showNormalMainWindow();
+    //void showNormalMainWindow();
     void showMainWindowError();
     void showSpeNoteMainWindow();
     void updateAdaterInfoList();
@@ -92,6 +92,9 @@ private slots:
     void adapterNameChanged(const QString &name);
     void adapterDeviceRemove(BluezQt::DevicePtr ptr);
     void MonitorSleepSlot(bool value);
+
+    void startBluetoothDiscovery();
+
 private:
 
 //============================================================================
@@ -180,7 +183,10 @@ private:
     void InitBluetoothManager();
     //void connectAdapterChanged();
     void connectManagerChanged();
+    void addAdapterList(QString newAdapterAddress,QString newAdapterName);
+    void removeAdapterList(QString adapterAddress,QString adapterName);
     void InitAllTimer();
+
 };
 
 #endif // BLUETOOTHMAIN_H
