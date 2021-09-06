@@ -363,8 +363,7 @@ private:
     QStringList *m_pCurrentInputCardList;
     QStringList *m_pInputCardList;
     QStringList *m_pSoundNameList;
-    QStringList *eventList;
-    QStringList *eventIdNameList;
+
     QStringList *m_pCardNameList;
     QStringList *m_pInputCardNameList;
     QString m_pDeviceStr;
