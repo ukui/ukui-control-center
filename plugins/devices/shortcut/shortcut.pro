@@ -40,12 +40,14 @@ SOURCES += \
     defineshortcutitem.cpp \
     doubleclicklineedit.cpp \
     getshortcutworker.cpp \
+    clickfixlabel.cpp \
     keymap.cpp \
     realizeshortcutwheel.cpp \
     shortcut.cpp \
     shortcutline.cpp
 
 HEADERS += \
+    clickfixlabel.h \
     grab-x11.h  \
     addshortcutdialog.h \
     customlineedit.h \
