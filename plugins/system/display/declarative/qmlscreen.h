@@ -112,6 +112,10 @@ private:
     void updateCornerOutputs();
     void setOutputScale(float scale);
 
+    void setX100GPU();
+
+    bool mIsX100;
+
     KScreen::ConfigPtr m_config;
     QHash<KScreen::OutputPtr, QMLOutput *> m_outputMap;
     QVector<QMLOutput*> m_manuallyMovedOutputs;
