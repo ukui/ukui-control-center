@@ -1277,7 +1277,7 @@ Please authenticate yourself to continue</source>
     <message>
         <location filename="../../../plugins/account/biometrics/biometricswidget.ui" line="89"/>
         <source>Account password</source>
-        <translation>账户密码</translation>
+        <translation>帐户密码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/biometrics/biometricswidget.ui" line="109"/>
@@ -2112,7 +2112,7 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <source>Standard users can use most software, but cannot install software and change system settings</source>
-        <translation type="vanished">标准账户可以使用大多数软件，但是不能安装软件和更改系统配置</translation>
+        <translation type="vanished">标准帐户可以使用大多数软件，但是不能安装软件和更改系统配置</translation>
     </message>
     <message>
         <source>Change Account Type</source>
@@ -2126,7 +2126,7 @@ Please authenticate yourself to continue</source>
     <message>
         <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="270"/>
         <source>Standard users can use most software, but cannot change system settings</source>
-        <translation>标准账户可以使用大多数软件，但是不能修改系统配置</translation>
+        <translation>标准帐户可以使用大多数软件，但是不能修改系统配置</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="386"/>
@@ -2136,7 +2136,7 @@ Please authenticate yourself to continue</source>
     <message>
         <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="399"/>
         <source>Administrators can make any changes they need</source>
-        <translation>管理员账户可以更改任何系统配置，包括安装软件和升级软件</translation>
+        <translation>管理员帐户可以更改任何系统配置，包括安装软件和升级软件</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="441"/>
@@ -2530,12 +2530,12 @@ Please authenticate yourself to continue</source>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="474"/>
         <source>Standard users can use most software, but cannot change system settings</source>
-        <translation>标准账户可以使用大多数软件，但是不能修改系统配置</translation>
+        <translation>标准帐户可以使用大多数软件，但是不能修改系统配置</translation>
     </message>
     <message>
         <source>Standard users can use most software, but cannot install the software and 
 change system settings</source>
-        <translation type="vanished">标准账户可以使用大多数软件，但是不能安装软件和更改系统配置</translation>
+        <translation type="vanished">标准帐户可以使用大多数软件，但是不能安装软件和更改系统配置</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="578"/>
@@ -2545,7 +2545,7 @@ change system settings</source>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="591"/>
         <source>Administrators can make any changes they need</source>
-        <translation>管理员账户可以更改任何系统配置，包括安装软件和升级软件</translation>
+        <translation>管理员帐户可以更改任何系统配置，包括安装软件和升级软件</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="666"/>
@@ -3487,7 +3487,7 @@ folder will be deleted!</source>
     </message>
     <message>
         <source>Sign up</source>
-        <translation type="vanished">注册云账户</translation>
+        <translation type="vanished">注册云帐户</translation>
     </message>
     <message>
         <source>Login in progress</source>
@@ -3539,7 +3539,7 @@ folder will be deleted!</source>
     </message>
     <message>
         <source>Please check your account!</source>
-        <translation type="vanished">账户或密码错误！</translation>
+        <translation type="vanished">帐户或密码错误！</translation>
     </message>
     <message>
         <source>Failed due to server error!</source>
@@ -3615,7 +3615,7 @@ folder will be deleted!</source>
     </message>
     <message>
         <source>Sign in Cloud</source>
-        <translation type="vanished">登录云账户</translation>
+        <translation type="vanished">登录云帐户</translation>
     </message>
     <message>
         <source>Forget</source>
@@ -3631,7 +3631,7 @@ folder will be deleted!</source>
     </message>
     <message>
         <source>Create Account</source>
-        <translation type="vanished">注册云账户</translation>
+        <translation type="vanished">注册云帐户</translation>
     </message>
     <message>
         <source>Sign up now</source>
@@ -4063,7 +4063,7 @@ folder will be deleted!</source>
     </message>
     <message>
         <source>Please check your account!</source>
-        <translation type="vanished">账户或密码错误！</translation>
+        <translation type="vanished">帐户或密码错误！</translation>
     </message>
     <message>
         <source>Failed due to server error!</source>
@@ -4235,23 +4235,23 @@ folder will be deleted!</source>
     <name>FrameItem</name>
     <message>
         <source>Sync failed, please login out to retry!</source>
-        <translation type="vanished">同步失败，请检查网络或退出云账户重试！</translation>
+        <translation type="vanished">同步失败，请检查网络或退出云帐户重试！</translation>
     </message>
     <message>
         <source>Change configuration file failed, please login out to retry!</source>
-        <translation type="vanished">配置文件更改失败，请检查网络或退出云账户重试！</translation>
+        <translation type="vanished">配置文件更改失败，请检查网络或退出云帐户重试！</translation>
     </message>
     <message>
         <source>Configuration file not exist, please login out to retry!</source>
-        <translation type="vanished">配置文件不存在，请检查网络或退出云账户重试！</translation>
+        <translation type="vanished">配置文件不存在，请检查网络或退出云帐户重试！</translation>
     </message>
     <message>
         <source>Cloud verifyed file download failed, please login out to retry!</source>
-        <translation type="vanished">云校验失败，请检查网络或退出云账户重试！</translation>
+        <translation type="vanished">云校验失败，请检查网络或退出云帐户重试！</translation>
     </message>
     <message>
         <source>OSS access failed, please login out to retry!</source>
-        <translation type="vanished">文件存储访问失败，请检查网络或退出云账户重试！</translation>
+        <translation type="vanished">文件存储访问失败，请检查网络或退出云帐户重试！</translation>
     </message>
     <message>
         <source>Sync failed, please retry or login out to get a better experience!</source>
@@ -4584,7 +4584,7 @@ folder will be deleted!</source>
     </message>
     <message>
         <source>account</source>
-        <translation type="vanished">账户</translation>
+        <translation type="vanished">帐户</translation>
     </message>
     <message>
         <source>datetime</source>
@@ -4621,7 +4621,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../utils/keyvalueconverter.cpp" line="58"/>
         <source>Account</source>
-        <translation>账户</translation>
+        <translation>帐户</translation>
     </message>
     <message>
         <location filename="../../utils/keyvalueconverter.cpp" line="61"/>
@@ -4967,7 +4967,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="33"/>
         <source>Sign up</source>
-        <translation>注册云账户</translation>
+        <translation>注册云帐户</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="55"/>
@@ -5042,7 +5042,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="377"/>
         <source>Please check your account!</source>
-        <translation>账户或密码错误！</translation>
+        <translation>帐户或密码错误！</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="378"/>
@@ -5077,7 +5077,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="384"/>
         <source>Account or password error!</source>
-        <translation>账户或密码错误！</translation>
+        <translation>帐户或密码错误！</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="385"/>
@@ -5166,7 +5166,7 @@ folder will be deleted!</source>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="837"/>
         <location filename="../../../plugins/account/networkaccount/maindialog.h" line="55"/>
         <source>Sign in Cloud</source>
-        <translation>登录云账户</translation>
+        <translation>登录云帐户</translation>
     </message>
     <message>
         <source>Forget</source>
@@ -5182,7 +5182,7 @@ folder will be deleted!</source>
     </message>
     <message>
         <source>Create Account</source>
-        <translation type="vanished">注册云账户</translation>
+        <translation type="vanished">注册云帐户</translation>
     </message>
     <message>
         <source>Sign up now</source>
@@ -5237,7 +5237,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="453"/>
         <source>Your account：%1</source>
-        <translation>您的云账户：%1</translation>
+        <translation>您的云帐户：%1</translation>
     </message>
     <message>
         <source>Unauthorized device or OSS falied.
@@ -5284,7 +5284,7 @@ Please retry for login!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="849"/>
         <source>Your account:%1</source>
-        <translation>您的云账户：%1</translation>
+        <translation>您的云帐户：%1</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="850"/>
@@ -5299,7 +5299,7 @@ Please retry for login!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="833"/>
         <source>Synchronize your personalized settings and data</source>
-        <translation>同步您账户的数据以及个性化设置</translation>
+        <translation>同步您帐户的数据以及个性化设置</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="638"/>
@@ -5314,7 +5314,7 @@ Please retry for login!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="411"/>
         <source>Waiting for initialization...</source>
-        <translation>等待云账户初始化...</translation>
+        <translation>等待云帐户初始化...</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="231"/>
@@ -5331,7 +5331,7 @@ Please retry for login!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="711"/>
         <source>The Cloud Account Service version is out of date!</source>
-        <translation>云账户服务版本已经过期，请升级！</translation>
+        <translation>云帐户服务版本已经过期，请升级！</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="908"/>
@@ -5352,7 +5352,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1229"/>
         <source>Kylin Cloud Account</source>
-        <translation>云账户</translation>
+        <translation>云帐户</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="708"/>
@@ -5362,11 +5362,11 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1232"/>
         <source>Cloud ID desktop message</source>
-        <translation>云账户消息</translation>
+        <translation>云帐户消息</translation>
     </message>
     <message>
         <source>Synchronize your computer&apos;s settings into your cloud account here.</source>
-        <translation type="vanished">将本机的设置同步至云账户，通过云账户随时随地开启个性设置！</translation>
+        <translation type="vanished">将本机的设置同步至云帐户，通过云帐户随时随地开启个性设置！</translation>
     </message>
     <message>
         <source>Media</source>
@@ -6821,7 +6821,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <source>userinfo</source>
-        <translation type="vanished">账户信息</translation>
+        <translation type="vanished">帐户信息</translation>
     </message>
     <message>
         <source>datetime</source>
@@ -7079,7 +7079,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../utils/functionselect.cpp" line="162"/>
         <source>User Info</source>
-        <translation>账户信息</translation>
+        <translation>帐户信息</translation>
     </message>
     <message>
         <location filename="../../utils/functionselect.cpp" line="194"/>
@@ -7111,12 +7111,12 @@ Please retry or relogin!</source>
     </message>
     <message>
         <source>Userinfo</source>
-        <translation type="vanished">账户信息</translation>
+        <translation type="vanished">帐户信息</translation>
     </message>
     <message>
         <location filename="../../utils/functionselect.cpp" line="166"/>
         <source>Cloud Account</source>
-        <translation>云账户</translation>
+        <translation>云帐户</translation>
     </message>
     <message>
         <source>Datetime</source>
@@ -7444,7 +7444,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../utils/utils.cpp" line="75"/>
         <source>Go to cloudaccount settings page</source>
-        <translation>配置您的网络账户</translation>
+        <translation>配置您的网络帐户</translation>
     </message>
     <message>
         <location filename="../../utils/utils.cpp" line="78"/>
@@ -8376,12 +8376,12 @@ Please retry or relogin!</source>
     </message>
     <message>
         <source>Account Security</source>
-        <translation type="vanished">账户安全</translation>
+        <translation type="vanished">帐户安全</translation>
         <extra-contents_path>/securitycenter/Account Security</extra-contents_path>
     </message>
     <message>
         <source>Protect account and login security</source>
-        <translation type="vanished">提供账户相关的安全保障</translation>
+        <translation type="vanished">提供帐户相关的安全保障</translation>
     </message>
     <message>
         <source>Safety check-up</source>
@@ -10017,16 +10017,16 @@ Please retry or relogin!</source>
     <name>UserInfo</name>
     <message>
         <source>userinfo</source>
-        <translation type="vanished">账户信息</translation>
+        <translation type="vanished">帐户信息</translation>
     </message>
     <message>
         <source>Userinfo</source>
-        <translation type="vanished">账户信息</translation>
+        <translation type="vanished">帐户信息</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="71"/>
         <source>User Info</source>
-        <translation>账户信息</translation>
+        <translation>帐户信息</translation>
     </message>
     <message>
         <source>standard user</source>
@@ -10175,7 +10175,7 @@ Please retry or relogin!</source>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="181"/>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="424"/>
         <source>Type</source>
-        <translation>账户类型</translation>
+        <translation>帐户类型</translation>
         <extra-contents_path>/userinfo/Type</extra-contents_path>
     </message>
     <message>
@@ -10989,7 +10989,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     </message>
     <message>
         <source>Your account:%1</source>
-        <translation type="vanished">您的云账户：%1</translation>
+        <translation type="vanished">您的云帐户：%1</translation>
     </message>
     <message>
         <source>Exit</source>
@@ -11013,11 +11013,11 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     </message>
     <message>
         <source>Synchronize your personalized settings and data</source>
-        <translation type="vanished">同步您账户的数据以及个性化设置</translation>
+        <translation type="vanished">同步您帐户的数据以及个性化设置</translation>
     </message>
     <message>
         <source>Login Cloud to get a better experience</source>
-        <translation type="vanished">同步您账户的数据以及个性化设置</translation>
+        <translation type="vanished">同步您帐户的数据以及个性化设置</translation>
     </message>
     <message>
         <source>Sign in/Sign up</source>
@@ -11025,11 +11025,11 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     </message>
     <message>
         <source>You must sign in when you attempt to sync your settings.</source>
-        <translation type="vanished">如需同步设置，请先登录您的云账户。</translation>
+        <translation type="vanished">如需同步设置，请先登录您的云帐户。</translation>
     </message>
     <message>
         <source>Your account：%1</source>
-        <translation type="vanished">您的云账户：%1</translation>
+        <translation type="vanished">您的云帐户：%1</translation>
     </message>
     <message>
         <source>Disconnected</source>
@@ -11147,7 +11147,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     <message>
         <location filename="../../../plugins/account/networkaccount/networkaccount.cpp" line="25"/>
         <source>Cloud Account</source>
-        <translation>云账户</translation>
+        <translation>云帐户</translation>
         <extra-contents_path>/networkaccount/Cloud Account</extra-contents_path>
     </message>
 </context>

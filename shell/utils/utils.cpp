@@ -92,7 +92,7 @@ void Utils::setCLIName(QCommandLineParser &parser) {
 #ifdef WITHKYSEC
     if (!kysec_is_disabled() && kysec_get_3adm_status()){
         if (!getuid() || !geteuid()){
-            //时间和日期 | 用户账户 | 电源管理 |网络连接 |网络代理|更新
+            //时间和日期 | 用户帐户 | 电源管理 |网络连接 |网络代理|更新
             parser.addOption(powerRoleOption);
             parser.addOption(wiredconnectRoleOption);
             parser.addOption(wlanconnectRoleOption);
