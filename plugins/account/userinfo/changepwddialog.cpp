@@ -308,7 +308,9 @@ void ChangePwdDialog::setFace(QString iconfile){
 }
 
 void ChangePwdDialog::setUsername(QString realname){
-    ui->usernameLabel->setText(realname);
+    if (QLabelSetText(ui->usernameLabel, realname)){
+        ui->usernameLabel->setToolTip(realname);
+    }
 }
 
 void ChangePwdDialog::setAccountType(QString aType){
@@ -451,6 +453,24 @@ void ChangePwdDialog::refreshConfirmBtnStatus(){
         else
             ui->confirmPushBtn->setEnabled(true);
     }
+}
+
+bool ChangePwdDialog::QLabelSetText(QLabel *label, QString string)
+{
+    bool is_over_length = false;
+    QFontMetrics fontMetrics(label->font());
+    int fontSize = fontMetrics.width(string);
+
+    QString str = string;
+    if (fontSize > 100) {
+        label->setFixedWidth(100);
+        str = fontMetrics.elidedText(string, Qt::ElideRight, 100);
+        is_over_length = true;
+    } else {
+        label->setFixedWidth(fontSize);
+    }
+    label->setText(str);
+    return is_over_length;
 }
 
 

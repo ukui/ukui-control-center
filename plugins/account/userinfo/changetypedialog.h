@@ -24,6 +24,8 @@
 #include <QPainter>
 #include <QPainterPath>
 
+#include <QLabel>
+
 namespace Ui {
 class ChangeTypeDialog;
 }
@@ -55,6 +57,8 @@ private:
 
     int currenttype;
     bool currentloginstatus;
+
+    bool QLabelSetText(QLabel *label, QString string);
 
 Q_SIGNALS:
     void type_send(int type);

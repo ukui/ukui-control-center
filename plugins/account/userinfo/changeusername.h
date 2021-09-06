@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QPainter>
 #include <QPainterPath>
+#include <QKeyEvent>
 
 namespace Ui {
 class ChangeUserName;
@@ -22,6 +23,7 @@ private:
 
 protected:
     void paintEvent(QPaintEvent *);
+    void keyPressEvent(QKeyEvent *);
 
 Q_SIGNALS:
     void sendNewName(QString name);
