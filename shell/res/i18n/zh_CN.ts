@@ -594,7 +594,7 @@
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="169"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="344"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="348"/>
         <source>Current Region</source>
         <translation>显示日期、时间和货币格式的区域</translation>
         <extra-contents_path>/area/Current Region</extra-contents_path>
@@ -606,7 +606,7 @@
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="277"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="346"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="350"/>
         <source>Calendar</source>
         <translation>日历</translation>
         <extra-contents_path>/area/Calendar</extra-contents_path>
@@ -620,14 +620,14 @@
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="446"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="350"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="354"/>
         <source>Date</source>
         <translation>日期</translation>
         <extra-contents_path>/area/Date</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="529"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="352"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="356"/>
         <source>Time</source>
         <translation>时间</translation>
         <extra-contents_path>/area/Time</extra-contents_path>
@@ -646,7 +646,7 @@
         <translation type="vanished">区域格式数据</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="357"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="361"/>
         <source>lunar</source>
         <translation>农历</translation>
     </message>
@@ -697,18 +697,18 @@
         <translation type="vanished">简体中文</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="348"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="352"/>
         <source>First Day Of Week</source>
         <translation>一周的第一天</translation>
         <extra-contents_path>/area/First Day Of Week</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="372"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="376"/>
         <source>12 Hours</source>
         <translation>12小时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="373"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="377"/>
         <source>24 Hours</source>
         <translation>24小时</translation>
     </message>
@@ -761,14 +761,14 @@
     <message>
         <location filename="../../../plugins/time-language/area/area.cpp" line="201"/>
         <location filename="../../../plugins/time-language/area/area.cpp" line="207"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="381"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="385"/>
         <source>Need to log off to take effect</source>
         <translation>需要注销生效</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.cpp" line="201"/>
         <location filename="../../../plugins/time-language/area/area.cpp" line="207"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="381"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="385"/>
         <source>Message</source>
         <translation>信息</translation>
     </message>
@@ -794,17 +794,17 @@
         <translation type="vanished">添加首语言</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="354"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="358"/>
         <source>solar calendar</source>
         <translation>公历</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="360"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="364"/>
         <source>monday</source>
         <translation>星期一</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="361"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="365"/>
         <source>sunday</source>
         <translation>星期天</translation>
     </message>
@@ -1370,14 +1370,17 @@ Please authenticate yourself to continue</source>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="634"/>
-        <source>Bluetooth adapter is abnormal !</source>
-        <translation>蓝牙适配器异常！</translation>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="633"/>
+        <source>Bluetooth adapter is not detected!</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="635"/>
+        <source>Bluetooth adapter is abnormal !</source>
+        <translation type="vanished">蓝牙适配器异常！</translation>
+    </message>
+    <message>
         <source>You can refer to the rfkill command for details.</source>
-        <translation>可查阅rfkill命令了解详情</translation>
+        <translation type="vanished">可查阅rfkill命令了解详情</translation>
     </message>
     <message>
         <source>Allow Bluetooth devices to be discoverable</source>
@@ -1535,6 +1538,70 @@ Please authenticate yourself to continue</source>
     </message>
 </context>
 <context>
+    <name>ChangeFaceIntelDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changefaceinteldialog.ui" line="85"/>
+        <source>Change User Face</source>
+        <translation>更改用户头像</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changefaceinteldialog.ui" line="277"/>
+        <source>History</source>
+        <translation>自定义</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changefaceinteldialog.ui" line="385"/>
+        <source>System</source>
+        <translation>系统自带</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changefaceinteldialog.ui" line="470"/>
+        <location filename="../../../plugins/account/userinfo_intel/changefaceinteldialog.cpp" line="357"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changefaceinteldialog.ui" line="505"/>
+        <source>Confirm</source>
+        <translation>确认</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changefaceinteldialog.cpp" line="352"/>
+        <source>select custom face file</source>
+        <translation>选择自定义头像文件</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changefaceinteldialog.cpp" line="353"/>
+        <source>Select</source>
+        <translation>选择</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changefaceinteldialog.cpp" line="354"/>
+        <source>Position: </source>
+        <translation>位置： </translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changefaceinteldialog.cpp" line="355"/>
+        <source>FileName: </source>
+        <translation>文件名： </translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changefaceinteldialog.cpp" line="356"/>
+        <source>FileType: </source>
+        <translation>文件类型： </translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changefaceinteldialog.cpp" line="371"/>
+        <source>Warning</source>
+        <translation>警告</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changefaceinteldialog.cpp" line="371"/>
+        <source>The avatar is larger than 2M, please choose again</source>
+        <translation>警告，头像大于2M请重新选择</translation>
+    </message>
+</context>
+<context>
     <name>ChangeFeatureName</name>
     <message>
         <location filename="../../../plugins/account/biometrics/changefeaturename.ui" line="26"/>
@@ -1618,6 +1685,182 @@ Please authenticate yourself to continue</source>
         <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="342"/>
         <source>Invalid Group Name!</source>
         <translation>无效组名!</translation>
+    </message>
+</context>
+<context>
+    <name>ChangeGroupIntelDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changegroupinteldialog.ui" line="26"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changegroupinteldialog.ui" line="119"/>
+        <source>User Group Settings</source>
+        <translation>用户组设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changegroupinteldialog.ui" line="149"/>
+        <source>User groups available in the system</source>
+        <translation>系统中可用的用户组</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changegroupinteldialog.cpp" line="119"/>
+        <source>Add user group</source>
+        <translation>添加用户组</translation>
+    </message>
+</context>
+<context>
+    <name>ChangePhoneIntelDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.ui" line="26"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.ui" line="77"/>
+        <source>changephone</source>
+        <translation>更换手机号</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.ui" line="190"/>
+        <source>Please input old phone num</source>
+        <translation>请输入旧手机号</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.ui" line="242"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.ui" line="429"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.ui" line="452"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.ui" line="366"/>
+        <source>GetVerifyCode</source>
+        <translation>获取验证码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.ui" line="586"/>
+        <source>submit</source>
+        <translation>提交</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="53"/>
+        <source>Change Phone</source>
+        <translation>更换手机号</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="91"/>
+        <source>Phone number</source>
+        <translation>手机号</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="92"/>
+        <source>SMS verification code</source>
+        <translation>短信验证码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="124"/>
+        <source>Please input old phone number</source>
+        <translation>请输入旧手机号</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="125"/>
+        <source>Next</source>
+        <translation>下一步</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="128"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="251"/>
+        <source>Please enter new mobile number</source>
+        <translation>请输入新手机号</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="129"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="252"/>
+        <source>Submit</source>
+        <translation>提交</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="145"/>
+        <source>changed success</source>
+        <translation>修改成功</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="146"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="319"/>
+        <source>You have successfully modified your phone</source>
+        <translation>您已成功更换手机号</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="197"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="221"/>
+        <source>Recapture</source>
+        <translation>重新获取</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="211"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="271"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="303"/>
+        <source>Network connection failure, please check</source>
+        <translation>网络连接故障，请检查</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="231"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="256"/>
+        <source>GetCode</source>
+        <translation>获取验证码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="264"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="293"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="322"/>
+        <source>Phone is lock,try again in an hour</source>
+        <translation>手机号已被锁定，1小时之后再试</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="267"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="296"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="325"/>
+        <source>Phone code is wrong</source>
+        <translation>验证码错误，请重试</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="274"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="306"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="332"/>
+        <source>Unknown error, please try again later</source>
+        <translation>未知错误，请稍后重试</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="281"/>
+        <source>Phone can not same</source>
+        <translation>新旧手机号不能一致</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="290"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="318"/>
+        <source>finished</source>
+        <translation>完成</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="300"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="329"/>
+        <source>Phone number already in used!</source>
+        <translation>该号码已被注册，请更换手机号</translation>
+    </message>
+</context>
+<context>
+    <name>ChangePinIntelDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changepininteldialog.ui" line="26"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changepininteldialog.ui" line="74"/>
+        <source>Change Password</source>
+        <translation>修改密码</translation>
     </message>
 </context>
 <context>
@@ -1778,6 +2021,88 @@ Please authenticate yourself to continue</source>
     </message>
 </context>
 <context>
+    <name>ChangePwdIntelDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changepwdinteldialog.ui" line="119"/>
+        <source>Change Pwd</source>
+        <translation>更换密码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changepwdinteldialog.ui" line="603"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changepwdinteldialog.ui" line="643"/>
+        <source>Confirm</source>
+        <translation>确认</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changepwdinteldialog.cpp" line="186"/>
+        <source>General Pwd</source>
+        <translation>通用密码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changepwdinteldialog.cpp" line="198"/>
+        <source>Old Password</source>
+        <translation>当前密码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changepwdinteldialog.cpp" line="199"/>
+        <location filename="../../../plugins/account/userinfo_intel/changepwdinteldialog.cpp" line="575"/>
+        <source>New Password</source>
+        <translation>新密码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changepwdinteldialog.cpp" line="200"/>
+        <location filename="../../../plugins/account/userinfo_intel/changepwdinteldialog.cpp" line="576"/>
+        <source>New Password Identify</source>
+        <translation>新密码确认</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changepwdinteldialog.cpp" line="332"/>
+        <location filename="../../../plugins/account/userinfo_intel/changepwdinteldialog.cpp" line="341"/>
+        <source>Please set different pwd!</source>
+        <translation>新密码请勿与当前密码相同！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changepwdinteldialog.cpp" line="349"/>
+        <location filename="../../../plugins/account/userinfo_intel/changepwdinteldialog.cpp" line="560"/>
+        <source>Inconsistency with pwd</source>
+        <translation>与新密码不同</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changepwdinteldialog.cpp" line="414"/>
+        <source>Old pwd is wrong!</source>
+        <translation>当前密码错误！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changepwdinteldialog.cpp" line="416"/>
+        <source>New pwd is too similar with old pwd!</source>
+        <translation>新密码与当前密码相似度过高！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changepwdinteldialog.cpp" line="421"/>
+        <source>Check old pwd failed because of unknown reason!</source>
+        <translation>密码验证失败！(未知的原因)</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changepwdinteldialog.cpp" line="537"/>
+        <source>Password length needs to more than %1 character!</source>
+        <translation>密码长度至少大于%1个字符！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changepwdinteldialog.cpp" line="539"/>
+        <source>Password length needs to less than %1 character!</source>
+        <translation>密码长度需要小于%1个字符！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changepwdinteldialog.cpp" line="547"/>
+        <source>Password cannot be made up entirely by Numbers!</source>
+        <translation>密码复杂度过低！</translation>
+    </message>
+</context>
+<context>
     <name>ChangeTypeDialog</name>
     <message>
         <location filename="../../../plugins/account/userinfo/changetypedialog.cpp" line="40"/>
@@ -1827,6 +2152,49 @@ Please authenticate yourself to continue</source>
         <location filename="../../../plugins/account/userinfo/changetypedialog.cpp" line="38"/>
         <source>Change type</source>
         <translation>更改类型</translation>
+    </message>
+</context>
+<context>
+    <name>ChangeTypeIntelDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changetypeinteldialog.ui" line="108"/>
+        <source>Change Account Type</source>
+        <translation>更换用户类型</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changetypeinteldialog.ui" line="409"/>
+        <source>standard user</source>
+        <translation>标准用户</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changetypeinteldialog.ui" line="422"/>
+        <source>Standard users can use most software, but cannot install software and change system settings</source>
+        <translation>标准账户可以使用大多数软件，但是不能安装软件和更改系统配置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changetypeinteldialog.ui" line="543"/>
+        <source>administrator</source>
+        <translation>管理员用户</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changetypeinteldialog.ui" line="556"/>
+        <source>Administrators can make any changes they need</source>
+        <translation>管理员账户可以更改任何系统配置，包括安装软件和升级软件</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changetypeinteldialog.ui" line="579"/>
+        <source>Make sure that there is at least one administrator on the computer</source>
+        <translation>提示：请确保在该计算机上至少有一个用户拥有管理员权限</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changetypeinteldialog.ui" line="619"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changetypeinteldialog.ui" line="654"/>
+        <source>Confirm</source>
+        <translation>确定</translation>
     </message>
 </context>
 <context>
@@ -1927,6 +2295,39 @@ Please authenticate yourself to continue</source>
     <message>
         <source>Change valid</source>
         <translation type="vanished">密码时效</translation>
+    </message>
+</context>
+<context>
+    <name>ChangeValidIntelDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.ui" line="26"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.ui" line="180"/>
+        <source>Password Validity Setting</source>
+        <translation>密码有效期设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.ui" line="312"/>
+        <source>Current passwd validity:</source>
+        <translation>当前密码有效期至:</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.ui" line="394"/>
+        <source>Adjust date to:</source>
+        <translation>调整有效期至:</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.ui" line="493"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.ui" line="500"/>
+        <source>Certain</source>
+        <translation>确定</translation>
     </message>
 </context>
 <context>
@@ -2043,6 +2444,44 @@ Please authenticate yourself to continue</source>
         <location filename="../../../plugins/account/userinfo/creategroupdialog.cpp" line="206"/>
         <source>Add user group</source>
         <translation>添加用户组</translation>
+    </message>
+</context>
+<context>
+    <name>CreateGroupIntelDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/creategroupinteldialog.ui" line="14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/creategroupinteldialog.ui" line="115"/>
+        <source>Add New Group</source>
+        <translation>添加用户组</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/creategroupinteldialog.ui" line="144"/>
+        <source>Group Name</source>
+        <translation>组名</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/creategroupinteldialog.ui" line="182"/>
+        <source>Group Id</source>
+        <translation>组ID</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/creategroupinteldialog.ui" line="234"/>
+        <source>Group Members</source>
+        <translation>组成员</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/creategroupinteldialog.ui" line="344"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/creategroupinteldialog.ui" line="363"/>
+        <source>Certain</source>
+        <translation>确定</translation>
     </message>
 </context>
 <context>
@@ -2225,6 +2664,116 @@ change system settings</source>
     </message>
 </context>
 <context>
+    <name>CreateUserIntelDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.ui" line="117"/>
+        <source>Add New Account</source>
+        <translation>添加新用户</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.ui" line="458"/>
+        <source>Account Type</source>
+        <translation>用户类型</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.ui" line="550"/>
+        <source>standard user</source>
+        <translation>标准用户</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.ui" line="563"/>
+        <source>Standard users can use most software, but cannot install the software and 
+change system settings</source>
+        <translation>标准账户可以使用大多数软件，但是不能安装软件和更改系统配置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.ui" line="666"/>
+        <source>administrator</source>
+        <translation>管理员用户</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.ui" line="679"/>
+        <source>Administrators can make any changes they need</source>
+        <translation>管理员账户可以更改任何系统配置，包括安装软件和升级软件</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.ui" line="728"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.ui" line="760"/>
+        <source>Confirm</source>
+        <translation>确定</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.cpp" line="150"/>
+        <source>UserName</source>
+        <translation>账户名称</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.cpp" line="151"/>
+        <source>Password</source>
+        <translation>输入密码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.cpp" line="152"/>
+        <source>Password Identify</source>
+        <translation>确认密码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.cpp" line="307"/>
+        <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.cpp" line="430"/>
+        <source>Inconsistency with pwd</source>
+        <translation>和密码不一致</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.cpp" line="417"/>
+        <source>Password length needs to more than %1 character!</source>
+        <translation>密码长度至少大于%1个字符！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.cpp" line="419"/>
+        <source>Password length needs to less than %1 character!</source>
+        <translation>密码长度需要小于%1个字符！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.cpp" line="526"/>
+        <source>The user name cannot be empty</source>
+        <translation>用户名不能为空</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.cpp" line="528"/>
+        <source>The first character must be lowercase letters!</source>
+        <translation>首字符必须为小写字符！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.cpp" line="531"/>
+        <source>User name can not contain capital letters!</source>
+        <translation>用户名不能包含大写字符！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.cpp" line="545"/>
+        <source>The user name is already in use, please use a different one.</source>
+        <translation>用户名已存在，请换用其他用户名。</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.cpp" line="550"/>
+        <source>User name length need to less than %1 letters!</source>
+        <translation>用户名长度需要小于%1个字符！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.cpp" line="552"/>
+        <source>The user name can only be composed of letters, numbers and underline!</source>
+        <translation>用户名只能由字母、数字以及下划线组成！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.cpp" line="557"/>
+        <source>The username is configured, please change the username</source>
+        <translation>用户配置已存在，请更换用户名</translation>
+    </message>
+</context>
+<context>
     <name>CustomLineEdit</name>
     <message>
         <location filename="../../../plugins/devices/shortcut/customlineedit.cpp" line="28"/>
@@ -2382,7 +2931,7 @@ change system settings</source>
     <message>
         <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="84"/>
         <source>Date</source>
-        <translation>时间日期</translation>
+        <translation>时间和日期</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="143"/>
@@ -2598,6 +3147,19 @@ change system settings</source>
     </message>
 </context>
 <context>
+    <name>DefineGroupItemIntel</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/definegroupitemintel.cpp" line="53"/>
+        <source>Edit</source>
+        <translation>编辑</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/definegroupitemintel.cpp" line="62"/>
+        <source>Delete</source>
+        <translation>删除</translation>
+    </message>
+</context>
+<context>
     <name>DefineShortcutItem</name>
     <message>
         <location filename="../../../plugins/devices/shortcut/defineshortcutitem.cpp" line="58"/>
@@ -2641,7 +3203,7 @@ in the file system invalid!</source>
     </message>
     <message>
         <source>RemoveFile</source>
-        <translation type="obsolete">删除文件</translation>
+        <translation type="vanished">删除文件</translation>
     </message>
     <message>
         <source>Remind</source>
@@ -2662,6 +3224,34 @@ in the file system invalid!</source>
     <message>
         <source>Are you sure to delete the group, which will make some file components in the file system invalid!</source>
         <translation type="vanished">确定删除该用户组，这将使得文件系统中的某些文件组件ID无效！</translation>
+    </message>
+</context>
+<context>
+    <name>DelGroupIntelDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/delgroupinteldialog.ui" line="26"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/delgroupinteldialog.ui" line="38"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/delgroupinteldialog.ui" line="82"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/delgroupinteldialog.ui" line="104"/>
+        <source>RemoveFile</source>
+        <translation>删除文件</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/delgroupinteldialog.ui" line="145"/>
+        <source>Remind</source>
+        <translation type="unfinished">提醒</translation>
     </message>
 </context>
 <context>
@@ -2709,6 +3299,29 @@ folder will be deleted!</source>
         <location filename="../../../plugins/account/userinfo/deluserdialog.cpp" line="99"/>
         <source>&apos;and:</source>
         <translation>&apos;同时:</translation>
+    </message>
+</context>
+<context>
+    <name>DelUserIntelDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/deluserinteldialog.ui" line="90"/>
+        <source>   Delete</source>
+        <translation>       删除用户</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/deluserinteldialog.ui" line="216"/>
+        <source>Define</source>
+        <translation>确定</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/deluserinteldialog.ui" line="241"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/deluserinteldialog.cpp" line="54"/>
+        <source>Delete the user, belonging to the user&apos;s desktop documents, favorites, music, pictures and video folder will be deleted!</source>
+        <translation>删除用户，用户所属的桌面、文档、收藏夹、音乐、图片和视频文件夹中的内容将全部被删除！</translation>
     </message>
 </context>
 <context>
@@ -2791,29 +3404,52 @@ folder will be deleted!</source>
 <context>
     <name>DeviceInfoItem</name>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="33"/>
         <source>Connect</source>
-        <translation>连接</translation>
+        <translation type="vanished">连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="37"/>
         <source>Disconnect</source>
-        <translation>断开</translation>
+        <translation type="vanished">断开</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="41"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="79"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="270"/>
+        <source>Send files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="85"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="272"/>
         <source>Remove</source>
         <translation>移除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="145"/>
-        <source>Device connected</source>
-        <translation>设备连接</translation>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="87"/>
+        <source>cancel</source>
+        <translation type="unfinished">取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="149"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="88"/>
+        <source>remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="95"/>
+        <source>Sure to remove,</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="97"/>
+        <source>After removal, the next connection requires matching PIN code!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Device connected</source>
+        <translation type="vanished">设备连接</translation>
+    </message>
+    <message>
         <source>Device not connected</source>
-        <translation>设备未连接</translation>
+        <translation type="vanished">设备未连接</translation>
     </message>
 </context>
 <context>
@@ -3006,6 +3642,74 @@ folder will be deleted!</source>
     <message>
         <source>Sign up now</source>
         <translation type="vanished">立即注册</translation>
+    </message>
+</context>
+<context>
+    <name>DigitalAuthIntelDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/digitalauthinteldialog.cpp" line="52"/>
+        <location filename="../../../plugins/account/userinfo_intel/digitalauthinteldialog.cpp" line="287"/>
+        <location filename="../../../plugins/account/userinfo_intel/digitalauthinteldialog.cpp" line="312"/>
+        <source>Enter Old Password</source>
+        <translation>请输入旧密码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/digitalauthinteldialog.cpp" line="76"/>
+        <source>Forget Password?</source>
+        <translation>忘记密码？</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/digitalauthinteldialog.cpp" line="97"/>
+        <location filename="../../../plugins/account/userinfo_intel/digitalauthinteldialog.cpp" line="152"/>
+        <location filename="../../../plugins/account/userinfo_intel/digitalauthinteldialog.cpp" line="223"/>
+        <location filename="../../../plugins/account/userinfo_intel/digitalauthinteldialog.cpp" line="253"/>
+        <location filename="../../../plugins/account/userinfo_intel/digitalauthinteldialog.cpp" line="263"/>
+        <source>Input New Password</source>
+        <translation>设置新密码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/digitalauthinteldialog.cpp" line="142"/>
+        <source>Input Password</source>
+        <translation>输入密码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/digitalauthinteldialog.cpp" line="230"/>
+        <source>The password input is error</source>
+        <translation>密码输入错误</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/digitalauthinteldialog.cpp" line="244"/>
+        <source>Confirm New Password</source>
+        <translation>确认新密码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/digitalauthinteldialog.cpp" line="250"/>
+        <source>The password input is inconsistent</source>
+        <translation>两次密码输入不一致，请重设</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/digitalauthinteldialog.cpp" line="260"/>
+        <source>New password can not be consistent of old password</source>
+        <translation>新密码与旧密码不能一致</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/digitalauthinteldialog.cpp" line="284"/>
+        <location filename="../../../plugins/account/userinfo_intel/digitalauthinteldialog.cpp" line="309"/>
+        <source>Password Change Failed</source>
+        <translation>修改密码失败</translation>
+    </message>
+</context>
+<context>
+    <name>DigitalPhoneIntelDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/digitalphoneinteldialog.cpp" line="52"/>
+        <source>Please Enter Edu OS Password</source>
+        <translation>请输入Edu OS密码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/digitalphoneinteldialog.cpp" line="163"/>
+        <source>The password input is error</source>
+        <translation>密码输入错误</translation>
     </message>
 </context>
 <context>
@@ -4717,7 +5421,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../mainwindow.cpp" line="431"/>
         <location filename="../../mainwindow.cpp" line="661"/>
-        <location filename="../../mainwindow.cpp" line="885"/>
+        <location filename="../../mainwindow.cpp" line="891"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
@@ -4761,18 +5465,36 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="1009"/>
+        <location filename="../../mainwindow.cpp" line="1015"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="1009"/>
+        <location filename="../../mainwindow.cpp" line="1015"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
     <message>
         <source>Home</source>
         <translation type="vanished">首页</translation>
+    </message>
+</context>
+<context>
+    <name>MessageBoxPowerIntel</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/messageboxpowerintel.cpp" line="48"/>
+        <source>Nothing has been entered, re-enter</source>
+        <translation>未输入任何内容，请重新输入</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/messageboxpowerintel.cpp" line="59"/>
+        <source>Remind in 30 minutes</source>
+        <translation>30分钟后提醒我</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/messageboxpowerintel.cpp" line="71"/>
+        <source>Got it</source>
+        <translation>知道了</translation>
     </message>
 </context>
 <context>
@@ -5257,6 +5979,14 @@ Please retry or relogin!</source>
     </message>
 </context>
 <context>
+    <name>NumbersButtonIntel</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/numbersbuttonintel.cpp" line="36"/>
+        <source>clean</source>
+        <translation>清空</translation>
+    </message>
+</context>
+<context>
     <name>OutputConfig</name>
     <message>
         <location filename="../../../plugins/system/display/outputconfig.cpp" line="64"/>
@@ -5355,6 +6085,84 @@ Please retry or relogin!</source>
     <message>
         <source>Your password is valid!</source>
         <translation type="vanished">您的密码是有效的！</translation>
+    </message>
+</context>
+<context>
+    <name>PhoneAuthIntelDialog</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="42"/>
+        <source>Wechat Auth</source>
+        <translation>微信验证</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="44"/>
+        <source>Phone Auth</source>
+        <translation>手机号验证</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="71"/>
+        <source>Phone number</source>
+        <translation>手机号</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="75"/>
+        <source>SMS verification code</source>
+        <translation>短信验证码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="103"/>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="322"/>
+        <source>GetCode</source>
+        <translation>获取验证码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="113"/>
+        <source>Return</source>
+        <translation>返回</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="114"/>
+        <source>Confirm</source>
+        <translation>确认</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="255"/>
+        <source>Mobile number acquisition failed</source>
+        <translation>手机号获取失败，请手动输入</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="284"/>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="314"/>
+        <source>Recapture</source>
+        <translation>重新获取</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="307"/>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="383"/>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="513"/>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="631"/>
+        <source>Network connection failure, please check</source>
+        <translation>网络连接故障，请重试</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="370"/>
+        <source>Phone is lock,try again in an hour</source>
+        <translation>手机号已被锁定，1小时之后再试</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="376"/>
+        <source>Phone code is wrong</source>
+        <translation>验证码错误，请重试</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="389"/>
+        <source>Unknown error, please try again later</source>
+        <translation>未知错误，请稍后重试</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="612"/>
+        <source>Please use the correct wechat scan code</source>
+        <translation>请使用正确的微信扫码</translation>
     </message>
 </context>
 <context>
@@ -6107,8 +6915,9 @@ Please retry or relogin!</source>
         <translation>时尚</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.cpp" line="173"/>
         <source>Unknown</source>
-        <translation type="vanished">未知</translation>
+        <translation>未知</translation>
     </message>
     <message>
         <source>Custom Shortcut</source>
@@ -6156,17 +6965,22 @@ Please retry or relogin!</source>
         <translation>触摸屏</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="166"/>
+        <location filename="../../utils/functionselect.cpp" line="164"/>
+        <source>User Info Intel</source>
+        <translation>账户信息</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="168"/>
         <source>Biometrics</source>
         <translation>生物特征与密码</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="233"/>
+        <location filename="../../utils/functionselect.cpp" line="245"/>
         <source>Default App</source>
         <translation>默认应用</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="235"/>
+        <location filename="../../utils/functionselect.cpp" line="247"/>
         <source>Auto Boot</source>
         <translation>开机启动</translation>
     </message>
@@ -6270,16 +7084,16 @@ Please retry or relogin!</source>
         <translation>账户信息</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="182"/>
+        <location filename="../../utils/functionselect.cpp" line="194"/>
         <source>Date</source>
-        <translation>时间日期</translation>
+        <translation>时间和日期</translation>
     </message>
     <message>
         <source>Dat</source>
         <translation type="vanished">时间日期</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="218"/>
+        <location filename="../../utils/functionselect.cpp" line="230"/>
         <source>Security Center</source>
         <translation>安全中心</translation>
     </message>
@@ -6302,7 +7116,7 @@ Please retry or relogin!</source>
         <translation type="vanished">账户信息</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="164"/>
+        <location filename="../../utils/functionselect.cpp" line="166"/>
         <source>Cloud Account</source>
         <translation>云账户</translation>
     </message>
@@ -6311,7 +7125,7 @@ Please retry or relogin!</source>
         <translation type="vanished">时间日期</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="184"/>
+        <location filename="../../utils/functionselect.cpp" line="196"/>
         <source>Area</source>
         <translation>区域语言</translation>
     </message>
@@ -6320,17 +7134,17 @@ Please retry or relogin!</source>
         <translation type="vanished">安全中心</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="201"/>
+        <location filename="../../utils/functionselect.cpp" line="213"/>
         <source>Update</source>
         <translation>安全与更新</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="199"/>
+        <location filename="../../utils/functionselect.cpp" line="211"/>
         <source>Backup</source>
         <translation>备份</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="203"/>
+        <location filename="../../utils/functionselect.cpp" line="215"/>
         <source>Upgrade</source>
         <translation>更新</translation>
     </message>
@@ -6340,7 +7154,7 @@ Please retry or relogin!</source>
         <translation>通知</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="250"/>
+        <location filename="../../utils/functionselect.cpp" line="262"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -6355,8 +7169,10 @@ Please retry or relogin!</source>
         <translation>体验计划</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.cpp" line="167"/>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.cpp" line="204"/>
         <source>Never</source>
-        <translation type="vanished">从不</translation>
+        <translation>从不</translation>
     </message>
     <message>
         <source>10min</source>
@@ -6399,26 +7215,32 @@ Please retry or relogin!</source>
         <translation type="vanished">关闭显示器</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.cpp" line="206"/>
         <source>Year</source>
-        <translation type="vanished">年</translation>
+        <translation>年</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.cpp" line="224"/>
         <source>Jan</source>
-        <translation type="vanished">一月</translation>
+        <translation>一月</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.cpp" line="225"/>
         <source>Feb</source>
-        <translation type="vanished">二月</translation>
+        <translation>二月</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.cpp" line="226"/>
         <source>Mar</source>
-        <translation type="vanished">三月</translation>
+        <translation>三月</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.cpp" line="227"/>
         <source>Apr</source>
-        <translation type="vanished">四月</translation>
+        <translation>四月</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.cpp" line="228"/>
         <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="33"/>
         <source>May</source>
         <translation>五月</translation>
@@ -6479,44 +7301,52 @@ Please retry or relogin!</source>
         <translation>十二月</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.cpp" line="229"/>
         <source>Jun</source>
-        <translation type="vanished">六月</translation>
+        <translation>六月</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.cpp" line="230"/>
         <source>Jul</source>
-        <translation type="vanished">七月</translation>
+        <translation>七月</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.cpp" line="231"/>
         <source>Aug</source>
-        <translation type="vanished">八月</translation>
+        <translation>八月</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.cpp" line="232"/>
         <source>Sep</source>
-        <translation type="vanished">九月</translation>
+        <translation>九月</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.cpp" line="233"/>
         <source>Oct</source>
-        <translation type="vanished">十月</translation>
+        <translation>十月</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.cpp" line="234"/>
         <source>Nov</source>
-        <translation type="vanished">十一月</translation>
+        <translation>十一月</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.cpp" line="235"/>
         <source>Dec</source>
-        <translation type="vanished">十二月</translation>
+        <translation>十二月</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.cpp" line="256"/>
         <source>Day</source>
-        <translation type="vanished">日</translation>
+        <translation>日</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="81"/>
+        <location filename="../../main.cpp" line="90"/>
         <source>ukui-control-center</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="72"/>
+        <location filename="../../main.cpp" line="81"/>
         <source>ukui-control-center is already running!</source>
         <translation>控制面板已运行!</translation>
     </message>
@@ -6829,54 +7659,63 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="695"/>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="311"/>
         <source>min length %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="705"/>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="321"/>
         <source>min digit num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="714"/>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="330"/>
         <source>min upper num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="723"/>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="339"/>
         <source>min lower num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="732"/>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="348"/>
         <source>min other num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="742"/>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="358"/>
         <source>min char class %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="751"/>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="367"/>
         <source>max repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="760"/>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="376"/>
         <source>max class repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="769"/>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="385"/>
         <source>max sequence %1
 </source>
         <translation type="unfinished"></translation>
@@ -7115,7 +7954,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="201"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="174"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="175"/>
         <source>Idle time</source>
         <translation>此时间段后开启屏保</translation>
         <extra-contents_path>/screensaver/Idle time</extra-contents_path>
@@ -7132,7 +7971,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="297"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="172"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="173"/>
         <source>Screensaver program</source>
         <translation>屏幕保护程序</translation>
         <extra-contents_path>/screensaver/Screensaver program</extra-contents_path>
@@ -7159,122 +7998,122 @@ Please retry or relogin!</source>
         <translation type="vanished">默认屏保</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="160"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="161"/>
         <source>View</source>
         <translation>预览</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="827"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="830"/>
         <source>Text(up to 30 characters):</source>
         <translation>屏保文本(最多30个字):</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="859"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="862"/>
         <source>Show rest time</source>
         <translation>显示休息时间</translation>
         <extra-contents_path>/screensaver/Show rest time</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="201"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="202"/>
         <source>UKUI</source>
         <translation>UKUI</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="202"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="203"/>
         <source>Blank_Only</source>
         <translation>黑屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="213"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="214"/>
         <source>Customize</source>
         <translation>自定义</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="228"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="730"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="229"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="733"/>
         <source>5min</source>
         <translation>5分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="228"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="731"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="229"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="734"/>
         <source>10min</source>
         <translation>10分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="228"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="229"/>
         <source>15min</source>
         <translation>15分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="228"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="732"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="229"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="735"/>
         <source>30min</source>
         <translation>30分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="228"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="229"/>
         <source>1hour</source>
         <translation>1小时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="632"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="635"/>
         <source>Screensaver source</source>
         <translation>屏保来源</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="638"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="688"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="641"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="691"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="646"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="649"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp *.svg)</source>
         <translation>壁纸文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp *.svg)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="687"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="690"/>
         <source>select custom screensaver dir</source>
         <translation>选择自定义屏保路径</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="689"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="692"/>
         <source>Position: </source>
         <translation>位置:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="690"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="693"/>
         <source>FileName: </source>
         <translation>文件名:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="691"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="694"/>
         <source>FileType: </source>
         <translation>文件类型:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="692"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="695"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="725"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="728"/>
         <source>Switching time</source>
         <translation>切换频率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="729"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="732"/>
         <source>1min</source>
         <translation>1分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="777"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="780"/>
         <source>Ordinal</source>
         <translation>按顺序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="786"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="789"/>
         <source>Random switching</source>
         <translation>随机切换</translation>
     </message>
@@ -7287,17 +8126,17 @@ Please retry or relogin!</source>
         <translation type="vanished">输入文本，最多30个字符</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="878"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="881"/>
         <source>Text position</source>
         <translation>文本位置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="886"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="889"/>
         <source>Centered</source>
         <translation>居中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="887"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="890"/>
         <source>Randow(Bubble text)</source>
         <translation>随机(气泡文本)</translation>
     </message>
@@ -7334,12 +8173,12 @@ Please retry or relogin!</source>
         <translation type="vanished">3h</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="778"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="781"/>
         <source>Random</source>
         <translation>随机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="229"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="230"/>
         <source>Never</source>
         <translation>从不</translation>
     </message>
@@ -9404,6 +10243,98 @@ Please retry or relogin!</source>
     </message>
 </context>
 <context>
+    <name>UserInfoIntel</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="77"/>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="135"/>
+        <source>Current User</source>
+        <translation>当前用户</translation>
+        <extra-contents_path>/userinfo/Current User</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="289"/>
+        <source>Change phone</source>
+        <translation>更换手机号</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="334"/>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="146"/>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="1107"/>
+        <source>Change pwd</source>
+        <translation>更换密码</translation>
+        <extra-contents_path>/userinfo/Change pwd</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="385"/>
+        <source>User group</source>
+        <translation>用户组</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="411"/>
+        <source>Del user</source>
+        <translation>删除用户</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="498"/>
+        <source>system reboot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="553"/>
+        <source>Unclosed apps start after a restart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="622"/>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="138"/>
+        <source>Other Users</source>
+        <translation>其他用户</translation>
+        <extra-contents_path>/userinfo/Other Users</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="61"/>
+        <source>User Info Intel</source>
+        <translation>账户信息</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="141"/>
+        <source>Change Tel</source>
+        <translation>更换手机号</translation>
+        <extra-contents_path>/userinfo/Change Tel</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="169"/>
+        <source>Delete user</source>
+        <translation>删除用户</translation>
+        <extra-contents_path>/userinfo/Delete user</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="182"/>
+        <source>standard user</source>
+        <translation>标准用户</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="184"/>
+        <source>administrator</source>
+        <translation>管理员用户</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="193"/>
+        <source>root</source>
+        <translation>Root</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="423"/>
+        <source>Add new user</source>
+        <translation>添加新用户</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="727"/>
+        <source>set pwd</source>
+        <translation>设置密码</translation>
+    </message>
+</context>
+<context>
     <name>Vino</name>
     <message>
         <location filename="../../../plugins/system/vino/vino.cpp" line="24"/>
@@ -9606,19 +10537,19 @@ Please retry or relogin!</source>
         <translation type="vanished">屏幕缩放 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="804"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="805"/>
         <source>unify output</source>
         <translation>统一输出</translation>
         <extra-contents_path>/display/unify output</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="808"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="809"/>
         <source>night mode</source>
         <translation>夜间模式</translation>
         <extra-contents_path>/display/night mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="719"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="720"/>
         <source>Some applications need to be logouted to take effect</source>
         <translation>部分程序需要注销生效</translation>
     </message>
@@ -9639,7 +10570,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="321"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2050"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2036"/>
         <source>Custom Time</source>
         <translation>自定义</translation>
     </message>
@@ -9664,80 +10595,80 @@ Please retry or relogin!</source>
         <translation>较冷</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="678"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="679"/>
         <source>Multi-screen</source>
         <translation>多屏显示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="683"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="684"/>
         <source>First Screen</source>
         <translation>第一屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="684"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="685"/>
         <source>Clone Screen</source>
         <translation>镜像屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="685"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="686"/>
         <source>Extend Screen</source>
         <translation>拓展屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="686"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="687"/>
         <source>Vice Screen</source>
         <translation>其他屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="707"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="708"/>
         <source>monitor</source>
         <translation>显示器</translation>
         <extra-contents_path>/display/monitor</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="718"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="719"/>
         <source>Information</source>
         <translation>信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="816"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="817"/>
         <source>Theme follow night mode</source>
         <translation>主题跟随夜间模式变化</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="870"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="871"/>
         <source>Hint</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="871"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="872"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after 14 seconds</source>
         <translation>是否保留当前修改的配置？将在14秒后自动保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="875"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="876"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="876"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="877"/>
         <source>Not Save</source>
         <translation>不保存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2050"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2036"/>
         <source>All Day</source>
         <translation>全天</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2050"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2036"/>
         <source>Follow the sunrise and sunset(17:55-06:23)</source>
         <translation>跟随日出日落(17:55-06:23)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2335"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2342"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2321"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2328"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
@@ -9752,7 +10683,7 @@ The settings will be saved after 9 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与 显卡兼容性问题，有可能显示不正常。系统将在9秒后保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="885"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="886"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
 the settings will be saved after %1 seconds</source>
         <translation>是否保留当前修改的配置？将在%1秒后自动保存配置</translation>
@@ -9781,19 +10712,19 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1564"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1548"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1361"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1564"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1571"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1345"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1548"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1555"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1362"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1346"/>
         <source>Open time should be earlier than close time!</source>
         <translation>开启时间必须大于关闭时间！</translation>
     </message>
@@ -9802,7 +10733,7 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">早晨时刻应早于晚上的时刻!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1572"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1556"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>

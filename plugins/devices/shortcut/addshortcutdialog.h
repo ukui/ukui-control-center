@@ -64,6 +64,7 @@ public:
     void setNameText(const QString &text);
     void setKeyText(const QString  &text);
     void setSourceEnable(bool enabled);
+    void setKeyIsAvailable(const int key);
 protected:
     void paintEvent(QPaintEvent *);
 

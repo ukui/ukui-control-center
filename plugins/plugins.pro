@@ -27,6 +27,7 @@ SUBDIRS = \
           network/vpn \
           network/proxy \
           account/userinfo \
+          account/userinfo_intel \
           account/networkaccount \
           account/biometrics \
           security-updates/securitycenter \

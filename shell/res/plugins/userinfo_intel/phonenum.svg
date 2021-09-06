@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>手机</title>
+    <g id="Edu-OS-Light" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="PC-控制面板01-3-账户信息-修改密码-弹窗" transform="translate(-529.000000, -989.000000)" fill-rule="nonzero">
+            <g id="弹窗-修改密码备份-4" transform="translate(485.000000, 731.000000)">
+                <g id="账号登录备份-3" transform="translate(28.000000, 238.000000)">
+                    <g id="手机" transform="translate(16.000000, 20.000000)">
+                        <rect id="矩形" fill="#000000" opacity="0" x="0" y="0" width="16" height="16"></rect>
+                        <path d="M12,0 L4,0 C2.8954305,2.02906125e-16 2,0.8954305 2,2 L2,11 L2,11 L14,11 L14,2 C14,0.8954305 13.1045695,-2.02906125e-16 12,0 Z" id="路径" fill="#8F979F"></path>
+                        <path d="M14,12 L14,14 C14,15.1045695 13.1045695,16 12,16 L12,16 L4,16 C2.8954305,16 2,15.1045695 2,14 L2,14 L2,12 L14,12 Z M8,13 C7.44771525,13 7,13.4477153 7,14 C7,14.5522847 7.44771525,15 8,15 C8.55228475,15 9,14.5522847 9,14 C9,13.4477153 8.55228475,13 8,13 Z" id="形状结合" fill="#8F979F"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

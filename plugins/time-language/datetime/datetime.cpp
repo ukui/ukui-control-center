@@ -107,19 +107,27 @@ int DateTime::get_plugin_type()
 
 QWidget *DateTime::get_plugin_ui()
 {
+    QTimer::singleShot(1, this, [=]() {
+        if (mFirstLoad) {
 
-    if (mFirstLoad) {
+            mFirstLoad = false;
 
-        mFirstLoad = false;
-
-        initUI();
-        initTitleLabel();
-        initStatus();
-        initComponent();
-        initConnect();
-        connectToServer();
-        initTimeShow();
-    }
+            initUI();
+            qApp->processEvents();
+            initTitleLabel();
+            qApp->processEvents();
+            initStatus();
+            qApp->processEvents();
+            initComponent();
+            qApp->processEvents();
+            initConnect();
+            qApp->processEvents();
+            connectToServer();
+            qApp->processEvents();
+            initTimeShow();
+            qApp->processEvents();
+        }
+    });
     return pluginWidget;
 }
 
@@ -301,10 +309,6 @@ void DateTime::initStatus()
 
 void DateTime::initTimeShow()
 {
-    ui->summaryLabel->setObjectName("summaryText");
-    ui->summaryLabel->setText(tr("Add time zones to display the time,only 5 can be added"));
-    ui->summaryLabel->setVisible(false);
-
     AddBtn * addTimeBtn = new AddBtn;
     ui->addLayout->addWidget(addTimeBtn);
     connect(addTimeBtn,&AddBtn::clicked,this,[=](){
@@ -327,6 +331,7 @@ void DateTime::initTimeShow()
 
         for (int i = 0; i < timesNum; ++i) {
             newTimeshow(timezonesList[i]);
+            qApp->processEvents();
         }
      }
 }

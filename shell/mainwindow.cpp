@@ -578,7 +578,9 @@ void MainWindow::loadPlugins(){
                 || ("libtouchscreen.so" == fileName && !isExitTouchScreen())
                 || ("libupdate.so" == fileName && !Utils::isCommunity())
                 || ("libfonts.so" == fileName && Utils::isTablet())
-                || ("libtouchpad.so" == fileName && !isfindSynaptics())) {
+                || ("libtouchpad.so" == fileName && !isfindSynaptics()) {
+                || ("libuserinfo.so" == fileName && Utils::isTablet())
+                || ("libuserinfo_intel.so" == fileName && !Utils::isTablet())) {
             continue;
         }
 
@@ -679,9 +681,9 @@ void MainWindow::initLeftsideBar(){
             QLabel *typeLabel       = new QLabel(typeWidget);
             typeLabel->setStyleSheet("color: #818181");
             if (type != 0) {
-                typeLayout->setContentsMargins(28,20,46,0);
+                typeLayout->setContentsMargins(28,20,0,0);
             } else {
-                typeLayout->setContentsMargins(28,0,46,0);
+                typeLayout->setContentsMargins(28,0,0,0);
             }
             typeLayout->addWidget(typeLabel);
             typeLabel->setText(mnamei18nString);
@@ -705,25 +707,28 @@ void MainWindow::initLeftsideBar(){
                     }
                 }
 
+                // intel与sp1做区分
+                if ((Utils::isTablet() && single.nameString == "Userinfo")
+                    || (!Utils::isTablet() && single.nameString == "Userinfointel")) {
+                    continue;
+                }
+
                 //填充左侧菜单
 
                 QPushButton *pluginBtn = buildLeftsideBtn(single.nameString, single.namei18nString);
 
                 leftBtnGroup->addButton(pluginBtn, type);
 
-
                 QHBoxLayout *pluginLayout = new QHBoxLayout();
                 menuLayout->addLayout(pluginLayout);
-                pluginLayout->setContentsMargins(14,0,46,0);
+                pluginLayout->setContentsMargins(14, 0, 0, 0);
                 pluginBtn->setStyleSheet("QPushButton:hover{background-color: rgba(55,144,250,0.30);border-radius: 4px;}"
                                                  "QPushButton:checked{background-color: palette(highlight);border-radius: 4px;}"
                                                  "QPushButton:!checked{border: none;}");
 
-
                 pluginLayout->addWidget(pluginBtn);
                 CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(moduleMap.value(single.namei18nString));
                 pluginInstance->pluginBtn = pluginBtn;
-
 
                 connect(pluginBtn, &QPushButton::clicked, this, [=](){
                     modulepageWidget->refreshPluginWidget(pluginInstance);

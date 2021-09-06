@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <QApplication>
 #include "shortcutline.h"
+#include "grab-x11.h"
 
 #define SNULL  "NULL"
 #define SCTRL  "Ctrl"
@@ -71,7 +72,8 @@ void ShortcutLine::keyPressEvent(QKeyEvent *e)
 
     if (firstKey == SNULL) {
         firstKey = keyToString(keyValue);
-        if (keyValue == Qt::Key_Control || keyValue == Qt::Key_Alt || keyValue == Qt::Key_Shift) {
+        if (keyValue == Qt::Key_Control || keyValue == Qt::Key_Alt \
+                || keyValue == Qt::Key_Shift || keyValue == Qt::Key_Meta) {
             this->setText(firstKey + QString("   "));
         } else {                       //第一个键不是三个辅助键中的其中一个
             this->setText(firstKey);  //显示一下，增强用户交互性
@@ -82,7 +84,8 @@ void ShortcutLine::keyPressEvent(QKeyEvent *e)
         }
     } else if(secondKey == SNULL){
         /*第二个键是辅助键中的另外一个*/
-        if ((keyValue == Qt::Key_Control || keyValue == Qt::Key_Alt || keyValue == Qt::Key_Shift) &&
+        if ((keyValue == Qt::Key_Control || keyValue == Qt::Key_Alt || \
+             keyValue == Qt::Key_Shift || keyValue == Qt::Key_Meta) &&
                 keyToString(keyValue) != firstKey) {
             secondKey = keyToString(keyValue);
             this->setText(firstKey + QString("   ") + secondKey + QString("   "));
@@ -120,6 +123,7 @@ void ShortcutLine::keyReleaseEvent(QKeyEvent *e)
 
 void ShortcutLine::focusInEvent(QFocusEvent *e)
 {
+    //establishGrab();
     this->grabKeyboard();
     QLineEdit::focusInEvent(e);
     initInputKeyAndText(false);
@@ -127,6 +131,7 @@ void ShortcutLine::focusInEvent(QFocusEvent *e)
 
 void ShortcutLine::focusOutEvent(QFocusEvent *e)
 {
+    //closeGrab();
     this->releaseKeyboard();
     QLineEdit::focusOutEvent(e);
 }
@@ -136,10 +141,20 @@ void ShortcutLine::shortCutObtained(const bool &flag, const int &keyNum)
     if (true == flag && (2 == keyNum || 3 == keyNum)) {
         shortCutObtainedFlag = true;
         if (2 == keyNum) {
-            seq = QKeySequence(firstKey + QString("+") + secondKey);
+            if (firstKey == "Win") {
+                seq = QKeySequence("Meta" + QString("+") + secondKey);
+            } else {
+                seq = QKeySequence(firstKey + QString("+") + secondKey);
+            }
             this->setText(firstKey + QString("   ") + secondKey);
         } else {
-            seq = QKeySequence(firstKey + QString("+") + secondKey + QString("+") + thirdKey);
+            if (firstKey == "Win") {
+                seq = QKeySequence("Meta" + QString("+") + secondKey + QString("+") + thirdKey);
+            } else if (secondKey == "Win") {
+                seq = QKeySequence(firstKey + QString("+") + "Meta" + QString("+") + thirdKey);
+            } else {
+                seq = QKeySequence(firstKey + QString("+") + secondKey + QString("+") + thirdKey);
+            }
             this->setText(firstKey + QString("   ") + secondKey + QString("   ") + thirdKey);
         }
 
@@ -211,12 +226,15 @@ bool ShortcutLine::conflictWithStandardShortcuts(const QKeySequence &seq)
 bool ShortcutLine::conflictWithSystemShortcuts(const QKeySequence &seq)
 {
     QString systemKeyStr = keyToLib(seq.toString());
-
-    if (systemKeyStr.contains("Ctrl")) {
-        systemKeyStr.replace("Ctrl", "Control");
+    if (systemKeyStr.contains("Meta")) {
+        systemKeyStr.replace("Meta", "Win");
     }
     for (KeyEntry *ckeyEntry : systemEntry) {
-        if (systemKeyStr == ckeyEntry->valueStr) {
+        QString ckeyString = ckeyEntry->valueStr;
+        if (ckeyString.contains("Control")) {
+            ckeyString.replace("Control", "Ctrl");
+        }
+        if (systemKeyStr == ckeyString) {
             qDebug() << "conflictWithSystemShortcuts" << seq;
             return true;
         }
@@ -227,9 +245,18 @@ bool ShortcutLine::conflictWithSystemShortcuts(const QKeySequence &seq)
 bool ShortcutLine::conflictWithCustomShortcuts(const QKeySequence &seq)
 {
     QString customKeyStr = keyToLib(seq.toString());
-
+    if (customKeyStr.contains("Meta")) {
+        customKeyStr.replace("Meta", "Win");
+    }
     for (KeyEntry *ckeyEntry : customEntry) {
-        if (customKeyStr == ckeyEntry->bindingStr) {
+        QString ckeyString = ckeyEntry->bindingStr;
+        if (ckeyString.contains("Control")) {
+            ckeyString.replace("Control", "Ctrl");
+        }
+        if (ckeyString.contains("Meta")) {
+            ckeyString.replace("Meta", "Win");
+        }
+        if (customKeyStr == ckeyString) {
             qDebug() << "conflictWithCustomShortcuts" << seq;
             return true;
         }

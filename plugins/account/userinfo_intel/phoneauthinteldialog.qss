@@ -1,0 +1,33 @@
+QWidget#codeWidget,QWidget#phoneWidget{
+    width: 304px;
+    height: 56px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+}
+
+QPushButton#getVerifyCodeBtn{
+    background: rgba(0, 0, 0, 0);
+    font-size: 16px;
+    font-family: NotoSansCJKsc-Regular, NotoSansCJKsc;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.PhoneLineEdit{
+    background: rgba(0, 0, 0, 0);
+    border: 0px;
+}
+
+.phoneBT{
+    width: 144px;
+    height: 48px;
+    border-radius: 8px;
+    border: 0px solid #DDDDDD;
+}
+.phoneBT:hover{
+    width: 144px;
+    height: 48px;
+    background: #2FB3E8;
+    border-radius: 8px;
+}
+

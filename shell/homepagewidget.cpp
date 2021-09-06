@@ -130,6 +130,14 @@ void HomePageWidget::initUI() {
             QString firstFunc;
             QList<FuncInfo> tmpList = FunctionSelect::funcinfoList[moduleIndex];
             for (FuncInfo tmpStruct : tmpList) {
+                QString sysVersion = "/etc/apt/ota_version";
+                QFile file(sysVersion);
+                bool isIntel = file.exists();
+                if ((isIntel && tmpStruct.namei18nString == "User Info")
+                      || (!isIntel && tmpStruct.namei18nString == "User Info Intel")) {
+                    continue;
+                }
+
                 if (moduleMap.keys().contains(tmpStruct.namei18nString)) {
                     if (mModuleMap.isEmpty() || mModuleMap[tmpStruct.nameString.toLower()].toBool()) {
                         firstFunc = tmpStruct.namei18nString;
@@ -184,7 +192,14 @@ void HomePageWidget::initUI() {
                 }
             }
 
-            ClickLabel * label = new ClickLabel(single.namei18nString, widget);
+            QString textName = single.namei18nString;
+            /* 设计要求，部分首页显示插件名和导航显示名不一致*/
+            if (textName == "时间和日期") {
+                textName = "时间日期";
+            } else if (textName == "区域语言") {
+                textName = "语言";
+            }
+            ClickLabel * label = new ClickLabel(textName, widget);
             label->setStyleSheet("color: palette(Shadow);");
 
             connect(label, SIGNAL(clicked()), moduleSignalMapper, SLOT(map()));

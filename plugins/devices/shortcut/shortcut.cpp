@@ -440,6 +440,7 @@ void Shortcut::buildCustomItem(KeyEntry *nkeyEntry)
         addDialog->setExecText(nkeyEntry->actionStr);
         addDialog->setNameText(nkeyEntry->nameStr);
         addDialog->setKeyText(nkeyEntry->bindingStr);
+        addDialog->setKeyIsAvailable(3);
 
         connect(addDialog, &addShortcutDialog::shortcutInfoSignal,
                 [=](QString path, QString name, QString exec, QString key){
@@ -535,6 +536,9 @@ QString Shortcut::keyToLib(QString key)
 
 void Shortcut::createNewShortcut(QString path, QString name, QString exec, QString key, bool buildFlag, bool convertFlag)
 {
+    if (key.contains("Meta")) {
+        key.replace("Meta", "Win");
+    }
     qDebug() << "createNewShortcut" << path << name << exec << key;
     QString availablepath;
     if (path.isEmpty()) {
