@@ -552,7 +552,7 @@ void MainWindow::loadPlugins(){
                 || (!QGSettings::isSchemaInstalled(kVinoSchemas) && "libvino.so" == fileName)
                 || ("libbluetooth.so" == fileName && !isExitBluetooth())
                 || ("libpower.so" == fileName && !isExitsPower())
-                || ("libupdate.so" == fileName && !Utils::isCommunity()) {
+                || ("libupdate.so" == fileName && !Utils::isCommunity())
                 || ("libtouchpad.so" == fileName && !isfindSynaptics())) {
             continue;
         }
