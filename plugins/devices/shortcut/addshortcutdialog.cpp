@@ -436,3 +436,7 @@ void addShortcutDialog::setKeyText(const QString &text)
 void addShortcutDialog::setSourceEnable(bool enabled) {
     ui->openBtn->setEnabled(enabled);
 }
+
+void addShortcutDialog::setKeyIsAvailable(const int key) {
+    keyIsAvailable = key;
+}

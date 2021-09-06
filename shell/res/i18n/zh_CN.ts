@@ -2382,7 +2382,7 @@ change system settings</source>
     <message>
         <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="84"/>
         <source>Date</source>
-        <translation>时间日期</translation>
+        <translation>时间和日期</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="143"/>
@@ -6272,7 +6272,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../utils/functionselect.cpp" line="182"/>
         <source>Date</source>
-        <translation>时间日期</translation>
+        <translation>时间和日期</translation>
     </message>
     <message>
         <source>Dat</source>
