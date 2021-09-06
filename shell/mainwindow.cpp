@@ -678,9 +678,9 @@ void MainWindow::initLeftsideBar(){
             QLabel *typeLabel       = new QLabel(typeWidget);
             typeLabel->setStyleSheet("color: #818181");
             if (type != 0) {
-                typeLayout->setContentsMargins(28,20,46,0);
+                typeLayout->setContentsMargins(28,20,0,0);
             } else {
-                typeLayout->setContentsMargins(28,0,46,0);
+                typeLayout->setContentsMargins(28,0,0,0);
             }
             typeLayout->addWidget(typeLabel);
             typeLabel->setText(mnamei18nString);
@@ -713,7 +713,7 @@ void MainWindow::initLeftsideBar(){
 
                 QHBoxLayout *pluginLayout = new QHBoxLayout();
                 menuLayout->addLayout(pluginLayout);
-                pluginLayout->setContentsMargins(14,0,46,0);
+                pluginLayout->setContentsMargins(14, 0, 0, 0);
                 pluginBtn->setStyleSheet("QPushButton:hover{background-color: rgba(55,144,250,0.30);border-radius: 4px;}"
                                                  "QPushButton:checked{background-color: palette(highlight);border-radius: 4px;}"
                                                  "QPushButton:!checked{border: none;}");
