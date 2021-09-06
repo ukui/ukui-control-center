@@ -509,11 +509,10 @@ void QMLScreen::setOutputScale(float scale)
 void QMLScreen::setX100GPU()
 {
     QProcess *gpuPro = new QProcess();
-    gpuPro->start("lspci  | grep -i Display");
+    gpuPro->start("lspci");
     gpuPro->waitForFinished();
     QString output = gpuPro->readAll();
     mIsX100 = output.contains("X100");
-    delete gpuPro;
 }
 
 // 画坐标
