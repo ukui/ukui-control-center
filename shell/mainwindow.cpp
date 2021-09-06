@@ -577,7 +577,8 @@ void MainWindow::loadPlugins(){
                 || ("libpower.so" == fileName && !isExitsPower())
                 || ("libtouchscreen.so" == fileName && !isExitTouchScreen())
                 || ("libupdate.so" == fileName && !Utils::isCommunity())
-                || ("libfonts.so") == fileName && Utils::isTablet()) {
+                || ("libfonts.so" == fileName && Utils::isTablet())
+                || ("libtouchpad.so" == fileName && !isfindSynaptics())) {
             continue;
         }
 
