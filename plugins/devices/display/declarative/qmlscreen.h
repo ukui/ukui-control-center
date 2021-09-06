@@ -22,6 +22,7 @@
 #include <QQuickItem>
 #include <QSettings>
 #include <KF5/KScreen/kscreen/output.h>
+#include <QDBusInterface>
 #include "qmloutput.h"
 #include "./widget.h"
 class QQmlEngine;
@@ -112,7 +113,6 @@ class QMLScreen : public QQuickItem
     QVector<QMLOutput*> m_manuallyMovedOutputs;
     int m_connectedOutputsCount = 0;
     int m_enabledOutputsCount = 0;
-    QGSettings *m_tmsettings;
 
     float m_outputScale = 1.0 / 13.0;//缩放比例
 
@@ -144,6 +144,8 @@ class QMLScreen : public QQuickItem
     DisplayWidget * dispalyWidget;
     QTimer * m_outputTimer;
     QTimer * m_screenAddTimer;
+
+    QDBusInterface *m_qmlscreenSessionDbus;
 };
 
 #endif // QMLSCREEN_H

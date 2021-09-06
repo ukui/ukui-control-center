@@ -10,6 +10,10 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QGSettings>
+#include <QtDBus/QDBusInterface>
+#include <QtDBus/QDBusReply>
+#include <QtDBus/QDBusConnection>
+
 #include "shell/interface.h"
 #include "SwitchButton/switchbutton.h"
 
@@ -51,6 +55,9 @@ private:
     QFrame * padFrame;
     QString cur_mode;
     bool mFirstLoad;
-    QGSettings * tablet_mode;
+
+    QDBusInterface *m_statusSessionDbus = nullptr;
+
+    void dbusConnect(bool tablet_mode);
 };
 #endif // OPERATINGMODE_H

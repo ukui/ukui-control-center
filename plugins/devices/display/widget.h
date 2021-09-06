@@ -151,8 +151,9 @@ class DisplayWidget : public QWidget
   public Q_SLOTS:
     void save();
     void scaleChangedSlot(int index);
-
+    void widget_DbusSlot(bool tablet_mode);
   private:
+
     void loadQml();
     void resetPrimaryCombo();
     void addOutputToPrimaryCombo(const KScreen::OutputPtr &output);
@@ -222,7 +223,7 @@ class DisplayWidget : public QWidget
     QGSettings * m_colorSettings = nullptr;
     QGSettings * m_settings = nullptr;
     QSettings *m_qsettings = nullptr;
-    QGSettings *m_tmsettings = nullptr;
+    QDBusInterface *m_statusSessionDbus = nullptr;
     QButtonGroup *singleButton;
     QGSettings * powerSettings;
     QGSettings * xrandrSettings;

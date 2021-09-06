@@ -22,8 +22,12 @@ QWidget *OperatingMode::get_plugin_ui() {
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
         ui->setupUi(pluginWidget);
 
-        tablet_mode =  new QGSettings("org.ukui.SettingsDaemon.plugins.tablet-mode", QByteArray(),this);
-        if(tablet_mode->get("tablet-mode").toBool()){
+        m_statusSessionDbus = new QDBusInterface("com.kylin.statusmanager.interface",
+                                                  "/",
+                                                  "com.kylin.statusmanager.interface",
+                                                  QDBusConnection::sessionBus(), this);
+        QDBusReply<bool> is_tabletmode = m_statusSessionDbus->call("get_current_tabletmode");
+        if(is_tabletmode){
             cur_mode = "pad";
         } else {
             cur_mode = "pc";
@@ -53,28 +57,32 @@ const QString OperatingMode::name() const {
 
 void OperatingMode::initConnection() {
 
-    connect(tablet_mode, &QGSettings::changed, this, [=](){
-        if(tablet_mode->get("tablet-mode").toBool()){
-            padFrame->setStyleSheet("QFrame#padFrame{background: rgba(47, 179, 232, 0.1);"
-                                   "border: 2px solid #2FB3E8;"
-                                   "border-radius: 8px;"
-                                   "color: palette(text)}");
-            pcFrame->setStyleSheet("QFrame#pcFrame{background: palette(base);"
-                                    "border: none;"
-                                    "border-radius: 8px;"
-                                    "color: palette(text)}");
-        } else {
-            pcFrame->setStyleSheet("QFrame#pcFrame{background: rgba(47, 179, 232, 0.1);"
-                                   "border: 2px solid #2FB3E8;"
-                                   "border-radius: 8px;"
-                                   "color: palette(text)}");
-            padFrame->setStyleSheet("QFrame#padFrame{background: palette(base);"
-                                    "border: none;"
-                                    "border-radius: 8px;"
-                                    "color: palette(text)}");
-        }
-    });
+    connect(m_statusSessionDbus, SIGNAL(mode_change_signal(bool)), this, SLOT(dbusConnect(bool)));
 }
+
+void OperatingMode::dbusConnect(bool tablet_mode)
+{
+    if(tablet_mode){
+        padFrame->setStyleSheet("QFrame#padFrame{background: rgba(47, 179, 232, 0.1);"
+                               "border: 2px solid #2FB3E8;"
+                               "border-radius: 8px;"
+                               "color: palette(text)}");
+        pcFrame->setStyleSheet("QFrame#pcFrame{background: palette(base);"
+                                "border: none;"
+                                "border-radius: 8px;"
+                                "color: palette(text)}");
+    } else {
+        pcFrame->setStyleSheet("QFrame#pcFrame{background: rgba(47, 179, 232, 0.1);"
+                               "border: 2px solid #2FB3E8;"
+                               "border-radius: 8px;"
+                               "color: palette(text)}");
+        padFrame->setStyleSheet("QFrame#padFrame{background: palette(base);"
+                                "border: none;"
+                                "border-radius: 8px;"
+                                "color: palette(text)}");
+    }
+}
+
 void OperatingMode::initComponent() {
     //标题行
     titleFrame = new QFrame;
@@ -278,8 +286,9 @@ bool OperatingMode::eventFilter(QObject *w, QEvent *e){
     if(w == pcFrame) {
         if (e->type() == QEvent::MouseButtonPress) {
 //            if(cur_mode == QString::fromLocal8Bit("pad")){
-            if(tablet_mode->get("tablet-mode").toBool()) {
-                tablet_mode->set("tablet-mode", false);
+            QDBusReply<bool> is_tabletmode = m_statusSessionDbus->call("get_current_tabletmode");
+            if(is_tabletmode) {
+//                m_statusSessionDbus->call("set_tabletmode", false, "ukcc", "set_tabletmode");
                 pcFrame->setStyleSheet("QFrame#pcFrame{background: rgba(47, 179, 232, 0.1);"
                                         "border: 2px solid #2FB3E8;"
                                         "border-radius: 8px;"
@@ -296,8 +305,9 @@ bool OperatingMode::eventFilter(QObject *w, QEvent *e){
     } else if(w == padFrame){
         if (e->type() == QEvent::MouseButtonPress) {
 //            if(cur_mode == QString::fromLocal8Bit("pc")){
-            if(!tablet_mode->get("tablet-mode").toBool()) {
-                tablet_mode->set("tablet-mode", true);
+            QDBusReply<bool> is_tabletmode = m_statusSessionDbus->call("get_current_tabletmode");
+            if(!is_tabletmode) {
+//                m_statusSessionDbus->call("set_tabletmode", true, "ukcc", "set_tabletmode");
                 padFrame->setStyleSheet("QFrame#padFrame{background: rgba(47, 179, 232, 0.1);"
                                         "border: 2px solid #2FB3E8;"
                                         "border-radius: 8px;"

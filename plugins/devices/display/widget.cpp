@@ -83,8 +83,6 @@ extern "C" {
 #define SETTINGS_XRANDR_SCHEMAS          "org.ukui.SettingsDaemon.plugins.xrandr"
 #define XRANDR_MIRROR_MODE               "xrandr-mirror-mode"
 #define XRANDR_CLONE                     "xrandr-clone"
-#define TABLET_MODE_SCHEMAS              "org.ukui.SettingsDaemon.plugins.tablet-mode"
-#define TABLET_MODE_KEY                  "tablet-mode"
 
 #define CONTROL_CENTER_MODE              "org.ukui.control-center.personalise"
 void value_to_hour_minute(double value, int *hour, int *minute)
@@ -225,9 +223,6 @@ DisplayWidget::~DisplayWidget()
     if (m_colorSettings) {
         delete m_colorSettings;
     }
-    if (m_tmsettings) {
-        delete m_tmsettings;
-    }
     if (xrandrSettings) {
         delete xrandrSettings;
     }
@@ -239,43 +234,43 @@ void DisplayWidget::startUnifyButton() {
 
 void DisplayWidget::initUnifybuttonStatus() {
     mScreenAddTimer = new QTimer();
-    connect(m_tmsettings,&QGSettings::changed,this,[=](const QString &key){
-        if (key == "tabletMode") {
-            bool tb_mode = m_tmsettings->get(TABLET_MODE_KEY).toBool();
-            QString pcMode = xrandrSettings->get(XRANDR_MIRROR_MODE).toString();
-            QMLOutput *base = mScreen->primaryOutput();
-            int enabledOutputsCount = 0;
-            Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
-                if (output->isEnabled()) {
-                    ++enabledOutputsCount;
-                }
-                if (enabledOutputsCount > 1) {
-                    break;
-                }
-            }
-            if (enabledOutputsCount > 1 && tb_mode ) {
-                m_unifybutton->setChecked(true);
-                m_unifybutton->setEnabled(false);
-            } else if (enabledOutputsCount > 1 && !tb_mode && pcMode == "expand"){
-                m_unifybutton->setEnabled(true);
-                m_unifybutton->setChecked(false);
-            } else if (enabledOutputsCount > 1 && !tb_mode && pcMode == "mirror"){
-                m_unifybutton->setEnabled(true);
-                m_unifybutton->setChecked(true);
-            }
-        }
-    });
+    connect(m_statusSessionDbus, SIGNAL(mode_change_signal(bool)), this, SLOT(widget_DbusSlot(bool)));
+
     connect(qApp, SIGNAL(screenAdded(QScreen *)),this,SLOT(screenAddedTimer()));
     connect(mScreenAddTimer,SIGNAL(timeout()),this,SLOT(screenAddedProcess()));
 //    connect(mScreenRemoveTimer,SIGNAL(timeout()),this,SLOT(screenRemovedTimer));
     connect(qApp, SIGNAL(screenRemoved(QScreen *)),this, SLOT(screenRemovedProcess()));
 }
 
+void DisplayWidget::widget_DbusSlot(bool tablet_mode)
+{
+    QString pcMode = xrandrSettings->get(XRANDR_MIRROR_MODE).toString();
+    QMLOutput *base = mScreen->primaryOutput();
+    int enabledOutputsCount = 0;
+    Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
+        if (output->isEnabled()) {
+            ++enabledOutputsCount;
+        }
+        if (enabledOutputsCount > 1) {
+            break;
+        }
+    }
+    if (enabledOutputsCount > 1 && tablet_mode ) {
+        m_unifybutton->setChecked(true);
+        m_unifybutton->setEnabled(false);
+    } else if (enabledOutputsCount > 1 && !tablet_mode && pcMode == "expand"){
+        m_unifybutton->setEnabled(true);
+        m_unifybutton->setChecked(false);
+    } else if (enabledOutputsCount > 1 && !tablet_mode && pcMode == "mirror"){
+        m_unifybutton->setEnabled(true);
+        m_unifybutton->setChecked(true);
+    }
+}
+
 void DisplayWidget::screenAddedProcess() {
     mScreenAddTimer->stop();
-    bool tb_mode = m_tmsettings->get(TABLET_MODE_KEY).toBool();
-//    QString pcMode = xrandrSettings->get(XRANDR_MIRROR_MODE).toString();
     QMLOutput *base = mScreen->primaryOutput();
+    QDBusReply<bool> tb_mode = m_statusSessionDbus->call("get_current_tabletmode");
     if (tb_mode) {
 //        base->setIsCloneMode(true);
         m_unifybutton->setChecked(true);
@@ -291,7 +286,7 @@ void DisplayWidget::screenAddedTimer (){
 void DisplayWidget::m_unifybuttonChanged() {
     m_unifyTimer->stop();
     unifyChecked = true;
-    bool tb_mode = m_tmsettings->get(TABLET_MODE_KEY).toBool();
+    QDBusReply<bool> tb_mode = m_statusSessionDbus->call("get_current_tabletmode");
     if (!tb_mode) {
         if (m_unifybutton->isChecked()) {
             if (xrandrSettings &&xrandrSettings->keys().contains("xrandrMirrorMode") ) {
@@ -423,24 +418,24 @@ void DisplayWidget::hasAutoLight()
 
 void DisplayWidget::OnRandrEvent()
 {
-    QGSettings * tabletMode;
+    QDBusInterface *tabletModeDbus;
     QGSettings * xrandrGSettings;
     MateRRConfig *rr_config;
     bool isClone = false;
-    if (QGSettings::isSchemaInstalled(SETTINGS_XRANDR_SCHEMAS)
-     && QGSettings::isSchemaInstalled(TABLET_MODE_SCHEMAS)) {
+    if (QGSettings::isSchemaInstalled(SETTINGS_XRANDR_SCHEMAS)) {
         xrandrGSettings = new QGSettings(SETTINGS_XRANDR_SCHEMAS);
-        tabletMode = new QGSettings(TABLET_MODE_SCHEMAS);
     }
-
+    tabletModeDbus = new QDBusInterface("com.kylin.statusmanager.interface",
+                                       "/",
+                                       "com.kylin.statusmanager.interface",
+                                       QDBusConnection::sessionBus());
     if (!mmScreen) {
         return;
     }
 
-     rr_config = mate_rr_config_new_current (mmScreen, NULL);
-     isClone =  mate_rr_config_get_clone(rr_config);
-     bool is_tabletMode = tabletMode->get(TABLET_MODE_KEY).toBool();
-
+    rr_config = mate_rr_config_new_current (mmScreen, NULL);
+    isClone =  mate_rr_config_get_clone(rr_config);  
+    QDBusReply<bool> is_tabletMode = tabletModeDbus->call("get_current_tabletmode");
     if (isClone) {
         if (!is_tabletMode) {
             xrandrGSettings->set(XRANDR_MIRROR_MODE,"mirror");
@@ -557,7 +552,7 @@ void DisplayWidget::setConfig(const KScreen::ConfigPtr &config)
             slotUnifyOutputs();
         }
     }
-    bool tb_mode = m_tmsettings->get(TABLET_MODE_KEY).toBool();
+    QDBusReply<bool> tb_mode = m_statusSessionDbus->call("get_current_tabletmode");
     QString pcmode = xrandrSettings->get(XRANDR_MIRROR_MODE).toString();
     int enabledOutputsCount = 0;
     Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
@@ -1026,10 +1021,12 @@ void DisplayWidget::initGSettings() {
     if(QGSettings::isSchemaInstalled(id)) {
         m_gsettings = new QGSettings(id)        ;
     }
-    QByteArray iid(TABLET_MODE_SCHEMAS);
-    if(QGSettings::isSchemaInstalled(iid)) {
-        m_tmsettings = new QGSettings(iid)        ;
-    }
+
+    m_statusSessionDbus = new QDBusInterface("com.kylin.statusmanager.interface",
+                                               "/",
+                                               "com.kylin.statusmanager.interface",
+                                               QDBusConnection::sessionBus(), this);
+
 }
 void DisplayWidget::slotChangeAutoBrightness(QString key)
 {

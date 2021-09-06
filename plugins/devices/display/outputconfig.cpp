@@ -24,9 +24,7 @@
 #define SCALE_SCHEMAS "org.ukui.SettingsDaemon.plugins.xsettings"
 #define SCALE_KEY "scaling-factor"
 
-#define TABLET_MODE_SCHEMAS "org.ukui.SettingsDaemon.plugins.tablet-mode"
-#define TABLET_MODE_KEY "tablet-mode"
-#define AUTO_ROTATION_KEY "auto-rotation"
+
 #define AUTO 0
 #define FIXED 3
 
@@ -34,10 +32,11 @@ OutputConfig::OutputConfig(QWidget *parent)
     : QWidget(parent)
     , mOutput(nullptr)
 {
-    const QByteArray id(TABLET_MODE_SCHEMAS);
-    if (QGSettings::isSchemaInstalled(id)){
-        m_tgsettings = new QGSettings(id);
-    }
+    m_outputSessionDbus = new QDBusInterface("com.kylin.statusmanager.interface",
+                                              "/",
+                                              "com.kylin.statusmanager.interface",
+                                              QDBusConnection::sessionBus(),this);
+
 }
 
 OutputConfig::OutputConfig(const KScreen::OutputPtr &output, QWidget *parent)
@@ -48,10 +47,6 @@ OutputConfig::OutputConfig(const KScreen::OutputPtr &output, QWidget *parent)
 
 OutputConfig::~OutputConfig()
 {
-    if (m_tgsettings) {
-        delete m_tgsettings;
-        m_tgsettings = NULL;
-    }
 }
 
 void OutputConfig::setTitle(const QString& title)
@@ -76,8 +71,9 @@ void OutputConfig::initUi()
 
     connect(mOutput.data(), &KScreen::Output::rotationChanged,
             this, [=]() {
-                if (m_tgsettings) {
-                    if (m_tgsettings->get(AUTO_ROTATION_KEY).toBool()) {
+                if (m_outputSessionDbus->isValid()) {
+                    QDBusReply<bool> reply = m_outputSessionDbus->call("get_auto_rotation");
+                    if (reply) {
                         return;
                     }
                 }
@@ -217,54 +213,32 @@ void OutputConfig::initUi()
     mRotation->addItem( tr("90° arrow-right"), KScreen::Output::Right);
     mRotation->addItem( tr("arrow-down"), KScreen::Output::Inverted);
     mRotation->addItem(tr("90° arrow-left"), KScreen::Output::Left);
-    if (m_tgsettings) {
-        if (m_tgsettings->get(TABLET_MODE_KEY).toBool()) {
-            rotationRadioBtn->setEnabled(true);
-            bool autoRation = m_tgsettings->get(AUTO_ROTATION_KEY).toBool();
-            if (autoRation) {
-                rotationRadioBtn->setChecked(true);
-            } else {
-                rotationRadioBtn->setChecked(false);
-            }
+
+    QDBusReply<bool> is_tabletmode = m_outputSessionDbus->call("get_current_tabletmode");
+    if (is_tabletmode) {
+        rotationRadioBtn->setEnabled(true);
+        QDBusReply<bool> autoRation = m_outputSessionDbus->call("get_auto_rotation");
+        if (autoRation) {
+            rotationRadioBtn->setChecked(true);
         } else {
-            rotationRadioBtn->setEnabled(false);
+            rotationRadioBtn->setChecked(false);
         }
+    } else {
+        rotationRadioBtn->setEnabled(false);
     }
-    connect(m_tgsettings,&QGSettings::changed,this,[=](const QString &key){
-        if (key == "autoRotation") {
-            if (m_tgsettings->get(TABLET_MODE_KEY).toBool()) {
-                bool autoRoation = m_tgsettings->get(AUTO_ROTATION_KEY).toBool();
-                if (autoRoation) {
-                    rotationRadioBtn->blockSignals(true);
-                    rotationRadioBtn->setChecked(true);
-                    rotationRadioBtn->blockSignals(false);
-                } else {
-                    rotationRadioBtn->blockSignals(true);
-                    rotationRadioBtn->setChecked(false);
-                    rotationRadioBtn->blockSignals(false);
-                }
-            }
-        }
-        if (key == "tabletMode") {
-            if (m_tgsettings->get(TABLET_MODE_KEY).toBool()) {
-                rotationRadioBtn->setEnabled(true);
-            } else {
-                rotationRadioBtn->blockSignals(true);
-                rotationRadioBtn->setChecked(false);
-                rotationRadioBtn->blockSignals(false);
-                rotationRadioBtn->setEnabled(false);
-            }
-        }
-    });
+
+    connect(m_outputSessionDbus, SIGNAL(auto_rotation_change_signal(bool)), this, SLOT(rotationDbusSlot(bool)));
+    connect(m_outputSessionDbus, SIGNAL(mode_change_signal(bool)), this, SLOT(tabletModeDbusSlot(bool)));
     connect(rotationRadioBtn,&SwitchButton::checkedChanged,this,[=]{
         if (rotationRadioBtn->isChecked()) {
-            m_tgsettings->set(AUTO_ROTATION_KEY,true);
+            m_outputSessionDbus->call("set_auto_rotation", true, "ukcc", "set_auto_rotation");
         } else {
-            m_tgsettings->set(AUTO_ROTATION_KEY,false);
+            m_outputSessionDbus->call("set_auto_rotation", false, "ukcc", "set_auto_rotation");
         }
     });
-    if (m_tgsettings) {
-        if (m_tgsettings->get(TABLET_MODE_KEY).toBool()) {
+    if (m_outputSessionDbus->isValid()) {
+        QDBusReply<bool> reply = m_outputSessionDbus->call("get_current_tabletmode");
+        if (reply) {
             mRotation->removeItem(mRotation->findData(KScreen::Output::None));
             mRotation->removeItem(mRotation->findData(KScreen::Output::Right));
             mRotation->removeItem(mRotation->findData(KScreen::Output::Inverted));
@@ -272,48 +246,19 @@ void OutputConfig::initUi()
             mRotation->addItem(tr("fixed-rotation"), FIXED);
             mRotation->addItem(tr("auto-rotation"), AUTO);
         }
-        connect(m_tgsettings, &QGSettings::changed, this, [ = ](const QString &keys) {
-            mRotation->blockSignals(true);
-            if (keys == "tabletMode") {
-                if (m_tgsettings->get(TABLET_MODE_KEY).toBool()) {
-                    mRotation->removeItem(mRotation->findData(KScreen::Output::None));
-                    mRotation->removeItem(mRotation->findData(KScreen::Output::Right));
-                    mRotation->removeItem(mRotation->findData(KScreen::Output::Inverted));
-                    mRotation->removeItem(mRotation->findData(KScreen::Output::Left));
-                    mRotation->addItem(tr("fixed-rotation"), FIXED);
-                    mRotation->addItem(tr("auto-rotation"), AUTO);
-                    if (m_tgsettings->get(AUTO_ROTATION_KEY).toBool()) {
-                        mRotation->setCurrentIndex(mRotation->findData(AUTO));
-                    } else {
-                        mRotation->setCurrentIndex(mRotation->findData(FIXED));
-                    }
-                } else {
-                    mRotation->removeItem(mRotation->findData(FIXED));
-                    mRotation->removeItem(mRotation->findData(AUTO));
-                    mRotation->addItem(tr("arrow-up"), KScreen::Output::None);
-                    mRotation->addItem(tr("90° arrow-right"), KScreen::Output::Right);
-                    mRotation->addItem(tr("arrow-down"), KScreen::Output::Inverted);
-                    mRotation->addItem(tr("90° arrow-left"), KScreen::Output::Left);
-                    mRotation->setCurrentIndex(mRotation->findData(mOutput->rotation()));
-                }
-            }
-            if (keys == "autoRotation" && m_tgsettings->get(TABLET_MODE_KEY).toBool()) {
-                if (m_tgsettings->get(AUTO_ROTATION_KEY).toBool()) {
-                    mRotation->setCurrentIndex(mRotation->findData(AUTO));
-                } else {
-                    mRotation->setCurrentIndex(mRotation->findData(FIXED));
-                }
-            }
-            mRotation->blockSignals(false);
-        });
+        connect(m_outputSessionDbus, SIGNAL(mode_change_signal(bool)), this, SLOT(mode_rotationDbusSlot(bool)));
+    
+        connect(m_outputSessionDbus, SIGNAL(auto_rotation_change_signal(bool)), this, SLOT(tabletModeDbusSlot(bool)));
     }
 //    connect(mRotation, static_cast<void(QComboBox::*)(int)>(&QComboBox::activated),
 //            this, &OutputConfig::whetherApplyRotation);
     connect(mRotation, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             this, &OutputConfig::whetherApplyRotation);
 
-    if (m_tgsettings) {
-        if (m_tgsettings->get(TABLET_MODE_KEY).toBool() && m_tgsettings->get(AUTO_ROTATION_KEY).toBool()) {
+    if (m_outputSessionDbus->isValid()) {
+        QDBusReply<bool> is_tabletmode = m_outputSessionDbus->call("get_current_tabletmode");
+        QDBusReply<bool> auto_rotation = m_outputSessionDbus->call("get_auto_rotation");
+        if (is_tabletmode && auto_rotation) {
             mRotation->blockSignals(true);
             mRotation->setCurrentIndex(mRotation->findData(AUTO));
             mRotation->blockSignals(false);
@@ -487,6 +432,79 @@ int OutputConfig::getScreenScale() {
     return scale;
 }
 
+void OutputConfig::rotationDbusSlot(bool auto_rotation)
+{
+    QDBusReply<bool> is_tabletmode = m_outputSessionDbus->call("get_current_tabletmode");
+    if (is_tabletmode) {
+//                QDBusReply<bool> autoRoation = m_outputSessionDbus->call("get_auto_rotation");
+        if (auto_rotation) {
+            rotationRadioBtn->blockSignals(true);
+            rotationRadioBtn->setChecked(true);
+            rotationRadioBtn->blockSignals(false);
+        } else {
+            rotationRadioBtn->blockSignals(true);
+            rotationRadioBtn->setChecked(false);
+            rotationRadioBtn->blockSignals(false);
+        }
+    }
+}
+
+
+void OutputConfig::tabletModeDbusSlot(bool tablet_mode)
+{
+    if (tablet_mode) {
+        rotationRadioBtn->setEnabled(true);
+    } else {
+        rotationRadioBtn->blockSignals(true);
+        rotationRadioBtn->setChecked(false);
+        rotationRadioBtn->blockSignals(false);
+        rotationRadioBtn->setEnabled(false);
+    }
+}
+
+void OutputConfig::mode_rotationDbusSlot(bool tablet_mode)
+{
+    mRotation->blockSignals(true);
+    if (tablet_mode) {
+        mRotation->removeItem(mRotation->findData(KScreen::Output::None));
+        mRotation->removeItem(mRotation->findData(KScreen::Output::Right));
+        mRotation->removeItem(mRotation->findData(KScreen::Output::Inverted));
+        mRotation->removeItem(mRotation->findData(KScreen::Output::Left));
+        mRotation->addItem(tr("fixed-rotation"), FIXED);
+        mRotation->addItem(tr("auto-rotation"), AUTO);
+        QDBusReply<bool> auto_rotation = m_outputSessionDbus->call("get_auto_rotation");
+        if (auto_rotation) {
+            mRotation->setCurrentIndex(mRotation->findData(AUTO));
+        } else {
+            mRotation->setCurrentIndex(mRotation->findData(FIXED));
+        }
+    } else {
+        mRotation->removeItem(mRotation->findData(FIXED));
+        mRotation->removeItem(mRotation->findData(AUTO));
+        mRotation->addItem(tr("arrow-up"), KScreen::Output::None);
+        mRotation->addItem(tr("90° arrow-right"), KScreen::Output::Right);
+        mRotation->addItem(tr("arrow-down"), KScreen::Output::Inverted);
+        mRotation->addItem(tr("90° arrow-left"), KScreen::Output::Left);
+        mRotation->setCurrentIndex(mRotation->findData(mOutput->rotation()));
+    }
+    mRotation->blockSignals(false);
+}
+
+void OutputConfig::mrotationDbusSlot(bool auto_rotation)
+{
+    mRotation->blockSignals(true);
+    QDBusReply<bool> is_tabletmode = m_outputSessionDbus->call("get_current_tabletmode");
+    if (is_tabletmode) {
+        if (auto_rotation) {
+            mRotation->setCurrentIndex(mRotation->findData(AUTO));
+        } else {
+            mRotation->setCurrentIndex(mRotation->findData(FIXED));
+        }
+    }
+    mRotation->blockSignals(false);
+}
+
+
 void OutputConfig::setOutput(const KScreen::OutputPtr &output)
 {
     mOutput = output;
@@ -512,15 +530,16 @@ void OutputConfig::slotResolutionNotChange() {
 }
 
 void OutputConfig::whetherApplyRotation() {
-    if (m_tgsettings) {
+    if (m_outputSessionDbus->isValid()) {
         //平板模式下开关自动旋转不触发弹窗
-        if (m_tgsettings->get(TABLET_MODE_KEY).toBool()) {
+        QDBusReply<bool> is_tabletmode = m_outputSessionDbus->call("get_current_tabletmode");
+        if (is_tabletmode) {
             if (mRotation->currentData() == 0) {
                 //打开自动旋转
-                m_tgsettings->set(AUTO_ROTATION_KEY, true);
+                m_outputSessionDbus->call("set_auto_rotation", true, "ukcc", "set_auto_rotation");
             } else if (mRotation->currentData() == 3) {
                 //关闭自动旋转
-                m_tgsettings->set(AUTO_ROTATION_KEY, false);
+                m_outputSessionDbus->call("set_auto_rotation", false, "ukcc", "set_auto_rotation");
             }
             return;
         }
@@ -604,13 +623,14 @@ void OutputConfig::slotRotationChanged()
     int index = mRotation->currentIndex();
     if (index == mRotation->findData(AUTO)) {
         //平板模式下选择自动转屏
-        m_tgsettings->set(AUTO_ROTATION_KEY, true);
+        m_outputSessionDbus->call("set_auto_rotation", true, "ukcc", "set_auto_rotation");
         Q_EMIT changed();
         return;
     } else {
         //平板模式下设置转屏方向，自动旋转关闭
-        if (!m_tgsettings->get(TABLET_MODE_KEY).toBool()) {
-            m_tgsettings->set(AUTO_ROTATION_KEY, false);
+        QDBusReply<bool> is_tabletmode = m_outputSessionDbus->call("get_current_tabletmode");
+        if (!is_tabletmode) {
+            m_outputSessionDbus->call("set_auto_rotation", false, "ukcc", "set_auto_rotation");
         }
     }
     rotationIndex = index;
