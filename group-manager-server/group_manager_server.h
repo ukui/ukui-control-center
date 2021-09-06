@@ -46,6 +46,9 @@ public slots:
     bool setPid(int p);
     void exitService();
 
+    bool createNewGroup(QString groupName, QString groupId, QStringList userNames);
+    bool editGroup(QString groupName, QString groupId, QStringList userNames, QStringList userNames2);
+
 protected:
     bool polkitAdd();
 

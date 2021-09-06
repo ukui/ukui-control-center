@@ -95,13 +95,42 @@ QVariantList group_manager_server::getPasswd()
     return value;
 }
 
-// 添加组
-bool group_manager_server::add(QString groupName, QString groupId)
-{
-
+//创建组
+bool group_manager_server::createNewGroup(QString groupName, QString groupId, QStringList userNames){
     if (!polkitAdd())
         return false;
 
+    add(groupName, groupId);
+
+    for (QString u : userNames){
+        addUserToGroup(groupName, u);
+    }
+
+    return true;
+
+}
+
+//编辑组
+bool group_manager_server::editGroup(QString groupName, QString groupId, QStringList userNames, QStringList userNames2){
+    if (!polkitAdd())
+        return false;
+
+    set(groupName, groupId);
+
+    for(QString u : userNames){
+        addUserToGroup(groupName, u);
+    }
+
+    for(QString u : userNames2){
+        delUserFromGroup(groupName, u);
+    }
+
+    return true;
+}
+
+// 添加组
+bool group_manager_server::add(QString groupName, QString groupId)
+{
     QString groupadd = "/usr/sbin/groupadd";
     QString addgroup = "/usr/sbin/addgroup";
     QString command;
@@ -193,9 +222,6 @@ void group_manager_server::exitService() {
 bool group_manager_server::addUserToGroup(QString groupName, QString userName)
 {
 
-    if (!polkitAdd())
-        return false;
-
     QString usermod = "/usr/sbin/usermod";
     QString gpasswd = "/usr/bin/gpasswd";
     QString command;
@@ -232,8 +258,6 @@ bool group_manager_server::addUserToGroup(QString groupName, QString userName)
 // 删除用户从组
 bool group_manager_server::delUserFromGroup(QString groupName, QString userName)
 {
-    if (!polkitAdd())
-        return false;
 
     QString gpasswd = "/usr/bin/gpasswd";
     QString command;
