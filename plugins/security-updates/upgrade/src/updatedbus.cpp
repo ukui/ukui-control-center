@@ -66,7 +66,7 @@ void UpdateDbus::disconnectDbusSignal()
                                          QString("cn.kylinos.KylinUpdateManager"),
                                          QString("copy_finish"), this, SLOT(slotCopyFinished(QString)));
 }
-void UpdateDbus::SetDownloadLimit(int value,bool whetherlimit)
+void UpdateDbus::SetDownloadLimit(QString value,bool whetherlimit)
 {
     interface->call("set_downloadspeed_max",value,whetherlimit);
 }

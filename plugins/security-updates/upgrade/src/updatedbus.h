@@ -82,7 +82,7 @@ public:
 //    bool makeDirs(QString path);
 //dbus接口函数定义完毕
     //
-    void SetDownloadLimit(int,bool);
+    void SetDownloadLimit(QString,bool);
     int GetDownloadLimit(void);
     void onRequestSendDesktopNotify(QString message);
     QStringList inameList;  //重要更新列表
