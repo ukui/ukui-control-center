@@ -6922,12 +6922,12 @@ Please retry or relogin!</source>
         <translation type="vanished">自定义快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="178"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="179"/>
         <source>Customize Shortcut</source>
         <translation>自定义快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="438"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="444"/>
         <source>Edit Shortcut</source>
         <translation>编辑快捷键</translation>
     </message>
@@ -7789,14 +7789,22 @@ Please retry or relogin!</source>
         <translation>锁屏界面</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="439"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="111"/>
+        <source>Browse</source>
+        <translation>浏览</translation>
+        <extra-contents_path>/screenlock/Browse</extra-contents_path>
+    </message>
+    <message>
         <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="446"/>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="112"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="113"/>
         <source>Online Picture</source>
         <translation>线上图片</translation>
+        <extra-contents_path>/screenlock/Online Picture</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="478"/>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="116"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="122"/>
         <source>Reset To Default</source>
         <translation>恢复默认</translation>
         <extra-contents_path>/wallpaper/Reset To Default</extra-contents_path>
@@ -7830,9 +7838,8 @@ Please retry or relogin!</source>
         <translation type="vanished">浏览线上壁纸</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="439"/>
         <source>Browser local wp</source>
-        <translation>浏览本地壁纸</translation>
+        <translation type="vanished">浏览本地壁纸</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="208"/>
@@ -7862,82 +7869,82 @@ Please retry or relogin!</source>
         <translation type="vanished">从不</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="133"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="139"/>
         <source>1m</source>
         <translation>1m</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="133"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="139"/>
         <source>5m</source>
         <translation>5m</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="133"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="139"/>
         <source>10m</source>
         <translation>10m</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="133"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="139"/>
         <source>30m</source>
         <translation>30m</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="133"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="139"/>
         <source>45m</source>
         <translation>45m</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="134"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="140"/>
         <source>1h</source>
         <translation>1h</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="134"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="140"/>
         <source>1.5h</source>
         <translation>1.5h</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="134"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="140"/>
         <source>3h</source>
         <translation>3h</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="430"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="436"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</source>
         <translation>图片文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="430"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="436"/>
         <source>allFiles(*.*)</source>
         <translation>所有文件(*.*)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="472"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="478"/>
         <source>select custom wallpaper file</source>
         <translation>选择自定义壁纸文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="473"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="479"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="474"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="480"/>
         <source>Position: </source>
         <translation>位置： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="475"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="481"/>
         <source>FileName: </source>
         <translation>文件名： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="476"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="482"/>
         <source>FileType: </source>
         <translation>文件类型： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="477"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="483"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -8494,8 +8501,8 @@ Please retry or relogin!</source>
     <name>Shortcut</name>
     <message>
         <location filename="../../../plugins/devices/shortcut/shortcut.ui" line="50"/>
-        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="155"/>
-        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="169"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="156"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="170"/>
         <source>System Shortcut</source>
         <translation>系统快捷键</translation>
         <extra-contents_path>/shortcut/System Shortcut</extra-contents_path>
@@ -8510,7 +8517,7 @@ Please retry or relogin!</source>
         <translation>自定义快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="157"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="158"/>
         <source>Customize Shortcut</source>
         <translation>自定义快捷键</translation>
         <extra-contents_path>/shortcut/Customize Shortcut</extra-contents_path>
@@ -8521,17 +8528,17 @@ Please retry or relogin!</source>
         <extra-contents_path>/shortcut/Add custom shortcut</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="422"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="428"/>
         <source>Edit</source>
         <translation>编辑</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="423"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="429"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="641"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="699"/>
         <source> or </source>
         <translation type="unfinished"></translation>
     </message>
@@ -8548,7 +8555,7 @@ Please retry or relogin!</source>
         <translation type="vanished">快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="78"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="79"/>
         <source>Shortcut</source>
         <translation>快捷键</translation>
     </message>
@@ -10377,13 +10384,14 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="534"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="117"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="116"/>
         <source>Online Picture</source>
         <translation>线上图片</translation>
+        <extra-contents_path>/wallpaper/Online Picture</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="566"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="120"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="125"/>
         <source>Reset To Default</source>
         <translation>恢复默认</translation>
         <extra-contents_path>/wallpaper/Reset To Default</extra-contents_path>
@@ -10400,9 +10408,9 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="527"/>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="114"/>
-        <source>Browser local wp</source>
-        <translation>浏览本地壁纸</translation>
-        <extra-contents_path>/wallpaper/Browser local wp</extra-contents_path>
+        <source>Browse</source>
+        <translation>浏览</translation>
+        <extra-contents_path>/wallpaper/Browse</extra-contents_path>
     </message>
     <message>
         <source>Reset to default</source>
@@ -10439,12 +10447,12 @@ Please retry or relogin!</source>
         <extra-contents_path>/wallpaper/Background</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="139"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="144"/>
         <source>picture</source>
         <translation>图片</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="139"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="144"/>
         <source>color</source>
         <translation>颜色</translation>
     </message>
@@ -10453,7 +10461,7 @@ Please retry or relogin!</source>
         <translation type="obsolete">添加自定义快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="170"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="175"/>
         <source>Custom color</source>
         <translation>自定义颜色</translation>
     </message>
@@ -10482,48 +10490,48 @@ Please retry or relogin!</source>
         <translation type="vanished">适合宽度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="494"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="499"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</source>
         <translation>图片文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="494"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="499"/>
         <source>allFiles(*.*)</source>
         <translation>所有文件(*.*)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="534"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="576"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="539"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="581"/>
         <source>select custom wallpaper file</source>
         <translation>选择自定义壁纸文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="535"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="577"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="540"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="582"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="536"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="578"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="541"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="583"/>
         <source>Position: </source>
         <translation>位置： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="537"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="579"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="542"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="584"/>
         <source>FileName: </source>
         <translation>文件名： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="538"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="580"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="543"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="585"/>
         <source>FileType: </source>
         <translation>文件类型： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="539"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="581"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="544"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="586"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
