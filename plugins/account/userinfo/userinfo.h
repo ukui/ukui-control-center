@@ -155,6 +155,7 @@ public:
     bool getBioStatus();
     void biometricShowMoreInfoDialog();
     bool isShowBiometric();
+    void setBioVisible(bool visible);
 
     QStringList getLoginedUsers();
     void _acquireAllUsersInfo();
@@ -219,12 +220,15 @@ private:
 
     //增加生物密码
     HoverWidget *addBioFeatureWidget;
+    QLabel      *bioTextLabel;
     BiometricProxy      *proxy;
     DeviceMap           deviceMap;
     DeviceInfoPtr       currentDevice;
     BiometricProxy      *m_biometricProxy;
     QDBusInterface      *serviceInterface;
     QFileSystemWatcher  *mBiometricWatcher;
+    bool		isShowDialog = false;
+    bool		isShowEnrollDialog = false;
 
     SwitchButton * nopwdSwitchBtn;
     SwitchButton * autoLoginSwitchBtn;
@@ -294,7 +298,7 @@ private slots:
      * @param deviceNum 插拔动作后该驱动拥有的设备数量
      */
     void onBiometricUSBDeviceHotPlug(int drvid, int action, int deviceNum);
-
+    void onFeatureChanged(int drvid,int uid,int cType);
     void createUserDone(QDBusObjectPath op);
 
 };

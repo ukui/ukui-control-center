@@ -1414,13 +1414,13 @@ void UserInfo::initBioComonent()
     QHBoxLayout *addBioFeatureLayout = new QHBoxLayout;
 
     QLabel * iconLabel = new QLabel();
-    QLabel * textLabel = new QLabel(tr("Add biometric feature"));
+    bioTextLabel = new QLabel(tr("Add biometric feature"));
     QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
     iconLabel->setPixmap(pixgray);
     iconLabel->setProperty("useIconHighlightEffect", true);
     iconLabel->setProperty("iconHighlightEffectMode", 1);
     addBioFeatureLayout->addWidget(iconLabel);
-    addBioFeatureLayout->addWidget(textLabel);
+    addBioFeatureLayout->addWidget(bioTextLabel);
     addBioFeatureLayout->addStretch();
     addBioFeatureWidget->setLayout(addBioFeatureLayout);
 
@@ -1431,7 +1431,7 @@ void UserInfo::initBioComonent()
         iconLabel->setProperty("iconHighlightEffectMode", 0);
         QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "white", 12);
         iconLabel->setPixmap(pixgray);
-        textLabel->setStyleSheet("color: white;");
+        bioTextLabel->setStyleSheet("color: white;");
     });
 
     // 还原状态
@@ -1441,7 +1441,7 @@ void UserInfo::initBioComonent()
         iconLabel->setProperty("iconHighlightEffectMode", 1);
         QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
         iconLabel->setPixmap(pixgray);
-        textLabel->setStyleSheet("color: palette(windowText);");
+        bioTextLabel->setStyleSheet("color: palette(windowText);");
     });
 
     connect(addBioFeatureWidget, &HoverWidget::widgetClicked, this, [=](QString mname) {
@@ -1478,10 +1478,16 @@ void UserInfo::initBioComonent()
     {
         connect(m_biometricProxy, &BiometricProxy::USBDeviceHotPlug,
             this, &UserInfo::onBiometricUSBDeviceHotPlug);
+
+        connect(m_biometricProxy, &BiometricProxy::FeatureChanged,
+                this, &UserInfo::onFeatureChanged);
     }
 
     enableBiometricBtn = new SwitchButton(ui->enableBiometricFrame);
-    enableBiometricBtn->setChecked(getBioStatus());
+    bool enableBio = getBioStatus();
+
+    enableBiometricBtn->setChecked(enableBio);
+    setBioVisible(enableBio);
     ui->enableBiometricLayout->addWidget(enableBiometricBtn);
     connect(enableBiometricBtn, &SwitchButton::checkedChanged, [=](bool checked){
         QProcess process;
@@ -1501,7 +1507,9 @@ void UserInfo::initBioComonent()
         connect(mBiometricWatcher,&QFileSystemWatcher::fileChanged,this,[=](const QString &path){
             mBiometricWatcher->addPath(UKUI_BIOMETRIC_SYS_CONFIG_PATH);
             enableBiometricBtn->blockSignals(true);
-            enableBiometricBtn->setChecked(getBioStatus());
+            bool res = getBioStatus();
+            enableBiometricBtn->setChecked(res);
+            setBioVisible(res);
             enableBiometricBtn->blockSignals(false);
         });
     }
@@ -1525,6 +1533,24 @@ bool UserInfo::getBioStatus()
 void UserInfo::setBioStatus(bool status)
 {
     enableBiometricBtn->setChecked(true);
+}
+
+void UserInfo::onFeatureChanged(int drvid,int uid,int cType)
+{
+    if(isShowDialog || isShowEnrollDialog){
+        isShowDialog = false;
+        return ;
+    }
+
+    QTimer::singleShot(200, [&]{
+        int savedDeviceId = -1;
+        if(currentDevice)
+            savedDeviceId = currentDevice->id;
+
+        updateDevice();
+        if(savedDeviceId >= 0)
+            setCurrentDevice(savedDeviceId);
+   });
 }
 
 void UserInfo::onBiometricUSBDeviceHotPlug(int drvid, int action, int deviceNum)
@@ -1552,6 +1578,21 @@ void UserInfo::onBiometricUSBDeviceHotPlug(int drvid, int action, int deviceNum)
         updateDevice();
     }
 
+    }
+}
+
+void UserInfo::setBioVisible(bool visible)
+{
+    if(visible){
+        ui->addFeatureWidget->setVisible(true);
+        ui->bioFeatureListWidget->setVisible(true);
+        ui->biometricDeviceFrame->setVisible(true);
+        ui->biometricTypeFrame->setVisible(true);
+    }else{
+        ui->addFeatureWidget->setVisible(false);
+        ui->bioFeatureListWidget->setVisible(false);
+        ui->biometricDeviceFrame->setVisible(false);
+        ui->biometricTypeFrame->setVisible(false);
     }
 }
 
@@ -1685,6 +1726,8 @@ void UserInfo::onbiometricTypeBoxCurrentIndexChanged(int index)
     {
         ui->biometricDeviceBox->addItem(deviceInfo->shortName);
     }
+
+    bioTextLabel->setText(QString(tr("Add") + ui->biometrictypeBox->currentText()));
 }
 
 void UserInfo::onbiometricDeviceBoxCurrentIndexChanged(int index)
@@ -1754,6 +1797,7 @@ void UserInfo::showEnrollDialog()
     if(!deviceInfo)
         return ;
 
+    isShowEnrollDialog = true;
     BiometricEnrollDialog * dialog = new BiometricEnrollDialog(serviceInterface,deviceInfo->deviceType,deviceInfo->id,getuid());
     //gdxfp显示指纹图片
     if(deviceInfo->shortName == "gdxfp")
@@ -1771,7 +1815,7 @@ void UserInfo::showEnrollDialog()
     dialog->enroll(deviceInfo->id,getuid(),-1,featurename);
 
     onbiometricDeviceBoxCurrentIndexChanged(ui->biometricDeviceBox->currentIndex());
-
+    isShowEnrollDialog = false;
 }
 
 void UserInfo::showVerifyDialog(FeatureInfo *featureinfo)
@@ -1817,12 +1861,10 @@ void UserInfo::renameFeaturedone(FeatureInfo *featureinfo ,QString newname)
 
      featureinfo->index_name = newname;
      addFeature(featureinfo);
-
 }
 
 void UserInfo::deleteFeaturedone(FeatureInfo *featureinfo)
 {
-
     QListWidgetItem *item = biometricFeatureMap.value(featureinfo->index_name);
 
     ui->bioFeatureListWidget->takeItem(ui->bioFeatureListWidget->row(item));
@@ -1880,6 +1922,7 @@ void UserInfo::addFeature(FeatureInfo *featureinfo)
         DeviceInfoPtr deviceInfoPtr = findDeviceByName(featureinfo->device_shortname);
         if(!deviceInfoPtr)
                 return ;
+	isShowDialog = true;
         bool res = m_biometricProxy->renameFeature(deviceInfoPtr->id,getuid(),featureinfo->index,rename);
         renameFeaturedone(featureinfo,rename);
     });
@@ -1931,6 +1974,7 @@ void UserInfo::addFeature(FeatureInfo *featureinfo)
         DeviceInfoPtr deviceInfoPtr = findDeviceByName(featureinfo->device_shortname);
         if(!deviceInfoPtr)
                 return ;
+        isShowDialog = true;
         bool res = m_biometricProxy->deleteFeature(deviceInfoPtr->id,getuid(),featureinfo->index,featureinfo->index);
         if(!res){
              deleteFeaturedone(featureinfo);

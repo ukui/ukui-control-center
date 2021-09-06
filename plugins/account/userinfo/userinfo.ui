@@ -638,7 +638,7 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
-         <widget class="QLabel" name="bioPasswordLabel">
+         <widget class="TitleLabel" name="bioPasswordLabel">
           <property name="text">
            <string>Biometric Password</string>
           </property>

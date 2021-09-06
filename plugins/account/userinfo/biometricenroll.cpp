@@ -323,18 +323,20 @@ QStringList BiometricEnrollDialog::getFeaturelist(int drvid, int uid, int indexS
 
 void BiometricEnrollDialog::on_biometricConBtn_clicked()
 {
-    resetUI();
+    QTimer::singleShot(1000, [&]{
+        resetUI();
 
-    int num=1;
-    QStringList list = getFeaturelist(deviceId,getuid(),0,-1);
-    QString featurename;
-    while(1){
-        featurename = DeviceType::getDeviceType_tr(type) + QString::number(num);
-        if(!list.contains(featurename))
-            break;
-        num++;
-    }
-    enroll(deviceId,getuid(),-1,featurename);
+        int num=1;
+        QStringList list = getFeaturelist(deviceId,getuid(),0,-1);
+        QString featurename;
+        while(1){
+            featurename = DeviceType::getDeviceType_tr(type) + QString::number(num);
+            if(!list.contains(featurename))
+                break;
+            num++;
+        }
+        enroll(deviceId,getuid(),-1,featurename);
+    });
 }
 
 int BiometricEnrollDialog::search(int drvId, int uid, int idxStart, int idxEnd)
