@@ -741,6 +741,12 @@ int NetConnect::getWifiListDone(QVector<QStringList> getwifislist, QStringList g
                 QString freq;
                 for (int i = 0; i < getwifislist.size(); ++i) {
                     if (getwifislist.at(i).at(0) == actWifiName) {
+                        qDebug()<<"ssid is not euqal to wifiname";
+                        qDebug()<<"wname = "<<wname <<"actWifiName"<<actWifiName<<"length is:"<<getwifislist.length();
+                        if (actWifiName == nullptr) {
+                            qDebug()<<"actWifiName is empty,return";
+                            return -1;
+                        }
                         wname = getwifislist.at(i).at(0);
                         lockType = getwifislist.at(i).at(2);
                         freq = getwifislist.at(i).at(3) + " MHz";
@@ -763,6 +769,12 @@ int NetConnect::getWifiListDone(QVector<QStringList> getwifislist, QStringList g
                         }
                         connectedWifi.insert(wname, this->setSignal(getwifislist.at(i).at(1)));
                     } else if (connectWifi != "--" && getwifislist.at(i).at(0) == connectWifi && getwifislist.at(i).at(0) != actWifiName && !actWifiName.isEmpty()) {
+                        qDebug()<<"ssid is not euqal to wifiname";
+                        qDebug()<<"wname = "<<wname <<"actWifiName"<<actWifiName<<"length is:"<<getwifislist.length();
+                        if (actWifiName == nullptr) {
+                            qDebug()<<"actWifiName is empty,return";
+                            return -1;
+                        }
                         wname = actWifiName;
                         lockType = getwifislist.at(i).at(2);
                         freq = getwifislist.at(i).at(3) + " MHz";
