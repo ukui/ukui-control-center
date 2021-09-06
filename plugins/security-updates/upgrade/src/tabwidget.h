@@ -14,6 +14,7 @@
 #include <QCheckBox>
 #include <QFont>
 #include <QProgressBar>
+#include <QComboBox>
 
 #include "appupdate.h"
 //#include "switchbutton.h"
@@ -90,11 +91,15 @@ public:
     QLabel *isAutoBackupLab;
     SwitchButton *isAutoBackupSBtn;
     //download limit widgets
-    QFrame *DownloadLimitWidget;
-    QHBoxLayout *DownloadLimitLayout;
-    QLabel *DownloadLimitLab;
-    SwitchButton *DownloadLimitBtn;
-    QSpinBox *DownloadLimitValue;
+    QFrame *DownloadHWidget;
+    QFrame *DownloadVWidget;
+    //QFrame *isDownloadWidget;
+    QHBoxLayout *DownloadHLayout;
+    QVBoxLayout *DownloadVLayout;
+    QLabel *DownloadHLab;
+    QLabel *DownloadVLab;
+    SwitchButton *DownloadHBtn;
+    QComboBox *DownloadHValue;
 
     QFrame *isAutoUpgradeWidget;
     QVBoxLayout *isAutoUpgradeLayout;
@@ -144,7 +149,7 @@ public slots:
     void changeUpdateAllSlot(bool isUpdate);
 
     void DownloadLimitSwitchChanged();
-    void DownloadLimitValueChanged(int);
+    void DownloadLimitValueChanged(const QString &);
 
     void getAllProgress(QString pkgName, int Progress, QString type);
     //调用源管理器相关

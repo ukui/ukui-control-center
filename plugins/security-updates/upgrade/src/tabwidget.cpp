@@ -36,13 +36,19 @@ void TabWid::initDbus()
     connect(isAutoBackupSBtn,&SwitchButton::checkedChanged,this,&TabWid::isAutoBackupChanged);
     connect(isAutoUpgradeSBtn, &SwitchButton::checkedChanged, this, &TabWid::isAutoUpgradeChanged);
     connect(updateSource,&UpdateSource::getReplyFalseSignal,this,&TabWid::getReplyFalseSlot);
-    connect(DownloadLimitBtn,&SwitchButton::checkedChanged,this,&TabWid::DownloadLimitSwitchChanged);
-    connect(DownloadLimitValue,static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged),this,&TabWid::DownloadLimitValueChanged);
+    connect(DownloadHBtn,&SwitchButton::checkedChanged,this,&TabWid::DownloadLimitSwitchChanged);
+    connect(DownloadHValue,&QComboBox::currentTextChanged,this,&TabWid::DownloadLimitValueChanged);
+    //connect(DownloadHValue,static_cast<void (QComboBox::*)(QString)>(&QComboBox:: currentIndexChanged),this,&TabWid::DownloadLimitValueChanged);
     //initialize download limit switch button
-    DownloadLimitBtn->setChecked(false);
+    DownloadHBtn->setChecked(false);
     //set download limit range
-    DownloadLimitValue->setRange(0,30000);
-    DownloadLimitValue->setValue(1000);
+//    DownloadHValue->setRange(325,32500);
+//    DownloadHValue->setSingleStep(325);
+//    DownloadHValue->setValue(325);
+//    DownloadHValue->setFocusPolicy(Qt::NoFocus);
+    QStringList strList;
+    strList<<"50"<<"100"<<"200"<<"300"<<"600";
+    DownloadHValue->addItems(strList);
     //    bacupInit();//初始化备份
     isAutoBackupSBtn->setChecked(true);
     checkUpdateBtn->stop();
@@ -492,8 +498,8 @@ void TabWid::allComponents()
 {
     mainTabLayout = new QVBoxLayout();  //整个页面的主布局
     scrollArea = new QScrollArea(this);
-    updateTab = new QWidget(this);  //更新页面
 
+    updateTab = new QWidget(this);  //更新页面
     AppMessage = new QVBoxLayout();
     AppMessage->setAlignment(Qt::AlignTop);
     updateTab->setLayout(AppMessage);
@@ -610,17 +616,76 @@ void TabWid::allComponents()
     isAutoBackupWidget->setLayout(isAutoBackupLayout);
 
     //download speed limit
-    DownloadLimitWidget = new QFrame();
-    DownloadLimitWidget->setFrameShape(QFrame::Box);
-    DownloadLimitLayout = new QHBoxLayout();
-    DownloadLimitLab = new QLabel();
-    DownloadLimitLab->setText(tr("Download Limit(Kb/s)"));
-    DownloadLimitBtn = new SwitchButton();
-    DownloadLimitValue = new QSpinBox();
-    DownloadLimitLayout->addWidget(DownloadLimitLab);
-    DownloadLimitLayout->addWidget(DownloadLimitValue);
-    DownloadLimitLayout->addWidget(DownloadLimitBtn);
-    DownloadLimitWidget->setLayout(DownloadLimitLayout);
+//    DownloadLimitWidget = new QFrame();
+//    DownloadLimitWidget->setFrameShape(QFrame::Box);
+//        DownloadLabelWidget = new QFrame();
+//        DownloadLabelWidget->setFrameShape(QFrame::Box);
+//    DownloadLimitLayout = new QHBoxLayout();
+//        DownloadLabelLayout = new QVBoxLayout();
+//    DownloadLimitLab = new QLabel();
+//    DownloadLimitLab->setText(tr("Download Limit(Kb/s)"));
+//    DownloadLimitBtn = new SwitchButton();
+//    DownloadLimitValue = new QSpinBox();
+//    DownloadLab = new QLabel();
+//    DownloadLab->setText(tr("It will be avaliable in the next download."));
+//    /*自动换行*/
+//    DownloadLab->adjustSize();
+//    DownloadLab->setWordWrap(true);
+//    DownloadLab->setAlignment(Qt::AlignTop);
+//    QPalette DownloadlabelPalette = DownloadLab->palette();
+//    DownloadlabelPalette.setBrush(QPalette::WindowText, DownloadlabelPalette.color(QPalette::PlaceholderText));
+//    DownloadLab->setPalette(DownloadlabelPalette);
+
+//    DownloadLimitLayout->addWidget(DownloadLimitLab);
+//    DownloadLimitLayout->addWidget(DownloadLimitValue);
+//    DownloadLimitLayout->addWidget(DownloadLimitBtn);
+
+//    //DownloadLabelWidget->setLayout(DownloadLimitLayout);
+//    //DownloadLimitWidget->setLayout(DownloadLimitLayout);
+//    //DownloadLabelWidget->setLayout(DownloadLabelLayout);
+
+//    DownloadLabelLayout->addLayout(DownloadLimitLayout);
+//    DownloadLabelLayout->addWidget(DownloadLab);
+    DownloadHWidget = new QFrame();
+    DownloadHWidget->setFrameShape(QFrame::Box);
+        DownloadVWidget = new QFrame();
+        DownloadVWidget->setFrameShape(QFrame::Box);
+
+    DownloadHLayout = new QHBoxLayout();
+        DownloadVLayout = new QVBoxLayout();
+
+    DownloadHLab = new QLabel();
+    DownloadHLab->setText(tr("Download Limit(Kb/s)"));
+    DownloadHBtn = new SwitchButton();
+    DownloadHValue = new QComboBox();
+     DownloadVLab = new QLabel();
+     DownloadVLab->setText(tr("It will be avaliable in the next download."));
+
+
+    /*自动换行*/
+//    DownloadVLab->adjustSize();
+//    DownloadVLab->setWordWrap(true);
+//    DownloadVLab->setAlignment(Qt::AlignTop);
+    QPalette DownloadVlabelPalette = DownloadVLab->palette();
+    DownloadVlabelPalette.setBrush(QPalette::WindowText, DownloadVlabelPalette.color(QPalette::PlaceholderText));
+    DownloadVLab->setPalette(DownloadVlabelPalette);
+
+    //DownloadLabelWidget->setLayout(DownloadLimitLayout);
+    //DownloadLimitWidget->setLayout(DownloadLimitLayout);
+    //DownloadLabelWidget->setLayout(DownloadLabelLayout);
+    DownloadHLayout->addWidget(DownloadHLab);
+    DownloadHLayout->addWidget(DownloadHValue);
+    DownloadHLayout->addWidget(DownloadHBtn);
+
+
+    DownloadVLayout->addLayout(DownloadHLayout);
+    DownloadVLayout->addWidget(DownloadVLab);
+
+    //isDownloadWidget->setLayout(DownloadVLayout);
+
+
+
+//    DownloadLabelLayout->addLayout(DownloadLimitLayout);
     /*是否自动更新选项*/
     isAutoUpgradeWidget = new QFrame();
     isAutoUpgradeWidget->setFrameShape(QFrame::Box);
@@ -654,7 +719,10 @@ void TabWid::allComponents()
     updatesettingLayout->addWidget(isAutoUpgradeWidget);
     updatesettingLayout->setSpacing(2);
     updatesettingLayout->setMargin(0);
-    updatesettingLayout->addWidget(DownloadLimitWidget);
+//    updatesettingLayout->addWidget(DownloadHWidget);没用了
+//    updatesettingLayout->setSpacing(2);
+//    updatesettingLayout->setMargin(0);
+    updatesettingLayout->addLayout(DownloadVLayout);
     updatesettingLayout->setSpacing(2);
     updatesettingLayout->setMargin(0);
 
@@ -932,17 +1000,17 @@ void TabWid::checkUpdateBtnClicked()
 
 void TabWid::DownloadLimitSwitchChanged()
 {
-    if(DownloadLimitBtn->isChecked()==false)
+    if(DownloadHBtn->isChecked()==false)
     {
         qDebug()<<"download limit disabled";
-        DownloadLimitValue->hide();
+        DownloadHValue->hide();
         updateMutual->SetDownloadLimit(0,false);
     }
-    else if (DownloadLimitBtn->isChecked()==true)
+    else if (DownloadHBtn->isChecked()==true)
     {
         qDebug()<<"download limit enabled";
-        DownloadLimitValue->show();
-        int dlimit = DownloadLimitValue->value();
+        DownloadHValue->show();
+        QString dlimit = DownloadHValue->currentText();
         updateMutual->SetDownloadLimit(dlimit,true);
     }
     else
@@ -952,13 +1020,13 @@ void TabWid::DownloadLimitSwitchChanged()
     }
 }
 
-void TabWid::DownloadLimitValueChanged(int value)
+void TabWid::DownloadLimitValueChanged(const QString &value)
 {
-    if(DownloadLimitBtn->isChecked()==false)
+    if(DownloadHBtn->isChecked()==false)
     {
         updateMutual->SetDownloadLimit(0,false);
     }
-    else if (DownloadLimitBtn->isChecked()==true)
+    else if (DownloadHBtn->isChecked()==true)
     {
         //int dlimit = DownloadLimitValue->value();
         updateMutual->SetDownloadLimit(value,true);
