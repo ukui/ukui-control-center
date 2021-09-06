@@ -327,6 +327,7 @@ void NetConnect::getNetList() {
     }
     this->TlanList  = execGetLanList();
     if (getWifiStatus() && reply.value().length() == 1 && getHasWirelessCard()) {
+        qDebug()<<"kylin-nm reply is empty"<<__LINE__;
         QElapsedTimer time;
         time.start();
         while (time.elapsed() < 300) {
@@ -348,6 +349,7 @@ void NetConnect::getNetList() {
             connectWifi = "--";
         }
         if (getWifiListDone(reply, this->TlanList) == -1) {
+            qDebug()<<"getWifiListDone return is error";
             getNetList();
         } else {
             for (int i = 1; i < reply.value().length(); i++) {
@@ -600,9 +602,11 @@ bool NetConnect::getWifiStatus() {
 
 int NetConnect:: getWifiListDone(QVector<QStringList> getwifislist, QStringList getlanList) {
     clearContent();
+    qDebug()<<"clear wifi and lan list ";
     mActiveInfo.clear();
     QString speed = getWifiSpeed();
     if (!speed.contains("/") && runCount < 2) {
+        qDebug()<<"Acquisition speed cycle";
         QElapsedTimer time;
         time.start();
         while (time.elapsed() < 1000) {
@@ -624,6 +628,7 @@ int NetConnect:: getWifiListDone(QVector<QStringList> getwifislist, QStringList 
             if (!speed.contains("/")) {
                 speed = "null/" + speed;
             } else if (speed == "/") {
+                qDebug()<<"speed is null";
                 isNullSpeed = true;
             }
             if (!getwifislist.isEmpty() && getwifislist.length() != 1) {
@@ -646,6 +651,11 @@ int NetConnect:: getWifiListDone(QVector<QStringList> getwifislist, QStringList 
                 QString freq;
                 for (int i = 0; i < getwifislist.size(); ++i) {
                     if (getwifislist.at(i).at(0) == actWifiName) {
+                        qDebug()<<"length is:"<<getwifislist.length();
+                        if (actWifiName == nullptr) {
+                            qDebug()<<"actWifiName is empty,return";
+                            return -1;
+                        }
                         wname = getwifislist.at(i).at(0);
                         lockType = getwifislist.at(i).at(2);
                         freq = getwifislist.at(i).at(3) + " MHz";
@@ -663,6 +673,12 @@ int NetConnect:: getWifiListDone(QVector<QStringList> getwifislist, QStringList 
                         }
                         connectedWifi.insert(wname, this->setSignal(getwifislist.at(i).at(1)));
                     } else if (connectWifi != "--" && getwifislist.at(i).at(0) == connectWifi && getwifislist.at(i).at(0) != actWifiName) {
+                        qDebug()<<"ssid is not euqal to wifiname";
+                        qDebug()<<"wname = "<<wname <<"actWifiName"<<actWifiName<<"length is:"<<getwifislist.length();
+                        if (actWifiName == nullptr) {
+                            qDebug()<<"actWifiName is empty,return";
+                            return -1;
+                        }
                         wname = actWifiName;
                         lockType = getwifislist.at(i).at(2);
                         freq = getwifislist.at(i).at(3) + " MHz";
@@ -683,6 +699,7 @@ int NetConnect:: getWifiListDone(QVector<QStringList> getwifislist, QStringList 
                 }
             }
             if (!getlanList.isEmpty()) {
+                qDebug()<<"lan list work start"<<__LINE__;
                 lanList.clear();
 
                 int indexLan = 0;
@@ -697,6 +714,7 @@ int NetConnect:: getWifiListDone(QVector<QStringList> getwifislist, QStringList 
 
                 //若有线网络详情已展开，刷新网络时，未变更的网络详情页依然保持展开状态
                 if (!preActLan.isEmpty()) {
+                    qDebug()<<"netdetail page flag settings";
                     QMap<QString,bool>::ConstIterator iterator = preActLan.constBegin();
                     while(iterator != preActLan.constEnd()) {
                         QMap<QString,bool>::Iterator Iter;
@@ -714,7 +732,6 @@ int NetConnect:: getWifiListDone(QVector<QStringList> getwifislist, QStringList 
                 QString headLine = getlanList.at(0);
                 int indexDevice, indexName;
                 headLine = headLine.trimmed();
-
                 bool isChineseExist = headLine.contains(QRegExp("[\\x4e00-\\x9fa5]+"));
                 if (isChineseExist) {
                     indexDevice = headLine.indexOf("设备") + 2;
@@ -785,6 +802,7 @@ int NetConnect:: getWifiListDone(QVector<QStringList> getwifislist, QStringList 
 }
 
 QString NetConnect::getWifiSpeed() {
+    qDebug()<<"getWifiSpeed start"<<__LINE__;
     QString program = "nmcli";
     QStringList arg;
     QStringList strlist;
@@ -813,6 +831,7 @@ QString NetConnect::getWifiSpeed() {
             break;
         }
     }
+    qDebug()<<"获取到的无线网卡设备名:"<<deviceInfo;
 
     QString str = "iw";
     QStringList args;
@@ -828,6 +847,7 @@ QString NetConnect::getWifiSpeed() {
 
     output = lanPro->readAll();
 
+    qDebug()<<"终端打印信息:"<<output;
     foreach (QString line, output.split("\n")) {
         line.replace(QRegExp("[\\s]+"), "");
         slist.append(line);
@@ -1019,7 +1039,9 @@ void NetConnect::wifiSwitchSlot(bool status) {
     pNetWorker->moveToThread(pThread);
     connect(pThread, &QThread::finished, pThread, &QThread::deleteLater);
     connect(pThread, &QThread::started, pNetWorker,[=]{
+        qDebug()<<"thread set wifi status start";
         pNetWorker->run(status);
+        qDebug()<<"thread set wifi status end=";
     });
     connect(pNetWorker, &NetconnectWork::complete,[=](){
         pThread->quit();
@@ -1165,7 +1187,6 @@ int NetConnect::getActiveConInfo(QList<ActiveConInfo>& qlActiveConInfo) {
             }
             qlActiveConInfo.append(activeNet);
         }
-
     }
     dbusArgs.endArray();
     return 1;
