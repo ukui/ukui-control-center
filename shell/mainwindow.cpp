@@ -577,7 +577,9 @@ void MainWindow::loadPlugins(){
                 || ("libpower.so" == fileName && !isExitsPower())
                 || ("libtouchscreen.so" == fileName && !isExitTouchScreen())
                 || ("libupdate.so" == fileName && !Utils::isCommunity())
-                || ("libfonts.so") == fileName && Utils::isTablet()) {
+                || ("libfonts.so" == fileName && Utils::isTablet())
+                || ("libuserinfo.so" == fileName) && Utils::isTablet()
+                || ("libuserinfo_intel.so" == fileName) && !Utils::isTablet()) {
             continue;
         }
 
@@ -704,12 +706,17 @@ void MainWindow::initLeftsideBar(){
                     }
                 }
 
+                // intel与sp1做区分
+                if ((Utils::isTablet() && single.nameString == "Userinfo")
+                    || (!Utils::isTablet() && single.nameString == "Userinfointel")) {
+                    continue;
+                }
+
                 //填充左侧菜单
 
                 QPushButton *pluginBtn = buildLeftsideBtn(single.nameString, single.namei18nString);
 
                 leftBtnGroup->addButton(pluginBtn, type);
-
 
                 QHBoxLayout *pluginLayout = new QHBoxLayout();
                 menuLayout->addLayout(pluginLayout);
@@ -718,11 +725,9 @@ void MainWindow::initLeftsideBar(){
                                                  "QPushButton:checked{background-color: palette(highlight);border-radius: 4px;}"
                                                  "QPushButton:!checked{border: none;}");
 
-
                 pluginLayout->addWidget(pluginBtn);
                 CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(moduleMap.value(single.namei18nString));
                 pluginInstance->pluginBtn = pluginBtn;
-
 
                 connect(pluginBtn, &QPushButton::clicked, this, [=](){
                     modulepageWidget->refreshPluginWidget(pluginInstance);

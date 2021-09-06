@@ -130,6 +130,14 @@ void HomePageWidget::initUI() {
             QString firstFunc;
             QList<FuncInfo> tmpList = FunctionSelect::funcinfoList[moduleIndex];
             for (FuncInfo tmpStruct : tmpList) {
+                QString sysVersion = "/etc/apt/ota_version";
+                QFile file(sysVersion);
+                bool isIntel = file.exists();
+                if ((isIntel && tmpStruct.namei18nString == "User Info")
+                      || (!isIntel && tmpStruct.namei18nString == "User Info Intel")) {
+                    continue;
+                }
+
                 if (moduleMap.keys().contains(tmpStruct.namei18nString)) {
                     if (mModuleMap.isEmpty() || mModuleMap[tmpStruct.nameString.toLower()].toBool()) {
                         firstFunc = tmpStruct.namei18nString;

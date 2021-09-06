@@ -287,6 +287,5 @@ QRect Utils::sizeOnCursor()
 
 bool Utils::isTablet()
 {
-    return QFile::exists("");
-
+    return QFile::exists("/etc/apt/ota_version");
 }
