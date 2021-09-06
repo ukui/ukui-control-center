@@ -176,15 +176,6 @@ void NetConnect::initComponent() {
         wifiBtn->blockSignals(true);
         wifiSwitchSlot(checked);
         wifiBtn->blockSignals(false);
-        QElapsedTimer time;
-        time.start();
-        while (time.elapsed() < 2000) {
-            QCoreApplication::processEvents();
-        }
-        if (m_interface) {
-            m_interface->call("requestRefreshWifiList");
-        }
-        getNetList();
     });
 
     ui->RefreshBtn->setEnabled(false);
@@ -1151,13 +1142,18 @@ int NetConnect::setSignal(QString lv) {
 
 void NetConnect::wifiSwitchSlot(bool status) {
 
-    QString wifiStatus = status ? "on" : "off";
-    QString program = "nmcli";
-    QStringList arg;
-    arg << "radio" << "wifi" << wifiStatus;
-    QProcess *nmcliCmd = new QProcess(this);
-    nmcliCmd->start(program, arg);
-    nmcliCmd->waitForFinished();
+    pThread = new QThread();
+    pNetWorker = new NetconnectWork;
+    pNetWorker->moveToThread(pThread);
+    connect(pThread, &QThread::finished, pThread, &QThread::deleteLater);
+    connect(pThread, &QThread::started, pNetWorker,[=]{
+        pNetWorker->run(status);
+    });
+    connect(pNetWorker, &NetconnectWork::complete,[=](){
+        pThread->quit();
+        pThread->destroyed();
+    });
+    pThread->start();
 }
 
 int NetConnect::getActiveConInfo(QList<ActiveConInfo>& qlActiveConInfo, bool wirelessStatus) {
