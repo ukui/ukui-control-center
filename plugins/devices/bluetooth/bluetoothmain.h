@@ -59,6 +59,7 @@ public:
     void showNormalMainWindow();
     void showMainWindowError();
     void updateAdaterInfoList();
+    void releaseBluetoothDiscovery(bool,bool);
     BluezQt::AdapterPtr getDefaultAdapter();
 protected:
     void leaveEvent(QEvent *event);
@@ -74,7 +75,7 @@ private slots:
     void receiveDisConnectSignal(QString);
     void receiveRemoveSignal(QString);
     void startBluetoothDiscovery();
-    void receiveBluetoothDiscovery(bool);
+    void receiveBluetoothDiscovery(bool,bool);
     void Refresh_load_Label_icon();
     void set_tray_visible(bool);
     void set_discoverable(bool);
