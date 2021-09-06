@@ -1469,7 +1469,7 @@ void BlueToothMain::updateUIWhenAdapterChanged()
 
          if (m_localDevice->isDiscovering())
             m_timer->start();
-         //delayStartDiscover_timer->start();
+         delayStartDiscover_timer->start();
      }
 }
 
@@ -2145,7 +2145,7 @@ void BlueToothMain::adapterPoweredChanged(bool value)
             open_bluetooth->setChecked(true);
 
         //延时2S开启扫描，给用户回连缓冲
-        //delayStartDiscover_timer->start();
+        delayStartDiscover_timer->start();
 
         //this->startDiscovery();
     }
