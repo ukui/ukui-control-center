@@ -46,6 +46,11 @@ class QMLOutput : public QQuickItem
                WRITE setIsCloneMode
                NOTIFY isCloneModeChanged)
 
+    Q_PROPERTY(bool isCloneModeShow
+               READ isCloneModeShow
+               WRITE setIsCloneMode
+               NOTIFY isCloneModeChanged)
+
     Q_PROPERTY(QMLScreen* screen
                READ screen
                WRITE setScreen
@@ -149,8 +154,9 @@ public:
     int outputY() const;
     void setOutputY(int y);
 
-    void setIsCloneMode(bool isCloneMode);
+    void setIsCloneMode(bool isCloneMode, bool cloneModeShow = false);
     bool isCloneMode() const;
+    bool isCloneModeShow() const;
 
     void dockToNeighbours();
 
@@ -198,6 +204,7 @@ private:
     QMLOutput *m_bottomDock;
 
     bool m_isCloneMode;
+    bool m_cloneModeShow;
 };
 
 #endif // QMLOUTPUT_H
