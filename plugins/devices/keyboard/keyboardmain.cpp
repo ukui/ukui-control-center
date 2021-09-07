@@ -46,8 +46,8 @@ void KeyboardMain::initUI()
 
     /* Input method */
     mInputMethodSetBtn = new QPushButton(this);
-    mInputMethodSetBtn->setText(tr("Input method settings"));
-    mInputMethodSetBtn->setFixedSize(QSize(120, 36));
+    mInputMethodSetBtn->setText(tr("Input settings"));
+    mInputMethodSetBtn->setFixedSize(QSize(160, 36));
 
     QFrame *keyRepeatAndDelayLine = myLine();
     QFrame *delayAndSpeedLine = myLine();
