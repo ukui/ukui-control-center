@@ -54,6 +54,7 @@ public:
     QString setDefaultDescription(QString str); //将虚包包名汉化
     void updateOneApp();  //控制更新单个app
     QString dispalyName;
+    AppAllMsg appAllMsg;
 private:
     bool isCancel = true;
     bool firstDownload = true;
@@ -68,7 +69,6 @@ private:
     QString currentPackage;
     QStringList downloadList;
     QStringList downloadPackages;
-    AppAllMsg appAllMsg;
     QProcess *downloadProcess;
     QProcess *workProcess;
     QTimer *timer;
