@@ -646,8 +646,9 @@ void TabWid::allComponents()
 
 //    DownloadLabelLayout->addLayout(DownloadLimitLayout);
 //    DownloadLabelLayout->addWidget(DownloadLab);
-    DownloadHWidget = new QFrame();
-    DownloadHWidget->setFrameShape(QFrame::Box);
+
+//    DownloadHWidget = new QFrame();
+//    DownloadHWidget->setFrameShape(QFrame::Box);
         DownloadVWidget = new QFrame();
         DownloadVWidget->setFrameShape(QFrame::Box);
 
@@ -663,9 +664,9 @@ void TabWid::allComponents()
 
 
     /*自动换行*/
-//    DownloadVLab->adjustSize();
-//    DownloadVLab->setWordWrap(true);
-//    DownloadVLab->setAlignment(Qt::AlignTop);
+    DownloadVLab->adjustSize();
+    DownloadVLab->setWordWrap(true);
+    DownloadVLab->setAlignment(Qt::AlignTop);
     QPalette DownloadVlabelPalette = DownloadVLab->palette();
     DownloadVlabelPalette.setBrush(QPalette::WindowText, DownloadVlabelPalette.color(QPalette::PlaceholderText));
     DownloadVLab->setPalette(DownloadVlabelPalette);
@@ -673,16 +674,20 @@ void TabWid::allComponents()
     //DownloadLabelWidget->setLayout(DownloadLimitLayout);
     //DownloadLimitWidget->setLayout(DownloadLimitLayout);
     //DownloadLabelWidget->setLayout(DownloadLabelLayout);
+
+//DownloadHLayout->addWidget(DownloadHWidget);
     DownloadHLayout->addWidget(DownloadHLab);
     DownloadHLayout->addWidget(DownloadHValue);
     DownloadHLayout->addWidget(DownloadHBtn);
 
 
     DownloadVLayout->addLayout(DownloadHLayout);
-    DownloadVLayout->addWidget(DownloadVLab);
 
-    //isDownloadWidget->setLayout(DownloadVLayout);
 
+DownloadVLayout->addWidget(DownloadVLab);
+DownloadVWidget->setLayout(DownloadVLayout);
+
+    //DownloadVLayout->addWidget(DownloadVLab);
 
 
 //    DownloadLabelLayout->addLayout(DownloadLimitLayout);
@@ -722,7 +727,7 @@ void TabWid::allComponents()
 //    updatesettingLayout->addWidget(DownloadHWidget);没用了
 //    updatesettingLayout->setSpacing(2);
 //    updatesettingLayout->setMargin(0);
-    updatesettingLayout->addLayout(DownloadVLayout);
+    updatesettingLayout->addWidget(DownloadVWidget);
     updatesettingLayout->setSpacing(2);
     updatesettingLayout->setMargin(0);
 
