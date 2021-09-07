@@ -87,7 +87,7 @@
           <number>9</number>
          </property>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="0,0,0,0">
            <property name="spacing">
             <number>16</number>
            </property>
@@ -137,13 +137,13 @@
             <widget class="QPushButton" name="openBtn">
              <property name="minimumSize">
               <size>
-               <width>60</width>
+               <width>84</width>
                <height>36</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>60</width>
+               <width>84</width>
                <height>36</height>
               </size>
              </property>
@@ -192,13 +192,13 @@
             <widget class="QLineEdit" name="nameLineEdit">
              <property name="minimumSize">
               <size>
-               <width>302</width>
+               <width>326</width>
                <height>36</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>302</width>
+               <width>326</width>
                <height>36</height>
               </size>
              </property>
@@ -294,13 +294,13 @@
          <widget class="QFrame" name="frame">
           <property name="minimumSize">
            <size>
-            <width>302</width>
+            <width>326</width>
             <height>0</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>302</width>
+            <width>326</width>
             <height>16777215</height>
            </size>
           </property>

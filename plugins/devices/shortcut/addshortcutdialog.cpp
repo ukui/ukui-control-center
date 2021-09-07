@@ -73,7 +73,7 @@ void addShortcutDialog::initSetup()
     ui->certainBtn->setDisabled(true);
     shortcutLine = new ShortcutLine(systemEntry, customEntry);
     ui->horizontalLayout_2->addWidget(shortcutLine);
-    shortcutLine->setFixedWidth(302);
+    shortcutLine->setFixedWidth(326);
     shortcutLine->setPlaceholderText(tr("Please enter a shortcut"));
 
     connect(shortcutLine, &ShortcutLine::shortCutAvailable, this, [=](const int &flag){
