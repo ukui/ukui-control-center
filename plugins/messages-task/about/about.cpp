@@ -279,7 +279,7 @@ void About::setupSerialComponent()
     }
     ui->serviceContent->setText(serial);
 
-    if (dateRes.isNull()) {  //未激活
+    if (dateRes.isEmpty()) {  //未激活
         ui->label_8->hide();
         ui->timeContent->hide();
         ui->activeContent->setText(tr("Inactivated"));
@@ -291,7 +291,7 @@ void About::setupSerialComponent()
         ui->timeContent->setText(dateRes);
         QTimer::singleShot( 1, this, [=](){
             QString s1(ntpdate());
-            if (s1.isNull()) {    //未连接上网络
+            if (s1.isEmpty()) {    //未连接上网络
                 ui->timeContent->setText(dateRes);
             } else {    //获取到网络时间
                 QStringList list_1 = s1.split(" ");
