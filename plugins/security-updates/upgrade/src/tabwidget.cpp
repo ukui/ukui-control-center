@@ -411,7 +411,6 @@ void TabWid::allComponents()
     checkUpdateBtn->start();
     checkUpdateBtn->setFixedSize(120,36);
 
-
     tab1HLayout->addWidget(systemPortraitLab,0,Qt::AlignLeft);
     tab1HLayout->addWidget(inforWidget,Qt::AlignLeft|Qt::AlignTop);
     tab1HLayout->addWidget(checkUpdateBtn);
@@ -725,6 +724,12 @@ void TabWid::hideUpdateBtnSlot(bool isSucceed)
         lastRefreshTime->setText(tr("Last refresh:")+current_date);
         //        updateMutual->insertInstallStates("update_time",current_date);
 
+    }
+    foreach (AppUpdateWid *wid, widgetList) {
+        if (!updateMutual->importantList.contains(wid->appAllMsg.name)) {
+            wid->updateAPPBtn->hide();
+            widgetList.removeOne(wid);
+        }
     }
     if(updateMutual->importantList.size() == 0)
     {
