@@ -233,6 +233,7 @@ void QMLScreen::setScreenPos(QMLOutput *output, bool isReleased)
     QPointF posBefore = output->position();
     // 镜像模式下跳过屏幕旋转处理
     if (output->isCloneMode()) {
+        setScreenCenterPos();
         return;
     }
 
