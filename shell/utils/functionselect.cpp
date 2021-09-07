@@ -89,6 +89,7 @@ void FunctionSelect::initValueDevice() {
     devicesList[TOUCHPAD].namei18nString = QObject::tr("Touchpad");
     devicesList[GESTURE].nameString = QString("Gesture");
     devicesList[GESTURE].namei18nString = QObject::tr("Gesture");
+    devicesList[GESTURE].mainShow = false;
     devicesList[TOUCHSCREEN].nameString = QString("TouchScreen");
     devicesList[TOUCHSCREEN].namei18nString =  QObject::tr("TouchScreen");
     devicesList[TOUCHSCREEN].mainShow = false;

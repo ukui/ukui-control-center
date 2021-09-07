@@ -36,6 +36,8 @@
 #include "component/hoverwidget.h"
 #include "./utils/utils.h"
 
+#define STYLE_FONT_SCHEMA  "org.ukui.style"
+
 HomePageWidget::HomePageWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::HomePageWidget)
@@ -48,6 +50,23 @@ HomePageWidget::HomePageWidget(QWidget *parent) :
     // 初始化首页
     initUI();
     setMagins();
+
+    const QByteArray styleID(STYLE_FONT_SCHEMA);
+    QGSettings *stylesettings = new QGSettings(styleID, QByteArray(), this);
+    connect(stylesettings,&QGSettings::changed,[=](QString key)
+    {
+        if("systemFont" == key || "systemFontSize" == key)
+        {
+            int counter =ui->listWidget->count();
+            for(int index=0; index < counter; index++){
+                QListWidgetItem *item = ui->listWidget->takeItem(0);
+                delete item;
+            }
+
+            initUI();
+        }
+    });
+
 }
 
 HomePageWidget::~HomePageWidget()
@@ -110,8 +129,8 @@ void HomePageWidget::initUI() {
         QPushButton * widget = new QPushButton();
         QString moduleName = modulenameString;
         QString picModuleName = modulenameString;
-        widget->setMinimumWidth(300);
-        widget->setMinimumHeight(88);
+        widget->setMinimumWidth(320);
+        widget->setMinimumHeight(100);
         widget->setAttribute(Qt::WA_DeleteOnClose);
         widget->setProperty("useButtonPalette", true);
 
@@ -174,6 +193,7 @@ void HomePageWidget::initUI() {
 
         QHBoxLayout * funcHorLayout = new QHBoxLayout();
 
+        uint AllWidth = 0;
         //循环填充模块下属功能
         QList<FuncInfo> tmpList = FunctionSelect::funcinfoList[moduleIndex];
         for (int funcIndex = 0; funcIndex < tmpList.size(); funcIndex++){
@@ -193,14 +213,17 @@ void HomePageWidget::initUI() {
             }
 
             QString textName = single.namei18nString;
-            /* 设计要求，部分首页显示插件名和导航显示名不一致*/
-            if (textName == "时间和日期") {
-                textName = "时间日期";
-            } else if (textName == "区域语言") {
-                textName = "语言";
-            }
+
             ClickLabel * label = new ClickLabel(textName, widget);
-            label->setStyleSheet("color: palette(Shadow);");
+            label->setStyleSheet("color: palette(Shadow)");
+
+            AllWidth += label->width();
+            if (AllWidth > 200) {
+                delete label;
+                label = nullptr;
+                continue;
+            }
+
 
             connect(label, SIGNAL(clicked()), moduleSignalMapper, SLOT(map()));
             moduleSignalMapper->setMapping(label, moduleMap[single.namei18nString]);

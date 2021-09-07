@@ -31,14 +31,11 @@ ClickLabel::~ClickLabel()
 
 QString ClickLabel::abridge(QString text)
 {
-    if (text == "WiredConnect"){
-        text = "Wired";
-    } else if (text == "WlanConnect") {
-        text = "Wlan";
-    } else if (text == "Background") {
-        text = "Bkgd";
-    } else if (text == "Screensaver") {
-        text = "Scrsa";
+    /* 设计要求，部分首页显示插件名和导航显示名不一致*/
+    if (text == "时间和日期") {
+        text = "时间日期";
+    } else if (text == "区域语言") {
+        text = "语言";
     }
 
     return text;
