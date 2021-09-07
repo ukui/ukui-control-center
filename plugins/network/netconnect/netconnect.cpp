@@ -204,11 +204,7 @@ void NetConnect::rebuildNetStatusComponent(QString iconPath, QString netName) {
         hasNet = true;
     }
     HoverBtn * deviceItem;
-    if (hasNet || Utils::isWayland()) {
-        deviceItem = new HoverBtn(netName, false, pluginWidget);
-    } else {
-        deviceItem = new HoverBtn(netName, true, pluginWidget);
-    }
+    deviceItem = new HoverBtn(netName, true, pluginWidget);
     deviceItem->mPitLabel->setText(netName);
 
     if (!hasNet) {
@@ -237,11 +233,7 @@ void NetConnect::rebuildNetStatusComponent(QString iconPath, QStringList netName
             hasNet = true;
         }
         HoverBtn * deviceItem;
-        if (hasNet || Utils::isWayland()) {
-            deviceItem = new HoverBtn(netName.at(i), false, pluginWidget);
-        } else {
-            deviceItem = new HoverBtn(netName.at(i), true, pluginWidget);
-        }
+        deviceItem = new HoverBtn(netName.at(i), true, pluginWidget);
         deviceItem->mPitLabel->setText(netName.at(i));
 
         if (!hasNet) {
