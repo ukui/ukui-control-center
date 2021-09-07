@@ -12,21 +12,15 @@ NetconnectWork::~NetconnectWork() {
 
 }
 
-void NetconnectWork::run() {
-    if (!getWifiIsOpen()) {
-
-        emit wifiGerneral(QStringList());
-        return;
-    }
-    QProcess *wifiPro = new QProcess(this);
-    wifiPro->start("nmcli -f signal,security,chan,freq,ssid device wifi");
-    wifiPro->waitForFinished();
-    QString shellOutput = "";
-    QString output = wifiPro->readAll();
-    shellOutput += output;
-    QStringList slist = shellOutput.split("\n");
-
-    emit wifiGerneral(slist);
+void NetconnectWork::run(bool status) {
+    QString wifiStatus = status ? "on" : "off";
+    QString program = "nmcli";
+    QStringList arg;
+    arg << "radio" << "wifi" << wifiStatus;
+    QProcess *nmcliCmd = new QProcess(this);
+    nmcliCmd->start(program, arg);
+    nmcliCmd->waitForFinished();
+    emit complete();
 }
 
 bool NetconnectWork::getWifiIsOpen() {
