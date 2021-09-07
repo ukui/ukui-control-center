@@ -14,13 +14,13 @@ public:
     ~NetconnectWork();
 
 public:
-    void run();
+    void run(bool status);
 
 private:
     bool getWifiIsOpen();
 
 Q_SIGNALS:
-    void wifiGerneral(QStringList wifiList);
+    void complete();
 };
 
 #endif // NETCONNECTWORK_H
