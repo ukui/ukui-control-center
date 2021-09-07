@@ -86,6 +86,8 @@ void ColorDialog::paintEvent(QPaintEvent *event)
 void ColorDialog::setupInit()
 {
     qDebug() << "setup init";
+    ui->cancelBtn->setProperty("useButtonPalette", true);
+    ui->okBtn->setProperty("useButtonPalette", true);
     // 窗口属性
     setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);//开启窗口无边框
     setAttribute(Qt::WA_TranslucentBackground);

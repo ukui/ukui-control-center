@@ -29,6 +29,7 @@
 #include <QProcess>
 #include <QFileInfo>
 #include <QFileSystemWatcher>
+#include "AddBtn/addbtn.h"
 
 const QString kylinUrl = "https://www.ubuntukylin.com/wallpaper.html";
 const QString kylinBackgroundName1 = "/usr/share/backgrounds/warty-final-ubuntukylin.jpg";
@@ -154,62 +155,14 @@ void Wallpaper::setupComponent(){
     colorFlowLayout = new FlowLayout(ui->colorListWidget,16, -1, -1);
     ui->colorListWidget->setLayout(colorFlowLayout);
 
-    colWgt = new HoverWidget("");
-    colWgt->setObjectName("colWgt");
-    colWgt->setFixedHeight(60);
+    AddBtn *addBtn = new AddBtn();
+    ui->horizontalLayout_7->addWidget(addBtn);
 
-    QPalette pal;
-    QBrush brush = pal.highlight();  //获取window的色值
-    QColor highLightColor = brush.color();
-    QString stringColor = QString("rgba(%1,%2,%3)") //叠加20%白色
-           .arg(highLightColor.red()*0.8 + 255*0.2)
-           .arg(highLightColor.green()*0.8 + 255*0.2)
-           .arg(highLightColor.blue()*0.8 + 255*0.2);
-
-    colWgt->setStyleSheet(QString("HoverWidget#colWgt{background: palette(base);\
-                                   border-radius: 4px;}\
-                                   HoverWidget:hover:!pressed#colWgt{background: %1;  \
-                                   border-radius: 4px;}").arg(stringColor));
-    QHBoxLayout *addLyt = new QHBoxLayout;
-    QLabel * iconLabel = new QLabel();
-    QLabel * textLabel = new QLabel(tr("Custom color"));
-    QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
-    iconLabel->setPixmap(pixgray);
-    iconLabel->setProperty("useIconHighlightEffect", true);
-    iconLabel->setProperty("iconHighlightEffectMode", 1);
-    addLyt->addStretch();
-    addLyt->addWidget(iconLabel);
-    addLyt->addWidget(textLabel);
-    addLyt->addStretch();
-    colWgt->setLayout(addLyt);
-    ui->horizontalLayout_7->addWidget(colWgt);
-
-    // 悬浮改变Widget状态
-    connect(colWgt, &HoverWidget::enterWidget, this, [=](){
-
-        iconLabel->setProperty("useIconHighlightEffect", false);
-        iconLabel->setProperty("iconHighlightEffectMode", 0);
-        QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "white", 12);
-        iconLabel->setPixmap(pixgray);
-        textLabel->setStyleSheet("color: white;");
-    });
-
-    // 还原状态
-    connect(colWgt, &HoverWidget::leaveWidget, this, [=](){
-
-        iconLabel->setProperty("useIconHighlightEffect", true);
-        iconLabel->setProperty("iconHighlightEffectMode", 1);
-        QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
-        iconLabel->setPixmap(pixgray);
-        textLabel->setStyleSheet("color: palette(windowText);");
-    });
     // 打开自定义颜色面板
-    connect(colWgt, &HoverWidget::widgetClicked,[=](QString mname){
-        Q_UNUSED(mname);
+    connect(addBtn, &AddBtn::clicked,[=](){
         colordialog = new ColorDialog(pluginWidget);
         connect(colordialog,&ColorDialog::colorSelected,this,&Wallpaper::colorSelectedSlot);
         colordialog->exec();
-
     });
 }
 

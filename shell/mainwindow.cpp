@@ -718,13 +718,12 @@ void MainWindow::initLeftsideBar(){
                 QPushButton *pluginBtn = buildLeftsideBtn(single.nameString, single.namei18nString);
 
                 leftBtnGroup->addButton(pluginBtn, type);
+                pluginBtn->setProperty("useButtonPalette", true);
 
                 QHBoxLayout *pluginLayout = new QHBoxLayout();
                 menuLayout->addLayout(pluginLayout);
-                pluginLayout->setContentsMargins(14, 0, 0, 0);
-                pluginBtn->setStyleSheet("QPushButton:hover{background-color: rgba(55,144,250,0.30);border-radius: 4px;}"
-                                                 "QPushButton:checked{background-color: palette(highlight);border-radius: 4px;}"
-                                                 "QPushButton:!checked{border: none;}");
+                pluginLayout->setContentsMargins(14,0,46,0);
+                pluginBtn->setStyleSheet("QPushButton:checked{background-color: palette(highlight);border-radius: 6px;}");
 
                 pluginLayout->addWidget(pluginBtn);
                 CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(moduleMap.value(single.namei18nString));
