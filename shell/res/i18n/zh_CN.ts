@@ -2850,7 +2850,7 @@ change system settings</source>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/datetime.ui" line="318"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="229"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="237"/>
         <source>Change timezone</source>
         <translation>修改时区</translation>
         <extra-contents_path>/date/Change time zone</extra-contents_path>
@@ -2879,11 +2879,6 @@ change system settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="935"/>
-        <source>summaryLabel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>timezone</source>
         <translation type="vanished">时区</translation>
     </message>
@@ -2897,8 +2892,8 @@ change system settings</source>
         <extra-contents_path>/date/Sync from network successful</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="753"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="762"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="758"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="767"/>
         <source>Sync from network failed</source>
         <translation>时间同步失败</translation>
     </message>
@@ -2934,13 +2929,13 @@ change system settings</source>
         <translation>时间和日期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="143"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="151"/>
         <source>Other Timezone</source>
         <translation>其他时区时间</translation>
         <extra-contents_path>/date/Other Timezone</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="157"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="165"/>
         <source>24-hour clock</source>
         <translation>24小时制</translation>
         <extra-contents_path>/date/24-hour clock</extra-contents_path>
@@ -2954,17 +2949,16 @@ change system settings</source>
         <translation type="vanished">添加时区以显示时间，最多可以添加5个</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="305"/>
         <source>Add time zones to display the time,only 5 can be added</source>
-        <translation>添加时区，最多添加５个</translation>
+        <translation type="vanished">添加时区，最多添加５个</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="388"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="393"/>
         <source>Sync Server</source>
         <translation>同步服务器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="555"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="560"/>
         <source>Add Timezone</source>
         <translation>添加时区</translation>
     </message>
@@ -2973,20 +2967,20 @@ change system settings</source>
         <translation type="vanished">删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="185"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="242"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="193"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="250"/>
         <source>Manual Time</source>
         <translation>手动设置时间</translation>
         <extra-contents_path>/date/Manual Time</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="159"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="167"/>
         <source>Sync Time</source>
         <translation>同步时间</translation>
         <extra-contents_path>/date/Sync time</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="240"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="248"/>
         <source>Auto Sync Time</source>
         <translation>自动同步时间</translation>
         <extra-contents_path>/date/Auto Sync Time</extra-contents_path>
@@ -2996,37 +2990,37 @@ change system settings</source>
         <translation type="vanished">服务器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="390"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="395"/>
         <source>Default</source>
         <translation>系统默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="392"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="397"/>
         <source>Customize</source>
         <translation>自定义</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="402"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="407"/>
         <source>Server Address</source>
         <translation>服务器地址</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="407"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="412"/>
         <source>Required</source>
         <translation>必需</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="408"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="413"/>
         <source>Save</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="557"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="562"/>
         <source>Change Timezone</source>
         <translation>更改时区</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="752"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="757"/>
         <source>  </source>
         <translation></translation>
     </message>
@@ -3035,7 +3029,7 @@ change system settings</source>
         <translation type="vanished">同步网络时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="544"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="549"/>
         <source>change time</source>
         <translation>更改时间</translation>
     </message>
@@ -3412,34 +3406,34 @@ folder will be deleted!</source>
         <translation type="vanished">断开</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="79"/>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="270"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="78"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="269"/>
         <source>Send files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="85"/>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="272"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="84"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="271"/>
         <source>Remove</source>
         <translation>移除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="87"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="86"/>
         <source>cancel</source>
         <translation type="unfinished">取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="88"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="87"/>
         <source>remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="95"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="94"/>
         <source>Sure to remove,</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="97"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="96"/>
         <source>After removal, the next connection requires matching PIN code!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4770,8 +4764,12 @@ folder will be deleted!</source>
         <translation>键盘设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="49"/>
         <source>Input method settings</source>
+        <translation type="vanished">输入法设置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="49"/>
+        <source>Input settings</source>
         <translation>输入法设置</translation>
     </message>
     <message>
@@ -5420,7 +5418,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="431"/>
-        <location filename="../../mainwindow.cpp" line="661"/>
+        <location filename="../../mainwindow.cpp" line="664"/>
         <location filename="../../mainwindow.cpp" line="891"/>
         <source>Settings</source>
         <translation>设置</translation>
@@ -8533,7 +8531,7 @@ Please retry or relogin!</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="637"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="641"/>
         <source> or </source>
         <translation type="unfinished"></translation>
     </message>

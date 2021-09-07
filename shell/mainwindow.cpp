@@ -578,8 +578,9 @@ void MainWindow::loadPlugins(){
                 || ("libtouchscreen.so" == fileName && !isExitTouchScreen())
                 || ("libupdate.so" == fileName && !Utils::isCommunity())
                 || ("libfonts.so" == fileName && Utils::isTablet())
-                || ("libuserinfo.so" == fileName) && Utils::isTablet()
-                || ("libuserinfo_intel.so" == fileName) && !Utils::isTablet()) {
+                || ("libtouchpad.so" == fileName && !isfindSynaptics())
+                || ("libuserinfo.so" == fileName && Utils::isTablet())
+                || ("libuserinfo_intel.so" == fileName && !Utils::isTablet())) {
             continue;
         }
 
