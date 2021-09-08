@@ -48,22 +48,15 @@ void Clock::paintEvent(QPaintEvent *event)
     };
 
     // 时针、分针、秒针颜色
-    QColor hourColor(0, 0, 0, 200);
-    QColor minuteColor(105,105,105, 150);
-    QColor secondColor(255,0,0, 150);
+    QColor hourColor(255,0,0, 150);
+    QColor minuteColor(128,128,128, 150);
+    QColor secondColor = palette().color(QPalette::Text);
+    secondColor.setAlpha(120);
 
     int side = qMin(width(), height());
     QTime time = QTime::currentTime();
 
     QPainter painter(this);
-
-
-
-
-
-
-
-
 
     painter.setRenderHint(QPainter::Antialiasing);
     // 平移坐标系原点至中心点
@@ -105,9 +98,10 @@ void Clock::paintEvent(QPaintEvent *event)
 //        painter.rotate(30.0);
 //    }
 
+    QColor textColor = palette().color(QPalette::Text);
+    painter.setPen(textColor);
 
-
-    painter.setPen(Qt::black);
+//    painter.setPen(Qt::black);
     int radius = 100;
     QFont font = painter.font();
     font.setBold(true);
