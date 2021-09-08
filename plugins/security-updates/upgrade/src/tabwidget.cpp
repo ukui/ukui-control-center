@@ -952,7 +952,7 @@ void TabWid::checkUpdateBtnClicked()
         QMessageBox msgBox(this);
         msgBox.setText(tr("Please back up the system before all updates to avoid unnecessary losses"));
         msgBox.setWindowTitle(tr("Prompt information"));
-
+        msgBox.setIcon(QMessageBox::Icon::Information);
         msgBox.addButton(tr("Only Update"), QMessageBox::YesRole);
         msgBox.addButton(tr("Back And Update"), QMessageBox::AcceptRole);
         msgBox.addButton(tr("Cancel"), QMessageBox::NoRole);
