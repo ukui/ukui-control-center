@@ -129,24 +129,9 @@ UkmediaMainWidget::UkmediaMainWidget(QWidget *parent)
     m_pInputCardList = new QStringList;
     m_pCurrentInputCardList = new QStringList;
     m_pInputDeviceLabelList = new QStringList;
-    eventList = new QStringList;
-    eventIdNameList = new QStringList;
+
     m_pCardNameList = new QStringList;
     m_pInputCardNameList = new QStringList;
-
-    eventList->append("window-close");
-    eventList->append("system-setting");
-    eventList->append("volume-changed");
-    eventList->append("alert-sound");
-    eventIdNameList->append("dialog-warning");
-    eventIdNameList->append("bell");
-    eventIdNameList->append("flop");
-    eventIdNameList->append("gudou");
-
-    for (int i=0;i<eventList->count();i++) {
-//        getValue();
-        addValue(eventList->at(i),eventIdNameList->at(i));
-    }
 
     connectContext(this);
 //    //创建context
