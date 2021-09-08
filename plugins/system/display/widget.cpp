@@ -373,9 +373,17 @@ void Widget::slotUnifyOutputs()
             return;
         }
     }
-
+    for (QMLOutput *output: mScreen->outputs()) {
+        if (output) {
+            if (mUnifyButton->isChecked() && output == base) {
+                output->setIsCloneMode(true, true);
+            } else {
+                output->setIsCloneMode(mUnifyButton->isChecked(), false);
+            }
+        }
+    }
     // 取消统一输出
-    if (base->isCloneMode() && !mUnifyButton->isChecked()) {
+    if (!mUnifyButton->isChecked()) {
         bool isExistCfg = QFile::exists((QDir::homePath() + "/.config/ukui/ukcc-screenPreCfg.json"));
         if (mKDSCfg.isEmpty() && isExistCfg) {
             KScreen::OutputList screens = mPrevConfig->connectedOutputs();
@@ -408,7 +416,7 @@ void Widget::slotUnifyOutputs()
         mCloseScreenButton->setEnabled(true);
         ui->showMonitorframe->setVisible(true);
         ui->primaryCombo->setEnabled(true);
-    } else if (!base->isCloneMode() && mUnifyButton->isChecked()) {
+    } else if (mUnifyButton->isChecked()) {
         // Clone the current config, so that we can restore it in case user
         // breaks the cloning
         mPrevConfig = mConfig->clone();
@@ -427,7 +435,6 @@ void Widget::slotUnifyOutputs()
             }
 
             if (!output->output()->isEnabled()) {
-                output->setVisible(false);
                 continue;
             }
 
@@ -443,13 +450,10 @@ void Widget::slotUnifyOutputs()
             if (base != output) {
                 clones << output->output()->id();
                 output->setCloneOf(base);
-                output->setVisible(false);
             }
         }
 
         base->output()->setClones(clones);
-
-        base->setIsCloneMode(true);
 
         mScreen->updateOutputsPlacement();
 
@@ -711,7 +715,7 @@ bool Widget::isCloneMode()
     }
     if (mConfig->connectedOutputs().count() >= 2) {
         foreach (KScreen::OutputPtr secOutput, mConfig->connectedOutputs()) {
-            if (secOutput->geometry() != output->geometry() || !secOutput->isEnabled()) {
+            if (secOutput->pos() != output->pos() || !secOutput->isEnabled()) {
                 return false;
             }
         }
@@ -873,25 +877,13 @@ void Widget::outputAdded(const KScreen::OutputPtr &output, bool connectChanged)
     addOutputToPrimaryCombo(output);
 
     if (!mFirstLoad) {
-        mIsScreenAdd = true;
-        mUnifyButton->setChecked(isCloneMode());
+        bool isClone = isCloneMode();
+        if (mUnifyButton->isChecked() != isClone)
+            mIsScreenAdd = true;
+        mUnifyButton->setChecked(isClone);
         QTimer::singleShot(2000, this, [=] {
             mainScreenButtonSelect(ui->primaryCombo->currentIndex());
         });
-    }
-
-    // 检查统一输出-防止多显示屏幕
-    if (mUnifyButton->isChecked()) {
-        for (QMLOutput *qmlOutput: mScreen->outputs()) {
-            if (!qmlOutput->output()->isConnected()) {
-                continue;
-            }
-            if (!qmlOutput->isCloneMode()) {
-                qmlOutput->blockSignals(true);
-                qmlOutput->setVisible(false);
-                qmlOutput->blockSignals(false);
-            }
-        }
     }
 
     ui->unionframe->setVisible(mConfig->connectedOutputs().count() > 1);
@@ -927,10 +919,7 @@ void Widget::outputRemoved(int outputId, bool connectChanged)
             if (!qmlOutput->output()->isConnected()) {
                 continue;
             }
-            qmlOutput->setIsCloneMode(false);
-            qmlOutput->blockSignals(true);
-            qmlOutput->setVisible(true);
-            qmlOutput->blockSignals(false);
+            qmlOutput->setIsCloneMode(false, false);
         }
     }
     ui->unionframe->setVisible(mConfig->connectedOutputs().count() > 1);
@@ -1615,7 +1604,9 @@ void Widget::initConnection()
     connect(mUnifyButton, &SwitchButton::checkedChanged,
             [this] {
         slotUnifyOutputs();
-        setScreenIsApply(true);
+        /*  bug#54275 避免拔插触发save()
+            setScreenIsApply(true);
+        */
         delayApply();
 		showBrightnessFrame();
     });
