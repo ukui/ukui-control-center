@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "defender_interface.h"
 #include "FlowLayout/flowlayout.h"
+#define _(STRING) gettext(STRING)
 
 class ksc_module_func_widget;
 
@@ -22,8 +23,7 @@ public:
 private:
     void init_list_widget();
     void auto_set_main_icon(ksc_defender_module &module);
-    bool is_defender_status_good(ksc_defender_module &module);
-    bool is_defender_virus_good(ksc_defender_module &module);
+    void set_ksc_defender_text(ksc_defender_module module);
 
 public:
     void refresh_data();
