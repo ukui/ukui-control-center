@@ -267,13 +267,13 @@ void UnifiedOutputConfig::slotResolutionChanged(const QSize &size)
 
            bool alreadyExisted = false; //判断该显示器的刷新率是否有重复的，确保同一刷新率在一个屏幕上只出现一次
            for (int j = 0; j < VrefreshTemp.size(); ++j) {
-               if (tr("%1 Hz").arg(QLocale().toString(mode->refreshRate())) == VrefreshTemp[j]) {
+               if (tr("%1 Hz").arg(QString::number(mode->refreshRate(),'f',2)) == VrefreshTemp[j]) {
                    alreadyExisted = true;
                    break;
                }
            }
            if (alreadyExisted == false) {   //不添加重复的项
-               VrefreshTemp.append(tr("%1 Hz").arg(QLocale().toString(mode->refreshRate())));
+               VrefreshTemp.append(tr("%1 Hz").arg(QString::number(mode->refreshRate(),'f',2)));
            }
         }
 
@@ -310,7 +310,7 @@ void UnifiedOutputConfig::slotRefreshRateChanged(int index)
     Q_FOREACH (const KScreen::OutputPtr &clone, mClones) {
         Q_FOREACH (const KScreen::ModePtr &mode, clone->modes()) {
             if (mode->size() == mResolution->currentResolution() && \
-                    tr("%1 Hz").arg(QLocale().toString(mode->refreshRate())) == mRefreshRate->itemText(index)) {
+                    tr("%1 Hz").arg(QString::number(mode->refreshRate(),'f',2)) == mRefreshRate->itemText(index)) {
                 clone->setCurrentModeId(mode->id());
             }
         }
