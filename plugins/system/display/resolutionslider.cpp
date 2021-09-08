@@ -100,7 +100,8 @@ void ResolutionSlider::init()
         layout->addWidget(mComboBox, 0, 0, 1, 1);
         connect(mComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
                 this, &ResolutionSlider::slotValueChanged, Qt::UniqueConnection);
-        Q_EMIT resolutionChanged(mModes.at(mComboBox->currentIndex()));
+        // bug#75687触发两次应用信号
+        // Q_EMIT resolutionChanged(mModes.at(mComboBox->currentIndex()));
     } else {
         mCurrentLabel = new QLabel(this);
         mCurrentLabel->setAlignment(Qt::AlignCenter);
