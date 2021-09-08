@@ -310,7 +310,7 @@ void UnifiedOutputConfig::slotRefreshRateChanged(int index)
     Q_FOREACH (const KScreen::OutputPtr &clone, mClones) {
         Q_FOREACH (const KScreen::ModePtr &mode, clone->modes()) {
             if (mode->size() == mResolution->currentResolution() && \
-                    tr("%1 Hz").arg(QLocale().toString(mode->refreshRate())) == mRefreshRate->itemText(index)) {
+                    tr("%1 Hz").arg(QString::number(mode->refreshRate(),'f',2)) == mRefreshRate->itemText(index)) {
                 clone->setCurrentModeId(mode->id());
             }
         }
