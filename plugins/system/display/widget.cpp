@@ -542,10 +542,10 @@ KScreen::OutputPtr Widget::findOutput(const KScreen::ConfigPtr &config, const QV
 void Widget::setHideModuleInfo()
 {
     mCPU = getCpuInfo();
-    if (!mCPU.startsWith(kCpu, Qt::CaseInsensitive)) {
+//    if (!mCPU.startsWith(kCpu, Qt::CaseInsensitive)) {  //fix bug#78013
         ui->quickWidget->setAttribute(Qt::WA_AlwaysStackOnTop);
         ui->quickWidget->setClearColor(Qt::transparent);
-    }
+//    }
 }
 
 void Widget::setTitleLabel()
