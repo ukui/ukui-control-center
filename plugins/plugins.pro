@@ -33,7 +33,7 @@ SUBDIRS = \
           security-updates/securitycenter \
           security-updates/backup \
           security-updates/update \
-#          security-updates/upgrade \
+          security-updates/upgrade \
           messages-task/experienceplan \
           messages-task/search \
           time-language/datetime \
