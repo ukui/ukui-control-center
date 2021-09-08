@@ -641,66 +641,52 @@ void AppUpdateWid::cancelOrUpdate()
         }
         if(m_updateMutual->isPointOutNotBackup == true)
         {
-            QMessageBox msgBox;
+            QMessageBox msgBox(qApp->activeModalWidget());
             msgBox.setText(tr("A single update will not automatically backup the system, if you want to backup, please click Update All."));
             msgBox.setWindowTitle(tr("Prompt information"));
-            msgBox.setStandardButtons(QMessageBox::YesAll
-                                      | QMessageBox::NoToAll|QMessageBox::Cancel);
-            msgBox.setButtonText(QMessageBox::YesAll,tr("Do not backup, continue to update"));
-            msgBox.setButtonText(QMessageBox::NoToAll,tr("Cancel"));
-            msgBox.setButtonText(QMessageBox::Cancel,tr("Cancel update"));
+            msgBox.setIcon(QMessageBox::Icon::Warning);
+//            msgBox.setStandardButtons(QMessageBox::YesAll
+//                                      | QMessageBox::NoToAll|QMessageBox::Cancel);
+//            msgBox.setButtonText(QMessageBox::YesAll, tr("Do not backup, continue to update"));
+//            msgBox.setButtonText(QMessageBox::NoToAll, tr("Cancel"));
+//            msgBox.setButtonText(QMessageBox::Cancel, tr("Cancel update"));
+
+            msgBox.addButton(tr("Do not backup, continue to update"), QMessageBox::YesRole);
+            msgBox.addButton(tr("Cancel"), QMessageBox::NoRole);
             QCheckBox *cb = new QCheckBox(&msgBox);
             msgBox.setCheckBox(cb);
             msgBox.checkBox()->setText(tr("This time will no longer prompt"));
             msgBox.checkBox()->show();
-            msgBox.button(QMessageBox::Cancel)->hide();
+
             int ret = msgBox.exec();
-            if(msgBox.checkBox()->checkState() == Qt::Checked)
-            {
+            if(msgBox.checkBox()->checkState() == Qt::Checked) {
                 m_updateMutual->isPointOutNotBackup = false;
             }
-            if(ret == QMessageBox::YesAll)
-            {
+            if(ret == 0) {
                 emit changeUpdateAllSignal(true);
                 qDebug() << "立即更新!";
                 updateOneApp();
-            }
-            else if(ret == QMessageBox::NoToAll)
-            {
+            } else if(ret == 1) {
                 emit changeUpdateAllSignal(false);
                 m_updateMutual->isPointOutNotBackup = true;
                 qDebug() << "不进行更新。";
-            }
-            else if(ret == QMessageBox::Cancel)
-            {
-                emit changeUpdateAllSignal(false);
-                qDebug() << "不进行更新。";
-                m_updateMutual->isPointOutNotBackup = true;
-
             }
             qDebug() << "m_updateMutual->isPointOutNotBackup = " << m_updateMutual->isPointOutNotBackup;
         }
         else
-        {
             updateOneApp();
-        }
     }
-    else
-    {
+    else {
         isCancel = true;
         downloadProcess->terminate();
         timer->stop();
-        //        updateAPPBtn->setText("更新");
         updateAPPBtn->setText(tr("Update"));
         QString newStrMsg = appAllMsg.availableVersion;
-        if(newStrMsg.size()>16)
-        {
-            appVersion->setText(tr("Newest:")+newStrMsg);
-            appVersion->setToolTip(tr("Newest:")+newStrMsg);
-        }
-        else
-        {
-            appVersion->setText(tr("Newest:")+newStrMsg);
+        if(newStrMsg.size() > 16) {
+            appVersion->setText(tr("Newest:") + newStrMsg);
+            appVersion->setToolTip(tr("Newest:") + newStrMsg);
+        } else {
+            appVersion->setText(tr("Newest:") + newStrMsg);
             appVersion->setToolTip("");
         }
         emit changeUpdateAllSignal(false);
