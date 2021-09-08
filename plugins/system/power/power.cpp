@@ -534,7 +534,6 @@ void Power::resetui()
         mBatterySaveFrame->hide();
         mDisplayTimeFrame->hide();
         mWakenPwdFrame->hide();
-        mCloseFrame->hide();
     }
 
     //不存在盖子隐藏该项
