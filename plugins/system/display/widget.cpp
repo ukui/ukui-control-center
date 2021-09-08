@@ -925,8 +925,10 @@ void Widget::outputAdded(const KScreen::OutputPtr &output, bool connectChanged)
     addOutputToPrimaryCombo(output);
 
     if (!mFirstLoad) {
-        mIsScreenAdd = true;
-        mUnifyButton->setChecked(isCloneMode());
+        bool isCloneMode_m = isCloneMode();
+        if (isCloneMode_m != mUnifyButton->isChecked())
+            mIsScreenAdd = true;
+        mUnifyButton->setChecked(isCloneMode_m);
         QTimer::singleShot(2000, this, [=] {
             mainScreenButtonSelect(ui->primaryCombo->currentIndex());
         });
