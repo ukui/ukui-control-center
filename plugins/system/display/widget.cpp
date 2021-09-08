@@ -250,6 +250,7 @@ void Widget::setConfig(const KScreen::ConfigPtr &config, bool showBrightnessFram
             mUnifyButton->blockSignals(false);
             slotUnifyOutputs();
         }
+        setMulScreenVisiable();
     }
     mFirstLoad = false;
 
@@ -1574,6 +1575,7 @@ void Widget::save()
         }
         mBlockChanges = false;
         mConfigChanged = false;
+        setMulScreenVisiable();
     });
 
     int enableScreenCount = 0;
@@ -1820,8 +1822,6 @@ void Widget::mainScreenButtonSelect(int index)
     mControlPanel->activateOutput(newPrimary);
 
     mScreen->setActiveOutputByCombox(newPrimary->id());
-
-    setMulScreenVisiable();
 }
 
 // 设置主屏按钮
