@@ -22,6 +22,7 @@
 #include "colorsquare.h"
 #include "MaskWidget/maskwidget.h"
 #include "CloseButton/closebutton.h"
+#include <QRegExp>
 
 extern void qt_blurImage(QImage &blurImage, qreal radius, bool quality, int transposed);
 
@@ -85,6 +86,8 @@ void ColorDialog::paintEvent(QPaintEvent *event)
 void ColorDialog::setupInit()
 {
     qDebug() << "setup init";
+    ui->cancelBtn->setProperty("useButtonPalette", true);
+    ui->okBtn->setProperty("useButtonPalette", true);
     // 窗口属性
     setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);//开启窗口无边框
     setAttribute(Qt::WA_TranslucentBackground);
@@ -92,7 +95,7 @@ void ColorDialog::setupInit()
     setWindowTitle(tr("Custom color"));
     // 左侧颜色框
     colorSquare = new ColorSquare(this);
-    //ui->horizontalLayout_2->setContentsMargins(8,10,8,10);
+//    ui->horizontalLayout_2->setContentsMargins(8,10,8,10);
     QSizePolicy sizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
     colorSquare->setSizePolicy(sizePolicy);
     ui->horizontalLayout_2->addWidget(colorSquare);
@@ -106,10 +109,10 @@ void ColorDialog::setupInit()
     ui->horizontalLayout_2->addWidget(gradientSlider);
 
     // 颜色预览框
-    colorPreview = new ColorPreview(this);
+//    colorPreview = new ColorPreview(this);
     //colorPreview = static_cast<ColorPreview*>(ui->colorPreviewWg);
-    colorPreview->setFixedSize(48,48);
-    colorPreview->setGeometry(45,345,48,48);
+//    colorPreview->setFixedSize(48,48);
+//    colorPreview->setGeometry(45,345,48,48);
 
     // spinbox
     // α:
@@ -237,6 +240,14 @@ void ColorDialog::signalsBind()
     connect(colorSquare,&ColorSquare::colorSelected,this,&ColorDialog::updateWidgetsSlot);
     connect(this,&ColorDialog::checkedChanged,colorSquare,&ColorSquare::setCheckedColorSlot);
 
+    connect(ui->colorLineEdit,&QLineEdit::textChanged,this,[=](){
+        QColor mcolor;
+        mcolor.setNamedColor(ui->colorLineEdit->text());
+        // qDebug()<<mcolor.red()<<" "<<mcolor.blue()<<" "<<mcolor.green();
+        ui->spinBox_r->setValue(mcolor.red());
+        ui->spinBox_b->setValue(mcolor.blue());
+        ui->spinBox_g->setValue(mcolor.green());
+    });
 }
 
 void ColorDialog::drawSlider()
@@ -342,8 +353,10 @@ void ColorDialog::updateWidgetsSlot()
     sliderVal->setFirstColor(QColor::fromHsvF(colorSquare->hue(),colorSquare->saturation(),0));
     sliderVal->setLastColor(QColor::fromHsvF(colorSquare->hue(),colorSquare->saturation(),1));
 
-    colorPreview->setColor(col);
-
+    ui->colorPreview->setColor(col);
+    ui->colorLineEdit->blockSignals(true);
+    ui->colorLineEdit->setText(col.name().toUpper());
+    ui->colorLineEdit->blockSignals(false);
 //    QPalette label_palette;
 //    label_palette.setColor(QPalette::Background, col);
 //    ui->label->setAutoFillBackground(true);

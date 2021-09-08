@@ -28,7 +28,7 @@ GradientSlider::GradientSlider(QWidget *parent) :
     col_list.push_back(Qt::white);
 
     setOrientation(Qt::Horizontal);
-    setFixedSize(25,264);
+    setFixedSize(36,316);
 }
 
 void GradientSlider::setBackground(QBrush bg)

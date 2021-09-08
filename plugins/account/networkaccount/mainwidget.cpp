@@ -702,7 +702,7 @@ void MainWidget::initSignalSlots() {
 
     });
 
-    //检测是否为旧版本云账户处理槽函数
+    //检测是否为旧版本云帐户处理槽函数
     connect(this,&MainWidget::oldVersion,[=] () {
         if (m_mainWidget->currentWidget() != m_nullWidget) {
             on_login_out();

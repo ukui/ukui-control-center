@@ -271,8 +271,8 @@ $ sudo make install
   - **TODO**
     - 无
 
-#### 账户
-##### 账户信息
+#### 帐户
+##### 帐户信息
   - **InProgress**
     - [x] 界面绘制
     - [x] 功能实现
@@ -295,7 +295,7 @@ $ sudo make install
   - **TODO**
     - 无
 
-##### 云账户
+##### 云帐户
 
   - **InProgress**
     - [x] 界面绘制

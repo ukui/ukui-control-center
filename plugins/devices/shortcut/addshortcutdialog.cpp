@@ -57,6 +57,8 @@ addShortcutDialog::~addShortcutDialog()
 
 void addShortcutDialog::initSetup()
 {
+    ui->cancelBtn->setProperty("useButtonPalette", true);
+    ui->certainBtn->setProperty("useButtonPalette", true);
     setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
     setAttribute(Qt::WA_TranslucentBackground);
     setAttribute(Qt::WA_DeleteOnClose);

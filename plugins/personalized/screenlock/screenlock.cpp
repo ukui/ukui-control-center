@@ -107,11 +107,17 @@ void Screenlock::initSearchText() {
     ui->loginpicLabel->setText(tr("Show picture of screenlock on screenlogin"));
     //~ contents_path /screenlock/Lock screen when screensaver boot
     ui->activepicLabel->setText(tr("Lock screen when screensaver boot"));
+    //~ contents_path /screenlock/Browse
+    ui->browserLocalwpBtn->setText(tr("Browse"));
     //~ contents_path /screenlock/Online Picture
-    ui->onlineLabel->setOpenExternalLinks(true);
-    ui->onlineLabel->setText(QString("<a href = %1> %2</a>").arg(kylinUrl).arg(tr("Online Picture")));
-    ui->onlineLabel->setAlignment(Qt::AlignLeft);
-
+    ui->onlineBtn->setText(tr("Online Picture"));
+    ui->onlineBtn->setFocusPolicy(Qt::NoFocus);
+    ui->onlineBtn->setContentsMargins(0,0,0,0);
+    ui->onlineBtn->setCursor( QCursor(Qt::PointingHandCursor));
+    ui->onlineBtn->setStyleSheet("QPushButton{background: transparent;border-radius: 4px;text-decoration: underline;} ");
+    connect( ui->onlineBtn, &QPushButton::clicked, this,[=] {
+        QDesktopServices::openUrl(QUrl(QLatin1String("https://www.ubuntukylin.com/wallpaper.html")));
+    });
     //~ contents_path /wallpaper/Reset To Default
     ui->resetBtn->setText(tr("Reset To Default"));
 }

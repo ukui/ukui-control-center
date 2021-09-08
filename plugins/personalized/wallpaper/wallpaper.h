@@ -110,8 +110,6 @@ private:
     int pluginType;
     QWidget * pluginWidget;
 
-    HoverWidget *colWgt;
-
 private:
     FlowLayout * picFlowLayout;
     FlowLayout * colorFlowLayout;

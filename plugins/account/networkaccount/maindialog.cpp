@@ -30,7 +30,7 @@ MainDialog::MainDialog(QWidget *parent) : QDialog(parent)
     //内存分配
     m_uuid = QUuid::createUuid().toString();
     m_submitBtn = new QPushButton(tr("Sign in"),this);     //登录或者确认或者注册或者重置密码或者绑定手机按钮（重用）
-    m_regBtn = new QPushButton(tr("Sign up"),this); //返回登录或者注册账户按钮（重用）
+    m_regBtn = new QPushButton(tr("Sign up"),this); //返回登录或者注册帐户按钮（重用）
     m_loginDialog = new LoginDialog(this);      //登录页面
     //m_regDialog = new RegDialog(this);          //注册页面
     //m_BindDialog = new BindPhoneDialog(this);   //手机绑定页面

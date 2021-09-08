@@ -673,8 +673,8 @@
     <plugin>
         <pinyinPlugin>cloudaccount</pinyinPlugin>
         <pinyinfunc>yunzhanghu</pinyinfunc>
-        <ChinesePlugin>云账户</ChinesePlugin>
-        <ChineseFunc>云账户</ChineseFunc>
+        <ChinesePlugin>云帐户</ChinesePlugin>
+        <ChineseFunc>云帐户</ChineseFunc>
         <EnglishFunc>Cloud Account</EnglishFunc>
     </plugin>
 </plugins>

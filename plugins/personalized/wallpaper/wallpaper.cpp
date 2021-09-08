@@ -29,6 +29,7 @@
 #include <QProcess>
 #include <QFileInfo>
 #include <QFileSystemWatcher>
+#include "AddBtn/addbtn.h"
 
 const QString kylinUrl = "https://www.ubuntukylin.com/wallpaper.html";
 const QString kylinBackgroundName1 = "/usr/share/backgrounds/warty-final-ubuntukylin.jpg";
@@ -110,12 +111,17 @@ const QString Wallpaper::name() const {
 void Wallpaper::initSearchText() {
     //~ contents_path /wallpaper/Background
     ui->selectLabel->setText(tr("Background"));
-    //~ contents_path /wallpaper/Browser local wp
-    ui->browserLocalwpBtn->setText(tr("Browser local wp"));
+    //~ contents_path /wallpaper/Browse
+    ui->browserLocalwpBtn->setText(tr("Browse"));
     //~ contents_path /wallpaper/Online Picture
-    ui->onlineLabel->setOpenExternalLinks(true);
-    ui->onlineLabel->setText(QString("<a href = %1> %2</a>").arg(kylinUrl).arg(tr("Online Picture")));
-    ui->onlineLabel->setAlignment(Qt::AlignLeft);
+    ui->onlineBtn->setText(tr("Online Picture"));
+    ui->onlineBtn->setFocusPolicy(Qt::NoFocus);
+    ui->onlineBtn->setContentsMargins(0,0,0,0);
+    ui->onlineBtn->setCursor( QCursor(Qt::PointingHandCursor));
+    ui->onlineBtn->setStyleSheet("QPushButton{background: transparent;border-radius: 4px;text-decoration: underline;} ");
+    connect( ui->onlineBtn, &QPushButton::clicked, this,[=] {
+        QDesktopServices::openUrl(QUrl(QLatin1String("https://www.ubuntukylin.com/wallpaper.html")));
+    });
     //~ contents_path /wallpaper/Reset To Default
     ui->resetBtn->setText(tr("Reset To Default"));
 }
@@ -149,62 +155,14 @@ void Wallpaper::setupComponent(){
     colorFlowLayout = new FlowLayout(ui->colorListWidget,16, -1, -1);
     ui->colorListWidget->setLayout(colorFlowLayout);
 
-    colWgt = new HoverWidget("");
-    colWgt->setObjectName("colWgt");
-    colWgt->setFixedHeight(60);
+    AddBtn *addBtn = new AddBtn();
+    ui->horizontalLayout_7->addWidget(addBtn);
 
-    QPalette pal;
-    QBrush brush = pal.highlight();  //获取window的色值
-    QColor highLightColor = brush.color();
-    QString stringColor = QString("rgba(%1,%2,%3)") //叠加20%白色
-           .arg(highLightColor.red()*0.8 + 255*0.2)
-           .arg(highLightColor.green()*0.8 + 255*0.2)
-           .arg(highLightColor.blue()*0.8 + 255*0.2);
-
-    colWgt->setStyleSheet(QString("HoverWidget#colWgt{background: palette(base);\
-                                   border-radius: 4px;}\
-                                   HoverWidget:hover:!pressed#colWgt{background: %1;  \
-                                   border-radius: 4px;}").arg(stringColor));
-    QHBoxLayout *addLyt = new QHBoxLayout;
-    QLabel * iconLabel = new QLabel();
-    QLabel * textLabel = new QLabel(tr("Custom color"));
-    QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
-    iconLabel->setPixmap(pixgray);
-    iconLabel->setProperty("useIconHighlightEffect", true);
-    iconLabel->setProperty("iconHighlightEffectMode", 1);
-    addLyt->addStretch();
-    addLyt->addWidget(iconLabel);
-    addLyt->addWidget(textLabel);
-    addLyt->addStretch();
-    colWgt->setLayout(addLyt);
-    ui->horizontalLayout_7->addWidget(colWgt);
-
-    // 悬浮改变Widget状态
-    connect(colWgt, &HoverWidget::enterWidget, this, [=](){
-
-        iconLabel->setProperty("useIconHighlightEffect", false);
-        iconLabel->setProperty("iconHighlightEffectMode", 0);
-        QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "white", 12);
-        iconLabel->setPixmap(pixgray);
-        textLabel->setStyleSheet("color: white;");
-    });
-
-    // 还原状态
-    connect(colWgt, &HoverWidget::leaveWidget, this, [=](){
-
-        iconLabel->setProperty("useIconHighlightEffect", true);
-        iconLabel->setProperty("iconHighlightEffectMode", 1);
-        QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
-        iconLabel->setPixmap(pixgray);
-        textLabel->setStyleSheet("color: palette(windowText);");
-    });
     // 打开自定义颜色面板
-    connect(colWgt, &HoverWidget::widgetClicked,[=](QString mname){
-        Q_UNUSED(mname);
+    connect(addBtn, &AddBtn::clicked,[=](){
         colordialog = new ColorDialog(pluginWidget);
         connect(colordialog,&ColorDialog::colorSelected,this,&Wallpaper::colorSelectedSlot);
         colordialog->exec();
-
     });
 }
 

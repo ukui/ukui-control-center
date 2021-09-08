@@ -425,23 +425,23 @@
          <widget class="QPushButton" name="browserLocalwpBtn">
           <property name="minimumSize">
            <size>
-            <width>132</width>
+            <width>110</width>
             <height>36</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>132</width>
+            <width>110</width>
             <height>36</height>
            </size>
           </property>
           <property name="text">
-           <string>Browser local wp</string>
+           <string>Browse</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="onlineLabel">
+         <widget class="QPushButton" name="onlineBtn">
           <property name="text">
            <string>Online Picture</string>
           </property>

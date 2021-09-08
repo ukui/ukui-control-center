@@ -25,6 +25,7 @@ private:
     QString defaultQss;
 
 Q_SIGNALS:
+    void focusOut();
     void strChanged();
 };
 
@@ -49,6 +50,7 @@ private:
     QString defaultQss;
 
 Q_SIGNALS:
+    void focusOut();
     void shortcutChanged();
 };
 

@@ -27,12 +27,12 @@ ColorSquare::ColorSquare(QWidget *parent) :
   , val(0)
   , colorX(0)
   , colorY(0)
-  , nSquareWidth(264)
+  , nSquareWidth(316)
   , colorChar('0')
   , mouseStatus(Nothing)
 {
     setCursor(Qt::CrossCursor);
-    setFixedSize(264,264);
+    setFixedSize(316,316);
 }
 
 QColor ColorSquare::color() const

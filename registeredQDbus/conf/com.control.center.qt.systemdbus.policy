@@ -10,7 +10,7 @@
 
   <action id="org.control.center.qt.systemdbus.action">
     <description>UserInfo</description>
-    <description xml:lang="zh">账户信息</description>
+    <description xml:lang="zh">帐户信息</description>
     <message>To change the user pwd, you need to authenticate.</message>
     <message>需要通过管理员认证后才可以修改用户密码</message>
     <defaults>

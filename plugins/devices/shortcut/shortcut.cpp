@@ -31,6 +31,7 @@
 #include "Frame/hlineframe.h"
 #include "doubleclicklineedit.h"
 #include <QMenu>
+#include "clickfixlabel.h"
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -408,9 +409,14 @@ void Shortcut::buildCustomItem(KeyEntry *nkeyEntry)
     QHBoxLayout *lineEditLayout = new QHBoxLayout;
     DoubleClickLineEdit *nameLineEdit = new DoubleClickLineEdit(customEntries,frame);
     DoubleClickShortCut *bingdingLineEdit = new DoubleClickShortCut(generalEntries, customEntries);
+    ClickFixLabel *nameLabel = new ClickFixLabel(frame);
+    ClickFixLabel *bingdingLabel = new ClickFixLabel(frame);
+
     nameLineEdit->setFixedHeight(36);
     bingdingLineEdit->setFixedHeight(36);
+
     bingdingLineEdit->setAlignment(Qt::AlignRight);
+    bingdingLabel->setAlignment(Qt::AlignRight | Qt::AlignCenter);
     HLineFrame *line = new HLineFrame;
     ui->verticalLayout_3->addWidget(line);
 
@@ -458,6 +464,8 @@ void Shortcut::buildCustomItem(KeyEntry *nkeyEntry)
             bingdingLineEdit->blockSignals(true);
             bingdingLineEdit->setText(getShowShortcutString(addDialog->keyToLib(key)));
             bingdingLineEdit->blockSignals(false);
+            nameLabel->setText(name);
+            bingdingLabel->setText(bingdingLineEdit->text());
         });
 
         addDialog->exec();
@@ -477,8 +485,30 @@ void Shortcut::buildCustomItem(KeyEntry *nkeyEntry)
 
     lineEditLayout->setMargin(0);
     lineEditLayout->setSpacing(140);
-    lineEditLayout->addWidget(nameLineEdit);
-    lineEditLayout->addWidget(bingdingLineEdit);
+
+    QSizePolicy policy;
+    policy = nameLineEdit->sizePolicy();
+    policy.setHorizontalPolicy(QSizePolicy::Ignored);
+    nameLineEdit->setSizePolicy(policy);
+
+    policy = nameLabel->sizePolicy();
+    policy.setHorizontalPolicy(QSizePolicy::Ignored);
+    nameLabel->setSizePolicy(policy);
+
+    policy = bingdingLineEdit->sizePolicy();
+    policy.setHorizontalPolicy(QSizePolicy::Ignored);
+    bingdingLineEdit->setSizePolicy(policy);
+
+    policy = bingdingLabel->sizePolicy();
+    policy.setHorizontalPolicy(QSizePolicy::Ignored);
+    bingdingLabel->setSizePolicy(policy);
+
+    lineEditLayout->addWidget(nameLineEdit,1);
+    lineEditLayout->addWidget(nameLabel,1);
+    lineEditLayout->addWidget(bingdingLineEdit,1);
+    lineEditLayout->addWidget(bingdingLabel,1);
+    nameLineEdit->setVisible(false);
+    bingdingLineEdit->setVisible(false);
 
     nameLineEdit->blockSignals(true);
     nameLineEdit->setText(nkeyEntry->nameStr);
@@ -487,12 +517,40 @@ void Shortcut::buildCustomItem(KeyEntry *nkeyEntry)
     bingdingLineEdit->setText(getShowShortcutString(nkeyEntry->bindingStr));
     bingdingLineEdit->blockSignals(false);
 
+    nameLabel->setText(nkeyEntry->nameStr);
+    bingdingLabel->setText(getShowShortcutString(nkeyEntry->bindingStr));
+
+
+    connect(nameLabel,&ClickFixLabel::doubleClicked,this,[=](){
+        nameLabel->hide();
+        nameLineEdit->show();
+        nameLineEdit->setFocus();
+    });
+
+    connect(bingdingLabel,&ClickFixLabel::doubleClicked,this,[=](){
+        bingdingLabel->hide();
+        bingdingLineEdit->show();
+        bingdingLineEdit->setFocus();
+    });
+
+    connect(nameLineEdit,&DoubleClickLineEdit::focusOut,this,[=](){
+        nameLabel->show();
+        nameLineEdit->hide();
+    });
+
+    connect(bingdingLineEdit,&DoubleClickShortCut::focusOut,this,[=](){
+        bingdingLabel->show();
+        bingdingLineEdit->hide();
+    });
+
     connect(nameLineEdit, &DoubleClickLineEdit::strChanged, this, [=](){
         createNewShortcut(nkeyEntry->gsPath, nameLineEdit->text(), nkeyEntry->actionStr, nkeyEntry->bindingStr, false, false); //只修改
+        nameLabel->setText(nameLineEdit->text());
     });
 
     connect(bingdingLineEdit, &DoubleClickShortCut::shortcutChanged, this, [=](){
         createNewShortcut(nkeyEntry->gsPath, nkeyEntry->nameStr, nkeyEntry->actionStr, bingdingLineEdit->keySequence().toString(), false, true); //只修改
+        bingdingLabel->setText(bingdingLineEdit->text());
     });
 
     connect(this, &Shortcut::updateCustomShortcut, this, [=](){

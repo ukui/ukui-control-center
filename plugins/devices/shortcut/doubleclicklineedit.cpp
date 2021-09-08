@@ -5,7 +5,6 @@ DoubleClickLineEdit::DoubleClickLineEdit(QList<KeyEntry *> customEntries,QWidget
     QLineEdit(parent),
     customEntry(customEntries){
     //this->setStyleSheet("QLineEdit {background-color : palette(base);}");
-    this->setReadOnly(true);
     this->setContextMenuPolicy(Qt::NoContextMenu);
     defaultQss = this->styleSheet();
 
@@ -26,14 +25,12 @@ DoubleClickLineEdit::~DoubleClickLineEdit() {
 
 void DoubleClickLineEdit::mouseDoubleClickEvent(QMouseEvent *e) {
     Q_UNUSED(e);
-    this->setReadOnly(false);
     return;
 }
 
 void DoubleClickLineEdit::focusOutEvent(QFocusEvent *e) {
     Q_UNUSED(e);
     //this->setStyleSheet("QLineEdit {background-color : palette(base);}");
-    this->setReadOnly(true);
 
     QString str;
     if (strIsAvailable) {
@@ -48,6 +45,7 @@ void DoubleClickLineEdit::focusOutEvent(QFocusEvent *e) {
         Q_EMIT strChanged();
     }
     this->setStyleSheet(defaultQss);
+    Q_EMIT focusOut();
 }
 
 void DoubleClickLineEdit::setText(const QString &str) {
@@ -87,7 +85,6 @@ DoubleClickShortCut::DoubleClickShortCut(QList<KeyEntry *> generalEntries, QList
     ShortcutLine(generalEntries,customEntries,parent){
     this->customEntry = customEntries;
     //this->setStyleSheet("QLineEdit {background-color : palette(base);}");
-    this->setReadOnly(true);
     this->setContextMenuPolicy(Qt::NoContextMenu);
     defaultQss = this->styleSheet();
 
@@ -115,13 +112,11 @@ DoubleClickShortCut::~DoubleClickShortCut() {
 
 void DoubleClickShortCut::mouseDoubleClickEvent(QMouseEvent *e) {
     Q_UNUSED(e);
-    this->setReadOnly(false);
     return;
 }
 
 void DoubleClickShortCut::focusOutEvent(QFocusEvent *e) {
     //this->setStyleSheet("QLineEdit {background-color : palette(base);}");
-    this->setReadOnly(true);
 
     QString str;
     if (shortcutIsAvailable) {
@@ -135,8 +130,10 @@ void DoubleClickShortCut::focusOutEvent(QFocusEvent *e) {
     if (shortcutIsAvailable) {
         Q_EMIT shortcutChanged();
     }
+
     this->setStyleSheet(defaultQss);
     ShortcutLine::focusOutEvent(e);
+    Q_EMIT focusOut();
 }
 
 void DoubleClickShortCut::setText(const QString &str) {
