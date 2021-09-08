@@ -232,14 +232,15 @@ void QMLScreen::setScreenPos(QMLOutput *output, bool isReleased)
 {
     QPointF posBefore = output->position();
     // 镜像模式下跳过屏幕旋转处理
-    if (this->primaryOutput() && this->primaryOutput()->isCloneMode()) {
+    if (output->isCloneMode()) {
+        setScreenCenterPos();
         return;
     }
 
-    int x1 = 0, y1 = 0;
-    int width1 = 0, height1 = 0;
-    int x2 = 0, y2 = 0;
-    int width2 = 0, height2 = 0;
+    float x1 = 0, y1 = 0;
+    float width1 = 0, height1 = 0;
+    float x2 = 0, y2 = 0;
+    float width2 = 0, height2 = 0;
 
     x1 = output->x();
     y1 = output->y();

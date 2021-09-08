@@ -42,7 +42,7 @@ QMLOutput {
     width: monitorMouseArea.width;
     height: monitorMouseArea.height;
 
-    visible: (opacity > 0);
+    visible: (opacity > 0 && ((isCloneMode && isCloneModeShow) || !isCloneMode));
     opacity: output.connected ? 1.0 : 0.0;
 
     Component.onCompleted: {
