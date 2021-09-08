@@ -86,7 +86,9 @@ QWidget *Screenlock::get_plugin_ui()
         initSearchText();
         setupComponent();
         setupConnect();
-        initScreenlockStatus();
+        QTimer::singleShot( 1, this, [=](){
+            initScreenlockStatus();
+        });
 
         lockbgSize = QSize(400, 240);
     }
