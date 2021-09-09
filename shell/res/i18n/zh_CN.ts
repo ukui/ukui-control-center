@@ -2756,11 +2756,16 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     <name>Gesture</name>
     <message>
         <location filename="../../../plugins/devices/gesture/gesture.ui" line="72"/>
-        <location filename="../../../plugins/devices/gesture/gesture.cpp" line="30"/>
-        <location filename="../../../plugins/devices/gesture/gesture.cpp" line="65"/>
+        <location filename="../../../plugins/devices/gesture/gesture.cpp" line="64"/>
         <source>Gesture</source>
         <translatorcomment>手势</translatorcomment>
         <translation type="unfinished">手势</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/gesture/gesture.cpp" line="30"/>
+        <source>Gesture Guidance</source>
+        <translatorcomment>手势引导</translatorcomment>
+        <translation type="unfinished">手势引导</translation>
     </message>
 </context>
 <context>
@@ -4699,10 +4704,15 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="unfinished">声音</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="136"/>
+        <location filename="../../utils/functionselect.cpp" line="152"/>
+        <source>Gesture Guidance</source>
+        <translatorcomment>手势引导</translatorcomment>
+        <translation type="unfinished">手势引导</translation>
+    </message>
+    <message>
         <source>Gesture</source>
         <translatorcomment>手势</translatorcomment>
-        <translation type="unfinished">手势</translation>
+        <translation type="obsolete">手势</translation>
     </message>
     <message>
         <location filename="../../utils/functionselect.cpp" line="152"/>

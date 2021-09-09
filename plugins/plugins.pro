@@ -8,7 +8,6 @@ SUBDIRS = \
           devices/mouse \
           devices/touchpad \
           devices/pen \
-          devices/gesture \
           system/audio \
           personalized/wallpaper \
           personalized/theme \
@@ -22,6 +21,7 @@ SUBDIRS = \
           security-updates/securitycenter \
           system/backup \
           security-updates/update \
+          other/gesture \
           other/about \
           system/datetime \
           system/area
