@@ -7,8 +7,8 @@
 include(../../../env.pri)
 include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
 include($$PROJECT_COMPONENTSOURCE/hoverbtn.pri)
-include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
 include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
+include($$PROJECT_COMPONENTSOURCE/infobutton.pri)
 include($$PROJECT_COMPONENTSOURCE/label.pri)
 
 QT       += widgets network dbus gui core
@@ -33,9 +33,19 @@ PKGCONFIG += gsettings-qt \
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
+    addnetbtn.cpp \
+    deviceframe.cpp \
+    drownlabel.cpp \
+    itemframe.cpp \
+    lanitem.cpp \
     netconnect.cpp
 
 HEADERS += \
+    addnetbtn.h \
+    deviceframe.h \
+    drownlabel.h \
+    itemframe.h \
+    lanitem.h \
     netconnect.h
 
 FORMS += \

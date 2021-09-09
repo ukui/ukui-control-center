@@ -98,10 +98,6 @@
         <file>titlebar/back.svg</file>
         <file>plugins/netconnect/eth.svg</file>
         <file>plugins/netconnect/nonet.svg</file>
-        <file>plugins/netconnect/wifi1.svg</file>
-        <file>plugins/netconnect/wifi2.svg</file>
-        <file>plugins/netconnect/wifi3.svg</file>
-        <file>plugins/netconnect/wifi4.svg</file>
         <file>plugins/securitycenter/kysec.png</file>
         <file>plugins/securitycenter/kysecHover.png</file>
         <file>plugins/securitycenter/net.png</file>
@@ -126,7 +122,6 @@
         <file>plugins/userinfo/notice.png</file>
         <file>secondaryleftmenu/Cloud Account.svg</file>
         <file>secondaryleftmenu/Cloud AccountWhite.svg</file>
-        <file>plugins/netconnect/wifi5.svg</file>
         <file>dropArrow/search.svg</file>
         <file>secondaryleftmenu/Vino.svg</file>
         <file>secondaryleftmenu/VinoWhite.svg</file>
@@ -250,6 +245,16 @@
         <file>plugins/gesture/Textselection.gif</file>
         <file>plugins/gesture/Zoompicture.gif</file>
         <file>secondaryleftmenu/Userinfointel.svg</file>
+        <file>plugins/netconnect/1.png</file>
+        <file>plugins/netconnect/2.png</file>
+        <file>plugins/netconnect/4.png</file>
+        <file>plugins/netconnect/5.png</file>
+        <file>plugins/netconnect/3.png</file>
+        <file>plugins/netconnect/6.png</file>
+        <file>plugins/netconnect/7.png</file>
+        <file>plugins/netconnect/8.png</file>
+        <file>plugins/netconnect/up.svg</file>
+        <file>plugins/netconnect/down.svg</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>

@@ -34,8 +34,9 @@
 #include <QGSettings>
 #include <QListWidget>
 #include <QListWidgetItem>
-#include <HoverWidget/hoverwidget.h>
 #include <QMap>
+#include <QPropertyAnimation>
+#include <QPoint>
 
 #include <QDBusMessage>
 #include <QDBusObjectPath>
@@ -43,9 +44,13 @@
 #include <QDBusReply>
 
 #include "shell/interface.h"
+#include "AddBtn/addbtn.h"
+#include "Label/fixlabel.h"
 #include "SwitchButton/switchbutton.h"
 #include "commonComponent/HoverBtn/hoverbtn.h"
-#include "commonComponent/HoverWidget/hoverwidget.h"
+#include "lanitem.h"
+#include "deviceframe.h"
+#include "itemframe.h"
 
 enum {
     DISCONNECTED,
@@ -57,11 +62,11 @@ namespace Ui {
 class NetConnect;
 }
 
-typedef struct ActiveConInfo_s {
-    QString strConName;
-    QString strConUUID;
-    QString strConType;
-}ActiveConInfo;
+typedef struct DeviceLanlistInfo_s
+{
+    QMap<QString,ItemFrame*> deviceLayoutMap;
+    QMap<QString, LanItem*> lanItemMap;
+}DeviceLanlistInfo;
 
 class NetConnect : public QObject, CommonInterface
 {
@@ -78,19 +83,18 @@ public:
     QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
     void plugin_delay_control() Q_DECL_OVERRIDE;
     const QString name() const  Q_DECL_OVERRIDE;
-
-public:
+private:
     void initSearchText();
     void initComponent();
-    void rebuildNetStatusComponent(QString iconPath, QMap<QString, bool> netNameMap);
-    void rebuildAvailComponent(QString iconpath, QString netName, QString type);
-
+    void rebuildDeviceComponent(ItemFrame *frame, QString deviceName, int count);
+    void rebuildAddComponent(ItemFrame *frame, QString deviceName);
+    void rebuildAvailComponent(ItemFrame *frame, QString iconpath, QString deviceName, QString name, QString ssid, bool status, int type);
     void runExternalApp();
-    void runKylinmApp(QString netName, QString type);
-
-    bool getwifiisEnable();
-
-    void getActiveConInfo(QList<ActiveConInfo>& qlActiveConInfo);
+    void setSwitchStatus();
+    void clearLayout(QVBoxLayout *layout);
+    void activeConnect(QString netName, QString deviceName, int type);
+    void deActiveConnect(QString netName, QString deviceName, int type);
+    void getDeviceList();
 
 protected:
     bool eventFilter(QObject *w,QEvent *e);
@@ -101,34 +105,25 @@ private:
     QString            pluginName;
     int                pluginType;
     QWidget            *pluginWidget;
-    HoverWidget        *addLanWidget;
 
     QDBusInterface     *m_interface = nullptr;
     QDBusInterface     *kdsDbus = nullptr;
     SwitchButton       *wiredSwitch;
 
-    QMap<QString, bool> actLanNames;
-
-    QMap<QString, bool> noneAct;
-
-    QStringList        TlanList;
-    QStringList        lanList;
+//    QMap<QString, LanItem*> lanItemMap;
 
     bool               mFirstLoad;
 
-    QList<ActiveConInfo> mActiveInfo;
-
-    QGSettings         *qtSettings;
-private:
-    QStringList execGetLanList();
-    void         getWifiListDone(QStringList lanList);
-
-    bool        getInitStatus();
-    void        clearContent();
-    void        initHoverWidget();
+    QGSettings         *m_switchGsettings;
+    DeviceLanlistInfo   deviceLanlistInfo;
+    QMap<QString, bool> deviceListMap;
+    QMap<QString, bool> dropDownMap;
 private slots:
-    void wifiSwitchSlot(bool status);
-    void getNetList();
+    void getNetListFromDevice(QString deviceName, bool deviceStatus, QVBoxLayout *layout, int count);
+    void rebuildOneFrame(QString deviceName, ItemFrame *frame);
+    void dropDownAnimation(DeviceFrame * deviceFrame, QString deviceName, QMap<QString, bool> deviceListMap);
+    void setItemStartLoading(QString devName, QString ssid);
+    void setItemStopLoading(QString devName);
     void netPropertiesChangeSlot(QMap<QString, QVariant> property);
 };
 
