@@ -48,6 +48,7 @@ const QString KWifiLockNone     = "network-wireless-secure-signal-none";
 
 const QString KLanSymbolic      = ":/img/plugins/netconnect/eth.svg";
 const QString NoNetSymbolic     = ":/img/plugins/netconnect/nonet.svg";
+
 WlanConnect::WlanConnect() :  mFirstLoad(true) {
     pluginName = tr("WlanConnect");
     pluginType = NETWORK;
