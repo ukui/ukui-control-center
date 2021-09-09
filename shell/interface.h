@@ -52,7 +52,6 @@ enum DevicesIndex{
     MOUSE,
     TRACKPAD,
     PEN,
-    GESTURE,
     TOTALDEVICESFUNC,
 };
 
@@ -78,6 +77,7 @@ enum AccountIndex{
 };
 
 enum OtherIndex{
+    GESTURE,
     ABOUT,
     TOTALOTHERFUNC,
 };

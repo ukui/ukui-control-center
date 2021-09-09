@@ -27,8 +27,8 @@
 
 Gesture::Gesture() : mFirstLoad(true)
 {
-    pluginName = tr("Gesture");
-    pluginType = DEVICES;
+    pluginName = tr("Gesture Guidance");
+    pluginType = OTHER;
     QString path=":/img/plugins/gesture/gesture.ini";
     gesturesetting=new QSettings(path,QSettings::IniFormat);
 }

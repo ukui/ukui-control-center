@@ -215,8 +215,8 @@
         <file>plugins/userinfo/settingedit.svg</file>
         <file>plugins/userinfo/warning.svg</file>
         <file>plugins/backup/setting-reset.svg</file>
-        <file>secondaryleftmenu/Gesture.svg</file>
-        <file>secondaryleftmenu/GestureWhite.svg</file>
+        <file>secondaryleftmenu/Gesture Guidance.svg</file>
+        <file>secondaryleftmenu/Gesture GuidanceWhite.svg</file>
         <file>plugins/gesture/gesture.ini</file>
         <file>plugins/gesture/Movingobjects.gif</file>
         <file>plugins/gesture/pause.png</file>
