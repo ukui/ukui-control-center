@@ -67,7 +67,6 @@ public:
     void initConnection();
     QString getScreenName(QString name = "");
     void initTemptSlider();
-    void writeScreenXml();
 
     bool writeFile(const QString &filePath);
     void writeGlobal(const KScreen::OutputPtr &output);
