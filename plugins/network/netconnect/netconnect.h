@@ -92,7 +92,8 @@ private:
     void runExternalApp();
     void setSwitchStatus();
     void clearLayout(QVBoxLayout *layout);
-    void runKylinmApp(QString netName, QString deviceName, int type);
+    void activeConnect(QString netName, QString deviceName, int type);
+    void deActiveConnect(QString netName, QString deviceName, int type);
     void getDeviceList();
 
 protected:
@@ -121,7 +122,7 @@ private slots:
     void getNetListFromDevice(QString deviceName, bool deviceStatus, QVBoxLayout *layout, int count);
     void rebuildOneFrame(QString deviceName, ItemFrame *frame);
     void dropDownAnimation(DeviceFrame * deviceFrame, QString deviceName, QMap<QString, bool> deviceListMap);
-    void setItemLoading(QString devName, QString ssid);
+    void setItemStartLoading(QString devName, QString ssid);
     void setItemStopLoading(QString devName);
     void netPropertiesChangeSlot(QMap<QString, QVariant> property);
 };

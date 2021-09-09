@@ -73,15 +73,15 @@ public:
     QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
     void plugin_delay_control() Q_DECL_OVERRIDE;
     const QString name() const  Q_DECL_OVERRIDE;
-public:
+
+private:
     void initComponent();
     void runExternalApp();
     void initSearchText();
     void rebuildDeviceComponent(ItemFrame *frame, QString deviceName, int count);
     void rebuildAvailComponent(ItemFrame *frame, QString deviceName, QString name, QString signal, bool isLock, bool status, int type);
-    void runKylinmApp(QString netName, QString deviceName, int type);
-
-private:
+    void activeConnect(QString netName, QString deviceName, int type);
+    void deActiveConnect(QString netName, QString deviceName, int type);
     void clearLayout(QVBoxLayout * layout);
     void setSwitchStatus();
     void getDeviceList();
@@ -113,7 +113,7 @@ private:
     bool               mFirstLoad;
 
 private slots:
-    void setItemLoading(QString devName, QString ssid);
+    void setItemStartLoading(QString devName, QString ssid);
     void setItemStopLoading(QString devName);
     void dropDownAnimation(DeviceFrame * deviceFrame, QString deviceName);
     void getNetListFromDevice(QString deviceName, bool deviceStatus, QVBoxLayout *layout, int count);

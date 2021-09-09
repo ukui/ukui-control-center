@@ -130,7 +130,7 @@ void WlanConnect::initComponent() {
                                  QDBusConnection::systemBus());
 
     // 无线网络断开或连接时刷新可用网络列表
-    connect(m_interface, SIGNAL(wirelessActivating(QString,QString)), this, SLOT(setItemLoading(QString,QString)));
+    connect(m_interface, SIGNAL(wirelessActivating(QString,QString)), this, SLOT(setItemStartLoading(QString,QString)));
     connect(m_interface, SIGNAL(listUpdate(QString)), this, SLOT(setItemStopLoading(QString)));
 
     getDeviceList();
@@ -188,7 +188,7 @@ void WlanConnect::setSwitchStatus()
     }
 }
 
-void WlanConnect::setItemLoading(QString devName, QString ssid)
+void WlanConnect::setItemStartLoading(QString devName, QString ssid)
 {
     QMap<QString, WlanItem*>::iterator iter;
     for (iter =  deviceWlanlistInfo.wlanItemMap.begin(); iter !=  deviceWlanlistInfo.wlanItemMap.end(); iter++) {
@@ -445,12 +445,21 @@ void WlanConnect::rebuildAvailComponent(ItemFrame *frame, QString deviceName, QS
     });
 
     connect(wlanItem, &QPushButton::clicked, this, [=] {
-        runKylinmApp(name, deviceName, type);
+        if (status) {
+            deActiveConnect(name, deviceName, type);
+        } else {
+            activeConnect(name, deviceName, type);
+        }
     });
     deviceWlanlistInfo.wlanItemMap.insert(name, wlanItem);
     frame->lanItemLayout->addWidget(wlanItem);
 }
 
-void WlanConnect::runKylinmApp(QString netName, QString deviceName, int type) {
+void WlanConnect::activeConnect(QString netName, QString deviceName, int type) {
     m_interface->call("activateConnect",type, deviceName, netName);
 }
+
+void WlanConnect::deActiveConnect(QString netName, QString deviceName, int type) {
+    m_interface->call("deActivateConnect",type, deviceName, netName);
+}
+

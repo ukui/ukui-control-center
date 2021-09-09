@@ -148,7 +148,7 @@ void NetConnect::initComponent() {
                                          SLOT(netPropertiesChangeSlot(QMap<QString,QVariant>)));
 
     // 有线网络断开或连接时刷新可用网络列表
-    connect(m_interface, SIGNAL(wiredActivating(QString,QString)), this, SLOT(setItemLoading(QString,QString)));
+    connect(m_interface, SIGNAL(wiredActivating(QString,QString)), this, SLOT(setItemStartLoading(QString,QString)));
     connect(m_interface, SIGNAL(listUpdate(QString)), this, SLOT(setItemStopLoading(QString)));
 
     connect(ui->detailBtn, &QPushButton::clicked, this, [=](bool checked) {
@@ -187,7 +187,7 @@ void NetConnect::getDeviceList()
     dbusArg >> deviceListMap;
 }
 
-void NetConnect::setItemLoading(QString devName, QString ssid)
+void NetConnect::setItemStartLoading(QString devName, QString ssid)
 {
     QMap<QString, LanItem*>::iterator iter;
     for (iter =  deviceLanlistInfo.lanItemMap.begin(); iter !=  deviceLanlistInfo.lanItemMap.end(); iter++) {
@@ -412,7 +412,11 @@ void NetConnect::rebuildAvailComponent(ItemFrame *frame, QString iconPath, QStri
     });
 
     connect(lanItem, &QPushButton::clicked, this, [=] {
-        runKylinmApp(name, deviceName, type);
+        if (status) {
+            deActiveConnect(name, deviceName, type);
+        } else {
+            activeConnect(name, deviceName, type);
+        }
     });
     deviceLanlistInfo.lanItemMap.insert(ssid,lanItem);
     frame->lanItemLayout->addWidget(lanItem);
@@ -424,7 +428,11 @@ void NetConnect::runExternalApp() {
     process.startDetached(cmd);
 }
 
-void NetConnect::runKylinmApp(QString netName, QString deviceName, int type) {
-    m_interface->call("activateConnect", type, netName);
+void NetConnect::activeConnect(QString netName, QString deviceName, int type) {
+    m_interface->call("activateConnect",type, deviceName, netName);
+}
+
+void NetConnect::deActiveConnect(QString netName, QString deviceName, int type) {
+    m_interface->call("deActivateConnect",type, deviceName, netName);
 }
 
