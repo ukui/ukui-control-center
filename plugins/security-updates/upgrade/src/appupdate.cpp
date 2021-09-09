@@ -789,7 +789,8 @@ void AppUpdateWid::hideOrShowUpdateBtnSlot(int result)
     }
     else if(result == 99 ||result == -20)  //99时备份成功 -20时备份还原进程被中断
     {
-        updateAPPBtn->show();
+        if (appVersion->text() == QString(tr("Newest:")+appAllMsg.availableVersion))
+            updateAPPBtn->show();
     }
 
 }
