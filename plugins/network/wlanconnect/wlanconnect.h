@@ -45,16 +45,18 @@
 #include "shell/interface.h"
 #include "SwitchButton/switchbutton.h"
 #include "commonComponent/HoverBtn/hoverbtn.h"
-
-typedef struct ActiveConInfo_s {
-    QString strConName;
-    QString strConUUID;
-    QString strConType;
-}ActiveConInfo;
-
+#include "itemframe.h"
+#include "wlanitem.h"
 namespace Ui {
 class WlanConnect;
 }
+
+
+typedef struct DeviceWlanlistInfo_s
+{
+    QMap<QString,ItemFrame *> deviceLayoutMap;
+    QMap<QString, WlanItem *> wlanItemMap;
+}DeviceWlanlistInfo;
 
 class WlanConnect : public QObject, CommonInterface
 {
@@ -72,25 +74,20 @@ public:
     void plugin_delay_control() Q_DECL_OVERRIDE;
     const QString name() const  Q_DECL_OVERRIDE;
 public:
-    bool getwifiisEnable();
     void initComponent();
     void runExternalApp();
     void initSearchText();
-    void rebuildAvailComponent(QString iconpath, QString netName, QString type);
+    void rebuildDeviceComponent(ItemFrame *frame, QString deviceName, int count);
+    void rebuildAvailComponent(ItemFrame *frame, QString name, QString signal, bool isLock, bool status, QString type);
     void rebuildWifiActComponent(QString iconPath, QStringList netNameList);
     void runKylinmApp(QString netName, QString type);
 
 private:
-    bool getInitStatus();
-    void clearContent();
-
-    bool getWifiStatus();
-    bool getHasWirelessCard();
-
+    void clearLayout(QVBoxLayout * layout);
+    void setSwitchStatus();
+    void getDeviceList();
     int                setSignal(QString lv);
     QString            wifiIcon(bool isLock, int strength);
-    void               getWifiListDone(QVector<QStringList> wifislist);
-    void               getActiveConInfo(QList<ActiveConInfo>& qlActiveConInfo);
 
 protected:
     bool eventFilter(QObject *w,QEvent *e);
@@ -102,28 +99,25 @@ private:
     int                pluginType;
     QWidget            *pluginWidget;
 
-    QStringList        TwifiList;
-    QStringList        lanList;
-    QStringList        wifilist;
-
     QDBusInterface     *m_interface = nullptr;
     QDBusInterface     *kdsDbus = nullptr;
-    QList<ActiveConInfo> mActiveInfo;
 
-    QMap<QString, int> connectedWifi;
-    QMap<QString,int>  wifiList;
+    QGSettings         *m_switchGsettings = nullptr;
 
-    QStringList        actWifiNames;
+    QMap<QString, bool> deviceListMap;
+    QMap<QString, bool> dropDownMap;
 
-    QString            connectWifi;
-    QTimer             *refreshTimer;
+    DeviceWlanlistInfo   deviceWlanlistInfo;
+
 private:
-    SwitchButton       *wifiBtn;
+    SwitchButton       *wifiSwtch;
     bool               mFirstLoad;
 
 private slots:
-    void refreshNetInfoTimerSlot();
-    void wifiSwitchSlot(bool status);
-    void getNetList();
+    void setItemLoading(QString devName, QString ssid);
+    void setItemStopLoading(QString devName);
+    void dropDownAnimation(DeviceFrame * deviceFrame, QString deviceName);
+    void getNetListFromDevice(QString deviceName, bool deviceStatus, QVBoxLayout *layout, int count);
+    void rebuildOneFrame(QString deviceName, ItemFrame *frame);
 };
 #endif // WLANCONNECT_H

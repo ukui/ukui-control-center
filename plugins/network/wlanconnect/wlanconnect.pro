@@ -8,6 +8,8 @@ include(../../../env.pri)
 include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
 include($$PROJECT_COMPONENTSOURCE/hoverbtn.pri)
 include($$PROJECT_COMPONENTSOURCE/label.pri)
+include($$PROJECT_COMPONENTSOURCE/infobutton.pri)
+
 
 QT       += widgets network dbus gui core
 TEMPLATE = lib
@@ -31,10 +33,18 @@ PKGCONFIG += gsettings-qt \
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
-    wlanconnect.cpp
+    deviceframe.cpp \
+    drownlabel.cpp \
+    itemframe.cpp \
+    wlanconnect.cpp \
+    wlanitem.cpp
 
 HEADERS += \
-    wlanconnect.h
+    deviceframe.h \
+    drownlabel.h \
+    itemframe.h \
+    wlanconnect.h \
+    wlanitem.h
 
 FORMS += \
     wlanconnect.ui
