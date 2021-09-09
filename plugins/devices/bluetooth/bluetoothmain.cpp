@@ -209,6 +209,9 @@ BlueToothMain::BlueToothMain(QWidget *parent)
         qDebug() << "GSetting Value: " << Default_Adapter/* << finally_connect_the_device << paired_device_address*/;
     }
 
+    StackedWidget = new QStackedWidget(this);
+    this->setCentralWidget(StackedWidget);
+
     //初始化正常蓝牙界面
     InitMainWindowUi();
     //初始化异常蓝牙界面
@@ -401,6 +404,8 @@ void BlueToothMain::InitMainWindowUi()
     InitMainWindowTopUi();
     InitMainWindowMiddleUi();
     InitMainWindowBottomUi();
+
+    StackedWidget->addWidget(normal_main_widget);
 }
 
 
@@ -807,7 +812,7 @@ void BlueToothMain::ShowNormalMainWindow()
         frame_top->setMaximumSize(1000,187);
     }
 
-    this->setCentralWidget(normal_main_widget);
+    StackedWidget->setCurrentWidget(normal_main_widget);
 }
 void BlueToothMain::ShowSpecialMainWindow()
 {
@@ -830,8 +835,7 @@ void BlueToothMain::ShowSpecialMainWindow()
     frame_middle->setVisible(false);
     frame_bottom->setVisible(false);
 
-    this->setCentralWidget(normal_main_widget);
-
+    StackedWidget->setCurrentWidget(normal_main_widget);
 }
 
 void BlueToothMain::InitMainWindowError()
@@ -862,12 +866,14 @@ void BlueToothMain::InitMainWindowError()
     errorWidgetLayout->addWidget(errorWidgetIcon,1,Qt::AlignCenter);
     errorWidgetLayout->addWidget(errorWidgetTip0,1,Qt::AlignCenter);
     errorWidgetLayout->addStretch(10);
+
+    StackedWidget->addWidget(errorWidget);
 }
 
 void BlueToothMain::ShowErrorMainWindow()
 {
     qDebug()<< Q_FUNC_INFO << __LINE__;
-    this->setCentralWidget(errorWidget);
+    StackedWidget->setCurrentWidget(errorWidget);
 }
 
 void BlueToothMain::connectManagerChanged()
@@ -2056,7 +2062,7 @@ void BlueToothMain::receiveRemoveSignal(QString address)
 
 void BlueToothMain::Refresh_load_Label_icon()
 {
-    if(this->centralWidget()->objectName() == "normalWidget") {
+    if(StackedWidget->currentWidget()->objectName() == "normalWidget") {
         if(i == 0)
             i = 7;
         loadLabel->setPixmap(QIcon::fromTheme("ukui-loading-"+QString::number(i,10)).pixmap(24,24));

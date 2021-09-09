@@ -39,6 +39,7 @@
 #include <QProcess>
 #include <QComboBox>
 #include <QStringView>
+#include <QStackedWidget>
 #include <QLayoutItem>
 #include <QMouseEvent>
 
@@ -132,7 +133,7 @@ private:
 //============================================================================
 
 //new
-
+    QStackedWidget *StackedWidget = nullptr;
     BluezQt::Manager *m_manager = nullptr;
     BluezQt::InitManagerJob  *job = nullptr;
     BluezQt::AdapterPtr m_localDevice = nullptr;
