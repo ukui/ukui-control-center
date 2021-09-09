@@ -504,8 +504,8 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
                     m_animation->setEasingCurve(QEasingCurve::InQuad);
                     m_animation->start();
                 }
+                m_isSearching=false;
             }
-            m_isSearching=false;
         }
     }
     return QObject::eventFilter(watched, event);
