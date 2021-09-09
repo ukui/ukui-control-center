@@ -30,6 +30,7 @@
 #include <QDebug>
 #include <QtAlgorithms>
 
+#define WIRELESS_TYPE 1
 
 const QString WIRELESS_SWITCH = "wirelessswitch";
 const QByteArray GSETTINGS_SCHEMA = "org.ukui.kylin-nm.switch";
@@ -248,7 +249,7 @@ void WlanConnect::rebuildOneFrame(QString deviceName, ItemFrame *frame)
                     } else {
                         isLock = true;
                     }
-                    rebuildAvailComponent(frame, deviceName, wlanListInfo.at(i).at(0), wlanListInfo.at(i).at(1), isLock, false, "ethernet");
+                    rebuildAvailComponent(frame, deviceName, wlanListInfo.at(i).at(0), wlanListInfo.at(i).at(1), isLock, false, WIRELESS_TYPE);
                 }
             } else {
                 if (wlanListInfo.at(0).at(2) == "") {
@@ -256,14 +257,14 @@ void WlanConnect::rebuildOneFrame(QString deviceName, ItemFrame *frame)
                 } else {
                     isLock = true;
                 }
-                rebuildAvailComponent(frame, deviceName, wlanListInfo.at(0).at(0), wlanListInfo.at(0).at(1), isLock, true, "ethernet");
+                rebuildAvailComponent(frame, deviceName, wlanListInfo.at(0).at(0), wlanListInfo.at(0).at(1), isLock, true, WIRELESS_TYPE);
                 for (int i = 1; i < wlanListInfo.length(); i++) {
                     if (wlanListInfo.at(i).at(2) == "") {
                         isLock = false;
                     } else {
                         isLock = true;
                     }
-                    rebuildAvailComponent(frame, deviceName, wlanListInfo.at(i).at(0), wlanListInfo.at(i).at(1), isLock, false, "ethernet");
+                    rebuildAvailComponent(frame, deviceName, wlanListInfo.at(i).at(0), wlanListInfo.at(i).at(1), isLock, false, WIRELESS_TYPE);
                 }
             }
         }
@@ -302,7 +303,7 @@ void WlanConnect::getNetListFromDevice(QString deviceName, bool deviceStatus, QV
                     } else {
                         isLock = true;
                     }
-                    rebuildAvailComponent(deviceFrame, deviceName, wlanListInfo.at(i).at(0), wlanListInfo.at(i).at(1), isLock, false, "ethernet");
+                    rebuildAvailComponent(deviceFrame, deviceName, wlanListInfo.at(i).at(0), wlanListInfo.at(i).at(1), isLock, false, WIRELESS_TYPE);
                 }
             } else {
                 if (wlanListInfo.at(0).at(2) == "") {
@@ -310,14 +311,14 @@ void WlanConnect::getNetListFromDevice(QString deviceName, bool deviceStatus, QV
                 } else {
                     isLock = true;
                 }
-                rebuildAvailComponent(deviceFrame, deviceName, wlanListInfo.at(0).at(0), wlanListInfo.at(0).at(1), isLock, true, "ethernet");
+                rebuildAvailComponent(deviceFrame, deviceName, wlanListInfo.at(0).at(0), wlanListInfo.at(0).at(1), isLock, true, WIRELESS_TYPE);
                 for (int i = 1; i < wlanListInfo.length(); i++) {
                     if (wlanListInfo.at(i).at(2) == "") {
                         isLock = false;
                     } else {
                         isLock = true;
                     }
-                    rebuildAvailComponent(deviceFrame, deviceName, wlanListInfo.at(i).at(0), wlanListInfo.at(i).at(1), isLock, false, "ethernet");
+                    rebuildAvailComponent(deviceFrame, deviceName, wlanListInfo.at(i).at(0), wlanListInfo.at(i).at(1), isLock, false, WIRELESS_TYPE);
                 }
             }
         }
@@ -419,7 +420,7 @@ void WlanConnect::dropDownAnimation(DeviceFrame * deviceFrame, QString deviceNam
     }
 }
 
-void WlanConnect::rebuildAvailComponent(ItemFrame *frame, QString deviceName, QString name, QString signal, bool isLock, bool status, QString type) {
+void WlanConnect::rebuildAvailComponent(ItemFrame *frame, QString deviceName, QString name, QString signal, bool isLock, bool status, int type) {
     qDebug()<<name<<signal;
     int sign = setSignal(signal);
     QString iconamePath = wifiIcon(isLock, sign);
@@ -443,9 +444,12 @@ void WlanConnect::rebuildAvailComponent(ItemFrame *frame, QString deviceName, QS
     });
 
     connect(wlanItem, &QPushButton::clicked, this, [=] {
-        runKylinmApp(name,type);
+        runKylinmApp(name, deviceName, type);
     });
-    deviceWlanlistInfo.wlanItemMap.insert(name,wlanItem);
+    deviceWlanlistInfo.wlanItemMap.insert(name, wlanItem);
     frame->lanItemLayout->addWidget(wlanItem);
 }
 
+void WlanConnect::runKylinmApp(QString netName, QString deviceName, int type) {
+    m_interface->call("activateConnect",type, deviceName, netName);
+}

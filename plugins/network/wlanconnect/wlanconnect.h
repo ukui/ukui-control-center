@@ -78,8 +78,8 @@ public:
     void runExternalApp();
     void initSearchText();
     void rebuildDeviceComponent(ItemFrame *frame, QString deviceName, int count);
-    void rebuildAvailComponent(ItemFrame *frame, QString deviceName, QString name, QString signal, bool isLock, bool status, QString type);
-    void runKylinmApp(QString netName, QString type);
+    void rebuildAvailComponent(ItemFrame *frame, QString deviceName, QString name, QString signal, bool isLock, bool status, int type);
+    void runKylinmApp(QString netName, QString deviceName, int type);
 
 private:
     void clearLayout(QVBoxLayout * layout);

@@ -31,6 +31,7 @@
 #include <QtAlgorithms>
 
 #define ITEMHEIGH           50
+#define WLAN_TYPE           0
 #define CONTROL_CENTER_WIFI              "org.ukui.control-center.wifi.switch"
 
 const QString KLanSymbolic      = ":/img/plugins/netconnect/eth.svg";
@@ -240,12 +241,12 @@ void NetConnect::rebuildOneFrame(QString deviceName, ItemFrame *frame)
             QVector<QStringList> lanListInfo = iter.value();
             if (lanListInfo.at(0).at(0) == "--") {
                 for (int i = 1; i < lanListInfo.length(); i++) {
-                    rebuildAvailComponent(frame, KLanSymbolic, iter.key(), lanListInfo.at(i).at(0), lanListInfo.at(i).at(1), false, "ethernet");
+                    rebuildAvailComponent(frame, KLanSymbolic, iter.key(), lanListInfo.at(i).at(0), lanListInfo.at(i).at(1), false, WLAN_TYPE);
                 }
             } else {
-                rebuildAvailComponent(frame, KLanSymbolic, iter.key(), lanListInfo.at(0).at(0), lanListInfo.at(0).at(1), true, "ethernet");
+                rebuildAvailComponent(frame, KLanSymbolic, iter.key(), lanListInfo.at(0).at(0), lanListInfo.at(0).at(1), true, WLAN_TYPE);
                 for (int i = 1; i < lanListInfo.length(); i++) {
-                    rebuildAvailComponent(frame, KLanSymbolic, iter.key(), lanListInfo.at(i).at(0), lanListInfo.at(i).at(1), false, "ethernet");
+                    rebuildAvailComponent(frame, KLanSymbolic, iter.key(), lanListInfo.at(i).at(0), lanListInfo.at(i).at(1), false, WLAN_TYPE);
                 }
             }
             rebuildAddComponent(frame, iter.key());
@@ -278,12 +279,12 @@ void NetConnect::getNetListFromDevice(QString deviceName, bool deviceStatus, QVB
             deviceLanlistInfo.deviceLayoutMap.insert(iter.key(),deviceFrame);
             if (lanListInfo.at(0).at(0) == "--") {
                 for (int i = 1; i < lanListInfo.length(); i++) {
-                    rebuildAvailComponent(deviceFrame, KLanSymbolic, iter.key(), lanListInfo.at(i).at(0), lanListInfo.at(i).at(1), false, "ethernet");
+                    rebuildAvailComponent(deviceFrame, KLanSymbolic, iter.key(), lanListInfo.at(i).at(0), lanListInfo.at(i).at(1), false, WLAN_TYPE);
                 }
             } else {
-                rebuildAvailComponent(deviceFrame, KLanSymbolic, iter.key(), lanListInfo.at(0).at(0), lanListInfo.at(0).at(1), true, "ethernet");
+                rebuildAvailComponent(deviceFrame, KLanSymbolic, iter.key(), lanListInfo.at(0).at(0), lanListInfo.at(0).at(1), true, WLAN_TYPE);
                 for (int i = 1; i < lanListInfo.length(); i++) {
-                    rebuildAvailComponent(deviceFrame, KLanSymbolic, iter.key(), lanListInfo.at(i).at(0), lanListInfo.at(i).at(1), false, "ethernet");
+                    rebuildAvailComponent(deviceFrame, KLanSymbolic, iter.key(), lanListInfo.at(i).at(0), lanListInfo.at(i).at(1), false, WLAN_TYPE);
                 }
             }
             rebuildAddComponent(deviceFrame, iter.key());
@@ -390,7 +391,7 @@ void NetConnect::dropDownAnimation(DeviceFrame * deviceFrame, QString deviceName
 }
 
 
-void NetConnect::rebuildAvailComponent(ItemFrame *frame, QString iconPath, QString deviceName, QString name, QString ssid, bool status, QString type) {
+void NetConnect::rebuildAvailComponent(ItemFrame *frame, QString iconPath, QString deviceName, QString name, QString ssid, bool status, int type) {
     qDebug()<<name<<ssid;
     LanItem * lanItem = new LanItem(pluginWidget);
     QIcon searchIcon = QIcon::fromTheme(iconPath);
@@ -411,7 +412,7 @@ void NetConnect::rebuildAvailComponent(ItemFrame *frame, QString iconPath, QStri
     });
 
     connect(lanItem, &QPushButton::clicked, this, [=] {
-        runKylinmApp(name,type);
+        runKylinmApp(name, deviceName, type);
     });
     deviceLanlistInfo.lanItemMap.insert(ssid,lanItem);
     frame->lanItemLayout->addWidget(lanItem);
@@ -423,8 +424,8 @@ void NetConnect::runExternalApp() {
     process.startDetached(cmd);
 }
 
-void NetConnect::runKylinmApp(QString netName, QString type) {
-    m_interface->call("activateConnect",type,netName);
+void NetConnect::runKylinmApp(QString netName, QString deviceName, int type) {
+    m_interface->call("activateConnect", type, netName);
 }
 
 

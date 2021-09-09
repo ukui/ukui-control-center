@@ -88,11 +88,11 @@ private:
     void initComponent();
     void rebuildDeviceComponent(ItemFrame *frame, QString deviceName, int count);
     void rebuildAddComponent(ItemFrame *frame, QString deviceName);
-    void rebuildAvailComponent(ItemFrame *frame, QString iconpath, QString deviceName, QString name, QString ssid, bool status, QString type);
+    void rebuildAvailComponent(ItemFrame *frame, QString iconpath, QString deviceName, QString name, QString ssid, bool status, int type);
     void runExternalApp();
     void setSwitchStatus();
     void clearLayout(QVBoxLayout *layout);
-    void runKylinmApp(QString netName, QString type);
+    void runKylinmApp(QString netName, QString deviceName, int type);
     void getDeviceList();
 
 protected:
