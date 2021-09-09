@@ -118,7 +118,6 @@ private:
     QMap<QString, bool> deviceListMap;
     QMap<QString, bool> dropDownMap;
 private slots:
-    void wifiSwitchSlot(bool status);
     void getNetListFromDevice(QString deviceName, bool deviceStatus, QVBoxLayout *layout, int count);
     void rebuildOneFrame(QString deviceName, ItemFrame *frame);
     void dropDownAnimation(DeviceFrame * deviceFrame, QString deviceName, QMap<QString, bool> deviceListMap);

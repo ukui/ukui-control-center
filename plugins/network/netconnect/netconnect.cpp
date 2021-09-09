@@ -428,14 +428,3 @@ void NetConnect::runKylinmApp(QString netName, QString deviceName, int type) {
     m_interface->call("activateConnect", type, netName);
 }
 
-
-void NetConnect::wifiSwitchSlot(bool status) {
-
-    QString wifiStatus = status ? "on" : "off";
-    QString program = "nmcli";
-    QStringList arg;
-    arg << "radio" << "wifi" << wifiStatus;
-    QProcess *nmcliCmd = new QProcess(this);
-    nmcliCmd->start(program, arg);
-    nmcliCmd->waitForFinished();
-}
