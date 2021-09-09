@@ -1716,6 +1716,8 @@ void Widget::writeScreenXml()
     char *backup_filename = mate_rr_config_get_backup_filename();
     unlink(backup_filename);
 
+    sync();
+
     g_object_unref(rr_config);
     g_object_unref(rr_screen);
 }
