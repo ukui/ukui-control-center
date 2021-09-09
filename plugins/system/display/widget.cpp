@@ -49,14 +49,6 @@
 #undef signals
 #endif
 
-extern "C" {
-#define MATE_DESKTOP_USE_UNSTABLE_API
-#include <libmate-desktop/mate-rr.h>
-#include <libmate-desktop/mate-rr-config.h>
-#include <libmate-desktop/mate-rr-labeler.h>
-#include <libmate-desktop/mate-desktop-utils.h>
-}
-
 #define QML_PATH "kcm_kscreen/qml/"
 
 #define UKUI_CONTORLCENTER_PANEL_SCHEMAS "org.ukui.control-center.panel.plugins"
@@ -85,7 +77,6 @@ Widget::Widget(QWidget *parent) :
     ui(new Ui::DisplayWindow())
 {
     qRegisterMetaType<QQuickView *>();
-    gdk_init(NULL, NULL);
 
     ui->setupUi(this);
     ui->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
@@ -1336,7 +1327,6 @@ void Widget::save()
         op->exec();
     } else {
         mPrevConfig = mConfig->clone();
-        writeScreenXml();
         QString hash = config->connectedOutputsHash();
         writeFile(mDir % hash);
     }
@@ -1728,33 +1718,6 @@ void Widget::initTemptSlider()
         ui->opMinCom->addItem(QStringLiteral("%1").arg(i, 2, 10, QLatin1Char('0')));
         ui->clMinCom->addItem(QStringLiteral("%1").arg(i, 2, 10, QLatin1Char('0')));
     }
-}
-
-void Widget::writeScreenXml()
-{
-    MateRRScreen *rr_screen;
-    MateRRConfig *rr_config;
-
-    /* Normally, mate_rr_config_save() creates a backup file based on the
-     * old monitors.xml.  However, if *that* file didn't exist, there is
-     * nothing from which to create a backup.  So, here we'll save the
-     * current/unchanged configuration and then let our caller call
-     * mate_rr_config_save() again with the new/changed configuration, so
-     * that there *will* be a backup file in the end.
-     */
-
-    rr_screen = mate_rr_screen_new(gdk_screen_get_default(), NULL);   /* NULL-GError */
-    if (!rr_screen)
-        return;
-
-    rr_config = mate_rr_config_new_current(rr_screen, NULL);
-    mate_rr_config_save(rr_config, NULL);  /* NULL-GError */
-
-    char *backup_filename = mate_rr_config_get_backup_filename();
-    unlink(backup_filename);
-
-    g_object_unref(rr_config);
-    g_object_unref(rr_screen);
 }
 
 void Widget::setNightMode(const bool nightMode)

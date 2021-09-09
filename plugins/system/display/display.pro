@@ -9,7 +9,7 @@ include($$PROJECT_COMPONENTSOURCE/closebutton.pri)
 include($$PROJECT_COMPONENTSOURCE/label.pri)
 include($$PROJECT_COMPONENTSOURCE/uslider.pri)
 
-QT            += widgets core gui quickwidgets quick xml KScreen KI18n KConfigCore KConfigWidgets KWidgetsAddons dbus concurrent
+QT            += widgets core gui quickwidgets quick xml KScreen dbus concurrent
 TEMPLATE = lib
 CONFIG        += c++11   link_pkgconfig plugin
 
@@ -25,9 +25,6 @@ INCLUDEPATH   +=  \
 LIBS          += -L$$[QT_INSTALL_LIBS] -lgsettings-qt
 
 PKGCONFIG += gsettings-qt     \
-             gtk+-3.0         \
-#             glib-2.0         \
-             mate-desktop-2.0 \
 
 SOURCES += \
     brightnessFrame.cpp \
@@ -62,10 +59,6 @@ HEADERS += \
 FORMS += \
     display.ui \
     displayperformancedialog.ui
-
-#DISTFILES += \
-#    qml/main.qml \
-#    qml/Output.qml
 
 RESOURCES += \
     qml.qrc
