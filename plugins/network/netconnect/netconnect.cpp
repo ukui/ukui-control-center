@@ -240,12 +240,12 @@ void NetConnect::rebuildOneFrame(QString deviceName, ItemFrame *frame)
             QVector<QStringList> lanListInfo = iter.value();
             if (lanListInfo.at(0).at(0) == "--") {
                 for (int i = 1; i < lanListInfo.length(); i++) {
-                    rebuildAvailComponent(frame, KLanSymbolic, lanListInfo.at(i).at(0), lanListInfo.at(i).at(1), false, "ethernet");
+                    rebuildAvailComponent(frame, KLanSymbolic, iter.key(), lanListInfo.at(i).at(0), lanListInfo.at(i).at(1), false, "ethernet");
                 }
             } else {
-                rebuildAvailComponent(frame, KLanSymbolic, lanListInfo.at(0).at(0), lanListInfo.at(0).at(1), true, "ethernet");
+                rebuildAvailComponent(frame, KLanSymbolic, iter.key(), lanListInfo.at(0).at(0), lanListInfo.at(0).at(1), true, "ethernet");
                 for (int i = 1; i < lanListInfo.length(); i++) {
-                    rebuildAvailComponent(frame, KLanSymbolic, lanListInfo.at(i).at(0), lanListInfo.at(i).at(1), false, "ethernet");
+                    rebuildAvailComponent(frame, KLanSymbolic, iter.key(), lanListInfo.at(i).at(0), lanListInfo.at(i).at(1), false, "ethernet");
                 }
             }
             rebuildAddComponent(frame, iter.key());
@@ -278,12 +278,12 @@ void NetConnect::getNetListFromDevice(QString deviceName, bool deviceStatus, QVB
             deviceLanlistInfo.deviceLayoutMap.insert(iter.key(),deviceFrame);
             if (lanListInfo.at(0).at(0) == "--") {
                 for (int i = 1; i < lanListInfo.length(); i++) {
-                    rebuildAvailComponent(deviceFrame, KLanSymbolic, lanListInfo.at(i).at(0), lanListInfo.at(i).at(1), false, "ethernet");
+                    rebuildAvailComponent(deviceFrame, KLanSymbolic, iter.key(), lanListInfo.at(i).at(0), lanListInfo.at(i).at(1), false, "ethernet");
                 }
             } else {
-                rebuildAvailComponent(deviceFrame, KLanSymbolic, lanListInfo.at(0).at(0), lanListInfo.at(0).at(1), true, "ethernet");
+                rebuildAvailComponent(deviceFrame, KLanSymbolic, iter.key(), lanListInfo.at(0).at(0), lanListInfo.at(0).at(1), true, "ethernet");
                 for (int i = 1; i < lanListInfo.length(); i++) {
-                    rebuildAvailComponent(deviceFrame, KLanSymbolic, lanListInfo.at(i).at(0), lanListInfo.at(i).at(1), false, "ethernet");
+                    rebuildAvailComponent(deviceFrame, KLanSymbolic, iter.key(), lanListInfo.at(i).at(0), lanListInfo.at(i).at(1), false, "ethernet");
                 }
             }
             rebuildAddComponent(deviceFrame, iter.key());
@@ -390,7 +390,7 @@ void NetConnect::dropDownAnimation(DeviceFrame * deviceFrame, QString deviceName
 }
 
 
-void NetConnect::rebuildAvailComponent(ItemFrame *frame, QString iconPath, QString name, QString ssid, bool status, QString type) {
+void NetConnect::rebuildAvailComponent(ItemFrame *frame, QString iconPath, QString deviceName, QString name, QString ssid, bool status, QString type) {
     qDebug()<<name<<ssid;
     LanItem * lanItem = new LanItem(pluginWidget);
     QIcon searchIcon = QIcon::fromTheme(iconPath);
@@ -407,7 +407,7 @@ void NetConnect::rebuildAvailComponent(ItemFrame *frame, QString iconPath, QStri
 
     connect(lanItem->infoLabel, &InfoButton::clicked, this, [=]{
         // open landetail page
-
+        m_interface->call(QStringLiteral("showPropertyWidget"), deviceName, ssid);
     });
 
     connect(lanItem, &QPushButton::clicked, this, [=] {

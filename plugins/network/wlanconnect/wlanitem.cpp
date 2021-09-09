@@ -8,6 +8,7 @@ WlanItem::WlanItem(QWidget *parent)
     this->setProperty("useButtonPalette", true);
     setStyleSheet("QPushButton:!checked{background-color: palette(base)}");
     QHBoxLayout *mLanLyt = new QHBoxLayout(this);
+    mLanLyt->setContentsMargins(16,0,16,0);
     mLanLyt->setSpacing(16);
     iconLabel = new QLabel(this);
     titileLabel = new FixLabel(this);

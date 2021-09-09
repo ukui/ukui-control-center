@@ -78,8 +78,7 @@ public:
     void runExternalApp();
     void initSearchText();
     void rebuildDeviceComponent(ItemFrame *frame, QString deviceName, int count);
-    void rebuildAvailComponent(ItemFrame *frame, QString name, QString signal, bool isLock, bool status, QString type);
-    void rebuildWifiActComponent(QString iconPath, QStringList netNameList);
+    void rebuildAvailComponent(ItemFrame *frame, QString deviceName, QString name, QString signal, bool isLock, bool status, QString type);
     void runKylinmApp(QString netName, QString type);
 
 private:

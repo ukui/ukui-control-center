@@ -2,12 +2,13 @@
 #define FRAME_SPEED 150
 #define LIMIT_TIME 60*1000
 #define TOTAL_PAGE 8
-LanItem::LanItem(QWidget *parent)
+LanItem::LanItem(QWidget *parent) : QPushButton(parent)
 {
     this->setMinimumSize(550, 58);
     this->setProperty("useButtonPalette", true);
     setStyleSheet("QPushButton:!checked{background-color: palette(base)}");
     QHBoxLayout *mLanLyt = new QHBoxLayout(this);
+    mLanLyt->setContentsMargins(16,0,16,0);
     mLanLyt->setSpacing(16);
     iconLabel = new QLabel(this);
     titileLabel = new FixLabel(this);

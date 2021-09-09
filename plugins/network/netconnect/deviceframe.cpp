@@ -1,12 +1,15 @@
 #include "deviceframe.h"
 
+#define LAYOUT_MARGINS 18,0,24,0
+#define FRAME_HEIGHT 58
+
 DeviceFrame::DeviceFrame(QWidget *parent) : QFrame(parent)
 {
     this->setFrameShape(QFrame::Box);
-    this->setFixedHeight(58);
+    this->setFixedHeight(FRAME_HEIGHT);
     QHBoxLayout *deviceLayout = new QHBoxLayout(this);
+    deviceLayout->setContentsMargins(LAYOUT_MARGINS);
     setLayout(deviceLayout);
-    deviceLayout->setSpacing(16);
 
     deviceLabel = new QLabel(this);
     dropDownLabel = new DrownLabel(this);

@@ -7,6 +7,7 @@ ItemFrame::ItemFrame(QWidget *parent)
     deviceLanLayout->setContentsMargins(MAIN_LAYOUT_MARGINS);
     lanItemFrame = new QFrame(this);
     lanItemFrame->setFrameShape(QFrame::Shape::NoFrame);
+    lanItemFrame->setContentsMargins(LAYOUT_MARGINS);
 
     lanItemLayout = new QVBoxLayout(this);
     lanItemLayout->setContentsMargins(LAYOUT_MARGINS);

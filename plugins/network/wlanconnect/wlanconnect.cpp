@@ -100,8 +100,8 @@ const QString WlanConnect::name() const {
 }
 
 void WlanConnect::initSearchText() {
-    //~ contents_path /wlanconnect/Network settings"
-    ui->detailBtn->setText(tr("Network settings"));
+    //~ contents_path /wlanconnect/Advanced settings"
+    ui->detailBtn->setText(tr("Advanced settings"));
     //~ contents_path /wlanconnect/WLAN
     ui->titleLabel->setText(tr("WLAN"));
     //~ contents_path /wlanconnect/open
@@ -248,7 +248,7 @@ void WlanConnect::rebuildOneFrame(QString deviceName, ItemFrame *frame)
                     } else {
                         isLock = true;
                     }
-                    rebuildAvailComponent(frame, wlanListInfo.at(i).at(0), wlanListInfo.at(i).at(1), isLock, false, "ethernet");
+                    rebuildAvailComponent(frame, deviceName, wlanListInfo.at(i).at(0), wlanListInfo.at(i).at(1), isLock, false, "ethernet");
                 }
             } else {
                 if (wlanListInfo.at(0).at(2) == "") {
@@ -256,14 +256,14 @@ void WlanConnect::rebuildOneFrame(QString deviceName, ItemFrame *frame)
                 } else {
                     isLock = true;
                 }
-                rebuildAvailComponent(frame, wlanListInfo.at(0).at(0), wlanListInfo.at(0).at(1), isLock, true, "ethernet");
+                rebuildAvailComponent(frame, deviceName, wlanListInfo.at(0).at(0), wlanListInfo.at(0).at(1), isLock, true, "ethernet");
                 for (int i = 1; i < wlanListInfo.length(); i++) {
                     if (wlanListInfo.at(i).at(2) == "") {
                         isLock = false;
                     } else {
                         isLock = true;
                     }
-                    rebuildAvailComponent(frame, wlanListInfo.at(i).at(0), wlanListInfo.at(i).at(1), isLock, false, "ethernet");
+                    rebuildAvailComponent(frame, deviceName, wlanListInfo.at(i).at(0), wlanListInfo.at(i).at(1), isLock, false, "ethernet");
                 }
             }
         }
@@ -302,7 +302,7 @@ void WlanConnect::getNetListFromDevice(QString deviceName, bool deviceStatus, QV
                     } else {
                         isLock = true;
                     }
-                    rebuildAvailComponent(deviceFrame, wlanListInfo.at(i).at(0), wlanListInfo.at(i).at(1), isLock, false, "ethernet");
+                    rebuildAvailComponent(deviceFrame, deviceName, wlanListInfo.at(i).at(0), wlanListInfo.at(i).at(1), isLock, false, "ethernet");
                 }
             } else {
                 if (wlanListInfo.at(0).at(2) == "") {
@@ -310,14 +310,14 @@ void WlanConnect::getNetListFromDevice(QString deviceName, bool deviceStatus, QV
                 } else {
                     isLock = true;
                 }
-                rebuildAvailComponent(deviceFrame, wlanListInfo.at(0).at(0), wlanListInfo.at(0).at(1), isLock, true, "ethernet");
+                rebuildAvailComponent(deviceFrame, deviceName, wlanListInfo.at(0).at(0), wlanListInfo.at(0).at(1), isLock, true, "ethernet");
                 for (int i = 1; i < wlanListInfo.length(); i++) {
                     if (wlanListInfo.at(i).at(2) == "") {
                         isLock = false;
                     } else {
                         isLock = true;
                     }
-                    rebuildAvailComponent(deviceFrame, wlanListInfo.at(i).at(0), wlanListInfo.at(i).at(1), isLock, false, "ethernet");
+                    rebuildAvailComponent(deviceFrame, deviceName, wlanListInfo.at(i).at(0), wlanListInfo.at(i).at(1), isLock, false, "ethernet");
                 }
             }
         }
@@ -419,10 +419,7 @@ void WlanConnect::dropDownAnimation(DeviceFrame * deviceFrame, QString deviceNam
     }
 }
 
-void WlanConnect::rebuildWifiActComponent(QString iconPath, QStringList netNameList) {
-}
-
-void WlanConnect::rebuildAvailComponent(ItemFrame *frame, QString name, QString signal, bool isLock, bool status, QString type) {
+void WlanConnect::rebuildAvailComponent(ItemFrame *frame, QString deviceName, QString name, QString signal, bool isLock, bool status, QString type) {
     qDebug()<<name<<signal;
     int sign = setSignal(signal);
     QString iconamePath = wifiIcon(isLock, sign);
@@ -441,6 +438,7 @@ void WlanConnect::rebuildAvailComponent(ItemFrame *frame, QString name, QString 
 
     connect(wlanItem->infoLabel, &InfoButton::clicked, this, [=]{
         // open landetail page
+        m_interface->call(QStringLiteral("showPropertyWidget"), deviceName, name);
 
     });
 

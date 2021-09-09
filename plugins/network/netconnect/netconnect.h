@@ -88,7 +88,7 @@ private:
     void initComponent();
     void rebuildDeviceComponent(ItemFrame *frame, QString deviceName, int count);
     void rebuildAddComponent(ItemFrame *frame, QString deviceName);
-    void rebuildAvailComponent(ItemFrame *frame, QString iconpath, QString name, QString ssid, bool status, QString type);
+    void rebuildAvailComponent(ItemFrame *frame, QString iconpath, QString deviceName, QString name, QString ssid, bool status, QString type);
     void runExternalApp();
     void setSwitchStatus();
     void clearLayout(QVBoxLayout *layout);

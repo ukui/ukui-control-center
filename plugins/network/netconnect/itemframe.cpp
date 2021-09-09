@@ -1,7 +1,7 @@
 #include "itemframe.h"
 #define LAYOUT_MARGINS 0,0,0,0
 #define MAIN_LAYOUT_MARGINS 0,16,0,16
-ItemFrame::ItemFrame(QWidget *parent)
+ItemFrame::ItemFrame(QWidget *parent) : QFrame(parent)
 {
     deviceLanLayout = new QVBoxLayout(this);
     deviceLanLayout->setContentsMargins(MAIN_LAYOUT_MARGINS);
@@ -11,7 +11,7 @@ ItemFrame::ItemFrame(QWidget *parent)
     lanItemLayout = new QVBoxLayout(this);
     lanItemLayout->setContentsMargins(LAYOUT_MARGINS);
     lanItemLayout->setSpacing(1);
-    addLanWidget = new AddBtn(this);
+    addLanWidget = new AddNetBtn(this);
 
     deviceLanLayout->setSpacing(1);
     setLayout(deviceLanLayout);
