@@ -535,7 +535,7 @@ void Widget::slotUnifyOutputs()
         }
     }
     // 取消统一输出
-    if (base->isCloneMode() && !mUnifyButton->isChecked()) {
+    if (!mUnifyButton->isChecked()) {
         bool isExistCfg = QFile::exists((QDir::homePath() + "/.config/ukui/ukcc-screenPreCfg.json"));
         if (mKDSCfg.isEmpty() && isExistCfg) {
             KScreen::OutputList screens = mPrevConfig->connectedOutputs();
@@ -568,7 +568,7 @@ void Widget::slotUnifyOutputs()
         mCloseScreenButton->setEnabled(true);
         ui->showMonitorframe->setVisible(true);
         ui->primaryCombo->setEnabled(true);
-    } else if (!base->isCloneMode() && mUnifyButton->isChecked()) {
+    } else if (mUnifyButton->isChecked()) {
         // Clone the current config, so that we can restore it in case user
         // breaks the cloning
         mPrevConfig = mConfig->clone();
@@ -1147,8 +1147,10 @@ void Widget::outputAdded(const KScreen::OutputPtr &output, bool connectChanged)
     addOutputToPrimaryCombo(output);
 
     if (!mFirstLoad) {
-        mIsScreenAdd = true;
-        mUnifyButton->setChecked(isCloneMode());
+        bool m_isCloneMode = isCloneMode();
+        if (m_isCloneMode != mUnifyButton->isChecked())
+            mIsScreenAdd = true;
+        mUnifyButton->setChecked(m_isCloneMode);
         QTimer::singleShot(2000, this, [=] {
             mainScreenButtonSelect(ui->primaryCombo->currentIndex());
         });
