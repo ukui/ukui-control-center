@@ -210,6 +210,11 @@ void OutputConfig::initConnection()
             slotResolutionChanged(mOutput->currentMode()->size(), false);
         mRefreshRate->blockSignals(false);
     });
+
+    connect(mOutput.data(), &KScreen::Output::isEnabledChanged,
+            this, [=](){
+        slotEnableWidget();
+    });
 }
 
 void OutputConfig::initDpiConnection()
@@ -348,7 +353,13 @@ void OutputConfig::slotDPIChanged(QString key)
     }
 }
 
-
+void OutputConfig::slotEnableWidget()
+{
+    bool isEnable = mOutput.data()->isEnabled();
+    mResolution->setEnabled(isEnable);
+    mRotation->setEnabled(isEnable);
+    mRefreshRate->setEnabled(isEnable);
+}
 
 void OutputConfig::setShowScaleOption(bool showScaleOption)
 {
