@@ -53,6 +53,7 @@ public:
     ~SwitchButton();
 
     void setChecked(bool checked);
+    void setAnimation(bool on);
 
     bool isChecked();
     void setDisabledFlag(bool);
@@ -69,8 +70,13 @@ protected:
     void changeColor(const QString &themes);
 
 private:
-    bool checked;
+    bool checked;   //切换的判断
     bool disabled;
+
+    void animation(QPainter *painter);
+    QRect rect;
+    bool isMoving; //滑块动作判断
+    bool isAnimation; // 是否允许动画执行
 
     QColor bgColorOff;
     QColor bgColorOn;
@@ -85,18 +91,20 @@ private:
     QColor rectColorEnabled;
     QColor rectColorDisabled;
 
+    QColor sliderColorOff;
+    QColor sliderColorOn;
     QGSettings *m_qtThemeSetting;
     QGSettings *m_gtkThemeSetting;
 
     int space; //滑块离背景间隔
     int rectRadius; //圆角角度
 
-    int step; //移动步长
-    int startX;
-    int endX;
+    int mStep; //移动步长
+    int mStartX;
+    int mEndX;
 
     bool hover;
-    QTimer * timer;
+    QTimer * mTimer;
 
 
 private Q_SLOTS:

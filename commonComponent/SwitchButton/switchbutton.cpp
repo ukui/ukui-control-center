@@ -22,6 +22,8 @@
 #include <QDebug>
 #define THEME_QT_SCHEMA "org.ukui.style"
 #define THEME_GTK_SCHEMA "org.mate.interface"
+#define TIMER_INTERVAL 5 //每隔5ms动画移动一次
+#define MOVING_STEPS 40  //动画总共移动40次
 
 SwitchButton::SwitchButton(QWidget *parent) :
     QWidget(parent)
@@ -32,18 +34,20 @@ SwitchButton::SwitchButton(QWidget *parent) :
     checked = false;
     hover = false;
     disabled = false;
+    isMoving = false;
+    isAnimation = true;
 
     space = 4;
-//    rectRadius = 5;
+    rectRadius = height()/2;
 
-    step = width() / 40;
-    startX = 0;
-    endX= 0;
+    mStep = width()/MOVING_STEPS;//也就是40次动画就可以走完，每次时间间隔是固定的5ms
+    mStartX = 0;
+    mEndX= 0;
 
-    timer = new QTimer(this);
-    timer->setInterval(5);
-    connect(timer, SIGNAL(timeout()), this, SLOT(updatevalue()));
-    if (QGSettings::isSchemaInstalled(THEME_GTK_SCHEMA) && QGSettings::isSchemaInstalled(THEME_QT_SCHEMA)) {
+    mTimer = new QTimer(this);
+    mTimer->setInterval(TIMER_INTERVAL);//动画更新时间
+    connect(mTimer, SIGNAL(timeout()), this, SLOT(updatevalue()));
+    if(QGSettings::isSchemaInstalled(THEME_GTK_SCHEMA) && QGSettings::isSchemaInstalled(THEME_QT_SCHEMA)) {
         QByteArray qtThemeID(THEME_QT_SCHEMA);
         QByteArray gtkThemeID(THEME_GTK_SCHEMA);
 
@@ -56,7 +60,7 @@ SwitchButton::SwitchButton(QWidget *parent) :
         connect(m_qtThemeSetting,&QGSettings::changed, [this] (const QString &key) {
             QString style = m_qtThemeSetting->get("styleName").toString();
             if (key == "styleName") {
-                changeColor(style);
+               changeColor(style);
             }
         });
     }
@@ -67,19 +71,24 @@ SwitchButton::~SwitchButton()
 }
 
 void SwitchButton::paintEvent(QPaintEvent *){
-    //启用反锯齿
-    QPainter painter(this);
-    painter.setRenderHint(QPainter::Antialiasing, true);
 
+    QPainter painter(this);
+    //启用反锯齿
+    painter.setRenderHint(QPainter::Antialiasing, true);
+    painter.setCompositionMode(QPainter::CompositionMode_Source);
     drawBg(&painter);
+    if(!isAnimation)//动画如果禁用，则圆形滑块isMoving始终为false
+        isMoving =false;
+    if(isMoving)
+        animation(&painter);
     drawSlider(&painter);
+    painter.end();
 }
 
 void SwitchButton::changeColor(const QString &themes) {
     if (hover) {
-        return ;
+        return ;//在鼠标下，禁止切换颜色鼠标离开时切换颜色
     }
-
     if (themes == "ukui-dark" || themes == "ukui-black") {
         bgColorOff = QColor(OFF_BG_DARK_COLOR);
         bgColorOn = QColor(ON_BG_DARK_COLOR);
@@ -103,47 +112,62 @@ void SwitchButton::changeColor(const QString &themes) {
     }
 }
 
-void SwitchButton::drawBg(QPainter *painter){
+//动画绘制
+void SwitchButton::animation(QPainter *painter){
     painter->save();
-//    painter->setPen(Qt::NoPen);
-
-    if (disabled) {
-        painter->setPen(Qt::NoPen);
-        painter->setBrush(bgColorDisabled);
-    } else {
-        if (!checked){
-            painter->setPen(Qt::NoPen);
-            painter->setBrush(bgColorOff);
-        }
-        else {
-            painter->setPen(Qt::NoPen);
-            painter->setBrush(bgColorOn);
-        }
+    int h = height();
+    int w = width();
+    painter->setPen(Qt::NoPen);
+    //颜色设置
+    if(checked){
+        //开关在左侧时
+        painter->setBrush(bgColorOn);
+        rect.setRect(0,0,h+mStartX,h);
+    }else{
+        painter->setBrush(bgColorOff);
+        rect.setRect(mStartX,0,w-mStartX,h);
     }
-    //circle out
-//    QRect rect(space, space, width() - space * 2, height() - space * 2);
-//    painter->drawRoundedRect(rect, rectRadius, rectRadius);
-
-    //circle in
-
-    QRect rect(0, 0, width(), height());
-    //半径为高度的一半
-    int radius = rect.height() / 2;
-    //圆的宽度为高度
-    int circleWidth = rect.height();
-
-    QPainterPath path;
-    path.moveTo(radius, rect.left());
-    path.arcTo(QRectF(rect.left(), rect.top(), circleWidth, circleWidth), 90, 180);
-    path.lineTo(rect.width() - radius, rect.height());
-    path.arcTo(QRectF(rect.width() - rect.height(), rect.top(), circleWidth, circleWidth), 270, 180);
-    path.lineTo(radius, rect.top());
-
-    painter->drawPath(path);
+    painter->drawRoundedRect(rect,rectRadius,rectRadius);
 
     painter->restore();
 }
 
+//绘制背景
+void SwitchButton::drawBg(QPainter *painter){
+    int w = width();
+    int h = height();
+    painter->save();
+    painter->setPen(Qt::NoPen);
+    if (disabled) {
+        painter->setPen(Qt::NoPen);
+        painter->setBrush(bgColorDisabled);
+    } else {
+        if(checked){
+            if(isMoving){
+                painter->setBrush(bgColorOff);
+                rect.setRect(mStartX,0,w-mStartX,h);
+            }else {
+                painter->setBrush(bgColorOn);
+                rect.setRect(0, 0, w, h);
+            }
+        }else{
+            if(isMoving){
+                painter->setBrush(bgColorOn);
+                rect.setRect(0,0,mStartX+h,h);
+            }
+            else {
+                painter->setBrush(bgColorOff);
+                rect.setRect(0, 0, w, h);
+            }
+        }
+    }
+    //半径为高度的一半
+    painter->drawRoundedRect(rect,rectRadius,rectRadius);
+
+    painter->restore();
+}
+
+//绘制滑块，也就是圆形按钮
 void SwitchButton::drawSlider(QPainter *painter){
     painter->save();
     painter->setPen(Qt::NoPen);
@@ -153,76 +177,68 @@ void SwitchButton::drawSlider(QPainter *painter){
     }
     else
         painter->setBrush(sliderColorDisabled);
-    //circle out
-//    QRect rect(0, 0, width() - space, height() - space);
-//    int sliderwidth = rect.height();
-//    QRect sliderRect(startX, space / 2, sliderwidth, sliderwidth);
-//    painter->drawEllipse(sliderRect);
-
-    //circle in
-
     if (disabled) {
-        if (checked) {
+        if (!checked){
             QRect smallRect(8, height() / 2 - 2, 10 , 4);
             painter->drawRoundedRect(smallRect,3,3);
-        } else {
+        }else{
             QRect smallRect(width() - 8 * 2, height() / 2 - 2, 10 , 4);
             painter->drawRoundedRect(smallRect,3,3);
         }
     }
-
+            
     QRect rect(0, 0, width(), height());
     int sliderWidth = rect.height() - space * 2;
-    QRect sliderRect(startX + space, space, sliderWidth, sliderWidth);
+    QRect sliderRect(mStartX + space, space, sliderWidth, sliderWidth);
     painter->drawEllipse(sliderRect);
 
     painter->restore();
 }
 
-void SwitchButton::mousePressEvent(QMouseEvent *event){
-    if (timer->isActive()) {
+void SwitchButton::mousePressEvent(QMouseEvent *){
+    qDebug()<<isMoving<<checked<<disabled;
+    if (isMoving) {
         return ;
     }
-
-    if (!disabled){
+    if(disabled){
+        mEndX = 0;
+        return ;
+    }else{
         checked = !checked;
         Q_EMIT checkedChanged(checked);
 
-        step = width() / 40;
+        mStep = width() / MOVING_STEPS;
 
         if (checked){
             //circle out
     //        endX = width() - height() + space;
             //circle in
-            endX = width() - height();
+            mEndX = width() - height();
         }
         else {
-            endX = 0;
+            mEndX = 0;
         }
-        timer->start();
+        mTimer->start();
+        isMoving = true;
     }
-    else {
-        endX = 0;
-    }
-   // return QWidget::mousePressEvent(event);
 }
 
 void SwitchButton::resizeEvent(QResizeEvent *){
-    //
-    step = width() / 40;
+    //每次开始的x坐标都是跳过圆角，从直线的地方开始计算
+    mStep = width() / MOVING_STEPS;
 
     if (checked){
         //circle out
 //        startX = width() - height() + space;
         //circle in
-        startX = width() - height();
+        mStartX = width() - height();
     }
     else
-        startX = 0;
+        mStartX = 0;
 
+    rectRadius = height()/2;
     update();
 }
-
 void SwitchButton::enterEvent(QEvent *event) {
     bgColorOn = bgHoverOnColor;
     bgColorOff = bgHoverOffColor;
@@ -242,26 +258,25 @@ void SwitchButton::leaveEvent(QEvent *event) {
     return QWidget::leaveEvent(event);
 }
 
+//根据事件向左还是向右移动
 void SwitchButton::updatevalue(){
-    if (disabled) {
-        return ;
-    }
-
     if (checked)
-        if (startX < endX){
-            startX = startX + step;
+        if (mStartX < mEndX-mStep){
+            mStartX = mStartX + mStep;
         }
-        else {
-            startX = endX;
-            timer->stop();
+        else{
+            mStartX = mEndX;
+            mTimer->stop();
+            isMoving = false;
         }
-    else {
-        if (startX > endX){
-            startX = startX - step;
+    else{
+        if (mStartX > mEndX+mStep){
+            mStartX = mStartX - mStep;
         }
-        else {
-            startX = endX;
-            timer->stop();
+        else{
+            mStartX = mEndX;
+            mTimer->stop();
+            isMoving = false;
         }
     }
     update();
@@ -274,18 +289,19 @@ void SwitchButton::setChecked(bool checked){
         update();
     }
 
-    step = width() / 40;
+    mStep = width() / MOVING_STEPS;
 
     if (checked){
         //circle out
 //        endX = width() - height() + space;
         //circle in
-        endX = width() - height();
+        mEndX = width() - height();
     }
-    else {
-        endX = 0;
+    else{
+        mEndX = 0;
     }
-    timer->start();
+    mTimer->start();
+    isMoving = true;
 }
 
 bool SwitchButton::isChecked(){
@@ -303,4 +319,7 @@ bool SwitchButton::getDisabledFlag()
     return disabled;
 }
 
+void SwitchButton::setAnimation(bool on){
+    isAnimation = on;
+}
 
