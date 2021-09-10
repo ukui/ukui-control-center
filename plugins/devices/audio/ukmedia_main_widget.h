@@ -218,8 +218,6 @@ public:
 
 private Q_SLOTS:
 
-    void ComboboxIndexChangedSlot(int);
-
     void initVoulmeSlider(); //初始化音量滑动条的值
 
     void themeComboxIndexChangedSlot(int index); //主题下拉框改变
@@ -247,9 +245,6 @@ private Q_SLOTS:
     void windowClosedComboboxChangedSlot(int index);
     void volumeChangedComboboxChangeSlot(int index);
     void settingMenuComboboxChangedSlot(int index);
-
-    void alertVolumeSliderChangedSlot(int value);
-    void alertSoundVolumeChangedSlot();
 
     void cboxoutputListWidgetCurrentRowChangedSlot(int row);//combobox output list widget选项改变
     void cboxinputListWidgetCurrentRowChangedSlot(int row);//combobox input list widget选项改变
