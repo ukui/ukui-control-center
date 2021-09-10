@@ -26,7 +26,7 @@
 #include <QIcon>
 #include <QStyledItemDelegate>
 #include <QtDBus>
-#include <QtConcurrent>
+#include <QtConcurrentRun>
 #include <QTime>
 
 #include "shell/interface.h"

@@ -11,7 +11,7 @@ include($$PROJECT_COMPONENTSOURCE/maskwidget.pri)
 include($$PROJECT_COMPONENTSOURCE/uslider.pri)
 include($$PROJECT_COMPONENTSOURCE/label.pri)
 
-QT       += widgets xml dbus
+QT       += widgets xml dbus concurrent
 
 TEMPLATE = lib
 CONFIG += plugin
