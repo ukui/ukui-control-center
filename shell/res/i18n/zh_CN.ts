@@ -706,48 +706,48 @@ you can restore them to ensure the integrity of your system.</source>
 <context>
     <name>ChangeFaceDialog</name>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="276"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="352"/>
         <source>select custom face file</source>
         <translation>选择自定义头像文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="277"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="353"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="278"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="354"/>
         <source>Position: </source>
         <translation>位置： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="279"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="355"/>
         <source>FileName: </source>
         <translation>文件名： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="280"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="356"/>
         <source>FileType: </source>
         <translation>文件类型： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="529"/>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="281"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="470"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="357"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="295"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="371"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="295"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="371"/>
         <source>The avatar is larger than 2M, please choose again</source>
         <translation>警告，头像大于2M请重新选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="123"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="85"/>
         <source>Change User Face</source>
         <translation>更改用户头像</translation>
     </message>
@@ -756,17 +756,17 @@ you can restore them to ensure the integrity of your system.</source>
         <translation type="vanished">从本地选择用户头像</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="336"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="277"/>
         <source>History</source>
         <translation type="unfinished">自定义</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="444"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="385"/>
         <source>System</source>
         <translation>系统自带</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="561"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="505"/>
         <source>Confirm</source>
         <translation>确认</translation>
     </message>
@@ -842,27 +842,27 @@ you can restore them to ensure the integrity of your system.</source>
         <translation type="unfinished">更换手机号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="92"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="91"/>
         <source>Phone number</source>
         <translation type="unfinished">手机号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="93"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="92"/>
         <source>SMS verification code</source>
         <translation type="unfinished">短信验证码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="123"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="124"/>
         <source>Please input old phone number</source>
         <translation type="unfinished">请输入旧手机号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="124"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="125"/>
         <source>Next</source>
         <translation type="unfinished">下一步</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="144"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="145"/>
         <source>changed success</source>
         <translation type="unfinished">修改成功</translation>
     </message>
@@ -871,39 +871,39 @@ you can restore them to ensure the integrity of your system.</source>
         <translation type="obsolete">您已成功更换手机号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="145"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="318"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="146"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="319"/>
         <source>You have successfully modified your phone</source>
         <translation type="unfinished">您已成功更换手机号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="196"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="220"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="197"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="221"/>
         <source>Recapture</source>
         <translation type="unfinished">重新获取</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="210"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="270"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="302"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="211"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="271"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="303"/>
         <source>Network connection failure, please check</source>
         <translation type="unfinished">网络连接故障，请检查</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="230"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="255"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="231"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="256"/>
         <source>GetCode</source>
         <translation type="unfinished">获取验证码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="127"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="250"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="128"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="251"/>
         <source>Please enter new mobile number</source>
         <translation type="unfinished">请输入新手机号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="128"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="251"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="129"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="252"/>
         <source>Submit</source>
         <translation type="unfinished">提交</translation>
     </message>
@@ -912,40 +912,40 @@ you can restore them to ensure the integrity of your system.</source>
         <translation type="obsolete">旧手机号不正确</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="280"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="281"/>
         <source>Phone can not same</source>
         <translation type="unfinished">新旧手机号不能一致</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="289"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="317"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="290"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="318"/>
         <source>finished</source>
         <translation type="unfinished">完成</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="263"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="292"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="321"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="264"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="293"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="322"/>
         <source>Phone is lock,try again in an hour</source>
         <translation type="unfinished">手机号已被锁定，1小时之后再试</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="266"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="295"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="324"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="267"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="296"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="325"/>
         <source>Phone code is wrong</source>
         <translation type="unfinished">验证码错误，请重试</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="273"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="305"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="331"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="274"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="306"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="332"/>
         <source>Unknown error, please try again later</source>
         <translation type="unfinished">未知错误，请稍后重试</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="299"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="328"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="300"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="329"/>
         <source>Phone number already in used!</source>
         <translation type="unfinished">该号码已被注册，请更换手机号</translation>
     </message>
@@ -1698,7 +1698,7 @@ folder will be deleted!</source>
         <translation type="unfinished">确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/deluserdialog.ui" line="238"/>
+        <location filename="../../../plugins/account/userinfo/deluserdialog.ui" line="241"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -2186,7 +2186,7 @@ folder will be deleted!</source>
 <context>
     <name>DisplayWidget</name>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="318"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="313"/>
         <source>Screen mirror</source>
         <translation>屏幕镜像</translation>
         <extra-contents_path>/display/unify output</extra-contents_path>
@@ -2196,17 +2196,17 @@ folder will be deleted!</source>
         <translation type="vanished">关闭此显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="319"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="314"/>
         <source>Tablet mode only supports mirroring</source>
         <translation>平板模式仅支持镜像</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="321"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="316"/>
         <source>Open this monitor</source>
         <translation>打开此显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="322"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="317"/>
         <source>auto light</source>
         <translation>自动调整亮度</translation>
     </message>
@@ -2215,23 +2215,23 @@ folder will be deleted!</source>
         <translation type="vanished">夜间模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="984"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="979"/>
         <source>Some applications need to be logouted to take effect</source>
         <translation>应用程序需要注销才能生效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1274"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1271"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1288"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1285"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1289"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1286"/>
         <source>@title:window</source>
         <comment>Unsupported Configuration</comment>
         <translation>窗口</translation>
@@ -2241,48 +2241,48 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">早晨时刻应早于晚上的时刻!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="311"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="306"/>
         <source>Display</source>
         <translation>屏幕</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="324"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="319"/>
         <source>enable night Mode</source>
         <translation>开启夜间模式</translation>
         <extra-contents_path>/display/enable night Mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="326"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="321"/>
         <source>screen brightness</source>
         <translation>屏幕亮度</translation>
         <extra-contents_path>/display/screen brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="328"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="323"/>
         <source>Night Mode</source>
         <translation>夜间模式</translation>
         <extra-contents_path>/display/Night Mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="330"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="325"/>
         <source>all time</source>
         <translation>全天开启</translation>
         <extra-contents_path>/display/all time</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="332"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="327"/>
         <source>color temperature</source>
         <translation>色温</translation>
         <extra-contents_path>/display/color temperature</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1556"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1553"/>
         <source>follow the sunrise and sunset</source>
         <translation>跟随日出日落</translation>
         <extra-contents_path>/display/follow the sunrise and sunset</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1558"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1555"/>
         <source>Auto Switch</source>
         <translation>自动切换</translation>
     </message>
@@ -2755,14 +2755,14 @@ Common reasons are that the overall screen size is too big, or you enabled more 
 <context>
     <name>Gesture</name>
     <message>
-        <location filename="../../../plugins/devices/gesture/gesture.ui" line="72"/>
-        <location filename="../../../plugins/devices/gesture/gesture.cpp" line="64"/>
+        <location filename="../../../plugins/other/gesture/gesture.ui" line="72"/>
+        <location filename="../../../plugins/other/gesture/gesture.cpp" line="64"/>
         <source>Gesture</source>
         <translatorcomment>手势</translatorcomment>
         <translation type="unfinished">手势</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/gesture/gesture.cpp" line="30"/>
+        <location filename="../../../plugins/other/gesture/gesture.cpp" line="30"/>
         <source>Gesture Guidance</source>
         <translatorcomment>手势引导</translatorcomment>
         <translation type="unfinished">手势引导</translation>
@@ -2818,19 +2818,19 @@ Common reasons are that the overall screen size is too big, or you enabled more 
 <context>
     <name>Itemwidget</name>
     <message>
-        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="14"/>
+        <location filename="../../../plugins/other/gesture/itemwidget.ui" line="14"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="80"/>
-        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="195"/>
-        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="230"/>
+        <location filename="../../../plugins/other/gesture/itemwidget.ui" line="80"/>
+        <location filename="../../../plugins/other/gesture/itemwidget.ui" line="195"/>
+        <location filename="../../../plugins/other/gesture/itemwidget.ui" line="230"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="112"/>
+        <location filename="../../../plugins/other/gesture/itemwidget.ui" line="112"/>
         <source>PushButton</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3249,7 +3249,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">系统设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="578"/>
+        <location filename="../../mainwindow.cpp" line="606"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
@@ -3258,34 +3258,34 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">最大化/还原</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="580"/>
+        <location filename="../../mainwindow.cpp" line="608"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="535"/>
+        <location filename="../../mainwindow.cpp" line="563"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="143"/>
+        <location filename="../../mainwindow.cpp" line="145"/>
         <source>F1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="227"/>
-        <location filename="../../mainwindow.cpp" line="539"/>
+        <location filename="../../mainwindow.cpp" line="240"/>
+        <location filename="../../mainwindow.cpp" line="567"/>
         <source>System Settings</source>
         <translation>系统设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="433"/>
+        <location filename="../../mainwindow.cpp" line="454"/>
         <source>Restore</source>
         <translation>还原</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="436"/>
-        <location filename="../../mainwindow.cpp" line="579"/>
+        <location filename="../../mainwindow.cpp" line="457"/>
+        <location filename="../../mainwindow.cpp" line="607"/>
         <source>Maximize</source>
         <translation>最大化</translation>
     </message>
@@ -3720,37 +3720,37 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="unfinished">操作模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/operatingmode/operatingmode.cpp" line="85"/>
+        <location filename="../../../plugins/system/operatingmode/operatingmode.cpp" line="93"/>
         <source>Operating Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/operatingmode/operatingmode.cpp" line="123"/>
+        <location filename="../../../plugins/system/operatingmode/operatingmode.cpp" line="131"/>
         <source>PC Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/operatingmode/operatingmode.cpp" line="129"/>
+        <location filename="../../../plugins/system/operatingmode/operatingmode.cpp" line="137"/>
         <source>Operate with mouse and keyboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/operatingmode/operatingmode.cpp" line="163"/>
+        <location filename="../../../plugins/system/operatingmode/operatingmode.cpp" line="171"/>
         <source>Pad Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/operatingmode/operatingmode.cpp" line="169"/>
+        <location filename="../../../plugins/system/operatingmode/operatingmode.cpp" line="177"/>
         <source>Operate with fingers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/operatingmode/operatingmode.cpp" line="194"/>
+        <location filename="../../../plugins/system/operatingmode/operatingmode.cpp" line="202"/>
         <source>switch automatically</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/operatingmode/operatingmode.cpp" line="199"/>
+        <location filename="../../../plugins/system/operatingmode/operatingmode.cpp" line="207"/>
         <source>Switch automatically when screen rotated.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3782,7 +3782,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
 <context>
     <name>OutputConfig</name>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="139"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="135"/>
         <source>resolution</source>
         <translation>分辨率</translation>
     </message>
@@ -3791,85 +3791,85 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">方向</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="187"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="183"/>
         <source>Only tablet mode supports this feature</source>
         <translation>仅平板模式下支持此功能</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="216"/>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="293"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="212"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="484"/>
         <source>arrow-up</source>
         <translation>不旋转</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="217"/>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="294"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="213"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="485"/>
         <source>90° arrow-right</source>
         <translation>90° 顺时针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="218"/>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="295"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="214"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="486"/>
         <source>arrow-down</source>
         <translation>上下颠倒</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="219"/>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="296"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="215"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="487"/>
         <source>90° arrow-left</source>
         <translation>90° 逆时针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="272"/>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="283"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="246"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="473"/>
         <source>fixed-rotation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="273"/>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="284"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="247"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="474"/>
         <source>auto-rotation</source>
         <translation type="unfinished">自动旋转</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="363"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="308"/>
         <source>refresh rate</source>
         <translation>刷新率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="383"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="328"/>
         <source>auto</source>
         <translation>自动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="416"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="361"/>
         <source>100%</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="419"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="364"/>
         <source>100% (Recommended)</source>
         <translation type="unfinished">100% (推荐)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="414"/>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="421"/>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="423"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="359"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="366"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="368"/>
         <source>200%</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="191"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="187"/>
         <source>Auto Screen Rotation</source>
         <translation>屏幕自动旋转</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="424"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="369"/>
         <source>300%</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="429"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="374"/>
         <source>screen zoom</source>
         <translation>缩放屏幕</translation>
     </message>
@@ -4020,39 +4020,53 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation>短信验证码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="103"/>
-        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="320"/>
+        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="105"/>
+        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="331"/>
         <source>GetCode</source>
         <translation>获取验证码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="113"/>
+        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="115"/>
         <source>Return</source>
         <translation>返回</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="114"/>
-        <source>Confirm</source>
+        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="116"/>
+        <source>Commit</source>
+        <translation>提交</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="204"/>
+        <source>confirm</source>
         <translation>确认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="253"/>
+        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="224"/>
+        <source>commit</source>
+        <translation>提交</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="vanished">确认</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="260"/>
         <source>Mobile number acquisition failed</source>
         <translation type="unfinished">手机号获取失败，请手动输入</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="282"/>
-        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="312"/>
+        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="292"/>
+        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="323"/>
         <source>Recapture</source>
         <translation>重新获取</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="368"/>
+        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="381"/>
         <source>Phone is lock,try again in an hour</source>
         <translation type="unfinished">手机号已被锁定，1小时之后再试</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="374"/>
+        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="387"/>
         <source>Phone code is wrong</source>
         <translation type="unfinished">验证码错误，请重试</translation>
     </message>
@@ -4061,20 +4075,20 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="obsolete">输入错误，请重试</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="305"/>
-        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="381"/>
-        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="479"/>
-        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="597"/>
+        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="315"/>
+        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="394"/>
+        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="559"/>
+        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="677"/>
         <source>Network connection failure, please check</source>
         <translation type="unfinished">网络连接故障，请检查</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="387"/>
+        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="400"/>
         <source>Unknown error, please try again later</source>
         <translation type="unfinished">未知错误，请稍后重试</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="578"/>
+        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="658"/>
         <source>Please use the correct wechat scan code</source>
         <translation type="unfinished">请使用正确的微信扫码</translation>
     </message>
@@ -4582,17 +4596,17 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="555"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="556"/>
         <source>blue-crystal</source>
         <translation>蓝水晶</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="558"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="559"/>
         <source>dark-sense</source>
         <translation>默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="561"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="562"/>
         <source>red-glass</source>
         <translation>红玻璃</translation>
     </message>
@@ -4601,13 +4615,13 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">基础</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="606"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="608"/>
         <source>classical</source>
         <translation>经典</translation>
         <extra-contents_path>/theme/classical</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="611"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="613"/>
         <source>light</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4616,19 +4630,19 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="609"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="611"/>
         <source>ukui-hp</source>
         <translation>惠普</translation>
         <extra-contents_path>/theme/ukui-hp</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="614"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="616"/>
         <source>basics</source>
         <translation type="unfinished">基础</translation>
         <extra-contents_path>/theme/basics</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="616"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="618"/>
         <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="173"/>
         <source>Unknown</source>
         <translation>未知</translation>
@@ -4704,7 +4718,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="unfinished">声音</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="152"/>
+        <location filename="../../utils/functionselect.cpp" line="150"/>
         <source>Gesture Guidance</source>
         <translatorcomment>手势引导</translatorcomment>
         <translation type="unfinished">手势引导</translation>
@@ -4754,7 +4768,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="unfinished">触摸板</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="138"/>
+        <location filename="../../utils/functionselect.cpp" line="136"/>
         <source>Pen</source>
         <translatorcomment>手写笔</translatorcomment>
         <translation type="unfinished">手写笔</translation>
@@ -5348,24 +5362,24 @@ run start-pulseaudio-x11 manually.</source>
     <name>Theme</name>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.ui" line="78"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="241"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="242"/>
         <source>Theme Mode</source>
         <translation>主题模式</translation>
         <extra-contents_path>/theme/Theme Mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="120"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="121"/>
         <source>Theme</source>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="243"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="244"/>
         <source>Automatic</source>
         <translation>自动</translation>
         <extra-contents_path>/theme/Theme Mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="247"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="248"/>
         <source>Light color</source>
         <translation>浅色</translation>
         <extra-contents_path>/theme/Theme Mode</extra-contents_path>
@@ -5379,7 +5393,7 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">浅色模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="245"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="246"/>
         <source>Dark</source>
         <translation>深色</translation>
         <extra-contents_path>/theme/Theme Mode</extra-contents_path>
@@ -5397,7 +5411,7 @@ run start-pulseaudio-x11 manually.</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.ui" line="458"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="249"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="250"/>
         <source>Icon theme</source>
         <translation>图标主题</translation>
         <extra-contents_path>/theme/Icon theme</extra-contents_path>
@@ -5409,20 +5423,20 @@ run start-pulseaudio-x11 manually.</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.ui" line="616"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="253"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="254"/>
         <source>Cursor theme</source>
         <translation>光标主题</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.ui" line="702"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="260"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="261"/>
         <source>Effect setting</source>
         <translation>效果设置</translation>
         <extra-contents_path>/theme/Effect setting</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.ui" line="786"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="258"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="259"/>
         <source>Effects mode</source>
         <translation>特效模式</translation>
         <extra-contents_path>/theme/Effects mode</extra-contents_path>
@@ -5492,35 +5506,35 @@ run start-pulseaudio-x11 manually.</source>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="151"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="180"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="181"/>
         <source>Enabled touchpad</source>
         <translation>启用触摸板</translation>
         <extra-contents_path>/touchpad/Enabled touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="369"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="182"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="183"/>
         <source>Disable touchpad while typing</source>
         <translation>打字时禁用触摸板</translation>
         <extra-contents_path>/touchpad/Disable touchpad while typing</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="460"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="184"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="185"/>
         <source>Enable mouse clicks with touchpad</source>
         <translation>触摸板轻触点击</translation>
         <extra-contents_path>/touchpad/Enable mouse clicks with touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="560"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="186"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="187"/>
         <source>Scrolling</source>
         <translation>滚动</translation>
         <extra-contents_path>/touchpad/Scrolling</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="242"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="188"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="189"/>
         <source>Touchpad speed</source>
         <translation>触摸板速度</translation>
         <extra-contents_path>/touchpad/Touchpad speed</extra-contents_path>
@@ -5554,12 +5568,12 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="unfinished">触摸板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="226"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="227"/>
         <source>Disable rolling</source>
         <translation>禁用滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="227"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="228"/>
         <source>Vertical edge scrolling</source>
         <translation>垂直边界滚动</translation>
     </message>
@@ -5568,7 +5582,7 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">水平边界滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="228"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="229"/>
         <source>Vertical two-finger scrolling</source>
         <translation>垂直双指滚动</translation>
     </message>
@@ -5822,7 +5836,7 @@ run start-pulseaudio-x11 manually.</source>
 <context>
     <name>UnifiedOutputConfig</name>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="103"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="96"/>
         <source>resolution</source>
         <translation>分辨率</translation>
     </message>
@@ -5831,90 +5845,90 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">方向</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="150"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="143"/>
         <source>Only tablet mode supports this feature</source>
         <translation>仅平板模式下支持此功能</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="154"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="147"/>
         <source>Auto Screen Rotation</source>
         <translation>屏幕自动旋转</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="179"/>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="257"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="172"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="406"/>
         <source>arrow-up</source>
         <translation>不旋转</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="180"/>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="258"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="173"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="407"/>
         <source>90° arrow-right</source>
         <translation>90°顺时针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="181"/>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="259"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="174"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="408"/>
         <source>arrow-down</source>
         <translation>上下颠倒</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="182"/>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="260"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="175"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="409"/>
         <source>90° arrow-left</source>
         <translation>90°逆时针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="236"/>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="247"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="206"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="395"/>
         <source>fixed-rotation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="237"/>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="248"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="207"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="396"/>
         <source>auto-rotation</source>
         <translation type="unfinished">自动旋转</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="309"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="249"/>
         <source>refresh rate</source>
         <translation>刷新率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="314"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="254"/>
         <source>auto</source>
         <translation>自动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="315"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="255"/>
         <source>aa</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="353"/>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="360"/>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="362"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="293"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="300"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="302"/>
         <source>200%</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="355"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="295"/>
         <source>100%</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="358"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="298"/>
         <source>100% (Recommended)</source>
         <translation type="unfinished">100% (推荐)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="363"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="303"/>
         <source>300%</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="369"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="309"/>
         <source>screen zoom</source>
         <translation type="unfinished">缩放屏幕</translation>
     </message>
@@ -5990,7 +6004,7 @@ run start-pulseaudio-x11 manually.</source>
         <translation>Root</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="720"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="727"/>
         <source>set pwd</source>
         <translation type="unfinished">设置密码</translation>
     </message>
@@ -6008,7 +6022,7 @@ run start-pulseaudio-x11 manually.</source>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="334"/>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="146"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1100"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1107"/>
         <source>Change pwd</source>
         <translation type="unfinished">修改密码</translation>
         <extra-contents_path>/userinfo/Change pwd</extra-contents_path>
@@ -6143,13 +6157,13 @@ run start-pulseaudio-x11 manually.</source>
         <extra-contents_path>/wallpaper/Local wallpaper</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="205"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="206"/>
         <source>Reset</source>
         <translation>恢复默认</translation>
         <extra-contents_path>/wallpaper/Reset</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="248"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="249"/>
         <source>Custom color</source>
         <translation>自定义颜色</translation>
     </message>
@@ -6158,7 +6172,7 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">平铺</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="278"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="279"/>
         <source>centered</source>
         <translation>居中</translation>
         <extra-contents_path>/wallpaper/centered</extra-contents_path>
@@ -6168,7 +6182,7 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">比例放大</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="280"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="281"/>
         <source>stretched</source>
         <translation>伸展</translation>
         <extra-contents_path>/wallpaper/stretched</extra-contents_path>
@@ -6182,13 +6196,13 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">适合宽度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="276"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="277"/>
         <source>tile</source>
         <translation>平铺</translation>
         <extra-contents_path>/wallpaper/tile</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="274"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="275"/>
         <source>padding</source>
         <translation>填充</translation>
         <extra-contents_path>/wallpaper/padding</extra-contents_path>
@@ -6204,12 +6218,12 @@ run start-pulseaudio-x11 manually.</source>
         <translation>本地壁纸</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="333"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="334"/>
         <source>%1</source>
         <translation type="unfinished">%1</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="596"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="597"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.wdp)</source>
         <translation>图片文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.wdp)</translation>
     </message>
