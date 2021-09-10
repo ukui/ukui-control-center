@@ -255,6 +255,14 @@
         <file>plugins/netconnect/8.png</file>
         <file>plugins/netconnect/up.svg</file>
         <file>plugins/netconnect/down.svg</file>
+        <file>plugins/netconnect/1-black.png</file>
+        <file>plugins/netconnect/2-black.png</file>
+        <file>plugins/netconnect/3-black.png</file>
+        <file>plugins/netconnect/4-black.png</file>
+        <file>plugins/netconnect/5-black.png</file>
+        <file>plugins/netconnect/7-black.png</file>
+        <file>plugins/netconnect/8-black.png</file>
+        <file>plugins/netconnect/6-black.png</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>
