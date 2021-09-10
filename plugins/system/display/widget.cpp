@@ -1448,6 +1448,7 @@ void Widget::kdsScreenchangeSlot(QString status)
         if (isPreChecked == afterChecked) {
             mKDSCfg.clear();
         }
+        enableChangedSlot();
     });
 }
 
