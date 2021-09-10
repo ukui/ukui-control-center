@@ -84,6 +84,7 @@ private:
     void deActiveConnect(QString netName, QString deviceName, int type);
     void clearLayout(QVBoxLayout * layout);
     void setSwitchStatus();
+    void initNet();
     void getDeviceList();
     int                setSignal(QString lv);
     QString            wifiIcon(bool isLock, int strength);
