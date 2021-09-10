@@ -2,6 +2,10 @@
 #define FRAME_SPEED 150
 #define LIMIT_TIME 60*1000
 #define TOTAL_PAGE 8
+
+#define THEME_QT_SCHEMA  "org.ukui.style"
+#define MODE_QT_KEY      "style-name"
+
 WlanItem::WlanItem(QWidget *parent)
 {
     this->setMinimumSize(550, 58);
@@ -54,11 +58,25 @@ void WlanItem::waitAnimStep()
 {
     QString qpmQss = "QLabel{background-image:url(':/img/plugins/netconnect/";
     qpmQss.append(QString::number(this->waitPage));
-    qpmQss.append(".png');}");
+    QString imgPath = ":/img/plugins/netconnect/";
+    imgPath.append(QString::number(this->waitPage));
+
+    const QByteArray id(THEME_QT_SCHEMA);
+    themeGsettings = new QGSettings(id, QByteArray(), this);
+    if (themeGsettings->get(MODE_QT_KEY).toString() == "ukui-default") {
+        qpmQss.append("-black.png');}");
+        imgPath.append("-black.png");
+    } else {
+        qpmQss.append(".png');}");
+        imgPath.append(".png");
+
+    }
     QImage img;
-    img.load(":/img/plugins/netconnect/1.png");
+    img.load(imgPath);
     statusLabel->setText("");
     statusLabel->setFixedSize(img.size());
+    statusLabel->setProperty("useIconHighlightEffect", 0x10);
+
     statusLabel->setStyleSheet(qpmQss);
     this->waitPage ++;
     if (this->waitPage > TOTAL_PAGE) {

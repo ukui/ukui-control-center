@@ -6,6 +6,7 @@
 #include <QLabel>
 #include <QVariantMap>
 #include <QTimer>
+#include <QGSettings>
 #include <QDebug>
 #include <QImage>
 #include "Label/fixlabel.h"
@@ -33,6 +34,7 @@ public:
     bool loading = false;
 private:
     QTimer *waitTimer = nullptr;
+    QGSettings *themeGsettings = nullptr;
 
 };
 

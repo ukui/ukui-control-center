@@ -7,6 +7,7 @@
 #include <QVariantMap>
 #include <QTimer>
 #include <QDebug>
+#include <QGSettings>
 #include <QImage>
 #include "Label/fixlabel.h"
 #include "commonComponent/InfoButton/infobutton.h"
@@ -33,6 +34,7 @@ public:
     bool loading = false;
 private:
     QTimer *waitTimer = nullptr;
+    QGSettings *themeGsettings = nullptr;
 
 };
 
