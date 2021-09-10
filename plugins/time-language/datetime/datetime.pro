@@ -41,6 +41,7 @@ PKGCONFIG     += gio-2.0 \
 
 SOURCES += \
     clock.cpp \
+    dateedit.cpp \
     datetime.cpp \
     changtime.cpp \
     timeBtn.cpp \
@@ -53,6 +54,7 @@ SOURCES += \
 
 HEADERS += \
     clock.h \
+    dateedit.h \
     datetime.h \
     changtime.h \
     timeBtn.h \

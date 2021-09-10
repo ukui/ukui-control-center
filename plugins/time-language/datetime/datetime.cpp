@@ -182,13 +182,6 @@ void DateTime::initUI()
     Clock *m_clock = new Clock();
     //ui->clockFrame->setFrameShape(QFrame::Shape::Box);
     ui->clockLayout->addWidget(m_clock);
-//    ui->dateEdit->calendarWidget()->setVisible(false);
-   // ui->dateEdit->adjustSize();
-//    ui->dateEdit->setStyleSheet("QCalendarWidget QWidget#qt_calendar_navigationbar{\
-//                                background-color: palette(window);\
-//                                }");
-
-
     //~ contents_path /date/Manual Time
     ui->timeLabel->setText(tr("Manual Time"));
     for (int m = 0; m < 60; m++) {
@@ -718,9 +711,6 @@ void DateTime::initConnect()
     connect(ui->secComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated), this, [=]() {
         setTime();
     });
-
-
-
 
 }
 
