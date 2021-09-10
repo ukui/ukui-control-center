@@ -350,10 +350,16 @@ void About::initUI(QWidget *widget)
                   "border-width:1px;text-decoration:underline;border-style:none none none;");
 
     QHBoxLayout *mTrialLayout = new QHBoxLayout(mTrialBtn);
+    mTrialLayout->setContentsMargins(0, 0, 0, 0);
 
     mTrialLabel = new QLabel(mTrialBtn);
+    mTrialLabel->setStyleSheet("background: transparent;font-family:Microsoft YaHei;"
+                               "border-width:1px;text-decoration:underline;border-style:none none none;");
+//    mTrialLabel->setFixedWidth(180);
+    mTrialLabel->setContentsMargins(16, 0, 0, 0);
 
-    mTrialLayout->addWidget(mTrialLabel);
+    mTrialLayout->addWidget(mTrialLabel,Qt::AlignLeft);
+    mTrialLayout->addStretch();
 
     mHoldTitleLabel = new TitleLabel(Aboutwidget);
 
@@ -413,7 +419,7 @@ void About::retranslateUi()
     mHpLabel->setText(tr("Wechat code scanning obtains HP professional technical support"));
     mEducateLabel->setText(tr("See more about Kylin Tianqi edu platform"));
 
-    mTrialBtn->setText(tr("<<Protocol>>"));
+    mTrialLabel->setText(tr("<<Protocol>>"));
 
 
     //Intel部分
