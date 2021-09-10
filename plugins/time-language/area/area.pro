@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += widgets dbus KWidgetsAddons
+QT       += widgets dbus KWidgetsAddons concurrent
 
 TEMPLATE = lib
 CONFIG += plugin

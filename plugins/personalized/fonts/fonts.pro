@@ -8,7 +8,7 @@ include(../../../env.pri)
 include($$PROJECT_COMPONENTSOURCE/uslider.pri)
 include($$PROJECT_COMPONENTSOURCE/label.pri)
 
-QT       += widgets dbus
+QT       += widgets dbus concurrent
 
 TEMPLATE = lib
 CONFIG   += plugin

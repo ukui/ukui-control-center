@@ -10,7 +10,7 @@ include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
 include($$PROJECT_COMPONENTSOURCE/closebutton.pri)
 include($$PROJECT_COMPONENTSOURCE/label.pri)
 
-QT       += widgets svg dbus
+QT       += widgets svg dbus concurrent
 TEMPLATE = lib
 CONFIG += plugin
 

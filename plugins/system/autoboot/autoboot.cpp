@@ -31,6 +31,8 @@
 #include <QMouseEvent>
 #include <QPushButton>
 #include <QGSettings>
+#include <QFuture>
+#include <QtConcurrent>
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -868,21 +870,26 @@ void AutoBoot::checkbox_changed_cb(QString bname)
 
 void AutoBoot::connectToServer()
 {
-    m_cloudInterface = new QDBusInterface("org.kylinssoclient.dbus",
-                                          "/org/kylinssoclient/path",
-                                          "org.freedesktop.kylinssoclient.interface",
-                                          QDBusConnection::sessionBus());
-    if (!m_cloudInterface->isValid()) {
-        qDebug() << "fail to connect to service";
-        qDebug() << qPrintable(QDBusConnection::systemBus().lastError().message());
-        return;
-    }
-    QDBusConnection::sessionBus().connect(QString(), QString("/org/kylinssoclient/path"),
-                                          QString(
-                                              "org.freedesktop.kylinssoclient.interface"), "keyChanged", this,
-                                          SLOT(keyChangedSlot(QString)));
-    // 将以后所有DBus调用的超时设置为 milliseconds
-    m_cloudInterface->setTimeout(2147483647); // -1 为默认的25s超时
+    QtConcurrent::run([=]() {
+        QTime timedebuge;//声明一个时钟对象
+        timedebuge.start();//开始计时
+        m_cloudInterface = new QDBusInterface("org.kylinssoclient.dbus",
+                                              "/org/kylinssoclient/path",
+                                              "org.freedesktop.kylinssoclient.interface",
+                                              QDBusConnection::sessionBus());
+        if (!m_cloudInterface->isValid())
+        {
+            qDebug() << "fail to connect to service";
+            qDebug() << qPrintable(QDBusConnection::systemBus().lastError().message());
+            return;
+        }
+        QDBusConnection::sessionBus().connect(QString(), QString("/org/kylinssoclient/path"), QString("org.freedesktop.kylinssoclient.interface"), "keyChanged", this, SLOT(keyChangedSlot(QString)));
+        // 将以后所有DBus调用的超时设置为 milliseconds
+        m_cloudInterface->setTimeout(2147483647); // -1 为默认的25s超时
+        qDebug()<<"NetWorkAcount"<<"  线程耗时: "<<timedebuge.elapsed()<<"ms";
+
+    });
+
 }
 
 void AutoBoot::initConfig()
