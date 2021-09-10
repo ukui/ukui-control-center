@@ -2224,7 +2224,7 @@ void UkmediaMainWidget::setCardProfile(QString name, QString profile)
     int index = findCardIndex(name,m_pVolumeControl->cardMap);
     m_pVolumeControl->setCardProfile(index,profile.toLatin1().data());
 
-    qDebug() << "set profile" << profile << index ;
+    qDebug() << "set profile" << name << profile << index ;
 }
 
 /*
@@ -2301,13 +2301,14 @@ QString UkmediaMainWidget::findPortSink(int cardIndex,QString portName)
 //                qDebug() <<"find port sink" << tempMap.value() << portName<< tempMap.key() <<sinkStr;
                 if ( tempMap.value() == portName) {
                     sinkStr = tempMap.key();
-                    return sinkStr;
+		    break;
                     }
             ++tempMap;
             }
         }
         ++it;
     }
+    return sinkStr;
 
 }
 
@@ -2327,14 +2328,14 @@ QString UkmediaMainWidget::findPortSource(int cardIndex,QString portName)
                 qDebug() << "findportsource ===" <<tempMap.value() << portName;
                 if ( tempMap.value() == portName) {
                     sourceStr = tempMap.key();
-
-                    return sourceStr;
+                    break;
                 }
                 ++tempMap;
             }
         }
         ++it;
     }
+    return sourceStr;
 }
 
 
@@ -2702,7 +2703,7 @@ void UkmediaMainWidget::updateCboxDevicePort()
     QMap<QString,QString> temp;
     currentCboxInputPortLabelMap.clear();
     currentCboxOutputPortLabelMap.clear();
-    qDebug() << "updateCboxDevicePort----------------" ;
+    qDebug() << "updateCboxDevicePort---------------" ;
     if (m_pVolumeControl->inputPortMap.count() == 0) {
         m_pInputWidget->m_pInputDeviceSelectBox->addItem(tr("None"));
     }
