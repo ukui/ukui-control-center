@@ -2302,7 +2302,7 @@ QString UkmediaMainWidget::findPortSink(int cardIndex,QString portName)
 //                qDebug() <<"find port sink" << tempMap.value() << portName<< tempMap.key() <<sinkStr;
                 if ( tempMap.value() == portName) {
                     sinkStr = tempMap.key();
-		    break;
+                    break;
                     }
             ++tempMap;
             }
@@ -2329,7 +2329,7 @@ QString UkmediaMainWidget::findPortSource(int cardIndex,QString portName)
                 qDebug() << "findportsource ===" <<tempMap.value() << portName;
                 if ( tempMap.value() == portName) {
                     sourceStr = tempMap.key();
-		    break;
+                    break;
                 }
                 ++tempMap;
             }
