@@ -629,53 +629,58 @@ void TabWid::checkUpdateBtnClicked()
     }
     else if(checkUpdateBtn->text() == tr("UpdateAll"))
     {
-        foreach (AppUpdateWid *wid, widgetList) {
-            wid->updateAPPBtn->hide();
-        }
-        if(isAutoBackupSBtn->isChecked() == true)
+        bool ret = updateMutual->Check_Authority("");
+        if (ret)
         {
-            bacupInit(true);
-            backupCore();//备份模块主函数
-        }
-        else
-        {
-            QMessageBox msgBox(this);
-            msgBox.setText(tr("This update will not backup the current system, do you want to continue the update?"));
-            //            msgBox.setText(tr("本次更新不会备份当前系统，是否继续更新？"));
-            msgBox.setWindowTitle(tr("Prompt information"));
-            //            msgBox.setWindowTitle("提示信息");
-            msgBox.setStandardButtons(QMessageBox::Yes
-                                      | QMessageBox::No
-                                      | QMessageBox::Cancel);
-            msgBox.setButtonText(QMessageBox::Yes,tr("Yes, keep updating"));
-            msgBox.setButtonText(QMessageBox::No,tr("No, backup now"));
-            msgBox.setButtonText(QMessageBox::Cancel,tr("Not updated"));
-            //            msgBox.setButtonText(QMessageBox::Yes,"是，继续更新");
-            //            msgBox.setButtonText(QMessageBox::No,"否，立即备份");
-            //            msgBox.setButtonText(QMessageBox::Cancel,"暂不更新");
-            int ret = msgBox.exec();
-            switch (ret) {
-            case QMessageBox::Yes:
-                qDebug() << "是，继续更新";
-                //                checkUpdateBtn->setText("正在更新...");
-                checkUpdateBtn->setEnabled(false);
-                checkUpdateBtn->start();
-                updateMutual->isPointOutNotBackup = false;   //全部更新时不再弹出单个更新未备份提示
-                emit updateAllSignal();
-                break;
-            case QMessageBox::No:
+            foreach (AppUpdateWid *wid, widgetList) {
+                wid->updateAPPBtn->hide();
+            }
+            if(isAutoBackupSBtn->isChecked() == true)
+            {
                 bacupInit(true);
-                backupCore();
-                qDebug() << "否，立即备份";
-                break;
-            case QMessageBox::Cancel:
-                foreach (AppUpdateWid *wid, widgetList) {
-                    wid->updateAPPBtn->show();
+                backupCore();//备份模块主函数
+            }
+            else
+            {
+                QMessageBox msgBox(this);
+                msgBox.setText(tr("This update will not backup the current system, do you want to continue the update?"));
+                //            msgBox.setText(tr("本次更新不会备份当前系统，是否继续更新？"));
+                msgBox.setWindowTitle(tr("Prompt information"));
+                //            msgBox.setWindowTitle("提示信息");
+                msgBox.setStandardButtons(QMessageBox::Yes
+                                          | QMessageBox::No
+                                          | QMessageBox::Cancel);
+                msgBox.setButtonText(QMessageBox::Yes,tr("Yes, keep updating"));
+                msgBox.setButtonText(QMessageBox::No,tr("No, backup now"));
+                msgBox.setButtonText(QMessageBox::Cancel,tr("Not updated"));
+                //            msgBox.setButtonText(QMessageBox::Yes,"是，继续更新");
+                //            msgBox.setButtonText(QMessageBox::No,"否，立即备份");
+                //            msgBox.setButtonText(QMessageBox::Cancel,"暂不更新");
+                int ret = msgBox.exec();
+                switch (ret) {
+                case QMessageBox::Yes:
+                    qDebug() << "是，继续更新";
+                    //                checkUpdateBtn->setText("正在更新...");
+                    checkUpdateBtn->setEnabled(false);
+                    checkUpdateBtn->start();
+                    updateMutual->isPointOutNotBackup = false;   //全部更新时不再弹出单个更新未备份提示
+                    emit updateAllSignal();
+                    break;
+                case QMessageBox::No:
+                    bacupInit(true);
+                    backupCore();
+                    qDebug() << "否，立即备份";
+                    break;
+                case QMessageBox::Cancel:
+                    foreach (AppUpdateWid *wid, widgetList) {
+                        wid->updateAPPBtn->show();
+                    }
+                    qDebug() << "Close 暂不更新!";
+                    break;
                 }
-                qDebug() << "Close 暂不更新!";
-                break;
             }
         }
+
     }
 }
 

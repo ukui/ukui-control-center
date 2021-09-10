@@ -59,7 +59,8 @@ public:
     QDBusReply<QStringList> replyStrList;
     QDBusReply<int> replyInt; //int类型的返回值
     QDBusInterface *interface1;
-
+    //check authority
+    bool Check_Authority(QString);
     //拷贝软件包到安装目录
     void copyFinsh(QStringList srcPath,QString appName);
     //创建root目录
