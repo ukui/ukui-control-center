@@ -24,6 +24,8 @@
 #include <QStringList>
 #include <QDebug>
 #include <QStandardItemModel>
+#include <QFuture>
+#include <QtConcurrent>
 
 #define N 3
 #define SMALL 1.00
@@ -329,18 +331,25 @@ void Fonts::resetDefault(){
 }
 
 void Fonts::connectToServer(){
-    m_cloudInterface = new QDBusInterface("org.kylinssoclient.dbus",
-                                          "/org/kylinssoclient/path",
-                                          "org.freedesktop.kylinssoclient.interface",
-                                          QDBusConnection::sessionBus());
-    if (!m_cloudInterface->isValid()) {
-        qDebug() << "fail to connect to service";
-        qDebug() << qPrintable(QDBusConnection::systemBus().lastError().message());
-        return;
-    }
-    QDBusConnection::sessionBus().connect(QString(), QString("/org/kylinssoclient/path"), QString("org.freedesktop.kylinssoclient.interface"), "keyChanged", this, SLOT(keyChangedSlot(QString)));
-    // 将以后所有DBus调用的超时设置为 milliseconds
-    m_cloudInterface->setTimeout(2147483647); // -1 为默认的25s超时
+    QtConcurrent::run([=]() {
+        QTime timedebuge;//声明一个时钟对象
+        timedebuge.start();//开始计时
+        m_cloudInterface = new QDBusInterface("org.kylinssoclient.dbus",
+                                              "/org/kylinssoclient/path",
+                                              "org.freedesktop.kylinssoclient.interface",
+                                              QDBusConnection::sessionBus());
+        if (!m_cloudInterface->isValid())
+        {
+            qDebug() << "fail to connect to service";
+            qDebug() << qPrintable(QDBusConnection::systemBus().lastError().message());
+            return;
+        }
+        QDBusConnection::sessionBus().connect(QString(), QString("/org/kylinssoclient/path"), QString("org.freedesktop.kylinssoclient.interface"), "keyChanged", this, SLOT(keyChangedSlot(QString)));
+        // 将以后所有DBus调用的超时设置为 milliseconds
+        m_cloudInterface->setTimeout(2147483647); // -1 为默认的25s超时
+        qDebug()<<"NetWorkAcount"<<"  线程耗时: "<<timedebuge.elapsed()<<"ms";
+
+    });
 }
 
 void Fonts::keyChangedSlot(const QString &key) {
