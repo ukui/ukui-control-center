@@ -95,6 +95,7 @@ private:
     void activeConnect(QString netName, QString deviceName, int type);
     void deActiveConnect(QString netName, QString deviceName, int type);
     void getDeviceList();
+    void initNet();
 
 protected:
     bool eventFilter(QObject *w,QEvent *e);

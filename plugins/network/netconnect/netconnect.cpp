@@ -171,6 +171,10 @@ void NetConnect::initComponent() {
             }
         });
     } else {
+        wiredSwitch->blockSignals(true);
+        wiredSwitch->setChecked(true);
+        wiredSwitch->blockSignals(false);
+        initNet();
         qDebug()<<"[netconnect] org.ukui.kylin-nm.switch is not installed!";
     }
 
@@ -306,20 +310,31 @@ void NetConnect::clearLayout(QVBoxLayout *layout)
 
 void NetConnect::setSwitchStatus()
 {
-    bool status = m_switchGsettings->get(WIRED_SWITCH).toBool();
-    wiredSwitch->blockSignals(true);
-    wiredSwitch->setChecked(status);
-    wiredSwitch->blockSignals(false);
-    if (!wiredSwitch->isChecked()) {
-        clearLayout(ui->availableLayout);
-    } else {
-        clearLayout(ui->availableLayout);
-        QMap<QString, bool>::iterator iter;
-        int count = 1;
-        for (iter = deviceListMap.begin(); iter != deviceListMap.end(); iter++) {
-            getNetListFromDevice(iter.key(), iter.value(), ui->availableLayout, count);
-            count ++;
+    if (QGSettings::isSchemaInstalled(GSETTINGS_SCHEMA)) {
+        bool status = m_switchGsettings->get(WIRED_SWITCH).toBool();
+        wiredSwitch->blockSignals(true);
+        wiredSwitch->setChecked(status);
+        wiredSwitch->blockSignals(false);
+        if (!wiredSwitch->isChecked()) {
+            clearLayout(ui->availableLayout);
+        } else {
+            initNet();
         }
+    } else {
+
+        qDebug()<<"[netconnect] org.ukui.kylin-nm.switch is not installed!";
+    }
+
+}
+
+void NetConnect::initNet()
+{
+    clearLayout(ui->availableLayout);
+    QMap<QString, bool>::iterator iter;
+    int count = 1;
+    for (iter = deviceListMap.begin(); iter != deviceListMap.end(); iter++) {
+        getNetListFromDevice(iter.key(), iter.value(), ui->availableLayout, count);
+        count ++;
     }
 }
 

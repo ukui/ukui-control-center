@@ -149,6 +149,10 @@ void WlanConnect::initComponent() {
             }
         });
     } else {
+        wifiSwtch->blockSignals(true);
+        wifiSwtch->setChecked(true);
+        wifiSwtch->blockSignals(false);
+        initNet();
         qDebug()<<"[netconnect] org.ukui.kylin-nm.switch is not installed!";
     }
 
@@ -178,13 +182,17 @@ void WlanConnect::setSwitchStatus()
     if (!wifiSwtch->isChecked()) {
         clearLayout(ui->availableLayout);
     } else {
-        clearLayout(ui->availableLayout);
-        QMap<QString, bool>::iterator iter;
-        int count = 1;
-        for (iter = deviceListMap.begin(); iter != deviceListMap.end(); iter++) {
-            getNetListFromDevice(iter.key(), iter.value(), ui->availableLayout, count);
-            count ++;
-        }
+        initNet();
+    }
+}
+
+void WlanConnect::initNet() {
+    clearLayout(ui->availableLayout);
+    QMap<QString, bool>::iterator iter;
+    int count = 1;
+    for (iter = deviceListMap.begin(); iter != deviceListMap.end(); iter++) {
+        getNetListFromDevice(iter.key(), iter.value(), ui->availableLayout, count);
+        count ++;
     }
 }
 
