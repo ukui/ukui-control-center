@@ -520,6 +520,7 @@ void About::setupSerialComponent()
         mTimeLabel_1->hide();
         mTimeLabel_2->hide();
         mStatusLabel_2->setText(tr("Inactivated"));
+        mStatusLabel_2->setStyleSheet("color : red ");
         mActivationBtn->setText(tr("Active"));
     } else {    //已激活
         mActivationBtn->hide();
