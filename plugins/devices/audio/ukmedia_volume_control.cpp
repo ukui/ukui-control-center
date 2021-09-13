@@ -773,7 +773,7 @@ void UkmediaVolumeControl::updateSinkInput(const pa_sink_input_info &info) {
     const gchar *appId = pa_proplist_gets(info.proplist, PA_PROP_APPLICATION_ID);
 
     //没制定应用名称的不加入到应用音量中
-    if (!strstr(description,"QtPulseAudio")) {
+    if (description&&!strstr(description,"QtPulseAudio")) {
         if (!info.corked) {
 
             sinkInputMap.insert(description,info.volume.values[0]);
@@ -813,7 +813,7 @@ void UkmediaVolumeControl::updateSourceOutput(const pa_source_output_info &info)
     const gchar *appId = pa_proplist_gets(info.proplist, PA_PROP_APPLICATION_ID);
 
     //没制定应用名称的不加入到应用音量中
-    if (!strstr(description,"QtPulseAudio")) {
+    if (description&&!strstr(description,"QtPulseAudio")) {
         if (!info.corked) {
             sourceOutputMap.insert(description,info.volume.values[0]);
             Q_EMIT addSourceOutputSignal(description,appId,info.index);
