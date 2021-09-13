@@ -22,6 +22,7 @@
 #include "about.h"
 #include "ui_about.h"
 #include "trialdialog.h"
+#include "shell/utils/utils.h"
 
 #include <KFormat>
 #include <unistd.h>
@@ -149,26 +150,7 @@ void About::setupKernelCompenent()
 
     ui->kernalContent->setText(kernal);
     ui->memoryContent->setText(memorySize);
-
-    QDBusInterface youkerInterface("com.kylin.assistant.systemdaemon",
-                                   "/com/kylin/assistant/systemdaemon",
-                                   "com.kylin.assistant.systemdaemon",
-                                   QDBusConnection::systemBus());
-    if (!youkerInterface.isValid()) {
-        qCritical() << "Create youker Interface Failed When Get Computer info: " <<
-            QDBusConnection::systemBus().lastError();
-        return;
-    }
-
-    QDBusReply<QMap<QString, QVariant> > cpuinfo;
-    cpuinfo = youkerInterface.call("get_cpu_info");
-    if (!cpuinfo.isValid()) {
-        qDebug() << "cpuinfo is invalid" << endl;
-    } else {
-        QMap<QString, QVariant> res = cpuinfo.value();
-        cpuType = res["CpuVersion"].toString();
-    }
-
+    cpuType = Utils::getCpuInfo();
     ui->cpuContent->setText(cpuType);
 }
 
