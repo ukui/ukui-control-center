@@ -63,7 +63,7 @@ extern "C" {
 
 #define STYLE_FONT_SCHEMA  "org.ukui.style"
 
-#define FONTSWIDTH 100
+#define FONTSWIDTH 80
 
 UserInfo::UserInfo() : mFirstLoad(true)
 {
@@ -431,9 +431,9 @@ void UserInfo::initComponent(){
 #endif
 
 #ifdef __sw_64__
-    ui->changeValidBtn->show();
+//    ui->changeValidBtn->show();
 #else
-    ui->changeValidBtn->hide();
+//    ui->changeValidBtn->hide();
 #endif
 
     ui->listWidget->setStyleSheet("QListWidget::Item:hover{background:palette(base);}");
@@ -544,13 +544,13 @@ void UserInfo::initComponent(){
         showChangeGroupDialog();
     });
 
-    connect(ui->changeValidBtn, &QPushButton::clicked, this, [=](bool checked){
-        Q_UNUSED(checked)
-        UserInfomation user = allUserInfoMap.value(g_get_user_name());
+//    connect(ui->changeValidBtn, &QPushButton::clicked, this, [=](bool checked){
+//        Q_UNUSED(checked)
+//        UserInfomation user = allUserInfoMap.value(g_get_user_name());
 
-        showChangeValidDialog(user.username);
+//        showChangeValidDialog(user.username);
 
-    });
+//    });
 
     //修改当前用户免密登录
     if (getuid())

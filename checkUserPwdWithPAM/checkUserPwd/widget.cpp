@@ -10,6 +10,8 @@ Widget::Widget()
 
     auth = new AuthPAM(this);
 
+    accountlock = false;
+
     connect(auth, &Auth::showMessage, this, &Widget::onShowMessage);
     connect(auth, &Auth::showPrompt, this, &Widget::onShowPrompt);
     connect(auth, &Auth::authenticateComplete, this, &Widget::onAuthComplete);
@@ -30,7 +32,8 @@ void Widget::pwdCheck(QString userName, QString userPwd){
 
 void Widget::onShowMessage(const QString &message, Auth::MessageType type)
 {
-//    qDebug() << message;
+//    qDebug() << "message:" << message;
+    accountlock = true;
     printf("%s\n", message.toUtf8().data());
 
 }
@@ -43,15 +46,16 @@ void Widget::onShowPrompt(const QString &prompt, Auth::PromptType type)
 void Widget::onAuthComplete()
 {
 
-//    if(auth->isAuthenticated()){
-//        qDebug() << "Succes!\n";
-//        printf("Succes!\n");
-//    } else {
-//        printf("Failed!\n");
-//        qDebug() << "Failed!";
-//    }
+    if (!accountlock){
+        if(auth->isAuthenticated()){
+//            qDebug() << "Succes!\n";
+//            printf("Succes!\n");
+        } else {
+            printf("Failed!\n");
+//            qDebug() << "Failed!";
+        }
+    }
 
     exit(0);
-
 }
 
