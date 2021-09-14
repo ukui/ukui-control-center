@@ -485,6 +485,7 @@ void UserInfo::initComponent(){
                                                               "cn.kylinos.SSOBackend.accounts",
                                                               QDBusConnection::systemBus());
             QDBusMessage result = m_interface->call("DeleteAccount",user.username);
+            isDelCurrentUser = true;
             QList<QVariant> outArgs = result.arguments();
             int status = outArgs.at(0).value<int>();
             delete m_interface;
@@ -566,7 +567,9 @@ void UserInfo::initComponent(){
 
 void UserInfo::_resetListWidgetHeigh(){
     //设置其他用户控件的总高度
-    ui->listWidget->setFixedHeight((allUserInfoMap.count() - 1) * (ITEMHEIGH + 2));
+    if (!isDelCurrentUser) {
+        ui->listWidget->setFixedHeight((allUserInfoMap.count() - 1) * (ITEMHEIGH + 2));
+    }
   //  ui->listWidget->setFixedHeight((20) * (ITEMHEIGH + 2));
 }
 
@@ -983,7 +986,7 @@ void UserInfo::deleteUserDone(QString objpath){
 
     //重置其他用户ListWidget高度
     _resetListWidgetHeigh();
-    if (allUserInfoMap.count() == 1) {
+    if (allUserInfoMap.count() == 1 && !isDelCurrentUser) {
         ui->line_3->show();
         ui->delUserBtn->show();
         ui->title2Label->hide();
