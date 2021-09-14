@@ -645,7 +645,6 @@ void AutoBoot::connectToServer()
 {
     QThread *NetThread = new QThread;
     MThread *NetWorker = new MThread;
-    qDebug()<<QThread::currentThreadId();
     NetWorker->moveToThread(NetThread);
     connect(NetThread, &QThread::started, NetWorker, &MThread::run);
     connect(NetWorker,&MThread::keychangedsignal,this,&AutoBoot::keyChangedSlot);

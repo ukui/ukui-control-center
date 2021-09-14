@@ -133,21 +133,13 @@ const QString Shortcut::name() const
 
 void Shortcut::connectToServer()
 {
-    cloudInterface = new QDBusInterface("org.kylinssoclient.dbus",
-                                        "/org/kylinssoclient/path",
-                                        "org.freedesktop.kylinssoclient.interface",
-                                        QDBusConnection::sessionBus());
-    if (!cloudInterface->isValid()) {
-        qDebug() << "fail to connect to service";
-        qDebug() << qPrintable(QDBusConnection::systemBus().lastError().message());
-        return;
-    }
-    QDBusConnection::sessionBus().connect(QString(), QString("/org/kylinssoclient/path"),
-                                          QString(
-                                              "org.freedesktop.kylinssoclient.interface"), "shortcutChanged", this,
-                                          SLOT(shortcutChangedSlot()));
-    // 将以后所有DBus调用的超时设置为 milliseconds
-    cloudInterface->setTimeout(2147483647); // -1 为默认的25s超时
+    QThread *NetThread = new QThread;
+    MThread *NetWorker = new MThread;
+    NetWorker->moveToThread(NetThread);
+    connect(NetThread, &QThread::started, NetWorker, &MThread::run);
+    connect(NetWorker,&MThread::keychangedsignal,this,&Shortcut::shortcutChangedSlot);
+    connect(NetThread, &QThread::finished, NetWorker, &MThread::deleteLater);
+     NetThread->start();
 }
 
 void Shortcut::setupComponent()

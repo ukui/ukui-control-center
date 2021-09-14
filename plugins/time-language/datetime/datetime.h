@@ -24,6 +24,7 @@
 
 #include "shell/interface.h"
 #include "changtime.h"
+#include "shell/utils/mthread.h"
 
 #include <QWidget>
 #include <QLabel>

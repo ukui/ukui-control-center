@@ -34,6 +34,7 @@
 #include "FlowLayout/flowlayout.h"
 #include "Uslider/uslider.h"
 
+#include "shell/utils/mthread.h"
 #include "buildpicunitsworker.h"
 #include "pictureunit.h"
 

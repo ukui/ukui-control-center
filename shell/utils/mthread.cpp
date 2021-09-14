@@ -14,6 +14,7 @@ MThread::~MThread()
 
 void MThread::run()
 {
+    qDebug()<<QThread::currentThreadId();
     QTime timedebuge;//声明一个时钟对象
     timedebuge.start();//开始计时
     m_cloudInterface = new QDBusInterface("org.kylinssoclient.dbus",
