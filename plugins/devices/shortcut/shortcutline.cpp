@@ -54,6 +54,7 @@ void ShortcutLine::initInputKeyAndText(const bool &clearText)
     firstKey  = SNULL;
     secondKey = SNULL;
     thirdKey  = SNULL;
+    forthKey  = SNULL;
     if (true == clearText) {
         this->setText("");
         shortCutObtainedFlag = false;
@@ -98,10 +99,27 @@ void ShortcutLine::keyPressEvent(QKeyEvent *e)
                 return;
             }
         }
-    } else if(thirdKey == SNULL) {            //第三个键只能是主键
-        if (lastKeyIsAvailable(keyValue, keyCode)) {   // 合法
+    } else if(thirdKey == SNULL) {
+        /*第三个键是辅助键中的另外一个*/
+        if ((keyValue == Qt::Key_Control || keyValue == Qt::Key_Alt || \
+             keyValue == Qt::Key_Shift || keyValue == Qt::Key_Meta) &&
+                keyToString(keyValue) != firstKey) {
             thirdKey = keyToString(keyValue);
-            shortCutObtained(true, 3);
+            this->setText(firstKey + QString("   ") + secondKey + QString("   ") + thirdKey + QString("   "));
+        } else {  //第三个键是主键(最后一个键)
+            if (lastKeyIsAvailable(keyValue, keyCode)) {   // 合法
+                thirdKey = keyToString(keyValue);
+                shortCutObtained(true, 3);
+            } else {                             //非法
+                shortCutObtained(false);
+                return;
+            }
+        }
+
+    } else if(forthKey == SNULL) { //第四个键只能是主键
+        if (lastKeyIsAvailable(keyValue, keyCode)) {   // 合法
+            forthKey = keyToString(keyValue);
+            shortCutObtained(true, 4);
         } else {                             //非法
             shortCutObtained(false);
         }
@@ -138,7 +156,7 @@ void ShortcutLine::focusOutEvent(QFocusEvent *e)
 
 void ShortcutLine::shortCutObtained(const bool &flag, const int &keyNum)
 {
-    if (true == flag && (2 == keyNum || 3 == keyNum)) {
+    if (true == flag && (2 == keyNum || 3 == keyNum || 4 == keyNum)) {
         shortCutObtainedFlag = true;
         if (2 == keyNum) {
             if (firstKey == "Win") {
@@ -147,7 +165,7 @@ void ShortcutLine::shortCutObtained(const bool &flag, const int &keyNum)
                 seq = QKeySequence(firstKey + QString("+") + secondKey);
             }
             this->setText(firstKey + QString("   ") + secondKey);
-        } else {
+        } else if (3 == keyNum){
             if (firstKey == "Win") {
                 seq = QKeySequence("Meta" + QString("+") + secondKey + QString("+") + thirdKey);
             } else if (secondKey == "Win") {
@@ -156,6 +174,17 @@ void ShortcutLine::shortCutObtained(const bool &flag, const int &keyNum)
                 seq = QKeySequence(firstKey + QString("+") + secondKey + QString("+") + thirdKey);
             }
             this->setText(firstKey + QString("   ") + secondKey + QString("   ") + thirdKey);
+        } else if (4 == keyNum){
+            if (firstKey == "Win") {
+                seq = QKeySequence("Meta" + QString("+") + secondKey + QString("+") + thirdKey + QString("+") + forthKey);
+            } else if (secondKey == "Win") {
+                seq = QKeySequence(firstKey + QString("+") + "Meta" + QString("+") + thirdKey + QString("+") + forthKey);
+            } else if (thirdKey == "Win") {
+                seq = QKeySequence(firstKey + QString("+") + secondKey + QString("+") + "Meta" + QString("+") + forthKey);
+            } else {
+                seq = QKeySequence(firstKey + QString("+") + secondKey + QString("+") + thirdKey + QString("+") + forthKey);
+            }
+            this->setText(firstKey + QString("   ") + secondKey + QString("   ") + thirdKey + QString("   ") + forthKey);
         }
 
         if (conflictWithGlobalShortcuts(seq) || conflictWithStandardShortcuts(seq)
@@ -174,7 +203,7 @@ void ShortcutLine::shortCutObtained(const bool &flag, const int &keyNum)
 bool ShortcutLine::lastKeyIsAvailable(const int &keyValue, const int &keyCode)
 {
 
-    for (int i = 0; i < sizeof(numKey) / sizeof(int); ++i) {
+    for (u_int i = 0; i < sizeof(numKey) / sizeof(int); ++i) {
         if (keyValue == numKey[i] && keyValue != keyCode) {  //数字键盘上的
             return false;
         }
@@ -276,6 +305,11 @@ QString ShortcutLine::keyToLib(QString key)
         } else if (keys.count() == 3) {
             QString lower = keys.at(2);
             QString keyToLib = "<" + keys.at(0) + ">" + "<" + keys.at(1) + ">" + lower.toLower();
+
+            return keyToLib;
+        } else if (keys.count() == 4) {
+            QString lower = keys.at(3);
+            QString keyToLib = "<" + keys.at(0) + ">" + "<" + keys.at(1) + ">" + "<" + keys.at(2) + ">" + lower.toLower();
 
             return keyToLib;
         }

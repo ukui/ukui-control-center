@@ -41,6 +41,7 @@
 #include <QButtonGroup>
 #include <QCalendarWidget>
 #include "Frame/hlineframe.h"
+#include "customCalendar.h"
 
 const char kTimezoneDomain[] = "installer-timezones";
 const char kDefaultLocale[]  = "en_US.UTF-8";
@@ -167,7 +168,8 @@ void DateTime::initUI()
     ui->syncLabel->setText(tr("Sync Time"));
     syncNetworkRetLabel = new QLabel(pluginWidget);
     syncNetworkRetLabel->setStyleSheet("QLabel{font-size: 15px; color: #D9F82929;}");
-
+    CustomCalendarWidget* calendarWidget = new CustomCalendarWidget;
+    ui->dateEdit->setCalendarWidget(calendarWidget);
     m_zoneinfo          = new ZoneInfo;
     m_timezone          = new TimeZoneChooser(pluginWidget);
     m_itimer            = new QTimer(this);

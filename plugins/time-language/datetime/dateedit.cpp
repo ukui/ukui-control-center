@@ -13,14 +13,10 @@ QGraphicsDropShadowEffect *shadow_effect;
 DateEdit::DateEdit(QWidget *parent) : QDateEdit(parent){
     this->setButtonSymbols(QAbstractSpinBox::NoButtons);
     installEventFilter(this);
+
     this->setStyleSheet("\
                         QCalendarWidget QWidget#qt_calendar_navigationbar { \
                             background-color: palette(base);\
-                            border-top: 1px solid darkgray; \
-                            border-left: 1px solid darkgray; \
-                            border-right: 1px solid darkgray; \
-                            border-top-left-radius:6px;\
-                            border-top-right-radius:6px; \
                         } \
                         QCalendarWidget QSpinBox { \
                             width:70px; \
@@ -28,13 +24,6 @@ DateEdit::DateEdit(QWidget *parent) : QDateEdit(parent){
                         } \
                         QCalendarWidget QWidget {alternate-background-color: palette(base);} \
                         QCalendarWidget QTableView { \
-                            pandding:10px;\
-                            border-bottom-right-radius:0px; \
-                            border-bottom-left-radius:0px; \
-                            border-top: 0px solid darkgray; \
-                            border-right: 1px solid darkgray; \
-                            border-left: 1px solid darkgray; \
-                            border-bottom: 1px solid darkgray; \
                             selection-background-color: palette(highlight); \
                         }\
                         QCalendarWidget QToolButton { \

@@ -21,7 +21,7 @@ protected:
     void focusOutEvent(QFocusEvent *e);     //焦点退出事件
 
 private:
-    QString firstKey, secondKey, thirdKey;
+    QString firstKey, secondKey, thirdKey, forthKey;
     bool shortCutObtainedFlag;
     QList<KeyEntry *> systemEntry;
     QList<KeyEntry *> customEntry;

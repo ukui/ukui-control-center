@@ -182,6 +182,11 @@ QString addShortcutDialog::keyToLib(QString key)
             QString keyToLib = "<" + keys.at(0) + ">" + "<" + keys.at(1) + ">" + lower.toLower();
 
             return keyToLib;
+        } else if (keys.count() == 4) {
+            QString lower = keys.at(2);
+            QString keyToLib = "<" + keys.at(0) + ">" + "<" + keys.at(1) + ">" +  "<" + keys.at(2) + ">" + lower.toLower();
+
+            return keyToLib;
         }
     }
 
