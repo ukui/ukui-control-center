@@ -49,6 +49,13 @@ UpdateDbus::UpdateDbus(QObject *parent)
 
 }
 
+bool UpdateDbus::Check_Authority(QString msg)
+{
+    replyBool = interface->call("check_authority",msg);
+    qDebug()<<"check authority result:"<<replyBool.value();
+    return replyBool.value();
+}
+
 void UpdateDbus::onRequestSendDesktopNotify(QString message)
 {
     QDBusInterface iface("org.freedesktop.Notifications",

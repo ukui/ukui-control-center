@@ -632,43 +632,47 @@ void AppUpdateWid::cancelOrUpdate()
 
 void AppUpdateWid::updateOneApp()
 {
-    if(appAllMsg.msg.getDepends == true)
+    bool ret = m_updateMutual->Check_Authority("");
+    if (ret)
     {
-        if(checkSourcesType() != file){
-            isCancel = false;
-            firstDownload = true;
-            slotDownloadPackages();
-            timer->start(1000); //开启定时器用于计算下载速度
-    //        updateAPPBtn->setText(tr("取消"));
-            updateAPPBtn->setText(tr("Cancel"));
-            appVersionIcon->setPixmap(QPixmap());
-        }else{
-            startInstall(appAllMsg.name); //本地源直接开始安装
-            appVersion->setText(tr("Ready to install"));
+        if(appAllMsg.msg.getDepends == true)
+        {
+            if(checkSourcesType() != file){
+                isCancel = false;
+                firstDownload = true;
+                slotDownloadPackages();
+                timer->start(1000); //开启定时器用于计算下载速度
+        //        updateAPPBtn->setText(tr("取消"));
+                updateAPPBtn->setText(tr("Cancel"));
+                appVersionIcon->setPixmap(QPixmap());
+            }else{
+                startInstall(appAllMsg.name); //本地源直接开始安装
+                appVersion->setText(tr("Ready to install"));
+            }
+            QDir dir = downloadPath;
+            if(!dir.isEmpty()){
+                appVersion->setText(tr("Calculate the download progress"));
+            }
         }
-        QDir dir = downloadPath;
-        if(!dir.isEmpty()){
-            appVersion->setText(tr("Calculate the download progress"));
+        else
+        {
+             updateAPPBtn->hide();
+
+             this->execFun = false;
+             startInstall(appAllMsg.name);
+
+    //        appVersion->setText(tr("获取依赖失败！"));
+            appVersion->setText(tr("Get depends failed!"));
+            appVersion->setToolTip("");
+            QIcon icon = QIcon::fromTheme("dialog-error");
+            QPixmap pixmap = icon.pixmap(icon.actualSize(QSize(14, 14)));
+            appVersionIcon->setPixmap(pixmap);
+            m_updateMutual->importantList.removeOne(appAllMsg.name);
+            m_updateMutual->failedList.append(appAllMsg.name);
+            QString message = QString("%1"+tr("Get depends failed!")).arg(dispalyName);
+            m_updateMutual->onRequestSendDesktopNotify(message);
+            emit hideUpdateBtnSignal(false);
         }
-    }
-    else
-    {
-         updateAPPBtn->hide();
-
-         this->execFun = false;
-         startInstall(appAllMsg.name);
-
-//        appVersion->setText(tr("获取依赖失败！"));
-        appVersion->setText(tr("Get depends failed!"));
-        appVersion->setToolTip("");
-        QIcon icon = QIcon::fromTheme("dialog-error");
-        QPixmap pixmap = icon.pixmap(icon.actualSize(QSize(14, 14)));
-        appVersionIcon->setPixmap(pixmap);
-        m_updateMutual->importantList.removeOne(appAllMsg.name);
-        m_updateMutual->failedList.append(appAllMsg.name);
-        QString message = QString("%1"+tr("Get depends failed!")).arg(dispalyName);
-        m_updateMutual->onRequestSendDesktopNotify(message);
-        emit hideUpdateBtnSignal(false);
     }
 }
 //转换包大小的单位
