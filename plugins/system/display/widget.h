@@ -80,7 +80,6 @@ public:
     void initConnection();
     QString getScreenName(QString name = "");
     void setNightComponent();
-    void writeScreenXml();
 
     bool writeFile(const QString &filePath);
     void writeGlobal(const KScreen::OutputPtr &output);

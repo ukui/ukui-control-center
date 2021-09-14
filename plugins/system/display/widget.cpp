@@ -49,14 +49,6 @@
 #undef signals
 #endif
 
-extern "C" {
-#define MATE_DESKTOP_USE_UNSTABLE_API
-#include <libmate-desktop/mate-rr.h>
-#include <libmate-desktop/mate-rr-config.h>
-#include <libmate-desktop/mate-rr-labeler.h>
-#include <libmate-desktop/mate-desktop-utils.h>
-}
-
 #define QML_PATH "kcm_kscreen/qml/"
 
 #define UKUI_CONTORLCENTER_PANEL_SCHEMAS "org.ukui.control-center.panel.plugins"
@@ -95,7 +87,6 @@ Widget::Widget(QWidget *parent) :
     ui(new Ui::DisplayWindow())
 {
     qRegisterMetaType<QQuickView *>();
-    gdk_init(NULL, NULL);
 
     ui->setupUi(this);
     initNightModeUi();
@@ -131,22 +122,6 @@ Widget::Widget(QWidget *parent) :
     loadQml();
 
     mScreenScale = scaleGSettings->get(SCALE_KEY).toDouble();
-
-    connect(ui->scaleCombo, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-            this, [=](int index){
-        scaleChangedSlot(ui->scaleCombo->itemData(index).toDouble());
-    });
-    connect(scaleGSettings,&QGSettings::changed,this,[=](QString key){
-        if (!key.compare("scalingFactor", Qt::CaseSensitive)) {
-            double scale = scaleGSettings->get(key).toDouble();
-            if (ui->scaleCombo->findData(scale) == -1) {
-                scale = 1.0;
-            }
-            ui->scaleCombo->blockSignals(true);
-            ui->scaleCombo->setCurrentText(QString::number(scale * 100) + "%");
-            ui->scaleCombo->blockSignals(false);
-        }
-    });
 }
 
 Widget::~Widget()
@@ -1552,10 +1527,10 @@ void Widget::save()
     // due to the fact that we just can't be sure when xrandr is done changing things, 1000 doesn't seem to get in the way
     QTimer::singleShot(1000, this,
                        [=]() {
-        if (mIsWayland) {
-            QString hash = config->connectedOutputsHash();
-            writeFile(mDir % hash);
-        }
+
+        QString hash = config->connectedOutputsHash();
+        writeFile(mDir % hash);
+
         mBlockChanges = false;
         mConfigChanged = false;
         setMulScreenVisiable();
@@ -1576,7 +1551,6 @@ void Widget::save()
 
     } else {
         mPrevConfig = mConfig->clone();
-        writeScreenXml();
     }
 
     setActiveScreen();
@@ -1703,8 +1677,7 @@ bool Widget::writeFile(const QString &filePath)
         }
 
         writeGlobalPart(output, info, oldOutput);
-        info[QStringLiteral("primary")] = !output->name().compare(
-            getPrimaryWaylandScreen(), Qt::CaseInsensitive);
+        info[QStringLiteral("primary")] = output->isPrimary();
         info[QStringLiteral("enabled")] = output->isEnabled();
 
         auto setOutputConfigInfo = [&info](const KScreen::OutputPtr &out) {
@@ -1867,6 +1840,12 @@ void Widget::initConnection()
     });
 
     mControlPanel = new ControlPanel(this);
+
+    // Intel隐藏分辨率等调整选项
+    if (Utils::isTablet()) {
+        mControlPanel->setVisible(false);
+    }
+
     connect(mControlPanel, &ControlPanel::changed, this, &Widget::changed);
     connect(this, &Widget::changed, this, [=]() {
             changedSlot();
@@ -2010,6 +1989,22 @@ void Widget::initConnection()
         }
 
     });
+
+    connect(ui->scaleCombo, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this, [=](int index){
+        scaleChangedSlot(ui->scaleCombo->itemData(index).toDouble());
+    });
+    connect(scaleGSettings,&QGSettings::changed,this,[=](QString key){
+        if (!key.compare("scalingFactor", Qt::CaseSensitive)) {
+            double scale = scaleGSettings->get(key).toDouble();
+            if (ui->scaleCombo->findData(scale) == -1) {
+                scale = 1.0;
+            }
+            ui->scaleCombo->blockSignals(true);
+            ui->scaleCombo->setCurrentText(QString::number(scale * 100) + "%");
+            ui->scaleCombo->blockSignals(false);
+        }
+    });
 }
 
 
@@ -2036,32 +2031,6 @@ void Widget::setNightComponent()
     }
 }
 
-void Widget::writeScreenXml()
-{
-    MateRRScreen *rr_screen;
-    MateRRConfig *rr_config;
-
-    /* Normally, mate_rr_config_save() creates a backup file based on the
-     * old monitors.xml.  However, if *that* file didn't exist, there is
-     * nothing from which to create a backup.  So, here we'll save the
-     * current/unchanged configuration and then let our caller call
-     * mate_rr_config_save() again with the new/changed configuration, so
-     * that there *will* be a backup file in the end.
-     */
-
-    rr_screen = mate_rr_screen_new(gdk_screen_get_default(), NULL);   /* NULL-GError */
-    if (!rr_screen)
-        return;
-
-    rr_config = mate_rr_config_new_current(rr_screen, NULL);
-    mate_rr_config_save(rr_config, NULL);  /* NULL-GError */
-
-    char *backup_filename = mate_rr_config_get_backup_filename();
-    unlink(backup_filename);
-
-    g_object_unref(rr_config);
-    g_object_unref(rr_screen);
-}
 
 void Widget::setNightMode(const bool nightMode)
 {
