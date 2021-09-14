@@ -228,18 +228,20 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
     }
 
     QString modeID;
+    KScreen::ModePtr selectMode;
     KScreen::ModePtr currentMode = mOutput->currentMode();
     QList<KScreen::ModePtr> modes;
     Q_FOREACH (const KScreen::ModePtr &mode, mOutput->modes()) {
         if (mode->size() == size) {
+            selectMode = mode;
             modes << mode;
         }
     }
 
-//    Q_ASSERT(currentMode);
-    if (!currentMode)
+    // Q_ASSERT(currentMode);
+    if (!selectMode)
         return;
-    modeID = currentMode->id();
+    modeID = selectMode->id();
 
     // Don't remove the first "Auto" item - prevents ugly flicker of the combobox
     // when changing resolution
@@ -264,14 +266,10 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
         // If selected refresh rate is other then what we consider the "Auto" value
         // - that is it's not the highest resolution - then select it, otherwise
         // we stick with "Auto"
-        if (mode == currentMode && mRefreshRate->count() > 1) {
+        if (mode == selectMode && mRefreshRate->count() > 1) {
             // i + 1 since 0 is auto
             mRefreshRate->setCurrentIndex(i + 1);
         }
-    }
-
-    if (-1 == mRefreshRate->currentIndex() || 0 == mRefreshRate->currentIndex()) {
-        modeID = mRefreshRate->itemData(1).toString();
     }
 
     if (!modeID.isEmpty()) {
