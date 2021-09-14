@@ -119,7 +119,7 @@ public:
     int valueToPaVolume(int value); //滑动条值转换成音量
     int paVolumeToValue(int value); //音量值转换成滑动条值
     void themeChangeIcons();
-    static int connectContext(gpointer userdata);
+//    static int connectContext(gpointer userdata);
     static int caProplistMergeAp(ca_proplist *p, va_list ap);
     static int caPlayForWidget(UkmediaMainWidget *w, uint32_t id, ...);
     static int caProplistSetForWidget(ca_proplist *p, UkmediaMainWidget *widget);
@@ -205,7 +205,7 @@ public:
     QString findInputStreamCardName(QString streamName);
     QString findOutputStreamCardName(QString streamName);
 
-    bool exitBluetoochDevice();
+//    bool exitBluetoochDevice();
 
     QString findOutputPortName(int index,QString portLabel); //找到outputPortLabel对应的portName
     QString findInputPortName(int index,QString portLabel); //找到inputPortLabel对应的portName
@@ -245,6 +245,7 @@ private Q_SLOTS:
     void windowClosedComboboxChangedSlot(int index);
     void volumeChangedComboboxChangeSlot(int index);
     void settingMenuComboboxChangedSlot(int index);
+
 
     void cboxoutputListWidgetCurrentRowChangedSlot(int row);//combobox output list widget选项改变
     void cboxinputListWidgetCurrentRowChangedSlot(int row);//combobox input list widget选项改变
