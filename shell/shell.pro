@@ -101,6 +101,7 @@ SOURCES += \
     qtsingleapplication/qtsingleapplication.cpp \
     qtsingleapplication/qtlocalpeer.cpp \
     utils/utils.cpp \
+    utils/mthread.cpp \
     utils/xatom-helper.cpp
 
 HEADERS += \
@@ -129,6 +130,7 @@ HEADERS += \
     qtsingleapplication/qtsingleapplication.h \
     qtsingleapplication/qtlocalpeer.h \
     utils/utils.h \
+    utils/mthread.h \
     utils/xatom-helper.h
 
 FORMS += \
