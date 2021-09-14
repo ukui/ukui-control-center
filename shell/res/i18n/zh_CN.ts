@@ -2756,13 +2756,13 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     <name>Gesture</name>
     <message>
         <location filename="../../../plugins/other/gesture/gesture.ui" line="72"/>
-        <location filename="../../../plugins/other/gesture/gesture.cpp" line="64"/>
         <source>Gesture</source>
         <translatorcomment>手势</translatorcomment>
         <translation type="unfinished">手势</translation>
     </message>
     <message>
         <location filename="../../../plugins/other/gesture/gesture.cpp" line="30"/>
+        <location filename="../../../plugins/other/gesture/gesture.cpp" line="64"/>
         <source>Gesture Guidance</source>
         <translatorcomment>手势引导</translatorcomment>
         <translation type="unfinished">手势引导</translation>

@@ -61,7 +61,7 @@ QWidget *Gesture::get_plugin_ui(){
         pluginWidget->setAttribute(Qt::WA_StyledBackground,true);
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
         ui->setupUi(pluginWidget);
-        ui->label->setText(tr("Gesture"));
+        ui->label->setText(tr("Gesture Guidance"));
         ui->label->setStyleSheet("QLabel{font-size: 14px; color: palette(windowText);}");
         gifFlowLayout=new FlowLayout(ui->frame,0,20,20);
         gifFlowLayout->setContentsMargins(0, 0, 0, 0);
