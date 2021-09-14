@@ -41,7 +41,9 @@ INSTALLS += qm_files \
             search_file
 
 HEADERS += \
+    shell/utils/mthread.h \
     shell/utils/xatom-helper.h
 
 SOURCES += \
+    shell/utils/mthread.cpp \
     shell/utils/xatom-helper.cpp

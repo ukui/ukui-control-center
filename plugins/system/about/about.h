@@ -38,6 +38,7 @@
 #include <QFuture>
 
 #include "HpQRCodeInterface.h"
+#include "shell/utils/utils.h"
 
 #include "shell/interface.h"
 #include "Label/titlelabel.h"

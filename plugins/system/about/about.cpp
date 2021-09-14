@@ -673,29 +673,11 @@ void About::setupKernelCompenent()
 
     QString kernal = QSysInfo::kernelType() + " " + QSysInfo::kernelVersion();
     memorySize = getTotalMemory();
-
+    qDebug()<<kernal;
     mKernelLabel_2->setText(kernal);
     mMemoryLabel_2->setText(memorySize);
 
-    QDBusInterface youkerInterface("com.kylin.assistant.systemdaemon",
-                                   "/com/kylin/assistant/systemdaemon",
-                                   "com.kylin.assistant.systemdaemon",
-                                   QDBusConnection::systemBus());
-    if (!youkerInterface.isValid()) {
-        qCritical() << "Create youker Interface Failed When Get Computer info: " <<
-            QDBusConnection::systemBus().lastError();
-        return;
-    }
-
-    QDBusReply<QMap<QString, QVariant> > cpuinfo;
-    cpuinfo = youkerInterface.call("get_cpu_info");
-    if (!cpuinfo.isValid()) {
-        qDebug() << "cpuinfo is invalid" << endl;
-    } else {
-        QMap<QString, QVariant> res = cpuinfo.value();
-        cpuType = res["CpuVersion"].toString();
-    }
-
+    cpuType = Utils::getCpuInfo();
     mCpuLabel_2->setText(cpuType);
 }
 

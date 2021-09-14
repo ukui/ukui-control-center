@@ -27,6 +27,7 @@
 #include "shell/interface.h"
 #include "HoverWidget/hoverwidget.h"
 #include "ImageUtil/imageutil.h"
+#include "shell/utils/mthread.h"
 
 #include <QProcess>
 #include <QDBusInterface>

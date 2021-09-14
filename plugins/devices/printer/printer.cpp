@@ -180,7 +180,7 @@ void Printer::refreshPrinterDevSlot()
     for (int num = 0; num < printer.count(); num++) {
         QStringList env = QProcess::systemEnvironment();
 
-        env << "LANG=en_US.UTF-8";
+        env << "LANG=en_US";
 
         QProcess *process = new QProcess;
         process->setEnvironment(env);

@@ -35,6 +35,7 @@
 #include "HoverWidget/hoverwidget.h"
 #include "ImageUtil/imageutil.h"
 #include "AddBtn/addbtn.h"
+#include "shell/utils/mthread.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
