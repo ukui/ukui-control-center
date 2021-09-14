@@ -4659,8 +4659,8 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="119"/>
-        <source>open Wi-Fi</source>
-        <translation>打开Wi-Fi</translation>
+        <source>open WLAN</source>
+        <translation>打开无线局域网</translation>
         <extra-contents_path>/netconnect/open wifi</extra-contents_path>
     </message>
     <message>
