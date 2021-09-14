@@ -188,7 +188,14 @@ void ChangePwdDialog::setupConnect(){
             emit passwd_send(ui->curPwdLineEdit->text(), ui->pwdLineEdit->text());
 
         } else {
-            ui->tipLabel->setText(curPwdTip);
+
+            if (curPwdTip.contains("Failed")){
+                curPwdTip = tr("Authentication failed, input authtok again!");
+            }
+
+            if (QLabelSetText(ui->tipLabel, curPwdTip)){
+                ui->tipLabel->setToolTip(curPwdTip);
+            }
 
             ui->curPwdLineEdit->setText("");
 
@@ -216,7 +223,9 @@ void ChangePwdDialog::setupConnect(){
 
                 if (!txt.isEmpty()){
                     curPwdTip = "";
-                    ui->tipLabel->setText(curPwdTip);
+                    if (QLabelSetText(ui->tipLabel, curPwdTip)){
+                        ui->tipLabel->setToolTip(curPwdTip);
+                    }
                     pwdLegalityCheck();
                 }
 

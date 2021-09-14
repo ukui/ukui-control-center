@@ -19,6 +19,8 @@ public:
 private:
     Auth * auth;
 
+    bool accountlock;
+
 private Q_SLOTS:
     void onShowMessage(const QString &message, Auth::MessageType type);
     void onShowPrompt(const QString &prompt, Auth::PromptType type);
