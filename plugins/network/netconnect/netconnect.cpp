@@ -115,8 +115,8 @@ void NetConnect::initSearchText() {
     ui->detailBtn->setText(tr("Network settings"));
     //~ contents_path /netconnect/Netconnect Status
     ui->titleLabel->setText(tr("Netconnect Status"));
-    //~ contents_path /netconnect/open wifi
-    ui->openLabel->setText(tr("open Wi-Fi"));
+    //~ contents_path /netconnect/open WLAN
+    ui->openLabel->setText(tr("open WLAN"));
 }
 
 void NetConnect::initComponent() {
