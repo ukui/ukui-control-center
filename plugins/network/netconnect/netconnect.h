@@ -168,10 +168,9 @@ private:
 private:
     int         setSignal(QString lv);
     QStringList execGetLanList();
-    int         getWifiListDone(QVector<QStringList> wifislist, QStringList lanList, bool getWifiListDone);
+    int         getWifiListDone(QVector<QStringList> wifislist, QStringList lanList);
     QString     geiWifiChan();
     QString     getWifiSpeed();
-    QString     getSystemEnvironment();
 
     bool        getInitStatus();
     bool        getWifiStatus();
