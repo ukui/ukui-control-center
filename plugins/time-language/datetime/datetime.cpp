@@ -696,7 +696,7 @@ void DateTime::initConnect()
         }
     });
 
-    connect(ui->dateEdit, &QDateEdit::dateChanged, this, [=]() {
+    connect(ui->dateEdit, &DateEdit::changeDate, this, [=]() {
         setTime();
     });
 
@@ -825,7 +825,8 @@ void DateTime::initSetTime() {
     ui->minComboBox->blockSignals(true);
     ui->secComboBox->blockSignals(true);
 
-    ui->dateEdit->setDate(m_time.date());
+    if (!ui->dateEdit->hasFocus())
+        ui->dateEdit->setDate(m_time.date());
     ui->hourComboBox->setCurrentIndex(m_time.time().hour());
     ui->minComboBox->setCurrentIndex(m_time.time().minute());
     ui->secComboBox->setCurrentIndex(m_time.time().second());

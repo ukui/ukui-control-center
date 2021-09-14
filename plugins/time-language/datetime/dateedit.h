@@ -11,7 +11,12 @@ public :
     QPixmap drawSymbolicColoredPixmap(const QPixmap &source);
 protected:
     void paintEvent(QPaintEvent *e);
-
+    bool eventFilter(QObject *obj, QEvent *event) override;
+private:
+    bool hoverFlag = false;
+    bool focusFlag = false;
+Q_SIGNALS:
+    void changeDate();
 };
 
 #endif // DATEEDIT_H
