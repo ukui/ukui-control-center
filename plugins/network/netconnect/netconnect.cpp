@@ -393,7 +393,6 @@ void NetConnect:: getNetList() {
             for (int i = 1; i < reply.value().length(); i++) {
                 QString wifiName;
                 wifiName = reply.value().at(i).at(0) + reply.value().at(i).at(6);
-                qDebug()<<reply.value().at(i).at(6);
                 if (reply.value().at(i).at(3) != NULL && reply.value().at(i).at(3) != "--") {
                     wifiName += "lock";
                 }
@@ -640,6 +639,7 @@ int NetConnect::getWifiListDone(QVector<QStringList> getwifislist, QStringList g
     clearContent();
     mActiveInfo.clear();
     QString speed = getWifiSpeed();
+    qDebug()<<"speed"<<speed;
     bool wirelessStatus = getWirelessStatus();
     if (!speed.contains("/") && runCount < 1) {
         QElapsedTimer time;
@@ -689,16 +689,16 @@ int NetConnect::getWifiListDone(QVector<QStringList> getwifislist, QStringList g
                 QString freq;
                 for (int i = 0; i < getwifislist.size(); ++i) {
                     if (getwifislist.at(i).at(0) == actWifiName) {
-                        qDebug()<<"ssid is not euqal to wifiname";
-                        qDebug()<<"wname = "<<wname <<"actWifiName"<<actWifiName<<"length is:"<<getwifislist.length();
+                        qDebug()<<"ssid is euqal to wifiname";
                         if (actWifiName == nullptr) {
                             qDebug()<<"actWifiName is empty,return";
                             return -1;
                         }
                         wname = getwifislist.at(i).at(0);
-                        lockType = getwifislist.at(i).at(2);
-                        freq = getwifislist.at(i).at(3) + " MHz";
-                        QString category = getwifislist.at(i).at(5);
+                        qDebug()<<"wname = "<<wname <<"actWifiName"<<actWifiName<<"length is:"<<getwifislist.length();
+                        lockType = getwifislist.at(i).at(3);
+                        freq = getwifislist.at(i).at(4) + " MHz";
+                        QString category = getwifislist.at(i).at(6);
                         wname = wname + category;
                         mActiveInfo[index].strSecType = (lockType == "--" ? tr("None") : lockType);
                         mActiveInfo[index].strChan = chan;
@@ -708,21 +708,21 @@ int NetConnect::getWifiListDone(QVector<QStringList> getwifislist, QStringList g
                         } else {
                             mActiveInfo[index].strSpeed = speed + " (Mbps)";
                         }
-                        if (getwifislist.at(i).at(2) != NULL && getwifislist.at(i).at(2) != "--") {
+                        if (getwifislist.at(i).at(3) != NULL && getwifislist.at(i).at(3) != "--") {
                             wname += "lock";
                         }
-                        connectedWifi.insert(wname, this->setSignal(getwifislist.at(i).at(1)));
+                        connectedWifi.insert(wname, this->setSignal(getwifislist.at(i).at(2)));
                     } else if (connectWifi != "--" && getwifislist.at(i).at(0) == connectWifi && getwifislist.at(i).at(0) != actWifiName && !actWifiName.isEmpty()) {
                         qDebug()<<"ssid is not euqal to wifiname";
-                        qDebug()<<"wname = "<<wname <<"actWifiName"<<actWifiName<<"length is:"<<getwifislist.length();
                         if (actWifiName == nullptr) {
                             qDebug()<<"actWifiName is empty,return";
                             return -1;
                         }
                         wname = actWifiName;
-                        lockType = getwifislist.at(i).at(2);
-                        freq = getwifislist.at(i).at(3) + " MHz";
-                        QString category = getwifislist.at(i).at(5);
+                        qDebug()<<"wname = "<<wname <<"actWifiName"<<actWifiName<<"length is:"<<getwifislist.length();
+                        lockType = getwifislist.at(i).at(3);
+                        freq = getwifislist.at(i).at(4) + " MHz";
+                        QString category = getwifislist.at(i).at(6);
                         wname = wname + category;
                         mActiveInfo[index].strSecType = (lockType == "--" ? tr("None") : lockType);
                         mActiveInfo[index].strChan = chan;
@@ -732,10 +732,10 @@ int NetConnect::getWifiListDone(QVector<QStringList> getwifislist, QStringList g
                         } else {
                             mActiveInfo[index].strSpeed = speed + " (Mbps)";
                         }
-                        if (getwifislist.at(i).at(2) != NULL && getwifislist.at(i).at(2) != "--") {
+                        if (getwifislist.at(i).at(3) != NULL && getwifislist.at(i).at(3) != "--") {
                             wname += "lock";
                         }
-                        connectedWifi.insert(wname, this->setSignal(getwifislist.at(i).at(1)));
+                        connectedWifi.insert(wname, this->setSignal(getwifislist.at(i).at(2)));
                     }
                 }
             }
@@ -842,20 +842,53 @@ int NetConnect::getWifiListDone(QVector<QStringList> getwifislist, QStringList g
 }
 
 QString NetConnect::getWifiSpeed() {
+    QString program = "nmcli";
+    QStringList arg;
+    QStringList strlist;
+    QString strArray;
+    QString deviceInfo;
+    arg << "device";
+    QProcess *nmcliCmd = new QProcess(this);
+    nmcliCmd->start(program, arg);
+    nmcliCmd->waitForFinished();
+    QString nmcilInfo = nmcliCmd->readAll();
+    foreach (QString line, nmcilInfo.split("\n")) {
+        line.replace(QRegExp("[\\s]+"), " ");
+        strlist.append(line);
+    }
+    for (int i  = 0; i  < strlist.size(); i++) {
+        strArray = strlist.at(i);
+        if (strArray.contains("wifi")) {
+            deviceInfo = strArray;
+            break;
+        }
+    }
+
+    for (int i = 0; i < deviceInfo.length(); i++) {
+        if (deviceInfo.at(i) == " ") {
+            deviceInfo = deviceInfo.left(i);
+            break;
+        }
+    }
+
+    QString str = "iw";
+    QStringList args;
+    args << "dev" << deviceInfo << "link";
     QProcess *lanPro = new QProcess(this);
+    lanPro->start(str, args);
+    lanPro->waitForFinished();
+
     QString rxSpeed;
     QString txSpeed;
     QString output;
     QStringList slist;
 
-    lanPro->start("iw dev wlan0 link");
-    lanPro->waitForFinished();
     output = lanPro->readAll();
+
     foreach (QString line, output.split("\n")) {
         line.replace(QRegExp("[\\s]+"), "");
         slist.append(line);
     }
-
     for (int i = 0; i < slist.length(); i++) {
         QString str = slist.at(i);
         if (str.contains("rxbitrate:")) {
@@ -888,6 +921,7 @@ QString NetConnect::getWifiSpeed() {
         return dSpeed;
     }
     return uSpeed + "/" + dSpeed;
+
 }
 
 QString NetConnect::geiWifiChan() {
