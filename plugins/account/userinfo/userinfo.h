@@ -190,6 +190,7 @@ private:
     HoverWidget *addWgt;
 
     UserInfomation current_user;
+    bool isDelCurrentUser = false;
 
 private:
     SwitchButton * nopwdSwitchBtn;
