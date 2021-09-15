@@ -33,7 +33,6 @@
 #include <QTextCodec>
 #include <QByteArray>
 
-
 #include "SwitchButton/switchbutton.h"
 #include "ImageUtil/imageutil.h"
 #include "elipsemaskwidget.h"
@@ -631,10 +630,14 @@ void UserInfo::_refreshUserInfoUI(){
                 QPixmap iconPixmap = iconcop.copy((iconcop.width() - iconcop.height())/2, 0, iconcop.height(), iconcop.height());
                 // 根据label高度等比例缩放图片
                 ui->currentUserFaceLabel->setPixmap(iconPixmap.scaledToHeight(ui->currentUserFaceLabel->height()));
+
+                setChangeFaceShadow();
             } else {
                 QPixmap iconPixmap = iconcop.copy(0, (iconcop.height() - iconcop.width())/2, iconcop.width(), iconcop.width());
                 // 根据label宽度等比例缩放图片
                 ui->currentUserFaceLabel->setPixmap(iconPixmap.scaledToWidth(ui->currentUserFaceLabel->width()));
+
+                setChangeFaceShadow();
             }
 
             current_user = user;
@@ -731,6 +734,25 @@ void UserInfo::_refreshUserInfoUI(){
         }
     }
 
+}
+
+void UserInfo::setChangeFaceShadow()
+{
+    //在头像上添加更换字样及阴影
+    QLabel *changeLabel = new QLabel(ui->currentUserFaceLabel);
+    int changeLabelHeight = 26;
+    changeLabel->setGeometry(0, ui->currentUserFaceLabel->height() - changeLabelHeight, ui->currentUserFaceLabel->width(), changeLabelHeight);
+
+    changeLabel->setStyleSheet("QLabel{color:white;font-size:12px;background-color:rgb(0,0,0,70);}");
+    changeLabel->setText(tr("Change"));
+    changeLabel->setAlignment(Qt::AlignCenter);
+
+    QLabel *eraseOutLabel = new QLabel(ui->currentUserFaceLabel);
+    eraseOutLabel->setAttribute(Qt::WA_TranslucentBackground, true);
+    eraseOutLabel->setGeometry(0, 0, ui->currentUserFaceLabel->width(), ui->currentUserFaceLabel->height());
+
+    ElipseMaskWidget *eraseOutElipseMaskWidget = new ElipseMaskWidget(eraseOutLabel);
+    eraseOutElipseMaskWidget->setGeometry(0, 0, eraseOutLabel->width(), eraseOutLabel->height());
 }
 
 void UserInfo::_buildWidgetForItem(UserInfomation user){

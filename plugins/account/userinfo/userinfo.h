@@ -177,6 +177,8 @@ public:
 
     QPixmap PixmapToRound(const QString &src, int radius);
 
+    void setChangeFaceShadow();
+
 protected:
     bool eventFilter(QObject *watched, QEvent *event);
 
