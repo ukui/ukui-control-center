@@ -463,9 +463,15 @@ void SearchWidget::clearSearchData() {
 }
 
 void SearchWidget::initExcludeSearch() {
-    if (!Utils::isExistEffect()) {
+
+    if (Utils::isWayland()) {
         mCnExclude << "特效模式" << "透明度";
         mEnExclude << "Performance mode" << "Transparency";
+    }
+
+    if (!Utils::isExitBattery()) {
+     mCnExclude << "电池节能计划";
+     mEnExclude << "Battery saving plan";
     }
 
     if (Utils::isWayland() || !Utils::isExistEffect()) {
