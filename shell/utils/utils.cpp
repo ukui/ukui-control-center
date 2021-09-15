@@ -273,3 +273,27 @@ bool Utils::isCommunity()
     }
     return true;
 }
+
+bool Utils::isExitBattery()
+{
+    /* 默认机器没有电池 */
+    bool hasBat = false;
+    QDBusInterface *brightnessInterface = new QDBusInterface("org.freedesktop.UPower",
+                                     "/org/freedesktop/UPower/devices/DisplayDevice",
+                                     "org.freedesktop.DBus.Properties",
+                                     QDBusConnection::systemBus());
+    if (!brightnessInterface->isValid()) {
+        qDebug() << "Create UPower Interface Failed : " << QDBusConnection::systemBus().lastError();
+        return false;
+    }
+
+    QDBusReply<QVariant> briginfo;
+    briginfo  = brightnessInterface ->call("Get", "org.freedesktop.UPower.Device", "PowerSupply");
+
+    if (briginfo.value().toBool()) {
+        hasBat = true ;
+    }
+
+    delete brightnessInterface;
+    return hasBat;
+}
