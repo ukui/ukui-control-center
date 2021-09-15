@@ -102,6 +102,7 @@ public:
 
     QStringList _getSystemCursorThemes();
 
+    QFrame *setLine(QFrame *frame);
 private:
     void setCheckStatus(QLayout* mlayout, QString checkName, ThemeType type);
     double convertToTran(const int value);

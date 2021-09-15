@@ -99,7 +99,7 @@
             <number>16</number>
            </property>
            <property name="leftMargin">
-            <number>0</number>
+            <number>16</number>
            </property>
            <property name="topMargin">
             <number>8</number>
@@ -363,7 +363,10 @@
          </spacer>
         </item>
         <item>
-         <widget class="QWidget" name="iconThemeWidget" native="true">
+         <widget class="QFrame" name="iconThemeFrame">
+          <property name="frameShape">
+           <enum>QFrame::Box</enum>
+          </property>
           <layout class="QVBoxLayout" name="verticalLayout_8">
            <property name="spacing">
             <number>0</number>
@@ -383,7 +386,7 @@
            <item>
             <layout class="QVBoxLayout" name="iconThemeVerLayout">
              <property name="spacing">
-              <number>1</number>
+              <number>0</number>
              </property>
             </layout>
            </item>
@@ -511,7 +514,10 @@
          </spacer>
         </item>
         <item>
-         <widget class="QWidget" name="cursorWidget" native="true">
+         <widget class="QFrame" name="cursorFrame">
+          <property name="frameShape">
+           <enum>QFrame::Box</enum>
+          </property>
           <layout class="QVBoxLayout" name="verticalLayout_9">
            <property name="spacing">
             <number>0</number>
@@ -713,6 +719,18 @@
              </property>
              <item>
               <widget class="QLabel" name="transparencyLabel">
+               <property name="minimumSize">
+                <size>
+                 <width>164</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>160</width>
+                 <height>16777215</height>
+                </size>
+               </property>
                <property name="text">
                 <string>Transparency</string>
                </property>

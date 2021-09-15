@@ -439,9 +439,10 @@ void Theme::initIconTheme() {
 
     //构建图标主题QDir
     QDir themesDir = QDir(ICONTHEMEPATH);
-
-    foreach (QString themedir, themesDir.entryList(QDir::Dirs)) {
-
+    QStringList IconThemeList = themesDir.entryList(QDir::Dirs);
+    int count = 0;
+    foreach (QString themedir, IconThemeList) {
+        count++;
         if ((Utils::isCommunity() && (!themedir.compare("ukui") || !themedir.compare("ukui-classical")))
                 || (!Utils::isCommunity() && themedir.startsWith("ukui-icon-theme-"))) {
             QDir appsDir = QDir(ICONTHEMEPATH + themedir + "/48x48/apps/");
@@ -471,7 +472,10 @@ void Theme::initIconTheme() {
             widget->setValue(themedir);
 
             // 加入Layout
+            ui->iconThemeVerLayout->setSpacing(0);
             ui->iconThemeVerLayout->addWidget(widget);
+            if (count != IconThemeList.count())
+                ui->iconThemeVerLayout->addWidget(setLine(ui->iconThemeFrame));
 
             // 加入WidgetGround实现获取点击前Widget
             iconThemeWidgetGroup->addWidget(widget);
@@ -556,7 +560,9 @@ void Theme::initCursorTheme(){
         kwinCursorSlot(value);
     });
 
+    int count = 0;
     for (QString cursor : cursorThemes){
+        count++;
         QList<QPixmap> cursorVec;
         QString path = CURSORS_THEMES_PATH + cursor;
         XCursorTheme *cursorTheme = new XCursorTheme(path);
@@ -575,6 +581,8 @@ void Theme::initCursorTheme(){
 
         // 加入WidgetGround实现获取点击前Widget
         cursorThemeWidgetGroup->addWidget(widget);
+        if (count != cursorThemes.count())
+             ui->cursorVerLayout->addWidget(setLine(ui->cursorFrame));
 
         //初始化指针主题选中界面
         if (currentCursorTheme == cursor || (currentCursorTheme.isEmpty() && cursor == kDefCursor)){
@@ -626,6 +634,17 @@ QStringList Theme::_getSystemCursorThemes() {
         }
     }
     return themes;
+}
+
+QFrame *Theme::setLine(QFrame *frame)
+{
+    QFrame *line = new QFrame(frame);
+    line->setMinimumSize(QSize(0, 1));
+    line->setMaximumSize(QSize(16777215, 1));
+    line->setLineWidth(0);
+    line->setFrameShape(QFrame::HLine);
+    line->setFrameShadow(QFrame::Sunken);
+    return line;
 }
 
 bool Theme::getSystemVersion() {
@@ -838,6 +857,8 @@ void Theme::setCheckStatus(QLayout *mlayout, QString checkName, ThemeType type) 
         int size = mlayout->layout()->count();
         for (int i = 0; i < size; i++) {
             item = mlayout->layout()->itemAt(i);
+            if (item->widget()->height() == 1)
+                continue;
             ThemeWidget *themeWdt = static_cast<ThemeWidget *>(item->widget());
             themeWdt->setSelectedStatus(false);
             if (themeWdt->getValue() == checkName) {
