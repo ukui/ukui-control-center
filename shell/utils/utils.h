@@ -41,6 +41,7 @@ namespace Utils
     QVariantMap getModuleHideStatus();
     QString getCpuInfo();
     bool isExistEffect();
+    bool isExitBattery();
     void setKwinMouseSize(int size);
     bool isWayland();
     bool isCommunity();
