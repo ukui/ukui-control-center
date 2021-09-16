@@ -28,59 +28,6 @@
         <file>plugins/shortcut/up.png</file>
         <file>plugins/about/galaxyUnicorn.png</file>
         <file>plugins/about/logoukui.png</file>
-        <file>secondaryleftmenu/About.svg</file>
-        <file>secondaryleftmenu/AboutWhite.svg</file>
-        <file>secondaryleftmenu/Area.svg</file>
-        <file>secondaryleftmenu/AreaWhite.svg</file>
-        <file>secondaryleftmenu/Audio.svg</file>
-        <file>secondaryleftmenu/AudioWhite.svg</file>
-        <file>secondaryleftmenu/Autoboot.svg</file>
-        <file>secondaryleftmenu/AutobootWhite.svg</file>
-        <file>secondaryleftmenu/Background.svg</file>
-        <file>secondaryleftmenu/BackgroundWhite.svg</file>
-        <file>secondaryleftmenu/Backup.svg</file>
-        <file>secondaryleftmenu/BackupWhite.svg</file>
-        <file>secondaryleftmenu/Biometrics.svg</file>
-        <file>secondaryleftmenu/Dat.svg</file>
-        <file>secondaryleftmenu/DatWhite.svg</file>
-        <file>secondaryleftmenu/Defaultapp.svg</file>
-        <file>secondaryleftmenu/DefaultappWhite.svg</file>
-        <file>secondaryleftmenu/Desktop.svg</file>
-        <file>secondaryleftmenu/DesktopWhite.svg</file>
-        <file>secondaryleftmenu/Display.svg</file>
-        <file>secondaryleftmenu/DisplayWhite.svg</file>
-        <file>secondaryleftmenu/Experienceplan.svg</file>
-        <file>secondaryleftmenu/ExperienceplanWhite.svg</file>
-        <file>secondaryleftmenu/Fonts.svg</file>
-        <file>secondaryleftmenu/FontsWhite.svg</file>
-        <file>secondaryleftmenu/Keyboard.svg</file>
-        <file>secondaryleftmenu/KeyboardWhite.svg</file>
-        <file>secondaryleftmenu/Mouse.svg</file>
-        <file>secondaryleftmenu/MouseWhite.svg</file>
-        <file>secondaryleftmenu/Notice.svg</file>
-        <file>secondaryleftmenu/NoticeWhite.svg</file>
-        <file>secondaryleftmenu/Power.svg</file>
-        <file>secondaryleftmenu/PowerWhite.svg</file>
-        <file>secondaryleftmenu/Printer.svg</file>
-        <file>secondaryleftmenu/PrinterWhite.svg</file>
-        <file>secondaryleftmenu/Proxy.svg</file>
-        <file>secondaryleftmenu/ProxyWhite.svg</file>
-        <file>secondaryleftmenu/Screenlock.svg</file>
-        <file>secondaryleftmenu/ScreenlockWhite.svg</file>
-        <file>secondaryleftmenu/Screensaver.svg</file>
-        <file>secondaryleftmenu/ScreensaverWhite.svg</file>
-        <file>secondaryleftmenu/Shortcut.svg</file>
-        <file>secondaryleftmenu/ShortcutWhite.svg</file>
-        <file>secondaryleftmenu/Theme.svg</file>
-        <file>secondaryleftmenu/ThemeWhite.svg</file>
-        <file>secondaryleftmenu/Touchpad.svg</file>
-        <file>secondaryleftmenu/TouchpadWhite.svg</file>
-        <file>secondaryleftmenu/Update.svg</file>
-        <file>secondaryleftmenu/UpdateWhite.svg</file>
-        <file>secondaryleftmenu/Userinfo.svg</file>
-        <file>secondaryleftmenu/UserinfoWhite.svg</file>
-        <file>secondaryleftmenu/VpnWhite.svg</file>
-        <file>secondaryleftmenu/Vpn.svg</file>
         <file>titlebar/close.svg</file>
         <file>titlebar/max.svg</file>
         <file>titlebar/revert.svg</file>
@@ -115,25 +62,13 @@
         <file>plugins/mouse/double-click-on.png</file>
         <file>titlebar/add.svg</file>
         <file>plugins/update/update.svg</file>
-        <file>secondaryleftmenu/SecurityCenter.svg</file>
-        <file>secondaryleftmenu/SecurityCenterWhite.svg</file>
         <file>plugins/about/logoukui.svg</file>
         <file>titlebar/ukui-control-center.svg</file>
         <file>plugins/userinfo/notice.png</file>
-        <file>secondaryleftmenu/Cloud Account.svg</file>
-        <file>secondaryleftmenu/Cloud AccountWhite.svg</file>
         <file>dropArrow/search.svg</file>
-        <file>secondaryleftmenu/Vino.svg</file>
-        <file>secondaryleftmenu/VinoWhite.svg</file>
         <file>plugins/theme/opacitylow.svg</file>
         <file>plugins/theme/opacityhigh.svg</file>
-        <file>secondaryleftmenu/Bluetooth.svg</file>
-        <file>secondaryleftmenu/BluetoothWhite.svg</file>
-        <file>secondaryleftmenu/TouchScreenWhite.svg</file>
-        <file>secondaryleftmenu/TouchScreen.svg</file>
         <file>plugins/upgrade/refresh.png</file>
-        <file>secondaryleftmenu/Upgrade.svg</file>
-        <file>secondaryleftmenu/UpgradeWhite.svg</file>
         <file>plugins/upgrade/update.png</file>
         <file>plugins/upgrade/normal.png</file>
         <file>plugins/securitycenter/icon_scanning_b48@1x.png</file>
@@ -161,8 +96,6 @@
         <file>plugins/upgrade/loading15.svg</file>
         <file>plugins/upgrade/loading16.svg</file>
         <file>plugins/upgrade/loading17.svg</file>
-        <file>secondaryleftmenu/Date.svg</file>
-        <file>secondaryleftmenu/DateWhite.svg</file>
         <file>plugins/upgrade/kylin-update-desktop-kernel.png</file>
         <file>plugins/upgrade/linux-generic.png</file>
         <file>plugins/about/logo-light.svg</file>
@@ -180,15 +113,7 @@
         <file>plugins/netconnect/wifi6+-low-pwd.svg</file>
         <file>plugins/netconnect/wifi6+-medium-pwd.svg</file>
         <file>plugins/netconnect/wifi6+-none-pwd.svg</file>
-        <file>secondaryleftmenu/Projection.svg</file>
-        <file>secondaryleftmenu/ProjectionWhite.svg</file>
-        <file>secondaryleftmenu/Search.svg</file>
-        <file>secondaryleftmenu/SearchWhite.svg</file>
         <file>titlebar/index.svg</file>
-        <file>secondaryleftmenu/WiredConnectWhite.svg</file>
-        <file>secondaryleftmenu/WiredConnect.svg</file>
-        <file>secondaryleftmenu/Wlanconnect.svg</file>
-        <file>secondaryleftmenu/Wlanconnect White.svg</file>
         <file>plugins/netconnect/add.svg</file>
         <file>homepage/kylin-settings-account.png</file>
         <file>homepage/kylin-settings-application.png</file>
@@ -219,8 +144,6 @@
         <file>plugins/userinfo_intel/successed.png</file>
         <file>plugins/userinfo_intel/type.svg</file>
         <file>plugins/userinfo_intel/warning.svg</file>
-        <file>secondaryleftmenu/Gesture.svg</file>
-        <file>secondaryleftmenu/GestureWhite.svg</file>
         <file>plugins/gesture/gesture.ini</file>
         <file>plugins/gesture/Movingobjects.gif</file>
         <file>plugins/gesture/pause.png</file>
@@ -244,7 +167,6 @@
         <file>plugins/gesture/Showtaskbar.gif</file>
         <file>plugins/gesture/Textselection.gif</file>
         <file>plugins/gesture/Zoompicture.gif</file>
-        <file>secondaryleftmenu/Userinfointel.svg</file>
         <file>plugins/netconnect/1.png</file>
         <file>plugins/netconnect/2.png</file>
         <file>plugins/netconnect/4.png</file>
@@ -264,6 +186,45 @@
         <file>plugins/netconnect/8-black.png</file>
         <file>plugins/netconnect/6-black.png</file>
         <file>dropArrow/ukui-down-symbolic.svg</file>
+        <file>secondaryleftmenu/About.svg</file>
+        <file>secondaryleftmenu/AirplaneMode.svg</file>
+        <file>secondaryleftmenu/Area.svg</file>
+        <file>secondaryleftmenu/Audio.svg</file>
+        <file>secondaryleftmenu/Autoboot.svg</file>
+        <file>secondaryleftmenu/Background.svg</file>
+        <file>secondaryleftmenu/Backup.svg</file>
+        <file>secondaryleftmenu/Biometrics.svg</file>
+        <file>secondaryleftmenu/Bluetooth.svg</file>
+        <file>secondaryleftmenu/Cloud Account.svg</file>
+        <file>secondaryleftmenu/Date.svg</file>
+        <file>secondaryleftmenu/Defaultapp.svg</file>
+        <file>secondaryleftmenu/Desktop.svg</file>
+        <file>secondaryleftmenu/Display.svg</file>
+        <file>secondaryleftmenu/Experienceplan.svg</file>
+        <file>secondaryleftmenu/Fonts.svg</file>
+        <file>secondaryleftmenu/Gesture.svg</file>
+        <file>secondaryleftmenu/Hostpot.svg</file>
+        <file>secondaryleftmenu/Keyboard.svg</file>
+        <file>secondaryleftmenu/Mouse.svg</file>
+        <file>secondaryleftmenu/Notice.svg</file>
+        <file>secondaryleftmenu/Power.svg</file>
+        <file>secondaryleftmenu/Printer.svg</file>
+        <file>secondaryleftmenu/Projection.svg</file>
+        <file>secondaryleftmenu/Proxy.svg</file>
+        <file>secondaryleftmenu/Screenlock.svg</file>
+        <file>secondaryleftmenu/Screensaver.svg</file>
+        <file>secondaryleftmenu/Search.svg</file>
+        <file>secondaryleftmenu/SecurityCenter.svg</file>
+        <file>secondaryleftmenu/Shortcut.svg</file>
+        <file>secondaryleftmenu/Touchpad.svg</file>
+        <file>secondaryleftmenu/TouchScreen.svg</file>
+        <file>secondaryleftmenu/Upgrade.svg</file>
+        <file>secondaryleftmenu/Userinfo.svg</file>
+        <file>secondaryleftmenu/Vino.svg</file>
+        <file>secondaryleftmenu/Vpn.svg</file>
+        <file>secondaryleftmenu/Wlanconnect.svg</file>
+        <file>secondaryleftmenu/WiredConnect.svg</file>
+        <file>secondaryleftmenu/Theme.svg</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>
