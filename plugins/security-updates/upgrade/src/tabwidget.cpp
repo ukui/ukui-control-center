@@ -202,7 +202,7 @@ void TabWid::disconnectSource()
     //        checkUpdateBtn->setText(tr("检查更新"));
     checkUpdateBtn->setText(tr("Check Update"));
     //        versionInformationLab->setText(tr("服务连接异常，请重新检测!") );
-    versionInformationLab->setText(tr("Failed to connect to software warehouse!") );
+    versionInformationLab->setText(tr("Software source server connection timeout") );
 }
 TabWid::~TabWid()
 {
@@ -934,7 +934,7 @@ void TabWid::checkUpdateBtnClicked()
         QTimer *timer = new QTimer;
         timer->setSingleShot(true);
         connect(timer,&QTimer::timeout,this,&TabWid::unableToConnectSource);
-        timer->start(60000);
+        timer->start(90000);
         QDateTime current_date_time = QDateTime::currentDateTime();
         QString current_date = current_date_time.toString("yyyy.MM.dd hh:mm:ss");
         updateMutual->insertInstallStates("check_time",current_date);
