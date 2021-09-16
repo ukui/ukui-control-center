@@ -28,6 +28,8 @@
 #include <QPushButton>
 
 #include "changeusertype.h"
+#include "changeusernickname.h"
+#include "changeuserpwd.h"
 
 #include <QObject>
 #include <QtPlugin>
@@ -139,6 +141,7 @@ public:
     TitleLabel * currentLabel;
     TitleLabel * othersLabel;
     QLabel * currentNickNameLabel;
+    QLabel * currentNickNameChangeLabel;
     QLabel * currentUserTypeLabel;
     QLabel * nopwdLoginLabel;
     QLabel * autoLoginLabel;
@@ -152,6 +155,7 @@ public:
     QVBoxLayout * currentVerLayout;
     QHBoxLayout * currentUserHorLayout;
     QVBoxLayout * currentUserinfoVerLayout;
+    QHBoxLayout * currentNickNameHorLayout;
     QHBoxLayout * nopwdLoginHorLayout;
     QHBoxLayout * autoLoginHorLayout;
     QVBoxLayout * otherVerLayout;
@@ -176,6 +180,8 @@ public:
     void setUserDBusPropertyConnect(const QString pObjPath);
 
     void showChangeUserTypeDialog(QString u);
+    void showChangeUserNicknameDialog();
+    void showChangeUserPwdDialog(QString pName);
 
 protected:
     QFrame * createHLine(QFrame * f, int len = 0);
@@ -185,9 +191,11 @@ protected:
 private:
     QFrame * buildItemForOthers(UserInfomation user);
 
+    bool isLastAdmin(QString uname);
+
 
 public slots:
-    void userPropertyChangedSlot(QString, QMap<QString, QVariant>, QStringList);
+    void currentUserPropertyChangedSlot(QString, QMap<QString, QVariant>, QStringList);
 
     /**************/
 

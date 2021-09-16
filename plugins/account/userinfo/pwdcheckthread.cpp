@@ -21,7 +21,7 @@ void PwdCheckThread::run(){
     char command[128];
     char output[256];
 
-    bool result = false;
+    QString result;;
 
     QByteArray ba1 = uname.toLatin1();
 
@@ -36,9 +36,10 @@ void PwdCheckThread::run(){
     if ((stream = popen(command, "r")) != NULL){
 
         while(fgets(output, 256, stream) != NULL){
-            if (QString::compare(QString(output).simplified(), "Succes!") == 0){
-                result = true;
-            }
+            result = QString(output).simplified();
+//            if (QString::compare(QString(output).simplified(), "Succes!") == 0){
+//                result = true;
+//            }
 
         }
         pclose(stream);

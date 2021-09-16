@@ -26,6 +26,11 @@
 #include <stdlib.h>
 #include <QDir>
 
+#include <QDBusInterface>
+#include <QDBusReply>
+
+#include <polkit-qt5-1/polkitqt1-authority.h>
+
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
  **/
@@ -39,11 +44,6 @@ extern "C" {
 
 }
 #include <QtConcurrent/QtConcurrent>
-#include "run-passwd2.h"
-
-PasswdHandler * passwd_handler = NULL;
-
-static void chpasswd_cb(PasswdHandler * passwd_handler, GError * error, gpointer user_data);
 
 QStringList ddcProIdList;
 
@@ -54,6 +54,8 @@ SysdbusRegister::SysdbusRegister()
     mHibernateSet->setIniCodec("UTF-8");
     runThreadFlag = false;
     getBrightnessInfo();
+
+    _id = 0;
 }
 
 SysdbusRegister::~SysdbusRegister()
@@ -62,6 +64,12 @@ SysdbusRegister::~SysdbusRegister()
 
 void SysdbusRegister::exitService() {
     qApp->exit(0);
+}
+
+int SysdbusRegister::setPid(qint64 id){
+    _id = id;
+
+    return 1;
 }
 
 QString SysdbusRegister::GetComputerInfo() {
@@ -153,7 +161,7 @@ void SysdbusRegister::setPasswdAging(int days, QString username) {
     QProcess::execute(cmd);
 }
 
-int SysdbusRegister::changeOtherUserPasswd(QString username, QString pwd){
+int SysdbusRegister::_changeOtherUserPasswd(QString username, QString pwd){
 
     std::string str1 = username.toStdString();
     const char * user_name = str1.c_str();
@@ -161,12 +169,94 @@ int SysdbusRegister::changeOtherUserPasswd(QString username, QString pwd){
     std::string str2 = pwd.toStdString();
     const char * passwd = str2.c_str();
 
-    passwd_handler = passwd_init();
+    QString output;
 
-    passwd_change_password(passwd_handler, user_name, passwd, chpasswd_cb, NULL);
+    char * cmd = g_strdup_printf("/usr/bin/changeotheruserpwd '%s' '%s'", user_name, passwd);
+
+    FILE   *stream;
+    char buf[256];
+
+    if ((stream = popen(cmd, "r" )) == NULL){
+        return -1;
+    }
+
+    while(fgets(buf, 256, stream) != NULL){
+        output = QString(buf).simplified();
+    }
+
+    pclose(stream);
+
+    return 1;
+}
+
+int SysdbusRegister::changeOtherUserPasswd(QString username, QString pwd){
+
+    //密码校验
+    if (!checkAuthorization()){
+        return 0;
+    }
+
+    _changeOtherUserPasswd(username, pwd);
 
     return 1;
 
+}
+
+int SysdbusRegister::createUser(QString name, QString fullname, int accounttype, QString faceicon, QString pwd){
+
+    //密码校验
+    if (!checkAuthorization()){
+        return 0;
+    }
+
+    QDBusInterface iface("org.freedesktop.Accounts",
+                         "/org/freedesktop/Accounts",
+                         "org.freedesktop.Accounts",
+                         QDBusConnection::systemBus());
+
+    QDBusReply<QDBusObjectPath> reply = iface.call("CreateUser", name, fullname, accounttype);
+
+    if (reply.isValid()){
+        QString op = reply.value().path();
+        if (!op.isEmpty()){
+
+            QDBusInterface ifaceUser("org.freedesktop.Accounts",
+                                     op,
+                                     "org.freedesktop.Accounts.User",
+                                     QDBusConnection::systemBus());
+            // 设置头像
+            ifaceUser.call("SetIconFile", faceicon);
+
+            // 设置密码
+            _changeOtherUserPasswd(name, pwd);
+
+
+        }
+    }
+
+    return 1;
+
+}
+
+bool SysdbusRegister::checkAuthorization(){
+
+    if (_id == 0)
+        return false;
+
+    PolkitQt1::Authority::Result result;
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action",
+                PolkitQt1::UnixProcessSubject(_id),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::No){
+        _id = 0;
+        return false;
+    } else {
+        _id = 0;
+        return true;
+    }
 }
 
 void SysdbusRegister::setDDCBrightness(QString brightness, QString type) {
@@ -209,13 +299,6 @@ int SysdbusRegister::getDDCBrightness(QString type) {
         return bright;
 
     return -1;
-}
-
-static void chpasswd_cb(PasswdHandler *passwd_handler, GError *error, gpointer user_data){
-    Q_UNUSED(passwd_handler)
-    Q_UNUSED(error)
-    Q_UNUSED(user_data)
-    g_warning("chpasswd_cb run");
 }
 
 int SysdbusRegister::changeRTC() {

@@ -22,7 +22,7 @@ public:
     ~ChangeUserType();
 
 public:
-    void requireUserInfo(QString logo, QString nname, QString utype);
+    void requireUserInfo(QString logo, QString nname, int id, QString utype);
     void initUI();
     void setConnect();
 
@@ -30,12 +30,12 @@ public:
     QVBoxLayout * cutMainVerLayout;
     QHBoxLayout * cutUserHorLayout;
     QVBoxLayout * cutUserInfoVerLayout;
-    QHBoxLayout * cutAdminHorLayout;
-    QHBoxLayout * cutStandardHorLayout;
-    QVBoxLayout * cutAdminInfoVerLayout;
-    QVBoxLayout * cutStandardInfoVerLayout;
-    QVBoxLayout * cutAdminInfo2VerLayout;
-    QVBoxLayout * cutStandardInfo2VerLayout;
+    QVBoxLayout * cutAdminVerLayout;
+    QVBoxLayout * cutStandardVerLayout;
+    QHBoxLayout * cutAdminInfoHorLayout;
+    QHBoxLayout * cutStandardInfoHorLayout;
+    QHBoxLayout * cutAdminInfo2HorLayout;
+    QHBoxLayout * cutStandardInfo2HorLayout;
     QHBoxLayout * cutBtnGroupsHorLayout;
 
     QRadioButton * cutAdminRadioBtn;
@@ -69,7 +69,6 @@ private:
     QString logo;
 
     QDBusInterface * cutiface;
-    QDBusInterface * cutipface;
 
 };
 

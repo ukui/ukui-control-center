@@ -64,10 +64,8 @@ ChangePwdDialog::ChangePwdDialog(bool _isCurrentUser, QString _username, QWidget
     setWindowTitle(tr("Change pwd"));
 
     curPwdTip = "";
+    pwdChecking = false;
 
-    timerForCheckPwd = new QTimer;
-    timerForCheckPwd->setInterval(1000);
-    timerForCheckPwd->setSingleShot(true);
 
     ui->tipLabel->setAlignment(Qt::AlignCenter);
     ui->tipLabel->setStyleSheet("color:red;");
@@ -93,43 +91,41 @@ ChangePwdDialog::~ChangePwdDialog()
 //    delete pcThread;
 }
 
-bool ChangePwdDialog::checkOtherPasswd(QString name, QString pwd){
+bool ChangePwdDialog::isRemoteUser(){
+
     FILE * stream;
-    char command[128];
     char output[256];
 
-    QByteArray ba1 = name.toLatin1();
+    char * command = "cat /etc/passwd | awk -F : '{print$1}'";
+    bool result;
 
-    //
-    if (pwd.contains("'")){
-        snprintf(command, 128, "/usr/bin/checkTest %s \"%s\"", ba1.data(), pwd.toLatin1().data());
-    } else {
-
-        snprintf(command, 128, "/usr/bin/checkTest %s '%s'", ba1.data(), pwd.toLatin1().data());
-    }
+    QStringList userslist;
 
     if ((stream = popen(command, "r")) == NULL){
         return false;
     }
 
     while(fgets(output, 256, stream) != NULL){
-        qDebug() << "output:" << QString(output).simplified();
+        userslist.append(QString(output).simplified());
     }
 
-//    if (fread(output, sizeof(char), 128, stream) > 0){
-//        pclose(stream);
-//        return true;
-//    }
-
-
+    if (userslist.contains(currentUserName)){
+        result = false;
+    } else {
+        result = true;
+    }
 
     pclose(stream);
-    return false;
+    return result;
+
 }
 
 void ChangePwdDialog::initPwdChecked(){
 
-
+    if (remoteUser){
+        enablePwdQuality = false;
+        return;
+    }
 
 #ifdef ENABLEPQ
     int ret;
@@ -177,47 +173,74 @@ void ChangePwdDialog::setupComponent(){
 
 void ChangePwdDialog::setupConnect(){
 
-    connect(pcThread, &PwdCheckThread::complete, this, [=](bool re){
-        curPwdTip = re ? "" : tr("Pwd input error, re-enter!");
+    connect(pcThread, &PwdCheckThread::complete, this, [=](QString re){
+        curPwdTip = re;
 
-        if (pwdTip.isEmpty() && pwdSureTip.isEmpty()){
-            ui->tipLabel->setText(curPwdTip);
+        if (re.isEmpty()){ //密码校验成功
+
+            this->accept();
+
+            emit passwd_send(ui->curPwdLineEdit->text(), ui->pwdLineEdit->text());
+
+        } else {
+
+            if (curPwdTip.contains("Failed")){
+                curPwdTip = tr("Authentication failed, input authtok again!");
+            }
+
+            if (QLabelSetText(ui->tipLabel, curPwdTip)){
+                ui->tipLabel->setToolTip(curPwdTip);
+            }
+
+            ui->curPwdLineEdit->setText("");
+
+            refreshConfirmBtnStatus();
         }
 
-        if (curPwdTip.isEmpty()){
-            pwdTip.isEmpty() ? ui->tipLabel->setText(pwdSureTip) : ui->tipLabel->setText(pwdTip);
-        }
+        pwdChecking = false;
 
-        refreshConfirmBtnStatus();
+        refreshCancelBtnStatus();
     });
 
     if (isCurrentUser){
 
-        connect(timerForCheckPwd, &QTimer::timeout, [=]{
-            /* 密码为空不检测 */
-            if (ui->curPwdLineEdit->text().isEmpty()){
-                return;
-            }
+        if (remoteUser) {
+            connect(ui->confirmPushBtn, &QPushButton::clicked, [=]{
+                this->accept();
 
-            pcThread->setArgs(currentUserName, ui->curPwdLineEdit->text());
+                emit passwd_send3(ui->curPwdLineEdit->text(), ui->pwdLineEdit->text());
+            });}
+        else {
+            connect(ui->curPwdLineEdit, &QLineEdit::textChanged, [=](QString txt){
 
-            pcThread->start();
+                if (!txt.isEmpty()){
+                    curPwdTip = "";
+                    if (QLabelSetText(ui->tipLabel, curPwdTip)){
+                        ui->tipLabel->setToolTip(curPwdTip);
+                    }
+                    pwdLegalityCheck();
+                }
 
-        });
+                refreshConfirmBtnStatus();
+            });
 
-        connect(ui->curPwdLineEdit, &QLineEdit::textChanged, [=]{
-            pwdLegalityCheck();
+            connect(ui->confirmPushBtn, &QPushButton::clicked, [=]{
 
-            ui->confirmPushBtn->setEnabled(false);
+                if (pwdChecking)
+                    return;
 
-            timerForCheckPwd->start();
-        });
+                pcThread->setArgs(currentUserName, ui->curPwdLineEdit->text());
 
-        connect(ui->confirmPushBtn, &QPushButton::clicked, [=]{
-            this->accept();
+                pcThread->start();
 
-            emit passwd_send(ui->pwdLineEdit->text());
-        });
+                pwdChecking = true;
+
+                refreshCancelBtnStatus();
+
+            });
+
+        }
+
     } else {
         connect(ui->confirmPushBtn, &QPushButton::clicked, [=]{
             this->accept();
@@ -242,7 +265,15 @@ void ChangePwdDialog::setupConnect(){
 
         ui->tipLabel->setText(pwdSureTip);
         if (pwdSureTip.isEmpty()){
-            pwdTip.isEmpty() ? ui->tipLabel->setText(curPwdTip) : ui->tipLabel->setText(pwdTip);
+            if (!pwdTip.isEmpty()){
+                if (QLabelSetText(ui->tipLabel, pwdTip)){
+                    ui->tipLabel->setToolTip(pwdTip);
+                }
+            } else if (!curPwdTip.isEmpty()){
+                if (QLabelSetText(ui->tipLabel, curPwdTip)){
+                    ui->tipLabel->setToolTip(curPwdTip);
+                }
+            }
         }
 
         refreshConfirmBtnStatus();
@@ -346,19 +377,40 @@ void ChangePwdDialog::pwdLegalityCheck(){
         }
     }
 
-    ui->tipLabel->setText(pwdTip);
+    if (QLabelSetText(ui->tipLabel, pwdTip)){
+        ui->tipLabel->setToolTip(pwdTip);
+    }
     if (pwdTip.isEmpty()){
-        pwdSureTip.isEmpty() ? ui->tipLabel->setText(curPwdTip) : ui->tipLabel->setText(pwdSureTip);
+        if (!pwdSureTip.isEmpty()){
+            if (QLabelSetText(ui->tipLabel, pwdSureTip)){
+                ui->tipLabel->setToolTip(pwdSureTip);
+            }
+
+        } else if (!curPwdTip.isEmpty()){
+            if (QLabelSetText(ui->tipLabel, curPwdTip)){
+                ui->tipLabel->setToolTip(curPwdTip);
+            }
+        }
     }
 }
 
 bool ChangePwdDialog::checkCharLegitimacy(QString password){
+    if (password.contains("'"))
+        return false;
     foreach (QChar ch, password){
         if (int(ch.toLatin1() <= 0 || int(ch.toLatin1()) > 127)){
             return false;
         }
     }
     return true;
+}
+
+void ChangePwdDialog::refreshCancelBtnStatus(){
+    if (pwdChecking){
+        ui->cancelPushBtn->setEnabled(false);
+    } else {
+        ui->cancelPushBtn->setEnabled(true);
+    }
 }
 
 
@@ -381,5 +433,36 @@ void ChangePwdDialog::refreshConfirmBtnStatus(){
             ui->confirmPushBtn->setEnabled(false);
         else
             ui->confirmPushBtn->setEnabled(true);
+    }
+}
+
+bool ChangePwdDialog::QLabelSetText(QLabel *label, QString string)
+{
+    bool is_over_length = false;
+    QFontMetrics fontMetrics(label->font());
+    int fontSize = fontMetrics.width(string);
+    QString str = string;
+    if (fontSize > (label->width()-5)) {
+        str = fontMetrics.elidedText(string, Qt::ElideRight, label->width()-10);
+        is_over_length = true;
+    }
+    label->setText(str);
+    return is_over_length;
+}
+
+
+void ChangePwdDialog::keyPressEvent(QKeyEvent * event){
+    switch (event->key())
+    {
+    case Qt::Key_Escape:
+        break;
+    case Qt::Key_Enter:
+        break;
+    case Qt::Key_Return:
+        if (ui->confirmPushBtn->isEnabled())
+            ui->confirmPushBtn->clicked();
+        break;
+    default:
+        QDialog::keyPressEvent(event);
     }
 }
