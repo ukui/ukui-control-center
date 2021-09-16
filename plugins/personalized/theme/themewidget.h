@@ -25,10 +25,11 @@
 #include <QList>
 #include <QPixmap>
 #include <QRadioButton>
+#include <QFrame>
 
 class QLabel;
 
-class ThemeWidget : public QWidget
+class ThemeWidget : public QFrame
 {
     Q_OBJECT
 
@@ -43,8 +44,8 @@ public:
     QString getValue();
 
 public:
-    QRadioButton * selectedbtn;
     QLabel * placeHolderLabel;
+    QLabel * selectedLabel;
 
 protected:
     virtual void paintEvent(QPaintEvent * event);
