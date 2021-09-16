@@ -186,14 +186,25 @@ void UserInfo::initUI(){
 
     currentNickNameLabel = new QLabel();
     currentNickNameLabel->setFixedHeight(27);
+    currentNickNameChangeLabel = new QLabel();
+    currentNickNameChangeLabel->setFixedSize(QSize(15, 22));
+    currentNickNameChangeLabel->setProperty("useIconHighlightEffect", 0x8);
+    currentNickNameChangeLabel->setPixmap(QIcon::fromTheme("document-edit-symbolic").pixmap(currentNickNameChangeLabel->size()));
     currentUserTypeLabel = new QLabel();
     currentUserTypeLabel->setFixedHeight(20);
+
+    currentNickNameHorLayout = new QHBoxLayout();
+    currentNickNameHorLayout->setSpacing(0);
+    currentNickNameHorLayout->setContentsMargins(0, 0, 0, 0);
+    currentNickNameHorLayout->addWidget(currentNickNameLabel);
+    currentNickNameHorLayout->addWidget(currentNickNameChangeLabel);
 
     currentUserinfoVerLayout = new QVBoxLayout();
     currentUserinfoVerLayout->setSpacing(4);
     currentUserinfoVerLayout->setContentsMargins(0, 0, 0, 0);
     currentUserinfoVerLayout->addStretch();
-    currentUserinfoVerLayout->addWidget(currentNickNameLabel, Qt::AlignHCenter);
+//    currentUserinfoVerLayout->addWidget(currentNickNameLabel, Qt::AlignHCenter);
+    currentUserinfoVerLayout->addLayout(currentNickNameHorLayout);
     currentUserinfoVerLayout->addWidget(currentUserTypeLabel, Qt::AlignHCenter);
     currentUserinfoVerLayout->addStretch();
 
@@ -223,7 +234,7 @@ void UserInfo::initUI(){
     nopwdLoginFrame = new QFrame();
 
     nopwdLoginLabel = new QLabel();
-    nopwdLoginLabel->setText(tr("AutoLoginOnBoot"));
+    nopwdLoginLabel->setText(tr("LoginWithoutPwd"));
 //    nopwdLoginLabel->setFixedWidth(550);
 
     nopwdLoginSBtn = new SwitchButton(nopwdLoginFrame);
@@ -244,7 +255,7 @@ void UserInfo::initUI(){
     autoLoginFrame = new QFrame();
 
     autoLoginLabel = new QLabel();
-    autoLoginLabel->setText(tr("LoginWithoutPwd"));
+    autoLoginLabel->setText(tr("AutoLoginOnBoot"));
 //    autoLoginLabel->setFixedWidth(550);
 
     autoLoginSBtn = new SwitchButton(autoLoginFrame);
@@ -311,6 +322,8 @@ void UserInfo::initUI(){
     mainVerLayout->addWidget(currentLabel);
     mainVerLayout->addWidget(currentFrame);
 
+    mainVerLayout->addSpacing(40);
+
     mainVerLayout->addWidget(othersLabel);
     mainVerLayout->addWidget(othersFrame);
 
@@ -352,9 +365,47 @@ void UserInfo::buildAndSetupUsers(){
                 currentUserTypeLabel->setToolTip(cType);
             }
 
+            //绑定当前用户的属性改变回调
+            setUserDBusPropertyConnect(user.objpath);
+
         } else {
             otherVerLayout->insertWidget(0, buildItemForOthers(user));
         }
+    }
+}
+
+void UserInfo::showChangeUserNicknameDialog(){
+    if (allUserInfoMap.keys().contains(g_get_user_name())){
+        QStringList names;
+        QMap<QString, UserInfomation>::iterator it = allUserInfoMap.begin();
+        for (; it != allUserInfoMap.end(); it++){
+            UserInfomation user = it.value();
+
+            names.append(user.username);
+            names.append(user.realname);
+        }
+
+        UserInfomation user = allUserInfoMap.value(g_get_user_name());
+
+        ChangeUserNickname dialog(user.realname, names, user.objpath);
+        dialog.exec();
+
+    } else {
+        qWarning() << "User Data Error When Change User Type";
+    }
+
+    _acquireAllUsersInfo();
+}
+
+void UserInfo::showChangeUserPwdDialog(QString pName){
+    if (allUserInfoMap.keys().contains(pName)){
+        UserInfomation user = allUserInfoMap.value(pName);
+
+        ChangeUserPwd dialog(pName);
+        dialog.exec();
+
+    } else {
+        qWarning() << "User Info Data Error When Change User Pwd";
     }
 }
 
@@ -362,12 +413,15 @@ void UserInfo::showChangeUserTypeDialog(QString u){
     if (allUserInfoMap.keys().contains(u)){
         UserInfomation user = allUserInfoMap.value(u);
 
-        ChangeUserType * dialog = new ChangeUserType(user.objpath);
-        dialog->exec();
+        ChangeUserType dialog(user.objpath);
+        dialog.requireUserInfo(user.iconfile, user.realname, user.accounttype, _accountTypeIntToString(user.accounttype));
+        dialog.exec();
 
     } else {
-        qDebug() << "User Data Error When Change User type";
+        qWarning() << "User Data Error When Change User Nickname";
     }
+
+    _acquireAllUsersInfo();
 }
 
 
@@ -425,6 +479,13 @@ QFrame * UserInfo::buildItemForOthers(UserInfomation user){
     QPushButton * deleteOtherBtn = new QPushButton();
     deleteOtherBtn->setFlat(true);
     deleteOtherBtn->setText(tr("Del"));
+
+    connect(changeOtherTypeBtn, &QPushButton::clicked, this, [=](){
+        showChangeUserTypeDialog(user.username);
+    });
+    connect(changeOtherPwdBtn, &QPushButton::clicked, this, [=]{
+        showChangeUserPwdDialog(user.username);
+    });
 
     QLabel * otherNickNameLabel = new QLabel();
     otherNickNameLabel->setFixedHeight(20);
@@ -485,9 +546,9 @@ bool UserInfo::setTextDynamic(QLabel *label, QString string){
     int fontSize = fontMetrics.width(string);
 
     QString str = string;
-    if (fontSize > 100) {
-        label->setFixedWidth(100);
-        str = fontMetrics.elidedText(string, Qt::ElideRight, 100);
+    if (fontSize > 80) {
+        label->setFixedWidth(80);
+        str = fontMetrics.elidedText(string, Qt::ElideRight, 80);
         isOverLength = true;
     } else {
         label->setFixedWidth(fontSize);
@@ -498,6 +559,51 @@ bool UserInfo::setTextDynamic(QLabel *label, QString string){
 }
 
 void UserInfo::setUserConnect(){
+
+    currentNickNameLabel->installEventFilter(this);
+    currentNickNameChangeLabel->installEventFilter(this);
+
+    connect(changeCurrentPwdBtn, &QPushButton::clicked, this, [=]{
+        showChangeUserPwdDialog(QString(g_get_user_name()));
+    });
+
+    connect(changeCurrentGroupsBtn, &QPushButton::clicked, this, [=](bool checked){
+        Q_UNUSED(checked)
+        showChangeGroupDialog();
+    });
+
+    //自动登录登录
+    connect(autoLoginSBtn, &SwitchButton::checkedChanged, [=](bool checked){
+        UserInfomation user = allUserInfoMap.value(g_get_user_name());
+
+        QDBusInterface piface("org.freedesktop.Accounts",
+                              user.objpath,
+                              "org.freedesktop.Accounts.User",
+                              QDBusConnection::systemBus());
+        if (piface.isValid()){
+            piface.call("SetAutomaticLogin", checked);
+        } else {
+            qCritical() << "Create Client Interface Failed When execute gpasswd: " << QDBusConnection::systemBus().lastError();
+        }
+    });
+
+    //免密登录
+    connect(nopwdLoginSBtn, &SwitchButton::checkedChanged, [=](bool checked){
+        UserInfomation user = allUserInfoMap.value(g_get_user_name());
+
+        QDBusInterface piface("com.control.center.qt.systemdbus",
+                              "/",
+                              "com.control.center.interface",
+                              QDBusConnection::systemBus());
+
+        if (piface.isValid()){
+            piface.call("setNoPwdLoginStatus", checked, user.username);
+        } else {
+            qCritical() << "Create Client Interface Failed When execute gpasswd: " << QDBusConnection::systemBus().lastError();
+
+        }
+
+    });
 
     connect(changeCurrentTypeBtn, &QPushButton::clicked, [=]{
         showChangeUserTypeDialog(QString(g_get_user_name()));
@@ -511,15 +617,65 @@ void UserInfo::setUserDBusPropertyConnect(const QString pObjPath){
                              QDBusConnection::systemBus());
 
     iproperty.connection().connect("org.freedesktop.Accounts", pObjPath, "org.freedesktop.DBus.Properties", "PropertiesChanged",
-                                    this, SLOT(userPropertyChangedSlot(QString, QMap<QString, QVariant>, QStringList)));
+                                    this, SLOT(currentUserPropertyChangedSlot(QString, QMap<QString, QVariant>, QStringList)));
 }
 
 
-void UserInfo::userPropertyChangedSlot(QString property, QMap<QString, QVariant> propertyMap, QStringList propertyList){
+void UserInfo::currentUserPropertyChangedSlot(QString property, QMap<QString, QVariant> propertyMap, QStringList propertyList){
     Q_UNUSED(property);
     Q_UNUSED(propertyList);
 
+    if (propertyMap.keys().contains("AutomaticLogin") && getuid()){
+        bool current = propertyMap.value("AutomaticLogin").toBool();
+        if (current != autoLoginSBtn->isChecked()){
+            autoLoginSBtn->blockSignals(true);
+            autoLoginSBtn->setChecked(current);
+            autoLoginSBtn->blockSignals(false);
+        }
+    }
 
+    if (propertyMap.keys().contains("RealName") && getuid()){
+        QString current = propertyMap.value("RealName").toString();
+        if (QString::compare(current, currentNickNameLabel->text()) != 0){
+            //更新用户昵称
+            if (setTextDynamic(currentNickNameLabel, current)){
+                currentNickNameLabel->setToolTip(current);
+            } else {
+                currentNickNameLabel->setToolTip("");
+            }
+        }
+    }
+}
+
+bool UserInfo::isLastAdmin(QString uname){
+    QString cmd = QString("cat /etc/group | grep sudo | awk -F: '{ print $NF}'");
+    QString output;
+
+    FILE   *stream;
+    char buf[256];
+
+    if ((stream = popen(cmd.toLatin1().data(), "r" )) == NULL){
+        return false;
+    }
+
+    while(fgets(buf, 256, stream) != NULL){
+        output = QString(buf).simplified();
+    }
+
+    pclose(stream);
+
+    QStringList users = output.split(",");
+    int num = users.length();
+
+    if (users.contains(uname)){
+        if (num > 1){
+            return false;
+        } else {
+            return true;
+        }
+    } else {
+        return false;
+    }
 }
 
 
@@ -1252,11 +1408,22 @@ QStringList UserInfo::getUsersList()
 
 void UserInfo::createUser(QString username, QString pwd, QString pin, int atype){
     Q_UNUSED(pin);
-    sysdispatcher->create_user(username, "", atype);
+//    sysdispatcher->create_user(username, "", atype);
+    QDBusInterface * tmpSysinterface = new QDBusInterface("com.control.center.qt.systemdbus",
+                                                          "/",
+                                                          "com.control.center.interface",
+                                                          QDBusConnection::systemBus());
 
-    //使用全局变量传递新建用户密码
-    _newUserPwd = pwd;
-    _newUserName = username;
+    if (!tmpSysinterface->isValid()){
+        qCritical() << "Create Client Interface Failed When : " << QDBusConnection::systemBus().lastError();
+        return;
+    }
+
+    tmpSysinterface->call("setPid", QCoreApplication::applicationPid());
+    tmpSysinterface->call("createUser", username, username, atype, DEFAULTFACE, pwd);
+
+    delete tmpSysinterface;
+    tmpSysinterface = nullptr;
 }
 
 void UserInfo::createUserDone(QString objpath){
@@ -1501,25 +1668,30 @@ void UserInfo::showChangePwdDialog(QString username){
         if (!getuid() || !user.current)
             dialog->haveCurrentPwdEdit(false);
 
-        connect(dialog, &ChangePwdDialog::passwd_send, this, [=](QString pwd){
+        connect(dialog, &ChangePwdDialog::passwd_send, this, [=](QString oldpwd, QString pwd){
 
-                changeUserPwd(pwd, username);
+//            changeUserPwd(pwd, username);
+
+            QString output;
+
+            char * cmd = g_strdup_printf("/usr/bin/changeuserpwd '%s' '%s'", oldpwd.toLatin1().data(), pwd.toLatin1().data());
+
+            FILE   *stream;
+            char buf[256];
+
+            if ((stream = popen(cmd, "r" )) == NULL){
+                return -1;
+            }
+
+            while(fgets(buf, 256, stream) != NULL){
+                output = QString(buf).simplified();
+            }
+
+            pclose(stream);
 
         });
         connect(dialog, &ChangePwdDialog::passwd_send2, this, [=](QString pwd){
-
-            PolkitQt1::Authority::Result result;
-
-            result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
-                        "org.control.center.qt.systemdbus.action",
-                        PolkitQt1::UnixProcessSubject(QCoreApplication::applicationPid()),
-                        PolkitQt1::Authority::AllowUserInteraction);
-
-            if (result == PolkitQt1::Authority::Yes){
-                changeUserPwd(pwd, username);
-            }
-
-
+            changeUserPwd(pwd, username);
         });
         dialog->exec();
 
@@ -1545,7 +1717,10 @@ void UserInfo::changeUserPwd(QString pwd, QString username){
         qCritical() << "Create Client Interface Failed When : " << QDBusConnection::systemBus().lastError();
         return;
     }
-    tmpSysinterface->call("changeOtherUserPasswd", username, pwd);
+    QDBusReply<int> reply = tmpSysinterface->call("setPid", QCoreApplication::applicationPid());
+    if (reply.isValid()){
+        tmpSysinterface->call("changeOtherUserPasswd", username, pwd);
+    }
 
     delete tmpSysinterface;
     tmpSysinterface = nullptr;
@@ -1570,6 +1745,15 @@ bool UserInfo::eventFilter(QObject *watched, QEvent *event){
             QMouseEvent * mouseEvent = static_cast<QMouseEvent *>(event);
             if (mouseEvent->button() == Qt::LeftButton ){
                 showChangeNameDialog();
+            }
+        }
+    }
+
+    if (event->type() == QEvent::MouseButtonPress){
+        QMouseEvent * mouseEvent = static_cast<QMouseEvent *>(event);
+        if (mouseEvent->button() == Qt::LeftButton ){
+            if (watched == currentNickNameChangeLabel || watched == currentNickNameLabel){
+                showChangeUserNicknameDialog();
             }
         }
     }

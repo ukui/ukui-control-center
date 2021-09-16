@@ -11,6 +11,8 @@ CONFIG -= app_bundle
 PKGCONFIG     += gio-2.0 \
                  gio-unix-2.0 \
 
+LIBS          += -L$$[QT_INSTALL_LIBS] -lpolkit-qt5-core-1
+
 
 DESTDIR = .
 INCLUDEPATH += .
@@ -31,10 +33,8 @@ INSTALLS += \
     inst3 \
 
 HEADERS += \
-    run-passwd2.h \
     sysdbusregister.h
 
 SOURCES += \
     main.cpp \
-    run-passwd2.cpp \
     sysdbusregister.cpp
