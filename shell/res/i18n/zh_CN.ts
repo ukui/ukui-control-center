@@ -4854,55 +4854,55 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">体验计划</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="311"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="310"/>
         <source>min length %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="321"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="320"/>
         <source>min digit num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="330"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="329"/>
         <source>min upper num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="339"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="338"/>
         <source>min lower num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="348"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="347"/>
         <source>min other num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="358"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="357"/>
         <source>min char class %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="367"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="366"/>
         <source>max repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="376"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="375"/>
         <source>max class repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="385"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="384"/>
         <source>max sequence %1
 </source>
         <translation type="unfinished"></translation>
@@ -5966,7 +5966,7 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">账户信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="61"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="60"/>
         <source>Userinfo</source>
         <translation>账户信息</translation>
     </message>
@@ -5983,30 +5983,35 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="obsolete">更换手机号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="141"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="140"/>
         <source>Change Tel</source>
         <translation type="unfinished">更换手机号</translation>
         <extra-contents_path>/userinfo/Change Tel</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="182"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="181"/>
         <source>standard user</source>
         <translation>标准用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="184"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="183"/>
         <source>administrator</source>
         <translation type="unfinished">本地管理员</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="193"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="192"/>
         <source>root</source>
         <translation>Root</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="727"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="733"/>
         <source>set pwd</source>
         <translation type="unfinished">设置密码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="747"/>
+        <source>Change</source>
+        <translation>更换</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -6014,15 +6019,15 @@ run start-pulseaudio-x11 manually.</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="77"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="135"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="134"/>
         <source>Current User</source>
         <translation>当前用户</translation>
         <extra-contents_path>/userinfo/Current User</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="334"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="146"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1107"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="145"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1132"/>
         <source>Change pwd</source>
         <translation type="unfinished">修改密码</translation>
         <extra-contents_path>/userinfo/Change pwd</extra-contents_path>
@@ -6033,7 +6038,7 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="unfinished">更换手机号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="169"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="168"/>
         <source>Delete user</source>
         <translation>删除用户</translation>
         <extra-contents_path>/userinfo/Delete user</extra-contents_path>
@@ -6068,13 +6073,13 @@ run start-pulseaudio-x11 manually.</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="622"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="138"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="137"/>
         <source>Other Users</source>
         <translation>其他用户</translation>
         <extra-contents_path>/userinfo/Other Users</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="423"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="422"/>
         <source>Add new user</source>
         <translation>添加新用户</translation>
     </message>
