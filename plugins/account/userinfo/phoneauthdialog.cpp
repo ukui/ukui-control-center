@@ -393,6 +393,12 @@ void PhoneAuthDialog::initUI(){
             m_pPromptMessage->setPalette(pa);
             m_pPromptMessage->setText(tr("Network connection failure, please check"));
             showPromptMsg();
+        } else if (status == 2300) {
+            QPalette pa;
+            pa.setColor(QPalette::WindowText,Qt::red);
+            m_pPromptMessage->setPalette(pa);
+            m_pPromptMessage->setText(tr("Current login expired,using wechat code!"));
+            showPromptMsg();
         } else {
             QPalette pa;
             pa.setColor(QPalette::WindowText,Qt::red);

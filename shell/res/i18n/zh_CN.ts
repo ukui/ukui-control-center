@@ -478,6 +478,7 @@
     <name>Audio</name>
     <message>
         <location filename="../../../plugins/system/audio/audio.ui" line="26"/>
+        <location filename="../../../plugins/system/audio/audio.cpp" line="27"/>
         <source>Audio</source>
         <translation>声音</translation>
     </message>
@@ -486,9 +487,8 @@
         <translation type="obsolete">声音</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/audio.cpp" line="27"/>
         <source>Sounds </source>
-        <translation type="unfinished">声音</translation>
+        <translation type="obsolete">声音</translation>
     </message>
 </context>
 <context>
@@ -872,7 +872,7 @@ you can restore them to ensure the integrity of your system.</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="146"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="319"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="322"/>
         <source>You have successfully modified your phone</source>
         <translation type="unfinished">您已成功更换手机号</translation>
     </message>
@@ -885,7 +885,7 @@ you can restore them to ensure the integrity of your system.</source>
     <message>
         <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="211"/>
         <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="271"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="303"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="306"/>
         <source>Network connection failure, please check</source>
         <translation type="unfinished">网络连接故障，请检查</translation>
     </message>
@@ -912,40 +912,45 @@ you can restore them to ensure the integrity of your system.</source>
         <translation type="obsolete">旧手机号不正确</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="281"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="284"/>
         <source>Phone can not same</source>
         <translation type="unfinished">新旧手机号不能一致</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="290"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="318"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="293"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="321"/>
         <source>finished</source>
         <translation type="unfinished">完成</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="264"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="293"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="322"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="296"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="325"/>
         <source>Phone is lock,try again in an hour</source>
         <translation type="unfinished">手机号已被锁定，1小时之后再试</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="267"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="296"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="325"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="299"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="328"/>
         <source>Phone code is wrong</source>
         <translation type="unfinished">验证码错误，请重试</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="274"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="306"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="332"/>
+        <source>Current login expired,using wechat code!</source>
+        <translation>登录信息过期，请重新使用微信扫码登录</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="277"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="309"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="335"/>
         <source>Unknown error, please try again later</source>
         <translation type="unfinished">未知错误，请稍后重试</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="300"/>
-        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="329"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="303"/>
+        <location filename="../../../plugins/account/userinfo/changephonedialog.cpp" line="332"/>
         <source>Phone number already in used!</source>
         <translation type="unfinished">该号码已被注册，请更换手机号</translation>
     </message>
@@ -4077,18 +4082,23 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     <message>
         <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="315"/>
         <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="394"/>
-        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="559"/>
-        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="677"/>
+        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="565"/>
+        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="683"/>
         <source>Network connection failure, please check</source>
         <translation type="unfinished">网络连接故障，请检查</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="400"/>
+        <source>Current login expired,using wechat code!</source>
+        <translation>登录信息过期，请重新使用微信扫码登录</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="406"/>
         <source>Unknown error, please try again later</source>
         <translation type="unfinished">未知错误，请稍后重试</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="658"/>
+        <location filename="../../../plugins/account/userinfo/phoneauthdialog.cpp" line="664"/>
         <source>Please use the correct wechat scan code</source>
         <translation type="unfinished">请使用正确的微信扫码</translation>
     </message>
@@ -4989,34 +4999,137 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="3873"/>
-        <source>PulseAudio Volume Control</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="3886"/>
-        <source>Connection to PulseAudio failed. Automatic retry in 5s
-
-In this case this is likely because PULSE_SERVER in the Environment/X11 Root Window Properties
-or default-server in client.conf is misconfigured.
-This situation can also arrise when PulseAudio crashed and left stale details in the X11 Root Window.
-If this is the case, then PulseAudio should autospawn again, or if this is not configured you should
-run start-pulseaudio-x11 manually.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="3931"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1470"/>
         <source>pa_context_subscribe() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="3944"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1270"/>
         <source>Failed to initialize stream_restore extension: %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="3959"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="213"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1402"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1479"/>
+        <source>pa_context_get_server_info() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1097"/>
+        <source>Card callback failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1115"/>
+        <source>Sink callback failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1138"/>
+        <source>Source callback failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1160"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1633"/>
+        <source>Sink input callback failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1180"/>
+        <source>Source output callback failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1220"/>
+        <source>Client callback failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1236"/>
+        <source>Server info callback failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1287"/>
         <source>pa_ext_stream_restore_read() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1304"/>
+        <source>Failed to initialize device manager extension: %s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1323"/>
+        <source>pa_ext_device_manager_read() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1340"/>
+        <source>pa_context_get_sink_info_by_index() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1353"/>
+        <source>pa_context_get_source_info_by_index() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1366"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1379"/>
+        <source>pa_context_get_sink_input_info() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1392"/>
+        <source>pa_context_get_client_info() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1430"/>
+        <source>pa_context_get_card_info_by_index() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1486"/>
+        <source>pa_context_client_info_list() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1493"/>
+        <source>pa_context_get_card_info_list() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1500"/>
+        <source>pa_context_get_sink_info_list() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1507"/>
+        <source>pa_context_get_source_info_list() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1514"/>
+        <source>pa_context_get_sink_input_info_list() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1521"/>
+        <source>pa_context_get_source_output_info_list() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1537"/>
+        <source>Connection failed, attempting reconnect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1557"/>
+        <source>Ukui Media Volume Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5605,24 +5718,24 @@ run start-pulseaudio-x11 manually.</source>
 <context>
     <name>UkmediaInputWidget</name>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_input_widget.cpp" line="51"/>
+        <location filename="../../../plugins/system/audio/ukmedia_input_widget.cpp" line="47"/>
         <source>Input</source>
         <translation>输入</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_input_widget.cpp" line="55"/>
+        <location filename="../../../plugins/system/audio/ukmedia_input_widget.cpp" line="52"/>
         <source>Input Device</source>
         <translation>选择输入设备</translation>
         <extra-contents_path>/audio/Input Device</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_input_widget.cpp" line="59"/>
+        <location filename="../../../plugins/system/audio/ukmedia_input_widget.cpp" line="55"/>
         <source>Volume</source>
         <translation>音量大小</translation>
         <extra-contents_path>/audio/Volume</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_input_widget.cpp" line="79"/>
+        <location filename="../../../plugins/system/audio/ukmedia_input_widget.cpp" line="60"/>
         <source>Input Level</source>
         <translation>输入等级</translation>
         <extra-contents_path>/audio/Input Level</extra-contents_path>
@@ -5660,74 +5773,67 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">高</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_input_widget.cpp" line="84"/>
         <source>Connector</source>
-        <translation>连接器</translation>
+        <translation type="vanished">连接器</translation>
     </message>
 </context>
 <context>
     <name>UkmediaMainWidget</name>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="545"/>
         <source>sound error</source>
-        <translation>声音错误</translation>
+        <translation type="vanished">声音错误</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="545"/>
         <source>load sound failed</source>
-        <translation>加载声音失败</translation>
+        <translation type="vanished">加载声音失败</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="3862"/>
-        <source>Establishing connection to PulseAudio. Please wait...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="4005"/>
-        <source>pa_ext_stream_restore_write() failed</source>
+        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2477"/>
+        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2666"/>
+        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2752"/>
+        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2761"/>
+        <source>None</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>UkmediaOutputWidget</name>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="78"/>
+        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="67"/>
         <source>Output</source>
         <translation>输出</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="82"/>
+        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="71"/>
         <source>Output Device</source>
         <translation>选择输出设备</translation>
         <extra-contents_path>/audio/Output Device</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="85"/>
+        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="74"/>
         <source>Master Volume</source>
         <translation>主音量</translation>
         <extra-contents_path>/audio/Master Volume</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="106"/>
+        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="79"/>
         <source>Balance</source>
         <translation>声道平衡</translation>
         <extra-contents_path>/audio/Balance</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="109"/>
+        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="82"/>
         <source>Right</source>
         <translation>右</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="113"/>
         <source>Profile</source>
-        <translation>配置</translation>
+        <translation type="vanished">配置</translation>
         <extra-contents_path>/audio/Profile</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="119"/>
         <source>Card</source>
-        <translation>声卡</translation>
+        <translation type="vanished">声卡</translation>
     </message>
     <message>
         <source>Select output device</source>
@@ -5746,7 +5852,7 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">声道平衡</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="107"/>
+        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="80"/>
         <source>Left</source>
         <translation>左</translation>
     </message>
@@ -5755,9 +5861,8 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">右</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="110"/>
         <source>Connector</source>
-        <translation>连接器</translation>
+        <translation type="vanished">连接器</translation>
     </message>
 </context>
 <context>
@@ -5787,92 +5892,184 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">注销</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="53"/>
+        <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="54"/>
         <source>System Sound</source>
         <translation>系统音效</translation>
-        <extra-contents_path>/audio/System Sound</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="58"/>
+        <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="60"/>
         <source>Alert Sound</source>
         <translation>提示音</translation>
         <extra-contents_path>/audio/Alert Sound</extra-contents_path>
     </message>
-   <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="82"/>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="64"/>
         <source>Poweroff Music</source>
         <translation>关机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="83"/>
+        <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="65"/>
         <source>Startup Music</source>
         <translation>开机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="84"/>
+        <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="66"/>
         <source>Wakeup Music</source>
         <translation>唤醒</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="86"/>
+        <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="68"/>
         <source>Logout Music</source>
         <translation>注销</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="86"/>
+        <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="69"/>
         <source>Noise Reduction</source>
         <translation>噪声消除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="57"/>
+        <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="57"/>
         <source>Sound Theme</source>
         <translation>音效主题</translation>
         <extra-contents_path>/audio/Sound Theme</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="60"/>
-        <source>Alert Sound</source>
-        <translation>通知</translation>
-        <extra-contents_path>/audio/Alert Sound</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="85"/>
+        <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="67"/>
         <source>Volume Change</source>
         <translation>音量调节</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="61"/>
         <source>Alert Volume</source>
-        <translation>提示音量</translation>
+        <translation type="vanished">提示音量</translation>
         <extra-contents_path>/audio/Alert Volume</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="79"/>
         <source>Boot Music</source>
-        <translation>开关机音乐</translation>
+        <translation type="vanished">开关机音乐</translation>
         <extra-contents_path>/audio/Boot Music</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="87"/>
+        <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="63"/>
         <source>Beep Switch</source>
         <translation>提示音</translation>
-        <extra-contents_path>/audio/Beep Switch</extra-contents_path>
+        <extra-contents_path>/audio/Alert Volume</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="90"/>
         <source>Window Closed</source>
-        <translation>窗口关闭</translation>
+        <translation type="vanished">窗口关闭</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="92"/>
         <source>Notice Sound</source>
-        <translation>通知音</translation>
+        <translation type="vanished">通知音</translation>
         <extra-contents_path>/audio/Notice Sound</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="93"/>
         <source>Setting Menu</source>
-        <translation>设置菜单</translation>
+        <translation type="vanished">设置菜单</translation>
+    </message>
+</context>
+<context>
+    <name>UkmediaVolumeControl</name>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="67"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="92"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="96"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="110"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="136"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="162"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="243"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="247"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="259"/>
+        <source>pa_context_set_sink_volume_by_index() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="131"/>
+        <source>pa_context_set_source_mute_by_index() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="276"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="280"/>
+        <source>pa_context_set_source_output_volume() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="292"/>
+        <source>pa_context_set_source_output_mute() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="304"/>
+        <source>pa_context_set_card_profile_by_index() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="318"/>
+        <source>pa_context_set_default_sink() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="332"/>
+        <source>pa_context_set_default_source() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="346"/>
+        <source>pa_context_set_sink_port_by_name() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="360"/>
+        <source>pa_context_set_source_port_by_name() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="389"/>
+        <source> (plugged in)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="393"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="521"/>
+        <source> (unavailable)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="395"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="518"/>
+        <source> (unplugged)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="612"/>
+        <source>Failed to read data from stream</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="657"/>
+        <source>Peak detect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="658"/>
+        <source>Failed to create monitoring stream</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="673"/>
+        <source>Failed to connect monitoring stream</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="766"/>
+        <source>Ignoring sink-input due to it being designated as an event and thus handled by the Event widget</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1063"/>
+        <source>Establishing connection to PulseAudio. Please wait...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
