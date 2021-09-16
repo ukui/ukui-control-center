@@ -7231,7 +7231,6 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     <message>
         <source>Account Security</source>
         <translation type="vanished">帐户安全</translation>
-        <extra-contents_path>/securitycenter/Account Security</extra-contents_path>
     </message>
     <message>
         <source>Protect account and login security</source>
@@ -7240,7 +7239,6 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     <message>
         <source>Safety check-up</source>
         <translation type="vanished">安全体检</translation>
-        <extra-contents_path>/securitycenter/Safety check-up</extra-contents_path>
     </message>
     <message>
         <source>Detect abnormal configuration</source>
@@ -7249,7 +7247,6 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     <message>
         <source>Virus defense</source>
         <translation type="vanished">病毒防护</translation>
-        <extra-contents_path>/securitycenter/Virus defense</extra-contents_path>
     </message>
     <message>
         <source>Real time protection from virus threat</source>
@@ -7258,7 +7255,6 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     <message>
         <source>App protection</source>
         <translation type="vanished">应用控制与保护</translation>
-        <extra-contents_path>/securitycenter/App protection</extra-contents_path>
     </message>
     <message>
         <source>App install</source>
@@ -7267,12 +7263,10 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     <message>
         <source>Net protection</source>
         <translation type="vanished">网络保护</translation>
-        <extra-contents_path>/securitycenter/Net protection</extra-contents_path>
     </message>
     <message>
         <source>Secure Config</source>
         <translation type="vanished">系统安全配置</translation>
-        <extra-contents_path>/securitycenter/Secure Config</extra-contents_path>
     </message>
     <message>
         <source>Simple Config</source>
