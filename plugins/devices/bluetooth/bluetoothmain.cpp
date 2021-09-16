@@ -605,7 +605,10 @@ void BlueToothMain::showNormalMainWindow()
     connect(poweronAgain_timer,&QTimer::timeout,this,[=]{
         qDebug() << __FUNCTION__ << "adapterPoweredChanged again" << __LINE__;
         poweronAgain_timer->stop();
-        adapterPoweredChanged(true);
+        if (nullptr != m_localDevice && !m_localDevice->isPowered())
+        {
+            adapterPoweredChanged(true);
+        }
     });
 
     InitMainTopUI();
@@ -738,10 +741,13 @@ void BlueToothMain::cleanPairDevices()
 
 void BlueToothMain::MonitorSleepSlot(bool value)
 {
+
+    qDebug() << Q_FUNC_INFO << value;
     if (!value) {
         if (sleep_status)
         {
             adapterPoweredChanged(true);
+            qDebug() << Q_FUNC_INFO << value;
             poweronAgain_timer->start();
         }
         else
@@ -1072,8 +1078,16 @@ void BlueToothMain::adapterPoweredChanged(bool value)
     if(settings)
         settings->set("switch",QVariant::fromValue(value));
 
+    if ("errorWidget"== this->centralWidget()->objectName() || nullptr == m_localDevice)
+    {
+        qDebug() << Q_FUNC_INFO << "m_localDevice is null!";
+        return;
+    }
+
     if(value)
     {
+        qDebug() << Q_FUNC_INFO << this->centralWidget()->objectName();
+
         bluetooth_name->set_dev_name(m_localDevice->name());
         bluetooth_name->setVisible(true);
         frame_bottom->setVisible(true);
@@ -1113,11 +1127,11 @@ void BlueToothMain::adapterPoweredChanged(bool value)
         else
             show_flag = false ;
 
-
         if(m_localDevice->isDiscovering()){
             m_localDevice->stopDiscovery();
         }
     }
+    qDebug() << Q_FUNC_INFO << "end==========================";
 
     //switch_discover->setChecked(value);
 }
