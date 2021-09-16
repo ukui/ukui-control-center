@@ -201,7 +201,7 @@ BlueToothMain::BlueToothMain(QWidget *parent)
     : QMainWindow(parent)
 {
     rfkill_init();
-    rfkill_set_idx();
+    //rfkill_set_idx();//会导致蓝牙自启动
     if(QGSettings::isSchemaInstalled("org.ukui.bluetooth"))
     {
         settings = new QGSettings("org.ukui.bluetooth");
@@ -637,9 +637,11 @@ void BlueToothMain::addAdapterList(QString newAdapterAddress,QString newAdapterN
         adapter_name_list << newAdapterName ;
         qDebug () << Q_FUNC_INFO << "";
         adapter_list->addItem(newAdapterName);
-        int current_index = adapter_address_list.indexOf(m_localDevice->address());
-        adapter_list->setCurrentIndex(current_index);
-
+        if (nullptr != m_localDevice)
+        {
+            int current_index = adapter_address_list.indexOf(m_localDevice->address());
+            adapter_list->setCurrentIndex(current_index);
+        }
     }
 
     qDebug () << Q_FUNC_INFO << adapter_address_list << __LINE__ ;
@@ -894,11 +896,12 @@ void BlueToothMain::connectManagerChanged()
     connect(m_manager,&BluezQt::Manager::adapterAdded,this,[=](BluezQt::AdapterPtr adapter)
     {
         qDebug() << Q_FUNC_INFO << "adapterAdded";
-        addAdapterList(adapter->address(),adapter->name());
-        qDebug() << Q_FUNC_INFO << adapter_address_list << "===" << adapter_name_list;
 
         m_localDevice = getDefaultAdapter();
         adapterConnectFun();
+
+        addAdapterList(adapter->address(),adapter->name());
+        qDebug() << Q_FUNC_INFO << adapter_address_list << "===" << adapter_name_list;
 
         M_adapter_flag = true;
         if (spe_bt_node && M_power_on)
@@ -1784,6 +1787,7 @@ void BlueToothMain::cleanPairDevices()
 
 void BlueToothMain::MonitorSleepSlot(bool value)
 {
+    qDebug() << Q_FUNC_INFO << value;
     if (!value)
     {
         if (sleep_status)
@@ -1798,6 +1802,8 @@ void BlueToothMain::MonitorSleepSlot(bool value)
     else
     {
         sleep_status = m_localDevice->isPowered();
+        qDebug() << Q_FUNC_INFO << "The state before sleep:"<<sleep_status;
+
     }
 }
 
@@ -1863,7 +1869,7 @@ void BlueToothMain::onClick_Open_Bluetooth(bool ischeck)
 
         if (!not_hci_node && M_adapter_flag && (nullptr != m_localDevice))
         {
-            if (m_manager->isBluetoothBlocked())
+            if (!spe_bt_node && m_manager->isBluetoothBlocked())
                 m_manager->setBluetoothBlocked(false);
             BluezQt::PendingCall *call = m_localDevice->setPowered(true);
             connect(call,&BluezQt::PendingCall::finished,this,[=](BluezQt::PendingCall *p)
@@ -1896,7 +1902,8 @@ void BlueToothMain::onClick_Open_Bluetooth(bool ischeck)
             if(p->error() == 0)
             {
                 qDebug() << Q_FUNC_INFO << "Success to turn off Bluetooth:" << m_localDevice->isPowered();
-                m_manager->setBluetoothBlocked(true);
+                if (!spe_bt_node)
+                    m_manager->setBluetoothBlocked(true);
             }
             else
                 qDebug() << "Failed to turn off Bluetooth:" << p->errorText();
