@@ -966,9 +966,13 @@ void Widget::outputAdded(const KScreen::OutputPtr &output)
         if (output->name().contains("/")) {
             serialNum = output->name().split("/").at(1);
         }
+        /*考虑到990上的HDMI都是8，VGA都是4，且识别出来的接口是正确的，所以直接写死*/
         if (output->name().contains("HDMI", Qt::CaseInsensitive)) {
             serialNum = "HDMI";
+        } else if(output->name().contains("VGA", Qt::CaseInsensitive)) {
+            serialNum = "VGA";
         }
+
         addBrightnessFrame(name, output->isEnabled(),serialNum);
     }
 
