@@ -7705,7 +7705,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="663"/>
         <source>It will be avaliable in the next download.</source>
-        <translation type="unfinished"></translation>
+        <translation>开启后会在下次下载时进行限速</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="776"/>
