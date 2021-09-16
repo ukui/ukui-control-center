@@ -1385,8 +1385,12 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
 void UserInfo::showCreateUserDialog(){
     //获取系统所有用户名列表，创建时判断重名
     QStringList usersStringList;
-    for (QVariant tmp : allUserInfoMap.keys()){
-        usersStringList << tmp.toString();
+    QMap<QString, UserInfomation>::iterator it = allUserInfoMap.begin();
+    for (; it != allUserInfoMap.end(); it++){
+        UserInfomation user = it.value();
+
+        usersStringList.append(user.username);
+        usersStringList.append(user.realname);
     }
 
     CreateUserDialog * dialog = new CreateUserDialog(usersStringList,pluginWidget);

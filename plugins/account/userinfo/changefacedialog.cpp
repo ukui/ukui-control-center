@@ -152,7 +152,7 @@ void ChangeFaceDialog::setAccountType(QString atype)
 
 void ChangeFaceDialog::showLocalFaceDialog()
 {
-    QString filters = "Face files(*.jpg *.jpeg *.png *.svg)";
+    QString filters = "Face files(*.jpg *.jpeg *.png *.svg *.gif)";
     QFileDialog fd(this);
     QList<QUrl> usb_list = fd.sidebarUrls();
     int sidebarNum = 8;// 最大添加U盘数，可以自己定义

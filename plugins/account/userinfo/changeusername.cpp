@@ -3,6 +3,18 @@
 
 #include <QDebug>
 
+/* qt会将glib里的signals成员识别为宏，所以取消该宏
+ * 后面如果用到signals时，使用Q_SIGNALS代替即可
+ **/
+#ifdef signals
+#undef signals
+#endif
+
+extern "C" {
+#include <glib.h>
+#include <gio/gio.h>
+}
+
 
 extern void qt_blurImage(QImage &blurImage, qreal radius, bool quality, int transposed);
 
@@ -18,6 +30,11 @@ ChangeUserName::ChangeUserName(QStringList usernames, QStringList realnames, QWi
     setAttribute(Qt::WA_DeleteOnClose);
 
     ui->saveBtn->setEnabled(false);
+
+    ui->lineEdit_2->setPlaceholderText(QString(g_get_user_name()));
+    ui->lineEdit_2->setReadOnly(true);
+    ui->lineEdit_3->setPlaceholderText(QString(g_get_host_name()));
+    ui->lineEdit_3->setReadOnly(true);
 
     connect(ui->lineEdit, &QLineEdit::textChanged, this, [=](QString txt){
 
