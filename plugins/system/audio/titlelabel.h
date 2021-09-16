@@ -17,44 +17,18 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef AUDIO_H
-#define AUDIO_H
+#ifndef TITLE_LABEL_H
+#define TITLE_LABEL_H
 
-#include <QWidget>
-#include <QObject>
-#include <QtPlugin>
-#include <QProcess>
-#include "shell/interface.h"
-#include "ukmedia_main_widget.h"
+#include <QLabel>
 
-namespace Ui {
-class Audio;
-}
-
-class Audio : public QObject, CommonInterface
+class TitleLabel : public QLabel
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kycc.CommonInterface")
-    Q_INTERFACES(CommonInterface)
-
 public:
-    Audio();
-    ~Audio();
-
-    QString get_plugin_name() Q_DECL_OVERRIDE;
-    int get_plugin_type() Q_DECL_OVERRIDE;
-    QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
-    void plugin_delay_control() Q_DECL_OVERRIDE;
-    const QString name() const  Q_DECL_OVERRIDE;
-
-private:
-    Ui::Audio *ui;
-    QString pluginName;
-    int pluginType;    
-
-    UkmediaMainWidget *pluginWidget;
-    bool mFirstLoad;
-
+    TitleLabel(QWidget *parent = nullptr);
+    ~TitleLabel();
 };
 
-#endif // AUDIO_H
+#endif // TITLE_LABEL_H
+

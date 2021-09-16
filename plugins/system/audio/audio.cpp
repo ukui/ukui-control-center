@@ -24,7 +24,7 @@
 
 Audio::Audio() : mFirstLoad(true)
 {
-    pluginName = tr("Sounds ");
+    pluginName = tr("Audio");
     pluginType = SYSTEM;
 }
 
@@ -35,25 +35,23 @@ Audio::~Audio()
     }
 }
 
-QString Audio::get_plugin_name(){
+QString Audio::get_plugin_name() {
     return pluginName;
 }
 
-int Audio::get_plugin_type(){
+int Audio::get_plugin_type() {
     return pluginType;
 }
 
-QWidget *Audio::get_plugin_ui(){
+QWidget *Audio::get_plugin_ui() {
     if (mFirstLoad) {
         mFirstLoad = false;
         ui = new Ui::Audio;
         pluginWidget = new UkmediaMainWidget;
-        pluginWidget->setAttribute(Qt::WA_StyledBackground,true);
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-    //    pluginWidget->setStyleSheet("background: #ffffff;");
         ui->setupUi(pluginWidget);
     }
-    return pluginWidget;
+    return  pluginWidget;
 }
 
 void Audio::plugin_delay_control(){

@@ -17,44 +17,30 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef AUDIO_H
-#define AUDIO_H
 
-#include <QWidget>
-#include <QObject>
-#include <QtPlugin>
-#include <QProcess>
-#include "shell/interface.h"
-#include "ukmedia_main_widget.h"
+#include "titlelabel.h"
+#include <QFont>
 
-namespace Ui {
-class Audio;
+#include <QGSettings>
+#include <QVariant>
+#include <QDebug>
+
+TitleLabel::TitleLabel(QWidget *parent):
+    QLabel(parent)
+{
+    /*初始化字体*/
+//    QFont font;
+//    QGSettings *m_fontSetting = new QGSettings("org.ukui.style");
+//    font.setFamily(m_fontSetting->get("systemFont").toString());
+//    font.setPixelSize(m_fontSetting->get("systemFontSize").toInt() * 18 / 11);  //设置的是pt，按照公式计算为px,标题默认字为18px
+//    font.setWeight(QFont::Medium);
+//    this->setFont(font);
+        this ->setContentsMargins(16,0,0,0);
+//    delete m_fontSetting;
+//    m_fontSetting = nullptr;
 }
 
-class Audio : public QObject, CommonInterface
+TitleLabel::~TitleLabel()
 {
-    Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kycc.CommonInterface")
-    Q_INTERFACES(CommonInterface)
 
-public:
-    Audio();
-    ~Audio();
-
-    QString get_plugin_name() Q_DECL_OVERRIDE;
-    int get_plugin_type() Q_DECL_OVERRIDE;
-    QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
-    void plugin_delay_control() Q_DECL_OVERRIDE;
-    const QString name() const  Q_DECL_OVERRIDE;
-
-private:
-    Ui::Audio *ui;
-    QString pluginName;
-    int pluginType;    
-
-    UkmediaMainWidget *pluginWidget;
-    bool mFirstLoad;
-
-};
-
-#endif // AUDIO_H
+}

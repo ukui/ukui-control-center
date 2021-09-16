@@ -29,9 +29,12 @@
 #include <QPushButton>
 #include <QCoreApplication>
 #include <QVBoxLayout>
-#include <QSharedPointer>
 #include "ukui_custom_style.h"
+#include "ukui_list_widget_item.h"
 #include "customstyle.h"
+#include "titlelabel.h"
+#include <QListWidget>
+#include <QComboBox>
 
 class AudioSlider : public QSlider
 {
@@ -41,18 +44,41 @@ public:
     ~AudioSlider();
     friend class UkmediaInputWidget;
 
+Q_SIGNALS:
+    void silderPressSignal();
+    void silderReleaseSignal();
+
 protected:
     void mousePressEvent(QMouseEvent *ev)
     {
-        //注意应先调用父类的鼠标点击处理事件，这样可以不影响拖动的情况
+        int value = 0;
+        int currentX = ev->pos().x();
+        double per = currentX * 1.0 / this->width();
+        if ((this->maximum() - this->minimum()) >= 50) { //减小鼠标点击像素的影响
+            value = qRound(per*(this->maximum() - this->minimum())) + this->minimum();
+            if (value <= (this->maximum() / 2 - this->maximum() / 10 + this->minimum() / 10)) {
+                value = qRound(per*(this->maximum() - this->minimum() - 1)) + this->minimum();
+            } else if (value > (this->maximum() / 2 + this->maximum() / 10 + this->minimum() / 10)) {
+                value = qRound(per*(this->maximum() - this->minimum() + 1)) + this->minimum();
+            } else {
+                value = qRound(per*(this->maximum() - this->minimum())) + this->minimum();
+            }
+        } else {
+            value = qRound(per*(this->maximum() - this->minimum())) + this->minimum();
+        }
+        this->setValue(value);
         QSlider::mousePressEvent(ev);
-        //获取鼠标的位置，这里并不能直接从ev中取值（因为如果是拖动的话，鼠标开始点击的位置没有意义了）
-        double pos = ev->pos().x() / (double)width();
-        setValue(pos *(maximum() - minimum()) + minimum());
-        //向父窗口发送自定义事件event type，这样就可以在父窗口中捕获这个事件进行处理
-        QEvent evEvent(static_cast<QEvent::Type>(QEvent::User + 1));
-        QCoreApplication::sendEvent(parentWidget(), &evEvent);
     }
+    void mouseReleaseEvent(QMouseEvent *ev)
+    {
+        if(mousePress){
+            Q_EMIT silderReleaseSignal();
+        }
+        mousePress = false;
+        QSlider::mouseReleaseEvent(ev);
+    }
+private:
+    bool mousePress = false;
 };
 
 class UkmediaOutputWidget : public QWidget
@@ -61,31 +87,16 @@ class UkmediaOutputWidget : public QWidget
 public:
     explicit UkmediaOutputWidget(QWidget *parent = nullptr);
     ~UkmediaOutputWidget();
-    void outputWidgetAddPort();
-    void outputWidgetRemovePort();
     friend class UkmediaMainWidget;
 Q_SIGNALS:
 
 public Q_SLOTS:
 
 private:
-    QFrame *m_pOutputWidget;
-    QFrame *m_pOutputDeviceWidget;
+    QWidget *m_pOutputWidget;
     QFrame *m_pMasterVolumeWidget;
     QFrame *m_pChannelBalanceWidget;
-    QFrame * m_pOutputPortWidget;
-    QFrame *m_pProfileWidget;
-    QFrame *m_pselectWidget;
 
-    QSharedPointer<QFrame> line_1;
-    QSharedPointer<QFrame> line_2;
-    QSharedPointer<QFrame> line_3;
-    QSharedPointer<QFrame> line_4;
-    QSharedPointer<QFrame> line_5;
-
-    QLabel *m_pSelectDeviceLabel;
-    QLabel *m_pProfileLabel;
-    QLabel *m_pOutputPortLabel;
     QLabel *m_pOutputLabel;
     QLabel *m_pOutputDeviceLabel;
     QLabel *m_pOpVolumeLabel;
@@ -94,19 +105,14 @@ private:
     QLabel *m_pLeftBalanceLabel;
     QLabel *m_pRightBalanceLabel;
 
-    QComboBox *m_pSelectCombobox;
-    QComboBox *m_pProfileCombobox;
-    QComboBox *m_pOutputPortCombobox;
-    QComboBox *m_pOutputDeviceCombobox;
+    QComboBox *m_pDeviceSelectBox;
+    QFrame *m_pOutputSlectWidget;
+
     UkuiButtonDrawSvg *m_pOutputIconBtn;
     AudioSlider *m_pOpVolumeSlider;
     UkmediaVolumeSlider *m_pOpBalanceSlider;
     QVBoxLayout *m_pVlayout;
     QString sliderQss;
-
-
-    QLabel *m_pInputIconLabel_off;
-    QLabel *m_pInputIconLabel_on;
 };
 
 #endif // UKMEDIAOUTPUTWIDGET_H

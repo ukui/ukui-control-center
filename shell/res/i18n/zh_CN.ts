@@ -5798,6 +5798,48 @@ run start-pulseaudio-x11 manually.</source>
         <translation>提示音</translation>
         <extra-contents_path>/audio/Alert Sound</extra-contents_path>
     </message>
+   <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="82"/>
+        <source>Poweroff Music</source>
+        <translation>关机</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="83"/>
+        <source>Startup Music</source>
+        <translation>开机</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="84"/>
+        <source>Wakeup Music</source>
+        <translation>唤醒</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="86"/>
+        <source>Logout Music</source>
+        <translation>注销</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="86"/>
+        <source>Noise Reduction</source>
+        <translation>噪声消除</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="57"/>
+        <source>Sound Theme</source>
+        <translation>音效主题</translation>
+        <extra-contents_path>/audio/Sound Theme</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="60"/>
+        <source>Alert Sound</source>
+        <translation>通知</translation>
+        <extra-contents_path>/audio/Alert Sound</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="85"/>
+        <source>Volume Change</source>
+        <translation>音量调节</translation>
+    </message>
     <message>
         <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="61"/>
         <source>Alert Volume</source>

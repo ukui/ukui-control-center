@@ -23,87 +23,58 @@
 #include <QPainterPath>
 #include <QEvent>
 #include <QPaintEvent>
+#include <QStylePainter>
 #include <QCoreApplication>
 #include <QDebug>
 
+UkuiMediaSliderTipLabel::UkuiMediaSliderTipLabel(){
+    setAttribute(Qt::WA_TranslucentBackground);
+}
 
+UkuiMediaSliderTipLabel::~UkuiMediaSliderTipLabel(){
+}
 
-MateMixerStreamControl *m_pBlanceControl = nullptr;
+void UkuiMediaSliderTipLabel::paintEvent(QPaintEvent *e)
+{
+    QStyleOptionFrame opt;
+    initStyleOption(&opt);
+    QStylePainter p(this);
+//    p.setBrush(QBrush(QColor(0x1A,0x1A,0x1A,0x4C)));
+    p.setBrush(QBrush(QColor(0xFF,0xFF,0xFF,0x33)));
+    p.setPen(Qt::NoPen);
+    p.drawRoundedRect(this->rect(), 1, 1);
+    QPainterPath path;
+    path.addRoundedRect(opt.rect,6,6);
+    p.setRenderHint(QPainter::Antialiasing);
+    setProperty("blurRegion",QRegion(path.toFillPolygon().toPolygon()));
+    p.drawPrimitive(QStyle::PE_PanelTipLabel, opt);
+    this->setProperty("blurRegion", QRegion(QRect(0, 0, 1, 1)));
+    QLabel::paintEvent(e);
+}
 
-
-UkmediaVolumeSlider::UkmediaVolumeSlider(QWidget *parent)
+UkmediaVolumeSlider::UkmediaVolumeSlider(QWidget *parent,bool needTip)
 {
     Q_UNUSED(parent);
-}
-
-void UkmediaVolumeSlider::wheelEvent(QWheelEvent *e)
-{
-
-    static int touchPadMovedDistance = 0;
-    gdouble value = 0.0;
-    gdouble blanceValue = 0;
-
-
-    if(m_pBlanceControl == nullptr) goto END;
-
-    value =  mate_mixer_stream_control_get_balance(m_pBlanceControl);
-
-    if(value==1 && e->delta()>0){
-        touchPadMovedDistance = 0;
-        goto END;
+    if (needTip) {
+        state = needTip;
+        m_pTiplabel = new UkuiMediaSliderTipLabel();
+        m_pTiplabel->setWindowFlags(Qt::ToolTip);
+    //    qApp->installEventFilter(new AppEventFilter(this));
+        m_pTiplabel->setFixedSize(52,30);
+        m_pTiplabel->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
     }
-
-    if(value==-1 && e->delta()<0){
-        touchPadMovedDistance = 0;
-        goto END;
-    }
-
-
-    touchPadMovedDistance += e->delta();
-
-    if(touchPadMovedDistance>-30 && touchPadMovedDistance<30){
-        goto END;
-    }
-
-    blanceValue = value+(touchPadMovedDistance/30)*0.01;
-    touchPadMovedDistance = 0.0;
-    blanceValue = blanceValue > 1.0? 1.0:blanceValue;
-    blanceValue = blanceValue < -1.0? -1.0:blanceValue;
-
-
-    mate_mixer_stream_control_set_balance(m_pBlanceControl,blanceValue);
-    setValue(blanceValue*100);
-END:
-    e->accept();
-}
-void UkmediaVolumeSlider::setBlanceControl(MateMixerStreamControl *pBlanceControl)
-{
-
-    m_pBlanceControl = pBlanceControl;
-}
-
-void UkmediaVolumeSlider::mouseMoveEvent(QMouseEvent *e){
-      double pos = e->pos().x() / (double)width();
-      gdouble value = pos *(maximum() - minimum()) + minimum();
-      gdouble balanceValue = 0.0;
-
-      value = value > 100.0? 100.0:value;
-      value = value < -100.0? -100.0:value;
-      balanceValue = value/100.0;
-
-      setValue(value);
-      mate_mixer_stream_control_set_balance(m_pBlanceControl,balanceValue);
 }
 
 void UkmediaVolumeSlider::mousePressEvent(QMouseEvent *ev)
 {
+    if (state) {
+        m_pTiplabel->show();
+    }
     //注意应先调用父类的鼠标点击处理事件，这样可以不影响拖动的情况
     QSlider::mousePressEvent(ev);
-
     //获取鼠标的位置，这里并不能直接从ev中取值（因为如果是拖动的话，鼠标开始点击的位置没有意义了）
     double pos = ev->pos().x() / (double)width();
     setValue(pos *(maximum() - minimum()) + minimum());
-    mate_mixer_stream_control_set_balance(m_pBlanceControl,(pos *(maximum() - minimum()) + minimum())/100.0);
     //向父窗口发送自定义事件event type，这样就可以在父窗口中捕获这个事件进行处理
     QEvent evEvent(static_cast<QEvent::Type>(QEvent::User + 1));
     QCoreApplication::sendEvent(parentWidget(), &evEvent);
@@ -114,11 +85,43 @@ void UkmediaVolumeSlider::initStyleOption(QStyleOptionSlider *option)
     QSlider::initStyleOption(option);
 }
 
-UkmediaVolumeSlider::~UkmediaVolumeSlider()
+void UkmediaVolumeSlider::leaveEvent(QEvent *e)
 {
+    if (state) {
+        m_pTiplabel->hide();
+    }
+}
+
+void UkmediaVolumeSlider::enterEvent(QEvent *e)
+{
+    if (state) {
+        m_pTiplabel->show();
+    }
+}
+
+void UkmediaVolumeSlider::paintEvent(QPaintEvent *e)
+{
+    QRect rect;
+    QStyleOptionSlider m_option;
+    QSlider::paintEvent(e);
+    if (state) {
+
+        this->initStyleOption(&m_option);
+        rect = this->style()->subControlRect(QStyle::CC_Slider, &m_option,QStyle::SC_SliderHandle,this);
+        QPoint gPos = this->mapToGlobal(rect.topLeft());
+        QString percent;
+        percent = QString::number(this->value());
+        percent.append("%");
+        m_pTiplabel->setText(percent);
+        m_pTiplabel->move(gPos.x()-(m_pTiplabel->width()/2)+9,gPos.y()-m_pTiplabel->height()-1);
+    }
+
 
 }
 
+UkmediaVolumeSlider::~UkmediaVolumeSlider()
+{
+}
 
 void UkuiButtonDrawSvg::init(QImage img, QColor color)
 {
@@ -187,7 +190,6 @@ bool UkuiButtonDrawSvg::event(QEvent *event)
     case QEvent::MouseButtonDblClick:
         event->accept();
         break;
-    case QEvent::Wheel:
 
     default:
         break;

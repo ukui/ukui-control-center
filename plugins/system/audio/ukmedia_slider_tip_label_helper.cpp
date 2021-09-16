@@ -59,7 +59,7 @@ SliderTipLabelHelper::SliderTipLabelHelper(QObject *parent) :QObject(parent)
     m_pTiplabel = new MediaSliderTipLabel();
     m_pTiplabel->setWindowFlags(Qt::ToolTip);
     qApp->installEventFilter(new AppEventFilter(this));
-    //m_pTiplabel->setFixedSize(52,30);
+    m_pTiplabel->setFixedSize(52,30);
     m_pTiplabel->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 }
 
@@ -114,8 +114,7 @@ void SliderTipLabelHelper::mouseMoveEvent(QObject *obj, QMouseEvent *e)
     QString percent;
     percent = QString::number(slider->value());
     percent.append("%");
-    m_pTiplabel->setText(" "+percent+" ");
-    m_pTiplabel->adjustSize();
+    m_pTiplabel->setText(percent);
     m_pTiplabel->move(gPos.x()-(m_pTiplabel->width()/2)+9,gPos.y()-m_pTiplabel->height()-1);
     m_pTiplabel->show();
 }
