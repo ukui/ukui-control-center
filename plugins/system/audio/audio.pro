@@ -6,10 +6,13 @@
 
 include(../../../env.pri)
 
-QT       += widgets xml
+QT       += widgets xml dbus
 
 TEMPLATE = lib
 CONFIG += plugin
+
+#include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
+#include($$PROJECT_COMPONENTSOURCE/label.pri)
 
 INCLUDEPATH += ../../.. \
                $$PROJECT_COMPONENTSOURCE \
@@ -21,8 +24,7 @@ target.path = $${PLUGIN_INSTALL_DIRS}
 CONFIG += c++11 \
           no_keywords link_pkgconfig
 
-PKGCONFIG += libmatemixer \
-             gio-2.0 \
+PKGCONFIG += gio-2.0 \
              libxml-2.0 \
              Qt5Multimedia \
              gsettings-qt \
@@ -38,10 +40,13 @@ SOURCES += \
     ukmedia_main_widget.cpp \
     ukmedia_output_widget.cpp \
     ukmedia_sound_effects_widget.cpp \
+    ukmedia_volume_control.cpp \
     ukui_custom_style.cpp \
-    switchbutton.cpp \
     customstyle.cpp \
-    ukmedia_slider_tip_label_helper.cpp
+    ukmedia_slider_tip_label_helper.cpp \
+    ukui_list_widget_item.cpp \
+    titlelabel.cpp \
+    switchbutton.cpp
 
 HEADERS += \
     audio.h \
@@ -49,15 +54,15 @@ HEADERS += \
     ukmedia_main_widget.h \
     ukmedia_output_widget.h \
     ukmedia_sound_effects_widget.h \
+    ukmedia_volume_control.h \
     ukui_custom_style.h \
-    switchbutton.h \
     customstyle.h \
-    ukmedia_slider_tip_label_helper.h
+    ukmedia_slider_tip_label_helper.h \
+    ukui_list_widget_item.h\
+    switchbutton.h\
+    titlelabel.h
 
 FORMS += \
     audio.ui
 
 INSTALLS += target
-
-RESOURCES += \
-    image.qrc

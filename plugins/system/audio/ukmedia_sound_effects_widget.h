@@ -26,9 +26,9 @@
 #include <QMessageBox>
 #include <QHBoxLayout>
 #include <QStyledItemDelegate>
-#include <QSharedPointer>
-#include "switchbutton.h"
 #include "ukui_custom_style.h"
+#include "titlelabel.h"
+#include "switchbutton.h"
 
 class UkuiMessageBox : public QMessageBox
 {
@@ -48,48 +48,45 @@ Q_SIGNALS:
 public Q_SLOTS:
 
 private:
-    QFrame *m_pSysVolumeWidget;
-    QFrame *m_pThemeWidget;
-    QFrame *m_pAlertSoundWidget;
-    QFrame *m_pLagoutWidget;
-    QFrame *m_pAlertSoundSwitchWidget;
-    QFrame *m_pAlertSoundVolumeWidget;
-    QFrame *m_pWindowClosedWidget;
-    QFrame *m_pVolumeChangeWidget;
-    QFrame *m_pSettingSoundWidget;
+    QFrame *m_pLagoutWidget;//注销提示音窗口
+    QFrame *m_pWakeupMusicWidget;//唤醒音乐窗口
+    QFrame *m_pStartupMusicWidget;//设置开机音乐窗口
+    QFrame *m_pPoweroffMusicWidget;//关机提示音
+    QFrame *m_pDnsNoiseReductionWidget;
 
-    QSharedPointer<QFrame> line_1;
-    QSharedPointer<QFrame> line_2;
-    QSharedPointer<QFrame> line_3;
-    QSharedPointer<QFrame> line_4;
-    QSharedPointer<QFrame> line_5;
+    QFrame *m_pAlertSoundSwitchWidget;//提示音开关窗口
+    QFrame *m_pThemeWidget;//提示音下的系统音效主题
+    QFrame *m_pAlertSoundWidget;//提示音下的通知提示
+    QFrame *m_pVolumeChangeWidget;//提示音下的音量调节
+
 
     QString qss;
     QStyledItemDelegate *itemDelegate;
     QLabel *m_pSoundEffectLabel;
-//    QLabel *m_pSoundThemeLabel;
+    QLabel *m_pSoundThemeLabel;
     QLabel *m_pShutdownlabel;
     QLabel *m_pLagoutLabel;
     QLabel *m_pAlertSoundSwitchLabel;
-    QLabel *m_pAlertSoundLabel;
-    QLabel *m_pAlertVolumeLabel;
-    QLabel *m_pWindowClosedLabel;
+//    QLabel *m_pAlertSoundLabel;
+//    QLabel *m_pAlertVolumeLabel;
+    QLabel *m_pWakeupMusicLabel;
     QLabel *m_pVolumeChangeLabel;
-    QLabel *m_pSettingSoundLabel;
-    QLabel *m_pAlertIconLabel_off;
-    QLabel *m_pAlertIconLabel_on;
+    QLabel *m_pPoweroffMusicLabel;
+    QLabel *m_pStartupMusicLabel;
+    QLabel *m_pDnsNoiseReductionLabel;
 
     QComboBox *m_pSoundThemeCombobox;
     QComboBox *m_pAlertSoundCombobox;
     QComboBox *m_pLagoutCombobox;
-    QComboBox *m_pWindowClosedCombobox;
     QComboBox *m_pVolumeChangeCombobox;
-    QComboBox *m_pSettingSoundCombobox;
     QVBoxLayout *m_pSoundLayout;
-    QVBoxLayout *m_pSysLayout;
-    SwitchButton *m_pBootButton;
+    SwitchButton *m_pStartupButton;
+    SwitchButton *m_pPoweroffButton;
+    SwitchButton *m_pLogoutButton;
     SwitchButton *m_pAlertSoundSwitchButton;
-    UkmediaVolumeSlider *m_pAlertSlider;
+    SwitchButton *m_pWakeupMusicButton;
+    SwitchButton *m_pDnsNoiseReductionButton;
+//    UkmediaVolumeSlider *m_pAlertSlider;
 //    UkuiButtonDrawSvg *m_pAlertIconBtn;
 };
 

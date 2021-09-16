@@ -1,4 +1,4 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
+ /* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  *
  * Copyright (C) 2019 Tianjin KYLIN Information Technology Co., Ltd.
  *
@@ -24,32 +24,51 @@
 #include <QPushButton>
 #include <QImage>
 #include <QSlider>
+#include <QLabel>
+#include <QMouseEvent>
+#include "titlelabel.h"
 
-#include <libmatemixer/matemixer.h>
 static QColor symbolic_color = Qt::gray;
+
+class UkuiMediaSliderTipLabel:public QLabel
+{
+  public:
+    UkuiMediaSliderTipLabel();
+    ~UkuiMediaSliderTipLabel();
+protected:
+    void paintEvent(QPaintEvent*);
+};
 
 class UkmediaVolumeSlider : public QSlider
 {
     Q_OBJECT
 public:
-    UkmediaVolumeSlider(QWidget *parent = nullptr);
+//    UkmediaVolumeSlider(QWidget *parent = nullptr);
+    UkmediaVolumeSlider(QWidget *parent = nullptr,bool needTip = false);
     void initStyleOption(QStyleOptionSlider *option);
     ~UkmediaVolumeSlider();
-     void setBlanceControl(MateMixerStreamControl *pBlanceControl);
+private:
+    UkuiMediaSliderTipLabel *m_pTiplabel;
+    bool state = false;
+
+    bool mousePress =false;
 Q_SIGNALS:
     void silderPressedSignal(int);
 
 protected:
     void mousePressEvent(QMouseEvent *ev);
-    void mouseMoveEvent(QMouseEvent *e);
-//    {
-////        setCursor(QCursor(Qt::OpenHandCursor));
-////        m_displayLabel->move((this->width()-m_displayLabel->width())*this->value()/(this->maximum()-this->minimum()),3);
-//        QSlider::mouseMoveEvent(e);
-//    }
-    void wheelEvent(QWheelEvent *e);
+    void mouseMoveEvent(QMouseEvent *e)
+    {
+//        setCursor(QCursor(Qt::OpenHandCursor));
+//        m_displayLabel->move((this->width()-m_displayLabel->width())*this->value()/(this->maximum()-this->minimum()),3);
+        QSlider::mouseMoveEvent(e);
+    }
+    void leaveEvent(QEvent *e);
 
+    void enterEvent(QEvent *e);
+    void paintEvent(QPaintEvent *e);
 };
+
 
 class UkuiButtonDrawSvg:public QPushButton
 {
@@ -68,6 +87,8 @@ protected:
 private:
     QImage mImage;
     QColor mColor;
+
+    bool mousePress = false;
 };
 
 #endif // UKUICUSTOMSTYLE_H
