@@ -620,11 +620,17 @@
              </spacer>
             </item>
             <item>
-             <widget class="QDateEdit" name="dateEdit">
+             <widget class="DateEdit" name="dateEdit">
               <property name="minimumSize">
                <size>
                 <width>150</width>
-                <height>0</height>
+                <height>36</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>36</height>
                </size>
               </property>
               <property name="calendarPopup">
@@ -1120,6 +1126,11 @@
    <class>FixButton</class>
    <extends>QPushButton</extends>
    <header>Button/fixbutton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>DateEdit</class>
+   <extends>QDateEdit</extends>
+   <header>dateedit.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

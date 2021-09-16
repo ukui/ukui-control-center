@@ -263,6 +263,7 @@
         <file>plugins/netconnect/7-black.png</file>
         <file>plugins/netconnect/8-black.png</file>
         <file>plugins/netconnect/6-black.png</file>
+        <file>dropArrow/ukui-down-symbolic.svg</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>

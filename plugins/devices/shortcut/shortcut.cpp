@@ -578,6 +578,11 @@ QString Shortcut::keyToLib(QString key)
             QString keyToLib = "<" + keys.at(0) + ">" + "<" + keys.at(1) + ">" + lower.toLower();
             qDebug() << "count = 3,keyToLib = " << keyToLib;
             return keyToLib;
+        } else if (keys.count() == 4) {
+            QString lower = keys.at(3);
+            QString keyToLib = "<" + keys.at(0) + ">" + "<" + keys.at(1) + ">" + "<" + keys.at(2) + ">" + lower.toLower();
+            qDebug() << "count = 4,keyToLib = " << keyToLib;
+            return keyToLib;
         }
     }
     qDebug() << "count = 1,keyToLib = " << key;

@@ -45,6 +45,7 @@
 #include <QScrollBar>
 #include <KWindowSystem>
 #include "component/leftwidgetitem.h"
+#include "iconbutton.h"
 
 #define STYLE_FONT_SCHEMA  "org.ukui.style"
 
@@ -748,19 +749,10 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
     leftsidebarBtn->setCheckable(true);
     leftsidebarBtn->setFixedSize(200,40);  //一级菜单按钮显示的宽度
 
-    QPushButton * iconBtn = new QPushButton(leftsidebarBtn);
+    IconButton * iconBtn = new IconButton(bname,leftsidebarBtn);
     iconBtn->setCheckable(true);
     iconBtn->setFixedSize(QSize(16, 16));
     iconBtn->setFocusPolicy(Qt::NoFocus);
-
-    QString iconBtnQss = QString("QPushButton:checked{border:  none;}"
-                                 "QPushButton:!checked{border: none;}");
-    QString path = QString("://img/secondaryleftmenu/%1.svg").arg(bname);
-    QPixmap pix = ImageUtil::loadSvg(path, "default");
-
-    iconBtn->setStyleSheet(iconBtnQss);
-
-    iconBtn->setIcon(pix);
 
     QLabel * textLabel = new QLabel(leftsidebarBtn);
     textLabel->setFixedWidth(leftsidebarBtn->width() - 40);
@@ -799,32 +791,22 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
     leftMicBtnGroup->addButton(iconBtn, itype);
 
     connect(iconBtn, &QPushButton::toggled, this, [=] (bool checked) {
-        QString path = QString("://img/secondaryleftmenu/%1.svg").arg(bname);
-        QPixmap pix;
         if (checked) {
-            pix = ImageUtil::loadSvg(path, "white");
             textLabel->setStyleSheet("color:white");
         } else {
-            pix = ImageUtil::loadSvg(path, "default");
             textLabel->setStyleSheet("color:palette(windowText)");
         }
-        iconBtn->setIcon(pix);
     });
 
     connect(iconBtn, &QPushButton::clicked, leftsidebarBtn, &QPushButton::click);
 
     connect(leftsidebarBtn, &QPushButton::toggled, this, [=](bool checked) {
         iconBtn->setChecked(checked);
-        QString path = QString("://img/secondaryleftmenu/%1.svg").arg(bname);
-        QPixmap pix;
         if (checked) {
-            pix = ImageUtil::loadSvg(path, "white");
             textLabel->setStyleSheet("color:white");
         } else {
-            pix = ImageUtil::loadSvg(path, "default");
             textLabel->setStyleSheet("color:palette(windowText)");
         }
-        iconBtn->setIcon(pix);
     });
 
     QHBoxLayout * btnHorLayout = new QHBoxLayout();

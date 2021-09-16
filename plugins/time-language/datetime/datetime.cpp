@@ -41,6 +41,7 @@
 #include <QButtonGroup>
 #include <QCalendarWidget>
 #include "Frame/hlineframe.h"
+#include "customCalendar.h"
 
 const char kTimezoneDomain[] = "installer-timezones";
 const char kDefaultLocale[]  = "en_US.UTF-8";
@@ -167,7 +168,8 @@ void DateTime::initUI()
     ui->syncLabel->setText(tr("Sync Time"));
     syncNetworkRetLabel = new QLabel(pluginWidget);
     syncNetworkRetLabel->setStyleSheet("QLabel{font-size: 15px; color: #D9F82929;}");
-
+    CustomCalendarWidget* calendarWidget = new CustomCalendarWidget;
+    ui->dateEdit->setCalendarWidget(calendarWidget);
     m_zoneinfo          = new ZoneInfo;
     m_timezone          = new TimeZoneChooser(pluginWidget);
     m_itimer            = new QTimer(this);
@@ -182,13 +184,6 @@ void DateTime::initUI()
     Clock *m_clock = new Clock();
     //ui->clockFrame->setFrameShape(QFrame::Shape::Box);
     ui->clockLayout->addWidget(m_clock);
-//    ui->dateEdit->calendarWidget()->setVisible(false);
-   // ui->dateEdit->adjustSize();
-//    ui->dateEdit->setStyleSheet("QCalendarWidget QWidget#qt_calendar_navigationbar{\
-//                                background-color: palette(window);\
-//                                }");
-
-
     //~ contents_path /date/Manual Time
     ui->timeLabel->setText(tr("Manual Time"));
     for (int m = 0; m < 60; m++) {
@@ -698,7 +693,7 @@ void DateTime::initConnect()
         }
     });
 
-    connect(ui->dateEdit, &QDateEdit::dateChanged, this, [=]() {
+    connect(ui->dateEdit, &DateEdit::changeDate, this, [=]() {
         setTime();
     });
 
@@ -713,9 +708,6 @@ void DateTime::initConnect()
     connect(ui->secComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated), this, [=]() {
         setTime();
     });
-
-
-
 
 }
 
@@ -830,7 +822,8 @@ void DateTime::initSetTime() {
     ui->minComboBox->blockSignals(true);
     ui->secComboBox->blockSignals(true);
 
-    ui->dateEdit->setDate(m_time.date());
+    if (!ui->dateEdit->hasFocus())
+        ui->dateEdit->setDate(m_time.date());
     ui->hourComboBox->setCurrentIndex(m_time.time().hour());
     ui->minComboBox->setCurrentIndex(m_time.time().minute());
     ui->secComboBox->setCurrentIndex(m_time.time().second());
