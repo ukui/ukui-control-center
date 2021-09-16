@@ -171,7 +171,7 @@ int SysdbusRegister::_changeOtherUserPasswd(QString username, QString pwd){
 
     QString output;
 
-    char * cmd = g_strdup_printf("/usr/bin/changeotheruserpwd %s %s", user_name, passwd);
+    char * cmd = g_strdup_printf("/usr/bin/changeotheruserpwd '%s' '%s'", user_name, passwd);
 
     FILE   *stream;
     char buf[256];

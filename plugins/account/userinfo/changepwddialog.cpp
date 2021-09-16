@@ -418,6 +418,8 @@ void ChangePwdDialog::pwdLegalityCheck(){
 }
 
 bool ChangePwdDialog::checkCharLegitimacy(QString password){
+    if (password.contains("'"))
+        return false;
     foreach (QChar ch, password){
         if (int(ch.toLatin1() <= 0 || int(ch.toLatin1()) > 127)){
             return false;

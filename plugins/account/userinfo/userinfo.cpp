@@ -1204,7 +1204,7 @@ void UserInfo::showChangePwdDialog(QString username){
 
             QString output;
 
-            char * cmd = g_strdup_printf("/usr/bin/changeuserpwd %s %s", oldpwd.toLatin1().data(), pwd.toLatin1().data());
+            char * cmd = g_strdup_printf("/usr/bin/changeuserpwd '%s' '%s'", oldpwd.toLatin1().data(), pwd.toLatin1().data());
 
             FILE   *stream;
             char buf[256];
