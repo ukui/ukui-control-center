@@ -59,7 +59,7 @@ enum DevicesIndex{
     PRINTER,
     MOUSE,
     TOUCHPAD,
-    GESTURE,
+//    GESTURE,
     TOUCHSCREEN,
     KEYBOARD,
     SHORTCUT,
