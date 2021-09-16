@@ -50,19 +50,19 @@ UpdateDbus::UpdateDbus(QObject *parent)
 }
 void UpdateDbus::disconnectDbusSignal()
 {
-    QDBusConnection::systemBus().connect(QString("cn.kylinos.KylinUpdateManager"), QString("/cn/kylinos/KylinUpdateManager"),
+    QDBusConnection::systemBus().disconnect(QString("cn.kylinos.KylinUpdateManager"), QString("/cn/kylinos/KylinUpdateManager"),
                                          QString("cn.kylinos.KylinUpdateManager"),
                                          QString("kum_apt_signal"), this, SLOT(getAptSignal(QString, QMap<QString, QVariant>)));
 
-    QDBusConnection::systemBus().connect(QString("cn.kylinos.KylinUpdateManager"), QString("/cn/kylinos/KylinUpdateManager"),
+    QDBusConnection::systemBus().disconnect(QString("cn.kylinos.KylinUpdateManager"), QString("/cn/kylinos/KylinUpdateManager"),
                                          QString("cn.kylinos.KylinUpdateManager"),
                                          QString("important_app_message_signal"), this, SLOT(getAppMessageSignal(QMap<QString, QVariant>, QStringList, QStringList, QStringList, QStringList, QString, bool)));
 
-    QDBusConnection::systemBus().connect(QString("cn.kylinos.KylinUpdateManager"), QString("/cn/kylinos/KylinUpdateManager"),
+    QDBusConnection::systemBus().disconnect(QString("cn.kylinos.KylinUpdateManager"), QString("/cn/kylinos/KylinUpdateManager"),
                                          QString("cn.kylinos.KylinUpdateManager"),
                                          QString("get_message_finished_signal"), this, SLOT(slotFinishGetMessage(QString)));
 
-    QDBusConnection::systemBus().connect(QString("cn.kylinos.KylinUpdateManager"), QString("/cn/kylinos/KylinUpdateManager"),
+    QDBusConnection::systemBus().disconnect(QString("cn.kylinos.KylinUpdateManager"), QString("/cn/kylinos/KylinUpdateManager"),
                                          QString("cn.kylinos.KylinUpdateManager"),
                                          QString("copy_finish"), this, SLOT(slotCopyFinished(QString)));
 }

@@ -7765,8 +7765,8 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="205"/>
-        <source>Failed to connect to software warehouse!</source>
-        <translation>连接软件仓库失败</translation>
+        <source>Software source server connection timeout</source>
+        <translation>软件源服务器连接超时</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="176"/>
