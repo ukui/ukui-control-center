@@ -15,7 +15,7 @@
 class LanItem : public QPushButton
 {
 public:
-    LanItem(QWidget *parent = nullptr);
+    LanItem(bool isAcitve, QWidget *parent = nullptr);
     ~LanItem();
 public:
     QLabel * iconLabel = nullptr;
@@ -32,6 +32,7 @@ public:
     void stopLoading();
 
     bool loading = false;
+    bool isAcitve = false;
 private:
     QTimer *waitTimer = nullptr;
     QGSettings *themeGsettings = nullptr;
