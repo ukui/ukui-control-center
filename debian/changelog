@@ -1,3 +1,77 @@
+ukui-control-center (3.0.1-1-95.14) v101; urgency=medium
+
+  * 提交commit:d7ceb1fc
+  * 解决bug76576 80552 打开控制面板界面显示下载限制调节栏的问题
+  * 解决bug76576 80552 打开控制面板界面显示下载限制调节栏的问题
+  * bug #78472 75904 在断开priority值大的字段的源时，无法连接priority值小的字段的源
+  * bug#81064 【0521-0610系统升级】【控制面板】【arm】连接蓝牙耳机进入睡眠或休眠，唤醒后控制面板闪退
+  * bug#80677 【蓝牙】点击控制面板-蓝牙开关，实现的效果为连续点击两次开关的效果，多次重复点击后，出现蓝牙列表空白的现象，任务栏
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 16 Sep 2021 20:15:26 +0800
+
+ukui-control-center (3.0.1-1-95.13) v101; urgency=medium
+
+  * 提交commit:f2edadc9
+  * bug#77780无法应用4K分辨率
+  * bug#79746 【前线】【超翔TF830-V050】【CD2008A主板】【设置|账户】修改用户名按Enter键不生效
+  * bug#78712 【账户信息】安全中心关闭密码强度和账户锁定保护，账户信息中修改密码时输入错误的原密码仍然可以保存，且保存后控制面板卡住无法操作
+  * bug#78999 【蓝牙管理器】在终端使用命令sudo systemctl stop bluetooth.service停止蓝牙服务，导致控制面板程序异常，无法操作
+  * bug#75734 【蓝牙】在多次开启和关闭蓝牙/连接和断连设备后出现控制面板闪退现象，/tmp下生成core文件
+  * bug#78013 【显示器】【x86】【联想兆芯机型】深色模式下，控制面板显示器区域未反白
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 14 Sep 2021 16:10:27 +0800
+
+ukui-control-center (3.0.1-1-95.12) v101; urgency=medium
+
+  * 提交commit:efbc7061
+  * bug#74701
+  * bug#79575 【系统升级】单个应用更新，提示框按钮含义不清晰
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 08 Sep 2021 20:03:50 +0800
+
+ukui-control-center (3.0.1-1-95.11) v101; urgency=medium
+
+  * bug#77583扩展模式不关设置窗口，插拔一个显示屏后，点击统一输出，屏幕为扩展模式
+  * bug#79575 【系统升级】单个应用更新，提示框按钮含义不清晰
+  * bug#78618导航标签及首页中的"账户"需要改为"帐户"
+  * bug#79105jjw显卡机器没有夜间模式的设置
+  * bug#79318打开控制面板蓝牙界面，蓝牙列表不会自动刷新，列表无蓝牙
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 08 Sep 2021 10:14:20 +0800
+
+ukui-control-center (3.0.1-1-95.10) v101; urgency=medium
+
+  * 提交commit:8d904bf
+  * bug#75185 75180 UI下载接口界面优化和bug解决
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 06 Sep 2021 14:55:35 +0800
+
+ukui-control-center (3.0.1-1-95.9) v101; urgency=medium
+
+  * 提交commit:18b5cc52
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 06 Sep 2021 11:41:34 +0800
+
+ukui-control-center (3.0.1-1-95.8) v101; urgency=medium
+
+  * 提交commit:8d9e0d24
+  * 生物特征bug#77903,77887,75159
+  * bug#67600切换主题之后，开启蓝牙的编辑图标没有高亮显示
+  * bug#78081已连接蓝牙设备后，关闭蓝牙，“我的设备”列表隐藏存在延迟
+  * bug#78597,75184,75182电源管理
+  * bug#78106监听ctrl+c信号，异常打印问题
+  * bug#38116,63450,63394,用户手册问题
+  * bug#78605关于功能卡死问题
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 06 Sep 2021 09:08:46 +0800
+
+ukui-control-center (3.0.1-1-95.7) v101; urgency=medium
+
+  * 提交commit:63904fc5
+  * bug#63407更新用户手册
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 03 Sep 2021 09:17:36 +0800
+
 ukui-control-center (3.0.1-1-95.6) v101; urgency=medium
 
   * 提交commit:e998b0fc
