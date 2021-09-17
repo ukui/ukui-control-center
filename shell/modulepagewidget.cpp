@@ -37,7 +37,6 @@ ModulePageWidget::ModulePageWidget(QWidget *parent) :
     ui(new Ui::ModulePageWidget)
 {
     ui->setupUi(this);
-
     initUI();
 }
 
@@ -66,6 +65,7 @@ void ModulePageWidget::initUI() {
             ui->scrollArea->verticalScrollBar()->setHidden(false);
         }
     });
+
     ui->scrollArea->setStyleSheet("QScrollArea{background-color: palette(window);}");
     ui->scrollArea->verticalScrollBar()->setProperty("drawScrollBarGroove", false);
 }
@@ -84,7 +84,10 @@ void ModulePageWidget::refreshPluginWidget(CommonInterface *plu){
     ui->scrollArea->takeWidget();
     delete(ui->scrollArea->widget());
 
-    ui->scrollArea->setWidget(plu->get_plugin_ui());
+    QWidget *pluginwidget =  plu->get_plugin_ui();
+    pluginwidget->setObjectName("widget");
+    pluginwidget->setStyleSheet("QWidget#widget{background  :  palette(window);}");
+    ui->scrollArea->setWidget(pluginwidget);
 
     //延迟操作
     plu->plugin_delay_control();
