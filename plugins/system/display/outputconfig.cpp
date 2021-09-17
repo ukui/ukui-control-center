@@ -141,7 +141,7 @@ void OutputConfig::initUi()
     mRefreshRate->addItem(tr("auto"), -1);
     vbox->addWidget(freshFrame);
 
-    slotResolutionChanged(mResolution->currentResolution(), true);
+    slotResolutionChanged(mResolution->currentResolution(), false);
     connect(mRefreshRate, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated),
             this, &OutputConfig::slotRefreshRateChanged);
 
@@ -199,7 +199,6 @@ void OutputConfig::initConnection()
                 slotResolutionChanged(mOutput->currentMode()->size(), false);
                 mRefreshRate->blockSignals(false);
             }
-
         }
     });
 }
@@ -266,16 +265,20 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
         // If selected refresh rate is other then what we consider the "Auto" value
         // - that is it's not the highest resolution - then select it, otherwise
         // we stick with "Auto"
-        if (mode == selectMode && mRefreshRate->count() > 1) {
+        if (mode == selectMode && mRefreshRate->count() > 1 && emitFlag) {
             // i + 1 since 0 is auto
-            mRefreshRate->setCurrentIndex(i + 1);
+            mRefreshRate->setCurrentIndex(mRefreshRate->count() - 1);
         }
     }
 
-    if (!modeID.isEmpty()) {
-        mOutput->setCurrentModeId(modeID);
+    if (!emitFlag) {
+        const int index = mRefreshRate->findData(currentMode->id());
+        mRefreshRate->setCurrentIndex(index);
     }
 
+    if (!modeID.isEmpty() && emitFlag) {
+        mOutput->setCurrentModeId(modeID);
+    }
 
     if (emitFlag)
         Q_EMIT changed();

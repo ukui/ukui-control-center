@@ -68,9 +68,7 @@ protected:
     QComboBox *mScaleCombox = nullptr;
 
     bool mShowScaleOption = false;
-    bool mIsWayland = false;
     bool mIsFirstLoad = true;
-
 
 #if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
     KScreen::ConfigPtr mConfig;
