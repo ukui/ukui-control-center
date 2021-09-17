@@ -812,6 +812,7 @@ void TabWid::loadingFinishedSlot(int size)
     disconnect(updateSource->serviceInterface,SIGNAL(updateSourceProgress(QVariantList)),this,SLOT(slotUpdateCacheProgress(QVariantList)));
     qDebug()<< "更新管理器：" <<"加载完毕信号 " << "size = " << size;
     if(updateMutual->importantList.size() == 0) {
+        updateMutual->fileUnLock();
         checkUpdateBtn->setEnabled(true);
         checkUpdateBtn->stop();
         //        checkUpdateBtn->setText(tr("检查更新"));
@@ -1091,9 +1092,11 @@ void TabWid::hideUpdateBtnSlot(bool isSucceed)
             systemPortraitLab->setPixmap(QPixmap(":/img/plugins/upgrade/normal.png").scaled(96,96));
             checkUpdateBtn->hide();
             allProgressBar->hide();
+            updateMutual->fileUnLock();
         }
         else {
             versionInformationLab->setText(tr("Part of the update failed!"));
+            updateMutual->fileUnLock();
             allProgressBar->hide();
         }
         QString updatetime = tr("No Information!");
