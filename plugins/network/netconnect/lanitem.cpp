@@ -6,7 +6,8 @@
 #define THEME_QT_SCHEMA  "org.ukui.style"
 #define MODE_QT_KEY      "style-name"
 
-LanItem::LanItem(QWidget *parent) : QPushButton(parent)
+LanItem::LanItem(bool isAcitve, QWidget *parent)
+    : QPushButton(parent),isAcitve(isAcitve)
 {
     this->setMinimumSize(550, 58);
     this->setProperty("useButtonPalette", true);

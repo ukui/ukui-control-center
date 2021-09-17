@@ -64,7 +64,7 @@ class NetConnect;
 
 typedef struct DeviceLanlistInfo_s
 {
-    QMap<QString,ItemFrame*> deviceLayoutMap;
+    QMap<QString, ItemFrame*> deviceLayoutMap;
     QMap<QString, LanItem*> lanItemMap;
 }DeviceLanlistInfo;
 
@@ -88,12 +88,13 @@ private:
     void initComponent();
     void rebuildDeviceComponent(ItemFrame *frame, QString deviceName, int count);
     void rebuildAddComponent(ItemFrame *frame, QString deviceName);
-    void rebuildAvailComponent(ItemFrame *frame, QString iconpath, QString deviceName, QString name, QString ssid, bool status, int type);
+    void rebuildAvailComponent(ItemFrame *frame, QString iconpath, QString deviceName, QString name, QString ssid, QString path, bool status, int type);
     void runExternalApp();
     void setSwitchStatus();
     void clearLayout(QVBoxLayout *layout);
-    void activeConnect(QString netName, QString deviceName, int type);
-    void deActiveConnect(QString netName, QString deviceName, int type);
+    void deleteOneLan(QString ssid);
+    void activeConnect(QString ssid, QString deviceName, int type);
+    void deActiveConnect(QString ssid, QString deviceName, int type);
     void getDeviceList();
     void initNet();
 
@@ -111,21 +112,24 @@ private:
     QDBusInterface     *kdsDbus = nullptr;
     SwitchButton       *wiredSwitch;
 
-//    QMap<QString, LanItem*> lanItemMap;
-
     bool               mFirstLoad;
 
     QGSettings         *m_switchGsettings;
     DeviceLanlistInfo   deviceLanlistInfo;
     QMap<QString, bool> deviceListMap;
-    QMap<QString, bool> dropDownMap;
+    QMap<QString, bool> dropDownMap; //记录当前网卡下拉按钮状态
+    QMap<QString,QString> ssidDeviceMap;
+    QMap<QString, ItemFrame *> deviceFrameMap;
+    QMap<QString, QString> pathSsidMap;
 private slots:
     void getNetListFromDevice(QString deviceName, bool deviceStatus, QVBoxLayout *layout, int count);
-    void rebuildOneFrame(QString deviceName, ItemFrame *frame);
     void dropDownAnimation(DeviceFrame * deviceFrame, QString deviceName, QMap<QString, bool> deviceListMap);
-    void setItemStartLoading(QString devName, QString ssid);
-    void setItemStopLoading(QString devName);
     void netPropertiesChangeSlot(QMap<QString, QVariant> property);
+    void updateOneLanFrame(QString deviceName, QString uuid, int status);
+    void updateOneLanFrame(QString devicePath);
+    void updateOneLanFrame(QString deviceName, QStringList lanInfo);
+    void updateLanInfo(QString deviceName, QStringList lanInfo);
+    void updateLanListWidget();
 };
 
 Q_DECLARE_METATYPE(QList<QDBusObjectPath>);
