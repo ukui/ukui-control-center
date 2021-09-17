@@ -312,7 +312,9 @@ void OutputConfig::slotRotationChanged(int index)
 {
     KScreen::Output::Rotation rotation
         = static_cast<KScreen::Output::Rotation>(mRotation->itemData(index).toInt());
+    mOutput->blockSignals(true);
     mOutput->setRotation(rotation);
+    mOutput->blockSignals(false);
 
     Q_EMIT changed();
 }
