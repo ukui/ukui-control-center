@@ -680,7 +680,6 @@ void Widget::setHideModuleInfo()
 
 void Widget::setTitleLabel()
 {
-    //~ contents_path /display/monitor
     ui->primaryLabel->setText(tr("monitor"));
 }
 
@@ -777,7 +776,6 @@ void Widget::setcomBoxScale()
 
 void Widget::initNightUI()
 {
-    //~ contents_path /display/unify output
     ui->unifyLabel->setText(tr("unify output"));
 
     QHBoxLayout *nightLayout = new QHBoxLayout(ui->nightframe);
@@ -2277,6 +2275,7 @@ void Widget::showBrightnessFrame(const int flag)
         for (int i = 0; i < BrightnessFrameV.size(); ++i) {
             if (ui->primaryCombo->currentText() == BrightnessFrameV[i]->getOutputName() && BrightnessFrameV[i]->getOutputEnable()) {
                 ui->unifyBrightFrame->setFixedHeight(52);
+                //~ contents_path /display/Brightness
                 BrightnessFrameV[i]->setTextLabelName(tr("Brightness"));
                 BrightnessFrameV[i]->setVisible(true);
                 //不能break，要把其他的frame隐藏

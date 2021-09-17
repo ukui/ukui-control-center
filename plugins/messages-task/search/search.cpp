@@ -4,7 +4,6 @@
 
 Search::Search()
 {
-    //~ contents_path /search/Search
     m_plugin_name = tr("Search");
     m_plugin_type = SEARCH_F;
     initUi();
@@ -161,6 +160,7 @@ void Search::initUi()
 //    m_webEngineLabel = new TitleLabel(m_searchMethodFrame);
 //    m_webEngineLabel->setLayout(m_webEngineLyt);
 //    m_webEngineLabel->setText(tr("Web Engine"));
+     //~ contents_path /search/Default web searching engine
     m_webEngineFrame = new ComboxFrame(tr("Default web searching engine"), m_searchMethodFrame);
 //    m_webEngineFrame->setLayout(m_webEngineLyt);
     m_webEngineFrame->setContentsMargins(8, 0, 16, 0);
@@ -423,6 +423,7 @@ void Search::onBtnAddFolderClicked()
 //    fileDialog->setViewMode(QFileDialog::Detail);
     fileDialog->setDirectory(QDir::homePath());
     fileDialog->setNameFilter(tr("Directories"));
+    //~ contents_path /search/select blocked folder
     fileDialog->setWindowTitle(tr("select blocked folder"));
     fileDialog->setLabelText(QFileDialog::Accept, tr("Select"));
     fileDialog->setLabelText(QFileDialog::LookIn, tr("Position: "));

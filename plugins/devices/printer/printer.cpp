@@ -160,6 +160,10 @@ void Printer::initPrinterUi()
 
 void Printer::initTitleLabel()
 {
+    QLabel *AddLabel = new QLabel;
+    //~ contents_path /printer/Add
+    AddLabel->setText(tr("Add"));       // 用于添加搜索索引
+    delete AddLabel;
 }
 
 void Printer::initComponent()

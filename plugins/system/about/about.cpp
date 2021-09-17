@@ -60,7 +60,6 @@ const QString vFour = "v4";
 
 About::About() : mFirstLoad(true)
 {
-    //~ contents_path /about/About
     pluginName = tr("About");
     pluginType = SYSTEM;
 }
@@ -408,13 +407,8 @@ void About::retranslateUi()
 {
     mTitleLabel->setText(tr("System Summary"));
     mHoldTitleLabel->setText(tr("Support"));
-
     mVersionNumLabel_1->setText(tr("Version Number"));
     mDiskLabel_1->setText(tr("Disk"));
-    mUsernameLabel_1->setText(tr("User"));
-    mStatusLabel_1->setText(tr("Status"));
-    mSequenceLabel_1->setText(tr("Serial"));
-    mTimeLabel_1->setText(tr("DateRes"));
 
     mHpLabel->setText(tr("Wechat code scanning obtains HP professional technical support"));
     mEducateLabel->setText(tr("See more about Kylin Tianqi edu platform"));
@@ -471,6 +465,12 @@ void About::initSearchText()
     mMemoryLabel_1->setText(tr("Memory"));
     //~ contents_path /about/Desktop
     mDesktopLabel_1->setText(tr("Desktop"));
+    //~ contents_path /about/User
+    mUsernameLabel_1->setText(tr("User"));
+     //~ contents_path /about/Status
+    mStatusLabel_1->setText(tr("Status"));
+    mSequenceLabel_1->setText(tr("Serial"));
+    mTimeLabel_1->setText(tr("DateRes"));
 }
 
 /* 初始化DBus对象 */

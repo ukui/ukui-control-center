@@ -99,7 +99,6 @@ const QString NetConnect::name() const {
 void NetConnect::initSearchText() {
     //~ contents_path /netconnect/Advanced settings"
     ui->detailBtn->setText(tr("Advanced settings"));
-    //~ contents_path /netconnect/Netconnect Status
     ui->titleLabel->setText(tr("Wired Network"));
     //~ contents_path /netconnect/open
     ui->openLabel->setText(tr("open"));

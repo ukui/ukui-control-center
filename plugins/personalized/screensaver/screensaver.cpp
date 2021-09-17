@@ -853,7 +853,7 @@ void Screensaver::initShowtimeFrame()
     showTimeLayout->addStretch();
     showTimeLayout->addWidget(showTimeBtn);
     showTimeLabel->setFixedWidth(220);
-    //~ contents_path /screensaver/Show rest time
+
     showTimeLabel->setText(tr("Show rest time"));
     ui->customizeLayout->addWidget(showTimeFrame);
 }

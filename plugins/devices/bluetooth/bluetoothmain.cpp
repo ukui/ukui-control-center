@@ -49,7 +49,6 @@ BlueToothMain::BlueToothMain(QWidget *parent)
  */
 void BlueToothMain::InitMainTopUI()
 {
-    //~ contents_path /bluetooth/Bluetooth
     TitleLabel *label_1 = new TitleLabel(frame_top);
     label_1->setText(tr("Bluetooth"));
     label_1->resize(100,25);
@@ -197,6 +196,7 @@ void BlueToothMain::InitMainMiddleUI()
     paired_dev_layout->setContentsMargins(0,0,0,0);
 
     TitleLabel *middle_label = new TitleLabel(frame_middle);
+    //~ contents_path /bluetooth/My Devices
     middle_label->setText(tr("My Devices"));
     middle_label->resize(72,25);
 
@@ -212,8 +212,8 @@ void BlueToothMain::InitMainbottomUI()
     title_layout->setSpacing(10);
     title_layout->setContentsMargins(0,0,10,0);
 
-    //~ contents_path /bluetooth/Other Devices
     TitleLabel *label_1 = new TitleLabel(frame_bottom);
+    //~ contents_path /bluetooth/Other Devices
     label_1->setText(tr("Other Devices"));
     label_1->resize(72,25);
 

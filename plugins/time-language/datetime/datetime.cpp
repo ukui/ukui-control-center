@@ -385,6 +385,7 @@ void DateTime::initNtp()
     ui->ntpFrame->setLayout(ntpLayout);
     ntpLayout->addWidget(ntpLabel);
     ntpLayout->addWidget(ntpCombox);
+    //~ contents_path /date/Sync Server
     ntpLabel->setText(tr("Sync Server"));
     ntpCombox->setFixedHeight(36);
     ntpCombox->addItem(tr("Default"));

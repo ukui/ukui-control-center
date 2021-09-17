@@ -51,7 +51,6 @@ UkmediaInputWidget::UkmediaInputWidget(QWidget *parent) : QWidget(parent)
     //~ contents_path /audio/Input Device
     m_pInputDeviceLabel = new QLabel(tr("Input Device:"),m_pInputSlectWidget);
     m_pInputDeviceSelectBox = new QComboBox(m_pInputSlectWidget);
-    //~ contents_path /audio/Volume
     m_pIpVolumeLabel = new QLabel(tr("Volume"),m_pVolumeWidget);
     m_pInputIconBtn = new UkuiButtonDrawSvg(m_pVolumeWidget);
     m_pIpVolumeSlider = new AudioSlider();

@@ -127,9 +127,9 @@ void Fonts::initSearchText() {
     //~ contents_path /fonts/Font size
     ui->fontSizeLabel->setText(tr("Font size"));
     //~ contents_path /fonts/Fonts select
-    ui->fontSizeLabel->setText(tr("Fonts select"));
-    //~ contents_path /fonts/Font size
-    ui->fontSizeLabel->setText(tr("Font size"));
+    ui->fontSelectLabel->setText(tr("Fonts select"));
+    //~ contents_path /fonts/Mono font
+    ui->monoSelectLabel->setText(tr("Mono font"));
 }
 
 void Fonts::setupStylesheet(){

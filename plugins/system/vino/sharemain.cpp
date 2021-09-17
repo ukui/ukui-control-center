@@ -63,6 +63,7 @@ void ShareMain::initUI()
     QHBoxLayout *enableHLayout = new QHBoxLayout();
 
     mEnableBtn = new SwitchButton(this);
+     //~ contents_path /vino/Allow others to view your desktop
     mEnableLabel = new QLabel(tr("Allow others to view your desktop"), this);
     enableHLayout->addWidget(mEnableLabel);
     enableHLayout->addStretch();
@@ -78,6 +79,7 @@ void ShareMain::initUI()
     QHBoxLayout *viewHLayout = new QHBoxLayout();
 
     mViewBtn = new SwitchButton(this);
+    //~ contents_path /vino/Allow connection to control screen
     mViewLabel = new QLabel(tr("Allow connection to control screen"), this);
     viewHLayout->addWidget(mViewLabel);
     viewHLayout->addStretch();
@@ -93,6 +95,7 @@ void ShareMain::initUI()
     QHBoxLayout *secHLayout = new QHBoxLayout();
 
     mAccessBtn = new SwitchButton(this);
+     //~ contents_path /vino/You must confirm every visit for this machine
     mAccessLabel = new QLabel(tr("You must confirm every visit for this machine"), this);
     secHLayout->addWidget(mAccessLabel);
     secHLayout->addStretch();
@@ -108,6 +111,7 @@ void ShareMain::initUI()
     QHBoxLayout *pwdHLayout = new QHBoxLayout();
 
     mPwdBtn = new SwitchButton(this);
+     //~ contents_path /vino/Require user to enter this password:
     mPwdsLabel = new QLabel(tr("Require user to enter this password: "), this);
 
     mPwdinputBtn = new QPushButton(this);
