@@ -244,13 +244,13 @@ void Area::initLanguage()
     connect(chineseFrame, &LanguageFrame::clicked, this, [=](){
         englishFrame->showSelectedIcon(false);
         m_areaInterface->call("SetLanguage","zh_CN");
-        QMessageBox::information(pluginWidget, tr("Message"),tr("Need to logout to take effect"));
+        QMessageBox::information(pluginWidget->topLevelWidget(), tr("Message"),tr("Need to logout to take effect"));
     });
 
     connect(englishFrame, &LanguageFrame::clicked, this, [=](){
         chineseFrame->showSelectedIcon(false);
         m_areaInterface->call("SetLanguage","en_US");
-        QMessageBox::information(pluginWidget, tr("Message"),tr("Need to logout to take effect"));
+        QMessageBox::information(pluginWidget->topLevelWidget(), tr("Message"),tr("Need to logout to take effect"));
     });
 }
 
@@ -428,7 +428,7 @@ void Area::initConnect()
     connect(ui->countrycomboBox,SIGNAL(currentIndexChanged(int)),this,SLOT(change_area_slot(int)));
     connect(ui->countrycomboBox, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             [=]{
-        QMessageBox::information(pluginWidget, tr("Message"),tr("Need to logout to take effect"));
+        QMessageBox::information(pluginWidget->topLevelWidget(), tr("Message"),tr("Need to logout to take effect"));
     });
     connect(ui->timeBox, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=]() {
         bool flag_24;

@@ -555,7 +555,7 @@ void Widget::writeScale(double scale)
 
     if (mIsScaleChanged) {
         if (!mIsChange) {
-            QMessageBox::information(this, tr("Information"),
+            QMessageBox::information(this->topLevelWidget(), tr("Information"),
                                      tr("Some applications need to be logouted to take effect"));
         } else {
             // 非主动切换缩放率，则不弹提示弹窗
@@ -1235,7 +1235,7 @@ void Widget::delayApply()
 
 void Widget::save()
 {
-    qDebug() << Q_FUNC_INFO << ": apply the screen config";
+    qDebug() << Q_FUNC_INFO << ": apply the screen config" << this->currentConfig()->connectedOutputs();
     if (!this) {
         return;
     }
@@ -1273,7 +1273,7 @@ void Widget::save()
     }
 
     if (!KScreen::Config::canBeApplied(config)) {
-        QMessageBox::information(this,
+        QMessageBox::information(this->topLevelWidget(),
                                  tr("Warning"),
                                  tr("Sorry, your configuration could not be applied.\nCommon reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU."));
         return;
