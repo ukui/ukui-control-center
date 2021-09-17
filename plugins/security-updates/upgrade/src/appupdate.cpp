@@ -281,7 +281,7 @@ void AppUpdateWid::showInstallStatues(QString status,QString appAptName, float p
         emit sendProgress(appAllMsg.name, progress, "install");
         /* 临时解决方案 , 获取系统语言环境 , 英文加悬浮框 , 中文不加 */
         QLocale locale;
-
+        m_updateMutual->fileLock();
         int pgs = progress;
         //        appVersion->setText(tr("正在安装")+"("+QString::number(pgs)+"%)");
         if (!isUpdateAll) {
@@ -295,6 +295,7 @@ void AppUpdateWid::showInstallStatues(QString status,QString appAptName, float p
         if(status == "apt_finish")
         {
             updateAPPBtn->hide();
+            m_updateMutual->fileUnLock();
             //            appVersion->setText(tr("更新成功！"));
 
             if (reboot.contains(appAptName)) {
@@ -330,6 +331,7 @@ void AppUpdateWid::showInstallStatues(QString status,QString appAptName, float p
         }
         else if(status == "apt_error")
         {
+            m_updateMutual->fileUnLock();
             //            appVersion->setText(tr("更新失败！"));
             appVersion->setText(tr("Update failed!"));
 
