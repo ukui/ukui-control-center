@@ -1202,7 +1202,7 @@ Please authenticate yourself to continue</source>
         <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="468"/>
         <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1052"/>
         <source>Turn on :</source>
-        <translation>开启：</translation>
+        <translation>开启</translation>
         <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
     </message>
     <message>
