@@ -118,7 +118,7 @@ void Screenlock::initSearchText() {
     connect( ui->onlineBtn, &QPushButton::clicked, this,[=] {
         QDesktopServices::openUrl(QUrl(QLatin1String("https://www.ubuntukylin.com/wallpaper.html")));
     });
-    //~ contents_path /wallpaper/Reset To Default
+    //~ contents_path /screenlock/Reset To Default
     ui->resetBtn->setText(tr("Reset To Default"));
 }
 

@@ -468,9 +468,23 @@ void SearchWidget::initExcludeSearch() {
         mEnExclude << "Performance mode" << "Transparency";
     }
 
+    if (!Utils::isExitBattery()) {
+     mCnExclude << "电池节能计划";
+     mEnExclude << "Battery saving plan";
+    }
+
+    if (true) {
+        mCnExclude << "显示器"<<"触摸屏标识";
+        mEnExclude << "touch id"<<"monitor";
+    }
+
     if (Utils::isWayland() || !Utils::isExistEffect()) {
         mCnExclude << "夜间模式";
         mEnExclude << "night mode";
+    }
+    if (!Utils::isTablet()) {
+        mCnExclude << "24小时制"<<"更换手机号";
+        mEnExclude << "24-hour clock"<<"changephone";
     }
 }
 

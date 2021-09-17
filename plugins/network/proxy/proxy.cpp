@@ -406,12 +406,19 @@ void Proxy::initSearchText() {
 void Proxy::retranslateUi()
 {
     mTitleLabel->setText(tr("System Proxy"));
+    //~ contents_path /proxy/Auto Proxy
     mAutoProxyLabel->setText(tr("Auto Proxy"));
+    //~ contents_path /proxy/Auto url
     mUrlLabel->setText(tr("Auto url"));
+    //~ contents_path /proxy/Manual Proxy
     mManualProxyLabel->setText(tr("Manual Proxy"));
+    //~ contents_path /proxy/Http Proxy
     mHTTPLabel->setText(tr("Http Proxy"));
+    //~ contents_path /proxy/Https Proxy
     mHTTPSLabel->setText(tr("Https Proxy"));
+    //~ contents_path /proxy/Ftp Proxy
     mFTPLabel->setText(tr("Ftp Proxy"));
+    //~ contents_path /proxy/Socks Proxy
     mSOCKSLabel->setText(tr("Socks Proxy"));
     mHTTPPortLabel->setText(tr("Port"));
     mHTTPSPortLabel->setText(tr("Port"));

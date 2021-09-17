@@ -104,7 +104,6 @@ const QString WlanConnect::name() const {
 void WlanConnect::initSearchText() {
     //~ contents_path /wlanconnect/Advanced settings"
     ui->detailBtn->setText(tr("Advanced settings"));
-    //~ contents_path /wlanconnect/WLAN
     ui->titleLabel->setText(tr("WLAN"));
     //~ contents_path /wlanconnect/open
     ui->openLabel->setText(tr("open"));

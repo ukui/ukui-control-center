@@ -54,6 +54,7 @@ void TouchpadUI::initUI()
     QHBoxLayout *MouseDisableHLayout = new QHBoxLayout();
 
     mMouseDisableBtn = new SwitchButton(this);
+    //~ contents_path /touchpad/Disable touchpad when using the mouse
     mMouseDisableLabel = new QLabel(tr("Disable touchpad when using the mouse"), this);
     MouseDisableHLayout->addWidget(mMouseDisableLabel);
     MouseDisableHLayout->addStretch();
@@ -69,6 +70,7 @@ void TouchpadUI::initUI()
 
     QHBoxLayout *CursorSpeedHLayout = new QHBoxLayout();
 
+     //~ contents_path /touchpad/Cursor Speed
     mCursorSpeedLabel = new QLabel(tr("Cursor Speed"), this);
     mCursorSpeedLabel->setMinimumWidth(200);
     mCursorSpeedSlowLabel = new QLabel(tr("Slow"), this);
@@ -94,6 +96,7 @@ void TouchpadUI::initUI()
     QHBoxLayout *TypingDisableHLayout = new QHBoxLayout();
 
     mTypingDisableBtn = new SwitchButton(this);
+     //~ contents_path /touchpad/Disable touchpad when typing
     mTypingDisableLabel = new QLabel(tr("Disable touchpad when typing"), this);
     TypingDisableHLayout->addWidget(mTypingDisableLabel);
     TypingDisableHLayout->addStretch();
@@ -110,6 +113,7 @@ void TouchpadUI::initUI()
     QHBoxLayout *ClickHLayout = new QHBoxLayout();
 
     mClickBtn = new SwitchButton(this);
+    //~ contents_path /touchpad/Touch and click on the touchpad
     mClickLabel = new QLabel(tr("Touch and click on the touchpad"), this);
     ClickHLayout->addWidget(mClickLabel);
     ClickHLayout->addStretch();
@@ -126,6 +130,7 @@ void TouchpadUI::initUI()
     QHBoxLayout *ScrollSlideHLayout = new QHBoxLayout();
 
     mScrollSlideBtn = new SwitchButton(this);
+     //~ contents_path /touchpad/Scroll bar slides with finger
     mScrollSlideLabel = new QLabel(tr("Scroll bar slides with finger"), this);
     ScrollSlideHLayout->addWidget(mScrollSlideLabel);
     ScrollSlideHLayout->addStretch();
@@ -141,6 +146,7 @@ void TouchpadUI::initUI()
 
     QHBoxLayout *ScrollAreaHLayout = new QHBoxLayout();
 
+     //~ contents_path /touchpad/Scrolling area
     mScrollAreaLabel = new QLabel(tr("Scrolling area"), this);
     mScrollTypeComBox = new QComboBox;
     mScrollTypeComBox->addItem(tr("Disable scrolling"), N_SCROLLING);

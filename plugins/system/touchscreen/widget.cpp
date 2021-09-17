@@ -110,6 +110,10 @@ void Widget::initui(){
         ui->CalibrationButton->hide();
         ui->tipLabel->show();
     }
+    //~ contents_path /touchscreen/monitor
+    ui->monitorLabel->setText(tr("monitor"));
+     //~ contents_path /touchscreen/touch id
+    ui->touchLabel->setText(tr("touch id"));
 }
 
 void Widget::loadQml() {

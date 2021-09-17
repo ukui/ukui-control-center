@@ -413,6 +413,7 @@ void TabWid::slotUpdateCache(QVariantList sta)
                 checkUpdateBtn->setEnabled(true);
                 checkUpdateBtn->stop();
                 //                checkUpdateBtn->setText(tr("检查更新"));
+                 //~ contents_path /upgrade/Check Update
                 checkUpdateBtn->setText(tr("Check Update"));
                 //                versionInformationLab->setText(tr("软件源更新失败：")+failedInfo );
                 versionInformationLab->setText(tr("Software source update failed: ")+failedInfo );
@@ -484,6 +485,7 @@ void TabWid::allComponents()
     QHBoxLayout *historyUpdateLogLayout = new QHBoxLayout();
     historyUpdateLog = new QPushButton(this); // 历史日志弹出窗口控制按钮
     //    historyUpdateLog->setText(tr("查看更新历史"));
+     //~ contents_path /upgrade/View history
     historyUpdateLog->setText(tr("View history"));
     historyUpdateLogWid->setLayout(historyUpdateLogLayout);
     historyUpdateLogLayout->setAlignment(Qt::AlignLeft);
@@ -540,6 +542,7 @@ void TabWid::allComponents()
     isAutoCheckLayout = new QHBoxLayout();
     isAutoCheckedLab = new QLabel();
     //    isAutoCheckedLab->setText(tr("允许通知可更新的应用"));
+    //~ contents_path /upgrade/Allowed to renewable notice
     isAutoCheckedLab->setText(tr("Allowed to renewable notice"));
     isAutoCheckSBtn = new SwitchButton();
     isAutoCheckWidget->setLayout(isAutoCheckLayout);
@@ -562,6 +565,7 @@ void TabWid::allComponents()
     isAutoUpgradeWidget->setFrameShape(QFrame::Box);
     isAutoUpgradeLayout = new QVBoxLayout();
     isAutoUpgradeLab = new QLabel();
+     //~ contents_path /upgrade/Automatically download and install updates
     isAutoUpgradeLab->setText(tr("Automatically download and install updates"));
     autoUpgradeLab = new QLabel();
     autoUpgradeLab->setText(tr("After it is turned on, the system will automatically download and install updates when there is an available network and available backup and restore partitions."));

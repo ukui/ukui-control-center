@@ -529,6 +529,10 @@ void AutoBoot::add_autoboot_realize_slot(QString path, QString name, QString exe
 void AutoBoot::initAddBtn()
 {
     addWgt = new AddBtn(pluginWidget);
+    QLabel *AddLabel = new QLabel;
+    //~ contents_path /autoboot/Add
+    AddLabel->setText(tr("Add"));       // 用于添加搜索索引
+    delete AddLabel;
     dialog = new AddAutoBoot(pluginWidget);
     connect(addWgt, &AddBtn::clicked, this, [=](){
         dialog->exec();

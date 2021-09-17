@@ -174,6 +174,7 @@ void Notice::initUi(QWidget *widget)
 void Notice::initSearchText()
 {
     mNoticeLabel->setText(tr("Notice Settings"));
+    //~ contents_path /notice/Get notifications from the app
     mGetNoticeLabel->setText(tr("Get notifications from the app"));
 }
 

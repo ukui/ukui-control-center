@@ -109,7 +109,6 @@ const QString Wallpaper::name() const {
 }
 
 void Wallpaper::initSearchText() {
-    //~ contents_path /wallpaper/Background
     ui->selectLabel->setText(tr("Background"));
     //~ contents_path /wallpaper/Browse
     ui->browserLocalwpBtn->setText(tr("Browse"));

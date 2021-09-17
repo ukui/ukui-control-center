@@ -47,7 +47,7 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
     m_pVolumeChangeWidget->setFrameShape(QFrame::Shape::Box);
     m_pPoweroffMusicWidget->setFrameShape(QFrame::Shape::Box);
 
-    //~ contents_path /audio/System Sound   系统音效文本框
+    // 系统音效文本框
     m_pSoundEffectLabel = new TitleLabel(this);
     m_pSoundEffectLabel->setText(tr("System Sound"));
     m_pSoundEffectLabel->setStyleSheet("QLabel{color: palette(windowText);}");
@@ -57,12 +57,17 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
     //~ contents_path /audio/Alert Sound
     m_pShutdownlabel = new QLabel(tr("Alert Sound"),m_pAlertSoundWidget);//提示音下的通知提示
     m_pAlertSoundCombobox = new QComboBox(m_pAlertSoundWidget);
-    //~ contents_path /audio/Alert Volume
+    //~ contents_path /audio/Beep Switch
     m_pAlertSoundSwitchLabel = new QLabel(tr("Beep Switch"),m_pAlertSoundSwitchWidget);//提示音
+    //~ contents_path /audio/Poweroff Music
     m_pPoweroffMusicLabel = new QLabel(tr("Poweroff Music"),m_pPoweroffMusicWidget);//关机
+     //~ contents_path /audio/Startup Music
     m_pStartupMusicLabel = new QLabel(tr("Startup Music"),m_pStartupMusicWidget);//开机
+     //~ contents_path /audio/Wakeup Music
     m_pWakeupMusicLabel = new QLabel(tr("Wakeup Music"),m_pWakeupMusicWidget);//唤醒
+    //~ contents_path /audio/Volume Change
     m_pVolumeChangeLabel = new QLabel(tr("Volume Change"),m_pVolumeChangeWidget);//音量调节
+    //~ contents_path /audio/Logout Music
     m_pLagoutLabel = new QLabel(tr("Logout Music"),m_pLagoutWidget);//注销
 
     m_pLagoutCombobox = new QComboBox(m_pLagoutWidget);
