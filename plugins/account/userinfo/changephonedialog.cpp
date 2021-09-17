@@ -270,6 +270,9 @@ void ChangePhoneDialog::slotSubmitClicked(bool clicked){
             } else if (status == 6 || status == 28) {
                 ui->label_3->setText(tr("Network connection failure, please check"));
                 ui->label_3->show();
+            } else if (status == 2300) {
+                ui->label_3->setText(tr("Current login expired,using wechat code!"));
+                ui->label_3->show();
             } else {
                 ui->label_3->setText(tr("Unknown error, please try again later"));
                 ui->verifyCodeLine->clear();
