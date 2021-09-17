@@ -49,14 +49,14 @@ QStringList SystemDbusDispatcher::list_cached_users(){
 }
 
 void SystemDbusDispatcher::create_user(QString name, QString fullname, int accounttype){
-    QDBusReply<QDBusObjectPath> repley = systemiface->call("CreateUser", name, fullname, accounttype);
+    QDBusReply<QDBusObjectPath> repley = systemiface->asyncCall("CreateUser", name, fullname, accounttype);
     if (!repley.isValid())
         qDebug() << "Create User Error" << repley.error().message();
 //        QMessageBox::information(0, "Create User Error", repley.error().message());
 }
 
 void SystemDbusDispatcher::delete_user(qint64 uid, bool removefile){
-    systemiface->call("DeleteUser", uid, removefile);
+    systemiface->asyncCall("DeleteUser", uid, removefile);
 }
 
 void SystemDbusDispatcher::create_user_success(QDBusObjectPath objpath){
