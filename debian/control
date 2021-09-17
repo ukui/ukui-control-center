@@ -34,6 +34,7 @@ Build-Depends: debhelper-compat (= 12),
                qttools5-dev-tools,
                libxcb-xkb-dev,
                libpam0g-dev,
+               libkf5bluezqt-dev,
 Standards-Version: 4.5.0
 Rules-Requires-Root: no
 Homepage: https://github.com/ukui/ukui-control-center
