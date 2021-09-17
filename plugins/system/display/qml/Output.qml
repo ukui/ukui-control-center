@@ -55,23 +55,28 @@ QMLOutput {
 
     MouseArea {
         id: monitorMouseArea;
-        width: root.currentOutputWidth * screen.outputScale;
-        height: root.currentOutputHeight * screen.outputScale
+        width: {
+            if (output.rotation === KScreenOutput.None || output.rotation === KScreenOutput.Inverted) {
+                return root.currentOutputWidth * screen.outputScale;
+            } else {
+                return root.currentOutputHeight * screen.outputScale;
+            }
+        }
+
+        height: {
+            if (output.rotation === KScreenOutput.None || output.rotation === KScreenOutput.Inverted) {
+                return root.currentOutputHeight * screen.outputScale;
+            } else {
+                return root.currentOutputWidth * screen.outputScale;
+            }
+        }
+
+
         anchors.centerIn: parent;
         //是否激活时的透明度
         opacity: root.output.enabled ? 1.0 : 0.3;
         transformOrigin: Item.Center;
-        rotation: {
-            if (output.rotation === KScreenOutput.None) {
-                return 0;
-            } else if (output.rotation === KScreenOutput.Left) {
-                return 270;
-            } else if (output.rotation === KScreenOutput.Inverted) {
-                return 180;
-            } else {
-                return 90;
-            }
-        }
+        rotation: 0;
 
         hoverEnabled: true;
         preventStealing: true;
