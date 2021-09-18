@@ -51,16 +51,14 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent) : QDialog(parent)
     m_searchInput->installEventFilter(this);
     m_searchInput->setFocusPolicy(Qt::ClickFocus);
     m_searchInput->setContextMenuPolicy(Qt::NoContextMenu);
+     QHBoxLayout* SearchLayout = new QHBoxLayout(m_searchInput);
 
-    m_queryWid=new QWidget;
-    m_queryWid->setParent(m_searchInput);
+    m_queryWid=new QWidget(m_searchInput);
 
-    QHBoxLayout* queryWidLayout = new QHBoxLayout;
+    QHBoxLayout* queryWidLayout = new QHBoxLayout(m_queryWid);
     queryWidLayout->setContentsMargins(0, 0, 0, 0);
     queryWidLayout->setAlignment(Qt::AlignJustify);
     queryWidLayout->setSpacing(0);
-    m_queryWid->setLayout(queryWidLayout);
-
 
     QIcon searchIcon = QIcon::fromTheme("edit-find-symbolic");
     m_queryIcon = new QLabel(this);
@@ -72,16 +70,21 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent) : QDialog(parent)
     m_queryText->setStyleSheet("background:transparent;color:#626c6e;");
     m_queryText->adjustSize();
 
+    queryWidLayout->addStretch();
     queryWidLayout->addWidget(m_queryIcon);
     queryWidLayout->addWidget(m_queryText);
+    queryWidLayout->addStretch();
 
     m_animation= new QPropertyAnimation(m_queryWid, "geometry", this);
     m_animation->setDuration(100);
 
+    SearchLayout->addStretch();
+    SearchLayout->addWidget(m_queryWid);
+    SearchLayout->addStretch();
 
-    m_queryWid->setGeometry(QRect((m_searchInput->width() - (m_queryIcon->width()+m_queryText->width()+10))/2,0,
-                                        m_queryIcon->width()+m_queryText->width()+10,m_searchInput->height()));
-    m_queryWid->show();
+//    m_queryWid->setGeometry(QRect((m_searchInput->width() - (m_queryIcon->width()+m_queryText->width()+10))/2,0,
+//                                        m_queryIcon->width()+m_queryText->width()+10,m_searchInput->height()));
+//    m_queryWid->show();
 
     connect(m_animation,&QPropertyAnimation::finished,this,&TimeZoneChooser::animationFinishedSlot);
 
@@ -117,14 +120,20 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent) : QDialog(parent)
     layout->setContentsMargins(0,0,0,0);
     layout->setAlignment(Qt::AlignTop);
 
+    QLabel *mTipLabel = new QLabel(this);
+    mTipLabel->setText(tr("To select a time zone, please click where near you on the map and select a city from the nearest city"));
+    mTipLabel->setStyleSheet("background:transparent;color:#626c6e;");
+    mTipLabel->setAlignment(Qt::AlignHCenter);
+
     layout->addWidget(wbFrame,0,Qt::AlignVCenter);
     layout->addSpacing(0);
     layout->addWidget(m_searchInput, 0, Qt::AlignHCenter);
+    layout->addWidget(mTipLabel,Qt::AlignHCenter);
     layout->addSpacing(32);
     layout->addWidget(m_map, 0, Qt::AlignHCenter);
     layout->addSpacing(32);
     layout->addLayout(btnlayout);
-    layout->addSpacing(16);
+    layout->addSpacing(32);
 
     setLayout(layout);
 
@@ -245,9 +254,18 @@ bool TimeZoneChooser::eventFilter(QObject* obj, QEvent *event) {
     if (obj == m_searchInput) {
         if (event->type() == QEvent::FocusIn) {
             if (m_searchInput->text().isEmpty()) {
+
                 m_queryWid->layout()->removeWidget(m_queryText);
                 m_queryText->setParent(nullptr);
                 m_animation->stop();
+                int left = 0;
+                left = firstin ? (m_searchInput->width() - (m_queryIcon->width()+m_queryText->width()+10))/2 : -60;
+                if (firstin) {
+                    firstin = false;
+                }
+                m_animation->setStartValue(QRect(left,0,
+                                               m_queryIcon->width()+m_queryText->width()+30,(m_searchInput->height()+36)/2));
+
                 m_animation->setEndValue(QRect(0, 0, m_queryIcon->width() + 5,(m_searchInput->height()+36)/2));
                 m_animation->setEasingCurve(QEasingCurve::OutQuad);
                 m_animation->start();
@@ -258,6 +276,7 @@ bool TimeZoneChooser::eventFilter(QObject* obj, QEvent *event) {
             m_searchKeyWords.clear();
             if (m_searchInput->text().isEmpty()) {
                 if (m_isSearching) {
+                    firstin = true;
                     m_queryText->adjustSize();
                     m_animation->setStartValue(QRect(0, 0,
                                                      m_queryIcon->width()+5,(m_searchInput->height()+36)/2));

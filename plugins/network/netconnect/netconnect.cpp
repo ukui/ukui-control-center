@@ -52,9 +52,9 @@ NetConnect::~NetConnect() {
     if (!mFirstLoad) {
         delete ui;
         ui = nullptr;
-    }
-    delete m_interface;
-    delete m_switchGsettings;
+        delete m_interface;
+        delete m_switchGsettings;
+    } 
 }
 
 QString NetConnect::get_plugin_name() {
