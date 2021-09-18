@@ -21,6 +21,8 @@
 
 #include "../shell/utils/utils.h"
 
+#include <QDebug>
+
 
 MobileHotspot::MobileHotspot() :  mFirstLoad(true) {
     pluginName = tr("MobileHotspot");
@@ -30,7 +32,8 @@ MobileHotspot::MobileHotspot() :  mFirstLoad(true) {
 MobileHotspot::~MobileHotspot()
 {
     if (!mFirstLoad) {
-
+//        delete pluginWidget;
+//        pluginWidget = nullptr;
 
     }
 }
@@ -47,8 +50,18 @@ QWidget *MobileHotspot::get_plugin_ui() {
     if (mFirstLoad) {
         mFirstLoad = false;
 
-        pluginWidget = new QWidget;
+        pluginWidget = new MobileHotspotWidget;
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
+        qDBusRegisterMetaType<QMap<QString, bool> >();
+        qDBusRegisterMetaType<QVector<QStringList> >();
+        qDBusRegisterMetaType<QMap<QString, QVector<QStringList> >>();
+        m_interface = new QDBusInterface("com.kylin.network", "/com/kylin/network",
+                                         "com.kylin.network",
+                                         QDBusConnection::sessionBus());
+        if(!m_interface->isValid()) {
+            qWarning() << qPrintable(QDBusConnection::sessionBus().lastError().message());
+        }
+
     }
     return pluginWidget;
 }

@@ -24,9 +24,16 @@
 #include <QObject>
 #include <QtPlugin>
 
+#include <QDBusMessage>
+#include <QDBusObjectPath>
+#include <QDBusInterface>
+#include <QDBusReply>
+#include <QDBusMetaType>
+
 #include "shell/interface.h"
 #include "SwitchButton/switchbutton.h"
 #include "commonComponent/HoverBtn/hoverbtn.h"
+#include "mobilehotspotwidget.h"
 
 
 namespace Ui {
@@ -53,7 +60,10 @@ private:
 
     QString            pluginName;
     int                pluginType;
-    QWidget            *pluginWidget;
+    MobileHotspotWidget            *pluginWidget;
+
+
+    QDBusInterface     *m_interface = nullptr;
 
 private:
     bool               mFirstLoad;
