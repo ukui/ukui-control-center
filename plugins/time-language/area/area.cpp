@@ -28,6 +28,7 @@
 #include <QGSettings>
 #include <QMessageBox>
 #include "languageFrame.h"
+#include "../../../shell/mainwindow.h"
 
 #define PANEL_GSCHEMAL   "org.ukui.control-center.panel.plugins"
 #define CALENDAR_KEY     "calendar"
@@ -525,7 +526,8 @@ void Area::timeFormatClicked(bool flag)
 
 void Area::showChangeLanguageBox()
 {
-    QMessageBox msg(this->pluginWidget);
+    MainWindow *mainWindow = static_cast<MainWindow*>(pluginWidget->topLevelWidget());
+    QMessageBox msg(mainWindow);
     msg.setIcon(QMessageBox::Warning);
     msg.setText(tr("Modification of system language needs to be logged out to take effect, whether to log out?"));
     msg.addButton(tr("Log out later"), QMessageBox::NoRole);
