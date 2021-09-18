@@ -203,7 +203,7 @@
         <file>secondaryleftmenu/Experienceplan.svg</file>
         <file>secondaryleftmenu/Fonts.svg</file>
         <file>secondaryleftmenu/Gesture.svg</file>
-        <file>secondaryleftmenu/Hostpot.svg</file>
+        <file>secondaryleftmenu/MobileHotspot.svg</file>
         <file>secondaryleftmenu/Keyboard.svg</file>
         <file>secondaryleftmenu/Mouse.svg</file>
         <file>secondaryleftmenu/Notice.svg</file>
@@ -225,6 +225,8 @@
         <file>secondaryleftmenu/Wlanconnect.svg</file>
         <file>secondaryleftmenu/WiredConnect.svg</file>
         <file>secondaryleftmenu/Theme.svg</file>
+        <file>plugins/mobilehotspot/hide-pwd.png</file>
+        <file>plugins/mobilehotspot/show-pwd.png</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>

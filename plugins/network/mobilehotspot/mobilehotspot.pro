@@ -31,10 +31,12 @@ PKGCONFIG += gsettings-qt \
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
-    mobilehotspot.cpp
+    mobilehotspot.cpp \
+    mobilehotspotwidget.cpp
 
 HEADERS += \
-    mobilehotspot.h
+    mobilehotspot.h \
+    mobilehotspotwidget.h
 
 
 INSTALLS += target
