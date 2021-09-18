@@ -1,5 +1,7 @@
 #include "changeuserpwd.h"
 
+#include "passwdcheckutil.h"
+
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -375,20 +377,20 @@ void ChangeUserPwd::checkPwdLegality(){
             const char * msg;
             char buf[256];
 
-            QByteArray ba = ui->pwdLineEdit->text().toLatin1();
-            QByteArray ba1 = ui->curPwdLineEdit->text().toLatin1();
+            QByteArray ba = newPwdLineEdit->text().toLatin1();
+            QByteArray ba1 = currentPwdLineEdit->text().toLatin1();
 
             if (isCurrentUser){
-               ret = pwquality_check(settings, ba.data(), ba1.data(), currentUserName.toLatin1().data(), &auxerror);
+               ret = pwquality_check(settings, ba.data(), ba1.data(), name.toLatin1().data(), &auxerror);
             } else {
-               ret = pwquality_check(settings, ba.data(), NULL, currentUserName.toLatin1().data(), &auxerror);
+               ret = pwquality_check(settings, ba.data(), NULL, name.toLatin1().data(), &auxerror);
             }
 
-            if (ret < 0 && ui->pwdLineEdit->text().length() > 0){
+            if (ret < 0 && newPwdLineEdit->text().length() > 0){
                 msg = pwquality_strerror(buf, sizeof(buf), ret, auxerror);
-                pwdTip = QString(msg);
+                newPwdTip = QString(msg);
             } else {
-                pwdTip = "";
+                newPwdTip = "";
             }
 #endif
 
