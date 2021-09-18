@@ -94,6 +94,7 @@ QWidget *Wallpaper::get_plugin_ui() {
             bgsettings = new QGSettings(id, QByteArray(), this);
             setupConnect();
             initBgFormStatus();
+            initBgOption();
         }
         // 构建xmlhandle对象
         xmlhandleObj = new XmlHandle();
