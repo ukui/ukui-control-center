@@ -29,7 +29,7 @@ void AppUpdateWid::initConnect()
 {
     connect(detaileInfo,&QPushButton::clicked,this,&AppUpdateWid::showDetails);
     connect(updatelogBtn,&QPushButton::clicked,this,&AppUpdateWid::showUpdateLog);
-    connect(updateAPPBtn,&QPushButton::clicked,this,&AppUpdateWid::cancelOrUpdate);
+    connect(updateAPPBtn,&QPushButton::clicked,this,&AppUpdateWid::pre_update);
     connect(m_updateMutual,&UpdateDbus::transferAptProgress,this,&AppUpdateWid::showInstallStatues);
     //绑定wget进程结束的信号getAppMessage
     connect(downloadProcess, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished),
@@ -567,10 +567,33 @@ void AppUpdateWid::showUpdateLog()
     updatelog1->exec();
 }
 
+void AppUpdateWid::pre_update()
+{
+    isUpdateAll == false;
+    cancelOrUpdate();
+}
+
 void AppUpdateWid::cancelOrUpdate()
 {
     if(updateAPPBtn->text() == tr("Update"))
     {
+        if (isUpdateAll)
+        {
+            ;
+        }
+        else
+        {
+            bool ret = m_updateMutual->Check_Authority("");
+            if(ret)
+            {
+                ;
+            }
+            else
+            {
+                qDebug()<<"authority check failed";
+                return;
+            }
+        }
         if(m_updateMutual->isPointOutNotBackup == true)
         {
             QMessageBox msgBox(this);
@@ -632,47 +655,43 @@ void AppUpdateWid::cancelOrUpdate()
 
 void AppUpdateWid::updateOneApp()
 {
-    bool ret = m_updateMutual->Check_Authority("");
-    if (ret)
+    if(appAllMsg.msg.getDepends == true)
     {
-        if(appAllMsg.msg.getDepends == true)
-        {
-            if(checkSourcesType() != file){
-                isCancel = false;
-                firstDownload = true;
-                slotDownloadPackages();
-                timer->start(1000); //开启定时器用于计算下载速度
-        //        updateAPPBtn->setText(tr("取消"));
-                updateAPPBtn->setText(tr("Cancel"));
-                appVersionIcon->setPixmap(QPixmap());
-            }else{
-                startInstall(appAllMsg.name); //本地源直接开始安装
-                appVersion->setText(tr("Ready to install"));
-            }
-            QDir dir = downloadPath;
-            if(!dir.isEmpty()){
-                appVersion->setText(tr("Calculate the download progress"));
-            }
+        if(checkSourcesType() != file){
+            isCancel = false;
+            firstDownload = true;
+            slotDownloadPackages();
+            timer->start(1000); //开启定时器用于计算下载速度
+    //        updateAPPBtn->setText(tr("取消"));
+            updateAPPBtn->setText(tr("Cancel"));
+            appVersionIcon->setPixmap(QPixmap());
+        }else{
+            startInstall(appAllMsg.name); //本地源直接开始安装
+            appVersion->setText(tr("Ready to install"));
         }
-        else
-        {
-             updateAPPBtn->hide();
-
-             this->execFun = false;
-             startInstall(appAllMsg.name);
-
-    //        appVersion->setText(tr("获取依赖失败！"));
-            appVersion->setText(tr("Get depends failed!"));
-            appVersion->setToolTip("");
-            QIcon icon = QIcon::fromTheme("dialog-error");
-            QPixmap pixmap = icon.pixmap(icon.actualSize(QSize(14, 14)));
-            appVersionIcon->setPixmap(pixmap);
-            m_updateMutual->importantList.removeOne(appAllMsg.name);
-            m_updateMutual->failedList.append(appAllMsg.name);
-            QString message = QString("%1"+tr("Get depends failed!")).arg(dispalyName);
-            m_updateMutual->onRequestSendDesktopNotify(message);
-            emit hideUpdateBtnSignal(false);
+        QDir dir = downloadPath;
+        if(!dir.isEmpty()){
+            appVersion->setText(tr("Calculate the download progress"));
         }
+    }
+    else
+    {
+         updateAPPBtn->hide();
+
+         this->execFun = false;
+         startInstall(appAllMsg.name);
+
+//        appVersion->setText(tr("获取依赖失败！"));
+        appVersion->setText(tr("Get depends failed!"));
+        appVersion->setToolTip("");
+        QIcon icon = QIcon::fromTheme("dialog-error");
+        QPixmap pixmap = icon.pixmap(icon.actualSize(QSize(14, 14)));
+        appVersionIcon->setPixmap(pixmap);
+        m_updateMutual->importantList.removeOne(appAllMsg.name);
+        m_updateMutual->failedList.append(appAllMsg.name);
+        QString message = QString("%1"+tr("Get depends failed!")).arg(dispalyName);
+        m_updateMutual->onRequestSendDesktopNotify(message);
+        emit hideUpdateBtnSignal(false);
     }
 }
 //转换包大小的单位
@@ -769,6 +788,7 @@ void AppUpdateWid::updateAllApp()
 //    qDebug() << "updateAllApp";
     if(isCancel && m_updateMutual->failedList.indexOf(appAllMsg.name) == -1)
     {
+        isUpdateAll = true;
         qDebug() << "全部更新信号发出，当前: " << appAllMsg.name;
         cancelOrUpdate();
     }

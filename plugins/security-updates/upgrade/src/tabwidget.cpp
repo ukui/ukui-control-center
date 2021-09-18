@@ -680,7 +680,6 @@ void TabWid::checkUpdateBtnClicked()
                 }
             }
         }
-
     }
 }
 
