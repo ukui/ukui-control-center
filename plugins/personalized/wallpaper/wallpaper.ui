@@ -377,6 +377,9 @@
              <property name="leftMargin">
               <number>16</number>
              </property>
+             <property name="rightMargin">
+              <number>16</number>
+             </property>
              <item>
               <widget class="QLabel" name="showModeLabel">
                <property name="minimumSize">
@@ -397,7 +400,14 @@
               </widget>
              </item>
              <item>
-              <widget class="QComboBox" name="showModeComboBox"/>
+              <widget class="QComboBox" name="showModeComboBox">
+               <property name="minimumSize">
+                <size>
+                 <width>144</width>
+                 <height>0</height>
+                </size>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>

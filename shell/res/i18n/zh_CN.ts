@@ -2000,7 +2000,7 @@ Please authenticate yourself to continue</source>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="188"/>
         <source>Authentication failed, input authtok again!</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">密码输入错误,重新输入!</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/biometrics/changepwddialog.cpp" line="188"/>
@@ -2606,7 +2606,7 @@ Please authenticate yourself to continue</source>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="218"/>
         <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="116"/>
         <source>ComName</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">计算机名</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="253"/>
@@ -10507,20 +10507,20 @@ Please retry or relogin!</source>
         <translation>桌面背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="395"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="398"/>
         <source>Mode</source>
         <translation>显示方式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="534"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="116"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="544"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="117"/>
         <source>Online Picture</source>
         <translation>线上图片</translation>
         <extra-contents_path>/wallpaper/Online Picture</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="566"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="125"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="576"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="126"/>
         <source>Reset To Default</source>
         <translation>恢复默认</translation>
         <extra-contents_path>/wallpaper/Reset To Default</extra-contents_path>
@@ -10534,8 +10534,8 @@ Please retry or relogin!</source>
         <translation type="vanished">图片放置方式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="527"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="114"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="537"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="115"/>
         <source>Browse</source>
         <translation>浏览</translation>
         <extra-contents_path>/wallpaper/Browse</extra-contents_path>
@@ -10566,18 +10566,18 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="331"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="52"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="112"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="53"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="113"/>
         <source>Background</source>
         <translation>背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="144"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="143"/>
         <source>picture</source>
         <translation>图片</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="144"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="143"/>
         <source>color</source>
         <translation>颜色</translation>
     </message>
@@ -10590,20 +10590,24 @@ Please retry or relogin!</source>
         <translation type="vanished">自定义颜色</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="159"/>
         <source>wallpaper</source>
-        <translation type="vanished">平铺</translation>
+        <translation>平铺</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="159"/>
         <source>centered</source>
-        <translation type="vanished">居中</translation>
+        <translation>居中</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="159"/>
         <source>scaled</source>
-        <translation type="vanished">比例放大</translation>
+        <translation>比例放大</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="159"/>
         <source>stretched</source>
-        <translation type="vanished">伸展</translation>
+        <translation>伸展</translation>
     </message>
     <message>
         <source>zoom</source>
@@ -10614,48 +10618,48 @@ Please retry or relogin!</source>
         <translation type="vanished">适合宽度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="451"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="469"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</source>
         <translation>图片文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="451"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="469"/>
         <source>allFiles(*.*)</source>
         <translation>所有文件(*.*)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="491"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="533"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="509"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="551"/>
         <source>select custom wallpaper file</source>
         <translation>选择自定义壁纸文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="492"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="534"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="510"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="552"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="493"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="535"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="511"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="553"/>
         <source>Position: </source>
         <translation>位置： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="494"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="536"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="512"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="554"/>
         <source>FileName: </source>
         <translation>文件名： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="495"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="537"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="513"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="555"/>
         <source>FileType: </source>
         <translation>文件类型： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="496"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="538"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="514"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="556"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>

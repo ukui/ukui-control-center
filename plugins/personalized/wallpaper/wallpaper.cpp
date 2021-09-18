@@ -41,6 +41,7 @@ enum{
     SLIDESHOW  // 幻灯片背景
 };
 
+
 #define ITEMWIDTH 182
 #define ITEMHEIGH 126
 
@@ -127,9 +128,7 @@ void Wallpaper::initSearchText() {
 
 void Wallpaper::setupComponent(){
 
-    ui->showModeLabel->setHidden(true);
     ui->line_2->setHidden(true);
-    ui->showModeComboBox->setHidden(true);
 
     QString name = qgetenv("USER");
     if (name.isEmpty()) {
@@ -145,6 +144,7 @@ void Wallpaper::setupComponent(){
     ui->formComBox->addItem(formList.at(0), PICTURE);
     ui->formComBox->addItem(formList.at(1), COLOR);
 
+
     // 图片背景
     ui->picFrame->adjustSize();
     picFlowLayout = new FlowLayout(ui->picFrame,16, -1, -1);
@@ -153,6 +153,14 @@ void Wallpaper::setupComponent(){
     // 纯色背景
     colorFlowLayout = new FlowLayout(ui->colorListWidget,16, -1, -1);
     ui->colorListWidget->setLayout(colorFlowLayout);
+
+    // 背景放置方式
+    QStringList optionList;
+    optionList << tr("scaled") << tr("wallpaper") << tr("centered") << tr("stretched");
+    ui->showModeComboBox->addItem(optionList.at(0), "scaled");
+    ui->showModeComboBox->addItem(optionList.at(1), "wallpaper");
+    ui->showModeComboBox->addItem(optionList.at(2), "centered");
+    ui->showModeComboBox->addItem(optionList.at(3), "stretched");
 
     AddBtn *addBtn = new AddBtn();
     ui->horizontalLayout_7->addWidget(addBtn);
@@ -370,6 +378,16 @@ void Wallpaper::setLockBackground(QString bg) {
     mLockLoginSettings->beginGroup("greeter");
     mLockLoginSettings->setValue("color", bg);
     mLockLoginSettings->endGroup();
+}
+
+void Wallpaper::initBgOption()
+{
+    QString option = bgsettings->get(OPTIONS).toString();
+    int index = ui->showModeComboBox->findData(option);
+    ui->showModeComboBox->setCurrentIndex(index);
+    connect(ui->showModeComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index) {
+        bgsettings->set(OPTIONS, ui->showModeComboBox->currentData(index).toString());
+    });
 }
 
 void Wallpaper::initPreviewStatus(){

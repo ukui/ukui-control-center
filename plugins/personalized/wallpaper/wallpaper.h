@@ -31,6 +31,7 @@
 
 #include <QGSettings>
 #include <QSettings>
+#include <QString>
 
 #include "shell/interface.h"
 #include "FlowLayout/flowlayout.h"
@@ -67,6 +68,12 @@ extern "C" {
 // 副色
 #define SECONDARY "secondary-color"
 
+const QString ScaledKey    = "scaled";    // 填充
+const QString WallpaperKey = "wallpaper"; // 平铺
+const QString CenteredKey  = "centered";  // 居中
+const QString StretchedKey = "stretched"; // 拉伸
+
+
 namespace Ui {
 class Wallpaper;
 }
@@ -102,6 +109,7 @@ public:
     void setClickedPic(QString fileName);
 private:
     void setLockBackground(QString bg);
+    void initBgOption();                // 背景放置方式
 
 private:
     Ui::Wallpaper *ui;
