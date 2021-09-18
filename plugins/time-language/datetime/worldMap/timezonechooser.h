@@ -53,6 +53,7 @@ private:
     QWidget           *m_queryWid   = nullptr;
     bool              m_isSearching = false;
     QString           m_searchKeyWords;
+    bool       firstin = true;
 
 public slots:
     void animationFinishedSlot();
