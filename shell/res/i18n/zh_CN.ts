@@ -2606,7 +2606,7 @@ Please authenticate yourself to continue</source>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="218"/>
         <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="116"/>
         <source>ComName</source>
-        <translation type="unfinished">计算机名</translation>
+        <translation>计算机名</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="253"/>
