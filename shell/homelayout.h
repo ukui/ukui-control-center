@@ -17,8 +17,8 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef FLOWLAYOUT_H
-#define FLOWLAYOUT_H
+#ifndef HOMELAYOUT_H
+#define HOMELAYOUT_H
 
 #include <QLayout>
 #include <QRect>
@@ -59,4 +59,4 @@ private:
 
 };
 
-#endif // FLOWLAYOUT_H
+#endif // HOMELAYOUT_H
