@@ -1,4 +1,7 @@
 #include "bluetooth.h"
+#include <QDBusMessage>
+#include <QDBusInterface>
+#include <QDBusConnection>
 
 #include <QDebug>
 
@@ -8,6 +11,27 @@ Bluetooth::Bluetooth() : mFirstLoad(true) {
 }
 
 Bluetooth::~Bluetooth() {
+    //qDebug() <<Q_FUNC_INFO << value << ccIsOpen <<__LINE__;
+    QDBusMessage m = QDBusMessage::createMethodCall("org.ukui.bluetooth",
+                                                    "/org/ukui/bluetooth",
+                                                    "org.ukui.bluetooth",
+                                                    "bluetoothAdapterDisconvery");
+
+
+    m << false << false;
+    qDebug() << Q_FUNC_INFO << m.arguments().at(0).value<bool>() <<__LINE__;
+    qDebug() << Q_FUNC_INFO << m.arguments().at(1).value<bool>() <<__LINE__;
+    // 发送Message
+    QDBusMessage response = QDBusConnection::sessionBus().call(m);
+    qDebug() <<  response.errorMessage();
+//    while("Not connected to D-Bus server" == response.errorMessage())
+//    {
+//        response = QDBusConnection::sessionBus().call(m);
+//        qDebug() <<  response.errorMessage();
+//    }
+
+//    pluginWidget->~BlueToothMain();
+    //sleep(1);
     if (!mFirstLoad) {
 //        delete pluginWidget;
     }
