@@ -75,7 +75,7 @@ void DoubleClickLineEdit::changeName() {
 }
 
 void DoubleClickLineEdit::updateCustomEntry(QList<KeyEntry *> customEntries) {
-    this->customEntry = customEntries;
+    //this->customEntry = customEntries;   //传的地址，不需要多次更新
 }
 
 /*-----------------------------------------DoubleClickShortCut-----------------------------------------------*/
