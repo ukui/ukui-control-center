@@ -56,6 +56,7 @@ public:
     QString dispalyName;
     AppAllMsg appAllMsg;
 private:
+    bool isUpdateAll =false;
     bool isCancel = true;
     bool firstDownload = true;
     long downSize = 0;
@@ -81,7 +82,7 @@ public slots:
     void showDetails();
     void showUpdateLog();
     void cancelOrUpdate();
-
+    void pre_update();
     void showInstallStatues(QString status, QString appAptName, float progress, QString errormsg);
     void showDownloadStatues(QString downloadSpeed, int progress);
 
