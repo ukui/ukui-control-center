@@ -28,6 +28,7 @@
 #include <QGSettings>
 #include <QMessageBox>
 #include "languageFrame.h"
+#include "../../../shell/mainwindow.h"
 
 #define PANEL_GSCHEMAL   "org.ukui.control-center.panel.plugins"
 #define CALENDAR_KEY     "calendar"
@@ -244,13 +245,13 @@ void Area::initLanguage()
     connect(chineseFrame, &LanguageFrame::clicked, this, [=](){
         englishFrame->showSelectedIcon(false);
         m_areaInterface->call("SetLanguage","zh_CN");
-        QMessageBox::information(pluginWidget->topLevelWidget(), tr("Message"),tr("Need to logout to take effect"));
+        showChangeLanguageBox();
     });
 
     connect(englishFrame, &LanguageFrame::clicked, this, [=](){
         chineseFrame->showSelectedIcon(false);
         m_areaInterface->call("SetLanguage","en_US");
-        QMessageBox::information(pluginWidget->topLevelWidget(), tr("Message"),tr("Need to logout to take effect"));
+        showChangeLanguageBox();
     });
 }
 
@@ -521,4 +522,20 @@ void Area::timeFormatClicked(bool flag)
             m_gsettings->set(TIME_KEY, "12");
         }
     }
+}
+
+void Area::showChangeLanguageBox()
+{
+    MainWindow *mainWindow = static_cast<MainWindow*>(pluginWidget->topLevelWidget());
+    QMessageBox msg(mainWindow);
+    msg.setIcon(QMessageBox::Warning);
+    msg.setText(tr("Modification of system language needs to be logged out to take effect, whether to log out?"));
+    msg.addButton(tr("Log out later"), QMessageBox::NoRole);
+    msg.addButton(tr("Log out now"), QMessageBox::ApplyRole);
+    int ret = msg.exec();
+
+    if (ret == 1) {
+        system("ukui-session-tools --logout");
+    }
+    return;
 }
