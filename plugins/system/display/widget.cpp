@@ -1551,8 +1551,6 @@ void Widget::save()
         mPrevConfig = mConfig->clone();
     }
 
-    setActiveScreen();
-
 	for (int i = 0; i < BrightnessFrameV.size(); ++i) {   //应用成功再更新屏幕是否开启的状态，判断亮度条是否打开
         for (KScreen::OutputPtr output : mConfig->outputs()) {
             if (BrightnessFrameV[i]->getOutputName() == Utils::outputName(output)) {
