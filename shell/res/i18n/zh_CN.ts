@@ -2281,41 +2281,41 @@ Please authenticate yourself to continue</source>
 <context>
     <name>ChangeUserPwd</name>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="102"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="106"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="333"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="104"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="108"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="335"/>
         <source>Current Pwd</source>
         <translation>当前密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="119"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="123"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="334"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="342"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="121"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="125"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="336"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="344"/>
         <source>New Pwd</source>
         <translation>新密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="136"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="140"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="335"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="343"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="138"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="142"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="337"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="345"/>
         <source>Sure Pwd</source>
         <translation>确认密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="221"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="407"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="223"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="409"/>
         <source>Inconsistency with pwd</source>
         <translation>与新密码不同</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="249"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="251"/>
         <source>Authentication failed, input authtok again!</source>
         <translation>密码输入错误,重新输入!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="368"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="370"/>
         <source>Contains illegal characters!</source>
         <translation>含有非法字符！</translation>
     </message>
@@ -5610,6 +5610,47 @@ Please retry or relogin!</source>
     </message>
 </context>
 <context>
+    <name>MobileHotspot</name>
+    <message>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspot.cpp" line="28"/>
+        <source>MobileHotspot</source>
+        <translation>移动热点</translation>
+    </message>
+</context>
+<context>
+    <name>MobileHotspotWidget</name>
+    <message>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="134"/>
+        <source>Hotspot</source>
+        <translation>移动热点</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="261"/>
+        <source>Open</source>
+        <translation>开启</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="281"/>
+        <source>Wi-Fi Name</source>
+        <translation>Wi-Fi名称</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="301"/>
+        <source>Password</source>
+        <translation>网络密码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="339"/>
+        <source>Frequency band</source>
+        <translation>网络频带</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="363"/>
+        <source>Net card</source>
+        <translation>共享网卡端口</translation>
+    </message>
+</context>
+<context>
     <name>MouseControl</name>
     <message>
         <source>Mouse Key Settings</source>
@@ -5934,12 +5975,13 @@ Please retry or relogin!</source>
         <translation>有线网络</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="358"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="437"/>
         <source>card</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="420"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="273"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="503"/>
         <source>no connected</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5968,7 +6010,8 @@ Please retry or relogin!</source>
         <translation type="vanished">刷新中...</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="418"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="260"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="501"/>
         <source>connected</source>
         <translation>已连接</translation>
     </message>
@@ -7174,7 +7217,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../utils/functionselect.cpp" line="124"/>
         <source>MobileHotspot</source>
-        <translation type="unfinished"></translation>
+        <translation>移动热点</translation>
     </message>
     <message>
         <location filename="../../utils/functionselect.cpp" line="143"/>
@@ -7557,7 +7600,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../utils/utils.cpp" line="73"/>
         <source>Go to mobilehotspot settings page</source>
-        <translation type="unfinished"></translation>
+        <translation>移动热点</translation>
     </message>
     <message>
         <location filename="../../utils/utils.cpp" line="75"/>
@@ -9261,31 +9304,31 @@ Please retry or relogin!</source>
         <translation type="vanished">中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="345"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="361"/>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="159"/>
         <source>Icon theme</source>
         <translation>图标主题</translation>
         <extra-contents_path>/theme/Icon theme</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="421"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="437"/>
         <source>Control theme</source>
         <translation>控件主题</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="496"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="512"/>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="161"/>
         <source>Cursor theme</source>
         <translation>光标主题</translation>
         <extra-contents_path>/theme/Cursor theme</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="572"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="588"/>
         <source>Effect setting</source>
         <translation>效果设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="735"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="751"/>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="165"/>
         <source>Transparency</source>
         <translation>透明度</translation>
@@ -9296,7 +9339,7 @@ Please retry or relogin!</source>
         <translation type="vanished">透明特效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="651"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="667"/>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="163"/>
         <source>Performance mode</source>
         <translation>特效模式</translation>
@@ -9315,7 +9358,7 @@ Please retry or relogin!</source>
         <translation type="vanished">高</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="850"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="866"/>
         <source>Reset to default</source>
         <translation>恢复默认设置</translation>
     </message>
@@ -9370,9 +9413,14 @@ Please retry or relogin!</source>
         <translation>更改时区</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="71"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="69"/>
         <source>Input what you are looking for</source>
         <translation>输入查找内容</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="124"/>
+        <source>To select a time zone, please click where near you on the map and select a city from the nearest city</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>change timezone</source>
@@ -9383,7 +9431,7 @@ Please retry or relogin!</source>
         <translation type="vanished">更改时区</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="95"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="98"/>
         <source>Change Timezone</source>
         <translation>更改时区</translation>
     </message>
