@@ -26,7 +26,7 @@ private:
     QList<KeyEntry *> systemEntry;
     QList<KeyEntry *> customEntry;
     QKeySequence seq;
-
+    bool isShortCutObtained = false;
 
 public:
     void initInputKeyAndText(const bool &clearText);

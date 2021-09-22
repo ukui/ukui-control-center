@@ -66,6 +66,10 @@ void ShortcutLine::keyPressEvent(QKeyEvent *e)
     if (e->isAutoRepeat()) {  //一直按着导致触发的事件，不再处理
         return;
     }
+    if (isShortCutObtained == true) {
+        initInputKeyAndText(true);
+        isShortCutObtained = false;
+    }
     int keyValue = e->key();
     int keyCode = e->nativeVirtualKey();
 //    qDebug()<<"0x"<<QString().sprintf("%04X",keyValue);
@@ -156,6 +160,7 @@ void ShortcutLine::focusOutEvent(QFocusEvent *e)
 
 void ShortcutLine::shortCutObtained(const bool &flag, const int &keyNum)
 {
+    isShortCutObtained = true;
     if (true == flag && (2 == keyNum || 3 == keyNum || 4 == keyNum)) {
         shortCutObtainedFlag = true;
         if (2 == keyNum) {
@@ -323,7 +328,7 @@ void ShortcutLine::setKeySequence(QKeySequence setSeq){
 }
 
 void ShortcutLine::updateCustomEntry(QList<KeyEntry *> customEntries) {
-    this->customEntry = customEntries;
+    //this->customEntry = customEntries;  //传的地址，不需要多次更新
 }
 
 QString ShortcutLine::keyToString(int keyValue)
