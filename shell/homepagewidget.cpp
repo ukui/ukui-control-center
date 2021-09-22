@@ -27,6 +27,7 @@
 #include <QListWidget>
 #include <QDBusInterface>
 #include <QDebug>
+#include <QScrollBar>
 
 #include <QSvgRenderer>
 #include "mainwindow.h"
@@ -35,6 +36,7 @@
 #include "utils/functionselect.h"
 #include "component/hoverwidget.h"
 #include "./utils/utils.h"
+#include "homelayout.h"
 
 #define STYLE_FONT_SCHEMA  "org.ukui.style"
 
@@ -42,6 +44,7 @@ HomePageWidget::HomePageWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::HomePageWidget)
 {
+    qApp->installEventFilter(this);
     ui->setupUi(this);
     // 获取主窗口
     this->setParent(parent);
@@ -49,20 +52,30 @@ HomePageWidget::HomePageWidget(QWidget *parent) :
 
     // 初始化首页
     initUI();
-    setMagins();
-
+    ui->scrollArea->viewport()->setAttribute(Qt::WA_TranslucentBackground);
+    ui->scrollArea->setStyleSheet("QScrollArea{background-color: transparent;}");
+    ui->scrollArea->viewport()->setStyleSheet("background-color: transparent;");
+    ui->scrollArea->verticalScrollBar()->setProperty("drawScrollBarGroove", false);
+    ui->scrollArea->verticalScrollBar()->setVisible(false);
     const QByteArray styleID(STYLE_FONT_SCHEMA);
     QGSettings *stylesettings = new QGSettings(styleID, QByteArray(), this);
     connect(stylesettings,&QGSettings::changed,[=](QString key)
     {
         if("systemFont" == key || "systemFontSize" == key)
         {
-            int counter =ui->listWidget->count();
-            for(int index=0; index < counter; index++){
-                QListWidgetItem *item = ui->listWidget->takeItem(0);
-                delete item;
+            if (ui->scrollArea->layout() != NULL) {
+                QLayoutItem *item;
+                while ((item = ui->scrollAreaWidgetContents_5->layout()->takeAt(0)) != NULL)
+                {
+                    if(item->widget()) {
+                       item->widget()->setParent(NULL);
+                    }
+                    delete item;
+                    item = nullptr;
+                }
             }
-
+            // 删掉滚动区域布局
+            delete ui->scrollAreaWidgetContents_5->layout();
             initUI();
         }
     });
@@ -76,14 +89,7 @@ HomePageWidget::~HomePageWidget()
 }
 
 void HomePageWidget::initUI() {
-    ui->listWidget->setResizeMode(QListView::Adjust);
-    ui->listWidget->setViewMode(QListView::IconMode);
-    ui->listWidget->setMovement(QListView::Static);
-    ui->listWidget->setSpacing(0);
-
-    ui->listWidget->setFocusPolicy(Qt::NoFocus);
-    ui->listWidget->setSelectionMode(QAbstractItemView::NoSelection);
-
+    HomeLayout * flowLayout = new HomeLayout(ui->scrollAreaWidgetContents_5, 0);
     mModuleMap = Utils::getModuleHideStatus();
 
     //构建枚举键值转换对象
@@ -112,7 +118,7 @@ void HomePageWidget::initUI() {
 
         //构建首页10个模块
         //基础Widget
-        QWidget * baseWidget = new QWidget;
+        QWidget * baseWidget = new QWidget();
         baseWidget->setAttribute(Qt::WA_DeleteOnClose);
         baseWidget->setObjectName("itemBaseWidget");
         baseWidget->setStyleSheet("QWidget#itemBaseWidget{background: palette(base);}");
@@ -250,13 +256,11 @@ void HomePageWidget::initUI() {
 
         baseWidget->setLayout(baseVerLayout);
 
-        QListWidgetItem * item = new QListWidgetItem(ui->listWidget);
-        item->setSizeHint(QSize(356, 120));
-        ui->listWidget->addItem(item);
-        ui->listWidget->setItemWidget(item, baseWidget);
+        flowLayout->addWidget(baseWidget);
+
+
     }
     connect(moduleSignalMapper, SIGNAL(mapped(QObject*)), pmainWindow, SLOT(functionBtnClicked(QObject*)));
-    //    connect(ui->listWidget, SIGNAL(itemPressed(QListWidgetItem *)), this, SLOT(slotItemPressed(QListWidgetItem *)));
 }
 
 const QPixmap HomePageWidget::loadSvg(const QString &fileName, COLOR color)
@@ -319,54 +323,16 @@ QPixmap HomePageWidget::drawSymbolicColoredPixmap(const QPixmap &source, COLOR c
     return QPixmap::fromImage(img);
 }
 
-void HomePageWidget::setMagins()
+
+bool HomePageWidget::eventFilter(QObject *watched, QEvent *event)
 {
-    int screenWidth= Utils::sizeOnCursor().width();
-    int marginLR = (screenWidth > 1440) ? 58 : 40;
-    ui->homepageLayout->setContentsMargins(marginLR, 0, 0, 0);
-}
-
-/*
- * 问题：点击“语言和地区”最终跳转至“时间和日期”页面；点击“默认应用”最总跳转至“显示器”页面
- * 解决：屏蔽ClickLabel的点击传递
- * 备注：首页需要实现伸缩模块居中效果，改为使用留布局来实现，所以如下方法将来无法使用
- */
-void HomePageWidget::slotItemPressed(QListWidgetItem *item)
-{
-    if(item == nullptr)
-        return;
-
-    int moduleIndex = ui->listWidget->currentRow();
-    QMap<QString, QObject *> moduleMap;
-    moduleMap = pmainWindow->exportModule(moduleIndex);
-
-    QWidget *currentWidget = QApplication::widgetAt(QCursor::pos());
-    QLabel *label = dynamic_cast<QLabel*>(currentWidget);
-
-    ResHoverWidget* hoverWidget = dynamic_cast<ResHoverWidget*>(currentWidget);
-    if(label != nullptr && hoverWidget != nullptr)
-        return;
-
-    if(label != nullptr || hoverWidget != nullptr)
-    {
-        QString targetString = "";
-        QList<FuncInfo> tmpList = FunctionSelect::funcinfoList[moduleIndex];
-        for (int funcIndex = 0; funcIndex < tmpList.size(); funcIndex++) {
-            FuncInfo single = tmpList.at(funcIndex);
-            //跳过插件不存在的功能项
-            if (!moduleMap.contains(single.namei18nString)) {
-                continue;
-            }
-            // if targetString is already been found, there is no need to continue this cycle
-            if(!targetString.isEmpty())
-                break;
-
-            targetString = single.namei18nString;
-        }
-        if(targetString .isEmpty()) {
-            pmainWindow->functionBtnClicked(moduleMap.first()); //QMap是无序的，不能保证跳转到第一项
+    if (event->type() == QEvent::MouseMove) {
+        if (ui->scrollArea->geometry().contains(this->mapFromGlobal(QCursor::pos()))) {
+            ui->scrollArea->verticalScrollBar()->setVisible(true);
         } else {
-            pmainWindow->functionBtnClicked(moduleMap[targetString]);
+            ui->scrollArea->verticalScrollBar()->setVisible(false);
         }
     }
+     return QObject::eventFilter(watched, event);
 }
+
