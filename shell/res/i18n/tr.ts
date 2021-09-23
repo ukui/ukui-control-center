@@ -5466,32 +5466,32 @@ Please retry or relogin!</source>
 <context>
     <name>MobileHotspotWidget</name>
     <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="134"/>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="137"/>
         <source>Hotspot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="261"/>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="291"/>
         <source>Open</source>
         <translation type="unfinished">Aç</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="281"/>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="311"/>
         <source>Wi-Fi Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="301"/>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="331"/>
         <source>Password</source>
         <translation type="unfinished">Parola</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="339"/>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="369"/>
         <source>Frequency band</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="363"/>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="393"/>
         <source>Net card</source>
         <translation type="unfinished"></translation>
     </message>
@@ -9238,14 +9238,9 @@ dosya sisteminde geçersiz!</translation>
         <translation>Giriş</translation>
     </message>
     <message>
-        <source>Input Device</source>
-        <translation type="vanished">Giriş Aygıtı</translation>
-        <extra-contents_path>/audio/Input Device</extra-contents_path>
-    </message>
-    <message>
         <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="52"/>
-        <source>Input Device:</source>
-        <translation type="unfinished"></translation>
+        <source>Input Device</source>
+        <translation>Giriş Aygıtı</translation>
         <extra-contents_path>/audio/Input Device</extra-contents_path>
     </message>
     <message>
@@ -10050,21 +10045,21 @@ dosya sisteminde geçersiz!</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="537"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="115"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="116"/>
         <source>Browse</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/wallpaper/Browse</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="544"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="117"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="118"/>
         <source>Online Picture</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/wallpaper/Online Picture</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="576"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="126"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="127"/>
         <source>Reset To Default</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/wallpaper/Reset To Default</extra-contents_path>
@@ -10112,17 +10107,17 @@ dosya sisteminde geçersiz!</translation>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="331"/>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="53"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="113"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="114"/>
         <source>Background</source>
         <translation>Arkaplan</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="143"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="144"/>
         <source>picture</source>
         <translation>Resim</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="143"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="144"/>
         <source>color</source>
         <translation>Renk</translation>
     </message>
@@ -10135,22 +10130,22 @@ dosya sisteminde geçersiz!</translation>
         <translation type="vanished">Özel Renk</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="159"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="160"/>
         <source>wallpaper</source>
         <translation>Duvar Kağıdı</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="159"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="160"/>
         <source>centered</source>
         <translation>Ortalanmış</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="159"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="160"/>
         <source>scaled</source>
         <translation>Döşe</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="159"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="160"/>
         <source>stretched</source>
         <translation>Uzatılmış</translation>
     </message>
@@ -10163,48 +10158,48 @@ dosya sisteminde geçersiz!</translation>
         <translation type="vanished">Yayılmış</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="469"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="470"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</source>
         <translation type="unfinished">Duvarkağıdı Dosyaları(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="469"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="470"/>
         <source>allFiles(*.*)</source>
         <translation type="unfinished">Tüm Dosyalar(*.*)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="509"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="551"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="510"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="552"/>
         <source>select custom wallpaper file</source>
         <translation>Özel duvar kağıdı dosyasını seç</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="510"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="552"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="511"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="553"/>
         <source>Select</source>
         <translation>Seç</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="511"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="553"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="512"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="554"/>
         <source>Position: </source>
         <translation>Konum: </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="512"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="554"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="513"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="555"/>
         <source>FileName: </source>
         <translation>Dosya Adı: </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="513"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="555"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="514"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="556"/>
         <source>FileType: </source>
         <translation>Dosya Türü: </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="514"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="556"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="515"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="557"/>
         <source>Cancel</source>
         <translation>İptal</translation>
     </message>
@@ -10248,7 +10243,7 @@ dosya sisteminde geçersiz!</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="297"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2012"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2010"/>
         <source>Custom Time</source>
         <translation type="unfinished"></translation>
     </message>
@@ -10342,18 +10337,18 @@ the settings will be saved after %1 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2012"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2010"/>
         <source>All Day</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2012"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2010"/>
         <source>Follow the sunrise and sunset(17:55-06:23)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2271"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2279"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2269"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2277"/>
         <source>Brightness</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>

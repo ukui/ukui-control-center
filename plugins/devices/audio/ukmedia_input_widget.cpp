@@ -49,7 +49,7 @@ UkmediaInputWidget::UkmediaInputWidget(QWidget *parent) : QWidget(parent)
 
 
     //~ contents_path /audio/Input Device
-    m_pInputDeviceLabel = new QLabel(tr("Input Device:"),m_pInputSlectWidget);
+    m_pInputDeviceLabel = new QLabel(tr("Input Device"),m_pInputSlectWidget);
     m_pInputDeviceSelectBox = new QComboBox(m_pInputSlectWidget);
     m_pIpVolumeLabel = new QLabel(tr("Volume"),m_pVolumeWidget);
     m_pInputIconBtn = new UkuiButtonDrawSvg(m_pVolumeWidget);
@@ -68,12 +68,12 @@ UkmediaInputWidget::UkmediaInputWidget(QWidget *parent) : QWidget(parent)
 
 
     //输入设备添加布局
-    m_pInputDeviceLabel->setFixedSize(100,20);
+    m_pInputDeviceLabel->setFixedSize(110,20);
     m_pInputDeviceSelectBox->setFixedHeight(40);
     QHBoxLayout *inputdeviceSlectLayout = new QHBoxLayout();
     inputdeviceSlectLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     inputdeviceSlectLayout->addWidget(m_pInputDeviceLabel);
-    inputdeviceSlectLayout->addItem(new QSpacerItem(128,20,QSizePolicy::Fixed));
+    inputdeviceSlectLayout->addItem(new QSpacerItem(123,20,QSizePolicy::Fixed));
     inputdeviceSlectLayout->addWidget(m_pInputDeviceSelectBox);
     inputdeviceSlectLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     inputdeviceSlectLayout->setSpacing(0);
@@ -82,17 +82,17 @@ UkmediaInputWidget::UkmediaInputWidget(QWidget *parent) : QWidget(parent)
 
     //主音量添加布局
     QHBoxLayout *m_pMasterLayout = new QHBoxLayout(m_pVolumeWidget);
-    m_pIpVolumeLabel->setFixedSize(100,20);
+    m_pIpVolumeLabel->setFixedSize(110,20);
     m_pInputIconBtn->setFixedSize(24,24);
     m_pIpVolumeSlider->setFixedHeight(20);
-    m_pIpVolumePercentLabel->setFixedSize(43,20);
+    m_pIpVolumePercentLabel->setFixedSize(45,20);
     m_pMasterLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     m_pMasterLayout->addWidget(m_pIpVolumeLabel);
-    m_pMasterLayout->addItem(new QSpacerItem(128,20,QSizePolicy::Fixed));
+    m_pMasterLayout->addItem(new QSpacerItem(123,20,QSizePolicy::Fixed));
     m_pMasterLayout->addWidget(m_pInputIconBtn);
     m_pMasterLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     m_pMasterLayout->addWidget(m_pIpVolumeSlider);
-    m_pMasterLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Maximum));
+    m_pMasterLayout->addItem(new QSpacerItem(14,20,QSizePolicy::Maximum));
     m_pMasterLayout->addWidget(m_pIpVolumePercentLabel);
     m_pMasterLayout->addItem(new QSpacerItem(10,20,QSizePolicy::Maximum));
     m_pMasterLayout->setSpacing(0);
@@ -101,12 +101,12 @@ UkmediaInputWidget::UkmediaInputWidget(QWidget *parent) : QWidget(parent)
 
     //输入反馈添加布局
     QHBoxLayout *m_pSoundLayout = new QHBoxLayout(m_pInputLevelWidget);
-    m_pInputLevelLabel->setFixedSize(100,20);
+    m_pInputLevelLabel->setFixedSize(110,20);
     m_pSoundLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     m_pSoundLayout->addWidget(m_pInputLevelLabel);
-    m_pSoundLayout->addItem(new QSpacerItem(128,20,QSizePolicy::Fixed));
+    m_pSoundLayout->addItem(new QSpacerItem(123,20,QSizePolicy::Fixed));
     m_pSoundLayout->addWidget(m_pInputLevelProgressBar);
-    m_pSoundLayout->addItem(new QSpacerItem(10,20,QSizePolicy::Fixed));
+    m_pSoundLayout->addItem(new QSpacerItem(5,20,QSizePolicy::Fixed));
     m_pSoundLayout->setSpacing(0);
     m_pInputLevelWidget->setLayout(m_pSoundLayout);
     m_pInputLevelWidget->layout()->setContentsMargins(0,0,0,0);
