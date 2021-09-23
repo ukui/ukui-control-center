@@ -1529,6 +1529,9 @@ void BlueToothMain::addMyDeviceItemUI(BluezQt::DevicePtr device)
         return;
     }
 
+    if (!frame_middle->isVisible())
+        frame_middle->setVisible(true);
+
     connect(device.data(),&BluezQt::Device::typeChanged,this,[=](BluezQt::Device::Type  changeType){
 
         DeviceInfoItem *item = device_list->findChild<DeviceInfoItem *>(device->address());
