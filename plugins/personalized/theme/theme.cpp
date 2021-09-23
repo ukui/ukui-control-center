@@ -444,7 +444,8 @@ void Theme::initIconTheme() {
     foreach (QString themedir, IconThemeList) {
         count++;
         if ((Utils::isCommunity() && (!themedir.compare("ukui") || !themedir.compare("ukui-classical")))
-                || (!Utils::isCommunity() && themedir.startsWith("ukui-icon-theme-")) || themedir.startsWith("ukui-hp")) {
+                || (!Utils::isCommunity() && themedir.startsWith("ukui-icon-theme-")) ||
+                (Utils::isTablet() && (themedir.startsWith("ukui-hp") || !themedir.compare("ukui") || themedir.startsWith("ukui-classical")))) {
             QDir appsDir = QDir(ICONTHEMEPATH + themedir + "/48x48/apps/");
             QDir placesDir = QDir(ICONTHEMEPATH + themedir + "/48x48/places/");
             QDir devicesDir = QDir(ICONTHEMEPATH + themedir + "/48x48/devices/");
@@ -465,11 +466,11 @@ void Theme::initIconTheme() {
 
             for (int i = 0; i < realIconsList.size(); i++) {
                 if (QFile(appsDir.path() + "/" + realIconsList.at(i)).exists()) {
-                    showIconsList.append(appsDir.path() + "/" + kIconsList.at(i));
+                    showIconsList.append(appsDir.path() + "/" + realIconsList.at(i));
                 } else if (QFile(devicesDir.path() + "/" + realIconsList.at(i)).exists()) {
-                    showIconsList.append(devicesDir.path() + "/" + kIconsList.at(i));
+                    showIconsList.append(devicesDir.path() + "/" + realIconsList.at(i));
                 } else if (QFile(placesDir.path() + "/" + realIconsList.at(i)).exists()) {
-                    showIconsList.append(placesDir.path() + "/" + kIconsList.at(i));
+                    showIconsList.append(placesDir.path() + "/" + realIconsList.at(i));
                 }
             }
 
@@ -580,11 +581,10 @@ void Theme::initCursorTheme(){
 
         ThemeWidget * widget  = new ThemeWidget(QSize(24, 24), dullCursorTranslation(cursor), cursorVec, pluginWidget);
         widget->setValue(cursor);
-
-
         // 加入Layout
-        if (!Utils::isTablet()) {
-            ui->cursorVerLayout->addWidget(widget);
+        ui->cursorVerLayout->addWidget(widget);
+        if (Utils::isTablet()) {
+            widget->setVisible(false);
         }
 
         // 加入WidgetGround实现获取点击前Widget
@@ -762,6 +762,10 @@ QString Theme::dullTranslation(QString str) {
         return QObject::tr("default");
     } else if (!QString::compare(str, "fashion")) {
         return QObject::tr("fashion");
+    } else if (!QString::compare(str, "hp")) {
+        return QObject::tr("hp");
+    } else if (!QString::compare(str, "ukui")) {
+        return QObject::tr("ukui");
     } else {
         return QObject::tr("default");
     }
