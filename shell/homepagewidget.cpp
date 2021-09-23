@@ -36,7 +36,7 @@
 #include "utils/functionselect.h"
 #include "component/hoverwidget.h"
 #include "./utils/utils.h"
-#include "homelayout.h"
+#include "../commonComponent/FlowLayout/flowlayout.h"
 
 #define STYLE_FONT_SCHEMA  "org.ukui.style"
 
@@ -89,7 +89,7 @@ HomePageWidget::~HomePageWidget()
 }
 
 void HomePageWidget::initUI() {
-    HomeLayout * flowLayout = new HomeLayout(ui->scrollAreaWidgetContents_5, 0);
+    FlowLayout * flowLayout = new FlowLayout(ui->scrollAreaWidgetContents_5, true,0);
     mModuleMap = Utils::getModuleHideStatus();
 
     //构建枚举键值转换对象

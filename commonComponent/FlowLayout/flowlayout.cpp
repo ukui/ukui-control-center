@@ -32,6 +32,15 @@ FlowLayout::FlowLayout(QWidget *parent, int margin, int hSpacing, int vSpacing) 
     setContentsMargins(margin, margin, margin, margin);
 }
 
+FlowLayout::FlowLayout(QWidget *parent, bool home, int margin, int hSpacing, int vSpacing):
+    QLayout(parent),
+    m_hSpace(hSpacing),
+    m_vSpace(vSpacing),
+    m_home(home)
+{
+    setContentsMargins(margin, margin, margin, margin);
+}
+
 FlowLayout::FlowLayout(int margin, int hSpacing, int vSpacing)
     : m_hSpace(hSpacing),
       m_vSpace(vSpacing)
@@ -135,13 +144,18 @@ int FlowLayout::doLayout(const QRect &rect, bool testOnly) const{
             }
             spaceX = fillX;
         }
+
         int spaceY = verticalSpacing();
         if (spaceY == -1 && fillX >= 0) {
-            spaceY = fillX; 
+            spaceY = fillX;
         } else {
             spaceY = wid->style()->layoutSpacing(
                         QSizePolicy::PushButton, QSizePolicy::PushButton, Qt::Vertical);
         }
+        if (m_home) {
+            spaceY = 32;
+        }
+
 
         int nextX = x + item->sizeHint().width() + spaceX;
         if (nextX - spaceX > effectiveRect.right() && lineHeight > 0) {
@@ -176,10 +190,14 @@ int FlowLayout::fillSpaceX(QWidget *wid) const{
     int num = 0;
     int x = 0;
     int numH = 0;
+    int space  = 4;
+    if (m_home) {
+        space = 24;
+    }
     int len = this->parentWidget()->width() - this->contentsMargins().left() - this->contentsMargins().right();
     while (true) {
        num++;
-       if (num * (wid->width() + 4) - 4 >= len) {  //最小间距4px
+       if (num * (wid->width() + space) - space >= len) {  //最小间距space
            break;
        }
     }
@@ -191,11 +209,14 @@ int FlowLayout::fillSpaceX(QWidget *wid) const{
     }
     int height = wid->height();
     numH = ceil(double(itemList.size()) / num);
-    x = len + 4 - num * (wid->width() + 4);
-    x = ceil(double(x)/(num - 1)) + 4;
+    x = len + space - num * (wid->width() + space);
+    x = ceil(double(x)/(num - 1)) +space;
     x = x - 1;   //考虑边框等因素影响
 
     int maxY = numH * (height + x) + 32 - x;
+    if (m_home) {
+        maxY = numH * (height + 24) + 32;
+    }
     this->parentWidget()->setFixedHeight(maxY);
     return x;
 }
