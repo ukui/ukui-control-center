@@ -1005,6 +1005,7 @@ void MainWidget::finished_conf(int ret) {
             m_autoSyn->make_itemoff();
             m_bTokenValid = true;
         }
+        m_bIsInit = true;
         handle_conf();
     }
 }
@@ -1043,7 +1044,7 @@ void MainWidget::finished_load(int ret, QString uuid) {
     @返回类型： void
 */
 void MainWidget::handle_conf() {
-    if (__once__  || m_pSettings == nullptr) {
+    if (__once__  || m_pSettings == nullptr || !m_bIsInit) {
         return ;
     }
     bool ret = m_pSettings->value("Auto-sync/enable").toString() == "false";
@@ -1065,7 +1066,6 @@ void MainWidget::handle_conf() {
             m_itemList->get_item(i)->get_swbtn()->setDisabledFlag(true);
         }
     }
-
 }
 
 void MainWidget::ctrlAutoSync(int status) {
