@@ -447,6 +447,7 @@ void MainWidget::refreshSyncDate() {
 void MainWidget::checkUserName(QString name) {
     //检测登录状态
     if (name == "401") {
+        m_bIsInit = false;
         m_firstLoad = true;
         //token无效执行登出
         if (m_mainWidget->currentWidget() != m_nullWidget) {
@@ -487,7 +488,6 @@ void MainWidget::checkUserName(QString name) {
     m_infoTab->setText(tr("Your account：%1").arg(m_szCode));
     //刷新同步时间
     refreshSyncDate();
-
     handle_conf();
 
 }

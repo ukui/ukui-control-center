@@ -120,7 +120,7 @@ private:
     bool                m_bTokenValid = false; //是否是有效用户
     bool                m_isOpenDialog = false; //对话框是否打开
     bool                m_firstLoad = false;
-    bool                m_bIsInit = false;
+    bool                m_bIsInit = true;
     QTimer              *m_cLoginTimer; //登录超时计时器
     QString             m_szUuid;
     QFileSystemWatcher m_fsWatcher;
