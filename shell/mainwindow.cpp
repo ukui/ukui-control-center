@@ -301,7 +301,7 @@ void MainWindow::initUI() {
     });
 
     connect(ui->stackedWidget, &QStackedWidget::currentChanged, this, [=](int index){
-
+        ui->centralWidget->setVisible(false);    //避免出现明显的卡顿现象，在选择进入屏保界面之后这个问题比较明显，这种做法只是优化
         if (index){ //首页部分组件样式
             titleLabel->setHidden(true);
             mTitleIcon->setHidden(true);
@@ -317,10 +317,13 @@ void MainWindow::initUI() {
             mTitleIcon->setVisible(true);
             //左上角显示字符/返回按钮
             backBtn->setHidden(true);
-
+            if (modulepageWidget) {
+                modulepageWidget->pluginLeave();
+            }
             //中部内容区域
             ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background:  palette(base); border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
         }
+        ui->centralWidget->setVisible(true);
     });
 
     //加载左侧边栏一级菜单
