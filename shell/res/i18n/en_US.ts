@@ -1836,41 +1836,41 @@ Please authenticate yourself to continue</source>
 <context>
     <name>ChangeUserPwd</name>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="102"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="106"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="333"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="104"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="108"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="335"/>
         <source>Current Pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="119"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="123"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="334"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="342"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="121"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="125"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="336"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="344"/>
         <source>New Pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="136"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="140"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="335"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="343"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="138"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="142"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="337"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="345"/>
         <source>Sure Pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="221"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="407"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="223"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="409"/>
         <source>Inconsistency with pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="249"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="251"/>
         <source>Authentication failed, input authtok again!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="368"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="370"/>
         <source>Contains illegal characters!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4034,6 +4034,47 @@ Please retry or relogin!</source>
     </message>
 </context>
 <context>
+    <name>MobileHotspot</name>
+    <message>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspot.cpp" line="28"/>
+        <source>MobileHotspot</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MobileHotspotWidget</name>
+    <message>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="134"/>
+        <source>Hotspot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="261"/>
+        <source>Open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="281"/>
+        <source>Wi-Fi Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="301"/>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="339"/>
+        <source>Frequency band</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="363"/>
+        <source>Net card</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MouseControl</name>
     <message>
         <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="24"/>
@@ -4198,17 +4239,19 @@ Please retry or relogin!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="358"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="437"/>
         <source>card</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="418"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="260"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="501"/>
         <source>connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="420"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="273"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="503"/>
         <source>no connected</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6489,45 +6532,45 @@ Please retry or relogin!</source>
         <extra-contents_path>/theme/Theme Mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="345"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="361"/>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="159"/>
         <source>Icon theme</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/theme/Icon theme</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="421"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="437"/>
         <source>Control theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="496"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="512"/>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="161"/>
         <source>Cursor theme</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/theme/Cursor theme</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="572"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="588"/>
         <source>Effect setting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="651"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="667"/>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="163"/>
         <source>Performance mode</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/theme/Performance mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="735"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="751"/>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="165"/>
         <source>Transparency</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/theme/Transparency</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="850"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="866"/>
         <source>Reset to default</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6598,13 +6641,18 @@ Please retry or relogin!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="71"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="69"/>
         <source>Input what you are looking for</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="95"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="98"/>
         <source>Change Timezone</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="124"/>
+        <source>To select a time zone, please click where near you on the map and select a city from the nearest city</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

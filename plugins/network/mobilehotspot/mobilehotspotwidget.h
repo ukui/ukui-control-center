@@ -62,6 +62,8 @@ private:
 
     QString m_interfaceName = "";
 
+    QGSettings *m_switchGsettings = nullptr;
+
     void initUI();
     void initDbusConnect();
     void initInterfaceInfo();
@@ -83,7 +85,7 @@ private:
 signals:
 
 private slots:
-    void onListUpdate(QString devName);
+    void onWlanRemove(QString devName, QString ssid);
     void onActivateFailed(QString errorMessage);
     void onDeactivateFailed(QString errorMessage);
     //设备插拔
