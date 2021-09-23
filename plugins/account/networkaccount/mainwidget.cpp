@@ -748,7 +748,7 @@ void MainWidget::initSignalSlots() {
 
     //连接信号
     connect(m_mainWidget,&QStackedWidget::currentChanged,this,[this] (int index) {
-       if (m_mainWidget->widget(index) == m_nullWidget) {
+       if (m_mainWidget->currentWidget() == m_nullWidget) {
            setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Ignored);
            download_over();
            m_mainWidget->adjustSize();
@@ -1162,6 +1162,7 @@ void MainWidget::on_login_out() {
         m_bTokenValid = false; //Token失效
         m_firstLoad = true;
         m_bIsInit = false;
+        m_autoSyn->make_itemoff();
         if (m_mainWidget->currentWidget() != m_nullWidget) {
             m_mainWidget->setCurrentWidget(m_nullWidget);
             m_stackedWidget->setCurrentWidget(m_nullwidgetContainer);
