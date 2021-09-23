@@ -56,10 +56,8 @@ private:
     const QPixmap loadSvg(const QString &fileName, COLOR color);
     // chang svg picture's color
     QPixmap drawSymbolicColoredPixmap(const QPixmap &source, COLOR color);
-    void setMagins();
+    bool eventFilter(QObject *watched, QEvent *event);
 
-private slots:
-    void slotItemPressed(QListWidgetItem *item);
 
 private:
     Ui::HomePageWidget *ui;
