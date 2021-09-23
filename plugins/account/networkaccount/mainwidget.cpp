@@ -1161,6 +1161,7 @@ void MainWidget::on_login_out() {
         m_szCode = tr("Disconnected");
         m_bTokenValid = false; //Token失效
         m_firstLoad = true;
+        m_bIsInit = false;
         if (m_mainWidget->currentWidget() != m_nullWidget) {
             m_mainWidget->setCurrentWidget(m_nullWidget);
             m_stackedWidget->setCurrentWidget(m_nullwidgetContainer);
