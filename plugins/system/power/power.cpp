@@ -73,6 +73,13 @@ QWidget * Power::get_plugin_ui() {
     if (mFirstLoad) {
         pluginWidget = new QWidget;
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
+        InitUI(pluginWidget);
+        isLidPresent();
+        isHibernateSupply();
+        isExitBattery();
+        initSearText();
+        resetui();
+        setupComponent();
 
         const QByteArray styleID(STYLE_FONT_SCHEMA);
         const QByteArray id(POWERMANAGER_SCHEMA);
@@ -85,6 +92,8 @@ QWidget * Power::get_plugin_ui() {
             stylesettings = new QGSettings(styleID, QByteArray(), this);
             sessionsettings = new QGSettings(iid, QByteArray(), this);
             screensettings = new QGSettings(iiid, QByteArray(), this);
+            initCustomPlanStatus();
+            setupConnect();
             connect(stylesettings,&QGSettings::changed,[=](QString key)
             {
                 if("systemFont" == key || "systemFontSize" == key)
@@ -98,15 +107,8 @@ QWidget * Power::get_plugin_ui() {
             });
         }
 
-        InitUI(pluginWidget);
-        isLidPresent();
-        isHibernateSupply();
-        isExitBattery();
-        initSearText();
-        resetui();
-        setupComponent();
-        initCustomPlanStatus();
-        setupConnect();
+
+
     }
 
     return pluginWidget;
@@ -606,13 +608,15 @@ void Power::setupComponent()
     mSleepComboBox->insertItem(6, sleepStringList.at(6), QVariant::fromValue(0));
 
     //电源计划
-    PowerplanStringList << tr("Balance Model") << tr("Save Model");
+    PowerplanStringList << tr("Balance Model") << tr("Save Model")<<tr("Performance Model");
     mPowerComboBox->insertItem(0, PowerplanStringList.at(0), "Balance Model");
     mPowerComboBox->insertItem(1, PowerplanStringList.at(1), "Save Model");
+    mPowerComboBox->insertItem(2, PowerplanStringList.at(2), "Performance Model");
 
-    BatteryplanStringList << tr("Balance Model") << tr("Save Model");
+    BatteryplanStringList << tr("Balance Model") << tr("Save Model")<<tr("Performance Model");
     mBatteryComboBox->insertItem(0, BatteryplanStringList.at(0), "Balance Model");
     mBatteryComboBox->insertItem(1, BatteryplanStringList.at(1), "Save Model");
+     mBatteryComboBox->insertItem(2, BatteryplanStringList.at(2), "Performance Model");
 
     //变暗
     DarkenStringList << tr("1min") << tr("5min") << tr("10min") << tr("20min") << tr("never");
@@ -637,12 +641,6 @@ void Power::setupComponent()
     //低电量通知
     for (int i = 1; i < 5; i++) {
         mNoticeComboBox->insertItem(i-1, QString("%1%").arg(i*10));
-    }
-
-    //电池低电量范围
-    int batteryRemain = settings->get(PER_ACTION_CRI).toInt();
-    for(int i = 5; i < batteryRemain; i++) {
-        mLowpowerComboBox1->insertItem(i - 5, QString("%1%").arg(i));
     }
 }
 
@@ -679,7 +677,11 @@ void Power::setupConnect()
 
     if (settings->keys().contains("powerPolicyAc") && settings->keys().contains("powerPolicyBattery")) {
         connect(mPowerComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index) {
-            settings->set(POWER_POLICY_AC, index + 1);
+            if (index == 2) {
+                 settings->set(POWER_POLICY_AC, 0);
+            } else {
+                 settings->set(POWER_POLICY_AC, index + 1);
+            }
         });
 
         connect(mBatteryComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index) {
@@ -689,7 +691,11 @@ void Power::setupConnect()
                     mLowSaveBtn->setChecked(false);
                 }
             }
-            settings->set(POWER_POLICY_BATTARY, index + 1);
+            if (index == 2) {
+                 settings->set(POWER_POLICY_BATTARY, 0);
+            } else {
+                 settings->set(POWER_POLICY_BATTARY, index + 1);
+            }
         });
     }
 
@@ -726,6 +732,11 @@ void Power::setupConnect()
 
 void Power::initCustomPlanStatus()
 {
+    //电池低电量范围
+    int batteryRemain = settings->get(PER_ACTION_CRI).toInt();
+    for(int i = 5; i < batteryRemain; i++) {
+        mLowpowerComboBox1->insertItem(i - 5, QString("%1%").arg(i));
+    }
     // 信号阻塞
     mPowerKeyComboBox->blockSignals(true);
     mCloseComboBox->blockSignals(true);
@@ -752,13 +763,17 @@ void Power::initCustomPlanStatus()
     if (settings->keys().contains("powerPolicyAc") && settings->keys().contains("powerPolicyBattery")) {
         if (1 == settings->get(POWER_POLICY_AC).toInt()) {
             mPowerComboBox->setCurrentIndex(mPowerComboBox->findData("Balance Model"));
-        } else {
+        } else if (2 == settings->get(POWER_POLICY_AC).toInt()) {
             mPowerComboBox->setCurrentIndex(mPowerComboBox->findData("Save Model"));
+        } else {
+            mPowerComboBox->setCurrentIndex(mPowerComboBox->findData("Performance Model"));
         }
         if (1 == settings->get(POWER_POLICY_BATTARY).toInt()) {
             mBatteryComboBox->setCurrentIndex(mBatteryComboBox->findData("Balance Model"));
-        } else {
+        } else if (2 == settings->get(POWER_POLICY_BATTARY).toInt()){
             mBatteryComboBox->setCurrentIndex(mBatteryComboBox->findData("Save Model"));
+        } else {
+            mBatteryComboBox->setCurrentIndex(mBatteryComboBox->findData("Performance Model"));
         }
     } else {
         mPowerComboBox->setEnabled(false);
