@@ -349,6 +349,7 @@ void Theme::buildThemeModeLabel(){
     }
 
     connect(ui->defaultRadioBtn,&QRadioButton::clicked,[=]{
+        ui->defaultRadioBtn->clearFocus();
         //开启自动主题
         if (autoThemeGsettings->keys().contains("themeScheduleAutomatic") || autoThemeGsettings->keys().contains(AUTO_THEME)) {
             autoThemeGsettings->set(AUTO_THEME, true);
@@ -362,6 +363,7 @@ void Theme::buildThemeModeLabel(){
         }
     });
     connect(ui->lightRadioBtn,&QRadioButton::clicked,[=]{
+        ui->lightRadioBtn->clearFocus();
         //intel定制版修改ukui-default为ukui-light，以防主题设置对部分组件不生效
         QString themeMode = "ukui-light";
         QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
@@ -391,6 +393,7 @@ void Theme::buildThemeModeLabel(){
         }
     });
     connect(ui->darkRadioBtn,&QRadioButton::clicked,[=]{
+        ui->darkRadioBtn->clearFocus();
         QString themeMode = "ukui-dark";
         QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
         qApp->setStyle(new InternalStyle(themeMode));
