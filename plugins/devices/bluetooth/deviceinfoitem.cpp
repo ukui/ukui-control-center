@@ -324,7 +324,6 @@ void DeviceInfoItem::setDevConnectedIcon(bool connected)
             connect_btn->setVisible(false);
             disconnect_btn->setGeometry(this->width()-BTN_1_X,2,BTN_1_WIDTH,45);
             disconnect_btn->setVisible(true);
-            emit connectComplete();
             del_btn_show_timer->start();
             //del_btn->setEnabled(true);
         }
@@ -355,6 +354,8 @@ void DeviceInfoItem::setDevConnectedIcon(bool connected)
         device_status->setText(tr("device unlink"));
         device_status->setVisible(false);
     }
+    emit connectComplete();
+
 }
 
 void DeviceInfoItem::AnimationInit()
