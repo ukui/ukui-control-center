@@ -152,6 +152,9 @@ public:
         QFile file(sysVersion);
         return file.exists();
     }
+    virtual void plugin_leave() {
+        return ;
+    }
 };
 
 #define CommonInterface_iid "org.kycc.CommonInterface"
