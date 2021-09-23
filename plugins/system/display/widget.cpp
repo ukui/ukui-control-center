@@ -743,17 +743,22 @@ void Widget::initGSettings()
     QByteArray nightId(SETTINGS_DAEMON_COLOR_SCHEMAS);
     if(QGSettings::isSchemaInstalled(nightId)) {
         m_colorSettings = new QGSettings(nightId);
+        // 暂时解决点击夜间模式闪退问题
+        m_colorSettings = nullptr;
         setNightModeSetting();
-        connect(m_colorSettings, &QGSettings::changed, [=](const QString &key){
-            if(key == "nightLightTemperature")
-            {
-                int value = m_colorSettings->get(NIGHT_TEMPERATURE_KEY).toInt();
-                mTemptSlider->setValue(value);
-            }
-            else if(key == "nightLightScheduleAutomatic" || key == "nightLightEnabled" || key == "nightLightAllday") {
-                setNightModeSetting();
-            }
-        });
+        if (m_colorSettings) {
+            connect(m_colorSettings, &QGSettings::changed, [=](const QString &key){
+                if(key == "nightLightTemperature")
+                {
+                    int value = m_colorSettings->get(NIGHT_TEMPERATURE_KEY).toInt();
+                    mTemptSlider->setValue(value);
+                }
+                else if(key == "nightLightScheduleAutomatic" || key == "nightLightEnabled" || key == "nightLightAllday") {
+                    setNightModeSetting();
+                }
+            });
+        }
+
     } else {
         qDebug() << Q_FUNC_INFO << "org.ukui.SettingsDaemon.plugins.color not install";
     }
