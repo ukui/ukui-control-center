@@ -1,4 +1,4 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
+﻿/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  *
  * Copyright (C) 2019 Tianjin KYLIN Information Technology Co., Ltd.
  *
@@ -79,6 +79,7 @@ int save_trans = 0;
 
 const QStringList effectList {"blur", "kwin4_effect_translucency", "kwin4_effect_maximize", "zoom"};
 const QStringList kIconsList {"computer.png", "user-trash.png", "system-file-manager.png", "ukui-control-center.png", "kylin-software-center.png", "kylin-video.png", "kylin-assistant.png"};
+const QStringList kIntelIconList {"computer.png", "ukui-control-center.png", "system-file-manager.png", "user-trash-full.png", "indicator-china-weather.png", "kylin-video.png", "ubuntu-kylin-software-center.png"};
 
 namespace {
 
@@ -123,6 +124,7 @@ Theme::Theme()
     initIconTheme();
     initCursorTheme();
     initConnection();
+    hideIntelComponent();
 }
 
 Theme::~Theme()
@@ -339,10 +341,8 @@ void Theme::buildThemeModeBtn(QPushButton *button, QString name, QString icon){
     });
     connect(iconLabel,&IconLabel::leaveWidget,[=](){
         if (!button->isChecked()) {
-           // qDebug()<<"-------";
             iconLabel->setStyleSheet("border: 0px");
         }
-
      });
 
     bottomHorLayout->addStretch();
@@ -444,7 +444,7 @@ void Theme::initIconTheme() {
     foreach (QString themedir, IconThemeList) {
         count++;
         if ((Utils::isCommunity() && (!themedir.compare("ukui") || !themedir.compare("ukui-classical")))
-                || (!Utils::isCommunity() && themedir.startsWith("ukui-icon-theme-"))) {
+                || (!Utils::isCommunity() && themedir.startsWith("ukui-icon-theme-")) || themedir.startsWith("ukui-hp")) {
             QDir appsDir = QDir(ICONTHEMEPATH + themedir + "/48x48/apps/");
             QDir placesDir = QDir(ICONTHEMEPATH + themedir + "/48x48/places/");
             QDir devicesDir = QDir(ICONTHEMEPATH + themedir + "/48x48/devices/");
@@ -455,16 +455,21 @@ void Theme::initIconTheme() {
             devicesDir.setFilter(QDir::Files | QDir::NoSymLinks);
             placesDir.setFilter(QDir::Files | QDir::NoSymLinks);
             QStringList showIconsList;
-            for (int i = 0; i < kIconsList.size(); i++) {
-                if (QFile(appsDir.path() + "/" + kIconsList.at(i)).exists()) {
+            QStringList realIconsList;
+
+            if (!Utils::isTablet()) {
+                realIconsList = kIconsList;
+            } else {
+                realIconsList = kIntelIconList;
+            }
+
+            for (int i = 0; i < realIconsList.size(); i++) {
+                if (QFile(appsDir.path() + "/" + realIconsList.at(i)).exists()) {
                     showIconsList.append(appsDir.path() + "/" + kIconsList.at(i));
-                    continue;
-                } else if (QFile(devicesDir.path() + "/" + kIconsList.at(i)).exists()) {
+                } else if (QFile(devicesDir.path() + "/" + realIconsList.at(i)).exists()) {
                     showIconsList.append(devicesDir.path() + "/" + kIconsList.at(i));
-                    continue;
-                } else if (QFile(placesDir.path() + "/" + kIconsList.at(i)).exists()) {
+                } else if (QFile(placesDir.path() + "/" + realIconsList.at(i)).exists()) {
                     showIconsList.append(placesDir.path() + "/" + kIconsList.at(i));
-                    continue;
                 }
             }
 
@@ -576,8 +581,11 @@ void Theme::initCursorTheme(){
         ThemeWidget * widget  = new ThemeWidget(QSize(24, 24), dullCursorTranslation(cursor), cursorVec, pluginWidget);
         widget->setValue(cursor);
 
+
         // 加入Layout
-        ui->cursorVerLayout->addWidget(widget);
+        if (!Utils::isTablet()) {
+            ui->cursorVerLayout->addWidget(widget);
+        }
 
         // 加入WidgetGround实现获取点击前Widget
         cursorThemeWidgetGroup->addWidget(widget);
@@ -649,7 +657,7 @@ QFrame *Theme::setLine(QFrame *frame)
 
 bool Theme::getSystemVersion() {
     QString versionPath = "/etc/os-release";
-    QStringList osRes =  readFile(versionPath);
+    QStringList osRes = readFile(versionPath);
     QString version;
 
     for (QString str : osRes) {
@@ -660,7 +668,7 @@ bool Theme::getSystemVersion() {
             version = str.mid(startIndex, length);
         }
     }
-    if (UbuntuVesionEnhance == version) {
+    if (UbuntuVesionEnhance == version || Utils::isTablet()) {
         return true;
     }
     return false;
@@ -734,7 +742,15 @@ QString Theme::dullCursorTranslation(QString str) {
 }
 
 QString Theme::getCursorName() {
-   return curSettings->get(CURSOR_THEME_KEY).toString();
+    return curSettings->get(CURSOR_THEME_KEY).toString();
+}
+
+void Theme::hideIntelComponent()
+{
+    ui->cursorLabel->setVisible(false);
+    ui->cursorFrame->setVisible(false);
+    ui->transFrame->setVisible(false);
+    ui->resetBtn->setVisible(false);
 }
 
 QString Theme::dullTranslation(QString str) {

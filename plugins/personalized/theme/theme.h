@@ -115,6 +115,7 @@ private:
     QString dullCursorTranslation(QString str);
     QString getCursorName();
 
+    void hideIntelComponent();  // 隐藏非intel功能
 
 private slots:
     void resetBtnClickSlot();
