@@ -472,6 +472,10 @@ void MainWidget::checkUserName(QString name) {
         emit dooss(m_szUuid);
     }
     //当前用户名为用户名
+    QFile allConfFile(m_szConfPath);
+    if (!allConfFile.exists()) {
+        emit doconf();
+    }
 
     //这里要根据上次同步的情况来设置显示情况 to do
     QString failePath = QDir::homePath() + "/.cache/kylinId/failed";
