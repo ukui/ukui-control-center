@@ -246,11 +246,14 @@ void ModulePageWidget::currentLeftitemChanged(QListWidgetItem *cur, QListWidgetI
         preWidgetItem->setSelected(false);
         preWidgetItem->setLabelTextIsWhite(false);
         preWidgetItem->isSetLabelPixmapWhite(false);
+        CommonInterface * prePluginInstance = pluginInstanceMap[preWidgetItem->text()];
+        prePluginInstance->plugin_leave();
     }
 
     LeftWidgetItem * curWidgetItem = dynamic_cast<LeftWidgetItem *>(currentLeftListWidget->itemWidget(cur));
     if (pluginInstanceMap.contains(curWidgetItem->text())){
         CommonInterface * pluginInstance = pluginInstanceMap[curWidgetItem->text()];
+        currentPlugin = pluginInstance;
         refreshPluginWidget(pluginInstance);
         //高亮
         curWidgetItem->setSelected(true);
@@ -258,5 +261,12 @@ void ModulePageWidget::currentLeftitemChanged(QListWidgetItem *cur, QListWidgetI
         curWidgetItem->isSetLabelPixmapWhite(true);
     } else {
         qDebug() << "plugin widget not fount!";
+    }
+}
+
+void ModulePageWidget::pluginLeave()
+{
+    if (currentPlugin) {
+        currentPlugin->plugin_leave();
     }
 }
