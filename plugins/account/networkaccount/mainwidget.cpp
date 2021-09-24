@@ -447,6 +447,7 @@ void MainWidget::refreshSyncDate() {
 void MainWidget::checkUserName(QString name) {
     //检测登录状态
     if (name == "401") {
+        m_bIsInit = false;
         m_firstLoad = true;
         //token无效执行登出
         if (m_mainWidget->currentWidget() != m_nullWidget) {
@@ -471,6 +472,10 @@ void MainWidget::checkUserName(QString name) {
         emit dooss(m_szUuid);
     }
     //当前用户名为用户名
+    QFile allConfFile(m_szConfPath);
+    if (!allConfFile.exists()) {
+        emit doconf();
+    }
 
     //这里要根据上次同步的情况来设置显示情况 to do
     QString failePath = QDir::homePath() + "/.cache/kylinId/failed";
@@ -487,7 +492,6 @@ void MainWidget::checkUserName(QString name) {
     m_infoTab->setText(tr("Your account：%1").arg(m_szCode));
     //刷新同步时间
     refreshSyncDate();
-
     handle_conf();
 
 }
@@ -748,7 +752,7 @@ void MainWidget::initSignalSlots() {
 
     //连接信号
     connect(m_mainWidget,&QStackedWidget::currentChanged,this,[this] (int index) {
-       if (m_mainWidget->widget(index) == m_nullWidget) {
+       if (m_mainWidget->currentWidget() == m_nullWidget) {
            setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Ignored);
            download_over();
            m_mainWidget->adjustSize();
@@ -1005,6 +1009,7 @@ void MainWidget::finished_conf(int ret) {
             m_autoSyn->make_itemoff();
             m_bTokenValid = true;
         }
+        m_bIsInit = true;
         handle_conf();
     }
 }
@@ -1043,7 +1048,7 @@ void MainWidget::finished_load(int ret, QString uuid) {
     @返回类型： void
 */
 void MainWidget::handle_conf() {
-    if (__once__  || m_pSettings == nullptr) {
+    if (__once__  || m_pSettings == nullptr || !m_bIsInit) {
         return ;
     }
     bool ret = m_pSettings->value("Auto-sync/enable").toString() == "false";
@@ -1065,7 +1070,6 @@ void MainWidget::handle_conf() {
             m_itemList->get_item(i)->get_swbtn()->setDisabledFlag(true);
         }
     }
-
 }
 
 void MainWidget::ctrlAutoSync(int status) {
@@ -1161,6 +1165,8 @@ void MainWidget::on_login_out() {
         m_szCode = tr("Disconnected");
         m_bTokenValid = false; //Token失效
         m_firstLoad = true;
+        m_bIsInit = false;
+        m_autoSyn->make_itemoff();
         if (m_mainWidget->currentWidget() != m_nullWidget) {
             m_mainWidget->setCurrentWidget(m_nullWidget);
             m_stackedWidget->setCurrentWidget(m_nullwidgetContainer);
