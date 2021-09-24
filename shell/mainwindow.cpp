@@ -535,7 +535,7 @@ void MainWindow::loadPlugins(){
         if (!fileName.endsWith(".so")
                 || (fileName == "libexperienceplan.so")
                 || ("libnetworkaccount.so" == fileName && !isExitsCloudAccount())
-                || (!QGSettings::isSchemaInstalled(kVinoSchemas) && "libvino.so" == fileName)
+                //|| (!QGSettings::isSchemaInstalled(kVinoSchemas) && "libvino.so" == fileName)
                 || ("libbluetooth.so" == fileName && !isExitBluetooth())
                 || ("libpower.so" == fileName && !isExitsPower())
                 || ("libtouchscreen.so" == fileName && !isExitTouchScreen())

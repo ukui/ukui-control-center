@@ -31,11 +31,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     sharemain.cpp \
-    vino.cpp
+    vino.cpp \
+    krd.cpp
 
 HEADERS += \
     sharemain.h \
-    vino.h
+    vino.h \
+    krd.h
 
 FORMS +=
 

@@ -31,8 +31,18 @@
 #include <QByteArray>
 #include <QDebug>
 #include <QGSettings/QGSettings>
+#include <QPushButton>
+#include <QTableWidget>
+#include <QHeaderView>
+#include <QAbstractItemView>
+#include <QSpinBox>
+#include <QSystemTrayIcon>
+#include <QEvent>
+#include <QGestureEvent>
 #include "SwitchButton/switchbutton.h"
+#include "krd.h"
 
+#if 0
 const QByteArray kVinoSchemas = "org.gnome.Vino";
 const QString kVinoViewOnlyKey = "view-only";
 const QString kVinoPromptKey = "prompt-enabled";
@@ -46,6 +56,7 @@ enum RequestPwd {
     NOPWD,
     NEEDPWD
 };
+#endif
 
 class ShareMain : public QWidget
 {
@@ -56,55 +67,122 @@ public:
 
 private:
     QFrame *mEnableFrame;
-    QFrame *mViewFrame;
+    QFrame *mControlFrame;
     QFrame *mSecurityFrame;
     QFrame *mSecurityPwdFrame;
     QFrame *mNoticeWFrame;
     QFrame *mNoticeOFrame;
     QFrame *mNoticeNFrame;
+    QFrame *mOutputFrame;
+    QFrame *mInputFrame;
+    QFrame *mClientFrame;
+    QFrame *mClientNumFrame;
 
     SwitchButton *mEnableBtn;  // 允许其他人查看桌面
     SwitchButton *mViewBtn;    // 允许连接控制屏幕
-    SwitchButton *mAccessBtn;  // 为本机确认每次访问
     SwitchButton *mPwdBtn;    // 要求用户输入密码
+    SwitchButton *mOutputBtn;    // 选择output按钮
+    SwitchButton *mPointBtn;    // 选择output按钮
+    SwitchButton *mKeyboardBtn;    // 选择output按钮
+    SwitchButton *mClipboardBtn;    // 选择output按钮
+    SwitchButton *mMaxClientBtn;    // 选择output按钮
 
-    QRadioButton *mNoticeWBtn;
-    QRadioButton *mNoticeOBtn;
-    QRadioButton *mNoticeNBtn;
+    QTableWidget  *mTbClients;
+    QSpinBox *mMaxClientSpinBox;
+    QPushButton  *mViewOnlyNBtn;
+    QPushButton  *mCloseBtn;
 
     QLabel *mShareTitleLabel;
     QLabel *mEnableLabel;
     QLabel *mViewLabel;
     QLabel *mSecurityTitleLabel;
-    QLabel *mAccessLabel;
     QLabel *mPwdsLabel;
     QLabel *mNoticeTitleLabel;
     QLabel *mNoticeWLabel;
     QLabel *mNoticeOLabel;
     QLabel *mNoticeNLabel;
     QLabel *mHintLabel;
+    QLabel *mOutputLabel;
+    QLabel *mPointLabel;
+    QLabel *mKeyboardLabel;
+    QLabel *mClipboardLabel;
+    QLabel *mMaxClientLabel;
+    QLabel *mClientLabel;
+    QLabel *mClientInfoLabel;
+    QLabel *mOutputTitleLabel;
+    QLabel *mInputTitleLabel;
+    QLabel *mClientTitleLabel;
 
     QLineEdit *mPwdLineEdit;
 
     QVBoxLayout *mVlayout;
+    QHBoxLayout *mOutputHLayout;
 
-    QGSettings *mVinoGsetting;
+    ComKylinRemoteDesktopInterface *krd;
+    QList<QRadioButton*> output_list;
 
+    QSettings* mSettingsIni;       //配置文件
+    int mIsOpen;
+    int mNeedPwd;
+
+    //QRadioButton *mNoticeWBtn;
+    //QRadioButton *mNoticeOBtn;
+    //QRadioButton *mNoticeNBtn;
+    //QLabel *mAccessLabel;
+    //SwitchButton *mAccessBtn;  // 为本机确认每次访问
+    //QGSettings *mVinoGsetting;
+    //QSystemTrayIcon *mSysTrayIcon;
+    //static bool mIsOpening = false;
 private:
-    void initTitleLabel();
-    void initUI();
-    void initConnection();
-    void initShareStatus(bool isConnnect, bool isPwd);
-    void initEnableStatus();
-    void setFrameVisible(bool visible);
-    void setVinoService(bool status);
 
+    void initUI();
+    void initTitleLabel();
+    void initEnableUI();
+    void initPwdUI();
+    void initOutputUI();
+    void initInputUI();
+    void initClientUI();
+    void setFrame();
+
+    void initData();
+    void initConnection();
+
+    void setFrameVisible(bool visible);
+    void startKrbService();
+
+    void update_outputs();
+    void update_inputs();
+    void update_auth();
+    void update_clients();
+
+    void savePwdEnableState();
+    void checkPwdEnableState();
+
+    //void initShareStatus(bool isConnnect, bool isPwd);
+    //void initEnableStatus();
+    //void setVinoService(bool status);
+    //void initSysTrayIcon();
+    //void closeEvent(QCloseEvent *event) Q_DECL_OVERRIDE;
 private slots:
     void enableSlot(bool status);
-    void viewBoxSlot(bool status);
-    void accessSlot(bool status);
     void pwdEnableSlot(bool status);
     void pwdInputSlot(const QString &pwd);
+    void onChanged(int type);
+    void onPointerClickedSlot(bool checked);
+    void onKeyboardClickedSlot(bool checked);
+    void onClipboardClickedSlot(bool checked);
+    void on_wl_speed_valueChanged(int arg1);
+    void on_pb_start_clicked();
+    void maxClientValueChangedSlot(int cNum);
+    void on_pb_viewonly_clicked();
+    void on_pb_close_clicked();
+    void exitAllClient();
+    void on_pb_passwd_clicked();
+
+    //void viewBoxSlot();
+    //void accessSlot(bool status);
+    //void closeAllClient();
+    //void on_activatedSysTrayIcon(QSystemTrayIcon::ActivationReason reason);//托盘槽函数声明
 };
 
 #endif // SHAREMAIN_H
