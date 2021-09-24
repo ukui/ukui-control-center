@@ -50,10 +50,10 @@ void KeyboardMain::initUI()
     mInputMethodSetBtn->setText(tr("Input settings"));
     mInputMethodSetBtn->setFixedSize(QSize(160, 36));
 
-    QFrame *keyRepeatAndDelayLine = myLine();
-    QFrame *delayAndSpeedLine = myLine();
-    QFrame *speedAndInputTestLine = myLine();
-    QFrame *inputTestAndKeyTipsLine = myLine();
+    keyRepeatAndDelayLine = myLine();
+    delayAndSpeedLine = myLine();
+    speedAndInputTestLine = myLine();
+    inputTestAndKeyTipsLine = myLine();
 
     /* add widget */
     keyboardLyt->addWidget(mKeyRepeatFrame);
@@ -225,7 +225,7 @@ void KeyboardMain::initKeyboardStatus()
 {
     //设置按键重复状态
     mKeyRepeatBtn->setChecked(mKeyboardGsettings->get(kKeyRepeatKey).toBool());
-    setVisible(mKeyRepeatBtn->isChecked());
+    setKeyboardVisible(mKeyRepeatBtn->isChecked());
 
     //设置按键重复的延时
     mDelaySlider->setValue(mKeyboardGsettings->get(kDelayKey).toInt());
@@ -245,6 +245,9 @@ void KeyboardMain::setKeyboardVisible(bool checked)
     mDelayFrame->setVisible(checked);
     mSpeedFrame->setVisible(checked);
     mInputTestFrame->setVisible(checked);
+    delayAndSpeedLine->setVisible(checked);
+    speedAndInputTestLine->setVisible(checked);
+    inputTestAndKeyTipsLine->setVisible(checked);
 }
 
 void KeyboardMain::gsettingConnectUi()
