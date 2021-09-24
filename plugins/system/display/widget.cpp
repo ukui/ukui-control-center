@@ -45,6 +45,11 @@
 #include <KF5/KScreen/kscreen/edid.h>
 #include <KF5/KScreen/kscreen/types.h>
 
+
+extern "C" {
+#include <math.h>
+}
+
 #ifdef signals
 #undef signals
 #endif
@@ -80,6 +85,22 @@ const QString kCpu = "ZHAOXIN";
 const QString kLoong = "Loongson";
 const QString tempDayBrig = "6500";
 
+void value_to_hour_minute(double value, int *hour, int *minute)
+{
+    double hours;
+    double mins = 0.f;
+    /* display the right thing for AM/PM */
+    mins = modf (value, &hours) * 60.f;
+    *hour = int(hours);
+    *minute = int(mins);
+}
+
+double hour_minute_to_value(int hour, int minute) {
+    double value = (double)minute/60;
+   // QString::number(value,'f', 2).toDouble();
+    return (double)hour + value;
+}
+
 Q_DECLARE_METATYPE(KScreen::OutputPtr)
 
 Widget::Widget(QWidget *parent) :
@@ -114,9 +135,6 @@ Widget::Widget(QWidget *parent) :
     mNightModeFrame->setVisible(this->mRedshiftIsValid);
     mNightModeLabel->setVisible(this->mRedshiftIsValid);
 #endif
-
-    mNightModeBtn->setChecked(this->mIsNightMode);
-    showNightWidget(mNightModeBtn->isChecked());
 
     initConnection();
     loadQml();
@@ -744,8 +762,8 @@ void Widget::initGSettings()
     if(QGSettings::isSchemaInstalled(nightId)) {
         m_colorSettings = new QGSettings(nightId);
         // 暂时解决点击夜间模式闪退问题
-        m_colorSettings = nullptr;
-        setNightModeSetting();
+       //m_colorSettings = nullptr;
+
         if (m_colorSettings) {
             connect(m_colorSettings, &QGSettings::changed, [=](const QString &key){
                 if(key == "nightLightTemperature")
@@ -1879,8 +1897,8 @@ void Widget::initConnection()
     });
 
     connect(mOpenTimeHCombox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=]{
-        if (m_colorSettings) {
-            m_colorSettings->set(NIGHT_FROM_KEY,mOpenTimeHCombox->currentText() + ":"+ mQpenTimeMCombox->currentText() + ":00");
+        if (m_colorSettings) {           
+            m_colorSettings->set(NIGHT_FROM_KEY,QString::number(hour_minute_to_value((mOpenTimeHCombox->currentText()).toInt(),(mOpenTimeHCombox->currentText()).toInt()),'f', 2).toDouble());
         } else {
             applyNightModeSlot();
         }
@@ -1888,7 +1906,7 @@ void Widget::initConnection()
 
     connect(mQpenTimeMCombox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=]{
         if (m_colorSettings) {
-            m_colorSettings->set(NIGHT_FROM_KEY,mOpenTimeHCombox->currentText() + ":"+ mQpenTimeMCombox->currentText() + ":00");
+            m_colorSettings->set(NIGHT_FROM_KEY,QString::number(hour_minute_to_value((mOpenTimeHCombox->currentText()).toInt(),(mOpenTimeHCombox->currentText()).toInt()),'f', 2).toDouble());
         } else {
             applyNightModeSlot();
         }
@@ -1896,7 +1914,7 @@ void Widget::initConnection()
 
     connect(mCloseTimeHCombox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=]{
         if (m_colorSettings) {
-            m_colorSettings->set(NIGHT_TO_KEY,mCloseTimeHCombox->currentText() + ":"+ mCloseTimeMCombox->currentText() + ":00");
+             m_colorSettings->set(NIGHT_TO_KEY,QString::number(hour_minute_to_value((mCloseTimeHCombox->currentText()).toInt(),(mCloseTimeHCombox->currentText()).toInt()),'f', 2).toDouble());
         } else {
             applyNightModeSlot();
         }
@@ -1904,7 +1922,7 @@ void Widget::initConnection()
 
     connect(mCloseTimeMCombox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=]{
         if (m_colorSettings) {
-            m_colorSettings->set(NIGHT_TO_KEY,mCloseTimeHCombox->currentText() + ":"+ mCloseTimeMCombox->currentText() + ":00");
+            m_colorSettings->set(NIGHT_TO_KEY,QString::number(hour_minute_to_value((mCloseTimeHCombox->currentText()).toInt(),(mCloseTimeHCombox->currentText()).toInt()),'f', 2).toDouble());
         } else {
             applyNightModeSlot();
         }
@@ -1978,7 +1996,6 @@ void Widget::initConnection()
             }
             break;
         }
-        setNightModeSetting();
     });
 
     connect(mNightModeBtn, &SwitchButton::checkedChanged,[=](bool checked){
@@ -2142,6 +2159,10 @@ void Widget::initNightStatus()
         return;
     }
     if (m_colorSettings) {
+        this->mIsNightMode = m_colorSettings->get(NIGHT_ENABLE_KEY).toBool();
+        mNightModeBtn->setChecked(this->mIsNightMode);
+        showNightWidget(mNightModeBtn->isChecked());
+        setNightModeSetting();
         return;
     }
 
@@ -2168,6 +2189,8 @@ void Widget::initNightStatus()
     }
 
     this->mIsNightMode = mNightConfig["Active"].toBool();
+    mNightModeBtn->setChecked(this->mIsNightMode);
+    showNightWidget(mNightModeBtn->isChecked());
     mTemptSlider->setValue(mNightConfig["CurrentColorTemperature"].toInt());
     if (mNightConfig["EveningBeginFixed"].toString() == "17:55:01" && mNightConfig["Mode"].toInt() == 2) {
         mTimeModeCombox->setCurrentIndex(1);
@@ -2202,6 +2225,7 @@ void Widget::setNightModeSetting()
         applyNightModeSlot();
         return;
     }
+    mTimeModeCombox->blockSignals(true);
     if (m_colorSettings->get(NIGHT_ENABLE_KEY).toBool()) {
         mNightModeBtn->setChecked(true);
         if(m_colorSettings->get(AllDAY_KEY).toBool())
@@ -2209,38 +2233,43 @@ void Widget::setNightModeSetting()
             mTimeModeCombox->setCurrentIndex(0);
         } else if(m_colorSettings->get(AUTO_KEY).toBool()) {
             mTimeModeCombox->setCurrentIndex(1);
-            QString openTime = m_colorSettings->get(AUTO_NIGHT_FROM_KEY).toString();
-            QString ophour = openTime.split(":").at(0);
-            QString opmin = openTime.split(":").at(1);
-            QString cltime = m_colorSettings->get(AUTO_NIGHT_TO_KEY).toString();
-            QString clhour = cltime.split(":").at(0);
-            QString clmin = cltime.split(":").at(1);
-            if (ophour != "17" || opmin != "55" || clhour != "06" || clmin != "23") {
-                m_colorSettings->set(AUTO_NIGHT_FROM_KEY, "17:55:00");
-                m_colorSettings->set(AUTO_NIGHT_TO_KEY, "06:23:00");
+            double openTime = m_colorSettings->get(AUTO_NIGHT_FROM_KEY).toDouble();
+            double cltime = m_colorSettings->get(AUTO_NIGHT_TO_KEY).toDouble();
+//            qDebug()<<"openTime = "<<openTime;
+//            qDebug()<<"cltime = "<<cltime;
+            int ophour, opmin, clhour, clmin;
+            value_to_hour_minute(openTime, &ophour, &opmin);
+            value_to_hour_minute(cltime, &clhour, &clmin);
+
+            if (ophour != 17 || opmin != 55 || clhour != 6 || clmin != 23) {
+                m_colorSettings->set(AUTO_NIGHT_FROM_KEY,QString::number(hour_minute_to_value(17,55),'f', 2).toDouble());
+                m_colorSettings->set(AUTO_NIGHT_TO_KEY, QString::number(hour_minute_to_value(6,23),'f', 2).toDouble());
+//                qDebug()<<QString::number(hour_minute_to_value(17,55),'f', 2).toDouble();
             }
 
         } else {
             mTimeModeCombox->setCurrentIndex(2);
-            QString openTime = m_colorSettings->get(NIGHT_FROM_KEY).toString();
-            QString ophour = openTime.split(":").at(0);
-            QString opmin = openTime.split(":").at(1);
+            double openTime = m_colorSettings->get(NIGHT_FROM_KEY).toDouble();
+            double cltime = m_colorSettings->get(NIGHT_TO_KEY).toDouble();
+//            qDebug()<<"openTime = "<<openTime;
+//            qDebug()<<"cltime = "<<cltime;
+            int ophour, opmin, clhour, clmin;
+            value_to_hour_minute(openTime, &ophour, &opmin);
+            value_to_hour_minute(cltime, &clhour, &clmin);
 
-            mOpenTimeHCombox->setCurrentIndex(ophour.toInt());
-            mQpenTimeMCombox->setCurrentIndex(opmin.toInt());
-
-            QString cltime = m_colorSettings->get(NIGHT_TO_KEY).toString();
-            QString clhour = cltime.split(":").at(0);
-            QString clmin = cltime.split(":").at(1);
-
-            mCloseTimeHCombox->setCurrentIndex(clhour.toInt());
-            mCloseTimeMCombox->setCurrentIndex(clmin.toInt());
+            mOpenTimeHCombox->setCurrentIndex(ophour);
+            mQpenTimeMCombox->setCurrentIndex(opmin);
+            mCloseTimeHCombox->setCurrentIndex(clhour);
+            mCloseTimeMCombox->setCurrentIndex(clmin);
         }
         showNightWidget(true);
+        int value = m_colorSettings->get(NIGHT_TEMPERATURE_KEY).toInt();
+        mTemptSlider->setValue(value);
     } else {
         mNightModeBtn->setChecked(false);
         showNightWidget(false);
     }
+    mTimeModeCombox->blockSignals(false);
 }
 
 void Widget::nightChangedSlot(QHash<QString, QVariant> nightArg)
