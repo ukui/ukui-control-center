@@ -1443,7 +1443,7 @@ void BlueToothMain::updateUIWhenAdapterChanged()
      else
      {
          qDebug() << Q_FUNC_INFO << m_manager->isBluetoothBlocked() << __LINE__;
-         open_bluetooth->setChecked(false);
+         //open_bluetooth->setChecked(false);
          bluetooth_name->setVisible(false);
          frame_bottom->setVisible(false);
          frame_middle->setVisible(false);
