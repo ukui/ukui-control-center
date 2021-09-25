@@ -32,12 +32,12 @@ ksc_module_func_widget::ksc_module_func_widget(QWidget *parent) :
 
     QFont ft;
     ft.setPixelSize(12);
-
-    ui->interval_icon_label->setPixmap(QPixmap(
-                                           ":/img/plugins/securitycenter/ rectangle_bule.png").scaled(
-                                           ui->interval_icon_label->size(),
-                                           Qt
-                                           ::IgnoreAspectRatio, Qt::SmoothTransformation));
+    ui->second_label->setVisible(false);
+//    ui->interval_icon_label->setPixmap(QPixmap(
+//                                           ":/img/plugins/securitycenter/ rectangle_bule.png").scaled(
+//                                           ui->interval_icon_label->size(),
+//                                           Qt
+//                                           ::IgnoreAspectRatio, Qt::SmoothTransformation));
 }
 
 ksc_module_func_widget::~ksc_module_func_widget()
@@ -45,32 +45,9 @@ ksc_module_func_widget::~ksc_module_func_widget()
     delete ui;
 }
 
-void ksc_module_func_widget::set_module_data(ksc_defender_module module)
+void ksc_module_func_widget::set_module_data(const ksc_defender_module module)
 {
-    m_module.module_type = module.module_type;
-    m_module.module_name = module.module_name;
-    m_module.module_desc = module.module_desc;
-    m_module.module_normal_icon = module.module_normal_icon;
-    m_module.module_hover_icon = module.module_hover_icon;
-    m_module.module_exec = module.module_exec;
-    m_module.status_list = module.status_list;
-
-    ui->label_1->clear();
-    ui->label_2->clear();
-    if (module.status_list.size() == 1) {
-        QString str = _(module.status_list.at(0).toLocal8Bit().data());
-        ui->label_1->setText(str);
-    }
-
-    if (module.status_list.size() == 2) {
-        const char *str0 = module.status_list.at(0).toLocal8Bit().data();
-        const char *str1 = module.status_list.at(1).toLocal8Bit().data();
-        QString str = QString(_(str0)).arg(str1);
-        ui->label_1->setText(str);
-    }
-
-    QString str_name = _(module.module_name.toLocal8Bit().data());
-    ui->module_name->setText(str_name);
+    update_module_data(module);
     ui->module_icon->setPixmap(QPixmap(m_module.module_normal_icon).scaled(ui->module_icon->size(),
                                                                            Qt::IgnoreAspectRatio,
                                                                            Qt::SmoothTransformation));
@@ -86,19 +63,16 @@ void ksc_module_func_widget::update_module_data(ksc_defender_module module)
     m_module.module_exec = module.module_exec;
     m_module.status_list = module.status_list;
 
-    ui->label_1->clear();
-    ui->label_2->clear();
+    ui->first_label->clear();
+    ui->second_label->clear();
     if (module.status_list.size() == 1) {
         QString str = _(module.status_list.at(0).toLocal8Bit().data());
-        ui->label_1->setText(str);
+        ui->first_label->setText(str);
     }
 
     if (module.status_list.size() == 2) {
-        const char *str0 = module.status_list.at(0).toLocal8Bit().data();
-        const char *str1 = module.status_list.at(1).toLocal8Bit().data();
-        QString str = QString(_(str0)).arg(str1);
-
-        ui->label_1->setText(str);
+       QString str = QString(_(module.status_list.at(0).toUtf8().data())).arg(module.status_list.at(1));
+       ui->first_label->setText(str);
     }
 
     QString str_name = _(module.module_name.toLocal8Bit().data());
@@ -124,11 +98,11 @@ void ksc_module_func_widget::enterEvent(QEvent *event)
     ui->module_icon->setPixmap(QPixmap(m_module.module_hover_icon).scaled(ui->module_icon->size(),
                                                                           Qt::IgnoreAspectRatio,
                                                                           Qt::SmoothTransformation));
-    ui->interval_icon_label->setPixmap(QPixmap(
-                                           ":/img/plugins/securitycenter/ rectangle_white.png").scaled(
-                                           ui->interval_icon_label->size(),
-                                           Qt
-                                           ::IgnoreAspectRatio, Qt::SmoothTransformation));
+//    ui->interval_icon_label->setPixmap(QPixmap(
+//                                           ":/img/plugins/securitycenter/ rectangle_white.png").scaled(
+//                                           ui->interval_icon_label->size(),
+//                                           Qt
+//                                           ::IgnoreAspectRatio, Qt::SmoothTransformation));
     QWidget::enterEvent(event);
 }
 
@@ -144,11 +118,11 @@ void ksc_module_func_widget::leaveEvent(QEvent *event)
     ui->module_icon->setPixmap(QPixmap(m_module.module_normal_icon).scaled(ui->module_icon->size(),
                                                                            Qt::IgnoreAspectRatio,
                                                                            Qt::SmoothTransformation));
-    ui->interval_icon_label->setPixmap(QPixmap(
-                                           ":/img/plugins/securitycenter/ rectangle_bule.png").scaled(
-                                           ui->interval_icon_label->size(),
-                                           Qt
-                                           ::IgnoreAspectRatio, Qt::SmoothTransformation));
+//    ui->interval_icon_label->setPixmap(QPixmap(
+//                                           ":/img/plugins/securitycenter/ rectangle_bule.png").scaled(
+//                                           ui->interval_icon_label->size(),
+//                                           Qt
+//                                           ::IgnoreAspectRatio, Qt::SmoothTransformation));
     QWidget::leaveEvent(event);
 }
 
