@@ -301,6 +301,8 @@ void CreateUserDialog::pwdLegalityCheck(QString pwd){
 }
 
 bool CreateUserDialog::checkCharLegitimacy(QString password){
+    if (password.contains("'"))
+        return false;
     //密码不能包含非标准字符
     foreach (QChar ch, password){
         if (int(ch.toLatin1() <= 0 || int(ch.toLatin1()) > 127)){
