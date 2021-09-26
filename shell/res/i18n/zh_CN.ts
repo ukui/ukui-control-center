@@ -1804,7 +1804,7 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="146"/>
-        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="319"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="322"/>
         <source>You have successfully modified your phone</source>
         <translation>您已成功更换手机号</translation>
     </message>
@@ -1817,7 +1817,7 @@ Please authenticate yourself to continue</source>
     <message>
         <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="211"/>
         <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="271"/>
-        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="303"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="306"/>
         <source>Network connection failure, please check</source>
         <translation>网络连接故障，请检查</translation>
     </message>
@@ -1829,39 +1829,44 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="264"/>
-        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="293"/>
-        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="322"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="296"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="325"/>
         <source>Phone is lock,try again in an hour</source>
         <translation>手机号已被锁定，1小时之后再试</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="267"/>
-        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="296"/>
-        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="325"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="299"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="328"/>
         <source>Phone code is wrong</source>
         <translation>验证码错误，请重试</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="274"/>
-        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="306"/>
-        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="332"/>
+        <source>Current login expired,using wechat code!</source>
+        <translation>登录信息过期，请重新使用微信扫码登录</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="277"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="309"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="335"/>
         <source>Unknown error, please try again later</source>
         <translation>未知错误，请稍后重试</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="281"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="284"/>
         <source>Phone can not same</source>
         <translation>新旧手机号不能一致</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="290"/>
-        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="318"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="293"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="321"/>
         <source>finished</source>
         <translation>完成</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="300"/>
-        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="329"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="303"/>
+        <location filename="../../../plugins/account/userinfo_intel/changephoneinteldialog.cpp" line="332"/>
         <source>Phone number already in used!</source>
         <translation>该号码已被注册，请更换手机号</translation>
     </message>
@@ -5522,7 +5527,7 @@ Please retry or relogin!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="412"/>
+        <location filename="../../mainwindow.cpp" line="415"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -5531,44 +5536,44 @@ Please retry or relogin!</source>
         <translation type="vanished">设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="432"/>
-        <location filename="../../mainwindow.cpp" line="665"/>
-        <location filename="../../mainwindow.cpp" line="872"/>
+        <location filename="../../mainwindow.cpp" line="435"/>
+        <location filename="../../mainwindow.cpp" line="668"/>
+        <location filename="../../mainwindow.cpp" line="875"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="441"/>
+        <location filename="../../mainwindow.cpp" line="444"/>
         <source>Main menu</source>
         <translation>主菜单</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="442"/>
+        <location filename="../../mainwindow.cpp" line="445"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="443"/>
+        <location filename="../../mainwindow.cpp" line="446"/>
         <source>Maximize/Normal</source>
         <translation>最大化/正常</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="444"/>
+        <location filename="../../mainwindow.cpp" line="447"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="507"/>
+        <location filename="../../mainwindow.cpp" line="510"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="509"/>
+        <location filename="../../mainwindow.cpp" line="512"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="511"/>
+        <location filename="../../mainwindow.cpp" line="514"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
@@ -5577,12 +5582,12 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="996"/>
+        <location filename="../../mainwindow.cpp" line="999"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="996"/>
+        <location filename="../../mainwindow.cpp" line="999"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
@@ -6270,57 +6275,76 @@ Please retry or relogin!</source>
         <translation>短信验证码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="103"/>
-        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="322"/>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="105"/>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="331"/>
         <source>GetCode</source>
         <translation>获取验证码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="113"/>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="115"/>
         <source>Return</source>
         <translation>返回</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="114"/>
         <source>Confirm</source>
+        <translation type="vanished">确认</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="116"/>
+        <source>Commit</source>
+        <translation>提交</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="204"/>
+        <source>confirm</source>
         <translation>确认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="255"/>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="224"/>
+        <source>commit</source>
+        <translation>提交</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="260"/>
         <source>Mobile number acquisition failed</source>
         <translation>手机号获取失败，请手动输入</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="284"/>
-        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="314"/>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="292"/>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="323"/>
         <source>Recapture</source>
         <translation>重新获取</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="307"/>
-        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="383"/>
-        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="513"/>
-        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="631"/>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="315"/>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="393"/>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="563"/>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="681"/>
         <source>Network connection failure, please check</source>
         <translation>网络连接故障，请重试</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="370"/>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="380"/>
         <source>Phone is lock,try again in an hour</source>
         <translation>手机号已被锁定，1小时之后再试</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="376"/>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="386"/>
         <source>Phone code is wrong</source>
         <translation>验证码错误，请重试</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="389"/>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="399"/>
+        <source>Current login expired,using wechat code!</source>
+        <translation>登录信息过期，请重新使用微信扫码登录</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="405"/>
         <source>Unknown error, please try again later</source>
         <translation>未知错误，请稍后重试</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="612"/>
+        <location filename="../../../plugins/account/userinfo_intel/phoneauthinteldialog.cpp" line="662"/>
         <source>Please use the correct wechat scan code</source>
         <translation>请使用正确的微信扫码</translation>
     </message>
@@ -8135,7 +8159,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="201"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="175"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="181"/>
         <source>Idle time</source>
         <translation>此时间段后开启屏保</translation>
         <extra-contents_path>/screensaver/Idle time</extra-contents_path>
@@ -8151,7 +8175,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="297"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="173"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="179"/>
         <source>Screensaver program</source>
         <translation>屏幕保护程序</translation>
         <extra-contents_path>/screensaver/Screensaver program</extra-contents_path>
@@ -8177,121 +8201,121 @@ Please retry or relogin!</source>
         <translation type="vanished">默认屏保</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="161"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="167"/>
         <source>View</source>
         <translation>预览</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="825"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="831"/>
         <source>Text(up to 30 characters):</source>
         <translation>屏保文本(最多30个字):</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="857"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="863"/>
         <source>Show rest time</source>
         <translation>显示休息时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="202"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="208"/>
         <source>UKUI</source>
         <translation>UKUI</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="203"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="209"/>
         <source>Blank_Only</source>
         <translation>黑屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="214"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="220"/>
         <source>Customize</source>
         <translation>自定义</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="229"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="728"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="235"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="734"/>
         <source>5min</source>
         <translation>5分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="229"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="729"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="235"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="735"/>
         <source>10min</source>
         <translation>10分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="229"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="235"/>
         <source>15min</source>
         <translation>15分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="229"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="730"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="235"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="736"/>
         <source>30min</source>
         <translation>30分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="229"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="235"/>
         <source>1hour</source>
         <translation>1小时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="630"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="636"/>
         <source>Screensaver source</source>
         <translation>屏保来源</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="636"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="686"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="642"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="692"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="644"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="650"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp *.svg)</source>
         <translation>壁纸文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp *.svg)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="685"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="691"/>
         <source>select custom screensaver dir</source>
         <translation>选择自定义屏保路径</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="687"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="693"/>
         <source>Position: </source>
         <translation>位置:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="688"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="694"/>
         <source>FileName: </source>
         <translation>文件名:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="689"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="695"/>
         <source>FileType: </source>
         <translation>文件类型:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="690"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="696"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="723"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="729"/>
         <source>Switching time</source>
         <translation>切换频率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="727"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="733"/>
         <source>1min</source>
         <translation>1分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="775"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="781"/>
         <source>Ordinal</source>
         <translation>按顺序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="784"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="790"/>
         <source>Random switching</source>
         <translation>随机切换</translation>
     </message>
@@ -8304,17 +8328,17 @@ Please retry or relogin!</source>
         <translation type="vanished">输入文本，最多30个字符</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="876"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="882"/>
         <source>Text position</source>
         <translation>文本位置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="884"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="890"/>
         <source>Centered</source>
         <translation>居中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="885"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="891"/>
         <source>Randow(Bubble text)</source>
         <translation>随机(气泡文本)</translation>
     </message>
@@ -8351,12 +8375,12 @@ Please retry or relogin!</source>
         <translation type="vanished">3h</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="776"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="782"/>
         <source>Random</source>
         <translation>随机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="230"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="236"/>
         <source>Never</source>
         <translation>从不</translation>
     </message>
@@ -10452,7 +10476,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="334"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="146"/>
-        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="1107"/>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="1133"/>
         <source>Change pwd</source>
         <translation>更换密码</translation>
         <extra-contents_path>/userinfo/Change pwd</extra-contents_path>
@@ -10522,9 +10546,14 @@ Please retry or relogin!</source>
         <translation>添加新用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="727"/>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="734"/>
         <source>set pwd</source>
         <translation>设置密码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="748"/>
+        <source>Change</source>
+        <translation>更换</translation>
     </message>
 </context>
 <context>

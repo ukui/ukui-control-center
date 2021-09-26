@@ -240,7 +240,7 @@ void PhoneAuthIntelDialog::initUI(){
                                          "QPushButton:pressed{background: #2FB3E8; border-top-left-radius: 8px; border-bottom-left-radius: 8px; font-size: 16px;font-family: NotoSansCJKsc-Bold, NotoSansCJKsc; font-weight: bold;color: white;}");
         }
     });
-    connect(this, &PhoneAuthDialog::getCodeChange, this, &PhoneAuthDialog::getCodeChanged);
+    connect(this, &PhoneAuthIntelDialog::getCodeChange, this, &PhoneAuthIntelDialog::getCodeChanged);
     QString m_clonephone;
     QDBusMessage result = m_interface4->call("GetAccountBasicInfo", m_username);
     if (QDBusMessage::ErrorMessage == result.type()) {
@@ -415,7 +415,7 @@ void PhoneAuthIntelDialog::initUI(){
     wechatAuthBtn->setAutoDefault(false);
 }
 
-void PhoneAuthDialog::getCodeChanged()
+void PhoneAuthIntelDialog::getCodeChanged()
 {
     if (is_nightTheme) {
         if (getVerifyCodeBtn->isEnabled()) {

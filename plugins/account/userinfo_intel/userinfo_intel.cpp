@@ -737,7 +737,7 @@ void UserInfoIntel::_refreshUserInfoUI(){
 
 }
 
-void UserInfo::setChangeFaceShadow()
+void UserInfoIntel::setChangeFaceShadow()
 {
     //在头像上添加更换字样及阴影
     QLabel *changeLabel = new QLabel(ui->currentUserFaceLabel);
