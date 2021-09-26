@@ -416,7 +416,9 @@ void Shortcut::buildCustomItem(KeyEntry *nkeyEntry)
     HLineFrame *line = new HLineFrame;
     ui->verticalLayout_3->addWidget(line);
 
-    QPushButton *btn = new QPushButton(frame);
+    QToolButton *btn = new QToolButton(frame);
+    btn->setAutoRaise(true);
+    btn->setPopupMode(QToolButton::InstantPopup);
     QMenu *menu = new QMenu(btn);
     btn->setMenu(menu);
     QAction *edit = new QAction(btn);
@@ -469,7 +471,6 @@ void Shortcut::buildCustomItem(KeyEntry *nkeyEntry)
     });
 
     btn->setIcon(QIcon::fromTheme("view-more-horizontal-symbolic"));
-    btn->setStyleSheet("QPushButton:!checked{background-color: palette(base)}");
     btn->setProperty("useButtonPalette", true);
     btn->setFixedSize(36,36);
 
