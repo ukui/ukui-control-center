@@ -227,6 +227,7 @@
         <file>secondaryleftmenu/Theme.svg</file>
         <file>plugins/mobilehotspot/hide-pwd.png</file>
         <file>plugins/mobilehotspot/show-pwd.png</file>
+        <file>secondaryleftmenu/Userinfointel.svg</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>

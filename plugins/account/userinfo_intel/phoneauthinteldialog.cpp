@@ -87,6 +87,8 @@ void PhoneAuthIntelDialog::initUI(){
     smsPicture->setIcon(QIcon(":/img/plugins/userinfo_intel/smscode.svg"));
     phoneNumLine->addAction(phonePicture, QLineEdit::LeadingPosition);
     verifyCodeLine->addAction(smsPicture, QLineEdit::LeadingPosition);
+    phoneNumLine->setTextMargins(10, 0, 0, 0);
+    verifyCodeLine->setTextMargins(10, 0, 0, 0);
 
 
     QWidget *phoneWidget = new QWidget(stackWidget);
@@ -111,7 +113,7 @@ void PhoneAuthIntelDialog::initUI(){
     codeWidget->setObjectName("codeWidget");
 
     returnButton = new QPushButton(tr("Return"));
-    confirmButton = new QPushButton(tr("Confirm"));
+    confirmButton = new QPushButton(tr("Commit"));
     returnButton->setProperty("class", "phoneBT");
     confirmButton->setProperty("class", "phoneBT");
     confirmButton->setDefault(false);
@@ -199,6 +201,7 @@ void PhoneAuthIntelDialog::initUI(){
 
     this->setLayout(p_mainLayout);
     connect(wechatAuthBtn, &QPushButton::clicked, this, [=](){
+        confirmButton->setText(tr("confirm"));
         stackWidget->setCurrentIndex(1);
         is_phoneVerifyChecked = false;
         hideQRPromptMsg();
@@ -218,6 +221,7 @@ void PhoneAuthIntelDialog::initUI(){
         }
     });
     connect(phoneAuthBtn, &QPushButton::clicked, this, [=](){
+        confirmButton->setText(tr("commit"));
         stackWidget->setCurrentIndex(0);
         is_phoneVerifyChecked = true;
         hidePromptMsg();
@@ -236,6 +240,7 @@ void PhoneAuthIntelDialog::initUI(){
                                          "QPushButton:pressed{background: #2FB3E8; border-top-left-radius: 8px; border-bottom-left-radius: 8px; font-size: 16px;font-family: NotoSansCJKsc-Bold, NotoSansCJKsc; font-weight: bold;color: white;}");
         }
     });
+    connect(this, &PhoneAuthIntelDialog::getCodeChange, this, &PhoneAuthIntelDialog::getCodeChanged);
     QString m_clonephone;
     QDBusMessage result = m_interface4->call("GetAccountBasicInfo", m_username);
     if (QDBusMessage::ErrorMessage == result.type()) {
@@ -256,6 +261,7 @@ void PhoneAuthIntelDialog::initUI(){
         showPromptMsg();
         phonestatus = false;
         getVerifyCodeBtn->setEnabled(false);
+        emit getCodeChange();
     } else {
         phoneNumLine->setText(m_clonephone);
         phoneNumLine->setReadOnly(true);
@@ -265,9 +271,11 @@ void PhoneAuthIntelDialog::initUI(){
         hidePromptMsg();
         if (phoneNumLine->text().count() == 11) {
             getVerifyCodeBtn->setEnabled(true);
+            emit getCodeChange();
             phonestatus = true;
         } else {
             getVerifyCodeBtn->setEnabled(false);
+            emit getCodeChange();
             phonestatus = false;
         }
         if (phonestatus && codestatus) {
@@ -308,6 +316,7 @@ void PhoneAuthIntelDialog::initUI(){
             showPromptMsg();
         }
         getVerifyCodeBtn->setEnabled(false);
+        emit getCodeChange();
         getVerifyCodeBtn->setText(s3);
         start_timer->start(1000);
         connect(start_timer,&QTimer::timeout,this,[=](){
@@ -321,6 +330,7 @@ void PhoneAuthIntelDialog::initUI(){
            } else {
                getVerifyCodeBtn->setText(tr("GetCode"));
                getVerifyCodeBtn->setEnabled(true);
+               emit getCodeChange();
                start_timer->stop();
            }
 
@@ -382,6 +392,12 @@ void PhoneAuthIntelDialog::initUI(){
             m_pPromptMessage->setPalette(pa);
             m_pPromptMessage->setText(tr("Network connection failure, please check"));
             showPromptMsg();
+        } else if (status == 2300) {
+            QPalette pa;
+            pa.setColor(QPalette::WindowText,Qt::red);
+            m_pPromptMessage->setPalette(pa);
+            m_pPromptMessage->setText(tr("Current login expired,using wechat code!"));
+            showPromptMsg();
         } else {
             QPalette pa;
             pa.setColor(QPalette::WindowText,Qt::red);
@@ -397,6 +413,40 @@ void PhoneAuthIntelDialog::initUI(){
         emit returnSignal();
     });
     wechatAuthBtn->setAutoDefault(false);
+}
+
+void PhoneAuthIntelDialog::getCodeChanged()
+{
+    if (is_nightTheme) {
+        if (getVerifyCodeBtn->isEnabled()) {
+            qDebug()<<__FUNCTION__<<__LINE__;
+            getVerifyCodeBtn->setStyleSheet("QPushButton{background-color:#030303;"
+                                             "selection-background-color:#030303;"
+                                             "border-bottom-right-radius:8px;"
+                                             "color:#2FB3E8"
+                                              "}");
+        } else {
+            getVerifyCodeBtn->setStyleSheet("QPushButton{background-color:#030303;"
+                                             "selection-background-color:#030303;"
+                                             "border-bottom-right-radius:8px;"
+                                             "color:#DDDDDD"
+                                              "}");
+        }
+    } else {
+        if (getVerifyCodeBtn->isEnabled()) {
+            getVerifyCodeBtn->setStyleSheet("QPushButton{background-color:#F6F6F6;"
+                                             "selection-background-color:#F6F6F6;"
+                                             "border-bottom-right-radius:8px;"
+                                             "color:#2FB3E8"
+                                              "}");
+        } else {
+            getVerifyCodeBtn->setStyleSheet("QPushButton{background-color:#F6F6F6;"
+                                             "selection-background-color:#F6F6F6;"
+                                             "border-bottom-right-radius:8px;"
+                                             "color:#DDDDDD"
+                                              "}");
+        }
+    }
 }
 
 void PhoneAuthIntelDialog::themeChanged(const quint32 currentTheme){

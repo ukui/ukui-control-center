@@ -548,6 +548,7 @@ void MouseUI::initEnableStatus()
     mCursorSpeedSlider->setValue(mCursorSpeedSlider->maximum() - mDesktopGsetting->get(kCursorSpeedKey).toInt()
                                  + mCursorSpeedSlider->minimum());
     mCursorSpeedSlider->blockSignals(false);
+    mCursorSpeedFrame->setVisible(mDesktopGsetting->get(kBlinkCursorOnTextKey).toBool());
 }
 
 
