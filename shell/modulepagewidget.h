@@ -46,13 +46,15 @@ public:
     void initUI();
     void switchPage(QObject * plugin, bool recorded = true);
     void refreshPluginWidget(CommonInterface * plu);
-
+    void pluginLeave();
 
 private:
     Ui::ModulePageWidget *ui;
 
 private:
     MainWindow * pmainWindow;
+    CommonInterface * prePlugin = nullptr;
+    CommonInterface * currentPlugin = nullptr;
 
 private:
     bool flagBit;
