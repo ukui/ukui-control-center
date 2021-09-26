@@ -66,7 +66,8 @@ void ModulePageWidget::initUI() {
         }
     });
 
-    ui->scrollArea->setStyleSheet("QScrollArea{background-color: palette(window);}");
+    //设置qss之后,点击屏保再主页进入插件会卡死,原因未知
+//    ui->scrollArea->setStyleSheet("QScrollArea{background-color: palette(window);}");
     ui->scrollArea->verticalScrollBar()->setProperty("drawScrollBarGroove", false);
 }
 
@@ -80,7 +81,11 @@ void ModulePageWidget::refreshPluginWidget(CommonInterface *plu){
     if (plu->pluginBtn) {
         plu->pluginBtn->setChecked(true);
     }
-
+    prePlugin = currentPlugin;
+    if (prePlugin) {
+        prePlugin->plugin_leave();
+    }
+    currentPlugin = plu;
     ui->scrollArea->takeWidget();
     delete(ui->scrollArea->widget());
 
@@ -101,3 +106,9 @@ void ModulePageWidget::refreshPluginWidget(CommonInterface *plu){
     flagBit = true;
 }
 
+void ModulePageWidget::pluginLeave()
+{
+    if (currentPlugin) {
+        currentPlugin->plugin_leave();
+    }
+}
