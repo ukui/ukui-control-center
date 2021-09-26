@@ -83,7 +83,7 @@ public:
 
     void initUiComponent();
     void addBrightnessFrame(QString name, bool openFlag, QString serialNum);
-    void showBrightnessFrame(const int flag = 0);
+    void showBrightnessFrame(const int flag = 0, const int brightnessFrame_i = -1, const bool openFlag = false);
 
     void changescale();
 protected:

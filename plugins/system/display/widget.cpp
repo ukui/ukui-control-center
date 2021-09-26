@@ -325,6 +325,7 @@ void Widget::slotOutputEnabledChanged()
     resetPrimaryCombo();
     setActiveScreen(mKDSCfg);
     int enabledOutputsCount = 0;
+    const KScreen::OutputPtr m_output(qobject_cast<KScreen::Output *>(sender()), [](void *){});
     Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
         if (output->isEnabled()) {
             ++enabledOutputsCount;
@@ -352,7 +353,16 @@ void Widget::slotOutputEnabledChanged()
     }
     mUnifyButton->setEnabled(screenEnableCount() > 1);
     ui->unionframe->setVisible(screenEnableCount() > 1);
+    if (m_output && m_output->isEnabled()) {
+        for (int i = 0; i < BrightnessFrameV.size(); ++i) {
+            if (BrightnessFrameV[i]->outputName == Utils::outputName(m_output)) {
+                showBrightnessFrame(-1, i, true);
+                return;
+            }
+        }
+    }
     showBrightnessFrame();
+    return;
 }
 
 void Widget::slotOutputConnectedChanged()
@@ -1590,7 +1600,7 @@ void Widget::save()
         }
     }
     int flag = mUnifyButton->isChecked() ? 1 : 2;
-    showBrightnessFrame(flag);  //成功应用之后，重新显示亮度条,传入是否统一输出,1表示打开，2表示关闭
+    showBrightnessFrame(flag,-2);  //成功应用之后，重新显示亮度条,传入是否统一输出,1表示打开，2表示关闭
 }
 
 QVariantMap metadata(const KScreen::OutputPtr &output)
@@ -2130,12 +2140,14 @@ void Widget::nightChangedSlot(QHash<QString, QVariant> nightArg)
  *ps: by feng chao
 */
 
-void Widget::showBrightnessFrame(const int flag)
+void Widget::showBrightnessFrame(const int flag, const int brightnessFrame_i, const bool openFlag)
 {
+    int *pFlag = new int(flag);
+    int *pBrightnessFrame_i = new int(brightnessFrame_i);
+    bool *pOpenFlag = new bool(openFlag);
     QTimer::singleShot(200, this, [=]{
-        int *pFlag = new int(flag);
         QObject::connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished,
-                         [&, pFlag](KScreen::ConfigOperation *op) {
+                         [&, pFlag,pBrightnessFrame_i,pOpenFlag](KScreen::ConfigOperation *op) {
             bool allShowFlag = true;
 
             KScreen::ConfigPtr config = qobject_cast<KScreen::GetConfigOperation *>(op)->config();
@@ -2147,7 +2159,12 @@ void Widget::showBrightnessFrame(const int flag)
                         allShowFlag = false;
                     }
                     for (int i = 0; i < BrightnessFrameV.size(); ++i) { //检查其它显示屏是否实际打开，否则关闭，适用于显示器插拔
-                        if (BrightnessFrameV[i]->outputName == Utils::outputName(secOutput)){
+                        if (*pFlag == -1 && *pBrightnessFrame_i == i) {   //固定了打开/关闭，避免关闭/打开显示器信息更新不及时
+                            BrightnessFrameV[i]->openFlag = *pOpenFlag;
+                            continue;
+                        }
+
+                        if (BrightnessFrameV[i]->outputName == Utils::outputName(secOutput) && *pBrightnessFrame_i != -2){
                             if (!secOutput->isEnabled())
                                 BrightnessFrameV[i]->openFlag = false;
                             else
@@ -2192,6 +2209,8 @@ void Widget::showBrightnessFrame(const int flag)
                 ui->unifyBrightFrame->setVisible(false);
             }
             delete pFlag;
+            delete pBrightnessFrame_i;
+            delete pOpenFlag;
         });
     });
 }
