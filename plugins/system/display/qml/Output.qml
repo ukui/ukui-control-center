@@ -222,7 +222,7 @@ QMLOutput {
                 Text {
                     id: labelVendor;
                     text: if (root.isCloneMode) {
-                            return ("Unified Outputs");
+                            return ("Unity");
                           } else {
                             return screenName[root.output.type];
                           }
