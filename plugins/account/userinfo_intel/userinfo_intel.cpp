@@ -485,6 +485,7 @@ void UserInfoIntel::initComponent(){
                                                               "cn.kylinos.SSOBackend.accounts",
                                                               QDBusConnection::systemBus());
             QDBusMessage result = m_interface->call("DeleteAccount",user.username);
+            isDelCurrentUser = true;
             QList<QVariant> outArgs = result.arguments();
             int status = outArgs.at(0).value<int>();
             delete m_interface;
@@ -566,7 +567,9 @@ void UserInfoIntel::initComponent(){
 
 void UserInfoIntel::_resetListWidgetHeigh(){
     //设置其他用户控件的总高度
-    ui->listWidget->setFixedHeight((allUserInfoMap.count() - 1) * (ITEMHEIGH + 2));
+    if (!isDelCurrentUser) {
+        ui->listWidget->setFixedHeight((allUserInfoMap.count() - 1) * (ITEMHEIGH + 2));
+    }
   //  ui->listWidget->setFixedHeight((20) * (ITEMHEIGH + 2));
 }
 
@@ -628,10 +631,14 @@ void UserInfoIntel::_refreshUserInfoUI(){
                 QPixmap iconPixmap = iconcop.copy((iconcop.width() - iconcop.height())/2, 0, iconcop.height(), iconcop.height());
                 // 根据label高度等比例缩放图片
                 ui->currentUserFaceLabel->setPixmap(iconPixmap.scaledToHeight(ui->currentUserFaceLabel->height()));
+
+                setChangeFaceShadow();
             } else {
                 QPixmap iconPixmap = iconcop.copy(0, (iconcop.height() - iconcop.width())/2, iconcop.width(), iconcop.width());
                 // 根据label宽度等比例缩放图片
                 ui->currentUserFaceLabel->setPixmap(iconPixmap.scaledToWidth(ui->currentUserFaceLabel->width()));
+
+                setChangeFaceShadow();
             }
 
             current_user = user;
@@ -728,6 +735,25 @@ void UserInfoIntel::_refreshUserInfoUI(){
         }
     }
 
+}
+
+void UserInfo::setChangeFaceShadow()
+{
+    //在头像上添加更换字样及阴影
+    QLabel *changeLabel = new QLabel(ui->currentUserFaceLabel);
+    int changeLabelHeight = 26;
+    changeLabel->setGeometry(0, ui->currentUserFaceLabel->height() - changeLabelHeight, ui->currentUserFaceLabel->width(), changeLabelHeight);
+
+    changeLabel->setStyleSheet("QLabel{color:white;font-size:12px;background-color:rgb(0,0,0,70);}");
+    changeLabel->setText(tr("Change"));
+    changeLabel->setAlignment(Qt::AlignCenter);
+
+    QLabel *eraseOutLabel = new QLabel(ui->currentUserFaceLabel);
+    eraseOutLabel->setAttribute(Qt::WA_TranslucentBackground, true);
+    eraseOutLabel->setGeometry(0, 0, ui->currentUserFaceLabel->width(), ui->currentUserFaceLabel->height());
+
+    ElipseMaskWidget *eraseOutElipseMaskWidget = new ElipseMaskWidget(eraseOutLabel);
+    eraseOutElipseMaskWidget->setGeometry(0, 0, eraseOutLabel->width(), eraseOutLabel->height());
 }
 
 void UserInfoIntel::_buildWidgetForItem(UserInfomation user){
@@ -983,7 +1009,7 @@ void UserInfoIntel::deleteUserDone(QString objpath){
 
     //重置其他用户ListWidget高度
     _resetListWidgetHeigh();
-    if (allUserInfoMap.count() == 1) {
+    if (allUserInfoMap.count() == 1 && !isDelCurrentUser) {
         ui->line_3->show();
         ui->delUserBtn->show();
         ui->title2Label->hide();

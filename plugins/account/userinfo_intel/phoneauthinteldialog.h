@@ -32,10 +32,12 @@ public:
 public slots:
     void QRStatusChangedSlots(QString name,QString passwd,int status);
     void themeChanged(const quint32 currentTheme);
+    void getCodeChanged();
 
 Q_SIGNALS:
     void returnSignal();
     void confirmSignal();
+    void getCodeChange();
 private:
     int daojishi;
     QTimer *m_qrTimeout;
