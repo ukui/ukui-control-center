@@ -54,14 +54,14 @@ UkmediaOutputWidget::UkmediaOutputWidget(QWidget *parent) : QWidget(parent)
     m_pOutputSlectWidget->setFrameShape(QFrame::Shape::Box);
 
     //设置大小
-    m_pOutputWidget->setMinimumSize(820,182);
-//    m_pOutputWidget->setMaximumSize(960,182);
-    m_pMasterVolumeWidget->setMinimumSize(820,60);
-//    m_pMasterVolumeWidget->setMaximumSize(960,60);
-    m_pChannelBalanceWidget->setMinimumSize(820,60);
-//    m_pChannelBalanceWidget->setMaximumSize(960,60);
-    m_pOutputSlectWidget->setMinimumSize(820,60);
-//    m_pOutputSlectWidget->setMaximumSize(960,60);
+    m_pOutputWidget->setMinimumSize(550,182);
+    m_pOutputWidget->setMaximumSize(16777215,182);
+    m_pMasterVolumeWidget->setMinimumSize(550,60);
+    m_pMasterVolumeWidget->setMaximumSize(16777215,60);
+    m_pChannelBalanceWidget->setMinimumSize(550,60);
+    m_pChannelBalanceWidget->setMaximumSize(16777215,60);
+    m_pOutputSlectWidget->setMinimumSize(550,60);
+    m_pOutputSlectWidget->setMaximumSize(16777215,60);
 
     m_pOutputLabel = new QLabel(this);
     m_pOutputLabel->setText(tr("Output"));
@@ -74,11 +74,61 @@ UkmediaOutputWidget::UkmediaOutputWidget(QWidget *parent) : QWidget(parent)
     m_pOpVolumeLabel = new QLabel(tr("Master Volume"),m_pMasterVolumeWidget);
     m_pOutputIconBtn = new UkuiButtonDrawSvg(m_pMasterVolumeWidget);
     m_pOpVolumeSlider = new AudioSlider(m_pMasterVolumeWidget);
+    m_pOpVolumeSlider->setStyleSheet( "QSlider::groove:horizontal {"
+                                       "border: 0px none;"
+                                       "background: palette(button);"
+                                       "height: 8px;"
+                                       "border-radius: 5px;"
+                                       "}"
+
+                                       "QSlider::handle:horizontal {"
+
+                                       "height: 24px;"
+                                       "width: 32px;"
+                                       "margin: 30px;"
+                                       "border-image: url(://img/plugins/mouse/slider.svg);"
+                                       "margin: -8 -4px;"
+                                       "}"
+
+                                       "QSlider::add-page:horizontal {"
+                                       "background: palette(button);"
+                                       "border-radius: 20px;"
+                                       "}"
+
+                                       "QSlider::sub-page:horizontal {"
+                                       "background: #2FB3E8;"
+                                       "border-radius: 5px;"
+                                       "}");
     m_pOpVolumePercentLabel = new QLabel(m_pMasterVolumeWidget);
     //~ contents_path /audio/Balance
     m_pOpBalanceLabel = new QLabel(tr("Balance"),m_pChannelBalanceWidget);
     m_pLeftBalanceLabel = new QLabel(tr("Left"),m_pChannelBalanceWidget);
     m_pOpBalanceSlider = new UkmediaVolumeSlider(m_pChannelBalanceWidget,true);
+    m_pOpBalanceSlider->setStyleSheet( "QSlider::groove:horizontal {"
+                                       "border: 0px none;"
+                                       "background: palette(button);"
+                                       "height: 8px;"
+                                       "border-radius: 5px;"
+                                       "}"
+
+                                       "QSlider::handle:horizontal {"
+
+                                       "height: 24px;"
+                                       "width: 32px;"
+                                       "margin: 30px;"
+                                       "border-image: url(://img/plugins/mouse/slider.svg);"
+                                       "margin: -8 -4px;"
+                                       "}"
+
+                                       "QSlider::add-page:horizontal {"
+                                       "background: palette(button);"
+                                       "border-radius: 20px;"
+                                       "}"
+
+                                       "QSlider::sub-page:horizontal {"
+                                       "background: #2FB3E8;"
+                                       "border-radius: 5px;"
+                                       "}");
     m_pRightBalanceLabel = new QLabel(tr("Right"),m_pChannelBalanceWidget);
 
     m_pOpVolumeSlider->setOrientation(Qt::Horizontal);
@@ -88,12 +138,12 @@ UkmediaOutputWidget::UkmediaOutputWidget(QWidget *parent) : QWidget(parent)
 
 
     //选择输出设备框添加布局
-    m_pOutputDeviceLabel->setFixedSize(120,20);
+    m_pOutputDeviceLabel->setFixedSize(140,20);
     m_pDeviceSelectBox->setFixedHeight(40);
     QHBoxLayout *deviceSlectLayout = new QHBoxLayout();
     deviceSlectLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     deviceSlectLayout->addWidget(m_pOutputDeviceLabel);
-    deviceSlectLayout->addItem(new QSpacerItem(108,20,QSizePolicy::Fixed));
+    deviceSlectLayout->addItem(new QSpacerItem(100,20,QSizePolicy::Fixed));
     deviceSlectLayout->addWidget(m_pDeviceSelectBox);
     deviceSlectLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     deviceSlectLayout->setSpacing(0);
@@ -102,36 +152,38 @@ UkmediaOutputWidget::UkmediaOutputWidget(QWidget *parent) : QWidget(parent)
 
     //主音量添加布局
     QHBoxLayout *masterLayout = new QHBoxLayout(m_pMasterVolumeWidget);
-    m_pOpVolumeLabel->setFixedSize(100,20);
+    m_pOpVolumeLabel->setFixedSize(140,20);
     m_pOutputIconBtn->setFixedSize(24,24);
     m_pOpVolumeSlider->setFixedHeight(20);
-    m_pOpVolumePercentLabel->setFixedSize(43,20);
+    m_pOpVolumePercentLabel->setFixedSize(55,20);
+    m_pOpVolumePercentLabel->setAlignment(Qt::AlignCenter);
     masterLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     masterLayout->addWidget(m_pOpVolumeLabel);
-    masterLayout->addItem(new QSpacerItem(128,20,QSizePolicy::Fixed));
+    masterLayout->addItem(new QSpacerItem(100,20,QSizePolicy::Fixed));
     masterLayout->addWidget(m_pOutputIconBtn);
     masterLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     masterLayout->addWidget(m_pOpVolumeSlider);
     masterLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     masterLayout->addWidget(m_pOpVolumePercentLabel);
-    masterLayout->addItem(new QSpacerItem(10,20,QSizePolicy::Fixed));
+    masterLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     masterLayout->setSpacing(0);
     m_pMasterVolumeWidget->setLayout(masterLayout);
     m_pMasterVolumeWidget->layout()->setContentsMargins(0,0,0,0);
 
     //声道平衡添加布局
     QHBoxLayout *soundLayout = new QHBoxLayout(m_pChannelBalanceWidget);
-    m_pOpBalanceLabel->setFixedSize(100,20);
-    m_pLeftBalanceLabel->setFixedSize(20,20);
+    m_pOpBalanceLabel->setFixedSize(140,20);
+    m_pLeftBalanceLabel->setFixedSize(35,30);
     m_pOpBalanceSlider->setFixedHeight(20);
-    m_pRightBalanceLabel->setFixedSize(20,20);
+    m_pRightBalanceLabel->setFixedSize(55,30);
+    m_pRightBalanceLabel->setAlignment(Qt::AlignCenter);
     soundLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     soundLayout->addWidget(m_pOpBalanceLabel);
-    soundLayout->addItem(new QSpacerItem(128,20,QSizePolicy::Fixed));
+    soundLayout->addItem(new QSpacerItem(100,20,QSizePolicy::Fixed));
     soundLayout->addWidget(m_pLeftBalanceLabel);
-    soundLayout->addItem(new QSpacerItem(26,20,QSizePolicy::Fixed));
+    soundLayout->addItem(new QSpacerItem(5,20,QSizePolicy::Fixed));
     soundLayout->addWidget(m_pOpBalanceSlider);
-    soundLayout->addItem(new QSpacerItem(27,20,QSizePolicy::Fixed));
+    soundLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     soundLayout->addWidget(m_pRightBalanceLabel);
     soundLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     soundLayout->setSpacing(0);

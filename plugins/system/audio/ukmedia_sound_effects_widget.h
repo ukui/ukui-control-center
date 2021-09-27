@@ -52,7 +52,6 @@ private:
     QFrame *m_pWakeupMusicWidget;//唤醒音乐窗口
     QFrame *m_pStartupMusicWidget;//设置开机音乐窗口
     QFrame *m_pPoweroffMusicWidget;//关机提示音
-    QFrame *m_pDnsNoiseReductionWidget;
 
     QFrame *m_pAlertSoundSwitchWidget;//提示音开关窗口
     QFrame *m_pThemeWidget;//提示音下的系统音效主题
@@ -73,7 +72,6 @@ private:
     QLabel *m_pVolumeChangeLabel;
     QLabel *m_pPoweroffMusicLabel;
     QLabel *m_pStartupMusicLabel;
-    QLabel *m_pDnsNoiseReductionLabel;
 
     QComboBox *m_pSoundThemeCombobox;
     QComboBox *m_pAlertSoundCombobox;
@@ -85,7 +83,6 @@ private:
     SwitchButton *m_pLogoutButton;
     SwitchButton *m_pAlertSoundSwitchButton;
     SwitchButton *m_pWakeupMusicButton;
-    SwitchButton *m_pDnsNoiseReductionButton;
 //    UkmediaVolumeSlider *m_pAlertSlider;
 //    UkuiButtonDrawSvg *m_pAlertIconBtn;
 };

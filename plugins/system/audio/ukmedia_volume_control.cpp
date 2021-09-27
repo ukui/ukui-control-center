@@ -561,9 +561,10 @@ bool UkmediaVolumeControl::updateSink(UkmediaVolumeControl *w,const pa_sink_info
             sinkPortName = info.active_port->name;
         }
         defaultOutputCard = info.card;
-        if (sinkVolume != volume) {
+        if (sinkVolume != volume || sinkMuted != info.mute) {
             sinkVolume = volume;
-            Q_EMIT updateVolume(sinkVolume);
+            sinkMuted = info.mute;
+            Q_EMIT updateVolume(sinkVolume,sinkMuted);
         }
     }
 
@@ -571,7 +572,7 @@ bool UkmediaVolumeControl::updateSink(UkmediaVolumeControl *w,const pa_sink_info
         for (pa_sink_port_info ** sinkPort = info.ports; *sinkPort != nullptr; ++sinkPort) {
             temp.insertMulti(info.name,(*sinkPort)->name);
         }
-        sinkPortMap.insert(info.index,temp);
+        sinkPortMap.insert(info.card,temp);
 
         qDebug() << "updateSink" << info.volume.channels << info.active_port->description << info.active_port->name << sinkVolume <<"balance：" <<balance << "defauleSinkName:" <<defaultSinkName.data() << "sinkport" << sinkPortName;
 
@@ -633,8 +634,9 @@ static void readCallback(pa_stream *s, size_t length, void *userdata) {
     if (v > 1)
         v = 1;
     index = pa_stream_get_device_index(s);
-    if (index == w->sourceIndex)
+    if (index == w->sourceIndex){
         w->updateVolumeMeter(index, pa_stream_get_monitor_stream(s), v);
+    }
 }
 
 pa_stream* UkmediaVolumeControl::createMonitorStreamForSource(uint32_t source_idx, uint32_t stream_idx = -1, bool suspend = false) {
@@ -694,9 +696,10 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
             sourcePortName = info.active_port->name;
         }
         defaultInputCard = info.card;
-        if (sourceVolume != volume) {
+        if (sourceVolume != volume || sourceMuted != info.mute) {
             sourceVolume = volume;
-            Q_EMIT updateSourceVolume(sourceVolume);
+            sourceMuted = info.mute;
+            Q_EMIT updateSourceVolume(sourceVolume,sourceMuted);
         }
     }
     if (pa_context_get_server_protocol_version(getContext()) >= 13)
@@ -855,6 +858,7 @@ void UkmediaVolumeControl::updateVolumeMeter(uint32_t index, uint32_t sinkInputI
             v = lastPeak - DECAY_STEP;
 
     lastPeak = v;
+//    qDebug() << "updateVolumeMeter" << "index" << index <<"sinkInputInndex:" <<sinkInputIdx <<v;
     Q_EMIT peakChangedSignal(v);
 }
 
@@ -1122,7 +1126,6 @@ void UkmediaVolumeControl::sinkCb(pa_context *c, const pa_sink_info *i, int eol,
     }
     w->m_pDefaultSink = i;
     w->sinkIndex = i->index;
-    w->sinkMuted = i->mute;
     qDebug() << "SinkCb" <<i->name <<w->m_pDefaultSink->name << i->volume.values[0] ;
     w->sinkMap.insert(i->index,i->name);
 
@@ -1145,7 +1148,6 @@ void UkmediaVolumeControl::sourceCb(pa_context *c, const pa_source_info *i, int 
     }
     qDebug() << "sourceCb" << i->name << i->description << i->volume.values[0];
     w->sourceIndex = i->index;
-    w->sourceMuted = i->mute;
     w->sourceMap.insert(i->index,i->name);
     w->updateSource(*i);
 

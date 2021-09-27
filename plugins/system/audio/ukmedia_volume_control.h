@@ -173,8 +173,8 @@ public:
 
 Q_SIGNALS:
     void paContextReady();
-    void updateVolume(int value);
-    void updateSourceVolume(int value);
+    void updateVolume(int value,bool state);
+    void updateSourceVolume(int value,bool state);
     void addSinkInputSignal(const gchar* name,const gchar *id,int index);
     void removeSinkInputSignal(const gchar* name);
     void addSourceOutputSignal(const gchar* name,const gchar *id,int index);

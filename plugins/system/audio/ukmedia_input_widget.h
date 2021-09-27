@@ -31,6 +31,8 @@
 #include <QListWidget>
 #include "titlelabel.h"
 #include "ukui_custom_style.h"
+#include "switchbutton.h"
+
 
 class UkmediaInputWidget : public QWidget
 {
@@ -45,12 +47,15 @@ private:
     QWidget *m_pInputWidget;
     QFrame *m_pVolumeWidget;
     QFrame *m_pInputLevelWidget;
+    QFrame *m_pDnsNoiseReductionWidget;
 
     QLabel *m_pInputLabel;
     QLabel *m_pInputDeviceLabel;
     QLabel *m_pIpVolumeLabel;
     QLabel *m_pInputLevelLabel;
     QLabel *m_pIpVolumePercentLabel;
+    QLabel *m_pDnsNoiseReductionLabel;
+
 
     UkuiButtonDrawSvg *m_pInputIconBtn;
     AudioSlider *m_pIpVolumeSlider;
@@ -61,6 +66,8 @@ private:
 
     QComboBox *m_pInputDeviceSelectBox;
     QFrame *m_pInputSlectWidget;
+
+    SwitchButton *m_pDnsNoiseReductionButton;
 
 };
 
