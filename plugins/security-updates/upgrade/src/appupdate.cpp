@@ -73,7 +73,8 @@ void AppUpdateWid::changeDownloadState(int state)
 //        updateAPPBtn->setText(tr("更新"));
         updateAPPBtn->setText(tr("Update"));
         emit hideUpdateBtnSignal(false);
-
+        m_updateMutual->importantList.removeOne(appAllMsg.name);
+        m_updateMutual->failedList.append(appAllMsg.name);
     }
     else if(state == 4) //下载网络异常
     {
@@ -96,6 +97,9 @@ void AppUpdateWid::changeDownloadState(int state)
 //            updateAPPBtn->setText(tr("更新"));
             updateAPPBtn->setText(tr("Update"));
             emit hideUpdateBtnSignal(false);
+            m_updateMutual->importantList.removeOne(appAllMsg.name);
+            m_updateMutual->failedList.append(appAllMsg.name);
+
         }
     }
 
