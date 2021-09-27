@@ -222,8 +222,6 @@ void UkmediaMainWidget::addValue(QString name,QString filename)
     }
 }
 
-
-
 /*
  * 初始化gsetting
  */
@@ -1761,7 +1759,7 @@ void UkmediaMainWidget::outputListWidgetCurrentRowChangedSlot(int row)
     }
 
     QMap<QString,QString>::iterator it;
-    QMap<QString,QString>::iterator inputProfileMap;
+    QMap<int ,QMap<QString,QString>>::iterator inputProfileMap;
     QString endOutputProfile = "";
     QString endInputProfile = "";
     int count,i;
@@ -1774,12 +1772,19 @@ void UkmediaMainWidget::outputListWidgetCurrentRowChangedSlot(int row)
     }
 
     if (inputCurrrentItem != nullptr) {
-
+        QMap <QString,QString>::iterator it;
+        QMap <QString,QString> temp;
+        int index = findCardIndex(inputWid->deviceLabel->text(),m_pVolumeControl->cardMap);
         for (inputProfileMap=m_pVolumeControl->inputPortProfileNameMap.begin(),count=0;inputProfileMap!= m_pVolumeControl->inputPortProfileNameMap.end();count++) {
-            if (inputProfileMap.key() == inputWid->portLabel->text()) {
-                 endInputProfile = inputProfileMap.value();
-            }
-            if (count == m_pVolumeControl->inputPortProfileNameMap.count()-1) {
+            if (inputProfileMap.key() == index) {
+                temp = inputProfileMap.value();
+                for(it = temp.begin(); it != temp.end();){
+                    if(it.key() == inputWid->portLabel->text()){
+                        endInputProfile = it.value();
+                    }
+                    ++it;
+                }
+
             }
             ++inputProfileMap;
         }
@@ -1847,24 +1852,34 @@ void UkmediaMainWidget::inputListWidgetCurrentRowChangedSlot(int row)
         isCheckBluetoothInput = false;
     }
 
-    QMap<QString,QString>::iterator it;
+    QMap<int, QMap<QString,QString>>::iterator it;
+    QMap <QString,QString> temp;
+    QMap<QString,QString>::iterator at;
     QString endOutputProfile = "";
     QString endInputProfile = "";
 
+    int index = findCardIndex(wid->deviceLabel->text(),m_pVolumeControl->cardMap);
     for (it=m_pVolumeControl->inputPortProfileNameMap.begin();it!= m_pVolumeControl->inputPortProfileNameMap.end();) {
-        if (it.key() == wid->portLabel->text()) {
-            endInputProfile = it.value();
+        if (it.key() == index) {
+            temp = it.value();
+            for(at=temp.begin();at!=temp.end();){
+                if(at.key() == wid->portLabel->text()){
+                    endInputProfile = at.value();
+                }
+                ++at;
+            }
         }
         ++it;
     }
     if (outputCurrrentItem != nullptr) {
-        for (it=m_pVolumeControl->profileNameMap.begin();it!= m_pVolumeControl->profileNameMap.end();) {
-            if (it.key() == outputWid->portLabel->text()) {
-                 endOutputProfile = it.value();
+        for (at=m_pVolumeControl->profileNameMap.begin();at!= m_pVolumeControl->profileNameMap.end();) {
+            if (at.key() == outputWid->portLabel->text()) {
+                 endOutputProfile = at.value();
             }
-            ++it;
+            ++at;
         }
     }
+
     //如果选择的输入输出设备为同一个声卡，则追加指定输入输出端口属于的配置文件
     if (outputCurrrentItem != nullptr && wid->deviceLabel->text() == outputWid->deviceLabel->text()) {
         QString  setProfile;
@@ -2834,95 +2849,6 @@ QString UkmediaMainWidget::findOutputStreamCardName(QString streamName)
     return cardName;
 }
 
-
-/*
-    移除不可用的输出端口name
-*/
-void UkmediaMainWidget::removeOutputPortName(const pa_card_info &info)
-{
-    //拔插耳机的时候删除端口
-    QMap<int,QString>::iterator it;
-    for(it = outputPortNameMap.begin();it!=outputPortNameMap.end();)
-    {
-        if(it.key() == info.index)
-        {
-            qDebug() << "remove output port name map index" << info.index << outputPortNameMap.count() << it.value();
-            it = outputPortNameMap.erase(it);
-            continue;
-        }
-        ++it;
-    }
-}
-
-/*
-    移除不可用的输出端口label
-*/
-void UkmediaMainWidget::removeOutputPortLabel(const pa_card_info &info)
-{
-    QMap<int,QString>::iterator it;
-    for(it = outputPortLabelMap.begin();it!=outputPortLabelMap.end();)
-    {
-        if(it.key() == info.index)
-        {
-            QString removePortLabel = it.value();
-            QMap<QString,QString>::iterator removeProfileMap;
-            for (removeProfileMap = m_pVolumeControl->profileNameMap.begin();removeProfileMap!= m_pVolumeControl->profileNameMap.end();) {
-                if (removeProfileMap.key() == removePortLabel) {
-                    removeProfileMap = m_pVolumeControl->profileNameMap.erase(removeProfileMap);
-                    continue;
-                }
-                ++removeProfileMap;
-            }
-            it = outputPortLabelMap.erase(it);
-
-            continue;
-        }
-        ++it;
-    }
-}
-
-/*
-    移除不可用的输出端口Name
-*/
-void UkmediaMainWidget::removeInputPortName(const pa_card_info &info)
-{
-    QMap<int,QString>::iterator it;
-    for(it = inputPortNameMap.begin();it!=inputPortNameMap.end();)
-    {
-        if(it.key() == info.index)
-        {
-            it = inputPortNameMap.erase(it);
-            //qDebug() << "remove input port map index" << info.index << inputPortNameMap.count();
-            continue;
-        }
-        ++it;
-    }
-}
-
-void UkmediaMainWidget::removeInputPortLabel(const pa_card_info &info)
-{
-    QMap<int,QString>::iterator it;
-    for(it = inputPortLabelMap.begin();it!=inputPortLabelMap.end();)
-    {
-        if(it.key() == info.index)
-        {
-            QString removePortLabel = it.value();
-            QMap<QString,QString>::iterator removeProfileMap;
-            for (removeProfileMap = m_pVolumeControl->inputPortProfileNameMap.begin();removeProfileMap!= m_pVolumeControl->inputPortProfileNameMap.end();) {
-                if (removeProfileMap.key() == removePortLabel) {
-                    removeProfileMap = m_pVolumeControl->inputPortProfileNameMap.erase(removeProfileMap);
-                    continue;
-                }
-                ++removeProfileMap;
-            }
-            it = inputPortLabelMap.erase(it);
-            qDebug() << "remove input port Label map index" << info.index << inputPortLabelMap.count();
-            continue;
-        }
-        ++it;
-    }
-}
-
 /*
  *  设置声卡的配置文件
  */
@@ -2941,7 +2867,7 @@ void UkmediaMainWidget::setDefaultOutputPortDevice(QString devName, QString port
 {
     int cardIndex = findCardIndex(devName,m_pVolumeControl->cardMap);
     QString portStr = findOutputPortName(cardIndex,portName);
-    QString sinkStr = findPortSink(portStr);
+    QString sinkStr = findPortSink(cardIndex,portStr);
 
     /*默认的stream 和设置的stream相同 需要更新端口*/
     if (strcmp(sinkStr.toLatin1().data(),m_pVolumeControl->defaultSinkName) == 0) {
@@ -2951,7 +2877,7 @@ void UkmediaMainWidget::setDefaultOutputPortDevice(QString devName, QString port
         m_pVolumeControl->setDefaultSink(sinkStr.toLatin1().data());
         m_pVolumeControl->setSinkPort(sinkStr.toLatin1().data(),portStr.toLatin1().data());
     }
-    qDebug() << "set default output"  << portName <<cardIndex ;
+    qDebug() << "set default output"  << portName <<cardIndex << portStr <<sinkStr;
 }
 
 /*
@@ -2961,7 +2887,7 @@ void UkmediaMainWidget::setDefaultInputPortDevice(QString devName, QString portN
 {
     int cardIndex = findCardIndex(devName,m_pVolumeControl->cardMap);
     QString portStr = findInputPortName(cardIndex,portName);
-    QString sourceStr = findPortSource(portStr);
+    QString sourceStr = findPortSource(cardIndex,portStr);
 
     /*默认的stream 和设置的stream相同 需要更新端口*/
     if (strcmp(sourceStr.toLatin1().data(),m_pVolumeControl->defaultSourceName) == 0) {
@@ -2971,7 +2897,7 @@ void UkmediaMainWidget::setDefaultInputPortDevice(QString devName, QString portN
         m_pVolumeControl->setDefaultSource(sourceStr.toLatin1().data());
         m_pVolumeControl->setSourcePort(sourceStr.toLatin1().data(),portStr.toLatin1().data());
     }
-    qDebug() << "set default input"  << portName <<cardIndex;
+    qDebug() << "set default input"  << portName <<cardIndex << portStr << devName;
 }
 
 /*
@@ -2994,23 +2920,25 @@ QString UkmediaMainWidget::findCardActiveProfile(int index)
 /*
  * Find the corresponding sink according to the port name
  */
-QString UkmediaMainWidget::findPortSink(QString portName)
+QString UkmediaMainWidget::findPortSink(int cardIndex,QString portName)
 {
     QMap<int, QMap<QString,QString>>::iterator it;
     QMap<QString,QString> portNameMap;
     QMap<QString,QString>::iterator tempMap;
     QString sinkStr = "";
     for (it=m_pVolumeControl->sinkPortMap.begin();it!=m_pVolumeControl->sinkPortMap.end();) {
-        portNameMap = it.value();
-        for (tempMap=portNameMap.begin();tempMap!=portNameMap.end();) {
-            if ( tempMap.value() == portName) {
-                sinkStr = tempMap.key();
-                qDebug() <<"find port sink" << tempMap.value() << portName<< tempMap.key() <<sinkStr;
-                break;
-            }
+         qDebug() <<"find port sink" << it.value() << portName<< it.key() <<sinkStr;
+        if (it.key() == cardIndex) {
+            portNameMap = it.value();
+            for (tempMap=portNameMap.begin();tempMap!=portNameMap.end();) {
+//                qDebug() <<"find port sink" << tempMap.value() << portName<< tempMap.key() <<sinkStr;
+                if ( tempMap.value() == portName) {
+                    sinkStr = tempMap.key();
+		    break;
+                    }
             ++tempMap;
+            }
         }
-
         ++it;
     }
     return sinkStr;
@@ -3019,21 +2947,23 @@ QString UkmediaMainWidget::findPortSink(QString portName)
 /*
  * Find the corresponding source according to the port name
  */
-QString UkmediaMainWidget::findPortSource(QString portName)
+QString UkmediaMainWidget::findPortSource(int cardIndex,QString portName)
 {
     QMap<int, QMap<QString,QString>>::iterator it;
     QMap<QString,QString> portNameMap;
     QMap<QString,QString>::iterator tempMap;
     QString sourceStr = "";
     for (it=m_pVolumeControl->sourcePortMap.begin();it!=m_pVolumeControl->sourcePortMap.end();) {
-        portNameMap = it.value();
-        for (tempMap=portNameMap.begin();tempMap!=portNameMap.end();) {
-            qDebug() << "findportsource ===" <<tempMap.value() << portName;
-            if ( tempMap.value() == portName) {
-                sourceStr = tempMap.key();
-                break;
+        if (it.key() == cardIndex) {
+            portNameMap = it.value();
+            for (tempMap=portNameMap.begin();tempMap!=portNameMap.end();) {
+                qDebug() << "findportsource ===" <<tempMap.value() << portName;
+                if ( tempMap.value() == portName) {
+                    sourceStr = tempMap.key();
+                    break;
+                }
+                ++tempMap;
             }
-            ++tempMap;
         }
         ++it;
     }

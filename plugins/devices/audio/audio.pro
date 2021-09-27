@@ -38,7 +38,6 @@ SOURCES += \
     audio.cpp \
     ukmedia_input_widget.cpp \
     ukmedia_main_widget.cpp \
-#    ukmedia_main_widget1.cpp \
     ukmedia_output_widget.cpp \
     ukmedia_sound_effects_widget.cpp \
     ukmedia_volume_control.cpp \
@@ -51,7 +50,6 @@ HEADERS += \
     audio.h \
     ukmedia_input_widget.h \
     ukmedia_main_widget.h \
-#    ukmedia_main_widget1.h \
     ukmedia_output_widget.h \
     ukmedia_sound_effects_widget.h \
     ukmedia_volume_control.h \
