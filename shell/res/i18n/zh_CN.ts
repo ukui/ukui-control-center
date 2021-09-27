@@ -8388,7 +8388,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/search/search.cpp" line="7"/>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="110"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="111"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -8397,8 +8397,14 @@ Please retry or relogin!</source>
         <translation type="vanished">创建索引</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="138"/>
+        <source>Create index</source>
+        <translation>创建索引</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="139"/>
         <source>Creating index can help you getting results quickly.</source>
-        <translation type="vanished">创建索引可以帮助您快速获取搜索结果</translation>
+        <translation>创建索引可以帮助您快速获取搜索结果</translation>
     </message>
     <message>
         <source>Web Engine</source>
@@ -8446,66 +8452,66 @@ Please retry or relogin!</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="425"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="424"/>
         <source>Directories</source>
         <translation>文件夹</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="427"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="426"/>
         <source>select blocked folder</source>
         <translation>选择要屏蔽的文件夹</translation>
         <extra-contents_path>/search/select blocked folder</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="428"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="427"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="429"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="428"/>
         <source>Position: </source>
         <translation>位置: </translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="430"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="429"/>
         <source>FileName: </source>
         <translation>文件名: </translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="431"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="430"/>
         <source>FileType: </source>
         <translation>文件类型: </translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="432"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="431"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="448"/>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="452"/>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="456"/>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="460"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="447"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="451"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="455"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="459"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="448"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="447"/>
         <source>Add blocked folder failed, choosen path is empty!</source>
         <translation>添加文件夹失败，路径为空！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="452"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="451"/>
         <source>Add blocked folder failed, it is not in home path!</source>
         <translation>添加文件夹失败，请选择用户目录下的文件夹！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="456"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="455"/>
         <source>Add blocked folder failed, its parent dir is exist!</source>
         <translation>添加文件夹失败，父文件夹已被屏蔽！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="460"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="459"/>
         <source>Add blocked folder failed, it has been already blocked!</source>
         <translation>添加文件夹失败，该文件夹已被屏蔽！</translation>
     </message>

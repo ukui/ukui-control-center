@@ -15,6 +15,7 @@ Search::Search()
 
 Search::~Search()
 {
+    delete m_pluginWidget;
     if (m_gsettings) {
         delete m_gsettings;
         m_gsettings = nullptr;
@@ -123,7 +124,6 @@ void Search::initUi()
 //    m_searchMethodFrame->setFrameShape(QFrame::Shape::Box);
 //    m_searchMethodFrame->setFixedHeight(70);
     m_searchMethodFrame->setMinimumWidth(550);
-    m_searchMethodFrame->setMaximumWidth(960);
     m_searchMethodLyt = new QHBoxLayout(m_searchMethodFrame);
     m_searchMethodLyt->setContentsMargins(16, 18, 16, 21);
     m_searchMethodFrame->setLayout(m_searchMethodLyt);
@@ -134,8 +134,8 @@ void Search::initUi()
     m_descFrame->setLayout(m_descFrameLyt);
     m_descLabel1 = new QLabel(m_descFrame);
     m_descLabel2 = new QLabel(m_descFrame);
-    m_descLabel1->setText("Create index");
-    m_descLabel2->setText("Creating index can help you getting results quickly.");
+    m_descLabel1->setText(tr("Create index"));
+    m_descLabel2->setText(tr("Creating index can help you getting results quickly."));
     m_descLabel2->setEnabled(false);
     m_descFrameLyt->addWidget(m_descLabel1);
     m_descFrameLyt->addWidget(m_descLabel2);
@@ -147,8 +147,7 @@ void Search::initUi()
     m_setFrameLyt->addWidget(m_searchMethodFrame);
 
     QFrame *line = new QFrame(m_setFrame);
-    line->setMinimumSize(QSize(0, 1));
-    line->setMaximumSize(QSize(16777215, 1));
+    line->setFixedHeight(1);
     line->setLineWidth(0);
     line->setFrameShape(QFrame::HLine);
     line->setFrameShadow(QFrame::Sunken);
@@ -166,7 +165,6 @@ void Search::initUi()
     m_webEngineFrame->setContentsMargins(8, 0, 16, 0);
     m_webEngineFrame->setFixedHeight(56);
     m_webEngineFrame->setMinimumWidth(550);
-    m_webEngineFrame->setMaximumWidth(960);
     m_webEngineFrame->mCombox->insertItem(0, QIcon(":/img/plugins/search/baidu.svg"), tr("baidu"), "baidu");
     m_webEngineFrame->mCombox->insertItem(1, QIcon(":/img/plugins/search/sougou.svg"), tr("sougou"), "sougou");
     m_webEngineFrame->mCombox->insertItem(2, QIcon(":/img/plugins/search/360.svg"), tr("360"), "360");
@@ -200,7 +198,6 @@ void Search::initUi()
 
     m_addBlockDirWidget = new HoverWidget("", m_addBlockDirFrame);
     m_addBlockDirWidget->setFixedHeight(60);
-    m_addBlockDirWidget->setMaximumWidth(960);
 
 
 //        m_addBlockDirWidget->setObjectName("addBlockDirWidget");
@@ -324,7 +321,7 @@ int Search::setBlockDir(const QString &dirPath, const bool &is_add)
 void Search::initBlockDirsList()
 {
     getBlockDirs();
-    foreach (QString path, m_blockDirs) {
+    for (QString path: m_blockDirs) {
         QString wholePath = QString("/%1").arg(path);
         if (QFileInfo(wholePath).isDir() && path.startsWith("home")) {
             appendBlockDirToList(wholePath);
@@ -344,8 +341,7 @@ void Search::appendBlockDirToList(const QString &path)
 {
     HoverWidget * dirWidget = new HoverWidget(path, m_blockDirsFrame);
     dirWidget->setObjectName(path);
-    dirWidget->setMinimumSize(550,50);
-    dirWidget->setMaximumSize(960,50);
+    dirWidget->setMinimumWidth(550);
     dirWidget->setAttribute(Qt::WA_DeleteOnClose);
     QHBoxLayout * dirWidgetLyt = new QHBoxLayout(dirWidget);
     dirWidgetLyt->setSpacing(8);
@@ -390,8 +386,7 @@ void Search::appendBlockDirToList(const QString &path)
 //    dirWidgetLyt->addWidget(delBtn);
 
     QFrame *line = new QFrame(m_blockDirsFrame);
-    line->setMinimumSize(QSize(0, 1));
-    line->setMaximumSize(QSize(16777215, 1));
+    line->setFixedHeight(1);
     line->setLineWidth(0);
     line->setFrameShape(QFrame::HLine);
     line->setFrameShadow(QFrame::Sunken);
