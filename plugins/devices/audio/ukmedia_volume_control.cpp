@@ -151,7 +151,7 @@ bool UkmediaVolumeControl::setBalanceVolume(int index, int value, float b)
         v.values[i] = value;
     if (b != 0) {
         balance = b;
-        qDebug() << "pa_cvolume_set_balance 1111111111" <<balance;
+        qDebug() << "pa_cvolume_set_balance" <<balance;
         pa_cvolume_set_balance(&v,&defaultChannelMap,balance);
     }
 
@@ -471,8 +471,9 @@ void UkmediaVolumeControl::updateCard(UkmediaVolumeControl *c, const pa_card_inf
             qDebug() << " add source port name "<< info.index << p.name << p.description.data();
             tempInput.insertMulti(p.name,p.description.data());
             for (auto p_profile : p.profiles) {
-                inputPortProfileNameMap.insertMulti(p.description.data(),p_profile.data());
+                inputPortNameLabelMap.insertMulti(p.description.data(),p_profile.data());
             }
+            inputPortProfileNameMap.insert(info.index,inputPortNameLabelMap);
         }
         c->ports[p.name] = p;
     }
@@ -542,7 +543,12 @@ bool UkmediaVolumeControl::updateSink(UkmediaVolumeControl *w,const pa_sink_info
         channelMap = info.channel_map;
         if (info.active_port) {
 //            sinkPortLabel = info.active_port->description;
-            sinkPortName = info.active_port->name;
+            if (strcmp(sinkPortName.toLatin1().data(),info.active_port->name) != 0) {
+                sinkPortName = info.active_port->name;
+                QTimer::singleShot(50, this, SLOT(timeoutSlot()));
+	    }
+	    else
+                sinkPortName = info.active_port->name;
         }
         defaultOutputCard = info.card;
         if (sinkVolume != volume) {
@@ -555,7 +561,7 @@ bool UkmediaVolumeControl::updateSink(UkmediaVolumeControl *w,const pa_sink_info
         for (pa_sink_port_info ** sinkPort = info.ports; *sinkPort != nullptr; ++sinkPort) {
             temp.insertMulti(info.name,(*sinkPort)->name);
         }
-        sinkPortMap.insert(info.index,temp);
+        sinkPortMap.insert(info.card,temp);
 
         qDebug() << "updateSink" << info.volume.channels << info.active_port->description << info.active_port->name << sinkVolume <<"balance：" <<balance << "defauleSinkName:" <<defaultSinkName.data() << "sinkport" << sinkPortName;
 
@@ -675,7 +681,13 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
     if (strcmp(defaultSourceName.data(),info.name) == 0) {
         if (info.active_port) {
 //            sourcePortLabel = info.active_port->description;
-            sourcePortName = info.active_port->name;
+            if (strcmp(sourcePortName.toLatin1().data(),info.active_port->name) != 0) {
+                sourcePortName = info.active_port->name;
+                QTimer::singleShot(50, this, SLOT(timeoutSlot()));
+            }
+	    else
+                sourcePortName = info.active_port->name;
+
         }
         defaultInputCard = info.card;
         if (sourceVolume != volume) {
@@ -692,8 +704,9 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
         for (pa_source_port_info ** sourcePort = info.ports; *sourcePort != nullptr; ++sourcePort) {
             temp.insertMulti(info.name,(*sourcePort)->name);
         }
-        sourcePortMap.insert(info.index,temp);
+        sourcePortMap.insert(info.card,temp);
     }
+    qDebug() << "update source" << m_pDefaultSink->name<<m_pDefaultSink->index;
 
     if (is_new)
         updateDeviceVisibility();
@@ -1838,11 +1851,18 @@ bool UkmediaVolumeControl::isExitOutputPort(QString name)
 
 void UkmediaVolumeControl::removeInputProfile()
 {
-    QMap<QString,QString>::iterator it;
+    QMap<int, QMap<QString,QString>>::iterator it;
+    QMap<QString,QString>::iterator at;
+    QMap<QString,QString> temp;
     for (it=inputPortProfileNameMap.begin();it!=inputPortProfileNameMap.end();) {
-        if (!isExitInputPort(it.value())) {
-            it = inputPortProfileNameMap.erase(it);
-            continue;
+        temp = it.value();
+        for (at=temp.begin();at!=temp.end();) {
+
+            if (!isExitInputPort(at.value())) {
+                it = inputPortProfileNameMap.erase(it);
+                return;
+            }
+            ++at;
         }
         ++it;
     }

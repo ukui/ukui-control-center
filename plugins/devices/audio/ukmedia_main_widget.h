@@ -182,18 +182,13 @@ public:
     bool inputPortIsNeedDelete(int index,QString name);//port是否需要在inputListWidget删除
     bool inputPortIsNeedAdd(int index,QString name);//port是否需要在inputListWidget删除
 
-    void removeOutputPortName(const pa_card_info &info);  //移除不可用输出端口name
-    void removeOutputPortLabel(const pa_card_info &info);  //移除不可用的输出端口label
-    void removeInputPortName(const pa_card_info &info);  //移除不可用输入端口Name
-    void removeInputPortLabel(const pa_card_info &info);  //移除不可用输入端口Label
-
     int findCardIndex(QString cardName, QMap<int,QString> cardMap);//查找声卡指定的索引
     QString findCardName(int index,QMap<int,QString> cardMap);
     QString findHighPriorityProfile(int index,QString profile);
     void findOutputListWidgetItem(QString cardName,QString portLabel);
     void findInputListWidgetItem(QString cardName,QString portLabel);
-    QString findPortSink(QString portName);
-    QString findPortSource(QString portName);
+QString findPortSink(int cardIndex,QString portName);
+    QString findPortSource(int cardIndex,QString portName);
     bool inputDeviceContainBluetooth();
     int indexOfOutputPortInOutputListWidget(QString portName);
     int indexOfInputPortInInputListWidget(QString portName);
