@@ -6,7 +6,8 @@
 #define THEME_QT_SCHEMA  "org.ukui.style"
 #define MODE_QT_KEY      "style-name"
 
-WlanItem::WlanItem(QWidget *parent)
+WlanItem::WlanItem(bool isAcitve, bool isLock, QWidget *parent)
+    : isAcitve(isAcitve), isLock(isLock), QPushButton(parent)
 {
     this->setMinimumSize(550, 58);
     this->setProperty("useButtonPalette", true);

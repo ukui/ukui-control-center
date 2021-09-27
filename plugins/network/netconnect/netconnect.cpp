@@ -31,7 +31,7 @@
 #include <QtAlgorithms>
 
 #define ITEMHEIGH           50
-#define WLAN_TYPE           0
+#define LAN_TYPE           0
 #define CONTROL_CENTER_WIFI              "org.ukui.control-center.wifi.switch"
 
 const QString KLanSymbolic      = ":/img/plugins/netconnect/eth.svg";
@@ -123,28 +123,6 @@ void NetConnect::initComponent() {
                                  "/", \
                                  "org.ukui.kds.interface", \
                                  QDBusConnection::systemBus());
-    // 接收到系统创建网络连接的信号时刷新可用网络列表
-    QDBusConnection::systemBus().connect(QString(),
-                                         QString("/org/freedesktop/NetworkManager/Settings"),
-                                         "org.freedesktop.NetworkManager.Settings",
-                                         "NewConnection",
-                                         this,
-                                         SLOT(getNetList(void)));
-
-    // 接收到系统删除网络连接的信号时刷新可用网络列表
-    QDBusConnection::systemBus().connect(QString(),
-                                         QString("/org/freedesktop/NetworkManager/Settings"),
-                                         "org.freedesktop.NetworkManager.Settings",
-                                         "ConnectionRemoved",
-                                         this,
-                                         SLOT(getNetList(void)));
-
-    // 接收到系统更改网络连接属性时把判断是否已刷新的bool值置为false
-    QDBusConnection::systemBus().connect(QString(),
-                                         QString("/org/freedesktop/NetworkManager"),
-                                         "org.freedesktop.NetworkManager", "PropertiesChanged",
-                                         this,
-                                         SLOT(netPropertiesChangeSlot(QMap<QString,QVariant>)));
 
     // 有线网络断开或连接时刷新可用网络列表
     connect(m_interface, SIGNAL(lanActiveConnectionStateChanged(QString, QString, int)), this, SLOT(updateOneLanFrame(QString, QString, int)));
@@ -152,9 +130,9 @@ void NetConnect::initComponent() {
     connect(m_interface, SIGNAL(lanAdd(QString, QStringList)), this, SLOT(updateOneLanFrame(QString, QStringList)));
     //删除有线网络
     connect(m_interface, SIGNAL(lanRemove(QString)), this, SLOT(updateOneLanFrame(QString)));
-    //删除有线网络
+    //更新有线网络
     connect(m_interface, SIGNAL(lanUpdate(QString, QStringList)), this, SLOT(updateLanInfo(QString, QStringList)));
-
+    //网卡插拔处理
     connect(m_interface, SIGNAL(deviceStatusChanged()), this, SLOT(updateLanListWidget()));
 
     connect(ui->detailBtn, &QPushButton::clicked, this, [=](bool checked) {
@@ -170,6 +148,7 @@ void NetConnect::initComponent() {
             m_interface->call(QStringLiteral("setWiredSwitchEnable"),checked);
             m_switchGsettings->set(WIRED_SWITCH,checked);
         });
+        //网络开关状态以及列表初始化
         setSwitchStatus();
         connect(m_switchGsettings, &QGSettings::changed, this, [=] (const QString &key) {
             if (key == WIRED_SWITCH) {
@@ -216,7 +195,7 @@ void NetConnect::updateLanInfo(QString deviceName, QStringList lanInfo)
         QMap<QString, ItemFrame *>::iterator iter;
         for (iter = deviceLanlistInfo.deviceLayoutMap.begin(); iter != deviceLanlistInfo.deviceLayoutMap.end(); iter++) {
             if (deviceName == iter.key()) {
-                rebuildAvailComponent(iter.value(), KLanSymbolic, deviceName, lanInfo.at(0), lanInfo.at(1), lanInfo.at(2), false, WLAN_TYPE);
+                rebuildAvailComponent(iter.value(), KLanSymbolic, deviceName, lanInfo.at(0), lanInfo.at(1), lanInfo.at(2), false, LAN_TYPE);
             }
         }
     } else {
@@ -314,13 +293,13 @@ void NetConnect::updateOneLanFrame(QString deviceName, QStringList lanInfo)
     if (deviceName == nullptr) {
         QMap<QString, ItemFrame *>::iterator iter;
         for (iter = deviceFrameMap.begin(); iter != deviceFrameMap.end(); iter++) {
-            rebuildAvailComponent(iter.value(), KLanSymbolic, iter.key(), lanInfo.at(0), lanInfo.at(1), lanInfo.at(2), false, WLAN_TYPE);
+            rebuildAvailComponent(iter.value(), KLanSymbolic, iter.key(), lanInfo.at(0), lanInfo.at(1), lanInfo.at(2), false, LAN_TYPE);
         }
     } else {
         QMap<QString, ItemFrame *>::iterator iter;
         for (iter = deviceFrameMap.begin(); iter != deviceFrameMap.end(); iter++) {
             if (deviceName == iter.key()) {
-                rebuildAvailComponent(iter.value(), KLanSymbolic, iter.key(), lanInfo.at(0), lanInfo.at(1), lanInfo.at(2), false, WLAN_TYPE);
+                rebuildAvailComponent(iter.value(), KLanSymbolic, iter.key(), lanInfo.at(0), lanInfo.at(1), lanInfo.at(2), false, LAN_TYPE);
             }
         }
     }
@@ -358,13 +337,13 @@ void NetConnect::getNetListFromDevice(QString deviceName, bool deviceStatus, QVB
             qDebug()<<"网卡列表"<<iter.value();
             if (lanListInfo.at(0).at(0) == "--") {
                 for (int i = 1; i < lanListInfo.length(); i++) {
-                    rebuildAvailComponent(deviceFrame, KLanSymbolic, iter.key(), lanListInfo.at(i).at(0), lanListInfo.at(i).at(1), lanListInfo.at(i).at(2), false, WLAN_TYPE);
+                    rebuildAvailComponent(deviceFrame, KLanSymbolic, iter.key(), lanListInfo.at(i).at(0), lanListInfo.at(i).at(1), lanListInfo.at(i).at(2), false, LAN_TYPE);
                 }
             } else {
-                rebuildAvailComponent(deviceFrame, KLanSymbolic, iter.key(), lanListInfo.at(0).at(0), lanListInfo.at(0).at(1), lanListInfo.at(0).at(2), true, WLAN_TYPE);
+                rebuildAvailComponent(deviceFrame, KLanSymbolic, iter.key(), lanListInfo.at(0).at(0), lanListInfo.at(0).at(1), lanListInfo.at(0).at(2), true, LAN_TYPE);
                 for (int i = 1; i < lanListInfo.length(); i++) {
                     if (lanListInfo.at(i).at(0) != "") {
-                        rebuildAvailComponent(deviceFrame, KLanSymbolic, iter.key(), lanListInfo.at(i).at(0), lanListInfo.at(i).at(1), lanListInfo.at(i).at(2), false, WLAN_TYPE);
+                        rebuildAvailComponent(deviceFrame, KLanSymbolic, iter.key(), lanListInfo.at(i).at(0), lanListInfo.at(i).at(1), lanListInfo.at(i).at(2), false, LAN_TYPE);
                     }
                 }
             }
@@ -412,14 +391,6 @@ void NetConnect::initNet()
     for (iter = deviceListMap.begin(); iter != deviceListMap.end(); iter++) {
         getNetListFromDevice(iter.key(), iter.value(), ui->availableLayout, count);
         count ++;
-    }
-}
-
-void NetConnect::netPropertiesChangeSlot(QMap<QString, QVariant> property) {
-    if (property.keys().contains("WirelessEnabled")) {
-        if (m_interface) {
-            m_interface->call("requestRefreshWifiList");
-        }
     }
 }
 

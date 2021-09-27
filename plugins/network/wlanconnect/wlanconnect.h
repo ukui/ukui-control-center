@@ -79,6 +79,7 @@ private:
     void runExternalApp();
     void initSearchText();
     void rebuildDeviceComponent(ItemFrame *frame, QString deviceName, int count);
+    void addOneWlanFrame(ItemFrame *frame, QString deviceName, QString name, QString signal, bool isLock, bool status, int type);
     void rebuildAvailComponent(ItemFrame *frame, QString deviceName, QString name, QString signal, bool isLock, bool status, int type);
     void activeConnect(QString netName, QString deviceName, int type);
     void deActiveConnect(QString netName, QString deviceName, int type);
@@ -86,8 +87,10 @@ private:
     void setSwitchStatus();
     void initNet();
     void getDeviceList();
-    int                setSignal(QString lv);
-    QString            wifiIcon(bool isLock, int strength);
+    int  sortWlanNet(QString deviceName, QString name, QString signal);
+    int getNetListFromDevice(QString deviceName, bool deviceStatus, QVBoxLayout *layout, int count);
+    int  setSignal(QString lv);
+    QString wifiIcon(bool isLock, int strength);
 
 protected:
     bool eventFilter(QObject *w,QEvent *e);
@@ -100,24 +103,25 @@ private:
     QWidget            *pluginWidget;
 
     QDBusInterface     *m_interface = nullptr;
-    QDBusInterface     *kdsDbus = nullptr;
 
     QGSettings         *m_switchGsettings = nullptr;
 
     QMap<QString, bool> deviceListMap;
     QMap<QString, bool> dropDownMap;
-
+    QMap<QString, ItemFrame *> deviceFrameMap;
+    QVector<QStringList>  wlanSignalList;
     DeviceWlanlistInfo   deviceWlanlistInfo;
-
 private:
     SwitchButton       *wifiSwtch;
     bool               mFirstLoad;
+    bool               isFinished = false;
 
 private slots:
-    void setItemStartLoading(QString devName, QString ssid);
-    void setItemStopLoading(QString devName);
     void dropDownAnimation(DeviceFrame * deviceFrame, QString deviceName);
-    void getNetListFromDevice(QString deviceName, bool deviceStatus, QVBoxLayout *layout, int count);
-    void rebuildOneFrame(QString deviceName, ItemFrame *frame);
+    void updateOneWlanFrame(QString deviceName, QStringList wlanInfo);
+    void updateOneWlanFrame(QString deviceName, QString wlannName);
+    void updateOneWlanFrame(QString deviceName, QString ssid, int status);
+    void updateStrengthList(QString deviceName, QString ssid, int strength);
+    void updateLanListWidget();
 };
 #endif // WLANCONNECT_H
