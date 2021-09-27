@@ -7776,7 +7776,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="205"/>
         <source>Software source server connection timeout</source>
-        <translation>软件源服务器连接超时</translation>
+        <translation>软件源服务器连接失败</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="176"/>
@@ -7905,12 +7905,12 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="914"/>
         <source>trying to reconnect </source>
-        <translation>重新尝试连接</translation>
+        <translation>重新尝试连接第</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="914"/>
         <source> times</source>
-        <translation>次数</translation>
+        <translation>次</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="934"/>
