@@ -5951,7 +5951,7 @@ Please retry or relogin!</source>
         <location filename="../../../plugins/network/netconnect/netconnect.ui" line="109"/>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="104"/>
         <source>open</source>
-        <translation>打开</translation>
+        <translation>开启</translation>
         <extra-contents_path>/netconnect/open</extra-contents_path>
     </message>
     <message>
@@ -7716,60 +7716,25 @@ Please retry or relogin!</source>
         <translation>自动启动的应用程序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1470"/>
-        <source>pa_context_subscribe() failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1486"/>
-        <source>pa_context_client_info_list() failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1493"/>
-        <source>pa_context_get_card_info_list() failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1500"/>
-        <source>pa_context_get_sink_info_list() failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1507"/>
-        <source>pa_context_get_source_info_list() failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1270"/>
-        <source>Failed to initialize stream_restore extension: %s</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1514"/>
-        <source>pa_context_get_sink_input_info_list() failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1521"/>
-        <source>pa_context_get_source_output_info_list() failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1537"/>
-        <source>Connection failed, attempting reconnect</source>
-        <translation>连接失败，尝试重新连接</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1287"/>
-        <source>pa_ext_stream_restore_read() failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="213"/>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1402"/>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1479"/>
         <source>pa_context_get_server_info() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1099"/>
+        <source>Card callback failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1117"/>
+        <source>Sink callback failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1139"/>
+        <source>Source callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7791,6 +7756,16 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1236"/>
         <source>Server info callback failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1270"/>
+        <source>Failed to initialize stream_restore extension: %s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1287"/>
+        <source>pa_ext_stream_restore_read() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7830,23 +7805,48 @@ Please retry or relogin!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1470"/>
+        <source>pa_context_subscribe() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1486"/>
+        <source>pa_context_client_info_list() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1493"/>
+        <source>pa_context_get_card_info_list() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1500"/>
+        <source>pa_context_get_sink_info_list() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1507"/>
+        <source>pa_context_get_source_info_list() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1514"/>
+        <source>pa_context_get_sink_input_info_list() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1521"/>
+        <source>pa_context_get_source_output_info_list() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1537"/>
+        <source>Connection failed, attempting reconnect</source>
+        <translation>连接失败，尝试重新连接</translation>
+    </message>
+    <message>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1557"/>
         <source>Ukui Media Volume Control</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1099"/>
-        <source>Card callback failure</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1117"/>
-        <source>Sink callback failure</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1139"/>
-        <source>Source callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -9484,6 +9484,11 @@ Please retry or relogin!</source>
         <translation>触摸屏标识</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/touchscreen/touchscreen.ui" line="209"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../../plugins/system/touchscreen/touchscreen.ui" line="236"/>
         <source>map</source>
         <translation>触摸映射</translation>
@@ -9502,11 +9507,6 @@ Please retry or relogin!</source>
         <location filename="../../../plugins/system/touchscreen/touchscreen.ui" line="202"/>
         <source>input device</source>
         <translation>触摸设备</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/touchscreen/touchscreen.ui" line="209"/>
-        <source>TextLabel</source>
-        <translation></translation>
     </message>
 </context>
 <context>
@@ -10999,7 +10999,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <location filename="../../../plugins/network/wlanconnect/wlanconnect.ui" line="94"/>
         <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="116"/>
         <source>open</source>
-        <translation>打开</translation>
+        <translation>开启</translation>
         <extra-contents_path>/wlanconnect/open</extra-contents_path>
     </message>
     <message>
