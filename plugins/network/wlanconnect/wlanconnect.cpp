@@ -281,7 +281,7 @@ void WlanConnect::updateOneWlanFrame(QString deviceName, QString ssid, int statu
                 iter.value()->statusLabel->setStyleSheet("");
                 iter.value()->statusLabel->setMinimumSize(36,36);
                 iter.value()->statusLabel->setMaximumSize(16777215,16777215);
-                iter.value()->statusLabel->setText(tr("no connected"));
+                iter.value()->statusLabel->setText("");
                 iter.value()->isAcitve = false;
             }
         }
@@ -524,7 +524,7 @@ void WlanConnect::addOneWlanFrame(ItemFrame *frame, QString deviceName, QString 
     if (status) {
         wlanItem->statusLabel->setText(tr("connected"));
     } else {
-        wlanItem->statusLabel->setText(tr("no connected"));
+        wlanItem->statusLabel->setText("");
     }
 
     connect(wlanItem->infoLabel, &InfoButton::clicked, this, [=]{
@@ -586,7 +586,7 @@ void WlanConnect::rebuildAvailComponent(ItemFrame *frame, QString deviceName, QS
     if (status) {
         wlanItem->statusLabel->setText(tr("connected"));
     } else {
-        wlanItem->statusLabel->setText(tr("no connected"));
+        wlanItem->statusLabel->setText("");
     }
 
     connect(wlanItem->infoLabel, &InfoButton::clicked, this, [=]{

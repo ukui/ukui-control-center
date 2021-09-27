@@ -249,7 +249,7 @@ void NetConnect::updateOneLanFrame(QString deviceName, QString uuid, int status)
                 iter.value()->statusLabel->setStyleSheet("");
                 iter.value()->statusLabel->setMinimumSize(36,36);
                 iter.value()->statusLabel->setMaximumSize(16777215,16777215);
-                iter.value()->statusLabel->setText(tr("no connected"));
+                iter.value()->statusLabel->setText("");
                 iter.value()->isAcitve = false;
             }
         }
@@ -471,7 +471,7 @@ void NetConnect::rebuildAvailComponent(ItemFrame *frame, QString iconPath, QStri
     if (status) {
         lanItem->statusLabel->setText(tr("connected"));
     } else {
-        lanItem->statusLabel->setText(tr("no connected"));
+        lanItem->statusLabel->setText("");
     }
 
     connect(lanItem->infoLabel, &InfoButton::clicked, this, [=]{
