@@ -30,6 +30,7 @@
 
 #include <QSvgRenderer>
 #include "mainwindow.h"
+#include "mhomedelegate.h"
 #include "utils/keyvalueconverter.h"
 #include "component/clicklabel.h"
 #include "utils/functionselect.h"
@@ -232,6 +233,8 @@ void HomePageWidget::initUI() {
             }
         });
 
+        mHomeDelegate *delegate  = new mHomeDelegate;
+       ui->listWidget->setItemDelegate(delegate);
 
         QListWidgetItem * item = new QListWidgetItem(ui->listWidget);
         item->setSizeHint(QSize(360, 100));
