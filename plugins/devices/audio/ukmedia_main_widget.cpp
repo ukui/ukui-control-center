@@ -2867,17 +2867,24 @@ void UkmediaMainWidget::setDefaultOutputPortDevice(QString devName, QString port
 {
     int cardIndex = findCardIndex(devName,m_pVolumeControl->cardMap);
     QString portStr = findOutputPortName(cardIndex,portName);
-    QString sinkStr = findPortSink(cardIndex,portStr);
 
-    /*默认的stream 和设置的stream相同 需要更新端口*/
-    if (strcmp(sinkStr.toLatin1().data(),m_pVolumeControl->defaultSinkName) == 0) {
-        m_pVolumeControl->setSinkPort(sinkStr.toLatin1().data(),portStr.toLatin1().data());
-    }
-    else {
-        m_pVolumeControl->setDefaultSink(sinkStr.toLatin1().data());
-        m_pVolumeControl->setSinkPort(sinkStr.toLatin1().data(),portStr.toLatin1().data());
-    }
-    qDebug() << "set default output"  << portName <<cardIndex << portStr <<sinkStr;
+    QTimer *timer = new QTimer;
+    timer->start(50);
+    connect(timer,&QTimer::timeout,[=](){
+        QString sinkStr = findPortSink(cardIndex,portStr);
+
+        /*默认的stream 和设置的stream相同 需要更新端口*/
+        if (strcmp(sinkStr.toLatin1().data(),m_pVolumeControl->defaultSinkName) == 0) {
+            m_pVolumeControl->setSinkPort(sinkStr.toLatin1().data(),portStr.toLatin1().data());
+        }
+        else {
+            m_pVolumeControl->setDefaultSink(sinkStr.toLatin1().data());
+            m_pVolumeControl->setSinkPort(sinkStr.toLatin1().data(),portStr.toLatin1().data());
+        }
+        qDebug() << "set default output"  << portName <<cardIndex << portStr <<sinkStr;
+        delete timer;
+    });
+
 }
 
 /*
@@ -2887,17 +2894,23 @@ void UkmediaMainWidget::setDefaultInputPortDevice(QString devName, QString portN
 {
     int cardIndex = findCardIndex(devName,m_pVolumeControl->cardMap);
     QString portStr = findInputPortName(cardIndex,portName);
-    QString sourceStr = findPortSource(cardIndex,portStr);
+    QTimer *timer = new QTimer;
+    timer->start(50);
+    connect(timer,&QTimer::timeout,[=](){
+        QString sourceStr = findPortSource(cardIndex,portStr);
 
-    /*默认的stream 和设置的stream相同 需要更新端口*/
-    if (strcmp(sourceStr.toLatin1().data(),m_pVolumeControl->defaultSourceName) == 0) {
-        m_pVolumeControl->setSourcePort(sourceStr.toLatin1().data(),portStr.toLatin1().data());
-    }
-    else {
-        m_pVolumeControl->setDefaultSource(sourceStr.toLatin1().data());
-        m_pVolumeControl->setSourcePort(sourceStr.toLatin1().data(),portStr.toLatin1().data());
-    }
-    qDebug() << "set default input"  << portName <<cardIndex << portStr << devName;
+        /*默认的stream 和设置的stream相同 需要更新端口*/
+        if (strcmp(sourceStr.toLatin1().data(),m_pVolumeControl->defaultSourceName) == 0) {
+            m_pVolumeControl->setSourcePort(sourceStr.toLatin1().data(),portStr.toLatin1().data());
+        }
+        else {
+            m_pVolumeControl->setDefaultSource(sourceStr.toLatin1().data());
+            m_pVolumeControl->setSourcePort(sourceStr.toLatin1().data(),portStr.toLatin1().data());
+        }
+        qDebug() << "set default input"  << portName <<cardIndex << portStr << devName;
+        delete timer;
+    });
+
 }
 
 /*
@@ -2927,17 +2940,17 @@ QString UkmediaMainWidget::findPortSink(int cardIndex,QString portName)
     QMap<QString,QString>::iterator tempMap;
     QString sinkStr = "";
     for (it=m_pVolumeControl->sinkPortMap.begin();it!=m_pVolumeControl->sinkPortMap.end();) {
-         qDebug() <<"find port sink" << it.value() << portName<< it.key() <<sinkStr;
-        if (it.key() == cardIndex) {
-            portNameMap = it.value();
-            for (tempMap=portNameMap.begin();tempMap!=portNameMap.end();) {
-//                qDebug() <<"find port sink" << tempMap.value() << portName<< tempMap.key() <<sinkStr;
-                if ( tempMap.value() == portName) {
-                    sinkStr = tempMap.key();
-		    break;
-                    }
-            ++tempMap;
-            }
+//         qDebug() <<"find port sink" << it.value() <<"portname:" << portName << "it.key"<< it.key() << "sink:" <<sinkStr << "card index" << cardIndex;
+         if (it.key() == cardIndex) {
+             portNameMap = it.value();
+             for (tempMap=portNameMap.begin();tempMap!=portNameMap.end();) {
+                qDebug() <<"find port sink" << tempMap.value() << portName<< tempMap.key() <<sinkStr;
+                 if ( tempMap.value() == portName) {
+                     sinkStr = tempMap.key();
+                     break;
+                 }
+                 ++tempMap;
+             }
         }
         ++it;
     }
