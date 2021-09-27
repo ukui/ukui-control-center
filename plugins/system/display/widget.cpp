@@ -97,7 +97,6 @@ void value_to_hour_minute(double value, int *hour, int *minute)
 
 double hour_minute_to_value(int hour, int minute) {
     double value = (double)minute/60;
-   // QString::number(value,'f', 2).toDouble();
     return (double)hour + value;
 }
 
@@ -1898,7 +1897,7 @@ void Widget::initConnection()
 
     connect(mOpenTimeHCombox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=]{
         if (m_colorSettings) {           
-            m_colorSettings->set(NIGHT_FROM_KEY,QString::number(hour_minute_to_value((mOpenTimeHCombox->currentText()).toInt(),(mOpenTimeHCombox->currentText()).toInt()),'f', 2).toDouble());
+            m_colorSettings->set(NIGHT_FROM_KEY,QString::number(hour_minute_to_value((mOpenTimeHCombox->currentText()).toInt(),(mQpenTimeMCombox->currentText()).toInt()),'f', 2).toDouble());
         } else {
             applyNightModeSlot();
         }
@@ -1906,7 +1905,7 @@ void Widget::initConnection()
 
     connect(mQpenTimeMCombox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=]{
         if (m_colorSettings) {
-            m_colorSettings->set(NIGHT_FROM_KEY,QString::number(hour_minute_to_value((mOpenTimeHCombox->currentText()).toInt(),(mOpenTimeHCombox->currentText()).toInt()),'f', 2).toDouble());
+            m_colorSettings->set(NIGHT_FROM_KEY,QString::number(hour_minute_to_value((mOpenTimeHCombox->currentText()).toInt(),(mQpenTimeMCombox->currentText()).toInt()),'f', 2).toDouble());
         } else {
             applyNightModeSlot();
         }
@@ -1914,7 +1913,7 @@ void Widget::initConnection()
 
     connect(mCloseTimeHCombox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=]{
         if (m_colorSettings) {
-             m_colorSettings->set(NIGHT_TO_KEY,QString::number(hour_minute_to_value((mCloseTimeHCombox->currentText()).toInt(),(mCloseTimeHCombox->currentText()).toInt()),'f', 2).toDouble());
+             m_colorSettings->set(NIGHT_TO_KEY,QString::number(hour_minute_to_value((mCloseTimeHCombox->currentText()).toInt(),(mCloseTimeMCombox->currentText()).toInt()),'f', 2).toDouble());
         } else {
             applyNightModeSlot();
         }
@@ -1922,7 +1921,7 @@ void Widget::initConnection()
 
     connect(mCloseTimeMCombox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=]{
         if (m_colorSettings) {
-            m_colorSettings->set(NIGHT_TO_KEY,QString::number(hour_minute_to_value((mCloseTimeHCombox->currentText()).toInt(),(mCloseTimeHCombox->currentText()).toInt()),'f', 2).toDouble());
+            m_colorSettings->set(NIGHT_TO_KEY,QString::number(hour_minute_to_value((mCloseTimeHCombox->currentText()).toInt(),(mCloseTimeMCombox->currentText()).toInt()),'f', 2).toDouble());
         } else {
             applyNightModeSlot();
         }
