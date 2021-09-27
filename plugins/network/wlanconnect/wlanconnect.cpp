@@ -137,7 +137,7 @@ void WlanConnect::initComponent() {
     //删除无线网络
     connect(m_interface, SIGNAL(wlanRemove(QString, QString)), this, SLOT(updateOneWlanFrame(QString, QString)));
     //网卡插拔处理
-    connect(m_interface, SIGNAL(deviceStatusChanged()), this, SLOT(updateLanListWidget()));
+    connect(m_interface, SIGNAL(deviceStatusChanged()), this, SLOT(updateWlanListWidget()));
     //信号更新处理
     connect(m_interface, SIGNAL(signalStrengthChange(QString, QString, int)), this, SLOT(updateStrengthList(QString, QString, int)));
 
@@ -233,7 +233,7 @@ void WlanConnect::updateStrengthList(QString deviceName, QString ssid, int stren
     }
 }
 
-void WlanConnect::updateLanListWidget()
+void WlanConnect::updateWlanListWidget()
 {
     qDebug()<<"网卡插拔处理";
     QEventLoop eventloop;
@@ -328,6 +328,12 @@ void WlanConnect::getDeviceList()
 
 void WlanConnect::setSwitchStatus()
 {
+    if (deviceListMap.size() == 0) {
+        wifiSwtch->blockSignals(true);
+        wifiSwtch->setChecked(false);
+        wifiSwtch->blockSignals(false);
+        return;
+    }
     bool status = m_switchGsettings->get(WIRELESS_SWITCH).toBool();
     wifiSwtch->blockSignals(true);
     wifiSwtch->setChecked(status);

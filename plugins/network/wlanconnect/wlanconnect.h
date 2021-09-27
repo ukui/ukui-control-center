@@ -122,6 +122,6 @@ private slots:
     void updateOneWlanFrame(QString deviceName, QString wlannName);
     void updateOneWlanFrame(QString deviceName, QString ssid, int status);
     void updateStrengthList(QString deviceName, QString ssid, int strength);
-    void updateLanListWidget();
+    void updateWlanListWidget();
 };
 #endif // WLANCONNECT_H
