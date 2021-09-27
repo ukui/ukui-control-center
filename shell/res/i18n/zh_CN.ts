@@ -5940,7 +5940,7 @@ Please retry or relogin!</source>
         <location filename="../../../plugins/network/netconnect/netconnect.ui" line="208"/>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="101"/>
         <source>Advanced settings</source>
-        <translation type="unfinished">高级设置</translation>
+        <translation>高级设置</translation>
         <extra-contents_path>/netconnect/Advanced settings&quot;</extra-contents_path>
     </message>
     <message>
@@ -5951,7 +5951,7 @@ Please retry or relogin!</source>
         <location filename="../../../plugins/network/netconnect/netconnect.ui" line="109"/>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="104"/>
         <source>open</source>
-        <translation>打开</translation>
+        <translation>开启</translation>
         <extra-contents_path>/netconnect/open</extra-contents_path>
     </message>
     <message>
@@ -5980,15 +5980,9 @@ Please retry or relogin!</source>
         <translation>有线网络</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="437"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="408"/>
         <source>card</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="273"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="503"/>
-        <source>no connected</source>
-        <translation type="unfinished"></translation>
+        <translation>网卡</translation>
     </message>
     <message>
         <source>Add Wired Network</source>
@@ -6015,8 +6009,8 @@ Please retry or relogin!</source>
         <translation type="vanished">刷新中...</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="260"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="501"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="239"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="472"/>
         <source>connected</source>
         <translation>已连接</translation>
     </message>
@@ -7722,60 +7716,25 @@ Please retry or relogin!</source>
         <translation>自动启动的应用程序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1470"/>
-        <source>pa_context_subscribe() failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1486"/>
-        <source>pa_context_client_info_list() failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1493"/>
-        <source>pa_context_get_card_info_list() failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1500"/>
-        <source>pa_context_get_sink_info_list() failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1507"/>
-        <source>pa_context_get_source_info_list() failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1270"/>
-        <source>Failed to initialize stream_restore extension: %s</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1514"/>
-        <source>pa_context_get_sink_input_info_list() failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1521"/>
-        <source>pa_context_get_source_output_info_list() failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1537"/>
-        <source>Connection failed, attempting reconnect</source>
-        <translation>连接失败，尝试重新连接</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1287"/>
-        <source>pa_ext_stream_restore_read() failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="213"/>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1402"/>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1479"/>
         <source>pa_context_get_server_info() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1099"/>
+        <source>Card callback failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1117"/>
+        <source>Sink callback failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1139"/>
+        <source>Source callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7797,6 +7756,16 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1236"/>
         <source>Server info callback failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1270"/>
+        <source>Failed to initialize stream_restore extension: %s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1287"/>
+        <source>pa_ext_stream_restore_read() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7836,23 +7805,48 @@ Please retry or relogin!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1470"/>
+        <source>pa_context_subscribe() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1486"/>
+        <source>pa_context_client_info_list() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1493"/>
+        <source>pa_context_get_card_info_list() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1500"/>
+        <source>pa_context_get_sink_info_list() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1507"/>
+        <source>pa_context_get_source_info_list() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1514"/>
+        <source>pa_context_get_sink_input_info_list() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1521"/>
+        <source>pa_context_get_source_output_info_list() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1537"/>
+        <source>Connection failed, attempting reconnect</source>
+        <translation>连接失败，尝试重新连接</translation>
+    </message>
+    <message>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1557"/>
         <source>Ukui Media Volume Control</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1099"/>
-        <source>Card callback failure</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1117"/>
-        <source>Sink callback failure</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1139"/>
-        <source>Source callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -9490,6 +9484,11 @@ Please retry or relogin!</source>
         <translation>触摸屏标识</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/touchscreen/touchscreen.ui" line="209"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../../plugins/system/touchscreen/touchscreen.ui" line="236"/>
         <source>map</source>
         <translation>触摸映射</translation>
@@ -9508,11 +9507,6 @@ Please retry or relogin!</source>
         <location filename="../../../plugins/system/touchscreen/touchscreen.ui" line="202"/>
         <source>input device</source>
         <translation>触摸设备</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/touchscreen/touchscreen.ui" line="209"/>
-        <source>TextLabel</source>
-        <translation></translation>
     </message>
 </context>
 <context>
@@ -10759,144 +10753,144 @@ Please retry or relogin!</source>
         <translation type="vanished">屏幕缩放 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="802"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="801"/>
         <source>unify output</source>
         <translation>统一输出</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="806"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="805"/>
         <source>night mode</source>
         <translation>夜间模式</translation>
         <extra-contents_path>/display/night mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="713"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="712"/>
         <source>Some applications need to be logouted to take effect</source>
         <translation>部分程序需要注销生效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="264"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="263"/>
         <source>Night Mode</source>
         <translation>夜间模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="284"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="283"/>
         <source>Open</source>
         <translation>打开</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="299"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="298"/>
         <source>Time</source>
         <translation>时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="315"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2032"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="314"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2031"/>
         <source>Custom Time</source>
         <translation>自定义</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="326"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="325"/>
         <source>to</source>
         <translation>至</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="352"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="351"/>
         <source>Color Temperature</source>
         <translation>屏幕色温</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="355"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="354"/>
         <source>Warmer</source>
         <translation>较暖</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="358"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="357"/>
         <source>Colder</source>
         <translation>较冷</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="673"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="672"/>
         <source>Multi-screen</source>
         <translation>多屏显示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="678"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="677"/>
         <source>First Screen</source>
         <translation>第一屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="679"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="678"/>
         <source>Clone Screen</source>
         <translation>镜像屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="680"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="679"/>
         <source>Extend Screen</source>
         <translation>拓展屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="681"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="680"/>
         <source>Vice Screen</source>
         <translation>其他屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="701"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="700"/>
         <location filename="../../../plugins/system/touchscreen/widget.cpp" line="114"/>
         <source>monitor</source>
         <translation>显示器</translation>
         <extra-contents_path>/touchscreen/monitor</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="712"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="711"/>
         <source>Information</source>
         <translation>信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="814"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="813"/>
         <source>Theme follow night mode</source>
         <translation>主题跟随夜间模式变化</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="868"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="867"/>
         <source>Hint</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="869"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="868"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after 14 seconds</source>
         <translation>是否保留当前修改的配置？将在14秒后自动保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="873"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="872"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="874"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="873"/>
         <source>Not Save</source>
         <translation>不保存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="883"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="882"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
 the settings will be saved after %1 seconds</source>
         <translation>是否保留当前修改的配置？将在%1秒后自动保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2032"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2031"/>
         <source>All Day</source>
         <translation>全天</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2032"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2031"/>
         <source>Follow the sunrise and sunset(17:55-06:23)</source>
         <translation>跟随日出日落(17:55-06:23)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2303"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2311"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2302"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2310"/>
         <source>Brightness</source>
         <translation>亮度</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
@@ -10940,19 +10934,19 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1528"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1527"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1325"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1528"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1535"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1324"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1527"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1534"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1326"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1325"/>
         <source>Open time should be earlier than close time!</source>
         <translation>开启时间必须大于关闭时间！</translation>
     </message>
@@ -10961,7 +10955,7 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">早晨时刻应早于晚上的时刻!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1536"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1535"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>
@@ -10991,28 +10985,28 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     <name>WlanConnect</name>
     <message>
         <location filename="../../../plugins/network/wlanconnect/wlanconnect.ui" line="14"/>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="53"/>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="60"/>
         <source>WlanConnect</source>
         <translation>无线局域网</translation>
     </message>
     <message>
         <location filename="../../../plugins/network/wlanconnect/wlanconnect.ui" line="35"/>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="107"/>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="114"/>
         <source>WLAN</source>
         <translation>无线局域网</translation>
     </message>
     <message>
         <location filename="../../../plugins/network/wlanconnect/wlanconnect.ui" line="94"/>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="109"/>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="116"/>
         <source>open</source>
-        <translation>打开</translation>
+        <translation>开启</translation>
         <extra-contents_path>/wlanconnect/open</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/network/wlanconnect/wlanconnect.ui" line="163"/>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="106"/>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="113"/>
         <source>Advanced settings</source>
-        <translation type="unfinished">高级设置</translation>
+        <translation>高级设置</translation>
         <extra-contents_path>/wlanconnect/Advanced settings&quot;</extra-contents_path>
     </message>
     <message>
@@ -11036,19 +11030,16 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">网络连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="391"/>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="472"/>
         <source>card</source>
-        <translation type="unfinished"></translation>
+        <translation>网卡</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="443"/>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="264"/>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="525"/>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="587"/>
         <source>connected</source>
-        <translation type="unfinished">已连接</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="445"/>
-        <source>no connected</source>
-        <translation type="unfinished"></translation>
+        <translation>已连接</translation>
     </message>
 </context>
 <context>
