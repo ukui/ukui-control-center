@@ -4,6 +4,11 @@
 #include <QWidget>
 #include <QLabel>
 #include <QPushButton>
+#include <QGSettings/QGSettings>
+#include <QVariant>
+
+#define UKUI_QT_STYLE                      "org.ukui.style"
+#define UKUI_STYLE_KEY                     "style-name"
 
 class PasswordBar : public QWidget
 {
@@ -30,5 +35,6 @@ private:
     int m_ballRadius;
     int m_fillBallCnt;
     int m_ballSpan;
+    QGSettings *m_style = nullptr;
 };
 #endif // PASSWORDBAR_H
