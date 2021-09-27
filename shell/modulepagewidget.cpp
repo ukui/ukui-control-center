@@ -161,7 +161,7 @@ void ModulePageWidget::initUI() {
 
         ui->mtitleLabel->setText(titleString);
         ui->mmtitleLabel->setText(titleString);
-
+        this->pluginLeave();
     });
 }
 
@@ -255,17 +255,33 @@ void ModulePageWidget::currentLeftitemChanged(QListWidgetItem *cur, QListWidgetI
         preWidgetItem->setSelected(false);
         preWidgetItem->setLabelTextIsWhite(false);
         preWidgetItem->isSetLabelPixmapWhite(false);
+        CommonInterface * pluginInstance = pluginInstanceMap[preWidgetItem->text()];
+        pluginInstance->plugin_leave();
     }
 
     LeftWidgetItem * curWidgetItem = dynamic_cast<LeftWidgetItem *>(currentLeftListWidget->itemWidget(cur));
     if (pluginInstanceMap.contains(curWidgetItem->text())){
         CommonInterface * pluginInstance = pluginInstanceMap[curWidgetItem->text()];
+        currentPlugin = pluginInstance ;
         refreshPluginWidget(pluginInstance);
         //高亮
         curWidgetItem->setSelected(true);
         curWidgetItem->setLabelTextIsWhite(true);
         curWidgetItem->isSetLabelPixmapWhite(true);
+        currentPlugin->plugin_enter();
     } else {
         qDebug() << "plugin widget not fount!";
+    }
+}
+void ModulePageWidget::pluginEnter()
+{
+    if (currentPlugin){
+        currentPlugin->plugin_enter();
+    }
+}
+void ModulePageWidget::pluginLeave()
+{
+    if (currentPlugin){
+        currentPlugin->plugin_leave();
     }
 }

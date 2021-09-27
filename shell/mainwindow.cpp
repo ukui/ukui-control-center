@@ -317,7 +317,9 @@ void MainWindow::initUI() {
             mTitleIcon->setVisible(true);
             //左上角显示字符/返回按钮
             backBtn->setHidden(true);
-
+            if (modulepageWidget){
+                modulepageWidget->pluginLeave();
+            }
             //中部内容区域
             ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background:  palette(base); border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
         }
