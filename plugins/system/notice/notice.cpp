@@ -128,7 +128,7 @@ void Notice::initUi(QWidget *widget)
 
     QWidget *Noticewidget = new QWidget(widget);
     Noticewidget->setMinimumSize(QSize(550, 0));
-    Noticewidget->setMaximumSize(QSize(960, 16777215));
+    Noticewidget->setMaximumSize(QSize(16777215, 16777215));
 
     QVBoxLayout *NoticeLayout = new QVBoxLayout(Noticewidget);
     NoticeLayout->setContentsMargins(0, 0, 0, 0);
@@ -138,7 +138,7 @@ void Notice::initUi(QWidget *widget)
 
     mGetNoticeFrame  = new QFrame(Noticewidget);
     mGetNoticeFrame->setMinimumSize(QSize(550, 60));
-    mGetNoticeFrame->setMaximumSize(QSize(960, 60));
+    mGetNoticeFrame->setMaximumSize(QSize(16777215, 60));
     mGetNoticeFrame->setFrameShape(QFrame::Box);
 
     QHBoxLayout *mGetNoticeLayout = new QHBoxLayout(mGetNoticeFrame);
@@ -154,7 +154,7 @@ void Notice::initUi(QWidget *widget)
 
     mNoticeAppFrame = new QFrame(Noticewidget);
     mNoticeAppFrame->setMinimumSize(QSize(550, 0));
-    mNoticeAppFrame->setMaximumSize(QSize(960, 16777215));
+    mNoticeAppFrame->setMaximumSize(QSize(16777215, 16777215));
     mNoticeAppFrame->setFrameShape(QFrame::Box);
 
     applistverticalLayout = new QVBoxLayout(mNoticeAppFrame);
@@ -289,7 +289,7 @@ void Notice::initListUI(QDir dir,QString mpath,QStringList *stringlist)
 
         QFrame *baseWidget = new QFrame(mNoticeAppFrame);
         baseWidget->setMinimumWidth(550);
-        baseWidget->setMaximumWidth(960);
+        baseWidget->setMaximumWidth(16777215);
         baseWidget->setFixedHeight(60);
         baseWidget->setFrameShape(QFrame::Shape::NoFrame);
         baseWidget->setAttribute(Qt::WA_DeleteOnClose);
