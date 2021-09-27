@@ -5368,7 +5368,7 @@ Please retry or relogin!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="412"/>
+        <location filename="../../mainwindow.cpp" line="415"/>
         <source>Search</source>
         <translation type="unfinished">Ara</translation>
     </message>
@@ -5377,44 +5377,44 @@ Please retry or relogin!</source>
         <translation type="vanished">Denetim Merkezi</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="432"/>
-        <location filename="../../mainwindow.cpp" line="665"/>
-        <location filename="../../mainwindow.cpp" line="872"/>
+        <location filename="../../mainwindow.cpp" line="435"/>
+        <location filename="../../mainwindow.cpp" line="668"/>
+        <location filename="../../mainwindow.cpp" line="875"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="441"/>
+        <location filename="../../mainwindow.cpp" line="444"/>
         <source>Main menu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="442"/>
+        <location filename="../../mainwindow.cpp" line="445"/>
         <source>Minimize</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="443"/>
+        <location filename="../../mainwindow.cpp" line="446"/>
         <source>Maximize/Normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="444"/>
+        <location filename="../../mainwindow.cpp" line="447"/>
         <source>Close</source>
         <translation type="unfinished">Kapat</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="507"/>
+        <location filename="../../mainwindow.cpp" line="510"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="509"/>
+        <location filename="../../mainwindow.cpp" line="512"/>
         <source>About</source>
         <translation type="unfinished">Hakkında</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="511"/>
+        <location filename="../../mainwindow.cpp" line="514"/>
         <source>Exit</source>
         <translation type="unfinished">Çıkış</translation>
     </message>
@@ -5423,12 +5423,12 @@ Please retry or relogin!</source>
         <translation type="vanished">Denetim Merkezi</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="996"/>
+        <location filename="../../mainwindow.cpp" line="999"/>
         <source>Warning</source>
         <translation type="unfinished">Uyarı</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="996"/>
+        <location filename="../../mainwindow.cpp" line="999"/>
         <source>This function has been controlled</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6758,44 +6758,54 @@ Please retry or relogin!</source>
         <translation type="vanished">Varsayılan Simge</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="724"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="732"/>
         <source>blue-crystal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="726"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="734"/>
         <source>dark-sense</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="728"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="736"/>
         <source>DMZ-Black</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="730"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="738"/>
         <source>DMZ-White</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="742"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="758"/>
         <source>basic</source>
         <translation>Temel</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="744"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="760"/>
         <source>classical</source>
         <translation>Klasik</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="746"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="750"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="762"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="770"/>
         <source>default</source>
         <translation>Varsayılan</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="748"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="764"/>
         <source>fashion</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="766"/>
+        <source>hp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="768"/>
+        <source>ukui</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7819,7 +7829,7 @@ dosya sisteminde geçersiz!</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="201"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="175"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="181"/>
         <source>Idle time</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/screensaver/Idle time</extra-contents_path>
@@ -7836,7 +7846,7 @@ dosya sisteminde geçersiz!</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="297"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="173"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="179"/>
         <source>Screensaver program</source>
         <translation>Ekran Koruyucu Programı</translation>
         <extra-contents_path>/screensaver/Screensaver program</extra-contents_path>
@@ -7863,146 +7873,146 @@ dosya sisteminde geçersiz!</translation>
         <translation type="vanished">Ukui Varsayılanı</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="161"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="167"/>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="825"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="831"/>
         <source>Text(up to 30 characters):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="857"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="863"/>
         <source>Show rest time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="202"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="208"/>
         <source>UKUI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="203"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="209"/>
         <source>Blank_Only</source>
         <translation>Sadece Kalın</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="214"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="220"/>
         <source>Customize</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="229"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="728"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="235"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="734"/>
         <source>5min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="229"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="729"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="235"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="735"/>
         <source>10min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="229"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="730"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="235"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="736"/>
         <source>30min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="229"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="235"/>
         <source>15min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="229"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="235"/>
         <source>1hour</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="630"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="636"/>
         <source>Screensaver source</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="636"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="686"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="642"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="692"/>
         <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="644"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="650"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp *.svg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="685"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="691"/>
         <source>select custom screensaver dir</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="687"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="693"/>
         <source>Position: </source>
         <translation type="unfinished">Konum: </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="688"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="694"/>
         <source>FileName: </source>
         <translation type="unfinished">Dosya Adı: </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="689"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="695"/>
         <source>FileType: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="690"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="696"/>
         <source>Cancel</source>
         <translation type="unfinished">İptal</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="723"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="729"/>
         <source>Switching time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="727"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="733"/>
         <source>1min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="775"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="781"/>
         <source>Ordinal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="784"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="790"/>
         <source>Random switching</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="876"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="882"/>
         <source>Text position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="884"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="890"/>
         <source>Centered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="885"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="891"/>
         <source>Randow(Bubble text)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="776"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="782"/>
         <source>Random</source>
         <translation>Rasgele</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="230"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="236"/>
         <source>Never</source>
         <translation>Asla</translation>
     </message>
@@ -8048,7 +8058,7 @@ dosya sisteminde geçersiz!</translation>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/search/search.cpp" line="7"/>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="110"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="111"/>
         <source>Search</source>
         <translation type="unfinished">Ara</translation>
     </message>
@@ -8074,6 +8084,16 @@ dosya sisteminde geçersiz!</translation>
         <extra-contents_path>/search/Default web searching engine</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="138"/>
+        <source>Create index</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="139"/>
+        <source>Creating index can help you getting results quickly.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../../plugins/messages-task/search/search.cpp" line="170"/>
         <source>baidu</source>
         <translation type="unfinished"></translation>
@@ -8094,66 +8114,66 @@ dosya sisteminde geçersiz!</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="425"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="424"/>
         <source>Directories</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="427"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="426"/>
         <source>select blocked folder</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/search/select blocked folder</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="428"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="427"/>
         <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="429"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="428"/>
         <source>Position: </source>
         <translation type="unfinished">Konum: </translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="430"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="429"/>
         <source>FileName: </source>
         <translation type="unfinished">Dosya Adı: </translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="431"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="430"/>
         <source>FileType: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="432"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="431"/>
         <source>Cancel</source>
         <translation type="unfinished">İptal</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="448"/>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="452"/>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="456"/>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="460"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="447"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="451"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="455"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="459"/>
         <source>Warning</source>
         <translation type="unfinished">Uyarı</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="448"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="447"/>
         <source>Add blocked folder failed, choosen path is empty!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="452"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="451"/>
         <source>Add blocked folder failed, it is not in home path!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="456"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="455"/>
         <source>Add blocked folder failed, its parent dir is exist!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="460"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="459"/>
         <source>Add blocked folder failed, it has been already blocked!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8823,28 +8843,28 @@ dosya sisteminde geçersiz!</translation>
     <name>Theme</name>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.ui" line="76"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="157"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="159"/>
         <source>Theme Mode</source>
         <translation>Tema Modu</translation>
         <extra-contents_path>/theme/Theme Mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="112"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="113"/>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="238"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="240"/>
         <source>Default</source>
         <translation>Varsayılan</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="239"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="241"/>
         <source>Light</source>
         <translation>Açık</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="240"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="242"/>
         <source>Dark</source>
         <translation>Koyu</translation>
     </message>
@@ -8854,7 +8874,7 @@ dosya sisteminde geçersiz!</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.ui" line="361"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="159"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="161"/>
         <source>Icon theme</source>
         <translation>Simge Teması</translation>
         <extra-contents_path>/theme/Icon theme</extra-contents_path>
@@ -8866,7 +8886,7 @@ dosya sisteminde geçersiz!</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.ui" line="512"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="161"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="163"/>
         <source>Cursor theme</source>
         <translation>İmleç Teması</translation>
         <extra-contents_path>/theme/Cursor theme</extra-contents_path>
@@ -8878,7 +8898,7 @@ dosya sisteminde geçersiz!</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.ui" line="751"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="165"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="167"/>
         <source>Transparency</source>
         <translation>Şeffaflık</translation>
         <extra-contents_path>/theme/Transparency</extra-contents_path>
@@ -8889,7 +8909,7 @@ dosya sisteminde geçersiz!</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.ui" line="667"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="163"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="165"/>
         <source>Performance mode</source>
         <translation>Performans Modu</translation>
         <extra-contents_path>/theme/Performance mode</extra-contents_path>
@@ -10211,162 +10231,162 @@ dosya sisteminde geçersiz!</translation>
         <translation type="vanished">Ekranı Yaklaştır </translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="779"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="802"/>
         <source>unify output</source>
         <translation type="unfinished">Çıktıyı Birleştir</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="783"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="806"/>
         <source>night mode</source>
         <translation>Gece Modu</translation>
         <extra-contents_path>/display/night mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="695"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="713"/>
         <source>Some applications need to be logouted to take effect</source>
         <translation>Bazı uygulamaların aktif olması için oturum açılması gerekir</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="246"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="264"/>
         <source>Night Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="266"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="284"/>
         <source>Open</source>
         <translation type="unfinished">Aç</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="281"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="299"/>
         <source>Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="297"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2010"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="315"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2032"/>
         <source>Custom Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="308"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="326"/>
         <source>to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="334"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="352"/>
         <source>Color Temperature</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="337"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="355"/>
         <source>Warmer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="340"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="358"/>
         <source>Colder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="655"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="673"/>
         <source>Multi-screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="660"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="678"/>
         <source>First Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="661"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="679"/>
         <source>Clone Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="662"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="680"/>
         <source>Extend Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="663"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="681"/>
         <source>Vice Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="683"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="701"/>
         <location filename="../../../plugins/system/touchscreen/widget.cpp" line="114"/>
         <source>monitor</source>
         <translation type="unfinished">Ekran:</translation>
         <extra-contents_path>/touchscreen/monitor</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="694"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="712"/>
         <source>Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="791"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="814"/>
         <source>Theme follow night mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="845"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="868"/>
         <source>Hint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="846"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="869"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after 14 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="850"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="873"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="851"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="874"/>
         <source>Not Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="860"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="883"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
 the settings will be saved after %1 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2010"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2032"/>
         <source>All Day</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2010"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2032"/>
         <source>Follow the sunrise and sunset(17:55-06:23)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2269"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2277"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2303"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2311"/>
         <source>Brightness</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1505"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1528"/>
         <source>please insure at least one output!</source>
         <translation>Lütfen en az bir çıktı alın!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1302"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1505"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1512"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1325"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1528"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1535"/>
         <source>Warning</source>
         <translation>Uyarı</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1303"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1326"/>
         <source>Open time should be earlier than close time!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -10375,7 +10395,7 @@ the settings will be saved after %1 seconds</source>
         <translation type="vanished">Sabah vakti akşam saatinden daha erken olmalı!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1513"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1536"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>Maalesef, yapılandırmanız uygulanamadı. 
