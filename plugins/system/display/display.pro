@@ -9,7 +9,7 @@ include($$PROJECT_COMPONENTSOURCE/closebutton.pri)
 include($$PROJECT_COMPONENTSOURCE/uslider.pri)
 include($$PROJECT_COMPONENTSOURCE/label.pri)
 
-QT            += widgets core gui quickwidgets quick xml KScreen KI18n dbus concurrent KConfigCore
+QT            += widgets core gui quickwidgets quick xml KScreen  dbus concurrent KConfigCore
 TEMPLATE = lib
 CONFIG        += c++11   link_pkgconfig plugin
 

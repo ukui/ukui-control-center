@@ -927,6 +927,7 @@ void Widget::addBrightnessFrame(QString name, bool openFlag)
 
 void Widget::outputAdded(const KScreen::OutputPtr &output)
 {
+    mPreScreenConfig = mConfig->clone();
     QString name = Utils::outputName(output);
     addBrightnessFrame(name, output->isEnabled());
     // 刷新缩放选项，监听新增显示屏的mode变化
