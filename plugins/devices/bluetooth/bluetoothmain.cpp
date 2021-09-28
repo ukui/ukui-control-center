@@ -1494,7 +1494,6 @@ void BlueToothMain::removeDeviceItemUI(QString address)
             delete item;
             item = nullptr;
             Discovery_device_address.removeAll(address);
-            last_discovery_device_address.removeAll(address);
         }else{
             qDebug() << Q_FUNC_INFO << "NULL"<<__LINE__;
             return;
@@ -1516,6 +1515,7 @@ void BlueToothMain::removeDeviceItemUI(QString address)
             return;
         }
     }
+    last_discovery_device_address.removeAll(address);
 }
 
 void BlueToothMain::addMyDeviceItemUI(BluezQt::DevicePtr device)
