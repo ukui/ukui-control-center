@@ -70,22 +70,6 @@ UkmediaMainWidget::UkmediaMainWidget(QWidget *parent)
     m_pSoundThemeList = new QStringList;
     m_pSoundThemeDirList = new QStringList;
     m_pSoundThemeXmlNameList = new QStringList;
-    eventList = new QStringList;
-    eventIdNameList = new QStringList;
-
-    eventList->append("window-close");
-    eventList->append("system-setting");
-    eventList->append("volume-changed");
-    eventList->append("alert-sound");
-    eventIdNameList->append("dialog-warning");
-    eventIdNameList->append("bell");
-    eventIdNameList->append("flop");
-    eventIdNameList->append("gudou");
-
-    for (int i=0;i<eventList->count();i++) {
-//        getValue();
-        addValue(eventList->at(i),eventIdNameList->at(i));
-    }
 
     initGsettings();
     setupThemeSelector(this);
@@ -137,9 +121,9 @@ void UkmediaMainWidget::initWidget()
     m_pvLayout->addSpacerItem(new QSpacerItem(20,0,QSizePolicy::Fixed,QSizePolicy::Expanding));
     m_pvLayout->setSpacing(40);
     this->setLayout(m_pvLayout);
-    this->setMinimumWidth(582);
-    this->setMaximumWidth(910);
-    this->layout()->setContentsMargins(0,0,31,0);
+    this->setMinimumWidth(550);
+    this->setMaximumWidth(16777215);
+    this->layout()->setContentsMargins(0,0,40,40);
 
     //设置滑动条的最大值为100
     m_pInputWidget->m_pIpVolumeSlider->setMaximum(100);//输入音量滑动条
@@ -288,7 +272,7 @@ void UkmediaMainWidget::initGsettings()
     m_pSoundWidget->m_pAlertSoundSwitchButton->setChecked(status);
 
     status = g_settings_get_boolean(m_pSoundSettings, DNS_NOISE_REDUCTION);
-    m_pSoundWidget->m_pDnsNoiseReductionButton->setChecked(status);
+    m_pInputWidget->m_pDnsNoiseReductionButton->setChecked(status);
     switchNoiseReductionButton(status);
     if(m_pSoundWidget->m_pAlertSoundSwitchButton->isChecked())
     {
@@ -316,7 +300,7 @@ void UkmediaMainWidget::dealSlot()
     connect(m_pSoundWidget->m_pLogoutButton,SIGNAL(checkedChanged(bool)),this,SLOT(logoutMusicButtonSwitchChangedSlot(bool)));
     connect(m_pSoundWidget->m_pWakeupMusicButton,SIGNAL(checkedChanged(bool)),this,SLOT(wakeButtonSwitchChangedSlot(bool)));
     connect(m_pSoundWidget->m_pAlertSoundSwitchButton,SIGNAL(checkedChanged(bool)),this,SLOT(alertSoundButtonSwitchChangedSlot(bool)));
-    connect(m_pSoundWidget->m_pDnsNoiseReductionButton,SIGNAL(checkedChanged(bool)),this,SLOT(dnsNoiseReductionButtonSwitchChangedSlot(bool)));
+    connect(m_pInputWidget->m_pDnsNoiseReductionButton,SIGNAL(checkedChanged(bool)),this,SLOT(dnsNoiseReductionButtonSwitchChangedSlot(bool)));
     //输出音量控制
     //输出滑动条音量控制
     timeSlider = new QTimer(this);
@@ -339,7 +323,7 @@ void UkmediaMainWidget::dealSlot()
 
     connect(m_pVolumeControl,SIGNAL(deviceChangedSignal()),this,SLOT(updateComboboxListWidgetItemSlot()));
     //切换输出设备或者音量改变时需要同步更新音量
-    connect(m_pVolumeControl,&UkmediaVolumeControl::updateVolume,this,[=](int value){
+    connect(m_pVolumeControl,&UkmediaVolumeControl::updateVolume,this,[=](int value,bool state){
 
         QString percent = QString::number(paVolumeToValue(value));
         float balanceVolume = m_pVolumeControl->getBalanceVolume();
@@ -355,7 +339,7 @@ void UkmediaMainWidget::dealSlot()
         themeChangeIcons();
         initComboboxItem();
     });
-    connect(m_pVolumeControl,&UkmediaVolumeControl::updateSourceVolume,this,[=](int value){
+    connect(m_pVolumeControl,&UkmediaVolumeControl::updateSourceVolume,this,[=](int value,bool state){
         QString percent = QString::number(paVolumeToValue(value));
 
         m_pInputWidget->m_pIpVolumePercentLabel->setText(percent+"%");
@@ -629,6 +613,7 @@ void UkmediaMainWidget::switchNoiseReductionButton(bool status)
     else {
         system("pacmd switch-on-dns-global inteldns_source 0");
         m_pInputWidget->m_pIpVolumeSlider->setEnabled(true);
+
     }
 }
 
@@ -2269,7 +2254,7 @@ void UkmediaMainWidget::setCardProfile(QString name, QString profile)
     int index = findCardIndex(name,m_pVolumeControl->cardMap);
     m_pVolumeControl->setCardProfile(index,profile.toLatin1().data());
 
-    qDebug() << "set profile" << profile << index ;
+    qDebug() << "set profile" << profile << index;
 }
 
 /*
@@ -2309,7 +2294,7 @@ void UkmediaMainWidget::setDefaultInputPortDevice(QString devName, QString portN
         m_pVolumeControl->setDefaultSource(sourceStr.toLatin1().data());
         m_pVolumeControl->setSourcePort(sourceStr.toLatin1().data(),portStr.toLatin1().data());
     }
-    qDebug() << "set default input"  << portName <<cardIndex << portStr << devName;
+    qDebug() << "set default input"  << portName << cardIndex << portStr << devName;
 }
 
 /*
@@ -2339,21 +2324,21 @@ QString UkmediaMainWidget::findPortSink(int cardIndex,QString portName)
     QMap<QString,QString>::iterator tempMap;
     QString sinkStr = "";
     for (it=m_pVolumeControl->sinkPortMap.begin();it!=m_pVolumeControl->sinkPortMap.end();) {
-         qDebug() <<"find port sink" << it.value() << portName<< it.key() <<sinkStr;
         if (it.key() == cardIndex) {
             portNameMap = it.value();
             for (tempMap=portNameMap.begin();tempMap!=portNameMap.end();) {
-//                qDebug() <<"find port sink" << tempMap.value() << portName<< tempMap.key() <<sinkStr;
                 if ( tempMap.value() == portName) {
                     sinkStr = tempMap.key();
-                    return sinkStr;
-                    }
-            ++tempMap;
+                    qDebug() <<"find port sink" << tempMap.value() << portName<< tempMap.key() <<sinkStr;
+                    break;
+                }
+                ++tempMap;
             }
         }
+
         ++it;
     }
-
+    return sinkStr;
 }
 
 /*
@@ -2366,20 +2351,21 @@ QString UkmediaMainWidget::findPortSource(int cardIndex,QString portName)
     QMap<QString,QString>::iterator tempMap;
     QString sourceStr = "";
     for (it=m_pVolumeControl->sourcePortMap.begin();it!=m_pVolumeControl->sourcePortMap.end();) {
-        if (it.key() == cardIndex) {
+        if(it.key() == cardIndex) {
             portNameMap = it.value();
             for (tempMap=portNameMap.begin();tempMap!=portNameMap.end();) {
-                qDebug() << "findportsource ===" <<tempMap.value() << portName;
                 if ( tempMap.value() == portName) {
                     sourceStr = tempMap.key();
-
-                    return sourceStr;
+                    qDebug() << "find port source" <<tempMap.value() << portName;
+                    break;
                 }
                 ++tempMap;
             }
+
         }
         ++it;
     }
+    return sourceStr;
 }
 
 
@@ -2577,7 +2563,7 @@ void UkmediaMainWidget::findInputComboboxItem(QString cardName,QString portLabel
 
         QString comboboxcardname = m_pInputWidget->m_pInputDeviceSelectBox->itemData(row).toString();
         QString comboboxportname = m_pInputWidget->m_pInputDeviceSelectBox->itemText(row);
-        qDebug() << "dididi" << cardName <<portLabel<< m_pInputWidget->m_pInputDeviceSelectBox->count()
+        qDebug() << "findInputComboboxItem" << cardName <<portLabel<< m_pInputWidget->m_pInputDeviceSelectBox->count()
                  << comboboxcardname << comboboxportname;
         if (comboboxcardname == cardName && comboboxportname == portLabel) {
             m_pInputWidget->m_pInputDeviceSelectBox->blockSignals(true);
@@ -2969,10 +2955,12 @@ void UkmediaMainWidget::cboxinputListWidgetCurrentRowChangedSlot(int row)
     QString endInputProfile = "";
     int index = findCardIndex(inputComboboxCardName,m_pVolumeControl->cardMap);
     for (it=m_pVolumeControl->inputPortProfileNameMap.begin();it!= m_pVolumeControl->inputPortProfileNameMap.end();) {
+
         if (it.key() == index) {
             temp = it.value();
             for(at=temp.begin();at!=temp.end();){
-                if(at.key() == outputComboboxPortName){
+                //at.key()为多声道输入，outputComboboxPortName为扬声器
+                if(at.key() == inputComboboxPortName){
                     endInputProfile = at.value();
                 }
                 ++at;
@@ -2988,6 +2976,7 @@ void UkmediaMainWidget::cboxinputListWidgetCurrentRowChangedSlot(int row)
             ++at;
         }
     }
+    qDebug() << "cboxinputListWidgetCurrentRowChangedSlot" << endOutputProfile <<endInputProfile;
     //如果选择的输入输出设备为同一个声卡，则追加指定输入输出端口属于的配置文件
     if (m_pOutputWidget->m_pDeviceSelectBox->currentText().size()!=0 && inputComboboxCardName == outputComboboxCardName) {
         QString  setProfile;

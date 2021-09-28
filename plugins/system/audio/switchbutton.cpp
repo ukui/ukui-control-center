@@ -31,7 +31,7 @@ SwitchButton::SwitchButton(QWidget *parent) :
     borderColorOff = QColor("#cccccc");
 
     bgColorOff = QColor("#cccccc");
-    bgColorOn = QColor("#3D6BE5");
+    bgColorOn = QColor("#2FB3E8");
 
     sliderColorOff = QColor("#ffffff");
     sliderColorOn = QColor("#ffffff");

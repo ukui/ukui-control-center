@@ -5741,6 +5741,11 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <extra-contents_path>/audio/Input Level</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/system/audio/ukmedia_input_widget.cpp" line="69"/>
+        <source>Noise Reduction</source>
+        <translation>智能降噪</translation>
+    </message>
+    <message>
         <source>Low</source>
         <translation type="vanished">低</translation>
     </message>
@@ -5921,11 +5926,6 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="68"/>
         <source>Logout Music</source>
         <translation>注销</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="69"/>
-        <source>Noise Reduction</source>
-        <translation>噪声消除</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="57"/>
