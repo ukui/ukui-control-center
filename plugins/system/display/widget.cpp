@@ -1482,6 +1482,8 @@ void Widget::kdsScreenchangeSlot(QString status)
         if (isPreChecked == afterChecked) {
             mKDSCfg.clear();
         }
+        enableChangedSlot();
+        mainScreenButtonSelect(ui->primaryCombo->currentIndex());
     });
 }
 
@@ -1777,40 +1779,34 @@ void Widget::mainScreenButtonSelect(int index)
     if (!mConfig || ui->primaryCombo->count() <= 0) {
         return;
     }
-    int currentID = ui->primaryCombo->itemData(index).toInt();
 
-    connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished,
-            [&,currentID](KScreen::ConfigOperation *op) {
+    const KScreen::OutputPtr newPrimary = mConfig->output(ui->primaryCombo->itemData(index).toInt());
 
-        KScreen::ConfigPtr config = qobject_cast<KScreen::GetConfigOperation *>(op)->config();
-        const KScreen::OutputPtr newPrimary = config->output(currentID);
+    if (!newPrimary->isEnabled()) {
+        ui->scaleCombo->setEnabled(false);
+    } else {
+        ui->scaleCombo->setEnabled(true);
+    }
 
-        if (!newPrimary->isEnabled()) {
-            ui->scaleCombo->setEnabled(false);
-        } else {
-            ui->scaleCombo->setEnabled(true);
-        }
+    int connectCount = mConfig->connectedOutputs().count();
 
-        int connectCount = config->connectedOutputs().count();
+    if (newPrimary == mConfig->primaryOutput() || mUnifyButton->isChecked() || (mConfig->connectedOutputs().count() == 1) || !newPrimary->isEnabled()) {
+        ui->mainScreenButton->setEnabled(false);
+    } else {
+        ui->mainScreenButton->setEnabled(true);
+    }
 
-        if (newPrimary == config->primaryOutput() || mUnifyButton->isChecked() || (config->connectedOutputs().count() == 1) || !newPrimary->isEnabled()) {
-            ui->mainScreenButton->setEnabled(false);
-        } else {
-            ui->mainScreenButton->setEnabled(true);
-        }
+    // 设置是否勾选
+    mCloseScreenButton->setEnabled(true);
+    ui->showMonitorframe->setVisible(connectCount > 1 && !mUnifyButton->isChecked());
 
-        // 设置是否勾选
-        mCloseScreenButton->setEnabled(true);
-        ui->showMonitorframe->setVisible(connectCount > 1 && !mUnifyButton->isChecked());
+    // 初始化时不要发射信号
+    mCloseScreenButton->blockSignals(true);
+    mCloseScreenButton->setChecked(newPrimary->isEnabled());
+    mCloseScreenButton->blockSignals(false);
+    mControlPanel->activateOutput(newPrimary);
 
-        // 初始化时不要发射信号
-        mCloseScreenButton->blockSignals(true);
-        mCloseScreenButton->setChecked(newPrimary->isEnabled());
-        mCloseScreenButton->blockSignals(false);
-        mControlPanel->activateOutput(newPrimary);
-
-        mScreen->setActiveOutputByCombox(newPrimary->id());
-    });
+    mScreen->setActiveOutputByCombox(newPrimary->id());
 }
 
 // 设置主屏按钮
