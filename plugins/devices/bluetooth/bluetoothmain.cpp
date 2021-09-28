@@ -930,6 +930,7 @@ void BlueToothMain::startBluetoothDiscovery()
 {
     receiveBluetoothDiscovery(true,true);
 }
+
 void BlueToothMain::releaseBluetoothDiscovery(bool value , bool ccIsOpen)
 {
     qDebug() <<Q_FUNC_INFO << value << ccIsOpen <<__LINE__;

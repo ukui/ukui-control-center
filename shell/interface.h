@@ -125,6 +125,14 @@ public:
     virtual QString translationPath()const {
         return QStringLiteral(":/i18n/%1.ts");
     }
+
+    virtual void plugin_enter(){
+        return;
+    }
+
+    virtual void plugin_leave(){
+        return;
+    }
 };
 
 #define CommonInterface_iid "org.kycc.CommonInterface"
