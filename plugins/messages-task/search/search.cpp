@@ -372,16 +372,6 @@ void Search::appendBlockDirToList(const QString &path)
 
     delBtn->hide();
     dirFrameLayout->addWidget(delBtn);
-    connect(delBtn, &QPushButton::clicked, this, [ = ]() {
-        setBlockDir(path, false);
-        getBlockDirs();
-    });
-    connect(dirWidget, &HoverWidget::enterWidget, this, [ = ]() {
-        delBtn->show();
-    });
-    connect(dirWidget, &HoverWidget::leaveWidget, this, [ = ]() {
-        delBtn->hide();
-    });
     dirWidgetLyt->addWidget(dirFrame);
 //    dirWidgetLyt->addWidget(delBtn);
 
@@ -394,6 +384,18 @@ void Search::appendBlockDirToList(const QString &path)
 
     m_blockDirsLyt->addWidget(line);
     m_blockDirsLyt->addWidget(dirWidget);
+    connect(delBtn, &QPushButton::clicked, this, [ = ]() {
+        setBlockDir(path, false);
+        getBlockDirs();
+        m_blockDirsLyt->removeWidget(line);
+        line->deleteLater();
+    });
+    connect(dirWidget, &HoverWidget::enterWidget, this, [ = ]() {
+        delBtn->show();
+    });
+    connect(dirWidget, &HoverWidget::leaveWidget, this, [ = ]() {
+        delBtn->hide();
+    });
 }
 
 void Search::removeBlockDirFromList(const QString &path)
