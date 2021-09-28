@@ -1358,37 +1358,37 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">开启蓝牙</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="53"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="62"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="79"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="88"/>
         <source>Turn on :</source>
         <translation>开启：</translation>
         <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="109"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="118"/>
         <source>Bluetooth adapter</source>
         <translation>蓝牙适配器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="137"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="146"/>
         <source>Show icon on taskbar</source>
         <translation>在任务栏显示蓝牙图标</translation>
         <extra-contents_path>/bluetooth/Show icon on taskbar</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="167"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="176"/>
         <source>Discoverable by nearby Bluetooth devices</source>
         <translation>可被附近的蓝牙设备发现</translation>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="633"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="676"/>
         <source>Bluetooth adapter is not detected!</source>
-        <translation type="unfinished"></translation>
+        <translation>未检测到蓝牙适配器！</translation>
     </message>
     <message>
         <source>Bluetooth adapter is abnormal !</source>
@@ -1407,7 +1407,7 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">设备可见性</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="200"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="209"/>
         <source>My Devices</source>
         <translation>我的设备</translation>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
@@ -1417,7 +1417,7 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">现在可被发现为 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="217"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="226"/>
         <source>Other Devices</source>
         <translation>蓝牙设备</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
@@ -1447,18 +1447,18 @@ Please authenticate yourself to continue</source>
         <translation>双击修改设备名称</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="89"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="179"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="93"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="187"/>
         <source>Can now be found as &quot;%1&quot;</source>
         <translation>现在可被发现为&quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="100"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="104"/>
         <source>Tip</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="101"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="105"/>
         <source>The length of the device name does not exceed %1 characters !</source>
         <translation>设备名称的长度不超过 %1 个字符！</translation>
     </message>
@@ -3524,36 +3524,61 @@ folder will be deleted!</source>
         <translation type="vanished">断开</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="78"/>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="269"/>
-        <source>Send files</source>
-        <translation type="unfinished"></translation>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="27"/>
+        <source>Connecting</source>
+        <translation>正在连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="84"/>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="271"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="28"/>
+        <source>Disconnecting</source>
+        <translation>正在断开</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="29"/>
+        <source>Connected</source>
+        <translation>已连接</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="30"/>
+        <source>Ununited</source>
+        <translation>已配对</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="31"/>
+        <source>Connect fail</source>
+        <translation>连接失败</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="91"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="301"/>
+        <source>Send files</source>
+        <translation>发送文件</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="97"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="303"/>
         <source>Remove</source>
         <translation>移除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="86"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="99"/>
         <source>cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="87"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="100"/>
         <source>remove</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="94"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="107"/>
         <source>Sure to remove,</source>
-        <translation type="unfinished"></translation>
+        <translation>确定移除，</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="96"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="109"/>
         <source>After removal, the next connection requires matching PIN code!</source>
-        <translation type="unfinished"></translation>
+        <translation>移除后，下次连接需重新配对PIN码！</translation>
     </message>
     <message>
         <source>Device connected</source>
@@ -5537,8 +5562,8 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="435"/>
-        <location filename="../../mainwindow.cpp" line="668"/>
-        <location filename="../../mainwindow.cpp" line="875"/>
+        <location filename="../../mainwindow.cpp" line="674"/>
+        <location filename="../../mainwindow.cpp" line="881"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
@@ -5582,12 +5607,12 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="999"/>
+        <location filename="../../mainwindow.cpp" line="1005"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="999"/>
+        <location filename="../../mainwindow.cpp" line="1005"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
@@ -7122,7 +7147,7 @@ Please retry or relogin!</source>
         <translation>自定义快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="440"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="442"/>
         <source>Edit Shortcut</source>
         <translation>编辑快捷键</translation>
     </message>
@@ -8397,12 +8422,12 @@ Please retry or relogin!</source>
         <translation type="vanished">创建索引</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="138"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="137"/>
         <source>Create index</source>
         <translation>创建索引</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="139"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="138"/>
         <source>Creating index can help you getting results quickly.</source>
         <translation>创建索引可以帮助您快速获取搜索结果</translation>
     </message>
@@ -8411,107 +8436,107 @@ Please retry or relogin!</source>
         <translation type="vanished">搜索引擎</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="164"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="163"/>
         <source>Default web searching engine</source>
         <translation>默认互联网搜索引擎</translation>
         <extra-contents_path>/search/Default web searching engine</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="170"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="168"/>
         <source>baidu</source>
         <translation>百度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="171"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="169"/>
         <source>sougou</source>
         <translation>搜狗</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="172"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="170"/>
         <source>360</source>
         <translation>360</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="181"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="179"/>
         <source>Block Folders</source>
         <translation>屏蔽文件夹</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="184"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="182"/>
         <source>Following folders will not be searched. You can set it by adding and removing folders.</source>
         <translation>搜索将不再查看以下文件夹，通过添加和删除可以设置文件索引位置。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="227"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="224"/>
         <source>Choose folder</source>
         <translation>选择要屏蔽的文件夹</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="371"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="367"/>
         <source>delete</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="424"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="422"/>
         <source>Directories</source>
         <translation>文件夹</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="426"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="424"/>
         <source>select blocked folder</source>
         <translation>选择要屏蔽的文件夹</translation>
         <extra-contents_path>/search/select blocked folder</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="427"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="425"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="428"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="426"/>
         <source>Position: </source>
         <translation>位置: </translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="429"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="427"/>
         <source>FileName: </source>
         <translation>文件名: </translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="430"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="428"/>
         <source>FileType: </source>
         <translation>文件类型: </translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="431"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="429"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="447"/>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="451"/>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="455"/>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="459"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="445"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="449"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="453"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="457"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="447"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="445"/>
         <source>Add blocked folder failed, choosen path is empty!</source>
         <translation>添加文件夹失败，路径为空！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="451"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="449"/>
         <source>Add blocked folder failed, it is not in home path!</source>
         <translation>添加文件夹失败，请选择用户目录下的文件夹！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="455"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="453"/>
         <source>Add blocked folder failed, its parent dir is exist!</source>
         <translation>添加文件夹失败，父文件夹已被屏蔽！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="459"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="457"/>
         <source>Add blocked folder failed, it has been already blocked!</source>
         <translation>添加文件夹失败，该文件夹已被屏蔽！</translation>
     </message>
@@ -8728,17 +8753,17 @@ Please retry or relogin!</source>
         <extra-contents_path>/autoboot/Add</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="424"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="426"/>
         <source>Edit</source>
         <translation>编辑</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="425"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="427"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="700"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="701"/>
         <source> or </source>
         <translation type="unfinished"></translation>
     </message>
@@ -11036,14 +11061,14 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">网络连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="472"/>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="478"/>
         <source>card</source>
         <translation>网卡</translation>
     </message>
     <message>
         <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="264"/>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="525"/>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="587"/>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="531"/>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="593"/>
         <source>connected</source>
         <translation>已连接</translation>
     </message>
