@@ -50,6 +50,8 @@ QWidget *Audio::get_plugin_ui() {
         pluginWidget = new UkmediaMainWidget;
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
         ui->setupUi(pluginWidget);
+        // 刷新UI，避免首次进入该界面，样式异常问题
+        qApp->processEvents();
     }
     return  pluginWidget;
 }
