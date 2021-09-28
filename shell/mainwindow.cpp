@@ -575,15 +575,21 @@ void MainWindow::loadPlugins(){
 #endif
         if (!fileName.endsWith(".so")
                 || (fileName == "libexperienceplan.so")
-                || ("libnetworkaccount.so" == fileName && !isExitsCloudAccount())
+                || ("libnetworkaccount.so" == fileName && (!isExitsCloudAccount() || Utils::isTablet()))
                 || (!QGSettings::isSchemaInstalled(kVinoSchemas) && "libvino.so" == fileName)
                 || ("libbluetooth.so" == fileName && !isExitBluetooth())
                 || ("libpower.so" == fileName && !isExitsPower())
                 || ("libtouchscreen.so" == fileName && !isExitTouchScreen())
                 || ("libupdate.so" == fileName && !Utils::isCommunity())
-                || ("libfonts.so" == fileName && Utils::isTablet())
+                || (("libfonts.so" == fileName || "libuserinfo.so" == fileName ||
+                     "libshortcut.so" == fileName || "libdefaultapp.so" == fileName ||
+                     "libautoboot.so" == fileName || "libnotice.so" == fileName ||
+                     "libprojection.so" == fileName || "libtouchscreen.so" == fileName ||
+                     "libvino.so" == fileName || "libscreensaver.so" == fileName ||
+                     "libvpn.so" == fileName || "libmobilehotspot.so" == fileName ||
+                     "libbiometrics.so" == fileName || "libsecuritycenter.so" == fileName ||
+                     "libupgrade.so" == fileName || "libsearch.so" == fileName || "libarea.so" == fileName) && Utils::isTablet())
                 || ("libtouchpad.so" == fileName && !isfindSynaptics())
-                || ("libuserinfo.so" == fileName && Utils::isTablet())
                 || ("libuserinfo_intel.so" == fileName && !Utils::isTablet())) {
             continue;
         }
