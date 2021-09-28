@@ -245,13 +245,13 @@ void Area::initLanguage()
     connect(chineseFrame, &LanguageFrame::clicked, this, [=](){
         englishFrame->showSelectedIcon(false);
         m_areaInterface->call("SetLanguage","zh_CN");
-        showChangeLanguageBox();
+        showMessageBox(2);
     });
 
     connect(englishFrame, &LanguageFrame::clicked, this, [=](){
         chineseFrame->showSelectedIcon(false);
         m_areaInterface->call("SetLanguage","en_US");
-        showChangeLanguageBox();
+        showMessageBox(2);
     });
 }
 
@@ -429,7 +429,7 @@ void Area::initConnect()
     connect(ui->countrycomboBox,SIGNAL(currentIndexChanged(int)),this,SLOT(change_area_slot(int)));
     connect(ui->countrycomboBox, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             [=]{
-        QMessageBox::information(pluginWidget->topLevelWidget(), tr("Message"),tr("Need to logout to take effect"));
+        showMessageBox(1);
     });
     connect(ui->timeBox, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=]() {
         bool flag_24;
@@ -524,18 +524,29 @@ void Area::timeFormatClicked(bool flag)
     }
 }
 
-void Area::showChangeLanguageBox()
+void Area::showMessageBox(int flag)
 {
     MainWindow *mainWindow = static_cast<MainWindow*>(pluginWidget->topLevelWidget());
     QMessageBox msg(mainWindow);
     msg.setIcon(QMessageBox::Warning);
-    msg.setText(tr("Modification of system language needs to be logged out to take effect, whether to log out?"));
-    msg.addButton(tr("Log out later"), QMessageBox::NoRole);
-    msg.addButton(tr("Log out now"), QMessageBox::ApplyRole);
+
+    if (flag == 1) {
+        msg.setText(tr("Modify the current region need to logout to take effect, whether to logout?"));
+        msg.addButton(tr("Logout later"), QMessageBox::NoRole);
+        msg.addButton(tr("Logout now"), QMessageBox::ApplyRole);
+    } else if(flag == 2) {
+        msg.setText(tr("Modify the first language need to reboot to take effect, whether to reboot?"));
+        msg.addButton(tr("Reboot later"), QMessageBox::NoRole);
+        msg.addButton(tr("Reboot now"), QMessageBox::ApplyRole);
+    }
     int ret = msg.exec();
 
     if (ret == 1) {
-        system("ukui-session-tools --logout");
+        if (flag == 1) {
+            system("ukui-session-tools --logout");
+        } else if (flag == 2) {
+            system("ukui-session-tools --reboot");
+        }
     }
     return;
 }

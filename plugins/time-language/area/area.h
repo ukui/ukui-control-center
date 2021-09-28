@@ -69,7 +69,7 @@ public:
     const QString name() const  Q_DECL_OVERRIDE;
 
     QStringList readFile(const QString& filePath);
-    void showChangeLanguageBox();
+    void showMessageBox(const int flag);
 
 private:
     void initUI();

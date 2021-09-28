@@ -507,6 +507,7 @@ void Shortcut::buildCustomItem(KeyEntry *nkeyEntry)
         addDialog->setExecText(nkeyEntry->actionStr);
         addDialog->setNameText(nkeyEntry->nameStr);
         addDialog->setKeyText(nkeyEntry->bindingStr);
+        addDialog->setKeyIsAvailable(3);
 
         connect(addDialog, &addShortcutDialog::shortcutInfoSignal,
                 [=](QString path, QString name, QString exec, QString key){

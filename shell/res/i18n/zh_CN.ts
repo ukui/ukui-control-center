@@ -673,19 +673,46 @@
         <translation>24小时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="532"/>
-        <source>Modification of system language needs to be logged out to take effect, whether to log out?</source>
-        <translation>修改系统语言需要注销后生效，是否注销?</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="533"/>
-        <source>Log out later</source>
-        <translation>稍后</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/time-language/area/area.cpp" line="534"/>
-        <source>Log out now</source>
+        <source>Modify the current region need to logout to take effect, whether to logout?</source>
+        <translation>修改当前区域需要注销后生效，是否注销?</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="538"/>
+        <source>Modify the first language need to reboot to take effect, whether to reboot?</source>
+        <translation>修改首选语言需要重启后生效，是否重启?</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="535"/>
+        <source>Logout later</source>
+        <translation>稍后注销</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="536"/>
+        <source>Logout now</source>
         <translation>立即注销</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="539"/>
+        <source>Reboot later</source>
+        <translation>稍后重启</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="540"/>
+        <source>Reboot now</source>
+        <translation>立即重启</translation>
+    </message>
+    <message>
+        <source>Modification of system language needs to be logged out to take effect, whether to log out?</source>
+        <translation type="vanished">修改系统语言需要注销后生效，是否注销?</translation>
+    </message>
+    <message>
+        <source>Log out later</source>
+        <translation type="vanished">稍后</translation>
+    </message>
+    <message>
+        <source>Log out now</source>
+        <translation type="vanished">立即注销</translation>
     </message>
     <message>
         <source>calendar</source>
@@ -736,14 +763,12 @@
         <translation type="vanished">需要注销生效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="432"/>
         <source>Need to logout to take effect</source>
-        <translation>需要注销生效</translation>
+        <translation type="vanished">需要注销生效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="432"/>
         <source>Message</source>
-        <translation>信息</translation>
+        <translation type="vanished">信息</translation>
     </message>
     <message>
         <source>country</source>
@@ -1237,12 +1262,12 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="865"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1661"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1664"/>
         <source>Bluetooth adapter is abnormal !</source>
         <translation>蓝牙适配器异常！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1662"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1665"/>
         <source>You can refer to the rfkill command for details.</source>
         <translation>可查阅rfkill命令了解详情</translation>
     </message>
@@ -4264,15 +4289,15 @@ folder will be deleted!</source>
     <name>MainWidget</name>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="103"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="460"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="470"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1161"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="461"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="471"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1165"/>
         <location filename="../../../plugins/account/networkaccount/mainwidget.h" line="109"/>
         <source>Disconnected</source>
         <translation>未连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="487"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="492"/>
         <source>Your account：%1</source>
         <translation>您的云帐户：%1</translation>
     </message>
@@ -4282,19 +4307,19 @@ Please retry for login!</source>
         <translation type="vanished">OSS访问失败，请检查您的网络后再登录！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="508"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1220"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1237"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="512"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1226"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1243"/>
         <source>Exit</source>
         <translation>退出登录</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="877"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="881"/>
         <source>Sync</source>
         <translation>同步中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="520"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="524"/>
         <source>Sign in</source>
         <translation>登录</translation>
         <extra-contents_path>/networkaccount/Sign in</extra-contents_path>
@@ -4309,38 +4334,38 @@ Please retry for login!</source>
         <translation>登录失败，请检查你的网络连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1194"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1209"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1200"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1215"/>
         <source>Stop sync</source>
         <translation>结束同步</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="881"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="885"/>
         <source>Sync your settings</source>
         <translation>同步您的设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="884"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="888"/>
         <source>Your account:%1</source>
         <translation>您的云帐户：%1</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="885"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="889"/>
         <source>Auto sync</source>
         <translation>自动同步</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="574"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="578"/>
         <source>Waitting for sync!</source>
         <translation>等待同步！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="868"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="872"/>
         <source>Synchronize your personalized settings and data</source>
         <translation>同步您帐户的数据以及个性化设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="673"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="677"/>
         <source>This operation may cover your settings!</source>
         <translation>该操作可能覆盖您现有的设置！</translation>
     </message>
@@ -4357,43 +4382,43 @@ Please retry for login!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="233"/>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="338"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="636"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="656"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="713"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="978"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="997"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1308"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="640"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="660"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="717"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="982"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1001"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1314"/>
         <source>Network can not reach!</source>
         <translation>网络不可达！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="746"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="750"/>
         <source>The Cloud Account Service version is out of date!</source>
         <translation>云帐户服务版本已经过期，请升级！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="943"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="947"/>
         <source>KylinID open error!</source>
         <translation>麒麟ID客户端打开失败!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1023"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1028"/>
         <source>Unauthorized device or OSS falied.
 Please retry or relogin!</source>
         <translation>设备凭证已过期，请重新登录！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1027"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1032"/>
         <source>Authorization failed!</source>
         <translation>认证失败，请重新登录！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1072"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1076"/>
         <source>Please check your connetion!</source>
         <translation>请检查您的网络!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1293"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1299"/>
         <source>Kylin Cloud Account</source>
         <translation>云帐户</translation>
     </message>
@@ -4403,7 +4428,7 @@ Please retry or relogin!</source>
         <translation>该操作可能覆盖您目前的快捷键！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1296"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1302"/>
         <source>Cloud ID desktop message</source>
         <translation>云帐户消息</translation>
     </message>
@@ -4451,7 +4476,7 @@ Please retry or relogin!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="387"/>
+        <location filename="../../mainwindow.cpp" line="390"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -4460,44 +4485,44 @@ Please retry or relogin!</source>
         <translation type="vanished">设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="407"/>
-        <location filename="../../mainwindow.cpp" line="623"/>
-        <location filename="../../mainwindow.cpp" line="841"/>
+        <location filename="../../mainwindow.cpp" line="410"/>
+        <location filename="../../mainwindow.cpp" line="626"/>
+        <location filename="../../mainwindow.cpp" line="844"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="416"/>
+        <location filename="../../mainwindow.cpp" line="419"/>
         <source>Main menu</source>
         <translation>主菜单</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="417"/>
+        <location filename="../../mainwindow.cpp" line="420"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="418"/>
+        <location filename="../../mainwindow.cpp" line="421"/>
         <source>Maximize/Normal</source>
         <translation>最大化/正常</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="419"/>
+        <location filename="../../mainwindow.cpp" line="422"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="483"/>
+        <location filename="../../mainwindow.cpp" line="486"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="485"/>
+        <location filename="../../mainwindow.cpp" line="488"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="487"/>
+        <location filename="../../mainwindow.cpp" line="490"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
@@ -4506,17 +4531,17 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="956"/>
+        <location filename="../../mainwindow.cpp" line="959"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="956"/>
+        <location filename="../../mainwindow.cpp" line="959"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="628"/>
+        <location filename="../../mainwindow.cpp" line="631"/>
         <source>Home</source>
         <translation>首页</translation>
     </message>
@@ -5000,8 +5025,8 @@ Please retry or relogin!</source>
         <extra-contents_path>/display/screen zoom</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="256"/>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="262"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="257"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="263"/>
         <source>%1 Hz</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6417,136 +6442,136 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>自动启动的应用程序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1450"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1463"/>
         <source>pa_context_subscribe() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1466"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1479"/>
         <source>pa_context_client_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1473"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1486"/>
         <source>pa_context_get_card_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1480"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1493"/>
         <source>pa_context_get_sink_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1487"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1500"/>
         <source>pa_context_get_source_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1252"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1265"/>
         <source>Failed to initialize stream_restore extension: %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1494"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1507"/>
         <source>pa_context_get_sink_input_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1501"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1514"/>
         <source>pa_context_get_source_output_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1517"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1530"/>
         <source>Connection failed, attempting reconnect</source>
         <translation>连接失败，尝试重新连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1269"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1282"/>
         <source>pa_ext_stream_restore_read() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="212"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1384"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1459"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1397"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1472"/>
         <source>pa_context_get_server_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1142"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1613"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1155"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1626"/>
         <source>Sink input callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1162"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1175"/>
         <source>Source output callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1202"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1215"/>
         <source>Client callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1218"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1231"/>
         <source>Server info callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1286"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1299"/>
         <source>Failed to initialize device manager extension: %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1305"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1318"/>
         <source>pa_ext_device_manager_read() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1322"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1335"/>
         <source>pa_context_get_sink_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1335"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1348"/>
         <source>pa_context_get_source_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1348"/>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1361"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1374"/>
         <source>pa_context_get_sink_input_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1374"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1387"/>
         <source>pa_context_get_client_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1410"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1423"/>
         <source>pa_context_get_card_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1537"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1550"/>
         <source>Ukui Media Volume Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1080"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1093"/>
         <source>Card callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1098"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1111"/>
         <source>Sink callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1121"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1134"/>
         <source>Source callback failure</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6832,7 +6857,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="399"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="172"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="178"/>
         <source>Idle time</source>
         <translation>此时间段后开启屏保</translation>
         <extra-contents_path>/screensaver/Idle time</extra-contents_path>
@@ -6849,7 +6874,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="233"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="170"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="176"/>
         <source>Screensaver program</source>
         <translation>屏幕保护程序</translation>
         <extra-contents_path>/screensaver/Screensaver program</extra-contents_path>
@@ -6876,38 +6901,38 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">默认屏保</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="158"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="164"/>
         <source>View</source>
         <translation>预览</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="903"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="909"/>
         <source>Show rest time</source>
         <translation>显示休息时间</translation>
         <extra-contents_path>/screensaver/Show rest time</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="199"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="205"/>
         <source>UKUI</source>
         <translation>UKUI</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="200"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="206"/>
         <source>Blank_Only</source>
         <translation>黑屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="211"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="217"/>
         <source>Customize</source>
         <translation>自定义</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="748"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="754"/>
         <source>5min</source>
         <translation>5分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="749"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="755"/>
         <source>10min</source>
         <translation>10分钟</translation>
     </message>
@@ -6916,7 +6941,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">15分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="750"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="756"/>
         <source>30min</source>
         <translation>30分钟</translation>
     </message>
@@ -6925,83 +6950,83 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">1小时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="649"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="655"/>
         <source>Screensaver source</source>
         <translation>屏保来源</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="655"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="705"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="661"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="711"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="663"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="669"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp *.svg)</source>
         <translation>壁纸文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp *.svg)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="704"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="710"/>
         <source>select custom screensaver dir</source>
         <translation>选择自定义屏保路径</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="706"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="712"/>
         <source>Position: </source>
         <translation>位置:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="707"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="713"/>
         <source>FileName: </source>
         <translation>文件名:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="708"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="714"/>
         <source>FileType: </source>
         <translation>文件类型:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="709"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="715"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="743"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="749"/>
         <source>Switching time</source>
         <translation>更换时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="747"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="753"/>
         <source>1min</source>
         <translation>1分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="790"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="796"/>
         <source>Random switching</source>
         <translation>随机切换</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="831"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="837"/>
         <source>Display text</source>
         <translation>显示文本</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="841"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="847"/>
         <source>Enter text, up to 30 characters</source>
         <translation>输入文本，最多30个字符</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="919"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="925"/>
         <source>Text position</source>
         <translation>文本位置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="924"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="930"/>
         <source>Centered</source>
         <translation>居中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="925"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="931"/>
         <source>Randow(Bubble text)</source>
         <translation>随机(气泡文本)</translation>
     </message>
@@ -7042,7 +7067,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">随机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="227"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="233"/>
         <source>Never</source>
         <translation>从不</translation>
     </message>
@@ -8630,43 +8655,43 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="392"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="505"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="506"/>
         <source> (unavailable)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="394"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="502"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="503"/>
         <source> (unplugged)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="596"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="602"/>
         <source>Failed to read data from stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="641"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="647"/>
         <source>Peak detect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="642"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="648"/>
         <source>Failed to create monitoring stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="657"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="663"/>
         <source>Failed to connect monitoring stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="749"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="762"/>
         <source>Ignoring sink-input due to it being designated as an event and thus handled by the Event widget</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1046"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1059"/>
         <source>Establishing connection to PulseAudio. Please wait...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -9639,7 +9664,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     </message>
     <message>
         <location filename="../../../plugins/security-updates/securitycenter/ksc_main_page_widget.ui" line="158"/>
-        <location filename="../../../plugins/security-updates/securitycenter/ksc_main_page_widget.cpp" line="43"/>
+        <location filename="../../../plugins/security-updates/securitycenter/ksc_main_page_widget.cpp" line="45"/>
         <source>Run Security Center</source>
         <translation>打开安全中心</translation>
         <extra-contents_path>/securitycenter/Run Security Center</extra-contents_path>
@@ -9663,7 +9688,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     <message>
         <location filename="../../../plugins/security-updates/securitycenter/ksc_module_func_widget.ui" line="182"/>
         <location filename="../../../plugins/security-updates/securitycenter/ksc_module_func_widget.ui" line="198"/>
-        <location filename="../../../plugins/security-updates/securitycenter/ksc_module_func_widget.cpp" line="23"/>
+        <location filename="../../../plugins/security-updates/securitycenter/ksc_module_func_widget.cpp" line="20"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
