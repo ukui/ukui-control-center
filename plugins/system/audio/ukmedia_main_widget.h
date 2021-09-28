@@ -270,8 +270,6 @@ private:
     QStringList *m_pSoundThemeDirList;
     QStringList *m_pSoundThemeXmlNameList;
     QStringList *m_pSoundNameList;
-    QStringList *eventList;
-    QStringList *eventIdNameList;
 
     GSettings *m_pSoundSettings;
     QGSettings *m_pBootSetting;
