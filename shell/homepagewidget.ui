@@ -44,7 +44,7 @@
        <height>16777215</height>
       </size>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="2,40,1">
+     <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,22,1">
       <property name="spacing">
        <number>0</number>
       </property>
@@ -86,8 +86,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>762</width>
-           <height>274</height>
+           <width>751</width>
+           <height>511</height>
           </rect>
          </property>
          <property name="maximumSize">
@@ -122,6 +122,9 @@
     <spacer name="verticalSpacer_2">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>

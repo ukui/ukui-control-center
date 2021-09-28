@@ -53,6 +53,11 @@ private:
     QLabel *mInputTestLabel;
     QLabel *mKeyTipsLabel;
 
+    QFrame *keyRepeatAndDelayLine;
+    QFrame *delayAndSpeedLine;
+    QFrame *speedAndInputTestLine;
+    QFrame *inputTestAndKeyTipsLine;
+
     QPushButton *mInputMethodSetBtn;    //输入法设置
 
     QVBoxLayout *mVlayout;

@@ -15,7 +15,7 @@
 class WlanItem : public QPushButton
 {
 public:
-    WlanItem(QWidget *parent = nullptr);
+    WlanItem(bool isAcitve, bool isLock, QWidget *parent = nullptr);
     ~WlanItem();
 public:
     QLabel * iconLabel = nullptr;
@@ -30,8 +30,9 @@ public:
     void setCountCurrentTime(int countCurrentTime);
     void waitAnimStep();
     void stopLoading();
-
+    bool isAcitve = false;
     bool loading = false;
+    bool isLock = false;
 private:
     QTimer *waitTimer = nullptr;
     QGSettings *themeGsettings = nullptr;

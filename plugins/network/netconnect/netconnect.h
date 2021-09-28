@@ -124,7 +124,6 @@ private:
 private slots:
     void getNetListFromDevice(QString deviceName, bool deviceStatus, QVBoxLayout *layout, int count);
     void dropDownAnimation(DeviceFrame * deviceFrame, QString deviceName, QMap<QString, bool> deviceListMap);
-    void netPropertiesChangeSlot(QMap<QString, QVariant> property);
     void updateOneLanFrame(QString deviceName, QString uuid, int status);
     void updateOneLanFrame(QString devicePath);
     void updateOneLanFrame(QString deviceName, QStringList lanInfo);

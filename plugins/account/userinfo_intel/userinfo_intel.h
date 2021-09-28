@@ -177,6 +177,8 @@ public:
 
     QPixmap PixmapToRound(const QString &src, int radius);
 
+    void setChangeFaceShadow();
+
 protected:
     bool eventFilter(QObject *watched, QEvent *event);
 
@@ -190,6 +192,7 @@ private:
     HoverWidget *addWgt;
 
     UserInfomation current_user;
+    bool isDelCurrentUser = false;
 
 private:
     SwitchButton * nopwdSwitchBtn;

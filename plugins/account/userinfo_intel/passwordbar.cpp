@@ -16,6 +16,11 @@ void PasswordBar::initUI()
     m_ballSpan = m_ballRadius << 1;     // 密码间的跨度
 
     adjSize();
+
+    const QByteArray id_1(UKUI_QT_STYLE);
+    if (QGSettings::isSchemaInstalled(id_1)) {
+        m_style = new QGSettings(id_1);
+    }
 }
 
 void PasswordBar::setLength(int l)
@@ -81,6 +86,14 @@ void PasswordBar::paintEvent(QPaintEvent *event)
     painter.setPen(QColor(200, 200, 200, 255));
     painter.setRenderHint(QPainter::Antialiasing);
 
+    QColor ballColor;
+    QString themeName = m_style->get(UKUI_STYLE_KEY).toString();
+    if( themeName == "ukui-light" || themeName == "ukui-default" | themeName == "ukui" ) {
+        ballColor = QColor(0,0,0,255);         // isNightMode=false
+    } else {
+        ballColor = QColor(255,255,255,255);   // isNightMode=true
+    }
+
     int beginx = 1;
     for(int i = 0;i < m_bitLen;i++)
     {
@@ -88,7 +101,7 @@ void PasswordBar::paintEvent(QPaintEvent *event)
             beginx += m_ballSpan + m_ballRadius * 2;
         }
         if(i < m_fillBallCnt)
-            painter.setBrush(QColor(200,200,200,255));
+            painter.setBrush(ballColor);
         else
             painter.setBrush(QColor(255,255,255,0));
 

@@ -326,7 +326,7 @@ void MainWindow::initUI() {
     });
 
     connect(ui->stackedWidget, &QStackedWidget::currentChanged, this, [=](int index){
-
+        ui->centralWidget->setVisible(false);    //避免出现明显的卡顿现象，在选择进入屏保界面之后这个问题比较明显，这种做法只是优化
         if (index){ //首页部分组件样式
             titleLabel->setHidden(true);
             mTitleIcon->setHidden(true);
@@ -342,10 +342,13 @@ void MainWindow::initUI() {
             mTitleIcon->setVisible(true);
             //左上角显示字符/返回按钮
             backBtn->setHidden(true);
-
+            if (modulepageWidget) {
+                modulepageWidget->pluginLeave();
+            }
             //中部内容区域
             ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background:  palette(base); border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
         }
+        ui->centralWidget->setVisible(true);
     });
 
     //加载左侧边栏一级菜单
@@ -572,15 +575,21 @@ void MainWindow::loadPlugins(){
 #endif
         if (!fileName.endsWith(".so")
                 || (fileName == "libexperienceplan.so")
-                || ("libnetworkaccount.so" == fileName && !isExitsCloudAccount())
+                || ("libnetworkaccount.so" == fileName && (!isExitsCloudAccount() || Utils::isTablet()))
                 || (!QGSettings::isSchemaInstalled(kVinoSchemas) && "libvino.so" == fileName)
                 || ("libbluetooth.so" == fileName && !isExitBluetooth())
                 || ("libpower.so" == fileName && !isExitsPower())
                 || ("libtouchscreen.so" == fileName && !isExitTouchScreen())
                 || ("libupdate.so" == fileName && !Utils::isCommunity())
-                || ("libfonts.so" == fileName && Utils::isTablet())
+                || (("libfonts.so" == fileName || "libuserinfo.so" == fileName ||
+                     "libshortcut.so" == fileName || "libdefaultapp.so" == fileName ||
+                     "libautoboot.so" == fileName || "libnotice.so" == fileName ||
+                     "libprojection.so" == fileName || "libtouchscreen.so" == fileName ||
+                     "libvino.so" == fileName || "libscreensaver.so" == fileName ||
+                     "libvpn.so" == fileName || "libmobilehotspot.so" == fileName ||
+                     "libbiometrics.so" == fileName || "libsecuritycenter.so" == fileName ||
+                     "libupgrade.so" == fileName || "libsearch.so" == fileName || "libarea.so" == fileName) && Utils::isTablet())
                 || ("libtouchpad.so" == fileName && !isfindSynaptics())
-                || ("libuserinfo.so" == fileName && Utils::isTablet())
                 || ("libuserinfo_intel.so" == fileName && !Utils::isTablet())) {
             continue;
         }

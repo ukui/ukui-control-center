@@ -2,8 +2,6 @@
 
 ComboxFrame:: ComboxFrame(QString labelStr, QWidget *parent) : QFrame(parent), mTitleName(labelStr) {
 
-    this->setMinimumSize(550, 50);
-    this->setMaximumSize(16777215, 50);
     this->setFrameShape(QFrame::Shape::Box);
 
     mTitleLabel = new QLabel(mTitleName, this);
@@ -19,8 +17,6 @@ ComboxFrame:: ComboxFrame(QString labelStr, QWidget *parent) : QFrame(parent), m
 ComboxFrame::ComboxFrame(bool isNum, QString labelStr, QWidget *parent) : QFrame(parent), mTitleName(labelStr)
 {
     Q_UNUSED(isNum)
-    this->setMinimumSize(550, 50);
-    this->setMaximumSize(16777215, 50);
     this->setFrameShape(QFrame::Shape::Box);
 
     mTitleLabel = new QLabel(mTitleName, this);

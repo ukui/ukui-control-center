@@ -152,6 +152,12 @@ const QString Screensaver::name() const
     return QStringLiteral("screensaver");
 }
 
+void Screensaver::plugin_leave()
+{
+    closeScreensaver();
+    return;
+}
+
 void Screensaver::initPreviewLabel()
 {
     if (previewLabel == nullptr) {
