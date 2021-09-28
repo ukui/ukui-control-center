@@ -26,10 +26,15 @@
 
 #include <QFrame>
 #include <QPushButton>
+#include <QDBusObjectPath>
 
 #include "changeusertype.h"
 #include "changeusernickname.h"
 #include "changeuserpwd.h"
+#include "changeuserlogo.h"
+#include "createusernew.h"
+#include "deleteuserexists.h"
+#include "utilsforuserinfo.h"
 
 #include <QObject>
 #include <QtPlugin>
@@ -182,11 +187,16 @@ public:
     void showChangeUserTypeDialog(QString u);
     void showChangeUserNicknameDialog();
     void showChangeUserPwdDialog(QString pName);
+    void showChangeUserLogoDialog(QString pName);
+    void showCreateUserNewDialog();
+    void showDeleteUserExistsDialog(QString pName);
+
+    void buildItemForUsersAndSetConnect(UserInfomation user);
 
 protected:
     QFrame * createHLine(QFrame * f, int len = 0);
     QFrame * createVLine(QFrame * f, int len = 0);
-    bool setTextDynamic(QLabel * label, QString str);
+    bool setTextDynamic(QLabel * label, QString string);
 
 private:
     QFrame * buildItemForOthers(UserInfomation user);
@@ -196,6 +206,9 @@ private:
 
 public slots:
     void currentUserPropertyChangedSlot(QString, QMap<QString, QVariant>, QStringList);
+
+    void newUserCreateDoneSlot(QDBusObjectPath op);
+    void existsUserDeleteDoneSlot(QDBusObjectPath op);
 
     /**************/
 

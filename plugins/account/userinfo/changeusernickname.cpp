@@ -217,6 +217,8 @@ void ChangeUserNickname::keyPressEvent(QKeyEvent * event){
     case Qt::Key_Escape:
         break;
     case Qt::Key_Enter:
+        if (confirmBtn->isEnabled())
+            confirmBtn->clicked();
         break;
     case Qt::Key_Return:
         if (confirmBtn->isEnabled())

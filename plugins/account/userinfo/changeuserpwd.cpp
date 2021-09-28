@@ -10,6 +10,11 @@
 #include <QKeyEvent>
 #include <QDebug>
 
+#include <QDBusInterface>
+#include <QDBusReply>
+
+#include <QCoreApplication>
+
 
 #ifdef signals
 #undef signals
@@ -234,6 +239,8 @@ void ChangeUserPwd::setupConnect(){
                 updateTipLableInfo(curPwdTip);
             }
         }
+
+        refreshConfirmBtnStatus();
     });
 
     //需要区分的connect
@@ -243,8 +250,28 @@ void ChangeUserPwd::setupConnect(){
 
             curPwdTip = re;
 
-            //返回值为空，密码校验
+            //返回值为空，密码校验成功
             if (re.isEmpty()){
+
+                //修改密码
+                QString output;
+
+                char * cmd = g_strdup_printf("/usr/bin/changeuserpwd '%s' '%s'", currentPwdLineEdit->text().toLatin1().data(), newPwdLineEdit->text().toLatin1().data());
+
+                FILE   *stream;
+                char buf[256];
+
+                if ((stream = popen(cmd, "r" )) == NULL){
+                    return -1;
+                }
+
+                while(fgets(buf, 256, stream) != NULL){
+                    output = QString(buf).simplified();
+                }
+
+                pclose(stream);
+
+                this->accept();
 
             } else {
                 if (re.contains("Failed")){
@@ -257,12 +284,14 @@ void ChangeUserPwd::setupConnect(){
                 currentPwdLineEdit->setText("");
 
                 refreshConfirmBtnStatus();
+
+                //密码校验完成
+                isChecking = false;
+
+                refreshCloseBtnStatus();
             }
 
-            //密码校验完成
-            isChecking = true;
 
-            refreshCloseBtnStatus();
         });
 
         connect(currentPwdLineEdit, &QLineEdit::textEdited, [=](QString txt){
@@ -293,6 +322,26 @@ void ChangeUserPwd::setupConnect(){
 
         });
     } else {
+        connect(confirmBtn, &QPushButton::clicked, this, [=]{
+
+            //修改其他用户密码
+            QDBusInterface tmpiface("com.control.center.qt.systemdbus",
+                                    "/",
+                                    "com.control.center.interface",
+                                    QDBusConnection::systemBus());
+
+            if (!tmpiface.isValid()){
+                qWarning() << "Create Client Interface Failed When : " << QDBusConnection::systemBus().lastError();
+                return;
+            }
+
+            QDBusReply<int> reply = tmpiface.call("setPid", QCoreApplication::applicationPid());
+            if (reply.isValid()){
+                tmpiface.call("changeOtherUserPasswd", name, newPwdLineEdit->text());
+            }
+
+            this->accept();
+        });
 
 
     }

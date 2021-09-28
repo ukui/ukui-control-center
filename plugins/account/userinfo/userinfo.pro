@@ -43,17 +43,19 @@ PKGCONFIG     += gio-2.0 \
 
 SOURCES += \
     changegroupdialog.cpp \
+    changeuserlogo.cpp \
     changeusername.cpp \
     changeusernickname.cpp \
     changeuserpwd.cpp \
     changeusertype.cpp \
     creategroupdialog.cpp \
+    createusernew.cpp \
     definegroupitem.cpp \
+    deleteuserexists.cpp \
     delgroupdialog.cpp \
     editgroupdialog.cpp \
     elipsemaskwidget.cpp \
     pwdcheckthread.cpp \
-    run-passwd.cpp \
     userinfo.cpp \
     qtdbus/systemdbusdispatcher.cpp \
     changepwddialog.cpp \
@@ -67,16 +69,20 @@ SOURCES += \
     biometricproxy.cpp \
     biometricenroll.cpp \
     biometricmoreinfo.cpp \
-    servicemanager.cpp
+    servicemanager.cpp \
+    utilsforuserinfo.cpp
 
 HEADERS += \
     changegroupdialog.h \
+    changeuserlogo.h \
     changeusername.h \
     changeusernickname.h \
     changeuserpwd.h \
     changeusertype.h \
     creategroupdialog.h \
+    createusernew.h \
     definegroupitem.h \
+    deleteuserexists.h \
     delgroupdialog.h \
     editgroupdialog.h \
     elipsemaskwidget.h \
@@ -96,7 +102,8 @@ HEADERS += \
     biometricproxy.h \
     biometricenroll.h \
     biometricmoreinfo.h \
-    servicemanager.h 
+    servicemanager.h  \
+    utilsforuserinfo.h
 
 FORMS += \
     changegroupdialog.ui \
