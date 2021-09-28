@@ -787,7 +787,7 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
         nameLabel->setToolTip(user.realname);
     }
 
-    connect(pSetting, &QGSettings::changed, this, [=](QString key){
+    connect(pSetting, &QGSettings::changed, baseWidget, [=](QString key){
         if (QString::compare(key, "systemFontSize") == 0){
             if (QLabelSetText(nameLabel, user.realname)){
                 nameLabel->setToolTip(user.realname);
@@ -805,7 +805,7 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     typeBtn->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
     typeBtn->setText(tr("Change type"));
 //    typeBtn->setStyleSheet(btnQss);
-    connect(typeBtn, &QPushButton::clicked, this, [=](bool checked){
+    connect(typeBtn, &QPushButton::clicked, baseWidget, [=](bool checked){
         Q_UNUSED(checked)
         showChangeTypeDialog(user.username);
     });
@@ -818,7 +818,7 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     pwdBtn->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
     pwdBtn->setText(tr("Change pwd"));
 //    pwdBtn->setStyleSheet(btnQss);
-    connect(pwdBtn, &QPushButton::clicked, this, [=](bool checked){
+    connect(pwdBtn, &QPushButton::clicked, baseWidget, [=](bool checked){
         Q_UNUSED(checked)
         showChangePwdDialog(user.username);
     });
@@ -837,12 +837,12 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     delBtn->setText(tr("Del"));
 //    delBtn->setStyleSheet("QPushButton{background: #FA6056; border-radius: 4px}");
     delBtn->hide();
-    connect(delBtn, &QPushButton::clicked, this, [=](bool checked){
+    connect(delBtn, &QPushButton::clicked, baseWidget, [=](bool checked){
         Q_UNUSED(checked)
         showDeleteUserDialog(user.username);
     });
 
-    connect(baseWidget, &HoverWidget::enterWidget, this, [=](QString name){
+    connect(baseWidget, &HoverWidget::enterWidget, baseWidget, [=](QString name){
 
         //不允许删除最后一个管理员
         if (_userCanDel(name) == 1){
@@ -863,7 +863,7 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
         pwdBtn->show();
         delBtn->show();
     });
-    connect(baseWidget, &HoverWidget::leaveWidget, this, [=](QString name){
+    connect(baseWidget, &HoverWidget::leaveWidget, baseWidget, [=](QString name){
         Q_UNUSED(name)
         typeBtn->hide();
         pwdBtn->hide();
