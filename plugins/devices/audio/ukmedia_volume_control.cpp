@@ -572,7 +572,7 @@ bool UkmediaVolumeControl::updateSink(UkmediaVolumeControl *w,const pa_sink_info
         for (pa_sink_port_info ** sinkPort = info.ports; *sinkPort != nullptr; ++sinkPort) {
             temp.insertMulti(info.name,(*sinkPort)->name);
         }
-        sinkPortMap.insert(info.index,temp);
+        sinkPortMap.insert(info.card,temp);
 
         qDebug() << "updateSink" << info.volume.channels << info.active_port->description << info.active_port->name << sinkVolume <<"balance：" <<balance << "defauleSinkName:" <<defaultSinkName.data() << "sinkport" << sinkPortName;
 
@@ -634,8 +634,9 @@ static void readCallback(pa_stream *s, size_t length, void *userdata) {
     if (v > 1)
         v = 1;
     index = pa_stream_get_device_index(s);
-    if (index == w->sourceIndex)
+    if (index == w->sourceIndex){
         w->updateVolumeMeter(index, pa_stream_get_monitor_stream(s), v);
+    }
 }
 
 pa_stream* UkmediaVolumeControl::createMonitorStreamForSource(uint32_t source_idx, uint32_t stream_idx = -1, bool suspend = false) {
