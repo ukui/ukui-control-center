@@ -327,6 +327,7 @@ void DeviceInfoItem::setDevConnectedIcon(bool connected)
             del_btn_show_timer->start();
             //del_btn->setEnabled(true);
         }
+
     }
     else if (device_item->isPaired())
     {
