@@ -432,3 +432,6 @@ void addShortcutDialog::setKeyText(const QString &text)
     editSeq = seq;
     shortcutLine->setKeySequence(seq);
 }
+void addShortcutDialog::setKeyIsAvailable(const int key) {
+    keyIsAvailable = key;
+}
