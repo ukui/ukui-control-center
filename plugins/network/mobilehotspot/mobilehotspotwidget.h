@@ -77,6 +77,8 @@ private:
     void setUiEnabled(bool enable);
     void setWidgetHidden(bool isHidden);
 
+    void showDesktopNotify(const QString &message);
+
     bool eventFilter(QObject *watched, QEvent *event);
     void paintEvent(QPaintEvent *event);
 
@@ -85,7 +87,6 @@ private:
 signals:
 
 private slots:
-    void onWlanRemove(QString devName, QString ssid);
     void onActivateFailed(QString errorMessage);
     void onDeactivateFailed(QString errorMessage);
     //设备插拔
@@ -95,6 +96,8 @@ private slots:
     void onHotspotDeactivated(QString devName, QString ssid);
     //热点连接
     void onHotspotActivated(QString devName, QString ssid);
+
+    void onGsettingChanged(const QString &key);
 
 
 
