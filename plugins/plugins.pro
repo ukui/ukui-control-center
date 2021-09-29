@@ -17,6 +17,7 @@ SUBDIRS = \
           system/projection \
           system/touchscreen \
           system/vino \
+          system/backup_intel \
           personalized/wallpaper \
           personalized/theme \
           personalized/screenlock \
@@ -27,7 +28,7 @@ SUBDIRS = \
           network/vpn \
           network/proxy \
           network/mobilehotspot \
-          account/userinfo \
+#          account/userinfo \
           account/userinfo_intel \
           account/networkaccount \
           account/biometrics \

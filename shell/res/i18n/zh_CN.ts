@@ -901,7 +901,7 @@ you can restore them to ensure the integrity of your system.</source>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="69"/>
         <source>Back up your files to other drives, and when the original files are lost, damaged, or deleted, 
 you can restore them to ensure the integrity of your system.</source>
-        <translation type="unfinished"></translation>
+        <translation>将您的文件备份到其他驱动器，当源文件丢失、受损、删除时还原它们，保证系统的完整性。</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="113"/>
@@ -935,6 +935,24 @@ you can restore them to ensure the integrity of your system.</source>
     <message>
         <source>backup</source>
         <translation type="vanished">备份</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/backup_intel/backup.ui" line="144"/>
+        <source>All data stored on the computer will be permanently erased,and the system will revert to 
+                                its original factory state when this operation is completed.</source>
+        <translation>讲永久抹掉存储在计算机的所有数据，且无法撤销此操作。抹掉完成后系统将恢复至最初始出厂状态</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/backup_intel/backup.ui" line="213"/>
+        <location filename="../../../plugins/system/backup_intel/backup.cpp" line="76"/>
+        <source>Clear and restore</source>
+        <translation>情况并还原</translation>
+        <extra-contents_path>/backup/Clear and restore</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/backup_intel/backup.cpp" line="42"/>
+        <source>System Recovery</source>
+        <translation>系统还原</translation>
     </message>
 </context>
 <context>
@@ -2223,6 +2241,14 @@ Please authenticate yourself to continue</source>
     </message>
 </context>
 <context>
+    <name>ChangeUserLogo</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="125"/>
+        <source>System Logos</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ChangeUserName</name>
     <message>
         <location filename="../../../plugins/account/userinfo/changeusername.ui" line="26"/>
@@ -2286,41 +2312,41 @@ Please authenticate yourself to continue</source>
 <context>
     <name>ChangeUserPwd</name>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="104"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="108"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="335"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="109"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="113"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="384"/>
         <source>Current Pwd</source>
         <translation>当前密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="121"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="125"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="336"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="344"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="126"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="130"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="385"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="393"/>
         <source>New Pwd</source>
         <translation>新密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="138"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="142"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="337"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="345"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="143"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="147"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="386"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="394"/>
         <source>Sure Pwd</source>
         <translation>确认密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="223"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="409"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="228"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="458"/>
         <source>Inconsistency with pwd</source>
         <translation>与新密码不同</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="251"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="278"/>
         <source>Authentication failed, input authtok again!</source>
         <translation>密码输入错误,重新输入!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="370"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="419"/>
         <source>Contains illegal characters!</source>
         <translation>含有非法字符！</translation>
     </message>
@@ -2804,7 +2830,7 @@ change system settings</source>
         <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.ui" line="563"/>
         <source>Standard users can use most software, but cannot install the software and 
 change system settings</source>
-        <translation type="unfinished"></translation>
+        <translation>标准账户可以使用大多数软件，但是不能安装软件和更改系统配置</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.ui" line="666"/>
@@ -2891,6 +2917,121 @@ change system settings</source>
         <location filename="../../../plugins/account/userinfo_intel/createuserinteldialog.cpp" line="557"/>
         <source>The username is configured, please change the username</source>
         <translation>用户配置已存在，请更换用户名</translation>
+    </message>
+</context>
+<context>
+    <name>CreateUserNew</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="25"/>
+        <source>CreateUserNew</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="46"/>
+        <source>UserName</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="49"/>
+        <source>NickName</source>
+        <translation type="unfinished">用户昵称</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="52"/>
+        <source>Pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="55"/>
+        <source>SurePwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="112"/>
+        <source>Select Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="121"/>
+        <source>Administrator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="124"/>
+        <source>Users can make any changes they need</source>
+        <translation type="unfinished">管理员用户可以更改任何系统配置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="126"/>
+        <source>Standard User</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="129"/>
+        <source>Users cannot change system settings</source>
+        <translation type="unfinished">标准用户不能修改用户配置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="243"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="499"/>
+        <source>Inconsistency with pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="367"/>
+        <source>The nick name cannot be empty</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="371"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="437"/>
+        <source>Nickname cannot same with username</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="393"/>
+        <source>The user name cannot be empty</source>
+        <translation type="unfinished">用户名不能为空</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="395"/>
+        <source>Must be begin with lower letters!</source>
+        <translation type="unfinished">用户名必须以小写字母开始！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="398"/>
+        <source>Can not contain capital letters!</source>
+        <translation type="unfinished">用户名不能包含大写字母！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="420"/>
+        <source>Name already in use, change another one.</source>
+        <translation type="unfinished">该用户名已存在，请更改。</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="422"/>
+        <source>Name corresponds to group already exists.</source>
+        <translation type="unfinished">用户名对应组已存在，请更改。</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="427"/>
+        <source>Name length must less than %1 letters!</source>
+        <translation type="unfinished">用户名长度必须小于%1！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="429"/>
+        <source>Can only contain letters,digits,underline!</source>
+        <translation type="unfinished">用户名仅能包含字母，数字及下划线</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="433"/>
+        <source>Username&apos;s folder exists, change another one</source>
+        <translation type="unfinished">用户目录已存在，请更改</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="469"/>
+        <source>Contains illegal characters!</source>
+        <translation type="unfinished">含有非法字符！</translation>
     </message>
 </context>
 <context>
@@ -3434,6 +3575,29 @@ folder will be deleted!</source>
         <location filename="../../../plugins/account/userinfo_intel/deluserinteldialog.cpp" line="54"/>
         <source>Delete the user, belonging to the user&apos;s desktop documents, favorites, music, pictures and video folder will be deleted!</source>
         <translation>删除用户，用户所属的桌面、文档、收藏夹、音乐、图片和视频文件夹中的内容将全部被删除！</translation>
+    </message>
+</context>
+<context>
+    <name>DeleteUserExists</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo/deleteuserexists.cpp" line="47"/>
+        <source>Delete user &apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/deleteuserexists.cpp" line="48"/>
+        <source>&apos;? And:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/deleteuserexists.cpp" line="73"/>
+        <source>Keep user&apos;s data, like desktop,documents,favorites,music,pictures and so on</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/deleteuserexists.cpp" line="75"/>
+        <source>Delete whole data belong user</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5622,6 +5786,106 @@ Please retry or relogin!</source>
     </message>
 </context>
 <context>
+    <name>MessageBox</name>
+    <message>
+        <location filename="../../../plugins/system/backup_intel/messagebox.ui" line="14"/>
+        <source>Form</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/backup_intel/messagebox.ui" line="97"/>
+        <source>Attention</source>
+        <translation>提示</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/backup_intel/messagebox.ui" line="138"/>
+        <source>It takes effect after logging off</source>
+        <translation>注销后即可生效</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/backup_intel/messagebox.ui" line="209"/>
+        <source>Logout Now</source>
+        <translation>立即注销</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/backup_intel/messagebox.ui" line="228"/>
+        <location filename="../../../plugins/system/backup_intel/messagebox.cpp" line="30"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/backup_intel/messagebox.cpp" line="29"/>
+        <source>Reboot Now</source>
+        <translation>立即重启</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/backup_intel/messagebox.cpp" line="31"/>
+        <source>This cleanup and restore need to be done after the system restarts, whether to restart and restore immediately?</source>
+        <translation>此次清空并还原需要在系统重新启动后进行，是否立即重启并还原？</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/backup_intel/messagebox.cpp" line="34"/>
+        <source>System Backup Tips</source>
+        <translation>系统还原提示</translation>
+    </message>
+</context>
+<context>
+    <name>MessageBoxDialog</name>
+    <message>
+        <location filename="../../../plugins/system/backup_intel/messageboxdialog.ui" line="14"/>
+        <source>Dialog</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/backup_intel/messageboxdialog.ui" line="68"/>
+        <source>Message</source>
+        <translation>信息</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/backup_intel/messageboxdialog.ui" line="152"/>
+        <source>You do not have administrator rights!</source>
+        <translation>您没有管理员权限！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/backup_intel/messageboxdialog.ui" line="162"/>
+        <source> Factory Settings cannot be restored!</source>
+        <translation>不能恢复出厂设置!</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/backup_intel/messageboxdialog.ui" line="247"/>
+        <source>OK</source>
+        <translation>确定</translation>
+    </message>
+</context>
+<context>
+    <name>MessageBoxPower</name>
+    <message>
+        <location filename="../../../plugins/system/backup_intel/messageboxpower.cpp" line="53"/>
+        <source>System Recovery</source>
+        <translation>系统还原</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/backup_intel/messageboxpower.cpp" line="62"/>
+        <source>The battery is low,please connect the power</source>
+        <translation>电池电量较低，请连接电源后再试</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/backup_intel/messageboxpower.cpp" line="64"/>
+        <source>Keep the power connection, or the power is more than 25%.</source>
+        <translation>系统还原需保持电源连接，或在电量不低于25%时进行。</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/backup_intel/messageboxpower.cpp" line="68"/>
+        <source>Remind in 30 minutes</source>
+        <translation>30分钟后提醒我</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/backup_intel/messageboxpower.cpp" line="80"/>
+        <source>Got it</source>
+        <translation>知道了</translation>
+    </message>
+</context>
+<context>
     <name>MessageBoxPowerIntel</name>
     <message>
         <location filename="../../../plugins/account/userinfo_intel/messageboxpowerintel.cpp" line="48"/>
@@ -7009,7 +7273,7 @@ Please retry or relogin!</source>
         <translation type="vanished">字体</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="146"/>
+        <location filename="../../utils/functionselect.cpp" line="148"/>
         <source>Screensaver</source>
         <translation>屏保</translation>
     </message>
@@ -7082,53 +7346,53 @@ Please retry or relogin!</source>
         <translation type="vanished">默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="732"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="730"/>
         <source>blue-crystal</source>
         <translation>蓝水晶</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="734"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="732"/>
         <source>dark-sense</source>
         <translation>深色质感</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="736"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="734"/>
         <source>DMZ-Black</source>
         <translation>DMZ-黑</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="738"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="736"/>
         <source>DMZ-White</source>
         <translation>DMZ-白</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="758"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="756"/>
         <source>basic</source>
         <translation>基础</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="760"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="758"/>
         <source>classical</source>
         <translation>经典</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="762"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="770"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="760"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="768"/>
         <source>default</source>
         <translation>默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="764"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="762"/>
         <source>fashion</source>
         <translation>时尚</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="766"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="764"/>
         <source>hp</source>
         <translation>惠普</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="768"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="766"/>
         <source>ukui</source>
         <translation>基础</translation>
     </message>
@@ -7178,32 +7442,32 @@ Please retry or relogin!</source>
         <translation type="vanished">开机启动</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="94"/>
+        <location filename="../../utils/functionselect.cpp" line="96"/>
         <source>TouchScreen</source>
         <translation>触摸屏</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="165"/>
+        <location filename="../../utils/functionselect.cpp" line="167"/>
         <source>User Info Intel</source>
         <translation>账户信息</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="169"/>
+        <location filename="../../utils/functionselect.cpp" line="171"/>
         <source>Biometrics</source>
         <translation>生物特征与密码</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="246"/>
+        <location filename="../../utils/functionselect.cpp" line="248"/>
         <source>Default App</source>
         <translation>默认应用</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="248"/>
+        <location filename="../../utils/functionselect.cpp" line="250"/>
         <source>Auto Boot</source>
         <translation>开机启动</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="84"/>
+        <location filename="../../utils/functionselect.cpp" line="86"/>
         <source>Printer</source>
         <translation>打印机</translation>
     </message>
@@ -7213,27 +7477,33 @@ Please retry or relogin!</source>
         <translation>投屏</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="87"/>
+        <location filename="../../utils/functionselect.cpp" line="68"/>
+        <source>System Recovery</source>
+        <translation>系统还原</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="89"/>
         <source>Mouse</source>
         <translation>鼠标</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="89"/>
+        <location filename="../../utils/functionselect.cpp" line="91"/>
         <source>Touchpad</source>
         <translation>触摸板</translation>
     </message>
     <message>
+        <location filename="../../utils/functionselect.cpp" line="93"/>
         <source>Gesture</source>
         <translatorcomment>手势</translatorcomment>
-        <translation type="obsolete">手势</translation>
+        <translation type="unfinished">手势</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="97"/>
+        <location filename="../../utils/functionselect.cpp" line="99"/>
         <source>Keyboard</source>
         <translation>键盘</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="99"/>
+        <location filename="../../utils/functionselect.cpp" line="101"/>
         <source>Shortcut</source>
         <translation>快捷键</translation>
     </message>
@@ -7243,42 +7513,42 @@ Please retry or relogin!</source>
         <translation>声音</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="82"/>
+        <location filename="../../utils/functionselect.cpp" line="84"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="141"/>
+        <location filename="../../utils/functionselect.cpp" line="143"/>
         <source>Background</source>
         <translation>背景</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="139"/>
+        <location filename="../../utils/functionselect.cpp" line="141"/>
         <source>Theme</source>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="115"/>
+        <location filename="../../utils/functionselect.cpp" line="117"/>
         <source>WiredConnect</source>
         <translation>有线网络</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="117"/>
+        <location filename="../../utils/functionselect.cpp" line="119"/>
         <source>WlanConnect</source>
         <translation>无线局域网</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="124"/>
+        <location filename="../../utils/functionselect.cpp" line="126"/>
         <source>MobileHotspot</source>
         <translation>移动热点</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="143"/>
+        <location filename="../../utils/functionselect.cpp" line="145"/>
         <source>Screenlock</source>
         <translation>锁屏</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="148"/>
+        <location filename="../../utils/functionselect.cpp" line="150"/>
         <source>Fonts</source>
         <translation>字体</translation>
     </message>
@@ -7296,12 +7566,12 @@ Please retry or relogin!</source>
         <translation>远程桌面</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="163"/>
+        <location filename="../../utils/functionselect.cpp" line="165"/>
         <source>User Info</source>
         <translation>帐户信息</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="195"/>
+        <location filename="../../utils/functionselect.cpp" line="197"/>
         <source>Date</source>
         <translation>时间和日期</translation>
     </message>
@@ -7310,7 +7580,7 @@ Please retry or relogin!</source>
         <translation type="vanished">时间日期</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="231"/>
+        <location filename="../../utils/functionselect.cpp" line="233"/>
         <source>Security Center</source>
         <translation>安全中心</translation>
     </message>
@@ -7319,12 +7589,12 @@ Please retry or relogin!</source>
         <translation type="vanished">网络连接</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="119"/>
+        <location filename="../../utils/functionselect.cpp" line="121"/>
         <source>Vpn</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="121"/>
+        <location filename="../../utils/functionselect.cpp" line="123"/>
         <source>Proxy</source>
         <translation>代理</translation>
     </message>
@@ -7333,7 +7603,7 @@ Please retry or relogin!</source>
         <translation type="vanished">帐户信息</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="167"/>
+        <location filename="../../utils/functionselect.cpp" line="169"/>
         <source>Cloud Account</source>
         <translation>云帐户</translation>
     </message>
@@ -7342,7 +7612,7 @@ Please retry or relogin!</source>
         <translation type="vanished">时间日期</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="197"/>
+        <location filename="../../utils/functionselect.cpp" line="199"/>
         <source>Area</source>
         <translation>区域语言</translation>
     </message>
@@ -7351,17 +7621,17 @@ Please retry or relogin!</source>
         <translation type="vanished">安全中心</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="214"/>
+        <location filename="../../utils/functionselect.cpp" line="216"/>
         <source>Update</source>
         <translation>安全与更新</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="212"/>
+        <location filename="../../utils/functionselect.cpp" line="214"/>
         <source>Backup</source>
         <translation>备份</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="216"/>
+        <location filename="../../utils/functionselect.cpp" line="218"/>
         <source>Upgrade</source>
         <translation>更新</translation>
     </message>
@@ -7371,7 +7641,7 @@ Please retry or relogin!</source>
         <translation>通知</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="263"/>
+        <location filename="../../utils/functionselect.cpp" line="265"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -7742,196 +8012,196 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="213"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1402"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1479"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1403"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1480"/>
         <source>pa_context_get_server_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1099"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1100"/>
         <source>Card callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1117"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1118"/>
         <source>Sink callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1139"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1140"/>
         <source>Source callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1160"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1633"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1161"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1634"/>
         <source>Sink input callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1180"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1181"/>
         <source>Source output callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1220"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1221"/>
         <source>Client callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1236"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1237"/>
         <source>Server info callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1270"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1271"/>
         <source>Failed to initialize stream_restore extension: %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1287"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1288"/>
         <source>pa_ext_stream_restore_read() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1304"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1305"/>
         <source>Failed to initialize device manager extension: %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1323"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1324"/>
         <source>pa_ext_device_manager_read() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1340"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1341"/>
         <source>pa_context_get_sink_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1353"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1354"/>
         <source>pa_context_get_source_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1366"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1379"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1367"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1380"/>
         <source>pa_context_get_sink_input_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1392"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1393"/>
         <source>pa_context_get_client_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1430"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1431"/>
         <source>pa_context_get_card_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1470"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1471"/>
         <source>pa_context_subscribe() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1486"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1487"/>
         <source>pa_context_client_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1493"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1494"/>
         <source>pa_context_get_card_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1500"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1501"/>
         <source>pa_context_get_sink_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1507"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1508"/>
         <source>pa_context_get_source_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1514"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1515"/>
         <source>pa_context_get_sink_input_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1521"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1522"/>
         <source>pa_context_get_source_output_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1537"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1538"/>
         <source>Connection failed, attempting reconnect</source>
         <translation>连接失败，尝试重新连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1557"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1558"/>
         <source>Ukui Media Volume Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="851"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="987"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="311"/>
         <source>min length %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="861"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="997"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="321"/>
         <source>min digit num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="870"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1006"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="330"/>
         <source>min upper num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="879"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1015"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="339"/>
         <source>min lower num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="888"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1024"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="348"/>
         <source>min other num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="898"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1034"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="358"/>
         <source>min char class %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="907"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1043"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="367"/>
         <source>max repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="916"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1052"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="376"/>
         <source>max class repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="925"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1061"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="385"/>
         <source>max sequence %1
 </source>
@@ -9838,10 +10108,10 @@ Please retry or relogin!</source>
         <translation type="vanished">加载声音失败</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="2434"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="2623"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="2712"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="2725"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="2418"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="2607"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="2696"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_main_widget.cpp" line="2709"/>
         <source>None</source>
         <translation type="unfinished">无</translation>
     </message>
@@ -10105,27 +10375,27 @@ Please retry or relogin!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="658"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="659"/>
         <source>Peak detect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="659"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="660"/>
         <source>Failed to create monitoring stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="674"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="675"/>
         <source>Failed to connect monitoring stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="768"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="769"/>
         <source>Ignoring sink-input due to it being designated as an event and thus handled by the Event widget</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1065"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1066"/>
         <source>Establishing connection to PulseAudio. Please wait...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -10281,27 +10551,27 @@ Please retry or relogin!</source>
         <translation type="vanished">管理员用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="692"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="828"/>
         <source>root</source>
         <translation>Root</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1803"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1939"/>
         <source>Hint</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1804"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1940"/>
         <source>The system only allows one user to log in automatically.After it is turned on, the automatic login of other users will be turned off.Is it turned on?</source>
         <translation>系统只允许一个用户自动登录，开启后将关闭其他用户的自动登录，是否开启？</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1807"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1943"/>
         <source>Trun on</source>
         <translation>开启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1808"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1944"/>
         <source>Close on</source>
         <translation>取消</translation>
     </message>
@@ -10322,18 +10592,18 @@ Please retry or relogin!</source>
         <translation type="vanished">删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="688"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="824"/>
         <source>Standard</source>
         <translation>标准用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="690"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="826"/>
         <source>Admin</source>
         <translation>管理员</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="481"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1321"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="575"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1457"/>
         <source>Del</source>
         <translation>删除</translation>
     </message>
@@ -10349,7 +10619,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="177"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="475"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="569"/>
         <source>Passwd</source>
         <translation type="unfinished"></translation>
     </message>
@@ -10369,12 +10639,14 @@ Please retry or relogin!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1470"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="444"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1606"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1470"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="444"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1606"/>
         <source>The user is logged in, please delete the user after logging out</source>
         <translation>用户已经登录，请注销后删除用户</translation>
     </message>
@@ -10384,12 +10656,12 @@ Please retry or relogin!</source>
         <translation>当前用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1303"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1439"/>
         <source>Change pwd</source>
         <translation>更改密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1290"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1426"/>
         <source>Change type</source>
         <translation>更改类型</translation>
     </message>
@@ -10417,7 +10689,7 @@ Please retry or relogin!</source>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="331"/>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="142"/>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="181"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="478"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="572"/>
         <source>Type</source>
         <translation>帐户类型</translation>
         <extra-contents_path>/userinfo/Type</extra-contents_path>
@@ -10479,7 +10751,7 @@ Please retry or relogin!</source>
         <translation>其他用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="973"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1109"/>
         <source>Add new user</source>
         <translation>添加新用户</translation>
     </message>
@@ -10501,7 +10773,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="334"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="146"/>
-        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="1133"/>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="1121"/>
         <source>Change pwd</source>
         <translation>更换密码</translation>
         <extra-contents_path>/userinfo/Change pwd</extra-contents_path>
@@ -10571,14 +10843,32 @@ Please retry or relogin!</source>
         <translation>添加新用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="734"/>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="732"/>
         <source>set pwd</source>
         <translation>设置密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="748"/>
+        <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="746"/>
         <source>Change</source>
         <translation>更换</translation>
+    </message>
+</context>
+<context>
+    <name>UtilsForUserinfo</name>
+    <message>
+        <location filename="../../../plugins/account/userinfo/utilsforuserinfo.cpp" line="28"/>
+        <source>Passwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/utilsforuserinfo.cpp" line="31"/>
+        <source>Type</source>
+        <translation type="unfinished">帐户类型</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/utilsforuserinfo.cpp" line="34"/>
+        <source>Del</source>
+        <translation type="unfinished">删除</translation>
     </message>
 </context>
 <context>

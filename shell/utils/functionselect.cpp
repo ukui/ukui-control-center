@@ -64,6 +64,8 @@ void FunctionSelect::initValueSystem() {
     systemList[ABOUT].namei18nString = QObject::tr("About");
     systemList[EXPERIENCEPLAN].nameString = QString("Experienceplan");
     systemList[EXPERIENCEPLAN].namei18nString = QObject::tr("Experienceplan");
+    systemList[EXPERIENCEPLAN].nameString = QString("System Recovery");
+    systemList[EXPERIENCEPLAN].namei18nString = QObject::tr("System Recovery");
     systemList[EXPERIENCEPLAN].mainShow = false;
 
     funcinfoList.append(systemList);
@@ -87,9 +89,9 @@ void FunctionSelect::initValueDevice() {
     devicesList[MOUSE].namei18nString = QObject::tr("Mouse");
     devicesList[TOUCHPAD].nameString = QString("Touchpad");
     devicesList[TOUCHPAD].namei18nString = QObject::tr("Touchpad");
-//    devicesList[GESTURE].nameString = QString("Gesture");
-//    devicesList[GESTURE].namei18nString = QObject::tr("Gesture");
-//    devicesList[GESTURE].mainShow = false;
+    devicesList[GESTURE].nameString = QString("Gesture");
+    devicesList[GESTURE].namei18nString = QObject::tr("Gesture");
+    devicesList[GESTURE].mainShow = false;
     devicesList[TOUCHSCREEN].nameString = QString("TouchScreen");
     devicesList[TOUCHSCREEN].namei18nString =  QObject::tr("TouchScreen");
     devicesList[TOUCHSCREEN].mainShow = false;
