@@ -118,13 +118,16 @@ void About::setupDesktopComponent()
 {
     // 获取当前桌面环境
     QString dEnv;
+    bool ExitDesktopEnv =false;
     foreach (dEnv, QProcess::systemEnvironment()) {
-        if (dEnv.startsWith("XDG_CURRENT_DESKTOP"))
+        if (dEnv.startsWith("XDG_CURRENT_DESKTOP")){
+            ExitDesktopEnv = true;
             break;
+        }
     }
 
     // 设置当前桌面环境信息
-    if (!dEnv.isEmpty()) {
+    if (!dEnv.isEmpty()  && ExitDesktopEnv) {
         QString desktop = dEnv.section("=", -1, -1);
         if (desktop.contains("UKUI", Qt::CaseInsensitive)) {
             ui->desktopContent->setText("UKUI");
@@ -132,6 +135,7 @@ void About::setupDesktopComponent()
             ui->desktopContent->setText(desktop);
         }
     }
+    ui->desktopContent->setText("UKUI");
 
     ChangedSlot();
 
