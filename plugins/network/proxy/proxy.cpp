@@ -268,7 +268,7 @@ void Proxy::initUi(QWidget *widget)
   //  mPwdLineEdit->setEchoMode(QLineEdit::Password);
 
     QFrame *mUserFrame = new QFrame(mCertificationFrame_1);
-    mUserFrame->setFixedWidth(300);
+    mUserFrame->setMinimumWidth(300);
     mUserFrame->setFrameShape(QFrame::NoFrame);
     QHBoxLayout *mUserLyt = new QHBoxLayout(mUserFrame);
     mUserLyt->setContentsMargins(0, 0, 0, 0);
