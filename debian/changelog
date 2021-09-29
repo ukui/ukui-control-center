@@ -1,3 +1,216 @@
+ukui-control-center (3.1.1+2021-0929) v101; urgency=medium
+
+  * 提交commit:e0e51463
+  * bug#82885 【UKUI V3.1】【账户信息】添加用户时出现两次授权弹框
+  * bug#83234 【UKUI V3.1】【账户信息】修改昵称按副键盘Enter键成功
+  * bug#82037:根据设计稿修改声音样式解决提示音的问题
+  * bug#81102 【UKUI V3.1】【蓝牙】连接部分设备无法连接成功（ beats-x、sony wh-xm3），小米耳机、音响可以成功连
+  * bug#81018 【UKUI V3.1】【Intel 0923版本】【蓝牙】连接手机设备后点击发送文件选项，无响应
+  * bug#80936 【UKUI V3.1】【蓝牙】蓝牙部分界面未汉化完全
+  * bug#82885 【UKUI V3.1】【账户信息】添加用户时出现两次授权弹框
+  * bug#81102 【UKUI V3.1】【蓝牙】连接部分设备无法连接成功（ beats-x、sony wh-xm3），小米耳机、音响可以成功连
+  * bug#81018 【UKUI V3.1】【Intel 0923版本】【蓝牙】连接手机设备后点击发送文件选项，无响应
+  * bug#80936 【UKUI V3.1】【蓝牙】蓝牙部分界面未汉化完全
+  * bug#82720关闭文本区域光标闪烁后重新打开控制面板，光标速度控件仍存在
+  * bug#82778 【控制面板-鼠标】文案优化
+  * bug#81170显示器中点击夜间模式开关后控制面板闪退产生core文件，且之后点击显示器控制面板必闪退无法恢复
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 29 Sep 2021 11:14:40 +0800
+
+ukui-control-center (3.1.1+2021-0923.2) v101; urgency=medium
+
+  * 无修改，开放plugin.pro插件
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 23 Sep 2021 15:33:00 +0800
+
+ukui-control-center (3.1.1+2021-0923) v101; urgency=medium
+
+  * 提交commit:6c276356
+  * bug#82037修改了声音一些控件的大小还有一处声音控件的翻译
+  * bug#82037
+  * bug#81511每次第一次设置为其他屏/第一屏，第一次在显示器预览处点击被关闭的屏幕时都会自动闪回到打开的屏幕上，再次点击正常
+  * bug#81855侧边栏调节亮度条后，控制面板亮度未同步修改
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 23 Sep 2021 14:38:40 +0800
+
+ukui-control-center (3.1.1+2021-0918.3) v101; urgency=medium
+
+  * 更新翻译
+
+ -- zhoubin <zhoubin@kylinos.cn>  Sat, 18 Sep 2021 16:57:53 +0800
+
+ukui-control-center (3.1.1+2021-0918.2) v101; urgency=medium
+
+  * 编译错误，重新提交
+
+ -- zhoubin <zhoubin@kylinos.cn>  Sat, 18 Sep 2021 16:23:18 +0800
+
+ukui-control-center (3.1.1+2021-0918.1) v101; urgency=medium
+
+  * 编译错误，重新提交
+
+ -- zhoubin <zhoubin@kylinos.cn>  Sat, 18 Sep 2021 15:22:58 +0800
+
+ukui-control-center (3.1.1+2021-0918) v101; urgency=medium
+
+  * 提交commit:405f9f
+  * bug#77857【控制面板】背景界面未集成显示方式功能
+
+ -- zhoubin <zhoubin@kylinos.cn>  Sat, 18 Sep 2021 14:15:56 +0800
+
+ukui-control-center (3.1.1+2021-0917) v101; urgency=medium
+
+  * 提交commit:9bec34e9
+  * bug#73429搜索搜控制面板某些配置项无法搜到，如“方向”和“分辨率”等（需及时更新对应配置文件）
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 17 Sep 2021 10:15:43 +0800
+
+ukui-control-center (3.1.1+2021-0916.2) v101; urgency=medium
+
+  * 提交commit:4dde28dc
+  * bug#77659 【UKUI V3.1】【账户信息】更换头像时无法识别本地目录下GIF格式图片
+  * bug# 77596 【UKUI V3.1】【账户信息】修改昵称后新建同样的用户成功建立
+  * bug# 77416 【UKUI V3.1】【账户信息】修改昵称界面未汉化
+  * bug# 77839 【UKUI V3.1】【账户信息】开启免密登录后注销用户再登入，免密登录开关自动关闭，再次注销后仍可免密登录
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 16 Sep 2021 18:46:31 +0800
+
+ukui-control-center (3.1.1+2021-0916.1) v101; urgency=medium
+
+  * 提交commit:846a3662
+  * bug#77967 【UKUI V3.1】【账户信息】密码输错达到上限后无账户被锁提示语
+  * bug#77847 【UKUI V3.1】【账户信息】系统存在多个用户或新建用户后开启免密登录，控制面板出现异常卡顿、卡死
+  * bug#81110 【UKUI V3.1】【账户信息】修改昵称时按Enter键修改成功
+  * bug#77967 【UKUI V3.1】【账户信息】密码输错达到上限后无账户被锁提示语
+  * bug# 77847 【UKUI V3.1】【账户信息】系统存在多个用户或新建用户后开启免密登录，控制面板出现异常卡顿、卡死
+  * bug#77751间和日期界面日期输入框中的下拉框样式不符合UI设计
+  * bug#81289深色模式下，菜单栏中"投屏、手势、生物特征与密码"标签图标未反白
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 16 Sep 2021 15:02:56 +0800
+
+ukui-control-center (3.1.1+2021-0916) v101; urgency=medium
+
+  * 提交commit:c4b0e8d0
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 16 Sep 2021 10:41:50 +0800
+
+ukui-control-center (3.1.1+2021-0914) v101; urgency=medium
+
+  * 提交commit:5d47b397
+  * bug#77892
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 14 Sep 2021 15:59:15 +0800
+
+ukui-control-center (3.1.1+2021-0910) v101; urgency=medium
+
+  * 提交commit:6070d40c
+  * #bug79441
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 10 Sep 2021 14:03:04 +0800
+
+ukui-control-center (3.1.1+2021-0909) v101; urgency=medium
+
+  * 提交commit:fe872931
+  * bug#78545禁止对关闭的屏幕进行显示调整
+  * bug#78416从第一屏切换到拓展状态错误
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 09 Sep 2021 13:53:42 +0800
+
+ukui-control-center (3.1.1+2021-0908) v101; urgency=medium
+
+  * 提交commit:38deedb9
+  * bug#78442刷新率设置最多未保留两位小数
+  * bug#78588自定义快捷键UI和部分功能和设计稿不符
+  * bug#78321深色模式下，时间和日期界面的钟表内数字不显示
+  * bug#78336修改了背景和快捷键弹出窗口dialog中的按钮click和hover效果
+  * bug#77862背景界面点击"自定义颜色"弹出的弹窗不符合UI设计
+  * bug#77850锁屏、背景界面中的"浏览本地壁纸"应修改为"浏览"，"线上图片"位置应靠下
+  * bug#77684导航标签中的"账户"需要改为"帐户"
+  * bug#79328多台设备刷机后，控制面板蓝牙选项，在任务栏点击蓝牙，无法跳转蓝牙界面
+  * bug#77792英文模式下部分界面文字描述显示不全
+  * bug#77792完整显示英语
+  * bug#77792英文模式下部分界面文字描述显示不全
+  * task#51066Intel账户添加userinfo_intel 插件，其他环境隐藏
+  * bug#78594按cltr+alt+类时不会检测和系统快捷键的冲突，按win+类时都提示无效快捷键
+  * bug#73598修改导航显示时间日期为时间和日期
+  * bug#73598首页显示插件名和以及导航展示的名称不一致处理
+  * bug#77763先加载插件页面，再加载控件
+  * bug#78589编辑自定义快捷键时，只修改快捷键名称无法点击"确定"
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 08 Sep 2021 14:20:31 +0800
+
+ukui-control-center (3.1.1+2021-0903.1) v101; urgency=medium
+
+  * 编译错误(dt无需测试bluetoothmessagebox.h: No such file or directory)
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 03 Sep 2021 15:58:19 +0800
+
+ukui-control-center (3.1.1+2021-0903) v101; urgency=medium
+
+  * 提交commit:08907d7f
+  * bug#73650桌面共享界面标题显示为英文"Remote Desktop"未汉化，且该标签应该修改为"远程桌面
+  * task#7486 子 【UKUI3.1】控制面板大模块重构
+  * bug#77983控制面板中应去掉"桌面"模块
+  * bug#78179代理界面选择自动代理时，底部的忽略列表未置灰
+  * 添加移动热点插件(zxl)
+  * bug#77812中文模式下"远程桌面"功能在菜单栏不显示，英文模式下可以正常显示
+  * task#44403声音功能开发重构工作
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 03 Sep 2021 11:04:18 +0800
+
+ukui-control-center (3.1.1+2021-0827.2) v101; urgency=medium
+
+  * 提交commit:c9c298c7
+  * task#45525 子 ukui3.1控制面板账户功能开发重构工作与intel代码整合工作 / 3.1控制面板账户改动
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 27 Aug 2021 16:38:49 +0800
+
+ukui-control-center (3.1.1+2021-0827.1) v101; urgency=medium
+
+  * 提交commit:a3ce01aa
+  * task#50239 生物识别与密码插件添加
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 27 Aug 2021 14:37:38 +0800
+
+ukui-control-center (3.1.1+2021-0827) v101; urgency=medium
+
+  * 提交commit:f5e8c011
+  * task#44833 ukui3.1控制面板字体模块功能开发以及与intel代码整合
+  * task44388ukui3.1控制面板打印机功能开发重构工作与intel代码整合工作
+  * task#44391ukui3.1控制面板默认应用功能开发重构工作与intel代码整合工作
+  * bug#73598:【ukui v3.1】【控制面板】时间和日期界面部分功能描述与设计图不符
+  * bug#74549:【ukui v3.1】【控制面板】手动更改时间日期后，区域语言中日期显示不会实时修改，需要重新关开控制面板生效
+  * bug#73594:【ukui v3.1】【控制面板】添加其他时区没有数量限制（设计稿为限制数量为5）
+  * bug#73540:【ukui v3.1】【控制面板】区域语言界面部分功能描述与设计图不符
+  * task#44392ukui3.1控制面板快捷键功能开发重构工作与intel代码整合工作
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 27 Aug 2021 09:58:50 +0800
+
+ukui-control-center (3.0.1-1-0819) v101; urgency=medium
+
+  * 提交commit:61269fa
+  * task#44401ukui3.1控制面板通知功能开发重构工作与intel代码整合工作
+  * task#44386重写键盘通用设置界面
+  * task#4402ukui3.1控制面板电源功能开发重构工作与intel代码整合工作
+  * bug#44385解决鼠标设置中改变指针速度触摸板中光标未改变的问题
+  * task#44406ukui3.1控制面板远程桌面功能开发重构工作与intel代码整合工作 
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 19 Aug 2021 14:18:43 +0800
+
+ukui-control-center (3.0.1-1-0807.1) v101; urgency=medium
+
+  * 提交commit:8c8c4a9
+  * task#44387基于sp1-3.1setting-intel设计稿重构鼠标模块
+  * task:44528
+  * task#44830控制面板屏保模块功能开发以及与intel代码整合
+  * task#44391控制面板默认应用功能开发重构工作与intel代码整合工作
+  * task#44225关于页面整合
+  * task#44832主题UI样式更改
+  * task#44506背景与锁屏插件3.1开发
+  * task#44828多屏设置
+  * task#44394控制面板区域语言功能开发重构工作与intel代码整合工作
+
+ -- zhoubin <zhoubin@kylinos.cn>  Sat, 07 Aug 2021 11:01:37 +0800
+
 ukui-control-center (3.0.1-1-57.2) v101; urgency=medium
 
   * 解决bug#50577显示亮度调整数值
