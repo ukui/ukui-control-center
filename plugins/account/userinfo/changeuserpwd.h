@@ -4,6 +4,7 @@
 #include <QDialog>
 
 #include "pwdcheckthread.h"
+#include "passwdcheckutil.h"
 
 #ifdef ENABLEPQ
 extern "C" {

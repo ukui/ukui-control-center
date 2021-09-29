@@ -70,22 +70,6 @@ UkmediaMainWidget::UkmediaMainWidget(QWidget *parent)
     m_pSoundThemeList = new QStringList;
     m_pSoundThemeDirList = new QStringList;
     m_pSoundThemeXmlNameList = new QStringList;
-    eventList = new QStringList;
-    eventIdNameList = new QStringList;
-
-    eventList->append("window-close");
-    eventList->append("system-setting");
-    eventList->append("volume-changed");
-    eventList->append("alert-sound");
-    eventIdNameList->append("dialog-warning");
-    eventIdNameList->append("bell");
-    eventIdNameList->append("flop");
-    eventIdNameList->append("gudou");
-
-    for (int i=0;i<eventList->count();i++) {
-//        getValue();
-        addValue(eventList->at(i),eventIdNameList->at(i));
-    }
 
     initGsettings();
     setupThemeSelector(this);
@@ -118,9 +102,9 @@ void UkmediaMainWidget::initWidget()
     m_pvLayout->addSpacerItem(new QSpacerItem(20,0,QSizePolicy::Fixed,QSizePolicy::Expanding));
     m_pvLayout->setSpacing(40);
     this->setLayout(m_pvLayout);
-    this->setMinimumWidth(582);
-    this->setMaximumWidth(910);
-    this->layout()->setContentsMargins(0,0,31,0);
+    this->setMinimumWidth(550);
+    this->setMaximumWidth(16777215);
+    this->layout()->setContentsMargins(0,0,40,40);
 
     //设置滑动条的最大值为100
     m_pInputWidget->m_pIpVolumeSlider->setMaximum(100);//输入音量滑动条
@@ -2534,7 +2518,7 @@ void UkmediaMainWidget::findInputComboboxItem(QString cardName,QString portLabel
 
         QString comboboxcardname = m_pInputWidget->m_pInputDeviceSelectBox->itemData(row).toString();
         QString comboboxportname = m_pInputWidget->m_pInputDeviceSelectBox->itemText(row);
-        qDebug() << "dididi" << cardName <<portLabel<< m_pInputWidget->m_pInputDeviceSelectBox->count()
+        qDebug() << "findInputComboboxItem" << cardName <<portLabel<< m_pInputWidget->m_pInputDeviceSelectBox->count()
                  << comboboxcardname << comboboxportname;
         if (comboboxcardname == cardName && comboboxportname == portLabel) {
             m_pInputWidget->m_pInputDeviceSelectBox->blockSignals(true);

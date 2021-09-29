@@ -80,46 +80,43 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
 
     //设置大小
     m_pThemeWidget->setMinimumSize(550,50);
-    m_pThemeWidget->setMaximumSize(960,50);
+    m_pThemeWidget->setMaximumSize(16777215,50);
     m_pAlertSoundWidget->setMinimumSize(550,50);
-    m_pAlertSoundWidget->setMaximumSize(960,50);
+    m_pAlertSoundWidget->setMaximumSize(16777215,50);
     m_pStartupMusicWidget->setMinimumSize(550,50);
-    m_pStartupMusicWidget->setMaximumSize(960,50);
+    m_pStartupMusicWidget->setMaximumSize(16777215,50);
     m_pLagoutWidget->setMinimumSize(550,50);
-    m_pLagoutWidget->setMaximumSize(960,50);
+    m_pLagoutWidget->setMaximumSize(16777215,50);
     m_pAlertSoundSwitchWidget->setMinimumSize(550,50);
-    m_pAlertSoundSwitchWidget->setMaximumSize(960,50);
+    m_pAlertSoundSwitchWidget->setMaximumSize(16777215,50);
     m_pWakeupMusicWidget->setMinimumSize(550,50);
-    m_pWakeupMusicWidget->setMaximumSize(960,50);
+    m_pWakeupMusicWidget->setMaximumSize(16777215,50);
     m_pVolumeChangeWidget->setMinimumSize(550,50);
-    m_pVolumeChangeWidget->setMaximumSize(960,50);
+    m_pVolumeChangeWidget->setMaximumSize(16777215,50);
     m_pPoweroffMusicWidget->setMinimumSize(550,50);
-    m_pPoweroffMusicWidget->setMaximumSize(960,50);
+    m_pPoweroffMusicWidget->setMaximumSize(16777215,50);
 
     m_pSoundEffectLabel->setFixedSize(150,32);
-    m_pSoundThemeLabel->setFixedSize(150,32);
-    m_pShutdownlabel->setFixedSize(150,32);
+    m_pSoundThemeLabel->setFixedSize(140,32);
+    m_pShutdownlabel->setFixedSize(140,32);
 //    m_pLagoutLabel->setFixedSize(150,32);
 //    m_pWakeupMusicLabel->setFixedSize(150,32);
-    m_pVolumeChangeLabel->setFixedSize(150,32);
+    m_pVolumeChangeLabel->setFixedSize(140,32);
     m_pPoweroffMusicLabel->setFixedSize(150,32);
 
-    m_pSoundThemeCombobox->setMinimumSize(50,32);
-    m_pSoundThemeCombobox->setMaximumSize(900,32);
-
-    m_pAlertSoundCombobox->setMinimumSize(50,32);
-    m_pAlertSoundCombobox->setMaximumSize(900,32);
     m_pLagoutCombobox->setMinimumSize(50,32);
     m_pLagoutCombobox->setMaximumSize(900,32);
 
-    m_pVolumeChangeCombobox->setMinimumSize(50,32);
-    m_pVolumeChangeCombobox->setMaximumSize(900,32);
+    m_pSoundThemeCombobox->setFixedHeight(40);
+    m_pVolumeChangeCombobox->setFixedHeight(40);
+    m_pAlertSoundCombobox->setFixedHeight(40);
+
 
     //添加布局
     QHBoxLayout *themeLayout = new QHBoxLayout(m_pThemeWidget);
     themeLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     themeLayout->addWidget(m_pSoundThemeLabel);
-    themeLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
+    themeLayout->addItem(new QSpacerItem(100,20,QSizePolicy::Fixed));
     themeLayout->addWidget(m_pSoundThemeCombobox);
     themeLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     themeLayout->setSpacing(0);
@@ -129,7 +126,7 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
     QHBoxLayout *AlertLayout = new QHBoxLayout(m_pAlertSoundWidget);
     AlertLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     AlertLayout->addWidget(m_pShutdownlabel);
-    AlertLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
+    AlertLayout->addItem(new QSpacerItem(100,20,QSizePolicy::Fixed));
     AlertLayout->addWidget(m_pAlertSoundCombobox);
     AlertLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     AlertLayout->setSpacing(0);
@@ -169,7 +166,7 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
     m_pAlertSoundSwitchWidget->setLayout(alertSoundLayout);
     m_pAlertSoundSwitchWidget->layout()->setContentsMargins(0,0,0,0);
 
-    //窗口关闭提示音
+    //唤醒提示音
     QHBoxLayout *wakeupMusicLayout = new QHBoxLayout(m_pWakeupMusicWidget);
     wakeupMusicLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     wakeupMusicLayout->addWidget(m_pWakeupMusicLabel);
@@ -184,7 +181,7 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
     QHBoxLayout *volumeChangedLayout = new QHBoxLayout(m_pVolumeChangeWidget);
     volumeChangedLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     volumeChangedLayout->addWidget(m_pVolumeChangeLabel);
-    volumeChangedLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
+    volumeChangedLayout->addItem(new QSpacerItem(100,20,QSizePolicy::Fixed));
     volumeChangedLayout->addWidget(m_pVolumeChangeCombobox);
     volumeChangedLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     volumeChangedLayout->setSpacing(0);
