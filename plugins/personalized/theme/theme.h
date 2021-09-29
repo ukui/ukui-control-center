@@ -121,7 +121,6 @@ private slots:
     void resetBtnClickSlot();
     void writeKwinSettings(bool change, QString theme, bool effect = false);
     void themeBtnClickSlot(QAbstractButton *button);
-
 };
 
 #endif // THEME_H
