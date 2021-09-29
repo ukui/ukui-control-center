@@ -701,22 +701,18 @@ void UserInfo::_refreshUserInfoUI(){
 
             QWidget * widget = ui->listWidget->itemWidget(item);
 
-            QPushButton * faceBtn = widget->findChild<QPushButton *>("faceBtn");
-//            faceBtn->setIcon(QIcon(user.iconfile));
-//            _buildWidgetForItem(user);
-            if (faceBtn->layout() != NULL) {
+            QLabel * faceLabel = widget->findChild<QLabel *>("faceLabel");
+            if (faceLabel->layout() != NULL) {
                 QLayoutItem* item;
-                while ((item = faceBtn->layout()->takeAt( 0 )) != NULL )
+                while ((item = faceLabel->layout()->takeAt( 0 )) != NULL )
                 {
                     delete item->widget();
                     delete item;
                 }
-//                delete faceBtn->layout();
+//                delete faceLabel->layout();
             }
-            QLabel * iconLabel = new QLabel(faceBtn);
-            iconLabel->setScaledContents(true);
-            iconLabel->setPixmap(PixmapToRound(user.iconfile, iconLabel->width()/2));
-            faceBtn->layout()->addWidget(iconLabel);
+            faceLabel->setScaledContents(true);
+            faceLabel->setPixmap(PixmapToRound(user.iconfile, faceLabel->width()/2));
         }
     }
     QDBusInterface *m_interface1 = new QDBusInterface("cn.kylinos.SSOBackend",
@@ -777,27 +773,17 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     mainHorLayout->setSpacing(16);
     mainHorLayout->setContentsMargins(16, 0, 16, 0);
 
-    QPushButton * faceBtn = new QPushButton(widget);
-    faceBtn->setObjectName("faceBtn");
-    faceBtn->setFixedSize(40, 40);
-//    faceBtn->setIcon(QIcon(user.iconfile));
-//    faceBtn->setIconSize(faceBtn->size());
-    QHBoxLayout * faceBtnHorLayout = new QHBoxLayout(faceBtn);
-    faceBtnHorLayout->setSpacing(0);
-    faceBtnHorLayout->setMargin(0);
-//    QLabel * iconLabel = new QLabel(faceBtn);
-//    iconLabel->setScaledContents(true);
-//    iconLabel->setPixmap(QPixmap(user.iconfile));
-    ElipseMaskWidget * faceElipseMaskWidget = new ElipseMaskWidget(faceBtn);
-    faceElipseMaskWidget->setGeometry(0, 0, faceBtn->width(), faceBtn->height());
-//    faceBtnHorLayout->addWidget(iconLabel);
-    faceBtn->setLayout(faceBtnHorLayout);
-    connect(faceBtn, &QPushButton::clicked, [=](bool checked){
-        Q_UNUSED(checked)
-        if (ui->userTypeLabel->text() == "管理员用户") {
-            showChangeFaceDialog(user.username);
-        }
-    });
+    QLabel * faceLabel = new QLabel(widget);
+    faceLabel->setObjectName("faceLabel");
+    faceLabel->setFixedSize(40, 40);
+
+    QHBoxLayout * faceLabelHorLayout = new QHBoxLayout(faceLabel);
+    faceLabelHorLayout->setSpacing(0);
+    faceLabelHorLayout->setMargin(0);
+    faceLabel->setLayout(faceLabelHorLayout);
+
+    ElipseMaskWidget * faceElipseMaskWidget = new ElipseMaskWidget(faceLabel);
+    faceElipseMaskWidget->setGeometry(0, 0, faceLabel->width(), faceLabel->height());
 
     QLabel * nameLabel = new QLabel(widget);
     QSizePolicy nameSizePolicy = nameLabel->sizePolicy();
@@ -835,7 +821,7 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     line->setFrameShape(QFrame::VLine);
     line->setFixedSize(4, 12);
 
-    mainHorLayout->addWidget(faceBtn);
+    mainHorLayout->addWidget(faceLabel);
     mainHorLayout->addWidget(nameLabel);
     mainHorLayout->addStretch();
 //    mainHorLayout->addWidget(pwdBtn);
