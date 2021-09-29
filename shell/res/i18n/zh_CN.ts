@@ -7741,7 +7741,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="659"/>
         <source>Download Limit(Kb/s)</source>
-        <translation>下载限速(Kb/s)</translation>
+        <translation>自动下载限速(Kb/s)</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="664"/>
