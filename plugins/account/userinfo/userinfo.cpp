@@ -123,7 +123,7 @@ QWidget *UserInfo::get_plugin_ui() {
 
 
     }
-    return pluginWidget;
+    return pluginWidget2;
 }
 
 void UserInfo::plugin_delay_control() {
@@ -203,7 +203,6 @@ void UserInfo::initUI(){
     currentUserinfoVerLayout->setSpacing(4);
     currentUserinfoVerLayout->setContentsMargins(0, 0, 0, 0);
     currentUserinfoVerLayout->addStretch();
-//    currentUserinfoVerLayout->addWidget(currentNickNameLabel, Qt::AlignHCenter);
     currentUserinfoVerLayout->addLayout(currentNickNameHorLayout);
     currentUserinfoVerLayout->addWidget(currentUserTypeLabel, Qt::AlignHCenter);
     currentUserinfoVerLayout->addStretch();
@@ -235,7 +234,6 @@ void UserInfo::initUI(){
 
     nopwdLoginLabel = new QLabel();
     nopwdLoginLabel->setText(tr("LoginWithoutPwd"));
-//    nopwdLoginLabel->setFixedWidth(550);
 
     nopwdLoginSBtn = new SwitchButton(nopwdLoginFrame);
 
@@ -310,8 +308,6 @@ void UserInfo::initUI(){
 
     othersFrame = new QFrame();
     othersFrame->setFixedHeight(60);
-//    othersFrame->setMinimumSize(QSize(550, 60));
-//    othersFrame->setMaximumSize(QSize(16777215, 16777215));
     othersFrame->setFrameShape(QFrame::Box);
     othersFrame->setLayout(otherVerLayout);
 
@@ -366,6 +362,16 @@ void UserInfo::buildAndSetupUsers(){
             if (setTextDynamic(currentUserTypeLabel, cType)){
                 currentUserTypeLabel->setToolTip(cType);
             }
+
+            //设置自动登录状态
+            autoLoginSBtn->blockSignals(true);
+            autoLoginSBtn->setChecked(user.autologin);
+            autoLoginSBtn->blockSignals(false);
+
+            //设置免密登录状态
+            nopwdLoginSBtn->blockSignals(true);
+            nopwdLoginSBtn->setChecked(user.noPwdLogin);
+            nopwdLoginSBtn->blockSignals(false);
 
             //绑定当前用户的属性改变回调
             setUserDBusPropertyConnect(user.objpath);
@@ -674,17 +680,21 @@ void UserInfo::setUserConnect(){
     });
 
     //自动登录登录
-    connect(autoLoginSBtn, &SwitchButton::checkedChanged, [=](bool checked){
+    connect(autoLoginSBtn, &SwitchButton::checkedChanged, autoLoginSBtn, [=](bool checked){
         UserInfomation user = allUserInfoMap.value(g_get_user_name());
 
-        QDBusInterface piface("org.freedesktop.Accounts",
-                              user.objpath,
-                              "org.freedesktop.Accounts.User",
-                              QDBusConnection::systemBus());
-        if (piface.isValid()){
-            piface.call("SetAutomaticLogin", checked);
-        } else {
-            qCritical() << "Create Client Interface Failed When execute gpasswd: " << QDBusConnection::systemBus().lastError();
+        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.Accounts",
+                                                              user.objpath,
+                                                              "org.freedesktop.Accounts.User",
+                                                              "SetAutomaticLogin");
+        message << checked;
+        QDBusMessage response = QDBusConnection::systemBus().call(message);
+
+        if (response.type() == QDBusMessage::ErrorMessage){
+
+            autoLoginSBtn->blockSignals(true);
+            autoLoginSBtn->setChecked(!checked);
+            autoLoginSBtn->blockSignals(false);
         }
     });
 
@@ -1679,7 +1689,7 @@ void UserInfo::deleteUserDone(QString objpath){
 }
 
 void UserInfo::showChangeGroupDialog(){
-    ChangeGroupDialog * dialog = new ChangeGroupDialog(pluginWidget);
+    ChangeGroupDialog * dialog = new ChangeGroupDialog(pluginWidget2);
     dialog->exec();
 }
 

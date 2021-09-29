@@ -96,6 +96,7 @@ public:
     bool enablePwdQuality;
 
 protected:
+    bool eventFilter(QObject *watched, QEvent *event);
     bool setCunTextDynamic(QLabel * label, QString string);
 
 private:

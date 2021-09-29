@@ -27,6 +27,7 @@ public:
     void requireUserInfo(QString logo, QString type);
     void refreshUserLogo(QString logo);
     void setupConnect();
+    void showLocalFaceDialog();
 
 public:
     QVBoxLayout * culMainVerLayout;

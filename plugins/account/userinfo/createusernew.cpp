@@ -13,6 +13,7 @@
 #include <QDBusReply>
 #include <QCoreApplication>
 #include <QDebug>
+#include <QMouseEvent>
 
 #define USER_LENGTH 32
 #define DEFAULTFACE "/usr/share/ukui/faces/default.png"
@@ -162,9 +163,10 @@ void CreateUserNew::initUI(){
     adminFrame = new QFrame;
     adminFrame->setMinimumSize(QSize(473, 88));
     adminFrame->setMaximumSize(QSize(16777215, 88));
-    adminFrame->setFrameShape(QFrame::StyledPanel);
+    adminFrame->setFrameShape(QFrame::Box);
     adminFrame->setFrameStyle(QFrame::Plain);
     adminFrame->setLayout(adminHorLayout);
+    adminFrame->installEventFilter(this);
 
     //标准用户RadioButton布局
     standard1VerLayout = new QVBoxLayout;
@@ -190,12 +192,16 @@ void CreateUserNew::initUI(){
     standardFrame = new QFrame;
     standardFrame->setMinimumSize(QSize(473, 88));
     standardFrame->setMaximumSize(QSize(16777215, 88));
-    standardFrame->setFrameShape(QFrame::StyledPanel);
+    standardFrame->setFrameShape(QFrame::Box);
     standardFrame->setFrameStyle(QFrame::Plain);
+    standardFrame->setLineWidth(1);
     standardFrame->setLayout(standardHorLayout);
+    standardFrame->installEventFilter(this);
 
     cancelBtn = new QPushButton;
+    cancelBtn->setText(tr("Cancel"));
     confirmBtn = new QPushButton;
+    confirmBtn->setText(tr("Confirm"));
 
     bottomHorLayout = new QHBoxLayout;
     bottomHorLayout->setSpacing(16);
@@ -531,4 +537,19 @@ bool CreateUserNew::setCunTextDynamic(QLabel *label, QString string){
     label->setText(str);
     return isOverLength;
 
+}
+
+bool CreateUserNew::eventFilter(QObject *watched, QEvent *event){
+    if (event->type() == QEvent::MouseButtonPress){
+        QMouseEvent * mouseEvent = static_cast<QMouseEvent *>(event);
+        if (mouseEvent->button() == Qt::LeftButton ){
+            if (watched == adminFrame){
+                adminRadioBtn->setChecked(true);
+            } else if (watched == standardFrame){
+                standardRadioBtn->setChecked(true);
+            }
+        }
+    }
+
+    return QObject::eventFilter(watched, event);
 }
