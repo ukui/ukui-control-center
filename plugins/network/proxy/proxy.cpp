@@ -268,14 +268,15 @@ void Proxy::initUi(QWidget *widget)
   //  mPwdLineEdit->setEchoMode(QLineEdit::Password);
 
     QFrame *mUserFrame = new QFrame(mCertificationFrame_1);
+    mUserFrame->setFixedWidth(300);
     mUserFrame->setFrameShape(QFrame::NoFrame);
     QHBoxLayout *mUserLyt = new QHBoxLayout(mUserFrame);
     mUserLyt->setContentsMargins(0, 0, 0, 0);
     mUserLyt->setSpacing(8);
     mUserNameLabel = new QLabel(mUserFrame);
-    mUserNameLabel->setFixedWidth(112);
+ //  mUserNameLabel->setFixedWidth(80);
     mUserNameLineEdit = new QLineEdit(mUserFrame);
-    mUserNameLineEdit->setMinimumWidth(180);
+ // mUserNameLineEdit->setMinimumWidth(212);
     mUserNameLineEdit->setFixedHeight(36);
     mUserLyt->addWidget(mUserNameLabel);
     mUserLyt->addWidget(mUserNameLineEdit);
