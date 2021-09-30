@@ -28,7 +28,7 @@ SUBDIRS = \
           network/vpn \
           network/proxy \
           network/mobilehotspot \
-#          account/userinfo \
+          account/userinfo \
           account/userinfo_intel \
           account/networkaccount \
           account/biometrics \
