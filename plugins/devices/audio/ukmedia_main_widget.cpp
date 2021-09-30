@@ -887,7 +887,7 @@ void UkmediaMainWidget::soundThemeInDir (UkmediaMainWidget *m_pWidget,GHashTable
         //设置主题到combox中
         qDebug() << "sound theme in dir" << "displayname:" << m_pIndexName << "theme name:" << m_pName << "theme："<< themeName;
         //屏蔽ubuntu custom 主题
-        if (!strstr(m_pName,"ubuntu") && !strstr(m_pName,"freedesktop") && !strstr(m_pName,"custom")) {
+        if (m_pName && !strstr(m_pName,"ubuntu") && !strstr(m_pName,"freedesktop") && !strstr(m_pName,"custom")) {
             m_pWidget->m_pThemeDisplayNameList->append(m_pIndexName);
             m_pWidget->m_pThemeNameList->append(m_pName);
             m_pWidget->m_pSoundWidget->m_pSoundThemeCombobox->addItem(m_pIndexName);

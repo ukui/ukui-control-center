@@ -678,7 +678,7 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
         volume = info.volume.values[0];
 
     //默认的输出音量
-    if (strcmp(defaultSourceName.data(),info.name) == 0) {
+    if (info.name && strcmp(defaultSourceName.data(),info.name) == 0) {
         if (info.active_port) {
 //            sourcePortLabel = info.active_port->description;
             if (strcmp(sourcePortName.toLatin1().data(),info.active_port->name) != 0) {
@@ -706,7 +706,7 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
         }
         sourcePortMap.insert(info.card,temp);
     }
-    qDebug() << "update source" << m_pDefaultSink->name<<m_pDefaultSink->index;
+    qDebug() << "update source";
 
     if (is_new)
         updateDeviceVisibility();
@@ -758,7 +758,7 @@ finish:
 void UkmediaVolumeControl::updateSinkInput(const pa_sink_input_info &info) {
     const char *t;
     if ((t = pa_proplist_gets(info.proplist, "module-stream-restore.id"))) {
-        if (strcmp(t, "sink-input-by-media-role:event") == 0) {
+        if (t && strcmp(t, "sink-input-by-media-role:event") == 0) {
             g_debug("%s", tr("Ignoring sink-input due to it being designated as an event and thus handled by the Event widget").toUtf8().constData());
             return;
         }
@@ -767,7 +767,7 @@ void UkmediaVolumeControl::updateSinkInput(const pa_sink_input_info &info) {
     const gchar *appId = pa_proplist_gets(info.proplist, PA_PROP_APPLICATION_ID);
 
     //没制定应用名称的不加入到应用音量中
-    if (!strstr(description,"QtPulseAudio")) {
+    if (description && !strstr(description,"QtPulseAudio")) {
         if (!info.corked) {
 
             sinkInputMap.insert(description,info.volume.values[0]);
@@ -798,7 +798,7 @@ void UkmediaVolumeControl::updateSourceOutput(const pa_source_output_info &info)
     bool is_new = false;
 
     if ((app = pa_proplist_gets(info.proplist, PA_PROP_APPLICATION_ID)))
-        if (strcmp(app, "org.PulseAudio.pavucontrol") == 0
+        if (app && strcmp(app, "org.PulseAudio.pavucontrol") == 0
             || strcmp(app, "org.gnome.VolumeControl") == 0
             || strcmp(app, "org.kde.kmixd") == 0)
             return;
@@ -807,7 +807,7 @@ void UkmediaVolumeControl::updateSourceOutput(const pa_source_output_info &info)
     const gchar *appId = pa_proplist_gets(info.proplist, PA_PROP_APPLICATION_ID);
 
     //没制定应用名称的不加入到应用音量中
-    if (!strstr(description,"QtPulseAudio")) {
+    if (description && !strstr(description,"QtPulseAudio")) {
         if (!info.corked) {
             sourceOutputMap.insert(description,info.volume.values[0]);
             Q_EMIT addSourceOutputSignal(description,appId,info.index);
@@ -1181,27 +1181,13 @@ void UkmediaVolumeControl::sourceOutputCb(pa_context *c, const pa_source_output_
         if (n_outstanding > 0) {
             /* At this point all notebook pages have been populated, so
              * let's open one that isn't empty */
-//            if (default_tab != -1) {
-//                if (default_tab < 1 || default_tab > w->notebook->count()) {
-//                    if (!w->sinkInputWidgets.empty())
-//                        w->notebook->setCurrentIndex(0);
-//                    else if (!w->sourceOutputWidgets.empty())
-//                        w->notebook->setCurrentIndex(1);
-//                    else if (!w->sourceWidgets.empty() && w->sinkWidgets.empty())
-//                        w->notebook->setCurrentIndex(3);
-//                    else
-//                        w->notebook->setCurrentIndex(2);
-//                } else {
-//                    w->notebook->setCurrentIndex(default_tab - 1);
-//                }
-//                default_tab = -1;
-//            }
         }
 
         decOutstanding(w);
         return;
     }
-    qDebug() << "sourceOutputCb" << i->name;
+    if (i->name)
+        qDebug() << "sourceOutputCb" << i->name;
     w->updateSourceOutput(*i);
 }
 
