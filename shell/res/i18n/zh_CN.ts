@@ -946,7 +946,7 @@ you can restore them to ensure the integrity of your system.</source>
         <location filename="../../../plugins/system/backup_intel/backup.ui" line="213"/>
         <location filename="../../../plugins/system/backup_intel/backup.cpp" line="76"/>
         <source>Clear and restore</source>
-        <translation>情况并还原</translation>
+        <translation>清空并还原</translation>
         <extra-contents_path>/backup/Clear and restore</extra-contents_path>
     </message>
     <message>
