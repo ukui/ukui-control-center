@@ -71,6 +71,17 @@ void ksc_module_func_widget::update_module_data(ksc_defender_module module)
 
     QString str_name = _(module.module_name.toLocal8Bit().data());
     ui->module_name->setText(str_name);
+
+     // 添加搜索索引
+    //~ contents_path /securitycenter/Security Scan
+     tr("Security Scan");
+     //~ contents_path /securitycenter/Account Protection
+     tr("Account Protection");
+     //~ contents_path /securitycenter/Network Protection
+     tr("Network Protection");
+     //~ contents_path /securitycenter/Application Protection
+     tr("Application Protection");
+
 }
 
 void ksc_module_func_widget::update_module_icon()

@@ -17,7 +17,7 @@
         <translation type="vanished">延长服务</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="498"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="502"/>
         <source>version</source>
         <translation>版本</translation>
         <extra-contents_path>/about/version</extra-contents_path>
@@ -51,21 +51,21 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="269"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="500"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="504"/>
         <source>Kernel</source>
         <translation>内核</translation>
         <extra-contents_path>/about/Kernel</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="308"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="502"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="506"/>
         <source>CPU</source>
         <translation>CPU</translation>
         <extra-contents_path>/about/CPU</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="356"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="504"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="508"/>
         <source>Memory</source>
         <translation>内存</translation>
         <extra-contents_path>/about/Memory</extra-contents_path>
@@ -77,21 +77,21 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="458"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="506"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="510"/>
         <source>Desktop</source>
         <translation>桌面</translation>
         <extra-contents_path>/about/Desktop</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="488"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="508"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="512"/>
         <source>User</source>
         <translation>用户名</translation>
         <extra-contents_path>/about/User</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="534"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="510"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="514"/>
         <source>Status</source>
         <translation>激活状态</translation>
         <extra-contents_path>/about/Status</extra-contents_path>
@@ -113,7 +113,7 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="669"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="514"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="518"/>
         <source>Protocol</source>
         <translation>免责协议</translation>
         <extra-contents_path>/about/Protocol</extra-contents_path>
@@ -124,8 +124,8 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="639"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="262"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="512"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="266"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="516"/>
         <source>Active</source>
         <translation>激活</translation>
         <extra-contents_path>/about/Active</extra-contents_path>
@@ -160,22 +160,22 @@
         <translation type="vanished">可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="260"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="264"/>
         <source>Inactivated</source>
         <translation>未激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="266"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="270"/>
         <source>Activated</source>
         <translation>已激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="306"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="310"/>
         <source>expired</source>
         <translation>已过期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="309"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="313"/>
         <source>Extend</source>
         <translation>延长服务</translation>
     </message>
@@ -5844,43 +5844,43 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="706"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="704"/>
         <source>blue-crystal</source>
         <translation>蓝水晶</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="708"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="706"/>
         <source>dark-sense</source>
         <translation>深色质感</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="710"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="708"/>
         <source>DMZ-Black</source>
         <translation>DMZ-黑</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="712"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="710"/>
         <source>DMZ-White</source>
         <translation>DMZ-白</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="724"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="722"/>
         <source>basic</source>
         <translation>基础</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="726"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="724"/>
         <source>classical</source>
         <translation>经典</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="728"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="732"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="726"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="730"/>
         <source>default</source>
         <translation>默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="730"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="728"/>
         <source>fashion</source>
         <translation>时尚</translation>
     </message>
@@ -9691,6 +9691,30 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <location filename="../../../plugins/security-updates/securitycenter/ksc_module_func_widget.cpp" line="20"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/securitycenter/ksc_module_func_widget.cpp" line="77"/>
+        <source>Security Scan</source>
+        <translation>安全体检</translation>
+        <extra-contents_path>/securitycenter/Security Scan</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/securitycenter/ksc_module_func_widget.cpp" line="79"/>
+        <source>Account Protection</source>
+        <translation>账户保护</translation>
+        <extra-contents_path>/securitycenter/Account Protection</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/securitycenter/ksc_module_func_widget.cpp" line="81"/>
+        <source>Network Protection</source>
+        <translation>网络保护</translation>
+        <extra-contents_path>/securitycenter/Network Protection</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/securitycenter/ksc_module_func_widget.cpp" line="83"/>
+        <source>Application Protection</source>
+        <translation>应用保护</translation>
+        <extra-contents_path>/securitycenter/Application Protection</extra-contents_path>
     </message>
 </context>
 <context>
