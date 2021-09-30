@@ -940,7 +940,7 @@ you can restore them to ensure the integrity of your system.</source>
         <location filename="../../../plugins/system/backup_intel/backup.ui" line="144"/>
         <source>All data stored on the computer will be permanently erased,and the system will revert to 
                                 its original factory state when this operation is completed.</source>
-        <translation>讲永久抹掉存储在计算机的所有数据，且无法撤销此操作。抹掉完成后系统将恢复至最初始出厂状态</translation>
+        <translation>将永久抹掉存储在计算机的所有数据，且无法撤销此操作。抹掉完成后系统将恢复至最初始出厂状态</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/backup_intel/backup.ui" line="213"/>
