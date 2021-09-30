@@ -227,11 +227,11 @@ QString BiometricEnrollDialog::getGif(int type)
     case BIOTYPE_FINGERPRINT:
         return "/usr/share/ukui-biometric/images/FingerPrint.gif";
     case BIOTYPE_FINGERVEIN:
-        return "/usr/share/ukui-biometric/images/fingervein.gif";
+        return "/usr/share/ukui-biometric/images/FingerVein.gif";
     case BIOTYPE_IRIS:
-        return "/usr/share/ukui-biometric/images/iris.gif";
+        return "/usr/share/ukui-biometric/images/Iris.gif";
     case BIOTYPE_VOICEPRINT:
-        return "/usr/share/ukui-biometric/images/voiceprint.gif";
+        return "/usr/share/ukui-biometric/images/VoicePrint.gif";
     }
     return QString();
 }

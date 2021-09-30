@@ -599,9 +599,7 @@ void Theme::initConnection() {
             qtSettings->set(THEME_TRAN_KEY, 100);
             qtSettings->set(PEONY_TRAN_KEY, 100);
             ui->tranSlider->setValue(100);
-        }
-        else
-        {
+        } else {
             save_trans = personliseGsettings->get(PERSONALSIE_SAVE_TRAN_KEY).toInt();
             ui->tranSlider->setValue(save_trans);
         }

@@ -87,6 +87,7 @@ SOURCES += \
     framelessExtended/framelesshandle.cpp \
     framelessExtended/widgethandlerealize.cpp \
     homepagewidget.cpp \
+    mhomedelegate.cpp \
     modulepagewidget.cpp \
     pinyin.cpp \
     prescene.cpp \
@@ -115,6 +116,7 @@ HEADERS += \
     framelessExtended/framelesshandleprivate.h \
     framelessExtended/widgethandlerealize.h \
     homepagewidget.h \
+    mhomedelegate.h \
     modulepagewidget.h \
     pinyin.h \
     prescene.h \

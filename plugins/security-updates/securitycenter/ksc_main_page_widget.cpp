@@ -37,9 +37,11 @@ ksc_main_page_widget::ksc_main_page_widget(QWidget *parent) :
     ui->content_label->adjustSize();
     ui->detail_label->setObjectName("ksc_main_page_widget_detail_label");
     ui->detail_label->adjustSize();
-// ui->content_label->setText(tr("Security Overview"));
-// ui->detail_label->setText(tr("See what's happening with the security and health of your system"));
+
+   // ui->content_label->setText(tr("Security Overview"));
+   // ui->detail_label->setText(tr("See what's happening with the security and health of your system"));
     //~ contents_path /securitycenter/Run Security Center
+
     ui->pushButton->setText(tr("Run Security Center"));
 
     init_list_widget();

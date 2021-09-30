@@ -787,7 +787,7 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
         nameLabel->setToolTip(user.realname);
     }
 
-    connect(pSetting, &QGSettings::changed, this, [=](QString key){
+    connect(pSetting, &QGSettings::changed, baseWidget, [=](QString key){
         if (QString::compare(key, "systemFontSize") == 0){
             if (QLabelSetText(nameLabel, user.realname)){
                 nameLabel->setToolTip(user.realname);
@@ -805,7 +805,7 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     typeBtn->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
     typeBtn->setText(tr("Change type"));
 //    typeBtn->setStyleSheet(btnQss);
-    connect(typeBtn, &QPushButton::clicked, this, [=](bool checked){
+    connect(typeBtn, &QPushButton::clicked, baseWidget, [=](bool checked){
         Q_UNUSED(checked)
         showChangeTypeDialog(user.username);
     });
@@ -818,7 +818,7 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     pwdBtn->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
     pwdBtn->setText(tr("Change pwd"));
 //    pwdBtn->setStyleSheet(btnQss);
-    connect(pwdBtn, &QPushButton::clicked, this, [=](bool checked){
+    connect(pwdBtn, &QPushButton::clicked, baseWidget, [=](bool checked){
         Q_UNUSED(checked)
         showChangePwdDialog(user.username);
     });
@@ -837,12 +837,12 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     delBtn->setText(tr("Del"));
 //    delBtn->setStyleSheet("QPushButton{background: #FA6056; border-radius: 4px}");
     delBtn->hide();
-    connect(delBtn, &QPushButton::clicked, this, [=](bool checked){
+    connect(delBtn, &QPushButton::clicked, baseWidget, [=](bool checked){
         Q_UNUSED(checked)
         showDeleteUserDialog(user.username);
     });
 
-    connect(baseWidget, &HoverWidget::enterWidget, this, [=](QString name){
+    connect(baseWidget, &HoverWidget::enterWidget, baseWidget, [=](QString name){
 
         //不允许删除最后一个管理员
         if (_userCanDel(name) == 1){
@@ -863,7 +863,7 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
         pwdBtn->show();
         delBtn->show();
     });
-    connect(baseWidget, &HoverWidget::leaveWidget, this, [=](QString name){
+    connect(baseWidget, &HoverWidget::leaveWidget, baseWidget, [=](QString name){
         Q_UNUSED(name)
         typeBtn->hide();
         pwdBtn->hide();
@@ -1751,6 +1751,20 @@ void UserInfo::onbiometricDeviceBoxCurrentIndexChanged(int index)
                         SLOT(errorCallback(QDBusError)));
 }
 
+bool compareBarData(const QDBusVariant &feature1, const QDBusVariant &feature2)
+{
+    FeatureInfo *featureInfo1 = new FeatureInfo;
+    FeatureInfo *featureInfo2 = new FeatureInfo;
+
+    feature1.variant().value<QDBusArgument>() >> *featureInfo1;
+    feature2.variant().value<QDBusArgument>() >> *featureInfo2;
+    if (featureInfo1->index_name < featureInfo2->index_name)
+    {
+       return true;
+    }
+    return false;
+}
+
 void UserInfo::updateFeatureListCallback(QDBusMessage callbackReply)
 {
     QList<QDBusVariant> qlist;
@@ -1763,6 +1777,9 @@ void UserInfo::updateFeatureListCallback(QDBusMessage callbackReply)
     QList<QVariant> variantList = callbackReply.arguments();
     listsize = variantList[0].value<int>();
     variantList[1].value<QDBusArgument>() >> qlist;
+
+    qSort(qlist.begin(), qlist.end(), compareBarData);
+
     for (int i = 0; i < listsize; i++) {
         featureInfo = new FeatureInfo;
         qlist[i].variant().value<QDBusArgument>() >> *featureInfo;
@@ -1922,9 +1939,8 @@ void UserInfo::addFeature(FeatureInfo *featureinfo)
         DeviceInfoPtr deviceInfoPtr = findDeviceByName(featureinfo->device_shortname);
         if(!deviceInfoPtr)
                 return ;
-	isShowDialog = true;
         bool res = m_biometricProxy->renameFeature(deviceInfoPtr->id,getuid(),featureinfo->index,rename);
-        renameFeaturedone(featureinfo,rename);
+        //renameFeaturedone(featureinfo,rename);
     });
 
     QPushButton * renameBtn = new QPushButton(widget);
@@ -1965,7 +1981,7 @@ void UserInfo::addFeature(FeatureInfo *featureinfo)
     widget->setLayout(mainHorLayout);
 
     QPushButton * delBtn = new QPushButton(baseWidget);
-    delBtn->setFixedSize(60, 36);
+    delBtn->setFixedSize(88, 36);
     delBtn->setText(tr("Delete"));
 //    delBtn->setStyleSheet("QPushButton{background: #FA6056; border-radius: 4px}");
     delBtn->hide();
