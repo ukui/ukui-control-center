@@ -50,6 +50,7 @@ QWidget *Audio::get_plugin_ui() {
         pluginWidget = new UkmediaMainWidget;
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
         ui->setupUi(pluginWidget);
+        pluginWidget->adjustSize();
     }
     return  pluginWidget;
 }

@@ -6856,7 +6856,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/network/proxy/proxy.cpp" line="410"/>
         <source>Auto Proxy</source>
-        <translation>自动设置代理</translation>
+        <translation>自动代理</translation>
         <extra-contents_path>/proxy/Auto Proxy</extra-contents_path>
     </message>
     <message>
@@ -6866,13 +6866,13 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/network/proxy/proxy.cpp" line="412"/>
         <source>Auto url</source>
-        <translation>自动配置URL</translation>
+        <translation>配置URL</translation>
         <extra-contents_path>/proxy/Auto url</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/network/proxy/proxy.cpp" line="414"/>
         <source>Manual Proxy</source>
-        <translation>手动设置代理</translation>
+        <translation>手动代理</translation>
         <extra-contents_path>/proxy/Manual Proxy</extra-contents_path>
     </message>
     <message>

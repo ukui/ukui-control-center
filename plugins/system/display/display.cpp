@@ -44,6 +44,7 @@ QWidget *DisplaySet::get_plugin_ui()
         requestBackend();
         mFirstLoad = false;
         pluginWidget = new Widget;
+        pluginWidget->adjustSize();
         QObject::connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished,
                          [&](KScreen::ConfigOperation *op) {
             pluginWidget->setConfig(qobject_cast<KScreen::GetConfigOperation *>(op)->config(), true);
