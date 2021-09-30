@@ -47,6 +47,10 @@ public:
     QPushButton * cancelBtn;
     QPushButton * confirmBtn;
 
+protected:
+    bool eventFilter(QObject *watched, QEvent *event);
+    void paintEvent(QPaintEvent *);
+
 private:
     QString _name;
     QString _nick;

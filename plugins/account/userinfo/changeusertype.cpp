@@ -11,7 +11,11 @@
 #include <QDBusInterface>
 #include <QDBusReply>
 
+#include <QMouseEvent>
+
 #include "elipsemaskwidget.h"
+
+#include <QDebug>
 
 ChangeUserType::ChangeUserType(QString objpath, QWidget *parent) :
     QDialog(parent),
@@ -73,10 +77,8 @@ void ChangeUserType::initUI(){
     cutTypesBtnGroup->addButton(cutAdminRadioBtn, 1);
     cutTypesBtnGroup->addButton(cutStandardRadioBtn, 0);
     cutAdminLabel = new QLabel;
-//    cutAdminLabel->setFixedHeight(24);
     cutAdminLabel->setText(tr("administrator"));
     cutStandardLabel = new QLabel;
-//    cutStandardLabel->setFixedHeight(24);
     cutStandardLabel->setText(tr("standard user"));
     cutAdminNoteLabel = new QLabel;
     cutAdminNoteLabel->setText(tr("Users can make any changes they need"));
@@ -117,20 +119,36 @@ void ChangeUserType::initUI(){
     cutStandardVerLayout->addLayout(cutStandardInfo2HorLayout);
 
     cutAdminFrame = new QFrame;
-    cutAdminFrame->setMinimumSize(QSize(550, 60));
-    cutAdminFrame->setMaximumSize(QSize(16777215, 60));
+    cutAdminFrame->setMinimumSize(QSize(473, 88));
+    cutAdminFrame->setMaximumSize(QSize(16777215, 88));
     cutAdminFrame->setFrameShape(QFrame::Box);
     cutAdminFrame->setFrameShadow(QFrame::Plain);
     cutAdminFrame->setLayout(cutAdminVerLayout);
+    cutAdminFrame->installEventFilter(this);
     cutStandardFrame = new QFrame;
-    cutStandardFrame->setMinimumSize(QSize(550, 60));
-    cutStandardFrame->setMaximumSize(QSize(16777215, 60));
+    cutStandardFrame->setMinimumSize(QSize(473, 88));
+    cutStandardFrame->setMaximumSize(QSize(16777215, 88));
     cutStandardFrame->setFrameShape(QFrame::Box);
     cutStandardFrame->setFrameShadow(QFrame::Plain);
     cutStandardFrame->setLayout(cutStandardVerLayout);
+    cutStandardFrame->installEventFilter(this);
+
+    tipLabel = new QLabel;
+    tipLabel->setText(tr("Note: Effective After Logout!!!"));
+    tipLabel->setStyleSheet("color:red;");
+    tipLabel->hide();
+
+    tipHorLayout = new QHBoxLayout;
+    tipHorLayout->setSpacing(0);
+    tipHorLayout->setContentsMargins(0, 0, 0, 0);
+    tipHorLayout->addStretch();
+    tipHorLayout->addWidget(tipLabel);
 
     cutConfirmBtn = new QPushButton;
+    cutConfirmBtn->setText(tr("Confirm"));
+    cutConfirmBtn->setEnabled(false);
     cutCancelBtn = new QPushButton;
+    cutCancelBtn->setText(tr("Cancel"));
 
     cutBtnGroupsHorLayout = new QHBoxLayout;
     cutBtnGroupsHorLayout->setSpacing(16);
@@ -140,12 +158,17 @@ void ChangeUserType::initUI(){
     cutBtnGroupsHorLayout->addWidget(cutConfirmBtn);
 
     cutMainVerLayout = new QVBoxLayout;
-    cutMainVerLayout->setSpacing(8);
+    cutMainVerLayout->setSpacing(0);
     cutMainVerLayout->setContentsMargins(25, 28, 22, 25);
     cutMainVerLayout->addLayout(cutUserHorLayout);
+    cutMainVerLayout->addSpacing(35);
     cutMainVerLayout->addWidget(cutNoteLabel);
+    cutMainVerLayout->addSpacing(8);
     cutMainVerLayout->addWidget(cutAdminFrame);
+    cutMainVerLayout->addSpacing(8);
     cutMainVerLayout->addWidget(cutStandardFrame);
+    cutMainVerLayout->addSpacing(8);
+    cutMainVerLayout->addLayout(tipHorLayout);
     cutMainVerLayout->addStretch();
     cutMainVerLayout->addLayout(cutBtnGroupsHorLayout);
 
@@ -160,6 +183,22 @@ void ChangeUserType::setConnect(){
         cutiface->call("SetAccountType", cutTypesBtnGroup->checkedId());
 
         close();
+    });
+
+#if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
+    connect(cutTypesBtnGroup), static_cast<void (QButtonGroup::*)(int, bool)>(&QButtonGroup::buttonToggled), [=](int id, bool status){
+#else
+    connect(cutTypesBtnGroup, QOverload<int, bool>::of(&QButtonGroup::buttonToggled), [=](int id, bool status){
+#endif
+        if (id != oldid){
+            if (status){
+                tipLabel->show();
+                cutConfirmBtn->setEnabled(true);
+            } else {
+                tipLabel->hide();
+                cutConfirmBtn->setEnabled(false);
+            }
+        }
     });
 }
 
@@ -183,6 +222,8 @@ void ChangeUserType::requireUserInfo(QString logo, QString nname, int id, QStrin
     cutTypesBtnGroup->blockSignals(true);
     if (id >= 0 && id < cutTypesBtnGroup->buttons().length()){
         cutTypesBtnGroup->button(id)->setChecked(true);
+        //记录原始状态
+        oldid = id;
     }
     cutTypesBtnGroup->blockSignals(false);
 }
@@ -204,4 +245,19 @@ bool ChangeUserType::setTextDynamic(QLabel *label, QString string){
     label->setText(str);
     return isOverLength;
 
+}
+
+bool ChangeUserType::eventFilter(QObject *watched, QEvent *event){
+    if (event->type() == QEvent::MouseButtonPress){
+        QMouseEvent * mouseEvent = static_cast<QMouseEvent *>(event);
+        if (mouseEvent->button() == Qt::LeftButton ){
+            if (watched == cutStandardFrame){
+                cutStandardRadioBtn->setChecked(true);
+            } else if (watched == cutAdminFrame){
+                cutAdminRadioBtn->setChecked(true);
+            }
+        }
+    }
+
+    return QObject::eventFilter(watched, event);
 }

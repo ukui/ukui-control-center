@@ -10,7 +10,14 @@
 
 #include <QDBusInterface>
 
+#include <QPainter>
+#include <QPainterPath>
+
+#include <QMouseEvent>
+
 #include <QDebug>
+
+extern void qt_blurImage(QImage &blurImage, qreal radius, bool quality, int transposed);
 
 DeleteUserExists::DeleteUserExists(QString name, QString nick, qint64 uid, QWidget *parent) :
     QDialog(parent),
@@ -20,6 +27,7 @@ DeleteUserExists::DeleteUserExists(QString name, QString nick, qint64 uid, QWidg
 {
     setFixedSize(QSize(520, 308));
     setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
+    setAttribute(Qt::WA_TranslucentBackground);
 
     initUI();
     setConnect();
@@ -35,11 +43,15 @@ void DeleteUserExists::initUI(){
 
     //标题
     closeBtn = new QPushButton;
-    closeBtn->setFixedSize(QSize(14, 14));
+    closeBtn->setIcon(QIcon::fromTheme("window-close-symbolic"));
+    closeBtn->setFlat(true);
+    closeBtn->setFixedSize(QSize(30, 30));
+    closeBtn->setProperty("isWindowButton", 0x2);
+    closeBtn->setProperty("useIconHighlightEffect", 0x08);
 
     titleHorLayout = new QHBoxLayout;
     titleHorLayout->setSpacing(0);
-    titleHorLayout->setMargin(0);
+    titleHorLayout->setContentsMargins(0, 0, 14, 0);
     titleHorLayout->addStretch();
     titleHorLayout->addWidget(closeBtn);
 
@@ -70,39 +82,43 @@ void DeleteUserExists::initUI(){
     removeWholeRadioBtn->setChecked(true);
 
     removeButKeepFilesLabel = new QLabel;
-    removeButKeepFilesLabel->setText(tr("Keep user's data, like desktop,documents,favorites,music,pictures and so on"));
+    removeButKeepFilesLabel->setText(tr("Keep user's home folder"));
     removeWholeLabel = new QLabel;
     removeWholeLabel->setText(tr("Delete whole data belong user"));
 
     removeButKeepFilesHorLayout = new QHBoxLayout;
     removeButKeepFilesHorLayout->setSpacing(9);
-    removeButKeepFilesHorLayout->setContentsMargins(0, 0, 0, 0);
+    removeButKeepFilesHorLayout->setContentsMargins(16, 0, 0, 0);
     removeButKeepFilesHorLayout->addWidget(removeButKeepFilesRadioBtn);
     removeButKeepFilesHorLayout->addWidget(removeButKeepFilesLabel);
 
     removeWholeHorLayout = new QHBoxLayout;
     removeWholeHorLayout->setSpacing(9);
-    removeWholeHorLayout->setContentsMargins(0, 0, 0, 0);
+    removeWholeHorLayout->setContentsMargins(16, 0, 0, 0);
     removeWholeHorLayout->addWidget(removeWholeRadioBtn);
     removeWholeHorLayout->addWidget(removeWholeLabel);
 
     removeButKeepFilesFrame = new QFrame;
     removeButKeepFilesFrame->setMinimumSize(QSize(472, 60));
     removeButKeepFilesFrame->setMaximumSize(QSize(16777215, 60));
-    removeButKeepFilesFrame->setFrameShape(QFrame::StyledPanel);
+    removeButKeepFilesFrame->setFrameShape(QFrame::Box);
     removeButKeepFilesFrame->setFrameStyle(QFrame::Plain);
     removeButKeepFilesFrame->setLayout(removeButKeepFilesHorLayout);
+    removeButKeepFilesFrame->installEventFilter(this);
 
     removeWholeFrame = new QFrame;
     removeWholeFrame->setMinimumSize(QSize(472, 60));
     removeWholeFrame->setMaximumSize(QSize(16777215, 60));
-    removeWholeFrame->setFrameShape(QFrame::StyledPanel);
+    removeWholeFrame->setFrameShape(QFrame::Box);
     removeWholeFrame->setFrameStyle(QFrame::Plain);
     removeWholeFrame->setLayout(removeWholeHorLayout);
+    removeWholeFrame->installEventFilter(this);
 
     //底部按钮
     cancelBtn = new QPushButton;
+    cancelBtn->setText(tr("Cancel"));
     confirmBtn = new QPushButton;
+    confirmBtn->setText(tr("Confirm"));
 
     bottomBtnsHorLayout = new QHBoxLayout;
     bottomBtnsHorLayout->setSpacing(16);
@@ -113,16 +129,20 @@ void DeleteUserExists::initUI(){
 
     contentVerLayout = new QVBoxLayout;
     contentVerLayout->setSpacing(0);
-    contentVerLayout->setContentsMargins(24, 0, 24, 24);
+    contentVerLayout->setContentsMargins(24, 0, 24, 0);
     contentVerLayout->addLayout(noteHorLayout);
+    contentVerLayout->addSpacing(15);
     contentVerLayout->addWidget(removeButKeepFilesFrame);
+    contentVerLayout->addSpacing(8);
     contentVerLayout->addWidget(removeWholeFrame);
+    contentVerLayout->addSpacing(28);
     contentVerLayout->addLayout(bottomBtnsHorLayout);
 
     mainVerLayout = new QVBoxLayout;
     mainVerLayout->setSpacing(0);
-    mainVerLayout->setMargin(0);
+    mainVerLayout->setContentsMargins(0, 14, 0, 24);
     mainVerLayout->addLayout(titleHorLayout);
+    mainVerLayout->addSpacing(20);
     mainVerLayout->addLayout(contentVerLayout);
 
     setLayout(mainVerLayout);
@@ -153,4 +173,59 @@ void DeleteUserExists::setConnect(){
 
         close();
     });
+}
+
+bool DeleteUserExists::eventFilter(QObject *watched, QEvent *event){
+    if (event->type() == QEvent::MouseButtonPress){
+        QMouseEvent * mouseEvent = static_cast<QMouseEvent *>(event);
+        if (mouseEvent->button() == Qt::LeftButton ){
+            if (watched == removeButKeepFilesFrame){
+                removeButKeepFilesRadioBtn->setChecked(true);
+            } else if (watched == removeWholeFrame){
+                removeWholeRadioBtn->setChecked(true);
+            }
+        }
+    }
+
+    return QObject::eventFilter(watched, event);
+}
+
+void DeleteUserExists::paintEvent(QPaintEvent *event){
+    Q_UNUSED(event);
+    QPainter p(this);
+    p.setRenderHint(QPainter::Antialiasing);
+    QPainterPath rectPath;
+    rectPath.addRoundedRect(this->rect().adjusted(10, 10, -10, -10), 6, 6);
+
+    // 画一个黑底
+    QPixmap pixmap(this->rect().size());
+    pixmap.fill(Qt::transparent);
+    QPainter pixmapPainter(&pixmap);
+    pixmapPainter.setRenderHint(QPainter::Antialiasing);
+    pixmapPainter.setPen(Qt::transparent);
+    pixmapPainter.setBrush(Qt::black);
+    pixmapPainter.setOpacity(0.65);
+    pixmapPainter.drawPath(rectPath);
+    pixmapPainter.end();
+
+    // 模糊这个黑底
+    QImage img = pixmap.toImage();
+    qt_blurImage(img, 10, false, false);
+
+    // 挖掉中心
+    pixmap = QPixmap::fromImage(img);
+    QPainter pixmapPainter2(&pixmap);
+    pixmapPainter2.setRenderHint(QPainter::Antialiasing);
+    pixmapPainter2.setCompositionMode(QPainter::CompositionMode_Clear);
+    pixmapPainter2.setPen(Qt::transparent);
+    pixmapPainter2.setBrush(Qt::transparent);
+    pixmapPainter2.drawPath(rectPath);
+
+    // 绘制阴影
+    p.drawPixmap(this->rect(), pixmap, pixmap.rect());
+
+    // 绘制一个背景
+    p.save();
+    p.fillPath(rectPath,palette().color(QPalette::Base));
+    p.restore();
 }

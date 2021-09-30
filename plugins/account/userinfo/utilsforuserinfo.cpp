@@ -8,13 +8,16 @@
 
 #include <QDebug>
 
+#include "elipsemaskwidget.h"
+
 UtilsForUserinfo::UtilsForUserinfo(QObject *parent) : QObject(parent)
 {
 
     mainItemFrame = new QFrame();
 
     logoBtn = new QPushButton();
-    logoBtn->setFixedSize(QSize(48, 48));
+    logoBtn->setFixedSize(QSize(54, 54));
+    logoBtn->setIconSize(QSize(48, 48));
 
     nickNameLabel = new QLabel();
     nickNameLabel->setFixedHeight(20);
@@ -49,6 +52,11 @@ UtilsForUserinfo::UtilsForUserinfo(QObject *parent) : QObject(parent)
 }
 
 QFrame * UtilsForUserinfo::buildItemForUsers(){
+
+    //圆形头像遮罩
+    ElipseMaskWidget * currentElipseMaskWidget = new ElipseMaskWidget(logoBtn);
+    currentElipseMaskWidget->setGeometry(0, 0, logoBtn->width(), logoBtn->height());
+
 
     subUserInfoVerLayout = new QVBoxLayout();
     subUserInfoVerLayout->setSpacing(4);

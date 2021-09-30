@@ -11,6 +11,20 @@
 #include <QDBusInterface>
 
 #include <QDir>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QFileSystemWatcher>
+
+#include <QDebug>
+
+#ifdef signals
+#undef signals
+#endif
+
+extern "C" {
+#include <glib.h>
+#include <gio/gio.h>
+}
 
 #include "FlowLayout/flowlayout.h"
 
@@ -131,6 +145,7 @@ void ChangeUserLogo::initUI(){
 
 
     culMoreLogoBtn = new QPushButton;
+    culMoreLogoBtn->setText(tr("Local Logo"));
 
     culMoreLogoHorLayout = new QHBoxLayout;
     culMoreLogoHorLayout->setSpacing(0);
@@ -139,7 +154,9 @@ void ChangeUserLogo::initUI(){
     culMoreLogoHorLayout->addStretch();
 
     culCancelBtn = new QPushButton;
+    culCancelBtn->setText(tr("Cancel"));
     culConfirmBtn = new QPushButton;
+    culConfirmBtn->setText(tr("Confirm"));
     culConfirmBtn->setEnabled(false);
 
     culBottomBtnsHorLayout = new QHBoxLayout;
@@ -218,6 +235,85 @@ void ChangeUserLogo::setupConnect(){
         culiface->call("SetIconFile", selected);
         close();
     });
+
+    connect(culMoreLogoBtn, &QPushButton::clicked, this, [=]{
+        showLocalFaceDialog();
+    });
+}
+
+void ChangeUserLogo::showLocalFaceDialog(){
+
+    QString filters = "Face files(*.jpg *.jpeg *.png *.svg *.gif)";
+    QFileDialog fd(this);
+    QList<QUrl> usb_list = fd.sidebarUrls();
+    int sidebarNum = 8;// 最大添加U盘数，可以自己定义
+    QString home_path = QDir::homePath().section("/", -1, -1);
+    QString mnt = "/media/" + home_path + "/";
+    QDir mntDir(mnt);
+    mntDir.setFilter(QDir::Dirs | QDir::NoDotAndDotDot);
+    QFileInfoList file_list = mntDir.entryInfoList();
+    QList<QUrl> mntUrlList;
+    for (int i = 0; i < sidebarNum && i < file_list.size(); ++i) {
+        QFileInfo fi = file_list.at(i);
+        mntUrlList << QUrl("file://" + fi.filePath());
+    }
+
+    QFileSystemWatcher m_fileSystemWatcher(&fd);
+    m_fileSystemWatcher.addPath("/media/" + home_path + "/");
+    connect(&m_fileSystemWatcher, &QFileSystemWatcher::directoryChanged, &fd,
+            [=, &sidebarNum, &mntUrlList, &usb_list, &fd](const QString path) {
+        QDir m_wmntDir(path);
+        m_wmntDir.setFilter(QDir::Dirs | QDir::NoDotAndDotDot);
+        QFileInfoList m_wfilist = m_wmntDir.entryInfoList();
+        mntUrlList.clear();
+        for (int i = 0; i < sidebarNum && i < m_wfilist.size(); ++i) {
+            QFileInfo m_fi = m_wfilist.at(i);
+            mntUrlList << QUrl("file://" + m_fi.filePath());
+        }
+        fd.setSidebarUrls(usb_list + mntUrlList);
+        fd.update();
+    });
+
+    connect(&fd, &QFileDialog::finished, &fd, [=, &usb_list, &fd]() {
+        fd.setSidebarUrls(usb_list);
+    });
+
+    fd.setDirectory(QString(const_cast<char *>(g_get_user_special_dir(G_USER_DIRECTORY_PICTURES))));
+    fd.setAcceptMode(QFileDialog::AcceptOpen);
+    fd.setViewMode(QFileDialog::List);
+    fd.setNameFilter(filters);
+    fd.setFileMode(QFileDialog::ExistingFile);
+    fd.setWindowTitle(tr("select custom face file"));
+    fd.setLabelText(QFileDialog::Accept, tr("Select"));
+    fd.setLabelText(QFileDialog::LookIn, tr("Position: "));
+    fd.setLabelText(QFileDialog::FileName, tr("FileName: "));
+    fd.setLabelText(QFileDialog::FileType, tr("FileType: "));
+    fd.setLabelText(QFileDialog::Reject, tr("Cancel"));
+
+    fd.setSidebarUrls(usb_list + mntUrlList);
+
+    if (fd.exec() != QDialog::Accepted)
+        return;
+
+    QString selectedfile;
+    selectedfile = fd.selectedFiles().first();
+
+    QFile pic(selectedfile);
+    int size = pic.size();
+
+    qDebug() << "size is"  << size;
+    if (size >= 1048576) {
+        QMessageBox::warning(this, tr("Warning"),
+                             tr("The avatar is larger than 1M, please choose again"));
+        return;
+    }
+
+    refreshUserLogo(selectedfile);
+
+    selected = selectedfile;
+
+    if (!culConfirmBtn->isEnabled())
+        culConfirmBtn->setEnabled(true);
 }
 
 bool ChangeUserLogo::setCulTextDynamic(QLabel *label, QString string){

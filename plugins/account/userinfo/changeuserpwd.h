@@ -69,6 +69,9 @@ public:
     QLineEdit * newPwdLineEdit;
     QLineEdit * surePwdLineEdit;
 
+protected:
+    void paintEvent(QPaintEvent *event);
+
 private:
     QString name;
     QString curPwdTip;
