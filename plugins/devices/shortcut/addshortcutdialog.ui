@@ -121,13 +121,13 @@
             <widget class="QLineEdit" name="execLineEdit">
              <property name="minimumSize">
               <size>
-               <width>227</width>
+               <width>207</width>
                <height>36</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>227</width>
+               <width>207</width>
                <height>36</height>
               </size>
              </property>
@@ -137,13 +137,13 @@
             <widget class="QPushButton" name="openBtn">
              <property name="minimumSize">
               <size>
-               <width>60</width>
+               <width>80</width>
                <height>36</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>60</width>
+               <width>80</width>
                <height>36</height>
               </size>
              </property>
