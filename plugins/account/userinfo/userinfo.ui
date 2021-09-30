@@ -929,13 +929,13 @@
             <widget class="QPushButton" name="biometricMoreBtn">
              <property name="minimumSize">
               <size>
-               <width>42</width>
+               <width>48</width>
                <height>36</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>42</width>
+               <width>48</width>
                <height>36</height>
               </size>
              </property>

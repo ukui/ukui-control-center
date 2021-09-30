@@ -1751,6 +1751,20 @@ void UserInfo::onbiometricDeviceBoxCurrentIndexChanged(int index)
                         SLOT(errorCallback(QDBusError)));
 }
 
+bool compareBarData(const QDBusVariant &feature1, const QDBusVariant &feature2)
+{
+    FeatureInfo *featureInfo1 = new FeatureInfo;
+    FeatureInfo *featureInfo2 = new FeatureInfo;
+
+    feature1.variant().value<QDBusArgument>() >> *featureInfo1;
+    feature2.variant().value<QDBusArgument>() >> *featureInfo2;
+    if (featureInfo1->index_name < featureInfo2->index_name)
+    {
+       return true;
+    }
+    return false;
+}
+
 void UserInfo::updateFeatureListCallback(QDBusMessage callbackReply)
 {
     QList<QDBusVariant> qlist;
@@ -1763,6 +1777,9 @@ void UserInfo::updateFeatureListCallback(QDBusMessage callbackReply)
     QList<QVariant> variantList = callbackReply.arguments();
     listsize = variantList[0].value<int>();
     variantList[1].value<QDBusArgument>() >> qlist;
+
+    qSort(qlist.begin(), qlist.end(), compareBarData);
+
     for (int i = 0; i < listsize; i++) {
         featureInfo = new FeatureInfo;
         qlist[i].variant().value<QDBusArgument>() >> *featureInfo;
@@ -1922,9 +1939,8 @@ void UserInfo::addFeature(FeatureInfo *featureinfo)
         DeviceInfoPtr deviceInfoPtr = findDeviceByName(featureinfo->device_shortname);
         if(!deviceInfoPtr)
                 return ;
-	isShowDialog = true;
         bool res = m_biometricProxy->renameFeature(deviceInfoPtr->id,getuid(),featureinfo->index,rename);
-        renameFeaturedone(featureinfo,rename);
+        //renameFeaturedone(featureinfo,rename);
     });
 
     QPushButton * renameBtn = new QPushButton(widget);
@@ -1965,7 +1981,7 @@ void UserInfo::addFeature(FeatureInfo *featureinfo)
     widget->setLayout(mainHorLayout);
 
     QPushButton * delBtn = new QPushButton(baseWidget);
-    delBtn->setFixedSize(60, 36);
+    delBtn->setFixedSize(88, 36);
     delBtn->setText(tr("Delete"));
 //    delBtn->setStyleSheet("QPushButton{background: #FA6056; border-radius: 4px}");
     delBtn->hide();
