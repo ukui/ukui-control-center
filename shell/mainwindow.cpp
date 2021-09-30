@@ -591,7 +591,8 @@ void MainWindow::loadPlugins(){
                      "libupgrade.so" == fileName || "libsearch.so" == fileName ||
                      "libarea.so" == fileName || "libbackup.so" == fileName) && Utils::isTablet())
                 || ("libtouchpad.so" == fileName && !isfindSynaptics())
-                || (("libuserinfo_intel.so" == fileName || "libbackup_intel.so" == fileName ) && !Utils::isTablet())) {
+                || (("libuserinfo_intel.so" == fileName || "libbackup_intel.so" == fileName ||
+                     "libgesture.so" == fileName) && !Utils::isTablet())) {
             continue;
         }
 
