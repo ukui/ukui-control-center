@@ -120,7 +120,7 @@
     <message>
         <location filename="../../../plugins/other/about/about.cpp" line="147"/>
         <source>Learn more HP user manual&gt;&gt;</source>
-        <translation type="unfinished">了解更多 Hp用户手册&gt;&gt;</translation>
+        <translation type="unfinished">了解更多 HP用户手册&gt;&gt;</translation>
     </message>
     <message>
         <location filename="../../../plugins/other/about/about.cpp" line="81"/>
