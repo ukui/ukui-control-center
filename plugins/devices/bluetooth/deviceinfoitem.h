@@ -17,6 +17,8 @@
 #include <QMenu>
 #include <QMessageBox>
 #include <QString>
+#include <QToolButton>
+#include <QPushButton>
 
 #include <QGSettings/QGSettings>
 
@@ -54,6 +56,7 @@ protected:
 private slots:
     void GSettingsChanges(const QString &key);
     void MenuSignalDeviceFunction(QAction *action);
+    void MouseClickedDevFunc();
 
 signals:
 
@@ -76,7 +79,6 @@ private:
     void DrawFuncBtn(QPainter &);
 
     void MouseClickedFunc();
-    void MouseClickedDevFunc();
     void DevConnectFunc();
     void setDeviceConnectSignals();
 
@@ -112,6 +114,8 @@ private:
     QString m_str_dev_ununited ;
     //#define DEV_CONNECTION_FAIL_TEXT  "Connect fail"
     QString m_str_dev_conn_fail;
+
+    QPushButton * devFuncBtn = nullptr;
 
 };
 #endif // DEVICEINFOITEM_H
