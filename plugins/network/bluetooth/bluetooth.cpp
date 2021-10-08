@@ -4,7 +4,11 @@
 
 Bluetooth::Bluetooth() : mFirstLoad(true) {
     pluginName = tr("Bluetooth");
-    pluginType = NETWORK;
+    bool intel = QFile::exists("/etc/apt/ota_version");
+    if (intel)
+        pluginType = NETWORK;
+    else
+        pluginType = DEVICES;
 }
 
 Bluetooth::~Bluetooth() {
