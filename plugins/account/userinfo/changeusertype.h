@@ -37,6 +37,7 @@ public:
     QHBoxLayout * cutAdminInfo2HorLayout;
     QHBoxLayout * cutStandardInfo2HorLayout;
     QHBoxLayout * cutBtnGroupsHorLayout;
+    QHBoxLayout * tipHorLayout;
 
     QRadioButton * cutAdminRadioBtn;
     QRadioButton * cutStandardRadioBtn;
@@ -50,6 +51,7 @@ public:
     QLabel * cutStandardLabel;
     QLabel * cutAdminNoteLabel;
     QLabel * cutStandardNoteLabel;
+    QLabel * tipLabel;
 
     QPushButton * cutUserLogoBtn;
     QPushButton * cutConfirmBtn;
@@ -59,6 +61,7 @@ public:
     QFrame * cutStandardFrame;
 
 protected:
+    bool eventFilter(QObject *watched, QEvent *event);
     bool setTextDynamic(QLabel *label, QString string);
 
 private:
@@ -67,6 +70,7 @@ private:
     QString nickname;
     int type;
     QString logo;
+    int oldid;
 
     QDBusInterface * cutiface;
 

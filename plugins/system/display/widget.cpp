@@ -1862,6 +1862,7 @@ void Widget::initConnection()
     // Intel隐藏分辨率等调整选项
     if (Utils::isTablet()) {
         mControlPanel->setVisible(false);
+        ui->scaleFrame->setVisible(false);
     }
 
     connect(mControlPanel, &ControlPanel::changed, this, &Widget::changed);

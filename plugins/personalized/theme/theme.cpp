@@ -614,16 +614,14 @@ void Theme::initConnection() {
             qtSettings->set(THEME_TRAN_KEY, 100);
             qtSettings->set(PEONY_TRAN_KEY, 100);
             ui->tranSlider->setValue(100);
-        }
-        else
-        {
+        } else {
             save_trans = personliseGsettings->get(PERSONALSIE_SAVE_TRAN_KEY).toInt();
             ui->tranSlider->setValue(save_trans);
         }
         // 提供给外部监听特效接口
         personliseGsettings->set(PERSONALSIE_EFFECT_KEY, checked);
         QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
-        ui->transFrame->setVisible(checked);
+        ui->transFrame->setVisible(checked && !Utils::isTablet());
         writeKwinSettings(checked, currentThemeMode, true);
     });
 }
@@ -747,10 +745,12 @@ QString Theme::getCursorName() {
 
 void Theme::hideIntelComponent()
 {
-    ui->cursorLabel->setVisible(false);
-    ui->cursorFrame->setVisible(false);
-    ui->transFrame->setVisible(false);
-    ui->resetBtn->setVisible(false);
+    if (Utils::isTablet()) {
+        ui->cursorLabel->setVisible(false);
+        ui->cursorFrame->setVisible(false);
+        ui->transFrame->setVisible(false);
+        ui->resetBtn->setVisible(false);
+    }
 }
 
 QString Theme::dullTranslation(QString str) {

@@ -123,7 +123,7 @@ QWidget *UserInfo::get_plugin_ui() {
 
 
     }
-    return pluginWidget;
+    return pluginWidget2;
 }
 
 void UserInfo::plugin_delay_control() {
@@ -203,7 +203,6 @@ void UserInfo::initUI(){
     currentUserinfoVerLayout->setSpacing(4);
     currentUserinfoVerLayout->setContentsMargins(0, 0, 0, 0);
     currentUserinfoVerLayout->addStretch();
-//    currentUserinfoVerLayout->addWidget(currentNickNameLabel, Qt::AlignHCenter);
     currentUserinfoVerLayout->addLayout(currentNickNameHorLayout);
     currentUserinfoVerLayout->addWidget(currentUserTypeLabel, Qt::AlignHCenter);
     currentUserinfoVerLayout->addStretch();
@@ -235,7 +234,6 @@ void UserInfo::initUI(){
 
     nopwdLoginLabel = new QLabel();
     nopwdLoginLabel->setText(tr("LoginWithoutPwd"));
-//    nopwdLoginLabel->setFixedWidth(550);
 
     nopwdLoginSBtn = new SwitchButton(nopwdLoginFrame);
 
@@ -296,6 +294,7 @@ void UserInfo::initUI(){
     addUserHorLayout->addWidget(addUserBtn);
 
     addUserFrame = new QFrame();
+    addUserFrame->setObjectName("continue");
     addUserFrame->setMinimumSize(QSize(550, 60));
     addUserFrame->setMaximumSize(QSize(16777215, 60));
     addUserFrame->setFrameShape(QFrame::NoFrame);
@@ -308,8 +307,7 @@ void UserInfo::initUI(){
     otherVerLayout->addStretch();
 
     othersFrame = new QFrame();
-    othersFrame->setMinimumSize(QSize(550, 60));
-    othersFrame->setMaximumSize(QSize(16777215, 16777215));
+    othersFrame->setFixedHeight(60);
     othersFrame->setFrameShape(QFrame::Box);
     othersFrame->setLayout(otherVerLayout);
 
@@ -365,12 +363,99 @@ void UserInfo::buildAndSetupUsers(){
                 currentUserTypeLabel->setToolTip(cType);
             }
 
+            //设置自动登录状态
+            autoLoginSBtn->blockSignals(true);
+            autoLoginSBtn->setChecked(user.autologin);
+            autoLoginSBtn->blockSignals(false);
+
+            //设置免密登录状态
+            nopwdLoginSBtn->blockSignals(true);
+            nopwdLoginSBtn->setChecked(user.noPwdLogin);
+            nopwdLoginSBtn->blockSignals(false);
+
             //绑定当前用户的属性改变回调
             setUserDBusPropertyConnect(user.objpath);
 
         } else {
-            otherVerLayout->insertWidget(0, buildItemForOthers(user));
+
+            buildItemForUsersAndSetConnect(user);
         }
+    }
+
+    QDBusConnection::systemBus().connect(QString(), QString(), "org.freedesktop.Accounts", "UserAdded", this, SLOT(newUserCreateDoneSlot(QDBusObjectPath)));
+    QDBusConnection::systemBus().connect(QString(), QString(), "org.freedesktop.Accounts", "UserDeleted", this, SLOT(existsUserDeleteDoneSlot(QDBusObjectPath)));
+}
+
+void UserInfo::buildItemForUsersAndSetConnect(UserInfomation user){
+
+    UtilsForUserinfo * utils = new UtilsForUserinfo;
+    utils->refreshUserLogo(user.iconfile);
+    utils->refreshUserNickname(user.realname);
+    utils->refreshUserType(_accountTypeIntToString(user.accounttype));
+    utils->setObjectPathData(user.objpath);
+
+    connect(utils, &UtilsForUserinfo::changeLogoBtnPressed, this, [=]{
+        showChangeUserLogoDialog(user.username);
+    });
+    connect(utils, &UtilsForUserinfo::changePwdBtnPressed, this, [=]{
+        showChangeUserPwdDialog(user.username);
+    });
+    connect(utils, &UtilsForUserinfo::changeTypeBtnPressed, this, [=]{
+        showChangeUserTypeDialog(user.username);
+    });
+
+    connect(utils, &UtilsForUserinfo::deleteUserBtnPressed, this, [=]{
+        showDeleteUserExistsDialog(user.username);
+    });
+
+    QDBusInterface tmpProperty("org.freedesktop.Accounts",
+                             user.objpath,
+                             "org.freedesktop.DBus.Properties",
+                             QDBusConnection::systemBus());
+
+    tmpProperty.connection().connect("org.freedesktop.Accounts", user.objpath, "org.freedesktop.DBus.Properties", "PropertiesChanged",
+                                    utils, SLOT(userPropertyChangedSlot(QString, QMap<QString, QVariant>, QStringList)));
+
+    QFrame * newUserFrame = utils->buildItemForUsers();
+    othersFrame->setFixedHeight(othersFrame->height() + newUserFrame->height());
+
+    otherVerLayout->insertWidget(0, newUserFrame);
+}
+
+void UserInfo::showCreateUserNewDialog(){
+    //获取系统所有用户名列表，创建时判断重名
+    QStringList usersStringList;
+    QMap<QString, UserInfomation>::iterator it = allUserInfoMap.begin();
+    for (; it != allUserInfoMap.end(); it++){
+        UserInfomation user = it.value();
+
+        usersStringList.append(user.username);
+        usersStringList.append(user.realname);
+    }
+
+    CreateUserNew dialog(usersStringList);
+    dialog.exec();
+
+//    CreateUserDialog * dialog = new CreateUserDialog(usersStringList,pluginWidget);
+//    dialog->setRequireLabel(pwdMsg);
+//    connect(dialog, &CreateUserDialog::newUserWillCreate, this, [=](QString uName, QString pwd, QString pin, int aType){
+//        createUser(uName, pwd, pin, aType);
+//    });
+//    dialog->exec();
+}
+
+void UserInfo::showDeleteUserExistsDialog(QString pName){
+    QStringList loginedusers = getLoginedUsers();
+    if (loginedusers.contains(pName)) {
+        QMessageBox::warning(pluginWidget, tr("Warning"), tr("The user is logged in, please delete the user after logging out"));
+        return;
+    }
+
+    if (allUserInfoMap.keys().contains(pName)){
+        UserInfomation user = allUserInfoMap.value(pName);
+
+        DeleteUserExists dialog(user.username, user.realname, user.uid);
+        dialog.exec();
     }
 }
 
@@ -392,6 +477,21 @@ void UserInfo::showChangeUserNicknameDialog(){
 
     } else {
         qWarning() << "User Data Error When Change User Type";
+    }
+
+    _acquireAllUsersInfo();
+}
+
+void UserInfo::showChangeUserLogoDialog(QString pName){
+    if (allUserInfoMap.keys().contains(pName)){
+        UserInfomation user = allUserInfoMap.value(pName);
+
+        ChangeUserLogo dialog(pName, user.objpath);
+        dialog.requireUserInfo(user.iconfile, _accountTypeIntToString(user.accounttype));
+        dialog.exec();
+
+    } else {
+        qWarning() << "User Info Data Error When Change User Pwd";
     }
 
     _acquireAllUsersInfo();
@@ -535,7 +635,6 @@ QFrame * UserInfo::buildItemForOthers(UserInfomation user){
     otherUserFrame->setFrameShape(QFrame::NoFrame);
     otherUserFrame->setLayout(mOtherUserVerLayout);
 
-
     return otherUserFrame;
 }
 
@@ -563,8 +662,16 @@ void UserInfo::setUserConnect(){
     currentNickNameLabel->installEventFilter(this);
     currentNickNameChangeLabel->installEventFilter(this);
 
+    connect(currentUserlogoBtn, &QPushButton::clicked, this, [=]{
+        showChangeUserLogoDialog(QString(g_get_user_name()));
+    });
+
     connect(changeCurrentPwdBtn, &QPushButton::clicked, this, [=]{
         showChangeUserPwdDialog(QString(g_get_user_name()));
+    });
+
+    connect(changeCurrentTypeBtn, &QPushButton::clicked, [=]{
+        showChangeUserTypeDialog(QString(g_get_user_name()));
     });
 
     connect(changeCurrentGroupsBtn, &QPushButton::clicked, this, [=](bool checked){
@@ -573,17 +680,21 @@ void UserInfo::setUserConnect(){
     });
 
     //自动登录登录
-    connect(autoLoginSBtn, &SwitchButton::checkedChanged, [=](bool checked){
+    connect(autoLoginSBtn, &SwitchButton::checkedChanged, autoLoginSBtn, [=](bool checked){
         UserInfomation user = allUserInfoMap.value(g_get_user_name());
 
-        QDBusInterface piface("org.freedesktop.Accounts",
-                              user.objpath,
-                              "org.freedesktop.Accounts.User",
-                              QDBusConnection::systemBus());
-        if (piface.isValid()){
-            piface.call("SetAutomaticLogin", checked);
-        } else {
-            qCritical() << "Create Client Interface Failed When execute gpasswd: " << QDBusConnection::systemBus().lastError();
+        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.Accounts",
+                                                              user.objpath,
+                                                              "org.freedesktop.Accounts.User",
+                                                              "SetAutomaticLogin");
+        message << checked;
+        QDBusMessage response = QDBusConnection::systemBus().call(message);
+
+        if (response.type() == QDBusMessage::ErrorMessage){
+
+            autoLoginSBtn->blockSignals(true);
+            autoLoginSBtn->setChecked(!checked);
+            autoLoginSBtn->blockSignals(false);
         }
     });
 
@@ -605,8 +716,8 @@ void UserInfo::setUserConnect(){
 
     });
 
-    connect(changeCurrentTypeBtn, &QPushButton::clicked, [=]{
-        showChangeUserTypeDialog(QString(g_get_user_name()));
+    connect(addUserBtn, &AddBtn::clicked, [=]{
+        showCreateUserNewDialog();
     });
 }
 
@@ -643,6 +754,41 @@ void UserInfo::currentUserPropertyChangedSlot(QString property, QMap<QString, QV
             } else {
                 currentNickNameLabel->setToolTip("");
             }
+        }
+    }
+
+    if (propertyMap.keys().contains("IconFile") && getuid()){
+        QString current = propertyMap.value("IconFile").toString();
+
+        currentUserlogoBtn->setIcon(QIcon(current));
+    }
+}
+
+void UserInfo::newUserCreateDoneSlot(QDBusObjectPath op){
+    //刷新用户数据
+    _acquireAllUsersInfo();
+
+    UserInfomation user;
+    user = _acquireUserInfo(op.path());
+
+    buildItemForUsersAndSetConnect(user);
+}
+
+void UserInfo::existsUserDeleteDoneSlot(QDBusObjectPath op){
+    //刷新用户数据
+    _acquireAllUsersInfo();
+
+    QObjectList list = othersFrame->children();
+    foreach (QObject * obj, list) {
+//        qDebug() << obj->metaObject()->className();
+//        qDebug() << obj->objectName();
+        if (obj->objectName() == op.path()){
+            QFrame * f = qobject_cast<QFrame *>(obj);
+            f->setParent(NULL);
+            otherVerLayout->removeWidget(f);
+
+            //重置高度
+            othersFrame->setFixedHeight(othersFrame->height() - f->height());
         }
     }
 }
@@ -1431,24 +1577,24 @@ void UserInfo::createUser(QString username, QString pwd, QString pin, int atype)
 }
 
 void UserInfo::createUserDone(QString objpath){
-    UserDispatcher * userdispatcher  = new UserDispatcher(objpath);
+//    UserDispatcher * userdispatcher  = new UserDispatcher(objpath);
     //设置默认头像
-    userdispatcher->change_user_face(DEFAULTFACE);
+//    userdispatcher->change_user_face(DEFAULTFACE);
     //设置默认密码
 //    userdispatcher->change_user_pwd(_newUserPwd, "");
-    QDBusInterface * tmpSysinterface = new QDBusInterface("com.control.center.qt.systemdbus",
-                                                          "/",
-                                                          "com.control.center.interface",
-                                                          QDBusConnection::systemBus());
+//    QDBusInterface * tmpSysinterface = new QDBusInterface("com.control.center.qt.systemdbus",
+//                                                          "/",
+//                                                          "com.control.center.interface",
+//                                                          QDBusConnection::systemBus());
 
-    if (!tmpSysinterface->isValid()){
-        qCritical() << "Create Client Interface Failed When : " << QDBusConnection::systemBus().lastError();
-        return;
-    }
-    tmpSysinterface->call("changeOtherUserPasswd", _newUserName, _newUserPwd);
+//    if (!tmpSysinterface->isValid()){
+//        qCritical() << "Create Client Interface Failed When : " << QDBusConnection::systemBus().lastError();
+//        return;
+//    }
+//    tmpSysinterface->call("changeOtherUserPasswd", _newUserName, _newUserPwd);
 
-    delete tmpSysinterface;
-    tmpSysinterface = nullptr;
+//    delete tmpSysinterface;
+//    tmpSysinterface = nullptr;
 
     //刷新全部用户信息
     _acquireAllUsersInfo();
@@ -1543,7 +1689,7 @@ void UserInfo::deleteUserDone(QString objpath){
 }
 
 void UserInfo::showChangeGroupDialog(){
-    ChangeGroupDialog * dialog = new ChangeGroupDialog(pluginWidget);
+    ChangeGroupDialog * dialog = new ChangeGroupDialog(pluginWidget2);
     dialog->exec();
 }
 

@@ -591,9 +591,11 @@ void MainWindow::loadPlugins(){
                      "libvino.so" == fileName || "libscreensaver.so" == fileName ||
                      "libvpn.so" == fileName || "libmobilehotspot.so" == fileName ||
                      "libbiometrics.so" == fileName || "libsecuritycenter.so" == fileName ||
-                     "libupgrade.so" == fileName || "libsearch.so" == fileName || "libarea.so" == fileName) && Utils::isTablet())
+                     "libupgrade.so" == fileName || "libsearch.so" == fileName ||
+                     "libarea.so" == fileName || "libbackup.so" == fileName) && Utils::isTablet())
                 || ("libtouchpad.so" == fileName && !isfindSynaptics())
-                || ("libuserinfo_intel.so" == fileName && !Utils::isTablet())) {
+                || (("libuserinfo_intel.so" == fileName || "libbackup_intel.so" == fileName ||
+                     "libgesture.so" == fileName) && !Utils::isTablet())) {
             continue;
         }
 
