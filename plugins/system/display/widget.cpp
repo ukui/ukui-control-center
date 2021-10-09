@@ -970,6 +970,7 @@ void Widget::addBrightnessFrame(QString name, bool openFlag, QString serialNum)
 
 void Widget::outputAdded(const KScreen::OutputPtr &output)
 {
+    mPreScreenConfig = mConfig->clone();
     if (output->isConnected()) {
         QString name = Utils::outputName(output);
         QString serialNum  = "";
