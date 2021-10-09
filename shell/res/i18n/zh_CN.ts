@@ -591,7 +591,7 @@
     <name>Area</name>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="26"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="42"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="43"/>
         <source>Area</source>
         <translation>区域语言</translation>
     </message>
@@ -601,7 +601,7 @@
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="169"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="341"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="342"/>
         <source>Current Region</source>
         <translation>显示日期、时间和货币格式的区域</translation>
         <extra-contents_path>/area/Current Region</extra-contents_path>
@@ -613,28 +613,28 @@
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="277"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="343"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="344"/>
         <source>Calendar</source>
         <translation>日历</translation>
         <extra-contents_path>/area/Calendar</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="56"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="148"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="149"/>
         <source>Language Format</source>
         <translation>语言格式</translation>
         <extra-contents_path>/area/Regional Format</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="446"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="347"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="348"/>
         <source>Date</source>
         <translation>日期</translation>
         <extra-contents_path>/area/Date</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="529"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="349"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="350"/>
         <source>Time</source>
         <translation>时间</translation>
         <extra-contents_path>/area/Time</extra-contents_path>
@@ -653,7 +653,7 @@
         <translation type="vanished">区域格式数据</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="354"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="355"/>
         <source>lunar</source>
         <translation>农历</translation>
     </message>
@@ -678,12 +678,12 @@
         <translation type="vanished">显示日期、时间、货币格式的区域</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="205"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="206"/>
         <source>US</source>
         <translation>美国</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="153"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="154"/>
         <source>Language for system windows,menus and web pages</source>
         <translation>显示在系统窗口、菜单和网页的语言</translation>
     </message>
@@ -693,7 +693,7 @@
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="568"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="150"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="151"/>
         <source>System Language</source>
         <translation>系统语言</translation>
         <extra-contents_path>/area/system language</extra-contents_path>
@@ -703,48 +703,48 @@
         <translation type="vanished">简体中文</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="345"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="346"/>
         <source>First Day Of Week</source>
         <translation>一周的第一天</translation>
         <extra-contents_path>/area/First Day Of Week</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="369"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="370"/>
         <source>12 Hours</source>
         <translation>12小时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="370"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="371"/>
         <source>24 Hours</source>
         <translation>24小时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="480"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="481"/>
         <source>Modify the current region need to logout to take effect, whether to logout?</source>
         <translation>修改当前区域需要注销后生效，是否注销?</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="481"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="482"/>
         <source>Logout later</source>
         <translation>稍后注销</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="482"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="483"/>
         <source>Logout now</source>
         <translation>立即注销</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="484"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="485"/>
         <source>Modify the first language need to reboot to take effect, whether to reboot?</source>
         <translation>修改首选语言需要重启后生效，是否重启?</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="485"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="486"/>
         <source>Reboot later</source>
         <translation>稍后重启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="486"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="487"/>
         <source>Reboot now</source>
         <translation>立即重启</translation>
     </message>
@@ -785,7 +785,7 @@
         <translation type="vanished">显示语言</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="206"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="207"/>
         <source>CN</source>
         <translation>中国</translation>
     </message>
@@ -822,17 +822,17 @@
         <translation type="vanished">添加首语言</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="351"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="352"/>
         <source>solar calendar</source>
         <translation>公历</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="357"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="358"/>
         <source>monday</source>
         <translation>星期一</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="358"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="359"/>
         <source>sunday</source>
         <translation>星期天</translation>
     </message>
@@ -3272,8 +3272,8 @@ change system settings</source>
         <translation type="vanished">时间同步成功</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="746"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="755"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="747"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="756"/>
         <source>Sync from network failed</source>
         <translation>时间同步失败</translation>
     </message>
@@ -3399,7 +3399,7 @@ change system settings</source>
         <translation>更改时区</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="745"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="746"/>
         <source>  </source>
         <translation></translation>
     </message>
@@ -9873,13 +9873,17 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="69"/>
+        <source>Search Timezone</source>
+        <translation>搜索时区</translation>
+    </message>
+    <message>
         <source>Input what you are looking for</source>
-        <translation>输入查找内容</translation>
+        <translation type="vanished">搜索时区</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="124"/>
         <source>To select a time zone, please click where near you on the map and select a city from the nearest city</source>
-        <translation type="unfinished"></translation>
+        <translation>若要选择时区，请点击地图上靠近你所在的位置，从最接近的城市中选取一个城市</translation>
     </message>
     <message>
         <source>change timezone</source>

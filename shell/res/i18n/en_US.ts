@@ -417,13 +417,13 @@
     <name>Area</name>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="26"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="42"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="43"/>
         <source>Area</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="169"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="341"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="342"/>
         <source>Current Region</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/area/Current Region</extra-contents_path>
@@ -435,35 +435,35 @@
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="277"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="343"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="344"/>
         <source>Calendar</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/area/Calendar</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="56"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="148"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="149"/>
         <source>Language Format</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/area/Regional Format</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="446"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="347"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="348"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/area/Date</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="529"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="349"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="350"/>
         <source>Time</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/area/Time</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="568"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="150"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="151"/>
         <source>System Language</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/area/system language</extra-contents_path>
@@ -474,83 +474,83 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="354"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="355"/>
         <source>lunar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="357"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="358"/>
         <source>monday</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="205"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="206"/>
         <source>US</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="206"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="207"/>
         <source>CN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="153"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="154"/>
         <source>Language for system windows,menus and web pages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="345"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="346"/>
         <source>First Day Of Week</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/area/First Day Of Week</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="351"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="352"/>
         <source>solar calendar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="358"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="359"/>
         <source>sunday</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="369"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="370"/>
         <source>12 Hours</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="370"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="371"/>
         <source>24 Hours</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="480"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="481"/>
         <source>Modify the current region need to logout to take effect, whether to logout?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="481"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="482"/>
         <source>Logout later</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="482"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="483"/>
         <source>Logout now</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="484"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="485"/>
         <source>Modify the first language need to reboot to take effect, whether to reboot?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="485"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="486"/>
         <source>Reboot later</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="486"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="487"/>
         <source>Reboot now</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2706,13 +2706,13 @@ change system settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="745"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="746"/>
         <source>  </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="746"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="755"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="747"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="756"/>
         <source>Sync from network failed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7097,7 +7097,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="69"/>
-        <source>Input what you are looking for</source>
+        <source>Search Timezone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
