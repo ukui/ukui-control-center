@@ -8,6 +8,10 @@ NumbersButton::NumbersButton(QWidget *parent):
 {
     initUI();
     initConnect();
+    const QByteArray id_1(UKUI_QT_STYLE);
+    if (QGSettings::isSchemaInstalled(id_1)) {
+        m_style = new QGSettings(id_1);
+    }
     setQSS();
 }
 
@@ -59,31 +63,62 @@ void NumbersButton::initConnect()
 
 void NumbersButton::setQSS()
 {
-    setStyleSheet(".numberPressBT{"
-                      "font-size:24px;"
-                      "min-width:96px;"
-                      "min-height:64px;"
-                      "max-width:96px;"
-                      "max-height:64px;"
-                      "background:rgba(58, 58, 61, 255);"
-                      "border-radius:16px;"
-                      "}"
-                      ".numberPressBT:hover{"
-                      "background:rgba(98, 98, 103, 255)"
-                      "}"
-                   ".numberPressCL{"
-                       "font-size:16px;"
-                       "min-width:96px;"
-                       "min-height:64px;"
-                       "max-width:96px;"
-                       "max-height:64px;"
-                       "background:rgba(58, 58, 61, 255);"
-                       "border-radius:16px;"
-                       "}"
-                       ".numberPressCL:hover{"
-                       "background:rgba(98, 98, 103, 255)"
-                       "}"
+    QString themeName = m_style->get(UKUI_STYLE_KEY).toString();
+    if( themeName == "ukui-light" || themeName == "ukui-default" | themeName == "ukui" ) {
+        setStyleSheet(".numberPressBT{"
+                          "font-size:24px;"
+                          "min-width:96px;"
+                          "min-height:64px;"
+                          "max-width:96px;"
+                          "max-height:64px;"
+                          "background:rgba(0, 0, 0, 0.05);"
+                          "border-radius:16px;"
+                          "}"
+                          ".numberPressBT:hover{"
+                          "background:rgba(0, 0, 0, 0.15)"
+                          "}"
+                       ".numberPressCL{"
+                           "font-size:16px;"
+                           "min-width:96px;"
+                           "min-height:64px;"
+                           "max-width:96px;"
+                           "max-height:64px;"
+                           "background:rgba(0, 0, 0, 0.05);"
+                           "border-radius:16px;"
+                           "}"
+                           ".numberPressCL:hover{"
+                           "background:rgba(0, 0, 0, 0.15)"
+                           "}"
 
-                  );
+                      );         // isNightMode=false
+    } else {
+        setStyleSheet(".numberPressBT{"
+                          "font-size:24px;"
+                          "min-width:96px;"
+                          "min-height:64px;"
+                          "max-width:96px;"
+                          "max-height:64px;"
+                          "background:rgba(58, 58, 61, 255);"
+                          "border-radius:16px;"
+                          "}"
+                          ".numberPressBT:hover{"
+                          "background:rgba(98, 98, 103, 255)"
+                          "}"
+                       ".numberPressCL{"
+                           "font-size:16px;"
+                           "min-width:96px;"
+                           "min-height:64px;"
+                           "max-width:96px;"
+                           "max-height:64px;"
+                           "background:rgba(58, 58, 61, 255);"
+                           "border-radius:16px;"
+                           "}"
+                           ".numberPressCL:hover{"
+                           "background:rgba(98, 98, 103, 255)"
+                           "}"
+
+                      );   // isNightMode=true
+    }
+
 }
 

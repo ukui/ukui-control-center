@@ -3,7 +3,11 @@
 
 #include <QWidget>
 #include <QPushButton>
+#include <QGSettings/QGSettings>
 #include "picturetowhite.h"
+
+#define UKUI_QT_STYLE                      "org.ukui.style"
+#define UKUI_STYLE_KEY                     "style-name"
 
 class NumbersButton : public QWidget
 {
@@ -23,6 +27,7 @@ private:
 private:
     QPushButton *m_pNumerPressBT[12]; // 0~9 是数字按键 10是删除键 11是清空
     PictureToWhite *m_pPictureToWhite;
+    QGSettings *m_style = nullptr;
 };
 
 #endif // NUMBERSBUTTON_H
