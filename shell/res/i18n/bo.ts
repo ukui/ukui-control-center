@@ -484,13 +484,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="194"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="200"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="378"/>
-        <source>Need to log off to take effect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../../plugins/time-language/area/area.cpp" line="205"/>
         <source>US</source>
         <translation type="unfinished"></translation>
@@ -503,13 +496,6 @@
     <message>
         <location filename="../../../plugins/time-language/area/area.cpp" line="153"/>
         <source>Language for system windows,menus and web pages</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="194"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="200"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="378"/>
-        <source>Message</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -536,6 +522,36 @@
     <message>
         <location filename="../../../plugins/time-language/area/area.cpp" line="370"/>
         <source>24 Hours</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="480"/>
+        <source>Modify the current region need to logout to take effect, whether to logout?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="481"/>
+        <source>Logout later</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="482"/>
+        <source>Logout now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="484"/>
+        <source>Modify the first language need to reboot to take effect, whether to reboot?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="485"/>
+        <source>Reboot later</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="486"/>
+        <source>Reboot now</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2971,34 +2987,34 @@ change system settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="91"/>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="301"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="96"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="293"/>
         <source>Send files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="97"/>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="303"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="102"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="295"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="99"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="104"/>
         <source>cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="100"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="105"/>
         <source>remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="107"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="112"/>
         <source>Sure to remove,</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="109"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="114"/>
         <source>After removal, the next connection requires matching PIN code!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8041,167 +8057,167 @@ Please retry or relogin!</source>
 <context>
     <name>Widget</name>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="801"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="807"/>
         <source>unify output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="805"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="811"/>
         <source>night mode</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/display/night mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="712"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="718"/>
         <source>Some applications need to be logouted to take effect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="263"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="269"/>
         <source>Night Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="283"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="289"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="298"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="304"/>
         <source>Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="314"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2032"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="320"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2047"/>
         <source>Custom Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="325"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="331"/>
         <source>to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="351"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="357"/>
         <source>Color Temperature</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="354"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="360"/>
         <source>Warmer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="357"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="363"/>
         <source>Colder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="672"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="678"/>
         <source>Multi-screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="677"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="683"/>
         <source>First Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="678"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="684"/>
         <source>Clone Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="679"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="685"/>
         <source>Extend Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="680"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="686"/>
         <source>Vice Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="700"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="706"/>
         <location filename="../../../plugins/system/touchscreen/widget.cpp" line="114"/>
         <source>monitor</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/touchscreen/monitor</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="711"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="717"/>
         <source>Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="813"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="819"/>
         <source>Theme follow night mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="867"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="873"/>
         <source>Hint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="872"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="878"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="873"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="879"/>
         <source>Not Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2032"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2047"/>
         <source>All Day</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2032"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2047"/>
         <source>Follow the sunrise and sunset(17:55-06:23)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2303"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2311"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2318"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2326"/>
         <source>Brightness</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1527"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1542"/>
         <source>please insure at least one output!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1324"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1527"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1534"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1339"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1542"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1549"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="868"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="874"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after 14 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="882"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="888"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
 the settings will be saved after %1 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1325"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1340"/>
         <source>Open time should be earlier than close time!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1535"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1550"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation type="unfinished"></translation>
