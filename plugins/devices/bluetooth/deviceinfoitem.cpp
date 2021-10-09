@@ -35,6 +35,11 @@ DeviceInfoItem::DeviceInfoItem(QWidget *parent, BluezQt::DevicePtr dev):
     //this->setFixedSize(parent->width(),64);
     this->setObjectName(_MDev? _MDev.data()->address(): "null");
 
+    //devFuncBtn  = new QToolButton(this);
+    devFuncBtn  = new QPushButton(this);
+    devFuncBtn->setText("...");
+    devFuncBtn->show();
+    connect(devFuncBtn,SIGNAL(released()),this,SLOT(MouseClickedDevFunc()));
     InitMemberVariables();
     setDeviceConnectSignals();
 
@@ -117,25 +122,10 @@ void DeviceInfoItem::MenuSignalDeviceFunction(QAction *action)
         {
             qDebug() << Q_FUNC_INFO << "To :" << _MDev->name() << "Remove" << __LINE__;
             emit devRemove(_MDev.data()->address());
-//            BluezQt::PendingCall * rm_Call= _MDev->adapter()->removeDevice(_MDev);
-//            connect(rm_Call,&BluezQt::PendingCall::finished,this,[&](BluezQt::PendingCall *call)
-//            {
-//                if (!call->error())
-//                {
-//                    qDebug() << Q_FUNC_INFO << devName << "Remove OK!" << __LINE__;
-//                }
-//                else
-//                {
-//                    qDebug() << Q_FUNC_INFO << devName << "Remove fail!" << __LINE__;
-//                }
-//            });
-
-
         }
         else
         {
             qDebug() << Q_FUNC_INFO << "To :" << _MDev->name() << "Cancel" << __LINE__;
-
         }
     }
 }
@@ -242,6 +232,8 @@ void DeviceInfoItem::initInfoPage(QString d_name, DEVICE_STATUS status, BluezQt:
     _MDev      = device;
     _DevStatus = status;
     devName    = device->name();
+    devFuncBtn->setVisible(_MDev.data()->isPaired());
+
 }
 
 
@@ -391,7 +383,7 @@ QColor DeviceInfoItem::getDevStatusColor()
     QColor color;
 
     if (_MDev) {
-        if (_MDev.data()->isConnected()) {
+        if (_MDev.data()->isPaired() && _MDev.data()->isConnected()) {
             color = QColor("#2FB3E8");
         } else {
             color = QColor("#F4F4F4");
@@ -495,7 +487,7 @@ void DeviceInfoItem::DrawText(QPainter &painter)
     else
         painter.setPen(QColor(Qt::black));
 
-    painter.drawText(64,20,200,24,Qt::AlignLeft,_MDev? _MDev.data()->name(): QString("Example"));
+    painter.drawText(64,20,350,24,Qt::AlignLeft,_MDev? _MDev.data()->name(): QString("Example"));
     painter.restore();
 }
 
@@ -541,18 +533,23 @@ void DeviceInfoItem::DrawStatusText(QPainter &painter)
 
 void DeviceInfoItem::DrawFuncBtn(QPainter &painter)
 {
-    painter.save();
-    if(item_gsettings->get("style-name").toString() == "ukui-black" ||
-       item_gsettings->get("style-name").toString() == "ukui-dark")
-        painter.setPen(QColor(Qt::white));
-    else
-        painter.setPen(QColor(Qt::black));
-    //painter.setBrush(getDevStatusColor());
-    //painter.drawEllipse(this->width()-60,12,40,24);
-    painter.drawText(this->width()-60,12,40,24,Qt::AlignRight,". . .");
-    //painter.setRenderHint(QPainter::SmoothPixmapTransform);
-    //style()->drawItemText(&painter, QRect(this->width()-60,12,40,24), Qt::AlignCenter,painter,0, ". . .");
-    painter.restore();
+    devFuncBtn->setGeometry(this->width()-55,12,40,35);
+
+    if (_MDev)
+	devFuncBtn->setVisible(_MDev->isPaired());
+
+//    painter.save();
+//    if(item_gsettings->get("style-name").toString() == "ukui-black" ||
+//       item_gsettings->get("style-name").toString() == "ukui-dark")
+//        painter.setPen(QColor(Qt::white));
+//    else
+//        painter.setPen(QColor(Qt::black));
+//    //painter.setBrush(getDevStatusColor());
+//    //painter.drawEllipse(this->width()-60,12,40,24);
+//    painter.drawText(this->width()-60,12,40,24,Qt::AlignRight,". . .");
+//    //painter.setRenderHint(QPainter::SmoothPixmapTransform);
+//    //style()->drawItemText(&painter, QRect(this->width()-60,12,40,24), Qt::AlignCenter,painter,0, ". . .");
+//    painter.restore();
 }
 
 /************************************************
