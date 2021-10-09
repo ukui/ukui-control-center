@@ -82,6 +82,7 @@ private:
     void writeGsettings(const QString &key, const QString &value);
     void timeFormatClicked(bool flag);
     void initLanguage();
+    void showMessageBox(const int flag);
 
 private:
     Ui::Area *ui;

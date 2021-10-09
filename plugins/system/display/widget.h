@@ -156,6 +156,7 @@ public Q_SLOTS:
     void scaleChangedSlot(double scale);
     void changedSlot();
     void propertiesChangedSlot(QString, QMap<QString, QVariant>, QStringList);
+    void mOutputClicked();
 
 private:
     void loadQml();
@@ -295,6 +296,7 @@ private:
     bool exitFlag = false;
     QString     mKDSCfg;
     bool unifySetconfig = false;
+    QString mOutputClickedName;
 };
 
 #endif // WIDGET_H
