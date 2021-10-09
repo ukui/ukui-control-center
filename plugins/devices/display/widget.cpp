@@ -1426,7 +1426,7 @@ void DisplayWidget::initBrightnessUI(){
     //亮度调节
 //    ui->brightnesswidget->setStyleSheet("background-color:#F4F4F4;border-radius:6px");
 
-    ui->brightnessSlider->setRange(0,100);
+    ui->brightnessSlider->setRange(10,100);
     ui->brightnessSlider->setTracking(true);
 
     QString screenName = getScreenName();
