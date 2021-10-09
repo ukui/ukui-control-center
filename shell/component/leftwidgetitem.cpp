@@ -35,6 +35,7 @@ LeftWidgetItem::LeftWidgetItem(QWidget *parent) :
     iconLabel = new QLabel(widget);
 
     textLabel = new QLabel(widget);
+    textLabel->setObjectName("textlabel");
     QSizePolicy policy1 = textLabel->sizePolicy();
     policy1.setHorizontalPolicy(QSizePolicy::Fixed);
     policy1.setVerticalPolicy(QSizePolicy::Fixed);
@@ -98,9 +99,9 @@ void LeftWidgetItem::setLabelText(QString text) {
 
 void LeftWidgetItem::setLabelTextIsWhite(bool selected) {
     if(selected) {
-        textLabel->setStyleSheet("color: palette(highlighted-text);");
+        textLabel->setStyleSheet("QLabel#textlabel{color: palette(highlighted-text);}");
     } else {
-        textLabel->setStyleSheet("color: palette(windowText);");
+        textLabel->setStyleSheet("QLabel#textlabel{color: palette(windowText);}");
     }
 }
 
