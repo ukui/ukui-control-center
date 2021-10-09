@@ -979,6 +979,7 @@ void BlueToothMain::connectManagerChanged()
     connect(m_manager,&BluezQt::Manager::allAdaptersRemoved,this,[=]
     {
         qDebug() << Q_FUNC_INFO << "allAdaptersRemoved" ;
+        clearAllTimer();
     });
 }
 
@@ -1529,7 +1530,7 @@ void BlueToothMain::addMyDeviceItemUI(BluezQt::DevicePtr device)
         return;
     }
 
-    if (!frame_middle->isVisible())
+    if ((m_localDevice != nullptr) && m_localDevice->isPowered() && !frame_middle->isVisible())
         frame_middle->setVisible(true);
 
     connect(device.data(),&BluezQt::Device::typeChanged,this,[=](BluezQt::Device::Type  changeType){
