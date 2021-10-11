@@ -602,7 +602,7 @@ void WlanConnect::rebuildAvailComponent(ItemFrame *frame, QString deviceName, QS
     });
 
     connect(wlanItem, &QPushButton::clicked, this, [=] {
-        if (status) {
+        if (wlanItem->isAcitve) {
             deActiveConnect(name, deviceName, type);
         } else {
             activeConnect(name, deviceName, type);
@@ -619,10 +619,12 @@ void WlanConnect::rebuildAvailComponent(ItemFrame *frame, QString deviceName, QS
 }
 
 void WlanConnect::activeConnect(QString netName, QString deviceName, int type) {
+    qDebug() << "try to connect "<< netName << " in " << deviceName;
     m_interface->call("activateConnect",type, deviceName, netName);
 }
 
 void WlanConnect::deActiveConnect(QString netName, QString deviceName, int type) {
+    qDebug() << "try to disconnect "<< netName << " in " << deviceName;
     m_interface->call("deActivateConnect",type, deviceName, netName);
 }
 
