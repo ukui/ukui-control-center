@@ -360,7 +360,7 @@
     <message>
         <location filename="../../../plugins/network/netconnect/addnetbtn.cpp" line="18"/>
         <source>Add WiredNetork</source>
-        <translation type="unfinished"></translation>
+        <translation>添加有线网络</translation>
     </message>
 </context>
 <context>
