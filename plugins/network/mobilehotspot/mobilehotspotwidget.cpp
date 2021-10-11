@@ -266,8 +266,12 @@ void MobileHotspotWidget::getApInfo()
                                                           "/org/freedesktop/hostname1",
                                                           "org.freedesktop.hostname1",
                                                           QDBusConnection::systemBus());
-        QString hostName = hostInterface->property("Hostname").value<QString>();
-        m_apNameLine->setText(hostName);
+        if (hostInterface->isValid()) {
+            QString hostName = hostInterface->property("Hostname").value<QString>();
+            m_apNameLine->setText(hostName);
+        } else {
+            qDebug() << "org.freedesktop.hostname1 is invaild";
+        }
         return;
     } else {
         int index = m_interfaceComboBox->findText(apInfo.at(2));
