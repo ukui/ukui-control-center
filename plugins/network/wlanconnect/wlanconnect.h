@@ -80,7 +80,7 @@ private:
     void initSearchText();
     void rebuildDeviceComponent(ItemFrame *frame, QString deviceName, int count);
     void addOneWlanFrame(ItemFrame *frame, QString deviceName, QString name, QString signal, bool isLock, bool status, int type);
-    void rebuildAvailComponent(ItemFrame *frame, QString deviceName, QString name, QString signal, bool isLock, bool status, int type);
+    void rebuildAvailComponent(ItemFrame *frame, QString deviceName, QString name, QString signal, QString uuid, bool isLock, bool status, int type);
     void activeConnect(QString netName, QString deviceName, int type);
     void deActiveConnect(QString netName, QString deviceName, int type);
     void clearLayout(QVBoxLayout * layout);
@@ -120,7 +120,7 @@ private slots:
     void dropDownAnimation(DeviceFrame * deviceFrame, QString deviceName);
     void updateOneWlanFrame(QString deviceName, QStringList wlanInfo);
     void updateOneWlanFrame(QString deviceName, QString wlannName);
-    void updateOneWlanFrame(QString deviceName, QString ssid, int status);
+    void updateOneWlanFrame(QString deviceName, QString ssid, QString uuid, int status);
     void updateStrengthList(QString deviceName, QString ssid, int strength);
     void updateWlanListWidget();
 };

@@ -131,7 +131,7 @@ void WlanConnect::initComponent() {
     wifiSwtch = new SwitchButton(pluginWidget);
     ui->openWIifLayout->addWidget(wifiSwtch);
     // 有线网络断开或连接时刷新可用网络列表
-    connect(m_interface, SIGNAL(wlanactiveConnectionStateChanged(QString, QString, int)), this, SLOT(updateOneWlanFrame(QString, QString, int)));
+    connect(m_interface, SIGNAL(wlanactiveConnectionStateChanged(QString, QString, QString, int)), this, SLOT(updateOneWlanFrame(QString, QString, QString, int)));
     //无线网络新增时添加网络
     connect(m_interface, SIGNAL(wlanAdd(QString, QStringList)), this, SLOT(updateOneWlanFrame(QString, QStringList)));
     //删除无线网络
@@ -243,14 +243,26 @@ void WlanConnect::updateWlanListWidget()
     initNet();
 }
 
-void WlanConnect::updateOneWlanFrame(QString deviceName, QString ssid, int status)
+void WlanConnect::updateOneWlanFrame(QString deviceName, QString ssid, QString uuid, int status)
 {
     if (!wifiSwtch->isChecked() || !isFinished) {
         return;
     }
+    qDebug() << deviceName << ssid << uuid << status;
     QMap<QString, WlanItem*>::iterator iter;
     for (iter = deviceWlanlistInfo.wlanItemMap.begin(); iter != deviceWlanlistInfo.wlanItemMap.end(); iter++) {
-        if(ssid == iter.key()) {
+        bool isFind = false;
+        if (ssid.isEmpty()) {
+            if (iter.value()->uuid == uuid) {
+                qDebug() <<  "find " << iter.value()->titileLabel->text();
+                isFind = true;
+            }
+        } else {
+            if (ssid ==iter.key()) {
+                isFind = true;
+            }
+        }
+        if(isFind) {
             if (status == 1) {
                 iter.value()->setCountCurrentTime(0);
                 iter.value()->setWaitPage(1);
@@ -263,6 +275,7 @@ void WlanConnect::updateOneWlanFrame(QString deviceName, QString ssid, int statu
                 iter.value()->statusLabel->setMaximumSize(16777215,16777215);
                 iter.value()->statusLabel->setText(tr("connected"));
                 iter.value()->isAcitve = true;
+                iter.value()->uuid = uuid;
                 QMap<QString, ItemFrame *>::iterator iters;
                 for (iters = deviceWlanlistInfo.deviceLayoutMap.begin(); iters != deviceWlanlistInfo.deviceLayoutMap.end(); iters++) {
                     if (iters.key() == deviceName) {
@@ -283,6 +296,7 @@ void WlanConnect::updateOneWlanFrame(QString deviceName, QString ssid, int statu
                 iter.value()->statusLabel->setMaximumSize(16777215,16777215);
                 iter.value()->statusLabel->setText("");
                 iter.value()->isAcitve = false;
+                iter.value()->uuid = "";
             }
         }
     }
@@ -389,6 +403,7 @@ int WlanConnect::getNetListFromDevice(QString deviceName, bool deviceStatus, QVB
             deviceWlanlistInfo.deviceLayoutMap.insert(iter.key(),deviceFrame);
             qDebug()<<iter.value();
             bool isLock = true;
+            QString uuid = "";
             if (wlanListInfo.at(0).at(0) == "--") {
                 for (int i = 1; i < wlanListInfo.length(); i++) {
                     if (wlanListInfo.at(i).at(2) == "") {
@@ -396,7 +411,7 @@ int WlanConnect::getNetListFromDevice(QString deviceName, bool deviceStatus, QVB
                     } else {
                         isLock = true;
                     }
-                    rebuildAvailComponent(deviceFrame, deviceName, wlanListInfo.at(i).at(0), wlanListInfo.at(i).at(1), isLock, false, WIRELESS_TYPE);
+                    rebuildAvailComponent(deviceFrame, deviceName, wlanListInfo.at(i).at(0), wlanListInfo.at(i).at(1), uuid, isLock, false, WIRELESS_TYPE);
                 }
             } else {
                 if (wlanListInfo.at(0).at(2) == "") {
@@ -404,14 +419,15 @@ int WlanConnect::getNetListFromDevice(QString deviceName, bool deviceStatus, QVB
                 } else {
                     isLock = true;
                 }
-                rebuildAvailComponent(deviceFrame, deviceName, wlanListInfo.at(0).at(0), wlanListInfo.at(0).at(1), isLock, true, WIRELESS_TYPE);
+                uuid = wlanListInfo.at(0).at(3);
+                rebuildAvailComponent(deviceFrame, deviceName, wlanListInfo.at(0).at(0), wlanListInfo.at(0).at(1), uuid, isLock, true, WIRELESS_TYPE);
                 for (int i = 1; i < wlanListInfo.length(); i++) {
                     if (wlanListInfo.at(i).at(2) == "") {
                         isLock = false;
                     } else {
                         isLock = true;
                     }
-                    rebuildAvailComponent(deviceFrame, deviceName, wlanListInfo.at(i).at(0), wlanListInfo.at(i).at(1), isLock, false, WIRELESS_TYPE);
+                    rebuildAvailComponent(deviceFrame, deviceName, wlanListInfo.at(i).at(0), wlanListInfo.at(i).at(1), uuid, isLock, false, WIRELESS_TYPE);
                 }
             }
         }
@@ -577,7 +593,7 @@ int WlanConnect::sortWlanNet(QString deviceName, QString name, QString signal)
     return 0;
 }
 
-void WlanConnect::rebuildAvailComponent(ItemFrame *frame, QString deviceName, QString name, QString signal, bool isLock, bool status, int type) {
+void WlanConnect::rebuildAvailComponent(ItemFrame *frame, QString deviceName, QString name, QString signal, QString uuid, bool isLock, bool status, int type) {
     qDebug()<<name<<signal;
     int sign = setSignal(signal);
     QString iconamePath = wifiIcon(isLock, sign);
@@ -591,6 +607,7 @@ void WlanConnect::rebuildAvailComponent(ItemFrame *frame, QString deviceName, QS
     wlanItem->titileLabel->setText(name);
     if (status) {
         wlanItem->statusLabel->setText(tr("connected"));
+        wlanItem->uuid = uuid;
     } else {
         wlanItem->statusLabel->setText("");
     }

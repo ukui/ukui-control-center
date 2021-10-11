@@ -481,15 +481,15 @@ void MobileHotspotWidget::setUiEnabled(bool enable)
 {
     qDebug() << "switch mode change to " << enable;
     if (enable) {
-        m_apNameLine->setEnabled(false);
-        m_pwdNameLine->setEnabled(false);
+        m_pwdNameLine->setFocusPolicy(Qt::NoFocus);
         m_freqBandComboBox->setEnabled(false);
         m_interfaceComboBox->setEnabled(false);
+        m_apNameLine->setFocusPolicy(Qt::NoFocus);
     } else {
-        m_apNameLine->setEnabled(true);
-        m_pwdNameLine->setEnabled(true);
+        m_pwdNameLine->setFocusPolicy(Qt::ClickFocus);
         m_freqBandComboBox->setEnabled(true);
         m_interfaceComboBox->setEnabled(true);
+        m_apNameLine->setFocusPolicy(Qt::ClickFocus);
     }
 }
 

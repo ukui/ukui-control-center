@@ -24,6 +24,7 @@ public:
     FixLabel * statusLabel = nullptr;
     int waitPage;
     int countCurrentTime;
+    QString uuid = "";
 public:
     void startLoading();
     void setWaitPage(int waitPage);
