@@ -182,7 +182,7 @@ void ChangeUserType::setConnect(){
     connect(cutConfirmBtn, &QPushButton::clicked, this, [=]{
         cutiface->call("SetAccountType", cutTypesBtnGroup->checkedId());
 
-        close();
+        accept();
     });
 
 #if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)

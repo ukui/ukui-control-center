@@ -44,7 +44,6 @@ PKGCONFIG     += gio-2.0 \
 SOURCES += \
     changegroupdialog.cpp \
     changeuserlogo.cpp \
-    changeusername.cpp \
     changeusernickname.cpp \
     changeuserpwd.cpp \
     changeusertype.cpp \
@@ -58,24 +57,13 @@ SOURCES += \
     pwdcheckthread.cpp \
     userinfo.cpp \
     qtdbus/systemdbusdispatcher.cpp \
-    changepwddialog.cpp \
     qtdbus/userdispatcher.cpp \
-    changetypedialog.cpp \
-    changefacedialog.cpp \
-    deluserdialog.cpp \
-    createuserdialog.cpp \
     passwdcheckutil.cpp \
-    biometricdeviceinfo.cpp \
-    biometricproxy.cpp \
-    biometricenroll.cpp \
-    biometricmoreinfo.cpp \
-    servicemanager.cpp \
     utilsforuserinfo.cpp
 
 HEADERS += \
     changegroupdialog.h \
     changeuserlogo.h \
-    changeusername.h \
     changeusernickname.h \
     changeuserpwd.h \
     changeusertype.h \
@@ -88,36 +76,17 @@ HEADERS += \
     elipsemaskwidget.h \
     loginedusers.h \
     pwdcheckthread.h \
-    run-passwd.h \
     userinfo.h \
     qtdbus/systemdbusdispatcher.h \
-    changepwddialog.h \
     qtdbus/userdispatcher.h \
-    changetypedialog.h \
-    changefacedialog.h \
-    deluserdialog.h \
-    createuserdialog.h \
     passwdcheckutil.h \
-    biometricdeviceinfo.h \
-    biometricproxy.h \
-    biometricenroll.h \
-    biometricmoreinfo.h \
-    servicemanager.h  \
     utilsforuserinfo.h
 
 FORMS += \
     changegroupdialog.ui \
-    changeusername.ui \
-    creategroupdialog.ui \
     delgroupdialog.ui \
     editgroupdialog.ui \
+    creategroupdialog.ui \
     userinfo.ui \
-    changepwddialog.ui \
-    changetypedialog.ui \
-    changefacedialog.ui \
-    deluserdialog.ui \
-    createuserdialog.ui \
-    biometricmoreinfo.ui \
-    biometricenroll.ui 
 
 INSTALLS += target
