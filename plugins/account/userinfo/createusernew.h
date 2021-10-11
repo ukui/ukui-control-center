@@ -97,6 +97,7 @@ public:
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event);
+    void keyPressEvent(QKeyEvent *);
     bool setCunTextDynamic(QLabel * label, QString string);
 
 private:

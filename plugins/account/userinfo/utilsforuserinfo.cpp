@@ -102,10 +102,23 @@ void UtilsForUserinfo::refreshUserNickname(QString name){
     }
 }
 
-void UtilsForUserinfo::refreshUserType(QString type){
-    if (setUtilsTextDynamic(typeLabel, type)){
-        typeLabel->setToolTip(type);
+void UtilsForUserinfo::refreshUserType(int type){
+    QString t = _accountTypeIntToString(type);
+    if (setUtilsTextDynamic(typeLabel, t)){
+        typeLabel->setToolTip(t);
     }
+}
+
+void UtilsForUserinfo::refreshDelStatus(bool enabled){
+    delUserBtn->setEnabled(enabled);
+}
+
+void UtilsForUserinfo::refreshPwdStatus(bool enabled){
+    changePwdBtn->setEnabled(enabled);
+}
+
+void UtilsForUserinfo::refreshTypeStatus(bool enabled){
+    changeTypeBtn->setEnabled(enabled);
 }
 
 void UtilsForUserinfo::setObjectPathData(QString op){
@@ -170,6 +183,21 @@ void UtilsForUserinfo::userPropertyChangedSlot(QString property, QMap<QString, Q
 
         refreshUserLogo(current);
     }
+
+    if (propertyMap.keys().contains("AccountType")){
+        int current = propertyMap.value("AccountType").toInt();
+
+        refreshUserType(current);
+    }
+
 }
 
+QString UtilsForUserinfo::_accountTypeIntToString(int type){
+    QString atype;
+    if (type == 0)
+        atype = tr("Standard");
+    else if (type == 1)
+        atype = tr("Admin");
 
+    return atype;
+}

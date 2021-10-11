@@ -134,8 +134,8 @@ void CreateUserNew::initUI(){
     standardRadioBtn = new QRadioButton;
     standardRadioBtn->setFixedSize(QSize(16,16));
 
-    typeBtnGroup->addButton(adminRadioBtn, 0);
-    typeBtnGroup->addButton(standardRadioBtn, 1);
+    typeBtnGroup->addButton(adminRadioBtn, 1);
+    typeBtnGroup->addButton(standardRadioBtn, 0);
 
     adminRadioBtn->setChecked(true);
 
@@ -537,6 +537,24 @@ bool CreateUserNew::setCunTextDynamic(QLabel *label, QString string){
     label->setText(str);
     return isOverLength;
 
+}
+
+void CreateUserNew::keyPressEvent(QKeyEvent * event){
+    switch (event->key())
+    {
+    case Qt::Key_Escape:
+        break;
+    case Qt::Key_Enter:
+        if (confirmBtn->isEnabled())
+            confirmBtn->clicked();
+        break;
+    case Qt::Key_Return:
+        if (confirmBtn->isEnabled())
+            confirmBtn->clicked();
+        break;
+    default:
+        QDialog::keyPressEvent(event);
+    }
 }
 
 bool CreateUserNew::eventFilter(QObject *watched, QEvent *event){

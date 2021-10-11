@@ -39,7 +39,6 @@
 #include <QObject>
 #include <QtPlugin>
 #include <QFileSystemWatcher>
-#include <QSignalMapper>
 #include <QMouseEvent>
 #include <QSettings>
 
@@ -49,17 +48,6 @@
 #include "qtdbus/userdispatcher.h"
 
 #include "changegroupdialog.h"
-#include "changepwddialog.h"
-#include "changefacedialog.h"
-#include "changetypedialog.h"
-#include "changeusername.h"
-#include "deluserdialog.h"
-#include "createuserdialog.h"
-#include "HoverWidget/hoverwidget.h"
-#include "biometricdeviceinfo.h"
-#include "biometricproxy.h"
-#include "biometricenroll.h"
-#include "biometricmoreinfo.h"
 
 #ifdef ENABLEPQ
 extern "C" {
@@ -199,8 +187,6 @@ protected:
     bool setTextDynamic(QLabel * label, QString string);
 
 private:
-    QFrame * buildItemForOthers(UserInfomation user);
-
     bool isLastAdmin(QString uname);
 
 
@@ -210,57 +196,22 @@ public slots:
     void newUserCreateDoneSlot(QDBusObjectPath op);
     void existsUserDeleteDoneSlot(QDBusObjectPath op);
 
+Q_SIGNALS:
+    void userTypeChanged(QString n);
+
     /**************/
 
 public:
     void initSearchText();
-    void initComponent();
-    void initAllUserStatus();
 
     QStringList getLoginedUsers();
     void _acquireAllUsersInfo();
     UserInfomation _acquireUserInfo(QString objpath);
     QString _accountTypeIntToString(int type);
-    void _buildWidgetForItem(UserInfomation user);
-    void _resetListWidgetHeigh();
-
-    int _userCanDel(QString user);
-
-    void _refreshUserInfoUI();
-
-    void showCreateUserDialog();
-    void createUser(QString username, QString pwd, QString pin, int atype);
-    void createUserDone(QString objpath);
-
-    void showDeleteUserDialog(QString username);
-    void deleteUser(bool removefile, QString username);
-    void deleteUserDone(QString objpath);
-
-    void showChangePwdDialog(QString username);
-    void changeUserPwd(QString pwd, QString username);
-
-    void showChangeTypeDialog(QString username);
-    void changeUserType(int atype, QString username);
-
-    void showChangeFaceDialog(QString username);
-    void changeUserFace(QString facefile, QString username);
 
     void showChangeGroupDialog();
 
-    void showChangeNameDialog();
-    void changeUserName(QString newName);
-
-    void get_all_users();
-    UserInfomation init_user_info(QString objpath);
-    void setup_otherusers_ui();
-    void build_item_with_widget(UserInfomation user);
-    void ui_component_init();
-
-    QString accounttype_enum_to_string(int id);
-    QString login_status_bool_to_string(bool status);
-
     void readCurrentPwdConf();
-    QStringList getUsersList();
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event);
@@ -272,44 +223,18 @@ private:
     int pluginType;
     QWidget * pluginWidget;
     QWidget * pluginWidget2;
-    HoverWidget *addWgt;
-
-    AddBtn * addUserTmpBtn;
-
-    QFrame * splitTmpHLine1;
-    QFrame * splitTmpHLine2;
-
-    SwitchButton * nopwdSwitchBtn;
-    SwitchButton * autoLoginSwitchBtn;
 
     SystemDbusDispatcher * sysdispatcher;
     QSettings * autoSettings = nullptr;
 
     QMap<QString, UserInfomation> allUserInfoMap;
-    QMap<QString, QListWidgetItem *> otherUserItemMap;
 
-    QMap<QString, QListWidgetItem *> otherItemMap;
-
-    QSignalMapper * pwdSignalMapper;
-    QSignalMapper * faceSignalMapper;
-    QSignalMapper * typeSignalMapper;
-    QSignalMapper * delSignalMapper;
-
-    QSize faceSize;
-    QSize itemSize;
-    QSize btnSize;
-
-    QString pwdcreate;
-    QString _newUserPwd;
-    QString _newUserName;
     QString mUserName;
 
     QStringList m_loginedUser;
 
     QDBusInterface *sysinterface;
-    QDBusInterface *mUserproperty;
 
-    int adminnum;
     bool enablePwdQuality;
     bool mFirstLoad;
 
@@ -322,15 +247,7 @@ private:
     QString pwdMsg;
 
 private:
-    QString getAutomaticLogin();
     bool getNoPwdStatus();
-    bool isOpenAutoLogin(const QString &userName);
-    void initUserPropertyConnection(const QStringList &objPath);
-
-private slots:
-    void delete_user_slot(bool removefile, QString username);
-    void propertyChangedSlot(QString, QMap<QString, QVariant>, QStringList);
-    void pwdAndAutoChangedSlot(QString key);
 
 };
 
