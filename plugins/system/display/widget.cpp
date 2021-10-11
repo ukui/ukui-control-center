@@ -368,7 +368,7 @@ void Widget::slotOutputConnectedChanged()
     }
 
     resetPrimaryCombo();
-
+    mainScreenButtonSelect(ui->primaryCombo->currentIndex());
 }
 
 void Widget::slotUnifyOutputs()
