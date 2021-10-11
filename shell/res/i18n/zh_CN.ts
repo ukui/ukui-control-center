@@ -8408,21 +8408,21 @@ Please retry or relogin!</source>
         <translation>锁屏界面</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="439"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="445"/>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="111"/>
         <source>Browse</source>
         <translation>浏览</translation>
         <extra-contents_path>/screenlock/Browse</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="446"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="452"/>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="113"/>
         <source>Online Picture</source>
         <translation>线上图片</translation>
         <extra-contents_path>/screenlock/Online Picture</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="478"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="484"/>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="122"/>
         <source>Reset To Default</source>
         <translation>恢复默认</translation>
@@ -8440,9 +8440,9 @@ Please retry or relogin!</source>
         <extra-contents_path>/screenlock/Lock screen when screensaver boot</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="355"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="361"/>
         <source>Lock screen delay</source>
-        <translation>锁屏延时</translation>
+        <translation>此时间段后锁屏</translation>
     </message>
     <message>
         <source>Min</source>
@@ -8484,8 +8484,9 @@ Please retry or relogin!</source>
         <translation type="obsolete">图片</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="140"/>
         <source>Never</source>
-        <translation type="vanished">从不</translation>
+        <translation>从不</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="139"/>
@@ -8528,42 +8529,47 @@ Please retry or relogin!</source>
         <translation>3h</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="430"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="140"/>
+        <source>2h</source>
+        <translation>2h</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="438"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</source>
         <translation>图片文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="430"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="438"/>
         <source>allFiles(*.*)</source>
         <translation>所有文件(*.*)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="472"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="480"/>
         <source>select custom wallpaper file</source>
         <translation>选择自定义壁纸文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="473"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="481"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="474"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="482"/>
         <source>Position: </source>
         <translation>位置： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="475"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="483"/>
         <source>FileName: </source>
         <translation>文件名： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="476"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="484"/>
         <source>FileType: </source>
         <translation>文件类型： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="477"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="485"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -8572,13 +8578,13 @@ Please retry or relogin!</source>
     <name>Screensaver</name>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="59"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="93"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="96"/>
         <source>Screensaver</source>
         <translation>屏保</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="201"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="181"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="184"/>
         <source>Idle time</source>
         <translation>此时间段后开启屏保</translation>
         <extra-contents_path>/screensaver/Idle time</extra-contents_path>
@@ -8594,7 +8600,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="297"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="179"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="182"/>
         <source>Screensaver program</source>
         <translation>屏幕保护程序</translation>
         <extra-contents_path>/screensaver/Screensaver program</extra-contents_path>
@@ -8620,121 +8626,121 @@ Please retry or relogin!</source>
         <translation type="vanished">默认屏保</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="167"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="170"/>
         <source>View</source>
         <translation>预览</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="831"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="837"/>
         <source>Text(up to 30 characters):</source>
         <translation>屏保文本(最多30个字):</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="863"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="871"/>
         <source>Show rest time</source>
         <translation>显示休息时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="208"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="211"/>
         <source>UKUI</source>
         <translation>UKUI</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="209"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="212"/>
         <source>Blank_Only</source>
         <translation>黑屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="220"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="223"/>
         <source>Customize</source>
         <translation>自定义</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="235"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="734"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="238"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="740"/>
         <source>5min</source>
         <translation>5分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="235"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="735"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="238"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="741"/>
         <source>10min</source>
         <translation>10分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="235"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="238"/>
         <source>15min</source>
         <translation>15分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="235"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="736"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="238"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="742"/>
         <source>30min</source>
         <translation>30分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="235"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="238"/>
         <source>1hour</source>
         <translation>1小时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="636"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="642"/>
         <source>Screensaver source</source>
         <translation>屏保来源</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="642"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="692"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="648"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="698"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="650"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="656"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp *.svg)</source>
         <translation>壁纸文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp *.svg)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="691"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="697"/>
         <source>select custom screensaver dir</source>
         <translation>选择自定义屏保路径</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="693"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="699"/>
         <source>Position: </source>
         <translation>位置:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="694"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="700"/>
         <source>FileName: </source>
         <translation>文件名:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="695"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="701"/>
         <source>FileType: </source>
         <translation>文件类型:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="696"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="702"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="729"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="735"/>
         <source>Switching time</source>
         <translation>切换频率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="733"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="739"/>
         <source>1min</source>
         <translation>1分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="781"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="787"/>
         <source>Ordinal</source>
         <translation>按顺序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="790"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="796"/>
         <source>Random switching</source>
         <translation>随机切换</translation>
     </message>
@@ -8747,17 +8753,17 @@ Please retry or relogin!</source>
         <translation type="vanished">输入文本，最多30个字符</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="882"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="890"/>
         <source>Text position</source>
         <translation>文本位置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="890"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="898"/>
         <source>Centered</source>
         <translation>居中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="891"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="899"/>
         <source>Randow(Bubble text)</source>
         <translation>随机(气泡文本)</translation>
     </message>
@@ -8794,12 +8800,12 @@ Please retry or relogin!</source>
         <translation type="vanished">3h</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="782"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="788"/>
         <source>Random</source>
         <translation>随机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="236"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="239"/>
         <source>Never</source>
         <translation>从不</translation>
     </message>

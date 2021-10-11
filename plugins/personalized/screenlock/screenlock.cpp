@@ -32,7 +32,7 @@
 #define BGPATH                  "/usr/share/backgrounds/"
 #define SCREENLOCK_BG_SCHEMA    "org.ukui.screensaver"
 #define SCREENLOCK_BG_KEY       "background"
-#define SCREENLOCK_DELAY_KEY    "lock-delay"
+#define SCREENLOCK_DELAY_KEY    "idle-lock"
 #define SCREENLOCK_LOCK_KEY     "lock-enabled"
 #define SCREENLOCK_ACTIVE_KEY   "idle-activation-enabled"
 
@@ -137,10 +137,10 @@ void Screenlock::setupComponent()
 
     QStringList scaleList;
     scaleList<< tr("1m") << tr("5m") << tr("10m") << tr("30m") << tr("45m")
-              <<tr("1h") << tr("1.5h") << tr("3h");
+              <<tr("1h") << tr("1.5h") << tr("2h") << tr("3h") << tr("Never");
 
     uslider = new Uslider(scaleList);
-    uslider->setRange(1,8);
+    uslider->setRange(1,10);
     uslider->setTickInterval(1);
     uslider->setPageStep(1);
 
@@ -186,10 +186,6 @@ void Screenlock::setupComponent()
 
     //设置布局
     flowLayout = new FlowLayout(ui->backgroundsWidget, 16, -1, -1);
-
-    //锁屏延时暂时不可用，屏蔽
-    ui->delayFrame->hide();
-    ui->line_3->hide();
 }
 
 void Screenlock::setupConnect()
@@ -200,13 +196,13 @@ void Screenlock::setupConnect()
 
     connect(uslider, &QSlider::valueChanged, [&](int value) {
         QStringList keys = lSetting->keys();
-        if (keys.contains("lockDelay")) {
+        if (keys.contains("idleLock")) {
             lSetting->set(SCREENLOCK_DELAY_KEY, convertToLocktime(value));
         }
     });
 
     QStringList keys = lSetting->keys();
-    if (keys.contains("lockDelay")) {
+    if (keys.contains("idleLock")) {
         int value = lockConvertToSlider(lSetting->get(SCREENLOCK_DELAY_KEY).toInt());
         uslider->setValue(value);
     }
@@ -313,10 +309,16 @@ int Screenlock::convertToLocktime(const int value)
         return 90;
         break;
     case 8:
+        return 120;
+        break;
+    case 9:
         return 180;
         break;
+    case 10:
+        return -1;
+        break;
     default:
-        return 1;
+        return -1;
         break;
     }
 }
@@ -345,11 +347,17 @@ int Screenlock::lockConvertToSlider(const int value)
     case 90:
         return 7;
         break;
-    case 180:
+    case 120:
         return 8;
         break;
+    case 180:
+        return 9;
+        break;
+    case -1:
+        return 10;
+        break;
     default:
-        return 1;
+        return 10;
         break;
     }
 }

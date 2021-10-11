@@ -315,6 +315,12 @@
          </item>
          <item>
           <widget class="QFrame" name="delayFrame">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>80</height>
+            </size>
+           </property>
            <layout class="QHBoxLayout" name="lockhorizontalLayout">
             <property name="spacing">
              <number>0</number>
