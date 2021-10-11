@@ -111,6 +111,8 @@ private:
     QMap<QString, ItemFrame *> deviceFrameMap;
     QVector<QStringList>  wlanSignalList;
     DeviceWlanlistInfo   deviceWlanlistInfo;
+
+    QTimer * m_scanTimer = nullptr;
 private:
     SwitchButton       *wifiSwtch;
     bool               mFirstLoad;

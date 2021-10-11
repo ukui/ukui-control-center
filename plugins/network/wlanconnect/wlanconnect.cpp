@@ -168,6 +168,15 @@ void WlanConnect::initComponent() {
         Q_UNUSED(checked)
         runExternalApp();
     });
+
+    m_scanTimer = new QTimer(this);
+    m_scanTimer->start(20 * 1000);
+    connect(m_scanTimer, &QTimer::timeout, this, [=](){
+        qDebug() << "time to rescan wifi";
+        if (m_interface->isValid()) {
+            m_interface->call("rescan");
+        }
+    });
 }
 
 void WlanConnect::updateOneWlanFrame(QString deviceName, QString wlannName)
