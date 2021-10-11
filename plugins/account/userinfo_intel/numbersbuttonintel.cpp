@@ -15,6 +15,13 @@ NumbersButtonIntel::NumbersButtonIntel(QWidget *parent):
     setQSS();
 }
 
+NumbersButtonIntel::~NumbersButtonIntel()
+{
+    if (m_style != nullptr) {
+        delete m_style;
+    }
+}
+
 void NumbersButtonIntel::initUI()
 {
     QGridLayout* mainLayout = new QGridLayout(this);
