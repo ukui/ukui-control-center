@@ -573,9 +573,12 @@ void MainWindow::loadPlugins(){
                 continue;
         }
 #endif
+        qDebug() << "Scan Plugin: " << fileName;
+
         if (!fileName.endsWith(".so")
                 || (fileName == "libexperienceplan.so")
                 || ("libnetworkaccount.so" == fileName && (!isExitsCloudAccount() || Utils::isTablet()))
+                || ("libmobilehotspot.so" == fileName && !isExitWirelessDevice())
                 || (!QGSettings::isSchemaInstalled(kVinoSchemas) && "libvino.so" == fileName)
                 || ("libbluetooth.so" == fileName && !isExitBluetooth())
                 || ("libpower.so" == fileName && !isExitsPower())
@@ -596,7 +599,7 @@ void MainWindow::loadPlugins(){
             continue;
         }
 
-        qDebug() << "Scan Plugin: " << fileName;
+
 
         //ukui-session-manager
         const char * sessionFile = "/usr/share/glib-2.0/schemas/org.ukui.session.gschema.xml";
@@ -860,6 +863,33 @@ bool MainWindow::isExitsPower()
     QString mOutput = QString(ba.data());
 
     return mOutput.contains("ii", Qt::CaseSensitive) ? true : false;
+}
+
+bool MainWindow::isExitWirelessDevice()
+{
+    QDBusInterface *interface = new QDBusInterface("com.kylin.network", "/com/kylin/network",
+                                     "com.kylin.network",
+                                     QDBusConnection::sessionBus());
+    if (!interface->isValid()) {
+        qDebug() << "/com/kylin/network is invalid";
+        return false;
+    }
+    QDBusMessage result = interface->call(QStringLiteral("getDeviceListAndEnabled"),1);
+    if(result.type() == QDBusMessage::ErrorMessage)
+    {
+        qWarning() << "getWirelessDeviceList error:" << result.errorMessage();
+        return false;
+    }
+    auto dbusArg =  result.arguments().at(0).value<QDBusArgument>();
+    QMap<QString, bool> deviceListMap;
+    dbusArg >> deviceListMap;
+
+
+    if (deviceListMap.isEmpty()) {
+        qDebug() << "no wireless device";
+        return false;
+    }
+    return true;
 }
 
 bool MainWindow::dblOnEdge(QMouseEvent *event) {

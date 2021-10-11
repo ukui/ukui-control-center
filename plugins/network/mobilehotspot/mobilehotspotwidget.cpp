@@ -16,21 +16,21 @@
 const QByteArray GSETTINGS_SCHEMA = "org.ukui.kylin-nm.switch";
 const QString    WIRELESS_SWITCH          = "wirelessswitch";
 
-void showDesktopNotify(const QString &message)
+void MobileHotspotWidget::showDesktopNotify(const QString &message)
 {
     QDBusInterface iface("org.freedesktop.Notifications",
                          "/org/freedesktop/Notifications",
                          "org.freedesktop.Notifications",
                          QDBusConnection::sessionBus());
     QList<QVariant> args;
-    args<<("Kylin Cloud Account")
-    <<((unsigned int) 0)
-    <<QString("kylin-cloud-account")
-    <<"Cloud ID desktop message" //显示的是什么类型的信息
-    <<message //显示的具体信息
-    <<QStringList()
-    <<QVariantMap()
-    <<(int)-1;
+    args<<(tr("ukui control center"))
+       <<((unsigned int) 0)
+       <<QString("/usr/share/icons/ukui-icon-theme-default/24x24/devices/gnome-dev-ethernet.png")
+       <<tr("ukui control center desktop message") //显示的是什么类型的信息
+       <<message //显示的具体信息
+       <<QStringList()
+       <<QVariantMap()
+       <<(int)-1;
     iface.callWithArgumentList(QDBus::AutoDetect,"Notify",args);
 }
 
@@ -100,6 +100,10 @@ bool MobileHotspotWidget::eventFilter(QObject *watched, QEvent *event)
             } else {
                 if (m_apNameLine->text().isEmpty() || m_interfaceName.isEmpty())
                 {
+                    return true;
+                }
+                if (m_pwdNameLine->text().length() < 8) {
+                    showDesktopNotify(tr("can not  create hotspot with password length less than eight!"));
                     return true;
                 }
                 QDBusReply<void> reply = m_interface->call("activeWirelessAp",
@@ -174,35 +178,36 @@ void MobileHotspotWidget::initDbusConnect()
         connect(m_interface,SIGNAL(deviceNameChanged(QString, QString)), this, SLOT(onDeviceNameChanged(QString, QString)));
         connect(m_interface,SIGNAL(hotspotDeactivated(QString, QString)), this, SLOT(onHotspotDeactivated(QString, QString)));
         connect(m_interface,SIGNAL(hotspotActivated(QString, QString)), this, SLOT(onHotspotActivated(QString, QString)));
-        connect(m_interface,SIGNAL(wlanRemove(QString, QString)), this, SLOT(onWlanRemove(QString, QString)));
     }
 
     if (QGSettings::isSchemaInstalled(GSETTINGS_SCHEMA)) {
         m_switchGsettings = new QGSettings(GSETTINGS_SCHEMA);
-        if (m_switchGsettings->keys().contains(WIRELESS_SWITCH)) {
-            connect(m_switchGsettings, &QGSettings::changed, this, [ = ](const QString &key) {
-                if (key == WIRELESS_SWITCH) {
-                    bool status = m_switchGsettings->get(WIRELESS_SWITCH).toBool();
-                    if (!status) {
-                        if (m_switchBtn->isChecked()) {
-                            if(m_interface->isValid()) {
-                                QDBusReply<void> reply = m_interface->call("deactiveWirelessAp",
-                                                  m_apNameLine->text(),
-                                                  m_pwdNameLine->text(),
-                                                  m_interfaceComboBox->currentText());
-                                if (!reply.isValid()) {
-                                    qDebug() << "[MobileHotspotWidget] call deactiveWirelessAp failed ";
-                                    return true;
-                                }
-                            }
-                        }
-                        m_switchBtn->setChecked(status);
-                        m_switchBtn->setDisabledFlag(true);
-                    } else {
-                        m_switchBtn->setDisabledFlag(false);
-                    }
-                }
-            });
+        onGsettingChanged(WIRELESS_SWITCH);
+        connect(m_switchGsettings, &QGSettings::changed, this, &MobileHotspotWidget::onGsettingChanged);
+    }
+}
+
+void MobileHotspotWidget::onGsettingChanged(const QString &key)
+{
+    if (key == WIRELESS_SWITCH) {
+        bool status = m_switchGsettings->get(WIRELESS_SWITCH).toBool();
+        if (!status) {
+//                        if (m_switchBtn->isChecked()) {
+//                            if(m_interface->isValid()) {
+//                                QDBusReply<void> reply = m_interface->call("deactiveWirelessAp",
+//                                                  m_apNameLine->text(),
+//                                                  m_pwdNameLine->text(),
+//                                                  m_interfaceComboBox->currentText());
+//                                if (!reply.isValid()) {
+//                                    qDebug() << "[MobileHotspotWidget] call deactiveWirelessAp failed ";
+//                                    return true;
+//                                }
+//                            }
+//                        }
+            m_switchBtn->setChecked(status);
+            m_switchBtn->setDisabledFlag(true);
+        } else {
+            m_switchBtn->setDisabledFlag(false);
         }
     }
 }
@@ -257,6 +262,16 @@ void MobileHotspotWidget::getApInfo()
 
     if (apInfo.isEmpty()) {
         qDebug() << "no stored hotspot info";
+        QDBusInterface *hostInterface = new QDBusInterface("org.freedesktop.hostname1",
+                                                          "/org/freedesktop/hostname1",
+                                                          "org.freedesktop.hostname1",
+                                                          QDBusConnection::systemBus());
+        if (hostInterface->isValid()) {
+            QString hostName = hostInterface->property("Hostname").value<QString>();
+            m_apNameLine->setText(hostName);
+        } else {
+            qDebug() << "org.freedesktop.hostname1 is invaild";
+        }
         return;
     } else {
         int index = m_interfaceComboBox->findText(apInfo.at(2));
@@ -267,10 +282,10 @@ void MobileHotspotWidget::getApInfo()
             m_interfaceName = apInfo.at(2);
             if (apInfo.at(3) == "true") {
                 m_switchBtn->setChecked(true);
-                setUiEnabled(false);
+                setUiEnabled(true);
             } else {
                 m_switchBtn->setChecked(false);
-                setUiEnabled(true);
+                setUiEnabled(false);
             }
         } else {
             qDebug() << "no such interface " << apInfo.at(2);
@@ -402,37 +417,6 @@ void MobileHotspotWidget::setInterFaceFrame()
     m_interfaceFrame->setLayout(interfaceHLayout);
 }
 
-void MobileHotspotWidget::onWlanRemove(QString devName, QString ssid)
-{
-    if (!m_switchBtn->isChecked()) {
-        return;
-    }
-    if (devName == m_interfaceName && ssid == m_apNameLine->text()) {
-        qDebug() << "onWlanRemove" << devName << ssid;
-
-
-        QDBusReply<QMap<QString, QVector<QStringList>>> reply = m_interface->call("getWirelessList");
-
-        if (!reply.isValid()) {
-            qDebug()<<"execute dbus method 'getWirelessList' is invalid";
-            return;
-        }
-        QMap<QString, QVector<QStringList>> devMap = reply.value();
-
-        if (devMap.isEmpty() || !devMap.contains(m_interfaceName)) {
-            qDebug() << "no wireless device";
-        } else {
-            if (devMap[m_interfaceName].at(0).at(0) != "--") {
-                if (devMap[m_interfaceName].at(0).at(0) == m_apNameLine->text()) {
-                    return;
-                }
-            }
-        }
-
-        m_switchBtn->setChecked(false);
-    }
-}
-
 void MobileHotspotWidget::onActivateFailed(QString errorMessage)
 {
     if (errorMessage.indexOf("hotspot")) {
@@ -474,7 +458,7 @@ void MobileHotspotWidget::onHotspotDeactivated(QString devName, QString ssid)
     }
     if (devName == m_interfaceComboBox->currentText() && ssid == m_apNameLine->text()) {
         m_switchBtn->setChecked(false);
-        setUiEnabled(true);
+//        setUiEnabled(true);
 //        showDesktopNotify(tr("deactive hotspot ") + ssid + tr(" success"));
     }
 }
@@ -488,14 +472,15 @@ void MobileHotspotWidget::onHotspotActivated(QString devName, QString ssid)
     }
     if (devName == m_interfaceComboBox->currentText() && ssid == m_apNameLine->text()) {
         m_switchBtn->setChecked(true);
-        setUiEnabled(false);
+//        setUiEnabled(false);
 //        showDesktopNotify(tr("create hotspot ") + ssid + tr(" success"));
     }
 }
 
 void MobileHotspotWidget::setUiEnabled(bool enable)
 {
-    if (!enable) {
+    qDebug() << "switch mode change to " << enable;
+    if (enable) {
         m_apNameLine->setEnabled(false);
         m_pwdNameLine->setEnabled(false);
         m_freqBandComboBox->setEnabled(false);
