@@ -262,6 +262,12 @@ void MobileHotspotWidget::getApInfo()
 
     if (apInfo.isEmpty()) {
         qDebug() << "no stored hotspot info";
+        QDBusInterface *hostInterface = new QDBusInterface("org.freedesktop.hostname1",
+                                                          "/org/freedesktop/hostname1",
+                                                          "org.freedesktop.hostname1",
+                                                          QDBusConnection::systemBus());
+        QString hostName = hostInterface->property("Hostname").value<QString>();
+        m_apNameLine->setText(hostName);
         return;
     } else {
         int index = m_interfaceComboBox->findText(apInfo.at(2));
