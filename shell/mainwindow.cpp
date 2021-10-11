@@ -738,7 +738,7 @@ void MainWindow::initLeftsideBar(){
                 QHBoxLayout *pluginLayout = new QHBoxLayout();
                 menuLayout->addLayout(pluginLayout);
                 pluginLayout->setContentsMargins(14, 0, 0, 0);
-                pluginBtn->setStyleSheet("QPushButton:checked{background-color: palette(highlight);border-radius: 6px;}");
+//                pluginBtn->setStyleSheet("QPushButton:checked{background-color: palette(highlight);border-radius: 6px;}");
 
                 pluginLayout->addWidget(pluginBtn);
                 CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(moduleMap.value(single.namei18nString));
@@ -817,6 +817,7 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
     connect(leftsidebarBtn, &QPushButton::toggled, this, [=](bool checked) {
         iconBtn->setChecked(checked);
         if (checked) {
+            leftsidebarBtn->setStyleSheet("QPushButton:checked{background-color: palette(highlight);border-radius: 6px;}");
             textLabel->setStyleSheet("color:white");
         } else {
             textLabel->setStyleSheet("color:palette(windowText)");
