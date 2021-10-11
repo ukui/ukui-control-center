@@ -7801,6 +7801,11 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="205"/>
         <source>Software source server connection timeout</source>
+        <translation>软件源服务器连接超时</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="207"/>
+        <source>Software source server connection failed</source>
         <translation>软件源服务器连接失败</translation>
     </message>
     <message>

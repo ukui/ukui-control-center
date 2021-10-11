@@ -131,7 +131,7 @@ public:
 
     QList<pkgProgress> pkgList;
 
-    void disconnectSource();
+    void disconnectSource(bool isTimeOut);
 signals:
 //    void send_Signal();
 //    void parameterSignal(int i);

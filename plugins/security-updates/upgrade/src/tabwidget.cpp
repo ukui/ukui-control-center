@@ -188,10 +188,10 @@ void TabWid::unableToConnectSource()
     qDebug() << "源管理器信号是否连接成功：" << isConnectSourceSignal;
     if(isConnectSourceSignal == false)
     {
-        disconnectSource();
+        disconnectSource(true);
     }
 }
-void TabWid::disconnectSource()
+void TabWid::disconnectSource(bool isTimeOut)
 {
     disconnect(updateSource->serviceInterface,SIGNAL(updateTemplateStatus(QString)),this,SLOT(slotUpdateTemplate(QString)));
     disconnect(updateSource->serviceInterface,SIGNAL(updateCacheStatus(QVariantList)),this,SLOT(slotUpdateCache(QVariantList)));
@@ -202,7 +202,10 @@ void TabWid::disconnectSource()
     //        checkUpdateBtn->setText(tr("检查更新"));
     checkUpdateBtn->setText(tr("Check Update"));
     //        versionInformationLab->setText(tr("服务连接异常，请重新检测!") );
-    versionInformationLab->setText(tr("Software source server connection timeout") );
+    if (isTimeOut)
+        versionInformationLab->setText(tr("Software source server connection timeout"));
+    else
+        versionInformationLab->setText(tr("Software source server connection failed"));
 }
 TabWid::~TabWid()
 {
@@ -1145,7 +1148,7 @@ void TabWid::waitCrucialInstalled()
 void TabWid::getReplyFalseSlot()
 {
     isConnectSourceSignal = true;
-    disconnectSource();
+    disconnectSource(false);
 }
 
 void TabWid::receiveBackupStartResult(int result)
