@@ -15,6 +15,7 @@ class NumbersButton : public QWidget
 
 public:
     NumbersButton(QWidget *parent = nullptr);
+    ~NumbersButton();
 
 Q_SIGNALS:
     void numbersButtonPress(int btn_id);
