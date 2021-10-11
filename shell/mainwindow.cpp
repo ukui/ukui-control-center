@@ -737,7 +737,7 @@ void MainWindow::initLeftsideBar(){
 
                 QHBoxLayout *pluginLayout = new QHBoxLayout();
                 menuLayout->addLayout(pluginLayout);
-                pluginLayout->setContentsMargins(14,0,46,0);
+                pluginLayout->setContentsMargins(14, 0, 0, 0);
                 pluginBtn->setStyleSheet("QPushButton:checked{background-color: palette(highlight);border-radius: 6px;}");
 
                 pluginLayout->addWidget(pluginBtn);
