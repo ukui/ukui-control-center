@@ -559,6 +559,7 @@ void DeviceInfoItem::DrawFuncBtn(QPainter &painter)
 *************************************************/
 void DeviceInfoItem::MouseClickedFunc()
 {
+    qDebug() << Q_FUNC_INFO ;
     _clicked = true;
     _pressFlag = false;
 
@@ -589,6 +590,7 @@ void DeviceInfoItem::MouseClickedFunc()
 *************************************************/
 void DeviceInfoItem::DevConnectFunc()
 {
+    qDebug() << Q_FUNC_INFO << __LINE__;
     if (_MDev)
     {
         if (_MDev.data()->type() == BluezQt::Device::AudioVideo ||
@@ -598,7 +600,6 @@ void DeviceInfoItem::DevConnectFunc()
             BluezQt::AdapterPtr MDevAdapter = _MDev.data()->adapter();
 
             for (auto dev : MDevAdapter.data()->devices()) {
-
                 if (dev.data()->isConnected() && dev.data()->isPaired()) {
                     if (dev.data()->type() == BluezQt::Device::AudioVideo ||
                         dev.data()->type() == BluezQt::Device::Headphones ||
@@ -610,10 +611,11 @@ void DeviceInfoItem::DevConnectFunc()
                                 _MDev.data()->connectToDevice();
                             }
                         });
+                        return;
                     }
                 }
             }
-
+            _MDev.data()->connectToDevice();
         } else {
             _MDev.data()->connectToDevice();
         }
