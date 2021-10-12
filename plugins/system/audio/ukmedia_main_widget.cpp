@@ -124,6 +124,8 @@ void UkmediaMainWidget::initWidget()
     this->setMinimumWidth(550);
     this->setMaximumWidth(16777215);
     this->layout()->setContentsMargins(0,0,40,40);
+//    this->setAttribute(Qt::WA_StyledBackground,true);
+//    this->setAttribute(Qt::WA_DeleteOnClose);
 
     //设置滑动条的最大值为100
     m_pInputWidget->m_pIpVolumeSlider->setMaximum(100);//输入音量滑动条
@@ -276,11 +278,13 @@ void UkmediaMainWidget::initGsettings()
     switchNoiseReductionButton(status);
     if(m_pSoundWidget->m_pAlertSoundSwitchButton->isChecked())
     {
+//        m_pSoundWidget->m_pAlertSoundChangedWidget->show();
         m_pSoundWidget->m_pAlertSoundWidget->show();
         m_pSoundWidget->m_pVolumeChangeWidget->show();
         m_pSoundWidget->m_pThemeWidget->show();
     }
     else {
+//        m_pSoundWidget->m_pAlertSoundChangedWidget->hide();
         m_pSoundWidget->m_pAlertSoundWidget->hide();
         m_pSoundWidget->m_pVolumeChangeWidget->hide();
         m_pSoundWidget->m_pThemeWidget->hide();
@@ -591,11 +595,13 @@ void UkmediaMainWidget::alertSoundButtonSwitchChangedSlot(bool status)
     g_settings_set_boolean (m_pSoundSettings, EVENT_SOUNDS_KEY, status);
 
     if (status == true) {
+//        m_pSoundWidget->m_pAlertSoundChangedWidget->show();
         m_pSoundWidget->m_pAlertSoundWidget->show();
         m_pSoundWidget->m_pVolumeChangeWidget->show();
         m_pSoundWidget->m_pThemeWidget->show();
     }
     else {
+//        m_pSoundWidget->m_pAlertSoundChangedWidget->hide();
         m_pSoundWidget->m_pAlertSoundWidget->hide();
         m_pSoundWidget->m_pVolumeChangeWidget->hide();
         m_pSoundWidget->m_pThemeWidget->hide();
@@ -2923,6 +2929,8 @@ void UkmediaMainWidget::cboxoutputListWidgetCurrentRowChangedSlot(int row)
 void UkmediaMainWidget::cboxinputListWidgetCurrentRowChangedSlot(int row)
 {
     //当所有可用的输入设备全部移除，台式机才会出现该情况
+    if(strstr(m_pVolumeControl->defaultSourceName,"monitor"))
+        m_pInputWidget->m_pInputLevelProgressBar->setValue(0);
     if (row == -1)
         return;
 
