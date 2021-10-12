@@ -24,11 +24,14 @@
 #include <QComboBox>
 #include <QLabel>
 #include <QMessageBox>
+#include <QSlider>
 #include <QHBoxLayout>
 #include <QStyledItemDelegate>
 #include "ukui_custom_style.h"
 #include "titlelabel.h"
 #include "switchbutton.h"
+#include "ukmedia_output_widget.h"
+
 
 class UkuiMessageBox : public QMessageBox
 {
@@ -57,6 +60,12 @@ private:
     QFrame *m_pThemeWidget;//提示音下的系统音效主题
     QFrame *m_pAlertSoundWidget;//提示音下的通知提示
     QFrame *m_pVolumeChangeWidget;//提示音下的音量调节
+
+    QFrame *m_pAlertSoundChangedWidget;//提示音滑动条窗口
+    QSlider  *m_pAlertSoundChangedSlider;
+    QLabel *m_pAlertSoundChangedLabel;
+    QLabel *m_pAlertSoundMuteLabel;
+    QLabel *m_pAlertSoundVolumeLabel;
 
 
     QString qss;

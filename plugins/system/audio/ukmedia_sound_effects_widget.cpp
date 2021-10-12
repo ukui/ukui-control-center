@@ -37,6 +37,7 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
     m_pLagoutWidget = new QFrame(this);
     m_pWakeupMusicWidget = new QFrame(this);
     m_pVolumeChangeWidget = new QFrame(this);
+    m_pAlertSoundChangedWidget = new QFrame(this);
 
     m_pThemeWidget->setFrameShape(QFrame::Shape::Box);
     m_pAlertSoundWidget->setFrameShape(QFrame::Shape::Box);
@@ -46,6 +47,7 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
     m_pWakeupMusicWidget->setFrameShape(QFrame::Shape::Box);
     m_pVolumeChangeWidget->setFrameShape(QFrame::Shape::Box);
     m_pPoweroffMusicWidget->setFrameShape(QFrame::Shape::Box);
+    m_pAlertSoundChangedWidget->setFrameShape(QFrame::Shape::Box);
 
     //~ contents_path /audio/System Sound   系统音效文本框
     m_pSoundEffectLabel = new QLabel(this);
@@ -64,6 +66,46 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
     m_pWakeupMusicLabel = new QLabel(tr("Wakeup Music"),m_pWakeupMusicWidget);//唤醒
     m_pVolumeChangeLabel = new QLabel(tr("Volume Change"),m_pVolumeChangeWidget);//音量调节
     m_pLagoutLabel = new QLabel(tr("Logout Music"),m_pLagoutWidget);//注销
+
+    m_pAlertSoundChangedLabel = new QLabel(tr("Alert Volume"),m_pAlertSoundChangedWidget);
+    m_pAlertSoundMuteLabel = new QLabel(m_pAlertSoundChangedWidget);
+    m_pAlertSoundVolumeLabel = new QLabel(m_pAlertSoundChangedWidget);
+    m_pAlertSoundChangedSlider = new AudioSlider(m_pAlertSoundChangedWidget);
+
+    QImage muteImage;
+    muteImage = QIcon::fromTheme("audio-volume-muted-symbolic").pixmap(24,24).toImage();
+    QImage image;
+    image = QIcon::fromTheme("audio-volume-high-symbolic").pixmap(24,24).toImage();
+    m_pAlertSoundMuteLabel->setPixmap(QPixmap::fromImage(muteImage));
+    m_pAlertSoundVolumeLabel->setPixmap(QPixmap::fromImage(image));
+
+    m_pAlertSoundChangedSlider->setOrientation(Qt::Horizontal);
+    m_pAlertSoundChangedSlider->setRange(0,100);
+    m_pAlertSoundChangedSlider->setStyleSheet( "QSlider::groove:horizontal {"
+                                       "border: 0px none;"
+                                       "background: palette(button);"
+                                       "height: 8px;"
+                                       "border-radius: 5px;"
+                                       "}"
+
+                                       "QSlider::handle:horizontal {"
+
+                                       "height: 24px;"
+                                       "width: 32px;"
+                                       "margin: 30px;"
+                                       "border-image: url(://img/plugins/mouse/slider.svg);"
+                                       "margin: -8 -4px;"
+                                       "}"
+
+                                       "QSlider::add-page:horizontal {"
+                                       "background: palette(button);"
+                                       "border-radius: 20px;"
+                                       "}"
+
+                                       "QSlider::sub-page:horizontal {"
+                                       "background: #2FB3E8;"
+                                       "border-radius: 5px;"
+                                       "}");
 
     m_pLagoutCombobox = new QComboBox(m_pLagoutWidget);
     m_pStartupButton = new SwitchButton(m_pStartupMusicWidget);
@@ -91,6 +133,8 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
     m_pVolumeChangeWidget->setMaximumSize(16777215,50);
     m_pPoweroffMusicWidget->setMinimumSize(550,50);
     m_pPoweroffMusicWidget->setMaximumSize(16777215,50);
+    m_pAlertSoundChangedWidget->setMinimumSize(550,50);
+    m_pAlertSoundChangedWidget->setMaximumSize(16777215,50);
 
     m_pSoundEffectLabel->setFixedSize(150,32);
     m_pSoundThemeLabel->setFixedSize(140,32);
@@ -196,6 +240,27 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
     poweroffLayout->setSpacing(0);
     m_pPoweroffMusicWidget->setLayout(poweroffLayout);
     m_pPoweroffMusicWidget->layout()->setContentsMargins(0,0,0,0);
+    //提示音量滑动条布局
+    QHBoxLayout *alertSoundVolumeLayout = new QHBoxLayout(m_pAlertSoundChangedWidget);
+    m_pAlertSoundChangedLabel->setFixedSize(140,20);
+    m_pAlertSoundMuteLabel->setFixedSize(35,30);
+    m_pAlertSoundChangedSlider->setFixedHeight(20);
+    m_pAlertSoundVolumeLabel->setFixedSize(55,30);
+    m_pAlertSoundVolumeLabel->setAlignment(Qt::AlignCenter);
+    alertSoundVolumeLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
+    alertSoundVolumeLayout->addWidget(m_pAlertSoundChangedLabel);
+    alertSoundVolumeLayout->addItem(new QSpacerItem(100,20,QSizePolicy::Fixed));
+    alertSoundVolumeLayout->addWidget(m_pAlertSoundMuteLabel);
+    alertSoundVolumeLayout->addItem(new QSpacerItem(5,20,QSizePolicy::Fixed));
+    alertSoundVolumeLayout->addWidget(m_pAlertSoundChangedSlider);
+    alertSoundVolumeLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
+    alertSoundVolumeLayout->addWidget(m_pAlertSoundVolumeLabel);
+    alertSoundVolumeLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
+    alertSoundVolumeLayout->setSpacing(0);
+    m_pAlertSoundChangedWidget->setLayout(alertSoundVolumeLayout);
+    m_pAlertSoundChangedWidget->layout()->setContentsMargins(0,0,0,0);
+
+
 
     //进行整体布局
     m_pSoundLayout = new QVBoxLayout(this);
@@ -211,7 +276,8 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
     m_pSoundLayout->addItem(new QSpacerItem(16,1,QSizePolicy::Fixed));
 
     m_pSoundLayout->addWidget(m_pAlertSoundSwitchWidget);
-    m_pSoundLayout->addItem(new QSpacerItem(16,7,QSizePolicy::Fixed));
+    m_pSoundLayout->addItem(new QSpacerItem(16,1,QSizePolicy::Fixed));
+    m_pSoundLayout->addWidget(m_pAlertSoundChangedWidget);
     m_pSoundLayout->addWidget(m_pThemeWidget);
     m_pSoundLayout->addWidget(m_pVolumeChangeWidget);
     m_pSoundLayout->addWidget(m_pAlertSoundWidget);
@@ -223,6 +289,16 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
     this->setLayout(m_pSoundLayout);
     m_pSoundLayout->setSpacing(1);
     this->layout()->setContentsMargins(0,0,0,0);
+
+    m_pStartupMusicWidget->hide();
+    m_pPoweroffMusicWidget->hide();
+    m_pWakeupMusicWidget->hide();
+    m_pLagoutWidget->hide();
+//    m_pAlertSoundWidget->hide();
+//    m_pVolumeChangeWidget->hide();
+//    m_pThemeWidget->hide();
+    m_pAlertSoundChangedWidget->hide();
+
 }
 
 UkmediaSoundEffectsWidget::~UkmediaSoundEffectsWidget()

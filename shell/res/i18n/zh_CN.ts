@@ -5841,7 +5841,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     <message>
         <location filename="../../../plugins/system/audio/ukmedia_input_widget.cpp" line="63"/>
         <source>Volume</source>
-        <translation>音量大小</translation>
+        <translation>输入音量</translation>
         <extra-contents_path>/audio/Volume</extra-contents_path>
     </message>
     <message>
@@ -5873,7 +5873,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     </message>
     <message>
         <source>volume</source>
-        <translation type="vanished">音量大小</translation>
+        <translation type="vanished">输入音量</translation>
     </message>
     <message>
         <source>Input level</source>
@@ -5927,7 +5927,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     <message>
         <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="74"/>
         <source>Master Volume</source>
-        <translation>主音量</translation>
+        <translation>输出音量</translation>
         <extra-contents_path>/audio/Master Volume</extra-contents_path>
     </message>
     <message>
@@ -5960,7 +5960,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     </message>
     <message>
         <source>Master volume</source>
-        <translation type="vanished">主音量</translation>
+        <translation type="vanished">输出音量</translation>
     </message>
     <message>
         <source>Channel balance</source>
@@ -6009,7 +6009,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     <message>
         <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="52"/>
         <source>System Sound</source>
-        <translation>系统音效</translation>
+        <translation>提示音</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="58"/>
@@ -6047,6 +6047,11 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="65"/>
         <source>Volume Change</source>
         <translation>音量调节</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="64"/>
+        <source>Alert Volume</source>
+        <translation>提示音量</translation>
     </message>
     <message>
         <source>Alert Volume</source>
