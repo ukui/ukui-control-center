@@ -57,6 +57,7 @@ public:
     void InitMainMiddleUI();
     void InitMainbottomUI();
     void startDiscovery();
+    void stopDiscovery();
     void adapterChanged();
     void updateUIWhenAdapterChanged();
     void removeDeviceItemUI(QString address);
