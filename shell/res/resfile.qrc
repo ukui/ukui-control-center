@@ -228,6 +228,7 @@
         <file>plugins/mobilehotspot/hide-pwd.png</file>
         <file>plugins/mobilehotspot/show-pwd.png</file>
         <file>secondaryleftmenu/Userinfointel.svg</file>
+        <file>secondaryleftmenu/System Recovery.svg</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>

@@ -17,6 +17,8 @@
 #include <QMenu>
 #include <QMessageBox>
 #include <QString>
+#include <QToolButton>
+#include <QPushButton>
 
 #include <QGSettings/QGSettings>
 
@@ -38,6 +40,7 @@ public:
     enum Status{
         Hover = 0,
         Nomal,
+
     };
     Q_ENUM(Status)
 
@@ -53,6 +56,7 @@ protected:
 private slots:
     void GSettingsChanges(const QString &key);
     void MenuSignalDeviceFunction(QAction *action);
+    void MouseClickedDevFunc();
 
 signals:
 
@@ -61,6 +65,7 @@ signals:
     void devDisconnect(QString);
     void devRemove(QString);
     void devSendFiles(QString);
+    void devConnectComplete();
 
 private:
     QColor getPainterBrushColor();
@@ -74,7 +79,6 @@ private:
     void DrawFuncBtn(QPainter &);
 
     void MouseClickedFunc();
-    void MouseClickedDevFunc();
     void DevConnectFunc();
     void setDeviceConnectSignals();
 
@@ -98,5 +102,20 @@ private:
     BluezQt::DevicePtr _MDev = nullptr;
 
     QGSettings *item_gsettings = nullptr;
+
+
+    //#define DEV_CONNECTING_TEXT       "Connecting"
+    QString m_str_dev_connecting ;
+    //#define DEV_DISCONNECTING_TEXT    "Disconnecting"
+    QString m_str_dev_disconnecting ;
+    //#define DEV_CONNECTED_TEXT        "Connected"
+    QString m_str_dev_connected ;
+    //#define DEV_UNUNITED_TEXT         "Ununited"
+    QString m_str_dev_ununited ;
+    //#define DEV_CONNECTION_FAIL_TEXT  "Connect fail"
+    QString m_str_dev_conn_fail;
+
+    QPushButton * devFuncBtn = nullptr;
+
 };
 #endif // DEVICEINFOITEM_H

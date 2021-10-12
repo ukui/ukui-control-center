@@ -83,9 +83,12 @@ private:
     bool m_autoclose = false;
     void catchsignal();
     void delaymsec(int msec);
+    int get_process_status(void);
+    void init_button_status(int);
 public slots:
     void projectionButtonClickSlots(bool status);
     void projectionPinSlots(QString type,QString pin);
+    void netPropertiesChangeSlot(QMap<QString, QVariant> property);
 
 };
 

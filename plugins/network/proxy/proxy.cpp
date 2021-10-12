@@ -212,8 +212,8 @@ void Proxy::initUi(QWidget *widget)
     mHTTPFrame->setFrameShape(QFrame::NoFrame);
 
     QVBoxLayout *mHTTPLayout = new QVBoxLayout(mHTTPFrame);
-    mHTTPLayout->setSpacing(10);
-    mHTTPLayout->setContentsMargins(16, 12, 16, 8);
+    mHTTPLayout->setSpacing(0);
+    mHTTPLayout->setContentsMargins(16, 0, 16, 0);
 
     QFrame *mHTTPFrame_1 = new QFrame(mHTTPFrame);
     mHTTPFrame_1->setMinimumSize(QSize(550, 60));
@@ -252,6 +252,7 @@ void Proxy::initUi(QWidget *widget)
     mCertificationLyt->addWidget(mCertificationBtn,Qt::AlignTop);
     mCertificationLyt->addWidget(mCertificationLabel);
     mCertificationLyt->addStretch();
+    mCertificationFrame->hide();
 
     mCertificationFrame_1 = new QFrame(mHTTPFrame);
     mCertificationFrame_1->setMinimumSize(QSize(550, 60));
@@ -266,16 +267,19 @@ void Proxy::initUi(QWidget *widget)
     mPwdLineEdit = new QLineEdit(mCertificationFrame_1);
     mPwdLineEdit->setFixedHeight(36);
   //  mPwdLineEdit->setEchoMode(QLineEdit::Password);
+    mCertificationFrame_1->hide();
+
 
     QFrame *mUserFrame = new QFrame(mCertificationFrame_1);
+    mUserFrame->setMinimumWidth(300);
     mUserFrame->setFrameShape(QFrame::NoFrame);
     QHBoxLayout *mUserLyt = new QHBoxLayout(mUserFrame);
     mUserLyt->setContentsMargins(0, 0, 0, 0);
     mUserLyt->setSpacing(8);
     mUserNameLabel = new QLabel(mUserFrame);
-    mUserNameLabel->setFixedWidth(112);
+ //  mUserNameLabel->setFixedWidth(80);
     mUserNameLineEdit = new QLineEdit(mUserFrame);
-    mUserNameLineEdit->setMinimumWidth(180);
+ // mUserNameLineEdit->setMinimumWidth(212);
     mUserNameLineEdit->setFixedHeight(36);
     mUserLyt->addWidget(mUserNameLabel);
     mUserLyt->addWidget(mUserNameLineEdit);
@@ -283,6 +287,7 @@ void Proxy::initUi(QWidget *widget)
     mCertificationLyt_1->addWidget(mUserFrame);
     mCertificationLyt_1->addWidget(mPwdLabel);
     mCertificationLyt_1->addWidget(mPwdLineEdit);
+    mUserFrame->hide();
 
     mHTTPLayout->addWidget(mHTTPFrame_1);
     mHTTPLayout->addWidget(mCertificationFrame);

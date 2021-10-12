@@ -13,6 +13,7 @@ public:
     LanguageFrame(QString name, QWidget *parent = nullptr);
     ~LanguageFrame();
     void showSelectedIcon(bool flag);
+    bool isSelection();
 private:
     void mousePressEvent(QMouseEvent *e);
 

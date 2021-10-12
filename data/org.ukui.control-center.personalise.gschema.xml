@@ -1,12 +1,12 @@
 <schemalist gettext-domain="ukui-control-center">
   <schema id="org.ukui.control-center.personalise" path="/org/ukui/control-center/personalise/">
     <key type="d" name="transparency">
-      <default>0.75</default>
+      <default>1.0</default>
       <summary>Control the transparency of all components</summary>
       <description>Control the transparency of all components</description>
 	 </key>
     <key type="i" name="save-transparency">
-      <default>75</default>
+      <default>100</default>
       <summary>Save the transparency before the special effects mode is turned off  </summary>
       <description>Save the transparency before the special effects mode is turned off </description>
     </key>

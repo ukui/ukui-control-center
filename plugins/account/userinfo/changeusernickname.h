@@ -53,6 +53,7 @@ public:
 protected:
     bool eventFilter(QObject *watched, QEvent *event);
     void keyPressEvent(QKeyEvent *);
+    void paintEvent(QPaintEvent *);
 
 private:
     bool setTextDynamicInNick(QLabel * label, QString string);

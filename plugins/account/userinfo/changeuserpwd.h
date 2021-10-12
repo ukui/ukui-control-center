@@ -4,6 +4,7 @@
 #include <QDialog>
 
 #include "pwdcheckthread.h"
+#include "passwdcheckutil.h"
 
 #ifdef ENABLEPQ
 extern "C" {
@@ -67,6 +68,9 @@ public:
     QLineEdit * currentPwdLineEdit;
     QLineEdit * newPwdLineEdit;
     QLineEdit * surePwdLineEdit;
+
+protected:
+    void paintEvent(QPaintEvent *event);
 
 private:
     QString name;

@@ -573,9 +573,12 @@ void MainWindow::loadPlugins(){
                 continue;
         }
 #endif
+        qDebug() << "Scan Plugin: " << fileName;
+
         if (!fileName.endsWith(".so")
                 || (fileName == "libexperienceplan.so")
                 || ("libnetworkaccount.so" == fileName && (!isExitsCloudAccount() || Utils::isTablet()))
+                || ("libmobilehotspot.so" == fileName && !isExitWirelessDevice())
                 || (!QGSettings::isSchemaInstalled(kVinoSchemas) && "libvino.so" == fileName)
                 || ("libbluetooth.so" == fileName && !isExitBluetooth())
                 || ("libpower.so" == fileName && !isExitsPower())
@@ -588,13 +591,15 @@ void MainWindow::loadPlugins(){
                      "libvino.so" == fileName || "libscreensaver.so" == fileName ||
                      "libvpn.so" == fileName || "libmobilehotspot.so" == fileName ||
                      "libbiometrics.so" == fileName || "libsecuritycenter.so" == fileName ||
-                     "libupgrade.so" == fileName || "libsearch.so" == fileName || "libarea.so" == fileName) && Utils::isTablet())
+                     "libupgrade.so" == fileName || "libsearch.so" == fileName ||
+                     "libarea.so" == fileName || "libbackup.so" == fileName) && Utils::isTablet())
                 || ("libtouchpad.so" == fileName && !isfindSynaptics())
-                || ("libuserinfo_intel.so" == fileName && !Utils::isTablet())) {
+                || (("libuserinfo_intel.so" == fileName || "libbackup_intel.so" == fileName ||
+                     "libgesture.so" == fileName) && !Utils::isTablet())) {
             continue;
         }
 
-        qDebug() << "Scan Plugin: " << fileName;
+
 
         //ukui-session-manager
         const char * sessionFile = "/usr/share/glib-2.0/schemas/org.ukui.session.gschema.xml";
@@ -732,8 +737,8 @@ void MainWindow::initLeftsideBar(){
 
                 QHBoxLayout *pluginLayout = new QHBoxLayout();
                 menuLayout->addLayout(pluginLayout);
-                pluginLayout->setContentsMargins(14,0,46,0);
-                pluginBtn->setStyleSheet("QPushButton:checked{background-color: palette(highlight);border-radius: 6px;}");
+                pluginLayout->setContentsMargins(14, 0, 0, 0);
+//                pluginBtn->setStyleSheet("QPushButton:checked{background-color: palette(highlight);border-radius: 6px;}");
 
                 pluginLayout->addWidget(pluginBtn);
                 CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(moduleMap.value(single.namei18nString));
@@ -812,6 +817,7 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
     connect(leftsidebarBtn, &QPushButton::toggled, this, [=](bool checked) {
         iconBtn->setChecked(checked);
         if (checked) {
+            leftsidebarBtn->setStyleSheet("QPushButton:checked{background-color: palette(highlight);border-radius: 6px;}");
             textLabel->setStyleSheet("color:white");
         } else {
             textLabel->setStyleSheet("color:palette(windowText)");
@@ -858,6 +864,33 @@ bool MainWindow::isExitsPower()
     QString mOutput = QString(ba.data());
 
     return mOutput.contains("ii", Qt::CaseSensitive) ? true : false;
+}
+
+bool MainWindow::isExitWirelessDevice()
+{
+    QDBusInterface *interface = new QDBusInterface("com.kylin.network", "/com/kylin/network",
+                                     "com.kylin.network",
+                                     QDBusConnection::sessionBus());
+    if (!interface->isValid()) {
+        qDebug() << "/com/kylin/network is invalid";
+        return false;
+    }
+    QDBusMessage result = interface->call(QStringLiteral("getDeviceListAndEnabled"),1);
+    if(result.type() == QDBusMessage::ErrorMessage)
+    {
+        qWarning() << "getWirelessDeviceList error:" << result.errorMessage();
+        return false;
+    }
+    auto dbusArg =  result.arguments().at(0).value<QDBusArgument>();
+    QMap<QString, bool> deviceListMap;
+    dbusArg >> deviceListMap;
+
+
+    if (deviceListMap.isEmpty()) {
+        qDebug() << "no wireless device";
+        return false;
+    }
+    return true;
 }
 
 bool MainWindow::dblOnEdge(QMouseEvent *event) {

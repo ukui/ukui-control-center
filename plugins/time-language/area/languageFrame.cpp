@@ -34,11 +34,19 @@ LanguageFrame::~LanguageFrame()
 
 void LanguageFrame::mousePressEvent(QMouseEvent *e)
 {
-    this->showSelectedIcon(true);
-    Q_EMIT clicked();
+    if (!isSelection()) {
+        this->showSelectedIcon(true);
+        Q_EMIT clicked();
+    }
+    return;
 }
 
 void LanguageFrame::showSelectedIcon(bool flag)
 {
     selectedIconLabel->setVisible(flag);
+}
+
+bool LanguageFrame::isSelection()
+{
+    return selectedIconLabel->isVisible();
 }

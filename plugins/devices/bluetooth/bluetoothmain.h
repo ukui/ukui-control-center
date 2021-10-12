@@ -55,7 +55,10 @@ public:
     void InitMainTopUI();
     void InitMainMiddleUI();
     void InitMainbottomUI();
+
     void startDiscovery();
+    void stopDiscovery();
+
     void adapterChanged();
     void updateUIWhenAdapterChanged();
     void removeDeviceItemUI(QString address);
@@ -147,6 +150,11 @@ private:
     void addOneBluetoothDeviceItemUi(BluezQt::DevicePtr);
 
     void clearAllDeviceItemUi();
+    void clearAllTimer();
+    qint16 MaxRssiValue = -9999;
+
+    void InitBluetoothManager();
+
 };
 
 #endif // BLUETOOTHMAIN_H

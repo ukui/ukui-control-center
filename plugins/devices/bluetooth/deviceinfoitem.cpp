@@ -3,12 +3,6 @@
 #include <QPushButton>
 #include <QAbstractButton>
 
-#define DEV_CONNECTING_TEXT       tr("Connecting")
-#define DEV_DISCONNECTING_TEXT    tr("Disconnecting")
-#define DEV_CONNECTED_TEXT        tr("Connected")
-#define DEV_UNUNITED_TEXT         tr("Ununited")
-#define DEV_CONNECTION_FAIL_TEXT  tr("Connect fail")
-
 DeviceInfoItem::DeviceInfoItem(QWidget *parent, BluezQt::DevicePtr dev):
     QFrame(parent),
     _MDev(dev)
@@ -18,12 +12,34 @@ DeviceInfoItem::DeviceInfoItem(QWidget *parent, BluezQt::DevicePtr dev):
         item_gsettings = new QGSettings("org.ukui.style");
         connect(item_gsettings,&QGSettings::changed,this,&DeviceInfoItem::GSettingsChanges);
     }
+    QPalette palette;
+    if(item_gsettings->get("style-name").toString() == "ukui-black" ||
+       item_gsettings->get("style-name").toString() == "ukui-dark")
+    {
+        palette.setColor(QPalette::Background,QColor(Qt::white));
+    }
+    else
+    {
+        palette.setColor(QPalette::Background,QColor(Qt::black));
+
+    }
+
+    m_str_dev_connecting = tr("Connecting");
+    m_str_dev_disconnecting = tr("Disconnecting");
+    m_str_dev_connected = tr("Connected");
+    m_str_dev_ununited = tr("Ununited");
+    m_str_dev_conn_fail = tr("Connect fail");
 
     this->setMinimumSize(580,64);
     this->setMaximumSize(1800,64);
     //this->setFixedSize(parent->width(),64);
     this->setObjectName(_MDev? _MDev.data()->address(): "null");
 
+    //devFuncBtn  = new QToolButton(this);
+    devFuncBtn  = new QPushButton(this);
+    devFuncBtn->setText("...");
+    devFuncBtn->show();
+    connect(devFuncBtn,SIGNAL(released()),this,SLOT(MouseClickedDevFunc()));
     InitMemberVariables();
     setDeviceConnectSignals();
 
@@ -63,6 +79,8 @@ void DeviceInfoItem::InitMemberVariables()
         _connDevTimeOutFlag = true ;
 
         update();
+
+        emit devConnectComplete();
     });
 
     dev_Menu = new QMenu(this);
@@ -103,24 +121,11 @@ void DeviceInfoItem::MenuSignalDeviceFunction(QAction *action)
         if (removeBox->clickedButton() == remove_btn)
         {
             qDebug() << Q_FUNC_INFO << "To :" << _MDev->name() << "Remove" << __LINE__;
-
-            BluezQt::PendingCall * rm_Call= _MDev->adapter()->removeDevice(_MDev);
-            connect(rm_Call,&BluezQt::PendingCall::finished,this,[&](BluezQt::PendingCall *call)
-            {
-                if (!call->error())
-                {
-                    qDebug() << Q_FUNC_INFO << devName << "Remove OK!" << __LINE__;
-                }
-                else
-                {
-                    qDebug() << Q_FUNC_INFO << devName << "Remove fail!" << __LINE__;
-                }
-            });
+            emit devRemove(_MDev.data()->address());
         }
         else
         {
             qDebug() << Q_FUNC_INFO << "To :" << _MDev->name() << "Cancel" << __LINE__;
-
         }
     }
 }
@@ -157,11 +162,18 @@ void DeviceInfoItem::setDeviceCurrentStatus()
 
 void DeviceInfoItem::GSettingsChanges(const QString &key)
 {
+
     qDebug() << Q_FUNC_INFO << key;
+    QPalette palette;
     if(key == "styleName"){
         if(item_gsettings->get("style-name").toString() == "ukui-black" ||
            item_gsettings->get("style-name").toString() == "ukui-dark")
         {
+            palette.setColor(QPalette::Background,QColor(Qt::white));
+        }
+        else
+        {
+            palette.setColor(QPalette::Background,QColor(Qt::black));
 
         }
     }
@@ -179,18 +191,19 @@ void DeviceInfoItem::setDeviceConnectSignals()
 
         connect(_MDev.data(),&BluezQt::Device::typeChanged,this,[=](BluezQt::Device::Type type)
         {
+            qDebug() << Q_FUNC_INFO << "typeChanged" << __LINE__;
             update();
         });
 
         connect(_MDev.data(),&BluezQt::Device::pairedChanged,this,[=](bool paired)
         {
+            qDebug() << Q_FUNC_INFO << "pairedChanged" << __LINE__;
             if(_devConnTimer->isActive())
                 _devConnTimer->stop();
             if (_iconTimer->isActive())
                 _iconTimer->stop();
             if (paired)
             {
-                qDebug() << Q_FUNC_INFO << "pairedChanged" << __LINE__;
                 emit devPaired(_MDev->address());
             }
             _clicked = false;
@@ -200,6 +213,7 @@ void DeviceInfoItem::setDeviceConnectSignals()
 
         connect(_MDev.data(),&BluezQt::Device::connectedChanged,this,[=](bool connected)
         {
+            qDebug() << Q_FUNC_INFO << "connectedChanged" << __LINE__;
             if(_devConnTimer->isActive())
                 _devConnTimer->stop();
             if (_iconTimer->isActive())
@@ -207,6 +221,8 @@ void DeviceInfoItem::setDeviceConnectSignals()
             _clicked = false;
             _connDevTimeOutFlag = false ;
             update();
+
+            emit devConnectComplete();
         });
     }
 }
@@ -216,6 +232,7 @@ void DeviceInfoItem::initInfoPage(QString d_name, DEVICE_STATUS status, BluezQt:
     _MDev      = device;
     _DevStatus = status;
     devName    = device->name();
+    devFuncBtn->setVisible(_MDev.data()->isPaired());
 
 }
 
@@ -223,7 +240,6 @@ void DeviceInfoItem::initInfoPage(QString d_name, DEVICE_STATUS status, BluezQt:
 void DeviceInfoItem::enterEvent(QEvent *event)
 {
     Q_UNUSED(event);
-
     _MStatus = Status::Hover;
     update();
 }
@@ -259,9 +275,17 @@ void DeviceInfoItem::MouseClickedDevFunc()
     //qDebug () <<Q_FUNC_INFO << "allPoint--x--y:" << sreenPoint.x() << sreenPoint.y() <<__LINE__;
 
     QPalette palette;
-    palette.setBrush(QPalette::Base,QColor(Qt::white));
-    palette.setBrush(QPalette::Active, QPalette::Text,QColor(Qt::black));
-
+    if(item_gsettings->get("style-name").toString() == "ukui-black" ||
+       item_gsettings->get("style-name").toString() == "ukui-dark")
+    {
+        palette.setBrush(QPalette::Base,QColor(Qt::black));
+        palette.setBrush(QPalette::Active, QPalette::Text,QColor(Qt::white));
+    }
+    else
+    {
+        palette.setBrush(QPalette::Base,QColor(Qt::white));
+        palette.setBrush(QPalette::Active, QPalette::Text,QColor(Qt::black));
+    }
     dev_Menu->setProperty("setIconHighlightEffectDefaultColor", dev_Menu->palette().color(QPalette::Active, QPalette::Base));
     dev_Menu->setPalette(palette);
     dev_Menu->setMinimumWidth(180);
@@ -312,38 +336,54 @@ void DeviceInfoItem::paintEvent(QPaintEvent *event)
 }
 
 /************************************************
- * @brief  ?????????????????
+ * @brief  getPainterBrushColor
  * @param  null
- * @return ?????QColor
+ * @return QColor
 *************************************************/
 QColor DeviceInfoItem::getPainterBrushColor()
 {
     QColor color;
     switch (_MStatus) {
     case Status::Nomal:
-        color = QColor(Qt::white);//("#EBEBEB");
+
+        if(item_gsettings->get("style-name").toString() == "ukui-black" ||
+           item_gsettings->get("style-name").toString() == "ukui-dark")
+            color = QColor(Qt::black);//("#EBEBEB");
+        else
+            color = QColor(Qt::white);//("#EBEBEB");
+
+        //color = QColor(Qt::black);//("#EBEBEB");
+
         break;
     case Status::Hover:
         color = QColor("#D7D7D7");
         break;
+
+    //case :
+
     default:
-        color = QColor(Qt::white);//("#EBEBEB");
+        if(item_gsettings->get("style-name").toString() == "ukui-black" ||
+           item_gsettings->get("style-name").toString() == "ukui-dark")
+            color = QColor(Qt::black);//("#EBEBEB");
+        else
+            color = QColor(Qt::white);//("#EBEBEB");
+        //color = QColor(Qt::white);//("#EBEBEB");
         break;
     }
     return color;
 }
 
 /************************************************
- * @brief  ?????????????????????
+ * @brief  getDevStatusColor
  * @param  null
- * @return ?????QColor
+ * @return QColor
 *************************************************/
 QColor DeviceInfoItem::getDevStatusColor()
 {
     QColor color;
 
     if (_MDev) {
-        if (_MDev.data()->isConnected()) {
+        if (_MDev.data()->isPaired() && _MDev.data()->isConnected()) {
             color = QColor("#2FB3E8");
         } else {
             color = QColor("#F4F4F4");
@@ -356,9 +396,9 @@ QColor DeviceInfoItem::getDevStatusColor()
 }
 
 /************************************************
- * @brief  ???????????????
+ * @brief  getDevTypeIcon
  * @param  null
- * @return ?????QPixmap???
+ * @return QPixmap
 *************************************************/
 QPixmap DeviceInfoItem::getDevTypeIcon()
 {
@@ -406,7 +446,7 @@ QPixmap DeviceInfoItem::getDevTypeIcon()
 }
 
 /************************************************
- * @brief  ???????????
+ * @brief  DrawBackground
  * @param  painter
  * @return null
 *************************************************/
@@ -419,7 +459,7 @@ void DeviceInfoItem::DrawBackground(QPainter &painter)
 }
 
 /************************************************
- * @brief  ??????????????
+ * @brief  DrawStatusIcon
  * @param  painter
  * @return null
 *************************************************/
@@ -434,15 +474,20 @@ void DeviceInfoItem::DrawStatusIcon(QPainter &painter)
 }
 
 /************************************************
- * @brief  ??????????
+ * @brief  DrawText
  * @param  painter
  * @return null
 *************************************************/
 void DeviceInfoItem::DrawText(QPainter &painter)
 {
     painter.save();
-    painter.setPen(QColor(Qt::black));
-    painter.drawText(64,20,200,24,Qt::AlignLeft,_MDev? _MDev.data()->name(): QString("Example"));
+    if(item_gsettings->get("style-name").toString() == "ukui-black" ||
+       item_gsettings->get("style-name").toString() == "ukui-dark")
+        painter.setPen(QColor(Qt::white));
+    else
+        painter.setPen(QColor(Qt::black));
+
+    painter.drawText(64,20,350,24,Qt::AlignLeft,_MDev? _MDev.data()->name(): QString("Example"));
     painter.restore();
 }
 
@@ -451,31 +496,35 @@ void DeviceInfoItem::DrawStatusText(QPainter &painter)
     setDeviceCurrentStatus();
 
     painter.save();
+    if(item_gsettings->get("style-name").toString() == "ukui-black" ||
+       item_gsettings->get("style-name").toString() == "ukui-dark")
+        painter.setPen(QColor(Qt::white));
+    else
     painter.setPen(QColor(Qt::black));
 
     if (_clicked)
     {
         if (LINK == _DevStatus)
-            painter.drawText(this->width()-210,16,150,24,Qt::AlignRight,DEV_DISCONNECTING_TEXT);
+            painter.drawText(this->width()-210,16,150,24,Qt::AlignRight,(m_str_dev_disconnecting));
         else
         {
             if (_MDev.data()->isPaired())
-                painter.drawText(this->width()-210,18,150,24,Qt::AlignRight,DEV_CONNECTING_TEXT);
+                painter.drawText(this->width()-210,18,150,24,Qt::AlignRight,(m_str_dev_connecting));
             else
-                painter.drawText(this->width()-210,18,180,24,Qt::AlignRight,DEV_CONNECTING_TEXT);
+                painter.drawText(this->width()-210,18,180,24,Qt::AlignRight,(m_str_dev_connecting));
         }
     }
     else if (DEVICE_STATUS::ERROR == _DevStatus)
     {
         if (_MDev.data()->isPaired())
-            painter.drawText(this->width()-210,18,150,24,Qt::AlignRight,DEV_CONNECTION_FAIL_TEXT);
+            painter.drawText(this->width()-210,18,150,24,Qt::AlignRight,(m_str_dev_conn_fail));
         else
-            painter.drawText(this->width()-210,18,180,24,Qt::AlignRight,DEV_CONNECTION_FAIL_TEXT);
+            painter.drawText(this->width()-210,18,180,24,Qt::AlignRight,(m_str_dev_conn_fail));
     }
     else if (DEVICE_STATUS::PAIRED == _DevStatus)
-        painter.drawText(this->width()-210,18,150,24,Qt::AlignRight,DEV_UNUNITED_TEXT);
+        painter.drawText(this->width()-210,18,150,24,Qt::AlignRight,(m_str_dev_ununited));
     else if (DEVICE_STATUS::LINK == _DevStatus)
-        painter.drawText(this->width()-210,18,150,24,Qt::AlignRight,DEV_CONNECTED_TEXT);
+        painter.drawText(this->width()-210,18,150,24,Qt::AlignRight,(m_str_dev_connected));
     else
         painter.drawText(this->width()-210,18,150,24,Qt::AlignRight,"");
 
@@ -484,20 +533,27 @@ void DeviceInfoItem::DrawStatusText(QPainter &painter)
 
 void DeviceInfoItem::DrawFuncBtn(QPainter &painter)
 {
-    painter.save();
-    painter.setPen(QColor(Qt::black));
-    //painter.setBrush(getDevStatusColor());
-    //painter.drawEllipse(this->width()-60,12,40,24);
-    painter.drawText(this->width()-60,12,40,24,Qt::AlignRight,". . .");
-    //painter.setRenderHint(QPainter::SmoothPixmapTransform);
-    //style()->drawItemText(&painter, QRect(this->width()-60,12,40,24), Qt::AlignCenter,painter,0, ". . .");
+    devFuncBtn->setGeometry(this->width()-55,12,40,35);
 
+    if (_MDev)
+	devFuncBtn->setVisible(_MDev->isPaired());
 
-    painter.restore();
+//    painter.save();
+//    if(item_gsettings->get("style-name").toString() == "ukui-black" ||
+//       item_gsettings->get("style-name").toString() == "ukui-dark")
+//        painter.setPen(QColor(Qt::white));
+//    else
+//        painter.setPen(QColor(Qt::black));
+//    //painter.setBrush(getDevStatusColor());
+//    //painter.drawEllipse(this->width()-60,12,40,24);
+//    painter.drawText(this->width()-60,12,40,24,Qt::AlignRight,". . .");
+//    //painter.setRenderHint(QPainter::SmoothPixmapTransform);
+//    //style()->drawItemText(&painter, QRect(this->width()-60,12,40,24), Qt::AlignCenter,painter,0, ". . .");
+//    painter.restore();
 }
 
 /************************************************
- * @brief  ???????????????????
+ * @brief  MouseClickedFunc
  * @param  null
  * @return null
 *************************************************/
@@ -508,13 +564,17 @@ void DeviceInfoItem::MouseClickedFunc()
 
     if (_MDev) {
         if (_MDev.data()->isConnected()) {
-            _MDev.data()->disconnectFromDevice();
+            qDebug() << Q_FUNC_INFO << "devDisconnect: "<< _MDev.data()->name() <<  _MDev.data()->address() << __LINE__;
+            //_MDev.data()->disconnectFromDevice();
+            emit devDisconnect(_MDev.data()->address());
         } else {
-            _MDev.data()->connectToDevice();
+            qDebug() << Q_FUNC_INFO << "devConnect: "<< _MDev.data()->name() <<  _MDev.data()->address() << __LINE__;
+           // _MDev.data()->connectToDevice();
+            emit devConnect(_MDev.data()->address());
         }
     }
 
-    //??_iconTimer?????????loading??
+    //_iconTimer loading
     if (!_iconTimer->isActive())
     {
         _iconTimer->start();

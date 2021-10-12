@@ -54,8 +54,6 @@ extern "C" {
 #undef signals
 #endif
 
-#define QML_PATH "kcm_kscreen/qml/"
-
 #define UKUI_CONTORLCENTER_PANEL_SCHEMAS "org.ukui.control-center.panel.plugins"
 #define THEME_NIGHT_KEY                  "themebynight"
 
@@ -218,6 +216,14 @@ void Widget::setConfig(const KScreen::ConfigPtr &config, bool showBrightnessFram
                 this, &Widget::slotOutputConnectedChanged);
             connect(output.data(), &KScreen::Output::isEnabledChanged,
                 this, &Widget::slotOutputEnabledChanged);
+            for (QMLOutput *mOutput: mScreen->outputs()) {
+                if (mOutput->outputPtr() = output) {
+                    disconnect(mOutput, SIGNAL(clicked()),
+                               this, SLOT(mOutputClicked())); //避免多次连接
+                    connect(mOutput, SIGNAL(clicked()),
+                            this, SLOT(mOutputClicked()));
+                }
+            }
         }
     }
    unifySetconfig = false;
@@ -1118,6 +1124,14 @@ void Widget::outputAdded(const KScreen::OutputPtr &output, bool connectChanged)
                 this, &Widget::slotOutputConnectedChanged);
         connect(output.data(), &KScreen::Output::isEnabledChanged,
                 this, &Widget::slotOutputEnabledChanged);
+        for (QMLOutput *mOutput: mScreen->outputs()) {
+            if (mOutput->outputPtr() = output) {
+                disconnect(mOutput, SIGNAL(clicked()),
+                           this, SLOT(mOutputClicked())); //避免多次连接
+                connect(mOutput, SIGNAL(clicked()),
+                        this, SLOT(mOutputClicked()));
+            }
+        }
     }
 
     addOutputToPrimaryCombo(output);
@@ -1218,8 +1232,6 @@ void Widget::slotIdentifyOutputs(KScreen::ConfigOperation *op)
 
     const KScreen::ConfigPtr config = qobject_cast<KScreen::GetConfigOperation *>(op)->config();
 
-    const QString qmlPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral(QML_PATH "OutputIdentifier.qml"));
-
     mOutputTimer->stop();
     clearOutputIdentifiers();
 
@@ -1235,7 +1247,8 @@ void Widget::slotIdentifyOutputs(KScreen::ConfigOperation *op)
 
         view->setFlags(Qt::X11BypassWindowManagerHint | Qt::FramelessWindowHint);
         view->setResizeMode(QQuickView::SizeViewToRootObject);
-        view->setSource(QUrl::fromLocalFile(qmlPath));
+        view->setColor(QColor(Qt::transparent)); //设置背景透明(无背景)
+        view->setSource(QUrl("qrc:/qml/OutputIdentifier.qml"));
         view->installEventFilter(this);
 
         QQuickItem *rootObj = view->rootObject();
@@ -1274,10 +1287,12 @@ void Widget::slotIdentifyOutputs(KScreen::ConfigOperation *op)
     }
 
     for (QQuickView *view: mOutputIdentifiers) {
-        view->show();
+        QQuickItem *rootObj = view->rootObject();
+        if (mOutputClickedName == rootObj->property("outputName").toString())
+            view->show();
     }
 
-    mOutputTimer->start(2500);
+    mOutputTimer->start(2000);
 }
 
 void Widget::callMethod(QRect geometry, QString name)
@@ -1862,6 +1877,7 @@ void Widget::initConnection()
     // Intel隐藏分辨率等调整选项
     if (Utils::isTablet()) {
         mControlPanel->setVisible(false);
+        ui->scaleFrame->setVisible(false);
     }
 
     connect(mControlPanel, &ControlPanel::changed, this, &Widget::changed);
@@ -2459,4 +2475,13 @@ void Widget::changescale()
         mScaleSizeRes = QSize();
 
     }
+}
+
+void Widget::mOutputClicked() {
+     if (mUnifyButton->isChecked() || mConfig->connectedOutputs().count() < 2) {
+         return; //镜像模式以及显示器小于2则不检测
+     }
+    QMLOutput *mOutput = qobject_cast<QMLOutput *>(sender());
+    mOutputClickedName = mOutput->output()->name();
+    slotIdentifyButtonClicked(true);
 }
