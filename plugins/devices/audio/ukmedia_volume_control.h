@@ -87,6 +87,10 @@ public:
 
     void showError(const char *txt);
     static void decOutstanding(UkmediaVolumeControl *w);
+    static void sinkIndexCb(pa_context *c, const pa_sink_info *i, int eol, void *userdata);
+    static void sourceIndexCb(pa_context *c, const pa_source_info *i, int eol, void *userdata);
+
+    static void readCallback(pa_stream *s, size_t length, void *userdata);
     static void cardCb(pa_context *, const pa_card_info *i, int eol, void *userdata);
     static void sinkCb(pa_context *c, const pa_sink_info *i, int eol, void *userdata);
     static void sourceCb(pa_context *, const pa_source_info *i, int eol, void *userdata);
@@ -121,6 +125,8 @@ public:
     QByteArray activeProfile;
     QByteArray noInOutProfile;
     QByteArray lastActiveProfile;
+
+    QVector <int> sourceOutputVector; //存储source output索引
     bool hasSinks;
     bool hasSources;
     pa_cvolume m_defaultSinkVolume;
@@ -173,8 +179,8 @@ public:
 
 Q_SIGNALS:
     void paContextReady();
-    void updateVolume(int value);
-    void updateSourceVolume(int value);
+    void updateVolume(int value,bool state);
+    void updateSourceVolume(int value,bool state);
     void addSinkInputSignal(const gchar* name,const gchar *id,int index);
     void removeSinkInputSignal(const gchar* name);
     void addSourceOutputSignal(const gchar* name,const gchar *id,int index);

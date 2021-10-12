@@ -187,7 +187,7 @@ public:
     QString findHighPriorityProfile(int index,QString profile);
     void findOutputListWidgetItem(QString cardName,QString portLabel);
     void findInputListWidgetItem(QString cardName,QString portLabel);
-QString findPortSink(int cardIndex,QString portName);
+    QString findPortSink(int cardIndex,QString portName);
     QString findPortSource(int cardIndex,QString portName);
     bool inputDeviceContainBluetooth();
     int indexOfOutputPortInOutputListWidget(QString portName);

@@ -70,24 +70,8 @@ UkmediaMainWidget::UkmediaMainWidget(QWidget *parent)
     m_pSoundThemeList = new QStringList;
     m_pSoundThemeDirList = new QStringList;
     m_pSoundThemeXmlNameList = new QStringList;
-    eventList = new QStringList;
-    eventIdNameList = new QStringList;
-
-    eventList->append("window-close");
-    eventList->append("system-setting");
-    eventList->append("volume-changed");
-    eventList->append("alert-sound");
-    eventIdNameList->append("dialog-warning");
-    eventIdNameList->append("bell");
-    eventIdNameList->append("flop");
-    eventIdNameList->append("gudou");
 
     initGsettings();
-    for (int i=0;i<eventList->count();i++) {
-//        getValue();
-        addValue(eventList->at(i),eventIdNameList->at(i));
-    }
-
     setupThemeSelector(this);
     updateTheme(this);
     //报警声音,从指定路径获取报警声音文件
@@ -303,7 +287,7 @@ void UkmediaMainWidget::dealSlot()
     connect(m_pVolumeControl,SIGNAL(updatePortSignal()),this,SLOT(updateDevicePort()));
     connect(m_pVolumeControl,SIGNAL(deviceChangedSignal()),this,SLOT(updateListWidgetItemSlot()));
     //切换输出设备或者音量改变时需要同步更新音量
-    connect(m_pVolumeControl,&UkmediaVolumeControl::updateVolume,this,[=](int value){
+    connect(m_pVolumeControl,&UkmediaVolumeControl::updateVolume,this,[=](int value,bool state){
 
         QString percent = QString::number(paVolumeToValue(value));
         float balanceVolume = m_pVolumeControl->getBalanceVolume();
@@ -319,7 +303,7 @@ void UkmediaMainWidget::dealSlot()
         themeChangeIcons();
         initListWidgetItem();
     });
-    connect(m_pVolumeControl,&UkmediaVolumeControl::updateSourceVolume,this,[=](int value){
+    connect(m_pVolumeControl,&UkmediaVolumeControl::updateSourceVolume,this,[=](int value,bool state){
         QString percent = QString::number(paVolumeToValue(value));
 
         m_pInputWidget->m_pIpVolumePercentLabel->setText(percent+"%");
