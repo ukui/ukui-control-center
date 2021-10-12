@@ -61,6 +61,7 @@ void ShareMain::initUI()
     mEnableFrame->setMaximumSize(16777215, 60);
 
     QHBoxLayout *enableHLayout = new QHBoxLayout();
+    enableHLayout->setContentsMargins(12, 0, 16, 0);
 
     mEnableBtn = new SwitchButton(this);
      //~ contents_path /vino/Allow others to view your desktop
@@ -77,6 +78,7 @@ void ShareMain::initUI()
     mViewFrame->setMaximumSize(16777215, 60);
 
     QHBoxLayout *viewHLayout = new QHBoxLayout();
+    viewHLayout->setContentsMargins(12, 0, 16, 0);
 
     mViewBtn = new SwitchButton(this);
     //~ contents_path /vino/Allow connection to control screen
@@ -93,6 +95,7 @@ void ShareMain::initUI()
     mSecurityFrame->setMaximumSize(16777215, 60);
 
     QHBoxLayout *secHLayout = new QHBoxLayout();
+    secHLayout->setContentsMargins(12, 0, 16, 0);
 
     mAccessBtn = new SwitchButton(this);
      //~ contents_path /vino/You must confirm every visit for this machine
@@ -109,6 +112,7 @@ void ShareMain::initUI()
     mSecurityPwdFrame->setMaximumSize(16777215, 60);
 
     QHBoxLayout *pwdHLayout = new QHBoxLayout();
+    pwdHLayout->setContentsMargins(12, 0, 16, 0);
 
     mPwdBtn = new SwitchButton(this);
      //~ contents_path /vino/Require user to enter this password:
