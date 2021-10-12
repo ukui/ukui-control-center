@@ -251,6 +251,9 @@ private Q_SLOTS:
     void cboxinputListWidgetCurrentRowChangedSlot(int row);//combobox input list widget选项改变
 
 
+protected:
+    void paintEvent(QPaintEvent *event);
+
 private:
     UkmediaInputWidget *m_pInputWidget;
     UkmediaOutputWidget *m_pOutputWidget;
