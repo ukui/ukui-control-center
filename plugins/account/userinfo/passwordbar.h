@@ -14,6 +14,8 @@ class PasswordBar : public QWidget
 {
 public:
     PasswordBar(QWidget *parent = nullptr);
+    ~PasswordBar();
+
     void setLength(int l);
     void setBallRadius(int l);
     void setBallSpan(int l);
