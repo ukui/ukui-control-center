@@ -488,6 +488,7 @@ void DateTime::initNtp()
             if (m_formatsettings->keys().contains(NTP_KEY))
                 ntpLineEdit->setText(m_formatsettings->get(NTP_KEY).toString());
         } else {
+            ntpComboxPreId = ntpCombox->currentIndex();
             if (m_formatsettings->keys().contains(NTP_KEY))
                 m_formatsettings->set(NTP_KEY, setAddr);
         }
@@ -541,6 +542,10 @@ void DateTime::initNtp()
                 ntpCombox->blockSignals(false);
                 if (ntpComboxPreId == ntpCombox->count() - 1) {
                     ui->ntpFrame_2->setVisible(true);
+                    ntpLineEdit->blockSignals(true);
+                    if (m_formatsettings->keys().contains(NTP_KEY)) //防止未保存的内容一直存在
+                        ntpLineEdit->setText(m_formatsettings->get(NTP_KEY).toString());
+                    ntpLineEdit->blockSignals(false);
                 } else {
                     ui->ntpFrame_2->setVisible(false);
                 }
