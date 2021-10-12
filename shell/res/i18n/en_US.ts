@@ -6044,26 +6044,26 @@ Please retry or relogin!</source>
         <extra-contents_path>/screenlock/Lock screen when screensaver boot</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="355"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="361"/>
         <source>Lock screen delay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="439"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="445"/>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="111"/>
         <source>Browse</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/screenlock/Browse</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="446"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="452"/>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="113"/>
         <source>Online Picture</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/screenlock/Online Picture</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="478"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="484"/>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="122"/>
         <source>Reset To Default</source>
         <translation type="unfinished"></translation>
@@ -6110,42 +6110,52 @@ Please retry or relogin!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="430"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="140"/>
+        <source>2h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="140"/>
+        <source>Never</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="438"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="430"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="438"/>
         <source>allFiles(*.*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="472"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="480"/>
         <source>select custom wallpaper file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="473"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="481"/>
         <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="474"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="482"/>
         <source>Position: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="475"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="483"/>
         <source>FileName: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="476"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="484"/>
         <source>FileType: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="477"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="485"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6154,13 +6164,13 @@ Please retry or relogin!</source>
     <name>Screensaver</name>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="59"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="93"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="96"/>
         <source>Screensaver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="201"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="181"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="184"/>
         <source>Idle time</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/screensaver/Idle time</extra-contents_path>
@@ -6172,152 +6182,152 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="297"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="179"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="182"/>
         <source>Screensaver program</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/screensaver/Screensaver program</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="167"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="170"/>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="831"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="837"/>
         <source>Text(up to 30 characters):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="863"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="871"/>
         <source>Show rest time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="208"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="211"/>
         <source>UKUI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="209"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="212"/>
         <source>Blank_Only</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="220"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="223"/>
         <source>Customize</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="235"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="734"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="238"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="740"/>
         <source>5min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="235"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="735"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="238"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="741"/>
         <source>10min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="235"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="736"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="238"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="742"/>
         <source>30min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="235"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="238"/>
         <source>15min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="235"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="238"/>
         <source>1hour</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="236"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="239"/>
         <source>Never</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="636"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="642"/>
         <source>Screensaver source</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="642"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="692"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="648"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="698"/>
         <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="650"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="656"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp *.svg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="691"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="697"/>
         <source>select custom screensaver dir</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="693"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="699"/>
         <source>Position: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="694"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="700"/>
         <source>FileName: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="695"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="701"/>
         <source>FileType: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="696"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="702"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="729"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="735"/>
         <source>Switching time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="733"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="739"/>
         <source>1min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="781"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="787"/>
         <source>Ordinal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="782"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="788"/>
         <source>Random</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="790"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="796"/>
         <source>Random switching</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="882"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="890"/>
         <source>Text position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="890"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="898"/>
         <source>Centered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="891"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="899"/>
         <source>Randow(Bubble text)</source>
         <translation type="unfinished"></translation>
     </message>
