@@ -80,6 +80,10 @@ public:
 
 protected:
 private:
+    void            checkUserStatus();
+    void            startSync();
+    void            startAutoSync();
+    void            syncSelect();
     ItemList       *m_itemList;
     FrameItem    *m_autoSyn;
     TitleLabel              *m_title;
@@ -95,11 +99,6 @@ private:
     DBusUtils   *m_dbusClient;
     QString             m_confName;
     QPushButton         *m_login_btn;
-    QTimer              *m_lazyTimer;
-    QTimer              *m_listTimer;
-    QTimer              *m_singleTimer;
-    QTimer              *m_manTimer;
-    QTimer              *m_checkTimer;
     TitleLabel              *m_welcomeMsg;
     QSvgWidget              *m_welcomeImage;
     QVBoxLayout         *m_welcomeLayout;
