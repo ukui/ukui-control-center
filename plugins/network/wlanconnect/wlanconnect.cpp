@@ -50,6 +50,12 @@ const QString KWifiLockNone     = "network-wireless-secure-signal-none";
 const QString KLanSymbolic      = ":/img/plugins/netconnect/eth.svg";
 const QString NoNetSymbolic     = ":/img/plugins/netconnect/nonet.svg";
 
+
+#define ACTIVATING   1
+#define ACTIVATED    2
+#define DEACTIVATING 3
+#define DEACTIVATED  4
+
 bool intThan(int sign1, int sign2)
 {
     return sign1 < sign2;
@@ -839,15 +845,14 @@ void WlanConnect::removeOneWlanFrame(ItemFrame *frame, QString deviceName, QStri
     }
 }
 
-
 void WlanConnect::itemActiveConnectionStatusChanged(WlanItem *item, int status)
 {
-    if (status == 1) {
+    if (status == ACTIVATING) {
         item->setCountCurrentTime(0);
         item->setWaitPage(1);
         item->startLoading();
     }
-    if (status == 2) {
+    if (status == ACTIVATED) {
         item->stopLoading();
         item->statusLabel->setStyleSheet("");
         item->statusLabel->setMinimumSize(36,36);
@@ -855,12 +860,12 @@ void WlanConnect::itemActiveConnectionStatusChanged(WlanItem *item, int status)
         item->statusLabel->setText(tr("connected"));
         item->isAcitve = true;
     }
-    if (status == 3) {
+    if (status == DEACTIVATING) {
         item->setCountCurrentTime(0);
         item->setWaitPage(1);
         item->startLoading();
     }
-    if (status == 4) {
+    if (status == DEACTIVATED) {
         item->stopLoading();
         item->statusLabel->setStyleSheet("");
         item->statusLabel->setMinimumSize(36,36);
