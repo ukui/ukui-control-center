@@ -4,7 +4,7 @@
 #define FRAME_HEIGHT 58
 #define LAYOUT_SPACING 16
 
-DeviceFrame::DeviceFrame(QWidget *parent) : QFrame(parent)
+DeviceFrame::DeviceFrame(QString devName, QWidget *parent) : QFrame(parent)
 {
     this->setFrameShape(QFrame::Box);
     this->setFixedHeight(FRAME_HEIGHT);
@@ -13,8 +13,8 @@ DeviceFrame::DeviceFrame(QWidget *parent) : QFrame(parent)
     setLayout(deviceLayout);
     deviceLayout->setSpacing(LAYOUT_SPACING);
 
-    deviceLabel = new QLabel(this);
-    dropDownLabel = new DrownLabel(this);
+    deviceLabel = new QLabel(devName, this);
+    dropDownLabel = new DrownLabel(devName, this);
 
     deviceLayout->addWidget(deviceLabel);
     deviceLayout->addStretch();

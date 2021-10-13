@@ -2,6 +2,7 @@
 #define INFOBUTTON_H
 #include <QPushButton>
 #include <QIcon>
+#include <QGSettings>
 
 class InfoButton : public QPushButton
 {
@@ -23,6 +24,12 @@ private:
 private:
     QColor m_backgroundColor;
     QColor m_foregroundColor;
+
+    //监听主题的Gsettings
+    QGSettings * m_styleGsettings = nullptr;
+
+private slots:
+    void onPaletteChanged();
 };
 
 #endif // INFOBUTTON_H

@@ -1,11 +1,13 @@
 #include "infobutton.h"
 #include <QEvent>
 #include <QPainter>
+#include <QApplication>
+#include <QDebug>
 
 #define BUTTON_SIZE 36,36
 #define ICON_SIZE 16,16
 #define BACKGROUND_COLOR QColor(0,0,0,0)
-#define FOREGROUND_COLOR_NORMAL QColor(0,0,0,255)
+#define FOREGROUND_COLOR_NORMAL qApp->palette().text().color()
 #define FOREGROUND_COLOR_HOVER QColor(55,144,250,255)
 #define FOREGROUND_COLOR_PRESS QColor(36,109,212,255)
 #define OUTER_PATH 8,8,16,16
@@ -14,10 +16,25 @@
 
 #define BUTTON_SIZE 36,36
 
+#define THEME_SCHAME "org.ukui.style"
+#define COLOR_THEME "styleName"
+
 InfoButton::InfoButton(QWidget *parent) : QPushButton(parent)
 {
     this->setFixedSize(BUTTON_SIZE);
     initUI();
+    const QByteArray style_id(THEME_SCHAME);
+    if (QGSettings::isSchemaInstalled(style_id)) {
+        m_styleGsettings = new QGSettings(style_id);
+        connect(m_styleGsettings, &QGSettings::changed, this, [&](const QString &key)
+        {
+            if (key == COLOR_THEME) {
+                onPaletteChanged();
+            }
+        });
+    } else {
+        qDebug() << "Gsettings interface \"org.ukui.style\" is not exist!";
+    }
 }
 
 void InfoButton::initUI()
@@ -25,6 +42,12 @@ void InfoButton::initUI()
     this->setFixedSize(BUTTON_SIZE);
     m_backgroundColor = BACKGROUND_COLOR;
     m_foregroundColor = FOREGROUND_COLOR_NORMAL;
+}
+
+void InfoButton::onPaletteChanged()
+{
+    m_foregroundColor = FOREGROUND_COLOR_NORMAL;
+    this->repaint();
 }
 
 void InfoButton::paintEvent(QPaintEvent *event)
@@ -53,6 +76,8 @@ void InfoButton::paintEvent(QPaintEvent *event)
 
     painter.fillPath(outerPath, pal.color(QPalette::Text));
     painter.setPen(m_foregroundColor);
+    QFont font("Noto Sans CJK SC", 11, QFont::Normal, false);
+    painter.setFont(font);
     painter.drawText(TEXT_POS, "i");
 }
 

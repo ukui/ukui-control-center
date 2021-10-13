@@ -5,20 +5,23 @@
 #include <QLabel>
 #include <QWidget>
 #include <QMouseEvent>
+#include <QPushButton>
 
 class DrownLabel : public QLabel
 {
     Q_OBJECT
 public:
-    explicit DrownLabel(QWidget * parent = nullptr);
+    explicit DrownLabel(QString devName, QWidget * parent = nullptr);
     ~DrownLabel();
     void setDropDownStatus(bool status);
-private:
-    bool isChecked = false;
+    QString m_devName;
+    bool isChecked = true;
+
 private:
     void loadPixmap(bool isChecked);
+
 protected:
-    virtual void mousePressEvent(QMouseEvent * event);
+    virtual void mouseReleaseEvent(QMouseEvent * event);
 
 Q_SIGNALS:
     void labelClicked();
