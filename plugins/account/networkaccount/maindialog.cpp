@@ -388,6 +388,7 @@ QString MainDialog::messagebox(const int &code) const {
     case 503:ret = tr("Account or password error!");break;
     case 504:ret = tr("Network can not reach!");break;
     case 505:ret = tr("Phone can't be empty!");break;
+    case 508:ret = tr("See and check your network status!");break;
     case 511:ret = tr("Account or password error!");break;
     case 610:ret = tr("Phone number already in used!");break;
     case 611:ret = tr("Please check your format!");break;
@@ -638,16 +639,11 @@ void MainDialog::on_timer_timeout() {
 
 /* 登录回调槽函数，登录回执消息后执行此处 */
 void MainDialog::on_login_finished(int ret) {
-    //qDebug() << "ssssssssssssssss2";
-    //qDebug()<<ret;
     //无手机号码绑定，进入手机号码绑定页面
     //登录返回成功，执行此处
     if (ret == 0) {
-        //m_blueEffect->stop();
-        //m_submitBtn->setText(tr("Sign in"));
         emit on_login_success(); //发送成功登录信号给主页面
     } else {
-        //qDebug() << "cscacacasca";
         emit on_login_failed();
         set_back();
         m_blueEffect->stop();             //登录失败，执行此处，关闭登录执行过程效果，并打印错误消息
@@ -666,7 +662,6 @@ void MainDialog::on_login_finished(int ret) {
             return ;
         }
     }
-    //qDebug()<<"scascasca";
 }
 
 /* 手机号直接发送验证码回调函数，发送手机验证码回执消息后执行此处 */
