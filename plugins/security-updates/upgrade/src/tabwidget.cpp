@@ -36,11 +36,12 @@ void TabWid::initDbus()
     connect(isAutoBackupSBtn,&SwitchButton::checkedChanged,this,&TabWid::isAutoBackupChanged);
     connect(isAutoUpgradeSBtn, &SwitchButton::checkedChanged, this, &TabWid::isAutoUpgradeChanged);
     connect(updateSource,&UpdateSource::getReplyFalseSignal,this,&TabWid::getReplyFalseSlot);
-    connect(DownloadHBtn,&SwitchButton::checkedChanged,this,&TabWid::DownloadLimitSwitchChanged);
+    //connect(DownloadHBtn,&SwitchButton::checkedChanged,this,&TabWid::DownloadLimitSwitchChanged);
+    connect(DownloadHBtn,&SwitchButton::checkedChanged,this,&TabWid::DownloadLimitChanged);
     connect(DownloadHValue,&QComboBox::currentTextChanged,this,&TabWid::DownloadLimitValueChanged);
     //connect(DownloadHValue,static_cast<void (QComboBox::*)(QString)>(&QComboBox:: currentIndexChanged),this,&TabWid::DownloadLimitValueChanged);
     //initialize download limit switch button
-    DownloadHBtn->setChecked(false);
+    //DownloadHBtn->setChecked(false);
     //set download limit range
 //    DownloadHValue->setRange(325,32500);
 //    DownloadHValue->setSingleStep(325);
@@ -659,7 +660,7 @@ void TabWid::allComponents()
     DownloadHLab->setText(tr("Download Limit(Kb/s)"));
     DownloadHBtn = new SwitchButton();
     DownloadHValue = new QComboBox();
-    DownloadHValue->hide();
+    //DownloadHValue->hide();
      DownloadVLab = new QLabel();
      DownloadVLab->setText(tr("It will be avaliable in the next download."));
 
@@ -860,13 +861,16 @@ void TabWid::getAllDisplayInformation()
     QString checkedtime;
     QString checkedstatues;
     QString backupStatus;
+    QString downloadlimitstatus;
     query.exec("select * from display");
     while(query.next())
     {
         checkedtime = query.value("check_time").toString();
         checkedstatues = query.value("auto_check").toString();
         backupStatus = query.value("auto_backup").toString();
+        downloadlimitstatus = query.value("download_limit").toString();
     }
+    qDebug()<<"downloadlimitstatus:"<<downloadlimitstatus;
     QSqlQuery queryInstall(QSqlDatabase::database("A"));
     updatetime = tr("No Information!");
     queryInstall.exec("select * from installed order by id desc");
@@ -897,6 +901,22 @@ void TabWid::getAllDisplayInformation()
     else
     {
         isAutoBackupSBtn->setChecked(true);
+    }
+
+    if(downloadlimitstatus == "false")
+    {
+        DownloadHBtn->setChecked(false);
+        DownloadHValue->hide();
+//                        updateMutual->SetDownloadLimit(0,false);
+        //DownloadHValue->hide();
+    }
+    else
+    {
+        DownloadHBtn->setChecked(true);
+        DownloadHValue->show();
+//        QString dlimit = DownloadHValue->currentText();
+//        updateMutual->SetDownloadLimit(dlimit,true);
+        //DownloadHValue->show();
     }
 }
 void TabWid::showHistoryWidget()
@@ -973,7 +993,7 @@ void TabWid::checkUpdateBtnClicked()
         switch (ret) {
         case 0:
             qDebug() << "全部更新。。。。。。";
-            isAutoBackupSBtn->setChecked(false);
+            isAutoBackupSBtn->setChecked(false);//貌似没意义？
             checkUpdateBtn->setEnabled(false);
             checkUpdateBtn->start();
             updateMutual->isPointOutNotBackup = false;   //全部更新时不再弹出单个更新未备份提示
@@ -1005,7 +1025,7 @@ void TabWid::checkUpdateBtnClicked()
 }
 
 
-void TabWid::DownloadLimitSwitchChanged()
+void TabWid::DownloadLimitSwitchChanged()//暂时废弃
 {
 
     if(DownloadHBtn->isChecked()==false)
@@ -1028,7 +1048,7 @@ void TabWid::DownloadLimitSwitchChanged()
     }
 }
 
-void TabWid::DownloadLimitValueChanged(const QString &value)
+void TabWid::DownloadLimitValueChanged(const QString &value)//想废弃掉
 {
     if(DownloadHBtn->isChecked()==false)
     {
@@ -1068,6 +1088,26 @@ void TabWid::isAutoBackupChanged()
     else if(isAutoBackupSBtn->isChecked() == true)
     {
         updateMutual->insertInstallStates("auto_backup","true");
+    }
+}
+
+void TabWid::DownloadLimitChanged()
+{
+    if(DownloadHBtn->isChecked() == false)
+    {
+        qDebug()<<"download limit disabled";
+        DownloadHValue->hide();
+        updateMutual->SetDownloadLimit(0,false);
+        updateMutual->insertInstallStates("download_limit","false");
+
+    }
+    else if(DownloadHBtn->isChecked() == true)
+    {
+        updateMutual->insertInstallStates("download_limit","true");
+        qDebug()<<"download limit enabled";
+        DownloadHValue->show();
+        QString dlimit = DownloadHValue->currentText();
+        updateMutual->SetDownloadLimit(dlimit,true);
     }
 }
 
