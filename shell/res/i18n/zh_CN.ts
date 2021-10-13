@@ -4744,6 +4744,12 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.ui" line="129"/>
+        <source>Wifi service unavailable as Projection running</source>
+        <translatorcomment>投屏开启时，Wifi服务不可用</translatorcomment>
+        <translation>投屏开启时，Wifi服务不可用</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="129"/>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="981"/>
         <source>Refresh</source>
         <translation>刷新</translation>
@@ -5544,8 +5550,9 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/devices/projection/projection.cpp" line="271"/>
         <source>Please keep WLAN on;
-Wireless-network functions will be invalid when the screen projection on</source>
-        <translation>使用时请保持WLAN处于开启状态；开启投屏后，无线网络相关功能会失效</translation>
+Wifi service is unavailable when projection enabled, as wNIC driver unsupported</source>
+        <translatorcomment>使用时请保持WLAN处于开启状态；由于网卡驱动不支持，投屏开启会停止无线网络服务</translatorcomment>
+        <translation>使用时请保持WLAN处于开启状态；由于网卡驱动不支持，投屏开启会停止无线网络服务</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/projection/projection.cpp" line="273"/>

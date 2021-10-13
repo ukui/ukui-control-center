@@ -45,6 +45,25 @@ const QString KWifiLockNone     = "network-wireless-secure-signal-none";
 const QString KLanSymbolic      = ":/img/plugins/netconnect/eth.svg";
 const QString NoNetSymbolic     = ":/img/plugins/netconnect/nonet.svg";
 
+static int checkMiraStatus()
+{
+    int res=0;
+    QDBusInterface iface("org.freedesktop.miracle.wifi",
+                            "/org/freedesktop/miracle/wifi/ui",
+                            "org.freedesktop.miracle.wifi.ui",
+                            QDBusConnection::systemBus());
+    QDBusReply<int> m_result = iface.call("QueryWpaStopped");
+    if (m_result.isValid()) {
+        res = m_result.value();
+    } else {
+        qDebug()<<"get miraclecast status failed"<<endl;
+    }
+    qDebug()<<"=============================checkMiraStatus is "<<res<<endl;
+    return res;
+
+
+}
+
 bool sortByVal(const QPair<QString, int> &l, const QPair<QString, int> &r) {
     return (l.second < r.second);
 }
@@ -87,6 +106,13 @@ QWidget *NetConnect::get_plugin_ui() {
         }
         initSearchText();
         initComponent();
+    }
+    if(checkMiraStatus()==1)
+    {
+        ui->mira_label->setVisible(true);
+    }
+    else {
+        ui->mira_label->setVisible(false);
     }
     return pluginWidget;
 }
@@ -173,8 +199,14 @@ void NetConnect::initComponent() {
     ui->RefreshBtn->setEnabled(false);
     wifiBtn->setEnabled(false);
     ui->openWifiFrame->setVisible(false);
-
-    emit ui->RefreshBtn->clicked(true);
+    if(checkMiraStatus()==1)
+    {
+        ui->mira_label->setVisible(true);
+    }
+    else {
+        ui->mira_label->setVisible(false);
+        emit ui->RefreshBtn->clicked(true);
+    }
     ui->verticalLayout_2->setContentsMargins(0, 0, 32, 0);
 }
 
@@ -583,7 +615,6 @@ QStringList NetConnect::execGetLanList() {
 }
 
 bool NetConnect::getWifiStatus() {
-
     QDBusInterface interface( "org.freedesktop.NetworkManager",
                               "/org/freedesktop/NetworkManager",
                               "org.freedesktop.DBus.Properties",
