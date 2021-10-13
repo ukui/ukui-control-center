@@ -126,7 +126,7 @@
         <item>
          <widget class="QLabel" name="mira_label">
           <property name="text">
-           <string>投屏使用中，网络不可用</string>
+           <string>Wifi service unavailable as Projection running</string>
           </property>
          </widget>
         </item>

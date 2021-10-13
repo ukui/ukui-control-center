@@ -268,7 +268,7 @@ QWidget *Projection::get_plugin_ui(){
         {
             qDebug()<<"wifi is on now";
             if(SUPPORT_P2P_WITHOUT_DEV == projectionstatus)
-                ui->label_3->setText(tr("Please keep WLAN on;\nWireless-network functions will be invalid when the screen projection on"));
+                ui->label_3->setText(tr("Please keep WLAN on;\nWifi service is unavailable when projection enabled, as wNIC driver unsupported"));
             if(SUPPORT_P2P_PERFECT == projectionstatus)
                 ui->label_3->setText(tr("Please keep WLAN on;\nWireless will be temporarily disconnected when the screen projection on"));
             ui->widget->show();
