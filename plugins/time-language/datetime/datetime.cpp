@@ -468,15 +468,27 @@ void DateTime::initNtp()
         ntpLineEdit->setText(m_formatsettings->get(NTP_KEY).toString());
 
     connect(ntpLineEdit, &QLineEdit::textChanged, this, [=](){
-        saveBtn->setEnabled(!ntpLineEdit->text().isEmpty());   //为空时不允许保存
+        ntpLineEdit->blockSignals(true);
+        while (ntpLineEdit->text().front() == " ") {
+            ntpLineEdit->setText(ntpLineEdit->text().remove(0,1)); //去掉首空格
+        }
+        ntpLineEdit->blockSignals(false);
+        saveBtn->setEnabled(!ntpLineEdit->text().isEmpty());   //为空时不允许保存        
     });
 
     connect(saveBtn, &QPushButton::clicked, this, [=](){
+        ntpLineEdit->blockSignals(true);
+        while (ntpLineEdit->text().back() == " ") {
+            ntpLineEdit->setText(ntpLineEdit->text().remove(ntpLineEdit->text().size()-1,1)); //去掉尾空格
+        }
+        ntpLineEdit->blockSignals(false);
+
         QString setAddr = ntpLineEdit->text();
         if (!setNtpAddr(setAddr)) {   //失败or不修改
             if (m_formatsettings->keys().contains(NTP_KEY))
                 ntpLineEdit->setText(m_formatsettings->get(NTP_KEY).toString());
         } else {
+            ntpComboxPreId = ntpCombox->currentIndex();
             if (m_formatsettings->keys().contains(NTP_KEY))
                 m_formatsettings->set(NTP_KEY, setAddr);
         }
@@ -508,10 +520,11 @@ void DateTime::initNtp()
     ntpComboxPreId = ntpCombox->currentIndex();
 
     connect(ntpCombox, &QComboBox::currentTextChanged, this, [=](){
-        QString setAddr;
-        if (m_formatsettings->keys().contains(NTP_KEY))
-            setAddr = m_formatsettings->get(NTP_KEY).toString();
+        QString setAddr = "";
+//        if (m_formatsettings->keys().contains(NTP_KEY))
+//            setAddr = m_formatsettings->get(NTP_KEY).toString(); //应产品需求，每次重新选择自定义时清空
         if (ntpCombox->currentIndex() == (ntpCombox->count() - 1) && setAddr == "") { //自定义且为空
+            ntpLineEdit->setText("");
             ui->ntpFrame_2->setVisible(true);  //需要添加地址并点击保存再授权
         } else {
             if (ntpCombox->currentIndex() == 0) {  //默认
@@ -529,6 +542,10 @@ void DateTime::initNtp()
                 ntpCombox->blockSignals(false);
                 if (ntpComboxPreId == ntpCombox->count() - 1) {
                     ui->ntpFrame_2->setVisible(true);
+                    ntpLineEdit->blockSignals(true);
+                    if (m_formatsettings->keys().contains(NTP_KEY)) //防止未保存的内容一直存在
+                        ntpLineEdit->setText(m_formatsettings->get(NTP_KEY).toString());
+                    ntpLineEdit->blockSignals(false);
                 } else {
                     ui->ntpFrame_2->setVisible(false);
                 }
