@@ -1857,6 +1857,7 @@ void Widget::nightChangedSlot(QHash<QString, QVariant> nightArg)
     if (this->mRedshiftIsValid) {
         mNightButton->blockSignals(true);
         mNightButton->setChecked(nightArg["Active"].toBool());
+        showNightWidget(mNightButton->isChecked());
         mNightButton->blockSignals(false);
     }
 }
