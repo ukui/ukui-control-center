@@ -1211,8 +1211,9 @@ Please authenticate yourself to continue</source>
 <context>
     <name>Biometrics</name>
     <message>
+        <location filename="../../../plugins/account/biometrics/biometrics.cpp" line="24"/>
         <source>Biometrics</source>
-        <translation type="vanished">生物识别与密码</translation>
+        <translation>生物识别与密码</translation>
     </message>
 </context>
 <context>
@@ -2939,9 +2940,8 @@ folder will be deleted!</source>
         <translation>显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="185"/>
         <source>set as home screen</source>
-        <translation>设为主屏</translation>
+        <translation type="vanished">设为主屏</translation>
     </message>
     <message>
         <source>close monitor</source>
@@ -2966,6 +2966,11 @@ folder will be deleted!</source>
         <location filename="../../../plugins/system/display/display.ui" line="32"/>
         <source>Display</source>
         <translation>显示器</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/display.ui" line="185"/>
+        <source>as main</source>
+        <translation>设为主屏</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/display.ui" line="241"/>
@@ -7670,22 +7675,22 @@ Wireless will be temporarily disconnected when the screen projection on</source>
 <context>
     <name>TabWid</name>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="57"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="119"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="133"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="138"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="167"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="203"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="444"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="474"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="822"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="922"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1092"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="58"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="120"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="134"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="139"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="168"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="204"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="445"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="475"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="826"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="963"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1156"/>
         <source>Check Update</source>
         <translation>检查更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="59"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="60"/>
         <source>initializing</source>
         <translation>初始化中</translation>
     </message>
@@ -7694,17 +7699,17 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">服务连接异常，请重新检测！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="964"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1005"/>
         <source>Prompt information</source>
         <translation>提示信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="224"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="225"/>
         <source>Update now</source>
         <translation>立即更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="225"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="226"/>
         <source>Cancel update</source>
         <translation>取消更新</translation>
     </message>
@@ -7713,50 +7718,50 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">否，我不备份</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="232"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="374"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1125"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="233"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="375"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1189"/>
         <source>Being updated...</source>
         <translation>正在更新...</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="126"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="245"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="383"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="848"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="949"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1081"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1129"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="127"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="246"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="384"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="852"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="990"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1145"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1193"/>
         <source>UpdateAll</source>
         <translation>全部更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="257"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="258"/>
         <source>The backup restore partition could not be found. The system will not be backed up in this update!</source>
         <translation>未能找到备份还原分区，本次更新不会备份系统！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="261"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="262"/>
         <source>Kylin backup restore tool is doing other operations, please update later.</source>
         <translation>麒麟备份还原工具正在进行其他操作，请稍后更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="264"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="265"/>
         <source>The source manager configuration file is abnormal, the system temporarily unable to update!</source>
         <translation>源管理器配置文件异常，暂时无法更新！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="267"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="268"/>
         <source>Backup already, no need to backup again.</source>
         <translation>已备份，无需再次备份</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="281"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="282"/>
         <source>Kylin backup restore tool does not exist, this update will not backup the system!</source>
         <translation>麒麟备份还原工具不存在，本次更新不会备份系统</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="340"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="341"/>
         <source>Backup complete.</source>
         <translation>备份完成</translation>
     </message>
@@ -7765,135 +7770,135 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">备份中：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="275"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1159"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="276"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1223"/>
         <source>Start backup,getting progress</source>
         <translation>开始备份，正在获取进度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="662"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="663"/>
         <source>Download Limit(Kb/s)</source>
         <translation>自动下载限速(Kb/s)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="667"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="671"/>
         <source>It will be avaliable in the next download.</source>
         <translation>开启后会在下次下载时进行限速</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="780"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="784"/>
         <source>Ready to install</source>
         <translation>准备安装</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="953"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="994"/>
         <source>The battery is below 50% and the update cannot be downloaded</source>
         <translation>电池电量低于 50%，无法下载更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="956"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="997"/>
         <source>OK</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="963"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1004"/>
         <source>Please back up the system before all updates to avoid unnecessary losses</source>
         <translation>请在所有更新前备份系统，以免造成不必要的损失</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="966"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1007"/>
         <source>Only Update</source>
         <translation>仅更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="967"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1008"/>
         <source>Back And Update</source>
         <translation>备份并更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1166"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1230"/>
         <source>Failed to write configuration file, this update will not back up the system!</source>
         <translation>写入配置文件失败，本次更新不会备份系统！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1170"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1234"/>
         <source>Insufficient backup space, this update will not backup your system!</source>
         <translation>备份空间不足，本次更新不会备份系统！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1174"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1238"/>
         <source>Kylin backup restore tool could not find the UUID, this update will not backup the system!</source>
         <translation>麒麟备份还原工具无法找到UUID，本次更新不会备份系统</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="355"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="356"/>
         <source>Backup interrupted, stop updating!</source>
         <translation>备份过程被中断，停止更新！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="206"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="207"/>
         <source>Software source server connection timeout</source>
         <translation>软件源服务器连接超时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="208"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="209"/>
         <source>Software source server connection failed</source>
         <translation>软件源服务器连接失败</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="176"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="295"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="318"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="177"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="296"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="319"/>
         <source>Downloading and installing updates...</source>
         <translation>正在下载并安装更新...</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="155"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="829"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="874"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1105"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="156"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="833"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="883"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1169"/>
         <source>No Information!</source>
         <translation>尚未检测更新！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="296"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="968"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="297"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1009"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="343"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="344"/>
         <source>System is backing up...</source>
         <translation>系统正在备份中...</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="359"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="360"/>
         <source>Backup finished!</source>
         <translation>备份完成！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="363"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="364"/>
         <source>Kylin backup restore tool exception:</source>
         <translation>麒麟备份还原工具异常：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="363"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="364"/>
         <source>There will be no backup in this update!</source>
         <translation>本次更新不会备份系统！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="436"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="437"/>
         <source>Getting update list</source>
         <translation>正在获取更新列表</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="441"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="476"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="442"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="477"/>
         <source>Software source update failed: </source>
         <translation>软件源更新失败：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="495"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="496"/>
         <source>Update software source :</source>
         <translation>更新软件源进度：</translation>
     </message>
@@ -7902,80 +7907,80 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">重连次数：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="522"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="523"/>
         <source>Update</source>
         <translation>更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="545"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="546"/>
         <source>View history</source>
         <translation>查看更新历史</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="592"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="593"/>
         <source>Update Settings</source>
         <translation>更新设置</translation>
         <extra-contents_path>/upgrade/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="603"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="604"/>
         <source>Allowed to renewable notice</source>
         <translation>允许通知可更新的应用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="613"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="614"/>
         <source>Backup current system before updates all</source>
         <translation>全部更新前备份系统</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="154"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="329"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="824"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1094"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="155"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="330"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="828"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1158"/>
         <source>Your system is the latest!</source>
         <translation>您的系统已是最新！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="244"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="851"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="245"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="855"/>
         <source>Updatable app detected on your system!</source>
         <translation>检测到你的系统有可更新的应用！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="703"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="707"/>
         <source>Automatically download and install updates</source>
         <translation>自动下载和安装更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="705"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="709"/>
         <source>After it is turned on, the system will automatically download and install updates when there is an available network and available backup and restore partitions.</source>
         <translation>开启后，当有可用网络和可用备份和恢复分区时，系统会自动下载和安装更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="165"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="839"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="884"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1115"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="166"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="843"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="893"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1179"/>
         <source>Last refresh:</source>
         <translation>上次更新：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="885"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="894"/>
         <source>Last Checked:</source>
         <translation>上次检测：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="917"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="958"/>
         <source>trying to reconnect </source>
         <translation>重新尝试连接第</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="917"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="958"/>
         <source> times</source>
         <translation>次</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="937"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="978"/>
         <source>Updating the software source</source>
         <translation>正在更新软件源</translation>
     </message>
@@ -7996,17 +8001,17 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">暂不更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1101"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1165"/>
         <source>Part of the update failed!</source>
         <translation>部分更新失败！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1140"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1204"/>
         <source>An important update is in progress, please wait.</source>
         <translation>正在进行一项重要更新，请等待。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1177"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1241"/>
         <source>The backup restore partition is abnormal. You may not have a backup restore partition.For more details,see /var/log/backup.log</source>
         <translation>备份还原分区异常，您可能没有备份还原分区。更多详细信息，可以参看/var/log/backup.log</translation>
     </message>
@@ -8015,7 +8020,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">其他错误!请查看/var/log/backup.txt</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1184"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1248"/>
         <source>Calculating Capacity...</source>
         <translation>计算系统空间大小</translation>
     </message>
@@ -9298,9 +9303,8 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="639"/>
         <source>Theme follow night mode</source>
-        <translation>主题跟随夜间模式变化</translation>
+        <translation type="vanished">主题跟随夜间模式变化</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="660"/>
@@ -9324,8 +9328,8 @@ the settings will be saved after 14 seconds</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1883"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1890"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1885"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1892"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
