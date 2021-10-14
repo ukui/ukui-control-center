@@ -140,6 +140,7 @@ public slots:
     void showHistoryWidget();
     void isAutoCheckedChanged();
     void isAutoUpgradeChanged();
+    void DownloadLimitChanged();
     void slotCancelDownload();
     void loadingOneUpdateMsgSlot(AppAllMsg msg); //逐个加载更新
     void loadingFinishedSlot(int size); //加载完毕信号
