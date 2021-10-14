@@ -79,10 +79,10 @@ UkmediaInputWidget::UkmediaInputWidget(QWidget *parent) : QWidget(parent)
                                        "margin: -8 -4px;"
                                        "}"
 
-                                       "QSlider::add-page:horizontal {"
-                                       "background: palette(button);"
-                                       "border-radius: 20px;"
-                                       "}"
+//                                       "QSlider::add-page:horizontal {"
+//                                       "background: palette(button);"
+//                                       "border-radius: 20px;"
+//                                       "}"
 
                                        "QSlider::sub-page:horizontal {"
                                        "background: #2FB3E8;"

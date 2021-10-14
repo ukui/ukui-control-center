@@ -119,6 +119,10 @@ public:
     void removeInputProfile();
     bool isExitInputPort(QString name);
     QString stringRemoveUnrecignizedChar(QString str);
+    void createEventRole(); //控制提示音大小
+    void updateRole(const pa_ext_stream_restore_info &info);
+    void setExtStreamVolume(int volume, bool state); //设置提示音大小
+
 
     std::vector< std::pair<QByteArray,QByteArray> > profiles;
     std::map<QByteArray, PortInfo> ports;
@@ -163,6 +167,10 @@ public:
     pa_cvolume volume;
     std::vector< std::pair<QByteArray,QByteArray> > dPorts;
     QByteArray activePort;
+    QByteArray role;
+    QByteArray device;
+    pa_ext_stream_restore_info paExtStreamInfo;
+
 
     QMap<int, QString> sinkMap; //输出设备
     QMap<int, QString> sourceMap; //输入设备

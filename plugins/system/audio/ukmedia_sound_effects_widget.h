@@ -62,7 +62,7 @@ private:
     QFrame *m_pVolumeChangeWidget;//提示音下的音量调节
 
     QFrame *m_pAlertSoundChangedWidget;//提示音滑动条窗口
-    QSlider  *m_pAlertSoundChangedSlider;
+    UkmediaVolumeSlider  *m_pAlertSoundChangedSlider;
     QLabel *m_pAlertSoundChangedLabel;
     QLabel *m_pAlertSoundMuteLabel;
     QLabel *m_pAlertSoundVolumeLabel;

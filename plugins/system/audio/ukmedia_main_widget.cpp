@@ -84,24 +84,24 @@ UkmediaMainWidget::UkmediaMainWidget(QWidget *parent)
     dealSlot();//处理槽函数
 }
 
-void UkmediaMainWidget::paintEvent(QPaintEvent *event)
-{
-    QStyleOption opt;
-    opt.init(this);
-    QPainter p(this);
+//void UkmediaMainWidget::paintEvent(QPaintEvent *event)
+//{
+//    QStyleOption opt;
+//    opt.init(this);
+//    QPainter p(this);
 
-    QBrush brush = QBrush(QColor(244,244,244));
-    p.setBrush(brush);
-    p.setPen(Qt::NoPen);
-    QPainterPath path;
-    opt.rect.adjust(0,0,0,0);
-    path.addRoundedRect(opt.rect,6,6);
-    p.setRenderHint(QPainter::Antialiasing);  // 反锯齿;
-    p.drawRoundedRect(opt.rect,6,6);
-    setProperty("blurRegion",QRegion(path.toFillPolygon().toPolygon()));
-    style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
+//    QBrush brush = QBrush(QColor(244,244,244));
+//    p.setBrush(brush);
+//    p.setPen(Qt::NoPen);
+//    QPainterPath path;
+//    opt.rect.adjust(0,0,0,0);
+//    path.addRoundedRect(opt.rect,6,6);
+//    p.setRenderHint(QPainter::Antialiasing);  // 反锯齿;
+//    p.drawRoundedRect(opt.rect,6,6);
+//    setProperty("blurRegion",QRegion(path.toFillPolygon().toPolygon()));
+//    style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 //    QWidget::paintEvent(event);
-}
+//}
 
 /*
  * 初始化界面
@@ -123,9 +123,9 @@ void UkmediaMainWidget::initWidget()
     this->setLayout(m_pvLayout);
     this->setMinimumWidth(550);
     this->setMaximumWidth(16777215);
-    this->layout()->setContentsMargins(0,0,40,40);
-//    this->setAttribute(Qt::WA_StyledBackground,true);
-//    this->setAttribute(Qt::WA_DeleteOnClose);
+    this->layout()->setContentsMargins(0,0,40,20);
+    this->setAttribute(Qt::WA_StyledBackground,true);
+    this->setAttribute(Qt::WA_DeleteOnClose);
 
     //设置滑动条的最大值为100
     m_pInputWidget->m_pIpVolumeSlider->setMaximum(100);//输入音量滑动条
@@ -133,7 +133,7 @@ void UkmediaMainWidget::initWidget()
     m_pOutputWidget->m_pOpBalanceSlider->setMaximum(100);//输出音量声道平衡滑动条
     m_pOutputWidget->m_pOpBalanceSlider->setMinimum(-100);
     m_pOutputWidget->m_pOpBalanceSlider->setSingleStep(100);//声道平衡步长
-    m_pInputWidget->m_pInputLevelProgressBar->setMaximum(100);
+    m_pInputWidget->m_pInputLevelProgressBar->setMaximum(101);
 }
 
 QList<char *> UkmediaMainWidget::listExistsPath()
@@ -249,6 +249,14 @@ void UkmediaMainWidget::initGsettings()
         connect(m_pThemeSetting, SIGNAL(changed(const QString &)),this,SLOT(ukuiThemeChangedSlot(const QString &)));
     }
 
+    if (QGSettings::isSchemaInstalled(UKUI_AUDIO_SCHEMA)) {
+            m_pAlertVolumeSetting = new QGSettings(UKUI_AUDIO_SCHEMA);
+            if  (m_pAlertVolumeSetting->keys().contains("alertVolume")) {
+                int vol = m_pAlertVolumeSetting->get(ALERT_VOLUME).toInt();
+                m_pSoundWidget->m_pAlertSoundChangedSlider->setValue(vol);
+            }
+        }
+
     //检测设计开关机音乐
     if (QGSettings::isSchemaInstalled(UKUI_SWITCH_SETTING)) {
         m_pBootSetting = new QGSettings(UKUI_SWITCH_SETTING);
@@ -278,16 +286,16 @@ void UkmediaMainWidget::initGsettings()
     switchNoiseReductionButton(status);
     if(m_pSoundWidget->m_pAlertSoundSwitchButton->isChecked())
     {
-//        m_pSoundWidget->m_pAlertSoundChangedWidget->show();
-        m_pSoundWidget->m_pAlertSoundWidget->show();
-        m_pSoundWidget->m_pVolumeChangeWidget->show();
-        m_pSoundWidget->m_pThemeWidget->show();
+        m_pSoundWidget->m_pAlertSoundChangedWidget->show();
+//        m_pSoundWidget->m_pAlertSoundWidget->show();
+//        m_pSoundWidget->m_pVolumeChangeWidget->show();
+//        m_pSoundWidget->m_pThemeWidget->show();
     }
     else {
-//        m_pSoundWidget->m_pAlertSoundChangedWidget->hide();
-        m_pSoundWidget->m_pAlertSoundWidget->hide();
-        m_pSoundWidget->m_pVolumeChangeWidget->hide();
-        m_pSoundWidget->m_pThemeWidget->hide();
+        m_pSoundWidget->m_pAlertSoundChangedWidget->hide();
+//        m_pSoundWidget->m_pAlertSoundWidget->hide();
+//        m_pSoundWidget->m_pVolumeChangeWidget->hide();
+//        m_pSoundWidget->m_pThemeWidget->hide();
     }
 }
 
@@ -325,6 +333,8 @@ void UkmediaMainWidget::dealSlot()
 
     connect(m_pVolumeControl,SIGNAL(updatePortSignal()),this,SLOT(updateCboxDevicePort()));//测试Combobox！！！！！！！！！！！
 
+    connect(m_pSoundWidget->m_pAlertSoundChangedSlider,SIGNAL(valueChanged(int)),this,SLOT(alertSoundSliderChangedSlot(int)));
+
     connect(m_pVolumeControl,SIGNAL(deviceChangedSignal()),this,SLOT(updateComboboxListWidgetItemSlot()));
     //切换输出设备或者音量改变时需要同步更新音量
     connect(m_pVolumeControl,&UkmediaVolumeControl::updateVolume,this,[=](int value,bool state){
@@ -344,6 +354,14 @@ void UkmediaMainWidget::dealSlot()
         initComboboxItem();
     });
     connect(m_pVolumeControl,&UkmediaVolumeControl::updateSourceVolume,this,[=](int value,bool state){
+        int status = g_settings_get_boolean(m_pSoundSettings, DNS_NOISE_REDUCTION);
+        m_pInputWidget->m_pDnsNoiseReductionButton->setChecked(status);
+        if(status) {
+            value = DNS_NOISE_REDUCTION_VOLUME;
+            qDebug() << "DNS_NOISE_REDUCTION_VOLUME:" << value;
+            m_pInputWidget->m_pIpVolumeSlider->setValue(paVolumeToValue(value));
+        }
+
         QString percent = QString::number(paVolumeToValue(value));
 
         m_pInputWidget->m_pIpVolumePercentLabel->setText(percent+"%");
@@ -574,7 +592,7 @@ void UkmediaMainWidget::logoutMusicButtonSwitchChangedSlot(bool status)
 }
 
 /*
- *   是否播放唤醒音乐
+ *   是否播放唤醒音plugins/system/audio/ukmedia_main_widget.h乐
  */
 void UkmediaMainWidget::wakeButtonSwitchChangedSlot(bool status)
 {
@@ -595,16 +613,16 @@ void UkmediaMainWidget::alertSoundButtonSwitchChangedSlot(bool status)
     g_settings_set_boolean (m_pSoundSettings, EVENT_SOUNDS_KEY, status);
 
     if (status == true) {
-//        m_pSoundWidget->m_pAlertSoundChangedWidget->show();
-        m_pSoundWidget->m_pAlertSoundWidget->show();
-        m_pSoundWidget->m_pVolumeChangeWidget->show();
-        m_pSoundWidget->m_pThemeWidget->show();
+        m_pSoundWidget->m_pAlertSoundChangedWidget->show();
+//        m_pSoundWidget->m_pAlertSoundWidget->show();
+//        m_pSoundWidget->m_pVolumeChangeWidget->show();
+//        m_pSoundWidget->m_pThemeWidget->show();
     }
     else {
-//        m_pSoundWidget->m_pAlertSoundChangedWidget->hide();
-        m_pSoundWidget->m_pAlertSoundWidget->hide();
-        m_pSoundWidget->m_pVolumeChangeWidget->hide();
-        m_pSoundWidget->m_pThemeWidget->hide();
+        m_pSoundWidget->m_pAlertSoundChangedWidget->hide();
+//        m_pSoundWidget->m_pAlertSoundWidget->hide();
+//        m_pSoundWidget->m_pVolumeChangeWidget->hide();
+//        m_pSoundWidget->m_pThemeWidget->hide();
     }
 }
 
@@ -612,13 +630,65 @@ void UkmediaMainWidget::switchNoiseReductionButton(bool status)
 {
     if (status) {
         system("pacmd switch-on-dns-global inteldns_source 1");
-        system("amixer cset numid=43 52");
-        system("amixer cset numid=46 60");
+        system("amixer sset ‘Dmic0’ 52");
+        system("amixer sset ‘Dmic1 2nd’ 60");
+
+        m_pInputWidget->m_pIpVolumeSlider->setValue(50);
+        m_pInputWidget->m_pIpVolumeSlider->setStyleSheet( "QSlider::groove:horizontal {"
+                                           "border: 0px none;"
+                                           "background: palette(button);"
+                                           "height: 8px;"
+                                           "border-radius: 5px;"
+                                           "}"
+
+                                           "QSlider::handle:horizontal {"
+
+                                           "height: 24px;"
+                                           "width: 32px;"
+                                           "margin: 30px;"
+                                           "border-image: url(://img/plugins/mouse/slider.svg);"
+                                           "margin: -8 -4px;"
+                                           "}"
+
+    //                                       "QSlider::add-page:horizontal {"
+    //                                       "background: palette(button);"
+    //                                       "border-radius: 20px;"
+    //                                       "}"
+
+                                           "QSlider::sub-page:horizontal {"
+                                           "background: palette(button);"
+                                           "border-radius: 5px;"
+                                           "}");
         m_pInputWidget->m_pIpVolumeSlider->setEnabled(false);
     }
     else {
         system("pacmd switch-on-dns-global inteldns_source 0");
         m_pInputWidget->m_pIpVolumeSlider->setEnabled(true);
+        m_pInputWidget->m_pIpVolumeSlider->setStyleSheet( "QSlider::groove:horizontal {"
+                                           "border: 0px none;"
+                                           "background: palette(button);"
+                                           "height: 8px;"
+                                           "border-radius: 5px;"
+                                           "}"
+
+                                           "QSlider::handle:horizontal {"
+
+                                           "height: 24px;"
+                                           "width: 32px;"
+                                           "margin: 30px;"
+                                           "border-image: url(://img/plugins/mouse/slider.svg);"
+                                           "margin: -8 -4px;"
+                                           "}"
+
+    //                                       "QSlider::add-page:horizontal {"
+    //                                       "background: palette(button);"
+    //                                       "border-radius: 20px;"
+    //                                       "}"
+
+                                           "QSlider::sub-page:horizontal {"
+                                           "background: #2FB3E8;"
+                                           "border-radius: 5px;"
+                                           "}");
 
     }
 }
@@ -1598,6 +1668,17 @@ void UkmediaMainWidget::inputWidgetSliderChangedSlot(int value)
     m_pInputWidget->m_pIpVolumePercentLabel->setText(percent);
 }
 
+void UkmediaMainWidget::alertSoundSliderChangedSlot(int v)
+{
+    m_pVolumeControl->setExtStreamVolume(valueToPaVolume(v),false);
+    if (QGSettings::isSchemaInstalled(UKUI_AUDIO_SCHEMA)) {
+        if (m_pAlertVolumeSetting->keys().contains("alertVolume")) {
+            m_pAlertVolumeSetting->set(ALERT_VOLUME,v);
+        }
+    }
+}
+
+
 /*
  *  平衡值改变
  */
@@ -1616,7 +1697,7 @@ void UkmediaMainWidget::peakVolumeChangedSlot(double v)
 {
     if (v >= 0) {
         m_pInputWidget->m_pInputLevelProgressBar->setEnabled(true);
-        int value = qRound(v * m_pInputWidget->m_pInputLevelProgressBar->maximum());
+        int value = qRound(v * 100);
         m_pInputWidget->m_pInputLevelProgressBar->setValue(value);
     } else {
         m_pInputWidget->m_pInputLevelProgressBar->setEnabled(false);

@@ -1305,8 +1305,7 @@ void UkmediaVolumeControl::extStreamRestoreReadCb(
         decOutstanding(w);
         return;
     }
-//    qDebug() << "extStreamRestoreReadCb" << i->name;
-//    w->updateRole(*i);
+    w->updateRole(*i);
 }
 
 void UkmediaVolumeControl::extStreamRestoreSubscribeCb(pa_context *c, void *userdata) {
@@ -1548,6 +1547,13 @@ void UkmediaVolumeControl::contextStateCallback(pa_context *c, void *userdata) {
 
             if (!(o = pa_context_get_source_output_info_list(c, sourceOutputCb, w))) {
                 w->showError(QObject::tr("pa_context_get_source_output_info_list() failed").toUtf8().constData());
+                return;
+            }
+            pa_operation_unref(o);
+            n_outstanding++;
+
+            if (!(o = pa_ext_stream_restore_read(c, extStreamRestoreReadCb, w))) {
+                w->showError(QObject::tr("pa_ext_stream_restore_read() failed").toUtf8().constData());
                 return;
             }
             pa_operation_unref(o);
@@ -1919,4 +1925,42 @@ bool UkmediaVolumeControl::isExitInputPort(QString name)
         ++it;
     }
     return false;
+}
+
+void UkmediaVolumeControl::createEventRole() {
+
+    pa_channel_map cm = {
+        1, { PA_CHANNEL_POSITION_MONO }
+    };
+
+    role = "sink-input-by-media-role:event";
+    device = "";
+}
+
+void UkmediaVolumeControl::updateRole(const pa_ext_stream_restore_info &info) {
+
+    if (strcmp(info.name, "sink-input-by-media-role:event") != 0)
+        return;
+
+    createEventRole();
+
+    device = info.device ? info.device : "";
+}
+
+void UkmediaVolumeControl::setExtStreamVolume(int v, bool state)
+{
+    paExtStreamInfo.name = role;
+    paExtStreamInfo.channel_map.channels = 1;
+    paExtStreamInfo.channel_map.map[0] = PA_CHANNEL_POSITION_MONO;
+
+    volume.channels = 1;
+    volume.values[0] = v;
+    paExtStreamInfo.mute = state;
+    paExtStreamInfo.volume = volume;
+    paExtStreamInfo.device = device == "" ? nullptr : device.constData();
+    pa_operation* o;
+    if (!(o = pa_ext_stream_restore_write(getContext(), PA_UPDATE_REPLACE, &paExtStreamInfo, 1, TRUE, nullptr, nullptr))) {
+        showError(tr("pa_ext_stream_restore_write() failed").toUtf8().constData());
+        return;
+    }
 }
