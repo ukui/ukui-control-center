@@ -159,6 +159,8 @@ void Utils::setCLIName(QCommandLineParser &parser) {
 
     parser.addOption(areaRoleOption);
 
+    parser.addOption(backupRoleOption);
+
     parser.addOption(noticeRoleOption);
     parser.addOption(aboutRoleOption);
     parser.addOption(searchRoleOption);
