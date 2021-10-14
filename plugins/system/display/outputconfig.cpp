@@ -232,8 +232,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
     QList<KScreen::ModePtr> modes;
     Q_FOREACH (const KScreen::ModePtr &mode, mOutput->modes()) {
         if (mode->size() == size) {
-            if (mode->refreshRate() >= kExcludeRate)
-                selectMode = mode;
+            selectMode = mode;
             modes << mode;
         }
     }
@@ -273,7 +272,14 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
     }
 
     if (!emitFlag) {
-        const int index = mRefreshRate->findData(currentMode->id());
+        int index = 0;
+        if (currentMode) { //避免闪退
+            index = mRefreshRate->findData(currentMode->id());
+        }
+        if (index < 0) {  //当某个分辨率下所有的刷新率都 < kExcludeRate时，findData会失败，此时显示自动
+            index = 0;
+        }
+
         mRefreshRate->setCurrentIndex(index);
     }
 
