@@ -4,8 +4,9 @@
 <context>
     <name>About</name>
     <message>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="47"/>
         <source>System Summary</source>
-        <translation type="vanished">系统概述</translation>
+        <translation>系统概述</translation>
     </message>
     <message>
         <source>Technical service has expired</source>
@@ -16,8 +17,9 @@
         <translation type="vanished">延长服务</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="502"/>
         <source>version</source>
-        <translation type="vanished">版本</translation>
+        <translation>版本</translation>
         <extra-contents_path>/about/version</extra-contents_path>
     </message>
     <message>
@@ -29,70 +31,91 @@
         <translation type="vanished">版权所有2009-2021@kylinos保留所有权利</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="138"/>
         <source>Version</source>
-        <translation type="vanished">版本</translation>
+        <translation>版本</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="145"/>
         <source>Kylin Linux Desktop V10 (SP1)</source>
-        <translation type="vanished">银河麒麟桌面操作系统V10 (SP1)</translation>
+        <translation>银河麒麟桌面操作系统V10 (SP1)</translation>
     </message>
     <message>
         <source>Copyright @ 2009-2021 KylinSoft. All rights reserved.</source>
         <translation type="vanished">版权所有 @ 2009-2021 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="181"/>
         <source>Copyright © 2009-2021 KylinSoft. All rights reserved.</source>
-        <translation type="vanished">版权所有 © 2009-2021 麒麟软件 保留所有权利。</translation>
+        <translation>版权所有 © 2009-2021 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="269"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="504"/>
         <source>Kernel</source>
-        <translation type="vanished">内核</translation>
+        <translation>内核</translation>
         <extra-contents_path>/about/Kernel</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="308"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="506"/>
         <source>CPU</source>
-        <translation type="vanished">CPU</translation>
+        <translation>CPU</translation>
         <extra-contents_path>/about/CPU</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="356"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="508"/>
         <source>Memory</source>
-        <translation type="vanished">内存</translation>
+        <translation>内存</translation>
         <extra-contents_path>/about/Memory</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="404"/>
         <source>Disk</source>
-        <translation type="vanished">硬盘</translation>
+        <translation>硬盘</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="458"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="510"/>
         <source>Desktop</source>
-        <translation type="vanished">桌面</translation>
+        <translation>桌面</translation>
         <extra-contents_path>/about/Desktop</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="488"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="512"/>
         <source>User</source>
-        <translation type="vanished">用户名</translation>
+        <translation>用户名</translation>
         <extra-contents_path>/about/User</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="534"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="514"/>
         <source>Status</source>
-        <translation type="vanished">激活状态</translation>
+        <translation>激活状态</translation>
         <extra-contents_path>/about/Status</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="94"/>
         <source>Active Status</source>
-        <translation type="vanished">激活状态</translation>
+        <translation>激活状态</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="573"/>
         <source>DataRes</source>
-        <translation type="vanished">服务到期时间</translation>
+        <translation>服务到期时间</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="603"/>
         <source>Serial</source>
-        <translation type="vanished">序列号</translation>
+        <translation>序列号</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="669"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="518"/>
         <source>Protocol</source>
-        <translation type="vanished">免责协议</translation>
+        <translation>免责协议</translation>
         <extra-contents_path>/about/Protocol</extra-contents_path>
     </message>
     <message>
@@ -100,8 +123,11 @@
         <translation type="vanished">序列号</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="639"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="266"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="516"/>
         <source>Active</source>
-        <translation type="vanished">激活</translation>
+        <translation>激活</translation>
         <extra-contents_path>/about/Active</extra-contents_path>
     </message>
     <message>
@@ -117,8 +143,9 @@
         <translation type="vanished">关于</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="63"/>
         <source>About</source>
-        <translation type="vanished">关于</translation>
+        <translation>关于</translation>
     </message>
     <message>
         <source>The system has expired. The expiration time is:</source>
@@ -133,20 +160,24 @@
         <translation type="vanished">可用</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="264"/>
         <source>Inactivated</source>
-        <translation type="vanished">未激活</translation>
+        <translation>未激活</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="270"/>
         <source>Activated</source>
-        <translation type="vanished">已激活</translation>
+        <translation>已激活</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="310"/>
         <source>expired</source>
-        <translation type="vanished">已过期</translation>
+        <translation>已过期</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="313"/>
         <source>Extend</source>
-        <translation type="vanished">延长服务</translation>
+        <translation>延长服务</translation>
     </message>
     <message>
         <source>UNKNOWN</source>
@@ -188,125 +219,171 @@
 <context>
     <name>AddAppDialog</name>
     <message>
+        <location filename="../../../plugins/system/defaultapp/addappdialog.ui" line="74"/>
         <source>OK</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/defaultapp/addappdialog.ui" line="81"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
 </context>
 <context>
     <name>AddAutoBoot</name>
     <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="32"/>
         <source>Add AutoBoot</source>
-        <translation type="vanished">添加自启动程序</translation>
+        <translation>添加自启动程序</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="162"/>
         <source>Add autoboot program</source>
-        <translation type="vanished">添加自启动程序</translation>
+        <translation>添加自启动程序</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="218"/>
+        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="39"/>
+        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="109"/>
         <source>Program name</source>
-        <translation type="vanished">程序名</translation>
+        <translation>程序名</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="246"/>
+        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="40"/>
+        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="110"/>
         <source>Program exec</source>
-        <translation type="vanished">程序路径</translation>
+        <translation>程序路径</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="361"/>
         <source>Open</source>
-        <translation type="vanished">浏览</translation>
+        <translation>浏览</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="274"/>
+        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="41"/>
+        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="111"/>
         <source>Program comment</source>
-        <translation type="vanished">程序描述</translation>
+        <translation>程序描述</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="429"/>
+        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="177"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="454"/>
         <source>Certain</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="168"/>
         <source>Desktop files(*.desktop)</source>
-        <translation type="vanished">桌面文件(*.desktop)</translation>
+        <translation>桌面文件(*.desktop)</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="175"/>
         <source>select autoboot desktop</source>
-        <translation type="vanished">选择自启动程序</translation>
+        <translation>选择自启动程序</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="176"/>
         <source>Select</source>
-        <translation type="vanished">选择</translation>
+        <translation>选择</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="223"/>
         <source>desktop file not allowed add</source>
-        <translation type="vanished">此应用不允许添加</translation>
+        <translation>此应用不允许添加</translation>
     </message>
     <message>
         <source>desktop file  already exist</source>
         <translation type="vanished">桌面文件已经存在</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="272"/>
         <source>desktop file not exist</source>
-        <translation type="vanished">desktop文件不存在</translation>
+        <translation>desktop文件不存在</translation>
     </message>
 </context>
 <context>
     <name>AppDetail</name>
     <message>
+        <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="32"/>
         <source>Dialog</source>
-        <translation type="vanished">更改时间</translation>
+        <translation>更改时间</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="97"/>
+        <source>App</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="163"/>
         <source>Allow notification</source>
-        <translation type="vanished">允许通知</translation>
+        <translation>允许通知</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="213"/>
         <source>Number of notification centers</source>
-        <translation type="vanished">最大通知数量</translation>
+        <translation>最大通知数量</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="290"/>
         <source>cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="309"/>
         <source>confirm</source>
-        <translation type="vanished">确认</translation>
+        <translation>确认</translation>
     </message>
 </context>
 <context>
     <name>AppUpdateWid</name>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="73"/>
         <source>Lack of local disk space!</source>
-        <translation type="vanished">磁盘空间不足！</translation>
+        <translation>磁盘空间不足！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="79"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="102"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="402"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="627"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="685"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="848"/>
         <source>Update</source>
-        <translation type="vanished">更新</translation>
+        <translation>更新</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="96"/>
         <source>Network abnormal!</source>
-        <translation type="vanished">网络异常！</translation>
+        <translation>网络异常！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="111"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="127"/>
         <source>Download failed!</source>
-        <translation type="vanished">下载失败！</translation>
+        <translation>下载失败！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="113"/>
         <source>failed to get from the source!</source>
-        <translation type="vanished">从源中获取失败！</translation>
+        <translation>从源中获取失败！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="129"/>
         <source>The download cache has been removed</source>
-        <translation type="vanished">下载缓存已被删除</translation>
+        <translation>下载缓存已被删除</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="288"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="291"/>
         <source>Being installed</source>
-        <translation type="vanished">正在安装</translation>
+        <translation>正在安装</translation>
     </message>
     <message>
         <source>Update succeeded , please restart the system!</source>
@@ -317,148 +394,209 @@
         <translation type="vanished"> 更新成功，请注销重新登录系统!</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="316"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="325"/>
         <source>Update succeeded!</source>
-        <translation type="vanished">更新成功！</translation>
+        <translation>更新成功！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="336"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="346"/>
         <source>Update failed!</source>
-        <translation type="vanished">更新失败！</translation>
+        <translation>更新失败！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="339"/>
         <source>Failure reason:</source>
-        <translation type="vanished">失败原因：</translation>
+        <translation>失败原因：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="396"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="614"/>
         <source>details</source>
-        <translation type="vanished">详情</translation>
+        <translation>详情</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="445"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="512"/>
         <source>Update log</source>
-        <translation type="vanished">更新日志</translation>
+        <translation>更新日志</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="492"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="493"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="498"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="513"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="688"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="689"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="691"/>
         <source>Newest:</source>
-        <translation type="vanished">最新：</translation>
+        <translation>最新：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="521"/>
         <source>Download completed</source>
-        <translation type="obsolete">下载完成</translation>
+        <translation type="unfinished">下载完成</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="528"/>
         <source>Download size:</source>
-        <translation type="vanished">下载大小：</translation>
+        <translation>下载大小：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="555"/>
         <source>Current version:</source>
-        <translation type="vanished">当前版本：</translation>
+        <translation>当前版本：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="608"/>
         <source>back</source>
-        <translation type="vanished">收起</translation>
+        <translation>收起</translation>
     </message>
     <message>
         <source>In the pause</source>
         <translation type="vanished">暂停中</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="657"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="709"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="303"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="305"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="306"/>
         <source>Update succeeded , It is recommended that you restart later!</source>
-        <translation type="vanished">更新成功，建议您稍后重启！</translation>
+        <translation>更新成功，建议您稍后重启！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="310"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="312"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="313"/>
         <source>Update succeeded , It is recommended that you log out later and log in again!</source>
-        <translation type="vanished">更新成功，建议您稍后注销重新登录系统！</translation>
+        <translation>更新成功，建议您稍后注销重新登录系统！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="633"/>
         <source>The battery is below 50% and the update cannot be downloaded</source>
-        <translation type="vanished">电池电量低于 50%，无法下载更新</translation>
+        <translation>电池电量低于 50%，无法下载更新</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="636"/>
         <source>OK</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="647"/>
         <source>A single update will not automatically backup the system, if you want to backup, please click Update All.</source>
-        <translation type="vanished">单个更新不会自动备份系统，如需备份，请点击全部更新。</translation>
+        <translation>单个更新不会自动备份系统，如需备份，请点击全部更新。</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="648"/>
         <source>Prompt information</source>
-        <translation type="vanished">提示信息</translation>
+        <translation>提示信息</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="656"/>
         <source>Do not backup, continue to update</source>
-        <translation type="vanished">不备份，继续更新</translation>
+        <translation>不备份，继续更新</translation>
     </message>
     <message>
         <source>Cancel update</source>
         <translation type="vanished">取消更新</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="660"/>
         <source>This time will no longer prompt</source>
-        <translation type="vanished">本次更新不再提示</translation>
+        <translation>本次更新不再提示</translation>
     </message>
     <message>
         <source>Calculate the download speed</source>
         <translation type="vanished">正在获取当前下载进度</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="728"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="735"/>
         <source>Get depends failed!</source>
-        <translation type="vanished">依赖获取异常！</translation>
+        <translation>依赖获取异常！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="785"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="788"/>
         <source>In the update</source>
-        <translation type="vanished">更新中</translation>
+        <translation>更新中</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="175"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="713"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="826"/>
         <source>Ready to install</source>
-        <translation type="vanished">准备安装</translation>
+        <translation>准备安装</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="717"/>
         <source>Calculate the download progress</source>
-        <translation type="vanished">正在计算当前下载速度</translation>
+        <translation>正在计算当前下载速度</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="907"/>
         <source>No content.</source>
-        <translation type="vanished">暂无内容.</translation>
+        <translation>暂无内容.</translation>
     </message>
 </context>
 <context>
     <name>Area</name>
     <message>
+        <location filename="../../../plugins/time-language/area/area.ui" line="26"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="42"/>
         <source>Area</source>
-        <translation type="vanished">区域语言</translation>
+        <translation>区域语言</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.ui" line="56"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="157"/>
         <source>Regional Format</source>
-        <translation type="vanished">区域格式</translation>
+        <translation>区域格式</translation>
         <extra-contents_path>/area/Regional Format</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.ui" line="169"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="395"/>
         <source>Current Region</source>
-        <translation type="vanished">当前区域</translation>
+        <translation>当前区域</translation>
         <extra-contents_path>/area/Current Region</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.ui" line="252"/>
         <source>First Day Of The Week</source>
-        <translation type="vanished">一周的第一天</translation>
+        <translation>一周的第一天</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.ui" line="313"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="397"/>
         <source>Calendar</source>
-        <translation type="vanished">日历</translation>
+        <translation>日历</translation>
         <extra-contents_path>/area/Calendar</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.ui" line="374"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="401"/>
         <source>Date</source>
-        <translation type="vanished">日期</translation>
+        <translation>日期</translation>
         <extra-contents_path>/area/Date</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.ui" line="435"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="403"/>
         <source>Time</source>
-        <translation type="vanished">时间</translation>
+        <translation>时间</translation>
         <extra-contents_path>/area/Time</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.ui" line="508"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Area showing time currency format</source>
@@ -469,8 +607,9 @@
         <translation type="vanished">区域格式数据</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="408"/>
         <source>lunar</source>
-        <translation type="vanished">农历</translation>
+        <translation>农历</translation>
     </message>
     <message>
         <source>First day of the week</source>
@@ -493,57 +632,75 @@
         <translation type="vanished">显示日期、时间、货币格式的区域</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="259"/>
         <source>US</source>
-        <translation type="vanished">美国</translation>
+        <translation>美国</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="167"/>
+        <source>addwgt</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="161"/>
         <source>Language for system windows,menus and web pages</source>
-        <translation type="vanished">选择一种语言作为系统窗口、菜单和网页的显示语言</translation>
+        <translation>选择一种语言作为系统窗口、菜单和网页的显示语言</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="186"/>
         <source>Add language</source>
-        <translation type="vanished">添加语言</translation>
+        <translation>添加语言</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="227"/>
         <source>Simplified Chinese</source>
-        <translation type="vanished">简体中文</translation>
+        <translation>简体中文</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="399"/>
         <source>First Day Of Week</source>
-        <translation type="vanished">一周的第一天</translation>
+        <translation>一周的第一天</translation>
         <extra-contents_path>/area/First Day Of Week</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="423"/>
         <source>12 Hours</source>
-        <translation type="vanished">12小时</translation>
+        <translation>12小时</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="424"/>
         <source>24 Hours</source>
-        <translation type="vanished">24小时</translation>
+        <translation>24小时</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="534"/>
         <source>Modify the current region need to logout to take effect, whether to logout?</source>
-        <translation type="vanished">修改当前区域需要注销后生效，是否注销?</translation>
+        <translation>修改当前区域需要注销后生效，是否注销?</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="538"/>
         <source>Modify the first language need to reboot to take effect, whether to reboot?</source>
-        <translation type="vanished">修改首选语言需要重启后生效，是否重启?</translation>
+        <translation>修改首选语言需要重启后生效，是否重启?</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="535"/>
         <source>Logout later</source>
-        <translation type="vanished">稍后注销</translation>
+        <translation>稍后注销</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="536"/>
         <source>Logout now</source>
-        <translation type="vanished">立即注销</translation>
+        <translation>立即注销</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="539"/>
         <source>Reboot later</source>
-        <translation type="vanished">稍后重启</translation>
+        <translation>稍后重启</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="540"/>
         <source>Reboot now</source>
-        <translation type="vanished">立即重启</translation>
+        <translation>立即重启</translation>
     </message>
     <message>
         <source>Modification of system language needs to be logged out to take effect, whether to log out?</source>
@@ -586,8 +743,10 @@
         <translation type="vanished">更改数据格式</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.ui" line="474"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="159"/>
         <source>First Language</source>
-        <translation type="vanished">首选语言</translation>
+        <translation>首选语言</translation>
         <extra-contents_path>/area/First Language</extra-contents_path>
     </message>
     <message>
@@ -595,8 +754,9 @@
         <translation type="vanished">显示语言</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="260"/>
         <source>CN</source>
-        <translation type="vanished">中国</translation>
+        <translation>中国</translation>
     </message>
     <message>
         <source>Need to cancel to take effect</source>
@@ -620,24 +780,28 @@
         <extra-contents_path>/area/regional format</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="228"/>
         <source>English</source>
-        <translation type="vanished">英语</translation>
+        <translation>英语</translation>
     </message>
     <message>
         <source>Chinese</source>
         <translation type="vanished">简体中文</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="405"/>
         <source>solar calendar</source>
-        <translation type="vanished">公历</translation>
+        <translation>公历</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="411"/>
         <source>monday</source>
-        <translation type="vanished">星期一</translation>
+        <translation>星期一</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="412"/>
         <source>sunday</source>
-        <translation type="vanished">星期天</translation>
+        <translation>星期天</translation>
     </message>
     <message>
         <source>change data format</source>
@@ -654,20 +818,25 @@
 <context>
     <name>Audio</name>
     <message>
+        <location filename="../../../plugins/devices/audio/audio.ui" line="26"/>
+        <location filename="../../../plugins/devices/audio/audio.cpp" line="27"/>
         <source>Audio</source>
-        <translation type="vanished">声音</translation>
+        <translation>声音</translation>
     </message>
 </context>
 <context>
     <name>AutoBoot</name>
     <message>
+        <location filename="../../../plugins/system/autoboot/autoboot.ui" line="88"/>
+        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="190"/>
         <source>Autoboot Settings</source>
-        <translation type="vanished">开机启动设置</translation>
+        <translation>开机启动设置</translation>
         <extra-contents_path>/autoboot/Autoboot Settings</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="149"/>
         <source>Add autoboot app </source>
-        <translation type="vanished">添加自启动程序 </translation>
+        <translation>添加自启动程序 </translation>
         <extra-contents_path>/autoboot/Add autoboot app</extra-contents_path>
     </message>
     <message>
@@ -679,27 +848,34 @@
         <translation type="vanished">开机启动</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="63"/>
         <source>Auto Boot</source>
-        <translation type="vanished">开机启动</translation>
+        <translation>开机启动</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="228"/>
         <source>Name</source>
-        <translation type="vanished">程序名称</translation>
+        <translation>程序名称</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="232"/>
         <source>Status</source>
-        <translation type="vanished">当前状态</translation>
+        <translation>当前状态</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="293"/>
         <source>Delete</source>
-        <translation type="vanished">删除</translation>
+        <translation>删除</translation>
     </message>
 </context>
 <context>
     <name>Backup</name>
     <message>
+        <location filename="../../../plugins/security-updates/backup/backup.ui" line="53"/>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="45"/>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="88"/>
         <source>Backup</source>
-        <translation type="vanished">备份</translation>
+        <translation>备份</translation>
     </message>
     <message>
         <source>Back up your files to other drives, and when the original files are lost, damaged, or deleted, you can restore them to ensure 
@@ -707,30 +883,38 @@ the integrity of your system.</source>
         <translation type="vanished">将您的文件备份到其他驱动器，当源文件丢失、受损或被删除时可以还原它们，保证系统的完整性。</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/backup/backup.ui" line="69"/>
         <source>Back up your files to other drives, and when the original files are lost, damaged, or deleted, 
 you can restore them to ensure the integrity of your system.</source>
-        <translation type="vanished">将您的文件备份到其他驱动器，当源文件丢失、受损、删除时还原它们，保证系统的完整性。</translation>
+        <translation>将您的文件备份到其他驱动器，当源文件丢失、受损、删除时还原它们，保证系统的完整性。</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/backup/backup.ui" line="113"/>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="91"/>
         <source>Begin backup</source>
-        <translation type="vanished">开始备份</translation>
+        <translation>开始备份</translation>
         <extra-contents_path>/backup/Begin backup</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/backup/backup.ui" line="157"/>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="89"/>
         <source>Restore</source>
-        <translation type="vanished">还原</translation>
+        <translation>还原</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/backup/backup.ui" line="173"/>
         <source>View a list of backed-upfiles to backed up files to the system</source>
-        <translation type="vanished">查看备份列表，将已备份文件还原至系统</translation>
+        <translation>查看备份列表，将已备份文件还原至系统</translation>
     </message>
     <message>
         <source>View a list of backed-upfiles to restore backed up files to the system</source>
         <translation type="vanished">查看备份列表，将已备份文件还原至系统</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/backup/backup.ui" line="213"/>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="93"/>
         <source>Begin restore</source>
-        <translation type="vanished">开始还原</translation>
+        <translation>开始还原</translation>
         <extra-contents_path>/backup/Begin restore</extra-contents_path>
     </message>
     <message>
@@ -764,204 +948,264 @@ you can restore them to ensure the integrity of your system.</source>
 <context>
     <name>BiometricEnrollDialog</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.ui" line="26"/>
+        <source>Dialog</source>
+        <translation></translation>
+    </message>
+    <message>
         <source>Biometrics </source>
         <translation type="vanished">生物识别</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.ui" line="290"/>
         <source>Continue to enroll </source>
-        <translation type="vanished">继续录入</translation>
+        <translation>继续录入</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.ui" line="322"/>
         <source>Finish</source>
-        <translation type="vanished">完成</translation>
+        <translation>完成</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="121"/>
         <source>FingerPrint</source>
-        <translation type="vanished">指纹</translation>
+        <translation>指纹</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="123"/>
         <source>Fingervein</source>
-        <translation type="vanished">指静脉</translation>
+        <translation>指静脉</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="125"/>
         <source>Iris</source>
-        <translation type="vanished">虹膜</translation>
+        <translation>虹膜</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="127"/>
         <source>Face</source>
-        <translation type="vanished">人脸</translation>
+        <translation>人脸</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="129"/>
         <source>VoicePrint</source>
-        <translation type="vanished">声纹</translation>
+        <translation>声纹</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="139"/>
         <source>Enroll</source>
-        <translation type="vanished">录入</translation>
+        <translation>录入</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="142"/>
         <source>Verify</source>
-        <translation type="vanished">验证</translation>
+        <translation>验证</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="145"/>
         <source>Search</source>
-        <translation type="vanished">搜索</translation>
+        <translation>搜索</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="173"/>
         <source>Permission is required.
 Please authenticate yourself to continue</source>
-        <translation type="vanished">需要授权，请先进行认证已继续操作</translation>
+        <translation>需要授权，请先进行认证已继续操作</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="197"/>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="369"/>
         <source>Enroll successfully</source>
-        <translation type="vanished">录入成功</translation>
+        <translation>录入成功</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="263"/>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="371"/>
         <source>Verify successfully</source>
-        <translation type="vanished">验证成功</translation>
+        <translation>验证成功</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="266"/>
         <source>Not Match</source>
-        <translation type="vanished">不匹配</translation>
+        <translation>不匹配</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="490"/>
         <source>D-Bus calling error</source>
-        <translation type="vanished">D-Bus获取错误</translation>
+        <translation>D-Bus获取错误</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="499"/>
         <source>Device is busy</source>
-        <translation type="vanished">设备忙</translation>
+        <translation>设备忙</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="503"/>
         <source>No such device</source>
-        <translation type="vanished">设备不存在</translation>
+        <translation>设备不存在</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricenroll.cpp" line="507"/>
         <source>Permission denied</source>
-        <translation type="vanished">权限不够</translation>
+        <translation>权限不够</translation>
     </message>
 </context>
 <context>
     <name>BiometricMoreInfoDialog</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.ui" line="26"/>
+        <source>Dialog</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.ui" line="76"/>
         <source>Biometrics </source>
-        <translation type="vanished">生物识别</translation>
+        <translation>生物识别</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.ui" line="166"/>
         <source>Default device </source>
-        <translation type="vanished">默认设备</translation>
+        <translation>默认设备</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.ui" line="208"/>
         <source>Verify Type:</source>
-        <translation type="vanished">验证类型：</translation>
+        <translation>验证类型：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.ui" line="215"/>
         <source>Bus Type:</source>
-        <translation type="vanished">总线类型：</translation>
+        <translation>总线类型：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.ui" line="222"/>
         <source>Device Status:</source>
-        <translation type="vanished">设备状态：</translation>
+        <translation>设备状态：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.ui" line="243"/>
         <source>Storage Type:</source>
-        <translation type="vanished">存储类型：</translation>
+        <translation>存储类型：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.ui" line="250"/>
         <source>Identification Type:</source>
-        <translation type="vanished">验证类型：</translation>
+        <translation>验证类型：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="77"/>
         <source>Connected</source>
-        <translation type="vanished">已连接</translation>
+        <translation>已连接</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="77"/>
         <source>Unconnected</source>
-        <translation type="vanished">未连接</translation>
+        <translation>未连接</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="126"/>
         <source>FingerPrint</source>
-        <translation type="vanished">指纹</translation>
+        <translation>指纹</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="128"/>
         <source>Fingervein</source>
-        <translation type="vanished">指静脉</translation>
+        <translation>指静脉</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="130"/>
         <source>Iris</source>
-        <translation type="vanished">虹膜</translation>
+        <translation>虹膜</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="132"/>
         <source>Face</source>
-        <translation type="vanished">人脸</translation>
+        <translation>人脸</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="134"/>
         <source>VoicePrint</source>
-        <translation type="vanished">声纹</translation>
+        <translation>声纹</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="143"/>
         <source>Hardware Verification</source>
-        <translation type="vanished">硬件验证</translation>
+        <translation>硬件验证</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="145"/>
         <source>Software Verification</source>
-        <translation type="vanished">软件验证</translation>
+        <translation>软件验证</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="147"/>
         <source>Mix Verification</source>
-        <translation type="vanished">混合验证</translation>
+        <translation>混合验证</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="149"/>
         <source>Other Verification</source>
-        <translation type="vanished">其他验证</translation>
+        <translation>其他验证</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="157"/>
         <source>Device Storage</source>
-        <translation type="vanished">设备存储</translation>
+        <translation>设备存储</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="159"/>
         <source>OS Storage</source>
-        <translation type="vanished">系统存储</translation>
+        <translation>系统存储</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="161"/>
         <source>Mix Storage</source>
-        <translation type="vanished">混合存储</translation>
+        <translation>混合存储</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="169"/>
         <source>Serial</source>
-        <translation type="vanished">串口</translation>
+        <translation>串口</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="171"/>
         <source>USB</source>
-        <translation type="vanished">USB</translation>
+        <translation>USB</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="173"/>
         <source>PCIE</source>
-        <translation type="vanished">PCIE</translation>
+        <translation>PCIE</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="175"/>
         <source>Any</source>
-        <translation type="vanished">任意类型</translation>
+        <translation>任意类型</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="177"/>
         <source>Other</source>
-        <translation type="vanished">其他</translation>
+        <translation>其他</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="185"/>
         <source>Hardware Identification</source>
-        <translation type="vanished">硬件识别</translation>
+        <translation>硬件识别</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="187"/>
         <source>Software Identification</source>
-        <translation type="vanished">软件识别</translation>
+        <translation>软件识别</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="189"/>
         <source>Mix Identification</source>
-        <translation type="vanished">混合识别</translation>
+        <translation>混合识别</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.cpp" line="191"/>
         <source>Other Identification</source>
-        <translation type="vanished">其他识别</translation>
+        <translation>其他识别</translation>
     </message>
 </context>
 <context>
@@ -983,35 +1227,48 @@ Please authenticate yourself to continue</source>
         <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="437"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1036"/>
         <source>Bluetooth</source>
-        <translation type="vanished">蓝牙</translation>
+        <translation>蓝牙</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="462"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1062"/>
         <source>Turn on :</source>
-        <translation type="vanished">开启</translation>
+        <translation>开启</translation>
         <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="495"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1096"/>
         <source>Bluetooth adapter</source>
-        <translation type="vanished">蓝牙适配器</translation>
+        <translation>蓝牙适配器</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="523"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1129"/>
         <source>Show icon on taskbar</source>
-        <translation type="vanished">在任务栏显示蓝牙图标</translation>
+        <translation>在任务栏显示蓝牙图标</translation>
         <extra-contents_path>/bluetooth/Show icon on taskbar</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="556"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1161"/>
         <source>Discoverable by nearby Bluetooth devices</source>
-        <translation type="vanished">可被附近的蓝牙设备发现</translation>
+        <translation>可被附近的蓝牙设备发现</translation>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="858"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1667"/>
         <source>Bluetooth adapter is abnormal !</source>
-        <translation type="vanished">蓝牙适配器异常！</translation>
+        <translation>蓝牙适配器异常！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1668"/>
         <source>You can refer to the rfkill command for details.</source>
-        <translation type="vanished">可查阅rfkill命令了解详情</translation>
+        <translation>可查阅rfkill命令了解详情</translation>
     </message>
     <message>
         <source>Allow Bluetooth devices to be discoverable</source>
@@ -1024,16 +1281,20 @@ Please authenticate yourself to continue</source>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="735"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1201"/>
         <source>My Devices</source>
-        <translation type="vanished">我的设备</translation>
+        <translation>我的设备</translation>
     </message>
     <message>
         <source>Can now be found as </source>
         <translation type="vanished">现在可被发现为 </translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="754"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1218"/>
         <source>Other Devices</source>
-        <translation type="vanished">蓝牙设备</translation>
+        <translation>蓝牙设备</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -1043,8 +1304,9 @@ Please authenticate yourself to continue</source>
 <context>
     <name>Bluetooth</name>
     <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetooth.cpp" line="6"/>
         <source>Bluetooth</source>
-        <translation type="vanished">蓝牙</translation>
+        <translation>蓝牙</translation>
     </message>
 </context>
 <context>
@@ -1054,207 +1316,255 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">现在可被发现为 </translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="37"/>
         <source>Double-click to change the device name</source>
-        <translation type="vanished">双击修改设备名称</translation>
+        <translation>双击修改设备名称</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="93"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="188"/>
         <source>Can now be found as &quot;%1&quot;</source>
-        <translation type="vanished">现在可被发现为&quot;%1&quot;</translation>
+        <translation>现在可被发现为&quot;%1&quot;</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="104"/>
         <source>Tip</source>
-        <translation type="vanished">提示</translation>
+        <translation>提示</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="105"/>
         <source>The length of the device name does not exceed %1 characters !</source>
-        <translation type="vanished">设备名称的长度不超过 %1 个字符！</translation>
+        <translation>设备名称的长度不超过 %1 个字符！</translation>
     </message>
 </context>
 <context>
     <name>CertificationDialog</name>
     <message>
+        <location filename="../../../plugins/network/proxy/certificationdialog.ui" line="26"/>
+        <location filename="../../../plugins/network/proxy/certificationdialog.ui" line="88"/>
         <source>UserCertification</source>
-        <translation type="vanished">用户认证</translation>
+        <translation>用户认证</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/proxy/certificationdialog.ui" line="161"/>
         <source>User:</source>
-        <translation type="vanished">用户名：</translation>
+        <translation>用户名：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/proxy/certificationdialog.ui" line="238"/>
         <source>Passwd:</source>
-        <translation type="vanished">密码：</translation>
+        <translation>密码：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/proxy/certificationdialog.ui" line="298"/>
         <source>Close</source>
-        <translation type="vanished">关闭</translation>
+        <translation>关闭</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/proxy/certificationdialog.cpp" line="33"/>
         <source>Certification</source>
-        <translation type="vanished">认证</translation>
+        <translation>认证</translation>
     </message>
 </context>
 <context>
     <name>ChangeFaceDialog</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="200"/>
         <source>select custom face file</source>
-        <translation type="vanished">选择自定义头像文件</translation>
+        <translation>选择自定义头像文件</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="201"/>
         <source>Select</source>
-        <translation type="vanished">选择</translation>
+        <translation>选择</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="202"/>
         <source>Position: </source>
-        <translation type="vanished">位置： </translation>
+        <translation>位置： </translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="203"/>
         <source>FileName: </source>
-        <translation type="vanished">文件名： </translation>
+        <translation>文件名： </translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="204"/>
         <source>FileType: </source>
-        <translation type="vanished">文件类型： </translation>
+        <translation>文件类型： </translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="317"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="205"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="220"/>
         <source>Warning</source>
-        <translation type="vanished">警告</translation>
+        <translation>警告</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="221"/>
         <source>The avatar is larger than 1M, please choose again</source>
-        <translation type="vanished">警告，头像大于1M请重新选择</translation>
+        <translation>警告，头像大于1M请重新选择</translation>
     </message>
     <message>
         <source>The avatar is larger than 2M, please choose again</source>
         <translation type="vanished">警告，头像大于2M请重新选择</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="96"/>
         <source>Change User Face</source>
-        <translation type="vanished">更改用户头像</translation>
+        <translation>更改用户头像</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="185"/>
         <source>System Icon</source>
-        <translation type="vanished">系统头像</translation>
+        <translation>系统头像</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="246"/>
         <source>Select face from local</source>
-        <translation type="vanished">从本地选择用户头像</translation>
+        <translation>从本地选择用户头像</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="336"/>
         <source>Save</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
 </context>
 <context>
     <name>ChangeGroupDialog</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.ui" line="32"/>
         <source>Dialog</source>
-        <translation type="vanished">用户组</translation>
+        <translation>用户组</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.ui" line="79"/>
         <source>User Group Settings</source>
-        <translation type="vanished">用户组设置</translation>
+        <translation>用户组设置</translation>
     </message>
     <message>
         <source>User groups available in the system</source>
         <translation type="vanished">系统中可用的用户组</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.ui" line="194"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Add new user</source>
         <translation type="obsolete">添加新用户</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="247"/>
         <source>User group</source>
-        <translation type="vanished">用户组</translation>
+        <translation>用户组</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="294"/>
         <source>Add user group</source>
-        <translation type="vanished">添加用户组</translation>
+        <translation>添加用户组</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="338"/>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="346"/>
         <source>Tips</source>
-        <translation type="vanished">提示</translation>
+        <translation>提示</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="338"/>
         <source>Invalid Id!</source>
-        <translation type="vanished">无效组ID!</translation>
+        <translation>无效组ID!</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="341"/>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="349"/>
         <source>OK</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changegroupdialog.cpp" line="346"/>
         <source>Invalid Group Name!</source>
-        <translation type="vanished">无效组名!</translation>
+        <translation>无效组名!</translation>
     </message>
 </context>
 <context>
     <name>ChangeProjectionName</name>
     <message>
+        <location filename="../../../plugins/devices/projection/changeprojectionname.cpp" line="24"/>
         <source>Name is too long, change another one.</source>
-        <translation type="vanished">名称过长，请更改</translation>
+        <translation>名称过长，请更改</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/projection/changeprojectionname.ui" line="26"/>
         <source>Change Username</source>
-        <translation type="vanished">修改用户名</translation>
+        <translation>修改用户名</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/projection/changeprojectionname.ui" line="96"/>
         <source>Changename</source>
-        <translation type="vanished">修改名称</translation>
+        <translation>修改名称</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/projection/changeprojectionname.ui" line="132"/>
         <source>ChangeProjectionname</source>
-        <translation type="vanished">设备名称</translation>
+        <translation>设备名称</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/projection/changeprojectionname.ui" line="213"/>
         <source>Save</source>
-        <translation type="vanished">保存</translation>
+        <translation>保存</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/projection/changeprojectionname.ui" line="194"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
 </context>
 <context>
     <name>ChangePwdDialog</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="130"/>
         <source>Change Pwd</source>
-        <translation type="vanished">更改密码</translation>
+        <translation>更改密码</translation>
     </message>
     <message>
         <source>Pwd type</source>
         <translation type="vanished">密码类型</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="314"/>
         <source>Cur pwd</source>
-        <translation type="vanished">当前密码</translation>
+        <translation>当前密码</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="359"/>
         <source>New pwd</source>
-        <translation type="vanished">新密码</translation>
+        <translation>新密码</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="404"/>
         <source>New pwd sure</source>
-        <translation type="vanished">新密码确认</translation>
+        <translation>新密码确认</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="524"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.ui" line="546"/>
         <source>Confirm</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="64"/>
         <source>Change pwd</source>
-        <translation type="vanished">更改密码</translation>
+        <translation>更改密码</translation>
     </message>
     <message>
         <source>Cur pwd checking!</source>
@@ -1265,32 +1575,43 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">通用密码</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="172"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="444"/>
         <source>Current Password</source>
-        <translation type="vanished">当前密码</translation>
+        <translation>当前密码</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="173"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="445"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="453"/>
         <source>New Password</source>
-        <translation type="vanished">新密码</translation>
+        <translation>新密码</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="174"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="446"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="454"/>
         <source>New Password Identify</source>
-        <translation type="vanished">新密码确认</translation>
+        <translation>新密码确认</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="193"/>
         <source>Authentication failed, input authtok again!</source>
-        <translation type="vanished">密码输入错误，请重新输入！</translation>
+        <translation>密码输入错误，请重新输入！</translation>
     </message>
     <message>
         <source>Pwd input error, re-enter!</source>
         <translation type="vanished">密码输入错误,重新输入!</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="361"/>
         <source>Contains illegal characters!</source>
-        <translation type="vanished">含有非法字符！</translation>
+        <translation>含有非法字符！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="363"/>
         <source>Same with old pwd</source>
-        <translation type="vanished">与旧密码相同</translation>
+        <translation>与旧密码相同</translation>
     </message>
     <message>
         <source>Password length needs to more than %1 character!</source>
@@ -1305,8 +1626,10 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">密码长度需要大于5个字符！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="269"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="399"/>
         <source>Inconsistency with pwd</source>
-        <translation type="vanished">与新密码不同</translation>
+        <translation>与新密码不同</translation>
     </message>
 </context>
 <context>
@@ -1320,67 +1643,82 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">标准帐户可以使用大多数软件，但是不能安装软件和更改系统配置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="85"/>
         <source>Change Account Type</source>
-        <translation type="vanished">更改用户类型</translation>
+        <translation>更改用户类型</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="359"/>
         <source>Users can make any changes they need</source>
-        <translation type="vanished">管理员帐户可以更改任何系统配置</translation>
+        <translation>管理员帐户可以更改任何系统配置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="409"/>
         <source>standard user</source>
-        <translation type="vanished">标准用户</translation>
+        <translation>标准用户</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="456"/>
         <source>Users cannot change system settings</source>
-        <translation type="vanished">标准帐户不能修改系统配置</translation>
+        <translation>标准帐户不能修改系统配置</translation>
     </message>
     <message>
         <source>Standard users can use most software, but cannot change system settings</source>
         <translation type="vanished">标准帐户可以使用大多数软件，但是不能修改系统配置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="312"/>
         <source>administrator</source>
-        <translation type="vanished">管理员用户</translation>
+        <translation>管理员用户</translation>
     </message>
     <message>
         <source>Administrators can make any changes they need</source>
         <translation type="vanished">管理员帐户可以更改任何系统配置，包括安装软件和升级软件</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="505"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="527"/>
         <source>Confirm</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.cpp" line="38"/>
         <source>Change type</source>
-        <translation type="vanished">更改类型</translation>
+        <translation>更改类型</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.cpp" line="41"/>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.cpp" line="42"/>
         <source>Ensure that must have admin on system</source>
-        <translation type="vanished">请确保该计算机上至少有一个管理员用户</translation>
+        <translation>请确保该计算机上至少有一个管理员用户</translation>
     </message>
 </context>
 <context>
     <name>ChangeUserName</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/changeusername.ui" line="26"/>
+        <location filename="../../../plugins/account/userinfo/changeusername.ui" line="90"/>
         <source>Change Username</source>
-        <translation type="vanished">修改用户名</translation>
+        <translation>修改用户名</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changeusername.ui" line="181"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changeusername.ui" line="200"/>
         <source>Save</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changeusername.cpp" line="25"/>
         <source>Name already in use, change another one.</source>
-        <translation type="vanished">该用户名已存在，请更改。</translation>
+        <translation>该用户名已存在，请更改。</translation>
     </message>
 </context>
 <context>
@@ -1409,93 +1747,128 @@ Please authenticate yourself to continue</source>
 <context>
     <name>ChangeValidDialog</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="32"/>
         <source>Dialog</source>
-        <translation type="vanished">更改时间</translation>
+        <translation>更改时间</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="138"/>
         <source>Password Validity Setting</source>
-        <translation type="vanished">密码有效期设置</translation>
+        <translation>密码有效期设置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="308"/>
         <source>Current passwd validity:</source>
-        <translation type="vanished">当前密码有效期至:</translation>
+        <translation>当前密码有效期至:</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="396"/>
         <source>Adjust date to:</source>
-        <translation type="vanished">调整有效期至:</translation>
+        <translation>调整有效期至:</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="517"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.ui" line="524"/>
         <source>Certain</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="41"/>
         <source>Change valid</source>
-        <translation type="vanished">密码时效</translation>
+        <translation>密码时效</translation>
     </message>
 </context>
 <context>
     <name>ChangtimeDialog</name>
     <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="164"/>
         <source>day</source>
-        <translation type="vanished">日期</translation>
+        <translation>日期</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="161"/>
         <source>time</source>
-        <translation type="vanished">时间</translation>
+        <translation>时间</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="162"/>
         <source>year</source>
-        <translation type="vanished">年份</translation>
+        <translation>年份</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="163"/>
         <source>month</source>
-        <translation type="vanished">月份</translation>
+        <translation>月份</translation>
     </message>
 </context>
 <context>
     <name>ColorDialog</name>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/colordialog.ui" line="26"/>
         <source>Dialog</source>
-        <translation type="vanished">更改时间</translation>
+        <translation>更改时间</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/colordialog.ui" line="61"/>
+        <source>     B</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/colordialog.ui" line="174"/>
+        <source>     R</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/colordialog.ui" line="199"/>
+        <source>     G</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/colordialog.ui" line="227"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/colordialog.ui" line="259"/>
         <source>OK</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/colordialog.cpp" line="92"/>
         <source>Custom color</source>
-        <translation type="vanished">自定颜色</translation>
+        <translation>自定颜色</translation>
     </message>
 </context>
 <context>
     <name>CreateGroupDialog</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="26"/>
         <source>Dialog</source>
-        <translation type="vanished">添加用户组</translation>
+        <translation>添加用户组</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="50"/>
         <source>Add New Group</source>
-        <translation type="vanished">添加用户组</translation>
+        <translation>添加用户组</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="77"/>
         <source>Name</source>
-        <translation type="vanished">组名</translation>
+        <translation>组名</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="124"/>
         <source>Id</source>
-        <translation type="vanished">组ID</translation>
+        <translation>组ID</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="172"/>
         <source>Members</source>
-        <translation type="vanished">组成员</translation>
+        <translation>组成员</translation>
     </message>
     <message>
         <source>Group Name</source>
@@ -1510,55 +1883,68 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">组成员</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="266"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.ui" line="288"/>
         <source>Certain</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/creategroupdialog.cpp" line="206"/>
         <source>Add user group</source>
-        <translation type="vanished">添加用户组</translation>
+        <translation>添加用户组</translation>
     </message>
 </context>
 <context>
     <name>CreateUserDialog</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="212"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="117"/>
         <source>UserName</source>
-        <translation type="vanished">用户名</translation>
+        <translation>用户名</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="260"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="118"/>
         <source>Password</source>
-        <translation type="vanished">密码</translation>
+        <translation>密码</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="367"/>
         <source>Account Type</source>
-        <translation type="vanished">用户类型</translation>
+        <translation>用户类型</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="115"/>
         <source>Add New Account</source>
-        <translation type="vanished">添加新用户</translation>
+        <translation>添加新用户</translation>
     </message>
     <message>
         <source>PwdType</source>
         <translation type="vanished">密码类型</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="308"/>
         <source>PasswordSure</source>
-        <translation type="vanished">确认密码</translation>
+        <translation>确认密码</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="468"/>
         <source>standard user</source>
-        <translation type="vanished">标准用户</translation>
+        <translation>标准用户</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="481"/>
         <source>Users cannot change system settings</source>
-        <translation type="vanished">标准帐户不能修改系统配置</translation>
+        <translation>标准帐户不能修改系统配置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="598"/>
         <source>Users can make any changes they need</source>
-        <translation type="vanished">管理员帐户可以更改任何系统配置</translation>
+        <translation>管理员帐户可以更改任何系统配置</translation>
     </message>
     <message>
         <source>Standard users can use most software, but cannot change system settings</source>
@@ -1570,60 +1956,73 @@ change system settings</source>
         <translation type="vanished">标准帐户可以使用大多数软件，但是不能安装软件和更改系统配置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="585"/>
         <source>administrator</source>
-        <translation type="vanished">管理员用户</translation>
+        <translation>管理员用户</translation>
     </message>
     <message>
         <source>Administrators can make any changes they need</source>
         <translation type="vanished">管理员帐户可以更改任何系统配置，包括安装软件和升级软件</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="673"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="692"/>
         <source>Confirm</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="119"/>
         <source>Password Identify</source>
-        <translation type="vanished">密码确认</translation>
+        <translation>密码确认</translation>
     </message>
     <message>
         <source>General Password</source>
         <translation type="vanished">通用密码</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="154"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="297"/>
         <source>Inconsistency with pwd</source>
-        <translation type="vanished">和密码不一致</translation>
+        <translation>和密码不一致</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="415"/>
         <source>Must be begin with lower letters!</source>
-        <translation type="vanished">用户名必须以小写字母开始！</translation>
+        <translation>用户名必须以小写字母开始！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="418"/>
         <source>Can not contain capital letters!</source>
-        <translation type="vanished">用户名不能包含大写字母！</translation>
+        <translation>用户名不能包含大写字母！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="440"/>
         <source>Name already in use, change another one.</source>
-        <translation type="vanished">该用户名已存在，请更改。</translation>
+        <translation>该用户名已存在，请更改。</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="442"/>
         <source>Name corresponds to group already exists.</source>
-        <translation type="vanished">用户名对应组已存在，请更改。</translation>
+        <translation>用户名对应组已存在，请更改。</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="447"/>
         <source>Name length must less than %1 letters!</source>
-        <translation type="vanished">用户名长度必须小于%1！</translation>
+        <translation>用户名长度必须小于%1！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="449"/>
         <source>Can only contain letters,digits,underline!</source>
-        <translation type="vanished">用户名仅能包含字母，数字及下划线</translation>
+        <translation>用户名仅能包含字母，数字及下划线</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="454"/>
         <source>Username&apos;s folder exists, change another one</source>
-        <translation type="vanished">用户目录已存在，请更改</translation>
+        <translation>用户目录已存在，请更改</translation>
     </message>
     <message>
         <source>Password length needs to more than %1 character!</source>
@@ -1634,20 +2033,23 @@ change system settings</source>
         <translation type="vanished">密码长度需要小于%1个字符！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="48"/>
         <source>Add new user</source>
-        <translation type="vanished">添加新用户</translation>
+        <translation>添加新用户</translation>
     </message>
     <message>
         <source>Password cannot be made up entirely by Numbers!</source>
         <translation type="obsolete">密码复杂度过低！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="249"/>
         <source>Contains illegal characters!</source>
-        <translation type="vanished">含有非法字符！</translation>
+        <translation>含有非法字符！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="413"/>
         <source>The user name cannot be empty</source>
-        <translation type="vanished">用户名不能为空</translation>
+        <translation>用户名不能为空</translation>
     </message>
     <message>
         <source>The first character must be lowercase letters!</source>
@@ -1681,8 +2083,9 @@ change system settings</source>
 <context>
     <name>CustomLineEdit</name>
     <message>
+        <location filename="../../../plugins/devices/shortcut/customlineedit.cpp" line="28"/>
         <source>New Shortcut...</source>
-        <translation type="vanished">新快捷键...</translation>
+        <translation>新快捷键...</translation>
     </message>
 </context>
 <context>
@@ -1743,17 +2146,31 @@ change system settings</source>
 <context>
     <name>DateTime</name>
     <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="26"/>
         <source>DateTime</source>
-        <translation type="vanished">时间日期</translation>
+        <translation>时间日期</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="62"/>
         <source>current date</source>
-        <translation type="vanished">当前时间</translation>
+        <translation>当前时间</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="193"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="212"/>
         <source>Change timezone</source>
-        <translation type="vanished">更改时区</translation>
+        <translation>更改时区</translation>
         <extra-contents_path>/date/Change timezone</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="375"/>
+        <source>titleLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="382"/>
+        <source>summaryLabel</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>timezone</source>
@@ -1768,12 +2185,16 @@ change system settings</source>
         <translation type="vanished">时间同步成功</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="840"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="845"/>
         <source>Sync from network failed</source>
-        <translation type="vanished">时间同步失败</translation>
+        <translation>时间同步失败</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="218"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="210"/>
         <source>Change time</source>
-        <translation type="vanished">手动更改时间</translation>
+        <translation>手动更改时间</translation>
         <extra-contents_path>/date/Change time</extra-contents_path>
     </message>
     <message>
@@ -1798,21 +2219,25 @@ change system settings</source>
         <translation type="vanished">时间日期</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="85"/>
         <source>Date</source>
-        <translation type="vanished">时间日期</translation>
+        <translation>时间日期</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="147"/>
         <source>Other Timezone</source>
-        <translation type="vanished">其他时区</translation>
+        <translation>其他时区</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="160"/>
         <source>24-hour clock</source>
-        <translation type="vanished">24小时制</translation>
+        <translation>24小时制</translation>
         <extra-contents_path>/date/24-hour clock</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="163"/>
         <source>Sync from network</source>
-        <translation type="vanished">同步网络时间</translation>
+        <translation>同步网络时间</translation>
         <extra-contents_path>/date/Sync from network</extra-contents_path>
     </message>
     <message>
@@ -1820,52 +2245,69 @@ change system settings</source>
         <translation type="vanished">添加时区以显示时间，最多可以添加5个</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="260"/>
         <source>Add time zones to display the time,only 5 can be added</source>
-        <translation type="vanished">添加时区，最多添加５个</translation>
+        <translation>添加时区，最多添加５个</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="284"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="622"/>
         <source>Add Timezone</source>
-        <translation type="vanished">添加时区</translation>
+        <translation>添加时区</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="413"/>
         <source>Delete</source>
-        <translation type="vanished">删除</translation>
+        <translation>删除</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="447"/>
         <source>Time Server</source>
-        <translation type="vanished">服务器</translation>
+        <translation>服务器</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="449"/>
         <source>Default</source>
-        <translation type="vanished">系统默认</translation>
+        <translation>系统默认</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="451"/>
         <source>Customize</source>
-        <translation type="vanished">自定义</translation>
+        <translation>自定义</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="459"/>
         <source>Server Address</source>
-        <translation type="vanished">服务器地址</translation>
+        <translation>服务器地址</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="464"/>
         <source>Required</source>
-        <translation type="vanished">必需</translation>
+        <translation>必需</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="465"/>
         <source>Save</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="624"/>
         <source>Change Timezone</source>
-        <translation type="vanished">更改时区</translation>
+        <translation>更改时区</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="839"/>
+        <source>  </source>
+        <translation></translation>
     </message>
     <message>
         <source>Sync network time</source>
         <translation type="vanished">同步网络时间</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="611"/>
         <source>change time</source>
-        <translation type="vanished">更改时间</translation>
+        <translation>更改时间</translation>
     </message>
 </context>
 <context>
@@ -1879,102 +2321,122 @@ change system settings</source>
         <translation type="vanished">默认应用</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="38"/>
         <source>Default App</source>
-        <translation type="vanished">默认应用</translation>
+        <translation>默认应用</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="65"/>
         <source>No program available</source>
-        <translation type="vanished">无可用程序</translation>
+        <translation>无可用程序</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="125"/>
         <source>Browser</source>
-        <translation type="vanished">浏览器</translation>
+        <translation>浏览器</translation>
         <extra-contents_path>/defaultapp/Browser</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="127"/>
         <source>Mail</source>
-        <translation type="vanished">电子邮件</translation>
+        <translation>电子邮件</translation>
         <extra-contents_path>/defaultapp/Mail</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="129"/>
         <source>Image Viewer</source>
-        <translation type="vanished">图像查看器</translation>
+        <translation>图像查看器</translation>
         <extra-contents_path>/defaultapp/Image Viewer</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="131"/>
         <source>Audio Player</source>
-        <translation type="vanished">音频播放器</translation>
+        <translation>音频播放器</translation>
         <extra-contents_path>/defaultapp/Audio Player</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="133"/>
         <source>Video Player</source>
-        <translation type="vanished">视频播放器</translation>
+        <translation>视频播放器</translation>
         <extra-contents_path>/defaultapp/Video Player</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.cpp" line="135"/>
         <source>Text Editor</source>
-        <translation type="vanished">文档编辑器</translation>
+        <translation>文档编辑器</translation>
         <extra-contents_path>/defaultapp/Text Editor</extra-contents_path>
     </message>
 </context>
 <context>
     <name>DefaultAppWindow</name>
     <message>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="53"/>
         <source>Select Default Application</source>
-        <translation type="vanished">默认应用</translation>
+        <translation>默认应用</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="130"/>
         <source>Browser</source>
-        <translation type="vanished">浏览器</translation>
+        <translation>浏览器</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="216"/>
         <source>Mail</source>
-        <translation type="vanished">电子邮件</translation>
+        <translation>电子邮件</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="299"/>
         <source>Image Viewer</source>
-        <translation type="vanished">图像查看器</translation>
+        <translation>图像查看器</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="382"/>
         <source>Audio Player</source>
-        <translation type="vanished">音频播放器</translation>
+        <translation>音频播放器</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="465"/>
         <source>Video Player</source>
-        <translation type="vanished">视频播放器</translation>
+        <translation>视频播放器</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="548"/>
         <source>Text Editor</source>
-        <translation type="vanished">文档编辑器</translation>
+        <translation>文档编辑器</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/defaultapp/defaultapp.ui" line="594"/>
         <source>Reset to default</source>
-        <translation type="vanished">恢复默认设置</translation>
+        <translation>恢复默认设置</translation>
     </message>
 </context>
 <context>
     <name>DefineGroupItem</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/definegroupitem.cpp" line="53"/>
         <source>Edit</source>
-        <translation type="vanished">编辑</translation>
+        <translation>编辑</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/definegroupitem.cpp" line="62"/>
         <source>Delete</source>
-        <translation type="vanished">删除</translation>
+        <translation>删除</translation>
     </message>
 </context>
 <context>
     <name>DefineShortcutItem</name>
     <message>
+        <location filename="../../../plugins/devices/shortcut/defineshortcutitem.cpp" line="58"/>
         <source>Delete</source>
-        <translation type="vanished">删除</translation>
+        <translation>删除</translation>
     </message>
 </context>
 <context>
     <name>DelGroupDialog</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/delgroupdialog.ui" line="26"/>
         <source>Dialog</source>
-        <translation type="vanished">删除用户组</translation>
+        <translation>删除用户组</translation>
     </message>
     <message>
         <source>Are you sure to delete this group, 
@@ -1983,20 +2445,25 @@ in the file system invalid!</source>
         <translation type="vanished">确定删除此用户组? 这将使得文件系统\n中的某些文件组件ID无效!</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/delgroupdialog.cpp" line="68"/>
         <source>Are you sure to delete the group:   </source>
-        <translation type="vanished">您确定要删除该组吗：</translation>
+        <translation>您确定要删除该组吗：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/delgroupdialog.cpp" line="73"/>
+        <location filename="../../../plugins/account/userinfo/delgroupdialog.cpp" line="74"/>
         <source>which will make some file components in the file system invalid!</source>
-        <translation type="vanished">这将使文件系统中的某些文件组件无效！</translation>
+        <translation>这将使文件系统中的某些文件组件无效！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/delgroupdialog.cpp" line="87"/>
         <source>Delete</source>
-        <translation type="vanished">删除</translation>
+        <translation>删除</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/delgroupdialog.cpp" line="81"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>RemoveFile</source>
@@ -2014,8 +2481,9 @@ in the file system invalid!</source>
 中的某些文件组件ID无效!</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/delgroupdialog.cpp" line="53"/>
         <source>Delete user group</source>
-        <translation type="vanished">删除用户组</translation>
+        <translation>删除用户组</translation>
     </message>
     <message>
         <source>Are you sure to delete the group, which will make some file components in the file system invalid!</source>
@@ -2031,20 +2499,24 @@ folder will be deleted!</source>
         <translation type="vanished">删除用户，用户所属的桌面、文档、收藏夹、音乐、图片和视频文件夹中的内容将全部被删除！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/deluserdialog.ui" line="192"/>
         <source>keep the user&apos;s data, like desktop,documents, favorites, music, pictures and so on</source>
-        <translation type="vanished">保留用户下所属的桌面、文件、收藏夹、音乐等文件</translation>
+        <translation>保留用户下所属的桌面、文件、收藏夹、音乐等文件</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/deluserdialog.ui" line="260"/>
         <source>delete whole data belong user</source>
-        <translation type="vanished">删除该用户所有文件</translation>
+        <translation>删除该用户所有文件</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/deluserdialog.ui" line="318"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/deluserdialog.ui" line="340"/>
         <source>Delete</source>
-        <translation type="vanished">删除</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <source>KeepFile</source>
@@ -2055,68 +2527,85 @@ folder will be deleted!</source>
         <translation type="vanished">删除文件</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/deluserdialog.cpp" line="98"/>
         <source>Delete the user &apos;</source>
-        <translation type="vanished">是否删除用户&apos;</translation>
+        <translation>是否删除用户&apos;</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/deluserdialog.cpp" line="99"/>
         <source>&apos;and:</source>
-        <translation type="vanished">&apos;同时:</translation>
+        <translation>&apos;同时:</translation>
     </message>
 </context>
 <context>
     <name>Desktop</name>
     <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="50"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.cpp" line="133"/>
         <source>Icon Show On Desktop</source>
-        <translation type="vanished">显示在桌面的图标</translation>
+        <translation>显示在桌面的图标</translation>
         <extra-contents_path>/desktop/Icon Show On Desktop</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="128"/>
         <source>Computerdesktop</source>
-        <translation type="vanished">计算机</translation>
+        <translation>计算机</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="219"/>
         <source>Trashdesktop</source>
-        <translation type="vanished">垃圾箱</translation>
+        <translation>垃圾箱</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="310"/>
         <source>Homedesktop</source>
-        <translation type="vanished">家目录</translation>
+        <translation>家目录</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="401"/>
         <source>Volumedesktop</source>
-        <translation type="vanished">挂载卷</translation>
+        <translation>挂载卷</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="492"/>
         <source>Networkdesktop</source>
-        <translation type="vanished">网络</translation>
+        <translation>网络</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="527"/>
         <source>Set Start Menu</source>
-        <translation type="vanished">设置开始菜单</translation>
+        <translation>设置开始菜单</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="586"/>
         <source>Always use the start menu in full screen</source>
-        <translation type="vanished">一直使用全屏&quot;开始&quot;菜单</translation>
+        <translation>一直使用全屏&quot;开始&quot;菜单</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="617"/>
         <source>Icon Lock on Menu</source>
-        <translation type="vanished">锁定在开始菜单的图标</translation>
+        <translation>锁定在开始菜单的图标</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="711"/>
         <source>Computermenu</source>
-        <translation type="vanished">计算机</translation>
+        <translation>计算机</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="984"/>
         <source>Trashmenu</source>
-        <translation type="vanished">回收站</translation>
+        <translation>回收站</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="893"/>
         <source>Filesystemmenu</source>
-        <translation type="vanished">个人</translation>
+        <translation>个人</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="1035"/>
+        <location filename="../../../plugins/personalized/desktop/desktop.cpp" line="135"/>
         <source>Tray icon</source>
-        <translation type="vanished">显示在托盘上的图标</translation>
+        <translation>显示在托盘上的图标</translation>
         <extra-contents_path>/desktop/Tray icon</extra-contents_path>
     </message>
     <message>
@@ -2124,8 +2613,9 @@ folder will be deleted!</source>
         <translation type="vanished">家目录</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.ui" line="802"/>
         <source>Settingmenu</source>
-        <translation type="vanished">设置</translation>
+        <translation>设置</translation>
     </message>
     <message>
         <source>Networkmenu</source>
@@ -2136,54 +2626,65 @@ folder will be deleted!</source>
         <translation type="vanished">桌面</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/desktop/desktop.cpp" line="53"/>
         <source>Desktop</source>
-        <translation type="vanished">桌面</translation>
+        <translation>桌面</translation>
     </message>
 </context>
 <context>
     <name>DeviceInfoItem</name>
     <message>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="33"/>
         <source>Connect</source>
-        <translation type="vanished">连接</translation>
+        <translation>连接</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="37"/>
         <source>Disconnect</source>
-        <translation type="vanished">断开</translation>
+        <translation>断开</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="41"/>
         <source>Remove</source>
-        <translation type="vanished">移除</translation>
+        <translation>移除</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="145"/>
         <source>Device connected</source>
-        <translation type="vanished">设备连接</translation>
+        <translation>设备连接</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="149"/>
         <source>Device not connected</source>
-        <translation type="vanished">设备未连接</translation>
+        <translation>设备未连接</translation>
     </message>
 </context>
 <context>
     <name>DeviceType</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricdeviceinfo.cpp" line="40"/>
         <source>FingerPrint</source>
-        <translation type="vanished">指纹</translation>
+        <translation>指纹</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricdeviceinfo.cpp" line="42"/>
         <source>FingerVein</source>
-        <translation type="vanished">指静脉</translation>
+        <translation>指静脉</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricdeviceinfo.cpp" line="44"/>
         <source>Iris</source>
-        <translation type="vanished">虹膜</translation>
+        <translation>虹膜</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricdeviceinfo.cpp" line="46"/>
         <source>Face</source>
-        <translation type="vanished">人脸</translation>
+        <translation>人脸</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/biometricdeviceinfo.cpp" line="48"/>
         <source>VoicePrint</source>
-        <translation type="vanished">声纹</translation>
+        <translation>声纹</translation>
     </message>
 </context>
 <context>
@@ -2348,60 +2849,74 @@ folder will be deleted!</source>
 <context>
     <name>DisplayPerformanceDialog</name>
     <message>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="26"/>
         <source>Dialog</source>
-        <translation type="vanished">更改时间</translation>
+        <translation>更改时间</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="214"/>
         <source>Display Advanced Settings</source>
-        <translation type="vanished">显示高级设置</translation>
+        <translation>显示高级设置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="297"/>
         <source>Performance</source>
-        <translation type="vanished">性能模式</translation>
+        <translation>性能模式</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="376"/>
         <source>Applicable to machine with discrete graphics, which can accelerate the rendering of 3D graphics.</source>
-        <translation type="vanished">适用于具有独立显卡的机器，能够充分发挥显卡的性能，对3D图形绘制进行加速。</translation>
+        <translation>适用于具有独立显卡的机器，能够充分发挥显卡的性能，对3D图形绘制进行加速。</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="392"/>
         <source>(Note: not support connect graphical with xmanager on windows.)</source>
-        <translation type="vanished">（注意：本模式不支持Windows上个使用Xmanager等工具连接图形显示）</translation>
+        <translation>（注意：本模式不支持Windows上个使用Xmanager等工具连接图形显示）</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="462"/>
         <source>Compatible</source>
-        <translation type="vanished">兼容模式</translation>
+        <translation>兼容模式</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="538"/>
         <source>Applicable to machine with integrated graphics,  there is no 3D graphics acceleration. </source>
-        <translation type="vanished">适用于集成显卡，BMC显卡等只具备基础显示功能，无3D图形绘制加速。</translation>
+        <translation>适用于集成显卡，BMC显卡等只具备基础显示功能，无3D图形绘制加速。</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="554"/>
         <source>(Note: need connect graphical with xmanager on windows, use this option.)</source>
-        <translation type="vanished">（注意：需要使用Windows上Xmanager等工具连接图形的机器请选择本项）</translation>
+        <translation>（注意：需要使用Windows上Xmanager等工具连接图形的机器请选择本项）</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="624"/>
         <source>Automatic</source>
-        <translation type="vanished">自动检测</translation>
+        <translation>自动检测</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="700"/>
         <source>Auto select according to environment, delay the login time (about 0.5 sec).</source>
-        <translation type="vanished">自动检测显示环境，会增加登录延时（0.5秒左右）</translation>
+        <translation>自动检测显示环境，会增加登录延时（0.5秒左右）</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="721"/>
         <source>Threshold:</source>
-        <translation type="vanished">阈值设置：</translation>
+        <translation>阈值设置：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="744"/>
         <source>Apply</source>
-        <translation type="vanished">应用</translation>
+        <translation>应用</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="757"/>
         <source>Reset</source>
-        <translation type="vanished">重置</translation>
+        <translation>重置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="772"/>
         <source>(Note: select this option to use 3D graphics acceleration and xmanager.)</source>
-        <translation type="vanished">（注意：使用3D图形加速，且用Xmanager连接图形时选择本项）</translation>
+        <translation>（注意：使用3D图形加速，且用Xmanager连接图形时选择本项）</translation>
     </message>
 </context>
 <context>
@@ -2411,43 +2926,56 @@ folder will be deleted!</source>
         <translation type="vanished">显示器</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/display.cpp" line="33"/>
         <source>Display</source>
-        <translation type="vanished">显示器</translation>
+        <translation>显示器</translation>
     </message>
 </context>
 <context>
     <name>DisplayWindow</name>
     <message>
+        <location filename="../../../plugins/system/display/display.ui" line="139"/>
         <source>monitor</source>
-        <translation type="vanished">显示器</translation>
+        <translation>显示器</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/display.ui" line="185"/>
         <source>set as home screen</source>
-        <translation type="vanished">设为主屏</translation>
+        <translation>设为主屏</translation>
     </message>
     <message>
         <source>close monitor</source>
         <translation type="vanished">关闭显示器</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/display.ui" line="398"/>
         <source>unify output</source>
-        <translation type="vanished">统一输出</translation>
+        <translation>统一输出</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/display.ui" line="302"/>
         <source>open monitor</source>
-        <translation type="vanished">打开显示器</translation>
+        <translation>打开显示器</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/display.ui" line="14"/>
+        <source>Form</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/display.ui" line="32"/>
         <source>Display</source>
-        <translation type="vanished">显示器</translation>
+        <translation>显示器</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/display.ui" line="241"/>
         <source>screen zoom</source>
-        <translation type="vanished">缩放屏幕</translation>
+        <translation>缩放屏幕</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/display.ui" line="356"/>
         <source>Advanced</source>
-        <translation type="vanished">高级显示</translation>
+        <translation>高级显示</translation>
     </message>
     <message>
         <source>screen brightness adjustment</source>
@@ -2462,32 +2990,39 @@ folder will be deleted!</source>
         <translation type="vanished">亮</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/display.ui" line="540"/>
         <source>follow the sunrise and sunset(17:55-05:04)</source>
-        <translation type="vanished">跟随日落日出（17:55-05:04）</translation>
+        <translation>跟随日落日出（17:55-05:04）</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/display.ui" line="604"/>
         <source>custom time</source>
-        <translation type="vanished">自定义时间</translation>
+        <translation>自定义时间</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/display.ui" line="668"/>
         <source>opening time</source>
-        <translation type="vanished">开启时间</translation>
+        <translation>开启时间</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/display.ui" line="751"/>
         <source>closing time</source>
-        <translation type="vanished">关闭时间</translation>
+        <translation>关闭时间</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/display.ui" line="846"/>
         <source>color temperature</source>
-        <translation type="vanished">色温</translation>
+        <translation>色温</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/display.ui" line="853"/>
         <source>warm</source>
-        <translation type="vanished">暖</translation>
+        <translation>暖</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/display.ui" line="876"/>
         <source>cold</source>
-        <translation type="vanished">冷</translation>
+        <translation>冷</translation>
     </message>
     <message>
         <source>apply</source>
@@ -2497,48 +3032,59 @@ folder will be deleted!</source>
 <context>
     <name>EditGroupDialog</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="26"/>
         <source>Dialog</source>
-        <translation type="vanished">编辑用户组</translation>
+        <translation>编辑用户组</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="275"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="297"/>
         <source>Certain</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="50"/>
         <source>Edit User Group</source>
-        <translation type="vanished">编辑用户组</translation>
+        <translation>编辑用户组</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="77"/>
         <source>Name</source>
-        <translation type="vanished">组名</translation>
+        <translation>组名</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="124"/>
         <source>Id</source>
-        <translation type="vanished">组ID</translation>
+        <translation>组ID</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.ui" line="175"/>
         <source>Members</source>
-        <translation type="vanished">组成员</translation>
+        <translation>组成员</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.cpp" line="229"/>
         <source>Tips</source>
-        <translation type="vanished">提示</translation>
+        <translation>提示</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.cpp" line="229"/>
         <source>Invalid Id!</source>
-        <translation type="vanished">无效组ID!</translation>
+        <translation>无效组ID!</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.cpp" line="232"/>
         <source>OK</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/editgroupdialog.cpp" line="299"/>
         <source>Edit user group</source>
-        <translation type="vanished">编辑用户组</translation>
+        <translation>编辑用户组</translation>
     </message>
 </context>
 <context>
@@ -2706,54 +3252,69 @@ folder will be deleted!</source>
 <context>
     <name>ExperiencePlan</name>
     <message>
+        <location filename="../../../plugins/messages-task/experienceplan/experienceplan.ui" line="79"/>
         <source>User Experience</source>
-        <translation type="vanished">用户体验</translation>
+        <translation>用户体验</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/experienceplan/experienceplan.ui" line="130"/>
         <source>Join in user Experience plan</source>
-        <translation type="vanished">加入用户体验计划</translation>
+        <translation>加入用户体验计划</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/experienceplan/experienceplan.ui" line="172"/>
         <source>User experience plan terms, see</source>
-        <translation type="vanished">用户体验计划条款，参见</translation>
+        <translation>用户体验计划条款，参见</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/experienceplan/experienceplan.ui" line="179"/>
         <source>《User Experience plan》</source>
-        <translation type="vanished">《用户体验计划》</translation>
+        <translation>《用户体验计划》</translation>
     </message>
     <message>
         <source>experienceplan</source>
         <translation type="vanished">体验计划</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/experienceplan/experienceplan.cpp" line="33"/>
         <source>Experienceplan</source>
-        <translation type="vanished">体验计划</translation>
+        <translation>体验计划</translation>
     </message>
 </context>
 <context>
     <name>Fonts</name>
     <message>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="47"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="65"/>
         <source>Fonts</source>
-        <translation type="vanished">字体</translation>
+        <translation>字体</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="169"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="131"/>
         <source>Fonts select</source>
-        <translation type="vanished">字体选择</translation>
+        <translation>字体选择</translation>
         <extra-contents_path>/fonts/Fonts select</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="119"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="129"/>
         <source>Font size</source>
-        <translation type="vanished">字体大小</translation>
+        <translation>字体大小</translation>
         <extra-contents_path>/fonts/Font size</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="238"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="133"/>
         <source>Mono font</source>
-        <translation type="vanished">等宽字体</translation>
+        <translation>等宽字体</translation>
         <extra-contents_path>/fonts/Mono font</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="302"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="135"/>
         <source>Reset to default</source>
-        <translation type="vanished">恢复默认设置</translation>
+        <translation>恢复默认设置</translation>
         <extra-contents_path>/fonts/Reset to default</extra-contents_path>
     </message>
     <message>
@@ -2789,24 +3350,34 @@ folder will be deleted!</source>
         <translation type="vanished">字体</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="144"/>
         <source>11</source>
-        <translation type="vanished">11</translation>
+        <translation>11</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="144"/>
         <source>12</source>
-        <translation type="vanished">12</translation>
+        <translation>12</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="144"/>
         <source>13</source>
-        <translation type="vanished">13</translation>
+        <translation>13</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="144"/>
         <source>14</source>
-        <translation type="vanished">14</translation>
+        <translation>14</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="144"/>
         <source>10</source>
-        <translation type="obsolete">10</translation>
+        <translation type="unfinished">10</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="145"/>
+        <source>15</source>
+        <translation></translation>
     </message>
     <message>
         <source>16</source>
@@ -2889,35 +3460,43 @@ folder will be deleted!</source>
 <context>
     <name>HistoryUpdateListWig</name>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/historyupdatelistwig.cpp" line="98"/>
         <source>Success</source>
-        <translation type="vanished">更新成功</translation>
+        <translation>更新成功</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/historyupdatelistwig.cpp" line="100"/>
         <source>Failed</source>
-        <translation type="vanished">更新失败</translation>
+        <translation>更新失败</translation>
     </message>
 </context>
 <context>
     <name>InputPwdDialog</name>
     <message>
+        <location filename="../../../plugins/network/vino/inputpwddialog.cpp" line="28"/>
         <source>Set Password</source>
-        <translation type="vanished">设置密码</translation>
+        <translation>设置密码</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/vino/inputpwddialog.cpp" line="62"/>
+        <location filename="../../../plugins/network/vino/inputpwddialog.cpp" line="81"/>
         <source>Password can not be blank</source>
-        <translation type="vanished">密码不能为空</translation>
+        <translation>密码不能为空</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/vino/inputpwddialog.cpp" line="51"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/vino/inputpwddialog.cpp" line="56"/>
         <source>Confirm</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/vino/inputpwddialog.cpp" line="86"/>
         <source>less than or equal to 8</source>
-        <translation type="vanished">密码长度需要小于等于８</translation>
+        <translation>密码长度需要小于等于８</translation>
     </message>
 </context>
 <context>
@@ -3054,43 +3633,52 @@ folder will be deleted!</source>
         <translation type="obsolete">布局预览</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/preview/kbpreviewframe.cpp" line="321"/>
         <source>No preview found</source>
-        <translation type="vanished">无预览</translation>
+        <translation>无预览</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/preview/kbpreviewframe.cpp" line="325"/>
         <source>Unable to open Preview !</source>
-        <translation type="vanished">无法打开预览！</translation>
+        <translation>无法打开预览！</translation>
     </message>
 </context>
 <context>
     <name>KbdLayoutManager</name>
     <message>
+        <location filename="../../../plugins/devices/keyboard/kbdlayoutmanager.ui" line="68"/>
         <source>C</source>
-        <translation type="vanished">按国家</translation>
+        <translation>按国家</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/kbdlayoutmanager.ui" line="144"/>
         <source>L</source>
-        <translation type="vanished">按语言</translation>
+        <translation>按语言</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/kbdlayoutmanager.ui" line="222"/>
         <source>Variant</source>
-        <translation type="vanished">变体</translation>
+        <translation>变体</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/kbdlayoutmanager.ui" line="270"/>
         <source>Add</source>
-        <translation type="vanished">添加</translation>
+        <translation>添加</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/kbdlayoutmanager.cpp" line="61"/>
         <source>Add Layout</source>
-        <translation type="vanished">添加布局</translation>
+        <translation>添加布局</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/kbdlayoutmanager.cpp" line="237"/>
         <source>Del</source>
-        <translation type="vanished">删除</translation>
+        <translation>删除</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/kbdlayoutmanager.cpp" line="291"/>
         <source>Keyboard Preview</source>
-        <translation type="vanished">布局预览</translation>
+        <translation>布局预览</translation>
     </message>
 </context>
 <context>
@@ -3171,51 +3759,66 @@ folder will be deleted!</source>
 <context>
     <name>KeyboardControl</name>
     <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="91"/>
         <source>Keys Settings</source>
-        <translation type="vanished">通用设置</translation>
+        <translation>通用设置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="159"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.cpp" line="120"/>
         <source>Enable repeat key</source>
-        <translation type="vanished">启用按键重复设置</translation>
+        <translation>启用按键重复设置</translation>
         <extra-contents_path>/keyboard/Enable repeat key</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="249"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.cpp" line="122"/>
         <source>Delay</source>
-        <translation type="vanished">延迟</translation>
+        <translation>延迟</translation>
         <extra-contents_path>/keyboard/Delay</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="262"/>
         <source>Short</source>
-        <translation type="vanished">短</translation>
+        <translation>短</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="294"/>
         <source>Long</source>
-        <translation type="vanished">长</translation>
+        <translation>长</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="368"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.cpp" line="124"/>
         <source>Speed</source>
-        <translation type="vanished">速度</translation>
+        <translation>速度</translation>
         <extra-contents_path>/keyboard/Speed</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="381"/>
         <source>Slow</source>
-        <translation type="vanished">慢</translation>
+        <translation>慢</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="413"/>
         <source>Fast</source>
-        <translation type="vanished">快</translation>
+        <translation>快</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="475"/>
         <source>Input characters to test the repetition effect：</source>
-        <translation type="vanished">输入字符测试重复效果：</translation>
+        <translation>输入字符测试重复效果：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="699"/>
         <source>Input Settings</source>
-        <translation type="vanished">输入法设置</translation>
+        <translation>输入法设置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="872"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.cpp" line="131"/>
         <source>Input Set</source>
-        <translation type="vanished">输入法设置</translation>
+        <translation>输入法设置</translation>
         <extra-contents_path>/keyboard/Input Set</extra-contents_path>
     </message>
     <message>
@@ -3223,13 +3826,16 @@ folder will be deleted!</source>
         <translation type="vanished">输入法设置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.cpp" line="126"/>
         <source>Input characters to test the repetition effect:</source>
-        <translation type="vanished">输入字符测试重复效果：</translation>
+        <translation>输入字符测试重复效果：</translation>
         <extra-contents_path>/keyboard/Input characters to test the repetition effect:</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="572"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.cpp" line="128"/>
         <source>Tip of keyboard</source>
-        <translation type="vanished">启用按键提示</translation>
+        <translation>启用按键提示</translation>
         <extra-contents_path>/keyboard/Tip of keyboard</extra-contents_path>
     </message>
     <message>
@@ -3245,16 +3851,19 @@ folder will be deleted!</source>
         <translation type="vanished">大写锁定提示</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="647"/>
         <source>Enable numlock</source>
-        <translation type="vanished">小键盘开启提示</translation>
+        <translation>小键盘开启提示</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
         <translation type="vanished">键盘布局</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.ui" line="767"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.cpp" line="129"/>
         <source>Keyboard layout</source>
-        <translation type="vanished">键盘布局</translation>
+        <translation>键盘布局</translation>
     </message>
     <message>
         <source>Install layouts</source>
@@ -3265,23 +3874,29 @@ folder will be deleted!</source>
         <translation type="vanished">键盘</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/keyboardcontrol.cpp" line="42"/>
         <source>Keyboard</source>
-        <translation type="vanished">键盘</translation>
+        <translation>键盘</translation>
     </message>
 </context>
 <context>
     <name>KeyboardPainter</name>
     <message>
+        <location filename="../../../plugins/devices/keyboard/preview/keyboardpainter.cpp" line="31"/>
         <source>Close</source>
-        <translation type="vanished">关闭</translation>
+        <translation>关闭</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/preview/keyboardpainter.cpp" line="67"/>
+        <location filename="../../../plugins/devices/keyboard/preview/keyboardpainter.cpp" line="69"/>
         <source>Keyboard layout levels</source>
-        <translation type="vanished">键盘布局等级</translation>
+        <translation>键盘布局等级</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/preview/keyboardpainter.cpp" line="67"/>
+        <location filename="../../../plugins/devices/keyboard/preview/keyboardpainter.cpp" line="69"/>
         <source>Level %1, %2</source>
-        <translation type="vanished">等级 %1 %2</translation>
+        <translation>等级 %1 %2</translation>
     </message>
     <message>
         <source>Keyboard Preview</source>
@@ -3291,40 +3906,49 @@ folder will be deleted!</source>
 <context>
     <name>LayoutManager</name>
     <message>
+        <location filename="../../../plugins/devices/keyboard/layoutmanager.ui" line="26"/>
         <source>Dialog</source>
-        <translation type="vanished">更改时间</translation>
+        <translation>更改时间</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/layoutmanager.ui" line="121"/>
         <source>Manager Keyboard Layout</source>
-        <translation type="vanished">管理键盘布局</translation>
+        <translation>管理键盘布局</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/layoutmanager.ui" line="234"/>
         <source>Language</source>
-        <translation type="vanished">语言</translation>
+        <translation>语言</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/layoutmanager.ui" line="250"/>
         <source>Country</source>
-        <translation type="vanished">国家</translation>
+        <translation>国家</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/layoutmanager.ui" line="293"/>
         <source>Variant</source>
-        <translation type="vanished">变体</translation>
+        <translation>变体</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/layoutmanager.ui" line="351"/>
         <source>Layout installed</source>
-        <translation type="vanished">安装布局</translation>
+        <translation>安装布局</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/layoutmanager.ui" line="399"/>
         <source>Preview</source>
-        <translation type="vanished">预览</translation>
+        <translation>预览</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/layoutmanager.ui" line="431"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/keyboard/layoutmanager.ui" line="450"/>
         <source>Install</source>
-        <translation type="vanished">安装</translation>
+        <translation>安装</translation>
     </message>
 </context>
 <context>
@@ -3569,7 +4193,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="402"/>
         <source>Failed attemps limit reached!</source>
-        <translation>登录失败次数过多，请稍后再试！</translation>
+        <translation>登录次数太多，稍后重试！</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="403"/>
@@ -3948,57 +4572,78 @@ Please retry or relogin!</source>
 <context>
     <name>MouseControl</name>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="53"/>
         <source>Mouse Key Settings</source>
-        <translation type="vanished">鼠标键设置</translation>
+        <translation>鼠标键设置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="132"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="171"/>
         <source>Hand habit</source>
-        <translation type="vanished">惯用手</translation>
+        <translation>惯用手</translation>
         <extra-contents_path>/mouse/Hand habit</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="516"/>
         <source>Pointer Settings</source>
-        <translation type="vanished">指针设置</translation>
+        <translation>指针设置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="598"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="175"/>
         <source>Speed</source>
-        <translation type="vanished">速度</translation>
+        <translation>速度</translation>
         <extra-contents_path>/mouse/Speed</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="257"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="636"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1286"/>
         <source>Slow</source>
-        <translation type="vanished">慢</translation>
+        <translation>慢</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="219"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="169"/>
         <source>mouse wheel speed</source>
-        <translation type="vanished">鼠标滚轮速度</translation>
+        <translation>鼠标滚轮速度</translation>
         <extra-contents_path>/mouse/mouse wheel speed</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="304"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="686"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1336"/>
         <source>Fast</source>
-        <translation type="vanished">快</translation>
+        <translation>快</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="378"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="173"/>
         <source>Doubleclick  delay</source>
-        <translation type="vanished">鼠标双击间隔时长</translation>
+        <translation>鼠标双击间隔时长</translation>
         <extra-contents_path>/mouse/Doubleclick  delay</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="416"/>
         <source>Short</source>
-        <translation type="vanished">短</translation>
+        <translation>短</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="463"/>
         <source>Long</source>
-        <translation type="vanished">长</translation>
+        <translation>长</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="757"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="179"/>
         <source>Acceleration</source>
-        <translation type="vanished">鼠标加速</translation>
+        <translation>鼠标加速</translation>
         <extra-contents_path>/mouse/Acceleration</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1098"/>
         <source>Cursor weight</source>
-        <translation type="vanished">光标粗细</translation>
+        <translation>光标粗细</translation>
     </message>
     <message>
         <source>Sensitivity</source>
@@ -4013,39 +4658,50 @@ Please retry or relogin!</source>
         <translation type="vanished">高</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="822"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="181"/>
         <source>Visibility</source>
-        <translation type="vanished">按Ctrl键显示指针位置</translation>
+        <translation>按Ctrl键显示指针位置</translation>
         <extra-contents_path>/mouse/Visibility</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="900"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="183"/>
         <source>Pointer size</source>
-        <translation type="vanished">指针大小</translation>
+        <translation>指针大小</translation>
         <extra-contents_path>/mouse/Pointer size</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="950"/>
         <source>Cursor Settings</source>
-        <translation type="vanished">光标设置</translation>
+        <translation>光标设置</translation>
     </message>
     <message>
         <source> Cursor weight</source>
         <translation type="obsolete">光标粗细</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1123"/>
         <source>Thin</source>
-        <translation type="vanished">细</translation>
+        <translation>细</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1158"/>
         <source>Coarse</source>
-        <translation type="vanished">粗</translation>
+        <translation>粗</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1261"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="187"/>
         <source>Cursor speed</source>
-        <translation type="vanished">光标速度</translation>
+        <translation>光标速度</translation>
         <extra-contents_path>/mouse/Cursor speed</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.ui" line="1017"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="185"/>
         <source>Enable flashing on text area</source>
-        <translation type="vanished">启用文本区域的光标闪烁</translation>
+        <translation>启用文本区域的光标闪烁</translation>
         <extra-contents_path>/mouse/Enable flashing on text area</extra-contents_path>
     </message>
     <message>
@@ -4053,42 +4709,51 @@ Please retry or relogin!</source>
         <translation type="vanished">鼠标</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="103"/>
         <source>Mouse</source>
-        <translation type="vanished">鼠标</translation>
+        <translation>鼠标</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="201"/>
         <source>Lefthand</source>
-        <translation type="vanished">左手</translation>
+        <translation>左手</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="202"/>
         <source>Righthand</source>
-        <translation type="vanished">右手</translation>
+        <translation>右手</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="218"/>
         <source>Default(Recommended)</source>
-        <translation type="vanished">默认（推荐）</translation>
+        <translation>默认（推荐）</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="219"/>
         <source>Medium</source>
-        <translation type="vanished">中等</translation>
+        <translation>中等</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="220"/>
         <source>Large</source>
-        <translation type="vanished">较大</translation>
+        <translation>较大</translation>
     </message>
 </context>
 <context>
     <name>MyLabel</name>
     <message>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="84"/>
         <source>double-click to test</source>
-        <translation type="vanished">双击测试</translation>
+        <translation>双击测试</translation>
     </message>
 </context>
 <context>
     <name>NetConnect</name>
     <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="38"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="131"/>
         <source>Netconnect Status</source>
-        <translation type="vanished">网络状态</translation>
+        <translation>网络状态</translation>
         <extra-contents_path>/netconnect/Netconnect Status</extra-contents_path>
     </message>
     <message>
@@ -4096,20 +4761,32 @@ Please retry or relogin!</source>
         <translation type="vanished">加载中...</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="106"/>
         <source>Available Network</source>
-        <translation type="vanished">可用网络</translation>
+        <translation>可用网络</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="129"/>
+        <source>Wifi service unavailable as Projection running</source>
+        <translatorcomment>投屏开启时，Wifi服务不可用</translatorcomment>
+        <translation>投屏开启时，Wifi服务不可用</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="149"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="1012"/>
         <source>Refresh</source>
-        <translation type="vanished">刷新</translation>
+        <translation>刷新</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="199"/>
         <source>open wifi</source>
-        <translation type="vanished">打开WLAN</translation>
+        <translation>打开WLAN</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="247"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="135"/>
         <source>Network settings</source>
-        <translation type="vanished">网络设置</translation>
+        <translation>网络设置</translation>
         <extra-contents_path>/netconnect/Network settings</extra-contents_path>
     </message>
     <message>
@@ -4129,29 +4806,38 @@ Please retry or relogin!</source>
         <translation type="vanished">连接</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="266"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="320"/>
         <source>Connected</source>
-        <translation type="vanished">已连接</translation>
+        <translation>已连接</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="827"/>
         <source>No net</source>
-        <translation type="vanished">无连接</translation>
+        <translation>无连接</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="276"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="329"/>
         <source>Detail</source>
-        <translation type="vanished">网络详情</translation>
+        <translation>网络详情</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="133"/>
         <source>open WLAN</source>
-        <translation type="vanished">打开无线局域网</translation>
+        <translation>打开无线局域网</translation>
         <extra-contents_path>/netconnect/open WLAN</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="694"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="717"/>
         <source>None</source>
-        <translation type="vanished">无</translation>
+        <translation>无</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="1000"/>
         <source>Refreshing...</source>
-        <translation type="vanished">刷新中...</translation>
+        <translation>刷新中...</translation>
     </message>
     <message>
         <source>connected</source>
@@ -4162,8 +4848,10 @@ Please retry or relogin!</source>
         <translation type="vanished">无网络连接</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="71"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="553"/>
         <source>Connect</source>
-        <translation type="vanished">网络连接</translation>
+        <translation>网络连接</translation>
     </message>
     <message>
         <source>Disconnect</source>
@@ -4173,133 +4861,163 @@ Please retry or relogin!</source>
 <context>
     <name>NetDetail</name>
     <message>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="93"/>
         <source>SSID:</source>
-        <translation type="vanished">SSID：</translation>
+        <translation>SSID：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="94"/>
         <source>Protocol</source>
-        <translation type="vanished">协议：</translation>
+        <translation>协议：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="96"/>
         <source>Security Type:</source>
-        <translation type="vanished">安全类型：</translation>
+        <translation>安全类型：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="97"/>
         <source>Hz:</source>
-        <translation type="vanished">网络频带：</translation>
+        <translation>网络频带：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="98"/>
         <source>Chan:</source>
-        <translation type="vanished">网络通道：</translation>
+        <translation>网络通道：</translation>
     </message>
     <message>
         <source>Link Speed(rx/tx)</source>
         <translation type="vanished">链接速度(接收/传输):</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="99"/>
         <source>Link Speed(rx/tx):</source>
-        <translation type="vanished">链接速度(接收/传输):</translation>
+        <translation>链接速度(接收/传输):</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="102"/>
         <source>BandWidth:</source>
-        <translation type="vanished">带宽：</translation>
+        <translation>带宽：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="103"/>
         <source>IPV4:</source>
-        <translation type="vanished">IPV4：</translation>
+        <translation>IPV4：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="104"/>
         <source>IPV4 Dns:</source>
-        <translation type="vanished">IPV4 Dns:</translation>
+        <translation>IPV4 Dns:</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="105"/>
         <source>IPV4 GateWay:</source>
-        <translation type="vanished">网关：</translation>
+        <translation>网关：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="106"/>
         <source>IPV4 Prefix:</source>
-        <translation type="vanished">前缀：</translation>
+        <translation>前缀：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="107"/>
         <source>IPV6:</source>
-        <translation type="vanished">IPV6:</translation>
+        <translation>IPV6:</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="108"/>
         <source>IPV6 Prefix:</source>
-        <translation type="vanished">前缀：</translation>
+        <translation>前缀：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="109"/>
         <source>IPV6 GateWay:</source>
-        <translation type="vanished">网关：</translation>
+        <translation>网关：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="110"/>
         <source>Mac:</source>
-        <translation type="vanished">物理地址：</translation>
+        <translation>物理地址：</translation>
     </message>
 </context>
 <context>
     <name>Notice</name>
     <message>
+        <location filename="../../../plugins/messages-task/notice/notice.ui" line="62"/>
         <source>Notice Settings</source>
-        <translation type="vanished">通知</translation>
+        <translation>通知</translation>
     </message>
     <message>
         <source>Set the type of notice in the operation center</source>
         <translation type="vanished">设置在通知中心显示的通知信息</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/notice/notice.ui" line="75"/>
+        <location filename="../../../plugins/messages-task/notice/notice.cpp" line="139"/>
         <source>Set notice type of operation center</source>
-        <translation type="vanished">设置在通知中心显示的通知信息</translation>
+        <translation>设置在通知中心显示的通知信息</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/notice/notice.ui" line="137"/>
         <source>Show new feature ater system upgrade</source>
-        <translation type="vanished">系统版本更新后显示新增内容</translation>
+        <translation>系统版本更新后显示新增内容</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/notice/notice.ui" line="212"/>
+        <location filename="../../../plugins/messages-task/notice/notice.cpp" line="138"/>
         <source>Get notifications from the app</source>
-        <translation type="vanished">获取来自应用和其他发送者的通知</translation>
+        <translation>获取来自应用和其他发送者的通知</translation>
         <extra-contents_path>/notice/Get notifications from the app</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/notice/notice.ui" line="284"/>
         <source>Show notifications on the lock screen</source>
-        <translation type="vanished">在锁屏界面上显示通知</translation>
+        <translation>在锁屏界面上显示通知</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/notice/notice.ui" line="333"/>
+        <location filename="../../../plugins/messages-task/notice/notice.cpp" line="140"/>
         <source>Notice Origin</source>
-        <translation type="vanished">设置通知来源</translation>
+        <translation>设置通知来源</translation>
     </message>
     <message>
         <source>notice</source>
         <translation type="vanished">通知</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/notice/notice.cpp" line="40"/>
         <source>Notice</source>
-        <translation type="vanished">通知</translation>
+        <translation>通知</translation>
     </message>
 </context>
 <context>
     <name>OutputConfig</name>
     <message>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="64"/>
         <source>resolution</source>
-        <translation type="vanished">分辨率</translation>
+        <translation>分辨率</translation>
         <extra-contents_path>/display/resolution</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="93"/>
         <source>orientation</source>
-        <translation type="vanished">方向</translation>
+        <translation>方向</translation>
         <extra-contents_path>/display/orientation</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="110"/>
         <source>arrow-up</source>
-        <translation type="vanished">不旋转</translation>
+        <translation>不旋转</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="111"/>
         <source>90° arrow-right</source>
-        <translation type="vanished">90° 顺时针</translation>
+        <translation>90° 顺时针</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="113"/>
         <source>arrow-down</source>
-        <translation type="vanished">上下颠倒</translation>
+        <translation>上下颠倒</translation>
     </message>
     <message>
         <source>Information</source>
@@ -4310,12 +5028,14 @@ Please retry or relogin!</source>
         <translation type="vanished">部分程序需要注销生效</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="112"/>
         <source>90° arrow-left</source>
-        <translation type="vanished">90° 逆时针</translation>
+        <translation>90° 逆时针</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="125"/>
         <source>frequency</source>
-        <translation type="vanished">刷新率</translation>
+        <translation>刷新率</translation>
         <extra-contents_path>/display/frequency</extra-contents_path>
     </message>
     <message>
@@ -4323,13 +5043,21 @@ Please retry or relogin!</source>
         <translation type="vanished">刷新率</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="141"/>
         <source>auto</source>
-        <translation type="vanished">自动</translation>
+        <translation>自动</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="164"/>
         <source>screen zoom</source>
-        <translation type="vanished">缩放屏幕</translation>
+        <translation>缩放屏幕</translation>
         <extra-contents_path>/display/screen zoom</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="257"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="263"/>
+        <source>%1 Hz</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4451,8 +5179,9 @@ Please retry or relogin!</source>
         <translation type="vanished">电源</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="54"/>
         <source>Power</source>
-        <translation type="vanished">电源</translation>
+        <translation>电源</translation>
     </message>
     <message>
         <source>Change PC sleep time after %1 min:</source>
@@ -4471,8 +5200,11 @@ Please retry or relogin!</source>
         <translation type="vanished">系统%1分钟后进入空闲状态并于%2分钟后关闭显示器：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="591"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="601"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="622"/>
         <source>never</source>
-        <translation type="vanished">从不</translation>
+        <translation>从不</translation>
     </message>
     <message>
         <source>10 min</source>
@@ -4511,163 +5243,230 @@ Please retry or relogin!</source>
         <translation type="vanished">5分钟</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="469"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="470"/>
         <source>Require password when sleep/hibernation</source>
-        <translation type="vanished">睡眠/休眠唤醒时需要密码</translation>
+        <translation>睡眠/休眠唤醒时需要密码</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="473"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="474"/>
         <source>Password required when waking up the screen</source>
-        <translation type="vanished">唤醒屏幕时需要密码</translation>
+        <translation>唤醒屏幕时需要密码</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="477"/>
         <source>Press the power button</source>
-        <translation type="vanished">按电源键时执行</translation>
+        <translation>按电源键时执行</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="481"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="482"/>
         <source>Time to close display</source>
-        <translation type="vanished">此时间段后关闭显示器</translation>
+        <translation>此时间段后关闭显示器</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="485"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="486"/>
         <source>Time to sleep</source>
-        <translation type="vanished">此时间段后系统进入睡眠</translation>
+        <translation>此时间段后系统进入睡眠</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="489"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="490"/>
         <source>Notebook cover</source>
-        <translation type="vanished">笔记本合盖时执行</translation>
+        <translation>笔记本合盖时执行</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="493"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="494"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="498"/>
         <source>Using power</source>
-        <translation type="vanished">使用电源时</translation>
+        <translation>使用电源时</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="497"/>
         <source>Using battery</source>
-        <translation type="vanished">使用电池时</translation>
+        <translation>使用电池时</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="501"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="502"/>
         <source> Time to darken</source>
-        <translation type="vanished">此时间段后降低屏幕亮度</translation>
+        <translation>此时间段后降低屏幕亮度</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="505"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="506"/>
         <source>Battery level is lower than</source>
-        <translation type="vanished">电量低于</translation>
+        <translation>电量低于</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="509"/>
         <source>Run</source>
-        <translation type="vanished">时执行</translation>
+        <translation>时执行</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="511"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="512"/>
         <source>Low battery notification</source>
-        <translation type="vanished">低电量时通知</translation>
+        <translation>低电量时通知</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="515"/>
         <source>Automatically run saving mode when low battery</source>
-        <translation type="vanished">低电量时自动开启节能模式</translation>
+        <translation>低电量时自动开启节能模式</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="516"/>
         <source>Automatically run saving mode when the low battery</source>
-        <translation type="vanished">低电量时自动开启节能模式</translation>
+        <translation>低电量时自动开启节能模式</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="519"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="520"/>
         <source>Automatically run saving mode when using battery</source>
-        <translation type="vanished">使用电池时自动开启节能模式</translation>
+        <translation>使用电池时自动开启节能模式</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="523"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="524"/>
         <source>Display remaining charging time and usage time</source>
-        <translation type="vanished">显示剩余充电时间和剩余使用时间</translation>
+        <translation>显示剩余充电时间和剩余使用时间</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="561"/>
         <source>General</source>
-        <translation type="vanished">通用</translation>
+        <translation>通用</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="563"/>
         <source>Select Powerplan</source>
-        <translation type="vanished">电源计划</translation>
+        <translation>电源计划</translation>
         <extra-contents_path>/power/Select Powerplan</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="565"/>
         <source>Battery saving plan</source>
-        <translation type="vanished">电池节能计划</translation>
+        <translation>电池节能计划</translation>
         <extra-contents_path>/power/Battery saving plan</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="571"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="631"/>
         <source>nothing</source>
-        <translation type="vanished">无操作</translation>
+        <translation>无操作</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="571"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="631"/>
         <source>blank</source>
-        <translation type="vanished">关闭显示器</translation>
+        <translation>关闭显示器</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="571"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="582"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="631"/>
         <source>suspend</source>
-        <translation type="vanished">睡眠</translation>
+        <translation>睡眠</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="577"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="582"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="637"/>
         <source>hibernate</source>
-        <translation type="vanished">休眠</translation>
+        <translation>休眠</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="582"/>
         <source>interactive</source>
-        <translation type="vanished">询问</translation>
+        <translation>询问</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="591"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="622"/>
         <source>5min</source>
-        <translation type="vanished">5分钟</translation>
+        <translation>5分钟</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="611"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="616"/>
         <source>Performance Model</source>
-        <translation type="vanished">性能模式</translation>
+        <translation>性能模式</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="622"/>
         <source>20min</source>
-        <translation type="vanished">20分钟</translation>
+        <translation>20分钟</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="591"/>
         <source>10minn</source>
-        <translation type="vanished">10分钟</translation>
+        <translation>10分钟</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="591"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="601"/>
         <source>15min</source>
-        <translation type="vanished">15分钟</translation>
+        <translation>15分钟</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="591"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="601"/>
         <source>30min</source>
-        <translation type="vanished">30分钟</translation>
+        <translation>30分钟</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="591"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="601"/>
         <source>1h</source>
-        <translation type="vanished">1小时</translation>
+        <translation>1小时</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="591"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="601"/>
         <source>2h</source>
-        <translation type="vanished">2小时</translation>
+        <translation>2小时</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="601"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="622"/>
         <source>10min</source>
-        <translation type="vanished">10分钟</translation>
+        <translation>10分钟</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="601"/>
         <source>3h</source>
-        <translation type="vanished">3小时</translation>
+        <translation>3小时</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="611"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="616"/>
         <source>Balance Model</source>
-        <translation type="vanished">平衡模式</translation>
+        <translation>平衡模式</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="611"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="616"/>
         <source>Save Model</source>
-        <translation type="vanished">节能模式</translation>
+        <translation>节能模式</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="622"/>
         <source>1min</source>
-        <translation type="vanished">1分钟</translation>
+        <translation>1分钟</translation>
     </message>
     <message>
         <source>3min</source>
         <translation type="vanished">3分钟</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="571"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="582"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="631"/>
         <source>shutdown</source>
-        <translation type="vanished">关机</translation>
+        <translation>关机</translation>
     </message>
     <message>
         <source>always</source>
@@ -4697,13 +5496,16 @@ Please retry or relogin!</source>
 <context>
     <name>Printer</name>
     <message>
+        <location filename="../../../plugins/devices/printer/printer.ui" line="91"/>
+        <location filename="../../../plugins/devices/printer/printer.cpp" line="65"/>
         <source>Add Printers And Scanners</source>
-        <translation type="vanished">添加打印机和扫描仪</translation>
+        <translation>添加打印机和扫描仪</translation>
         <extra-contents_path>/printer/Add Printers And Scanners</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/printer/printer.cpp" line="117"/>
         <source>Add printers and scanners</source>
-        <translation type="vanished">添加打印机和扫描仪</translation>
+        <translation>添加打印机和扫描仪</translation>
     </message>
     <message>
         <source>Attrs</source>
@@ -4714,75 +5516,107 @@ Please retry or relogin!</source>
         <translation type="vanished">属性</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/printer/printer.ui" line="169"/>
         <source>List Of Existing Printers</source>
-        <translation type="vanished">可用打印机列表</translation>
+        <translation>可用打印机列表</translation>
     </message>
     <message>
         <source>printer</source>
         <translation type="vanished">打印机</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/printer/printer.cpp" line="33"/>
         <source>Printer</source>
-        <translation type="vanished">打印机</translation>
+        <translation>打印机</translation>
     </message>
 </context>
 <context>
     <name>Projection</name>
     <message>
+        <location filename="../../../plugins/devices/projection/projection.ui" line="53"/>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="49"/>
         <source>Projection</source>
-        <translation type="vanished">投屏</translation>
+        <translation>投屏</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/projection/projection.ui" line="230"/>
+        <source>msg info</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/projection/projection.ui" line="246"/>
+        <source>label for set size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/projection/projection.ui" line="373"/>
+        <source>msg</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="66"/>
         <source>Open Projection</source>
-        <translation type="vanished">开启投屏</translation>
+        <translation>开启投屏</translation>
         <extra-contents_path>/projection/Open Projection</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="255"/>
         <source>Service exception,please restart the system</source>
-        <translation type="vanished">服务异常，请重启系统</translation>
+        <translation>服务异常，请重启系统</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="261"/>
         <source>Network card is not detected or the driver is not supported.</source>
-        <translation type="vanished">未检测到无线网卡或网卡驱动不支持
+        <translation>未检测到无线网卡或网卡驱动不支持
 投屏功能不可用</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="271"/>
         <source>Please keep WLAN on;
-Wireless-network functions will be invalid when the screen projection on</source>
-        <translation type="vanished">使用时请保持WLAN处于开启状态；开启投屏后，无线网络相关功能会失效</translation>
+Wifi service is unavailable when projection enabled, as wNIC driver unsupported</source>
+        <translatorcomment>使用时请保持WLAN处于开启状态；由于网卡驱动不支持，投屏开启会停止无线网络服务</translatorcomment>
+        <translation>使用时请保持WLAN处于开启状态；由于网卡驱动不支持，投屏开启会停止无线网络服务</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="273"/>
         <source>Please keep WLAN on;
 Wireless will be temporarily disconnected when the screen projection on</source>
-        <translation type="vanished">使用时请保持WLAN处于开启状态；开启投屏会短暂中断无线连接</translation>
+        <translation>使用时请保持WLAN处于开启状态；开启投屏会短暂中断无线连接</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="280"/>
         <source>After opening the switch button,open the projection screen in the mobile phone drop-down menu,follow the prompts.See the user manual for details</source>
-        <translation type="vanished">开启投屏后，在手机下拉菜单中打开投屏，根据提示操作。详见用户手册</translation>
+        <translation>开启投屏后，在手机下拉菜单中打开投屏，根据提示操作。详见用户手册</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="285"/>
         <source>WLAN is off, please turn on WLAN</source>
-        <translation type="vanished">WLAN未开启，请打开WLAN开关</translation>
+        <translation>WLAN未开启，请打开WLAN开关</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="291"/>
         <source>Wireless network card is busy. Please try again later</source>
-        <translation type="vanished">无线网卡繁忙，请稍后再试</translation>
+        <translation>无线网卡繁忙，请稍后再试</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="329"/>
         <source>projection</source>
-        <translation type="obsolete">投屏</translation>
+        <translation type="unfinished">投屏</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="332"/>
         <source>Projection is </source>
-        <translation type="vanished">投屏功能已</translation>
+        <translation>投屏功能已</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="332"/>
         <source>on</source>
-        <translation type="vanished">开启</translation>
+        <translation>开启</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="332"/>
         <source>off</source>
-        <translation type="vanished">关闭</translation>
+        <translation>关闭</translation>
     </message>
     <message>
         <source>The projection function is </source>
@@ -4801,89 +5635,111 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="obsolete">打开</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="333"/>
         <source>Please enable or refresh the scan at the projection device</source>
-        <translation type="vanished">请在投屏设备端开启或刷新扫描</translation>
+        <translation>请在投屏设备端开启或刷新扫描</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="333"/>
         <source>You need to turn on the projection again</source>
-        <translation type="vanished">需要投屏请再重新开启</translation>
+        <translation>需要投屏请再重新开启</translation>
     </message>
     <message>
         <source>You need to turn on the screen again</source>
         <translation type="vanished">需要投屏请再重新开启</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="344"/>
         <source>Failed to execute. Please reopen the page later</source>
-        <translation type="vanished">执行失败，请再次打开该页面查看</translation>
+        <translation>执行失败，请再次打开该页面查看</translation>
     </message>
     <message>
         <source>Projection Name</source>
         <translation type="vanished">投屏端名称</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/projection/projection.cpp" line="366"/>
         <source>Add Bluetooths</source>
-        <translation type="vanished">添加蓝牙</translation>
+        <translation>添加蓝牙</translation>
     </message>
 </context>
 <context>
     <name>Proxy</name>
     <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="53"/>
         <source>Auto Proxy</source>
-        <translation type="vanished">自动设置代理</translation>
+        <translation>自动设置代理</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="129"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="133"/>
         <source>Auto proxy</source>
-        <translation type="vanished">开启自动代理</translation>
+        <translation>开启自动代理</translation>
         <extra-contents_path>/proxy/Auto proxy</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="204"/>
         <source>Auto url</source>
-        <translation type="vanished">自动配置URL</translation>
+        <translation>自动配置URL</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="270"/>
         <source>Manual Proxy</source>
-        <translation type="vanished">手动设置代理</translation>
+        <translation>手动设置代理</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="346"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="135"/>
         <source>Manual proxy</source>
-        <translation type="vanished">开启手动代理</translation>
+        <translation>开启手动代理</translation>
         <extra-contents_path>/proxy/Manual proxy</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="436"/>
         <source>Http Proxy</source>
-        <translation type="vanished">HTTP代理</translation>
+        <translation>HTTP代理</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="481"/>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="648"/>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="796"/>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="944"/>
         <source>Port</source>
-        <translation type="vanished">端口</translation>
+        <translation>端口</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="516"/>
         <source>Cetification</source>
-        <translation type="vanished">认证</translation>
+        <translation>认证</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="603"/>
         <source>Https Proxy</source>
-        <translation type="vanished">HTTPS代理</translation>
+        <translation>HTTPS代理</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="751"/>
         <source>Ftp Proxy</source>
-        <translation type="vanished">FTP代理</translation>
+        <translation>FTP代理</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="899"/>
         <source>Socks Proxy</source>
-        <translation type="vanished">SOCKS代理</translation>
+        <translation>SOCKS代理</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="1041"/>
         <source>List of ignored hosts. more than one entry, please separate with english semicolon(;)</source>
-        <translation type="vanished">忽略的主机列表，请使用英文分号（;）</translation>
+        <translation>忽略的主机列表，请使用英文分号（;）</translation>
     </message>
     <message>
         <source>proxy</source>
         <translation type="vanished">代理</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="47"/>
         <source>Proxy</source>
-        <translation type="vanished">代理</translation>
+        <translation>代理</translation>
     </message>
 </context>
 <context>
@@ -5018,52 +5874,64 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">默认</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="704"/>
         <source>blue-crystal</source>
-        <translation type="vanished">蓝水晶</translation>
+        <translation>蓝水晶</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="706"/>
         <source>dark-sense</source>
-        <translation type="vanished">深色质感</translation>
+        <translation>深色质感</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="708"/>
         <source>DMZ-Black</source>
-        <translation type="vanished">DMZ-黑</translation>
+        <translation>DMZ-黑</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="710"/>
         <source>DMZ-White</source>
-        <translation type="vanished">DMZ-白</translation>
+        <translation>DMZ-白</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="722"/>
         <source>basic</source>
-        <translation type="vanished">基础</translation>
+        <translation>基础</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="724"/>
         <source>classical</source>
-        <translation type="vanished">经典</translation>
+        <translation>经典</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="726"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="730"/>
         <source>default</source>
-        <translation type="vanished">默认</translation>
+        <translation>默认</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="728"/>
         <source>fashion</source>
-        <translation type="vanished">时尚</translation>
+        <translation>时尚</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="183"/>
         <source>Unknown</source>
-        <translation type="vanished">未知</translation>
+        <translation>未知</translation>
     </message>
     <message>
         <source>Custom Shortcut</source>
         <translation type="vanished">自定义快捷键</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="229"/>
         <source>Customize Shortcut</source>
-        <translation type="vanished">自定义快捷键</translation>
+        <translation>自定义快捷键</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="505"/>
         <source>Edit Shortcut</source>
-        <translation type="vanished">编辑快捷键</translation>
+        <translation>编辑快捷键</translation>
     </message>
     <message>
         <source>Update Shortcut</source>
@@ -5277,8 +6145,10 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>体验计划</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="177"/>
+        <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="214"/>
         <source>Never</source>
-        <translation type="vanished">从不</translation>
+        <translation>从不</translation>
     </message>
     <message>
         <source>10min</source>
@@ -5341,52 +6211,64 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">四月</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="33"/>
         <source>May</source>
-        <translation type="vanished">五月</translation>
+        <translation>五月</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="33"/>
         <source>January</source>
-        <translation type="vanished">一月</translation>
+        <translation>一月</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="33"/>
         <source>February</source>
-        <translation type="vanished">二月</translation>
+        <translation>二月</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="33"/>
         <source>March</source>
-        <translation type="vanished">三月</translation>
+        <translation>三月</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="33"/>
         <source>April</source>
-        <translation type="vanished">四月</translation>
+        <translation>四月</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="33"/>
         <source>June</source>
-        <translation type="vanished">六月</translation>
+        <translation>六月</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="34"/>
         <source>July</source>
-        <translation type="vanished">七月</translation>
+        <translation>七月</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="34"/>
         <source>August</source>
-        <translation type="vanished">八月</translation>
+        <translation>八月</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="34"/>
         <source>September</source>
-        <translation type="vanished">九月</translation>
+        <translation>九月</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="34"/>
         <source>October</source>
-        <translation type="vanished">十月</translation>
+        <translation>十月</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="34"/>
         <source>Novermber</source>
-        <translation type="vanished">十一月</translation>
+        <translation>十一月</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="34"/>
         <source>December</source>
-        <translation type="vanished">十二月</translation>
+        <translation>十二月</translation>
     </message>
     <message>
         <source>Jun</source>
@@ -5590,16 +6472,204 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>自动启动的应用程序</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1491"/>
+        <source>pa_context_subscribe() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1507"/>
+        <source>pa_context_client_info_list() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1514"/>
+        <source>pa_context_get_card_info_list() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1521"/>
+        <source>pa_context_get_sink_info_list() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1528"/>
+        <source>pa_context_get_source_info_list() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1293"/>
+        <source>Failed to initialize stream_restore extension: %s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1535"/>
+        <source>pa_context_get_sink_input_info_list() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1542"/>
+        <source>pa_context_get_source_output_info_list() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1558"/>
         <source>Connection failed, attempting reconnect</source>
-        <translation type="vanished">连接失败，尝试重新连接</translation>
+        <translation>连接失败，尝试重新连接</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1310"/>
+        <source>pa_ext_stream_restore_read() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="212"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1425"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1500"/>
+        <source>pa_context_get_server_info() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1194"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1654"/>
+        <source>Sink input callback failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1213"/>
+        <source>Source output callback failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1243"/>
+        <source>Client callback failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1259"/>
+        <source>Server info callback failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1327"/>
+        <source>Failed to initialize device manager extension: %s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1346"/>
+        <source>pa_ext_device_manager_read() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1363"/>
+        <source>pa_context_get_sink_info_by_index() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1376"/>
+        <source>pa_context_get_source_info_by_index() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1389"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1402"/>
+        <source>pa_context_get_sink_input_info() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1415"/>
+        <source>pa_context_get_client_info() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1451"/>
+        <source>pa_context_get_card_info_by_index() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1578"/>
+        <source>Ukui Media Volume Control</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1104"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1122"/>
+        <source>Card callback failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1154"/>
+        <source>Sink callback failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1138"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1175"/>
+        <source>Source callback failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="332"/>
+        <source>min length %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="342"/>
+        <source>min digit num %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="351"/>
+        <source>min upper num %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="360"/>
+        <source>min lower num %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="369"/>
+        <source>min other num %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="379"/>
+        <source>min char class %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="388"/>
+        <source>max repeat %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="397"/>
+        <source>max class repeat %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="406"/>
+        <source>max sequence %1
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/backup.cpp" line="135"/>
         <source>system upgrade new backup</source>
-        <translation type="vanished">系统升级新建备份</translation>
+        <translation>系统升级新建备份</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/backup.cpp" line="136"/>
         <source>system upgrade increment backup</source>
-        <translation type="vanished">系统升级增量备份</translation>
+        <translation>系统升级增量备份</translation>
     </message>
 </context>
 <context>
@@ -5651,47 +6721,61 @@ Wireless will be temporarily disconnected when the screen projection on</source>
 <context>
     <name>Screenlock</name>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="26"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="47"/>
         <source>Screenlock</source>
-        <translation type="vanished">锁屏</translation>
+        <translation>锁屏</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="74"/>
         <source>Screenlock Interface</source>
-        <translation type="vanished">锁屏界面</translation>
+        <translation>锁屏界面</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="151"/>
         <source>Screenlock Set</source>
-        <translation type="vanished">锁屏设置</translation>
+        <translation>锁屏设置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="277"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="112"/>
         <source>Lock screen when screensaver boot</source>
-        <translation type="vanished">激活屏保时锁定屏幕</translation>
+        <translation>激活屏保时锁定屏幕</translation>
         <extra-contents_path>/screenlock/Lock screen when screensaver boot</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="349"/>
         <source>Lock screen delay</source>
-        <translation type="vanished">锁屏延时</translation>
+        <translation>锁屏延时</translation>
     </message>
     <message>
         <source>Min</source>
         <translation type="vanished">分钟</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="399"/>
         <source>Select screenlock background</source>
-        <translation type="vanished">选择锁屏背景</translation>
+        <translation>选择锁屏背景</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="468"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="116"/>
         <source>Browser online wp</source>
-        <translation type="vanished">浏览线上壁纸</translation>
+        <translation>浏览线上壁纸</translation>
         <extra-contents_path>/screenlock/Browser local wp</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="449"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="114"/>
         <source>Browser local wp</source>
-        <translation type="vanished">浏览本地壁纸</translation>
+        <translation>浏览本地壁纸</translation>
         <extra-contents_path>/screenlock/Browser local wp</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="205"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="110"/>
         <source>Show picture of screenlock on screenlogin</source>
-        <translation type="vanished">显示锁屏壁纸在登录页面</translation>
+        <translation>显示锁屏壁纸在登录页面</translation>
         <extra-contents_path>/screenlock/Show picture of screenlock on screenlogin</extra-contents_path>
     </message>
     <message>
@@ -5715,84 +6799,105 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">从不</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="136"/>
         <source>1m</source>
-        <translation type="vanished">1m</translation>
+        <translation>1m</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="136"/>
         <source>5m</source>
-        <translation type="vanished">5m</translation>
+        <translation>5m</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="136"/>
         <source>10m</source>
-        <translation type="vanished">10m</translation>
+        <translation>10m</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="136"/>
         <source>30m</source>
-        <translation type="vanished">30m</translation>
+        <translation>30m</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="136"/>
         <source>45m</source>
-        <translation type="vanished">45m</translation>
+        <translation>45m</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="137"/>
         <source>1h</source>
-        <translation type="vanished">1h</translation>
+        <translation>1h</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="137"/>
         <source>1.5h</source>
-        <translation type="vanished">1.5h</translation>
+        <translation>1.5h</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="137"/>
         <source>3h</source>
-        <translation type="vanished">3h</translation>
+        <translation>3h</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="442"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</source>
-        <translation type="vanished">图片文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</translation>
+        <translation>图片文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="442"/>
         <source>allFiles(*.*)</source>
-        <translation type="vanished">所有文件(*.*)</translation>
+        <translation>所有文件(*.*)</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="484"/>
         <source>select custom wallpaper file</source>
-        <translation type="vanished">选择自定义壁纸文件</translation>
+        <translation>选择自定义壁纸文件</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="485"/>
         <source>Select</source>
-        <translation type="vanished">选择</translation>
+        <translation>选择</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="486"/>
         <source>Position: </source>
-        <translation type="vanished">位置： </translation>
+        <translation>位置： </translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="487"/>
         <source>FileName: </source>
-        <translation type="vanished">文件名： </translation>
+        <translation>文件名： </translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="488"/>
         <source>FileType: </source>
-        <translation type="vanished">文件类型： </translation>
+        <translation>文件类型： </translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="489"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
 </context>
 <context>
     <name>Screensaver</name>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="59"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="90"/>
         <source>Screensaver</source>
-        <translation type="vanished">屏保</translation>
+        <translation>屏保</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="399"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="178"/>
         <source>Idle time</source>
-        <translation type="vanished">此时间段后开启屏保</translation>
+        <translation>此时间段后开启屏保</translation>
         <extra-contents_path>/screensaver/Idle time</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="481"/>
         <source>Lock screen when activating screensaver</source>
-        <translation type="vanished">激活屏保时锁住屏幕</translation>
+        <translation>激活屏保时锁住屏幕</translation>
     </message>
     <message>
         <source>Enable screensaver</source>
@@ -5800,8 +6905,10 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <extra-contents_path>/screensaver/Enable screensaver</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="233"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="176"/>
         <source>Screensaver program</source>
-        <translation type="vanished">屏幕保护程序</translation>
+        <translation>屏幕保护程序</translation>
         <extra-contents_path>/screensaver/Screensaver program</extra-contents_path>
     </message>
     <message>
@@ -5826,109 +6933,134 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">默认屏保</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="164"/>
         <source>View</source>
-        <translation type="vanished">预览</translation>
+        <translation>预览</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="909"/>
         <source>Show rest time</source>
-        <translation type="vanished">显示休息时间</translation>
+        <translation>显示休息时间</translation>
         <extra-contents_path>/screensaver/Show rest time</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="205"/>
         <source>UKUI</source>
-        <translation type="vanished">UKUI</translation>
+        <translation>UKUI</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="206"/>
         <source>Blank_Only</source>
-        <translation type="vanished">黑屏</translation>
+        <translation>黑屏</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="217"/>
         <source>Customize</source>
-        <translation type="vanished">自定义</translation>
+        <translation>自定义</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="754"/>
         <source>5min</source>
-        <translation type="vanished">5分钟</translation>
+        <translation>5分钟</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="755"/>
         <source>10min</source>
-        <translation type="vanished">10分钟</translation>
+        <translation>10分钟</translation>
     </message>
     <message>
         <source>15min</source>
         <translation type="vanished">15分钟</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="756"/>
         <source>30min</source>
-        <translation type="vanished">30分钟</translation>
+        <translation>30分钟</translation>
     </message>
     <message>
         <source>1hour</source>
         <translation type="vanished">1小时</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="655"/>
         <source>Screensaver source</source>
-        <translation type="vanished">屏保来源</translation>
+        <translation>屏保来源</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="661"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="711"/>
         <source>Select</source>
-        <translation type="vanished">选择</translation>
+        <translation>选择</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="669"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp *.svg)</source>
-        <translation type="vanished">壁纸文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp *.svg)</translation>
+        <translation>壁纸文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp *.svg)</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="710"/>
         <source>select custom screensaver dir</source>
-        <translation type="vanished">选择自定义屏保路径</translation>
+        <translation>选择自定义屏保路径</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="712"/>
         <source>Position: </source>
-        <translation type="vanished">位置:</translation>
+        <translation>位置:</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="713"/>
         <source>FileName: </source>
-        <translation type="vanished">文件名:</translation>
+        <translation>文件名:</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="714"/>
         <source>FileType: </source>
-        <translation type="vanished">文件类型:</translation>
+        <translation>文件类型:</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="715"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="749"/>
         <source>Switching time</source>
-        <translation type="vanished">更换时间</translation>
+        <translation>更换时间</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="753"/>
         <source>1min</source>
-        <translation type="vanished">1分钟</translation>
+        <translation>1分钟</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="796"/>
         <source>Random switching</source>
-        <translation type="vanished">随机切换</translation>
+        <translation>随机切换</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="837"/>
         <source>Display text</source>
-        <translation type="vanished">显示文本</translation>
+        <translation>显示文本</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="847"/>
         <source>Enter text, up to 30 characters</source>
-        <translation type="vanished">输入文本，最多30个字符</translation>
+        <translation>输入文本，最多30个字符</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="925"/>
         <source>Text position</source>
-        <translation type="vanished">文本位置</translation>
+        <translation>文本位置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="930"/>
         <source>Centered</source>
-        <translation type="vanished">居中</translation>
+        <translation>居中</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="931"/>
         <source>Randow(Bubble text)</source>
-        <translation type="vanished">随机(气泡文本)</translation>
+        <translation>随机(气泡文本)</translation>
     </message>
     <message>
         <source>1m</source>
@@ -5967,110 +7099,144 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">随机</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="233"/>
         <source>Never</source>
-        <translation type="vanished">从不</translation>
+        <translation>从不</translation>
     </message>
 </context>
 <context>
     <name>Search</name>
     <message>
-        <source>Search</source>
-        <translation type="vanished">搜索</translation>
+        <location filename="../../../plugins/messages-task/search/search.ui" line="14"/>
+        <source>Form</source>
+        <translation></translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="7"/>
+        <source>Search</source>
+        <translation>搜索</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="111"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="122"/>
         <source>Create Index</source>
-        <translation type="vanished">创建索引</translation>
+        <translation>创建索引</translation>
         <extra-contents_path>/search/Create Index</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="113"/>
         <source>Creating index can help you getting results quickly.</source>
-        <translation type="vanished">创建索引可以帮助您快速获取搜索结果</translation>
+        <translation>创建索引可以帮助您快速获取搜索结果</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="178"/>
         <source>Web Engine</source>
-        <translation type="vanished">搜索引擎</translation>
+        <translation>搜索引擎</translation>
         <extra-contents_path>/search/Web Engine</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="179"/>
         <source>Default web searching engine</source>
-        <translation type="vanished">默认互联网搜索引擎</translation>
+        <translation>默认互联网搜索引擎</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="183"/>
         <source>baidu</source>
-        <translation type="vanished">百度</translation>
+        <translation>百度</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="184"/>
         <source>sougou</source>
-        <translation type="vanished">搜狗</translation>
+        <translation>搜狗</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="185"/>
         <source>360</source>
-        <translation type="vanished">360</translation>
+        <translation>360</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="133"/>
         <source>Block Folders</source>
-        <translation type="vanished">屏蔽文件夹</translation>
+        <translation>屏蔽文件夹</translation>
         <extra-contents_path>/search/Block Folders</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="136"/>
         <source>Following folders will not be searched. You can set it by adding and removing folders.</source>
-        <translation type="vanished">搜索将不再查看以下文件夹，通过添加和删除可以设置文件索引位置。</translation>
+        <translation>搜索将不再查看以下文件夹，通过添加和删除可以设置文件索引位置。</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="164"/>
         <source>Choose folder</source>
-        <translation type="vanished">选择要屏蔽的文件夹</translation>
+        <translation>选择要屏蔽的文件夹</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="314"/>
         <source>delete</source>
-        <translation type="vanished">删除</translation>
+        <translation>删除</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="352"/>
         <source>Directories</source>
-        <translation type="vanished">文件夹</translation>
+        <translation>文件夹</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="353"/>
         <source>select blocked folder</source>
-        <translation type="vanished">选择要屏蔽的文件夹</translation>
+        <translation>选择要屏蔽的文件夹</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="354"/>
         <source>Select</source>
-        <translation type="vanished">选择</translation>
+        <translation>选择</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="355"/>
         <source>Position: </source>
-        <translation type="vanished">位置: </translation>
+        <translation>位置: </translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="356"/>
         <source>FileName: </source>
-        <translation type="vanished">文件名: </translation>
+        <translation>文件名: </translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="357"/>
         <source>FileType: </source>
-        <translation type="vanished">文件类型: </translation>
+        <translation>文件类型: </translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="358"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="374"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="378"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="382"/>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="386"/>
         <source>Warning</source>
-        <translation type="vanished">警告</translation>
+        <translation>警告</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="374"/>
         <source>Add blocked folder failed, choosen path is empty!</source>
-        <translation type="vanished">添加文件夹失败，路径为空！</translation>
+        <translation>添加文件夹失败，路径为空！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="378"/>
         <source>Add blocked folder failed, it is not in home path!</source>
-        <translation type="vanished">添加文件夹失败，请选择用户目录下的文件夹！</translation>
+        <translation>添加文件夹失败，请选择用户目录下的文件夹！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="382"/>
         <source>Add blocked folder failed, its parent dir is exist!</source>
-        <translation type="vanished">添加文件夹失败，父文件夹已被屏蔽！</translation>
+        <translation>添加文件夹失败，父文件夹已被屏蔽！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/search/search.cpp" line="386"/>
         <source>Add blocked folder failed, it has been already blocked!</source>
-        <translation type="vanished">添加文件夹失败，该文件夹已被屏蔽！</translation>
+        <translation>添加文件夹失败，该文件夹已被屏蔽！</translation>
     </message>
 </context>
 <context>
@@ -6107,8 +7273,9 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">打开安全中心</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/securitycenter/securitycenter.cpp" line="15"/>
         <source>Security Center</source>
-        <translation type="vanished">安全中心</translation>
+        <translation>安全中心</translation>
     </message>
     <message>
         <source>Virus Protection</source>
@@ -6199,30 +7366,36 @@ Wireless will be temporarily disconnected when the screen projection on</source>
 <context>
     <name>ShareMain</name>
     <message>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="50"/>
         <source>Share</source>
-        <translation type="vanished">共享</translation>
+        <translation>共享</translation>
         <extra-contents_path>/vino/Share</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="59"/>
         <source>Allow others to view your desktop</source>
-        <translation type="vanished">允许其他人远程连接您的桌面</translation>
+        <translation>允许其他人远程连接您的桌面</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="74"/>
         <source>Allow connection to control screen</source>
-        <translation type="vanished">允许其他人远程连接您的桌面并控制您的屏幕</translation>
+        <translation>允许其他人远程连接您的桌面并控制您的屏幕</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="83"/>
         <source>Security</source>
-        <translation type="vanished">安全</translation>
+        <translation>安全</translation>
         <extra-contents_path>/vino/Security</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="92"/>
         <source>You must confirm every visit for this machine</source>
-        <translation type="vanished">您必须为本机机器确认每次访问</translation>
+        <translation>您必须为本机机器确认每次访问</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="107"/>
         <source>Require user to enter this password: </source>
-        <translation type="vanished">要求用户输入此密码: </translation>
+        <translation>要求用户输入此密码: </translation>
     </message>
     <message>
         <source>Password can not be blank</source>
@@ -6240,8 +7413,11 @@ Wireless will be temporarily disconnected when the screen projection on</source>
 <context>
     <name>Shortcut</name>
     <message>
+        <location filename="../../../plugins/devices/shortcut/shortcut.ui" line="47"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="152"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="166"/>
         <source>System Shortcut</source>
-        <translation type="vanished">系统快捷键</translation>
+        <translation>系统快捷键</translation>
         <extra-contents_path>/shortcut/System Shortcut</extra-contents_path>
     </message>
     <message>
@@ -6249,26 +7425,31 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">显示全部快捷键</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/shortcut/shortcut.ui" line="83"/>
         <source>Custom Shortcut</source>
-        <translation type="vanished">自定义快捷键</translation>
+        <translation>自定义快捷键</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="154"/>
         <source>Customize Shortcut</source>
-        <translation type="vanished">自定义快捷键</translation>
+        <translation>自定义快捷键</translation>
         <extra-contents_path>/shortcut/Customize Shortcut</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="193"/>
         <source>Add custom shortcut</source>
-        <translation type="vanished">添加自定义快捷键</translation>
+        <translation>添加自定义快捷键</translation>
         <extra-contents_path>/shortcut/Add custom shortcut</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="483"/>
         <source>Edit</source>
-        <translation type="vanished">编辑</translation>
+        <translation>编辑</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="479"/>
         <source>Delete</source>
-        <translation type="vanished">删除</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <source>disable</source>
@@ -6283,8 +7464,9 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">快捷键</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="75"/>
         <source>Shortcut</source>
-        <translation type="vanished">快捷键</translation>
+        <translation>快捷键</translation>
     </message>
     <message>
         <source>Desktop</source>
@@ -6488,225 +7670,314 @@ Wireless will be temporarily disconnected when the screen projection on</source>
 <context>
     <name>TabWid</name>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="57"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="119"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="133"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="138"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="167"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="203"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="444"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="474"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="822"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="922"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1092"/>
         <source>Check Update</source>
-        <translation type="vanished">检查更新</translation>
+        <translation>检查更新</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="59"/>
         <source>initializing</source>
-        <translation type="vanished">初始化中</translation>
+        <translation>初始化中</translation>
     </message>
     <message>
         <source>Service connection abnormal,please retest!</source>
         <translation type="vanished">服务连接异常，请重新检测！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="964"/>
         <source>Prompt information</source>
-        <translation type="vanished">提示信息</translation>
+        <translation>提示信息</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="224"/>
         <source>Update now</source>
-        <translation type="vanished">立即更新</translation>
+        <translation>立即更新</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="225"/>
         <source>Cancel update</source>
-        <translation type="vanished">取消更新</translation>
+        <translation>取消更新</translation>
     </message>
     <message>
         <source>No,I Don&apos;t Backup</source>
         <translation type="vanished">否，我不备份</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="232"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="374"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1125"/>
         <source>Being updated...</source>
-        <translation type="vanished">正在更新...</translation>
+        <translation>正在更新...</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="126"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="245"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="383"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="848"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="949"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1081"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1129"/>
         <source>UpdateAll</source>
-        <translation type="vanished">全部更新</translation>
+        <translation>全部更新</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="257"/>
         <source>The backup restore partition could not be found. The system will not be backed up in this update!</source>
-        <translation type="vanished">未能找到备份还原分区，本次更新不会备份系统！</translation>
+        <translation>未能找到备份还原分区，本次更新不会备份系统！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="261"/>
         <source>Kylin backup restore tool is doing other operations, please update later.</source>
-        <translation type="vanished">麒麟备份还原工具正在进行其他操作，请稍后更新</translation>
+        <translation>麒麟备份还原工具正在进行其他操作，请稍后更新</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="264"/>
         <source>The source manager configuration file is abnormal, the system temporarily unable to update!</source>
-        <translation type="vanished">源管理器配置文件异常，暂时无法更新！</translation>
+        <translation>源管理器配置文件异常，暂时无法更新！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="267"/>
         <source>Backup already, no need to backup again.</source>
-        <translation type="vanished">已备份，无需再次备份</translation>
+        <translation>已备份，无需再次备份</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="281"/>
         <source>Kylin backup restore tool does not exist, this update will not backup the system!</source>
-        <translation type="vanished">麒麟备份还原工具不存在，本次更新不会备份系统</translation>
+        <translation>麒麟备份还原工具不存在，本次更新不会备份系统</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="340"/>
         <source>Backup complete.</source>
-        <translation type="vanished">备份完成</translation>
+        <translation>备份完成</translation>
     </message>
     <message>
         <source>In backup:</source>
         <translation type="vanished">备份中：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="275"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1159"/>
         <source>Start backup,getting progress</source>
-        <translation type="vanished">开始备份，正在获取进度</translation>
+        <translation>开始备份，正在获取进度</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="662"/>
         <source>Download Limit(Kb/s)</source>
-        <translation type="vanished">下载限速(Kb/s)</translation>
+        <translation>下载限速(Kb/s)</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="667"/>
         <source>It will be avaliable in the next download.</source>
-        <translation type="vanished">开启后会在下次下载时进行限速</translation>
+        <translation>开启后会在下次下载时进行限速</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="780"/>
         <source>Ready to install</source>
-        <translation type="vanished">准备安装</translation>
+        <translation>准备安装</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="953"/>
         <source>The battery is below 50% and the update cannot be downloaded</source>
-        <translation type="vanished">电池电量低于 50%，无法下载更新</translation>
+        <translation>电池电量低于 50%，无法下载更新</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="956"/>
         <source>OK</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="963"/>
         <source>Please back up the system before all updates to avoid unnecessary losses</source>
-        <translation type="vanished">请在所有更新前备份系统，以免造成不必要的损失</translation>
+        <translation>请在所有更新前备份系统，以免造成不必要的损失</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="966"/>
         <source>Only Update</source>
-        <translation type="vanished">仅更新</translation>
+        <translation>仅更新</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="967"/>
         <source>Back And Update</source>
-        <translation type="vanished">备份并更新</translation>
+        <translation>备份并更新</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1166"/>
         <source>Failed to write configuration file, this update will not back up the system!</source>
-        <translation type="vanished">写入配置文件失败，本次更新不会备份系统！</translation>
+        <translation>写入配置文件失败，本次更新不会备份系统！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1170"/>
         <source>Insufficient backup space, this update will not backup your system!</source>
-        <translation type="vanished">备份空间不足，本次更新不会备份系统！</translation>
+        <translation>备份空间不足，本次更新不会备份系统！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1174"/>
         <source>Kylin backup restore tool could not find the UUID, this update will not backup the system!</source>
-        <translation type="vanished">麒麟备份还原工具无法找到UUID，本次更新不会备份系统</translation>
+        <translation>麒麟备份还原工具无法找到UUID，本次更新不会备份系统</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="355"/>
         <source>Backup interrupted, stop updating!</source>
-        <translation type="vanished">备份过程被中断，停止更新！</translation>
+        <translation>备份过程被中断，停止更新！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="206"/>
         <source>Software source server connection timeout</source>
-        <translation type="vanished">软件源服务器连接失败</translation>
+        <translation>软件源服务器连接超时</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="208"/>
+        <source>Software source server connection failed</source>
+        <translation>软件源服务器连接失败</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="176"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="295"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="318"/>
         <source>Downloading and installing updates...</source>
-        <translation type="vanished">正在下载并安装更新...</translation>
+        <translation>正在下载并安装更新...</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="155"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="829"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="874"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1105"/>
         <source>No Information!</source>
-        <translation type="vanished">尚未检测更新！</translation>
+        <translation>尚未检测更新！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="296"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="968"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="343"/>
         <source>System is backing up...</source>
-        <translation type="vanished">系统正在备份中...</translation>
+        <translation>系统正在备份中...</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="359"/>
         <source>Backup finished!</source>
-        <translation type="vanished">备份完成！</translation>
+        <translation>备份完成！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="363"/>
         <source>Kylin backup restore tool exception:</source>
-        <translation type="vanished">麒麟备份还原工具异常：</translation>
+        <translation>麒麟备份还原工具异常：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="363"/>
         <source>There will be no backup in this update!</source>
-        <translation type="vanished">本次更新不会备份系统！</translation>
+        <translation>本次更新不会备份系统！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="436"/>
         <source>Getting update list</source>
-        <translation type="vanished">正在获取更新列表</translation>
+        <translation>正在获取更新列表</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="441"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="476"/>
         <source>Software source update failed: </source>
-        <translation type="vanished">软件源更新失败：</translation>
+        <translation>软件源更新失败：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="495"/>
         <source>Update software source :</source>
-        <translation type="vanished">更新软件源进度：</translation>
+        <translation>更新软件源进度：</translation>
     </message>
     <message>
         <source>Reconnect times:</source>
         <translation type="vanished">重连次数：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="522"/>
         <source>Update</source>
-        <translation type="vanished">更新</translation>
+        <translation>更新</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="545"/>
         <source>View history</source>
-        <translation type="vanished">查看更新历史</translation>
+        <translation>查看更新历史</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="592"/>
         <source>Update Settings</source>
-        <translation type="vanished">更新设置</translation>
+        <translation>更新设置</translation>
         <extra-contents_path>/upgrade/Update Settings</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="603"/>
         <source>Allowed to renewable notice</source>
-        <translation type="vanished">允许通知可更新的应用</translation>
+        <translation>允许通知可更新的应用</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="613"/>
         <source>Backup current system before updates all</source>
-        <translation type="vanished">全部更新前备份系统</translation>
+        <translation>全部更新前备份系统</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="154"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="329"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="824"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1094"/>
         <source>Your system is the latest!</source>
-        <translation type="vanished">您的系统已是最新！</translation>
+        <translation>您的系统已是最新！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="244"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="851"/>
         <source>Updatable app detected on your system!</source>
-        <translation type="vanished">检测到你的系统有可更新的应用！</translation>
+        <translation>检测到你的系统有可更新的应用！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="703"/>
         <source>Automatically download and install updates</source>
-        <translation type="vanished">自动下载和安装更新</translation>
+        <translation>自动下载和安装更新</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="705"/>
         <source>After it is turned on, the system will automatically download and install updates when there is an available network and available backup and restore partitions.</source>
-        <translation type="vanished">开启后，当有可用网络和可用备份和恢复分区时，系统会自动下载和安装更新</translation>
+        <translation>开启后，当有可用网络和可用备份和恢复分区时，系统会自动下载和安装更新</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="165"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="839"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="884"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1115"/>
         <source>Last refresh:</source>
-        <translation type="vanished">上次更新：</translation>
+        <translation>上次更新：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="885"/>
         <source>Last Checked:</source>
-        <translation type="vanished">上次检测：</translation>
+        <translation>上次检测：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="917"/>
         <source>trying to reconnect </source>
-        <translation type="vanished">重新尝试连接第</translation>
+        <translation>重新尝试连接第</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="917"/>
         <source> times</source>
-        <translation type="vanished">次</translation>
+        <translation>次</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="937"/>
         <source>Updating the software source</source>
-        <translation type="vanished">正在更新软件源</translation>
+        <translation>正在更新软件源</translation>
     </message>
     <message>
         <source>This update will not backup the current system, do you want to continue the update?</source>
@@ -6725,24 +7996,28 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">暂不更新</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1101"/>
         <source>Part of the update failed!</source>
-        <translation type="vanished">部分更新失败！</translation>
+        <translation>部分更新失败！</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1140"/>
         <source>An important update is in progress, please wait.</source>
-        <translation type="vanished">正在进行一项重要更新，请等待。</translation>
+        <translation>正在进行一项重要更新，请等待。</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1177"/>
         <source>The backup restore partition is abnormal. You may not have a backup restore partition.For more details,see /var/log/backup.log</source>
-        <translation type="vanished">备份还原分区异常，您可能没有备份还原分区。更多详细信息，可以参看/var/log/backup.log</translation>
+        <translation>备份还原分区异常，您可能没有备份还原分区。更多详细信息，可以参看/var/log/backup.log</translation>
     </message>
     <message>
         <source>Other err! please refers /var/log/backup.txt!</source>
         <translation type="vanished">其他错误!请查看/var/log/backup.txt</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1184"/>
         <source>Calculating Capacity...</source>
-        <translation type="vanished">计算系统空间大小</translation>
+        <translation>计算系统空间大小</translation>
     </message>
     <message>
         <source>Update software source progress:</source>
@@ -6764,51 +8039,65 @@ Wireless will be temporarily disconnected when the screen projection on</source>
 <context>
     <name>Theme</name>
     <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="76"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="157"/>
         <source>Theme Mode</source>
-        <translation type="vanished">主题模式</translation>
+        <translation>主题模式</translation>
         <extra-contents_path>/theme/Theme Mode</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="112"/>
         <source>Theme</source>
-        <translation type="vanished">主题</translation>
+        <translation>主题</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="240"/>
         <source>Default</source>
-        <translation type="vanished">系统默认</translation>
+        <translation>系统默认</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="241"/>
         <source>Light</source>
-        <translation type="vanished">浅色模式</translation>
+        <translation>浅色模式</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="242"/>
         <source>Dark</source>
-        <translation type="vanished">深色模式</translation>
+        <translation>深色模式</translation>
     </message>
     <message>
         <source>Middle</source>
         <translation type="vanished">中</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="342"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="159"/>
         <source>Icon theme</source>
-        <translation type="vanished">图标主题</translation>
+        <translation>图标主题</translation>
         <extra-contents_path>/theme/Icon theme</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="415"/>
         <source>Control theme</source>
-        <translation type="vanished">控件主题</translation>
+        <translation>控件主题</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="490"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="161"/>
         <source>Cursor theme</source>
-        <translation type="vanished">光标主题</translation>
+        <translation>光标主题</translation>
         <extra-contents_path>/theme/Cursor theme</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="563"/>
         <source>Effect setting</source>
-        <translation type="vanished">效果设置</translation>
+        <translation>效果设置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="714"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="165"/>
         <source>Transparency</source>
-        <translation type="vanished">透明度</translation>
+        <translation>透明度</translation>
         <extra-contents_path>/theme/Transparency</extra-contents_path>
     </message>
     <message>
@@ -6816,8 +8105,10 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">透明特效</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="642"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="163"/>
         <source>Performance mode</source>
-        <translation type="vanished">特效模式</translation>
+        <translation>特效模式</translation>
         <extra-contents_path>/theme/Performance mode</extra-contents_path>
     </message>
     <message>
@@ -6833,8 +8124,10 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">高</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="829"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="167"/>
         <source>Reset to default</source>
-        <translation type="vanished">恢复默认设置</translation>
+        <translation>恢复默认设置</translation>
         <extra-contents_path>/theme/Reset to default</extra-contents_path>
     </message>
     <message>
@@ -6845,20 +8138,24 @@ Wireless will be temporarily disconnected when the screen projection on</source>
 <context>
     <name>TimeZoneChooser</name>
     <message>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="34"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="35"/>
         <source>Confirm</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="45"/>
         <source>Change time zone</source>
-        <translation type="vanished">更改时区</translation>
+        <translation>更改时区</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="71"/>
         <source>Input what you are looking for</source>
-        <translation type="vanished">输入查找内容</translation>
+        <translation>输入查找内容</translation>
     </message>
     <message>
         <source>change timezone</source>
@@ -6869,138 +8166,175 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">更改时区</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="95"/>
         <source>Change Timezone</source>
-        <translation type="vanished">更改时区</translation>
+        <translation>更改时区</translation>
     </message>
 </context>
 <context>
     <name>TouchScreen</name>
     <message>
+        <location filename="../../../plugins/system/touchscreen/touchscreen.ui" line="14"/>
+        <location filename="../../../plugins/system/touchscreen/touchscreen.ui" line="32"/>
+        <location filename="../../../plugins/system/touchscreen/touchscreen.cpp" line="12"/>
         <source>TouchScreen</source>
-        <translation type="vanished">触摸屏</translation>
+        <translation>触摸屏</translation>
     </message>
     <message>
         <source>monitor</source>
         <translation type="vanished">显示器</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/touchscreen/touchscreen.ui" line="134"/>
         <source>touch id</source>
-        <translation type="vanished">触摸屏标识</translation>
+        <translation>触摸屏标识</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/touchscreen/touchscreen.ui" line="236"/>
         <source>map</source>
-        <translation type="vanished">触摸映射</translation>
+        <translation>触摸映射</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/touchscreen/touchscreen.ui" line="258"/>
         <source>calibration</source>
-        <translation type="vanished">触摸校准</translation>
+        <translation>触摸校准</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/touchscreen/touchscreen.ui" line="285"/>
         <source>No touch screen found</source>
-        <translation type="vanished">未发现触摸屏设备</translation>
+        <translation>未发现触摸屏设备</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/touchscreen/touchscreen.ui" line="202"/>
         <source>input device</source>
-        <translation type="vanished">触摸设备</translation>
+        <translation>触摸设备</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/touchscreen/touchscreen.ui" line="69"/>
         <source>Monitor</source>
-        <translation type="obsolete">显示器</translation>
+        <translation type="unfinished">显示器</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/touchscreen/touchscreen.ui" line="209"/>
+        <source>TextLabel</source>
+        <translation></translation>
     </message>
 </context>
 <context>
     <name>Touchpad</name>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="41"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="86"/>
         <source>Touchpad Settings</source>
-        <translation type="vanished">触摸板设置</translation>
+        <translation>触摸板设置</translation>
         <extra-contents_path>/touchpad/Touchpad Settings</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="177"/>
         <source>Enabled touchpad</source>
-        <translation type="vanished">启用触摸板</translation>
+        <translation>启用触摸板</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="246"/>
         <source>Disable touchpad while typing</source>
-        <translation type="vanished">打字时禁用触摸板</translation>
+        <translation>打字时禁用触摸板</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="315"/>
         <source>Enable mouse clicks with touchpad</source>
-        <translation type="vanished">启用触摸板的鼠标点击</translation>
+        <translation>启用触摸板的鼠标点击</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="108"/>
         <source> Mouse to disable  touchpad</source>
-        <translation type="vanished">连接鼠标或无线触控板时禁用内置触摸版</translation>
+        <translation>连接鼠标或无线触控板时禁用内置触摸版</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="393"/>
         <source>Scrolling</source>
-        <translation type="vanished">滚动</translation>
+        <translation>滚动</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="426"/>
         <source>No touchpad found</source>
-        <translation type="vanished">未发现触摸板设备</translation>
+        <translation>未发现触摸板设备</translation>
     </message>
     <message>
         <source>touchpad</source>
         <translation type="vanished">触摸板</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="56"/>
         <source>Touchpad</source>
-        <translation type="vanished">触摸板</translation>
+        <translation>触摸板</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="137"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="141"/>
         <source>Disable rolling</source>
-        <translation type="vanished">禁用滚动</translation>
+        <translation>禁用滚动</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="138"/>
         <source>Edge scrolling</source>
-        <translation type="vanished">边界滚动</translation>
+        <translation>边界滚动</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="139"/>
         <source>Two-finger scrolling</source>
-        <translation type="vanished">双指滚动</translation>
+        <translation>双指滚动</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="142"/>
         <source>Vertical edge scrolling</source>
-        <translation type="vanished">垂直边界滚动</translation>
+        <translation>垂直边界滚动</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="143"/>
         <source>Horizontal edge scrolling</source>
-        <translation type="vanished">水平边界滚动</translation>
+        <translation>水平边界滚动</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="144"/>
         <source>Vertical two-finger scrolling</source>
-        <translation type="vanished">垂直双指滚动</translation>
+        <translation>垂直双指滚动</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="145"/>
         <source>Horizontal two-finger scrolling</source>
-        <translation type="vanished">水平双指滚动</translation>
+        <translation>水平双指滚动</translation>
     </message>
 </context>
 <context>
     <name>TrialDialog</name>
     <message>
+        <location filename="../../../plugins/messages-task/about/trialdialog.cpp" line="12"/>
         <source>Set</source>
-        <translation type="vanished">系统设置</translation>
+        <translation>系统设置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/trialdialog.cpp" line="37"/>
         <source>Yinhe Kylin OS(Trail Version) Disclaimer</source>
-        <translation type="vanished">银河麒麟操作系统（试用版）免责声明</translation>
+        <translation>银河麒麟操作系统（试用版）免责声明</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/trialdialog.cpp" line="46"/>
         <source>Dear customer:
     Thank you for trying Yinhe Kylin OS(trail version)! This version is free for users who only try out, no commercial purpose is permitted. The trail period lasts one year and it starts from the ex-warehouse time of the OS. No after-sales service is provided during the trail stage. If any security problems occurred when user put important files or do any commercial usage in system, all consequences are taken by users. Kylin software Co., Ltd. take no legal risk in trail version.
     During trail stage,if you want any technology surpport or activate the system, please buy“Yinhe Kylin Operating System”official version or authorization by contacting 400-089-1870.</source>
-        <translation type="vanished">尊敬的客户：
+        <translation>尊敬的客户：
     您好！随机安装的“银河麒麟操作系统（试用版）”是针对该版本对应的行业客户的免费试用版本，用于整机的试用、测试和评估，不能用于其他任何商业用途。此试用版本以软件出库时间计时，试用时间为一年。试用期间不提供相关正版软件的售后服务，如果客户在试用版本上自行存放重要文件及私自进行商业用途，由此产生的任何安全问题及结果一概由用户自己承担，麒麟软件有限公司不承担任何法律风险。
     在试用过程中，如希望激活或者得到专业的技术服务支持，请您购买“银河麒麟操作系统”正式版本或授权，联系方式如下：400-089-1870。</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/trialdialog.cpp" line="54"/>
         <source>Kylin software Co., Ltd.</source>
-        <translation type="vanished">麒麟软件有限公司</translation>
+        <translation>麒麟软件有限公司</translation>
     </message>
     <message>
+        <location filename="../../../plugins/messages-task/about/trialdialog.cpp" line="62"/>
         <source>www.Kylinos.cn</source>
-        <translation type="vanished">www.kylinos.cn</translation>
+        <translation>www.kylinos.cn</translation>
     </message>
 </context>
 <context>
@@ -7053,22 +8387,26 @@ Wireless will be temporarily disconnected when the screen projection on</source>
 <context>
     <name>UkmediaInputWidget</name>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="67"/>
         <source>Input</source>
-        <translation type="vanished">输入</translation>
+        <translation>输入</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="70"/>
         <source>Input Device:</source>
-        <translation type="vanished">选择输入设备</translation>
+        <translation>选择输入设备</translation>
         <extra-contents_path>/audio/Input Device</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="73"/>
         <source>Volume</source>
-        <translation type="vanished">音量大小</translation>
+        <translation>音量大小</translation>
         <extra-contents_path>/audio/Volume</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="78"/>
         <source>Input Level</source>
-        <translation type="vanished">输入反馈</translation>
+        <translation>输入反馈</translation>
         <extra-contents_path>/audio/Input Level</extra-contents_path>
     </message>
     <message>
@@ -7122,27 +8460,32 @@ Wireless will be temporarily disconnected when the screen projection on</source>
 <context>
     <name>UkmediaOutputWidget</name>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="88"/>
         <source>Output</source>
-        <translation type="vanished">输出</translation>
+        <translation>输出</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="91"/>
         <source>Output Device:</source>
-        <translation type="vanished">选择输出设备</translation>
+        <translation>选择输出设备</translation>
         <extra-contents_path>/audio/Output Device</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="94"/>
         <source>Master Volume</source>
-        <translation type="vanished">音量</translation>
+        <translation>音量</translation>
         <extra-contents_path>/audio/Master Volume</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="99"/>
         <source>Balance</source>
-        <translation type="vanished">声道平衡</translation>
+        <translation>声道平衡</translation>
         <extra-contents_path>/audio/Balance</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="102"/>
         <source>Right</source>
-        <translation type="vanished">右</translation>
+        <translation>右</translation>
     </message>
     <message>
         <source>Profile</source>
@@ -7169,8 +8512,9 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">声道平衡</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="100"/>
         <source>Left</source>
-        <translation type="vanished">左</translation>
+        <translation>左</translation>
     </message>
     <message>
         <source>right</source>
@@ -7216,47 +8560,56 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">注销</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="54"/>
         <source>System Sound</source>
-        <translation type="vanished">系统音效</translation>
+        <translation>系统音效</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="57"/>
         <source>Sound Theme</source>
-        <translation type="vanished">音效主题</translation>
+        <translation>音效主题</translation>
         <extra-contents_path>/audio/Sound Theme</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="60"/>
         <source>Alert Sound</source>
-        <translation type="vanished">通知</translation>
+        <translation>通知</translation>
         <extra-contents_path>/audio/Alert Sound</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="63"/>
         <source>Alert Volume</source>
-        <translation type="vanished">提示音大小</translation>
+        <translation>提示音大小</translation>
         <extra-contents_path>/audio/Alert Volume</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="86"/>
         <source>Logout Music</source>
-        <translation type="vanished">注销</translation>
+        <translation>注销</translation>
     </message>
     <message>
         <source>Boot Music</source>
         <translation type="vanished">开关机音乐</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="81"/>
         <source>Beep Switch</source>
-        <translation type="vanished">提示音</translation>
+        <translation>提示音</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="82"/>
         <source>Poweroff Music</source>
-        <translation type="vanished">关机</translation>
+        <translation>关机</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="83"/>
         <source>Startup Music</source>
-        <translation type="vanished">开机</translation>
+        <translation>开机</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="84"/>
         <source>Wakeup Music</source>
-        <translation type="vanished">唤醒</translation>
+        <translation>唤醒</translation>
     </message>
     <message>
         <source>Sleep Music</source>
@@ -7267,8 +8620,9 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">窗口关闭</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="85"/>
         <source>Volume Change</source>
-        <translation type="vanished">音量调节</translation>
+        <translation>音量调节</translation>
     </message>
     <message>
         <source>Setting Menu</source>
@@ -7276,61 +8630,189 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
 </context>
 <context>
+    <name>UkmediaVolumeControl</name>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="67"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="92"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="96"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="110"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="136"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="162"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="242"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="246"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="258"/>
+        <source>pa_context_set_sink_volume_by_index() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="131"/>
+        <source>pa_context_set_source_mute_by_index() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="275"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="279"/>
+        <source>pa_context_set_source_output_volume() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="291"/>
+        <source>pa_context_set_source_output_mute() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="303"/>
+        <source>pa_context_set_card_profile_by_index() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="317"/>
+        <source>pa_context_set_default_sink() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="331"/>
+        <source>pa_context_set_default_source() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="345"/>
+        <source>pa_context_set_sink_port_by_name() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="359"/>
+        <source>pa_context_set_source_port_by_name() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="388"/>
+        <source> (plugged in)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="392"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="506"/>
+        <source> (unavailable)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="394"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="503"/>
+        <source> (unplugged)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="606"/>
+        <source>Failed to read data from stream</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="656"/>
+        <source>Peak detect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="657"/>
+        <source>Failed to create monitoring stream</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="672"/>
+        <source>Failed to connect monitoring stream</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="774"/>
+        <source>Ignoring sink-input due to it being designated as an event and thus handled by the Event widget</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1070"/>
+        <source>Establishing connection to PulseAudio. Please wait...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>UnifiedOutputConfig</name>
     <message>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="76"/>
         <source>resolution</source>
-        <translation type="vanished">分辨率</translation>
+        <translation>分辨率</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="105"/>
         <source>orientation</source>
-        <translation type="vanished">方向</translation>
+        <translation>方向</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="110"/>
         <source>arrow-up</source>
-        <translation type="vanished">不旋转</translation>
+        <translation>不旋转</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="111"/>
         <source>90° arrow-right</source>
-        <translation type="vanished">90°顺时针</translation>
+        <translation>90°顺时针</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="112"/>
         <source>arrow-down</source>
-        <translation type="vanished">上下颠倒</translation>
+        <translation>上下颠倒</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="113"/>
         <source>90° arrow-left</source>
-        <translation type="vanished">90°逆时针</translation>
+        <translation>90°逆时针</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="142"/>
         <source>frequency</source>
-        <translation type="vanished">刷新率</translation>
+        <translation>刷新率</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="173"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="270"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="276"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="313"/>
+        <source>%1 Hz</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>refresh rate</source>
         <translation type="vanished">刷新率</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="147"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="300"/>
         <source>auto</source>
-        <translation type="vanished">自动</translation>
+        <translation>自动</translation>
     </message>
 </context>
 <context>
     <name>Update</name>
     <message>
+        <location filename="../../../plugins/security-updates/update/update.ui" line="26"/>
+        <location filename="../../../plugins/security-updates/update/update.cpp" line="33"/>
         <source>Update</source>
-        <translation type="vanished">更新</translation>
+        <translation>更新</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/update/update.ui" line="44"/>
+        <location filename="../../../plugins/security-updates/update/update.cpp" line="69"/>
         <source>System Update</source>
-        <translation type="vanished">系统更新</translation>
+        <translation>系统更新</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/update/update.ui" line="94"/>
         <source>Last check time:</source>
-        <translation type="vanished">上次检查时间：</translation>
+        <translation>上次检查时间：</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/update/update.ui" line="139"/>
+        <location filename="../../../plugins/security-updates/update/update.cpp" line="72"/>
         <source>Check for updates</source>
-        <translation type="vanished">检查更新</translation>
+        <translation>检查更新</translation>
         <extra-contents_path>/update/Check for updates</extra-contents_path>
     </message>
 </context>
@@ -7345,33 +8827,38 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">设置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/updatedbus.cpp" line="103"/>
         <source>System-Upgrade</source>
-        <translation type="vanished">系统更新</translation>
+        <translation>系统更新</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/updatedbus.cpp" line="106"/>
         <source>ukui-control-center-update</source>
-        <translation type="vanished">控制面板-更新提示</translation>
+        <translation>控制面板-更新提示</translation>
     </message>
 </context>
 <context>
     <name>UpdateLog</name>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/updatelog.cpp" line="17"/>
         <source>Update log</source>
-        <translation type="vanished">更新日志</translation>
+        <translation>更新日志</translation>
     </message>
 </context>
 <context>
     <name>UpdateSource</name>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/updatesource.cpp" line="80"/>
         <source>Connection failed, please reconnect!</source>
-        <translation type="vanished">连接失败，请重新连接！</translation>
+        <translation>连接失败，请重新连接！</translation>
     </message>
 </context>
 <context>
     <name>Upgrade</name>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/upgrade.cpp" line="7"/>
         <source>Upgrade</source>
-        <translation type="vanished">更新</translation>
+        <translation>更新</translation>
     </message>
 </context>
 <context>
@@ -7385,8 +8872,9 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">帐户信息</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="70"/>
         <source>User Info</source>
-        <translation type="vanished">帐户信息</translation>
+        <translation>帐户信息</translation>
     </message>
     <message>
         <source>standard user</source>
@@ -7397,76 +8885,99 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">管理员用户</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="171"/>
         <source>root</source>
-        <translation type="vanished">Root</translation>
+        <translation>Root</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="527"/>
+        <source>Pwd Changed Succes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1342"/>
         <source>Hint</source>
-        <translation type="vanished">提示</translation>
+        <translation>提示</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1343"/>
         <source>The system only allows one user to log in automatically.After it is turned on, the automatic login of other users will be turned off.Is it turned on?</source>
-        <translation type="vanished">系统只允许一个用户自动登录，开启后将关闭其他用户的自动登录，是否开启？</translation>
+        <translation>系统只允许一个用户自动登录，开启后将关闭其他用户的自动登录，是否开启？</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1346"/>
         <source>Trun on</source>
-        <translation type="vanished">开启</translation>
+        <translation>开启</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1347"/>
         <source>Close on</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1417"/>
         <source>Add biometric feature</source>
-        <translation type="vanished">添加生物密码</translation>
+        <translation>添加生物密码</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1730"/>
         <source>Add</source>
-        <translation type="obsolete">添加</translation>
+        <translation type="unfinished">添加</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1951"/>
         <source>Rename</source>
-        <translation type="vanished">重命名</translation>
+        <translation>重命名</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1965"/>
         <source>Verify</source>
-        <translation type="vanished">验证</translation>
+        <translation>验证</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1985"/>
         <source>Delete</source>
-        <translation type="vanished">删除</translation>
+        <translation>删除</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="167"/>
         <source>Standard</source>
-        <translation type="vanished">标准用户</translation>
+        <translation>标准用户</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="169"/>
         <source>Admin</source>
-        <translation type="vanished">管理员</translation>
+        <translation>管理员</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="837"/>
         <source>Del</source>
-        <translation type="vanished">删除</translation>
+        <translation>删除</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="969"/>
         <source>Warning</source>
-        <translation type="vanished">警告</translation>
+        <translation>警告</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="969"/>
         <source>The user is logged in, please delete the user after logging out</source>
-        <translation type="vanished">用户已经登录，请注销后删除用户</translation>
+        <translation>用户已经登录，请注销后删除用户</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="41"/>
         <source>Current User</source>
-        <translation type="vanished">当前用户</translation>
+        <translation>当前用户</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="819"/>
         <source>Change pwd</source>
-        <translation type="vanished">更改密码</translation>
+        <translation>更改密码</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="806"/>
         <source>Change type</source>
-        <translation type="vanished">更改类型</translation>
+        <translation>更改类型</translation>
     </message>
     <message>
         <source>Change valid</source>
@@ -7481,13 +8992,17 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">密码时效</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="285"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="153"/>
         <source>Password</source>
-        <translation type="vanished">修改密码</translation>
+        <translation>修改密码</translation>
         <extra-contents_path>/userinfo/Password</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="304"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="155"/>
         <source>Type</source>
-        <translation type="vanished">帐户类型</translation>
+        <translation>帐户类型</translation>
         <extra-contents_path>/userinfo/Type</extra-contents_path>
     </message>
     <message>
@@ -7495,74 +9010,91 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">密码时效</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="323"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="161"/>
         <source>Group</source>
-        <translation type="vanished">用户组</translation>
+        <translation>用户组</translation>
         <extra-contents_path>/userinfo/Group</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="389"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="157"/>
         <source>Login no passwd</source>
-        <translation type="vanished">免密登录</translation>
+        <translation>免密登录</translation>
         <extra-contents_path>/userinfo/Login no passwd</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="159"/>
         <source>enable autoLogin</source>
-        <translation type="vanished">开机自动登录</translation>
+        <translation>开机自动登录</translation>
         <extra-contents_path>/userinfo/enable autoLogin</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="467"/>
         <source>Automatic login at boot</source>
-        <translation type="vanished">开机自动登录</translation>
+        <translation>开机自动登录</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="545"/>
         <source>Currently in Live mode, please create a new user and log out</source>
-        <translation type="vanished">当前处于试用模式，请创建一个新用户并注销生效</translation>
+        <translation>当前处于试用模式，请创建一个新用户并注销生效</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="608"/>
         <source>Biometric Password</source>
-        <translation type="vanished">生物密码</translation>
+        <translation>生物密码</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="628"/>
         <source>advanced settings </source>
-        <translation type="vanished">高级设置</translation>
+        <translation>高级设置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="735"/>
         <source>enable biometrics </source>
-        <translation type="vanished">打开生物特征</translation>
+        <translation>打开生物特征</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="804"/>
         <source>types of biometric password </source>
-        <translation type="vanished">生物密码类型</translation>
+        <translation>生物密码类型</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="883"/>
         <source>biometric device </source>
-        <translation type="vanished">生物设备</translation>
+        <translation>生物设备</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="1020"/>
         <source>Other Users</source>
-        <translation type="vanished">其他用户</translation>
+        <translation>其他用户</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="461"/>
         <source>Add new user</source>
-        <translation type="vanished">添加新用户</translation>
+        <translation>添加新用户</translation>
         <extra-contents_path>/userinfo/Add new user</extra-contents_path>
     </message>
 </context>
 <context>
     <name>Vino</name>
     <message>
+        <location filename="../../../plugins/network/vino/vino.cpp" line="24"/>
         <source>Vino</source>
-        <translation type="vanished">桌面共享</translation>
+        <translation>桌面共享</translation>
     </message>
 </context>
 <context>
     <name>Vpn</name>
     <message>
+        <location filename="../../../plugins/network/vpn/vpn.ui" line="53"/>
         <source>Add Vpn Connect</source>
-        <translation type="vanished">添加VPN连接</translation>
+        <translation>添加VPN连接</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/vpn/vpn.cpp" line="91"/>
         <source>Add vpn connect</source>
-        <translation type="vanished">添加VPN连接</translation>
+        <translation>添加VPN连接</translation>
         <extra-contents_path>/vpn/Add vpn connect</extra-contents_path>
     </message>
     <message>
@@ -7570,19 +9102,23 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">VPN</translation>
     </message>
     <message>
+        <location filename="../../../plugins/network/vpn/vpn.cpp" line="28"/>
         <source>Vpn</source>
-        <translation type="vanished">VPN</translation>
+        <translation>VPN</translation>
     </message>
 </context>
 <context>
     <name>Wallpaper</name>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="103"/>
         <source>Desktop Background</source>
-        <translation type="vanished">桌面背景</translation>
+        <translation>桌面背景</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="308"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="110"/>
         <source>Select from</source>
-        <translation type="vanished">选择背景形式</translation>
+        <translation>选择背景形式</translation>
         <extra-contents_path>/wallpaper/Select from</extra-contents_path>
     </message>
     <message>
@@ -7590,18 +9126,24 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">图片放置方式</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="499"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="112"/>
         <source>Browser local wp</source>
-        <translation type="vanished">浏览本地壁纸</translation>
+        <translation>浏览本地壁纸</translation>
         <extra-contents_path>/wallpaper/Browser local wp</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="518"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="116"/>
         <source>Reset to default</source>
-        <translation type="vanished">恢复默认设置</translation>
+        <translation>恢复默认设置</translation>
         <extra-contents_path>/wallpaper/Reset to default</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="480"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="114"/>
         <source>Browser online wp</source>
-        <translation type="vanished">浏览线上壁纸</translation>
+        <translation>浏览线上壁纸</translation>
         <extra-contents_path>/wallpaper/Browser online wp</extra-contents_path>
     </message>
     <message>
@@ -7621,24 +9163,28 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">背景</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="49"/>
         <source>Background</source>
-        <translation type="vanished">背景</translation>
+        <translation>背景</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="131"/>
         <source>picture</source>
-        <translation type="vanished">图片</translation>
+        <translation>图片</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="131"/>
         <source>color</source>
-        <translation type="vanished">颜色</translation>
+        <translation>颜色</translation>
     </message>
     <message>
         <source>Add custom shortcut</source>
         <translation type="obsolete">添加自定义快捷键</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="162"/>
         <source>Custom color</source>
-        <translation type="vanished">自定义颜色</translation>
+        <translation>自定义颜色</translation>
     </message>
     <message>
         <source>wallpaper</source>
@@ -7665,36 +9211,50 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">适合宽度</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="477"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</source>
-        <translation type="vanished">图片文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</translation>
+        <translation>图片文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="477"/>
         <source>allFiles(*.*)</source>
-        <translation type="vanished">所有文件(*.*)</translation>
+        <translation>所有文件(*.*)</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="517"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="559"/>
         <source>select custom wallpaper file</source>
-        <translation type="vanished">选择自定义壁纸文件</translation>
+        <translation>选择自定义壁纸文件</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="518"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="560"/>
         <source>Select</source>
-        <translation type="vanished">选择</translation>
+        <translation>选择</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="519"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="561"/>
         <source>Position: </source>
-        <translation type="vanished">位置： </translation>
+        <translation>位置： </translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="520"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="562"/>
         <source>FileName: </source>
-        <translation type="vanished">文件名： </translation>
+        <translation>文件名： </translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="521"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="563"/>
         <source>FileType: </source>
-        <translation type="vanished">文件类型： </translation>
+        <translation>文件类型： </translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="522"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="564"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
 </context>
 <context>
@@ -7704,57 +9264,70 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">屏幕缩放 </translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="627"/>
         <source>unify output</source>
-        <translation type="vanished">统一输出</translation>
+        <translation>统一输出</translation>
         <extra-contents_path>/display/unify output</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="631"/>
         <source>night mode</source>
-        <translation type="vanished">色温</translation>
+        <translation>色温</translation>
         <extra-contents_path>/display/night mode</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="559"/>
         <source>Some applications need to be logouted to take effect</source>
-        <translation type="vanished">部分程序需要注销生效</translation>
+        <translation>部分程序需要注销生效</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="545"/>
         <source>monitor</source>
-        <translation type="vanished">显示器</translation>
+        <translation>显示器</translation>
         <extra-contents_path>/display/monitor</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="547"/>
         <source>screen zoom</source>
-        <translation type="vanished">缩放屏幕</translation>
+        <translation>缩放屏幕</translation>
         <extra-contents_path>/display/screen zoom</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="558"/>
         <source>Information</source>
-        <translation type="vanished">信息</translation>
+        <translation>信息</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="639"/>
         <source>Theme follow night mode</source>
-        <translation type="vanished">主题跟随夜间模式变化</translation>
+        <translation>主题跟随夜间模式变化</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="660"/>
         <source>Hint</source>
-        <translation type="vanished">提示</translation>
+        <translation>提示</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="661"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after 14 seconds</source>
-        <translation type="vanished">是否保留当前修改的配置？将在14秒后自动保存配置</translation>
+        <translation>是否保留当前修改的配置？将在14秒后自动保存配置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="666"/>
         <source>Not Save</source>
-        <translation type="vanished">不保存</translation>
+        <translation>不保存</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="665"/>
         <source>Save</source>
-        <translation type="vanished">保存</translation>
+        <translation>保存</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1883"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1890"/>
         <source>Brightness</source>
-        <translation type="vanished">亮度</translation>
+        <translation>亮度</translation>
     </message>
     <message>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
@@ -7767,9 +9340,10 @@ The settings will be saved after 9 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与 显卡兼容性问题，有可能显示不正常。系统将在9秒后保存配置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="675"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
 the settings will be saved after %1 seconds</source>
-        <translation type="vanished">是否保留当前修改的配置？将在%1秒后自动保存配置</translation>
+        <translation>是否保留当前修改的配置？将在%1秒后自动保存配置</translation>
     </message>
     <message>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
@@ -7795,25 +9369,31 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1270"/>
         <source>please insure at least one output!</source>
-        <translation type="vanished">请确保至少开启一个屏幕!</translation>
+        <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1108"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1270"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1277"/>
         <source>Warning</source>
-        <translation type="vanished">警告</translation>
+        <translation>警告</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1109"/>
         <source>Open time should be earlier than close time!</source>
-        <translation type="vanished">开启时间必须大于关闭时间！</translation>
+        <translation>开启时间必须大于关闭时间！</translation>
     </message>
     <message>
         <source>Morning time should be earlier than evening time!</source>
         <translation type="vanished">早晨时刻应早于晚上的时刻!</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1278"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
-        <translation type="vanished">抱歉，配置不能应用.</translation>
+        <translation>抱歉，配置不能应用.</translation>
     </message>
     <message>
         <source>@title:window</source>
@@ -7825,22 +9405,30 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">缩放配置需要注销后生效</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/touchscreen/widget.cpp" line="81"/>
         <source>touch id</source>
-        <translation type="vanished">触摸屏标识</translation>
+        <translation>触摸屏标识</translation>
         <extra-contents_path>/touchscreen/touch id</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/system/touchscreen/widget.cpp" line="83"/>
         <source>Monitor</source>
-        <translation type="vanished">显示器</translation>
+        <translation>显示器</translation>
         <extra-contents_path>/touchscreen/monitor</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/system/touchscreen/widget.cpp" line="461"/>
         <source>%1</source>
-        <translation type="vanished">%1</translation>
+        <translation>%1</translation>
     </message>
 </context>
 <context>
     <name>addShortcutDialog</name>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="26"/>
+        <source>Dialog</source>
+        <translation></translation>
+    </message>
     <message>
         <source>Shortcut name</source>
         <translation type="vanished">快捷键名称</translation>
@@ -7850,40 +9438,54 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">快捷键程序</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="103"/>
         <source>Exec</source>
-        <translation type="vanished">打开程序</translation>
+        <translation>打开程序</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="154"/>
         <source>Open</source>
-        <translation type="vanished">浏览</translation>
+        <translation>浏览</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="174"/>
         <source>Name</source>
-        <translation type="vanished">快捷键名称</translation>
+        <translation>快捷键名称</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="214"/>
         <source>Key</source>
-        <translation type="vanished">快捷按键</translation>
+        <translation>快捷按键</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="349"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="356"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid executable, please re-enter</source>
         <translation type="vanished">无效的可执行程序，请重新选择</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="419"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="241"/>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="438"/>
         <source>Save</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
         <source>Certain</source>
         <translation type="vanished">确定</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="63"/>
         <source>Add custom shortcut</source>
-        <translation type="vanished">添加自定义快捷键</translation>
+        <translation>添加自定义快捷键</translation>
     </message>
     <message>
         <source>shortcut conflict</source>
@@ -7898,36 +9500,52 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">快捷键名称重复</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="77"/>
         <source>Please enter a shortcut</source>
-        <translation type="vanished">请输入快捷键</translation>
+        <translation>请输入快捷键</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="233"/>
         <source>Desktop files(*.desktop)</source>
-        <translation type="vanished">桌面文件(*.desktop)</translation>
+        <translation>桌面文件(*.desktop)</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="240"/>
         <source>select desktop</source>
-        <translation type="vanished">选择桌面</translation>
+        <translation>选择桌面</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="262"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="281"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="292"/>
         <source>Invalid application</source>
-        <translation type="vanished">非法应用</translation>
+        <translation>非法应用</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="264"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="277"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="288"/>
         <source>Shortcut conflict</source>
-        <translation type="vanished">快捷键冲突</translation>
+        <translation>快捷键冲突</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="266"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="279"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="290"/>
         <source>Invalid shortcut</source>
-        <translation type="vanished">非法快捷键</translation>
+        <translation>非法快捷键</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="268"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="275"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="294"/>
         <source>Name repetition</source>
-        <translation type="vanished">名称重复</translation>
+        <translation>名称重复</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="300"/>
         <source>Unknown error</source>
-        <translation type="vanished">未知错误</translation>
+        <translation>未知错误</translation>
     </message>
 </context>
 <context>
@@ -7940,36 +9558,44 @@ Common reasons are that the overall screen size is too big, or you enabled more 
 <context>
     <name>changtimedialog</name>
     <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.ui" line="32"/>
         <source>Dialog</source>
-        <translation type="vanished">更改时间</translation>
+        <translation>更改时间</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.ui" line="115"/>
         <source>current date</source>
-        <translation type="vanished">时间日期</translation>
+        <translation>时间日期</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.ui" line="200"/>
         <source>time</source>
-        <translation type="vanished">时间</translation>
+        <translation>时间</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.ui" line="321"/>
         <source>year</source>
-        <translation type="vanished">年份</translation>
+        <translation>年份</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.ui" line="398"/>
         <source>month</source>
-        <translation type="vanished">月份</translation>
+        <translation>月份</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.ui" line="472"/>
         <source>day</source>
-        <translation type="vanished">号</translation>
+        <translation>号</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.ui" line="574"/>
         <source>cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.ui" line="593"/>
         <source>confirm</source>
-        <translation type="vanished">确认</translation>
+        <translation>确认</translation>
     </message>
 </context>
 <context>
@@ -8069,8 +9695,15 @@ Common reasons are that the overall screen size is too big, or you enabled more 
 <context>
     <name>ksc_main_page_widget</name>
     <message>
+        <location filename="../../../plugins/security-updates/securitycenter/ksc_main_page_widget.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/securitycenter/ksc_main_page_widget.ui" line="158"/>
+        <location filename="../../../plugins/security-updates/securitycenter/ksc_main_page_widget.cpp" line="45"/>
         <source>Run Security Center</source>
-        <translation type="vanished">打开安全中心</translation>
+        <translation>打开安全中心</translation>
         <extra-contents_path>/securitycenter/Run Security Center</extra-contents_path>
     </message>
     <message>
@@ -8085,43 +9718,64 @@ Common reasons are that the overall screen size is too big, or you enabled more 
 <context>
     <name>ksc_module_func_widget</name>
     <message>
+        <location filename="../../../plugins/security-updates/securitycenter/ksc_module_func_widget.ui" line="26"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/securitycenter/ksc_module_func_widget.ui" line="182"/>
+        <location filename="../../../plugins/security-updates/securitycenter/ksc_module_func_widget.ui" line="198"/>
+        <location filename="../../../plugins/security-updates/securitycenter/ksc_module_func_widget.cpp" line="20"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/securitycenter/ksc_module_func_widget.cpp" line="77"/>
         <source>Security Scan</source>
-        <translation type="vanished">安全体检</translation>
+        <translation>安全体检</translation>
         <extra-contents_path>/securitycenter/Security Scan</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/securitycenter/ksc_module_func_widget.cpp" line="79"/>
         <source>Account Protection</source>
-        <translation type="vanished">账户保护</translation>
+        <translation>账户保护</translation>
         <extra-contents_path>/securitycenter/Account Protection</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/securitycenter/ksc_module_func_widget.cpp" line="81"/>
         <source>Network Protection</source>
-        <translation type="vanished">网络保护</translation>
+        <translation>网络保护</translation>
         <extra-contents_path>/securitycenter/Network Protection</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/securitycenter/ksc_module_func_widget.cpp" line="83"/>
         <source>Application Protection</source>
-        <translation type="vanished">应用保护</translation>
+        <translation>应用保护</translation>
         <extra-contents_path>/securitycenter/Application Protection</extra-contents_path>
     </message>
 </context>
 <context>
     <name>m_updatelog</name>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="57"/>
         <source>No content.</source>
-        <translation type="vanished">暂无内容.</translation>
+        <translation>暂无内容.</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="534"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="567"/>
         <source>Search content</source>
-        <translation type="vanished">搜索内容</translation>
+        <translation>搜索内容</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="614"/>
         <source>History Log</source>
-        <translation type="vanished">历史更新</translation>
+        <translation>历史更新</translation>
     </message>
     <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="113"/>
         <source>Update Details</source>
-        <translation type="vanished">更新详情</translation>
+        <translation>更新详情</translation>
     </message>
 </context>
 <context>
