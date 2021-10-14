@@ -77,9 +77,14 @@ extern "C" {
 #define UKUI_WAKEUP_MUSIC_KEY "weakup-music"
 
 #define DNS_NOISE_REDUCTION "dns-noise-reduction"
+#define DNS_NOISE_REDUCTION_VOLUME 32768
 #define EVENT_SOUNDS_KEY "event-sounds"
 #define INPUT_SOUNDS_KEY "input-feedback-sounds"
 #define SOUND_THEME_KEY "theme-name"
+
+#define UKUI_AUDIO_SCHEMA "org.ukui.audio"
+#define ALERT_VOLUME "alert-volume"
+
 
 #define DEFAULT_ALERT_ID "__default"
 #define CUSTOM_THEME_NAME "__custom"
@@ -226,6 +231,7 @@ private Q_SLOTS:
 
     void outputWidgetSliderChangedSlot(int v); //输出音量改变
     void inputWidgetSliderChangedSlot(int v); //输入滑动条更改
+    void alertSoundSliderChangedSlot(int v);
     void inputMuteButtonSlot(); //输入音量静音控制
     void outputMuteButtonSlot(); //输出音量静音控制
     void balanceSliderChangedSlot(int v); //平衡值改变
@@ -253,7 +259,7 @@ private Q_SLOTS:
 
 
 protected:
-    void paintEvent(QPaintEvent *event);
+//    void paintEvent(QPaintEvent *event);
 //    void mousePressEvent(QMouseEvent *ev);
 
 private:
@@ -274,6 +280,7 @@ private:
     GSettings *m_pSoundSettings;
     QGSettings *m_pBootSetting;
     QGSettings *m_pThemeSetting;
+    QGSettings *m_pAlertVolumeSetting;
 //    QGSettings *m_pWindowClosedSetting;
     QString mThemeName;
     bool m_hasMusic;

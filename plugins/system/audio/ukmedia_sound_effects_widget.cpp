@@ -70,7 +70,7 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
     m_pAlertSoundChangedLabel = new QLabel(tr("Alert Volume"),m_pAlertSoundChangedWidget);
     m_pAlertSoundMuteLabel = new QLabel(m_pAlertSoundChangedWidget);
     m_pAlertSoundVolumeLabel = new QLabel(m_pAlertSoundChangedWidget);
-    m_pAlertSoundChangedSlider = new AudioSlider(m_pAlertSoundChangedWidget);
+    m_pAlertSoundChangedSlider = new UkmediaVolumeSlider(m_pAlertSoundChangedWidget,true);
 
     QImage muteImage;
     muteImage = QIcon::fromTheme("audio-volume-muted-symbolic").pixmap(24,24).toImage();
@@ -294,10 +294,10 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
     m_pPoweroffMusicWidget->hide();
     m_pWakeupMusicWidget->hide();
     m_pLagoutWidget->hide();
-//    m_pAlertSoundWidget->hide();
-//    m_pVolumeChangeWidget->hide();
-//    m_pThemeWidget->hide();
-    m_pAlertSoundChangedWidget->hide();
+    m_pAlertSoundWidget->hide();
+    m_pVolumeChangeWidget->hide();
+    m_pThemeWidget->hide();
+//    m_pAlertSoundChangedWidget->hide();
 
 }
 
