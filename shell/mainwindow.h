@@ -70,7 +70,7 @@ private:
 
 private:
     HomePageWidget * homepageWidget;
-    ModulePageWidget * modulepageWidget;
+    ModulePageWidget * modulepageWidget = nullptr;
 
     QButtonGroup * leftBtnGroup;
     QButtonGroup * leftMicBtnGroup; //
