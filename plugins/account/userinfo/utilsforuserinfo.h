@@ -22,7 +22,10 @@ public:
 
     void refreshUserLogo(QString logo);
     void refreshUserNickname(QString name);
-    void refreshUserType(QString type);
+    void refreshUserType(int type);
+    void refreshDelStatus(bool enabled);
+    void refreshTypeStatus(bool enabled);
+    void refreshPwdStatus(bool enabled);
     void setObjectPathData(QString op);
 
 public:
@@ -44,6 +47,9 @@ protected:
     QFrame * createHLine(QFrame * f, int len = 0);
     QFrame * createVLine(QFrame * f, int len = 0);
     bool setUtilsTextDynamic(QLabel * label, QString string);
+
+private:
+    QString _accountTypeIntToString(int type);
 
 public slots:
     void userPropertyChangedSlot(QString, QMap<QString, QVariant>, QStringList);

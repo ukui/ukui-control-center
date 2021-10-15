@@ -18,6 +18,7 @@
 #include <QDBusReply>
 #include <QLabel>
 #include <QDialog>
+#include "ukui_custom_style.h"
 
 #define DECAY_STEP .04
 
@@ -47,7 +48,9 @@ public:
     void updateSourceOutput(const pa_source_output_info &info);
     void updateClient(const pa_client_info &info);
     void updateServer(const pa_server_info &info);
+    void updatePorts(UkmediaVolumeControl *d, std::map<QByteArray, PortInfo> &ports) ;
     void updateVolumeMeter(uint32_t source_index, uint32_t sink_input_index, double v);
+    static void readCallback(pa_stream *s, size_t length, void *userdata);
 //    void updateRole(const pa_ext_stream_restore_info &info);
 
     void updateDeviceInfo(const pa_ext_device_restore_info &info) ;
@@ -115,6 +118,7 @@ public:
     bool isExitOutputPort(QString name);
     void removeInputProfile();
     bool isExitInputPort(QString name);
+    QString stringRemoveUnrecignizedChar(QString str);
 
     std::vector< std::pair<QByteArray,QByteArray> > profiles;
     std::map<QByteArray, PortInfo> ports;
@@ -126,6 +130,8 @@ public:
     pa_cvolume m_defaultSinkVolume;
 
     const pa_sink_info *m_pDefaultSink;
+    pa_cvolume defaultOutputVolume;
+    pa_cvolume defaultInputVolume;
     pa_context* m_pPaContext;
     std::map<uint32_t, char*> clientNames;
 
@@ -182,7 +188,6 @@ Q_SIGNALS:
     void checkDeviceSelectionSianal(const pa_card_info *info);
     void peakChangedSignal(double v);
     void updatePortSignal();
-    void updateCboxPortSignal();
     void deviceChangedSignal();
 
 
@@ -215,6 +220,7 @@ private:
 
     gboolean m_connected;
     gchar* m_config_filename;
+    CustomSound *customSoundFile;
 };
 
 

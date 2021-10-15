@@ -154,7 +154,9 @@ private:
     PreviewWidget * mPreviewWidget;
 
     SwitchButton * enableSwitchBtn;
-    SwitchButton * showTimeBtn;
+    QFrame *showTimeFrame = nullptr;
+    SwitchButton * showCustomTimeBtn;
+    SwitchButton * showUkuiTimeBtn;
 
     QMap<QString, SSThemeInfo> infoMap;
 

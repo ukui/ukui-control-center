@@ -39,15 +39,18 @@
 #define MODE_KEY                    "mode"
 #define THEMES_KEY                  "themes"
 #define LOCK_KEY                    "lock-enabled"
-#define ACTIVE_KEY                  "idle-activation-enabled"
 #define AUTO_SWITCH_KEY             "automatic-switching-enabled"
 #define MYTEXT_KEY                  "mytext"
 #define TEXT_CENTER_KEY             "text-is-center"
 #define SHOW_REST_TIME_KEY          "show-rest-time"
+#define SHOW_CUSTOM_REST_TIME_KEY   "show-custom-rest-time"
+#define SHOW_UKUI_REST_TIME_KEY     "show-ukui-rest-time"
 #define CONTAIN_AUTO_SWITCH_KEY     "automaticSwitchingEnabled"
 #define CONTAIN_MYTEXT_KEY          "mytext"
 #define CONTAIN_TEXT_CENTER_KEY     "textIsCenter"
 #define CONTAIN_SHOW_REST_TIME_KEY  "showRestTime"
+#define CONTAIN_SHOW_CUSTOM_REST_TIME_KEY  "showCustomRestTime"
+#define CONTAIN_SHOW_UKUI_REST_TIME_KEY    "showUkuiRestTime"
 #define IDLE_DELAY_KEY              "idle-delay"
 
 #define SCREENSAVER_DEFAULT_SCHEMA  "org.ukui.screensaver-default"
@@ -237,41 +240,17 @@ void Screensaver::initComponent()
 
     ui->idleCombox->addItems(scaleList);
 
-    connect(qScreenSaverSetting, &QGSettings::changed, this, [=](const QString key) {
-        if ("idleActivationEnabled" == key) {
-            auto status = qScreenSaverSetting->get(ACTIVE_KEY).toBool();
-            if (status == false) {
-                ui->idleCombox->setCurrentIndex(5);
-            }
-        }
-    });
-
     connect(ui->idleCombox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](){
         int value = ui->idleCombox->currentIndex();
-        if (value == 5) {  //关闭锁屏
-            screensaver_settings = g_settings_new(SCREENSAVER_SCHEMA);
-            g_settings_set_boolean(screensaver_settings, ACTIVE_KEY, false);
-            g_object_unref(screensaver_settings);
-        }
-        else {
-            int setValue = convertToLocktime(value + 1);
-            if (qScreenSaverSetting->get(ACTIVE_KEY).toBool() == false) {  //需先打开屏保
-                screensaver_settings = g_settings_new(SCREENSAVER_SCHEMA);
-                g_settings_set_boolean(screensaver_settings, ACTIVE_KEY, true);
-                g_object_unref(screensaver_settings);
-            }
-            if (mScreenSaverKeies.contains("idleDelay")) {
-                qScreenSaverSetting->set(IDLE_DELAY_KEY, setValue);
-            }
-        }
+        screensaver_settings = g_settings_new(SCREENSAVER_SCHEMA);
+        int setValue = convertToLocktime(value + 1);
+        qScreenSaverSetting->set(IDLE_DELAY_KEY, setValue);
     });
     connectToServer();
     connect(qScreenSaverSetting, &QGSettings::changed, this,[=](const QString& key) {
        if ("idleDelay" == key) {
-            if (qScreenSaverSetting->get(ACTIVE_KEY).toBool() == true) {
-                int value = qScreenSaverSetting->get(key).toInt();
-                ui->idleCombox->setCurrentIndex(lockConvertToSlider(value) - 1);
-            }
+            int value = qScreenSaverSetting->get(key).toInt();
+            ui->idleCombox->setCurrentIndex(lockConvertToSlider(value) - 1);
        }
     });
     connect(ui->programCombox, SIGNAL(currentIndexChanged(int)), this, SLOT(themesComboxChanged(int)));
@@ -293,14 +272,26 @@ void Screensaver::initPreviewWidget()
 /*显示时间的设置*/
 void Screensaver::initShowTimeBtnStatus()
 {
-    if (qScreensaverDefaultSetting != nullptr && \
-        qScreensaverDefaultSetting->keys().contains(CONTAIN_SHOW_REST_TIME_KEY,Qt::CaseSensitive)) {
-        showTimeBtn->setChecked(qScreensaverDefaultSetting->get(SHOW_REST_TIME_KEY).toBool());
-        connect(showTimeBtn,&SwitchButton::checkedChanged,this,[=]{
-            qScreensaverDefaultSetting->set(SHOW_REST_TIME_KEY,showTimeBtn->isChecked());
-        });
+    if (qScreensaverDefaultSetting != nullptr) {
+        if (qScreensaverDefaultSetting->keys().contains(CONTAIN_SHOW_CUSTOM_REST_TIME_KEY,Qt::CaseSensitive)) {
+            showCustomTimeBtn->setChecked(qScreensaverDefaultSetting->get(SHOW_CUSTOM_REST_TIME_KEY).toBool());
+            connect(showCustomTimeBtn,&SwitchButton::checkedChanged,this,[=]{
+                qScreensaverDefaultSetting->set(SHOW_CUSTOM_REST_TIME_KEY,showCustomTimeBtn->isChecked());
+            });
+        } else {
+            showCustomTimeBtn->setChecked(false);
+        }
+        if (qScreensaverDefaultSetting->keys().contains(CONTAIN_SHOW_UKUI_REST_TIME_KEY,Qt::CaseSensitive)) {
+            showUkuiTimeBtn->setChecked(qScreensaverDefaultSetting->get(SHOW_UKUI_REST_TIME_KEY).toBool());
+            connect(showUkuiTimeBtn,&SwitchButton::checkedChanged,this,[=]{
+                qScreensaverDefaultSetting->set(SHOW_UKUI_REST_TIME_KEY,showUkuiTimeBtn->isChecked());
+            });
+        } else {
+            showUkuiTimeBtn->setChecked(false);
+        }
     } else {
-        showTimeBtn->setEnabled(false);
+        showCustomTimeBtn->setEnabled(false);
+        showUkuiTimeBtn->setChecked(false);
     }
 }
 
@@ -324,6 +315,8 @@ void Screensaver::initThemeStatus()
     if (mode == MODE_DEFAULT_UKUI) {
         ui->programCombox->setCurrentIndex(INDEX_MODE_DEFAULT_UKUI); //UKUI
         hideCustomizeFrame();
+        showUkuiTimeBtn->show();
+        showCustomTimeBtn->hide();
     }
     else if (mode == MODE_BLANK_ONLY) {
         ui->programCombox->setCurrentIndex(INDEX_MODE_BLANK_ONLY); //Black_Only
@@ -331,8 +324,12 @@ void Screensaver::initThemeStatus()
     } else if (mode == MODE_CUSTOMIZE) {
         ui->programCombox->setCurrentIndex(INDEX_MODE_CUSTOMIZE); //CUSTOMIZE
         showCustomizeFrame();
+        showUkuiTimeBtn->hide();
+        showCustomTimeBtn->show();
     } else {
         hideCustomizeFrame();
+        if (showTimeFrame)
+            showTimeFrame->hide();
         gchar ** strv;
         strv = g_settings_get_strv(screensaver_settings, THEMES_KEY);
         if (strv != NULL) {
@@ -358,8 +355,8 @@ void Screensaver::initThemeStatus()
 void Screensaver::initIdleSliderStatus()
 {
     int minutes = 0;
-    //先判断是否开启屏保，未开启则[从不]
-    if (qScreenSaverSetting->get(ACTIVE_KEY).toBool() == false || !mScreenSaverKeies.contains("idleDelay")) {
+    //判断是否存在该设置项
+    if (!mScreenSaverKeies.contains("idleDelay")) {
         ui->idleCombox->blockSignals(true);
         ui->idleCombox->setCurrentIndex(5);
         ui->idleCombox->blockSignals(false);
@@ -495,7 +492,6 @@ int Screensaver::lockConvertToSlider(const int value)
 
 void Screensaver::themesComboxChanged(int index)
 {
-
     char ** strv = NULL;
 
     //设置屏保
@@ -503,14 +499,26 @@ void Screensaver::themesComboxChanged(int index)
     if (index == INDEX_MODE_DEFAULT_UKUI) {
         g_settings_set_enum(screensaver_settings, MODE_KEY, MODE_DEFAULT_UKUI);
         hideCustomizeFrame();
+        if (showTimeFrame) {
+            showTimeFrame->show();
+            showUkuiTimeBtn->show();
+            showCustomTimeBtn->hide();
+        }
     } else if (index == INDEX_MODE_BLANK_ONLY) {
         hideCustomizeFrame();
         g_settings_set_enum(screensaver_settings, MODE_KEY, MODE_BLANK_ONLY);
     } else if (index == INDEX_MODE_CUSTOMIZE) {
         showCustomizeFrame();
         g_settings_set_enum(screensaver_settings, MODE_KEY, MODE_CUSTOMIZE);
+        if (showTimeFrame) {
+            showTimeFrame->show();
+            showUkuiTimeBtn->hide();
+            showCustomTimeBtn->show();
+        }
     } else {
         hideCustomizeFrame();
+        if (showTimeFrame)
+            showTimeFrame->hide();
         g_settings_set_enum(screensaver_settings, MODE_KEY, MODE_SINGLE);
         //获取当前屏保的id
         QVariant variant = ui->programCombox->itemData(index);
@@ -598,18 +606,16 @@ void Screensaver::keyChangedSlot(const QString &key) {
 }
 
 void Screensaver::showCustomizeFrame() {
-    //ui->frame->setFixedHeight(132 + 350 + 52 + 2);
     ui->customizeFrame->setVisible(true);
 }
 
 void Screensaver::hideCustomizeFrame() {
-    //ui->frame->setFixedHeight(132);   //50 + 80 + 2
     ui->customizeFrame->setVisible(false);
 }
 
 void Screensaver::initCustomizeFrame() {
     ui->customizeFrame->setFrameShape(QFrame::NoFrame);
-    ui->customizeFrame->setFixedHeight(366);
+    ui->customizeFrame->setFixedHeight(306);
     ui->customizeFrame->adjustSize();
     ui->customizeLayout->setMargin(0);
     initScreensaverSourceFrame();
@@ -847,7 +853,7 @@ void Screensaver::initShowTextFrame() {
 
 void Screensaver::initShowtimeFrame()
 {
-    QFrame *showTimeFrame = new QFrame();
+    showTimeFrame = new QFrame();
     QHBoxLayout *showTimeLayout = new QHBoxLayout(showTimeFrame);
     FixLabel *showTimeLabel = new FixLabel();
 
@@ -855,13 +861,15 @@ void Screensaver::initShowtimeFrame()
     showTimeLayout->setContentsMargins(16,0,16,0);
     showTimeLayout->addWidget(showTimeLabel);
     //添加休息时间显示按钮
-    showTimeBtn = new SwitchButton(showTimeFrame);
+    showCustomTimeBtn = new SwitchButton(showTimeFrame);
+    showUkuiTimeBtn   = new SwitchButton(showTimeFrame);
     showTimeLayout->addStretch();
-    showTimeLayout->addWidget(showTimeBtn);
+    showTimeLayout->addWidget(showCustomTimeBtn);
+    showTimeLayout->addWidget(showUkuiTimeBtn);
     showTimeLabel->setFixedWidth(220);
 
     showTimeLabel->setText(tr("Show rest time"));
-    ui->customizeLayout->addWidget(showTimeFrame);
+    ui->verticalLayout_4->addWidget(showTimeFrame);
 }
 
 void Screensaver::initShowTextSetFrame() {

@@ -8,6 +8,13 @@ PasswordBar::PasswordBar(QWidget *parent):
     initUI();
 }
 
+PasswordBar::~PasswordBar()
+{
+    if (m_style != nullptr) {
+        delete m_style;
+    }
+}
+
 void PasswordBar::initUI()
 {
     m_bitLen = 6;               // 密码位数
