@@ -1,3 +1,109 @@
+ukui-control-center (3.0.1-1-95.23) v101; urgency=medium
+
+  * 提交commit:2f9c725
+  * bug#85126设为主屏英文显示不全
+  * bug#75160:限速开关状态不能保持。开启或者关闭限速开关后重启控制面板，开关状态统一变为关闭且展示限速输入框
+  * bug#75909:修改文案
+  * bug#85212设置中图65题注不正确，应为关于
+  * bug #84468,#83279,#82943,#80175,#83272,#77613
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 15 Oct 2021 09:59:35 +0800
+
+ukui-control-center (3.0.1-1-95.22) v101; urgency=medium
+
+  * 提交commit:a868bcad
+  * fix bug: 72671 【无线投屏】投屏开启的情况下，关闭wifi后再次打开，然后再开启投屏，WIFI页面会长时间处于刷新状态
+  * fix bug: 78757 【无线投屏】【长城uf716】连接无线投屏后再断开，网络会一直处于加载状态无法连接
+  * bug#84379自定义服务器地址后切成其他系统默认地址，自定义服务器地址的输入框内容应清空
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 13 Oct 2021 14:17:31 +0800
+
+ukui-control-center (3.0.1-1-95.21) v101; urgency=medium
+
+  * 提交commit:b00a2bd4
+  * bug#84750 【摸底】【显示】连接双屏后拔掉其中一个屏幕，控制面板-显示，设为主屏按钮仍可点击，应该置灰
+  * bug#82988播放音乐时，在控制面板中拖动调节音量，音乐应用卡死无反应
+  * bug#83272
+  * bug#75904 错误提示有误
+  * bug#82703 【蓝牙】使用Thinkpad-x390笔记本蓝牙快捷键进行蓝牙开启和关闭，界面更新延迟，并且会出现控制面板闪退的现象
+  * bug#82131 【蓝牙】使用命令停掉蓝牙服务后，再次开启蓝牙服务，操作控制面板蓝牙开关后设备列表无响应，需要重启控制面板后，可以再次使用（thinkpad x390出现）
+  * bug#83466 【需求转化】【蓝牙】此需求与研发确认，现场反馈为蓝牙界面刷新未搜索到相应设备，重新打开控制面板后可以搜索到设
+  * bug#82254 【蓝牙】连接蓝牙设备，休眠唤醒后，蓝牙被关闭，可以手动开启
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 12 Oct 2021 16:24:16 +0800
+
+ukui-control-center (3.0.1-1-95.20) v101; urgency=medium
+
+  * 提交commit:c9073b4a
+  * bug#82467选中Cloud Account，鼠标悬浮在Cloud Account上出现的提示反白
+  * bug#38116控制面板用户手册中的截图，与实际不一
+  * bug#75410调整声音-输入音量大小，控制面板闪退
+  * bug#82361安装系统时区选择非上海时区，控制面板-时间日期中显示的时区与“更改时区”地图中展示的时区不一致
+  * bug#82939无法搜索到安全中心下级模块
+  * bug#77897添加生物密码与设计图不一致且添加两条指纹显示顺序发生错位
+  * bug#83122登录界面时，指纹没有图标
+  * bug#8346212号以上字体时添加或编辑快捷键浏览按钮显示不全
+  * bug#83497开机后点击右上角立即激活，跳转到关于界面，桌面信息显示“PassThrough”
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 08 Oct 2021 09:57:47 +0800
+
+ukui-control-center (3.0.1-1-95.19) v101; urgency=medium
+
+  * 提交commit:3da6f76ca
+  * bug#83498设置中开启共享后，用远程桌面客户端vnc连接，提示没有vnc服务器
+  * bug#75162修改语言后改为重启生效，同时修改当前区域的弹出框也改为主题样式
+  * bug#82906 【控制面板】【PTOF】控制面板->帐户中新建标准用户后再删除该用户，个性化中调整字体大小，控制面板闪退
+  * bug#83499编辑自定义快捷键修改打开程序或快捷键名称确定按钮置灰，无法保存
+  * bug#78750
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 28 Sep 2021 16:35:28 +0800
+
+ukui-control-center (3.0.1-1-95.18) v101; urgency=medium
+
+  * 提交commit:5e448432
+  * bug#83214 #83231
+  * bug#67677 【控制面板|更新】尝试重新连接的文案不通顺
+  * bug#82362使用“win+d”快捷键操作控制面板窗口后，控制面板窗口显示异常
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 27 Sep 2021 20:49:12 +0800
+
+ukui-control-center (3.0.1-1-95.17) v101; urgency=medium
+
+  * 提交commit:9e77eb19
+  * bug#38116控制面板用户手册中的截图，与实际不一致
+  * bug#74940一体机进系统开机蓝牙，手动进行S3（睡眠）、S4（待机），唤醒回来后蓝牙关闭；
+  * BUG#77309增加一个状态判断是否处于登录进来状态，如果是则不读取文件里的开关
+  * bug#82401【用例154260】【PTOF】设置-快捷键中“打开关机管理界面”快捷键与用户手册中不一致
+  * bug#82228控制面板下存在“平衡”“节电”模式，确实性能模式，系统主频无法稳定在最高频
+  * bug#81927多次连接和断链安卓设备，控制面板蓝牙界面会出现蓝牙设备列表消失，然后重启打开控制面板恢复正常
+
+ -- zhoubin <zhoubin@kylinos.cn>  Sun, 26 Sep 2021 15:14:49 +0800
+
+ukui-control-center (3.0.1-1-95.16) v101; urgency=medium
+
+  * 提交commit:a2903a0c
+  * bug#78970【设置|控制面板】【需求6656】更改首选语言，提示框仍未更新
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 22 Sep 2021 15:24:44 +0800
+
+ukui-control-center (3.0.1-1-95.15.1) v101; urgency=medium
+
+  * 提交commit:e632d6
+  * bug#43220修改夜间模式文案为色温
+
+ -- zhoubin <zhoubin@kylinos.cn>  Sat, 18 Sep 2021 15:52:21 +0800
+
+ukui-control-center (3.0.1-1-95.15) v101; urgency=medium
+
+  * 提交commit:779727bc
+  * bug#81757控制面板-显示器点击旋转屏幕后，显示器缩略图标会多次旋转
+  * bug#78905 系统升级过程中能进行关机重启操作
+  * bug#78758 【蓝牙管理器】开启蓝牙开关界面中开启后多了冒号，界面不统一
+  * bug#79071刷新率问题
+  * 解决bug76576 80552 打开控制面板界面显示下载限制调节栏的问题
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 17 Sep 2021 17:43:52 +0800
+
 ukui-control-center (3.0.1-1-95.14) v101; urgency=medium
 
   * 提交commit:d7ceb1fc
@@ -388,6 +494,168 @@ ukui-control-center (3.0.1-1-71) v101; urgency=medium
   * 任务＆＆需求：6546,61941,6812,6548,6723
   * bug:62246,61766,58807,61741,61416,,61615,60067,59653,57799,54836,61375
 
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 18 Jun 2021 19:28:43 +0800
+
+ ukui-control-center (3.0.1-1-70.25) v101; urgency=medium
+
+  * ChangeDesc:将dbus中的更改密码接口剥离出作为独立程序
+    · V10SP1-0610
+      -- BUG#69707 【控制面板|账户信息】修改当前用户密码后，取消勾选“免密登录”的按钮，控制面板卡死
+    · 内测
+      -- BUG#65239 【华为青松】【内测】【账户信息】修改密码时，只输入当前密码按回车，控制面版概率性闪退
+
+ -- hebing <hebing@kylinos.cn>  Thu, 29 Jul 2021 20:25:43 +0800
+
+ukui-control-center (3.0.1-1-70.24) v101; urgency=medium
+
+  * 内测控制面板崩溃问题：runConnectThread（无bug号）
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 22 Jul 2021 12:42:41 +0800
+
+ukui-control-center (3.0.1-1-70.23) v101; urgency=medium
+
+  * 屏蔽台式机亮度调节功能 bug#68228
+
+ -- wuxiaoyi <wuxiaoyi@kylinos.cn>  Wed, 21 Jul 2021 22:10:01 +0800
+
+ukui-control-center (3.0.1-1-70.22) v101; urgency=medium
+
+  * 提交commit: cbaa67a
+  * bug#62446打开开始菜单-设置-设备，概率性弹出提示“投屏无法使用
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 20 Jul 2021 20:44:01 +0800
+
+ukui-control-center (3.0.1-1-70.21) v101; urgency=medium
+
+  * 提交commit:37ebadc
+  * bug#67493 4098 飞腾D2000台式机（青松主板0702）-双屏模式下，控制面板显示器模块显示问题
+  * bug#67649 【需求-自动更新-6678】【控制面板】系统更新的安装下载完成后，详情中显示下载大小为0B，建议改为下载完成的提示
+  * bug#67677 【控制面板|更新】尝试重新连接的文案不通顺
+  * bug#67281遍历设置-系统-显示器的设置，设置界面闪
+  * bug#67982控制面板打开安全中心，提示中出现“TextLabel”
+  * bug#67708 【声音】【需求6006】声音‘提示音量开关’文案未按照需求改成‘提示音’
+  * bug#67196设置插入鼠标时候禁用触摸板不生效
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 19 Jul 2021 15:44:32 +0800
+
+ukui-control-center (3.0.1-1-70.20) v101; urgency=medium
+
+  * 提交commit:33c9feb
+  * bug#64779,63450,66179,
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 15 Jul 2021 16:45:13 +0800
+
+ukui-control-center (3.0.1-1-70.19) v101; urgency=medium
+
+  * patch:update-fix-bug-66201.path
+  * bug#66201(王海亮)
+
+ -- wanghailiang <wanghailiang@kylinos.cn>  Sat, 10 Jul 2021 15:03:16 +0800
+
+ukui-control-center (3.0.1-1-70.18) v101; urgency=medium
+
+  [hebing]
+  * 将ddcutil从编译依赖到运行依赖.bug#65531
+
+ -- hebing <hebing@kylinos.cn>  Fri, 09 Jul 2021 15:51:27 +0800
+
+ukui-control-center (3.0.1-1-70.17) v101; urgency=medium
+
+  [dengtuo]
+  * 自测发现问题：13版本->14版本蓝牙修改文案未翻译。本次改动增加翻译
+
+ -- hebing <hebing@kylinos.cn>  Fri, 09 Jul 2021 15:51:27 +0800
+
+ukui-control-center (3.0.1-1-70.16) v101; urgency=medium
+
+  * 修改投屏ui界面
+
+ -- hebing <hebing@kylinos.cn>  Fri, 09 Jul 2021 15:51:27 +0800
+
+ukui-control-center (3.0.1-1-70.15) v101; urgency=medium
+
+  * 提交commit: 2067b14
+  * bug#65647同步安全中心改动（刘毅）
+  * bug#65955 64761 65944 65457 65498 65298 65956，59057，64812
+  * 任务&&需求 6006
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 09 Jul 2021 13:23:50 +0800
+
+ukui-control-center (3.0.1-1-70.13) v101; urgency=medium
+
+  * 提交commit:2ab8da5c4
+  * 去除需求：task:6656
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 07 Jul 2021 16:41:24 +0800
+
+ukui-control-center (3.0.1-1-70.12) v101; urgency=medium
+
+  * 提交commit:cc7063c
+  * bug#65298,#64812,#64760,#64665,#61980,#64692
+  * 任务&&需求：6656,6610,6678,
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 07 Jul 2021 15:48:26 +0800
+
+ukui-control-center (3.0.1-1-70.11) v101; urgency=medium
+
+  * 提交commit:6c31e7b
+  * bug#65002,54275,64775,
+  * 任务&&需求#41834,6685
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 05 Jul 2021 17:20:45 +0800
+
+ukui-control-center (3.0.1-1-70.10) v101; urgency=medium
+
+  * 提交commit:27dd885
+  * bug#63479
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 30 Jun 2021 19:49:36 +0800
+
+ukui-control-center (3.0.1-1-70.9) v101; urgency=medium
+
+  * 提交commit:a113778792e
+  * 贺冰：miraclecast依赖改为建议,不进行强依赖
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 29 Jun 2021 20:51:18 +0800
+
+ukui-control-center (3.0.1-1-70.8) v101; urgency=medium
+
+  * 开放更新插件(无需测试)
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 29 Jun 2021 15:24:39 +0800
+
+ukui-control-center (3.0.1-1-70.7) v101; urgency=medium
+
+  * 提交commit: 61950b5
+  * bug#62995,44177
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 28 Jun 2021 21:23:45 +0800
+
+ukui-control-center (3.0.1-1-70.6) v101; urgency=medium
+
+  * 提交commit: b047e89
+  * bug#63484,63455
+
+ -- zhoubin <zhoubin@kylinos.cn>  Sat, 26 Jun 2021 21:45:19 +0800
+
+ukui-control-center (3.0.1-1-70.5) v101; urgency=medium
+
+  * 提交commit: b22a8fe70
+  * bug#61674
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 23 Jun 2021 09:57:36 +0800
+
+ukui-control-center (3.0.1-1-70.4) v101; urgency=medium
+
+  * 提交commit: a502f7b
+  * bug#61942,62755,62015,62679,62742,62324,62575
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 22 Jun 2021 21:14:56 +0800
+
+ukui-control-center (3.0.1-1-70.3) v101; urgency=medium
+
+  * 提交commit: 795615d
+  * bug#61941,61766,61742,61741,61416,61140,57105,61375
  -- zhoubin <zhoubin@kylinos.cn>  Fri, 18 Jun 2021 19:28:43 +0800
 
 ukui-control-center (3.0.1-1-70.2) v101; urgency=medium
