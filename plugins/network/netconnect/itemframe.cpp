@@ -23,20 +23,21 @@ ItemFrame::ItemFrame(QString devName, QWidget *parent) : QFrame(parent)
     deviceLanLayout->addWidget(addLanWidget);
 
     //下拉按钮
-    connect(deviceFrame->dropDownLabel, &DrownLabel::labelClicked, this, [=](){
-        if (!deviceFrame->dropDownLabel->isChecked) {
-            qDebug() << devName << " list show";
-            lanItemFrame->show();
-            deviceFrame->dropDownLabel->setDropDownStatus(true);
-        } else {
-            qDebug() << devName << " list hide";
-            lanItemFrame->hide();
-            deviceFrame->dropDownLabel->setDropDownStatus(false);
-        }
-    });
+    connect(deviceFrame->dropDownLabel, &DrownLabel::labelClicked, this, &ItemFrame::onDrownLabelClicked);
 }
 
 ItemFrame::~ItemFrame()
 {
 
+}
+
+void ItemFrame::onDrownLabelClicked()
+{
+    if (!deviceFrame->dropDownLabel->isChecked) {
+        lanItemFrame->show();
+        deviceFrame->dropDownLabel->setDropDownStatus(true);
+    } else {
+        lanItemFrame->hide();
+        deviceFrame->dropDownLabel->setDropDownStatus(false);
+    }
 }

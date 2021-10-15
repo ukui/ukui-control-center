@@ -25,6 +25,9 @@ public:
     AddNetBtn * addLanWidget = nullptr;
     //单设备item列表 key:uuid
     QMap<QString, LanItem *> itemMap;
+
+private slots:
+    void onDrownLabelClicked();
 };
 
 #endif // ITEMFRAME_H
