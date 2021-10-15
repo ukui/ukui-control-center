@@ -134,7 +134,6 @@ void NetConnect::initComponent() {
             qDebug() << "[NetConnect]call setWiredSwitchEnable" << checked << __LINE__;
             m_interface->call(QStringLiteral("setWiredSwitchEnable"),checked);
             qDebug() << "[NetConnect]call setWiredSwitchEnable Respond"  << __LINE__;
-            m_switchGsettings->set(WIRED_SWITCH,checked);
         });
         //网络开关状态以及列表初始化
         setSwitchStatus();

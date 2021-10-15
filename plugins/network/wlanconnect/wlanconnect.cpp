@@ -148,7 +148,6 @@ void WlanConnect::initComponent() {
             qDebug() << "[WlanConnect]call setWirelessSwitchEnable " << checked << __LINE__;
             m_interface->call(QStringLiteral("setWirelessSwitchEnable"),checked);
             qDebug() << "[WlanConnect]call setWirelessSwitchEnable respond" << __LINE__;
-            m_switchGsettings->set(WIRELESS_SWITCH,checked);
         });
         qDebug() << "init switch status before" << wifiSwtch->isChecked();
         setSwitchStatus();
