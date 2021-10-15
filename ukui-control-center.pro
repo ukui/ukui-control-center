@@ -32,6 +32,11 @@ qm_files.files = shell/res/i18n/*.qm
 icon_files.path = $${PREFIX}/share/ukui-control-center/shell/res/secondaryleftmenu/
 icon_files.files = shell/res/secondaryleftmenu/*.svg
 
+search_file.path = $${PREFIX}/share/ukui-control-center/shell/res/
+search_file.files = shell/res/search.xml
+
+
 INSTALLS += \
     qm_files \
-    icon_files
+    icon_files\
+    search_file
