@@ -1,54 +1,54 @@
 <plugins>
-    <plugin name="display">
+    <plugin name="displays">
         <pinyinPlugin>xianshiqi</pinyinPlugin>
         <pinyinfunc>pingmu</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
         <ChineseFunc>屏幕（外接显示器后才展示）</ChineseFunc>
         <EnglishFunc>Display</EnglishFunc>
     </plugin>
-    <plugin name="display">
+    <plugin name="displays">
         <pinyinPlugin>xianshiqi</pinyinPlugin>
         <pinyinfunc>suofangpingmu</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
 	<ChnieseFunc>缩放屏幕</ChineseFunc>	
         <EnglishFunc>Screen Zoom</EnglishFunc>
     </plugin>
-    <plugin name="display">
+    <plugin name="displays">
         <pinyinPlugin>xianshiqi</pinyinPlugin>
         <pinyinfunc>pingmujingxiang</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
 	<ChnieseFunc>屏幕镜像</ChineseFunc>	
         <EnglishFunc>Screen mirror</EnglishFunc>
     </plugin>
-    <plugin name="display">
+    <plugin name="displays">
         <pinyinPlugin>xianshiqi</pinyinPlugin>
         <pinyinfunc>pingmuliangdu</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
 	<ChnieseFunc>屏幕亮度</ChineseFunc>	
         <EnglishFunc>Screen brightness</EnglishFunc>
     </plugin>
-    <plugin name="display">
+    <plugin name="displays">
         <pinyinPlugin>xianshiqi</pinyinPlugin>
         <pinyinfunc>yejianmoshi</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
 	<ChnieseFunc>夜间模式</ChineseFunc>	
         <EnglishFunc>night mode</EnglishFunc>
     </plugin>
-    <plugin name="display">
+    <plugin name="displays">
         <pinyinPlugin>xianshiqi</pinyinPlugin>
         <pinyinfunc>zidongqiehuan</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
 	<ChnieseFunc>自动切换</ChineseFunc>	
         <EnglishFunc>Auto Switch</EnglishFunc>
     </plugin>
-    <plugin name="display">
+    <plugin name="displays">
         <pinyinPlugin>xianshiqi</pinyinPlugin>
         <pinyinfunc>quantiankaiqi</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
 	<ChnieseFunc>全天开启</ChineseFunc>	
         <EnglishFunc>all time</EnglishFunc>
     </plugin>
-    <plugin name="display">
+    <plugin name="displays">
         <pinyinPlugin>xianshiqi</pinyinPlugin>
         <pinyinfunc>sewen</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
@@ -363,17 +363,17 @@
         <ChineseFunc>锁屏时显示消息</ChineseFunc>
         <EnglishFunc>Number of unread messages displayed when locking screen</EnglishFunc>
     </plugin>
-    <plugin name="screensaver">
-        <pinyinPlugin>pingbao</pinyinPlugin>
+    <plugin name="screenlock">
+        <pinyinPlugin>suoping</pinyinPlugin>
         <pinyinfunc>zidongsuoping</pinyinfunc>
-        <ChinesePlugin>屏保</ChinesePlugin>
+        <ChinesePlugin>锁屏</ChinesePlugin>
         <ChineseFunc>自动锁屏</ChineseFunc>
         <EnglishFunc>Auto-Lock</EnglishFunc>
     </plugin>
-    <plugin name="screensaver">
-        <pinyinPlugin>pingbao</pinyinPlugin>
+    <plugin name="screenlock">
+        <pinyinPlugin>suoping</pinyinPlugin>
         <pinyinfunc>bendibizhi</pinyinfunc>
-        <ChinesePlugin>屏保</ChinesePlugin>
+        <ChinesePlugin>锁屏</ChinesePlugin>
         <ChineseFunc>本地壁纸</ChineseFunc>
         <EnglishFunc>Local wallpaper</EnglishFunc>
     </plugin>
