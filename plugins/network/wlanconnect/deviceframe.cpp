@@ -13,7 +13,7 @@ DeviceFrame::DeviceFrame(QString devName, QWidget *parent) : QFrame(parent)
     setLayout(deviceLayout);
     deviceLayout->setSpacing(LAYOUT_SPACING);
 
-    deviceLabel = new QLabel(devName, this);
+    deviceLabel = new QLabel(this);
     dropDownLabel = new DrownLabel(devName, this);
 
     deviceLayout->addWidget(deviceLabel);

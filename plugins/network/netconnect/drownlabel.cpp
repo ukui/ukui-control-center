@@ -1,6 +1,7 @@
 #include "drownlabel.h"
 #include "deviceframe.h"
 
+#define ICONSIZE 12,12
 DrownLabel::DrownLabel(QString devName, QWidget * parent) : QLabel(parent)
 {
     m_devName = devName;
@@ -21,9 +22,9 @@ void DrownLabel::setDropDownStatus(bool status)
 void DrownLabel::loadPixmap(bool isChecked)
 {
     if (isChecked) {
-        setPixmap(QIcon::fromTheme("ukui-up-symbolic", QIcon(":/img/plugins/netconnect/up.svg")).pixmap(12,12));
+        setPixmap(QIcon::fromTheme("ukui-up-symbolic", QIcon(":/img/plugins/netconnect/up.svg")).pixmap(ICONSIZE));
     } else {
-        setPixmap(QIcon::fromTheme("ukui-down-symbolic", QIcon(":/img/plugins/netconnect/down.svg")).pixmap(12,12));
+        setPixmap(QIcon::fromTheme("ukui-down-symbolic", QIcon(":/img/plugins/netconnect/down.svg")).pixmap(ICONSIZE));
     }
 }
 

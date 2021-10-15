@@ -131,8 +131,9 @@ void NetConnect::initComponent() {
             if (!m_interface->isValid()) {
                 return;
             }
-            qDebug()<<"wiredSwitch status:"<<checked<<__LINE__;
+            qDebug() << "[NetConnect]call setWiredSwitchEnable" << checked << __LINE__;
             m_interface->call(QStringLiteral("setWiredSwitchEnable"),checked);
+            qDebug() << "[NetConnect]call setWiredSwitchEnable Respond"  << __LINE__;
             m_switchGsettings->set(WIRED_SWITCH,checked);
         });
         //网络开关状态以及列表初始化
@@ -431,7 +432,9 @@ void NetConnect::addDeviceFrame(QString devName)
     qDebug() << "[NetConnect]deviceFrameMap insert" << devName;
 
     connect(itemFrame->deviceFrame->deviceSwitch, &SwitchButton::checkedChanged, this, [=] (bool checked) {
+        qDebug() << "[NetConnect]call setDeviceEnable" << devName << checked << __LINE__;
         m_interface->call(QStringLiteral("setDeviceEnable"), devName, checked);
+        qDebug() << "[NetConnect]call setDeviceEnable Respond"  << __LINE__;
         if (checked) {
             itemFrame->lanItemFrame->show();
             initNetListFromDevice(devName);
@@ -450,7 +453,9 @@ void NetConnect::addDeviceFrame(QString devName)
 
     connect(itemFrame->addLanWidget, &AddNetBtn::clicked, this, [=](){
         if (m_interface->isValid()) {
+            qDebug() << "[NetConnect]call showCreateWiredConnectWidget" << devName  << __LINE__;
             m_interface->call(QStringLiteral("showCreateWiredConnectWidget"), devName);
+            qDebug() << "[NetConnect]call setDeviceEnable Respond"  << __LINE__;
         }
     });
 }
@@ -611,7 +616,7 @@ void NetConnect::addOneLanFrame(ItemFrame *frame, QString deviceName, QStringLis
         if (!m_interface->isValid()) {
             return;
         }
-        qDebug() << "[NetConnect]call showPropertyWidget" << __LINE__;
+        qDebug() << "[NetConnect]call showPropertyWidget" << deviceName << connUuid << __LINE__;
         m_interface->call(QStringLiteral("showPropertyWidget"), deviceName, connUuid);
         qDebug() << "[NetConnect]call showPropertyWidget respond" << __LINE__;
     });
