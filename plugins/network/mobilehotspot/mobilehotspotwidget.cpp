@@ -295,7 +295,9 @@ void MobileHotspotWidget::getApInfo()
             m_apNameLine->setText(hostName);
         } else {
             qDebug() << "org.freedesktop.hostname1 is invaild";
+            m_apNameLine->setText("default");
         }
+        m_pwdNameLine->setText("12345678");
         return;
     } else {
         int index = m_interfaceComboBox->findText(apInfo.at(2));
