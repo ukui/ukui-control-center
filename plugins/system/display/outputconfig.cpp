@@ -171,6 +171,7 @@ void OutputConfig::initUi()
     vbox->addWidget(scaleFrame);
     scaleFrame->hide();
 
+    slotEnableWidget();
     initConnection();
 }
 
@@ -200,6 +201,10 @@ void OutputConfig::initConnection()
                 mRefreshRate->blockSignals(false);
             }
         }
+    });
+
+    connect(mOutput.data(), &KScreen::Output::isEnabledChanged, this, [=]{
+       slotEnableWidget();
     });
 }
 
@@ -317,6 +322,14 @@ void OutputConfig::slotRefreshRateChanged(int index)
 void OutputConfig::slotScaleChanged(int index)
 {
     Q_EMIT scaleChanged(mScaleCombox->itemData(index).toDouble());
+}
+
+void OutputConfig::slotEnableWidget()
+{
+    bool isEnable = mOutput.data()->isEnabled();
+    mResolution->setEnabled(isEnable);
+    mRotation->setEnabled(isEnable);
+    mRefreshRate->setEnabled(isEnable);
 }
 
 void OutputConfig::setShowScaleOption(bool showScaleOption)
