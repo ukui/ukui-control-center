@@ -70,6 +70,7 @@ private:
     void initDbusConnect();
     void initInterfaceInfo();
     void getApInfo();
+    bool getApInfoBySsid(QString devName, QString ssid, QStringList &info);
     void setSwitchFrame();
     void setApNameFrame();
     void setPasswordFrame();
@@ -102,6 +103,8 @@ private slots:
     void onHotspotActivated(QString devName, QString ssid, QString uuid);
 
     void onGsettingChanged(const QString &key);
+
+    void onActiveConnectionChanged(QString deviceName, QString ssid, QString uuid, int status);
 
 
 

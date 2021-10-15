@@ -173,18 +173,29 @@ void MobileHotspotWidget::initUI()
 void MobileHotspotWidget::initDbusConnect()
 {
     if(m_interface->isValid()) {
-        connect(m_interface,SIGNAL(activateFailed(QString)), this, SLOT(onActivateFailed(QString)));
-        connect(m_interface,SIGNAL(deactivateFailed(QString)), this, SLOT(onDeactivateFailed(QString)));
-        connect(m_interface,SIGNAL(deviceStatusChanged()), this, SLOT(onDeviceStatusChanged()));
-        connect(m_interface,SIGNAL(deviceNameChanged(QString, QString)), this, SLOT(onDeviceNameChanged(QString, QString)));
-        connect(m_interface,SIGNAL(hotspotDeactivated(QString, QString)), this, SLOT(onHotspotDeactivated(QString, QString)));
-        connect(m_interface,SIGNAL(hotspotActivated(QString, QString, QString)), this, SLOT(onHotspotActivated(QString, QString, QString)));
+        connect(m_interface,SIGNAL(activateFailed(QString)), this, SLOT(onActivateFailed(QString)), Qt::QueuedConnection);
+        connect(m_interface,SIGNAL(deactivateFailed(QString)), this, SLOT(onDeactivateFailed(QString)), Qt::QueuedConnection);
+        connect(m_interface,SIGNAL(deviceStatusChanged()), this, SLOT(onDeviceStatusChanged()), Qt::QueuedConnection);
+        connect(m_interface,SIGNAL(deviceNameChanged(QString, QString)), this, SLOT(onDeviceNameChanged(QString, QString)), Qt::QueuedConnection);
+        connect(m_interface,SIGNAL(hotspotDeactivated(QString, QString)), this, SLOT(onHotspotDeactivated(QString, QString)), Qt::QueuedConnection);
+        connect(m_interface,SIGNAL(hotspotActivated(QString, QString, QString)), this, SLOT(onHotspotActivated(QString, QString, QString)), Qt::QueuedConnection);
+
+        connect(m_interface, SIGNAL(wlanactiveConnectionStateChanged(QString, QString, QString, int)), this, SLOT(onActiveConnectionChanged(QString, QString, QString, int)), Qt::QueuedConnection);
     }
 
     if (QGSettings::isSchemaInstalled(GSETTINGS_SCHEMA)) {
         m_switchGsettings = new QGSettings(GSETTINGS_SCHEMA);
         onGsettingChanged(WIRELESS_SWITCH);
-        connect(m_switchGsettings, &QGSettings::changed, this, &MobileHotspotWidget::onGsettingChanged);
+        connect(m_switchGsettings, &QGSettings::changed, this, &MobileHotspotWidget::onGsettingChanged, Qt::QueuedConnection);
+    }
+}
+
+void MobileHotspotWidget::onActiveConnectionChanged(QString deviceName, QString ssid, QString uuid, int status)
+{
+    if(m_uuid == uuid && status == 4) {
+        m_switchBtn->setChecked(false);
+        setUiEnabled(false);
+        m_uuid.clear();
     }
 }
 
@@ -491,14 +502,44 @@ void MobileHotspotWidget::onHotspotActivated(QString devName, QString ssid, QStr
 //        setUiEnabled(false);
         showDesktopNotify(tr("hotspot already open"));
     } else {
-
+        QStringList info;
+        if (!getApInfoBySsid(devName, ssid, info)) {
+            return;
+        }
         int index = m_interfaceComboBox->findText(devName);
         if (index >= 0) {
+            showDesktopNotify(tr("hotspot already open"));
             m_apNameLine->setText(ssid);
             m_interfaceComboBox->setCurrentIndex(index);
             m_switchBtn->setChecked(true);
+            m_pwdNameLine->setText(info.at(0));
+            index = m_freqBandComboBox->findText(info.at(1));
+            if (index >= 0) {
+                m_freqBandComboBox->setCurrentIndex(index);
+            }
+            m_uuid = uuid;
             //to do 密码和频带
+        } else {
+            qDebug() << "no such device in combo box";
         }
+    }
+}
+
+bool MobileHotspotWidget::getApInfoBySsid(QString devName, QString ssid, QStringList &info)
+{
+    info.clear();
+    if(!m_interface->isValid()) {
+        return false;
+    }
+    QDBusReply<QStringList> reply = m_interface->call("getApInfoBySsid", devName, ssid);
+    if (!reply.isValid()) {
+        qDebug()<<"execute dbus method 'getApInfoBySsid' is invalid in func getApInfoBySsid()";
+    }
+    info = reply.value();
+    if (info.size() != 2) {
+        return false;
+    } else {
+        return true;
     }
 }
 
