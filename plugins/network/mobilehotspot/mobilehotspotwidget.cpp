@@ -193,6 +193,7 @@ void MobileHotspotWidget::initDbusConnect()
 void MobileHotspotWidget::onActiveConnectionChanged(QString deviceName, QString ssid, QString uuid, int status)
 {
     if(m_uuid == uuid && status == 4) {
+        showDesktopNotify(tr("hotspot already close"));
         m_switchBtn->setChecked(false);
         setUiEnabled(false);
         m_uuid.clear();
