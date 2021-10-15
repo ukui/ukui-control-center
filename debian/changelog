@@ -1,3 +1,124 @@
+ukui-control-center (3.0.1-1-133hw) v101.hw; urgency=medium
+
+  * 提交commit:b3b86c12
+  * bug#57644通知与关于界面和实际的控制面板界面不一致
+  * bug#84114,插拔显示器更改分辨率，恢复之前的配置，显示器重叠 
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 15 Oct 2021 14:14:12 +0800
+
+ukui-control-center (3.0.1-1-132.3hw) v101.hw; urgency=medium
+
+  * 提交commit:9b0b368b
+  * bug#83555切换屏幕闪烁问题 
+  * Bug#83449 市场 华为990 W515 控制中心 修改账户密码含有特殊字符不生效
+  * bug#77157 【cpm】【WIFI】【功能测试】【L2】删除蓝牙设备后/蓝牙开关从关闭到打开状态，蓝牙处于未连接状态，没有打开蓝牙列表，2.4G WiFi流周期性掉坑
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 28 Sep 2021 17:41:03 +0800
+
+ukui-control-center (3.0.1-1-131hw) v101.hw; urgency=medium
+
+  * 提交commit:6d899c13
+  * bug#83161z主屏幕按钮点击状态错误
+  * bug#44808拖动控制面板到屏幕左侧后放开，控制面板中的选项显示不全
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 27 Sep 2021 17:17:48 +0800
+
+ukui-control-center (3.0.1-1-130hw) v101.hw; urgency=medium
+
+  * 提交commit:17538d03
+  * bug#82497
+
+ -- zhoubin <zhoubin@kylinos.cn>  Sun, 26 Sep 2021 14:40:28 +0800
+
+ukui-control-center (3.0.1-1-129hw) v101.hw; urgency=medium
+
+  * vino插件（zyb）
+
+ -- zhoubin <zhoubin@kylinos.cn>  Sat, 25 Sep 2021 17:20:43 +0800
+
+ukui-control-center (3.0.1-1-128hw) v101.hw; urgency=medium
+
+  * 提交commit:e94f3705
+  * 蓝牙connect状态改变后，开启蓝牙扫描
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 24 Sep 2021 12:40:37 +0800
+
+ukui-control-center (3.0.1-1-127hw) v101.hw; urgency=medium
+
+  * 提交commit:c8db6b5f
+  * bug#80355:VGA显示器不能调节亮度
+  * bug#59607删除用户弹出授权界面时，拉伸窗口边沿，拉伸区域显示黑
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 22 Sep 2021 13:59:22 +0800
+
+ukui-control-center (3.0.1-1-126hw) v101.hw; urgency=medium
+
+  * 提交commit:f160fa7
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 16 Sep 2021 19:01:24 +0800
+
+ukui-control-center (3.0.1-1-125hw) v101.hw; urgency=medium
+
+  * 提交commit:7760e144
+  
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 15 Sep 2021 14:31:24 +0800
+
+ukui-control-center (3.0.1-1-124hw) v101.hw; urgency=medium
+
+  * 提交commit:a85f6abf
+  * bug##80873 WIFI列表名称显示异常问题
+  * bug#80385 【内测】【冒烟0910】【工具箱】点击“一键清理”，弹出授权窗口后打开控制面板失败
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 14 Sep 2021 16:38:51 +0800
+
+ukui-control-center (3.0.1-1-123.1hw) v101.hw; urgency=medium
+
+  * 编译错误（无需测试）
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 14 Sep 2021 10:59:22 +0800
+
+ukui-control-center (3.0.1-1-123hw) v101.hw; urgency=medium
+
+  * 提交commit:c67d6e
+  * fix:79360预览屏幕无法拖动
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 10 Sep 2021 17:57:14 +0800
+
+ukui-control-center (3.0.1-1-122hw) v101.hw; urgency=medium
+
+  * 无更改，更新版本号
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 10 Sep 2021 14:45:32 +0800
+
+ukui-control-center (3.0.1-1-121hw) v101.hw; urgency=medium
+
+  * 提交commit:9f9bcaa4
+  * bug#75687触发两次应用信号
+  * bug#78982 系统在线更新之后，更新成功的提示后面仍有“更新”选项出现，点击更新，停留在0%
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 08 Sep 2021 18:45:40 +0800
+
+ukui-control-center (3.0.1-1-120hw) v101.hw; urgency=medium
+
+  * 提交commit:d898e8db
+  * bug##78268主屏按钮改变问题
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 06 Sep 2021 10:23:42 +0800
+
+ukui-control-center (3.0.1-1-119.3hw) v101.hw; urgency=medium
+
+  * bug#77739 【内测】【冒烟0830】【双屏】使用win+p切换模式到镜像模式，控制面板闪退且再次进入控制面板-显示界面同样闪退
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 03 Sep 2021 11:16:03 +0800
+
+ukui-control-center (3.0.1-1-119.1hw) v101; urgency=medium
+
+  * 提交commit:88261aa4
+  * task#51077去掉其他缩放比例，只保留100%和200%
+  * bug#66654【cpm】【声音|字体】系统字体大小为16时，声音模块的输出设备字体显示不全
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 02 Sep 2021 15:25:53 +0800
+
 ukui-control-center (3.0.1-1-118.3hw) v101; urgency=medium
 
   * 亮度更改：fc
