@@ -31,8 +31,9 @@
 #include <QtAlgorithms>
 
 #define WIRELESS_TYPE 1
-#define WIFI_ENABLE 1
-#define EMPTY_ERROR 2
+
+#define SCANTIMER  20 * 1000
+#define UPDATETIMER 5 * 1000
 const QString WIRELESS_SWITCH = "wirelessswitch";
 const QByteArray GSETTINGS_SCHEMA = "org.ukui.kylin-nm.switch";
 
@@ -166,6 +167,10 @@ void WlanConnect::initComponent() {
 
     //获取设备列表
     getDeviceList(deviceList);
+    if (deviceList.isEmpty()) {
+        qDebug() << "[WlanConnect]no device exist when init, set switch disable";
+        wifiSwtch->setDisabledFlag(true);
+    }
     initNet();
 
     // 有线网络断开或连接时刷新可用网络列表
@@ -187,24 +192,23 @@ void WlanConnect::initComponent() {
 
     //定时20s扫描
     m_scanTimer = new QTimer(this);
-    m_scanTimer->start(20 * 1000);
-    connect(m_scanTimer, &QTimer::timeout, this, [=](){
-        qDebug() << "time to rescan wifi";
-        if (m_interface->isValid()) {
-            qDebug() << "[WlanConnect]call reScan" << __LINE__;
-            m_interface->call("reScan");
-            qDebug() << "[WlanConnect]call reScan respond" << __LINE__;
-        }
-    });
+    m_scanTimer->start(SCANTIMER);
+    connect(m_scanTimer, &QTimer::timeout, this, &WlanConnect::reScan, Qt::QueuedConnection);
+    reScan();
+
+    m_updateTimer = new QTimer(this);
+    m_updateTimer->start(UPDATETIMER);
+    connect(m_scanTimer, &QTimer::timeout, this, &WlanConnect::updateList, Qt::QueuedConnection);
+}
+
+void WlanConnect::reScan()
+{
+    qDebug() << "time to rescan wifi";
     if (m_interface->isValid()) {
-        qDebug() << "[WlanConnect]call reScan " << __LINE__;
+        qDebug() << "[WlanConnect]call reScan" << __LINE__;
         m_interface->call("reScan");
         qDebug() << "[WlanConnect]call reScan respond" << __LINE__;
     }
-
-    m_updateTimer = new QTimer(this);
-    m_updateTimer->start(5 * 1000);
-    connect(m_scanTimer, &QTimer::timeout, this, &WlanConnect::updateList ,Qt::QueuedConnection);
 }
 
 //定时5秒更新列表顺序
@@ -218,6 +222,7 @@ void WlanConnect::updateList()
         if(result.type() == QDBusMessage::ErrorMessage)
         {
             qWarning() << "getWirelessList error:" << result.errorMessage();
+            return;
         }
         auto dbusArg =  result.arguments().at(0).value<QDBusArgument>();
         QMap<QString, QVector<QStringList>> variantList;
@@ -264,6 +269,7 @@ void WlanConnect::resortWifiList(ItemFrame *frame, QVector<QStringList> list)
         qDebug() << " no active connection when resort";
         frame->uuid.clear();
     }
+
     for ( ; listIndex < list.size(); listIndex++) {
         if (frameIndex > frame->lanItemLayout->count() - 1) {
             return;
@@ -404,7 +410,7 @@ void WlanConnect::onActiveConnectionChanged(QString deviceName, QString ssid, QS
     WlanItem * item= nullptr;
     //device ssid 有可能均为空
     if (deviceName.isEmpty() && ssid.isEmpty()) {
-        if (status == 1 || status == 2) {
+        if (status == ACTIVATING || status == ACTIVATED) {
             return;
         }
         QMap<QString, ItemFrame*>::iterator iter;
@@ -518,7 +524,8 @@ void WlanConnect::getDeviceList(QStringList &list)
     qDebug() << "[WlanConnect]call getDeviceListAndEnabled respond"  << __LINE__;
     if(result.type() == QDBusMessage::ErrorMessage)
     {
-        qWarning() << "getWirelessDeviceList error:" << result.errorMessage();
+        qWarning() << "[WlanConnect]getWirelessDeviceList error:" << result.errorMessage();
+        return;
     }
     auto dbusArg =  result.arguments().at(0).value<QDBusArgument>();
     QMap<QString,bool> map;
@@ -561,19 +568,19 @@ void WlanConnect::initNet() {
 }
 
 //初始化设备列表 网卡标号问题？
-int WlanConnect::initNetListFromDevice(QString deviceName)
+void WlanConnect::initNetListFromDevice(QString deviceName)
 {
     qDebug() << "[WlanConnect]initNetListFromDevice " << deviceName;
     if (!wifiSwtch->isChecked()) {
          qDebug() << "[WlanConnect]initNetListFromDevice " << deviceName << " switch off";
-        return WIFI_ENABLE;
+        return;
     }
     if (!deviceFrameMap.contains(deviceName)) {
         qDebug() << "[WlanConnect]initNetListFromDevice " << deviceName << " not exist";
-        return EMPTY_ERROR;
+        return;
     }
     if (!m_interface->isValid()) {
-        return EMPTY_ERROR;
+        return;
     }
     qDebug() << "[WlanConnect]call getWirelessList"  << __LINE__;
     QDBusMessage result = m_interface->call(QStringLiteral("getWirelessList"));
@@ -581,13 +588,14 @@ int WlanConnect::initNetListFromDevice(QString deviceName)
     if(result.type() == QDBusMessage::ErrorMessage)
     {
         qWarning() << "getWirelessList error:" << result.errorMessage();
+        return;
     }
     auto dbusArg =  result.arguments().at(0).value<QDBusArgument>();
     QMap<QString, QVector<QStringList>> variantList;
     dbusArg >> variantList;
     if (variantList.size() == 0) {
         qDebug() << "[WlanConnect]initNetListFromDevice " << deviceName << " list empty";
-        return EMPTY_ERROR;
+        return;
     }
     QMap<QString, QVector<QStringList>>::iterator iter;
 
@@ -604,7 +612,7 @@ int WlanConnect::initNetListFromDevice(QString deviceName)
             }
         }
     }
-    return 0;
+    return;
 }
 
 //高级设置
@@ -653,8 +661,7 @@ int WlanConnect::setSignal(QString lv) {
 
 //隐藏
 void WlanConnect::hideLayout(QVBoxLayout * layout) {
-    for (int i = layout->layout()->count()-1; i >= 0; --i)
-    {
+    for (int i = layout->layout()->count()-1; i >= 0; --i) {
         QLayoutItem *it = layout->layout()->itemAt(i);
         ItemFrame *itemFrame = qobject_cast<ItemFrame *>(it->widget());
         itemFrame->hide();
@@ -663,8 +670,7 @@ void WlanConnect::hideLayout(QVBoxLayout * layout) {
 
 //显示
 void WlanConnect::showLayout(QVBoxLayout * layout) {
-    for (int i = layout->layout()->count()-1; i >= 0; --i)
-    {
+    for (int i = layout->layout()->count()-1; i >= 0; --i) {
         QLayoutItem *it = layout->layout()->itemAt(i);
         ItemFrame *itemFrame = qobject_cast<ItemFrame *>(it->widget());
         itemFrame->show();
@@ -680,6 +686,7 @@ int WlanConnect::sortWlanNet(QString deviceName, QString name, QString signal)
     if(result.type() == QDBusMessage::ErrorMessage)
     {
         qWarning() << "getWirelessList error:" << result.errorMessage();
+        return 0;
     }
     auto dbusArg =  result.arguments().at(0).value<QDBusArgument>();
     QMap<QString, QVector<QStringList>> variantList;
@@ -851,21 +858,18 @@ void WlanConnect::itemActiveConnectionStatusChanged(WlanItem *item, int status)
         item->setCountCurrentTime(0);
         item->setWaitPage(1);
         item->startLoading();
-    }
-    if (status == ACTIVATED) {
+    } else if (status == ACTIVATED) {
         item->stopLoading();
         item->statusLabel->setStyleSheet("");
         item->statusLabel->setMinimumSize(36,36);
         item->statusLabel->setMaximumSize(16777215,16777215);
         item->statusLabel->setText(tr("connected"));
         item->isAcitve = true;
-    }
-    if (status == DEACTIVATING) {
+    } else if (status == DEACTIVATING) {
         item->setCountCurrentTime(0);
         item->setWaitPage(1);
         item->startLoading();
-    }
-    if (status == DEACTIVATED) {
+    } else if (status == DEACTIVATED) {
         item->stopLoading();
         item->statusLabel->setStyleSheet("");
         item->statusLabel->setMinimumSize(36,36);

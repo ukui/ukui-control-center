@@ -5,18 +5,26 @@
 #include "deviceframe.h"
 #include <AddBtn/addbtn.h>
 #include "addnetbtn.h"
+#include "lanitem.h"
 
 class ItemFrame : public QFrame
 {
     Q_OBJECT
 public:
-    ItemFrame(QWidget *parent = nullptr);
+    ItemFrame(QString devName, QWidget *parent = nullptr);
     ~ItemFrame();
+    //单设备整体layout
     QVBoxLayout * deviceLanLayout = nullptr;
+    //单设备名称+下拉按钮Frame+d单设备开关
     DeviceFrame * deviceFrame = nullptr;
+    //单设备列表Frame
     QFrame * lanItemFrame = nullptr;
+    //单设备列表layout
     QVBoxLayout * lanItemLayout = nullptr;
+    //新建有线连接
     AddNetBtn * addLanWidget = nullptr;
+    //单设备item列表 key:uuid
+    QMap<QString, LanItem *> itemMap;
 };
 
 #endif // ITEMFRAME_H

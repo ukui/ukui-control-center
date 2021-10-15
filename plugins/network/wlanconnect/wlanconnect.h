@@ -99,7 +99,7 @@ private:
     void getDeviceList(QStringList &list);
     //初始化设备wifi列表
     void initNet();
-    int  initNetListFromDevice(QString deviceName);
+    void initNetListFromDevice(QString deviceName);
     //处理列表 已连接
     void addActiveItem(ItemFrame *frame, QString devName, QStringList infoList);
     //处理列表 未连接
@@ -145,13 +145,16 @@ private:
     bool               mFirstLoad;
 
 private slots:
-//    void dropDownAnimation(DeviceFrame * deviceFrame, QString deviceName);
+
     void onNetworkAdd(QString deviceName, QStringList wlanInfo);
     void onNetworkRemove(QString deviceName, QString wlannName);
     void onActiveConnectionChanged(QString deviceName, QString ssid, QString uuid, int status);
-//    void updateStrengthList(QString deviceName, QString ssid, int strength);
+
     void updateList();
-    void updateStrengthList();
     void onDeviceStatusChanged();
+
+    void reScan();
+
+
 };
 #endif // WLANCONNECT_H

@@ -29,7 +29,7 @@ private:
     QGSettings * m_styleGsettings = nullptr;
 
 private slots:
-    void onPaletteChanged();
+    void onGSettingChaned(const QString &key);
 };
 
 #endif // INFOBUTTON_H

@@ -26,12 +26,7 @@ InfoButton::InfoButton(QWidget *parent) : QPushButton(parent)
     const QByteArray style_id(THEME_SCHAME);
     if (QGSettings::isSchemaInstalled(style_id)) {
         m_styleGsettings = new QGSettings(style_id);
-        connect(m_styleGsettings, &QGSettings::changed, this, [&](const QString &key)
-        {
-            if (key == COLOR_THEME) {
-                onPaletteChanged();
-            }
-        });
+        connect(m_styleGsettings, &QGSettings::changed, this, &InfoButton::onGSettingChaned);
     } else {
         qDebug() << "Gsettings interface \"org.ukui.style\" is not exist!";
     }
@@ -44,10 +39,12 @@ void InfoButton::initUI()
     m_foregroundColor = FOREGROUND_COLOR_NORMAL;
 }
 
-void InfoButton::onPaletteChanged()
+void InfoButton::onGSettingChaned(const QString &key)
 {
-    m_foregroundColor = FOREGROUND_COLOR_NORMAL;
-    this->repaint();
+    if (key == COLOR_THEME) {
+        m_foregroundColor = FOREGROUND_COLOR_NORMAL;
+        this->repaint();
+    }
 }
 
 void InfoButton::paintEvent(QPaintEvent *event)

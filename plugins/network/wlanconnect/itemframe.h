@@ -23,6 +23,9 @@ public:
     QMap<QString, WlanItem *> itemMap;
     //已激活uuid
     QString uuid = "";
+
+private slots:
+    void onDrownLabelClicked();
 };
 
 #endif // ITEMFRAME_H
