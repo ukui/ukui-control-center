@@ -1011,7 +1011,7 @@ you can restore them to ensure the integrity of your system.</source>
     </message>
     <message>
         <source>Biometrics </source>
-        <translation type="vanished">生物识别</translation>
+        <translation>生物识别</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/biometrics/biometricenroll.ui" line="290"/>
@@ -1479,35 +1479,35 @@ Please authenticate yourself to continue</source>
     <name>ChangeFaceDialog</name>
     <message>
         <source>select custom face file</source>
-        <translation type="vanished">选择自定义头像文件</translation>
+        <translation>选择自定义头像文件</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="vanished">选择</translation>
+        <translation">选择</translation>
     </message>
     <message>
         <source>Position: </source>
-        <translation type="vanished">位置： </translation>
+        <translation">位置： </translation>
     </message>
     <message>
         <source>FileName: </source>
-        <translation type="vanished">文件名： </translation>
+        <translation>文件名： </translation>
     </message>
     <message>
         <source>FileType: </source>
-        <translation type="vanished">文件类型： </translation>
+        <translation>文件类型： </translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation type="vanished">警告</translation>
+        <translation>警告</translation>
     </message>
     <message>
         <source>The avatar is larger than 1M, please choose again</source>
-        <translation type="vanished">警告，头像大于1M请重新选择</translation>
+        <translation>警告，头像大于1M请重新选择</translation>
     </message>
     <message>
         <source>The avatar is larger than 2M, please choose again</source>
@@ -1519,15 +1519,15 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <source>System Icon</source>
-        <translation type="vanished">系统头像</translation>
+        <translation>系统头像</translation>
     </message>
     <message>
         <source>Select face from local</source>
-        <translation type="vanished">从本地选择用户头像</translation>
+        <translation>从本地选择用户头像</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
 </context>
 <context>
@@ -1967,7 +1967,7 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <source>Authentication failed, input authtok again!</source>
-        <translation type="vanished">密码输入错误,重新输入!</translation>
+        <translation>密码输入错误,重新输入!</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/biometrics/changepwddialog.cpp" line="188"/>
@@ -2089,7 +2089,7 @@ Please authenticate yourself to continue</source>
     <name>ChangeTypeDialog</name>
     <message>
         <source>Make sure that there is at least one administrator on the computer</source>
-        <translation type="vanished">请确保该计算机上至少有一个管理员用户</translation>
+        <translation>请确保该计算机上至少有一个管理员用户</translation>
     </message>
     <message>
         <source>Standard users can use most software, but cannot install software and change system settings</source>
@@ -2101,11 +2101,11 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <source>standard user</source>
-        <translation type="vanished">标准用户</translation>
+        <translation>标准用户</translation>
     </message>
     <message>
         <source>Standard users can use most software, but cannot change system settings</source>
-        <translation type="vanished">标准帐户可以使用大多数软件，但是不能修改系统配置</translation>
+        <translation>标准帐户可以使用大多数软件，但是不能修改系统配置</translation>
     </message>
     <message>
         <source>administrator</source>
@@ -2113,19 +2113,19 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <source>Administrators can make any changes they need</source>
-        <translation type="vanished">管理员帐户可以更改任何系统配置，包括安装软件和升级软件</translation>
+        <translation>管理员帐户可以更改任何系统配置，包括安装软件和升级软件</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
         <source>Change type</source>
-        <translation type="vanished">更改类型</translation>
+        <translation>更改类型</translation>
     </message>
 </context>
 <context>
@@ -2234,31 +2234,31 @@ Please authenticate yourself to continue</source>
     <name>ChangeUserName</name>
     <message>
         <source>Change Username</source>
-        <translation type="vanished">修改用户名</translation>
+        <translation">修改用户名</translation>
     </message>
     <message>
         <source>NickName</source>
-        <translation type="vanished">用户昵称</translation>
+        <translation>用户昵称</translation>
     </message>
     <message>
         <source>UserName</source>
-        <translation type="vanished">用户名</translation>
+        <translation>用户名</translation>
     </message>
     <message>
         <source>ComName</source>
-        <translation type="vanished">计算机名</translation>
+        <translation>计算机名</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
         <source>Name already in use, change another one.</source>
-        <translation type="vanished">该用户名已存在，请更改。</translation>
+        <translation>该用户名已存在，请更改。</translation>
     </message>
 </context>
 <context>
@@ -2639,19 +2639,19 @@ Please authenticate yourself to continue</source>
     <name>CreateUserDialog</name>
     <message>
         <source>UserName</source>
-        <translation type="vanished">用户名</translation>
+        <translation>用户名</translation>
     </message>
     <message>
         <source>ComName</source>
-        <translation type="vanished">计算机名</translation>
+        <translation>计算机名</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="vanished">密码</translation>
+        <translation>密码</translation>
     </message>
     <message>
         <source>Account Type</source>
-        <translation type="vanished">用户类型</translation>
+        <translation>用户类型</translation>
     </message>
     <message>
         <source>Add New Account</source>
@@ -2663,15 +2663,15 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <source>PasswordSure</source>
-        <translation type="vanished">确认密码</translation>
+        <translation>确认密码</translation>
     </message>
     <message>
         <source>standard user</source>
-        <translation type="vanished">标准用户</translation>
+        <translation>标准用户</translation>
     </message>
     <message>
         <source>Standard users can use most software, but cannot change system settings</source>
-        <translation type="vanished">标准帐户可以使用大多数软件，但是不能修改系统配置</translation>
+        <translation>标准帐户可以使用大多数软件，但是不能修改系统配置</translation>
     </message>
     <message>
         <source>Standard users can use most software, but cannot install the software and
@@ -2680,23 +2680,23 @@ change system settings</source>
     </message>
     <message>
         <source>administrator</source>
-        <translation type="vanished">管理员用户</translation>
+        <translation>管理员用户</translation>
     </message>
     <message>
         <source>Administrators can make any changes they need</source>
-        <translation type="vanished">管理员帐户可以更改任何系统配置，包括安装软件和升级软件</translation>
+        <translation>管理员帐户可以更改任何系统配置，包括安装软件和升级软件</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="vanished">确定</translation>
+        <translation>确定</translation>
     </message>
     <message>
         <source>Password Identify</source>
-        <translation type="vanished">密码确认</translation>
+        <translation>密码确认</translation>
     </message>
     <message>
         <source>General Password</source>
@@ -2704,23 +2704,23 @@ change system settings</source>
     </message>
     <message>
         <source>Inconsistency with pwd</source>
-        <translation type="vanished">和密码不一致</translation>
+        <translation>和密码不一致</translation>
     </message>
     <message>
         <source>Must be begin with lower letters!</source>
-        <translation type="vanished">用户名必须以小写字母开始！</translation>
+        <translation>用户名必须以小写字母开始！</translation>
     </message>
     <message>
         <source>Can not contain capital letters!</source>
-        <translation type="vanished">用户名不能包含大写字母！</translation>
+        <translation>用户名不能包含大写字母！</translation>
     </message>
     <message>
         <source>Name already in use, change another one.</source>
-        <translation type="vanished">该用户名已存在，请更改。</translation>
+        <translation>该用户名已存在，请更改。</translation>
     </message>
     <message>
         <source>Name corresponds to group already exists.</source>
-        <translation type="vanished">用户名对应组已存在，请更改。</translation>
+        <translation>用户名对应组已存在，请更改。</translation>
     </message>
     <message>
         <source>Name length must less than %1 letters!</source>
@@ -2744,7 +2744,7 @@ change system settings</source>
     </message>
     <message>
         <source>Add new user</source>
-        <translation type="vanished">添加新用户</translation>
+        <translation>添加新用户</translation>
     </message>
     <message>
         <source>Password cannot be made up entirely by Numbers!</source>
@@ -2752,11 +2752,11 @@ change system settings</source>
     </message>
     <message>
         <source>Contains illegal characters!</source>
-        <translation type="vanished">含有非法字符！</translation>
+        <translation>含有非法字符！</translation>
     </message>
     <message>
         <source>The user name cannot be empty</source>
-        <translation type="vanished">用户名不能为空</translation>
+        <translation>用户名不能为空</translation>
     </message>
     <message>
         <source>The first character must be lowercase letters!</source>
@@ -3510,19 +3510,19 @@ folder will be deleted!</source>
     </message>
     <message>
         <source>keep the user&apos;s data, like desktop,documents, favorites, music, pictures and so on</source>
-        <translation type="vanished">保留用户下所属的桌面、文件、收藏夹、音乐等文件</translation>
+        <translation>保留用户下所属的桌面、文件、收藏夹、音乐等文件</translation>
     </message>
     <message>
         <source>delete whole data belong user</source>
-        <translation type="vanished">删除该用户所有文件</translation>
+        <translation>删除该用户所有文件</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="vanished">删除</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <source>KeepFile</source>
@@ -3534,11 +3534,11 @@ folder will be deleted!</source>
     </message>
     <message>
         <source>Delete the user &apos;</source>
-        <translation type="vanished">是否删除用户&apos;</translation>
+        <translation">是否删除用户&apos;</translation>
     </message>
     <message>
         <source>&apos;and:</source>
-        <translation type="vanished">&apos;同时:</translation>
+        <translation>&apos;同时:</translation>
     </message>
 </context>
 <context>
@@ -10670,19 +10670,19 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <source>Hint</source>
-        <translation type="vanished">提示</translation>
+        <translation>提示</translation>
     </message>
     <message>
         <source>The system only allows one user to log in automatically.After it is turned on, the automatic login of other users will be turned off.Is it turned on?</source>
-        <translation type="vanished">系统只允许一个用户自动登录，开启后将关闭其他用户的自动登录，是否开启？</translation>
+        <translation>系统只允许一个用户自动登录，开启后将关闭其他用户的自动登录，是否开启？</translation>
     </message>
     <message>
         <source>Trun on</source>
-        <translation type="vanished">开启</translation>
+        <translation>开启</translation>
     </message>
     <message>
         <source>Close on</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Add biometric feature</source>
@@ -10712,7 +10712,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <source>Del</source>
-        <translation type="vanished">删除</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="145"/>
@@ -10761,11 +10761,11 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <source>Change pwd</source>
-        <translation type="vanished">更改密码</translation>
+        <translation>更改密码</translation>
     </message>
     <message>
         <source>Change type</source>
-        <translation type="vanished">更改类型</translation>
+        <translation>更改类型</translation>
     </message>
     <message>
         <source>Change valid</source>
