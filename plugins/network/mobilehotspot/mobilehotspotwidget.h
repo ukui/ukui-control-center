@@ -64,10 +64,13 @@ private:
 
     QGSettings *m_switchGsettings = nullptr;
 
+    QString m_uuid = "";
+
     void initUI();
     void initDbusConnect();
     void initInterfaceInfo();
     void getApInfo();
+    bool getApInfoBySsid(QString devName, QString ssid, QStringList &info);
     void setSwitchFrame();
     void setApNameFrame();
     void setPasswordFrame();
@@ -78,6 +81,8 @@ private:
     void setWidgetHidden(bool isHidden);
 
     void showDesktopNotify(const QString &message);
+
+    void updateBandCombox();
 
     bool eventFilter(QObject *watched, QEvent *event);
     void paintEvent(QPaintEvent *event);
@@ -95,9 +100,11 @@ private slots:
     //热点断开
     void onHotspotDeactivated(QString devName, QString ssid);
     //热点连接
-    void onHotspotActivated(QString devName, QString ssid);
+    void onHotspotActivated(QString devName, QString ssid, QString uuid);
 
     void onGsettingChanged(const QString &key);
+
+    void onActiveConnectionChanged(QString deviceName, QString ssid, QString uuid, int status);
 
 
 

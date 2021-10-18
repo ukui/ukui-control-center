@@ -1,8 +1,10 @@
 #include "drownlabel.h"
 #include "deviceframe.h"
 
-DrownLabel::DrownLabel(QWidget * parent) : QLabel(parent)
+#define ICONSIZE 12,12
+DrownLabel::DrownLabel(QString devName, QWidget * parent) : QLabel(parent)
 {
+    m_devName = devName;
     setFixedSize(36,36);
     loadPixmap(isChecked);
 }
@@ -19,17 +21,15 @@ void DrownLabel::setDropDownStatus(bool status)
 
 void DrownLabel::loadPixmap(bool isChecked)
 {
-    QPixmap pixmap;
     if (isChecked) {
-        pixmap.load(":/img/plugins/netconnect/up.svg");
+        setPixmap(QIcon::fromTheme("ukui-up-symbolic", QIcon(":/img/plugins/netconnect/up.svg")).pixmap(ICONSIZE));
     } else {
-        pixmap.load(":/img/plugins/netconnect/down.svg");
+        setPixmap(QIcon::fromTheme("ukui-down-symbolic", QIcon(":/img/plugins/netconnect/down.svg")).pixmap(ICONSIZE));
     }
-    setPixmap(pixmap);
 }
 
-void DrownLabel::mousePressEvent(QMouseEvent *event)
+void DrownLabel::mouseReleaseEvent(QMouseEvent *event)
 {
     emit labelClicked();
-    QWidget::mousePressEvent(event);
+    QWidget::mouseReleaseEvent(event);
 }

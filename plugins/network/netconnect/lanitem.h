@@ -21,7 +21,7 @@ public:
     QLabel * iconLabel = nullptr;
     InfoButton * infoLabel = nullptr;
     FixLabel * titileLabel = nullptr;
-    FixLabel * statusLabel = nullptr;
+    QLabel * statusLabel = nullptr;
     int waitPage;
     int countCurrentTime;
 public:
@@ -33,6 +33,9 @@ public:
 
     bool loading = false;
     bool isAcitve = false;
+
+    QString uuid;
+    QString dbusPath;
 private:
     QTimer *waitTimer = nullptr;
     QGSettings *themeGsettings = nullptr;

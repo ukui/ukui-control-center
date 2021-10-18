@@ -17,8 +17,9 @@ LanItem::LanItem(bool isAcitve, QWidget *parent)
     mLanLyt->setSpacing(16);
     iconLabel = new QLabel(this);
     titileLabel = new FixLabel(this);
-    statusLabel = new FixLabel(this);
-    statusLabel->setMinimumSize(36,36);
+    statusLabel = new QLabel(this);
+    statusLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+//    statusLabel->setMinimumSize(36,36);
     infoLabel = new InfoButton(this);
     mLanLyt->addWidget(iconLabel);
     mLanLyt->addWidget(titileLabel,Qt::AlignLeft);

@@ -15,15 +15,16 @@
 class WlanItem : public QPushButton
 {
 public:
-    WlanItem(bool isAcitve, bool isLock, QWidget *parent = nullptr);
+    WlanItem(bool bAcitve, bool isLock, QWidget *parent = nullptr);
     ~WlanItem();
 public:
     QLabel * iconLabel = nullptr;
     InfoButton * infoLabel = nullptr;
     FixLabel * titileLabel = nullptr;
-    FixLabel * statusLabel = nullptr;
+    QLabel * statusLabel = nullptr;
     int waitPage;
     int countCurrentTime;
+    QString uuid = "";
 public:
     void startLoading();
     void setWaitPage(int waitPage);
