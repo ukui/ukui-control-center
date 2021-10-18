@@ -248,5 +248,6 @@
         <file>dpinyin.dict</file>
         <file>i18n/zh_CN.ts</file>
         <file>i18n/en_US.ts</file>
+        <file>search.xml</file>
     </qresource>
 </RCC>
