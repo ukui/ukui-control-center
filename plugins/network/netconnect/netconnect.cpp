@@ -153,6 +153,7 @@ void NetConnect::initComponent() {
     getDeviceStatusMap(deviceStatusMap);
     if (deviceStatusMap.isEmpty()) {
         qDebug() << "[Netconnect] no device exist when init, set switch disable";
+        wiredSwitch->setChecked(false);
         wiredSwitch->setDisabledFlag(true);
     }
     initNet();
@@ -517,9 +518,11 @@ void NetConnect::onDeviceStatusChanged()
     }
     deviceStatusMap = map;
     if (deviceStatusMap.isEmpty()) {
+        wiredSwitch->setChecked(false);
         wiredSwitch->setDisabledFlag(true);
     } else {
         wiredSwitch->setDisabledFlag(false);
+        setSwitchStatus();
     }
 }
 
